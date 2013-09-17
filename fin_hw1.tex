@@ -13,26 +13,19 @@
 \usepackage{hyperref}
 \usepackage{enumerate}
 \usepackage{enumitem}
+\usepackage{harpoon}
 
-\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
-
-%custom commands to save typing
-\newcommand{\mynorm}[1]{\left|\left|#1\right|\right|}
-\newcommand{\myabs}[1]{\left|#1\right|}
-
-%put subscript under lim and friends
-\let\oldlim\lim
-\renewcommand{\lim}{\displaystyle\oldlim}
-\let\oldmin\min
-\renewcommand{\min}{\displaystyle\oldmin}
-\let\oldmax\max
-\renewcommand{\max}{\displaystyle\oldmax}
-\let\oldinf\inf
-\renewcommand{\inf}{\displaystyle\oldinf}
+\usepackage{mystyle}
 
 \title{Math 1540\\University Mathematics for Financial Studies\\2013-14 Term 1\\Suggested solutions for\\HW problems 12.1-12.2}
 \begin{document}
 \maketitle
+	\renewcommand{\v}{\mathbf{v}}
+	\renewcommand{\u}{\mathbf{u}}
+	\renewcommand{\i}{\mathbf{i}}
+	\renewcommand{\j}{\mathbf{j}}
+	\renewcommand{\k}{\mathbf{k}}
+	\newcommand{\w}{\mathbf{w}}
 \section{Section 12.1}
 \begin{description}
 \item[\# 29]{{\it Describe the given sets with a single equation or a pair of equations}
@@ -212,7 +205,53 @@ As the point we are looking for lies on all of the planes mentioned above, it is
 \end{description}
 %Sec. 12.2 #15, 33, 41, 42, 51
 \section{Section 12.2}
-\item[\# 15.]{{\it }
 \begin{description}
+\item[\# 15.]{{\it Find the component form of the unit vector obtained by rotating the vector $\left<0,1\right>$ $120^\circ$ counterclockwise
+	about the origin.}
+	The new vector will have the unit length and will make $120^\circ$ with the $x$-axis. It's horizontal and vertical components are given
+	as $a=\cos120^\circ$ and $b=\sin120^\circ$. Therefore, the answer is
+	\[\left<a,b\right>=\left<\frac{1}{2},\frac{\sqrt{3}}{2}\right>\]
+	}
+\item[\# 33.]{{\it Find a vector of magnitude $7$ in the direction of $\v=12\i-5\k$.}
+	We first normalize $\v$ to get the unit vector $\u$, pointing in the same direction. As the answer should have magnitude 7, it will be
+	\[7\cdot\u=7\cdot\frac{\v}{\myabs{\v}}=7\cdot\frac{\left<12,-5\right>}{13}=\left<\frac{84}{13},-\frac{35}{13}\right>\]
+	}
+\item[\# 41.]{{\it Let $\u=2\i+\j,\;\v=\i+\j,$ and $\w=\i-\j$. Find scalars $a$ and $b$ such that $\u=a\v+b\w$.}
+	Observe that $\v+\w=2\i\implies\i=\frac{\v+\w}{2}$ and $\v-\w=2\j\implies\j=\frac{\v-\w}{2}$. Therefore
+	\[\u=2\i+\j=2\cdot\frac{\v+\w}{2}+\frac{\v-\w}{2}=\frac{3}{2}\cdot\v+\frac{1}{2}\cdot\v\implies\]
+	thus the answer is
+	\[a=\frac{3}{2},\;b=\frac{1}{2}\]
+	}
+\item[\# 42.]{{\it Let $\u=\i-2\j,\;\v=2\i+3\j,$ and $\w=\i+\j$. Write $u=u_1+u_2$, where $\u_1$ is parallel to $\v$ and
+	$\u_2$ is parallel to $\w$}
+	This problem is no different from the previous one. Recall, that two vectors are parallel if one of them is the multiple of the other. Thus,
+	we need to find $a\v$ and $b\w$, such that $\w=a\v+b\w$ ($a,\;b\in\mathbb{R}$ are real scalars). In the spirit of the previous example,
+	we try to solve the system
+	\[\begin{cases}\v=2\i+3\j\\\w=\i+\j\end{cases}\]
+	for $\i$ and $\j$ to express them in terms of $\v$ and $\w$. This is most easily done by elimination. In particular, subtracting
+	second equations from the first two times we see, that $\j=\v-2\w$ and hence $\i=\w-\j=3\w-2\v$. Thus
+	\[\u=\i-2\j=-2\v+3\w-2\v+4\w=-4\v+7\w\]and therefore the answer is
+	\[\u_1=-4\v,\;\u_2=7\w\]
+	}
+\item[\# 51.]{{\it Suppose that $A(4,2,0),$ $B(1,3,0),$ and $C(1,1,3)$ are the corner points of the thin triangular plate of the constant density
+	\begin{enumerate}[label=\bfseries\alph*.]
+		\item{Find the vector from $C$ to the midpoint $M$ of side $AB$.}
+		\item{Find the vector from $C$ to the point that lies two-thirds of the way from $C$ to $M$ on the median $CM$.}
+	\end{enumerate}}
+	}
+	\begin{enumerate}[label=\bfseries\alph*.]
+		\newcommand{\myangled}[1]{\left<#1\right>}
+		\item{First, we find the coordinates of $M$. As taught in textbook, these are found by averaging, thus $M$ has
+			coordinates $M\left(\frac{4+1}{2},\frac{2+3}{2},\frac{0+0}{2}\right)=M\left(\frac{5}{2},\frac{5}{2},0\right)$.
+			Second the components of $\myvec{CM}$ are found by subtracting coordinates of $C$ from coordinates of $M$,
+			thus $\myvec{CM}=\left<\frac{5}{2}-1,\frac{5}{2}-1,0-3\right>=\myangled{\frac{3}{2},\frac{3}{2},-3}$. Hence the answer is
+			\[\myvec{CM}=\myangled{\frac{3}{2},\frac{3}{2},-3}\]}
+		\item{Let's denote this point that lies two-thirds of the way from $C$ to $M$ on the median $CM$ as $X$. What do we know about
+			the $X$? First, $X$ lies on $CM$, that is $\myvec{CM}$ and $\myvec{CX}$ are parallel. Moreover, as $X$ 
+			lies two-thirds of the way from $C$ to $M$, we can interpret this as $\myabs{\myvec{CX}}=\frac{2}{2}\myabs{\myvec{CM}}$.
+			We know direction and magnitude and this is just enough to find the components of the vector
+			\[\myvec{CX}=\frac{2}{3}\myangled{\frac{3}{2},\frac{3}{2},-3}=\myangled{1,1,-2}\]
+			}
+	\end{enumerate}
 \end{description}
 \end{document}
