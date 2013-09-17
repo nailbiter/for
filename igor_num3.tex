@@ -1,0 +1,161 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\newtheorem{prob}{Problem}
+
+\newenvironment{solution}%
+{\par\textbf{Solution}\space }%
+{\par}
+
+\title{Homework 3\\
+Numerical Analysis}
+\author{Igor Tereshkov\\9722056\\Department of Applied Mathematics\\National Chiao Tung University}
+
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+
+\begin{prob}Problem 1\end{prob}
+\begin{solution}
+	Since we approximate by a polynomial of degree 9, we will have 10 interpolation nodes. Since it is not given in the problem statement,
+	which set of nodes is used, we assume the particular choice - Chebyshev nodes on $[0,1]$, which are often employed.
+	According to the Theorem 3.3
+	\[|f(x)-p(x)|\leq \frac{\max_{-1\leq x\leq 1} |\sin^{(10)}(x)|}{10!}\max_{-1\leq x\leq 1}|(x-x_0)\dots(x-x_9)|\]
+	According to the properties of Chebyshev nodes,
+	\[\max_{-1\leq x\leq 1}|(x-x_0)\dots(x-x_9)|\leq 2^{-9}\]
+	Hence (since $\sin^{(10)}(x)=-\sin(x)$)
+	\[|f(x)-p(x)|\leq .00000000045290399504\]
+\end{solution}
+\begin{prob}Problem 2\end{prob}
+\begin{solution}
+	Notice first, that polynomial of degree $n$ that takes prescribed values in prescribed $n+1$ points is unique. Therefore, it is
+	enough to show that if we will set $P_n(x):=a_0+a_1(x-x_0)+\dots+a_n(x-x_0)\dots(x-x_{n-1})$ with $a_k=f[x_0,x_1,\dots,x_k]$ for
+	$k=0,1,\dots,n$, then we will get $P_n(x_k)=f(x_k),\;k=0,1,\dots,n$. Let's do this.\\
+	We will proceed by mathematical induction on $n$. Therefore, (since induction base is obvious) we want to show that
+	\[f[x_0]+f[x_0,x_1](x_k-x_0)+\dots+f[x_0,\dots,x_{k}](x_k-x_0)\dots(x_k-x_{k-1})=f(x_k)\]
+	or, equivalently, that
+	\begin{gather*}
+		f[x_0]+f[x_0,x_1](x_k-x_0)+\dots+f[x_0,\dots,x_{k-1}](x_k-x_0)\dots(x_k-x_{k-2})=f(x_k)-\\
+		-f[x_0,\dots,x_{k}](x_k-x_0)\dots(x_k-x_{k-1})
+	\end{gather*}
+	Let us note that
+	\begin{gather*}
+	f[x_0,\dots,x_{k}](x_k-x_0)\dots(x_k-x_{k-1})=(f[x_1,\dots,x_k]-f[x_0,\dots,x_{k-1}])(x_k-x_1)\dots(x_k-x_{k-1})=\\
+	=(f[x_2,\dots,x_{k}]-f[x_1,\dots,x_{k-1}])(x_k-x_2)\dots(x_k-x_{k-1})-f[x_0,\dots,x_{k-1}](x_k-x_1)\dots(x_k-x_{k-1})=\\
+	=\dots=f[x_k]-f[x_{k-1}]-f[x_{k-2},x_{k-1}](x_k-x_{k-1})-\dots-f[x_0,\dots,x_{k-1}](x_k-x_1)\dots(x_k-x_{k-1})=\\
+	\end{gather*}
+	Substituting this into the right hand side of desired equality one gets that it will be sufficient to demonstrate
+	\begin{gather*}
+		f[x_0]+f[x_0,x_1](x_k-x_0)+\dots+f[x_0,\dots,x_{k-1}](x_k-x_0)\dots(x_k-x_{k-2})=\\
+		=f[x_{k-1}]+f[x_{k-2},x_{k-1}](x_k-x_{k-1})+\dots+f[x_0,\dots,x_{k-1}](x_k-x_1)\dots(x_k-x_{k-1})
+	\end{gather*}
+	By slightly rewriting right hand side we get equivalent
+	\begin{gather*}
+		f[x_0]+f[x_0,x_1](x_k-x_0)+\dots+f[x_0,\dots,x_{k-1}](x_k-x_0)\dots(x_k-x_{k-2})=\\
+		=f[x_{k-1}]+f[x_{k-1},x_{k-2}](x_k-x_{k-1})+\dots+f[x_{k-1},\dots,x_{0}](x_k-x_{k-1})\dots(x_k-x_1)
+	\end{gather*}
+	Let's consider formulas above as functions (more precisely, polynomials) in variable $x_k$. Note that both right hand side and left hand side
+	are polynomials of degree $k-1$, therefore it is sufficient to demonstrate their equality in $k$ points.\\
+	If we denote left hand side as $L(x_k)$, we know that $L(x_i)=f(x_i),\;i=0,\dots,k-1$ by inductive assumption. Regarding the right hand side,
+	one may see that it has the same values as the left hand side in $x_i,\;i=0,\dots,k-1$, simply by applying inductive assumption to the set of
+	numbers $x_{k-1},x_{k-2},\dots,x_0$. This is so, since right hand side is an interpolation polynomial written through the Newton difference
+	on a nodes $x_{k-1},x_{k-2},\dots,x_0$.
+\end{solution}
+\begin{prob}Problem 3\end{prob}
+\begin{solution}
+	Without the loss of generality, $a<b$\\
+	By substitution,
+	\[p(a)=b-(b-a)(3(\frac{b-a}{b-a})^2-2(\frac{b-a}{b-a})^3)=b-(b-a)=a\]
+	\[p(b)=b-(b-a)(3(\frac{b-b}{b-a})^2-2(\frac{b-b}{b-a})^3)=b-(b-a)\cdot 0=b\]
+	Similarly,
+	\[p'(t)=-6((\frac{b-t}{b-a})^2-\frac{b-t}{b-a})\]
+	From this one immediately sees that $p'(a)=p'(b)=0$. Moreover, by making 1-1 variable change $x:=\frac{b-t}{b-a}$ (note, that $t=\frac{a+b}{2}
+	$ corresponds to $x=1/2$ and $a\leq t \leq b$ corresponds to $0\leq x\leq 1$
+	) one immediately sees that $p'(x)=-6(x^2-x)$ is the quadratic polynomial with negative coefficient for $x^2$, hence
+	it attains absolute maximum and since $p'(x)$ is non-negative on $[0,1]$,
+	\[|p'(x)|\leq p'(1/2)=3/2,\;0\leq x\leq 1\] which is equivalent to what we wanted to show.
+\end{solution}
+\begin{prob}Problem 4\end{prob}
+\begin{solution}
+	Using the extended Newton divided difference algorithm, we write
+	\begin{gather*}
+		P(x)=f[1]+f[1,1](x-1)+f[1,1,2](x-1)^2+f[1,1,2,2](x-1)^2(x-2)+f[1,1,2,2,2](x-1)^2(x-2)^2=\\
+		=2+3(x-1)+(x-1)^2+2(x-1)^2(x-2)-(x-1)^2(x-2)^2=\\
+		=-8+23x-20x^2+8x^3-x^4
+	\end{gather*}
+\end{solution}
+\begin{prob}Problem 5\end{prob}
+\begin{solution}
+	\begin{enumerate}[label=(\alph*)]
+		\item{Applying algorithm in the textbook generates the three splines following:\\
+			\begin{gather*}
+				\begin{cases}
+					3.00+0.785704*(x-1.00)+0.00*(x-1.00)^2-0.085704*(x-1.00)^3 &  1.00\leq x\leq 2.00\\
+					3.70+0.528591*(x-2.00)-0.257113*(x-2.00)^2+0.034379*(x-2.00)^3 & 2.00<x\leq 5.00\\
+					3.90-0.085843*(x-5.00)+0.052302*(x-5.00)^2+0.333540*(x-5.00)^3 & 5.00<x\leq 6.00\\
+					4.20+1.019383*(x-6.00)+1.052923*(x-6.00)^2-0.572306*(x-6.00)^3 & 6.00<x\leq 7.00\\
+					5.70+1.408311*(x-7.00)-0.663996*(x-7.00)^2+0.155685*(x-7.00)^3 & 7.00<x\leq 8.00\\
+					6.60+0.547374*(x-8.00)-0.196940*(x-8.00)^2+0.024127*(x-8.00)^3 & 8.00<x\leq 10.00\\
+					7.10+0.049132*(x-10.00)-0.052181*(x-10.00)^2-0.002880*(x-10.00)^3 & 10.00<x\leq 13.00\\
+					6.70-0.341722*(x-13.00)-0.078104*(x-13.00)^2+0.006509*(x-13.00)^3 & 13.00<x\leq 17.00\\
+				\end{cases}\\
+				\begin{cases}
+					4.50+1.105734*(x-17.00)-0.00*(x-17.00)^2-0.030267*(x-17.00)^3&  17.00\leq x\leq 20.00\\
+					7.00+0.288531*(x-20.00)-0.272401*(x-20.00)^2+0.025408*(x-20.00)^3&  20.00<x\leq 23.00\\
+					6.10-0.659859*(x-23.00)-0.043729*(x-23.00)^2+0.203589*(x-23.00)^3&  23.00<x\leq 24.00\\
+					5.60-0.136552*(x-24.00)+0.567036*(x-24.00)^2-0.230484*(x-24.00)^3&  24.00<x\leq 25.00\\
+					5.80+0.306068*(x-25.00)-0.124416*(x-25.00)^2-0.089309*(x-25.00)^3&  25.00<x\leq 27.00\\
+					5.20-1.263303*(x-27.00)-0.660269*(x-27.00)^2+0.314414*(x-27.00)^3&  27.00<x\leq 27.70\\
+				\end{cases}\\
+				\begin{cases}
+					4.10+0.748582*(x-27.70)+0.00*(x-27.70)^2-0.910165*(x-27.70)^3&  27.70\leq x\leq 28.00\\
+					4.30+0.502837*(x-28.00)-0.819149*(x-28.00)^2+0.116312*(x-28.00)^3&  28.00<x\leq 29.00\\
+					4.10-0.786525*(x-29.00)-0.470213*(x-29.00)^2+0.156738*(x-29.00)^3&  29.00<x\leq 30.00\\
+				\end{cases}
+			\end{gather*}
+			}
+		\item{Applying the corresponding algorithm gives the splines:\\
+			\begin{gather*}
+				\begin{cases}
+					3.00+0.785704*(x-1.00)+0.00*(x-1.00)^2-0.085704*(x-1.00)^3&  1.00\leq x\leq 2.00\\
+					3.70+0.528591*(x-2.00)-0.257113*(x-2.00)^2+0.034379*(x-2.00)^3&  2.00<x\leq 5.00\\
+					3.90-0.085843*(x-5.00)+0.052302*(x-5.00)^2+0.333540*(x-5.00)^3&  5.00<x\leq 6.00\\
+					4.20+1.019383*(x-6.00)+1.052923*(x-6.00)^2-0.572306*(x-6.00)^3&  6.00<x\leq 7.00\\
+					5.70+1.408311*(x-7.00)-0.663996*(x-7.00)^2+0.155685*(x-7.00)^3&  7.00<x\leq 8.00\\
+					6.60+0.547374*(x-8.00)-0.196940*(x-8.00)^2+0.024127*(x-8.00)^3&  8.00<x\leq 10.00\\
+					7.10+0.049132*(x-10.00)-0.052181*(x-10.00)^2-0.002880*(x-10.00)^3&  10.00<x\leq 13.00\\
+					6.70-0.341722*(x-13.00)-0.078104*(x-13.00)^2+0.006509*(x-13.00)^3&  13.00<x\leq 17.00\\
+				\end{cases}\\
+				\begin{cases}
+					4.50+1.105734*(x-17.00)-0.00*(x-17.00)^2-0.030267*(x-17.00)^3&  17.00\leq x\leq 20.00\\
+					7.00+0.288531*(x-20.00)-0.272401*(x-20.00)^2+0.025408*(x-20.00)^3&  20.00<x\leq 23.00\\
+					6.10-0.659859*(x-23.00)-0.043729*(x-23.00)^2+0.203589*(x-23.00)^3&  23.00<x\leq 24.00\\
+					5.60-0.136552*(x-24.00)+0.567036*(x-24.00)^2-0.230484*(x-24.00)^3&  24.00<x\leq 25.00\\
+					5.80+0.306068*(x-25.00)-0.124416*(x-25.00)^2-0.089309*(x-25.00)^3&  25.00<x\leq 27.00\\
+					5.20-1.263303*(x-27.00)-0.660269*(x-27.00)^2+0.314414*(x-27.00)^3&  27.00<x\leq 27.70\\
+				\end{cases}\\
+				\begin{cases}
+					4.10+0.748582*(x-27.70)+0.00*(x-27.70)^2-0.910165*(x-27.70)^3&  27.70\leq x\leq 28.00\\
+					4.30+0.502837*(x-28.00)-0.819149*(x-28.00)^2+0.116312*(x-28.00)^3&  28.00<x\leq 29.00\\
+					4.10-0.786525*(x-29.00)-0.470213*(x-29.00)^2+0.156738*(x-29.00)^3&  29.00<x\leq 30.00\\
+				\end{cases}
+			\end{gather*}
+			}
+	\end{enumerate}
+\end{solution}
+
+\end{document}

@@ -1,0 +1,86 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\newcommand{\mynorm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\myset}[1]{\left\{#1\right\}}
+\let\oldsum\sum
+\renewcommand*{\sum}{\displaystyle\oldsum}
+\let\oldsup\sup
+\renewcommand*{\sup}{\displaystyle\oldsup}
+
+\theoremstyle{definition}
+\newtheorem{mydef}{Definition}
+
+\theoremstyle{plain}
+\newtheorem{myprop}{Proposition}
+
+\title{Proposed counter-example for Problem 4a)\\
+Homework 1\\
+Introduction to Differential Manifolds\\
+Version 2.0}
+\author{Alex Leontiev}
+
+\begin{document}
+\maketitle
+\begin{mydef}
+	Given group $G$ acting on a smooth manifold $M$, we call this action {\bf properly discontinuous} if $\forall x\in M\,\exists$ open
+	neighborhood $U\subset M$ of $x$, such that $\forall g\in G,\;g\neq e\implies g\cdot U\cap U=\emptyset$.
+\end{mydef}
+\begin{myprop}
+	If we let $M:=\mathbb{R}^2\setminus\{(0,0)\}$ (2-manifold) and $G:=\mathbb{Z}$, equipped with discrete topology, and define action
+	$n\cdot(x,y):=(2^nx,2^{-n}y)$, then:
+	\begin{enumerate}
+		\item{$G$ acts on $M$ smoothly properly discontinuously, each $n$ defines diffeomorphism on $M$}
+		\item{$M\backslash G$ is not Hausdorff}
+	\end{enumerate}
+\end{myprop}
+\begin{proof}
+	\begin{enumerate}
+		\item{The fact that $n$ defines diffeomorphism and that the action is smooth follow directly from definition. Given 
+			$(x_0,y_0)\in M$,
+			we may assume WLOG that $x_0\neq 0$ (otherwise we should have $y_0\neq 0$ and that case is handled similarly,
+			as if interchange $x$ and $y$ and replace $n$ by $-n$, action will not change). As numbers $x_0,\;2x_0$ and $x_0/2$ are all
+			distinct and $M$ is Hausdorff, there are 3 pairwisely disjoint neighborhoods 
+			$N\ni x_0,\;V\ni 2x_0$ and $O\ni x_0/2$ in $\mathbb{R}\setminus\{0\}$. By taking
+			$\epsilon:=\sup\left\{\sup_{(x_0-h,x_0+h)\subset N}\{h\},\sup_{(x_0-h,x_0+h)\subset V}\{h\},\;
+			\sup_{(x_0/2-h,x_0/2+h)\subset O}\{h\}\;\right\}/3$, we have $(x_0-h,x_0+h),\;(2x_0-2h,2x_0+2h)$ and
+			$(x_0/2-h/2,x_0/2+h/2)$ are pairwisely
+			disjoint. Therefore, if now we take $U:=(x_0-h,x_0+h)\times\mathbb{R}\subset M$ open neighborhood of $(x_0,y_0)$, we have
+			for $n>0$, 
+			$n\cdot U=(2^n(x_0-h),2^n(x_0+h))\times\mathbb{R}\subset\{\myabs{x}>2\myabs{x_0}+2h\}\times\mathbb{R}$, hence is pairwisely
+			disjoint with U. Similarly, for $n\cdot U=(2^{-n}(x_0-h),2^{-n}(x_0+h))
+			\times\mathbb{R}\subset\{\myabs{x}<\myabs{x_0}/2+h/2\}\times\mathbb{R}$, hence is pairwisely disjoint with $U$ also. Therefore
+			, $U$ constructed fulfills the requirements of definition and hence, action is properly discontinuous.
+			}
+		\item{Assume, in order to get contradiction, that $M\backslash G$ is Hausdorff, therefore as $[(1,0)]\neq[(0,1)]$ there are
+			disjoint neighborhoods $\tilde{U},\tilde{V}\subset M\backslash G$ of $[(1,0)]$ and $[(0,1)]$ respectively.
+			Hence, if we denote $\pi:M\ni x\mapsto [x]\in M\backslash G$, then according to the definition of quotient topology,
+			$\pi^{-1}(U), \pi^{-1}(V)$ are both open. Moreover, as $U$ and $V$ were disjoint, their preimages $\pi^{-1}(U)$
+			and $\pi^{-1}(V)$ should also be so. Now, we shall construct sequence $(x_i,y_i)\in M,\;n_i\in\mathbb{Z}$, such that
+			$(x_i,y_i)\to(1,0)$ and $n_i\cdot(x_i,y_i)\to(0,1)$, thus arriving at contradiction, for as $(x_i,y_i)\to (1,0)$, for big
+			$i$ $(x_i,y_i)\in \pi^{-1}(U)$, hence $n_i\cdot(x_i,y_i)\in\pi^{-1}(U)$ (as $[(x_i,y_i)]\in\pi^{-1}(U)$)
+			. However, as for (possibly more) big $i$ we have
+			$n_i\cdot(x_i,y_i)\in\pi^{-1}(V)$, we will have $\pi^{-1}(U)\cap\pi^{-1}(V)=\emptyset$.
+
+			Now, sequences $(x_i,y_i):=(1,2^{-i},\;n_i:=-i$ satisfy desired conditions, as $(1,2^{-i})\to(1,0)$ and
+			$(-i)\cdot(1,2^{-i})=(2^{-i},1)\to(0,1)$.
+			}
+	\end{enumerate}
+\end{proof}
+\end{document}

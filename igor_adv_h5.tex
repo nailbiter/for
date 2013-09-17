@@ -1,0 +1,123 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\newcommand{\mynorm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\myset}[1]{\left\{#1\right\}}
+
+\title{Advanced Calculus, Exercise 18}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item{
+\begin{enumerate}[label=(\alph*)]
+	\item{By the Cauchy-Schwarz inequality, $\myabs{\sum_{k=1}^n a_kx_k }\leq \sqrt{\sum_{k=1}^n a_k^2\sum_{k=1}^n x_k^2}=\sqrt{\sum_{k=1}^n a_k^2}$.
+		Therefore, this is the best
+		we can hope for. And again, it is exactly the Cauchy-Schwarz inequality that tells us the way to achieve this bound. Take 
+		\[x_i=\frac{a_i}{\sqrt{\sum_{k=1}^n a_k^2}}\]
+		Then, obviously $\sum_{k=1}^n x_k^2=1$ and moreover
+		\[\myabs{\sum_{k=1}^n x_ia_i}=\frac{\sum_{k=1}^n a_i^2}{\sqrt{\sum_{k=1}^n a_k^2}}={\sqrt{\sum_{k=1}^n a_k^2}}\]
+		which shows that the bound indeed can be achieved.
+		}
+	\item{Indeed, we may also apply the method of Lagrange multiplier for this problem, as the set $\left\{(x_1,x_2,\dots,x_n)\in\mathbb{R}^n\mid\sum_{k=1}^n x_k^2=1\right\}=
+		g^{-1}(\myset{1})$, where $g(x_1,x_2,\dots,x_n):=\sum_{k=1}^n x_k^2$ is clearly $C^1$ function and $\nabla g(x_1,x_2,\dots,x_n)=2(x_1,x_2,\dots,x_n)\neq 0$
+		whenever $g(x)=1$. Now, to maximize absolute value mentioned we shall simply find maxima and minima of $f(x_1,x_2,\dots,x_n):=\sum_{k=1}a_kx_k$ on $g^{-1}(\myset{1})$
+		($f$ is clearly also $C^1$). Before we begin, note that as $g^{-1}(\myset{1})$ is closed and bounded, it is compact and as $f$ is continuous, it achieves global
+		maxima and minima on $g^{-1}(\myset{1})$ and they are of course local maxima and minima. Hence, we shall restrict our search to latter ones.
+		By Lagrange's method, prospective maxima or minima shall satisfy the relation $\nabla f(x)=\lambda\nabla g(x)$, and hence,
+		we get $\forall i=1,2,\dots,n:\; a_i=\lambda x_i$. Hence, as $\sum_{k=1} x_k^2=1$ should also be satisfied,
+		the only two possibilities are $x=\pm a/\mynorm{a}$. We see that upon substitution $f(x)=\pm \mynorm{a}$ and hence $|f(x)|=
+		\mynorm{a}$, which agrees with the result
+		of previous solution.}
+\end{enumerate}
+}
+\item{See attached pictures \texttt{igor1.png, igor2.png} and \texttt{igor3.png}. 
+	}
+\item{In all what follows, functions that we define by $f$ and $g$ (or $g_i$ for $i\in\mathbb{N}$)
+	are $C^1$ functions, we will not state or prove this explicitly, as it is obvious.
+	\begin{enumerate}[label=(\alph*)]
+		\item{Indeed, the ellipse $x^2+xy+y^2=3$ may be seen as a level set $g^{-1}(\myset{3})$ of $g(x,y):=x^2+xy+y^2$. Moreover, $\nabla g=0\Rightarrow(2x+y,x+2y)=(0,0)
+			\Rightarrow x=y=0$, but $(0,0)\notin g^{-1}(\myset{3})$, hence $\nabla g\neq 0$ on $g^{-1}(\myset{3})$. Besides, $g^{-1}(\myset{3})$ is a compact set, hence global minima and
+			maxima exist and may be found among local ones. Hence, we may apply Lagrange's method to find maxima and minima of $f(x,y):=x^2+y^2$ on $g^{-1}(\myset{3})$.
+			Then, if $(x,y)$ is global maximum or minimum, we shall have
+			\[
+			\begin{cases}
+				2x=\lambda(2x+y)\\
+				2y=\lambda(x+2y)
+			\end{cases}
+			\]
+			By adding these equations, we get $2(x+y)=3\lambda(x+y)$, hence either $x=-y$ (consequently, $y=\pm\sqrt{3}$ and $f(x,y)=6$) or $\lambda=2/3$ (hence
+			$x=y$ and $x=\pm1$, thus $f(x,y)=2$). Hence, minimal value of $f$ on ellipse is $1$, maximal is $6$.	
+			}
+		\item{Parabola under discussion
+			is a level set $g^{-1}(\myset{0})$ of $g(x,y):=y-x^2$. Also, $\nabla g(x,y)=(-2x,1)\neq (0,0)$ everywhere in $\mathbb{R}^2$ (in particular, on $g^{-1}(\myset{0})$
+			). We shall find the global minima of $f(x,y):=(x-2)^2+(y-1)^2$ on parabola. It is worth to mention, that although the parabola is not compact,
+			we may consider it's subset $S:=\myset{(x,y)\in\mathbb{R}^2\mid y=x^2,\;(x-2)^2+(y-1)^2\leq 5}$. It is nonempty, as $(0,0)\in S$; 
+			bounded and closed, being the intersection of closed parabola's graph (graph of continuous everywhere-defined function is closed)
+			and closed disk $(x-2)^2+(y-1)^2\leq 5$. We claim that global minima of $f$ on $S$ will be global minima on
+			parabola. Indeed, for point $(x,y)$ on parabola, but outside
+			$S$ we have $f(x,y)>5=f(0,0)$, so it cannot be global minima. Hence, the global minimum of $f$ on $S$ will be at the same time the global minimum 
+			of $f$ on the whole parabola.
+			Furthermore, as $S$ is bounded and closed, it is compact, therefore global minima
+			of $f$ on it is attained. Hence, as in previous item, global minimum is attainable, it will inevitable be local minimum as well and we should restrict
+			ourselves to local minima. By the Lagrange method, if $(x,y)$ is global minimum, we will have $-2x=2x-4\Rightarrow x=1$ and $1=2y-2\Rightarrow y=3/2$.
+			Thus, $(1,3/2)$ is closes to $(2,1)$ among the points on a parabola.
+			}
+%		\item{We shall parametrize the second plane as $z=1-x-y$ and implicitly require our point to lie on it, by treating only $x$ and $y$ as independent variables
+%			and requiring $z=1-x-y$.
+%			Hence, we are in the familiar situation, when the first plane is a zero set of $g(x,y):=3x+y+(1-x-y)-5$ and $\nabla g(x,y)=(2,0)\neq (0,0)$ on 
+%			$\mathbb{R}^2$. Similarly to previous example, while zero set a priori is not compact, we similarly to above may show that global minimum of $f(x,y):=
+%			x^2+y^2+(1-x-y)^2$ on $S:=\myset{(2,y)\mathbb{R}^2\mid {2^2+y^2+(-1-y)^2}\leq 5(=2^2+0^2+(-1)^2)}$ is also global minimum of it on the intersection
+%			of two planes (since for points on zero set outside $S$ $f(x,y)>f(2,0)$).
+%			Again, set $S$ lies in zero set of $g$ (by direct check), is bounded
+%			(obviously), closed (as intersection of line and preimage of closed set $[0,5]$ under continuous function
+%			) and hence compact, also non-empty $(2,0)\in S$. Thus, global minima on it (and
+%			hence on whole zero set) is attained. Thus, Lagrange multipliers are applicable. Method tells us that for $(x,y)$ to be global minima the condition
+%			$(2x-2(1-x-y),2y-2(1-x-y))=\lambda(2,0)$ must be satisfied, hence $y=-1/2,\;x=2$. Thus, the point with smallest norm is $(2,-1/2,-1/2)$
+%			}
+		\item{We shall apply the generalized Lagrange's multipliers method for several constraints. Indeed, both planes may be seen as zero sets of $g_1(x,y,z):=
+				3x+y+z-5$ and $g_2(x,y,z)=x+y+z-1$ respectively. Besides, $\nabla g_1(x,y,z)=(3,1,1)\neq (0,0,0)$ and $\nabla g_2(x,y,z)=(1,1,1)\neq (0,0,0)$
+				on $\mathbb{R}^3$. 
+			Similarly to the previous example, while common zeros a priori do not form compact set, we similarly to above may show that global minimum of $f(x,y,z):=
+			x^2+y^2+z^2$ on $S:=\myset{(x,y,z)\in\mathbb{R}^3\mid {x^2+y^2+z^2}\leq 5(=2^2+0^2+(-1)^2)}
+			\cap g_1^{-1}(\myset{0})\cap g_2^{-1}(\myset{0})
+			$ is also global minimum of it on the intersection
+			of two planes (since for points in both preimages but outside $S$ $f(x,y,z)>f(2,0,-1)$ and $(2,0,-1)$ is in both preimages).
+			Again, set $S$ lies in zero set of both $g_1$ and $g_2$ (by direct check), is bounded
+			(obviously), closed (as intersection of line and two preimages of closed set $\myset{0}$ under continuous $g_1,\;g_2$
+			) and hence compact, also non-empty $(2,0,-1)\in S$. Thus, global minima on it (and
+			hence on whole zero set) is attained. Thus, Lagrange multipliers are applicable. Method tells us that for $(x,y,z)$ to be global minimum the condition
+			$(2x,2y,2z)=\lambda_1(3,1,-5)+\lambda_2(1,1,1)$, hence $2(x,y,z)\perp(0,-2,2)\Rightarrow
+			2y+2z=0$. Having this knowledge and equation of two planes, we have linear system of 3 
+			equations in 3 variables, which gives $(2,-1/2,-1/2)$ as the nearest to origin point on both planes.
+		}
+	\item{The task of maximizing $f(x,y,z):=yz+xz$ on $g_1^{-1}(\myset{1})\cap g_2^{-1}(\myset{3})$, where $g_1(x,y,z):=y^2+z^2$ and
+		$g_2(x,y,z):=xz$ is equivalent to maximizing $\hat{f}(y,z):=yz$ on $g^{-1}(\myset{1})\cap\myset{y\neq 0}$, where $g(y,z):=y^2+z^2$. 
+		As usual $\nabla g(y,z)=(2y,2z)=(0,0)\Rightarrow (x,y,z)=(0,0)\notin g^{-1}(\myset{1})$. Although $g^{-1}(\myset{1})\cap\myset{y\neq 0}$ is non-compact,
+		we claim that our (latter) optimization problem is equivalent to maximizing $f$ on the whole $g^{-1}(\myset{1})$. Indeed, $\hat{f}(0,z)=0<\hat{f}(1/\sqrt{2},
+		1/\sqrt{2})$, hence will not be among maxima anyway. Since $g^{-1}(\myset{1})$ is compact, maxima exists. Lagrange's multipliers tell us that if
+		$(y,z)$ is maximum, $(1,1)=\lambda(2y,2z)\Rightarrow y=z=1/\sqrt{2}$. Now, to recover the solution of original problem, $x$ should be taken $3\sqrt{2}$ to
+		satisfy $xz=3$. Hence, maximum is $f(3\sqrt{2},1/\sqrt{2},1/\sqrt{2})=7/2$
+		}
+	\item{Sphere is level set $g^{-1}(\myset{25})$ of $g(x,y,z):=x^2+y^2+z^2$. Clearly, $\nabla g(x,y,z)=(2x,2y,2z)=(0,0,0)\Rightarrow (x,y,z)=(0,0,0)\notin g^{-1}(\myset{
+		25})$. Since $g^{-1}(\myset{25})$ is compact, no further justification is needed. If $(x,y,z)$ is global maximum or minimum, we should have
+		$(1,2,0)=\lambda(2x,2y,2z)$, hence $z=0$ and $2x=y$. After simple exhaustive check we identify $f(\sqrt{5},2\sqrt{5},0)=3\sqrt{5}$ and
+		$f(-\sqrt{5},-2\sqrt{5},0)=-3\sqrt{5}$ as maximal and minimal values respectively
+		}
+	\end{enumerate}
+	}
+\end{enumerate}
+\end{document}

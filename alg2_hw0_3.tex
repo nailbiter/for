@@ -1,0 +1,71 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%theorem environments configuration
+\newtheorem{theorem}{Theorem}
+\newtheorem{claim}{Claim}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\qed\end{trivlist}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+\ifdim\lastskip<1.5em \hskip-\lastskip
+\hskip1.5em plus0em minus0.5em \fi \nobreak
+  \vrule height0.75em width0.5em depth0.25em\fi}
+
+\newtheorem{prob}{Problem}
+
+\newenvironment{solution}%
+{\par\textbf{Solution}\space }%
+{\par}
+
+%custom commands to save typing
+\newcommand{\F}{\mathbb{F}_2(u)}
+\newcommand{\charac}{\text{char}}
+
+\title{Algebra II\\Homework 0.2}
+\author{Oleksii (Alex) Leontiev\\歐立思\\3035078276\\Exchange Student (BSc)\\4th grade\\
+Original School: \href{http://www.nctu.edu.tw/}{NCTU}, Taiwan}
+
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+\begin{claim}
+	Suppose $F$ is infinite field and $F(\alpha)$ is its algebraic extension. Then, the number of intermediate fields
+	$F\subset E\subset F(\alpha)$ is finite.
+\end{claim}
+\begin{proof}
+	First, given such intermediate field $E$ let us associate with it $p_E(x)\in F(\alpha)[x]$ which will denote \textit{irreducible
+	polynomial of $\alpha$ over $E$}. We claim that such correspondence is injective. Indeed, let $F\subset E_1,E_2\subset F(\alpha)$
+	and $p_{E_1}(x)=p_{E_2}(x)=:p(x)$. Then, since $p\in E_1[x],E_2[x]$ we have $p(x)\in E[x]$, where $E:=E_1\cap E_2$. Then,
+	$p(x)$ is also irreducible over $E\subset E_1$ (since it is irreducible over $E_1$) and sends $\alpha$ to 0, thus showing
+	$p=p_E$ and giving us $[E(\alpha):E]=
+	[E_1(\alpha):E_1]$. But since $E(\alpha)=E_1(\alpha)=F(\alpha)$,
+	this implies $[E_1:E]=[F(\alpha):E]/[F(\alpha):E_1]=
+	1\implies E_1=E$. Similarly, $E_2=E$ and hence $E_1=E_2$. Hence, $E\mapsto p_E$ is injective.
+
+	Now, for any intermediate field $E$, $p_E|p_F$ and hence, number of such $p_E$ is finite. Hence, by injectivity of $E\mapsto p_E$
+	number of intermediate fields $E$ is also finite, as claimed.
+\end{proof}
+\end{document}

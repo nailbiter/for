@@ -1,0 +1,111 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%for Re and Im like in the book
+\renewcommand\Re{\operatorname{Re}}
+\renewcommand\Im{\operatorname{Im}}
+
+%custom commands to save typing
+\newcommand{\mynorm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\myset}[1]{\left\{#1\right\}}
+
+%put subscript under lim and others
+\let\oldlim\lim
+\renewcommand{\lim}{\displaystyle\oldlim}
+\let\oldmin\min
+\renewcommand{\min}{\displaystyle\oldmin}
+\let\oldmax\max
+\renewcommand{\max}{\displaystyle\oldmax}
+
+\newtheorem*{prob}{Question}
+
+\title{Problem Sets}
+\author{Alex Leontiev}
+\begin{document}
+\maketitle
+\begin{prob}\end{prob}
+	The most obvious examples I can think of are $\mathbb{R}^n$ (these are not compact). Somehow less trivial ones are $\mathbb{S}^n:=
+	\{x\in\mathbb{R}^{n+1}\mid \sum_{i=1}^{n+1}x_i^2=1\}$ (these are compact).
+\begin{prob}\end{prob}%TODO
+	Recall that for $A\in M(2,\mathbb{R}$ we define $e^A$ as
+	\[e^A:=I+\frac{A}{1!}+\frac{A^2}{2!}+\frac{A^3}{3!}+\dots\]
+	and moreover for any $A\in M(2,\mathbb{R}$ we define $D(e^A)\in Hom(T_A X,T_{e^A}X)$ - the derivative and say that $e^x$ is singular
+	at $x\in X$ if the linear transformation $D(e^x)$ is not onto. Now, as $X\simeq\mathbb{R}^4$ is flat, $T_A X=T_{e^A}X=X$, and for 
+	$H\in T_A X$ we define
+	\[D(e^A)(H):=\lim_{\lambda\to 0}\frac{e^{A+\lambda H}-e^A}{\lambda}\]
+	Now, if $A,\;H\in X$ commute, we have $e^{A+H}=e^Ae^H$ and we can write
+	\[D(e^A)(H):=\lim_{\lambda\to 0}e^A\frac{e^{\lambda H}-I}{\lambda}=e^A\lim_{\lambda\to 0}\frac{\frac{\lambda
+	B}{1!}+\frac{\lambda^2B^2}{2!}+\dots}{\lambda}=e^A B\]
+	Now, if we take
+	\[x_0:=\begin{bmatrix}1&0\\0&0\end{bmatrix}\]
+	\[H:=\begin{bmatrix}0&0\\0&1\end{bmatrix}\neq 0\]
+		They clearly commute (as both are diagonal) and according to previous computations $D(e^{x_0})(H)=x\cdot H=0$. Therefore,
+		operator $D(e^{x_0})$ on $\mathbb{R}^4$ has non-trivial kernel and therefore cannot be onto, thus yielding singularity.
+
+	\textit{I hope, I've interpreted "singular" correctly.
+	}
+\begin{prob}\end{prob}%FAIL
+	\textit{I cannot do this problem, for I do not know the definition of the Lorentz and Riemannian metric. I've heard about the latter
+	one on my last semester "Introduction to Differentiable Manifolds" class, but we did not have sufficient time to cover the topic at that
+	time.}
+\begin{prob}\end{prob}
+	Clearly, this is not true, the function $f(x):=\frac{1}{1+x^2}$ being the simple counterexample. On the one, hand, it is real analytic
+	on the whole $\mathbb{R}$, for it is rational and denominator does not turn to zero. On the other hand, for any $x_0\in\mathbb{R}$ expansion
+	$\sum_{i=0}^{\infty}c_n(x-x_0)^n$ of $f(x)$ around $x_0$ cannot have radius of the convergence infinity, for this would imply that
+	function $\frac{1}{1+x^2}$ is analytic on the whole $\mathbb{C}$, when seen as complex-valued and this is clearly not so, for it
+	has pole at $x=\pm i$.
+\begin{prob}\end{prob}
+	Almost (in measure-theoretic sense) the whole torus can be parametrised via the map
+	\[P:(0,2\pi)^2\ni(\phi,\theta)\mapsto (a\cos\phi+b\cos\theta\cos\phi
+	,a\sin\phi+{b}\cos\theta\sin\phi,b\sin\theta)\in\mathbb{R}^3,\;a>b>0\]
+	Then, using this parametrization we can compute the surface area via the integral
+	\[S=\int_0^{2\pi}\int_0^{2\pi}\mynorm{\frac{\partial P}{\partial \phi}\times\frac{\partial P}{\partial \theta}}d\phi d\theta\]
+	this should give us $S=4\pi^2ab$.
+
+	\textit{I did not leave sufficient time to work on this (computational) problem.}
+\begin{prob}\end{prob}
+	Hausdorff means that any two distinct points can be separated by disjoint neighborhoods and no, $Z$ is not Hausdorff for $[(1,0)]\neq
+	[(0,1)]$ yet they cannot be separated by disjoint neighborhoods in $Z$. Let us argue by contradiction and assume that $[(1,0)]\in U_1,\;
+	[(0,1)]\in U_2$, $U_1$ and $U_2$ are disjoint open sets in $Z$. Then, if we denote $\pi:\mathbb{R}^2\setminus\{(0,0)\}\mapsto Z$
+	the projection map, $V_1:=\pi^{-1}(U_1)$ and $V_2:=\pi^{-1}(U_2)$
+	should be open in $\mathbb{R}^2\setminus\{(0,0)\}$. Moreover, $V_1$ and $V_2$ should be disjoint for if $x\in V_1\cap V_2$ we would
+	have $\pi(x)\in U_1\cap U_2$.
+
+	As $(1,0)\in V_1$ if we take $x_n\to 0+$ we would have $(1,x_n)\to (1,0)$, so for big $n$ $(1,x_n)\in V_1$. Then, (by dropping
+	finitely many terms, if necessary) we might assume $\forall n\in\mathbb{N},\;(1,x_n)\in V_1$. Now, as $(1,x_n)\sim (x_n,1)$ ($a=x_n>0$)
+	we have $V_1\ni (x_n,1)\to(0,1)$, hence for big $n$ $(x_n,1)\in V_2$, thus contradicting disjointness.
+\begin{prob}\end{prob}
+To begin with, it is not specified explicitly on which domain we are to prove meromorphness.
+
+Second, we may prove even analyticity when restricted to the half-plane $\{\Re z>-1\}$. Indeed, as $f(x)$ is supported on a compact domain,
+we have for some $A\geq 0$ $\int_0^{\infty}f(x)x^{\lambda}dx=\int_0^Af(x)x^{\lambda}dx$ and $f(A)=0$. Hence, $P(\lambda)$ is defined
+on a half-plane (see previous paragraph) and then, we can interchange derivative and integral (since $\frac{t^{\lambda+z}-t^{\lambda}}{z}\to\ln t 
+\cdot t^{\lambda}$ as $z\to 0+$ uniformly on $[0,A]$) and see that $P(\lambda)$ is differentiable on the half-plane discussed.
+Now, assuming that $\lim_{\lambda\to -1}(\lambda+1)P(\lambda)$ exists, it should be equal to $\lim_{\lambda\to -1+}(\lambda+1)P(\lambda)$ and then
+\[\lim_{\lambda\to-1+}(\lambda+1)P(\lambda)=\lim_{\lambda\to-1+}\left(x^{\lambda+1}f(x)\mid_0^A-\int_0^A f'x^{\lambda+1}dx\right)\]
+if $\lambda>-1$ we have $0^{\lambda+1}=0$ and then
+\[\lim_{\lambda\to-1+}\left(x^{\lambda+1}f(x)\mid_0^A-\int_0^A f'x^{\lambda+1}dx\right)=\lim_{\lambda\to-1+}-\int_0^Af'x^{\lambda+1}dx\]
+Finally, as $x^{\lambda+1}\to 1$ as $\lambda\to-1+$ uniformly on $[0,A]$, we have  
+\[\lim_{\lambda\to-1+}-\int_0^Af'x^{\lambda+1}dx=f(0)-f(A)=f(0)\implies\lim_{\lambda\to-1+}(\lambda+1)P(\lambda)=f(0)\]
+Similarly, under the appropriate assumptions on how fast $f(0+)$ tends to zero it can be shown that $\lim_{\lambda\to-k}(\lambda+k)P(\lambda)$
+is proportional to $f^{(k)}(0)$.
+\textit{Clearly, I did not get exactly on which domain we have to prove meromorphness. Probably, meromorphness can be established
+on the whole $\mathbb{C}$ (with possible poles in negative integers), but I do not know about the sufficient conditions to prove the possibility
+of meromorphic extension.}
+\end{document}

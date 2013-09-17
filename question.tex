@@ -1,0 +1,53 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\newtheorem{prob}{Problem}
+
+\newenvironment{solution}%
+{\par\textbf{Solution}\space }%
+{\par}
+
+\title{Question regarding Problem 2 in Homework I.3}
+\author{歐立思\\9822058\\Department of Applied Mathematics\\National Chiao Tung University}
+
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+
+\begin{CJK}{UTF8}{bsmi}
+很抱歉，在 Homework I.3 第 2 題的題目敘述中，我『畫蛇添足』地加上：在已知 $\sum_{k=1}^{\infty}|a_{jk}|\le 1$
+以及 $\sum_{j=1}^{\infty}|a_{jk}|\le 1$ 的條件下會有
+
+$\sum_{j=1}^{\infty}\sum_{k=1}^{\infty}a_{jk}=\sum_{k=1}^{\infty}\sum_{j=1}^{\infty}a_{jk}$
+
+
+這句話。請各位注意，這句話是多餘而且是錯的，請將它刪除。感謝 Alex 告訴我這個錯誤，也請原諒我的疏忽。(double series 是在double series 絕對收斂的條件下，可交換級數求和的順序。)
+
+這個題目正確的敘述是：設複數 $a_{jk}$ 滿足下列條件：
+
+(1)$\sum_{k=1}^{\infty}|a_{jk}|\le 1$,
+
+
+(2)$\sum_{j=1}^{\infty}|a_{jk}|\le 1$
+
+試證明矩陣 $A=(a_{jk})_{j,k=1}^{\infty}$ 是 $\ell_2$ 上的bounded operator，而且 $\|A\|\le 1$.
+
+沈老師
+\end{CJK}
+
+
+\end{document}

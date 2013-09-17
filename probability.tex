@@ -1,0 +1,55 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,ukrainian]{babel}
+
+%theorem environments configuration
+\newtheorem{problem}{Задача}
+\newenvironment{solution}%
+{\par\textbf{Розв'язок}\space }%
+{\par}
+
+%custom theorems for saving typing
+\renewcommand{\P}{\mathbb{P}}
+
+\title{Завдання на залік з Теорії Ймовірності\\Зимова Сессія 2013}
+\author{Студент 4го курсу\\Механіко-математичного факультету КНУ\\Заочної форми\\Олексій Леонтьєв}
+
+\begin{document}
+\maketitle
+\begin{problem}
+Нехай є урна з $n$ кулями невідомого кольору. При цьому всі припущення стосовно складу урни є однаково ймовірними. Перша витягнута куля виявляється
+білою. Яка ймовірність того, що друга витягнута теж виявиться білою?
+\end{problem}
+\begin{solution}
+Варто зробити декілька зауважень, перед тим як почати робити власне розрахунки. На жаль, задача сформульована дещо нечітко, тому нам доведеться
+зробити деякі припущення щодо інтерпретації умови. Ми розуміємо, що ці припущення (у випадку, якщо зроблені невірно) одразу роблять весь
+розв'язок некоректним. Проте єдине, що ми можемо зробити -- це чітко сформулювати ці припущення, для зручності перевіряючого. По-перше, 
+інтерпретації вимагає твердження про \textit{"всі припущення стосовно складу урни є однаково ймовірними"}. Ми вважаємо, це означає, що
+\textbf{ймовірність того, що в урні $m$ ($1\leq m\leq$) білого кольору рівна $1/n$}. Друге, ми вважаємо, що \textbf{перша куля не поверталася
+до урни перед вийняттям другої}. Тепер, після того як припущення (можливо, невідповідні оригінальному задуму автора задачі) зроблені, ми можемо
+переходити до, відверто кажучи, нескладних розрахунків.\\
+Позначим події, що складаються з того, що перша витягнутя куля виявилася білою, друга білою і всього в урна $m$ білих куль як $A$, $B$ та
+$W_m$ відповідно. В цих термінах, нас цікавить $\mathbb{P}(B|A)$. Проте
+\[\P(B|A)=\P(B|A,W_1)\P(W_1|A)+\P(B|A,W_2)\P(W_2|A)+\ldots+\P(B|A,W_n)\P(W_n|A)\]
+\[\P(W_i|A)=\frac{\P(A|W_i)\P(W_i)}{\sum_{j=1}^n\P(A|W_j)\P(W_j)}=\frac{\frac{i}{n^2}}{\sum_{j=1}^n \frac{j}{n^2}}=\frac{2i}{n(n+1)}\]
+%=\frac{1}{n}\sum_{i=1}^n\P(B|A,W_i)\]
+зрозуміло, що для $i\geq1$
+\[\P(B|A,W_i)=\frac{\P(A\cap B|W_i)}{\P(A|W_i)}=\frac{\frac{i}{n}\cdot\frac{i-1}{n-1}}{\frac{i}{n}}=\frac{i-1}{n-1}\]
+Тому
+\[\P(B|A)=\sum_{i=1}^n \frac{2i(i-1)}{n(n-1)(n+1)}=\frac{2}{n(n-1)(n+1)}\left(\frac{2n^3+3n^2+n}{6}-\frac{n(n+1)}{2}\right)=\]
+\[=\frac{2}{3}\]
+\end{solution}
+\end{document}

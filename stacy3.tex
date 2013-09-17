@@ -1,0 +1,115 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{textcomp} %for copyleft symbol
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+
+\usepackage{sectsty}   %in order to make chapter headings and title centered
+\chapterfont{\centering}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%custom commands to save typing
+\newcommand{\mynorm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\myset}[1]{\left\{#1\right\}}
+
+%put subscript under lim and others
+\let\oldlim\lim
+\renewcommand{\lim}{\displaystyle\oldlim}
+\let\oldmin\min
+\renewcommand{\min}{\displaystyle\oldmin}
+\let\oldmax\max
+\renewcommand{\max}{\displaystyle\oldmax}
+
+\newtheorem{prob}{Завдання}
+
+\title{
+Асимптотичні методи в теорії диференційних рівнянь\\
+Контрольна робота (8 семестр)\\
+No. 7}
+\begin{document}
+\maketitle
+\begin{prob}Знайти розв’язок, що задовольняє задані початкові умови, у вигляді степеневого ряду. Обчислити декілька перших
+коефіцієнтів ряду (до коефіцієнту $x^4$ включно).\end{prob}%TODO: prove smoothness
+Для початку, оскільки права частина гладка, існує розв’язок задачі Коші $y_0$, визначений принаймні в околі одиниці. Оскільки таке $y_0$ буде
+задовольнять рівнянню, воно автоматично буде диференційованим на якомусь околі. Більше того, його похідна ($y_0'=y_0^2+x$) є композицією
+диференційованих функцій ($y_0(x)$ диференційоване, як ми вже показали), що показує, що $y_0'$ також є диференційованою. Відповідно,
+$y_0''=2y_0y_0'+1$ є композицією диференційованих функцій, тому $y_0''$ також диференційоване і так далі. Відповідно, $y_0$ можна вважати
+диференційованою довільну наперед задану кількість разів (на відповідному достатньо малому околі одиниці). Відповідно, до неї застосовується
+формула Тейлора
+\[y(x)=c_1(x-1)+c_2(x-1)^2+c_3(x-1)^3+c_4(x-1)^4+o((x-1)^4)\]
+Підставимо це в наше рівняння і отримаємо
+\[c_1+2c_2(x-1)+3c_3(x-1)^2+4c_4(x-1)^3+5c_5(x-1)^4+o((x-1)^4)=\]
+\[=(c_1(x-1)+c_2(x-1)^2+c_3(x-1)^3+c_4(x-1)^4+o((x-1)^4))^2+x\]
+Розкриваємо дужки
+\[c_1+2c_2(x-1)+3c_3(x-1)^2+4c_4(x-1)^3+5c_5(x-1)^4=\]\[=c_1^2(x-1)^2+c_2^2(x-1)^4+2c_1c_2(x-1)^3+2c_1c_3(x-1)^4
++(x-1)+1+o((x-1)^4)\]
+а отже прирівнюючи коефіцієнти маємо 
+\[\begin{cases}
+	c_1=1\\
+	2c_2=1\implies c_2=\frac{1}{2}\\
+	3c_3=c_1^2\implies c_3=\frac{1}{3}\\
+	4c_4=2c_1c_2\implies c_4=\frac{1}{4}\\
+	5c_5=c_2^2+2c_1c_3
+\end{cases}\]
+і тому
+\[y(x)=(x-1)+\frac{(x-1)^2}{2}+\frac{(x-1)^3}{3}+\frac{(x-1)^4}{4}+o((x-1)^4)\]
+
+\begin{prob}Використовуючи інтегрування за допомогою рядів, знайти розв’язок рівняння в околі точки  $x_0=0$. Там, де це можливо,%no elem talk
+виразити розв’язок через елементарні функції. Знайти область збіжності одержаних рядів. Знайти загальний розв’язок рівняння.\end{prob}
+Використовуючи теорему 2 з конспекту ($p(x)=-3-x$ і $q(x)=4$), розв’язок починаємо з характеристичного рівняння
+\[\lambda(\lambda-1)-3\lambda +4=0\implies \lambda=2\mbox{ подвійний корінь}\]
+Таким чином, один із розв’язків можна записати у вигляді
+\[y_2(x)=\alpha y_1(x)\ln x+\sum_{k=0}^{\infty}b_kx^{k+2} \]
+де $y_1(x)=\sum_{k=0}^{\infty}c_kx^{k+2}$ розв’язок рівняння. Підставимо його в рівняння
+	\[x^2\sum_{k=0}^{\infty}c_k(k+2)(k+1)x^{k+2-2}-(3+x)x\sum_{k=0}^{\infty}c_k(k+2)x^{k+2-1}+
+	4\sum_{k=0}^{\infty}c_kx^{k+2}=0\]
+скоротимо на $x^2$ і отримаємо
+\[\sum_{k=0}^{\infty}c_k(k+2)(k+1)x^k+\sum_{k=0}^{\infty}(-2-3k)c_kx^k-\sum_{k=1}^{\infty}c_{k-1}(k+1)x^k=0\]
+Таким чином,
+\[2c_0-2c_0=0\]
+\[c_k\cdot k^2-c_{k-1}(k+1)=0\implies c_k=\frac{k+1}{k^2}c_{k-1}\implies c_k=\frac{k+1}{k!}\]
+Цей ряд збіжний на усій числовій осі.
+Таким чином,
+\[y_1(x)=\sum_{k=0}^{\infty}\frac{k+1}{k!}x^k=e^x+\sum_{k=1}^{\infty}\frac{k}{k!}x^k=e^x+xe^x\]
+Тепер щоб знайти $y_2$ ми підставимо $y_1(x)\ln x$ у рівняння.
+\begin{prob}Знайти три члени розкладу розв’язку за степенями малого параметру $\mu$.\end{prob}
+	Оскільки і права частина рівняння і початкові умови є гладкими в околі $(x_0,y_0,\mu_0)=(1,1,0)$, за теоремою
+	про диференційованість за початковими даними та параметрами, можем припустити, що до розв’язка $y(x,\mu)$ можна застосувать
+	формулу Тейлора $y(x,\mu)=y_0(x)+\mu y_1(x)+\mu^2y_2(x)+o(\mu^2)$. Підставляючи це в рівняння маємо
+	\[y_0'(x)+\mu y_1'(x)+\mu^2y_2'(x)+o(\mu^2)=
+	\frac{3}{y_0(x)+\mu y_1(x)+\mu^2y_2(x)+o(\mu^2)}-\mu x
+	\]
+	а також
+	\[y_0(1)+\mu y_1(1)+\mu^2 y_2(1)+\dots=1+\mu\cdot 0+\mu^2\cdot0+\dots\]
+	Таким чином
+	\[(y_0'+y_1'\mu+y_2'\mu^2+o(\mu^2))(y_0+y_1\mu+y_2\mu^2+o(\mu^2))=3-\mu x(y_0+y_1\mu+y_2\mu^2+o(\mu^2))\]
+	і отже
+		\[y_0y_0'+(y_1y_0'+y_1'y_0)\mu+(y_2'y_0+y_1'y_1+y_2y_0')\mu^2=3-\mu xy_0-\mu^2xy_1+o(\mu^2)\]
+	тепер ми прирівняємо коефіцієнти при $\mu$ і отримаєм
+	\[\begin{cases}
+		y_0'(x)=\frac{3}{y_0(x)}\implies y_0(x)=\sqrt{6x-5}\\
+		y_1(x)y_0'(x)+y_1'(x)y_0(x)=-xy_0(x)\Rightarrow 3y_1(x)+y_1'(x)(6x-5)=-x(6x-5)\Rightarrow\\
+		 \Rightarrow y_1(x)=-\frac{2}{5}x^2+\frac{x}{9}+\frac{5}{27}+\frac{14}{135}\frac{1}{\sqrt{6x-5}}\\
+		y_2'(x)y_0(x)+y_1'(x)y_1(x)+y_2(x)y_0'(x)=-xy_1(x)
+	\end{cases}
+	\]
+\end{document}

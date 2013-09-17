@@ -1,0 +1,26 @@
+\documentclass[10pt]{article}
+\usepackage{fontspec}
+\usepackage{array, xcolor, lipsum, bibentry}
+\usepackage[margin=3cm]{geometry}
+\usepackage{sectsty} % Allows changing the font options for sections in a document
+ 
+\title{\bfseries\Huge Oleksii Leontiev}
+\author{inp9822058@cs.nctu.edu.tw}
+\date{}
+ 
+\definecolor{lightgray}{gray}{0.8}
+\newcolumntype{L}{>{\raggedleft}p{0.2\textwidth}}
+\newcolumntype{R}{p{0.8\textwidth}}
+\newcommand\VRule{\color{lightgray}\vrule width 0.5pt}
+ 
+%font configuration
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Ligatures={Common}, Numbers={OldStyle}, Variant=01]{Linux Libertine O} % Main text font
+\sectionfont{\mdseries\upshape\Large} % Set font options for sections
+\subsectionfont{\mdseries\scshape\normalsize} % Set font options for subsections
+\subsubsectionfont{\mdseries\upshape\large} % Set font options for subsubsections
+\chardef\&="E050 % Custom ampersand character
+
+\begin{document}
+\maketitle
+\end{document}

@@ -1,0 +1,92 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+\usepackage{textcomp} %for copyleft symbol
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,ukrainian]{babel} % національна локалізація; може бути декілька
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%custom commands to save typing
+\newcommand{\mynorm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\myset}[1]{\left\{#1\right\}}
+
+%put subscript under lim and others
+\let\oldlim\lim
+\renewcommand{\lim}{\displaystyle\oldlim}
+\let\oldmin\min
+\renewcommand{\min}{\displaystyle\oldmin}
+\let\oldmax\max
+\renewcommand{\max}{\displaystyle\oldmax}
+
+\newtheorem*{prob}{Завдання}
+
+\title{Домашнє з ТВ
+}
+\begin{document}
+\maketitle
+\begin{prob}II.3.77\end{prob}
+	\begin{enumerate}[label=(\alph*)]
+		\item{Оскільки густина симетрична в $x$ та $y$, густини для $\xi$ та $\eta$ вийдуть однаковими і достатньо порахувати лише одну.
+			\[x\leq0\implies p_{\xi}(x)=0\]
+			\[x>0\implies p_{\xi}(x)=\int_0^{\infty}((1+ax)(1+ay)-a)e^{-x-y-axy}dy\]
+			зробимо заміну $t=y(1+ax)$ та отримаєм
+			\[\int_0^{\infty}((1+ax)(1+ay)-a)e^{-x-y-axy}dy=\frac{e^{-x}}{1+ax}\int_0^{\infty}(1+ax+at-a)e^{-t}dt=\]
+			\[\frac{e^{-x}}{1+ax}(1+ax)=e^{-x}\]
+			Таким чином
+			\[p_{\xi}(x)=\begin{cases}
+				0, &x\leq 0\\
+				e^{-x}, &x>0
+			\end{cases}
+			\]
+			Аналогічно,
+			\[p_{\eta}(x)=\begin{cases}
+				0, &y\leq 0\\
+				e^{-y}, &y>0
+			\end{cases}
+			\]
+			}
+		\item{Позначимо $F(x,y):=\mathbb{P}(\xi<x,\eta<y)$ і тоді отримаємо $F(x,y)=0$ при $x<0$ чи $y<0$. У випадку ж
+			$x,y>0$ вийде
+			\begin{gather*}
+				F(x,y)=\int_0^x\int_0^y((1+as)(1+at)-a)e^{-s-t-ast}dtds=\\
+				=\begin{vmatrix}m=(1+as)t\\dm=(1+as)dt\end{vmatrix}=\int_0^xe^{-s}\int_0^{(1+as)y}(1+as+am-a)e^{-m}dmds=\\
+					=\int_0^x
+					e^{-s}
+					((1+as-a)(1-e^{-(1+as)y})+
+					a((1+as)ye^{-y(1+as)}+1-e^{-y(1+as)}))
+					ds
+			\end{gather*}
+			}
+	\end{enumerate}
+\begin{prob}II.3.77\end{prob}
+	\begin{enumerate}[label=(\alph*)]
+		\item{$p_{\xi}(x)=0$ при $x<0$ або $x>1$. У випадку $0\leq x \leq 1$ маємо
+			\[p_{\xi}(x)=\int_0^1p(x,y)dy=12x^2(1-x)\]
+			}
+		\item{
+			Аналогічно, $p_{\eta}(y)=0$ при $y<0$ або $y>1$. У випадку $0\leq y \leq 1$ маємо
+			\[p_{\eta}(y)=\int_0^1p(x,y)dx=2y\]
+			}
+	\end{enumerate}
+	Оскільки при $0\leq x,y\leq 1$
+	\[P(\xi<x,\eta<y)=\int_0^x\int_0^y p(a,b)dadb=\int_0^x12a^2(1-a)da\int_0^y2bdb=P(\xi<x)P(\eta<y)\]
+	випадкові змінні $\xi$ та $\eta$ є незалежними за означенням.
+\end{document}
+

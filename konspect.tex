@@ -1,0 +1,367 @@
+\documentclass[10pt]{report} % use larger type; default would be 10pt
+
+\usepackage{textcomp} %for copyleft symbol
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+
+\usepackage{sectsty}   %in order to make chapter headings and title centered
+\chapterfont{\centering}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{caption}
+\usepackage{subfig}
+
+%for Re and Im like in the book
+\renewcommand\Re{\operatorname{Re}}
+\renewcommand\Im{\operatorname{Im}}
+
+%put subscript under lim
+\let\oldlim\lim
+\renewcommand{\lim}{\displaystyle\oldlim}
+
+%more space after \forall and \exists
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall\;}
+\let\oldexists\exists
+\renewcommand{\exists}{\oldexists\;}
+
+%custom header
+\pagestyle{myheadings}
+\markright{\hfill \textcopyleft\;Т. А. Мельник, Курс лекцій з комплексного аналізу, Київ-- 2004\hfill}
+%custom environments - not portable and bad, bad, bad!
+\let\oldChapter\chapter
+\renewcommand{\chapter}[1]{\oldChapter{\MakeUppercase{\LARGE #1}}\thispagestyle{myheadings}}
+
+%custom theorem environments
+\newtheorem{definition}{Означення}[section]
+\renewcommand{\thedefinition}{\arabic{definition}}
+\newtheorem{example}{\indent Приклад}[section]
+\renewcommand{\theexample}{\arabic{example}}
+\newtheorem{exercise}{Вправа}
+\newtheorem{proposition}{Твердження}[section]
+\newtheorem{remark}{Зауваження}
+
+\begin{document}
+%FIXME: figure ref 1.1,
+\setcounter{page}{5}
+%\chapter{\MakeUppercase{\LARGE Комплексні числа та комплексна площина}}
+\chapter{Комплексні числа та комплексна площина}
+\section{Комплексні числа}
+\begin{definition}
+Множиною комплексних чисел (її позначають літерою $\mathbb{C}$) називається множина впорядкованих пар $(x,y)$ дійсних чисел $x$ та $y$, над якими визначаються алгебраїчні операції додавання та множення таким чином:
+сумою двох комплексних чисел $(x_1,y_2)$ та $(x_2,y_2)$ називається комплексне число $(x_1+x_2,y_1+y_2)$; добутком двох комплексних чисел $(x_1,y_2)$ та $(x_2,y_2)$ називається таке комплексне число $(x_1x_2-y_1y_2,x_1y_2+y_1x_2)$,
+тобто
+\[\mathbb{C}:=\{(x,y),\;x\in \mathbb{R},\;y\in\mathbb{R}:\quad (x_1,y_1)+(x_2,y_2)=(x_1+x_2,y_1+y_2),\]
+\[(x_1,y_1)\cdot(x_2,y_2)=(x_1x_2-y_1y_2,x_1y_2+y_1x_2)\}\]
+
+Зрозуміло, що два комплексні числа $(x_1,y_2)$ та $(x_2,y_2)$ рівні тоді і тільки тоді, коли $x_1=x_2$ і $y_1=y_2$.
+\end{definition}
+\begin{exercise}
+Довести, що множина комплексних чисел відносно введених операцій утворює поле.
+\end{exercise}
+
+З означення випливає, що $(x_1,0)+(x_2,0)=(x_1+x_2,0);\quad (x_1,0)\cdot(x_2,0)=(x_1x_2,0)$. Таким чином, операції над комплексними числами виду $(x,0)$ співпадають з алгебраїчними операціями над дійсними числами. Тому можна провести
+ототожнення $\mathbb{R}\ni x\equiv (x,0)\in \mathbb{C}$, і тоді $\mathbb{R}\subset\mathbb{C}$.
+
+Комплексне число $(0,1)$ називається \textit{уявною одиницею} і позначається латинською буквою \textit{i}. Легко перевірити, що
+\[i^2=(0,1)\cdot(0,1)=(-1,0)=-1,\qquad (0,y)=(0,1)\cdot(y,0)=iy.\]
+На підставі цих позначень довільне комплексне число можна записати у вигляді
+\[(x,y)=(x,0)+(0,y)=x+iy;\]
+цей запис називають \textit{алгебраїчною формою комплексного числа.} Алгебраїчну форму комплексного числа прийнято позначати однією буквою $z=x+iy$, при цьому число $x$ називають дійсною частиною комплексного числа $z$ і
+позначають $x:=\Re(z)$, а $y=:\Im(z)$ -- уявною частиною.
+
+Нагадаємо, що спряженим до $z$ називають комплексне число $\overline{z}=\overline{x+iy}=x-iy$, модулем $z$ називають дійсну величину $|z|=|x+iy|=\sqrt{x^2+y^2}$. Очевидно, що $|z|=|\overline{z}|$ і $z\cdot \overline{z}={|z|}^2$. Для різниці і ділення
+використовуємо такі формули:
+\[z_1-z_2=(x_1+iy_1)-(x_2+iy_2)=(x_1-x_2)+i(y_1-y_2),\qquad z_1:z_2=\frac{z_1}{z_2}=\frac{z_1\cdot\overline{z_2}}{{|z_2}^2}.\]
+\textbf{Геометрична інтерпретація.}\quad
+Кожному комплексному числу $z = x+iy$ поставимо у
+вiдповiднiсть точку (вектор) з координатами $(x, y)$ на координатнiй площинi. Зрозумiло, що ця вiдповiднiсть – бiєкцiя. Тодi координатна площина, пiд точкою (вектором)
+якої розумiється комплексне число, називається \textit{комплексною площиною}. При цьому
+її вiсь абсцис називають дiйсною вiссю, а вiсь ординат - уявною вiссю.
+
+При такiй геометричнiй iнтерпретацiї наглядними стають операцiї додавання i вiднiмання комплексних чисел: це додавання (вiднiмання) вiдповiдних векторiв.
+
+\textbf{Iншi форми запису комплексних чисел.}\quad Вiдомо, що положення точки $(x, y)$ на
+координатнiй площинi визначається також її полярними координатами $r$ (вiдстань вiд
+цiєї точки до початку координат) та $\varphi$ (кут мiж її радiусом-вектором i додатнiм на-
+прямком дiйсної осi), причому $x = r \cos \varphi,\; y = r \sin \varphi$. Пiдставивши цi спiввiдношення
+в алгебраїчну форму комплексного числа $z$; отримаємо \textit{тригонометричну форму}:
+\begin{equation}\label{TrigForm}z=|z|(\cos\varphi+i\sin\varphi)\qquad \left(|z|=r=\sqrt{x^2+y^2}\right).\end{equation}
+Кут $\varphi$ називається \textit{аргументом комплексного числа} z. Зрозуміло, що аргумент визначається неоднозначно, а з точнiстю до $2\pi k,\; k\in \mathbb{Z}$, причому iснує єдиний кут
+$\varphi_0\in(-\pi,\pi]$ такий, що $\varphi=\varphi_0+2\pi k,\; k\in\mathbb{Z}$. Кут $\varphi_0$ називається \textit{головним значенням аргумента комплексного числа} $z$ i позначається $arg(z):=\varphi_0$.
+Множина всiх аргументiв числа $z$ позначається $Arg(z) :=\{\varphi_0+2\pi k\,:\;k\in\mathbb{Z}\}$.
+
+Визначимо показникову функцiю вiд уявного числа $i\alpha,\;\alpha\in\mathbb{R}$ таким чином:
+\[e^{i\alpha}=\cos\alpha+i\sin\alpha.\]
+Дане співвідношення відоме як формула Ойлера. Очевидно, що $|e^{i\alpha}|=1$. Крім того, легко перевірити, що
+\begin{multline}\label{ProductOfExponents}
+e^{i\alpha_1}e^{i\alpha_2}=(\cos\alpha_1+i\sin\alpha_1)(\cos\alpha_2+i\sin\alpha_2)=\hfill\\
+\hfill=(\cos\alpha_1\cos\alpha_2-\sin\alpha_1\sin\alpha_2)+i(\sin\alpha_1\cos\alpha_2+\cos\alpha_1\sin\alpha_2)=\hfill\\
+=\cos(\alpha_1+\alpha_2)+i\sin(\alpha_1+\alpha_2)=e^{i(\alpha_1+\alpha_2)}.
+\end{multline}
+Аналогiчно доводиться, що $\frac{e^{i\alpha_1}}{e^{i\alpha_2}}=e^{i(\alpha_1-\alpha_2)},\;(e^{i\alpha})^n=e^{in\alpha}.$
+
+Скориставшись формулою Ойлера, з \eqref{TrigForm} отримуємо \textit{показникову форму комплексного числа}: $z=|z|e^{i\varphi}$.  
+Дана форма гарно iлюструє суть множення та дiлення комплексних чисел. Якщо $z_1=|z_1|e^{i\varphi_1}$ і $z_2=|z_2|e^{i\varphi_2}$, то
+\[z_1\cdot z_2=|z_1||z_2|e^{i(\varphi_1+\varphi_2)},\qquad \frac{z_1}{z_2}=\frac{|z_1|}{|z_2|}e^{i(\varphi_1-\varphi_2)}\;(z_2\neq 0).\]
+Отже, при множенi (дiленнi) двох комплексних чисел їх модулi перемножуються (дiляться): $|z_1\cdot z_2|=|z_1||z_2|,\quad |\frac{z_1}{z_2}|=
+\frac{|z_1|}{|z_2|}$, а аргументи додаються (віднімаються): $\varphi_1+\varphi_2\in Arg(z_1\cdot z_2),\;\varphi_1-\varphi_2\in Arg(\frac{z_1}{z_2})$.
+\begin{definition}
+Комплексне число $z$ називається коренем $n$–ого степеня з комплексного числа $a$ ($a \neq 0$), якщо $z^n = a$.
+\end{definition}
+
+Виведемо формули для знаходження коренiв з комплексного числа $a = |a| e^{i\theta}$ . Нехай
+комплексне число $z = |z| e^{i\varphi}$ -- корiнь $n$-ого степеня з $a$. Тодi згiдно означення
+\[{|z|}^n\cdot e^{in\varphi}=|a|e^{i\theta}\iff
+\begin{cases}
+{|z|}^n={|a|}^n,\\
+n\varphi=\theta+2\pi k,\quad k\in\mathbb{Z},
+\end{cases}
+\implies
+\begin{cases}
+|z|=\sqrt[n]{|a|},\\
+\varphi_k=\frac{\theta+2\pi k}{n},\quad k\in\mathbb{Z},
+\end{cases}
+\]
+тобто коренями $n$–ого степеня з числа $a$ є числа
+\begin{equation}\label{NOrderRoots}z_k=\sqrt[n]{|a|}e^{i\left(\frac{\theta}{n}+\frac{2\pi k}{n}\right)},\quad k\in\mathbb{Z}\end{equation}
+Покажемо, що серед комплексних чисел \eqref{NOrderRoots} є рiвно $n$ рiзних чисел. Числа $z_0,\dots,z_{n-1}$ -- рiзнi, оскiльки їх аргументи
+$\varphi_0=\frac{\theta}{n},\;\varphi_1=\frac{\theta+2\pi}{n},\dots,\varphi_{n-1}=\frac{\theta+2\pi(n-1)}{n}$ рiзнi i вiдрiзняються один вiд одного
+ менше, нiж $2\pi$. Для будь-якого iншого числа $z_k,\;k\notin \left\{0,1,\dots,n-1\right\}$ існують єдині такі числа $p\in\mathbb{Z}$ та
+$q\in\left\{0,1,\dots,n-1\right\}$, що $k=pn+q$ і $z_k=	z_q$.
+
+Таким чином, рівняння $z^n = a$ має рiвно $n$ різних коренів $z_0,z_1,\dots,z_{n-1}$, які розміщені в вершинах правильного $n$-кутника,
+ вписаного в коло радіуса $\sqrt[n]{|a|}$ з центром в точці $0$ (див. Рис. \ref{RiemannSphere}.) %TODO - replace by hyperlink
+\section{Послідовність в комплексній площині. Розширена комплексна площина.}
+В комплекснiй площинi введемо евклiдову метрику
+\[d(z_1,z_2):=|z_1-z_2|=\sqrt{{(x_1-x_2)}^2+{(y_1-y_2)}^2}\]
+де $z_1=x_1+iy_1,\;z_2=x_2+iy_2$. Комплексна площина з так введеною метрикою стає
+метричним простором, i тому всi поняття i властивостi метричних просторiв переносяться в комплексну площину, зокрема, означення границi
+ послiдовностi; теореми про границi суми, рiзницi, добутку та частки; критерiй Кошi; теорема Вейєрштрасса i т. д. Нагадаємо деякi з них.\\
+\begin{definition}\label{ComplexConvergenceDef}
+Нехай задано послідовність комплексних чисел $\left\{z_n=x_n+iy_n:\;n\in\mathbb{N}\right\}$. Будемо говорити, що дана послідовність 
+збігається до комплексного числа $a=\alpha+i\beta$ i позначати це так: $\lim_{n\to\infty}z_n=a$, якщо
+\[\forall \epsilon>0\quad\exists N\in\mathbb{N}\quad\forall n\geq N:\; |z_n-a|<\epsilon\]
+\end{definition}
+
+З означення \ref{ComplexConvergenceDef} випливає наступне твердження. 
+\begin{proposition}$\lim_{n\to\infty}z_n=a\iff \lim_{n\to\infty}x_n=\alpha\;$ та $\;\lim_{n\to\infty}y_n=\beta$.\end{proposition}
+\begin{definition}Кажуть, що послідовність комплексних чисел ${z_n\;:\;n\in\mathbb{N}}$ збігається до нескінченості і
+ позначають це так: $\lim_{n\to\infty}z_n = \infty$, якщо $\lim_{n\to\infty} |z_n| = +\infty$, тобто
+\[\forall R>0\quad \exists N\in\mathbb{N}\quad \forall n\geq N:\qquad |z_n|>R.\]
+
+Символ $"\infty"$ називається нескiнченно вiддаленою точкою.
+\end{definition}
+\begin{definition}
+Множина $\overline{\mathbb{C}} = \mathbb{C}\cup\left\{\infty\right\}$ називається розширеною комплексною площиною.
+\end{definition}
+
+Очевидно, що з будь-якої послiдовностi в $\overline{\mathbb{C}}$ можна видiлити збiжну пiдпослiдовнiсть (принцип компактностi в 
+$\overline{\mathbb{C}}$). Зауважимо, що нескiнченно вiддалена точка не приймає участi в алгебраїчних операцiях.\\
+\textbf{Геометрична iнтерпретацiя $\overline{\mathbb{C}}$ та стереографiчна проекцiя.} Розглянемо евклiдовий простiр 
+$\mathbb{R^3} = \left\{(\xi, \eta, \zeta)\;:\;\xi\in\mathbb{R},;\eta\in \mathbb{R},\;\zeta\in \mathbb{R}\right\}$, в якому вiсь $O_{\xi}$ 
+спiвпадає з дiйсною вiссю комплексної площини, вiсь $O_{\eta}$ спiвпадає з уявною вiссю, а вiсь $O_{\zeta}$ - перпендикулярна до комплексної
+ площини (див. Рис. \ref{RiemannSphere}). Сфера $\mathbf{S} =\left\{(\xi, \eta, \zeta)\in \mathbb{R^3} : \xi^2 + \eta^2 + 
+{\left(\xi-\frac{1}{2}\right)}^2 =\frac{1}{4}\right\}$ -- дотикається до комплексної площини в точцi
+$(0, 0, 0)$. Точку $N(0, 0, 1)$, яка лежить на сферi, будемо називати "пiвнiчним полюсом".
+
+Визначимо вiдображення $p\;:\;\overline{\mathbb{C}} \mapsto \mathbf{S}$ таким чином: кожнiй точцi $z\in \mathbb{C}$ поставимо у
+вiдповiднiсть точку перетину $\mathcal{Z}(\xi, \eta, \zeta)$ промiжка $[z, N )$ iз сферою $\mathbf{S}$, тобто
+\[\mathbb{C}\ni z\;{\buildrel{p}\over\mapsto}\;\mathcal{Z}(\xi,\eta,\zeta)=\mathbf{S}\hat [z,N).\]
+Зрозумiло, що якщо $\lim_{n\to\infty} z_n = \infty, то \mathcal{Z}_n\to N$. Тому по неперервностi довизначимо $p$ в нескiнчено вiддаленiй точцi:
+$\infty\;{\buildrel{p}\over\mapsto}\;N$. Таке вiдображення $p\;:\;\overline{\mathbb{C}} \mapsto \mathbf{S}$ називається
+\textit{стереографiчною проекцiєю.}
+
+Дослiдимо властивостi $p$. Спочатку зауважимо, що це взаємно-однозначне вiдображення. Для аналiтичного задання стереографiчної проекцiї
+ з параметричного рiвняння\newpage
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1.0\textwidth]{riemann.png}
+\caption{Сфера Рімана.}
+\label{RiemannSphere}
+\end{figure}
+\noindent відрізка $[N,z]:\xi=tx,\quad\eta=ty,\quad\zeta=1-t$, де $t\in[0,1]$, виключимо змінну $t$ i одержимо
+формули оберненого відображення $p^{-1}$:
+\begin{equation}\label{InverseRiemannSphereMapping}x=\frac{\xi}{1-\zeta},\quad y=\frac{\eta}{1-\zeta}.\end{equation}
+Оскiльки координати точки $\mathcal{Z}(\xi,\eta,\zeta)$ задовольняють спiввiдношенню
+\[\xi^2+\eta^2+{\left(\zeta-\frac{1}{2}\right)}^2=\frac{1}{4}\iff \xi^2+\eta^2=\zeta(1-\zeta),\]
+то
+\[x^2+y^2=\frac{\xi^2+\eta^2}{{(1-\zeta)}^2}=\frac{\zeta}{1-\zeta}\implies \zeta=\frac{x^2+y^2}{1+x^2+y^2}.\]
+З останньої рiвностi i формул \eqref{InverseRiemannSphereMapping} отримуємо формули стереографiчної проекцiї :
+\begin{equation}\label{StereoProjection}\xi=\frac{x}{1+x^2+y^2},\quad\eta=\frac{y}{1+x^2+y^2},\quad\zeta=\frac{x^2+y^2}{1+x^2+y^2}.\end{equation}
+З \eqref{InverseRiemannSphereMapping} та \eqref{StereoProjection} випливає, що $p:\overline{\mathbb{C}}\to\mathbf{S}$ – гомеоморфiзм.
+
+З допомогою $p$ можна ототожнити розширену комплексну площину $\overline{\mathbb{C}}$ з сферою $\mathbf{S}$,
+при цьому сферу $\mathbf{S}$ називають \textit{сферою Рiмана, або сферою комплексних чисел}.
+
+Наступнi властивостi пропонується довести читачевi самостiйно.
+\begin{exercise}\label{ProjectionPreservesCirclesAndAnglesExercise}
+Довести, що при стереографiчнiй проекцiї $p:\overline{\mathbb{C}}\to\mathbf{S}$ довiльне коло або
+пряма на $\overline{\mathbb{C}}$ переходить в коло на $\mathbf{S}$ i кут мiж кривими в $\overline{\mathbb{C}}$ рiвний куту мiж
+образами цих кривих на $\mathbf{S}$.
+\end{exercise}
+\section{Комплекснозначні функції дійсної змінної.}
+Розглянемо комплекснозначну функцію дійсної змінної $f:\mathbb{R}\to\mathbb{C}$. Дану функцiю можна представити у виглядi $f(t) = u(t) + iv(t),\; t \in \mathbb{R}$, де $u(t) = \Re(f(t))$ i $v(t) =
+\Im(f(t))$ – дiйснi функцiї.
+	
+Оскiльки $f$ дiє з одного метричного простору в iнший, то на цi функцiї автомати-
+чно переносяться такi поняття, як границя функцiї в точцi, неперервнiсть, рiвномiрна
+неперервнiсть та багато властивостей функцiй дiйсної змiнної. Нагадаємо деякi з них.
+
+\begin{definition}
+	Нехай $A = \alpha + i\beta$. Границя функцiї $f$ в точцi $t_0$ рiвна $A$ (позначаємо$\lim_{t\to t_0} f (t) = A$), якщо
+	\[\forall \epsilon>0 \;\exists \delta>0\;\forall t\in\mathbb{R}:\quad 0<|t-t_0|<\delta\Rightarrow |f(t)-A|=\sqrt{{(u(t)-\alpha)}^2+
+	{(v(t)-\beta)}^2}<\epsilon.\]
+\end{definition}
+
+З даного означення випливає таке твердження
+\begin{proposition}$\lim_{t\to t_0} f(t)=A\Leftrightarrow \lim_{t\to t_0} u(t)=\alpha$ і $\lim_{t\to t_0}v(t)=\beta$.
+\end{proposition}
+\begin{definition}
+Функцiя $f(t),\;t \in [a, b]$, називається неперервною на вiдрiзку $[a, b]$
+( $f \in C([a, b])$ ), якщо $\forall t_0 \in [a, b]\quad \lim_{t\to t_0} f(t) = f(t_0)$.
+\end{definition}
+\begin{definition}
+Похiдною функцiї $f$ в точцi $t_0$ (позначаємо $f' (t_0 )$) називається границя $\lim_{t\to t_0}\frac{f (t)-f (t_0 )}{t-t_0}$, якщо вона iснує.
+\end{definition}
+
+Припустимо, що така границя існує. Тоді
+\begin{multline*}
+f'(t_0)=\lim_{t\to t_0}\left(\frac{u(t)-u(t_0)}{t-t_0}+i\frac{v(t)-v(t_0)}{t-t_0}\right)=\\
+\lim_{t\to t_0}\frac{u(t)-u(t_0)}{t-t_0} +i\lim_{t\to t_0}\frac{v(t)-v(t_0)}{t-t_0}=u'(t_0)+iv'(t_0).
+\end{multline*}
+\begin{example}
+Функцiя $f(t) = \exp(it),\;t\in [0, \pi]$, має похiдну на вiдрiзку $[0, \pi]$ i $f (t) =
+i \exp(it)$. Дiйсно $(exp(it))' = (\cos t + i \sin t)' = - \sin t + i \cos t = i(\cos t + i \sin t) = i \exp(it)$.
+\end{example}
+Рiвнiсть $f (t_0 ) = u (t_0 ) + iv (t_0 )$ можна прийняти за означення похiдної комплекснозначної функцiї дiйсної змiнної.
+ Застосуємо такий пiдхiд до означення iнтеграла вiд комплекснозначної функцiї.
+\begin{definition}\label{ComplexIntegralDef}
+Нехай $f (t) = u(t) + iv(t),\;t \in[a, b]$, i $u \in R([a, b]),\;v\in R([a, b])$. Тодi
+\[\int_{a}^bf(t)dt{\buildrel{d{}ef}\over=}\int_a^b u(t)dt+i\int_a^b v(t)dt.\]
+\end{definition}
+\begin{exercise}
+Довести, що означення \ref{ComplexIntegralDef} еквiвалентне означенню iнтеграла, що вводиться через границю iнтегральних сум:
+\[\int_a^bf(t)dt=\lim_{\Delta\to 0}\sum_{k=1}^n f(\tau_k)\Delta t_k,\]
+де $a=t_0<t_1<\ldots<t_n=b,\;\Delta t_k=t_k-t_{k-1},\;t_{k-1}\leq\tau_k\leq t_k,\;\Delta=\max_k \Delta t_k.$
+\end{exercise}
+
+Легко перевiрити такi властивостi iнтеграла
+\begin{enumerate}
+\item{$\forall \lambda,\mu\in\mathbb{C}\quad \int_a^b\left(\lambda f(t)+\mu g(t)\right)dt=\lambda\int_a^bf(t)dt+\mu\int_a^bg(t)dt$;}
+\item{$\forall c\int(a,b)\quad \int_a^bf(t)dt=\int_a^c f(t)dt+\int_c^b f(t)dt$, ;}
+\item{формула Ньютона-Лейбнiца: $\int_a^b f(t)dt=F(b)-F(a)$, де $F$ -- первiсна для функцiї $f$, тобто $F'(t)=f(t)\;\oldforall t\in[a,b]$;}
+\item{\label{IntegralUpperBound}$\left|\int_a^b f(t)dt\right|\leq \int_a^b f(t)dt\leq\displaystyle\max_{t\in [a,b]}|f(t)|\cdot(b-a)$.}
+\end{enumerate}
+\begin{exercise}Скориставшись вправою \ref{ProjectionPreservesCirclesAndAnglesExercise}, довести властивiсть \ref{IntegralUpperBound}.\end{exercise}
+\begin{remark}
+Твердження теореми про про середнє – неправильне. Цей факт легко перевiрити на такiй функцiї: для неперервної функцiї $\exp(it),\;t\in[0,2\pi]$.
+Очевидно, що $e^{it}\neq 0\;\oldforall t\in [0,2\pi]$. Тому з однієї сторони на підставі теореми про середнє але $\int_0^{2\pi}e^{it}dt\neq 0$.
+З іншої сторони $\int_0^{2\pi}e^{it}dt=\int_0^{2\pi}\cos tdt+i\int_0^{2\pi}\sin tdt=0$.
+\end{remark}
+\begin{exercise}
+Показати, що для комплекснозначних функцiй дiйсної змiнної твердження теорем Ролля та Лагранжа також неправильнi.
+\end{exercise}
+\begin{remark}
+Оскiльки для комплексних чисел не можна ввести вiдношення порядку, то теорема Вейєрштрасса для комплекснозначних функцiй дiйсної змiнної
+формулюється так: неперервна комплекснозначна функцiя $f(t),\;t \in [a, b]$ є обмеженою i її модуль досягає свого найбiльшого i найменшого значення.
+\end{remark}
+\section{Криві в комплексній площині.}
+\begin{definition}
+Кривою в $\mathbb{C}$ ($\overline{\mathbb{C}}$) називається неперервна комплекснозначна функцiя
+дiйсної змiнної $z = \gamma(t),\;t\in [a, b]\subset \mathbb{R}$. При цьому, множина значень $E_{\gamma}$ називається
+шляхом кривої $\gamma$, а $\gamma(a)$ та $\gamma(b)$ -- вiдповiдно початок та кiнець кривої $\gamma$.
+\end{definition}
+
+Видiливши в рiвностi $z = \gamma(t)$ дiйсну i уявну частини, отримаємо параметричне рiвняння даної кривої: $x=\Re(\gamma(t)),y=\Im(\gamma(t)),
+\;t\in[a, b]$.
+\begin{example}
+Нехай $z = \gamma(t) = e^{it},\;t\in[0, 2\pi]$. Тодi
+\[x+iy=\cos t+i\sin t\iff\left\{\begin{aligned}x=\cos t,\\ y=\sin t,\end{aligned}\right.\qquad t\in[0,2\pi]\]
+\end{example}
+
+Кожна крива задає певну орiєнтацiю, яку можна трактувати, як напрямок руху точки по кривiй вiд початку до її кiнця при зростаннi параметра
+ $t$ вiд $a$ до $b$.
+\begin{definition}\label{ComplexCurveEq}
+Двi кривi $z=\gamma_1(t),\;t\in [a_1,b_1]$, та $z=\gamma_2(\tau),\;\tau\in [a_2,b_2]$, називаються еквiвалентними $(\gamma_1\sim\gamma_2)$,
+якщо iснує функцiя $\tau=\mu(t),\;t\in [a_1,b_1]$ така, що
+\begin{enumerate}
+\item{$\mu\in C([a_1,b_1])$, функцiя $\mu$ -- строго зростає на $[a_1,b_1]$;}
+\item{$\mu(a_1)=a_2,\;\mu(b_1)=b_2;$}
+\item{$\gamma_1(t)=\gamma_2\left(\mu(t)\right),\;t\in [a_1,b_1]$.}
+\end{enumerate}
+\end{definition}
+\begin{exercise}
+Довести, що дане вiдношення задовольняє всiм аксiомам еквiвалентностi (рефлексивнiсть, симетричнiсть, транзитивнiсть). Тому пiд кривою можна 
+також розумiти клас еквiвалентних кривих.
+\end{exercise}
+\begin{example}\label{ComplexCurveEquivalenceExample}
+Нехай задано такi кривi
+\[z=\gamma_1(t)=t,\;t\in [0,1];\qquad z=\gamma_2(t)=\sin t,\; t\in[0,\frac{\pi}{2}];\]
+\[z=\gamma_3(t)=\sin t,\;t\in [0,\pi];\qquad z=\gamma_4(t)=\cos t,\; t\in[\frac{\pi}{2},\pi].\]
+Для всіх цих кривих шлях спiвпадає з вiдрiзком $[0,1]$. Однак, лише $\gamma_1\sim\gamma_2$; в цьому випадку функцiя $\mu=\arcsin t,\;t\in[0,1]$.
+Кривi $\gamma_1,\gamma_3,\gamma_4$ не є еквiвалентними. Дiйсно, якщо припустити, що $\gamma_1\sim\gamma_3$, то $\gamma_2\sim\gamma_3$,  а тому
+ iснує функцiя $\mu\;:\;[0, \pi ] \to [0, \pi]$, яка володiє трьома властивостями з означення \ref{ComplexCurveEq}. Крiм того, iснує єдина точка
+ $t_0\in (0,\pi )$ така, що $\mu(t_0 ) =\frac{\pi}{2}$ i $1 = \sin(\mu(t_0 )) = \sin t_0 < 1$, а це -- протирiччя.
+\end{example}
+\begin{definition}
+Крива $z = \gamma(t),\;t \in [a, b]$, називається замкненою, якщо $\gamma(a) = \gamma(b)$.
+\end{definition}
+\begin{definition}
+Точка $z_0$ називається точкою самоперетину кривої $z = \gamma(t),\;t \in [a, b]$, якщо $\oldexists t_1\neq t_2 ,\{t_1 , t_2 \}\subset [a, b]
+ :\;\gamma(t_1 ) = \gamma(t_2 ) = z_0$.
+
+Якщо крива $\gamma$ замкнена, то точка $\gamma(a) = \gamma(b)$ не вважається точкою самоперетину.
+\end{definition}
+\begin{definition}Крива, яка не має точок самоперетину, називається простою або жордановою.\end{definition}
+\begin{example}
+Крива $z = \exp(it),\;t\in [0, 2\pi]$, -- замкнена жорданова крива. Крива $\gamma_3$ з прикладу \ref{ComplexCurveEquivalenceExample} -- замкнена
+ крива, для якої кожна точка з $(0, 1)$ є точкою самоперетину.
+\end{example}
+
+Нехай $z=\gamma(t),\;t\in[a, b]$, -- замкнена жорданова крива. Тоді
+\[\mathbb{C}\setminus E_{\gamma}=\text{int}(\gamma)\cup\text{ext}(\gamma),\]
+де $\text{ext}{int}(\gamma)$ -- обмежена область, а $\text{ext}(\gamma)$ -- необмежена область. Область $\text{ext}{int}(\gamma)$ 
+називається внутрiшнiстю замкненої жорданової  кривої, а область $\text{ext}(\gamma)$ називається зовнiшнiстю замкненої жорданової кривої.
+
+Будемо вважати, що замкнена жорданова крива має додатну орiєнтацiю (позначаємо $\gamma^+$), якщо при її обходi внутрiшнiсть кривої залишається 
+злiва.  В протилежному випадку криву будемо вважати вiд’ємно орiєнтованою ($\gamma^-$).
+\begin{definition}
+Крива $z = \gamma(t),\;t\in [a, b]$, називається гладкою, якщо $\gamma\in C^1 ([a, b])$ i
+$\oldforall t\in [a, b],\;\gamma' (t) \neq 0$ (якщо $\gamma$ -- замкнена, то додатково необхiдно виконання умови
+$\gamma' (a) = \gamma'(b)$).
+\end{definition}
+
+Подивимось, який геометричний змiст умови $\gamma' (t) \neq 0$. З цiєї рiвностi випливає, що
+$x' (t) + iy' (t) \neq 0$, або $x' (t) \neq 0$, $y' (t)\neq 0$ $\forall t \in [a, b]$. Оскiльки $(x' (t), y' (t))$ -- дотичний
+вектор до $\gamma$ в точцi $\gamma(t)$, то гладкiсть означає, що в кожнiй точцi кривої iснує дотичний
+вектор, який неперервно змiнюється.
+\begin{example}
+Крива $z = t^3 + it^2,\;t \in [-1, 1]$, -- негладка жорданова крива. Крива $z = \cos 2t \exp(it),\;t \in [0, 2\pi]$, (чотирьохпелюсткова троянда)
+ -- замкнена нежорданова гладка крива, яка має точку самоперетину.
+\end{example}
+\begin{definition}
+Крива $z = \gamma(t),\;t\in [a, b]$, називається кусково-гладкою, якщо вiдрiзок
+$[a, b]$ можна розбити на скiнченне число вiдрiзкiв $[a_k , b_k ],\;k\in \left\{0,\ldots, n\right\}$, таких що:
+$a = a0,\;b = b_n,\;[a, b] = \cup_{k=0}^n [a_k , b_k ]$ i звуження $\gamma$ на кожний з цих вiдрiзкiв є гладкою кривою.
+\end{definition}
+
+Прикладом кусково-гладкої кривої є ламана.
+\begin{definition}
+Крива $z = \gamma(t),\;t\in [a, b]$, називається спрямлюваною, якщо майже скрiзь на $[a, b]$ iснує похiдна, яка є абсолютно iнтегровною за Лебегом,
+ тобто iснує iнтеграл
+\[l(\gamma)=\int_a^b|\gamma'(t)|dt=\int_a^b\sqrt{{(x'(t))}^2+{(y'(t))}^2}dt.\]
+Величина $l(\gamma)$ називається довжиною кривої $\gamma$.
+\end{definition}
+\end{document}

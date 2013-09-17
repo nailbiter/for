@@ -1,0 +1,87 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{listings}
+
+\newtheorem{prob}{Problem}
+
+\newenvironment{solution}%
+{\par\textbf{Solution}\space }%
+{\par}
+
+\title{Maple code for Problem 3}
+\author{歐立思\\9822058\\Department of Applied Mathematics\\National Chiao Tung University}
+
+\lstdefinelanguage{Maple}% 
+{morekeywords={and,assuming,break,by,catch,description,do,done,% 
+elif,else,end,error,export,fi,finally,for,from,global,if,% 
+implies,in,intersect,local,minus,mod,module,next,not,od,% 
+option,options,or,proc,quit,read,return,save,stop,subset,then,% 
+to,try,union,use,uses,while,xor},% 
+sensitive=true,% 
+morecomment=[l]\#,% 
+morestring=[b]",% 
+morestring=[d]"% 
+}[keywords,comments,strings]% 
+
+\lstset{%
+        language=Maple,
+        keywordstyle=\bfseries,
+        stringstyle=\itshape,
+        showstringspaces=false
+}
+
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+\begin{lstlisting}
+miller_rabin_test:=proc(n)
+   local miller_rabin_says_prime,a,d,s,b,condition_happened,i,j;
+   miller_rabin_says_prime:=1:
+   for i from 1 to 10 do
+     a:=rand(2..(n-1))():
+     if(gcd(a,n)>1)then
+       miller_rabin_says_prime:=0:
+       break;
+     end if:
+     d:=n-1:
+     s:=0:
+     while((d mod 2)=0)do
+       s:=s+1:
+       d:=d/2:
+     end:
+     b:= a &^ d mod n:
+     if(b=1)then
+       next:
+     end if:
+     condition_happened:=0:
+     for j from 0 to s-1 do
+       if(b=n-1)then
+         condition_happened:=1:
+         break:
+       end if:
+       b:=b &^ 2 mod n:
+     od:
+     if(condition_happened=0)then
+       miller_rabin_says_prime:=0:
+       break:
+     end if;
+   od:
+   evalb(miller_rabin_says_prime=1);
+ end proc:
+\end{lstlisting}
+
+\end{document}

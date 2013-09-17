@@ -1,0 +1,54 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%custom commands to save typing
+\newcommand{\mynorm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\myset}[1]{\left\{#1\right\}}
+
+%put subscript under lim and others
+\let\oldlim\lim
+\renewcommand{\lim}{\displaystyle\oldlim}
+\let\oldmin\min
+\renewcommand{\min}{\displaystyle\oldmin}
+\let\oldmax\max
+\renewcommand{\max}{\displaystyle\oldmax}
+
+\newtheorem*{prob}{Question}
+
+\title{Statistics}
+\author{Alex Leontiev}
+\begin{document}
+\maketitle
+\begin{prob} Problem 1\end{prob}
+First, we compute the population mean in order to estimate the $\lambda$ of Poisson distribution by the sample mean
+\[\hat{\lambda}=\frac{0\cdot 8+1\cdot 12+2\cdot 18+3\cdot 14+4\cdot 8}{8+12+18+14+8}=2.03\]
+Now, we compute expected frequencies\\
+\begin{tabular}{c|c|c|c|c|c|}
+	\hline
+	$P_i$ & 0.13 & 0.2 & 0.3 & 0.23 & 0.13\\
+	\hline
+	Expected occurrence & 7.80 & 15.960 & 16.235 & 11.0042 & 5.59
+	%Expected occurrence & 0.13 & 0.26 & 0.27 & 0.18 & 0.09
+\end{tabular}
+Finally, we compute the weighted squared differences 
+\[\chi^2=\frac{(7.80-8)^2}{7.80}+\dots=3.0313\]
+and we make a conclusion, that $\chi^2<\chi^2_{3,0.05}=7.81$.
+\begin{prob} Problem 2\end{prob}
+We compute expected cell frequencies by $E_{ij}=\frac{
+\end{document}

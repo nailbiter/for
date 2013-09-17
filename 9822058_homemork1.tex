@@ -1,0 +1,105 @@
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+%Problem 14
+%Problem 17
+%Problem 24
+%Problem 27
+%Problem 33
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\newtheorem{prob}{Problem}
+
+\newenvironment{solution}%
+{\par\textbf{Solution}\space }%
+{\par}
+
+\title{Introduction to Networks\\Homework 1}
+\author{歐立思\\
+9822058\\Department of Applied Mathematics}
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+\begin{prob}
+	Exercise 14
+\end{prob}
+\begin{solution}
+\begin{enumerate}[(a)]
+	\item{Since we know speed and the distance that the data will travel, we can calculate RTT simply as \[\text{RTT}=
+		2\frac{55\times10^9 \text{ m}}{3 \times 10^8 \text{ m/s}}=366.67 \text{ s}\]}
+	\item{The assume that "delay" here means "RTT" (otherwise, answer should be divided by two):\[\text{delay}\times\text{bandwidth}=
+		128\text{ kbps} \times 366.67\text{ s}=46933.76\text{ kbits}\]
+		}
+	\item{We will calculate transfer time as on page 49 of handout for the chapter 1:\[\text{transmission time}=\text{RTT}+
+		\frac{\text{transfer size}}{\text{bandwidth}}=366.67\text{ s}+\frac{5\times8\times10^6\text{ bits}}{128 \times 10^3\text{ bits}}=
+		679.17\text{ s}\]
+		}
+\end{enumerate}
+\end{solution}
+\begin{enumerate}[(a)]
+	\item{\[\text{latency}=2(10\times10^{-6}\text{ sec}+\frac{5000\text{ bits}}{10^{9}\text{ bps}})=30 \mu\text{s}\]
+		}
+	\item{\[\text{latency}=4(10\times10^{-6}\text{ sec}+\frac{5000\text{ bits}}{10^{9}\text{ bps}})=60 \mu\text{s}\]
+		}
+	\item{To simplify our understanding of the problem and facilitate computations we virtually will separate the packet on two pieces: 
+		we consider time it takes for the small part of the message (say, only first bit) to reach the destination and then calculate
+		time it takes from the receiving of the first piece to the receiving of the second piece. As for the second part, it is simple:
+		it will take only transmission time (that is, ratio of message size to bandwidth) because the message is \textit{continuous}, that
+		is when first bit have arrived, it means that second is almost arrived etc. Now, let's calculate what time it takes for the
+		first bit to reach the destination. This bit will experience all the propagation delays (for 4 channels) and also will
+		have to wait in the three switches - in each switch it will spend time equal to transmission time of 128 bits. Putting these
+		considerations into the numbers, we get the following: \[\text{latency}=
+		4\times10\times10^{-6}\text{ sec}+3\frac{128\text{ bits}}{10^{9}\text{ bps}}+\frac{5000\text{ bits}}{10^{9}\text{ bps}}=45.38\mu
+		\text{s}\]
+		}
+\end{enumerate}
+
+\begin{prob}
+	Exercise 17
+\end{prob}
+\begin{solution}
+	As we know in general, \[\text{data}=\text{delay}\times\text{bandwidth}=\frac{\text{distance}}{\text{propagation speed}}\times
+	\text{bandwidth}\]
+	Therefore, for the first case \[\text{distance}=\frac{1500\text{ bits}\times2\times10^8\text{ m/s}}{100\times10^6\text{ bps}}=
+	3000\text{ m}=3\text{ km}\]
+	For the second case \[\frac{\text{distance}}{\text{propagation speed}}=\frac{\text{data}}{\text{bandwidth}}\]
+	\[\frac{100n\text{ m}}{2\times{10^8}\text{ m/s}}=\frac{10\times \lfloor n \rfloor+1500\text{ bits}}{100\times10^6\text{ bps}}\]
+	where $\lfloor n \rfloor$ means the floor of $n$ (that is, the biggest integer number that is not bigger than $n$)
+	\[ 10^{10} n=2\times10^9\lfloor n\rfloor + 3\times 10^{11}\]
+	For the purpose of getting estimation for $n$, let's omit the floor on the right hand side and solve
+	\[ 10^{10} n=2\times10^9 n + 3\times 10^{11}\implies n=37.5\]
+	Consequently, let's try $n=37+\alpha,\;0\leq\alpha<1$
+	\[ 10^{10} (37+\alpha)=2\times10^9 \times37 + 3\times 10^{11} \implies \alpha=0.4\]
+	Therefore, $n=37.4$ and $\text{length}=3740\text{ m}$
+\end{solution}
+\begin{prob}Exercise 27\end{prob}
+\begin{solution}
+	In all derivations below we neglect RTT in compare with the transmission time
+	\begin{enumerate}[(a)]
+		\item{\[\text{bandwidth}=\frac{\text{data}}{\text{time}}=\frac{1920\times1080\times24\text{ bits}}{1/30\text{ s}}=
+			1493\text{ Mbps}\]}
+		\item{\[\text{bandwidth}=\frac{\text{data}}{\text{time}}=\frac{8\text{ bits}}{1/8\times10^{-3}\text{ s}}=64\text{ Kbps}\]
+			}
+		\item{\[\text{bandwidth}=\frac{\text{data}}{\text{time}}=\frac{260\text{ bits}}{1/50\text{ s}}=13\text{ Kbps}\]
+			}
+		\item{\[\text{bandwidth}=\frac{\text{data}}{\text{time}}=24\text{ bits}\times88.2\times 10^3\text{ s}^{-1}=2.1168\text{ Mbps}\]
+			}
+	\end{enumerate}
+\end{solution}
+\begin{prob}Exercise 33\end{prob}
+	\begin{solution}
+		Modified codes are attached and also listed below for the sake of completeness:\\
+		\texttt{simplex-talk.c} (client)\\
+		\lstinputlisting[language=C]{../forc/simplex-talk.c}
+		\texttt{simplex-talk-server.c} (server)\\
+		\lstinputlisting[language=C]{../forc/simplex-talk-server.c}
+	\end{solution}
+\end{document}

@@ -1,0 +1,90 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+
+\title{Advanced Calculus, Exercise 15}
+\begin{document}
+\maketitle
+\begin{enumerate}
+\item{
+Since $f$ is differentiable, it is continuous, then $|f|$ is also so and since $[0,1]$ is compact, we may let $\displaystyle m=\max_{x\in[0,1]}|f(x)|$ and
+moreover $B:=\{x\in[0,1]\mid |f(x)|=m\}\neq \emptyset$. Assume, seeking a contradiction, that $m>0$, then $0\notin B$ and $B$ is closed (since $|f|$ is continuous)
+, hence $\displaystyle x:=\inf_{x\in B} x\in B$ and $x>0$. By mean-value theorem, 
+\[\exists c\in (0,x) \mid f'(c)=f(x)/x\implies |f(c)|\geq|f'(c)|=|f(x)|/x\geq |f(x)|\implies |f(c)|\geq |f(x)|,\;c<x\]
+thus contradicting our choice of $x$. This contradiction finishes the proof.
+}
+\item{
+As $f$ is $C^2$ function, and $(a,b)$ is strict local maximum, matrix
+\[D:=\begin{bmatrix}
+\frac{\partial^2 f}{\partial x^2}(a,b) && \frac{\partial^2 f}{\partial x\partial y}(a,b)\\
+\frac{\partial^2 f}{\partial y \partial x}(a,b) && \frac{\partial^2 f}{\partial y^2}(a,b) \\
+\end{bmatrix}\]
+may not have positive eigenvalues. Furthermore, as
+\[\left(0=\frac{\partial^2 f}{\partial x^2}(a,b)+\frac{\partial^2 f}{\partial y^2}(a,b)\right)^2\implies\]
+\[\frac{\partial^2 f}{\partial x^2}(a,b)\frac{\partial^2 f}{\partial y^2}(a,b)=
+-\frac{1}{2}\left(\frac{\partial^2 f}{\partial y^2}(a,b)\right)^2-\frac{1}{2}\left(\frac{\partial^2 f}{\partial x^2}(a,b)\right)^2\leq 0
+\]
+Finally, as $f$ is $C^2$, $\frac{\partial^2 f}{\partial y \partial x}=\frac{\partial^2 f}{\partial x \partial y}$and we have
+\[\det D=\frac{\partial^2 f}{\partial x^2}(a,b)\frac{\partial^2 f}{\partial y^2}(a,b)-\left(\frac{\partial^2 f}{\partial y \partial x}(a,b)\right)^2\leq 0\]
+Negative determinant would mean that we have two eigenvalues of opposite sign, hence one positive. Since latter cannot happen by assumption, $\det D$ should be zero.
+Expecting inequalities we see, that the only way it may happen if
+\[\frac{\partial^2 f}{\partial x \partial y}(a,b)=\frac{\partial^2 f}{\partial y \partial x}(a,b)=\frac{\partial^2 f}{\partial x^2}(a,b)=\frac{\partial^2 f}{\partial y^2}(a,b)=0\]
+}
+\item{
+\begin{enumerate}[label=(\alph*)]
+\item{Both determinant and trace are positive, so both eigenvalues are positive, hence matrix is positive-definite}
+\item{Determinant positive, trace is negative, hence both eigenvalues are negative and matrix is negative-definite
+}
+\item{Determinant is negative (-25) and hence matrix has both positive and negative eigenvalues and hence is neither positive, nor negative
+}
+\item{Matrix is diagonal with eigenvalues -1,0 and 1, so neither positive, nor negative}
+\item{Characteristic equation of matrix is
+\[\begin{vmatrix}
+\lambda-1 & 0 & -3 & 0\\
+0 & \lambda-2 & 0 & -5\\
+-3 & 0 & \lambda-4 & 0\\
+0 & -5 & 0 & \lambda-6
+\end{vmatrix}=(\lambda-1)\begin{vmatrix}
+\lambda-2 & 0 & -5\\
+0 & \lambda-4 & 0\\
+-5 & 0 & \lambda-6
+\end{vmatrix}-3\begin{vmatrix}
+0 & -3 & 0\\
+\lambda-2 & 0 & -5\\
+-5 & 0 & \lambda-6
+\end{vmatrix}=
+\]
+\[=(\lambda-1)(\lambda-4)\begin{vmatrix}
+\lambda-2 & -5\\
+-5 & \lambda-6
+\end{vmatrix}-9\begin{vmatrix}
+\lambda-2 & -5\\
+-5 & \lambda-6
+\end{vmatrix}=(\lambda^2-5\lambda-5)(\lambda^2-8\lambda-13)
+\]
+Now, first of these quadratic polynomials has negative constant term, which implies existence of two roots with opposite sign. Hence, among the eigenvalues of a matrix there are both
+positive and negative, hence it is neither positive, nor negative.
+}
+\end{enumerate}
+}
+\item{
+Let us start with critical points. $\partial f/\partial x=3x^2-3,\;\partial f/\partial y=3y^2-12$. Requiring that both partials should simultaneously vanish, we end up with 4 choices:
+$(\pm 1,\pm 2)$ (all combinations possible). These are critical points. Inspecting Hessian, which is \[H=\begin{bmatrix}6x & 0\\0& 6y\\\end{bmatrix}\], we see that among these
+4 critical points, $(1,2)$ is local minimum, $(-1,-2)$ is local maximum and other two are saddles.
+}
+\end{enumerate}
+\end{document}

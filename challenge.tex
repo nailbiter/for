@@ -1,0 +1,295 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%for Re and Im like in the book
+\renewcommand\Re{\operatorname{Re}}
+\renewcommand\Im{\operatorname{Im}}
+
+%custom commands to save typing
+\newcommand{\mynorm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\myset}[1]{\left\{#1\right\}}
+\newcommand{\myexponent}[1]{e^{#1 i\theta}}
+\newcommand{\questionA}[1]{\noindent\textbf{Question A #1}\par}
+\newcommand{\questionB}[1]{\noindent\textbf{Question B #1}\par}
+
+%put subscript under lim and others
+\let\oldlim\lim
+\renewcommand{\lim}{\displaystyle\oldlim}
+\let\oldmin\min
+\renewcommand{\min}{\displaystyle\oldmin}
+\let\oldmax\max
+\renewcommand{\max}{\displaystyle\oldmax}
+
+\newtheorem*{prob}{Question}
+%\newcommand{\questionA}[1]{\noindent\textbf{Question A #1}\\}
+
+\title{Problem Sets}
+\author{Alex Leontiev}
+\begin{document}
+\maketitle
+\questionA{1}
+\indent In this question I will denote the scalar product of two column vectors as $a\cdot b$.
+\begin{enumerate}[label=(\arabic*)]
+\item{To begin with, $A(u)u=u-2\cdot u\cdot (^t u u)=u-2\cdot u=-u$, so $-1$ is an eigenvalue of 
+$A(u)$ with multiplicity at least $1$ ($^tu u=1$, because $^tu u=u\cdot u=\mynorm{u}=1$ by hypothesis).
+
+Now, as $\dim\{\lambda u,\;\lambda\in\mathbb{R}\}=1$ we have $\dim\{\lambda u\}^\perp=2$. Therefore, we can
+take two linearly independent vectors $a,b\in\mathbb{R}^3$, such that $a\cdot u=b\cdot u=0$. Then,
+$A(u)a=a-2u \cdot (^tu a)=a-2u\cdot 0=a$. Similarly, $A(u)b=b$ and we see that $1$ is an eigenvalue with multiplicity at least 2.
+
+As sum of multiplicities cannot exceed $\dim\mathbb{R}^3=3$, we see that the only eigenvalues are: $1$ (with multiplicity 2) and $-1$
+(with multiplicity 1). By the way, as $a$ and $b$ can be taken orthogonal, $a,\;b$ and $u$ will form orthonormal basis and since
+$A(u)$ does not change length of these, it does not change length of any argument.
+}
+\item{We claim that $A(u)A(v)$ is the rotation about $a:=^t \begin{pmatrix}1&1&1\end{pmatrix}$. Note, that $a\cdot u=a\cdot b=0$.
+Therefore, $A(u)A(v)a=A(u)a=a$ - axis is fixed. Now, let us denote the 2-dimensional space of vectors, perpendicular to $a$ by $W$ (keep in mind,
+that it is spanned by $u$ and $v$). Now, it can be directly verified that $u+\frac{1}{2}v:=a\perp v,\;v+\frac{1}{2}u:=b\perp u$. Therefore,
+\[A(u)v=A(u)(b-\frac{1}{2}u)=b+\frac{1}{2}u=v+u\]
+\[A(v)u=A(v)(a-\frac{1}{2}v)=a+\frac{1}{2}v=v+u\]
+Consequently,
+\[A(u)A(v)u=A(u)(v+u)=v\in W\]
+Similarly, $A(u)A(v)v=u\in W$ and thus $W$ is a 2-dimensional invariant space for $A(u)A(v)$. Finally, from previous item, $A(u)$ (and similarly
+$A(v)$) does not change length, hence neither does $A(u)A(v)$. 
+
+As $A(u)A(v)u\cdot u=v\cdot u=-\frac{1}{2}=\cos2\pi/3$ and similarly $A(u)A(v)v\cdot v=-\frac{1}{2}=\cos2\pi/3$. Therefore, operator rotates
+both $u$ and $v$ (and hence any member of $W$) on $2\pi/3$. Finally, the sign of rotation is determined as 
+"+"
+since $A(u)A(v)u=v$ and $a,\;u,\;v$ form a right-hand triple (determined by taking scalar triple product)
+}
+\end{enumerate}
+\questionA{2}
+\begin{enumerate}[label=(\arabic*)]
+\item{We shall denote $\gamma_k:=\frac{1}{k}-\log k$. Note, that
+\[\gamma_{k+1}-\gamma_k=\frac{1}{k+1}-(\log{k+1}-\log {k}=\frac{1}{k+1}-\int_k^{k+1}\frac{dx}{x}\]
+As $\frac{1}{x}$ is positive and decreasing on $(0,+\infty)$, $\int_k^{k+1}\frac{dx}{x}\geq \int_k^{k+1}\frac{dx}{k+1}=\frac{1}{k+1}$, so
+$\gamma_{k+1}-\gamma_k\leq 0$ and $\gamma_k$ form a non increasing sequence of real numbers.
+
+Furthermore, $\gamma_n=\sum_{k=1}^n\frac{1}{k}
+-\log n=1+\sum_{k=2}^n(\frac{1}{k}-(\log k-\log (k-1)))$. As was shown above, $(\frac{1}{k}-(\log k-\log (k-1)))
+\geq 0$ and therefore $\gamma_n\geq 0$ is non increasing sequence of nonnegative numbers. Therefore, $\gamma_n\to C\in\mathbb{R}$.
+}
+\item{Define $H_n:=\sum_{k=1}^n\frac{1}{k}$. Then, $H_n=\log n+\gamma_n$ and
+$B_n=H_n/2,\;A_n=H_{2n}-B_n=H_{2n}-H_n/2$. Consequently,
+\[\lim_{n\to\infty}(A_{pn}-B_{qn})=\lim_{n\to\infty}(\log(2pn)+\gamma_{2pn}-\frac{1}{2}\log (pn)-\frac{1}{2}\gamma_{pn}
+-\frac{1}{2}\log(qn)-\frac{1}{2}\gamma_{qn})=\]
+\[=C-\frac{1}{2}C-\frac{1}{2}C+\lim_{n\to\infty}(\log(2pn)-\frac{1}{2}\log(pn)-\frac{1}{2}\log(qn))=\log 2+\frac{1}{2}\log\frac{p}{q}\]
+}
+\end{enumerate}
+\questionA{4}
+Let us show briefly, that $f(z)$ is indeed holomorphic on $D$. As $\frac{1}{1-z^2}$ has only one pole in $D$ - at $z=1$, we need to ensure
+proper behaviour only there. However, as this pole is exactly of the first order and $\log 1=0$ and $\log z$ is holomorphic in $D$, it has 
+zero of at least first order at $z=1$ and therefore ratio is bounded in punctured neighborhood of $z=1$, hence singularity is removable.
+\begin{enumerate}[label=(\arabic*)]
+\item{\begin{gather*}
+\Re\int_C f(z)=\Re \int_0^{\pi/2} \frac{e^{i\theta}\log e^{i\theta}}{1-e^{2i\theta}}ie^{i\theta}d\theta=
+\Re\int_0^{\pi/2}\frac{\myexponent{}i\theta i}{\myexponent{-}-\myexponent{}}d\theta=\\
+=\Re\int_0^{\pi/2}\frac{(\cos\theta+i\sin\theta)\theta}{2i\sin\theta}d\theta=\frac{\pi^2}{16}
+\end{gather*}
+}
+\item{
+We shall integrate function $f(z)$ given above on the closed contour in $D$, given on the picture below
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{/home/nailbiter/Pictures/util/hosono}
+\end{figure}
+}
+Contour consists of 4 parts: arc, $C$, mentioned in previous item, which we shall denote as $1$ for brevity, segment $2$ from $i$ to $i\epsilon$
+(denoted by $2$), arc from $i\epsilon$ ($3$) to $\epsilon$ and segment from $\epsilon$ to $1$, denote by $4$. To begin with, although $\log z$
+is unbounded near $0$, $z\log z$ is bounded and moreover tends to $0$ as $z\to 0$. Therefore, by taking $\epsilon$ very small we may neglect
+integral on part $3$ and make $0$ an endpoint of segments $2@$ and $4$, interpreting integral as limit in $\epsilon\to0$. Now, as $f$ is 
+holomorphic on $D$, residue theorem tells us that $\int_1 f(z)dz+\int_2f(z)dz+\int_4f(z)dz=0$. In particular,
+\[\Re\int_2f(z)dz+\Re\int_4f(z)dz=-\Re\int_1f(z)dz=-\frac{\pi^2}{16}\]
+Now,
+\[\Re\int_2f(z)dz=\Re\int_1^0 \frac{it\log it}{1-(it)^2}idt=\Re\int_0^1\frac{t(\log t+\log i)}{1+t^2}dt=\int_0^1\frac{t\log t}{1+t^2}dt\]
+as $\log i=i\frac{\pi}{2}$. Furtermore,
+\[\Re\int_4f(z)dz=\int_0^1\frac{t\log t}{1-t^2}dz\]
+Therefore
+\[-\frac{\pi^2}{16}=\int_0^1t\log t \left(\frac{1}{1-t^2}+\frac{1}{1+t^2}\right)dz=\int_0^1 \frac{2t\log t}{1-t^4}dt\]
+And hence
+\[\int_0^1\frac{t\log t}{1-t^4}=-\frac{\pi^2}{32}\]
+
+Continuing, $\Im\int_1 f(z)dz+\Im\int_2f(z)dz+\Im\int_4f(z)dz=0$ and since, as we have seen in previous item, $\Im\int_1f(z)dz=
+\Im\int_Cf(z)dz=-\frac{1}{2}\int_0^{\pi/2}\frac{\theta\cos\theta}{\sin\theta}d\theta$, we have
+\[\int_0^{\pi/2}\frac{\theta\cos\theta}{\sin\theta}d\theta=2\Im\int_2f(z)dz+2\Im\int_4f(z)dz\]
+As we have seen above $\Im\int_4f(z)dz=0$ and
+\[\Im\int_2f(z)dz=\int_0^1\frac{t\frac{\pi}{2}}{1+t^2}dt\]
+Therefore,
+\[\int_0^{\pi/2}\frac{\theta\cos\theta}{\sin\theta}d\theta=\pi\int_0^1\frac{t}{1+t^2}dt=\frac{\pi}{2}\log(1+t^2)\mid_0^{1}=\frac{\pi\log2}{2}\]
+\end{enumerate}
+\questionA{5}
+\begin{enumerate}[label=(\arabic*)]
+\item{Let us employ proof by contradiction. Assume that $\mathbb{R}\in x_n\to x_0$, but $f_{\sup}(x_n)$ does not converge to $f_{\sup}(x_0)$.
+As $f(x,y)$ is assumed to be bounded, $f_{\sup}(x_n)\in[-M,M]$ for some $M$. As $[-M,M]$ is compact, $f_{\sup}(x_n)$ contains convergent
+subsequence (that does not converge to $f_{\sup}(x_0)$ as the whole sequence does not) and by passing to subsequence we may assume
+$f_{\sup}(x_n)\to L\neq f_{\sup}(x_0)$.
+ Without loss of generality we assume $f_{\sup}(x_0)<L$. Therefore, for big $n$ (and by passing to subsequence we may assume
+for all $n$) $f_{\sup}(x_n)>f_{\sup}(x_0)+\epsilon$ for some $\epsilon>0$. Therefore, by definition of $\sup$, there is $y_n\in I=[0,1]$,
+such that $f(x_n,y_n)>f_{\sup}(x_0)+\epsilon/2$. As $I$ is compact, $y_n$ contains convergent subsequence, and by passing to it, we may assume
+$y_n\to y_0\in I$. Therefore, by continuity of $f(x,y)$, $f(x_n,y_n)\to f(x_0,y_0)>f_{\sup}(x_0)$, which contradicts the very definition of
+$f_{\sup}(x_0)$.
+}
+\item{
+Let us consider continuous bounded function $f:\mathbb{R}\times (0,1]\ni(x,y)\mapsto \max\{\myabs{x},1\}^y\in\mathbb{R}$. However, 
+$\forall x\in(0,1)f_{\sup}(\frac{x})=1$, as $\lim_{n\to\infty}x^{\frac{1}{n}}=1$, whereas $f(0,y)=0\implies f_{\sup}(0)=0$, which shows
+that $f_{\sup}(x)$ is not continuous at $x=0$.
+}
+\end{enumerate}
+\questionB{1}
+\questionB{2}
+	We shall employ Proposition $(5.12)$ from Artin's "Algebra", that tells us which manipulations can be done on $A$ so that $\mathbb{Z}^/
+	\Im L_A$ does not leave its original isomorphism class.
+\begin{enumerate}[label=(\arabic*)]
+\item{Let us transform $A$
+	\begin{gather*}
+		\begin{bmatrix}
+			4&6&4\\6&24&18\\16&6&10\\1&3&15
+		\end{bmatrix}\tag{original matrix}\\
+		\begin{bmatrix}
+			0&-6&-56\\0&6&-72\\0&-42&-230\\1&3&15
+		\end{bmatrix}\tag{row operations}\\
+		\begin{bmatrix}
+			-6&-56\\6&-72\\-42&-230
+		\end{bmatrix}\tag{remove row and column}\\
+		\begin{bmatrix}
+			6&56\\0&128\\0&162
+		\end{bmatrix}\tag{row operations}\\
+		\begin{bmatrix}
+			6&56\\0&4\\0&0
+		\end{bmatrix}\tag{row operations}\\
+		\begin{bmatrix}
+			6&0\\0&4\\0&0
+		\end{bmatrix}\tag{row operations}\\
+	\end{gather*}
+	Thus, $\mathbb{Z}^4/L_A\simeq \mathbb{Z}_6\times\mathbb{Z}_4\times\mathbb{Z}$
+	}
+\item{(i)$\implies$(ii). By choosing a basis, we assume that $M=\mathbb{Z}^m$ and $N=\mathbb{Z}^n$.
+	As $f:M\mapsto N$ is injective,$m\leq n$.
+	If $N/f(M)$ is free, it has linearly independent finite generating set - basis $[e_1],[e_2],\dots,[e_k]\in
+	N/f(M)$ ($[\cdot]$ denote the equivalence class in $N/f(M)$). Let $f=L_A$, where
+	$A=\begin{bmatrix}v_1&v_2&\cdots& v_l\end{bmatrix}$, $v_i$ - column vectors. Note, that as
+		$[e_j]$ span $N/f(M)$ and $v_i$ span $f(M)$, we have that altogether these span $N$. Also, they are linearly independent,
+		for if $\sum_i\alpha_iv_i+\sum_j\beta_je_j=0$, we have $\sum_j\beta_je_j\in f(M)\implies\sum\beta_j[e_j]=[0]\implies \beta_j=0$,
+		as $[e_j]$ are linearly independent by assumption (they are basis). Therefore, $\sum_i\alpha_iv_i=0$. By hypothesis,
+		$f$ is injective, hence $v_i$ are linearly independent and $\alpha_i=0$. Thus, altogether $v_i$ and $e_j$ for basis
+		on $N$, hence $k+l=n$ and the matrix
+		\[\tilde{A}:=\begin{bmatrix}v_1&v_2&\cdots&v_l&e_1&e_2&\cdots&e_k\end{bmatrix}\]
+		is injective and surjective, hence invertible. Therefore, its row vectors span $\mathbb{Z}^n$ and
+		in particular row vectors of $A$ span $M^*=\mathbb{Z}^m$, hence $f^*=L_{A^*}$ is surjective.
+
+	(ii)$\implies$(i). Let $f=L_A$. Then $f^*=L_{A^*}$. If $f^*$ is surjective, this means that columns of $A^*$, that is,
+	rows of $A$ span $\mathbb{Z}^{\dim M}$. Consequently, by applying row operations $A$ can be brought to the form
+	\[A'=\begin{bmatrix}
+		1&0&0&\cdots&0&0\\
+		0&1&0&\cdots&0&0\\
+		\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+		0&0&0&\cdots&0&1\\
+		0&0&0&\cdots&0&0\\
+		\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+		0&0&0&\cdots&0&0
+	\end{bmatrix}
+	\]
+	According to the result, used in previous item, this implies that $N/f(M)$ is a free module.
+	}
+\end{enumerate}
+\questionB{3}
+\begin{enumerate}[label=(\arabic*)]
+\item{We shall define the function $\psi:\mathbb{R}^4\ni(x,y,z,w)\mapsto (2x^2+2-2z^2-w^2,3x^2+y^2-z^2-w^2)$
+	Note, that $\psi$ is smooth and $M=\psi^{-1}(\{(0,0)\})$. Then,
+	\[d\psi(p)=\begin{bmatrix}4x&0&-4z&-2w\\6x&2y&-2z&-2w\end{bmatrix}\]
+	We claim that $d\psi(p)$ is onto $\mathbb{R}^2$ for $\forall p\in M$. It is onto if and only if row-vectors are linearly independent,
+	which we shall demonstrate. If $d\psi(p)$ is singular, then all square matrices formed by taking any two columns of $d\psi(p)$
+	would be singular, hence determinants would be equal to zero. This implies that $xy=xz=xw=yz=yw=zw=0$. This implies that at least
+	3 out of 4 variables $x,\;y,\;z$ or $w$ should vanish. However, if $p=(x,y,z,w)\in M$, then $3x^2+y^2-z^2-w^2$, and hence
+	vanishing of any 3 variables will imply the vanishing of the fourth one, which in turn violates the condition $2x^2+2-2z^2-w^2=0$, thus
+	yielding a contradiction. 
+	
+	Hence for $\forall p\in M$, $d\psi(p)$ is onto $\mathbb{R}^2$, hence $(0,0)$ is the regular value of $\psi$
+	and therefore by pre-image theorem $M=\psi^{-1}(\{(0,0)\})$ is 2 dimensional submanifold of $\mathbb{R}^4$.
+	}
+\item{Note, that $M=\{(x,y,z,w)\in\mathbb{R}^4\mid 4x^2+2y^2-2=w^2,\;x^2+y^2=2-z^2\}$, as
+	\[\begin{bmatrix}-1&2\\-1&1
+	\end{bmatrix}\begin{bmatrix}
+	2x^2+2-2z^2-w^2\\3x^2+y^2-z^2-w^2
+	\end{bmatrix}=\begin{bmatrix}
+	4x^2+2y^2-2-w^2\\x^2+y^2-2+z^2
+	\end{bmatrix}\]
+	And $\begin{bmatrix}-1&2\\-1&1\end{bmatrix}$ is invertible in $\mathbb{Z}$, as its determinant is unit in $\mathbb{Z}$.
+
+	Therefore, $(x,y,z,w)\in M\iff 2x^2+y^2\geq 1$ and $x^2+y^2\leq 2$. Note, that both expressions determining $M$ and $F$ involve
+	only squares of variables and furthermore $z^2$ and $w^2$ are determined by $x^2$ and $y^2$. This leads to the following conclusion
+	\begin{gather}
+		(X,Y)\in A_0:=\{X+Y>2\}\cup\{2x^2+y^2<1\}\cup\{X<0\}\cup\{Y<0\}\implies\myabs{F^{-1}(\{(X,Y)\})}=0\\
+		(X,Y)\in A_1:=\{2,0),(0,2))\}\implies\myabs{F^{-1}(\{(X,Y)\})}=4\\
+		(X,Y)\in A_2:=\{X+Y=2\}\setminus (A_1\cup A_0)\implies\myabs{F^{-1}(\{(X,Y)\})}=8\\
+		(X,Y)\in A_3:=\{XY=0\}\setminus A_0\implies\myabs{F^{-1}(\{(X,Y)\})}=8\\
+		(X,Y)\in A_4:=\mathbb{R}^2\setminus(\overline{A_0}\cup A_3)\implies\myabs{F^{-1}(\{(X,Y)\})}=16\\
+		(X,Y)\in A_5:=\{0,1),(\frac{1}{2},0))\}\implies\myabs{F^{-1}(\{(X,Y)\})}=4\\
+		(X,Y)\in A_6:=\{2X+Y=1\}\setminus(A_0\cup A_5)\implies\myabs{F^{-1}(\{(X,Y)\})}=8\\
+	\end{gather}
+	}
+\item{Yes, $M$ is compact. As it is subset of $\mathbb{R}^4$ it is enough to show it is closed and bounded. It is closed, as $\{(0,0)\}\in\mathbb{R}
+	^2$ is closed, $\psi:\mathbb{R}^4\mapsto\mathbb{R}^2$ is continuous and $M=\psi^{-1}(\{(0,0)\})$. Also, as $\forall p=(x,y,z,w)\in M$
+	we have $x^2+y^2+z^2=2$ (see previous item) $x-,\;y-$ and $z-$coordinates of points in $M$ are bounded. As $w^2=4x^2+2y^2-2$, $w-$coordinate
+	is also bounded, hence $M\subset\mathbb{R}^4$ is bounded and thus compact.
+	}
+\item{I am probably expected to use Gauss-Bonnet theorem, that says that Euler characteristic is proportional to the total integral of Gaussian
+	curvature, as long as we work with compact Riemannian manifold, but I do not know how to define Gaussian curvature for surfaces that
+	are embedded not in $\mathbb{R}^3$, but in higher dimensions.
+	}
+\end{enumerate}
+\questionB{4}
+\begin{enumerate}[label=(\arabic*)]
+\item{
+	\newcommand{\mydxyz}{dx\wedge dy\wedge dz}
+	\[d\omega:=\mydxyz -2f(y)\mydxyz +2zf'(y)\mydxyz +yf'(y)\mydxyz f(y)\mydxyz=\]\[=(1-f(y)+2zf'(y)+yf'(y))\mydxyz\]
+	As we want $d\omega=\mydxyz$, we need
+	\[2zf'+yf'=f\]
+	Using separation of variables we get
+	\[\frac{df}{f}=\frac{dy}{2z+y}\]
+	\[f=C(2z+y)\]
+	And as we have initial condition $f(1)=1$, we conclude \[f(y)=\frac{2z+y}{2z+1}\]
+}
+\item{
+	\newcommand{\mya}{\sin\theta\cos\phi}
+	\newcommand{\myb}{\sin\theta\sin\phi}
+	\newcommand{\myc}{\cos\theta}
+	The equation for $S$ can be rewritten as
+	\[(x-y)^2+(y-z)^2+(x-z)^2=1\]
+	which is very reminiscent of sphere $\mathbb{S}^2$,
+	which can be covered almost completely by spherical coordinates parametrization
+	. Indeed, this is unit sphere in coordinates $\psi(a,b,c)=(x-y,y-z,x-z)$.
+
+	Therefore, two are diffeomorphic via $\psi$. Moreover, as $d\psi$ is orientation preserving (since $\det d\psi=2>0$), 
+	it is enough to describe orientation on $\mathbb{S}^2$. For each $x=(a,b,c)\in\mathbb{S}^2$, we 
+	declare basis $u_1,u_2\in T_x\mathbb{S}^2$ as positively-oriented, if $(u_1,u_2,n:=(a,b,c))$ form a right-triple. As
+	$n$ varies smoothly, this defines an orientation. Moreover, the spherical coordinates parametrization $\Psi:
+	U:=(0,\pi)\times(0,2\pi)\ni(\theta,\phi)\mapsto(\mya,\myb,\myc)$ is orientation-preserving, as
+	\[\Psi_\theta\times\Psi_\phi=\begin{vmatrix}i&j&k\\
+		\cos\theta\cos\phi&\cos\theta\sin\phi&-\sin\theta\\
+		-\sin\theta\sin\phi&\sin\theta\cos\phi&0
+	\end{vmatrix}=\sin\theta\cdot n,\;\sin\theta>0\]
+
+	As $\psi^{-1}$ is orientation-preserving,
+	\[\int_S\omega=\int_{\mathbb{S}^2}(\psi^{-1})^*\omega=\int_{\mathbb{B}^3} d(\psi^{-1})^*\omega=\]
+	\[=\int_{\mathbb{B}^3}(\psi^{-1})^* d\omega=\int_{\mathbb{B}^3}(\psi^{-1})^*
+	{dx\wedge dy\wedge dz}=\frac{1}{8}\int_{\mathbb{B}^3}(da+db-dc)\wedge(da+dc-db)\wedge(db+dc-da)=\]
+	\[=\int_{\mathbb{B}^3}dadbdc=\frac{4}{3}\pi\]
+	}
+\end{enumerate}
+\end{document}

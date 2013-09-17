@@ -1,0 +1,119 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\newtheorem{prob}{Problem}
+
+\newenvironment{solution}%
+{\par\textbf{Solution}\space }%
+{\par}
+
+\title{Homework 4\\
+Numerical Analysis}
+\author{Igor Tereshkov\\9722056\\Department of Applied Mathematics\\National Chiao Tung University}
+
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+
+\newcommand{\poo}[1]{\ensuremath{\frac{|x_{#1}|}{|x_i|}}}
+
+\begin{prob}\end{prob}
+\begin{solution}
+	Proof by contradiction. Assume that $A$ is singular, that is $\exists \vec{x}\in\mathbb{R}^n$ such that $A\vec{x}=\vec{0}$ and moreover
+	$\vec{x}\neq\vec{0}$. From the latter, if we select $i\in\{1,\dots,n\}$, such that $|x_i|=\max_{1\leq j\leq n}|x_j|$, then $|x_i|>0$.\\
+	Moreover, for we have $(A\vec{x})_i=0$, this means
+	\[-x_iA_{i,i}=A_{i,1}x_i+\dots+A_{i,i-1}x_{i-1}+A_{i,i+1}x_{i+1}+\dots+x_nA_{i,n}\implies\]
+	\[|A_{i,i}|\leq |A_{i,1}|\poo{1}+\dots+|A_{i,i-1}|\poo{i-1}+|A_{i,i+1}|\poo{i+1}+\dots+|A_{i,n}|\poo{n}\]
+	Now, because of the way we have chosen $i$, we have $\poo{j}\leq 1$. Hence, the last inequality implies
+	\[|A_{i,i}|\leq |A_{i,1}|+\dots+|A_{i,i-1}|+|A_{i,i+1}|+\dots+|A_{i,n}|\]
+	The latter obviously contradicts to the requirement, that $A$ is strictly diagonally dominant. Contradiction.
+\end{solution}
+\begin{prob}\end{prob}
+\begin{solution}
+	Since fourth derivative exist, we may employ Taylor's series to get
+	\[f(x+h)=f(x)+hf'(x)+\frac{h^2}{2}f''(x)+\frac{h^3}{6}f^{(3)}(x)+\frac{h^4}{24}f^{(4)}(\xi)\]
+	\[f(x-h)=f(x)-hf'(x)+\frac{h^2}{2}f''(x)-\frac{h^3}{6}f^{(3)}(x)+\frac{h^4}{24}f^{(4)}(\xi')\]
+	Hence,
+	\[\frac{1}{h^2}[f(x+h)-2f(x)+f(x-h)]=f''(x)+\frac{h^2}{24}(f^{(4)}(\xi)+f^{(4)}(\xi'))\]
+	Since furthermore $f^{(4)}(x)$ is continuous, we have $f^{(4)}(\xi)+f^{(4)}(\xi')=2f^{(4)}(\xi'')$. Therefore,
+	\[\frac{1}{h^2}[f(x+h)-2f(x)+f(x-h)]=f''(x)+\frac{h^2}{12}f^{(4)}(\xi'')\]
+	Equivalently,
+	\[f''(x)=\frac{1}{h^2}[f(x+h)-2f(x)+f(x-h)]-\frac{h^2}{12}f^{(4)}(\xi'')\]
+	The latter is obviously equivalent to what we want to show.
+\end{solution}
+\begin{prob}\end{prob}
+\begin{solution}
+	\[e'(h)=\frac{h}{3}M-\frac{\epsilon}{h^2}=0\iff h=\sqrt[3]{3\epsilon/M}\]
+	Moreover, since for $0<h<\sqrt[3]{3\epsilon/M},\;e'(h)<0$ and for $h>\sqrt[3]{3\epsilon/M},\;e'(h)>0$, we immediately see
+	that $h=\sqrt[3]{3\epsilon/M}$ is a global minimum for $e(h)$ on $h>0$
+\end{solution}
+\begin{prob}\end{prob}
+\begin{solution}
+	In order to do this problem we have implemented a MATLAB procedure \texttt{myrichardson(f,x,h,TOL)}, which given function \texttt{f},
+	value \texttt{x} and initial \texttt{h} estimates $\mathtt{f}'(\mathtt{x})$ with tolerance
+	\texttt{TOL} using Richardson's extrapolation. To be more precise,
+	program sequentially computes $N_i(\mathtt{h}),\;i=0,1,\dots$ and stops when $|N_{i+1}(\mathtt{h})-N_i(\mathtt{h})|<\mathtt{TOL}$\\
+	\begin{enumerate}[label=(\alph*)]
+		\item{$\mathtt{myrichardson(@(x)log(x),3,0.1,10\textasciicircum(-3))}=0.3333$
+			}
+		\item{$\mathtt{myrichardson(@(x)tan(x),sin(0.8),0.1,10\textasciicircum(-3))}=1.7611$
+			}
+		\item{$\mathtt{myrichardson(@(x)sin(x\textasciicircum2+x/3),0,0.1,10\textasciicircum(-3))}=0.3333$
+			}
+	\end{enumerate}
+\end{solution}
+\begin{prob}\end{prob}
+\begin{solution}
+	The Romberg Integration was implemented in the MATLAB procedure \texttt{myromberg(f,a,b,n)}, which computes the \texttt{n} rows of the 
+	Romberg integration table for integral $\int_\mathtt{a}^\mathtt{b} \mathtt{f}(x)dx$. To facilitate the usage of inline functions there
+	was also written function \texttt{IFF(COND,TRUE,FALSE)} which takes as input boolean \texttt{COND} and two numbers \texttt{TRUE} and
+	\texttt{FALSE}, first of which is returned if \texttt{COND} is true, while second if \texttt{COND} is false. \texttt{IFF(COND,TRUE,FALSE)}
+	was used to define functions in questionable points as limits
+	\begin{enumerate}[label=(\alph*)]
+		\item{\texttt{ myromberg(@(x)IFF(x==0,0,sin(x)/x),0,1,7)} returned\\
+			0.420735\\
+			0.689793 0.779479\\
+			0.819514 0.862754 0.868305\\
+			0.883191 0.904417 0.907194 0.907811\\
+			0.914735 0.925250 0.926639 0.926947 0.927022\\
+			0.930434 0.935666 0.936361 0.936515 0.936553 0.936562\\
+			0.938264 0.940875 0.941222 0.941299 0.941318 0.941323 0.941324\\
+			}
+		\item{\texttt{ myromberg(@(x)IFF(x==0,0,(cos(x)-exp(x))/sin(x)),-1,1,7)} returned\\
+			-2.383394\\
+			-0.191697 0.538869\\
+			-1.182764 -1.513120 -1.649920\\
+			-1.705099 -1.879211 -1.903617 -1.907644\\
+			-1.973417 -2.062856 -2.075099 -2.077821 -2.078488\\
+			-2.109395 -2.154721 -2.160845 -2.162206 -2.162537 -2.162619\\
+			-2.177841 -2.200656 -2.203719 -2.204399 -2.204565 -2.204606 -2.204616\\
+			}
+		\item{In last subproblem we were forced to rewrite integral as
+			\[\int_1^\infty=(xe^x)^{-1}dx=\int_0^1 \frac{e^{-1/t}}{t}dt\]
+			via the substitution $t:=1/x$ in order to bring the integral to the finite boundaries\\
+			\texttt{myromberg(@(x)IFF(x==0,0,exp(-1/x)/x),0,1,7)} returned\\
+			0.183940\\
+			0.227305 0.241760\\
+			0.219834 0.217344 0.215716\\
+			0.219351 0.219190 0.219313 0.219370\\
+			0.219384 0.219394 0.219408 0.219410 0.219410\\
+			0.219384 0.219384 0.219383 0.219383 0.219383 0.219383\\
+			0.219384 0.219384 0.219384 0.219384 0.219384 0.219384 0.219384\\
+			}
+	\end{enumerate}
+\end{solution}
+\end{document}

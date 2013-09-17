@@ -1,0 +1,51 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%custom commands to save typing
+\newcommand{\mynorm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\myset}[1]{\left\{#1\right\}}
+
+%put subscript under lim and others
+\let\oldlim\lim
+\renewcommand{\lim}{\displaystyle\oldlim}
+\let\oldmin\min
+\renewcommand{\min}{\displaystyle\oldmin}
+\let\oldmax\max
+\renewcommand{\max}{\displaystyle\oldmax}
+
+\newtheorem*{prob}{Question}
+
+\title{Exponentially dichotomous linear systems of differential equations}
+\author{Author: Oleksii Leontiev}
+\date{}
+\begin{document}
+\maketitle
+The exponential dichotomy is a phenomenon which occurs in systems of linear homogeneous
+differential equations $\dot{x}=A(t)x$ on $\mathbb{R}^n$. What it essentially means is that
+phase space decomposes into two subspaces (hence the name "dichotomy"), and the solutions that start in one of these subspaces
+very clear asymptotic behaviour: they grow exponentially as $t\to+\infty$ and decay exponentially as $t\to-\infty$, while those starting
+in the other one exhibit opposite behaviour (grow as $t\to-\infty$ and decay as $t\to+\infty$).
+
+Dichotomy thus is a natural extension of the idea of hyperbolicity to non-autonomous systems and the current work aimed at collecting together
+in one place fundamental properties related to exponential dichotomy, that are currently spread in the literature around. Besides, there
+was some work done in simplifying the proofs of results and expressing them in strict logical order to facilitate understanding. Unfortunately,
+essentially no new results were found (besides several almost obvious remarks)
+ and this work is mostly reviewing. However, the author did construct two equivalent criteria for dichotomy in simpler cases (such as when our
+phase space is $\mathbb{R}^1$ or $A(t)$ does not change with time). This work is the author's first step in researching dichotomous systems.
+\end{document}

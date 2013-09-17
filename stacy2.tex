@@ -1,0 +1,243 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{textcomp} %for copyleft symbol
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+
+\usepackage{sectsty}   %in order to make chapter headings and title centered
+\chapterfont{\centering}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%custom commands to save typing
+\newcommand{\mynorm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\myset}[1]{\left\{#1\right\}}
+
+%put subscript under lim and others
+\let\oldlim\lim
+\renewcommand{\lim}{\displaystyle\oldlim}
+\let\oldmin\min
+\renewcommand{\min}{\displaystyle\oldmin}
+\let\oldmax\max
+\renewcommand{\max}{\displaystyle\oldmax}
+
+\newtheorem{prob}{Завдання}
+
+\title{Контрольна робота з функціонального аналізу (8 семестр)\\Вар. 2}
+\begin{document}
+\maketitle
+\begin{prob}Які за наступних функцій задають норму на $C[a,b]$?\end{prob}
+	\begin{enumerate}
+		\item{Покажемо, що $\mynorm{x}:=x(b)$ не є нормою, адже з $\mynorm{x}=0$ не випливає, що $x= 0$. Дійсно, для $
+			x_0:=t-b,\;\mynorm{x_0}=x_0(b)=0$, але $x_0\neq 0$.
+			}
+		\item{Покажемо, що $\mynorm{x}:=\max_{t\in [a,b]}e^t\myabs{x(t)}$ є нормою. Для цього треба перевірити три властивості, 
+			що і зроблено нижче.
+			\begin{enumerate}[label=(\arabic*)]
+				\item{Оскільки $\forall x\in C[a,b]\forall t\in[a,b]\;e^t\myabs{x(t)}\geq0\implies
+					\mynorm{x}:=\max_{t\in [a,b]}e^t\myabs{x(t}\geq 0$ і $\mynorm{0}=\max_{t\in [a,b]}e^t\myabs{0}=0$.
+					Більше того, $\mynorm{x}=0\implies\max_{t\in [a,b]}e^t\myabs{x(t)}=0\implies e^t\myabs{x(t)}\leq 0\implies
+					\myabs{x(t)}\leq 0\implies
+					x(t)\equiv 0$.
+					}
+				\item{
+					\newcommand{\mymax}{\max_{t\in[a,b]}e^t}
+					\[\mynorm{e^t\lambda x}=\max_{t\in [a,b]}\myabs{\lambda e^t
+					x(t)}=\max_{t\in[a,b]}\myabs{\lambda}e^t\myabs{x(t)}=
+					\myabs{\lambda}\mymax \myabs{x(t)}=
+					\myabs{\lambda}\cdot\mynorm{x}\]}
+				\item{
+					\newcommand{\mymax}{\max_{t\in[a,b]}e^t}
+					\[\mynorm{x+y}=\mymax\myabs{x(t)+y(t)}\leq\mymax(\myabs{x(t)}+\myabs{y(t)})\leq\]
+					\[\leq\mymax\myabs{x(t)}+\mymax\myabs{y(t)}=\mynorm{x}+\mynorm{y}\]
+					}
+			\end{enumerate}
+		}
+	\item{$\mynorm{x}:=\int_a^{\frac{a+b}{2}}\myabs{x(t)}dt$ не є нормою, адже з $\mynorm{x}=0$ не випливає $x=0$. Дійсно, для 
+		\[x_0(t):=\begin{cases}
+			0, &a\leq x\leq \frac{a+b}{2}\\
+			x-\frac{a+b}{2}, &\frac{a+b}{2}\leq x\leq b
+		\end{cases}
+		\]
+		Маємо $x_0$ неперервна на $[a,b]$ і $\mynorm{x}:=\int_a^{\frac{a+b}{2}}0dt=0$, проте $x_0\neq 0$.
+		}
+	\item{Для $\forall a<b$ це не є нормою на $C[a,b]$, адже порушується пів адитивність. Дійсно, для $x(t)=y(t)\equiv 1$ маємо
+		\[\mynorm{x+y}=\int_a^b \myabs{2}^3dt=8(b-a)>2(b-a)=\int_a^b 1^3dt+\int_a^b 1^3dt=\mynorm{x}+\mynorm{y}\]
+		тобто
+		\[\mynorm{x+y}>\mynorm{x}+\mynorm{y}\]
+		Зауважимо, що у випадку $a=b$ $\mynorm{x}:=\int_a^b\myabs{x(t)}^3dt$ також не є нормою, адже у такому разі $\forall f\in
+		C[a,a],\;\mynorm{f}=0$, навіть якщо $f\neq 0$.
+		}
+	\item{Це є нормою, три властивості перевірені нижче
+			\begin{enumerate}[label=(\arabic*)]
+				\item{Оскільки $\forall x\in C[a,b]\forall t\in[a,b]\;\myabs{x(t)}\geq0\implies
+					\mynorm{x}:=2\sqrt{\int_a^b\myabs{x(t}^2dt}\geq 0$ і $\mynorm{0}=\sqrt{\int_a^b\myabs{0}^2dt}=0$.
+					Більше того, 
+					$\mynorm{x}=0\implies\int_a^b\myabs{x(t)}^2dt=0\implies $ (оскільки $x\in C[a,b]$) 
+					$\myabs{x(t)}\equiv 0\implies
+					x(t)\equiv 0$.
+					}
+				\item{
+					\newcommand{\mymax}[1]{2\sqrt{\int_a^b {#1}^2 dt}}
+					\[\mynorm{\lambda x}=\mymax{\myabs{\lambda x(t)}}=
+					2\sqrt{\myabs{\lambda}^2\int_a^b {\myabs{x(t)}^2 dt}}=
+					\myabs{\lambda}\cdot\mymax{ \myabs{x(t)}}=
+					\myabs{\lambda}\cdot\mynorm{x}\]}
+				\item{
+					\newcommand{\mymax}[1]{2\sqrt{\int_a^b {#1} dt}}
+					\newcommand{\mymaxo}[1]{\sqrt{\int_a^b {#1} dt}}
+					\newcommand{\mymaxwo}[1]{2{\int_a^b {#1}^2 dt}}
+					Помітимо, що
+					\[\mynorm{x+y}^2=
+					\mymaxwo{\myabs{x(t)+y(t)}}=
+					\mymaxwo{(x(t)+y(t))}=\]\[
+					=2\int_a^b x^2(t)dt+8\int_a^b x(t)y(t)dt+2\int_a^by^2(t)dt=
+					\mynorm{x}^2+8\int_a^bx(t)y(t)dt+\mynorm{y}^2
+					\]
+					в той час як
+					\[(\mynorm{x}+\mynorm{y})^2=
+					\mynorm{x}^2+2\mynorm{x}\mynorm{y}+\mynorm{y}^2\]
+					Таким чином, щоб довести бажане $\mynorm{x+y}\leq\mynorm{x}+\mynorm{y}$
+					достатньо показати, що
+					\[8\int_a^bx(t)y(t)dt\leq\mynorm{x}\mynorm{y}=\mymax{x^2(t)}\mymax{y^2(t)}\]
+					або, що те ж саме, що
+					\[\int_a^bx(t)y(t)dt\leq\mymaxo{x^2(t)}\mymaxo{y^2(t)}\tag{*}\label{desired}\]
+					Для фіксованих $x,y\in C[a,b]$ розглянемо $f:\mathbb{R}\ni r\mapsto f(t):=\int_a^b \myabs{x(t)-r
+					y(t)}^2dt\in\mathbb{R}$. Помітимо, що $\forall t\in\mathbb{R},\;f(t)\geq0$ і 
+					\[f(t)=\int_a^b (x(t)-ry(t))^2dt=\mynorm{x}^2-2r\int_a^b x(t)y(t)dt+r^2\mynorm{y}^2\]
+					Оскільки це квадратний поліном в $r\in\mathbb{R}$, що всюди невід’ємний, детермінант не може
+					бути додатнім, тобто
+					$4\left(\int_a^b x(t)y(t)dt\right)^2\leq 4\mynorm{x}^2\mynorm{y}^2$
+					звідки і випливає бажане \ref{desired}.
+					}
+			\end{enumerate}
+		}
+	\end{enumerate}
+\begin{prob}
+	Дослідити на збіжність в лінійному нормованому просторі $E$
+\end{prob}
+	\begin{enumerate}
+		\item{Ця послідовність незбіжна в $C[0,1]$ і ми будемо доводити це методом від супротивного. Дійсно,
+			припустимо, що $x_n\to x_0\in C[0,1]$. Як ми знаємо, збіжність в $C[0,1]$ еквівалентна
+			рівномірній збіжності, що в свою чергу тягне за собою поточкову. Таким чином,
+			$\forall t\in[0,1],\; x_n(t)\to x_0(t)$. Тепер,
+			\[\forall t\in[0,1),\; x_n(t)=t^{n-1}\to 0\]
+			в той час як
+			$x_n(1)=1^{n-1}\to 1$
+			Таким чином $\forall t\in[0,1),\; x_0(t)=0$, а $x_0(1)=1$. Така
+			функція не є неперервною, що протиречить факту $x_0\in C[0,1]$ і завершує доведення.}
+		\item{Ми покажемо, що $x_n\to x_0\equiv 0$. Дійсно,
+			\[\mynorm{x_n-0}_2=\sqrt{\int_0^1 \myabs{x_n(t)-0}^2dt}=\sqrt{\int_0^1 t^{2n}dt}=\sqrt{\frac{1}{2n+1}}\to 0\]
+			}
+		\item{Ми покажемо, що ця послідовність розбіжна методом від супротивного. Дійсно, якби вона збігалася ми мали б $x_{n+1}-x_n\to 0
+			\implies \mynorm{x_{n+1}-x_n}\to 0$. Проте
+			\[\mynorm{x_{n+1}-x_n}=\mynorm{(\underbrace{0,\dots,1}_n
+			,-1,0,0,\dots)-(\underbrace{0,\dots,0}_{n}
+			,1,-1,0,0,\dots)
+			}_p=
+			\]\[\mynorm{(\underbrace{0,\dots,1}_n
+			,-2,1,0,0,\dots)}_p=\left(1+2^p+1\right)^{\frac{1}{p}}\nrightarrow  0\]
+			}
+		\item{По-перше, ця послідовність є розбіжною для $1\leq p\leq 2$. Дійсно, якби вона збігалася б, тобто було б $x_0\in l_p\mid
+			x_t\to x_0$, послідовність $\mynorm{x_n}$ збігалася б до $\mynorm{x_0}$ і була б обмеженою. Проте
+			\[\mynorm{x_n}\to\sqrt[p]{\sum_{n=1}^\infty (\frac{1}{n})^{\frac{p}{2}}}\]
+			Як відомо, $\sum_{n=1}^\infty (\frac{1}{n})^\alpha=\infty$ при $\alpha\leq 1$, що доводить необмеженість $\mynorm{x_n}$
+			і дає протиріччя.
+			
+			По-друге, ця послідовність збігається до $x_0:=(1,\frac{1}{\sqrt{2}},\dots,\frac{1}{\sqrt{n}},\dots)\in l_p$
+			при $p>2$. $x_0\in l_p$ при $p>2$, адже
+			$\mynorm{x_0}=\sqrt[p]\sum_{n=1}^\infty (\frac{1}{n})^{\frac{p}{2}}<\infty$, оскільки 
+			$\sum_{n=1}^\infty (\frac{1}{n})^\alpha<\infty$ при $\alpha>1$.
+			Збіжність слідує, адже
+			\[\mynorm{x_n-x_0}=\sqrt[p]{\sum_{k=n+1}^\infty (\frac{1}{k})^{\frac{p}{2}}}\to 0\]
+			оскільки 
+			$\sum_{k=1}^\infty (\frac{1}{k})^\alpha<\infty$ при $\alpha>1$.
+			}
+	\end{enumerate}
+\begin{prob}
+	Перевірити, що $f$ - лінійний неперервний функціонал на $E$ та знайти його норму
+\end{prob}
+	Лінійність у всіх прикладах є очевидною і не буде обговорюватися окремо.
+	\begin{enumerate}
+		\item{Ми будемо використовувати нерівність Гельдера на $l_p$, тобто той факт, що
+			\[\forall p,q\geq 1,\;\frac{1}{p}+\frac{1}{q}=1,\;x\in l_p,\;y\in l_q\;\sum_{n=1}^\infty
+			\myabs{x_n\cdot y_n}\leq 
+			\sqrt[p]{\sum_{n=1}^\infty \myabs{x_n}^p}
+			\cdot
+			\sqrt[q]{\sum_{n=1}^\infty \myabs{x_n}^q}
+			\]
+			Також буде використано той факт, що для $\forall x\neq 0\in l_p$
+			і $x_n\geq 0$ існує $y\neq 0\in l_q,\;y_n\geq 0$, що нерівність перетворюється
+			в рівністю (ми будемо посилатися на цей факт просто як на "зауваження" в подальшому).
+
+			Тепер $\forall x\in l_p,\;\mynorm{x}_p=1$ маємо \[\myabs{f(x)}\leq
+			\sum_{k=1}^\infty\frac{1}{2^k}\myabs{x_k}\leq \mynorm{x}_p\cdot
+			\sqrt[q]{\sum_{k=1}^\infty \frac{1}{2^{kq}}}=
+			\sqrt[q]{\sum_{k=1}^\infty \frac{1}{2^{kq}}}
+			\]
+			це показує, що $f$ - лінійний неперервний (лінійність була очевидна з початку), а зауваження
+			показує, що $\mynorm{f}=
+			\sqrt[q]{\sum_{k=1}^\infty \frac{1}{2^{kq}}}=\sqrt[q]{\frac{1}{2^q-1}}$.
+			}
+		\item{Ми покажемо загальний факт, що функціонал виду $f_a(x)=x(a)$ є лінійним неперервним на $C[0,1]$ і $\mynorm{f}=1$.
+			З цього, випливатиме, що $f(x):=x(0)-x(1)$ є лінійним неперервним (як лінійна комбінація таких) з нормою,
+			що не перевищує $2$ (це випливає з субадитивності).
+
+			Для $x\in C[0,1],\;\mynorm{x}=\sup_{t\in[0,1]}\myabs{x(t)}=1$ маємо $\myabs{f_a(x)}=x(a)\leq\myabs{x(a)}\leq
+			\sup_{t\in[0,1]}\myabs{x(t)}=1$, що показує, що норма існує і не перевищує 1. З іншого боку, для $x_0\equiv 1\in C[0,1]$
+			маєм $f_a(x)=x(a)=1$, що доводить $\mynorm{f_a}=1$.
+
+			Ми вивели, що $\mynorm{f}\leq 2$ і зараз покажемо, що $\mynorm{f}=2$. Дійсно, для $x_0(t):=1-2t$ маємо
+			$\mynorm{x_0}=1$ і $f(x_0)=2$.
+			}
+		\item{Для $x\in C[0,1]$ маєм
+			\[\mynorm{x}=1\implies \max_{t\in[0,1]}\myabs{x(t)}=1\implies\int_0^1\myabs{x(t)}dt\leq \int_0^1 1dt=1\]
+			тому $\mynorm{f}\leq 1$. З іншого боку, для $x_0(t)\equiv 1$ маємо $f(x_0)=1$, що доводить $\mynorm{f}=1$.
+			}
+		\item{З попередніх двох пунктів, $f$ є лінійним неперервним і $\mynorm{f}\leq 3$. Позначимо
+			\[x_n(t)=\min\{1,nx-1\}\]
+			Помітимо, що $x_n(0)=-1$ і $x_n\to x_0\equiv 1$ рівномірно. Таким чином,
+			$f(x_n)=\int_0^1 x_n(t)dt-2x(0)\to\int_0^1 1dt +2=3$, що і показує $\mynorm{f}=3$.
+			}
+		\item{Помітимо, що $L_2[0,1]$ є гільбертовим простором з добутком $x\cdot y:=\int_0^1 x(t)y(t)dt$ і стандартна норма
+			на $L_2[0,1]$ породжена цим добутком. Оскільки $g(t)=t\in L_2[0,1]$ ми маємо $\forall x\in L_2[0,1]
+			f(x)=x\cdot g$. За нерівністю Коші-Буняковського $\myabs{x\cdot g}\leq \mynorm{x}\cdot\mynorm{g}=\sqrt{\frac{1}{3}}\mynorm{g}
+			$. Оскільки в нерівності Коші-Буняковського рівність виконується за певних (які допускають $x\neq 0$) оцінка точна
+			і $\mynorm{f}=\mynorm{g}=\sqrt{\frac{1}{3}}$.
+			}
+		\item{Аналогічно до попереднього пункту, $f$ є лінійним неперервним і $\mynorm{f}=\mynorm{g}=\sqrt{\frac{1}{2}
+			(e^4-1)}$, де $g(t)=e^t$
+			на $t\in[0,2]$.
+			}
+		\item{Для $x\in L_\infty [0,\pi]$
+			\[\mynorm{x}=1\implies\max_{t\in[0,\pi]}\myabs{x(t)}=1\implies\myabs{f(x)}=\myabs{\int_0^\pi x(t)\cos^2tdt}\leq
+			\int_0^\pi\myabs{x(t)}\cos^2tdt\leq\]
+			\[\leq \int_0^\pi \cos^2tdt=\frac{\pi}{2}
+			\]
+			Це показує неперервність і $\mynorm{f}\leq\frac{\pi}{2}$. З іншого боку, для $x_0(t)\equiv 1\in L_\infty[0,\pi]$
+			маємо $\mynorm{x}=1$ і $\myabs{f(x)}=\int_0^\pi \cos^2tdt=\frac{\pi}{2}$, що і доводить $\mynorm{f}=\frac{\pi}{2}$.
+			}
+		\item{Аналогічно до пункту перед попереднім, $f$ є лінійним неперервним
+			і $\mynorm{f}=\mynorm{g}=\sqrt{\frac{1}{2}}$, де $g(t)=e^{-t}$
+			на $t\in[0,\infty)$.
+			}
+	\end{enumerate}
+\end{document}

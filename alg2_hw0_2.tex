@@ -1,0 +1,64 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+%theorem environments configuration
+\newtheorem{theorem}{Theorem}
+\newtheorem{claim}{Claim}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newenvironment{proof}[1][Proof]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\qed\end{trivlist}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newcommand{\qed}{\nobreak \ifvmode \relax \else
+\ifdim\lastskip<1.5em \hskip-\lastskip
+\hskip1.5em plus0em minus0.5em \fi \nobreak
+  \vrule height0.75em width0.5em depth0.25em\fi}
+
+\newtheorem{prob}{Problem}
+
+\newenvironment{solution}%
+{\par\textbf{Solution}\space }%
+{\par}
+
+%custom commands to save typing
+\newcommand{\F}{\mathbb{F}_2(u)}
+\newcommand{\charac}{\text{char}}
+
+\title{Algebra II\\Homework 0.2}
+\author{Oleksii (Alex) Leontiev\\歐立思\\3035078276\\Exchange Student (BSc)\\4th grade\\
+Original School: \href{http://www.nctu.edu.tw/}{NCTU}, Taiwan}
+
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+\begin{claim}
+	There exist field $\mathbb{F}$ and polynomial $p(x)\in\mathbb{F}[x]$ such that $p(x)$ is irreducible over $\mathbb{F}$, but has multiple root over some extension of $\mathbb{F}$.
+\end{claim}
+\begin{proof}First, let us write these field and polynomial explicitly. Of course, in the light of theorems proven in class, $\mathbb{F}$ should satisfy $|\mathbb{F}|=\infty$ and $\text{char}\mathbb{F}=p<\infty$.\\
+	Let $\mathbb{F}:=\mathbb{F}_2(u)$, that is the field of all rational functions in indeterminate $u$ with coefficients in $\mathbb{F}_2=\mathbb{Z}_2=\left\{0,1\right\}$. Polynomial we shall try is $p(X):=X^2-u\in\mathbb{F}_2(u)$.
+	Obviously, it is inseparable over $\mathbb{F}_2(u)$, since only factorization possible is as the product of two linear polynomials, which would require $p(X)$ to have zero over $\F$. However, it is impossible
+	to have $a^2(u)/b^2(u)=u,\;a(u),b(u)\in\F$, since $2|\deg (a^2(u)/b^2(u))\Leftarrow\deg (a^2(u)/b^2(u))\neq 1=\deg(u)$. Moreover, if $\alpha$ is root of $X^2-u$ over some extension $K$ of $\F$, then
+	$u=\alpha^2\implies p(x)=X^2-\alpha^2={(X-\alpha)}^2$, and $\alpha$ is double root. Later equality obviously follows, since $\charac K=\charac (\F)=\charac (\mathbb{F}_2)=2$.
+
+\end{proof}
+\end{document}

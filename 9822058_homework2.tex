@@ -1,0 +1,215 @@
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\newtheorem{prob}{Problem}
+
+\newenvironment{solution}%
+{\par\textbf{Solution}\space }%
+{\par}
+
+\title{Introduction to Networks\\Homework 2}
+\author{歐立思\\
+9822058\\Department of Applied Mathematics}
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+\begin{prob}
+	Exercise 3%           1101 1110 1010 1101 1011 1110 1110 1111
+\end{prob}
+\begin{solution}
+According to the table on the page 82 of the textbook, the resulting 4B/5B cipher is
+\[11011\:11100\:10110\:11011\:10111\:11100\:11100\:11101\]
+Assuming that NRZI starts out low, we get the following NRZI signal
+\begin{figure}[H]
+\centering
+\subfloat{\includegraphics[width=1.3\textwidth]{9822058_homemork2_table}}
+\caption{Resultant NRZI}
+\end{figure}
+\end{solution}
+\begin{prob}
+	Exercise 11
+\end{prob}
+\begin{solution}
+	Assume without loss of generality, that we are dealing with even parity scheme, that is all rows and columns of encoded frame have
+	even number of bits. Now, assume that we have (at most) 3 bits corrupted. We may further assume that exactly 3 bits are corrupted,
+	since one bit corruption is obviously detectable, and if the two bits are corrupted, they will lie in different rows (or different columns)
+	and therefore these rows (columns) will have corrupted parity. Thus, we restrict ourself to the case when \textit{exactly} 3 bits are
+	corrupted. If all of them lie in the same row, then the parity will be
+	incorrect in three columns to which they belong, and error will be detected. Situation is the same if they lie in three different rows,
+	in one column, or in three different columns. Therefore, the only situation of interest is when they lie exactly in 2 different rows
+	and columns. That is, they lie in the vertices of rectangle with sides parallel to the sides of a frame. In this case this rectangle will
+	have one vertex uncorrupted, therefore there will be one column (row) with only one bit corrupted, and this will give detectable parity
+	corruption.\\
+	Note, that the above reasoning about rectangle
+	does not work for the case when four bits are corrupted and indeed this sort of error is undetectable by
+	the two-dimensional parity scheme.
+\end{solution}
+\begin{prob}
+	Exercise 15
+\end{prob}
+\begin{solution}
+	First of all, notice that it is sufficient to prove the case when we have only two blocks, as other cases may be proven by induction
+	based on this one. Therefore, we need to show that if
+	\[[A,B]+'[C,D]=[X,Y]\]
+	where $+'$ denotes ones complement addition, then
+	\[[B,A]+'[D,C]=[Y,X]\]
+	We shall refer to these equations as to "first addition" and "second addition".
+	Let us consider few cases based on what happens in the first addition
+	(in subsequent, we denote byte addition with carry disregarded simply by $+$)
+	\begin{description}
+		\item[No carry in $A+C$, no carry in $B+D$]{This is easy case, as in this case $X=A+C$, $Y=B+D$, and equality obviously
+			holds}
+		\item[Carry in $B+D$ but it didn't provoke carry in $A+C$]{In this case $Y=B+D$ and $X=A+C+1$ and we do not have carry for the
+			first addition. On the other hand, for the second addition we will have carry wrapped and we similarly get $Y=B+D$ (and
+			this provokes carry) and $X=A+C+1$ (add one because of carry)}
+		\item[Carry in $B+D$ provoked carry in $A+C$]{Due to the carry provoked by $B+D$, $X=A+C+1$ and $Y=B+D+1$ due to the carry wrapped.
+			Similar situation happens in the second addition, and equality holds}
+		\item[No carry in $B+D$, but carry in $A+C$]{This will provoke wrapped carry in the first addition. Therefore, one shall be added
+			to $D+B$. Now, it may happen that addition of one will provoke carry. If this happens, then $X=A+C+1$, $Y=B+D+1$ and 
+			the same happens in the second addition, as $A+C$ will provoke carry in $B+D$ and final result will be the same.
+			If addition of one two $B+D$ in first addition did not provoke carry, we have $X+A+C$, $Y=B+D+1$. What about the second
+			addition, it will be similar to the second case considered (that is, carry in $A+C$ will not provoke carry in $B+D$)}
+	\end{description}
+	Since cases above exhaust all possibilities, equality is proven. Now, let us refer to the case when we have more than two addends. Let
+	us proceed by induction on the number of addends. Statement shown above gives base case. That is, we want to show that if
+	\[[A_1,B_1]+'\dots+'[A_n,B_n]+'[A_{n+1},B_{n+1}]=[X_{n+1},Y_{n+1}]\]
+	then
+	\[[B_1,A_1]+'\dots+'[B_n,A_n]+'[B_{n+1},A_{n+1}]=[Y_{n+1},X_{n+1}]\]
+	Moreover, from the inductive assumption
+	\[[A_1,B_1]+'\dots+'[A_n,B_n]=[X_{n},Y_{n}]\]
+	\[[B_1,A_1]+'\dots+'[B_n,A_n]=[Y_{n},X_{n}]\]
+	Therefore,
+	\[[A_1,B_1]+'\dots+'[A_n,B_n]+'[A_{n+1},B_{n+1}]=[X_n,Y_n]+'[A_{n+1},B_{n+1}]\]
+	\[[B_1,A_1]+'\dots+'[B_n,A_n]+'[B_{n+1},A_{n+1}]=[Y_{n},X_{n}]+'[B_{n+1},A_{n+1}]\]
+	And from the above statement, if
+	\[[X_n,Y_n]+'[A_{n+1},B_{n+1}]=[X_{n+1},Y_{n+1}]\]
+	then
+	\[[Y_n,X_n]+'[B_{n+1},A_{n+1}]=[Y_{n+1},X_{n+1}]\]
+\end{solution}
+\begin{prob}
+	Exercise 19
+\end{prob}
+\begin{solution}
+	\begin{enumerate}[label=(\alph*)]
+		\item{The polynomial that should be transmitted is
+			\[x^{23}+x^{21}+x^{20}+x^{17}+x^{14}+x^{11}+x^9+x^8+x^7+x^4+x+1\]
+			which gives message 101100100100101110010011 to transmit
+			}
+		\item{The receiver will get 001100100100101110010011 which corresponds to 
+			$x^{21}+x^{20}+x^{17}+x^{14}+x^{11}+x^9+x^8+x^7+x^4+x+1$. After the division modulo two
+			on $x^8+x^2+x+1$ the remainder will be $x^7+x^5+x^4+x^2+x\neq 0$} Thus, receiver will be notified about the error.
+	\end{enumerate}
+\end{solution}
+\begin{prob}
+	Exercise 22
+\end{prob}
+\begin{solution}
+	If only NAKs would be used, then we would have to implement the following timeouts:
+	\begin{itemize}
+		\item{Timeout for the receiver. Receiver should wait specified period of time for a next frame, after that it sends
+			NAK}
+		\item{Timeout for the sender. If sender does not receive NAK during some period after the frame was sent, it assumes that the 
+			frame was delivered succesfully}
+	\end{itemize}
+	Using NAKs only has many disadvantages. To begin with, sender should wait the full timeout whether the frame was send successfully (which
+	happens often on a good channel). In addition, if the NAK was lost, the frame will also be lost. Finally, if NAK comes too late previous
+	frame will be lost.
+\end{solution}
+\begin{prob}
+	Exercise 31
+\end{prob}
+\begin{solution}
+	\begin{enumerate}[label=(\alph*)]
+		\item{See the corresponding figure
+\begin{figure}[H]
+\centering
+\subfloat{\includegraphics[width=1.3\textwidth]{net3_p31_a}}
+\caption{Timeline when frame 4 is lost}
+\end{figure}
+			}
+		\item{See the corresponding figure
+\begin{figure}[H]
+\centering
+\subfloat{\includegraphics[width=1.3\textwidth]{net3_p31_b}}
+\caption{Timeline when frame 4 is lost}
+\end{figure}
+			}
+	\end{enumerate}
+\end{solution}
+\begin{prob}
+	Exercise 37
+\end{prob}
+\begin{solution}
+We assume that RWS=4 as well.
+\begin{enumerate}[label=(\alph*)]
+	\item{
+\begin{tabular}{|c||c|c||c|c|}
+	Time & Sent from A & Arrive to A & Sent from B & Arrive to B\\
+	\hline
+	0 & 1,2,3,4 & & & \\
+	1 & & & ACK1& 1\\
+	2 & 5&ACK1 & ACK2& 2\\
+	3 & 6 & ACK2 & ACK3 & 3\\
+	4 & 7 & ACK3 & ACK4 & 4\\
+	5 & 8 & ACK4 & ACK5 & 5\\
+	\hline
+\end{tabular}\\
+The queue at R grows to the size 4.
+		}
+\end{enumerate}
+\end{solution}
+\begin{prob}
+	Exercise 43
+\end{prob}
+\begin{solution}
+	\begin{enumerate}[label=(\alph*)]
+		\item{The combinations of backs off that will allow are A to win are $(0\times T,1\times T),
+(0\times T,2\times T),(0\times T,3\times T),(1\times T,2\times T),(1\times T,3\times T)
+			$, thus probability is 0.675
+			}
+		\item{By the reasoning similar to above, the probability is 0.81
+			}
+		\item{In general, when B backs off for time equal to $0\times T,\dots (2^n-1)\times T$, while A backs of for $0, T$, A's probability
+			to win is \[\frac{2^n-1+2^n-2}{2^{n+1}}=1-\frac{3}{2^{n+1}}\]
+			Therefore, A's probability to win all remaining races is
+			\[\prod_{n=4}^\infty (1-\frac{3}{2^{n+1}})=\exp(\sum_{n=4}^\infty \ln(1-\frac{3}{2^{n+1}})\]
+			Now, since for $x$ such that $0<x<1/2$ we have $-3x/2<\ln(1-x)$ we get
+			\[\exp(\sum_{n=4}^\infty \ln(1-\frac{3}{2^{n+1}})\geq\exp(\sum_{n=4}^\infty -9/2^{n+2})=\exp(-18(1-1/64))>2\times 10^{-8}\]
+			}
+		\item{Frame $B_1$ is simply never sent}
+	\end{enumerate}
+\end{solution}
+\begin{prob}
+	Exercise 51
+\end{prob}
+\begin{solution}
+	Bandwidth will be (we count packet's size as a unit)
+	\[\frac{1}{5+N/2}=\frac{2}{N+10}\]
+\end{solution}
+\begin{prob}
+	Exercise 54
+\end{prob}
+\begin{solution}
+Let me outline a few reasons, as on the page 136 of a textbook
+\begin{itemize}
+	\item{Node cannot send and receive at the same time, because the signal emitted will be strong and will blind receiving 
+		circuitry
+		}
+	\item{The pair of nodes may (and often will be) divided by an obstacle, or simply be too far away and therefore will be unable
+		to know that they transmit at the same time}
+\end{itemize}
+\end{solution}
+\end{document}
+%Why is collision detection more complex in wireless networks
+%than in wired networks such as Ethernet?
