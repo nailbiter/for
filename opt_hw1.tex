@@ -1,12 +1,9 @@
 \documentclass[8pt]{article} % use larger type; default would be 10pt
 
 %\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
-\usepackage[10pt]{type1ec}          % use only 10pt fonts
-\usepackage[T1]{fontenc}
 %\usepackage{CJK}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{CJKutf8}
 \usepackage{subfig}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -14,136 +11,159 @@
 \usepackage{enumerate}
 \usepackage{enumitem}
 
-\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
-\usepackage{myownstyle}
+\usepackage{mystyle}
 
 \title{ ENGG 5501: Foundations of Optimization\\Homework 1}
 \author{Alex Leontiev, 1155040702, CUHK}
 \begin{document}
 \maketitle
-\begin{enumerate}[label=\bfseries Problem \arabic*.]
-	\item{In subsequent, we shall denote the identity element of $G$ by $e$.
-		\begin{enumerate}[label=(\arabic*)]
-			\item{Indeed, we just need to verify three standard properties:
-				\begin{description}
-					\item[(Reflexivity)]{As $A$ and $B$ both are subgroups of $G$, $e\in A,\;e\in B\implies
-						\forall g\in G,\; g=ege,\;e\in A,\;e\in B\implies \forall g\in G,\; g\sim g$,
-						which is exactly reflexivity.}
-					\item[(Symmetry)]{Assume $h,g\in G$ and $h\sim g\implies h=agb,\;a\in A,b\in B$. 
-						Then, as $A$ and $B$ are groups, they are
-						closed under taking the inverse and hence, $g=a^{-1}hb^{-1},\;a^{-1}\in A,\;b^{-1}\in
-						B\implies g\sim h$, which is exactly symmetry.}
-					\item[(Transitivity)]{Finally, assume $h,g,k\in G,\; h\sim g,g\sim k\implies
-						h=agb,\;g=a'kb',\;a,a'\in A,\;b,b'\in B$. Substituting
-						the expression for $g$ in right-hand
-						side of an expression for $h$ and noting
-						that $A$ and $B$ are both closed under multiplication (as they are groups)
-						, we get $h=aa'kb'b,\;aa'\in A,\;bb'\in B\implies
-						h\sim k$, which is exactly transitivity.}
-				\end{description}
-				}
-			\item{Indeed, let $g\in G$ be arbitrary and let's denote it's equivalence class under the relation above
-				as $[g]$. What we need to prove is then written simply as
-				\[[g]=\mysetn{agb}{a\in A,\;b\in B}\]
-				First, let us prove $[g]\subset \mysetn{agb}{a\in A,\;b\in B}$. Let $h\in[g]$ be arbitrary,
-				then $h\sim g\implies h=agb,\;a\in A,\;b\in B\implies h\in\mysetn{agb}{a\in A,\;b\in B}$, which
-				shows the desired inclusion.
+\begin{enumerate}[label=\bfseries Problem \arabic*]
+	\item{Following the article in Charnes-Cooper transformation, let us introduce 
+		\[y=\frac{1}{f^Tx+g}x,\;t=\frac{1}{f^Tx+g}\]
+		Then, the minimization of $\frac{c^Tx+d}{f^Tx+g}$ can be translated to minimization of $c^Ty+dt$ clearly. Constraint
+		$f^Tx+g\geq 0$ can be replaced with equivalent $t\geq 0$ or $-t\leq 0$
+		. $Ax\leq b$ can be translated to $Ay\leq bt$ by division of both sides
+		on non-negative $t$, or to $Ay-bt\leq 0$. Finally, we need an additional constraint $f^Ty+gt=1$ to enforce the relation
+		between $y$ and $t$. Indeed, together $f^Ty+gt=1$ and $y=\frac{1}{f^Tx+g}$ imply that $t=\frac{1}{f^Tx+g}$.
 
-				Second, we aim at showing $\mysetn{agb}{a\in A,\;b\in B}\subset [g]$. For this let
-				$h\in\mysetn{agb}{a\in A,\;b\in B}$ be arbitrary. It then can be written as $h=agb,\;a\in A,\;b\in B$
-				and thus by definition $h\sim g\implies h\in [g]$, which shows the second desired inclusion.
-				}
-			\item{Let $g\in G$ be arbitrary. Let us further define the mapping $F:A\times B\ni(a,b)\mapsto agb\in AgB$. In subsequent we shall define the 
-				equivalence relation on $A\times B$ as $(a,b)\sim (a',b')\iff agb=a'gb'$ and show that $\forall (a,b)\in A\times B,\;\myabs{[(a,b)]}=
-				\myabs{A\cap gBg^{-1}}$. This will give us the desired
-				\[\myabs{AgB}=\frac{\myabs{A}\myabs{B}}{\myabs{A\cap gBg^{-1}}}\]
-
-				Let us fix arbitrary $(a,b)\in A\times B$. To show 
-				$\forall (a,b)\in A\times B,\;\myabs{[(a,b)]}=\myabs{A\cap gBg^{-1}}$, we shall exhibit the explicit bijection.
-				On the one hand, given
-				$(\alpha,\beta)\in[(a,b)]$ this means that $(\alpha,\beta)\sim(a,b)\implies agb=\alpha g\beta\implies
-				\alpha^{-1}a=g\beta b^{-1}g^{-1}\in A\cap gBg^{-1}$. On the other hand, given $\alpha_0=g\beta_0 g^{-1}\in A\cap
-				gBg^{-1}$ we may see that for $\alpha:=a\alpha_0^{-1}\in A$ and $\beta:=\beta_0 b$ we see that
-				$\alpha^{-1}a=g\beta b^{-1}g^{-1}\in A\cap gBg^{-1}\implies (\alpha,\beta)\in[a,b]$. As 
-				$[a,b]\ni(\alpha,\beta)\leftrightarrow \alpha_0=\alpha^{-1}a\in A\cap gBg^{-1}$ is bijective as shown above
-				, we are done.
-
-				No, in general not all the cosets contain equal number of elements. For example, if $G=S_3$, $A=B=\left\{
-				e,(1,2)\right\}$, we have
-				\[\myabs{AeB}=\myabs{A}=2\]
-				whereas for $g=(1,2,3)$ $gAg^{-1}=\{e,(2,3)\}$ and consequently
-				\[\myabs{AgB}=\frac{2\cdot 2}{\myabs{A\cap gAg^{-1}}}=\frac{4}{\myabs{\{e\}}}=4\]
-				}
-			\end{enumerate}
-			}
-		
-	\item{Indeed, let $f:\mathbb{R}\to\mathbb{C}^*$ be and arbitrary group homomorphism between $\mathbb{R}$ and $\mathbb{C}^*$
-		and let us further assume that it is continuous.
-		Recall that for $H:=\mysetn{z\in\mathbb{C}}{\Im z>0}$ we can define an analytic branch of $\log z$, so that $\log 1=0$ and besides
-		if $z_1,z_2,z_1z_2\in H\implies \log(z_1z_2)=\log z_1+\log z_2$. Now as $f$ is continuous and $f(0)=1\in H$
-		(since $f$ is homomorphism) there exists $N\in
-		\mathbb{Z},\;N>0
-		$, such that $f((-\frac{2}{N},+\frac{2}{N}))\subset H$. Now, let us denote $c:=N\log f(\frac{1}{N})$. Then, in particular,
-		$f(\frac{1}{N})=e^{c\cdot\frac{1}{N} }$.
-		
-		Let us show that for any $m\in\mathbb{Z},\;m>0\implies f(\frac{1}{m})=e^{c\cdot\frac{1}{m}}$. Indeed, by the property of homomorphism
-		\[c\cdot\frac{1}{N}=\ln f(\frac{1}{N})=\ln(f(\frac{1}{Nm})^m)=m\ln f(\frac{1}{Nm})\]
-		Therefore, $f(\frac{1}{Nm}=e^{c\cdot\frac{1}{Nm}}\implies f(\frac{1}{m})=e^{c\cdot\frac{1}{m}}$. In particular, $f(1)=e^c$.
-
-
-		Now, as $f(x)$ is group homomorphism, we have $\forall n\in\mathbb{Z},\;n>0\implies
-		f(n)=f\left(\underbrace{1+1+\cdots+1}_{n}\right)=\underbrace{f(1)\cdot f(1)\cdot\dotsm\cdot f(1)}_{n}=e^{cn}$.
-		Therefore $\forall x\in\mathbb{Z},\;x>0\implies f(x)=e^{cx}$. As $f$ is homeomorphism, identity
-		maps to identity, hence $f(0)=1=e^{c\cdot 0}$.
-
-		Moreover, as $1=f(0)=f((-1)+1)=f(-1)\cdot f(1)=f(-1)e^{c}$ we have $f(-1)=e^{-c}$. Similarly to above, if $n\in
-		\mathbb{Z},\; n>0$, we have
-		$f(-n)=f\left(\underbrace{
-		(-1)+(-1)+\cdots+(-1)}_{n}\right)=\underbrace{f(-1)\cdot f(-1)\cdot\cdots\cdot f(-1)}_{n}=e^{-cn}=e^{c(-n)}$
-		And altogether these tell us that $\forall x\in\mathbb{Z},\;f(x)=e^{cx}$.
-
-		Now let us take arbitrary $x\in\mathbb{Q}$. It can be written as $x=\frac{p}{q},\;p,q\in\mathbb{Z}$. According to the derivation
-		in the first paragraph, $f(p/q)=f(1/q)^p=(e^{c/q})^p=e^{c\cdot \frac{p}{q}}$ and hence $\forall x\in\mathbb{Q},\;f(x)=e^{cx}$.
-		Finally, by continuity of $f(x)$ and $e^{cx}$ the equality of these two functions on $\mathbb{Q}$ implies that on $\mathbb{R}$.
+		Thus, we end up with linear problem
+		\[\mbox{minimize }c^Ty+dt\]
+		\[\mbox{subject to} Ay\leq bt\]
+		\[f^Ty+gt\leq 1\]
+		\[-f^Ty-gt\leq -1\]
+		\[-t\leq 0\]
 		}
-	\item{
-		\begin{enumerate}[label=(\arabic*)]
-			\item{Indeed, $I_c$ is an ideal, for if $f,g\in I_c$ and $h\in C[a,b]$ we have
-				\[0\in I_c,\;(-f)(c)=-f(c)=0\implies -f\in I_c\]
-				\[(f+g)(0)=f(0)+g(0)=0\implies f+g\in I_c\]
-				\[(hf)(0)=h(0)f(0)=0\implies hf\in I_c\]
-				Moreover, it is a prime ideal, for it is definitely proper ($1\notin I_c$) and
-				if $fg\notin
-				I_c$ we have $(fg)(0)=f(0)g(0)\neq 0\implies fg\notin I_c$ (as the product of nonzero numbers is nonzero).
+	\item{\begin{enumerate}[label=(\alph*)]
+			\item{To prove the desired statement, assume that it is not true, hence $\exists a_1\in \frac{2}{t+1}(\mathbb{R}^n\setminus
+				(tA))+\frac{t-1}{t+1}A$ such that $a_1\notin\mathbb{R}^n\setminus A\implies a_1\in A$. Thus,
+				$a_1=\frac{2}{t+1}b+\frac{t-1}{t+1}a$ for $a\in A$, $b\in\mathbb{R}^n\setminus A$. Multiplying both
+				sides of equality for $a_1$ by $\frac{t+1}{2t}$ we get
+				\[b+\frac{t-1}{2t}a=\frac{t+1}{2t}a_1\]
+				thus
+				\[b=\frac{t+1}{2t}a_1+\frac{t-1}{2t}(-a)\]
+				Now as $A$ is symmetric, $-a\in A$ and thus $b\in A$ as convex combination of $-a$ and $a_1$, contradicting
+				the assumption.
 				}
-			\item{We shall taken as known the fact that for any $\epsilon>0$ there exists a continuous function, which we shall denote
-				by $h_{\epsilon}$, such that $h_{\epsilon}\mid_{[-\epsilon,\epsilon]}\equiv 1$ and $h_{\epsilon}$ is equal to zero
-				outside $(-2\epsilon,2\epsilon)$.
-				
-				Now let $I\subset C[a,b]$ be a maximal ideal and let us assume it is not equal to $I_c$ for any $c\in[a,b]$.
-				Then, in particular for any $c\in[a,b],\;\exists f_c\in I\mid f_c(c)\neq 0$, for otherwise we would have
-				$\forall f\in I,\; f(c)=0$ for some $c\in[a,b]$ and thus $I$ would be contained in proper ideal $I_c$ and the
-				inclusion would be strict (as two are unequal by assumption), thus contradicting maximality. By replacing
-				$f_c$ with $-f_c$, if necessary, we may assume $\forall c\in[a,b],\;f_c(c)>0$. As every $f_c$ is continuous,
-				there is some $\epsilon_c>0$, such that $f_c\mid_{(c-\epsilon_c,c+\epsilon_c)\cap [a,b]}>0$. By multiplying
-				$f_c$ be $h_{\epsilon_c/2}(x-c)$ we may assume that $f_c$ vanishes outside $(c-\epsilon_c,c+\epsilon_c)\cap [a,b]$
-				and is positive at the points, where it is nonzero.
-				As $(c-\epsilon_c,c+\epsilon_c)\cap [a,b]$ form an open cover of $[a,b]$ (in the topology of $[a,b]$), we can
-				select only finitely many of them for cover. After we will add corresponding $f_c$, we will get the function
-				$f\in I$ (which is additively closed) which is positive on $[a,b]$. Therefore $\frac{1}{f}\cdot f=1\in I$ and
-				hence $I=C[a,b]$ is not probper. Contradiction.
+			\item{}
+			\item{Using the equality derived in (a) and definition of logconcave measures we get
+				\[1-\theta=\mu(\mathbb{R}^n\setminus A)\geq \mu(\frac{2}{t+1}(\mathbb{R}^n\setminus
+				(tA))+\frac{t-1}{t+1}A)\geq \mu(\mathbb{R}^n\setminus (tA))^{\frac{2}{t+1}}\mu(A)^{\frac{t-1}{t+1}}\]
+				thus
+				\[1-\theta>\mu(\mathbb{R}^n\setminus (tA))^{\frac{2}{t+1}}\theta^{\frac{t-1}{t+1}}\]
+				hence
+				\[\mu(\mathbb{R}^n\setminus (tA))<(1-\theta)^{\frac{t+1}{2}}\theta^{\frac{t-1}{2}}\]
+				and to establish the desired bound $\theta\left(\frac{1-\theta}{\theta}\right)^{(t+1)/2}$ we just need to
+				show that $\theta^{\frac{1-t}{2}}\geq \theta^{\frac{t-1}{2}}$, but this is equivalent to statement $\theta^t\leq\theta$
+				, however the latter is obvious, as $\theta\leq 1$, $t> 1$.
 				}
-		\end{enumerate}
-		}
-	\item{
-		If $P\subset S$ is a prime ideal, $f^{-1}(P)\subset R$ is an ideal,
-		as \[f(0)=0\in P\implies 0\in f^{-1}(P)\]
-		\[a\in f^{-1}(P)\implies f(a)\in P\implies -f(a)=f(-a)\in P\implies -a\in f^{-1}(P)\]
-		\[a,b\in f^{-1}(P)\implies f(a),f(b)\in P\implies f(a+b)=f(a)+f(b)\in P\implies a+b\in f^{-1}(P)\]
-		\[a\in f^{-1}(P),x\in R\implies f(a)\in P\implies f(ax)=f(a)f(x)\in P\implies ax\in f^{-1}(P)\]
+		\end{enumerate}}
+	\item{First, let us show that $z^*=\Pi_K(x)$ implies that $z^*\in K$, $x-z^*\in K^\circ$, and $(x-z^*)^Tz^*=0$. Of these
+		first follows directly from the definition of $\Pi_K(x)$ as $\Pi_K(x):=\arg\min_{z\in K}\mynorm{x-z}_2$. 
 		
-		If $a,b\notin f^{-1}(P)$ we have $f(a),f(b)\notin P\implies f(ab)=f(a)f(b)\notin P\implies
-		ab\notin f^{-1}(P)$, hence $f^{-1}(P)$ is a prime ideal.
+		Now, let us prove
+		$(x-z^*)^Tz^*=0$. It is obvious if $x\in K$, for in this case $z^*=x$ and $(x-z^*)^Tz^*=0^Tz^*=0$, so we shall assume
+		$x\notin K$. Then, in particular $x=\neq 0$, because $0\in K$ (as cone is nonempty by assumption, there is some $x_0\in K$ and
+		as $K$ is cone $\forall n\in\mathbb{Z},\;n>0\implies \frac{1}{n}>0\implies\frac{1}{n}\cdot x_0\in K$, and as
+		$\lim_{n\to\infty}\frac{1}{n}\cdot x_0=0$ and $K$ is closed by assumption, $0\in K$ -- this fact will be used in subsequent).
+		Note, that the statement is obviously true if $z^*=0$, so we may freely assume it is not so.
+		Consider the line $L:=\mysetn{\lambda z^*}{\lambda\in\mathbb{R}}$. As this is convex closed set, we have 
+		$\lambda'z^*:=z':=\Pi_L(x)$. It is well known that $z'$ is characterized by $x-z'\perp z'$. We may also define ray
+		$R:=\mysetn{\lambda z^*}{\lambda\geq 0}$. As this is also closed convex set, $\Pi_R(x)$ is well-defined and we should have
+		$\Pi_R(x)=z^*$, as $R\subset K$, as $K$ is the closed cone.
+		Now, there are two cases: $\lambda'<0$ or $\lambda'\geq 0$. In the first case, $\mynorm{\lambda z^*-x}=
+		\mynorm{(\lambda-\lambda')z^*+\lambda'z^*-x}=\mynorm{(\lambda-\lambda')z^*}+\mynorm{\lambda'z^*-x}$ (as
+		$(\lambda-\lambda')z^*\perp(\lambda'z^*-x)=(z'-x)$). Therefore, $\min_{\lambda\geq 0}\mynorm{\lambda z^*-x}=
+		\mynorm{\lambda'z^*-x}+
+		\min_{\lambda\geq 0}\myabs{\lambda-\lambda'}\mynorm{z^*}$ Now, as $\myabs{\lambda-(-\lambda')}$ is increasing for
+		$\lambda>0$, because $\lambda'<0$, we have $\min_{\lambda\geq 0}\myabs{\lambda-\lambda'}=\myabs{0-\lambda'}$ and
+		this implies that $\Pi_R(x)=0\cdot z^*=z^*\implies z^*=0$, but we have previously assumed it is not so. Then, if we assume
+		$\lambda'\geq 0$, this means that $z'\in R$ and thus $z'=:\arg\min_{z\in L}\mynorm{z-x}=\arg\min_{z\in R}\mynorm{z-x}=z^*$
+		and thus $x-z'\perp z'\implies x-z^*\perp z^*\implies (x-z^*)^Tz^*=0$.
+
+		It remains to show $x-z^*\in K^\circ$. It means (according to the definition of $K^\circ$ that $\forall z\in K,\;-(x-z^*)^Tz\geq 0
+		\iff (x-z^*)^Tz\leq 0$. Note, that this is trivial if $x\in K$, for $x\in K\implies x=z^*\implies \forall z\in K,\;
+		(x-z^*)^Tz=0^Tz=0\leq 0$, thus we assume that $x\notin K\implies x-z^*\neq 0$ in subsequent.
+		We shall prove this by contradiction and for this we assume that $z\in K$ and
+		$(x-z^*)^Tz=>0$. 
+		%As $x-z^*\neq 0$, $z$ can be uniquely decomposed as $z=\alpha(x-z^*)+h,\;(x-z^*)^Th=0(\iff
+		%h\perp(x-z^*))$ and note also that $0<\epsilon=(x-z^*)^Tz=\alpha\mynorm{x-z^*}^2\implies \alpha>0$. As we have shown above,
+		%$z^*\perp(x-z^*)$, $z-z^*=\alpha(x-z^*)+h-z^*=\alpha(x-z^*)+h',\;(x-z^*)\perp h'$. 
+		Now, let us define $f:=\mysetn{t}{t\geq 0}\ni
+		t\mapsto f(t):=\mynorm{z^*+t(z-z^*)-x}^2\in\mathbb{R}$. Note, that $f(0)=\mynorm{z^*-x}$, whereas
+		$f'(0)=\frac{d}{dt}(z^*+t(z-z^*)-x)^T(z^*+t(z-z^*)-x)\mid_{t=0}=2(z-z^*)^T(z^*+t(z-z^*)-x)\mid_{t=0}=2(z-z^*)^T(z^*-x)=
+		2(z-z^*+z^*)^T(z^*-x)$ (as $(z^*-x)^Tz^*=0$) and thus $f'(0)=2(z-z^*+z^*)^T(z^*-x)=z^T(z^*-x)<0$ Therefore, for some $\epsilon>0$
+		small enough $z^*+\epsilon(z-z^*)\in K$ and $\mynorm{z^*+\epsilon(z-z^*)-x}=f(\epsilon)<f(0)=\mynorm{z^*-x}$, which contradicts
+		the definition of $z^*$ as $z^*:=\Pi_K(x)$.
+
+		Finally, we need to prove that $z^*\in K$, $x-z^*\in K^\circ$, and $(x-z^*)^Tz^*=0$ implies that $z^*=\Pi_K(x)$. Again, we may assume
+		$x\notin K$, as case $x\in K$ is trivial. Indeed, $x\in K$ means that if some $z'\in K$ satisfies $(x-z')^Tz'=0$
+		$x-z'\in K^\circ$, then
+		$\forall z\in K,\;-(x-z')^Tz\geq 0\iff (x-z')^Tz\leq 0$ and thus in particular $(x-z')^Tx\leq 0$. Therefore,
+		$0\geq (x-z')^Tx-(x-z')^Tz'=(x-z')^T(x-z')=\mynorm{x-z'}^2\implies x-z'=0\implies z'=x=\Pi_K(x)$. Thus, as was said,
+		case $x\in K$ is trivial and in subsequent we shall assume it is not so.
+		As was shown above,
+		$z^*:=\Pi_K(x)$ satisfies all three conditions, so there is at least one point in $K$ that does. It remains to show that there is
+		exactly one such point. Thus, assume that $z'\neq z^*$, $z'\in K$, $x-z'\in K^\circ$, and $(x-z')^Tz^*=0$, seeking contradiction.
+		Note, that as $x-z^*\in K^\circ$, by definition of $K^\circ$ we have $\forall z\in K,\;-(x-z^*)^Tz\geq 0\iff (x-z^*)^Tz\leq 0$
+		and thus in particular $(x-z^*)^Tz'\leq 0$. As $(x-z^*)^T z^*=0$, we have $0\geq(x-z^*)^Tz'=(x-z^*)^Tz'-(x-z^*)^Tz^*=(x-z^*)(z'-z^*)$
+		As $x-z^*\neq 0$ (because $x\notin K$ by assumption) and $z'-z^*\neq 0$, we have that $\triangle xz^*z'$ has
+		$\angle xz^*z'>\frac{\pi}{2}$. Repeating all of the above for $z'$ and $z^*$ exchanged (this can be done, as they have symmetric
+		properties, by assumption) we have $\angle xz'z^*>\frac{\pi}{2}$ and thus $\triangle xz^*z'$ has two angles obtuse. Contradiction
+		yielded ends the proof.
 		}
+	\item{\begin{enumerate}[label=(\alph*)]
+			\renewcommand{\myset}{\mathcal{C}^n}
+			\newcommand{\conv}{\mbox{conv}\left(\left\{vv^T\;:\;v\geq\mathbf{0}\right\}\right)}
+			\newcommand{\mydset}{\left(\myset\right)^*}
+		\item{$\mathcal{C}^n$ is cone, for if $X\in\myset$, $\lambda>0$, then $\lambda X\in\mathcal{S}^n$ and
+			$\forall v\geq \mathbf{0}$ we have $v^T\lambda Xv=\lambda v^T Xv\geq 0$ and thus $\lambda X\in\myset$.
+			$\myset$ is also convex, as if $X,\;Y\in\myset$, $\alpha\in[0,1]$ we have $\forall v\geq \mathbf{0}$
+			$v^T(\alpha X+(1-\alpha)Y)v=\alpha v^TXv+(1-\alpha)v^TYv\geq 0$, as
+			$v^TXv,\;v^TYv,\;alpha,\;1-\alpha\geq 0$. $\myset$ is also clearly nonempty, as $0\in\myset$ by direct check.
+			Finally, $\myset$ is closed, for assume $\left\{X_n\right\}_{n=1}^{\infty},\;X_n\in\myset$ and
+			$X_n\to X_0\in\mathcal{S}^n$. Let us take arbitrary $v\geq\mathbf{0}$. Then, by continuity of matrix
+			product, $v^TX_nv\to v^TX_0 v$, but as $X_n\in\myset$ we have $v^TX_nv\geq 0$ and thus limit
+			$v^TX_0v$ is also nonnegative. As $v$ was arbitrary, this shows that $X_0\in\myset$ and latter is thus closed.
+				}
+			\item{To begin with, let us show that $\conv$ is non-empty closed convex cone. It is nonempty, as
+				$0^T0=0\in\conv$. It is cone, as if $\alpha>0$, $\sum\lambda_iv_iv_i^T\in\conv$, then
+				$\alpha\sum\lambda_iv_iv_i^T=\sum\lambda_i(\sqrt{\alpha}v_i)(\sqrt{\alpha}v_i)^T\in\conv$. Finally,
+				Let us show it is closed. First of all, note that if we will consider $n\times n$ matrix as a vector
+				and apply to it standard 2-norm, we will have $\mynorm{vv^T}^2=\sum_{i,j=1}^n\myabs{v_iv_j}^2=
+				\left(\sum_{i=1}^n\myabs{v_i}^2\right)^2=\mynorm{v}^4$. 
+				Now, let us denote $N:=\left\{
+				vv^T,\;v\geq 0,\;\mynorm{v}=1\right\}$. $N$ is definitely closed set, as if $v_nv_n^T\to V$, we have
+				$\mynorm{v_n}=1$ and as set of vectors with norm $1$ is compact, by passing to subsequence,
+				we may assume that $v_n\to v_0,\;\mynorm{v_0}=1\implies v_nv_n^T\to v_0v_0^T\in N$. As $N$ is clearly
+				also bounded (all matrices in it have norm 1) it is compact. Now, let us fix some number $m$
+				consider set $M$ consisting
+				of all sums $\sum_{i=1}^m \alpha_i n_i$ where $\alpha_i\geq 0,\;n_i\in N$. This set is definitely
+				closed. This is because for normalizing function $f(v)=v/\mynorm{v}$ that maps $\mathcal{S}^n$ to
+				$\mysetn{X\in\mathcal{S}^n}{\mynorm{X}=1}$ we have that $M=f^{-1}(N)$ as $f$ is continuous
+				and $N$ is closed in $\mysetn{X\in\mathcal{S}^n}{\mynorm{X}=1}$, $M$ is closed in $\mathcal{S}^n$.
+				Now it just remains to show that $M=\conv$. Now, recall that $\conv$ can be seen as set of convex
+				combinations of $m$ elements in $\left\{vv^T\;:\;v\geq\mathbf{0}\right\}$ for some $m$, depending on
+				$n$. We will fix this $m$ as $m$ in definition of $M$. First, $M\subset\conv$, as if $
+				M\ni v=\sum_{i=1}^m\alpha_iv_iv_i^T$ we can renormalize $v_i$ so that coefficient in front of
+				$v_iv_i^T$ will become $1/n$ and thus $v\in\conv$. Conversely, elements of $\conv$ - convex
+				combinations of elements in $\left\{vv^T\;:\;v\geq\mathbf{0}\right\}$ can have their elements
+				renormalized to have norm of 1. Thus $\conv=M$ and is closed.
+
+				Having $\conv$ and $\mydset$ both to be non-empty closed convex cones and knowing the fact
+				that for non-empty closed cone $C^{**}=C$, it is just enough to show that
+				\[\myset=\left(\conv\right)^*\]
+				First, let us show that $\myset\subset\left(\conv\right)^*$. Let $X\in\myset$. Then for
+				arbitrary $v\geq\mathbf{0}$ and for $Y:=vv^T$ we have $Y_{ij}=v_iv_j$ and thus $X\bullet Y=
+				\sum_{i,\;j=1}^{\infty}X_{ij}Y_{ij}=\sum_{i,\;j=1}^{\infty}X_{ij}v_iv_j=v^TXv\geq 0$. Now,
+				if $Z\in\conv$ is a convex combinations of $Y_i=v_iv_i^T,\;v_i\geq 0$, as $X\bullet Y_i\geq 0$,
+				$Z\bullet Y_i$ is also nonnegative, thus $X\in\left(\conv\right)^*$.
+
+				Conversely, let us demonstrate that $\myset\supset\left(\conv\right)^*$. If $X\in
+				\left(\conv\right)^*$, then for any $v\geq\mathbf{0}$ $X\bullet vv^T\geq 0$, as $X\in
+				\left(\conv\right)^*$ and thus $X\in\myset$ by definition of $\myset$.
+
+
+				}
+		\end{enumerate}}
 \end{enumerate}
 \end{document}

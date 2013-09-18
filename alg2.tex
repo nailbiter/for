@@ -1,0 +1,173 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+%\usepackage{CJK}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\usepackage{mystyle}
+
+\title{Homework 2, Math 5111}
+\author{Alex Leontiev, 1155040702, CUHK}
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\bfseries Problem \arabic*.]
+	\item{\begin{enumerate}[label=(\arabic*).]
+			\item{There's not that much to check, in fact following \cite[subsection 10.1.1]{tb} we just verify
+				\begin{enumerate}[label=(\roman*)]
+					\item{{\it Associativity: } Let $A,B,C,D\in ob(Cor)$, $h\in hom_{Cor}(A,B),g\in
+						hom_{Cor}(B,C),f\in hom_{Cor}(C,D)$. We need to show that $f\circ(g\circ h)=(f\circ g)\circ h$.
+						As both left-hand side and right-hand side are by definition subsets of $A\times D$, we need to check
+						that these two sets are equal.
+						
+						First, assume $(a,d)\in f\circ(g\circ h)$. By definition of composition in this category, this means
+						that there is $c\in C$, such that $(a,c)\in g\circ h$ and $(c,d)\in f$. Consequently, by definition
+						the fact that $(a,c)\in g\circ h$ means that for some $b\in B$, $(a,b)\in h,\;(b,c)\in g$. Thus
+						as $(b,c)\in g,(c,d)\in f$ we have that $(b,d)\in f\circ g$. As moreover $(a,b)\in h$ we have that
+						$(a,d)\in (f\circ g)\circ h$ and thus $f\circ(g\circ h)\subset(f\circ g)\circ h$.
+						
+						Conversely, suppose $(a,d)\in (f\circ g)\circ h$. This means that for some $b\in B$,
+						$(a,b)\in h$ and $(b,d)\in f\circ g$. The latter consequently means that for some
+						$c\in C$ we have $(b,c)\in g$ and $(c,d)\in f$. Thus, $(a,c)\in g\circ h$, because
+						$(a,b)\in h$ and $(b,c)\in g$, and consequently $(a,d)\in f\circ(g\circ h)$ (because
+						$(c,d)\in f$ and $(a,c)\in g\circ h$). Thus, $f\circ(g\circ h)\supset(f\circ g)\circ h$,
+						finishing the proof.
+						}
+					\item{{\it Identity: } For $A\in ob(Cor)$ we shall denote $1_A:=\mysetn{(a,a)}{a\in A}\in hom_{Cor}(A,A)$.
+						We need to show that for $f\in hom_{Cor}(A,B)$, $f=f\circ 1_A$ and for $g\in hom_{Cor}(B,A),\;
+						g=1_A\circ g$. Let's start with the first one.
+						
+						To begin with, if $(a,b)\in f$, then by definition $(a,a)\in 1_A$ and thus $(a,b)\in f\circ 1_A$,
+						hence $f\subset f\circ 1_A$.
+						Conversely, if $(a,b)\in f\circ 1_A$, by definition of composition this means that for some $a'
+						\in A$, we have $(a,a')\in 1_A$ and $(a',b)\in f$. But from the definition of $1_A,
+						\;(a',a)\in 1_A\implies a'=a\implies (a',b)=
+						(a,b)\in f$. Thus $f\supset f\circ 1_A$ and two sets are equal.
+						
+						Secondly, let us show that $g=1_A\circ g$ for arbitrary $g\in hom_{Cor}(B,A)$. Similarly,
+						to above, if $(b,a)\in g$, then as $(a,a)\in 1_A$ by definition, $(b,a)\in 1_A\circ g$, thus
+						$g\subset 1_A\circ g$. Conversely, if $(b,a)\in 1_A\circ g$, then for some $a'\in A$ we have
+						$(b,a')\in g$ and $(a',a)\in 1_A\implies a'=a$ (by definition of $1_A$), thus $(b,a)=(b,a')\in 
+						g$, hence $1_A\circ g\subset g$ and two sets are equal.
+						}
+				\end{enumerate}
+				}
+			\item{Recall how the morphisms on $SET$ are defined. For $A,B\in ob(SET)$ the $\hom_{SET}$ by definition consists of
+				{\it functions} from $A$ to $B$, where {\it function} is in turn defined to be a subset $f$ of $A\times B$ such that
+				$\forall a\in A\;\exists! b\in B$ such that $(a,b)\in f$. Therefore, we naturally have
+				$\hom_{SET}(A,B)\subset \hom_{COR}(A,B)=2^{A\times B}$ (here by $2^X$ we shall denote the set of set of all subsets
+				of set $X$). In the light of this and the fact that $ob(SET)=ob(COR)=\{\mbox{sets}\}$ we may defined
+				$F:ob(SET)\ni S\mapsto F(S)=S\in ob(COR)$ and $F: hom_{SET}(A,B)\ni f\mapsto F(f)\in hom_{COR}(F(A),F(B))
+				= hom_{COR}(A,B)$ to be simply inclusion. As inclusion is injective by definition, all that still remains to be
+				done is show that $F$ is indeed a functor. For this, again following \cite[subsection 10.3.1]{tb}, we just need
+				to verify the {\it functorial property}.
+
+				First, let $A,B,C\in ob(SET)=ob(COR)$ and $h\in hom_{SET}(A,B),\;g\in hom_{SET}(B,C)$ we want to show that
+				$F(g\circ h)=F(g)\circ F(h)$. Let us recall, how the composition for functions is defined. It is defined to be
+				\[g\circ f=\mysetn{(a,c)\in A\times C}{\exists b\in B,\;(a,b)\in h,\;(b,c)\in g}\]
+				As this is exactly the same as composition in $COR$, functor respects composition.
+
+				Second, we need to show that for $A\in ob(SET)=ob(COR)$, $F(1_A)=1_{F(A)}=1_A$. But this directly follows
+				from the way we define $1_A$ in both categories.
+				}
+		\end{enumerate}
+		}
+	\item{First, let us show the existence of products. Given family of sets $\left\{A_i\right\}_{i\in I}$ 
+		together with corresponding $\mycol{f_i:A_i\mapsto S}{i\in I}$, we define
+		the product of its elements as $f:S\mapsto X$,
+		where $X:=\mysetn{a\in\Pi_{i\in A}A_i}{\forall i,j\in I,\;f_i(\pi_i(a))=f_j(\pi_j(a))}$ and
+		$f(a)=f_i(\pi_i(a))$ ($i\in I$ in definition of $f$ can be taken arbitrary and any choice will
+		give the same result by definition of $X$).
+		Morphisms $p_i:X\mapsto A_i$ are in turn defined as restrictions of $\pi_i$ to $X$. To show that these
+		are morphisms we need to verify $\forall i\in I,\;f=f_i\circ p_i$, but this is directly follows from definition
+		of $f$ and the way we defined $X$. To prove the universal property, let $g:Y\mapsto S$ be another object in $SET_S$
+		and $g_i:Y\mapsto A_i$ (so that $\forall i\in I,\;g=f_i\circ g_i$). Let's take arbitrary $y\in Y$, we have then that
+		$\forall i\in I,\;f_i(g_i(y))=g(y)$ and therefore $\left(g_i(y)\right)_{i\in I}\in X$. Mapping $\overline{f}:Y\ni y
+		\mapsto \overline{f}(y):=\left(g_i(y)\right)_{i\in I}\in X$ is a morphism (as $f\circ\overline{f}=g$ because
+		$\forall y\in Y,\;f(\overline{f}(y))=f\left(\left(g_i(y)\right)_{i\in I}\right)=f_i(g_i(y))$ 
+		for arbitrary chosen $i\in I$ by definition of $f$, and $f_i(g_i(y))=g(y)$ as $f_i\circ g_i=g$, because $g_i$ is a
+		morphism in $SET_S$) and $\forall i\in I,\;f_i\circ\overline{f}=g_i$ as for arbitrary $y\in Y$ $f_i(\overline{f}(y))=
+		\pi_i\left(\left(g_i(y)\right)_{i\in I}\right)=g_i(y)$.
+		. Finally, such $\overline{f}$ is unique, as we should have $\forall i\in I,\;g_i=f_i\circ\overline{f}\implies
+		\forall i\in I\forall y\in Y,\;g_i(y)=\pi_i(\overline{f}(y))\implies \overline{f}(y)=\left(g_i(y)\right)_{i\in I}
+		\in X$.
+
+		Second, let's show that coproduct of sets $\left\{A_i\right\}_{i\in I}$ 
+		together with corresponding $\mycol{f_i:A_i\mapsto S}{i\in I}$ exists. We define their coproduct simply as
+		$f:X\ni(a,i)\mapsto f_i(a)\in S$, where $X:=\mysetn{(a,i)}{i\in I,\;a\in A_i}$ together with morphisms 
+		$p_i:A_i\ni a\mapsto (a,i)\in X$. The latter is indeed a morphism for each $i\in I$, for $\forall a\in A_i,\;
+		f(p_i(a))=f(a,i)=f_i(a)\implies f\circ p_i=f_i$. Finally, let us verify the universal property. Assume
+		$g:Y\mapsto S$ is an object in $SET_S$ together with morphisms $g_i:A_i\mapsto Y$. Let us construct the morphism
+		$\overline{f}:X\ni (a,i)\mapsto \overline{f}(a,i):=g_i(a)\in Y$. First, this is a morphism, for $\forall (a,i)\in X,\;
+		g(\overline{f}(a,i))=g(g_i(a))=f_i(a)$ (for $g_i:A_i\mapsto Y$ is a morphism), thus $\forall (a,i)\in X
+		g(\overline{f}(a,i))=f_i(a)=f(a,i)$ and $g\circ\overline{f}=f$. Second, $\forall i\in I$ we have $\overline{f}\circ
+		f_i=g_i$, because for fixed arbitrary $i\in I$ and arbitrary $a\in A_i$ we have $\overline{f}(f_i(a))=\overline{f}(a,i
+		)=g_i(a)$, thus $\overline{f}\circ f_i=g_i$ as required.
+		}
+	\item{\begin{enumerate}[label=(\arabic*).]
+			\item{}
+			\item{}
+		\end{enumerate}
+		}
+	\item{\newcommand{\m}{\mathfrak{m}}
+		In subsequent we shall denote equivalence classes of $\mathfrak{m}/\mathfrak{m}^2$ and $R/\mathfrak{m}$ as $[\cdot]$ and
+		$[\cdot]'$ respectively. Now, given $[r]'\in R/\m$ and $[u],[v]\in \m^2/\m$ let us define addition and scalar multiplication
+		simply as $[r]'\cdot[u]:=[ru]$ (notation $[ru]$ here makes sense, for $ru\in\m$ if $r\in R,\;u\in\m$ as $\m$ is and 
+		ideal in $R$)
+		and $[u]+[v]:=[u+v]$ respectively. We just need to show that these are well-defined.
+
+		As a brief detour, let us not that $\m^2$ is an additive subgroup of $R$ by definition and thus all its elements
+		have form of finite sums $\sum_{i=1}^n a_ib_i,\;a_i,b_i\in\m$. Besides, as for any $r\in R$ we have $r\cdot
+		\sum_{i=1}^n a_ib_i=\sum_{i=1}^n a_ib_i\cdot r=\sum_{i=1}^n a_ib_i'$, where $b_i':=b_i\in r\in\m$ as $\m$ is
+		an ideal, hence $r\cdot\sum_{i=1}^n a_ib_i\in\m^2$ and this latter is a (two-sided) ideal.
+
+		Let's start with showing that scalar multiplication is well-defined.
+		Let $[s]'=[r]'\in R/\m$ and $[u]=[v]\in \m^2/\m$ we need to show that
+		$[su]=[rv]$. As $[s]'=[r]'$ we have $r-s=m\in\m$ and similarly $v-u=q\in\m^2$. Then $[rv]=[(r+m)(u+q)]=
+		[ru+mu+rq+mq]=[ru]$, as $mu\in\m^2\implies[mu]=[0]$ (because $m,u\in\m$), similarly $rq\in\m^2$ (as $q\in \m^2$ and
+		$\m^2$ is an ideal, as shown above) and $\m q\in\m^2$ (as $q\in \m^2$ and $\m^2$ is an ideal, as shown above).
+
+		Second, let's go to addition. Let $[u]=[u'],\;[v]=[v']$ Then $u'=u+d,\;v'=v+d'$, for some $d,d'\in\m^2$ and hence
+		$[u'+v']=[u+v+(d+d')]=[u+v]$, as $d+d'\in\m^2$, since latter is closed under addition by definition.
+
+		Finally, having that both scalar multiplication and addition well-defined it just remains to verify the 
+		axioms of a vector space.
+		\begin{itemize}
+			\item{$[u]+([v]+[w])=([u]+[v])+[w]$ -- this follows from the associativity of addition in $R$.}
+			\item{$[u]+[v]=[v]+[u]$ -- this follows from the commutativity of addition in $R$.}
+			\item{$[0]+[u]=[u]$ -- by definition of addition $[0]+[u]=[0+u]=[u]$ (this, $[0]$ is a zero-vector
+				in vector space $Spec(R)$).}
+			\item{$[-v]+[v]=[0]$ -- again, this follows from how we defined addition. It can only be mentioned that
+				$-v\in\m$ whenever $v\in\m$, as $\m$ is an additive subgroup of $R$.
+				}
+			\item{$[s]'([u]+[v])=[s]'[u]+[s]'[v]$ -- applying definitions of addition and scalar multiplication to both
+				sides we get that equivalently we need to show that $[s(u+v)]=[su+sv]$. This follows from distributive
+				law in $R$.}
+			\item{$([s]'+[t]')[u]=[s]'[u]+[t]'[u]$ -- again, 
+				applying definitions of addition and scalar multiplication
+				to both sides we get that equivalently we need to show that $[(s+t)u]=[su+tu]$ and again
+				this follows from distributive law in $R$.}
+			\item{$[s]'([t]'[u])=([s]'[t]')[u]$ -- 
+				applying definitions of addition and scalar multiplication
+				to both sides we get equivalent statement $[stu]=[stu]$, which is true.}
+			\item{$[1]'[v]=[v]$ -- from the way we defined scalar multiplication, $[1]'[v]=[1\cdot v]=[v]$.}
+		\end{itemize}
+		}
+	\item{\begin{enumerate}[label=(\arabic*).]
+			\item{}
+			\item{}
+		\end{enumerate}
+		}
+\end{enumerate}
+\begin{thebibliography}{9}
+	\bibitem{tb} Robert B. Ash, {\em Abstract Algebra: The basic Graduate Year}, digital version provided by author can be found at
+		\url{http://www.math.uiuc.edu/~r-ash/Algebra.html}
+\end{thebibliography}
+\end{document}
