@@ -118,6 +118,23 @@ For simplicity, we won't deal with more than 3 variables or equations.
 		we have arrived at underdetermined system, where we have more unknowns than {\it independent} equations.
 		The third variable $x_3$ can thus be taken as {\it free variable} and can be thought as a parameter. Thus, we have
 		\[x_2=-4+3x_3\]\[x_1=x_3-2\]
+		This can be also written more compactly as
+		\[\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}=\begin{pmatrix}-2\\-4\\0\end{pmatrix}+x_3\begin{pmatrix}1\\3\\1\end{pmatrix}\]
 		}
 \end{enumerate}
+{\bf Note.} Let us conclude with a remark. According to the textbook, the {\bf row-echelon form} of a matrix may look like
+\[\begin{pmatrix} 0&1&*&*&*&\cdots&*&*\\ 0&0&0&1&*&\cdots&*&*
+	\\\vdots&\vdots&\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+	0&0&0&0&0&\cdots&1&*\end{pmatrix}\]
+	So the only requirement is that the first element in each row should be 1 (it is called {\it pivot}) and all elements below it should be
+	equal to zero.
+
+	Now the {\bf reduced row-echelon form} is different in that in addition to above it also requires that all elements {\it above} pivot
+	should also vanish. That is, it may look like
+	\[\begin{pmatrix} 0&1&*&0&*&\cdots&0&0\\ 0&0&0&1&0&\cdots&0&*
+		\\\vdots&\vdots&\vdots&\vdots&\vdots&\ddots&\vdots&\vdots\\
+		0&0&0&0&0&\cdots&1&*\end{pmatrix}\]
+	Now, while technically {\bf reduced row-echelon form} is one particular instance of {\bf row-echelon form} (the latter is not
+	unique), usually computing reduced form takes additional time and may lead to additional errors. Thus, it is important to distinguish
+	what problems asks You to do and do only this if You are not sure in Your abilities or want to be efficient.
 \end{document}
