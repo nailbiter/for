@@ -112,11 +112,53 @@
 		)=g_i(a)$, thus $\overline{f}\circ f_i=g_i$ as required.
 		}
 	\item{\begin{enumerate}[label=(\arabic*).]
-			\item{}
-			\item{}
+				\renewcommand{\char}{\mbox{char}}
+				\renewcommand{\deg}{\mbox{deg}}
+			\item{In the field $\overline{F}$ (algebraic closure of $F$) consider the set $K$ of elements satisfying polynomial equation
+				$x^{q^2}-x=0$ with coefficients in $F$. To begin with, $K$ is a field. Indeed, $0,1\in K$
+				(here we mean zero and one as elements of $F$), and if $a,b\in K$ we have
+				$(a+b)^{q^2}-(a+b)=a^{q^2}-a+b^{q^2}-b=0\implies a+b\in K$ (recall that as $\char A=\char F=p$ for some
+				prime $p\mid q$
+				we have that in $\forall a,b\in A,\;(a+b)^p=a^p+b^p\implies (a+b)^q=a^q+b^q$). Similarly, if $a,b\in K$
+				we have $(ab)^{q^2}-ab=a^{q^2}b^{q^2}-ab=ab-ab=0$ and if $a\neq 0$ we also have $\left(\frac{1}{a}\right)
+				^{q^2}-\frac{1}{a}
+				=\frac{a-a^{q^2}}{q^{q^2+1}}=0$ and hence $K$ contains zero and one and is closed under additions, multiplication
+				and taking the inverse. Hence, it is a field. Moreover, $K\supset F$, as if $F\ni a\neq 0$ then $a^{q-1}=1\implies
+				a^{q^2}-a=a(\left(a^{q-1}\right)^{q+1}-1)=a(1^{q+1}-1)=0$ and $0\in K$.
+
+				Let us further compute the size of $K$. Note, that the formal derivative of $x^{q^2}-x$ is
+				$\frac{d}{dx}(x^{q^2}-x)=-1$ (recall that $\char K=\char F=p\mid q$) and hence it has no repeated roots. Moreover,
+				as $A$ is algebraically closed, $x^{q^2}-x$ completely splits in $A$.
+				Therefore, $\myabs{K}= \deg\left(x^{q^2}-x\right)=q^2$. Hence, $[K:F]=2$.
+
+				Let us factor $x^{q^2}-x$ as a product of monic irreducible polynomials over $F$. 
+				Assume some irreducible $f(x)$ divides $x^{q^2}-x$.
+				Then splitting field of $f(x)$ is an intermediate field of $K$ and $F$. However, as $[K:F]=2$, this intermediate
+				field should be either $K$ (in this case it has degree 2 as is degree of extension
+				) or $F$ (in which case $f(x)$ splits over $F$ and as $f(x)$ was irreducible by
+				assumption, it should be linear). Conversely, every linear polynomial $x-a,\;a\in F$ divides $x^{q^2}-x$, as $
+				a^{q^2}-a=0$ for every $a\in F$, as was shown above. Hence, every linear polynomial appears in aforementioned
+				decomposition and it can appear only once (as $x^{q^2}-x$ has no repeated roots).
+
+				Similarly, if irreducible $f(x)$ divides $x^{q^2}-x$ and has degree 2, it cannot appear twice in decomposition,
+				as $x^{q^2}-x$ has no repeated roots. Let us show that {\it every} monic irreducible over $F$ divides $x^{q^2}-x$.
+				Let $f(x)$ be irreducible over $F$, $E\subset A$ it's splitting field and $\alpha\in E$ it's root. As
+				$\deg f=2$, $[E:F]=2\implies \myabs{E}=q^2\implies \alpha^{q^2-1}=1$ (as $\alpha\neq 0\in F$) and thus
+				$\alpha^{q^2}-\alpha=0$ and since $\alpha$ was arbitrary, we get $f\mid x^{q^2-q}$.
+
+				Now we have that all monic linear (there are $q$ of them)
+				and monic quadratic irreducible polynomials over $F$ appear in decomposition of
+				$x^{q^2}-x$ in irreducible factors, none appears twice and no other polynomials appear there (as was shown above, 
+				irreducible factor of $x^{q^2}-x$ can have only degree 1 or 2). Thus, summing their degrees should give us
+				degree of $x^{q^2}-x$. Finally, denoting number of irreducible monic quadratic polynomials over $F$ as $k$ we get
+				$2k+q=q^2\implies k=\frac{q^2-q}{2}$ as required.
+				}
+			\item{
+				}
 		\end{enumerate}
 		}
-	\item{\newcommand{\m}{\mathfrak{m}}
+	\item{
+		\newcommand{\m}{\mathfrak{m}}
 		In subsequent we shall denote equivalence classes of $\mathfrak{m}/\mathfrak{m}^2$ and $R/\mathfrak{m}$ as $[\cdot]$ and
 		$[\cdot]'$ respectively. Now, given $[r]'\in R/\m$ and $[u],[v]\in \m^2/\m$ let us define addition and scalar multiplication
 		simply as $[r]'\cdot[u]:=[ru]$ (notation $[ru]$ here makes sense, for $ru\in\m$ if $r\in R,\;u\in\m$ as $\m$ is and 
@@ -161,8 +203,51 @@
 		\end{itemize}
 		}
 	\item{\begin{enumerate}[label=(\arabic*).]
-			\item{}
-			\item{}
+			\newcommand{\m}{\mathfrak{m}}
+		\item{We shall denote the equivalence classes in $k_{\m}$ as $[x]$ for $x\in C^{\infty}(U)$. Let us define a mapping
+			from $F:k_{\m}\ni[f]\mapsto F([f]):=f(0)\in\mathbb{R}$
+			. It is well defined, as if $[f]=[g]$ this means that $g=f+h,\;h\in\m\implies
+			h(0)=0\implies F(g)=(f+h)(0)=f(0)=F(f)$. In subsequent, we will show $F$ is in fact field isomorphism. 
+			
+			First, $F$ respects addition, for
+			\[F([f]+[g])=F([f+g])=(f+g)(0)=F([f])+F([g])\]
+			and also multiplication, for
+			\[F([f][g])=F([fg])=(fg)(0)=F(f)F(g)\]
+			it also maps $[1]\in k_{\m}$ (which is an identity element in $k_{\m}$) to 1, as
+			\[F([1])=1\]
+			moreover, it is onto, as for $\forall a\in\mathbb{R}$ holds
+			\[F([a])=a\]
+			and bijective, for $F([f])=F([g])\implies f(0)=g(0)\implies (f-g)(0)=0\implies f-g\in\m\implies [f]=[g]$. Altogether
+			these properties show that $F$ is indeed a field isomorphism between $k_{\m}$ and $\mathbb{R}$.
+			}
+		\item{Abusing notation from the previous items, we will denote the equivalence classes in $\m/\m^2$ again by $[f]$ for
+			$f\in\m$. 
+			Let us further denote coordinate functions of $\mathbb{R}^n$ by
+			$\left\{f_i:\mathbb{R}^n\supset U\mapsto\mathbb{R}\right\}_{i=1}^n$
+			, that is $f_i(x)=x_i$ for
+			$x=(x_1,x_2,\dots,x_n)\in\mathbb{R}^n$. We shall show that $\left\{[f_i]\right\}_{i=1}^n$
+			form a basis for $k_{\m}$ and since the cardinality of the basis is $n$, so is the dimension of $\m/\m^2$.}
+
+			First, let us show $\left\{[f_i]\right\}_{i=1}^n$ are linearly independent. For assume for some $\left\{\lambda_i\right\}_{
+			i=1}^n\subset\mathbb{R}$ we have $[0]=\sum_{i=1}^n\lambda_i[f_i]=\left[\sum_{i=1}^n\lambda_if_i\right]\implies
+			\sum_{i=1}^n\lambda_if_i\in\m^2$. By the observation from the previous problem this means that $\sum_{i=1}^n\lambda_if_i=
+			\sum_{j=1}^m a_jb_j$ for some $\myfincol{a_i}{m},\;\myfincol{b_i}{m}\subset\m$. Now, let us define linear operators
+			$D_i:\m\ni f\mapsto \frac{\partial f}{\partial x_i}\mid_{x=0}\in\mathbb{R}$ for $1\leq i\leq n$. They are clearly linear
+			and moreover have the property that $D_i(f_j)=\delta_{ij}$ (by $\delta_{ij}$ we denote Kronecker's symbol) and
+			$\forall 1\leq i\leq n,\;\forall f,g\in\m,\;D_i(fg)=\frac{\partial (fg)}{\partial x_i}\mid_{x=0}=f(0)D_i(g)+g(0)D_i(f)$,
+			so in particular $\forall 1\leq i\leq n,\;D_i(ab)=0$ if $a,b\in\m$. Therefore, as $D_i$ are all linear, we have
+			$\forall 1\leq j\leq n,\;D_j(\sum_{i=1}^n\lambda_if_i)=0$. However, $D_j(\sum_{i=1}^n\lambda_if_i)=
+			\sum_{i=1}^n\lambda_iD_j(f_i)=\sum_{i=1}^n\lambda_i\delta_{ij}=\lambda_j\implies \forall 1\leq j\leq n,\;\lambda_j=0$ hence
+			$\left\{[f_i]\right\}_{i=1}^n$ are linearly independent as was claimed.
+
+			Let us further show that they span $\m/\m^2$. We shall use without a proof the following equality that holds for all
+			$f\in C^{\infty}(U)$
+			\[f(x_1,x_2,\dots,x_n)=f(0,0,\dots,0)+\sum_{i=1}^nf_i(x)\int_0^1\frac{\partial f}{\partial x_i}(tx_1,tx_2,\dots,tx_n)dt\]
+			we shall denote $\int_0^1\frac{\partial f}{\partial x_i}(tx_1,tx_2,\dots,tx_n)dt=:g_i(x)$ and note that
+			$(g-g(0))(0)=g(0)-g(0)=0\implies g-g(0)\in\m$, hence for $f\in\m$
+			\[[f]=\sum_{i=1}^n[f_i][g_i]=\sum_{i=1}^n[f_i][g_i(0)]+\sum_{i=1}^n[f_i][g_i-g_i(0)]\]
+			as $g_i-g_i(0)\in\m$ and $f_i\in\m$ we have $f_i(g_i-g_i(0))\in\m^2\implies
+			[f]=\sum_{i=1}^n[f_i][g_i(0)]$ and hence $\left\{[f_i]\right\}_{i=1}^n$ span $\m/\m^2$ as was claimed.
 		\end{enumerate}
 		}
 \end{enumerate}
