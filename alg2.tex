@@ -165,10 +165,82 @@
 				The mapping mentioned above is clearly onto, as for $p(x)=x^2+px+q$ the matrix
 				\[A:=\begin{pmatrix}-p&-q\\1&0\end{pmatrix}\]will clearly have $p_A=p$. Let us proceed to show
 				it is injective. Suppose for some $A,\;B\in M_2(F)$, $p_A=p_B\in F[x]$
-				is monic irreducible and let us show that $[A]=[B]$. 
+				is monic irreducible and let us show that $[A]=[B]$. Let us open with preliminary lemma.
+				\begin{lemma}Let $A\in M_2(F)$ then, we can define $M_A$ -- $F[x]$-module, associated with $A$. We define
+					the vectors to be usual column vectors $\begin{bmatrix}u&v\end{bmatrix}^t,\;u,v\in F$ with addition defined
+					in a usual way and multiplication defined as
+					\[(a_0+a_1x+\dots+a_nx^n)\cdot\begin{bmatrix}u\\v\end{bmatrix}:=a_0\begin{bmatrix}u\\v\end{bmatrix}+
+						a_1A\begin{bmatrix}u\\v\end{bmatrix}+\dots+a_nA^n\begin{bmatrix}u\\v\end{bmatrix}\]
+					Then, if for $A,\;B\in M_2(F)$ we have $M_A$ and $M_B$ are isomorphic as modules, then $A$ and $B$ are similar.
+					\end{lemma}
+				\begin{proof}Assume that $M_A$ and $M_B$ are indeed isomorphic, so we have a ring homomorphism. As it is linear and have
+					both domain and codomain are column vectors, it can be described as $T\in M_2(F)$ and thus we have, in particular for every
+					column vector $u$, $T(x\cdot u)=x\cdot T(u)\implies TAu=BTu$ and as this holds for every column vector, we have
+					matrix equality $TA=BT$. Now, as ring homomorphism that $T$ represents is in fact isomorphism, $T$ should be invertible, hence
+					$TAT^{-1}=B$ and thus $A$ and $B$ are similar.
+				\qed\end{proof}
+				Restating what we are targeting to prove now, we want to show that if $p_A=p_B$ monic irreducible of a second degree
+				we have $[A]=[B]$, that is $A$ and $B$ are similar.
+				Consider $M_A$ module, introduced in the statement of a lemma. Note, that by Cayley-Hamilton theorem, $p_A(A)=0$, that is if
+				$p_A(x):=p(x)=x^2+px+q$, than we have $A^2+pA+qI=0$. Hence, for any column-vector $u\in M_A$ we have $p(x)\cdot u=0$, hence
+				if two polynomials in $F[x]$ are the same modulo $p(x)$, they act on in the same way on all column vectors,
+				hence $M_A$ naturally can be viewed as a module $M_A'$ over $F[x]/\left<p\right>$. Now, the same thing can be done to $M_B$ exactly,
+				as $p_B=p_A=p$ by assumption, so we get another $F[x]/\left<p\right>$-module $M_B'$. Now, as $p$ is irreducible by assumption, 
+				$F[x]/\left<p\right>$ is a field, thus both modules $M_A'$ and $M_B'$ are in fact vector spaces. Now, if we will show that they
+				have the same dimension, they will be isomorphic as a vector spaces of a same dimension and this isomorphism than can be lifted
+				to isomorphism of $M_A$ and $M_B$, whose isomorphism in turn will imply $[A]=[B]$. So we will devote the end of this paragraph to
+				show that $\mbox{dim}M_A'=1$ (for $M_B'$ proof will be the same). Take arbitrary nonzero
+				$u\in M_A'$. Then, $Au$ and $u$ should be linearly independent over $F$ (ie., when seen as elements of vector field of 2-by-1
+				matrices over $F$), otherwise $u$ would be the eigenvector of $A$, hence $A$ would have eigenvalue, which would be the root of $p_A$,
+				contradicting assumed irreducibility of latter. Thus, combinations of type $aAu+bu$ for $a,\;b\in F$ should span all the elements
+				in $M_A'$, hence ranging over all $a,\;b\in F$, $(ax+b)\cdot u$ would span the whole $M_A'$ thus proving the dimension is no more than
+				1, and it is clearly not zero, thus showing what we needed exactly.
 
-				\begin{lemma}\end{lemma}
-				\begin{proof}Let me apologize to begin with\qed\end{proof}
+				Now, let us proceed to the case of matrices whose characteristic polynomials are reducible, thus factors as a product
+				of two linear monic polynomials, or equivalently have two roots (two eigenvalues). First, we compute the number of equivalence
+				classes whose matrices have two equal eigenvalues. We will divide these classes on two types: first, those, that are equal to $aI$
+				for $a\in F$ (note, that $[aI]=\{aI\}$, as $TaIT^{-1}=aTT{-1}=aI$ for every $T\in GL_2(F)$) and there is $N_2=q$ of them, and those
+				that are not of this form. Let us compute the number of latter ones, call it $N_3$.
+
+				Let $a\in F$ be an eigenvalue of $A$ and by assumption $A\neq aI$. Then, by Cayley-Hamilton theorem, $(x-a)^2\cdot u=0$ for every
+				$u\in M_A$. However, as $A-aI\neq 0$, there is some nonzero
+				$u\in M_A$ such that $(x-a)\cdot u=v\neq 0$. Then, $0=(x-a)^2\cdot u=(x-a)\cdot v$,
+				hence $v$ is an eigenvector of $A$ with eigenvalue $a$ and $Au=au+v$. Moreover, $u$ and $v$ are linearly independent over $F$
+				as otherwise they would be proportional and thus we would have
+				$u=\lambda v\implies Au=\lambda Av=\lambda av=au\implies (x-a)\cdot u=0$, contradicting assumption. 
+				Therefore, the matrix $T=\begin{bmatrix} v&u\end{bmatrix}$
+				 having $v$ and $u$ as its left and right column respectively would be invertible and we would
+				have
+				\[A\begin{bmatrix}v&u\end{bmatrix}=\begin{bmatrix}v&u\end{bmatrix}\begin{bmatrix}a&1\\0&a\end{bmatrix}\]
+				hence
+				\[T^{-1}AT=\begin{bmatrix}a&0\\1&a\end{bmatrix}\]
+				Thus, every such $A$ is similar to the matrix in this upper-triangular form, and for different $a$ two matrices
+				in such forms are not similar, for they would have different eigenvalues. Hence $N_3$ is exactly the number of such forms, hence
+				\[N_3=q\]
+				
+
+				Finally, let us compute the number $N_4$
+				of classes $[A]$, such that $A$ has two distinct eigenvalues $a,\;b\in F$. Then, we have $Au=au,\;
+				Av=bv$ for column vectors $u,\;v$. Note, that $u$ and $v$ are linearly independent (over $F$)
+				, for if we would have $xu+yv=0$ for $x,\;y\in F$, 
+				then multiplying this by $A$ we would get $xAu+yAv=xau+ybv=0\implies a(xu+yv)+y(b-a)v=0\implies y(b-a)v=0\implies yv=0\implies y=0
+				\implies x=0$. Therefore, the matrix $T=\begin{bmatrix} u&v\end{bmatrix}$
+				 having $u$ and $v$ as its left and right column respectively would be invertible and we would
+				have (as $u$ and $v$ are eigenvectors)
+				\[A\begin{bmatrix}u&v\end{bmatrix}=\begin{bmatrix}u&v\end{bmatrix}\begin{bmatrix}a&0\\0&b\end{bmatrix}\]
+				hence
+				\[T^{-1}AT=\begin{bmatrix}a&0\\0&b\end{bmatrix}\]
+				Thus $A$ is similar to matrix in diagonal form, moreover as
+				\[\begin{bmatrix}0&1\\1&0\end{bmatrix}
+				\begin{bmatrix}a&0\\0&b\end{bmatrix}
+				\begin{bmatrix}0&1\\1&0\end{bmatrix}
+				\begin{bmatrix}b&0\\0&a\end{bmatrix}\]
+				we see that order does not matter for similarity class. However, clearly the diagonal matrix with different pair of values
+				$\{a',b'\}$ would belong to different similarity class, as eigenvalues are same for all members of a similarity class. Hence,
+				$N_4$ is equal to the number of distinct pairs of $a,\;b\in F$ disregarding order, hence
+				\[N_4=\frac{q(q-1)}{2}\]
+				At the end, the answer is
+				\[N=N_1+N_2+N_3+N_4=\frac{q^2-q}{2}+q+q+\frac{q(q-1)}{2}=q^2+q\]
 				}
 		\end{enumerate}
 		}
