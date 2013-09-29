@@ -101,9 +101,37 @@
 	while clearly $A\neq B$.
 	}
 \end{description}
-	%\section{Section 1.4}
-	%Sec. 1.4 #4c, 5, 7, 10dg, 17, 18 20, 27   
-	%\begin{description}
-	%\item[\# 4.]{Helo}
-	%\end{description}
+	\section{Section 1.4}
+%\newenvironment{name}[num]{before}{after}
+	\begin{description}
+	\item[\# 4.]{\textit{For each of the following pairs of matrices, find an elementary matrix $E$ such that $AE=B$.}
+		\begin{enumerate}[label=(\alph*)]
+			\setcounter{enumi}{2}
+		\item $A=\left(\begin{array}{rrr}4&-2&3\\-2&4&2\\6&1&-2\end{array}\right),
+				\quad B=\left(\begin{array}{rrr}2&-2&3\\-1&4&2\\3&1&-2\end{array}\right)$
+		\end{enumerate}
+		Notice, that if we will divide the first column of $A$ by 2, we will get precisely $B$. Matrix $E$ which we are required to produce
+		is obtained from identity by applying this very operation -- division of the first column by two.
+		Hence \[E=\left(\begin{array}{rrr}^1/_2&0&0\\0&1&0\\0&0&1\end{array}\right)\]
+		}
+	\item[\# 5.]{
+		\newenvironment{mymat}{\left(\begin{array}{rrr}}{\end{array}\right)}
+		{\it Given
+		\[A=\begin{mymat}1&2&4\\2&1&3\\1&0&2\end{mymat},\quad B=\begin{mymat}1&2&4\\2&1&3\\2&2&6\end{mymat},\quad 
+		C=\begin{mymat}1&2&4\\0&-1&-3\\2&2&6\end{mymat}\]
+		\begin{enumerate}[label=(\alph*)]
+			\item Find an elementary matrix $E$ such that $EA=B$.
+			\item Find an elementary matrix $F$ such that $FB=C$.
+			\item Is $C$ row equivalent to $A$? Explain.
+		\end{enumerate}
+		}
+		\begin{enumerate}[label=(\alph*)]
+			\item If we will add the first row of $A$ to its third row, we will get precisely $B$. Therefore, $E$ should be obtained
+				from the identity matrix by adding its first row to its third row, hence
+				\[E=\begin{mymat}1&0&0\\0&1&0\\1&0&1\end{mymat}\]
+			\item If we subtract the third row of 
+		\end{enumerate}
+		}
+%Sec. 1.4 #4c, 5, 7, 10dg, 17, 18 20, 27
+	\end{description}
 \end{document}
