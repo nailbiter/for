@@ -1,12 +1,8 @@
 \documentclass[8pt]{article} % use larger type; default would be 10pt
 
 %\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
-\usepackage[10pt]{type1ec}          % use only 10pt fonts
-\usepackage[T1]{fontenc}
-%\usepackage{CJK}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{CJKutf8}
 \usepackage{subfig}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -129,9 +125,62 @@
 			\item If we will add the first row of $A$ to its third row, we will get precisely $B$. Therefore, $E$ should be obtained
 				from the identity matrix by adding its first row to its third row, hence
 				\[E=\begin{mymat}1&0&0\\0&1&0\\1&0&1\end{mymat}\]
-			\item If we subtract the third row of 
+			\item If we subtract the third row of of $B$ from its second row, we will get precisely $C$. Hence,
+				if we'll apply this operation (subtraction of the third row from the second one) to the identity 
+				matrix, we will get $F$. Consequently
+				\[F=\begin{mymat}1&0&0\\0&1&-1\\0&0&1\end{mymat}\]
+			\item Yes, $C$ and $A$ are row equivalent. As $B=EA$, $A$ and $B$ are row equivalent -- they have the same
+				row space.
+				. Similarly, $B$ and $C$
+				are row equivalent and have the same row space. Hence, $A$ and $C$ also have the same row space,
+				equal to that of $B$. In other words, they are row equivalent.
 		\end{enumerate}
 		}
+	\item[\# 7.]{{\it Given \[A=\begin{pmatrix}2&1\\6&4\end{pmatrix}\]
+			\begin{enumerate}[label=(\alph*)]
+				\item Express $A$ as a product of elementary matrices.
+				\item Express $A^{-1}$ as a product of elementary matrices.
+			\end{enumerate}
+		}
+		\begin{enumerate}[label=(\alph*)]
+		\newcommand{\mymat}[1]{\left(\begin{array}{rr}#1\end{array}\right)}
+			\item We will just bring $A$ to reduced row echelon form (which will inevitably be identity matrix) and
+				encode each operation we do as an elementary matrix. The product of these will give us an answer we
+				seek. So, let's start with making a pivot in the first row.
+				\[\myexplain
+				{\mymat{2&1\\6&4}}
+				{\textcircled{1}$/2$}
+				{\mymat{1&\myfrac{1}{2}\\6&4}}
+				\]
+				This operation corresponds to the elementary matrix \[E_1=\mymat{\myfrac{1}{2}&0\\0&1}\]
+				Next we eliminate everything under the pivot
+				\[\myexplain
+				{\mymat{1&\myfrac{1}{2}\\6&4}}
+				{\textcircled{2}$-6*$\textcircled{1}}
+				{\mymat{1&\myfrac{1}{2}\\0&1}}
+				\]
+				This corresponds to elementary matrix \[E_2=\mymat{1&0\\-6&1}\]
+				As second row is accidentally get pivoted, we eliminate everything above pivot of the second row
+				\[\myexplain
+				{\mymat{1&\myfrac{1}{2}\\0&1}}
+				{\textcircled{2}$-\frac{1}{2}*$\textcircled{1}}
+				{\mymat{1&0\\0&1}}
+				\]
+				This corresponds to elementary matrix \[E_3=\mymat{1&-\myfrac{1}{2}\\0&1}\]
+				And hence we get
+				\[E_3E_2E_1A=\mymat{1&0\\0&1}\]
+				Hence $A=E_1^{-1}E_2^{-1}E_3^{-1}$. Fortunately, inverting elementary matrices is easy and we can
+				directly write the answer as
+				\[A=\mymat{2&0\\0&1}\mymat{1&0\\6&1}\mymat{1&\myfrac{1}{2}\\0&1}\]
+			\item In the light of the obtained above equality 
+				\[E_3E_2E_1A=\mymat{1&0\\0&1}\]
+				Therefore, we have have $E_3E_2E_1=A^{-1}$ and hence
+				\[A^{-1}=\mymat{\myfrac{1}{2}&0\\0&1}\mymat{1&0\\-6&1}\mymat{1&-\myfrac{1}{2}\\0&1}\]
+		\end{enumerate}
+		}
+	\item[\# 10.]{{\it Find the inverse of each of the following matrices.
+			}
+			}
 %Sec. 1.4 #4c, 5, 7, 10dg, 17, 18 20, 27
 	\end{description}
 \end{document}
