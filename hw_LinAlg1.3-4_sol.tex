@@ -178,9 +178,152 @@
 				\[A^{-1}=\mymat{\myfrac{1}{2}&0\\0&1}\mymat{1&0\\-6&1}\mymat{1&-\myfrac{1}{2}\\0&1}\]
 		\end{enumerate}
 		}
-	\item[\# 10.]{{\it Find the inverse of each of the following matrices.
+	\item[\# 10.]{
+		\newcommand{\mymat}[1]{\left(\begin{array}[t]{rr}#1\end{array}\right)}
+		{\it Find the inverse of each of the following matrices.
+		\begin{enumerate}[label=(\alph*)]
+			\setcounter{enumi}{3}
+			\renewcommand{\mymat}[1]{\left(\begin{array}{rr}#1\end{array}\right)}
+			\item $\mymat{3&0\\9&3}$
+			\setcounter{enumi}{6}
+			\renewcommand{\mymat}[1]{\left(\begin{array}{rrr}#1\end{array}\right)}
+			\item $\mymat{-1&-3&-3\\2&6&1\\3&8&3}$
+		\end{enumerate}
 			}
+		We shall employ the following method, which will be justified later in problem 20. To invert the matrix (call it $A$) we
+		will augment it with identity matrix to get $\left[A\mid I\right]$ (where $I$ is the square identity matrix of a
+		corresponding size) and bring it to reduced row echelon form via the row operations. As the result we will get
+		$\left[I\mid C\right]$ for some square matrix $C$, which will be exactly the inverse of $C$, as we will prove below in
+		problem 20. Let's proceed.
+		\begin{enumerate}[label=(\alph*)]
+			\setcounter{enumi}{3}
+			\renewcommand{\mymat}[1]{\left(\begin{array}{rr|rr}#1\end{array}\right)}
+			\item First, we construct the augmented matrix
+				\[\mymat{3&0&1&0\\9&3&0&1}\]
+			Then, make the pivot in the first row
+			\[\myexplain
+				{\mymat{3&0&1&0\\9&3&0&1}}
+				{\textcircled{1}$/3$}
+				{\mymat{1&0&\myfrac{1}{3}&0\\9&3&0&1}}
+			\]
+			Eliminate everything under the pivot of the first row
+			\[\myexplain
+				{\mymat{3&0&1&0\\9&3&0&1}}
+				{\textcircled{2}$-9*$\textcircled{1}}
+				{\mymat{1&0&\myfrac{1}{3}&0\\0&3&-3&1}}
+			\]
+			Then, make the pivot in the second row
+			\[\myexplain
+				{\mymat{1&0&\myfrac{1}{3}&0\\0&3&-3&1}}
+				{\textcircled{2}$/3$}
+				{\mymat{1&0&\myfrac{1}{3}&0\\0&1&-1&\myfrac{1}{3}}}
+			\]
+			Hence, \[A^{-1}=\left(\begin{array}{rr}\myfrac{1}{3}&0\\-1&\myfrac{1}{3}\end{array}\right)\]
+			\setcounter{enumi}{6}
+			\renewcommand{\mymat}[1]{\left(\begin{array}{rrr|rrr}#1\end{array}\right)}
+			\item Again, we begin by constructing the augmented matrix.
+				\[\mymat{-1&-3&-3&1&0&0\\2&6&1&0&1&0\\3&8&3&0&0&1}\]
+				Then, pivot the first row
+				\[\myexplain
+				{\mymat{-1&-3&-3&1&0&0\\2&6&1&0&1&0\\3&8&3&0&0&1}}
+				{\textcircled{1}$*(-1)$}
+				{\mymat{1&3&3&-1&0&0\\2&6&1&0&1&0\\3&8&3&0&0&1}}
+				\]
+				Eliminate everything under the pivot
+				\[\myexplainf
+				{\mymat{1&3&3&-1&0&0\\2&6&1&0&1&0\\3&8&3&0&0&1}}
+				{\textcircled{2}$-2*$\textcircled{1}}
+				{\textcircled{3}$-3*$\textcircled{1}}
+				{\mymat{1&3&3&-1&0&0\\0&0&-5&2&1&0\\0&-1&-6&3&0&1}}
+				\]
+				As we cannot pivot the second row as is, we bring the third on its place. That is, we exchange the second
+				and the third row
+				\[\myexplain
+				{\mymat{1&3&3&-1&0&0\\0&0&-5&2&1&0\\0&-1&-6&3&0&1}}
+				{\textcircled{2}$\leftrightarrow$\textcircled{3}}
+				{\mymat{1&3&3&-1&0&0\\0&-1&-6&3&0&1\\0&0&-5&2&1&0}}
+				\]
+				Pivot the second row
+				\[\myexplain
+				{\mymat{1&3&3&-1&0&0\\0&-1&-6&3&0&1\\0&0&-5&2&1&0}}
+				{\textcircled{2}$*(-1)$}
+				{\mymat{1&3&3&-1&0&0\\0&1&6&-3&0&-1\\0&0&-5&2&1&0}}
+				\]
+				Pivot the third row next, as there is nothing to eliminate under the pivot of the second row
+				\[\myexplain
+				{\mymat{1&3&3&-1&0&0\\0&1&6&-3&0&-1\\0&0&-5&2&1&0}}
+				{\textcircled{3}$*\left(-\frac{1}{5}\right)$}
+				{\mymat{1&3&3&-1&0&0\\0&1&6&-3&0&-1\\0&0&1&-\myfrac{2}{5}&-\myfrac{1}{5}&0}}
+				\]
+				Eliminate everything above the pivot of the third row
+				\[\myexplainf
+				{\mymat{1&3&3&-1&0&0\\0&1&6&-3&0&-1\\0&0&1&-\myfrac{2}{5}&-\myfrac{1}{5}&0}}
+				{\textcircled{2}$-6*$\textcircled{3}}
+				{\textcircled{1}$-3*$\textcircled{3}}
+				{\mymat{1&3&0&\myfrac{1}{5}&\myfrac{3}{5}&0\\0&1&0&-\myfrac{3}{5}&\myfrac{6}{5}
+				&-1\\0&0&1&-\myfrac{2}{5}&-\myfrac{1}{5}&0}}
+				\]
+				Eliminate everything above the pivot of the second row
+				\[\myexplain
+				{\mymat{1&3&0&\myfrac{1}{5}&\myfrac{3}{5}&0\\0&1&0&-\myfrac{3}{5}&\myfrac{6}{5}
+				&-1\\0&0&1&-\myfrac{2}{5}&-\myfrac{1}{5}&0}}
+				{\textcircled{1}$-3*$\textcircled{2}}
+				{\mymat{1&0&0&2&-3&3\\0&1&0&-\myfrac{3}{5}&\myfrac{6}{5}
+				&-1\\0&0&1&-\myfrac{2}{5}&-\myfrac{1}{5}&0}}
+				\]
+				Hence the answer is
+				\[A^{-1}=\left(\begin{array}{rrr}2&-3&3\\-\myfrac{3}{5}&\myfrac{6}{5}&-1\\-\myfrac{2}{5}&-\myfrac{1}{5}&0
+				\end{array}\right)\]
+		\end{enumerate}
 			}
+	\item[\# 17.]{
+		\newcommand{\x}{\mathbf{x}}
+		{\it Let $A$ and $B$ be $n\times n$ matrices and let $C=A-B$. Show that if $A\x_0=B\x_0$ and $\x_0\neq\mathbf{0}$,
+		then $C$ must be singular.} Indeed, $C\x_0=(A-B)\x_0=A\x_0-B\x_0=\mathbf{0}$ and since $\x_0\neq\mathbf{0}$, $C$ is singular.
+			}
+	\item[\# 18.]{
+		\newcommand{\x}{\mathbf{x}}
+		{\it Let $A$ and $B$ be $n\times n$ matrices and let $C=AB$. Prove that if $B$ is singular, than $C$ must be singular.}
+		Indeed, if $B$ is singular there is vector $\x_0\neq\mathbf{0}$, such that $B\x_0=\mathbf{0}$. Then, $C\x_0=A(B\x_0)=A\mathbf{0}
+		=\mathbf{0}$ and hence $C$ is singular, as $\x_0\neq\mathbf{0}$.
+		}
+	\item[\# 20.]{
+		\newcommand{\x}{\mathbf{x}}
+		{\it Let $A$ be a nonsingular $n\times n$ matrix and let $B$ be $n\times r$ matrix. Show that the reduced row echelon form of 
+		$(A\mid B)$ is $(I\mid C)$, where $C=A^{-1}B$.}
+		As $A$ is nonsingular by assumption, its reduced row echelon form is $I$ and hence there is matrix $E$, which is the product
+		of elementary matrices, representing row operations needed to bring $A$ to reduced row echelon form, such that $EA=I$. Then,
+		applying the same sequence of row operations to $(A\mid B)$ we get $E(A\mid B)=(I\mid C)$. Note, that $(I\mid C)$ is the reduced
+		row echelon form of $(A\mid B)$, as they are row equivalent (one obtained from the other one via the sequence of row operations)
+		and $(I\mid C)$ is in reduced row echelon form -- it has pivot in each row, they form "ladder" pattern and everything above and
+		below every pivot is zero. Now, as $E(A\mid B)=(I\mid C)$ we get $EA=I$ and $EB=C$ (as row operations represented by $E$ can
+		be applied to $A$ and $B$ separately). Now, the first equality gives us that $E=A^{-1}$, hence the second can be written as
+		$A^{-1}B=C$.
+		}
+	\item[\# 27.]{
+		\newcommand{\x}{\mathbf{x}}
+		\renewcommand{\c}{\mathbf{c}}
+		\newcommand{\y}{\mathbf{y}}
+		\newcommand{\z}{\mathbf{0}}
+		{\it Given a vector $\x\in R^{n+1},$ the $(n+1)\times (n+1)$ matrix $V$ defined by}
+		\[v_{ij}=\begin{cases}1 & \mbox{ if }j=1\\x_i^{j-1} & \mbox{ for } j=2,\dots,n+1\end{cases}\]
+		{\it is called Vandermonde matrix.
+		\begin{enumerate}[label=(\alph*)]
+			\item Show that if \[V\c=\y\] and \[p(x)=c_1+c_2x+\dots+c_{n+1}x^n\] then \[p(x_i)=y_i,\quad i=1,2,\dots,n+1\]
+			\item Suppose that $x_1,x_2,\dots,x_{n+1}$ are all distinct. Show that if $\c$ is a solution to $V\x=\z,$ then the
+				coefficients $c_1,c_2,\dots,c_n$ must all be zero, and hence $V$ must be nonsingular.
+		\end{enumerate}
+		}
+		\begin{enumerate}[label=(\alph*)]
+			\item There is a direct consequence of the way we defined $V$. Indeed, as $V\c=\y$ we have that for arbitrary $i=1,2,\dots,
+				n+1$ $(V\c)_i=\y_i$. Writing $(V\c)_i$ explicitly according to the way matrices are multiplied we get
+				\[y_i=(V\c)_i=\sum_{j=1}^{n+1}v_{ij}c_j=c_1+c_2x_i+c_3x_i^2+\dots+c_{n+1}x_i^n=p(x_i)\]
+			\item Assuming we have $V\c=\z$, then previous item would imply that for $p(x):=c_1+c_2x+\dots+c_{n+1}x^n$ we have
+				$p(x_i)=0$ for every $i=1,2,\dots,n+1$ and hence, as all $x_i$ are distinct, $p(x)$ has $n+1$ distinct zeros
+				in $R$. However, as $p(x)$ has degree no more than $n$, the only possibility is that $p(x)\equiv 0$ and hence
+				$c_1,c_2,\dots,c_n$ are all zero.
+		\end{enumerate}
+		}
 %Sec. 1.4 #4c, 5, 7, 10dg, 17, 18 20, 27
 	\end{description}
 \end{document}
