@@ -47,7 +47,8 @@
 		Thus by Transversality Theorem for almost every $s\in S$, map $Df(x)+s$ will be transversal to $M$ and thus $D(f+sx)^{-1}(M)\subset\mathbb{R}^m$ will
 		be a submanifold.
 		}
-	\item{Having $n$ and $k$ fixed as in the statement of a problem, we shall denote by $S\subset\mathbb{R}^{k\times k}$ the set of all symmetric $k$-by-$k$
+	\item{\renewcommand{\dim}{\mbox{dim }}
+		Having $n$ and $k$ fixed as in the statement of a problem, we shall denote by $S\subset\mathbb{R}^{k\times k}$ the set of all symmetric $k$-by-$k$
 		matrices. As it is a vector subspace of $\mathbb{R}^{k\times k}$, it is naturally a submanifold as well,
 		and it is important to note that it is "flat" in the sense that for $\forall s\in S$ every derivation in $T_s S$ can be represented as
 		$X_{s'}:C^{\infty}(S)\ni f\mapsto X_{s'}(f):=\frac{df(s+s't)}{dt}\mid_{t=0}\in\mathbb{R}$ for some unique $s'\in S$. It is also important to keep in
@@ -69,6 +70,7 @@
 		Let us choose $B=\frac{1}{2}(A^T)^{-1}s$. Then $A^TB+B^TA=\frac{1}{2}A^T(A^T)^{-1}s+\frac{1}{2}s^TA^{-1}A=\frac{1}{2}s+\frac{1}{2}s^T=s$,
 		as $s$ is symmetric, and thus
 		surjectivity is proven, $I$ is indeed regular value of $F$, so preimage theorem yields that $V_n^k\subset\mathbb{R}^{kn}$ is a submanifold.
+		Besides, by the very same preimage theorem, $\dim V_n^k=\dim \mathbb{R}^{nk}-\dim S=nk-\frac{k(k+1)}{2}$.
 
 		Finally, $V_n^k\subset\mathbb{R}^{kn}$ is compact as it is the subset of euclidean space which is both closed and bounded. It is closed, as
 		$V_n^k=F^{-1}(\left\{I\right\})$ with $F$ being smooth (and hence continuous) and $\left\{I\right\}\subset\mathbb{R}^{k\times k}$ being closed
@@ -77,7 +79,13 @@
 		and note that for arbitrary $A\in V_n^k$ we have $\mynorm{A}^2=\sum_{i=1}^k\mynorm{v_i}_2^2=k$ and hence 2-norm of all members of $V_n^k$ is uniformly
 		bounded.
 		}
-		\item{
+		\item{Following the scheme of proof outlined in Exercise 11 of Chapter 2, $\S1$ of \cite{gp}, let us first establish two auxiliary statements.
+			\begin{proposition}Let $x\in\partial X$, there exists a neighborhood $U\ni x$ and $f:U\mapsto\mathbb{R}$ smooth, such that
+
+		\end{proposition}
+		\begin{proof}
+			On the one hand, assume $z\in\partial U$ 
+		\qed\end{proof}
 			}
 \end{enumerate}
 \begin{thebibliography}{9}
