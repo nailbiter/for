@@ -9,6 +9,7 @@
 \usepackage{hyperref}
 \usepackage{enumerate}
 \usepackage{enumitem}
+\usepackage{harpoon}
 
 \usepackage{mystyle}
 
@@ -80,12 +81,53 @@
 		bounded.
 		}
 		\item{Following the scheme of proof outlined in Exercise 11 of Chapter 2, $\S1$ of \cite{gp}, let us first establish two auxiliary statements.
-			\begin{proposition}Let $x\in\partial X$, there exists a neighborhood $U\ni x$ and $f:U\mapsto\mathbb{R}$ smooth, such that
-
+			\begin{proposition}Let $x\in\partial X$, then there exists a neighborhood $U_x\ni x$
+				and $f_x:U_x\mapsto\mathbb{R}_{\geq 0}$ 
+				$f_x(z)=0\iff z\in\partial X$ and besides $df_x(\myvec{n_z})>0$
+				for every $z\in\partial X$, where $\myvec{n_z}\in T_z X$.
 		\end{proposition}
 		\begin{proof}
-			On the one hand, assume $z\in\partial U$ 
+			Given $x\in\partial X$, it has neighborhood $U_x$ that is diffeomorphic to the open half-space
+			$H_n:={x_n\geq 0}\subset\mathbb{R}^n$ (where $n$ is assumed to be the dimension of $X$), thus we have
+			diffeomorphism $\psi: U_x\mapsto H_n$ and we define $f_x(z):=\left(\psi(x)\right)_n:
+			U_x\mapsto\mathbb{R}_{\geq 0}$ -- the last coordinate
+			of $\psi(z)$. By definition of $\partial X$ we see that $_x(z)=0\iff z\in\psi^{-1}(\mysetn{z\in H_n}
+			{z_n=0})=\partial X\cap U_x$.
+
+			Now, given $z\in U_x\cap\partial X$
+			let us select $n_z:=d\psi^{-1}(\frac{\partial}{\partial x_n})\in T_x X$ and then (introducing the function
+			$\pi_n:H_n\ni z=(z_1,z_2,\dots,z_n)\mapsto \pi_n(z):=z_n\in\mathbb{R_{\geq 0}}$)
+			$df_x(n_z)=d\pi_n d\psi (n_z)=d\pi_n(\frac{\partial}{\partial x_n})=1>0$ 
 		\qed\end{proof}
+		Now, let $\left\{\phi_x\right\}_{x\in\partial X}\cup\left\{\phi_0\right\}$ be the partition of unity subordinate
+		to the open cover $\left\{U_x\right\}_{x\in\partial X}\cup\left\{U_0:=X\setminus\partial X\right\}$ with
+		$U_x$ defined as in Proposition above for every $x\in\partial X$. Let us define a smooth function $f:M\ni z\mapsto
+		f(x):=\sum_{x\in\partial X}\phi_x(z) f_x(z)+\phi_0(z)\in\mathbb{R}_{\geq 0}$
+		with $\phi_x$ defined as in Proposition above. Now, we claim that $f(x)=0\iff
+		x\in\partial X$. If $z\in X\setminus\partial X$
+		then there should be some member of partition of unity that does not vanish on neighborhood of $z$. If such
+		member can be chosen to be $\phi_0$, then $f(z)\geq \phi_0(z)>0$. If $\phi_x(z)>0$, then
+		$z\in\mbox{supp }\phi_x\subset U_x$, hence $f(z)\geq \phi_x(z) f_x(z)>0$, as $\phi_x(z)>0$ by assumption
+		and $f_x(z)>0$ by Proposition. Conversely, if $z\in\partial X$, then $z\notin U_0\supset
+		\mbox{supp }\phi_0\implies \phi_0(z)=0$ and if $\phi_x(z)>0$, then $\phi_x(z)f_x(z)=0$, as $f_x(z)=0$ by Proposition,
+		thus $f(z)=0$.
+
+		Finally, let us show that for arbitrary $z\in\partial X$, $z$ is a regular point of $f$. Given such $z$, as
+		$z\notin U_0\supset\mbox{supp }\phi_0\implies \phi_0(z)=0$, there are only finitely many $\left\{
+		f_{x_n}\right\}_{n=1}^N$, that do not vanish on some suitably chosen neighborhood $U\ni z$. Then,
+		denoting $f_n:=f_{x_n}$, we have that
+		$f(z')=\sum_{i=1}^N f_i(z')\phi_i(z')$ for $z'\in U$.
+		Let us also introduce $\myvec{n}\in T_z X$ corresponding to Proposition above applied to $z$ and $U_{x_1}\ni z$. 
+		We will now show that $d(f_i\phi_i)(\myvec{n})\geq 0$ and $d(f_0\phi_0)(\myvec{0})>0$, which will
+		imply that $df(\myvec{n})>0$ and thus $z$ is a regular value of $f$. Recalling the way we defined $\myvec{n}$ we
+		have that $d(f_i\phi_i)(\myvec{n})=f_i(z)d\phi_i(\myvec{n})+df_i(\myvec{n})\phi_i(z)=df_i(\myvec{n})d\phi_i(z)$
+		and is positive iff $df_i(\myvec{n})$ is positive (as $\phi_i(z)>0$ by assumption).
+		Continuing, $df_i(\myvec{n})=d\pi_n d\psi_i(\frac{\partial}{\partial x_n})$, where $\psi_i:V\mapsto W$
+		 is a diffeomorphism
+		 between the open subsets of $V,W\subset H_n$ containing the image of $z$ under $\psi_{x_1}$ and
+		 $\psi_{x_i}$ respectively. Therefore, by shifting $\psi_{x_1}$ and $\psi_{x_i}$ (this won't affect
+		 their pushforwards and hence $d\psi_i$) we may assume that both images of $z$ correspond to $0\in V,W$. 
+		
 			}
 \end{enumerate}
 \begin{thebibliography}{9}
