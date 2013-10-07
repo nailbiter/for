@@ -118,7 +118,7 @@
 		denoting $f_n:=f_{x_n}$, we have that
 		$f(z')=\sum_{i=1}^N f_i(z')\phi_i(z')$ for $z'\in U$.
 		Let us also introduce $\myvec{n}\in T_z X$ corresponding to Proposition above applied to $z$ and $U_{x_1}\ni z$. 
-		We will now show that $d(f_i\phi_i)(\myvec{n})\geq 0$ and $d(f_0\phi_0)(\myvec{0})>0$, which will
+		We will now show that $d(f_i\phi_i)(\myvec{n})>0$ for all $i$, which will
 		imply that $df(\myvec{n})>0$ and thus $z$ is a regular value of $f$. Recalling the way we defined $\myvec{n}$ we
 		have that $d(f_i\phi_i)(\myvec{n})=f_i(z)d\phi_i(\myvec{n})+df_i(\myvec{n})\phi_i(z)=df_i(\myvec{n})d\phi_i(z)$
 		and is positive iff $df_i(\myvec{n})$ is positive (as $\phi_i(z)>0$ by assumption).
@@ -127,7 +127,18 @@
 		 between the open subsets of $V,W\subset H_n$ containing the image of $z$ under $\psi_{x_1}$ and
 		 $\psi_{x_i}$ respectively. Therefore, by shifting $\psi_{x_1}$ and $\psi_{x_i}$ (this won't affect
 		 their pushforwards and hence $d\psi_i$) we may assume that both images of $z$ correspond to $0\in V,W$. 
-		
+		 As $d\pi_n$ is just the projection on the last component of the vector, it is enough to show that $d\psi_i(\frac{\partial}{\partial x_n})\in H_n
+		 \setminus\partial H_n$. Now, as $\psi_i$ is the diffeomorphism between the open subsets of $H_n$, both $\psi_i$ and its
+		 inverse should map points of $\partial H_n$ to points of $\partial H_n$. Hence, the restriction of $\psi_i$ to $\partial H_n$ induces
+		 diffeomorphism between $\partial H_n\cap V$ and $\partial H_n\cap W$ and hence $\myvec{v}\in\partial H_n\iff \psi_i(\myvec{v})\in\partial H_n$ and
+		 thus $d\psi_i(\frac{\partial}{\partial x_n})\notin\partial H_n$. Finally, $d\psi_i(\frac{\partial}{\partial x_n})\notin \mathbb{R}^n
+		 \setminus H_n$, as if we would have $d\psi_i(\frac{\partial}{\partial x_n})\in\mathbb{R}^n\setminus H_n$, then curve $\gamma:
+		 [0,+\infty)\ni x\mapsto\gamma(x):=\psi_i((0,0,\dots,0,x))$ would have $\gamma'(0)=d\psi_i(\frac{\partial}{\partial x_n})\in\mathbb{R}^n\setminus H_n$
+		 and hence for small $\epsilon>0$ we would have $\gamma(\epsilon)\notin H_n$, however for all 
+		 small $\epsilon>0$ we have $(0,0,\dots,0,\epsilon)\in V
+		 \subset H_n$, thus
+		 $\psi_i$ would map points of $H_n$ outside $H_n$, yielding contradiction. After all this we see that $df_i(\myvec{n})>0$, hence
+		 $z$ is the regular value of $f$ and we are done.
 			}
 \end{enumerate}
 \begin{thebibliography}{9}

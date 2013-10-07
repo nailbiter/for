@@ -2,4 +2,5 @@ docs/
 *.aux
 *.log
 *.out
+harpoon.sty
 *.pdf
