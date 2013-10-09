@@ -82,7 +82,24 @@
 				$q^{\frac{n(n-1)}{2}})$, as we have zeros below the diagonal, ones on diagonal and places above the diagonal can be filled with
 				anything -- and we have $\frac{n(n-1)}{2}$ of such places.
 				}
-			\item{
+			\item{We shall count $F_q$-subspaces in the following way. First, every set of $k$ linearly independent vectors
+				in $F_q^n$ generates some element of $G_{n,k}(F_q)$, but many sets generate the same space. Thus, we shall compute
+				the number of sets of $k$ linearly independent vectors in $F_q^n$. Following the logic in the first item of this
+				problem, we have $q^n-1$ ways to pick the first vector, $q^n-q$ to pick the second and so on, giving the final
+				answer
+				\[N_1=(q^n-1)(q^n-q^2)\dots(q^n-q^{k-1})\]
+				Now, given any particular $V\in G_{n,k}(F_q)$, let us count how many bases it has. Fix any particular one,
+				say $\myvec{v}_1,\myvec{v}_2,\dots,\myvec{v}_k$, then any other (say, 
+				$\myvec{u}_1,\myvec{u}_2,\dots,\myvec{u}_k$) can be bijectively identified with an element of $M\in GL_k(F_q)$,
+				namely by $M(\myvec{v}_i)=\myvec{u}_i$. Every basis can be mapped to such an element of $GL_k(F_q)$, and conversely
+				given such a matrix, it can be made into a basis in the following way. Assume $M=(a_{i,j})_{i,j=1}^k$ and then
+				define $u_i=\sum_{j=1}^k a_{i,j}\myvec{v}_j$. As these two correspondences are the inverses of each other, the 
+				correspondence is bijective, hence
+				\[\myabs{G_{n,k}(F_q)}=\frac{N_1}{\myabs{GL_k(F_q)}}=\frac{(q^n-1)(q^n-q^2)\dots(q^n-q^{k-1})}
+				{(q^k-1)(q^{k}-q)\dots(q^k-q^{k-1})}=\]
+				\[=\frac{(q^n-1)(q^{n-1}-1)\dots(q^{n-k+1}-1)q^{\frac{k(k-1)}{2}}}{(q^k-1)(q^{k-1}-1)
+				\dots(q-1)q^{\frac{k(k-1)}{2}}}=\]\[=
+				\frac{(q^n-1)(q^{n-1}-1)\dots(q-1)}{(q^k-1)(q^{k-1}-1)\dots(q-1)(q^{n-k}-1)(q^{n-k-1}-1)\dots(q-1)}\]
 				}
 			\item{To begin with, let us assume that $f_{n,k}(x)$ are defined to be zero unless when $0\leq k\neq n$, as otherwise
 				given rational expression for them has no sense. Let us furthermore assume the inductive formula
@@ -99,7 +116,7 @@
 				=\]\[=\frac{n!}{k!(n-k)!}\left(\frac{k}{n}+\frac{n-k}{n}\right)=\binom{n}{k}\]
 				if $n<k$
 
-				\renewcommand{\x}[1]{(x^{#1}-1)}
+				\newcommand{\x}[1]{(x^{#1}-1)}
 				Therefore, let us prove the recursive formula $f_{n,k}(x)=f_{n-1,k-1}(x)+x^kf_{n-1,k}(x)$ that is the only piece
 				we are lacking now to finish. Again, the case $n<0$ just follows from definition, the case $n=k\geq 0$ is straightforward, as
 				\[f_{n,n}(x)=\frac{(x^n-1)(x^{n-1}-1)\dots(x-1)}{(x^n-1)(x^{n-1}-1)\dots(x-1)\cdot1}=1=
