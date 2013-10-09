@@ -52,6 +52,10 @@
 		\end{enumerate}
 		}
 	\item{
+		\begin{enumerate}[label=(\arabic*).]
+			\item{
+				}
+		\end{enumerate}
 		}
 	\item{
 		\begin{enumerate}[label=(\arabic*).]
@@ -71,6 +75,22 @@
 				arbitrary, $E\subset\F(x^{\frac{1}{n}})$ which ends the proof of a claim.
 
 				Thus $\E/\F$ is normal and separable, and hence Galois. 
+				}
+			\item{To begin with, note that upon assigning $E:=\E$ and $F:=\F$ we find ourselves completely within
+				a setting of Problem 1. Applying it's results, we see that $G:=Gal(\E/\F)$ can be thought
+				as a subgroup of a cyclic group $\mu_n$ of $n$-th roots of unity, and thus $G$ is cyclic. Therefore,
+				it is completely determined by knowing its order and below we attempt to show that it's order is $n$,
+				so it is cyclic of order $n$.
+
+				In order to show that $\myabs{G}=n$, it is sufficient to explicitly exhibit $n$ different
+				automorphisms of $\E$ that fix $\F$. We claim that $\sigma_i$ defined as $\sigma_i\mid_\mathbb{C}
+				=id_\mathbb{C}$
+				and $\sigma_i(x^{\frac{1}{n}})=g^ix^{\frac{1}{n}}$ (where $g$ is an arbitrary generator of $\mu_n$)
+				for $1\leq i\leq n$ will do. Now, each two of them are distinct, as they all map $x^{\frac{1}{n}}$
+				to distinct values. Besides, each of them is an automorphism of $\E$, as $\sigma_i(\E)\subset\E$
+				and $\sigma_i$ is well-behaved under multiplication and addition and maps $1$ to $1$. Finally,
+				each $\sigma_i$ fixes $\F$, as $\sigma_i$ fixes $\mathbb{C}$ and $\sigma_i(x)=(\sigma(x^{\frac{1}{n}})
+				^n)=g^n(x^{\frac{1}{n}})^n=1\cdot x=x$.
 				}
 			\item{
 				}
