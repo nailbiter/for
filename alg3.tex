@@ -11,6 +11,7 @@
 \usepackage{hyperref}
 \usepackage{enumerate}
 \usepackage{enumitem}
+\usepackage{harpoon}
 
 \usepackage{mystyle}
 
@@ -53,7 +54,64 @@
 		}
 	\item{
 		\begin{enumerate}[label=(\arabic*).]
+			\newcommand{\M}{GL_n(F_q)}
+			\item{Let us consider how many choices for each row of arbitrary $M\in GL_n(F_q)$ we have, starting from the first row. Recall, that $M\in
+				GL_n(F_q)$ if and only if all rows of it are linearly independent. We have $q^n-1$ choices for the first row, as it is basically
+				can be anything except of the zero vector. 
+				
+				Now, the second row should be linearly independent of the first one, or equivalently,
+				does not have to belong to subspace spanned by the first row. The size of that subspace is is $q$, as we can multiply
+				the first row with any scalar in $F_q$ to get elements in subspace spanned by it, and conversely any element of the span can be obtained
+				in this way (including zero element, which belongs to span). Hence, we have $q^n-q$ choices for the second row.
+
+				Continuing, the third row should not belong to the subspace spanned by the first two rows, and that subspace has size exactly
+				$q^2$ (corresponding to $a,b\in F_q$ in linear combinations $a\myvec{r}_1+b\myvec{r}_2$ that form the span of the first two rows
+				$\myvec{r}_1$ and $\myvec{r}_2$ of $M$) -- hence $q^n-q^2$ choices, etc.
+
+				The final answer is
+				\[\myabs{GL_n(F_q)}=(q^n-1)\cdot(q^n-q^2)\cdot\dots\cdot(q^n-q^{n-1})=q^{\frac{n(n-1)}{2}}(q^n-1)(q^{n-1}-1)\dots(q-1)\]
+				}
+			\item{Note, that the size of a Sylow $p$-subgroup of $\M$ is the maximal degree of $p$ that divides $\myabs{\M}=q^{\frac{n(n-1)}{2}}(q^n-1)(q^{n-1}-1)\dots(q-1)$
+				and hence is $q^{\frac{n(n-1)}{2}}$, as $q^i-1\equiv -1\mbox{ mod }p$ for any $i\geq 1$. Therefore, it is just enough
+				to exhibit a subgroup of $\M$ of this size.
+
+				We claim that the set of {\it upper triangular matrices with all diagonal elements equal to 1} will do. They do form a subgroup, as
+				they are a subset of $\M$ (in fact, each of them has determinant equal to 1)
+				closed under multiplication, identity belongs to this set as well as inverse of any element (this is true, as
+				can be seen most easily by computing inverse via the matrix of cofactors). And the order of this subgroup is precisely
+				$q^{\frac{n(n-1)}{2}})$, as we have zeros below the diagonal, ones on diagonal and places above the diagonal can be filled with
+				anything -- and we have $\frac{n(n-1)}{2}$ of such places.
+				}
 			\item{
+				}
+			\item{To begin with, let us assume that $f_{n,k}(x)$ are defined to be zero unless when $0\leq k\neq n$, as otherwise
+				given rational expression for them has no sense. Let us furthermore assume the inductive formula
+				$f_{n,k}(x)=f_{n-1,k-1}(x)+x^kf_{n-1,k}(x)$ that we shall prove below. Using it, it can be seen
+				inductively on $n$ that $f_{n-1,k-1}(x)$ is a polynomial, as right hand side is a polynomial in $f_{n-1,\ast}(x)$ and the inductive
+				base with $n\leq 0$ following from definition (in particular, $f_{0,0}(x)=\frac{1}{1\cdot 1}=1$)
+				
+				Furthermore, it can be shown using the aforementioned recursive formula that $f_{n,k}(1)=\binom{n}{k}$ (again, assuming that
+				$\binom{n}{k}$ defined as $\frac{n!}{k!(n-k)!}$ if $0\leq k\leq n$ and zero otherwise). For indeed, we may again proceed by induction
+				on $n$. The base case follows for $0\leq k\leq n$ (which is the only thing that requires proof) we have 
+				\[f_{n,k}(1)=f_{n-1,k-1}(1)+x^k\cdot 0=\binom{n-1}{k-1}=1\]
+				if $n=k$ and
+				\[f_{n,k}(1)=f_{n-1,k-1}(1)+1^k\cdot f_{n-1,k}(1)=\binom{n-1}{k-1}+\binom{n-1}{k}=\frac{(n-1)!}{(k-1)!(n-k)!}+\frac{(n-1)!}{k!(n-k-1)!}
+				=\]\[=\frac{n!}{k!(n-k)!}\left(\frac{k}{n}+\frac{n-k}{n}\right)=\binom{n}{k}\]
+				if $n<k$
+
+				\renewcommand{\x}[1]{(x^{#1}-1)}
+				Therefore, let us prove the recursive formula $f_{n,k}(x)=f_{n-1,k-1}(x)+x^kf_{n-1,k}(x)$ that is the only piece
+				we are lacking now to finish. Again, the case $n<0$ just follows from definition, the case $n=k\geq 0$ is straightforward, as
+				\[f_{n,n}(x)=\frac{(x^n-1)(x^{n-1}-1)\dots(x-1)}{(x^n-1)(x^{n-1}-1)\dots(x-1)\cdot1}=1=
+				\frac{(x^{n-1}-1)(x^{n-2}-1)\dots(x-1)}{(x^{n-1}-1)(x^{n-2}-1)\dots(x-1)\cdot1}=\]\[=f_{n-1,n-1}(x)+x^n\cdot 0
+				=f_{n-1,n-1}(x)+x^n\cdot f_{n-1,n}(x)\]
+				So the only remaining case is $0\leq k<n$. We have
+				\[f_{n-1,k-1}(x)+x^kf_{n-1,k}(x)=\frac{\x{n-1}\x{n-2}\dots\x{1}}{\x{k-1}\x{k-2}\dots\x{1}\x{n-k}\x{n-k-1}\dots\x{1}}+\]
+				\[+x^k\frac{\x{n-1}\x{n-2}\dots\x{1}}{\x{k}\x{x-1}\dots\x{1}\x{n-k-1}\x{n-k-2}\dots\x{1}}=\]
+				\[=\frac{\x{n}\x{n-1}\dots\x{1}}{\x{k}\x{k-1}\dots\x{1}\x{n-k}\x{n-k-1}\dots\x{1}}\left(\frac{x^k-1}{x^n-1}+x^k\frac{x^{n-k}-1}{x^n-1}
+				\right)=\]
+				\[=\frac{\x{n}\x{n-1}\dots\x{1}}{\x{k}\x{k-1}\dots\x{1}\x{n-k}\x{n-k-1}\dots\x{1}}\left(\frac{x^k-1}{x^n-1}+\frac{x^n-x^k}{x^n-1}
+				\right)=f_{n,k}(x)\]
 				}
 		\end{enumerate}
 		}
@@ -92,13 +150,16 @@
 				each $\sigma_i$ fixes $\F$, as $\sigma_i$ fixes $\mathbb{C}$ and $\sigma_i(x)=(\sigma(x^{\frac{1}{n}})
 				^n)=g^n(x^{\frac{1}{n}})^n=1\cdot x=x$.
 				}
-			\item{
+			\item{For the intermediate field $\F\subset K\subset\E$ let us define the correspondence in the following way. Assume $[\E:K]=d\mid n$
+				then let us associate with it $H:=\mysetn{g^{\frac{nk}{d}}}{k\in\mathbb{Z}}\subset G$ (where $g$ is the generator of $G$) -- the 
+				subgroup of $G$ of order $d$. $H$ is indeed a Galois group for $E/K$, as it is the only subgroup of $G$ of order $[\E:K]=d$. 
+				
+				Conversely, given $H\subset G$ of order $\myabs{H}=d\mid n$, let us define the corresponding intermediate field $K$ to be
+				$\F(x^{\frac{d}{n}})$. $K$ will indeed be a field that is fixed by $H$ as it is of degree $\frac{n}{d}$ (similarly to how we shown
+				above that $[\F(x^{\frac{1}{n}}):\F]=n$) over $\F$, hence $[\E:K]=d$, hence it's Galois group will be a subgroup of $G$ of order
+				$d$, but there is only one such subgroup, namely $H$.
 				}
 		\end{enumerate}
 		}
 \end{enumerate}
-\begin{thebibliography}{9}
-	\bibitem{tb} Robert B. Ash, {\em Abstract Algebra: The basic Graduate Year}, digital version provided by author can be found at
-		\url{http://www.math.uiuc.edu/~r-ash/Algebra.html}
-\end{thebibliography}
 \end{document}
