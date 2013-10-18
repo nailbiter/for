@@ -1,0 +1,152 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{harpoon}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage[neverdecrease]{paralist}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usepackage{ulem}
+
+\usepackage{mystyle}
+
+\title{Math 1540\\University Mathematics for Financial Studies\\2013-14 Term 1\\Suggested solutions for\\
+HW problems Sec. 2.3-2.4 (Linear Algebra) and Sec. 14.1 (Calculus)}
+\begin{document}
+\maketitle
+\section{Section 2.3 (Linear Algebra)}
+\begin{description}
+	\item[\# 5.]{{\it Let} \[A=\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}\]
+	\textit{Assuming that $\det(A)=-7$, find}\\\\
+	\begin{inparaenum}[(a)]
+		\item $\det(3A)$\qquad
+		\item $\det(A^{-1})$\qquad
+		\item $\det(2A^{-1})$\qquad
+		\item $\det((2A)^{-1})$\qquad
+		\item $\det\begin{bmatrix}a&g&d\\b&h&e\\c&i&f\end{bmatrix}$
+	  \end{inparaenum}\\\\
+	\begin{enumerate}[(a)]
+	\item \[\det(3A)=\begin{vmatrix}3a&3b&3c\\3d&3e&3f\\3g&3h&3i\end{vmatrix}=
+	3\cdot\begin{vmatrix}a&b&c\\3d&3e&3f\\3g&3h&3i\end{vmatrix}=
+	3\cdot3\cdot\begin{vmatrix}a&b&c\\d&e&f\\3g&3h&3i\end{vmatrix}=\]\[=
+	3\cdot3\cdot3\cdot\begin{vmatrix}a&b&c\\d&e&f\\g&h&i\end{vmatrix}=3\cdot3\cdot3\cdot(-7)=-189\]
+	\item As we have \[\det(A)\det(A^{-1})=\det(AA^{-1})=\det(I)=1\] we conclude \[\det(A^{-1})=\frac{1}{\det(A)}=-\frac{1}{7}\]
+	\item Similarly to the first subproblem \[\det(2A^{-1})=2\cdot2\cdot2\det(A^{-1})=-\frac{8}{7}\]
+	\item As \[(2A)\cdot(\frac{1}{2}A)=2\cdot\frac{1}{2}AA^{-1}=I\] we conclude that $(2A)^{-1}=\frac{1}{2}A^{-1}$ and hence
+	\[\det((2A)^{-1})=\det(\frac{1}{2}A^{-1})=\frac{1}{2}\cdot\frac{1}{2}\cdot\frac{1}{2}\cdot\det(A^{-1})=-\frac{1}{56}\]
+	\item 
+		\[\begin{array}{rr}
+		\begin{vmatrix}a&g&d\\b&h&e\\c&i&f\end{vmatrix}= &\mbox{ (\textit{transposing does not change determinant}) }\\\\
+		=\begin{vmatrix}a&b&c\\g&h&i\\d&e&i\end{vmatrix}= &\mbox{ (\textit{interchanging rows changes sign}) }\\\\
+			=-\begin{vmatrix}a&b&c\\d&e&i\\g&h&i\end{vmatrix}=&-\det(A)=7
+		\end{array}\]
+	\end{enumerate}
+	}
+	\item[\# 7.]{{\it Without directly evaluating, show that}
+		\[\det\begin{bmatrix}b+c&c+a&b+a\\a&b&c\\1&1&1\end{bmatrix}=0\]
+		This is not difficult
+		\[\begin{array}{rr}
+		\begin{vmatrix}b+c&c+a&b+a\\a&b&c\\1&1&1
+		\end{vmatrix}= &\mbox{ (\textit{adding row to row does not alter determinant})}\\\\
+		=\begin{vmatrix}b+c+a&c+a+b&b+a+c\\a&b&c\\1&1&1
+		\end{vmatrix}= &\mbox{ (\textit{scaling one row scales the determinant})}\\\\
+		=(a+b+c)\cdot\begin{vmatrix}1&1&1\\a&b&c\\1&1&1
+		\end{vmatrix}= &\mbox{ (\textit{matrix with identical rows has zero determinant})}\\\\
+		=(a+b+c)\cdot0=0&\end{array}\]
+		}
+	\item[\# 17.]{{\it \begin{enumerate}[(a)]
+			\item Express\[\begin{vmatrix}a_1+b_1&c_1+d_1\\a_2+b_2&c_2+d_2\end{vmatrix}\] as a sum of four determinants
+					whose entries contain no sums
+		\end{enumerate}
+		}
+		\begin{enumerate}[(a)]
+			\item 
+		\[\begin{array}{rr}
+		\begin{vmatrix}a_1+b_1&c_1+d_1\\a_2+b_2&c_2+d_2\end{vmatrix}= &\mbox{ (\textit{determinant is linear in first row})}\\\\
+		=\begin{vmatrix}a_1&c_1\\a_2+b_2&c_2+d_2\end{vmatrix}+
+		\begin{vmatrix}b_1&d_1\\a_2+b_2&c_2+d_2\end{vmatrix}
+			= &\mbox{ (\textit{determinant is linear in second row})}\\\\
+		=\begin{vmatrix}a_1&c_1\\a_2&c_2\end{vmatrix}+
+		\begin{vmatrix}a_1&c_1\\b_2&d_2\end{vmatrix}+
+		\begin{vmatrix}b_1&d_1\\a_2&c_2\end{vmatrix}+
+			\begin{vmatrix}b_1&d_1\\b_2&d_2\end{vmatrix}\end{array}
+		\]
+		\end{enumerate}
+		}
+	\item[\# 18.]{{\it Prove that a square matrix is invertible if and only if $A^TA$ is invertible.
+				}
+			Assume that $A$ is invertible. Then, $A^T(A^{-1})^T=(A^{-1}A)^T=I^T=I$, so $A^T$ is also invertible and hence
+			$A^TA$ is invertible as a product of invertible matrices.
+
+			Conversely, suppose $A^TA$ is invertible. Then $0\neq \det(A^TA)=\det(A^T)\det(A)=\det(A)\cdot\det(A)\implies
+			\det(A)\neq 0$ and hence $A$ is invertible.
+				}
+\section{Section 2.4 (Linear Algebra)}
+\newcommand{\mymat}[2]{\mysbra{\begin{array}{#1}#2\end{array}}}
+\newcommand{\adj}{\mbox{adj}}
+	\item[\# 4.]{{\it For the matrix \[A=\mymat{rrr}{1&-2&3\\6&7&-1\\-3&1&4}\]
+		find\\\\
+		\begin{inparaenum}[(a)]
+		\item $\adj(A)$\qquad
+		\item $A^{-1}$ using Theorem 2.4.2
+		\end{inparaenum}\\\\
+		}
+		This problem is straightforward
+		\begin{enumerate}[(a)]
+			\item \[\adj(A)=\left[\begin{array}{rrr}
+					+\det(M_{1,1}) & -\det(M_{2,1})&+\det(M_{3,1})\\
+					-\det(M_{1,2}) & +\det(M_{2,2})&-\det(M_{3,2})\\
+					+\det(M_{1,3}) & -\det(M_{2,3})&+\det(M_{3,3})\\
+				\end{array}\right]=\]
+				\[=\left[\begin{array}{rrr}
+					29&11&-19\\
+					-21&13&19\\
+					27&5&19
+				\end{array}\right]\]
+				Here by $M_{i,j}$ we denote matrix $A$ with row $i$ and column $j$ cut out, as usual. 
+				Just as a recap, let us write down the computation of $\det(M_{3,2})$
+				\[\det(M_{3,2})=\left|\begin{array}{rrr}1& \cancel{-2}& 3\\
+					6& \cancel{7}& -1\\
+					\cancel{-3}& \cancel{1}& \cancel{4}\\
+				\end{array}\right|=\left|\begin{array}{rr}1& 3\\
+					6& -1\\
+				\end{array}\right|=1\cdot(-1)-6\cdot3=-19\]
+			\item Knowing the adjoint matrix, it easy to explicitly write down the inverse
+				\[A^{-1}=\frac{1}{\det(A)}\adj(A)=\frac{1}{152}
+				\left[\begin{array}{rrr}
+					29&11&-19\\
+					-21&13&19\\
+					27&5&19
+				\end{array}\right]\]
+				as
+				\[
+				\det(A)=\left|\begin{array}{rrr}
+					1&-2&3\\6&7&-1\\-3&1&4
+				\end{array}\right|=
+				\left|\begin{array}{rrr}
+					1&-2&3\\0&19&-19\\0&-5&13
+				\end{array}\right|=
+				19\left|\begin{array}{rrr}
+					1&-2&3\\0&1&-1\\0&0&8
+				\end{array}\right|=19\cdot1\cdot1\cdot8=152
+				\]
+		\end{enumerate}
+		}
+	\item[\# 4.]{{\it Solve by Cramer's Rule, if it applies
+		}
+		}
+\end{description}
+\end{document}
+%Please prepare the solutions for:
+%Sec. 2.4 # 4, 17, 23, 25, 29
+
+%And from the official textbook (Thomas Calculus, available at the
+%general office):
+%Sec. 14.1 # 9, 15, 27, 30, 31-36, 54

@@ -4,3 +4,4 @@ docs/
 *.out
 harpoon.sty
 *.pdf
+alex.vim
