@@ -223,8 +223,8 @@ Now, following Cramer's Rule
 \end{myeg}
 \section{Well-definedness of the determinant}
 During the course, the determinant of a matrix $A$ with
-entries was defined via the recursive formula $\det(A)=\sum_{i=1}^n(-1)^{1+i}a_{1i}\det(A_{1i})$,
-when $A_{1i}$ denotes the matrix $A$ with first row and $i$-th column cut out. Now, it was \textit{claimed} that in fact expansion
+entries was defined via the recursive formula $\det(A)=\sum_{i=1}^n(-1)^{1+i}a_{1i}\det(M_{1i})$,
+when $M_{1i}$ denotes the matrix $A$ with first row and $i$-th column cut out. Now, it was \textit{claimed} that in fact expansion
 can be done via \textit{any} row. Hence, the question naturally arises about providing a formal proof of this fact. This section
 is an attempt to provide such a proof. 
 
@@ -248,7 +248,7 @@ $1\leq r_1<r_2<\hdots<r_s\leq m$, let us denote by $[A]^{r_1,r_2,\hdots,r_s}$
 the matrix $A$ with rows $r_1, r_2,\hdots,r_s$ cut out.
 Similarly, given $1\leq c_1<c_2<\hdots<c_s\leq n$
 by $[A]_{c_1,c_2,\hdots,c_s}$ we shall denote the matrix $A$ with columns $c_1,c_2,\hdots,c_s$ cut out. In case we will cut both row and columns
-at the same time, we shall use the notation $[A]_{c_1,c_2,\hdots,c_s}^{r_1',r_2',\hdots,r_{s'}'}$ with natural meaning. In this new notation the 
+at the same time, we shall use the notation $[A]_{c_1,c_2,\hdots,c_s}^{r_1,r_2,\hdots,r_{s'}}$ with natural meaning. In this new notation the 
 expansion of the determinant of $A$ along the $i$-th row can be written as
 \[\sum_{k=1}^n(-1)^{i+k}a_{ik}\det([A]_k^i)\]
 and expansion along the $j$-th row as
