@@ -6,6 +6,7 @@
 \usepackage{subfig}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{mathtools}
 \usepackage{hyperref}
 \usepackage{harpoon}
 \usepackage{enumitem}
@@ -139,13 +140,156 @@ HW problems Sec. 2.3-2.4 (Linear Algebra) and Sec. 14.1 (Calculus)}
 				\]
 		\end{enumerate}
 		}
-	\item[\# 4.]{{\it Solve by Cramer's Rule, if it applies
+	\item[\# 17.]{{\it Solve by Cramer's Rule, if it applies\\\\
+			$\begin{array}[t]{rrrrrrr}
+				4x & + {} & 5y & & & = & 2\\
+				11x & + {} & y & + {} & 2z& = & 3\\
+				x & + {} & 5y & + {} & 2z& = & 1
+			\end{array}$\\\\
+			}Rewriting the equation in matrix form we have
+			\[A\mathbf{x}=
+			\begin{bmatrix}4&5&0\\11&1&2\\1&5&2\end{bmatrix}\begin{bmatrix}x\\y\\z\end{bmatrix}=\begin{bmatrix}2\\3\\1\end{bmatrix}=
+				\mathbf{b}\]
+			Hence
+			\[A=\begin{bmatrix}4&5&0\\11&1&2\\1&5&2\end{bmatrix},\quad \mathbf{b}=\begin{bmatrix}2\\3\\1\end{bmatrix}\]
+			To begin with,
+			\[\begin{array}{rr}
+			\det(A)=\begin{vmatrix*}[r]4&5&0\\11&1&2\\1&5&2\end{vmatrix*}
+			= &\mbox{ (\textit{interchanging 1st and 3rd row changes sign})}\\\\
+			=-\begin{vmatrix*}[r]1&5&2\\11&1&2\\4&5&0\end{vmatrix*}=
+			&\mbox{ (\textit{subtracting first row from another does not change determinant})}\\\\
+			=-\begin{vmatrix*}[r]1&5&2\\0&-54&-20\\0&-15&-8\end{vmatrix*}=
+			&\mbox{ (\textit{expand along the first column})}\\\\
+			=-\begin{vmatrix*}[r]-54&-20\\-15&-8\end{vmatrix*}=&-((-54)\cdot(-8)-(-15)\cdot(-20))=15\cdot20-54\cdot8=-132
+			\end{array}\]
+			Hence $\det(A)\neq 0$, thus Cramer's Rule applies. Proceeding, we have
+			\[\begin{array}{rr}
+			\det(A_1)=\begin{vmatrix*}[r]\mathbf{2}&5&0\\\mathbf{3}&1&2\\\mathbf{1}&5&2\end{vmatrix*}
+			= &\mbox{ (\textit{subtracting third row from others does not change determinant})}\\\\
+			=\begin{vmatrix*}[r]0&-5&-4\\0&-14&-4\\{1}&5&2\end{vmatrix*}
+			= &\mbox{ (\textit{expand along the first column})}\\\\
+			=1\cdot
+			\begin{vmatrix*}[r]-5&-4\\-14&-4\end{vmatrix*}=&(-5)\cdot(-4)-(-14)\cdot(-4)=-36\implies x=\frac{\det(A_1)}{\det(A)}=
+				\frac{-36}{-132}=\frac{3}{11}
+			\end{array}\]
+
+			\[\begin{array}{rr}
+			\det(A_2)=\begin{vmatrix*}[r]4&\mathbf{2}&0\\11&\mathbf{3}&2\\1&\mathbf{1}&2\end{vmatrix*}
+			= &\mbox{ (\textit{subtracting third row from others does not change determinant})}\\\\
+			=\begin{vmatrix*}[r]0&-2&-8\\0&-8&-20\\1&{1}&2\end{vmatrix*}
+			= &\mbox{ (\textit{expand along the first column})}\\\\
+			=1\cdot
+			\begin{vmatrix*}[r]-2&-8\\-8&-20\end{vmatrix*}=&(-2)\cdot(-20)-(-8)\cdot(-8)=-24\implies y=\frac{\det(A_2)}{\det(A)}=
+				\frac{-24}{-132}=\frac{2}{11}
+			\end{array}\]
+
+			\[\begin{array}{rr}
+			\det(A_3)=\begin{vmatrix*}[r]4&5&\mathbf{2}\\11&1&\mathbf{3}\\1&5&\mathbf{1}\end{vmatrix*}
+			= &\mbox{ (\textit{subtracting third row from others does not change determinant})}\\\\
+			=\begin{vmatrix*}[r]0&-15&{-2}\\0&-54&{-8}\\1&5&{1}\end{vmatrix*}
+			= &\mbox{ (\textit{expand along the first column})}\\\\
+			=1\cdot
+			\begin{vmatrix*}[r]-15&-2\\-54&-8\end{vmatrix*}=&(-15)\cdot(-8)-(-54)\cdot(-2)=12\implies z=\frac{\det(A_3)}{\det(A)}=
+				\frac{12}{-132}=-\frac{1}{11}
+			\end{array}\]
+			Summarizing the above, the answer is
+			\[x=\frac{3}{11},\;y=\frac{2}{11},\;z=-\frac{1}{11}\]
+		}
+	\item[\# 23.]{{\it Use Cramer's Rule for solving for $y$ without solving for $x$, $z$ and $w$.\\\\
+			$\begin{array}[t]{rrrrrrrrr}
+				4x & + {} & y & + {} & z & + {} & w & = & 6\\
+				3x & + {} & 7y & - {} & z & + {} & w & = & 1\\
+				7x & + {} & 3y & - {} & 5z & + {} & 8w & = & -3\\
+				x & + {} & y & + {} & z & + {} & 2w & = & 3
+			\end{array}$\\\\}
+			Similarly to above,
+			\[A=\begin{bmatrix*}[r]4&1&1&1\\3&7&-1&1\\7&3&-5&8\\1&1&1&2\end{bmatrix*},\quad\mathbf{b}=\begin{bmatrix*}[r]6\\1\\-3\\3
+			\end{bmatrix*}\]
+			\[\begin{array}{rr}
+			\det(A)=\begin{vmatrix*}[r]4&1&1&1\\3&7&-1&1\\7&3&-5&8\\1&1&1&2\end{vmatrix*}
+			= &\mbox{ (\textit{subtracting fourth row from others does not change determinant})}\\\\
+			=\begin{vmatrix*}[r]0&-3&-3&-7\\0&4&-4&-5\\0&-4&-12&-6\\1&1&1&2\end{vmatrix*}
+			= &\mbox{ (\textit{expand along the first column})}\\\\
+			=-1\cdot\begin{vmatrix*}[r]-3&-3&-7\\4&-4&-5\\-4&-12&-6\end{vmatrix*}
+			= &\mbox{ (\textit{adding first row to second does not change determinant})}\\\\
+			=-1\cdot\begin{vmatrix*}[r]-3&-3&-7\\1&-7&-12\\-4&-12&-6\end{vmatrix*}
+			= &\mbox{ (\textit{ subtracting second row from others does not change determinant})}\\\\
+			=-1\cdot\begin{vmatrix*}[r]0&-24&-43\\1&-7&-12\\0&-40&-54\end{vmatrix*}
+			= &\mbox{ (\textit{ expand along the first column})}\\\\
+			=+1\cdot1\cdot\begin{vmatrix*}[r]-24&-43\\-40&-54\end{vmatrix*}
+			=&(-24)\cdot(-54)-(-40)\cdot(-43)=-424
+			\end{array}\]
+			And similarly
+			\[\begin{array}{rr}
+			\det(A_2)=\begin{vmatrix*}[r]4&\textbf{6}&1&1\\3&\textbf{1}&-1&1\\7&\textbf{-3}&-5&8\\1&\textbf{3}&1&2\end{vmatrix*}
+			= &\mbox{ (\textit{subtracting fourth row from others does not change determinant})}\\\\
+			=\begin{vmatrix*}[r]0&{-6}&-3&-7\\0&{-8}&-4&-7\\0&{-24}&-12&-6\\1&{3}&1&2\end{vmatrix*}
+			= &\mbox{ (\textit{expand along the first column})}\\\\
+			=-1\cdot\begin{vmatrix*}[r]{-6}&-3&-7\\{-8}&-4&-7\\{-24}&-12&-6\end{vmatrix*}
+			= &\mbox{ (\textit{subtracting second row from first does not change determinant})}\\\\
+			=-1\cdot\begin{vmatrix*}[r]2&1&0\\{-8}&-4&-7\\{-24}&-12&-6\end{vmatrix*}
+			= &\mbox{ (\textit{adding first row to others does not change determinant})}\\\\
+			=-1\cdot\begin{vmatrix*}[r]2&1&0\\0&0&-7\\0&0&-6\end{vmatrix*}
+			= &\mbox{ (\textit{ expand along the first column})}\\\\
+			=-1\cdot2\cdot\begin{vmatrix*}[r]0&-7\\0&-6\end{vmatrix*}
+			=&0\cdot(-6)-0\cdot(-7)=0\implies y=\frac{\det(A_2)}{\det(A)}=\frac{0}{-424}=0
+			\end{array}\]
+		}
+	\item[\# 25.]{{\it Prove that if $\det(A)=1$ and all entries in $A$ are integers, then all the entries in $A^{-1}$ are integers.}\\
+		It was briefly mentioned before that the concept of adjoint matrix and the explicit formula it gives for an inverse of a matrix
+		is not real-life computational method, but rather handy tool in some theoretical constructions. This problem is nice illustration
+		of how the concept of adjoint matrix can be use in proofs.\\
+		Recall that \[A^{-1}=\frac{1}{\det(A)}\begin{bmatrix}(-1)^{1+1}
+			\det (M_{11})&(-1)^{2+}\det (M_{21})&\hdots&(-1)^{n+1}\det (M_{n1}\\(-1)^{1+2}\det (M_{12})&(-1)^{2+2}\det (M_{22})&
+			\hdots&(-1)^{n+2}\det (M_{n2}\\\vdots&\vdots&\ddots&\vdots\\(-1)^{1+n}\det (M_{1n})&(-1)^{2+n}\det (M_{2n})&\hdots
+			&(-1)^{n+n}\det M_{nn}\end{bmatrix}\]
+		As in our case $\frac{1}{\det(A)}=\frac{1}{1}=1$, it remains to show that all of $\det(M_{ij})$ are integers. 
+		
+		For this it suffices to prove more general statement, namely that the determinant of a matrix with integer entries is
+		in turn integer. This can be easily done by induction, for $n=1$, $\det[a]=a$ and so the statement trivially holds. Now
+		assume it holds for all matrices with less than $n$ rows and let $A$ (\textit{not} the same $A$ as in problem statement above)
+		with integer entries be given. Now as $\det(A)=\sum_{i=1}^na_{1i}(-1)^{1+i}\det(M_{1i})$ and all of $M_{1i}$ have $(n-1)$ rows 
+		and all integer entries, by inductive assumption all $\det(M_{1i})$ are integers, hence as $(-1)^{1+i}a_{1i}$ are also integers,
+		the whole expression for $\det(A)$ is proven to be integer, thus finishing the proof.
+		}
+	\item[\# 29.]{{\it Prove: The equation of the line through the distinct points $(a_1,b_1)$ and $(a_2,b_2)$ can be written as}
+		\[\begin{vmatrix*}[l]x&y&1\\a_1&b_1&1\\a_2&b_2&1\end{vmatrix*}\]
+		Note, that
+		\[\begin{array}{rr}
+		\begin{vmatrix*}[l]x&y&1\\a_1&b_1&1\\a_2&b_2&1\end{vmatrix*}
+		= &\mbox{ (\textit{subtracting second row from others does not change determinant})}\\\\
+		\begin{vmatrix*}[c]x-a_1&y-b_1&0\\a_1&b_1&1\\a_2-a_1&b_2-b_1&0\end{vmatrix*}
+		= &\mbox{ (\textit{expand along the third column})}\\\\
+		\begin{vmatrix*}[c]x-a_1&y-b_1\\a_2-a_1&b_2-b_1\end{vmatrix*}
+		= &
+		\end{array}\]
+		Thus, 
+		\[\begin{vmatrix*}[l]x&y&1\\a_1&b_1&1\\a_2&b_2&1\end{vmatrix*}=0\iff\begin{vmatrix*}[c]x-a_1&y-b_1\\a_2-a_1&b_2-b_1\end{vmatrix*}=0
+		\]
+		And the second determinant in turn vanishes if and only if vector $\myabra{x-a_1,y-b_1}$ is either zero, or is proportional
+		to $\myabra{a_2-a_1,b_2-b_1}$ (this is because $(a_1,b_1)$ and $(a_2,b_2)$ are different points by hypothesis, hence
+		$\myabra{a_2-a_1,b_2-b_1}\neq\mathbf{0}$). In turn this is exactly what "$(x,y)$ lies on the line through 
+		the $(a_1,b_1)$ and $(a_2,b_2)$" means.
+		}
+\section{Section 14.1 (Thomas' Calculus)}
+	\item[\# 9.]{{\it Find and sketch the domain of function} \[f(x,y)=\cos^{-1}(y-x^2)\]
+		In general, this sort of problems should be done in "top-to-bottom" approach, that is we first identify the domain of "outmost"
+		function and then move to the inner ones. The outmost function here is $\cos^{-1}$ which is defined on $[-1,1]$ closed interval,
+		hence the sole requirement that $(x,y)$ pair should satisfy in order to belong to domain of $f(x,y)$ is $-1\leq y-x^2\leq 1$ or
+		equivalently, $\x^2-1\leq y\leq x^2+1$. The sketch would look like%TODO: sketch
+		}
+	\item[\# 15.]{{\it Find and sketch the level curves $f(x,y)=c$ on the same set of coordinate axes for the given values of $c$.
+		\[f(x,y)=xy,\;c=\;-9,-4,-1,0,1,4,9\]
+		}
+	\item[\# 27.]{{\it In this exercise, 
+		}
+		}
+	\item[\# 30.]{{\it In this exercise, 
 		}
 		}
 \end{description}
 \end{document}
 %Please prepare the solutions for:
-%Sec. 2.4 # 4, 17, 23, 25, 29
 
 %And from the official textbook (Thomas Calculus, available at the
 %general office):
