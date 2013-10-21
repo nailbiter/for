@@ -6,6 +6,7 @@
 \usepackage{subfig}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage{hyperref}
 \usepackage{harpoon}
@@ -273,24 +274,44 @@ HW problems Sec. 2.3-2.4 (Linear Algebra) and Sec. 14.1 (Calculus)}
 		}
 \section{Section 14.1 (Thomas' Calculus)}
 	\item[\# 9.]{{\it Find and sketch the domain of function} \[f(x,y)=\cos^{-1}(y-x^2)\]
-		In general, this sort of problems should be done in "top-to-bottom" approach, that is we first identify the domain of "outmost"
-		function and then move to the inner ones. The outmost function here is $\cos^{-1}$ which is defined on $[-1,1]$ closed interval,
+		In general, this sort of problems should be done in "top-to-bottom" approach, that is we first identify the domain of "outermost"
+		function and then move to the inner ones. The outermost function here is $\cos^{-1}$ which is defined on $[-1,1]$ closed interval,
 		hence the sole requirement that $(x,y)$ pair should satisfy in order to belong to domain of $f(x,y)$ is $-1\leq y-x^2\leq 1$ or
-		equivalently, $\x^2-1\leq y\leq x^2+1$. The sketch would look like%TODO: sketch
+		equivalently, $\x^2-1\leq y\leq x^2+1$. The sketch would look like \mypic{0.6}{9.png}
 		}
 	\item[\# 15.]{{\it Find and sketch the level curves $f(x,y)=c$ on the same set of coordinate axes for the given values of $c$.
-		\[f(x,y)=xy,\;c=\;-9,-4,-1,0,1,4,9\]
+		\[f(x,y)=xy,\;c=\;-9,-4,-1,0,1,4,9\]}
+		Recall, that the equation $xy=c$ in general determines the hyperbola (by the way, don't forget that hyperbola has \textit{two} branches)
+		, unless $c=0$. In latter case, $xy=0\iff x=0\mbox{ or }y=0$. Hence, level curves will look like \mypic{1.0}{15.png}
 		}
-	\item[\# 27.]{{\it In this exercise, 
+	\item[\# 27.]{{\it In this exercise, \begin{inparaenum}[\bfseries(a)]\item find the function's domain, \item find the function's range,
+		\item describe the function's level curves, \item find the boundary of the function's domain, \item determine if the domain is an open
+			region, a closed region or neither, and \item decide if the domain is bounded or unbounded.\end{inparaenum}}
+			\[f(x,y)=\sin^{-1}(y-x)\]
+		Let us proceed sequentially
+		\begin{enumerate}[\bfseries(a)]
+			\item Again, we proceed in "top-to-bottom" manner. $\sin^{-1}$, the "outermost" function, has domain $[-1,1]$ and hence $(x,y)\in\mathbb{R}^2$
+				belongs to domain of $f(x,y)$ iff $-1\leq y-x\leq 1$. In other words, domain is $D=\mysetn{(x,y)\in\mathbb{R}^2}{-1\leq y-x\leq 1}$.
+			\item In finding the range, on contrary, it is better to proceed in "bottom-to-top" manner. The inner function $y-x:D\mapsto[-1,1]$ is
+				onto (i.e. its image is the whole $\mathbb{R}$), as taking $x=0$ and making $y$ run through the whole $[-1,1]$ (all such pairs
+				are in $D$), we will cover 
+				$[-1,1]$. Now, as $y-x:D\mapsto[-1,1]$ is onto, the range of $\sin^{-1}(y-x)$ is equal to the range of $\sin^{-1}(x)$ defined on $[-1,1]$ and
+				this is known to be $[-\frac{\pi}{2},\frac{\pi}{2}]$. Hence, the range is $R=[-\frac{\pi}{2},\frac{\pi}{2}]$.
+			\item As $\sin^{-1}$ is one-to-one, $\sin^{-1}(y-x)=c\iff y-x=\sin(c)$ for $c\in R$, and hence the level curves of $f(x,y)$ are simply lines
+				$y-x=\sin(c)$.
+			\item We claim that the boundary of $D$ is $\partial D=\mysetn{(x,y)\in\mathbb{R}^2}{y-x=1}\cup\mysetn{(x,y)\in\mathbb{R}^2}{y-x=-1}$.
+		\end{enumerate}
 		}
+	\item[\# 30.]{{\it In this exercise, \begin{inparaenum}[\bfseries(a)]\item find the function's domain, \item find the function's range,
+		\item describe the function's level curves, \item find the boundary of the function's domain, \item determine if the domain is an open
+			region, a closed region or neither, and \item decide if the domain is bounded or unbounded.\end{inparaenum}}
+			\[f(x,y)=\ln(9-x^2-y^2)\]
+
 		}
-	\item[\# 30.]{{\it In this exercise, 
-		}
+	\item[\# 54.]{{\it Sketch a typical level surface for the function}\[f(x,y,z)=\ln(x^2+y^2+z^2)\]
+		As $\ln:\mysetn{x\in\mathbb{R}}{x>0}\mapsto\mathbb{R}$ is one-to-one and onto, for any $c>0$, $\ln(x^2+y^2+z^2)=c\iff x^2+y^2+z^2=e^c$, hence the typical
+		level surface is nothing but sphere $x^2+y^2+z^2=e^c$ in $\mathbb{R}^3$, which looks like \mypic{1.0}{54.jpg}
 		}
 \end{description}
 \end{document}
-%Please prepare the solutions for:
-
-%And from the official textbook (Thomas Calculus, available at the
-%general office):
 %Sec. 14.1 # 9, 15, 27, 30, 31-36, 54
