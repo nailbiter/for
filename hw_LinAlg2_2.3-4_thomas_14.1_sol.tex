@@ -277,7 +277,7 @@ HW problems Sec. 2.3-2.4 (Linear Algebra) and Sec. 14.1 (Calculus)}
 		In general, this sort of problems should be done in "top-to-bottom" approach, that is we first identify the domain of "outermost"
 		function and then move to the inner ones. The outermost function here is $\cos^{-1}$ which is defined on $[-1,1]$ closed interval,
 		hence the sole requirement that $(x,y)$ pair should satisfy in order to belong to domain of $f(x,y)$ is $-1\leq y-x^2\leq 1$ or
-		equivalently, $\x^2-1\leq y\leq x^2+1$. The sketch would look like \mypic{0.6}{9.png}
+		equivalently, $x^2-1\leq y\leq x^2+1$. The sketch would look like \mypic{0.6}{9.png}
 		}
 	\item[\# 15.]{{\it Find and sketch the level curves $f(x,y)=c$ on the same set of coordinate axes for the given values of $c$.
 		\[f(x,y)=xy,\;c=\;-9,-4,-1,0,1,4,9\]}
@@ -299,7 +299,23 @@ HW problems Sec. 2.3-2.4 (Linear Algebra) and Sec. 14.1 (Calculus)}
 				this is known to be $[-\frac{\pi}{2},\frac{\pi}{2}]$. Hence, the range is $R=[-\frac{\pi}{2},\frac{\pi}{2}]$.
 			\item As $\sin^{-1}$ is one-to-one, $\sin^{-1}(y-x)=c\iff y-x=\sin(c)$ for $c\in R$, and hence the level curves of $f(x,y)$ are simply lines
 				$y-x=\sin(c)$.
-			\item We claim that the boundary of $D$ is $\partial D=\mysetn{(x,y)\in\mathbb{R}^2}{y-x=1}\cup\mysetn{(x,y)\in\mathbb{R}^2}{y-x=-1}$.
+			\item We claim that the boundary of $D$ (which we shall denote by $\partial D$ in subsequent) is
+				$\partial D=\mysetn{(x,y)\in\mathbb{R}^2}{y-x=1}\cup\mysetn{(x,y)\in\mathbb{R}^2}{y-x=-1}$. First,
+				let us assume that $(x,y)\in\mathbb{R}^2\setminus D$. Then, $y-x=:d$ and $d<-1$ or $d>1$. Without loss
+				of generality, we assume that latter folds. Now, let $B$ be the ball centered in $(x,y)$ with radius
+				$r=\frac{1+d}{2}$ (or $r=\frac{d-1}{2}$, in case $d<-1$)
+				. Then, we claim that none of $(x',y')\in B$ lies in $D$ and hence
+				$\mathbb{R}^2\setminus D$ has no points belonging to $\partial D$. Indeed, if we would have
+				$-1\leq y'-x'\leq1$, it would follow that there is point $(x^*,y^*)$ on segment joining $(x',y')$
+				and $(x,y)$, such that $y^*-x^*=1$ (as $d>1$, $y'-x'\leq 1$ and $y-x$ is continuous) and hence
+				that distance from $(x,y)$ to 
+				
+				Then, let $d_1$ be the distance from
+				$(x,y)$ to the line $y-x=1$ and $d_2$ be the distance to the line $y-x=-1$.
+				As $(x,y)\notin D$, we have
+				$d_1,\;d_2>0$. Then let us consider the ball $B$, centered in $(x,y)$ with radius
+				$r=\frac{\min\mycbra{d_1,d_2}}{2}$. We 
+				$\mathbb{R}^2\setminus D$ has no points belonging to $\partial D$. 
 		\end{enumerate}
 		}
 	\item[\# 30.]{{\it In this exercise, \begin{inparaenum}[\bfseries(a)]\item find the function's domain, \item find the function's range,
