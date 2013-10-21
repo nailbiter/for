@@ -301,28 +301,109 @@ HW problems Sec. 2.3-2.4 (Linear Algebra) and Sec. 14.1 (Calculus)}
 				$y-x=\sin(c)$.
 			\item We claim that the boundary of $D$ (which we shall denote by $\partial D$ in subsequent) is
 				$\partial D=\mysetn{(x,y)\in\mathbb{R}^2}{y-x=1}\cup\mysetn{(x,y)\in\mathbb{R}^2}{y-x=-1}$. First,
-				let us assume that $(x,y)\in\mathbb{R}^2\setminus D$. Then, $y-x=:d$ and $d<-1$ or $d>1$. Without loss
-				of generality, we assume that latter folds. Now, let $B$ be the ball centered in $(x,y)$ with radius
-				$r=\frac{1+d}{2}$ (or $r=\frac{d-1}{2}$, in case $d<-1$)
-				. Then, we claim that none of $(x',y')\in B$ lies in $D$ and hence
-				$\mathbb{R}^2\setminus D$ has no points belonging to $\partial D$. Indeed, if we would have
-				$-1\leq y'-x'\leq1$, it would follow that there is point $(x^*,y^*)$ on segment joining $(x',y')$
-				and $(x,y)$, such that $y^*-x^*=1$ (as $d>1$, $y'-x'\leq 1$ and $y-x$ is continuous) and hence
-				that distance from $(x,y)$ to 
+				let us assume that $(x,y)\in\mathbb{R}^2\setminus D$. Then, $y-x=:d$ and $d<-1$ or $d>1$. 
+				Now, let $B$ be the ball centered in $(x,y)$ with radius
+				$r=\frac{\min\mysbra{\myabs{d-1},\myabs{-d-1}}}{2}$. Let $(x',y')\in B$. Then,
+				\[\myabs{y'-x'-d}=\myabs{(y'-y)+(x'-x)}\leq\myabs{y'-y}+\myabs{x'-x}\]
+				Let us now recall one basic inequality that holds for any $a,b\geq 0$, namely
+				\[\begin{array}{lr}
+					(a+b)^2=a^2+2ab+b^2\leq &\mbox{ by Cauchy inequality, $2ab\leq a^2+b^2$}\\
+					\leq a^2+(a^2+b^2)+b^2=2(a^2+b^2)\implies& a+b\leq\sqrt{2}\sqrt{a^2+b^2}\end{array}\]
+				Then, applying it we get
+				\[\myabs{y'-x'-d}\leq\myabs{y'-y}+\myabs{x'-x}\leq\sqrt{2}\sqrt{(y'-y)^2+(x'-x)^2}<\sqrt{2}r\implies\]
+				\[\implies d-\sqrt{2}r<y'-x'<d+\sqrt{2}r\]
+				Thus, in case $d>1$, we get \[y'-x'>d-\sqrt{2}r\geq d-\sqrt{2}\frac{d-1}{2}>d-2\cdot\frac{d-1}{2}=1\] hence
+				$(y',x')\notin D$ and similarly in case $d<-1$, we get
+				\[y'-x'<d+\sqrt{2}r\leq d+\sqrt{2}\frac{-d-1}{2}<d+2\cdot\frac{-d-1}{2}=-1\]
+				and again $(x',y')\notin D$. We see that in any case, $B\cap D=\emptyset$ as for $(x',y')$ sufficiently
+				close to $(x,y)$ we have $(x',y')\notin D$ and hence 
+				$\partial D\cap(\mathbb{R}^2\setminus D)=\emptyset$. 
 				
-				Then, let $d_1$ be the distance from
-				$(x,y)$ to the line $y-x=1$ and $d_2$ be the distance to the line $y-x=-1$.
-				As $(x,y)\notin D$, we have
-				$d_1,\;d_2>0$. Then let us consider the ball $B$, centered in $(x,y)$ with radius
-				$r=\frac{\min\mycbra{d_1,d_2}}{2}$. We 
-				$\mathbb{R}^2\setminus D$ has no points belonging to $\partial D$. 
+				Similarly, if $(x,y)\in\mathbb{R}^2$ and $-1<d:=y-x<1$, then if we consider ball centered in $(x,y)$
+				with radius $r:=\frac{\min\mycbra{{d+1},{1-d}}}{2}$, then we have that for every $(x',y')$ in this
+				ball, \[\myabs{y'-x'-d}=\myabs{(y'-y)+(x'-x)}\leq\myabs{y'-y}+\myabs{x'-x}\leq \sqrt{2}r\]
+				and thus $d-\sqrt{2}r\leq y'-x'\leq d+\sqrt{2}r$. Hence, as $r\leq \frac{1-d}{2}$, we have
+				\[y'-x'\leq d+\sqrt{2}\frac{1-d}{2}<d+2\frac{1-d}{2}=1\]
+				and similarly, as $r\leq\frac{d+1}{2}$,
+				\[y'-x'\geq d-\sqrt{2}\frac{d+1}{2}>d-2\frac{d+1}{2}=-1\]
+				hence $(y',x')\in D$ for all $(x',y')$ sufficiently close to $(x,y)$ and hence $\mysetn{(x,y)\in\mathbb{R}^2}{-1<
+				y-x<1}\cap \partial D=\emptyset$.
+				
+				Finally, for any point $(x,y)$ on line $y-x=1$ (and similarly for line $y-x=-1$), and any ball $B$
+				of radius $r>0$ around it, we have $(x-\frac{r}{\sqrt{3}},y+\frac{r}{\sqrt{3}})\in B$ and
+				$\mybra{y+\frac{r}{\sqrt{3}}}-\mybra{x-\frac{r}{\sqrt{3}}}=1+\frac{2r}{\sqrt{3}}>1$, hence
+				$(x-\frac{r}{\sqrt{3}},y+\frac{r}{\sqrt{3}})\notin D$ and similarly 
+				$(x+\frac{r}{\sqrt{3}},y-\frac{r}{\sqrt{3}})\in B$ and 
+				$\mybra{y-\frac{r}{\sqrt{3}}}-\mybra{x+\frac{r}{\sqrt{3}}}=1-\frac{2r}{\sqrt{3}}>1$ and by decreasing $r$
+				if necessary we can make $\mybra{y-\frac{r}{\sqrt{3}}}-\mybra{x+\frac{r}{\sqrt{3}}}>-1$ as well, hence
+				$(x+\frac{r}{\sqrt{3}},y-\frac{r}{\sqrt{3}})\in D$ and thus both points in $D$ and outside $D$ are in $B$, hence
+				$(x,y)\in\partial D$. As it was arbitrary on line $y-x=1$, we are done.
+			\item Immediately because $D\supset\partial D$, $D$ is closed.
+			\item Domain is unbounded, as $\forall n\in\mathbb{N},\;(x_n,y_n)=(n,n)\in D$ and $\lim_{n\to\infty}\sqrt{x_n^2+y_n^2}=\lim
+				_{n\to\infty}n\sqrt{2}=+\infty$.
 		\end{enumerate}
 		}
 	\item[\# 30.]{{\it In this exercise, \begin{inparaenum}[\bfseries(a)]\item find the function's domain, \item find the function's range,
 		\item describe the function's level curves, \item find the boundary of the function's domain, \item determine if the domain is an open
 			region, a closed region or neither, and \item decide if the domain is bounded or unbounded.\end{inparaenum}}
 			\[f(x,y)=\ln(9-x^2-y^2)\]
+		\item The domain of $\ln$ is $\mysetn{x\in\mathbb{R}}{x>0}$ and hence we should have $9-x^2-y^2>0$, or equivalently
+			\[D=\mysetn{(x,y)\in\mathbb{R}^2}{x^2+y^2<9}\]
+		\item Given $(x,y)\in D$, function $9-x^2-y^2$ takes all values in $(0,9]$. This is so, as $0< 9-x^2-y^2\leq 9$, so function
+			cannot get outside $[0,9]$ and given $t\in(0,9]$ point $(0,\sqrt{9-t})$ is mapped to it. Thus, $R=\mysetn{\ln(x)}{x\in[0,9]}
+			=(-\infty,\ln(9)]$.
+		\item As $\ln:\mysetn{x\in\mathbb{R}}{x>0}\mapsto\mathbb{R}$ is one-to-one, we have $\ln(9-x^2-y^2)=c\iff 9-x^2-y^2=e^c\iff
+			x^2+y^2=9-e^c$, hence the level curves of $f(x,y)$ are circles $x^2+y^2=9-e^c$.
+		\item We claim that $\partial D=\mysetn{(x,y)\in\mathbb{R}}{x^2+y^2=9}$. Again, if $\mathbf{x}=
+			(x,y)\in D$, so that $x^2+y^2<9$, then consider
+			the disk $B$ centered in $(x,y)$ with radius $r=\sqrt(9-\sqrt{x^2+y^2})/2$.
+			Then, for any $\mathbf{x'}\in B$ we have by triangle inequality
+			\[d(\mathbf{0},\mathbf{x'})\leq d(\mathbf{0},\mathbf{x})+d(\mathbf{x},\mathbf{x'})\leq \sqrt{x^2+y^2}+(9-\sqrt{x^2+y^2})/2
+			<\sqrt{x^2+y^2}+9-\sqrt{x^2+y^2}=9\]
+			hence $\mathbf{x'}\in D$ and thus for all $\mathbf{x'}$ sufficiently close to $\mathbf{x}\in D$
+			, we have $\mathbf{x'}\in D$, hence $D\cap\partial D=\emptyset$.
 
+			Now, let $\mathbf{x}\in C:=\mysetn{(x,y)\in\mathbb{R}^2}{x^2+y^2>9}$. Then, consider the ball $B$ centered at $\mathbf{x}$
+			with radius $r=(\sqrt{x^2+y^2}-9)/2$ and $\forall\mathbf{x'}\in B$,
+			\[d(\mathbf{0},\mathbf{x})\leq d(\mathbf{0},\mathbf{x'})+d(\mathbf{x'},\mathbf{x})\implies\]
+			\[\implies d(\mathbf{0},\mathbf{x'})\geq d(\mathbf(0),\mathbf{x})-d(\mathbf{x'},\mathbf{x})>\sqrt{x^2+y^2}-(\sqrt{x^2+y^2}-
+			9)=9\implies \mathbf{x'}\notin D\]
+			Consequently, for all $\mathbf{x'}$ sufficiently close to $\mathbf{x}\in C$ we have $x'\notin D$ and thus $C\cap\partial D=
+			\emptyset$.
+
+			Finally, if $\mathbf{x}=(x,y)\in\mysetn{(x,y)\in\mathbb{R}}{x^2+y^2=9}$ and $B$ is ball of radius $r>0$ centered at $(x,y)$,
+			we may without loss of generality assume $x=\neq 0$ (at least one of coordinates should be nonzero, and if it is $y$, the
+			argument goes symmetrically). Then if $x>0$, $(x+r/2,y)\in B$, but $(x+r/2,y)\notin D$, whereas $(x-r/2,y)\in B\cap D$
+			($r$ can be reduced, if necessary, to make $x-r/2>0$). And if $x<0$, $(x-r/2,y\in B\setminus D$, whereas $(x+r/2,y\in B\cap
+			D$ and hence $B$ contains both points in $D$ and outside it, so $(x,y)\in\partial D$ and as $(x,y)$ was arbitrary, 
+			$\mathbf{x}=(x,y)\in\mysetn{(x,y)\in\mathbb{R}}{x^2+y^2=9}=\partial D$
+		\item As $D\cap \partial D=\emptyset$, $D$ is open.
+		\item The domain is bounded, as it is the disk itself.
+		}
+	\item[\# 31-36.]{{\it Match the level curves}\mypic{0.7}{level_curves.png}
+		{\it with the surfaces}
+		\begin{figure}[H]
+		\centering
+		\begin{minipage}{.6\textwidth}
+		  \centering
+		  \includegraphics[width=.5\linewidth]{surfaces1.png}
+		\end{minipage}%
+		\begin{minipage}{.6\textwidth}
+		  \centering
+		  \includegraphics[width=.5\linewidth]{surfaces2.png}
+		\end{minipage}
+		\end{figure}
+		The easiest match is probably that of level curves \textbf{34.} with surface \textbf{c.}. The function is symmetric with respect
+		to reflections, does not have local minima and so behave the level curves.\\
+		Level curves \textbf{34.} should be matched with the surface \textbf{b.}, as the function is relatively flat (hence many level 
+		curves on a picture) with level curves consisting of almost linear pieces as the function does not have strong bends.\\
+		Surface \textbf{a.} should be matched to level curves at \textbf{33.}, as function have many local maxima located in rectangular
+		grid and level curves near the maxima look like circles, that conveys their "hill-like" shape.\\
+		Surface \textbf{d.} should be matched with level curves \textbf{35.}, as it is the only surface that is periodic in $x$-direction
+		(due to $\cos x$ multiplier) and non-periodic in $y$.\\
+		Surface \textbf{f.} should be matched with \textbf{31.} as function has only two local maxima, unique among the surfaces presented.
+		\\
+		Finally, \textbf{32.} is matched with \textbf{e.} by elimination.
 		}
 	\item[\# 54.]{{\it Sketch a typical level surface for the function}\[f(x,y,z)=\ln(x^2+y^2+z^2)\]
 		As $\ln:\mysetn{x\in\mathbb{R}}{x>0}\mapsto\mathbb{R}$ is one-to-one and onto, for any $c>0$, $\ln(x^2+y^2+z^2)=c\iff x^2+y^2+z^2=e^c$, hence the typical
