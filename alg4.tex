@@ -20,6 +20,29 @@
 \begin{document}
 \maketitle
 \begin{enumerate}[label=\bfseries Problem \arabic*.]
-	\item 
+	\newcommand{\Frac}{\mbox{Frac}}
+	\item First of all, let us show that $\Frac S^{-1}R$ can be considered as a subfield of $\Frac R$ by exhibiting field homomorphism
+		(there's no need to prove injectivity as any field homomorphism is so).
+		Let us denote the set of equivalence classes that form $\Frac S^{-1}R$ as $[x,y]'$ for $x,y\in S^{-1}R$ (where $[x,y]'=[x',y']'$ if
+		$xy'=x'y$) and the equivalence classes that form $S^{-1}R$ as $[r,s]$ for $r\in R,s\in S$ (where $[r,s]=[r',s']$ if $s^*(rs'-sr')=0$
+		for $s^*\in S$). By the way, note that as $R$ is an integral domain by hypothesis, $s^*(rs'-sr')=0$ for $s^*\in S$ means that
+		$rs-sr'=0$, as $0\notin S$ (by definition of multiplicative subset). Now, let us map $[[r,s],[r',s']]'\in\Frac S^{-1}R$ to $
+		F([[r,s],[r',s']]):=[
+		rs',r's]''$ (we denote the equivalence classes that form $\Frac R$ by $[r,t]''$ for $r,t\in R$, where $[r,t]''=[r',t']''$ whether
+		$rt'=tr'$). The mapping we have exhibited is well defined, as if $[[t,u],[t',u']]'=[[r,s],[r',s']]'$, then it is
+		mapped to $[tu',t'u]$ and
+		\[[t',u']\cdot[r,s]=[t,u]\cdot[r',s']\implies [t'r,u's]=[tr',us']\implies t'rus'=u'str'\], which in turn implies that $[tu',t'u]=
+		[rs',r's]$, which means that both $[[t,u],[t',u']]'$ and $[[r,s],[r',s']]'$ are mapped to the same element of $\Frac R$, hence
+		the mapping is well-defined. Furthermore, it is well-behaved with respect to addition, as \[F([[r,s],[r',s']]'+[[t,u],[t',u']]')=
+		F([[r,s]\cdot[t',u']+[r',s']\cdot[t,u],[r',s']\cdot[t',u']]')=\]
+		\[=F([[rt',su']+[r't,s'u],[r't',s'u']]')=F([[rt's'u+su'r't,su's'u],[r't',s'u']]')=\]\[=[(rt's'u+su'r't)s'u',su's'ur't']''=
+		[rt's'u+su'r't',sur't']''\]
+		while \[F([[r,s],[r',s']]')+F([[t,u],[t',u']]')=[rs',sr']''+[tu',ut']''=[rs'ut'+sr'tu',sr'ut']''\]
+		which is the same thing. Similarly, $F$ is well-behaved under multiplication, as
+		\[F([[r,s],[r',s']]')\cdot F([[t,u],[t',u']]')=[rs',sr']''\cdot[tu',ut']''=\]
+		\[=[rs'tu',sr'ut']''=F([[rt,su],[r't',s'u']]')=F([[r,s],[r',s']]'\cdot[[t,u],[t',u']]')\]
+		and besides, identity is mapped to identity, as
+		\[F([[1,1],[1,1]]')=[1\cdot1,1\cdot1]''=1\in\Frac R\]
+		having this, we will treat $\Frac S^{-1}R$ as a subfield of $\Frac R$ from now on.
 \end{enumerate}
 \end{document}
