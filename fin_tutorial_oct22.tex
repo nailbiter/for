@@ -1,0 +1,81 @@
+\documentclass{beamer}
+\usetheme{default}
+\usepackage{mystyle}
+\begin{document}
+
+\begin{frame}{Problem}
+\begin{center}Use the definition of the limit to find \[\lim_{x\to 2}\sqrt{x}\]\end{center}
+\end{frame}
+\begin{frame}{Step 1 (Guess the limit)}
+We need to \textit{guess} the limit. In many cases, if the direct substitution gives \textit{reasonable} value, this is the value to go for. Thus,
+in our case, we shall prove
+\[\lim_{x\to 2}\sqrt{x}=\sqrt{2}\]
+\end{frame}
+\begin{frame}{Step 2 (Prove guess was correct)}
+Assume $\epsilon>0$ is given. We need to find $\delta>0$, such that \[0<\myabs{x-2}<\delta\] implies \[\myabs{\sqrt{x}-\sqrt{2}}<\epsilon\]
+\end{frame}
+\begin{frame}{Step 2 (Prove guess was correct)}
+Let us simplify expressions first. What we \textit{have} can be written in two ways
+\[0<\myabs{x-2}<\delta\iff 2-\delta<x<2+\delta\]
+what we \textit{want} to prove can be written as
+\[\myabs{\sqrt{x}-\sqrt{2}}=\frac{\myabs{x-2}}{\sqrt{x}+\sqrt{2}}<\epsilon,\;x>0\]
+\end{frame}
+\begin{frame}{We want $x>0$}
+We \textit{want} \[x>0\] and what we \textit{have} is \[2-\delta<x<2+\delta\]
+Naturally, let us \textit{require} \[0<2-\delta\] (this can be achieved with \textit{small} delta, so, done with this)
+\end{frame}
+\begin{frame}{We want $\frac{\myabs{x-2}}{\sqrt{x}+\sqrt{2}}<\epsilon$}
+We \textit{want}
+\[\frac{\myabs{x-2}}{\sqrt{x}+\sqrt{2}}<\epsilon\]
+and we \textit{have} \[\myabs{x-2}<\delta\]
+\end{frame}
+\begin{frame}{We want $\frac{\myabs{x-2}}{\sqrt{x}+\sqrt{2}}<\epsilon$}
+Note that
+\[\frac{\myabs{x-2}}{\sqrt{x}+\sqrt{2}}<\frac{\myabs{x-2}}{\sqrt{2}}\]
+and we originally \textit{wanted}
+\[\frac{\myabs{x-2}}{\sqrt{x}+\sqrt{2}}<\epsilon\]
+Hence, we may say that now we \textit{want}
+\[\frac{\myabs{x-2}}{\sqrt{2}}<\epsilon\]
+(we want the inequality we \textit{want} to involve only pieces we \textit{have})
+\end{frame}
+\begin{frame}{We want $\frac{\myabs{x-2}}{\sqrt{x}+\sqrt{2}}<\epsilon$}
+So, at the end of a day...\\
+We \textit{want}
+\[\frac{\myabs{x-2}}{\sqrt{2}}<\epsilon\]
+and we \textit{have}
+\[\myabs{x-2}<\delta\]
+Naturally, let us \textit{require}
+\[\delta<\sqrt{2}\epsilon\]
+\end{frame}
+\begin{frame}{Step 2 (Prove guess was correct)}
+At the end, we have
+\begin{enumerate}
+\item We \textit{require} $0<2-\delta\iff \delta<2$
+\item We \textit{require} $\delta<\sqrt{2}\epsilon$
+\end{enumerate}
+Naturally, we may \textit{take}
+\[\delta=\frac{\min\mycbra{\sqrt{2}\epsilon,2}}{2}>0\]
+as a particular $\delta$ to satisfy all requirements
+\end{frame}
+
+%A displayed formula:
+%
+%\[
+%  \int_{-\infty}^\infty e^{-x^2} \, dx = \sqrt{\pi}
+%\]
+%
+%An itemized list:
+%
+%\begin{itemize}
+%  \item itemized item 1
+%  \item itemized item 2
+%  \item itemized item 3
+%\end{itemize}
+%
+%\begin{theorem}
+%  In a right triangle, the square of hypotenuse equals
+%  the sum of squares of two other sides.
+%\end{theorem}
+%
+
+\end{document}
