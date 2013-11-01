@@ -10,7 +10,7 @@
 \newcommand{\mysca}[2]{\left<#1,#2\right>}
 \newcommand{\mysetn}[2]{\left\{#1\mid #2\right\}}
 \newcommand{\myfincol}[2]{\left\{#1\right\}_{i=1}^{#2}}
-\newcommand{\mysmafrac}[2]{^{#1}/_{#2}}
+\newcommand{\myfrac}[2]{^{#1}/_{#2}}
 \newcommand{\mycol}[2]{\left\{#1\right\}_{#2}}
 \newcommand{\mysetg}[1]{\left<\left\{#1\right\}\right>}
 %\newcommand{\myvec}[1]{\overrightarrow{#1}}
@@ -44,9 +44,9 @@
 %environments for proofs, lemmas, theorems etc.
 \newtheorem{mythm}{Theorem}
 %\newtheorem{theorem}{Theorem}[section]
-\newtheorem{mylem}[theorem]{Lemma}
-\newtheorem{myprop}[theorem]{Proposition}
-\newtheorem{mycor}[theorem]{Corollary}
+\newtheorem{mylem}[mythm]{Lemma}
+\newtheorem{myprop}[mythm]{Proposition}
+\newtheorem{mycor}[mythm]{Corollary}
 
 \newcommand{\myqed}{\nobreak \ifvmode \relax \else
       \ifdim\lastskip<1.5em \hskip-\lastskip

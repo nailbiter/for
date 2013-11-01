@@ -24,7 +24,33 @@ Sec. 14.2-14.3}
 \maketitle
 \section{Section 14.2}
 \begin{description}
-	\item[\# 5.]{{\it Let}
+	\item[\# 6.]{{\it Find the limit}\[\lim_{(x,y)\to(0,0)}\cos\frac{x^2+y^3}{x+y+1}\]
+		}
+		As trigonometric function $\cos(x)$ is continuous, the required limit will be found, if we will be able to compute
+		\[\lim_{(x,y)\to(0,0)}\frac{x^2+y^3}{x+y+1}\]
+		We claim, that it's equal to zero and below is the formal proof. Assume $\epsilon>0$ is given. We want to find $
+		\delta>0$, so that $\sqrt{x^2+y^2}<\delta$ will imply
+		\[\myabs{\frac{x^2+y^3}{x+y+1}}\]
+		Let's try to simplify the expression above. Note, that under the assumption $1-\myabs{x}-\myabs{y}>0$ we can write,
+		based on standard inequality $\myabs{a-b}\geq\myabs{a}-\myabs{b}$
+		\[\myabs{\frac{x^2+y^3}{x+y+1}}\leq\frac{\myabs{x}^2+\myabs{y}^3}{1-\myabs{x}-\myabs{y}}\]
+		We really can assume that $1-\myabs{x}-\myabs{y}>0$, as for $\delta>0$ we have $\myabs{x},\myabs{y}\leq\sqrt{x^2+
+		y^2}\leq\delta$. Thus, if $\delta\leq\myfrac{1}{4}$, we have $1-\myabs{x}-\myabs{y}\geq 1-\myfrac{1}{4}-\myfrac{1}{4}
+		\geq\myfrac{1}{2}>0$, so the transformation above is valid. Thus, we have new target: prove
+		\[\frac{\myabs{x}^2+\myabs{y}^3}{1-\myabs{x}-\myabs{y}}<\epsilon\]
+		Now, if $\delta\leq\myfrac{1}{4}$, we have according $\myabs{x},\myabs{y}<\myfrac{1}{2}$ and hence
+		\[\frac{\myabs{x}^2+\myabs{y}^3}{1-\myabs{x}-\myabs{y}}\leq
+		\frac{\myabs{x}^2+\myabs{y}^3}{\myfrac{1}{2}}\leq2\cdot\mybra{\myabs{x}^2+1\cdot\myabs{y}^2}<2\delta^2\]
+		Thus, we just need $2\delta^2\leq\epsilon^2$, or equivalently $\delta\leq\sqrt{\myfrac{\delta}{2}}$. Summarizing,
+		we have two requirements to our delta: $\delta\leq\myfrac{1}{4}$ and $\sqrt{\myfrac{\delta}{2}}$. Hence, we may set
+		\[\delta:=\min\mycbra{\frac{1}{4},\sqrt{\frac{\delta}{2}}}\]
+		Thus, $\lim_{(x,y)\to(0,0)}\frac{x^2+y^3}{x+y+1}=0$ and hence
+		\[\lim_{(x,y)\to(0,0)}\cos\frac{x^2+y^3}{x+y+1}=\cos(0)=1\]
+	\item[\# 19.]{{\it Find the limit by rewriting fraction first}
+		\[\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\2x-y\neq4\end{subarray}}\frac{\sqrt{2x-y}-2}{2x-y-4}\]
+		Note that using the old trick $a^2-b^2=(a-b)(a+b)$ we have
+		\[\frac{\sqrt{2x-y}-2}{2x-y-4}=\frac{1}{\sqrt{2x-y}+2}\]
+		As 
 		}
 \end{description}
 \end{document}
