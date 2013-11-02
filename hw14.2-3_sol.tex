@@ -1,20 +1,15 @@
 \documentclass[8pt]{article} % use larger type; default would be 10pt
 
+\usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{subfig}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{graphicx}
-\usepackage{mathtools}
 \usepackage{hyperref}
-\usepackage{harpoon}
-\usepackage{enumitem}
-\usepackage{multicol}
-\usepackage[neverdecrease]{paralist}
 \usepackage{enumerate}
-\usepackage{cancel}
-\usepackage{ulem}
+\usepackage{enumitem}
+\usepackage{harpoon}
 
 \usepackage{mystyle}
 
@@ -46,13 +41,154 @@ Sec. 14.2-14.3}
 		\[\delta:=\min\mycbra{\frac{1}{4},\sqrt{\frac{\delta}{2}}}\]
 		Thus, $\lim_{(x,y)\to(0,0)}\frac{x^2+y^3}{x+y+1}=0$ and hence
 		\[\lim_{(x,y)\to(0,0)}\cos\frac{x^2+y^3}{x+y+1}=\cos(0)=1\]
-	\item[\# 19.]{{\it Find the limit by rewriting fraction first}
+	\item[\# 19.]{{\it Find the limit by rewriting fraction first.}
 		\[\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\2x-y\neq4\end{subarray}}\frac{\sqrt{2x-y}-2}{2x-y-4}\]
 		Note that using the old trick $a^2-b^2=(a-b)(a+b)$ we have
 		\[\frac{\sqrt{2x-y}-2}{2x-y-4}=\frac{1}{\sqrt{2x-y}+2}\]
-		As 
+		As square root and rational function are both continuous, it is enough to find \[\lim_{(x,y)\to(0,0)}(2x-y)\]
+		However, as outlined in textbook, $\lim_{(x,y)\to(x_0,y_0)}x=x_0$ and $\lim_{(x,y)\to(x_0,y_0)}y=y_0$ and hence
+		\[\lim_{(x,y)\to(0,0)}(2x-y)=2\lim_{(x,y)\to(0,0)}x-\lim_{(x,y)\to(0,0)}y=0\]
+		and consequently
+		\[\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\2x-y\neq4\end{subarray}}\frac{\sqrt{2x-y}-2}{2x-y-4}
+			=\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\2x-y\neq4\end{subarray}}\frac{1}{\sqrt{2x-y}+2}=\frac{
+				1}{\sqrt{0}+2}=\frac{1}{2}\]
+		}
+	\item[\# 21.]{{\it Find the limit by rewriting fraction first.}
+		\[\lim_{(x,y)\to(0,0)}\frac{\sin(x^2+y^2)}{x^2+y^2}\]
+		Note that as \[\lim_{(x,y)\to(0,0)}(x^2+y^2)=0\]
+		(by continuity of polynomials) we have
+		\[\lim_{(x,y)\to(0,0)}\frac{\sin(x^2+y^2)}{x^2+y^2}=\lim_{r\to 0}\frac{\sin(r)}{r}=1\]
+		The last limit is assumed to be known as a fact.
+		}
+	\item[\# 47.]{{\it By considering different paths of approach, show that the function has no limit as $(x,y)\to(0,0)$.
+		\[h(x,y)=\frac{x^2+y}{y}\]}
+		Note, that \[h(x,y)\bigg|_{x=0}=\frac{y}{y}=1\]
+		and therefore
+		\[\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\\mbox{along }x=0\end{subarray}}\frac{x^2+y}{y}=
+			\lim_{(x,y)\to(0,0)}\mysbra{\left.\frac{x^2+y}{y}\right|_{x=0}}=1\]
+		However, \[\left.h(x,y)\right|_{y=x^2}=\frac{x^2+x^2}{x^2}=2\]
+		and thus
+		\[\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\\mbox{along }y=x^2\end{subarray}}\frac{x^2+y}{y}=
+			\lim_{(x,y)\to(0,0)}\mysbra{\left.\frac{x^2+y}{y}\right|_{y=x^2}}=2\neq 1\]
+		hence limit does not exist by two-path test.
+		}
+	\item[\# 50.]{
+		\newcommand{\f}{\frac{xy+1}{x^2-y^2}}
+		{\it Show that the limit does not exist \[\lim_{(x,y)\to(1,-1)}\frac{xy+1}{x^2-y^2}\]
+		}
+		Let us use two-path test. Note, that 
+		\[\left.\f\right|_{x=1}=\frac{y+1}{1-y^2}=\frac{1}{1-y}\]
+		and therefore
+		\[\lim_{\begin{subarray}{c}(x,y)\to(1,-1)\\\mbox{along }x=1\end{subarray}}\f=
+			\lim_{(x,y)\to(1,-1)}\mysbra{\left.\f\right|_{x=1}}=\lim_{y\to-1}\frac{1}{1-y}=\frac{1}{2}\]
+			However, \[\left.\f\right|_{y=-1}=\frac{-x+1}{x^2-1}=-\frac{1}{1+x}\]
+		and thus
+		\[\lim_{\begin{subarray}{c}(x,y)\to(1,-1)\\\mbox{along }y=-1\end{subarray}}\f=
+			\lim_{(x,y)\to(1,-1)}\mysbra{\left.\f\right|_{y=-1}}=\lim_{x\to1}\mybra{-\frac{1}{1+x}}=-\frac{1}{2}\]
+		hence limit does not exist by two-path test.
+		}
+	\item[\# 51.]{{\it Let}
+		\[f(x,y)=\begin{cases}1,\mbox{ }y\geq x^4\\1,\mbox{ }y\leq 0\\0,\mbox{ othirwise.}\end{cases}\]
+		{\it Find each of the following limits, or explain that the limit does not exist.}
+		\begin{enumerate}[label=\bfseries\alph*.]
+			\item $\lim_{(x,y)\to(0,1)}f(x,y)$
+			\item $\lim_{(x,y)\to(2,3)}f(x,y)$
+			\item $\lim_{(x,y)\to(0,0)}f(x,y)$
+		\end{enumerate}
+		\begin{enumerate}[label=\bfseries\alph*.]
+			\item We claim that \[\lim_{(x,y)\to(0,1)}f(x,y)=1\]
+				It is one of the rare cases when proving by definition might be reasonable. Given $\epsilon>0$ let
+				us take $\delta=\myfrac{1}{2}$. Then, we have $0<\sqrt{x^2+(y-1)^2}<\delta=\myfrac{1}{2}$ and
+				hence $\myabs{x},\myabs{y-1}<\myfrac{1}{2}$. Thus we have $x<\myfrac{1}{2}\implies
+				x^4<\myfrac{1}{16}<\myfrac{1}{2}<y$, as $\myabs{y-1}\implies 1-y<\myfrac{1}{2}\implies y>\myfrac{1}
+				{2}$ and thus $f(x,y)=1$, hence $\myabs{f(x,y)-1}=\myabs{1-1}=0<\epsilon$ and this proves the claim.
+			\item We claim that \[\lim_{(x,y)\to(2,3)}f(x,y)=0\]
+				and again, we shall prove this by definition. So assume $\epsilon>0$ given and let us take
+				$\delta=\myfrac{1}{2}$, so we can assume in subsequent that 
+				$0<\sqrt{(x-2)^2+(y-3)^2}<\delta=\myfrac{1}
+				{2}$. Therefore $\myabs{x-2},\myabs{y-3}<\myfrac{1}{2}$. Now
+				\[\myabs{x-2}<\myfrac{1}{2}\implies x-2>-\myfrac{1}{2}\implies x>\myfrac{3}{2}\]
+				\[\myabs{y-3}<\myfrac{1}{2}\implies y-3<\myfrac{1}{2}\implies y<\myfrac{7}{2}\]
+				\[\myabs{y-3}<\myfrac{1}{2}\implies y-3>-\myfrac{1}{2}\implies y>\myfrac{5}{2}>0\]
+				hence \[x^4>\frac{81}{16}>\frac{7}{2}>y>0\]
+				and thus $\myabs{f(x,y)-0}=\myabs{0-0}=0<\epsilon$.
+			\item We claim that $\lim_{(x,y)\to(0,0)}f(x,y)$ does not exist by two-path test. Indeed, 
+				$f(x,y)\bigg|_{y=x^4}=1$ and hence 
+				\[\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\\mbox{along }y=x^4\end{subarray}}f(x,y)=1\]
+					while $f(x,y)\bigg|_{y=x^6}=0$, as for $0<\myabs{x}<1$ we have $0<x^6<x^4$ and hence
+				\[\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\\mbox{along }y=x^6\end{subarray}}f(x,y)=0\]
+				hence limit does not exist by two-path test.
+		\end{enumerate}
+		}
+	\item[\# 60.]{{\it Define $f(0,0)$ in a way that extends \[f(x,y)=xy\frac{x^2-y^2}{x^2+y^2}\] to be continuous at the origin.}
+		\\Continuity at the origin means simply that \[\lim_{(x,y)\to(0,0)}f(x,y)=f(0,0)\] and thus we just need to compute
+		the limit above and set $f(0,0)$ to that value. We claim that \[\lim_{(x,y)\to(0,0)}xy\frac{x^2-y^2}{x^2+y^2}=0\]
+		Note, that
+		\[0\leq
+		\myabs{xy\frac{x^2-y^2}{x^2+y^2}}\leq\myabs{x}\cdot\myabs{y}\cdot\frac{\myabs{x^2}+\myabs{-y^2}}{x^2+y^2}=\myabs{x}
+		\cdot\myabs{y}\]
+		And as \[\lim_{(x,y)\to(0,0)}xy=0\]
+		the claim is proven by squeezing theorem.
+	}
+	\item[\# 73.]{{\it Given function $f(x,y)$ and a positive number $\epsilon$. Show that there exists $\delta>0$ such that
+		for all $(x,y)$,\[\sqrt{x^2+y^2}<\delta\implies\myabs{f(x,y)-f(0,0)}<\epsilon\]}
+		\[f(x,y)=\frac{xy^2}{x^2+y^2}\mbox{ and }f(0,0)=0,\quad\epsilon=0.04\]
+		Note that
+		\[\myabs{\frac{xy^2}{x^2+y^2}}=\myabs{x}\myabs{\frac{y^2}{x^2+y^2}}\leq\myabs{x}\]
+		and hence it is enough to take $\delta=\epsilon=0.04$, as in this case
+		\[\sqrt{x^2+y^2}<\delta\implies\myabs{x}<\delta\implies\myabs{\frac{xy^2}{x^2+y^2}}<\delta=\epsilon\]
+		}
+\section{Section 14.3}
+	\item[\# 14.]{{\it Find $\partial f/\partial x$ and $\partial f/\partial y$.
+		\[f(x,y)=e^{-x}\sin(x+y)\]}
+		Probably, there is nothing much to comment in these exercises...
+		\[\frac{\partial f}{\partial x}=-e^{-x}\sin(x+y)+e^{-x}\cos(x+y)\]
+		\[\frac{\partial f}{\partial y}=e^{-x}\sin(x+y)\]
+		}
+	\item[\# 16.]{{\it Find $\partial f/\partial x$ and $\partial f/\partial y$.}
+		\[f(x,y)=e^{xy}\ln y\]
+		\[\frac{\partial f}{\partial x}=ye^{xy}\ln y\]
+		\[\frac{\partial f}{\partial y}=xe^{xy}\ln y+e^{xy}\cdot\frac{1}{y}\]
+		}
+	\item[\# 25.]{{\it Find $f_x$, $f_y$ and $f_z$.}
+		\[f(x,y,z)=x-\sqrt{y^2+z^2}\]
+		\[f_x=1\]
+		\[f_y=-\frac{y}{\sqrt{y^2+z^2}}\]
+		\[f_z=-\frac{z}{\sqrt{y^2+z^2}}\]
+		}
+	\item[\# 27.]{{\it Find $f_x$, $f_y$ and $f_z$.}
+		\[f(x,y,z)=\sin^{-1}(xyz)\]
+		\[f_x=\frac{yz}{\sqrt{1-(xyz)^2}}\]
+		\[f_y=\frac{xz}{\sqrt{1-(xyz)^2}}\]
+		\[f_z=\frac{xy}{\sqrt{1-(xyz)^2}}\]
+		}
+	\item[\# 43.]{{\it Find all second-order partial derivatives of function \[g(x,y)=x^2y+\cos y+y\sin x\]}
+		\[g_{xx}=2y-y\sin x\]
+		\[g_{xy}=2x+\cos x\]
+		\[g_{yx}=2x+\cos x\]
+		\[g_{yy}=-\cos y\]
+		}
+	\item[\# 48.]{{\it Find all second-order partial derivatives of function \[w=ye^{x^2-y}\]}
+		\[w_{xx}=2ye^{x^2-y}+4x^2ye^{x^2-y}\]
+		\[w_{xy}=2xe^{x^2-y}-2xye^{x^2-y}\]
+		\[w_{yx}=2xe^{x^2-y}-2xye^{x^2-y}\]
+		\[w_{yy}=-e^{x^2-y}-e^{x^2-y}+ye^{x^2-y}=-2e^{x^2-y}+ye^{x^2-y}\]
+		}
+	\item[\# 60.]{{\it Use the limit definition of partial derivative to compute the partial derivatives of the function
+		at the specified point.}
+		\[f(x,y)=\left\{\begin{array}{ll}\frac{\sin(x^3+y^4)}{x^2+y^2}, &(x,y)\neq(0,0)\\
+			0, &(x,y)=(0,0),
+		\end{array}\right.\\
+		\]
+		{\it $\frac{\partial f}{\partial x}$ and $\frac{\partial f}{\partial y}$ at $(0,0)$}\\\\
+		\[\frac{\partial f}{\partial x}\bigg|_{(0,0)}:=\lim_{x\to 0}\frac{f(x,0)-f(0,0)}{x}=\lim_{x\to 0}\frac{\sin(x^3)}
+		{x^3}=1\]
+		\[\frac{\partial f}{\partial y}\bigg|_{(0,0)}:=\lim_{x\to 0}\frac{f(0,y)-f(0,0)}{y}=\lim_{y\to 0}\frac{\sin(y^4)}
+		{y^3}=\lim_{y\to0}\frac{\sin(y^4)}{y^4}\cdot y=1\cdot\lim_{y\to 0}y=0\]
+		}
+	\item[\# 62.]{{\it }
 		}
 \end{description}
 \end{document}
-%Sec. 14.2 #6, 19, 21, 47, 50, 51, 60, 73                                                                                                             
-%Sec. 14.3 #14, 16, 25, 27, 43, 48, 60, 62, 71, 92 
+%Sec. 14.3 #14, 16, 25, 27, 43, 48, 60, 62, 71, 92
+%ASK: maybe only answers?
