@@ -7,9 +7,8 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{hyperref}
-\usepackage{enumerate}
 \usepackage{enumitem}
-\usepackage{harpoon}
+\usepackage[neverdecrease]{paralist}
 
 \usepackage{mystyle}
 
@@ -90,12 +89,12 @@ Sec. 14.2-14.3}
 	\item[\# 51.]{{\it Let}
 		\[f(x,y)=\begin{cases}1,\mbox{ }y\geq x^4\\1,\mbox{ }y\leq 0\\0,\mbox{ othirwise.}\end{cases}\]
 		{\it Find each of the following limits, or explain that the limit does not exist.}
-		\begin{enumerate}[label=\bfseries\alph*.]
+		\begin{enumerate}[\bfseries a.]
 			\item $\lim_{(x,y)\to(0,1)}f(x,y)$
 			\item $\lim_{(x,y)\to(2,3)}f(x,y)$
 			\item $\lim_{(x,y)\to(0,0)}f(x,y)$
 		\end{enumerate}
-		\begin{enumerate}[label=\bfseries\alph*.]
+		\begin{enumerate}[\bfseries a.]
 			\item We claim that \[\lim_{(x,y)\to(0,1)}f(x,y)=1\]
 				It is one of the rare cases when proving by definition might be reasonable. Given $\epsilon>0$ let
 				us take $\delta=\myfrac{1}{2}$. Then, we have $0<\sqrt{x^2+(y-1)^2}<\delta=\myfrac{1}{2}$ and
@@ -128,7 +127,7 @@ Sec. 14.2-14.3}
 		\myabs{xy\frac{x^2-y^2}{x^2+y^2}}\leq\myabs{x}\cdot\myabs{y}\cdot\frac{\myabs{x^2}+\myabs{-y^2}}{x^2+y^2}=\myabs{x}
 		\cdot\myabs{y}\]
 		And as \[\lim_{(x,y)\to(0,0)}xy=0\]
-		the claim is proven by squeezing theorem.
+		the claim is proven by squeezing theorem. Hence, $f(0,0)$ should be defined as $f(0,0)=0$.
 	}
 	\item[\# 73.]{{\it Given function $f(x,y)$ and a positive number $\epsilon$. Show that there exists $\delta>0$ such that
 		for all $(x,y)$,\[\sqrt{x^2+y^2}<\delta\implies\myabs{f(x,y)-f(0,0)}<\epsilon\]}
@@ -186,7 +185,30 @@ Sec. 14.2-14.3}
 		\[\frac{\partial f}{\partial y}\bigg|_{(0,0)}:=\lim_{x\to 0}\frac{f(0,y)-f(0,0)}{y}=\lim_{y\to 0}\frac{\sin(y^4)}
 		{y^3}=\lim_{y\to0}\frac{\sin(y^4)}{y^4}\cdot y=1\cdot\lim_{y\to 0}y=0\]
 		}
-	\item[\# 62.]{{\it }
+	\item[\# 62.]{{\it Let $f(x,y)=x^2+y^3$. Find the slope of the line tangent to this surface at the point $(-1,1)$ and lying in a plane}
+		\begin{inparaenum}[\bfseries a.]\item \textit{plane} $x=-1$\quad\item \textit{plane} $y=1$.\end{inparaenum}
+		\begin{enumerate}[\bfseries a.]
+			\item \[x^2+y^3\bigg|_{x=-1}=1+y^3\]
+				and therefore
+				\[k=\frac{\partial}{\partial y}\mybra{x^2+y^3\bigg|_{x=-1}}=3y^2=3\]
+				Note, that if one would trace the definition of $\frac{
+				\partial f}{\partial y}(a,b)$ he would see that it is exactly {\it
+				the slope of the line tangent to surface $z=f(x,y)$ at point $(a,b)$ lying in the plane $y=b$} and thus in this
+				example $k$ could be also computed simply as
+				\[k=\frac{\partial f}{\partial y}=3y^2=3\]
+			\item Similarly,
+				\[x^2+y^3\bigg|_{y=1}=x^2+1\]
+				and therefore
+				\[k=\frac{\partial}{\partial x}\mybra{x^2+y^3\bigg|_{y=1}}=2x=-2\]
+				Note, that if one would trace the definition of $\frac{\partial f}{\partial x}
+				(a,b)$ he would see that it is exactly {\it
+				the slope of the line tangent to surface $z=f(x,y)$ at point $(a,b)$ lying in the plane $x=a$} and thus in this
+				example $k$ could be also computed simply as
+				\[k=\frac{\partial f}{\partial x}=2x=-2\]
+		\end{enumerate}
+		}
+	\item[\# 71.]{{\it Let $f(x,y)=\left\{\begin{array}{ll}y^3,&y\geq 0\\-y^2,&y<0\end{array}\right.$\\Find $f_x,f_y,f_{xy},$ and $f_{yx},$ and
+			state the domain of each partial derivative.}
 		}
 \end{description}
 \end{document}
