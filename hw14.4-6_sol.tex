@@ -7,9 +7,9 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{hyperref}
-\usepackage{enumerate}
 \usepackage{enumitem}
-\usepackage{harpoon}
+\usepackage[neverdecrease]{paralist}
+\usepackage{cancel}
 
 \usepackage{mystyle}
 
@@ -19,10 +19,137 @@ Sec. 14.4-14.6}
 \maketitle
 \section{Section 14.4}
 \begin{description}
-	\item[\# 5.]{{\it }
+	\item[\# 5.]{\begin{inparaenum}[\bfseries(a)]\item {\it express $dw/dt$ as a function of $t$, both by using
+			the Chain Rule and by expressing $w$ in terms of $t$ and differentiating
+			directly with respect to $t$. Then }\item{\it evaluate $dw/dt$ at the given value of $t$.} \end{inparaenum}
+			\[\begin{array}{l}w=2ye^x-\ln z,\quad x=\ln(t^2+1),\quad y=\tan^{-1}t,\quad z=e^t;\\ t=1\end{array}\]
+		\begin{enumerate}[\bfseries(a)]
+			\item Chain Rule gives us
+			\[\frac{dw}{dt}=\frac{\partial w}{\partial x}\frac{dx}{dt}+
+			\frac{\partial w}{\partial z}\frac{dz}{dt}+\frac{\partial w}{\partial z}\frac{dz}{dt}=2ye^x\cdot
+			\frac{2t}{t^2+1}+2e^x\frac{1}{1+t^2}-\frac{1}{z}\cdot e^t=\]
+			\[=2\tan^{-1}(t)\cdot (t^2+1)\frac{2t}{t^2+1}+2({t^2+1})\frac{1}{{t^2+1}
+			}-\frac{1}{e^t}\cdot e^t=4t\cdot\tan^{-1}(t)+1\]
+			while the direct differentiation gives
+			\[w(t)=2\tan^{-1}(t)\cdot
+			(t^2+1)-t\implies\frac{dw}{dt}=2\tan^{-1}(t)\cdot 2t+2\cdot\frac{1}{t^2+1}\cdot(t^2+1)-1=
+			4t\cdot\tan^{-1}(t)+1\]
+			which is exactly the same.
+			\item \[4t\cdot\tan^{-1}(t)+1\bigg|_{t=1}=4\cdot\frac{\pi}{4}+1=\pi+1\]
+			as $\tan^{-1}(1)=\pi/4$.
+		\end{enumerate}
 		}
+	\item[\# 7.]{\begin{inparaenum}[\bfseries(a)]\item {\it express $\partial z/\partial u$ and $\partial z/\partial v$
+		both by using the Chain Rule and by expressing $z$ directly in terms of $u$ and $v$ before
+		differentiating. Then }\item {\it evaluate $\partial z/\partial u$ and $\partial z/\partial v$ at the given point}
+		$(u,v)$.\end{inparaenum}\[\begin{array}{l}z=4e^x\ln y,\quad x=\ln(u\cos v),\quad y=u\sin v;\\
+		\;(u,v)=(2,\pi/4)\end{array}\]
+	\begin{enumerate}[\bfseries(a)]
+		\item Chain Rule gives us 
+		\[\frac{\partial z}{\partial u}=\frac{\partial z}{\partial x}\frac{\partial x}{\partial u}+\frac{\partial z}{\partial
+		y}\frac{\partial y}{\partial u}=4e^x\ln(y)\cdot\frac{1}{u\cos v}\cos v+\frac{4e^x}{y}\sin v=4u\cos(v)\cdot\ln(u\sin v)
+		\cdot\frac{1}{u\cos v}+\frac{4u\cos v}{u\sin v}\sin v=\]\[=4\ln(u\sin v)+4\cos v\]
+		\[\frac{\partial z}{\partial v}=\frac{\partial z}{\partial x}\frac{\partial x}{\partial v}+\frac{\partial z}{\partial
+		y}\frac{\partial y}{\partial v}=4e^x\ln(y)\cdot\frac{1}{u\cos v}u(-\sin v)
+		+\frac{4e^x}{y}u\cos v=\]\[=-4u\cos(v)\cdot\ln(u\sin v)
+		\frac{1}{u\cos v}u\sin v+\frac{4u\cos v}{u\sin v}u\cos v=\]\[=-4u\sin(v)\ln(u\sin v)+4\frac{u\cos^2v}{\sin v}\]
+		while direct differentiation gives
+		\[z(u,v)=4u\cos(v)\ln(u\sin v)\]
+		\[\frac{\partial z}{\partial u}=4\cos(v)\ln(u\sin v)+4\frac{u\cos v}{u\sin v}\sin v=4\cos(v)\ln(u\sin v)+4\cos v\]
+		\[\frac{\partial z}{\partial v}=-4u\sin(v)\ln(u\sin v)+4\frac{u\cos v}{u\sin v}u\cos v=-4u\sin(v)\ln(u\sin v)+4
+		\frac{u\cos^2 v}{\sin v}\]
+		which is exactly the same
+	\item \[\frac{\partial z}{\partial u}(2,\pi/4)=4\cos\mybra{\frac{\pi}{4}}\ln\mybra{2\sin\mybra{\frac{\pi}{4}}}
+		+4\cos\mybra{\frac{\pi
+		}{4}}=2\sqrt{2}\ln\mybra{\sqrt{2}}+2\sqrt{2}\approx 3.808685 \]
+		\[\frac{\partial z}{\partial v}(2,\pi/4)=-4\cdot2\cdot\ln\mybra{2\sin\mybra{\frac{\pi}{4}}}+4\frac{2\cdot\cos\mybra{
+		\frac{\pi}{4}}}{\sin\mybra{\frac{\pi}{4}}}=-8\ln\mybra{\sqrt{2}}+8\approx 5.227411\]
+	\end{enumerate}
+		}
+	\item[\# 29.]{{\it Find the values of $\partial z/\partial x$ and $\partial z/\partial y$ at the point given}
+		\[z^3-xy+yz+y^3-2=0,\quad (1,1,1)\]
+		Following the Example 6 in Chapter 14.3 of a textbook, let $F(x,y,z)=z^3-xy+yz+y^3-2$ then
+		\[F_x=-y,\quad F_y=-x+z+3y^2,\quad F_z=3z^2+y\]
+		and as all partial derivative are continuous and $F_z(1,1,1)=4\neq 0$, Implicit Function Theorem gives us
+		\[\frac{\partial z}{\partial x}=-\frac{F_x}{F_z}=-\frac{-y}{3z^2+y}=\frac{1}{4}\]
+		\[\frac{\partial z}{\partial y}=-\frac{F_y}{F_z}=-\frac{-x+z+3y^2}{3z^2+y}=-\frac{3}{4}\]
+		}
+	\item[\# 42.]{{\it The lengths $a,$ $b,$ and $c$ of the edges of a rectangular box are changing with time. At the instant
+		in question}, $a=1\mbox{ m},$ $b=1\mbox{ m},$ $c=3\mbox{ m},$ $da/dt=db/dt=1\mbox{ m/sec},$ and $dc/dt=-3\mbox{ m/sec
+		}.${\it At what rates are the box's volume $V$ and surface area $S$ changing at that instant? Are the box's interior
+		diagonals increasing in length or decreasing?\\}
+		As \[V=abc,\; S=bc+ac+ab\] we have according to the Chain Rule
+		\[\frac{dV}{dt}=
+\frac{\partial V}{\partial a}\frac{da}{dt}+\frac{\partial V}{\partial b}\frac{db}{dt}+\frac{\partial V}{\partial c}\frac{dc}{dt}=
+bc\cdot\frac{da}{dt}+ac\cdot\frac{db}{dt}+ab\cdot\frac{dc}{dt}=3+3-3=3\mbox{ m$^3$/sec}\]
+	and
+		\[\frac{dS}{dt}=
+\frac{\partial S}{\partial a}\frac{da}{dt}+\frac{\partial S}{\partial b}\frac{db}{dt}+\frac{\partial S}{\partial c}\frac{dc}{dt}=
+	(b+c)\cdot\frac{da}{dt}+(a+c)\cdot\frac{db}{dt}+(a+b)\cdot\frac{dc}{dt}=4+4-6=2\mbox{ m$^2$/sec}\]
+	The length of the interior diagonal (in fact, there are 4 of them, but as box is rectangular, all 4 have the same length, so
+	we can talk about \textit{"the"} diagonal) $D$ is given by \[D=\sqrt{a^2+b^2+c^2}\] and by Chain Rule
+	\[\frac{dD}{dt}=
+\frac{\partial D}{\partial a}\frac{da}{dt}+\frac{\partial D}{\partial b}\frac{db}{dt}+\frac{\partial D}{\partial c}\frac{dc}{dt}=
+\frac{a}{\sqrt{a^2+b^2+c^2}}\frac{da}{dt}+
+\frac{b}{\sqrt{a^2+b^2+c^2}}\frac{db}{dt}+
+\frac{c}{\sqrt{a^2+b^2+c^2}}\frac{dc}{dt}=\]
+\[=\frac{1}{\sqrt{11}}+\frac{1}{\sqrt{11}}+\frac{-9}{\sqrt{11}}=\frac{-7}{\sqrt{11}}<0\]
+and hence interior diagonals decrease in length.
+		}
+\section{Section 14.5}
+	\item[\# 17.]{{\it Find the derivative of the function at $P_0$ in the direction of $\mathbf{u}$.
+		\[g(x,y,z)=3e^x\cos yz,\quad P_0(0,0,0),\quad \mathbf{u}=2\mathbf{i}+\mathbf{j}-2\mathbf{k}\]
+		}
+		As $g$ is differentiable on the whole $\mathbf{R}^3$, we have that the derivative of $g$ in the direction of $\mathbf{
+		\tilde{u}}$ obeys the relation
+		\[\mybra{\frac{\partial g}{\partial s}}_{\mathbf{u},P_0}=(\nabla g)_{P_0}\cdot\mathbf{u}\]
+		However, it should be born in mind that it holds only when $\mathbf{\tilde{u}}$ is unit vector. Hence, we should
+		find $\mathbf{\tilde{u}}$ that has the same direction as $\mathbf{u}$, but has unit length. This is done via the 
+		normalization \[\mathbf{\tilde{u}}=\frac{\mathbf{u}}{\myabs{\mathbf{u}}}\]
+		
+		\[\mybra{\frac{\partial g}{\partial s}}_{\mathbf{\tilde{u}},P_0}=(\nabla g)_{P_0}\cdot\mathbf{\tilde{u}}=
+		\mybra{3\mathbf{i}}\cdot\frac{{2\mathbf{i}+\mathbf{j}-2\mathbf{k}}}{\myabs{2\mathbf{i}+\mathbf{j}-2\mathbf{k}}}
+		=\frac{6}{3}=2\]
+		}
+	\item[\# 29.]{{\it Let $f(x,y)=x^2-xy+y^2-y$. Find the directions of $\mathbf{u}$ and the values of $D_{\mathbf{u}}f(1,-1)$
+		for which}
+		\begin{inparaenum}[\bfseries a.]
+			\setlength{\tabcolsep}{15pt}
+			\begin{tabular}{ll}
+		\item {\it $D_{\mathbf{u}}f(1,-1)$ is largest}
+		&\item {\it $D_{\mathbf{u}}f(1,-1)$ is smallest}\\
+		\item {\it $D_{\mathbf{u}}f(1,-1)=0$}
+		&\item {\it $D_{\mathbf{u}}f(1,-1)=4$}\\
+		\item {\it $D_{\mathbf{u}}f(1,-1)=-3$}\\
+		\end{tabular}
+		\end{inparaenum}\\
+		}
+		Note, that $f(x,y)$ is differentiable on the whole $\mathbb{R}^2$ and hence formula
+		$\mybra{\frac{\partial g}{\partial s}}_{\mathbf{u},P_0}=(\nabla g)_{P_0}\cdot\mathbf{u}$ applies. As it holds only
+		when $\myabs{\mathbf{u}}=1$ and 
+		$D_{\mathbf{u}}f$ is independent of the length of $\mathbf{u}$ we will assume in subsequent that $\myabs{\mathbf{u}}
+		=1$.
+		\begin{enumerate}[\bfseries a.]
+			\item From the properties of dot product,
+				\[D_{\mathbf{u}}f\leq\myabs{D_{\mathbf{u}}f}=\myabs{\nabla f\cdot\mathbf{u}}\leq
+				\myabs{\nabla f}\cdot\myabs{\mathbf{u}}=\myabs{\nabla f}\]
+				with equality attained if and only if $\nabla f$ and $\mathbf{u}$ have the same direction. As
+				\[\nabla f(1,-1)=\myabra{2x-y,-x+2y-1}\bigg|_{(1,-1)}=\myabra{3,-4}\]
+				we may set \[\mathbf{u}=\myabra{\frac{3}{5},-\frac{4}{5}}\]
+				and in this case
+				\[D_{\mathbf{u}}f(1,-1)=\myabs{\nabla f(1,-1)}=5\]
+			\item Similarly,
+				\[D_{\mathbf{u}}f\geq-\myabs{D_{\mathbf{u}}f}=-\myabs{\nabla f\cdot\mathbf{u}}\geq-\myabs{\nabla f}
+				\cdot\myabs{\mathbf{u}}=-\myabs{\nabla{f}}\]
+				with equality attained if and only if $\nabla f$ and $\mathbf{u}$ have the opposite direction. As
+				\[\nabla f(1,-1)=\myabra{2x-y,-x+2y-1}\bigg|_{(1,-1)}=\myabra{3,-4}\]
+				we may set \[\mathbf{u}=\myabra{-\frac{3}{5},\frac{4}{5}}\]
+				and in this case
+				\[D_{\mathbf{u}}f(1,-1)=-\myabs{\nabla f(1,-1)}=-5\]
+			\item 
+		\end{enumerate}
+\section{Section 14.6}
 \end{description}
 \end{document}
-%Sec. 14.4 #5, 7, 29, 42
 %Sec. 14.5 #17, 29, 35
 %Sec. 14.6 #5, 8, 15, 17, 23, 29

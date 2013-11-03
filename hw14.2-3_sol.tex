@@ -208,7 +208,45 @@ Sec. 14.2-14.3}
 		\end{enumerate}
 		}
 	\item[\# 71.]{{\it Let $f(x,y)=\left\{\begin{array}{ll}y^3,&y\geq 0\\-y^2,&y<0\end{array}\right.$\\Find $f_x,f_y,f_{xy},$ and $f_{yx},$ and
-			state the domain of each partial derivative.}
+			state the domain of each partial derivative.}\\
+			Note, that both $\mysetn{(x,y)\in\mathbb{R}^2}{y>0}$ and $\mysetn{(x,y)\in\mathbb{R}^2}{y<0}$ are open sets.
+			Therefore, 
+			\[\frac{\partial f}{\partial x}\bigg|_{y>0}=\frac{\partial (y^3)}{\partial x}=0\]
+			\[\frac{\partial f}{\partial x}\bigg|_{y<0}=\frac{\partial (-y^2)}{\partial x}=0\]
+			\[\frac{\partial f}{\partial y}\bigg|_{y>0}=\frac{\partial (y^3)}{\partial y}=3y^2\]
+			\[\frac{\partial f}{\partial y}\bigg|_{y<0}=\frac{\partial (-y^2)}{\partial y}=-2y\]
+			On the boundary $\mysetn{(x,y)\in\mathbb{R}^2}{y=0}$ partial derivative should be computed by definition
+			\[\frac{\partial f}{\partial x}\bigg|_{y=0}=\lim_{h\to0}\frac{f(x+h,0)-f(x,0)}{h}=\lim_{h\to 0}\frac{0^3-0^3}
+			{h}=0\]
+			\[\frac{\partial f}{\partial y}\bigg|_{y=0}=\lim_{h\to0}\frac{f(x,h)-f(x,0)}{h}=\lim_{h\to 0}\frac{f(x,h)}{h
+			}=0\]
+			as both one-side limits are equal to zero
+			\[\lim_{h\to 0-}\frac{f(x,h)}{h}=\lim_{h\to0-}\frac{-h^2}{h}=0\]
+			\[\lim_{h\to 0+}\frac{f(x,h)}{h}\lim_{h\to0+}\frac{h^3}{h}=0\]
+			Thus, we have determined that both $f_x$ and $f_y$ have the whole plane $\mathbb{R}^2$ as their domain and
+			\[f_x=\left\{\begin{array}{ll}0,&y>0\\0,&y=0\\0,&y<0\end{array}\right.\]
+			\[f_y=\left\{\begin{array}{ll}3y^2,&y>0\\0,&y=0\\-2y,&y<0\end{array}\right.\]
+			Immediately, we see that $f_{xy}$ has the whole $\mathbb{R}^2$ as its domain as well, and
+			\[f_{xy}\equiv0\]
+			and 
+			\[\frac{\partial f_y}{\partial x}\bigg|_{y>0}=\frac{\partial (3y^2)}{\partial x}=0\]
+			\[\frac{\partial f_y}{\partial x}\bigg|_{y<0}=\frac{\partial (-2y)}{\partial x}=0\]
+			\[\frac{\partial f_y}{\partial x}\bigg|_{y=0}=\lim_{h\to0}\frac{f_y(x+h,0)-f_y(x,0)}{h}=\lim_{h\to 0}
+			\frac{0-0}{h}=0\]
+			and $f_{yx}$ is defined for the whole $\mathbb{R}^2$ also.
+		}
+	\item[\# 92.]{{\it Let} $f(x,y)=\left\{\begin{array}{ll}0,&x^2<y<2x^2\\1,&\mbox{otherwise.}\end{array}\right.$\\
+			{\it Show that $f_x(0,0)$ and $f_y(0,0)$ exist, but $f$ is not differentiable at $(0,0)$.}\\
+			Indeed, by definition
+			\[\frac{\partial f}{\partial x}(0,0)=\lim_{x\to0}\frac{f(x,0)-f(0,0)}{x}=\lim_{x\to0}\frac{1-1}{x}=0\]
+			as for $y=0$ we have $x^2\geq y$. Next,
+			\[\frac{\partial f}{\partial y}(0,0)=\lim_{y\to0}\frac{f(0,y)-f(0,0)}{x}=\lim_{y\to0}\frac{1-1}{x}=0\]
+			as for $x=0$ we have $x^2=2x^2$ and hence $x^2<y<2x^2$ does not become true.\\
+			Now, we will show that $f(x,y)$ is not even continuous at $(0,0)$, hence not differentiable. We shall use
+		 	two-path test.
+			\[\lim_{(x,0)\to(0,0)}f(x,y)=0\]
+			as shown above and
+			\[\lim_{(x,1.5x^2)\to(0,0)}f(x,y)=\lim_{(x,1.5x^2)\to(0,0)} 0=0\]
 		}
 \end{description}
 \end{document}
