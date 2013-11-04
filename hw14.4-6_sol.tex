@@ -146,10 +146,166 @@ and hence interior diagonals decrease in length.
 				we may set \[\mathbf{u}=\myabra{-\frac{3}{5},\frac{4}{5}}\]
 				and in this case
 				\[D_{\mathbf{u}}f(1,-1)=-\myabs{\nabla f(1,-1)}=-5\]
-			\item 
+			\item Writing $\mathbf{u}=\myabra{u_x,u_y}$ we may write
+				\[0=D_{\mathbf{u}}f=\nabla f\cdot\mathbf{u}=\myabra{3,-4}\cdot\myabra{u_x,u_y}=3u_x-4u_y\implies u_x=\frac{4}{3}u_y\]
+				if we also require $u_x^2+u_y^2=1$ we have only two solutions possible
+				\[\mathbf{u}=\myabra{\frac{4}{5},\frac{3}{5}}\]
+				and
+				\[\mathbf{u}=\myabra{-\frac{4}{5},-\frac{3}{5}}\]
+				In both cases,
+				\[D_{\mathbf{u}}f(1,-1)=0\]
+			\item Similarly to previous subproblem, we have
+				\[4=D_{\mathbf{u}}f=\nabla f\cdot\mathbf{u}=\myabra{3,-4}\cdot\myabra{u_x,u_y}=3u_x-4u_y
+				\implies u_x=\frac{4}{3}+\frac{4}{3}u_y\]
+				and as we also require $u_x^2+u_y^2=1$ we have
+				\[1=\frac{16}{9}(1+u_y)^2+u_y^2=\frac{16}{9}+\frac{32}{9}u_y+\frac{25}{9}u_y^2\implies \frac{25}{9}u_y^2+\frac{32}
+				{9}u_y+\frac{7}{9}=0\]
+				Solving the quadratic equation above gives us two solutions: $u_y=-1$ and $u_y=-7/25$ and three possible values
+				for $\mathbf{u}$ altogether
+				\[\mathbf{u}=\myabra{0,-1},\quad \mathbf{u}=\myabra{-\frac{24}{25},-\frac{7}{25}},\mbox{ and }
+				\mathbf{u}=\myabra{\frac{24}{25},-\frac{7}{25}}\]
+				In all cases,
+				\[D_{\mathbf{u}}f(1,-1)=4\]
+			\item Similarly to above,
+				\[-3=D_{\mathbf{u}}f=\nabla f\cdot\mathbf{u}=\myabra{3,-4}\cdot\myabra{u_x,u_y}=3u_x-4u_y\implies u_x=-1+\frac{4}{3}
+				u_y\]
+				and as we also require $u_x^2+u_y^2=1$ we have
+				\[1=1-\frac{8}{3}u_y+\frac{16}{9}u_y^2\implies u_y\mybra{\frac{2}{3}u_y-1}=0\]
+				thus we have two solutions: $u_y=0$ and $u_y=\frac{3}{2}$ and only 2 possible values for $\mathbf{u}$ (as
+				$\myabs{3/2}>1$, it cannot be a component of a \textit{unit} vector)
+				\[\mathbf{u}=\myabra{1,0},\mbox{ and }\mathbf{u}=\myabra{-1,0}\]
+				In both cases,
+				\[D_{\mathbf{u}}f(1,-1)=-3\]
 		\end{enumerate}
+	\item[\# 35.]{{\it The derivative of $f(x,y)$ at $P_0(1,2)$ in the direction of $\mathbf{i}+\mathbf{j}$ is $2\sqrt{2}$ and in the direction
+		of $-2\mathbf{j}$ is $-3$. What is the derivative of $f$ in the direction of $-\mathbf{i}-2\mathbf{j}$? Give reasons for your answer.
+		}\\
+		\textbf{Note.} As posed, this problem clearly has {\it infinitely many solutions}, as the function
+		\[f(1+x,2+y)=\left\{\begin{array}{ll}
+			0, &(x,y)=(0,0)\\
+			2\sqrt{2}\lambda, &(x,y)=\lambda\myabra{\cos\theta,\sin\theta},\;\lambda> 0,\;\theta=\frac{\pi}{4}\\
+			-3\lambda, &(x,y)=\lambda\myabra{\cos\theta,\sin\theta},\;\lambda>0,\;\theta=\frac{3\pi}{2}\\
+			c\lambda, &(x,y)=\lambda\myabra{\cos\theta,\sin\theta},\;\lambda>0,\;\theta=\theta_0:=
+			\pi+\cos^{-1}\mybra{\frac{1}{\sqrt{5}}}\\
+			\mybra{2\sqrt{2}t+c(1-t)}\cdot\lambda, &(x,y)=\lambda\myabra{\cos\theta,\sin\theta},\;\lambda> 0,\;
+			\theta=\frac{\pi}{4}\cdot t+\theta_0(1-t),\;0<t<1\\
+			\mybra{ct+(-3)(1-t)}\cdot\lambda, &(x,y)=\lambda\myabra{\cos\theta,\sin\theta},\;\lambda> 0,\;
+			\theta=\theta_0\cdot t+\frac{3\pi}{2}(1-t),\;0<t<1\\
+			\mybra{-3t+2\sqrt{2}(1-t)}\cdot\lambda, &(x,y)=\lambda\myabra{\cos\theta,\sin\theta},\;\lambda> 0,\;
+			\theta=-\frac{\pi}{2}t+\frac{\pi}{4}(1-t),\;0<t<1
+		\end{array}\right.\]
+		This function is continuous on $\mathbb{R}^2$, satisfies statement of the problem, and its derivative at $P_0$ in the direction
+		of $-\mathbf{i}-2\mathbf{j}$ is $c$, which can be taken to be arbitrary real number.\\
+		Nevertheless, some firm statements can be made if we impose an additional assumption on $f$: the \textit{differentiability} on
+		the open set containing $P_0(1,2)$. In this case, formula
+		$\mybra{\frac{\partial g}{\partial s}}_{\mathbf{u},P_0}=(\nabla g)_{P_0}\cdot\mathbf{u}$ applies if $\myabs{\mathbf{u}}=1$. Then,
+		denoting $\mathbf{u_1}=\mathbf{i}+\mathbf{j}$ and $\mathbf{u_2}=-2\mathbf{j}$ we have $\myabs{\mathbf{u_1}}=\sqrt{2}$ and
+		$\myabs{\mathbf{u_2}}=2$ and
+		\[-\mathbf{i}-2\mathbf{j}=-\mathbf{u_1}+\frac{\mathbf{u_2}}{2}=-\sqrt{2}\frac{\mathbf{u_1}}{\sqrt{2}}+\frac{\mathbf{u_2}}{2}\]
+		hence
+		\[\mybra{\frac{\partial f}{\partial s}}_{\frac{-\mathbf{i}-2\mathbf{j}}{\sqrt{5}},P_0}=(\nabla f)_{P_0}\cdot
+		\frac{-\mathbf{i}-2\mathbf{j}}{\sqrt{5}}=\frac{1}{\sqrt{5}}\cdot(\nabla f)_{P_0}\cdot\mybra{-\sqrt{2}\frac{\mathbf{u_1}}
+		{\sqrt{2}}+\frac{\mathbf{u_2}}{2}}=\]
+		\[=\frac{1}{\sqrt{5}}\cdot\mybra{(\nabla f)_{P_0}\cdot\mybra{-\sqrt{2}\frac{\mathbf{u_1}}
+		{\sqrt{2}}}
+		+(\nabla f)_{P_0}\cdot\frac{\mathbf{u_2}}{2}}=\frac{1}{\sqrt{5}}\cdot\mybra{\mybra{-\sqrt{2}}\cdot
+		\mybra{\frac{\partial f}{\partial s}}_{\frac{\mathbf{u_1}}{\sqrt{2}},P_0}+
+		\mybra{\frac{\partial f}{\partial s}}_{\frac{\mathbf{u_2}}{2},P_0}
+		}=\]
+		\[=\frac{1}{\sqrt{5}}\cdot\mybra{(-\sqrt{2})\cdot2\sqrt{2}-3}=-\frac{7}{\sqrt{5}}\]
+		}
 \section{Section 14.6}
+	\item[\# 5.]{{\it Find equations for the}
+		\begin{enumerate}[\bfseries(a)]
+			\item {\it tangent plane and}
+			\item {\it normal line at the point $P_0$ on the given surface}
+		\end{enumerate}
+		\[\cos\pi x-x^2y+e^{xz}+yz=4,\quad P_0(0,1,2)\]
+		\begin{enumerate}[\bfseries(a)]
+			\item As surface is given as a level set $f(x,y,z)=4$ of a differentiable function $f(x,y,z)=
+				\cos\pi x-x^2y+e^{xz}+yz=4$, the equation of tangent plane to $f(x,y,z)$ at $P_0$ can be written as
+				\[f_x(P_0)(x-0)+f_y(P_0)(y-1)+f_z(P_0)(z-2)=0\]
+				and evaluating partial derivatives, we get
+				\[\mybra{-\pi\sin\pi x-2xy+ze^{xz}}\bigg|_{(0,1,2)}(x-0)+
+				\mybra{-x^2+z}\bigg|_{(0,1,2)}(y-1)+
+				\mybra{xe^{xz}+y}\bigg|_{(0,1,2)}(z-2)=0
+				\]
+				\[2x+2y+z=4\]
+			\item Normal line is given as
+				\[x=0+2t,\quad y=1+2t,\quad z=2+t\]
+		\end{enumerate}
+		}
+	\item[\# 8.]{{\it Find equations for the}
+		\begin{enumerate}[\bfseries(a)]
+			\item {\it tangent plane and}
+			\item {\it normal line at the point $P_0$ on the given surface}
+		\end{enumerate}
+		\[x^2+y^2-2xy-x+3y-z=-4,\quad P_0(2,-3,18)\]
+		\begin{enumerate}[\bfseries(a)]
+			\item Similarly to previous problem, since surface is given as a level set of differentiable function
+				\[f_x(P_0)(x-0)+f_y(P_0)(y-1)+f_z(P_0)(z-2)=0\]
+				and evaluating partial derivatives, we get
+				\[\mybra{2x-2y-1}\bigg|_{(2,-3,18)}(x-2)+
+				\mybra{2y-2x+3}\bigg|_{(2,-3,18)}(y+3)+
+				\mybra{-1}\bigg|_{(2,-3,18)}(z-18)=0
+				\]
+				\[9x-7y-z=21\]
+			\item Normal line is given as
+				\[x=2+9t,\quad y=-3-7t,\quad z=18-t\]
+		\end{enumerate}
+		}
+	\item[\# 15.]{{\it Find parametric equation for the line tangent to the curve of intersection of the surfaces at the given point.}
+		\[\begin{array}{ll}
+			\mbox{Surfaces:} &x^2+2y+2z=4,\quad y=1\\
+			\mbox{Point:} &(1,1,1/2)
+		\end{array}\]
+		Following the textbook, the tangent line should be orthogonal to the normal lines of both surfaces at point $(1,1,1/2)$ and
+		hence if we denote $f(x,y,z)=x^2+2y+2z$ and $g(x,y,z)=y$, tangent line should be parallel to
+		\[\nabla f\bigg|_{(1,1,1/2)}\times \nabla g\bigg|_{(1,1,1/2)}=\mybra{2\mathbf{i}+2\mathbf{j}+2\mathbf{k}}\times
+		\mathbf{j}=2\mathbf{k}-2\mathbf{i}\]
+		Hence tangent line is given by equation
+		\[x=1-t,\quad y=1,\quad z=1/2+t\]
+		}
+	\item[\# 17.]{{\it Find parametric equation for the line tangent to the curve of intersection of the surfaces at the given point.}
+		\[\begin{array}{ll}
+			\mbox{Surfaces:} &x^3+3x^2y^2+y^3+4xy-z^2=0,\\
+			&x^2+y^2+z^2=11\\
+			\mbox{Point:} &(1,1,3)
+		\end{array}\]
+	Exactly as in the previous problem, tangent line should be parallel to
+		\[\nabla (x^3+3x^2y^2+y^3+4xy-z^2
+		)\bigg|_{(1,1,3)}\times \nabla(x^2+y^2+z^2)\bigg|_{(1,1,3)}=\mybra{13\mathbf{i}+13\mathbf{j}-6\mathbf{k}}\times
+		\mybra{2\mathbf{i}+2\mathbf{j}+6\mathbf{k}}=90\mathbf{i}-90\mathbf{j}\]
+		and hence is given by equation
+		\[x=1+t,\quad y=1-t,\quad z=3\]
+		}
+	\item[\# 23.]{{\it Suppose that the Celsius temperature at the point $(x,y)$ in the $xy$-plane is $T(x,y)=x\sin 2y$ and that distance in
+		the $xy$-plane is measured in meters. A particle is moving {\textit clockwise} around the circle of radius 1 m centered at the origin
+		at the constant rate of 2 m/sec.}
+		\begin{enumerate}[\bfseries(a)]
+			\item {\it How fast is the temperature experienced by the particle changing in degrees Celsius per meter at the point
+				$P(1/2,\sqrt{3/2})$?}
+			\item {\it How fast is the temperature experienced by the particle changing in degrees per Celsius per second at $P$?}
+		\end{enumerate}
+		First of all, we can describe the position of the particle at time $t$ as \[x(t)=\cos(-2t),\quad y(t)=\sin(-2t)\]
+		(minus signs are to account for the fact that particle is moving clockwise)
+		\begin{enumerate}[\bfseries(a)]
+			\item The distance $s$ traveled by particle from time $0$ to time $t$ is given by $2t$. Now, temperature experienced by
+				the particle can be expressed as the function $T=T(s)$ of distance travelled and subproblem
+				essentially asks us to find $T'(s)$ for $s$ being distance travelled till point $P$. Now, by Chain Rule
+				\[\frac{dT(s(t))}{dt}=T'(s(t))\frac{ds}{dt}=2T'(s(t))\implies \frac{1}{2}\frac{dT(s(t))}{dt}=\frac{1}{2}
+				\frac{T(x(t),y(t))}{dt}=T'(s(t))\]
+				by Chain Rule (this time, for function of two variables)
+				\[\frac{T(x(t),y(t))}{dt}=\frac{\partial T}{\partial x}\frac{dx}{dt}+\frac{\partial T}{\partial y}\frac{dy}{dt}\]
+				It remains essentially to find the right $t_0$, corresponding to the particle being in point $P$ (in fact, there
+				are infinitely many $t_0$ that would do, but arbitrary can be chosen). In particular, $t_0:=-\pi/6$ would do.
+				Then, \[T'(s(t_0))=\frac{1}{2}\mybra{
+				\frac{\partial T}{\partial x}\bigg|_{(1/2,\sqrt{3/2})}\cdot\frac{dx}{dt}\bigg|_{t_0}+
+				\frac{\partial T}{\partial y}\bigg|_{(1/2,\sqrt{3/2})}\cdot\frac{dy}{dt}\bigg|_{t_0}}=
+				\frac{1}{2}\mybra{\sin\sqrt{6}\cdot\sqrt{6}-\cos\sqrt{6}}\]in degrees Celsius per meter
+			\item Similarly to previous 
+		\end{enumerate}
+		}
 \end{description}
 \end{document}
-%Sec. 14.5 #17, 29, 35
 %Sec. 14.6 #5, 8, 15, 17, 23, 29
