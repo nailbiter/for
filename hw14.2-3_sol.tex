@@ -41,16 +41,16 @@ Sec. 14.2-14.3}
 		Thus, $\lim_{(x,y)\to(0,0)}\frac{x^2+y^3}{x+y+1}=0$ and hence
 		\[\lim_{(x,y)\to(0,0)}\cos\frac{x^2+y^3}{x+y+1}=\cos(0)=1\]
 	\item[\# 19.]{{\it Find the limit by rewriting fraction first.}
-		\[\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\2x-y\neq4\end{subarray}}\frac{\sqrt{2x-y}-2}{2x-y-4}\]
+		\[\lim_{\begin{subarray}{c}(x,y)\to(2,0)\\2x-y\neq4\end{subarray}}\frac{\sqrt{2x-y}-2}{2x-y-4}\]
 		Note that using the old trick $a^2-b^2=(a-b)(a+b)$ we have
 		\[\frac{\sqrt{2x-y}-2}{2x-y-4}=\frac{1}{\sqrt{2x-y}+2}\]
-		As square root and rational function are both continuous, it is enough to find \[\lim_{(x,y)\to(0,0)}(2x-y)\]
+		As square root and rational function are both continuous, it is enough to find \[\lim_{(x,y)\to(2,0)}(2x-y)\]
 		However, as outlined in textbook, $\lim_{(x,y)\to(x_0,y_0)}x=x_0$ and $\lim_{(x,y)\to(x_0,y_0)}y=y_0$ and hence
-		\[\lim_{(x,y)\to(0,0)}(2x-y)=2\lim_{(x,y)\to(0,0)}x-\lim_{(x,y)\to(0,0)}y=0\]
+		\[\lim_{(x,y)\to(2,0)}(2x-y)=2\lim_{(x,y)\to(2,0)}x-\lim_{(x,y)\to(2,0)}y=4\]
 		and consequently
-		\[\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\2x-y\neq4\end{subarray}}\frac{\sqrt{2x-y}-2}{2x-y-4}
-			=\lim_{\begin{subarray}{c}(x,y)\to(0,0)\\2x-y\neq4\end{subarray}}\frac{1}{\sqrt{2x-y}+2}=\frac{
-				1}{\sqrt{0}+2}=\frac{1}{2}\]
+		\[\lim_{\begin{subarray}{c}(x,y)\to(2,0)\\2x-y\neq4\end{subarray}}\frac{\sqrt{2x-y}-2}{2x-y-4}
+			=\lim_{\begin{subarray}{c}(x,y)\to(2,0)\\2x-y\neq4\end{subarray}}\frac{1}{\sqrt{2x-y}+2}=\frac{
+				1}{\sqrt{4}+2}=\frac{1}{4}\]
 		}
 	\item[\# 21.]{{\it Find the limit by rewriting fraction first.}
 		\[\lim_{(x,y)\to(0,0)}\frac{\sin(x^2+y^2)}{x^2+y^2}\]

@@ -102,12 +102,12 @@ and hence interior diagonals decrease in length.
 		}
 		As $g$ is differentiable on the whole $\mathbf{R}^3$, we have that the derivative of $g$ in the direction of $\mathbf{
 		\tilde{u}}$ obeys the relation
-		\[\mybra{\frac{\partial g}{\partial s}}_{\mathbf{u},P_0}=(\nabla g)_{P_0}\cdot\mathbf{u}\]
+		\[D_\mathbf{u}g(P_0)=(\nabla g)_{P_0}\cdot\mathbf{u}\]
 		However, it should be born in mind that it holds only when $\mathbf{\tilde{u}}$ is unit vector. Hence, we should
 		find $\mathbf{\tilde{u}}$ that has the same direction as $\mathbf{u}$, but has unit length. This is done via the 
 		normalization \[\mathbf{\tilde{u}}=\frac{\mathbf{u}}{\myabs{\mathbf{u}}}\]
 		
-		\[\mybra{\frac{\partial g}{\partial s}}_{\mathbf{\tilde{u}},P_0}=(\nabla g)_{P_0}\cdot\mathbf{\tilde{u}}=
+		\[D_\mathbf{\tilde{u}}g(P_0)=(\nabla g)_{P_0}\cdot\mathbf{\tilde{u}}
 		\mybra{3\mathbf{i}}\cdot\frac{{2\mathbf{i}+\mathbf{j}-2\mathbf{k}}}{\myabs{2\mathbf{i}+\mathbf{j}-2\mathbf{k}}}
 		=\frac{6}{3}=2\]
 		}
@@ -125,7 +125,7 @@ and hence interior diagonals decrease in length.
 		\end{inparaenum}\\
 		}
 		Note, that $f(x,y)$ is differentiable on the whole $\mathbb{R}^2$ and hence formula
-		$\mybra{\frac{\partial g}{\partial s}}_{\mathbf{u},P_0}=(\nabla g)_{P_0}\cdot\mathbf{u}$ applies. As it holds only
+		$D_{\mathbf{u}}g(P_0)=(\nabla g)_{P_0}\cdot\mathbf{u}$ applies. As it holds only
 		when $\myabs{\mathbf{u}}=1$ and 
 		$D_{\mathbf{u}}f$ is independent of the length of $\mathbf{u}$ we will assume in subsequent that $\myabs{\mathbf{u}}
 		=1$.
@@ -198,19 +198,19 @@ and hence interior diagonals decrease in length.
 		of $-\mathbf{i}-2\mathbf{j}$ is $c$, which can be taken to be arbitrary real number.\\
 		Nevertheless, some firm statements can be made if we impose an additional assumption on $f$: the \textit{differentiability} on
 		the open set containing $P_0(1,2)$. In this case, formula
-		$\mybra{\frac{\partial g}{\partial s}}_{\mathbf{u},P_0}=(\nabla g)_{P_0}\cdot\mathbf{u}$ applies if $\myabs{\mathbf{u}}=1$. Then,
+		$D_{\mathbf{u}}g(P_0)=(\nabla g)_{P_0}\cdot\mathbf{u}$ applies if $\myabs{\mathbf{u}}=1$. Then,
 		denoting $\mathbf{u_1}=\mathbf{i}+\mathbf{j}$ and $\mathbf{u_2}=-2\mathbf{j}$ we have $\myabs{\mathbf{u_1}}=\sqrt{2}$ and
 		$\myabs{\mathbf{u_2}}=2$ and
 		\[-\mathbf{i}-2\mathbf{j}=-\mathbf{u_1}+\frac{\mathbf{u_2}}{2}=-\sqrt{2}\frac{\mathbf{u_1}}{\sqrt{2}}+\frac{\mathbf{u_2}}{2}\]
 		hence
-		\[\mybra{\frac{\partial f}{\partial s}}_{\frac{-\mathbf{i}-2\mathbf{j}}{\sqrt{5}},P_0}=(\nabla f)_{P_0}\cdot
+		\[D_{\frac{-\mathbf{i}-2\mathbf{j}}{\sqrt{5}}} f(P_0)=(\nabla f)_{P_0}\cdot
 		\frac{-\mathbf{i}-2\mathbf{j}}{\sqrt{5}}=\frac{1}{\sqrt{5}}\cdot(\nabla f)_{P_0}\cdot\mybra{-\sqrt{2}\frac{\mathbf{u_1}}
 		{\sqrt{2}}+\frac{\mathbf{u_2}}{2}}=\]
 		\[=\frac{1}{\sqrt{5}}\cdot\mybra{(\nabla f)_{P_0}\cdot\mybra{-\sqrt{2}\frac{\mathbf{u_1}}
 		{\sqrt{2}}}
 		+(\nabla f)_{P_0}\cdot\frac{\mathbf{u_2}}{2}}=\frac{1}{\sqrt{5}}\cdot\mybra{\mybra{-\sqrt{2}}\cdot
-		\mybra{\frac{\partial f}{\partial s}}_{\frac{\mathbf{u_1}}{\sqrt{2}},P_0}+
-		\mybra{\frac{\partial f}{\partial s}}_{\frac{\mathbf{u_2}}{2},P_0}
+		D_{\frac{\mathbf{u_1}}{\sqrt{2}}}f(P_0)+
+		D_{\frac{\mathbf{u_2}}{2}}f(P_0)
 		}=\]
 		\[=\frac{1}{\sqrt{5}}\cdot\mybra{(-\sqrt{2})\cdot2\sqrt{2}-3}=-\frac{7}{\sqrt{5}}\]
 		}
@@ -291,21 +291,37 @@ and hence interior diagonals decrease in length.
 		(minus signs are to account for the fact that particle is moving clockwise)
 		\begin{enumerate}[\bfseries(a)]
 			\item The distance $s$ traveled by particle from time $0$ to time $t$ is given by $2t$. Now, temperature experienced by
-				the particle can be expressed as the function $T=T(s)$ of distance travelled and subproblem
-				essentially asks us to find $T'(s)$ for $s$ being distance travelled till point $P$. Now, by Chain Rule
-				\[\frac{dT(s(t))}{dt}=T'(s(t))\frac{ds}{dt}=2T'(s(t))\implies \frac{1}{2}\frac{dT(s(t))}{dt}=\frac{1}{2}
-				\frac{T(x(t),y(t))}{dt}=T'(s(t))\]
+				the particle can be expressed as the function $T_s=T_s(s)$ of distance travelled and subproblem
+				essentially asks us to find $T_s'(s)$ for $s$ being distance travelled till point $P$. Now, by Chain Rule
+				\[\frac{dT_s(s(t))}{dt}=T_s'(s(t))\frac{ds}{dt}=2T_s'(s(t))\implies \frac{1}{2}\frac{dT_s(s(t))}{dt}=\frac{1}{2}
+				\frac{T(x(t),y(t))}{dt}=T_s'(s(t))\]
 				by Chain Rule (this time, for function of two variables)
 				\[\frac{T(x(t),y(t))}{dt}=\frac{\partial T}{\partial x}\frac{dx}{dt}+\frac{\partial T}{\partial y}\frac{dy}{dt}\]
 				It remains essentially to find the right $t_0$, corresponding to the particle being in point $P$ (in fact, there
 				are infinitely many $t_0$ that would do, but arbitrary can be chosen). In particular, $t_0:=-\pi/6$ would do.
-				Then, \[T'(s(t_0))=\frac{1}{2}\mybra{
+				Then, \[T_s'(s(t_0))=\frac{1}{2}\mybra{
 				\frac{\partial T}{\partial x}\bigg|_{(1/2,\sqrt{3/2})}\cdot\frac{dx}{dt}\bigg|_{t_0}+
 				\frac{\partial T}{\partial y}\bigg|_{(1/2,\sqrt{3/2})}\cdot\frac{dy}{dt}\bigg|_{t_0}}=
-				\frac{1}{2}\mybra{\sin\sqrt{6}\cdot\sqrt{6}-\cos\sqrt{6}}\]in degrees Celsius per meter
-			\item Similarly to previous 
+				\frac{1}{2}\mybra{\sin\sqrt{6}\cdot\sqrt{6}-\cos\sqrt{6}}\]in degrees Celsius per meter.
+			\item Similarly to previous subproblem, 
+				\[\frac{dT_s}{dt}\bigg|_{t=t_0}=
+				\frac{\partial T}{\partial x}\bigg|_{(1/2,\sqrt{3/2})}\cdot\frac{dx}{dt}\bigg|_{t_0}+
+				\frac{\partial T}{\partial y}\bigg|_{(1/2,\sqrt{3/2})}\cdot\frac{dy}{dt}\bigg|_{t_0}=
+				{\sin\sqrt{6}\cdot\sqrt{6}-\cos\sqrt{6}}\]in degrees Celsius per second.
+		\end{enumerate}
+		}
+	\item[\# 29.]{{\it Find the linearization of the function at each point}\\
+	\begin{inparaenum}[\bfseries a.]\begin{tabular}{lll}
+		$f(x,y)=e^x\cos y$ at &\item $(0,0),$ &\item $(0,\pi/2)$
+	\end{tabular}\end{inparaenum}\\\\
+		Linearization, as defined in textbook, is computed as
+		\[L(x,y)=f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)\]
+		Now \[f_x(x_0,y_0)=e^{x_0}\cos y_0\] \[f_y(x_0,y_0)=-e^{x_0}\sin y_0\]
+		and hence the answers are
+		\begin{enumerate}[\bfseries a.]
+			\item \[L(x,y)=1+1\cdot(x-0)+0\cdot(y-0)=1+x\]
+			\item \[L(x,y)=0+0\cdot(x-0)-1\cdot(y-\pi/2)=\pi/2-y\]
 		\end{enumerate}
 		}
 \end{description}
 \end{document}
-%Sec. 14.6 #5, 8, 15, 17, 23, 29
