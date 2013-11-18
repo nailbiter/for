@@ -12,6 +12,7 @@
 \usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{harpoon}
+\usepackage{cancel}
 
 \usepackage{mystyle}
 
@@ -32,7 +33,41 @@
 		$R$ is an integral domain), hence its kernel is $0$, hence $\dim(\Im R)=\dim R$, thus $r^*$ is onto $R$ and there exists
 		$r^{-1}:=(r^*)^{-1}(1)\in R$ -- the inverse of $r$.
 
-		Now, to show that $1\in F\subset R$ indeed is the identity in $R$, let $r\in R$ be arbitrary, $r^{-1}$ its inverse, and we have
-		\[1\cdot r=r\cdot r^{-1}\cdot r=r\
+		Now, to show that $1\in F\subset R$ indeed is the identity in $R$, let $r\in R$ be arbitrary. Then, by axioms of
+		a vector space, $1\cdot r=r$, and hence $1$ is an identity of $E$ indeed.
+	\item Problem 3
+	\item \begin{enumerate}[label=(\arabic*).]
+				\newcommand{\Ker}{\mbox{Ker\,}}
+			\item Given exact sequence $0\to A_n\to A_{n-1}\to\cdots\to A_1\to A_0\to 0$, let us call the mapping 
+				$A_i\to A_{i-1}$ as $\partial_i: A_i\to A_{i-1}$ (as a special case, $A_{n+1}:=A_{-1}:=0$, hence
+				$\partial_{n+1}:0\to A_n$ and $\partial_0:A_0\to 0$ are identity and constant map respectively).
+				Then, according to fundamental theorem on homomorphisms (for abelian groups), $\forall 0\leq i\leq n,
+				\;A_i/\Ker \partial_i\simeq\Im\partial_i$, and since all 3 groups are finite (as kernel and image
+				are subgroups of finite groups), we have
+				$\myabs{\Im\partial_i}=\myabs{A_i/\Ker\partial_i}=\frac{\myabs{A_i}}
+				{\myabs{\Ker\partial_i}}\implies \myabs{A_i}=\myabs{\Im\partial_i}\cdot\myabs{\Ker\partial_i}$.
+				Finally, we claim that $\forall 0\leq k\leq n$ we have 
+				\[\Pi_{i=0}^k \myabs{A_i}^{(-1)^i}=\myabs{\Ker\partial_k}^{(-1)^k}\]
+				Note, that this claim will imply the desired statement, as for $k=n$, by exactness
+				$\myabs{\Ker\partial_n}=\myabs{\Im\partial_{n+1}}=\myabs{\mycbra{0}}=1\implies
+				\Pi_{i=0}^n \myabs{A_i}^{(-1)^i}=\myabs{\Ker\partial_n}^{(-1)^n}=1^{(-1)^n}=1$, which is precisely
+				the desired statement. Now, we will prove the claim by induction. Base case $k=0$ is true, as
+				$A_i=\Ker\partial_0$ (by the definition of $\partial_0$). Now, assuming the statement holds
+				for $k$, we have
+		\[\begin{array}{rr}
+			\Pi_{i=0}^{k+1}\myabs{A_i}^{(-1)^i}=\Pi_{i=0}^{k}\myabs{A_i}^{(-1)^i}\cdot\myabs{A_{k+1}}^{(-1)^{k+1}}=
+			&\mbox{ (\textit{by inductive assumption}) }\\
+			=\myabs{\Ker\partial_k}^{(-1)^k}\cdot\myabs{A_{k+1}}^{(-1)^{k+1}}=
+			&\mbox{ (\textit{as $\myabs{A_{k+1}}=\myabs{\Im\partial_{k+1}}\cdot\myabs{\Ker\partial_{{k+1}}}$}) }\\
+			={\myabs{\Ker\partial_k}^{(-1)^k}}\cdot{\myabs{\Im\partial_{k+1}}^{(-1)^{k+1}}}
+				\cdot\myabs{\Ker\partial_{{k+1}}}^{(-1)^{k+1}}=
+			&\mbox{ (\textit{as ${\Im\partial_{k+1}}\simeq{\Ker\partial_k}$ by exactness}) }\\
+			=\cancel{\myabs{\Ker\partial_k}^{(-1)^k}}\cdot\cancel{\myabs{\Im\partial_{k+1}}^{(-1)^{k+1}}}
+				\cdot\myabs{\Ker\partial_{{k+1}}}^{(-1)^{k+1}}=
+			&\myabs{\Ker\partial_{{k+1}}}^{(-1)^{k+1}}
+		\end{array}\]
+		This finishes the induction step, proves claim, and gives the desired statement.
+			\item Again, we can show by induction that 
+		\end{enumerate}
 \end{enumerate}
 \end{document}
