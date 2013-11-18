@@ -1,0 +1,38 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+%\usepackage{CJK}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{harpoon}
+
+\usepackage{mystyle}
+
+\title{Final Exam for Math 5111, Fall 2013\\Solutions}
+\author{Alex Leontiev, 1155040702, CUHK}
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\bfseries Problem \arabic*.]
+	%\newcommand{\dim}{\mbox{dim}}
+	%\newcommand{\Im}{\mbox{Im}}
+	\setcounter{enumi}{1}
+	\item Indeed, what we have to show is $R$ has an identity,
+		and that every nonzero element of $R$ has an inverse in $R$ (because $R$, being an integral
+		domain, is automatically a commutative ring). We claim that the identity of $R$ is $1\in F\subset R$ (the identity of $F$)
+		and will begin with proving a latter statement, regarding invertibility in $R$. Indeed, let $r\in R$ be arbitrary. Then,
+		mapping $r^*:
+		R\ni x\mapsto r^*(x):=x\cdot r=r\cdot x\in R$ is $F$-linear, and maps nonzero elements to nonzero elements (due to the fact, that
+		$R$ is an integral domain), hence its kernel is $0$, hence $\dim(\Im R)=\dim R$, thus $r^*$ is onto $R$ and there exists
+		$r^{-1}:=(r^*)^{-1}(1)\in R$ -- the inverse of $r$.
+
+		Now, to show that $1\in F\subset R$ indeed is the identity in $R$, let $r\in R$ be arbitrary, $r^{-1}$ its inverse, and we have
+		\[1\cdot r=r\cdot r^{-1}\cdot r=r\
+\end{enumerate}
+\end{document}
