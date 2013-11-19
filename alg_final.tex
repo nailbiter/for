@@ -35,7 +35,12 @@
 
 		Now, to show that $1\in F\subset R$ indeed is the identity in $R$, let $r\in R$ be arbitrary. Then, by axioms of
 		a vector space, $1\cdot r=r$, and hence $1$ is an identity of $E$ indeed.
-	\item 
+	\item To begin with, as $E:F$ is finite degree separable extension, there is a primitive element, that is $E=F(\alpha)$
+		for some $\alpha\in E$. Now, let $p(x)\in F[x]$ be minimal polynomial for $\alpha$ and then we have $E\simeq F[x]
+		/pF[x]$, where by $pF$ we denote the ideal generated in $F[x]$ by $p(x)$. Now, we will prove the desired
+		statement through the chain of algebra isomorphisms
+		\[E\otimes_F E\simeq (F[x]/pF[x])\otimes_F E\simeq E[x]/pE[x]\simeq \bigoplus_{i=1}^n E\]
+		We have nothing to do with the first one, as it follows from the fact that $E\simeq F[x]/pF[x]$ as a field.
 	\item \begin{enumerate}[label=(\arabic*).]
 				\newcommand{\Ker}{\mbox{\normalfont Ker\,}}
 			\item Given exact sequence $0\to A_n\to A_{n-1}\to\cdots\to A_1\to A_0\to 0$, let us call the mapping 
@@ -148,6 +153,10 @@
 				$h(x)=a(x)e^{i\pi x}+b(x)ie^{i\pi x}$ for $a,b\in\crz$ and taking the real part of both sides
 				and using the fact that $a(x),b(x)\in\mathbb{R}$, we have $h(x)=a(x)\cos\pi x-b(x)\sin \pi x$,
 				which shows that $\cos\pi x$ and $\sin\pi x$ span $\Gamma$ over $\crz$.
+		\end{enumerate}
+	\setcounter{enumi}{9}
+	\item\begin{enumerate}[label=(\arabic*).]
+			\item tesi me
 		\end{enumerate}
 \end{enumerate}
 \end{document}
