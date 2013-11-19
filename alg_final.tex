@@ -1,7 +1,5 @@
-\documentclass[8pt]{article} % use larger type; default would be 10pt
+\documentclass[8pt,fleqn]{article} % use larger type; default would be 10pt
 
-%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
-%\usepackage{CJK}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{float}
@@ -15,6 +13,8 @@
 \usepackage{cancel}
 
 \usepackage{mystyle}
+
+\newcommand{\myexplain}[1]{\mbox{ (\textit{#1})}}
 
 \title{Final Exam for Math 5111, Fall 2013\\Solutions}
 \author{Alex Leontiev, 1155040702, CUHK}
@@ -35,9 +35,9 @@
 
 		Now, to show that $1\in F\subset R$ indeed is the identity in $R$, let $r\in R$ be arbitrary. Then, by axioms of
 		a vector space, $1\cdot r=r$, and hence $1$ is an identity of $E$ indeed.
-	\item Problem 3
+	\item 
 	\item \begin{enumerate}[label=(\arabic*).]
-				\newcommand{\Ker}{\mbox{Ker\,}}
+				\newcommand{\Ker}{\mbox{\normalfont Ker\,}}
 			\item Given exact sequence $0\to A_n\to A_{n-1}\to\cdots\to A_1\to A_0\to 0$, let us call the mapping 
 				$A_i\to A_{i-1}$ as $\partial_i: A_i\to A_{i-1}$ (as a special case, $A_{n+1}:=A_{-1}:=0$, hence
 				$\partial_{n+1}:0\to A_n$ and $\partial_0:A_0\to 0$ are identity and constant map respectively).
@@ -67,7 +67,88 @@
 			&\myabs{\Ker\partial_{{k+1}}}^{(-1)^{k+1}}
 		\end{array}\]
 		This finishes the induction step, proves claim, and gives the desired statement.
-			\item Again, we can show by induction that 
+			\item We will use the same notation for $\partial_i$, as in previous subproblem, that is $\partial_i:A_i\to
+				A_{i-1}$ is the complex mapping from $A_i$ to $A_{i-1}$ for $0\leq i\leq n+1$, with $A_{n+1}:=A_{-1}:=
+				=0$. Now, we will show by math induction that for any $0\leq k\leq n$ we have
+				\[\Pi_{i=0}^k\myabs{A_i}^{(-1)^i}=\myabs{\Im\partial_{k+1}}^{(-1)^{k}}\cdot
+				\Pi_{i=0}^k\myabs{H_i}^{(-1)^i}\]
+				This statement will imply the desired, as for $k=n$, we have $\Im\partial_{n+1}=\mycbra{0}\implies
+				\myabs{\Im\partial_{n+1}}^{(-1)^{n+1}}=1^{(-1)^{n+1}}=1$. Now, base case $i=0$ holds, as
+		\[\begin{array}{rr}
+			\myabs{H_0}=\
+			&\mbox{ (\textit{as} $H_0:=\Ker\partial_0/\Im\partial_{1}$ {\it and by finiteness}) }\\
+			=\frac{\Ker\partial_0}{\myabs{\Im\partial_1}}=
+			&\mbox{ ({$\partial_0\equiv0\implies\Ker\partial_0=A_0$}) }\\
+			=\frac{\myabs{A_0}}{\myabs{\Im\partial_1}}\implies&\myabs{A_0}=\myabs{\Im\partial_1}^{(-1)^0}\cdot\myabs{H_0}
+		\end{array}\]
+		So it remains to do the induction step. Assuming that statement holds for some $k$, for $k+1$ we have
+		\noindent\[\begin{array}{rr}
+		\Pi_{i=0}^{k+1}\myabs{A_i}^{(-1)^i}=\Pi_{i=0}^k\myabs{A_i}^{(-1)^i}\cdot\myabs{A_{k+1}}^{(-1)^{k+1}}=
+		&\myexplain{by inductive assumption}\\
+		=\myabs{\Im\partial_{k+1}}^{(-1)^{k}}\cdot\Pi_{i=0}^k\myabs{H_i}^{(-1)^i}\cdot\myabs{A_{k+1}}^{(-1)^{k+1}}=
+		&\myexplain{as $A_{k+1}/\Ker\partial_{k+1}\simeq\Im\partial_{k+1}$ and by finiteness}\\
+		=\cancel{\myabs{\Im\partial_{k+1}}^{(-1)^{k}}}
+		\cdot\Pi_{i=0}^k\myabs{H_i}^{(-1)^i}\cdot\myabs{\Ker\partial_{k+1}}^{(-1)^{k+1}}
+		\cancel{\myabs{\Im\partial_{k+1}}^{(-1)^{k+1}}}=
+		&\myexplain{{as} $H_{k+1}:=\Ker\partial_{k+1}/\Im\partial_{k+2}$ {and by finiteness}}\\
+		=\Pi_{i=0}^k\myabs{H_i}^{(-1)^i}\cdot\myabs{H_{k+1}}^{(-1)^{k+1}}\cdot\myabs{\Im\partial_{k+2}}^{(-1)^{k+1}}=
+		&\Pi_{i=0}^{k+1}\myabs{H_i}^{(-1)^i}\cdot\myabs{\Im\partial_{k+2}}^{(-1)^{k+1}}\end{array}\]
+		This finishes the induction step, proves claim, and gives the desired statement.
+		\end{enumerate}
+		\setcounter{enumi}{6}
+	\item\begin{enumerate}[label=(\arabic*).]
+				\newcommand{\crz}{C(\mathbb{R}/\mathbb{Z})}
+				\newcommand{\gc}{\Gamma_{\mathbb{C}}}
+			\item Indeed, given any two $u,v\in\Gamma$ and $x\in\mathbb{R}$ we have $uv(x+1)=u(x+1)v(x+1)=-u(x)\cdot(-v(x)
+				)=uv(x)$ and $v^2(x+1)=(-v(x))^2=v(x)$, hence $uv,v^2\in\crz$ and as $uv\cdot u+(-u^2)\cdot v=0$,
+				we see that $u$ and $v$ are linearly dependent over $\crz$.
+			\item $\Gamma$ {\it cannot} be a free module of rank bigger than 1, as it does not contain two independent
+				elements (as was shown in previous subproblem). It remains therefore to show that it cannot be a free
+				module of rank 1 (we rule out the trivially wrong possibility that $\Gamma$ is a free module of rank
+				0, as it has more than 1 element in it, say $\sin\pi x$ and $\cos\pi x$). Assume,
+				seeking contradiction, that $\Gamma$ is
+				a free module of rank 1, then there is an element $h\in \Gamma$, such that every other element
+				in $\Gamma$ would be a multiple of $h$ and element in $\crz$. Now, as $h(1)=-h(0)$, we have that
+				either $h(1)=0$, or $h(0)$ and $h(1)$ have opposite signs, hence as $h$ is continuous, there is
+				$0<c<1$, such that $h(c)=0$. In any case, $\exists c\in\mathbb{R},\;h(c)=0$. Now, take
+				$v(x):=\cos(\pi x-\pi c)\in\Gamma$,
+				we have $v(c)=1\neq 0$, while $h(c)=0$, so we cannot have $v=a\cdot h$ for $a\in\crz$. The obtained
+				contradiction shows that $\Gamma$ cannot be a free module of rank 1 and finishes the proof.
+			\item We will show that $\gc$ is a free module of rank 2 by exhibiting two elements of it, which are 
+				independent over $\crz$ and together span the whole $\gc$. We claim that 
+				$u(x):=e^{i\pi x}$ and $v(x):=ie^{i\pi x}$
+				are such elements. First, we show their independence over $\crz$. Indeed, assume for
+				some $a,b\in\crz$ we have $a\cdot u+b\cdot v=0$, so that $(a(x)+ib(x))e^{i\pi x}=0$. Now,
+				as $\myabs{e^{i\pi x}}=1$ its nonzero, hence $a(x)+ib(x)=0$. Now, as both $a(x)$ and $b(x)$ are real,
+				this implies $a\equiv b\equiv0$.This shows independence.
+
+				Now, we will show that $\gc$ is spanned by $u(x)$ and $v(x)$ over $\crz$. Given $f\in\gc$, note that
+				$f(x+2)=-f(x+1)=f(x)$, hence $f$ is periodic and continuous, hence bounded. Thus, for $A\geq 0$
+				big enough $\myabs{Ae^{i\pi x}+f(x)}\geq \myabs{Ae^{i\pi x}}-\myabs{f(x)}=A-\myabs{f(x)}>0$ for
+				all $x$ and thus $g(x):=Ae^{i\pi x}+f(x)$ is nonzero, while still in $\gc$. It is enough therefore
+				to show that $g(x)$ is spanned by $u$ and $v$, as constant function with value
+				$A\in\mathbb{R}$ is contained in $\crz$. Now, similarly to the first subproblem of this
+				problem, 
+				\[gu\cdot g+(-g^2)\cdot u=0\]
+				As $u$ and $h$ both nowhere zero, division is allowed, yielding
+				\[g=\frac{g}{u}\cdot u\]
+				and $\mybra{\frac{g}{u}}(x+1)=\mybra{\frac{g}{u}}(x)$, as both $gu$ and $-g^2$ have this property
+				similarly to the first subproblem of this problem. Finally, writing 
+				\[\frac{g}{u}=a+ib\]
+				for real-valued functions $a$ and $b$, we see that they satisfy the property $a(x+1)=a(x)$ and $b(x+1)
+				=b(x)$, as $g/u$ did so. Then, $a,b\in\crz$ and hence
+				\[g=(a+ib)u=au+bv\]
+			\item Indeed, let's define $i\Gamma$ as the ring of purely complex-valued functions (that is $f(x):\mathbb{R}
+				\to\mysetn{z\in\mathbb{C}}{\Re z=0}$) such that $f(x+1)=-f(x)$. Then, every $g\in\gc$ can be written
+				as sum $g=\Re g+i\Im z$, where $\Re g\in\Gamma$ and $i\Im z\in i\Gamma$. Finally,
+				if $h(x)=\Gamma\cap i\Gamma$, then $h(x)\equiv0$, as $h(x)$ should be both real and purely complex
+				for every $x$, hence $\gc=\Gamma\oplus i\Gamma$, finishing the proof.
+			\item Finally, as was show in subproblem (3), every element of $\gc$ is spanned by $e^{i\pi x}$
+				and $ie^{i\pi x}$. As $\Gamma\in\gc$, this means that $\forall h\in\Gamma$, we have
+				$h(x)=a(x)e^{i\pi x}+b(x)ie^{i\pi x}$ for $a,b\in\crz$ and taking the real part of both sides
+				and using the fact that $a(x),b(x)\in\mathbb{R}$, we have $h(x)=a(x)\cos\pi x-b(x)\sin \pi x$,
+				which shows that $\cos\pi x$ and $\sin\pi x$ span $\Gamma$ over $\crz$.
 		\end{enumerate}
 \end{enumerate}
 \end{document}
+%7-->3, canto9, cantoEx
