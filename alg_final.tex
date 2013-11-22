@@ -15,6 +15,7 @@
 \usepackage{mystyle}
 
 \newcommand{\myexplain}[1]{\mbox{ (\textit{#1})}}
+\newcommand{\Ker}{\mbox{\normalfont Ker\,}}
 
 \title{Final Exam for Math 5111, Fall 2013\\Solutions}
 \author{Alex Leontiev, 1155040702, CUHK}
@@ -40,9 +41,42 @@
 		/pF[x]$, where by $pF$ we denote the ideal generated in $F[x]$ by $p(x)$. Now, we will prove the desired
 		statement through the chain of algebra isomorphisms
 		\[E\otimes_F E\simeq (F[x]/pF[x])\otimes_F E\simeq E[x]/pE[x]\simeq \bigoplus_{i=1}^n E\]
-		We have nothing to do with the first one, as it follows from the fact that $E\simeq F[x]/pF[x]$ as a field.
+		We have nothing to do with the first isomorphism, as it follows from the fact that $E\simeq F[x]/pF[x]$ as a field. 
+		We define second isomorphism as an extension of the bilinear mapping $f:F[x]/pF[x]\times E\ni(g,e)\mapsto f(g,e):=e\cdot g(x)+
+		pE[x]\in E[x]/pE[x]$. This mapping is well-defined (as if $p\cdot h\in 0+pF[x]$, then $e\cdot p\cdot h\in pE[x]$) and $F$-
+		multilinear,
+		hence by universal property of tensor product, it extends to the linear map $(F[x]/pF[x])\otimes_F E\to E[x]/pE[x]$, which we
+		shall also denote by $f$ from now on.
+		It remains to show that $f$ indeed is an isomorphism and it respects the algebra structure. To show that
+		$f$ is an isomorphism, it is in fact enough to show that $f$ is onto, as $\dim\mybra{(F[x]/pF[x])\otimes_F E}=\dim(F[x]/pF[x])\cdot
+		\dim E=n^2$, which is equal to $\dim(E[x]/pE[x])$, as latter will be later shown to be isomorphic to $\bigoplus_{i=1}^n E$,
+		which clearly has dimension $n\cdot n=n^2$. Now, to show $f$ is onto, let us note that if $h(x)=h_0+h_1x+\hdots+h_{n-1}x^{n-1}+pE[x]
+		\in E[x]/pE[x]$ be arbitrary, then $f(1h_0 +x\otimes_F h_1+\hdots x^{n-1}\otimes_F h_{n-1})=h(x)+pE[x]$ by definition, thus
+		showing surjectivity claimed. Next, to show that $f$ respects algebra structure (which is enough to demonstrate on the product
+		of vectors of type $(h+pF[x]
+		)\otimes_F e\in(F[x]/pF[x])\otimes_F E$ by bilinearity of multiplication in both algebras) we have to show
+		that $\forall g+pF[x],h+pF[x]\in F[x]/pF[x]$ and $\forall e,e'\in E$ we have
+		\[f((gh+pF[x])\otimes_F ee')=\mybra{e\cdot g+pE[x]}\cdot\mybra{e'\cdot h+pE[x]}=ee'\cdot gh+pE[x]\]
+		but this directly follows from the way we defined $f$ and commutativity.
+
+		Recall that $E:F=F(\alpha):F$ is Galois extension, hence in particular it is normal, thus $p(x)\in F[x]$ splits in $E$. As $E:F$
+		is also separable, $p(x)$ being the minimal polynomial of $\alpha$, has no double roots, hence $p(x)=(x-\alpha_1)(x-\alpha_2)\hdots
+		(x-\alpha_n)$ for some distinct elements $\mycbra{\alpha_i}_{i=1}^n$ in $E$.
+		We thus define the mapping $F:E[x]/pE[x]\ni h(x)+pE[x]\mapsto F(h+pE[x]):=(h(\alpha_1),h(\alpha_2),\hdots,h(\alpha_n)\in \bigoplus_
+		{i=1}^n E$. This map is well-defined, as if $h+pE[x]=0+pE[x]$, then $h(\alpha_i)=(g\cdot p)(\alpha_i)=0$ for all $1\leq i\leq n$.
+		$F$-linearity also follows, as $(h+g)(\alpha_i)=h(\alpha_i)+g(\alpha_i)$. The fact that $F$ is onto follows from the fact,
+		that having values $h(\alpha_i)$ prescribed, we can construct polynomial $h\in E[x]$ of degree less that $n$ by means of Lagrangian
+		interpolation. The fact that $F$ is isomorphism follows at once, as if $h+pE[x]\in E[x]/pE[x]$, $\deg h<n$ and $\forall 1\leq i\leq
+		n,\; h(\alpha_i)=0$, this means that $h=0$, as it divides $p(x)$ then. Finally, $F$ respects algebraic structure simply
+		because $(gh)(\alpha_i)=g(\alpha_i)h(\alpha_i)$.
+
+		The required explicit isomorphism between $\mathbb{C}\otimes_{\mathbb{R}}\mathbb{C}$ and $\mathbb{C}\oplus\mathbb{C}$ is given
+		by extension of the bases mapping (we take $\alpha_1=i$ and $\alpha_2=-i$)
+		\[\mathbb{C}\otimes_{\mathbb{R}}\mathbb{C}\ni 1\otimes_{\mathbb{R}}1 \mapsto (1,1) \in\mathbb{C}\oplus\mathbb{C}\]
+		\[\mathbb{C}\otimes_{\mathbb{R}}\mathbb{C}\ni 1\otimes_{\mathbb{R}}i \mapsto (i,i)\in\mathbb{C}\oplus\mathbb{C}\]
+		\[\mathbb{C}\otimes_{\mathbb{R}}\mathbb{C}\ni i\otimes_{\mathbb{R}}1 \mapsto (i,-i)\in\mathbb{C}\oplus\mathbb{C}\]
+		\[\mathbb{C}\otimes_{\mathbb{R}}\mathbb{C}\ni i\otimes_{\mathbb{R}}i \mapsto (-1,1)\in\mathbb{C}\oplus\mathbb{C}\]
 	\item \begin{enumerate}[label=(\arabic*).]
-				\newcommand{\Ker}{\mbox{\normalfont Ker\,}}
 			\item Given exact sequence $0\to A_n\to A_{n-1}\to\cdots\to A_1\to A_0\to 0$, let us call the mapping 
 				$A_i\to A_{i-1}$ as $\partial_i: A_i\to A_{i-1}$ (as a special case, $A_{n+1}:=A_{-1}:=0$, hence
 				$\partial_{n+1}:0\to A_n$ and $\partial_0:A_0\to 0$ are identity and constant map respectively).
@@ -156,7 +190,42 @@
 		\end{enumerate}
 	\setcounter{enumi}{9}
 	\item\begin{enumerate}[label=(\arabic*).]
-			\item tesi me
+			\item Let us just lay down the computations
+				\[(m(v_1)m(v_2)+m(v_2)m(v_1))(u_1\wedge u_2\wedge\hdots\wedge u_n)=v_1\wedge v_2\wedge u_1\wedge\hdots\wedge u_n+
+				v_2\wedge v_1\wedge u_1\wedge\hdots\wedge u_n=\]
+				\[=v_1\wedge v_2\wedge u_1\wedge\hdots\wedge u_n-v_1\wedge v_2\wedge u_1\wedge\hdots\wedge u_n=0\]
+				For the second one,
+\[(\delta(v_1^*)\delta(v_2^*)+\delta(v_2^*)\delta(v_1^*))(u_1\wedge u_2\wedge\hdots\wedge u_n)=\]
+\[=\delta(v_1^*)\mybra{\sum_{i=1}^n(-1)^{i+1}(v_2^*,u_i)u_1\wedge\hdots\widehat{u_i}\wedge\hdots\wedge u_n}
++\delta(v_2^*)\mybra{\sum_{i=1}^n(-1)^{i+1}(v_1^*,u_i)u_1\wedge\hdots\widehat{u_i}\wedge\hdots\wedge u_n}=\]
+\[=\sum_{i=1}^n(-1)^{i+1}(v_2^*,u_i)\delta(v_1^*)(u_1\wedge\hdots\widehat{u_i}\wedge\hdots\wedge u_n)
++{\sum_{i=1}^n(-1)^{i+1}(v_1^*,u_i)\delta(v_2^*)(u_1\wedge\hdots\widehat{u_i}\wedge\hdots\wedge u_n)}=\]
+\[=\sum_{i=1}^n(-1)^{i+1}(v_2^*,u_i)\mybra{
+\sum_{j=1}^{i-1}(-1)^{j+1}(v_1^*,u_j)u_1\wedge\hdots\wedge\widehat{u_j}\wedge\hdots\widehat{u_i}\wedge\hdots\wedge u_n+
+\sum_{j=n+1}^{n}(-1)^{j}(v_1^*,u_j)u_1\wedge\hdots\wedge\widehat{u_i}\wedge\hdots\widehat{u_j}\wedge\hdots\wedge u_n}+\]\[+
+\sum_{i=1}^n(-1)^{i+1}(v_1^*,u_i)\mybra{
+\sum_{j=1}^{i-1}(-1)^{j+1}(v_2^*,u_j)u_1\wedge\hdots\wedge\widehat{u_j}\wedge\hdots\widehat{u_i}\wedge\hdots\wedge u_n+
+\sum_{j=n+1}^{n}(-1)^{j}(v_2^*,u_j)u_1\wedge\hdots\wedge\widehat{u_i}\wedge\hdots\widehat{u_j}\wedge\hdots\wedge u_n}=
+\]
+\[=\sum_{i=1}^n\sum_{j=1}^{i-1}(-1)^{i+j}(v_2^*,u_i)(v_1^*,u_j)u_1\wedge\hdots\wedge\widehat{u_j}\wedge\hdots\widehat{u_i}\wedge\hdots\wedge u_n+\]
+\[+\sum_{i=1}^n\sum_{j=i+1}^{n}(-1)^{i+j-1}(v_2^*,u_i)(v_1^*,u_j)u_1\wedge\hdots\wedge\widehat{u_i}\wedge\hdots\widehat{u_j}\wedge\hdots\wedge u_n+\]
+\[+\sum_{i=1}^n\sum_{j=1}^{i-1}(-1)^{i+j}(v_1^*,u_i)(v_2^*,u_j)u_1\wedge\hdots\wedge\widehat{u_j}\wedge\hdots\widehat{u_i}\wedge\hdots\wedge u_n+\]
+\[+\sum_{i=1}^n\sum_{j=i+1}^{n}(-1)^{i+j-1}(v_1^*,u_i)(v_2^*,u_j)u_1\wedge\hdots\wedge\widehat{u_i}\wedge\hdots\widehat{u_j}\wedge\hdots\wedge u_n=\]
+\[=\sum_{1\leq i<j\leq n}(-1)^{i+j}
+\mybra{\cancel{(v_2^*,u_j)(v_1^*,u_i)}-\bcancel{(v_2^*,u_i)(v_1^*,u_j)}+\bcancel{(v_1^*,u_j)(v_2^*,u_i)}-\cancel{(v_1^*,u_i)(v_2^*,u_j)}
+}_{=0}u_1\wedge\hdots\wedge\widehat{u_i}\wedge\hdots\widehat{u_j}\wedge\hdots\wedge u_n=0\]
+and finally
+\[(m(v)\delta(v^*)+\delta(v^*)m(v))(u_1\wedge u_2\wedge\hdots\wedge u_n)=m(v)\mybra{\sum_{i=1}^n(-1)^{i+1}(v^*,u_i)u_1\wedge\hdots\wedge\widehat{u_i}
+\wedge\hdots u_n}+\delta(v^*)(v\wedge u_1\wedge\hdots\wedge u_n)=\]
+\[=\cancel{\sum_{i=1}^n(-1)^{i+1}(v^*,u_i)v\wedge u_1\wedge\hdots\wedge\widehat{u_i}\wedge\hdots u_n}+(v^*,v)u_1\wedge u_2\wedge\hdots\wedge u_n-
+\cancel{\sum_{i=1}^n(-1)^i(v^*,u_i)v\wedge u_1\wedge\hdots\wedge\widehat{u_i}\wedge\hdots\wedge u_n}=\]
+\[=(v^*,v)\cdot u_1\wedge u_2\wedge\hdots\wedge u_n\]
+\item Indeed, $m(v):\bigwedge^0\ni k\mapsto v\cdot k\in\bigwedge^1$ is injective, if $v\cdot k=0$, this means $k=0$, for otherwise we have
+$v=\frac{1}{k}(k\cdot v)=\frac{1}{k}\cdot 0=0$. Now, for $i>0$, and denoting by $v^*\in V^*$ the dual of $v$ in $V^*$ (i.e. $(v^*,v)=1$)
+$\omega\in\Ker(\bigwedge^i\to\bigwedge^{i+1})\implies v\wedge\omega=0\implies \omega=(v^*,v)\omega=m(v)\delta(v^*)\omega+\delta(v^*)m(v)\omega=
+m(v)(\delta(v^*)v)\implies v\in\Im(\wedge^{i-1}\to\wedge^i)$ and conversely $\omega\in\Im(\wedge^{i-1}\to\wedge^i)\implies\omega=v\wedge\nu\implies
+m(v)\omega=v\wedge v\wedge\omega=0\implies\omega\in\Ker(\bigwedge^i\to\bigwedge^{i+1})$. This shows exactness.
+\item Similarly to previous subproblem, 
 		\end{enumerate}
 \end{enumerate}
 \end{document}

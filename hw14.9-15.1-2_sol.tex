@@ -18,16 +18,68 @@ Sec. 14.9, 15.1--15.2}
 \maketitle
 \section{Section 14.9}
 \begin{description}
-	\item[\# 8.]{{\it 
+	\item[\# 8.]{{\it Use Taylor's formula for $f(x,y)$ at the origin to find quadratic and cubic approximations of $f$ near the origin.
+		\[f(x,y)=\ln(2x+y+1)\]}
+		First, let's compute the partial derivatives at the origin
+		\[f(0,0)=0\]
+		\[f_x(0,0)=\frac{2}{2x+y+1}\bigg|_{(0,0)}=2\]
+		\[f_y(0,0)=\frac{1}{2x+y+1}\bigg|_{(0,0)}=1\]
+		\[f_{xx}(0,0)=\frac{-4}{(2x+y+1)^2}\bigg|_{(0,0)}=-4\]
+		\[f_{xy}(0,0)=f_{yx}(0,0)=\frac{-2}{(2x+y+1)^2}\bigg|_{(0,0)}=-2\]
+		\[f_{yy}(0,0)=\frac{-1}{(2x+y+1)^2}\bigg|_{(0,0)}=-1\]
+		\[f_{xxx}(0,0)=\frac{16}{(2x+y+1)^3}\bigg|_{(0,0)}=16\]
+		\[f_{xxy}(0,0)=f_{xyx}(0,0)=f_{yxx}(0,0)=\frac{8}{(2x+y+1)^3}\bigg|_{(0,0)}=8\]
+		\[f_{xyy}(0,0)=f_{yxy}(0,0)=f_{yyx}(0,0)=\frac{4}{(2x+y+1)^3}\bigg|_{(0,0)}=4\]
+		\[f_{yyy}(0,0)=\frac{2}{(2x+y+1)^3}\bigg|_{(0,0)}=2\]
+		Having these date, the rest is just a matter of substitution into formulas. The quadratic approximation goes as
+		\[P_2(x,y)=f(0,0)+f_x(0,0)x+f_y(0,0)y+\frac{1}{2!}\mybra{x^2f_{xx}(0,0)+2xyf_{xy}(0,0)+y^2f_{yy}(0,0)}=2x+y-2x^2-2xy-\frac{1}{2}y^2\]
+		while the cubic is
+		\[P_3(x,y)=f(0,0)+f_x(0,0)x+f_y(0,0)y+\frac{1}{2!}\mybra{x^2f_{xx}(0,0)+2xyf_{xy}(0,0)+y^2f_{yy}(0,0)}+\]\[+\frac{1}{3!}\mybra{
+		x^3f_{xxx}(0,0)+3x^2yf_{xxy}(0,0)+3xy^2f_{xyy}(0,0)+y^3f_{yyy}(0,0)}=\]
+		\[=2x+y-2x^2-2xy-\frac{1}{2}y^2+\frac{8}{3}x^3+4x^2y+2xy^2+\frac{1}{3}y^3\]
 		}
+	\item[\# 9.]{{\it Use Taylor's formula for $f(x,y)$ at the origin to find quadratic and cubic approximations of $f$ near the origin.
+		\[f(x,y)=\frac{1}{1-x-y}\]}
+		Again, first let us compute the partial derivatives at the origin
+		\[f(0,0)=1\]
+		\[f_x(0,0)=\frac{1}{(1-x-y)^2}\bigg|_{(0,0)}=1\]
+		\[f_y(0,0)=\frac{1}{(1-x-y)^2}\bigg|_{(0,0)}=1\]
+		\[f_{xx}(0,0)=\frac{2}{(1-x-y)^3}\bigg|_{(0,0)}=2\]
+		\[f_{xy}(0,0)=f_{yx}(0,0)=\frac{2}{(1-x-y)^3}\bigg|_{(0,0)}=2\]
+		\[f_{yy}(0,0)=\frac{2}{(1-x-y)^3}\bigg|_{(0,0)}=2\]
+		\[f_{xxx}(0,0)=\frac{6}{(1-x-y)^4}\bigg|_{(0,0)}=6\]
+		\[f_{xxy}(0,0)=f_{xyx}(0,0)=f_{yxx}(0,0)=\frac{6}{(1-x-y)^4}\bigg|_{(0,0)}=6\]
+		\[f_{xyy}(0,0)=f_{yxy}(0,0)=f_{yyx}(0,0)=\frac{6}{(1-x-y)^4}\bigg|_{(0,0)}=6\]
+		\[f_{yyy}(0,0)=\frac{6}{(1-x-y)^4}\bigg|_{(0,0)}=6\]
+		Having these date, the rest is just a matter of substitution into formulas. The quadratic approximation goes as
+		\[P_2(x,y)=f(0,0)+f_x(0,0)x+f_y(0,0)y+\frac{1}{2!}\mybra{x^2f_{xx}(0,0)+2xyf_{xy}(0,0)+y^2f_{yy}(0,0)}=1+x+y+x^2+2xy+y^2\]
+		while the cubic is
+		\[P_3(x,y)=f(0,0)+f_x(0,0)x+f_y(0,0)y+\frac{1}{2!}\mybra{x^2f_{xx}(0,0)+2xyf_{xy}(0,0)+y^2f_{yy}(0,0)}+\]\[+
+		\frac{1}{3!}\mybra{x^3f_{xxx}(0,0)+3x^2yf_{xxy}(0,0)+3xy^2f_{xyy}(0,0)+y^3f_{yyy}(0,0)}=\]
+		\[=1+x+y+x^2+2xy+y^2+y^3+3x^2y+3xy^2+y^3\]
 		}
+	\item[\# 12.]{{\it Use Taylor's formula to find a quadratic approximation of $e^x\sin y$ at the origin. Estimate the error in the 
+		approximation if $\myabs{x}\leq 0.1$ and $\myabs{y}\leq 0.1$.}\\
+		Again, we start with computing partial derivatives
+		\[f(0,0)=0\]
+		\[f_x(0,0)=e^x\sin y\bigg|_{(0,0)}=0\]
+		\[f_y(0,0)=e^x\cos y\bigg|_{(0,0)}=1\]
+		\[f_{xx}(0,0)=e^x\sin y\bigg|_{(0,0)}=0\]
+		\[f_{xy}(0,0)=f_{yx}(0,0)=e^x\cos y\bigg|_{(0,0)}=1\]
+		\[f_{yy}(0,0)=-e^x\sin y\bigg|_{(0,0)}=0\]
+		}
+		Thus quadratic approximation together with error term goes as
+		\[f(x,y)=\underbrace{f(0,0)+f_x(0,0)x+f_y(0,0)y+\frac{1}{2!}\mybra{x^2f_{xx}(0,0)+2xyf_{xy}(0,0)+y^2f_{yy}(0,0)}}_{P_2(x,y)}+\]
+		\[+\underbrace{\frac{1}{3!}\mybra{x^3f_{xxx}(x',y')+3x^2yf_{xxy}(x',y')+3xy^2f_{xyy}(x',y')+y^3f_{yyy}(x',y')}
+		}_{\mbox{error term, where $\myabs{x'-0}\leq\myabs{x-0}\leq 0.1$, $\myabs{y'-0}\leq\myabs{y-0}\leq 0.1$}}=\]
+		so \[P_2(x,y)=y+xy\]
+		and \[\myabs{\frac{1}{3!}\mybra{x^3f_{xxx}(x',y')+3x^2yf_{xxy}(x',y')+3xy^2f_{xyy}(x',y')+y^3f_{yyy}(x',y')}}\leq\]
+		\[\leq \frac{1}{6}\mybra{\myabs{x}^3\myabs{}}\]
 \end{description}
 \end{document}
-
 % Sec. 14.9
 % #8, 9, 12
 % Sec. 15.1
 % #19
 % Sec. 15.2
 % # 24, 42, 52, 54, 60, 63
-
