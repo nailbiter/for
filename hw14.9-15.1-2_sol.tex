@@ -103,17 +103,59 @@ Sec. 14.9, 15.1--15.2}
 		\[=\frac{1}{2}\ln(x^2+1)\bigg|_0^1\cdot \frac{y^4}{4}\bigg|_0^2=2\ln2\]
 		}
 \section{Section 15.2}
+\newcommand{\dx}{\;dx}
+\newcommand{\dy}{\;dy}
+\newcommand{\dz}{\;dz}
 	\item[\# 24.]{{\it Sketch the region of integration and evaluate the integral.}
 		\[\int_1^4\int_0^{\sqrt{x}}\frac{3}{2}e^{y/\sqrt{x}}dydx\]
-
+		The sketch of the region looks like\\
+		\mypic{0.6}{fin_hw_graph1.jpg}
+		Computations are straightforward
+		\[\begin{array}{rr}
+		\int_1^4\int_0^{\sqrt{x}}\frac{3}{2}e^{y/\sqrt{x}}dydx=&\myexplain{variable change $t=y/\sqrt{x}\implies dt=dy/\sqrt{x}$}\\
+		\end{array}\]
+		\[=\int_1^4\int_0^1\frac{3}{2}e^{t}\sqrt{x}dtdx=\int_1^4\frac{3}{2}(e-1)\sqrt{x}dx=\frac{3(e-1)}{2}\frac{2}{3}x^{\frac{3}{2}}\bigg|_0
+		^4=8(e-1)\]
+		}
+	\item[\# 42.]{{\it Sketch the region of integration and write an equivalent double integral with the order of integration reversed.}
+		\[\int_0^2\int_{-\sqrt{4-x^2}}^{4-x^2}6x\dy\dx\]
+		The sketch of the region looks like\\
+		\mypic{0.6}{fin_hw_graph2.jpg}
+		And looking on the picture, it is easy to see how to reverse the order of integration
+		\[\int_0^2\int_{-\sqrt{4-x^2}}^{4-x^2}6x\dy\dx=\int_{-2}^2\int_0^{\sqrt{4-y^2}}6x\dx\dy\]
+		}
+	\item[\# 54.]{{\it Sketch the region of integration, reverse the order of integration and evaluate the integral.}
+		\[\int_0^8\int_{\sqrt[3]{x}}^2\frac{\dy\dx}{y^4+1}\]
+		The region of integration can be sketched like this.
+		\mypic{0.6}{fin_hw_graph3.jpg}
+		By the way, it is interesting to note that near the origin, the slope of $f(x)=\sqrt[3]{x}$ should become vertical, corresponding 
+		to the fact that $f'(0)=+\infty$. From the picture one sees that the order should be reversed and computations should be done as
+		\[\int_0^8\int_{\sqrt[3]{x}}^2\frac{\dy\dx}{y^4+1}=\int_0^2\int_0^{y^3}\frac{1}{y^4+1}\dx\dy=\int_0^2\frac{1}{y^4+1}y^3dy=
+		\frac{1}{4}\ln (y^4+1)\bigg|_0^2=\frac{1}{4}\ln17\]
+		}
+	\item[\# 60.]{{\it Find the volume of the solid in the first octant bounded by the coordinate planes, the cylinder $x^2+y^2=4$, and the plane
+		$z+y=3$.}\\
+		The solid we are interested in can be described by inequalities
+		\[x,y,z\geq 0,\;x^2+y^2\leq4,\;z+y\leq 3\footnote{
+		both later inequalities should be "$\leq$" indeed, as only first of them involves $x$ and only second involves $z$, hence if
+		first (second) of them is "$\geq$", the $x$ (or $y$) is allowed to take infinite values, hence the solid becomes unbounded
+		}\]
+		The last inequality can be written as $0\leq z\leq 3-y$ (note that, $x^2+y^2\leq 4\implies y\leq 2\implies 3-y>0$)
+		Thus we can try to compute volume as
+		\[\def\arraystretch{3}
+		\begin{array}{rr}
+	V=\displaystyle\iint\limits_{\mycbra{x,y\geq0,\;x^2+y^2\leq4}}\mybra{\int_0^{3-y}1\dz}\dx\dy=&\myexplain{passing to polar coordinates}\\
+	\end{array}\]
+	\[=\displaystyle\int_0^{\pi/2}\int_0^2 (3-r\cos\theta)r\;dr\;d\theta=\int_0^{\pi/2}(6-\frac{8}{3}\cos\theta)\;d\theta=3\pi-\frac{8}{3}\]
+		}
+	\item[\# 63.]{{\it Find the volume of the wedge cut from the first octant by the cylinder $z=12-3y^2$ and the plane $x+y=2$.}
+		Similarly to previous problem, the solid can be described by inequalities
+		\[x,y,z\geq0,\;z+3y^2\leq 12,\;x+y\leq2\]
+		Hence, the volume can be computed as (again, $z\geq 0$ and $z+3y^2\leq12$ implies that $3y^2\leq z+3y^2\leq12\implies
+		y^2\leq4\implies y\leq2$)
+		\[V=\displaystyle\iint\limits_{\mycbra{y,z\geq0,\;z+3y^2\leq12}}\mybra{\int_0^{2-y}1\dx}\dz\dy=\int_{-2}^2\int_0^{12-3y^2}(2-y)\dz\dy
+		=\int_{-2}^2(12-3y^2)(2-y)dy=64\]
 		}
 \end{description}
 \end{document}
-% Sec. 14.9
-% #8, 9, 12
-
-% Sec. 15.1
-% #19
-
-% Sec. 15.2
-% # 24, 42, 52, 54, 60, 63
+%42, 52, 54, 60, 63
