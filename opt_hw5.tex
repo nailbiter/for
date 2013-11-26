@@ -1,0 +1,78 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\usepackage{mystyle}
+
+\title{ ENGG 5501: Foundations of Optimization\\Homework 5}
+\author{Alex Leontiev, 1155040702, CUHK}
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\bfseries Problem \arabic*.]
+	\item\begin{enumerate}[label=(\alph*)]
+			\item The optimal solution $(\overline{x},\overline{y})$
+				to $(Q_2)$ (which exists by the compactness of $[0,3]^n\subset\mathbb{R}^n$ and 
+				the continuity of $f_n$ on $[0,3]^n$ for $p>2$) can clearly lie either in the interior of $[0,3]\times[0,3]$,
+				or on its boundary. In the first case, the partial derivatives of 
+				\[f_2(x,y)=x^{1/p}(3-y)^{1/p}+y^{1/p}(3-x)^{1/p}\]
+				are well-defined, and they should both be zero at $(\overline{x},\overline{y})$ as a necessary condition,
+				thus yielding the system, which should be satisfied by $x:=\overline{x}$ and $y:=\overline{y}$
+				\[\left\{\begin{array}{l}
+					(f_2)_x=\frac{1}{p}x^{-\frac{p-1}{p}}(3-y)^{\frac{1}{p}}
+					-\frac{1}{p}y^{\frac{1}{p}}(3-x)^{-\frac{p-1}{p}}=0\iff 
+					\mybra{\frac{3-y}{y}}^{\frac{1}{p}}=\mybra{\frac{3-x}{x}}^{-\frac{p-1}{p}}=
+					{\frac{x}{3-x}}\mybra{\frac{3-x}{x}}^{\frac{1}{p}}\\
+					(f_2)_y=-\frac{1}{p}x^{\frac{1}{p}}(3-y)^{-\frac{p-1}{p}}+\frac{1}{p}y^{-\frac{p-1}{p}}(3-x)^{\frac{1}{p}}=0
+					\iff\mybra{\frac{3-x}{x}}^{\frac{1}{p}}=\mybra{\frac{3-y}{y}}^{-\frac{p-1}{p}}=
+					{\frac{y}{3-y}}\mybra{\frac{3-y}{y}}^{\frac{1}{p}}\\
+				\end{array}\right.\]
+				Multiplying two rightmost equations we see that $xy=(3-x)(3-y)$ and hence $x+y=3\implies y=3-x$,
+				thus the equations become
+				\[\left\{\begin{array}{l}
+					\mybra{\frac{x}{3-x}}^{\frac{1}{p}}={\frac{x}{3-x}}\mybra{\frac{3-x}{x}}^{\frac{1}{p}}\\
+					\mybra{\frac{3-x}{x}}^{\frac{1}{p}}={\frac{3-x}{x}}\mybra{\frac{x}{3-x}}^{\frac{1}{p}}\\
+				\end{array}\right.\]
+				Dividing first by second one we get
+				\[\mybra{\frac{x}{3-x}}^{\frac{1}{p}}=\mybra{\frac{3-x}{x}}^{-1+\frac{1}{p}}\iff
+				\mybra{\frac{x}{3-x}}^{\frac{1}{p}}=\mybra{\frac{3-x}{x}}^{\frac{1}{2}}
+				\]
+				and as $p>2$ this implies that $x=3-x=y=3/2$. Note, that 
+				\[f\mybra{\frac{1}{2},\frac{1}{2}}=2\mybra{\frac{3}{2}}^{\frac{2}{p}}\]
+
+				Now, let us assume that the optimal solution $(\overline{x},\overline{y})$ lies on the boundary of $[0,3]^2$,
+				which consists of the four segments (listed together with values of $f_2$ attained on a segment):
+				\[(x,y)=(0,t),\;0\leq t\leq3,\implies f_2(0,t)=t^{1/p}3^{1/p}\leq3^{2/p}\]
+				\[(x,y)=(3,t),\;0\leq t\leq3,\implies f_2(0,t)=3^{1/p}(3-t)^{1/p}\leq3^{2/p}\]
+				\[(x,y)=(t,0),\;0\leq t\leq3,\implies f_2(t,0)=3^{1/p}t^{1/p}\leq3^{2/p}\]
+				\[(x,y)=(t,3),\;0\leq t\leq3,\implies f_2(0,t)=3^{1/p}(3-t)^{1/p}\leq3^{2/p}\]
+				Now, as $3^{2/p}$ is strictly smaller than the biggest value attainable on the interior of $[0,3]^2$, which is
+				$2(3/2)^{\frac{2}{p}}$, we conclude that 
+				$(\overline{x},\overline{y})=(1/2,1/2)$ and $f(\overline{x},\overline{y})=2(3/2)^{\frac{2}{p}}$.
+			\item Observe, that $S$ decomposes into the disjoint union
+				\[S=S_1\sqcup S_2\sqcup S_3\]
+				where $S_i:=\mycbra{(x_1,x_2,x_3)\in S:\; x_i\in\mycbra{0,3}}$.
+				As $f_3(x,y,z)$ is symmetric with respect to all possible permutations of 3 elements, it suffices to find the 
+				maximum of $f_3$ on $S_1$ only. Therefore, let us assume that the optimal solution $(\overline{x},\overline{y},
+				\overline{z})\in S$ (which exists by the compactness of $S$ and the continuity of $f_3$ on $[0,3]^3$)
+				belongs in fact to $S_1$, thus $\overline{x}$ is either 0, or 3. In former case, we have that
+				\[f_3(0,y,z)=3^{1/p}(y^{1/p}(3-z)^{1/p}+(3-y)^{1/p}z^{1/p})=3^{1/p}f_2(y,z)\leq 3^{1/p}\cdot2\cdot(3/2)^{2/p}\]
+				by the previous subproblem (as $(y,z)\in[0,3]^2$) while latter assumption gives that
+				\[f_3(3,y,z)=3^{1/p}(3-y)^{1/p}(3-z)^{1/p}\leq3^{3/p}\]
+				In any case, we have $3^{1/p}\cdot2\cdot(3/2)^{2/p},\;3^{3/p}<3\cdot 2^{2/p}=f(1,1,1)$ for any $p>2$, as
+				\[3^{1/p}\cdot2\cdot(3/2)^{2/p}<3\cdot 2^{2/p}\iff \frac{81}{16}<\mybra{\frac{3}{2}}^p\]
+				(which is true as $p>2\implies (3/2)^p>9/4>81/16$) and
+				\[3^{3/p}<3\cdot 2\iff \frac{27}{4}<3^p\]
+				(which is true, as $p>2\implies 3^p>9>27/4$) which gives the desired conclusion.
+		\end{enumerate}
+	\item To begin with, 
+\end{enumerate}
+\end{document}
