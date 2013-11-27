@@ -10,6 +10,7 @@
 \usepackage{hyperref}
 \usepackage{enumerate}
 \usepackage{enumitem}
+\usepackage{cancel}
 
 \usepackage{mystyle}
 
@@ -73,6 +74,84 @@
 				\[3^{3/p}<3\cdot 2\iff \frac{27}{4}<3^p\]
 				(which is true, as $p>2\implies 3^p>9>27/4$) which gives the desired conclusion.
 		\end{enumerate}
-	\item To begin with, 
+	\item To begin with, the standard form of the dual problem would look like
+		\[v_d^*=\mbox{maximize }L(u):=\inf_{x}\mybra{x^TAx+2b^Tx+u(x^Tx-1)}\]
+		\[\mbox{subject to }u\geq0\]
+		and in subsequent we will show the equivalence to the desired form. First of all, as $\inf_x\mybra{
+		x^TAx+2b^Tx+u(x^Tx-1)}=\inf_x\mybra{x^TAx+2b^Tx+ux^Tx}-u$ the dual problem is readily equivalent to
+		\[v_d^*=\mbox{maximize }-t-u\]
+		\[\mbox{subject to }u\geq0\]
+		\[-t=\inf_{x}\mybra{x^TAx+2b^Tx+ux^Tx}\]
+
+		Note, that if for fixed $u$, $A+uI$ is strictly positive definite, then $\inf_{x}\mybra{x^TAx+2b^Tx+ux^Tx}=
+		\inf_x\mybra{x^T(A+uI)x+2b^Tx}>-\infty$, as then given $A:=\inf_{\mynorm{x}=1}\mybra{x^T(A+uI)x}>0$, we have
+		$x^T(A+uI)x+2b^Tx\geq L\mynorm{x}^2-2\mynorm{b}\mynorm{x}\to+\infty$ as $\mynorm{x}\to\infty$, hence there is compact
+		$D\subset\mathbb{R}^n$ (which can be taken to be closed ball centered around $0$, for example), such that outside $D$ 
+		$x^T(A+uI)x+2b^Tx>0$, thus $\inf_x\mybra{x^T(A+uI)x+2b^Tx}=\inf_{x\in D}\mybra{x^T(A+uI)x+2b^Tx}>-\infty$.
+
+		Moreover, if for fixed $u$, 
+		for some  $x_0\neq 0$ we have $x^T(A+uI)x<0$, we have 
+		\[-t=\inf_{x}\mybra{x^TAx+2b^Tx+ux^Tx}\leq\inf_{\lambda\geq0}
+		\mybra{(\lambda x_0)^T(A+uI)(\lambda x_0)+2b^T(\lambda x_0)}=\]
+		\[=\inf_{\lambda\geq0}\mybra{\lambda^2x_0^T(A+uI)x_0+2\lambda b^Tx_0}\leq\lim_{\lambda\to\infty}
+		\mybra{\lambda^2x_0^T(A+uI)x_0+2\lambda\mynorm{x}\mynorm{b}}=-\infty\]
+
+		Furthermore, $v_d^*>-\infty$, as for big $u$, $A+uI$ becomes strictly positive definite, hence $t$ becomes bigger than
+		$-\infty$. Thus, the we can add additional constraint $t>-\infty$, while remaining in the same equivalence class,
+		and from the previous paragraph, this will imply that $A+uI\succeq0$, so that problem below is equivalent to previous
+		\[v_d^*=\mbox{maximize }-t-u\]
+		\[\mbox{subject to }u\geq0\]
+		\[-t=\inf_{x}\mybra{x^TAx+2b^Tx+ux^Tx}\]
+		\[A+uI\succeq0\]
+
+		Now, the fact that $-t=\inf_{x}\mybra{x^TAx+2b^Tx+ux^Tx}$ implies that $-t\leq{x^TAx+2b^Tx+ux^Tx}$, and 
+		conversely, as we seek to maximize $-t-u$, for fixed $u$, we will try to make $-t$ as big as possible, hence
+		the constraint $-t=\inf_{x}\mybra{x^TAx+2b^Tx+ux^Tx}$ can be relaxed to $-t\leq{x^TAx+2b^Tx+ux^Tx}$, thus
+		yielding the equivalent problem 
+		\[v_d^*=\mbox{maximize }-t-u\]
+		\[\mbox{subject to }u\geq0\]
+		\[-t\leq{x^TAx+2b^Tx+ux^Tx}\mybra{\iff x^TAx+u\mynorm{x}^2+t+2b^Tx\geq 0}\]
+		\[A+uI\succeq0\]
+		Finally, the fact that 
+		\[\begin{bmatrix}A+uI&b\\b^T&t\end{bmatrix}\succeq0\]
+		means that $\forall x\in\mathbb{R}^n,\;y\in\mathbb{R}$ we have
+		\[x^TAx+u\mynorm{x}^2+ty^2+y\cdot2b^Tx\geq0\]
+		Now, by scaling argument, we can assume that $y=0$ or $y=1$, thus above is equivalent to two conditions
+		\[\begin{cases}
+			\forall x,\;x^TAx+u\mynorm{x}^2+t+2b^Tx\geq0\\
+			\forall x',\;x'^TAx'+u\mynorm{x'}^2\geq0\mybra{\iff A^T+uI\succeq0}
+		\end{cases}\]
+		which are {\it precisely} the two last conditions we had in our system, hence it is equivalent to
+		\[v_d^*=\mbox{maximize }-t-u\]
+		\[\mbox{subject to }u\geq0\]
+		\[\begin{bmatrix}A+uI&b\\b^T&t\end{bmatrix}\succeq0\]
+		thus finishing the proof.
+	\item\begin{enumerate}[label=(\alph*)]
+				\newcommand{\prox}{\mbox{prox}}
+			\item To show that if $x^*$ is the optimal solution to Problem (3), $x^*=\prox_1(x^*-\nabla f(x^*))$, we 
+				will assume that for some $y\neq x^*$ we have $g(y)+\frac{1}{2}\mynorm{x^*-\nabla f(x^*)-y}^2\leq
+				g(x^*)+\frac{1}{2}\mynorm{x^*-\nabla f(x^*)-x^*}^2$ and will bring this to contradiction. The
+				latter inequality can be expanded to
+				\[g(y)+\frac{1}{2}\mynorm{x^*-y}^2-(x^*-y)^T\cdot\nabla f(x^*)+
+				\cancel{\frac{1}{2}\mynorm{\nabla f(x^*)}^2}\leq
+				g(x^*)+\cancel{\frac{1}{2}\mynorm{\nabla f(x^*)}^2}\]
+				As $y\neq x^*$ by assumption, $\mynorm{x^*-y}^2>0$, hence the previous inequality implies
+				\[g(y)-(x^*-y)^T\cdot\nabla f(x^*)<g(x^*)\]
+				Now, by translating, we may assume that $x^*=0$ and by adding constant to $g$ (which won't effect
+				convexity), we may assume also that $g(x^*)=g(0)=0$. Also, by adding constant to $f$ we may assume
+				$f(x^*)=f(0)=0$. Then, the previous inequality becomes
+				\[g(y)+y^T\cdot\nabla f(0)<g(0)=0\]
+				%By convexity of $g$, we have for any $1>\alpha>0$, that $g(\alpha y)\leq \alpha g(y)$.
+				For $\alpha\to0+$ the previous inequality implies
+				\[\alpha g( y)+(\alpha y)^T\cdot\nabla f(0)<0\]
+				Finally, as for small $\alpha>0$ we have
+				\[f(\alpha y)-f(0)-(\alpha y)^T\cdot\nabla f(0)=
+				f(\alpha y)-(\alpha y)^T\cdot\nabla f(0)=\epsilon(\alpha)\cdot
+				{\alpha},\;\lim_{\alpha\to0+}\epsilon(\alpha)=0\]
+				Thus previous inequality becomes
+				\[\alpha g( y)+f(\alpha y)-\epsilon(\alpha)\cdot{\alpha}<0\]
+				as $\epsilon(\alpha)\to 0$, this implies
+				\[\alpha g( y)+f(\alpha y)<0\]
+		\end{enumerate}
 \end{enumerate}
 \end{document}
