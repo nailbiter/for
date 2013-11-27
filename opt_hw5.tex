@@ -11,6 +11,7 @@
 \usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{cancel}
+\usepackage{bbm}
 
 \usepackage{mystyle}
 
@@ -142,16 +143,54 @@
 				$f(x^*)=f(0)=0$. Then, the previous inequality becomes
 				\[g(y)+y^T\cdot\nabla f(0)<g(0)=0\]
 				%By convexity of $g$, we have for any $1>\alpha>0$, that $g(\alpha y)\leq \alpha g(y)$.
-				For $\alpha\to0+$ the previous inequality implies
-				\[\alpha g( y)+(\alpha y)^T\cdot\nabla f(0)<0\]
-				Finally, as for small $\alpha>0$ we have
+				By definition of gradient, we have
 				\[f(\alpha y)-f(0)-(\alpha y)^T\cdot\nabla f(0)=
 				f(\alpha y)-(\alpha y)^T\cdot\nabla f(0)=\epsilon(\alpha)\cdot
 				{\alpha},\;\lim_{\alpha\to0+}\epsilon(\alpha)=0\]
-				Thus previous inequality becomes
-				\[\alpha g( y)+f(\alpha y)-\epsilon(\alpha)\cdot{\alpha}<0\]
-				as $\epsilon(\alpha)\to 0$, this implies
-				\[\alpha g( y)+f(\alpha y)<0\]
+				Now, as $\epsilon(\alpha)\to0$ we have for small $\alpha$
+				\[g(y)+y^T\cdot\nabla f(0)+\epsilon(\alpha)<0\]
+				Multiplying both sides by $\alpha>0$ we have
+				\[\alpha g( y)+(\alpha y)^T\cdot\nabla f(0)+\epsilon(\alpha)\cdot\alpha=\alpha g(y)+f(\alpha y)<0\]
+				Finally, by convexity for small $\alpha>0$, $g(\alpha y)\leq\alpha g(y)$ and hence the previous inequality
+				implies
+				\[ g(\alpha y)+f(\alpha y)<0\]
+				{\it contradicting} the fact that $0$ is the minimum of $F=g+f$ and finishing the proof.
+				
+				The desired corollary about $x^*=\Pi_C(x^*-\nabla f(x^*))$ follows at once by setting $g:=\mathbbm{1}_{\mathbb{R}^n
+				\setminus C}$ -- the indicator function of ${\mathbb{R}^n\setminus C}$, defined for the purpose of this course as
+				\[\mathbbm{1}_{\mathbb{R}^n\setminus C}(t)=\left\{\begin{array}{ll}
+					+\infty,&t\in\mathbb{R}^n\setminus C\\
+					0,&\mbox{otherwise}
+				\end{array}\right.\]
+				As indicator function is convex, corollary applies. Now, by the very way we defined indicator function, we have
+				\[x^*=\min_{x\in\mathbb{R}^n}(f(x)+g(x))=\min_{x\in C}f(x)\]
+				and hence by corollary
+				\[x^*=\arg\min_{y\in\mathbb{R}^n}\mycbra{g(y)+\frac{1}{2}\mynorm{x^*-\nabla f(x^*)-y}^2}=
+				\arg\min_{y\in C}\mycbra{\frac{1}{2}\mynorm{x^*-\nabla f(x^*)-y}^2}=\]
+				\[=\arg\min_{y\in C}\mycbra{\mynorm{x^*-\nabla f(x^*)-y}^2}=:\Pi_C(x^*-\nabla f(x^*))\]
+			\item To begin with, be replacing $f$, $g$ and $L$
+				with $\frac{1}{\alpha_k}f$ and $\frac{1}{\alpha_k}g$ respectively, we may assume without loss of generality,
+				that $\alpha_k=1$. This will simplify computations. To streamline the notation, we will also denote $x^k$ simply
+				by $x$ and $x^{k+1}$ by $y$.
+
+				Now, by the definition of $y:=\prox_1(x-\nabla f(x))$, we have
+				\[g(y)+\frac{1}{2}\mynorm{x-\nabla f(x)-y}^2\leq g(x)+\frac{1}{2}\mynorm{\nabla f(x)}^2\]
+				Expanding $\mynorm{\cdot}^2$ and cancelling as in previous subproblem, we get
+				\[g(y)+\frac{1}{2}\mynorm{x-y}^2+(x-y)^T\cdot\nabla f(x)\leq g(x)\]
+				Finally, by lemma from the class, the Lipschitz-continuity of $\nabla f$ with constant $L$ implies that
+				\[f(y)-f(x)-(x-y)^T\nabla f(x)\leq \frac{L}{2}\mynorm{y-x}^2\]
+				And hence previous inequality implies
+				\[g(y)+\frac{1}{2}\mynorm{x-y}^2+f(y)-f(x)-\frac{L}{2}\mynorm{x-y}^2\leq g(x)\]
+				Which can be readily rewritten as
+				\[F(y)-F(x)\leq -\frac{1}{2}(1-L)\mynorm{y-x}^2\]
+				finishing the proof.
+
+				Now, let's show that $\mycbra{F(x^k)}_{k\geq0}$ converges. Note, that the requirement $\alpha_k<1/L$ is equivalent
+				to $1/\alpha_k-L>0$, hence the right-hand side of the inequality we've just proven
+				\[F(x^{k+1})-F(x^k)\leq-\frac{1}{2}\mybra{\frac{1}{\alpha_k}-L}\mynorm{x^{k+1}-x^k}^2\]
+				is non-positive. Therefore, $\mycbra{F(x^k)}_{k\geq0}$ form a non-increasing sequence, which is bounded
+				from below (as optimality set of $\min_{x\in\mathbb{R}^N}\mycbra{F(x)\equiv f(x)+g(x)}$ is non-empty by assumption)
+				hence converges by the {\it monotone convergence theorem}.
 		\end{enumerate}
 \end{enumerate}
 \end{document}
