@@ -14,7 +14,6 @@
 
 \usepackage{mystyle}
 
-\newcommand{\myexplain}[1]{\mbox{ (\textit{#1})}}
 \newcommand{\Ker}{\mbox{\normalfont Ker\,}}
 
 \title{Final Exam for Math 5111, Fall 2013\\Solutions}
@@ -225,7 +224,15 @@ $v=\frac{1}{k}(k\cdot v)=\frac{1}{k}\cdot 0=0$. Now, for $i>0$, and denoting by 
 $\omega\in\Ker(\bigwedge^i\to\bigwedge^{i+1})\implies v\wedge\omega=0\implies \omega=(v^*,v)\omega=m(v)\delta(v^*)\omega+\delta(v^*)m(v)\omega=
 m(v)(\delta(v^*)v)\implies v\in\Im(\wedge^{i-1}\to\wedge^i)$ and conversely $\omega\in\Im(\wedge^{i-1}\to\wedge^i)\implies\omega=v\wedge\nu\implies
 m(v)\omega=v\wedge v\wedge\omega=0\implies\omega\in\Ker(\bigwedge^i\to\bigwedge^{i+1})$. This shows exactness.
-\item Similarly to previous subproblem, 
+\item Similarly to previous subproblem, given $v^*\in V^*$ fixed, take $v\in V$, such that $(v^*,v)=1$. Then,
+	\[m(v)\delta(v^*)+\delta(v^*)m(v)=1\]
+	hence if $\omega\in\Ker\delta(v^*)$, we have $\delta(v^*)m(v)=\omega$, hence $\omega\in\Im\delta(v^*)$. This shows that $\Ker\delta(v^*)
+	\subset\Im\delta(v^*)$ (with appropriate grading implicitly assumed). The converse inclusion follows at once from the first subproblems,
+	as if we take $v_1^*:=v_2^*:=v^*$ we get
+	\[0=\delta(v_1^*)\delta(v_2^*)+\delta(v_2^*)\delta(v_1^*)=2\delta^2(v^*)\]
+	and as $k$ is of characteristic $0$, this implies that $\delta^2(v^*)=0$, hence $\Im\delta(v^*)\subset\Ker\delta(v^*)$, thus
+	showing exactness.
+\item We just need to show that $d^2(m\otimes\omega)=0$ for every $m\in M$ and $\omega\in\bigwedge^{i+1}V$.
 		\end{enumerate}
 \end{enumerate}
 \end{document}
