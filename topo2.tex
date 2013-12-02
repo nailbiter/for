@@ -81,12 +81,12 @@
 		bounded.
 		}
 		\item{Following the scheme of proof outlined in Exercise 11 of Chapter 2, $\S1$ of \cite{gp}, let us first establish two auxiliary statements.
-			\begin{proposition}Let $x\in\partial X$, then there exists a neighborhood $U_x\ni x$
+			\begin{myprop}Let $x\in\partial X$, then there exists a neighborhood $U_x\ni x$
 				and $f_x:U_x\mapsto\mathbb{R}_{\geq 0}$ 
 				$f_x(z)=0\iff z\in\partial X$ and besides $df_x(\myvec{n_z})>0$
 				for every $z\in\partial X$, where $\myvec{n_z}\in T_z X$.
-		\end{proposition}
-		\begin{proof}
+		\end{myprop}
+		\begin{myproof}
 			Given $x\in\partial X$, it has neighborhood $U_x$ that is diffeomorphic to the open half-space
 			$H_n:={x_n\geq 0}\subset\mathbb{R}^n$ (where $n$ is assumed to be the dimension of $X$), thus we have
 			diffeomorphism $\psi: U_x\mapsto H_n$ and we define $f_x(z):=\left(\psi(x)\right)_n:
@@ -98,7 +98,7 @@
 			let us select $n_z:=d\psi^{-1}(\frac{\partial}{\partial x_n})\in T_x X$ and then (introducing the function
 			$\pi_n:H_n\ni z=(z_1,z_2,\dots,z_n)\mapsto \pi_n(z):=z_n\in\mathbb{R_{\geq 0}}$)
 			$df_x(n_z)=d\pi_n d\psi (n_z)=d\pi_n(\frac{\partial}{\partial x_n})=1>0$ 
-		\qed\end{proof}
+		\myqed\end{myproof}
 		Now, let $\left\{\phi_x\right\}_{x\in\partial X}\cup\left\{\phi_0\right\}$ be the partition of unity subordinate
 		to the open cover $\left\{U_x\right\}_{x\in\partial X}\cup\left\{U_0:=X\setminus\partial X\right\}$ with
 		$U_x$ defined as in Proposition above for every $x\in\partial X$. Let us define a smooth function $f:M\ni z\mapsto
