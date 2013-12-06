@@ -1,0 +1,168 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{harpoon}
+\usepackage{tikz}
+
+\usepackage{mystyle}
+
+\title{Problem Set 6, MAT 5070}
+\author{Alex Leontiev, 1155040702, CUHK}
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\bfseries \arabic*.]
+	\item{{\it Exercise (11.7).} This is just a matter of computations. To facilitate the notation, let us fix continuous
+		map $\sigma:\Delta_n\mapsto X$,
+		denote $\Delta_n$ by $(E_0,E_1,\dots,E_q)$ (in the same way, as $\Delta_n\times\mycbra{0}\subset\Delta_n\times I$) and denote
+		the restriction of a map $\sigma\times id:\Delta_n\times I\mapsto X\times I$ (or $\sigma:\Delta_n\to X$) to simplex
+		$(F_1,F_2,\dots,F_m)$ in $\Delta_n\times I$ (or in $\Delta_n$) simply as $[F_1,F_2,\dots,F_w]$. Now,
+		\[D_{q-1}\partial_q\sigma=D_{q-1}\sum_{k=0}^q(-1)^k[E_0,\hdots,\widehat{E_k},\hdots,E_q]=\sum_{k=0}^q(-1)^kD_{q-1}
+		[E_0,\hdots,\widehat{E_k},\hdots,E_q]=\]
+		\[=\sum_{k=0}^q(-1)^k\mybra{\sum_{i=0}^{k-1}(-1)^i[E_0,\dots,E_i,E_i',\dots,\widehat{E_{k}'},\dots,E_q']+
+		\sum_{i=k}^{q-1}(-1)^i [E_0,\dots,\widehat{E_{k}},\dots,E_{i+1},E_{i+1}',\dots,E_q']}=\]
+		\[=\sum_{k=0}^q(-1)^k\mybra{\sum_{i=0}^{k-1}(-1)^i[E_0,\dots,E_i,E_i',\dots,\widehat{E_{k}'},\dots,E_q']-
+		\sum_{i=k+1}^{q}(-1)^i [E_0,\dots,\widehat{E_{k}},\dots,E_{i},E_{i}',\dots,E_q']}=\]
+		\[=\sum_{\begin{subarray}{c}k,i=0\\i< k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,E_i,E_i',\dots,\widehat{E_{k}'},\dots,E_q']-
+		\sum_{\begin{subarray}{c}k,i=0\\i>k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,\widehat{E_{k}},\dots,E_{i},E_{i}',\dots,E_q']\]
+		while \[\partial_{q+1}D_q(\sigma)=\sum_{k=0}^q(-1)^k\partial_{q+1}[E_0,\dots,E_k,E_k',\dots,E_q']=\]
+		\[=\sum_{k=0}^q(-1)^q\mybra{\sum_{i=0}^k(-1)^i[E_0,\dots,\widehat{E_i},\dots,E_k,E_k',\dots,E_q']+\sum_{i=k+1}^{q+1}
+		(-1)^i[E_0,\dots,E_k,E_k',\dots,\widehat{E_{i-1}},\dots,E_q]}\]
+		\[=\sum_{k=0}^q(-1)^q\mybra{\sum_{i=0}^k(-1)^i[E_0,\dots,\widehat{E_i},\dots,E_k,E_k',\dots,E_q']-\sum_{i=k}^{q}
+		(-1)^i[E_0,\dots,E_k,E_k',\dots,\widehat{E_{i}},\dots,E_q]}=\]
+		\[=\sum_{\begin{subarray}{c}k,i=0\\i\leq k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,\widehat{E_i},\dots,E_k,E_k',\dots,E_q']-
+		\sum_{\begin{subarray}{c}k,i=0\\i\geq k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,E_k,E_k',\dots,\widehat{E_{i}'},\dots,E_q']\]
+		Now,
+		\[\partial_{q+1}D_q+D_{q-1}\partial_q=\]
+		\[=\sum_{\begin{subarray}{c}k,i=0\\i< k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,E_i,E_i',\dots,\widehat{E_{k}'},\dots,E_q']-
+		\sum_{\begin{subarray}{c}k,i=0\\i>k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,\widehat{E_{k}},\dots,E_{i},E_{i}',\dots,E_q']+\]
+		\[+\sum_{\begin{subarray}{c}k,i=0\\i\leq k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,\widehat{E_i},\dots,E_k,E_k',\dots,E_q']-
+		\sum_{\begin{subarray}{c}k,i=0\\i\geq k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,E_k,E_k',\dots,\widehat{E_{i}'},\dots,E_q']=\]
+		\[=\sum_{\begin{subarray}{c}k,i=0\\i< k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,E_i,E_i',\dots,\widehat{E_{k}'},\dots,E_q']-
+		\sum_{\begin{subarray}{c}k,i=0\\i\geq k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,E_k,E_k',\dots,\widehat{E_{i}'},\dots,E_q']+\]
+		\[+\sum_{\begin{subarray}{c}k,i=0\\i\leq k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,\widehat{E_i},\dots,E_k,E_k',\dots,E_q']-
+		\sum_{\begin{subarray}{c}k,i=0\\i>k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,\widehat{E_{k}},\dots,E_{i},E_{i}',\dots,E_q']=\]
+		\[=\sum_{\begin{subarray}{c}k,i=0\\i< k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,E_i,E_i',\dots,\widehat{E_{k}'},\dots,E_q']-
+		\sum_{\begin{subarray}{c}k,i=0\\k\geq i\end{subarray}}^q(-1)^{k+i}[E_0,\dots,E_i,E_i',\dots,\widehat{E_{k}'},\dots,E_q']+\]
+		\[+\sum_{\begin{subarray}{c}k,i=0\\i\leq k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,\widehat{E_i},\dots,E_k,E_k',\dots,E_q']-
+		\sum_{\begin{subarray}{c}k,i=0\\k>i\end{subarray}}^q(-1)^{k+i}[E_0,\dots,\widehat{E_{i}},\dots,E_{k},E_{k}',\dots,E_q']=\]
+		\[=-\sum_{\begin{subarray}{c}k,i=0\\i= k\end{subarray}}^q(-1)^{k+i}[E_0,\dots,E_i,E_i',\dots,\widehat{E_{k}'},\dots,E_q']+
+		\sum_{\begin{subarray}{c}k,i=0\\k=i\end{subarray}}^q(-1)^{k+i}[E_0,\dots,\widehat{E_{i}},\dots,E_{k},E_{k}',\dots,E_q']=\]
+		\[=-\sum_{k=0}^q[E_0,\dots,E_k,E_{k+1}',\dots,E_q']+\sum_{k=0}^q[E_0,\dots,E_{k-1},E_k',\dots,E_q']=\]
+		\[=-[E_0,E_1,\dots,E_q]-\sum_{k=0}^{q-1}[E_0,\dots,E_k,E_{k+1}',
+		\dots,E_q']+[E_0',E_1',\dots,E_q']+\sum_{k=1}^q[E_0,\dots,E_{k-1},E_k',\dots,E_q']=\]
+		\[=-S_q(i_0)+\sum_{k=1}^q[E_0,\dots,E_{k-1},E_k',\dots,E_q']+S_q(i_1)+\sum_{k=1}^q[E_0,\dots,E_{k-1},E_k',\dots,E_q']=\]
+		\[=S_q(i_1)-S_q(i_0)\]
+		as desired. This directly shows that $S(i_0)$ and $S(i_1)$ are the chain maps.
+		}
+	\item{\newcommand{\mydots}{.\;.\;.}
+		{\it Exercise (15.27).} Map $(S^2-x,I-x)\hookrightarrow(S^2,I)$ is not an excision, as it {\it does not} induce isomorphism
+		$H_q(S^2-x,I-x)\to H_q(S^2,I)$ when $q=2$. To prove this claim it is enough to show that $H_q(S^2-x,I-x)$ and $H_q(S^2,I)$
+		are {\it not} isomorphic. Indeed, the exactness of a homology sequence
+		\[\mydots\to H_2(I)\to H_2(S^2)\to H_2(S^2,I)\to H_1(I)\to\mydots\]
+		and the fact that $H_2(I)\simeq H_1(I) \simeq 0$ implies that $H_2(S^2,I)\simeq H_2(S^2)\simeq R$. Now, the exactness of homology
+		sequence
+		\[\mydots\to H_2(I-x)\to H_2(S^2-x)\to H_2(S^2-x,I-x)\to H_1(I-x)\to\mydots\]
+		and the fact that $H_2(I-x)\simeq H_1(I-x)\simeq 0$ (as $I-x$ is contractible to two points) implies that
+		$H_2(S^2-x,I-x)\simeq H_2(S^2-x)\simeq 0$ (since $S_2-x$ is diffeomorphic to $\mathbb{R}^2$), hence modules
+		$H_2(S^2,I)$ and $H_2(S^2-x,I-x)$ are not isomorphic, consequently $(S^2-x,I-x)\hookrightarrow(S^2,I)$ is not an excision.
+		}
+	\item{To begin with, let $X$ be a manifold with a compatible group structure. Then, as group operation is compatible with topology, 
+		given element $g\in X$, mapping $g^*$, defined as $g^*:X\ni x\mapsto g^*(x):=xg\in X$ is a homeomorphism of $X$ with itself, such
+		that $g^*(e)=g$ (where by $e$ we denote an identity of $X$). Now, by Locally Constant Lemma
+		\cite[p.158]{gh}, $e\in X$ has a
+		neighborhood $U_e$, such that $\forall y\in U_e$ the map $j_y^{U_e}:H_n(X,X-U_e)\to(X,X-y)$ induced by inclusion, is an isomorphism.
+		Then, let us take a unity $1\in R$ of $R$, which is a generator of $R$ and define $\alpha_e:=\mybra{j_e^{U_e}}^{-1}$. Then,
+		$\forall y\in U$ we have that $j_y^{U_e}(\alpha_e)$ generates $H_n(X,X-y)$.
+
+		Now, following \cite[p.160]{gh}, let us define a global orientation on $X$ as follows. Given $g\in X$, the set $U_g:=g^*(U_e)$
+		is open (since $g^*$ is a homeomorphism) and contains $g$ (since $g^*(e)=g$ and $e\in U_e$). Besides, let us define
+		$\alpha_g:=g^*(\alpha_e)\in H_n(X,X-U_g)$ (where, abusing notation, we denote the $H_n(X,X-U_e)\to H_n(X,X-U_g)$ map induced by $g^*$
+		as $g^*$; {\it note} also that this map is isomorphism, as it is induced by homeomorphism of pairs). Now, as $\forall g\in X$
+		we have $g\in U_g$, sets $U_g$ form an open cover of $X$ and it remains to show that $\forall g\in X$, $\alpha_g$ is a
+		local orientation for $U_g$, and if $x\in U_g\cap U_h$, then $j_x^{U_g}(\alpha_g)=j_x^{U_h}(\alpha_h)$.
+
+		We will start with showing that $\alpha_g\in H_n(X,X-U_g)$ is indeed a local orientation. Now, given any $y\in U_g$, let us denote
+		$z:=(g^*)^{-1}(y)\in U_e$. Then we have a commutative diagram of continuous maps
+		\begin{center}\begin{tikzpicture}[node distance=5cm, auto]
+			\node (Ug) {$(X,X-U_g)$};
+			\node (y) [right of=Ug] {$(X,X-y)$};
+			\node (Ue) [below of=Ug] {$(X,X-U_e)$};
+			\node (z) [right of=Ue] {$(X,X-z)$};
+			\draw[->] (Ue) to node {$g^*$} (Ug);
+			\draw[->] (Ug) to node {inclusion} (y);
+			\draw[->] (z) to node {$g^*$} (y);
+			\draw[->] (Ue) to node {inclusion} (z);
+			\end{tikzpicture}\end{center}
+		This diagram induces corresponding commutative diagram in 
+		the $n$-th homology modules. 
+		\begin{center}\begin{tikzpicture}[node distance=5cm, auto]
+			\node (Ug) {$\alpha_g:=g^*(\alpha_e)\in H_n(X,X-U_g)$};
+			\node (y) [right of=Ug] {$H_n(X,X-y)$};
+			\node (Ue) [below of=Ug] {$\alpha_e\in H_n(X,X-U_e)$};
+			\node (z) [right of=Ue] {$H_n(X,X-z)$};
+			\draw[->] (Ue) to node {$g^*$} (Ug);
+			\draw[->] (Ug) to node {$j_y^{U_g}$} (y);
+			\draw[->] (z) to node {$g^*$} (y);
+			\draw[->] (Ue) to node {$j_z^{U_e}$} (z);
+			\end{tikzpicture}\end{center}
+		Now, as $g^*$ and $j_z^{U_e}$ are isomorphisms and diagram commutes, $j_y^{U_g}$ is also an isomorphism, and as $\alpha_g$ generates
+		$H_n(X,X-U_g)\simeq R$ (as $g^*$ is an isomorphism, and $\alpha_e$ generates $H_n(X,X-U_e)$), $j_y^{U_g}(\alpha_g)\in H_n(X,X_y)$
+		generates $H_n(X,X-y)\simeq R$. As $y$ was arbitrary, $\alpha_g$ is a local orientation, as was claimed.
+
+		Finally, let $x\in U_g\cap U_h$. As a consequence of computations in the previous paragraph, both $j_x^{U_g}$ and $j_x^{U_h}$
+		are isomorphisms, and $j_x^{U_g}(\alpha_g)=g^*\mybra{j_{xg^{-1}}^{U_e}(\alpha_e)}$, 
+		$j_x^{U_h}(\alpha_h)=h^*\mybra{j_{xh^{-1}}^{U_e}(\alpha_e)}$. Now, by shrinking it if necessary,
+		we might assume at the beginning that $U_e$ is path-connected (this won't influence anything of previous) and hence
+		both $U_g$ and $U_h$ are also path-connected. As $U_g\cap U_h\neq\emptyset$, $U_g$ and $U_h$ lie in the same path-connected
+		component of $X$ and thus $g$ and $h$ can be connected by a path in $X$. This path will induced homotopy between $g^*$ and $h^*$.
+		Thus we have a diagram of continuous maps, which is {\it not} commutative, but such that different paths connecting two nodes
+		compose to the homotopic maps
+		\begin{center}\begin{tikzpicture}[node distance=5cm, auto]
+			\node (xg) {$(X,X-xg^{-1})$};
+			\node (x) [right of=xg] {$(X,X-x)$};
+			\node (Ue) [below of=xg] {$(X,X-U_e)$};
+			\node (xh) [right of=Ue] {$(X,X-xh^{-1})$};
+			\draw[->] (xg) to node {$g^*$} (x);
+			\draw[->] (Ue) to node {inclusion} (xg);
+			\draw[->] (xh) to node {$h^*$} (x);
+			\draw[->] (Ue) to node {inclusion} (xh);
+			\end{tikzpicture}\end{center}
+		Two different paths connecting same nodes in diagram above indeed form a homotopic map of pairs. It takes a small argument
+		to show that homotopy $H:X\times[0,1]\ni(y,t)\mapsto H(y,t)\in X$ between $g^*$ and $h^*$ can be chosen, so that $\forall t\in[0,1]$
+		we have $H(X-U_e,t)\subset X-x\iff H(U_e,t)\ni x$. It is enough to show, that having $U_g\ni x$, we can chose the path $y:
+		[0,1]\ni t\mapsto y(t)\in X$ between
+		$g$ and $x$, so that $(y(t))^*(U_e)\ni x$ for all $t\in[0,1]$. Indeed, if $z:=xh^{-1}=
+		(g^*)^{-1}(x)\in U_e$, then any path $\gamma:[0,1]
+		\mapsto U_e\subset X$ joining $z$ and $e$ will give us that $y(t):[0,1]\ni t\mapsto y(t):=(\gamma(t))^{-1}\cdot x\in X$ is a path
+		that joins $y(0)=z^{-1}\cdot x=(xh^{-1})^{-1}x=h$ and $y(t)=e^{-1}\cdot x=x$. Moreover, for every $t\in[0,1]$, $\gamma(t)\in U_e$ and
+		$y(t)^*(\gamma(t))=\gamma(t)\cdot(\gamma(t))^{-1}\cdot x=x\implies(y(t))^*(U_e)\ni x$, thus proving the claim that $h^*,g^*:
+		(X,X-U_e)\to(X,X-x)$ are homotopic.
+		
+		As homotopic maps induce the same maps in homology, diagram above induces corresponding {\it commutative} diagram in $n$-th 
+		homology modules
+		\begin{center}\begin{tikzpicture}[node distance=5cm, auto]
+			\node (xg) {$H_n(X,X-xg^{-1})$};
+			\node (x) [right of=xg] {$H_n(X,X-x)$};
+			\node (Ue) [below of=xg] {$H_n(X,X-U_e)$};
+			\node (xh) [right of=Ue] {$H_n(X,X-xh^{-1})$};
+			\draw[->] (xg) to node {$g^*$} (x);
+			\draw[->] (Ue) to node {$j_{xg^{-1}}^{U_e}$} (xg);
+			\draw[->] (xh) to node {$h^*$} (x);
+			\draw[->] (Ue) to node {$j_{xh^{-1}}^{U_e}$} (xh);
+			\end{tikzpicture}\end{center}
+		which precisely gives us $g^*\circ {j_{xg^{-1}}^{U_e}}=h^*\circ {j_{xh^{-1}}^{U_e}}$, finishing the proof.
+		}
+\end{enumerate}
+\begin{thebibliography}{9}
+	\bibitem{gh} {\em Algebraic Topology, a first course}, Greenberg and Harper
+	%\bibitem{lee} {\em Differential Topology}, Victor Guillemin , Alan Pollack
+\end{thebibliography}
+\end{document}

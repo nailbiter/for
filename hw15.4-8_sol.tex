@@ -11,14 +11,27 @@
 \usepackage[neverdecrease]{paralist}
 
 \usepackage{mystyle}
+\newcommand{\dx}{\;dx}
+\newcommand{\dy}{\;dy}
+\newcommand{\dr}{\;d\rho}
+\newcommand{\dph}{\;d\phi}
 
 \title{Math 1540\\University Mathematics for Financial Studies\\2013-14 Term 1\\Suggested solutions for\\
 Sec. 15.4--15.8}
 \begin{document}
 \maketitle
-\section{Section 14.9}
+\section{Section 15.4}
 \begin{description}
-	\item[\# 8.]{{\it Use Taylor's formula for $f(x,y)$ at the origin to find quadratic and cubic approximations of $f$ near the origin.}
+	\item[\# 22.]{{\it Change the Cartesian integral into an equivalent polar integral. Then evaluate the integral.}
+		\[\int_1^2\int_0^{\sqrt{2x-x^2}}\frac{1}{(x^2+y^2)^2}\dx\dy\]
+		Note, that the region of integration is the "triangle" with vertices $(1,0)$, $(2,0)$ and $(1,1)$. In polar 
+		coordinates, they have their respective coordinates $(\phi,\rho)$ equal to $(0,1)$, $(0,2)$ and $(\pi/4,\sqrt{2})$
+		respectively. The curves joining $(1,1)$ and $(2,0)$ has Cartesian equation $y=\sqrt{2x-x^2}$ and thus in
+		polar coordinates can be written as $\rho=2\cos\phi$, while line joining $(1,0)$ and $(1,1)$ is
+		$x=1$ in Cartesian coordinates, hence $\rho\cos\phi=1$ in polar. This allows us to rewrite integral as
+		\[\int_1^2\int_0^{\sqrt{2x-x^2}}\frac{1}{(x^2+y^2)^2}\dx\dy=\int_0^{\pi/4}\int_{1/\cos\phi}^{2/\cos\phi}\frac{1}
+		{\rho^4}\dr\dph=\int_0^{\pi/4}=\int_0^{\pi/4}\frac{\rho^{-3}}{-4}\bigg|_{1/\cos\phi}^{2/\cos\phi}\dph=\]
+		\[=\frac{7}{32}\int_0^{\pi/4}\cos^3\phi\dph\]
 		}
 \end{description}
 \end{document}
@@ -26,3 +39,4 @@ Sec. 15.4--15.8}
 %Sec 15.5: #22, 29, 44
 %Sec 15.7: #34, 47, 58
 %Sec 15.8: #8, 16, 24
+%hw->topo->bookmark
