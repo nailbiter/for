@@ -7,14 +7,17 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{hyperref}
+\usepackage{enumerate}
 \usepackage{enumitem}
-\usepackage[neverdecrease]{paralist}
 
 \usepackage{mystyle}
 \newcommand{\dx}{\;dx}
 \newcommand{\dy}{\;dy}
-\newcommand{\dr}{\;d\rho}
+\newcommand{\dz}{\;dz}
+\newcommand{\dr}{\;dr}
 \newcommand{\dph}{\;d\phi}
+\newcommand{\drh}{\;d\rho}
+\newcommand{\dt}{\;d\theta}
 
 \title{Math 1540\\University Mathematics for Financial Studies\\2013-14 Term 1\\Suggested solutions for\\
 Sec. 15.4--15.8}
@@ -25,13 +28,96 @@ Sec. 15.4--15.8}
 	\item[\# 22.]{{\it Change the Cartesian integral into an equivalent polar integral. Then evaluate the integral.}
 		\[\int_1^2\int_0^{\sqrt{2x-x^2}}\frac{1}{(x^2+y^2)^2}\dx\dy\]
 		Note, that the region of integration is the "triangle" with vertices $(1,0)$, $(2,0)$ and $(1,1)$. In polar 
-		coordinates, they have their respective coordinates $(\phi,\rho)$ equal to $(0,1)$, $(0,2)$ and $(\pi/4,\sqrt{2})$
+		coordinates, they have their respective coordinates $(\theta,r)$ equal to $(0,1)$, $(0,2)$ and $(\pi/4,\sqrt{2})$
 		respectively. The curves joining $(1,1)$ and $(2,0)$ has Cartesian equation $y=\sqrt{2x-x^2}$ and thus in
-		polar coordinates can be written as $\rho=2\cos\phi$, while line joining $(1,0)$ and $(1,1)$ is
-		$x=1$ in Cartesian coordinates, hence $\rho\cos\phi=1$ in polar. This allows us to rewrite integral as
-		\[\int_1^2\int_0^{\sqrt{2x-x^2}}\frac{1}{(x^2+y^2)^2}\dx\dy=\int_0^{\pi/4}\int_{1/\cos\phi}^{2/\cos\phi}\frac{1}
-		{\rho^4}\dr\dph=\int_0^{\pi/4}=\int_0^{\pi/4}\frac{\rho^{-3}}{-4}\bigg|_{1/\cos\phi}^{2/\cos\phi}\dph=\]
-		\[=\frac{7}{32}\int_0^{\pi/4}\cos^3\phi\dph\]
+		polar coordinates can be written as $r=2\cos\theta$, while line joining $(1,0)$ and $(1,1)$ is
+		$x=1$ in Cartesian coordinates, hence $r\cos\theta=1$ in polar. This allows us to rewrite integral as
+		\[\int_1^2\int_0^{\sqrt{2x-x^2}}\frac{1}{(x^2+y^2)^2}\dx\dy=\int_0^{\pi/4}\int_{1/\cos\theta}^{2/\cos\theta}\frac{1}
+		{r^4}\dr\dt=\int_0^{\pi/4}=\int_0^{\pi/4}\frac{r^{-3}}{-4}\bigg|_{1/\cos\theta}^{2/\cos\theta}\dt=\]
+		\[=\frac{7}{32}\int_0^{\pi/4}\cos^3\theta\dt=\frac{7}{32}\int_0^{1/\sqrt{2}}(1-\sin^2\theta)\;d(\sin\theta)=
+		\frac{7}{32}\mybra{\frac{1}{\sqrt{2}}-\frac{1}{6\sqrt{2}}}=\frac{35}{192\sqrt{2}}\]
+		}
+	\item[\# 25.]{{\it Sketch the region of integration and convert each polar integral or sum of integrals to a Cartesian
+		integral or sum of integrals.}
+		\[\int_0^{\pi/4}\int_0^{2\sec\theta}r^5\sin^2\theta\dr\dt\]
+		The region looks like\\%TODO
+		Hence, in Cartesian coordinates integral becomes
+		\[\int_0^{\pi/4}\int_0^{2\sec\theta}r^5\sin^2\theta\dr\dt=\int_0^2\int_0^xy^2\mybra{x^2+y^2}^{\frac{3}{2}}\dy\dx\]
+		}
+	\item[\# 30.]{{\it Find the area of the region enclosed by the positive $x$-axis and spiral $r=4\theta/3$, $0\leq\theta\leq
+		2\pi$. The region looks like a snail shell.}\\
+		To begin with, the region looks like\\%TODO
+		Second, using the formula for area in polar coordinates from the textbook, we get
+		\[A=\int_0^{2\pi}\int_0^{4\theta/3}r\dr=\int_0^{2\pi}\frac{8\theta^2}{9}\dt=\frac{64\pi^3}{27}\]
+		}
+\section{Section 15.5}
+	\item[\# 22.]{{\it Rewrite the integral as an equivalent iterated integral}
+		Let us just write answers together with brief comments. It is important to note, that while this sort of problems
+		can be rather tricky, it is important to first try to {\it imagine} how the region looks like (the best is to have
+		a picture, but solid understanding should also do).%TODO: more explanation
+		\begin{enumerate}[label=(\bfseries\alph*)]
+			\item $\int_0^1\int_0^1\int_{\sqrt{z}}^1\dy\dz\dx$
+			\item $\int_0^1\int_0^1\int_{\sqrt{z}}^1\dy\dx\dz$
+			\item $\int_0^1\int_{\sqrt{z}}^1\int_0^1\dx\dy\dz$
+			\item $\int_0^1\int_0^{y^2}\int_0^1\dx\dz\dy$
+			\item $\int_0^1\int_0^1\int_0^{y^2}\dz\dx\dy$
+		\end{enumerate}
+		}
+	\item[\# 29.]{{\it Find the volume of the region common to the interiors of the cylinders $x^2+y^2=1$ and $x^2+z^2=1$.\\}
+		We will use the picture given in textbook to find a volume of solid it describes. As it is only one-eighth of what
+		we need, we'll multiply the answer by 8. We will integrate in Cartesian coordinates, first with respect to $x$,
+		then $y$ and then $z$. This order is appropriate in the sense, that for each cylinder intersection with plane
+		$x=a$ is a in infinite strip, parallel to the axis of cylinder. The intersection of such strips will be a rectangle,
+		and it is easy to find the area of a rectangle. So,
+		\[V=8\int_0^1\int_0^{\sqrt{1-x^2}}\int_0^{\sqrt{1-x^2}}\dz\dy\dx=8\int_0^1(1-x^2)\dx=\frac{16}{3}\]
+		}
+	\item[\# 44.]{{\it Evaluate the integral by changing order of integration in an appropriate way.}
+		\[\int_0^2\int_0^{4-x^2}\int_0^x\frac{\sin 2z}{4-z}\dy\dz\dx\]
+		It is reasonable to try to move $\dz$ to the outmost layer, so we can do two inner integrals effortlessly (as 
+		integrable expression is independent on $x$ and $y$).
+		Simple interchange of two variable integral gives us
+		\[\int_0^2\int_0^{4-x^2}\int_0^x\frac{\sin 2z}{4-z}\dy\dz\dx=
+		\int_0^4\int_0^{\sqrt{4-z}}\int_0^x\frac{\sin 2z}{4-z}\dy\dx\dz=\int_0^4\int_0^{4-z}\frac{\sin 2z}{2(4-z)}\;d(x^2)\dz
+		=\]\[=\int_0^4\frac{\sin 2z}{2}\dz=\frac{1}{4}(1-\cos8)\]
+		}
+\section{Section 15.7}
+	\item[\# 34.]{{\it Find the spherical coordinate limits for integral that calculates the volume of a given solid, and then
+		evaluate the integral. The solid given is bounded below by the hemisphere $\rho=1,\;z\geq0$, and above by the
+		cardioid of revolution $\rho=1+\cos\phi$.}\\
+		Let us proceed sequentially.\\
+		{\it The $\rho$-limits of integration.} $\rho$ can go from $1$ to $1+\cos\phi$.\\
+		{\it The $\phi$-limits of integration.} $\phi$ can go from $0$ to $\pi/2$, as solid occupies upper half-space.\\
+		{\it The $\theta$-limits of integration.} $\theta$ can be anything from $0$ to $2\pi$.\\
+		Altogether, this allows us to set up and evaluate the integral
+		\[V=\int_0^{2\pi}\int_0^{\pi/2}\int_1^{1+\cos\phi}\rho^2\sin\phi\drh\dph\dt=2\pi\int_0^{\pi/2}\sin\phi\frac
+		{\cos^3\phi+3\cos^2\phi+3\cos\phi}{3}\dph=\]
+		\[=\frac{2\pi}{3}\int_0^1(\cos^3\phi+3\cos^2\phi+3\cos\phi)\;d(\cos\phi)=\frac{2\pi}{3}\mybra{\frac{1}{3}+1+\frac{3}
+		{2}}=\frac{17\pi}{9}\]
+		}
+	\item[\# 47.]{{\it Find the volume of the solid.\\}
+		Cylindrical coordinates are the most natural for this problem, as one of the curves is given in polar coordinates,
+		other involves $x^2+y^2$ term. Thus, we can set up the integral
+		\[V=\int_0^{\pi/2}\int_0^{\sin\theta}\int_0^{\sqrt{1-r^2}}r\dz\dr\dt=\frac{1}{2}\int_0^{\pi/2}\int_0^{\sin^2\theta}
+		\sqrt{1-r^2}\;d(r^2)\dt=\frac{1}{2}\int_0^{\pi/2}\int_{\cos^2\theta}^1\sqrt t\;dt\dt=\]
+		\[=\frac{1}{3}\int_0^{\pi/2}1-\cos^3\theta\dt=\frac{1}{3}\mybra{\frac{\pi}{2}-\frac{2}{3}}\]
+		}
+	\item[\# 58.]{{\it Find the volume of the region enclosed by the cylinder $x^2+y^2=4$ and the planes $z=0$ and $x+y+z=4$.}\\
+		The cylindrical coordinates are the most natural here. Before proceeding, however, note that planes $z=0$
+		and $x+y+z=4$ intersect along the line $x+y=4$, and this line lies completely outside circle $x^2+y^2\leq 4$ (as
+		$x^2+y^2\leq 4\implies x+y\leq\myabs{x}+\myabs{y}=\sqrt{x^2+y^2+2\myabs{x}\myabs{y}}\leq \sqrt{2x^2+2y^2}<2\sqrt{2}<4$
+		). Hence, above $x^2+y^2\leq 4$ we have $4-x-y\geq 0$, hence we can set up the integral
+		\[V=\int_0^{2\pi}\int_0^2\int_0^{4-\rho\cos\theta-\rho\sin\theta}\dz\drh\dt=\int_0^{2\pi}16-8\cos\theta-8\sin\theta\dt
+		=32\pi\]
+		}
+\section{Section 15.8}
+	\item[\# 8.]{{\it Use the transformation and parallelogram $R$ in Exercise 4 to evaluate the integral}
+		\[\iint\limits_R2(x-y)\dx\dy\]
+		}
+	\item[\# 16.]{{\it 
+		}
+		}
+	\item[\# 24.]{{\it 
+		}
 		}
 \end{description}
 \end{document}
@@ -39,4 +125,3 @@ Sec. 15.4--15.8}
 %Sec 15.5: #22, 29, 44
 %Sec 15.7: #34, 47, 58
 %Sec 15.8: #8, 16, 24
-%hw->topo->bookmark
