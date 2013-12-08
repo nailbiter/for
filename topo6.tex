@@ -54,7 +54,39 @@
 		and by \cite[Corollary 3.28]{hatcher} $H_{n-1}(M,\Z)$ contains element of order 2, hence $\Hom(H_{n-1}(M,\Z),\tZ)\neq0$, hence
 		\[H_1(M,\tZ)\simeq H^{n-1}(M,\tZ)\neq0\]
 		}
-	\item{{\it Exercise. }
+	\item{{\it Exercise. }Let's first show that $k\cdot\chi(Y)=[\Gamma,\mu_f]$. This is just a matter of computations. To facilitate the 
+		notation, we'll denote $f\times id:X\times Y\to Y\times Y$ as $F$.
+		\[\begin{array}{rr}
+			[\Gamma,\mu_f]=&\myexplain{by Exercise 30.22 in \cite{gh}}\\
+			=[\xi_X\times\xi_Y\cap\mu_f,\mu_f]=&\myexplain{by definition of $\mu_f$}\\
+			=[\xi_X\times\xi_Y\cap F^*(\mu'_Y),F^*(\mu'_Y)]=&\myexplain{by definition of $F^*$}\\
+			=[F_*(\xi_X\times\xi_Y\cap F^*(\mu'_Y)),\mu'_Y]=&\myexplain{by functoriality of $\cap$}\\
+			=[F_*(\xi_X\times\xi_Y)\cap \mu'_Y,\mu'_Y]=&\myexplain{as $F=f\times id$ and $f^*(\xi_X)=k\cdot\xi_Y$, as $\deg f=k$}\\
+			=k\cdot[\xi_Y\times\xi_Y\cap \mu'_Y,\mu'_Y]=&\myexplain{by Exercise (30.15) of \cite{gh}}\\
+			=k\cdot[(H_*(d)\xi_X,\mu'_Y]=&\myexplain{by definition of $H_*(d)$}\\
+			=k\cdot[\xi_X,H^*(d)\mu'_Y]=&\myexplain{by \cite[Corollary 30.10]{gh}}\\
+			=k\cdot\chi(Y)&
+		\end{array}\]
+		
+		Now, let us show that $[\Gamma,\mu_f]=\Gamma\cdot\Gamma$ indeed (due to previous paragraph, this'll imply $k\cdot\chi(Y)=\Gamma\cdot
+		\Gamma$). To begin with, note that $g:X\ni x\mapsto g(x):=(x,f(x))\in X\times Y$ is an {\it inclusion} of $X$ into $X\times Y$
+		and as $\Gamma=g_*(\xi_X)$ by definition, we see that $\Gamma$ is {\it represented} by $g(X)\subset X\times Y$. Now, as as it stands,
+		intersection of $g(X)$ with itself is not transversal (so we cannot talk about intersection number), we assume $f$ can be so
+		performed through the homotopy, yielding, say $\widetilde{f}$, so that resulting $\widetilde{g}(X)$ is transversal to $g(X)$. Anyway,
+		homotopy does not changes $\mu_f$ (as it is defined through $F^*$ and homotopic maps induce same maps in cohomology)
+		, hence does not change $\Gamma\in H_n(X\times Y)$ (due to Exercise (30.22) of \cite{gh}, $\Gamma=\xi_X\times\xi_Y\cap\mu_f$
+		depends only on $\mu_f$, not on $f$ itself). Thus said, we can use \cite[Corollary (31.8)]{gh}, to get
+		\[[\xi_{X\times Y},\mu_f\cup\mu_f]=(-1)^n\Gamma\cdot\Gamma\]
+		as soon as we'll be able to show that $\mu_f=\mu'_{X\times Y}/\Gamma$. By \cite[(30.6)]{gh} it's equivalent to showing that
+		$\xi_{X\times Y}\cap\mu_f=(-1)^{2n^2}\Gamma$. However, as by agreement, $\xi_{X\times Y}=\xi_X\times\xi_Y$, this is precisely
+		the conclusion of Exercise 30.22. Hence, it remains to show
+		\[[\xi_X\times\xi_Y,\mu_f\cup\mu_f]=(-1)^n[\Gamma,\mu_f]\]
+		Again, by Exercise 30.22 we have
+		\[(-1)^n[\Gamma,\mu_f]=(-1)^n[\xi_x\times\xi_Y\cap\mu_f,\mu_f]\]
+		and the conclusion follows, by the relation $[a\cap b,c]=[a,b\cup c]$. {\bf Note}, that {\it seeming} inconsistency in sign is
+		resolved by the fact that if $n$ is odd (that is the case we should worry about, as then $(-1)^n=-1$), then by Lemma 31.4 of \cite{gh
+		} we have $\Gamma\cdot\Gamma=(-1)^{n^2}\Gamma\cdot\Gamma=-\Gamma\cdot\Gamma\implies\Gamma\cdot\Gamma=0$ and similarly $\chi(Y)=0$
+		(as $Y$ then is odd-dimensional manifold, and everything cancels in the light of Poincare duality) and the equality still holds.
 		}
 \end{enumerate}
 \begin{thebibliography}{9}
