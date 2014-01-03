@@ -1,0 +1,228 @@
+\documentclass[10pt]{article}
+
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,russian,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+\usepackage{cancel}
+\usepackage{ulem}
+
+\newtheorem{prob}{Завдання}
+\newcommand{\ds}{\;ds}
+\newcommand{\dt}{\;dt}
+\newcommand{\dx}{\;dx}
+\newcommand{\dta}{\;d\tau}
+\let\oldint\int
+\renewcommand{\int}{\oldint\limits}
+\let\phi\varphi
+
+\usepackage{mystyle}
+
+\newtheorem{myulem}[mythm]{Лема}
+
+\renewenvironment{myproof}[1][Доведення]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\myqed\end{trivlist}}
+\title{Контрольна робота з функціонального аналізу (9 семестр)\\Вар. 2}
+\author{Олексій Леонтьєв}
+\begin{document}
+\maketitle
+\begin{prob}Знайти оператор, спряжений до $A:l_2\mapsto l_2$\[Ax=({2}x_2,x_3,x_4,\dots)\]\end{prob}
+	Спряженим є оператор $A^*:l_2\mapsto l_2$ заданий як
+	\[A^*y=(0,2y_1,y_2,\dots)\]
+	адже $A^*$ є неперервним оператором на $l_2$ і
+	\[\mysca{Ax}{y}=2x_2{y_1}+x_3{y_2}+\hdots=
+	x_1\cdot 0+x_2\cdot{{2}y_1}+x_3{y_2}+\hdots=\]
+	\[\mysca{(x_1,x_2,x_3,\dots)}{(0,{2}y_1,y_2,y_3,\dots)}=\mysca{x}{A^*y}\]
+\begin{prob}Довести, що оператор $A:C[0,1]\mapsto C[0,1]$ є скінченновимірним, $(Ax)(t)=\int_0^{1}\cos(t+\tau)x(\tau)d\tau,\;t\in[0,1]$.
+	Чи буде $A$ компактним оператором?\end{prob}
+	Для довільного $x\in C[0,1]$, маємо
+	\[(Ax)(t)=\int_0^{1}\cos(t+\tau)x(\tau)d\tau=\int_0^{1}\left(\cos t\cos\tau-\sin t\sin\tau\right)x(\tau)d\tau=\]
+	\[\cos t\int_0^{1}\cos\tau x(\tau)d\tau-\sin t\int_0^{1}\sin\tau x(\tau)d\tau\]
+	Таким чином, $Ax$ є лінійною комбінацією $\sin t$ і $\cos t$, а оскільки $x$ було довільним, вся множина значень $A$ лежить в просторі
+	лінійних комбінацій цих двох функцій, а тому $A$ є скінченновимірним.\\
+	Оскільки кожний скінченновимірний оператор є компактним, $A$ компактний.
+	\begin{prob}Знайти спектр, власні числа, норму і спектральний радіус оператора $A:l_2\mapsto l_2$, $Ax=(0,x_2,0,x_4,0,\hdots,x_{2k},0,\hdots)
+		$\end{prob}
+	Візьмемо довільне $\lambda\notin\mycbra{0,1}$ і покажемо, що воно \uline{не є} власним числом, тобто що $\lambda I-A$ є неперервно
+	оборотнім. Для $x=(x_1,x_2,x_3,\hdots)\in l_2$ маємо
+	\[(\lambda I-A)(x)=(\lambda x_1,(\lambda-1)x_2,\lambda x_3,\hdots)\]
+	і оскільки $\lambda\neq0,\;\lambda-1\neq0$,
+	бачимо, що оператор \[B(y_1,y_2,y_3,\hdots):=(\frac{1}{\lambda}y_1,\frac{1}{\lambda-1}y_2,\hdots,\frac{1}{\lambda}y_{2k-1},\frac{1}{\lambda-1
+	}y_{2k},\hdots)\]
+	є оберненим до $\lambda I-A$ ($B$ є неперервним оператором, адже 
+	$\mynorm{By}\leq\max\mycbra{1/\myabs{\lambda},1/\myabs{\lambda-1}}\mynorm{y}$.
+
+	Далі, $\lambda=0$ є власним числом $A$ із відповідним власним вектором $(1,0,0,\hdots)$, а $\lambda=1$ -- власним числом із власним вектором
+	$(0,1,0,0,\hdots)$, тому обидва числа належать спектру, і використовуючи результат попереднього параграфа бачимо, що спектром $A$ є
+	множина $\mycbra{0,-1}$, і вона ж співпадає із множиною власних значень. Спектральний радіус, таким чином, рівний $\rho=1$.
+
+	Залишилось довести, що $\mynorm{A}=1$. Дійсно, з одного боку, якщо $x\in l_2$ маємо
+	\[\mynorm{Ax}^2=\myabs{x_2}^2+\myabs{x_4}^2+\hdots\leq1\cdot\mynorm{x}^2\]
+	а з другого боку для $x_0:=(1,0,0,\hdots)\in l_2$ маємо
+	$\mynorm{Ax_0}=1=\mynorm{x_0}$
+	що і завершує доведення бажаної рівності $\mynorm{A}=1$.
+\begin{prob}Знайти спектр, власні числа і власні функції оператора $A\in L(H)$, $H=L_2[0,2\pi]$, $(Ax)(t)=\int_0^{2\pi}\cos^2(t+\tau)x(\tau)
+	d\tau,\;t\in[0,2\pi]$
+\end{prob}
+\begin{prob}Чи можуть наступні множини бути спектром деякого компактного оператора в $l_2$?\end{prob}
+\begin{enumerate}
+	\renewcommand{\labelenumi}{\myralph{enumi})}
+\item $[0;2]$ \uline{не може} бути спектром, адже ця множина незліченна.
+\item $\mycbra{0;2}$ є спектром, наприклад, оператора $A(x_1,x_2,\hdots)=(2x_1,0,0,\hdots)$. Дійсно, i 2, і 0 є власними значеннями (із відповідними
+	власними векторами $(1,0,0,\hdots)$ та $(0,1,0,0,\hdots)$ відповідно), тому належать спектру. З іншого боку, для $\lambda\notin\mycbra{0,2}$,
+	маємо $(\lambda I-A)(x_1,x_2,\hdots)=((\lambda-2)x_1,\lambda x_2,\hdots)$, оберненим до якого є 
+	$B(y_1,y_2,y_3,\hdots)=(1/(\lambda-2)\cdot y_1,1/\lambda\cdot y_2,1/\lambda\cdot y_3,\hdots)$.
+\item $\mycbra{\frac{1}{n},\;n\geq1}$ \uline{не може} бути спектром, адже ця множина не містить 0.
+\item $\mycbra{0}\cup\mycbra{\frac{1}{n},\;n\geq1}$ є спектром оператора %TODO
+\item $\mycbra{1-\frac{1}{n},\;n\geq1}$ \uline{не може} бути спектром компактного оператора, адже вона має граничну точку $1$, а не нуль.
+\item{$[-1,1]$ {\it не може бути спектром жодного компактного оператора}
+	, адже за Теоремою 4.1 спектр компактного оператора може бути не більше ніж зліченним.}
+	\item{Так, множина $\mycbra{-1,0,1}$ {\it є спектром компактного оператора}. Щоб побачити це, ми застосуємо доведену вище лему
+		\ref{CompactSpectrumLemma} до
+		послідовності $\mycbra{-1,1,0,0,\hdots}$, що дасть нам оператор $A(x_1,x_2,x_3,\hdots)=(-x_1,x_2,0,0,\hdots)$. За лемою, $A$
+		дійсно компактний оператора на $l_2$ зі спектром $\mycbra{-1,0,1}$.}
+	\item{За Теоремою 4.1, спектр компактного оператора має містити 0. Оскільки $0\notin\mycbra{\frac{1}{\sqrt{n}},\;n\geq 1}$, ця множина
+		{\it не може бути спектром компактного оператора.}}
+	\item{Знову ж таки, за лемою \ref{CompactSpectrumLemma} вище, множина значень послідовності
+		$\mycbra{0,\frac{1}{\sqrt{1}},\frac{1}{\sqrt{2}},\frac{1}{\sqrt{3}},\hdots}$ {\it є спектром компактного оператора.}}
+	\item{За Теоремою 4.1, якщо спектр компактного оператора нескінченний, єдиною граничною точкою його є нуль. Проте $1\neq 0$ являється
+		граничною точкою множини $\mycbra{1-\sqrt{1}{\sqrt{n}},\;n\geq 1}$ і тому ця множина {\it 
+		не може бути спектром компактного оператора.}}
+\end{enumerate}
+\begin{prob}За допомогою повторних ядер побудувати резольвенту інтегрального рівняння $x(t)=\lambda
+	\int_{-1}^{1}\frac{1+t^2}{1+s^2}\ds+
+	y(t),\;t\in[-1;1]$, і знайти його розв’язок при $\lambda=1,\;y(t)=1+t^2$.\end{prob}
+	Ми скористуємося методом повторних ядер, як викладено в \S IX.6 підручника
+	\cite{tb}. Для цього ми введемо $K(t,\tau):=e^{\tau-t}\in
+	C([-1;1]\times[-1;1])$ (тому метод можна застосувати, адже $[-1;1]\subset\mathbb{R}$
+	компактна множина). Ми позначимо $K^{(1)}(t,
+	\tau):=K(t,\tau)$ і рекурентно введемо
+	\[K^{(n+1)}(t,\tau):=\int_{-1}^1 K(t,s)K^{(n)}(s,\tau)\ds\]
+	За допомогою математичної індукції бачимо, що $K^{(n)}(t,\tau)=2^{n-1}e^{\tau-t}$. Дійсно, рівність виконується для
+	$n=1$, а далі маємо
+	\[K^{(n+1)}(t,\tau):=\int
+	_{-1}^1 K(t,s)K^{(n)}(s,\tau)\ds=\int_{-1}^12^{n-1}e^{s-t}e^{\tau-s}\ds=2^{n-1}e^{\tau-t}\int_{-1}^1\ds=2^ne^{\tau-t}\]
+	Далі, згідно з \cite{tb}, резольвента являється інтегральним оператором із ядром
+	\[\mathcal{R}(t,\tau;\lambda)=\sum_{n=1}^\infty \lambda^{n-1}K^{(n)}(t,\tau)=\sum_{n=1}^\infty e^{\tau-t}(2\lambda)^{n-1}
+	=e^{\tau-t}\frac{1}{1-2\lambda}\]
+
+	Таким чином, для даних $\lambda$ і $y(t)$ розв’язок записується як
+	\[x(t)=y(t)+\lambda\int_{-1}^1\mathcal{R}(t,\tau;\lambda)y(\tau)\;d\tau=\sin\pi t+(1+e)\int_{-1}^1e^{\tau-t}\frac{1}{(-1-2e)}
+	\sin\pi\tau\;d\tau=\]
+	\[=\sin\pi t-\frac{(e+1)e^{-t}}{1+2e}\int_{-1}^1e^\tau\sin\pi\tau\;d\tau=\sin\pi t-e^{-t}\frac{e+1}{1+2e}\cdot
+	\frac{(e^2-1)\pi}{e(1+\pi^2)}\]
+\begin{prob}Звести до системи алгебраїчних рівнянь і розв’язати інтегральне рівняння
+	\[x(t)=\frac{3}{8}\int_{-1}^1(1+t^2+s^3)x(s)\ds+5t-7t^3,\;t\in[-1;1]\].
+\end{prob}
+Як показано в \S 3.3 глави IX підручника \cite{tb}, для інтегрального рівняння Фредгольма другого роду $\int_RK(t,\tau)x(\tau)\;d\tau
+-x(t)=-y(t)$ з виродженим ядром $K(x,t)=\sum_{j=1}^n a_j(t)b_j(\tau)$ і для чисел
+\[a_{jk}:=\int_Rпa_k(t)b_j(t)\dt,\;y_j:=-\int_Ry(t)b_j(t)\dt\]
+маємо, що $\mybra{x_j}_{j=1}^n\in\mathbb{C}^n$ є розв’язком лінійної системи
+$\sum_{j=1}^na_{ij}x_j-x_i=y_i$ тоді і лише тоді, коли $x(t):=\sum_{k=1}^nx_ka_k(t)+y(t)$ є розв’язком $\int_RK(t,\tau)x(\tau)\;d\tau
+-x(t)=-y(t)$ і більше того,
+розв’язки відповідного інтегрального рівняння можуть набувати {\it лише} виду $x(t)=\sum_{k=1}^nx_ka_k(t)+y(t)$.
+
+У нашому випадку маємо $a_1(t)=\lambda t^2,\;a_2(t)=-\lambda t$ (помітімо, що оскільки при $\lambda=0$
+$a_1$ та $a_2$ не є лінійно незалежними, ми проводимо всі розрахунки нижче за неявної додаткової умови
+$\lambda\neq0$, проте отриманий висновок в кінці є вірним очевидно і для $\lambda=0$, адже у цьому
+випадку інтегральне рівняння вироджується просто в $x(t)=y(t)$, що звісно ж 
+має єдиний розв’язок), а також $b_1(\tau)=1,\;b_2(\tau)=\tau$ і відповідно
+\[\mysbra{a_{jk}}_{j,k=1}^2=\lambda\begin{bmatrix}
+	\int_{-1}^1t^2\dt&\int_{-1}^1(-t)\dt\\
+	\int_{-1}^1t^3\dt&\int_{-1}^1(-t^2)\dt
+\end{bmatrix}=\lambda\begin{bmatrix}\myfrac{2}{3}&0\\0&-\myfrac{2}{3}\end{bmatrix}\]
+	\[\begin{bmatrix}y_1\\y_2\end{bmatrix}=
+		\begin{bmatrix}-\int_{-1}^1(t^2+t)\dt\\-\int_{-1}^1(t^2+t)t\dt\end{bmatrix}=
+			\begin{bmatrix}-\myfrac{2}{3}\\-\myfrac{2}{3}
+		\end{bmatrix}
+		\]
+Таким чином, $\sum_{j=1}^na_{ij}x_j-x_i=y_i$ перетворюється в лінійну систему
+\[\begin{bmatrix}\frac{2}{3}\lambda-1&0\\0&-\frac{2}{3}\lambda-1\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=
+	\begin{bmatrix}-\myfrac{2}{3}\\-\myfrac{2}{3}\end{bmatrix}\]
+		Ми бачимо, що система має єдиний розв’язок при $\lambda\notin\mycbra{\pm\myfrac{2}{3}}$ і відповідно єдиний розв’язок матиме
+		рівняння  $x(t)=\lambda\int_{-1}^1(t^2-t\tau)x(\tau)\;d\tau+y(t)$.
+
+		У випадку ж $\lambda\in\mycbra{\pm\myfrac{2}{3}}$ лінійна система
+		\[\begin{bmatrix}\frac{2}{3}\lambda-1&0\\0&-\frac{2}{3}\lambda-1\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=
+	\begin{bmatrix}-\myfrac{2}{3}\\-\myfrac{2}{3}\end{bmatrix}\]
+		не має розв’язку, а отже не має їх і відповідне інтегральне рівняння.
+
+		Підводячи підсумок, інтегральне рівняння
+		\[x(t)=\lambda\int_{-1}^1(t^2-t\tau)x(\tau)\;d\tau+t^2+t\]
+		має єдиний розв’язок $x(t):=\frac{-\myfrac{2}{3}}{\myfrac{2}{3}\lambda-1}\lambda t^2-\frac{-\myfrac{2}{3}}{-\myfrac{2}{3}\lambda-1}
+		\lambda t+t^2+t$ при $\lambda\notin\mycbra{\pm\myfrac{2}{3}}$ і не має розв’язків при $\lambda\in\mycbra{\pm\myfrac{2}{3}}$.
+\begin{prob}За допомогою альтернативи Фредгольма знайти всі $\lambda\in\mathbb{C}$, при яких наступне інтегральне рівняння
+	має єдиний розв’язок при всіх $y\in C[0,2\pi]$:
+	\[x(t)=\lambda\int_0^{2\pi}\cos(t+s)x(s)\ds+y(t),\;t\in[0,2\pi]\]
+\end{prob}
+Альтернатива Фредгольма (для інтегральних рівнянь) стверджує, що рівняння 
+\[x(t)=\lambda\int_0^{2\pi}\cos(2t-\tau)x(\tau)\;d\tau+y(t)\]
+має єдиний розв’язок для кожного $y\in C[0,2\pi]$ тоді і лише тоді, коли
+\[x(t)=\lambda\int_0^{2\pi}\cos(2t-\tau)x(\tau)\;d\tau\]
+має лише тривіальний розв’язок. Альтернативу Фредгольма можна застосувати, адже $K(t,\tau)=\cos(2t-\tau)$ є неперервною функцією 
+(і відповідно $x(t)\mapsto\lambda\int_0^{2\pi}\cos(2t-\tau)x(\tau)\;d\tau$ є компактним оператором). Друге рівняння, в свою чергу, має вироджене
+ядро, а отже має нетривіальні розв’язки тоді і лише тоді, коли їх має система
+\[\begin{bmatrix}\lambda\int_0^{2\pi}\cos(2t)\cos(t)\;dt-1&0\\0&\lambda\int_0^{2\pi}\sin(2t)\sin(t)\;dt-1\end{bmatrix}
+	\begin{bmatrix}x_1\\x_2\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix}\]
+		що в свою чергу відбувається коли і тільки коли $1/\lambda\in\mycbra{{\int_0^{2\pi}\cos(2t)\cos(t)\;dt},
+		{\int_0^{2\pi}\sin(2t)\sin(t)\;dt}}=\mycbra{0,0}$, а отже для всіх $\lambda\in\mathbb{C}$, рівняння
+		\[x(t)=\lambda\int_0^{2\pi}\cos(2t-\tau)x(\tau)\;d\tau+y(t)\]
+		має єдиний розв’язок для довільного $y\in C[0,2\pi]$. 
+\begin{prob}
+	Знайти характеристичні числа, відповідні власні функції та розв’язки інтегрального рівняння
+	\[x(t)=\lambda\int_{0}^{\pi}\sin(t+s) x(s)\ds+\sin t,\;t\in[0;\pi]\]
+\end{prob}
+	Відповідне однорідне рівняння
+	\[x(t)=\lambda\int_{-\pi}^{\pi}\sin t\sin\tau x(\tau)\;d\tau\]
+	як і оригінальне неоднорідне, є рівнянням з виродженим ядром, а отже має нетривіальні розв’язки тоді і лише тоді, коли їх має лінійне
+	рівняння
+	\[x_1\mybra{\lambda\int_{-\pi}^\pi\sin^2 t\dt-1}=0\]
+	\[x_1\mybra{\lambda\pi-1}=0\]
+	Відповідно, $\lambda=\myfrac{1}{\pi}$ є єдиним власним числом, а $x(t):=\sin(t)/\sqrt{\pi}$ -- відповідної власною функцією.
+
+	В свою чергу, розв’язки рівняння
+	\[x(t)=\lambda\int_{-\pi}^{\pi}\sin t\sin\tau x(\tau)\;d\tau-\sin t+\cos t,\;t\in[-\pi,\pi]\]
+	взаємно-відповідні розв’язкам системи
+	\[x_1\mybra{{\lambda}{\pi}-1}=\int_{-\pi}^\pi(\sin t-\cos t)\sin t\dt=\pi\]
+	Таким чином, рівняння
+	\[x(t)=\lambda\int_{-\pi}^{\pi}\sin t\sin\tau x(\tau)\;d\tau-\sin t+\cos t,\;t\in[-\pi,\pi]\]
+	має розв’язок \[x(t):=-\sin t+\cos t+\frac{\pi}{\lambda\pi-1}\lambda\sin t\]
+	при $\lambda\neq\myfrac{1}{\pi}$ і жодних розв’язків в іншому разі.
+\begin{prob}
+	Довести, що функціонал є узагальненою функцією	\[f(\phi)=\int_{\mathbb{R}}e^{-x}\phi'(x)\dx,\;\phi\in\mathcal{D}(\mathbb{R})\]
+	Чи буде вона регулярною?
+\end{prob}
+\newcommand{\supp}{\mbox{supp }}
+Лінійність очевидна, залишається лише довести неперервність. Нехай $\mathcal{D}(\mathbb{R})\ni\phi_n\to\phi$. За означенням
+збіжності в $\mathcal{D}(\mathbb{R})$, $\exists r>0,\;
+\forall n\;\widetilde{B_r}(0)\supset\supp\phi_n$ і таким чином, оскільки $\supp\phi'_n\subset\supp\phi_n$, маємо
+\[f(\phi_n)=\int_{B_r(0)}e^{-x}\phi'_n(x)\dx\to\int_{B_r(0)}=\int_{B_r(0)}e^{-x}\phi'(x)\dx=\int_{\mathbb{R}}e^{-x}\phi'(x)\dx\]
+за теоремою Лебега про граничний перехід під знаком інтеграла,
+оскільки збіжність $\phi_n\to\phi$ є рівномірною на $B_r(0)$ за означенням збіжності в $\mathcal{D}(\mathbb{R})$.
+
+Щодо регулярності, якщо $\phi\in\mathcal{D}(\mathbb{R})$ і $\supp\phi'\subset\supp\phi\subset[-A,A]$, причому $\phi(\pm A)=0$, використовуючи
+інтегрування частинами, маємо
+\[f(\phi)=\int_{-A}^Ae^{-x}\phi'(x)\dx=e^{-x}\phi(x)\bigg|_{-A}^A-\int_{-A}^A(-e^{-x})\phi(x)\dx=\int_{-A}^Ae^{-x}\phi(x)\dx=\int_\mathbb{R}
+e^{-x}\phi(x)\dx\]
+і $f$ є регулярною загальною функцією.
+\begin{thebibliography}{9}
+\bibitem{tb}
+Березанський Ю. М., Ус Г. Ф., Шефтель З. Г.
+Митропольський Ю. А., Самойленко А. М., Кулик В. Л.
+\emph{Функціональний аналіз}.
+Київ, "Вища школа"{}, 1990, російською мовою, 600 с.
+\end{thebibliography}
+\end{document}

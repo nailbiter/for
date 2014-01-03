@@ -111,18 +111,76 @@
 	d\tau,\;t\in[0,2\pi]$
 \end{prob}
 Для початку, помітимо, що
-\newcommand{\myint}[1]{\int_0^{2\pi}#1x(\tau)d\tau}
+\newcommand{\myint}[1]{\int_0^{2\pi}#1x(\tau)\;d\tau}
+\newcommand{\mysint}[1]{\int_0^{2\pi}#1\;d\tau}
 \[(Ax)(t)=\int_0^{2\pi}\cos^2(t-\tau)x(\tau)d\tau=\int_0^{2\pi}(\cos\tau\cos t+\sin\tau\sin t)^2x(\tau)d\tau=\]
 \[=\cos^2 t\myint{\cos^2(\tau)}+\sin^2 t\myint{\sin^2(\tau)}+\sin 2t\myint{\frac{\sin (2\tau)}{2}}\]
-Таким чином, ми бачимо, що $A$ є скінченновимірним оператором, а отже, згідно із прикладом 1.2 в главі IX \cite{tb}, 
+Таким чином, $A$ є скінченновимірним оператором, а отже, згідно із прикладом 1.2 в главі IX \cite{tb}, 
 $A$ є компактним оператором. Таким чином, згідно з теоремою 4.1 з глави IX у \cite{tb} всі ненульові елементи спектру $A$ будуть його власними
-значеннями.
+значеннями, а $0$ належить спектру як наслідок Зауваження 1.5 глави IX \cite{tb}.
 
-Покажемо, що $\lambda=0$ є власним числом $A$ і знайдемо відповідні власні функції. 
-\[\mbox{Ker} A=\mysetn{x\in L_2[0,2\pi]}{Ax=0}=\]\[=\mysetn{x\in L_2[0,2\pi]}{\myint{\cos^2(\tau)}=\myint{\sin^2(\tau)}=\myint{\sin(2\tau)}=0}=\]
+Також, нуль є власним числом $A$, адже як буде показано нижче $\cos^2t$, $\sin^2t$ та $\sin2t$ є лінійно незалежними, а отже $Ax=0\iff
+\myint{\cos^2(\tau)}=\myint{\sin^2(\tau)}=\myint{\sin(2\tau)}=0$. Таким чином,
+\[\emptyset\neq
+\mbox{Ker} A=\mysetn{x\in L_2[0,2\pi]}{Ax=0}=\]\[=\mysetn{x\in L_2[0,2\pi]}{\myint{\cos^2(\tau)}=\myint{\sin^2(\tau)}=\myint{\sin(2\tau)}=0}=\]
 \[\mysetn{\alpha\sin^2(\tau)+\beta\cos^2(\tau)+\gamma\sin(2\tau)
-}{\alpha,\beta,\gamma\in\mathbb{C}}^\perp=:\left<\left\{\sin^2(\tau),\cos^2(\tau),\sin(2\tau)\right\}\right>^\perp\]
-Згадаємо тепер, що 
+}{\alpha,\beta,\gamma\in\mathbb{C}}^\perp=:\left<\left\{\sin^2(\tau),\cos^2(\tau),\sin(2\tau)\right\}\right>^\perp=\]
+\[=\left<\left\{1,\cos(2\tau),\sin(2\tau)\right\}\right>^\perp=\myabra{\mycbra{\cos(n\tau),\sin(n\tau)}_{n>0,\;n\neq2}}\]
+адже $\mycbra{\cos(n\tau),\sin(n\tau)}_{n>0}\cup\mycbra{1}$ утворюють ортонормований базис для $H$.
+
+Припустимо, що $0\neq\lambda\in\mathbb{C}$ належить спектру $A$, отже для $0\neq x\in H$ виконується $Ax=\lambda x$, тому $\lambda x\in\Im A
+\implies x\in\Im A\implies x(t)=a\cos^2t+b\sin^2t+c\sin2t$. Підстановка дає
+\begin{equation}\label{Eigenvectors}\begin{gathered}
+A(a\cos^2t+b\sin^2t+c\sin2t)(t)=\\
+=\cos^2 t\myint{\cos^2(\tau)}+\sin^2 t\myint{\sin^2(\tau)}+\sin 2t\myint{\frac{\sin (2\tau)}{2}}=\\
+=\lambda a\cos^2t+\lambda b\sin^2t+\lambda c\sin2t
+\end{gathered}\end{equation}
+Більше того, позначаючи $e_1:=\cos^2t\in H$, $e_2:=\sin^2t\in H$, $e_3:=\sin2t\in H$ і $H\times H\ni(x,y)\mapsto \mysca{x}{y}:=\mysint{x(\tau)
+\overline{y(\tau)}}\in\mathbb{C}$ -- скалярний добуток на $H$, можемо записати
+\[\mysca{e_1}{e_1}=\mysint{\cos^4\tau}=\mysint{\cos^2(\tau)\sin^2(\tau)}=\mysint{\mybra{\frac{\cos2t+1}{2}}^2}=\]
+\[=\frac{1}{4}\mysint{\cos^2(2\tau)}+\frac{1}{2}\underbrace{\mysint{\cos2\tau}}_{=0}+\frac{\pi}{2}=\]
+\[=\frac{1}{4}\mysint{{\frac{\cos4\tau+1}{2}}}+\frac{\pi}{2}=\frac{1}{8}\underbrace{\mysint{\cos4\tau}}_{=0}+\frac{\pi}{4}+\frac{\pi}{2}=\frac{3\pi}
+{4}\]
+\[\mysca{e_1}{e_2}=\mysint{(1-\cos^2(\tau))\cos^2(\tau)}=\mysint{\cos^2(\tau)}-\underbrace{\mysint{\cos^4(\tau)}}_{=3\pi/4}=\]
+\[=\mysint{\frac{\cos2\tau+1}{2}}-\frac{3\pi}{4}=\frac{1}{2}\mysint{\cos2\tau}+\pi-\frac{3\pi}{4}=\frac{\pi}{4}\]
+\[\mysca{e_1}{e_3}=\mysint{\cos^2(\tau)\sin2\tau}=0,\mbox{ бо підінтегральний вираз має властивість $f(x+\pi)=-f(x)$}\]
+\[\mysca{e_2}{e_2}=\mysint{\sin^4(\tau)}=\mysint{(1-\cos^2\tau)^2}=2\pi-2\underbrace{\mysint{\cos^2\tau}}_{=\pi}
++\underbrace{\mysint{\cos^4(\tau)}}_{=3\pi/4}=\frac{3\pi}{4}\]
+\[\mysca{e_2}{e_3}=\mysint{\sin^2(\tau)\sin2\tau}=0,\mbox{ бо підінтегральний вираз має властивість $f(x+\pi)=-f(x)$}\]
+\[\mysca{e_3}{e_3}=\mysint{\sin^22\tau}=\mysint{\frac{1-\cos4\tau}{2}}=\pi-\frac{1}{2}\underbrace{\mysint{\cos4\tau}}_{=0}=\pi\]
+З цих розрахунків можна зробити декілька висновків. По-перше, $e_1$, $e_2$ та $e_3$ є лінійно незалежними над $\mathbb{C}$. Дійсно,
+рівність $\alpha e_1+\beta e_2+\gamma e_3$ (де грецькі літери позначають комплексні константи) можна скалярно домножити на $e_1$, $e_2$ та
+$e_3$ справа, щоб отримати три рівності, які в матричній формі можна записати як
+\[\begin{bmatrix}
+	\mysca{e_1}{e_1}&\mysca{e_2}{e_1}&\mysca{e_3}{e_1}\\
+	\mysca{e_1}{e_2}&\mysca{e_2}{e_2}&\mysca{e_3}{e_2}\\
+	\mysca{e_1}{e_3}&\mysca{e_2}{e_3}&\mysca{e_3}{e_3}\\
+\end{bmatrix}\begin{bmatrix}\alpha\\\beta\\\gamma\end{bmatrix}=\begin{bmatrix}0\\0\\0\end{bmatrix}\]
+	а оскільки
+\[
+\begin{bmatrix}
+	\mysca{e_1}{e_1}&\mysca{e_2}{e_1}&\mysca{e_3}{e_1}\\
+	\mysca{e_1}{e_2}&\mysca{e_2}{e_2}&\mysca{e_3}{e_2}\\
+	\mysca{e_1}{e_3}&\mysca{e_2}{e_3}&\mysca{e_3}{e_3}\\
+\end{bmatrix}=
+\begin{bmatrix}
+	3\pi/4&\pi/4&0\\\pi/4&3\pi/4&0\\0&0&\pi
+\end{bmatrix}
+\]
+не є сингулярною матрицею, з рівності вище випливає $\alpha=\beta=\gamma=0$, а з цього, в свою чергу, лінійна незалежність $e_1$, $e_2$ та $e_3$
+над $\mathbb{C}$. Відповідно, рівність \ref{Eigenvectors} вище дає нам як наслідок
+\[\begin{cases}\myint{\cos^2(\tau)}=\lambda a\\
+\myint{\sin^2(\tau)}=\lambda b\\
+\myint{\frac{\sin2\tau}{2}}=\lambda c\end{cases}\]
+Використовуючи наші знання скалярних добутків векторів $e_i$, це переписується як
+\[\begin{bmatrix}
+	3\pi/4&\pi/4&0\\\pi/4&3\pi/4&0\\0&0&\pi
+\end{bmatrix}\begin{bmatrix}a\\b\\c\end{bmatrix}=\lambda\begin{bmatrix}a\\b\\c\end{bmatrix}\]
+Розраховуючи власні значення і відповідні власні вектори для матриці $3\times3$, ми маємо, що власними значеннями є: 
+$\pi$ (з відповідними незалежними векторами $(0,0,1)$ та $(1,1,0)$) та $\pi/2$ (з вектором $(1,-1,0)$).
+
+У підсумку маємо наступне. Спектром $A$ є $\mycbra{0,\pi,\pi/2}$, що співпадає з множиною власних чисел, а відповідними підпросторами власних
+векторів є $\myabra{\mycbra{\cos(n\tau),\sin(n\tau)}_{n>0,\;n\neq2}}$, $\myabra{\cos^2t+\sin^2t,\sin(2t)}$ та $\myabra{\cos^2t-\sin^2t}$.
 \begin{prob}Чи можуть наступні множини бути спектром деякого компактного оператора в $l_2$?\end{prob}
 	У випадку, коли нам треба буде довести \textit{негативний} результат (тобто, показати, що певна множина \textit{не є}
 	спектром жодного компактного оператора, ми будемо використовувати \textbf{Теорему 4.1} з глави IX
