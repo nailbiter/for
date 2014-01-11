@@ -153,7 +153,7 @@
 \[\begin{bmatrix}\lambda\int_0^{2\pi}\cos(t)\cos(t)\;dt-1&0\\0&\lambda\int_0^{2\pi}\sin(t)\sin(t)\;dt-1\end{bmatrix}
 	\begin{bmatrix}x_1\\x_2\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix}\]
 		що в свою чергу відбувається коли і тільки коли $1/\lambda=\int_0^{2\pi}\cos^2t\dt=\int_0^{2\pi}\sin^2t\dt=\pi$, а отже
-		\[x(t)=\lambda\int_0^{2\pi}\cos(2t-\tau)x(\tau)\;d\tau+y(t)\]
+		\[x(t)=\lambda\int_0^{2\pi}\cos(t+s)x(s)\ds+y(t)\]
 		має єдиний розв’язок для довільного $y\in C[0,2\pi]$ тоді і лише тоді, коли $\lambda\neq1/\pi$.
 \begin{prob}
 	Знайти характеристичні числа, відповідні власні функції та розв’язки інтегрального рівняння
