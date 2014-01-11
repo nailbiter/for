@@ -139,7 +139,7 @@
 	\[a(1+t^2)+b=\frac{3}{8}(1+t^2)(2a+2b+\frac{2}{3}a)\]
 	\[a(1+t^2)+b=\frac{3}{8}(1+t^2)(2b)+a(1+t^2)\]
 	Оскільки $1+t^2$ та $1$ незалежні в $C[-1,1]$, маємо $b=0,\;a\in\mathbb{C}$ може бути довільним. Таким чином, остаточна відповідь
-	\[x(t)=5t-7t^3+a(1+t^2),\;\forall a\in\mathbb{C}\]%TODO: check
+	\[x(t)=5t-7t^3+a(1+t^2),\;\forall a\in\mathbb{C}\]
 \begin{prob}За допомогою альтернативи Фредгольма знайти всі $\lambda\in\mathbb{C}$, при яких наступне інтегральне рівняння має єдиний
 	розв’язок при всіх $y\in C[0,2\pi]$:
 	\[x(t)=\lambda\int_0^{2\pi}\cos(t+s)x(s)\ds+y(t),\;t\in[0,2\pi]\]
@@ -148,50 +148,92 @@
 	\[x(t)=\lambda\int_0^{2\pi}\cos(t+s)x(s)\ds+y(t),\;t\in[0,2\pi]\]
 	має єдиний розв’язок для кожного $y\in C[0,2\pi]$ тоді і лише тоді, коли
 	\[x(t)=\lambda\int_0^{2\pi}\cos(t+s)x(s)\ds\]
-має лише тривіальний розв’язок. Друге рівняння, в свою чергу, має вироджене
-ядро, а отже має нетривіальні розв’язки тоді і лише тоді, коли їх має система
-\[\begin{bmatrix}\lambda\int_0^{2\pi}\cos(t)\cos(t)\;dt-1&0\\0&\lambda\int_0^{2\pi}\sin(t)\sin(t)\;dt-1\end{bmatrix}
+має лише тривіальний розв’язок. Друге рівняння, будучи рівнянням з виродженим ядром,
+має нетривіальні розв’язки тоді і лише тоді, коли їх має система
+\[\begin{bmatrix}\lambda\int_0^{2\pi}\cos(t)\cos(t)\;dt-1&0\\0&-\lambda\int_0^{2\pi}\sin(t)\sin(t)\;dt-1\end{bmatrix}
 	\begin{bmatrix}x_1\\x_2\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix}\]
-		що в свою чергу відбувається коли і тільки коли $1/\lambda=\int_0^{2\pi}\cos^2t\dt=\int_0^{2\pi}\sin^2t\dt=\pi$, а отже
+		що в свою чергу відбувається коли і тільки коли $1/\lambda\in\mycbra{
+		\int_0^{2\pi}\cos^2t\dt,-\int_0^{2\pi}\sin^2t\dt}=\mycbra{\pm\pi}$, а отже
 		\[x(t)=\lambda\int_0^{2\pi}\cos(t+s)x(s)\ds+y(t)\]
-		має єдиний розв’язок для довільного $y\in C[0,2\pi]$ тоді і лише тоді, коли $\lambda\neq1/\pi$.
+		має
+		єдиний розв’язок для довільного $y\in C[0,2\pi]$ тоді і лише тоді, коли $\lambda\notin\mycbra{\pm\myfrac{1}{\pi}}$.
 \begin{prob}
 	Знайти характеристичні числа, відповідні власні функції та розв’язки інтегрального рівняння
 	\[x(t)=\lambda\int_{0}^{\pi}\sin(t+s) x(s)\ds+\sin t,\;t\in[0;\pi]\]
 \end{prob}
-	Відповідне однорідне рівняння
-	\[x(t)=\lambda\int_{-\pi}^{\pi}\sin t\sin\tau x(\tau)\;d\tau\]
-	як і оригінальне неоднорідне, є рівнянням з виродженим ядром, а отже має нетривіальні розв’язки тоді і лише тоді, коли їх має лінійне
-	рівняння
-	\[x_1\mybra{\lambda\int_{-\pi}^\pi\sin^2 t\dt-1}=0\]
-	\[x_1\mybra{\lambda\pi-1}=0\]
-	Відповідно, $\lambda=\myfrac{1}{\pi}$ є єдиним власним числом, а $x(t)=\sin(t)/\sqrt{\pi}$ -- відповідної власною функцією.
+	Почнемо з того, що знайдемо розв’язки інтегрального рівняння. Це рівняння з виродженим ядром, адже $\sin(t+s)=\sin t\cos s+
+	\sin s\cos t$, а отже розв’язки вичерпуються функціями вигляду
+	$x(t)=\lambda x_1\sin t+\lambda x_2\cos t+\sin t$, де $x_1$ та $x_2$ задовольняють
+	\[\begin{bmatrix}
+		\lambda\int_0^\pi \sin t\cos t\dt-1 & \lambda\int_0^\pi\cos t\cos t\dt\\
+		\lambda\int_0^\pi \sin t\sin t\dt & \lambda\int_0^\pi\cos t\sin t\dt-1
+	\end{bmatrix}
+	\begin{bmatrix}x_1\\x_2\end{bmatrix}=\begin{bmatrix}-\int_0^\pi\sin t\cos t\dt\\
+		-\int_0^\pi\sin t\sin t\dt\end{bmatrix}\]
+	\[\begin{bmatrix}
+		-1&\lambda\pi/2\\
+		\lambda\pi/2&-1
+	\end{bmatrix}
+	\begin{bmatrix}x_1\\x_2\end{bmatrix}=\begin{bmatrix}0\\-\pi/2\end{bmatrix}\]
+	Ця система не має розв’язків при $\lambda=\myfrac{2}{\pi}$ і єдиний розв’язок в інших випадках, що записується як
+	\[x_1=\frac{\lambda\pi^2/4}{1-\lambda^2\pi^2/4},\;x_2=\frac{\pi/2}{1-\lambda^2\pi^2/4}\]
+	Відповідно, інтегральне рівняння не має розв’язок при $\lambda=\myfrac{2}{\pi}$ і єдиний розв’язок в іншому випадку, що
+	записується як
+	\[x(t)=\frac{\lambda^2\pi^2/4}{1-\lambda^2\pi^2/4}\sin t+\frac{\lambda\pi/2}{1-\lambda^2\pi^2/4}\cos t+\sin t\]
 
-	В свою чергу, розв’язки рівняння
-	\[x(t)=\lambda\int_{-\pi}^{\pi}\sin t\sin\tau x(\tau)\;d\tau-\sin t+\cos t,\;t\in[-\pi,\pi]\]
-	взаємно-відповідні розв’язкам системи
-	\[x_1\mybra{{\lambda}{\pi}-1}=\int_{-\pi}^\pi(\sin t-\cos t)\sin t\dt=\pi\]
-	Таким чином, рівняння
-	\[x(t)=\lambda\int_{-\pi}^{\pi}\sin t\sin\tau x(\tau)\;d\tau-\sin t+\cos t,\;t\in[-\pi,\pi]\]
-	має розв’язок \[x(t)=-\sin t+\cos t+\frac{\pi}{\lambda\pi-1}\lambda\sin t\]
-	при $\lambda\neq\myfrac{1}{\pi}$ і жодних розв’язків в іншому разі.
+	Відповідно розв’язки однорідного рівняння вичерпуються функціями вигляду
+	$x(t)=\lambda x_1\sin t+\lambda x_2\cos t$, де $x_1$ та $x_2$ задовольняють
+	\[\begin{bmatrix}
+		-1&\lambda\pi/2\\
+		\lambda\pi/2&-1
+	\end{bmatrix}
+	\begin{bmatrix}x_1\\x_2\end{bmatrix}=\begin{bmatrix}0\\0\end{bmatrix}\]
+	Ця система (а отже і відповідне однорідне інтегральне рівняння) не має нетривіальних розв’язків при 
+	$\lambda\neq\myfrac{2}{\pi}$ і розв’язки $a\begin{bmatrix}1&1\end{bmatrix}^T$ в іншому випадку.
+
+	Таким чином, для інтегрального рівняння єдиним власним значенням є $\lambda=\myfrac{2}{\pi}$ і єдиною відповідною нормованою
+	власною функцією є $x_0(t)=(\sin t+\cos t)/\sqrt{\pi}$.
 \begin{prob}
 	Довести, що функціонал є узагальненою функцією	\[f(\phi)=\int_{\mathbb{R}}e^{-x}\phi'(x)\dx,\;\phi\in\mathcal{D}(\mathbb{R})\]
 	Чи буде вона регулярною?
 \end{prob}
 \newcommand{\supp}{\mbox{supp }}
-Лінійність очевидна, залишається лише довести неперервність. Нехай $\mathcal{D}(\mathbb{R})\ni\phi_n\to\phi$. За означенням
-збіжності в $\mathcal{D}(\mathbb{R})$, $\exists r>0,\;
-\forall n\;\widetilde{B_r}(0)\supset\supp\phi_n$ і таким чином, оскільки $\supp\phi'_n\subset\supp\phi_n$, маємо
-\[f(\phi_n)=\int_{B_r(0)}e^{-x}\phi'_n(x)\dx\to\int_{B_r(0)}=\int_{B_r(0)}e^{-x}\phi'(x)\dx=\int_{\mathbb{R}}e^{-x}\phi'(x)\dx\]
-за теоремою Лебега про граничний перехід під знаком інтеграла,
-оскільки збіжність $\phi_n\to\phi$ є рівномірною на $B_r(0)$ за означенням збіжності в $\mathcal{D}(\mathbb{R})$.
+За означенням, нам треба показати, що $\phi\mapsto f(\phi)$ є лінійним неперервним функціоналом на $\mathcal{D}$. Лінійність
+випливає з лінійності інтеграла (який завжди збіжний, адже $\supp \phi$ обмежена за означенням). Покажемо неперервність.
+Нехай $\mathcal{D}(\mathbb{R})\ni\phi_n\to\phi$. За означенням
+збіжності в $\mathcal{D}$, існує $r>0$, таке що для довільного
+$n$ маємо $\supp\phi_n\subset\widetilde{B_r}(0)$ і таким чином, оскільки $\supp\phi'_n\subset\supp\phi_n$, маємо
+\[f(\phi_n)=\int_{B_r(0)}e^{-2x}\phi'_n(x)\dx\to\int_{B_r(0)}e^{-2x}\phi'(x)\dx=\int_{\mathbb{R}}e^{-2x}\phi'(x)\dx\]
+адже збіжність $\phi_n\to\phi$ є рівномірною на $B_r(0)$ за припущенням.
 
 Щодо регулярності, якщо $\phi\in\mathcal{D}(\mathbb{R})$ і $\supp\phi'\subset\supp\phi\subset[-A,A]$, причому $\phi(\pm A)=0$, використовуючи
 інтегрування частинами, маємо
-\[f(\phi)=\int_{-A}^Ae^{-x}\phi'(x)\dx=e^{-x}\phi(x)\bigg|_{-A}^A-\int_{-A}^A(-e^{-x})\phi(x)\dx=\int_{-A}^Ae^{-x}\phi(x)\dx=\int_\mathbb{R}
-e^{-x}\phi(x)\dx\]
+\[f(\phi)=\int_{-A}^Ae^{-2x}\phi'(x)\dx=e^{-2x}\phi(x)\bigg|_{-A}^A-\int_{-A}^A(-2e^{-2x})\phi(x)\dx=2\int_{-A}^Ae^{-2x}\phi(x)\dx=
+\int_\mathbb{R}2e^{-2x}\phi(x)\dx\]
 і $f$ є регулярною загальною функцією.
+\begin{prob}
+	\[f(x)=\left\{\begin{array}{ll}\cos x,\;x\leq0\\1,\;x>0\end{array}\right.,\;\mbox{$f',\;f''$--?{ в }$\mathcal{D}'(\mathbb{R})$}\]
+\end{prob}
+\begin{prob}
+	Довести
+	\[F[\frac{1}{2}(\delta_h+\delta_{-h})]=\frac{1}{\sqrt{2\pi}}\cos(hy),\;h\in\mathbb{R},\;\mbox{де}\]
+	$F$ -- перетворення Фур’є
+\end{prob}
+Нехай $\psi\in\mathcal{S}(\mathbb{R})$. Оскільки, $\myabra{F[\frac{1}{2}(\delta_h+\delta_{-h})],\psi}$ визначено як
+\[\myabra{F[\frac{1}{2}(\delta_h+\delta_{-h})],\psi}=\myabra{\frac{1}{2}(\delta_h+\delta_{-h}),F(\psi)}\]
+нам треба показати, що
+\[\myabra{\frac{1}{2}(\delta_h+\delta_{-h}),F(\psi)}=\myabra{\frac{1}{\sqrt{2\pi}}\cos(hy),\psi}\]
+Оскільки $e^{iht}+e^{-iht}=2\cos(ht)$, маємо
+\[\frac{1}{2}\cdot\frac{1}{\sqrt{2\pi}}{\int_{\mathbb{R}}\psi(t)(e^{iht}+e^{-iht})\dt}=\frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}\psi(t)
+\cos(ht)\dt\]
+Згадаємо, що $F(\psi)$ визначено як
+\[F(\psi)(s)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \psi(t)e^{its}\dt\]
+а отже
+\[\myabra{\delta_h,F(\psi)}=F(\psi)(h)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \psi(t)e^{ith}\dt\]
+і таким чином
+\[\myabra{\frac{1}{2}(\delta_h+\delta_{-h}),F(\psi)}=\frac{1}{2}\cdot\frac{1}{\sqrt{2\pi}}{\int_{\mathbb{R}}\psi(t)(e^{iht}+e^{-iht})\dt
+}=
+\myabra{\frac{1}{\sqrt{2\pi}}\cos(hy),\psi}\]
 \begin{thebibliography}{9}
 \bibitem{tb}
 Березанський Ю. М., Ус Г. Ф., Шефтель З. Г.
