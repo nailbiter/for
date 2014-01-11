@@ -1,7 +1,7 @@
-git add *.tex
-git add *.jpg
-git add *.sty
-git add *.png
+git add forlatex/*.tex
+git add forlatex/*.jpg
+git add forlatex/*.sty
+git add forlatex/*.png
 git add gospels/*.tex
 git add gospels/*.txt
 git add gospels/*.scm
