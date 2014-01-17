@@ -34,8 +34,17 @@ i)))(car ll)) (inner (inc i) (cdr ll)))))(inner 0 l))
 					    ))
 				     (mytokenize "\n\n" (myextract filename))))
 
-(define apo-list  (myformatextract "apo.tex"))
+;(define apo-list 
+(define apo-list (myformatextract "apo.tex"))
+(define apo-data (mytokenize " " (car apo-list)))
+(define apo-list (cdr apo-list))
+(define apo-list  (replace apo-list 8 apo-english-text))
+
 (define gosp-list (myformatextract "gosp.tex"))
+
+(display apo-list)
+(newline)(display data)(newline)(display (length apo-data))
+(exit);FIXME
 
 (replace-in-file "apostol.tex" (string-concatenate (list "apostol_week_" (list-ref apo-list 0) ".tex")) (mypairing
 								(map (lambda (i) (if (< i 0) "" (list-ref apo-list i)))
