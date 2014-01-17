@@ -3,8 +3,8 @@
 (use-modules (ice-9 popen))
 (use-modules (ice-9 format))
 
-(define (dec n) (- n 1))
-(define (inc n) (+ n 1))
+(include "s3_aux.scm")
+
 (define (mytokenize regexp str) (define cr (make-regexp regexp))
   (define (inner str start) 
     (if (<= (string-length str) start) '()
