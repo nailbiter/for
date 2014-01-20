@@ -1,0 +1,98 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,russian,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+\usepackage{cancel}
+
+\newtheorem{prob}{Завдання}
+\newcommand{\ds}{\;ds}
+\newcommand{\dt}{\;dt}
+\newcommand{\dx}{\;dx}
+\newcommand{\dta}{\;d\tau}
+\let\oldint\int
+\renewcommand{\int}{\oldint\limits}
+\let\phi\varphi
+\newcommand{\extr}{\mbox{\normalfont extr}}
+
+\usepackage{mystyle}
+
+\newtheorem{myulem}[mythm]{Лема}
+
+\renewenvironment{myproof}[1][Доведення]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\myqed\end{trivlist}}
+
+\title{}
+\author{Олексій Леонтьєв}
+
+\begin{document}
+\maketitle
+\begin{prob}{\normalfont 5.3}\; $\int_0^1((x')^2+x^2)\dt\to\extr,\quad x(0)=0,\;x(1)=1$\end{prob}
+Як і в усіх проблемах нижче, ми припустимо, що пошук екстремума ведеться на множині неперервно диференційованих функцій $C^1([0,1],\mathbb{R})$,
+що задовольняють граничні умови.
+
+За Теоремою 5.1 з \cite{tb} (оскільки $L(x,x',t)=(x')^2+x^2$ має неперервні похідні по всіх аргументах)
+маємо, що екстремум може досягатися лише функцією, що задовольняє рівняння Ейлера, яке в даному разі пишеться як
+\[x-x''=0\iff x(t)=ae^t+be^{-t}\]
+Граничні умови приводять до
+\[\begin{cases}a+b=0\\ae+be^{-1}=1\end{cases}\]
+\[a=\frac{e}{e^2-1},\;b=-\frac{e}{e^2-1}\]
+\[x(t)=\frac{e}{e^2-1}(e^t-e^{-t})\]
+
+Помітимо, що максимума в задачі бути не може, адже за даних граничних умов навіть $\int_0^1x^2\dt$ може бути зробленим нескінченно
+великим, підставляючи параболи в ролі $x(t)$. Щодо мінімуму, то він існує, і знайдена вище функція $x(t)$ якраз ним і є. Дійсно, нехай
+існує інша функція $x^*(t)$, що задовольняє ті ж граничні умови і дає менше значення функціоналу. Тоді $x^*=x+h$, де $h(0)=h(1)=0$ і ми маємо
+\[\int_0^1\mybra{\frac{e}{e^2-1}(e^t-e^{-t})+h(t)}^2+\mybra{\frac{e}{e^2-1}(e^t+e^{-t})+h'(t)}^2\dt\leq\]
+\[\leq\int_0^1\mybra{\frac{e}{e^2-1}(e^t-e^{-t})}^2+\mybra{\frac{e}{e^2-1}(e^t+e^{-t})}^2\dt\]
+\[\int_0^1(h^2(t)+h'^2(t))\dt+2\frac{e}{e^2-1}\int_0^1(e^t-e^{-t})h(t)+(e^t+e^{-t})h'(t)\dt\leq0\]
+Помітимо, що враховуючи $h(0)=h(1)=0$ і виконуючи інтегрування частинами, отримуєм
+\[\int_0^1e^th'(t)\dt=\cancel{e^th(t)\bigg|_0^1}-\int_0^1e^th(t)\dt\]
+\[\int_0^1e^{-t}h'(t)\dt=\cancel{e^{-t}h(t)\bigg|_0^1}+\int_0^1e^{-t}h(t)\dt\]
+і таким чином другий доданок в нерівності вище знищується, ми маємо
+\[\int_0^1h^2(t)+h'^2(t)\dt\leq0\implies h(t)\equiv0\implies x=x^*\]
+\begin{prob}{\normalfont 5.19}\; $\int_0^1(x'_1x'_2+6tx_1+12t^2x_2)\dt\to\extr,\quad x_1(0)=x_2(0)=0,\;x_1(1)=x_2(1)=1$
+\end{prob}
+Як і попередня задача, ця не має максимуму, адже для $(x_1(t),x_2(t))=(f(t),f(t))$, де $f(t)$ -- (єдина) парабола, що задовольняє 
+$f(0)=0$, $f(1)=1$, $f(1/2)=A>1$, маємо $f(t)\geq0$ на $[0,1]$, $x'_1x'_2=(f'(t))^2\geq0$, і значення функціонала прямує до нескінченності при
+$A\to\infty$. Щодо мінімуму, його також не існує, адже для $x_1(t):=t-A\sin\pi t$ та $x_2(t):=t+A\sin\pi t$, що задовольняють граничним
+умовам, маємо
+\[\int_0^1(x'_1x'_2+6tx_1+12t^2x_2)\dt=\]
+\[=\int_0^1(1-A\pi\cos\pi t)(1+A\pi\sin\pi t)+6t(t-A\pi\cos\pi t)+12t^2(t+A\pi\sin\pi t)\dt=\]
+\[=1-A^2\int_0^1\pi^2\cos^2\pi t\dt-A\int_0^16t\pi\sin\pi t\dt+A\int_0^112t^2\pi\sin\pi t\dt+\int_0^1(6t^2+12t^3)\dt\]
+і останній вираз прямує до $-\infty$ при $A\to+\infty$, тому мінімуму також не існує.
+\begin{prob}{\normalfont 5.36}\; $\int_1^2t^2(x')^2\dt+2x(1)+x^2(2)\to\extr$
+\end{prob}
+Помітимо, що це функціонал не має максимуму. Тому ми лише можемо шукати мінімум.
+Запишемо рівняння Ейлера та умови трансверсальності
+\[\begin{cases}
+	0=4tx'+2t^2x''\iff 2x'+tx''=0\iff x+tx'=C\iff tx(t)=Ct+D\\
+	2x'(1)=2\implies D=-1\\
+	8x'(2)=-2x(2)\implies C=-\frac{1}{2}
+\end{cases}\]
+Щоби показати, що знайдене дійсно є мінімумом. Це так, адже для $-1/2-1/t+h(t)$ і з припущення, що це не збільшує значення функціонала, маємо
+\[\int_1^2t^2\mybra{\frac{2h'}{t^2}+(h')^2}\dt+2h(1)-2h(2)+h^2(2)\leq0\]
+\[\cancel{2\int_1^2h'(t)\dt}+\int_1^2t^2\mybra{(h')^2}\dt+\cancel{2h(1)}-\cancel{2h(2)}+h^2(2)\leq0\implies h'(t)\equiv h(2)=0\implies h(t)\equiv0\]
+\begin{prob}{\normalfont 9.18}\; $\int_0^1x^2(x')^2\dt\to\extr,\quad x(0)=1,\;x(1)=\sqrt{2}$
+\end{prob}
+\begin{prob}{\normalfont 9.37}\; $\int_0^{\frac{\pi}{4}}(4x^2-(x')^2)\dt\to\extr,\quad x(0)=1,\;x(\pi/4)=0$
+\end{prob}
+\begin{thebibliography}{9}
+\bibitem{tb}
+Моклячук М. П. \emph{Варіаційне числення. Екстремальні задачі.} --
+Київ: 2003. 380 с.
+\end{thebibliography}
+\end{document}
