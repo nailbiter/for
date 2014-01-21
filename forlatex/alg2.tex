@@ -166,19 +166,19 @@
 				\[A:=\begin{pmatrix}-p&-q\\1&0\end{pmatrix}\]will clearly have $p_A=p$. Let us proceed to show
 				it is injective. Suppose for some $A,\;B\in M_2(F)$, $p_A=p_B\in F[x]$
 				is monic irreducible and let us show that $[A]=[B]$. Let us open with preliminary lemma.
-				\begin{lemma}Let $A\in M_2(F)$ then, we can define $M_A$ -- $F[x]$-module, associated with $A$. We define
+				\begin{mylem}Let $A\in M_2(F)$ then, we can define $M_A$ -- $F[x]$-module, associated with $A$. We define
 					the vectors to be usual column vectors $\begin{bmatrix}u&v\end{bmatrix}^t,\;u,v\in F$ with addition defined
 					in a usual way and multiplication defined as
 					\[(a_0+a_1x+\dots+a_nx^n)\cdot\begin{bmatrix}u\\v\end{bmatrix}:=a_0\begin{bmatrix}u\\v\end{bmatrix}+
 						a_1A\begin{bmatrix}u\\v\end{bmatrix}+\dots+a_nA^n\begin{bmatrix}u\\v\end{bmatrix}\]
 					Then, if for $A,\;B\in M_2(F)$ we have $M_A$ and $M_B$ are isomorphic as modules, then $A$ and $B$ are similar.
-					\end{lemma}
-				\begin{proof}Assume that $M_A$ and $M_B$ are indeed isomorphic, so we have a ring homomorphism. As it is linear and have
+					\end{mylem}
+				\begin{myproof}Assume that $M_A$ and $M_B$ are indeed isomorphic, so we have a ring homomorphism. As it is linear and have
 					both domain and codomain are column vectors, it can be described as $T\in M_2(F)$ and thus we have, in particular for every
 					column vector $u$, $T(x\cdot u)=x\cdot T(u)\implies TAu=BTu$ and as this holds for every column vector, we have
 					matrix equality $TA=BT$. Now, as ring homomorphism that $T$ represents is in fact isomorphism, $T$ should be invertible, hence
 					$TAT^{-1}=B$ and thus $A$ and $B$ are similar.
-				\qed\end{proof}
+				\myqed\end{myproof}
 				Restating what we are targeting to prove now, we want to show that if $p_A=p_B$ monic irreducible of a second degree
 				we have $[A]=[B]$, that is $A$ and $B$ are similar.
 				Consider $M_A$ module, introduced in the statement of a lemma. Note, that by Cayley-Hamilton theorem, $p_A(A)=0$, that is if
