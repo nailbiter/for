@@ -25,6 +25,7 @@
 \newcommand{\dt}{\;dt}
 \newcommand{\dx}{\;dx}
 \newcommand{\dv}{\;dv}
+\newcommand{\dpp}{\;dp}
 \newcommand{\dta}{\;d\tau}
 \let\oldint\int
 \renewcommand{\int}{\oldint\limits}
@@ -132,9 +133,31 @@
 	\[F'(v_0)=0\iff \frac{d}{dv}\mybra{v^2\exp\mybra{-\frac{mv^2}{2kT}}}\bigg|_{v_0}=0\]
 	\[2v\cancel{\exp(\hdots)}-v^2\frac{2mv}{2kT}\cancel{\exp(\hdots)}=0\]
 	\[v=\sqrt{\frac{2kT}{m}}=\sqrt{\frac{2P_0V}{\nu m}}=\sqrt{\frac{2P_0}{\rho}}\]
-	Середня швидкість розраховується як
-	\[\myabra{v}=\int_0^{\infty}vF(mv)\dv=\sqrt{\frac{2}{\pi}}\mybra{mkT}^{-\myfrac{3}{2}}m^2\int_0^\infty v^3\exp\mybra{-\frac{mv^2}{2kT}}\dv=\]
-	\[=\sqrt{\frac{2}{\pi}}\mybra{mkT}^{-\myfrac{3}{2}}{m^2}\mybra{\frac{kT}{{m}}}^2\int_0^\infty x^3\exp(-x^2/2)\dx=\]
-	\[=\sqrt{\frac{2}{\pi}}\mybra{m^2\frac{P_0}{\rho}}^{-\frac{3}{2}}m^2\mybra{\frac{P_0}{\rho}}^2\int_0^\infty x^3\exp(-x^2/2)\dx\]
+	Щоб знайти середню швидкість ми почнемо з того, що знайдемо середній імпульс
+	\[\myabra{p}=\int_0^{\infty}pF(p)\dpp=\sqrt{\frac{2}{\pi}}\mybra{mkT}^{-\myfrac{3}{2}}
+	\int_0^\infty p^3\exp\mybra{-\frac{p^2}{2mkT}}\dpp=\begin{vmatrix}x:=p/\sqrt{mkT}\\dx=dp/\sqrt{mkT}\end{vmatrix}=\]
+	\[=\sqrt{\frac{2}{\pi}}(mkT)^{-\frac{3}{2}}(mkT)^2\int_0^\infty x^3e^{-x^2}\dx=
+	\begin{vmatrix}t:=x^2/2\\dt=x\;dx\end{vmatrix}=\]
+	\[=2\sqrt{\frac{2}{\pi}}\sqrt{mkT}\underbrace{\int_0^\infty te^{-t}\dt}_{=\Gamma(2)=1}=\]
+	\[=2m\sqrt{\frac{2P_0}{\rho}}\]
+	і таким чином, оскільки масу кожної частинки ми вважаємо однаковою
+	\[\myabra{v}=\frac{\myabra{p}}{m}=2\sqrt{\frac{2P_0}{\rho}}\]
+	І нарешті, визначимо середній квадратичний імпульс
+	\[\sqrt{\myabra{p^2}}=\sqrt{\int_0^\infty p^2F(p)\dpp}=\sqrt{\sqrt{\frac{2}{\pi}}(mkT)^{-\frac{3}{2}}(mkT)^{\frac{5}{2}}
+	\int_0^\infty x^4e^{-x^2/2}\dx}=\]
+	\[=\sqrt{\sqrt{\frac{\cancel{2}}{\bcancel{\pi}}}mkT\cancel{2}\cancel{\sqrt{2}}\underbrace{\int_0^\infty t^{\frac{3}{2}}e^{-t}\dt}_{=\Gamma(5/2)=\frac{3}{\cancel{4}}
+	\sqrt{\bcancel{\pi}}}}=\sqrt{3mkT}=m\sqrt{\frac{3P_0}{\rho}}\]
+	і таким чином, оскільки масу кожної частинки вважаємо однаковою,
+	\[\sqrt{\myabra{v^2}}=\frac{\sqrt{\myabra{p^2}}}{m}=\sqrt{\frac{3P_0}{\rho}}\]
 \begin{prob}\end{prob}%10
+	Це неважко -- ми позначимо за $m_1$ та $m_2$ масу частинки гелію та водню відповідно
+	\[F^{(v)}_1(v)=F^{(v)}_2(m_2v)\]
+	Оскільки Максвеллівська функція розподілу швидкостей $F^{(v)}(v)$ записується як
+	\[F^{(v)}(v)=\sqrt{\mybra{\frac{m}{2\pi kT}}^3}4\pi v^2\exp\mybra{-\frac{mv^2}{2kT}}\]
+	маємо
+	\[\sqrt{\mybra{\frac{m_1}{\cancel{2\pi kT}}}^3}\bcancel{4\pi v^2}\exp\mybra{-\frac{m_1v^2}{2kT}}
+	=\sqrt{\mybra{\frac{m_2}{\cancel{2\pi kT}}}^3}\bcancel{4\pi v^2}\exp\mybra{-\frac{m_2v^2}{2kT}}\]
+	\[\exp\mybra{-\frac{(m_1-m_2)v^2}{2kT}}=\mybra{\frac{m_2}{m_1}}^{\frac{3}{2}}\]
+	\[{-\frac{(m_1-m_2)v^2}{2kT}}=\frac{3}{2}\ln{\frac{m_2}{m_1}}\]
+	\[v=\sqrt{\frac{3kT\ln(m_2/m_1)}{m_2-m_1}}\]
 \end{document}
