@@ -27,7 +27,7 @@
 
 (define (rusname2engname rusname) (get-value (list 
                    (cons "Гал" "Galatians")(cons "Кор" "Corinthians")
-                   (cons "Мк" "Mark")(cons "Кор" "Corinthians")
+                   (cons "Мк" "Mark")(cons "1 Кор" "1 Corinthians")
                                             ) rusname))
 
 (define (parse-russian-title text) (let* ((tokenized1 (mytokenize " *, *" text))
@@ -40,8 +40,9 @@
 
 (define (get-apo-english-text name chapter verse-start verse-end)
   (let* ((source  (string-concatenate (list "http://www.kingjamesbibleonline.org/book.php?book="
-                                                           (rusname2engname name) "&chapter=" chapter "&verse=")))
-         ;(lines (map match:substring (list-matches "[a-z]+" "abc 42 def 78")))
+                                                           (rusname2engname (string-map (lambda (char) 
+                                                            (if (eq? char #\b) #\+ char)) name)) "&chapter=" chapter "&verse=")))
+         (lines (map match:substring (list-matches "[a-z]+" "abc 42 def 78")))
          )
     "tesi me"));TODO
 (define gosp-english-text "");TODO
