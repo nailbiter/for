@@ -25,19 +25,15 @@ i)))(car ll)) (inner (inc i) (cdr ll)))))(inner 0 l))
 				     (mytokenize "\n\n" (myextract filename))))
 
 (define apo-list (myformatextract "apo.tex"))
-(define apo-list (let* ((readings-list (parse-russian-title (list-ref apo-list 4))))
-  (replace apo-list 8 (get-apo-english-text (list-ref readings-list 0) (list-ref readings-list 1) (list-ref readings-list 2) 
+(define apo-list 
+(let* ((readings-list (parse-russian-title (list-ref apo-list 4))))
+(replace apo-list 8 (get-apo-english-text (list-ref readings-list 0) (list-ref readings-list 1) (list-ref readings-list 2) 
                                             (list-ref readings-list 3)))))
 
 (define gosp-list (myformatextract "gosp.tex"))
 
-;(display (list-ref apo-list 8))
-;(download2string "http://www.kingjamesbibleonline.org/book.php?book=Ephesians&chapter=2&verse=")
-(display (string-concatenate (list (read-delimited "" (open-input-pipe (string-concatenate (list "wget -O - "
-                                                   "www.google.com")))) " tesi")))
-;(begin (display 42)(newline)(wait 5)(display 777))
-(newline)
-(newline)
+(display (list-ref apo-list 8))
+;(display (string-length (download2string "http://www.kingjamesbibleonline.org/book.php?book=Ephesians&chapter=2&verse=")))
 (newline)
 (exit);FIXME
 
