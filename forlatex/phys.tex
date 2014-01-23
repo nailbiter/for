@@ -1,0 +1,140 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,russian,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+\usepackage{cancel}
+\usepackage{enumerate}
+
+\newtheorem{prob}{Завдання}
+\newcommand{\ds}{\;ds}
+\newcommand{\dt}{\;dt}
+\newcommand{\dx}{\;dx}
+\newcommand{\dv}{\;dv}
+\newcommand{\dta}{\;d\tau}
+\let\oldint\int
+\renewcommand{\int}{\oldint\limits}
+\let\phi\varphi
+\newcommand{\extr}{\mbox{\normalfont extr}}
+
+\usepackage{mystyle}
+
+\newtheorem{myulem}[mythm]{Лема}
+
+\renewenvironment{myproof}[1][Доведення]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\myqed\end{trivlist}}
+
+\title{Методи мат. фізики (9 семестр)}
+\author{Олексій Леонтьєв}
+
+\begin{document}
+\maketitle
+\begin{prob}\end{prob}
+	По-перше, ми покажемо, що \[C_V=\frac{nR}{\gamma-1}\]
+	де $n$ -- кількість газу в молях. Для цього, в свою чергу, достатньо показати, що $C_P-C_V=nR$ (і застосувати потім дане $C_P/C_V=\gamma$
+	як друге рівняння). Дійсно, різниця між нагріванням із сталим об’ємом і сталим тиском в тому, що в останньому буде здійснюватися робота по
+	підйому поршня, рівна $PdV=nRdT$. Таким чином, $C_PdT-C_VdT=A=PdV=nRdT\implies C_P-c_V=nR$.
+
+	Далі, при зупинці кінетична енергія газу спадає на $\frac{nMv^2}{2}$, а оскільки система замкнена, внутрішня енергія має зрости на цю
+	величину, таким чином
+	\[dT=\frac{dQ}{C_V}=\frac{Mv^2(\gamma-1)}{2}\]
+\begin{prob}\end{prob}
+	Ми припустимо, що на початку система знаходилась в рівновазі, поршень не рухався, а отже тиск навколишнього середовища рівний початковому
+	тиску газу $P_0$. В процесі зміни об’єму, тиск газу буде змінюватися як функція від поточного об’єму $P=P(V)$ і таким чином, ми
+	будемо виконовути роботу проти тиску $P_0-P(V)$ 
+	Оскільки  взаємозв’язок трьох параметрів $P$, $T$ та $V$ описується рівнянням
+	\[PV=\nu RT=1\cdot RT\]
+	робота, таким чином, рівна 
+	\[A=\int_{V_0}^{nV_0}(P_0-P(V))dV=(n-1)P_0V_0-\int_{V_0}^{nV_0}\frac{RTdV}{V}=(n-1)RT_0-RT\ln n=RT_0(n-1-\ln n)\]
+\begin{prob}\end{prob}
+	Перший закон термодинаміки записується як
+	\[dQ=dU+dA\]
+	і проінтерпретувавши умову задачі як $dQ=-dU$ маємо
+	\[C=\frac{dQ}{dT}=-\frac{dU}{dT}=-C_V=-\frac{\nu R}{\gamma-1}-\frac{1\cdot R}{\gamma-1}\]
+	що дає відповідь на перше питання задачі, а підставляючи $dQ=-dA$ в перший закон маємо
+	\[dA=-2dU\]
+	\[PdV=-2C_VdT\]
+	\[\frac{ \cancel{\nu}\cancel{ R}T}{V}dV=-\frac{2\cancel{\nu}\cancel{ R}}{\gamma-1}dT\]
+	\[\frac{\gamma-1}{2}\frac{dV}{V}+\frac{dT}{T}=0\]
+	інтегруючи, отримуємо
+	\[\frac{\gamma-1}{2}\ln V+\ln T=const\]
+	\[V^{\frac{\gamma-1}{2}}T=const\]
+\begin{prob}\end{prob}
+	Якщо $C=C_V+\alpha T$, записуючи перший закон термодинаміки маємо
+	\[\nu (\cancel{C_V}+\alpha T)dT=PdV+\cancel{\nu C_VdT}\]
+	\[\cancel{\nu}\alpha \cancel{T}dT=\frac{\cancel{\nu} R\cancel{T}dV}{V}\]
+	Інтегруючи, маємо
+	\[-\alpha T+R\ln V=const\]
+	\[e^{-\alpha T}V^R=const\]
+	\[e^{-\alpha T/R}V=const\]
+
+	Якщо $C=C_V+\beta V$, записуючи перший закон термодинаміки маємо
+	\[\nu (\cancel{C_V}+\beta V)dT=PdV+\cancel{\nu C_VdT}\]
+	\[\cancel{\nu}\beta VdT=\frac{\cancel{\nu}RTdV}{V}\]
+	Інтегруючи, маємо
+	\[\beta\ln T+\frac{R}{V}=const\]
+	\[Te^{R/\beta V}=const\]
+
+	Якщо $C=C_V+\gamma P$, записуючи перший закон термодинаміки маємо
+	\[\nu (\cancel{C_V}+\gamma P)dT=PdV+\cancel{\nu C_VdT}\]
+	\[\nu\gamma \cancel{P}dT=\cancel{P}dV\]
+	Інтегруючи, маємо
+	\[V-\nu\gamma T=const\]
+	\setcounter{prob}{0}
+\begin{prob}\end{prob}%5
+	\begin{enumerate}[a)]
+		\item Записуючи перший закон термодинаміки і враховуючи, що $dV=0$, маємо
+			\[TdS=dU+\cancel{PdV}\]
+			\[dS=C_V\frac{dT}{T}=\frac{1\cdot R}{\gamma-1}\frac{dT}{T}\]
+			\[\Delta S=\int_T^{nT}dS=\frac{R}{\gamma-1}\ln n\]
+		\item Записуючи перший закон термодинаміки і враховуючи, що $P=const$, маємо
+			\[TdS=dU+\cancel{PdV}=C_VdT+PdV=C_PV\]
+			В першому завданні ми показали, як можна розрахувати $C_V$. Той же метод дозволяє порахувати $C_P$ і ми отримуємо
+			\[dS=C_P\frac{dT}{T}=\frac{1\cdot\gamma R}{\gamma-1}\frac{dT}{T}\]
+			\[\Delta S=\int_T^{nT}dS=\frac{\gamma R}{\gamma-1}\ln n\]
+	\end{enumerate}
+\begin{prob}\end{prob}%6
+	\[CdT=TdS\implies C=T\mybra{\frac{dT}{dS}}^{-1}=\frac{aS^n}{anS^{n-1}}=S/n\]
+	і відповідно $S<0\iff n<0$.
+\begin{prob}\end{prob}%7
+	Оскільки ентропія системи є сумою ентропій підсистем, те ж саме вірне і для змін ентропії. Таким чином, треба лише обчислити
+	зміну ентропії міді і води окремо, а потім додати їх. За першим законом термодинаміки,
+	\[TdS=CdT\implies \Delta S=C\int_{T_0}^{T_1}\frac{dT}{T}=C\ln\frac{T_1}{T_0}\]
+	і таким чином, якщо ми позначимо температуру після вирівнювання за $T$ (її ми обчислимо нижче), матимемо
+	\[\Delta S=m_1C_1\ln\frac{T}{T_1}+m_2C_2\ln\frac{T}{T_2}\]
+	температура ж після вирівнювання розраховується за допомогою того факту, що загальна енергія системи не змінилася, а отже
+	\[m_1C_1T+m_2C_2T=m_1C_1T_1+m_2C_2T_2\implies T=\frac{m_1C_1T_1+m_2C_2T_2}{m_1C_1+m_2C_2}\]
+\begin{prob}\end{prob}%8
+	Ми можемо вважати, що вирівнювання температур проходить ізохорично, наприклад, після відкриття крану, гази розділені тонкою теплопровідною
+	плівкою. Таким чином, теплоємність незмінна і рівна $C_V$, а задача дуже схожа із попередньою. Фінальна температура після вирівнювання
+	рівна півсуми $T_1$ і $T_2$, а зміна ентропії
+	\[\Delta S=C_V\ln\frac{T}{T_1}+C_V\ln\frac{T}{T_2}=C_V\ln\frac{T^2}{T_1T_2}=C_V=\ln\frac{(T_1+T_2)^2}{4T_1T_2}\]
+\setcounter{prob}{0}
+\begin{prob}\end{prob}%9
+	Розподіл Максвела для імпульсу записується як
+	\[F(p)=\sqrt{\frac{2}{\pi}}\mybra{mkT}^{-\myfrac{3}{2}}p^2\exp\mybra{-\frac{p^2}{2mkT}}\]
+	де $m$ позначає молярну масу. Для початку, знайдемо найбільш ймовірну швидкість $v_0$. Оскільки вона має максимізувати $F(p)$, за
+	теоремою Ферма маємо (пам’ятаймо, що $p=mv$)
+	\[F'(v_0)=0\iff \frac{d}{dv}\mybra{v^2\exp\mybra{-\frac{mv^2}{2kT}}}\bigg|_{v_0}=0\]
+	\[2v\cancel{\exp(\hdots)}-v^2\frac{2mv}{2kT}\cancel{\exp(\hdots)}=0\]
+	\[v=\sqrt{\frac{2kT}{m}}=\sqrt{\frac{2P_0V}{\nu m}}=\sqrt{\frac{2P_0}{\rho}}\]
+	Середня швидкість розраховується як
+	\[\myabra{v}=\int_0^{\infty}vF(mv)\dv=\sqrt{\frac{2}{\pi}}\mybra{mkT}^{-\myfrac{3}{2}}m^2\int_0^\infty v^3\exp\mybra{-\frac{mv^2}{2kT}}\dv=\]
+	\[=\sqrt{\frac{2}{\pi}}\mybra{mkT}^{-\myfrac{3}{2}}{m^2}\mybra{\frac{kT}{{m}}}^2\int_0^\infty x^3\exp(-x^2/2)\dx=\]
+	\[=\sqrt{\frac{2}{\pi}}\mybra{m^2\frac{P_0}{\rho}}^{-\frac{3}{2}}m^2\mybra{\frac{P_0}{\rho}}^2\int_0^\infty x^3\exp(-x^2/2)\dx\]
+\begin{prob}\end{prob}%10
+\end{document}
