@@ -1,8 +1,11 @@
+(include "../forscheme/misc.scm")
+
 (define eng_hash (list (list 1 2) (list 3 4)))
 (define (dec n) (- n 1))
 (define (inc n) (+ n 1))
 (define (replace l num elem) (if (<= num 0) (cons elem (cdr l)) (cons (car l) (replace (cdr l) (dec num) elem))))
-(define (get-value l key) (if (string=? key (car (car l))) (cdr (car l)) (get-value (cdr l) key)))
+(define (get-value l key) (if (null? l) (string-concatenate (list "not found:" key))
+                            (if (string=? key (car (car l))) (cdr (car l)) (get-value (cdr l) key))))
 
 
 (define (mytokenize regexp str) (define cr (make-regexp regexp))
@@ -29,6 +32,9 @@
                    (cons "Гал" "Galatians")(cons "Кор" "Corinthians")
                    (cons "Мк" "Mark")(cons "1 Кор" "1 Corinthians")
                                             ) rusname))
+(define (rusname2chiname rusname) (get-value (list 
+                   (cons "Гал" "Galatians");TODO
+                                            ) rusname))
 
 (define (parse-russian-title text) (let* ((tokenized1 (mytokenize " *, *" text))
                                      (name (string-filter (lambda (char) (not (eq? #\. char))) (list-ref tokenized1 0)))
@@ -38,11 +44,18 @@
                                      (verse-end (string-filter (lambda (char) (not (eq? #\. char)))  (cadr verses)))
                                      )(list name chapter verse-start verse-end)))
 
-(define (get-apo-english-text name chapter verse-start verse-end)
-  (let* ((source  (string-concatenate (list "http://www.kingjamesbibleonline.org/book.php?book="
-                                                           (rusname2engname (string-map (lambda (char) 
-                                                            (if (eq? char #\b) #\+ char)) name)) "&chapter=" chapter "&verse=")))
-         (lines (map match:substring (list-matches "[a-z]+" "abc 42 def 78")))
+(define (get-rdg-english-text name chapter verse-start verse-end)
+(let* ((source  (download2string (string-concatenate (list "\"http://www.kingjamesbibleonline.org/book.php?book=" (string-map (lambda (char) 
+                                                    (if (char=? char #\space) #\+ char)) (rusname2engname name)) "&chapter=" chapter "&verse=\""))))
+         (lines (mytokenize "</a>" source))
+         (lines (flatten (map (lambda (s) (mytokenize "<a href=\"" s)) lines)))
+         (lines (filter (lambda (line) (regexp-match? (string-match "View more translations of" line))) lines))
+         (lines (map (lambda(line)(cons (substring (match:substring (string-match ":[0-9]+" line)) 1)(match:suffix (string-match ">" line)))) lines))
+         (lines (filter (lambda (pair) (<= (string->number verse-start)(string->number (car pair))(string->number verse-end))) lines))
+         (lines (map (lambda(pair)(string-concatenate (list (cdr pair) "\n"))) lines))
          )
-    "tesi me"));TODO
-(define gosp-english-text "");TODO
+        (string-concatenate lines)
+    ))
+(define (get-eng-title name chapter verse-start verse-end) (string-concatenate (list (rusname2engname name) " "  chapter ":"
+                                                                                     verse-start " -- "  chapter ":" verse-end ".")))
+(define (get-chi-title name chapter verse-start verse-end) "chi_name_stub")
