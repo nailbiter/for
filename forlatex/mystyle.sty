@@ -1,3 +1,26 @@
+\RequirePackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\RequirePackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\RequirePackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\RequirePackage[english,russian,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+\RequirePackage{amsthm}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{graphicx}
+\RequirePackage[pdftex]{hyperref}
+\RequirePackage{caption}
+\RequirePackage{harpoon}
+\RequirePackage{subfig}
+\RequirePackage{fancyhdr}
+\RequirePackage{cancel}
+\RequirePackage{wasysym}
+
+\RequirePackage{enumerate}
+
 %ukrainian alphabetic counter
 \newcommand*{\myralph}[1]{\@myralph{\@nameuse{c@#1}}}
 \newcommand*{\@myralph}[1]%
@@ -29,6 +52,13 @@
 \newcommand{\myexplain}[1]{\mbox{ (\textit{#1})}}
 \newcommand{\myr}[1]{\mathbb{R}^{#1}}
 \newcommand{\mys}[1]{\mathbb{S}^{#1}}
+
+\let\oldint\int
+\renewcommand{\int}{\oldint\limits}
+
+%more conventional phi
+\let\oldphi\phi
+\let\phi\varphi
 
 %put subscript under lim and others
 \let\oldlim\lim

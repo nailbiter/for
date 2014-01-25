@@ -1,24 +1,5 @@
 \documentclass[12pt]{article} % use larger type; default would be 10pt
-
-\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
-                                          % (mathtext.sty входить в пакет t2).
-\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
-                                          % вказане останнім діє по замовчуванню;
-                                          % кириличне має співпадати з заданим в ukrhyph.tex.
-\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
-                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
-\usepackage[english,russian,ukrainian]{babel} % національна локалізація; може бути декілька
-                                          % мов; остання з переліку діє по замовчуванню. 
-\usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{graphicx}
-\usepackage[pdftex]{hyperref}
-\usepackage{caption}
-\usepackage{subfig}
-\usepackage{fancyhdr}
-\usepackage{cancel}
-\usepackage{enumerate}
+\usepackage{mystyle}
 
 \newtheorem{prob}{Завдання}
 \newcommand{\ds}{\;ds}
@@ -27,12 +8,6 @@
 \newcommand{\dv}{\;dv}
 \newcommand{\dpp}{\;dp}
 \newcommand{\dta}{\;d\tau}
-\let\oldint\int
-\renewcommand{\int}{\oldint\limits}
-\let\phi\varphi
-\newcommand{\extr}{\mbox{\normalfont extr}}
-
-\usepackage{mystyle}
 
 \newtheorem{myulem}[mythm]{Лема}
 
@@ -160,4 +135,106 @@
 	\[\exp\mybra{-\frac{(m_1-m_2)v^2}{2kT}}=\mybra{\frac{m_2}{m_1}}^{\frac{3}{2}}\]
 	\[{-\frac{(m_1-m_2)v^2}{2kT}}=\frac{3}{2}\ln{\frac{m_2}{m_1}}\]
 	\[v=\sqrt{\frac{3kT\ln(m_2/m_1)}{m_2-m_1}}\]
+\begin{prob}\end{prob}%11
+	Оскільки гравітаційне поле однорідне, то потенціальна енергія залежить лише від висоти $h$ і рівна $U(h)=gh$, де $g$ -- довільна
+	константа. Таким чином, за розподілом Больцмана, густина ймовірності записується як
+	\[\rho(\myvec{r})=C\exp(-\frac{gh}{kT})\]
+	і оскільки геометрія циліндра не змінюється з висотою, ми можемо вважати (змінивши $C$) вираз вище відносною концентрацією по висоті,
+	тобто $\rho(h)\;dh$ -- це процент частинок, що знаходяться на висоті $[h,h+dh]$, і $C$, таким чином, визначається з умови
+	\[\int_0^\infty C\exp(-\frac{gh}{kT})\;dh=1\]
+	Таким чином,
+	\[\myabra{U}=\int_0^\infty U(h)\rho(h)\;dh=\int_0^\infty ghC\exp(-\frac{gh}{kT})\;dh=\underbrace{
+	-ghC\frac{kT}{g}\exp(-\frac{gh}{kT})\bigg|_0^\infty}_{=0-0=0}
+	+\int_0^\infty \cancel{g}C\frac{kT}{\cancel{g}}\exp(-\frac{gh}{kT})\;dh=\]
+	\[=kT\int_0^\infty C\exp(-\frac{gh}{kT})\;dh=kT\]
+\begin{prob}\end{prob}%12
+	Помітимо, що концентрація, за законом Больцмана, записується як
+	\[\rho(r)=C\exp(-\frac{\alpha r^2}{kT})\]
+	Але кількість молекул, що знаходяться на відстані $[r,r+dr]$ записується трохи по-іншому -- нам треба густину помножити на 
+	об’єм простору, що знаходиться на відстані $[r,r+dr]$, тобто різницю об’ємів шарів розмірів $r$ та $r+dr$, тобто $d(\frac{4}{3}\pi r^3)=
+	4\pi r^2\;dr$, тобто число записується як (константа $C$ вже інша)
+	\[\nu(r)=4C\pi r^2\exp(-\frac{\alpha r^2}{kT})\]
+	Щоб знайти найбільше значення $\nu(r)$, нам треба прирівняти похідну до нуля (відкидаючи константи)
+	\[\frac{d}{dr}\mybra{r^2\exp(-\frac{\alpha r^2}{kT})}=0\]
+	\[2 r\exp(\hdots)-\frac{2 \alpha r^3}{kT}\exp(\hdots)=0\]
+	\[r=\sqrt{\frac{kT}{\alpha}}\]
+\section{Електродинаміка}
+\subsection{Електростатичне поле в вакуумі}
+\setcounter{prob}{0}
+\begin{prob}\end{prob}%13
+	За законом Кулона,
+	\[\myvec{E}=\int_0^{2\pi}\underbrace{\frac{\lambda_0\cos\oldphi\myvec{(-R\cos\oldphi,-R\sin\oldphi)}}{4R^3\pi\epsilon_0}}
+	_{=1\cdot q(\phi)\myvec{r}/4\pi r^3\epsilon_0}\;\underbrace{d(R\oldphi)}_{dl}=\]
+	\[=-\frac{\lambda_0}{4\pi\epsilon_0R^2}\myvec{\mybra{\underbrace{\int_0^{2\pi}R\cos^2\oldphi\;d\oldphi}_{=\pi},
+	\underbrace{\int_0^{2\pi}R\cos\oldphi\sin\oldphi\;d\oldphi}_{=0}}}=\]
+	\[=\frac{\lambda_0}{4\pi\epsilon_0R^2}(R\pi,0)\implies E=\mynorm{\myvec{E}}=\frac{\lambda_0}{4R\epsilon_0}\]
+\begin{prob}\end{prob}%14
+	Ми будемо інтегрувати в сферичних координатах $(\phi,\theta),\;0\leq\phi<2\pi,\;0\leq\theta<\pi$, в цих координатах декартові записуються
+	як $(x,y,z)=(r\sin\theta\cos\phi,r\sin\theta\sin\phi,r\cos\theta)$, а площа нескінченно малого шматочка сфери біля точки $(\phi,\theta)$
+	як \[dS(\phi,\theta)=\myabs{(\frac{\partial}{\partial\phi}x,\frac{\partial}{\partial\phi}y,\frac{\partial}{\partial\phi}z)\times
+	(\frac{\partial}{\partial\theta}x,\frac{\partial}{\partial\theta}y,\frac{\partial}{\partial\theta}z)}\;d\phi\;d\theta=r^2\sin\theta
+	\;d\phi\;d\theta\]записуючи $\myvec{a}=:(a,b,c)$, маємо
+	\[\myvec{E}=\int_0^{2\pi}\int_0^\pi\frac{(\myvec{a},\myvec{r}(\phi,\theta))\cdot(-\myvec{r}(\phi,\theta))}
+	{4r^3\pi\epsilon_0}\;dS(\phi,\theta)=\]
+	\[=-\frac{r}{4\pi\epsilon_0}\myvec{\mybra{
+	a{\int_0^{2\pi}\int_0^\pi(aA+bB+cC)\sin\theta A \;d\theta\;d\phi},
+	b{\int_0^{2\pi}(aA+bB+cC)\sin\theta B\;d\theta\;d\phi},
+	c{\int_0^{2\pi}(aA+bB+cC)\sin\theta C \;d\theta\;d\phi}
+	}}\]
+	де
+	\[A:=\sin\theta\cos\phi,\;B:=\sin\theta\sin\phi,\;C:=\cos\theta\]
+	і оскільки
+	\newcommand{\myint}[1]{\int_0^{2\pi}\int_0^\pi#1\;d\theta\;d\phi}
+	\[\myint{A^2\sin\theta}=\myint{\sin^3\theta\cos^2\phi}=\frac{4}{3}\pi\]
+	\[\myint{AB\sin\theta}=\myint{\sin^3\theta\cos\phi\sin\phi}=0\]
+	\[\myint{AC\sin\theta}=\myint{\sin^2\theta\cos\theta\cos\phi}=0\]
+	\[\myint{B^2\sin\theta}=\myint{\sin^3\theta\sin^2\phi}=\frac{4}{3}\pi\]
+	\[\myint{BC\sin\theta}=\myint{\sin^2\theta\cos\theta\sin\phi}=0\]
+	\[\myint{C^2\sin\theta}=\myint{\cos^2\theta\sin\theta}=\frac{4}{3}\pi\]
+	маємо
+	\[\myvec{E}=-\frac{r}{4\pi\epsilon_0}\frac{4\pi}{3}\myvec{\mybra{a,b,c}}=-\frac{r\cdot\myvec{a}}{3\epsilon_0}\]
+\begin{prob}\end{prob}%15
+	Ми знову будемо інтегрувати в сферичних координатах, як і в попередній задачі, додавши $0\leq r\leq R$, об’єм нескінченно малого 
+	шматка кулі має вираз
+	\[dV(\phi,\theta,r)=|\begin{vmatrix}
+		\frac{\partial x}{\partial\theta}&\frac{\partial y}{\partial\theta}&\frac{\partial z}{\partial\theta}\\
+		\frac{\partial x}{\partial\phi}&\frac{\partial y}{\partial\phi}&\frac{\partial z}{\partial\phi}\\
+		\frac{\partial x}{\partial r}&\frac{\partial y}{\partial r}&\frac{\partial z}{\partial r}\\
+	\end{vmatrix}|=r^2\sin\theta\;dr\;d\theta\;d\phi\]
+	\renewcommand{\myint}[1]{\int_0^{2\pi}\int_0^\pi\int_0^R#1\;dr\;d\theta\;d\phi}
+	і таким чином,
+	\[\myvec{E}=\myint{\frac{(\myvec{a},\myvec{r}(\phi,\theta))\cdot(-\myvec{r}(\phi,\theta))}{4\pi\epsilon_0r^3}r^2\sin\theta}\]
+	\renewcommand{\myint}[1]{\int_0^{2\pi}\int_0^\pi#1\;d\theta\;d\phi}
+	\[=-\frac{\int_0^Rr\;dr}{4\pi\epsilon_0}\myvec{\mybra{
+	a{\int_0^{2\pi}\int_0^\pi(aA+bB+cC)\sin\theta A \;d\theta\;d\phi},
+	b{\int_0^{2\pi}(aA+bB+cC)\sin\theta B\;d\theta\;d\phi},
+	c{\int_0^{2\pi}(aA+bB+cC)\sin\theta C \;d\theta\;d\phi}
+	}}\]
+	де
+	\[A:=\sin\theta\cos\phi,\;B:=\sin\theta\sin\phi,\;C:=\cos\theta\]
+	і, як в попередній задачі, отримуємо
+	\[\myvec{E}=-\frac{R^2}{8\pi\epsilon_0}\frac{4\myvec{a}\pi}{3}=-\frac{\myvec{a}R^2}{6\epsilon_0}\]
+\begin{prob}\end{prob}%16
+	Перш за все, знайдемо вектор поля, що діє на частинку на відстані $r_0<R$ від центра сфери. За симетрією, вектор поля має мати лише
+	радиальну складову, абсолютне значення якої, за теоремою Гауса (застосованої до сфери з тим же центром, але радіусу $r$)
+	\[E=\frac{Q}{\epsilon_0 S}=\frac{4\pi r^3}{3\epsilon_0 4\pi r^2}=\frac{r\rho}{3\epsilon_0}\]
+	і таким чином,
+	\[\Phi=\iint_S\mybra{\myvec{E},\myvec{n}}\;dS=\int_0^{2\pi}\int_0^{\sqrt{R^2-r_0^2}}\frac{\rho\sqrt{r_0^2+r^2}}{3\epsilon_0}\cos\alpha
+	r\;dr\;d\phi=2\pi\int_0^{\sqrt{R^2-r_0^2}}\frac{\rho\cancel{\sqrt{r_0^2+r^2}}}{3\epsilon_0}\frac{r_0}{\cancel{\sqrt{r_0^2+r^2}}}r\;dr=\]
+	\[=\frac{2\pi\rho r_0}{3\epsilon_0}\frac{R^2-r_0^2}{2}=\frac{\pi\rho r_0(R^2-r_0^2)}{3\epsilon_0}=\]
+\begin{prob}\end{prob}%17
+	З міркувань симетрії, вектор поля має бути напрямлено в напрямі перпендикулярному до нитки, а отже якщо ми оточимо її циліндром
+	з висотою 1, радіусом $r$ і віссю, співпадаючою з ниткою, потік через "низ" і "верх" циліндра буде рівним нулю, а в кожній точці "стінки"
+	напрям поля буде співпадати з напрямом нормалі і ми матимемо за теоремою Гауса
+	\[\frac{1}{\epsilon_0}\lambda\cdot1=2\pi r\cdot 1\cdot E\implies E=\frac{\lambda}{2\pi\epsilon_0 r}\]
+\begin{prob}\end{prob}%18
+	Скористаємось теоремою Гауса-Остроградського. Дивергенція рівна
+	\[(\myvec{\nabla},\myvec{E})=\frac{\partial}{\partial x}\mybra{\frac{ax}{x^2+y^2}}+\frac{\partial}{\partial y}\mybra{\frac{ay}{x^2+y^2}}=\]
+	\[a\frac{y^2-x^2}{(x^2+y^2)^2}+a\frac{x^2-y^2}{(x^2+y^2)^2}=0\]
+	а тому потік рівний нулю.
+\begin{prob}\end{prob}%19
+	Ми знайдемо лише поле в \textit{центрі} порожнини. Ситуацію можна представити як суперпозицію двох шарів: оригінального (без порожнини)
+	і шара з центром на кінці вектора $\myvec{a}$ (з радіусом, скажімо, $r<R$, де $R$ -- радіус великого шару) і від’ємним зарядом. Оскільки
+	в одній з попередніх задач ми розрахували поле, що діє на частинку всередені зарядженого шару, маємо
+	\[\myvec{E}=\frac{\myvec{a}\rho}{3\epsilon_0}+\frac{\myvec{0}\cdot(-\rho)}{3\epsilon_0}=\frac{\myvec{a}\rho}{3\epsilon_0}\]
 \end{document}
