@@ -53,6 +53,6 @@
 (replace-in-file "apostol.tex" (string-concatenate (list "apostol_week_" (list-ref apo-list 0) ".tex")) (mypairing(mypermute apo-list)))
 (replace-in-file "gospel.tex" (string-concatenate (list "gospel_week_" (list-ref gosp-list 0) ".tex")) (mypairing (mypermute gosp-list)))
 
-(open-pipe (string-concatenate (list "pdflatex -interaction batchmode" " apostol_week_" (list-ref apo-list 0) ".tex" " || " 
+(open-pipe (string-concatenate (list "pdflatex -interaction batchmode" " apostol_week_" (list-ref apo-list 0) ".tex" " && " 
 "pdflatex -interaction batchmode" " gospel_week_" (list-ref gosp-list 0) ".tex")) OPEN_WRITE)
 (newline)

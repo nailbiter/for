@@ -4,6 +4,7 @@
 			(cons "Гал" "GAL")
 			(cons "Мк" "MRK");"馬太福音"
 			(cons "Лк" "LUK")
+			(cons "Евр" "HEB")
 			(cons "1 Кор" "1CO")
 			(cons "2 Кор" "2CO")
 			(cons "1 Тим" "1TI")
@@ -43,6 +44,7 @@
 (define (rusname2engname rusname) (get-value (list 
                    (cons "Гал" "Galatians")
                    (cons "Мк" "Mark")
+		   (cons "Евр" "Hebrews")
                    (cons "Лк" "Luke")
 		   (cons "1 Кор" "1 Corinthians")
 		   (cons "2 Кор" "2 Corinthians")
@@ -53,6 +55,7 @@
                    (cons "Гал" "加拉太書")
                    (cons "Мк" "馬可福音");"馬太福音" ""
                    (cons "Лк" "路加福音")
+		   (cons "Евр" "希伯來書")
 		   (cons "1 Кор" "哥林多前書")
 		   (cons "2 Кор" "哥林多後書")
 		   (cons "1 Тим" "提摩太前書")
