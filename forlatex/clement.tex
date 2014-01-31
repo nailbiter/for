@@ -1,0 +1,80 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{mystyle}
+\newtheorem{prob}{Завдання}
+\newcommand{\ds}{\;ds}
+\newcommand{\dt}{\;dt}
+\newcommand{\dx}{\;dx}
+\newcommand{\dta}{\;d\tau}
+
+
+\newtheorem{myulem}[mythm]{Лема}
+
+\renewenvironment{myproof}[1][Доведення]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\myqed\end{trivlist}}
+
+	\title{}
+\begin{document}
+\maketitle
+For every map given, determine whether it's linear or not. If linear, find representation matrix in bases given. Find bases for kernel and
+image.
+\begin{enumerate}
+\item \[f:\mathbb{R}\to\mathbb{R}\]
+	\[f(x)=\max\mycbra{x,1}\]
+Basis for both domain and codomain is $\mycbra{1}$.
+\item \[f:\mathbb{R}^2\to\mathbb{R}\]
+	\[f(x,y)=\left\{\begin{array}{ll}
+		\frac{x^2}{y},&y\neq0\\
+		0,&y=0
+	\end{array}\right.\]
+	with basis for $\mathbb{R}^2$ given by $\mycbra{(1,0),(0,1)}$ and for $\mathbb{R}$ as in previous problem.
+\item \[f:\mathbb{R}^+\mapsto\mathbb{R}^+\]
+	\[f(x)=8x^2\]
+	where the vector space structure on $\mathbb{R}^+$ is given by $a+_{\mathbb{R}^+}b=ab$ and $\alpha*_{\mathbb{R}^+}b=b^{\alpha},\;\alpha
+	\in\mathbb{R}$. Basis for $\mathbb{R}^+$ is given by $\mycbra{e}$.
+\item \[f:P_3\to P_3\]
+	\[f(p)=\frac{d}{dx}p\]
+	where by $P_3$ I mean the vector space of polynomials of degree no more than 3 with basis given by
+	\[\mycbra{1,x,x^2}\]
+
+\item \[\mathbb{R}^3\to\mathbb{R}^2\]
+	\[f(x,y,z)=(z,y)\]
+	and basis for domain $\mathbb{R}^3$ is given by
+	\[\mycbra{(1,0,0),(0,1,0),(0,0,1)}\]
+	basis for codomain $\mathbb{R}^2$ is given by
+	\[\mycbra{(1,0),(0,1)}\]
+\item \[f:\mathbb{R}^3\to\mathbb{R}^3\]%prob 6,p.44 lin alg
+	\[f(x,y,z)=(2x-11y+6z,1x-7y+4z,2x-y)\]
+	where basis for both domain and codomain is given by
+	\[\mycbra{(2,3,5),(0,1,2),(1,0,0)}\]
+\item \[f:\mathbb{R}^3\to\mathbb{R}^3\]%prob 2,p.40 lin alg
+	\[f(x,y,z)=(2x-y-z,x-2y+z,x+y-2z)\]
+	where the basis for domain is given by
+	\[\mycbra{(1,0,0),(0,1,0),(0,0,1)}\]
+	whereas the basis for codomain is given by
+	\[\mycbra{(2,1,1),(-1,-2,1),(-1,1,-2)}\]
+
+\item \[f:M_2(\mathbb{R})\to M_2(\mathbb{R})\]
+	\[f\mybramatii{a}{b}{c}{d}=\mybramatii{0}{1}{2}{3}\mybramatii{a}{b}{c}{d}\mybramatii{3}{4}{5}{6}\]
+	where by $M_2(\mathbb{R})$ I mean the vector space of all $2\times2$ matrices. And the basis is given by
+	\[\mycbra{\mybramatii{1}{0}{0}{0},\mybramatii{0}{1}{0}{0},\mybramatii{0}{0}{1}{0},\mybramatii{0}{0}{0}{1}}\]
+\item \[f:M_3(\mathbb{R})\to M_3(\mathbb{R})\]%prob 4,p.42 lin alg
+	\[f\mybramatiii{a}{b}{c}{d}{e}{f}{g}{h}{i}=\mybramatiii{a}{d}{g}{b}{e}{h}{c}{f}{i}\]
+	where by $M_3(\mathbb{R})$ I mean the vector space of all $3\times3$ matrices. And the basis is given by
+	\[\left\{
+	\mybramatiii{1}{0}{0}{0}{0}{0}{0}{0}{0},
+	\mybramatiii{0}{1}{0}{0}{0}{0}{0}{0}{0},
+	\mybramatiii{0}{0}{1}{0}{0}{0}{0}{0}{0},
+	\mybramatiii{0}{0}{0}{1}{0}{0}{0}{0}{0},
+	\mybramatiii{0}{0}{0}{0}{1}{0}{0}{0}{0},\right.\]\[\left.
+	\mybramatiii{0}{0}{0}{0}{0}{1}{0}{0}{0},
+	\mybramatiii{0}{0}{0}{0}{0}{0}{1}{0}{0},
+	\mybramatiii{0}{0}{0}{0}{0}{0}{0}{1}{0},
+	\mybramatiii{0}{0}{0}{0}{0}{0}{0}{0}{1}
+	\right\}\]
+\item \[f:M_2(\mathbb{R})\to M_2(\mathbb{R})\]%prob 4,p.42 lin alg
+	\[f(X)=\mybramatii{2}{-1}{1}{0}X+X\mybramatii{-3}{1}{-4}{1}\]
+	where by $M_2(\mathbb{R})$ I mean the vector space of all $2\times2$ matrices. And the basis is given by
+	\[\mycbra{\mybramatii{1}{0}{0}{0},\mybramatii{0}{1}{0}{0},\mybramatii{0}{0}{1}{0},\mybramatii{0}{0}{0}{1}}\]
+\end{enumerate}
+\end{document}

@@ -1,12 +1,3 @@
-\RequirePackage{mathtext}                 % підключення кирилиці у математичних формулах
-                                          % (mathtext.sty входить в пакет t2).
-\RequirePackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
-                                          % вказане останнім діє по замовчуванню;
-                                          % кириличне має співпадати з заданим в ukrhyph.tex.
-\RequirePackage[utf8]{inputenc}       % кодування документа; замість cp866nav
-                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
-\RequirePackage[english,russian,ukrainian]{babel} % національна локалізація; може бути декілька
-                                          % мов; остання з переліку діє по замовчуванню. 
 \RequirePackage{amsthm}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
@@ -52,6 +43,8 @@
 \newcommand{\myexplain}[1]{\mbox{ (\textit{#1})}}
 \newcommand{\myr}[1]{\mathbb{R}^{#1}}
 \newcommand{\mys}[1]{\mathbb{S}^{#1}}
+\newcommand{\mybramatii}[4]{\left(\begin{array}{rr}#1&#2\\#3&#4\end{array}\right)}
+\newcommand{\mybramatiii}[9]{\left(\begin{array}{lll}#1&#2&#3\\#4&#5&#6\\#7&#8&#9\end{array}\right)}
 
 \let\oldint\int
 \renewcommand{\int}{\oldint\limits}
