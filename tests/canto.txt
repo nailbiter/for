@@ -1,0 +1,371 @@
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - rand
+#adapt
+seq
+####
+#lesson 1;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 2;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 3;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 4;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 5;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 6;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 7;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 8;0->1;sc,reflip,tap to see cantonese transcription
+####
+今,yaht;lesson 1,canto aux message
+今天,gāmyaht;lesson 1
+是,yaht;lesson 1
+幫\,跟\,和,tùhng;lesson 1
+我,ngóh;lesson 1
+你,néih;lesson 1
+他,kéuih;lesson 1
+我們,ngóhdeih;lesson 1
+老是,sīnsāang;lesson 1
+上課,séuhngtòhng;lesson 1
+也\,都,dōu;lesson 1
+也是\,都是,dōuhaih;lesson 1
+現在,yìhgā;lesson 1
+讓,dáng;lesson 1
+不懂,msīk;lesson 1
+每一個人（個個）,gogo;lesson 1
+每一個人（人人）,yàhnyàhn;lesson 1
+在\,從,hái;lesson 1
+出生,chēutsai;lesson 1
+的,ge;lesson 1
+家人,ngūkkéiyàhn;lesson 1
+這個,nī;lesson 1
+那個,gó;lesson 1
+聽說(gin),tēngginwah;lesson 1
+聽說(gong),tēnggóngwah;lesson 1
+什麼（mat),māt(yéh);lesson 1
+什麼（me),mē(yéh);lesson 1
+容易學,yihhok;lesson 1
+多久,géinoih;lesson 1
+不用,msái;lesson 1
+用不用,sái msái;lesson 1
+一定,saht;lesson 1
+用心,béi sāmgēi;lesson 1
+#lesson 2
+一點\,一些,dī;lesson 2
+累,guih;lesson 2
+有一點累,guihgúidéi;lesson 2
+那麼,gam;lesson 2
+一下,háh;lesson 2
+聊天,kīnggai;lesson 2
+室友,tùhngfóng;lesson 2
+地方,douh;lesson 2
+哪邊,bīndouh;lesson 2
+了,jó;lesson 2
+幾,géi;lesson 2
+不那麼,mhai géi;lesson 2
+好,hou;lesson 2
+吧,lā;lesson 2
+正在,~gán;lesson 2
+還有,juhng yáuh;lesson 2
+真是,jānhaih;lesson 2
+的？,ga;lesson 2
+平常,pìhngsìh;lesson 2
+晚,ngaan;lesson 2
+上午,seuhngjau;lesson 2
+下午,hahjau;lesson 2
+多是,dōsou;lesson 2
+換課室,jyun tòhng;lesson 2
+的時候,gójahnsìh;lesson 2
+乗,daap;lesson 2
+坐,chóh;lesson 2
+校車,haauhbā;lesson 2
+下車,lohkchē;lesson 2
+走,hàahng;lesson 2
+逛街,hàahnggāai;lesson 2
+走路,hàahnglouh;lesson 2
+爬山,hàahngsāan;lesson 2
+除了。。。以外,chèuihjó...jīngoih;lesson 2
+好像,hóuchíh;lesson 2
+數,sóu;lesson 2
+完，光,-saai;lesson 2
+沒時間,mdākhàahn;lesson 2
+不是。。。就是,mhaih...jauhhaih;lesson 2
+還沒有,meih;lesson 2
+那樣才可以,ji dāk;lesson 2
+沒有,móuh;lesson 2
+有一點餓,ngohngohdéi;lesson 2
+肚子餓,tóuhngoh;lesson 2
+肚子,tóuh;lesson 2
+一起,yātchàih;lesson 2
+去喝下午茶,heui (sihk) "tī";lesson 2
+#lesson 3
+吃,sihk;lesson 3
+吃午飯,sihk ngaan;lesson 3
+好吃,hóusihk;lesson 3
+先 V, V sīn;lesson 3
+找位子,wán wái;lesson 3
+謝謝,mgōi;lesson 3
+太感謝了,mgōisaai;lesson 3
+素,jāai;lesson 3
+喝,yám;lesson 3
+就行了／快了,jauh dāk la;lesson 3
+付錢,béichín;lesson 3
+行嗎？,dāk mdāk a?;lesson 3
+當然可以啦, gánghaih dāk lā;lesson 3
+看, tái;lesson 3
+讓我看一下, dáng ngóh táiháh;lesson 3
+選, gáan;lesson 3
+喜歡,jūngyi;lesson 3
+而已a,jē;lesson 3
+一共,hahmbaahnglaahng;lesson 3
+而已e,ja;lesson 3
+一下,yātjahn;lesson 3
+欠,jāang;lesson 3
+元,mān;lesson 3
+零錢,sáanjí;lesson 3
+沒關係,mgányiu;lesson 3
+找得開,yáuh dāk jáau;lesson 3
+漂亮, leng;lesson 3
+給,béi;lesson 3
+塊, gauh;lesson 3
+分着吃, fān láih sihk;lesson 3
+不只....\,還...., m jí...\, juhng..tīm;lesson 3
+值得,dái;lesson 3
+出外,chēutgāai;lesson 3
+大概,dóu;lesson 3
+說起來,gónghéiséuhnglàih;lesson 3
+想（前女友）,gwajyuh;lesson 3
+整天想着,gwajyuh...;lesson 3
+想家,gwajyuh ngūkkéi;lesson 3
+做菜,jyú sung;lesson 3
+做飯,jyú faahn;lesson 3
+冷,dung;lesson 3
+改天,wán yaht;lesson 3
+各付各,AA jai;lesson 3
+#lesson 4
+找誰呀？,wán bīn wái a?;lesson 4
+什麼時候,géisìh;lesson 4
+便宜,pèhng;lesson 4
+到九龍塘去,heui Gáulùhngtòhng;lesson 4
+複習,wānjaahp;lesson 4
+可是,daahnhaih;lesson 4
+怎麼去,dím heui;lesson 4
+那麼（well）,gám;lesson 4
+到宿舍來,làih sūkse;lesson 4
+以後,jīhauh;lesson 4
+就這樣吧,haih gám wah lā;lesson 4
+到時見,dousìh gin;lesson 4
+熱門,wohng;lesson 4
+幸虧,hóujoih;lesson 4
+好彩,hóuchói;lesson 4
+早就,yātjóu;lesson 4
+寫下來,sédāi;lesson 4
+紀念品,sáuseun;lesson 4
+人好多,dōyáhn;lesson 4
+吵,chòuh;lesson 4
+擁擠,bīk;lesson 4
+錢包,ngàhnbāau;lesson 4
+被小偷偷了,béi pàhsáu pàhjó;lesson 4
+可憐／糟糕,cháam;lesson 4
+安全,wánjahn;lesson 4
+公仔,gungjái;lesson 4
+小熊,hùhngjái;lesson 4
+可愛／有趣,dākyi;lesson 4
+流行,hīng;lesson 4
+是嗎？,haih mē?;lesson 4
+你覺得...,néih wah...;lesson 4
+帶回去,daaifāanheui;lesson 4
+對／適合,ngāam;lesson 4
+剛剛,ngāamngāam;lesson 4
+好好地選,táingāam;lesson 4
+才,sīnji;lesson 4
+多少錢,géidō chín;lesson 4
+你說什麼呀？,mātyéh wá?;lesson 4
+為什麼,dímgáai;lesson 4
+那就這樣吧,gám lā;lesson 4
+#directions
+上便,seuhngbihn;directions
+下便,hahbihn;directions
+前便,chìhnbihn;directions
+後便,hauhbihn;directions
+左(手)便,jó (sáu) bihn;directions
+右(手)便,yauh (sáu) bihn;directions
+出便,chēutbihn;directions
+外便,ngoihbihn;directions
+入便,yahpbihn;directions
+裏便,léuihbihn;directions
+隔籬,gaaklèih;directions
+旁邊,pòhngbīn;directions
+對面,deuimihn;directions
+開便,hōibihn;directions
+埋便,màaihbihn;directions
+東便,dūngbihn;directions
+南便,nàahmbihn;directions
+西便,sāibihn;directions
+北便,bākbihn;directions
+邊便?,bīnbihn;directions
+樓上,làuhseuhng;directions
+樓下,làuhhah;directions
+#strength of adj
+唔(大),不(大) m(daaih);strength of adj
+唔係好(大),不太(大)< mhaihhóu(daaih);strength of adj
+(大大)哋,不太(大)> (daaihdáai)déi;strength of adj
+幾(大),蠻(大) géi(daaih);strength of adj
+很(大),好(大) hóu(daaih);strength of adj
+#strength of verb
+唔(識),不(懂) msīk;strength of verb
+唔係好(大),不太(懂) mhaihhóu(sīk);strength of verb
+(識識)哋,懂一點點(哋) sīksīkdéi;strength of verb
+(識)少少,懂一點點(少少) sīk síusíu;strength of verb
+幾(識),蠻(懂) géi sīk;strength of verb
+很(識),好(懂) hóu sīk;strength of verb
+#lesson 5
+返學,上學 fāanhohk;lesson 5
+傾器,談起來 kīnghéi;lesson 5
+定(係),還是 dihng(haih);lesson 5
+冇所謂,無所謂 móuh sówaih;lesson 5
+...又得\,...又得,可以...也可以... yauh dāk...yauh dāk;lesson 5
+執嘢,收拾東西 jāpyéh;lesson 5
+打機,玩電腦遊戲 dágēi;lesson 5
+啩,吧 gwa;lesson 5
+好似,好像 hóuchíh;lesson 5
+泳池,游泳池 wihngchìh;lesson 5
+囉,lō;lesson 5
+咁啱,這麼巧 gam ngāam;lesson 5
+打波,打球 dábō;lesson 5
+渣,差 já;lesson 5
+㗎嘑,gala;lesson 5
+嗱,hey nàh;lesson 5
+預埋我,算上我 yuhmáaih ngóh;lesson 5
+唱K,唱卡拉OK cheung kēi;lesson 5
+睇戲,看電影 táihei;lesson 5
+講開又講,說起來 gónghōi yauh góng;lesson 5
+叻,棒 lēk;lesson 5
+邊度係呀,哪裡哪裡 bīndouh haih a;lesson 5
+為咗,為了 waihjó;lesson 5
+係呢,那(對了) haih nē;lesson 5
+也都得,什麼都行 māt dōu dāk;lesson 5
+搞笑,好笑的 gáausiu;lesson 5
+V返(吓),把握機會/時間V   V fāan (háh);lesson 5
+不嬲都,一直都 bātlāu dōu;lesson 5
+飛,票 fēi;lesson 5
+慳錢,省錢 hāanchín;lesson 5
+噉又係喎,那也是 gám yauh haih wo;lesson 5
+#lesson 6
+師兄,師兄--sīhīng;lesson 6
+一排,--一段時間 yātpàaih;lesson 6
+呢排,最近--nīpàaih;lesson 6
+嗰排,那段時間--gópàaih;lesson 6
+嘑噃,了吧--la bo;lesson 6
+都幾,相當--dōu géi;lesson 6
+着,穿--jeuk;lesson 6
+T恤,T恤--tīsēut;lesson 6
+短褲,短褲--dyūn fu;lesson 6
+落雨,下雨--lohk yúh;lesson 6
+一時,一下子--yātsìh;lesson 6
+一時...,一時...,有時候...,有時候...--yātsìh...,;lesson 6
+唔記得,忘了--mgeidāk;lesson 6
+遮,雨傘--jē;lesson 6
+爭,差一點點--jāangdī;lesson 6
+話,說--wah;lesson 6
+遲幾日,過幾天--chìh géi yaht;lesson 6
+轉涼,轉冷--jyún lèuhng;lesson 6
+記住,記住--geijyuh;lesson 6
+因住,要記得--yānjyuh;lesson 6
+冷彩,毛衣--lāangsāam;lesson 6
+諗,想--nám;lesson 6
+諗住,打算--námjyuh;lesson 6
+今次,這一次--gām chi;lesson 6
+咪,不要--máih;lesson 6
+貪靚,愛美--tāamleng;lesson 6
+得滯,太--dākjaih;lesson 6
+仲...添,還...呢--juhng...tīm;lesson 6
+冇錯,沒錯--móuh cho;lesson 6
+頂唔順,受不了--díngmseuhn;lesson 6
+將,把--jēung;lesson 6
+樽領,高領--jēunléhng;lesson 6
+大樓,外套--daaihlāu;lesson 6
+棉衲,棉襖--mìhnnaahp;lesson 6
+攬,圍--laahm;lesson 6
+頸巾,圍巾--géngān;lesson 6
+媽咪,媽媽--māmìh;lesson 6
+織,編織--jīk;lesson 6
+早堂,早課--jóu tòhng;lesson 6
+房,房間--fóng;lesson 6
+瞓覺,睡覺--fangaau;lesson 6
+早唞,晚安--jóutáu;lesson 6
+#lesson 7
+仲係,還是--juhnghaih;lesson 7
+之嘛,而已--jīmáh;lesson 7
+成M,整M--sèhng M;lesson 7
+錫,愛/吻--sek;lesson 7
+唯有...係啦/罷啦,只好...吧--wàihyáuh...háilā/bálā;lesson 7
+阿嫲,奶奶--A-màh;lesson 7
+阿爺,爺爺--A-yèh;lesson 7
+過咗身,去世了--gwojó sān;lesson 7
+家姐,姐姐--gājē;lesson 7
+細佬,弟弟--sailóu;lesson 7
+排,排行--pàaih;lesson 7
+咪...囉,不是...嗎/那就...啦--maih...lō;lesson 7
+做嘢,jouhyéh--;lesson 7
+波士,老闆--bōsí;lesson 7
+老細,老闆--lóuhsai;lesson 7
+老豆,爸爸--lóuhdauh;lesson 7
+唔使慌,別指望--msái fōng;lesson 7
+收得工,可以下班--sāudāk gūng;lesson 7
+放工,下班--fonggūng;lesson 7
+鬼(死),咁--那麼 gwái(séi)gam;lesson 7
+好鬼(死),很--hóu gwái (séi);lesson 7
+得,只有--dāk;lesson 7
+菲傭,菲傭--fēiyùhng;lesson 7
+理,照顧--léih;lesson 7
+至真,才對--ji jān;lesson 7
+就,才對--jauh;lesson 7
+做唔倒,不能做--jouh mdóu;lesson 7
+睇住,照顧--táijyuh;lesson 7
+起樓,蓋樓房--héiláu;lesson 7
+搏,用功--bok;lesson 7
+鬧交,吵架--naauhgāau;lesson 7
+嗌交,吵架--ngaaigāau;lesson 7
+打架,打架--dágāau;lesson 7
+整整吓,漸漸地--jíngjínghá;lesson 7
+講講吓,說着說着--gónggónghá;lesson 7
+整,修理--jíng;lesson 7
+手勢,手藝--sáusai;lesson 7
+講返,說會--góngfāan;lesson 7
+#lesson 8
+㷫,發燒--hing;lesson 8
+大牌檔,大排檔--daaihpàaih dong;lesson 8
+宵夜,夜宵--sīuyé;lesson 8
+痾,拉肚子--ngō;lesson 8
+嘔,吐--ngáu;lesson 8
+搞唔掂,不能控制--gáau mdihm;lesson 8
+瞓落牀,躺在床上--fanlohk chòhng;lesson 8
+點瞓都瞓唔着,怎麼睡都睡不著--dím fan dōu fan mjeuhk;lesson 8
+睇醫生,看醫生--tái yīsāng;lesson 8
+掛號,掛號--gwahouh;lesson 8
+探熱(V),量體溫--taamyiht;lesson 8
+冷親,着涼--láahngchān;lesson 8
+收尾,後來--sāumēi;lesson 8
+流鼻水,流鼻水--láuh beihséui;lesson 8
+猛,不停地--máahng;lesson 8
+打乞嗤,打噴嚏--dá hātchī;lesson 8
+周身,全身--jāusān;lesson 8
+咳,咳嗽--kāt;lesson 8
+犀利,厲害--sāileih;lesson 8
+惹,傳染--yéh;lesson 8
+想唔...都唔得,想不...也不能--séung m...dōu mdāk;lesson 8
+唔妥,不舒服--mtóh;lesson 8
+V妥,好V--V tóh;lesson 8
+軟,沒力--yúhn;lesson 8
+污糟,髒--wūjōu;lesson 8
+撞到,遇到--johngdóu;lesson 8
+白車,救護車--baahkchē;lesson 8
+十字車,救護車--sahpjichē;lesson 8
+救傷車,救護車--gausēungchē;lesson 8
+入,進--yahp;lesson 8
+卒之,終於--jēutjī;lesson 8
+搞到,結果是--gáaudou;lesson 8
+拖,拖--tō;lesson 8
+好返,痊癒--hóufāan;lesson 8
+唞,休息--táu;lesson 8
+有吓...都唔定,手部定會...--yūkháh...dōu mdihng;lesson 8
+...嘑掛,應該...吧--la gwa;lesson 8
+...嘑可,...是吧？la--hó;lesson 8
+...嘑咩,難道...嗎？--la mē;lesson 8

@@ -1,0 +1,240 @@
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+#adapt
+rand
+####
+#section 2 - quiz generator
+#taglist;qsttans;mode(sc,ti);{aux_msg}
+#only items that match all the tags in generator's taglist will be taken
+#duplicates are not eliminated
+#Apr3Wordlist;0->1;sc
+#L17;0->1;sc
+#L18;0->1;sc
+#L17;0->2;sc
+#L19;0->1;sc
+relatives;0->1;sc,Own
+relatives;0->2;sc,Other's
+####
+#english,hiragana,kanji;tags
+#question, answer, tag
+1日,ついたち; dates
+2日,ふつか; dates
+3日,みっか; dates
+4日,よっか; dates
+5日,いつか; dates
+6日,むいか; dates
+7日,なのか; dates
+8日,ようか; dates
+9日,ここのか; dates
+10日,とおか; dates
+14日,じゅうよっか; dates
+20日,はつか; dates
+24日,にじゅうよっか; dates
+#L17
+pay,はらいます - 払います; L17
+bring along,もっていきます - 持って行きます; L17
+bring along,もってきます - 持って来ます; L17
+take off,ぬぎます - 脱ぎます; L17
+lose,なくします - 無くします; L17
+submit (homework),だします - 出します; L17
+return,かえします - 返します; L17
+take (medicine),のみます - 飲みます; L17
+take (a bath),はいります - 入ります; L17
+memorize,おぼえます - 覚えます; L17
+go out,でかけます - 出掛けます; L17
+forget,わすれます - 忘れます; L17
+worry,しんぱいします - 心配します; L17
+work overtime,ざんぎょうします - 残業します; L17
+make a business trip,しゅっちょうします - 出張します; L17
+important,たいせつな - 大切な; L17
+okay,だいじょうぶな - 大丈夫な; L17
+dangerous,あぶない - 危ない; L17
+question,もんだい - 問題; L17
+answer,こたえ - 答え; L17
+no smoking,きんえん - 禁煙; L17
+insurance card,ほけんしょう - 保険証; L17
+flu,かぜ - 風邪; L17
+fever,ねつ - 熱; L17
+disease,びょうき - 病気; L17
+medicine,くすり - 薬; L17
+bath (furo),ふろ - 風呂; L17
+jacket,うわぎ - 上着; L17
+underwear,したぎ - 下着; L17
+teacher (referring to the doctor),せんせい - 先生; L17
+painful,いたい - 痛い; L17
+throat,のど - 喉; L17
+god bless you,おだいじに - お大事に; L17
+#L18
+be able to,できます;L18
+wash,あらいます - 洗います;L18
+play (on piano),ひきます - 弾きます;L18
+sing,うたいます - 歌います;L18
+collect,あつめます - 集めます;L18
+throw away,すてます - 捨てます;L18
+exchange,かえます - 換えます;L18
+drive,うんてんします - 運転します;L18
+book (reserve),よやくします - 予約します;L18
+see the sights,けんがくします - 見学します;L18
+piano,ピアノ;L18
+meter,メートル;L18
+international,こくさい - 国際;L18
+cash,げんきん - 現金;L18
+hobby,しゅみ - 趣味;L18
+diary,にっき - 日記;L18
+prayer,いのり - 祈り;L18
+section head,かちょう - 課長;L18
+department head,ぶちょう - 部長;L18
+company president,しゃちょう - 社長;L18
+animal,どうぶつ - 動物;L18
+horse,うま - 馬;L18
+especially,特に - とくに;L18
+not easily (used with negatives),なかなか;L18
+ranch,牧場;L18
+Really?,ほんとうですか;L18
+by all means (really),ぜひ;L18
+#wordlist of a day (5 per day)
+stay (v.),とまります - 泊まります;Apr3Wordlist
+group travel,だんたいりょこう - 団体旅行;Apr3Wordlist
+#L19
+climb,のぼります - 登ります;L19
+stay (at a hotel),とまります - 泊まります;L19
+become,なります - 成ります;L19
+clean (a room),そうじします - 掃除します;L19
+wash (clothes),せんたくします - 洗濯します;L19
+practice,れんしゅうします - 練習します;L19
+sleepy,ねむい - 眠い;L19
+strong,つよい - 強い;L19
+weak,よわい - 弱い;L19
+condition is good,ちょうしがいい - 調子が良い;L19
+condition is bad,ちょうしがわるい - 調子が悪い;L19
+good for ones health,からだにいい - 体に良い;L19
+excessive/impossible,むりな - 無理な;L19
+golf,ゴルフ;L19
+sumo wrestling,すもう - 相撲;L19
+Pachinko,パチンコ;L19
+day/date,ひ - 日;L19
+once,いちど - 一度;L19
+never,いちども - 一度も;L19
+gradually,だんだん;L19
+soon,もうすぐ;L19
+Thank you (for help),おかげさまで - お陰様で;L19
+Bottoms up,かんぱい - 乾杯;L19
+In fact,じつは - 実は;L19
+diet,ダイエット;L19
+many times,なんかいも - 何回も;L19
+#L20
+need,いります - 要ります;L20
+check,しらべます - 調べます;L20
+correct (v.),なおします - 直します;L20
+repair (v.),しゅうりします - 修理します;L20
+talk on the phone,でんわします - 電話します;L20
+I,ぼく - 僕;L20
+You,きみ - 君;L20
+Kun,〜くん - 〜君;L20
+Yes (informal),うん;L20
+No (informal),ううん;L20
+salaried worker,サラリーマン;L20
+words,ことば - 言葉;L20
+prices,ぶっか - 物価;L20
+Kimono,きもの - 着物;L20
+Visa,ビザ/ヴィザ - ;L20
+the beginning,はじめ - 初め;L20
+the end,おわり - 終わり;L20
+this place,こっち;L20
+that place (close),そっち;L20
+that place (far),あっち;L20
+where,どっち;L20
+the other day,このあいだ - この間;L20
+with everyone,みんなで - 皆で;L20
+but〜,〜けど;L20
+#L21
+think,おもいます - 思います;L21
+say,いいます - 言います;L21
+to suffice,たります - 足ります;L21
+lose,まけます - 負けます;L21
+be useful,やくにたちます - 役に立ちます;L21
+win,かちます - 勝ちます;L21
+wasteful,むだな - 無駄な;L21
+to have,あります - (お祭りが)あります;L21
+inconvenient,ふべんな - 不便な;L21
+great/awful,すごい - 凄い;L21
+same,おなじ - 同じ;L21
+The prime minister,しゅしょう - 首相;L21
+The President,だいとうりょう - 大統領;L21
+Politics,せいじ - 政治;L21
+news,ニュース;L21
+speech,スピーチ;L21
+game or match,しあい - 試合;L21
+Part-time job,アルバイト;L21
+opinion,いけん - 意見;L21
+talk/speech,はなし - 話;L21
+Humor,ユーモア;L21
+Waste,むだ;L21
+design or artwork,デザイン;L21
+transport or traffic,こうつう - 交通;L21
+Rush hour,ラッシュ;L21
+Recently,さいきん - 最近;L21
+perhaps/probably,たぶん - 多分;L21
+surely/definitely,きっと;L21
+really,ほんとうに - 本当に;L21
+not so (used with negatives),そんなに;L21
+about〜,〜について;L21
+There is no help for it,しかたがありません - 仕方がありません;L21
+It's been a long time (since we last met),しばらくですね;L21
+How about drinking 〜 or something?,〜でものみませんか;L21
+I have to get home now,見ないと;L21
+of course,もちろん - 勿論;L21
+kangaroo,カンガルー;L21
+Captain James Cook (1728-1779),ジェームズ·クック;L21
+#しばらく - 暫く;L21
+#L22
+put on (a shirt\, etc.),きます - 着ます;L22
+put on (shoes\, trousers\, etc.),はきます - 履きます;L22
+put on (a hat\, etc.),かぶります - 被ります;L22
+put on (glasses),かけます - (眼鏡を)掛けます;L22
+put on (tie),(ネクタイを)します;L22
+be born,うまれます - 生まれます;L22
+coat,コート;L22
+suit,スーツ;L22
+sweater,セーター;L22
+hat\, cap,ぼうし - 帽子;L22
+glasses,めがね - 眼鏡;L22
+often,よく;L22
+Congratulations. (bithday\, wedding\, etc.),おめでとう（ございます）;L22
+this (polite version of これ),こちら;L22
+rent,やちん - 家賃;L22
+I think,うーん;L22
+kitchen with a dining area,ダイニングキッチン;L22
+Japanese-style room,わしつ - 和室;L22
+Japanese-style closet,おしいれ - 押し入れ;L22
+Japanese-style mattress and quilt,ふとん - 布団;L22
+Apartment,アパート;L22
+Paris,パリ;L22
+the Great Wall of China,万里の長城;L22
+#polite expressions
+May I come in?,しつれいします; polite expressions
+I'm home!,ただいま; polite expressions
+Welcome home!,おかえりなさい; polite expressions
+Congratulations!,おめでとうございます; polite expressions
+(said before dish),いただきます; polite expressions
+(said after dish),ごちそうさまでした; polite expressions
+Good night,おやすみなさい; polite expressions
+I'll come back,いってきます; polite expressions
+Come back (said when someone is leaving),いってらしゃい; polite expressions
+welcome (in shops\, etc.),いらっしゃいませ;polite expressions
+#relatives - english,own, others'
+father,ちち - 父,おとうさん - お父さん;relatives
+mother, はは - 母, おかあさん - お母さん; relatives
+older brother,あに - 兄,おにいさん - お兄さん; relatives
+older sister,あね - 姉,おねえさん - お姉さん; relatives
+younger brother,おとうと - 弟,おとうとさん - 弟さん; relatives
+younger sister,いもうと - 妹,いもうとさん - 妹さん; relatives
+grandfather,そふ - 祖父,おじいさん - おじいさん; relatives
+grandmother,そぼ - 祖母,おばあさん - お婆さん; relatives
+uncle,おじ - 叔父/伯父,おじさん; relatives
+aunt,おば - 叔母/伯母,おばさん; relatives
+husband,おっと - 夫,ごしゅじん - ご主人; relatives
+wife,つま - 妻,おくさん - 奥さん; relatives
+son,むすこ - 息子,むすこさん - 息子さん; relatives
+daughter,むすめ - 娘,おじょうさん - お嬢さん; relatives

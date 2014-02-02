@@ -1,3 +1,4 @@
+cd ~/for
 git add forlatex/*.tex
 git add forlatex/*.jpg
 git add forlatex/*.sty
@@ -9,6 +10,8 @@ git add gospels/*.scm
 git add gospels/*.sh
 
 git add forscheme/*.scm
+
+git add tests/*.txt
 
 git commit -a -m "Commit"
 git push origin master

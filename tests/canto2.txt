@@ -1,0 +1,121 @@
+#first section - skip_mode: (rand,seq,adapt)+timing
+#encoding - utf8
+#default skip_mode - rand
+#adapt
+seq
+####
+#lesson 1;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 2;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 3;0->1;sc,reflip,tap to see cantonese transcription
+lesson 4;0->1;sc,reflip,tap to see cantonese transcription
+#simple words;0->1;sc,reflip,tap to see cantonese transcription
+####
+#lesson 2
+唞,休息--táu;lesson 2
+式肆, sihksi--canteen;lesson 2
+通街, tūnggāai--filled with;lesson 2
+包羅萬有, bāau lòh maahn yáuh--all embr;lesson 2
+起先, at start--héisīn;lesson 2
+核突, wahtdaht--ugly;lesson 2
+吹, syúhn--blow;lesson 2
+瞇埋眼, mēimàaih ngáahn--close eyes;lesson 2
+收尾, sāumēi--later;lesson 2
+油炸鬼, yàuhjagwái--fried dough;lesson 2
+送,sung--dish m.w.;lesson 2
+#湖州打冷,chìujāu dálāang--;lesson 2
+打邊爐,dábīnlòuh--eat hotpot;lesson 2
+飯盒, faahnháp--lunchbox`;lesson 2
+幫襯, bōngchan--visit;lesson 2
+熟客,suhk háak--freq visitor;lesson 2
+街坊,gāaifōng--ngbhd;lesson 2
+落柯打, lohk ōdá--pay cheque;lesson 2
+專登, jyūndāng--intentionally;lesson 2
+噏, ngāp--tell;lesson 2
+湯殼, tōnghok--ladle;lesson 2
+𢳂,bāt--bowl m.w.;lesson 2
+罌, ngāang--vase;lesson 2
+夠火路, gao fólouh--heated;lesson 2
+熱氣,yihthei--heat(v.);lesson 2
+街市,gāaisíh--green bazar;lesson 2
+豉油,sihyàuh--soybean sauce;lesson 2
+猛火,máahngfó--big fire;lesson 2
+燶,nūng--burn;lesson 2
+夠鑊氣,gau wohkhei--"fire-smelled";lesson 2
+過龍,wgolùhng--go too far;lesson 2
+閒閒哋,hàahnháandéi--at least;lesson 2
+心郁郁,sāmyūkyūk--eager to do smth;lesson 2
+撐台腳,chaang tóigeuk--occupied by gf/bf;lesson 2
+#lesson 3
+執得正,jāpdāk jeng--wearing neat;lesson 3
+執平貨,jāp pèhngfo--pick sale thgs;lesson 3
+季尾,gwaiméih--end season sale;lesson 3
+月下貨,yuhthahfo--unfashion sale;lesson 3
+硬係,áanghaih--always;lesson 3
+老友記,lóuhyáuhgei--old friend;lesson 3
+傾得埋,kīngdākmàaih--get along well;lesson 3
+侍仔,sihjái--waiter;lesson 3
+型仔,yìhngjái--beautiful;lesson 3
+姿整,jījíng--picky;lesson 3
+拍拖,paaktō--fall in love;lesson 3
+整,jíng--do hair;lesson 3
+老土,lóuhtóu--old-fashioned;lesson 3
+爛身爛世,laahnsān laahnsai--old (clo);lesson 3
+污糟辣撻,wūjóulaahttaat-dirty;lesson 3
+騎呢,kèhlèh--weird;lesson 3
+轉工,jyunggūng--change jobs;lesson 3
+炒老細魷魚,cháau lóuhsai yàuhyú--quit a job;lesson 3
+屈,wāt--break(person);lesson 3
+膊頭,boktàuh--shoulder;lesson 3
+趕住,gónjyuh--anxious;lesson 3
+皮褸,péilāu--fur/leather jacket;lesson 3
+梳,sō--comb;lesson 3
+威,wāi--majestic;lesson 3
+質素,jātsou--quality;lesson 3
+撞衫,johngsāam--two ppl with same clo;lesson 3
+大把,daaihbá--a lot;lesson 3
+入貨,yahpfo--renew clo;lesson 3
+□,chaau--look for;lesson 3
+殘,chàahn--defective;lesson 3
+#lesson 4
+駛,sái--drive(car);lesson 4
+唞氣,táuhei--breath;lesson 4
+埋站,màaihjaahm--arrive at stop;lesson 4
+擠擁,jāiyúng--crowded;lesson 4
+規例,kwāilaih--regulations;lesson 4
+揸快車,jā faai chē--drive fast;lesson 4
+夾硬,gaapngáang--forcibly;lesson 4
+爬頭,pàhtaùuh--overtake(car/smth);lesson 4
+執地方,jāp deihfōng--clean some place;lesson 4
+沖茶,chūngchàh--make tea;lesson 4
+撞鬼,jónggwái--damn you!;lesson 4
+牙煙,ngàhyīn--dangerous;lesson 4
+氣羅氣喘,heilòh heichyún--breath heavily;lesson 4
+大汗扰細汗,daaihhohn dahp saihohn--sweating;lesson 4
+企定,kéidihng--stop(v);lesson 4
+唞順條氣,táuseuhn tìuhhei--catch breath;lesson 4
+黑仔,hāakjái--unlucky;lesson 4
+大安旨意,daaih ōn jí yi--thought(wrongly);lesson 4
+神,sàhn--malfunction(v);lesson 4
+噙噙請,kàhmkámchēng--hurry;lesson 4
+當其時,dōngkèisìh--at that time;lesson 4
+立立亂,lahpláhpyuhn--dirty;lesson 4
+夾份,gapfán--(pay)together;lesson 4
+只不過,jībātgwo--although;lesson 4
+着數,jeuhksou--worthwhile;lesson 4
+戙起,duhnghéi--raise;lesson 4
+車,chē--walk someone (home etc.);lesson 4
+逼人,bīkyàhn--crowded;lesson 4
+焗,guhk--baking-hot;lesson 4
+夠運,gauwahn--lucky;lesson 4
+#simple words
+already,已經--yíh gīhng;simple words
+if,如果--yùh gwó;simple words
+definitely,一定--yāt dihng;simple words
+nevertheless, 仲係--juhng haih;simple words
+moreover,重有--juhng jau; simple words
+perhaps,話唔定--waah m dihng;simple words
+gokdāk,覺得;simple words
+or,或者--waahkjé;simple words
+still,仲係--juhnghai;simple words
+actually,其實--kèisaht;simple words
+completely,完全--yúhnchyúhn;simple words

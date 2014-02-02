@@ -1,0 +1,720 @@
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+rand
+####
+#section 2 - quiz generator
+#taglist;qsttans;mode(sc,ti)
+L13;0->1;sc,tap to see japanese
+####
+#english,hiragana,kanji;tags
+I,わたし - 私;L01
+we,わたしたち - 私達;L01
+you,あなた - 貴方;L01
+person (like in "that person"),ひと - 人;L01
+more polite for "person",かた - 方;L01
+human (when indicate nationality),じん - 人;L01
+everybody,みなさん - 皆さん;L01
+Mr/Ms〜,〜さん;L01
+teacher,せんせい - 先生;L01, noun
+professor,きょうし - 教師;L01, noun
+student,がくせい - 学生;L01, noun
+office worker,かいしゃいん - 会社員;L01, noun
+staff,しゃいん - 社員;L01, noun
+bank worker,ぎんこういん - 銀行員;L01,noun
+doctor,いしゃ - 医者;L01, noun
+researcher,けんきゅうしゃ - 研究者;L01,noun
+engineer,エンジニア;L01,noun
+university,だいがく - 大学;L01,noun
+hospital,びょういん - 病院;L01,noun
+electricity,でんき - 電気;L01
+who,だれ - 誰;L01
+〜years old,〜さい - 歳;L01
+How old are you? (casual),なんさい - 何歳;L01
+How old are You? (polite),おいくつ;L01
+yes (formal),はい;L01
+no (formal),いいえ;L01
+Excuse me,しつれいですが - 失礼ですが;L01
+What is Your name?,おなまえは - お名前は;L01
+Nice to meet You (before introduction),はじめまして - 初めまして;L01
+Nice to meet You (after introduction),どうぞよろしく（おねがいします）;L01
+USA (America),アメリカ;L01
+England,イギリス;L01
+India,インド;L01
+Indonesia,インドネシア;L01
+Thailand,タイ;L01
+Korea,かんこく - 韓国;L01
+Mainland China,ちゅうごく - 中国;L01
+Germany,ドイツ;L01
+France,フランス;L01
+Brazil,ブラジル;L01
+Japan (2 sayings),にほん/にっぽん - 日本;L01
+#L02
+これ;L02
+それ;L02
+あれ;L02
+この;L02
+その;L02
+あの;L02
+ほん - 本;L02
+じしょ - 辞書;L02
+ざっし - 雑誌;L02
+しんぶん - 新聞;L02
+ノート;L02
+てちょう - 手帳;L02
+めいし - 名刺;L02
+カード;L02
+えんぴつ - 鉛筆;L02
+ボールペン;L02
+シャープペンシル;L02
+かぎ - 鍵;L02
+とけい - 時計;L02
+かさ - 傘;L02
+かばん - 鞄;L02
+カセットテープ;L02
+テープレコーダー;L02
+テレビ;L02
+ラジオ;L02
+カメラ;L02
+コンピューター;L02
+じどうしゃ - 自動車;L02
+つくえ - 机;L02
+いす - 椅子;L02
+チョコレート;L02
+コーヒー;L02
+えいご - 英語;L02
+にほんご - 日本語;L02
+ご - 語;L02
+なん - 何;L02
+そうですか;L02
+そうです;L02
+ちがいます - 違います;L02
+あのう;L02
+ほんのきもちです - ほんの気持ちです;L02
+どうぞ;L02
+どうも;L02
+ありがとうございます - 有難う御座います;L02
+こちらこそ;L02
+ここ;L03
+そこ;L03
+あそこ;L03
+どこ;L03
+こちら;L03
+そちら;L03
+あちら;L03
+どちら;L03
+きょうしつ - 教室;L03
+しょくどう - 食堂;L03
+じむしょ - 事務所;L03
+かいぎしつ - 会議室;L03
+うけつけ - 受付;L03
+ロビー;L03
+へや - 部屋;L03
+トイレ;L03
+おてあらい - お手洗い;L03
+かいだん - 階段;L03
+エレベーター;L03
+エスカレーター;L03
+おくに - お国;L03
+かいしゃ - 会社;L03
+うち - 家;L03
+でんわ - 電話;L03
+くつ - 靴;L03
+ネクタイ;L03
+ワイン;L03
+たばこ - 煙草;L03
+うりば - 売り場;L03
+ちか - 地下;L03
+かい - 階;L03
+なんがい - 何階;L03
+えん - 円;L03
+いくら;L03
+ひゃく - 百;L03
+せん - 千;L03
+まん - 万;L03
+すみません - 済みません;L03
+ございます - 御座います;L03
+みせてください - 見せてください;L03
+じゃ;L03
+ください - 下さい;L03
+イタリア;L03
+スイス;L03
+デパート;L04
+ぎんこう - 銀行;L04
+ゆうびんきょく - 郵便局;L04
+としょかん - 図書館;L04
+びじゅつかん - 美術館;L04
+いま - 今;L04
+じ - 時;L04
+ふん - 分;L04
+はん - 半;L04
+なんじ - 何時;L04
+なんぷん - 何分;L04
+ごぜん - 午前;L04
+ごご - 午後;L04
+あさ - 朝;L04
+ひる - 昼;L04
+よる - 夜;L04
+ばん - 晩;L04
+おととい - 一昨日;L04
+きのう - 昨日;L04
+きょう - 今日;L04
+あした - 明日;L04
+あさって - 明後日;L04
+けさ - 今朝;L04
+こんばん - 今晩;L04
+さくばん - 昨晩;L04
+やすみ - 休み;L04
+ひるやすみ - 昼休み;L04
+まいあさ - 毎朝;L04
+まいばん - 毎晩;L04
+まいにち - 毎日;L04
+げつようび - 月曜日;L04
+かようび - 火曜日;L04
+すいようび - 水曜日;L04
+もくようび - 木曜日;L04
+きんようび - 金曜日;L04
+どようび - 土曜日;L04
+にちようび - 日曜日;L04
+ばんごう - 番号;L04
+なんばん - 何番;L04
+から;L04
+まで;L04
+と;L04
+はたらきます - 働きます;L04
+やすみます - 休みます;L04
+おわります - 終わります;L04
+おきます - 起きます;L04
+ねます - 寝ます;L04
+べんきょうします - 勉強します;L04
+ええと;L04
+いきます - 行きます;L05
+かえります - 帰ります;L05
+きます - 来ます;L05
+じてんしゃ - 自転車;L05
+がっこう - 学校;L05
+スーパー;L05
+えき - 駅;L05
+ひこうき - 飛行機;L05
+ふね - 船;L05
+でんしゃ - 電車;L05
+ちかてつ - 地下鉄;L05
+しんかんせん - 新幹線;L05
+バス;L05
+タクシー;L05
+あるいて - 歩いて;L05
+ひと - 人;L05
+ともだち - 友達;L05
+かれ - 彼;L05
+かのじょ - 彼女;L05
+かぞく - 家族;L05
+ひとりで - 一人で;L05
+せんしゅう - 先週;L05
+こんしゅう - 今週;L05
+らいしゅう - 来週;L05
+せんげつ - 先月;L05
+こんげつ - 今月;L05
+らいげつ - 来月;L05
+きょねん - 去年;L05
+ことし - 今年;L05
+らいねん - 来年;L05
+がつ - 月;L05
+なんがつ - 何月;L05
+にち - 日;L05
+なんにち - 何日;L05
+いつ - 何時;L05
+たんじょうび - 誕生日;L05
+ふつう - 普通;L05
+きゅうこう - 急行;L05
+とっきゅう - 特急;L05
+つぎ - 次;L05
+どういたしまして - どう致しまして;L05
+ばんせん - (３)番線;L05
+すいます - 吸います;L06
+かいます - 買います;L06
+あいます - 会います;L06
+ききます - 聞きます;L06
+かきます - 書きます;L06
+のみます - 飲みます;L06
+よみます - 読みます;L06
+とります - 撮ります;L06
+たべます - 食べます;L06
+みます - 見ます;L06
+します;L06
+ごはん - ご飯;L06
+あさごはん - 朝ご飯;L06
+ひるごはん - 昼ご飯;L06
+ばんごはん - 晩ご飯;L06
+パン;L06
+たまご - 卵;L06
+にく - 肉;L06
+さかな - 魚;L06
+やさい - 野菜;L06
+くだもの - 果物;L06
+みず - 水;L06
+おちゃ - お茶;L06
+こうちゃ - 紅茶;L06
+ぎゅうにゅう - 牛乳;L06
+ミルク;L06
+ジュース;L06
+ビール;L06
+おさけ - お酒;L06
+ビデオ;L06
+えいが - 映画;L06
+CD;L06
+てがみ - 手紙;L06
+レポート;L06
+しゃしん - 写真;L06
+みせ - 店;L06
+レストラン;L06
+にわ - 庭;L06
+しゅくだい - 宿題;L06
+テニス;L06
+サッカー;L06
+おはなみ - お花見;L06
+なに - 何;L06
+いっしょに - 一緒に;L06
+ちょっと;L06
+いつも;L06
+ときどき - 時々;L06
+それから;L06
+ええ;L06
+いいですね - 良いですね;L06
+わかりました - 分かりました;L06
+じゃ、またあした - じゃ、また明日;L06
+メキシコ;L06
+もらいます - 貰います;L07
+ならいます - 習います;L07
+かします - 貸します;L07
+きります - 切ります;L07
+おくります - 送ります;L07
+おしえます - 教えます;L07
+かけます - かけます;L07
+あげます;L07
+かります - 借ります;L07
+けしゴム - 消しゴム;L07
+て - 手;L07
+はし - 箸;L07
+スプーン;L07
+ナイフ;L07
+フォーク;L07
+はさみ - 鋏;L07
+ファックス;L07
+ワープロ;L07
+パンチ;L07
+パソコン;L07
+ホッチキス;L07
+セロテープ;L07
+かみ - 紙;L07
+はな - 花;L07
+シャツ;L07
+プレゼント;L07
+にもつ - 荷物;L07
+おかね - お金;L07
+きっぷ - 切符;L07
+クリスマス;L07
+ちち - 父;L07
+はは - 母;L07
+おとうさん - お父さん;L07
+おかあさん - お母さん;L07
+もう;L07
+まだ;L07
+これから;L07
+すてきですね - 素敵ですね;L07
+ごめんください - 御免下さい;L07
+いらっしゃい;L07
+おあがりください - お上がり下さい;L07
+しつれいします - 失礼します;L07
+いかがですか;L07
+りょこう - 旅行;L07
+おみやげ - お土産;L07
+スペイン;L07
+ヨーロッパ;L07
+ハンサムな;L08
+きれいな - 綺麗な;L08
+しずかな - 静かな;L08
+にぎやかな - 賑やかな;L08
+ゆうめいな - 有名な;L08
+しんせつな - 親切な;L08
+げんきな - 元気な;L08
+ひまな - 暇な;L08
+べんりな - 便利な;L08
+すてきな - 素適な;L08
+おおきい - 大きい;L08
+ちいさい - 小さい;L08
+あたらしい - 新しい;L08
+ふるい - 古い;L08
+いい - 良い;L08
+わるい - 悪い;L08
+あつい - 暑い;L08
+あつい - 熱い;L08
+さむい - 寒い;L08
+つめたい - 冷たい;L08
+むずかしい - 難しい;L08
+やさしい - 易しい;L08
+たかい - 高い;L08
+やすい - 安い;L08
+ひくい - 低い;L08
+おもしろい - 面白い;L08
+おいしい - 美味しい;L08
+いそがしい - 忙しい;L08
+たのしい - 楽しい;L08
+しろい - 白い;L08
+くろい - 黒い;L08
+あかい - 赤い;L08
+あおい - 青い;L08
+くるま - 車;L08
+さくら - 桜;L08
+やま - 山;L08
+まち - 町;L08
+たべもの - 食べ物;L08
+ところ - 所;L08
+りょう - 寮;L08
+べんきょう - 勉強;L08
+せいかつ - 生活;L08
+しごと - 仕事;L08
+どう;L08
+どんな;L08
+どれ;L08
+とても;L08
+あまり;L08
+そして;L08
+おげんきですか - お元気ですか;L08
+そうですね;L08
+なれます - 慣れます;L08
+けっこう - 結構;L08
+そろそろ;L08
+#new staff
+#L09
+to understand,わかります - 分かります;L09
+to have (car\, etc.),あります - (私は車が)有ります;L09
+likeable,すきな - 好きな;L09
+unloved,きらいな - 嫌いな;L09
+proficient,じょうずな - 上手な;L09
+unproficient,へたな - 下手な;L09
+cooking\, dish,りょうり - 料理;L09
+beverage,のみもの - 飲み物;L09
+sport,スポーツ;L09
+baseball,やきゅう - 野球;L09
+dance,ダンス;L09
+music,おんがく - 音楽;L09
+song,うた - 歌;L09
+classical (music),クラシック;L09
+jazz,ジャズ;L09
+concert,コンサート;L09
+karaoke,カラオケ;L09
+kabuki theater,かぶき - 歌舞伎;L09
+painting,え - 絵;L09
+character,じ - 字;L09
+chinese or japanese characters,かんじ - 漢字;L09
+hiragana,ひらがな - 平仮名;L09
+katakana,かたかな - 片仮名;L09
+romaji or roman alphabet,ローマじ - ローマ字;L09
+change,こまかいおかね - 細かいお金;L09
+ticket,チケット;L09
+time,じかん - 時間;L09
+things to do,ようじ - 用事;L09
+promise\, arrangement,やくそく - 約束;L09
+children,こども - 子供;L09
+often,よく;L09
+roughly,だいたい;L09
+abundant,たくさん;L09
+a bit,すこし - 少し;L09
+absolutely,ぜんぜん - 全然;L09
+early,はやく - 早く;L09
+after〜,〜から;L09
+why?,どうして;L09
+it should be difficult,ざんねんですね - 残念ですね;L09, saying
+I'm sorry,すみません - 済みません;L09,saying
+hello? (when speaking on a phone),もしもし;L09
+ああ;L09
+a bit (slightly negative),ちょっと;L09
+だめですか - 駄目ですか;L09
+next time then,またこんど - またこんど;L09, saying
+#L10
+to be\, to have (for inanimated objects),,あります - (電池が)在ります;L10
+to be\, to have (for animated objects),います - (猫が)居ます;L10
+various,いろいろな - 色々な;L10
+boy,おとこのこ - 男の子;L10
+girl,おんなのこ - 女の子;L10
+man,おとこのひと - 男の人;L10
+woman,おんなのひと - 女の人;L10
+dog,いぬ - 犬;L10
+cat,ねこ - 猫;L10
+tree,き - 木;L10
+object,もの - 物;L10
+film,フィルム;L10
+battery,でんち - 電池;L10
+box,はこ - 箱;L10
+switch,スイッチ;L10
+refrigerator,れいぞうこ - 冷蔵庫;L10
+table,テーブル;L10
+bed,ベッド;L10
+shelf,たな - 棚;L10
+door,ドア;L10
+window,まど - 窓;L10
+post,ポスト;L10
+building,ビル;L10
+park,こうえん - 公園;L10
+cafe,きっさてん - 喫茶店;L10
+book shop,ほんや - 本屋;L10
+〜shop (e.g. flower shop),や - (花)屋;L10
+stop (of bus\, train\, etc.),のりば - 乗り場;L10
+prefecture,けん - 県;L10
+up,うえ - 上;L10,location
+down,した - 下;L10,location
+in front,まえ - 前;L10,location
+behind,うしろ - 後ろ;L10,location
+right,みぎ - 右;L10,location
+left,ひだり - 左;L10,location
+inside,なか - 中;L10,location
+outside,そと - 外;L10,location
+next to,となり - 隣;L10
+near,ちかく - 近く;L10
+in middle,あいだ - 間;L10
+〜 and〜 (when listing is incomplete),〜や;L10
+the most,いちばん - 一番;L10
+〜st row,〜だんめ - 〜段目;L10
+inside〜,〜のおくに - 〜の奥に;L10
+#L11
+take a rest,やすみます - (会社を)休みます;L11
+to spend (time),かかります;L11
+to have (brother\, children\, etc.),います - (私は兄が)居ます;L11
+to be (in Japan\, etc.), います - (日本に１年)居ます;L11
+year,ねん - 年;L11
+measure word for small objects,つ;L11
+how many?,いくつ - 幾つ;L11
+measure word for people,にん - 人;L11
+measure word for machines,だい - 台;L11
+measure word for flat objects,まい - 枚;L11
+measure word for times,かい - 回;L11
+apple,りんご - 林檎;L11
+tangerine,みかん - 蜜柑;L11
+sandwich,サンドイッチ;L11
+curry rice,カレーライス;L11
+ice-cream,アイスクリーム;L11
+postage stamp,きって - 切手;L11
+postcard,はがき - 葉書;L11
+envelope,ふうとう - 封筒;L11
+express delivery,そくたつ - 速達;L11
+registered mail,かきとめ - 書留;L11
+air-mail (katakana),エアメール;L11
+air-mail (authentic word),こうくうびん - 航空便;L11
+surface mail,ふなびん - 船便;L11
+relatives,りょうしん - 両親;L11
+siblings,きょうだい - 兄弟;L11
+overseas,がいこく - 外国;L11
+hour,じかん - (２)時間;L11
+week,しゅうかん - 週間;L11
+month,かげつ - か月;L11
+about 〜,〜ぐらい;L11
+how long?,どのくらい;L11
+in total,ぜんぶで - 全部で;L11
+just/only〜,〜だけ;L11
+welcome (in shops\, etc.),いらっしゃいませ;L11
+Australia,オーストラリア;L11
+besides,それから;L11
+#L12
+simple,かんたんな - 簡単な;L12
+close\, nearby,ちかい - 近い;L12
+far away,とおい - 遠い;L12
+fast,はやい - 速い;L12
+early,はやい - 早い;L12
+slow\, late,おそい - 遅い;L12
+a lot (adj.),おおい - 多い;L12
+few (adj.),すくない - 少ない;L12
+warm,あたたかい - 暖かい/温かい;L12
+cool (temperature),すずしい - 涼しい;L12
+sweet (taste),あまい - 甘い;L12
+hot (taste),からい - 辛い;L12
+heavy,おもい - 重い;L12
+light (weight),かるい - 軽い;L12
+good,いい - (お茶が)良い;L12
+season (spring\, summer\, etc.),きせつ - 季節;L12
+spring,はる - 春;L12
+summer,なつ - 夏;L12
+autumn,あき - 秋;L12
+winter,ふゆ - 冬;L12
+weather,てんき - 天気;L12
+rain,あめ - 雨;L12
+snow,ゆき - 雪;L12
+cloudy weather,くもり - 曇り;L12
+hotel,ホテル;L12
+airport,くうこう - 空港;L12
+ocean,うみ - 海;L12
+world,せかい - 世界;L12
+party\, gathering,パーティー;L12
+festival,まつり - 祭り;L12
+exam,しけん - 試験;L12
+sukiyaki,すきやき - 鋤焼き;L12
+sashimi (sliced raw fish),さしみ - 刺身;L12
+sushi,すし - 寿司;L12
+tempura,てんぷら - 天ぷら;L12
+ikebana (flower arrangement art),いけばな - 生け花;L12
+autumn colors,もみじ - 紅葉;L12
+which (when select from two),どちら;L12
+both\, neither,どちらも;L12
+more〜,ずっと〜 - ずっと(多い);L12
+for the first time (na adj.),はじめて - 初めて;L12
+I'm home!,ただいま - 只今;L12
+Welcome home!,おかえりなさい - お帰りなさい;L12
+but,でも;L12
+#L13
+to swim,およぎます - 泳ぎます;L13
+to submit (assignment),だします - 出します;L13
+to play,あそびます - 遊びます;L13
+to enter (room\, etc.),はいります - 入ります;L13
+to pick up (at the airport),むかえます - 迎えます;L13
+to exit (from the room),でます - 出ます;L13
+to get tired,つかれます - 疲れます;L13
+to get married,けっこんします - 結婚します;L13
+do shopping,かいものします - 買い物します;L13
+to eat,しょくじします - 食事します;L13
+to walk,さんぽします - 散歩します;L13
+terrific\, difficult,たいへんな - 大変な;L13
+desirable,ほしい - 欲しい;L13
+lonely,さびしい - 寂しい;L13
+wide,ひろい - 広い;L13
+narrow,せまい - 狭い;L13
+skiing,スキー;L13
+weekend,しゅうまつ - 週末;L13
+municipal office,しやくしょ - 市役所;L13
+swimming pool,プール;L13
+river,かわ - 川;L13
+economics,けいざい - 経済;L13
+fine art,びじゅつ - 美術;L13
+fishing,つり - 釣り;L13
+meeting\, conference,かいぎ - 会議;L13
+sign up,とうろく - 登録;L13
+about 〜 (e.g. about 3 hours),〜ごろ - (お昼)〜頃;L13
+something,なにか - 何か;L13
+somewhere,どこか - 何処か;L13
+(I am) hungry,おなかがすきました - お腹が空きました;L13, saying
+(I am) full (cannot eat anymore),おなかがいっぱいです - お腹がいっぱいです;L13, saying
+(I am) thirsty,のどがかわきました - 喉が渇きました;L13, saying
+Oh yes,そうですね;L13
+Let us do so,そうしましょう;L13
+order (in restaurant),ちゅうもん - 注文;L13
+set meal,ていしょく - 定食;L13
+Beef bowl (gyudon),ぎゅうどん - 牛丼;L13
+please wait (very polite),(しょうしょう)おまちください - (少々)お待ち下さい;L13
+go dutch,べつべつに - 別々に;L13
+#L14
+to help,てつだいます - 手伝います;L14
+to be busy,いそぎます - 急ぎます;L14
+turn off,けします - 消します;L14
+speak,はなします - 話します;L14
+to wait,まちます - 待ちます;L14
+to possess,もちます - 持ちます;L14
+to call,よびます - 呼びます;L14
+to turn (left or right),まがります - 曲がります;L14
+to pick up,とります - 取ります;L14
+to rain,ふります - 降ります, type I;L14
+turn on,つけます - 点けます;L14
+open,あけます - 開けます;L14
+to show,みせます - 見せます;L14
+close,しめます - 閉めます;L14
+to stop (a car),とめます - 止めます;L14
+to start,はじめます - 始めます;L14
+make a copy,コピーします;L14
+air-conditioner,エアコン;L14
+passport,パスポート;L14
+name,なまえ - 名前;L14
+address,じゅうしょ - 住所;L14
+map,ちず - 地図;L14
+salt,しお - 塩;L14
+sugar,さとう - 砂糖;L14
+the way (of reading etc.),かた - (読み)方;L14
+slowly\, merilly,ゆっくり;L14
+immediately,すぐ;L14
+also,また;L14
+later,あとで - 後で;L14
+once more,もう - もう(一度);L14
+(go) straight (when giving directions),まっすぐ - 真っ直ぐ;L14
+change,おつり - お釣り;L14
+#L15
+use,つかいます - 使います;L15
+put,おきます - 置きます;L15
+stand up,たちます - 立ちます;L15
+live,すみます - 住みます;L15
+take a sit,すわります - 座ります;L15
+produce,つくります - 作ります;L15
+sell,うります - 売ります;L15
+to know,しります - 知ります;L15
+to research,けんきゅうします - 研究します;L15
+recall,おもいだします - 思い出します;L15
+polite version of "to be" for people,いらっしゃいます;L15
+information,しりょう - 資料;L15
+catalog,カタログ;L15
+timetable,じこくひょう - 時刻表;L15
+clothes,ふく - 服;L15
+product,せいひん - 製品;L15
+software,ソフト;L15
+major\, speciality,せんもん - 専門;L15
+dentist,はいしゃ - 歯医者;L15
+barber shop,とこや - 床屋;L15
+Travel agency,プレイガイド;L15
+Single (unmarried),どくしん - 独身;L15
+especially,とくに - 特に;L15
+high school,こうこう - 高校;L15
+#L16
+young,わかい - 若い;L16
+long,ながい - 長い;L16
+short,みじかい - 短い;L16
+cheerful (person),あかるい - 明るい;L16
+gloomy (person),くらい - 暗い;L16
+tall (person),せがたかい - 背が高い;L16
+health\, body,からだ - 体;L16
+clever,あたまがいい - 頭が良い;L16
+head,あたま - 頭;L16
+hair,かみ - 髪;L16
+face,かお - 顔;L16
+eye,,め - 目;L16
+ear,みみ - 耳;L16
+mouth,くち - 口;L16
+tooth,は - 歯;L16
+stomach,おなか - お腹;L16
+foot,あし - 足;L16
+service,サービス;L16
+jogging,ジョギング;L16
+shower,シャワー;L16
+green,みどり - 緑;L16
+buddhist temple,てら - 寺;L16
+shinto shrine,じんじゃ - 神社;L16
+international student,りゅうがくせい - 留学生;L16
+number,ばん - 番;L16
+How (in what way),どうやって;L16
+Which one 〜 (when selected from 3 or above),どの〜;L16
+No I still have a long way to go (response for a compliment),まだまだです;L16
+You want to withdraw?,おひきだし - お引き出し;L16
+First,まず;L16
+cash card,キャッシュカード;L16
+password,あんしょうばんごう - 暗証番号;L16
+next,つぎに - 次に;L16
+amount (of money),きんがく - 金額;L16
+confirm,かくにん - 確認;L16
+button,ボタン;L16
+Vietnam,ベトナム;L16
+Asia,アジア;L16
+ride,のります - 乗ります,type I; L16
+get off (the bus),おります - 降ります, type II; L16
+change (train),のりかえます - 乗り換えます, type II; L16
+take (shower),あびます - 浴びます, type II; L16
+insert,いれます - 入れます, type II; L16
+hand in,だします - 出します, type I; L16
+enter (university),はいります - 入ります, type I; L16
+graduate from (university),でます - 出ます,type II;L16
+resign,やめます; L16
+push,押します - おします, type I; L16
+#L13
+play,あそびます; L13
+swim,およぎます; L13
+welcome,むかえます; L13
+get tired,つかれます; L13
+send a letter,だしまして; L13
+enter the shop,はいります; L13
+leave the shop,でます; L13
+marry,けっこんします; L13
+do shopping,しょくじします; L13
+have a meal,さんぽします; L13
+hard,たいへん; L13

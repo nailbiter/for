@@ -1,0 +1,37 @@
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+#adapt
+rand
+####
+#section 2 - quiz generators
+#taglist;qsttans;mode(sc,ti);{aux_msg}
+drill_1;0->1;ti
+####
+#english,hiragana,kanji;tags
+#question, answer, tag
+笑,HHK; drill_1, test tag
+我,HQI; drill_1
+森,DDD; drill_1
+也,PD; drill_1
+給,VFOMR; drill_1
+字,JND; drill_1
+類,FKMBC; drill_1
+沙,EFH; drill_1
+家,JMSO; drill_1
+#drill 2
+志,GP; drill_2
+在,KLG; drill_2
+再,MGB; drill_2
+#day1
+門,an;day1
+目,bu;day1
+鬼,hi;day1
+鬥,ln;day1
+隹,og;day1
+#day 2
+心,p;day2
+田,w;day2
+大,k;day2
+月,b;day2
+金,c;day2
