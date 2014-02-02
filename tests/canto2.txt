@@ -114,8 +114,10 @@ definitely,一定--yāt dihng;simple words
 nevertheless, 仲係--juhng haih;simple words
 moreover,重有--juhng jau; simple words
 perhaps,話唔定--waah m dihng;simple words
-gokdāk,覺得;simple words
+think,覺得--gokdāk;simple words
 or,或者--waahkjé;simple words
 still,仲係--juhnghai;simple words
 actually,其實--kèisaht;simple words
 completely,完全--yúhnchyúhn;simple words
+especially,dahkbit--特別;simple words
+of course,gáng haih--梗係;simple words
