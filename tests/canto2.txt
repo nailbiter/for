@@ -107,6 +107,7 @@ lesson 4;0->1;sc,reflip,tap to see cantonese transcription
 逼人,bīkyàhn--crowded;lesson 4
 焗,guhk--baking-hot;lesson 4
 夠運,gauwahn--lucky;lesson 4
+#lesson 5
 #simple words
 already,已經--yíh gīhng;simple words
 if,如果--yùh gwó;simple words
@@ -121,3 +122,7 @@ actually,其實--kèisaht;simple words
 completely,完全--yúhnchyúhn;simple words
 especially,dahkbit--特別;simple words
 of course,gáng haih--梗係;simple words
+although,sēuiyìhn--雖然;simple words
+far,yúhn--遠;simple words
+close,gahn--近;simple words
+enter (room),yahp--入;simple words
