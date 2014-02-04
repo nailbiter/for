@@ -2,6 +2,7 @@ docs/
 *.aux
 *.log
 *.out
+forscheme/*.txt
 harpoon.sty
 *.pdf
 alex.vim
