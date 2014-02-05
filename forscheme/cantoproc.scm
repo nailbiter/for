@@ -10,14 +10,14 @@
 ;"打扮張相上褲狹寛鏞正式顏色晶着比較潮臘腸褲記波鞋陽眼鏡衫髮型特別淨似仔雖然"
 ;)(mytokenize " +" 
 ;(string-concatenate (list "da2a baahn zeo1ng seong se2uhng fu haahp fu1n dohk zing sik nga2ahn si1k zi1ng jeuk be2i " 
-                          "gaau siu2h laahp seo2ng fu gei bo1 haa2ih jeo4ng ngaa2hn ge2ng sa1am faat ji4ng dak biht zihng chi2h jai"
-                          " se2ui yi4hn"
+;                          "gaau siu2h laahp seo2ng fu gei bo1 haa2ih jeo4ng ngaa2hn ge2ng sa1am faat ji4ng dak biht zihng chi2h jai"
+;                          " se2ui yi4hn"
 ;                          ))
 ;)))
                         ;
 (define (mychangetranscription str)
-    ((lambda(s) (regexp-substitute/global #f "([aeiou])1" s 'pre "\\'{" 1 "}" 'post))
-    ((lambda(s) (regexp-substitute/global #f "([aeiou])2" s 'pre "\\={" 1 "}" 'post))
+    ((lambda(s) (regexp-substitute/global #f "([aeiou])1" s 'pre "\\={" 1 "}" 'post))
+    ((lambda(s) (regexp-substitute/global #f "([aeiou])2" s 'pre "\\'{" 1 "}" 'post))
     ((lambda(s) (regexp-substitute/global #f "([aeiou])4" s 'pre "\\`{" 1 "}" 'post))str)))
   )
 (define (insert-ruby text) (map (lambda (str) (let* ((val (get-value char->transcr str "")))
@@ -25,7 +25,7 @@
                )) (string-split text)))
 
 ;update char->transcr, if necessary
-(define char->transcr (query-string-mapping char->transcr "最"))
+(define char->transcr (query-string-mapping char->transcr "最左"))
 (save-string-mapping char->transcr "char->transcr" "char->transcr.scm")
 
 (let* ((xelatex-src
