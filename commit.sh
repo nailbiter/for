@@ -10,6 +10,7 @@ git add gospels/*.scm
 git add gospels/*.sh
 
 git add forscheme/*.scm
+git add forscheme/*.exe
 
 git add tests/*.txt
 
