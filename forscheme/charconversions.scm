@@ -1,5 +1,0 @@
-(include "misc.scm")
-(define raw (read-delimited "" (open-file "big5.txt" "r")))
-(define (split-on-lines str) (if (not (string-index str #\newline)) (list str) (cons (substring str 0 (string-index str #\newline))
-(split-on-lines (string-drop str (string-index str #\newline))))))
-(display (get-random-elt (split-on-lines raw)))
