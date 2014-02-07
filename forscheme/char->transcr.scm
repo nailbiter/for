@@ -37,5 +37,7 @@
 (cons "雖" "se2ui")
 (cons "然" "yi4hn")
 (cons "最" "jeui")
-(cons "左" "ha2au")
+(cons "左" "zo2")
+(cons "衣" "y1i")
+(cons "間" "ga1an")
 ))
