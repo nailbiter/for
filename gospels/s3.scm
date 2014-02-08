@@ -1,9 +1,9 @@
+(setlocale LC_ALL "")
 (use-modules (ice-9 rdelim))
 (use-modules (ice-9 regex))
 (use-modules (ice-9 popen))
 (use-modules (ice-9 format))
 (use-modules (srfi srfi-1))
-
 
 (include "s3_aux.scm")
 
@@ -18,7 +18,6 @@
 (define (myextract filename) (string-drop-right (read-delimited "" (open-file filename "r")) 1))
 (define (mypairing l) (map cons (map (lambda (s) (string-concatenate (list "mypattern" s )))
 	(list "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f")) l))
-;TODO: chinese font
 
 (define (myformatextract filename) 
   (map (lambda (block) 
@@ -44,15 +43,10 @@
 (define apo-list (myprocessreading (myformatextract "apo.tex")))
 (define gosp-list (myprocessreading (myformatextract "gosp.tex")))
 
-;(display (list-ref apo-list 8))(newline)
-;(display (list-ref apo-list 5))(newline)
-;(display (list-ref apo-list 6))(newline)
-;(display (list-ref gosp-list 9))(newline)
-
 (define (mypermute l) (map (lambda (i) (if (< i 0) "" (list-ref l i)))(list 0 1 4 7 -1 5 8 2 6 9 3 10 11 12)))
 (replace-in-file "apostol.tex" (string-concatenate (list "apostol_week_" (list-ref apo-list 0) ".tex")) (mypairing(mypermute apo-list)))
 (replace-in-file "gospel.tex" (string-concatenate (list "gospel_week_" (list-ref gosp-list 0) ".tex")) (mypairing (mypermute gosp-list)))
 
-(open-pipe (string-concatenate (list "pdflatex -interaction batchmode" " apostol_week_" (list-ref apo-list 0) ".tex" " || " 
-"pdflatex -interaction batchmode" " gospel_week_" (list-ref gosp-list 0) ".tex")) OPEN_WRITE)
+(open-pipe (string-concatenate (list "pdflatex -interaction batchmode" " 'apostol_week_" (list-ref apo-list 0) ".tex'" " && " 
+"pdflatex -interaction batchmode" " 'gospel_week_" (list-ref gosp-list 0) ".tex'")) OPEN_WRITE)
 (newline)

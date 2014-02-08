@@ -1,3 +1,4 @@
+(setlocale LC_ALL "")
 (include "../forscheme/misc.scm")
 
 (define rus2chiurl-table (list
@@ -9,13 +10,32 @@
 			(cons "2 Кор" "2CO")
 			(cons "1 Тим" "1TI")
 			(cons "2 Тим" "2TI")
+			(cons "2 Тим" "2TI")
+            (cons "Рим" "ROM")
 			))
+(define rusname2engname-table(list 
+                   (cons "Гал" "Galatians")
+                   (cons "Мк" "Mark")
+		   (cons "Евр" "Hebrews")
+                   (cons "Лк" "Luke")
+		   (cons "1 Кор" "1 Corinthians")
+		   (cons "2 Кор" "2 Corinthians")
+		   (cons "1 Тим" "1 Timothy")
+		   (cons "2 Тим" "2 Timothy")
+           (cons "Рим" "Romans")
+           ))
+(define rusname2chiname-table (list 
+                   (cons "Гал" "加拉太書")
+                   (cons "Мк" "馬可福音");"馬太福音" ""
+                   (cons "Лк" "路加福音")
+                   (cons "Евр" "希伯來書")
+                   (cons "1 Кор" "哥林多前書")
+                   (cons "2 Кор" "哥林多後書")
+                   (cons "1 Тим" "提摩太前書")
+                   (cons "2 Тим" "提摩太後書")
+                   (cons "Рим" "羅馬書")
+           ))
 
-(define (dec n) (- n 1))
-(define (inc n) (+ n 1))
-(define (replace l num elem) (if (<= num 0) (cons elem (cdr l)) (cons (car l) (replace (cdr l) (dec num) elem))))
-(define (get-value l key) (if (null? l) (string-concatenate (list "not found:" key))
-                            (if (string=? key (car (car l))) (cdr (car l)) (get-value (cdr l) key))))
 (define (drop-even l) (if (null? l) '() (cons (car l) (drop-even (cddr l)))))
 
 
@@ -37,29 +57,9 @@
                                             (cons "VI" "6")(cons "VII" "7")(cons "VIII" "8")(cons "IX" "8")(cons "X" "10")
                                             (cons "XI" "11")(cons "XII" "12")(cons "XIII" "13")(cons "XIV" "14")(cons "XV" "15")
                                             (cons "XVI" "16")(cons "XVII" "17")(cons "XVIII" "18")(cons "XIX" "19")(cons "XX" "20")
+                                            (cons "XXI" "21")(cons "XXII" "22")(cons "XXIII" "23")(cons "XXIV" "24")(cons "XXV" "25")
                                             )
                                           romtext))
-
-(define (rusname2engname rusname) (get-value (list 
-                   (cons "Гал" "Galatians")
-                   (cons "Мк" "Mark")
-		   (cons "Евр" "Hebrews")
-                   (cons "Лк" "Luke")
-		   (cons "1 Кор" "1 Corinthians")
-		   (cons "2 Кор" "2 Corinthians")
-		   (cons "1 Тим" "1 Timothy")
-		   (cons "2 Тим" "2 Timothy")
-                                            ) rusname))
-(define (rusname2chiname rusname) (get-value (list 
-                   (cons "Гал" "加拉太書")
-                   (cons "Мк" "馬可福音");"馬太福音" ""
-                   (cons "Лк" "路加福音")
-		   (cons "Евр" "希伯來書")
-		   (cons "1 Кор" "哥林多前書")
-		   (cons "2 Кор" "哥林多後書")
-		   (cons "1 Тим" "提摩太前書")
-		   (cons "2 Тим" "提摩太後書")
-                                            ) rusname))
 
 (define (parse-russian-title text) (let* ((tokenized1 (mytokenize " *, *" text))
                                      (name (string-filter (lambda (char) (not (eq? #\. char))) (list-ref tokenized1 0)))
@@ -110,14 +110,6 @@
 	 (lines (map(lambda(pair)(cons(car pair)(string-drop (cdr pair) 1)))lines))
 	 (lines (map(lambda(pair)(cons(car pair)(string-filter(lambda(char)(and(not (eq? #\newline char))(not(eq? #\tab char))))(cdr pair))))lines))
 	 (lines (map (lambda(pair)(string-concatenate(list(cdr pair)"\\\\\n"))) lines))
-       	 ;(lines (map match:substring (list-matches "<span>[^<>]+</span>" source)))
-       	 ;(lines (map (lambda (s) (substring s 7 (- (string-length s) 9))) lines))
-	 ;(lines (drop-even lines))
-	 ;(start-number (string->number verse-start))
-	 ;(end-number (string->number verse-end))
-	 ;(lines (list-head lines (dec end-number)))
-	 ;(lines (list-tail lines (dec start-number)))
-	 ;(lines (map (lambda (s) (string-concatenate (list s "\\\\\n"))) lines))
          )
         (string-concatenate lines)
     ))
@@ -127,4 +119,5 @@
                                                                                      verse-start " -- "  chapter ":" verse-end ".")))
 (define (get-chi-title name chapter verse-start verse-end) (string-concatenate (list (rusname2chiname name) " "  chapter ":"
                                                                                      verse-start " -- "  chapter ":" verse-end ".")))
-
+(define (rusname2engname rusname) (get-value rusname2engname-table rusname))
+(define (rusname2chiname rusname) (get-value rusname2chiname-table rusname))
