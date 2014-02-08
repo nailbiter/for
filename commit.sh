@@ -7,7 +7,6 @@ git add forlatex/*.png
 git add gospels/*.tex
 git add gospels/*.txt
 git add gospels/*.scm
-git add gospels/*.sh
 
 git add forscheme/*.scm
 git add forscheme/*.exe
