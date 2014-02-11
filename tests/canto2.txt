@@ -108,6 +108,7 @@ lesson 4;0->1;sc,reflip,tap to see cantonese transcription
 焗,guhk--baking-hot;lesson 4
 夠運,gauwahn--lucky;lesson 4
 #lesson 5
+好打
 #simple words
 already,已經--yíh gīhng;simple words
 if,如果--yùh gwó;simple words
