@@ -31,6 +31,9 @@
   (inner str 0))
 (define (string-split str) (if(string-null? str)'()(cons(substring str 0 1)(string-split (string-drop str 1)))))
 (define (myglobsubs s pat res) (regexp-substitute/global #f pat s 'pre res 'post))
+(define (concat-by-n l n)(cond ((null? l) '())((<(length l)n)(list (string-concatenate l)))(#t
+                                                                                            (cons (string-concatenate (list-head l n))
+                                                                                           (concat-by-n (list-tail l n) n)))))
 
 (define (download2string url) (read-delimited "" (open-input-pipe (string-concatenate (list "wget -O - "
                                                    url)))))
