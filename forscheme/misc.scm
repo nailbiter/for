@@ -13,10 +13,10 @@
 (define (flatten ll) (if (null? ll) '() (union (car ll) (flatten (cdr ll)))))
 (define (find-first-index l pred) (define (inner index li)(if (null? li) -1 (if (pred(car li))index(inner (+ index 1)(cdr li)))))
   (inner 0 l))
-(define (get-value l key fallback-msg) (if (null? l) fallback-msg
-                            (if (string=? key (car (car l))) (cdr (car l)) (get-value (cdr l) key fallback-msg))))
 (define (get-value l key) (if (null? l) (string-concatenate (list "not found:" key))
                             (if (string=? key (car (car l))) (cdr (car l)) (get-value (cdr l) key))))
+(define (get-value3s l key fallback-msg) (if (null? l) fallback-msg
+                            (if (string=? key (car (car l))) (cdr (car l)) (get-value3s (cdr l) key fallback-msg))))
 (define (get-random-elt l) (list-ref l (random (length l))))
 
 (define (mytokenize regexp str) (define cr (make-regexp regexp))
