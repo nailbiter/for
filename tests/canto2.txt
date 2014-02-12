@@ -129,3 +129,4 @@ close,gahn--近;simple words
 enter (room),yahp--入;simple words
 easy,yùhng yih--容易;simple words
 suddenly,fa1tyi4hn--忽然;simple words
+in fact,yu4hnlo4ih--原来;simple words
