@@ -29,7 +29,7 @@
 					      (string-replace transl "h" (dec transl-len)(dec transl-len))))
                                     )transl))
 (define (query-string-mapping table query-line) 
-  (let* (   (unseen-list (filter (lambda (s) (string-null? (get-value3s table s "")))(string-split query-line)))
+  (let* (   (unseen-list (filter (lambda (s) (string-null? (get-value/msg table s "")))(string-split query-line)))
             (addition (map (lambda (s) (cons s (get-translation s))) unseen-list)) )
     (append table addition)))
 
@@ -41,7 +41,7 @@
     ((lambda(s) (regexp-substitute/global #f "([aeyiou])2" s 'pre "\\'{" 1 "}" 'post))
     ((lambda(s) (regexp-substitute/global #f "([aeyiou])4" s 'pre "\\`{" 1 "}" 'post))str)))
   )
-(define (insert-ruby text) (map (lambda (str) (let* ((val (get-value3s char->transcr str "")))
+(define (insert-ruby text) (map (lambda (str) (let* ((val (get-value/msg char->transcr str "")))
                (if(string-null? val)str(string-concatenate (list "\\ruby{" str "}{" (mychangetranscription val) "}")))
                )) (string-split text)))
 

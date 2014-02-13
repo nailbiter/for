@@ -22,27 +22,95 @@ image.
 \item \[f:\mathbb{R}\to\mathbb{R}\]
 	\[f(x)=\max\mycbra{x,1}\]
 Basis for both domain and codomain is $\mycbra{1}$.
+\\\textbf{Solution.} Well, indeed, map is not linear. In particular, rule 
+\[f(\alpha x)=\alpha f(x)\]
+does not hold for $\alpha=2$ and $x=1$, as then $f(2x)=f(2)=1$, whereas $2f(x)=2f(1)=2$.
 \item \[f:\mathbb{R}^2\to\mathbb{R}\]
 	\[f(x,y)=\left\{\begin{array}{ll}
 		\frac{x^2}{y},&y\neq0\\
 		0,&y=0
 	\end{array}\right.\]
 	with basis for $\mathbb{R}^2$ given by $\mycbra{(1,0),(0,1)}$ and for $\mathbb{R}$ as in previous problem.
+\\\textbf{Solution.} Well, indeed, map is not linear. In particular, rule 
+\[f(x+y)=f(x)+f(y)\]
+does not holds. Take $x=(1,0)\in\mathbb{R}^2$, whereas $y=(0,1)\in\mathbb{R}^2$. Then, 
+\[f(x)=f(1,0)=0\]
+\[f(y)=f(0,1)=\frac{0}{0^2}=0\]
+whereas
+\[f(x+y)=f(1,1)=\frac{1}{1^2}=1\]
 \item \[f:\mathbb{R}^+\mapsto\mathbb{R}^+\]
 	\[f(x)=8x^2\]
 	where the vector space structure on $\mathbb{R}^+$ is given by $a+_{\mathbb{R}^+}b=ab$ and $\alpha*_{\mathbb{R}^+}b=b^{\alpha},\;\alpha
 	\in\mathbb{R}$. Basis for $\mathbb{R}^+$ is given by $\mycbra{e}$.
+	\\\textbf{Solution.} 
+	This map is also nonlinear, as 
+	\[f(x+_{\mathbb{R}}y)=f(xy)=8x^2y^2\]
+	whereas
+	\[f(x)+_{\mathbb{R}}f(y)=8x^2+_{\mathbb{R}}8y^2=64x^2y^2\]
+	and in general $8x^2y^2\neq64x^2y^2$ (in particular, for $x=y=1$, equality does not hold).
 \item \[f:P_3\to P_3\]
 	\[f(p)=\frac{d}{dx}p\]
 	where by $P_3$ I mean the vector space of polynomials of degree no more than 3 with basis given by
 	\[\mycbra{1,x,x^2}\]
-
+	\\\textbf{Solution.} 
+	This map is linear. Indeed for arbitrary $p(x)=a+bx+cx^2,\;p_0(x)=a_0+b_0x+c_0x^2$, we have
+	\[f(p+p_0)=f((a+bx+cx^2)+(a_0+b_0x+c_0x^2))=\]\[=\frac{d}{dx}((a+a_0)+(b+b_0)x+(c+c_0)x^2)=(b+b_0)+2(c+c_0)x\]
+	whereas
+	\[f(p)+f(p_0)=b+2cx+b_0+2c_0x\]
+	which is precisely the same.
+	\[f(\alpha p)=\frac{d}{dx}(\alpha a+\alpha bx+\alpha cx^2)=\alpha b+2\alpha cx\]
+	and 
+	\[\alpha f(p)=\alpha(b+2cx)\]
+	which is the same.\\
+	Let's find the basis for kernel of $f$. For $p(x)=a+bx+cx^2$ we have
+	$f(p)=b+2cx$
+	which is zero if and only if $b=c=0$, therefore $\Ker f=\mysetn{p\in P_3}{p(x)=a+0\cdot x+0\cdot x^2}$ which is
+	equal to the span of $1$, which hence forms a basis.\\
+	We see from the formula for $f(p)$ that it will always be a polynomial of the first degree, as it does not contain the $x^2$
+	term. All such polynomials are in the span of $1$ and $x$. Conversely, both $1$ and $x$ belong to the image,
+	as $L(x)=1$ and $L(x^2/2)=x$, hence image also contains their span. Thus, image and span of $1$ and $x$ coincide. As
+	latter two vectors are independent, they form a basis.\\%TODO: show how to find matrix representation
+	Finally, let's find matrix representation in bases given. We recall that in general, given the linear map $L:V\to W$,
+	together with basis $\mycbra{v_1,v_2,\hdots,v_n}$ for $V$ and $\mycbra{w_1,w_2,\hdots,w_m}$ for $W$, matrix representation
+	for $L$ is $m$-by-$n$ matrix, whose $i$-th column (for $i\in\mycbra{1,2,\hdots,n}$) is given by representation of
+	$L(v_i)$ in basis $\mycbra{w_1,w_2,\hdots,w_m}$. Let's demonstrate this with an example (in subsequent, we won't be so 
+	thorough). Note, that the \textit{order} of vectors in basis is \textbf{important!}
+	\[f(1)=0=0\cdot1+0\cdot x+0\cdot x\]
+	this gives us the first column of our 3-by-3 representation
+	\[\begin{pmatrix}0&*&*\\0&*&*\\0&*&*\end{pmatrix}\]
+	\[f(x)=1=1\cdot1+0\cdot x+0\cdot x\]
+	this gives us the second column of our 3-by-3 representation
+	\[\begin{pmatrix}0&1&*\\0&0&*\\0&0&*\end{pmatrix}\]
+	\[f(x^2)=2x=0\cdot1+2\cdot x+0\cdot x\]
+	that gives us the remaining column
+	\[\begin{pmatrix}0&1&1\\0&0&2\\0&0&0\end{pmatrix}\]
 \item \[\mathbb{R}^3\to\mathbb{R}^2\]
 	\[f(x,y,z)=(z,y)\]
 	and basis for domain $\mathbb{R}^3$ is given by
 	\[\mycbra{(1,0,0),(0,1,0),(0,0,1)}\]
 	basis for codomain $\mathbb{R}^2$ is given by
 	\[\mycbra{(1,0),(0,1)}\]
+	\\\textbf{Solution.} This is linear function, as
+	\[f((x,y,z)+(x_0,y_0,z_0))=f(x+x_0,y+y_0,z+z_0)=(z+z_0,y+y_0)\]
+	whereas 
+	\[f(x,y,z)+f(x_0,y_0,z_0)=(z,y)+(z_0,y_0)=(z+z_0,y+y_0)\]
+	which is the same and
+	\[f(\alpha(x,y,z))=f(\alpha x,\alpha y,\alpha z)=(\alpha z,\alpha y)\]
+	and
+	\[\alpha f(x,y,z)=\alpha(z,y)=(\alpha z,\alpha y)\]
+	which is the same.\\
+	Thus said, let's find the basis for kernel. $f(x,y,z)=(z,y)=0$ if and only if $z=y=0$, thus
+	$\Ker f=\mysetn{(x,y,z)\in\mathbb{R}^3}{y=z=0}$ is spanned by vector $(1,0,0)$, which forms a basis.\\
+	The image, in turn cannot be larger than $\mathbb{R}^2$ and as it contains $(1,0)$ (since $f(0,0,1)=(1,0)$)
+	and $(0,1)$ (since $f(0,1,0)=(0,1)$), which are the basis vectors for $\mathbb{R}^2$, it covers the whole $\mathbb{R}^2$
+	with basis $(1,0)$ and $(0,1)$.\\
+	Finally, we compute the matrix representation. As
+	\[f(1,0,0)=(0,0)=0\cdot(1,0)+0\cdot(0,1)\]
+	\[f(0,1,0)=(0,1)=0\cdot(1,0)+1\cdot(0,1)\]
+	\[f(0,0,1)=(1,0)=1\cdot(1,0)+0\cdot(0,1)\]
+	and thus the matrix representation is
+	\[\begin{pmatrix}0&0&1\\0&1&0\end{pmatrix}\]
+	Now, the kernel of a matrix
 \item \[f:\mathbb{R}^3\to\mathbb{R}^3\]%prob 6,p.44 lin alg
 	\[f(x,y,z)=(2x-11y+6z,1x-7y+4z,2x-y)\]
 	where basis for both domain and codomain is given by

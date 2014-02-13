@@ -1,0 +1,99 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{mystyle}
+\newtheorem{prob}{Завдання}
+\newcommand{\ds}{\;ds}
+\newcommand{\dt}{\;dt}
+\newcommand{\dx}{\;dx}
+\newcommand{\dta}{\;d\tau}
+
+
+\newtheorem{myulem}[mythm]{Лема}
+
+\renewenvironment{myproof}[1][Доведення]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\myqed\end{trivlist}}
+
+	\title{}
+\begin{document}
+\maketitle
+For every matrix given, use Gaussian elimination to compute the basis for its row space and column space.
+\begin{enumerate}
+\item \[\left(\begin{array}{rrr}
+1&-1&3\\
+5&-4&-4\\
+7&-6&2\\
+\end{array}\right)
+\]
+
+\item \[\left(\begin{array}{rrrr}
+1&4&5&2\\
+2&1&3&0\\
+-1&3&2&2\\
+\end{array}\right)
+\]
+
+\item \[\left(\begin{array}{rrr}
+1&0&2\\
+0&0&1\\
+0&0&1\\
+\end{array}\right)
+\]
+
+\item \[\left(\begin{array}{rrr}
+2&0&-1\\
+4&0&-2\\
+0&0&0\\
+\end{array}\right)
+\]
+
+\item \[\left(\begin{array}{rrrrr}
+1&4&5&6&9\\
+3&-2&1&4&-1\\
+-1&0&-1&-2&-1\\
+2&3&5&7&8\\
+\end{array}\right)
+\]
+
+\item \[\left(\begin{array}{rrrr}
+1&-3&0&0\\
+0&1&0&0\\
+0&0&0&0\\
+0&0&0&0\\
+\end{array}\right)
+\]
+\end{enumerate}
+
+For each of the following matrices, compute their inverse using the algorithm given in lecture. \textbf{For the last matrix, represent
+both it and its inverse as a product of elementary matrices.}
+\begin{enumerate}
+\item \[\left(\begin{array}{rrr}
+1&2&3\\
+2&5&3\\
+1&0&8\\
+\end{array}\right)
+\]
+
+\item \[\left(\begin{array}{rrr}
+-1&3&-4\\
+2&4&1\\
+-4&2&9\\
+\end{array}\right)
+\]
+
+\item \[\left(\begin{array}{rrr}
+2&6&6\\
+2&7&6\\
+2&7&7\\
+\end{array}\right)
+\]
+
+\item \[\left(\begin{array}{rrrr}
+0&0&2&0\\
+1&0&0&1\\
+0&-1&3&0\\
+2&1&5&-3\\
+\end{array}\right)
+\]
+\end{enumerate}
+
+\end{document}
