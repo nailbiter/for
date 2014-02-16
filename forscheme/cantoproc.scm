@@ -46,7 +46,8 @@
                )) (string-split text)))
 
 ;update char->transcr, if necessary
-(define char->transcr (query-string-mapping char->transcr "翼需豉油撈黃糖蒜茸放撈銻煲紋碗罨雪櫃醃約薑紅番椒桂種整法例如油炸咖喱鹵香茅燒烤甜豉油匙"))
+(define char->transcr (query-string-mapping char->transcr "翼需豉油撈黃糖蒜茸放撈銻煲紋碗罨雪櫃醃約薑紅番椒桂種整法例如油炸咖喱鹵香茅燒烤甜豉油匙始化涼"))
+
 (save-string-mapping char->transcr "char->transcr" "char->transcr.scm")
 
 (let* ((xelatex-src
