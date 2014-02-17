@@ -83,4 +83,7 @@
 (cons "豉" "sih")
 (cons "油" "y4auh")
 (cons "匙" "chi4h")
+(cons "始" "chi2h")
+(cons "化" "fa1ah")
+(cons "涼" "le4unhg")
 ))
