@@ -108,7 +108,42 @@ lesson 4;0->1;sc,reflip,tap to see cantonese transcription
 焗,guhk--baking-hot;lesson 4
 夠運,gauwahn--lucky;lesson 4
 #lesson 5
-好打
+冇王管,mo2uh wo2ng gu2n--no law;lesson5
+蕩失(路),dongsa1t(louh)--get lost;lesson5
+差人,cha1aiya4hn--cop(impolite);lesson5
+單,da1an--mw for docs pens etc;lesson5
+貨辦,foba2an--goods;lesson5
+辦,ba2an--sample;lesson5
+□□□□,kwi1kkli1kkwa1akkla1ak--cumbersome;lesson5
+忙到一頭煙,mo4hngdou ya1t ta4uh yi1n--extremely busy;lesson5
+滾水淥腳,gwa2nse2ui luhkgeuk--run nervously;lesson5
+左近,jo2ga2n--not far away;lesson5
+打蛇餅,da2se4hbe2ng--(adj) crowded,stuffed;lesson5
+人龍,ya4hnlu4hng--long que;lesson5
+打尖,da2j1m--cut in que;lesson5
+嗌,ngaai--call(smone);lesson5
+打荷包,da2 ho4hba1au--steal wallet;lesson5
+擰轉頭,nihngjyunta4uh--turn around;lesson5
+咪走,ma2ih ja2u--stand still!;lesson5
+走,ja2u--run;lesson5
+揼低,da2mda1i--abandon;lesson5
+執起,ja1phe2i--pick;lesson5
+大紙,daaihji--big bill;lesson5
+銀仔,a2nja2i--coins;lesson5
+激死人,gi1kse2i ya4hn--(make)extremely angry;lesson5
+點算,di2msyun--what to do?;lesson5
+鬆啲,su1ngdi1--a bit more than;lesson5
+落口供,lohk ha2ugu1ng--record evidence;lesson5
+差館,cha1aigu2n--police station(impolite);lesson5
+遲大到,chi4hdaaihdou--be very late;lesson5
+弊,baih--disastrous;lesson5
+有難,ya2uhnaahn--cumbersome;lesson5
+急急腳,ga1pga1pgeuk--nervously run;lesson5
+嬲爆爆,na1ubaaubaau--angrily;lesson5
+頭先,ta4uhsi1n--just;lesson5
+奀,nga1n--thin and small;lesson5
+好打,ho2uda2--fierce fight;lesson5
+拮,ga1t--stab/thorn;lesson5
 #simple words
 already,已經--yíh gīhng;simple words
 if,如果--yùh gwó;simple words
@@ -128,5 +163,3 @@ far,yúhn--遠;simple words
 close,gahn--近;simple words
 enter (room),yahp--入;simple words
 easy,yùhng yih--容易;simple words
-suddenly,fa1tyi4hn--忽然;simple words
-in fact,yu4hnlo4ih--原来;simple words
