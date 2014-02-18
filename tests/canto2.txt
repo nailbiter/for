@@ -7,7 +7,9 @@ seq
 #lesson 1;0->1;sc,reflip,tap to see cantonese transcription
 #lesson 2;0->1;sc,reflip,tap to see cantonese transcription
 #lesson 3;0->1;sc,reflip,tap to see cantonese transcription
-lesson 4;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 4;0->1;sc,reflip,tap to see cantonese transcription
+#lesson 5;0->1;sc,reflip,tap to see cantonese transcription
+lesson 6;0->1;sc,reflip,tap to see cantonese transcription
 #simple words;0->1;sc,reflip,tap to see cantonese transcription
 ####
 #lesson 2
@@ -144,6 +146,41 @@ lesson 4;0->1;sc,reflip,tap to see cantonese transcription
 奀,nga1n--thin and small;lesson5
 好打,ho2uda2--fierce fight;lesson5
 拮,ga1t--stab/thorn;lesson5
+#lesson6
+糖黐豆,to4hng chi1 da2u--inseparable(friends);lesson6
+單張,da1anje1ung--promo leaflet;lesson6
+撞啱,johng a1am--happen by chance;lesson6
+拿拿聲,la4hla4hse1ng--rush;lesson6
+撲飛,pokfe1i--try to find ticket;lesson6
+腌尖,yi1mji1m--fussy;lesson6
+無啦啦,mo4uhla1la1--w/o reason;lesson6
+包保,ba1aubo2u--guarantee(v);lesson6
+爛尾,laahnme2ih--abandoned(project);lesson6
+直情,jihkchi4hng--absolute;lesson6
+走寶,ja2ubo2u--miss chance;lesson6
+恨,hahn--look fwd to;lesson6
+瞌眼瞓,ha1p nga2ahn fan--sleep while do smth;lesson6
+眼瞓,nga2ahnfan--sleepy;lesson6
+舊陣時,gauhjahnsi4h--long time ago;lesson6
+擸,laap--glance;lesson6
+一嚿雲,ya1t gauh wa4hn--unclear;lesson6
+節目,jitmuhk--show/activity;lesson6
+憂,ya1u--be nervous(adj);lesson6
+些小,se1si2u--a bit;lesson6
+度,dohk--consider;lesson6
+就,jauh--yield;lesson6
+地膽,deihda2am--expert;lesson6
+捐窿捐罅,gyu1nlu1ng gyu1nla--go unpopular places(look for smth);lesson6
+捐,gyu1n--search;lesson6
+窿,lu1ng--hole;lesson6
+罅,la--crack;lesson6
+特登,dahkda1ng--intentionally;lesson6
+滾攪,gwa2n'ga2au--disturb;lesson6
+冇幾何,mo2uh ge2i ho2--seldom;lesson6
+影相,yi2ingse2ung--take photo/camera;lesson6
+凝,ki4hng--stare/hung up;lesson6
+打關斗,da2 gwa1anda2u--make somersault;lesson6
+戲院,heiyu2n--theatre/cinema;lesson6
 #simple words
 already,已經--yíh gīhng;simple words
 if,如果--yùh gwó;simple words
