@@ -110,18 +110,77 @@ whereas
 	\[f(0,0,1)=(1,0)=1\cdot(1,0)+0\cdot(0,1)\]
 	and thus the matrix representation is
 	\[\begin{pmatrix}0&0&1\\0&1&0\end{pmatrix}\]
-	Now, the kernel of a matrix
 \item \[f:\mathbb{R}^3\to\mathbb{R}^3\]%prob 6,p.44 lin alg
 	\[f(x,y,z)=(2x-11y+6z,1x-7y+4z,2x-y)\]
 	where basis for both domain and codomain is given by
 	\[\mycbra{(2,3,5),(0,1,2),(1,0,0)}\]
+	\\\textbf{Solution.} 
+	This is linear transformation, as can be verified directly, like in the previous example. Its kernel is the solution
+	to system
+	\[\begin{cases}2a-11b+6c=0\\1a-7b+4c=0\\2a-b=0\end{cases}\]
+	This can be written in form of an augmented matrix as
+	\newcommand{\myexplainiii}[3]{#1\xrightarrow{\text{#2}}#3}
+	\newcommand{\myexplainiv}[4]{#1\xrightarrow{\begin{subarray}{c}\text{#2}\\\text{#3}\end{subarray}}#4}
+	\[\left(\begin{array}{rrr|r}2&-11&6&0\\1&-7&4&0\\2&-1&0&0\end{array}\right)\]
+	One possible row echelon form of it is
+	\[\left(\begin{array}{rrr|r}1&-7&4&0\\0&1&0&0\\0&0&1&0\end{array}\right)\]
+	from which we see that the only solution is zero-vector, hence the basis for kernel of $f$ is an \textit{empty set}.
+	(\textbf{note: }this can be seen simply as a convention, but also may be argued logically, but \textbf{the basis
+	of a trivial vector space is an empty set}).\\
+	Next, image is the set of triples $(\alpha,\beta,\gamma)$, such that the following system has solution
+	\[\begin{cases}2a-11b+6c=\alpha\\1a-7b+4c=\beta\\2a-b=\gamma\end{cases}
+	\]
+	This can be written in form of an augmented matrix as
+	\[\left(\begin{array}{rrr|r}2&-11&6&\alpha\\1&-7&4&\beta\\2&-1&0&\gamma\end{array}\right)\]
+	As we know, however, the sum of dimensions of null-space and column-space of matrix should be equal to number of columns
+	(3, in this case). And since as we've seen about dimension of null-space is zero, column space should have dimension
+	three, that is it is the whole $\mathbb{R}^3$, and so is the image of $f$.\\
+	Finally, let's do matrix representation. 
+	\[f(2,3,5)=(1,1,1)=(2,3,5)-2(0,1,2)-(1,0,0)\]
+	\[f(0,1,2)=(1,1,-1)=(2,3,5)-3(0,1,2)-(1,0,0)\]
+	\[f(1,0,0)=(2,1,2)=0(2,3,5)+(0,1,2)+(1,0,0)\]
+	where expressions of vectors in terms of basis are obtained, as usual, via solving the system of linear equations. For
+	example, to find $a$, $b$ and $c$, such that $(1,1,1)=a(2,3,5)+b(0,1,2)+c(1,0,0)$ we solve the system
+	\[\begin{cases}2a+0b+1c=1\\3a+1b+0c=1\\5a+2b+0c=1\end{cases}\]
+	Therefore, the matrix expression of $f$ is
+	\[\left(\begin{array}{rrr}1&1&0\\-2&-3&1\\-1&-1&1
+	\end{array}\right)\]
 \item \[f:\mathbb{R}^3\to\mathbb{R}^3\]%prob 2,p.40 lin alg
 	\[f(x,y,z)=(2x-y-z,x-2y+z,x+y-2z)\]
 	where the basis for domain is given by
 	\[\mycbra{(1,0,0),(0,1,0),(0,0,1)}\]
 	whereas the basis for codomain is given by
 	\[\mycbra{(2,1,1),(-1,-2,1),(-1,1,-2)}\]
-
+	\\\textbf{Solution.} 
+	In the same way as in example before the previous, $f$ can be checked to be linear. Again, kernel is formed by triples
+	$(x,y,z)$ that satisfy the system
+	\[\begin{cases}2x-y-z=0\\x-2y+z=0\\x+y-2z=0\end{cases}\]
+	This can be written in form of an augmented matrix as
+	\[\left(\begin{array}{rrr|r}2&-1&-1&0\\1&-2&1&0\\1&1&-2&0\end{array}\right)\]
+	with one possible row echelon form as
+	\[\left(\begin{array}{rrr|r}1&1&-2&0\\0&1&-1&0\\0&0&0&0\end{array}\right)\]
+	Thus, allowing $z$ to take any values we deduce $y=z$ and $x=z$, so kernel is
+	\[\begin{pmatrix}x\\y\\z\end{pmatrix}=\begin{pmatrix}z\\z\\z\end{pmatrix}=z\begin{pmatrix}1\\1\\1\end{pmatrix}\]
+	with basis consisting of a sole vector $(1,1,1)$. \\
+	Second, image is the set of triples $(\alpha,\beta,\gamma)$, such that the following system has solution
+	\[\begin{cases}2x-y-z=\alpha\\x-2y+z=\beta\\x+y-2z=\gamma\end{cases}\]
+	This can be written in form of an augmented matrix as
+	\[\left(\begin{array}{rrr|r}2&-1&-1&\alpha\\1&-2&1&\beta\\1&1&-2&\gamma\end{array}\right)\]
+	Interchanging third row with the first gives
+	\[\left(\begin{array}{rrr|r}1&1&-2&\gamma\\1&-2&1&\beta\\2&-1&-1&\alpha\end{array}\right)\]
+	Subtracting first row from the second once and from the third twice gives
+	\[\left(\begin{array}{rrr|r}1&1&-2&\gamma\\0&-3&3&\beta-\gamma\\0&-3&3&\alpha-2\gamma\end{array}\right)\]
+	Thus we see that $(\alpha,\beta,\gamma)$ are subject to sole requirement $\beta-\gamma=\alpha-2\gamma\iff
+	\alpha=\beta+\gamma$. Thus, taking $\beta$ and $\gamma$ to be arbitrary real numbers, we get
+	\[\begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix}=\begin{pmatrix}\beta+\gamma\\\beta\\\gamma\end{pmatrix}=
+		\beta\begin{pmatrix}1\\1\\0\end{pmatrix}+\beta\begin{pmatrix}1\\0\\1\end{pmatrix}\]
+	thus the basis for range is given by $\mycbra{(1,0,1),(1,1,0)}$.\\
+	Finally, the matrix representation is what remains to be done.
+	\[f(1,0,0)=(2,1,1)\]
+	\[f(0,1,0)=(-1,-2,1)\]
+	\[f(0,0,1)=(-1,1,-2)\]
+	Hence, the matrix expression of $f$ with given bases for domain and codomain is
+	\[\left(\begin{array}{rrr}1&0&0\\0&1&0\\0&0&1\end{array}\right)\]
 \item \[f:M_2(\mathbb{R})\to M_2(\mathbb{R})\]
 	\[f\mybramatii{a}{b}{c}{d}=\mybramatii{0}{1}{2}{3}\mybramatii{a}{b}{c}{d}\mybramatii{3}{4}{5}{6}\]
 	where by $M_2(\mathbb{R})$ I mean the vector space of all $2\times2$ matrices. And the basis is given by

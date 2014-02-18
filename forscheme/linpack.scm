@@ -33,6 +33,27 @@
 							 (map (lambda (e) (format #t "&~d" e)) (cdr row)) (format #t "\\\\\n"))) M)
 			       (format #t "\\end{array}\\right)\n")
 			       ))
+;Gaussian elimination
+(define (GE matrix executor) (define (GE-inner matrix-inner executor-inner) 'TODO)
+  (GE-inner matrix (executor (list 'init matrix))))
+(define (make-executor init methods) (lambda (op) (make-executor (methods init op) methods)))
+;GE->print_executor->bring_to_rowechelon
+
+(define A (list->mat (list 1 -1 3 5 -4 -4 7 -6 2)))
+(display A)(newline)
+(fold (lambda (op mat) (let* ((res (cond 
+                                    ((eq?(car op)'m) (let*((rownum(list-ref op 1)) (row(list-ref mat rownum)) (mult(list-ref op 2)))
+                                                              (replace-elem mat rownum (map (lambda (c) (* c mult)) row))))
+                                    ((eq?(car op)'i)(let*((i1 (cadr op))(i2 (caddr op))(r1 (list-ref mat i1))(r2(list-ref mat i2)))
+                                                        (replace-elem (replace-elem mat i1 r2) i2 r1)))
+                                    ((eq?(car op)'s)(let*((i1(cadr op))(i2(caddr op))(m (cadddr op))(r1(list-ref mat i1)))
+                                                      (replace-elem mat i2 (map (lambda (a b)(- b(* m a) )) r1 (list-ref mat i2)))))
+                                    (#t mat)
+                                    ))
+                             (dummy (begin (display res)(newline))))
+                         res
+                             )) A (list (list 's 0 1 5)(list 'm 0 2)(list 'm 1 -2)(list 'i 1 2)))
+(exit)
 
 ;script
 (map (lambda (l) (begin (display "\\item \\[")(print-matrix/latex (list->mat l))(display "\\]\n")(newline)))

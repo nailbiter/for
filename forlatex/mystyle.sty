@@ -9,7 +9,6 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{cancel}
 \RequirePackage{wasysym}
-
 \RequirePackage{enumerate}
 
 %ukrainian alphabetic counter
@@ -46,16 +45,15 @@
 \newcommand{\mybramatii}[4]{\left(\begin{array}{rr}#1&#2\\#3&#4\end{array}\right)}
 \newcommand{\mybramatiii}[9]{\left(\begin{array}{lll}#1&#2&#3\\#4&#5&#6\\#7&#8&#9\end{array}\right)}
 
-\let\oldint\int
-\renewcommand{\int}{\oldint\limits}
-
 %more conventional phi
 \let\oldphi\phi
 \let\phi\varphi
 
-%put subscript under lim and others
+%put subscript under lim and friends
 \let\oldlim\lim
 \renewcommand{\lim}{\displaystyle\oldlim}
+\let\oldint\int
+\renewcommand{\int}{\oldint\limits}
 \let\oldmin\min
 \renewcommand{\min}{\displaystyle\oldmin}
 \let\oldmax\max
@@ -69,6 +67,7 @@
 \renewcommand\Re{\operatorname{Re}}
 \renewcommand\Im{\operatorname{Im}}
 
+%custom operators
 \newcommand\Ker{\operatorname{Ker}}
 
 %environments for proofs, lemmas, theorems etc.
@@ -78,11 +77,11 @@
 \newtheorem{myprop}[mythm]{Proposition}
 \newtheorem{mycor}[mythm]{Corollary}
 
+%theorem environments
 \newcommand{\myqed}{\nobreak \ifvmode \relax \else
       \ifdim\lastskip<1.5em \hskip-\lastskip
       \hskip1.5em plus0em minus0.5em \fi \nobreak
       \vrule height0.75em width0.5em depth0.25em\fi}
-
 \newenvironment{myproof}[1][Proof]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}]}{\myqed\end{trivlist}}
 \newenvironment{mydef}[1][Definition]{\begin{trivlist}
