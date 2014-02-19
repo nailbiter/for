@@ -24,6 +24,8 @@
 (define (replace-col M num b) (map (lambda (l b-elem) (replace-elem l num b-elem)) M b))
 (define (remove-matrix-rowcol m rownum colnum) (map (lambda (l) (remove-elem l colnum)) (remove-elem m rownum)))
 (define (transpose m) (map (lambda (i) (map (lambda (l) (select l i)) m)) (seq 0 (length m))))
+(define(matr-mult . l)
+  (fold-right(lambda(A B)(if(eq? B 'id)A(map(lambda(row)(map(lambda(rowB)(fold + 0 (map * rowB row)))(transpose B)))A)))'id l))
 
 ;printing procedures
 (define (print-matrix/latex M) (begin (format #t "\\left(\\begin{array}{")
@@ -39,7 +41,11 @@
 (define (make-executor init methods) (lambda (op) (make-executor (methods init op) methods)))
 ;GE->print_executor->bring_to_rowechelon
 
-(define A (list->mat (list 1 -1 3 5 -4 -4 7 -6 2)))
+(define A (list->mat (list 0 1 2 3)))
+(define B (list->mat (list 3 4 5 6)))
+(display (det (transpose (list->mat(list 0 0 6 8 0 0 10 12 3 4 9 12 5 6 15 18)))))(exit)
+
+(display (det (list->mat (list 1 -1 3 5 -4 -4 7 -6 2))))
 (display A)(newline)
 (fold (lambda (op mat) (let* ((res (cond 
                                     ((eq?(car op)'m) (let*((rownum(list-ref op 1)) (row(list-ref mat rownum)) (mult(list-ref op 2)))

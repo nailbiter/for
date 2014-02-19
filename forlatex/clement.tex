@@ -185,6 +185,54 @@ whereas
 	\[f\mybramatii{a}{b}{c}{d}=\mybramatii{0}{1}{2}{3}\mybramatii{a}{b}{c}{d}\mybramatii{3}{4}{5}{6}\]
 	where by $M_2(\mathbb{R})$ I mean the vector space of all $2\times2$ matrices. And the basis is given by
 	\[\mycbra{\mybramatii{1}{0}{0}{0},\mybramatii{0}{1}{0}{0},\mybramatii{0}{0}{1}{0},\mybramatii{0}{0}{0}{1}}\]
+	\\\textbf{Solution.} 
+	This function is linear. Indeed, by the properties of multiplication for any $A$ and $B$ in $M_2(\mathbb{R})$ we have
+	\[\begin{array}{rr}f(A+B)=&\myexplain{as by $ABC$ we usually mean $A(BC)$}\\[2em]
+	=\mybramatii{0}{1}{2}{3}\mysbra{(A+B)\mybramatii{3}{4}{5}{6}}=&\myexplain{by $A(B+C)=AB+AC$}\\[2em]
+	=\mybramatii{0}{1}{2}{3}\mysbra{A\mybramatii{3}{4}{5}{6}+B\mybramatii{3}{4}{5}{6}}=&\myexplain{by $(A+B)C=AC+BC$}\\[2em]
+	=\mybramatii{0}{1}{2}{3}A\mybramatii{3}{4}{5}{6}+\mybramatii{0}{1}{2}{3}B\mybramatii{3}{4}{5}{6}&=
+	f(A)+f(B)\end{array}\]
+	and similarly
+	\[\begin{array}{rr}
+	f(\alpha A)=\mybramatii{0}{1}{2}{3}\mysbra{(\alpha A)\mybramatii{3}{4}{5}{6}}=&\myexplain{by $(\alpha A)B=\alpha(AB)$}\\[2em]
+	\mybramatii{0}{1}{2}{3}\mysbra{\alpha \mycbra{A\mybramatii{3}{4}{5}{6}}}=&\myexplain{by $A(\alpha B)=\alpha(AB)$}\\[2em]
+	\alpha\mysbra{\mybramatii{0}{1}{2}{3}{\mycbra{A\mybramatii{3}{4}{5}{6}}}}&=\alpha f(A)
+	\end{array}\]
+	Now, let's do the matrix representation
+	\[f\mybramatii{1}{0}{0}{0}=
+	\left(\begin{array}{rr}
+	0&0\\
+	6&8\\\end{array}\right)\]
+
+	\[f\mybramatii{0}{1}{0}{0}=
+\left(\begin{array}{rr}
+0&0\\
+10&12\\
+\end{array}\right)\]
+
+	\[f\mybramatii{0}{0}{1}{0}=
+\left(\begin{array}{rr}
+3&4\\
+9&12\\
+\end{array}\right)\]
+
+	\[f\mybramatii{0}{0}{0}{1}=
+\left(\begin{array}{rr}
+5&6\\
+15&18\\
+\end{array}\right)=5\mybramatii{1}{0}{0}{0}+6\mybramatii{0}{1}{0}{0}+15\mybramatii{0}{0}{1}{0}+18\mybramatii{0}{0}{0}{1}\]
+This gives us matrix representation for $f$:
+\[L=\left(\begin{array}{rrrr}
+	0&0&3&5\\
+	0&0&4&6\\
+	6&10&9&15\\
+	8&12&12&18\\
+\end{array}\right)\]
+Now, as the kernel of $f$ corresponds to null-space of this matrix, and latter is unaffected by row operations, we determine it
+by performing gaussian elimination on $A$. It turns out that $L$ has reduced row echelon form equal to identity matrix, hence
+it's null-space is zero and has basis equal to empty set. As sum of dimensions of column-space and null-space should be equal
+to number of columns (four, in this case), column-space should have dimension 4, hence range of $f$ coincides with the whole $M_2(
+\mathbb{R})$ and it's basis can be taken to be the same, as given in problem statement.
 \item \[f:M_3(\mathbb{R})\to M_3(\mathbb{R})\]%prob 4,p.42 lin alg
 	\[f\mybramatiii{a}{b}{c}{d}{e}{f}{g}{h}{i}=\mybramatiii{a}{d}{g}{b}{e}{h}{c}{f}{i}\]
 	where by $M_3(\mathbb{R})$ I mean the vector space of all $3\times3$ matrices. And the basis is given by
@@ -199,9 +247,14 @@ whereas
 	\mybramatiii{0}{0}{0}{0}{0}{0}{0}{1}{0},
 	\mybramatiii{0}{0}{0}{0}{0}{0}{0}{0}{1}
 	\right\}\]
+	\\\textbf{Solution.} 
+	This function is linear. Indeed, 
+	\[f\mysbra{\mybramatiii{a}{b}{c}{d}{e}{f}{g}{h}{i}+
+	\mybramatiii{a'}{b'}{c'}{d'}{e'}{f'}{g'}{h'}{i'}}=f\mybramatiii{a+a'}{b+b'}{c+c'}{d+d'}{e+e'}{f+f'}{g+g'}{h+h'}{i+i'}\]
 \item \[f:M_2(\mathbb{R})\to M_2(\mathbb{R})\]%prob 4,p.42 lin alg
 	\[f(X)=\mybramatii{2}{-1}{1}{0}X+X\mybramatii{-3}{1}{-4}{1}\]
 	where by $M_2(\mathbb{R})$ I mean the vector space of all $2\times2$ matrices. And the basis is given by
 	\[\mycbra{\mybramatii{1}{0}{0}{0},\mybramatii{0}{1}{0}{0},\mybramatii{0}{0}{1}{0},\mybramatii{0}{0}{0}{1}}\]
 \end{enumerate}
 \end{document}
+
