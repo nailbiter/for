@@ -22,8 +22,7 @@
 (define (replace l num elem) (if (<= num 0) (cons elem (cdr l)) (cons (car l) (replace (cdr l) (dec num) elem))))
 (define (seq a b) (if (>= a b) '() (cons a (seq (+ a 1) b))))
 (define (flatten ll) (if (null? ll) '() (union (car ll) (flatten (cdr ll)))))
-(define (find-first-index l pred) (define (inner index li)(if (null? li) -1 (if (pred(car li))index(inner (+ index 1)(cdr li)))))
-  (inner 0 l))
+(define (find-first-index l pred)(define(inner index li)(if(null? li)-1(if(pred(car li))index(inner(+ index 1)(cdr li)))))(inner 0 l))
 (define (get-value l key) (if (null? l) (string-concatenate (list "not found:" key))
                             (if (string=? key (car (car l))) (cdr (car l)) (get-value (cdr l) key))))
 (define (get-value/msg l key fallback-msg) (if (null? l) fallback-msg

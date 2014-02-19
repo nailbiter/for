@@ -1,4 +1,4 @@
-\documentclass[12pt]{article} % use larger type; default would be 10pt
+\documentclass[12pt,fleqn]{article} % use larger type; default would be 10pt
 
 \usepackage{mystyle}
 \newtheorem{prob}{Завдання}
@@ -250,11 +250,225 @@ to number of columns (four, in this case), column-space should have dimension 4,
 	\\\textbf{Solution.} 
 	This function is linear. Indeed, 
 	\[f\mysbra{\mybramatiii{a}{b}{c}{d}{e}{f}{g}{h}{i}+
-	\mybramatiii{a'}{b'}{c'}{d'}{e'}{f'}{g'}{h'}{i'}}=f\mybramatiii{a+a'}{b+b'}{c+c'}{d+d'}{e+e'}{f+f'}{g+g'}{h+h'}{i+i'}\]
+	\mybramatiii{a'}{b'}{c'}{d'}{e'}{f'}{g'}{h'}{i'}}=f\mybramatiii{a+a'}{b+b'}{c+c'}{d+d'}{e+e'}{f+f'}{g+g'}{h+h'}{i+i'}=\]
+	\[=\mybramatiii{a+a'}{d+d'}{g+g'}{b+b'}{e+e'}{h+h'}{c+c'}{f+f'}{i+i'}=
+	\mybramatiii{a}{d}{g}{b}{e}{h}{c}{f}{i}+
+	\mybramatiii{a'}{d'}{g'}{b'}{e'}{h'}{c'}{f'}{i'}=\]\[=f\mybramatiii{a}{b}{c}{d}{e}{f}{g}{h}{i}+
+	f\mybramatiii{a'}{b'}{c'}{d'}{e'}{f'}{g'}{h'}{i'}\]
+	and 
+	\[f\mysbra{\alpha\mybramatiii{a}{b}{c}{d}{e}{f}{g}{h}{i}}=
+	f\mybramatiii{\alpha a}{\alpha b}{\alpha c}{\alpha d}{\alpha e}{\alpha f}{\alpha g}{\alpha h}{\alpha i}=\]
+	\[=\mybramatiii{\alpha a}{\alpha d}{\alpha g}{\alpha b}{\alpha e}{\alpha h}{\alpha c}{\alpha f}{\alpha i}=
+	\alpha\mybramatiii{ a}{ d}{ g}{ b}{ e}{ h}{ c}{ f}{ i}=\alpha f{\mybramatiii{a}{b}{c}{d}{e}{f}{g}{h}{i}}\]
+	Next, let's compute the matrix representation. As
+	\[f\left(\begin{array}{rrr}
+	1&0&0\\
+	0&0&0\\
+	0&0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rrr}
+	1&0&0\\
+	0&0&0\\
+	0&0&0\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rrr}
+	0&1&0\\
+	0&0&0\\
+	0&0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rrr}
+	0&0&0\\
+	1&0&0\\
+	0&0&0\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rrr}
+	0&0&1\\
+	0&0&0\\
+	0&0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rrr}
+	0&0&0\\
+	0&0&0\\
+	1&0&0\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rrr}
+	0&0&0\\
+	1&0&0\\
+	0&0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rrr}
+	0&1&0\\
+	0&0&0\\
+	0&0&0\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rrr}
+	0&0&0\\
+	0&1&0\\
+	0&0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rrr}
+	0&0&0\\
+	0&1&0\\
+	0&0&0\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rrr}
+	0&0&0\\
+	0&0&1\\
+	0&0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rrr}
+	0&0&0\\
+	0&0&0\\
+	0&1&0\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rrr}
+	0&0&0\\
+	0&0&0\\
+	1&0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rrr}
+	0&0&1\\
+	0&0&0\\
+	0&0&0\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rrr}
+	0&0&0\\
+	0&0&0\\
+	0&1&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rrr}
+	0&0&0\\
+	0&0&1\\
+	0&0&0\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rrr}
+	0&0&0\\
+	0&0&0\\
+	0&0&1\\
+	\end{array}\right)
+	=\left(\begin{array}{rrr}
+	0&0&0\\
+	0&0&0\\
+	0&0&1\\
+	\end{array}\right)
+	\]
+	we have matrix representation of $f$ being equal to
+	\[\left(\begin{array}{rrrrrrrrr}
+	1&0&0&0&0&0&0&0&0\\
+	0&0&0&1&0&0&0&0&0\\
+	0&0&0&0&0&0&1&0&0\\
+	0&1&0&0&0&0&0&0&0\\
+	0&0&0&0&1&0&0&0&0\\
+	0&0&0&0&0&0&0&1&0\\
+	0&0&1&0&0&0&0&0&0\\
+	0&0&0&0&0&1&0&0&0\\
+	0&0&0&0&0&0&0&0&1\\
+	\end{array}\right)\]
+	As can be verified directly, its reduced row echelon form is the identity matrix, hence kernel of $f$ is trivial vector
+	space, and the basis can be taken to be empty, while its range is the whole $M_3(\mathbb{R})$, with basis that can be taken
+	to be the same as in problem statement.
+
 \item \[f:M_2(\mathbb{R})\to M_2(\mathbb{R})\]%prob 4,p.42 lin alg
 	\[f(X)=\mybramatii{2}{-1}{1}{0}X+X\mybramatii{-3}{1}{-4}{1}\]
 	where by $M_2(\mathbb{R})$ I mean the vector space of all $2\times2$ matrices. And the basis is given by
 	\[\mycbra{\mybramatii{1}{0}{0}{0},\mybramatii{0}{1}{0}{0},\mybramatii{0}{0}{1}{0},\mybramatii{0}{0}{0}{1}}\]
+	\\\textbf{Solution.}
+	Again, this function is linear
+	\[\begin{array}{rl}f(X+Y)
+		=\mybramatii{2}{-1}{1}{0}(X+Y)+(X+Y)\mybramatii{-3}{1}{-4}{1}=&\myexplain{by $A(B+C)=AB+AC$}\\[2em]
+		&\myexplain{and $(A+B)C=AC+BC$}\\[2em]
+		=\mybramatii{2}{-1}{1}{0}X+\mybramatii{2}{-1}{1}{0}Y+X\mybramatii{-3}{1}{-4}{1}+
+		Y\mybramatii{-3}{1}{-4}{1}=&\myexplain{by $A+B=B+A$}\\[2em]
+		=\mybramatii{2}{-1}{1}{0}X+X\mybramatii{-3}{1}{-4}{1}+\mybramatii{2}{-1}{1}{0}Y+
+		Y\mybramatii{-3}{1}{-4}{1}=&f(X)+f(Y)
+	\end{array}\]
+	and
+	\[\begin{array}{rr}f(\alpha X)=
+		\mybramatii{2}{-1}{1}{0}(\alpha X)+(\alpha X)\mybramatii{-3}{1}{-4}{1}=&\myexplain{by $\alpha AB=A(\alpha B)
+		=(\alpha A)B$}\\[2em]
+		=\alpha\mysbra{\mybramatii{2}{-1}{1}{0}X}+\alpha\mysbra{X\mybramatii{-3}{1}{-4}{1}}=&\myexplain{by $\alpha A+
+		\alpha B=\alpha(A+B)$ for vector spaces}\\[2em]
+		=\alpha\mysbra{\mybramatii{2}{-1}{1}{0}X+X\mybramatii{-3}{1}{-4}{1}}&=\alpha f(X)
+	\end{array}\]
+	Next, matrix form. As we have
+	\[f\left(\begin{array}{rr}
+	1&0\\
+	0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rr}
+	-1&1\\
+	1&0\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rr}
+	0&1\\
+	0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rr}
+	-4&3\\
+	0&1\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rr}
+	0&0\\
+	1&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rr}
+	-1&0\\
+	-3&1\\
+	\end{array}\right)
+	\]
+	\[f\left(\begin{array}{rr}
+	0&0\\
+	0&1\\
+	\end{array}\right)
+	=\left(\begin{array}{rr}
+	0&-1\\
+	-4&1\\
+\end{array}\right)=0\mybramatii{1}{0}{0}{0}-1\mybramatii{0}{1}{0}{0}-4\mybramatii{0}{0}{1}{0}+1\mybramatii{0}{0}{0}{1}\]
+And thus matrix representation is
+\[\left(\begin{array}{rrrr}
+-1&-4&-1&0\\
+1&3&0&-1\\
+1&0&-3&-4\\
+0&1&1&1\\
+\end{array}\right)
+\]
+As null-space is unchanged by matrix operations, we can perform gaussian elimination to find it (and hence, the kernel of $f$).
+One possible reduced row echelon form is.
+\[\left(\begin{array}{rrrr}1&0&-3&-4\\0&1&1&1\\0&0&0&0\\0&0&0&0\end{array}\right)\]
+Thus we see that basis of kernel can be taken to be the pair of quadruples $(4,-1,0,1)$ and $(3,-1,1,0)$, which corresponds
+to matrices
+\[\left(\begin{array}{rr}4&-1\\0&1\end{array}\right)\mbox{ and }\left(\begin{array}{rr}3&-1\\1&0\end{array}\right)\]
+Image of $f$ is, therefore two-dimensional and to find a basis of it, it suffices to guess two linearly independent matrices
+in it. In particular,
+	\[f\left(\begin{array}{rr}
+	1&0\\
+	0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rr}
+	-1&1\\
+	1&0\\
+	\end{array}\right)
+	\]
+	and 
+	\[f\left(\begin{array}{rr}
+	0&1\\
+	0&0\\
+	\end{array}\right)
+	=\left(\begin{array}{rr}
+	-4&3\\
+	0&1\\
+	\end{array}\right)
+	\]
+	would do.
 \end{enumerate}
 \end{document}
-
