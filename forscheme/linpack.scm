@@ -35,14 +35,44 @@
 							 (map (lambda (e) (format #t "&~d" e)) (cdr row)) (format #t "\\\\\n"))) M)
 			       (format #t "\\end{array}\\right)\n")
 			       ))
+(define (print-matrix/txt M) (map (lambda(row)(begin(map(lambda(e)(cond
+                                                                    ((= e 0+0i) (format #t "~5d" 0))
+                                                                    ((= e 1+0i) (format #t "~5d" 1))
+                                                                    ((= e -1+0i) (format #t "   -1"))
+                                                                    ((= e 0+1i) (format #t  "    i"))
+                                                                    ((= e 0-1i) (format #t  "   -i"))
+                                                          (#t(format #t "~5i" e))))row)(newline)))M))
+
 ;Gaussian elimination
 (define (GE matrix executor) (define (GE-inner matrix-inner executor-inner) 'TODO)
   (GE-inner matrix (executor (list 'init matrix))))
 (define (make-executor init methods) (lambda (op) (make-executor (methods init op) methods)))
 ;GE->print_executor->bring_to_rowechelon
 
-;((lambda(mat)(begin(display "\\[")(print-matrix/latex mat)(display "\\]\n"))))
-(display (det (transpose(list->mat(list -1 1 1 0 -4 3 0 1 -1 0 -3 1 0 -1 -4 1)))))
+(define es (list (list->mat(list 0 0 -1 0 0 0 0 -1 1  0 0 0 0 1 0 0))
+      (list->mat(list 0 0 0+1i 0 0 0 0 0-1i 0+1i 0 0 0 0 0-1i 0 0))
+      (list->mat(list 0 0 0 -1 0 0 1 0 0 -1 0 0 1 0 0 0 ))
+      (list->mat(list 0 0 0 0+i 0 0 0+i 0 0 0+i 0 0 0+i 0 0 0))
+      ))
+(let ((e1 (list-ref es 0))
+      (e2 (list-ref es 1))
+      (e3 (list-ref es 2))
+      (e4 (list-ref es 3))
+      (cut (lambda(M) (map (lambda(row)(head row 2))(head M 2))))
+      )
+    (begin 
+      (print-matrix/txt  (matr-prod e1 e2 e3))(newline)
+      (print-matrix/txt  (matr-prod e1 e2 e4))(newline)
+      (print-matrix/txt  (matr-prod e1 e3 e4))(newline)
+      (print-matrix/txt  (matr-prod e2 e3 e4))(newline)
+      ;(print-matrix/txt (cut (matr-prod e1 e2)))(newline)
+      ;(print-matrix/txt (cut(matr-prod e1 e3)))(newline)
+      ;(print-matrix/txt (cut(matr-prod e1 e4)))(newline)
+      ;(print-matrix/txt (matr-sum(matr-prod e1 e2)(matr-prod e4 e3)))(newline)
+      ;(print-matrix/txt (matr-sum(matr-prod e1 e3)(matr-prod e2 e4)))(newline)
+      ;(print-matrix/txt (matr-sum(matr-prod e1 e4)(matr-prod e3 e2)))(newline)
+           )
+  )
 (exit)
 
 ;driver&engine script
