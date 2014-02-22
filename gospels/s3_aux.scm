@@ -2,22 +2,24 @@
 (include "../forscheme/misc.scm")
 
 (define rus2chiurl-table (list
-			(cons "Гал" "GAL")
-			(cons "Мк" "MRK");"馬太福音"
-			(cons "Лк" "LUK")
-			(cons "Евр" "HEB")
-			(cons "1 Кор" "1CO")
-			(cons "2 Кор" "2CO")
-			(cons "1 Тим" "1TI")
-			(cons "2 Тим" "2TI")
-			(cons "2 Тим" "2TI")
-            (cons "Рим" "ROM")
+			(cons "Лк" "luk")
+			(cons "1 Кор" "1co")
+            (cons "Мф" "mat")
+			(cons "Мк" "mak");"馬太福音"
+			(cons "Лк" "luk")
+			(cons "Евр" "jue")
+			(cons "1 Кор" "1co")
+			(cons "2 Кор" "2co")
+			(cons "1 Тим" "1ti")
+			(cons "2 Тим" "2ti")
+            (cons "Рим" "rom")
 			))
 (define rusname2engname-table(list 
-                   (cons "Гал" "Galatians")
-                   (cons "Мк" "Mark")
+           (cons "Гал" "Galatians")
+           (cons "Мк" "Mark")
+           (cons "Мф" "Matthew")
 		   (cons "Евр" "Hebrews")
-                   (cons "Лк" "Luke")
+           (cons "Лк" "Luke")
 		   (cons "1 Кор" "1 Corinthians")
 		   (cons "2 Кор" "2 Corinthians")
 		   (cons "1 Тим" "1 Timothy")
@@ -26,7 +28,8 @@
            ))
 (define rusname2chiname-table (list 
                    (cons "Гал" "加拉太書")
-                   (cons "Мк" "馬可福音");"馬太福音" ""
+                   (cons "Мк" "馬可福音")
+                   (cons "Мф" "馬太福音")
                    (cons "Лк" "路加福音")
                    (cons "Евр" "希伯來書")
                    (cons "1 Кор" "哥林多前書")
@@ -84,34 +87,20 @@
     ))
 
 ;chinese text
-(define (get-rdg-chinese-url name chapter) (string-concatenate (list "\"http://rcuv.hkbs.org.hk/bible_list.php?dowhat=&is_search=&bible="
-								     (get-value rus2chiurl-table name) "&kw=&chapter=" chapter
-	"&searchkey=0&read_chkRCUV=RCUV&read_chkCUNP=&read_chkBoth=&chk_version=RCUV&godVersionOption=god1&displayOption=list&kw=&bible_testament="
-	"whole&search_topic_from=GEN&search_chapter_from=0&search_topic_to=GEN&search_chapter_to=0&chapter=" chapter "&version=RCUV&bible="
-								     (get-value rus2chiurl-table name) "\""
-								 )))
 (define (get-rdg-chinese-text name chapter verse-start verse-end)
-(let* ((source  (download2string (get-rdg-chinese-url name chapter)))
-         (has-substring (lambda (subs s) (regexp-match? (string-match subs s))))
-	 (before-last (lambda (pat src) (match:prefix (car (last-pair (list-matches pat src))))))
-	 (after-first (lambda (pat src) (match:suffix (string-match pat src))))
-	 (global-eliminate (lambda(pat src)(regexp-substitute/global #f pat src 'pre 'post)))
-       	 (lines (list-tail (mytokenize "<td valign=\"top\" nowrap >" source) 1))
-	 (lines (filter (lambda (s) (has-substring"!--" s)) lines))
-	 (lines (filter (lambda (s) (has-substring"[0-9]+</td>" s)) lines))
-	 (lines(map(lambda(s)(let*((matchs (string-match "[0-9]+</td>" s))(ss(match:substring matchs)))
-			       (cons(string-drop-right ss 5)(match:suffix matchs)))) lines))
-	 (lines (filter (lambda(pair)(<= (string->number verse-start)(string->number (car pair))(string->number verse-end))) lines))
-	 (lines (map(lambda(pair)(cons(car pair)(before-last "</span>"(after-first "-->"(cdr pair)))))lines))
-	 (lines (map(lambda(pair)(cons(car pair)(global-eliminate "<sup>.*</sup>" (cdr pair))))lines))
-	 (lines (map(lambda(pair)(cons(car pair)(global-eliminate "<td valign=\"top\" style=\"line-height:20px;\"><span>" (cdr pair))))lines))
-	 (lines (map(lambda(pair)(cons(car pair)(global-eliminate "<span class='pnpn-SpecialText-ProperName'>" (cdr pair))))lines))
-	 (lines (map(lambda(pair)(cons(car pair)(global-eliminate "<[^<>]*>" (cdr pair))))lines))
-	 (lines (map(lambda(pair)(cons(car pair)(string-drop (cdr pair) 1)))lines))
-	 (lines (map(lambda(pair)(cons(car pair)(string-filter(lambda(char)(and(not (eq? #\newline char))(not(eq? #\tab char))))(cdr pair))))lines))
-	 (lines (map (lambda(pair)(string-concatenate(list(cdr pair)"\\\\\n"))) lines))
-         )
-        (string-concatenate lines)
+(let* (
+     (code (get-value rus2chiurl-table name))
+     (download2string/big5 
+       (lambda(url)(read-delimited""(open-input-pipe(string-concatenate(list"wget -O - "url"|iconv -f Big5 -t UTF8"))))))
+     (chinese-url(string-concatenate(list "\"http://www.o-bible.com/cgibin/ob.cgi?version=hb5&book=" code "&chapter=" chapter "\"")))
+     (source (download2string/big5 chinese-url))
+     (verses (map (lambda(match)(cons (match:substring match 1) (match:substring match 2)))
+       (list-matches"<td class=\"vn\">[0-9]+:([0-9]+)</td><td class=\"vn\">&nbsp;&nbsp;</td><td class=\"v b5\">([^<>]+)</td>"source)))
+	 (verses (filter (lambda(pair)(<= (string->number verse-start)(string->number (car pair))(string->number verse-end))) verses))
+     (verses (map cdr verses))
+	 (verses (map(lambda(s)(string-filter(lambda(char)(not(or(eq? #\newline char)(eq? #\space char)(eq? #\tab char))))s))verses))
+     (verses (map (lambda(s)(string-concatenate(list s "\\\\\n"))) verses)))
+        (string-concatenate verses)
     ))
 
 ;titles

@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+<TITLE>哥 林 多 前 書 1 Corinthians</TITLE>
+<META HTTP-EQUIV=Content-Type CONTENT="text/html; charset=Big5">
+<LINK SRC="/css/styles.css" HREF="/css/dstyles.css" TYPE="text/css" REL="stylesheet"><LINK SRC="/css/styles.css" HREF="/css/styles.css" TYPE="text/css" REL="stylesheet"><SCRIPT LANGUAGE="JavaScript" TYPE="Text/JavaScript" SRC="/util.js"></SCRIPT></HEAD>
+<BODY id="w" onLoad="load(20, 0)" onResize="position(20, 0)" TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0">
+
+<TABLE WIDTH=655 CELLSPACING=0 CELLPADDING=0 BORDER=0>
+   <TR>
+   <TD WIDTH=162 VALIGN=top BGCOLOR="#FFCC00"><A
+        HREF="/b5/"><img src="/image/o-bible.gif" ALT="O-Bible"
+        width=162 height=30 border=0></A><BR><BR>&nbsp;<A class="mt b5" HREF="/b5/hb5.html">聖 經</A><BR>
+&nbsp;<img src="/image/space.gif" ALT=" " width=10 height=1>&nbsp;<A class="mi b5" HREF="/b5/int.html">中英對照</A><BR>
+&nbsp;<img src="/image/space.gif" ALT=" " width=10 height=1>&nbsp;<A class="mi b5" HREF="/kjv.html">英文欽定譯本</A><BR>
+&nbsp;<img src="/image/space.gif" ALT=" " width=10 height=1>&nbsp;<A class="mi b5" HREF="/bbe.html">簡易英文譯本</A><BR>
+&nbsp;<img src="/image/space.gif" ALT=" " width=10 height=1>&nbsp;<A class="mi b5" HREF="/gb/hgb.html">簡體中文和合本</A><BR>
+&nbsp;<img src="/image/gball.gif" ALT="+" width=10 height=10>&nbsp;<A class="mi b5" HREF="/b5/hb5.html">繁體中文和合本</A><BR>
+<BR>
+&nbsp;<A class="mt b5" HREF="/b5/search.html">聖經學習工具</A><BR>
+&nbsp;<img src="/image/space.gif" ALT=" " width=10 height=1>&nbsp;<A class="mi b5" HREF="/b5/search.html">聖經查詢</A><BR>
+&nbsp;<img src="/image/space.gif" ALT=" " width=10 height=1>&nbsp;<A class="mi b5" HREF="/b5/verse.html">聖經記憶</A><BR>
+&nbsp;<img src="/image/space.gif" ALT=" " width=10 height=1>&nbsp;<A class="mi b5" HREF="/b5/devotion.html">每日查經</A><BR>
+<BR>
+&nbsp;<A class="mt b5" HREF="/b5/dlb.html">聖經資源</A><BR>
+&nbsp;<img src="/image/space.gif" ALT=" " width=10 height=1>&nbsp;<A class="mi b5" HREF="/b5/dlb.html">下載聖經</A><BR>
+&nbsp;<img src="/image/space.gif" ALT=" " width=10 height=1>&nbsp;<A class="mi b5" HREF="/b5/blink.html">聖經網站</A><BR>
+<BR>
+
+<form name="search_form" action="/cgibin/ob.cgi" method=GET  lang="en">
+     <input type="hidden" name="version" value="hb5">
+     
+     <input type="hidden" name="search">
+     &nbsp;<input class="ms" name="keywords" size="11"><br>
+     <center>
+     <A HREF="JavaScript://Search" onclick="document.search_form.submit(); return false"><img
+     src="/image/search.gif" alt="Search" width=70 height=18 border=0></A></center></FORM>
+
+        <BR>
+        &nbsp;<B><A href="MAILTO:webservant@o-bible.com" class="mt b5">給我們發電子郵件</A><TD WIDTH=5><IMG SRC="/image/space.gif" width=5 height=1></TD><TD valign=top><div id="topLink" style="marginTop:5"><p align=center class="bk b5">哥 林 多 前 書 1 Corinthians</p><table width=90%><tr><td class="ctl b5">閱讀其它版本﹕ <a class="vt" href="/cgibin/ob.cgi?version=kjv&book=1co&chapter=8">kjv</a> &nbsp; <a class="vt" href="/cgibin/ob.cgi?version=bbe&book=1co&chapter=8">bbe</a> &nbsp; <a class="vt" href="/cgibin/ob.cgi?version=hgb&book=1co&chapter=8">hgb</a> &nbsp;</td><td align=right><a href="/cgibin/ob.cgi?version=hb5&&book=1co&chapter=8&p"><img src="/image/printer.gif" alt="printer friendly version" border="0" width="14" height="12"></a></td></tr></table><table width=468 cellpadding=0 cellspacing=0 border=0><tr><td width=50 class="c b5">章:&nbsp;</td><td width=438 class="cl"><a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=1">1</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=2">2</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=3">3</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=4">4</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=5">5</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=6">6</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=7">7</a>
+<span class="cc">8 </span><a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=9">9</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=10">10</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=11">11</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=12">12</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=13">13</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=14">14</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=15">15</a>
+<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=16">16</a>
+</TD></TR></table><br></div>
+<div id="content" style="position:relative; top:0px; left:0px; overflow:auto"><table width=468 cellpadding=0 cellspacing=0 border=0>
+<tr><td class="vn">8:1</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">論 到 祭 偶 像 之 物 、 我 們 曉 得 我 們 都 有 知 識 ． 但 知 識 是 叫 人 自 高 自 大 、 惟 有 愛 心 能 造 就 人 。 </td>
+</tr>
+<tr><td class="vn">8:2</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">若 有 人 以 為 自 己 知 道 甚 麼 、 按 他 所 當 知 道 的 、 他 仍 是 不 知 道 ． </td>
+</tr>
+<tr><td class="vn">8:3</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">若 有 人 愛 　 神 、 這 人 乃 是 　 神 所 知 道 的 。 </td>
+</tr>
+<tr><td class="vn">8:4</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">論 到 喫 祭 偶 像 之 物 、 我 們 知 道 偶 像 在 世 上 算 不 得 甚 麼 ． 也 知 道 　 神 只 有 一 位 、 再 沒 有 別 的 　 神 。 </td>
+</tr>
+<tr><td class="vn">8:5</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">雖 有 稱 為 　 神 的 、 或 在 天 、 或 在 地 ． 就 如 那 許 多 的 　 神 、 許 多 的 主 ． </td>
+</tr>
+<tr><td class="vn">8:6</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">然 而 我 們 只 有 一 位 　 神 、 就 是 父 萬 物 都 本 於 他 、 我 們 也 歸 於 他 ． 並 有 一 位 主 、 就 是 耶 穌 基 督 、 萬 物 都 是 藉 著 他 有 的 、 我 們 也 是 藉 著 他 有 的 。 </td>
+</tr>
+<tr><td class="vn">8:7</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">但 人 不 都 有 這 等 知 識 ． 有 人 到 如 今 因 拜 慣 了 偶 像 、 就 以 為 所 喫 的 是 祭 偶 像 之 物 ． 他 們 的 良 心 既 然 軟 弱 、 也 就 污 穢 了 。 </td>
+</tr>
+<tr><td class="vn">8:8</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">其 實 食 物 不 能 叫 　 神 看 中 我 們 ． 因 為 我 們 不 喫 也 無 損 、 喫 也 無 益 。 </td>
+</tr>
+<tr><td class="vn">8:9</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">只 是 你 們 要 謹 慎 、 恐 怕 你 們 這 自 由 、 竟 成 了 那 軟 弱 人 的 絆 腳 石 。 </td>
+</tr>
+<tr><td class="vn">8:10</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">若 有 人 見 你 這 有 知 識 的 、 在 偶 像 的 廟 裡 坐 席 、 這 人 的 良 心 、 若 是 軟 弱 、 豈 不 放 膽 去 喫 那 祭 偶 像 之 物 麼 。 </td>
+</tr>
+<tr><td class="vn">8:11</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">因 此 、 基 督 為 他 死 的 那 軟 弱 弟 兄 、 也 就 因 你 的 知 識 沉 淪 了 。 </td>
+</tr>
+<tr><td class="vn">8:12</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">你 們 這 樣 得 罪 弟 兄 們 、 傷 了 他 們 軟 弱 的 良 心 、 就 是 得 罪 基 督 。 </td>
+</tr>
+<tr><td class="vn">8:13</td><td class="vn">&nbsp;&nbsp;</td><td class="v b5">所 以 食 物 若 叫 我 弟 兄 跌 倒 、 我 就 永 遠 不 喫 肉 、 免 得 叫 我 弟 兄 跌 倒 了 。 </td>
+</tr>
+</TD></TR></table></div>
+<div id="botLink">
+<TABLE WIDTH=478 CELLPADDING=0 CELLSPACING=0 BORDER=0><TR><TD colspan=3 align=right height=26 valign=middle><a href="/cgibin/ob.cgi?version=hb5&book=rom&chapter=1"><img src="/image/prev_book.gif" alt="Prev Book" width="20" height="26" border=0></a>&nbsp;&nbsp;&nbsp;<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=7"><img src="/image/prev_chapter.gif" alt="Prev Chapter" width="14" height="26" border=0></a>&nbsp;&nbsp&nbsp;&nbsp<a href="/cgibin/ob.cgi?version=hb5&book=1co&chapter=9"><img src="/image/next_chapter.gif" alt="Next Chapter" width="14" height="26" border=0></a>&nbsp;&nbsp;&nbsp;<a href="/cgibin/ob.cgi?version=hb5&book=2co&chapter=1"><img src="/image/next_book.gif" alt="Next Book" width="20" height="26" border=0></a>&nbsp;&nbsp;&nbsp;&nbsp;</TD>    </TR>    </TABLE></div>    </TD>    </TR>    </TABLE>  </BODY></HTML>
