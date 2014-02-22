@@ -16,12 +16,16 @@
 \maketitle
 \rowcolors{1}{white}{gray}
 \begin{center}
-\newcommand{\mygraycenteredcell}[2]{\multicolumn{1}{|>{\columncolor{gray}}p{#1\textwidth}|}{#2}}
-\begin{tabular}{l|lp{0.4\textwidth}|lp{0.4\textwidth}|lp{0.4\textwidth}}
-\mygraycenteredcell{}&\multicolumn{2}{>{\columncolor{gray}}c}{Dichotomy Conditions}&\mygraycenteredcell{}\\\hline
-\mygraycenteredcell{}&\mygraycenteredcell{Necessary}&\mygraycenteredcell{Sufficient} & \mygraycenteredcell{Roughness Conditions}\\\hline
-$\mathbb{R}^+$& euoeuoeuhoeuhoeuoeu& oeuoeuhoenuhoentuhtnoehuoe&oeuntoehutnoethu \\\hline
-$\mathbb{R}$&\textbf{iff} Exponential dichotomy on both $\mathbb{R}^+$ and $\mathbb{R}^-$ & & \\\hline
+\newcommand{\mygraycenteredcell}[1]{\multicolumn{1}{c|}{\cellcolor{gray}#1}}
+\newcommand{\mygraycenteredcello}{\cellcolor{gray}}
+
+\begin{tabular}{ |l| p{0.35\textwidth} | p{0.35\textwidth} | p{0.35\textwidth}| }
+\mygraycenteredcello&\multicolumn{2}{c|}{\cellcolor{gray}Dichotomy Conditions}&\mygraycenteredcello\\\hline
+&\mygraycenteredcell{Necessary}&\mygraycenteredcell{Sufficient}&\mygraycenteredcell{Roughness Conditions}\\\hline\hline
+$\mathbb{R}^+$&\textbf{both iff} $BC^1(\mathbb{R})\ni x\mapsto \dot{x}-Ax\in BC(\mathbb{R})$ is Fredholm operator.
+& & \\\hline\hline
+$\mathbb{R}$&\textbf{iff} Exponential dichotomy on both $\mathbb{R}^+$ and $\mathbb{R}^-$ and $\mathbb{R^n}$ is sum
+of stable and unstable subspace.& & \\\hline
 \end{tabular}
 \end{center}
 \end{document}
