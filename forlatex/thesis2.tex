@@ -22,10 +22,37 @@
 \begin{tabular}{ |l| p{0.35\textwidth} | p{0.35\textwidth} | p{0.35\textwidth}| }
 \mygraycenteredcello&\multicolumn{2}{c|}{\cellcolor{gray}Dichotomy Conditions}&\mygraycenteredcello\\\hline
 &\mygraycenteredcell{Necessary}&\mygraycenteredcell{Sufficient}&\mygraycenteredcell{Roughness Conditions}\\\hline\hline
-$\mathbb{R}^+$&\textbf{both iff} $BC^1(\mathbb{R})\ni x\mapsto \dot{x}-Ax\in BC(\mathbb{R})$ is Fredholm operator.
-& & \\\hline\hline
-$\mathbb{R}$&\textbf{iff} Exponential dichotomy on both $\mathbb{R}^+$ and $\mathbb{R}^-$ and $\mathbb{R^n}$ is sum
-of stable and unstable subspace.& & \\\hline
+
+$\mathbb{R}^+$&
+&
+\textbf{both iff} $BC^1(\mathbb{R})\ni x\mapsto \dot{x}-Ax\in BC(\mathbb{R})$ is Fredholm operator. \cite{palmer88}&
+$\mynorm{B}_\infty<\delta$ \cite{coppel}\\\hline
+
+&
+&
+\textbf{iff}$x'=Ax+f$ has at least one bounded solution for every bounded $f$. \cite{coppel}&
+$\lim_{t\to+\infty}\mynorm{B(t)}=0$\cite{coppel}\\\hline\hline
+
+$\mathbb{R}$&
+$x'=Ax+f$ has unique bounded solution for every $f$ continuous and bounded on $\mathbb{R}$.&
+\textbf{iff} Exponential dichotomy on both $\mathbb{R}^+$ and $\mathbb{R}^-$ and $\mathbb{R}^n$ is sum of stable and unstable subspace.
+	\cite[Proposition 2.1]{palmer84} &
+$\mynorm{B}_\infty<\delta$\cite{coppel}\\\hline
 \end{tabular}
 \end{center}
+\begin{thebibliography}{9}
+%\bibitem{krein}
+\bibitem{palmer84}
+	Kenneth J. Palmer, {\em Exponential Dichotomies and Transversal Homoclinic Points} (1983).
+\bibitem{palmer88}
+	Kenneth J. Palmer, {\em Exponential Dichotomies and Fredholm Operators} (1988).
+\bibitem{ju}
+	Ning Ju and Stephen Wiggins, {\em On Roughness of Exponential Dichotomy} (2000).
+\bibitem{naulin}
+	Ra\'ul Naulin and Manuel Pinto, {\em Admissible perturbations of Exponential Dichotomy Roughness} (1997).
+\bibitem{chow}
+	Shui-Nee Chow and Hugo Leiva, {\em Existence and Roughness of the Exponential Dichotomy for Skew-Product Semiflow in Banach Spaces} (1994).
+\bibitem{coppel}
+	W. A. Coppel, {\em Dichotomies in Stability Theory} (1978).
+\end{thebibliography}
 \end{document}
