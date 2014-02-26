@@ -1,16 +1,5 @@
 \documentclass[8pt]{article} % use larger type; default would be 10pt
 
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage{CJKutf8}
-\usepackage{subfig}
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{hyperref}
-\usepackage{enumerate}
-\usepackage{enumitem}
-\usepackage{harpoon}
-
 \usepackage{mystyle}
 
 \title{MATH1030 C,D\\Suggested solutions to HW1}
@@ -24,13 +13,13 @@
 	\renewcommand{\k}{\mathbf{k}}
 	\newcommand{\w}{\mathbf{w}}
 \textbf{Section 1.5}
-\begin{enumerate}[label=\arabic*]
+\begin{enumerate}[1]
 	\setcounter{enumi}{2}
 	\item This sort of problem is basically just done by inspection. Since problem asks us to find "an" elementary matrix,
 		it means that there should be only one. Hence, in each subproblem $A$ can be brought to $B$ via just one elementary
 		row operation. We just need to find out which one, and write it as an elementary matrix (recall, that to do so
 		one just needs to apply elementary row operation to the identity matrix and write down the result).
-		\begin{enumerate}[label=(\alph*)]
+		\begin{enumerate}[(a)]
 			\item {\bf Answer: }operation performed is the multiplication of a first row by $-2$, which corresponds to
 				\[E=\mybramatii{-2}{0}{0}{1}\]
 			\item {\bf Answer: }operation performed is interchange of second and third row, which corresponds to
@@ -40,7 +29,7 @@
 		\end{enumerate}
 	\setcounter{enumi}{5}
 	\item
-		\begin{enumerate}[label=(\alph*)]
+		\begin{enumerate}[(a)]
 			\item {\bf Answer: }basically, we just perform Gaussian elimination to bring $A$ to its row echelon form
 				(which will be upper triangular by definition), noting the operations we've done. Question, however,
 				suggests that we should use only three elementary operations, so as textbook does in examples, we
@@ -78,7 +67,7 @@
 				\[LU=\mybramatiii{2}{1}{1}{6}{4}{5}{4}{1}{3}=A\]
 		\end{enumerate}
 	\item 
-		\begin{enumerate}[label=(\alph*)]
+		\begin{enumerate}[(a)]
 			\item{\bf Answer: }we should note first that such expansion is not unique. One way to obtain it, is to perform
 				Gaussian elimination on $E$, bringing it to reduced row echelon form, which will be identity as $A$
 				is non-singular (recall, that only non-singular matrices can be written
@@ -112,11 +101,38 @@
 				\mybramatii{1}{-\mysfrac{1}{2}}{0}{1}\]
 		\end{enumerate}
 	\setcounter{enumi}{9}
-		\begin{enumerate}[label=(\alph*)]
+		\begin{enumerate}[(a)]
 			\setcounter{enumi}{3}
 			\item{\bf Answer: }this is done by Gaussian elimination, as follows
+				\[\left(\begin{array}{rr|rr}
+					3&0&1&0\\
+					9&3&0&1\\
+				\end{array}\right)
+				\xrightarrow{\text{\textcircled{2}$-3*$\textcircled{1}}}\left(\begin{array}{rr|rr}
+					3&0&1&0\\
+					0&3&-3&1\\
+				\end{array}\right)
+				\]\[\left(\begin{array}{rr|rr}
+					3&0&1&0\\
+					0&3&-3&1\\
+				\end{array}\right)
+				\xrightarrow{\text{$\mysfrac{1}{3}*$\textcircled{1}}}\left(\begin{array}{rr|rr}
+					1&0&\mysfrac{1}{3}&0\\
+					0&3&-3&1\\
+				\end{array}\right)
+				\]\[\left(\begin{array}{rr|rr}
+					1&0&\mysfrac{1}{3}&0\\
+					0&3&-3&1\\
+				\end{array}\right)
+				\xrightarrow{\text{$\mysfrac{1}{3}*$\textcircled{2}}}\left(\begin{array}{rr|rr}
+					1&0&\mysfrac{1}{3}&0\\
+					0&1&-1&\mysfrac{1}{3}\\
+				\end{array}\right)
+				\]
+				Hence the inverse is \[\mybramatii{\mysfrac{1}{3}}{0}{-1}{\mysfrac{1}{3}}\]
 			\setcounter{enumi}{5}
 			\setcounter{enumi}{7}
+	\end{enumerate}
 	\item tesi me
 \end{enumerate}
 \end{document}
