@@ -1,5 +1,5 @@
 (setlocale LC_ALL "")
-;(include "misc.scm")
+(include "misc.scm")
 
 ;naive lin algebra
 (define (list->mat l) (define dim (sqrt (length l)))
@@ -48,14 +48,32 @@
 			       (map (lambda (e) (string-concatenate(list "&"(number->string/latex e))))(cdr row))))(format #f "\\\\\n"))))M))
 			       (format #f "\\end{array}\\right)\n")
 			       )))
-(define (matrix->string/txt M)(string-concatenate(map(lambda(row)(string-append
-					(string-concatenate(map(lambda(e)(format #f "~/~a" e))row))"\n"))M)))
+(define (matrix->string/txt M)(define(number->string/txt e)(cond((= 0+1i e)"i")((= 0-1i e)"-i")((= -1+0i e)"-1")((= 1+0i e)"1")
+                                                             ((= 0-0i e)"0")((= 0+0i e)"0")(#t e)))
+(string-concatenate(map(lambda(row)(string-append(string-concatenate(map(lambda(e)(format #f"~9a"(number->string/txt e)))row))"\n"))M)))
 
 ;Gaussian elimination
 (define (GE matrix executor) (define (GE-inner matrix-inner executor-inner) 'TODO)
   (GE-inner matrix (executor (list 'init matrix))))
 (define (make-executor init methods) (lambda (op) (make-executor (methods init op) methods)))
 ;GE->print_executor->bring_to_rowechelon
+
+(define Es (list (list->mat(list 0 0 -1 0 0 0 0 -1 1  0 0 0 0 1 0 0))
+      (list->mat(list 0 0 0+i 0 0 0 0 0-i 0+i 0 0 0 0 0-i 0 0))
+      (list->mat(list 0 0 0 -1 0 0 1 0 0 -1 0 0 1 0 0 0))
+      (list->mat(list 0 0 0 0+i 0 0 0+i 0 0 0+i 0 0 0+i 0 0 0))))
+(let ((E1(car Es))(E2(cadr Es))(E3(caddr Es))(E4(cadddr Es)))
+  (begin
+        (display(matrix->string/txt(matr-prod E1 E2)))(newline)
+        (display(matrix->string/txt(matr-prod E1 E3)))(newline)
+        (display(matrix->string/txt(matr-prod E1 E4)))(newline)
+        (display(matrix->string/txt(matr-prod E2 E3)))(newline)
+        (display(matrix->string/txt(matr-prod E2 E4)))(newline)
+        (display(matrix->string/txt(matr-prod E3 E4)))(newline)
+        (display(matrix->string/txt(matr-prod E1 E2 E3 E4)))(newline)
+        (display(matrix->string/txt(matr-prod E1 E2 E4 E3)))(newline)
+    ))
+(exit)
 
 (define A (list->mat(list 2 1 2 1 3 0 1 1 -1 2 -2 1 -3 2 3 1)))
 (define C(list->mat(list 1 0 -1 1)))
@@ -85,7 +103,8 @@
 (display (det AA))(newline)
 (display (det AB))(newline)
 (display (det AC))(newline)
-(display (det A))
+(display (det A))(newline)
+(display (matrix->string/txt(list->mat(list 0+1i 0+1i 1-1i 2+3i))))
 (exit)
 
 ;driver&engine script
