@@ -19,7 +19,7 @@
 		it means that there should be only one. Hence, in each subproblem $A$ can be brought to $B$ via just one elementary
 		row operation. We just need to find out which one, and write it as an elementary matrix (recall, that to do so
 		one just needs to apply elementary row operation to the identity matrix and write down the result).
-		\begin{enumerate}[(a)]
+		\begin{enumerate}[\bf \bf(a)]
 			\item {\bf Answer: }operation performed is the multiplication of a first row by $-2$, which corresponds to
 				\[E=\mybramatii{-2}{0}{0}{1}\]
 			\item {\bf Answer: }operation performed is interchange of second and third row, which corresponds to
@@ -29,7 +29,7 @@
 		\end{enumerate}
 	\setcounter{enumi}{5}
 	\item
-		\begin{enumerate}[(a)]
+		\begin{enumerate}[\bf(a)]
 			\item {\bf Answer: }basically, we just perform Gaussian elimination to bring $A$ to its row echelon form
 				(which will be upper triangular by definition), noting the operations we've done. Question, however,
 				suggests that we should use only three elementary operations, so as textbook does in examples, we
@@ -67,7 +67,7 @@
 				\[LU=\mybramatiii{2}{1}{1}{6}{4}{5}{4}{1}{3}=A\]
 		\end{enumerate}
 	\item 
-		\begin{enumerate}[(a)]
+		\begin{enumerate}[\bf(a)]
 			\item{\bf Answer: }we should note first that such expansion is not unique. One way to obtain it, is to perform
 				Gaussian elimination on $E$, bringing it to reduced row echelon form, which will be identity as $A$
 				is non-singular (recall, that only non-singular matrices can be written
@@ -101,7 +101,7 @@
 				\mybramatii{1}{-\mysfrac{1}{2}}{0}{1}\]
 		\end{enumerate}
 	\setcounter{enumi}{9}
-		\begin{enumerate}[(a)]
+		\begin{enumerate}[\bf(a)]
 			\setcounter{enumi}{3}
 			\item{\bf Answer: }this is done by Gaussian elimination, as follows
 				\[\left(\begin{array}{rr|rr}
@@ -256,7 +256,7 @@ Hence the inverse matrix is
 \begin{enumerate}[1]
 	\setcounter{enumi}{3}
 	\item 
-		\begin{enumerate}[(a)]
+		\begin{enumerate}[\bf(a)]
 			\item {\bf Answer: }by direct computations,
 				\[\mybramatii{O}{I}{I}{O}\mybramatii{B_{11}}{B_{12}}{B_{21}}{B_{22}}=
 				\mybramatii{B_{21}}{B_{22}}{B_{11}}{B_{12}}=
@@ -292,7 +292,7 @@ Hence the inverse matrix is
 \textbf{Section 2.1}
 \begin{enumerate}[1]
 	\setcounter{enumi}{2}
-	\item \begin{enumerate}[(a)]
+	\item \begin{enumerate}[\bf(a)]
 	\setcounter{enumi}{3}
 \item {\bf Answer: }by direct computations
 \[\left|\begin{array}{rrr}
@@ -423,7 +423,7 @@ Hence the inverse matrix is
 \textbf{Section 3.6}
 \begin{enumerate}[1]
 	%\setcounter{enumi}{2}
-	\item \begin{enumerate}[(a)]
+	\item \begin{enumerate}[\bf(a)]
 	\item {\bf Answer: }the row echelon form of matrix is
 			\[\left(\begin{array}{rrr}
 			1&3&2\\
@@ -517,7 +517,7 @@ column space is $(-3,1,-3)^T$, $(1,2,8)^T$ and $(3,-1,4)^T$.
 		solving it one gets
 		\[\mathbf{a_3}=2\mathbf{a_1}+\mathbf{a_2}=(-2,7,11,1)^T\]
 		\[\mathbf{a_4}=\mathbf{a_1}+4\mathbf{a_2}=(13,-7,30,-3)^T\]
-	\item \begin{enumerate}[(a)]
+	\item \begin{enumerate}[\bf(a)]
 	\item {\bf Answer: }null space of $A$ should coincide with that of $U$, hence its basis is $(1,2,0,-5,1)^T$ and $(-2,-3,1,0,0)^T$.
 	\item \begin{enumerate}[\bf(i)]
 		\item{\bf Answer: }as null space of $A$ has basis we've found above, and difference of any two solutions to $A\mathbf{x}=\mathbf{b}$
@@ -530,9 +530,41 @@ column space is $(-3,1,-3)^T$, $(1,2,8)^T$ and $(3,-1,4)^T$.
 				\mathbf{0}\\3\mathbf{a_1}+2\mathbf{a_2}+2\mathbf{a_4}=\mathbf{b}\end{cases}\]
 			hence
 			\[\mathbf{a_3}=2\mathbf{a_1}+3\mathbf{a_2}=(1,8,3,-1)^T\]
-			\[\mathbf{a_4}=-3\mathbf{a_1}-2\mathbf{a_2}=(-4,-7,3,4)^T\]
-			\[\mathbf{a_5}=-\mathbf{a_1}-2\mathbf{a_2}+5\mathbf{a_4}=(-20,-40,12,20)^T\]
+			\[\mathbf{a_4}=\mathbf{b}-3\mathbf{a_1}-2\mathbf{a_2}=(-4,-2,6,8)^T\]
+			\[\mathbf{a_5}=-\mathbf{a_1}-2\mathbf{a_2}+5\mathbf{a_4}=(-20,-15,27,40)^T\]
 		\end{enumerate}
 	\end{enumerate}
+		\setcounter{enumi}{20}
+	\item {\bf Answer: }indeed, $\mbox{rank}(A+B)$ is the dimension of the space, spanned by columns of $A+B$, which
+		cannot be bigger than the dimension of space $R$ spanned by columns of $A$ \textit{and} columns of $B$ (since $R$
+	contains column space of $A+B$, as $\forall\alpha_i,\;\sum_i\alpha_i(\mathbf{a_i}+\mathbf{b_i})=\sum_i\alpha_i\mathbf{a_i}+
+		\sum_i\alpha_i\mathbf{b_i}\subset\mbox{span}\mycbra{\mycbra{\mathbf{a_i}}_i,\mycbra{\mathbf{b_i}}_i}$. And
+		in turn, the dimension of $R$ cannot exceed
+		$\mbox{rank}(A)+\mbox{rank}(B)$, as if we let $a:=\mbox{rank}(A)$, and $b:=\mbox{rank}(B)$, we have that column
+		space of $A$ (hence, in particular, all of $\mathbf{a_i}$), can be spanned by some $a$ vectors and column space
+		of $B$ (hence, in particular, all of $\mathbf{b_i}$), can be spanned by some $b$ vectors, hence $R$ can be spanned
+		by $a+b$ vectors, and its dimension cannot exceed this number. Thus, we get, as required
+		\[\mbox{rank}(A+B)\leq\dim R\leq\mbox{rank}(A)+\mbox{rank}(B)\]
+	\item \begin{enumerate}[\bf(a)]
+			\item {\bf Answer: }first, we have
+				\[BAx=0\iff B(Ax)=0\iff Ax=0\implies N(BA)=N(A)\]
+				and therefore, as $BA$ and $A$ have the same number of columns and sum of rank and dimension
+				of null space equals to number of columns, we have that rank of $A$ and $BA$ are the same.
+			\item {\bf Answer: }we will show directly that column space of two matrices is the same, that is
+				$AC(\mathbb{R}^m)=A(\mathbb{R}^m)$ (here we view matrices as linear transformations)
+				\[y\in AC(\mathbb{R}^m)\iff y=ACx\iff y=Az\iff y\in A(\mathbb{R}^m)\]
+				where $y=ACx\iff y=Az$ is because $C$ invertible, and we have $Cx=z\iff x=C^{-1}z$.
+		\end{enumerate}
+		\setcounter{enumi}{24}
+	\item \begin{enumerate}[\bf(a)]
+			\item {\bf Answer: }If $AB=O$, then this means that $\forall 1\leq i\leq n$ we have $A(\mathbf{b_i})=\mathbf{0
+				}$, hence $\mathbf{b_i}\in N(A)$ and thus the whole column space of $B$ is inside the null space of $A
+				$. Conversely, if column space of $B$ is contained in null space of $A$ this means that for all $i$,
+				$A\mathbf{b_i}=\mathbf{0}$, hence $AB=O$.
+			\item {\bf Answer: }as show in previous item, if $AB=O$, we have that null-space of $A$ contains
+				column space of $B$, hence nullity $a$ of $A$ is no less than the rank $b$ of $B$. Now, if we let
+				$r$ to be the rank of $A$, we have
+				$a+r=n,\;a\geq b\implies b+r\leq n$ and we are done.
+		\end{enumerate}
 \end{enumerate}
 \end{document}
