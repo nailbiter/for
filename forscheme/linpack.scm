@@ -58,6 +58,47 @@
 (define (make-executor init methods) (lambda (op) (make-executor (methods init op) methods)))
 ;GE->print_executor->bring_to_rowechelon
 
+(display "\\[")(display(matrix->string/latex(list->mat(list 'ns 3 4 1 3 -2 1 0 -5 7 0 0 0 4 3))))
+(display "\\]\n")
+(exit)
+
+;driver&engine script
+(define A (list->mat(list 'ns 3 4 -3 1 3 4 1 2 -1 -2 -3 8 4 2 )))
+((lambda(M)(begin(display"\n\\[")(display(matrix->string/latex M))(display"\\]\n")))
+      (fold (lambda (op mat) (let* ((res (cond 
+                                    ((eq?(car op)'m) (let*((rownum(list-ref op 1)) (row(list-ref mat rownum)) (mult(list-ref op 2)))
+                                                              (replace-elem mat rownum (map (lambda (c) (* c mult)) row))))
+                                    ((eq?(car op)'i)(let*((i1 (cadr op))(i2 (caddr op))(r1 (list-ref mat i1))(r2(list-ref mat i2)))
+                                                        (replace-elem (replace-elem mat i1 r2) i2 r1)))
+                                    ((eq?(car op)'s)(let*((i1(cadr op))(i2(caddr op))(m (cadddr op))(r1(list-ref mat i1)))
+                                                      (replace-elem mat i2 (map (lambda (a b)(- b(* m a) )) r1 (list-ref mat i2)))))
+                                    (#t mat)))
+                                    ;(aug-col (/ (length (car mat)) 2))
+				    ;(inner-displaymat (lambda (mm)(display (augmented-matrix->string/latex mm aug-col))))
+				    (inner-displaymat (lambda (mm)(display (matrix->string/latex mm))))
+                                    (dummy (format #t "\\["))
+                                    (dummy (inner-displaymat mat))
+                                    (dummy (cond 
+                                    ((eq?(car op)'m) (let*((rownum(list-ref op 1)) (mult(list-ref op 2)))
+                                                  (format #t"\\xrightarrow{\\text{$~a*$\\textcircled{~d}}}"(number->string/latex mult)(inc rownum))))
+                                    ((eq?(car op)'i)(let*((i1 (inc(cadr op)))(i2 (inc(caddr op))))
+					(format #t"\\xrightarrow{\\text{\\textcircled{~d}$\\leftrightarrow$\\textcircled{~d}}}" i1 i2)))
+                                    ((eq?(car op)'s)(let*((i1(inc(cadr op)))(i2(inc(caddr op)))(m (-(cadddr op))))(format #t
+              			    "\\xrightarrow{\\text{\\textcircled{~d}$~a~a*$\\textcircled{~d}}}"i2(if(> m 0)"+""")(number->string/latex m)i1)))
+                                    (#t '())
+                                    ))
+                                    (dummy (inner-displaymat res))
+                                    (dummy (format #t "\\]")))
+                         res
+                             )) A (list (list 'i 0 1)(list 's 0 1 -3)(list 's 0 2 -3)(list 'm 1 1/7)(list 's 1 2 14)
+				    	;(list 's 2 0 5/2)
+				    	;(list 'm 0 2)
+                                        ;(list 'i 1 0)
+                                        ;(list 'm 0 2)
+                                        ;(list 'm 1 -2)
+                                        )))(newline)
+(exit)
+
 (define Es (list (list->mat(list 0 0 -1 0 0 0 0 -1 1  0 0 0 0 1 0 0))
       (list->mat(list 0 0 0+i 0 0 0 0 0-i 0+i 0 0 0 0 0-i 0 0))
       (list->mat(list 0 0 0 -1 0 0 1 0 0 -1 0 0 1 0 0 0))
@@ -99,45 +140,5 @@
 (display (det AC))(newline)
 (display (det A))(newline)
 (display (matrix->string/txt(list->mat(list 0+1i 0+1i 1-1i 2+3i))))
-(exit)
-
-;driver&engine script
-(define A (list->mat(list 'ns 3 6 1 0 1 1 0 0 -1 1 1 0 1 0 -1 -2 -3 0 0 1)))
-((if #t (lambda(M)(begin(display "\n\\[")(display(matrix->string/latex(map(lambda(row)(list-tail row(/(length row)2)))M)))(display "\\]\n")))
-(lambda(M)(display "\n")(display(matrix->string/txt M))))
-      (fold (lambda (op mat) (let* ((res (cond 
-                                    ((eq?(car op)'m) (let*((rownum(list-ref op 1)) (row(list-ref mat rownum)) (mult(list-ref op 2)))
-                                                              (replace-elem mat rownum (map (lambda (c) (* c mult)) row))))
-                                    ((eq?(car op)'i)(let*((i1 (cadr op))(i2 (caddr op))(r1 (list-ref mat i1))(r2(list-ref mat i2)))
-                                                        (replace-elem (replace-elem mat i1 r2) i2 r1)))
-                                    ((eq?(car op)'s)(let*((i1(cadr op))(i2(caddr op))(m (cadddr op))(r1(list-ref mat i1)))
-                                                      (replace-elem mat i2 (map (lambda (a b)(- b(* m a) )) r1 (list-ref mat i2)))))
-                                    (#t mat)))
-                                    (aug-col (/ (length (car mat)) 2))
-                                    (dummy (format #t "\\["))
-                                    (dummy (display (augmented-matrix->string/latex mat aug-col)))
-                                    (dummy (cond 
-                                    ((eq?(car op)'m) (let*((rownum(list-ref op 1)) (mult(list-ref op 2)))
-                                                  (format #t"\\xrightarrow{\\text{$~a*$\\textcircled{~d}}}"(number->string/latex mult)(inc rownum))))
-                                    ((eq?(car op)'i)(let*((i1 (inc(cadr op)))(i2 (inc(caddr op))))
-					(format #t"\\xrightarrow{\\text{\\textcircled{~d}\\leftrightarrow\\textcircled{~d}}}" i1 i2)))
-                                    ((eq?(car op)'s)(let*((i1(inc(cadr op)))(i2(inc(caddr op)))(m (-(cadddr op))))(format #t
-              			    "\\xrightarrow{\\text{\\textcircled{~d}$~a~a*$\\textcircled{~d}}}"i2(if(> m 0)"+""")(number->string/latex m)i1)))
-                                    (#t '())
-                                    ))
-                                    (dummy (display (augmented-matrix->string/latex res aug-col)))
-                                    (dummy (format #t "\\]")))
-                         res
-                             )) A (list (list 's 0 1 -1)
-					(list 's 0 2 -1)
-					(list 's 1 2 -2)
-				    	(list 'm 2 1/2)
-					(list 's 2 1 2)
-				    	;(list 's 2 0 5/2)
-				    	;(list 'm 0 2)
-                                        ;(list 'i 1 0)
-                                        ;(list 'm 0 2)
-                                        ;(list 'm 1 -2)
-                                        )))(newline)
 (exit)
 
