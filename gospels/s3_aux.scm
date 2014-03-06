@@ -50,16 +50,25 @@
                                             )
                                           romtext))
 
-(define (parse-russian-title text) (let* ((tokenized1 (mytokenize " *, *" text))
-                                     (name (string-filter (lambda (char) (not (eq? #\. char))) (list-ref tokenized1 0)))
-                                     (chapter (roman2arabic (list-ref tokenized1 2)))
-                                     (verses (mytokenize "-" (list-ref tokenized1 3)))
-                                     (verse-start (car verses))
-                                     (verse-end (string-filter (lambda (char) (not (eq? #\. char)))  (cadr verses)))
-                                     )(list name chapter verse-start verse-end)))
+(define (parse-russian-title text) (define s 'myflatten)
+(define myflatten(lambda(l)(if(null? l)'()(if(and(list?(car l))(eq?(caar l)s))(union(cdar l)(myflatten(cdr l)))
+                                            (cons(car l)(myflatten(cdr l)))))))
+  (define (mymap proc l init)(if(null? l)'()(let((res(proc(car l)init)))(cons (car res) (mymap proc (cdr l)(cdr res))))))
+  (let* ((tokenized (mytokenize " *, *" text))
+         (name (string-filter (lambda (char) (not (eq? #\. char))) (list-ref tokenized 0)))
+         (tokenized (list-tail tokenized 2))
+         (chapter (roman2arabic (list-ref tokenized 0)))
+         (verses(map (lambda(m)(map(lambda(n)(match:substring m n))'(1 2 3 4)))(list-matches 
+                                         ", *([XVI]*),? *([0-9]+) *- *([XVI]*),? *([0-9]+)[^.,0-9XVI]*" text)))
+         (verses (mymap (lambda(verse prev-chap)(let*((c1 (list-ref verse 0))(c2 (list-ref verse 2))
+                                                     (v1(list-ref verse 1))(v2(list-ref verse 3))
+                                                     (c1(if(string-null? c1)prev-chap c1))(c2(if(string-null? c2)c1 c2))
+                                                     (new-verse(if(eq? c1 c2)(list c1 v1 v2)
+                                                                 (list s(list c1 v1 'end)(list c2 'start v2))))
+                                                         )(cons new-verse c1))) verses "error-chap"))
+         )(list name (myflatten verses))))
 
-;TODO: framework: 	generate url for chapter
-;			get reading out of chapter
+;TODO: framework: 	generate url for chapter --> get reading out of chapter --> process line
 ;	names formatting
 (define (get-rdg-english-text args)
 (let* (
@@ -115,16 +124,6 @@
 (define (rusname2chiname rusname) (get-value rusname2chiname-table rusname))
 
 ;script
-(define (parse-russian-title text) (define s 'myflatten)
-  (define myflatten(lambda(l)(if(null? l)'()(if(and(list?(car l))(eq?(caar l)s))(union(cdar l)(myflatten(cdr l)))))))
-  (let* ((tokenized (mytokenize " *, *" text))
-         (name (string-filter (lambda (char) (not (eq? #\. char))) (list-ref tokenized 0)))
-         (tokenized (list-tail tokenized 2))
-         (chapter (roman2arabic (list-ref tokenized 0)))
-         (verses(map (lambda(m)(map(lambda(n)(match:substring m n))'(1 2 3 4)))(list-matches 
-                                         ", *([XVI]*),? *([0-9]+) *- *([XVI]*),? *([0-9]+)[^.,0-9XVI]*" text)))
-         ;(verses (map(lambda(l)')verses))
-         )(list name verses)))
 (map (lambda (s)(begin(display (parse-russian-title s))(newline))) (list 
 "Евр., 329 зач. (от полу́), XI, 24-26, 32 - XII, 2." 
 "Ин., 5 зач., I, 43-51." 
