@@ -15,6 +15,7 @@
 
 \LoadClass[a5paper, 10pt]{book}
 \RequirePackage[utf8]{inputenc}
+\usepackage[T1,T2A]{fontenc}
 \RequirePackage[left=1cm,right=1cm,top=1cm,bottom=1.5cm]{geometry}
 \RequirePackage[font=small,format=plain,labelfont=bf,up, skip=2pt, labelsep=period]{caption}
 \RequirePackage[stable]{footmisc}
