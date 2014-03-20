@@ -58,8 +58,9 @@
 (define (make-executor init methods) (lambda (op) (make-executor (methods init op) methods)))
 ;GE->print_executor->bring_to_rowechelon
 
-(display "\\[")(display(matrix->string/latex(list->mat(list 'ns 3 4 1 3 -2 1 0 -5 7 0 0 0 4 3))))
-(display "\\]\n")
+;(display "\\[")(display(matrix->string/latex(list->mat(list 'ns 3 4 1 3 -2 1 0 -5 7 0 0 0 4 3))))
+;(display "\\]\n")
+(display(matrix->string/txt(matr-prod (list->mat(list ))(list->mat(list -2 -2 1 1 ))(list->mat(list 1 -2 -1 1))
 (exit)
 
 ;driver&engine script
