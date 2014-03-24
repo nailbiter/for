@@ -70,16 +70,18 @@
 \[dx/dy=\pm\sqrt{-xy}\]
 \[\sqrt{-x}=\pm\frac{1}{3}y^{\mysfrac{3}{2}}+C\]
 Робимо, таким чином, заміну змінних
-\[\xi=\sqrt{y}+\frac{1}{3}(-x)^{\mysfrac{3}{2}}\]
-\[\eta=\sqrt{y}-\frac{1}{3}(-x)^{\mysfrac{3}{2}}\]
+\[\xi=\sqrt{-x}+\frac{1}{3}y^{\mysfrac{3}{2}}\]
+\[\eta=\sqrt{-x}-\frac{1}{3}y^{\mysfrac{3}{2}}\]
 %\[y=\mybra{\frac{\xi+\eta}{2}}^2,\;x=-\mybra{\frac{\xi-\eta}{2}}^{\mysfrac{2}{3}}\]
-\[u_x=u_\xi\xi_x+u_\eta\eta_x=u_\xi\mybra{-\frac{1}{2}\sqrt{-x}}+u_\eta\mybra{\frac{1}{2}\sqrt{-x}}\]
-\[u_y=u_\xi\xi_y+u_\eta\eta_y=u_\xi\frac{1}{2\sqrt{y}}+u_\eta\frac{1}{2\sqrt{y}}\]
-\[u_{xx}=-\frac{1}{4\sqrt{-x}}\mybra{u_\eta-u_\xi}+\frac{1}{2}\sqrt{-x}\mybra{u_{\eta\xi}\xi_x+u_{\eta\eta}\eta_x-
-u_{\xi\xi}\xi_x-u_{\xi\eta}\eta_x}=\]\[=-\frac{1}{4\sqrt{-x}}\mybra{u_\eta-u_\xi}-\frac{x}{4}\mybra{\cancel{-u_{\eta\xi}}
-+u_{\eta\eta}+u_{\xi\xi}+\cancel{u_{\xi\eta}}}\]
-\[u_{yy}=-\frac{1}{4}y^{-\mysfrac{3}{2}}(u_\xi+u_\eta)+\frac{1}{2\sqrt{y}}
-\mybra{u_{\eta\xi}\xi_y+u_{\eta\eta}\eta_y+u_{\xi\xi}\xi_y+u_{\xi\eta}\eta_y}=\]\[=-\frac{1}{4}y^{-\mysfrac{3}{2}}(u_\xi+u_\eta)+\frac{1}{4{y}}
-\mybra{{u_{\eta\xi}}+u_{\eta\eta}+u_{\xi\xi}+{u_{\xi\eta}}}\]
+\[u_x=u_\xi\xi_x+u_\eta\eta_x=-u_\xi\mybra{\frac{1}{2\sqrt{-x}}}-u_\eta\mybra{\frac{1}{2\sqrt{-x}}}\]
+\[u_y=u_\xi\xi_y+u_\eta\eta_y=u_\xi\frac{\sqrt{y}}{2}-u_\eta\frac{\sqrt{y}}{2}\]
+\[u_{xx}=-\frac{1}{4}(-x)^{-\mysfrac{3}{2}}(u_\xi+u_\eta)-\frac{1}{2\sqrt{-x}}\mybra{u_{\eta\xi}\xi_x+u_{\eta\eta}\eta_x+
+u_{\xi\xi}\xi_x+u_{\xi\eta}\eta_x}=\]\[=-\frac{1}{4}(-x)^{-\mysfrac{3}{2}}(u_\xi+u_\eta)-\frac{1}{4x}\mybra{u_{\xi\xi}+2u_{\xi\eta}+
+u_{\eta\eta}}\]
+\[u_{yy}=\frac{1}{4\sqrt{y}}(u_\xi-u_\eta)+\frac{\sqrt{y}}{2}\mybra{u_{\xi\eta}\eta_y+u_{\xi\xi}\xi_y-u_{\eta\xi}\xi_y-u_{\eta\eta}
+\eta_y}=\]\[=\frac{1}{4\sqrt{y}}(u_\xi-u_\eta)+\frac{y}{4}\mybra{{-2u_{\xi\eta}}+u_{\xi\xi}+u_{\eta\eta}}\]
 Підставляючи це в рівняння, маємо
+\[-\frac{xy}{4}(-x)^{-\mysfrac{3}{2}}(u_\xi+u_\eta)+\frac{1}{4\sqrt{y}}(u_\xi-u_\eta)-yu_{\xi\eta}=0\]
+\[u_{\xi\eta}=\frac{1}{4\sqrt{-x}}(u_\xi+u_\eta)+\frac{1}{4{y}^{\mysfrac{3}{2}}}(u_\xi-u_\eta)\]
+Це і є перша канонічна форма.
 \end{document}
