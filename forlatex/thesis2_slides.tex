@@ -1,0 +1,91 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english, ukrainian]{babel}
+\usepackage[T2A]{fontenc}
+\usepackage{amssymb}
+\usepackage{verbatim}
+
+\beamertemplatetransparentcovereddynamic \beamertemplateballitem
+\beamertemplatesolidbuttons
+\mode<presentation>{\usetheme{Warsaw}}
+\usepackage{mystyle}
+\newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
+
+\newtheorem{thm}{Теорема}
+\newtheorem{cor}{Наслідок}
+\newtheorem{pro}{Твердження}
+\newtheorem{lmm}{Лема}
+\newtheorem{prop}{Твердження}
+\newtheorem{defi}{Означення}
+\newtheorem{rem}{Зауваження}
+\newtheorem{ex}{Приклад}
+
+\sloppy
+\begin{document}
+\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{clouds.jpg}}
+\frame{
+\mbox{}\\[5pt]
+\begin{center}
+{\LARGE \bf Назва роботи}\\[8pt]
+
+{\bf Прізвище Ім'я} \\[7.5mm]
+
+
+Київський Національний Університет імені Тараса Шевченка\\
+механіко-математичний факультет\\[15mm]
+\end{center}
+
+\begin{flushright}
+Науковий керівник -- доктор \\
+фізико-математичних наук, професор \\
+Прізвище, Ім'я, по-Батькові \vfill
+\end{flushright}
+}
+
+\bigskip
+
+
+\frame{ \frametitle{Заголовок слайду}
+
+Далі можемо писати текст чи формули
+$$x+y=y+z.$$
+
+}
+
+\frame{
+
+Заголовок слайду потрібен не завжди. Іноді достатньо скористатись
+властивостями характеристичної функції, та знайти моменти
+випадкового процесу:
+$$m_k=(-i)^kf^{(k)}(0).$$
+Можливо, формула нам ще десь знадобиться, тоді можна її
+пронумерувати:
+\begin{equation}\label{equation_no_1}
+m_k=(-i)^kf^{(k)}(0).
+\end{equation} }
+
+\frame{ \frametitle{Основний результат}
+
+Ним може бути теорема:
+\begin{thm}
+Тут слід навести формулювання теореми, при необхідності
+використати посилання на рівняння (\ref{equation_no_1}).
+\end{thm}
+
+Після успішного компілювання необхідно натиснути ``PDF TeXify'', в
+результаті чого одержимо pdf-файл презентації. В Adobe Reader
+повноекранний режим зручно вмикати сполученням клавіш Ctrl-L. Файл
+презентації бажано назвати англійською у форматі Ваше Прізвище,
+Ім'я.
+
+}
+
+\newpage
+\mbox{}\\[55pt]
+\begin{center}
+\Huge {\bf Дякую за увагу! ;)}
+\mypic{0.5}{everybody_sleeping.jpg}
+\end{center}
+
+\end{document}
