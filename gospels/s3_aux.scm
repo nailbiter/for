@@ -10,7 +10,7 @@
 			(cons "Мк" "mak")
             (cons "Ин" "jhn")
 			(cons "Лк" "luk")
-			(cons "Евр" "jue")
+			(cons "Евр" "heb")
 			(cons "1 Кор" "1co")
 			(cons "2 Кор" "2co")
 			(cons "1 Тим" "1ti")
@@ -71,70 +71,82 @@
                                                          )(cons new-verse c1))) verses "error-chap"))
          )(list name (myflatten verses))))
 
-;TODO: framework: 	generate url for chapter --> get reading out of chapter --> process line
-;	names formatting
-(define (get-rdg-english-text args)
+(define (get-rdg-english-text args) (define (myflatten ll) (if (null? ll) '() (append (car ll) (flatten (cdr ll)))))
 (let* (
-        (name (list-ref args 0))
-        (chapter (list-ref args 1))
-        (verse-start (list-ref args 2))
-        (verse-end (list-ref args 3))
-        (source  (download2string (string-concatenate (list "\"http://www.kingjamesbibleonline.org/book.php?book=" (string-map (lambda (char) 
-                                                    (if (char=? char #\space) #\+ char)) (rusname2engname name)) "&chapter=" chapter "&verse=\""))))
-        (lines (mytokenize "</a>" source))
-        (lines (flatten (map (lambda (s) (mytokenize "<a href=\"" s)) lines)))
-        (lines (filter (lambda (line) (regexp-match? (string-match "View more translations of" line))) lines))
-        (lines (map (lambda(line)(cons (substring (match:substring (string-match ":[0-9]+" line)) 1)(match:suffix (string-match ">" line)))) lines))
-            (lines (filter (lambda (pair) (<= (string->number verse-start)(string->number (car pair))(string->number verse-end))) lines))
-        (lines (map (lambda(pair)(string-concatenate (list (cdr pair) "\\\\\n"))) lines))
-	 (lines (map (lambda(s) (regexp-substitute/global #f "<[^<>]*>" s 'pre 'post))lines))
-         )
-        (string-concatenate lines)
-    ))
+        (name (rusname2engname(list-ref args 0)))
+        (elems (list-ref args 1))
+        (chapters (map roman2arabic (delete-duplicates(map car elems))))
+        (chapters-n-sources(map(lambda(chap)(cons chap (download2string (string-append 
+                                                "\"http://www.kingjamesbibleonline.org/book.php?book=" (string-map (lambda (char) 
+                                                (if (char=? char #\space) #\+ char)) name) "&chapter=" chap "&verse=\""))))chapters))
+        (extract-and-process-verses(lambda(elem)(let*((chap (roman2arabic(car elem)))
+                                                     (start(cadr elem))
+                                                     (end(caddr elem))
+                                                     (source(get-value chapters-n-sources chap))
+                                                     (lines (mytokenize "</a>" source))
+                                                     (lines (myflatten (map (lambda (s) (mytokenize "<a href=\"" s)) lines)))
+                                                     (lines (filter (lambda (line) (regexp-match?
+                                                                                     (string-match "View more translations of" line))) lines))
+                                                     (lines(map(lambda(line)(cons
+                                                                              (substring(match:substring(string-match":[0-9]+"line))1)
+                                                                              (match:suffix(string-match">"line))))lines))
+                                                     (startnum(if(eq? start 'start)-1(string->number start)))
+                                                     (endnum(if(eq? end 'end)100500(string->number end)))
+                                                     (lines(filter(lambda(pair)(<= startnum(string->number(car pair))endnum))lines))
+                                                     (lines (map (lambda(pair)(string-concatenate (list (cdr pair) "\\\\\n"))) lines))
+                                                     (lines (map (lambda(s) (regexp-substitute/global #f "<[^<>]*>" s 'pre 'post))lines))
+                                                  )(string-concatenate lines))))
+        )(string-concatenate (map extract-and-process-verses elems))))
 
 ;chinese text
-(define (get-rdg-chinese-text args)
+(define (get-rdg-chinese-text args) (define (myflatten ll) (if (null? ll) '() (append (car ll) (flatten (cdr ll)))))
 (let* (
-      (name (list-ref args 0))
-      (chapter (list-ref args 1))
-      (verse-start (list-ref args 2))
-     (verse-end (list-ref args 3))
-     (code (get-value rus2chiurl-table name))
-     (download2string/big5 
-       (lambda(url)(read-delimited""(open-input-pipe(string-concatenate(list"wget -O - "url"|iconv -f Big5 -t UTF8"))))))
-     (chinese-url(string-concatenate(list "\"http://www.o-bible.com/cgibin/ob.cgi?version=hb5&book=" code "&chapter=" chapter "\"")))
-     (source (download2string/big5 chinese-url))
-     (verses (map (lambda(match)(cons (match:substring match 1) (match:substring match 2)))
-       (list-matches"<td class=\"vn\">[0-9]+:([0-9]+)</td><td class=\"vn\">&nbsp;&nbsp;</td><td class=\"v b5\">([^<>]+)</td>"source)))
-	        (verses (filter (lambda(pair)(<= (string->number verse-start)(string->number (car pair))(string->number verse-end))) verses))
-     (verses (map cdr verses))
-	 (verses (map(lambda(s)(string-filter(lambda(char)(not(or(eq? #\newline char)(eq? #\space char)(eq? #\tab char))))s))verses))
-     (verses (map (lambda(s)(string-concatenate(list s "\\\\\n"))) verses)))
-        (string-concatenate verses)
-    ))
-
+        (name (rusname2chiname(list-ref args 0)))
+        (elems (list-ref args 1))
+        (chapters (map roman2arabic (delete-duplicates(map car elems))))
+        (code (get-value rus2chiurl-table (list-ref args 0)))
+        (d(lambda(url)(read-delimited""(open-input-pipe(string-concatenate(list"wget -O - "url"|iconv -f Big5 -t UTF8"))))))
+        (regexp "<td class=\"vn\">[0-9]+:([0-9]+)</td><td class=\"vn\">&nbsp;&nbsp;</td><td class=\"v b5\">([^<>]+)</td>")
+        (chapters-n-sources(map(lambda(c)(cons c(d(string-append
+                                                    "\"http://www.o-bible.com/cgibin/ob.cgi?version=hb5&book="code"&chapter="c"\""))))chapters))
+        (extract-and-process-verses(lambda(elem)(let*((chap (roman2arabic(car elem)))
+                                                     (start(cadr elem))
+                                                     (end(caddr elem))
+                                                     (src(get-value chapters-n-sources chap))
+                                                     (startnum(if(eq? start 'start)-1(string->number start)))
+                                                     (endnum(if(eq? end 'end)100500(string->number end)))
+                                                     (v (map (lambda(match)(cons (match:substring match 1) (match:substring match 2)))
+                                                       (list-matches regexp src)))
+                                                     ;(dum(display (string-append
+                                                    ;"\"http://www.o-bible.com/cgibin/ob.cgi?version=hb5&book="code"&chapter="chap"\"\n")))
+                                                     ;(dum (begin(display "\nv\n"(display v)(exit))))
+                                                     (v (filter (lambda(pair)(<= startnum(string->number (car pair))endnum)) v))
+                                                     (v (map cdr v))
+                                                     (v (map(lambda(s)(string-filter
+                                                                        (lambda(c)(not(or(eq? #\newline c)(eq? #\space c)(eq? #\tab c))))s))v))
+                                                     (v (map (lambda(s)(string-concatenate(list s "\\\\\n"))) v))
+                                                  )(string-concatenate v))))
+        )(string-concatenate (map extract-and-process-verses elems))))
 ;titles
-(define (get-eng-title args)
-  (let((name (list-ref args 0))(chapter (list-ref args 1))(verse-start (list-ref args 2))(verse-end (list-ref args 3)))
-  (string-concatenate (list (rusname2engname name) " "  chapter ":" verse-start " -- "  chapter ":" verse-end "."))))
-                                                                                     
-        
-(define (get-chi-title name chapter verse-start verse-end) 
-  (let((name (list-ref args 0))(chapter (list-ref args 1))(verse-start (list-ref args 2))(verse-end (list-ref args 3)))
-    (string-concatenate (list (rusname2chiname name) " "  chapter ":"verse-start " -- "  chapter ":" verse-end "."))))
-                                                                                     
+(define(get-eng-title args)((lambda(s)(string-append s"."))(fold(lambda(elem s)(let((chp(roman2arabic(car elem)))(start(cadr elem))(end(caddr elem)))
+                                                  (string-append s(if(string-null? s)(string-append(rusname2engname(car args))" ")"")
+                                                                           (if(or(string-null? s)(eq? start 'start))"" ", ")
+                                                                           (cond((eq? start 'start)(string-append chp ":" end))
+                                                                           ((eq? end 'end)(string-append chp ":" start "--"))
+                                                                           (#t(string-append chp ":" start "--" chp ":" end))))))""(cadr args))))
+(define(get-chi-title args)((lambda(s)(string-append s"."))(fold(lambda(elem s)(let((chp(roman2arabic(car elem)))(start(cadr elem))(end(caddr elem)))
+                                                  (string-append s(if(string-null? s)(string-append(rusname2chiname(car args))" ")"")
+                                                                           (if(or(string-null? s)(eq? start 'start))"" ", ")
+                                                                           (cond((eq? start 'start)(string-append chp ":" end))
+                                                                           ((eq? end 'end)(string-append chp ":" start "--"))
+                                                                           (#t(string-append chp ":" start "--" chp ":" end))))))""(cadr args))))
 (define (rusname2engname rusname) (get-value rusname2engname-table rusname))
 (define (rusname2chiname rusname) (get-value rusname2chiname-table rusname))
 
-(define (get-eng-title args)(fold(lambda(elem s)(let((chap(car elem))(start(cadr elem))(end(caddr elem)))
-                                                  (string-concatenate(list s(if(string-null? s)(rusname2engname(car args))"")
-                                                                           (if(not(eq? start 'start))", " "")
-                                                                                                            ))))""(cadr args)))
 ;script
-(map (lambda (s)(begin(display(parse-russian-title s))(display " ")(display (get-eng-title (parse-russian-title s)))(newline))) (list 
-"Евр., 329 зач. (от полу́), XI, 24-26, 32 - XII, 2." 
-"Ин., 5 зач., I, 43-51." 
-"Рим., 112 зач., XIII, 11 - XIV, 4." 
-"Мф., 17 зач., VI, 14-21*."
-))
-;, *([XVI]*),? *([0-9]*)- *([XVI]*),? *([0-9]*) *[,.]
+;(map (lambda (s)(begin(display(parse-russian-title s))(display " ")(display (get-chi-title (parse-russian-title s)))(newline))) (list 
+;"Евр., 329 зач. (от полу́), XI, 24-26, 32 - XII, 2." 
+;"Ин., 5 зач., I, 43-51." 
+;"Рим., 112 зач., XIII, 11 - XIV, 4." 
+;"Мф., 17 зач., VI, 14-21*."
+;))

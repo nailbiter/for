@@ -28,13 +28,9 @@
 (define (myprocessreading reading) (let* (
 					(inner reading)
 					(args (parse-russian-title (list-ref inner 4)))
-					;(name (list-ref readings-list 0))
-					;(chapter (list-ref readings-list 1))
-					;(verse-start (list-ref readings-list 2))
-					;(verse-end (list-ref readings-list 3))
-					(inner (replace inner 8 (get-rdg-english-text args)))
 					(inner (replace inner 5 (get-eng-title args)))
 					(inner (replace inner 6 (get-chi-title args)))
+					(inner (replace inner 8 (get-rdg-english-text args)))
 					(inner (replace inner 9 (get-rdg-chinese-text args)))
 					  )
 				     inner
@@ -44,9 +40,10 @@
 (define gosp-list (myprocessreading (myformatextract "gosp.tex")))
 
 (define (mypermute l) (map (lambda (i) (if (< i 0) "" (list-ref l i)))(list 0 1 4 7 -1 5 8 2 6 9 3 10 11 12)))
-(replace-in-file "apostol.tex" (string-concatenate (list "apostol_week_" (list-ref apo-list 0) ".tex")) (mypairing(mypermute apo-list)))
-(replace-in-file "gospel.tex" (string-concatenate (list "gospel_week_" (list-ref gosp-list 0) ".tex")) (mypairing (mypermute gosp-list)))
+(define space->underscore(lambda(s)(string-map(lambda (char)(if (char=? char #\space) #\_ char))s)))
+(replace-in-file "apostol.tex"(string-concatenate(list"apostol_week_"(space->underscore(list-ref apo-list 0))".tex"))(mypairing(mypermute apo-list)))
+(replace-in-file "gospel.tex"(string-concatenate(list"gospel_week_"(space->underscore(list-ref gosp-list 0))".tex"))(mypairing(mypermute gosp-list)))
 
-(open-pipe (string-concatenate (list "pdflatex -interaction batchmode" " 'apostol_week_" (list-ref apo-list 0) ".tex'" " && " 
-"pdflatex -interaction batchmode" " 'gospel_week_" (list-ref gosp-list 0) ".tex'")) OPEN_WRITE)
+(open-pipe (string-concatenate (list "pdflatex -interaction batchmode" " 'apostol_week_"(space->underscore(list-ref apo-list 0))".tex'"" ||
+                                 " "pdflatex -interaction batchmode"" 'gospel_week_"(space->underscore(list-ref gosp-list 0))".tex'")) OPEN_WRITE)
 (newline)
