@@ -7,7 +7,8 @@
 			(cons "Лк" "luk")
 			(cons "1 Кор" "1co")
             (cons "Мф" "mat")
-			(cons "Мк" "mak");"馬太福音"
+			(cons "Мк" "mak")
+            (cons "Ин" "jhn")
 			(cons "Лк" "luk")
 			(cons "Евр" "jue")
 			(cons "1 Кор" "1co")
@@ -20,6 +21,7 @@
            (cons "Гал" "Galatians")
            (cons "Мк" "Mark")
            (cons "Мф" "Matthew")
+           (cons "Ин" "John")
 		   (cons "Евр" "Hebrews")
            (cons "Лк" "Luke")
 		   (cons "1 Кор" "1 Corinthians")
@@ -32,6 +34,7 @@
                    (cons "Гал" "加拉太書")
                    (cons "Мк" "馬可福音")
                    (cons "Мф" "馬太福音")
+                   (cons "Ин" "約翰福音")
                    (cons "Лк" "路加福音")
                    (cons "Евр" "希伯來書")
                    (cons "1 Кор" "哥林多前書")
@@ -123,8 +126,12 @@
 (define (rusname2engname rusname) (get-value rusname2engname-table rusname))
 (define (rusname2chiname rusname) (get-value rusname2chiname-table rusname))
 
+(define (get-eng-title args)(fold(lambda(elem s)(let((chap(car elem))(start(cadr elem))(end(caddr elem)))
+                                                  (string-concatenate(list s(if(string-null? s)(rusname2engname(car args))"")
+                                                                           (if(not(eq? start 'start))", " "")
+                                                                                                            ))))""(cadr args)))
 ;script
-(map (lambda (s)(begin(display (parse-russian-title s))(newline))) (list 
+(map (lambda (s)(begin(display(parse-russian-title s))(display " ")(display (get-eng-title (parse-russian-title s)))(newline))) (list 
 "Евр., 329 зач. (от полу́), XI, 24-26, 32 - XII, 2." 
 "Ин., 5 зач., I, 43-51." 
 "Рим., 112 зач., XIII, 11 - XIV, 4." 
