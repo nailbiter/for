@@ -1,0 +1,74 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,russian,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+\usepackage{mystyle}
+
+\newtheorem{prob}{Завдання}
+\newcommand{\ds}{\;ds}
+\newcommand{\dt}{\;dt}
+\newcommand{\dx}{\;dx}
+\newcommand{\dy}{\;dy}
+\newcommand{\dta}{\;d\tau}
+\newcommand{\extr}{\mbox{\normalfont extr}}
+
+\newtheorem{myulem}[mythm]{Лема}
+
+\renewenvironment{myproof}[1][Доведення]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\myqed\end{trivlist}}
+
+\title{Математична статистика (10 семестр)}
+\author{Олексій Леонтьєв}
+
+\begin{document}
+\maketitle
+\section{Глава 1}
+\setcounter{prob}{30}
+\begin{prob}\end{prob}
+	Вважатимемо $\theta_0$ відомим параметром. Тоді $L(h)>0$ тільки якщо $\forall i,\;h>\myabs{\xi_i-\theta_0}$ і якщо ця
+	умова виконується, то $L(h)=1/(2h)^n$ і таким чином
+	\[\hat{h}=\max_i\mycbra{\myabs{\xi_i-\theta_0}}\]
+	Таким чином так, $\hat{h}$ є оцінкою. Розглядаючи її як випадкову величину, її розподіл визначається наступним чином.
+	Кожна з величин $\myabs{\xi_i-\theta_0}$ має розподіл
+	\[\bar{f}(x;h)=\begin{cases}
+		1/h,&\mbox{якщо }0<x<h\\
+		0,&\mbox{в інших випадках}
+	\end{cases}\]
+	Це рівномірний розподіл, і як розраховано в \cite{turchin}, очікування мінімуму вибірки рівне
+	\[M\hat{h}=\frac{n}{n+1}h+\frac{0}{n+1}\to h\]
+	Таким чином, оцінка не є незміщеною, але є асимптотично незміщеною.
+	Відповідно,
+	\[P(\myabs{h-\hat{h}}>\epsilon)=\mybra{1-\frac{\epsilon}{h-0}}^n\to0\]
+	і таким чином, оцінка є конзистентною.
+\begin{prob}\end{prob}
+	Перш за все, 
+	\[m_1(\alpha,\theta)=\int_{\mathbb{R}^1} x\frac{1}{\alpha}e^{-(x-\theta)/\alpha}\dx=\int_0^\infty(x+\theta)\frac{1}{\alpha}
+	e^{-x/\alpha}\dx=\int_0^\infty(\alpha x+\theta)e^{-x}\dx=\alpha+\theta\]
+	і відповідно
+	\[m_2(\alpha,\theta)=\int_0^\infty (x+\theta)^2\frac{1}{\alpha}e^{-(x-\theta)/\alpha}\dx=
+	\int_0^\infty(\alpha^2x^2+2\alpha x\theta+\theta^2)e^{-x}\dx=2\alpha^2+2\alpha\theta+\theta^2=\alpha^2+(\alpha+\theta)^2\]
+	і таким чином
+	\[\hat{\alpha}=\sqrt{\frac{1}{n}\sum\xi_i^2-\mybra{\frac{1}{n}\sum\xi_i}^2}\]
+	\[\hat{\theta}=\frac{1}{n}\sum\xi_i-\sqrt{\frac{1}{n}\sum\xi_i^2-\mybra{\frac{1}{n}\sum\xi_i}^2}\]
+	Це оцінки. Жодна з них не є незміщеною, адже для $n=1,\;M\hat{\alpha}=0,\;M\hat{\theta}=M\xi=\alpha\neq\theta$. Щодо
+	конзистентності, перший момент $\frac{1}{n}\sum\xi_i$ та другий момент $\frac{1}{n}\sum\xi_i^2$ є конзистентними
+	оцінками відповідно $\mathbb{E}\xi=\alpha+\theta$ та $\mathbb{E}\xi^2=\alpha^2+(\alpha+\theta)^2$. Далі, конзистентність
+	$\hat{\alpha}$ та $\hat{\theta}$ випливає з теореми Слуцького.
+\begin{prob}\end{prob}
+	По-перше, перевіримо, чи є ця оцінка незміщеною.
+	\[\mathbb{E}\hat{\theta}=\frac{1}{2}\mathbb{E}\xi^2=\frac{1}{2}\int_0^\infty\frac{x^3}{\theta}\exp\mycbra{-\frac{x^2}{2
+	\theta}}\dx=\frac{1}{4}\int_0^\infty\frac{y}{\theta}\exp\mycbra{-\frac{y}{2\theta}}\dy=\frac{4\theta}{4}={\theta}.\]
+	Оцінка незміщена. Далі,
+\begin{thebibliography}{9}
+\bibitem{turchin}
+В. М. Турчин \emph{Математична статистика. Навч. посіб.} --
+К.: Видавничий центр "Академія", 1999. -- 240 с.
+\end{thebibliography}
+\end{document}
