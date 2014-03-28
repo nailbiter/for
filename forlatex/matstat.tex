@@ -65,10 +65,40 @@
 	По-перше, перевіримо, чи є ця оцінка незміщеною.
 	\[\mathbb{E}\hat{\theta}=\frac{1}{2}\mathbb{E}\xi^2=\frac{1}{2}\int_0^\infty\frac{x^3}{\theta}\exp\mycbra{-\frac{x^2}{2
 	\theta}}\dx=\frac{1}{4}\int_0^\infty\frac{y}{\theta}\exp\mycbra{-\frac{y}{2\theta}}\dy=\frac{4\theta}{4}={\theta}.\]
-	Оцінка незміщена. Далі,
+	Оцінка незміщена. Далі, перевіримо умови нерівності Крамера-Рао, як сформульовано в \cite{turchin}. 
+	\begin{enumerate}
+		\item \[\frac{\partial}{\partial\theta}\mybra{\frac{x}{\theta}\exp\mycbra{-\frac{x^2}{\theta}}}=
+			\mybra{-\frac{x}{\theta^2}+\frac{x^2}{\theta^2}}\exp\mycbra{-\frac{x^2}{\theta}}\] та 
+			\[\frac{\partial^2}{\partial\theta^2}\mybra{\frac{x}{\theta}\exp\mycbra{-\frac{x^2}{\theta}}}=
+			\mybra{\frac{2x}{\theta^3}-\frac{2x^2}{\theta^3}-\frac{x^3}{\theta^4}+\frac{x^4}{\theta^4}}
+			\exp\mycbra{-\frac{x^2}{\theta}}\] існують для
+			$\theta>0$.
+		\item Для кожного фіксованого $x$ маємо 
+			\[\frac{\partial}{\partial\phi}\mybra{
+			\mybra{-\frac{x}{\theta^2}+\frac{x^2}{\theta^2}}\exp\mycbra{-\frac{x^2}{\theta}}}=0\iff\]
+			\[\iff
+			{\frac{2x}{\theta^3}-\frac{2x^2}{\theta^3}-\frac{x^3}{\theta^4}+\frac{x^4}{\theta^4}}=0\iff\theta=\frac{x^2}{2}
+			\]
+			таким чином, ми бачимо, що для кожного фіксованого $x$, якщо $0<x<1$,то
+			${\partial f/\partial\theta}<0$ і тому мажорується нулем, а якщо $x>1$, то $\partial f/\partial\theta$
+			має єдиний
+			максимум на $\mathbb{R}^1$ при $\theta={x^2}/{2}$ і підставляючи маємо
+			\[\myabs{\mybra{-\frac{x}{\theta^2}+\frac{x^2}{\theta^2}}\exp\mycbra{-\frac{x^2}{\theta}}}\leq
+			\myabs{-\frac{1}{4x^3}+\frac{1}{4x^2}}\exp\mycbra{-2}\]
+			таким чином, $\partial f/\partial\theta$ мажорується функцією, яка рівна правій частині попередньою
+			нерівності при $x>1$ і нулю при $0<x\leq1$, а така функція інтегровна, відповідна $\partial f/\partial\theta$
+			мажорується інтегровною функцією.
+
+			Відповідно, щоб мажорувати другу похідну по $\theta$, ми знайдемо при фіксованому $x$ максимум
+			\[f(\theta):=\frac{\partial^2}{\partial\theta^2}\mybra{\frac{x}{\theta}\exp\mycbra{-\frac{x^2}{\theta}}}=
+			\mybra{\frac{2x}{\theta^3}-\frac{2x^2}{\theta^3}-\frac{x^3}{\theta^4}+\frac{x^4}{\theta^4}}
+			\exp\mycbra{-\frac{x^2}{\theta}}\]
+			\[f'(\theta)=\frac{1}{\theta^6}\exp\mycbra{-\frac{x^2}{\theta}}(x-x^2)\mybra{-6\theta^2+6x^2\theta
+			-x^4}\]
+	\end{enumerate}
 \begin{thebibliography}{9}
 \bibitem{turchin}
 В. М. Турчин \emph{Математична статистика. Навч. посіб.} --
-К.: Видавничий центр "Академія", 1999. -- 240 с.
+К.: Видавничий центр ``Академія'', 1999. -- 240 с.
 \end{thebibliography}
 \end{document}

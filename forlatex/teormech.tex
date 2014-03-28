@@ -1,0 +1,73 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,russian,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+\usepackage{mystyle}
+\usepackage{gensymb}
+
+\newtheorem{prob}{Завдання}
+\newcommand{\ds}{\;ds}
+\newcommand{\dt}{\;dt}
+\newcommand{\dx}{\;dx}
+\newcommand{\dy}{\;dy}
+\newcommand{\dta}{\;d\tau}
+\newcommand{\extr}{\mbox{\normalfont extr}}
+
+\newtheorem{myulem}[mythm]{Лема}
+
+\renewenvironment{myproof}[1][Доведення]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\myqed\end{trivlist}}
+
+\newcommand{\px}[1]{\mybra{\vec{#1}}_x}
+\newcommand{\py}[1]{\mybra{\vec{#1}}_y}
+
+\title{Теоретична механіка (10 семестр)}
+\author{Олексій Леонтьєв}
+
+\begin{document}
+\maketitle
+\begin{prob}Задача 2.29\end{prob}
+По-перше, знайдемо силу опору в точці $D$, яку ми позначимо $R_D$. Записуючи рівність моментів сил для балки $AB$ відносно
+вісі, що перпендикулярна площині рисунка і проходить через $A$, маємо
+\[R_D\sqrt{2}=5\cdot(2+1)\implies R_D=10.6066\mbox{кН}\]
+Далі, сила опору $R_A$ має врівноважувати суму сил, що діють на балку $AB$, тобто
+\[\vec{R_A}=\vec{F}-\vec{R_D}\]
+\[\mybra{\vec{R_A}}_x=R_D/\sqrt{2}=7.5\mbox{кН}\]
+\[\mybra{\vec{R_A}}_y=R_D/\sqrt{2}-F=2.5\mbox{кН}\]
+і таким чином,
+\[R_A=\sqrt{\mybra{R_A}_x^2+\mybra{R_A}_y^2}=7.905\mbox{кН}\]
+\begin{prob}Задача 4.10\end{prob}
+Записавши рівність моментів для балки $AB$ відносно осі, що перпендикулярна площині малюнка і проходить через $B$, бачимо, що
+\[N_A=mg/2=50\mbox{Н}\]
+адже лише $N_A$ та вага балки мають ненульовий момент відносно $B$ і вони діють паралельно. Знаючи $N_A$, згадаємо, що всі
+сили, що діють на балку (а це $N_A$, вага балки, вага сила реакції нитки $CB$, яку
+ми позначимо за $F_P$ і яка рівна за модулем вазі $P$, та $N_B$) мають врівноважитись і тому сума $\vec{F_P}+\vec{N_B}$
+рівна силі в 25Н, що діє строго вверх (а саме такою є $-(\vec{mg}+\vec{N_A})$) і оскільки $F_P$ діє
+строго вздовж $CB$, а $N_B$ строго перпендикулярно цьому напряму, їх модулі є проекціями $-(\vec{mg}+\vec{N_A})$ на
+$CB$ і перпендикулярний йому напрям. Таким чином,
+\[F_P=50\sin({30^\circ})=25\mbox{Н}\]
+\[N_B=50\cos({30^\circ})=43.3012\mbox{Н}\]
+\begin{prob}Задача 8.25\end{prob}
+Перш за все, запишемо рівність моментів для полички $ABCD$, відносно точки $H$. Матимемо (позначивши точку перетину діагоналей
+прямокутника $ABCD$ за $O$)
+\[\vec{HK}\times \vec{R_K}=-\mybra{\vec{HO}\times\vec{mg}+\vec{HD}\times{S}}\]
+або в покомпонентному записі, позначивши 
+\[\vec{R_K}=\mybra{X_K,Y_K,Z_K}\]
+і враховуючи
+\[\vec{HK}=(0,100,0)\]
+\[\vec{HO}=\mybra{30,50,0}\]
+\[\vec{mg}=\mybra{0,0,-800}\]
+\[\vec{HD}=\mybra{60,125,0}\]
+матимемо
+\[(100Z_K,0,-100X_K)\approx-\mybra{10002.5 -1.20000000000073 -66670.0}\]
+\[\implies Z_K=-100\mbox{Н},\;X_K=-666.7\mbox{Н}\]
+Записуючи рівність моментів відносно $K$, отримаємо відповідні вирази для $\vec{R_K}$
+\[\implies Z_H=500\mbox{Н},\;X_H=-133.3\mbox{Н}\]
+\end{document}

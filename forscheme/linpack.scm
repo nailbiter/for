@@ -26,6 +26,8 @@
 (define(matr-prod . l)
   (fold-right(lambda(A B)(if(eq? B 'id)A(map(lambda(row)(map(lambda(rowB)(fold + 0 (map * rowB row)))(transpose B)))A)))'id l))
 (define(matr-sum . l)(fold-right(lambda(A B)(if(eq? B 'id)A(map (lambda (r1 r2)(map + r1 r2)) A B)))'id l))
+(define (cross a1 a2)(let((u1(caar a1))(u2(cadar a1))(u3(caddar a1))(v1(caar a2))(v2(cadar a2))(v3(caddar a2)))
+                       (list(list(-(* u2 v3)(* v2 u3))(-(* v1 u3)(* v3 u1))(-(* u1 v2)(* u2 v1))))))
 
 ;printing procedures
 (define (number->string/latex num)(cond((integer? num)(format #f "~d" num))((rational? num)(let((num(numerator num))
@@ -60,7 +62,16 @@
 
 ;(display "\\[")(display(matrix->string/latex(list->mat(list 'ns 3 4 1 3 -2 1 0 -5 7 0 0 0 4 3))))
 ;(display "\\]\n")
-(display(matrix->string/txt(matr-prod (list->mat(list ))(list->mat(list -2 -2 1 1 ))(list->mat(list 1 -2 -1 1))
+;(display(matrix->string/txt(matr-prod (list->mat(list ))(list->mat(list -2 -2 1 1 ))(list->mat(list 1 -2 -1 1))
+(define (hypo a b)(sqrt(+(* a a)(* b b))))
+(define ad 60)
+(define ed 75)
+(define ae (sqrt(-(* 75 75)(* 60 60))))
+(define pi (* 4 (atan 1)))
+((lambda(l)(let((a(car l))(b(cadr l))(c(caddr l)))(begin(display "\\[\\mybra{")(display a)(display " ")(display b)(display " ")
+                                                    (display c)(display "}\\]"))))
+ (map (lambda(e)(/ e 1))(car(matr-sum(cross '((30 50 0)) '((0 0 -800)))(cross '((60 125 0)) (list(list (* 666.7 (/ ad ed))0(* 666.7 (/ ae ed)))))))))
+(display(cross '((0 100 0)) '((1 1 1))))
 (exit)
 
 ;driver&engine script
