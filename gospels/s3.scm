@@ -30,6 +30,7 @@
 					(args (parse-russian-title (list-ref inner 4)))
 					(inner (replace inner 5 (get-eng-title args)))
 					(inner (replace inner 6 (get-chi-title args)))
+					(inner (replace inner 7 (get-rdg-russian-text args)))
 					(inner (replace inner 8 (get-rdg-english-text args)))
 					(inner (replace inner 9 (get-rdg-chinese-text args)))
 					  )
@@ -44,6 +45,6 @@
 (replace-in-file "apostol.tex"(string-concatenate(list"apostol_week_"(space->underscore(list-ref apo-list 0))".tex"))(mypairing(mypermute apo-list)))
 (replace-in-file "gospel.tex"(string-concatenate(list"gospel_week_"(space->underscore(list-ref gosp-list 0))".tex"))(mypairing(mypermute gosp-list)))
 
-(open-pipe (string-concatenate (list "pdflatex -interaction batchmode" " 'apostol_week_"(space->underscore(list-ref apo-list 0))".tex'"" ||
+(open-pipe (string-concatenate (list "pdflatex -interaction batchmode" " 'apostol_week_"(space->underscore(list-ref apo-list 0))".tex'"" &&
                                  " "pdflatex -interaction batchmode"" 'gospel_week_"(space->underscore(list-ref gosp-list 0))".tex'")) OPEN_WRITE)
 (newline)

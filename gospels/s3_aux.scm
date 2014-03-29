@@ -3,6 +3,18 @@
 
 (define (drop-even l) (if (null? l) '() (cons (car l) (drop-even (cddr l)))))
 
+(define rus2rusurl-table (list
+			(cons "Лк" "lk")
+            (cons "Мф" "mf")
+			(cons "Мк" "mk")
+            (cons "Ин" "jn")
+			(cons "Евр" "heb")
+			(cons "1 Кор" "co1")
+			(cons "2 Кор" "co2")
+			(cons "1 Тим" "ti1")
+			(cons "2 Тим" "ti2")
+            (cons "Рим" "rom")
+			))
 (define rus2chiurl-table (list
 			(cons "Лк" "luk")
 			(cons "1 Кор" "1co")
@@ -46,7 +58,7 @@
 
 (define (roman2arabic romtext) (get-value (list 
                                             (cons "I" "1")(cons "II" "2")(cons "III" "3")(cons "IV" "4")(cons "V" "5")
-                                            (cons "VI" "6")(cons "VII" "7")(cons "VIII" "8")(cons "IX" "8")(cons "X" "10")
+                                            (cons "VI" "6")(cons "VII" "7")(cons "VIII" "8")(cons "IX" "9")(cons "X" "10")
                                             (cons "XI" "11")(cons "XII" "12")(cons "XIII" "13")(cons "XIV" "14")(cons "XV" "15")
                                             (cons "XVI" "16")(cons "XVII" "17")(cons "XVIII" "18")(cons "XIX" "19")(cons "XX" "20")
                                             (cons "XXI" "21")(cons "XXII" "22")(cons "XXIII" "23")(cons "XXIV" "24")(cons "XXV" "25")
@@ -71,6 +83,38 @@
                                                          )(cons new-verse c1))) verses "error-chap"))
          )(list name (myflatten verses))))
 
+;russian text
+;</a>7</td>
+;    <td class='BibleStixTxt'>Он, во дни плоти Своей, с сильным воплем и со слезами принес молитвы и моления Могущему спасти Его от смерти; и услышан был за <i>Свое</i> благоговение;
+;    </td>
+(define (get-rdg-russian-text args) (define (myflatten ll) (if (null? ll) '() (append (car ll) (flatten (cdr ll)))))
+(let* (
+        (name (list-ref args 0))
+        (elems (list-ref args 1))
+        (chapters (map roman2arabic (delete-duplicates(map car elems))))
+        (regexp "</a>([0-9]+)</td>[^:print:]*<td class='BibleStixTxt[^']*'>([^<>]+)</td>")
+        (chapters-n-sources(map(lambda(chap)(cons chap (download2string (string-append "http://www.patriarchia.ru/bible/"
+                                                (get-value rus2rusurl-table name)"/" chap "/"))))chapters))
+        (extract-and-process-verses(lambda(elem)(let*((chap (roman2arabic(car elem)))
+                                                     (start(cadr elem))
+                                                     (end(caddr elem))
+                                                     (startnum(if(eq? start 'start)-1(string->number start)))
+                                                     (endnum(if(eq? end 'end)100500(string->number end)))
+                                                     (source(get-value chapters-n-sources chap))
+                                                     (source (regexp-substitute/global #f "</*i>" source 'pre 'post))
+                                                     ;(dum (begin(display source)(display "\ntess\n")(exit)))
+                                                     (v (map (lambda(match)(cons (match:substring match 1) (match:substring match 2)))
+                                                       (list-matches regexp source)))
+                                                     ;(dum(begin(display v)(exit)))
+                                                     (v (filter (lambda(pair)(<= startnum(string->number (car pair))endnum)) v))
+                                                     (v (map cdr v))
+                                                     ;(v (map(lambda(s)(string-filter
+                                                     ;         (lambda(c)(not(or(eq? #\newline c)(eq? #\space c)(eq? #\tab c))))s))v))
+                                                     (v (map (lambda(s)(string-append s "\\\\\n")) v))
+                                                  )(string-concatenate v))))
+        )(string-concatenate (map extract-and-process-verses elems))))
+
+;english text
 (define (get-rdg-english-text args) (define (myflatten ll) (if (null? ll) '() (append (car ll) (flatten (cdr ll)))))
 (let* (
         (name (rusname2engname(list-ref args 0)))
@@ -117,9 +161,6 @@
                                                      (endnum(if(eq? end 'end)100500(string->number end)))
                                                      (v (map (lambda(match)(cons (match:substring match 1) (match:substring match 2)))
                                                        (list-matches regexp src)))
-                                                     ;(dum(display (string-append
-                                                    ;"\"http://www.o-bible.com/cgibin/ob.cgi?version=hb5&book="code"&chapter="chap"\"\n")))
-                                                     ;(dum (begin(display "\nv\n"(display v)(exit))))
                                                      (v (filter (lambda(pair)(<= startnum(string->number (car pair))endnum)) v))
                                                      (v (map cdr v))
                                                      (v (map(lambda(s)(string-filter
