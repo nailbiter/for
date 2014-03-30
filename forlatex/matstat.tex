@@ -65,7 +65,7 @@
 	По-перше, перевіримо, чи є ця оцінка незміщеною.
 	\[\mathbb{E}\hat{\theta}=\frac{1}{2}\mathbb{E}\xi^2=\frac{1}{2}\int_0^\infty\frac{x^3}{\theta}\exp\mycbra{-\frac{x^2}{2
 	\theta}}\dx=\frac{1}{4}\int_0^\infty\frac{y}{\theta}\exp\mycbra{-\frac{y}{2\theta}}\dy=\frac{4\theta}{4}={\theta}.\]
-	Оцінка незміщена. Далі, перевіримо умови нерівності Крамера-Рао, як сформульовано в \cite{turchin}. 
+	Оцінка незміщена. Далі, перевіримо умови нерівності Крамера-Рао, як сформульовано в \cite{wiki_regularity}.
 	\begin{enumerate}
 		\item \[\frac{\partial}{\partial\theta}\mybra{\frac{x}{\theta}\exp\mycbra{-\frac{x^2}{\theta}}}=
 			\mybra{-\frac{x}{\theta^2}+\frac{x^2}{\theta^2}}\exp\mycbra{-\frac{x^2}{\theta}}\] та 
@@ -73,32 +73,55 @@
 			\mybra{\frac{2x}{\theta^3}-\frac{2x^2}{\theta^3}-\frac{x^3}{\theta^4}+\frac{x^4}{\theta^4}}
 			\exp\mycbra{-\frac{x^2}{\theta}}\] існують для
 			$\theta>0$.
-		\item Для кожного фіксованого $x$ маємо 
-			\[\frac{\partial}{\partial\phi}\mybra{
-			\mybra{-\frac{x}{\theta^2}+\frac{x^2}{\theta^2}}\exp\mycbra{-\frac{x^2}{\theta}}}=0\iff\]
-			\[\iff
-			{\frac{2x}{\theta^3}-\frac{2x^2}{\theta^3}-\frac{x^3}{\theta^4}+\frac{x^4}{\theta^4}}=0\iff\theta=\frac{x^2}{2}
-			\]
-			таким чином, ми бачимо, що для кожного фіксованого $x$, якщо $0<x<1$,то
-			${\partial f/\partial\theta}<0$ і тому мажорується нулем, а якщо $x>1$, то $\partial f/\partial\theta$
-			має єдиний
-			максимум на $\mathbb{R}^1$ при $\theta={x^2}/{2}$ і підставляючи маємо
-			\[\myabs{\mybra{-\frac{x}{\theta^2}+\frac{x^2}{\theta^2}}\exp\mycbra{-\frac{x^2}{\theta}}}\leq
-			\myabs{-\frac{1}{4x^3}+\frac{1}{4x^2}}\exp\mycbra{-2}\]
-			таким чином, $\partial f/\partial\theta$ мажорується функцією, яка рівна правій частині попередньою
-			нерівності при $x>1$ і нулю при $0<x\leq1$, а така функція інтегровна, відповідна $\partial f/\partial\theta$
-			мажорується інтегровною функцією.
-
-			Відповідно, щоб мажорувати другу похідну по $\theta$, ми знайдемо при фіксованому $x$ максимум
-			\[f(\theta):=\frac{\partial^2}{\partial\theta^2}\mybra{\frac{x}{\theta}\exp\mycbra{-\frac{x^2}{\theta}}}=
-			\mybra{\frac{2x}{\theta^3}-\frac{2x^2}{\theta^3}-\frac{x^3}{\theta^4}+\frac{x^4}{\theta^4}}
-			\exp\mycbra{-\frac{x^2}{\theta}}\]
-			\[f'(\theta)=\frac{1}{\theta^6}\exp\mycbra{-\frac{x^2}{\theta}}(x-x^2)\mybra{-6\theta^2+6x^2\theta
-			-x^4}\]
+		\item Покажемо, що для кожного $\theta_0>0$ має місце
+			\[\frac{\partial}{\partial\theta}\mysbra{\int T(x)f(x;\theta)\dx}=\int T(x)\mysbra{\frac{\partial}{\partial
+			\theta}f(x;\theta)}\dx\]
+			де $T(x)=T(x_1,x_2,\hdots,x_n)$ статистика така, що $\forall\theta\;\mathbb{E}_\theta T(x),\;\mathbb{E}_\theta
+			T^2(x)<+\infty$.
+			Згідно з \cite[Гл. 13, Тм. 17]{dorogovcev} достатньо перевірити рівномірну на околі $\theta_0$
+			збіжність інтегралу в правій частині. Маємо
+			\[\int_a^\infty T(x)\mysbra{\frac{\partial}{\partial\theta}f(x;\theta)}\dx=
+			\int_a^\infty T(x)\mybra{-\frac{x}{\theta^2}+\frac{x^2}{\theta^2}}\exp\mycbra{-\frac{x^2}{\theta}}\dx=\]
+			\[=\int_a^\infty T(x)\sqrt{\frac{x}{\theta}}\exp\mycbra{-\frac{x^2}{2\theta}}\frac{(x-1)\sqrt{x}}{{\theta}^{
+			\mysfrac{3}{2}}}\exp\mycbra{-\frac{x^2}{2\theta}}\dx\leq\]
+			\[\leq\sqrt{\int_a^\infty T^2(x)f(x;\theta)\dx}\sqrt{\int_a^\infty\frac{(x-1)^2x}{\theta^3}
+			\exp\mycbra{-\frac{x^2}{\theta}}\dx}\]
+			підкореневий вираз з першого множника не може перевищувати $\mathbb{E}_\theta T^2$ і отже логічно припустити,
+			що як і досліджувана статистика $\hat{\theta}$ має обмежений другий момент на околі $\theta_0$ (в іншому
+			разі, його варіація буде очевидно більшою за варіацію $\hat{\theta}$). Таким чином, залишається
+			довести, що підкореневий вираз в другому множнику прямую до нуля рівномірно на околі $\theta_0$. Надалі
+			припускатимемо $\theta$ належить $0<b<\theta<c$ малому околі $\theta_0$. Тоді
+			\[\int_a^\infty\frac{(x-1)^2x}{\theta^3}\exp\mycbra{-\frac{x^2}{\theta}}\dx=
+			\int_{a/\sqrt{\theta}}^\infty\frac{(y\sqrt{\theta}-1)^2y\sqrt{\theta}}{\theta^3}
+			\exp\mycbra{-y^2}\sqrt{\theta}\;dy\leq\]
+			\[\leq\int_{a/\sqrt{c}}\frac{(y\sqrt{c}-1)^2y}{b^2}\exp\mycbra{-y^2}\;dy\to0,\;\mbox{ при }a\to0\]
 	\end{enumerate}
+	Таким чином, маємо
+	\[D\hat{\theta}\geq\frac{1}{I(\theta)}\]
+	де
+	\[I(\theta)=M\mybra{\frac{\partial\ln f(\xi;\theta)}{\partial\theta}}^2=
+	\int_{\mathbb{R}^n_{>0}}\mycbra{\sum_i\frac{\partial}{\partial\theta}f(x_i;\theta)}
+	\Pi_i f(x_i;\theta)\;dx_1\hdots dx_{n-1}dx_n=
+	\]\[=
+	\int_{\mathbb{R}^n_{>0}}\mycbra{-\frac{n}{\theta}+\frac{1}{2\theta^2}\sum_ix_i^2
+	}^2
+	\frac{\Pi_i x_i}{\theta^n}\exp\mycbra{-\frac{\sum_ix_i^2}{2\theta}}\;dx_1\hdots dx_{n-1}dx_n=\]
+	\[=\int_{\mathbb{R}^n_{>0}}\mysbra{\frac{n^2}{\theta^2}-\frac{n}{\theta^3}\sum_ix_i^2+\frac{1}{4\theta^4}\mysbra{
+	\sum_ix_i^2}^2}
+	\frac{\Pi_i x_i}{\theta^n}\exp\mycbra{-\frac{\sum_ix_i^2}{2\theta}}\;dx_1\hdots dx_{n-1}dx_n=\]
+	\[=\frac{n^2}{\theta^2}-\frac{n}{\theta^3}2n\theta+\frac{1}{4\theta^4}\mysbra{n(n-1)4\theta^2+n\underbrace{\mathbb{E}\xi^4}_
+	{8\theta^2}}=n/\theta^2\]
+	і $\hat{\theta}$ є ефективною оцінкою, адже
+	\[Var(\hat{\theta})=\frac{1}{4n^2}nVar\xi^2=\frac{1}{4n}\mybra{\mathbb{E}\xi^4-\mathbb{E}^2\xi^2}=
+	\frac{1}{4n}\mybra{8\theta^2-4\theta^2}=\frac{\theta^2}{n}=\frac{1}{I(\theta)}\]
 \begin{thebibliography}{9}
 \bibitem{turchin}
 В. М. Турчин \emph{Математична статистика. Навч. посіб.} --
 К.: Видавничий центр ``Академія'', 1999. -- 240 с.
+\bibitem{wiki_regularity}
+{\em Нерівність Рао-Крамера} -- стаття з англійської вікіпедії на
+\url{http://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound#Regularity_conditions}.
+\bibitem{dorogovcev}Дороговцев А. Я. {\em Математический анализ. Краткий курс в современном изложении}. -- Издание второе. --
+	К.: Факт, 2004. -- 560 с.
 \end{thebibliography}
 \end{document}
