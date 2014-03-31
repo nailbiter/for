@@ -73,6 +73,16 @@ C(x)+D(-x)=0\]
 		u(x,0)=\cos\frac{\pi x}{2}+\cos\frac{3\pi x}{2},&x\in(0,1).
 	\end{array}
 	\]
-	Будемо шукати розв’язок у вигляді
 \end{prob}
+	Будемо шукати розв’язок у вигляді
+	\[u(x,t)=T(t)X(x)\neq0\]
+	тоді перша і друга умови задачі запишуться як
+	\[T'+\lambda T=0\]
+	\[X''+\lambda X=0\implies X=\alpha\cos\lambda x+\beta\sin\lambda x\]
+	\[X'(0)=0\implies\beta=0\]
+	\[X(1)=0\implies\cos\lambda=0\implies\lambda=\frac{\pi}{2}+\pi k\]
+	і відповідно
+	\[u(x,t)=\sum_{n=1}^\infty a_ne^{-(\pi n+\pi/2)^2t}\cos(\pi n+\pi/2)x\]
+	і враховуючи третю умову задачі
+	\[u(x,t)=e^{-(\pi/2)^2t}\cos\frac{\pi x}{2}+e^{-(3\pi/2)^2t}\cos\frac{3\pi x}{2}\]
 \end{document}
