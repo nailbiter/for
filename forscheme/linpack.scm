@@ -63,15 +63,23 @@
 ;(display "\\[")(display(matrix->string/latex(list->mat(list 'ns 3 4 1 3 -2 1 0 -5 7 0 0 0 4 3))))
 ;(display "\\]\n")
 ;(display(matrix->string/txt(matr-prod (list->mat(list ))(list->mat(list -2 -2 1 1 ))(list->mat(list 1 -2 -1 1))
-(define (hypo a b)(sqrt(+(* a a)(* b b))))
-(define ad 60)
-(define ed 75)
-(define ae (sqrt(-(* 75 75)(* 60 60))))
-(define pi (* 4 (atan 1)))
-((lambda(l)(let((a(car l))(b(cadr l))(c(caddr l)))(begin(display "\\[\\mybra{")(display a)(display " ")(display b)(display " ")
-                                                    (display c)(display "}\\]"))))
- (map (lambda(e)(/ e 1))(car(matr-sum(cross '((30 50 0)) '((0 0 -800)))(cross '((60 125 0)) (list(list (* 666.7 (/ ad ed))0(* 666.7 (/ ae ed)))))))))
-(display(cross '((0 100 0)) '((1 1 1))))
+(define (msq l)(fold + 0 (map(lambda(x)(* x x))l)))
+(define (euler4 l1 l2)(let(
+                           (a1(list-ref l1 0))
+                           (a2(list-ref l1 1))
+                           (a3(list-ref l1 2))
+                           (a4(list-ref l1 3))
+                           (b1(list-ref l2 0))
+                           (b2(list-ref l2 1))
+                           (b3(list-ref l2 2))
+                           (b4(list-ref l2 3)))(list
+                           (+(* a1 b1)(* -1 a2 b2)(* -1 a3 b3)(* -1 a4 b4))
+                           (+(* a1 b2)(*  a2 b1)(* a3 b4)(* -1 a4 b3))
+                           (+(* a1 b3)(* -1 a2 b4)(* a3 b1)(*  a4 b2))
+                           (+(* a1 b4)(* a2 b3)(* -1 a3 b2)(* a4 b1))
+                           )))
+(display(msq '(-41 17 -14 -12)))
+
 (exit)
 
 ;driver&engine script

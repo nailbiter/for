@@ -1,0 +1,46 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[T1]{fontenc}
+%\usepackage{CJK}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{CJKutf8}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\usepackage{mystyle}
+
+\title{}
+\author{Igor Tereshkov}
+\begin{document}
+\maketitle
+\begin{enumerate}[label=\bfseries Problem \arabic*.]
+	\item Using Euler's four-square identity and equalities
+		\[11=3^2+1^2+1^1+0^2\]
+		\[7=2^2+1^2+1^2+1^2\]
+		\[2=1^2+1^2+0^2+0^2\]
+		\[3=1^2+1^2+1^2+0^2\]
+		\[5=2^2+1^2+0^2+0^2\]
+		we get
+		\[2310=41^2+17^2+14^2+12^2\]
+	\item 
+	\item \begin{enumerate}[label=\alph*)]
+			\item
+				as \[k^2=-ij^2i=-ab\]
+				\[N(x_0+x_1i+x_2j+x_3k)=(x_0+x_1i+x_2j+x_3k)(x_0-x_1i-x_2j-x_3k)=\]
+				\[=x_0^2-ax_1^2-bx_2^2-abx_3^2+\underbrace{(-x_1x_2ij-x_2x_1ji)+\hdots}_{\mbox{cancel as $ij=-ij$ and so on}}=\]
+				\[x_0^2-ax_1^2-bx_2^2-abx_3^2\]
+			\item Isomorphism $\mathbb{H}\mapsto B$
+				is obtained by $1\mapsto1,\;i\mapsto \sqrt{\myabs{a}}i,\;j\mapsto\sqrt{\myabs{b}},\;k\mapsto\sqrt{\myabs{ab}}$
+			\item Without loss of generality, assume $a>0$. Then,
+				\[N(1+\frac{1}{\sqrt{a}}i)=1-\frac{1}{a}a=0\]
+				hence, this isn't integral ring.
+		\end{enumerate}
+\end{enumerate}
+\end{document}
