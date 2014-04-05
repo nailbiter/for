@@ -1,4 +1,4 @@
 (setlocale LC_ALL "")
-(define rus_readings (list (cons "a" "b")
-(cons "c" "d")
-))
+(include "../forscheme/misc.scm")
+(define rus_readings '())
+(format #t "~s" "\"")

@@ -23,7 +23,7 @@
 (define (seq a b) (if (>= a b) '() (cons a (seq (+ a 1) b))))
 (define (flatten ll) (if (null? ll) '() (union (car ll) (flatten (cdr ll)))))
 (define (find-first-index l pred)(define(inner index li)(if(null? li)-1(if(pred(car li))index(inner(+ index 1)(cdr li)))))(inner 0 l))
-(define (get-value l key) (if (null? l) (string-concatenate (list "not found:" key))
+(define (get-value l key) (if (null? l) (string-append  "not found:" key)
                             (if (string=? key (car (car l))) (cdr (car l)) (get-value (cdr l) key))))
 (define (get-value/fallback l key fallback) (if (null? l) (fallback key)
                             (if (string=? key (car (car l))) (cdr (car l)) (get-value (cdr l) key))))
@@ -31,7 +31,7 @@
                             (if (string=? key (car (car l))) (cdr (car l)) (get-value/msg (cdr l) key fallback-msg))))
 (define (get-random-elt l) (list-ref l (random (length l))))
 (define (trial pred maxnum) (define (inner iternum) (if (= iternum maxnum) #f (if (pred) #t (inner (inc iternum))))) (inner 0))
-(define (memomap f init l)(if(null? l)(cons init l)
+(define (memomap f init l)(if(null? l)(cons init l); (f init_memo arg)-->(mod_memo,res); memomap ...->(final_memo,list-of-res)
                             (let*((res (f init(car l)))(ninit(car res))(nl1 (cdr res))(fres(memomap f ninit(cdr l))))
                               (cons (car fres)(cons nl1(cdr fres))))))
 

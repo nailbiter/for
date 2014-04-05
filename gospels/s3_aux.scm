@@ -1,4 +1,5 @@
 (setlocale LC_ALL "")
+(use-modules (ice-9 ftw))
 (include "../forscheme/misc.scm")
 (include "rus_readings.scm")
 
@@ -83,7 +84,9 @@
                                                                  (list s(list c1 v1 'end)(list c2 'start v2))))
                                                          )(cons new-verse c1))) verses "error-chap"))
          )(list name (myflatten verses))))
-(define(make-memoized-chap-src fetch table tablename name)
+
+;memoization
+(define(make-memoized-fetch fetch table tablename name)
   (lambda(chap)
     ;TODO: if cannot find chap+name -- download via fetch and save, else -- 
     (let ((code (string-append name chap))
@@ -94,23 +97,25 @@
       )
   )))
 ;TODO: (table ...) --> [if <key in table> val <fetch,mod_table ...] (table val)
-;fetch-->memoized fetch
+;base: fetch(n,c)+table_name
+;fetch-->memoized fetch -- can this be done??
 ;memoized map
 
 ;russian text
 (define (get-rdg-russian-text args) (define (myflatten ll) (if (null? ll) '() (append (car ll) (myflatten (cdr ll)))))
-(let* ((inner-fetch (lambda(iargs)
 (let* (
-        (name (list-ref iargs 0))
-        (elems (list-ref iargs 1))
+        (name (list-ref args 0))
+        (elems (list-ref args 1))
         (chapters (map roman2arabic (delete-duplicates(map car elems))))
         (regexp "</a>([0-9]+)</td>[^:print:]*<td class='BibleStixTxt[^']*'>([^<>]+)</td>")
-        (fetch(lambda(n c)(download2string(string-append"http://www.patriarchia.ru/bible/"
-                                            (get-value rus2rusurl-table n)"/"c"/"))))
-        (memofetch(lambda (n c table)'TODO))
-        (cns-n-fintable (memomap 
-        (chapters-n-sources(map(lambda(chap)(cons chap (download2string (string-append "http://www.patriarchia.ru/bible/"
-                                                (get-value rus2rusurl-table name)"/" chap "/"))))chapters))
+        (fetch(lambda(n c)(download2string(string-append "http://www.patriarchia.ru/bible/"(get-value rus2rusurl-table n)"/" c "/"))))
+        (memofetch(lambda(table chap)
+                    (let*((code (string-append name chap))(res(get-value/msg table code '())))
+                      (if(null? res)(let*((fres (fetch name chap))(mtable(cons (cons code fres)table)))(cons mtable fres))(cons table res)))))
+        (cns-n-fintable (memomap memofetch rus_readings chapters))
+        ;(dum(begin(display cns-n-fintable)(exit)))
+        (chapters-n-sources(map cons chapters (cdr cns-n-fintable)))
+        (dum (save-string-mapping (car cns-n-fintable) "rus_readings" "rus_readings.scm"))
         (extract-and-process-verses(lambda(elem)(let*((chap (roman2arabic(car elem)))
                                                      (start(cadr elem))
                                                      (end(caddr elem))
@@ -128,10 +133,7 @@
                                                      ;         (lambda(c)(not(or(eq? #\newline c)(eq? #\space c)(eq? #\tab c))))s))v))
                                                      (v (map (lambda(s)(string-append s "\\\\\n")) v))
                                                   )(string-concatenate v))))
-        )(string-concatenate (map extract-and-process-verses elems)))))
-       (readingcode 'TODO)
-      )(get-value/fallback rus_readings reading ))
-)
+        )(string-concatenate (map extract-and-process-verses elems))))
 
 ;english text
 (define (get-rdg-english-text args) (define (myflatten ll) (if (null? ll) '() (append (car ll) (flatten (cdr ll)))))
@@ -202,7 +204,5 @@
                                                                            (#t(string-append chp ":" start "--" chp ":" end))))))""(cadr args))))
 (define (rusname2engname rusname) (get-value rusname2engname-table rusname))
 (define (rusname2chiname rusname) (get-value rusname2chiname-table rusname))
-(define rus_readings (list (cons "a" "b")(cons "c" "d")))
 ;script
-(display rus_readings)
-(save-string-mapping rus_readings "rus_readings" "rus_readings.scm")
+(display(scandir "."))
