@@ -105,12 +105,10 @@
                                                      ;(dum (begin(display source)(display "\ntess\n")(exit)))
                                                      (v (map (lambda(match)(cons (match:substring match 1) (match:substring match 2)))
                                                        (list-matches regexp source)))
-                                                     ;(dum(begin(display v)(exit)))
                                                      (v (filter (lambda(pair)(<= startnum(string->number (car pair))endnum)) v))
                                                      (v (map cdr v))
-                                                     ;(v (map(lambda(s)(string-filter
-                                                     ;         (lambda(c)(not(or(eq? #\newline c)(eq? #\space c)(eq? #\tab c))))s))v))
                                                      (v (map (lambda(s)(string-append s "\\\\\n")) v))
+                                                     (v(map(lambda(s)(regexp-substitute/global #f "&#769;" s 'pre 'post))v));
                                                   )(string-concatenate v))))
         )(string-concatenate (map extract-and-process-verses elems))))
 
