@@ -191,3 +191,4 @@
 ;"Рим., 112 зач., XIII, 11 - XIV, 4." 
 ;"Мф., 17 зач., VI, 14-21*."
 ;))
+;(catch #t (lambda()(display (open-file "utnientuihentui" "r")))  (lambda (key . parameters)(display "I've got the power!")))
