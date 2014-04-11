@@ -1,0 +1,44 @@
+set terminal pngcairo dashed size 800,600 enhanced font 'Verdana,10'
+set output  "d1_plot.png"
+#set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 ps 1.5   # --- blue
+#plot [0:12] [0.0:1.0] "data.dat" with steps title ""
+#plot x/12 with lines title "Рівномірна 
+set xrange [0:12]
+set yrange [0:1]
+set label 'Емпірична ФР' at 1.2,0.9
+set arrow from 3,0.9 to 5,0.9
+
+set style line 1 lt 3 lw 2
+
+set arrow from 3.1,0.0 to 0.0,0.0 nohead lw 3.2
+set arrow from 4.37,0.071 to 3.1,0.071 lw 3.2
+set arrow from 4.47,0.143 to 4.37,0.143 lw 3.2
+set arrow from 5.883,0.214 to 4.47,0.214 lw 3.2
+set arrow from 7.133,0.286 to 5.883,0.286 lw 3.2
+set arrow from 7.783,0.357 to 7.133,0.357 lw 3.2
+set arrow from 7.833,0.429 to 7.783,0.429 lw 3.2
+set arrow from 8.000,0.500 to 7.833,0.500 lw 3.2
+set arrow from 8.583,0.571 to 8.000,0.571 lw 3.2
+set arrow from 9.300,0.643 to 8.583,0.643 lw 3.2
+set arrow from 10.200,0.714 to 9.300,0.714 lw 3.2
+set arrow from 10.750,0.786 to 10.200,0.786 lw 3.2
+set arrow from 11.267,0.857 to 10.750,0.857 lw 3.2
+set arrow from 11.500,0.929 to 11.267,0.929 lw 3.2
+set arrow from 12,1.0 to 11.5,1.0 lw 3.2
+
+set arrow from 3.1,0.071 to 3.1,0.0 nohead ls 1
+set arrow from 4.37,0.143 to 4.37,0 nohead ls 1
+set arrow from 4.47,0.214 to 4.47,0 nohead ls 1
+set arrow from  5.883,0.286 to 5.883,0 nohead ls 1
+set arrow from 7.133,0.357 to 7.133,0 nohead ls 1
+set arrow from 7.783,0.429 to 7.783,0 nohead ls 1
+set arrow from 7.833,0.500 to 7.833,0 nohead ls 1
+set arrow from 8.000,0.571 to 8,0 nohead ls 1
+set arrow from 8.583,0.643 to 8.583,0 nohead ls 1
+set arrow from 9.300,0.714 to 9.3,0 nohead ls 1
+set arrow from 10.200,0.786 to 10.2,0 nohead ls 1
+set arrow from  10.750,0.857 to 10.75,0 nohead ls 1
+set arrow from  11.267,0.929 to 11.267,0 nohead ls 1
+set arrow from  11.5,1.0 to 11.5,0 nohead ls 1
+
+plot NaN  notitle

@@ -13,5 +13,8 @@ git add forscheme/*.exe
 
 git add tests/*.txt
 
+git add forplots/*.gplot
+git add forplots/*.dat
+
 git commit -a -m "Commit"
 git push origin master

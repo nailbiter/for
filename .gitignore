@@ -3,6 +3,9 @@ docs/
 *.log
 *.out
 forscheme/*.txt
+forplots/*.png
+forplots/*.jpg
+forplots/*.ps
 harpoon.sty
 *.pdf
 alex.vim

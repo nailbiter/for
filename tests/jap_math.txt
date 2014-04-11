@@ -1,0 +1,12 @@
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - rand
+#adapt
+seq
+####
+math;0->1;sc,tap to see english and pronunciation
+####
+依存,izon--dependent;math
+局所座標,kyokusho zahyō--local coordinate system;math
+局所,kyokusho--local;math
+

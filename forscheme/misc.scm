@@ -59,3 +59,11 @@
            (format outport "))")
            )
     ))
+
+;script
+(display(fold max 0 '(1 2 3 4)))(newline)
+(define clocks (map (lambda(l)(let((h(car l))(m(cadr l)))(+ h (/ m 60.0))))
+                    '((9 18)(8 35)(10 45)(11 30)(3 06) (7 50)(4 22)(10 12)(7 47)(4 28)(11 16)(7 08)(5 53)(8 0))))
+(display clocks)(newline)
+(display (sort clocks <))
+(fold (lambda(cur ctr prev)(begin(format #t "~,3f\n"(/(inc ctr)14))(+ prev cur))) 0 (sort clocks <)(seq 0 (length clocks)))
