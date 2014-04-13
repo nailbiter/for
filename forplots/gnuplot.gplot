@@ -2,11 +2,10 @@ set terminal pngcairo dashed size 800,600 enhanced font 'Verdana,10'
 set output  "d1_plot.png"
 #set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 ps 1.5   # --- blue
 #plot [0:12] [0.0:1.0] "data.dat" with steps title ""
-#plot x/12 with lines title "Рівномірна 
 set xrange [0:12]
 set yrange [0:1]
-set label 'Емпірична ФР' at 1.2,0.9
-set arrow from 3,0.9 to 5,0.9
+set label 'Емпірична ФР' at 1.9,0.9
+set arrow from 3.6,0.9 to 4.2,0.9
 
 set style line 1 lt 3 lw 2
 
@@ -41,4 +40,6 @@ set arrow from  10.750,0.857 to 10.75,0 nohead ls 1
 set arrow from  11.267,0.929 to 11.267,0 nohead ls 1
 set arrow from  11.5,1.0 to 11.5,0 nohead ls 1
 
-plot NaN  notitle
+#plot NaN  notitle
+set key left
+plot x/12 with lines title "Рівномірна ФР"
