@@ -1,0 +1,62 @@
+\documentclass[12pt]{book} % use larger type; default would be 10pt
+
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,russian,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+\usepackage{mystyle}
+
+\newcommand{\Dom}{\mbox{Dom}}
+\title{}
+\author{}
+
+\begin{document}
+\setcounter{chapter}{2}
+\chapter{}
+\begin{center}\qed\end{center}
+\setcounter{equation}{7}
+\begin{align}
+	\mysbra{A(y),\xi-y}_+\geq\mysca{f}{\xi-y}_X &\quad\forall\xi\in K,\\
+	\mysbra{A(y),\xi-y}_++\phi(\xi)-\phi(y)\geq\mysca{f}{\xi-y}_X &\quad\forall\xi\in K\cap\Dom\phi,
+\end{align}
+\[A:V\to2^{V^*},\,f\in V^*+W^*,\,\mynorm{\cdot}_X=\mynorm{\cdot}_V+\mynorm{\cdot}_W.\]
+\begin{equation}\mynorm{y}_X^{-1}\mycbra{\mysbra{A(y),y-y_0}_-+\frac{1}{\epsilon}\mysca{\beta(y)}{y-y_0}_X}\to+\infty\end{equation}
+\begin{equation}(\overline{co}A)(y_\epsilon)+\frac{1}{\epsilon}\beta(y_\epsilon)\ni f,\;\epsilon>0\end{equation}
+\[A_\epsilon=\overline{co}A+\frac{1}{\epsilon}\beta:X\to2^{X^*}.\]
+\[\varlimsup_{n\to\infty}\mysbra{A_\epsilon(y_n),y_n-y}_-=\]
+\[\varlimsup_{n\to\infty}\mycbra{\mysbra{A(y_n),y_n-y}_-+\frac{1}{\epsilon}\mysca{\beta(y_n)}{y_n-y}_W}\leq0.\]
+\[\forall y\in X\;g=g_1+g_2\in V^*+W^*=X^*,\;\mysca{g}{y}_X=\mysca{g_1}{y}_V+\mysca{g_2}{y}_W.\]
+\begin{equation}\varlimsup_{n_k\to\infty}\mysbra{A(y_{n_k},y_{n_k}-y}_-\leq0,\;\varlimsup_{n_k\to\infty}\mysca{\beta(y_{n_k}}{y_{n_k}-y}_W\leq0.
+\end{equation}
+\begin{equation}\varliminf_{n_k\to\infty}\mysbra{A(y_{n_k},y_{n_k}-w}_-\geq\mysbra{A(y),y-w}_-\quad\forall w\in V.\end{equation}
+	\[\mysbra{A(y_{n_k}),y_{n_k}-y}_-\to0.\]
+	\[\varlimsup_{n_k\to\infty}\mysca{\beta(y_{n_k})}{y_{n_k}-y}_W\leq0,\]
+	\begin{equation}\varlimsup_{n_k\to\infty}\mysca{\beta(y_{n_k}}{y_{n_k}-w}_W\geq\mysca{\beta(y)}{y-w}_W\quad\forall w\in W.\end{equation}
+%2
+\newcommand{\nk}{n_k}
+\newcommand{\yk}{y_{n_k}}
+\[\varliminf{n_k\to\infty}\mysbra{A_\epsilon(\yk,\yk-\xi}_-\geq\varliminf_{\nk\to\infty}\mysbra{A(\yk),\yk-\xi}_-+\]
+\[+\frac{1}{\epsilon}\lim_{\nk\to\infty}\mysca{\beta(\yk)}{\yk-\xi}_W\geq\mysbra{A_\epsilon(y),y-\xi}_-\quad\forall\xi\in X.\]
+\[\mynorm{y_\epsilon}_X^{-1}\mycbra{\mysbra{A(y_\epsilon),y_\epsilon-y_0}_-+\frac{1}{\epsilon}\mysca{\beta(y_\epsilon)}{y_\epsilon-y_0}_W}=\]
+\[=\mynorm{y_\epsilon}_X^{-1}\mycbra{\mysbra{A(y_\epsilon),y_\epsilon-y_0}_-+\frac{1}{\epsilon}\mysca{\beta(y_\epsilon)-\beta(y_0)}{y_\epsilon-y_0}_
+W}\to+\infty\]
+\[\mynorm{A(y_\epsilon)}_+=\mynorm{\overline{co}A(y_\epsilon)}_+\leq l.\]
+\[\myabs{\mysca{\beta(y_\epsilon)}{y_\epsilon}_W}\leq\epsilon\myabs{\mysca{f}{y_\epsilon}_X+\mysbra{A(y_\epsilon),y_\epsilon}_+}\leq\]
+\[\leq\epsilon\mybra{\mynorm{f}_{X^*}\mynorm{y_\epsilon}_X+\mynorm{A(y_\epsilon)}_+\mynorm{y_\epsilon}_V}\leq\epsilon k.\]
+\[\mysca{\beta(y_\epsilon)-\beta(v)}{y_\epsilon-v}_W\geq0,\]
+\[\mysca{\beta(v)}{y_\epsilon-v}_W\leq0.\]
+\[\mysca{\beta(y-tw)}{tw}_W=t\mysca{\beta(y-tw)}{w}_W\leq0.\]
+\[\mysca{\beta(y)}{w}_W\leq0\quad\forall w\in X,\]
+\[\mysbra{A(y_\epsilon)-f,\xi-y_\epsilon}_+\geq\frac{1}{\epsilon}\mysca{\beta(\xi)-\beta(y_\epsilon)}{\xi-y_\epsilon}_W\geq0\]
+\begin{equation}\mysbra{A(y_\epsilon),y_\epsilon-\xi}_-\leq\mysca{f}{y_\epsilon-\xi}_X\quad\forall\xi\in K.\end{equation}
+\[\varlimsup_{\epsilon\to0}\mysbra{A(y_\epsilon),y_\epsilon-y}_-\leq0.\]
+\[\varlimsup_{\epsilon\to0}\mysbra{A(y_\epsilon,y_\epsilon-\xi}_-\geq\mysbra{A(y),y-\xi}_-\quad\forall w\in K,\]
+\[\mysca{f}{y-\xi}_X\geq\mysbra{A(y),y-\xi}_-\quad\forall\xi\in K.\]
+\[\mysbra{A(y),\xi-y}_+\geq\mysca{f}{\xi-y}_X\quad\forall\xi\in K.\]
+\[A_\epsilon=\overline{co}A+\frac{1}{\epsilon}\beta\]
+\end{document}

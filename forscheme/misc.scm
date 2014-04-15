@@ -62,11 +62,21 @@
 
 ;script
 (display(fold max 0 '(1 2 3 4)))(newline)
-(define clocks (map (lambda(l)(let((h(car l))(m(cadr l)))(+ h (/ m 60.0))))
-                    '((9 18)(8 35)(10 45)(11 30)(3 06) (7 50)(4 22)(10 12)(7 47)(4 28)(11 16)(7 08)(5 53)(8 0))))
+;(define clocks (map (lambda(l)(let((h(car l))(m(cadr l)))(+ h (/ m 60.0))))
+;                    '((9 18)(8 35)(10 45)(11 30)(3 06) (7 50)(4 22)(10 12)(7 47)(4 28)(11 16)(7 08)(5 53)(8 0))))
 (display (sort clocks <))(newline)
 ;(fold (lambda(cur ctr prev)(begin(format #t "~,3f\n"(/(inc ctr)14))(+ prev cur))) 0 (sort clocks <)(seq 0 (length clocks)))
-(newline)(display (append-map (lambda(c i)(list (abs(-(/ c 12)(/ i 14)))(abs(-(/ c 12)(/ (inc i) 14))))) (sort clocks <)(seq 0 14)))(newline)
-(display (fold max 0 (append-map (lambda(c i)(list (abs(-(/ c 12)(/ i 14)))(abs(-(/ c 12)(/ (inc i) 14))))) (sort clocks <)(seq 0 14))))(newline)
-(display
-  ((lambda(l)(/(fold + 0 l)(length l)))(map(lambda(e)((lambda(d)(* d d))(min e (- 1 e))))(list 0.33 0.93 0.62 0.38 0.65 0.53 0.81 0.07 0.61 0.04))))
+;(newline)(display (append-map (lambda(c i)(list (abs(-(/ c 12)(/ i 14)))(abs(-(/ c 12)(/ (inc i) 14))))) (sort clocks <)(seq 0 14)))(newline)
+;(display (fold max 0 (append-map (lambda(c i)(list (abs(-(/ c 12)(/ i 14)))(abs(-(/ c 12)(/ (inc i) 14))))) (sort clocks <)(seq 0 14))))(newline)
+;(display
+  ;((lambda(l)(/(fold + 0 l)(length l)))(map(lambda(e)((lambda(d)(* d d))(min e (- 1 e))))(list 0.33 0.93 0.62 0.38 0.65 0.53 0.81 0.07 0.61 0.04))))
+;((lambda(n)(begin(newline)(display(* n 0.1))(newline)(display(* n 0.01))))90)(newline)
+;(define(factorial n)(if(zero? n)1(* n (factorial(dec n)))))
+;(define(expo l k)(if(zero? k)1(* l(expo l (dec k)))))
+;(define (poisson l k)(/(*(expo l k)(exp(- l)))(factorial k)))
+;(display(map(lambda(ll)((lambda(n l)(let((l0(* n 0.1))(l1(* n 0.01)))(begin(display(list
+          ;                                              (fold + 0 (map(lambda(k)(poisson l0 k))(seq 0 (inc l))))
+          ;                                              (fold + 0 (map(lambda(k)(poisson l1 k))(seq 0 (inc l))))
+          ;                                              (<=(fold + 0 (map(lambda(k)(poisson l0 k))(seq 0 (inc l))))0.01)
+          ;                                      (>=(fold + 0 (map(lambda(k)(poisson l1 k))(seq 0 (inc l))))0.95)))(newline))))101 ll))
+          ;(list 0 1 2 3)))
