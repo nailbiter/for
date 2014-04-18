@@ -15,6 +15,7 @@
 			(cons "2 Тим" "ti2")
             (cons "Рим" "rom")
             (cons "Флп" "flp")
+            (cons "Деян" "act")
 			))
 (define rus2chiurl-table (list
 			(cons "Лк" "luk")
@@ -30,6 +31,7 @@
 			(cons "2 Тим" "2ti")
             (cons "Рим" "rom")
             (cons "Флп" "phl")
+            (cons "Деян" "act")
 			))
 (define rusname2engname-table(list 
            (cons "Гал" "Galatians")
@@ -44,6 +46,7 @@
 		   (cons "2 Тим" "2 Timothy")
            (cons "Рим" "Romans")
            (cons "Флп" "Philippians")
+            (cons "Деян" "Acts")
            ))
 (define rusname2chiname-table (list 
                    (cons "Гал" "加拉太書")
@@ -58,6 +61,7 @@
                    (cons "2 Тим" "提摩太後書")
                    (cons "Рим" "羅馬書")
                    (cons "Флп" "腓立比書")
+                   (cons "Деян" "使徒行傳")
            ))
 
 (define (roman2arabic romtext) (get-value (list 
@@ -66,6 +70,7 @@
                                             (cons "XI" "11")(cons "XII" "12")(cons "XIII" "13")(cons "XIV" "14")(cons "XV" "15")
                                             (cons "XVI" "16")(cons "XVII" "17")(cons "XVIII" "18")(cons "XIX" "19")(cons "XX" "20")
                                             (cons "XXI" "21")(cons "XXII" "22")(cons "XXIII" "23")(cons "XXIV" "24")(cons "XXV" "25")
+                                            (cons "XXVI" "26")(cons "XXVII" "27")(cons "XXVIII" "28")(cons "XXIX" "29")(cons "XXX" "30")
                                             )
                                           romtext))
 
