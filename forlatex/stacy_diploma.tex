@@ -14,6 +14,7 @@
 \newcommand{\Dom}{\mbox{Dom}}
 \title{}
 \author{}
+\let\epsilon\varepsilon
 
 \begin{document}
 \setcounter{chapter}{2}
@@ -111,4 +112,74 @@ W}\to+\infty\]
 	y_\epsilon-y_0}_-\leq\nonumber\\
 	\leq\mysca{f}{y_\epsilon-y_0}_X\leq\mynorm{f}_{X^*}\mynorm{y_\epsilon-y_0}_X
 \end{gather}
+%5
+\begin{equation}
+\begin{aligned}
+	&\mysbra{A_{\epsilon_0}(y_\epsilon),y_\epsilon-y_0}_-=\mysbra{A(y_\epsilon),y_\epsilon-y_0}_-+\\
+	&\quad+\frac{1}{\epsilon_0}\mysca{\beta(y_\epsilon)-\beta(y_0)}{y_\epsilon-y_0}_W\leq\mysbra{A_\epsilon(y_\epsilon),y_\epsilon-y_0}_-,
+\end{aligned}
+\end{equation}
+\[\mynorm{y_\epsilon}_X^{-1}\mysbra{A_{\epsilon_0}(y_\epsilon),y_\epsilon-y_0}_-\to+\infty\quad\mbox{при}\quad\mynorm{y_\epsilon}_X\to\infty,\]
+\[\mysbra{A(y_\epsilon),y_\epsilon-h}_-\leq\mysca{f}{y_\epsilon-h}_X\;\forall h\in K,\]
+\[\varlimsup_{\epsilon\to0}\mysbra{A(y_\epsilon),y_\epsilon-y}_-\leq0\]
+\[\varliminf_{\epsilon\to0}\mysbra{A(y_\epsilon),y_\epsilon-y}_-\geq\mysbra{A(y),y-h}_-\quad\forall h\in K\]
+\[\mysbra{A(y),y-h}_-\leq\mysca{f}{y-h}_X\quad\forall h\in K,\]
+\[\mathcal{A}=\overline{co}A+\overline{co}B:X\to2^{X^*}\]
+\[\varlimsup_{n\to\infty}\mysca{d_n}{y_n-y}_X\leq0,\]
+\begin{equation}\varlimsup_{n\to\infty}\mysca{d'_n}{y_n-y}_V\leq0,\quad\varlimsup_{n\to\infty}\mysca{d''_n}{y_n-y}_W\leq0.\end{equation}
+\[\mysca{d''_n}{y_n-y}_W\to0,\]
+\[\mysca{d''_n}{y_n-\xi(\tau)}_W\geq\mysbra{B(y_n),y_n-\xi(\tau)}_-\geq\]
+\[\geq\mysbra{B(\xi(\tau)),y_n-\xi(\tau)}_+-C(R;\mynorm{y_n-\xi(\tau)}'_X),\]
+\[\varlimsup_{n\to\infty}\mysca{d''_n}{y-h}_W\geq\mysbra{B(\xi(\tau)),y-h}_+-\frac{1}{\tau}C(R;\tau\mynorm{y-h}'_X),\]
+\begin{equation}
+\begin{aligned}
+	&\varliminf_{n\to\infty}\mysca{d''_n}{y_n-h}_W=\varliminf_{n\to\infty}\mysca{d''_n}{y-h}_W\geq\\
+	&\quad\geq\varliminf_{\tau\to+0}\mysbra{B(\xi(\tau)),y-h}_+\geq\mysbra{B(y),y-h}_-\quad\forall h\in W,
+\end{aligned}
+\end{equation}
+\[\mysca{d''_n}{y_n-y}_W\to0,\]
+%6
+\[\varliminf_{n\to\infty}\mysca{d''_n}{y_n-h}_V\geq\mysbra{A(y),y-h}_-\;\forall h\in V,\]
+\[\xi_n=I^*_F\zeta_n\to I^*_F\zeta_0=\xi_0\mbox{ и }\xi_0\in\mathcal{A}_F(y_F),\]
+\[B_{1/n}(y^0_F)=\mysbra{y_F\in F\big|\;\mynorm{y_F-y^0_F}_F<1/n}\]
+\[\mathcal{A}_F(y^n_F)\not\subset B_\epsilon(\mathcal{A}_F(y^0_F))=\mycbra{\xi_F\in F^*\big|\mbox{dist}(\xi_F,\mathcal{A}_F(y^0_F))<\epsilon}.\]
+\[\xi^n_F\in\mathcal{A}_F(y^n_F)\setminus B_\epsilon(\mathcal{A}_F(y^0_F)),\quad y^n_F\in B_{1/n}(y^0_F).\]
+\[\gamma(r)=\inf_{\mynorm{y}_X=r}\frac{\mysbra{\mathcal{A}(y),y}_+}{\mynorm{y}_X}.\]
+\[\lim_{r\to\infty}\gamma(r)=+\infty.\]
+\[\overline{B}_r=\mycbra{y\in X\big|\;\mynorm{y}_X\leq r},\quad\partial B_r=\mycbra{y\in X\big|\;\mynorm{y}_X=r}.\]
+\[\gamma(r)>\mynorm{y_\epsilon}^{-1}_X\mysbra{\mathcal{A}(y_\epsilon),y_\epsilon}_+-\epsilon,\]
+\[\mysbra{\mathcal{A}(y)-f,y}_+\geq(\gamma(\mynorm{y}_X)-\mynorm{f}_{X^*})\mynorm{y}_X\]
+\begin{equation}\mysbra{\mathcal{A}(y)-f,y}_+\geq0\quad\forall y\in\partial B_r.\end{equation}
+\[\mysbra{\mathcal{A}_F(y_F)-f_F,y_F}_+\geq0\quad\forall y_F\in\partial B_{r,F},\]
+%7
+\begin{equation}\mathcal{A}_F(y_F)\ni f_F,\;f_F=I_F^*f,\end{equation}
+\begin{equation}\mysbra{\mathcal{A}_F(y_F),\xi_F}_+\geq\mysca{f_F}{\xi_F}\quad\forall\xi_F\in F.\end{equation}
+\[G_{F_0}=\bigcup_{F\supset F_0}\mycbra{y_F\in\overline{B}_{r,F}\big| y_F\quad\mbox{удовлетворяют\quad(3.29)}}.\]
+\[\bigcup_{i=1}^nG_{F_i}\supset G_F\neq\emptyset,\]
+\begin{equation}y_0\in\bigcup_{F\in F(X)}\overline{G}^w_F.\end{equation}
+\[\varlimsup_{n\to\infty}\mysca{d_n}{y_n-y_0}_X=\lim_{n\to\infty}\mysca{f}{y_n-y_0}_X=0,\]
+\[\varliminf_{n_k\to\infty}\mysca{d_{n_k}}{y_{n_k}-w}_X\geq\mysbra{\mathcal{A}(y_0),y_0-w}_-\;\forall w\in X,\]
+\[\mysca{f}{y_n-w}_X\geq\mysbra{\mathcal{A}(y_0),y_0-w}_-,\]
+\[d_\epsilon+\frac{1}{\epsilon}\beta(y_\epsilon)=f.\]
+\[\mysca{d_\epsilon}{\xi-y_\epsilon}_V=\frac{1}{\epsilon}\mysca{\beta(\epsilon)-\beta(y_\epsilon)}{\xi-y_\epsilon}_W+\mysca{f}{\xi-y_\epsilon}_X\geq
+\mysca{f}{\xi-y_\epsilon}_X,\]
+\[\varlimsup_{\epsilon\to0}\mysca{d_\epsilon}{y_\epsilon-y}_V\leq0,\]
+\[\varliminf_{\epsilon\to0}\mysca{d_\epsilon}{y_\epsilon-w}_V\geq\mysbra{A(y),y-w}_-\quad\forall w\in K.\]
+\[\varlimsup_{\epsilon\to0}\mysca{d_\epsilon}{y_\epsilon-w}_V\leq\mysca{f}{y-w}_X\quad\forall w\in K\]
+\[\mysca{f}{y-w}_X\geq\mysbra{A(y),y-w}_-\quad\forall w\in K,\]
+%8
+\[\mynorm{y}_X^{-1}\mysbra{\mathcal{A}(y),y}_+\to+\infty\quad\mbox{при}\quad\mynorm{y}_X\to\infty.\]
+\begin{equation}\mynorm{y}_X^{-1}\mycbra{\mysbra{A(y),y-y_0}_++\frac{1}{\epsilon}\mysca{\beta(y)}{y-y_0}_W}\to+\infty\end{equation}
+\[\mysbra{A_{\epsilon_0}(y),y-y_0}_+\geq\mysca{f}{y-y_0}_X\;\forall y\in\partial B_{r_0}.\]
+\[\mysbra{A_{\epsilon_0}(y)-f,y-y_0}_+\geq\gamma_0(\mynorm{y}_X)\mynorm{y}_X,\]
+\[\mysbra{A_\epsilon(y),y-y_0}_+\geq\mysbra{A_{\epsilon_0}(y),y-y_0}_+,\]
+\[\mysbra{A_\epsilon(y)-f,y-y_0}_+\geq\mysbra{A_{\epsilon_0}(y)-f,y-y_0}_+\geq0\;\forall y\in\partial B_{r_0}.\]
+\[\mysbra{A(y),\xi-y}_++\phi(\xi)-\phi(y)\geq\mysca{f}{\xi-y}_X\quad\forall\xi\in K\cap\mbox{dom}\phi,\]
+\[\mbox{dom}\phi=\mycbra{x\in X\big| \phi(x)\neq+\infty}.\]
+\begin{equation}\mysbra{A(y),\xi-y}_++\frac{1}{\epsilon}\mysca{\beta(y)}{\xi-y}_W+\phi(\xi)-\phi(y)\geq\mysca{f}{\xi-y}_X.\end{equation}
+\begin{equation}\mynorm{y}_X^{-1}\mycbra{\mysbra{A(y),y-y_0}_-+\frac{1}{\epsilon_0}\mysca{\beta(y)}{y-y_0}_W+\phi(y)}\to+\infty\end{equation}
+\begin{equation}\mysbra{A(y),\xi-y}_++\phi(\xi)-\phi(y)\geq\mysca{f}{\xi-y}_X\quad\forall\xi\mbox{dom}\phi.\end{equation}
+\begin{equation}\mynorm{y}_X^{-1}\mycbra{\mysbra{\mathcal{A}(y),y-y_0}_-+\phi(y)}\to+\infty\mbox{ при }\mynorm{y}_X\to\infty.\end{equation}
+\[\hat{X}=X\times\mathbb{R},\quad\hat{K}=\mbox{epi}\phi=\mycbra{(y;\mu)\in X\times\mathbb{R}\big|\phi(y)\leq\mu},\]
+%9
 \end{document}

@@ -161,4 +161,3 @@
 (display (det A))(newline)
 (display (matrix->string/txt(list->mat(list 0+1i 0+1i 1-1i 2+3i))))
 (exit)
-
