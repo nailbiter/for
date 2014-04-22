@@ -315,6 +315,21 @@ y_R}_X).\]
 \[a(y,w)=\sum_{\myabs{\alpha}<m}\int_\Omega A_\alpha(x,\delta x,D^my)D^\alpha wdx.\]
 \[\mathring{W_p^m}(\Omega)\subset V\subset W_p^m(\Omega),\;K=\mycbra{w\in V\big| w(x)\geq0\mbox{ м.с. в }\Omega}\]
 \begin{equation}\begin{aligned}
-	\mysca{A(y)}{w}_V=\mycbra{a(y,w)+\int_\Omega
-\end{equation}\end{aligned}
+	&\mysca{A(y)}{w}_V=\mycbra{a(y,w)+\int_\Omega\xi w\;dx\big|\xi\in\partial\phi(y)}=\\	
+	&\quad=\mysca{A_1(y)}{w}_V+\mysca{A_2(y)}{w}_V.
+\end{aligned}\end{equation}
+%16
+\[\mysca{A_1(y)}{w}_V=a\mybra{y,w},\]
+\[\partial\phi:L_p(\Omega)\to2^{L_q(\Omega)}\]
+\[\mynorm{y}_V^{-1}a(y,y)\to+\infty\mbox{ при }\mynorm{y}_V\to\infty.\]
+\begin{equation}\begin{aligned}
+	&\sum_{\myabs{\alpha}\leq m}(-1)^{\myabs{\alpha}}D^\alpha A_\alpha(x,\delta y_\epsilon,D^my_\epsilon)+\\
+	&\quad+\partial_sh(x,y_\epsilon)-\frac{1}{\epsilon}\myabs{y_\epsilon^-}^{p-2}y_\epsilon^-\ni f,
+\end{aligned}\end{equation}
+\[y^-(x)=\left\{\begin{array}{cr}
+	0,&\mbox{если }y(x)\geq0,\\
+	-y(x),&\mbox{если }y(x)<0,\\
+	\end{array}\right.
+\]
+\[\mysbra{A(y),\xi-y}_+\geq\mysca{f}{\xi-y}_V\quad\forall \xi\in K.\]
 \end{document}
