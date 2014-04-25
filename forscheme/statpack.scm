@@ -8,10 +8,12 @@
 (define (sample-var l)(let((m(sample-mean l))) (/(fold + 0(map(lambda(e)(*(- e m)(- e m)))l))(-(length l)1))));s^2
 
 ;script
-(display((lambda(xi eta)(let*((mxi(sample-mean xi))(meta(sample-mean eta))(n(length xi))(m(length eta))(sxi2(sample-var xi))(seta2(sample-var eta))
-                     (s(sqrt(/(+(*(- n 1)sxi2)(*(- m 1)seta2))(+ n m -2)))))(/(abs(- mxi meta))(sqrt(/(+ n m)(* n m)))s)))
-         '(36 42 55 59 79 108 41 40 100 58 38 73)'(27 45 84 84 70 99 60 34 117 78 56 88)))(newline)
-(display(let*((mxi 2.059)(meta 2.063)(n 10)(m 10)(sxi2 4.4)(seta2 8.6)
-                     (s(sqrt(/(+(*(- n 1)sxi2)(*(- m 1)seta2))(+ n m -2)))))(/(abs(- mxi meta))(sqrt(/(+ n m)(* n m)))s)))(newline)
-((lambda(l)(display(/(sample-var l)(* 35.63 35.63))))'(151 156 147 153 155 148 160 149 156 161 154 162 163 149 150))(newline)
-(display(/ 5.63 14))(newline)
+;(display((lambda(xi eta)(let*((mxi(sample-mean xi))(meta(sample-mean eta))(n(length xi))(m(length eta))(sxi2(sample-var xi))(seta2(sample-var eta))
+;                     (s(sqrt(/(+(*(- n 1)sxi2)(*(- m 1)seta2))(+ n m -2)))))(/(abs(- mxi meta))(sqrt(/(+ n m)(* n m)))s)))
+;         '(36 42 55 59 79 108 41 40 100 58 38 73)'(27 45 84 84 70 99 60 34 117 78 56 88)))(newline)
+;(display(let*((mxi 2.059)(meta 2.063)(n 10)(m 10)(sxi2 4.4)(seta2 8.6)
+;                     (s(sqrt(/(+(*(- n 1)sxi2)(*(- m 1)seta2))(+ n m -2)))))(/(abs(- mxi meta))(sqrt(/(+ n m)(* n m)))s)))(newline)
+;((lambda(l)(display(/(sample-var l)(* 35.63 35.63))))'(151 156 147 153 155 148 160 149 156 161 154 162 163 149 150))(newline)
+((lambda(l)(let((npi(/ 1000 12))) (format #t "~f~%" (/(fold + 0 (map(lambda(e)(*(- e npi)(- e npi)))l))npi))))'(77 81 95 86 98 90 73 70 77 82 84 87))
+((lambda(l)(let*((lambdahat(/(fold + 0 (map * '(0 1 2 3 4 5 6 7)l))500))
+   )(format #t "~f~%" (* 500 (- 1 (fold + 0 (map(lambda(e)(poisson lambdahat e))'(0 1 2 3)))))))) '(199 169 87 31 9 3 1 1))
