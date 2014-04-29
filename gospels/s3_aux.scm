@@ -1,5 +1,7 @@
 (setlocale LC_ALL "")
+(use-modules (ice-9 ftw))
 (include "../forscheme/misc.scm")
+(include "rus_readings.scm")
 
 (define (drop-even l) (if (null? l) '() (cons (car l) (drop-even (cddr l)))))
 
@@ -92,18 +94,37 @@
                                                          )(cons new-verse c1))) verses "error-chap"))
          )(list name (myflatten verses))))
 
+;memoization
+(define(make-memoized-fetch fetch table tablename name)
+  (lambda(chap)
+    ;TODO: if cannot find chap+name -- download via fetch and save, else -- 
+    (let ((code (string-append name chap))
+           )(get-value/fallback tablename code (lambda(xcode)(let*((res(fetch chap))
+                                                                   (dummy(save-string-mapping table tablename 
+                                                                                            (string-append tablename ".scm")))
+                                                                   )'TODO))
+      )
+  )))
+;TODO: (table ...) --> [if <key in table> val <fetch,mod_table ...] (table val)
+;base: fetch(n,c)+table_name
+;fetch-->memoized fetch -- can this be done??
+;memoized map
+
 ;russian text
-;</a>7</td>
-;    <td class='BibleStixTxt'>Он, во дни плоти Своей, с сильным воплем и со слезами принес молитвы и моления Могущему спасти Его от смерти; и услышан был за <i>Свое</i> благоговение;
-;    </td>
-(define (get-rdg-russian-text args) (define (myflatten ll) (if (null? ll) '() (append (car ll) (flatten (cdr ll)))))
+(define (get-rdg-russian-text args) (define (myflatten ll) (if (null? ll) '() (append (car ll) (myflatten (cdr ll)))))
 (let* (
         (name (list-ref args 0))
         (elems (list-ref args 1))
         (chapters (map roman2arabic (delete-duplicates(map car elems))))
         (regexp "</a>([0-9]+)</td>[^:print:]*<td class='BibleStixTxt[^']*'>([^<>]+)</td>")
-        (chapters-n-sources(map(lambda(chap)(cons chap (download2string (string-append "http://www.patriarchia.ru/bible/"
-                                                (get-value rus2rusurl-table name)"/" chap "/"))))chapters))
+        (fetch(lambda(n c)(download2string(string-append "http://www.patriarchia.ru/bible/"(get-value rus2rusurl-table n)"/" c "/"))))
+        (memofetch(lambda(table chap)
+                    (let*((code (string-append name chap))(res(get-value/msg table code '())))
+                      (if(null? res)(let*((fres (fetch name chap))(mtable(cons (cons code fres)table)))(cons mtable fres))(cons table res)))))
+        (cns-n-fintable (memomap memofetch rus_readings chapters))
+        ;(dum(begin(display cns-n-fintable)(exit)))
+        (chapters-n-sources(map cons chapters (cdr cns-n-fintable)))
+        (dum (save-string-mapping (car cns-n-fintable) "rus_readings" "rus_readings.scm"))
         (extract-and-process-verses(lambda(elem)(let*((chap (roman2arabic(car elem)))
                                                      (start(cadr elem))
                                                      (end(caddr elem))
@@ -190,7 +211,6 @@
                                                                            (#t(string-append chp ":" start "--" chp ":" end))))))""(cadr args))))
 (define (rusname2engname rusname) (get-value rusname2engname-table rusname))
 (define (rusname2chiname rusname) (get-value rusname2chiname-table rusname))
-
 ;script
 ;(map (lambda (s)(begin(display(parse-russian-title s))(display " ")(display (get-chi-title (parse-russian-title s)))(newline))) (list 
 ;"Евр., 329 зач. (от полу́), XI, 24-26, 32 - XII, 2." 
@@ -199,3 +219,4 @@
 ;"Мф., 17 зач., VI, 14-21*."
 ;))
 ;(catch #t (lambda()(display (open-file "utnientuihentui" "r")))  (lambda (key . parameters)(display "I've got the power!")))
+;(display(scandir "."))
