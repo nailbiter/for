@@ -29,6 +29,10 @@
 
 (display (test-independence '((276 3)(473 66))))(newline)
 (display(test-uniform '(41 34 54 39 49 45 41 33 37 41 47 39)))(newline)
+(display (test-uniform(fold (lambda(e prev)(let((num(random 6)))(append (list-head prev num)
+                                                           (list (inc (list-ref prev num)))
+                                                           (list-tail prev (inc num))
+                                                           ))) '(0 0 0 0 0 0)(seq 0 1000))))
 (exit)
 
 ;script
