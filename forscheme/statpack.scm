@@ -14,6 +14,12 @@
 88.250 89.391 90.531 91.670 92.808 93.945 95.081 96.217 97.351 98.484 99.617 100.749 101.879 103.010 104.139 105.267
 106.395 107.522 108.648 109.773 110.898 112.022 113.145 114.268 115.390 116.511 117.632 118.752 119.871 120.990 122.108 123.225 124.342 124.342
 )(dec n)))
+(define (kolmogorov-epsilon n)(list-ref '(
+ 0.9750 0.8419 0.7076 0.6239 0.5633 0.5193 0.4834 0.4543 0.4300 0.4093 0.3912 0.3754 0.3614 0.3489 0.3376 'nan 'nan 'nan 'nan 0.2941
+)(dec n)))
+(define (sign-criterion/alpha=0.025 n)(list-ref '(
+  'nan 'nan 'nan 'nan 5 5 6 7 7 8 9 9 10 11 11 12 12 13 14 14 15 16 16 17
+)(dec n)))
 (define (test-independence mat)(let* ((s(length mat))(k(length(car mat)))
                                   (vis(map(lambda(row)(fold + 0 row))mat))(vjs(fold(lambda(r1 r2)(if(null? r2)r1(map + r1 r2)))'() mat))
                                   (n (fold + 0 vis))(sq(lambda(e)(* e e)))
@@ -26,13 +32,38 @@
 (define(test-uniform l)(let* ((n(fold + 0 l))(s(length l))(myand(lambda(a b)(and a b)))(p (/ 1 s))(sanity (>=(* n p)10))(sq(lambda(e)(* e e)))
                               (e(exact->inexact(fold + 0 (map(lambda(vi)(/(sq(- vi (* n p)))(* n p)))l))))
                               )(list sanity e (chi-square (dec s))(<= e(chi-square (dec s)) ))))
+(define(test-uniform-0-1/kolmogorov l)
+  (let* ((len(length l))(getsup (lambda(a b c)(max (abs (- a c))(abs (- b c))))) ;F(a)=P(X<a)
+         (intervals((lambda(s)(map (lambda(a b i) (list a b (/ i len)))(append '(0) s)(append s '(1))(seq 0 (inc len))))(sort l <)))
+         (myand(lambda(a b)(and a b)))
+         (e(fold max 0 (map (lambda(x)(getsup(car x)(cadr x)(caddr x)))  intervals)))
+         )(list e (kolmogorov-epsilon  len)(< e(kolmogorov-epsilon  len) ))))
+(define(sign-criterion/discrete/one-sided l1 l2);l2 should be better than l1
+  (let* ((diffs(map - l2 l1))(nonzero (length(filter (lambda(x)(not(zero? x))) diffs)))(positive(length(filter positive? diffs)))
+          )(list nonzero positive (sign-criterion/alpha=0.025 nonzero)(<= positive (sign-criterion/alpha=0.025 nonzero)))))
+(define(sign-criterion/discrete/two-sided l1 l2);l2 should be better than l1
+  (let* ((diffs(map - l2 l1))(nonzero (length(filter (lambda(x)(not(zero? x))) diffs)))(positive(length(filter positive? diffs)))
+         (b (sign-criterion/alpha=0.025 nonzero))(a(- nonzero b))
+          )(list nonzero positive a b(<= a positive b))))
 
 (display (test-independence '((276 3)(473 66))))(newline)
 (display(test-uniform '(41 34 54 39 49 45 41 33 37 41 47 39)))(newline)
-(display (test-uniform(fold (lambda(e prev)(let((num(random 6)))(append (list-head prev num)
+(define bones (fold (lambda(e prev)(let((num(random 6)))(append (list-head prev num)
                                                            (list (inc (list-ref prev num)))
                                                            (list-tail prev (inc num))
-                                                           ))) '(0 0 0 0 0 0)(seq 0 1000))))
+                                                           ))) '(0 0 0 0 0 0)(seq 0 1000)))
+(display bones)(newline)
+(display (test-uniform bones))(newline)
+(display(test-uniform-0-1/kolmogorov (map(lambda(x)(exact->inexact(/ x 100000)))'(45355 30080 53251 75152 69399
+                                                                  79631 51355 73698 40009 83688
+                                                                  42450 32577 66666 05724 61293
+                                                                  40603 08037 14447 50199 47598))))(newline)
+(display(sign-criterion/discrete/one-sided '(57 59 41 51 43 49 48 56 44 50 44 50 70 42 68 54 38 48)
+                                           '(51 56 44 44 50 54 50 40 50 50 56 46 74 57 74 48 48 44)))
+(newline)
+(display(sign-criterion/discrete/two-sided '(-1 -5 1 10 2 -3 6 10 -1 4 -8 -1 -10 -9 -2 -2 -8 1 2 5 )
+                                           '(10 8 9 12 0 8 5 9 -1 -1 7 16 -5 1 10 9 -5 6 6 15)))
+(newline)
 (exit)
 
 ;script
