@@ -1,0 +1,117 @@
+\documentclass{SHVpaper}
+\usepackage{mystyle}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\begin{document}
+
+\selectlanguage{ukrainian}
+
+\section{
+%%%%%%%%%%%%%%%Тут потрібно вказати назву роботи
+Нові критерії грубості експоненціальної дихотомії в лінійних системах диференціальних рівнянь
+}
+
+\authors{
+О.~К.~Леонтьєв}
+
+\abstract{
+Ця робота пов’язана із дослідженням певної властивості лінійних систем виду $x'(t)=A(t)x(t)$, так званої експоненційної
+дихотомії. Відмінною рисою експоненційної дихотомії є її, так звана, ``грубість'', тобто незмінність при малих (у сенсі норми
+$\mynorm{\cdot}_\infty$ збурень матриці $A(t)$. Вартим особливої уваги є те, що дихотомія на $\mathbb{R}^+$ є в певному сенсі значно
+грубішою за дихотомію на усій числовій осі $\mathbb{R}$. Таким чином, вартим особливої уваги здається відшукання нових, не знайомих
+з літературі, критеріїв грубості дихотомії на $\mathbb{R}$, що і було покладеним за мету даної роботи, яка в свою чергу являється
+продовженням попередньої курсової роботи автора.
+}
+
+%%%%%%%%%%%%%%% Для визначення нового розділу використовуйте команду \subsection
+% В даному випадку з заголовком "Вступ"
+\subsection{Вступ}
+Експоненціальна дихотомія є явищем, що має місце в системах однорідних лінійних диференціальних рівнянь. 
+Систему виду 
+\begin{equation}x'(t)=A(t)x(t),\;x(t)\in\mathbb{R}^n\end{equation}
+де $A(t)$ є матрицею $n\times n$ рівномірно обмеженою для усіх $t$, для яких вона є визначеною,
+називається \textbf{експоненціально дихотомічною} на $A\subset\mathbb{R}$
+(або просто "дихотомічною" в подальшому) якщо векторний простір $\mathbb{R}^n$ розкладається
+у векторну суму двох підпросторів $E^+\oplus E^-$ і для довільних $x^+\in E^+,\; x^-\in E^-$ і $a,b\in A$ мають місце наступні оцінки:
+\begin{equation}\begin{aligned}\label{DichotomyDef}
+	\mynorm{\Omega^b_0(A)x^+}\leq K\mynorm{\Omega_0^a(A)x^+}\exp\left\{-\gamma\myabs{a-b}\right\},\;a\leq b\\
+	\mynorm{\Omega^b_0(A)x^-}\leq K\mynorm{\Omega_0^a(A)x^-}\exp\left\{-\gamma\myabs{a-b}\right\},\;b\leq a\\
+\end{aligned}\end{equation}
+лінійне відображення $\Omega^a_b(A):\mathbb{R}^n\to\mathbb{R}^n$ позначає \textit{матриціант} системи, тобто для$x_0\in\mathbb{R}^n$, 
+$\Omega^a_b(A)x_0=x_1\in\mathbb{R}^n$ якщо розв’язок системи $x(t)$ такий, що $x(b)=x_0$, в точці $a\in\mathbb{R}$ має
+значення $x(a)=x_1$. Існування і єдиність розв’язків на $\mathbb{R}$ у випадку матриці $A(t)$ визначеної і рівномірно обмеженої на
+усій числовій осі, випливає із теореми Піка.
+
+Під час читання літератури, авторові спало на думку побудувати наступну таблицю. У першій колонці наведено необхідні критерії
+дихотомії, у другій -- достатні. Знаком \textbf{iff} відмічені достатні критерії, які є еквівалентними. В третій колонці
+наведено умови на матрицю $B=B(t)$ таку, щоб система $x'=(A+B)x$ зберігала дихотомію на $\mathbb{R}^+$ чи $\mathbb{R}$, якщо
+система $x'=Ax$ її мала.
+\rowcolors{1}{white}{gray}
+\begin{center}
+\newcommand{\mygraycenteredcell}[1]{\multicolumn{1}{c|}{\cellcolor{gray}#1}}
+\newcommand{\mygraycenteredcello}{\cellcolor{gray}}
+
+\begin{tabular}{ |l| p{0.30\textwidth} | p{0.30\textwidth} | p{0.30\textwidth}| }
+	\mygraycenteredcello&\multicolumn{2}{c|}{\cellcolor{gray}Критерії дихотомії}&\mygraycenteredcello\\\hline
+&\mygraycenteredcell{Необхідні}&\mygraycenteredcell{Достатні}&\mygraycenteredcell{Критерії грубості}\\\hline\hline
+
+$\mathbb{R}^+$&
+&
+\textbf{iff} $BC^1(\mathbb{R})\ni x\mapsto \dot{x}-Ax\in BC(\mathbb{R})$ є оператором Фредгольма. \cite{palmer88}&
+$\mynorm{B}_\infty<\delta$ \cite{coppel}\\\hline
+
+&
+&
+\textbf{iff}$x'=Ax+f$ має принаймні один обмежений розв’язок для кожної обмеженої  $f$. \cite{coppel}&
+$\lim_{t\to+\infty}\mynorm{B(t)}=0$\cite{coppel}\\\hline\hline
+$\mathbb{R}$&
+$x'=Ax+f$ має обмежений розв’язок для кожної $f$ неперервної та обмеженої на $\mathbb{R}$.&
+\textbf{iff}\qquad Дихотомія на $\mathbb{R}^+$ та $\mathbb{R}^-$, а також $\mathbb{R}^n$ є сумою стійкого і нестійкого підпросторів.
+	\cite[Proposition 2.1]{palmer84} &
+$\mynorm{B}_\infty<\delta$\cite{coppel}\\\hline
+&
+&
+\textbf{iff}існує симетрична форма $S(t)$, така що похідна $V(t,x):=\mysca{S(t)x}{x}$ в силу системи
+$\mysca{\mysbra{\dot{S}+SA+A^*S}x}{x}\leq-\beta\mynorm{x}^2,\;\beta>0$&
+\\\hline
+\end{tabular}
+\end{center}
+\subsection{Основні результати}
+Основні отримані результати можна коротко сформулювати так:
+%%%%% Списки можна описувати наступним чином
+\begin{itemize}
+	\item Наведені контр-приклади, що показують, що умови $\lim_{t\to+\infty}\mynorm{B(t)}=0$ дійсно \textbf{недостатньо} 
+		для збереження дихотомії на $\mathbb{R}$, тобто остання значно менш груба за дихотомію на $\mathbb{R}^+$.
+	\item Дані нові умови на матрицю збурення $B$ для збереження дихотомії на $\mathbb{R}$ у випадку сталої діагоналізованої
+		матриці $A$.
+	\item Для повноти, дане доведення того факту, що дихотомія на $\mathbb{R}$ еквівалентна існуванню єдиного обмеженого розв’язку
+		$x'=Ax+f$ для кожної обмеженої $f$. Доведення, що не зустрічалося в літературі.
+\end{itemize}
+\subsection{Висновки}
+Хоча отримані результати і є доволі тривіальними, вони показують, що експоненційна дихотомія містить ще багато недосліджених 
+властивостей. Автор сподівається, що ці прості результати, наведені і доведені в роботі можуть слугувати принаймні ілюстрацією того, що
+явище дихотомії не лише має застосування, а і є цікавим предметом розгляду саме по собі.
+\begin{thebibliography}{9}
+\bibitem{krein}
+Ю. Л. Далецкий, М. Г. Крейн
+\emph{Устойчивость решений дифференциальных уравнений в банаховом пространстве}.
+Видавництво "Наука"{}, Головна редакція фізико-математичної літератури. Москва, 1970.
+\bibitem{mitrop}
+Митропольський Ю. А., Самойленко А. М., Кулик В. Л.
+\emph{Исследование дихотомии линейных систем дифференциальных уравнений с помощью функций Ляпунова}.
+АН УССР. Ін-т математики. Київ, "Наукова думка", 1990.
+\bibitem{palmer84}
+	Kenneth J. Palmer, {\em Exponential Dichotomies and Transversal Homoclinic Points} (1983).
+\bibitem{palmer88}
+	Kenneth J. Palmer, {\em Exponential Dichotomies and Fredholm Operators} (1988).
+\bibitem{ju}
+	Ning Ju and Stephen Wiggins, {\em On Roughness of Exponential Dichotomy} (2000).
+\bibitem{naulin}
+	Ra\'ul Naulin and Manuel Pinto, {\em Admissible perturbations of Exponential Dichotomy Roughness} (1997).
+\bibitem{chow}
+	Shui-Nee Chow and Hugo Leiva, {\em Existence and Roughness of the Exponential Dichotomy for Skew-Product Semiflow in Banach Spaces} (1994).
+\bibitem{coppel}
+	W. A. Coppel, {\em Dichotomies in Stability Theory} (1978).
+\end{thebibliography}
+\end{document} 
