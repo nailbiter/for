@@ -1,0 +1,91 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{textcomp} %for copyleft symbol
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+
+\usepackage{sectsty}   %in order to make chapter headings and title centered
+\chapterfont{\centering}
+
+\usepackage{mystyle}
+
+\newtheorem{prob}{Вправа}
+%вправи 1-6 на стор.19-20
+%вправи 1-4 на стор. 25-26
+%вправа 1 на стор. 33
+
+\title{
+Якісні аналітичні методи диференціальних рівнянь\\
+Контрольна робота (10 семестр)\\}
+\author{Олексій Леонтьєв}
+\begin{document}
+\maketitle
+\section{стор. 19-20}
+\begin{prob}Довести, що будь-який розв’язок рівняння \[\ddot{x}+\mybra{1+\frac{1}{1+t^2}}x=0\]є обмеженою функцією на $(-\infty,\infty)$
+разом зі своєю похідною.\end{prob}
+Введенням нової змінної $y:=\dot{x}$ рівняння зводиться до системи
+\[\begin{cases}\dot{x}=y\\\dot{y}=-\mybra{1+\frac{1}{1+t^2}}x\end{cases}\]
+За теоремою 1 з \cite[\S7]{demidovich} достатньо показати, що тривіальний розв’язок системи є стійким. Це покаже те, що всі розв’язки $(x,y)$
+її є обмеженими на $\mathbb{R}$, а оскільки ми ввели $y$ як $y=x'$, з цього випливатиме і бажана обмеженість першої похідної. Далі, за теоремою
+1 з \cite[\S12]{demidovich} і того факту, що $\int_{-\infty}^\infty\frac{1}{1+t^2}\;dt=\arcsin t\big|_{-\infty}^\infty=\pi<+\infty$ бачимо, що
+необхідно показати стійкість системи
+\[\begin{bmatrix}x'\\y'\end{bmatrix}=\begin{bmatrix}0&1\\-1&0\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}\]
+стійкість цієї системи, в свою чергу, випливає з теореми 1 з \cite[\S8]{demidovich}, адже власний поліном матриці вище рівний $\lambda^2+1$
+і має корені $\pm i$ із недодатніми дійсними частинами.
+\begin{prob}Нехай $a>0,\;\int_0^\infty\mynorm{b(t)}\;dt<\infty$. Довести, що будь-який розв’язок рівняння 
+	\[\ddot{x}+(a+b(t))x=0\] є обмеженою функцією на $[0,+\infty)$ разом зі своєю похідною\end{prob}
+Повністю аналогічно до попередньої задачі. 
+Введенням нової змінної $y:=\dot{x}$ рівняння зводиться до системи
+\[\begin{cases}\dot{x}=y\\\dot{y}=-\mybra{a+b(t)}x\end{cases}\]
+За теоремою 1 з \cite[\S7]{demidovich} достатньо показати, що тривіальний розв’язок системи є стійким. Це покаже те, що всі розв’язки $(x,y)$
+її є обмеженими на $\mathbb{R}$, а оскільки ми ввели $y$ як $y=x'$, з цього випливатиме і бажана обмеженість першої похідної. Далі, за теоремою
+1 з \cite[\S12]{demidovich} і того факту, що $\int_{0}^\infty\mynorm{b(t)}\;dt<+\infty$ за умовою бачимо, що
+необхідно показати стійкість системи
+\[\begin{bmatrix}x'\\y'\end{bmatrix}=\begin{bmatrix}0&1\\-a&0\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}\]
+стійкість цієї системи, в свою чергу, випливає з теореми 1 з \cite[\S8]{demidovich}, адже власний поліном матриці вище рівний $\lambda^2+a$
+і має корені $\pm \sqrt{a}i$ із недодатніми дійсними частинами.
+\begin{prob}Довести, що пряма $x=1$ є горизонтальною асимптотою при $t\to\infty$ для будь-якої інтегральної кривої рівняння
+	\[\ddot{x}+\dot{x}+\mybra{1+\frac{1}{1+\sqrt{t}}}x=1+\frac{1}{1+\sqrt{t}}.\]\end{prob}
+Заміною змінних $(y,z)=(x-1,\dot{x})$ рівняння зводиться до системи
+\[\begin{bmatrix}y'\\z'\end{bmatrix}=\begin{bmatrix}0&1\\-1-\frac{1}{1+\sqrt{t}}&-1\end{bmatrix}\begin{bmatrix}y\\z\end{bmatrix}\]
+для якої розв’язку $x=1$ рівняння відповідає тривіальний розв’язок, і отже достатньо довести, що система є асимптотично стійкою. Оскільки
+$1/(1+\sqrt{t})\to0$ при $t\to\infty$, теорема 2 з \cite[\S12]{demidovich} каже нам, що достатньо показати асимптотичну стійкість системи
+\[\begin{bmatrix}y'\\z'\end{bmatrix}=\begin{bmatrix}0&1\\-1&-1\end{bmatrix}\begin{bmatrix}y\\z\end{bmatrix}\]
+Оскільки характеристичний поліном матриці останньої системи $\lambda^2+\lambda+1$ має корені $-1/2\pm i\sqrt{3}/2$ з від’ємними
+дійсними частинами, теорема 2 з \cite[\S8]{demidovich} показує асимптотичну стійкість.
+\begin{prob}Довести, що будь-який розв’язок системи 
+\[\begin{cases}\dot{x}=(-3+\frac{1}{t^2})x+2y\\\dot{y}=x-(4+\frac{1}{t^3})y-e^{-3t-\frac{1}{t}}\end{cases}\]
+прямує до нуля при $t\to\infty$.\end{prob}
+За допомогою заміни $(a,b)=(x-e^{-3t-\frac{1}{t}},y)$ приходимо до системи
+\[\begin{cases}\dot{a}=(-3+\frac{1}{t^2})a+2b\\\dot{y}=x-(4+\frac{1}{t^3})y\end{cases}\]
+причому оскільки $(a,b)-(x,y)=(-e^{-3t-\frac{1}{t}},0)\to0$ при $t\to+\infty$, достатньо показати, що остання записана
+система асимптотично стійка. Оскільки
+$1/t^2,\;1/t^3\to0$ при $t\to+\infty$, за теоремою 2 з \cite[\S12]{demidovich}, достатньо показати асимптотичну стійкість
+\[\begin{bmatrix}a'\\b'\end{bmatrix}=\begin{bmatrix}-3&2\\1&-4\end{bmatrix}\begin{bmatrix}a\\b\end{bmatrix}\]
+останнє в свою чергу випливає з того, що власний поліном матриці останньої записаної системи $\lambda^2+7\lambda+10$ має корені
+$-2$ та $-5$ з від’ємними дійсними частинами, і теореми 2 з \cite[\S8]{demidovich}.
+\begin{prob}Нехай система зі сталою матрицею $\dot{x}=Ax$ асимптотично стійка, $\int_{t_0}^\infty\mynorm{B(t)}\;dt<\infty,\;\mynorm{f(t)}\to0,\;
+t\to+\infty$. Довести, що будь-який розв’язок неоднорідної системи
+\[\frac{dy}{dt}=(A+B(t))y+f(t)\]прямує до нуля при $t\to+\infty$.\end{prob}
+Як і в доведенні Теореми 2 з \cite[\S12]{demidovich}, зробивши заміну $z(t):=e^{-At}y(t)$ матимемо рівняння
+\[z'(t)=e^{-At}B(t)e^{At}z(t)+e^{-At}f(t)\]
+і відповідно
+\[z(t)=z(t_0)+\int_{t_0}^te^{-As}\mysbra{B(s)e^{As}z(s)+f(s)}\;ds\]
+або, повертаючись до $y(t)$,
+\[y(t)=e^{A(t-t_0)}y(t_0)+\int_{t_0}^te^{A(t-s)}\mysbra{B(s)y(s)+f(s)}\;ds\]
+
+Матриціант системи $y'=Ay$ рівний $U(t)=e^{At}$ і таким чином, загальний розв’язок досліджуваної системи можна записати у вигляді
+\[y(t)=e^{At}y_0+\int_{t_0}^te^{A(t-s)}(f(s)+B(s)y(s))\;ds\]
+\begin{thebibliography}{9}
+\bibitem{demidovich}
+Демидович Б. П. \emph{Лекции по математической теории устойчивости} --
+Москва, 1967 г., 472 стр. с илл.
+\end{thebibliography}
+\end{document}
