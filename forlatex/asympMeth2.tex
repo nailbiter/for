@@ -72,17 +72,40 @@ $1/t^2,\;1/t^3\to0$ при $t\to+\infty$, за теоремою 2 з \cite[\S12]
 останнє в свою чергу випливає з того, що власний поліном матриці останньої записаної системи $\lambda^2+7\lambda+10$ має корені
 $-2$ та $-5$ з від’ємними дійсними частинами, і теореми 2 з \cite[\S8]{demidovich}.
 \begin{prob}Нехай система зі сталою матрицею $\dot{x}=Ax$ асимптотично стійка, $\int_{t_0}^\infty\mynorm{B(t)}\;dt<\infty,\;\mynorm{f(t)}\to0,\;
-t\to+\infty$. Довести, що будь-який розв’язок неоднорідної системи
-\[\frac{dy}{dt}=(A+B(t))y+f(t)\]прямує до нуля при $t\to+\infty$.\end{prob}
-Як і в доведенні Теореми 2 з \cite[\S12]{demidovich}, зробивши заміну $z(t):=e^{-At}y(t)$ матимемо рівняння
-\[z'(t)=e^{-At}B(t)e^{At}z(t)+e^{-At}f(t)\]
-і відповідно
-\[z(t)=z(t_0)+\int_{t_0}^te^{-As}\mysbra{B(s)e^{As}z(s)+f(s)}\;ds\]
-або, повертаючись до $y(t)$,
-\[y(t)=e^{A(t-t_0)}y(t_0)+\int_{t_0}^te^{A(t-s)}\mysbra{B(s)y(s)+f(s)}\;ds\]
+t\to+\infty$. Довести, що будь-який розв’язок неоднорідної системи\[\frac{dy}{dt}=(A+B(t))y+f(t)\]прямує до нуля при $t\to+\infty$.\end{prob}
+Без втрати загальності, $t_0=0$. По-перше, позначимо за $U(t)$ матриціант однорідної системи
+\[y'(t)=(A+B(t))y\]
+Із загальної формули для розв’язку неоднорідного рівняння випливає, що для досліджуваного рівняння маємо
+\[y(t)=U(t)y(0)+\int_0^tU(t-s)f(s)\;ds\]
+Припустимо, що ми зможемо довести, що для певних $c,\alpha>0$ маємо $\mynorm{U(t)}\leq ce^{-\alpha t}$. Тоді перший доданок точно прямує до нуля.
+Стосовно ж другого, зафіксуємо довільне $\epsilon>0$. Оскільки $\mynorm{f(t)}\to0$, $\exists A>0\;\forall t>A,\;\mynorm{f(t)}<\epsilon$ і, до того ж,
+оскільки $f(t)$ неперервна, $\exists B\;\forall t,\;\mynorm{f(t)}<B$. Таким чином, для великих $t$
+\[\mynorm{\int_0^tU(t-s)f(s)\;ds}\leq c\int_0^te^{-\alpha (t-s)}\mynorm{f(s)}\;ds\leq c\mysbra{\int_0^ae^{-\alpha(t-s)}B\;ds+\int_a^te^{-
+\alpha(t-s)}\epsilon\;ds}\leq\]
+\[\leq c\mysbra{\tilde{B}e^{-\alpha(t-a)}+\epsilon\cdot1}\to c\epsilon\]
+і таким чином, для великих $t$ другий доданок стає меншим за $2c\epsilon$ для довільного $\epsilon>0$, а отже прямує до нуля. Залишається довести
+$\mynorm{U(t)}\leq ce^{-\alpha t}$.
 
-Матриціант системи $y'=Ay$ рівний $U(t)=e^{At}$ і таким чином, загальний розв’язок досліджуваної системи можна записати у вигляді
-\[y(t)=e^{At}y_0+\int_{t_0}^te^{A(t-s)}(f(s)+B(s)y(s))\;ds\]
+Знову ж таки, запишемо загальну формулу розв’язку неоднорідного рівняння, на цей раз для системи $y'=(A+B)y$, на цей раз трактуючи $B(t)y(t)$ як
+неоднорідність. Матимемо
+Оскільки всі власні значення $A$ мають від’ємну дійсну частину, існують $\alpha,c>0$ такі, що $\mynorm{e^{At}}\leq ce^{-\alpha t}$ і відповідно
+\[\mynorm{y(t)}\leq ce^{-\alpha t}\mynorm{y(0)}+\int_0^te^{-\alpha(t-s)}\mynorm{B(s)}\mynorm{y(s)}\;ds\]
+еквівалентно,
+\[e^{\alpha t}\mynorm{y(t)}\leq c\mynorm{y(0)}+\int_0^te^{\alpha s}\mynorm{y(s}\mynorm{B(s)}\;ds\]
+і за лемою Гронуолла-Беллмана для $e^{\alpha t}\mynorm{y(t)}$ матимемо
+\[e^{\alpha t}\mynorm{y(t)}\leq c\mynorm{y(0)}\exp\mycbra{\int_0^t\mynorm{B(s)}\;ds}\leq c\mynorm{y_0}\exp\mycbra{\int_0^{\infty}\mynorm{B(s)}\;ds}
+:=\mynorm{y_0}D\]
+Відповідно,
+\[\mynorm{U(t)y(0)}=\mynorm{y(t)}\leq De^{-\alpha t}\mynorm{y_0}\implies\mynorm{U(t)}\leq De^{-\alpha t}\]
+що і завершує доведення.
+\begin{prob}Довести, що система \[\begin{cases}\dot{x}=-x+\cos(t)y\\\dot{y}=\cos(t)x-y\end{cases}\]є асимптотично стійкою.\end{prob}
+Покажемо виконання умов теореми з \cite[\S13]{demidovich}. Треба перевірити існування границі
+\[A=\lim_{t\to\infty}\frac{1}{t}\int_{t_0}^t\begin{bmatrix}-1&\cos(s)\\\cos(s)&-1\end{bmatrix}\;ds\]
+Він існує, адже
+\[\lim_{t\to\infty}\frac{1}{t}\int_{t_0}^t\begin{bmatrix}-1&\cos(s)\\\cos(s)&-1\end{bmatrix}\;ds=\lim_{t\to\infty}\begin{bmatrix}
+	\frac{t_0-t}{t}&\frac{\sin(t)-\sin(t_0)}{t}\\\frac{\sin(t)-\sin(t_0)}{t}&\frac{t_0-t}{t}\end{bmatrix}=\begin{bmatrix}-1&0\\0&-1\end{bmatrix}
+		\]
+і має всі власні значення із від’ємними дійсними частинами. Залишається перевірити критерій Лаппо-Данілієвського, тобто, що для довільних
 \begin{thebibliography}{9}
 \bibitem{demidovich}
 Демидович Б. П. \emph{Лекции по математической теории устойчивости} --
