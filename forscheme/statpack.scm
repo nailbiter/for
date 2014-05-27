@@ -14,12 +14,24 @@
 88.250 89.391 90.531 91.670 92.808 93.945 95.081 96.217 97.351 98.484 99.617 100.749 101.879 103.010 104.139 105.267
 106.395 107.522 108.648 109.773 110.898 112.022 113.145 114.268 115.390 116.511 117.632 118.752 119.871 120.990 122.108 123.225 124.342 124.342
 )(dec n)))
+(define (student-t/alpha=0.025 n)(list-ref '(12.71 4.303 3.182 2.776 2.571 2.447 2.365 2.306 2.262 2.228 2.201 2.179 2.160 2.145
+2.131 2.120 2.110 2.101 2.093 2.086 2.080 2.074 2.069 2.064 2.060 2.056 2.052 2.048 2.045 2.042)(dec n)))
 (define (kolmogorov-epsilon n)(list-ref '(
  0.9750 0.8419 0.7076 0.6239 0.5633 0.5193 0.4834 0.4543 0.4300 0.4093 0.3912 0.3754 0.3614 0.3489 0.3376 'nan 'nan 'nan 'nan 0.2941
 )(dec n)))
 (define (sign-criterion/alpha=0.025 n)(list-ref '(
   'nan 'nan 'nan 'nan 5 5 6 7 7 8 9 9 10 11 11 12 12 13 14 14 15 16 16 17
 )(dec n)))
+
+(define (test-normal-mean/two-sided=0.05 l a)(let*((n(length l))(xibar(/(fold + 0 l)n))(s(sqrt(/(fold + 0(map(lambda(xi)(*(- xi xibar)(- xi xibar)))
+l))(dec n))))(res(/(abs(- xibar a))(/ s(sqrt n)))))(list res (student-t/alpha=0.025 (dec n)) (<= res (student-t/alpha=0.025 (dec n))))))
+(define (test-normal-2-mean/two-sided=0.05 l1 l2 a)
+(let*((n(length l1))(m(length l2))(xi1(/(fold + 0 l1)n))(xi2(/(fold + 0 l2)m))(S1(/(fold + 0(map(lambda(xi)(*(- xi xi1)(- xi xi1)))l1))(dec n)))
+ (S2(/(fold + 0(map(lambda(xi)(*(- xi xi2)(- xi xi2)))l2))(dec m)))(s(sqrt(/(+(*(dec n)S1)(*(dec m)S2))(+ n m -2))))
+(res (/(/(abs(- xi1 xi2 a))s)(sqrt(/(+ n m)(* n m))))))(list res (student-t/alpha=0.025 (+ n m -2)) (<= res (student-t/alpha=0.025 (dec n))))))
+
+(define(test-distribution nu p n)(let*((r(length nu))(res(fold + 0(map(lambda(nui pi)(/(*(- nui(* n pi))(- nui(* n pi)))(* n pi)))nu p)))
+)(list res (chi-square (dec r))(< res (chi-square(dec r))) )))
 (define (test-independence mat)(let* ((s(length mat))(k(length(car mat)))
                                   (vis(map(lambda(row)(fold + 0 row))mat))(vjs(fold(lambda(r1 r2)(if(null? r2)r1(map + r1 r2)))'() mat))
                                   (n (fold + 0 vis))(sq(lambda(e)(* e e)))
@@ -46,6 +58,15 @@
          (b (sign-criterion/alpha=0.025 nonzero))(a(- nonzero b))
           )(list nonzero positive a b(<= a positive b))))
 
+;script
+(display(map(lambda(n)(* 1(poisson 2.93 n)))(seq 0 7)))(newline)
+(display(test-distribution '(5 19 26 26 21 13 8) '(0.053 0.156 0.229 0.223 0.163 0.096 0.04)(+ 5 19 26 26 21 13 8)))
+(exit)
+;script
+(define SS ((lambda(l1 l2) (/(sample-var l1)(sample-var l2)))'(40 45 195 65 145) '(110 55 120 50 80)))
+(format #t "~f~%" SS)
+(newline)(exit)
+;script
 (display (test-independence '((276 3)(473 66))))(newline)
 (display(test-uniform '(41 34 54 39 49 45 41 33 37 41 47 39)))(newline)
 (define bones (fold (lambda(e prev)(let((num(random 6)))(append (list-head prev num)
