@@ -60,6 +60,10 @@ l))(dec n))))(res(/(abs(- xibar a))(/ s(sqrt n)))))(list res (student-t/alpha=0.
           )(list nonzero positive a b(<= a positive b))))
 
 ;script
+(display(test-uniform-0-1/kolmogorov (map(lambda(e)(/(exact->inexact(+(quotient e 100)(/(remainder e 100)60)))12))
+'(1057 328 518 132 321 413 406 1010 648 251 044 357 416 458 747 1104 754 1030 1106 1152))))
+(exit)
+;script
 (display (test-independence(list (map + '(33 41 39 17)'(48 100 58 13))'(113 202 70 22)'(209 255 61 10)
                                    (map + '(194 138 33 10)'(39 15 4 1)))))
 (exit)
