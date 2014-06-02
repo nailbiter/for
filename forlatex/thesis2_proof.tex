@@ -1,0 +1,94 @@
+%\documentclass[10pt]{article} % use larger type; default would be 10pt
+\documentclass[14pt]{extarticle} % use larger type; default would be 10pt
+
+\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
+                                          % (mathtext.sty входить в пакет t2).
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,ukrainian]{babel} % національна локалізація; може бути декілька
+                                          % мов; остання з переліку діє по замовчуванню. 
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{caption}
+\usepackage{subfig}
+\usepackage{fancyhdr}
+\usepackage{mystyle}
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+
+%custom command for title
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+%for Re and Im like in the book
+\renewcommand\Re{\operatorname{Re}}
+\renewcommand\Im{\operatorname{Im}}
+
+%more space after \forall and \exists
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall\;}
+\let\oldexists\exists
+\renewcommand{\exists}{\oldexists\;}
+
+%custom theorem environments
+\newtheorem{definition}{Означення}[section]
+\renewcommand{\thedefinition}{\arabic{definition}}
+\newtheorem{example}{\indent Приклад}[section]
+\renewcommand{\theexample}{\arabic{example}}
+\newtheorem{exercise}{Вправа}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{proposition}{Твердження}
+\newtheorem{remark}{Зауваження}
+\title{}
+\author{Олексій Леонтьєв}
+
+\begin{document}
+\maketitle
+\begin{proposition}Припустимо, що для довільних $t,s\in\mathbb{R}$, матриці $A(s)$, $A(t)$, $B(t)$ та $B(s)$ попарно комутують.
+	Припустимо також, що $\int_{-\infty}^\infty\mynorm{B(t)}\;dt<+\infty$. Тоді система 
+	\begin{equation}\label{Unperturbed}
+	x'=A(t)x(t)
+	\end{equation}
+	має експоненціальну дихотомію на $\mathbb{R}$ тоді і лише тоді, коли її має система
+	\begin{equation}\label{Perturbed}
+	x'=(A(t)+B(t))x(t)
+	\end{equation}
+\end{proposition}
+\begin{proof}Враховуючи гіпотезу про комутацію, матриціантами систем \eqref{Unperturbed} та \eqref{Perturbed} будуть
+	\[X(t):=\exp\mycbra{\int_0^tA(s)\;ds}\]
+	та \[\tilde{X}(t):=\exp\mycbra{\int_0^t(A(s)+B(s))\;ds}=\exp\mycbra{\int_0^tA(s)\;ds}\exp\mycbra{\int_0^tB(s)\;ds}\]
+	і останні два множники в правій частині комутують при всіх $t$.
+	Достатньо показати лише, що з дихотомії \eqref{Unperturbed} випливає дихотомія \eqref{Perturbed}.
+	Далі, із \cite{coppel} ми знаємо, що еквівалентним означенням експоненціальної дихотомії \eqref{Perturbed}
+	на $\mathbb{R}$ є існування
+	такого оператора-проекції $P$ і чисел $\gamma,K>0$, що $\forall s,t\in\mathbb{R}$ маємо
+	\[\mynorm{X(t)PX^{-1}(s)}\leq Ke^{-\gamma(t-s)},\;s\leq t\]
+	\[\mynorm{X(t)(I-P)X^{-1}(s)}\leq K^{-\gamma(s-t)},\;t\leq s\]
+	Ми покажемо, що результат залишається тим же самим (із, можливо, більшим $K$), із $X(t)$ заміненим на $\tilde{X}(t)$.
+	Дійсно, матимемо тоді для $s\leq t$
+	\[\mynorm{\tilde{X}(t)P\tilde{X}^{-1}(s)}=\]
+	\[=\mynorm{\exp\mycbra{\int_0^tB(l)\;dl}\exp\mycbra{\int_0^tA(l)\;dl}P\exp\mycbra{-\int_0^sA(l)\;dl}
+	\exp\mycbra{-\int_0^sB(l)\;dl}}\leq\]
+	\[\leq\mynorm{\exp\mycbra{\int_0^tB(l)\;dl}}\cdot\mynorm{\exp\mycbra{\int_0^tA(l)\;dl}P\exp\mycbra{-\int_0^sA(l)\;dl}}\times
+	\]\[\times\mynorm{\exp\mycbra{-\int_0^sB(l)\;dl}}\leq\]
+	\[\leq\mynorm{\exp\mycbra{\int_0^tB(l)\;dl}}\cdot Ke^{-\gamma(t-s)}\cdot
+	\mynorm{\exp\mycbra{-\int_0^sB(l)\;dl}}\leq\]
+	Таким чином, достатньо показати, що
+	\[\mynorm{\pm\exp\mycbra{\int_0^tB(l)\;dl}}\]
+	Це, в свою чергу, слідує із
+	\[\mynorm{\exp\mycbra{\int_0^tB(l)\;dl}}\leq\exp\mycbra{\mynorm{\int_0^tB(l)\;dl}}\leq\exp\mycbra{\int_0^t\mynorm{B(l)}\;dl
+	}\leq\]
+	\[\leq\exp\mycbra{\int_{-\infty}^{\infty}\mynorm{B(l)}\;dl}<+\infty\]
+	і аналогічного аргументу для $-$.
+\end{proof}
+\begin{thebibliography}{9}
+\bibitem{coppel}
+	W. A. Coppel, {\em Dichotomies in Stability Theory} (1978).
+\end{thebibliography}
+\end{document}
