@@ -1,4 +1,5 @@
 \RequirePackage{amsthm}
+\RequirePackage{amssymb}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{graphicx}
@@ -86,6 +87,8 @@
       \ifdim\lastskip<1.5em \hskip-\lastskip
       \hskip1.5em plus0em minus0.5em \fi \nobreak
       \vrule height0.75em width0.5em depth0.25em\fi}
+\renewcommand\myqed{$\blacksquare$}
+\renewcommand\qedsymbol{$\blacksquare$}
 \newenvironment{myproof}[1][Proof]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}]}{\myqed\end{trivlist}}
 \newenvironment{mydef}[1][Definition]{\begin{trivlist}
