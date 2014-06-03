@@ -47,7 +47,11 @@
 \renewcommand{\theexample}{\arabic{example}}
 \newtheorem{exercise}{Вправа}
 \newtheorem{theorem}{Теорема}
-\newtheorem{proposition}{Твердження}[section]
+\newtheorem{lemma}{Лема}
+\newtheorem{observation}{Спостереження}
+\newtheorem*{fact}{Факт}
+\newtheorem{proposition}{Твердження}
+\newtheorem{corollary}[proposition]{Наслідок}
 \theoremstyle{remark}
 \newtheorem{remark}{Зауваження}
 
@@ -111,6 +115,11 @@
 досліджує широкий спектр явищ, пов’язаних із стійкістю розв’язків диференціальних рівнянь (в тому числі, і дихотомію) в дещо
 більш загальному контексті банахових просторів, в той час як друга використовує дихотомію для дослідження інваріантних торів.
 
+Цікавим напрямом дослідження є так звана "грубість" дихотомії, тобто критерії на матриці збурення $B$ такі, що дихотомія системи $x'=Ax$ зберігається
+для системи $x'=(A+B)x$. Як відомо (і видно з таблиці нижче), дихотомія на $R$, є значно "менш" грубою, ніж дихотомія на $\mathbb{R}$, адже
+класи збурень, які її зберігають, вужчі. Тому, природно, цікаво знайти достатньо широкі критерії для збурників для збереження дихотомії на $
+\mathbb{R}$.
+
 Під час читання літератури, авторові спало на думку побудувати наступну таблицю. У першій колонці наведено необхідні критерії
 дихотомії, у другій -- достатні. Знаком \textbf{iff} відмічені достатні критерії, які є еквівалентними. В третій колонці
 наведено умови на матрицю $B=B(t)$ таку, щоб система $x'=(A+B)x$ зберігала дихотомію на $\mathbb{R}^+$ чи $\mathbb{R}$, якщо
@@ -148,20 +157,12 @@ $\mysca{\mysbra{\dot{S}+SA+A^*S}x}{x}\leq-\beta\mynorm{x}^2,\;\beta>0$. \cite[Т
 \begin{remark}\label{MysticThmRemark}\end{remark} Дуже схоже, що цей критерій також є достатнім. Зокрема, відповідне твердження сформульоване
 	в \cite[\S IV, Насл. 3.2]{krein}. Проте доведення не дане і автор цієї курсової виявився нездатним його відтворити. 
 	До того ж, цей факт використовується без доведення в \cite[ст. 37]{mitrop} як "очевидний". Проте авторові все ще не відоме доведення.
-Основні отримані результати можна коротко сформулювати так:
-\begin{itemize}
-%%	\item Наведені контр-приклади, що показують, що умови $\lim_{t\to+\infty}\mynorm{B(t)}=0$ дійсно \textbf{недостатньо} 
-%%		для збереження дихотомії на $\mathbb{R}$, тобто остання значно менш груба за дихотомію на $\mathbb{R}^+$.
-	\item Дані нові умови на матрицю збурення $B$ для збереження дихотомії на $\mathbb{R}$.
-%%	\item Для повноти, дане доведення того факту, що дихотомія на $\mathbb{R}$ еквівалентна існуванню єдиного обмеженого розв’язку
-%%		$x'=Ax+f$ для кожної обмеженої $f$. Доведення, що не зустрічалося в літературі.
-\end{itemize}
+У цій роботі сформульовано і доведено два результати, які дають нові умови грубості. Що цікаво, критерії ці обмежують $L^1$-норму матриці-збурника
+(тобто, $L_1(B):=\int_{-\infty}^{\infty}\mynorm{B(t)}\;dt$) і, у світлі того факту, що із двох тверджень $L_1(B)<+\infty$ та $\lim\limits_{t\to
+\pm\infty}\mynorm{B(t)}=0$ жоден не є сильнішим за інший, ці результати є дійсно новими, хоча й тривіальними.
 \section{Базові поняття}
 Експоненціальна дихотомія -- це явище, яке спостерігається в спеціальному виді систем, так званих експоненціально дихотомічних.
-Ми спробуємо спершу пояснити чим цікаві та корисні такі системи; як маючи дану систему рівнянь відповісти на питання, чи
-є вона експоненціально дихотомічною і наведемо декілька (сподіваємось) нетривіальних прикладів. Це буде складати матеріал
-відповідно секцій "Вступ"{}, "Результати" і "Приклади". 
-Почнемо ж ми з означення.
+Ми дамо означення і декілька пояснень.
 
 Експоненціально дихотомічні системи являють собою особливий тип однорідних систем виду
 \equation\label{LinHomSysDef}\frac{dx}{dt}=A(t)x,\;x(t)\in\mathbb{R}^n\endequation
@@ -271,14 +272,13 @@ $a\to+\infty$.
 розв’язки \ref{LinHomSysDef} утворюють векторний простір, це дає нам суттєву інформацію про асимптотичну поведінку усіх розв’язків
 системи \ref{LinHomSysDef} і пов’язяних з нею, як ми побачимо в подальшому.
 \end{remark}
-%remark - arb set, but conn und has infty => only R+- are interesting
 \begin{remark}
 	Хоча означення дихотомії \ref{DichotomyDef} було сформульоване для довільного $A\subset\mathbb{R}$, на практиці лише три випадки є 
 	найбільш цікавими: дихотомія на $A=\mathbb{R}^+:=[0,+\infty)$
 	, на $A=\mathbb{R}^-:=(-\infty,0]$ і на $A=\mathbb{R}$. Нижче ми спробуємо пояснити, чому це так.
 
 	По-перше, у випадку обмеженого $A$ дихотомія виконується тривіально для кожної системи виду \ref{LinHomSysDef} із обмеженою, неперервною
-	$A$. Дійсно, ми покажемо що у випадку $A\subset[-M,M]$ дихотомія виконується для $E^+:=\mathbb{R}^n$ та $E^-:=\emptyset$. Ми маємо
+	$A$. Дійсно, ми покажемо що у випадку $A\subset[-M,M]$ дихотомія виконується для $E^+:=\mathbb{R}^n$ та $E^-:=\mycbra{0}$. Ми маємо
 	довести існування певних $K,\;\gamma>0$, таких що
 	\[\forall x\in\mathbb{R}^n,\;a,b\in A,\;a\leq b\implies 
 	\mynorm{\Omega^b_0(A){x}}\leq K\mynorm{\Omega_0^a(A){x}}\exp\left\{-\gamma\myabs{a-b}\right\}\\
@@ -331,150 +331,140 @@ $a\to+\infty$.
 	Таким чином, природно зосередитися на випадку $A$ замкненого (див. вище) інтервалу. З поясненого вище, цей інтервал має бути необмеженим,
 	якщо нас цікавлять нетривіальні випадки. Таким чином, інтервал має містити нуль (з попереднього зауваження) і окіл хоча б однієї
 	з бескінечностей: $+\infty$ або $-\infty$ (можливо, обидва). Ці 3 випадки і приводять до трьох найбільш цікавих значень для $A$, на
-	яких ми зосередимося в подальшому: дихотомія на $\mathbb{R}^+$, на $\mathbb{R}^-$ або на $\mathbb{R}$
+	яких варто зосередитись: дихотомія на $\mathbb{R}^+$, на $\mathbb{R}^-$ або на $\mathbb{R}$
 \end{remark}
 \section{Результати}
-Варто помітити, що жоден з результатів, зібраних у цьому розділі не являється моїм особистим доведенням. Доведення і формулювання результатів
-були взяті з посилань \cite{krein} та \cite{mitrop} літерально і ця робота, на жаль, носить суто реферативний характер.
-%R+- iff at least one bdd result for each bdd fluctuation - TODO
-\begin{theorem}
-	Система виду \ref{LinHomSysDef} є дихотомічною на $\mathbb{R}^+$ (або $\mathbb{R}^-$) тоді і тільки тоді, коли для довільної обмеженої на
-	$\mathbb{R}^+$ (або $\mathbb{R}^-$) $f:\mathbb{R}^+\mapsto\mathbb{R}^n$ (або $f:\mathbb{R}^-\mapsto\mathbb{R}^n$) рівняння 
-	\equation\label{LinHomPerturbedSysDef}\frac{dx}{dt}=A(t)x+f(x),\;x(t)\in\mathbb{R}^n\endequation
-	має принаймні один розв’язок, обмежений на $\mathbb{R}^+$ (або $\mathbb{R}^-$)
-\end{theorem}
-\begin{proof}
-	Взяте з \cite{krein}.
-	Ми розглянемо лише випадок дихотомії на $\mathbb{R}^+$, адже інший випадок є симетричним і почнемо з обґрунтування того, що існування
-	обмеженого розв’язку при обмеженій $f$ є наслідком дихотомії. 
-	
-	$(\Longrightarrow)$ Ми доведемо існування цього розв’язку просто сконструювавши його.
-	і для цього ми введемо функцію Гріна обмеженого розв’язку у явному вигляді:
-	\[
-	G(t,\tau)=
-	\begin{cases}
-			\Omega_0^t(A) P_{E^+} \Omega^0_{\tau}(A), & t\geq\tau,\\
-			-\Omega_0^t(A) P_{E^-} \Omega^0_{\tau}(A), & t<\tau,\\
-	\end{cases}
-	\]
-	де $t,\tau\in\mathbb{R}^+$, $P_{E^+}$ та $P_{E^-}$ є операторами проектування на $E^+$ та $E^-$ відповідно. Таким чином,
-	нам потрібно продемонструвати той факт, що для довільної $f:\mathbb{R}^+\mapsto\mathbb{R}^n$ неперервної і обмеженої, вираз
-	\[\tag{*}\label{XsolutionGreenInt}x(t):=\int_{\mathbb{R}^+} f(\tau)G(t,\tau)d\tau\]
-	є обмеженим на $\mathbb{R}^+$ розв’язком рівняння \ref{LinHomPerturbedSysDef}. Зафіксуємо обмежену неперервну 
-	вектор-функцію $f(t)$ (і отже $x(t)$, задане формулою \ref{XsolutionGreenInt}
-	). По-перше, ми покажемо, що інтеграл \ref{XsolutionGreenInt} в принципі має сенс. Обидві $f(t)$ є неперервною і 
-	$G(t,\tau)$ при фіксованому $t$ є кусково-неперервною як функція від $\tau$ з єдиним розривом першого роду
-	в $\tau=t$. Дійсно, за неперервністю $\Omega_a^b(A)$ в $a$ і $b$ (що, як було згадано вище випливає з неперервності розв’язків 
-	\ref{LinHomSysDef}, яка в свою чергу є наслідком їх диференційованості) маємо
-	\[\lim_{\tau\to t-}G(t,\tau)=\lim_{\tau\to t-}(\Omega_0^t(A) P_{E^+} \Omega^0_{\tau}(A))=\Omega_0^t P_{E^+}\Omega^0_t\]
-	\[\lim_{\tau\to t+}G(t,\tau)=\lim_{\tau\to t+}(-\Omega_0^t(A) P_{E^-} \Omega^0_{\tau}(A))=-\Omega_0^t P_{E^-}\Omega^0_t\]
-	Таким чином, підінтегральний вираз в \ref{XsolutionGreenInt} є кусково-неперервним, тому інтегрування
-	має сенс (у цій роботі ми будемо користуватися виключно інтегралом Рімана), за умови збіжності. Збіжність ми доведемо зараз.
-
-	Збіжність \ref{XsolutionGreenInt} в свою чергу випливала б з оцінки
-	\[\label{DesiredXsolutionEstim}
-	\tag{$\star$}\exists N\mid \forall t,\;\tau\in\mathbb{R}^+,\;\mynorm{G(t,\tau)}\leq Ne^{-\gamma\myabs{t-\tau}}\]
-	якби ми спромоглися її встановити, адже вона гарантує експоненційний спад
-	. Давайте спробуємо встановити таку оцінку і без втрати загальності обмежимось випадком $t\geq\tau$ (випадок
-	$t<\tau$ є симетричним). Для доведення ми виберемо норму операторною 
-	і нагадаємо, що для неї виконується $\mynorm{AB}\leq\mynorm{A}\mynorm{
-	B}$.
-	Для довільного $x\in\mathbb{R}^n$ $P_{E^+}\Omega^0_{\tau}(A)x\in E^+$, тому згідно нерівностей \ref{DichotomyDef}
-	маємо
-	\[\mynorm{\Omega_0^t(A) P_{E^+} \Omega^0_{\tau}(A)x}\leq Ke^{-\gamma\myabs{t-\tau}}\mynorm{\Omega_0^{\tau}(A) P_{E^+} \Omega^0_{\tau}(A)x}\]
-	щоб встановити бажану оцінку \ref{DesiredXsolutionEstim} нам залишається показати, що норма оператора 
-	\[\mynorm{\Omega_0^{\tau}(A) P_{E^+} \Omega^0_{\tau}(A)}\]
-	рівномірно обмежена в $\tau\in\mathbb{R}^+$. Більше того, обмеженість можна показати лише для великих $\tau$, адже 
-	$F:\mathbb{R^+}\ni \tau\mapsto\Omega_0^{\tau}(A) P_{E^+} \Omega^0_{\tau}(A)\in\mathbb{R}^{n\times n}
-	$ є неперервною, тому неперервною є і $\mynorm{F(\tau)}$ і
-	таким чином, $\forall A>0,\;\max_{\tau\in[0,A]}\mynorm{F(\tau)}<\infty$. 
-
-	Ми введемо позначення $P_{E^+}(\tau):=	\Omega_0^{\tau}(A) P_{E^+} \Omega^0_{\tau}(A)$ і відповідно 
-	$P_{E^-}(\tau):=\Omega_0^{\tau}(A) P_{E^-} \Omega^0_{\tau}(A)$. Помітимо, що $P_{E^+}(\tau)+P_{E^-}(\tau)=
-	\Omega_0^{\tau}(A) (P_{E^+}+P_{E^-}) \Omega^0_{\tau}(A)=\Omega_0^{\tau}(A)I\Omega^0_{\tau}(A)=I$. 
-	%Загалом
-	%\[P_{E^+}(\tau)x(\tau)=x(\tau)\iff \Omega_0^{\tau}(A)P_{E^+}x(0)=x(\tau)\iff\]\[\iff P_{E^+}x(0)=x(0)\iff x(0)\in E^+\]
-	
-	Ми хочемо показати,
-	що $\overline{\lim_{\tau\to+\infty}}\mynorm{P_{E^+}(\tau)}<\infty$. Припустимо, щоб досягнути протиріччя, що для
-	$\tau_n\to+\infty$ і $\mynorm{x_n(\tau_n)}=1$ виконується $\mynorm{P_{E^+}(\tau_n)x_n(\tau_n)}\to\infty$. Перенормувавши, можем припустити
-	$\mynorm{P_{E^+}(\tau_n)x_n(\tau_n)}=1$, а $x_n(\tau_n)\to 0$. 
-	Тоді $\mynorm{P_{E^-}(\tau_n)x_n(\tau_n)}=\mynorm{x_n(\tau_n)-P_{E^+}(\tau_n)x_n(\tau_n)}\to 1$. Ми також
-	позначимо $P_{E^+}(\tau_n)x_n(\tau_n)=x^+_n(\tau_n)\implies x^+_n(0)\in E^+$ (імплікація слідує
-	з властивостей $P_{E^+}(\tau_n)$) і аналогічно для $E^-$.
-
-	Також помітимо, що для 
-	\[\exists M\mid\forall m\in\mathbb{Z},\;\mynorm{\Omega_t^{t+m}(A)}\leq e^{mM}\]
-	Оскільки для $m>0$
-	\[\mynorm{\Omega_t^{t+m}}=\mynorm{\Omega_t^{t+1}(A)\cdot\Omega_{t+1}^{t+2}(A)\cdot\hdots\cdot\Omega_{m-1}^{m}(A)}\leq\]
-	\[\leq \mynorm{\Omega_t^{t+1}(A)}\cdot\mynorm{\Omega_{t+1}^{t+2}(A)}\cdot\hdots\cdot\mynorm{\Omega_{m-1}^{m}(A)}\]
-	і аналогічно для $m<0$ потрібно лише показати, що $\mynorm{\Omega_t^{t+1}}$ рівномірно обмежено в $t\in A$ (або,
-	що те ж саме, що $\log\mynorm{\Omega_t^{t+1}}$ рівномірно обмежено в $t\in A$). Але
-	\[\forall t\in A\forall x(t)\neq 0,\; \log\frac{\mynorm\sigma_t^{t+1}x(t)}{x(t)}{\mynorm{x(t)}}=\frac{1}{2}\log\frac{\mynorm{x(t+1)}^2}
-	{\mynorm{x(t)}^2}=\frac{1}{2}\log\mynorm{x(y)^2}\mid_t^{t+1}=\]
-	\[=\int_t^{t+1}\frac{2 x(y)\cdot\frac{dx}{dy}dy}{\mynorm{x(y)}^2}=\int_t^{t+1}\frac{2 x(y)\cdot A(y)x(y)dy}{\mynorm{x(y)}^2}\leq\]
-	\[\leq\int_t^{t+1}\frac{\mynorm{A(y)}\mynorm{x(y)}^2dy}{\mynorm{x(y)}^2}=\int_t^{t+1}\mynorm{A(y)}dy\]
-	Останній інтеграл є рівномірно обмеженим в $t\in A$, адже $\mynorm{A(y)}$ є рівномірно обмеженою в $y\in A$. Це показує бажане обмеження
-	на $\mynorm{\Omega_t^{t+m}}$.
-
-	З цього (адже для великих $n$ $1/2\leq\mynorm{x_n^+(\tau_n)},\;\mynorm{x_n^-(\tau_n)}\leq 2$ і $x_n^+(0)\in E^+,\;x_n^-(0)\in E^-$) 
-	з нерівностей \ref{DichotomyDef} маєм
-	для $m\in\mathbb{Z}$.
-	\[\mynorm{x_n^+(\tau_n+m)}\leq Ke^{-\gamma m}\mynorm{x_n^+(\tau_n)}\leq 2Ke^{-\gamma m}\]
-	\[\mynorm{x_n^-(\tau_n+m)}\geq K^{-1}e^{\gamma m}\mynorm{x_n^-(\tau_n)}\leq \frac{1}{2}K^{-1}e^{\gamma m}\]
-	Таким чином,
-	\[\mynorm{x_n(\tau_n)}=
-	\mynorm{x_n^+(\tau_n)+x_n^-(\tau_n)}\geq e^{-mM}\mynorm{\Omega^{\tau_n+m}_{\tau_n}(A)x_n^+(\tau_n)+
-	\Omega^{\tau_n+m}_{\tau_n}(A)x_n^-(\tau_n)}\geq\]\[\geq e^{-mM}(\mynorm{x_n^+(\tau_n+m)}-\mynorm{x_n^-(\tau_n+m)})\geq\]
-	\[\geq e^{-mM}(K^{-1}e^{\gamma m}-Ke^{-\gamma_m})\]
-	Оскільки остання нерівність правдива для всіх $m\in\mathbb{Z}$, а $\geq e^{-mM}(K^{-1}e^{\gamma m}-Ke^{-\gamma_m})>0$ для великих
-	$m$ ми отримуємо протиріччя до припущення $\mynorm{x_n(\tau_n)}\to 0$, що і показує, що $\mynorm{P_{E^+}(\tau)}$ обмежена $\tau$.
-
-	%R- non-trivial similar estimate comment
-	Помітимо, що попередні викладки не залежали істотно від того, що $t,\;\tau\in\mathbb{R}^+$ і працювали б і у протилежному випадку $
-	A=\mathbb{R}^-$. 
-
-	Наостанок ми маємо показати, що \ref{XsolutionGreenInt} є розв’язком \ref{LinHomPerturbedSysDef}. Нагадаємо, що ми довели збіжність
-	інтегралу, причому експоненційна збіжність дозволяє нам брати похідну від підінтегрального виразу. Таким чином
-	\begin{gather*}
-		\frac{dx}{dt}=\frac{d}{dt}(\int_0^tG(t,\tau)f(\tau)d\tau+\int_t^{\infty}G(t,\tau)f(\tau)d\tau)=\\
-		=G(t,t-0)f(t)-G(t,t+0)f(t)+\int_0^t\frac{\partial}{\partial t}G(t,\tau)f(\tau)d\tau+
-		\int_t^{\infty}\frac{\partial}{\partial t}G(t,\tau)f(\tau)d\tau=\\
-		f(t)+\int_0^{\infty}A(t)G(t,\tau)f(\tau)d\tau=f(t)+A(t)x(t)
-	\end{gather*}
-	Ми використовували той факт, що
-	\[\frac{\partial}{\partial t}G(t,\tau)=\frac{d}{d t}\pm\Omega_0^t(A)\cdot P_{E^{\pm}}\Omega_{\tau}^0(A)=A(t)G(t,\tau)\]
-	адже \[\forall x(0)\in\mathbb{R}^n,\;(\frac{d}{dt}\Omega_0^t)x(0)=\lim_{h\to 0}\frac{\Omega_0^{t+h}x(0)-\Omega_0^tx(0)}{h}=\]
-	\[\lim_{h\to 0}\frac{x(t+h)-x(t)}{h}=\frac{dx}{dt}(t)=A(t)x(t)=A(t)\Omega_0^tx(0)\implies\]
-	\[\implies\frac{d}{dt}\Omega_0^t=A(t)\Omega_0^t\]
-	Доведена рівність $\frac{dx}{dt}=f(t)+A(t)x(t)$ показує, що $x(t)$ є розв’язком \ref{LinHomPerturbedSysDef}.
-
-	%TODO: disclaimer
-	$(\Longleftarrow)$ Ця частина не буде доводитися у даній роботі. Доведення можна знайти у книзі \cite{krein}.
-\end{proof}
-%remark - in case of all R exactly one result, given by Green's function
-\begin{remark}
-	Як описано в \cite{mitrop},
-	у випадку дихотомії на $\mathbb{R}$ існування обмеженого розв’язку для кожної обмеженої $f$ також є наслідком дихотомії, проте в цьому 
-	випадку обмежений розв’язок існує лише один і задається функцією Гріна обмеженого розв’язку, наведеною в формулюванні теореми. Той факт,
-	що ця ж функція Гріна буде давати обмежені розв’язки і у випадку дихотомії на $\mathbb{R}$ випливає з доведених в теоремі
-	властивостей функції Гріна.
-
-	Щоб довести єдиність, припустимо, що $x_1(t)$ і $x_2(t)$ є обмеженими розв’язками $\frac{dx}{dt}=A(t)x+f(t)$, тоді
-	$x_0:=x_1-x_2\neq 0$ є ненульовим обмеженим розв’язком $\frac{dx}{dt}=A(t)x$. Тоді, оскільки розв’язок однозначно визначається
-	початковими умовами, $x_0(0)\neq 0$, тому хоча б одна з проекцій на $E^+$ або ж на $E^-$ буде ненульовою і відповідна компонента
-	розв’язку буде експоненціально зростати на $-\infty$ (на $+\infty$) в той час як інша компонента буде прямувати до нуля. В усякому разі,
-	це суперечить обмеженості на $\mathbb{R}$ і дає протиріччя, що доводить твердження.
-\end{remark}
+\begin{proposition}\label{weak}Припустимо, що для довільних $t,s\in\mathbb{R}$, матриці $A(s)$, $A(t)$, $B(t)$ та $B(s)$ попарно комутують.
+	Припустимо також, що $\int_{-\infty}^\infty\mynorm{B(t)}\;dt<+\infty$. Тоді система 
+	\begin{equation}\label{Unperturbed}
+	x'=A(t)x(t)
+	\end{equation}
+	має експоненціальну дихотомію на $\mathbb{R}$ тоді і лише тоді, коли її має система
+	\begin{equation}\label{Perturbed}
+	x'=(A(t)+B(t))x(t)
+	\end{equation}
+\end{proposition}
+\begin{proposition}
+	\label{strong}
+	Припустимо, що для довільних $t,s\in\mathbb{R}$, матриці $A(s)$ та $B(t)$ комутують.
+	Припустимо також, що $\int_{-\infty}^\infty\mynorm{B(t)}\;dt<+\infty$. Тоді система 
+	\begin{equation}\label{Perturbed}
+	x'=(A(t)+B(t))x(t)
+	\end{equation}
+	має експоненціальну дихотомію на $\mathbb{R}$, якщо її має система
+	\begin{equation}\label{Unperturbed}
+	x'=A(t)x(t)
+	\end{equation}
+\end{proposition}
+\begin{remark}Гіпотеза
+	твердження \ref{strong} щодо комутації
+	задовільняється, наприклад, якщо $\forall t,\;B(t)\in\bigcap\limits_{s\in\mathbb{R}} Z_{\mathfrak{gl}_n}(A(s))$, де
+	$Z_{\mathfrak{gl}_n}(A)$ позначає підалгебру Лі матриць, що комутують з $A$. У випадку $A(t)\equiv A=const$, цю умову
+можна записати простіше як $\forall t,\;B(t)\in Z_{\mathfrak{gl}_n}(A)$.\end{remark}
 \section{Доведення}
-Тут буде доведення.
+\begin{proof}{(твердження \ref{weak})}Враховуючи гіпотезу про комутацію, матриціантами систем \eqref{Unperturbed} та \eqref{Perturbed} будуть
+	\[X(t):=\exp\mycbra{\int_0^tA(s)\;ds}\]
+	та \[\tilde{X}(t):=\exp\mycbra{\int_0^t(A(s)+B(s))\;ds}=\exp\mycbra{\int_0^tA(s)\;ds}\exp\mycbra{\int_0^tB(s)\;ds}\]
+	і останні два множники в правій частині комутують при всіх $t$.
+	Через симетричність умови, достатньо показати лише, що з дихотомії \eqref{Unperturbed} випливає дихотомія \eqref{Perturbed}.
+	Далі, із \cite{coppel} ми знаємо, що еквівалентним означенням експоненціальної дихотомії \eqref{Perturbed}
+	на $\mathbb{R}$ є існування
+	такого оператора-проекції $P$ і чисел $\gamma,K>0$, що $\forall s,t\in\mathbb{R}$ маємо
+	\[\mynorm{X(t)PX^{-1}(s)}\leq Ke^{-\gamma(t-s)},\;s\leq t\]
+	\[\mynorm{X(t)(I-P)X^{-1}(s)}\leq K^{-\gamma(s-t)},\;t\leq s\]
+	Ми покажемо, що результат залишається тим же самим (із, можливо, більшим $K$), із $X(t)$ заміненим на $\tilde{X}(t)$.
+	Дійсно, матимемо тоді для $s\leq t$
+	\[\mynorm{\tilde{X}(t)P\tilde{X}^{-1}(s)}=\]
+	\[=\mynorm{\exp\mycbra{\int_0^tB(l)\;dl}\exp\mycbra{\int_0^tA(l)\;dl}P\exp\mycbra{-\int_0^sA(l)\;dl}
+	\exp\mycbra{-\int_0^sB(l)\;dl}}\leq\]
+	\[\leq\mynorm{\exp\mycbra{\int_0^tB(l)\;dl}}\cdot\mynorm{\exp\mycbra{\int_0^tA(l)\;dl}P\exp\mycbra{-\int_0^sA(l)\;dl}}\times
+	\]\[\times\mynorm{\exp\mycbra{-\int_0^sB(l)\;dl}}\leq\]
+	\[\leq\mynorm{\exp\mycbra{\int_0^tB(l)\;dl}}\cdot Ke^{-\gamma(t-s)}\cdot
+	\mynorm{\exp\mycbra{-\int_0^sB(l)\;dl}}\leq\]
+	Таким чином, достатньо показати, що
+	\[\mynorm{\pm\exp\mycbra{\int_0^tB(l)\;dl}}\]
+	рівномірно обмежена в $t\in\mathbb{R}$. Це, в свою чергу, слідує із
+	\[\mynorm{\exp\mycbra{\int_0^tB(l)\;dl}}\leq\exp\mycbra{\mynorm{\int_0^tB(l)\;dl}}\leq\exp\mycbra{\int_0^t\mynorm{B(l)}\;dl
+	}\leq\]
+	\[\leq\exp\mycbra{\int_{-\infty}^{\infty}\mynorm{B(l)}\;dl}<+\infty\]
+	і аналогічного аргументу для $-$.
+\end{proof}
+\begin{proof}{(Твердження \ref{strong})}
+	Бажаний результат випливатиме з двох спостережень, які ми покажемо нижче
+	\begin{observation}\label{Hard}Нехай для довільних $t,s\in\mathbb{R}$, $A(t)$ та $B(s)$ комутують, де $A,B$ неперервні
+	(не обов’язково обмежені) матричні функції. Припустимо також, що матриціант системи $x'=Bx$, який ми позначатимемо за
+	$X_B(t)$, існує для всіх $t\in\mathbb{R}$. Тоді для довільних $t,s\in\mathbb{R}$ $A(t)$ та $X_B(s)$ комутують.\end{observation}
+	\begin{observation}\label{Easy}Нехай $B$ -- неперервна матрична функція така, що $\int_{-\infty}^\infty B(s)\;ds<+\infty$. Тоді матриціант
+		$X_B$ системи $x'=Bx$ існує і норми $\mynorm{X_B(t)}$ та $\mynorm{X^{-1}_B(t)}$ обмежені рівномірно в $t$ на $\mathbb{R}$.
+	\end{observation}
+	Дійсно, вважаючи спостереження вище вірними, розглянемо систему \ref{Perturbed} $x'=(A+B)x(t)$. Позначимо матриціант системи $x'=Bx$
+	за $X_B(t)$ та зробимо заміну $x(t)=X_B(t)z(t)$ матимемо
+	\[BX_Bz+X_B\dot{z}=(X_Bz)'=x'=(A+B)X_Bz\]
+	оскільки за спостереженням \ref{Hard}, $A$ та $X_B$ комутують (помітимо, що умови даного твердження сильніші за умови спостереження), маємо
+	\[X_B\dot{z}=X_BAz\]
+	і відповідно, $z$ є розв’язком системи \ref{Unperturbed}. Таким чином, матриціант $X_{A+B}$ системи \ref{Perturbed}
+	має структуру
+	\[X_{A+B}=X_BX_A\]
+	і ми, маючи спостереження \ref{Easy}, можемо застосувати таку ж схему оцінки, як і в попередньому твердженні
+	\[\mynorm{X_{A+B}(t)PX^{-1}_{A+B}(s)}=\mynorm{X_B(t)X_A(t)PX^{-1}_A(s)X^{-1}_B(s)}\leq\]
+	\[\leq\mynorm{X_B(t)}\mynorm{X_A(t)PX^{-1}_A(s)}\mynorm{X_B^{-1}(s)}\]
+	\begin{proof}{(Спостереження \ref{Easy})} Рівномірна обмеженість $\mynorm{X_B(t)}$
+	випливає безпосередньо з доведення Теореми 1 в \cite[\S 12]{demidovich}, де в 
+	якості системи із сталою матрицею ми взяли стійку систему $x'=0x$. Позначимо отриману в доведенні зазначеною Теореми 1 верхню межу
+	$\mynorm{X_B(t)}$ на $\mathbb{R}$, за
+	$M$. Покажемо, що $\forall t,\;\mynorm{X^{-1}(t)}\leq M$, чим і закінчимо доведення. Дійсно, для сталого $\tau\in\mathbb{R}$,
+	$X^{-1}(\tau)$ можна характеризувати як $X^{-1}(\tau)x(\tau)=x(0)$ де $x(t)$ задовольняє $x'=Bx$ або, що те ж саме, як
+	$X^{-1}(\tau)y(0)=y(-\tau)$ де $y'=\tilde{B}y$, а $\tilde{B}(t):=B(t+\tau)$. Таким чином, достатньо показати, що матриціант системи
+	$y'=\tilde{B}y$ обмежений зверху $M$. Це, в свою чергу, вірно, оскільки із доведення Теореми 1 бачимо, що $M$ залежить лише від
+	сталої матриці (0, в нашому випадку) та $\int_{-\infty}^\infty\mynorm{B(s)}\;ds$, а $\int_{-\infty}^\infty\mynorm{B(s)}\;ds=
+	\int_{-\infty}^\infty\mynorm{\tilde{B}(s)}\;ds.$
+\end{proof}
+\begin{proof}{(Спостереження \ref{Hard})}
+	Ми будемо користуватися певними фактами без доведення. Для подальшої зручності, ми запишемо їх усі зараз тут.
+	\begin{fact}{(\textbf{Розклад Магнуса},
+		з \cite{moan})}\label{MagnusConvergenceFact}
+		Нехай маємо систему $x'=Bx$ із неперервним $B$ і матриціантом $X$. Припустимо, що для $T$ виконується
+		\[\int_0^T\mynorm{B(s)}\;ds<\pi\]
+		тоді на $t\in[0,T)$ $X(t)=\exp(\Omega(t))$, де $\Omega(t)=\sum\limits_{k=1}^\infty\Omega_k(t)$ і $\Omega_k(t)$ є інтегралом 
+		комутаторів зростаючої довжини, як-от
+		\begin{align*}
+		\Omega_1(t) &= \int_0^t B(t_1)\,dt_1, \\
+		\Omega_2(t) &= \frac{1}{2}\int_0^t dt_1 \int_0^{t_1} dt_2\ \left[  B(t_1),B(t_2)\right], \\
+		\Omega_3(t) &= \frac{1}{6} \int_0^t dt_1 \int_0^{t_1}d t_2 \int_0^{t_2} dt_3
+		\Bigl(\left[B(t_1),\left[B(t_2),B(t_3)\right]\right]+\left[B(t_3),\left[  B(t_2),B(t_{1})\right]\right]\Bigr), \\
+		\Omega_4(t) &= \frac{1}{12} \int_0^t dt_1 \int_0^{t_1}d t_2 \int_0^{t_2} dt_3 \int_0^{t_3} dt_4
+		\Bigl(\left[\left[\left[B_1,B_2\right],B_3\right],B_4\right] \\
+		&\quad+\left[B_1,\left[\left[B_2,B_3\right],B_4\right]\right]
+		+\left[B_1,\left[B_2,\left[B_3,B_4\right]\right]\right]
+		+\left[B_2,\left[B_3,\left[B_4,B_1\right]\right]\right]\Bigr)
+		\end{align*}
+	\end{fact}
+	Зафіксуємо довільне $\tau\in\mathbb{R}$ і покажемо, що
+	\[\forall t\in\mathbb{R},\;\mysbra{A(\tau),X_B(t)}=0\]
+	(тут $\mycbra{\cdot,\cdot}$ позначає дужку Лі). Достатньо показати, що множина $t$, для яких це виконується є закритою і відкритою
+	водночас (помітимо, що для $t=0$ твердження виконується, оскільки $X_B(0)=I$ комутує з усіма матрицями).
+	Оскільки дужка Лі, $A$ та $B$ неперервні за гіпотезою, достатньо показати відкритість. Припустимо, таким чином, що для $t_0$ умова 
+	комутації виконується і покажемо, що вона виконується на малому околі $t_0$.
+
+	Достатньо показати, що для малих $s\in\mathbb{R}$, $A(\tau)$ комутує з $\tilde{X}(s):=X_B(t_0+s)X_B^{-1}(t_0)$. Останнє, в свою чергу,
+	користуючись тією ж логікою, що і в кінці попереднього доведення, можна представити як матриціант системи $x'=\tilde{B}x$, де
+	$\tilde{B}(t):=B(t+t_0)$. Таким чином, без втрати загальності можна вважати $t_0=0$. На малому околі 0, оскільки $B(t)$ неперервна,
+	виконується умова ~\hyperref[MagnusConvergenceFact]{факту} і, таким чином, до матриціанту можна застосувати розклад Магнуса. 
+	
+	Оскільки
+	кожен член $\Omega_k(t)$ є інтегралом комутаторів матриць, кожна з яких комутує з $A(\tau)$ то кожне $\Omega_k(t)$ комутує з $A(\tau)$.
+	Дійсно, якщо $B,C$ комутують з $A$, то $BC$, а отже $[B,C]$ також комутують. Більше того,
+	якщо $B(t)$ комутує з $A$ для всіх $t$, то $\int_a^bB(t)\;dt$ також комутує з $A$. Оскільки дужка Лі є неперервною, бачимо, що
+	$\Omega(t)$ також комутує з $A(\tau)$. Таким чином, $X(t)=\exp(\Omega(t))=\sum\limits_{n=0}^\infty
+	\frac{\Omega^n(t)}{n!}$ також комутує з $A(\tau)$ при малих $t$, що і завершує доведення.
+	\end{proof}
+\end{proof}
 \section{Висновки}
-Як вже стверджувалося, дана робота носить більш реферативний характер і автор усвідомлює, що вона не містить жодних нових ідей чи фактів.
-Моєю метою в цій роботі було:
-\begin{enumerate}
-	\item{Вивчити явище дихотомії як підготовку до подальшої роботи (хочеться сподіватися, більш креативної)
-		}
-	\item{Сформулювати декілька необхідних і достатніх умов для дихотомії в окремих більш простих випадках.}
+Можливими подальшими напрямами автор бачить наступне:\begin{enumerate}
+	\item Довести, що експоненціальна дихотомія на $\mathbb{R}$ еквівалентна тому, що для довільної неперервної обмеженої на $\mathbb{R}$
+		вектор-функції $f$ система $x'=Ax+f$ має єдиний обмежений розв’язок. Подумати, чи не є зайвою умова єдиності (тобто, чи залишиться
+		критерій достатнім після її вилучення).
+	\item Посилити доведені твердження, вилучивши (або послабивши) гіпотезу щодо комутації.
 \end{enumerate}
 \begin{thebibliography}{9}
 \bibitem{krein}
@@ -497,19 +487,11 @@ $a\to+\infty$.
 	Shui-Nee Chow and Hugo Leiva, {\em Existence and Roughness of the Exponential Dichotomy for Skew-Product Semiflow in Banach Spaces} (1994).
 \bibitem{coppel}
 	W. A. Coppel, {\em Dichotomies in Stability Theory} (1978).
+\bibitem{moan}
+	Per Christian Moan, Jitse Niesen, {\em Convergence of the Magnus series}, доступна на 
+	\url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.63.6759}
+\bibitem{demidovich}
+Демидович Б. П. \emph{Лекции по математической теории устойчивости} --
+Москва, 1967 г., 472 стр. с илл.
 \end{thebibliography}
 \end{document}
-%FLOW:
-	%bounded -> remark -> (=>) -> (<=)stat1 -> (()stat_3_as_remark_to_stat1)
-	%examples(read&input_stat_1)
-	%others?? (references+links_to_them,formulas_middle,disclaim&ref_in_pf_and_chapter) <- (abstract)&intro&conclusions, titleFont,
-	%thms(stat_1; ||stat<==>) 
-%stat_1: R+-_dichotomy <==> at_least_one_bdd_solution_for_any_bdd_fluctuation
-%stat_2: at_least_one_bdd_solution_for_any_bdd_fluctuation <==> quadr_form
-%thm_1.1: quadr_nonsing_form ==> R_dichotomy
-%thm_1.2: R_dichotomy ==> quadr_nonsing_form
-%stat_3: R_dichotomy => unique_bdd_solution&Green_func
-%thm_1.3: R_dichotomy_Green_function_bound_constants
-%thm_2.1: R+-_dichotomy ==> Lyapunov_var_change
-%thm_2.2: useless??
-%thm_2.3: useless??
