@@ -60,6 +60,13 @@
 (define (make-executor init methods) (lambda (op) (make-executor (methods init op) methods)))
 ;GE->print_executor->bring_to_rowechelon
 
+(define A '((0 -1 0 0 0 0)(1 0 0 0 0 -1)(0 0 0 0 0 0)(0 0 0 0 0 0)(0 0 0 0 0 0)(0 -1 0 0 0 0)))
+(display(matrix->string/txt(matr-prod A)))(newline)
+(display(matrix->string/txt(matr-prod A A)))(newline)
+(display(matrix->string/txt(matr-prod A A A)))(newline)
+(display(matrix->string/txt(matr-prod A A A A)))(newline)
+(exit)
+
 ;(display "\\[")(display(matrix->string/latex(list->mat(list 'ns 3 4 1 3 -2 1 0 -5 7 0 0 0 4 3))))
 ;(display "\\]\n")
 ;(display(matrix->string/txt(matr-prod (list->mat(list ))(list->mat(list -2 -2 1 1 ))(list->mat(list 1 -2 -1 1))
@@ -79,7 +86,6 @@
                            (+(* a1 b4)(* a2 b3)(* -1 a3 b2)(* a4 b1))
                            )))
 (display(msq '(-41 17 -14 -12)))
-
 (exit)
 
 ;driver&engine script
