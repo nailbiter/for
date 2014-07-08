@@ -1,27 +1,169 @@
 \documentclass[12pt]{article} % use larger type; default would be 10pt
 
-\usepackage{mathtext}                 % підключення кирилиці у математичних формулах
-                                          % (mathtext.sty входить в пакет t2).
-\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
-                                          % вказане останнім діє по замовчуванню;
-                                          % кириличне має співпадати з заданим в ukrhyph.tex.
-\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
-                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage{mathtext}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{empheq}
 \usepackage{mystyle}
 
-\newtheorem{prob}{Завдання}
-\newcommand{\ds}{\;ds}
-\newcommand{\dt}{\;dt}
-\newcommand{\dx}{\;dx}
-\newcommand{\dy}{\;dy}
-\newcommand{\dta}{\;d\tau}
-\newcommand{\extr}{\mbox{\normalfont extr}}
-\newcommand{\Var}{\mbox{Var}}
+%more space after \forall and \exists
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall\;}
+\let\oldexists\exists
+\renewcommand{\exists}{\oldexists\;}
+
+%custom theorem environments
+\newtheorem{definition}{Definition}[section]
+\renewcommand{\thedefinition}{\arabic{definition}}
+\newtheorem{example}{\indent Example}[section]
+\renewcommand{\theexample}{\arabic{example}}
+\newtheorem{exercise}{Exercise}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+\newtheorem*{fact}{Fact}
+\newtheorem{proposition}{Statement}
+\newtheorem{corollary}[proposition]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
 
 \title{The new criterion for the roughness of exponential dichotomy on $\mathbb{R}$}
-\author{Petro Feketa \& Oleksii Leontiev}
-
+\author{Petro Feketa, Oleksii Leontiev}
 \begin{document}
 \maketitle
+\section{Introduction}
+\section{Results}
+%TODO: setting
+In subsequent, all matrix functions will be assumed to be continuous. In principle, results probably can be extended to partially
+give up partially this assumption, but for simplicity we shall use it. In particular, continuity assumption will let us immediately assume
+that Cauchy problem for every ODE system $x'=A(t)x$ has unique solution on $\mathbb{R}$ for any initial conditions.
+\begin{proposition}
+	\label{strong}
+	Assume that for the two systems 
+	\begin{equation}\label{Unperturbed}
+	x'=A(t)x(t)
+	\end{equation}
+	and
+	\begin{equation}\label{Perturbed}
+	x'=(A(t)+B(t))x(t)
+	\end{equation}
+	the following two conditions hold:
+	\begin{enumerate}[(1)]
+	\item For any $t,s\in\mathbb{R}$ matrices $A(s)$ and $B(t)$ commute;
+	\item $B\in L^1(\mathbb{R})\cap C(\mathbb{R})$, that is $\int_{-\infty}^{\infty}\mynorm{B(s)}\;ds<\infty$.
+	\end{enumerate}
+	Then, \eqref{Perturbed} has exponential dichotomy on $\mathbb{R}$ if \eqref{Unperturbed} does.
+\end{proposition}
+%%\begin{remark}The boundedness hypothesis of the statement \ref{strong} (the second condition) holds in particular if
+%%$\int_{-\infty}^\infty\mynorm{B(s)}\;ds<+\infty$ or $\lim_{\myabs{t}\to\infty}\mynorm{B(t)}=0$.
+%%\end{remark}
+\begin{remark}The hypothesis of the statement \ref{strong} about the commutativity (the first condition) holds in particular if
+	$\forall t,\;B(t)\in\bigcap\limits_{s\in\mathbb{R}} Z_{\mathfrak{gl}_n}(A(s))$, where
+	$Z_{\mathfrak{gl}_n}(A)$ denotes the (Lie algebra) centralizer of $A$.
+	If furthermore $A(t)\equiv A$, this condition can be simply rewritten as $\forall t,\;B(t)\in Z_{\mathfrak{gl}_n}(A)$.\end{remark}
+\section{Proofs}
+\begin{proof}{(of proposition \ref{strong}).\;}
+The desired result will follow from two observations, which we shall state now and prove later. It should be noted that the observations have
+weaker hypothesis than that of the proposition, and are useful results on their own.
+\begin{observation}\label{Hard}Let $A$ and $B$ be continuous (not necessary bounded matrices-valued functions on $\mathbb{R}$). Assume further
+that for every $s,t\in\mathbb{R}$ $A(s)$ and $B(t)$ commute. We shall also assume that for system $x'=Bx$, every Cauchy problem has a unique
+solution on $\mathbb{R}$, in other words, that the fundamental matrix (we shall denote it by $X_B$) is well-defined on $\mathbb{R}$. Then,
+for arbitrary $t,s\in\mathbb{R}$, $A(t)$ and $X_B(s)$ commute.
+\end{observation}
+\begin{observation}\label{Easy}Let $B$ be continuous matrix-valued function, such that $B\in L^1\cap C$. Then,
+the fundamental matrix $X_B$ of $x'=Bx$ is well-defined on $\mathbb{R}$, and $\exists C\forall t,\;\mynorm{X_B(t)},\mynorm{X^{-1}_B
+(t)}\leq C$.
+\end{observation}
+Assuming these two for the moment, let us see how the proof of the proposition can be obtained from them. Consider the $x'=Bx$ system, whose
+fundamental matrix (existing by \ref{Easy}) we shall denote by $X_B$. Let us make the variable change $x=X_Bz$. Then, we have
+\[BX_Bz+X_Bz'=(X_Bz)'=x'=(A+B)X_Bz\]
+Now, as by observation \ref{Hard} $A$ and $X_B$ commute, we have
+\[X_Bz'=X_BAz\]
+thus $z$ is the solution to $z'=Az$, hence the fundamental matrix of $x'=(A+B)x$ has the structure
+\[X_{A+B}=X_BX_A\]
+Now, from \cite{coppel} we know, that the exponential dichotomy on $\mathbb{R}$ can be defined as the existence of projection operator $P$
+and numbers $\gamma,K>0$, such that $\forall s,t\in\mathbb{R}$ we have
+\[\mynorm{X(t)PX^{-1}(s)}\leq Ke^{-\gamma(t-s)},\;s\leq t\]
+\[\mynorm{X(t)(I-P)X^{-1}(s)}\leq K^{-\gamma(s-t)},\;t\leq s\]
+We shall show, that this estimation remains the same for perturbed system \refeq{Perturbed} with the same $P$ and $\gamma$, but perhaps different $K$
+. Indeed, we shall have
+\[\mynorm{X_{A+B}(t)PX^{-1}_{A+B}(s)}=\mynorm{X_B(t)X_A(s)PX^{-1}_A(t)X^{-1}_B(t)}\leq\]
+\[\leq\mynorm{X_B(t)}\cdot\mynorm{X_A(s)PX^{-1}_A(t)}\cdot\mynorm{X^{-1}_B(t)}\leq \underbrace{KC^2}_{=:\tilde{K}}e^{-\gamma(t-s)}.\]
+The second inequality is worked out in the same way, so it just remains to prove the observations stated above.
+\end{proof}
+\begin{proof}{(of the observation \ref{Easy}).\;}The existence of fundamental matrix follows immediately from the continuity assumption. The uniform
+boundedness of $\mynorm{X_B}$
+ follows from the \cite[Ch. II, \S 12, Thm. 1]{demidovich} (which states that if the system $x'=Cx$ with $C$ constant is uniformly stable and
+ $B\in L^1\cap C$, then $x'=(C+B)x$ is stable as well; in our case we take obviously stable system $x'=0\cdot x$ as $x'=Cx$)
+ . We shall denote the upper bound obtained for $X_B$ by $M$. It is
+sufficient to show that $\mynorm{X^{-1}_B(t)}\leq M$. Let us fix $\tau\in\mathbb{R}$. $X^{-1}_B(\tau)$ can be characterized as $X^{-1}_B(\tau)x(\tau)
+=x(0)$, where $x$ is the solution to $x'=Bx$ or as $X^{-1}(\tau)y(0)=y(-\tau)$, where $y'=\tilde{B}y$ and $\tilde{B}(t):=B(t+\tau)$. Thus,
+it's enough to show that the norm of $X_{\tilde{B}}$ is uniformly bounded by $M$ as well. The latter, however, follows from the proof
+of \cite[Ch. II, \S 12, Thm. 1]{demidovich}, as the upper bound obtained there really depends only on the
+$\int_{-\infty}^\infty\mynorm{\tilde{B}(s)}\;ds=\int_{-\infty}^\infty\mynorm{B(s)}\;ds$.\end{proof}
+\begin{proof}{(of the observation \ref{Hard}).\;}
+We shall employ the theory of Magnus expansion, described in \cite{moan}. For convenience, we collect
+the properties we need in the following proposition
+\begin{fact}{(\textbf{Magnus Expansion})}Assume that we have a system $x'=Bx$ with continuous $B$ and fundamental matrix $X$. Assume
+	further that for $T$ we have
+	\[\myabs{\int_0^T\mynorm{B(s)}\;ds}<\pi\]
+	then, on $t\in[0,T)$ $X(t)=\exp(\Omega(t))$, where $\Omega(t)=\sum\limits_{k=1}^\infty\Omega_k(t)$ and $\Omega_k(t)$ is an integral
+	of commutators of increasing length, such as
+	\begin{align*}
+	\Omega_1(t) &= \int_0^t B(t_1)\,dt_1, \\
+	\Omega_2(t) &= \frac{1}{2}\int_0^t dt_1 \int_0^{t_1} dt_2\ \left[  B(t_1),B(t_2)\right], \\
+	\Omega_3(t) &= \frac{1}{6} \int_0^t dt_1 \int_0^{t_1}d t_2 \int_0^{t_2} dt_3
+	\Bigl(\left[B(t_1),\left[B(t_2),B(t_3)\right]\right]+\left[B(t_3),\left[  B(t_2),B(t_{1})\right]\right]\Bigr), \\
+	\Omega_4(t) &= \frac{1}{12} \int_0^t dt_1 \int_0^{t_1}d t_2 \int_0^{t_2} dt_3 \int_0^{t_3} dt_4
+	\Bigl(\left[\left[\left[B_1,B_2\right],B_3\right],B_4\right] \\
+	&\quad+\left[B_1,\left[\left[B_2,B_3\right],B_4\right]\right]
+	+\left[B_1,\left[B_2,\left[B_3,B_4\right]\right]\right]
+	+\left[B_2,\left[B_3,\left[B_4,B_1\right]\right]\right]\Bigr)
+	\end{align*}
+\end{fact}
+Having this, we shall fix $\tau\in\mathbb{R}$ and show that for any $t\in\mathbb{R}$,
+\[\mysbra{A(\tau),X_B(t)}=0\]
+where $\mysbra{\cdot,\cdot}$ denotes the Lie bracket. As for $t=0$ the equality holds (as $X(0)=I$ commutes with all matrices), it is enough
+to show that the set where equality holds is both open and closed. As both $A$, $X$ and Lie bracket are continuous, closedness follows and it
+remains thus to show, that if $\mysbra{A(\tau),X(t_0)}=0$, then equality also holds on a small neighborhood of $t_0$.
+
+It is sufficient to show that $A(\tau)$ commutes with $\tilde{X}(s):=X(t_0+s)X^{-1}(t_0)$ for small $s$. Now, $\tilde{X}$ can be realized
+as a fundamental matrix of $x'=\tilde{B}x$, where $\tilde{B}(t)=B(t+t_0)$. Thus, without loss of generality we may assume $t_0=0$. Now, on the small
+neighborhood of $0$ the hypothesis of ~\hyperref[MagnusConvergenceFact]{fact} is satisfied, hence we may apply Magnus expansion.
+
+Now, if $A$ and $B$ commute with $C$, then so do $A\pm B$, $AB$ and $[A,B]$. Also, if $B(t)$ commutes with $A$ for all $t$, then so does
+$\int_a^bB(s)\;ds$. Thus, we see that every $\Omega_k(t)$ commutes with $A(\tau)$, as former is the integral of commutators of $B$. Finally,
+as Lie bracket is continuous, we also have that $\Omega(t)$ commutes with $A(\tau)$ whenever well-defined, and so does $X(t)=\exp(\Omega(t))=
+\sum_{n=0}^\infty\frac{\Omega^n(t)}{n!}$.
+\end{proof}
+\section{Further work}
+\begin{thebibliography}{9}
+%%\bibitem{krein}
+%%Ю. Л. Далецкий, М. Г. Крейн
+%%\emph{Устойчивость решений дифференциальных уравнений в банаховом пространстве}.
+%%Видавництво "Наука"{}, Головна редакція фізико-математичної літератури. Москва, 1970.
+%%\bibitem{mitrop}
+%%Митропольський Ю. А., Самойленко А. М., Кулик В. Л.
+%%\emph{Исследование дихотомии линейных систем дифференциальных уравнений с помощью функций Ляпунова}.
+%%АН УССР. Ін-т математики. Київ, "Наукова думка", 1990.
+\bibitem{palmer84}
+	Kenneth J. Palmer, {\em Exponential Dichotomies and Transversal Homoclinic Points} (1983).
+\bibitem{palmer88}
+	Kenneth J. Palmer, {\em Exponential Dichotomies and Fredholm Operators} (1988).
+\bibitem{ju}
+	Ning Ju and Stephen Wiggins, {\em On Roughness of Exponential Dichotomy} (2000).
+\bibitem{naulin}
+	Ra\'ul Naulin and Manuel Pinto, {\em Admissible perturbations of Exponential Dichotomy Roughness} (1997).
+\bibitem{chow}
+	Shui-Nee Chow and Hugo Leiva, {\em Existence and Roughness of the Exponential Dichotomy for Skew-Product Semiflow in Banach Spaces} (1994).
+\bibitem{coppel}
+	W. A. Coppel, {\em Dichotomies in Stability Theory} (1978).
+\bibitem{moan}
+	Per Christian Moan, Jitse Niesen, {\em Convergence of the Magnus series}, available at
+	\url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.63.6759}.
+\bibitem{demidovich}
+Demidovich B. P. \emph{Lectures on the mathematical theory of stability} --
+Moscow (1967) (in Russian).
+\end{thebibliography}
 \end{document}
+%--> intro --> further
