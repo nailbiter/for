@@ -32,6 +32,25 @@
 \begin{document}
 \maketitle
 \section{Introduction}
+%TODO: history, related work
+The system 
+\[x'(t)=A(t)x(t)\]
+where $x(t)$ and $A(t)$ are respectively vector-valued and square-matrix-valued function defined for $t\in A$.
+is said to possess \textbf{"exponential dichotomy"} on $A$ (or simply "dichotomy" in subsequent), if the phase space $R^n$
+can be decomposed into the direct sum of subspaces
+$E^+\oplus E^-$ and for arbitrary $x^+\in E^+,\; x^-\in E^-$ і $a,b\in A$ we have the following estimates:
+\begin{equation}\begin{aligned}\label{DichotomyDef}
+	\mynorm{\Omega^b_0(A)x^+}\leq K\mynorm{\Omega_0^a(A)x^+}\exp\left\{-\gamma\myabs{a-b}\right\},\;a\leq b\\
+	\mynorm{\Omega^b_0(A)x^-}\leq K\mynorm{\Omega_0^a(A)x^-}\exp\left\{-\gamma\myabs{a-b}\right\},\;b\leq a\\
+\end{aligned}\end{equation}
+for some constants $K,\;\gamma>0$, that do not depend on $x^+,x^-,a,b$
+
+\begin{remark}The alternative definition, as given in \cite{coppel} can be formulated as follows: there exist projection-operator $P$ and numbers
+$K,\;\gamma>0$, such that
+ for $\forall a,b\in A$
+\[\mynorm{\Omega_0^t(A)P\mybra{\Omega_0^s(A)}^{-1}}\leq K e^{-\gamma(a-b)},\;a\geq b\]
+\[\mynorm{\Omega_0^t(A)(I-P)\mybra{\Omega_0^s(A)}^{-1}}\leq K e^{-\gamma(b-a)},\;b\geq a\]
+\end{remark}
 \section{Results}
 %TODO: setting
 In subsequent, all matrix functions will be assumed to be continuous. In principle, results probably can be extended to partially
