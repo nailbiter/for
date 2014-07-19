@@ -1,5 +1,5 @@
 (setlocale LC_ALL "")
-(include "../forscheme/misc.scm")
+;(include "../forscheme/misc.scm")
 
 (define (drop-even l) (if (null? l) '() (cons (car l) (drop-even (cddr l)))))
 
