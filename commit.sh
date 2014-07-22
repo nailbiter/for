@@ -16,5 +16,8 @@ git add tests/*.txt
 git add forplots/*.gplot
 git add forplots/*.dat
 
+git add proj_JSFC/*.js
+git add proj_JSFC/*.html
+
 git commit -a -m "Commit"
 git push origin master
