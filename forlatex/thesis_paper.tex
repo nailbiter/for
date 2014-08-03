@@ -22,7 +22,7 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{observation}{Observation}
 \newtheorem*{fact}{Fact}
-\newtheorem{proposition}{Statement}
+\newtheorem{proposition}{Proposition}
 \newtheorem{corollary}[proposition]{Corollary}
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
@@ -35,26 +35,26 @@
 %TODO: history, related work
 The system 
 \[x'(t)=A(t)x(t)\]
-where $x(t)$ and $A(t)$ are respectively vector-valued and square-matrix-valued function defined for $t\in A$.
-is said to possess \textbf{"exponential dichotomy"} on $A$ (or simply "dichotomy" in subsequent), if the phase space $R^n$
+where $x(t)$ and $A(t)$ are respectively vector-valued and square-matrix-valued function defined for $t\in S\subseteq\mathbb{R}$.
+is said to possess \textbf{"exponential dichotomy"} on $S$ (or simply "dichotomy" in subsequent), if the phase space $R^n$
 can be decomposed into the direct sum of subspaces
-$E^+\oplus E^-$ and for arbitrary $x^+\in E^+,\; x^-\in E^-$ і $a,b\in A$ we have the following estimates:
+$E^+\oplus E^-$ and for arbitrary $x^+\in E^+,\; x^-\in E^-$ and $a,b\in S$ we have the following:
 \begin{equation}\begin{aligned}\label{DichotomyDef}
 	\mynorm{\Omega^b_0(A)x^+}\leq K\mynorm{\Omega_0^a(A)x^+}\exp\left\{-\gamma\myabs{a-b}\right\},\;a\leq b\\
 	\mynorm{\Omega^b_0(A)x^-}\leq K\mynorm{\Omega_0^a(A)x^-}\exp\left\{-\gamma\myabs{a-b}\right\},\;b\leq a\\
 \end{aligned}\end{equation}
-for some constants $K,\;\gamma>0$, that do not depend on $x^+,x^-,a,b$
+for some constants $K,\;\gamma>0$, that do not depend on $x^+,x^-$
 
 \begin{remark}The alternative definition, as given in \cite{coppel} can be formulated as follows: there exist projection-operator $P$ and numbers
 $K,\;\gamma>0$, such that
- for $\forall a,b\in A$
+ for $\forall a,b\in S$
 \[\mynorm{\Omega_0^a(A)P\mybra{\Omega_0^b(A)}^{-1}}\leq K e^{-\gamma(a-b)},\;a\geq b\]
 \[\mynorm{\Omega_0^a(A)(I-P)\mybra{\Omega_0^b(A)}^{-1}}\leq K e^{-\gamma(b-a)},\;b\geq a\]
 \end{remark}
 \section{Results}
 %TODO: setting
 In subsequent, all matrix functions will be assumed to be continuous. In principle, results probably can be extended to partially
-give up partially this assumption, but for simplicity we shall use it. In particular, continuity assumption will let us immediately assume
+give up this assumption, but for simplicity we shall use it. In particular, continuity assumption will let us immediately assume
 that Cauchy problem for every ODE system $x'=A(t)x$ has unique solution on $\mathbb{R}$ for any initial conditions.
 \begin{proposition}
 	\label{strong}
@@ -76,7 +76,7 @@ that Cauchy problem for every ODE system $x'=A(t)x$ has unique solution on $\mat
 %%\begin{remark}The boundedness hypothesis of the statement \ref{strong} (the second condition) holds in particular if
 %%$\int_{-\infty}^\infty\mynorm{B(s)}\;ds<+\infty$ or $\lim_{\myabs{t}\to\infty}\mynorm{B(t)}=0$.
 %%\end{remark}
-\begin{remark}The hypothesis of the statement \ref{strong} about the commutativity (the first condition) holds in particular if
+\begin{remark}The hypothesis of the proposition \ref{strong} about the commutativity (the first condition) holds in particular if
 	$\forall t,\;B(t)\in\bigcap\limits_{s\in\mathbb{R}} Z_{\mathfrak{gl}_n}(A(s))$, where
 	$Z_{\mathfrak{gl}_n}(A)$ denotes the (Lie algebra) centralizer of $A$.
 	If furthermore $A(t)\equiv A$, this condition can be simply rewritten as $\forall t,\;B(t)\in Z_{\mathfrak{gl}_n}(A)$.\end{remark}
