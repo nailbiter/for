@@ -28,22 +28,22 @@
 \newtheorem{remark}{Remark}
 
 \title{The new criterion for the roughness of exponential dichotomy on $\mathbb{R}$}
-\author{Petro Feketa, Oleksii Leontiev}
+\author{Oleksii Leontiev, Petro Feketa}
 \begin{document}
 \maketitle
 \section{Introduction}
 %TODO: history, related work
 The system 
 \[x'(t)=A(t)x(t)\]
-where $x(t)$ and $A(t)$ are respectively vector-valued and square-matrix-valued function defined for $t\in S\subseteq\mathbb{R}$.
+where $x(t)$ and $A(t)$ are respectively vector-valued and square-matrix-valued functions defined for $t\in S\subseteq\mathbb{R}$
 is said to possess \textbf{"exponential dichotomy"} on $S$ (or simply "dichotomy" in subsequent), if the phase space $R^n$
 can be decomposed into the direct sum of subspaces
-$E^+\oplus E^-$ and for arbitrary $x^+\in E^+,\; x^-\in E^-$ and $a,b\in S$ we have the following:
+$E^+\oplus E^-$ and for arbitrary $x^+\in E^+,\; x^-\in E^-$ and $a,b\in S$ the following estimates hold:
 \begin{equation}\begin{aligned}\label{DichotomyDef}
 	\mynorm{\Omega^b_0(A)x^+}\leq K\mynorm{\Omega_0^a(A)x^+}\exp\left\{-\gamma\myabs{a-b}\right\},\;a\leq b\\
 	\mynorm{\Omega^b_0(A)x^-}\leq K\mynorm{\Omega_0^a(A)x^-}\exp\left\{-\gamma\myabs{a-b}\right\},\;b\leq a\\
 \end{aligned}\end{equation}
-for some constants $K,\;\gamma>0$, that do not depend on $x^+,x^-$
+for some constants $K,\;\gamma>0$, that do not depend on $x^+,\;x^-,\;a,\;b$.
 
 \begin{remark}The alternative definition, as given in \cite{coppel} can be formulated as follows: there exist projection-operator $P$ and numbers
 $K,\;\gamma>0$, such that
@@ -53,9 +53,11 @@ $K,\;\gamma>0$, such that
 \end{remark}
 \section{Results}
 %TODO: setting
-In subsequent, all matrix functions will be assumed to be continuous. In principle, results probably can be extended to partially
-give up this assumption, but for simplicity we shall use it. In particular, continuity assumption will let us immediately assume
-that Cauchy problem for every ODE system $x'=A(t)x$ has unique solution on $\mathbb{R}$ for any initial conditions.
+In subsequent, all matrix functions will be assumed to be continuous. 
+%%In principle, results probably can be extended to partially
+%%give up this assumption, but for simplicity we shall keep it.
+In particular, continuity assumption will let us immediately assume
+that Cauchy problem for every ODE system $x'=A(t)x$ has a unique solution on $\mathbb{R}$ for any initial conditions.
 \begin{proposition}
 	\label{strong}
 	Assume that for the two systems 
@@ -67,7 +69,7 @@ that Cauchy problem for every ODE system $x'=A(t)x$ has unique solution on $\mat
 	x'=(A(t)+B(t))x(t)
 	\end{equation}
 	the following two conditions hold:
-	\begin{enumerate}[(1)]
+	\begin{enumerate}[(H1)]
 	\item For any $t,s\in\mathbb{R}$ matrices $A(s)$ and $B(t)$ commute;
 	\item $B\in L^1(\mathbb{R})\cap C(\mathbb{R})$, that is $\int_{-\infty}^{\infty}\mynorm{B(s)}\;ds<\infty$.
 	\end{enumerate}
@@ -94,7 +96,7 @@ the fundamental matrix $X_B$ of $x'=Bx$ is well-defined on $\mathbb{R}$, and $\e
 (t)}\leq C$.
 \end{observation}
 Assuming these two for the moment, let us see how the proof of the proposition can be obtained from them. Consider the $x'=Bx$ system, whose
-fundamental matrix (existing by \ref{Easy}) we shall denote by $X_B$. Let us make the variable change $x=X_Bz$. Then, we have
+fundamental matrix (existing by observation \ref{Easy}) we shall denote by $X_B$. Let us make the variable change $x=X_Bz$. Then, we have
 \[BX_Bz+X_Bz'=(X_Bz)'=x'=(A+B)X_Bz\]
 Now, as by observation \ref{Hard} $A$ and $X_B$ commute, we have
 \[X_Bz'=X_BAz\]
@@ -147,7 +149,8 @@ to show that the set where equality holds is both open and closed. As both $A$, 
 remains thus to show, that if $\mysbra{A(\tau),X(t_0)}=0$, then equality also holds on a small neighborhood of $t_0$.
 
 It is sufficient to show that $A(\tau)$ commutes with $\tilde{X}(s):=X(t_0+s)X^{-1}(t_0)$ for small $s$. Now, $\tilde{X}$ can be realized
-as a fundamental matrix of $x'=\tilde{B}x$, where $\tilde{B}(t)=B(t+t_0)$. Thus, without loss of generality we may assume $t_0=0$. Now, on the small
+as a fundamental matrix of $x'=\tilde{B}x$, where $\tilde{B}(t)=B(t+t_0)$. Thus, without loss of generality we may assume that
+$t_0=0$. Now, on the small
 neighborhood of $0$ the hypothesis of ~\hyperref[MagnusConvergenceFact]{fact} is satisfied, hence we may apply Magnus expansion.
 
 Now, if $A$ and $B$ commute with $C$, then so do $A\pm B$, $AB$ and $[A,B]$. Also, if $B(t)$ commutes with $A$ for all $t$, then so does
@@ -155,6 +158,7 @@ $\int_a^bB(s)\;ds$. Thus, we see that every $\Omega_k(t)$ commutes with $A(\tau)
 as Lie bracket is continuous, we also have that $\Omega(t)$ commutes with $A(\tau)$ whenever well-defined, and so does $X(t)=\exp(\Omega(t))=
 \sum_{n=0}^\infty\frac{\Omega^n(t)}{n!}$.
 \end{proof}
+\section{Corollaries and Examples}
 \section{Further work}
 \begin{thebibliography}{9}
 %%\bibitem{krein}
@@ -180,9 +184,9 @@ as Lie bracket is continuous, we also have that $\Omega(t)$ commutes with $A(\ta
 \bibitem{moan}
 	Per Christian Moan, Jitse Niesen, {\em Convergence of the Magnus series}, available at
 	\url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.63.6759}.
-\bibitem{demidovich}
-Demidovich B. P. \emph{Lectures on the mathematical theory of stability} --
-Moscow (1967) (in Russian).
+%%\bibitem{demidovich}
+%%Demidovich B. P. \emph{Lectures on the mathematical theory of stability} --
+%%Moscow (1967) (in Russian).
 \end{thebibliography}
 \end{document}
-%--> intro --> further
+%moan --> cor:add_remark --> intro --> further
