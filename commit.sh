@@ -14,6 +14,7 @@ git add forscheme/*.exe
 git add tests/*.txt
 
 git add tests/server_side/*.c
+git add tests/server_side/*.cpp
 
 git add forplots/*.gplot
 git add forplots/*.dat

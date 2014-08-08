@@ -1,2 +1,2 @@
 all:
-	gcc -o ../FC.cgi test.c
+	g++ -o ../FC.cgi test.cpp

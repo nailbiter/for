@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+#include <time.h>
+#include <dirent.h>
+#include <string.h>
+#include <string>
+#include <vector>
+
+void get_files(std::vector<std::string>& filenames);
+void serve_files(std::string& output);
+
+int main(void) 
+{
+    //printf("Content-Type: text/plain;charset=us-ascii\n\n");
+    std::string output = "clientCallback(";
+    serve_files(output);
+    printf("%s\n",output.c_str());
+    return 0;
+}
+
+void serve_files(std::string& output)
+{
+    std::vector<std::string> filenames;
+    get_files(filenames);
+    output += "{\"filenames\":[";
+    output += ("\"" + filenames[0] + "\"");
+    for( int i = 1; i < (int)filenames.size(); i++)
+        output += (" ,\"" + filenames[i] + "\"");
+    output += "]});";
+}
+
+void get_files(std::vector<std::string>& filenames)
+{
+    DIR *dir;
+    struct dirent *ent;
+    char cwd[1024];
+    getcwd(cwd, sizeof(cwd));
+    filenames.clear();
+    if ( (dir = opendir(cwd)) != NULL )
+    {
+      /* print all the files and directories within directory */
+      while ( (ent = readdir (dir)) != NULL ) 
+      {
+          int len=strlen(ent->d_name);
+          if(len>=4 && strncmp(".txt",ent->d_name+len-4,4) == 0)
+              filenames.push_back(std::string(ent->d_name));
+      }
+      closedir (dir);
+    }
+}
