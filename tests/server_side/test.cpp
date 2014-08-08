@@ -16,7 +16,7 @@
 
 void get_files(std::vector<std::string>& filenames);
 void serve_files(std::string& output);
-void serve_chosen_files(std::string& output,const std::string& filename);
+void serve_chosen_file(std::string& output,const std::string& filename);
 
 int main(void) 
 {
@@ -32,12 +32,12 @@ int main(void)
     if( query.length() == 0 )
     	serve_files(output);
     else
-	    serve_chosen_files(output,query);
+	    serve_chosen_file(output,query);
     printf("%s\n",output.c_str());
     return 0;
 }
 
-void serve_chosen_files(std::string& output,const std::string& filename)
+void serve_chosen_file(std::string& output,const std::string& filename)
 {
     std::ifstream file(filename.c_str());
     std::string line;
