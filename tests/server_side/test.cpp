@@ -17,7 +17,8 @@ void serve_files(std::string& output);
 
 int main(void) 
 {
-    printf("Content-Type: text/plain;charset=us-ascii\n\n");
+    printf( "Content-type: application/javascript\n\n");
+
     std::string output = "clientCallback(";
     serve_files(output);
     printf("%s\n",output.c_str());
