@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html>
+<head>
+</head>
 <body>
 
-<h1>My First Web Page</h1>
-
-<p id="demo">A Paragraph.</p>
-
-<button type="button" onclick="myFunction()">Try it</button>
+<div id="myDiv"><h2>Let AJAX change this text</h2></div>
 
 <script>
-var i=0;
-function myFunction() {
-	i=i+1;
-    	document.getElementById("demo").innerHTML = "Paragraph changed."+i;
-}
+	//TODO: 
+	//TODO: localhost --> view file -->interact w/ json --> inject_fcn --> view CGI output --> interact w/ json 
+	//TODO: server_side_display_files --> make_table --> make_callback --> procedure_inject --> server_side_serve_file --> serve_in_json
+	function clientCallback(arg)
+	{
+		document.getElementById("myDiv").innerHTML="callback got " + arg;
+	}
+</script>
+
+<script type="application/javascript"
+	src="http://localhost/index.html">
 </script>
 
 </body>
 </html>
-
