@@ -11,6 +11,8 @@
 #include <string.h>
 #include <string>
 #include <vector>
+#include <iostream>
+#include <fstream>
 
 void get_files(std::vector<std::string>& filenames);
 void serve_files(std::string& output);
@@ -19,19 +21,36 @@ void serve_chosen_files(std::string& output,const std::string& filename);
 int main(void) 
 {
     printf( "Content-type: application/javascript\n\n");
-    //printf("%s\n",getenv("QUERY_STRING"));return 0;
 
-    std::string output = "clientCallback(",query(getenv("QUERY_STRING"));
+    std::string output = "clientCallback(",query;
+#if 1
+    query=std::string(getenv("QUERY_STRING"));
+#else
+    query="canto.txt";
+#endif
+
     if( query.length() == 0 )
     	serve_files(output);
     else
-	serve_chosen_files(output,query);
+	    serve_chosen_files(output,query);
     printf("%s\n",output.c_str());
     return 0;
 }
 
 void serve_chosen_files(std::string& output,const std::string& filename)
 {
+    std::ifstream file(filename.c_str());
+    std::string line;
+    output += "{\"lines\":[";
+    if( file.is_open() )
+    {
+        getline(file,line);
+        output += ("\"" + line + "\"");
+        while( getline(file,line) )
+            output += (" ,\"" + line + "\"");
+    }
+    file.close();
+    output += "]});";
 }
 void serve_files(std::string& output)
 {
