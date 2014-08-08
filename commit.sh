@@ -13,7 +13,7 @@ git add forscheme/*.exe
 
 git add tests/*.txt
 
-git add tests/client_side/*.c
+git add tests/server_side/*.c
 
 git add forplots/*.gplot
 git add forplots/*.dat
