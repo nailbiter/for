@@ -23,7 +23,7 @@ int main(void)
     printf( "Content-type: application/javascript; charset=utf-8\n\n");
 
     std::string output = "clientCallback(",query;
-#if 1
+#if 0
     query=std::string(getenv("QUERY_STRING"));
 #else
     query="canto.txt";

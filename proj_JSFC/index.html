@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-</head>
+<head><meta charset="UTF-8"></head>
 <body>
 
 <script>
-	//TODO: make_table --> make_callback --> procedure_inject --> server_side_serve_file --> serve_in_json
+	//TODO: procedure_inject --> server_side_serve_file --> serve_in_json
+	//FIXME: canto, canto2
 	tableid="tableid";
 
 	function testButtonOnClick(name)
@@ -14,24 +14,42 @@
 			var element=document.getElementById(tableid);
 			element.parentNode.removeChild(element);
 		}
-		alert(name);
+		var headID = document.getElementsByTagName("head")[0];        
+		var newScript = document.createElement('script');
+		newScript.type = 'text/javascript';
+		newScript.src = 'http://nailbiter.insomnia247.nl/cgi-bin/tests/FC.cgi?' + name;
+		headID.appendChild(newScript);
 	}
 	function print_filenames(filenames)
 	{
-		//create table
-		//fill with buttons
-		//make callbacks
-		//remove table & alert
 		document.write('<center><h1><table id="'+tableid+'">');
 		for( var i = 0; i < filenames.length; i++ )
 			document.write('<tr><td><center><button id="' + filenames[i] +
 						'" onclick="testButtonOnClick(this.id)">' + filenames[i] + '</button></center></td></tr>');
 		document.write('</table></h1></center>');
 	}
+	function print_test(lines)
+	{
+		{
+			var oNewP = document.createElement("p");
+			var oText = document.createTextNode("length: "+lines.length);
+			oNewP.appendChild(oText);
+			document.body.appendChild(oNewP);
+		}
+		for( var i = 0; i < lines.length; i++ )
+		{
+			var oNewP = document.createElement("p");
+			var oText = document.createTextNode(lines[i]);
+			oNewP.appendChild(oText);
+			document.body.appendChild(oNewP);
+		}
+	}
 	function clientCallback(arg)
 	{
 		if( arg.hasOwnProperty("filenames") )
 			print_filenames(arg.filenames);
+		if( arg.hasOwnProperty("lines") )
+			print_test(arg.lines);
 	}
 </script>
 
