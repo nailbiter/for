@@ -8,7 +8,7 @@ function butt(){
     alert("gotcha");
 }
 
-function print_test(lines)
+function print_test(test)
 {
     /*{
         var oNewP = document.createElement("p");
@@ -16,7 +16,8 @@ function print_test(lines)
         oNewP.appendChild(oText);
         document.body.appendChild(oNewP);
     }*/
-    var quiz = parseQuiz(lines);
+    alert("here");
+    /*var quiz = parseQuiz(lines);
     for( var i = 0; i < quiz.generators.length; i++ )
     {
         var oNewP = document.createElement("p");
@@ -28,5 +29,5 @@ function print_test(lines)
     var buttonText = document.createTextNode("button");
     button.appendChild(buttonText);
     button.onclick=butt;
-    document.body.appendChild(button);
+    document.body.appendChild(button);*/
 }
