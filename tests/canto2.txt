@@ -1,202 +1,206 @@
+{
 #first section - skip_mode: (rand,seq,adapt)+timing
 #encoding - utf8
 #default skip_mode - rand
 #adapt
-seq
+"selectionMode" : "seq",
+"generators" : [
+{ "tags" : ["lesson 1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 4"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 5"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 6"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : true, "reflip" : true},
+{ "tags" : ["simple words"], "from" : 0, "to" : 1, "type" : "sc","auxText" : "tap to see cantonese transcription","enabled" : true, "reflip" : true},
+],
 ####
-#lesson 1;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 2;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 3;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 4;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 5;0->1;sc,reflip,tap to see cantonese transcription
-lesson 6;0->1;sc,reflip,tap to see cantonese transcription
-#simple words;0->1;sc,reflip,tap to see cantonese transcription
-####
+"dataitems" : [
 #lesson 2
-唞,休息--táu;lesson 2
-式肆, sihksi--canteen;lesson 2
-通街, tūnggāai--filled with;lesson 2
-包羅萬有, bāau lòh maahn yáuh--all embr;lesson 2
-起先, at start--héisīn;lesson 2
-核突, wahtdaht--ugly;lesson 2
-吹, syúhn--blow;lesson 2
-瞇埋眼, mēimàaih ngáahn--close eyes;lesson 2
-收尾, sāumēi--later;lesson 2
-油炸鬼, yàuhjagwái--fried dough;lesson 2
-送,sung--dish m.w.;lesson 2
+{ "items" : ["唞", "休息--táu"], "tags" : ["lesson 2"]},
+{ "items" : ["式肆", "sihksi--canteen"], "tags" : ["lesson 2"]},
+{ "items" : ["通街", "tūnggāai--filled with"], "tags" : ["lesson 2"]},
+{ "items" : ["包羅萬有", "bāau lòh maahn yáuh--all embr"], "tags" : ["lesson 2"]},
+{ "items" : ["起先", "at start--héisīn"], "tags" : ["lesson 2"]},
+{ "items" : ["核突", "wahtdaht--ugly"], "tags" : ["lesson 2"]},
+{ "items" : ["吹", "syúhn--blow"], "tags" : ["lesson 2"]},
+{ "items" : ["瞇埋眼", "mēimàaih ngáahn--close eyes"], "tags" : ["lesson 2"]},
+{ "items" : ["收尾", "sāumēi--later"], "tags" : ["lesson 2"]},
+{ "items" : ["油炸鬼", "yàuhjagwái--fried dough"], "tags" : ["lesson 2"]},
+{ "items" : ["送", "sung--dish m.w."], "tags" : ["lesson 2"]},
 #湖州打冷,chìujāu dálāang--;lesson 2
-打邊爐,dábīnlòuh--eat hotpot;lesson 2
-飯盒, faahnháp--lunchbox`;lesson 2
-幫襯, bōngchan--visit;lesson 2
-熟客,suhk háak--freq visitor;lesson 2
-街坊,gāaifōng--ngbhd;lesson 2
-落柯打, lohk ōdá--pay cheque;lesson 2
-專登, jyūndāng--intentionally;lesson 2
-噏, ngāp--tell;lesson 2
-湯殼, tōnghok--ladle;lesson 2
-𢳂,bāt--bowl m.w.;lesson 2
-罌, ngāang--vase;lesson 2
-夠火路, gao fólouh--heated;lesson 2
-熱氣,yihthei--heat(v.);lesson 2
-街市,gāaisíh--green bazar;lesson 2
-豉油,sihyàuh--soybean sauce;lesson 2
-猛火,máahngfó--big fire;lesson 2
-燶,nūng--burn;lesson 2
-夠鑊氣,gau wohkhei--"fire-smelled";lesson 2
-過龍,wgolùhng--go too far;lesson 2
-閒閒哋,hàahnháandéi--at least;lesson 2
-心郁郁,sāmyūkyūk--eager to do smth;lesson 2
-撐台腳,chaang tóigeuk--occupied by gf/bf;lesson 2
+{ "items" : ["打邊爐", "dábīnlòuh--eat hotpot"], "tags" : ["lesson 2"]},
+{ "items" : ["飯盒", "faahnháp--lunchbox`"], "tags" : ["lesson 2"]},
+{ "items" : ["幫襯", "bōngchan--visit"], "tags" : ["lesson 2"]},
+{ "items" : ["熟客", "suhk háak--freq visitor"], "tags" : ["lesson 2"]},
+{ "items" : ["街坊", "gāaifōng--ngbhd"], "tags" : ["lesson 2"]},
+{ "items" : ["落柯打", "lohk ōdá--pay cheque"], "tags" : ["lesson 2"]},
+{ "items" : ["專登", "jyūndāng--intentionally"], "tags" : ["lesson 2"]},
+{ "items" : ["噏", "ngāp--tell"], "tags" : ["lesson 2"]},
+{ "items" : ["湯殼", "tōnghok--ladle"], "tags" : ["lesson 2"]},
+{ "items" : ["𢳂", "bāt--bowl m.w."], "tags" : ["lesson 2"]},
+{ "items" : ["罌", "ngāang--vase"], "tags" : ["lesson 2"]},
+{ "items" : ["夠火路", "gao fólouh--heated"], "tags" : ["lesson 2"]},
+{ "items" : ["熱氣", "yihthei--heat(v.)"], "tags" : ["lesson 2"]},
+{ "items" : ["街市", "gāaisíh--green bazar"], "tags" : ["lesson 2"]},
+{ "items" : ["豉油", "sihyàuh--soybean sauce"], "tags" : ["lesson 2"]},
+{ "items" : ["猛火", "máahngfó--big fire"], "tags" : ["lesson 2"]},
+{ "items" : ["燶", "nūng--burn"], "tags" : ["lesson 2"]},
+{ "items" : ["夠鑊氣", "gau wohkhei--"fire-smelled""], "tags" : ["lesson 2"]},
+{ "items" : ["過龍", "wgolùhng--go too far"], "tags" : ["lesson 2"]},
+{ "items" : ["閒閒哋", "hàahnháandéi--at least"], "tags" : ["lesson 2"]},
+{ "items" : ["心郁郁", "sāmyūkyūk--eager to do smth"], "tags" : ["lesson 2"]},
+{ "items" : ["撐台腳", "chaang tóigeuk--occupied by gf/bf"], "tags" : ["lesson 2"]},
 #lesson 3
-執得正,jāpdāk jeng--wearing neat;lesson 3
-執平貨,jāp pèhngfo--pick sale thgs;lesson 3
-季尾,gwaiméih--end season sale;lesson 3
-月下貨,yuhthahfo--unfashion sale;lesson 3
-硬係,áanghaih--always;lesson 3
-老友記,lóuhyáuhgei--old friend;lesson 3
-傾得埋,kīngdākmàaih--get along well;lesson 3
-侍仔,sihjái--waiter;lesson 3
-型仔,yìhngjái--beautiful;lesson 3
-姿整,jījíng--picky;lesson 3
-拍拖,paaktō--fall in love;lesson 3
-整,jíng--do hair;lesson 3
-老土,lóuhtóu--old-fashioned;lesson 3
-爛身爛世,laahnsān laahnsai--old (clo);lesson 3
-污糟辣撻,wūjóulaahttaat-dirty;lesson 3
-騎呢,kèhlèh--weird;lesson 3
-轉工,jyunggūng--change jobs;lesson 3
-炒老細魷魚,cháau lóuhsai yàuhyú--quit a job;lesson 3
-屈,wāt--break(person);lesson 3
-膊頭,boktàuh--shoulder;lesson 3
-趕住,gónjyuh--anxious;lesson 3
-皮褸,péilāu--fur/leather jacket;lesson 3
-梳,sō--comb;lesson 3
-威,wāi--majestic;lesson 3
-質素,jātsou--quality;lesson 3
-撞衫,johngsāam--two ppl with same clo;lesson 3
-大把,daaihbá--a lot;lesson 3
-入貨,yahpfo--renew clo;lesson 3
-□,chaau--look for;lesson 3
-殘,chàahn--defective;lesson 3
+{ "items" : ["執得正", "jāpdāk jeng--wearing neat"], "tags" : ["lesson 3"]},
+{ "items" : ["執平貨", "jāp pèhngfo--pick sale thgs"], "tags" : ["lesson 3"]},
+{ "items" : ["季尾", "gwaiméih--end season sale"], "tags" : ["lesson 3"]},
+{ "items" : ["月下貨", "yuhthahfo--unfashion sale"], "tags" : ["lesson 3"]},
+{ "items" : ["硬係", "áanghaih--always"], "tags" : ["lesson 3"]},
+{ "items" : ["老友記", "lóuhyáuhgei--old friend"], "tags" : ["lesson 3"]},
+{ "items" : ["傾得埋", "kīngdākmàaih--get along well"], "tags" : ["lesson 3"]},
+{ "items" : ["侍仔", "sihjái--waiter"], "tags" : ["lesson 3"]},
+{ "items" : ["型仔", "yìhngjái--beautiful"], "tags" : ["lesson 3"]},
+{ "items" : ["姿整", "jījíng--picky"], "tags" : ["lesson 3"]},
+{ "items" : ["拍拖", "paaktō--fall in love"], "tags" : ["lesson 3"]},
+{ "items" : ["整", "jíng--do hair"], "tags" : ["lesson 3"]},
+{ "items" : ["老土", "lóuhtóu--old-fashioned"], "tags" : ["lesson 3"]},
+{ "items" : ["爛身爛世", "laahnsān laahnsai--old (clo)"], "tags" : ["lesson 3"]},
+{ "items" : ["污糟辣撻", "wūjóulaahttaat-dirty"], "tags" : ["lesson 3"]},
+{ "items" : ["騎呢", "kèhlèh--weird"], "tags" : ["lesson 3"]},
+{ "items" : ["轉工", "jyunggūng--change jobs"], "tags" : ["lesson 3"]},
+{ "items" : ["炒老細魷魚", "cháau lóuhsai yàuhyú--quit a job"], "tags" : ["lesson 3"]},
+{ "items" : ["屈", "wāt--break(person)"], "tags" : ["lesson 3"]},
+{ "items" : ["膊頭", "boktàuh--shoulder"], "tags" : ["lesson 3"]},
+{ "items" : ["趕住", "gónjyuh--anxious"], "tags" : ["lesson 3"]},
+{ "items" : ["皮褸", "péilāu--fur/leather jacket"], "tags" : ["lesson 3"]},
+{ "items" : ["梳", "sō--comb"], "tags" : ["lesson 3"]},
+{ "items" : ["威", "wāi--majestic"], "tags" : ["lesson 3"]},
+{ "items" : ["質素", "jātsou--quality"], "tags" : ["lesson 3"]},
+{ "items" : ["撞衫", "johngsāam--two ppl with same clo"], "tags" : ["lesson 3"]},
+{ "items" : ["大把", "daaihbá--a lot"], "tags" : ["lesson 3"]},
+{ "items" : ["入貨", "yahpfo--renew clo"], "tags" : ["lesson 3"]},
+{ "items" : ["□", "chaau--look for"], "tags" : ["lesson 3"]},
+{ "items" : ["殘", "chàahn--defective"], "tags" : ["lesson 3"]},
 #lesson 4
-駛,sái--drive(car);lesson 4
-唞氣,táuhei--breath;lesson 4
-埋站,màaihjaahm--arrive at stop;lesson 4
-擠擁,jāiyúng--crowded;lesson 4
-規例,kwāilaih--regulations;lesson 4
-揸快車,jā faai chē--drive fast;lesson 4
-夾硬,gaapngáang--forcibly;lesson 4
-爬頭,pàhtaùuh--overtake(car/smth);lesson 4
-執地方,jāp deihfōng--clean some place;lesson 4
-沖茶,chūngchàh--make tea;lesson 4
-撞鬼,jónggwái--damn you!;lesson 4
-牙煙,ngàhyīn--dangerous;lesson 4
-氣羅氣喘,heilòh heichyún--breath heavily;lesson 4
-大汗扰細汗,daaihhohn dahp saihohn--sweating;lesson 4
-企定,kéidihng--stop(v);lesson 4
-唞順條氣,táuseuhn tìuhhei--catch breath;lesson 4
-黑仔,hāakjái--unlucky;lesson 4
-大安旨意,daaih ōn jí yi--thought(wrongly);lesson 4
-神,sàhn--malfunction(v);lesson 4
-噙噙請,kàhmkámchēng--hurry;lesson 4
-當其時,dōngkèisìh--at that time;lesson 4
-立立亂,lahpláhpyuhn--dirty;lesson 4
-夾份,gapfán--(pay)together;lesson 4
-只不過,jībātgwo--although;lesson 4
-着數,jeuhksou--worthwhile;lesson 4
-戙起,duhnghéi--raise;lesson 4
-車,chē--walk someone (home etc.);lesson 4
-逼人,bīkyàhn--crowded;lesson 4
-焗,guhk--baking-hot;lesson 4
-夠運,gauwahn--lucky;lesson 4
+{ "items" : ["駛", "sái--drive(car)"], "tags" : ["lesson 4"]},
+{ "items" : ["唞氣", "táuhei--breath"], "tags" : ["lesson 4"]},
+{ "items" : ["埋站", "màaihjaahm--arrive at stop"], "tags" : ["lesson 4"]},
+{ "items" : ["擠擁", "jāiyúng--crowded"], "tags" : ["lesson 4"]},
+{ "items" : ["規例", "kwāilaih--regulations"], "tags" : ["lesson 4"]},
+{ "items" : ["揸快車", "jā faai chē--drive fast"], "tags" : ["lesson 4"]},
+{ "items" : ["夾硬", "gaapngáang--forcibly"], "tags" : ["lesson 4"]},
+{ "items" : ["爬頭", "pàhtaùuh--overtake(car/smth)"], "tags" : ["lesson 4"]},
+{ "items" : ["執地方", "jāp deihfōng--clean some place"], "tags" : ["lesson 4"]},
+{ "items" : ["沖茶", "chūngchàh--make tea"], "tags" : ["lesson 4"]},
+{ "items" : ["撞鬼", "jónggwái--damn you!"], "tags" : ["lesson 4"]},
+{ "items" : ["牙煙", "ngàhyīn--dangerous"], "tags" : ["lesson 4"]},
+{ "items" : ["氣羅氣喘", "heilòh heichyún--breath heavily"], "tags" : ["lesson 4"]},
+{ "items" : ["大汗扰細汗", "daaihhohn dahp saihohn--sweating"], "tags" : ["lesson 4"]},
+{ "items" : ["企定", "kéidihng--stop(v)"], "tags" : ["lesson 4"]},
+{ "items" : ["唞順條氣", "táuseuhn tìuhhei--catch breath"], "tags" : ["lesson 4"]},
+{ "items" : ["黑仔", "hāakjái--unlucky"], "tags" : ["lesson 4"]},
+{ "items" : ["大安旨意", "daaih ōn jí yi--thought(wrongly)"], "tags" : ["lesson 4"]},
+{ "items" : ["神", "sàhn--malfunction(v)"], "tags" : ["lesson 4"]},
+{ "items" : ["噙噙請", "kàhmkámchēng--hurry"], "tags" : ["lesson 4"]},
+{ "items" : ["當其時", "dōngkèisìh--at that time"], "tags" : ["lesson 4"]},
+{ "items" : ["立立亂", "lahpláhpyuhn--dirty"], "tags" : ["lesson 4"]},
+{ "items" : ["夾份", "gapfán--(pay)together"], "tags" : ["lesson 4"]},
+{ "items" : ["只不過", "jībātgwo--although"], "tags" : ["lesson 4"]},
+{ "items" : ["着數", "jeuhksou--worthwhile"], "tags" : ["lesson 4"]},
+{ "items" : ["戙起", "duhnghéi--raise"], "tags" : ["lesson 4"]},
+{ "items" : ["車", "chē--walk someone (home etc.)"], "tags" : ["lesson 4"]},
+{ "items" : ["逼人", "bīkyàhn--crowded"], "tags" : ["lesson 4"]},
+{ "items" : ["焗", "guhk--baking-hot"], "tags" : ["lesson 4"]},
+{ "items" : ["夠運", "gauwahn--lucky"], "tags" : ["lesson 4"]},
 #lesson 5
-冇王管,mo2uh wo2ng gu2n--no law;lesson5
-蕩失(路),dongsa1t(louh)--get lost;lesson5
-差人,cha1aiya4hn--cop(impolite);lesson5
-單,da1an--mw for docs pens etc;lesson5
-貨辦,foba2an--goods;lesson5
-辦,ba2an--sample;lesson5
-□□□□,kwi1kkli1kkwa1akkla1ak--cumbersome;lesson5
-忙到一頭煙,mo4hngdou ya1t ta4uh yi1n--extremely busy;lesson5
-滾水淥腳,gwa2nse2ui luhkgeuk--run nervously;lesson5
-左近,jo2ga2n--not far away;lesson5
-打蛇餅,da2se4hbe2ng--(adj) crowded,stuffed;lesson5
-人龍,ya4hnlu4hng--long que;lesson5
-打尖,da2j1m--cut in que;lesson5
-嗌,ngaai--call(smone);lesson5
-打荷包,da2 ho4hba1au--steal wallet;lesson5
-擰轉頭,nihngjyunta4uh--turn around;lesson5
-咪走,ma2ih ja2u--stand still!;lesson5
-走,ja2u--run;lesson5
-揼低,da2mda1i--abandon;lesson5
-執起,ja1phe2i--pick;lesson5
-大紙,daaihji--big bill;lesson5
-銀仔,a2nja2i--coins;lesson5
-激死人,gi1kse2i ya4hn--(make)extremely angry;lesson5
-點算,di2msyun--what to do?;lesson5
-鬆啲,su1ngdi1--a bit more than;lesson5
-落口供,lohk ha2ugu1ng--record evidence;lesson5
-差館,cha1aigu2n--police station(impolite);lesson5
-遲大到,chi4hdaaihdou--be very late;lesson5
-弊,baih--disastrous;lesson5
-有難,ya2uhnaahn--cumbersome;lesson5
-急急腳,ga1pga1pgeuk--nervously run;lesson5
-嬲爆爆,na1ubaaubaau--angrily;lesson5
-頭先,ta4uhsi1n--just;lesson5
-奀,nga1n--thin and small;lesson5
-好打,ho2uda2--fierce fight;lesson5
-拮,ga1t--stab/thorn;lesson5
+{ "items" : ["冇王管", "mo2uh wo2ng gu2n--no law"], "tags" : ["lesson5"]},
+{ "items" : ["蕩失(路)", "dongsa1t(louh)--get lost"], "tags" : ["lesson5"]},
+{ "items" : ["差人", "cha1aiya4hn--cop(impolite)"], "tags" : ["lesson5"]},
+{ "items" : ["單", "da1an--mw for docs pens etc"], "tags" : ["lesson5"]},
+{ "items" : ["貨辦", "foba2an--goods"], "tags" : ["lesson5"]},
+{ "items" : ["辦", "ba2an--sample"], "tags" : ["lesson5"]},
+{ "items" : ["□□□□", "kwi1kkli1kkwa1akkla1ak--cumbersome"], "tags" : ["lesson5"]},
+{ "items" : ["忙到一頭煙", "mo4hngdou ya1t ta4uh yi1n--extremely busy"], "tags" : ["lesson5"]},
+{ "items" : ["滾水淥腳", "gwa2nse2ui luhkgeuk--run nervously"], "tags" : ["lesson5"]},
+{ "items" : ["左近", "jo2ga2n--not far away"], "tags" : ["lesson5"]},
+{ "items" : ["打蛇餅", "da2se4hbe2ng--(adj) crowded", "stuffed"], "tags" : ["lesson5"]},
+{ "items" : ["人龍", "ya4hnlu4hng--long que"], "tags" : ["lesson5"]},
+{ "items" : ["打尖", "da2j1m--cut in que"], "tags" : ["lesson5"]},
+{ "items" : ["嗌", "ngaai--call(smone)"], "tags" : ["lesson5"]},
+{ "items" : ["打荷包", "da2 ho4hba1au--steal wallet"], "tags" : ["lesson5"]},
+{ "items" : ["擰轉頭", "nihngjyunta4uh--turn around"], "tags" : ["lesson5"]},
+{ "items" : ["咪走", "ma2ih ja2u--stand still!"], "tags" : ["lesson5"]},
+{ "items" : ["走", "ja2u--run"], "tags" : ["lesson5"]},
+{ "items" : ["揼低", "da2mda1i--abandon"], "tags" : ["lesson5"]},
+{ "items" : ["執起", "ja1phe2i--pick"], "tags" : ["lesson5"]},
+{ "items" : ["大紙", "daaihji--big bill"], "tags" : ["lesson5"]},
+{ "items" : ["銀仔", "a2nja2i--coins"], "tags" : ["lesson5"]},
+{ "items" : ["激死人", "gi1kse2i ya4hn--(make)extremely angry"], "tags" : ["lesson5"]},
+{ "items" : ["點算", "di2msyun--what to do?"], "tags" : ["lesson5"]},
+{ "items" : ["鬆啲", "su1ngdi1--a bit more than"], "tags" : ["lesson5"]},
+{ "items" : ["落口供", "lohk ha2ugu1ng--record evidence"], "tags" : ["lesson5"]},
+{ "items" : ["差館", "cha1aigu2n--police station(impolite)"], "tags" : ["lesson5"]},
+{ "items" : ["遲大到", "chi4hdaaihdou--be very late"], "tags" : ["lesson5"]},
+{ "items" : ["弊", "baih--disastrous"], "tags" : ["lesson5"]},
+{ "items" : ["有難", "ya2uhnaahn--cumbersome"], "tags" : ["lesson5"]},
+{ "items" : ["急急腳", "ga1pga1pgeuk--nervously run"], "tags" : ["lesson5"]},
+{ "items" : ["嬲爆爆", "na1ubaaubaau--angrily"], "tags" : ["lesson5"]},
+{ "items" : ["頭先", "ta4uhsi1n--just"], "tags" : ["lesson5"]},
+{ "items" : ["奀", "nga1n--thin and small"], "tags" : ["lesson5"]},
+{ "items" : ["好打", "ho2uda2--fierce fight"], "tags" : ["lesson5"]},
+{ "items" : ["拮", "ga1t--stab/thorn"], "tags" : ["lesson5"]},
 #lesson6
-糖黐豆,to4hng chi1 da2u--inseparable(friends);lesson6
-單張,da1anje1ung--promo leaflet;lesson6
-撞啱,johng a1am--happen by chance;lesson6
-拿拿聲,la4hla4hse1ng--rush;lesson6
-撲飛,pokfe1i--try to find ticket;lesson6
-腌尖,yi1mji1m--fussy;lesson6
-無啦啦,mo4uhla1la1--w/o reason;lesson6
-包保,ba1aubo2u--guarantee(v);lesson6
-爛尾,laahnme2ih--abandoned(project);lesson6
-直情,jihkchi4hng--absolute;lesson6
-走寶,ja2ubo2u--miss chance;lesson6
-恨,hahn--look fwd to;lesson6
-瞌眼瞓,ha1p nga2ahn fan--sleep while do smth;lesson6
-眼瞓,nga2ahnfan--sleepy;lesson6
-舊陣時,gauhjahnsi4h--long time ago;lesson6
-擸,laap--glance;lesson6
-一嚿雲,ya1t gauh wa4hn--unclear;lesson6
-節目,jitmuhk--show/activity;lesson6
-憂,ya1u--be nervous(adj);lesson6
-些小,se1si2u--a bit;lesson6
-度,dohk--consider;lesson6
-就,jauh--yield;lesson6
-地膽,deihda2am--expert;lesson6
-捐窿捐罅,gyu1nlu1ng gyu1nla--go unpopular places(look for smth);lesson6
-捐,gyu1n--search;lesson6
-窿,lu1ng--hole;lesson6
-罅,la--crack;lesson6
-特登,dahkda1ng--intentionally;lesson6
-滾攪,gwa2n'ga2au--disturb;lesson6
-冇幾何,mo2uh ge2i ho2--seldom;lesson6
-影相,yi2ingse2ung--take photo/camera;lesson6
-凝,ki4hng--stare/hung up;lesson6
-打關斗,da2 gwa1anda2u--make somersault;lesson6
-戲院,heiyu2n--theatre/cinema;lesson6
+{ "items" : ["糖黐豆", "to4hng chi1 da2u--inseparable(friends)"], "tags" : ["lesson6"]},
+{ "items" : ["單張", "da1anje1ung--promo leaflet"], "tags" : ["lesson6"]},
+{ "items" : ["撞啱", "johng a1am--happen by chance"], "tags" : ["lesson6"]},
+{ "items" : ["拿拿聲", "la4hla4hse1ng--rush"], "tags" : ["lesson6"]},
+{ "items" : ["撲飛", "pokfe1i--try to find ticket"], "tags" : ["lesson6"]},
+{ "items" : ["腌尖", "yi1mji1m--fussy"], "tags" : ["lesson6"]},
+{ "items" : ["無啦啦", "mo4uhla1la1--w/o reason"], "tags" : ["lesson6"]},
+{ "items" : ["包保", "ba1aubo2u--guarantee(v)"], "tags" : ["lesson6"]},
+{ "items" : ["爛尾", "laahnme2ih--abandoned(project)"], "tags" : ["lesson6"]},
+{ "items" : ["直情", "jihkchi4hng--absolute"], "tags" : ["lesson6"]},
+{ "items" : ["走寶", "ja2ubo2u--miss chance"], "tags" : ["lesson6"]},
+{ "items" : ["恨", "hahn--look fwd to"], "tags" : ["lesson6"]},
+{ "items" : ["瞌眼瞓", "ha1p nga2ahn fan--sleep while do smth"], "tags" : ["lesson6"]},
+{ "items" : ["眼瞓", "nga2ahnfan--sleepy"], "tags" : ["lesson6"]},
+{ "items" : ["舊陣時", "gauhjahnsi4h--long time ago"], "tags" : ["lesson6"]},
+{ "items" : ["擸", "laap--glance"], "tags" : ["lesson6"]},
+{ "items" : ["一嚿雲", "ya1t gauh wa4hn--unclear"], "tags" : ["lesson6"]},
+{ "items" : ["節目", "jitmuhk--show/activity"], "tags" : ["lesson6"]},
+{ "items" : ["憂", "ya1u--be nervous(adj)"], "tags" : ["lesson6"]},
+{ "items" : ["些小", "se1si2u--a bit"], "tags" : ["lesson6"]},
+{ "items" : ["度", "dohk--consider"], "tags" : ["lesson6"]},
+{ "items" : ["就", "jauh--yield"], "tags" : ["lesson6"]},
+{ "items" : ["地膽", "deihda2am--expert"], "tags" : ["lesson6"]},
+{ "items" : ["捐窿捐罅", "gyu1nlu1ng gyu1nla--go unpopular places(look for smth)"], "tags" : ["lesson6"]},
+{ "items" : ["捐", "gyu1n--search"], "tags" : ["lesson6"]},
+{ "items" : ["窿", "lu1ng--hole"], "tags" : ["lesson6"]},
+{ "items" : ["罅", "la--crack"], "tags" : ["lesson6"]},
+{ "items" : ["特登", "dahkda1ng--intentionally"], "tags" : ["lesson6"]},
+{ "items" : ["滾攪", "gwa2n'ga2au--disturb"], "tags" : ["lesson6"]},
+{ "items" : ["冇幾何", "mo2uh ge2i ho2--seldom"], "tags" : ["lesson6"]},
+{ "items" : ["影相", "yi2ingse2ung--take photo/camera"], "tags" : ["lesson6"]},
+{ "items" : ["凝", "ki4hng--stare/hung up"], "tags" : ["lesson6"]},
+{ "items" : ["打關斗", "da2 gwa1anda2u--make somersault"], "tags" : ["lesson6"]},
+{ "items" : ["戲院", "heiyu2n--theatre/cinema"], "tags" : ["lesson6"]},
 #simple words
-already,已經--yíh gīhng;simple words
-if,如果--yùh gwó;simple words
-definitely,一定--yāt dihng;simple words
-nevertheless, 仲係--juhng haih;simple words
-moreover,重有--juhng jau; simple words
-perhaps,話唔定--waah m dihng;simple words
-think,覺得--gokdāk;simple words
-or,或者--waahkjé;simple words
-still,仲係--juhnghai;simple words
-actually,其實--kèisaht;simple words
-completely,完全--yúhnchyúhn;simple words
-especially,dahkbit--特別;simple words
-of course,gáng haih--梗係;simple words
-although,sēuiyìhn--雖然;simple words
-far,yúhn--遠;simple words
-close,gahn--近;simple words
-enter (room),yahp--入;simple words
-easy,yùhng yih--容易;simple words
+{ "items" : ["already", "已經--yíh gīhng"], "tags" : ["simple words"]},
+{ "items" : ["if", "如果--yùh gwó"], "tags" : ["simple words"]},
+{ "items" : ["definitely", "一定--yāt dihng"], "tags" : ["simple words"]},
+{ "items" : ["nevertheless", "仲係--juhng haih"], "tags" : ["simple words"]},
+{ "items" : ["moreover", "重有--juhng jau"], "tags" : ["simple words"]},
+{ "items" : ["perhaps", "話唔定--waah m dihng"], "tags" : ["simple words"]},
+{ "items" : ["think", "覺得--gokdāk"], "tags" : ["simple words"]},
+{ "items" : ["or", "或者--waahkjé"], "tags" : ["simple words"]},
+{ "items" : ["still", "仲係--juhnghai"], "tags" : ["simple words"]},
+{ "items" : ["actually", "其實--kèisaht"], "tags" : ["simple words"]},
+{ "items" : ["completely", "完全--yúhnchyúhn"], "tags" : ["simple words"]},
+{ "items" : ["especially", "dahkbit--特別"], "tags" : ["simple words"]},
+{ "items" : ["of course", "gáng haih--梗係"], "tags" : ["simple words"]},
+{ "items" : ["although", "sēuiyìhn--雖然"], "tags" : ["simple words"]},
+{ "items" : ["far", "yúhn--遠"], "tags" : ["simple words"]},
+{ "items" : ["close", "gahn--近"], "tags" : ["simple words"]},
+{ "items" : ["enter (room)", "yahp--入"], "tags" : ["simple words"]},
+{ "items" : ["easy", "yùhng yih--容易"], "tags" : ["simple words"]},
+]}
