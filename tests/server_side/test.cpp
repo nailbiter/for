@@ -52,6 +52,7 @@ void serve_chosen_file(std::string& output,const std::string& filename)
     file.close();
     output += "]});";
 }
+
 void serve_files(std::string& output)
 {
     std::vector<std::string> filenames;
