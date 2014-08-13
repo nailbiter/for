@@ -2,36 +2,38 @@
 #encoding - utf8
 #default skip_mode - random
 #adapt
-rand
+{
+"selectionMode" : "rand",
+"generators" : [
+{ "tags" : ["drill_1"], "from" : 0, "to" : 1, "type" : "ti", "enabled" : true}
+],
 ####
-#section 2 - quiz generators
-#taglist;qsttans;mode(sc,ti);{aux_msg}
-drill_1;0->1;ti
-####
+"dataitems" : [
 #english,hiragana,kanji;tags
 #question, answer, tag
-笑,HHK; drill_1, test tag
-我,HQI; drill_1
-森,DDD; drill_1
-也,PD; drill_1
-給,VFOMR; drill_1
-字,JND; drill_1
-類,FKMBC; drill_1
-沙,EFH; drill_1
-家,JMSO; drill_1
+{ "items" : ["笑", "HHK"], "tags" : ["drill_1", "test tag"]},
+{ "items" : ["我", "HQI"], "tags" : ["drill_1"]},
+{ "items" : ["森", "DDD"], "tags" : ["drill_1"]},
+{ "items" : ["也", "PD"], "tags" : ["drill_1"]},
+{ "items" : ["給", "VFOMR"], "tags" : ["drill_1"]},
+{ "items" : ["字", "JND"], "tags" : ["drill_1"]},
+{ "items" : ["類", "FKMBC"], "tags" : ["drill_1"]},
+{ "items" : ["沙", "EFH"], "tags" : ["drill_1"]},
+{ "items" : ["家", "JMSO"], "tags" : ["drill_1"]},
 #drill 2
-志,GP; drill_2
-在,KLG; drill_2
-再,MGB; drill_2
+{ "items" : ["志", "GP"], "tags" : ["drill_2"]},
+{ "items" : ["在", "KLG"], "tags" : ["drill_2"]},
+{ "items" : ["再", "MGB"], "tags" : ["drill_2"]},
 #day1
-門,an;day1
-目,bu;day1
-鬼,hi;day1
-鬥,ln;day1
-隹,og;day1
+{ "items" : ["門", "an"], "tags" : ["day1"]},
+{ "items" : ["目", "bu"], "tags" : ["day1"]},
+{ "items" : ["鬼", "hi"], "tags" : ["day1"]},
+{ "items" : ["鬥", "ln"], "tags" : ["day1"]},
+{ "items" : ["隹", "og"], "tags" : ["day1"]},
 #day 2
-心,p;day2
-田,w;day2
-大,k;day2
-月,b;day2
-金,c;day2
+{ "items" : ["心", "p"], "tags" : ["day2"]},
+{ "items" : ["田", "w"], "tags" : ["day2"]},
+{ "items" : ["大", "k"], "tags" : ["day2"]},
+{ "items" : ["月", "b"], "tags" : ["day2"]},
+{ "items" : ["金", "c"], "tags" : ["day2"]},
+]}
