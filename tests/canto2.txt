@@ -11,7 +11,7 @@
 { "tags" : ["lesson 4"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
 { "tags" : ["lesson 5"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
 { "tags" : ["lesson 6"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : true, "reflip" : true},
-{ "tags" : ["simple words"], "from" : 0, "to" : 1, "type" : "sc","auxText" : "tap to see cantonese transcription","enabled" : true, "reflip" : true},
+{ "tags" : ["simple words"], "from" : 0, "to" : 1, "type" : "sc","auxText" : "tap to see cantonese transcription","enabled" : true, "reflip" : true}
 ],
 ####
 "dataitems" : [
