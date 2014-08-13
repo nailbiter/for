@@ -1,371 +1,370 @@
-#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
-#encoding - utf8
-#default skip_mode - rand
-#adapt
-seq
-####
-#lesson 1;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 2;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 3;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 4;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 5;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 6;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 7;0->1;sc,reflip,tap to see cantonese transcription
-#lesson 8;0->1;sc,reflip,tap to see cantonese transcription
-####
-今,yaht;lesson 1,canto aux message
-今天,gāmyaht;lesson 1
-是,yaht;lesson 1
-幫\,跟\,和,tùhng;lesson 1
-我,ngóh;lesson 1
-你,néih;lesson 1
-他,kéuih;lesson 1
-我們,ngóhdeih;lesson 1
-老是,sīnsāang;lesson 1
-上課,séuhngtòhng;lesson 1
-也\,都,dōu;lesson 1
-也是\,都是,dōuhaih;lesson 1
-現在,yìhgā;lesson 1
-讓,dáng;lesson 1
-不懂,msīk;lesson 1
-每一個人（個個）,gogo;lesson 1
-每一個人（人人）,yàhnyàhn;lesson 1
-在\,從,hái;lesson 1
-出生,chēutsai;lesson 1
-的,ge;lesson 1
-家人,ngūkkéiyàhn;lesson 1
-這個,nī;lesson 1
-那個,gó;lesson 1
-聽說(gin),tēngginwah;lesson 1
-聽說(gong),tēnggóngwah;lesson 1
-什麼（mat),māt(yéh);lesson 1
-什麼（me),mē(yéh);lesson 1
-容易學,yihhok;lesson 1
-多久,géinoih;lesson 1
-不用,msái;lesson 1
-用不用,sái msái;lesson 1
-一定,saht;lesson 1
-用心,béi sāmgēi;lesson 1
+{
+"selectionMode" : "seq",
+"generators" : [
+{ "tags" : ["lesson 1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 4"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 5"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 6"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 7"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 8"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+],
+"dataitems" : [
+{ "items" : ["今", "yaht"], "tags" : ["lesson 1", "canto aux message"]},
+{ "items" : ["今天", "gāmyaht"], "tags" : ["lesson 1"]},
+{ "items" : ["是", "yaht"], "tags" : ["lesson 1"]},
+{ "items" : ["幫\,跟\,和", "tùhng"], "tags" : ["lesson 1"]},
+{ "items" : ["我", "ngóh"], "tags" : ["lesson 1"]},
+{ "items" : ["你", "néih"], "tags" : ["lesson 1"]},
+{ "items" : ["他", "kéuih"], "tags" : ["lesson 1"]},
+{ "items" : ["我們", "ngóhdeih"], "tags" : ["lesson 1"]},
+{ "items" : ["老是", "sīnsāang"], "tags" : ["lesson 1"]},
+{ "items" : ["上課", "séuhngtòhng"], "tags" : ["lesson 1"]},
+{ "items" : ["也\,都", "dōu"], "tags" : ["lesson 1"]},
+{ "items" : ["也是\,都是", "dōuhaih"], "tags" : ["lesson 1"]},
+{ "items" : ["現在", "yìhgā"], "tags" : ["lesson 1"]},
+{ "items" : ["讓", "dáng"], "tags" : ["lesson 1"]},
+{ "items" : ["不懂", "msīk"], "tags" : ["lesson 1"]},
+{ "items" : ["每一個人（個個）", "gogo"], "tags" : ["lesson 1"]},
+{ "items" : ["每一個人（人人）", "yàhnyàhn"], "tags" : ["lesson 1"]},
+{ "items" : ["在\,從", "hái"], "tags" : ["lesson 1"]},
+{ "items" : ["出生", "chēutsai"], "tags" : ["lesson 1"]},
+{ "items" : ["的", "ge"], "tags" : ["lesson 1"]},
+{ "items" : ["家人", "ngūkkéiyàhn"], "tags" : ["lesson 1"]},
+{ "items" : ["這個", "nī"], "tags" : ["lesson 1"]},
+{ "items" : ["那個", "gó"], "tags" : ["lesson 1"]},
+{ "items" : ["聽說(gin)", "tēngginwah"], "tags" : ["lesson 1"]},
+{ "items" : ["聽說(gong)", "tēnggóngwah"], "tags" : ["lesson 1"]},
+{ "items" : ["什麼（mat)", "māt(yéh)"], "tags" : ["lesson 1"]},
+{ "items" : ["什麼（me)", "mē(yéh)"], "tags" : ["lesson 1"]},
+{ "items" : ["容易學", "yihhok"], "tags" : ["lesson 1"]},
+{ "items" : ["多久", "géinoih"], "tags" : ["lesson 1"]},
+{ "items" : ["不用", "msái"], "tags" : ["lesson 1"]},
+{ "items" : ["用不用", "sái msái"], "tags" : ["lesson 1"]},
+{ "items" : ["一定", "saht"], "tags" : ["lesson 1"]},
+{ "items" : ["用心", "béi sāmgēi"], "tags" : ["lesson 1"]},
 #lesson 2
-一點\,一些,dī;lesson 2
-累,guih;lesson 2
-有一點累,guihgúidéi;lesson 2
-那麼,gam;lesson 2
-一下,háh;lesson 2
-聊天,kīnggai;lesson 2
-室友,tùhngfóng;lesson 2
-地方,douh;lesson 2
-哪邊,bīndouh;lesson 2
-了,jó;lesson 2
-幾,géi;lesson 2
-不那麼,mhai géi;lesson 2
-好,hou;lesson 2
-吧,lā;lesson 2
-正在,~gán;lesson 2
-還有,juhng yáuh;lesson 2
-真是,jānhaih;lesson 2
-的？,ga;lesson 2
-平常,pìhngsìh;lesson 2
-晚,ngaan;lesson 2
-上午,seuhngjau;lesson 2
-下午,hahjau;lesson 2
-多是,dōsou;lesson 2
-換課室,jyun tòhng;lesson 2
-的時候,gójahnsìh;lesson 2
-乗,daap;lesson 2
-坐,chóh;lesson 2
-校車,haauhbā;lesson 2
-下車,lohkchē;lesson 2
-走,hàahng;lesson 2
-逛街,hàahnggāai;lesson 2
-走路,hàahnglouh;lesson 2
-爬山,hàahngsāan;lesson 2
-除了。。。以外,chèuihjó...jīngoih;lesson 2
-好像,hóuchíh;lesson 2
-數,sóu;lesson 2
-完，光,-saai;lesson 2
-沒時間,mdākhàahn;lesson 2
-不是。。。就是,mhaih...jauhhaih;lesson 2
-還沒有,meih;lesson 2
-那樣才可以,ji dāk;lesson 2
-沒有,móuh;lesson 2
-有一點餓,ngohngohdéi;lesson 2
-肚子餓,tóuhngoh;lesson 2
-肚子,tóuh;lesson 2
-一起,yātchàih;lesson 2
-去喝下午茶,heui (sihk) 'tī';lesson 2
+{ "items" : ["一點\,一些", "dī"], "tags" : ["lesson 2"]},
+{ "items" : ["累", "guih"], "tags" : ["lesson 2"]},
+{ "items" : ["有一點累", "guihgúidéi"], "tags" : ["lesson 2"]},
+{ "items" : ["那麼", "gam"], "tags" : ["lesson 2"]},
+{ "items" : ["一下", "háh"], "tags" : ["lesson 2"]},
+{ "items" : ["聊天", "kīnggai"], "tags" : ["lesson 2"]},
+{ "items" : ["室友", "tùhngfóng"], "tags" : ["lesson 2"]},
+{ "items" : ["地方", "douh"], "tags" : ["lesson 2"]},
+{ "items" : ["哪邊", "bīndouh"], "tags" : ["lesson 2"]},
+{ "items" : ["了", "jó"], "tags" : ["lesson 2"]},
+{ "items" : ["幾", "géi"], "tags" : ["lesson 2"]},
+{ "items" : ["不那麼", "mhai géi"], "tags" : ["lesson 2"]},
+{ "items" : ["好", "hou"], "tags" : ["lesson 2"]},
+{ "items" : ["吧", "lā"], "tags" : ["lesson 2"]},
+{ "items" : ["正在", "~gán"], "tags" : ["lesson 2"]},
+{ "items" : ["還有", "juhng yáuh"], "tags" : ["lesson 2"]},
+{ "items" : ["真是", "jānhaih"], "tags" : ["lesson 2"]},
+{ "items" : ["的？", "ga"], "tags" : ["lesson 2"]},
+{ "items" : ["平常", "pìhngsìh"], "tags" : ["lesson 2"]},
+{ "items" : ["晚", "ngaan"], "tags" : ["lesson 2"]},
+{ "items" : ["上午", "seuhngjau"], "tags" : ["lesson 2"]},
+{ "items" : ["下午", "hahjau"], "tags" : ["lesson 2"]},
+{ "items" : ["多是", "dōsou"], "tags" : ["lesson 2"]},
+{ "items" : ["換課室", "jyun tòhng"], "tags" : ["lesson 2"]},
+{ "items" : ["的時候", "gójahnsìh"], "tags" : ["lesson 2"]},
+{ "items" : ["乗", "daap"], "tags" : ["lesson 2"]},
+{ "items" : ["坐", "chóh"], "tags" : ["lesson 2"]},
+{ "items" : ["校車", "haauhbā"], "tags" : ["lesson 2"]},
+{ "items" : ["下車", "lohkchē"], "tags" : ["lesson 2"]},
+{ "items" : ["走", "hàahng"], "tags" : ["lesson 2"]},
+{ "items" : ["逛街", "hàahnggāai"], "tags" : ["lesson 2"]},
+{ "items" : ["走路", "hàahnglouh"], "tags" : ["lesson 2"]},
+{ "items" : ["爬山", "hàahngsāan"], "tags" : ["lesson 2"]},
+{ "items" : ["除了。。。以外", "chèuihjó...jīngoih"], "tags" : ["lesson 2"]},
+{ "items" : ["好像", "hóuchíh"], "tags" : ["lesson 2"]},
+{ "items" : ["數", "sóu"], "tags" : ["lesson 2"]},
+{ "items" : ["完，光", "-saai"], "tags" : ["lesson 2"]},
+{ "items" : ["沒時間", "mdākhàahn"], "tags" : ["lesson 2"]},
+{ "items" : ["不是。。。就是", "mhaih...jauhhaih"], "tags" : ["lesson 2"]},
+{ "items" : ["還沒有", "meih"], "tags" : ["lesson 2"]},
+{ "items" : ["那樣才可以", "ji dāk"], "tags" : ["lesson 2"]},
+{ "items" : ["沒有", "móuh"], "tags" : ["lesson 2"]},
+{ "items" : ["有一點餓", "ngohngohdéi"], "tags" : ["lesson 2"]},
+{ "items" : ["肚子餓", "tóuhngoh"], "tags" : ["lesson 2"]},
+{ "items" : ["肚子", "tóuh"], "tags" : ["lesson 2"]},
+{ "items" : ["一起", "yātchàih"], "tags" : ["lesson 2"]},
+{ "items" : ["去喝下午茶", "heui (sihk) 'tī'"], "tags" : ["lesson 2"]},
 #lesson 3
-吃,sihk;lesson 3
-吃午飯,sihk ngaan;lesson 3
-好吃,hóusihk;lesson 3
-先 V, V sīn;lesson 3
-找位子,wán wái;lesson 3
-謝謝,mgōi;lesson 3
-太感謝了,mgōisaai;lesson 3
-素,jāai;lesson 3
-喝,yám;lesson 3
-就行了／快了,jauh dāk la;lesson 3
-付錢,béichín;lesson 3
-行嗎？,dāk mdāk a?;lesson 3
-當然可以啦, gánghaih dāk lā;lesson 3
-看, tái;lesson 3
-讓我看一下, dáng ngóh táiháh;lesson 3
-選, gáan;lesson 3
-喜歡,jūngyi;lesson 3
-而已a,jē;lesson 3
-一共,hahmbaahnglaahng;lesson 3
-而已e,ja;lesson 3
-一下,yātjahn;lesson 3
-欠,jāang;lesson 3
-元,mān;lesson 3
-零錢,sáanjí;lesson 3
-沒關係,mgányiu;lesson 3
-找得開,yáuh dāk jáau;lesson 3
-漂亮, leng;lesson 3
-給,béi;lesson 3
-塊, gauh;lesson 3
-分着吃, fān láih sihk;lesson 3
-不只....\,還...., m jí...\, juhng..tīm;lesson 3
-值得,dái;lesson 3
-出外,chēutgāai;lesson 3
-大概,dóu;lesson 3
-說起來,gónghéiséuhnglàih;lesson 3
-想（前女友）,gwajyuh;lesson 3
-整天想着,gwajyuh...;lesson 3
-想家,gwajyuh ngūkkéi;lesson 3
-做菜,jyú sung;lesson 3
-做飯,jyú faahn;lesson 3
-冷,dung;lesson 3
-改天,wán yaht;lesson 3
-各付各,AA jai;lesson 3
+{ "items" : ["吃", "sihk"], "tags" : ["lesson 3"]},
+{ "items" : ["吃午飯", "sihk ngaan"], "tags" : ["lesson 3"]},
+{ "items" : ["好吃", "hóusihk"], "tags" : ["lesson 3"]},
+{ "items" : ["先 V", "V sīn"], "tags" : ["lesson 3"]},
+{ "items" : ["找位子", "wán wái"], "tags" : ["lesson 3"]},
+{ "items" : ["謝謝", "mgōi"], "tags" : ["lesson 3"]},
+{ "items" : ["太感謝了", "mgōisaai"], "tags" : ["lesson 3"]},
+{ "items" : ["素", "jāai"], "tags" : ["lesson 3"]},
+{ "items" : ["喝", "yám"], "tags" : ["lesson 3"]},
+{ "items" : ["就行了／快了", "jauh dāk la"], "tags" : ["lesson 3"]},
+{ "items" : ["付錢", "béichín"], "tags" : ["lesson 3"]},
+{ "items" : ["行嗎？", "dāk mdāk a?"], "tags" : ["lesson 3"]},
+{ "items" : ["當然可以啦", "gánghaih dāk lā"], "tags" : ["lesson 3"]},
+{ "items" : ["看", "tái"], "tags" : ["lesson 3"]},
+{ "items" : ["讓我看一下", "dáng ngóh táiháh"], "tags" : ["lesson 3"]},
+{ "items" : ["選", "gáan"], "tags" : ["lesson 3"]},
+{ "items" : ["喜歡", "jūngyi"], "tags" : ["lesson 3"]},
+{ "items" : ["而已a", "jē"], "tags" : ["lesson 3"]},
+{ "items" : ["一共", "hahmbaahnglaahng"], "tags" : ["lesson 3"]},
+{ "items" : ["而已e", "ja"], "tags" : ["lesson 3"]},
+{ "items" : ["一下", "yātjahn"], "tags" : ["lesson 3"]},
+{ "items" : ["欠", "jāang"], "tags" : ["lesson 3"]},
+{ "items" : ["元", "mān"], "tags" : ["lesson 3"]},
+{ "items" : ["零錢", "sáanjí"], "tags" : ["lesson 3"]},
+{ "items" : ["沒關係", "mgányiu"], "tags" : ["lesson 3"]},
+{ "items" : ["找得開", "yáuh dāk jáau"], "tags" : ["lesson 3"]},
+{ "items" : ["漂亮", "leng"], "tags" : ["lesson 3"]},
+{ "items" : ["給", "béi"], "tags" : ["lesson 3"]},
+{ "items" : ["塊", "gauh"], "tags" : ["lesson 3"]},
+{ "items" : ["分着吃", "fān láih sihk"], "tags" : ["lesson 3"]},
+{ "items" : ["不只....\,還....", "m jí...\, juhng..tīm"], "tags" : ["lesson 3"]},
+{ "items" : ["值得", "dái"], "tags" : ["lesson 3"]},
+{ "items" : ["出外", "chēutgāai"], "tags" : ["lesson 3"]},
+{ "items" : ["大概", "dóu"], "tags" : ["lesson 3"]},
+{ "items" : ["說起來", "gónghéiséuhnglàih"], "tags" : ["lesson 3"]},
+{ "items" : ["想（前女友）", "gwajyuh"], "tags" : ["lesson 3"]},
+{ "items" : ["整天想着", "gwajyuh..."], "tags" : ["lesson 3"]},
+{ "items" : ["想家", "gwajyuh ngūkkéi"], "tags" : ["lesson 3"]},
+{ "items" : ["做菜", "jyú sung"], "tags" : ["lesson 3"]},
+{ "items" : ["做飯", "jyú faahn"], "tags" : ["lesson 3"]},
+{ "items" : ["冷", "dung"], "tags" : ["lesson 3"]},
+{ "items" : ["改天", "wán yaht"], "tags" : ["lesson 3"]},
+{ "items" : ["各付各", "AA jai"], "tags" : ["lesson 3"]},
 #lesson 4
-找誰呀？,wán bīn wái a?;lesson 4
-什麼時候,géisìh;lesson 4
-便宜,pèhng;lesson 4
-到九龍塘去,heui Gáulùhngtòhng;lesson 4
-複習,wānjaahp;lesson 4
-可是,daahnhaih;lesson 4
-怎麼去,dím heui;lesson 4
-那麼（well）,gám;lesson 4
-到宿舍來,làih sūkse;lesson 4
-以後,jīhauh;lesson 4
-就這樣吧,haih gám wah lā;lesson 4
-到時見,dousìh gin;lesson 4
-熱門,wohng;lesson 4
-幸虧,hóujoih;lesson 4
-好彩,hóuchói;lesson 4
-早就,yātjóu;lesson 4
-寫下來,sédāi;lesson 4
-紀念品,sáuseun;lesson 4
-人好多,dōyáhn;lesson 4
-吵,chòuh;lesson 4
-擁擠,bīk;lesson 4
-錢包,ngàhnbāau;lesson 4
-被小偷偷了,béi pàhsáu pàhjó;lesson 4
-可憐／糟糕,cháam;lesson 4
-安全,wánjahn;lesson 4
-公仔,gungjái;lesson 4
-小熊,hùhngjái;lesson 4
-可愛／有趣,dākyi;lesson 4
-流行,hīng;lesson 4
-是嗎？,haih mē?;lesson 4
-你覺得...,néih wah...;lesson 4
-帶回去,daaifāanheui;lesson 4
-對／適合,ngāam;lesson 4
-剛剛,ngāamngāam;lesson 4
-好好地選,táingāam;lesson 4
-才,sīnji;lesson 4
-多少錢,géidō chín;lesson 4
-你說什麼呀？,mātyéh wá?;lesson 4
-為什麼,dímgáai;lesson 4
-那就這樣吧,gám lā;lesson 4
+{ "items" : ["找誰呀？", "wán bīn wái a?"], "tags" : ["lesson 4"]},
+{ "items" : ["什麼時候", "géisìh"], "tags" : ["lesson 4"]},
+{ "items" : ["便宜", "pèhng"], "tags" : ["lesson 4"]},
+{ "items" : ["到九龍塘去", "heui Gáulùhngtòhng"], "tags" : ["lesson 4"]},
+{ "items" : ["複習", "wānjaahp"], "tags" : ["lesson 4"]},
+{ "items" : ["可是", "daahnhaih"], "tags" : ["lesson 4"]},
+{ "items" : ["怎麼去", "dím heui"], "tags" : ["lesson 4"]},
+{ "items" : ["那麼（well）", "gám"], "tags" : ["lesson 4"]},
+{ "items" : ["到宿舍來", "làih sūkse"], "tags" : ["lesson 4"]},
+{ "items" : ["以後", "jīhauh"], "tags" : ["lesson 4"]},
+{ "items" : ["就這樣吧", "haih gám wah lā"], "tags" : ["lesson 4"]},
+{ "items" : ["到時見", "dousìh gin"], "tags" : ["lesson 4"]},
+{ "items" : ["熱門", "wohng"], "tags" : ["lesson 4"]},
+{ "items" : ["幸虧", "hóujoih"], "tags" : ["lesson 4"]},
+{ "items" : ["好彩", "hóuchói"], "tags" : ["lesson 4"]},
+{ "items" : ["早就", "yātjóu"], "tags" : ["lesson 4"]},
+{ "items" : ["寫下來", "sédāi"], "tags" : ["lesson 4"]},
+{ "items" : ["紀念品", "sáuseun"], "tags" : ["lesson 4"]},
+{ "items" : ["人好多", "dōyáhn"], "tags" : ["lesson 4"]},
+{ "items" : ["吵", "chòuh"], "tags" : ["lesson 4"]},
+{ "items" : ["擁擠", "bīk"], "tags" : ["lesson 4"]},
+{ "items" : ["錢包", "ngàhnbāau"], "tags" : ["lesson 4"]},
+{ "items" : ["被小偷偷了", "béi pàhsáu pàhjó"], "tags" : ["lesson 4"]},
+{ "items" : ["可憐／糟糕", "cháam"], "tags" : ["lesson 4"]},
+{ "items" : ["安全", "wánjahn"], "tags" : ["lesson 4"]},
+{ "items" : ["公仔", "gungjái"], "tags" : ["lesson 4"]},
+{ "items" : ["小熊", "hùhngjái"], "tags" : ["lesson 4"]},
+{ "items" : ["可愛／有趣", "dākyi"], "tags" : ["lesson 4"]},
+{ "items" : ["流行", "hīng"], "tags" : ["lesson 4"]},
+{ "items" : ["是嗎？", "haih mē?"], "tags" : ["lesson 4"]},
+{ "items" : ["你覺得...", "néih wah..."], "tags" : ["lesson 4"]},
+{ "items" : ["帶回去", "daaifāanheui"], "tags" : ["lesson 4"]},
+{ "items" : ["對／適合", "ngāam"], "tags" : ["lesson 4"]},
+{ "items" : ["剛剛", "ngāamngāam"], "tags" : ["lesson 4"]},
+{ "items" : ["好好地選", "táingāam"], "tags" : ["lesson 4"]},
+{ "items" : ["才", "sīnji"], "tags" : ["lesson 4"]},
+{ "items" : ["多少錢", "géidō chín"], "tags" : ["lesson 4"]},
+{ "items" : ["你說什麼呀？", "mātyéh wá?"], "tags" : ["lesson 4"]},
+{ "items" : ["為什麼", "dímgáai"], "tags" : ["lesson 4"]},
+{ "items" : ["那就這樣吧", "gám lā"], "tags" : ["lesson 4"]},
 #directions
-上便,seuhngbihn;directions
-下便,hahbihn;directions
-前便,chìhnbihn;directions
-後便,hauhbihn;directions
-左(手)便,jó (sáu) bihn;directions
-右(手)便,yauh (sáu) bihn;directions
-出便,chēutbihn;directions
-外便,ngoihbihn;directions
-入便,yahpbihn;directions
-裏便,léuihbihn;directions
-隔籬,gaaklèih;directions
-旁邊,pòhngbīn;directions
-對面,deuimihn;directions
-開便,hōibihn;directions
-埋便,màaihbihn;directions
-東便,dūngbihn;directions
-南便,nàahmbihn;directions
-西便,sāibihn;directions
-北便,bākbihn;directions
-邊便?,bīnbihn;directions
-樓上,làuhseuhng;directions
-樓下,làuhhah;directions
+{ "items" : ["上便", "seuhngbihn"], "tags" : ["directions"]},
+{ "items" : ["下便", "hahbihn"], "tags" : ["directions"]},
+{ "items" : ["前便", "chìhnbihn"], "tags" : ["directions"]},
+{ "items" : ["後便", "hauhbihn"], "tags" : ["directions"]},
+{ "items" : ["左(手)便", "jó (sáu) bihn"], "tags" : ["directions"]},
+{ "items" : ["右(手)便", "yauh (sáu) bihn"], "tags" : ["directions"]},
+{ "items" : ["出便", "chēutbihn"], "tags" : ["directions"]},
+{ "items" : ["外便", "ngoihbihn"], "tags" : ["directions"]},
+{ "items" : ["入便", "yahpbihn"], "tags" : ["directions"]},
+{ "items" : ["裏便", "léuihbihn"], "tags" : ["directions"]},
+{ "items" : ["隔籬", "gaaklèih"], "tags" : ["directions"]},
+{ "items" : ["旁邊", "pòhngbīn"], "tags" : ["directions"]},
+{ "items" : ["對面", "deuimihn"], "tags" : ["directions"]},
+{ "items" : ["開便", "hōibihn"], "tags" : ["directions"]},
+{ "items" : ["埋便", "màaihbihn"], "tags" : ["directions"]},
+{ "items" : ["東便", "dūngbihn"], "tags" : ["directions"]},
+{ "items" : ["南便", "nàahmbihn"], "tags" : ["directions"]},
+{ "items" : ["西便", "sāibihn"], "tags" : ["directions"]},
+{ "items" : ["北便", "bākbihn"], "tags" : ["directions"]},
+{ "items" : ["邊便?", "bīnbihn"], "tags" : ["directions"]},
+{ "items" : ["樓上", "làuhseuhng"], "tags" : ["directions"]},
+{ "items" : ["樓下", "làuhhah"], "tags" : ["directions"]},
 #strength of adj
-唔(大),不(大) m(daaih);strength of adj
-唔係好(大),不太(大)< mhaihhóu(daaih);strength of adj
-(大大)哋,不太(大)> (daaihdáai)déi;strength of adj
-幾(大),蠻(大) géi(daaih);strength of adj
-很(大),好(大) hóu(daaih);strength of adj
+{ "items" : ["唔(大)", "不(大) m(daaih)"], "tags" : ["strength of adj"]},
+{ "items" : ["唔係好(大)", "不太(大)< mhaihhóu(daaih)"], "tags" : ["strength of adj"]},
+{ "items" : ["(大大)哋", "不太(大)> (daaihdáai)déi"], "tags" : ["strength of adj"]},
+{ "items" : ["幾(大)", "蠻(大) géi(daaih)"], "tags" : ["strength of adj"]},
+{ "items" : ["很(大)", "好(大) hóu(daaih)"], "tags" : ["strength of adj"]},
 #strength of verb
-唔(識),不(懂) msīk;strength of verb
-唔係好(大),不太(懂) mhaihhóu(sīk);strength of verb
-(識識)哋,懂一點點(哋) sīksīkdéi;strength of verb
-(識)少少,懂一點點(少少) sīk síusíu;strength of verb
-幾(識),蠻(懂) géi sīk;strength of verb
-很(識),好(懂) hóu sīk;strength of verb
+{ "items" : ["唔(識)", "不(懂) msīk"], "tags" : ["strength of verb"]},
+{ "items" : ["唔係好(大)", "不太(懂) mhaihhóu(sīk)"], "tags" : ["strength of verb"]},
+{ "items" : ["(識識)哋", "懂一點點(哋) sīksīkdéi"], "tags" : ["strength of verb"]},
+{ "items" : ["(識)少少", "懂一點點(少少) sīk síusíu"], "tags" : ["strength of verb"]},
+{ "items" : ["幾(識)", "蠻(懂) géi sīk"], "tags" : ["strength of verb"]},
+{ "items" : ["很(識)", "好(懂) hóu sīk"], "tags" : ["strength of verb"]},
 #lesson 5
-返學,上學 fāanhohk;lesson 5
-傾器,談起來 kīnghéi;lesson 5
-定(係),還是 dihng(haih);lesson 5
-冇所謂,無所謂 móuh sówaih;lesson 5
-...又得\,...又得,可以...也可以... yauh dāk...yauh dāk;lesson 5
-執嘢,收拾東西 jāpyéh;lesson 5
-打機,玩電腦遊戲 dágēi;lesson 5
-啩,吧 gwa;lesson 5
-好似,好像 hóuchíh;lesson 5
-泳池,游泳池 wihngchìh;lesson 5
-囉,lō;lesson 5
-咁啱,這麼巧 gam ngāam;lesson 5
-打波,打球 dábō;lesson 5
-渣,差 já;lesson 5
-㗎嘑,gala;lesson 5
-嗱,hey nàh;lesson 5
-預埋我,算上我 yuhmáaih ngóh;lesson 5
-唱K,唱卡拉OK cheung kēi;lesson 5
-睇戲,看電影 táihei;lesson 5
-講開又講,說起來 gónghōi yauh góng;lesson 5
-叻,棒 lēk;lesson 5
-邊度係呀,哪裡哪裡 bīndouh haih a;lesson 5
-為咗,為了 waihjó;lesson 5
-係呢,那(對了) haih nē;lesson 5
-也都得,什麼都行 māt dōu dāk;lesson 5
-搞笑,好笑的 gáausiu;lesson 5
-V返(吓),把握機會/時間V   V fāan (háh);lesson 5
-不嬲都,一直都 bātlāu dōu;lesson 5
-飛,票 fēi;lesson 5
-慳錢,省錢 hāanchín;lesson 5
-噉又係喎,那也是 gám yauh haih wo;lesson 5
+{ "items" : ["返學", "上學 fāanhohk"], "tags" : ["lesson 5"]},
+{ "items" : ["傾器", "談起來 kīnghéi"], "tags" : ["lesson 5"]},
+{ "items" : ["定(係)", "還是 dihng(haih)"], "tags" : ["lesson 5"]},
+{ "items" : ["冇所謂", "無所謂 móuh sówaih"], "tags" : ["lesson 5"]},
+{ "items" : ["...又得\,...又得", "可以...也可以... yauh dāk...yauh dāk"], "tags" : ["lesson 5"]},
+{ "items" : ["執嘢", "收拾東西 jāpyéh"], "tags" : ["lesson 5"]},
+{ "items" : ["打機", "玩電腦遊戲 dágēi"], "tags" : ["lesson 5"]},
+{ "items" : ["啩", "吧 gwa"], "tags" : ["lesson 5"]},
+{ "items" : ["好似", "好像 hóuchíh"], "tags" : ["lesson 5"]},
+{ "items" : ["泳池", "游泳池 wihngchìh"], "tags" : ["lesson 5"]},
+{ "items" : ["囉", "lō"], "tags" : ["lesson 5"]},
+{ "items" : ["咁啱", "這麼巧 gam ngāam"], "tags" : ["lesson 5"]},
+{ "items" : ["打波", "打球 dábō"], "tags" : ["lesson 5"]},
+{ "items" : ["渣", "差 já"], "tags" : ["lesson 5"]},
+{ "items" : ["㗎嘑", "gala"], "tags" : ["lesson 5"]},
+{ "items" : ["嗱", "hey nàh"], "tags" : ["lesson 5"]},
+{ "items" : ["預埋我", "算上我 yuhmáaih ngóh"], "tags" : ["lesson 5"]},
+{ "items" : ["唱K", "唱卡拉OK cheung kēi"], "tags" : ["lesson 5"]},
+{ "items" : ["睇戲", "看電影 táihei"], "tags" : ["lesson 5"]},
+{ "items" : ["講開又講", "說起來 gónghōi yauh góng"], "tags" : ["lesson 5"]},
+{ "items" : ["叻", "棒 lēk"], "tags" : ["lesson 5"]},
+{ "items" : ["邊度係呀", "哪裡哪裡 bīndouh haih a"], "tags" : ["lesson 5"]},
+{ "items" : ["為咗", "為了 waihjó"], "tags" : ["lesson 5"]},
+{ "items" : ["係呢", "那(對了) haih nē"], "tags" : ["lesson 5"]},
+{ "items" : ["也都得", "什麼都行 māt dōu dāk"], "tags" : ["lesson 5"]},
+{ "items" : ["搞笑", "好笑的 gáausiu"], "tags" : ["lesson 5"]},
+{ "items" : ["V返(吓)", "把握機會/時間V   V fāan (háh)"], "tags" : ["lesson 5"]},
+{ "items" : ["不嬲都", "一直都 bātlāu dōu"], "tags" : ["lesson 5"]},
+{ "items" : ["飛", "票 fēi"], "tags" : ["lesson 5"]},
+{ "items" : ["慳錢", "省錢 hāanchín"], "tags" : ["lesson 5"]},
+{ "items" : ["噉又係喎", "那也是 gám yauh haih wo"], "tags" : ["lesson 5"]},
 #lesson 6
-師兄,師兄--sīhīng;lesson 6
-一排,--一段時間 yātpàaih;lesson 6
-呢排,最近--nīpàaih;lesson 6
-嗰排,那段時間--gópàaih;lesson 6
-嘑噃,了吧--la bo;lesson 6
-都幾,相當--dōu géi;lesson 6
-着,穿--jeuk;lesson 6
-T恤,T恤--tīsēut;lesson 6
-短褲,短褲--dyūn fu;lesson 6
-落雨,下雨--lohk yúh;lesson 6
-一時,一下子--yātsìh;lesson 6
-一時...,一時...,有時候...,有時候...--yātsìh...,;lesson 6
-唔記得,忘了--mgeidāk;lesson 6
-遮,雨傘--jē;lesson 6
-爭,差一點點--jāangdī;lesson 6
-話,說--wah;lesson 6
-遲幾日,過幾天--chìh géi yaht;lesson 6
-轉涼,轉冷--jyún lèuhng;lesson 6
-記住,記住--geijyuh;lesson 6
-因住,要記得--yānjyuh;lesson 6
-冷彩,毛衣--lāangsāam;lesson 6
-諗,想--nám;lesson 6
-諗住,打算--námjyuh;lesson 6
-今次,這一次--gām chi;lesson 6
-咪,不要--máih;lesson 6
-貪靚,愛美--tāamleng;lesson 6
-得滯,太--dākjaih;lesson 6
-仲...添,還...呢--juhng...tīm;lesson 6
-冇錯,沒錯--móuh cho;lesson 6
-頂唔順,受不了--díngmseuhn;lesson 6
-將,把--jēung;lesson 6
-樽領,高領--jēunléhng;lesson 6
-大樓,外套--daaihlāu;lesson 6
-棉衲,棉襖--mìhnnaahp;lesson 6
-攬,圍--laahm;lesson 6
-頸巾,圍巾--géngān;lesson 6
-媽咪,媽媽--māmìh;lesson 6
-織,編織--jīk;lesson 6
-早堂,早課--jóu tòhng;lesson 6
-房,房間--fóng;lesson 6
-瞓覺,睡覺--fangaau;lesson 6
-早唞,晚安--jóutáu;lesson 6
+{ "items" : ["師兄", "師兄--sīhīng"], "tags" : ["lesson 6"]},
+{ "items" : ["一排", "--一段時間 yātpàaih"], "tags" : ["lesson 6"]},
+{ "items" : ["呢排", "最近--nīpàaih"], "tags" : ["lesson 6"]},
+{ "items" : ["嗰排", "那段時間--gópàaih"], "tags" : ["lesson 6"]},
+{ "items" : ["嘑噃", "了吧--la bo"], "tags" : ["lesson 6"]},
+{ "items" : ["都幾", "相當--dōu géi"], "tags" : ["lesson 6"]},
+{ "items" : ["着", "穿--jeuk"], "tags" : ["lesson 6"]},
+{ "items" : ["T恤", "T恤--tīsēut"], "tags" : ["lesson 6"]},
+{ "items" : ["短褲", "短褲--dyūn fu"], "tags" : ["lesson 6"]},
+{ "items" : ["落雨", "下雨--lohk yúh"], "tags" : ["lesson 6"]},
+{ "items" : ["一時", "一下子--yātsìh"], "tags" : ["lesson 6"]},
+{ "items" : ["一時...", "一時...", "有時候...", "有時候...--yātsìh...", ""], "tags" : ["lesson 6"]},
+{ "items" : ["唔記得", "忘了--mgeidāk"], "tags" : ["lesson 6"]},
+{ "items" : ["遮", "雨傘--jē"], "tags" : ["lesson 6"]},
+{ "items" : ["爭", "差一點點--jāangdī"], "tags" : ["lesson 6"]},
+{ "items" : ["話", "說--wah"], "tags" : ["lesson 6"]},
+{ "items" : ["遲幾日", "過幾天--chìh géi yaht"], "tags" : ["lesson 6"]},
+{ "items" : ["轉涼", "轉冷--jyún lèuhng"], "tags" : ["lesson 6"]},
+{ "items" : ["記住", "記住--geijyuh"], "tags" : ["lesson 6"]},
+{ "items" : ["因住", "要記得--yānjyuh"], "tags" : ["lesson 6"]},
+{ "items" : ["冷彩", "毛衣--lāangsāam"], "tags" : ["lesson 6"]},
+{ "items" : ["諗", "想--nám"], "tags" : ["lesson 6"]},
+{ "items" : ["諗住", "打算--námjyuh"], "tags" : ["lesson 6"]},
+{ "items" : ["今次", "這一次--gām chi"], "tags" : ["lesson 6"]},
+{ "items" : ["咪", "不要--máih"], "tags" : ["lesson 6"]},
+{ "items" : ["貪靚", "愛美--tāamleng"], "tags" : ["lesson 6"]},
+{ "items" : ["得滯", "太--dākjaih"], "tags" : ["lesson 6"]},
+{ "items" : ["仲...添", "還...呢--juhng...tīm"], "tags" : ["lesson 6"]},
+{ "items" : ["冇錯", "沒錯--móuh cho"], "tags" : ["lesson 6"]},
+{ "items" : ["頂唔順", "受不了--díngmseuhn"], "tags" : ["lesson 6"]},
+{ "items" : ["將", "把--jēung"], "tags" : ["lesson 6"]},
+{ "items" : ["樽領", "高領--jēunléhng"], "tags" : ["lesson 6"]},
+{ "items" : ["大樓", "外套--daaihlāu"], "tags" : ["lesson 6"]},
+{ "items" : ["棉衲", "棉襖--mìhnnaahp"], "tags" : ["lesson 6"]},
+{ "items" : ["攬", "圍--laahm"], "tags" : ["lesson 6"]},
+{ "items" : ["頸巾", "圍巾--géngān"], "tags" : ["lesson 6"]},
+{ "items" : ["媽咪", "媽媽--māmìh"], "tags" : ["lesson 6"]},
+{ "items" : ["織", "編織--jīk"], "tags" : ["lesson 6"]},
+{ "items" : ["早堂", "早課--jóu tòhng"], "tags" : ["lesson 6"]},
+{ "items" : ["房", "房間--fóng"], "tags" : ["lesson 6"]},
+{ "items" : ["瞓覺", "睡覺--fangaau"], "tags" : ["lesson 6"]},
+{ "items" : ["早唞", "晚安--jóutáu"], "tags" : ["lesson 6"]},
 #lesson 7
-仲係,還是--juhnghaih;lesson 7
-之嘛,而已--jīmáh;lesson 7
-成M,整M--sèhng M;lesson 7
-錫,愛/吻--sek;lesson 7
-唯有...係啦/罷啦,只好...吧--wàihyáuh...háilā/bálā;lesson 7
-阿嫲,奶奶--A-màh;lesson 7
-阿爺,爺爺--A-yèh;lesson 7
-過咗身,去世了--gwojó sān;lesson 7
-家姐,姐姐--gājē;lesson 7
-細佬,弟弟--sailóu;lesson 7
-排,排行--pàaih;lesson 7
-咪...囉,不是...嗎/那就...啦--maih...lō;lesson 7
-做嘢,jouhyéh--;lesson 7
-波士,老闆--bōsí;lesson 7
-老細,老闆--lóuhsai;lesson 7
-老豆,爸爸--lóuhdauh;lesson 7
-唔使慌,別指望--msái fōng;lesson 7
-收得工,可以下班--sāudāk gūng;lesson 7
-放工,下班--fonggūng;lesson 7
-鬼(死),咁--那麼 gwái(séi)gam;lesson 7
-好鬼(死),很--hóu gwái (séi);lesson 7
-得,只有--dāk;lesson 7
-菲傭,菲傭--fēiyùhng;lesson 7
-理,照顧--léih;lesson 7
-至真,才對--ji jān;lesson 7
-就,才對--jauh;lesson 7
-做唔倒,不能做--jouh mdóu;lesson 7
-睇住,照顧--táijyuh;lesson 7
-起樓,蓋樓房--héiláu;lesson 7
-搏,用功--bok;lesson 7
-鬧交,吵架--naauhgāau;lesson 7
-嗌交,吵架--ngaaigāau;lesson 7
-打架,打架--dágāau;lesson 7
-整整吓,漸漸地--jíngjínghá;lesson 7
-講講吓,說着說着--gónggónghá;lesson 7
-整,修理--jíng;lesson 7
-手勢,手藝--sáusai;lesson 7
-講返,說會--góngfāan;lesson 7
+{ "items" : ["仲係", "還是--juhnghaih"], "tags" : ["lesson 7"]},
+{ "items" : ["之嘛", "而已--jīmáh"], "tags" : ["lesson 7"]},
+{ "items" : ["成M", "整M--sèhng M"], "tags" : ["lesson 7"]},
+{ "items" : ["錫", "愛/吻--sek"], "tags" : ["lesson 7"]},
+{ "items" : ["唯有...係啦/罷啦", "只好...吧--wàihyáuh...háilā/bálā"], "tags" : ["lesson 7"]},
+{ "items" : ["阿嫲", "奶奶--A-màh"], "tags" : ["lesson 7"]},
+{ "items" : ["阿爺", "爺爺--A-yèh"], "tags" : ["lesson 7"]},
+{ "items" : ["過咗身", "去世了--gwojó sān"], "tags" : ["lesson 7"]},
+{ "items" : ["家姐", "姐姐--gājē"], "tags" : ["lesson 7"]},
+{ "items" : ["細佬", "弟弟--sailóu"], "tags" : ["lesson 7"]},
+{ "items" : ["排", "排行--pàaih"], "tags" : ["lesson 7"]},
+{ "items" : ["咪...囉", "不是...嗎/那就...啦--maih...lō"], "tags" : ["lesson 7"]},
+{ "items" : ["做嘢", "jouhyéh--"], "tags" : ["lesson 7"]},
+{ "items" : ["波士", "老闆--bōsí"], "tags" : ["lesson 7"]},
+{ "items" : ["老細", "老闆--lóuhsai"], "tags" : ["lesson 7"]},
+{ "items" : ["老豆", "爸爸--lóuhdauh"], "tags" : ["lesson 7"]},
+{ "items" : ["唔使慌", "別指望--msái fōng"], "tags" : ["lesson 7"]},
+{ "items" : ["收得工", "可以下班--sāudāk gūng"], "tags" : ["lesson 7"]},
+{ "items" : ["放工", "下班--fonggūng"], "tags" : ["lesson 7"]},
+{ "items" : ["鬼(死)", "咁--那麼 gwái(séi)gam"], "tags" : ["lesson 7"]},
+{ "items" : ["好鬼(死)", "很--hóu gwái (séi)"], "tags" : ["lesson 7"]},
+{ "items" : ["得", "只有--dāk"], "tags" : ["lesson 7"]},
+{ "items" : ["菲傭", "菲傭--fēiyùhng"], "tags" : ["lesson 7"]},
+{ "items" : ["理", "照顧--léih"], "tags" : ["lesson 7"]},
+{ "items" : ["至真", "才對--ji jān"], "tags" : ["lesson 7"]},
+{ "items" : ["就", "才對--jauh"], "tags" : ["lesson 7"]},
+{ "items" : ["做唔倒", "不能做--jouh mdóu"], "tags" : ["lesson 7"]},
+{ "items" : ["睇住", "照顧--táijyuh"], "tags" : ["lesson 7"]},
+{ "items" : ["起樓", "蓋樓房--héiláu"], "tags" : ["lesson 7"]},
+{ "items" : ["搏", "用功--bok"], "tags" : ["lesson 7"]},
+{ "items" : ["鬧交", "吵架--naauhgāau"], "tags" : ["lesson 7"]},
+{ "items" : ["嗌交", "吵架--ngaaigāau"], "tags" : ["lesson 7"]},
+{ "items" : ["打架", "打架--dágāau"], "tags" : ["lesson 7"]},
+{ "items" : ["整整吓", "漸漸地--jíngjínghá"], "tags" : ["lesson 7"]},
+{ "items" : ["講講吓", "說着說着--gónggónghá"], "tags" : ["lesson 7"]},
+{ "items" : ["整", "修理--jíng"], "tags" : ["lesson 7"]},
+{ "items" : ["手勢", "手藝--sáusai"], "tags" : ["lesson 7"]},
+{ "items" : ["講返", "說會--góngfāan"], "tags" : ["lesson 7"]},
 #lesson 8
-㷫,發燒--hing;lesson 8
-大牌檔,大排檔--daaihpàaih dong;lesson 8
-宵夜,夜宵--sīuyé;lesson 8
-痾,拉肚子--ngō;lesson 8
-嘔,吐--ngáu;lesson 8
-搞唔掂,不能控制--gáau mdihm;lesson 8
-瞓落牀,躺在床上--fanlohk chòhng;lesson 8
-點瞓都瞓唔着,怎麼睡都睡不著--dím fan dōu fan mjeuhk;lesson 8
-睇醫生,看醫生--tái yīsāng;lesson 8
-掛號,掛號--gwahouh;lesson 8
-探熱(V),量體溫--taamyiht;lesson 8
-冷親,着涼--láahngchān;lesson 8
-收尾,後來--sāumēi;lesson 8
-流鼻水,流鼻水--láuh beihséui;lesson 8
-猛,不停地--máahng;lesson 8
-打乞嗤,打噴嚏--dá hātchī;lesson 8
-周身,全身--jāusān;lesson 8
-咳,咳嗽--kāt;lesson 8
-犀利,厲害--sāileih;lesson 8
-惹,傳染--yéh;lesson 8
-想唔...都唔得,想不...也不能--séung m...dōu mdāk;lesson 8
-唔妥,不舒服--mtóh;lesson 8
-V妥,好V--V tóh;lesson 8
-軟,沒力--yúhn;lesson 8
-污糟,髒--wūjōu;lesson 8
-撞到,遇到--johngdóu;lesson 8
-白車,救護車--baahkchē;lesson 8
-十字車,救護車--sahpjichē;lesson 8
-救傷車,救護車--gausēungchē;lesson 8
-入,進--yahp;lesson 8
-卒之,終於--jēutjī;lesson 8
-搞到,結果是--gáaudou;lesson 8
-拖,拖--tō;lesson 8
-好返,痊癒--hóufāan;lesson 8
-唞,休息--táu;lesson 8
-有吓...都唔定,手部定會...--yūkháh...dōu mdihng;lesson 8
-...嘑掛,應該...吧--la gwa;lesson 8
-...嘑可,...是吧？la--hó;lesson 8
-...嘑咩,難道...嗎？--la mē;lesson 8
+{ "items" : ["㷫", "發燒--hing"], "tags" : ["lesson 8"]},
+{ "items" : ["大牌檔", "大排檔--daaihpàaih dong"], "tags" : ["lesson 8"]},
+{ "items" : ["宵夜", "夜宵--sīuyé"], "tags" : ["lesson 8"]},
+{ "items" : ["痾", "拉肚子--ngō"], "tags" : ["lesson 8"]},
+{ "items" : ["嘔", "吐--ngáu"], "tags" : ["lesson 8"]},
+{ "items" : ["搞唔掂", "不能控制--gáau mdihm"], "tags" : ["lesson 8"]},
+{ "items" : ["瞓落牀", "躺在床上--fanlohk chòhng"], "tags" : ["lesson 8"]},
+{ "items" : ["點瞓都瞓唔着", "怎麼睡都睡不著--dím fan dōu fan mjeuhk"], "tags" : ["lesson 8"]},
+{ "items" : ["睇醫生", "看醫生--tái yīsāng"], "tags" : ["lesson 8"]},
+{ "items" : ["掛號", "掛號--gwahouh"], "tags" : ["lesson 8"]},
+{ "items" : ["探熱(V)", "量體溫--taamyiht"], "tags" : ["lesson 8"]},
+{ "items" : ["冷親", "着涼--láahngchān"], "tags" : ["lesson 8"]},
+{ "items" : ["收尾", "後來--sāumēi"], "tags" : ["lesson 8"]},
+{ "items" : ["流鼻水", "流鼻水--láuh beihséui"], "tags" : ["lesson 8"]},
+{ "items" : ["猛", "不停地--máahng"], "tags" : ["lesson 8"]},
+{ "items" : ["打乞嗤", "打噴嚏--dá hātchī"], "tags" : ["lesson 8"]},
+{ "items" : ["周身", "全身--jāusān"], "tags" : ["lesson 8"]},
+{ "items" : ["咳", "咳嗽--kāt"], "tags" : ["lesson 8"]},
+{ "items" : ["犀利", "厲害--sāileih"], "tags" : ["lesson 8"]},
+{ "items" : ["惹", "傳染--yéh"], "tags" : ["lesson 8"]},
+{ "items" : ["想唔...都唔得", "想不...也不能--séung m...dōu mdāk"], "tags" : ["lesson 8"]},
+{ "items" : ["唔妥", "不舒服--mtóh"], "tags" : ["lesson 8"]},
+{ "items" : ["V妥", "好V--V tóh"], "tags" : ["lesson 8"]},
+{ "items" : ["軟", "沒力--yúhn"], "tags" : ["lesson 8"]},
+{ "items" : ["污糟", "髒--wūjōu"], "tags" : ["lesson 8"]},
+{ "items" : ["撞到", "遇到--johngdóu"], "tags" : ["lesson 8"]},
+{ "items" : ["白車", "救護車--baahkchē"], "tags" : ["lesson 8"]},
+{ "items" : ["十字車", "救護車--sahpjichē"], "tags" : ["lesson 8"]},
+{ "items" : ["救傷車", "救護車--gausēungchē"], "tags" : ["lesson 8"]},
+{ "items" : ["入", "進--yahp"], "tags" : ["lesson 8"]},
+{ "items" : ["卒之", "終於--jēutjī"], "tags" : ["lesson 8"]},
+{ "items" : ["搞到", "結果是--gáaudou"], "tags" : ["lesson 8"]},
+{ "items" : ["拖", "拖--tō"], "tags" : ["lesson 8"]},
+{ "items" : ["好返", "痊癒--hóufāan"], "tags" : ["lesson 8"]},
+{ "items" : ["唞", "休息--táu"], "tags" : ["lesson 8"]},
+{ "items" : ["有吓...都唔定", "手部定會...--yūkháh...dōu mdihng"], "tags" : ["lesson 8"]},
+{ "items" : ["...嘑掛", "應該...吧--la gwa"], "tags" : ["lesson 8"]},
+{ "items" : ["...嘑可", "...是吧？la--hó"], "tags" : ["lesson 8"]},
+{ "items" : ["...嘑咩", "難道...嗎？--la mē"], "tags" : ["lesson 8"]},
+]}
