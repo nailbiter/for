@@ -45,7 +45,7 @@
 { "items" : ["豉油", "sihyàuh--soybean sauce"], "tags" : ["lesson 2"]},
 { "items" : ["猛火", "máahngfó--big fire"], "tags" : ["lesson 2"]},
 { "items" : ["燶", "nūng--burn"], "tags" : ["lesson 2"]},
-{ "items" : ["夠鑊氣", "gau wohkhei--"fire-smelled""], "tags" : ["lesson 2"]},
+{ "items" : ["夠鑊氣", "gau wohkhei--'fire-smelled'"], "tags" : ["lesson 2"]},
 { "items" : ["過龍", "wgolùhng--go too far"], "tags" : ["lesson 2"]},
 { "items" : ["閒閒哋", "hàahnháandéi--at least"], "tags" : ["lesson 2"]},
 { "items" : ["心郁郁", "sāmyūkyūk--eager to do smth"], "tags" : ["lesson 2"]},
