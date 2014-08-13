@@ -2,239 +2,238 @@
 #encoding - utf8
 #default skip_mode - random
 #adapt
-rand
+{
+"selectionMode" : "rand",
+"generators" : [
+{ "tags" : ["Apr3Wordlist"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
+{ "tags" : ["L17"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
+{ "tags" : ["L18"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
+{ "tags" : ["L19"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
+{ "tags" : ["relatives"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false,"auxText" : "Own"},
+{ "tags" : ["relatives"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false,"auxText" : "Others"}
+],
 ####
-#section 2 - quiz generator
-#taglist;qsttans;mode(sc,ti);{aux_msg}
-#only items that match all the tags in generator's taglist will be taken
-#duplicates are not eliminated
-#Apr3Wordlist;0->1;sc
-#L17;0->1;sc
-#L18;0->1;sc
-#L17;0->2;sc
-#L19;0->1;sc
-relatives;0->1;sc,Own
-relatives;0->2;sc,Other's
-####
+"dataitems" : [
 #english,hiragana,kanji;tags
 #question, answer, tag
-1日,ついたち; dates
-2日,ふつか; dates
-3日,みっか; dates
-4日,よっか; dates
-5日,いつか; dates
-6日,むいか; dates
-7日,なのか; dates
-8日,ようか; dates
-9日,ここのか; dates
-10日,とおか; dates
-14日,じゅうよっか; dates
-20日,はつか; dates
-24日,にじゅうよっか; dates
+{ "items" : ["1日", "ついたち"], "tags" : ["dates"]},
+{ "items" : ["2日", "ふつか"], "tags" : ["dates"]},
+{ "items" : ["3日", "みっか"], "tags" : ["dates"]},
+{ "items" : ["4日", "よっか"], "tags" : ["dates"]},
+{ "items" : ["5日", "いつか"], "tags" : ["dates"]},
+{ "items" : ["6日", "むいか"], "tags" : ["dates"]},
+{ "items" : ["7日", "なのか"], "tags" : ["dates"]},
+{ "items" : ["8日", "ようか"], "tags" : ["dates"]},
+{ "items" : ["9日", "ここのか"], "tags" : ["dates"]},
+{ "items" : ["10日", "とおか"], "tags" : ["dates"]},
+{ "items" : ["14日", "じゅうよっか"], "tags" : ["dates"]},
+{ "items" : ["20日", "はつか"], "tags" : ["dates"]},
+{ "items" : ["24日", "にじゅうよっか"], "tags" : ["dates"]},
 #L17
-pay,はらいます - 払います; L17
-bring along,もっていきます - 持って行きます; L17
-bring along,もってきます - 持って来ます; L17
-take off,ぬぎます - 脱ぎます; L17
-lose,なくします - 無くします; L17
-submit (homework),だします - 出します; L17
-return,かえします - 返します; L17
-take (medicine),のみます - 飲みます; L17
-take (a bath),はいります - 入ります; L17
-memorize,おぼえます - 覚えます; L17
-go out,でかけます - 出掛けます; L17
-forget,わすれます - 忘れます; L17
-worry,しんぱいします - 心配します; L17
-work overtime,ざんぎょうします - 残業します; L17
-make a business trip,しゅっちょうします - 出張します; L17
-important,たいせつな - 大切な; L17
-okay,だいじょうぶな - 大丈夫な; L17
-dangerous,あぶない - 危ない; L17
-question,もんだい - 問題; L17
-answer,こたえ - 答え; L17
-no smoking,きんえん - 禁煙; L17
-insurance card,ほけんしょう - 保険証; L17
-flu,かぜ - 風邪; L17
-fever,ねつ - 熱; L17
-disease,びょうき - 病気; L17
-medicine,くすり - 薬; L17
-bath (furo),ふろ - 風呂; L17
-jacket,うわぎ - 上着; L17
-underwear,したぎ - 下着; L17
-teacher (referring to the doctor),せんせい - 先生; L17
-painful,いたい - 痛い; L17
-throat,のど - 喉; L17
-god bless you,おだいじに - お大事に; L17
+{ "items" : ["pay", "はらいます - 払います"], "tags" : ["L17"]},
+{ "items" : ["bring along", "もっていきます - 持って行きます"], "tags" : ["L17"]},
+{ "items" : ["bring along", "もってきます - 持って来ます"], "tags" : ["L17"]},
+{ "items" : ["take off", "ぬぎます - 脱ぎます"], "tags" : ["L17"]},
+{ "items" : ["lose", "なくします - 無くします"], "tags" : ["L17"]},
+{ "items" : ["submit (homework)", "だします - 出します"], "tags" : ["L17"]},
+{ "items" : ["return", "かえします - 返します"], "tags" : ["L17"]},
+{ "items" : ["take (medicine)", "のみます - 飲みます"], "tags" : ["L17"]},
+{ "items" : ["take (a bath)", "はいります - 入ります"], "tags" : ["L17"]},
+{ "items" : ["memorize", "おぼえます - 覚えます"], "tags" : ["L17"]},
+{ "items" : ["go out", "でかけます - 出掛けます"], "tags" : ["L17"]},
+{ "items" : ["forget", "わすれます - 忘れます"], "tags" : ["L17"]},
+{ "items" : ["worry", "しんぱいします - 心配します"], "tags" : ["L17"]},
+{ "items" : ["work overtime", "ざんぎょうします - 残業します"], "tags" : ["L17"]},
+{ "items" : ["make a business trip", "しゅっちょうします - 出張します"], "tags" : ["L17"]},
+{ "items" : ["important", "たいせつな - 大切な"], "tags" : ["L17"]},
+{ "items" : ["okay", "だいじょうぶな - 大丈夫な"], "tags" : ["L17"]},
+{ "items" : ["dangerous", "あぶない - 危ない"], "tags" : ["L17"]},
+{ "items" : ["question", "もんだい - 問題"], "tags" : ["L17"]},
+{ "items" : ["answer", "こたえ - 答え"], "tags" : ["L17"]},
+{ "items" : ["no smoking", "きんえん - 禁煙"], "tags" : ["L17"]},
+{ "items" : ["insurance card", "ほけんしょう - 保険証"], "tags" : ["L17"]},
+{ "items" : ["flu", "かぜ - 風邪"], "tags" : ["L17"]},
+{ "items" : ["fever", "ねつ - 熱"], "tags" : ["L17"]},
+{ "items" : ["disease", "びょうき - 病気"], "tags" : ["L17"]},
+{ "items" : ["medicine", "くすり - 薬"], "tags" : ["L17"]},
+{ "items" : ["bath (furo)", "ふろ - 風呂"], "tags" : ["L17"]},
+{ "items" : ["jacket", "うわぎ - 上着"], "tags" : ["L17"]},
+{ "items" : ["underwear", "したぎ - 下着"], "tags" : ["L17"]},
+{ "items" : ["teacher (referring to the doctor)", "せんせい - 先生"], "tags" : ["L17"]},
+{ "items" : ["painful", "いたい - 痛い"], "tags" : ["L17"]},
+{ "items" : ["throat", "のど - 喉"], "tags" : ["L17"]},
+{ "items" : ["god bless you", "おだいじに - お大事に"], "tags" : ["L17"]},
 #L18
-be able to,できます;L18
-wash,あらいます - 洗います;L18
-play (on piano),ひきます - 弾きます;L18
-sing,うたいます - 歌います;L18
-collect,あつめます - 集めます;L18
-throw away,すてます - 捨てます;L18
-exchange,かえます - 換えます;L18
-drive,うんてんします - 運転します;L18
-book (reserve),よやくします - 予約します;L18
-see the sights,けんがくします - 見学します;L18
-piano,ピアノ;L18
-meter,メートル;L18
-international,こくさい - 国際;L18
-cash,げんきん - 現金;L18
-hobby,しゅみ - 趣味;L18
-diary,にっき - 日記;L18
-prayer,いのり - 祈り;L18
-section head,かちょう - 課長;L18
-department head,ぶちょう - 部長;L18
-company president,しゃちょう - 社長;L18
-animal,どうぶつ - 動物;L18
-horse,うま - 馬;L18
-especially,特に - とくに;L18
-not easily (used with negatives),なかなか;L18
-ranch,牧場;L18
-Really?,ほんとうですか;L18
-by all means (really),ぜひ;L18
+{ "items" : ["be able to", "できます"], "tags" : ["L18"]},
+{ "items" : ["wash", "あらいます - 洗います"], "tags" : ["L18"]},
+{ "items" : ["play (on piano)", "ひきます - 弾きます"], "tags" : ["L18"]},
+{ "items" : ["sing", "うたいます - 歌います"], "tags" : ["L18"]},
+{ "items" : ["collect", "あつめます - 集めます"], "tags" : ["L18"]},
+{ "items" : ["throw away", "すてます - 捨てます"], "tags" : ["L18"]},
+{ "items" : ["exchange", "かえます - 換えます"], "tags" : ["L18"]},
+{ "items" : ["drive", "うんてんします - 運転します"], "tags" : ["L18"]},
+{ "items" : ["book (reserve)", "よやくします - 予約します"], "tags" : ["L18"]},
+{ "items" : ["see the sights", "けんがくします - 見学します"], "tags" : ["L18"]},
+{ "items" : ["piano", "ピアノ"], "tags" : ["L18"]},
+{ "items" : ["meter", "メートル"], "tags" : ["L18"]},
+{ "items" : ["international", "こくさい - 国際"], "tags" : ["L18"]},
+{ "items" : ["cash", "げんきん - 現金"], "tags" : ["L18"]},
+{ "items" : ["hobby", "しゅみ - 趣味"], "tags" : ["L18"]},
+{ "items" : ["diary", "にっき - 日記"], "tags" : ["L18"]},
+{ "items" : ["prayer", "いのり - 祈り"], "tags" : ["L18"]},
+{ "items" : ["section head", "かちょう - 課長"], "tags" : ["L18"]},
+{ "items" : ["department head", "ぶちょう - 部長"], "tags" : ["L18"]},
+{ "items" : ["company president", "しゃちょう - 社長"], "tags" : ["L18"]},
+{ "items" : ["animal", "どうぶつ - 動物"], "tags" : ["L18"]},
+{ "items" : ["horse", "うま - 馬"], "tags" : ["L18"]},
+{ "items" : ["especially", "特に - とくに"], "tags" : ["L18"]},
+{ "items" : ["not easily (used with negatives)", "なかなか"], "tags" : ["L18"]},
+{ "items" : ["ranch", "牧場"], "tags" : ["L18"]},
+{ "items" : ["Really?", "ほんとうですか"], "tags" : ["L18"]},
+{ "items" : ["by all means (really)", "ぜひ"], "tags" : ["L18"]},
 #wordlist of a day (5 per day)
-stay (v.),とまります - 泊まります;Apr3Wordlist
-group travel,だんたいりょこう - 団体旅行;Apr3Wordlist
+{ "items" : ["stay (v.)", "とまります - 泊まります"], "tags" : ["Apr3Wordlist"]},
+{ "items" : ["group travel", "だんたいりょこう - 団体旅行"], "tags" : ["Apr3Wordlist"]},
 #L19
-climb,のぼります - 登ります;L19
-stay (at a hotel),とまります - 泊まります;L19
-become,なります - 成ります;L19
-clean (a room),そうじします - 掃除します;L19
-wash (clothes),せんたくします - 洗濯します;L19
-practice,れんしゅうします - 練習します;L19
-sleepy,ねむい - 眠い;L19
-strong,つよい - 強い;L19
-weak,よわい - 弱い;L19
-condition is good,ちょうしがいい - 調子が良い;L19
-condition is bad,ちょうしがわるい - 調子が悪い;L19
-good for ones health,からだにいい - 体に良い;L19
-excessive/impossible,むりな - 無理な;L19
-golf,ゴルフ;L19
-sumo wrestling,すもう - 相撲;L19
-Pachinko,パチンコ;L19
-day/date,ひ - 日;L19
-once,いちど - 一度;L19
-never,いちども - 一度も;L19
-gradually,だんだん;L19
-soon,もうすぐ;L19
-Thank you (for help),おかげさまで - お陰様で;L19
-Bottoms up,かんぱい - 乾杯;L19
-In fact,じつは - 実は;L19
-diet,ダイエット;L19
-many times,なんかいも - 何回も;L19
+{ "items" : ["climb", "のぼります - 登ります"], "tags" : ["L19"]},
+{ "items" : ["stay (at a hotel)", "とまります - 泊まります"], "tags" : ["L19"]},
+{ "items" : ["become", "なります - 成ります"], "tags" : ["L19"]},
+{ "items" : ["clean (a room)", "そうじします - 掃除します"], "tags" : ["L19"]},
+{ "items" : ["wash (clothes)", "せんたくします - 洗濯します"], "tags" : ["L19"]},
+{ "items" : ["practice", "れんしゅうします - 練習します"], "tags" : ["L19"]},
+{ "items" : ["sleepy", "ねむい - 眠い"], "tags" : ["L19"]},
+{ "items" : ["strong", "つよい - 強い"], "tags" : ["L19"]},
+{ "items" : ["weak", "よわい - 弱い"], "tags" : ["L19"]},
+{ "items" : ["condition is good", "ちょうしがいい - 調子が良い"], "tags" : ["L19"]},
+{ "items" : ["condition is bad", "ちょうしがわるい - 調子が悪い"], "tags" : ["L19"]},
+{ "items" : ["good for ones health", "からだにいい - 体に良い"], "tags" : ["L19"]},
+{ "items" : ["excessive/impossible", "むりな - 無理な"], "tags" : ["L19"]},
+{ "items" : ["golf", "ゴルフ"], "tags" : ["L19"]},
+{ "items" : ["sumo wrestling", "すもう - 相撲"], "tags" : ["L19"]},
+{ "items" : ["Pachinko", "パチンコ"], "tags" : ["L19"]},
+{ "items" : ["day/date", "ひ - 日"], "tags" : ["L19"]},
+{ "items" : ["once", "いちど - 一度"], "tags" : ["L19"]},
+{ "items" : ["never", "いちども - 一度も"], "tags" : ["L19"]},
+{ "items" : ["gradually", "だんだん"], "tags" : ["L19"]},
+{ "items" : ["soon", "もうすぐ"], "tags" : ["L19"]},
+{ "items" : ["Thank you (for help)", "おかげさまで - お陰様で"], "tags" : ["L19"]},
+{ "items" : ["Bottoms up", "かんぱい - 乾杯"], "tags" : ["L19"]},
+{ "items" : ["In fact", "じつは - 実は"], "tags" : ["L19"]},
+{ "items" : ["diet", "ダイエット"], "tags" : ["L19"]},
+{ "items" : ["many times", "なんかいも - 何回も"], "tags" : ["L19"]},
 #L20
-need,いります - 要ります;L20
-check,しらべます - 調べます;L20
-correct (v.),なおします - 直します;L20
-repair (v.),しゅうりします - 修理します;L20
-talk on the phone,でんわします - 電話します;L20
-I,ぼく - 僕;L20
-You,きみ - 君;L20
-Kun,〜くん - 〜君;L20
-Yes (informal),うん;L20
-No (informal),ううん;L20
-salaried worker,サラリーマン;L20
-words,ことば - 言葉;L20
-prices,ぶっか - 物価;L20
-Kimono,きもの - 着物;L20
-Visa,ビザ/ヴィザ - ;L20
-the beginning,はじめ - 初め;L20
-the end,おわり - 終わり;L20
-this place,こっち;L20
-that place (close),そっち;L20
-that place (far),あっち;L20
-where,どっち;L20
-the other day,このあいだ - この間;L20
-with everyone,みんなで - 皆で;L20
-but〜,〜けど;L20
+{ "items" : ["need", "いります - 要ります"], "tags" : ["L20"]},
+{ "items" : ["check", "しらべます - 調べます"], "tags" : ["L20"]},
+{ "items" : ["correct (v.)", "なおします - 直します"], "tags" : ["L20"]},
+{ "items" : ["repair (v.)", "しゅうりします - 修理します"], "tags" : ["L20"]},
+{ "items" : ["talk on the phone", "でんわします - 電話します"], "tags" : ["L20"]},
+{ "items" : ["I", "ぼく - 僕"], "tags" : ["L20"]},
+{ "items" : ["You", "きみ - 君"], "tags" : ["L20"]},
+{ "items" : ["Kun", "〜くん - 〜君"], "tags" : ["L20"]},
+{ "items" : ["Yes (informal)", "うん"], "tags" : ["L20"]},
+{ "items" : ["No (informal)", "ううん"], "tags" : ["L20"]},
+{ "items" : ["salaried worker", "サラリーマン"], "tags" : ["L20"]},
+{ "items" : ["words", "ことば - 言葉"], "tags" : ["L20"]},
+{ "items" : ["prices", "ぶっか - 物価"], "tags" : ["L20"]},
+{ "items" : ["Kimono", "きもの - 着物"], "tags" : ["L20"]},
+{ "items" : ["Visa", "ビザ/ヴィザ -"], "tags" : ["L20"]},
+{ "items" : ["the beginning", "はじめ - 初め"], "tags" : ["L20"]},
+{ "items" : ["the end", "おわり - 終わり"], "tags" : ["L20"]},
+{ "items" : ["this place", "こっち"], "tags" : ["L20"]},
+{ "items" : ["that place (close)", "そっち"], "tags" : ["L20"]},
+{ "items" : ["that place (far)", "あっち"], "tags" : ["L20"]},
+{ "items" : ["where", "どっち"], "tags" : ["L20"]},
+{ "items" : ["the other day", "このあいだ - この間"], "tags" : ["L20"]},
+{ "items" : ["with everyone", "みんなで - 皆で"], "tags" : ["L20"]},
+{ "items" : ["but〜", "〜けど"], "tags" : ["L20"]},
 #L21
-think,おもいます - 思います;L21
-say,いいます - 言います;L21
-to suffice,たります - 足ります;L21
-lose,まけます - 負けます;L21
-be useful,やくにたちます - 役に立ちます;L21
-win,かちます - 勝ちます;L21
-wasteful,むだな - 無駄な;L21
-to have,あります - (お祭りが)あります;L21
-inconvenient,ふべんな - 不便な;L21
-great/awful,すごい - 凄い;L21
-same,おなじ - 同じ;L21
-The prime minister,しゅしょう - 首相;L21
-The President,だいとうりょう - 大統領;L21
-Politics,せいじ - 政治;L21
-news,ニュース;L21
-speech,スピーチ;L21
-game or match,しあい - 試合;L21
-Part-time job,アルバイト;L21
-opinion,いけん - 意見;L21
-talk/speech,はなし - 話;L21
-Humor,ユーモア;L21
-Waste,むだ;L21
-design or artwork,デザイン;L21
-transport or traffic,こうつう - 交通;L21
-Rush hour,ラッシュ;L21
-Recently,さいきん - 最近;L21
-perhaps/probably,たぶん - 多分;L21
-surely/definitely,きっと;L21
-really,ほんとうに - 本当に;L21
-not so (used with negatives),そんなに;L21
-about〜,〜について;L21
-There is no help for it,しかたがありません - 仕方がありません;L21
-It's been a long time (since we last met),しばらくですね;L21
-How about drinking 〜 or something?,〜でものみませんか;L21
-I have to get home now,見ないと;L21
-of course,もちろん - 勿論;L21
-kangaroo,カンガルー;L21
-Captain James Cook (1728-1779),ジェームズ·クック;L21
+{ "items" : ["think", "おもいます - 思います"], "tags" : ["L21"]},
+{ "items" : ["say", "いいます - 言います"], "tags" : ["L21"]},
+{ "items" : ["to suffice", "たります - 足ります"], "tags" : ["L21"]},
+{ "items" : ["lose", "まけます - 負けます"], "tags" : ["L21"]},
+{ "items" : ["be useful", "やくにたちます - 役に立ちます"], "tags" : ["L21"]},
+{ "items" : ["win", "かちます - 勝ちます"], "tags" : ["L21"]},
+{ "items" : ["wasteful", "むだな - 無駄な"], "tags" : ["L21"]},
+{ "items" : ["to have", "あります - (お祭りが)あります"], "tags" : ["L21"]},
+{ "items" : ["inconvenient", "ふべんな - 不便な"], "tags" : ["L21"]},
+{ "items" : ["great/awful", "すごい - 凄い"], "tags" : ["L21"]},
+{ "items" : ["same", "おなじ - 同じ"], "tags" : ["L21"]},
+{ "items" : ["The prime minister", "しゅしょう - 首相"], "tags" : ["L21"]},
+{ "items" : ["The President", "だいとうりょう - 大統領"], "tags" : ["L21"]},
+{ "items" : ["Politics", "せいじ - 政治"], "tags" : ["L21"]},
+{ "items" : ["news", "ニュース"], "tags" : ["L21"]},
+{ "items" : ["speech", "スピーチ"], "tags" : ["L21"]},
+{ "items" : ["game or match", "しあい - 試合"], "tags" : ["L21"]},
+{ "items" : ["Part-time job", "アルバイト"], "tags" : ["L21"]},
+{ "items" : ["opinion", "いけん - 意見"], "tags" : ["L21"]},
+{ "items" : ["talk/speech", "はなし - 話"], "tags" : ["L21"]},
+{ "items" : ["Humor", "ユーモア"], "tags" : ["L21"]},
+{ "items" : ["Waste", "むだ"], "tags" : ["L21"]},
+{ "items" : ["design or artwork", "デザイン"], "tags" : ["L21"]},
+{ "items" : ["transport or traffic", "こうつう - 交通"], "tags" : ["L21"]},
+{ "items" : ["Rush hour", "ラッシュ"], "tags" : ["L21"]},
+{ "items" : ["Recently", "さいきん - 最近"], "tags" : ["L21"]},
+{ "items" : ["perhaps/probably", "たぶん - 多分"], "tags" : ["L21"]},
+{ "items" : ["surely/definitely", "きっと"], "tags" : ["L21"]},
+{ "items" : ["really", "ほんとうに - 本当に"], "tags" : ["L21"]},
+{ "items" : ["not so (used with negatives)", "そんなに"], "tags" : ["L21"]},
+{ "items" : ["about〜", "〜について"], "tags" : ["L21"]},
+{ "items" : ["There is no help for it", "しかたがありません - 仕方がありません"], "tags" : ["L21"]},
+{ "items" : ["It's been a long time (since we last met)", "しばらくですね"], "tags" : ["L21"]},
+{ "items" : ["How about drinking 〜 or something?", "〜でものみませんか"], "tags" : ["L21"]},
+{ "items" : ["I have to get home now", "見ないと"], "tags" : ["L21"]},
+{ "items" : ["of course", "もちろん - 勿論"], "tags" : ["L21"]},
+{ "items" : ["kangaroo", "カンガルー"], "tags" : ["L21"]},
+{ "items" : ["Captain James Cook (1728-1779)", "ジェームズ·クック"], "tags" : ["L21"]},
 #しばらく - 暫く;L21
 #L22
-put on (a shirt\, etc.),きます - 着ます;L22
-put on (shoes\, trousers\, etc.),はきます - 履きます;L22
-put on (a hat\, etc.),かぶります - 被ります;L22
-put on (glasses),かけます - (眼鏡を)掛けます;L22
-put on (tie),(ネクタイを)します;L22
-be born,うまれます - 生まれます;L22
-coat,コート;L22
-suit,スーツ;L22
-sweater,セーター;L22
-hat\, cap,ぼうし - 帽子;L22
-glasses,めがね - 眼鏡;L22
-often,よく;L22
-Congratulations. (bithday\, wedding\, etc.),おめでとう（ございます）;L22
-this (polite version of これ),こちら;L22
-rent,やちん - 家賃;L22
-I think,うーん;L22
-kitchen with a dining area,ダイニングキッチン;L22
-Japanese-style room,わしつ - 和室;L22
-Japanese-style closet,おしいれ - 押し入れ;L22
-Japanese-style mattress and quilt,ふとん - 布団;L22
-Apartment,アパート;L22
-Paris,パリ;L22
-the Great Wall of China,万里の長城;L22
+{ "items" : ["put on (a shirt\, etc.)", "きます - 着ます"], "tags" : ["L22"]},
+{ "items" : ["put on (shoes\, trousers\, etc.)", "はきます - 履きます"], "tags" : ["L22"]},
+{ "items" : ["put on (a hat\, etc.)", "かぶります - 被ります"], "tags" : ["L22"]},
+{ "items" : ["put on (glasses)", "かけます - (眼鏡を)掛けます"], "tags" : ["L22"]},
+{ "items" : ["put on (tie)", "(ネクタイを)します"], "tags" : ["L22"]},
+{ "items" : ["be born", "うまれます - 生まれます"], "tags" : ["L22"]},
+{ "items" : ["coat", "コート"], "tags" : ["L22"]},
+{ "items" : ["suit", "スーツ"], "tags" : ["L22"]},
+{ "items" : ["sweater", "セーター"], "tags" : ["L22"]},
+{ "items" : ["hat\, cap", "ぼうし - 帽子"], "tags" : ["L22"]},
+{ "items" : ["glasses", "めがね - 眼鏡"], "tags" : ["L22"]},
+{ "items" : ["often", "よく"], "tags" : ["L22"]},
+{ "items" : ["Congratulations. (bithday\, wedding\, etc.)", "おめでとう（ございます）"], "tags" : ["L22"]},
+{ "items" : ["this (polite version of これ)", "こちら"], "tags" : ["L22"]},
+{ "items" : ["rent", "やちん - 家賃"], "tags" : ["L22"]},
+{ "items" : ["I think", "うーん"], "tags" : ["L22"]},
+{ "items" : ["kitchen with a dining area", "ダイニングキッチン"], "tags" : ["L22"]},
+{ "items" : ["Japanese-style room", "わしつ - 和室"], "tags" : ["L22"]},
+{ "items" : ["Japanese-style closet", "おしいれ - 押し入れ"], "tags" : ["L22"]},
+{ "items" : ["Japanese-style mattress and quilt", "ふとん - 布団"], "tags" : ["L22"]},
+{ "items" : ["Apartment", "アパート"], "tags" : ["L22"]},
+{ "items" : ["Paris", "パリ"], "tags" : ["L22"]},
+{ "items" : ["the Great Wall of China", "万里の長城"], "tags" : ["L22"]},
 #polite expressions
-May I come in?,しつれいします; polite expressions
-I'm home!,ただいま; polite expressions
-Welcome home!,おかえりなさい; polite expressions
-Congratulations!,おめでとうございます; polite expressions
-(said before dish),いただきます; polite expressions
-(said after dish),ごちそうさまでした; polite expressions
-Good night,おやすみなさい; polite expressions
-I'll come back,いってきます; polite expressions
-Come back (said when someone is leaving),いってらしゃい; polite expressions
-welcome (in shops\, etc.),いらっしゃいませ;polite expressions
+{ "items" : ["May I come in?", "しつれいします"], "tags" : ["polite expressions"]},
+{ "items" : ["I'm home!", "ただいま"], "tags" : ["polite expressions"]},
+{ "items" : ["Welcome home!", "おかえりなさい"], "tags" : ["polite expressions"]},
+{ "items" : ["Congratulations!", "おめでとうございます"], "tags" : ["polite expressions"]},
+{ "items" : ["(said before dish)", "いただきます"], "tags" : ["polite expressions"]},
+{ "items" : ["(said after dish)", "ごちそうさまでした"], "tags" : ["polite expressions"]},
+{ "items" : ["Good night", "おやすみなさい"], "tags" : ["polite expressions"]},
+{ "items" : ["I'll come back", "いってきます"], "tags" : ["polite expressions"]},
+{ "items" : ["Come back (said when someone is leaving)", "いってらしゃい"], "tags" : ["polite expressions"]},
+{ "items" : ["welcome (in shops\, etc.)", "いらっしゃいませ"], "tags" : ["polite expressions"]},
 #relatives - english,own, others'
-father,ちち - 父,おとうさん - お父さん;relatives
-mother, はは - 母, おかあさん - お母さん; relatives
-older brother,あに - 兄,おにいさん - お兄さん; relatives
-older sister,あね - 姉,おねえさん - お姉さん; relatives
-younger brother,おとうと - 弟,おとうとさん - 弟さん; relatives
-younger sister,いもうと - 妹,いもうとさん - 妹さん; relatives
-grandfather,そふ - 祖父,おじいさん - おじいさん; relatives
-grandmother,そぼ - 祖母,おばあさん - お婆さん; relatives
-uncle,おじ - 叔父/伯父,おじさん; relatives
-aunt,おば - 叔母/伯母,おばさん; relatives
-husband,おっと - 夫,ごしゅじん - ご主人; relatives
-wife,つま - 妻,おくさん - 奥さん; relatives
-son,むすこ - 息子,むすこさん - 息子さん; relatives
-daughter,むすめ - 娘,おじょうさん - お嬢さん; relatives
+{ "items" : ["father", "ちち - 父", "おとうさん - お父さん"], "tags" : ["relatives"]},
+{ "items" : ["mother", "はは - 母", "おかあさん - お母さん"], "tags" : ["relatives"]},
+{ "items" : ["older brother", "あに - 兄", "おにいさん - お兄さん"], "tags" : ["relatives"]},
+{ "items" : ["older sister", "あね - 姉", "おねえさん - お姉さん"], "tags" : ["relatives"]},
+{ "items" : ["younger brother", "おとうと - 弟", "おとうとさん - 弟さん"], "tags" : ["relatives"]},
+{ "items" : ["younger sister", "いもうと - 妹", "いもうとさん - 妹さん"], "tags" : ["relatives"]},
+{ "items" : ["grandfather", "そふ - 祖父", "おじいさん - おじいさん"], "tags" : ["relatives"]},
+{ "items" : ["grandmother", "そぼ - 祖母", "おばあさん - お婆さん"], "tags" : ["relatives"]},
+{ "items" : ["uncle", "おじ - 叔父/伯父", "おじさん"], "tags" : ["relatives"]},
+{ "items" : ["aunt", "おば - 叔母/伯母", "おばさん"], "tags" : ["relatives"]},
+{ "items" : ["husband", "おっと - 夫", "ごしゅじん - ご主人"], "tags" : ["relatives"]},
+{ "items" : ["wife", "つま - 妻", "おくさん - 奥さん"], "tags" : ["relatives"]},
+{ "items" : ["son", "むすこ - 息子", "むすこさん - 息子さん"], "tags" : ["relatives"]},
+{ "items" : ["daughter", "むすめ - 娘", "おじょうさん - お嬢さん"], "tags" : ["relatives"]},
+]}

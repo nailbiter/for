@@ -8,7 +8,7 @@
 { "tags" : ["lesson 5"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
 { "tags" : ["lesson 6"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
 { "tags" : ["lesson 7"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
-{ "tags" : ["lesson 8"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true},
+{ "tags" : ["lesson 8"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see cantonese transcription" , "enabled" : false, "reflip" : true}
 ],
 "dataitems" : [
 { "items" : ["今", "yaht"], "tags" : ["lesson 1", "canto aux message"]},
