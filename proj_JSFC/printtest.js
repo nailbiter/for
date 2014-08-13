@@ -16,7 +16,7 @@ function print_test(test)
         oNewP.appendChild(oText);
         document.body.appendChild(oNewP);
     }*/
-    alert("here");
+    alert(test.dataitems.length + ' dataitems');
     /*var quiz = parseQuiz(lines);
     for( var i = 0; i < quiz.generators.length; i++ )
     {
