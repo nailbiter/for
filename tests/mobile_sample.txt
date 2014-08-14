@@ -2,9 +2,9 @@
 {
 "selectionMode" : "rand",
 "generators" : [
-{ "tags" : ["select"], "from" : 0, "to" : 1, "type" : "si", "enabled" : false,"auxText" : "evaluate an expression and select the answer"},
-{ "tags" : ["type in"], "from" : 0, "to" : 1, "type" : "ti", "enabled" : false,"auxText" : "type the word in reverse"},
-{ "tags" : ["self check"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false,"auxText" : "tap on a picture to see the chinese translation"}
+{ "tags" : ["select"], "from" : 0, "to" : 1, "type" : "si", "enabled" : true,"auxText" : "evaluate an expression and select the answer"},
+{ "tags" : ["type in"], "from" : 0, "to" : 1, "type" : "ti", "enabled" : true,"auxText" : "type the word in reverse"},
+{ "tags" : ["self check"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : true,"auxText" : "tap on a picture to see the chinese translation"}
 ],
 "dataitems" : [
 ####

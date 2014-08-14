@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
@@ -17,6 +16,7 @@
 void get_files(std::vector<std::string>& filenames);
 void serve_files(std::string& output);
 void serve_chosen_file(std::string& output,const std::string& filename);
+void trim(char** start_ptr,char* end);
 
 int main(void) 
 {
@@ -86,3 +86,54 @@ void get_files(std::vector<std::string>& filenames)
       closedir (dir);
     }
 }
+int other_main(void)
+{
+    char *line = NULL;
+    size_t n = 0;
+    printf("\"dataitems\" : [\n");
+    while( getline(&line,&n,stdin) != -1 )
+    {
+        if( line[0] == '#' )
+        {
+            printf("%s",line);
+            continue;
+        }
+
+        printf("{ \"items\" : [");
+        char* start = line, *end = start;
+        for(; *end != '\n' && *end != '\0'; end++ )
+        {
+            if( end[0] == ',' && end[-1] != '\\' )
+            {
+                end[0] = '\0';
+                trim(&start,end);
+                printf("\"%s\", ",start);
+                start = end + 1;
+                continue;
+            }
+            if( end[0] == ';' && end[-1] != '\\' )
+            {
+                end[0] = '\0';
+                trim(&start,end);
+                printf("\"%s\"], \"tags\" : [",start);
+                start = end + 1;
+                continue;
+            }
+        }
+        end[0] = '\0';
+        trim(&start,end);
+        printf("\"%s\"]},\n",start);
+    }
+    free(line);
+    printf("]}\n");
+    return 0;
+}
+
+void trim(char** start_ptr,char* end)
+{
+    while( (*start_ptr)[0] == ' ' ) (*start_ptr)++;
+    end--;
+    while( end[0] == ' ' ) end--;
+    end[1] = '\0';
+}
+//.,$w !./tmp.c.exe > out.buf
