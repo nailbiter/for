@@ -49,10 +49,10 @@ function makeSelectionMode(sm, test)
     }
     methods.getCurrentIndex = function() 
     {
-		if( obj.questions.size() == 0 )
+		if( obj.questions.length == 0 )
 			return -1;
         while( obj.curIndex < 0 )
-            goToNextQuestion(null);
+            methods.goToNextQuestion(null);
         return obj.curIndex;
     }
 

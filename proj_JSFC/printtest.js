@@ -16,6 +16,15 @@ function wrapIntoParagraph(node)
     return oNewP;
 }
 
+function makeButtonWithTextAndOnClick(text,onclick)
+{
+    var button = document.createElement("button");
+    var buttonText = document.createTextNode(text);
+    button.appendChild(buttonText);
+    button.onclick = onclick;
+    return button;
+}
+
 function print_test(test)
 {
     test.questions = [];
@@ -45,10 +54,18 @@ function print_test(test)
     test.selectionMode = makeSelectionMode(test.selectionMode, test);
 
     var maindiv = document.createElement("div");
+    maindiv.id = "maindiv";
+    document.body.appendChild(maindiv);
+
     /*for( var i = 0; i < test.questions.length; i++ )
         maindiv.appendChild(wrapIntoParagraph(document.createTextNode(JSON.stringify(test.questions[i]))));*/
 
-    maindiv.id = "maindiv";
+    maindiv.appendChild(makeButtonWithTextAndOnClick("nextQuestion",function()
+                {
+                    alert("should be " + test.selectionMode.getCurrentIndex());
+                    test.selectionMode.goToNextQuestion(null);
+                }));
+
     var button = document.createElement("button");
     var buttonText = document.createTextNode("Edit Generators");
     maindiv.appendChild(button);
@@ -58,7 +75,6 @@ function print_test(test)
         maindiv.hidden = true;
         show_generators(test.generators); 
     };
-    document.body.appendChild(maindiv);
 
     var generatorDiv = document.createElement("div");
     generatorDiv.hidden = true;
@@ -137,4 +153,4 @@ function makeQuestion(generator, dataItem)
     }
     return question;
 }
-// generate questions --> ui for every question --> selectionMode --> stopCriterion
+// generate questions --> ui for every question --> **stopCriterion**
