@@ -42,9 +42,11 @@ function print_test(test)
         }
     }
 
+    test.selectionMode = makeSelectionMode(test.selectionMode, test);
+
     var maindiv = document.createElement("div");
-    for( var i = 0; test.questions.length; i++ )
-        maindiv.appendChild(wrapIntoParagraph(document.createTextNode(JSON.stringify(test.questions[i]))));
+    /*for( var i = 0; i < test.questions.length; i++ )
+        maindiv.appendChild(wrapIntoParagraph(document.createTextNode(JSON.stringify(test.questions[i]))));*/
 
     maindiv.id = "maindiv";
     var button = document.createElement("button");
@@ -115,7 +117,7 @@ function generatorToString(generator)
 
 function makeQuestion(generator, dataItem)
 {
-    question = {};
+    var question = {};
     question.question = dataItem.items[generator.from];
     question.answer = dataItem.items[generator.to];
     if( generator.hasOwnProperty("auxText") )
@@ -133,5 +135,6 @@ function makeQuestion(generator, dataItem)
     {
         question.reflip = generator.hasOwnProperty("reflip") ? generator.reflip : false;
     }
+    return question;
 }
 // generate questions --> ui for every question --> selectionMode --> stopCriterion
