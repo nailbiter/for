@@ -23,5 +23,5 @@ then
 	exit
 fi
 
-#./bin/example_tracking_benchmark $v1 $v2 $v3 $v4 $v5 $v6 TLD $INIT_RECT MEDIANFLOW $INIT_RECT
-./bin/example_tracking_benchmark -s $v5 MEDIANFLOW $r5 TLD $r5
+#./bin/example_tracking_benchmark -s $v1 $v2 $v3 $v4 $v5 $v6 TLD $INIT_RECT MEDIANFLOW $INIT_RECT
+./bin/example_tracking_benchmark -s -a=100 $v5 MEDIANFLOW $r5 TLD $r5 MIL $r5
