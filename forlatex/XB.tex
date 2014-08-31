@@ -1,0 +1,36 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\usepackage{mystyle}
+\usepackage{enumerate}
+
+\title{Homework 1, Math 5111}
+\author{Alex Leontiev, 45-146044}
+\begin{document}
+\maketitle
+\begin{enumerate}[\bf{[}1{]}]
+	\item Indeed, let $0=\alpha_0\leq\alpha_1\leq\hdots\leq\alpha_n=1$ be any partition of $[0,1]$. We shall show that
+		\[\sum_{i=0}^{n-1}\myabs{f(\alpha_i)-f(\alpha_{i+1})}\leq M.\]
+		where $N$ is some constant, independent of $\mycbra{\alpha_i}$. It is a well-known fact, that for $C^1$ function
+		on a closed interval $[a,b]$
+		\[TV(f;a,b)=\int_a^b\myabs{f'(x)}\;dx\]
+		Keeping this in mind, we write
+		\[\sum_{i=0}^{n-1}\myabs{f(\alpha_i)-f(\alpha_{i+1})}=\]
+		\[=\myabs{f(\alpha_0)-f(\alpha_1)}+\sum_{i=1}^{n-1}\myabs{f(\alpha_i)-f(\alpha_{i+1})}=\]
+		\[\leq\myabs{f(\alpha_0)-f(\alpha_1)}+TV(f;\alpha_1,1)
+		\leq\myabs{f(\alpha_0)-f(\alpha_1)}+\int_{\alpha_1}^1\myabs{f'(x)}\;dx\leq\]
+		\[\leq\myabs{f(\alpha_0)-f(\alpha_1)}+\int_0^1\myabs{f'(x)}\;dx.\]
+		Now, as the function $f$ is continuous on $[0,1]$, the first term is bounded independently of partition (by $2\sup
+		\myabs{f(x)}$), so it just remains to show that the second (improper integral) is also bounded. This is simple, since
+		\[\int_0^1\myabs{f'(x)}\;dx=\int_0^1\myabs{2x\sin\frac{1}{x}-\cos\frac{1}{x}}\;dx\leq\]
+		\[\leq\int_0^1\myabs{2x\sin\frac{1}{x}}\;dx+\int_0^1\myabs{\cos\frac{1}{x}}\;dx\]
+		The first integral converges, as it is the integral of a continuous function on $[0,1]$. Regarding the second,
+		via the variable change we have
+		\[\int_0^1\myabs{\cos\frac{1}{x}}\;dx=\int_1^{\infty}\myabs{\cos x}\frac{dx}{x^2}\leq\int_1^{\infty}\frac{1}{x^2}
+		<\infty\]
+	\item tesi me %Cantor distribution
+		\setcounter{enumi}{5}
+	\item tesi me
+\end{enumerate}
+\end{document}
+% 6--> 3 --> 4
