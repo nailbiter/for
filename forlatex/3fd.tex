@@ -5,6 +5,21 @@
 \usepackage{enumerate}
 \usepackage{CJKutf8}
 
+%custom theorem environments
+\newtheorem{definition}{Definition}[section]
+\renewcommand{\thedefinition}{\arabic{definition}}
+\newtheorem{example}{\indent Example}[section]
+\renewcommand{\theexample}{\arabic{example}}
+\newtheorem{exercise}{Exercise}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{observation}{Observation}
+\newtheorem*{fact}{Fact}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}[proposition]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
 \title{45901-112, 数物先端科学IV\\Final Report}
 %45901-111 数物先端科学Ⅲ
 \author{Alex Leontiev, 45-146044}
@@ -12,29 +27,54 @@
 \begin{CJK}{UTF8}{bsmi}
 \maketitle
 \end{CJK}
-\begin{enumerate}[\bf{[}1{]}]
-	\item Indeed, let $0=\alpha_0\leq\alpha_1\leq\hdots\leq\alpha_n=1$ be any partition of $[0,1]$. We shall show that
-		\[\sum_{i=0}^{n-1}\myabs{f(\alpha_i)-f(\alpha_{i+1})}\leq M.\]
-		where $N$ is some constant, independent of $\mycbra{\alpha_i}$. It is a well-known fact, that for $C^1$ function
-		on a closed interval $[a,b]$
-		\[TV(f;a,b)=\int_a^b\myabs{f'(x)}\;dx\]
-		Keeping this in mind, we write
-		\[\sum_{i=0}^{n-1}\myabs{f(\alpha_i)-f(\alpha_{i+1})}=\]
-		\[=\myabs{f(\alpha_0)-f(\alpha_1)}+\sum_{i=1}^{n-1}\myabs{f(\alpha_i)-f(\alpha_{i+1})}=\]
-		\[\leq\myabs{f(\alpha_0)-f(\alpha_1)}+TV(f;\alpha_1,1)
-		\leq\myabs{f(\alpha_0)-f(\alpha_1)}+\int_{\alpha_1}^1\myabs{f'(x)}\;dx\leq\]
-		\[\leq\myabs{f(\alpha_0)-f(\alpha_1)}+\int_0^1\myabs{f'(x)}\;dx.\]
-		Now, as the function $f$ is continuous on $[0,1]$, the first term is bounded independently of partition (by $2\sup
-		\myabs{f(x)}$), so it just remains to show that the second (improper integral) is also bounded. This is simple, since
-		\[\int_0^1\myabs{f'(x)}\;dx=\int_0^1\myabs{2x\sin\frac{1}{x}-\cos\frac{1}{x}}\;dx\leq\]
-		\[\leq\int_0^1\myabs{2x\sin\frac{1}{x}}\;dx+\int_0^1\myabs{\cos\frac{1}{x}}\;dx\]
-		The first integral converges, as it is the integral of a continuous function on $[0,1]$. Regarding the second,
-		via the variable change we have
-		\[\int_0^1\myabs{\cos\frac{1}{x}}\;dx=\int_1^{\infty}\myabs{\cos x}\frac{dx}{x^2}\leq\int_1^{\infty}\frac{1}{x^2}
-		<\infty\]
-	\item tesi me %Cantor distribution
-		\setcounter{enumi}{5}
-	\item tesi me
-\end{enumerate}
+\tableofcontents
+\section{Jones Polynomial of Torus Knot}
+In the first part of the report we will be dealing with closed formula for Jones polynomial of $(p,q)$ torus knot. The proof below
+closely follows Chapters 13 and 14 of \cite{Lickorish}. Many attempts to streamline the proof were made. Therefore, I've tried to omit the statements
+(and proofs) of all the results, which were not used.
+
+My main goal was to 
+clearly explain to myself the method of proof, so I naturally start from where I feel comfortable with. Naturally, some proofs are omitted
+if I felt myself comfortable with these results, otherwise exposition would become much, much bigger.
+\subsection{Preliminary results}
+\subsubsection{Knot and planar diagram}
+\begin{definition}A link $L$ of $m$ components is a subset of $S^3$ or $\mathbb{R}^3$, that consist of $m$ disjoint, piecewise linear, simple
+closed curves. A link of one component is called a knot.\end{definition}
+\mypicwtitle{0.3}{3fd_pics/link_ex.png}{Link with 3 components.}
+Here and in subsequent we consider outer space $\mathbb{R}^3$ or $S^3$ as simplicial complex, so to work, following \cite{lickorish},
+in piecewise linear category, rather than in $C^1$.
+\begin{definition} Links $L_1$ and $L_2$ are equivalent if there is an orientation-preserving piecewise linear homeomorphism $h:S^3\to S^3$
+such that $h(L_1)=L_2$.
+\end{definition}
+We shall assume, that any link can be brought to an equivalent one, which is in general position w.r.t. standard projection $p:\mathbb{R}^3\mapsto
+\mathbb{R}^2$. This means that projection of any two segments intersect in at most one point which for disjoint segments is not an end point
+and that no point of plane belongs to projections of three segments.
+\begin{definition}
+For a link, which is in general position w.r.t. standard projection $p:\mathbb{R}^3\mapsto\mathbb{R}^2$, its projection on $\mathbb{R}^2$
+together with information about under- and overcrossings, will be called the link diagram.
+\end{definition}
+\mypicwtitle{0.3}{3fd_pics/planar.png}{Planar diagram of a trefoil knot.}
+It is apparent that any of the following moves, called Reidemeister moves, change a diagram of link to a diagram of an equivalent link.
+\mypicwtitle{0.5}{3fd_pics/rmoves.png}{Reidemeister moves}
+It takes on a proof, however, to see that \textit{any} two link diagrams of two equivalent knots can be connected via a sequence of 
+orientation-preserving plane homomorphisms and Reidemeister moves.
+\subsubsection{Torus knot}
+
+\subsubsection{Jones Polnomial}
+%TODO
+\begin{definition}uoeoeu\end{definition}
+\subsubsection{Algebras}
+%TODO
+\subsection{Main Theorem}
+%TODO
+\subsubsection{Statement}
+%TODO
+\subsubsection{Proof}
+%TODO
+\section{Irreducible modules of $\mathfrak{sl}(2,\mathbb{R})$}
+\begin{thebibliography}{9}
+\bibitem{lickorish}
+Lickorish, W.B.R.. An Introduction to Knot Theory. Springer New York. 1997
+\end{thebibliography}
 \end{document}
 % 6--> 3 --> 4
