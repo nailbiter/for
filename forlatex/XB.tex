@@ -31,15 +31,35 @@
 		via the variable change we have
 		\[\int_0^1\myabs{\cos\frac{1}{x}}\;dx=\int_1^{\infty}\myabs{\cos x}\frac{dx}{x^2}\leq\int_1^{\infty}\frac{1}{x^2}
 		<\infty\]
-	\item tesi me %Cantor distribution
-		\setcounter{enumi}{5}
-	\item Let $\mycbra{x_n}$ and
-		$\mycbra{y_n}$ be sequences in $A$, so that $\mynorm{u_1-x_n}\to\mbox{dist}(u_1,A)+$ and $\mynorm{u_2-y_n}\to\mbox{dist}(u_2,A)+$ 
-		respectively. It is enough, therefore, to show that 
-		\[\myabs{\mynorm{u_1-x_n}-\mynorm{u_2-y_m}}\leq\mynorm{u_1-u_2}\]
-		for big $m$ and $n$. From the symmetry of $u_1$ and $u_2$, it is sufficient to show
-		\[{\mynorm{u_1-x_n}-\mynorm{u_2-y_m}}\leq\mynorm{u_1-u_2}\]
+	\item Indeed, in particular the well-known Cantor distribution is known to possess these properties. In what follow,
+		we shall outline its construction and explain, why it indeed has the properties required.
 
+		Let $c:[0,1]\to[0,1]$ be the Cantor function. We recall the properties of it, we shall need in subsequent
+		\begin{enumerate}[1)]
+			\item $c$ is continuous on $[0,1]$;
+			\item $c$ is non-decreasing no $[0,1]$;
+		\end{enumerate}
+		Having these, we can define a measure $\mu$ on $[0,1]$, related to $c$ and characterized by $\mu((0,x])=c(x)$.
+		Now, if for some $x_0\in[0,1]$ we would have $\mu(\mycbra{x_0})>0$, this would imply the discontinuity in $c$, hence
+		$\mu$ is atomless. It is also \textit{not} absolutely continuous w.r.t. Lebesgue measure, as if it would be,
+		there would be a Lebesgue integrable function $g$, such that $\mu(A)=\int_Ag\;dx$. That $g$, in turn, would have
+		to be equal to zero almost everywhere, as $c'=0$ is equal to zero outside the Cantor set, hence almost everywhere,
+		which is impossible, since $\mu$ is non-trivial by construction ($\mu([0,1])=1>0$).
+		\setcounter{enumi}{5}
+	\item By symmetry, it is enough to show that
+		\[\mbox{dist}(u_1,A)-\mbox{dist}(u_2,A)\leq \mynorm{u_1-u_2}\]
+		Let $\mycbra{x_n}_{n=1}^\infty$ and
+		$\mycbra{y_n}_{n=1}^\infty$
+		be sequences in $A$, so that $\mynorm{u_1-x_n}\to\mbox{dist}(u_1,A)+$ and $\mynorm{u_2-y_n}\to\mbox{dist}(u_2,A)+$ 
+		respectively. Let $\epsilon>0$ be arbitrary. By dropping (if necessary) finitely many terms from the beginning
+		of every sequence, we may assume $\forall n\geq1,\;\mynorm{u_1-x_n}\leq\mbox{dist}(u_1,A)+\epsilon$ and
+		$\forall m\geq1,\;\mynorm{u_2-y_m}\leq\mbox{dist}(u_2,A)+\epsilon$.
+
+		Now, by triangle inequality we have
+		\[\mynorm{u_1-u_2}\geq\mynorm{u_1-y_1}-\mynorm{u_2-y_1}\]
+		By taking $n$ big enough, we may also have $\mynorm{u_1-x_n}\leq\mynorm{u_1-y_1}$, thus we will have
+		\[\mynorm{u_1-u_2}\geq\mynorm{u_1-x_n}-\mynorm{u_2-y_1}\geq\mbox{dist}(u_1,A)-\mbox{dist}(u_2,A)-\epsilon\]
+		and since $\epsilon$ was arbitrary, we are done.
 \end{enumerate}
 \end{document}
 % 6--> 3 --> 4
