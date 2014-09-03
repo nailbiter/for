@@ -4,6 +4,9 @@
 \usepackage{mystyle}
 \usepackage{enumerate}
 \usepackage{CJKutf8}
+\usepackage{textcomp}
+\usepackage{wasysym}
+\usepackage{mathtools}
 
 %custom theorem environments
 \newtheorem{definition}{Definition}[section]
@@ -20,8 +23,11 @@
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
 
+\renewcommand{\S}{\mathcal{S}}
+\newcommand{\f}[1]{f^{(#1)}}
+\newcommand{\sltwo}{\mathfrak{sl}(2,\mathbb{C})}
+
 \title{45901-112, 数物先端科学IV\\Final Report}
-%45901-111 数物先端科学Ⅲ
 \author{Alex Leontiev, 45-146044}
 \begin{document}
 \begin{CJK}{UTF8}{bsmi}
@@ -29,14 +35,14 @@
 \end{CJK}
 \tableofcontents
 \section{Jones Polynomial of Torus Knot}
-In the first part of the report we will be dealing with closed formula for Jones polynomial of $(p,q)$ torus knot. The proof below
+In the first part of the report we will be dealing with closed formula for Jones polynomial of $(p,q)$-torus knot. The proof below
 closely follows Chapters 13 and 14 of \cite{Lickorish}. Many attempts to streamline the proof were made. Therefore, I've tried to omit the statements
 (and proofs) of all the results, which were not used.
 
 My main goal was to 
 clearly explain to myself the method of proof, so I naturally start from where I feel comfortable with. Naturally, some proofs are omitted
 if I felt myself comfortable with these results, otherwise exposition would become much, much bigger.
-\subsection{Preliminary results}
+\subsection{Basic notions}
 \subsubsection{Knot and planar diagram}
 \begin{definition}A link $L$ of $m$ components is a subset of $S^3$ or $\mathbb{R}^3$, that consist of $m$ disjoint, piecewise linear, simple
 closed curves. A link of one component is called a knot.\end{definition}
@@ -57,24 +63,306 @@ together with information about under- and overcrossings, will be called the lin
 It is apparent that any of the following moves, called Reidemeister moves, change a diagram of link to a diagram of an equivalent link.
 \mypicwtitle{0.5}{3fd_pics/rmoves.png}{Reidemeister moves}
 It takes on a proof, however, to see that \textit{any} two link diagrams of two equivalent knots can be connected via a sequence of 
-orientation-preserving plane homomorphisms and Reidemeister moves.
+orientation-preserving plane homomorphisms and Reidemeister moves. We will omit it, it can be found in \cite{murasugi} and 
+\cite[Appendix A]{kawauchi}.
 \subsubsection{Torus knot}
-
+We will take the definition of a torus knot, which will be suitable for our later purposes. To construct the $(p,q)$-torus knot, take the diagram
+displayed below, with $p$ strings running vertically (with left-to-right orientation)
+\mypicwtitle{0.5}{3fd_pics/torus_knot.png}{Part of the $(p,q)$-torus knot}
+and then connect $q$ copies of it in a circular fashion (i.e. so that $q$ of them connected
+sequentially and last is connected to the first). This will give a knot on the annulus $S^1\times I$. The annulus itself can be latter
+embedded in $\mathbb{R}^2$, say as $\mysetn{z\in\mathbb{C}}{1\leq\myabs{z}\leq2}\subset\mathbb{C}\simeq\mathbb{R}^2$. The obtained
+planar diagram is the diagram of the oriented link that we will call $(p,q)$-torus knot.
 \subsubsection{Jones Polnomial}
-%TODO
-\begin{definition}uoeoeu\end{definition}
-\subsubsection{Algebras}
-%TODO
-\subsection{Main Theorem}
-%TODO
-\subsubsection{Statement}
-%TODO
-\subsubsection{Proof}
-%TODO
-\section{Irreducible modules of $\mathfrak{sl}(2,\mathbb{R})$}
+\begin{definition}The Kauffman bracket is a function $L\mapsto\myabra{L}$ from unoriented link diagrams
+in the oriented plane (or $S^2$) to $\mathbb{Z}[A^{-1},A]$ and is characterized by relations
+\mypicwtitle{0.7}{3fd_pics/bracket_relations.png}{Characterizing relations for Kauffman bracket}
+\end{definition}
+here \fullmoon means the diagram of the unknot, which is unlinked from any other part of diagram (i.e. it can be put in a disk, which does not
+intersect with other parts of a diagram) and in (iii) the formula refers three diagrams which are exactly the same, except that near the point,
+where they differ in the way indicated inside the brackets. The Kauffman bracket can be evaluated on any diagram, first using the rule (iii)
+we can unlink all crossings, so as for diagram to become just the set of unlinked knots. Then, using (i) and (ii) to compute the bracket. It is 
+clear that the order in which we apply (iii) on crossings is not important.
+\begin{remark}\label{KauffmanInvariantRemark}
+	It is necessary to note, that bracket of a diagram is not affected by the type II. and III. Reidemeister moves.
+\end{remark}
+\begin{definition}The writhe $w(L)$ of a diagram of an oriented link is the sum of signs of the crossings of $L$, where sign of a crossing is
+	defined as shown on picture.
+	\mypicwtitle{0.7}{3fd_pics/crossing_sign.png}{Definition of a sign of a crossing}
+\end{definition}
+\begin{definition}
+	The Jones polynomial $V(L)$ of an oriented link $L$ is the element of $\mathbb{Z}[t^{-1/4},t^{1/4}]$, defined by
+	\[V(L):=((-A)^{-3w(D)}\myabra{D})\bigg|_{A=t^{-1/4}}\in\mathbb{Z}[t^{-1/4},t^{1/4}]\]
+\end{definition}
+It can be shown via the direct check, that Jones polynomial of a diagram is \textit{not} affected by the Reidemeister moves, hence
+it is in fact the invariant of oriented links, not only of oriented diagrams.
+\subsection{Skein diagrams}
+\begin{definition}
+	Let $F$ be the oriented surface with a finite (possibly zero) number of points on its boundary designated. A \textit{link diagram} in the 
+	surface $F$ consists of finitely many arcs and closed curves in $F$ with finitely many transverse crossings with information about
+	over- and undercrossings, the end points of arcs must be precisely the designated points on $\partial F$.
+\end{definition}
+\begin{definition}
+	Let $A$ be a fixed complex number. The linear skein $\mathcal{S}(F)$ of $F$ is the vector space of formal linear sums over $\mathbb{C}$
+	of unoriented link diagrams, modulo the following relations
+	\mypic{0.7}{3fd_pics/skein_relations.png}
+\end{definition}
+Empty set is also permitted is a diagram, if $\partial F$ has no points designated.
+\begin{remark}
+	Note, that similarly to Kauffman bracket (cf. note \ref{KauffmanInvariantRemark}) two diagrams that differ only by II.
+	and III. Reidemeister moves represent the same element in $\S(F)$.\end{remark}
+\subsubsection{$\S(\R^2)$}
+It is clear that $\S(\R^2)$ is one-dimensional space, with an empty diagram as a natural sole basis element. With such a basis, the coordinate
+of a diagram is nothing but a multiple of its Kauffman bracket, since the defining relations are just the same. 
+\begin{remark}Having canonical basis, we will
+	identify $\S(\R^2)$ with $\C$ in subsequent.\end{remark}
+\subsubsection{$\S(S^1\times I)$}
+Consider now $F:=S^1\times I$, the annulus (with no points designated). $\S(F)$ as a vector space is easily seen to have as a base
+diagrams that consist of $n\in\N$ circles around the "hole" of annulus.
+Now, given two diagrams in $\S(S^1\times I)$, one may glue the annuli along the common bundary,
+thus defining multiplication and turning $S(S^1\times I)$
+into an algebra, generated by $\alpha$: the diagram consisting of one circle around the "hole".
+This algebra has an identity element as well -- the empty diagram.
+
+\begin{remark}Note, that the inclusion $S^1\times I\simeq\mysetn{z\in\C}{1\leq\myabs{z}\leq2}\xhookrightarrow{}\C\simeq\R^2$ induces the linear
+map $\S(S^1\times I)\to\S(\R^2)$ which in fact is algebra map (again, $\S(\R^2)$ is identified with $\C$, hence possesses algebra structure),
+which maps $\alpha$ to $(-A^{-2}-A^2)$.
+\end{remark}
+\subsubsection{$TL_n:=\S(D^2,2n)$}
+Take $F$ to be the square with $n$ points designated on some side, and $n$ on the opposite ($2n$ in total). Consider $\S(F)$. The basis 
+of this vector space are $\frac{1}{n+1}\binom{2n}{n}$ ($n$-th Catalan number) of diagrams with no intersections. Furthermore, by
+gluing two given squares along the common dotted side (thus gluing each of $n$ points in one and the other), we are obtaining product operation,
+thus giving $\S(F)$ the algebra structure. This we will call $TL_n$.
+\begin{theorem}As an algebra, $TL_n$ is generated by $n$ elements, shown below.
+\mypicwtitle{0.7}{3fd_pics/TLn_generators.png}{Generators of $TL_n$.}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}[1$^\circ$]
+		\item We will call two opposite "dotted" sides of square as "left" and "right". Note, that the number of "loops" (that is, 
+			strings that start and end on the same side) should be the same on left and right side. Via the maneuver depicted on the
+			picture below
+			\mypicwtitle{0.7}{3fd_pics/TLgen1.png}{}
+			the diagram with $m$ loops on one side can be expressed as a product of diagrams each having less than $m$ loops. Thus,
+			it is sufficient to show that $1,e_1,e_2,\hdots,e_{n-1}$ generate every diagram with only one loop on one side.
+		\item Let us take arbitrary diagram in $TL_n$, containing only one loop on each side. Call it $(a,b)$ if the left loop is
+			located on $a$-th position, and right on $b$-th. Note, that by definition $(a,a)=e_a$. Now, one easily sees that
+			$(a,b)\cdot(b,c)=(a,c)$ (see below for illustration).
+			\mypicwtitle{0.7}{3fd_pics/TLgen2.png}{$(1,3)\cdot(3,2)=\alpha(1,2),\;\alpha\in\C$}
+		\item Finally, as the next picture illustrates, $e_ie_{i+1}=(i,i+1)$, so $e_i$ indeed generate all of them.
+			\mypicwtitle{0.7}{3fd_pics/TLgen3.png}{$e_ie_{i+1}=(i,i+1)$}
+	\end{enumerate}
+\end{proof}
+\subsubsection{Jones-Wenzl idempotent $f^{(n)}\in TL_n$}
+If $A^4$ is not a $k$-th root of unity for $k\leq n1$, among the elements of $TL_n$, there is a special one, called Jones-Wenzl idempotent
+$\f{n}$. It is characterized by
+\begin{theorem}$\f{n}$ has the following properties
+	\begin{enumerate}[(i)]
+		\item $\f{n}e_i=e_i\f{n}=0$ for $1\leq i\leq n-1$;
+		\item $\f{n}-1$ belongs to the subalgebra of $TL_n$, generated by $e_i$;
+		\item $\f{n}\f{n}=\f{n}$.
+	\end{enumerate}
+\end{theorem}
+	\begin{proof}
+		$\f{n}$ is defined recursively by $\f{1}:=1$ and the recurrence relation (here and below, $\f{n}$ will be denoted by square and
+		appropriate $n$ should be deduced based on the number of arcs attached)
+		\mypicwtitle{0.7}{3fd_pics/fn_recurrence.png}{Recurrence for $\f{n}$}
+		where the numbers $\Delta_n$ as the coordinate of a diagram
+		\mypicwtitle{0.4}{3fd_pics/Dn.png}{}
+		in a standard basis of $\S(\R^2)$.
+
+		All properties claimed can then be verified directly, as in \cite[Lemma 13.2]{lickorish}
+	\end{proof}
+	It can also be inductively deduced that
+	\[\Delta_n=(-1)^n(A^{2(n+1)}-A^{-2(n+1)})/(A^2-A^{-2})\]
+	Furthermore, one using (i) and (ii) one may see that
+	\mypicwtitle{0.6}{3fd_pics/cheb1.png}{}
+	and also
+	\mypicwtitle{0.7}{3fd_pics/cheb2.png}{}
+	To see the last equality, call the leftmost element $x$. From the previous diagram equality one sees that $\f{n-1}x=x$. Next,
+	by (i) $\f{n-1}x$ should be the multiple of $\f{n-1}$ and putting the square with $2n$ points designated into plane and connecting
+	each pair of points on opposites sides via ark (as in definition of $\Delta_n$) one sees that $\lambda=\Delta_n/\Delta_{n-1}$.
+
+	Furthermore, having the latter diagram equality one sees that if we include the recurrent formula for $\f{n}$ into the annulus, so to get
+	\mypicwtitle{0.7}{3fd_pics/rec_annulus.png}{Recurrent formula for $\f{n}$ included in annulus}
+	we may then apply the latter diagram equality to get the recurrence relation for the image of $\f{n}$ after mapping to $\S(S^1\times I)$
+	as a polynomial $S_n(\alpha)$ in $\alpha$:
+	\[S_{n+1}(\alpha)=\alpha S_n(\alpha)-S_{n-1}(\alpha).\]
+\subsubsection{Admissible triples}
+We should frequently encounter the following structure, as on the left of the picture below
+\mypicwtitle{0.7}{3fd_pics/triple.png}{Diagram on the left will be denoted by the diagram on the right}
+For brevity, we will denote it by the picture on the right (with thick dot). While the very existence of the corresponding triple of 
+positive non-negative integers $(x,y,z)$, so that $a=y+z,\;b=x+z,\;c=x+y$ is not highlighted on the right hand side diagram and frequently this
+triple will be of no interest, it should be noted that diagram itself makes sense only when $(a,b,c)$ is the triple of non-negative integers,
+so that such $(x,y,z)$ exists. The condition on $(a,b,c)$ for this to happen is the following.
+\begin{definition}A triple $(a,b,c)$ of non-negative integers is called admissible if $a+b+c$ is even and $a\leq b+c$, $b\leq c+a$ 
+and $c\leq a+b$.\end{definition}
+It is a simple observation that $\exists x,y,z\in\Z_{\geq0}\big|a=y+z,\;b=x+z,\;c=x+y\iff (a,b,c)$ is admissible.
+
+We will make one more observation
+\begin{observation}\normalfont\label{Observation}
+The following equality holds in $\S(F)$ (where $F$ is the square with $a$ points dotted on one side and $d$ on opposite)
+\mypicwtitle{0.7}{3fd_pics/equality.png}{This holds.}
+while the exact nature of the number $\theta(a,b,c)$ is not important, note that the diagram overall should be a multiple of $\f{a}$, as
+leftmost wire contains it. Kr\"onecker delta occurs because if, say, $a>d$, then having leftmost $\f{a}$ "cutted" and rewriting what remains
+as diagram without crosses, we see that from the left
+$a$ wires enters, while only $d$ wires enter right side. This means that there are "loops" that start and end on the left. By making waving wires
+on the right (note, that we're allowed II. and III. Reidemeister steps), this can be assembled into an $e_i\in TL_a$ element, which gives zero
+upon multiplying with $\f{a}$.
+\end{observation}
+\subsubsection{$Q_{a,b,c,d}$}
+We will first consider vector space $\S(D^2;a,b,c,d)$ which consists of skein space of $F$ being the disc $D^2$ with $a+b+c+d$ dots marked on its
+boundary, separated into four groups each having $a$, $b$, $c$ and $d$ elements. Now, $Q_{a,b,c,d}$ is the subspace of $\S(D^2;a,b,c,d)$,
+which spans when we put every element of $\S(D^2;a,b,c,d)$ into the empty space on the diagram below.
+\mypicwtitle{0.3}{3fd_pics/Qabcd.png}{$Q_{a,b,c,d}$.}
+\begin{theorem}
+	All the elements of $Q_{a,b,c,d}$ are spanned by element shown below
+	\mypicwtitle{0.3}{3fd_pics/Qabcdbasis.png}{}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}[1$^\circ$]
+		\item We first will show that elements depicted below span $Q_{a,b,c,d}$:
+		\mypicwtitle{0.3}{3fd_pics/Qabcdbasis2.png}{}
+		Indeed, by rewriting any diagram one might put in the empty space on picture below, as one without crossings we would get
+		something similar to picture above (agreeing that we dissect left-below-to-right-above arcs in favor of right-below-to-left-above,
+		when applying rule (ii) of skeins). The only thing we should show is that there are no "loops", i.e. arcs that start on 
+		on of four idempotents and end on it. However, this is simple, as if this would occur on some idempotent, locally the picture would
+		look like
+		\mypicwtitle{0.4}{3fd_pics/local.png}{Local picture}
+		with, perhaps, more loops. Now, as in the observation above, other wires could be "folded", so to give a loop, which could be drawn
+		via Reidemeister II. and III. close enough, so to form
+		\mypicwtitle{0.4}{3fd_pics/localnew.png}{}
+		Which in turn would give $\f{n}e_i=0$.
+	\item Now, it just remains to show that every element of the form below is spanned by elements in statement. Take any element of the form
+		discussed in previous step. Let $j$ lines be crossing vertical (punctured) line (we count lines from all three "groups")
+		. Now, as $\f{j}=1+\Pi_i e_{n_i}^{m_i}$,
+		we can rewrite these parallel wires as $\f{j}-\Pi_i e_{n_i}^{m_i}$, where the second addend contains at least one $e_i$, hence
+		upon removing loops will cross vertical line less that $j$ times, while the first addend is just the element described in theorem
+		statement. Then one proceeds inductively.
+	\end{enumerate}
+	\begin{corollary}\label{CombiningCorollary}
+		We have the following equality
+		\mypicwtitle{0.6}{3fd_pics/Qabcd_eq.png}{}
+		left hand side being the member of $Q_{a,b,c,d}$ and the exact coefficients not important.
+	\end{corollary}
+\end{proof}
+\subsection{Main Theorem}\label{JonesOfTorus}
+Although using the algorithm for evaluating of Kauffman bracket, Jones polynomial can be evaluated directly for any given link, obtaining
+the closed formula for \textit{families} of knots, such as torus knots, presents natural difficulties, given the ad hoc nature of the method.
+Author is not aware of any direct method to obtaining such expression for torus knots. Nevertheless, using some less direct methods gives the result,
+which was already established by Vaughan Jones.
+\begin{theorem}
+	If $p$ and $q$ are coprime positive integers, then the Jones polynomial of the $(p,q)$-torus knot is
+	\[t^{(p-1)(q-1)/2}(1-t^2){-1}(1-t^{p+1}-t^{q+1}+t^{p+q}).\]
+\end{theorem}
+\begin{proof}We will proceed in steps\\\begin{enumerate}[1$^\circ$]
+	\item Fix $k\in\N$ for the moment and consider the torus knot, consisting of circularly connected pieces as below
+	\mypicwtitle{0.5}{3fd_pics/torus_knot.png}{Part of the $(p,q)$-torus knot}
+	For the moment, we interpret each line segment
+	on this diagram as $k$ arcs running in parallel through the $\f{k}$. Now, parallel line segments
+	between the "kinks" can be connected (using Corollary \ref{CombiningCorollary}) to get the sum as below
+	\mypicwtitle{0.8}{3fd_pics/combining.png}{}
+	where summation goes over all admissible labelings.
+
+	After combining, the part of diagram near the "kinks" will look like
+	\mypicwtitle{0.8}{3fd_pics/kink_combined.png}{Diagram near the kink after combining}
+	which we denote by
+	\[\mycbra{\Lambda(i_1,i_2,\hdots,i_{p-2},a)\Lambda(j_1,j_2,\hdots,j_{p-2},a)}^{-1/2}M(a)^{\mathbf{i}}_{\mathbf{j}}\f{a}\]
+	thus, in $\S(S^1\times I)$ we will get at this point
+	\[T(p,q)=\sum_a\sum_\mathbf{i}\sum_{\mathbf{i_1},\mathbf{i_2},\hdots,\mathbf{i_{q-1}}}M(a)^\mathbf{i}_\mathbf{i_1}
+	M(a)^\mathbf{i_1}_\mathbf{i_2}\hdots M(a)^\mathbf{i_{q-1}}_\mathbf{i}S_a(\alpha)=\sum_a\mbox{tr}\mybra{M^q(a)}S_a(\alpha)\]
+	where $\Lambda$'s cancel
+	indexes has to agree because only the same indexes occur in summation resulting from combining $p$ parallel line segments.
+\item Now, $((M^p(a))^\mathbf{i}_\mathbf{j}$ is $\mycbra{\Lambda(i_1,i_2,\hdots,i_{p-2},a)\Lambda(j_1,j_2,\hdots,j_{p-2},a)}^{1/2}$ times the diagram
+	below, evaluated in $TL_a$,
+	\mypicwtitle{0.8}{3fd_pics/beauty.png}{}
+	as taking the piece that forms up $T(p,q)$ and connecting sequentially $p$ of them, one sees that
+	wires are connected as on the diagram above, excluding "kinks" on each wire (see below for the example)
+	\mypicwtitle{0.8}{3fd_pics/beast.png}{}
+	Now, rewiring these "kinks" accounts for a multiple in the next expression
+	\[\mycbra{\Lambda(i_1,i_2,\hdots,i_{p-2},a)\Lambda(j_1,j_2,\hdots,j_{p-2},a)}^{-1/2}(-1)^aA^{a^2+2a}\f{a}\]
+	it was evaluated via rewiring kinks (using skein relations) and applying observation \ref{Observation}. It also shows that 
+	expression above is valid only if $\mathbf{i}=\mathbf{j}$, otherwise the diagram evaluates to zero. Thus,
+	$M^p(a)$ is nothing but $(-1)^aA^{a^2+2a}$ times an identity matrix, hence the only eigenvalues it might have are $p$-th roots of
+	$(-1)^aA^{a^2+2a}$ and trace of the matrix is the sum of its eigenvalues.
+\item Recall from previous steps that in $\S(S^1\times I)$ we have
+	\[T(p,q)=\sum_a\mbox{tr}\mybra{M^q(a)}S_a(\alpha)\]
+	and $M^p(a)=(-1)^aA^{a^2+2a}I$. Now, let $\xi_j$ be the eigenvalues of $M(a)$. Each can be expressed as $\eta_j\rho$, where
+	$\rho$ is some fixed root. If $\rho$ can be found, so that $\sum\eta_j=N_a\in\Z$, then for $q$ pairwise-prime with $p$
+	we have $\sum\eta^q_j=N_a$, as if we write $\eta_j=\eta^{n_j}$, where $\eta$ is some primitive root of unity of order $p$, then
+	the first some is nothing but the polynomial in $\eta$ with integer coefficients, say $H(\eta)$,
+	equal to zero. $\eta$ being the root of polynomial
+	with integer coefficients, implies that cyclotomic polynomial $\Phi_p$ would have nontrivial gcd with $H(X)$, hence $H(X)$ should be the
+	multiple of $\Phi_p$ (latter being irreducible and having integer coefficients). Hence, all primitive roots of order $p$ are zeros of
+	$X(X)$.
+
+	Hence, under this assumption, $T(p,1)=\sum_aN_a(-A)^{(a^2+2a)/p}S_a(\alpha)$ and $T(p,q)=\sum_aN_a(-A)^{q(a^2+2a)/p}S_a(\alpha)$.
+\item Frow now one, we assume $k=1$. Considering $T(p,1)$ and removing top crossing, one gets recurrence relation
+	\[T(p,1)=A\alpha T(p-1,1)-A^2T(p-2,1).\]
+	Letting $x_p=A^{-p}T(p,1)$ we see that $x_p$ should be linear combination of Chebyshev polynomials, as it satisfies
+	same recurrence relations. Analyzing initial conditions, one gets that $x_p=-A^2S_p(\alpha)+A^{-2}S_{p-2}(\alpha)$, hence 
+	for $k=1$ $\rho$ indeed can be chosen as in previous step, that is for $a=p$ take $\rho=(-A)^{p+2}$, $N_a$ becomes
+	$(-1)^{p+1}$ and when $a=p-2$, take $\rho=(-A)^{p-2}$ then $N_{p-2}=(-1)^p$, otherwise $N_a=0$.
+	With this
+	\[T(p,q)=(-1)^{p+1}(-A)^{q(p+2)}S_p(\alpha)+(-1)^p(-A)^{q(p-2)}S_{p-2}(\alpha).\]
+	Placing this into plane, one can show the required statement now simply by induction.
+\end{enumerate}
+\end{proof}
+\section{Irreducible modules of $\mathfrak{sl}(2,\mathbb{C})$}
+Let $\mathfrak{sl}(2,\mathbb{C})$ be the Lie algebra of matrices with zero trace. As a vector space, it has a basis
+\[	x:=\begin{bmatrix}0&1\\0&0\end{bmatrix},\quad
+	y:=\begin{bmatrix}0&0\\0&1\end{bmatrix},\quad
+	h:=\begin{bmatrix}1&0\\-1&0\end{bmatrix}\]
+In subsequent we will show that the only finitely dimensional irreducible representations of $\sltwo$ are given by
+\[h.v_i=(\lambda-2i)v_i,\]\[y.v_i=(i+1)v_{i+1},\]\[x.v_i=(\lambda-i+1)v_{i-1}\]
+actions on a vector space $\bigoplus_{i=0}^mv_i$ with suitable $m$ (here $h.v$ denotes the action of $h$ on vector $v$).
+We will closely follow \cite{humphreys} with some modifications from \cite{neunhoffer}.
+
+In subsequent, let $V$ be an irreducible $\sltwo$-module.
+\begin{lemma}\label{LambdaPlusTwoLemma}
+	If $v$ is an eigenvector of $h$ with eigenvalue $\lambda$, then $x.v$ and $y.v$ are (if non-zero) eigenvectors with eigenvalues
+	$\lambda+2$ and $\lambda-2$ respectively.\end{lemma}
+\begin{proof}Indeed, $h.(x.v)=[h,x].v+x.h.v=2x.v+\lambda x.v=(\lambda+2)x.v$ and $h.(y.v)=[h,y].v+y.h.v=(\lambda-2)y.v$.\end{proof}
+\begin{lemma}$V$ contains an eigenvector $v$ of $h$, such that $x.v=0$.\end{lemma}
+\begin{proof}
+	Indeed, as we are working over $\C$, $h$ should have at least one eigenvector $w$. Now, iterate $x^i.w$. Every vector in this sequence
+	(if nonzero) is an eigenvector of $h$ with different eigenvalue, hence all will be linearly independent. Hence, at some point we should
+	have $x^i.w\neq0$ and $x^{i+1}.w=0$ ($w\neq0$, as it is an eigenvector by hypothesis). Now, $x^i.w$ is an eigenvector we've been looking for.
+\end{proof}
+Now call $v$ from the previous lemma as $v_0$, let $\lambda$ be corresponding eigenvalue, set $v_{-1}:=0$ and $v_i:=(1/i!)y^i.v_0$ for $i\geq0$.
+\begin{lemma}\mbox{}\\
+	\begin{enumerate}[(a) ]
+		\item $h.v_i=(\lambda-2i)v_i$,
+		\item $y.v_i=(i+1)v_{i+1}$,
+		\item $x.v_i=(\lambda-i+1)v_{i-1}\quad(i\geq0)$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	(a) follows from the Lemma \ref{LambdaPlusTwoLemma}, (b) is nothing but the definition. To show (c) we apply induction on $i$, case
+	$i=0$ being clear, since $v_{-1}=0$ by construction. Now
+	\[ix.v_i=x.y.v_{i-1}=[x,y].v_{i-1}+y.x.v_{i-1}=h.v_{i-1}+y.x.v_{i-1}=\mbox{(by induction assumption and (a))}\]
+	\[=(\lambda-2(i-1))v_{i-1}+(\lambda-i+2)y.v_{i-2}=(\lambda-2i+2)v_{i-1}+(i-1)(\lambda-i+2)v_{i-1},\]
+	after division by $i$ one gets (c).
+\end{proof}
+As all nonzero $v_i$ should be linearly independent due to (a) and $\dim V<\infty$, we should have $v_i$ for big $i$. Let $m$ be the smallest,
+so that $v_m\neq0$. Now, from the formulae (a)-(c) one has that $\bigoplus_{i=0}^m
+v_i$ is $\sltwo$-invariant subspace of $V$. It is nonzero (as $v\neq0$),
+$V$ is irreducible, hence $V=\bigoplus_{i=0}^mv_i$.
+
+Note, that for $i=m+1$, the left hand side of (c) is 0, while right hand side is $(\lambda-m)v_m$ and since $v_m\neq0$ we should have $\lambda=m$,
+hence the irreducible $\sltwo$-module $V$ determines $\lambda$ uniquely and $v_0$ uniquely (up to scalar multiple).
+
+We have just shown that any irreducible $\sltwo$-module should be of the form we announced at the beginning. It just remains to show that every
+such module is indeed irreducible. This is easy, however, as if it would not be the case, due to Weil theorem, it would decompose as direct
+sum of irreducibles. However, as every irreducible addend would have to be of the form announced, having several addends would imply that
+$h$ has more than 1-dimensional eigenspaces for some eigenvalues, but this would contradict the formulae of the last lemma.
 \begin{thebibliography}{9}
 \bibitem{lickorish}
 Lickorish, W.B.R.. An Introduction to Knot Theory. Springer New York. 1997
+\bibitem{murasugi}Murasugi, K.. Knot Theory and Its Applications. Birkhäuser Boston.
+\bibitem{kawauchi}Kawauchi, A.. A Survey of Knot Theory. Birkhäuser Verlag.
+\bibitem{humphreys}Humphreys, J.. Introduction to Lie Algebras and Representation Theory. Springer. 1972
+\bibitem{neunhoffer}Lecture notes on Lie Algebras by Max Neunh\"offer at 
+	\url{http://www-groups.mcs.st-and.ac.uk/~neunhoef/Teaching/liealg/liealgchap3.pdf}
 \end{thebibliography}
 \end{document}
 % 6--> 3 --> 4
