@@ -16,6 +16,7 @@
             (cons "Рим" "rom")
             (cons "Флп" "flp")
             (cons "Деян" "act")
+            (cons "Гал" "gal")
 			))
 (define rus2chiurl-table (list
 			(cons "Лк" "luk")
@@ -32,6 +33,7 @@
             (cons "Рим" "rom")
             (cons "Флп" "phl")
             (cons "Деян" "act")
+            (cons "Гал" "gal")
 			))
 (define rusname2engname-table(list 
            (cons "Гал" "Galatians")
@@ -46,7 +48,8 @@
 		   (cons "2 Тим" "2 Timothy")
            (cons "Рим" "Romans")
            (cons "Флп" "Philippians")
-            (cons "Деян" "Acts")
+           (cons "Деян" "Acts")
+           (cons "Гал" "Galatians")
            ))
 (define rusname2chiname-table (list 
                    (cons "Гал" "加拉太書")
