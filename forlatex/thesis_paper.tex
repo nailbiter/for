@@ -136,13 +136,13 @@ The second inequality is worked out in the same way, so it just remains to prove
 \end{proof}
 \begin{proof}{(of the observation \ref{Easy}).\;}The existence of fundamental matrix follows immediately from the continuity assumption. The uniform
 boundedness of $\mynorm{X_B}$
- follows from the \cite[Ch. II, \S 12, Thm. 1]{demidovich} (which states that if the system $x'=Cx$ with $C$ constant is uniformly stable and
+ follows from the \cite[Corollary 3.24]{teschlordinary} (which states that if the system $x'=Cx$ with $C$ constant is uniformly stable and
  $B\in L^1\cap C$, then $x'=(C+B)x$ is stable as well; in our case we take obviously stable system $x'=0\cdot x$ as $x'=Cx$)
  . We shall denote the upper bound obtained for $X_B$ by $M$. It is
 sufficient to show that $\mynorm{X^{-1}_B(t)}\leq M$. Let us fix $\tau\in\mathbb{R}$. $X^{-1}_B(\tau)$ can be characterized as $X^{-1}_B(\tau)x(\tau)
 =x(0)$, where $x$ is the solution to $x'=Bx$ or as $X^{-1}(\tau)y(0)=y(-\tau)$, where $y'=\tilde{B}y$ and $\tilde{B}(t):=B(t+\tau)$. Thus,
 it's enough to show that the norm of $X_{\tilde{B}}$ is uniformly bounded by $M$ as well. The latter, however, follows from the proof
-of \cite[Ch. II, \S 12, Thm. 1]{demidovich}, as the upper bound obtained there really depends only on the
+of \cite[Corollary 3.24]{teschlordinary}, as the upper bound obtained there really depends only on the
 $\int_{-\infty}^\infty\mynorm{\tilde{B}(s)}\;ds=\int_{-\infty}^\infty\mynorm{B(s)}\;ds$.\end{proof}
 \begin{proof}{(of the observation \ref{Hard}).\;}
 We shall employ the theory of Magnus expansion, described in \cite{Moan:2008:CMS:1391929.1391932}. For convenience, we collect
@@ -188,9 +188,9 @@ as Lie bracket is continuous, we also have that $\Omega(t)$ commutes with $A(\ta
 \bibliography{thesis_paper}
 
 \end{document}
-%cor: add_remark --> abstract --> intro --> cors_and_examps further -->keywords
-%
-%FIXME: demidovich, use other
+%cor: abstract --> intro -->keywords
+%cor: cors_and_examps: 
+%FIXME: 
 
 %%\bibitem{krein}
 %%Ю. Л. Далецкий, М. Г. Крейн

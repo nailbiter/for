@@ -1,0 +1,169 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{mystyle}
+\usepackage{enumerate}
+\usepackage{CJKutf8}
+
+\newcommand{\sgn}{\mbox{\normalfont{sgn}}}
+\newcommand{\Aut}{\mbox{\normalfont{Aut}}}
+
+\title{45901-111 数物先端科学III\\Final Report}
+\author{Alex Leontiev, 45-146044}
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+\section{Problem}
+We will proceed straightly with solving exercises given during the course.
+\begin{enumerate}[1. ]
+\item\textit{Let $G$ be the group acting on set $X$. Define relation $\sim$ on $X$ via $x\sim y\iff \exists g\in G,\;g\cdot x=y$. Show that
+$\sim$ is an equivalence relation.}\\
+Indeed, reflexivity follows as for $e\in G$ identity element and $\forall x\in X$ we have $e\cdot x=x$, hence $x\sim x$. Second, symmetry
+follows, for if $x\sim y$, then $g\cdot x=y$, hence $x=g^{-1}\cdot y\implies y\sim x$. Finally, transitivity follows, for if $x\sim y$ and $y\sim z$,
+then $g_1\cdot x=y,\;g_2\cdot y=z$ and thus $g_2g_1x=z\implies x\sim z$.
+
+\item\textit{Give an example of equivalence relation $\sim$ on topological space $X$, so that canonical projection map $\pi:X\to X/\sim$ is not
+an open map.}\\
+Indeed, let $X=\R$, so that $x\sim y$ iff $x=y$ or $x=0,\;y=1$ or $x=1,\;y=0$. This is equivalence relation, however, canonical projection
+is not open, since image of $(-1/2,1/2)$ in $X/\sim$ is not open, as its preimage is $(-1/2,1/2)\cup\mycbra{1}$ and it is clearly not open in $\R$.
+
+\item\textit{Suppose $\phi:\mathbb{R}\to{\R}$ is continuous and additive. Show that $\phi\in C^\infty$. (give also a shorter proof
+using the assumption that $\phi\in C^1$; give also non-continuous $\phi$ that is additive)}
+\begin{enumerate}
+\item We shall show that $\phi(x)=ax$ for suitable $a\in\R$. Indeed, let $\phi(1)=a$. Then by induction on $n\in\N$, $\phi(nx)=nf(x)$ for $n\in\N$,
+in particular $\phi(n)=na$ and $\phi(0)=0$
+by linearity. Furthermore, as $0=\phi(0)=\phi((-1)+1)=\phi(-1)+\phi(1)$ we have that $\phi(-1)=-a$, hence by induction $\phi(n)=na$ for $n\in\Z$.
+Next, for $m\in\N$, we have $a=f(1)=f(m\cdot(1/m))=mf(1/m)$, hence $f(1/m)=a/m$ and thus $f(r)=ra$ for $r\in\Q$. By continuity, equality holds
+for $r\in\R$ as well, as $\Q\subset\R$ is dense.
+\item If we would assume that $f\in C^1$, we would have
+\[\forall x\in\R,\;f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}=\lim_{h\to0}\frac{f(h)-f(0)}{h}=f'(0)\]
+hence $f'(x)=const$ and $f(x)=ax$ for $a:=f'(0)$.
+\item Furthermore, if continuity would not be assumed, there is the following counter-example to implied linearity, as suggested by \cite{gelbaum}.
+Indeed, let $\mycbra{r_\alpha}$ be any basis of $\R$ over $\Q$, existing as an implication of the axiom of choice. 
+Then, any number $x\in\R$ is written as unique linear combination $x=\sum_ip_{\alpha_i}r_{\alpha
+_i}$ with $p_{\alpha_i}\in\Q$. Now, set
+$f(x)=\sum_ip_{\alpha_i}$. Function is obviously additive, but not linear, as it is even not continuous. The latter is true, since $f$ takes
+its values in $\Q$, but not all of values are equal, thus continuity would contradict intermediate value theorem.
+\end{enumerate}
+\item\textit{Suppose $\phi:GL(n,\R)\to\R^\times$ is continuous and $\phi(xy)=\phi(x)\phi(y)$. Show that $\phi(x)=\myabs{\det x}^\rho$ or
+$\phi(x)=\myabs{\det x}^\rho\sgn\det x$.}\\We will proceed in steps. Take any $\phi$ satisfying the conditions stated:
+\begin{enumerate}[1$^\circ$]
+\item Note, that both $GL(n,\R)$ and $\R^\times$ have two disjoint path-connected components and the image of path-connected component
+under continuous map should be path connected, and $\phi(I)=1>0$ (from multiplicativity $\phi(I)=1$), we have that determinant-positive component
+of $GL(n,\R)$ will be mapped to $R^+$ by $\phi$.
+
+Now, suppose we were able to show that for some $X$ in determinant-negative component $GL_-$, $\phi(X)<0$. Then, we can replace $\phi\bigg|_{GL_-}$
+by its absolute value -- multiplicative property and continuity won't go anywhere (by direct check) and the whole $\phi$ (which,
+with this modification, we will denote by $\psi$ from now on) will become positive on $GL(n,\R)$.
+Then, if under these assumptions we'll be able to show $\psi(x)=\myabs{\det x}^\rho$, the original $\phi$ can be recovered as follows.
+Take any $J\in GL_-$, such that $J^2=I$. As, by assumption, $\phi\bigg|_{GL_-}<0$, $\phi^2(J)=1$, we should have $\phi(J)=-1$. Now, for every
+$X\in GL_-$, we have $JX\in GL_+$ -- determinant-positive component of $GL(n,\R)$. Hence $\phi(X)=-\phi(JX)=-\psi(JX)\bigg|_{GL_+}=-\myabs{-\det X}^
+\rho$, hence $\phi=\myabs{\det x}^\rho\sgn\det x$.
+
+From the above, from now on we may assume $\phi>0$.
+\item Consider the action of $S_n$ on $GL(n,\R)$ by row permutation. The action is faithful, hence orbit of $I$ under $S_n$,which we will call $S$
+, seen as a subgroup
+of $GL(n,\R)$, is isomorphic to $S_n$. Thus, $\phi$ induces map $\phi:S\to\mycbra{\pm1}$. Indeed, every matrix in $S$ should be mapped to $\mycbra{
+\pm1}$, as $S$ are generated by $I_{i,j}$, being $I$ with two rows permuted, and since $I^2_{i,j}=I\implies\phi^2(I_{i,j})=\phi(I)=1\implies
+\phi(I_{i,j})=\pm1$, these are mapped to $\pm1$, hence all of $S$ are also so.
+
+Thus, we have group homomorphism $S\simeq S_n\to\mycbra{\pm1}\simeq\Z_2$. From group theory, there are only two possibilities here: trivial map 
+and sign map. As $\phi>0$ by assumption, trivial map is the only choice. Hence, row permutations do not change value of $\phi$.
+\item Similar logic applies to action of $S_n$ by column permutations, and similarly shows that column permutations do not change value of $\phi$.
+\item Denote the identity matrix with $a_{1,1}$ replaced by $a$, by $I(a)$. Then $I(a)I(b)=I(ab)$, hence, $a\mapsto\phi(I(a))$ is positive
+multiplicative $\R^\times\to\R^+$ function, thus (similar to logic of previous problem) it should be $\phi(I(a))=\myabs{a}^\rho$ for some 
+$\rho\in\R$. Now,
+as row and column permutations act transitively on diagonal matrices, the same result (with the same $\rho$) should hold if the $(i,i)$-th
+entry get replaced, instead of $(1,1)$. Then, for diagonal matrix $D(a_1,a_2,\hdots,a_n)$ we have $\phi(D(a_1,a_2,\hdots,a_n))=\myabs{\Pi_i a_i}^\rho
+$.
+\item Let $J(a)$ will denote the matrix, which consist of $I$ with $(i,j)$-th entry replaced by $a$ for some fixed $i\neq j$.
+Now, multiply $j$-th row and $i-th$ column  by $-1$. As we know from previous step, how these operations act on $\phi(J(a))$, we know
+that it should not change. However, these operations will bring $J(a)$ to $J(-a)$, hence $\phi(J(a))=\phi(J(-a))$, and since $a\mapsto\log\phi(J(a))$
+is continuous additive (as $J(a)J(b)=J(a+b)$), and even, it should be 0. Thus, row addition/subtraction does not change value of $\phi(A)$.
+\item Finally, as from the previous steps we know how $\phi$ is affected by row operations, and any member of $GL(n,\R)$ can be brought via
+them to $I$, the result follows.
+\end{enumerate}
+\item\textit{Show that \{complex structure in $\R^{2n}$\} is in 1-1 correspondence with $GL(2n,\R)/GL(n,\C)$.}\\
+Recall, that complex structures are $2n\times2n$ matrices $J$, so that $J^2=-I$. $G:=GL(2n,\R)$ acts on them via
+$g\cdot J:=gJg^{-1}$ (indeed, $(gJg^{-1})^2=g(-I)g^{-1}=-I$).
+It is enough now to show that action is transitive and isotropy subgroup is $\simeq GL(n,\C)$. 
+
+To observe the transitivity, note the following. $J$ can have only $\pi i$ eigenvalues over $\C$. As moreover $J^2+I=0$, minimal polynomial of
+$J$ has to split over $\C$ into distinct linear factors, hence $J$ is diagonalizable. Having real entries, it should have $n$ eigenvalues equal to 
+$i$ and $n$ equal to $-i$. Now, let $v=a+bi$ together with its decomposition on real and imaginary parts, be the eigenvector for $i$. Then,
+$a-bi$ is eigenvector for $-i$, moreover $Ja=-b,\;Jb=a$. Hence, $\myabra{a,b}$ is an invariant subspace for $J$ in $R^{2n}$. Finally, as $a$ and $b$
+are linear combinations of eigenvectors $a+bi$ and $a-bi$ of J over $\C^{2n}$, they should be linearly independent over $\C$ between themselves
+and other similarly obtained $a$'s and $b$'s, hence over $\R$ itself. 
+
+Thus it is seen that $\myabra{a,b}$ is invariant subspace for $J$ and the whole $\R^{2n}$ is the direct sum of such subspaces. Hence, as action
+of $J$ on $\myabra{a,b}$ is predictable, such change of basis, which is a similarity transform, brings arbitrary $J$ to canonical form, hence
+all $J$ conjugate to one canonical element, hence transitivity follows.
+
+Now, regarding the isotropy subgroup. Take the isotropy group of the aforementioned canonical element $J$, characterized by $Je_{2n}=-e_{2n+1}$
+and $Je_{2n+1}=e_{2n}$ for $\mycbra{e_i}_i$ basis of $\R^{2n}$. To analyze the set of matrices $A\in GL(2n,\R)$ that satisfy $AJA^{-1}=J$
+(or, equivalently, $AJ=JA$), we view them as $n\times n$ matrices consisting of $2\times2$ blocks, so being $J$. Now, on the block level 
+commutativity means that every block of $A$ should commute with $\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}$. Direct verification shows
+that this happens iff block itself has the form $\begin{smallmatrix}a&-b\\b&a\end{smallmatrix}$. As such blocks are traditionally identified
+with complex numbers, matrices $A$ consisting of these blocks can be identified with members of $GL(n,\C)$.
+
+\item\textit{Show that there is a 1-1 correspondence between \{circles in $\mathbb{P}^1\C$\} and \{circles in $S^2$\} via stereographic
+projection.}
+It is sufficient to show that there is 1-1 correspondence between circles in $S^2$ and lines or circles in $\C$ via the stereographic projection.
+This can be done by direction computations as follows. Stereographic projection can be given by
+\[x+iy\mapsto\frac(a,b,c)=\frac{(2x,2y,x^2+y^2+1)}{1+x^2+y^2}\in\R^3\]
+Let $Aa+Bb+Cc=D$ be the plane in $\R^3$. It crosses the sphere $a^2+b^2+c^2=1$ iff $A^2+B^2+C^2>D^2$, hence
+image of $x+iy\in\C$ under stereographic projection lies on plane iff
+\[2Ax+2By+C(x^2+y^2-1)=D(1+x^2+y^2)\]
+equivalently,
+\[(C-D)(x^2+y^2)+2Ax+2By+(-C-D)=0\]
+the is equation of circle in $\C$ if $C\neq D$ with centre $(A/(D-C),B/(D-C))$ and radius
+\[\frac{\sqrt{A^2+B^2+C^2+D^2}}{C-D}\]
+all circles can be written in this form. If $C=D$, we arrive at line
+\[Ax+By=C\]
+and this gives all lines.
+\item\textit{Prove natural bijection $X:=\{\mbox{oriented circles in $\mathbb{P}^1\C$}\}\simeq SL(2,\C)/SL(2,\R)$.}%mobius sends circles to
+It is sufficient to show that $SL(2,\C)$ acting on $\C$ maps circles or lines to circles or lines, that the map is transitive, and
+that the isotropy of $\R$ is $SL(2,\R)$.
+The latter is easy, as we should have $\forall z\in\R\cup\mycbra{\infty}$
+\[\frac{az+b}{cz+d}\in\mathbb{R}\cup\mycbra{\infty}\]
+As both $0$ and $\infty$ are in this set, their preimage should be there as well, if we require invariance of $\R\cup\mycbra{\infty}$
+hence both $-a/b$ and $-c/d$ should be real, hence $b$ is real multiple of $a$, $d$ is real multiple of $c$. As also numerator
+is real multiple of denumerator for every $z$, $a$, $b$, $c$ and $d$ are all real multiples of one complex number. After cancellation, can assume
+$a,b,c,d\in\R$. This gives the claim regarding the isotropy.%TODO from here
+
+\item\textit{Check that $SL(2,\R)$ acts transitively on $H_+$, $\mathbb{R}\cup\mycbra{\infty}$, $H_-$ respectively.}
+Transitive action on $H_+$: note that
+\[i\mapsto \frac{ai+b}{ci+d}=\alpha+\beta i\]
+for example if $c=1,\;d=0,\;b=\beta,\;a=\alpha$. Hence, 
+\item\textit{Verify that stabiliser of $i$ under the action of $SL(2,\R)$ is $SO(2)$.}
+Indeed, if
+\[\frac{ai+b}{ci+d}=i\]
+we have $b=-c,\;a=d$ and then $1=ad-bc=b^2+a^2$ implies
+\[\begin{bmatrix}a&b\\c&d\end{bmatrix}=\begin{bmatrix}a&b\\-b&a\end{bmatrix},\;a^2+b^2=1\]
+hence matrix should be in $SO(2)$.
+\item\textit{Find $g\in SL(2,\R)$ such that $gAg^{-1}=H$. Relate $A$-orbits and $H$-orbits by $g$. Relate $\mycbra{0,\infty}$ and ${\pm1}$ by $g$.}
+\item\textit{Find $g\in SL(2,\R)$ such that $gNg^{-1}=\overline{N}$.
+ Relate $N$-orbits and $\overline{N}$-orbits by $g$. Relate ${\infty}$ and $0$ by $g$.}
+\item\textit{Prove that $SL(2,\C)=\mysetn{g\in M(n,\C)}{\det g=1}$ is a complex Lie group.}
+\item\textit{Prove that $\Aut(H_+)=SL(2,\R)/\mycbra{\pm I}$}
+This can be done by identifying $H_+$ with disk $\mycbra{\myabs{z}<1}$ via biholomorphism and use the fact that
+\[\Aut\mybra{\mycbra{\myabs{z}<1}}=\mysetn{z\mapsto\frac{z-a}{1-\overline{a}z}e^{i\theta}}{a\in\C,\;\myabs{a}<1,\;\theta\in\mathbb{R}}\]
+\item\textit{Prove that $\Aut(\C)=\mysetn{z\mapsto az+b}{a,b\in\C}$.}
+To begin with, such an entire function $f$ cannot be polynomial, as then $f(1/z)$ has an essential singularity (seen from
+series expansion) as $z\to0$, hence
+by Casoratti-Weierstrass $\exists x_n\to\infty$, so that $f(\mycbra{\myabs{z}>1})$ is dense in $\C$. Now, as $f(\mycbra{\myabs{z}<1})$
+should be open, these sets should have intersection. Hence, one point with being image of two, contradiction and $f$ can be only polynomial.
+
+Now, it cannot be of degree higher than one, as then it has multiple roots. Linear is the only option.
+\item\textit{Prove that $\Aut(\mathbb{P}^1\C)=SL(2,\C)/\mycbra{\pm I}$.}
+\item\textit{Prove that $D_1=\mysetn{(z_1,z_2)\in\C^2}{\myabs{z_1},\myabs{z_2}<1}$, $D_2=\mysetn{(z_1,z_2)\in\C^2}{\myabs{z_1}^2+\myabs{z_2}^2<1}$
+and $D_3=\C^2$ are not biholomorphic. (Hint: $\dim\Aut D_1=6,\;\dim\Aut D_2=8,\;\dim\Aut D_3=\infty$)}%TODO
+\item\textit{Find an unbounded domain $D\subset\C$, so that $\dim B^2(D)=\infty$.}
+\item\textit{Show that $H^2(D)\to\C,\;f\mapsto f(z)$ is continuous. $K_H(z,w)=1/(2\pi)(1-z\overline{w})^{-1}$.}
+\item\textit{Prove that there is a natural isomorphism $\overline{V^\vee}$ as complex vector spaces.}
+\end{enumerate}
+\begin{thebibliography}{9}
+\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
+\end{thebibliography}
+\end{document}
+% 6--> 3 --> 4

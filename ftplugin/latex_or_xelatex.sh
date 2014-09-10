@@ -10,6 +10,15 @@ else
 	then
 		xelatex $1
 	else
-		pdflatex $1
+		if [ $(grep '^\\bibliography{'$2'}' $1) ]
+		then
+			pdflatex $1
+			pdflatex $1
+			bibtex $2
+			pdflatex $1
+		else
+			pdflatex $1
+		fi
+		exit
 	fi
 fi
