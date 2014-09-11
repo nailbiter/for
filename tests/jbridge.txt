@@ -13,26 +13,26 @@
 "dataitems" : [
 #english,hiragana,kanji;tags
 
-{ "items" : ["明るい","bright"], "tags" : ["","Step3"]},
-{ "items" : ["神経質","nervous"], "tags" : ["","Step3"]},
-{ "items" : ["気難しい","grumpy"], "tags" : ["","Step3"]},
+{ "items" : ["明るい--あかるい","bright"], "tags" : ["","Step3"]},
+{ "items" : ["神経質--しんけいしつ","nervous"], "tags" : ["","Step3"]},
+{ "items" : ["気難しい--きむずかしい","grumpy"], "tags" : ["","Step3"]},
 { "items" : ["だらしない","slouchy"], "tags" : ["","Step3"]},
 { "items" : ["おしゃべり","chatty"], "tags" : ["","Step3"]},
-{ "items" : ["協調性がない","not coordinated"], "tags" : ["","Step3"]},
-{ "items" : ["寂しがり屋","lonely"], "tags" : ["","Step3"]},
+{ "items" : ["協調性がない--きょうちょうせいがない","not coordinated"], "tags" : ["","Step3"]},
+{ "items" : ["寂しがり屋--さびしがりや","lonely"], "tags" : ["","Step3"]},
 { "items" : ["おとなしい","meek"], "tags" : ["","Step3"]},
-{ "items" : ["社交的","communicable"], "tags" : ["","Step3"]},
-{ "items" : ["温厚","mild"], "tags" : ["","Step3"]},
+{ "items" : ["社交的--しゃこうてき","communicable"], "tags" : ["","Step3"]},
+{ "items" : ["温厚--おんこう","mild"], "tags" : ["","Step3"]},
 { "items" : ["わがまま","wayward"], "tags" : ["","Step3"]},
-{ "items" : ["感受性豊か","vulnerable"], "tags" : ["","Step3"]},
-{ "items" : ["負けず嫌い","unyielding"], "tags" : ["","Step3"]},
-{ "items" : ["恥ずかしがり屋","shy"], "tags" : ["","Step3"]},
-{ "items" : ["物静か","quiet"], "tags" : ["","Step3"]},
-{ "items" : ["努力家","striver"], "tags" : ["","Step3"]},
-{ "items" : ["前向き","prospective"], "tags" : ["","Step3"]},
+{ "items" : ["感受性豊か--かんじゅせいゆたか","vulnerable"], "tags" : ["","Step3"]},
+{ "items" : ["負けず嫌い--まけずぎらい","unyielding"], "tags" : ["","Step3"]},
+{ "items" : ["恥ずかしがり屋--はずかしがりや","shy"], "tags" : ["","Step3"]},
+{ "items" : ["物静か--ものしずか","quiet"], "tags" : ["","Step3"]},
+{ "items" : ["努力家--どりょくか","striver"], "tags" : ["","Step3"]},
+{ "items" : ["前向き--まえむき","prospective"], "tags" : ["","Step3"]},
 { "items" : ["おおざっぱ","rough"], "tags" : ["","Step3"]},
-{ "items" : ["人当たりがいい","kind"], "tags" : ["","Step3"]},
-{ "items" : ["思いやりがある","athletic"], "tags" : ["","Step3"]},
+{ "items" : ["人当たりがいい--ひとあたりがいい","kind"], "tags" : ["","Step3"]},
+{ "items" : ["思いやりがある--おもいやりがある","athletic"], "tags" : ["","Step3"]}
 
-{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]},
 ]}
