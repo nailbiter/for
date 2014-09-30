@@ -13,6 +13,11 @@
 "dataitems" : [
 #english,hiragana,kanji;tags
 { "items" : ["大域--たいいき","global"], "tags" : ["","3010"]},
-
+{ "items" : ["整数--せいすう","integer"], "tags" : ["","3010"]},
+{ "items" : ["多変数--た へんすう","multi-var"], "tags" : ["","3010"]},
+{ "items" : ["複素--ふくそ","complex"], "tags" : ["","3010"]},
+{ "items" : ["関数論--かんすう ろん","function theory"], "tags" : ["","3010"]},
+{ "items" : ["作用素環--さようそ たまき","operator algebra"], "tags" : ["","3010"]},
+{ "items" : ["共形場理論--きょう かたち じょう りろん","conformal field theory"], "tags" : ["","3010"]},
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
