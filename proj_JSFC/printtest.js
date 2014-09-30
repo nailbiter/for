@@ -51,7 +51,7 @@ function print_test(test)
         }
     }
 
-    if(false)
+    if(true)
         test.selectionMode = makeSelectionMode(test.selectionMode, test);
     else
         test.selectionMode = makeSelectionMode("seq", test);
