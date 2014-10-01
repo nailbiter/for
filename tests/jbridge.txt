@@ -32,7 +32,12 @@
 { "items" : ["前向き--まえむき","prospective"], "tags" : ["","Step3"]},
 { "items" : ["おおざっぱ","rough"], "tags" : ["","Step3"]},
 { "items" : ["人当たりがいい--ひとあたりがいい","kind"], "tags" : ["","Step3"]},
-{ "items" : ["思いやりがある--おもいやりがある","athletic"], "tags" : ["","Step3"]},
+{ "items" : ["思いやりがある--おもいやりがある","thoughtful"], "tags" : ["","Step3"]},
+やさしい,friendly
+我慢強い--がまんづよい,patient
+
+{"items": ["どちらかと言うと","If I had to say then"],"tags": ["handy phrase","Step3"]},
+{"items": ["性格--せいかく","personality"],"tags": ["","Step3"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
