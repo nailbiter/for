@@ -18,12 +18,21 @@ function wrapIntoParagraph(node)
 
 function makeButtonWithTextAndOnClick(text,onclick)
 {
-    var button = document.createElement("input");
-    //button.type = "button";
-    button.type = "submit";
-    button.style = "-webkit-appearance: none;font-size: 40px";
+	if( !iOS )
+	{
+		var button = document.createElement("button");
+		var t = document.createTextNode(text);
+		var h = document.createElement("H1");
+		h.appendChild(t);
+		button.appendChild(h);
+	}
+	else
+	{
+		var button = document.createElement("input");
+		button.type = "button";
+		button.value = text;
+	}
     button.onclick = onclick;
-    button.value = text;
     return button;
 }
 
