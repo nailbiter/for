@@ -19,7 +19,9 @@ function wrapIntoParagraph(node)
 function makeButtonWithTextAndOnClick(text,onclick)
 {
     var button = document.createElement("input");
-    button.type = "button";
+    //button.type = "button";
+    button.type = "submit";
+    button.style = "height:50px; width:50px";
     button.onclick = onclick;
     button.value = text;
     return button;
