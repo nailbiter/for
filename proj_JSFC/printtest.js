@@ -21,7 +21,7 @@ function makeButtonWithTextAndOnClick(text,onclick)
     var button = document.createElement("input");
     //button.type = "button";
     button.type = "submit";
-    button.style = "background: #eee;font-size: 40px";
+    button.style = "-webkit-appearance: none;font-size: 40px";
     button.onclick = onclick;
     button.value = text;
     return button;
