@@ -15,7 +15,7 @@
 
 { "items" : ["明るい--あかるい","bright"], "tags" : ["","Step3"]},
 { "items" : ["神経質--しんけいしつ","nervous"], "tags" : ["","Step3"]},
-{ "items" : ["気難しい--きむずかしい","grumpy"], "tags" : ["","Step3"]},
+{ "items" : ["気難しい--きむずかしい","grumpy/cranky"], "tags" : ["","Step3"]},
 { "items" : ["だらしない","slouchy"], "tags" : ["","Step3"]},
 { "items" : ["おしゃべり","chatty"], "tags" : ["","Step3"]},
 { "items" : ["協調性がない--きょうちょうせいがない","not coordinated"], "tags" : ["","Step3"]},
@@ -33,11 +33,19 @@
 { "items" : ["おおざっぱ","rough"], "tags" : ["","Step3"]},
 { "items" : ["人当たりがいい--ひとあたりがいい","kind"], "tags" : ["","Step3"]},
 { "items" : ["思いやりがある--おもいやりがある","thoughtful"], "tags" : ["","Step3"]},
-やさしい,friendly
-我慢強い--がまんづよい,patient
+{"items": ["やさしい","friendly"],"tags": ["","Step3"]},
+{"items": ["我慢強い--がまんづよい","patient"],"tags": ["","Step3"]},
+
 
 {"items": ["どちらかと言うと","If I had to say then"],"tags": ["handy phrase","Step3"]},
 {"items": ["性格--せいかく","personality"],"tags": ["","Step3"]},
+
+{"items": ["短所--たんしょ","weak point"],"tags": ["","Step3"]},
+{"items": ["ニコニコ--ニコニコ","smiling"],"tags": ["","Step3"]},
+{"items": ["突然--とつぜん","suddenly"],"tags": ["","Step3"]},
+{"items": ["不機嫌--ふ きげん","in a baad mood"],"tags": ["","Step3"]},
+{"items": ["長所--ちょうしょ","strong point"],"tags": ["","Step3"]},
+{"items": ["その反面--その はんめん","on the other hand"],"tags": ["handy phrase","Step3"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
