@@ -22,7 +22,7 @@ function makeButtonWithTextAndOnClick(text,onclick)
 	{
 		var button = document.createElement("button");
 		var t = document.createTextNode(text);
-		var h = document.createElement("H1");
+		var h = document.createElement("H2");
 		h.appendChild(t);
 		button.appendChild(h);
 	}
