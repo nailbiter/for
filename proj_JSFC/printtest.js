@@ -36,6 +36,14 @@ function makeButtonWithTextAndOnClick(text,onclick)
     return button;
 }
 
+function setButtonText(button,text)
+{
+	if( !iOS )
+        button.firstChild.data = text;
+	else
+		button.value = text;
+}
+
 function print_test(test)
 {
     test.questions = [];
