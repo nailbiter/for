@@ -359,4 +359,11 @@ function show_questions(questions)
         oNewP.appendChild(document.createTextNode(JSON.stringify(question)));
         questionListDiv.appendChild(oNewP);
     }
+
+    questionListDiv.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("continue",function()
+                {
+                    maindiv.hidden = false;
+                })));
+
+    questionListDiv.hidden = false;
 }
