@@ -255,6 +255,23 @@ $o(1)$-perturbations (that is, such that $\lim_{t\to\pm\infty}\mynorm{B(t)}=0$),
 it is unaffected by $L^1$ perturbations (indeed, for $x'=cx$ exponential dichotomy is the same as forward/backward asymptotic
 stability). As neither of classes $o(1)$ and $L^1$ is not a subset of other, last corollary is no direct implication of
 \cite[Corollary 3.21]{teschlordinary}.
+
+To conclude, we shall demonstrate one example, showing how our derived results are stronger than the original theorem of Palmer in
+\cite{palmer1984exponential} 
+\begin{example}
+	Consider the two-dimensional system
+	\[\begin{bmatrix}\dot{x}\\\dot{y}\end{bmatrix}=
+		\begin{bmatrix}1&0\\0&-1\end{bmatrix}
+	\begin{bmatrix}{x}\\{y}\end{bmatrix}\]
+	It obviously has a dichotomy on $\R$. Now, perturb it to get
+	\[\begin{bmatrix}\dot{x}\\\dot{y}\end{bmatrix}=
+		\begin{bmatrix}1+P(x,y)e^{-x^2-y^2}&0\\0&-1+Q(x,y)e^{-x^2-y^2}\end{bmatrix}
+	\begin{bmatrix}{x}\\{y}\end{bmatrix},\]
+	where $P(x,y)$ and $Q(x,y)$ are arbitrary polynomials in $x$ and $y$.
+
+	Then, our theorem shows that perturbed system still possess the dichotomy on $\R$ (as we've perturbed by Schwartz function, see above),
+	while Palmer's theorem only allows one to conclude that the dichotomy on $\pm\R$ is preserved.
+\end{example}
 \section{Further work}%FIXME: 
 The proposition we have shown together with its corollaries listed can be possibly extended to other classes of differential equations
 , whenever the concept of exponential dichotomy is of relevance to them. In particular new results and corresponding proof techniques
@@ -288,7 +305,5 @@ could be applied to the investigations of the existence of invariant toroidal ma
 %%\bibitem{demidovich}
 %%Demidovich B. P. \emph{Lectures on the mathematical theory of stability} --
 %%Moscow (1967) (in Russian).
-
-%%7. В четверту секцію Cor. and Examples варто обов'язково включити приклад, який ілюструє використання основної теореми та її переваги над відомими до цього результатами. Пропоную вибрати збурення таке, що воно прямувало до нуля при t\to\+infty i t\to\-infty. І продемонструвати, що у випадку виконання додаткових умов теореми (про комутацію) дихотомія зберігаєтсья на всій осі, а за результатами Палмера (1984) - лише на півосях.
 
 % http://people.cs.nctu.edu.tw/~inp9822058/thesis_paper.pdf
