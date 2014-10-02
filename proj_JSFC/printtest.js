@@ -259,8 +259,8 @@ function displayNextQuestion(sm,questions,grade)
             {
                 questionText.innerHTML = question.answer;
                 if( question.hasOwnProperty("reflip") && question.reflip ) center.appendChild(buttonRF);
-                buttonFlip.value = "right";
-                buttonSkip.value = "wrong";
+                setButtonText(buttonFlip,"right");
+                setButtonText(buttonSkip,"wrong");
                 wasReflippedFlag = true;
             }
             else
