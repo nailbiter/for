@@ -362,6 +362,7 @@ function show_questions(questions)
 
     questionListDiv.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("continue",function()
                 {
+                    questionListDiv.hidden = true;
                     maindiv.hidden = false;
                 })));
 
