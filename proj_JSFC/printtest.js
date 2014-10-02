@@ -39,7 +39,12 @@ function makeButtonWithTextAndOnClick(text,onclick)
 function setButtonText(button,text)
 {
 	if( !iOS )
-        button.lastChild.data = text;
+    {
+		var t = document.createTextNode(text);
+		var h = document.createElement("H2");
+		h.appendChild(t);
+        button.lastChild = h;
+    }
 	else
 		button.value = text;
 }
