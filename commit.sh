@@ -27,7 +27,7 @@ git add ftplugin/*.vim
 git commit -a -m "Commit"
 git push origin master
 
-if [ "$1" -eq "push" ]
+if [ $1 == "push" ]
 then
 	ssh nailbiter@insomnia247.nl "cd for && git pull"
 	exit
