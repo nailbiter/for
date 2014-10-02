@@ -88,7 +88,7 @@ function print_test(test)
     settingsCenter.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("Edit Generators",function()
                 {
                     maindiv.hidden = true;
-                    show_generators(test.generators,test.selectionMode,test); 
+                    show_generators(test.generators,test.selectionMode,test,grade); 
                 })));
 
     if( test.hasOwnProperty("canListQuestions") && test.canListQuestions )
@@ -115,7 +115,7 @@ function print_test(test)
     displayNextQuestion(test.selectionMode,test.questions,grade);
 }
 
-function show_generators(generators,selectionMode,test)
+function show_generators(generators,selectionMode,test,grade)
 {
     var generatorDiv = document.getElementById("generatorDiv");
     var maindiv = document.getElementById("maindiv");
@@ -166,14 +166,15 @@ function show_generators(generators,selectionMode,test)
                 }
                 else
                 {
-                    for( index : generators[i].questionsGenerated )
-                        selectionMode.remove(index);
+                    for( var j = 0; j <  generators[i].questionsGenerated.length; j++ )
+                        selectionMode.remove(generators[i].questionsGenerated[j]);
                 }
             }
             generators[i].enabled = x.checked;
         }
         generatorDiv.hidden = true;
         maindiv.hidden = false;
+        displayNextQuestion(selectionMode,test.questions,grade);
     };
     oNewP.appendChild(button);
     generatorDiv.appendChild(oNewP);
@@ -351,8 +352,9 @@ function show_questions(questions)
     var questionListDiv = document.getElementById("questionListDiv");
     var maindiv = document.getElementById("maindiv");
     deleteAllChildren(questionListDiv);
-    for( question : questions )
+    for( var i = 0; i < questions.length; i++ )
     {
+        var question = questions[i];
         var oNewP = document.createElement("p");
         oNewP.appendChild(document.createTextNode(JSON.stringify(question)));
         questionListDiv.appendChild(oNewP);
