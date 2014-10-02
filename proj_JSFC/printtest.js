@@ -43,7 +43,7 @@ function setButtonText(button,text)
 		var t = document.createTextNode(text);
 		var h = document.createElement("H2");
 		h.appendChild(t);
-        button.lastChild = h;
+        button.appendChild ( h);
     }
 	else
 		button.value = text;
