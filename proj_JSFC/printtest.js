@@ -247,8 +247,8 @@ function displayNextQuestion(sm,questions,grade)
     if( question.type == "sc" )
     {
         var center = document.createElement("center");
-        var h1 = document.createElement("h1");
-        var questionText = document.createElement("p");
+        var questionText = document.createElement("div");
+	questionText.setAttribute("class" , "questiontext");
         questionText.innerHTML = question.question;
         var buttonFlip = makeButtonWithTextAndOnClick("flip",null);
         var buttonSkip = makeButtonWithTextAndOnClick("skip",null);
@@ -288,8 +288,7 @@ function displayNextQuestion(sm,questions,grade)
                 questionText.innerHTML = question.question;
         }
 
-        center.appendChild(h1);
-        h1.appendChild(questionText);
+        center.appendChild(questionText);
         center.appendChild(buttonFlip);
         center.appendChild(buttonSkip);
         questiondiv.appendChild(center);
