@@ -40,10 +40,7 @@ function setButtonText(button,text)
 {
 	if( !iOS )
     {
-		var t = document.createTextNode(text);
-		var h = document.createElement("H2");
-		h.appendChild(t);
-        button.appendChild ( h);
+        button.innerHTML = "<h2>" + text + "</h2>";
     }
 	else
 		button.value = text;
