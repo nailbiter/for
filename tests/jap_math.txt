@@ -8,7 +8,7 @@
 #taglist;qsttans;mode(sc,ti)
 "generators" : [
 { "tags" : ["3009"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true,"reflip" : true},
-{ "tags" : ["0110"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true,"reflip" : true}
+{ "tags" : ["0110"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true,"reflip" : true},
 { "tags" : ["0210"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true,"reflip" : true}
 ],
 # ###
