@@ -55,7 +55,8 @@ function print_test(test)
             }
             if( j == test.generators[i].tags.length )
             {
-                test.questions.push(makeQuestion(test.generators[i], test.dataitems[k]));
+                var pos = test.questions.push(makeQuestion(test.generators[i], test.dataitems[k])) - 1;
+                test.generators[i].questionsGenerated.push(pos);
                 if( test.generators[i].type == "si" )
                     test.generators[i].answers.push(test.dataitems[k].items[test.generators[i].to]);
             }
@@ -87,8 +88,15 @@ function print_test(test)
     settingsCenter.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("Edit Generators",function()
                 {
                     maindiv.hidden = true;
-                    show_generators(test.generators); 
+                    show_generators(test.generators,test.selectionMode,test); 
                 })));
+
+    if( test.hasOwnProperty("canListQuestions") && test.canListQuestions )
+        settingsCenter.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("View Questions",function()
+                    {
+                        maindiv.hidden = true;
+                        show_questions(test.questions);
+                    })));
 
     var scoreParagraph = document.createElement("p");
     scoreParagraph.id = "scoreParagraph";
@@ -99,10 +107,15 @@ function print_test(test)
     generatorDiv.id = "generatorDiv";
     document.body.appendChild(generatorDiv);
 
+    var questionListDiv = document.createElement("div");
+    questionListDiv.hidden = true;
+    questionListDiv.id = "questionListDiv";
+    document.body.appendChild(questionListDiv);
+
     displayNextQuestion(test.selectionMode,test.questions,grade);
 }
 
-function show_generators(generators)
+function show_generators(generators,selectionMode,test)
 {
     var generatorDiv = document.getElementById("generatorDiv");
     var maindiv = document.getElementById("maindiv");
@@ -128,9 +141,37 @@ function show_generators(generators)
         for( var i = 0; i < generators.length; i++ )
         {
             var x = document.getElementById("generator" + i);
+            if( generators[i].enabled != x.checked )
+            {
+                if( x.checked )
+                {
+                    if( generators[i].type == "si" )
+                        generators[i].answers = [];
+                    for( var k = 0; k < test.dataitems.length; k++ )
+                    {
+                        var j = 0;
+                        for(; j < generators[i].tags.length; j++ )
+                        {
+                            if( test.dataitems[k].tags.indexOf(generators[i].tags[j]) == -1 )
+                                break;
+                        }
+                        if( j == generators[i].tags.length )
+                        {
+                            var pos = selectionMode.add(makeQuestion(generators[i], test.dataitems[k]));
+                            generators[i].questionsGenerated.push(pos);
+                            if( generators[i].type == "si" )
+                                generators[i].answers.push(test.dataitems[k].items[generators[i].to]);
+                        }
+                    }
+                }
+                else
+                {
+                    for( index : generators[i].questionsGenerated )
+                        selectionMode.remove(index);
+                }
+            }
             generators[i].enabled = x.checked;
         }
-        //TODO: modify testItems
         generatorDiv.hidden = true;
         maindiv.hidden = false;
     };
@@ -171,6 +212,8 @@ function makeQuestion(generator, dataItem)
     {
         question.reflip = generator.hasOwnProperty("reflip") ? generator.reflip : false;
     }
+    if( !generator.hasOwnProperty("questionsGenerated") )
+        generator.questionsGenerated = [];
     return question;
 }
 
@@ -303,4 +346,15 @@ function displayNextQuestion(sm,questions,grade)
     }
 }
 
-// generate questions --> ui for every question --> **stopCriterion**
+function show_questions(questions)
+{
+    var questionListDiv = document.getElementById("questionListDiv");
+    var maindiv = document.getElementById("maindiv");
+    deleteAllChildren(questionListDiv);
+    for( question : questions )
+    {
+        var oNewP = document.createElement("p");
+        oNewP.appendChild(document.createTextNode(JSON.stringify(question)));
+        questionListDiv.appendChild(oNewP);
+    }
+}
