@@ -9,6 +9,7 @@
 "generators" : [
 { "tags" : ["3009"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true,"reflip" : true},
 { "tags" : ["0110"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true,"reflip" : true}
+{ "tags" : ["0210"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true,"reflip" : true}
 ],
 # ###
 "dataitems" : [
@@ -20,7 +21,13 @@
 { "items" : ["関数論--かんすう ろん","function theory"], "tags" : ["","3009"]},
 { "items" : ["作用素環--さようそ たまき","operator algebra"], "tags" : ["","3009"]},
 { "items" : ["共形場理論--きょう かたち じょう りろん","conformal field theory"], "tags" : ["","3009"]},
+
 {"items": ["作用素--さようそ","operator"],"tags": ["","0110"]},
 {"items": ["可換性--かかんせい","commutative"],"tags": ["","0110"]},
+
+{"items": ["整閉整域--せいへいせいいき"],"tags": ["","0210"]},
+{"items": ["分数体--ぶんすう たい"],"tags": ["","0210"]},
+{"items": ["代数体--だいすう たい"],"tags": ["","0210"]},
+
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

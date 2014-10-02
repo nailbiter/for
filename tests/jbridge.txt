@@ -36,7 +36,6 @@
 {"items": ["やさしい","friendly"],"tags": ["","Step3"]},
 {"items": ["我慢強い--がまんづよい","patient"],"tags": ["","Step3"]},
 
-
 {"items": ["どちらかと言うと","If I had to say then"],"tags": ["handy phrase","Step3"]},
 {"items": ["性格--せいかく","personality"],"tags": ["","Step3"]},
 
