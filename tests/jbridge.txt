@@ -7,34 +7,35 @@
 #section 2 - quiz generator
 #taglist;qsttans;mode(sc,ti)
 "generators" : [
-{ "tags" : ["Step3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true}
+{"tags" : ["core vocab"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true,"reflip" : true},
+{ "tags" : ["Step 3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false, "reflip" : true}
 ],
 ####
 "dataitems" : [
 #english,hiragana,kanji;tags
 
-{ "items" : ["明るい--あかるい","bright"], "tags" : ["","Step3"]},
-{ "items" : ["神経質--しんけいしつ","nervous"], "tags" : ["","Step3"]},
-{ "items" : ["気難しい--きむずかしい","grumpy/cranky"], "tags" : ["","Step3"]},
-{ "items" : ["だらしない","slouchy"], "tags" : ["","Step3"]},
-{ "items" : ["おしゃべり","chatty"], "tags" : ["","Step3"]},
-{ "items" : ["協調性がない--きょうちょうせいがない","not coordinated"], "tags" : ["","Step3"]},
-{ "items" : ["寂しがり屋--さびしがりや","lonely"], "tags" : ["","Step3"]},
-{ "items" : ["おとなしい","meek"], "tags" : ["","Step3"]},
-{ "items" : ["社交的--しゃこうてき","communicable"], "tags" : ["","Step3"]},
-{ "items" : ["温厚--おんこう","mild"], "tags" : ["","Step3"]},
-{ "items" : ["わがまま","wayward"], "tags" : ["","Step3"]},
-{ "items" : ["感受性豊か--かんじゅせいゆたか","vulnerable"], "tags" : ["","Step3"]},
-{ "items" : ["負けず嫌い--まけずぎらい","unyielding"], "tags" : ["","Step3"]},
-{ "items" : ["恥ずかしがり屋--はずかしがりや","shy"], "tags" : ["","Step3"]},
-{ "items" : ["物静か--ものしずか","quiet"], "tags" : ["","Step3"]},
-{ "items" : ["努力家--どりょくか","striver"], "tags" : ["","Step3"]},
-{ "items" : ["前向き--まえむき","prospective"], "tags" : ["","Step3"]},
-{ "items" : ["おおざっぱ","rough"], "tags" : ["","Step3"]},
-{ "items" : ["人当たりがいい--ひとあたりがいい","kind"], "tags" : ["","Step3"]},
-{ "items" : ["思いやりがある--おもいやりがある","thoughtful"], "tags" : ["","Step3"]},
-{"items": ["やさしい","friendly"],"tags": ["","Step3"]},
-{"items": ["我慢強い--がまんづよい","patient"],"tags": ["","Step3"]},
+{ "items" : ["明るい--あかるい","bright"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["神経質--しんけいしつ","nervous"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["気難しい--きむずかしい","grumpy/cranky"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["だらしない","slouchy"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["おしゃべり","chatty"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["協調性がない--きょうちょうせいがない","not coordinated"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["寂しがり屋--さびしがりや","lonely"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["おとなしい","meek"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["社交的--しゃこうてき","communicable"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["温厚--おんこう","mild"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["わがまま","wayward"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["感受性豊か--かんじゅせいゆたか","vulnerable"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["負けず嫌い--まけずぎらい","unyielding"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["恥ずかしがり屋--はずかしがりや","shy"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["物静か--ものしずか","quiet"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["努力家--どりょくか","striver"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["前向き--まえむき","prospective"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["おおざっぱ","rough"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["人当たりがいい--ひとあたりがいい","kind"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["思いやりがある--おもいやりがある","thoughtful"], "tags" : ["core vocab","Step3"]},
+{"items": ["やさしい","friendly"],"tags": ["core vocab","Step3"]},
+{"items": ["我慢強い--がまんづよい","patient"],"tags": ["core vocab","Step3"]},
 
 {"items": ["どちらかと言うと","If I had to say then"],"tags": ["handy phrase","Step3"]},
 {"items": ["性格--せいかく","personality"],"tags": ["","Step3"]},
