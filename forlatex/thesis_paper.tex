@@ -33,7 +33,7 @@
 \author[todai]{Oleksii Leontiev\corref{cor}}
 \ead{leontiev@ms.u-tokyo.ac.jp}
 \author[erfurt]{Petro Feketa}
-\ead{petro.feketa@gmail.com}
+\ead{petro.feketa@fh-erfurt.de}
 
 \cortext[cor]{Corresponding author}
 
@@ -232,8 +232,8 @@ as Lie bracket is continuous, we also have that $\Omega(t)$ commutes with $A(\ta
 \end{proof}
 \section{Corollaries and Examples}
 We recall the often used in analysis space of test functions, called \textit{Schawrtz space}. These are characterized
-as $\mysetn{f\in C^{\infty}(\mathbb{R}^n)}{\forall \alpha,\beta,\quad\sup_x\myabs{x^\alpha D^\beta f(x)}<\infty}$,
-where $\alpha$ and $\beta$ runs over all multi-indices. The definition is obviously adapted to matrix-valued functions.
+as $\mysetn{f\in C^{\infty}(\R)}{\forall \alpha,\beta\in\Z,\quad\sup_x\myabs{x^\alpha D^\beta f(x)}<\infty}$,
+. The definition can be simply adapted to matrix-valued functions.
 Schwartz space is easily shown to be strictly bigger than the more often used space of $C^\infty$ functions with compact support.
 As it is a well-known fact that Schwartz functions are $L^1$, we have the following.
 \begin{corollary}
@@ -256,8 +256,8 @@ it is unaffected by $L^1$ perturbations (indeed, for $x'=cx$ exponential dichoto
 stability). As neither of classes $o(1)$ and $L^1$ is not a subset of other, last corollary is no direct implication of
 \cite[Corollary 3.21]{teschlordinary}.
 
-To conclude, we shall demonstrate one example, showing how our derived results are stronger than the original theorem of Palmer in
-\cite{palmer1984exponential} 
+To conclude, we shall demonstrate one example, showing how our derived results are stronger than the theorem of Palmer in
+\cite{palmer1984exponential} or Coppel in \cite{coppel1978dichotomies}.
 \begin{example}
 	Consider the two-dimensional system
 	\[\begin{bmatrix}\dot{x}\\\dot{y}\end{bmatrix}=
@@ -265,14 +265,14 @@ To conclude, we shall demonstrate one example, showing how our derived results a
 	\begin{bmatrix}{x}\\{y}\end{bmatrix}\]
 	It obviously has a dichotomy on $\R$. Now, perturb it to get
 	\[\begin{bmatrix}\dot{x}\\\dot{y}\end{bmatrix}=
-		\begin{bmatrix}1+P(x,y)e^{-x^2-y^2}&0\\0&-1+Q(x,y)e^{-x^2-y^2}\end{bmatrix}
+		\begin{bmatrix}1+P(t)e^{-t^2}&0\\0&-1+Q(t)e^{-t^2}\end{bmatrix}
 	\begin{bmatrix}{x}\\{y}\end{bmatrix},\]
-	where $P(x,y)$ and $Q(x,y)$ are arbitrary polynomials in $x$ and $y$.
+	where $P(t)$ and $Q(t)$ are arbitrary polynomials in $t$.
 
 	Then, our theorem shows that perturbed system still possess the dichotomy on $\R$ (as we've perturbed by Schwartz function, see above),
 	while Palmer's theorem only allows one to conclude that the dichotomy on $\pm\R$ is preserved.
 \end{example}
-\section{Further work}%FIXME: 
+\section{Further work}
 The proposition we have shown together with its corollaries listed can be possibly extended to other classes of differential equations
 , whenever the concept of exponential dichotomy is of relevance to them. In particular new results and corresponding proof techniques
 could be applied to the investigations of the existence of invariant toroidal manifolds of multi-frequency systems, for
@@ -305,5 +305,12 @@ could be applied to the investigations of the existence of invariant toroidal ma
 %%\bibitem{demidovich}
 %%Demidovich B. P. \emph{Lectures on the mathematical theory of stability} --
 %%Moscow (1967) (in Russian).
+
+%%1. біля свого прізвища краще поставте a,*, а біля мого b.
+%%3. в формулах (1) ви використовуєте exp{...}, а в решті формул e^{...}. Думаю, що в цій формулі варто змінити формат а такий як у всьому тексті.
+%%4. Параграф про Коппела (рядок 11) пропоную переписати так: One of the first monograph entirely devoted to the exponential dichotomy was (is?) a book of Coppel [1]. It contains .....
+%%5. В Corollary 3 (рядок 119) пропоную сталу матрицю с позначати великою літерою С, а не малою.
+%%6. Рядок 137, зайвий пробіл між differential equation і комою.
+%%7. Посилання [9], монографія А.М.Самойленка насправді 1991 року. Я бачив по посиланню, яке ви дали в списку літератури, зазаначено, що книга 2012 р. Але це не так. Якщо її шукати в інших місцях (на амазоні, навіть), то там зазначається, що вона 1991 р.
 
 % http://people.cs.nctu.edu.tw/~inp9822058/thesis_paper.pdf
