@@ -36,6 +36,16 @@ function makeButtonWithTextAndOnClick(text,onclick)
     return button;
 }
 
+function setButtonText(button,text)
+{
+	if( !iOS )
+    {
+        button.innerHTML = "<h2>" + text + "</h2>";
+    }
+	else
+		button.value = text;
+}
+
 function print_test(test)
 {
     test.questions = [];
@@ -55,7 +65,8 @@ function print_test(test)
             }
             if( j == test.generators[i].tags.length )
             {
-                test.questions.push(makeQuestion(test.generators[i], test.dataitems[k]));
+                var pos = test.questions.push(makeQuestion(test.generators[i], test.dataitems[k])) - 1;
+                test.generators[i].questionsGenerated.push(pos);
                 if( test.generators[i].type == "si" )
                     test.generators[i].answers.push(test.dataitems[k].items[test.generators[i].to]);
             }
@@ -87,8 +98,15 @@ function print_test(test)
     settingsCenter.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("Edit Generators",function()
                 {
                     maindiv.hidden = true;
-                    show_generators(test.generators); 
+                    show_generators(test.generators,test.selectionMode,test,grade); 
                 })));
+
+    if( test.hasOwnProperty("canListQuestions") && test.canListQuestions )
+        settingsCenter.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("View Questions",function()
+                    {
+                        maindiv.hidden = true;
+                        show_questions(test.questions);
+                    })));
 
     var scoreParagraph = document.createElement("p");
     scoreParagraph.id = "scoreParagraph";
@@ -99,10 +117,15 @@ function print_test(test)
     generatorDiv.id = "generatorDiv";
     document.body.appendChild(generatorDiv);
 
+    var questionListDiv = document.createElement("div");
+    questionListDiv.hidden = true;
+    questionListDiv.id = "questionListDiv";
+    document.body.appendChild(questionListDiv);
+
     displayNextQuestion(test.selectionMode,test.questions,grade);
 }
 
-function show_generators(generators)
+function show_generators(generators,selectionMode,test,grade)
 {
     var generatorDiv = document.getElementById("generatorDiv");
     var maindiv = document.getElementById("maindiv");
@@ -128,11 +151,40 @@ function show_generators(generators)
         for( var i = 0; i < generators.length; i++ )
         {
             var x = document.getElementById("generator" + i);
+            if( generators[i].enabled != x.checked )
+            {
+                if( x.checked )
+                {
+                    if( generators[i].type == "si" )
+                        generators[i].answers = [];
+                    for( var k = 0; k < test.dataitems.length; k++ )
+                    {
+                        var j = 0;
+                        for(; j < generators[i].tags.length; j++ )
+                        {
+                            if( test.dataitems[k].tags.indexOf(generators[i].tags[j]) == -1 )
+                                break;
+                        }
+                        if( j == generators[i].tags.length )
+                        {
+                            var pos = selectionMode.add(makeQuestion(generators[i], test.dataitems[k]));
+                            generators[i].questionsGenerated.push(pos);
+                            if( generators[i].type == "si" )
+                                generators[i].answers.push(test.dataitems[k].items[generators[i].to]);
+                        }
+                    }
+                }
+                else
+                {
+                    for( var j = 0; j <  generators[i].questionsGenerated.length; j++ )
+                        selectionMode.remove(generators[i].questionsGenerated[j]);
+                }
+            }
             generators[i].enabled = x.checked;
         }
-        //TODO: modify testItems
         generatorDiv.hidden = true;
         maindiv.hidden = false;
+        displayNextQuestion(selectionMode,test.questions,grade);
     };
     oNewP.appendChild(button);
     generatorDiv.appendChild(oNewP);
@@ -171,6 +223,8 @@ function makeQuestion(generator, dataItem)
     {
         question.reflip = generator.hasOwnProperty("reflip") ? generator.reflip : false;
     }
+    if( !generator.hasOwnProperty("questionsGenerated") )
+        generator.questionsGenerated = [];
     return question;
 }
 
@@ -193,8 +247,8 @@ function displayNextQuestion(sm,questions,grade)
     if( question.type == "sc" )
     {
         var center = document.createElement("center");
-        var h1 = document.createElement("h1");
-        var questionText = document.createElement("p");
+        var questionText = document.createElement("div");
+	questionText.setAttribute("class" , "questiontext");
         questionText.innerHTML = question.question;
         var buttonFlip = makeButtonWithTextAndOnClick("flip",null);
         var buttonSkip = makeButtonWithTextAndOnClick("skip",null);
@@ -207,8 +261,8 @@ function displayNextQuestion(sm,questions,grade)
             {
                 questionText.innerHTML = question.answer;
                 if( question.hasOwnProperty("reflip") && question.reflip ) center.appendChild(buttonRF);
-                buttonFlip.value = "right";
-                buttonSkip.value = "wrong";
+                setButtonText(buttonFlip,"right");
+                setButtonText(buttonSkip,"wrong");
                 wasReflippedFlag = true;
             }
             else
@@ -234,8 +288,7 @@ function displayNextQuestion(sm,questions,grade)
                 questionText.innerHTML = question.question;
         }
 
-        center.appendChild(h1);
-        h1.appendChild(questionText);
+        center.appendChild(questionText);
         center.appendChild(buttonFlip);
         center.appendChild(buttonSkip);
         questiondiv.appendChild(center);
@@ -303,4 +356,24 @@ function displayNextQuestion(sm,questions,grade)
     }
 }
 
-// generate questions --> ui for every question --> **stopCriterion**
+function show_questions(questions)
+{
+    var questionListDiv = document.getElementById("questionListDiv");
+    var maindiv = document.getElementById("maindiv");
+    deleteAllChildren(questionListDiv);
+    for( var i = 0; i < questions.length; i++ )
+    {
+        var question = questions[i];
+        var oNewP = document.createElement("p");
+        oNewP.appendChild(document.createTextNode(JSON.stringify(question)));
+        questionListDiv.appendChild(oNewP);
+    }
+
+    questionListDiv.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("continue",function()
+                {
+                    questionListDiv.hidden = true;
+                    maindiv.hidden = false;
+                })));
+
+    questionListDiv.hidden = false;
+}

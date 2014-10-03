@@ -3,6 +3,7 @@
 #encoding - utf8
 #default skip_mode - random
 "selectionMode" : "rand",
+"canListQuestions" : true,
 ####
 #section 2 - quiz generator
 #taglist;qsttans;mode(sc,ti)

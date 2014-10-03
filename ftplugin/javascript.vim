@@ -8,3 +8,7 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+setlocal foldmethod=syntax
+setlocal foldlevel=99

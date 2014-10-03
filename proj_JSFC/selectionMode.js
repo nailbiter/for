@@ -4,9 +4,8 @@ function makeSelectionMode(sm, test)
     obj.curIndex = -1;
     obj.questions = test.questions;
 
-    var methods = {};
-    methods.getType = function() {return sm;}
-    methods.remove = function(index) 
+    var getType = function() {return sm;}
+    var remove = function(index) 
     {
         if(index<0 || index>=obj.questions.length){
             return null;
@@ -29,8 +28,10 @@ function makeSelectionMode(sm, test)
 			obj.curIndex--;
 		return obj.questions.splice(1,index);
 	}
-    methods.add = function(index,question)
+    var add = function(question,index)
     {
+        if( typeof index == undefined )
+            index = obj.questions.length;
         if( obj.questions.length == 0 )
         {
             obj.curIndex=0;
@@ -41,13 +42,14 @@ function makeSelectionMode(sm, test)
                 obj.curIndex++;
         }
 		obj.questions.splice(index,0,question);
+        return index;
     }
-    methods.setCurQuestionIndex = function(num)
+    var setCurQuestionIndex = function(num)
     {
         if( num >= 0 && num < obj.questions.length )
             obj.curIndex=num;
     }
-    methods.getCurrentIndex = function() 
+    var getCurrentIndex = function() 
     {
 		if( obj.questions.length == 0 )
 			return -1;
@@ -56,9 +58,10 @@ function makeSelectionMode(sm, test)
         return obj.curIndex;
     }
 
+    var goToNextQuestion = {};
     if( sm == "rand" )
     {
-        methods.goToNextQuestion = function(result) 
+        goToNextQuestion = function(result) 
         {
             if( obj.questions.length > 0 )
                 obj.curIndex = Math.floor(obj.questions.length * Math.random());
@@ -66,7 +69,7 @@ function makeSelectionMode(sm, test)
     }
     if( sm == "seq" )
     {
-        methods.goToNextQuestion = function(result)
+        goToNextQuestion = function(result)
         {
             obj.curIndex++;
             if( obj.curIndex == obj.questions.length )
@@ -74,5 +77,12 @@ function makeSelectionMode(sm, test)
         }
     }
 
+    var methods = {};
+    methods.getType = getType;
+    methods.remove = remove;
+    methods.add = add;
+    methods.setCurQuestionIndex = setCurQuestionIndex;
+    methods.getCurrentIndex = getCurrentIndex;
+    methods.goToNextQuestion = goToNextQuestion;
     return methods;
 }
