@@ -37,8 +37,8 @@
 { "items" : ["思いやりがある--おもいやりがある","thoughtful"], "tags" : ["core vocab","Step3"]},
 {"items": ["やさしい","friendly"],"tags": ["core vocab","Step3"]},
 {"items": ["我慢強い--がまんづよい","patient"],"tags": ["core vocab","Step3"]},
-{"items": ["無口--むくち"],"tags": ["core vocab","Step3"]},
-{"items": ["気が短い--き が みじかい"],"tags": ["core vocab","Step3"]},
+{"items": ["無口--むくち","speachless"],"tags": ["core vocab","Step3"]},
+{"items": ["気が短い--き が みじかい","short-tempered"],"tags": ["core vocab","Step3"]},
 
 {"items": ["どちらかと言うと","If I had to say then"],"tags": ["handy phrase","Step3"]},
 {"items": ["性格--せいかく","personality"],"tags": ["","Step3"]},
