@@ -1,5 +1,4 @@
 "set tabstop=20
-set foldmethod=syntax
 "set noexpandtab
 set nospell
 set si

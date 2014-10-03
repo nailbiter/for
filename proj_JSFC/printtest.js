@@ -246,7 +246,8 @@ function displayNextQuestion(sm,questions,grade)
 
     if( question.type == "sc" )
     {
-        var center = document.createElement("center");
+        var center = document.createElement("div");
+		center.setAttribute("class","buttonContainer");
         var questionText = document.createElement("div");
 	questionText.setAttribute("class" , "questiontext");
         questionText.innerHTML = question.question;
