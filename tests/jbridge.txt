@@ -20,7 +20,7 @@
 { "items" : ["気難しい--きむずかしい","grumpy/cranky"], "tags" : ["core vocab","Step3"]},
 { "items" : ["だらしない","slouchy"], "tags" : ["core vocab","Step3"]},
 { "items" : ["おしゃべり","chatty"], "tags" : ["core vocab","Step3"]},
-{ "items" : ["協調性がない--きょうちょうせいがない","not coordinated"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["協調性がない--きょうちょうせいがない","not cooperative"], "tags" : ["core vocab","Step3"]},
 { "items" : ["寂しがり屋--さびしがりや","lonely"], "tags" : ["core vocab","Step3"]},
 { "items" : ["おとなしい","meek"], "tags" : ["core vocab","Step3"]},
 { "items" : ["社交的--しゃこうてき","communicable"], "tags" : ["core vocab","Step3"]},
@@ -32,7 +32,7 @@
 { "items" : ["物静か--ものしずか","quiet"], "tags" : ["core vocab","Step3"]},
 { "items" : ["努力家--どりょくか","striver"], "tags" : ["core vocab","Step3"]},
 { "items" : ["前向きな--まえむきな","prospective"], "tags" : ["core vocab","Step3"]},
-{ "items" : ["おおざっぱ","rough"], "tags" : ["core vocab","Step3"]},
+{ "items" : ["おおざっぱ","careless"], "tags" : ["core vocab","Step3"]},
 { "items" : ["人当たりがいい--ひとあたりがいい","nice to others"], "tags" : ["core vocab","Step3"]},
 { "items" : ["思いやりがある--おもいやりがある","thoughtful"], "tags" : ["core vocab","Step3"]},
 {"items": ["やさしい","friendly"],"tags": ["core vocab","Step3"]},
@@ -50,6 +50,8 @@
 {"items": ["不機嫌--ふ きげん","in a bad mood"],"tags": ["","Step3"]},
 {"items": ["長所--ちょうしょ","strong point"],"tags": ["","Step3"]},
 {"items": ["その反面--その はんめん","on the other hand"],"tags": ["handy phrase","Step3"]},
+
+{"items": ["必ず--かならず","surely"],"tags": ["particle","Step3"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
