@@ -10,7 +10,6 @@
 
 "dataitems" : [
 
-{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 {"items": ["abandon","оставлять/покидать"],"tags": ["","Verbs 2"]},
 {"items": ["abash","смущать"],"tags": ["","Verbs 2"]},
 {"items": ["adjust","приспосабливаться"],"tags": ["","Verbs 2"]},
@@ -78,4 +77,5 @@
 {"items": ["betray","предавать"],"tags": ["","Verbs 2"]},
 {"items": ["occur","происходить"],"tags": ["","Verbs 2"]},
 {"items": ["shaping","шейпинг/придание формы"],"tags": ["","Verbs 2"]},
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
