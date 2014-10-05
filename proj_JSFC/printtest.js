@@ -246,10 +246,11 @@ function displayNextQuestion(sm,questions,grade)
 
     if( question.type == "sc" )
     {
-        var center = document.createElement("div");
-		center.setAttribute("class","buttonContainer");
+        var center = document.createElement("center");
+        var buttonContainer = document.createElement("div");
+		buttonContainer.setAttribute("class","buttonContainer");
         var questionText = document.createElement("div");
-	questionText.setAttribute("class" , "questiontext");
+	        questionText.setAttribute("class" , "questiontext");
         questionText.innerHTML = question.question;
         var buttonFlip = makeButtonWithTextAndOnClick("flip",null);
         var buttonSkip = makeButtonWithTextAndOnClick("skip",null);
@@ -261,7 +262,7 @@ function displayNextQuestion(sm,questions,grade)
             if( !wasReflippedFlag )
             {
                 questionText.innerHTML = question.answer;
-                if( question.hasOwnProperty("reflip") && question.reflip ) center.appendChild(buttonRF);
+                if( question.hasOwnProperty("reflip") && question.reflip ) buttonContainer.appendChild(buttonRF);
                 setButtonText(buttonFlip,"right");
                 setButtonText(buttonSkip,"wrong");
                 wasReflippedFlag = true;
@@ -289,15 +290,24 @@ function displayNextQuestion(sm,questions,grade)
                 questionText.innerHTML = question.question;
         }
 
-        center.appendChild(questionText);
-        center.appendChild(buttonFlip);
-        center.appendChild(buttonSkip);
-        questiondiv.appendChild(center);
+        if(true)
+        {
+            center.appendChild(questionText);
+            center.appendChild(buttonContainer);
+            questiondiv.appendChild(center);
+        }
+        else
+        {
+            buttonContainer.appendChild(questionText);
+            buttonContainer.appendChild(buttonFlip);
+            buttonContainer.appendChild(buttonSkip);
+            questiondiv.appendChild(buttonContainer);
+        }
     }
 
     if( question.type == "ti" )
     {
-        var center = document.createElement("center");
+        var buttonContainer = document.createElement("buttonContainer");
         var h1 = document.createElement("h1");
         var questionText = document.createElement("p");
         questionText.innerHTML = question.question;
@@ -316,11 +326,11 @@ function displayNextQuestion(sm,questions,grade)
             callMeBack(score);
         }
 
-        center.appendChild(h1);
+        buttonContainer.appendChild(h1);
         h1.appendChild(questionText);
-        center.appendChild(inputText);
-        center.appendChild(buttonSubmit);
-        questiondiv.appendChild(center);
+        buttonContainer.appendChild(inputText);
+        buttonContainer.appendChild(buttonSubmit);
+        questiondiv.appendChild(buttonContainer);
     }
 
     if( question.type == "si" )
