@@ -290,13 +290,13 @@ function displayNextQuestion(sm,questions,grade)
                 questionText.innerHTML = question.question;
         }
 
-        if(false)
+        if(true)
         {
             center.appendChild(questionText);
             buttonContainer.appendChild(buttonFlip);
             buttonContainer.appendChild(buttonSkip);
-            center.appendChild(buttonContainer);
             questiondiv.appendChild(center);
+            questiondiv.appendChild(buttonContainer);
         }
         else
         {
