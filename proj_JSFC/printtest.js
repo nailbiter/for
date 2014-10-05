@@ -293,6 +293,8 @@ function displayNextQuestion(sm,questions,grade)
         if(true)
         {
             center.appendChild(questionText);
+            buttonContainer.appendChild(buttonFlip);
+            buttonContainer.appendChild(buttonSkip);
             center.appendChild(buttonContainer);
             questiondiv.appendChild(center);
         }
