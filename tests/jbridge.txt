@@ -52,6 +52,7 @@
 {"items": ["その反面--その はんめん","on the other hand"],"tags": ["handy phrase","Step3"]},
 
 {"items": ["必ず--かならず","surely"],"tags": ["particle","Step3"]},
+{"items": ["そのため","consequently"],"tags": ["","Step3","particle"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
