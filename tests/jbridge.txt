@@ -54,5 +54,14 @@
 {"items": ["必ず--かならず","surely"],"tags": ["particle","Step3"]},
 {"items": ["そのため","consequently"],"tags": ["","Step3","particle"]},
 
+#Step2.1
+詳しく
+観光地
+植民地
+信者
+宗教
+ほとんど
+
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
+#kakasi -i utf8 -JH < kanji.txt
