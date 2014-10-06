@@ -41,7 +41,7 @@
 \address[erfurt]{Erfurt University of Applied Sciences}
 
 \begin{abstract}
-	It is well known (see \cite{coppel1978dichotomies})
+	It is well known (see \cite{palmer1984exponential})
 	that system $x'=A(t)x$ possesses exponential dichotomy on $\mathbb{R}^+$ iff so does perturbed system
 	$x'=(A(t)+B(t))x$, where perturbation $B(t)$ is ``small'', that is $\lim_{t\to+\infty}\mynorm{B(t)}=0$. However, it is also
 	known that corresponding statement for exponential dichotomy on $\mathbb{R}$ fails.\\
@@ -92,11 +92,11 @@ The concept of exponential dichotomy plays an important role both in theory and 
  in \cite{mitropolsky2002dichotomies},
  exponential dichotomy properties have been utilized
  for the investigation of multi-frequency oscillations and qualitative behavior of solutions of linear extensions of dynamical
- systems on torus. Roughness of exponential dichotomy (that is, its persistence under ``small'' perturbations) are the main
- properties that allow to apply this concept to the investigations of
+ systems on torus. Roughness of exponential dichotomy (that is, its persistence under ``small'' perturbations) is the main
+ property that allows to apply this concept to the investigations of
  a variety of real-world phenomena and processes. This causes a particular relevance of research in this field. 
 
- One of the first monographes entirely devoted to the subject of exponential dichotomy was the book of Coppel \cite{coppel1978dichotomies}.
+ One of the first monographs entirely devoted to the subject of exponential dichotomy was the book of Coppel \cite{coppel1978dichotomies}.
  It contains the exposition of how the dichotomy relates to basic concepts in systems of ODE, such as
 roughness, Lypapunov functions and functional analysis aspects. It also encompasses the criteria for dichotomy and roughness
 conditions, in particular that exponential dichotomy on any interval $J$ is \textit{not} affected when the perturbation $B(t)$
@@ -129,7 +129,7 @@ In subsequent, all matrix functions will be assumed to be continuous.
 %%give up this assumption, but for simplicity we shall keep it.
 In particular, continuity assumption will let us immediately assume
 that Cauchy problem for every ODE system $x'=A(t)x$ has a unique solution on $\mathbb{R}$ for any initial conditions.
-\begin{proposition}
+\begin{theorem}
 	\label{strong}
 	Assume that for the two systems 
 	\begin{equation}\label{Unperturbed}
@@ -145,28 +145,28 @@ that Cauchy problem for every ODE system $x'=A(t)x$ has a unique solution on $\m
 	\item $B\in L^1(\mathbb{R})\cap C(\mathbb{R})$, that is $\int_{-\infty}^{\infty}\mynorm{B(s)}\;ds<\infty$.
 	\end{enumerate}
 	Then, \eqref{Perturbed} has exponential dichotomy on $\mathbb{R}$ if \eqref{Unperturbed} does.
-\end{proposition}
+\end{theorem}
 %%\begin{remark}The boundedness hypothesis of the statement \ref{strong} (the second condition) holds in particular if
 %%$\int_{-\infty}^\infty\mynorm{B(s)}\;ds<+\infty$ or $\lim_{\myabs{t}\to\infty}\mynorm{B(t)}=0$.
 %%\end{remark}
-\begin{remark}The hypothesis of the proposition \ref{strong} about the commutativity (the first condition) holds in particular if
+\begin{remark}The hypothesis of the theorem \ref{strong} about the commutativity (the first condition) holds in particular if
 	$\forall t,\;B(t)\in\bigcap\limits_{s\in\mathbb{R}} Z_{\mathfrak{gl}_n}(A(s))$, where
 	$Z_{\mathfrak{gl}_n}(A)$ denotes the (Lie algebra) centralizer of $A$.
 	If furthermore $A(t)\equiv A$, this condition can be simply rewritten as $\forall t,\;B(t)\in Z_{\mathfrak{gl}_n}(A)$.\end{remark}
 \section{Proofs}
-\begin{proof}{(of proposition \ref{strong}).\;}
+\begin{proof}{(of theorem \ref{strong}).\;}
 The desired result will follow from two observations, which we shall state now and prove later. It should be noted that the observations have
-weaker hypothesis than that of the proposition, and are useful results on their own.
+weaker hypothesis than that of the theorem, and are useful results on their own.
 \begin{observation}\label{Hard}Let $A$ and $B$ be continuous (not necessary bounded matrices-valued functions on $\mathbb{R}$). Assume further
 that for every $s,t\in\mathbb{R}$ $A(s)$ and $B(t)$ commute. We shall also assume that for system $x'=Bx$, every Cauchy problem has a unique
 solution on $\mathbb{R}$, in other words, that the fundamental matrix (we shall denote it by $X_B$) is well-defined on $\mathbb{R}$. Then,
 for arbitrary $t,s\in\mathbb{R}$, $A(t)$ and $X_B(s)$ commute.
 \end{observation}
-\begin{observation}\label{Easy}Let $B$ be continuous matrix-valued function, such that $B\in L^1\cap C$. Then,
-the fundamental matrix $X_B$ of $x'=Bx$ is well-defined on $\mathbb{R}$, and $\exists C\forall t,\;\mynorm{X_B(t)},\mynorm{X^{-1}_B
-(t)}\leq C$.
+\begin{observation}\label{Easy}Let $B$ be continuous matrix-valued function, such that $B\in L^1$. Then,
+the fundamental matrix $X_B$ of $x'=Bx$ is well-defined on $\mathbb{R}$, and both $\mynorm{X_B(t)}$ and $\mynorm{X^{-1}_B}$ are uniformly bounded
+in $t\in\R$.
 \end{observation}
-Assuming these two for the moment, let us see how the proof of the proposition can be obtained from them. Consider the $x'=Bx$ system, whose
+Assuming these two for the moment, let us see how the proof of the theorem can be obtained from them. Consider the $x'=Bx$ system, whose
 fundamental matrix (existing by observation \ref{Easy}) we shall denote by $X_B$. Let us make the variable change $x=X_Bz$. Then, we have
 \[BX_Bz+X_Bz'=(X_Bz)'=x'=(A+B)X_Bz\]
 Now, as by observation \ref{Hard} $A$ and $X_B$ commute, we have
@@ -232,18 +232,18 @@ as Lie bracket is continuous, we also have that $\Omega(t)$ commutes with $A(\ta
 \end{proof}
 \section{Corollaries and Examples}
 We recall the often used in analysis space of test functions, called \textit{Schawrtz space}. These are characterized
-as $\mysetn{f\in C^{\infty}(\R)}{\forall \alpha,\beta\in\Z,\quad\sup_x\myabs{x^\alpha D^\beta f(x)}<\infty}$,
-. The definition can be simply adapted to matrix-valued functions.
+as $\mysetn{f\in C^{\infty}(\R)}{\forall \alpha,\beta\in\Z,\quad\sup_x\myabs{x^\alpha D^\beta f(x)}<\infty}$.
+The definition can be simply adapted to matrix-valued functions.
 Schwartz space is easily shown to be strictly bigger than the more often used space of $C^\infty$ functions with compact support.
 As it is a well-known fact that Schwartz functions are $L^1$, we have the following.
 \begin{corollary}
-	If $x'=A(t)x(t)$ is system with exponential dichotomy on $\R$ $B(t)$ is matrix valued function, such that $\forall s,t\in\R$
-	$A(t)$ and $B(s)$ commute, then perturbed system $x'=(A(t)+B(t))x(t)$ has also exponential dichotomy, once $B(t)$ is a member
-	of a Schwartz space.
+	Let $x'=A(t)x(t)$ be the system with an exponential dichotomy on $\R$, $B(t)$ be the matrix valued Schwartz function,
+ 	such that $\forall s,t\in\R$
+	$A(t)$ and $B(s)$ commute. Then the perturbed system $x'=(A(t)+B(t))x(t)$ also possesses exponential dichotomy.
 \end{corollary}
 As Schwartz functions are so commonly encountered nowadays in analysis, we hope this corollary to be of some interest and use.
 
-Another way to produce interesting corollaries may be on contrary, to \textit{strengthen} commutativity hypothesis of Proposition
+Another way to produce interesting corollaries may be on contrary, to \textit{strengthen} commutativity hypothesis of Theorem
 \ref{strong}. In this direction the following may be of interest
 \begin{corollary}
 	If $x'=cx$ is system with exponential dichotomy, where $c$ is a (scalar) constant (that is the same as require $\Re c\neq0$)
@@ -256,7 +256,9 @@ it is unaffected by $L^1$ perturbations (indeed, for $x'=cx$ exponential dichoto
 stability). As neither of classes $o(1)$ and $L^1$ is not a subset of other, last corollary is no direct implication of
 \cite[Corollary 3.21]{teschlordinary}.
 
-To conclude, we shall demonstrate one example, showing how our derived results are stronger than the theorem of Palmer in
+To conclude, we shall demonstrate one example, illustrating how in some particular cases
+our derived results allow to make more conclusions on dichotomy behaviour and persistence than
+the original results of Palmer in
 \cite{palmer1984exponential} or Coppel in \cite{coppel1978dichotomies}.
 \begin{example}
 	Consider the two-dimensional system
@@ -273,11 +275,11 @@ To conclude, we shall demonstrate one example, showing how our derived results a
 	while Palmer's theorem only allows one to conclude that the dichotomy on $\pm\R$ is preserved. Neither Coppel's classical result
 	from \cite{coppel1978dichotomies}, nor any of the latter developments (\cite{Ju200139,Naulin1998559}) \textit{cannot} be applied
 	for general $P$ and $Q$,
-	as any of them requires the supremum-norm $\mynorm{B(t)}_\infty$ of perturbation be smaller than some particular value,
+	as any of them requires the supremum-norm $\mynorm{B(t)}_\infty$ of perturbation be not bigger than some particular value,
 	while evidently by adjusting $P$ and $Q$ latter can be made arbitrarily big.
 \end{example}
 \section{Further work}
-The proposition we have shown together with its corollaries listed can be possibly extended to other classes of differential equations,
+The theorem we have proven together with its corollaries listed can be possibly extended to other classes of differential equations,
 whenever the concept of exponential dichotomy is of relevance to them. In particular new results and corresponding proof techniques
 could be applied to the investigations of the existence of invariant toroidal manifolds of multi-frequency systems, for
  which the exponential dichotomy plays an essential role (see \cite{samoilenko2012elements,mitropolsky2002dichotomies} for details).
