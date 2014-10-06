@@ -1,4 +1,5 @@
 colorscheme evening
+:set ft=json
 
 :command! -nargs=1 -range  Convert <line1>,<line2>s@,@","@eg | 
             		\<line1>,<line2>s@^[^;]\+\zs\ze$@;@eg | 

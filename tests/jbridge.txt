@@ -8,8 +8,9 @@
 #section 2 - quiz generator
 #taglist;qsttans;mode(sc,ti)
 "generators" : [
-{"tags" : ["core vocab"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true,"reflip" : true},
-{ "tags" : ["Step 3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false, "reflip" : true}
+{"tags" : ["core vocab"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false,"reflip" : true},
+{ "tags" : ["Step3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false, "reflip" : true},
+{ "tags" : ["Step2.1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true}
 ],
 ####
 "dataitems" : [
@@ -55,13 +56,12 @@
 {"items": ["そのため","consequently"],"tags": ["","Step3","particle"]},
 
 #Step2.1
-詳しく
-観光地
-植民地
-信者
-宗教
-ほとんど
+{"items": ["詳しく--くわしく"],"tags": ["","Step2.1"]},
+{"items": ["観光地--かんこうち"],"tags": ["","Step2.1"]},
+{"items": ["植民地--しょくみんち"],"tags": ["","Step2.1"]},
+{"items": ["信者--しんじゃ"],"tags": ["","Step2.1"]},
+{"items": ["宗教--しゅうきょう"],"tags": ["","Step2.1"]},
+{"items": ["ほとんど--ほとんど"],"tags": ["","Step2.1"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
-#kakasi -i utf8 -JH < kanji.txt
