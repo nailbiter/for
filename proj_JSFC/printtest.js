@@ -1,3 +1,30 @@
+function shuffle(array) 
+{
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+function swapIn(array,index,headLen)
+{
+    randomIndex = Math.floor(Math.random() * headLen);
+    //alert("headLen = "+headLen+", randomIndex = "+randomIndex);
+    temporaryValue = array[index];
+    array[index] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+}
 function removeById(id)
 {
     var element=document.getElementById(tableid);
@@ -212,9 +239,15 @@ function makeQuestion(generator, dataItem)
         question.auxText = generator.auxText;
     question.type = generator.type;
 
-    if( generator.type == "si" )
+    var siRegexp = /^si[0-9]*$/;
+    if( siRegexp.test(generator.type) )
     {
+        if( !generator.hasOwnProperty("answers") )
+            generator.answers = [];
+        generator.answers.push(dataItem.items[generator.to]);
         question.answers = generator.answers;
+        question.type = "si";
+        question.select = (generator.type == "si") ? 0 : parseInt(generator.type.substr(2));
     }
 
     if( generator.type == "ti" ) {}
@@ -337,13 +370,17 @@ function displayNextQuestion(sm,questions,grade)
 
     if( question.type == "si" )
     {
+        //alert("select: "+question.select);
         var center = document.createElement("center");
         var h1 = document.createElement("h1");
         var questionText = document.createElement("p");
+        shuffle(question.answers);
+        var answersSize = (question.select == 0) ? question.answers.length : question.select;
         questionText.innerHTML = question.question;
         var buttonSubmit = makeButtonWithTextAndOnClick("submit",null);
         var inputSelect = document.createElement("select");
-        for( var i = 0; i < question.answers.length; i++ )
+        swapIn(question.answers,question.answers.indexOf(question.answer),answersSize);
+        for( var i = 0; i < answersSize; i++ )
         {
             var option = document.createElement("option");
             option.text = question.answers[i];
