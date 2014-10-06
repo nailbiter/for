@@ -5,7 +5,7 @@
 #section 2 - quiz generator
 #taglist;qsttans;mode(sc,ti)
 "generators" : [
-{ "tags" : ["Verbs 2"], "from" : 0, "to" : 1, "type" : "si4","auxText" : "select the correct russian translation" , "enabled" : true,"reflip" : true}
+{ "tags" :["Verbs 2"], "from" : 0, "to" : 1, "type" : "si4","auxText" : "select the correct russian translation" , "enabled" : true,"reflip" : true},
 { "tags" : ["Verbs 2"], "from" : 0, "to" : 1, "type" : "ti","auxText" : "select the correct russian translation" , "enabled" : true,"reflip" : true}
 ],
 
