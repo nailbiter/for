@@ -7,5 +7,7 @@ forplots/*.png
 forplots/*.jpg
 forplots/*.ps
 harpoon.sty
+forjava/*.class
+forjava/*.txt
 *.pdf
 alex.vim
