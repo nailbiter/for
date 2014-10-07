@@ -63,6 +63,7 @@
 {"items": ["宗教--しゅうきょう"],"tags": ["","Step2.1"]},
 {"items": ["ほとんど--ほとんど"],"tags": ["","Step2.1"]},
 {"items": ["都市--とし","city"],"tags": ["","Step2.1"]},
+{"items": ["印象--いんしょう","impression"],"tags": ["","Step2.1"]},
 
 {"items": ["地理--ちり","geography"],"tags": ["core vocab","Step2.1"]},
 {"items": ["首都--しゅと","capital (of country)"],"tags": ["core vocab","Step2.1"]},
