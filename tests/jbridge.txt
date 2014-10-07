@@ -10,7 +10,7 @@
 "generators" : [
 {"tags" : ["core vocab"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false,"reflip" : true},
 { "tags" : ["Step3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false, "reflip" : true},
-{ "tags" : ["Step2.1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true}
+{ "tags" : ["Step2.1","core vocab"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true}
 ],
 ####
 "dataitems" : [
@@ -62,6 +62,31 @@
 {"items": ["信者--しんじゃ"],"tags": ["","Step2.1"]},
 {"items": ["宗教--しゅうきょう"],"tags": ["","Step2.1"]},
 {"items": ["ほとんど--ほとんど"],"tags": ["","Step2.1"]},
+
+{"items": ["地理--ちり","geography"],"tags": ["core vocab","Step2.1"]},
+{"items": ["首都--しゅと","capital (of country)"],"tags": ["core vocab","Step2.1"]},
+{"items": ["湿度--しつど","humidity"],"tags": ["core vocab","Step2.1"]},
+{"items": ["人口--じんこう","population"],"tags": ["core vocab","Step2.1"]},
+{"items": ["面積--めんせき","area"],"tags": ["core vocab","Step2.1"]},
+{"items": ["産業--さんぎょう","industry"],"tags": ["core vocab","Step2.1"]},
+{"items": ["季節--きせつ","Season"],"tags": ["core vocab","Step2.1"]},
+{"items": ["気候--きこう","Climate"],"tags": ["core vocab","Step2.1"]},
+{"items": ["気温--きおん","Temperature"],"tags": ["core vocab","Step2.1"]},
+{"items": ["宗教--しゅうきょう","Religion"],"tags": ["core vocab","Step2.1"]},
+{"items": ["キリスト教--キリストきょう","Christianity"],"tags": ["core vocab","Step2.1"]},
+{"items": ["イスラム教--イスラムきょう","Islam"],"tags": ["core vocab","Step2.1"]},
+{"items": ["ヒンドゥー教--ヒンドゥーきょう","Hinduism"],"tags": ["core vocab","Step2.1"]},
+{"items": ["ユダヤ教--ユダヤきょう","Judaism"],"tags": ["core vocab","Step2.1"]},
+{"items": ["仏教--ぶっきょう","Buddhism"],"tags": ["core vocab","Step2.1"]},
+{"items": ["神道--しんとう","Shinto"],"tags": ["core vocab","Step2.1"]},
+{"items": ["寺--てら","Temple"],"tags": ["core vocab","Step2.1"]},
+{"items": ["教会--きょうかい","Church"],"tags": ["core vocab","Step2.1"]},
+{"items": ["神社--じんじゃ","Shrine"],"tags": ["core vocab","Step2.1"]},
+{"items": ["モスク--モスク","Mosque"],"tags": ["core vocab","Step2.1"]},
+{"items": ["信者--しんじゃ","Believer"],"tags": ["core vocab","Step2.1"]},
+{"items": ["雨期--うき","Wet"],"tags": ["core vocab","Step2.1"]},
+{"items": ["乾期--かんき","Dry season"],"tags": ["core vocab","Step2.1"]},
+{"items": ["蒸し暑い--むしあつい","Humid"],"tags": ["core vocab","Step2.1"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

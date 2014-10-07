@@ -9,3 +9,4 @@ colorscheme evening
             \<line1>,<line2>s@\s*\"\s*@\"@eg | noh
 
 command! -range Hira <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple.pl
+command! -range Merge <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple2.pl
