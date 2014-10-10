@@ -342,7 +342,8 @@ function displayNextQuestion(sm,questions,grade)
 
     if( question.type == "ti" )
     {
-        var buttonContainer = document.createElement("buttonContainer");
+        var buttonContainer = document.createElement("div");
+		buttonContainer.setAttribute("class","buttonContainer");
         var h1 = document.createElement("h1");
         var questionText = document.createElement("p");
         questionText.innerHTML = question.question;

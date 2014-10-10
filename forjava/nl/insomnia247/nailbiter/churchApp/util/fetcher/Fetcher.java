@@ -26,7 +26,7 @@ public class Fetcher
         catch(Exception e)
         {
             haveInternet_ = false; 
-            newm = new ArrayList<Header>();
+            return;
         }
         if( DEBUG == true )
         {
