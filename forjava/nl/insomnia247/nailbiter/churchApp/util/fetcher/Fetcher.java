@@ -19,7 +19,7 @@ public class Fetcher
         }
         update();
     }
-    private void update()
+    public void update()
     {
         List<Header> newm = null;
         try{ newm = factory_.download(); }
