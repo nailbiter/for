@@ -17,7 +17,6 @@ public class Fetcher
             for( Header header : oldm )
                 System.out.println("\t" + header.toDisplayableString());
         }
-        update();
     }
     public void update()
     {
