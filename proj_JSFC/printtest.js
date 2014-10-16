@@ -153,7 +153,7 @@ function print_test(test)
     {
         console.log("100500");
         console.log(test.questions.length);
-        var obj = [];
+        var obj = {};
         obj.val = "value";
         obj.f = function(){ alert("tesi me f"); };
         console.log(obj);
