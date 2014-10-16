@@ -150,7 +150,8 @@ function print_test(test)
     document.body.appendChild(questionListDiv);
 
     //FIXME: remove test block
-    console.log("tesi me");
+    console.log("100500");
+    console.log(test.questions.length);
 
     displayNextQuestion(test.selectionMode,test.questions,grade);
 }
