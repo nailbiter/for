@@ -150,8 +150,16 @@ function print_test(test)
     document.body.appendChild(questionListDiv);
 
     //FIXME: remove test block
-    console.log("100500");
-    console.log(test.questions.length);
+    {
+        console.log("100500");
+        console.log(test.questions.length);
+        var obj = [];
+        obj.val = "value";
+        obj.f = function(){ alert("tesi me f"); };
+        console.log(obj);
+        console.log("100500");
+        console.log(JSON.stringify(obj));
+    }
 
     displayNextQuestion(test.selectionMode,test.questions,grade);
 }
