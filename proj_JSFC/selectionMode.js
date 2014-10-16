@@ -1,4 +1,4 @@
-function makeSelectionMode(sm, test)
+function makeSelectionMode(sm, test)//FIXME: rewrite this guy and add random_pass
 {
     var obj = {};
     obj.curIndex = -1;

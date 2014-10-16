@@ -149,6 +149,9 @@ function print_test(test)
     questionListDiv.id = "questionListDiv";
     document.body.appendChild(questionListDiv);
 
+    //FIXME: remove test block
+    console.log("tesi me");
+
     displayNextQuestion(test.selectionMode,test.questions,grade);
 }
 
@@ -178,7 +181,7 @@ function show_generators(generators,selectionMode,test,grade)
         for( var i = 0; i < generators.length; i++ )
         {
             var x = document.getElementById("generator" + i);
-            if( generators[i].enabled != x.checked )
+            if( generators[i].enabled != x.checked )//FIXME: make this to be a function
             {
                 if( x.checked )
                 {
@@ -204,7 +207,8 @@ function show_generators(generators,selectionMode,test,grade)
                 else
                 {
                     for( var j = 0; j <  generators[i].questionsGenerated.length; j++ )
-                        selectionMode.remove(generators[i].questionsGenerated[j]);
+                        selectionMode.remove(generators[i].questionsGenerated[j]);//FIXME: this guy will be wrong, once indexes are mis-alligned
+                                                                                    //after several removes
                 }
             }
             generators[i].enabled = x.checked;
@@ -261,9 +265,9 @@ function makeQuestion(generator, dataItem)
     return question;
 }
 
-function displayNextQuestion(sm,questions,grade)
+function displayNextQuestion(sm,questions,grade)//FIXME: check if getCurrentIndex is different from before, if no -- just skip --> do this in show_generators
 {
-    var question = questions[sm.getCurrentIndex()];
+    var question = questions[sm.getCurrentIndex()];//FIXME: return just a question object, not index; equal for questions; employ console for logs
     var questiondiv = document.getElementById("questiondiv");
     var scoreParagraph = document.getElementById("scoreParagraph");
     deleteAllChildren(questiondiv);
@@ -414,9 +418,8 @@ function show_questions(questions)
     deleteAllChildren(questionListDiv);
     for( var i = 0; i < questions.length; i++ )
     {
-        var question = questions[i];
         var oNewP = document.createElement("p");
-        oNewP.appendChild(document.createTextNode(JSON.stringify(question)));
+        oNewP.appendChild(document.createTextNode(JSON.stringify(questions[i])));
         questionListDiv.appendChild(oNewP);
     }
 

@@ -13,25 +13,31 @@
 \usepackage{enumitem}
 \usepackage{mystyle}
 
-\begin{document}
-I've figured that it might be a good idea to send You report about my weekly progress. In subsequent, I'll send them on Friday.
- Please, feel free to ignore them if You are busy, this is just an indicator and motivation for me. Otherwise, any of Your comments would be 
-highly appreciated.
+\newtheorem*{fact}{Fact}
 
-I've resumed my reading of Kobayashi-Speh paper. I've decided that it might be a good exercise to try to adapt the considerations of Your paper
-to some other case. As of know, I'm thinking of $(G,G')=(SO(n,1),SO(n-1,1))$. I have the following plan 
+\begin{document}
+Our seminar with Taito and Naoya will commence from this Friday, I guess. We are hoping to start with Chapter II of Knapp.
+
+As You remember, I've decided that it might be a good exercise to try to adapt the considerations of Your paper
+to some other case. As of know, I'm thinking of $(G,G')=(SO(n,1),SO(n-1,1))$. I had the following plan, which I've
+outlined in my previous email. Now, Tanaka-san kindly told me some fact (please, correct me, if I restate it wrongly), which I have yet
+to fully understand. Nevertheless, it resolves some of questions I had.
+\begin{fact}
+	If $G'\subset $ are two linear Lie groups, both fixed by involution $\theta: g\mapsto {^tg^{-1}}$, then for $M,A,N$ and $M',A',N'$
+	decompositions of $G$ and $G'$ respectively we have $M'=G'\cap M$, $A'=A\cap G'$, $M'=G'\cap M$ and the same for $P'=P\cap G'$.
+\end{fact}
 \begin{enumerate}
 \item Try to clearly formulate all the assumptions that You had in Your paper about the pair $(G,G')$;
 \begin{itemize}
-\item $G$ and $G'$ are both semi-simple
+	\item $G$ and $G'$ are both semi-simple,{\it true, as mentioned in Knapp.}
 \item $G=P'N_-P$
-\item $M'=M\cap G',\;A'=A\cap G',\;N'=N\cap G',\;P'=P\cap G'$ %should be ok once we are fixed by involution \theta
+\item $M'=M\cap G',\;A'=A\cap G',\;N'=N\cap G',\;P'=P\cap G'$ {\it true, by the fact}
 \end{itemize}
 \item Check whether the pair $(G,G')=(SO(n,1),SO(n-1,1))$ satisfies them;
-\item Find parabolic subgroup and $MAN$ decomposition for $G$ and $G'$;
+\item Find parabolic subgroup and $MAN$ decomposition for $G$ and $G'$; {\it done by the fact}
 \item Find real and complex flag varieties associated to $SO(n,1)$ (\textit{answer: $S^n$});
 \item find the orbits of $P'\subset G'$ (parabolic subgroup of $G'$) on the flag variety of $G$ (we'll need this to classify
-supports of kernel of operators, as in Kobayashi-Speh); %HERE: 
+supports of kernel of operators, as in Kobayashi-Speh); {\it still working on this, but seems that decomposition is the same}
 \item Find what these orbits correspond to under the parametrization of Bruhat cell by $\R^n$;
 \item Set up the functional equations for kernels of symmetry breaking operators.
 \end{enumerate}
@@ -44,7 +50,7 @@ Related to this plan, I have the following questions, which I'll try to answer m
 \item How do we use knowledge about possible operator kernels?;
 \item How answer to step 6 above was found in Kobayashi-Speh?
 \end{enumerate}
-Finally, while thinking about this I've came up across a question which puzzles me. Suppose $\mathfrak{g}$ is some $n$-dimensional Lie algebra,
+Finally, answer to previously posed question. Suppose $\mathfrak{g}$ is some $n$-dimensional Lie algebra,
 with basis $\mycbra{a_i}_{i=1}^n$ as a vector space and $n^3$ numbers $\mycbra{c_{ij}^k}_{i,j,k=1}^n$ are known, such that
 \[\mysbra{a_i,a_j}=\sum_{k=1}^nc_{ij}^ka_k\]
 Having them how can we:
@@ -55,7 +61,11 @@ Having them how can we:
 \item Find $\mathfrak{m},\mathfrak{a},\mathfrak{n}$ of $MAN$ decomposition;
 \item Find the root system of $\mathfrak{g}$?
 \end{enumerate}
-And as a practical question, how can one compute $\mycbra{c_{ij}^k}_{i,j,k}$ for $\mathfrak{so(n,1)}$ (\textit{done: $X=I_{m,n}X^TI_{m,n}$})?
+One can compute $\mycbra{c_{ij}^k}_{i,j,k}$ for $\mathfrak{so(n,1)}$ (\textit{done, as: $X=I_{m,n}X^TI_{m,n}$,
+which was kindly proven to me by Tanaka-san, this reduces to solving linear system}).
+
+Having all these partial results I'm starting to be afraid that the case $(G,G')=(SO(n+1,1),SO(n,1))$ will be the same as $(O(n+1,1),O(n,1)$. Am
+I doing something wrong?
 \begin{thebibliography}{9}
 \bibitem{graaf}
 De Graaf, Willem and Ivanyos, Gábor and Rónyai, Lajos. Computing Cartan subalgebras of Lie algebras. Springer-Verlag. p. 339-349 1996
