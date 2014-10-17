@@ -243,6 +243,11 @@ function generatorToString(generator)
     return s;
 }
 
+function compareQuestion(q1,q2)
+{
+
+}
+
 function makeQuestion(generator, dataItem)
 {
     var question = {};
