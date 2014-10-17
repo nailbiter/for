@@ -39,14 +39,24 @@
 
 (define apo-list (myprocessreading (myformatextract "apo.tex")))
 (define gosp-list (myprocessreading (myformatextract "gosp.tex")))
+(define separator " && ")
 
 (define (mypermute l) (map (lambda (i) (if (< i 0) "" (list-ref l i)))(list 0 1 4 7 -1 5 8 2 6 9 3 10 11 12)))
 (define space->underscore(lambda(s)(string-map(lambda (char)(if (char=? char #\space) #\_ char))s)))
 (replace-in-file "apostol.tex"(string-concatenate(list"apostol_week_"(space->underscore(list-ref apo-list 0))".tex"))(mypairing(mypermute apo-list)))
 (replace-in-file "gospel.tex"(string-concatenate(list"gospel_week_"(space->underscore(list-ref gosp-list 0))".tex"))(mypairing(mypermute gosp-list)))
 
-(open-pipe (string-concatenate (list "pdflatex -interaction batchmode" " 'apostol_week_"(space->underscore(list-ref apo-list 0))".tex'"" &&
-                                 " "pdflatex -interaction batchmode"" 'gospel_week_"(space->underscore(list-ref gosp-list 0))".tex'")) OPEN_WRITE)
+(define apostol-filename (string-append "apostol_week_"(space->underscore(list-ref apo-list 0))".tex"))
+(define gospel-filename (string-append "gospel_week_"(space->underscore(list-ref gosp-list 0))".tex"))
+(define (enclose-in-quote s) (string-append "'" s "'"))
+(define (enclose-in-double-quotes s) (string-append "\"" s "\""))
+
+(open-pipe (string-append "pdflatex -interaction batchmode " (enclose-in-quote apostol-filename) separator
+                                  "pdflatex -interaction batchmode " (enclose-in-quote gospel-filename)) OPEN_WRITE)
+(let* ((deffile-filename "deffile.scm")
+       (outport (open-file deffile-filename "w"))
+       (defline (lambda (varname content)(string-append "(define " varname " " (enclose-in-double-quotes content) ")\n")))
+       (put-def (lambda (varname content)(write-line (defline varname content)  outport)))
+       )(begin(put-def "apostol-filename" apostol-filename)(put-def "gospel-filename" gospel-filename)))
 (newline)
-;TODO: make it generate script to upload and add 
 ;TODO: make it "generate" .tex, not substitute into a template
