@@ -44,18 +44,18 @@ function makeSelectionMode(sm, test)//FIXME: rewrite this guy and add random_pas
 		obj.questions.splice(index,0,question);
         return index;
     }
-    var setCurQuestionIndex = function(num)
+    /*var setCurQuestionIndex = function(num)
     {
         if( num >= 0 && num < obj.questions.length )
             obj.curIndex=num;
-    }
-    var getCurrentIndex = function() 
+    }*/
+    var getCurrentQuestion = function() 
     {
 		if( obj.questions.length == 0 )
 			return -1;
         while( obj.curIndex < 0 )
             methods.goToNextQuestion(null);
-        return obj.curIndex;
+        return obj.questions[obj.curIndex];
     }
 
     var goToNextQuestion = {};
@@ -81,7 +81,7 @@ function makeSelectionMode(sm, test)//FIXME: rewrite this guy and add random_pas
     methods.getType = getType;
     methods.remove = remove;
     methods.add = add;
-    methods.setCurQuestionIndex = setCurQuestionIndex;
+    //methods.setCurQuestionIndex = setCurQuestionIndex;
     methods.getCurrentIndex = getCurrentIndex;
     methods.goToNextQuestion = goToNextQuestion;
     return methods;

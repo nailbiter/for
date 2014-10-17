@@ -93,7 +93,6 @@ function print_test(test)
             if( j == test.generators[i].tags.length )
             {
                 var pos = test.questions.push(makeQuestion(test.generators[i], test.dataitems[k])) - 1;
-                test.generators[i].questionsGenerated.push(pos);
                 if( test.generators[i].type == "si" )
                     test.generators[i].answers.push(test.dataitems[k].items[test.generators[i].to]);
             }
@@ -159,6 +158,11 @@ function print_test(test)
         console.log(obj);
         console.log("100500");
         console.log(JSON.stringify(obj));
+        /*try{ console.log(obj.val); console.log(obj.val1); }
+        catch(err){ console.log("msg: "+err.message); }*/
+        /*for( var i = 0; i < test.questions.length; i++ )
+            for( var j = 0; j < test.questions.length; j++ )
+                if( compareQuestions(test.questions[i],test.questions[j]) ) console.log(i+"=="+j);*/
     }
 
     displayNextQuestion(test.selectionMode,test.questions,grade);
@@ -187,6 +191,7 @@ function show_generators(generators,selectionMode,test,grade)
     button.appendChild(buttonText);
     button.onclick = function()
     {
+        var wasQuestion = selectionMode.getCurrentQuestion();
         for( var i = 0; i < generators.length; i++ )
         {
             var x = document.getElementById("generator" + i);
@@ -207,7 +212,6 @@ function show_generators(generators,selectionMode,test,grade)
                         if( j == generators[i].tags.length )
                         {
                             var pos = selectionMode.add(makeQuestion(generators[i], test.dataitems[k]));
-                            generators[i].questionsGenerated.push(pos);
                             if( generators[i].type == "si" )
                                 generators[i].answers.push(test.dataitems[k].items[generators[i].to]);
                         }
@@ -215,16 +219,22 @@ function show_generators(generators,selectionMode,test,grade)
                 }
                 else
                 {
-                    for( var j = 0; j <  generators[i].questionsGenerated.length; j++ )
-                        selectionMode.remove(generators[i].questionsGenerated[j]);//FIXME: this guy will be wrong, once indexes are mis-alligned
-                                                                                    //after several removes
+                    for( var j = 0; j < test.questions.length; j++ )
+                    {
+                        if( test.questions[j].generatedBy == generators[i] )
+                        {
+                            selectionMode.remove(j);
+                            j--;
+                        }
+                    }
                 }
             }
             generators[i].enabled = x.checked;
         }
         generatorDiv.hidden = true;
         maindiv.hidden = false;
-        displayNextQuestion(selectionMode,test.questions,grade);
+        if( !compareQuestions(wasQuestion,selectionMode.getCurrentQuestion()) )
+            displayNextQuestion(selectionMode,test.questions,grade);
     };
     oNewP.appendChild(button);
     generatorDiv.appendChild(oNewP);
@@ -243,9 +253,13 @@ function generatorToString(generator)
     return s;
 }
 
-function compareQuestion(q1,q2)
+function compareQuestions(q1,q2)
 {
-
+    if( q1.type != q2.type ) return false;
+    if( q1.question != q2.question ) return false;
+    if( q1.answer != q2.answer ) return false;
+    if( q1.generatedBy != q2.generatedBy ) return false;
+    return true;
 }
 
 function makeQuestion(generator, dataItem)
@@ -253,6 +267,7 @@ function makeQuestion(generator, dataItem)
     var question = {};
     question.question = dataItem.items[generator.from];
     question.answer = dataItem.items[generator.to];
+    question.generatedBy = generator;
     if( generator.hasOwnProperty("auxText") )
         question.auxText = generator.auxText;
     question.type = generator.type;
@@ -274,14 +289,12 @@ function makeQuestion(generator, dataItem)
     {
         question.reflip = generator.hasOwnProperty("reflip") ? generator.reflip : false;
     }
-    if( !generator.hasOwnProperty("questionsGenerated") )
-        generator.questionsGenerated = [];
     return question;
 }
 
-function displayNextQuestion(sm,questions,grade)//FIXME: check if getCurrentIndex is different from before, if no -- just skip --> do this in show_generators
+function displayNextQuestion(sm,questions,grade)
 {
-    var question = questions[sm.getCurrentIndex()];//FIXME: return just a question object, not index; equal for questions; employ console for logs
+    var question = sm.getCurrentQuestion();//FIXME: if its null, we're done
     var questiondiv = document.getElementById("questiondiv");
     var scoreParagraph = document.getElementById("scoreParagraph");
     deleteAllChildren(questiondiv);
