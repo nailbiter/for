@@ -48,3 +48,5 @@
 (open-pipe (string-concatenate (list "pdflatex -interaction batchmode" " 'apostol_week_"(space->underscore(list-ref apo-list 0))".tex'"" &&
                                  " "pdflatex -interaction batchmode"" 'gospel_week_"(space->underscore(list-ref gosp-list 0))".tex'")) OPEN_WRITE)
 (newline)
+;TODO: make it generate script to upload and add 
+;TODO: make it "generate" .tex, not substitute into a template
