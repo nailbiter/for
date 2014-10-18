@@ -1,22 +1,3 @@
-function shuffle(array) 
-{
-  var currentIndex = array.length, temporaryValue, randomIndex ;
-
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-
-  return array;
-}
 function swapIn(array,index,headLen)
 {
     randomIndex = Math.floor(Math.random() * headLen);
@@ -211,7 +192,7 @@ function show_generators(generators,selectionMode,test,grade)
                         }
                         if( j == generators[i].tags.length )
                         {
-                            var pos = selectionMode.add(makeQuestion(generators[i], test.dataitems[k]));
+                            selectionMode.add(makeQuestion(generators[i], test.dataitems[k]));
                             if( generators[i].type == "si" )
                                 generators[i].answers.push(test.dataitems[k].items[generators[i].to]);
                         }
@@ -233,7 +214,7 @@ function show_generators(generators,selectionMode,test,grade)
         }
         generatorDiv.hidden = true;
         maindiv.hidden = false;
-        if( !compareQuestions(wasQuestion,selectionMode.getCurrentQuestion()) )
+        if( wasQuestion != selectionMode.getCurrentQuestion() ) //!compareQuestions(wasQuestion,selectionMode.getCurrentQuestion()) )
             displayNextQuestion(selectionMode,test.questions,grade);
     };
     oNewP.appendChild(button);
