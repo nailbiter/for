@@ -1,0 +1,34 @@
+{
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+"selectionMode" : "shuff",
+####
+#section 2 - quiz generator
+#taglist;qsttans;mode(sc,ti)
+"generators" : [
+{ "tags" : ["transit"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see transitive (+を)" , "enabled" : true,"reflip" : true},
+{ "tags" : ["transit"], "from" : 0, "to" : 2, "type" : "sc", "auxText" : "tap to see intransitive (+が)" , "enabled" : true,"reflip" : false}
+],
+####
+"dataitems" : [
+
+{"items": ["open","開ける(あける)","開く(あく)"],"tags": ["","transit"]},
+{"items": ["close","閉める(しめる)","閉まる(しまる)"],"tags": ["","transit"]},
+{"items": ["turn on","点ける(つける)","点く(つく)"],"tags": ["","transit"]},
+{"items": ["turn off","消す(けす)","消える(きえる)"],"tags": ["","transit"]},
+{"items": ["put in","入れる(いれる)","入る(いる)"],"tags": ["","transit"]},
+{"items": ["take out","出す(だす)","出る(でる)"],"tags": ["","transit"]},
+{"items": ["stop","止める(やめる)","止まる(とまる)"],"tags": ["","transit"]},
+{"items": ["drop","落とす(おとす)","落ちる(おちる)"],"tags": ["","transit"]},
+{"items": ["break","壊す(こわす)","壊れる(こわれる)"],"tags": ["","transit"]},
+{"items": ["fix","治す(なおす)","治る(なおる)"],"tags": ["","transit"]},
+{"items": ["begin","始める(はじめる)","始まる(はじまる)"],"tags": ["","transit"]},
+{"items": ["find","見つける(みつける)","見つかる(みつかる)"],"tags": ["","transit"]},
+{"items": ["change","変える(かえる)","変わる(かわる)"],"tags": ["","transit"]},
+{"items": ["decide","決める(きめる)","決まる(きまる)"],"tags": ["","transit"]},
+{"items": ["deliver","届ける(とどける)","届く(とどく)"],"tags": ["","transit"]},
+
+
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
+]}
