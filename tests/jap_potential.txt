@@ -7,7 +7,7 @@
 #section 2 - quiz generator
 #taglist;qsttans;mode(sc,ti)
 "generators" : [
-{ "tags" : ["potential"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see causative" , "enabled" : true,"reflip" : true}
+{ "tags" : ["potential"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see potential" , "enabled" : true,"reflip" : true}
 ],
 ####
 "dataitems" : [
