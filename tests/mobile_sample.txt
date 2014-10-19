@@ -1,6 +1,6 @@
 #first section - skip_mode: (rand,seq,adapt)+timing - empty so far
 {
-"selectionMode" : "rand",
+"selectionMode" : "shuff",
 "generators" : [
 { "tags" : ["self check"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : true,"auxText" : "tap on a picture to see the chinese translation"},
 { "tags" : ["type in"], "from" : 0, "to" : 1, "type" : "ti", "enabled" : true,"auxText" : "type the word in reverse"},

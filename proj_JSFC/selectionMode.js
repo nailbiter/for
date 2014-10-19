@@ -1,4 +1,4 @@
-function makeSelectionMode(sm, test)//FIXME: rewrite this guy and add random_pass
+function makeSelectionMode(sm, test)
 {
     if( sm == "rand" ) return makeSelectionModeRand(test);
     if( sm == "seq" ) return makeSelectionModeSeq(test);
@@ -15,7 +15,7 @@ function makeSelectionModeRand(test)
     methods.remove = function(index) 
     {
         if(index<0 || index>=questions.length)
-            return null;
+            return;
 
 		if( index == curIndex )
             curIndex = -1;
@@ -112,19 +112,15 @@ function makeSelectionModeShuff(test)
 {
     var curIndex = -1;
     var questions = test.questions;
+    var indexesShuffled = [];
 
     var methods = {};
     methods.getType = function() {return "shuff";}
     methods.remove = function(index) 
     {
         if(index<0 || index>=questions.length)
-            return null;
-
-		if( index == curIndex )
-            curIndex = -1;
-
-		if( index < curIndex )
-			curIndex--;
+            return;
+        curIndex = -1;
 
 	    questions.splice(1,index);
         return;
@@ -132,38 +128,36 @@ function makeSelectionModeShuff(test)
     methods.add = function(question)
     {
         var index = questions.length;
-        if( questions.length == 0 )
-        {
-            curIndex=0;
-        }
-        else
-        {
-            if( index <= curIndex )
-                curIndex++;
-        }
+        curIndex = -1;//FIXME here and for remove?
 		questions.splice(index,0,question);
     }
-    /*methods.setCurQuestionIndex = function(num)
-    {
-        if( num >= 0 && num < questions.length )
-            curIndex=num;
-    }*/
-    /** @return null means that either we have no questions, or we're done
-     */
     methods.getCurrentQuestion = function() 
     {
 		if( questions.length == 0 )
 			return null;
         if( curIndex < 0 )
-            curIndex = Math.floor(questions.length * Math.random());
-        return questions[curIndex];
+        {
+            indexesShuffled = [];
+            for( var i = 0; i < questions.length; i++ ) indexesShuffled.push(i);
+            shuffle(indexesShuffled);
+            console.log("getCurrentQuestion-shuff: [ ");
+            for( var i = 0; i < indexesShuffled.length; i++ ) console.log(indexesShuffled[i]+" ");
+            console.log("]\n");
+            curIndex = 0;
+        }
+        return questions[indexesShuffled[curIndex]];
     }
 
     methods.goToNextQuestion = function(result) 
     {
         if( questions.length > 0 )
-            curIndex = Math.floor(questions.length * Math.random());
-        console.log("goToNextQuestion-rand: "+curIndex);
+        {
+            curIndex++;
+            if( curIndex == questions.length )
+                curIndex=0;
+        }
+        console.log("goToNextQuestion-shuff: "+"curIndex = "+curIndex);
+        console.log("goToNextQuestion-shuff: "+indexesShuffled[curIndex]);
     }
 
     return methods;
