@@ -1,0 +1,25 @@
+{
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+"selectionMode" : "shuff",
+####
+#section 2 - quiz generator
+#taglist;qsttans;mode(sc,ti)
+"generators" : [
+{ "tags" : ["humble"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see causative" , "enabled" : true}
+],
+####
+"dataitems" : [
+
+{"items": ["見る","はいけんする"],"tags": ["","humble"]},
+{"items": ["会う","おめにかかる"],"tags": ["","humble"]},
+{"items": ["聞く／たずねる","うかがう"],"tags": ["","humble"]},
+{"items": ["食べる／飲む","いただく"],"tags": ["","humble"]},
+{"items": ["いる","おる"],"tags": ["","humble"]},
+{"items": ["行く／来る","まいる"],"tags": ["","humble"]},
+{"items": ["する","いたす"],"tags": ["","humble"]},
+{"items": ["はいけんする","もうす"],"tags": ["","humble"]},
+
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
+]}
