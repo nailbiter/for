@@ -180,6 +180,7 @@ function show_generators(generators,selectionMode,test,grade)
             {
                 if( x.checked )
                 {
+                    console.log("I was before add with "+JSON.stringify(generators[i]));
                     if( generators[i].type == "si" )
                         generators[i].answers = [];
                     for( var k = 0; k < test.dataitems.length; k++ )
@@ -200,6 +201,7 @@ function show_generators(generators,selectionMode,test,grade)
                 }
                 else
                 {
+                    console.log("I was before remove with "+JSON.stringify(generators[i]));
                     for( var j = 0; j < test.questions.length; j++ )
                     {
                         if( test.questions[j].generatedBy == generators[i] )
@@ -214,6 +216,7 @@ function show_generators(generators,selectionMode,test,grade)
         }
         generatorDiv.hidden = true;
         maindiv.hidden = false;
+        console.log("I was before displayNextQuestion");
         if( wasQuestion != selectionMode.getCurrentQuestion() ) //!compareQuestions(wasQuestion,selectionMode.getCurrentQuestion()) )
             displayNextQuestion(selectionMode,test.questions,grade);
     };
@@ -337,6 +340,8 @@ function displayNextQuestion(sm,questions,grade)
 
         if(true)
         {
+            if( question.hasOwnProperty("auxText") )
+                center.appendChild(wrapIntoParagraph(document.createTextNode(question.auxText)));
             center.appendChild(questionText);
             buttonContainer.appendChild(buttonFlip);
             buttonContainer.appendChild(buttonSkip);

@@ -23,7 +23,7 @@ function makeSelectionModeRand(test)
 		if( index < curIndex )
 			curIndex--;
 
-	    questions.splice(1,index);
+	    questions.splice(index,1);
 	}
     methods.add = function(question)
     {
@@ -76,7 +76,7 @@ function makeSelectionModeSeq(test)
 		if( index < curIndex )
 			curIndex--;
 
-	    questions.splice(1,index);
+	    questions.splice(index,1);
 	}
     methods.add = function(question,index)
     {
@@ -122,14 +122,14 @@ function makeSelectionModeShuff(test)
             return;
         curIndex = -1;
 
-	    questions.splice(1,index);
+	    questions.splice(index,1);
         return;
 	}
     methods.add = function(question)
     {
         var index = questions.length;
         curIndex = -1;//FIXME here and for remove?
-		questions.splice(index,0,question);
+        questions.push(question);
     }
     methods.getCurrentQuestion = function() 
     {
