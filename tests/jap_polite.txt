@@ -20,7 +20,7 @@
 {"items": ["いる","おる"],"tags": ["","humble"]},
 {"items": ["行く／来る","まいる"],"tags": ["","humble"]},
 {"items": ["する","いたす"],"tags": ["","humble"]},
-{"items": ["はいけんする","もうす"],"tags": ["","humble"]},
+{"items": ["もうす","もうす"],"tags": ["","humble"]},
 
 {"items": ["いる／いく／くる","いらっしゃる／おいでになる"],"tags": ["","honorific"]},
 {"items": ["食べる","めしあがる"],"tags": ["","honorific"]},
