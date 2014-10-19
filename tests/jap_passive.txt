@@ -1,0 +1,38 @@
+{
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+"selectionMode" : "shuff",
+####
+#section 2 - quiz generator
+#taglist;qsttans;mode(sc,ti)
+"generators" : [
+{ "tags" : ["passive"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see causative" , "enabled" : true}
+],
+####
+"dataitems" : [
+{"items": ["食べる","食べられる"],"tags": ["ru","passive"]},
+{"items": ["着る","着られる"],"tags": ["ru","passive"]},
+{"items": ["信じる","信じられる"],"tags": ["ru","passive"]},
+{"items": ["寝る","寝られる"],"tags": ["ru","passive"]},
+{"items": ["起きる","起きられる"],"tags": ["ru","passive"]},
+{"items": ["出る","出られる"],"tags": ["ru","passive"]},
+{"items": ["掛ける","掛けられる"],"tags": ["ru","passive"]},
+{"items": ["捨てる","捨てられる"],"tags": ["ru","passive"]},
+{"items": ["調べる","調べられる"],"tags": ["ru","passive"]},
+
+{"items": ["話す","話される"],"tags": ["u","passive"]},
+{"items": ["聞く","聞かれる"],"tags": ["u","passive"]},
+{"items": ["泳ぐ","泳がれる"],"tags": ["u","passive"]},
+{"items": ["遊ぶ","遊ばれる"],"tags": ["u","passive"]},
+{"items": ["待つ","待たれる"],"tags": ["u","passive"]},
+{"items": ["飲む","飲まれる"],"tags": ["u","passive"]},
+{"items": ["直る","直られる"],"tags": ["u","passive"]},
+{"items": ["死ぬ","死なれる"],"tags": ["u","passive"]},
+{"items": ["買う","買われる"],"tags": ["u","passive"]},
+
+{"items": ["する","される"],"tags": ["suru","passive"]},
+{"items": ["くる","こられる"],"tags": ["suru","passive"]},
+
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
+]}

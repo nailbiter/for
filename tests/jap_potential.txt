@@ -1,0 +1,36 @@
+{
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+"selectionMode" : "shuff",
+####
+#section 2 - quiz generator
+#taglist;qsttans;mode(sc,ti)
+"generators" : [
+{ "tags" : ["potential"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see causative" , "enabled" : true}
+],
+####
+"dataitems" : [
+{"items": ["食べる","食べられる"],"tags": ["ru","potential"]},
+{"items": ["着る","着られる"],"tags": ["ru","potential"]},
+{"items": ["信じる","信じられる"],"tags": ["ru","potential"]},
+{"items": ["寝る","寝られる"],"tags": ["ru","potential"]},
+{"items": ["起きる","起きられる"],"tags": ["ru","potential"]},
+{"items": ["出る","出られる"],"tags": ["ru","potential"]},
+{"items": ["掛ける","掛けられる"],"tags": ["ru","potential"]},
+{"items": ["調べる","調べられる"],"tags": ["ru","potential"]},
+
+{"items": ["話す","話せる"],"tags": ["u","potential"]},
+{"items": ["書く","書ける"],"tags": ["u","potential"]},
+{"items": ["遊ぶ","遊べる"],"tags": ["u","potential"]},
+{"items": ["待つ","待てる"],"tags": ["u","potential"]},
+{"items": ["飲む","飲める"],"tags": ["u","potential"]},
+{"items": ["取る","取れる"],"tags": ["u","potential"]},
+{"items": ["死ぬ","死ねる"],"tags": ["u","potential"]},
+{"items": ["買う","買える"],"tags": ["u","potential"]},
+
+{"items": ["する","できる"],"tags": ["suru","potential"]},
+{"items": ["くる","こられる"],"tags": ["suru","potential"]},
+
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
+]}
