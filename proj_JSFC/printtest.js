@@ -435,7 +435,7 @@ function show_questions(questions)
         oNewP.appendChild(document.createTextNode(JSON.stringify(questions[i])));
         questionListDiv.appendChild(oNewP);
     }
-    questionListDiv.appendChild(wrapIntoParagraph(createTextNode("total: "+questions.length)));
+    questionListDiv.appendChild(wrapIntoParagraph(document.createTextNode("total: "+questions.length)));
 
     questionListDiv.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("continue",function()
                 {
