@@ -2,7 +2,7 @@
 #first section - skip_mode: (rand,seq,adapt)+timing - empty so far
 #encoding - utf8
 #default skip_mode - random
-"selectionMode" : "rand",
+"selectionMode" : "shuff",
 "canListQuestions" : true,
 ####
 #section 2 - quiz generator
