@@ -10,9 +10,12 @@
 "generators" : [
 {"tags" : ["core vocab"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false,"reflip" : true},
 { "tags" : ["Step3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false, "reflip" : true},
-{ "tags" : ["Step2.1","core vocab"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true},
-{ "tags" : ["Step3.1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true},
-{ "tags" : ["g13"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true}
+{ "tags" : ["Step2.1","core vocab"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false, "reflip" : true},
+{ "tags" : ["Step3.1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false, "reflip" : true},
+{ "tags" : ["g13"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true},
+{ "tags" : ["jbridge","3.2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["midori","21/10"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["math","1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -102,6 +105,34 @@
 {"items": ["最後--さいご","last"],"tags": ["","g13"]},
 {"items": ["最初--さいしょ","first"],"tags": ["","g13"]},
 {"items": ["まじめな","serious"],"tags": ["","g13"]},
+
+{"items": ["結果--けっか"],"tags": ["","midori","21/10"]},
+{"items": ["世間--せけん"],"tags": ["","midori","21/10"]},
+{"items": ["告白--こくはく"],"tags": ["","midori","21/10"]},
+{"items": ["相手--あいて"],"tags": ["","midori","21/10"]},
+{"items": ["ずれる--ずれる"],"tags": ["","midori","21/10"]},
+{"items": ["登場--とうじょう"],"tags": ["","midori","21/10"]},
+{"items": ["影--かげ"],"tags": ["","midori","21/10"]},
+{"items": ["印象--いんしょう"],"tags": ["","midori","21/10"]},
+
+{"items": ["旅行保険--りょこうほけん"],"tags": ["","jbridge","3.2"]},
+{"items": ["酔い止め--よいとめ"],"tags": ["","jbridge","3.2"]},
+{"items": ["日焼け止め--ひやけとめ"],"tags": ["","jbridge","3.2"]},
+{"items": ["貴重品--きちょうひん"],"tags": ["","jbridge","3.2"]},
+{"items": ["虫よけ--むしよけ"],"tags": ["","jbridge","3.2"]},
+{"items": ["卒業--そつぎょう"],"tags": ["","jbridge","3.2"]},
+{"items": ["全然--ぜんぜん"],"tags": ["","jbridge","3.2"]},
+
+{"items": ["定義域--ていぎいき"],"tags": ["","math","1"]},
+{"items": ["値域--ちいき"],"tags": ["","math","1"]},
+{"items": ["作用素--さようそ"],"tags": ["","math","1"]},
+{"items": ["拡張--かくちょう"],"tags": ["","math","1"]},
+{"items": ["制限--せいげん"],"tags": ["","math","1"]},
+{"items": ["双対空間--そうたいくうかん"],"tags": ["","math","1"]},
+{"items": ["共役--きょうやく"],"tags": ["","math","1"]},
+{"items": ["分数体--ぶんすうからだ"],"tags": ["","math","1"]},
+{"items": ["完備--かんび"],"tags": ["","math","1"]},
+{"items": ["距離--きょり"],"tags": ["","math","1"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
