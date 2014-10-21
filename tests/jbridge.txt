@@ -122,9 +122,13 @@
 {"items": ["虫よけ--むしよけ","insect repellent"],"tags": ["","jbridge","3.2"]},
 {"items": ["卒業--そつぎょう","graduation"],"tags": ["","jbridge","3.2"]},
 {"items": ["全然--ぜんぜん","absolutely"],"tags": ["","jbridge","3.2"]},
-{"items": ["計画--けいかく"],"tags": ["","jbridge","3.2"]},
-{"items": ["歩く--あるく"],"tags": ["","jbridge","3.2"]},
-{"items": ["胃薬--いぐすり"],"tags": ["","jbridge","3.2"]},
+{"items": ["計画--けいかく","plan"],"tags": ["","jbridge","3.2"]},
+{"items": ["歩く--あるく","walk"],"tags": ["","jbridge","3.2"]},
+{"items": ["胃薬--いぐすり","stormack medication"],"tags": ["","jbridge","3.2"]},
+
+{"items": ["それとも--それとも","or"],"tags": ["","jbridge"]},
+{"items": ["出発--しゅっぱつ","begin(v)"],"tags": ["","jbridge"]},
+{"items": ["大使館--たいしかん","embassy"],"tags": ["","jbridge"]},
 
 {"items": ["定義域--ていぎいき","domain"],"tags": ["","math","1"]},
 {"items": ["値域--ちいき","range"],"tags": ["","math","1"]},
