@@ -129,6 +129,7 @@
 {"items": ["それとも--それとも","or"],"tags": ["","jbridge"]},
 {"items": ["出発--しゅっぱつ","begin(v)"],"tags": ["","jbridge"]},
 {"items": ["大使館--たいしかん","embassy"],"tags": ["","jbridge"]},
+{"items": ["手続き--てつづき","procedures"],"tags": ["","jbridge"]},
 
 {"items": ["定義域--ていぎいき","domain"],"tags": ["","math","1"]},
 {"items": ["値域--ちいき","range"],"tags": ["","math","1"]},
