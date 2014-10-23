@@ -1,0 +1,27 @@
+<html><head><title>tesi me</title>
+<meta charset="UTF-8">
+		<body>
+			<p><h1>Hi there!</h1></p>
+			<p><input type="button" onClick="f()" value="Click me!"></input></p>
+		</body>
+		<script>
+			function f()
+			{
+				obj = {};
+				obj.name1 = "value1";
+				obj.name2 = "value2";
+				obj.name3 = "value3";
+				var headID = document.getElementsByTagName("head")[0];
+				var newScript = document.createElement('script');
+				newScript.type = 'text/javascript';
+				console.log("json: "+JSON.stringify(obj));
+                newScript.src = 'http://nailbiter.insomnia247.nl/cgi-bin/testo.cgi?' + JSON.stringify(obj);
+				headID.appendChild(newScript);
+			}
+			function clientCallback(arg)
+			{
+                console.log("clientCallback got: "+arg);
+                alert("name1="+obj.name1);
+			}
+		</script>
+	</html>

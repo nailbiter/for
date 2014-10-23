@@ -12,10 +12,15 @@
 { "tags" : ["Step3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false, "reflip" : true},
 { "tags" : ["Step2.1","core vocab"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false, "reflip" : true},
 { "tags" : ["Step3.1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : false, "reflip" : true},
+
+{ "tags" : ["midori","21/10"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+
 { "tags" : ["g13"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true},
 { "tags" : ["jbridge","3.2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
-{ "tags" : ["midori","21/10"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
-{ "tags" : ["math","1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["math","1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+
+{ "tags" : ["jbridge","3.2+"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["math","2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -126,10 +131,10 @@
 {"items": ["歩く--あるく","walk"],"tags": ["","jbridge","3.2"]},
 {"items": ["胃薬--いぐすり","stormack medication"],"tags": ["","jbridge","3.2"]},
 
-{"items": ["それとも--それとも","or"],"tags": ["","jbridge"]},
-{"items": ["出発--しゅっぱつ","begin(v)"],"tags": ["","jbridge"]},
-{"items": ["大使館--たいしかん","embassy"],"tags": ["","jbridge"]},
-{"items": ["手続き--てつづき","procedures"],"tags": ["","jbridge"]},
+{"items": ["それとも--それとも","or"],"tags": ["3.2+","jbridge"]},
+{"items": ["出発--しゅっぱつ","begin(v)"],"tags": ["3.2+","jbridge"]},
+{"items": ["大使館--たいしかん","embassy"],"tags": ["3.2+","jbridge"]},
+{"items": ["手続き--てつづき","procedures"],"tags": ["3.2+","jbridge"]},
 
 {"items": ["定義域--ていぎいき","domain"],"tags": ["","math","1"]},
 {"items": ["値域--ちいき","range"],"tags": ["","math","1"]},
@@ -141,6 +146,14 @@
 {"items": ["分数体--ぶんすうからだ","fraction domain"],"tags": ["","math","1"]},
 {"items": ["完備--かんび","complete"],"tags": ["","math","1"]},
 {"items": ["距離--きょり","metric"],"tags": ["","math","1"]},
+
+{"items": ["固有値--こゆうち","evalue"],"tags": ["","math","2"]},
+{"items": ["恒等--こうとう","identity"],"tags": ["","math","2"]},
+{"items": ["値関数--あたいかんすう","function value"],"tags": ["","math","2"]},
+{"items": ["正則な--せいそくな","holomorphic"],"tags": ["","math","2"]},
+{"items": ["背理法--はいりほう","proof by contradiction"],"tags": ["","math","2"]},
+{"items": ["多重度--たじゅうど","multiplicity"],"tags": ["","math","2"]},
+{"items": ["矛盾--むじゅん","contradiction"],"tags": ["","math","2"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
