@@ -429,13 +429,53 @@ function show_questions(questions)
     var questionListDiv = document.getElementById("questionListDiv");
     var maindiv = document.getElementById("maindiv");
     deleteAllChildren(questionListDiv);
-    for( var i = 0; i < questions.length; i++ )
+
+    var questionLabels = document.createElement("center");
+    questionListDiv.appendChild(questionLabels);
+
+    var printNice = function()
     {
-        var oNewP = document.createElement("p");
-        oNewP.appendChild(document.createTextNode(JSON.stringify(questions[i])));
-        questionListDiv.appendChild(oNewP);
+        deleteAllChildren(questionLabels);
+
+        var table = document.createElement('TABLE');
+        table.border='1';
+
+        var tableBody = document.createElement('TBODY');
+        table.appendChild(tableBody);
+
+        for (var i=0; i<questions.length; i++)
+        {
+            var tr = document.createElement('TR');
+            tableBody.appendChild(tr);
+            var texts = [questions[i].question, questions[i].answer, questions[i].type ];
+            for( var j = 0; j < texts.length; j++ )
+            {
+                var td = document.createElement('TD');
+                td.width='175';
+                td.appendChild(document.createTextNode(texts[j]));
+                tr.appendChild(td);
+            }
+        }
+        questionLabels.appendChild(table);
     }
-    questionListDiv.appendChild(wrapIntoParagraph(document.createTextNode("total: "+questions.length)));
+
+    var printTech = function()
+    {
+        deleteAllChildren(questionLabels);
+
+        for( var i = 0; i < questions.length; i++ )
+        {
+            var oNewP = document.createElement("p");
+            oNewP.appendChild(document.createTextNode(JSON.stringify(questions[i])));
+            questionLabels.appendChild(oNewP);
+        }
+        questionLabels.appendChild(wrapIntoParagraph(document.createTextNode("total: "+questions.length)));
+    }
+
+    var printButtons = document.createElement("div");
+    printButtons.appendChild(makeButtonWithTextAndOnClick("tech print",printTech));
+    printButtons.appendChild(makeButtonWithTextAndOnClick("nice print",printNice));
+    questionListDiv.appendChild(printButtons);
 
     questionListDiv.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("continue",function()
                 {
@@ -444,4 +484,5 @@ function show_questions(questions)
                 })));
 
     questionListDiv.hidden = false;
+    printNice();
 }
