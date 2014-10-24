@@ -1,0 +1,57 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[10pt]{type1ec}          % use only 10pt fonts
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{mystyle}
+
+\newtheorem*{fact}{Fact}
+
+\begin{document}
+Our seminar with Taito and Naoya will commence from this Friday, I guess. We are hoping to start with Chapter II of Knapp.
+
+As You remember, I've decided that it might be a good exercise to try to adapt the considerations of Your paper
+to some other case. As of know, I'm thinking of $(G,G')=(SO(n,1),SO(n-1,1))$. I had the following plan, which I've
+outlined in my previous email. Now, Tanaka-san kindly told me some fact (please, correct me, if I restate it wrongly), which I have yet
+to fully understand. Nevertheless, it resolves some of questions I had.
+\begin{fact}
+	If $G'\subset $ are two linear Lie groups, both fixed by involution $\theta: g\mapsto {^tg^{-1}}$, then for $M,A,N$ and $M',A',N'$
+	decompositions of $G$ and $G'$ respectively we have $M'=G'\cap M$, $A'=A\cap G'$, $M'=G'\cap M$ and the same for $P'=P\cap G'$.
+\end{fact}
+\begin{enumerate}
+\item Try to clearly formulate all the assumptions that You had in Your paper about the pair $(G,G')$;
+\begin{itemize}
+	\item $G$ and $G'$ are both semi-simple,{\it true, as mentioned in Knapp.}
+\item $G=P'N_-P$
+\item $M'=M\cap G',\;A'=A\cap G',\;N'=N\cap G',\;P'=P\cap G'$ {\it true, by the fact}
+\end{itemize}
+\item Check whether the pair $(G,G')=(SO(n,1),SO(n-1,1))$ satisfies them;
+\item Find parabolic subgroup and $MAN$ decomposition for $G$ and $G'$; {\it done by the fact}
+\item Find real and complex flag varieties associated to $SO(n,1)$ (\textit{answer: $S^n$});
+\item find the orbits of $P'\subset G'$ (parabolic subgroup of $G'$) on the flag variety of $G$ (we'll need this to classify
+supports of kernel of operators, as in Kobayashi-Speh); {\it decomposition is the same, applying the techniques of Chapter 5 of
+Kobayashi-Speh }
+\item Find what these orbits correspond to under the parametrization of Bruhat cell by $\R^n$;
+\item Set up the functional equations for kernels of symmetry breaking operators.
+\end{enumerate}
+Related to this plan, I have the following questions, which I'll try to answer myself:
+\begin{enumerate}
+\item How were equations for operator kernels found? To what extent do they depend on the underlying $(G,G')$ pair?;
+\item What method was used to solve the equations (\textit{NB: has to do with Kobayashi-Pevzner paper})?;
+\item How $P'-$invariant sets of flag variety $G/P$ project to the Bruhat cell $\simeq\R^n$?;
+\item How do we use knowledge about possible operator kernels?;
+\end{enumerate}
+\begin{thebibliography}{9}
+\bibitem{graaf}
+De Graaf, Willem and Ivanyos, Gábor and Rónyai, Lajos. Computing Cartan subalgebras of Lie algebras. Springer-Verlag. p. 339-349 1996
+\url{ http://dx.doi.org/10.1007/BF01293593}
+\end{thebibliography}
+\end{document}

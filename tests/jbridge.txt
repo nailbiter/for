@@ -15,11 +15,11 @@
 
 { "tags" : ["midori","21/10"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 
-{ "tags" : ["g13"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true},
-{ "tags" : ["jbridge","3.2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["g13"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true},
+{ "tags" : ["jbridge","3.2"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
 { "tags" : ["math","1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
 
-{ "tags" : ["jbridge","3.2+"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["jbridge","3.2+"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
 { "tags" : ["math","2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
