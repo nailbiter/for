@@ -18,7 +18,7 @@
 "dataitems" : [
 #english,hiragana,kanji;tags
 #question, answer, tag
-{ "items" : ["1日", "ついたち"], "tags" : ["dates"]},
+{ "items" : ["1日", "<font color=\"red\">ついたち</font>"], "tags" : ["dates"]},
 { "items" : ["2日", "ふつか"], "tags" : ["dates"]},
 { "items" : ["3日", "みっか"], "tags" : ["dates"]},
 { "items" : ["4日", "よっか"], "tags" : ["dates"]},

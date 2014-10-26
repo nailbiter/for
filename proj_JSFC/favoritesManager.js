@@ -4,7 +4,6 @@ function newFavoritesManager(selectionMode_in, questions_in)
     var methods = {};
     var favoriteOnly = false;
 
-    methods.getRandomTag = function(){ return randomTag; }
     methods.isFavoriteOnly = function(){ return favoriteOnly; }
     methods.setFavoriteOnly = function(favoriteOnly_in){ favoriteOnly = favoriteOnly_in; }
     methods.markAsFavorite = function(question,isFavorite){ return question; }

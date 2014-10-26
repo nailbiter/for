@@ -24,10 +24,9 @@ function print_test(test)
         }
     }
 
-    if(true)
-        test.selectionMode = makeSelectionMode(test.selectionMode, test);
-    else
-        test.selectionMode = makeSelectionMode("seq", test);
+    test.selectionMode = makeSelectionMode(test.selectionMode, test);
+    if( test.hasOwnProperty("favoritesModeAllowed") && test.favoritesModeAllowed )
+        test.favoritesManager = newFavoritesManager(test.selectionMode,test.questions);
 
     var grade = {};
     grade.curScore = 0;
@@ -286,6 +285,8 @@ function displayNextQuestion(sm,questions,grade)
         {
             if( question.hasOwnProperty("auxText") )
                 center.appendChild(wrapIntoParagraph(document.createTextNode(question.auxText)));
+            else
+                center.appendChild(wrapIntoParagraph(document.createTextNode("press \"flip\" to see the answer")));
             center.appendChild(questionText);
             buttonContainer.appendChild(buttonFlip);
             buttonContainer.appendChild(buttonSkip);
