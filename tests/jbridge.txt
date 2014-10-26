@@ -21,7 +21,9 @@
 { "tags" : ["math","1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
 
 { "tags" : ["jbridge","3.2+"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
-{ "tags" : ["math","2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["math","2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+
+{ "tags" : ["tryn3","1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -155,6 +157,23 @@
 {"items": ["背理法--はいりほう","proof by contradiction"],"tags": ["","math","2"]},
 {"items": ["多重度--たじゅうど","multiplicity"],"tags": ["","math","2"]},
 {"items": ["矛盾--むじゅん","contradiction"],"tags": ["","math","2"]},
+
+
+{"items": ["感想--かんそう","Impression"],"tags": ["tryn3","1"]},
+{"items": ["体験--たいけん","Experience"],"tags": ["tryn3","1"]},
+{"items": ["途中--とちゅう","Midstream"],"tags": ["tryn3","1"]},
+{"items": ["舌--した","Tongue"],"tags": ["tryn3","1"]},
+{"items": ["行われた--おこなわれた","Were conducted"],"tags": ["tryn3","1"]},
+{"items": ["済んだ--すんだ","Done it"],"tags": ["tryn3","1"]},
+{"items": ["おおぜい","Multitude"],"tags": ["tryn3","1"]},
+{"items": ["表情--ひょうじょう","Expression"],"tags": ["tryn3","1"]},
+{"items": ["酸素--さんそ","Oxygen"],"tags": ["tryn3","1"]},
+{"items": ["缶--かん","Can"],"tags": ["tryn3","1"]},
+{"items": ["必要--ひつよう","Need"],"tags": ["tryn3","1"]},
+{"items": ["空気--くうき","Air"],"tags": ["tryn3","1"]},
+{"items": ["薄い--うすい","Thin"],"tags": ["tryn3","1"]},
+{"items": ["登山--とざん","Climbing"],"tags": ["tryn3","1"]},
+{"items": ["けわしい","Hilly"],"tags": ["tryn3","1"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
