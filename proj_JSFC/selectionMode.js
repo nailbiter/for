@@ -118,18 +118,26 @@ function makeSelectionModeShuff(test)
     methods.getType = function() {return "shuff";}
     methods.remove = function(index) 
     {
-        if(index<0 || index>=questions.length)
-            return;
-        curIndex = -1;
+        if(index<0 || index>=questions.length) return;
+           
+        var indexInS = indexesShuffled.indexOf(index);
+        if( indexInS <= curIndex ) curIndex--;
+            
+        indexesShuffled.splice(indexInS,1);
+        for( var i = 0; i < indexesShuffled.length; i++ )
+            if( indexesShuffled[i] >= index ) indexesShuffled[i]--;
 
 	    questions.splice(index,1);
         return;
 	}
     methods.add = function(question)
     {
-        var index = questions.length;
-        curIndex = -1;//FIXME here and for remove?
-        questions.push(question);
+        questions.push(question);                                                                                                                    
+        var len = questions.length;                                                                                                                  
+        console.log("questions.length="+len);                                                                                                        
+        var randomIndex = Math.floor(Math.random()*(indexesShuffled.length-curIndex-1));
+        console.log("randomIndex="+randomIndex);                                                                                                     
+        indexesShuffled.splice(randomIndex+1+curIndex,0,len-1);
     }
     methods.getCurrentQuestion = function() 
     {
