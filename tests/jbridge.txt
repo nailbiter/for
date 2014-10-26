@@ -23,7 +23,7 @@
 { "tags" : ["jbridge","3.2+"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
 { "tags" : ["math","2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
 
-{ "tags" : ["tryn3","1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["tryn3","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
