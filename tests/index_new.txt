@@ -3,14 +3,16 @@
 #default skip_mode - random
 #adapt
 {
-"selectionMode" : "rand",
+"selectionMode" : "shuff",
+"canListQuestions": true,
 "generators" : [
 { "tags" : ["Apr3Wordlist"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
 { "tags" : ["L17"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
 { "tags" : ["L18"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
 { "tags" : ["L19"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
 { "tags" : ["relatives"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false,"auxText" : "Own"},
-{ "tags" : ["relatives"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false,"auxText" : "Others"}
+{ "tags" : ["relatives"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false,"auxText" : "Others"},
+{ "tags" : ["dates"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : true,"auxText" : ""}
 ],
 ####
 "dataitems" : [
@@ -235,5 +237,5 @@
 { "items" : ["husband", "おっと - 夫", "ごしゅじん - ご主人"], "tags" : ["relatives"]},
 { "items" : ["wife", "つま - 妻", "おくさん - 奥さん"], "tags" : ["relatives"]},
 { "items" : ["son", "むすこ - 息子", "むすこさん - 息子さん"], "tags" : ["relatives"]},
-{ "items" : ["daughter", "むすめ - 娘", "おじょうさん - お嬢さん"], "tags" : ["relatives"]},
+{ "items" : ["daughter", "むすめ - 娘", "おじょうさん - お嬢さん"], "tags" : ["relatives"]}
 ]}

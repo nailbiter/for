@@ -4,6 +4,7 @@
 #default skip_mode - random
 "selectionMode" : "shuff",
 "canListQuestions" : true,
+"favoritesModeAllowed":true,
 ####
 #section 2 - quiz generator
 #taglist;qsttans;mode(sc,ti)
