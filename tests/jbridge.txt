@@ -23,7 +23,8 @@
 { "tags" : ["jbridge","3.2+"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
 { "tags" : ["math","2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
 
-{ "tags" : ["tryn3","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["tryn3","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["jap","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -174,6 +175,17 @@
 {"items": ["薄い--うすい","Thin"],"tags": ["tryn3","1"]},
 {"items": ["登山--とざん","Climbing"],"tags": ["tryn3","1"]},
 {"items": ["けわしい","Hilly"],"tags": ["tryn3","1"]},
+
+
+{"items": ["お年寄--おとしより","Elderly"],"tags": ["jap","1"]},
+{"items": ["通じる--つうじる","Communicate"],"tags": ["jap","1"]},
+{"items": ["引っ越す／引っ越し--ひっこす","Move / moving"],"tags": ["jap","1"]},
+{"items": ["離れる--はなれる","Leave"],"tags": ["jap","1"]},
+{"items": ["内容--ないよう","Content"],"tags": ["jap","1"]},
+{"items": ["頼む--たのむ","Ask"],"tags": ["jap","1"]},
+{"items": ["申し込み--もうしこみ","Application"],"tags": ["jap","1"]},
+{"items": ["付く--つく","Stick"],"tags": ["jap","1"]},
+{"items": ["誘う--さそう","Invite"],"tags": ["jap","1"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
