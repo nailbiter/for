@@ -10,8 +10,8 @@
 { "tags" : ["L17"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
 { "tags" : ["L18"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
 { "tags" : ["L19"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
-{ "tags" : ["relatives"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : true,"auxText" : "Own"},
-{ "tags" : ["relatives"], "from" : 0, "to" : 2, "type" : "sc", "enabled" : true,"auxText" : "Others"},
+{ "tags" : ["relatives"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : true,"auxText" : "Own", "reflip":true},
+{ "tags" : ["relatives"], "from" : 0, "to" : 2, "type" : "sc", "enabled" : true,"auxText" : "Others","reflip":true},
 { "tags" : ["dates"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : true,"auxText" : ""}
 ],
 ####
