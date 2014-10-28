@@ -17,14 +17,15 @@
 { "tags" : ["midori","21/10"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 
 { "tags" : ["g13"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "enabled" : true, "reflip" : true},
-{ "tags" : ["jbridge","3.2"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
-{ "tags" : ["math","1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["jbridge","3.2"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["math","1"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 
-{ "tags" : ["jbridge","3.2+"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
-{ "tags" : ["math","2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["jbridge","3.2+"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["math","2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 
-{ "tags" : ["tryn3","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
-{ "tags" : ["jap","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["tryn3","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["jap","2"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -196,5 +197,39 @@
 {"items": ["水泳--すいえい","Swimming"],"tags": ["","jap","1"]},
 {"items": ["土--つち","Soil"],"tags": ["","jap","1"]},
 {"items": ["日--にち","Day"],"tags": ["","jap","1"]},
+
+{"items": ["場面--ばめん"],"tags": ["","jap","2"]},
+{"items": ["役に立つ--やくにたつ"],"tags": ["","jap","2"]},
+{"items": ["困る--こまる"],"tags": ["","jap","2"]},
+{"items": ["うまい"],"tags": ["","jap","2"]},
+{"items": ["地味な--じみな"],"tags": ["","jap","2"]},
+{"items": ["派手な--はでな"],"tags": ["","jap","2"]},
+{"items": ["格好--かっこう"],"tags": ["","jap","2"]},
+{"items": ["広告--こうこく"],"tags": ["","jap","2"]},
+{"items": ["許可--きょか"],"tags": ["","jap","2"]},
+{"items": ["起る--おこる"],"tags": ["","jap","2"]},
+{"items": ["全般に--ぜんぱんに"],"tags": ["","jap","2"]},
+{"items": ["賛成--さんせい"],"tags": ["","jap","2"]},
+{"items": ["通勤--つうきん"],"tags": ["","jap","2"]},
+{"items": ["録音--ろくおん"],"tags": ["","jap","2"]},
+{"items": ["肯定的--こうていてき"],"tags": ["","jap","2"]},
+{"items": ["否定的--ひていてき"],"tags": ["","jap","2"]},
+{"items": ["Scene"],"tags": ["","jap","2"]},
+{"items": ["to be useful"],"tags": ["","jap","2"]},
+{"items": ["to be troubled"],"tags": ["","jap","2"]},
+{"items": ["Good"],"tags": ["","jap","2"]},
+{"items": ["Modest"],"tags": ["","jap","2"]},
+{"items": ["Flashy"],"tags": ["","jap","2"]},
+{"items": ["Appearance"],"tags": ["","jap","2"]},
+{"items": ["Advertisement"],"tags": ["","jap","2"]},
+{"items": ["Permit"],"tags": ["","jap","2"]},
+{"items": ["Occur"],"tags": ["","jap","2"]},
+{"items": ["In general"],"tags": ["","jap","2"]},
+{"items": ["Agree"],"tags": ["","jap","2"]},
+{"items": ["Commuting"],"tags": ["","jap","2"]},
+{"items": ["Recording"],"tags": ["","jap","2"]},
+{"items": ["Positive"],"tags": ["","jap","2"]},
+{"items": ["Negative"],"tags": ["","jap","2"]},
+
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
