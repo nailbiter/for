@@ -177,6 +177,7 @@
 {"items": ["けわしい","Hilly"],"tags": ["tryn3","1"]},
 
 
+
 {"items": ["お年寄--おとしより","Elderly"],"tags": ["jap","1"]},
 {"items": ["通じる--つうじる","Communicate"],"tags": ["jap","1"]},
 {"items": ["引っ越す／引っ越し--ひっこす","Move / moving"],"tags": ["jap","1"]},
@@ -195,6 +196,5 @@
 {"items": ["水泳--すいえい","Swimming"],"tags": ["","jap","1"]},
 {"items": ["土--つち","Soil"],"tags": ["","jap","1"]},
 {"items": ["日--にち","Day"],"tags": ["","jap","1"]},
-
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
