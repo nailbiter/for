@@ -157,9 +157,9 @@ function show_generators(generators,selectionMode,test,grade)
             }
             generators[i].enabled = x.checked;
         }
+        //injectJS('http://nailbiter.insomnia247.nl/cgi-bin/tests/FC.cgi' + ((url_args=="")?"":("?"+url_args)));
         generatorDiv.hidden = true;
         maindiv.hidden = false;
-        console.log("I was before displayNextQuestion");
         if( wasQuestion != selectionMode.getCurrentQuestion() ) //!compareQuestions(wasQuestion,selectionMode.getCurrentQuestion()) )
             displayNextQuestion(selectionMode,test.questions,grade);
     };
