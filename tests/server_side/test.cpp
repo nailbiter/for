@@ -56,7 +56,7 @@ int main(void)
     return 0;
 }
 
-void log(const char* s){ fprintf(logfile,"%s\n",s); }
+void log(const char* s){ fprintf(logfile,"%s\n",s); }//FIXME: does not work
 void serve_chosen_file(std::string& output,const std::string& filename)
 {
     std::ifstream file(filename.c_str());
@@ -65,11 +65,11 @@ void serve_chosen_file(std::string& output,const std::string& filename)
     if( file.is_open() )
     {
         while( getline(file,line) )
-	{
+	    {
             if( line[0] != '#' ) 
             	output += line;
             	//output += (" ,\"" + line + "\"");
-	}
+	    }
     }
     file.close();
     //output += "]});";
@@ -79,14 +79,25 @@ void serve_chosen_file(std::string& output,const std::string& filename)
 void we_got_json(char* json_s)
 {
     jsmn_parser parser;
+    char callback_key[] = "callback";
+    char buf[100];
 
     jsmn_init(&parser);
-    jsmntok_t tokens[256];
+    jsmntok_t tokens[256];//FIXME: make it bigger, perhaps
     jsmn_parse(&parser, json_s,strlen(json_s), tokens, 256);
-    for( int i = 0; ((int)tokens[i].type!=0) ; i++ )
+    printf("%d\n",sizeof(callback_key)/sizeof(callback_key[0]));
+    for( int i = 0; !i || tokens[i].start ; i++ )
     {
-        printf("%d %d %d %d\n",(int)tokens[i].type,tokens[i].start,tokens[i].end,tokens[i].size);
+        printf("%d %d %d %d: %.*s\n",(int)tokens[i].type,tokens[i].start,tokens[i].end,tokens[i].size,
+                tokens[i].end-tokens[i].start,json_s+tokens[i].start);
+        if( ( sizeof(callback_key) / sizeof(callback_key[0]) - 1 ) == ( tokens[i].end-tokens[i].start ) &&
+                !strncmp(json_s+tokens[i].start,callback_key, sizeof(callback_key) / sizeof(callback_key[0])-1) )
+        {
+            memcpy(buf,json_s+tokens[i+1].start,tokens[i+1].end-tokens[i+1].start);
+            buf[tokens[i+1].end-tokens[i+1].start] = '\0';
+        }
     }
+    printf("buf=%s\n",buf);
 }
 
 void serve_files(std::string& output)
