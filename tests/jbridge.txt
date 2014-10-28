@@ -177,8 +177,6 @@
 {"items": ["登山--とざん","Climbing"],"tags": ["tryn3","1"]},
 {"items": ["けわしい","Hilly"],"tags": ["tryn3","1"]},
 
-
-
 {"items": ["お年寄--おとしより","Elderly"],"tags": ["jap","1"]},
 {"items": ["通じる--つうじる","Communicate"],"tags": ["jap","1"]},
 {"items": ["引っ越す／引っ越し--ひっこす","Move / moving"],"tags": ["jap","1"]},
