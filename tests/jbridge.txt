@@ -24,8 +24,11 @@
 { "tags" : ["math","2"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 
 { "tags" : ["tryn3","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
-{ "tags" : ["jap","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
-{ "tags" : ["jap","2"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","2"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+
+{ "tags" : ["jap","3"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["math","3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -212,6 +215,50 @@
 {"items": ["録音--ろくおん","Recording"],"tags": ["","jap","2"]},
 {"items": ["肯定的--こうていてき","Positive"],"tags": ["","jap","2"]},
 {"items": ["否定的--ひていてき","Negative"],"tags": ["","jap","2"]},
+
+{"items": ["掛け算--かけざん","Multiplication"],"tags": ["","math","3"]},
+{"items": ["実例--じつれい","Illustration"],"tags": ["","math","3"]},
+{"items": ["分極--ぶんきょく","Polarization"],"tags": ["","math","3"]},
+{"items": ["公式--こうしき","formula"],"tags": ["","math","3"]},
+
+{"items": ["一応--いちおう","Tentatively"],"tags": ["","jap","3"]},
+{"items": ["切る--きる","Cut"],"tags": ["","jap","3"]},
+{"items": ["特技--とくぎ","Special skill"],"tags": ["","jap","3"]},
+{"items": ["家賃--やちん","Rent"],"tags": ["","jap","3"]},
+{"items": ["合計で--ごうけいで","In total"],"tags": ["","jap","3"]},
+{"items": ["嘘--うそ","Lie"],"tags": ["","jap","3"]},
+{"items": ["教育--きょういく","Education"],"tags": ["","jap","3"]},
+{"items": ["経験--けいけん","Experience"],"tags": ["","jap","3"]},
+{"items": ["食事--しょくじ","Meal"],"tags": ["","jap","3"]},
+{"items": ["将来--しょうらい","Future"],"tags": ["","jap","3"]},
+{"items": ["涙--なみだ","Tears"],"tags": ["","jap","3"]},
+{"items": ["待ち合わせ--まちあわせ","Rendezvous"],"tags": ["","jap","3"]},
+{"items": ["約束--やくそく","Promise"],"tags": ["","jap","3"]},
+{"items": ["予約--よやく","Reservation"],"tags": ["","jap","3"]},
+{"items": ["予定--よてい","Schedule"],"tags": ["","jap","3"]},
+{"items": ["間に合う--まにあう","Be in time"],"tags": ["","jap","3"]},
+{"items": ["申し込む--もうしこむ","Apply"],"tags": ["","jap","3"]},
+{"items": ["歴史--れきし","History"],"tags": ["","jap","3"]},
+{"items": ["安全--あんぜん","Safety"],"tags": ["","jap","3"]},
+{"items": ["複雑--ふくざつ","Complexity"],"tags": ["","jap","3"]},
+{"items": ["柔らかい--やわらかい","Soft"],"tags": ["","jap","3"]},
+{"items": ["集める--あつめる","Collect"],"tags": ["","jap","3"]},
+{"items": ["増える--ふえる","Increase"],"tags": ["","jap","3"]},
+{"items": ["足りる--たりる","Enough"],"tags": ["","jap","3"]},
+{"items": ["まとめる--まとめる","Summarize"],"tags": ["","jap","3"]},
+{"items": ["間違える--まちがえる","Mistake"],"tags": ["","jap","3"]},
+{"items": ["急ぐ--いそぐ","to rush"],"tags": ["","jap","3"]},
+{"items": ["乾く--かわく","Dry out"],"tags": ["","jap","3"]},
+{"items": ["断る--ことわる","Refuse"],"tags": ["","jap","3"]},
+{"items": ["転ぶ--ころぶ","Fall down"],"tags": ["","jap","3"]},
+{"items": ["運ぶ--はこぶ","Carry"],"tags": ["","jap","3"]},
+{"items": ["笑う--わらう","Laugh"],"tags": ["","jap","3"]},
+{"items": ["帰国--きこく","Return home"],"tags": ["","jap","3"]},
+{"items": ["欠席--けっせき","Absence"],"tags": ["","jap","3"]},
+{"items": ["喧嘩--けんか","Quarrel"],"tags": ["","jap","3"]},
+{"items": ["数える--かぞえる","Count"],"tags": ["","jap","3"]},
+{"items": ["残す--のこす","Leave"],"tags": ["","jap","3"]},
+{"items": ["遅刻--ちこく","Late"],"tags": ["","jap","3"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
