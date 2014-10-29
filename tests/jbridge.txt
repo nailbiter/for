@@ -27,7 +27,7 @@
 { "tags" : ["jap","1"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","2"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 
-{ "tags" : ["jap","3"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
+{ "tags" : ["jap","3"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["math","3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
@@ -253,12 +253,32 @@
 {"items": ["転ぶ--ころぶ","Fall down"],"tags": ["","jap","3"]},
 {"items": ["運ぶ--はこぶ","Carry"],"tags": ["","jap","3"]},
 {"items": ["笑う--わらう","Laugh"],"tags": ["","jap","3"]},
-{"items": ["帰国--きこく","Return home"],"tags": ["","jap","3"]},
+{"items": ["帰国--きこく","Return to homeland"],"tags": ["","jap","3"]},
 {"items": ["欠席--けっせき","Absence"],"tags": ["","jap","3"]},
 {"items": ["喧嘩--けんか","Quarrel"],"tags": ["","jap","3"]},
 {"items": ["数える--かぞえる","Count"],"tags": ["","jap","3"]},
 {"items": ["残す--のこす","Leave"],"tags": ["","jap","3"]},
 {"items": ["遅刻--ちこく","Late"],"tags": ["","jap","3"]},
+{"items": ["召し上がる--めしあがる"],"tags": ["","jap","3"]},
+{"items": ["上着--うわぎ"],"tags": ["","jap","3"]},
+{"items": ["廊下--ろうか"],"tags": ["","jap","3"]},
+{"items": ["以下--いか"],"tags": ["","jap","3"]},
+{"items": ["下りる--おりる"],"tags": ["","jap","3"]},
+{"items": ["下がる--さがる"],"tags": ["","jap","3"]},
+{"items": ["外出する--がいしゅつする"],"tags": ["","jap","3"]},
+{"items": ["外す--はずす"],"tags": ["","jap","3"]},
+{"items": ["近所--きんじょ"],"tags": ["","jap","3"]},
+{"items": ["この間--このかん"],"tags": ["","jap","3"]},
+{"items": ["Eat (honorific)"],"tags": ["","jap","3"]},
+{"items": ["Jacket"],"tags": ["","jap","3"]},
+{"items": ["Corridor"],"tags": ["","jap","3"]},
+{"items": ["Below"],"tags": ["","jap","3"]},
+{"items": ["Descend"],"tags": ["","jap","3"]},
+{"items": ["Fall"],"tags": ["","jap","3"]},
+{"items": ["Go out"],"tags": ["","jap","3"]},
+{"items": ["Unfasten"],"tags": ["","jap","3"]},
+{"items": ["Neighborhood"],"tags": ["","jap","3"]},
+{"items": ["During this"],"tags": ["","jap","3"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
