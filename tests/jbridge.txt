@@ -219,7 +219,6 @@
 {"items": ["否定的--ひていてき","Negative"],"tags": ["","jap","2"]},
 
 {"items": ["掛け算--かけざん","Multiplication"],"tags": ["","math","3"]},
-{"items": ["実例--じつれい","Illustration"],"tags": ["","math","3"]},
 {"items": ["分極--ぶんきょく","Polarization"],"tags": ["","math","3"]},
 {"items": ["公式--こうしき","formula"],"tags": ["","math","3"]},
 
@@ -272,6 +271,7 @@
 {"items": ["近所--きんじょ","Neighborhood"],"tags": ["","jap","3"]},
 {"items": ["この間--このかん","During this"],"tags": ["","jap","3"]},
 
+{"items": ["実例--じつれい","Illustration"],"tags": ["","jap","4"]},
 {"items": ["ぼうっと--ぼうっと","Dazed"],"tags": ["","jap","4"]},
 {"items": ["運転--うんてん","Operation"],"tags": ["","jap","4"]},
 {"items": ["目をつぶる--めをつぶる","close eyes"],"tags": ["","jap","4"]},
