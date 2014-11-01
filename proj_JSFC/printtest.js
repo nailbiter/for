@@ -17,16 +17,21 @@ function print_test(test)
             }
             if( j == test.generators[i].tags.length )
             {
-                var pos = test.questions.push(makeQuestion(test.generators[i], test.dataitems[k])) - 1;
-                if( test.generators[i].type == "si" )
-                    test.generators[i].answers.push(test.dataitems[k].items[test.generators[i].to]);
+                var q = makeQuestion(test.generators[i], test.dataitems[k]);
+                if( q != null )
+                {
+                    test.questions.push(q);
+                }
             }
         }
     }
 
     test.selectionMode = makeSelectionMode(test.selectionMode, test);
+
     if( test.hasOwnProperty("favoritesModeAllowed") && test.favoritesModeAllowed )
         test.favoritesManager = newFavoritesManager(test.selectionMode,test.questions);
+    else
+        test.favoritesManager = null;
 
     var grade = {};
     grade.curScore = 0;
@@ -44,6 +49,19 @@ function print_test(test)
     var settingsCenter = document.createElement("center");
     settingsCenter.id = "settingsCenter";
     maindiv.appendChild(settingsCenter);
+
+    if( test.favoritesManager != null )
+    {
+        var button = makeButtonWithTextAndOnClick("All Questions",null);
+        button.onclick = function()
+        {
+            var flag = fm.isFavoriteOnly();
+            setButtonText(button, !flag ? "All Questions" : "Only Favorites");
+            fm.setFavoriteOnly(!flag);
+            //TODO
+        }
+        settingsCenter.appendChild(wrapIntoParagraph(button));
+    }
 
     settingsCenter.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("Edit Generators",function()
                 {
@@ -89,7 +107,7 @@ function print_test(test)
                 if( compareQuestions(test.questions[i],test.questions[j]) ) console.log(i+"=="+j);*/
     }
 
-    displayNextQuestion(test.selectionMode,test.questions,grade);
+    displayNextQuestion(test.selectionMode,test.questions,grade,test.favoritesManager);
 }
 
 function show_generators(generators,selectionMode,test,grade)
@@ -136,9 +154,11 @@ function show_generators(generators,selectionMode,test,grade)
                         }
                         if( j == generators[i].tags.length )
                         {
-                            selectionMode.add(makeQuestion(generators[i], test.dataitems[k]));
-                            if( generators[i].type == "si" )
-                                generators[i].answers.push(test.dataitems[k].items[generators[i].to]);
+                            var q = makeQuestion(generators[i], test.dataitems[k]);
+                            if( q != null )
+                            {
+                                selectionMode.add(q);
+                            }
                         }
                     }
                 }
@@ -161,7 +181,7 @@ function show_generators(generators,selectionMode,test,grade)
         generatorDiv.hidden = true;
         maindiv.hidden = false;
         if( wasQuestion != selectionMode.getCurrentQuestion() ) //!compareQuestions(wasQuestion,selectionMode.getCurrentQuestion()) )
-            displayNextQuestion(selectionMode,test.questions,grade);
+            displayNextQuestion(selectionMode,test.questions,grade,test.favoritesManager);
     };
     oNewP.appendChild(button);
     generatorDiv.appendChild(oNewP);
@@ -194,6 +214,8 @@ function makeQuestion(generator, dataItem)
     var question = {};
     question.question = dataItem.items[generator.from];
     question.answer = dataItem.items[generator.to];
+    if( ( question.question == "" ) || ( question.answer == "" ) )
+        return null;
     question.generatedBy = generator;
     if( generator.hasOwnProperty("auxText") )
         question.auxText = generator.auxText;
@@ -219,7 +241,7 @@ function makeQuestion(generator, dataItem)
     return question;
 }
 
-function displayNextQuestion(sm,questions,grade)
+function displayNextQuestion(sm,questions,grade,fm)
 {
     var question = sm.getCurrentQuestion();//FIXME: if its null, we're done
     var questiondiv = document.getElementById("questiondiv");
@@ -230,19 +252,35 @@ function displayNextQuestion(sm,questions,grade)
         sm.goToNextQuestion(questionGrade);
         grade.curScore += questionGrade.curScore;
         grade.maxScore += questionGrade.maxScore;
-        displayNextQuestion(sm,questions,grade);
+        displayNextQuestion(sm,questions,grade,fm);
     }
 
     scoreParagraph.innerHTML = grade.curScore + "/" + grade.maxScore;
 
+    var center = document.createElement("center");
+    var buttonContainer = document.createElement("div");
+    buttonContainer.setAttribute("class","buttonContainer");
+    var questionText = document.createElement("div");
+        questionText.setAttribute("class" , "questiontext");
+    questionText.innerHTML = question.question;
+    center.appendChild(questionText);
+    questiondiv.appendChild(center);
+    questiondiv.appendChild(buttonContainer);
+    if( fm != null )
+    {
+        var favButton = makeButtonWithTextAndOnClick(fm.isFavoriteQuestion(question) ? "★" : "☆",null);
+        favButton.onclick = function()
+        {
+            //TODO
+            var flag = fm.isFavoriteQuestion(question);
+            fm.markAsFavorite(question,!flag);
+            setButtonText(favButton,(fm.isFavoriteQuestion(question) ? "★" : "☆"));
+        }
+        buttonContainer.appendChild(favButton);
+    }
+
     if( question.type == "sc" )
     {
-        var center = document.createElement("center");
-        var buttonContainer = document.createElement("div");
-		buttonContainer.setAttribute("class","buttonContainer");
-        var questionText = document.createElement("div");
-	        questionText.setAttribute("class" , "questiontext");
-        questionText.innerHTML = question.question;
         var buttonFlip = makeButtonWithTextAndOnClick("flip",null);
         var buttonSkip = makeButtonWithTextAndOnClick("skip",null);
         var buttonRF = makeButtonWithTextAndOnClick("reflip",null);
@@ -281,34 +319,16 @@ function displayNextQuestion(sm,questions,grade)
                 questionText.innerHTML = question.question;
         }
 
-        if(true)
-        {
-            if( question.hasOwnProperty("auxText") )
-                center.appendChild(wrapIntoParagraph(document.createTextNode(question.auxText)));
-            else
-                center.appendChild(wrapIntoParagraph(document.createTextNode("press \"flip\" to see the answer")));
-            center.appendChild(questionText);
-            buttonContainer.appendChild(buttonFlip);
-            buttonContainer.appendChild(buttonSkip);
-            questiondiv.appendChild(center);
-            questiondiv.appendChild(buttonContainer);
-        }
+        if( question.hasOwnProperty("auxText") )
+            center.insertBefore(wrapIntoParagraph(document.createTextNode(question.auxText)),center.firstChild);
         else
-        {
-            buttonContainer.appendChild(questionText);
-            buttonContainer.appendChild(buttonFlip);
-            buttonContainer.appendChild(buttonSkip);
-            questiondiv.appendChild(buttonContainer);
-        }
+            center.insertBefore(wrapIntoParagraph(document.createTextNode("press \"flip\" to see the answer")),center.firstChild);
+        buttonContainer.insertBefore(buttonSkip,buttonContainer.firstChild);
+        buttonContainer.insertBefore(buttonFlip,buttonContainer.firstChild);
     }
 
     if( question.type == "ti" )
     {
-        var buttonContainer = document.createElement("div");
-		buttonContainer.setAttribute("class","buttonContainer");
-        var h1 = document.createElement("h1");
-        var questionText = document.createElement("p");
-        questionText.innerHTML = question.question;
         var buttonSubmit = makeButtonWithTextAndOnClick("submit",null);
         var inputText = document.createElement("input");
         inputText.type = "text";
@@ -324,29 +344,24 @@ function displayNextQuestion(sm,questions,grade)
             callMeBack(score);
         }
 
-        buttonContainer.appendChild(h1);
-        h1.appendChild(questionText);
-        buttonContainer.appendChild(inputText);
-        buttonContainer.appendChild(buttonSubmit);
-        questiondiv.appendChild(buttonContainer);
+        buttonContainer.insertBefore(buttonSubmit,buttonContainer.firstChild);
+        buttonContainer.insertBefore(inputText,buttonContainer.firstChild);
     }
 
     if( question.type == "si" )
     {
-        //alert("select: "+question.select);
-        var center = document.createElement("center");
-        var h1 = document.createElement("h1");
-        var questionText = document.createElement("p");
+        console.log("\t"+question.answers.size);
         shuffle(question.answers);
         var answersSize = (question.select == 0) ? question.answers.length : question.select;
-        questionText.innerHTML = question.question;
         var buttonSubmit = makeButtonWithTextAndOnClick("submit",null);
         var inputSelect = document.createElement("select");
         swapIn(question.answers,question.answers.indexOf(question.answer),answersSize);
+        console.log("==============================");
         for( var i = 0; i < answersSize; i++ )
         {
             var option = document.createElement("option");
             option.text = question.answers[i];
+            console.log(question.answers[i]);
             inputSelect.appendChild(option);
         }
 
@@ -361,11 +376,8 @@ function displayNextQuestion(sm,questions,grade)
             callMeBack(score);
         }
 
-        center.appendChild(h1);
-        h1.appendChild(questionText);
-        center.appendChild(inputSelect);
-        center.appendChild(buttonSubmit);
-        questiondiv.appendChild(center);
+        buttonContainer.insertBefore(buttonSubmit,buttonContainer.firstChild);
+        buttonContainer.insertBefore(inputSelect,buttonContainer.firstChild);
     }
 }
 
@@ -429,5 +441,5 @@ function show_questions(questions)
                 })));
 
     questionListDiv.hidden = false;
-    printNice();
+    printTech();
 }

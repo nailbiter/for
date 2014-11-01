@@ -29,7 +29,6 @@ void we_got_json(char* json_s);
 int main(void) 
 {
     printf( "Content-type: application/javascript; charset=utf-8\n\n");
-    //logfile = fopen("/home/nailbiter/public_html/log.txt", "w");
 
     std::string output = "clientCallback(",query;
 #if 1
@@ -43,7 +42,11 @@ int main(void)
     decode(&p1,&p2);
     if( buf[0] == '{' )
     {
+        logfile = fopen("/home/nailbiter/public_html/log.txt", "a");
+        if( logfile == NULL ) printf("no good\n");
+        log("-------------------------NEW LOG-----------------\n");
         we_got_json(buf);
+        fclose(logfile);
         return 0;
     }
 
@@ -52,11 +55,10 @@ int main(void)
     else
 	    serve_chosen_file(output,query);
     printf("%s\n",output.c_str());
-    //fclose(logfile);
     return 0;
 }
 
-void log(const char* s){ fprintf(logfile,"%s\n",s); }//FIXME: does not work
+void log(const char* s){ fprintf(logfile,"%s\n",s); }
 void serve_chosen_file(std::string& output,const std::string& filename)
 {
     std::ifstream file(filename.c_str());
@@ -80,7 +82,8 @@ void we_got_json(char* json_s)
 {
     jsmn_parser parser;
     char callback_key[] = "callback";
-    char buf[100];
+    char callback_buf[100] = {'\0'};
+    bool callback_flag = false;
 
     jsmn_init(&parser);
     jsmntok_t tokens[256];//FIXME: make it bigger, perhaps
@@ -93,11 +96,13 @@ void we_got_json(char* json_s)
         if( ( sizeof(callback_key) / sizeof(callback_key[0]) - 1 ) == ( tokens[i].end-tokens[i].start ) &&
                 !strncmp(json_s+tokens[i].start,callback_key, sizeof(callback_key) / sizeof(callback_key[0])-1) )
         {
-            memcpy(buf,json_s+tokens[i+1].start,tokens[i+1].end-tokens[i+1].start);
-            buf[tokens[i+1].end-tokens[i+1].start] = '\0';
+            memcpy(callback_buf,json_s+tokens[i+1].start,tokens[i+1].end-tokens[i+1].start);
+            callback_buf[tokens[i+1].end-tokens[i+1].start] = '\0';
+            callback_flag = true;
+            continue;
         }
     }
-    printf("buf=%s\n",buf);
+    printf("buf=%s\n",callback_buf);
 }
 
 void serve_files(std::string& output)
@@ -225,3 +230,4 @@ int decode( char** src,char** dst){
     return 0;                                                                                                                                        
 }
 //.,$w !./tmp.c.exe > out.buf
+//http://nailbiter.insomnia247.nl/cgi-bin/tests/FC.cgi?{"command":"saveTagsEnabled","callback":"","arg":[true,false]}

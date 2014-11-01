@@ -6,8 +6,12 @@ function newFavoritesManager(selectionMode_in, questions_in)
 
     methods.isFavoriteOnly = function(){ return favoriteOnly; }
     methods.setFavoriteOnly = function(favoriteOnly_in){ favoriteOnly = favoriteOnly_in; }
-    methods.markAsFavorite = function(question,isFavorite){ return question; }
-    methods.isFavoriteQuestion = function(question){ return false; }
+    methods.markAsFavorite = function(question,isFavorite)
+    {
+       question.markedAsFavorite = isFavorite;
+       return question; 
+    }
+    methods.isFavoriteQuestion = function(question){ return question.hasOwnProperty("markedAsFavorite") && question.markedAsFavorite; }
 
     return methods;
 }
