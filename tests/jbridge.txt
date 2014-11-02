@@ -30,7 +30,9 @@
 { "tags" : ["jap","3"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["math","3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 
-{ "tags" : ["jap","4"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","4"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+
+{ "tags" : ["jap","5"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -306,6 +308,28 @@
 {"items": ["縮む--ちぢむ","Shrink"],"tags": ["","jap","4"]},
 {"items": ["痩せる--やせる","Lose weight"],"tags": ["","jap","4"]},
 {"items": ["減る--へる","Decrease"],"tags": ["","jap","4"]},
+
+{"items": ["バス停--バスてい","Bus stop"],"tags": ["","jap","5"]},
+{"items": ["了解--りょうかい","Comprehension"],"tags": ["","jap","5"]},
+{"items": ["お勧めする--おすすめする","To recommend"],"tags": ["","jap","5"]},
+{"items": ["和食--わしょく","Japanese food"],"tags": ["","jap","5"]},
+{"items": ["提案--ていあん","Proposal"],"tags": ["","jap","5"]},
+{"items": ["条件--じょうけん","Conditions"],"tags": ["","jap","5"]},
+{"items": ["具体的--ぐたいてき","Concrete"],"tags": ["","jap","5"]},
+{"items": ["関西人--かんさいじん","Kansai people"],"tags": ["","jap","5"]},
+{"items": ["使い分ける--つかいわける","Use selectively"],"tags": ["","jap","5"]},
+{"items": ["終助詞--しゅうじょし","Final particle"],"tags": ["","jap","5"]},
+{"items": ["仮定--かてい","Assumption"],"tags": ["","jap","5"]},
+{"items": ["聴解--ちょうかい","Listening comprehension"],"tags": ["","jap","5"]},
+{"items": ["間接的--かんせつてき","Indirectly"],"tags": ["","jap","5"]},
+{"items": ["直接的--ちょくせつてき","Direct"],"tags": ["","jap","5"]},
+{"items": ["相槌--あいづち","Supportive response"],"tags": ["","jap","5"]},
+{"items": ["状況--じょうきょう","Situation"],"tags": ["","jap","5"]},
+{"items": ["依頼--いらい","Request"],"tags": ["","jap","5"]},
+{"items": ["学術会議--がくじゅつかいぎ","conference"],"tags": ["","jap","5"]},
+{"items": ["版--はん","Version"],"tags": ["","jap","5"]},
+{"items": ["話題--わだい","Topic"],"tags": ["","jap","5"]},
+{"items": ["提示する--ていじする","to present"],"tags": ["","jap","5"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

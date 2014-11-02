@@ -1,5 +1,5 @@
 colorscheme evening
-:set ft=json
+set syntax=json
 
 syn keyword	confTodo	contained TODO FIXME
 syn match	confComment	"#.*$" contains=confTodo
