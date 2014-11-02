@@ -335,6 +335,8 @@
 {"items": ["普通--ふつう","Usually"],"tags": ["","jap","5"]},
 {"items": ["自然--しぜん","Nature"],"tags": ["","jap","5"]},
 {"items": ["景色--けしき","Scenery"],"tags": ["","jap","5"]},
+{"items": ["探している--さがしている","looking"],"tags": ["","jap","5"]},
+{"items": ["泊まる--とまる","stop (in hotel)"],"tags": ["","jap","5"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
