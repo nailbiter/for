@@ -330,6 +330,13 @@
 {"items": ["版--はん","Version"],"tags": ["","jap","5"]},
 {"items": ["話題--わだい","Topic"],"tags": ["","jap","5"]},
 {"items": ["提示する--ていじする","to present"],"tags": ["","jap","5"]},
+{"items": ["ご苦労さまでした--ごくろうさまでした","cheers for hard work"],"tags": ["","jap","5"]},
+{"items": ["健康--けんこう","Health"],"tags": ["","jap","5"]},
+{"items": ["普通--ふつう","Usually"],"tags": ["","jap","5"]},
+{"items": ["自然--しぜん","Nature"],"tags": ["","jap","5"]},
+{"items": ["景色--けしき","Scenery"],"tags": ["","jap","5"]},
+{"items": ["探している--さがしている","looking"],"tags": ["","jap","5"]},
+{"items": ["泊まる--とまる","stop (in hotel)"],"tags": ["","jap","5"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
