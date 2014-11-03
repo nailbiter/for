@@ -1,8 +1,5 @@
 colorscheme evening
-set syntax=json
-
-syn keyword	confTodo	contained TODO FIXME
-syn match	confComment	"#.*$" contains=confTodo
+set syntax=fc_conf
 
 :command! -nargs=1 -range  Convert <line1>,<line2>s@,@","@eg | 
             		\<line1>,<line2>s@^[^;]\+\zs\ze$@;@eg | 
