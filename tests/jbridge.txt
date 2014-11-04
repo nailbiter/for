@@ -31,8 +31,8 @@
 { "tags" : ["math","3"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 
 { "tags" : ["jap","4"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
-
-{ "tags" : ["jap","5"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","5"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","6"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -337,6 +337,32 @@
 {"items": ["景色--けしき","Scenery"],"tags": ["","jap","5"]},
 {"items": ["探している--さがしている","looking"],"tags": ["","jap","5"]},
 {"items": ["泊まる--とまる","stop (in hotel)"],"tags": ["","jap","5"]},
+
+{"items": ["蓋--ふた","Lid"],"tags": ["","jap","6"]},
+{"items": ["舞台--ぶたい","Stage"],"tags": ["","jap","6"]},
+{"items": ["非常に--ひじょうに","Very"],"tags": ["","jap","6"]},
+{"items": ["登場--とうじょう","Appearance"],"tags": ["","jap","6"]},
+{"items": ["就職--しゅうしょく","Finding employment"],"tags": ["","jap","6"]},
+{"items": ["活動--かつどう","Activity"],"tags": ["","jap","6"]},
+{"items": ["自動販売機--じどうはんばいき","Vending machine"],"tags": ["","jap","6"]},
+{"items": ["空っぽ--からっぽ","Empty space"],"tags": ["","jap","6"]},
+{"items": ["叩く--たたく","Hit"],"tags": ["","jap","6"]},
+{"items": ["立ち上がる--たちあがる","Stand up"],"tags": ["","jap","6"]},
+{"items": ["希望--きぼう","Hope"],"tags": ["","jap","6"]},
+{"items": ["確認する--かくにんする","Check"],"tags": ["","jap","6"]},
+{"items": ["拾った--ひろった","Picked up"],"tags": ["","jap","6"]},
+{"items": ["求める--もとめる","Ask for"],"tags": ["","jap","6"]},
+{"items": ["幾つ--いくつ","How many"],"tags": ["","jap","6"]},
+{"items": ["文書--ぶんしょ","Document"],"tags": ["","jap","6"]},
+{"items": ["姿--すがた","Appearance"],"tags": ["","jap","6"]},
+{"items": ["不思議--ふしぎ","Wonder"],"tags": ["","jap","6"]},
+{"items": ["焼く--やく","Bake"],"tags": ["","jap","6"]},
+{"items": ["お湯--おゆ","Hot water"],"tags": ["","jap","6"]},
+{"items": ["解決--かいけつ","Resolution"],"tags": ["","jap","6"]},
+{"items": ["実例--じつれい","Illustration"],"tags": ["","jap","6"]},
+{"items": ["結果--けっか","Result"],"tags": ["","jap","6"]},
+{"items": ["相手--あいて","Other party"],"tags": ["","jap","6"]},
+{"items": ["街--まち","Streets"],"tags": ["","jap","6"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

@@ -34,8 +34,8 @@
 
 {"items": ["to rotate","回す(まわす)","回る(まわる)"],"tags": ["","transit","2"]},
 {"items": ["to burn","燃す(もす)","燃える(もえる)"],"tags": ["","transit","2"]},
-{"items": ["to move","","動く(うごく)"],"tags": ["","transit","2"]},
-{"items": ["to leave","","離れる(はなれる)"],"tags": ["","transit","2"]},
+{"items": ["to move","動かす(うごかす)","動く(うごく)"],"tags": ["","transit","2"]},
+{"items": ["to leave","離す(はなす)","離れる(はなれる)"],"tags": ["","transit","2"]},
 {"items": ["to float/to become merry","","浮く(うく)"],"tags": ["","transit","2"]},
 {"items": ["to jump out","","飛び出す(とびだす)"],"tags": ["","transit","2"]},
 {"items": ["to open(bank account/festival/etc.)","開く--ひらく",""],"tags": ["","transit","2"]},
