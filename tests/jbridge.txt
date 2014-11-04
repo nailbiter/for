@@ -363,6 +363,13 @@
 {"items": ["結果--けっか","Result"],"tags": ["","jap","6"]},
 {"items": ["相手--あいて","Other party"],"tags": ["","jap","6"]},
 {"items": ["街--まち","Streets"],"tags": ["","jap","6"]},
+{"items": ["階段--かいだん","Stairs"],"tags": ["","jap","6"]},
+{"items": ["寝坊--ねぼう","Overslept"],"tags": ["","jap","6"]},
+{"items": ["一生懸命--いっしょうけんめい","one's very best"],"tags": ["","jap","6"]},
+{"items": ["十分--じゅうぶん","Sufficient"],"tags": ["","jap","6"]},
+{"items": ["百科事典--ひゃっかじてん","Encyclopedia"],"tags": ["","jap","6"]},
+{"items": ["三角--さんかく","triangle"],"tags": ["","jap","6"]},
+{"items": ["四角--しかく","square"],"tags": ["","jap","6"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
