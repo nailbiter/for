@@ -32,7 +32,8 @@
 
 { "tags" : ["jap","4"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","5"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
-{ "tags" : ["jap","6"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","6"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","7"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -370,6 +371,27 @@
 {"items": ["百科事典--ひゃっかじてん","Encyclopedia"],"tags": ["","jap","6"]},
 {"items": ["三角--さんかく","triangle"],"tags": ["","jap","6"]},
 {"items": ["四角--しかく","square"],"tags": ["","jap","6"]},
+
+{"items": ["お見舞いに--おみまいに","In sympathy"],"tags": ["","jap","7"]},
+{"items": ["周りの人--まわりのにん","People around"],"tags": ["","jap","7"]},
+{"items": ["珍しい--めずらしい","Unusual"],"tags": ["","jap","7"]},
+{"items": ["戻る--もどる","Return"],"tags": ["","jap","7"]},
+{"items": ["筋肉--きんにく","Muscle"],"tags": ["","jap","7"]},
+{"items": ["体格--たいかく","Physique"],"tags": ["","jap","7"]},
+{"items": ["区役所--くやくしょ","Ward office"],"tags": ["","jap","7"]},
+{"items": ["連れて行く--つれていく","Take someone to somewhere"],"tags": ["","jap","7"]},
+{"items": ["具合--ぐあい","Condition"],"tags": ["","jap","7"]},
+{"items": ["都合--つごう","Circumstances"],"tags": ["","jap","7"]},
+{"items": ["交番--こうばん","Police box"],"tags": ["","jap","7"]},
+{"items": ["自信--じしん","Confidence"],"tags": ["","jap","7"]},
+{"items": ["預かる--あずかる","Keep"],"tags": ["","jap","7"]},
+{"items": ["部首--ぶしゅ","Radical"],"tags": ["","jap","7"]},
+{"items": ["宝石--ほうせき","Jewel"],"tags": ["","jap","7"]},
+{"items": ["頭痛--ずつう","Headache"],"tags": ["","jap","7"]},
+{"items": ["額--ひたい","Forehead"],"tags": ["","jap","7"]},
+{"items": ["衣--ころも","Clothing"],"tags": ["","jap","7"]},
+{"items": ["利益--りえき","Benefit"],"tags": ["","jap","7"]},
+{"items": ["方向--ほうこう","Direction"],"tags": ["","jap","7"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
