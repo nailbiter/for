@@ -373,7 +373,7 @@
 {"items": ["四角--しかく","square"],"tags": ["","jap","6"]},
 
 {"items": ["お見舞いに--おみまいに","In sympathy"],"tags": ["","jap","7"]},
-{"items": ["周りの人--まわりのにん","People around"],"tags": ["","jap","7"]},
+{"items": ["周りの人--まわりのひと","People around"],"tags": ["","jap","7"]},
 {"items": ["珍しい--めずらしい","Unusual"],"tags": ["","jap","7"]},
 {"items": ["戻る--もどる","Return"],"tags": ["","jap","7"]},
 {"items": ["筋肉--きんにく","Muscle"],"tags": ["","jap","7"]},
@@ -388,10 +388,16 @@
 {"items": ["部首--ぶしゅ","Radical"],"tags": ["","jap","7"]},
 {"items": ["宝石--ほうせき","Jewel"],"tags": ["","jap","7"]},
 {"items": ["頭痛--ずつう","Headache"],"tags": ["","jap","7"]},
-{"items": ["額--ひたい","Forehead"],"tags": ["","jap","7"]},
+{"items": ["額--がく","Forehead"],"tags": ["","jap","7"]},
 {"items": ["衣--ころも","Clothing"],"tags": ["","jap","7"]},
 {"items": ["利益--りえき","Benefit"],"tags": ["","jap","7"]},
 {"items": ["方向--ほうこう","Direction"],"tags": ["","jap","7"]},
+
+{"items": ["年齢--ねんれい","Age"],"tags": ["","jap","8"]},
+{"items": ["男女--だんじょ","Men and women"],"tags": ["","jap","8"]},
+{"items": ["誘導--ゆうどう","Induction/Guidance"],"tags": ["","jap","8"]},
+{"items": ["体積--たいせき","Volume"],"tags": ["","jap","8"]},
+{"items": ["合成--ごうせい","Synthetic"],"tags": ["","jap","8"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
