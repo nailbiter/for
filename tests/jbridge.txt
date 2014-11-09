@@ -33,7 +33,8 @@
 { "tags" : ["jap","4"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","5"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","6"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
-{ "tags" : ["jap","7"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","7"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","8"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -383,7 +384,7 @@
 {"items": ["具合--ぐあい","Condition"],"tags": ["","jap","7"]},
 {"items": ["都合--つごう","Circumstances"],"tags": ["","jap","7"]},
 {"items": ["交番--こうばん","Police box"],"tags": ["","jap","7"]},
-{"items": ["自信--じしん","Confidence"],"tags": ["","jap","7"]},
+{"items": ["自信--じしん","self-confidence"],"tags": ["","jap","7"]},
 {"items": ["預かる--あずかる","Keep"],"tags": ["","jap","7"]},
 {"items": ["部首--ぶしゅ","Radical"],"tags": ["","jap","7"]},
 {"items": ["宝石--ほうせき","Jewel"],"tags": ["","jap","7"]},
@@ -398,6 +399,30 @@
 {"items": ["誘導--ゆうどう","Induction/Guidance"],"tags": ["","jap","8"]},
 {"items": ["体積--たいせき","Volume"],"tags": ["","jap","8"]},
 {"items": ["合成--ごうせい","Synthetic"],"tags": ["","jap","8"]},
+{"items": ["夕方--ゆうがた","Evening"],"tags": ["","jap","8"]},
+{"items": ["講師室--こうししつ","Lecturer room"],"tags": ["","jap","8"]},
+{"items": ["指導教官--しどうきょうかん","Supervisor"],"tags": ["","jap","8"]},
+{"items": ["(不)合格--(ふ)ごうかく","(Not) pass"],"tags": ["","jap","8"]},
+{"items": ["塾--じゅく","Cram school"],"tags": ["","jap","8"]},
+{"items": ["ばかり--ばかり","Just"],"tags": ["","jap","8"]},
+{"items": ["非常に--ひじょうに","Very"],"tags": ["","jap","8"]},
+{"items": ["実験--じっけん","Experiment"],"tags": ["","jap","8"]},
+{"items": ["殺人--さつじん","Murder"],"tags": ["","jap","8"]},
+{"items": ["事件--じけん","Incident"],"tags": ["","jap","8"]},
+{"items": ["音--おと","Sound"],"tags": ["","jap","8"]},
+{"items": ["声--こえ","Voice"],"tags": ["","jap","8"]},
+{"items": ["文句--もんく","Complaint"],"tags": ["","jap","8"]},
+{"items": ["共有--きょうゆう","Share"],"tags": ["","jap","8"]},
+{"items": ["合計で--ごうけいで","In total"],"tags": ["","jap","8"]},
+{"items": ["入院--にゅういん","Hospitalization"],"tags": ["","jap","8"]},
+{"items": ["修論--しゅうろん","Master's thesis"],"tags": ["","jap","8"]},
+{"items": ["博士--はかせ","PhD"],"tags": ["","jap","8"]},
+{"items": ["修士--しゅうし","Master"],"tags": ["","jap","8"]},
+{"items": ["叱る --しかる","Scold"],"tags": ["","jap","8"]},
+{"items": ["ほとんど--ほとんど","Almost"],"tags": ["","jap","8"]},
+{"items": ["氷--こおり","Ice"],"tags": ["","jap","8"]},
+{"items": ["式--しき","formula/expression/eqn"],"tags": ["","jap","8"]},
+{"items": ["式--しき","ceremony"],"tags": ["","jap","8"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
