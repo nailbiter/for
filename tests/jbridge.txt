@@ -33,7 +33,8 @@
 { "tags" : ["jap","4"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","5"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","6"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
-{ "tags" : ["jap","7"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","7"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","8"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -398,6 +399,28 @@
 {"items": ["誘導--ゆうどう","Induction/Guidance"],"tags": ["","jap","8"]},
 {"items": ["体積--たいせき","Volume"],"tags": ["","jap","8"]},
 {"items": ["合成--ごうせい","Synthetic"],"tags": ["","jap","8"]},
+{"items": ["穏やか--おだやか","Mild"],"tags": ["","jap","8"]},
+{"items": ["塗る--ぬる","Apply (medication)"],"tags": ["","jap","8"]},
+{"items": ["背負う--せおう","Bear (baggage)"],"tags": ["","jap","8"]},
+{"items": ["殺す--ころす","Kill"],"tags": ["","jap","8"]},
+{"items": ["解く--とく","to solve/untie"],"tags": ["","jap","8"]},
+{"items": ["捕る--とる","Catch"],"tags": ["","jap","8"]},
+{"items": ["蚊--か","Mosquito"],"tags": ["","jap","8"]},
+{"items": ["事務--じむ","Office work/clerical work"],"tags": ["","jap","8"]},
+{"items": ["現在--げんざい","Current"],"tags": ["","jap","8"]},
+{"items": ["進む--すすむ","to advance"],"tags": ["","jap","8"]},
+{"items": ["つつむ","to wrap"],"tags": ["","jap","8"]},
+{"items": ["音--おと","Sound"],"tags": ["","jap","8"]},
+{"items": ["過ぎる--すぎる","to surpass"],"tags": ["","jap","8"]},
+{"items": ["玄関--げんかん","Foyer"],"tags": ["","jap","8"]},
+{"items": ["息--いき","Breath"],"tags": ["","jap","8"]},
+{"items": ["温かい--おんかい","Warm"],"tags": ["","jap","8"]},
+{"items": ["お餅--おもち","Rice cake"],"tags": ["","jap","8"]},
+{"items": ["順番--じゅんばん","Sequence"],"tags": ["","jap","8"]},
+{"items": ["用意する--よういする","Prepare"],"tags": ["","jap","8"]},
+{"items": ["背負う--せおう","To bear"],"tags": ["","jap","8"]},
+{"items": ["歩く--あるく","Walk"],"tags": ["","jap","8"]},
+{"items": ["結果--けっか","Result"],"tags": ["","jap","8"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

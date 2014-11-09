@@ -33,12 +33,21 @@
 {"items": ["deliver","届ける(とどける)","届く(とどく)"],"tags": ["1","transit"]},
 
 {"items": ["to rotate","回す(まわす)","回る(まわる)"],"tags": ["","transit","2"]},
-{"items": ["to burn","燃す(もす)","燃える(もえる)"],"tags": ["","transit","2"]},
+{"items": ["to burn","燃やす(もやす)","燃える(もえる)"],"tags": ["","transit","2"]},
 {"items": ["to move","動かす(うごかす)","動く(うごく)"],"tags": ["","transit","2"]},
 {"items": ["to leave","離す(はなす)","離れる(はなれる)"],"tags": ["","transit","2"]},
 {"items": ["to float/to become merry","","浮く(うく)"],"tags": ["","transit","2"]},
 {"items": ["to jump out","","飛び出す(とびだす)"],"tags": ["","transit","2"]},
 {"items": ["to open(bank account/festival/etc.)","開く--ひらく",""],"tags": ["","transit","2"]},
+{"items": ["Line up","並べる(ならべる)","並ぶ(ならぶ)"],"tags": ["","transit","2"]},
+{"items": ["Stand","立てる(たてる)","立つ(たつ)"],"tags": ["","transit","2"]},
+{"items": ["Fall","倒す(たおす)","倒れる(たおれる)"],"tags": ["","transit","2"]},
+{"items": ["Burn","燃やす(もやす)","燃える(もえる)"],"tags": ["","transit","2"]},
+{"items": ["Dry","乾かす(かわかす)","乾く(かわく)"],"tags": ["","transit","2"]},
+{"items": ["Increase","増やす(ふやす)","増える(ふえる)"],"tags": ["","transit","2"]},
+{"items": ["Decrease","減らす(へらす)","減る(へる)"],"tags": ["","transit","2"]},
+{"items": ["to melt","溶かす(とかす)","溶ける(とける)"],"tags": ["","transit","2"]},
+{"items": ["Return","戻す(もどす)","戻る(もどる)"],"tags": ["","transit","2"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
