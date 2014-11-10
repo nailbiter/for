@@ -34,7 +34,8 @@
 { "tags" : ["jap","5"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","6"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","7"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
-{ "tags" : ["jap","8"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","8"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","9"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -445,6 +446,27 @@
 {"items": ["氷--こおり","Ice"],"tags": ["","jap","8"]},
 {"items": ["式--しき","formula/expression/eqn"],"tags": ["","jap","8"]},
 {"items": ["式--しき","ceremony"],"tags": ["","jap","8"]},
+
+{"items": ["確答--かくとう","Definite answer"],"tags": ["","jap","9"]},
+{"items": ["印象--いんしょう","Impression"],"tags": ["","jap","9"]},
+{"items": ["感想--かんそう","thoughts"],"tags": ["","jap","9"]},
+{"items": ["予想--よそう","Expectation"],"tags": ["","jap","9"]},
+{"items": ["絵葉書--えはがき","Picture postcard"],"tags": ["","jap","9"]},
+{"items": ["包む--つつむ","Wrap"],"tags": ["","jap","9"]},
+{"items": ["干す--ほす","Dry"],"tags": ["","jap","9"]},
+{"items": ["片付ける--かたづける","Put away"],"tags": ["","jap","9"]},
+{"items": ["迷う--まよう","Get confused"],"tags": ["","jap","9"]},
+{"items": ["下ろす--くだろす","Lower"],"tags": ["","jap","9"]},
+{"items": ["乾かす--かわかす","Dry"],"tags": ["","jap","9"]},
+{"items": ["盗む--ぬすむ","Steal"],"tags": ["","jap","9"]},
+{"items": ["縛る--しばる","Tie"],"tags": ["","jap","9"]},
+{"items": ["褒める--ほめる","Praise"],"tags": ["","jap","9"]},
+{"items": ["結ぶ--むすぶ","to link"],"tags": ["","jap","9"]},
+{"items": ["汚す--よごす","Contaminate"],"tags": ["","jap","9"]},
+{"items": ["起こす--おこす","Raise"],"tags": ["","jap","9"]},
+{"items": ["掛ける--かける","to make a call"],"tags": ["","jap","9"]},
+{"items": ["余る--あまる","Left over (v)"],"tags": ["","jap","9"]},
+{"items": ["悲しい--かなしい","sad"],"tags": ["","jap","9"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
