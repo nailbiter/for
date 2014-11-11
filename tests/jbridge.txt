@@ -35,7 +35,8 @@
 { "tags" : ["jap","6"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","7"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","8"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
-{ "tags" : ["jap","9"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","9"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","10"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -454,19 +455,40 @@
 {"items": ["絵葉書--えはがき","Picture postcard"],"tags": ["","jap","9"]},
 {"items": ["包む--つつむ","Wrap"],"tags": ["","jap","9"]},
 {"items": ["干す--ほす","Dry"],"tags": ["","jap","9"]},
-{"items": ["片付ける--かたづける","Put away"],"tags": ["","jap","9"]},
 {"items": ["迷う--まよう","Get confused"],"tags": ["","jap","9"]},
 {"items": ["下ろす--くだろす","Lower"],"tags": ["","jap","9"]},
 {"items": ["乾かす--かわかす","Dry"],"tags": ["","jap","9"]},
 {"items": ["盗む--ぬすむ","Steal"],"tags": ["","jap","9"]},
 {"items": ["縛る--しばる","Tie"],"tags": ["","jap","9"]},
 {"items": ["褒める--ほめる","Praise"],"tags": ["","jap","9"]},
-{"items": ["結ぶ--むすぶ","to link"],"tags": ["","jap","9"]},
 {"items": ["汚す--よごす","Contaminate"],"tags": ["","jap","9"]},
 {"items": ["起こす--おこす","Raise"],"tags": ["","jap","9"]},
 {"items": ["掛ける--かける","to make a call"],"tags": ["","jap","9"]},
 {"items": ["余る--あまる","Left over (v)"],"tags": ["","jap","9"]},
 {"items": ["悲しい--かなしい","sad"],"tags": ["","jap","9"]},
+
+{"items": ["片付ける--かたづける","clean up"],"tags": ["","jap","10"]},
+{"items": ["さっきから...","...for quite a while"],"tags": ["","jap","10"]},
+{"items": ["汚い--きたない","Dirty"],"tags": ["","jap","10"]},
+{"items": ["聞き手--ききて","Hearer"],"tags": ["","jap","10"]},
+{"items": ["空--そら","Sky"],"tags": ["","jap","10"]},
+{"items": ["故障--こしょう","Failure"],"tags": ["","jap","10"]},
+{"items": ["電池--でんち","Battery"],"tags": ["","jap","10"]},
+{"items": ["交換する--こうかんする","to replace"],"tags": ["","jap","10"]},
+{"items": ["電源を入れる--でんげんをいれる","I plug in power supply"],"tags": ["","jap","10"]},
+{"items": ["生物--せいぶつ","Living organism"],"tags": ["","jap","10"]},
+{"items": ["丁寧な--ていねいな","Polite"],"tags": ["","jap","10"]},
+{"items": ["走る--はしる","Run"],"tags": ["","jap","10"]},
+{"items": ["くるつもりです--くるつもりです","Intend to come"],"tags": ["","jap","10"]},
+{"items": ["実際(に/は)--じっさい(に/は)","In fact (same / contra)"],"tags": ["","jap","10"]},
+{"items": ["悲しい--かなしい","Sad"],"tags": ["","jap","10"]},
+{"items": ["効果的な--こうかてきな","Effective"],"tags": ["","jap","10"]},
+{"items": ["件名--けんめい","Subject"],"tags": ["","jap","10"]},
+{"items": ["欠席--けっせき","Absence"],"tags": ["","jap","10"]},
+{"items": ["出席--しゅっせき","Attendance"],"tags": ["","jap","10"]},
+{"items": ["前置き--まえおき","Prelude"],"tags": ["","jap","10"]},
+{"items": ["本文--ほんぶん","Body (of text)"],"tags": ["","jap","10"]},
+{"items": ["結ぶ--むすぶ","to conclude"],"tags": ["","jap","10"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
