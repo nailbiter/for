@@ -15,6 +15,7 @@
 			(cons "2 Тим" "ti2")
             (cons "Рим" "rom")
             (cons "Флп" "flp")
+            (cons "Еф" "eph")
             (cons "Деян" "act")
             (cons "Гал" "gal")
 			))
@@ -34,6 +35,7 @@
             (cons "Флп" "phl")
             (cons "Деян" "act")
             (cons "Гал" "gal")
+            (cons "Еф" "eph")
 			))
 (define rusname2engname-table(list 
            (cons "Гал" "Galatians")
@@ -46,6 +48,7 @@
 		   (cons "2 Кор" "2 Corinthians")
 		   (cons "1 Тим" "1 Timothy")
 		   (cons "2 Тим" "2 Timothy")
+            (cons "Еф" "Ephesians")
            (cons "Рим" "Romans")
            (cons "Флп" "Philippians")
            (cons "Деян" "Acts")
@@ -65,6 +68,7 @@
                    (cons "Рим" "羅馬書")
                    (cons "Флп" "腓立比書")
                    (cons "Деян" "使徒行傳")
+                   (cons "Еф" "以弗所書")
            ))
 
 (define (roman2arabic romtext) (get-value (list 

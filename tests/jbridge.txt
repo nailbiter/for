@@ -36,8 +36,9 @@
 { "tags" : ["jap","7"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","8"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","9"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
-{ "tags" : ["jap","10"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true},
-{ "tags" : ["jap","11"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","10"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","11"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","12"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -535,6 +536,40 @@
 {"items": ["大事な--だいじな","Important"],"tags": ["","jap","11"]},
 {"items": ["事故--じこ","Accident"],"tags": ["","jap","11"]},
 {"items": ["事件--じけん","event"],"tags": ["","jap","11"]},
+
+{"items": ["一億--いちおく","記す--しるす"],"tags": ["","jap","12"]},
+{"items": ["遅刻の--ちこくの","Late (a)"],"tags": ["","jap","12"]},
+{"items": ["進める--すすめる","move clock time frwrd"],"tags": ["","jap","12"]},
+{"items": ["触る--ふる","Touch"],"tags": ["","jap","12"]},
+{"items": ["挨拶します--あいさつします","to greet"],"tags": ["","jap","12"]},
+{"items": ["翻訳--ほんやく","Translation"],"tags": ["","jap","12"]},
+{"items": ["お腹がすいた--おはらがすいた","I'm hungry"],"tags": ["","jap","12"]},
+{"items": ["怒れる--いかれる","Angry"],"tags": ["","jap","12"]},
+{"items": ["遅れる--おくれる","to come late (v)"],"tags": ["","jap","12"]},
+{"items": ["所属--しょぞく","Affiliation"],"tags": ["","jap","12"]},
+{"items": ["氏名--しめい","Full name"],"tags": ["","jap","12"]},
+{"items": ["天才--てんさい","Genius"],"tags": ["","jap","12"]},
+{"items": ["才能--さいのう","Talent"],"tags": ["","jap","12"]},
+{"items": ["市--し","City"],"tags": ["","jap","12"]},
+{"items": ["市民--しみん","Citizen"],"tags": ["","jap","12"]},
+{"items": ["市場--しじょう","Market"],"tags": ["","jap","12"]},
+{"items": ["時間帯--じかんたい","Time zone"],"tags": ["","jap","12"]},
+{"items": ["熱帯--ねったい","Tropics"],"tags": ["","jap","12"]},
+{"items": ["電子辞書--でんしじしょ","Electronic dictionary"],"tags": ["","jap","12"]},
+{"items": ["留守番--るすばん","Voice mail"],"tags": ["","jap","12"]},
+{"items": ["記号--きごう","Sign"],"tags": ["","jap","12"]},
+{"items": ["連絡--れんらく","Contact"],"tags": ["","jap","12"]},
+{"items": ["国連--こくれん","United Nations"],"tags": ["","jap","12"]},
+{"items": ["連続--れんぞく","Continuity"],"tags": ["","jap","12"]},
+{"items": ["連休--れんきゅう","Consecutive holidays"],"tags": ["","jap","12"]},
+{"items": ["短絡的な--たんらくてきな","Shortsighted"],"tags": ["","jap","12"]},
+{"items": ["記入する--きにゅうする","Fill the form"],"tags": ["","jap","12"]},
+{"items": ["口実--こうじつ","Excuse"],"tags": ["","jap","12"]},
+{"items": ["記録--きろく","record (of speech)"],"tags": ["","jap","12"]},
+{"items": ["記す--しるす","to write down/remember"],"tags": ["","jap","12"]},
+{"items": ["突く--つく","to strike"],"tags": ["","jap","12"]},
+{"items": ["詳しい--くわしい","Detailed"],"tags": ["","jap","12"]},
+{"items": ["精細--せいさい","Detail"],"tags": ["","jap","12"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
