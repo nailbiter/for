@@ -32,13 +32,16 @@
 
 { "tags" : ["jap","4"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","5"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+
 { "tags" : ["jap","6"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","7"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","8"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","9"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","10"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","11"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
-{ "tags" : ["jap","12"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","12"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : false},
+
+{ "tags" : ["jap","13"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see japanese" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -537,14 +540,13 @@
 {"items": ["事故--じこ","Accident"],"tags": ["","jap","11"]},
 {"items": ["事件--じけん","event"],"tags": ["","jap","11"]},
 
-{"items": ["一億--いちおく","記す--しるす"],"tags": ["","jap","12"]},
 {"items": ["遅刻の--ちこくの","Late (a)"],"tags": ["","jap","12"]},
 {"items": ["進める--すすめる","move clock time frwrd"],"tags": ["","jap","12"]},
 {"items": ["触る--ふる","Touch"],"tags": ["","jap","12"]},
 {"items": ["挨拶します--あいさつします","to greet"],"tags": ["","jap","12"]},
 {"items": ["翻訳--ほんやく","Translation"],"tags": ["","jap","12"]},
 {"items": ["お腹がすいた--おはらがすいた","I'm hungry"],"tags": ["","jap","12"]},
-{"items": ["怒れる--いかれる","Angry"],"tags": ["","jap","12"]},
+{"items": ["怒れる--おこれる","Angry"],"tags": ["","jap","12"]},
 {"items": ["遅れる--おくれる","to come late (v)"],"tags": ["","jap","12"]},
 {"items": ["所属--しょぞく","Affiliation"],"tags": ["","jap","12"]},
 {"items": ["氏名--しめい","Full name"],"tags": ["","jap","12"]},
@@ -570,6 +572,39 @@
 {"items": ["突く--つく","to strike"],"tags": ["","jap","12"]},
 {"items": ["詳しい--くわしい","Detailed"],"tags": ["","jap","12"]},
 {"items": ["精細--せいさい","Detail"],"tags": ["","jap","12"]},
+
+{"items": ["水洗する--すいせんする","Washed with water"],"tags": ["","jap","13"]},
+{"items": ["祝う--いわう","Celebrate"],"tags": ["","jap","13"]},
+{"items": ["研修--けんしゅう","Training"],"tags": ["","jap","13"]},
+{"items": ["貿易--ぼうえき","Trade"],"tags": ["","jap","13"]},
+{"items": ["販売--はんばい","Sale/order"],"tags": ["","jap","13"]},
+{"items": ["通信--つうしん","Communication/mail"],"tags": ["","jap","13"]},
+{"items": ["使役形--しえきかたち","Causative form"],"tags": ["","jap","13"]},
+{"items": ["可能形--かのうかたち","Possible form"],"tags": ["","jap","13"]},
+{"items": ["受身形--うけみかたち","Passive form"],"tags": ["","jap","13"]},
+{"items": ["意向形--いこうかたち","volitional form"],"tags": ["","jap","13"]},
+{"items": ["伝統--でんとう","Tradition"],"tags": ["","jap","13"]},
+{"items": ["国技--こくぎ","National sport"],"tags": ["","jap","13"]},
+{"items": ["ともかく--ともかく","Anyway"],"tags": ["","jap","13"]},
+{"items": ["ちゃんと--ちゃんと","Properly"],"tags": ["","jap","13"]},
+{"items": ["名刺--めいし","Business card"],"tags": ["","jap","13"]},
+{"items": ["訪問--ほうもん","Visit"],"tags": ["","jap","13"]},
+{"items": ["期間--きかん","Period"],"tags": ["","jap","13"]},
+{"items": ["政治--せいじ","Politics"],"tags": ["","jap","13"]},
+{"items": ["経済--けいざい","Economy"],"tags": ["","jap","13"]},
+{"items": ["合宿する--がっしゅくする","To camp"],"tags": ["","jap","13"]},
+{"items": ["解決--かいけつ","Solution"],"tags": ["","jap","13"]},
+{"items": ["方法--ほうほう","Method"],"tags": ["","jap","13"]},
+{"items": ["おかげさまで--おかげさまで","Thank you"],"tags": ["","jap","13"]},
+{"items": ["変化--へんか","Change"],"tags": ["","jap","13"]},
+{"items": ["胸--むね","Chest"],"tags": ["","jap","13"]},
+{"items": ["壁--かべ","Wall"],"tags": ["","jap","13"]},
+{"items": ["ひざ--ひざ","Knee (of pipe)"],"tags": ["","jap","13"]},
+{"items": ["毛布--もうふ","Blankets"],"tags": ["","jap","13"]},
+{"items": ["ペンダント--ペンダント","Pendant"],"tags": ["","jap","13"]},
+{"items": ["首--くび","Neck"],"tags": ["","jap","13"]},
+{"items": ["必ず--かならず","Certainly"],"tags": ["","jap","13"]},
+{"items": ["過去--かこ","Past"],"tags": ["","jap","13"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
