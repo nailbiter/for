@@ -1,0 +1,88 @@
+{
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+"selectionMode" : "shuff",
+####
+#section 2 - quiz generator
+#taglist;qsttans;mode(sc,ti)
+"generators" : [
+{ "tags" : ["causative"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see causative" , "enabled" : true,"reflip" : false},
+{ "tags" : ["passive"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see passive" , "enabled" : true,"reflip" : false},
+{ "tags" : ["causepass"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see causepass" , "enabled" : true,"reflip" : true}
+],
+####
+"dataitems" : [
+{"items": ["食べる","食べさせる"],"tags": ["ru","causative"]},
+{"items": ["着る","着させる"],"tags": ["ru","causative"]},
+{"items": ["信じる","信じさせる"],"tags": ["ru","causative"]},
+{"items": ["寝る","寝させる"],"tags": ["ru","causative"]},
+{"items": ["起きる","起きさせる"],"tags": ["ru","causative"]},
+{"items": ["出る","出させる"],"tags": ["ru","causative"]},
+{"items": ["掛ける","掛けさせる"],"tags": ["ru","causative"]},
+{"items": ["捨てる","捨てさせる"],"tags": ["ru","causative"]},
+{"items": ["調べる","調べさせる"],"tags": ["ru","causative"]},
+
+{"items": ["話す","話させる"],"tags": ["u","causative"]},
+{"items": ["聞く","聞かせる"],"tags": ["u","causative"]},
+{"items": ["泳ぐ","泳がせる"],"tags": ["u","causative"]},
+{"items": ["遊ぶ","遊ばせる"],"tags": ["u","causative"]},
+{"items": ["待つ","待たせる"],"tags": ["u","causative"]},
+{"items": ["飲む","飲ませる"],"tags": ["u","causative"]},
+{"items": ["直る","直らせる"],"tags": ["u","causative"]},
+{"items": ["死ぬ","死なせる"],"tags": ["u","causative"]},
+{"items": ["買う","買わせる"],"tags": ["u","causative"]},
+
+{"items": ["する","させる"],"tags": ["suru","causative"]},
+{"items": ["くる","こさせる"],"tags": ["suru","causative"]},
+
+
+{"items": ["食べる","食べられる"],"tags": ["ru","passive"]},
+{"items": ["着る","着られる"],"tags": ["ru","passive"]},
+{"items": ["信じる","信じられる"],"tags": ["ru","passive"]},
+{"items": ["寝る","寝られる"],"tags": ["ru","passive"]},
+{"items": ["起きる","起きられる"],"tags": ["ru","passive"]},
+{"items": ["出る","出られる"],"tags": ["ru","passive"]},
+{"items": ["掛ける","掛けられる"],"tags": ["ru","passive"]},
+{"items": ["捨てる","捨てられる"],"tags": ["ru","passive"]},
+{"items": ["調べる","調べられる"],"tags": ["ru","passive"]},
+
+{"items": ["話す","話される"],"tags": ["u","passive"]},
+{"items": ["聞く","聞かれる"],"tags": ["u","passive"]},
+{"items": ["泳ぐ","泳がれる"],"tags": ["u","passive"]},
+{"items": ["遊ぶ","遊ばれる"],"tags": ["u","passive"]},
+{"items": ["待つ","待たれる"],"tags": ["u","passive"]},
+{"items": ["飲む","飲まれる"],"tags": ["u","passive"]},
+{"items": ["直る","直られる"],"tags": ["u","passive"]},
+{"items": ["死ぬ","死なれる"],"tags": ["u","passive"]},
+{"items": ["買う","買われる"],"tags": ["u","passive"]},
+
+{"items": ["する","される"],"tags": ["suru","passive"]},
+{"items": ["くる","こられる"],"tags": ["suru","passive"]},
+
+
+{"items": ["食べる","食べさせられる"],"tags": ["ru","causepass"]},
+{"items": ["着る","着させられる"],"tags": ["ru","causepass"]},
+{"items": ["信じる","信じさせられる"],"tags": ["ru","causepass"]},
+{"items": ["寝る","寝させられる"],"tags": ["ru","causepass"]},
+{"items": ["起きる","起きさせられる"],"tags": ["ru","causepass"]},
+{"items": ["出る","出させられる"],"tags": ["ru","causepass"]},
+{"items": ["掛ける","掛けさせられる"],"tags": ["ru","causepass"]},
+{"items": ["捨てる","捨てさせられる"],"tags": ["ru","causepass"]},
+{"items": ["調べる","調べさせられる"],"tags": ["ru","causepass"]},
+
+{"items": ["話す","話させられる"],"tags": ["u","causepass"]},
+{"items": ["聞く","聞かされる"],"tags": ["u","causepass"]},
+{"items": ["泳ぐ","泳がされる"],"tags": ["u","causepass"]},
+{"items": ["遊ぶ","遊ばされる"],"tags": ["u","causepass"]},
+{"items": ["待つ","待たされる"],"tags": ["u","causepass"]},
+{"items": ["飲む","飲まされる"],"tags": ["u","causepass"]},
+{"items": ["直る","直らされる"],"tags": ["u","causepass"]},
+{"items": ["死ぬ","死なされる"],"tags": ["u","causepass"]},
+{"items": ["買う","買わされる"],"tags": ["u","causepass"]},
+
+{"items": ["する","させられる"],"tags": ["suru","causepass"]},
+{"items": ["くる","こさせられる"],"tags": ["suru","causepass"]},
+
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
+]}
