@@ -18,3 +18,9 @@ function shuffle(array)
 
   return array;
 }
+
+function pushArray(dst,src)
+{
+    for( var i = 0; i < src.length; i++ )
+        dst.push(src[i]);
+}

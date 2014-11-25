@@ -10,3 +10,4 @@ set syntax=fc_conf
 
 command! -range Hira <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple.pl
 command! -range Merge <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple2.pl
+command! -range Check :w | echo <line1> | :e! | set ft=fc_conf

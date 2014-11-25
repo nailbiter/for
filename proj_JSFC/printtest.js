@@ -55,10 +55,13 @@ function print_test(test)
         var button = makeButtonWithTextAndOnClick("All Questions",null);
         button.onclick = function()
         {
-            var flag = fm.isFavoriteOnly();
-            setButtonText(button, !flag ? "All Questions" : "Only Favorites");
-            fm.setFavoriteOnly(!flag);
-            //TODO
+            var question = test.selectionMode.getCurrentQuestion();
+            var flag = test.favoritesManager.isFavoriteOnly();
+            console.log("flag="+flag);
+            setButtonText(button, !flag ? "Only Favorites" : "All Questions" );
+            test.favoritesManager.setFavoriteOnly(!flag);
+            if( question != test.selectionMode.getCurrentQuestion() )
+                displayNextQuestion(test.selectionMode,test.questions,grade,test.favoritesManager);
         }
         settingsCenter.appendChild(wrapIntoParagraph(button));
     }
@@ -73,7 +76,7 @@ function print_test(test)
         settingsCenter.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("View Questions",function()
                     {
                         maindiv.hidden = true;
-                        show_questions(test.questions);
+                        show_questions(test.questions,test.favoritesManager,test.selectionMode,grade);
                     })));
 
     var scoreParagraph = document.createElement("p");
@@ -255,7 +258,18 @@ function displayNextQuestion(sm,questions,grade,fm)
         displayNextQuestion(sm,questions,grade,fm);
     }
 
-    scoreParagraph.innerHTML = grade.curScore + "/" + grade.maxScore;
+    for(;;)
+    {
+        var favQ = 0;
+        if( fm != null )
+        {
+            for( var i = 0; i < questions.length; i++ )
+                if( fm.isFavoriteQuestion(questions[i]) ) favQ++;
+        }
+        scoreParagraph.innerHTML = grade.curScore + "/" + grade.maxScore + ( ( fm != null ) ? ("<b>/"+favQ+"</b>") : "" ) + 
+            "/"+questions.length;
+        break;
+    }
 
     var center = document.createElement("center");
     var buttonContainer = document.createElement("div");
@@ -271,12 +285,28 @@ function displayNextQuestion(sm,questions,grade,fm)
         var favButton = makeButtonWithTextAndOnClick(fm.isFavoriteQuestion(question) ? "★" : "☆",null);
         favButton.onclick = function()
         {
-            //TODO
             var flag = fm.isFavoriteQuestion(question);
             fm.markAsFavorite(question,!flag);
             setButtonText(favButton,(fm.isFavoriteQuestion(question) ? "★" : "☆"));
+            if( question != sm.getCurrentQuestion() )
+                displayNextQuestion(sm,questions,grade,fm);
         }
         buttonContainer.appendChild(favButton);
+    }
+    for(;;)
+    {
+        var remButton = makeButtonWithTextAndOnClick("del",null);
+        remButton.onclick = function()
+        {
+            var indx = -1;
+            for( var i = 0; i < questions.length; i++ )
+                if( questions[i] == question )
+                    indx = i;
+            sm.remove(indx);
+            displayNextQuestion(sm,questions,grade,fm);
+        }
+        buttonContainer.appendChild(remButton);
+        break;
     }
 
     if( question.type == "sc" )
@@ -381,11 +411,13 @@ function displayNextQuestion(sm,questions,grade,fm)
     }
 }
 
-function show_questions(questions)
+function show_questions(questions,fm,selectionMode,grade)
 {
     var questionListDiv = document.getElementById("questionListDiv");
     var maindiv = document.getElementById("maindiv");
     deleteAllChildren(questionListDiv);
+    var checkboxes = [];
+    var wasQuestion = selectionMode.getCurrentQuestion();
 
     var questionLabels = document.createElement("center");
     questionListDiv.appendChild(questionLabels);
@@ -404,12 +436,22 @@ function show_questions(questions)
         {
             var tr = document.createElement('TR');
             tableBody.appendChild(tr);
-            var texts = [questions[i].question, questions[i].answer, questions[i].type ];
+            var texts = [document.createTextNode(questions[i].question),
+                document.createTextNode(questions[i].answer),
+                document.createTextNode(questions[i].type) ];
+            if( fm != null )
+            {
+                var cb = document.createElement("INPUT");
+                cb.type = "checkbox";
+                checkboxes.push(cb);
+                cb.checked = fm.isFavoriteQuestion(questions[i]);
+                texts.push(cb);
+            }
             for( var j = 0; j < texts.length; j++ )
             {
                 var td = document.createElement('TD');
                 td.width='175';
-                td.appendChild(document.createTextNode(texts[j]));
+                td.appendChild(texts[j]);
                 tr.appendChild(td);
             }
         }
@@ -436,10 +478,17 @@ function show_questions(questions)
 
     questionListDiv.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("continue",function()
                 {
+                    if( fm != null )
+                    {
+                        for( var i = 0; i < checkboxes.length; i++ )
+                            fm.markAsFavorite(questions[i],checkboxes[i].checked);
+                    }
                     questionListDiv.hidden = true;
                     maindiv.hidden = false;
+                    if( fm != null && wasQuestion != selectionMode.getCurrentQuestion() ) 
+                        displayNextQuestion(selectionMode,questions,grade,test.favoritesManager);
                 })));
 
     questionListDiv.hidden = false;
-    printTech();
+    printNice();
 }
