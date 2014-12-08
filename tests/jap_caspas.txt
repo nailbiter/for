@@ -9,7 +9,8 @@
 "generators" : [
 { "tags" : ["causative"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see causative" , "enabled" : true,"reflip" : false},
 { "tags" : ["passive"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see passive" , "enabled" : true,"reflip" : false},
-{ "tags" : ["causepass"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see causepass" , "enabled" : true,"reflip" : true}
+{ "tags" : ["causepass"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see causepass" , "enabled" : true,"reflip" : false},
+{ "tags" : ["yoo"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see yoo form" , "enabled" : true,"reflip" : true}
 ],
 ####
 "dataitems" : [
@@ -83,6 +84,30 @@
 
 {"items": ["する","させられる"],"tags": ["suru","causepass"]},
 {"items": ["くる","こさせられる"],"tags": ["suru","causepass"]},
+
+
+{"items": ["食べる","食べよう"],"tags": ["ru","yoo"]},
+{"items": ["着る","着よう"],"tags": ["ru","yoo"]},
+{"items": ["信じる","信じよう"],"tags": ["ru","yoo"]},
+{"items": ["寝る","寝よう"],"tags": ["ru","yoo"]},
+{"items": ["起きる","起きよう"],"tags": ["ru","yoo"]},
+{"items": ["出る","出よう"],"tags": ["ru","yoo"]},
+{"items": ["掛ける","掛けよう"],"tags": ["ru","yoo"]},
+{"items": ["捨てる","捨てよう"],"tags": ["ru","yoo"]},
+{"items": ["調べる","調べよう"],"tags": ["ru","yoo"]},
+
+{"items": ["話す","話そう"],"tags": ["u","yoo"]},
+{"items": ["聞く","聞こう"],"tags": ["u","yoo"]},
+{"items": ["泳ぐ","泳ごう"],"tags": ["u","yoo"]},
+{"items": ["遊ぶ","遊ぼう"],"tags": ["u","yoo"]},
+{"items": ["待つ","待とう"],"tags": ["u","yoo"]},
+{"items": ["飲む","飲もう"],"tags": ["u","yoo"]},
+{"items": ["直る","直ろう"],"tags": ["u","yoo"]},
+{"items": ["死ぬ","死のう"],"tags": ["u","yoo"]},
+{"items": ["買う","買おう"],"tags": ["u","yoo"]},
+
+{"items": ["する","しよう"],"tags": ["suru","yoo"]},
+{"items": ["くる","こよう"],"tags": ["suru","yoo"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

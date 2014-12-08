@@ -217,6 +217,14 @@ function makeQuestion(generator, dataItem)
     var question = {};
     question.question = dataItem.items[generator.from];
     question.answer = dataItem.items[generator.to];
+    if( generator.type == "sc" && generator.hasOwnProperty("auxTo") && ( dataItem.items.length > generator.auxTo[0] ) )
+    { //FIXME: and there are these indexes
+        question.answer += " <sub>(";
+            question.answer += dataItem.items[generator.auxTo[0]];
+        for( var i = 1; i < generator.auxTo.length; i++ )
+            question.answer += (", " + dataItem.items[generator.auxTo[i]]);
+        question.answer += ")</sub>";
+    }
     if( ( question.question == "" ) || ( question.answer == "" ) )
         return null;
     question.generatedBy = generator;
