@@ -68,7 +68,7 @@ void serve_chosen_file(std::string& output,const std::string& filename)
     {
         while( getline(file,line) )
 	    {
-            if( line[0] != '#' ) 
+            if( line[0] != '#' ) //FIXME: # can be not at the beginning
             	output += line;
             	//output += (" ,\"" + line + "\"");
 	    }

@@ -3,30 +3,48 @@
 #encoding - utf8
 #default skip_mode - random
 "selectionMode" : "shuff",
+"canListQuestions" : true,
 ####
 #section 2 - quiz generator
 #taglist;qsttans;mode(sc,ti)
 "generators" : [
-{ "tags" : ["humble"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see humble" , "enabled" : true,"reflip" : true},
+{ "tags" : ["humble","A"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see humble interactional" , "enabled" : true,"reflip" : true},
+{ "tags" : ["humble","B"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see humble non-interactional" , "enabled" : true,"reflip" : true},
 { "tags" : ["honorific"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see honorific" , "enabled" : false,"reflip" : true}
 ],
 ####
 "dataitems" : [
 
-{"items": ["見る","はいけんする"],"tags": ["","humble"]},
-{"items": ["会う","おめにかかる"],"tags": ["","humble"]},
-{"items": ["聞く／たずねる","うかがう"],"tags": ["","humble"]},
-{"items": ["食べる／飲む","いただく"],"tags": ["","humble"]},
-{"items": ["いる","おる"],"tags": ["","humble"]},
-{"items": ["行く／来る","まいる"],"tags": ["","humble"]},
-{"items": ["する","いたす"],"tags": ["","humble"]},
-{"items": ["言う","もうす"],"tags": ["","humble"]},
+{"items": ["見る","はいけんする"],"tags": ["A","humble"]},
+{"items": ["会う","おめにかかる"],"tags": ["A","humble"]},
+{"items": ["聞く／たずねる","うかがう"],"tags": ["A","humble"]},
+{"items": ["食べる／飲む","いただく"],"tags": ["A","humble"]},
+{"items": ["帰ります","お帰りします"],"tags": ["","humble","A"]},
+{"items": ["話します","お話します"],"tags": ["","humble","A"]},
 
-{"items": ["いる／いく／くる","いらっしゃる／おいでになる"],"tags": ["","honorific"]},
+{"items": ["いる","おる"],"tags": ["B","humble"]},
+{"items": ["行く／来る","まいる"],"tags": ["B","humble"]},
+{"items": ["する","いたす"],"tags": ["B","humble"]},
+{"items": ["言う","もうす"],"tags": ["B","humble"]},
+
+{"items": ["いる／いく／くる","いらっしゃる*／おいでになる"],"tags": ["","honorific"]},
 {"items": ["食べる","めしあがる"],"tags": ["","honorific"]},
-{"items": ["言う","おっしゃる"],"tags": ["","honorific"]},
+{"items": ["言う","おっしゃる*"],"tags": ["","honorific"]},
 {"items": ["見る","ごらんになる"],"tags": ["","honorific"]},
-{"items": ["する","なさる"],"tags": ["","honorific"]},
+{"items": ["する","なさる*"],"tags": ["","honorific"]},
+{"items": ["帰ります","お帰りになります"],"tags": ["","honorific"]},
+{"items": ["話します","お話になります"],"tags": ["","honorific"]},
+{"items": ["帰って下さい","お帰りください"],"tags": ["","honorific"]},
+{"items": ["話してください","お話ください"],"tags": ["","honorific"]},
+{"items": ["帰らないで下さい","お帰りにならないで下さい"],"tags": ["","honorific"]},
+{"items": ["話さないでください","お話にならないで下さい"],"tags": ["","honorific"]},
+{"items": ["帰っています","帰っていらっしゃいます"],"tags": ["","honorific"]},
+{"items": ["話しています","話していらっしゃいます"],"tags": ["","honorific"]},
+{"items": ["勉強します","勉強なさいます"],"tags": ["","honorific"]},
+{"items": ["電話します","電話なさいます"],"tags": ["","honorific"]},
+{"items": ["勉強して下さい","お勉強下さい"],"tags": ["","honorific"]},
+{"items": ["電話して下さい","お電話下さい"],"tags": ["","honorific"]},
+{"items": ["見てください","ごらんに下さい"],"tags": ["","honorific"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

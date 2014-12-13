@@ -217,6 +217,8 @@ function makeQuestion(generator, dataItem)
     var question = {};
     question.question = dataItem.items[generator.from];
     question.answer = dataItem.items[generator.to];
+    if( ( question.question == "" ) || ( question.answer == "" ) )
+        return null;
     if( generator.type == "sc" && generator.hasOwnProperty("auxTo") && ( dataItem.items.length > generator.auxTo[0] ) )
     { //FIXME: and there are these indexes
         question.answer += " <sub>(";
@@ -225,8 +227,6 @@ function makeQuestion(generator, dataItem)
             question.answer += (", " + dataItem.items[generator.auxTo[i]]);
         question.answer += ")</sub>";
     }
-    if( ( question.question == "" ) || ( question.answer == "" ) )
-        return null;
     question.generatedBy = generator;
     if( generator.hasOwnProperty("auxText") )
         question.auxText = generator.auxText;
