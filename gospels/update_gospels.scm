@@ -7,7 +7,6 @@
 (use-modules (ice-9 format))
 (use-modules (srfi srfi-1))
 
-;replace html: try one line with local file --> try many lines with local file --> try with remote --> try with that
 (define server-name "inp9822058@alumni.cs.nctu.edu.tw")
 (define apostol-pdf (string-append(string-drop-right apostol-filename 4)".pdf"))
 (define gospel-pdf (string-append(string-drop-right gospel-filename 4)".pdf"))

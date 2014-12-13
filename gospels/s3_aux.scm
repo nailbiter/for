@@ -18,6 +18,7 @@
             (cons "Еф" "eph")
             (cons "Деян" "act")
             (cons "Гал" "gal")
+            (cons "Кол" "col")
 			))
 (define rus2chiurl-table (list
 			(cons "Лк" "luk")
@@ -36,6 +37,7 @@
             (cons "Деян" "act")
             (cons "Гал" "gal")
             (cons "Еф" "eph")
+            (cons "Кол" "col")
 			))
 (define rusname2engname-table(list 
            (cons "Гал" "Galatians")
@@ -53,6 +55,7 @@
            (cons "Флп" "Philippians")
            (cons "Деян" "Acts")
            (cons "Гал" "Galatians")
+           (cons "Кол" "Colossians")
            ))
 (define rusname2chiname-table (list 
                    (cons "Гал" "加拉太書")
@@ -69,6 +72,7 @@
                    (cons "Флп" "腓立比書")
                    (cons "Деян" "使徒行傳")
                    (cons "Еф" "以弗所書")
+                   (cons "Кол" "歌羅西書")
            ))
 
 (define (roman2arabic romtext) (get-value (list 
