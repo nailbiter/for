@@ -496,8 +496,10 @@
 {"items": ["Standard","標準","ひょうじゅん"],"tags": ["p1","kanjiclass","5"]},
 {"items": ["Criteria","基準","きじゅん"],"tags": ["p1","kanjiclass","5"]},
 {"items": ["Spare","予備","よび"],"tags": ["p1","kanjiclass","5"]},
-{"items": ["Conform","準じる","じゅんじる"],"tags": ["p1","kanjiclass","5"]},
+{"items": ["to conform","準じる","じゅんじる"],"tags": ["p1","kanjiclass","5"]},
 {"items": ["Quasi-considered","準考","じゅんこう"],"tags": ["p1","kanjiclass","5"]},
+{"items": ["remarks","備考","びこう"],"tags": ["","p1","kanjiclass","5"]},
+{"items": ["fixture","備品","びひん"],"tags": ["","p2","kanjiclass","5"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

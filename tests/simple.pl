@@ -7,5 +7,6 @@ while( <> )
 	chomp($_);
 	$res = `echo "$_" | kakasi -i utf8 -JH`;
 	chomp($res);
-	print $_ . "--" . $res . "\n";
+    if ( $res eq $_ ){ print $_ . "\n"; }
+    else{ print $_ . "--" . $res . "\n"; }
 }

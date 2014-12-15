@@ -50,10 +50,11 @@
 { "tags" : ["jap","19"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","20"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","21"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false},
-{ "tags" : ["jap","22"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" :true},
-{ "tags" : ["jap","23"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true},
-{ "tags" : ["jap","24"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true},
-{ "tags" : ["jap","25"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","22"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" :false},
+{ "tags" : ["jap","23"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","24"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","25"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","26"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -280,7 +281,7 @@
 {"items": ["笑う--わらう","Laugh"],"tags": ["","jap","3"]},
 {"items": ["帰国--きこく","Return to homeland"],"tags": ["","jap","3"]},
 {"items": ["欠席--けっせき","Absence"],"tags": ["","jap","3","15"]},
-{"items": ["喧嘩--けんか","Quarrel"],"tags": ["","jap","3"]},
+{"items": ["喧嘩--けんか","Quarrel"],"tags": ["","jap","3","26","16"]},
 {"items": ["数える--かぞえる","Count"],"tags": ["","jap","3"]},
 {"items": ["残す--のこす","Leave"],"tags": ["","jap","3"]},
 {"items": ["遅刻--ちこく","Late"],"tags": ["","jap","3"]},
@@ -665,7 +666,7 @@
 {"items": ["例文--れいぶん","Example sentence"],"tags": ["","jap","15"]},
 {"items": ["名前をつける--なまえをつける","I to give a name"],"tags": ["","jap","15"]},
 {"items": ["謙譲語--けんじょうご","Humble language"],"tags": ["","jap","15"]},
-{"items": ["行動--こうどう","Behavior"],"tags": ["","jap","15"]},
+{"items": ["行動--こうどう","Behavior"],"tags": ["","jap","15","26"]},
 {"items": ["通貨--つうか","currency"],"tags": ["","jap","15"]},
 
 {"items": ["片面--かためん","One side"],"tags": ["","jap","16"]},
@@ -678,7 +679,6 @@
 {"items": ["失敗--しっぱい","Failure"],"tags": ["","jap","16"]},
 {"items": ["翌日--よくじつ","The next day"],"tags": ["","jap","16"]},
 {"items": ["無視--むし","Neglect"],"tags": ["","jap","16"]},
-{"items": ["喧嘩--けんか","Quarrel"],"tags": ["","jap","16"]},
 {"items": ["急停車--きゅうていしゃ","Sudden stop"],"tags": ["","jap","16"]},
 {"items": ["横--よこ","Horizontal"],"tags": ["","jap","16"]},
 {"items": ["零れる--こぼれる","spill"],"tags": ["","jap","16"]},
@@ -806,6 +806,14 @@
 {"items": ["に追われる--におわれる","It is chased by"],"tags": ["","jap","22"]},
 {"items": ["に勤める--につとめる","I working at"],"tags": ["","jap","22"]},
 {"items": ["次のとおり--つぎのとおり","As follows:"],"tags": ["","jap","22"]},
+{"items": ["口癖--くちぐせ","Favorite phrase"],"tags": ["","jap","22"]},
+{"items": ["癖--くせ","Habit"],"tags": ["","jap","22"]},
+{"items": ["支社--ししゃ","Branch office"],"tags": ["","jap","22"]},
+{"items": ["本社--ほんしゃ","Head office"],"tags": ["","jap","22"]},
+{"items": ["添付--てんぷ","Appended"],"tags": ["","jap","22"]},
+{"items": ["文字化け--もじばけ","Garbled characters"],"tags": ["","jap","22"]},
+{"items": ["問い合わせる--といあわせる","Inquire"],"tags": ["","jap","22"]},
+{"items": ["構わない--かまわない","Does not matter"],"tags": ["","jap","22"]},
 
 {"items": ["擬態語--ぎたいご","Mimetic word"],"tags": ["listening1","jap","23"]},
 {"items": ["とんとん／どんどん","knock even / fast"],"tags": ["listening1","jap","23"]},
@@ -869,6 +877,25 @@
 {"items": ["本数--ほんすう","Number of"],"tags": ["","jap","25"]},
 {"items": ["祭り--まつり","Festival"],"tags": ["","jap","25"]},
 {"items": ["feature","特徴--とくちょう"],"tags": ["","jap","25"]},
+
+{"items": ["大型--おおがた","Large"],"tags": ["","jap","26"]},
+{"items": ["小型--こがた","Small size"],"tags": ["","jap","26"]},
+{"items": ["男性--だんせい","Man"],"tags": ["","jap","26"]},
+{"items": ["女性--じょせい","Woman"],"tags": ["","jap","26"]},
+{"items": ["ともかく","In any case"],"tags": ["","jap","26"]},
+{"items": ["つなぐ","Hook up"],"tags": ["","jap","26"]},
+{"items": ["求める--もとめる","Seek"],"tags": ["","jap","26"]},
+{"items": ["組み込む--くみこむ","Incorporate"],"tags": ["","jap","26"]},
+{"items": ["否定--ひてい","Negative"],"tags": ["","jap","26"]},
+{"items": ["仕組み--しくみ","Structure"],"tags": ["","jap","26"]},
+{"items": ["砂--すな","Sand"],"tags": ["","jap","26"]},
+{"items": ["浜--はま","Beach"],"tags": ["","jap","26"]},
+{"items": ["片方--かたほう","Other"],"tags": ["","jap","26"]},
+{"items": ["方向--ほうこう","Direction"],"tags": ["","jap","26"]},
+{"items": ["姿--すがた","Appearance"],"tags": ["","jap","26"]},
+{"items": ["後悔--こうかい","Regret"],"tags": ["","jap","26"]},
+{"items": ["仲--なか","Relationship"],"tags": ["","jap","26"]},
+{"items": ["絶対--ぜったい","Absolutely"],"tags": ["","jap","26"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

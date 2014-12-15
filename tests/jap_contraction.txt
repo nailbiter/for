@@ -1,0 +1,26 @@
+{
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+"selectionMode" : "shuff",
+"canListQuestions" : true,
+####
+#section 2 - quiz generator
+#taglist;qsttans;mode(sc,ti)
+"generators" : [
+{ "tags" : ["contraction"], "from" : 0, "to" : 1, "type" : "sc", "auxText" : "tap to see humble contraction" , "enabled" : true,"reflip" : true}
+],
+####
+"dataitems" : [
+
+{"items": ["見<u>てお</u>く","見<u>と</u>く"],"tags": ["","contraction"]},
+{"items": ["読ん<u>でお</u>く","読ん<u>ど</u>く"],"tags": ["","contraction"]},
+{"items": ["忘れ<u>てしま</u>う","忘れ<u>ちゃ</u>う"],"tags": ["","contraction"]},
+{"items": ["読ん<u>でしま</u>う","読ん<u>じゃ</u>う"],"tags": ["","contraction"]},
+{"items": ["見<u>てはい</u>けない","見<u>ちゃ</u>いけない"],"tags": ["","contraction"]},
+{"items": ["読ん<u>では</u>いけない","読ん<u>じゃ</u>いけない"],"tags": ["","contraction"]},
+{"items": ["読ま<u>なければ</u>いけない","読ま<u>なきゃ</u>いけない"],"tags": ["","contraction"]},
+{"items": ["読ま<u>なくては</u>いけない","読ま<u>なくちゃ</u>いけない"],"tags": ["","contraction"]},
+
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
+]}
