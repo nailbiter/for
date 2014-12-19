@@ -1,0 +1,43 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+%\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{mystyle}
+
+\begin{document}
+\begin{myprop}Lex $X$ be compact Hausdorff topological space. Define by $\mathcal{A}$ the set of all compact subsets of $X$,
+which are countable intersections of open sets. Then if $\mu(\cdot)$ and $\mu'(\cdot)$ are two regular Borel measures
+on $X$ and the equality  \end{myprop}
+\begin{equation}\mu(X)\mu'(A)=\mu(A)\mu'(X)\end{equation}
+holds for any $A\in\mathcal{A}$, it holds for all Borel sets.
+\begin{proof}
+By definition of Borel sets and the linearity of equality, it's enough to show that it holds for any closed set.
+
+Recall that Hausdorff compact space is necessarily normal (see \cite{normal}), so Urysohn's lemma holds in particular, that is
+for any two disjoint closed sets $A$ and $B$ of $X$, there is continuous $f:X\to[0,1]$, such that $f\big|_A=0$ and
+$f\big|_B=1$. Now, for any continuous function $f:X\to\R$ it's preimage $f^{-1}([a,b])$ is in $\mathcal{A}$. Indeed, it's
+compact and is the intersection of open sets $f^{-1}((a-1/n,b+1/n))$.
+
+Now, let take any closed $A\subset X$ and fix it. By regularity, there is a decreasing sequence of open sets $O_n\supset A$, such that
+$\mu(O_n),\mu'(O_n)\downarrow\mu(A)$ (regularity, in fact, implies only existence of \textit{maybe different} sequences
+for each of measure, but then we can intersect individual terms of every sequence to get $O_n$ desired). Now, by Urysohn's lemma
+we have $f_n:X\to[0,1]$ continuous functions, such that $f_n\big|_A=1$ and $f_n\big|_{X\setminus O_n}=0$, hence
+$A\subset f_n^{-1}(\mycbra{1})\subset O_n$. As $\forall n,\;f_n^{-1}(\mycbra{1})\in\mathcal{A}$, we have
+that the in proposition statement equality holds for and $f_n^{-1}(\mycbra{1})$.
+
+Moreover,
+as $\mu(O_n),\mu'(O_n)\downarrow\mu(A)$ we have $\mu(f_n^{-1}(\mycbra{1})),\mu'(f_n^{-1}(\mycbra{1}))\downarrow\mu(A)$.
+Therefore, equality also holds for $A$ and we are done.
+\end{proof}
+\begin{thebibliography}{9}
+\bibitem{normal}
+\url{http://en.wikipedia.org/wiki/Hausdorff_space#Properties}
+\end{thebibliography}
+\end{document}
