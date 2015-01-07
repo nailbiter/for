@@ -54,8 +54,10 @@
 { "tags" : ["jap","23"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","24"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false},
 { "tags" : ["jap","25"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false},
-{ "tags" : ["jap","26"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true}
+{ "tags" : ["jap","26"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false},
+{ "tags" : ["jap","27"], "from" : 1, "to" : 0, "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true}
 ],
+
 ####
 "dataitems" : [
 #english,hiragana,kanji;tags
@@ -876,7 +878,7 @@
 {"items": ["座席--ざせき","Seat"],"tags": ["","jap","25"]},
 {"items": ["本数--ほんすう","Number of"],"tags": ["","jap","25"]},
 {"items": ["祭り--まつり","Festival"],"tags": ["","jap","25"]},
-{"items": ["feature","特徴--とくちょう"],"tags": ["","jap","25"]},
+{"items": ["特徴--とくちょう","feature"],"tags": ["","jap","25","27"]},
 
 {"items": ["大型--おおがた","Large"],"tags": ["","jap","26"]},
 {"items": ["小型--こがた","Small size"],"tags": ["","jap","26"]},
@@ -896,6 +898,21 @@
 {"items": ["後悔--こうかい","Regret"],"tags": ["","jap","26"]},
 {"items": ["仲--なか","Relationship"],"tags": ["","jap","26"]},
 {"items": ["絶対--ぜったい","Absolutely"],"tags": ["","jap","26"]},
+{"items": ["普及--ふきゅう","Widespread"],"tags": ["","jap","26"]},
+{"items": ["発達--はったつ","Development"],"tags": ["","jap","26"]},
+
+{"items": ["習慣--しゅうかん","Habit"],"tags": ["","jap","27"]},
+{"items": ["戦争--せんそう","War"],"tags": ["","jap","27"]},
+{"items": ["画面--がめん","Screen"],"tags": ["","jap","27"]},
+{"items": ["図面--ずめん","Drawing"],"tags": ["","jap","27"]},
+{"items": ["処理する--しょりする","Process"],"tags": ["","jap","27"]},
+{"items": ["しまう","Put away"],"tags": ["","jap","27"]},
+{"items": ["都合--つごう","Convenience"],"tags": ["","jap","27"]},
+{"items": ["家庭--かてい","Home"],"tags": ["","jap","27"]},
+{"items": ["文章--ぶんしょう","Sentence"],"tags": ["","jap","27"]},
+{"items": ["温度--おんど","Temperature"],"tags": ["","jap","27"]},
+{"items": ["湿度--しつど","Humidity"],"tags": ["","jap","27"]},
+{"items": ["強調--きょうちょう","emphasis"],"tags": ["","jap","27"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
