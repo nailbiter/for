@@ -5,14 +5,16 @@
 {
 "selectionMode" : "shuff",
 "canListQuestions": true,
+"favoritesModeAllowed":true,
 "generators" : [
 { "tags" : ["Apr3Wordlist"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
 { "tags" : ["L17"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
 { "tags" : ["L18"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
 { "tags" : ["L19"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
-{ "tags" : ["relatives"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : true,"auxText" : "Own", "reflip":true},
-{ "tags" : ["relatives"], "from" : 0, "to" : 2, "type" : "sc", "enabled" : true,"auxText" : "Others","reflip":true},
-{ "tags" : ["dates"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : true,"auxText" : ""}
+{ "tags" : ["relatives"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false,"auxText" : "Own", "reflip":true},
+{ "tags" : ["relatives"], "from" : 0, "to" : 2, "type" : "sc", "enabled" : false,"auxText" : "Others","reflip":true},
+{ "tags" : ["dates"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false,"auxText" : ""},
+{ "tags" : ["relative time"], "from" : 0, "to" : 1, "auxTo":[2],"auxText":"tap to see japanese", "type" : "sc", "enabled" : true}
 ],
 ####
 "dataitems" : [
@@ -237,5 +239,45 @@
 { "items" : ["husband", "おっと - 夫", "ごしゅじん - ご主人"], "tags" : ["relatives"]},
 { "items" : ["wife", "つま - 妻", "おくさん - 奥さん"], "tags" : ["relatives"]},
 { "items" : ["son", "むすこ - 息子", "むすこさん - 息子さん"], "tags" : ["relatives"]},
-{ "items" : ["daughter", "むすめ - 娘", "おじょうさん - お嬢さん"], "tags" : ["relatives"]}
+{ "items" : ["daughter", "むすめ - 娘", "おじょうさん - お嬢さん"], "tags" : ["relatives"]},
+
+{"items": ["year before last","一昨年","おととし"],"tags": ["","relative time"]},
+{"items": ["last year","去年","きょねん"],"tags": ["","relative time"]},
+{"items": ["this year","今年","ことし"],"tags": ["","relative time"]},
+#{"items": ["next year","来年","らいねん"],"tags": ["","relative time"]},
+{"items": ["year after next","再来年","さらいねん"],"tags": ["","relative time"]},
+{"items": ["annually","毎年","まいとし/まいねん"],"tags": ["","relative time"]},
+{"items": ["month before last","先々月","せんせんげつ"],"tags": ["","relative time"]},
+#{"items": ["last month","先月","せんげつ"],"tags": ["","relative time"]},
+#{"items": ["this month","今月","こんげつ"],"tags": ["","relative time"]},
+#{"items": ["next month","来月","らいげつ"],"tags": ["","relative time"]},
+{"items": ["month after next","再来月","さらいげつ"],"tags": ["","relative time"]},
+{"items": ["monthly","毎月","まいつき"],"tags": ["","relative time"]},
+{"items": ["week before last","先々週","せんせんしゅう"],"tags": ["","relative time"]},
+#{"items": ["last week","先週","せんしゅう"],"tags": ["","relative time"]},
+#{"items": ["this week","今週","こんしゅう"],"tags": ["","relative time"]},
+#{"items": ["next week","来週","らいしゅう"],"tags": ["","relative time"]},
+{"items": ["week after next","再来週","さらいしゅう"],"tags": ["","relative time"]},
+{"items": ["weekly","毎週","まいしゅう"],"tags": ["","relative time"]},
+#{"items": ["morning","朝","あさ"],"tags": ["","relative time"]},
+#{"items": ["afternoon","昼","ひる"],"tags": ["","relative time"]},
+{"items": ["evening night","晩","ばん"],"tags": ["","relative time"]},
+{"items": ["night","夜","よる"],"tags": ["","relative time"]},
+{"items": ["day before yesterday","一昨日","おととい"],"tags": ["","relative time"]},
+#{"items": ["yesterday","昨日","きのう"],"tags": ["","relative time"]},
+#{"items": ["today","今日","きょう"],"tags": ["","relative time"]},
+#{"items": ["tomorrow","明日","あした"],"tags": ["","relative time"]},
+{"items": ["day after tomorrow","明後日","あさって"],"tags": ["","relative time"]},
+{"items": ["daily","毎日","まいにち"],"tags": ["","relative time"]},
+{"items": ["yesterday morning","昨朝","さくちょう"],"tags": ["","relative time"]},
+{"items": ["this morning","今朝","けさ"],"tags": ["","relative time"]},
+{"items": ["tomorrow morning","明朝","みょうちょう"],"tags": ["","relative time"]},
+{"items": ["every morning","毎朝","まいあさ"],"tags": ["","relative time"]},
+{"items": ["last night","昨夜","さくや"],"tags": ["","relative time"]},
+{"items": ["this evening tonight","今晩","こんばん"],"tags": ["","relative time"]},
+{"items": ["tonight","今夜","こんや"],"tags": ["","relative time"]},
+{"items": ["tomorrow night","明晩","みょうばん"],"tags": ["","relative time"]},
+{"items": ["every evening","毎晩","まいばん"],"tags": ["","relative time"]},
+
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

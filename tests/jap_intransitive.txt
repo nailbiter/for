@@ -3,6 +3,8 @@
 #encoding - utf8
 #default skip_mode - random
 "selectionMode" : "shuff",
+"canListQuestions" : true,
+"favoritesModeAllowed":true,
 ####
 #section 2 - quiz generator
 #taglist;qsttans;mode(sc,ti)
@@ -22,7 +24,7 @@
 {"items": ["turn off","消す(けす)","消える(きえる)"],"tags": ["1","transit"]},
 {"items": ["put in","入れる(いれる)","入る(いる)"],"tags": ["1","transit"]},
 {"items": ["take out","出す(だす)","出る(でる)"],"tags": ["1","transit"]},
-{"items": ["stop","止める(やめる)","止まる(とまる)"],"tags": ["1","transit"]},
+{"items": ["stop","止める(とめる)","止まる(とまる)"],"tags": ["1","transit"]},
 {"items": ["drop","落とす(おとす)","落ちる(おちる)"],"tags": ["1","transit"]},
 {"items": ["break","壊す(こわす)","壊れる(こわれる)"],"tags": ["1","transit"]},
 {"items": ["fix","治す(なおす)","治る(なおる)"],"tags": ["1","transit"]},
@@ -39,15 +41,15 @@
 {"items": ["to float/to become merry","","浮く(うく)"],"tags": ["","transit","2"]},
 {"items": ["to jump out","","飛び出す(とびだす)"],"tags": ["","transit","2"]},
 {"items": ["to open(bank account/festival/etc.)","開く--ひらく",""],"tags": ["","transit","2"]},
-{"items": ["Line up","並べる(ならべる)","並ぶ(ならぶ)"],"tags": ["","transit","2"]},
-{"items": ["Stand","立てる(たてる)","立つ(たつ)"],"tags": ["","transit","2"]},
-{"items": ["Fall","倒す(たおす)","倒れる(たおれる)"],"tags": ["","transit","2"]},
-{"items": ["Burn","燃やす(もやす)","燃える(もえる)"],"tags": ["","transit","2"]},
-{"items": ["Dry","乾かす(かわかす)","乾く(かわく)"],"tags": ["","transit","2"]},
-{"items": ["Increase","増やす(ふやす)","増える(ふえる)"],"tags": ["","transit","2"]},
-{"items": ["Decrease","減らす(へらす)","減る(へる)"],"tags": ["","transit","2"]},
+{"items": ["line up","並べる(ならべる)","並ぶ(ならぶ)"],"tags": ["","transit","2"]},
+{"items": ["stand","立てる(たてる)","立つ(たつ)"],"tags": ["","transit","2"]},
+{"items": ["fall","倒す(たおす)","倒れる(たおれる)"],"tags": ["","transit","2"]},
+{"items": ["burn","燃やす(もやす)","燃える(もえる)"],"tags": ["","transit","2"]},
+{"items": ["dry","乾かす(かわかす)","乾く(かわく)"],"tags": ["","transit","2"]},
+{"items": ["increase","増やす(ふやす)","増える(ふえる)"],"tags": ["","transit","2"]},
+{"items": ["decrease","減らす(へらす)","減る(へる)"],"tags": ["","transit","2"]},
 {"items": ["to melt","溶かす(とかす)","溶ける(とける)"],"tags": ["","transit","2"]},
-{"items": ["Return","戻す(もどす)","戻る(もどる)"],"tags": ["","transit","2"]},
+{"items": ["return","戻す(もどす)","戻る(もどる)"],"tags": ["","transit","2"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

@@ -21,6 +21,9 @@
 {"items": ["食べる／飲む","いただく"],"tags": ["A","humble"]},
 {"items": ["帰ります","お帰りします"],"tags": ["","humble","A"]},
 {"items": ["話します","お話します"],"tags": ["","humble","A"]},
+{"items": ["見せる","お目にかける"],"tags": ["","humble","A"]},
+{"items": ["もらう","ちょうだいする"],"tags": ["","humble","A"]},
+{"items": ["知る","存じ上げる"],"tags": ["","humble","A"]},
 
 {"items": ["いる","おる"],"tags": ["B","humble"]},
 {"items": ["行く／来る","まいる"],"tags": ["B","humble"]},
