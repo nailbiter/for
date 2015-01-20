@@ -267,12 +267,12 @@ the original results of Palmer in
 	\begin{bmatrix}{x}\\{y}\end{bmatrix}\]
 	It obviously has a dichotomy on $\R$. Now, perturb it to get
 	\[\begin{bmatrix}\dot{x}\\\dot{y}\end{bmatrix}=
-		\begin{bmatrix}1+P(t)e^{-t^2}&(Q-P)(t)e^{-t^2}/2\\0&-1+Q(t)e^{-t^2}\end{bmatrix}
+		\begin{bmatrix}1+P(t)e^{-t^2}&(P-Q)(t)e^{-t^2}/2\\0&-1+Q(t)e^{-t^2}\end{bmatrix}
 	\begin{bmatrix}{x}\\{y}\end{bmatrix},\]
 	where $P(t)$ and $Q(t)$ are arbitrary polynomials in $t$.
 
-	Note, that both the original matrix $\mysbra{\begin{smallmatrix}1&0\\0&-1\end{smallmatrix}}$ and perturbation we've applied
-	$\mysbra{\begin{smallmatrix}P(t)&(Q-P)(t)/2\\0&Q(t)\end{smallmatrix}}e^{-t^2}$ commute.
+	Note, that both the original matrix $\mysbra{\begin{smallmatrix}1&1\\0&-1\end{smallmatrix}}$ and perturbation we've applied
+	$\mysbra{\begin{smallmatrix}P(t)&(P-Q)(t)/2\\0&Q(t)\end{smallmatrix}}e^{-t^2}$ commute.
 	Then, our theorem shows that perturbed system still possess the dichotomy on $\R$ (as we've perturbed by Schwartz function, see above),
 	while Palmer's theorem only allows one to conclude that the dichotomy on $\pm\R$ is preserved. Neither Coppel's classical result
 	from \cite{coppel1978dichotomies}, nor any of the latter developments (\cite{Ju200139,Naulin1998559}) \textit{cannot} be applied
