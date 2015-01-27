@@ -1,0 +1,22 @@
+{
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+"selectionMode" : "shuff",
+"canListQuestions" : true,
+"favoritesModeAllowed":true,
+####
+#section 2 - quiz generator
+#taglist;qsttans;mode(sc,ti)
+"generators" : [
+{ "tags" : ["jap","31"], "from" : 2, "to" : 0,"auxTo":[1], "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true}
+],
+
+####
+"dataitems" : [
+#english,hiragana,kanji;tags
+
+{"items": ["主要な","しゅような","primary"],"tags": ["","jap","31"]},
+
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
+]}
