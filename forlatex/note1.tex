@@ -16,7 +16,7 @@
 	Then if $n\geq2$,
 	\[F=\begin{cases}
 		\C\myabs{x_n}^{\lambda+\nu-n}\myabs{x}^{-2\nu},&\lambda+\nu-n\neq-1,-3,-5,\hdots\\
-		\C\delta^{-\lambda-\nu+n-1}(x_n)\myabs{x}^{-2\nu},&\lambda+\nu-n=-1,-3,-5,\hdots
+		\C\delta^{\mybra{-\lambda-\nu+n-1}}(x_n)\myabs{x}^{-2\nu},&\lambda+\nu-n=-1,-3,-5,\hdots
 	\end{cases}\]
 	\end{myprop}
 	\begin{proof}
@@ -27,7 +27,7 @@
 		Note, that the multiplication here, as well as all the multiplications made so far make perfect sense on $\R^n\setminus
 		\mycbra{0}$, as $\myabs{x}^{2\nu}$ is locally integrable on this domain for any $\nu\in\C$.
 		Now, we introduce the lemma, which will be proven below.
-		\begin{mylem}
+		\begin{mylem}\label{Lemma}
 			Let $D=\R^n\setminus\mycbra{0}$ or $D=\R^n,\;n\geq2$,
 			$F\in D'(D)$ and $\partial/\partial x_1F=0$ on $D$. Then,
 			\begin{enumerate}
@@ -39,20 +39,40 @@
 		Using this lemma, we see that there is $g\in D'(\R)$, such that 
 		\[\forall \phi\in C^\infty_0(\R^n\setminus\mycbra{0}),\quad (F\myabs{x}^{2\nu}
 		,\phi)=\mybra{g,x_n\mapsto\int_{\R^{n-1}}\phi(\tilde{x},x_n)\;d\tilde{x}} \]
-		In turn, the fourth equation force $g$ to be even and the first translates to ($a:=\lambda+\nu-n$)
+		In turn, the fourth equation force $g$ to be even and the first translates to (we set $a:=\lambda+\nu-n$)
 		$xg'-ag=0$, which holds on $\R$, thanks to the item 2) of Lemma.
 
 		Now, it is sufficient to show that
 		\[g(x)=\begin{cases}
 		\C\myabs{x}^a,&a\neq-1,-3,-5,\hdots\\
-		\C\delta^{-a-1}(x),&a=-1,-3,-5,\hdots
+		\C\delta^{\mybra{-a-1}}(x),&a=-1,-3,-5,\hdots
 		\end{cases}\]
-%%		This in turn, is sufficient to show only for big $\Re a$, as the rest can be deduced via the analytic continuation and
-%%		the fact that $xg'=ag\implies x(g')'=(a-1)g'$.
-		First, we consider the restriction to of $g$ to $\R_{>0}$. Suppose, we'd be able to show that it will be equal to
-		$Cx^a$. Then, by the assumed evenness of $g$ we'll get that the restriction of $g$ equal to $C\myabs{x}^a$ on $\R^\times$.
+		We shall proceed as in \cite[Sec 3.11]{gelfand}. Note, that lemma from there tells us, that
+		$g$ satisfies $xg'=ag$ iff it is homogeneous of degree $a$, that is $g(\alpha\cdot)=\alpha^ag(\dot),\;\forall\alpha>0$
+		.
+
+		First, we consider the restriction of $g$ to $\R_{>0}$. It can then be multiplied by $x^{-a}$, the later
+		product being generalized function as well and having zero derivative on $\R_{>0}$, from which it'll follow
+		(by the argument similar to proof of lemma \ref{Lemma}, albeit simpler)
+		that $g\equiv const$. Hence, $g=Cx^a$ on $\R_{>0}$ and similarly $C'\myabs{x}^a$ for $\R_{<0}$.
+		
+		Hence (assuming $a\neq-1,-2,-3,\hdots$)
+		using the introduced in \cite{gelfand} generalized functions $x^a_+$ and $x_-^a$, we
+		see that $g-C_1x_+^a-C_2x_-^a$ is supported only at zero, and hence is linear combination of derivatives
+		of $\delta(x)$.
+
+		Now, as derivatives of delta are homogeneous by themselves and homogeneous functions with different $a$'s
+		 are linearly independent
+		(which can be directly verified by computations), we have that $g=C_1x_+^a+C_2x^a_-$ and evenness assumption
+		tells us $g=C\myabs{x}^a$, if $a\neq-1,-2,-3,\hdots$.
+
+		Tackling now the case $a=-n=-1,-2,-3,-\hdots$, we similarly get that $g-x^{-n}$ is the linear combination of
+		derivatives of delta-functions, and again by linear independence of homogeneous classes we have
+		\[g(x)=Cx^{-n}+C_1\delta^{\mybra{n-1}}\]
+		And again by applying evenness assumption, the result follows.
 	\end{proof}
-%%\begin{thebibliography}{9}
-%%%\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
-%%\end{thebibliography}
+\begin{thebibliography}{9}
+\bibitem{gelfand}Gelfand, I.M. and Shilov G.E., {\em Generalized functions, Volume 1:
+ Properties and Operations}. Academic Press, 1964.
+\end{thebibliography}
 \end{document}
