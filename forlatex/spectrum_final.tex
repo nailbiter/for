@@ -13,12 +13,39 @@
 \begin{CJK}{UTF8}{bsmi}
 \maketitle
 \end{CJK}
-\section{Problem}
 We will proceed straightly with solving exercises given during the course.
-\begin{enumerate}[1. ]
-\item
-\end{enumerate}
-\begin{thebibliography}{9}
+\begin{myprob}[Oct 8]Show that $C^1[0,1]$ is complete with respect to the norm
+\[\mynorm{u}:=\mynorm{u}_\infty+\mynorm{u'}_\infty.\]
+\end{myprob}
+Indeed, let $u_n$ be the Cauchy sequence of the functions in $C^1[0,1]$. From the definition
+of the norm it is seen, that for every $x\in[0,1]$ the sequence $u'_n(x)$ is Cauchy, hence converges
+($\C$ being complete metric space) to some value, say $u'_0(x)$. We shall show now, that the function $u'_0(x)$ on $[0,1]$ is
+the uniform limit of $u_n'$. Indeed, let arbitrary $\epsilon>0$ be given. By the definition of $\mynorm{u}$ and the assumption
+that $u_n$ is a Cauchy, there is $N\in\N$, such that $ \N\ni\forall n,m>N$ we have
+$\mynorm{u_n-u_m}_\infty+\mynorm{u'_n-u'_m}_\infty<\epsilon$ and so in particular
+$\mynorm{u'_n-u'_m}_\infty<\epsilon$. Therefore, for any $\N\ni\forall n>N$ and any $x\in[0,1]$ we have
+\[\myabs{u_0'(x)-u'_n(x)}=\lim_{m\to\infty'ty}\myabs{u'_m(x)-u'_n(x)}\leq\epsilon\]
+which is precisely the definition of the uniform convergence $u'_n\to u'_0$ on $[0,1]$. Hence, $u'_0$ is continuous, being
+the uniform limit of the continuous functions.
+
+Then, consider $C^1$ function $u_0(x):=\lim_{n\to\infty}u_n(0)+\int_0^xu_0'(t)\;dt$ (limit exists, as $u_n(0)$ is Cauchy, $u_n$ being
+Cauchy and the definition of norm). Let us show that $u_n\to u_0$ uniformly on $[0,1]$
+. Together with shown above uniform convergence
+$u'_n\to u'_0$ this will imply that $u_n\to u_0$ with respect to the norm $\mynorm{u}$ on $C^1[0,1]$, given in problem statement.
+Now, given $\epsilon>0$ take $N$ such that $\N\ni\forall n>N$ we have $\myabs{u_n(x)-u_0(0)}<\epsilon$ and
+$\mynorm{u_n'-u'_0}<\epsilon$. Then, $\N\ni\forall n>N$ and $\forall x\in[0,1]$ we have
+\[\myabs{u_n(x)-u_0(x)}\leq\myabs{u_n(0)-u_0(0)}+\myabs{\int_0^xu_n(t)-u_0(t)\;dt}\leq\]
+\[\leq\epsilon+\int_0^x\myabs{u_n(t)-u_0(t)}\;dt\leq\epsilon+x\epsilon\leq2\epsilon\]
+and since $\epsilon>0$ was arbitrary, we have succeeded in showing that $u_n\to u_0$ uniformly on $[0,1]$ and thus we are done.
+\begin{myprob}[Oct 29]Given $F:\R^N\to\C$ Lebesgue measurable, $1\leq p<\infty$ and 
+$M_F:=\mysetn{u\in L^p(\R^N)}{F\cdot u\in L^p(\R^N)}$ show that $M_F\subset L^p(\R^N)$ is dense.
+\end{myprob}
+For $n\in\N$ set $\Lambda_n:=\mysetn{x\in\R^N}{\myabs{F(x)}<n}$. Then, $\Lambda_n$ form a non-decreasing sequence
+of Lebesgue 
+measurable sets and $\bigcup_{n=1}^\infty\Lambda_n=\R^N$. Fix arbitrary $u\in L^p(\R^N)$ and set $w_n:=\kappa_{\Lambda_n}u$
+(where $\kappa_A$ denotes the indicator functions of $A$), being the sequence of $L^p(\R^n)$ functions by construction.
+We are to show $w_n\to u$ in $L^p(\R^n)$ and this will finish the proof.
+%\begin{thebibliography}{9}
 %\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
-\end{thebibliography}
+%\end{thebibliography}
 \end{document}
