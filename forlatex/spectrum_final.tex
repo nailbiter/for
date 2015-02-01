@@ -42,9 +42,85 @@ $M_F:=\mysetn{u\in L^p(\R^N)}{F\cdot u\in L^p(\R^N)}$ show that $M_F\subset L^p(
 \end{myprob}
 For $n\in\N$ set $\Lambda_n:=\mysetn{x\in\R^N}{\myabs{F(x)}<n}$. Then, $\Lambda_n$ form a non-decreasing sequence
 of Lebesgue 
-measurable sets and $\bigcup_{n=1}^\infty\Lambda_n=\R^N$. Fix arbitrary $u\in L^p(\R^N)$ and set $w_n:=\kappa_{\Lambda_n}u$
-(where $\kappa_A$ denotes the indicator functions of $A$), being the sequence of $L^p(\R^n)$ functions by construction.
-We are to show $w_n\to u$ in $L^p(\R^n)$ and this will finish the proof.
+measurable sets and $\bigcup_{n=1}^\infty\Lambda_n=\R^N$. Fix arbitrary $u\in L^p(\R^N)$ and set $w_n:=\chi_{\Lambda_n}u$
+(where $\chi_A$ denotes the indicator function of $A$), being the sequence of $L^p(\R^n)$ functions by construction.
+We are to show that $w_n\to u$ in $L^p(\R^n)$ and this will finish the proof. More precisely, we claim that
+$\mynorm{w_n-u}^p=\int_{\R^N}\myabs{\chi_{\R^n\setminus\Lambda_n}u}^p\;dx\to0$ by Lebesgue dominated convergence theorem. Indeed,
+functions $\myabs{\chi_{\R^n\setminus\Lambda_n}u}^p$ are dominated by $L^1$ function $\myabs{u}^p$ and tend pointwise to
+zero, as they are equal to zero on $\Lambda_n$, $\Lambda_n$ non-decrease and $\bigcup_{n=1}^\infty\Lambda_n=\R^N$.
+\begin{myprob}Let $A:X\to Y$
+ be operator between Hilbert spaces $X$ and $Y$, such that $D(A)$ is dense in $X$. Define operator $A^*:Y\to X$ by:
+\[D(A^*):=\mysetn{v\in Y}{\exists w_v\in X\forall u\in D(A)\in D(A),\;(Au,v)=(u,w_v)}\]
+\[\forall v\in D(A^*),\;A^*(v):=w_v\]
+Show that $A^*$ such defined is an operator (that is, $D(A^*)\subset Y$ is linear subspace and $A^*$ is linear).
+\end{myprob}
+First of all, let us note that for a given $v\in Y$ $w_v$ is unique (if exists). Indeed, if for some $w'\in X$ we would have
+\[\forall u\in D(A),\; (u,w')=(u,w_v)=(Au,v)\]
+this would imply $\forall u\in X,\;(u,w'-w_v)=0$ and hence $w'-w_v=0$ (upon taking $D(A)\ni u_n\to w'-w_v$, using the fact
+that $D(A)$ is dense in $X$).
+
+Now, $D(A^*)$ is linear subspace, as if $v\in D(A^*)$, then for arbitrary $\alpha\in\C$ we have $\alpha v\in D(A^*)$ as well,
+as we can set $w_{\alpha v}:=\alpha w_v$. Then we will have indeed
+\[\forall u\in D(A),\;(Au,\alpha v)=\overline{\alpha}(Au,v)=\overline{\alpha}(u,w_u)=(u,\alpha w_u)=(u,w_{\alpha u}).\]
+Similarly, for $v,v'\in D(A^*)$ we can set $w_{v+v'}:=w_v+v_{v'}$ and similarly see that
+\[\forall u\in D(A),\;(Au,v+v')=(Au,v)+(Au,v')=(u,w_u)+(u,w_{v'})=(u,w_{v+v'}).\]
+Finally, obviously $0\in D(A^*)$, as we can set $w_0:=0$ and it will work by straightforward computation.
+
+Finally, from the previous paragraph we see (by uniqueness explained above) that for $u,u'\in D(A^*)$ we have
+$A^*(\alpha v)=\alpha A^*v$ and $A^*(v+v')=A^*v+A^*v'$.
+\begin{myprob}[Proposition 3.2] Let $A$ and $B$ be $X\to Y$ operators (as usual, $X$ and $Y$ denote Hilbert spaces) with
+$D(A+B)$ be dense in $X$ (note, that as $D(A+B)=D(A)\cap D(B)$, this implies that both $D(A)$ and $D(B)$ are dense in $X$). Show that
+\begin{enumerate}[1)]
+\item $(A+B)^*\supset A^*+B^*$;
+\item Show furthermore that if $B\in \mathcal{B}(X,Y)$, then $(A+B)^*=A^*+B^*$.
+\end{enumerate}
+\end{myprob}
+\begin{enumerate}[1)]
+\item Indeed, $x\in D(A^*+B^*)=D(A^*)\cap D(B^*)$ means that $\exists w^A_x$ such that $\forall y\in D(A),\;(Ay,x)=(y,w^A_x)$
+and that $\exists w^B_x$ such that $\forall y\in D(B),\;(By,x)=(y,w^B_x)$.
+Then $\forall y\in D(A+B)=D(A)\cap D(B),\;((A+B)y,x)=(y,w^A_x)+(y,w^B_x)=(y,w^A_x+w^A_x)$ and hence $x\in D((A+B)^*)$.
+Thus $D(A^*+B^*)\subset D((A+B)^*)$. Moreover, as we have seen, for $x\in D(A^*+B^*)$ we have just seen that
+$A^*x+B^*x=(A+B)^*x$
+and this finishes the proof of the desired statement $(A+B)^*\supset A^*+B^*$.
+\item In the light of the previous item it is only necessary to show that $D((A+B)^*)\subset D(A^*+B^*)$.
+Now, if $x\in D((A+B)^*)$ this means that $\exists w^{A+B}_x$, such that
+\[\forall y\in D(A+B)=D(A),\;(Ay+By,x)=(y,w^{A+B}_x)\]
+(recall that $B\in\mathcal{B}(X,Y)\implies D(B)=X$).
+Now as we know from Theorem 3.2 that $B\in\mathcal{B}(X,Y)\implies B^*\in\mathcal{B}(Y,X)$, 
+we can rewrite the above equality as
+\[\forall y\in D(A),\;(Ay,x)+(y,B^*x)=(y,w^{A+B}_x)\]
+or as
+\[\forall y\in D(A),\;(Ay,x)=(y,w^{A+B}_x-B^*x)\]
+and this precisely means that $x\in D(A^*)$. Thus, $D((A+B)^*)\subset D(A^*)=D(A^*+B^*)$ (again, as $D(B^*)=Y$) and we are done.
+\end{enumerate}
+\begin{myprob}[Proposition 3.4]
+Prove that if $U\in\mathcal{B}(X,Y)$, then the $U$ is unitary iff $U^*U=I_X$ and $UU^*=I_Y$.
+\end{myprob}
+First, assume that $U$ is unitary, that is $D(U)=X$, $U$ is onto $Y$ and $\forall x\in X,\;\mynorm{Uu}=\mynorm{u}$.
+As $U\in\mathcal{B}(X,Y)$, we see that $U^*\in\mathcal{B}(Y,X)$. Now fix arbitrary $y\in X$. Then,
+\[\forall x\in X,\;(Ux,Uy)=(x,y)\]
+(by polarization identity and fact that $U$ preserves norm), which precisely means that $U^*(Uy)=y$. Now, fix arbitrary $y\in Y$.
+We have
+\[\forall x\in X,\;(Ux,y)=(x,U^*y)=(Ux,UU^*y)\]
+the last equality following from the fact that $U$ preserves inner product. This precisely means that $y=UU^*y$ for all $y\in Y$.
+
+Conversely, assume that $U^*U=I_X$ and $UU^*=I_Y$. Then, $D(U)=X$, as $U\in\mathcal{B}(X,Y)$ (by hypothesis of proposition)
+and $U$ is onto, as $UU^*=I_Y$ and $I_Y$ is onto. Thus, it remains to show that $\forall x\in X,\;\mynorm{Ux}=\mynorm{x}$.
+$U^*U=I_X$ means that (note that $U\in\mathcal{B}(X,Y)\implies U^*\in\mathcal{B}(Y,X)\implies D(U^*)=Y$)
+\[\forall x,y\in X,\;(Ux,Uy)=(x,U^*Uy)=(x,y)\]
+hence $U$ preserves inner product, hence preserves norm.
+\begin{myprob}[Theorem 3.10]
+Let $H:X\to X$ be self-conjugate and for some $\gamma\in\R$ we have $H\geq\gamma$. Then $\sigma(H)\subset[\gamma,\infty)$.
+\end{myprob}
+It is sufficient to consider the case $\gamma=0$ and show that $\sigma(H)\subset[0,\infty)$, which is equivalent to
+$\rho(H)\cap\R\supset(-\infty,0)$ (as $\sigma(H)\subset\R$ by Proposition 3.8). So, assume $z<0$ and let's show
+that $z-H$ is isomorphism. First of all, it is onto, as if for some $0\neq x\in D(H)$ we would have
+ $(z-H)(x)=0$, this would imply that $(Hx,x)=z(x,x)<0$, in contradiction to $H\geq0$ assumption.
+
+Next, it remains to show that $z-H$ is onto. First, by Proposition 3.9 (2) $H-z$ (and hence $z-H$ as well) has closed image.
+Thus, if $\mbox{Im}(z-H)=\neq X$, there should be $y\in X$, such that $\forall x\in D(H),\;(Ax,y)=0$ for $A:=z-H$. As
+$A$ is self-adjoint ($z\in\R$ by assumption) and $(Ax,y)=0=(x,0)$, we see that $y\in D(A^*),\;A^*y=0$. But as $A=A^*$ was
+shown to be injective in previous paragraph, $y=0$, hence $A$ is onto. Thus $z\in\rho(H)$ and we are done.
 %\begin{thebibliography}{9}
 %\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
 %\end{thebibliography}
