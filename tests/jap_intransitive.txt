@@ -54,6 +54,7 @@
 {"items": ["to dry","乾かす","乾く","〜asu-->〜u"],"tags": ["transit","2"]},
 {"items": ["to wet","濡らす","濡れる","〜asu-->〜eru"],"tags": ["transit","2"]},
 {"items": ["to stretch","伸ばす","伸びる","〜asu-->〜eru"],"tags": ["transit","2"]},
+{"items": ["to teach","教える","教わる","〜e-->〜a"],"tags": ["2","transit"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

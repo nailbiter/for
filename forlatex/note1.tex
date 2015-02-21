@@ -29,11 +29,15 @@
 		Now, we introduce the lemma, which will be proven below.
 		\begin{mylem}\label{Lemma}
 			Let $D=\R^n\setminus\mycbra{0}$ or $D=\R^n,\;n\geq2$,
-			$F\in D'(D)$ and $\partial/\partial x_1F=0$ on $D$. Then,
+			$F\in D'(D)$ and $\partial/\partial x_1F=0$ on $D$. Moreover, assume that
+			$F(\pm x_1,x_2,\hdots,x_n)=F(x_1,x_2,\hdots,x_n)$. Then,
 			\begin{enumerate}
 				\item $F=g$ for some $g\in D'(\R^{n-1})$, that is
-			\[(F,\phi)=\mybra{g,\tilde{x}\mapsto\int_\R\phi(x_1,\tilde{x})\;dx_1},\quad\forall \phi\in C^\infty_0(D)\]
-				\item Moreover, if for any first order differential operator $P$, $PF=0$ on $D$, then $Pg=0$ on $\R^{n-1}$.
+				\begin{equation}
+					(F,\phi)=\mybra{g,\tilde{x}\mapsto\int_\R\phi(x_1,\tilde{x})\;dx_1},\quad\forall \phi\in C^\infty_0(D)\label{FandG}
+				\end{equation}
+				\item Moreover, if for any first order differential operator (with constant coefficients)
+					$P$, $PF=0$ on $D$, then $Pg=0$ on $\R^{n-1}$ (where $\partial/\partial x_1g=0$ by convention).
 			\end{enumerate}
 		\end{mylem}
 		Using this lemma, we see that there is $g\in D'(\R)$, such that 
@@ -71,7 +75,79 @@
 		\[g(x)=Cx^{-n}+C_1\delta^{\mybra{n-1}}\]
 		And again, by applying evenness assumption the result follows.
 	\end{proof}
-	\begin{proof} (of lemma \ref{Lemma}) Let us assume 1. for the moment and tackle 2. Indeed, fix
+	\begin{proof} (of lemma \ref{Lemma}) To begin with, note that the statement 2. is obvious, once 1. is proven, given expression
+		\ref{FandG}. So we will concentrate ourselves on proving 1.
+
+		Let us take some fixed $\psi_0\in C^\infty_0(\R^1)$, such that
+		\newcommand{\tx}{\tilde{x}}
+		\newcommand{\tp}{\tilde{\phi}}
+		\begin{enumerate}
+			\item $\psi_0\geq0$;
+			\item $\R_{>0}\supset\supp\psi_0$;
+			\item $\int_{\R^1}\psi_0=1$
+		\end{enumerate}
+		Then, we shall define $g$ (the definition will be the same for both cases of $D$) via
+		\[(g,\psi):=(F,\psi_0(x_1)\psi(\cdot))\]
+		(note, that as $\supp\mybra{\psi_0(x_1)g(\cdot)}\subset\supp\psi_0\times\supp\psi$, we have $0\notin\supp\mybra{\psi_0(x_1)g(\cdot)}$).
+		Thus it remains to show that
+		\begin{equation}(F,\phi):=(F,\psi(x_1)\int_{-\infty}^\infty\phi(t,\tilde{x})\;dt)\quad\forall\phi\in C^\infty_0(D)\label{LemEq}\end{equation}
+
+		Let us tackle the case $D=\R^N$ first. Note that
+		\[\forall\tilde{x}\in\R^{N-1},\quad\int_{-\infty}^\infty\mycbra{\phi(x_1,\tilde{x})-\psi_0(x_1)\int_{-\infty}^\infty\phi(t,\tilde{x})\;dt}\;
+		dx_1=\]
+		\[\int_{-\infty}^\infty\phi(x_1,\tilde{x})\;dx_1-\int_{-\infty}^\infty\psi_0(x_1)\;dx_1\int_{-\infty}^\infty\phi(t,\tilde{x})\;dt=0\]
+		Hence, if we define $\tilde{\phi}(x_1,\tilde{x}):={\phi(x_1,\tilde{x})-\psi_0(x_1)\int_{-\infty}^\infty\phi(t,\tilde{x})\;dt}$
+		we would have $\int_\R\tilde{\phi}(x_1,\tilde{x})\;dx_1=0\quad\forall\tilde{x}\in\R^{N-1}$, hence
+		$\overline{\phi}(x_1,\tilde{x}):=\int_{-\infty}^{x_1}\tilde{\phi}(t,\tilde{x})\;dt$ is $C^\infty_0(\R^N)$, and thus
+		\[(F,\tilde{\phi})=(F,\partial/\partial x_1\overline{\phi})=-(\partial/\partial x_1 F,\overline{\phi})=0\]
+		thus ending the proof for the case $D=\R^N$.
+
+		Now, let us finally consider $D=\R^N\setminus\mycbra{0}$ case. Again, we seek to show that
+		\[(F,\phi):=(F,\psi(x_1)\int_{-\infty}^\infty\phi(t,\tilde{x})\;dt)\quad\forall\phi\in C^\infty_0(D)\]
+		(this time with additional assumption $0\notin\supp\phi$. As both sides of equation \ref{LemEq} are additive,
+		we might use partition of unity with sets $U_i^b:=\mysetn{x\in\R^N}{b\cdot x_i >0}$, where $1\leq i\leq n$ and $b=\pm1$,
+		so we may restrict ourselves to the case, where $\supp\phi\subset U_i^b$ for various $i$ and $b$. All the cases,
+		except $i=1$ are handled in the same way, as in previous paragraph. To be more precise, defining the linear map on
+		$C^\infty_0$ by $T(\phi):={\phi(x_1,\tilde{x})-\psi_0(x_1)\int_{-\infty}^\infty\phi(t,\tilde{x})\;dt}$, we see that
+		for $\supp\phi\subset U_{i\neq 1}^b$ case, the corresponding $T(\phi)$ will also have support in $U_{i\neq 1}^b$
+		and hence we can define $\overline{\phi}(x_1,\tx):=\int_{-\infty}^{x_1}T(\phi)(t,\tx)\;dt$, and so its support
+		will also exclude zero, hence $(F,T(\phi))=0$. Hence, these cases are done.
+
+		Now, assume $\supp\phi\subset U_{1}^-$. Using the assumption $F(-x_1,x_2,\hdots,x_n)=F(x_1,x_2,\hdots,x_n)$ (provided
+		by hypothesis of the theorem) we may reflect $\phi$, without changing the value of either side of equation \ref{LemEq},
+		and thus go directly to last case. Assume
+		$\supp\phi\subset U_{1}^+=\mysetn{x\in\R^N}{x_1 >0}$. Then, $\supp T(\phi)\subset U_{1}^+$ as well and we can define
+		$\overline{\phi}(x_1,\tx):=\int_{-\infty}^{x_1}T(\phi)(t,\tx)\;dt$ and we are done.
+%%		$\tilde{\phi}(x_1,\tilde{x}):={\phi(x_1,\tilde{x})-\psi_0(x_1)\int_{-\infty}^\infty\phi(t,\tilde{x})\;dt}$
+%%		(it will have $\int_\R\tilde{\phi}(x_1,\tilde{x})\;dx_1=0\quad\forall\tilde{x}\in\R^{N-1}$ and we will try to show
+%%		$0\notin\supp\tilde{\phi}$) and 
+%%		$\overline{\phi}(x_1,\tilde{x}):=\int_{-\infty}^{x_1}\tilde{\phi}(t,\tilde{x})\;dt$.
+%%		The problem, however, is that it might happen that $0\in\supp\overline{\phi}$, hence $(F,\overline{\phi})$ would be undefined.
+%%		We will try to fix this by adding something from $\Ker F$ to $\tilde{\phi}$.
+%%
+%%		Take $\epsilon,A>0$, so that $\supp\tilde{\phi}\subset\mysetn{(x_1,\tilde{x})\in\R^N}{\epsilon\leq\myabs{x_1},\mynorm{\tilde{x}}\leq A}$.
+%%		Now, we define $\Phi:\mysetn{\tilde{x}\in\R^{N-1}}{\mynorm{\tx}\leq\epsilon}\ni\tx\mapsto\int_{-A}^{-\epsilon}\tp(x_1,\tx)\;dx_1=
+%%		-\int_{\epsilon}^{A}\tp(x_1,\tx)\;dx_1$. 
+%%		Note, furthermore, that as $F$ is assumed to be even by hypothesis, it should vanish on odd functions, and so without loss
+%%		of generality we might assume that $\tp$ is even, thus forcing $\Phi$ to be odd. Now, take function $\psi_1\in C^\infty_0(\R^{N-1})$,
+%%		such that
+%%		\begin{enumerate}
+%%			\item $\supp\psi_1\subset\mysetn{\tx\in\R^{N-1}}{\mynorm{\tx}<\epsilon}$;
+%%			\item $\psi_1$: odd;
+%%			\item $\psi_1\bigg|_{\mysetn{\tx}{\mynorm{\tx}\leq\epsilon/2}}=\Phi\bigg|_{\mysetn{\tx}{\mynorm{\tx}\leq\epsilon/2}}$
+%%		\end{enumerate}
+%%		and $\psi_2\in C^\infty_0(\R)$, such that
+%%		\begin{enumerate}
+%%			\item $\supp\psi_2\subset(-A,-\epsilon)$;
+%%			\item $\psi_2\geq0$;
+%%			\item $\int_{\R}\psi_2=1$.
+%%		\end{enumerate}
+%%		Then, consider the function $\tp(x_1,\tx)-\psi_2(x_1)\psi_1(\tx)+\psi_2(-x_1)\psi_1(-\tx)$. For $\mynorm{\tx}\leq\epsilon/2$, we have
+%%		\[\int_{-A}^{-\epsilon}\tp(x_1,\tx)-\psi_2(x_1)\psi_1(\tx)+\psi_2(-x_1)\psi_1(-\tx)\;dx_1=\Phi(\tx)-\psi_1(\tx)=0\]
+%%		and
+%%		\[\int_{\epsilon}^{A}\tp(x_1,\tx)-\psi_2(x_1)\psi_1(\tx)+\psi_2(-x_1)\psi_1(-\tx)\;dx_1=-\Phi(\tx)+\psi_1(-\tx)=0\]
+		%To be more precise, the sufficient condition
+		%for $0\notin\supp\overline{\phi}$ is that $\tilde{\phi}
 	\end{proof}
 \begin{thebibliography}{9}
 \bibitem{gelfand}Gelfand, I.M. and Shilov G.E., {\em Generalized functions, Volume 1:

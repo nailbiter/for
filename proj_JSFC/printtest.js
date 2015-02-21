@@ -9,13 +9,7 @@ function print_test(test)
             test.generators[i].answers = [];
         for( var k = 0; k < test.dataitems.length; k++ )
         {
-            var j = 0;
-            for(; j < test.generators[i].tags.length; j++ )
-            {
-                if( test.dataitems[k].tags.indexOf(test.generators[i].tags[j]) == -1 )
-                    break;
-            }
-            if( j == test.generators[i].tags.length )
+            if( isQuestionMatch(test.dataitems[k].tags,test.generators[i]) )
             {
                 var q = makeQuestion(test.generators[i], test.dataitems[k]);
                 if( q != null )
@@ -149,13 +143,7 @@ function show_generators(generators,selectionMode,test,grade)
                         generators[i].answers = [];
                     for( var k = 0; k < test.dataitems.length; k++ )
                     {
-                        var j = 0;
-                        for(; j < generators[i].tags.length; j++ )
-                        {
-                            if( test.dataitems[k].tags.indexOf(generators[i].tags[j]) == -1 )
-                                break;
-                        }
-                        if( j == generators[i].tags.length )
+                        if( isQuestionMatch(test.dataitems[k].tags,generators[i]) )
                         {
                             var q = makeQuestion(generators[i], test.dataitems[k]);
                             if( q != null )
@@ -499,4 +487,31 @@ function show_questions(questions,fm,selectionMode,grade)
 
     questionListDiv.hidden = false;
     printNice();
+}
+
+function isQuestionMatch(qtags,generator)
+{
+        if( ( qtags == null ) || ( generator == null ) )
+            return false;
+        if( !generator.hasOwnProperty("tags") && !generator.hasOwnProperty("notags") )
+            return false;
+        if( generator.hasOwnProperty("tags") )
+        {
+            for( var j = 0; j < generator.tags.length; j++ )
+            {
+                if( qtags.indexOf(generator.tags[j]) == -1 )
+                    return false;
+            }
+        }
+        if( generator.hasOwnProperty("notags") )
+        {
+            for( var j = 0; j < generator.notags.length; j++ )
+            {
+                if( qtags.indexOf(generator.notags[j]) != -1 )
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
 }
