@@ -14,15 +14,24 @@
 #include <fstream>
 #include "jsmn.h"
 
+#define BUFSIZE 1000
+
+typedef int (*callbackfcn)(char* arg);
+typedef struct {
+    char name[50];
+    callbackfcn f;
+} callback;
+
 FILE* logfile = NULL;
 
 void get_files(std::vector<std::string>& filenames);
 void serve_files(std::string& output);
 void serve_chosen_file(std::string& output,const std::string& filename);
+int serve_a_file(char* arg);
 void trim(char** start_ptr,char* end);
 void log(const char* s);
 int decode( char** src,char** dst);
-void we_got_json(char* json_s);
+void we_got_json(char* json_s, callback callbacks[], int callback_len);
 
 //got: with callback
 //{callback:string,command:string,argument:obj}
@@ -45,7 +54,10 @@ int main(void)
         logfile = fopen("/home/nailbiter/public_html/log.txt", "a");
         if( logfile == NULL ) printf("no good\n");
         log("-------------------------NEW LOG-----------------\n");
-        we_got_json(buf);
+        callback callbacks[5];
+        sprintf(callbacks[0].name,"get");
+        callbacks[0].f = serve_a_file;
+        we_got_json(buf,callbacks,1);
         fclose(logfile);
         return 0;
     }
@@ -78,31 +90,64 @@ void serve_chosen_file(std::string& output,const std::string& filename)
     output += ");";
 }
 
-void we_got_json(char* json_s)
+void we_got_json(char* json_s,callback callbacks[], int callback_len)
 {
     jsmn_parser parser;
-    char callback_key[] = "callback";
-    char callback_buf[100] = {'\0'};
-    bool callback_flag = false;
 
     jsmn_init(&parser);
     jsmntok_t tokens[256];//FIXME: make it bigger, perhaps
     jsmn_parse(&parser, json_s,strlen(json_s), tokens, 256);
-    printf("%d\n",sizeof(callback_key)/sizeof(callback_key[0]));
+    //printf("%d\n",sizeof(callback_key)/sizeof(callback_key[0]));
+
+    int starts[3]={-1,-1,-1}, //callback, arg, command
+        ends[3] = {-1,-1,-1};
+
     for( int i = 0; !i || tokens[i].start ; i++ )
     {
-        printf("%d %d %d %d: %.*s\n",(int)tokens[i].type,tokens[i].start,tokens[i].end,tokens[i].size,
-                tokens[i].end-tokens[i].start,json_s+tokens[i].start);
-        if( ( sizeof(callback_key) / sizeof(callback_key[0]) - 1 ) == ( tokens[i].end-tokens[i].start ) &&
-                !strncmp(json_s+tokens[i].start,callback_key, sizeof(callback_key) / sizeof(callback_key[0])-1) )
+        /*printf("%d %d %d %d: %.*s\n",(int)tokens[i].type,tokens[i].start,tokens[i].end,tokens[i].size,
+                tokens[i].end-tokens[i].start,json_s+tokens[i].start);*/
+        if( ( starts[0] < 0 ) &&  ( strlen("callback") == (tokens[i].end - tokens[i].start) ) &&
+                !strncmp(json_s+tokens[i].start,"callback", strlen("callback")) ) 
         {
-            memcpy(callback_buf,json_s+tokens[i+1].start,tokens[i+1].end-tokens[i+1].start);
-            callback_buf[tokens[i+1].end-tokens[i+1].start] = '\0';
-            callback_flag = true;
+            starts[0] = tokens[i+1].start;
+            ends[0] = tokens[i+1].end;
+            continue;
+        }
+        if( ( starts[1] < 0 ) &&  ( strlen("arg") == (tokens[i].end - tokens[i].start) ) &&
+                !strncmp(json_s+tokens[i].start,"arg", strlen("arg")) ) 
+        {
+            starts[1] = tokens[i+1].start;
+            ends[1] = tokens[i+1].end;
+            continue;
+        }
+        if( ( starts[2] < 0 ) &&  ( strlen("cmd") == (tokens[i].end - tokens[i].start) ) &&
+                !strncmp(json_s+tokens[i].start,"cmd", strlen("cmd")) ) 
+        {
+            starts[2] = tokens[i+1].start;
+            ends[2] = tokens[i+1].end;
             continue;
         }
     }
-    printf("buf=%s\n",callback_buf);
+
+    if( ( starts[0] < 0 ) || ( starts[2] < 0 ) )
+    {
+        printf("error");
+        return;
+    }
+
+    for( int i = 0; i < callback_len; i++ )
+    {
+        if( !strncmp(callbacks[i].name,json_s+starts[2],strlen(callbacks[i].name)) )
+        {
+            printf("%.*s(",ends[0]-starts[0],json_s+starts[0]);
+            char buf[BUFSIZE];
+            strncpy(buf,json_s+starts[1],ends[1]-starts[1]);
+            callbacks[i].f(buf);
+            printf(");");
+            return;
+        }
+    }
+    printf("nothing found!\n");
 }
 
 void serve_files(std::string& output)
@@ -228,6 +273,37 @@ int decode( char** src,char** dst){
     }                                                                                                                                                
     if(**src == '\0') **dst='\0';
     return 0;                                                                                                                                        
+}
+
+int serve_a_file(char* arg){
+    printf("[");
+    jsmn_parser parser;
+    jsmn_init(&parser);
+    jsmntok_t tokens[256];//FIXME: make it bigger, perhaps
+    jsmn_parse(&parser, arg,strlen(arg), tokens, 256);
+    char buf[BUFSIZE];
+
+    for( int i = 0; !i || tokens[i].start ; i++ )
+        if( tokens[i].type == JSMN_STRING )
+        {
+            strncpy(buf,arg+tokens[i].start,tokens[i].end-tokens[i].start);
+            buf[tokens[i].end-tokens[i].start]='\0';
+            std::ifstream file(buf);
+            std::string line;
+            if( file.is_open() )
+            {
+                while( getline(file,line) )
+                {
+                    if( line[0] != '#' ) //FIXME: # can be not at the beginning
+                        printf("%s\n",line.c_str());
+                }
+            }
+            file.close();
+            if( tokens[i+1].start != 0 ) printf(",");
+        }
+    printf("]");
+
+    return 0;
 }
 //.,$w !./tmp.c.exe > out.buf
 //http://nailbiter.insomnia247.nl/cgi-bin/tests/FC.cgi?{"command":"saveTagsEnabled","callback":"","arg":[true,false]}

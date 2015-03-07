@@ -15,7 +15,14 @@ set syntax=fc_conf
 		    \<line1>,<line2>s@\[""@\["kanji"@eg | noh
 
 command! -range Hira <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple.pl
+command! -range CheckKanji <line1>,<line2>g!@\["[^"]*","[^"]*","[^"]*","[^"]*","[^"]*"\],@d |noh
 command! -range Merge <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple2.pl
 command! -range On <line1>,<line2>s@false}@true}@
 command! -range Off <line1>,<line2>s@true}@false}@
 command! -range Check :w | echo <line1> | :e! | set ft=fc_conf
+"command! ToList %s@^............@@|
+			"\g@^.[^"]@d|
+			"\%s@^.\zs.*\ze@@e |
+			"\%s@\n@@e |
+			"\%s@\S\zs\ze\S@\r@ge |
+			"\%sort | noh

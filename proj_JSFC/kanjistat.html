@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="UTF-8">
+</head>
+<body>
+
+<script src="html_utils.js"></script>
+
+<script>
+	var Aarray = ["kanjiclass.txt","jbridge.txt"], Barray = [];
+
+	//client side: A-function
+		//accumulation
+		//check the same (via sort) --> output, if B=[]
+	function Afunction(a)
+	{
+		Aarray = [];
+		for( var i = 0; i < a.length; i++ )
+			for( var j = 0; j < a[i].dataitems.length; j++ )
+				if( a[i].dataitems[j].tags.indexOf("kanji") >= 0 && ( a[i].dataitems[j].items.length == 5 ) )
+					Aarray.push(a[i].dataitems[j].items);
+
+		var anyDups = false;
+		for( var i = 0; i < Aarray.length; i++ )
+		{
+			var dups = [ Aarray[i] ];
+			for( var j = i + 1; j < Aarray.length; j++ )
+			{
+				if( Aarray[i][0] == Aarray[j][0] )
+				{
+					dups.push(Aarray[j])
+					j--;
+					Aarray.splice(j,1);
+				}
+			}
+			if( dups.length > 1 )
+			{
+				document.body.appendChild(wrapIntoParagraph(printTable(dups)));
+				anyDups = true;
+			}
+		}
+		if( anyDups ) return;
+
+		if( Barray.length == 0 )
+			document.body.appendChild(wrapIntoParagraph(printTable(Aarray)));
+		else
+			jsonp("Bfunction",Barray,"get");
+	}
+
+	function Bfunction(a)
+	{
+		//TODO: compare and output the new ones -- file by file
+		/*Barray = [];
+		for( var i = 0; i < a.length; i++ )
+			for( var j = 0; j < a[i].dataitems.length; j++ )
+				if( a[i].dataitems[j].tags.indexOf("kanji") >= 0 && ( a[i].dataitems[j].items.length == 5 ) )
+					Barray.push(a[i].dataitems[j].items);*/
+	}
+
+	jsonp("Afunction",Aarray,"get");
+	//client side B-function
+		// csv --> .json
+		// test inclusion (use check-the-same-function) --> output
+</script>
+</body>
+</html>

@@ -24,3 +24,12 @@ function pushArray(dst,src)
     for( var i = 0; i < src.length; i++ )
         dst.push(src[i]);
 }
+
+function swapIn(array,index,headLen)
+{
+    randomIndex = Math.floor(Math.random() * headLen);
+    //alert("headLen = "+headLen+", randomIndex = "+randomIndex);
+    temporaryValue = array[index];
+    array[index] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+}

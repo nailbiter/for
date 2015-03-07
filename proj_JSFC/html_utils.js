@@ -6,14 +6,39 @@ function injectJS(source)
     newScript.src = source;
     headID.appendChild(newScript);
 }
-function swapIn(array,index,headLen)
-{
-    randomIndex = Math.floor(Math.random() * headLen);
-    //alert("headLen = "+headLen+", randomIndex = "+randomIndex);
-    temporaryValue = array[index];
-    array[index] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
+
+function jsonp(callback,arg,cmd)
+{ 
+	var obj = {};
+	obj.callback = callback;
+	obj.arg = arg;
+	obj.cmd = cmd;
+ 	injectJS('http://nailbiter.insomnia247.nl/cgi-bin/tests/FC.cgi?' + JSON.stringify(obj));
 }
+
+function printTable(what)
+{
+        var table = document.createElement('TABLE');
+        table.border='1';
+
+        var tableBody = document.createElement('TBODY');
+        table.appendChild(tableBody);
+
+        for (var i = 0; i < what.length; i++)
+        {
+            var tr = document.createElement('TR');
+            tableBody.appendChild(tr);
+            for( var j = 0; j < what[i].length; j++ )
+            {
+                var td = document.createElement('TD');
+                td.width='175';//FIXME: make a parameter
+                td.appendChild(document.createTextNode(what[i][j]));
+                tr.appendChild(td);
+            }
+        }
+        return table;
+}
+
 function removeById(id)
 {
     var element=document.getElementById(id);

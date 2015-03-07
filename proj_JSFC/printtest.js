@@ -1,6 +1,15 @@
-function print_test(test)
+var globalTest;
+
+function print_test_continue(array)
 {
-    test.questions = [];
+    var test = globalTest;
+
+    var orig = test.dataitems.length;
+    console.log("files: " + array[0].dataitems.length);
+    for( var i = 0; i < array.length; i++ )
+        test.dataitems = test.dataitems.concat(array[i].dataitems);
+    console.log("increase:" + (test.dataitems.length - orig) );
+
     for( var i = 0; i < test.generators.length; i++ )
     {
         if( !test.generators[i].enabled )
@@ -38,7 +47,6 @@ function print_test(test)
     var questiondiv = document.createElement("div");
     questiondiv.id = "questiondiv";
     maindiv.appendChild(questiondiv);
-
 
     var settingsCenter = document.createElement("center");
     settingsCenter.id = "settingsCenter";
@@ -88,6 +96,7 @@ function print_test(test)
     document.body.appendChild(questionListDiv);
 
     //FIXME: remove test block
+    if( false )
     {
         console.log("100500");
         console.log(test.questions.length);
@@ -105,6 +114,17 @@ function print_test(test)
     }
 
     displayNextQuestion(test.selectionMode,test.questions,grade,test.favoritesManager);
+}
+
+function print_test(test)
+{
+    globalTest = test;
+    test.questions = [];
+
+    if( test.hasOwnProperty("include") && ( test.include.length > 0 ) )
+	    jsonp("print_test_continue",test.include,"get");
+    else
+        print_test_continue([]);
 }
 
 function show_generators(generators,selectionMode,test,grade)
