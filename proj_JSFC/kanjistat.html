@@ -8,12 +8,10 @@
 
 <script src="html_utils.js"></script>
 
-<script>
-	var Aarray = ["kanjiclass.txt","jbridge.txt"], Barray = [];
+<script>//TODO: 
+	var Aarray = ["kanjiclass.txt","jbridge.txt"];
 
-	//client side: A-function
-		//accumulation
-		//check the same (via sort) --> output, if B=[]
+	//http://nailbiter.insomnia247.nl/JS/kanjistat.html?["N5.txt","N4.txt","N3.txt"]
 	function Afunction(a)
 	{
 		Aarray = [];
@@ -37,32 +35,51 @@
 			}
 			if( dups.length > 1 )
 			{
-				document.body.appendChild(wrapIntoParagraph(printTable(dups)));
+				document.getElementById("kanjis").appendChild(wrapIntoParagraph(printTable(dups)));
 				anyDups = true;
 			}
 		}
 		if( anyDups ) return;
 
-		if( Barray.length == 0 )
-			document.body.appendChild(wrapIntoParagraph(printTable(Aarray)));
-		else
-			jsonp("Bfunction",Barray,"get");
+		document.getElementById("kanjis").appendChild(wrapIntoParagraph(printTable(Aarray)));
 	}
-
-	function Bfunction(a)
+	function validateForm() 
 	{
-		//TODO: compare and output the new ones -- file by file
-		/*Barray = [];
-		for( var i = 0; i < a.length; i++ )
-			for( var j = 0; j < a[i].dataitems.length; j++ )
-				if( a[i].dataitems[j].tags.indexOf("kanji") >= 0 && ( a[i].dataitems[j].items.length == 5 ) )
-					Barray.push(a[i].dataitems[j].items);*/
+		var x = document.forms["myForm"]["fname"].value;
+		deleteAllChildren(document.getElementById("known kanjis"));
+		var unknownKanjis = "";
+		for( var i = 0; i < x.length; i++ )//FIXME: filter hira and kata
+		{
+			var j = 0;
+			for( var j = 0; j < Aarray.length; j++ )
+			{
+				if( Aarray[j][0] == x.substr(i,1) )
+				{
+					document.getElementById("known kanjis").appendChild(wrapIntoParagraph(printTable([ Aarray[j] ])));
+					break;
+				}
+			}
+			if( j == Aarray.length ) unknownKanjis = unknownKanjis + x.substr(i,1) + ", ";
+		}
+		document.getElementById("known kanjis").appendChild(wrapIntoParagraph(document.createTextNode("unknown kanjis: "+unknownKanjis)));
 	}
 
-	jsonp("Afunction",Aarray,"get");
-	//client side B-function
-		// csv --> .json
-		// test inclusion (use check-the-same-function) --> output
+    	var url_args = window.location.search.substring(1);
+	if( url_args == "")
+	{
+		jsonp("Afunction",Aarray,"get");
+	}
+	else
+	{
+		url_args = url_args.replace(/%22/g,'\"');
+		jsonp("Afunction",JSON.parse(url_args),"get");
+	}
 </script>
 </body>
+<div id="known kanjis"></div>
+<form name="myForm" onsubmit="validateForm();return false;">
+	<input type="text" name="fname">
+	<button name="data" type="button" onclick="validateForm()">Click</button>
+    </form>
+<div id="kanjis"></div>
 </html>
