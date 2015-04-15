@@ -5,7 +5,7 @@ function print_test_continue(array)
     var test = globalTest;
 
     var orig = test.dataitems.length;
-    console.log("files: " + array[0].dataitems.length);
+    if( array.length > 0 ) console.log("files: " + array[0].dataitems.length);
     for( var i = 0; i < array.length; i++ )
         test.dataitems = test.dataitems.concat(array[i].dataitems);
     console.log("increase:" + (test.dataitems.length - orig) );

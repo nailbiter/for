@@ -10,8 +10,9 @@
 #section 2 - quiz generator
 #taglist;qsttans;mode(sc,ti)
 "generators" : [
-{"tags":["g1"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : true},
-{"tags":["g2"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : true},
+{"tags":["g1"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : false},
+{"tags":["g2"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : false},
+{"tags":["g3"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : true},
 
 {"tags":["mimetics"],"from":2,"to":0,"auxTo":[1],"notags":["simple"], "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false}
 ],
@@ -20,13 +21,13 @@
 "dataitems" : [
 #meaning -> formula
 
-{"items": ["whereupon","すると","箱を開けた。すると、子供の頃の写真がたくさん出て来た"],"tags": ["","jap46"]},
-{"items": ["let alone","まして(や)","この本が多くて、大変だ。まして、外国人には難しすぎる。"],"tags": ["","jap46"]},
+{"items": ["whereupon","すると","箱を開けた。すると、子供の頃の写真がたくさん出て来た"],"tags": ["","g1"]},
+{"items": ["let alone","まして(や)","この本が多くて、大変だ。まして、外国人には難しすぎる。"],"tags": ["","g1"]},
 {"items": ["it is ~ that S","S(plain)のは〜だ","日本で一番人口が多いのは、東京です"],"tags": ["","g1"]},
 {"items": ["he behaves like he is Adj","Adj（stem）そうにしている","あの人は暇そうにしている"],"tags": ["","g1"]},
 {"items": ["when I wanted to V","Vyooとする","電車に乗ろうとした時、ドアが閉まった"],"tags": ["","g1"]},
 {"items": ["should not be the case that S","S(plain)はずがない","小学生の問題ができないはずがない"],"tags": ["","g1"]},
-{"items": ["as for N","it should be S","NというのはSものだ","面白いスピーチって難しいものだ"],"tags": ["","g1"]},
+{"items": ["as for N,it should be S","NというのはSものだ","面白いスピーチって難しいものだ"],"tags": ["","g1"]},
 {"items": ["now I think","今思うと",""],"tags": ["","g1"]},
 
 {"items": ["N2 which has to do with N1","N1に関わるN２",""],"tags": ["","g2"]},
@@ -37,6 +38,19 @@
 {"items": ["one will never do","V(stem)はしない","...あきらめはしない"],"tags": ["","g2"]},
 {"items": ["accordingly/due to that","それで",""],"tags": ["","g2"]},
 {"items": ["in its own way","それなりに","私もそれなりの(私なりの)意見がある"],"tags": ["","g2"]},
+
+{"items": ["N due to S","S(plain)／NゆえのN","パワー,ハラスメントは現代社会ゆえの問題だ"],"tags": ["","g3"]},
+{"items": ["it means that S","S(plain)わけだ","朝の授業に来なかったわけだ"],"tags": ["","g3"]},
+{"items": ["judging from N","Nからすると","あの声からすると、なにか良いことがあったようだ"],"tags": ["","g3"]},
+{"items": ["what can be said as N","Nといったところだ","クラスの太陽といったところだ"],"tags": ["","g3"]},
+{"items": ["I feel as if S","S(plain)ような気がする","いいことがありそうな気がする"],"tags": ["","g3"]},
+{"items": ["suppose S were the case","S(plain past)とする","大塗料だったとしたら、何をしたい？"],"tags": ["","g3"]},
+{"items": ["if S1 been the case, S2 would have happened",
+"S1(tara-form)、S2(plain past)だろう","家族のサポートがなかったら、留学できなかっただろう"],"tags": ["","g3"]},
+{"items": ["rather","もしろ","ここは昼間より、むしろ夜のほうが人が多い"],"tags": ["","g3"]},
+{"items": ["S1只是S2","S1。ただ（し）、S2","S1只是S2"],"tags": ["","g3"]},
+{"items": ["または or","あるいは","または"],"tags": ["","g3"]},
+{"items": ["cannot easily do smth","なかなか〜できない","昨日は、なかなか眠れなかった"],"tags": ["","g3"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
