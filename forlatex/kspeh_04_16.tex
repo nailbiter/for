@@ -1,0 +1,131 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{amsthm}
+\usepackage{changepage}
+\usepackage{enumerate}
+\usepackage{mystyle}
+\usepackage{tabu}
+\renewcommand{\setminus}{\ensuremath{{}-{}}}
+\newcommand{\Le}{L_{\mbox{even}}}
+\newcommand{\on}{\mathbf{1}_\nu}
+\newtheorem{myfac}{Fact}
+\begin{document}
+\section{Definitions}
+\begin{center}\begin{equation*} //:=\mycbra{\lambda-\nu=-2\Z_{\geq0}} \end{equation*}\end{center}
+\begin{center}\begin{equation*} \backslash\backslash:=\mycbra{\lambda+\nu=n-1-2\Z_{\geq0}} \end{equation*}\end{center}
+\begin{center}\begin{equation*} \mathbb{X}:=//\cap\backslash\backslash \end{equation*}\end{center}
+\begin{center}\begin{equation*}\Le:=\mycbra{\lambda\leq\nu;\;\lambda,\nu\in-\Z_{\geq0};\;\lambda-\nu\in2\Z}\end{equation*}\end{center}
+\begin{center}\begin{equation*}(\lambda,\nu)\in//\longrightarrow 2l=\nu-\lambda\end{equation*}\end{center}
+\begin{center}\begin{equation*}(\lambda,\nu)\in\backslash\backslash\longrightarrow 2k=n-1-\nu-\lambda\end{equation*}\end{center}
+\begin{center}\begin{equation*} m=n-1\end{equation*}\end{center}
+$$\tilde{\mathbb{T}}_\nu\to J(-\nu+m)$$
+$$(\tilde{\mathbb{T}}_\nu f)(y):=\frac{1}{\Gamma(\nu-\frac{m}{2})}\int_{\R^m}\myabs{x-y}^{2(\nu-m)}f(x)dx.$$
+\section{Prerequisites}
+\begin{adjustwidth}{-4cm}{}
+{\scriptsize
+\def\arraystretch{3.0}
+\begin{tabu}{ |c | c | c | c |c |c |c|c|}
+	\hline
+		operator name &
+		domain &
+		$\supp=\R^n$ &
+		$\supp=\R^{n-1}$ &
+		$\supp=\mycbra{0}$ &
+		$\supp=\emptyset$ &
+		$\mathbf{1}_\lambda\mapsto$ &
+		$K\in\mathcal{D}'(\R^n)$
+	\\\hline
+		$\tilde{\mathbb{A}}=\frac{\mathbb{A}}{\Gamma(\frac{\lambda+\nu-n+1}{2})\Gamma(\frac{\lambda-\nu}{2})}$ &
+		$\C^2$ &
+		otherwise\footnote[1]{Proposition 8.6, p.74} &
+		$\backslash\backslash\setminus\mathbb{X}$\footnotemark[1]&
+		$//\setminus L_{\mbox{even}}$ \footnotemark[1]& 
+		$L_{\mbox{even}}$\footnotemark[1] &
+		$\frac{\pi^{\frac{n-1}{2}}}{\Gamma(\lambda)}\on$ \footnote[9]{Proposition 7.4, p.63}&
+		$\frac{\myabs{x_n}^{\lambda+\nu-n}(\mynorm{x}^2+x_n^2)^{-\nu}}
+			{\Gamma(\frac{\lambda+\nu-n+1}{2})\Gamma(\frac{\lambda-\nu}{2})}$\footnote[10]{Expression (7.1), 
+			p. 60}
+	\\\hline
+		$\tilde{\mathbb{B}}$ &
+		$\backslash\backslash$ &
+		$\emptyset$\footnote[2]{Proposition 9.8, p.81} &
+		$\backslash\backslash\setminus\mathbb{X}$\footnotemark[2] &
+		$\mathbb{X}\setminus L_{\mbox{even}}$\footnotemark[2]&
+		$L_{\mbox{even}}$\footnote[7]{Theorem 9.1, p.77}&
+		$\frac{(-1)^k2^k\pi^{\frac{n-1}{2}}(2k-1)!!}{\Gamma(\lambda)}\on$  \footnote[5]{Proposition 9.6, p.80}&
+	\\\hline
+		$\tilde{\mathbb{C}}$ &
+		$//$ &
+		$\emptyset$ &
+		$\emptyset$ &
+		$//$ &
+		$\emptyset$\footnote[3]{Fact
+			10.4 p.85 together with the observation that $\tilde{C}$ is the only differential operator on $\Le$}&
+		$\frac{(-1)^l2^{2l}(\lambda)_{2l}}{l!}\on$ \footnote[8]{Proposition 10.7, p.87}&
+
+	\\\hline
+		$\tilde{\tilde{\mathbb{B}}}$ &
+		$n$: odd, $\Le$ &
+		$\emptyset$\footnote[4]{Proposition 9.9, p. 82} &
+		$n$: odd, $\Le$ \footnotemark[4] &
+		$\emptyset$\footnotemark[4] &
+		$\emptyset$\footnotemark[4]&
+		&
+		$(\mynorm{x}^2+x_n^2)^{-\nu}\delta^{(2k)}(x_n)$\footnote[11]{Expression (9.10), p. 81}
+	\\\hline
+		$\tilde{\tilde{\mathbb{A}}}={\Gamma(\frac{\lambda-\nu}{2})}{\tilde{\mathbb{A}}}$&
+		$(\C,-\N)$ &
+		otherwise \footnote[6]{Proposition 8.9, p. 76} &
+		$\backslash\backslash$\footnotemark[6]&
+		$\emptyset$\footnotemark[6] &
+		$\emptyset$\footnotemark[6]&
+		$\frac{\pi^{\frac{n-1}{2}}\Gamma(\frac{\lambda-\nu}{2})}{\Gamma(\lambda)}\on$&
+\\
+		\hline
+\end{tabu}
+}
+\end{adjustwidth}
+\begin{myfac}[Theorem 8.5] The following equality holds on $(\lambda,\nu)\in\C^2$
+	$$ \tilde{\mathbb{T}}_\nu\circ\tilde{\mathbb{A}}_{\lambda,\nu}=\frac{\pi^{m/2}}{\Gamma(\nu)}\tilde{\mathbb{A}}_{\lambda,
+	m-\nu}$$
+\end{myfac}
+\begin{proof}(outline) Ininitially the identity is proven on some particular smaller parameter domain (once this is done, 
+	we apply holomorphic continuation). On that domain it is known that dimension of symmetry breaking operator
+	space is no more than one, and then equality is sufficient to be proven with both left- and right-hand sides applied
+	to spherical constant vector. The remaining is computation (done with the 
+	help of known formula for Fourier transform of $r^\nu$ and its
+	analytic continuation), given that $\tilde{\mathbb{T}}_\nu(\mathbf{1}_\nu)=
+	\pi^{m/2}/\Gamma(\nu)\on$ (Proposition 4.6).
+\end{proof}
+\begin{myfac}[Expression 4.27] The following equality holds
+	$$ \tilde{\mathbb{T}}_\nu\circ\tilde{\mathbb{T}}_{m-\nu}=\frac{\pi^m}{\Gamma(m-\nu)\Gamma(\nu)}\mbox{id}. $$
+\end{myfac}
+\begin{proof}(outline) follows from the direct computation via the Fourier transform (see previous proof) which turns
+	convolutions of kernels (resulting from composition) to products.
+\end{proof}
+\begin{myfac}[(4.22)] The following residue formula holds
+	$$\frac{r^\nu}{\Gamma(\frac{\nu+m}{2})}\bigg|_{\nu=-m-2k}=\frac{(-1)^k\pi^{m/2}}{2^{2k}\Gamma(\frac{m}{2}+k)}\Delta^k_{\R^m}
+	\delta(x)$$
+\end{myfac}
+As a corollary of a latter formula we have 
+\begin{mycor}
+for $j\in\Z_{\geq0}$
+$$\tilde{\mathbb{T}}_{\frac{m}{2}-j}=\frac{(-1)^j\pi^{m/2}}{2^{2j}\Gamma(\frac{m}{2}+j)}\Delta^j_{\R^m}.$$
+\end{mycor}
+By taking $m=1$ and substituting $\lambda+\nu-n$ in place of $\nu$ we get
+\begin{mycor}
+The following equality holds for $\backslash\backslash$: 
+		$$\frac{\myabs{t}^{\lambda+\nu-n}}{\Gamma(\frac{\lambda+\nu-n+1}{2})}=\frac{(-1)^k}{2^k(2k-1)!!}\delta^{(2k)}(t)$$
+\end{mycor}
+\end{document}
+% (report seq, proof_schemes) --> <<do_prereq>> --> topdf
+%prereq statements
+	%Theorem 8.5
+%problem equalities
+	%t/Gamma = delta -- written
+	% residue forumla 4.22 -- TODO
+	%fourier of r^nu
+%latex2html kspeh_04_16.tex -dir ~/public_html/kspeh --info 0 --no_footnode --numbered_footnotes --no_antialias_text -split 0 --no_navigation

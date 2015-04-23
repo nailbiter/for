@@ -12,13 +12,14 @@ else
 	else
 		if [ $(grep '^\\bibliography{'$2'}' $1) ]
 		then
-			pdflatex $1
-			pdflatex $1
+			pdflatex -output-directory ~/for/forlatex/foraux $1
+			pdflatex -output-directory ~/for/forlatex/foraux $1
 			bibtex $2
-			pdflatex $1
+			pdflatex -output-directory ~/for/forlatex/foraux $1
 		else
-			pdflatex $1
+			pdflatex -output-directory ~/for/forlatex/foraux $1
 		fi
+			ln -s $HOME/for/forlatex/foraux/$2.pdf $HOME/for/forlatex
 		exit
 	fi
 fi

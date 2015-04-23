@@ -12,7 +12,9 @@
 "generators" : [
 {"tags":["g1"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : false},
 {"tags":["g2"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : false},
-{"tags":["g3"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : true},
+{"tags":["g3"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : false},
+{"tags":["g4"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : true},
+{"tags":["g5"],"from":0,"to":1,"auxTo":[2],"notags":["simple"], "type" : "sc", "auxText" : "tap to see formula" , "reflip" : true, "enabled" : true},
 
 {"tags":["mimetics"],"from":2,"to":0,"auxTo":[1],"notags":["simple"], "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false}
 ],
@@ -51,6 +53,20 @@
 {"items": ["S1只是S2","S1。ただ（し）、S2","S1只是S2"],"tags": ["","g3"]},
 {"items": ["または or","あるいは","または"],"tags": ["","g3"]},
 {"items": ["cannot easily do smth","なかなか〜できない","昨日は、なかなか眠れなかった"],"tags": ["","g3"]},
+
+{"items": ["each time...","(Vる／Nの)たび",""],"tags": ["","g4"]},
+{"items": ["doing V is usual","V(plain non-past)のが普通だ",""],"tags": ["","g4"]},
+{"items": ["taking N as an example","Nひとつとっても",""],"tags": ["","g4"]},
+{"items": ["although/while","ながら","若いながら／音楽を聴くながら、勉強した"],"tags": ["","g4"]},
+{"items": ["as soon as having done V","Vたとたん(に)","先生は教室に入ってきたとたん、学生たちは静かになった"],"tags": ["","g4"]},
+
+{"items": ["while〜","V1る中(なか)でV２",""],"tags": ["","g5"]},
+{"items": ["N2 related to N1","N1にまつわるN２","外国語にまつわる心配 tight connection"],"tags": ["","g5"]},
+{"items": ["(despite not want) have to V","Vざるをえない","お金がなかったので、カードで払わざるをえない"],"tags": ["","g5"]},
+{"items": ["it's simply S","S(plain)だけだ","見ただけで買わなかった"],"tags": ["","g5"]},
+{"items": ["maybe because of S","S(plain)／Nのせいか、〜","昨日歩き過ぎせいか、足が痛い not only bad"],"tags": ["","g5"]},
+{"items": ["just like 〜","S(plain)／NのようにV","子供用にかわがる"],"tags": ["","g5"]},
+{"items": ["no doubt that S","S(plain)／Nに間違いない",""],"tags": ["","g5"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

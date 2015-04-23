@@ -17,7 +17,8 @@
 		Aarray = [];
 		for( var i = 0; i < a.length; i++ )
 			for( var j = 0; j < a[i].dataitems.length; j++ )
-				if( a[i].dataitems[j].tags.indexOf("kanji") >= 0 && ( a[i].dataitems[j].items.length == 5 ) )
+			if( a[i].dataitems[j].tags.indexOf("kanji") >= 0 && 
+			( a[i].dataitems[j].items.length == 5 ) || ( a[i].dataitems[j].items.length == 7 ) )
 					Aarray.push(a[i].dataitems[j].items);
 
 		var anyDups = false;
