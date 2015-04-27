@@ -13,7 +13,7 @@ function jsonp(callback,arg,cmd)
 	obj.callback = callback;
 	obj.arg = arg;
 	obj.cmd = cmd;
- 	injectJS('http://nailbiter.insomnia247.nl/cgi-bin/tests/FC.cgi?' + JSON.stringify(obj));
+ 	injectJS('http://nailbiter.insomnia247.nl/cb/tests/FC.cgi?' + JSON.stringify(obj));
 }
 
 function printTable(what)
@@ -75,6 +75,13 @@ function makeButtonWithTextAndOnClick(text,onclick)
 		button.value = text;
 	}
     button.onclick = onclick;
+    return button;
+}
+
+function makeButtonWithTextOnClickAndID(text,onclick,id)
+{
+    var button = makeButtonWithTextAndOnClick(text,onclick);
+    button.id = id;
     return button;
 }
 

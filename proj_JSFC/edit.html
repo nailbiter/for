@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="UTF-8">
+</head>
+<body>
+
+<script src="html_utils.js"></script>
+<script src="util.js"></script>
+</body>
+<div id="mytable"></div>
+<div id="myeditform" hidden="true">
+<form name="myForm" onsubmit="validateForm();return false;">
+	<label for="question">question<label>
+	<input type="text" name="question" id="question">
+	<label for="hint">hint<label>
+	<input type="text" name="hint"id="hint">
+	<label for="answer">answer<label>
+	<input type="text" name="answer"id="answer">
+	<label for="tag">tag<label>
+	<input type="text" name="tag"id="tag">
+	<button name="data" type="button" onclick="validateForm()">save</button>
+	<button name="data" type="button" onclick="mydelete()">delete</button>
+    </form>
+</div>
+<script src="edit.js"></script>
+</html>

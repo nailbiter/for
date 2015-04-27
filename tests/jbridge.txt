@@ -197,6 +197,22 @@
 {"tags" : ["kanji","jb64"],"notags":["simple"], "from":0,"to":1,"type":"sc","auxTo":[3,5],"auxText" : "tap to see kun" , "reflip" : true, "enabled" : true},
 {"tags" : ["kanji","jb64"],"notags":["simple"], "from":0,"to":2,"type":"sc","auxTo":[4,6],"auxText" : "tap to see on" , "reflip" : true, "enabled" : true},
 
+{"tags":["jap65"],"from":2,"to":0,"auxTo":[1],"notags":["simple"], "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true},
+{"tags" : ["kanji","jb65"],"notags":["simple"], "from":0,"to":1,"type":"sc","auxTo":[3,5],"auxText" : "tap to see kun" , "reflip" : true, "enabled" : true},
+{"tags" : ["kanji","jb65"],"notags":["simple"], "from":0,"to":2,"type":"sc","auxTo":[4,6],"auxText" : "tap to see on" , "reflip" : true, "enabled" : true},
+
+{"tags":["jap66"],"from":2,"to":0,"auxTo":[1],"notags":["simple"], "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true},
+{"tags" : ["kanji","jb66"],"notags":["simple"], "from":0,"to":1,"type":"sc","auxTo":[3,5],"auxText" : "tap to see kun" , "reflip" : true, "enabled" : true},
+{"tags" : ["kanji","jb66"],"notags":["simple"], "from":0,"to":2,"type":"sc","auxTo":[4,6],"auxText" : "tap to see on" , "reflip" : true, "enabled" : true},
+
+{"tags":["jap67"],"from":2,"to":0,"auxTo":[1],"notags":["simple"], "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true},
+{"tags" : ["kanji","jb67"],"notags":["simple"], "from":0,"to":1,"type":"sc","auxTo":[3,5],"auxText" : "tap to see kun" , "reflip" : true, "enabled" : true},
+{"tags" : ["kanji","jb67"],"notags":["simple"], "from":0,"to":2,"type":"sc","auxTo":[4,6],"auxText" : "tap to see on" , "reflip" : true, "enabled" : true},
+
+{"tags":["jap68"],"from":2,"to":0,"auxTo":[1],"notags":["simple"], "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : true},
+{"tags" : ["kanji","jb68"],"notags":["simple"], "from":0,"to":1,"type":"sc","auxTo":[3,5],"auxText" : "tap to see kun" , "reflip" : true, "enabled" : true},
+{"tags" : ["kanji","jb68"],"notags":["simple"], "from":0,"to":2,"type":"sc","auxTo":[4,6],"auxText" : "tap to see on" , "reflip" : true, "enabled" : true},
+
 {"tags":["mimetics"],"from":2,"to":0,"auxTo":[1],"notags":["simple"], "type" : "sc", "auxText" : "tap to see english" , "reflip" : true, "enabled" : false}
 ],
 
@@ -1163,7 +1179,6 @@
 {"items": ["似","似る／真似","","にる／まね",""],"tags": ["kanji","jap_kanji35"]},
 {"items": ["既","既に","既読","すでに","きどく"],"tags": ["kanji","jap_kanji35"]},
 {"items": ["均","均す","平均","ならす","へいきん"],"tags": ["kanji","jap_kanji35","jap_kanji32"]},
-{"items": ["誤","誤る","誤解","あやまる","ごかい"],"tags": ["kanji","jap_kanji35"]},
 {"items": ["副","","副作用","","ふくさよう"],"tags": ["kanji","jap_kanji35"]},
 {"items": ["操","操る","操作","あやつる","そうさ"],"tags": ["kanji","jap_kanji35","jb43"]},
 {"items": ["句","","文句","","もんく"],"tags": ["kanji","jap_kanji35"]},
@@ -1185,11 +1200,9 @@
 {"items": ["替","替る／替える／替玉","交替","かえる／かえる／かえたま","こうたい"],"tags": ["kanji","jap_kanji36"]},
 
 {"items": ["固","固い","固定観念","かたい","こていかんねん",""],"tags": ["kanji","jap_kanji36","kanji","jb37"]},
-{"items": ["追","追う","追試","おう","ついし"],"tags": ["kanji","jb37"]},
 {"items": ["色","色","三色／色覚","いろ","さんしょく／しきかく"],"tags": ["kanji","jb37"]},
 {"items": ["粗","粗い","粗衣","あらい","そい"],"tags": ["kanji","jb37"]},
 {"items": ["致","致す","一致","いたす","いっち"],"tags": ["kanji","jb37"]},
-{"items": ["訓","訓む／訓ずる／訓える","訓練","","よむ／くんずる／おしえる","くんれん"],"tags": ["kanji","jb37"]},
 {"items": ["条","","条件","","じょうけん"],"tags": ["kanji","jb37"]},
 {"items": ["覗","覗う／覗く","","うかがう／のぞく",""],"tags": ["kanji","jb37"]},
 {"items": ["示","示す","提示","しめす","ていじ"],"tags": ["kanji","jb37"]},
@@ -1208,7 +1221,6 @@
 {"items": ["臭","臭い","臭気","くさい","しゅうき"],"tags": ["kanji","jb39"]},
 {"items": ["塵","塵","塵紙","ちり","ちりかみ"],"tags": ["kanji","jb39"]},
 {"items": ["羨","羨む","羨望","うらやむ","せんぼう"],"tags": ["kanji","jb39"]},
-{"items": ["影","影","撮影","かげ","さつえい"],"tags": ["kanji","jb39"]},
 {"items": ["鏡","鏡","鏡台","かがみ","きょうだい"],"tags": ["kanji","jb39"]},
 {"items": ["積","積もる","積分","つもる","せきぶん"],"tags": ["kanji","jb39"]},
 {"items": ["共","","共用","","きょうよう"],"tags": ["kanji","jb39"]},
@@ -1254,7 +1266,6 @@
 {"items": ["片","片側","片時","かたがわ","へんじ"],"tags": ["kanji","jb41"]},
 {"items": ["照","照らす","参照する","てらす","さんしょうする"],"tags": ["kanji","jb41"]},
 {"items": ["描","描く","描画","えがく","びょうが"],"tags": ["kanji","jb41"]},
-{"items": ["砂","砂場","砂糖","すなば","さとう"],"tags": ["kanji","jb41"]},
 {"items": ["輪","指輪","車輪","ゆびわ","しゃりん"],"tags": ["kanji","jb41"]},
 {"items": ["評","","評価","","ひょうか"],"tags": ["kanji","jb41"]},
 {"items": ["妙","","奇妙","","きみょう"],"tags": ["kanji","jb41"]},
@@ -1327,7 +1338,6 @@
 #verbs
 {"items": ["延","延ばす／延びる","延期","のばす／のびる","えんき"],"tags": ["kanji","jb38","listening","jb4"]},
 {"items": ["預","預ける／預かる","預言","あずける／あずかる","よげん"],"tags": ["kanji","jb38","listening","jb4"]},
-{"items": ["余","余る","余暇","あまる","よか"],"tags": ["kanji","jb38","listening","jb4"]},
 {"items": ["怒","怒る","怒声","いかる","どこえ"],"tags": ["kanji","jb38","listening","jb4"]},
 {"items": ["褒める／褒奨金","ほめる／ほうしょうきん","リサさんが作ったんですか。上手ですね"],"tags": [",","jap38","listening","jb4"]},
 {"items": ["進度","しんど","progress"],"tags": [",","jap38","listening","jb4"]},
@@ -1358,7 +1368,6 @@
 
 {"items": ["支","支える／干支","支度","ささえる／えと","したく"],"tags": ["kanji","jap_kanji34","kanji","jb44"]},
 {"items": ["触","触る／触れる","触覚","さわる／ふれる","しょっかく"],"tags": ["kanji","jb39","jb44"]},
-{"items": ["快","快い","快適","こころよい","かいてき"],"tags": ["kanji","jap_kanji33","kanji","jb44"]},
 {"items": ["告","告げる","広告","つげる","こうこく"],"tags": ["kanji","jap_kanji33","jap_kanji36","kanji","jb44","jb54"]},
 {"items": ["則","則る","法則","のっとる","ほうそく"],"tags": ["kanji","jap_kanji35","kanji","jb44"]},
 {"items": ["快晴","かいせい","good weather"],"tags": ["","jap44"]},
@@ -1757,6 +1766,93 @@
 {"items": ["角括弧","かくかっこ","［］"],"tags": ["","jap64","math"]},
 {"items": ["丸括弧","まるかっこ","（）"],"tags": ["","jap64","math"]},
 
+#／65
+{"items": ["追","追う","追試","おう","ついし","to pursue","supplementary examination"],"tags": ["kanji","jb37","jb65"]},
+{"items": ["誤","誤る","誤解","あやまる","ごかい","to mistake","misunderstanding"],"tags": ["kanji","jap_kanji35","jb65"]},
+{"items": ["影","人影","撮影","ひとかげ","さつえい","human shadow","photo"],"tags": ["kanji","jb39","jb65"]},
+{"items": ["余","余る／余り","余暇","あまる／あんまり","よか","to left over/excessive(adv)","leisure time"],
+"tags": ["kanji","jb38","listening","jb4","jb65"]},
+{"items": ["訓","訓む／訓ずる／訓える","訓練","よむ／くんずる／おしえる","くんれん"],"tags": ["kanji","jb37","jb65"]},
+{"items": ["砂","砂浜","砂糖","すなはま","さとう","sandy beach","sugar"],"tags": ["kanji","jb41","jb65"]},
+{"items": ["快","快い","快適","こころよい","かいてき","pleasant (smile)","pleasant"],"tags": ["kanji","jap_kanji33","kanji","jb44","jb65"]},
+{"items": ["浴","浴びる／声が浴びせる","浴後","あびる／こえがあびせる","よくご","to dash water over self/to dash smone w/ (sound)",
+"after bathing"],"tags": ["kanji","jb65"]},
+{"items": ["勇","勇んで","勇気","いさんで","ゆうき","bravely","bravery"],"tags": ["kanji","jb65"]},
+{"items": ["暇","暇","研修休暇","ひま","けんしゅうきゅうか","free (i am now)","sabbatical"],"tags": ["kanji","jb65"]},
+
+{"items": ["岸","岸辺","岸壁","きしべ","がんぺき","shore","steep clipp"],"tags": ["kanji","jb66"]},
+{"items": ["振","首を振る","振動","くびをふる","しんどう","to rotate neck (e.g. when looking for smth)","oscillation"]
+,"tags": ["kanji","jb66"]},
+{"items": ["殺","殺す","自殺（する）","ころす","じさつ（する）","to kill","suicide"],"tags": ["kanji","jb66"]},
+{"items": ["暫","漸く","暫時","ようやく","ざんじ","at last, finally","gradually"],"tags": ["kanji","jb66"]},
+{"items": ["探","探る／探す","探検","さぐる／さがす","たんけん","to search","exploration"],"tags": ["kanji","jb66"]},
+{"items": ["識","識る","知識","しる","ちしき","to know","knowledge"],"tags": ["kanji","jb66"]},
+{"items": ["越","乗り越える／引っ越し","越権","のりこえる／ひっこし","えっけん","to get through smth/to move house",
+"go beyond authority"],"tags": ["kanji","jb66"]},
+{"items": ["溶","溶け込む","溶解","とけこむ","ようかい","to adapt/merge","chemical solution"],"tags": ["kanji","jb66"]},
+{"items": ["誘","誘う","透明（な）","さそう","とうめい（な）","to invite","clear/transparent (water)"],"tags": ["kanji","jb66"]},
+{"items": ["絶","絶える","想像を絶する","たえる","そうぞうをぜっする","to become extinct",
+"to go beyond imagination"],"tags": ["kanji","jb66"]},
+{"items": ["根","根強い","根負けする","ねづよい","こんまけする","firmly rooted","to lose patience"],"tags": ["kanji","jb66"]},
+{"items": ["負","背負う／根負けする／（人を）負かす","負荷","せおう／こんまけする／（ひとを）まかす","ふか",
+"to bear(baggage)/to lose patience/to defeat","burden/load"],"tags": ["kanji","jb66"]},
+{"items": ["湖","湖","バイカル湖","みずうみ","バイカルこ","lake","lake Baikal"],"tags": ["kanji","jb66"]},
+
+#無駄話,むだばなし,idle talk
+#（体験を）重ねる,（たいけんを）かさねる,
+#あきれる
+#慌てる,あわてる
+#鍛える,きたえる
+#振り返る,ふりかえる
+#行成,ぎょうせい
+#熱り立つ,ねつりたつ
+#生まれ故郷,うまれこきょう
+#起き抜けに,おきぬけに
+#追いかける,おいかける
+#溺れる,おぼれる
+#格別（な）,かくべつ（な）
+#がっかりする
+#構内,こうない
+#水温,すいおん
+#立ち去る,たちさる
+#監視の下に,かんしのしたに
+#数え切る,かぞえきる
+#極りの悪い／極りが悪い,きまりのわるい／きまりがわるい
+#―経由,―けいゆ
+#実感（する）,じっかん（する）
+#平気（な）,へいき（な）
+#たっぷり
+#たどたどしい
+#近づく,ちかづく
+#とうとう
+#浜辺,はまべ
+
+#日常的（な）,にちじょうてき（な）
+#すごすごと
+#はるか（な）
+#はるばる
+#いらいら（する）
+#きつい
+#ほど近い,ほどちかい
+#待ち受ける,まちうける
+#他愛のない,たあいのない
+#剣道,けんどう
+#個性,こせい
+#―同士,―どうし
+#切っ掛け,きっかけ
+#言い合う,いいあう
+#物好き（な）,ものずき（な）
+#特訓,とっくん
+#相当,そうとう
+#馴れ親しむ,なれしたしむ
+#向かう,むかう
+#待ちくたびれる,まちくたびれる
+#洪水,こうずい
+#必死（な）,ひっし（な）
+#猛然と,もうぜんと
+#（８月の）半ば,（８がつの）なかば
+#爽快感,そうかいかん
+
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}
-#／／／／／／／／／／／／／／／／／／／
+#／／／／／／／／／／／／／／／／

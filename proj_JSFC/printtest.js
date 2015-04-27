@@ -10,6 +10,16 @@ function print_test_continue(array)
         test.dataitems = test.dataitems.concat(array[i].dataitems);
     console.log("increase:" + (test.dataitems.length - orig) );
 
+    if( location.hash != "" )
+    {
+        //alert(location.hash);
+        var obj = JSON.parse(decodeURLquery(location.hash.substr(1)));
+        for( var i = 0; i < test.generators.length; i++ )
+            test.generators[i].enabled = false;
+        for( var i = 0; i < obj.length; i++ )
+            test.generators[(( obj[i] >= 0 ) ? obj[i] : ( test.generators.length + obj[i] ))].enabled = true;
+    }
+
     for( var i = 0; i < test.generators.length; i++ )
     {
         if( !test.generators[i].enabled )
@@ -188,7 +198,7 @@ function show_generators(generators,selectionMode,test,grade)
             }
             generators[i].enabled = x.checked;
         }
-        //injectJS('http://nailbiter.insomnia247.nl/cgi-bin/tests/FC.cgi' + ((url_args=="")?"":("?"+url_args)));
+        //injectJS('http://nailbiter.insomnia247.nl/cb/tests/FC.cgi' + ((url_args=="")?"":("?"+url_args)));
         generatorDiv.hidden = true;
         maindiv.hidden = false;
         if( wasQuestion != selectionMode.getCurrentQuestion() ) //!compareQuestions(wasQuestion,selectionMode.getCurrentQuestion()) )

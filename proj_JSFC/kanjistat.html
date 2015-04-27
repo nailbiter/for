@@ -7,6 +7,7 @@
 <body>
 
 <script src="html_utils.js"></script>
+<script src="util.js"></script>
 
 <script>//TODO: 
 	var Aarray = ["kanjiclass.txt","jbridge.txt"];
@@ -72,8 +73,7 @@
 	}
 	else
 	{
-		url_args = url_args.replace(/%22/g,'\"');
-		jsonp("Afunction",JSON.parse(url_args),"get");
+		jsonp("Afunction",JSON.parse(decodeURLquery(url_args)),"get");
 	}
 </script>
 </body>

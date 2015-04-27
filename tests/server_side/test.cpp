@@ -28,6 +28,7 @@ void get_files(std::vector<std::string>& filenames);
 void serve_files(std::string& output);
 void serve_chosen_file(std::string& output,const std::string& filename);
 int serve_a_file(char* arg);
+int write_a_log(char* arg);
 void trim(char** start_ptr,char* end);
 void log(const char* s);
 int decode( char** src,char** dst);
@@ -49,6 +50,7 @@ int main(void)
     char buf[1000];
     char *p1=(char*)query.c_str(), *p2=buf;
     decode(&p1,&p2);
+
     if( buf[0] == '{' )
     {
         logfile = fopen("/home/nailbiter/public_html/log.txt", "a");
@@ -57,7 +59,9 @@ int main(void)
         callback callbacks[5];
         sprintf(callbacks[0].name,"get");
         callbacks[0].f = serve_a_file;
-        we_got_json(buf,callbacks,1);
+        sprintf(callbacks[1].name,"write");
+        callbacks[1].f = write_a_log;
+        we_got_json(buf,callbacks,2);
         fclose(logfile);
         return 0;
     }
@@ -266,7 +270,8 @@ int decode( char** src,char** dst){
             else if(code1 == 'A' && code2== '3') { **dst = 0xC2 ; (*dst)++; **dst = 0xA3;}//0x27                                                     
             else if(code1 == '0' && code2== 'A') **dst = ' ';
             else if(code1 == '0' && code2== 'D') (*dst)--;                                                                                           
-            else **dst = ' ';                                                                                                                        
+            else **dst = 16* ((code1<='9')?(code1-'0'):(10+code1-'A')) + ((code2<='9')?(code2-'0'):(10+code2-'A'));
+            //else **dst = ' ';                                                                                                                        
         }else{                                                                                                                                       
             **dst = **src;                                                                                                                           
         }                                                                                                                                            
@@ -303,6 +308,14 @@ int serve_a_file(char* arg){
         }
     printf("]");
 
+    return 0;
+}
+
+int write_a_log(char* arg){
+    FILE *file = fopen("/home/nailbiter/public_html/cb/tests/ttt.txt", "w");
+    fprintf(file,"%s",arg);
+    fclose(file);
+    printf("\"all is well\"");
     return 0;
 }
 //.,$w !./tmp.c.exe > out.buf

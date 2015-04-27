@@ -33,3 +33,8 @@ function swapIn(array,index,headLen)
     array[index] = array[randomIndex];
     array[randomIndex] = temporaryValue;
 }
+
+function decodeURLquery(query)
+{
+    return query.replace(/%22/g,'\"');
+}
