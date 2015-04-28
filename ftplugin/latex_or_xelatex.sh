@@ -19,7 +19,7 @@ else
 		else
 			pdflatex -output-directory ~/for/forlatex/foraux $1
 		fi
-			ln -s $HOME/for/forlatex/foraux/$2.pdf $HOME/for/forlatex
+			ln -fs $HOME/for/forlatex/foraux/$2.pdf $HOME/for/forlatex
 		exit
 	fi
 fi

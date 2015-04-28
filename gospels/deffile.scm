@@ -1,6 +1,6 @@
-(define apostol-filename "apostol_week_about_the_Pharisee_and_the_Publician.tex")
+(define apostol-filename "apostol_week_Easter_12_04_2015.tex")
 
-(define gospel-filename "gospel_week_about_the_Pharisee_and_the_Publician.tex")
+(define gospel-filename "gospel_week_Easter_12_04_2015.tex")
 
-(define date "01/02/2014")
+(define date "12/04/2015")
 

@@ -1,0 +1,45 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{mystyle}
+\usepackage{enumerate}
+\usepackage{CJKutf8}
+
+\newcommand{\sgn}{\mbox{\normalfont{sgn}}}
+\newcommand{\Aut}{\mbox{\normalfont{Aut}}}
+
+\title{45901-109? 数物先端科学V\\Final Report}
+\author{Alex Leontiev, 45-146044
+\\Tokyo University, Graduate School of Mathematical Sciences, M1}
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+We will proceed straightly with solving exercises given during the course.
+\begin{myprob}[April 28, Proposition 4.2.1] Let $\varpi:\Xi\to M$ is $H$-principal bundle with right action,
+	$\tau:H\to\Diff(V)$ is group homomorphism (assume $V$ is a manifold)
+	. Define equivalence $\sim$ on $\Xi\times V$, equivalence class of
+	$(\xi,v)$ being all the elements $(\xi h,\tau(h)^{-1}v)$ for all $h\in H$.
+	Show that the following holds:
+	\begin{enumerate}
+		\item Map $\nu:=\Xi\times V/\sim\to M$, $[\xi,v]\mapsto\varpi(\xi)$ is a well-defined map,
+			which defines a fiber bundle with a fiber $V$.
+		\item If $\varpi:\Xi\to M$ was a $G$-equivariant $H$-principal bundle, then the bundle 
+			$\nu:=\Xi\times V/\sim\to M$ is $G$-equivariant.
+	\end{enumerate}
+\end{myprob}
+	\begin{enumerate}
+		\item First of all, the map $\nu$ is well-defined. Indeed, for any $h\in H$ we have
+			$\varpi[\xi h,\tau(h)^{-1}v]:=\varpi(\xi h)=\varpi(\xi)$, the last equality holds
+			true, since $\varpi:\Xi\to M$ is $H$-principal by hypothesis, hence
+			$\varpi[\xi h,\tau(h)^{-1}v]:=\varpi(\xi h)=\varpi(\xi)=:\varpi[\xi,v]$.
+
+			eu%TODO
+	\end{enumerate}
+\begin{myprob}[April 28, Thm. 4.2.3] There is natural bijection for associated bundle $\nu$ $\Gamma(M,\nu)\simeq
+	C^{\infty}(\Xi,V)^H:=\mysetn{F\in  C^{\infty}(M,V)}{F(gh)=\tau(h)^{-1}F(g)\forall h\in H\forall g\in G}$
+	and the action $G$ on $C^{\infty}(\Xi,V)$ leaves $C^{\infty}(\Xi,V)^H$ invariant.
+\end{myprob}%TODO
+%\begin{thebibliography}{9}
+%\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
+%\end{thebibliography}
+\end{document}

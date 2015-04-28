@@ -43,12 +43,13 @@
 
 (define (myselect l) (map (lambda (i) (if (< i 0) "" (list-ref l i)))(list 0 1 4 7 -1 5 8 2 6 9 3 10 11 12)))
 (define space->underscore(lambda(s)(string-map(lambda (char)(if (char=? char #\space) #\_ char))s)))
+(define slash->underscore(lambda(s)(string-map(lambda (char)(if (char=? char #\/) #\_ char))s)))
 (replace-in-file "apostol.tex"(string-concatenate(list"apostol_week_"(space->underscore(list-ref apo-list 0))".tex"))(mypairing(myselect apo-list)))
 (replace-in-file "gospel.tex"(string-concatenate(list"gospel_week_"(space->underscore(list-ref gosp-list 0))".tex"))(mypairing(myselect gosp-list)))
 
-(define apostol-filename (string-append "apostol_week_"(space->underscore(list-ref apo-list 0))".tex"))
-(define gospel-filename (string-append "gospel_week_"(space->underscore(list-ref gosp-list 0))".tex"))
 (define date (list-ref gosp-list 13))
+(define apostol-filename (string-append "apostol_week_"(space->underscore(list-ref apo-list 0))"_"(slash->underscore date)".tex"))
+(define gospel-filename (string-append "gospel_week_"(space->underscore(list-ref gosp-list 0))"_"(slash->underscore date)".tex"))
 (define (enclose-in-quote s) (string-append "'" s "'"))
 (define (enclose-in-double-quotes s) (string-append "\"" s "\""))
 
