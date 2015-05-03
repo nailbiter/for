@@ -1,3 +1,4 @@
+# vim: set ft=fc_conf:
 {
 #first section - skip_mode: (rand,seq,adapt)+timing - empty so far
 #encoding - utf8
@@ -806,7 +807,7 @@
 {"items": ["私鉄","してつ","private railroad"],"tags": ["","kanjiclass31"]},
 {"items": ["科目","かもく","subject(in school)"],"tags": ["","kanjiclass31"]},
 
-{"items": ["指","指輪","指示","ゆびわ","しじ"],"tags": ["kanji","30"]},
+{"items": ["指","指輪","指示","ゆびわ","しじ","finger ring","instruction"],"tags": ["kanji","30","jb68"]},
 {"items": ["歯","歯医者","虫歯","はいしゃ","むしば"],"tags": ["kanji","30"]},
 {"items": ["耳","耳","耳鼻科","みみ","じびか"],"tags": ["kanji","30"]},
 {"items": ["鼻","鼻","耳鼻科","はな","じびか"],"tags": ["kanji","30"]},

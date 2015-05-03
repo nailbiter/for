@@ -28,14 +28,6 @@ function editItemIndex(idx)
     document.forms["myForm"]["tag"].value=test.dataitems[index].tags[0];
 }
 
-function mydelete()
-{
-    test.dataitems.splice(index,1);
-
-    myeditform.hidden = true;
-    Afunction(null);
-}
-
 function validateForm() 
 {
     test.dataitems[index].items[0]=document.forms["myForm"]["question"].value ;
@@ -87,9 +79,61 @@ function Afunction(a)
 
 }
 
+function mydelete()
+{
+    test.dataitems.splice(index,1);
+
+    myeditform.hidden = true;
+    Afunction(null);
+}
+
+function validateForm() 
+{
+    test.dataitems[index].items[0]=document.forms["myForm"]["question"].value ;
+    test.dataitems[index].items[1]=document.forms["myForm"]["hint"].value;
+    test.dataitems[index].items[2]=document.forms["myForm"]["answer"].value;
+    test.dataitems[index].tags[0]=document.forms["myForm"]["tag"].value;
+
+    myeditform.hidden = true;
+    Afunction(null);
+
+    //FIXME
+    var obj = [index, test.dataitems[index]];
+    for(var i = 0; i< test.dataitems.length; i++ )
+    {
+        if( (test.dataitems[i].tags[0] == test.dataitems[index].tags[0]) && (i!=index) )
+        {
+            obj.push( 0);
+            break;
+        }
+    }
+    if( obj.length <= 2 ) obj.push(1);
+    
+    jsonp("alert",obj,"write");
+}
+
+function editItemIndex(idx)
+{
+    index = idx;
+    if(idx<0)
+    {
+        var item = {};
+        item.items = ["","",""];
+        item.tags = [""];
+        test.dataitems.push(item);
+        index = test.dataitems.length-1;
+    }
+    mytable.hidden = true;
+    myeditform.hidden = false;
+    document.forms["myForm"]["question"].value = test.dataitems[index].items[0]
+    document.forms["myForm"]["hint"].value=test.dataitems[index].items[1];
+    document.forms["myForm"]["answer"].value=test.dataitems[index].items[2];
+    document.forms["myForm"]["tag"].value=test.dataitems[index].tags[0];
+}
+
 function mysubmit()
 {
-    var tags = [];
+    /*var tags = [];
     for(var i = 0; i < test.dataitems.length; i++ )
         if( tags.indexOf(test.dataitems[i].tags[0]) < 0 )
             tags.push(test.dataitems[i].tags[0]);
@@ -107,7 +151,7 @@ function mysubmit()
         g.enabled = false;
         test.generators.push(g);
     }
-    jsonp("alert",test,"write");
+    jsonp("alert",test,"write");*/
 }
 
 myeditform.hidden = true;

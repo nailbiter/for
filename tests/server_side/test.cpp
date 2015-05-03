@@ -13,6 +13,7 @@
 #include <iostream>
 #include <fstream>
 #include "jsmn.h"
+#include <jansson.h>
 
 #define BUFSIZE 1000
 
@@ -28,7 +29,7 @@ void get_files(std::vector<std::string>& filenames);
 void serve_files(std::string& output);
 void serve_chosen_file(std::string& output,const std::string& filename);
 int serve_a_file(char* arg);
-int write_a_log(char* arg);
+int write_a_file(char* arg);
 void trim(char** start_ptr,char* end);
 void log(const char* s);
 int decode( char** src,char** dst);
@@ -60,7 +61,7 @@ int main(void)
         sprintf(callbacks[0].name,"get");
         callbacks[0].f = serve_a_file;
         sprintf(callbacks[1].name,"write");
-        callbacks[1].f = write_a_log;
+        callbacks[1].f = write_a_file;
         we_got_json(buf,callbacks,2);
         fclose(logfile);
         return 0;
@@ -99,7 +100,7 @@ void we_got_json(char* json_s,callback callbacks[], int callback_len)
     jsmn_parser parser;
 
     jsmn_init(&parser);
-    jsmntok_t tokens[256];//FIXME: make it bigger, perhaps
+    jsmntok_t tokens[256];//should never be big, we don't want client to send many data
     jsmn_parse(&parser, json_s,strlen(json_s), tokens, 256);
     //printf("%d\n",sizeof(callback_key)/sizeof(callback_key[0]));
 
@@ -311,11 +312,41 @@ int serve_a_file(char* arg){
     return 0;
 }
 
-int write_a_log(char* arg){
-    FILE *file = fopen("/home/nailbiter/public_html/cb/tests/ttt.txt", "w");
-    fprintf(file,"%s",arg);
-    fclose(file);
-    printf("\"all is well\"");
+int write_a_file(char* arg){
+    json_t *root;
+    json_error_t error;
+    root = json_load_file("/home/nailbiter/public_html/cb/tests/ttt.txt",0,&error);
+    if( !root || !json_is_object(root) )
+    {
+        printf("\"!root\"");
+        return 0;
+    }
+    json_t *dataitems = json_object_get(root,"dataitems"),
+           *generators = json_object_get(root,"generators");
+    //printf("\"root %d\"",
+
+    json_t *request_root;
+    request_root = json_loads(arg, 0, &error);
+    int index = json_integer_value(json_array_get(request_root,0));
+    if( index >= json_array_size(dataitems))
+    {
+        json_array_append(dataitems,json_array_get(request_root,1));
+    }
+    else
+    {
+        json_array_set(dataitems,index,json_array_get(request_root,1));
+    }
+
+    if( json_integer_value(json_array_get(request_root,2)) == 1 )//FIXME: generate full pack of generators: words and kanji(2)
+    {
+        //printf("\"new tag %s\"",json_string_value(json_array_get(json_object_get(json_array_get(request_root,1),"tags"),0)));
+        json_t* newgen = json_copy(json_array_get(generators,json_array_size(generators)-1));
+        json_array_set(json_object_get(newgen,"tags"),0,json_array_get(json_object_get(json_array_get(request_root,1),"tags"),0));
+        json_array_append(generators,newgen);
+    }
+
+    printf("\"%d generators and %d dataitems\"",json_array_size(generators),json_array_size(dataitems));
+    json_dump_file(root,"/home/nailbiter/public_html/cb/tests/ttt.txt",0);//FIXME: modeline like in kanjiclass.txt at the beginneng
     return 0;
 }
 //.,$w !./tmp.c.exe > out.buf

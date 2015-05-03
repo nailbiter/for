@@ -1760,7 +1760,6 @@
 {"items": ["向き付け","むきづけ","orientation (math)"],"tags": ["","jap64","math"]},
 {"items": ["固定","こてい","fixed (math)"],"tags": ["","jap64","math"]},
 {"items": ["左辺／右辺","さへん／うへん","left/right hand side"],"tags": ["","jap64","math"]},
-{"items": ["分子／分母","ぶんし／ぶんぼ","numerator/denominator"],"tags": ["","jap64","math"]},
 {"items": ["山括弧","やまかっこ","〈〉"],"tags": ["","jap64","math"]},
 {"items": ["波括弧","なみかっこ","｛｝"],"tags": ["","jap64","math"]},
 {"items": ["角括弧","かくかっこ","［］"],"tags": ["","jap64","math"]},
@@ -1798,60 +1797,55 @@
 "to bear(baggage)/to lose patience/to defeat","burden/load"],"tags": ["kanji","jb66"]},
 {"items": ["湖","湖","バイカル湖","みずうみ","バイカルこ","lake","lake Baikal"],"tags": ["kanji","jb66"]},
 
-#無駄話,むだばなし,idle talk
-#（体験を）重ねる,（たいけんを）かさねる,
-#あきれる
-#慌てる,あわてる
-#鍛える,きたえる
-#振り返る,ふりかえる
-#行成,ぎょうせい
-#熱り立つ,ねつりたつ
-#生まれ故郷,うまれこきょう
-#起き抜けに,おきぬけに
-#追いかける,おいかける
-#溺れる,おぼれる
-#格別（な）,かくべつ（な）
-#がっかりする
-#構内,こうない
-#水温,すいおん
-#立ち去る,たちさる
-#監視の下に,かんしのしたに
-#数え切る,かぞえきる
-#極りの悪い／極りが悪い,きまりのわるい／きまりがわるい
-#―経由,―けいゆ
-#実感（する）,じっかん（する）
-#平気（な）,へいき（な）
-#たっぷり
-#たどたどしい
-#近づく,ちかづく
-#とうとう
-#浜辺,はまべ
+{"items": ["無駄話","むだばなし","idle talk"],"tags": ["","jap67"]},
+{"items": ["（体験を）重ねる","（たいけんを）かさねる","to stack(experience)"],"tags": ["","jap67"]},
+{"items": ["あきれる","","to amaze"],"tags": ["","jap67"]},
+{"items": ["慌てる","あわてる","to panic"],"tags": ["","jap67"]},
+{"items": ["鍛える","きたえる","to train/educate(yourself)"],"tags": ["","jap67"]},
+{"items": ["振り返る","ふりかえる","to look back"],"tags": ["","jap67"]},
+{"items": ["行成","いきなり","suddenly"],"tags": ["","jap67"]},
+{"items": ["熱り立つ","いきりたつ","get angry"],"tags": ["","jap67"]},
+{"items": ["生まれ故郷","うまれこきょう","home town"],"tags": ["","jap67"]},
+{"items": ["起き抜けに","おきぬけに","as soon as one gets up"],"tags": ["","jap67"]},
+{"items": ["溺れる","おぼれる","to drown"],"tags": ["","jap67"]},
+{"items": ["格別（な）","かくべつ（な）","particular(feeling)"],"tags": ["","jap67"]},
+{"items": ["がっかりする","","to get dissappointed"],"tags": ["","jap67"]},
+{"items": ["構内","こうない","on campus"],"tags": ["","jap67"]},
+{"items": ["立ち去る","たちさる","to leave/depart"],"tags": ["","jap67"]},
+{"items": ["監視の下に","かんしのもとに","under surveillance"],"tags": ["","jap67"]},
+{"items": ["数え切る","かぞえきる","calculate precisely"],"tags": ["","jap67"]},
+{"items": ["極りの悪い／極りが悪い","きまりのわるい／きまりがわるい","awkward/embarassed"],"tags": ["","jap67"]},
+{"items": ["A経由でBへ","―けいゆ","visit A while going to B"],"tags": ["","jap67"]},
+{"items": ["平気（な）","へいき（な）","unconcerned/calm"],"tags": ["","jap67"]},
+{"items": ["たっぷり","","amply"],"tags": ["","jap67"]},
+{"items": ["たどたどしい","","clumsy(japanese)"],"tags": ["","jap67"]},
+{"items": ["〜に近づく","ちかづく","to approach〜"],"tags": ["","jap67"]},
+{"items": ["とうとう","","finally/after all"],"tags": ["","jap67"]},
+{"items": ["浜辺","はまべ","beach"],"tags": ["","jap67"]},
 
-#日常的（な）,にちじょうてき（な）
-#すごすごと
-#はるか（な）
-#はるばる
-#いらいら（する）
-#きつい
-#ほど近い,ほどちかい
-#待ち受ける,まちうける
-#他愛のない,たあいのない
-#剣道,けんどう
-#個性,こせい
-#―同士,―どうし
-#切っ掛け,きっかけ
-#言い合う,いいあう
-#物好き（な）,ものずき（な）
-#特訓,とっくん
-#相当,そうとう
-#馴れ親しむ,なれしたしむ
-#向かう,むかう
-#待ちくたびれる,まちくたびれる
-#洪水,こうずい
-#必死（な）,ひっし（な）
-#猛然と,もうぜんと
-#（８月の）半ば,（８がつの）なかば
-#爽快感,そうかいかん
+{"items": ["日常的（な）","にちじょうてき（な）","ordinarily"],"tags": ["","jap68"]},
+{"items": ["すごすごと","","dissapointedly"],"tags": ["","jap68"]},
+{"items": ["はるか（な）","","far/distant"],"tags": ["","jap68"]},
+{"items": ["いらいら（する）","to get annoyed/irritated"],"tags": ["","jap68"]},
+{"items": ["きつい","","harsh"],"tags": ["","jap68"]},
+{"items": ["待ち受ける","まちうける","to wait"],"tags": ["","jap68"]},
+{"items": ["他愛のない","たあいのない","useless"],"tags": ["","jap68"]},
+{"items": ["剣道","けんどう","kendo"],"tags": ["","jap68"]},
+{"items": ["個性","こせい","one's personality"],"tags": ["","jap68"]},
+{"items": ["―同士","―どうし","studymates"],"tags": ["","jap68"]},
+{"items": ["切っ掛け","きっかけ","reason/impetus"],"tags": ["","jap68"]},
+{"items": ["言い合う","いいあう","talk to each other"],"tags": ["","jap68"]},
+{"items": ["物好き（な）","ものずき（な）","curious person"],"tags": ["","jap68"]},
+{"items": ["特訓","とっくん","special traning"],"tags": ["","jap68"]},
+{"items": ["相当","そうとう","quite"],"tags": ["","jap68"]},
+{"items": ["馴れ親しむ","なれしたしむ","get used to/familiar"],"tags": ["","jap68"]},
+{"items": ["向かう","むかう","heading to"],"tags": ["","jap68"]},
+{"items": ["待ちくたびれる","まちくたびれる","to get tired of waiting"],"tags": ["","jap68"]},
+{"items": ["洪水","こうずい","flood"],"tags": ["","jap68"]},
+{"items": ["必死（な）","ひっし（な）","desperate"],"tags": ["","jap68"]},
+{"items": ["猛然と","もうぜんと","fiercely"],"tags": ["","jap68"]},
+{"items": ["（８月の）半ば","（８がつの）なかば","mid august"],"tags": ["","jap68"]},
+{"items": ["爽快感","そうかいかん","refreshing feel"],"tags": ["","jap68"]},
 
 { "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
 ]}

@@ -26,17 +26,17 @@ function print_test_continue(array)
             continue;
         if( test.generators[i].type == "si" )
             test.generators[i].answers = [];
+        var qs = [];
         for( var k = 0; k < test.dataitems.length; k++ )
         {
             if( isQuestionMatch(test.dataitems[k].tags,test.generators[i]) )
             {
                 var q = makeQuestion(test.generators[i], test.dataitems[k]);
-                if( q != null )
-                {
-                    test.questions.push(q);
-                }
+                if( q != null ) qs.push(q);
             }
         }
+        if( test.generators[i].hasOwnProperty("filter") ) qs = filter(qs,test.generators[i].filter);
+        test.questions = test.questions.concat(qs);
     }
 
     test.selectionMode = makeSelectionMode(test.selectionMode, test);
@@ -175,11 +175,9 @@ function show_generators(generators,selectionMode,test,grade)
                     {
                         if( isQuestionMatch(test.dataitems[k].tags,generators[i]) )
                         {
-                            var q = makeQuestion(generators[i], test.dataitems[k]);
+                            var q = makeQuestion(generators[i], test.dataitems[k]);//FIXME: filter here as well
                             if( q != null )
-                            {
                                 selectionMode.add(q);
-                            }
                         }
                     }
                 }
@@ -544,4 +542,16 @@ function isQuestionMatch(qtags,generator)
             }
         }
         return true;
+}
+
+function filter(qs,filter)
+{
+    if( filter.type == "last" )
+    {
+        if( qs.length > filter.size ) 
+            return qs.slice(qs.length-filter.size-1,qs.length-1)
+        else
+            return qs;
+    }
+    return qs;
 }

@@ -40,4 +40,6 @@ endfunction
 filetype plugin on
 filetype indent on
 syntax on
+set modeline
+set modelines=5
 " ~/.vimrc ends here

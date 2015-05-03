@@ -8,5 +8,11 @@ while( <> )
 	$res = `echo "$_" | kakasi -i utf8 -JH`;
 	chomp($res);
     if ( $res eq $_ ){ print $_ . "\n"; }
-    else{ print $_ . "--" . $res . "\n"; }
+    else
+    {
+	    if( $ARGV[0] == "rev" )
+	    	print $res "--" . $_ . "\n"; 
+	    else
+	    	print $_ . "--" . $res . "\n"; 
+    }
 }
