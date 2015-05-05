@@ -45,6 +45,8 @@ function Afunction(a)
 
     mytable.hidden = false;
     deleteAllChildren(mytable);
+    mytable.appendChild(makeButtonWithTextAndOnClick("submit",mysubmit));
+    mytable.appendChild(makeButtonWithTextAndOnClick("add",function(){editItemIndex(-1)}));
 
     var table = document.createElement('TABLE');
     table.border='1';
@@ -74,9 +76,6 @@ function Afunction(a)
         }
     }
     mytable.appendChild(table);
-    mytable.appendChild(makeButtonWithTextAndOnClick("submit",mysubmit));
-    mytable.appendChild(makeButtonWithTextAndOnClick("add",function(){editItemIndex(-1)}));
-
 }
 
 function mydelete()

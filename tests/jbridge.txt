@@ -1,3 +1,4 @@
+# vim: set ft=fc_conf:
 {
 #first section - skip_mode: (rand,seq,adapt)+timing - empty so far
 #encoding - utf8
@@ -1597,11 +1598,11 @@
 {"items": ["鍛える","きたえる","to train"],"tags": ["","jap56"]},
 
 {"items": ["断","断る","断固と","ことわる","だんこと","reject","firmly(adj.)"],"tags": ["kanji","jb38","listening","jb4","jb57"]},
-{"items": ["親","親子／親しむ","両親","おやこ／したしむ","りょうしん"],"tags": ["kanji","jap_kanji34","jb57"]},
+{"items": ["親","親子／親しむ","両親","おやこ／したしむ","りょうしん"],"tags": ["kanji","jap_kanji34","jb57","T6"]},
 {"items": ["応","応える","対応／反応","こたえる","たいおう／はんのう","to respond","correspondence/reaction"],"tags": ["kanji","jap_kanji33","jb57"]},
 {"items": ["罪","罪","罪人","つみ","ざいにん","sin","sinner"],"tags": ["kanji","jb57"]},
 {"items": ["依","依ると","依頼","よると","いらい","accordingly","request"],"tags": ["kanji","jb57"]},
-{"items": ["恐","恐らく","恐怖","おそらく","きょうふ","probably","fear"],"tags": ["kanji","jb57"]},
+{"items": ["恐","恐らく","恐怖","おそらく","きょうふ","probably","fear"],"tags": ["kanji","jb57","T5"]},
 {"items": ["曖昧な","あいまいな","obscure"],"tags": ["","jap57"]},
 {"items": ["あからさまな","","undisguised"],"tags": ["","jap57"]},
 {"items": ["率直な","そっちょくな","open-hearted"],"tags": ["","jap57"]},

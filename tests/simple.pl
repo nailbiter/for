@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 @lines = ();
 $i = 0;
-while( <> )
+while( <stdin> )
 {
 	$lines[$i] = $_;
 	chomp($_);
@@ -10,9 +10,13 @@ while( <> )
     if ( $res eq $_ ){ print $_ . "\n"; }
     else
     {
-	    if( $ARGV[0] == "rev" )
-	    	print $res "--" . $_ . "\n"; 
+	    if( $ARGV[0] eq "rev" )
+	    {
+	    	print $res . "--" . $_ . "\n"; 
+	    }
 	    else
+	    {
 	    	print $_ . "--" . $res . "\n"; 
+            }
     }
 }

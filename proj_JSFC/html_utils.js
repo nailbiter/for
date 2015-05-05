@@ -16,6 +16,15 @@ function jsonp(callback,arg,cmd)
  	injectJS('http://nailbiter.insomnia247.nl/cb/tests/FC.cgi?' + JSON.stringify(obj));
 }
 
+function writeFile(name,obj)
+{
+    var url = "http://nailbiter.insomnia247.nl/cb/tests/FC.cgi?"+name;
+    var client = new XMLHttpRequest();
+    client.open("POST", url, false);
+    client.setRequestHeader("Content-Type", "text/plain");
+    client.send(JSON.stringify(obj));//TODO: can be asynchronous
+}
+
 function printTable(what)
 {
         var table = document.createElement('TABLE');

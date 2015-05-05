@@ -15,6 +15,7 @@ set syntax=fc_conf
 		    \<line1>,<line2>s@\[""@\["kanji"@eg | noh
 
 command! -range Hira <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple.pl
+command! -range RevHira <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple.pl rev
 command! -range CheckKanji <line1>,<line2>g!@\["[^"]*","[^"]*","[^"]*","[^"]*","[^"]*"\],@d |noh
 command! -range Merge <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple2.pl
 command! -range On <line1>,<line2>s@false}@true}@|noh

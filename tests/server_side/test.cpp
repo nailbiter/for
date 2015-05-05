@@ -34,12 +34,41 @@ void trim(char** start_ptr,char* end);
 void log(const char* s);
 int decode( char** src,char** dst);
 void we_got_json(char* json_s, callback callbacks[], int callback_len);
+void save_test(json_t* root,const char* filename);
 
 //got: with callback
 //{callback:string,command:string,argument:obj}
+void unencode(char *src, char *last, char *dest)
+{
+ for(; src != last; src++, dest++)
+   if(*src == '+')
+     *dest = ' ';
+   else if(*src == '%') {
+     int code;
+     if(sscanf(src+1, "%2x", &code) != 1) code = '?';
+     *dest = code;
+     src +=2; }     
+   else
+     *dest = *src;
+ *dest = '\0';
+ /**dest = '\n';
+ *++dest = '\0';*/
+}
+
 int main(void) 
 {
     printf( "Content-type: application/javascript; charset=utf-8\n\n");
+
+    if(!strcmp("POST",getenv("REQUEST_METHOD")))
+    {
+        int len = 0;
+        sscanf(getenv("CONTENT_LENGTH"),"%ld",&len);
+        char* msg = (char*)malloc(len+2);
+        fgets(msg,len+1,stdin);
+        unencode(msg, msg+len, msg);
+        printf("ARNOLD:%s",msg);
+        return 0;
+    }
 
     std::string output = "clientCallback(",query;
 #if 1
@@ -312,10 +341,24 @@ int serve_a_file(char* arg){
     return 0;
 }
 
-int write_a_file(char* arg){
+int write_a_file(char* arg)
+{
     json_t *root;
     json_error_t error;
-    root = json_load_file("/home/nailbiter/public_html/cb/tests/ttt.txt",0,&error);
+
+    std::ifstream file("/home/nailbiter/public_html/cb/tests/ttt.txt");
+    std::string line,output;
+    //output += "{\"lines\":[";
+    if( file.is_open() )
+    {
+        while( getline(file,line) )
+	    {
+            if( line[0] != '#' ) //FIXME: # can be not at the beginning
+            	output += line;
+	    }
+    }
+    file.close();
+    root = json_loads(output.c_str(),0,&error);
     if( !root || !json_is_object(root) )
     {
         printf("\"!root\"");
@@ -323,7 +366,6 @@ int write_a_file(char* arg){
     }
     json_t *dataitems = json_object_get(root,"dataitems"),
            *generators = json_object_get(root,"generators");
-    //printf("\"root %d\"",
 
     json_t *request_root;
     request_root = json_loads(arg, 0, &error);
@@ -345,9 +387,40 @@ int write_a_file(char* arg){
         json_array_append(generators,newgen);
     }
 
+    save_test(root,"/home/nailbiter/public_html/cb/tests/ttt.txt");
     printf("\"%d generators and %d dataitems\"",json_array_size(generators),json_array_size(dataitems));
-    json_dump_file(root,"/home/nailbiter/public_html/cb/tests/ttt.txt",0);//FIXME: modeline like in kanjiclass.txt at the beginneng
     return 0;
+}
+
+void save_test(json_t* root,const char* filename)//FIXME: beautiful printing: enter after every generator and dataitem
+{
+    FILE* out = fopen(filename,"w");
+    fprintf(out,"# vim: set ft=fc_conf:\n");
+    fprintf(out,"{");
+    const char *key;
+    json_t *value;
+
+    int i = 0, len = json_object_size(root);
+    json_object_foreach(root, key, value) 
+    {
+        i++;
+        fprintf(out,"\"%s\":\n",key);
+        if( !strcmp(key,"generators") || !strcmp(key,"dataitems") )
+        {
+            fprintf(out,"[");
+            for( int i1 = 0, len1 = json_array_size(value); i1 < len1; i1++ )
+            {
+                json_dumpf(json_array_get(value,i1),out,JSON_ENCODE_ANY);
+                if( (i1 + 1) < len1 ) fprintf(out,",\n");
+            }
+            fprintf(out,"]");
+        }
+        else
+            json_dumpf(value,out,JSON_ENCODE_ANY);
+        if( i < len ) fprintf(out,",\n");
+    }
+    fprintf(out,"}");
+    fclose(out);
 }
 //.,$w !./tmp.c.exe > out.buf
 //http://nailbiter.insomnia247.nl/cgi-bin/tests/FC.cgi?{"command":"saveTagsEnabled","callback":"","arg":[true,false]}
