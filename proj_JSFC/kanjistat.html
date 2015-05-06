@@ -37,13 +37,13 @@
 			}
 			if( dups.length > 1 )
 			{
-				document.getElementById("kanjis").appendChild(wrapIntoParagraph(printTable(dups)));
+				document.getElementById("kanjis").appendChild(wrapIntoParagraph(printTableText(dups)));
 				anyDups = true;
 			}
 		}
 		if( anyDups ) return;
 
-		document.getElementById("kanjis").appendChild(wrapIntoParagraph(printTable(Aarray)));
+		document.getElementById("kanjis").appendChild(wrapIntoParagraph(printTableText(Aarray)));
 	}
 	function validateForm() 
 	{
@@ -57,7 +57,7 @@
 			{
 				if( Aarray[j][0] == x.substr(i,1) )
 				{
-					document.getElementById("known kanjis").appendChild(wrapIntoParagraph(printTable([ Aarray[j] ])));
+					document.getElementById("known kanjis").appendChild(wrapIntoParagraph(printTableText([ Aarray[j] ])));
 					break;
 				}
 			}

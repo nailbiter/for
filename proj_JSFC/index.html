@@ -37,35 +37,28 @@
 
     injectJS('http://nailbiter.insomnia247.nl/cb/tests/FC.cgi' + ((url_args=="")?"":("?"+url_args)));
 
-	function print_filenames(filenames)
+    listGens_flag = null;
+    function listGens_prep(filename)
+    {
+	listGens_flag = filename;
+	jsonp("listGens",[filename],"get");
+    }
+    function print_filenames(filenames)
     {
         var h1 = document.createElement("h1");
         var center = document.createElement("center");
-        var table = document.createElement('TABLE');
-        table.border='1';
 
         var tableBody = document.createElement('TBODY');
         h1.appendChild(center);
-        center.appendChild(table);
-        table.appendChild(tableBody);
 
+	var filelinks = [];
         for (var i=0; i<filenames.length; i++)
-        {
-            var tr = document.createElement('TR');
-            tableBody.appendChild(tr);
-            var td = document.createElement('TD');
-            td.width='175';
-            var a = document.createElement("a");
-            var linkText = document.createTextNode(filenames[i]);
-            a.appendChild(linkText);
-            a.title = filenames[i];
-            a.href = loc + "?" + filenames[i];
-            td.appendChild(a);
-            tr.appendChild(td);
-        }
+	    filelinks.push([createLink(loc + "?" + filenames[i],filenames[i]), createLink("javascript:listGens_prep(\""+filenames[i]+"\")","gens")]);
+
+	center.appendChild(printTable(filelinks));
 
         document.body.appendChild(h1);
-	}
+    }
 	function clientCallback(arg)
 	{
 		if( arg.hasOwnProperty("filenames") )

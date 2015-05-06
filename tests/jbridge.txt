@@ -1463,8 +1463,8 @@
 {"items": ["調整","ちょうせい","adjustment"],"tags": ["","jap49"]},
 {"items": ["収入","しゅうにゅう","income"],"tags": ["","jap49"]},
 
-{"items": ["権","","権利／権現","","けんり／ごんげん"],"tags": ["kanji","jb50"]},
-{"items": ["利","利く","権利","きく","けんり"],"tags": ["kanji","jb50"]},
+{"items": ["権","","権利／権現","","けんり／ごんげん"],"tags": ["kanji","jb50","T7"]},
+{"items": ["利","利く","権利","きく","けんり"],"tags": ["kanji","jb50","T7"]},
 {"items": ["列","列ぶ","列","ならぶ","れつ"],"tags": ["kanji","jb50"]},
 {"items": ["保","保つ","保証","たもつ","ほしょう"],"tags": ["kanji","jap_kanji36","jb50"]},
 {"items": ["制","制する","自制","せいする","じせい"],"tags": ["kanji","jb50"]},
@@ -1495,7 +1495,7 @@
 
 {"items": ["傾","傾げる／傾ける","傾向","かしげる／かたむける","けいこうにある","slant head for \"no\"/slant","tendency"],"tags": ["kanji","jb52","jb41"]},
 {"items": ["常","常に","常時","つねに","じょうじ","always","usually"],"tags": ["kanji","jb52"]},
-{"items": ["許","許す","特許","ゆるす","とっきょ","to permit","patent"],"tags": ["kanji","jb52"]},
+{"items": ["許","許す","特許","ゆるす","とっきょ","to permit","patent"],"tags": ["kanji","jb52","T7"]},
 {"items": ["移","行動に移す","移動","こうどうにうつす","いどう","put into action","to move file"],"tags": ["kanji","jb52"]},
 {"items": ["財","財","文化財／財布","たから","ぶんかざい／さいふ","","cultural asset/wallet"],"tags": ["kanji","jb52"]},
 {"items": ["委","委ねる","委託する","ゆだねる","いたくする","to entrust","trust/comission"],"tags": ["kanji","jb52"]},

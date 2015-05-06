@@ -34,11 +34,11 @@ void trim(char** start_ptr,char* end);
 void log(const char* s);
 int decode( char** src,char** dst);
 void we_got_json(char* json_s, callback callbacks[], int callback_len);
-void save_test(json_t* root,const char* filename);
+void save_test(json_t* root,const char* filename,const char* msg);
 
 //got: with callback
 //{callback:string,command:string,argument:obj}
-void unencode(char *src, char *last, char *dest)
+void unencode(const char *src,const char *last, char *dest)
 {
  for(; src != last; src++, dest++)
    if(*src == '+')
@@ -77,9 +77,9 @@ int main(void)
     query="canto.txt";
 #endif
 
-    char buf[1000];
+    char buf[5000];
     char *p1=(char*)query.c_str(), *p2=buf;
-    decode(&p1,&p2);
+    unencode(query.c_str(),query.c_str()+query.length(),buf);
 
     if( buf[0] == '{' )
     {
@@ -345,6 +345,7 @@ int write_a_file(char* arg)
 {
     json_t *root;
     json_error_t error;
+    char msg[1000];
 
     std::ifstream file("/home/nailbiter/public_html/cb/tests/ttt.txt");
     std::string line,output;
@@ -369,14 +370,21 @@ int write_a_file(char* arg)
 
     json_t *request_root;
     request_root = json_loads(arg, 0, &error);
+    if( !root || !json_is_array(request_root) )
+    {
+        printf("\"!request_root: %s, with error: %s\"",arg,error.text);
+        return 0;
+    }
     int index = json_integer_value(json_array_get(request_root,0));
     if( index >= json_array_size(dataitems))
     {
         json_array_append(dataitems,json_array_get(request_root,1));
+        sprintf(msg,"append, so now we have %d items",json_array_size(dataitems));
     }
     else
     {
         json_array_set(dataitems,index,json_array_get(request_root,1));
+        sprintf(msg,"set item %d, so now we still have %d items",index,json_array_size(dataitems));
     }
 
     if( json_integer_value(json_array_get(request_root,2)) == 1 )//FIXME: generate full pack of generators: words and kanji(2)
@@ -387,15 +395,20 @@ int write_a_file(char* arg)
         json_array_append(generators,newgen);
     }
 
-    save_test(root,"/home/nailbiter/public_html/cb/tests/ttt.txt");
-    printf("\"%d generators and %d dataitems\"",json_array_size(generators),json_array_size(dataitems));
+    save_test(root,"/home/nailbiter/public_html/cb/tests/ttt.txt",arg);
+    /*if( json_integer_value(json_array_get(request_root,2)) == 1 )
+        printf("alert(\"new gen\")");
+    else
+        printf("\"%d generators and %d dataitems\"",json_array_size(generators),json_array_size(dataitems));*/
+    printf("\"%s\"",msg);
     return 0;
 }
 
-void save_test(json_t* root,const char* filename)//FIXME: beautiful printing: enter after every generator and dataitem
+void save_test(json_t* root,const char* filename,const char* msg)
 {
     FILE* out = fopen(filename,"w");
     fprintf(out,"# vim: set ft=fc_conf:\n");
+    if( msg != NULL ) fprintf(out,"#%s\n",msg);
     fprintf(out,"{");
     const char *key;
     json_t *value;

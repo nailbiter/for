@@ -41,6 +41,29 @@ function printTable(what)
             {
                 var td = document.createElement('TD');
                 td.width='175';//FIXME: make a parameter
+                td.appendChild(what[i][j]);
+                tr.appendChild(td);
+            }
+        }
+        return table;
+}
+
+function printTableText(what)
+{
+        var table = document.createElement('TABLE');
+        table.border='1';
+
+        var tableBody = document.createElement('TBODY');
+        table.appendChild(tableBody);
+
+        for (var i = 0; i < what.length; i++)
+        {
+            var tr = document.createElement('TR');
+            tableBody.appendChild(tr);
+            for( var j = 0; j < what[i].length; j++ )
+            {
+                var td = document.createElement('TD');
+                td.width='175';//FIXME: make a parameter
                 td.appendChild(document.createTextNode(what[i][j]));
                 tr.appendChild(td);
             }
@@ -58,6 +81,17 @@ function removeById(id)
 function deleteAllChildren(node)
 {
     while( node.hasChildNodes() ) node.removeChild(node.lastChild);
+}
+
+function createLink(href,title, newTab)
+{
+    var a = document.createElement("a");
+    var linkText = document.createTextNode(title);
+    a.appendChild(linkText);
+    if( newTab == true ) a.target="_blank";
+    a.title = title;
+    a.href = href;
+    return a;
 }
 
 function wrapIntoParagraph(node)

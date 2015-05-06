@@ -177,7 +177,7 @@ function show_generators(generators,selectionMode,test,grade)
                         {
                             var q = makeQuestion(generators[i], test.dataitems[k]);//FIXME: filter here as well
                             if( q != null )
-                                selectionMode.add(q);
+                                selectionMode.add(q);//FIXME: add/cemove questions and make selectionMode just an observer class
                         }
                     }
                 }
@@ -554,4 +554,36 @@ function filter(qs,filter)
             return qs;
     }
     return qs;
+}
+
+function listGens(obj)
+{
+    var generators = obj[0].generators;
+    var names = [],numbers = [];
+    for( var i = 0; i < generators.length; i++ )
+    {
+        if( generators[i].tags.indexOf("kanji") >= 0 ){
+            generators[i].tags.splice(generators[i].tags.indexOf("kanji"),1);
+        }
+        generators[i].tags.sort();
+        var idx = names.indexOf(JSON.stringify(generators[i].tags));
+        if( idx == -1 )
+        {
+            names.push(JSON.stringify(generators[i].tags));
+            numbers.push([i]);
+        }
+        else
+        {
+            numbers[idx].push(i);
+        }
+    }
+    var tabarray = [];
+    for( var i = 0; i < names.length; i++ )
+        tabarray.push([createLink(window.location.href+"?"+listGens_flag+"#"+JSON.stringify(numbers[i]),names[i],true)])
+                    
+    //alert(JSON.stringify(names)+" and "+JSON.stringify(numbers));
+    deleteAllChildren(document.body);
+    var center = document.createElement("center");
+    center.appendChild(printTable(tabarray));
+    document.body.appendChild(center);
 }
