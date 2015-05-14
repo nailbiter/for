@@ -9,6 +9,12 @@
 <script src="html_utils.js"></script>
 <script src="util.js"></script>
 
+<div id="known kanjis"></div>
+<form name="myForm" onsubmit="validateForm();return false;">
+	<input type="text" name="fname">
+	<button name="data" type="button" onclick="validateForm()">Click</button>
+    </form>
+<div id="kanjis"></div>
 <script>//TODO: 
 	var Aarray = ["kanjiclass.txt","jbridge.txt"];
 
@@ -69,18 +75,13 @@
     	var url_args = window.location.search.substring(1);
 	if( url_args == "")
 	{
-		jsonp("Afunction",Aarray,"get");
+        //jsonp("Afunction",Aarray,"get");
+        xmlRequest("Afunction",Aarray,"get");
 	}
 	else
 	{
-		jsonp("Afunction",JSON.parse(decodeURLquery(url_args)),"get");
+		xmlRequest("Afunction",JSON.parse(decodeURLquery(url_args)),"get");
 	}
 </script>
 </body>
-<div id="known kanjis"></div>
-<form name="myForm" onsubmit="validateForm();return false;">
-	<input type="text" name="fname">
-	<button name="data" type="button" onclick="validateForm()">Click</button>
-    </form>
-<div id="kanjis"></div>
 </html>

@@ -1,3 +1,5 @@
+var server_location = "http://people.cs.nctu.edu.tw/~inp9822058/tests/FC.cgi"
+
 function injectJS(source)
 {
     var headID = document.getElementsByTagName("head")[0];
@@ -13,7 +15,22 @@ function jsonp(callback,arg,cmd)
 	obj.callback = callback;
 	obj.arg = arg;
 	obj.cmd = cmd;
- 	injectJS('http://nailbiter.insomnia247.nl/cb/tests/FC.cgi?' + JSON.stringify(obj));
+ 	injectJS(server_location+'?'+ JSON.stringify(obj));
+}
+
+function xmlRequest(callback,arg,cmd)
+{
+    var url = server_location;
+    var obj = {};
+    obj.callback = callback;
+    obj.arg = arg;
+    obj.cmd = cmd;
+    var client = new XMLHttpRequest();
+    client.open("POST", url, false);
+    client.setRequestHeader("Content-Type", "text/plain");
+    client.send(JSON.stringify(obj));
+    var responseText = client.responseText;
+    eval(client.responseText);
 }
 
 function writeFile(name,obj)

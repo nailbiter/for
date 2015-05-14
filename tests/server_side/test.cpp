@@ -1,4 +1,4 @@
-#include <stdio.h>
+#define _WITH_GETLINE
 #include <stdlib.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
@@ -12,10 +12,12 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <stdio.h>
 #include "jsmn.h"
-#include <jansson.h>
+#include "jansson.h"
 
 #define BUFSIZE 1000
+
 
 typedef int (*callbackfcn)(char* arg);
 typedef struct {
@@ -59,6 +61,22 @@ int main(void)
 {
     printf( "Content-type: application/javascript; charset=utf-8\n\n");
 
+    callback callbacks[5];
+    sprintf(callbacks[0].name,"get");
+    callbacks[0].f = serve_a_file;
+    sprintf(callbacks[1].name,"write");
+    callbacks[1].f = write_a_file;
+    int callback_len = 2;
+
+    if(!true)
+    {
+        FILE* file = fopen("log.txt","w");
+        fprintf(file,"here I go hard\n");
+        printf("here I was");
+        fclose(file);
+        return 0;
+    }
+
     if(!strcmp("POST",getenv("REQUEST_METHOD")))
     {
         int len = 0;
@@ -66,7 +84,7 @@ int main(void)
         char* msg = (char*)malloc(len+2);
         fgets(msg,len+1,stdin);
         unencode(msg, msg+len, msg);
-        printf("ARNOLD:%s",msg);
+        we_got_json(msg,callbacks,callback_len);
         return 0;
     }
 
@@ -83,16 +101,11 @@ int main(void)
 
     if( buf[0] == '{' )
     {
-        logfile = fopen("/home/nailbiter/public_html/log.txt", "a");
-        if( logfile == NULL ) printf("no good\n");
-        log("-------------------------NEW LOG-----------------\n");
-        callback callbacks[5];
-        sprintf(callbacks[0].name,"get");
-        callbacks[0].f = serve_a_file;
-        sprintf(callbacks[1].name,"write");
-        callbacks[1].f = write_a_file;
-        we_got_json(buf,callbacks,2);
-        fclose(logfile);
+        //logfile = fopen("/home/nailbiter/public_html/log.txt", "a");
+        //if( logfile == NULL ) printf("no good\n");
+        //log("-------------------------NEW LOG-----------------\n");
+        we_got_json(buf,callbacks,callback_len);
+        //fclose(logfile);
         return 0;
     }
 
@@ -347,7 +360,7 @@ int write_a_file(char* arg)
     json_error_t error;
     char msg[1000];
 
-    std::ifstream file("/home/nailbiter/public_html/cb/tests/ttt.txt");
+    std::ifstream file("ttt.txt");
     std::string line,output;
     //output += "{\"lines\":[";
     if( file.is_open() )
@@ -395,7 +408,7 @@ int write_a_file(char* arg)
         json_array_append(generators,newgen);
     }
 
-    save_test(root,"/home/nailbiter/public_html/cb/tests/ttt.txt",arg);
+    save_test(root,"ttt.txt",arg);
     /*if( json_integer_value(json_array_get(request_root,2)) == 1 )
         printf("alert(\"new gen\")");
     else

@@ -252,6 +252,13 @@
 {"items": ["Thin / thick","うすい／あつい","薄い／厚い"],"tags": ["T11"]},
 {"items": ["Mortifying","くやしい","悔しい"],"tags": ["T11"]},
 {"items": ["Occasionally","たまに"],"tags": ["T11"]},
+{"items": ["isometry","などちょう","等長"],"tags": ["T11"]},
+{"items": ["direct product","ちょくわ","直和"],"tags": ["T11"]},
+{"items": ["contragredient","はんけい","反傾"],"tags": ["T11"]},
+{"items": ["matrix","ぎょうれつ","行列"],"tags": ["T11"]},
+{"items": ["element","ようそ","要素"],"tags": ["T11"]},
+{"items": ["to include(t)","ふくめる","含める"],"tags": ["T11"]},
+{"items": ["regular","せいそく","正則"],"tags": ["T11"]},
 {"items": ["narrow /Thick (rope)","こまい／ふとい","細い／太い"],"tags": ["T11"]}
 ],
 "favoritesModeAllowed":

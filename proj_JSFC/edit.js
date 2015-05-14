@@ -108,7 +108,7 @@ function validateForm()
     }
     if( obj.length <= 2 ) obj.push(1);
     
-    jsonp("alert",obj,"write");
+    xmlRequest("alert",obj,"write");
 }
 
 function editItemIndex(idx)
@@ -150,8 +150,8 @@ function mysubmit()
         g.enabled = false;
         test.generators.push(g);
     }
-    jsonp("alert",test,"write");*/
+    xmlRequest("alert",test,"write");*/
 }
 
 myeditform.hidden = true;
-jsonp("Afunction",["ttt.txt"],"get");
+xmlRequest("Afunction",["ttt.txt"],"get");
