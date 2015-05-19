@@ -10,18 +10,26 @@
 <script src="util.js"></script>
 </body>
 <div id="mytable"></div>
+<div id="mytagedit">
+    <form  id="tagedit">
+    <p><label for="arg">arg<label><input type="text" name="arg" id="arg"></p>
+    </form>
+    <p><select id="cmdlist" form="tagedit">
+      <option value="createtag">createtag</option>
+  </select></p>
+    <p><button type="button" onclick="xmlRequest('alertAndShowTable',document.forms['tagedit']['arg'].value,
+        document.getElementById('cmdlist').options[document.getElementById('cmdlist').selectedIndex].value,'hira',true)">submit</button></p>
+</div>
 <div id="myeditform" hidden="true">
 <form name="myForm" onsubmit="validateForm();return false;">
-	<label for="question">question<label>
-	<input type="text" name="question" id="question">
-	<label for="hint">hint<label>
-	<input type="text" name="hint"id="hint">
-	<label for="answer">answer<label>
-	<input type="text" name="answer"id="answer">
-	<label for="tag">tag<label>
-	<input type="text" name="tag"id="tag">
-	<button name="data" type="button" onclick="validateForm()">save</button>
-	<button name="data" type="button" onclick="mydelete()">delete</button>
+	<p><label for="answer">answer<label><input type="text" name="answer"id="answer" onblur="xmlRequest('getHira',document.forms['myForm']['answer'].value,'hira',true);"></p>
+	<p><label for="hint">hint<label><input type="text" name="hint"id="hint"></p>
+    <p><label for="question">question<label><input type="text" name="question" id="question" ></p>
+	<p><label for="tag">tag<label>
+	<input type="text" name="tag"id="tag"></p>
+    <p><input type="checkbox" name="resubmit">re-submit</p>
+	<p><button name="data" type="button" onclick="saveItem()">save</button>
+	<button name="data" type="button" onclick="mydelete()">delete</button></p>
     </form>
 </div>
 <script src="edit.js"></script>

@@ -18,19 +18,25 @@ function jsonp(callback,arg,cmd)
  	injectJS(server_location+'?'+ JSON.stringify(obj));
 }
 
-function xmlRequest(callback,arg,cmd)
+function xmlRequest(callback,arg,cmd,async)
 {
+    if( async != true ) async = false;
     var url = server_location;
     var obj = {};
     obj.callback = callback;
     obj.arg = arg;
     obj.cmd = cmd;
     var client = new XMLHttpRequest();
-    client.open("POST", url, false);
+    if( async )
+        client.onreadystatechange = function ()
+        {
+            if (client.readyState==4 && client.status==200) eval(client.responseText);
+        }
+    client.open("POST", url, async);
     client.setRequestHeader("Content-Type", "text/plain");
     client.send(JSON.stringify(obj));
     var responseText = client.responseText;
-    eval(client.responseText);
+    if( !async ){ eval(client.responseText); }
 }
 
 function writeFile(name,obj)
@@ -153,4 +159,11 @@ function setButtonText(button,text)
     }
 	else
 		button.value = text;
+}
+
+function hideAllDivs()
+{
+    var divs = document.getElementsByTagName("div");
+    for(var i = 0; i < divs.length; i++)
+        divs[i].hidden = true;
 }

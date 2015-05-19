@@ -35,6 +35,8 @@
     var loc = window.location.href;
     loc = loc.substring(0,loc.lastIndexOf('?'));
 
+    window.onhashchange = onHashChange;
+
     injectJS('http://people.cs.nctu.edu.tw/~inp9822058/tests/FC.cgi' + ((url_args=="")?"":("?"+url_args)));
 
     listGens_flag = null;
@@ -53,19 +55,19 @@
 
 	var filelinks = [];
         for (var i=0; i<filenames.length; i++)
-	    filelinks.push([createLink(loc + "?" + filenames[i],filenames[i]), createLink("javascript:listGens_prep(\""+filenames[i]+"\")","gens")]);
+	    filelinks.push([createLink(loc + "?" + filenames[i],filenames[i])]);
 
 	center.appendChild(printTable(filelinks));
 
         document.body.appendChild(h1);
     }
-	function clientCallback(arg)
-	{
-		if( arg.hasOwnProperty("filenames") )
-			print_filenames(arg.filenames);
-        else
-			print_test(arg);
-	}
+    function clientCallback(arg)
+    {
+        if( arg.hasOwnProperty("filenames") )
+	    print_filenames(arg.filenames);
+	else
+	    print_test(arg);
+    }
 </script>
 </body>
 </html>

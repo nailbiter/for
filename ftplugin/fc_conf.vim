@@ -20,7 +20,7 @@ command! -range CheckKanji <line1>,<line2>g!@\["[^"]*","[^"]*","[^"]*","[^"]*","
 command! -range Merge <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple2.pl
 command! -range On <line1>,<line2>s@false}@true}@|noh
 command! -range Off <line1>,<line2>s@true}@false}@|noh
-command! -range -nargs=1 Tag <line1>,<line2>s@"\zs\ze\]},@,"<args>"@ |noh
+command! -range -nargs=1 Tag <line1>,<line2>s@tags[^\]]*\zs\ze\],@,"<args>"@ |noh
 command! -range Check :w | echo <line1> | :e! | set ft=fc_conf
 "command! ToList %s@^............@@|
 			"\g@^.[^"]@d|

@@ -28,7 +28,7 @@ function editItemIndex(idx)
     document.forms["myForm"]["tag"].value=test.dataitems[index].tags[0];
 }
 
-function validateForm() 
+function saveItem() 
 {
     test.dataitems[index].items[0]=document.forms["myForm"]["question"].value ;
     test.dataitems[index].items[1]=document.forms["myForm"]["hint"].value;
@@ -43,10 +43,12 @@ function Afunction(a)
 {
     if(a!=null) test = a[0];
 
+    hideAllDivs();
     mytable.hidden = false;
     deleteAllChildren(mytable);
     mytable.appendChild(makeButtonWithTextAndOnClick("submit",mysubmit));
     mytable.appendChild(makeButtonWithTextAndOnClick("add",function(){editItemIndex(-1)}));
+    mytable.appendChild(makeButtonWithTextAndOnClick("add tag",addTag));
 
     var table = document.createElement('TABLE');
     table.border='1';
@@ -86,29 +88,33 @@ function mydelete()
     Afunction(null);
 }
 
-function validateForm() 
+function saveItem() 
 {
-    test.dataitems[index].items[0]=document.forms["myForm"]["question"].value ;
+    test.dataitems[index].items[0]=document.forms["myForm"]["question"].value;
     test.dataitems[index].items[1]=document.forms["myForm"]["hint"].value;
     test.dataitems[index].items[2]=document.forms["myForm"]["answer"].value;
     test.dataitems[index].tags[0]=document.forms["myForm"]["tag"].value;
 
-    myeditform.hidden = true;
-    Afunction(null);
-
-    //FIXME
     var obj = [index, test.dataitems[index]];
-    for(var i = 0; i< test.dataitems.length; i++ )
-    {
-        if( (test.dataitems[i].tags[0] == test.dataitems[index].tags[0]) && (i!=index) )
-        {
-            obj.push( 0);
-            break;
-        }
-    }
-    if( obj.length <= 2 ) obj.push(1);
-    
     xmlRequest("alert",obj,"write");
+
+    if( document.forms["myForm"]["resubmit"].checked == false )
+    {
+        myeditform.hidden = true;
+        Afunction(null);
+    }
+    else
+    {
+        document.forms["myForm"]["answer"].focus();
+        document.forms["myForm"]["question"].value = "";
+        document.forms["myForm"]["hint"].value = "";
+        document.forms["myForm"]["answer"].value = "";
+        var item = {};
+        item.items = ["","",""];
+        item.tags = [""];
+        test.dataitems.push(item);
+        index = test.dataitems.length-1;
+    }
 }
 
 function editItemIndex(idx)
@@ -151,6 +157,24 @@ function mysubmit()
         test.generators.push(g);
     }
     xmlRequest("alert",test,"write");*/
+}
+
+function getHira(s){ document.forms["myForm"]["hint"].value = s; }
+
+function addTag()
+{
+    hideAllDivs();
+    var mytagedit = document.getElementById("mytagedit");
+    mytagedit.hidden = false;
+    document.forms["tagedit"]["arg"].value="";
+    document.getElementById('cmdlist').selectedIndex = 0;
+}
+
+function alertAndShowTable(msg)
+{
+    alert(msg);
+    hideAllDivs();
+    mytable.hidden = false;
 }
 
 myeditform.hidden = true;

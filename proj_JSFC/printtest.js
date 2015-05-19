@@ -1,25 +1,21 @@
 var globalTest;
 
-function print_test_continue(array)
+function addDataItems(array)
 {
-    var test = globalTest;
-
-    var orig = test.dataitems.length;
+    var orig = globalTest.dataitems.length;
     if( array.length > 0 ) console.log("files: " + array[0].dataitems.length);
     for( var i = 0; i < array.length; i++ )
-        test.dataitems = test.dataitems.concat(array[i].dataitems);
-    console.log("increase:" + (test.dataitems.length - orig) );
+        globalTest.dataitems = globalTest.dataitems.concat(array[i].dataitems);
 
-    if( location.hash != "" )
-    {
-        //alert(location.hash);
-        var obj = JSON.parse(decodeURLquery(location.hash.substr(1)));
-        for( var i = 0; i < test.generators.length; i++ )
-            test.generators[i].enabled = false;
-        for( var i = 0; i < obj.length; i++ )
-            test.generators[(( obj[i] >= 0 ) ? obj[i] : ( test.generators.length + obj[i] ))].enabled = true;
-    }
+    console.log("increase:" + (globalTest.dataitems.length - orig) );
+    onHashChange();
+}
 
+function print_test_continue()
+{
+    deleteAllChildren(document.body);
+
+    var test = globalTest;
     for( var i = 0; i < test.generators.length; i++ )
     {
         if( !test.generators[i].enabled )
@@ -39,10 +35,11 @@ function print_test_continue(array)
         test.questions = test.questions.concat(qs);
     }
 
-    test.selectionMode = makeSelectionMode(test.selectionMode, test);
+    test.selectionModeObj = makeSelectionMode(test.selectionMode, test);
+    console.log("test.selectionModeObj = "+test.selectionModeObj);
 
     if( test.hasOwnProperty("favoritesModeAllowed") && test.favoritesModeAllowed )
-        test.favoritesManager = newFavoritesManager(test.selectionMode,test.questions);
+        test.favoritesManager = newFavoritesManager(test.selectionModeObj,test.questions);
     else
         test.favoritesManager = null;
 
@@ -67,13 +64,13 @@ function print_test_continue(array)
         var button = makeButtonWithTextAndOnClick("All Questions",null);
         button.onclick = function()
         {
-            var question = test.selectionMode.getCurrentQuestion();
+            var question = test.selectionModeObj.getCurrentQuestion();
             var flag = test.favoritesManager.isFavoriteOnly();
             console.log("flag="+flag);
             setButtonText(button, !flag ? "Only Favorites" : "All Questions" );
             test.favoritesManager.setFavoriteOnly(!flag);
-            if( question != test.selectionMode.getCurrentQuestion() )
-                displayNextQuestion(test.selectionMode,test.questions,grade,test.favoritesManager);
+            if( question != test.selectionModeObj.getCurrentQuestion() )
+                displayNextQuestion(test.selectionModeObj,test.questions,grade,test.favoritesManager);
         }
         settingsCenter.appendChild(wrapIntoParagraph(button));
     }
@@ -81,14 +78,14 @@ function print_test_continue(array)
     settingsCenter.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("Edit Generators",function()
                 {
                     maindiv.hidden = true;
-                    show_generators(test.generators,test.selectionMode,test,grade); 
+                    show_generators(test.generators,test.selectionModeObj,test,grade); 
                 })));
 
     if( test.hasOwnProperty("canListQuestions") && test.canListQuestions )
         settingsCenter.appendChild(wrapIntoParagraph(makeButtonWithTextAndOnClick("View Questions",function()
                     {
                         maindiv.hidden = true;
-                        show_questions(test.questions,test.favoritesManager,test.selectionMode,grade);
+                        show_questions(test.questions,test.favoritesManager,test.selectionModeObj,grade);
                     })));
 
     var scoreParagraph = document.createElement("p");
@@ -123,7 +120,7 @@ function print_test_continue(array)
                 if( compareQuestions(test.questions[i],test.questions[j]) ) console.log(i+"=="+j);*/
     }
 
-    displayNextQuestion(test.selectionMode,test.questions,grade,test.favoritesManager);
+    displayNextQuestion(test.selectionModeObj,test.questions,grade,test.favoritesManager);
 }
 
 function print_test(test)
@@ -132,12 +129,12 @@ function print_test(test)
     test.questions = [];
 
     if( test.hasOwnProperty("include") && ( test.include.length > 0 ) )
-	    jsonp("print_test_continue",test.include,"get");
+	    jsonp("addDataItems",test.include,"get");
     else
-        print_test_continue([]);
+        onHashChange();
 }
 
-function show_generators(generators,selectionMode,test,grade)
+function show_generators(generators,selectionModeObj,test,grade)
 {
     var generatorDiv = document.getElementById("generatorDiv");
     var maindiv = document.getElementById("maindiv");
@@ -160,7 +157,7 @@ function show_generators(generators,selectionMode,test,grade)
     button.appendChild(buttonText);
     button.onclick = function()
     {
-        var wasQuestion = selectionMode.getCurrentQuestion();
+        var wasQuestion = selectionModeObj.getCurrentQuestion();
         for( var i = 0; i < generators.length; i++ )
         {
             var x = document.getElementById("generator" + i);
@@ -177,7 +174,7 @@ function show_generators(generators,selectionMode,test,grade)
                         {
                             var q = makeQuestion(generators[i], test.dataitems[k]);//FIXME: filter here as well
                             if( q != null )
-                                selectionMode.add(q);//FIXME: add/cemove questions and make selectionMode just an observer class
+                                selectionModeObj.add(q);//FIXME: add/cemove questions and make selectionModeObj just an observer class
                         }
                     }
                 }
@@ -188,7 +185,7 @@ function show_generators(generators,selectionMode,test,grade)
                     {
                         if( test.questions[j].generatedBy == generators[i] )
                         {
-                            selectionMode.remove(j);
+                            selectionModeObj.remove(j);
                             j--;
                         }
                     }
@@ -199,8 +196,8 @@ function show_generators(generators,selectionMode,test,grade)
         //injectJS('http://nailbiter.insomnia247.nl/cb/tests/FC.cgi' + ((url_args=="")?"":("?"+url_args)));
         generatorDiv.hidden = true;
         maindiv.hidden = false;
-        if( wasQuestion != selectionMode.getCurrentQuestion() ) //!compareQuestions(wasQuestion,selectionMode.getCurrentQuestion()) )
-            displayNextQuestion(selectionMode,test.questions,grade,test.favoritesManager);
+        if( wasQuestion != selectionModeObj.getCurrentQuestion() ) //!compareQuestions(wasQuestion,selectionModeObj.getCurrentQuestion()) )
+            displayNextQuestion(selectionModeObj,test.questions,grade,test.favoritesManager);
     };
     oNewP.appendChild(button);
     generatorDiv.appendChild(oNewP);
@@ -435,13 +432,13 @@ function displayNextQuestion(sm,questions,grade,fm)
     }
 }
 
-function show_questions(questions,fm,selectionMode,grade)
+function show_questions(questions,fm,selectionModeObj,grade)
 {
     var questionListDiv = document.getElementById("questionListDiv");
     var maindiv = document.getElementById("maindiv");
     deleteAllChildren(questionListDiv);
     var checkboxes = [];
-    var wasQuestion = selectionMode.getCurrentQuestion();
+    var wasQuestion = selectionModeObj.getCurrentQuestion();
 
     var questionLabels = document.createElement("center");
     questionListDiv.appendChild(questionLabels);
@@ -509,8 +506,8 @@ function show_questions(questions,fm,selectionMode,grade)
                     }
                     questionListDiv.hidden = true;
                     maindiv.hidden = false;
-                    if( fm != null && wasQuestion != selectionMode.getCurrentQuestion() ) 
-                        displayNextQuestion(selectionMode,questions,grade,test.favoritesManager);
+                    if( fm != null && wasQuestion != selectionModeObj.getCurrentQuestion() ) 
+                        displayNextQuestion(selectionModeObj,questions,grade,test.favoritesManager);
                 })));
 
     questionListDiv.hidden = false;
@@ -556,34 +553,51 @@ function filter(qs,filter)
     return qs;
 }
 
-function listGens(obj)
+function onHashChange()
 {
-    var generators = obj[0].generators;
-    var names = [],numbers = [];
-    for( var i = 0; i < generators.length; i++ )
+    if( location.hash == "" )
+        print_test_continue();
+    if( location.hash[1] == '[' )
     {
-        if( generators[i].tags.indexOf("kanji") >= 0 ){
-            generators[i].tags.splice(generators[i].tags.indexOf("kanji"),1);
-        }
-        generators[i].tags.sort();
-        var idx = names.indexOf(JSON.stringify(generators[i].tags));
-        if( idx == -1 )
-        {
-            names.push(JSON.stringify(generators[i].tags));
-            numbers.push([i]);
-        }
-        else
-        {
-            numbers[idx].push(i);
-        }
+        globalTest.questions = [];
+        var obj = JSON.parse(decodeURLquery(location.hash.substr(1)));
+        for( var i = 0; i < globalTest.generators.length; i++ )
+            globalTest.generators[i].enabled = false;
+        for( var i = 0; i < obj.length; i++ )
+            globalTest.generators[(( obj[i] >= 0 ) ? obj[i] : ( globalTest.generators.length + obj[i] ))].enabled = true;
+        print_test_continue();
     }
-    var tabarray = [];
-    for( var i = 0; i < names.length; i++ )
-        tabarray.push([createLink(window.location.href+"?"+listGens_flag+"#"+JSON.stringify(numbers[i]),names[i],true)])
-                    
-    //alert(JSON.stringify(names)+" and "+JSON.stringify(numbers));
-    deleteAllChildren(document.body);
-    var center = document.createElement("center");
-    center.appendChild(printTable(tabarray));
-    document.body.appendChild(center);
+    if( location.hash.substr(1) == "tagspretty" )
+    {
+        var generators = globalTest.generators;
+        var names = [],numbers = [];
+        for( var i = 0; i < generators.length; i++ )
+        {
+            if( generators[i].tags.indexOf("kanji") >= 0 ){
+                generators[i].tags.splice(generators[i].tags.indexOf("kanji"),1);
+            }
+            generators[i].tags.sort();
+            var idx = names.indexOf(JSON.stringify(generators[i].tags));
+            if( idx == -1 )
+            {
+                names.push(JSON.stringify(generators[i].tags));
+                numbers.push([i]);
+            }
+            else
+            {
+                numbers[idx].push(i);
+            }
+        }
+        var tabarray = [];
+        for( var i = 0; i < names.length; i++ )
+        {
+            var link = createLink("#"+JSON.stringify(numbers[i]),names[i]);
+            tabarray.push([link]);
+        }
+                        
+        deleteAllChildren(document.body);
+        var center = document.createElement("center");
+        center.appendChild(printTable(tabarray));
+        document.body.appendChild(center);
+    }
 }

@@ -13,11 +13,12 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
+#include <assert.h>
+
 #include "jsmn.h"
 #include "jansson.h"
 
 #define BUFSIZE 1000
-
 
 typedef int (*callbackfcn)(char* arg);
 typedef struct {
@@ -30,13 +31,21 @@ FILE* logfile = NULL;
 void get_files(std::vector<std::string>& filenames);
 void serve_files(std::string& output);
 void serve_chosen_file(std::string& output,const std::string& filename);
-int serve_a_file(char* arg);
-int write_a_file(char* arg);
 void trim(char** start_ptr,char* end);
 void log(const char* s);
 int decode( char** src,char** dst);
 void we_got_json(char* json_s, callback callbacks[], int callback_len);
 void save_test(json_t* root,const char* filename,const char* msg);
+int serve_a_file(char* arg);
+int write_a_file(char* arg);
+int get_hira(char* arg);
+int create_tag(char* arg);
+#define CALLBACK(fncname,cmdname)\
+{\
+    sprintf(callbacks[callback_len].name, #cmdname );\
+    callbacks[callback_len].f = fncname;\
+    callback_len++;\
+}
 
 //got: with callback
 //{callback:string,command:string,argument:obj}
@@ -61,12 +70,12 @@ int main(void)
 {
     printf( "Content-type: application/javascript; charset=utf-8\n\n");
 
-    callback callbacks[5];
-    sprintf(callbacks[0].name,"get");
-    callbacks[0].f = serve_a_file;
-    sprintf(callbacks[1].name,"write");
-    callbacks[1].f = write_a_file;
-    int callback_len = 2;
+    callback callbacks[10];
+    int callback_len = 0;
+    CALLBACK(serve_a_file,get);
+    CALLBACK(write_a_file,write);
+    CALLBACK(get_hira,hira);
+    CALLBACK(create_tag,createtag);
 
     if(!true)
     {
@@ -179,6 +188,21 @@ void we_got_json(char* json_s,callback callbacks[], int callback_len)
     if( ( starts[0] < 0 ) || ( starts[2] < 0 ) )
     {
         printf("error");
+        return;
+    }
+
+    //FIXME
+    if(!strncmp(json_s+starts[0],"alert",5)&&false)
+    {
+        char buf[BUFSIZE];
+        strncpy(buf,json_s+starts[2],ends[2]-starts[2]);
+        char *ptr=NULL;
+        while(strchr(buf,'"')!=NULL) *ptr='q';
+        printf("\"acknowledge getHira with %s vs %s and %d-%d-%d\"",buf,callbacks[2].name,
+            strncmp(callbacks[0].name,json_s+starts[2],strlen(callbacks[0].name)),
+            strncmp(callbacks[1].name,json_s+starts[2],strlen(callbacks[1].name)),
+            strncmp(callbacks[2].name,json_s+starts[2],strlen(callbacks[2].name))
+                );
         return;
     }
 
@@ -389,7 +413,7 @@ int write_a_file(char* arg)
         return 0;
     }
     int index = json_integer_value(json_array_get(request_root,0));
-    if( index >= json_array_size(dataitems))
+    if( index >= json_array_size(dataitems) || ( index < 0 ) )
     {
         json_array_append(dataitems,json_array_get(request_root,1));
         sprintf(msg,"append, so now we have %d items",json_array_size(dataitems));
@@ -400,20 +424,62 @@ int write_a_file(char* arg)
         sprintf(msg,"set item %d, so now we still have %d items",index,json_array_size(dataitems));
     }
 
-    if( json_integer_value(json_array_get(request_root,2)) == 1 )//FIXME: generate full pack of generators: words and kanji(2)
+    save_test(root,"ttt.txt",arg);
+    printf("\"%s\"",msg);
+    return 0;
+}
+
+int get_hira(char* arg)
+{
+    //printf("\"bad %s\"",arg);
+    char cmd[500];
+    sprintf(cmd,"echo \"%s\" |./kakasi -i utf8 -JH",arg);
+    FILE* res = popen(cmd,"r");
+    if( res == NULL )
     {
-        //printf("\"new tag %s\"",json_string_value(json_array_get(json_object_get(json_array_get(request_root,1),"tags"),0)));
-        json_t* newgen = json_copy(json_array_get(generators,json_array_size(generators)-1));
-        json_array_set(json_object_get(newgen,"tags"),0,json_array_get(json_object_get(json_array_get(request_root,1),"tags"),0));
-        json_array_append(generators,newgen);
+        printf("\"cannot do\"");
+        return 0;
+    }
+    char buf[500];
+    fread(buf,1,500,res);
+    char *ptr=NULL;
+    while((ptr=strchr(buf,'\n'))!=NULL) *ptr = '\0';
+    printf("\"%s\"",buf);
+    fclose(res);
+    //system(cmd);
+    return 0;
+}
+
+int create_tag(char* arg)
+{
+    std::ifstream file("ttt.txt");
+    std::string line,output;
+    //output += "{\"lines\":[";
+    if( file.is_open() )
+    {
+        while( getline(file,line) )
+	    {
+            if( line[0] != '#' ) //FIXME: # can be not at the beginning
+            	output += line;
+	    }
+    }
+    file.close();
+
+    json_error_t error;
+    json_t *root = json_loads(output.c_str(),0,&error);
+    if( !root || !json_is_object(root) )
+    {
+        printf("\"!root\"");
+        return 0;
     }
 
-    save_test(root,"ttt.txt",arg);
-    /*if( json_integer_value(json_array_get(request_root,2)) == 1 )
-        printf("alert(\"new gen\")");
-    else
-        printf("\"%d generators and %d dataitems\"",json_array_size(generators),json_array_size(dataitems));*/
-    printf("\"%s\"",msg);
+    json_t *generators = json_object_get(root,"generators");
+    json_t* newgen = json_deep_copy(json_array_get(generators,json_array_size(generators)-1));
+    json_array_set(json_object_get(newgen,"tags"),0,json_string(arg));
+    json_array_append(generators,newgen);
+
+    save_test(root,"ttt.txt",NULL);
+    printf("\"all went well\"");
     return 0;
 }
 
@@ -449,4 +515,3 @@ void save_test(json_t* root,const char* filename,const char* msg)
     fclose(out);
 }
 //.,$w !./tmp.c.exe > out.buf
-//http://nailbiter.insomnia247.nl/cgi-bin/tests/FC.cgi?{"command":"saveTagsEnabled","callback":"","arg":[true,false]}
