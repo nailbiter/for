@@ -170,11 +170,28 @@ function addTag()
     document.getElementById('cmdlist').selectedIndex = 0;
 }
 
-function alertAndShowTable(msg)
+function alertAndShowMain(msg)
 {
     alert(msg);
     hideAllDivs();
     mytable.hidden = false;
+}
+
+function talkToServer()
+{
+    var option = document.getElementById('cmdlist').options[document.getElementById('cmdlist').selectedIndex].value;
+    var arg = document.forms['tagedit']['arg'].value;
+    if( arg == "" )
+    {
+        alert("cannot send empty string");
+        return;
+    }
+    if( option == "commitpending" )
+    {
+        xmlRequest("alertAndShowMain",arg,"commitpending");
+        return;
+    }
+    //TODO: createtag
 }
 
 myeditform.hidden = true;

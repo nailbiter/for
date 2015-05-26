@@ -16,9 +16,20 @@ function print_test_continue()
     deleteAllChildren(document.body);
 
     var test = globalTest;
+    var filters = [];
+    for( var i = 0; i < test.generators.length; i++ )
+        if( test.generators[i].type == "meta" && test.generators[i].enabled )
+        {
+            console.log("meta tag "+i+"is enabled");
+            if( test.generators[i].hasOwnProperty("filter") )
+                for( var j = 0; j < test.generators[i].filter.length; j++ )
+                    filters.push(test.generators[i].filter[j]);
+            for( var j = 0; j < test.generators[i].enable.length; j++ )
+                test.generators[i+test.generators[i].enable[j]].enabled = true;
+        }
     for( var i = 0; i < test.generators.length; i++ )
     {
-        if( !test.generators[i].enabled )
+        if( !test.generators[i].enabled || test.generators[i].type == "meta")
             continue;
         if( test.generators[i].type == "si" )
             test.generators[i].answers = [];
@@ -27,12 +38,39 @@ function print_test_continue()
         {
             if( isQuestionMatch(test.dataitems[k].tags,test.generators[i]) )
             {
-                var q = makeQuestion(test.generators[i], test.dataitems[k]);
+                var q = makeQuestion(test.generators[i], test.dataitems[k],k);
                 if( q != null ) qs.push(q);
             }
         }
-        if( test.generators[i].hasOwnProperty("filter") ) qs = filter(qs,test.generators[i].filter);
+        //if( test.generators[i].hasOwnProperty("filter") ) qs = filter(qs,test.generators[i].filter);
         test.questions = test.questions.concat(qs);
+    }
+
+    for( var i = 0; i < filters.length; i++ )
+    {
+        if( typeof(filters[i]) === "number" )
+        {
+            if( test.questions.length > filters[i] )
+                test.questions.splice(filters[i],test.questions.length-filters[i]);
+        }
+        if( typeof(filters[i]) === "string" )
+        {
+            for( var j = 0; j < test.questions.length; j++ )
+                if( test.dataitems[test.questions[j].dataItemIndex].tags.indexOf(filters[i]) < 0 )
+                {
+                    test.questions.splice(j,1);
+                    j--;
+                }
+        }
+        if( typeof(filters[i]) === "object" && filters[i].hasOwnProperty("notags") )
+        {
+            for( var j = 0; j < test.questions.length; j++ )
+                if( test.dataitems[test.questions[j].dataItemIndex].tags.indexOf(filters[i].notags) >= 0 )
+                {
+                    test.questions.splice(j,1);
+                    j--;
+                }
+        }
     }
 
     test.selectionModeObj = makeSelectionMode(test.selectionMode, test);
@@ -172,7 +210,7 @@ function show_generators(generators,selectionModeObj,test,grade)
                     {
                         if( isQuestionMatch(test.dataitems[k].tags,generators[i]) )
                         {
-                            var q = makeQuestion(generators[i], test.dataitems[k]);//FIXME: filter here as well
+                            var q = makeQuestion(generators[i], test.dataitems[k],k);//FIXME: filter here as well
                             if( q != null )
                                 selectionModeObj.add(q);//FIXME: add/cemove questions and make selectionModeObj just an observer class
                         }
@@ -225,9 +263,10 @@ function compareQuestions(q1,q2)
     return true;
 }
 
-function makeQuestion(generator, dataItem)
+function makeQuestion(generator, dataItem,dataItemIndex)
 {
     var question = {};
+    question.dataItemIndex = dataItemIndex;
     question.question = dataItem.items[generator.from];
     question.answer = dataItem.items[generator.to];
     if( ( question.question == "" ) || ( question.answer == "" ) )
@@ -293,14 +332,17 @@ function displayNextQuestion(sm,questions,grade,fm)
     }
 
     var center = document.createElement("center");
-    var buttonContainer = document.createElement("div");
+    var buttonContainer = document.createElement("div"),
+    tagButtonContainer = document.createElement("div");
     buttonContainer.setAttribute("class","buttonContainer");
+    tagButtonContainer.setAttribute("class","buttonContainer");
     var questionText = document.createElement("div");
         questionText.setAttribute("class" , "questiontext");
     questionText.innerHTML = question.question;
     center.appendChild(questionText);
     questiondiv.appendChild(center);
     questiondiv.appendChild(buttonContainer);
+    questiondiv.appendChild(tagButtonContainer);
     if( fm != null )
     {
         var favButton = makeButtonWithTextAndOnClick(fm.isFavoriteQuestion(question) ? "★" : "☆",null);
@@ -312,8 +354,16 @@ function displayNextQuestion(sm,questions,grade,fm)
             if( question != sm.getCurrentQuestion() )
                 displayNextQuestion(sm,questions,grade,fm);
         }
-        buttonContainer.appendChild(favButton);
+        tagButtonContainer.appendChild(favButton);
     }
+
+    if( globalTest.hasOwnProperty("fixedTags") )
+        for( var i = 0; i < globalTest.fixedTags.length; i++ )
+            tagButtonContainer.appendChild(makeButtonWithTextAndOnClick(globalTest.fixedTags[i].symbol,function(j)
+                {
+                    xmlRequest("myalert",[question.dataItemIndex,globalTest.fixedTags[j].tag,window.location.search.substring(1)],"settag",true);
+                },i));
+
     for(;;)
     {
         var remButton = makeButtonWithTextAndOnClick("del",null);
@@ -331,105 +381,13 @@ function displayNextQuestion(sm,questions,grade,fm)
     }
 
     if( question.type == "sc" )
-    {
-        var buttonFlip = makeButtonWithTextAndOnClick("flip",null);
-        var buttonSkip = makeButtonWithTextAndOnClick("skip",null);
-        var buttonRF = makeButtonWithTextAndOnClick("reflip",null);
-        var wasReflippedFlag = false;
-
-        buttonFlip.onclick = function()
-        {
-            if( !wasReflippedFlag )
-            {
-                questionText.innerHTML = question.answer;
-                if( question.hasOwnProperty("reflip") && question.reflip ) buttonContainer.appendChild(buttonRF);
-                setButtonText(buttonFlip,"right");
-                setButtonText(buttonSkip,"wrong");
-                wasReflippedFlag = true;
-            }
-            else
-            {
-                var score = {};
-                score.maxScore = question.hasOwnProperty("maxScore") ? question.maxScore : 1.0;
-                score.curScore = score.maxScore;
-                callMeBack(score);
-            }
-        }
-        buttonSkip.onclick = function()
-        {
-            var score = {};
-            score.curScore = 0;
-            score.maxScore = question.hasOwnProperty("maxScore") ? question.maxScore : 1.0;
-            callMeBack(score);
-        }
-        buttonRF.onclick = function()
-        {
-            if( questionText.innerHTML == question.question )
-                questionText.innerHTML = question.answer;
-            else
-                questionText.innerHTML = question.question;
-        }
-
-        if( question.hasOwnProperty("auxText") )
-            center.insertBefore(wrapIntoParagraph(document.createTextNode(question.auxText)),center.firstChild);
-        else
-            center.insertBefore(wrapIntoParagraph(document.createTextNode("press \"flip\" to see the answer")),center.firstChild);
-        buttonContainer.insertBefore(buttonSkip,buttonContainer.firstChild);
-        buttonContainer.insertBefore(buttonFlip,buttonContainer.firstChild);
-    }
+        displayQuestionSC(question,center,buttonContainer,callMeBack,questionText)
 
     if( question.type == "ti" )
-    {
-        var buttonSubmit = makeButtonWithTextAndOnClick("submit",null);
-        var inputText = document.createElement("input");
-        inputText.type = "text";
-
-        buttonSubmit.onclick = function()
-        {
-            var score = {};
-            score.maxScore = question.hasOwnProperty("maxScore") ? question.maxScore : 1.0;
-            if( inputText.value == question.answer )
-                score.curScore = score.maxScore;
-            else
-                score.curScore = 0;
-            callMeBack(score);
-        }
-
-        buttonContainer.insertBefore(buttonSubmit,buttonContainer.firstChild);
-        buttonContainer.insertBefore(inputText,buttonContainer.firstChild);
-    }
+        displayQuestionTI(question,center,buttonContainer,callMeBack,questionText)
 
     if( question.type == "si" )
-    {
-        console.log("\t"+question.answers.size);
-        shuffle(question.answers);
-        var answersSize = (question.select == 0) ? question.answers.length : question.select;
-        var buttonSubmit = makeButtonWithTextAndOnClick("submit",null);
-        var inputSelect = document.createElement("select");
-        swapIn(question.answers,question.answers.indexOf(question.answer),answersSize);
-        console.log("==============================");
-        for( var i = 0; i < answersSize; i++ )
-        {
-            var option = document.createElement("option");
-            option.text = question.answers[i];
-            console.log(question.answers[i]);
-            inputSelect.appendChild(option);
-        }
-
-        buttonSubmit.onclick = function()
-        {
-            var score = {};
-            score.maxScore = question.hasOwnProperty("maxScore") ? question.maxScore : 1.0;
-            if( question.answers[inputSelect.selectedIndex] == question.answer )
-                score.curScore = score.maxScore;
-            else
-                score.curScore = 0;
-            callMeBack(score);
-        }
-
-        buttonContainer.insertBefore(buttonSubmit,buttonContainer.firstChild);
-        buttonContainer.insertBefore(inputSelect,buttonContainer.firstChild);
-    }
+        displayQuestionSI(question,center,buttonContainer,callMeBack,questionText)
 }
 
 function show_questions(questions,fm,selectionModeObj,grade)
@@ -564,36 +522,63 @@ function onHashChange()
         for( var i = 0; i < globalTest.generators.length; i++ )
             globalTest.generators[i].enabled = false;
         for( var i = 0; i < obj.length; i++ )
-            globalTest.generators[(( obj[i] >= 0 ) ? obj[i] : ( globalTest.generators.length + obj[i] ))].enabled = true;
+        {
+            if( typeof(obj[i]) == "number" )
+                globalTest.generators[(( obj[i] >= 0 ) ? obj[i] : ( globalTest.generators.length + obj[i] ))].enabled = true;
+            if( typeof(obj[i]) == "string" )
+            {
+                var idx = -1;
+                for( var j = 0; j < globalTest.generators.length; j++ )
+                    if( globalTest.generators[j].type == "meta" && globalTest.generators[j].name === obj[i] ) idx = j;
+                if( idx > 0 ) globalTest.generators[idx].enabled = true;
+            }
+        }
         print_test_continue();
     }
     if( location.hash.substr(1) == "tagspretty" )
     {
         var generators = globalTest.generators;
-        var names = [],numbers = [];
+        var tabarray = [];
         for( var i = 0; i < generators.length; i++ )
         {
-            if( generators[i].tags.indexOf("kanji") >= 0 ){
-                generators[i].tags.splice(generators[i].tags.indexOf("kanji"),1);
-            }
-            generators[i].tags.sort();
-            var idx = names.indexOf(JSON.stringify(generators[i].tags));
-            if( idx == -1 )
+            var size = 0;
+            if( generators[i].type == "meta" )
             {
-                names.push(JSON.stringify(generators[i].tags));
-                numbers.push([i]);
-            }
-            else
-            {
-                numbers[idx].push(i);
+                {
+                    for( var j = 0; j < generators[i].enable.length; j++ )
+                        for( var k = 0; k < globalTest.dataitems.length; k++ )
+                            if(isQuestionMatch(globalTest.dataitems[k].tags,generators[i+generators[i].enable[j]])) size++;
+                    if( generators[i].hasOwnProperty("filter") )
+                        for( var j = 0; j < generators[i].filter.length; j++ )//FIXME: this is all terribly wrong
+                        {
+                            if( typeof(generators[i].filter[j]) === "number" )
+                                size = Math.min(size,generators[i].filter[j]);
+                            if( typeof(generators[i].filter[j]) === "string" )
+                            {
+                                var size1 = 0;
+                                for( var k = 0; k < globalTest.dataitems.length; k++ )
+                                    if( globalTest.dataitems[k].tags.indexOf(generators[i].filter[j]) >= 0 ) size1++;
+                                size = Math.min(size,size1);
+                            }
+                            if( typeof(generators[i].filter[j]) === "object" && generators[i].filter[j].hasOwnProperty("notags"))
+                            {
+                                var size1 = 0;
+                                /*for( var k = 0; k < globalTest.dataitems.length; k++ )
+                                    if( isQuestionMatch(globalTest.dataitems[k].tags,generators[i+generators[i].enable[j]]) && 
+                                            globalTest.dataitems[k].tags.indexOf(generators[i].filter[j].notags) < 0 ) size1++;*/
+                                        
+                                size = Math.min(size,size1);
+                            }
+                        }
+                }
+                tabarray.push([createLink("#[\""+generators[i].name+"\"]",generators[i].name+"/"+size)]);
             }
         }
-        var tabarray = [];
-        for( var i = 0; i < names.length; i++ )
-        {
-            var link = createLink("#"+JSON.stringify(numbers[i]),names[i]);
-            tabarray.push([link]);
-        }
+        if( tabarray.length == 0 )
+            for( var i = 0; i < generators.length; i++ )
+            {
+                tabarray.push([createLink("#["+i+"]",JSON.stringify(generators[i].tags))]);
+            }
                         
         deleteAllChildren(document.body);
         var center = document.createElement("center");

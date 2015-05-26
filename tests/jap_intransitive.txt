@@ -1,60 +1,52 @@
-{
-#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
-#encoding - utf8
-#default skip_mode - random
-"selectionMode" : "shuff",
-"canListQuestions" : true,
-"favoritesModeAllowed":true,
-####
-#section 2 - quiz generator
-#taglist;qsttans;mode(sc,ti)
-"generators" : [
-{ "tags" : ["1","transit"], "from" : 0, "to" : 1,"auxTo":[3], "type" : "sc", "auxText" : "tap to see transitive (+を)" , "enabled" : true,"reflip" : true},
-{ "tags" : ["1","transit"], "from" : 0, "to" : 2,"auxTo":[3],"type" : "sc", "auxText" : "tap to see intransitive (+が)" , "enabled" : true,"reflip" : true},
-
-{ "tags" : ["2","transit"], "from" : 0, "to" : 1,"auxTo":[3], "type" : "sc", "auxText" : "tap to see transitive (+を)" , "enabled" : true,"reflip" : true},
-{ "tags" : ["2","transit"], "from" : 0, "to" : 2,"auxTo":[3],"type" : "sc", "auxText" : "tap to see intransitive (+が)" , "enabled" : true,"reflip" : true}
-],
-####
-"dataitems" : [
-
-{"items": ["open","開ける(あける)","開く(あく)","〜eru-->〜u"],"tags": ["1","transit"]},
-{"items": ["close","閉める(しめる)","閉まる(しまる)","〜e-->〜a"],"tags": ["1","transit"]},
-{"items": ["turn on","点ける(つける)","点く(つく)","〜eru-->〜u"],"tags": ["1","transit"]},
-{"items": ["turn off","消す(けす)","消える(きえる)",""],"tags": ["1","transit"]},
-{"items": ["put in","入れる(いれる)","入る(いる)",""],"tags": ["1","transit"]},
-{"items": ["take out","出す(だす)","出る(でる)","〜asu-->〜eru"],"tags": ["1","transit"]},
-{"items": ["stop","止める(とめる)","止まる(とまる)","〜e-->〜a"],"tags": ["1","transit"]},
-{"items": ["drop","落とす(おとす)","落ちる(おちる)",""],"tags": ["1","transit"]},
-{"items": ["break","壊す(こわす)","壊れる(こわれる)","す-->れる"],"tags": ["1","transit"]},
-{"items": ["fix","治す(なおす)","治る(なおる)","す-->る"],"tags": ["1","transit"]},
-{"items": ["begin","始める(はじめる)","始まる(はじまる)","〜e-->〜a"],"tags": ["1","transit"]},
-{"items": ["find","見つける(みつける)","見つかる(みつかる)","〜e-->〜a"],"tags": ["1","transit"]},
-{"items": ["change","変える(かえる)","変わる(かわる)","*〜e-->〜a"],"tags": ["1","transit"]},
-{"items": ["decide","決める(きめる)","決まる(きまる)","〜e-->〜a"],"tags": ["1","transit"]},
-{"items": ["deliver","届ける(とどける)","届く(とどく)","〜eru-->〜u"],"tags": ["1","transit"]},
-
-{"items": ["to rotate","回す(まわす)","回る(まわる)","す-->る"],"tags": ["","transit","2"]},
-{"items": ["to burn","燃やす(もやす)","燃える(もえる)","〜asu-->〜eru"],"tags": ["","transit","2"]},
-{"items": ["to move","動かす(うごかす)","動く(うごく)","〜asu-->〜u"],"tags": ["","transit","2"]},
-{"items": ["to leave","離す(はなす)","離れる(はなれる)","す-->れる"],"tags": ["","transit","2"]},
-{"items": ["to float/to become merry","","浮く(うく)",""],"tags": ["","transit","2"]},
-{"items": ["to jump out","","飛び出す(とびだす)",""],"tags": ["","transit","2"]},
-{"items": ["to open(bank account/festival/etc.)","開く--ひらく","",""],"tags": ["","transit","2"]},
-{"items": ["line up","並べる(ならべる)","並ぶ(ならぶ)","〜eru-->〜u"],"tags": ["","transit","2"]},
-{"items": ["stand","立てる(たてる)","立つ(たつ)","〜eru-->〜u"],"tags": ["","transit","2"]},
-{"items": ["fall","倒す(たおす)","倒れる(たおれる)","す-->れる"],"tags": ["","transit","2"]},
-{"items": ["dry","乾かす(かわかす)","乾く(かわく)","〜asu-->〜u"],"tags": ["","transit","2"]},
-{"items": ["increase","増やす(ふやす)","増える(ふえる)","〜asu-->〜eru"],"tags": ["","transit","2"]},
-{"items": ["decrease","減らす(へらす)","減る(へる)","〜asu-->〜u"],"tags": ["","transit","2"]},
-{"items": ["to melt","溶かす(とかす)","溶ける(とける)","〜asu-->〜eru"],"tags": ["","transit","2"]},
-{"items": ["return","戻す(もどす)","戻る(もどる)","す-->る"],"tags": ["","transit","2"]},
-{"items": ["to make bright","晴らす","晴れる","はらす","はれる","〜asu-->〜eru"],"tags": ["transit","2"]},
-{"items": ["to keep warm","温める","温まる","あたためる","あたたまる","〜e-->〜a"],"tags": ["transit","2"]},
-{"items": ["to dry","乾かす","乾く","〜asu-->〜u"],"tags": ["transit","2"]},
-{"items": ["to wet","濡らす","濡れる","〜asu-->〜eru"],"tags": ["transit","2"]},
-{"items": ["to stretch","伸ばす","伸びる","〜asu-->〜eru"],"tags": ["transit","2"]},
-{"items": ["to teach","教える","教わる","〜e-->〜a"],"tags": ["2","transit"]},
-
-{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
-]}
+# vim: set ft=fc_conf:
+{"fixedTags":
+[{"symbol": "T", "tag": "simpletrans"}, {"symbol": "I", "tag": "simpleintrans"}],
+"dataitems":
+[{"tags": ["1", "transit", "simpletrans"], "items": ["open", "開ける(あける)", "開く(あく)", "〜eru-->〜u"]},
+{"tags": ["1", "transit", "simpleintrans"], "items": ["close", "閉める(しめる)", "閉まる(しまる)", "〜e-->〜a"]},
+{"tags": ["1", "transit", "simpletrans"], "items": ["turn on", "点ける(つける)", "点く(つく)", "〜eru-->〜u"]},
+{"tags": ["1", "transit"], "items": ["turn off", "消す(けす)", "消える(きえる)", ""]},
+{"tags": ["1", "transit"], "items": ["put in", "入れる(いれる)", "入る(いる)", ""]},
+{"tags": ["1", "transit"], "items": ["take out", "出す(だす)", "出る(でる)", "〜asu-->〜eru"]},
+{"tags": ["1", "transit"], "items": ["stop", "止める(とめる)", "止まる(とまる)", "〜e-->〜a"]},
+{"tags": ["1", "transit"], "items": ["drop", "落とす(おとす)", "落ちる(おちる)", ""]},
+{"tags": ["1", "transit"], "items": ["break", "壊す(こわす)", "壊れる(こわれる)", "す-->れる"]},
+{"tags": ["1", "transit"], "items": ["fix", "治す(なおす)", "治る(なおる)", "す-->る"]},
+{"tags": ["1", "transit"], "items": ["begin", "始める(はじめる)", "始まる(はじまる)", "〜e-->〜a"]},
+{"tags": ["1", "transit"], "items": ["find", "見つける(みつける)", "見つかる(みつかる)", "〜e-->〜a"]},
+{"tags": ["1", "transit"], "items": ["change", "変える(かえる)", "変わる(かわる)", "*〜e-->〜a"]},
+{"tags": ["1", "transit"], "items": ["decide", "決める(きめる)", "決まる(きまる)", "〜e-->〜a"]},
+{"tags": ["1", "transit"], "items": ["deliver", "届ける(とどける)", "届く(とどく)", "〜eru-->〜u"]},
+{"tags": ["", "transit", "2"], "items": ["to rotate", "回す(まわす)", "回る(まわる)", "す-->る"]},
+{"tags": ["", "transit", "2"], "items": ["to burn", "燃やす(もやす)", "燃える(もえる)", "〜asu-->〜eru"]},
+{"tags": ["", "transit", "2"], "items": ["to move", "動かす(うごかす)", "動く(うごく)", "〜asu-->〜u"]},
+{"tags": ["", "transit", "2"], "items": ["to leave", "離す(はなす)", "離れる(はなれる)", "す-->れる"]},
+{"tags": ["", "transit", "2"], "items": ["to float/to become merry", "", "浮く(うく)", ""]},
+{"tags": ["", "transit", "2"], "items": ["to jump out", "", "飛び出す(とびだす)", ""]},
+{"tags": ["", "transit", "2"], "items": ["to open(bank account/festival/etc.)", "開く--ひらく", "", ""]},
+{"tags": ["", "transit", "2"], "items": ["line up", "並べる(ならべる)", "並ぶ(ならぶ)", "〜eru-->〜u"]},
+{"tags": ["", "transit", "2"], "items": ["stand", "立てる(たてる)", "立つ(たつ)", "〜eru-->〜u"]},
+{"tags": ["", "transit", "2"], "items": ["fall", "倒す(たおす)", "倒れる(たおれる)", "す-->れる"]},
+{"tags": ["", "transit", "2"], "items": ["dry", "乾かす(かわかす)", "乾く(かわく)", "〜asu-->〜u"]},
+{"tags": ["", "transit", "2"], "items": ["increase", "増やす(ふやす)", "増える(ふえる)", "〜asu-->〜eru"]},
+{"tags": ["", "transit", "2"], "items": ["decrease", "減らす(へらす)", "減る(へる)", "〜asu-->〜u"]},
+{"tags": ["", "transit", "2"], "items": ["to melt", "溶かす(とかす)", "溶ける(とける)", "〜asu-->〜eru"]},
+{"tags": ["", "transit", "2"], "items": ["return", "戻す(もどす)", "戻る(もどる)", "す-->る"]},
+{"tags": ["transit", "2"], "items": ["to make bright", "晴らす", "晴れる", "はらす", "はれる", "〜asu-->〜eru"]},
+{"tags": ["transit", "2"], "items": ["to keep warm", "温める", "温まる", "あたためる", "あたたまる", "〜e-->〜a"]},
+{"tags": ["transit", "2"], "items": ["to dry", "乾かす", "乾く", "〜asu-->〜u"]},
+{"tags": ["transit", "2"], "items": ["to wet", "濡らす", "濡れる", "〜asu-->〜eru"]},
+{"tags": ["transit", "2"], "items": ["to stretch", "伸ばす", "伸びる", "〜asu-->〜eru"]},
+{"tags": ["2", "transit"], "items": ["to teach", "教える", "教わる", "〜e-->〜a"]},
+{"tags": ["L01"], "items": ["I", "わたし - 私"]}],
+"canListQuestions":
+true,
+"selectionMode":
+"shuff",
+"generators":
+[{"tags": ["1", "transit"], "auxTo": [3], "from": 0, "notags": ["simpletrans"], "auxText": "tap to see transitive (+を)", "enabled": true, "to": 1, "reflip": true, "type": "sc"},
+{"tags": ["1", "transit"], "auxTo": [3], "from": 0, "notags": ["simpleintrans"], "auxText": "tap to see intransitive (+が)", "enabled": true, "to": 2, "reflip": true, "type": "sc"},
+{"tags": ["2", "transit"], "auxTo": [3], "from": 0, "notags": ["simpletrans"], "auxText": "tap to see transitive (+を)", "enabled": true, "to": 1, "reflip": true, "type": "sc"},
+{"tags": ["2", "transit"], "auxTo": [3], "from": 0, "notags": ["simpleintrans"], "auxText": "tap to see intransitive (+が)", "enabled": true, "to": 2, "reflip": true, "type": "sc"}],
+"favoritesModeAllowed":
+true}

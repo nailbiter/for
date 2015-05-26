@@ -14,14 +14,15 @@ set syntax=fc_conf
 		    \<line1>,<line2>s@"q"@""@eg |
 		    \<line1>,<line2>s@\[""@\["kanji"@eg | noh
 
-command! -range Hira <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple.pl
-command! -range RevHira <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple.pl rev
+command! -range Hira <line1>,<line2>!echo "`cat`" | ~/for/tests/simple.pl
+command! -range RevHira <line1>,<line2>!echo "`cat`" | ~/for/tests/simple.pl rev
 command! -range CheckKanji <line1>,<line2>g!@\["[^"]*","[^"]*","[^"]*","[^"]*","[^"]*"\],@d |noh
 command! -range Merge <line1>,<line2>!echo "`cat`" | /home/nailbiter/for/tests/simple2.pl
 command! -range On <line1>,<line2>s@false}@true}@|noh
 command! -range Off <line1>,<line2>s@true}@false}@|noh
-command! -range -nargs=1 Tag <line1>,<line2>s@tags[^\]]*\zs\ze\],@,"<args>"@ |noh
+command! -range -nargs=1 Tag <line1>,<line2>s@tags[^\]]*\zs\ze\]@,"<args>"@ |noh
 command! -range Check :w | echo <line1> | :e! | set ft=fc_conf
+command! -range -nargs=1 Cut :let @a = "" | <line1>,<line2>g@tags[^\]]*"<args>"@d A|let @" = @a|noh
 "command! ToList %s@^............@@|
 			"\g@^.[^"]@d|
 			"\%s@^.\zs.*\ze@@e |

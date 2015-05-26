@@ -1,3 +1,7 @@
+function myalert(a)
+{
+    alert("set item "+JSON.stringify(a[0])+" with tag "+a[1]);
+}
 function shuffle(array) 
 {
   var currentIndex = array.length, temporaryValue, randomIndex ;

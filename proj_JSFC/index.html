@@ -10,7 +10,7 @@
 	input { font: larger bold; }
 	canvas { background-color: black; }
 	.questiontext{margin-bottom: 15px; font-size: 24px; width: 350px; height: 50px; text-align:center; }
-	.buttonContainer{margin-left: 50%;}
+	.buttonContainer{display:block;text-align:center}
     sub {vertical-align: sub; font-size: small;}
     table, th, td {border: 1px solid black;align:center;text-align:center}
 </style>
@@ -21,6 +21,7 @@
 <script src="selectionMode.js"></script>
 <script src="favoritesManager.js"></script>
 <script src="printtest.js"></script>
+<script src="questionsLayout.js"></script>
 
 <script>
     //TODO:
@@ -55,7 +56,7 @@
 
 	var filelinks = [];
         for (var i=0; i<filenames.length; i++)
-	    filelinks.push([createLink(loc + "?" + filenames[i],filenames[i])]);
+	    filelinks.push([createLink(loc + "?" + filenames[i],filenames[i]),createLink(loc + "?" + filenames[i]+"#tagspretty","tags")]);
 
 	center.appendChild(printTable(filelinks));
 

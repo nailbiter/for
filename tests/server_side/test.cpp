@@ -17,6 +17,7 @@
 
 #include "jsmn.h"
 #include "jansson.h"
+#include "callbacks.h"
 
 #define BUFSIZE 1000
 
@@ -33,13 +34,7 @@ void serve_files(std::string& output);
 void serve_chosen_file(std::string& output,const std::string& filename);
 void trim(char** start_ptr,char* end);
 void log(const char* s);
-int decode( char** src,char** dst);
 void we_got_json(char* json_s, callback callbacks[], int callback_len);
-void save_test(json_t* root,const char* filename,const char* msg);
-int serve_a_file(char* arg);
-int write_a_file(char* arg);
-int get_hira(char* arg);
-int create_tag(char* arg);
 #define CALLBACK(fncname,cmdname)\
 {\
     sprintf(callbacks[callback_len].name, #cmdname );\
@@ -70,12 +65,14 @@ int main(void)
 {
     printf( "Content-type: application/javascript; charset=utf-8\n\n");
 
-    callback callbacks[10];
+    callback callbacks[20];
     int callback_len = 0;
     CALLBACK(serve_a_file,get);
     CALLBACK(write_a_file,write);
     CALLBACK(get_hira,hira);
     CALLBACK(create_tag,createtag);
+    CALLBACK(set_tag,settag);
+    CALLBACK(commit_pending,commitpending);
 
     if(!true)
     {
@@ -191,21 +188,6 @@ void we_got_json(char* json_s,callback callbacks[], int callback_len)
         return;
     }
 
-    //FIXME
-    if(!strncmp(json_s+starts[0],"alert",5)&&false)
-    {
-        char buf[BUFSIZE];
-        strncpy(buf,json_s+starts[2],ends[2]-starts[2]);
-        char *ptr=NULL;
-        while(strchr(buf,'"')!=NULL) *ptr='q';
-        printf("\"acknowledge getHira with %s vs %s and %d-%d-%d\"",buf,callbacks[2].name,
-            strncmp(callbacks[0].name,json_s+starts[2],strlen(callbacks[0].name)),
-            strncmp(callbacks[1].name,json_s+starts[2],strlen(callbacks[1].name)),
-            strncmp(callbacks[2].name,json_s+starts[2],strlen(callbacks[2].name))
-                );
-        return;
-    }
-
     for( int i = 0; i < callback_len; i++ )
     {
         if( !strncmp(callbacks[i].name,json_s+starts[2],strlen(callbacks[i].name)) )
@@ -300,218 +282,5 @@ void trim(char** start_ptr,char* end)
     end--;
     while( end[0] == ' ' ) end--;
     end[1] = '\0';
-}
-int decode( char** src,char** dst){
-    for(; **src!='\0' && **src!='&' && **src!='=' ;(*src)++,(*dst)++){
-        if(**src == '%'){
-            (*src)++;   char code1 = **src;
-            (*src)++;   char code2 = **src;
-            if(code1 == '2' && code2== '0') **dst = ' ';
-            else if(code1 == '2' && code2== '1') **dst = '!';//0x21
-            else if(code1 == '2' && code2== '2') **dst = '\"';
-            else if(code1 == '2' && code2== '3') **dst = '#';//0x23                                                                                  
-            else if(code1 == '2' && code2== '4') **dst = '$';//0x24                                                                                  
-            else if(code1 == '2' && code2== '5') **dst = '%';//0x25                                                                                  
-            else if(code1 == '2' && code2== '6') **dst = '&';//0x26                                                                                  
-            else if(code1 == '2' && code2== '7') { **dst = '\''; (*dst)++; **dst = '\'';}//0x27                                                      
-            else if(code1 == '2' && code2== '8') **dst = '(';//0x28                                                                                  
-            else if(code1 == '2' && code2== '9') **dst = ')';//0x29                                                                                  
-            else if(code1 == '2' && code2== 'B') **dst = '+';//0x2B                                                                                  
-            else if(code1 == '2' && code2== 'C') **dst = ',';//0x2C                                                                                  
-            else if(code1 == '2' && code2== 'F') **dst = '/';//0x2F                                                                                  
-            else if(code1 == '3' && code2== 'A') **dst = ':';//0x3A                                                                                  
-            else if(code1 == '3' && code2== 'B') **dst = ';';//0x3B                                                                                  
-            else if(code1 == '3' && code2== 'C') **dst = '<';//0x3C                                                                                  
-            else if(code1 == '3' && code2== 'D') **dst = '=';//0x3D                                                                                  
-            else if(code1 == '3' && code2== 'E') **dst = '>';//0x3E                                                                                  
-            else if(code1 == '3' && code2== 'F') **dst = '?';//0x3F                                                                                  
-            else if(code1 == '4' && code2== '0') **dst = '@';//0x40                                                                                  
-            else if(code1 == '5' && code2== 'B') **dst = '[';//0x5B                                                                                  
-            else if(code1 == '5' && code2== 'C') **dst = '\\';//0x5C                                                                                 
-            else if(code1 == '5' && code2== 'D') **dst = ']';//0x5D                                                                                  
-            else if(code1 == '5' && code2== 'E') **dst = '^';//0x5E                                                                                  
-            else if(code1 == '7' && code2== 'B') **dst = '{';//0x7B                                                                                  
-            else if(code1 == '7' && code2== 'C') **dst = '|';//0x7C                                                                                  
-            else if(code1 == '7' && code2== 'D') **dst = '}';//0x7D                                                                                  
-            else if(code1 == '7' && code2== 'E') **dst = '~';//0x7E                                                                                  
-            else if(code1 == 'A' && code2== '3') { **dst = 0xC2 ; (*dst)++; **dst = 0xA3;}//0x27                                                     
-            else if(code1 == '0' && code2== 'A') **dst = ' ';
-            else if(code1 == '0' && code2== 'D') (*dst)--;                                                                                           
-            else **dst = 16* ((code1<='9')?(code1-'0'):(10+code1-'A')) + ((code2<='9')?(code2-'0'):(10+code2-'A'));
-            //else **dst = ' ';                                                                                                                        
-        }else{                                                                                                                                       
-            **dst = **src;                                                                                                                           
-        }                                                                                                                                            
-    }                                                                                                                                                
-    if(**src == '\0') **dst='\0';
-    return 0;                                                                                                                                        
-}
-
-int serve_a_file(char* arg){
-    printf("[");
-    jsmn_parser parser;
-    jsmn_init(&parser);
-    jsmntok_t tokens[256];//FIXME: make it bigger, perhaps
-    jsmn_parse(&parser, arg,strlen(arg), tokens, 256);
-    char buf[BUFSIZE];
-
-    for( int i = 0; !i || tokens[i].start ; i++ )
-        if( tokens[i].type == JSMN_STRING )
-        {
-            strncpy(buf,arg+tokens[i].start,tokens[i].end-tokens[i].start);
-            buf[tokens[i].end-tokens[i].start]='\0';
-            std::ifstream file(buf);
-            std::string line;
-            if( file.is_open() )
-            {
-                while( getline(file,line) )
-                {
-                    if( line[0] != '#' ) //FIXME: # can be not at the beginning
-                        printf("%s\n",line.c_str());
-                }
-            }
-            file.close();
-            if( tokens[i+1].start != 0 ) printf(",");
-        }
-    printf("]");
-
-    return 0;
-}
-
-int write_a_file(char* arg)
-{
-    json_t *root;
-    json_error_t error;
-    char msg[1000];
-
-    std::ifstream file("ttt.txt");
-    std::string line,output;
-    //output += "{\"lines\":[";
-    if( file.is_open() )
-    {
-        while( getline(file,line) )
-	    {
-            if( line[0] != '#' ) //FIXME: # can be not at the beginning
-            	output += line;
-	    }
-    }
-    file.close();
-    root = json_loads(output.c_str(),0,&error);
-    if( !root || !json_is_object(root) )
-    {
-        printf("\"!root\"");
-        return 0;
-    }
-    json_t *dataitems = json_object_get(root,"dataitems"),
-           *generators = json_object_get(root,"generators");
-
-    json_t *request_root;
-    request_root = json_loads(arg, 0, &error);
-    if( !root || !json_is_array(request_root) )
-    {
-        printf("\"!request_root: %s, with error: %s\"",arg,error.text);
-        return 0;
-    }
-    int index = json_integer_value(json_array_get(request_root,0));
-    if( index >= json_array_size(dataitems) || ( index < 0 ) )
-    {
-        json_array_append(dataitems,json_array_get(request_root,1));
-        sprintf(msg,"append, so now we have %d items",json_array_size(dataitems));
-    }
-    else
-    {
-        json_array_set(dataitems,index,json_array_get(request_root,1));
-        sprintf(msg,"set item %d, so now we still have %d items",index,json_array_size(dataitems));
-    }
-
-    save_test(root,"ttt.txt",arg);
-    printf("\"%s\"",msg);
-    return 0;
-}
-
-int get_hira(char* arg)
-{
-    //printf("\"bad %s\"",arg);
-    char cmd[500];
-    sprintf(cmd,"echo \"%s\" |./kakasi -i utf8 -JH",arg);
-    FILE* res = popen(cmd,"r");
-    if( res == NULL )
-    {
-        printf("\"cannot do\"");
-        return 0;
-    }
-    char buf[500];
-    fread(buf,1,500,res);
-    char *ptr=NULL;
-    while((ptr=strchr(buf,'\n'))!=NULL) *ptr = '\0';
-    printf("\"%s\"",buf);
-    fclose(res);
-    //system(cmd);
-    return 0;
-}
-
-int create_tag(char* arg)
-{
-    std::ifstream file("ttt.txt");
-    std::string line,output;
-    //output += "{\"lines\":[";
-    if( file.is_open() )
-    {
-        while( getline(file,line) )
-	    {
-            if( line[0] != '#' ) //FIXME: # can be not at the beginning
-            	output += line;
-	    }
-    }
-    file.close();
-
-    json_error_t error;
-    json_t *root = json_loads(output.c_str(),0,&error);
-    if( !root || !json_is_object(root) )
-    {
-        printf("\"!root\"");
-        return 0;
-    }
-
-    json_t *generators = json_object_get(root,"generators");
-    json_t* newgen = json_deep_copy(json_array_get(generators,json_array_size(generators)-1));
-    json_array_set(json_object_get(newgen,"tags"),0,json_string(arg));
-    json_array_append(generators,newgen);
-
-    save_test(root,"ttt.txt",NULL);
-    printf("\"all went well\"");
-    return 0;
-}
-
-void save_test(json_t* root,const char* filename,const char* msg)
-{
-    FILE* out = fopen(filename,"w");
-    fprintf(out,"# vim: set ft=fc_conf:\n");
-    if( msg != NULL ) fprintf(out,"#%s\n",msg);
-    fprintf(out,"{");
-    const char *key;
-    json_t *value;
-
-    int i = 0, len = json_object_size(root);
-    json_object_foreach(root, key, value) 
-    {
-        i++;
-        fprintf(out,"\"%s\":\n",key);
-        if( !strcmp(key,"generators") || !strcmp(key,"dataitems") )
-        {
-            fprintf(out,"[");
-            for( int i1 = 0, len1 = json_array_size(value); i1 < len1; i1++ )
-            {
-                json_dumpf(json_array_get(value,i1),out,JSON_ENCODE_ANY);
-                if( (i1 + 1) < len1 ) fprintf(out,",\n");
-            }
-            fprintf(out,"]");
-        }
-        else
-            json_dumpf(value,out,JSON_ENCODE_ANY);
-        if( i < len ) fprintf(out,",\n");
-    }
-    fprintf(out,"}");
-    fclose(out);
 }
 //.,$w !./tmp.c.exe > out.buf

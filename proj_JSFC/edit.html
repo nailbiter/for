@@ -15,10 +15,10 @@
     <p><label for="arg">arg<label><input type="text" name="arg" id="arg"></p>
     </form>
     <p><select id="cmdlist" form="tagedit">
+      <option value="commitpending">commitpending</option>
       <option value="createtag">createtag</option>
   </select></p>
-    <p><button type="button" onclick="xmlRequest('alertAndShowTable',document.forms['tagedit']['arg'].value,
-        document.getElementById('cmdlist').options[document.getElementById('cmdlist').selectedIndex].value,'hira',true)">submit</button></p>
+    <p><button type="button" onclick="talkToServer()">submit</button></p>
 </div>
 <div id="myeditform" hidden="true">
 <form name="myForm" onsubmit="validateForm();return false;">

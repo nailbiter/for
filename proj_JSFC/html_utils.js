@@ -124,7 +124,7 @@ function wrapIntoParagraph(node)
     return oNewP;
 }
 
-function makeButtonWithTextAndOnClick(text,onclick)
+function makeButtonWithTextAndOnClick(text,onclick,data)
 {
 	if( !iOS )
 	{
@@ -140,7 +140,10 @@ function makeButtonWithTextAndOnClick(text,onclick)
 		button.type = "button";
 		button.value = text;
 	}
-    button.onclick = onclick;
+    if( typeof(data) == "undefined" )
+        button.onclick = onclick;
+    else
+        button.onclick = function(){ onclick(data); }
     return button;
 }
 
