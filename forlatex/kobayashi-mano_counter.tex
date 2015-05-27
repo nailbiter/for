@@ -1,0 +1,47 @@
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{enumerate}
+\usepackage{mystyle}
+\usepackage{amsmath}
+
+\newcommand{\diag}{\mbox{diag}}
+
+\author{Alex Leontiev, 45-146044}
+\title{Counter-example to the statement that for $G:=O(p,q)$ we have $G=P\sqcup Pw_0P$}
+\begin{document}
+\maketitle
+\textbf{Setting.} We shall take $G:=O(p,q)$ and $P:=MAN_+$ to be the maximal parabolic, as in \cite{kmano}.
+We assume that it is known that $P$ is precisely the normalizer
+of $G$-action on light cone of line $(\lambda,0,\hdots,0,\lambda),\;\lambda\in\R^{\times}$.
+We shall provide the counter-example to the statement of \cite{kmano},
+that there is a Bruhat decomposition $G=P\sqcup Pw_0P$ for element $w_0:=\diag(I_p,-I_q)$. To be consistent with the article we restrict ourselves
+to the case $p+q=2k$. We shall also require $p,q\geq2$.
+
+Note, that in fact the precise statement of the article is that $G=\overline{P}\sqcup \overline{P}w_0\overline{P}$ for maximal parabolic
+$\overline{P}:=MAN_-$. However, by taking $Ad(w_0)$ of both sides it is seen to be equivalent to the statement under consideration.
+
+To be more precise we shall show that the element $\psi_0:=\diag(J_2,I_{p+q-4},J_2)$ does not belong to neither one of the double cosets, where $J_2:=\begin{smallmatrix}0&1\\1&0\end{smallmatrix}$. Indeed, this element clearly cannot belong to $P$, as it does not stabilize the aforementioned line. In fact
+	\[\psi_0(1,0,\hdots,0,1)^T=(0,1,0,0,\hdots,0,1,0)^T\]
+Hence, if $G=P\sqcup Pw_0P$ would hold, we would have $\psi_0\in Pw_0P=N_+AMw_0MAN_+$. Now, as it is well-known, $Ad(w_0)$ normalizes
+$M$ and $A$ in this case, hence $N_+AMw_0MAN_+=N_+w_0MAN_+$ and we should have $w_0n_+\psi_0\in MAN_+$ for some $n_+\in N_+$. However, the
+latter happens iff \begin{equation}n_+(0,1,0,0,\hdots,0,1,0)^T=(1,0,0,\hdots,0,-1)\label{Eq}\end{equation}.
+
+Now, the generic form of element of $N_+$ is
+\[\begin{bmatrix}1-(\mynorm{v}^2-\mynorm{w}^2)/2&-v^T&w^T&(\mynorm{v}^2-\mynorm{w}^2)/2\\v&I_{p-1}&0&-v\\w&0&I_{q-1}&-w\\-\mynorm{v}^2/2+\mynorm{w}^2/2&
+	-v^T&w^T&1+\mynorm{v}^2/2-\mynorm{w}^2/2\end{bmatrix}\]
+	for arbitrary $v\in\R^{p-1},\;w\in\R^{q-1}$ and thus
+\[\begin{bmatrix}1-(\mynorm{v}^2-\mynorm{w}^2)/2&-v^T&w^T&(\mynorm{v}^2-\mynorm{w}^2)/2\\v&I_{p-1}&0&-v\\w&0&I_{q-1}&-w\\-\mynorm{v}^2/2+\mynorm{w}^2/2&
+	-v^T&w^T&1+\mynorm{v}^2/2-\mynorm{w}^2/2\end{bmatrix}\begin{bmatrix}0\\e_1\\e_{q-1}\\0\end{bmatrix}=
+		\begin{bmatrix}
+			w_{q-1}-v_1\\e_1\\e_{q-1}\\w_{q-1}-v_1
+		\end{bmatrix}\]
+		and thus we see that equation (\ref{Eq}) cannot be satisfied.
+\begin{thebibliography}{9}
+\bibitem{kmano}Toshiyuki Kobayashi, and Gen Mano. 
+	{\em The Schrödinger model for the minimal representation of the indefinite orthogonal group $O(p, q)$}. American Mathematical Soc., 2011.
+\end{thebibliography}
+\end{document}
