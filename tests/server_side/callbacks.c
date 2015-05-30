@@ -202,31 +202,35 @@ int create_tag(char* arg)
         return 0;
     }
 
+
     json_t *generators = json_object_get(root,"generators");
-    int genlen = json_array_size(generators);
-    json_t *usualmeta = json_array_get(generators,genlen-1);
-    json_t *usual = json_deep_copy(json_array_get(generators,genlen-2));
-    json_t *simplemeta = json_deep_copy(json_array_get(generators,genlen-3));
-    json_t *simple = json_deep_copy(json_array_get(generators,genlen-4));
+    int anchor = json_array_size(generators) - 2;
+    json_t *usualmeta = json_array_get(generators,anchor-1);
+    json_t *usual = json_deep_copy(json_array_get(generators,anchor-2));
+    json_t *simplemeta = json_deep_copy(json_array_get(generators,anchor-3));
+    json_t *simple = json_deep_copy(json_array_get(generators,anchor-4));
 
     char buf[100];
-    json_t* array = NULL;
     sprintf(buf,"%s usual",arg);
     json_object_set(usualmeta,"name",json_string(buf));
+
     char buf1[100];
     sprintf(buf1,"%s simple",arg);
     json_object_set(simplemeta,"name",json_string(buf1));
+
+    json_t* array = NULL;
     array = json_array();
     json_array_append(array,json_string(arg));
-    json_object_set(simple,"tags",array);
+    json_object_set(usual,"tags",array);
+
     array = json_array();
     json_array_append(array,json_string(arg));
     json_array_append(array,json_string("simple"));
-    json_object_set(usual,"tags",array);
+    json_object_set(simple,"tags",array);
 
-    json_array_insert(generators,genlen-1,usual);
-    json_array_insert(generators,genlen-1,simplemeta);
-    json_array_insert(generators,genlen-1,simple);
+    json_array_insert(generators,anchor-1,usual);
+    json_array_insert(generators,anchor-1,simplemeta);
+    json_array_insert(generators,anchor-1,simple);
 
     save_test(root,"ttt.txt",NULL);
     printf("\"create pack for tag %s, now gave %d generators\"",arg,json_array_size(generators));
@@ -235,6 +239,36 @@ int create_tag(char* arg)
 
 int replace_only(char* arg)
 {
+    json_error_t error;
+
+    json_t *request_root;
+    request_root = json_loads(arg, 0, &error);
+    if( !request_root || !json_is_object(request_root) )
+    {
+        printf("\"!request_root: %s, with error: %s\"",arg,error.text);
+        return 0;
+    }
+    char* from = json_string_value(json_object_get(request_root,"from")),
+            *to = json_string_value(json_object_get(request_root,"to"));
+
+    json_t* root = read_test("ttt.txt",&error);
+    if( !root ) return 0;
+
+    int ctr = 0;
+    json_t *dataitems = json_object_get(root,"dataitems");
+    for(int i = 0, len = json_array_size(dataitems); i < len; i++)
+    {
+        json_t* item = json_array_get(dataitems,i);
+        json_t* tags = json_object_get(item,"tags");
+        if( !tags || ( json_array_size(tags) > 1 ) || strcmp(json_string_value(json_array_get(tags,0)),from) )
+            continue;
+        json_array_set(tags,0,json_string(to));
+        ctr++;
+    }
+
+    save_test(root,"ttt.txt",NULL);
+    printf("\"%s->%s, %d replaced\"",from,to,ctr);
+    return 0;
 }
 
 int set_tag(char* arg)

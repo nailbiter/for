@@ -191,17 +191,17 @@ function talkToServer()
         xmlRequest("alertAndShowMain",arg,"commitpending");
         return;
     }
-    if( option == "createtag" )//TODO
+    if( option == "createtag" )
     {
         xmlRequest("alertAndShowMain",arg,option);
         return;
     }
-    if( option == "replaceonly" )//TODO
+    if( option == "replaceonly" )
     {
         var obj = {};
         obj.from = arg.substring(0,arg.indexOf(" "));
         obj.to = arg.substring(arg.indexOf(" ")+1,arg.length);
-        xmlRequest("alertAndShowMain",arg,option);
+        xmlRequest("alertAndShowMain",obj,option);
         return;
     }
 }
