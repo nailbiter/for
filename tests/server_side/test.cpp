@@ -71,6 +71,7 @@ int main(void)
     CALLBACK(write_a_file,write);
     CALLBACK(get_hira,hira);
     CALLBACK(create_tag,createtag);
+    CALLBACK(replace_only,replaceonly);
     CALLBACK(set_tag,settag);
     CALLBACK(commit_pending,commitpending);
 

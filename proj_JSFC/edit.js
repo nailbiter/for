@@ -191,7 +191,19 @@ function talkToServer()
         xmlRequest("alertAndShowMain",arg,"commitpending");
         return;
     }
-    //TODO: createtag
+    if( option == "createtag" )//TODO
+    {
+        xmlRequest("alertAndShowMain",arg,option);
+        return;
+    }
+    if( option == "replaceonly" )//TODO
+    {
+        var obj = {};
+        obj.from = arg.substring(0,arg.indexOf(" "));
+        obj.to = arg.substring(arg.indexOf(" ")+1,arg.length);
+        xmlRequest("alertAndShowMain",arg,option);
+        return;
+    }
 }
 
 myeditform.hidden = true;

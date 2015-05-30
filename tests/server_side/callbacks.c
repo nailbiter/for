@@ -203,13 +203,38 @@ int create_tag(char* arg)
     }
 
     json_t *generators = json_object_get(root,"generators");
-    json_t* newgen = json_deep_copy(json_array_get(generators,json_array_size(generators)-1));
-    json_array_set(json_object_get(newgen,"tags"),0,json_string(arg));
-    json_array_append(generators,newgen);
+    int genlen = json_array_size(generators);
+    json_t *usualmeta = json_array_get(generators,genlen-1);
+    json_t *usual = json_deep_copy(json_array_get(generators,genlen-2));
+    json_t *simplemeta = json_deep_copy(json_array_get(generators,genlen-3));
+    json_t *simple = json_deep_copy(json_array_get(generators,genlen-4));
+
+    char buf[100];
+    json_t* array = NULL;
+    sprintf(buf,"%s usual",arg);
+    json_object_set(usualmeta,"name",json_string(buf));
+    char buf1[100];
+    sprintf(buf1,"%s simple",arg);
+    json_object_set(simplemeta,"name",json_string(buf1));
+    array = json_array();
+    json_array_append(array,json_string(arg));
+    json_object_set(simple,"tags",array);
+    array = json_array();
+    json_array_append(array,json_string(arg));
+    json_array_append(array,json_string("simple"));
+    json_object_set(usual,"tags",array);
+
+    json_array_insert(generators,genlen-1,usual);
+    json_array_insert(generators,genlen-1,simplemeta);
+    json_array_insert(generators,genlen-1,simple);
 
     save_test(root,"ttt.txt",NULL);
-    printf("\"all went well\"");
+    printf("\"create pack for tag %s, now gave %d generators\"",arg,json_array_size(generators));
     return 0;
+}
+
+int replace_only(char* arg)
+{
 }
 
 int set_tag(char* arg)
