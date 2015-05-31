@@ -301,6 +301,8 @@ int set_tag(char* arg)
     return 0;
 }
 
+int remove_tag(char* arg)
+
 int commit_pending(char* arg)
 {
     json_error_t error;

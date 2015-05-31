@@ -191,6 +191,11 @@ function talkToServer()
         xmlRequest("alertAndShowMain",arg,"commitpending");
         return;
     }
+    if( option == "removetag" )
+    {
+        xmlRequest("alertAndShowMain",arg,option);
+        return;
+    }
     if( option == "createtag" )
     {
         xmlRequest("alertAndShowMain",arg,option);

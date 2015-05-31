@@ -5,3 +5,4 @@ int create_tag(char* arg);
 int replace_only(char* arg);
 int set_tag(char* arg);
 int commit_pending(char* arg);
+int remove_tag(char* arg);

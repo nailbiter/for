@@ -74,6 +74,7 @@ int main(void)
     CALLBACK(replace_only,replaceonly);
     CALLBACK(set_tag,settag);
     CALLBACK(commit_pending,commitpending);
+    CALLBACK(remove_tag,removetag);
 
     if(!true)
     {
