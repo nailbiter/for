@@ -1,0 +1,57 @@
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{enumerate}
+\usepackage{mystyle}
+\usepackage{CJKutf8}
+
+\title{Advanced Calculus Homework 2}
+\author{}
+\begin{document}
+\maketitle
+\begin{enumerate}[(1)]
+	\item So, let $[a,b]$ be the compact interval of positive length (which implies $a<b$). Take $\epsilon=1/4>0$ and assume
+		(in order to get a contradiction) that family $f_n$ is equicontinuous, hence that $\exists\delta>0$ such that 
+		\begin{equation}\forall n\forall y:\myabs{y-(a+b)/2}<\delta\implies
+			\myabs{\sin(ny)-\sin(n(a+b)/2)}<\epsilon\label{Prob1}\end{equation}
+		
+		Then, take $n$ big enough, so that $\pi/n<\delta$ and $\pi/n<(b-a)/2$. Hence, inside $(a,b)$ and $((a+b)/2-\delta,
+		(a+b)/2+\delta)$ (whatever smaller) there should be a pair of points $\pi (m-^1/_2)/n$ and $\pi(m+^1/_2)/n$. Hence, 
+		\ref{Prob1} implies $\myabs{f_n(\pi(m+1)/n)-f_n(\pi m/n)}<2\epsilon=1/2$, hence
+		$1/2>\myabs{\sin(\pi(m+^1/_2))-\sin((m-^1/_2)\pi)}=2$. Contradiction. Thus, family $f_n$ is not equicontinuous.
+	\setcounter{enumi}{3}
+\item\begin{enumerate}[(a)]
+		\item oeu
+		\item oeu
+		\item oeu
+	\end{enumerate}
+\item Let us first show that for every compact subinterval of $(a,b)$ there is a subsequence of $f_n$, that converges
+	uniformly on it. Indeed, let $[s,q]$ be such an interval. As restrictions of continuous functions $F$ and $G$ to compact
+	subinterval are bounded, we may assume $\myabs{f_n(x)},\myabs{f_n'(x)}<M$ on $[s,q]$ ($M$ independent on $x$ and $n$,
+	but may depend on $s$ or $q$). In the light of Arzel\`a-Ascoli theorem it is enough to show that $f_n$ is equicontinuous.
+	Given $\epsilon>0$ take $\delta=\epsilon/M$. Then, by mean-value theorem $\forall x,y\in[s,q],\;\myabs{s-q}<\delta\implies
+	\myabs{f_n(x)-f_n(y)}=\myabs{f_n'(c)}\myabs{x-y}<M\delta=\epsilon$, which is even stronger than the equicontinuity. This 
+	proves the stated claim.
+
+	Now, let $(r_k,p_k)$ be the enumeration of pairs of rational points in $(a,b)$, such that $r_k<p_k$. Based on previous
+	result, for $[r_1,p_1]$ we can find subsequence ${f^{(1)}_n}_n$ of $f_n$, such that it uniformly converges on $[r_1,p_1]$. Then,
+	we can take subsequence $\mycbra{
+	f^{(2)}_n}_n$ of $\mycbra{f^{(1)}_n}_n$ of $f_n$, such that it uniformly converges on $[r_2,p_2]$. Then,
+	
+	Proceeding in this way, may find sequence $\mycbra{f^{(k)}_n}_n$ of subsequences of $f_n$ such that $\mycbra{f^{(k+1)}_n}_n$ 
+	is a subsequence of $\mycbra{f^{(k)}_n}_n$ and $\mycbra{f^{(k)}_n}_n$ uniformly converges on 
+	$[r_j,p_j]$ for all $1\leq j\leq k$. Take subsequence $\mycbra{f^{(n)}_n}_n$. For any given subsequence 
+	$\mycbra{f^{(k)}_n}_n$, $\mycbra{f^{(n)}_n}_n$ becomes a subsequence of it for big $n$. Hence
+	$\mycbra{f^{(n)}_n}_n$ uniformly converges on every $[r_k,p_k]$ and we claim that it is the subsequence we've been looking for.
+
+	Indeed, for $[r,p]$ be compact subinterval of $a_b$ there are rational $r', p'$ such that $[r',p']\supset[r,p]$ and
+	since $r',p'$ are rational, they should be in our enumeration above, hence 
+	$\mycbra{f^{(n)}_n}_n$ uniformly converges on $[r',p']$, hence on $[r,p]$.
+\end{enumerate}
+%%\begin{thebibliography}{9}
+%%\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
+%%\end{thebibliography}
+\end{document}
