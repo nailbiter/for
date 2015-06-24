@@ -5,7 +5,7 @@
 (use-modules (ice-9 format))
 (use-modules (srfi srfi-1))
 
-(include "s3_aux.scm")
+(load "s3_aux.scm")
 
 (define (replace-in-file in out l) (define lines (mytokenize "\n" (read-delimited "" (open-file in "r"))))
   (define outport (open-file out "w"))

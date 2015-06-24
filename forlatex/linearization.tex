@@ -1,0 +1,62 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{enumerate}
+\usepackage{CJKutf8}
+\usepackage{enumerate}
+\usepackage{mystyle}
+\usepackage{amsmath}
+
+\newcommand{\diag}{\mbox{diag}}
+
+\author{Alex Leontiev, 45-146044}
+\title{いくつ群の線形化}
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\maketitle
+小林先生\\
+
+昨日はあの線形化の問題の答えが見つかったみたいです。
+
+とりあえず、$O(2)\times_{\det}\R$の線形化は
+\begin{equation}\mysetn{J^i\begin{bmatrix}z&0\\0&z^{-1}\end{bmatrix}}{i=0,1; z\in\C^{\times}}\subset GL_2(\C)
+\label{eq:1}\end{equation}
+($J$と言うのは)
+\[J:=\begin{bmatrix}0&1\\1&0\end{bmatrix}\]
+です。これはなぜかというと,
+\[O(2)=\mysetn{J^ix}{i=0,1;x\in SO(2)}\]
+それで
+\[J\begin{bmatrix}a&b\\-b&a\end{bmatrix}J=\begin{bmatrix}a&-b\\b&a\end{bmatrix}\]
+なので、$S^1\simeq SO(2)$ 同型を使うと
+\[O(2)=\Z_2\times_{conj}S^1\]
+($conj$と言うのは$\Z_2$のconjugation採用$(-1)\cdot z:=\overline{z}$です)
+更に,$\R=(\R,+)\simeq(\R^+,\times)$可換群Lie群の同型があるので
+\[O(2)\times_{\det}\R=(\Z_2\times_{conj}S^1)\times_{\det}\R^+=
+	\Z_2\times_{conj\times\det}(S^1\times\R^+)
+=\Z_2\times_{inv}\mathbb{C}^{\times}\]
+($inv$作用というのは$\Z_2$の$(-1)\cdot z:=z^{-1}$作用です)
+それで
+\[J\begin{bmatrix}z&0\\0&z^{-1}\\\end{bmatrix}J=\begin{bmatrix}z^{-1}&0\\0&z\\\end{bmatrix}\]
+なので$\Z_2\times_{inv}\mathbb{C}^{\times}$と$\mysetn{J^i}{i=0,1}$と$\mysetn{diag(z,z^{-1})}{z\in\C^{\times}}$
+の$GL_2(\C)$の中にの内部半直積同型になります。でも、$\mysetn{J^i}{i=0,1}$と$\mysetn{diag(z,z^{-1})}{z\in\C^{\times}}$
+の$GL_2(\C)$の中にの内部半直積は丁度\ref{eq:1}です。ちなみに、この群はWallachの簡約群の定義を満たされます。
+
+最後として、私は探していた$(^0G)^+\neq^0(G^+)$の反例は$O(2)\times_{\det}\R$ではなくて、実際には$SO(3)\times_{\det}\R$になります。
+(何故かと言うと、$O(2)\times_{\det}\R$のLie環のcenterは$\mathfrak{k}$-componentを持ちますが,
+$SO(3)\times_{\det}\R$はそうではなくて、centerは全部$\mathfrak{p}$に含まれています)
+この群も簡約群になって、線形化を持ちます。最近と同じ論理を使って、線形化は
+\[\mysetn{J^i\begin{bmatrix}r(a+bi+cj+dk)&0\\0&\frac{a-bi-cj+dk}{r}\end{bmatrix}}{i=0,1; r>0;(a+bi+cj+dk):\mbox{unit quaternion}}
+\subset GL_2(\mathbb{H})\]
+になります
+
+昨日先生は色んなアドバイスをおっしゃったことどうもありがとうございます。私のわかりにくい日本語は本当に申し訳ございません。
+
+アレックス
+\end{CJK}
+%%\begin{thebibliography}{9}
+%%\bibitem{kmano}Toshiyuki Kobayashi, and Gen Mano. 
+%%	{\em The Schrödinger model for the minimal representation of the indefinite orthogonal group $O(p, q)$}. American Mathematical Soc., 2011.
+%%\end{thebibliography}
+\end{document}
