@@ -1,0 +1,54 @@
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{enumerate}
+\usepackage{CJKutf8}
+\usepackage{mystyle}
+
+\title{Course 901-45 by Bent Ørsted\\Final Report}
+\author{Alex Leontiev, 45-146044}
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+\section{Introduction}
+As a topic for this report I've settled with solving problems 3-7 page 15-16 of \cite{met-sobolev}
+and 1-4 page 47-48 of \cite{met-fa}. Let me briefly indicate why such a choice was made. First
+, I admit that I'm not (at least, yet) directly related to the area of Pseudodifferential operators or Index Theory, and the whole
+course was rather a great training in analytic techniques (e.g. Fourier Transform, Sobolev Spaces, Schwartz spaces, PDO etc.) for me
+(from this viewpoint, IT is a particularly good mix of analysis, algebra and geometry, the great place to try one's ability at all
+of these), these are the things I'll definitely use in nearest future, perhaps just in a bit different way. Thus said, not having
+done (or doing) any research related to IT or PDO I couldn't come up with my own report topic, so I had to choose one from the list.
+
+Topics on the list upon closer inspection could be roughly divided into three categories: "more-details-with-proof", "problem-solving"
+and "topic connected with course" (e.g. especially the last two items about alternative construction of heat kernel and dets of
+Laplace-type operators). I've decided not to go with the latter, estimating my skills and time available, as well as I did not want
+to distract from the main content of the course for me: the training. On the other hand, first category seemed rather dull, as
+proofs in \cite{gilkey} are really quite detailed as for me and match well with my background
+, so I did not see much possibility there either. Nevertheless, in "Notes
+on Reading \cite{gilkey}" I've included a more detailed proofs of the few places which seemed non-trivial for me during the reading.
+
+Thus said, my only option was solving the problems. These are the content of the next section.
+\section{Problems}
+Before going to problems, let us point out that definitions in \cite{gilkey} are {\it a bit} different when compared to those
+of \cite{met-sobolev} and \cite{met-fa}, so for completeness we have explicitly 
+collected the definitions we use in section Definitions and
+Basic Properties (we'll use the ones in \cite{met-fa} and \cite{met-sobolev}) and proved the equivalence of these with \cite{gilkey}.
+\section{Notes on Reading \cite{gilkey}}
+\section{Definitions and Basic Properties}
+\begin{mydef}For $s\in\R$ we define $H^s(\R^n):=\mysetn{u\in\mathcal{S}'(\R^n)}{(1+\myabs{\xi}^2)^{s/2}\hat{u}\in L^2(\R^n)}$
+	\end{mydef}
+\begin{myremark}This definition coincides with that of \cite{gilkey}. More precisely, there $H^s(\R^n)$ is
+isomorphic to completion of $\mathcal{S}$ with respect to norm $\mynorm{u}:=\int_{\R^n}(1+\myabs{\xi}^2)^{s}\myabs{\hat{u}}^2\;d\xi
+$ as Hilbert spaces. Indeed, \end{myremark}%TODO
+\begin{thebibliography}{9}
+	\bibitem{gilkey}P. B. Gilkey, {\it Invariance Theory, The Heat Equation, and the Atiyah-Singer Index Theorem,} CRC Press 1995.
+	\bibitem{met-sobolev}Notes by Michael E. Taylor about Sobolev Spaces at \url{http://www.unc.edu/math/Faculty/met/chap4.pdf}.
+	\bibitem{met-fa}Notes by Michael E. Taylor about Outline of Functional Analysis
+		at \url{http://www.unc.edu/math/Faculty/met/appenda.pdf}.
+\end{thebibliography}
+\end{document}
+%Sobolev(R^d) is the same def --> Sobolev(M) (remark: [Gilkey:notWritten]) --> write up all defs --> Problem_1-4
