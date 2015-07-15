@@ -1,0 +1,177 @@
+\documentclass[8pt]{beamer}
+\mode<presentation>{\usetheme{Warsaw}}
+\usepackage{mystyle}
+\usepackage{amsmath}
+
+\newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
+\newcommand{\Sol}{\mbox{Sol}}
+
+\makeatletter
+\def\th@mystyle{%
+    \normalfont % body font
+    \setbeamercolor{block title example}{bg=orange,fg=white}
+    \setbeamercolor{block body example}{bg=orange!20,fg=black}
+    \def\inserttheoremblockenv{exampleblock}
+  }
+\makeatother
+\theoremstyle{mystyle}
+\newtheorem*{remark}{Remark}
+
+\title{Presentation \#1 on the Master Thesis Preparation}
+\subtitle{Alex Leontiev}
+
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+\begin{frame}{$P'/G\backslash P$}
+	\begin{theorem}[Kobayashi-Speh]\[G/P=P'[q_+]\sqcup P'[p_+]\sqcup P'[p_+]=
+		(S^n-S^{n-1})\sqcup (S^{n-1}-{p_+})\sqcup p_+\]
+		and these are pulled back to $\R^n-\R^{n-1}$, $\R^{n-1}-0$ and $0$ respectively via Bruhat parametrization and
+		only the first one is open dense in $\R^n$.
+\end{theorem}
+\begin{theorem}[$O(p,q),\;n:=(p-1)+(q-1)$]
+	\[G/P=P'[0_{p-1},1,0_{q-1},1]\sqcup P'[q+]\sqcup P'[0_{p-2},1,0,1,0_{q-1}]\sqcup P'[p_+]\sqcup P'[p_-]\]
+	and these are pulled back to $\R^n-A-B,\;B-A,\;A\cap B-{0},\;{0}$ and $A-B$ respectively via Bruhat parametrization and
+		only the first one is open dense in $\R^n$.
+Here $A:=\mycbra{x_{p-1}=0}$ and $B:=\mysetn{(x,y)\in\R^{p-1,q-1}}{\myabs{x}_{p-1}=\myabs{y}_{q-1}}$ closed subsets of $\R^n$.
+\end{theorem}
+\end{frame}
+\begin{frame}{Equations for kernels}
+\begin{theorem}[Kobayashi-Speh]Kernel of symmetry breaker is distribution $F$ on $\R^n$ satisfying
+	\[E-(\lambda-\nu-n))F=0\quad\mbox{($A'$-action)}\]
+\[(2\nu x_j+(\myabs{x}^2+x_n^2)\frac{\partial}{\partial x_j})F=0,\;1\leq j\leq n-1\quad\mbox{($N_+'$-action)}\]
+\[F(mx,x_n)=F(x,x_n),\;\forall m\in O(n-1)\quad\mbox{($M'$-action)}\]
+\[F(-\tilde{x})=F(\tilde{x})\quad\mbox{($M'$-action)}\]
+\end{theorem}
+\begin{theorem}[O(p,q)]Kernel of symmetry breaker is distribution $F$ on $\R^{(p-1)+(q-1)}=:\R^n$ satisfying
+\[E-(\lambda-\nu-n))F=0\quad\mbox{($A$-action)}\]
+\[(2\epsilon_j\nu x_j+(\myabs{x}_{p-1}^2-\myabs{y}_{q-1}^2)\frac{\partial}{\partial x_j})F=0,\;1\leq j\leq n,\;j\neq p-1\quad\mbox{
+($N'_+$-action)}\]
+\[F(x,x_{p-1},y)=F(x',x_{p-1},y'),\;(x',y'):=m(x,y)\;\forall m\in O(p-2,q-1)\quad\mbox{($M'$-action)}\]
+\[F(-\tilde{x})=F(\tilde{x})\quad\mbox{($M'$-action)}\]
+\end{theorem}
+\end{frame}
+\begin{frame}{Differential symmetry breaking operators}
+\begin{theorem}[Kobayashi-Speh]
+	Differential symmetry breakers exist only when $\lambda-\nu=0,-2,-4,\hdots$ and in that case space of
+	differential symmetry breaking operators is one-dimensional (given by Gegenbauer polynomial)
+\end{theorem}
+\begin{theorem}[$O(p,q),\;n:=(p-1)+(q-1)$]
+	literally the same
+\end{theorem}
+\end{frame}
+\begin{frame}{Lemma 6.7}
+	The lemma deals with the exact sequence
+	\[0\rightarrow \Sol_{\mycbra{0}}(\R^n)\rightarrow \Sol(\R^n)\rightarrow\Sol(\R^n-\mycbra{0})\]
+	more precisely, it explicitly constructs basis for the rightmost term.
+In my opinion, it is important to the whole argument. It's purpose is twofold:
+\begin{enumerate}
+	\item it gives good upper estimates on dimension of symmetry breakers for all parameters (unlike, given by say [Sun-Zhu]),
+		which can later be refined by showing that the rightmost morphism is zero map.
+	\item it provides clue about how kernels of symmetry breaking operators should look like, by showing how solutions should
+		look like when problem is restricted to open dense subset.
+\end{enumerate}
+\end{frame}
+\begin{frame}{Lemma 6.7}
+\begin{theorem}[Kobayashi-Speh]
+	\[\Sol(\R^n-\mycbra{0})=\C g(x_n)(\myabs{x}^2+x_n^2)^{-\nu}\], where
+	\[\mathcal{D}'(\R)\ni g(x):=\left\{\begin{array}{ll}
+				x_+^{\lambda+\nu-n}+x_-^{\lambda+\nu-n}&\mbox{if }\lambda+\nu-n\neq-1,-3,-5,\hdots\\
+				\delta^{-\lambda-\nu+n-1}(x)&\mbox{if }\lambda+\nu-n\in\mycbra{-1,-3,-5,\hdots}\\
+		\end{array}\right.\]
+\end{theorem}
+Let $Q(\cdot)$ be indefinite $(p-1,q-1)$ norm on $\R^{p-1,q-1}$.  
+Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact sequence
+\[0\rightarrow \Sol_{\mycbra{Q=0}}(\R^n)\rightarrow \Sol(\R^n)\rightarrow\Sol(
+	\mycbra{Q\neq0})\]
+\begin{theorem}[$O(p,q),\;n:=(p-1)+(q-1)$]
+	\[\Sol(\mycbra{Q\neq0})=\Sol(\mycbra{Q<0})\oplus \Sol(\mycbra{Q>0})\]
+	\[\Sol(\mycbra{Q>0})=\C g(x_p)\myabs{Q(x)}^{-\nu}\big|_{Q>0},\mbox{ if }p-1>1\]
+	\begin{multline*}\Sol(\mycbra{Q>0})=\C \myabs{x_p}^{\lambda+\nu-n}\myabs{Q(x)}^{-\nu}\big|_{Q>0},\mbox{ if }p-1=1\\
+	\mbox{(here $\myabs{x_p}^{\lambda+\nu-n}$ is the regular functional on $\R-\mycbra{0}$)}\end{multline*}
+	\[\Sol(\mycbra{Q<0})=\C\myabs{Q(x)}^{-\nu}g(x_p)\big|_{Q<0}\]
+\end{theorem}
+\end{frame}
+\begin{frame}{Lemma 6.7}
+	Trying to understand $Sol_{\mycbra{Q=0}}(\R^n)$ we are led to another exact sequence
+	\[0\rightarrow\Sol_{\mycbra{0}}(\R^n)\rightarrow\Sol_{\mycbra{Q=0}}(\R^n)\rightarrow
+		\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})\]
+\begin{theorem}
+	If $\nu\neq1$ we have $\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})=0$. Otherwise,
+	$\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})=\C\delta(\mycbra{Q=0})g(x_p)$\footnotemark
+\end{theorem}
+\begin{remark}
+	The $\nu=1$ versus $\nu\neq1$ dichotomy seems pretty strange, unnatural and I don't see where it came from. However,
+	computations that led to it seem to be correct.
+\end{remark}
+\footnotetext{this is not yet proven, so this's rather a hypothesis}
+\end{frame}
+\begin{frame}{Further work}%TODO
+	Possible approaches:
+	\begin{itemize}
+		\item Continue to mimic the argument in [Kobayashi-Speh]
+			\begin{enumerate}
+				\item Finish proof of theorem in previous slide
+				\item Renormalize $g(x_p)Q_{\pm}^{-\nu}$ and analytically continuate it to the kernel of 
+					regular symmetry breaking operator with support in $\mycbra{\pm Q\geq0}$. In particular,
+					this will show that the last morphism in
+					$0\rightarrow \Sol_{\mycbra{Q=0}}(\R^n)\rightarrow \Sol(\R^n)\rightarrow\Sol(
+					\mycbra{Q\neq0})$ can be surjective\footnotemark
+				\item try to construct as much as possible singular operators using techniques of [Kobayashi-Speh]
+				\item use logic similar to Prop 11.12 and Prop 11.13 in [Kobayashi-Speh] to show that we found 
+					{\it all} of the operators.
+			\end{enumerate}
+		\item F-method
+			\begin{enumerate}
+				\item {[done]} perform algebraic Fourier transform on the defining equations for kernel of symmetry
+					breaker. The only equation which will change substantially is the $N_+'$-action. It will
+					become second order PDE.
+				\item Read books [Slavyanov] and [Smirnov] suggested by Prof. Pevzner to find (maybe) and solve
+					equations for $N_+'$ action.
+				\item filter out among solutions to $N_+'$ action equations those that also satisfy $M'$ and $A'$
+					invariance.
+				\item make inverse algebraic Fourier transform to get explicit form of kernels
+			\end{enumerate}
+		\item Apply [Sun-Zhu]
+			\begin{enumerate}
+				\item Use data in [Howe-Tan] to find for fixed $(p,q)$ for which values of $(\lambda,\nu)$ both
+					$I(\lambda)$ is irreducible for $O(p,q)$ and $J(\nu)$ for $O(p-1,q)$.
+				\item Use the result [Sun-Zhu] to conclude that for those cases dimension of symmetry breakers
+					is no more than one.
+				\item Improve the upper bound to precise and construct explicit symmetry breakers in those cases.
+				\item see what we are left with
+			\end{enumerate}
+	\end{itemize}
+	\footnotetext{but this shouldn't be true, right? (cf. [Sun-Zhu]: space of symmetry breakers cannot be more than 1d,
+	in case both series are irreps, which happens, say, when $\nu,\lambda\notin\Z$)}
+\end{frame}
+\begin{frame}{Questions (which I'll answer myself)}
+	\begin{enumerate}
+		\item Understand the proof of Prop 11.12 of [Kobayashi-Speh]
+		\item Understand the proof of Prop 11.7 of [Kobayashi-Speh]
+		\item Understand why such normalization for $K^\mathbb{A}$ was chosen in [Kobayashi-Speh]. In particular, what
+			normalization should I take for my $g(x_p)Q_{\pm}^{-\nu}$
+	\end{enumerate}
+\end{frame}
+\begin{frame}{References}
+	\begin{itemize}
+		\item {[Sun-Zhu]} Sun, Binyong, and Chen-Bo Zhu. "Multiplicity one theorems: the Archimedean case." 
+			{\it arXiv preprint arXiv:0903.1413 (2009)}.
+		\item {[Kobayashi-Speh]} Kobayashi, Toshiyuki, and Birgit Speh. "Symmetry breaking for representations of rank one orthogonal groups." (2015).
+		\item {[Slavyanov]} Slavianov, S.I.U. \&
+			Lay, W. (2000). {\it Special Functions: A Unified Theory Based on Singularities}. Oxford University Press
+		\item {[Smirnov]} Smirnov, V.I. (1964). {\it A Course of Higher Mathematics}.
+			Pergamon Press; [U.S.A. ed. distributed by Addison-Wesley Publishing Company, Reading, Mass.
+			\item {[Howe-Tan]} Howe, Roger E., and Eng-Chye Tan. "Homogeneous functions on light cones: the infinitesimal structure of some degenerate principal series representations." Bulletin of the American Mathematical Society 28.1 (1993): 1-74.
+	\end{itemize}
+\end{frame}
+\end{document}
+
+%%\begin{frame}{Differential symmetry breaking operators}
+%%\begin{theorem}[Kobayashi-Speh]
+%%	Differential symmetry breakers exist only when $\lambda-\nu=0,-2,-4,\hdots$ and in that case space of
+%%	differential symmetry breaking operators is one-dimensional (given by Gegenbauer polynomial)
+%%\end{theorem}
+%%\begin{theorem}[$O(p,q),\;n:=(p-1)+(q-1)$]
+%%	literally the same
+%%\end{theorem}
+%%\end{frame}
