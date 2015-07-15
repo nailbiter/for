@@ -8,6 +8,8 @@
 \usepackage{CJKutf8}
 \usepackage{mystyle}
 
+\renewcommand{\S}{\mathcal{S}}
+
 \title{Course 901-45 by Bent Ørsted\\Final Report}
 \author{Alex Leontiev, 45-146044}
 \begin{document}
@@ -39,11 +41,36 @@ collected the definitions we use in section Definitions and
 Basic Properties (we'll use the ones in \cite{met-fa} and \cite{met-sobolev}) and proved the equivalence of these with \cite{gilkey}.
 \section{Notes on Reading \cite{gilkey}}
 \section{Definitions and Basic Properties}
+\begin{mydef}Given the inner product space $V$ with the inner product $\myabra{ \cdot,\cdot }$ we
+	shall call the {\bf completion of $V$} the set of Cauchy sequences in $V$ under the equivalence relation
+	$\mycbra{ v_n }\sim\mycbra{ u_n }$ if $\mynorm{ u_n-v_n }\to0$, vector space structure defined element-wise for sequences
+	and inner product defined as limit of $\myabra{ u_n,v_n }$ (latter can be seen to be Cauchy in $\C$).
+\end{mydef}
 \begin{mydef}For $s\in\R$ we define $H^s(\R^n):=\mysetn{u\in\mathcal{S}'(\R^n)}{(1+\myabs{\xi}^2)^{s/2}\hat{u}\in L^2(\R^n)}$
 	\end{mydef}
 \begin{myremark}This definition coincides with that of \cite{gilkey}. More precisely, there $H^s(\R^n)$ is
-isomorphic to completion of $\mathcal{S}$ with respect to norm $\mynorm{u}:=\int_{\R^n}(1+\myabs{\xi}^2)^{s}\myabs{\hat{u}}^2\;d\xi
-$ as Hilbert spaces. Indeed, \end{myremark}%TODO
+isomorphic to completion of $\mathcal{S}$ with respect to norm $\mynorm{u}':=\int_{\R^n}(1+\myabs{\xi}^2)^{s}\myabs{\hat{u}}^2\;d\xi
+$ as Hilbert spaces. Indeed, every element of $\S$ is naturally included in $\S'$ (we shall denote inclusion by $i:S\rightarrow S'$
+and we note that it commutes with multiplication by polynomialy bounded functions and Fourier transform) 
+and then it belongs to $H^s(\R^n)$.
+
+Moreover, we see that $L^2$ norm of $(1+\myabs{ \xi }^2)^{ s/2 }\hat{ u }$ is precisely
+$\mynorm{ u }'$ (because $(1+\myabs{ \xi }^2)^{ s/2 }\hat{i(u)}=i((1+\myabs{ \xi }^2)^{ s/2 }\hat{ u })$)
+. Hence, if $\mycbra{ u_n }$ is Cauchy sequence in $\S$ with respect to $\mynorm{ \cdot }'$, it will
+also be Cauchy in $H^s(\R^n)$ and thus (due to the completeness of $L^2(\R^n)$)
+$\mycbra{ (1+\mynorm{ \xi }^2)^{ s/2 }\hat{ u_n } }$ converges to unique
+$f\in L^2(\R^n)$. But then $f\in\S'\supset L^2(\R^n)$ and hence $(1+\mynorm{ \xi }^2)^{ -s/2 }f\in\S'$ as well. 
+
+Thus, the inverse Fourier Transform of the latter is an element of $H^s(\R^n)$ and $u_n$ converges to it in norm of $H^s(\R^n)$.
+We shall consider so constructed limit of $u_n$ in $H^s(\R^n)$ as corresponding to the Cauchy sequence $u_n\in\S$.
+The equality of $\mynorm{ \cdot }'$ and norm of $H^s(\R^n)$
+implies that the mapping will give the same element for two $\mynorm{ \cdot }'$-Cauchy
+sequences $\mycbra{ u_n }$ and $\mycbra{ u_n' }$ in $\S$, if $\mynorm{ u_n-u_n' }\to0$. Hence, the above construction is
+a well-defined unitary map from the completion of $\S$ with respect to $\mynorm{ \cdot }'$ to $H^s(\R^n)$, the map which we'll
+denote by $T$. It remains to show that it is onto (injectivity is granted by unitarity).
+
+So let $u\in H^s(\R^n)$
+\end{myremark}
 \begin{thebibliography}{9}
 	\bibitem{gilkey}P. B. Gilkey, {\it Invariance Theory, The Heat Equation, and the Atiyah-Singer Index Theorem,} CRC Press 1995.
 	\bibitem{met-sobolev}Notes by Michael E. Taylor about Sobolev Spaces at \url{http://www.unc.edu/math/Faculty/met/chap4.pdf}.
@@ -51,4 +78,9 @@ $ as Hilbert spaces. Indeed, \end{myremark}%TODO
 		at \url{http://www.unc.edu/math/Faculty/met/appenda.pdf}.
 \end{thebibliography}
 \end{document}
-%Sobolev(R^d) is the same def --> Sobolev(M) (remark: [Gilkey:notWritten]) --> write up all defs --> Problem_1-4
+%Sobolev(R^d) is the same def--> 
+%Sobolev(M) (remark: [Gilkey:notWritten]) --> 
+%write up all defs --> 
+%Problem_1-4
+%Problem 5-8
+%read book --> write up book reading problems
