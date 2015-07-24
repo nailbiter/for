@@ -38,7 +38,8 @@ endfunction
 ":imap <S-Tab> <Space>}
 ":imap <S-Tab> <C-R>=expand('%:p:h')<CR>
 :imap <S-Tab> {  }<Left><Left>
-":imap <S-Tab> <C-R>=expand('%:p:h') | @echo tesi<CR>
+":imap  <C-R>={ '\<C-W>' }<CR>
+":imap <S-Tab> <C-R>=expand('%:p:h') | @echo tesi<CR>oue
 
 "autocmd BufNewFile	*.spec	call SKEL_spec()
 " filetypes

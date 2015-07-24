@@ -36,15 +36,15 @@ Here $A:=\mycbra{x_{p-1}=0}$ and $B:=\mysetn{(x,y)\in\R^{p-1,q-1}}{\myabs{x}_{p-
 \end{theorem}
 \end{frame}
 \begin{frame}{Equations for kernels}
-\begin{theorem}[Kobayashi-Speh]Kernel of symmetry breaker is distribution $F$ on $\R^n$ satisfying
+\begin{theorem}[Kobayashi-Speh]Kernel of symmetry breaker is distribution $F$ on $\R^n$ satisfies
 	\[E-(\lambda-\nu-n))F=0\quad\mbox{($A'$-action)}\]
 \[(2\nu x_j+(\myabs{x}^2+x_n^2)\frac{\partial}{\partial x_j})F=0,\;1\leq j\leq n-1\quad\mbox{($N_+'$-action)}\]
 \[F(mx,x_n)=F(x,x_n),\;\forall m\in O(n-1)\quad\mbox{($M'$-action)}\]
 \[F(-\tilde{x})=F(\tilde{x})\quad\mbox{($M'$-action)}\]
 \end{theorem}
-\begin{theorem}[O(p,q)]Kernel of symmetry breaker is distribution $F$ on $\R^{(p-1)+(q-1)}=:\R^n$ satisfying
+\begin{theorem}[O(p,q), $Q(\cdot)$ denotes indefinite $(p-1,q-1)$-norm on $\R^{ p,q }$]Kernel of symmetry breaker is distribution $F$ on $\R^{(p-1)+(q-1)}=:\R^n$ satisfies
 \[E-(\lambda-\nu-n))F=0\quad\mbox{($A$-action)}\]
-\[(2\epsilon_j\nu x_j+(\myabs{x}_{p-1}^2-\myabs{y}_{q-1}^2)\frac{\partial}{\partial x_j})F=0,\;1\leq j\leq n,\;j\neq p-1\quad\mbox{
+\[(2\epsilon_j\nu x_j+Q(x)\frac{\partial}{\partial x_j})F=0,\;1\leq j\leq n,\;j\neq p-1\quad\mbox{
 ($N'_+$-action)}\]
 \[F(x,x_{p-1},y)=F(x',x_{p-1},y'),\;(x',y'):=m(x,y)\;\forall m\in O(p-2,q-1)\quad\mbox{($M'$-action)}\]
 \[F(-\tilde{x})=F(\tilde{x})\quad\mbox{($M'$-action)}\]
@@ -162,7 +162,25 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 		\item {[Smirnov]} Smirnov, V.I. (1964). {\it A Course of Higher Mathematics}.
 			Pergamon Press; [U.S.A. ed. distributed by Addison-Wesley Publishing Company, Reading, Mass.
 			\item {[Howe-Tan]} Howe, Roger E., and Eng-Chye Tan. "Homogeneous functions on light cones: the infinitesimal structure of some degenerate principal series representations." Bulletin of the American Mathematical Society 28.1 (1993): 1-74.
+		\item {[Gelfand-Shilov I]} Gelfand, I.M. \& Shilov, G.E. (1969).
+				{\it Generalized Functions. Vol. 1: Properties and Operations}. New York
 	\end{itemize}
+\end{frame}
+\begin{frame}{Appendix (1)}
+	\setbeamercolor{block title}{bg=brown,fg=white}
+	\setbeamercolor{block body}{bg=brown!20,fg=black}
+	\begin{block}{Proposition (based on [Gelfand-Shilov I])}
+		Given $\lambda\in\C$, regular distribution $Ax^\lambda\big|_{ \mycbra{ x>0 } }+B(-x)^\lambda\big|_{ \mycbra{ x<0 } }$
+		on $\R-\mycbra{ 0 }$
+		extends to distribution on $\R$, unless $\lambda=-n\in-\Z_{ >0 }$ and $A+(-1)^{ n+1 }B\neq0$\footnotemark.
+	\end{block}
+	\begin{block}{Proposition (based on [Gelfand-Shilov I])}
+		For fixed $\lambda\in C$, $f\in\mathcal{D}(\R-\mycbra{ 0 })$ satysfying $x\frac{d}{dx}f=\lambda f$ has
+		general form $Ax^\lambda\big|_{ \mycbra{ x>0 } }+B(-x)^\lambda\big|_{ \mycbra{ x<0 } }$. It extends
+		to a distribution on $\R$ satysfing the same equation, unless $\lambda=-n\in-\Z_{ >0 }$ and $A+(-1)^{ n+1 }B\neq0$.
+	\end{block}
+	\footnotetext{extension is given be $Ax_+^\lambda+Bx_-^\lambda$ with $x_{ \pm }^\lambda$ as in [Gelfand-Shilov I] for 
+	$\lambda\notin-\Z_{ >0 }$, and $A\mybra{x_+^{ -n }+(-1)^nx_-^{ -n }}+B\delta^{ (n-1) }$ for $\lambda=-n\in-\Z_{ >0 }$.}
 \end{frame}
 \end{document}
 
