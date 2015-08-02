@@ -94,31 +94,62 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 \begin{frame}{Lemma 6.7}
 	Trying to understand $Sol_{\mycbra{Q=0}}(\R^n)$ we are led to another exact sequence
 	\[0\rightarrow\Sol_{\mycbra{0}}(\R^n)\rightarrow\Sol_{\mycbra{Q=0}}(\R^n)\rightarrow
-		\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})\]
+	\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})\]
+
 \begin{theorem}
-	If $\nu\neq1$ we have $\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})=0$. Otherwise,
-	$\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})=\C\delta(\mycbra{Q=0})g(x_p)$\footnotemark
+	If $\nu\notin\Z_{ >0 }$ we have $\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})=0$. Otherwise,
+	in $(\mu,s,\omega_{ p-2 },\omega_{ q-2 })$ coordinates\footnotemark
+	$\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})=\C\delta^{ (\nu-1) }(\mu-1)
+	\otimes s^{-\nu }u$, where $u\in\mathcal{ D }'(\R_{ >0 }\times\mathbb{ S }^{ p-2 })$
+	is a pullback of $g(x_{ p-1 })$ via the polar coordinate change\footnotemark
 \end{theorem}
 \begin{remark}
-	The $\nu=1$ versus $\nu\neq1$ dichotomy seems pretty strange, unnatural and I don't see where it came from. However,
-	computations that led to it seem to be correct.
+	For fixed $\nu\in\Z_{ >0 }$
+	the non-trivial element of $\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})$ for $\lambda\in\C$ such that 
+	$\Re(\lambda+\nu)>n-1$ and $\Re(\lambda-\nu)>0$ can be extended to the generalized function on the whole $\R^n$,
+	but I \textbf{do not} know yet whether it extends to a kernel of an intertwiner.
 \end{remark}
-\footnotetext{this is not yet proven, so this's rather a hypothesis}
+\footnotetext{ $\R^{ p-1}\times\R^{ q-1 }\ni(x,y)=(\sqrt{ s }\omega_{ p-2 },\sqrt{ \mu s }\omega_{ q-1 })$}
+\footnotetext{ $\R^{ p-1}\setminus\mycbra{ 0 }\ni x=\sqrt{ s }\omega_{ p-1 }$}
+\end{frame}
+\begin{frame}{$K$-finite vectors in non-compact picture}
+\begin{theorem}[Kobayashi-Speh; Proposition 4.3]
+	The $K$-finite vectors in non-compact picture are equal to
+	\[\C\myabra{ F_\lambda[\psi,h]:N\in\Z_{ \geq0 },\;\psi\in\mathcal{ H }^N(\mathbb{ S }^{ n-1 }),\;h\in\C[s] }.\]
+	where
+	\[F_\lambda[\psi,h](r\omega):=(1+r^2)^{ -\lambda }\mybra{ \frac{ 2r }{ 1+r^2 } }^N\psi(\omega)h\mybra{\frac{ 1-r^2 }{1+r^2}}\]
+\end{theorem}
+\begin{theorem}[$O(p,q),\;n:=(p-1)+(q-1)$]
+	The $K$-finite vectors in non-compact picture are contained in
+	\[\C\myabra{ F_\lambda[\psi,\psi',N,M,n',m']:N,M,n',m'\in\Z_{ \geq0 },
+	\;\psi\in\mathcal{ H }^N(\mathbb{ S }^{ p-2 }),\;\psi'\in\mathcal{ H }^M(\mathbb{ S }^{ q-2 }) }.\]
+	where
+	\[F_\lambda[\psi,\psi',N,M,n',m'](r\omega_{ p-1 },r\sqrt{ \mu }\omega_{ q-1 }):=\]
+	\[:=R(r,\mu)^\Theta\psi(\omega_{ p-1 })\psi'(\omega_{ q-1 })(2r)^{ M+N }\mu^{ M/2 }(1-r^2(1-\mu))^{ n' }(1+r^2(1-\mu))^
+	{m'/2}\]
+	where
+	\[\Theta:={ -\lambda/2-N/2-n'/2-M/2-m'/2 }\]
+	\[R(r,\mu)=1+2(\mu+1)r^2+(\mu-1)^2r^4\]
+\end{theorem}
 \end{frame}
 \begin{frame}{Further work}%TODO
 	Possible approaches:
 	\begin{itemize}
 		\item Continue to mimic the argument in [Kobayashi-Speh]
 			\begin{enumerate}
-				\item Finish proof of theorem in previous slide
-				\item Renormalize $g(x_p)Q_{\pm}^{-\nu}$ and analytically continuate it to the kernel of 
-					regular symmetry breaking operator with support in $\mycbra{\pm Q\geq0}$. In particular,
-					this will show that the last morphism in
-					$0\rightarrow \Sol_{\mycbra{Q=0}}(\R^n)\rightarrow \Sol(\R^n)\rightarrow\Sol(
-					\mycbra{Q\neq0})$ can be surjective\footnotemark
-				\item try to construct as much as possible singular operators using techniques of [Kobayashi-Speh]
-				\item use logic similar to Prop 11.12 and Prop 11.13 in [Kobayashi-Speh] to show that we found 
-					{\it all} of the operators.
+				\item verify that the regularization of non-trivial element of $\Sol_S(\R^n\setminus\mycbra{ 0 })$
+					is indeed a kernel of an intertwiner
+				\item see how it acts on $K$-finite vectors and where the poles are
+				\item Renormalize it and analytically continuate it to the kernel of 
+					regular symmetry breaking operator with support in $S$
+				\item use logic similar to Prop 11.12 and Prop 11.13 in [Kobayashi-Speh] to 
+					the question of when the last morphism
+	$0\rightarrow\Sol_{\mycbra{0}}(\R^n)\rightarrow\Sol_{\mycbra{Q=0}}(\R^n)\rightarrow
+	\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})$
+	is onto
+				\item go on to consider 
+				$0\rightarrow\Sol_{\mycbra{ Q=0 }}(\R^n)\rightarrow\Sol(\R^n)\rightarrow
+				\Sol(\mycbra{Q\neq0})$
 			\end{enumerate}
 		\item F-method
 			\begin{enumerate}
@@ -141,15 +172,11 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 				\item see what we are left with
 			\end{enumerate}
 	\end{itemize}
-	\footnotetext{but this shouldn't be true, right? (cf. [Sun-Zhu]: space of symmetry breakers cannot be more than 1d,
-	in case both series are irreps, which happens, say, when $\nu,\lambda\notin\Z$)}
 \end{frame}
 \begin{frame}{Questions (which I'll answer myself)}
 	\begin{enumerate}
 		\item Understand the proof of Prop 11.12 of [Kobayashi-Speh]
 		\item Understand the proof of Prop 11.7 of [Kobayashi-Speh]
-		\item Understand why such normalization for $K^\mathbb{A}$ was chosen in [Kobayashi-Speh]. In particular, what
-			normalization should I take for my $g(x_p)Q_{\pm}^{-\nu}$
 	\end{enumerate}
 \end{frame}
 \begin{frame}{References}
