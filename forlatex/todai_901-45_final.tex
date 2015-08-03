@@ -10,6 +10,7 @@
 
 \renewcommand{\S}{\mathcal{S}}
 \newcommand{\mIndex}{\mbox{Index}\;}
+\def \hat {\widehat}
 
 \title{Course 901-45 by Bent Ørsted\\Final Report}
 \author{Alex Leontiev, 45-146044}
@@ -31,8 +32,9 @@ and "topic connected with course" (e.g. especially the last two items about alte
 Laplace-type operators). I've decided not to go with the latter, estimating my skills and time available, as well as I did not want
 to distract from the main content of the course for me: the training. On the other hand, first category seemed rather dull, as
 proofs in \cite{gilkey} are really quite detailed as for me and match well with my background
-, so I did not see much possibility there either. Nevertheless, in "Notes
-on Reading \cite{gilkey}" I've included a more detailed proofs of the few places which seemed non-trivial for me during the reading.
+, so I did not see much possibility there either.
+%%Nevertheless, in "Notes
+%%on Reading \cite{gilkey}" I've included a more detailed proofs of the few places which seemed non-trivial for me during the reading.
 
 Thus said, my only option was solving the problems. These are the content of the next section.
 \section{Problems}
@@ -109,47 +111,121 @@ only considering $T_{ E_{\pm1} }$ would be sufficient. To see this latter statem
 $ as was shown above (where we assume $\hat{ f }(k)=0$ for negative $k$). Hence (we again put
 $\hat{ g }(k)=0$ for negative $k$)
 , $\myabra{ T_{ E_k }f,g }=
-\sum_{ n\in\Z }\hat{ f }(n-k)\overline{ \hat{ g }(n) }=\sum_{ n\in\Z }\hat{ f }(n)\overline{ \hat{ g }(n+k) }$.
-
-%%\myprobshort{Problem 3, p.15, \cite{met-sobolev}}{Consider the projection $P$ defined by \[Pf(\theta)=\sum_{ n=0 }^\inftyueueu
-%%	\hat{f}(n)e^{ in\theta },\;\hat{ f }(k)=\frac{ 1 }{ 2\pi }\int_{ S^1 }f(\theta)e^{ -ik\theta }\;d\theta\]
-%%	Show that $P:H^s(S^1)\to H^s(S^1)$ for all $s\in\R$.
-%%}
-%%Indeed, let us first assume that $f\in C^\infty(S^1)$. Fourier inversion formula proven in \cite[Corollary 1.2]{met-fourier}
-%%tells us that $Pf=f$ and hence $\mynorm{ Pf }_s=\mynorm{ f }_s$. Now, as $H_s(M)$ is defined as closure of
-%%$C^\infty(M)$ with respect to $\mynorm{ \cdot}_s$ in \cite{gilkey}, the result follows as any $\mynorm{ \cdot }_s$-Cauchy
-%%sequence $f_n\in C^\infty(S^1)$ will be transformed by $P$ to the very same sequence, which will hence define the same element
-\section{Notes on Reading \cite{gilkey}}
+\sum_{ n\in\Z }\hat{ f }(n-k)\overline{ \hat{ g }(n) }=\sum_{ n\in\Z }\hat{ f }(n)\overline{ \hat{ g }(n+k) }=\myabra{ f,T_{ E_{ -k }
+} g}$.\par
+Nevertheless, despite what was said above, we now do calculations for $\mIndex T_{ E_k }$ explicitly by describing
+$\Ker T_{ E_k }$ and using the formula $\mIndex T_{ E_k }=\Ker T_{ E_k }-\Ker T^*_{ E_k }=\Ker T_{ E_k }-\Ker T_{ E_{ -k } }$,
+supported by the observation above that $T^*_{ E_k }=T_{ E_{ -k } }$. As was shown above, $T_{ E_n }\mybra{ \sum_{ k\in\Z } 
+\hat{ f }(k)e^{ ik\theta }}=\sum_{ k\geq0 }\hat{ f }(k-n)e^{ ik\theta }$ and for the latter to be zero we need
+$\hat{ f }(k)=0$ for $\forall k\geq -n$. Hence if $n\geq0$ we have $\Ker T_{ E_n }=0$, while for $n<0$ we will have
+$\Ker T_{ E_n }$ having basis $\mycbra{ E_i }_{ i=0}^{ -n-1 }$, hence forming an $n$-dimensional vector space. Thus said,
+$\mIndex T_{ E_n }=-n$.
+\myprobshort{Problem 3, p.15, \cite{met-sobolev}}{Consider the projection $P$ defined by \[Pf(\theta)=\sum_{ n=0 }^\infty
+	\hat{f}(n)e^{ in\theta },\;\hat{ f }(k)=\frac{ 1 }{ 2\pi }\int_{ S^1 }f(\theta)e^{ -ik\theta }\;d\theta\]
+	Show that $P:H^s(S^1)\to H^s(S^1)$ for all $s\in\R$.
+}
+As shown in \cite{met-sobolev} (specializing to $\mathbb{ T }^1=S^1$ case), $u\in H^s(S^1)\iff 
+\sum_{ m\in\Z }\myabs{ \hat{ u }(m) }^2(1+m^2)^s<\infty$
+. Now, if we let $f=Pu$ we see (by the uniqueness of Fourier coefficients) that $\hat{ f }(n)=0$ for $n<0$
+and $\hat{ f }(n)=\hat{ u }(n)$ for $n\geq0$. Thus, if $u\in H^s(S^1)$, then $
+\sum_{ m\in\Z }\myabs{ \hat{ f }(m) }^2(1+m^2)^s=\sum_{ m\geq0 }\myabs{ \hat{ u }(m) }^2(1+m^2)^s\leq
+\sum_{ m\in\Z }\myabs{ \hat{ u }(m) }^2(1+m^2)^s<\infty$, hence $f\in H^s(S^1)$.
+\myprobshort{Problem 4, p.15, \cite{met-sobolev}}{For $a\in C^\infty(S^1)$ let $M_af(\theta)=a(\theta)f(\theta)$ (hence $M_a:
+	H^s(S^1)\to H^s(S^1)$). Consider the commutator $\mysbra{ P,M_a }=PM_a-M_aP$ and show that
+	\[\mysbra{ P,M_a }f=\sum_{ k\geq0,m>0 }\hat{ a }(k+m)\hat{ f }(-m)e^{ ik\theta }-
+	\sum_{ k>0,m\geq0 }\hat{ a }(-k-m)\hat{ f }(m)e^{ -ik\theta }\]
+	and deduce that $[P,M_a]:H^s(S^1)\to H^s(S^1)$ for any $s\in\R$.}
+	Indeed, $PM_af=\sum_{ k\geq0 }\hat{ af }(k)e^{ ik\theta }=\sum_{ k\geq0 }\sum_{ n\in\Z }\hat{a}(k-n)\hat{f}(n)e^{ ik\theta }$
+	On the other hand, $M_aPf=\sum_{ k\in\Z }\widehat{ a\cdot Pf }(k)e^{ ik\theta }=
+	\sum_{ k\in\Z }\sum_{ n\in\Z }\hat{ a }(k-n)\hat{ Pf }(n)e^{ ik\theta }=
+	\sum_{ k\in\Z }\sum_{ n\geq0 }\hat{ a }(k-n)\hat{ f }(n)e^{ ik\theta }
+	$. Thus
+	\[\mysbra{ P,M_a }f=
+	\sum_{ k\geq0 }\sum_{ n\in\Z }\hat{a}(k-n)\hat{f}(n)e^{ ik\theta }
+-\sum_{ k\in\Z }\sum_{ n\geq0 }\hat{ a }(k-n)\hat{ f }(n)e^{ ik\theta }=\]
+\[=
+	\sum_{ k\geq0 }\sum_{ n<0 }\hat{a}(k-n)\hat{f}(n)e^{ ik\theta }
+-\sum_{ k<0 }\sum_{ n\geq0 }\hat{ a }(k-n)\hat{ f }(n)e^{ ik\theta }=\]
+\[
+	\sum_{ k\geq0 }\sum_{ n>0 }\hat{a}(k+n)\hat{f}(-n)e^{ ik\theta }
+-\sum_{ k>0 }\sum_{ n\geq0 }\hat{ a }(-k-n)\hat{ f }(n)e^{ -ik\theta }
+\]
+(manipulations with sums are justified by the fact that
+as $a\in C^\infty(S^1)$ we have $\forall N,\;\sup_{ k\in\Z }(1+k^2)^{ N/2 }\myabs{ \hat{ a }(k) }<\infty$) and
+this gives the desired formula
+$\mysbra{ P,M_a }f=\sum_{ k\geq0,m>0 }\hat{ a }(k+m)\hat{ f }(-m)e^{ ik\theta }-
+\sum_{ k>0,m\geq0 }\hat{ a }(-k-m)\hat{ f }(m)e^{ -ik\theta }$\par
+Now, we want to show that $\mysbra{ P,M_a }f\in C^\infty(S^1)$, which is equivalent to showing that for any $N>0\;\exists c_N$ such
+that
+\begin{equation}\label{Prob6}\forall k\geq0,\;
+	(1+k^2)^{ N/2 }\myabs{\sum_{ m>0 }\hat{ a }(k+m)\hat{ f }(-m)}+(1+k^2)^{ N/2 }
+	\myabs{\sum_{ m\geq0 }\hat{ a }(-k-m)\hat{ f }(m)}<c_N
+\end{equation}
+(we've consciously increased the constant term of $[P,M_a]f$ to make formula more symmetric).
+This is not difficult, as ($a\preceq b$ is used to denote the $a\leq C\cdot b+B$, where $B$ and $C$ do not depend on $m$ or $k$), 
+\[(1+k^2)^{ N/2 }\myabs{\sum_{ m>0 }\hat{ a }(k+m)\hat{ f }(-m)}\preceq
+	(1+k^2)^{ N/2 }\sum_{ m>0 }
+\myabs{ \hat{ a }(k+m)(1+m^2)^{ -s/2}}^2\cdot\sum_{m>0}\myabs{\hat{f}(-m)}^2(1+m^2)^{ s}\preceq\]
+\[\preceq 
+(1+k^2)^{ N/2 }\sum_{ m>0 }\myabs{ \hat{ a }(k+m)}^2(1+m^2)^{ -s}\preceq\]
+\[\preceq\sum_{ m>0 }\myabs{ \hat{ a }(k+m)}^2(1+(m+k)^2)^{ \myabs{ s }+N/2+1}\frac{ 1 }{ 1+(m+k)^2 }\preceq
+	\sum_{ m>0 }\frac{ 1 }{ 1+(m+k)^2 }
+\]
+and as the last term is uniformly bounded in $k$, we
+see that the first addend on the left hand side of \ref{Prob6} is uniformly bounded in $k$. Similarly, so does
+the second one, thus ending the proof.
+\myprobshort{Problem 5, p.15, \cite{met-sobolev}}{Let $a_j,\,b_j\in C^\infty(S^1)$, and consider $T_j:=M_{ a_j }P+M_{ b_j }(I-P).$
+	Show that \[T_1T_2=M_{ a_1a_2 }P+M_{ b_1b_2 }(I-P)+R\]
+	where for each $s\in\R$ we have $R:H^s(S^1)\to C^\infty(S^1)$.
+}
+Indeed, as the previous problem tells us, modulo the "infinitely smoothing operators" (i.e. the linear space of operators
+$H$ such that $\forall s\in\R$ we have $H:H^s(S^1)\to C^\infty(S^1)$) $P$ and $M_a$ commute for $a\in C^\infty(S^1)$
+(hence $M_a$ also commutes with $I-P$ modulo "infinitely smoothing operators"). Hence,
+modulo "infinitely smoothing operators" we can write
+\[T_1T_2-(M_{ a_1a_2 }P+M_{ b_1b_2 }(I-P))\equiv(M_{ a_1 }P+M_{ b_1 }(I-P))(M_{ a_2 }P+M_{ b_2 }(I-P))
+-(M_{ a_1a_2 }P+M_{ b_1b_2 }(I-P))\equiv\]
+\[\equiv M_{ a_1 }M_{ a_2 }P^2+M_{ b_1 }M_{ a_2 }(I-P)P+M_{ a_1 }M_{ b_1 }P(I-P)+M_{ b_1 }M_{ b_1 }(I-P)^2
+-(M_{ a_1a_2 }P+M_{ b_1b_2 }(I-P))\]
+and since $M_{ a_1 }M_{ a_2 }=M_{ a_1a_2 }$, $M_{ b_1 }M_{ b_2 }=M_{ b_1b_2 }$, $P(I-P)=(I-P)P=0$, $P^2=P$ and $(I-P)^2=I-P$
+this implies that
+\[M_{ a_1 }M_{ a_2 }P^2+M_{ b_1 }M_{ a_2 }(I-P)P+M_{ a_1 }M_{ b_1 }P(I-P)+M_{ b_1 }M_{ b_1 }(I-P)^2-(M_{ a_1a_2 }P+M_{ b_1b_2 }(I-P))\equiv0\]
+and this is just the desired conclusion.
 \section{Definitions and Basic Properties}
 \begin{mydef}Given the inner product space $V$ with the inner product $\myabra{ \cdot,\cdot }$ we
 	shall call the {\bf completion of $V$} the set of Cauchy sequences in $V$ under the equivalence relation
 	$\mycbra{ v_n }\sim\mycbra{ u_n }$ if $\mynorm{ u_n-v_n }\to0$, vector space structure defined element-wise for sequences
 	and inner product defined as limit of $\myabra{ u_n,v_n }$ (latter can be seen to be Cauchy in $\C$).
 \end{mydef}
-\begin{mydef}For $s\in\R$ we define $H^s(\R^n):=\mysetn{u\in\mathcal{S}'(\R^n)}{(1+\myabs{\xi}^2)^{s/2}\hat{u}\in L^2(\R^n)}$
+\begin{mydef}For $s\in\R$ we define 
+	$H^s(\R^n)$ to be the completion of $\mathcal{ S }$ with respect to the norm
+	$\mynorm{u}':=\int_{\R^n}(1+\myabs{\xi}^2)^{s}\myabs{\hat{u}}^2\;d\xi$
 	\end{mydef}
-\begin{myremark}This definition coincides with that of \cite{gilkey}. More precisely, there $H^s(\R^n)$ is
-isomorphic to completion of $\mathcal{S}$ with respect to norm $\mynorm{u}':=\int_{\R^n}(1+\myabs{\xi}^2)^{s}\myabs{\hat{u}}^2\;d\xi
-$ as Hilbert spaces. Indeed, every element of $\S$ is naturally included in $\S'$ (we shall denote inclusion by $i:S\rightarrow S'$
+\begin{myremark}This definition coincides with that of \cite{met-sobolev}. More precisely, $H^s(\R^n)$ is
+isomorphic to 
+$H:=\mysetn{u\in\mathcal{S}'(\R^n)}{(1+\myabs{\xi}^2)^{s/2}\widehat{u}\in L^2(\R^n)}$ (equipped with
+a norm that sets $\mynorm{ u }$ being an $L^2$-norm of element $(1+\myabs{\xi}^2)^{s/2}\widehat{u}$)
+. Indeed, every element of $\S$ is naturally included in $\S'$ (we shall denote the inclusion by $i:S\rightarrow S'$
 and we note that it commutes with multiplication by polynomialy bounded functions and Fourier transform) 
-and then it belongs to $H^s(\R^n)$.
+and then it belongs to $H$.
 
 Moreover, we see that $L^2$ norm of $(1+\myabs{ \xi }^2)^{ s/2 }\hat{ u }$ is precisely
 $\mynorm{ u }'$ (because $(1+\myabs{ \xi }^2)^{ s/2 }\hat{i(u)}=i((1+\myabs{ \xi }^2)^{ s/2 }\hat{ u })$)
 . Hence, if $\mycbra{ u_n }$ is Cauchy sequence in $\S$ with respect to $\mynorm{ \cdot }'$, it will
-also be Cauchy in $H^s(\R^n)$ and thus (due to the completeness of $L^2(\R^n)$)
+also be Cauchy in $H$ and thus (due to the completeness of $L^2(\R^n)$)
 $\mycbra{ (1+\mynorm{ \xi }^2)^{ s/2 }\hat{ u_n } }$ converges to unique
-$f\in L^2(\R^n)$. But then $f\in\S'\supset L^2(\R^n)$ and hence $(1+\mynorm{ \xi }^2)^{ -s/2 }f\in\S'$ as well. 
-
-Thus, the inverse Fourier Transform of the latter is an element of $H^s(\R^n)$ and $u_n$ converges to it in norm of $H^s(\R^n)$.
-We shall consider so constructed limit of $u_n$ in $H^s(\R^n)$ as corresponding to the Cauchy sequence $u_n\in\S$.
-The equality of $\mynorm{ \cdot }'$ and norm of $H^s(\R^n)$
+$f\in L^2(\R^n)$. But then $f\in\S'\supset L^2(\R^n)$ and hence $(1+\mynorm{ \xi }^2)^{ -s/2 }f\in\S'$ as well. \par
+Thus, the inverse Fourier Transform of the latter is an element of $H$ and $u_n$ converges to it in norm of $H$.
+We shall consider so constructed limit of $u_n$ in $H$ as corresponding to the Cauchy sequence $u_n\in\S$.
+The equality of $\mynorm{ \cdot }'$ and norm of $H$
 implies that the mapping will give the same element for two $\mynorm{ \cdot }'$-Cauchy
 sequences $\mycbra{ u_n }$ and $\mycbra{ u_n' }$ in $\S$, if $\mynorm{ u_n-u_n' }\to0$. Hence, the above construction is
-a well-defined unitary map from the completion of $\S$ with respect to $\mynorm{ \cdot }'$ to $H^s(\R^n)$, the map which we'll
-denote by $T$. It remains to show that it is onto (injectivity is granted by unitarity).
-
-So let $u\in H^s(\R^n)$
+a well-defined unitary map from the completion of $\S$ with respect to $\mynorm{ \cdot }'$ to $H$, the map which we'll
+denote by $T$. It remains to show that it is onto (injectivity is granted by unitarity).\par
+So let $u\in H$, hence $(1+\myabs{ \xi }^2)^{ s/2 }\hat{ u }\in L^2(\R^n)$ and can thus be approximated (in $L^2$-norm) with
+the sequence $\mycbra{ u_n }_n$ of elements of $C_0^{ \infty }(\R^n)$. Hence, setting $v_n:=\mathcal{ F }^{ -1 }\mybra{ u_n(1+
+\myabs{ \xi })^{ -s/2 } }\in\mathcal{ S }$ we have $\mycbra{ v_n }_n$ forming a Cauchy sequence with respect to the $\mynorm{ \cdot }'
+$ norm, hence defining an element of $H^s(\R^n)$ which (according to the remarks above) will get mapped to $u\in H$. This proves
+the surjectivity.
 \end{myremark}
 \begin{thebibliography}{9}
 	\bibitem{gilkey}P. B. Gilkey, {\it Invariance Theory, The Heat Equation, and the Atiyah-Singer Index Theorem,} CRC Press 1995.
@@ -166,4 +242,4 @@ So let $u\in H^s(\R^n)$
 %Problem 5-8
 %read book --> write up book reading problems[1](2) --> write up others
 
-%finish 5-8 --> finish def(1) --> check manifold --> clean up(how many pages) --> 2-4 --> (1)
+%finish def(1) --> check manifold --> clean up(how many pages) --> 2-4 --> (1)
