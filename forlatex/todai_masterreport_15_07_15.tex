@@ -126,10 +126,10 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	where
 	\[F_\lambda[\psi,\psi',N,M,n',m'](r\omega_{ p-1 },r\sqrt{ \mu }\omega_{ q-1 }):=\]
 	\[:=R(r,\mu)^\Theta\psi(\omega_{ p-1 })\psi'(\omega_{ q-1 })(2r)^{ M+N }\mu^{ M/2 }(1-r^2(1-\mu))^{ n' }(1+r^2(1-\mu))^
-	{m'/2}\]
+	{m'}\]
 	where
 	\[\Theta:={ -\lambda/2-N/2-n'/2-M/2-m'/2 }\]
-	\[R(r,\mu)=1+2(\mu+1)r^2+(\mu-1)^2r^4\]
+	\[R(r,\mu)=1+2(1+\mu)r^2+(\mu-1)^2r^4\]
 \end{theorem}
 \end{frame}
 \begin{frame}{Further work}%TODO
@@ -192,22 +192,6 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 		\item {[Gelfand-Shilov I]} Gelfand, I.M. \& Shilov, G.E. (1969).
 				{\it Generalized Functions. Vol. 1: Properties and Operations}. New York
 	\end{itemize}
-\end{frame}
-\begin{frame}{Appendix (1)}
-	\setbeamercolor{block title}{bg=brown,fg=white}
-	\setbeamercolor{block body}{bg=brown!20,fg=black}
-	\begin{block}{Proposition (based on [Gelfand-Shilov I])}
-		Given $\lambda\in\C$, regular distribution $Ax^\lambda\big|_{ \mycbra{ x>0 } }+B(-x)^\lambda\big|_{ \mycbra{ x<0 } }$
-		on $\R-\mycbra{ 0 }$
-		extends to distribution on $\R$, unless $\lambda=-n\in-\Z_{ >0 }$ and $A+(-1)^{ n+1 }B\neq0$\footnotemark.
-	\end{block}
-	\begin{block}{Proposition (based on [Gelfand-Shilov I])}
-		For fixed $\lambda\in C$, $f\in\mathcal{D}(\R-\mycbra{ 0 })$ satysfying $x\frac{d}{dx}f=\lambda f$ has
-		general form $Ax^\lambda\big|_{ \mycbra{ x>0 } }+B(-x)^\lambda\big|_{ \mycbra{ x<0 } }$. It extends
-		to a distribution on $\R$ satysfing the same equation, unless $\lambda=-n\in-\Z_{ >0 }$ and $A+(-1)^{ n+1 }B\neq0$.
-	\end{block}
-	\footnotetext{extension is given be $Ax_+^\lambda+Bx_-^\lambda$ with $x_{ \pm }^\lambda$ as in [Gelfand-Shilov I] for 
-	$\lambda\notin-\Z_{ >0 }$, and $A\mybra{x_+^{ -n }+(-1)^nx_-^{ -n }}+B\delta^{ (n-1) }$ for $\lambda=-n\in-\Z_{ >0 }$.}
 \end{frame}
 \end{document}
 
