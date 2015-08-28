@@ -2,6 +2,7 @@ let g:tex_flavor = "latex"
 filetype on
 
 :au BufNewFile *.tex r ~/.vim/skeletons/skeleton.tex
+:au BufNewFile *.html r ~/.vim/skeletons/skeleton.html
 
 function! SKEL_spec()
 	0r /usr/share/vim/current/skeletons/skeleton.spec
