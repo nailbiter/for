@@ -2,6 +2,7 @@ let g:tex_flavor = "latex"
 filetype on
 
 :au BufNewFile *.tex r ~/.vim/skeletons/skeleton.tex
+:au BufNewFile *.html r ~/.vim/skeletons/skeleton.html
 
 function! SKEL_spec()
 	0r /usr/share/vim/current/skeletons/skeleton.spec
@@ -34,6 +35,13 @@ function! SKEL_spec()
 	exe "%s/specRPM_CREATION_NAME/" . expand("%:t:r") . "/ge"
 	setf spec
 endfunction
+
+":imap <S-Tab> <Space>}
+":imap <S-Tab> <C-R>=expand('%:p:h')<CR>
+:imap <S-Tab> {  }<Left><Left>
+:nmap <C-L> :w <bar> make <CR>
+":imap  <C-R>={ '\<C-W>' }<CR>
+":imap <S-Tab> <C-R>=expand('%:p:h') | @echo tesi<CR>oue
 
 "autocmd BufNewFile	*.spec	call SKEL_spec()
 " filetypes

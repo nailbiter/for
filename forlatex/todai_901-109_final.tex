@@ -1,0 +1,518 @@
+\documentclass[8pt]{article} % use larger type; default would be 10pt
+
+\usepackage{mystyle}
+\usepackage{enumerate}
+\usepackage{CJKutf8}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{upgreek}
+\usepackage{ulem}
+
+\newcommand{\sgn}{\mbox{\normalfont{sgn}}}
+\newcommand{\Aut}{\mbox{\normalfont{Aut}}}
+\newcommand{\Hom}{\mbox{\normalfont{Hom}}}
+\newcommand{\End}{\mbox{\normalfont{End}}}
+\newcommand{\Ad}{\mbox{\normalfont{Ad}}}
+\newcommand{\Lie}{\mbox{\normalfont{Lie}}}
+\newcommand{\tr}{\mbox{\normalfont{tr}}}
+\newcommand{\diag}{\mbox{\normalfont{diag}}}
+\providecommand{\F}{\mathcal{F}}
+%\newcommand{\myprobshort}[2]{}
+
+\title{45901-109 数物先端科学V\\Final Report}
+\author{Alex Leontiev, 45-146044
+\\Tokyo University, Graduate School of Mathematical Sciences, M1}
+\begin{document}
+\begin{CJK}{UTF8}{bsmi}
+\maketitle
+\end{CJK}
+We will proceed straightly with solving exercises given during the course.
+\myprobshort{April 7, Example  1.13}{ Let $G:=O(n)$ be acting on $V:=\C[x_1,\hdots,x_n]$ by $(g\cdot f)(x):=
+f(g^{ -1 }x),\;\forall (g,f)\in G\times V$. Show that $V^G=\C[x_1^2+x_2^2+\hdots+x_n^2]$.}
+We shall prove this via induction on $n$ -- number of variables. Base case ($n=1,\;G=\mycbra{ \pm1 }$) is clear. Indeed, $G$
+does not change the degree when acts on monomial, so WLOG any invariant polynomial can be seen as homogeneous, that is as monomial.
+Odd monomials cannot be invariant, as they're odd functions and thus are not invariant under $f(x)\mapsto f(-x)$, which is one
+of $G$'s actions. Hence, any invariant polynomial can contain only even monomials, hence $V^G\subset\C[x_1^2]$. As inverse inclusion
+is obvious, this ends the proof in the base case. Now, let's proceed with the case of general $n$, assuming statement holds for any
+smaller number of variables.\par
+Indeed, the $\supset$ part is obvious, so we just need to prove the inverse inclusion. Assume $f\in V^G$ and we want to show
+that $f\in\C[x_1^2+x_2^2+\hdots+x_n^2]$. As $G$ does not change the degree when acts on monomial, we may assume $f$ is homogeneous.
+Similarly to base case,
+there can be no homogeneous invariant polynomials of odd degree, as for these we will have $f(-I\cdot x)=-f(x)$,
+which, as $-I\in G$, makes $f$ non-invariant under $G$. Hence, we may assume degree of $f$ is $2k$.\par
+Now, we can write $f=\sum_{i=0}^{ 2k }x_1^{ i }c_ip_i(x_2,x_3,\hdots,x_n)$. As $f$ has to be invariant under $x_1\mapsto -x_1$
+substitution, we see (as such expansion of $f$ is unique) in the summation above all $c_i$ with odd indexes vanish and we can write
+$f=\sum_{i=0}^{ k }x_1^{ 2i }c_ip_i(x_2,x_3,\hdots,x_n)$. Moreover, as $O(n-1)$ acting on variables $x_2,x_3,\hdots,x_n$
+is subgroup of $O(n)$ we see that (as expansion is unique) $p_i$ has to be invariant under that subgroup and hence
+by inductive assumption $f=\sum_{i=0}^{ k }x_1^{ 2i }c_i(x_2^2+x_3^2+\hdots+x_n^2)^{ k-i }$ which can also be written as
+\begin{equation}\label{Prob1}
+	f=\sum_{i=0}^{ k }x_1^{ 2i }c_i\sum_{ j=0 }^{ k-i }x_2^{ 2j }\binom{k-i}{j}(x_3^2+x_4^2+\hdots+x_n^2)^{ k-i }
+\end{equation}. Now, as permutation
+$x_1\leftrightarrow x_2$ is one of actions of $O(n)$ we should have
+\[f=\sum_{ i=0 }^kc_ix_2^{ 2i }(x_1^2+x_3^2+x_4^2+\hdots+x_n^2)^{ k-i }=\sum_{ i=0 }^kc_ix_2^{ 2i }\sum_{ j=0 }^{ i-j }
+\binom{ k-i }{ j }x_1^{ 2j }(x_3^2+x_4^2+\dots+x_n^2)^{ k-i-j }=\]
+\[=\sum_{ j=0 }^kx_1^{ 2j }\sum_{ i=0 }^{ k-j }c_i\binom{ k-i }{ j }x_2^{ 2i }(x_3^2+x_4^2+\dots+x_n^2)^{ k-i-j }\]
+and again as expansion is unique, comparing this with \ref{Prob1}
+we see that we should have $c_j\binom{ k-j }{ i }=c_i\binom{ k-i }{j}$ or setting $i:=0$, $c_j=c_0\binom{ k }{ j }$. Hence we have
+\[f=\sum_{i=0}^kc_0x_1^{ 2i }\binom{ k }{ i }(x_2^2+x_3^2+\hdots+x_n^2)^{ k-i }=c_0(x_1^2+x_2^2+\dots+x_n^2)^k\]
+\myprobshort{April 7}{
+	Suppose $\pi:G\to GL(V)$ is finitely-dimensional representation over the field $\F$. Let $V^\vee:=\Hom_\F(V,\F)$ and
+	$\pi^\vee:G\ni g\mapsto\pi^\vee(g)\in V^\vee$ defined as $(\pi^\vee(g)v^\vee)(v):=v^\vee(\pi^{ -1 }(g)v)$. Show
+that it defines the representation.}
+Indeed, we just need to show that $\pi^\vee$ respects group structure (it will then imply that the image is in $GL(V^\vee)\subset
+\End(V^\vee)$). Now, identity is mapped to identity, as $\forall(v,v^\vee)\in V\times V^\vee,\;
+\pi^\vee(1)v^\vee(v):=v^\vee(\pi(1)^{ -1 }v)=v^\vee(v)$. Similarly, inverse is mapped to inverse, as $\forall(g,v,v^\vee)\in G\times
+V\times V^\vee,\;\pi^\vee(g^{ -1 })\pi^\vee(g)v^\vee(v):=\pi^\vee(g)v^\vee(\pi(g)v)=v^\vee(\pi(g^{ -1 })\pi(g)v)=v^\vee(v)$.
+Finally, multiplication is respected, as $\forall(g_1,g_2,v,v^\vee)\in G\times G\times V\times V^\vee,\;\pi^\vee(g_1)\pi^\vee(g_2)
+v^\vee(v)=v^\vee(\pi(g_2^{ -1 })\pi(g_1^{ -1 })v)=v^\vee(\pi((g_1g_2)^{ -1 })v)=\pi(g_1g_2)v^\vee(v)$.
+\myprobshort{April 7}{Show that $\phi:\R\to GL_n(\C)$: continuous homomorphism, then $\phi\in C^\omega$.}
+Indeed, we shall show that $\phi(t)=\exp(tA)$ for some $A\in M_n(\C)$ and statement desired will follow from this, as matrix
+exponent $\exp$ is analytic function. Before doing this, let us note that continuity here is necessary, as if it would
+not be assumed, we could take ${ r_\alpha }$ be any basis of $\R$ over $\Q$ (existing by axiom of choice) and then as
+any $r\in\R$ can be uniquely written as finite sum $r=\sum_\alpha r_\alpha q_\alpha,\;q_\alpha\in\Q$ and hence
+$\phi(\sum_\alpha r_\alpha q_\alpha):=\sum_\alpha r_\alpha I\in GL_n(\C)$ will yield well defined homomorphism,
+which is not even continuous (hence not $C^\omega)$, as its image is subset of $GL_n(\Q)\subset GL_n(\C)$, which is not connected.
+
+Now, map $\exp:M_n(\C)\to GL_n(\C)$ is local diffeomorphism near $0\in M_n(\C)$, say $U\xrightarrow{ \widetilde{} }V$
+and hence (as $\phi$ is continuous) we have that
+there exists $t_0>0$ such that $\forall t\in\R:\myabs{t}\leq t_0,\;\phi(t)\in U$, hence we have well-defined function
+$\psi:[-t_0,t_0]\to U\subset M_n(\C)$, such that $\exp(\psi(t))=\phi(t)$. Now, uniqueness tells us that
+$\forall n\in\Z_{>0}$ we have $\exp(\psi(t_0)/n)=\phi(t_0/n)$, hence $\forall (m,n)\in \Z\times\Z_{>0}:\myabs{m}\leq n,\;
+\psi((m/n)t_0)=(m/n)\psi(t_0)$, hence by continuity $\psi(t)=t\cdot\psi(t_0)\;\forall t\in[-1,1]$. Hence, $\phi(t)=\exp(t\cdot
+\psi(t_0))$ for $\forall t\in[-t_0,t_0]$. Now, additivity of $\phi$ implies that equality should hold for all $t\in\R$ and this
+ends the proof.
+\myprobshort{April 7, Exercise 1.4.5}{Let $G$ be the group of upper-triangular $3\times3$ matrices, with 1 on diagonal divided
+by subgroup of matrices of form $\left[\begin{smallmatrix}1&0&n\\0&1&0\\0&0&1\end{smallmatrix}\right]$
+with all $n\in\Z$. Show that $G$ cannot be realized as a matrix group.}
+We shall use $H$ to denote the group of upper-triangular $3\times3$ matrices, with 1 on diagonal and $N$ to denote the
+subgroup of matrices of form $\left[\begin{smallmatrix}1&0&n\\0&1&0\\0&0&1\end{smallmatrix}\right]$.
+We note that $G$ has non-trivial center, as say equivalence class of element
+$\left[\begin{smallmatrix}1&0&1/2\\0&1&0\\0&0&1\end{smallmatrix}\right]$ is nontrivial and central in $G$. Hence, as we
+are seeking to show that there is no monomorphism $G\to GL_n(\C)$, it's sufficient to prove the following claim: if 
+$H\to GL_n(\C)$ is homomorphism with $N$ in kernel, then (it factors to $G\to GL_n(\C)$ homomorphism) $Z(G)$ is in kernel as well.
+Indeed, assuming this is proven and $G\to GL_n(\C)$ is arbitrary
+homomorphism, it induces $H\to GL_n(\C)$ homomorphism, where $N$ is in
+kernel by construction, hence in original $G\to GL_n(\C)$ homomorphism, $Z(G)$ was in kernel, hence it could not be monomorphism. 
+Hence, it's sufficient to prove the claim.\par
+So let us assume that $\Sigma: H\to GL_n(\C)$ is a homomorphism with $N$ in kernel. Note that as $H$ is simply-connected,
+$\exp:\Lie(H)\to H$ is a diffeomorphism.
+Now, if $A\in H$ maps to central element
+of $H$ this means that $\forall (X,t)\in \Lie(H)\times\R,\;\exp(t\cdot\Ad(A)X)=\exp(tX)N$ and as $N$ is discrete, it means that
+$\exp(t\cdot\Ad(A)X)=\exp(tX)$ for small $t$ and taking derivative we see that $Ad(A)(X)=X$ for arbitrary $X\in\Lie(H)$,
+hence (as $\exp$ is onto $H$) $A\in Z(H)$. Therefore, it's sufficient to show that $Z(H)$ (every element of which is of form
+$\left[\begin{smallmatrix}1&0&z\\0&1&0\\0&0&1\end{smallmatrix}\right]$ with $z\in\R$) gets mapped to zero.\par
+Every element of the center is exponent of the element of form $\left[\begin{smallmatrix}0&0&z\\0&1&0\\0&0&0\end{smallmatrix}\right]$.
+Let's take arbitrary element $B$, corresponding to $z=z_0\neq0$ (if $z=0$, $\exp(B)=I$ is obviously in kernel)
+of this latter form. We claim that it's sufficient to show that $\sigma(B)\in\mathfrak{gl}_n(\C)$
+is nilpotent (here $\sigma:\Lie(H)\to\mathfrak{gl}_n(\C)$ is differential of $\Sigma$). Indeed, assuming this was shown
+we should have $\Sigma(\exp(tB))-I=\exp(\sigma(tB))-I$ being polynomial in $t$. Moreover, as $\exp(nt_0B)\in N$ for $t_0:=1/z$,
+this polynomial should vanish at $nt_0$, and hence should vanish for all $t\in\R$ and hence $\Sigma(\exp(B))=1$, which is what we
+want to prove. Hence, it suffices to show that $\sigma(B)\in\mathfrak{gl}_n(\C)$ is nilpotent.\par
+As $\C^n$ is direct sum of generalized eigenspaces of $\sigma(B)$, it suffices to show that $\sigma(B)$ is nilpotent when restricted
+to any generalized eigenspace. 
+So let $V_\lambda$ be the generalized eigenspace of $\sigma(B)$ corresponding to $\lambda\in\C$. We
+note that $B-\lambda I$ is nilpotent on $V_\lambda$. Furthermore, if we let 
+$A:=\left[\begin{smallmatrix}0&z&0\\0&0&0\\0&0&0\end{smallmatrix}\right]$ and 
+$C:=\left[\begin{smallmatrix}0&0&0\\0&0&1\\0&0&0\end{smallmatrix}\right]$ be two elements of $\Lie(H)$ we have that
+$[A,C]=B$. Hence, as $A,\;C$ both commute with $B$ ($B$ is central) so do $\sigma(A),\;\sigma(C)$ commute with $\sigma(B)$
+and henceforth $\sigma(A),\;\sigma(C)$ both stabilize $V_\lambda$. However,
+\[\lambda\cdot\dim V_\lambda=\tr(\sigma(B)\bigg|_{ V_\lambda })+\underbrace{\tr(\lambda I-\sigma(B)\bigg|_{ V_\lambda })}_{
+	=0,\text{ as it is nilpotent}}=\tr\mybra{ \mysbra{ \sigma(A),\sigma(C) } \bigg|_{ V_\lambda }}=0\]
+	as trace of commutator. Hence, all generalized eigenvalues are zero, $\sigma(B)$ is nilpotent and we are done.
+\myprobshort{April 14}{Let $G\subset GL_n(\R)$ be matrix Lie group and $\Lie(G):=\mysetn{X\in M_n(\R)}{e^{ sX }\in G,\;\forall
+s\in\R}$. Show that $\Lie(G)$ is a Lie algebra.}
+Indeed, let's start by showing that $\Lie(G)$ is a vector space. The fact that $\forall(t,v)\in\R\times\Lie(G),\;t\cdot v\in
+\Lie(G)$ is clear from definition and we'll show the additivity now. To show the latter it is sufficient to show
+that \begin{equation}\label{Prob5}\forall A,B\in M_n(\C)\forall t\in\R
+	,\quad\lim_{n\to\infty}\mybra{ \exp\frac{t}{n}A\cdot\exp\frac{ t }{ n }B
+}^n=\exp\mybra{ t(A+B) }\end{equation}.
+As then if $A,B\in\Lie(G)$ we have left-hand side belonging to $G$ for every fixed $n$ and (due to the assumed closedness
+of $G\subset GL_n(\R)$) we have that right-hand side should also belong to $G$ for every $t\in\R$. In turn, in order
+to prove \ref{Prob5} it suffices to show that $\exp(tX)\exp(tY)=\exp(t(X+Y)+O(t^2))$, as then $\lim_{n\to\infty}
+(\exp((t/n)X)\cdot\exp((t/n)Y))^n=\lim_{ n\to\infty }\exp(t(X+Y)+nO(t^2/n^2))=\exp(t(X+Y))$. To see the latter,
+note that $\exp(tX)\exp(tY)$ is $C^\infty$ in $t$ and hence (as $\exp$ is local diffeomorphism near 0),
+for small $t$ we have $\exp(tX)\exp(tY)=\exp(Z(t))$ for well-defined smooth $Z:I\to M_n(\R)$. Now, taking derivative 
+of left-hand side at $t=0$ we get (via the product rule and knowing that $(d/dt)\big|_{ t=0 }\exp(tX)=X$)
+that it's equal to $X+Y$ and hence $Z'(0)=X+Y$, thus Taylor expansion of $Z(t)$ is of form $Z(t)=0+t(X+Y)+O(t^2)$ and
+this gives the required statement.\par
+Now, let's show that $[X,Y]\in \Lie(G)$ if $X,Y\in\Lie(G)$. Note, that $\forall t\in\R$ we have $\exp(tX)Y\exp(-tX)\in
+\Lie(G)$, as $\forall s\in\R,\;\exp\mybra{ s\exp(tX)Y\exp(-tX) }=\exp(tX)\exp(sY)\exp(-tX)\in G$. Then,
+as $\Lie(G)$ is vector space as was shown above, $\Lie(G)\ni\frac{d}{dt}\bigg|_{ t=0 }\mybra{ \exp(tX)Y\exp(-TX) }=
+[X,Y]$
+\myprobshort{ April 14 }{ Find Lie algebras and dimension of the following matrix Lie groups: $G=SL_n(\R),\;O(n),\;O(p,q)$. }
+We shall use the definition of Lie algebra from the previous problem. Let's start from $G=SL_n(\R)$. Indeed, for
+$X\in M_n(\R)$ we have $X\in\Lie(G)\iff\forall t\in\R ,\;\det(\exp(tX))=1$. As can be seen by
+putting matrix $X$ in Jordan form over $\C$, $\det(\exp(X))=\exp(\tr(X))$ and hence $X\in\Lie(G)\iff\forall t\in\R,\;\exp(t\cdot
+\tr X)=1$ and the latter happens iff $\tr(X)=0$ (in particular, "only if" follows by taking derivative of $\exp(t\cdot\tr X)$ at
+$t=0$). Hence, $\Lie(SL_n(\R))=\mysetn{X\in M_n(\R)}{\tr X=0}$ and the latter has dimension $n^2-1$, elements $\mycbra{ E_{i,j} }_{
+i,j=1,i\neq j}^{n,n}$ and $\mycbra{E_{ i,i }-E_{ i+1,i+1 } }_{i=1 }^{n-1}$ clearly forming a basis.\par
+Now, let $G=O(n)$. Similarly, we have for $X\in M_n(\R)$ that $X\in\Lie(G)\iff \forall t\in\R,\;\exp(tX)\exp(tX)^T=I$. And
+as $\exp(X)=\exp(X^T)$ the latter holds iff $\forall  t\in\R,\;\exp(tX)\exp(tX^T)=I$. Taking derivative at $t=0$ we see
+that the necessary condition for latter to hold is that $X+X^T=0$. Conversely, if $X+X^T=0$, we have $\forall t\in\R,\;
+\exp(tX)\exp(tX^T)=\exp(tX)\exp(-tX)=\exp(0)=I$. Hence, 
+$\Lie(SL_n(\R))=\mysetn{X\in M_n(\R)}{X+X^T=0}$ and
+the latter has dimension $n(n-1)/2$, elements $\mycbra{ E_{ i,j }-E_{ j,i } }_{ i,j=1,i\neq j }^{ n,n }$ forming a basis.\par
+Finally, let $G=O(p,q)$. Similarly, we have for $X\in M_n(\R)$ that $X\in\Lie(G)\iff \forall t\in\R,\;\exp(tX)I_{ p,q }
+\exp(tX)^T=I\iff\exp(tX)I_{ p,q }\exp(tX^T)=I$. Again, we see (taking derivative at $t=0$) that the necessary condition for this is
+$XI_{ p,q }+I_{ p,q }X^T=0$. Conversely, if $XI_{ p,q }+I_{ p,q }X^T=0$ then $X_{ p,q }XI_{ p,q }=-X^T$ and so
+$\forall t\in\R,\;\exp{ tX }I_{ p,q }\exp(tX^T)=
+\exp(tX)I_{ p,q }\exp(-tI_{ p,q }XI_{ p,q })=\exp(tX)I_{ p,q }I_{ p,q }\exp(-tX)I_{ p,q }=\exp(tX)\exp(-tX)I_{ p,q }=I_{ p,q }$
+and thus 
+$\Lie(O(p,q))=\mysetn{X\in M_n(\R)}{XI_{ p,q }+I_{ p,q }X^T=0}$ and
+the latter has dimension $pq+p(p-1)/2+q(q-1)/2$, elements 
+$\mycbra{ E_{ i,j }-E_{ j,i } }_{ i,j=1,i\neq j }^{ p,p }$,  
+$\mycbra{ E_{ i,j }-E_{ j,i } }_{ i,j=p+1,i\neq j }^{ p+q,p+q }$ and
+$\mycbra{ E_{ i,j }+E_{ j,i } }_{ i=1,j=p+1 }^{ p,p+q }$
+forming a basis.
+\myprobshort{ April 14, Example 2.3.2 }{ $G=O(1,n+1)$ acts on $\Xi:=\mysetn{ x\in\R^{ 1,n+1 } }{ x_0^2=x_1^2+x_2^2+\hdots+x_n^2 }$
+and the diffeomorphism $\Xi/\R^{ \times }\simeq \mys{n}$ induces action of $G$ on $\mys{ n }$. Show that this action
+preserves angles and find isotropy of $\mysbra{ 1,1,0,0,\hdots,0 }$.}
+Indeed, let us start with showing conformality. As we have $KAK$ decomposition for $G$ (the latter is reductive of non-inner type,
+but $KAK$ holds for these) and maximal compact subgroup $K\simeq O(n+1)\times O(1)$ of $G$ acts as $O(n)$ on $\mys{n}$, which
+is isometry, hence conformal map, it suffices to show the statement for the elements of $A=\mycbra{\exp(t(E_{ 1,n+2 }+E_{ n+2,1 }))
+}_{ t\in\R }$. \par
+Now, it is well-known and direct computations show that for $p_+:=(1,0,0,\hdots,0,1)\in\Xi$ and map $\iota_N:\mathfrak{n}_-\ni X
+\mapsto\exp(X)\cdot p_+\in\Xi$ composed with projection $\Xi\to\Xi/\R^\times\simeq\mys{ n }$ yields compactification
+of $\R^n\simeq\mathfrak{ n }_-\ni x\mapsto \mybra{ \frac{ 1-r^2 }{ 1+r^2 },\frac{ 2x }{ 1+r^2 }}\in\mys{ n }$
+(where $r:=\myabs{ x }$).
+What is more, for $H:=E_{ 1,n+2 }+E_{ n+2,1 }$, $t\in\R$ and $X\in\mathfrak{ n }_+$ we have
+$\mys{ n }\ni e^{ tH }\exp{ X }p_+\R^\times=e^{ tH }\exp{ X }e^{ -tH }p_+\R^\times=\exp(e^{ -t }X)p_+\R^\times$
+and hence when pulled back via compactification mentioned above, $e^{ tH }$ acts simply as dilation by ${ e^{ -t } }$,
+which is clearly conformal. Thus, if we'd be able to show that the aforementioned compactification is a conformal map,
+it would follows that $e^{ tH }$ is also so
+(conformality at unique point not mapped by conformal compactification -- the $(1,0,0,\hdots,0)\in\mys{ n 
+}$ follows by continuity). Hence, it suffices to show that compactification 
+$F:\R^n\ni x\mapsto \mybra{ \frac{ 1-r^2 }{ 1+r^2 },\frac{ 2x }{ 1+r^2 }}\in\mys{ n }$ is conformal.\par
+This is done by direct computation as follows. We just need to show that $F^*(dx_1^2+dx_2^2+\hdots+dx_{ n+1 }^2)$ is proportional
+to a standard metric on $\R^n$. But indeed,
+\[F^*(dx_1^2+dx_2^2+\hdots+dx_{ n+1 }^2)=d\mybra{ \frac{ 1-r^2 }{ 1+r^2 } }^2+\sum_{ i=1 }^{ n }d\mybra{ \frac{ 2x_i }{ 1+r^2 } }^2=\]
+\[=\mybra{\frac{ -\sum_i4x_idx_i }{(1+r^2)^2}}^2+\sum_i\mybra{\frac{ 2dx_i(1+r^2-2x_i^2)-2x_i\sum_{ j\neq i }2x_jdx_j }{(1+r^2)^2}}^2
+\]
+As we only want to show the proportionality to standard metric, it suffices to consider the enumerators only and
+divide everything by 4. Furthermore,
+symmetry shows that coefficients for $dx_idx_i$ will all be the same, so it suffices to prove that coefficient for $dx_idx_j$
+for $i<j$ will all vanish. Again, the apparent symmetry reduces this to considering only $i=1,\;j=2$ case. First addend
+in latter expression gives coefficient $8x_1x_2$ for $dx_1dx_2$. Going to the sum, the terms for summation index $i=1$
+and $i=2$ will give $2(1+r^2-2x_1^2)(-2x_1x_2)$ and $2(1+r^2-2x_2^2)(-2x_1x_2)$ respectively, while
+terms for $i>2$ will give (when summed up) the coefficient $8x_1x_2\sum_{ j=3}^nx_j^2$. Summing these coefficients, we have
+\[8x_1x_2-4x_1x_2(2+2r^2-2x_1^2-2x_2^2-2\sum_{ j=3}^nx_j^2)=8x_1x_2-4x_1x_2\cdot2=0.\]
+\myprobshort{ April 21, Example 3.2.3 }{Suppose $M$ is a manifold and $TM=\bigsqcup_{ x\in M }T_xM$:tangent bundle. Show
+that $TM$ is a vector bundle and cocycles are given by Jacobian of transition functions.}%TODO
+Let $\mycbra{\mybra{ U_\alpha,\phi_\alpha:U_\alpha\to V_\alpha\subset\R^n }}_\alpha$ be a chart covering for $M$.
+Recall that by definition, the manifold structure on $TM$ is compatible with the chart covering 
+$\mycbra{ \mybra{\pi^{ -1 }(U_\alpha),\widetilde{ \phi_\alpha }  } }_\alpha$, where $\pi:TM\to M$ is
+the union of $T_xM\to\mycbra{ x }$ maps and $\widetilde{\phi_\alpha}:\pi^{ -1 }(U_\alpha)\ni
+\sum_iv_i\frac{ \partial }
+{ \partial \phi_\alpha^i }\bigg|_p\mapsto
+(\phi(p),v)\in V_\alpha\times\R^n$. We claim that 
+$\mycbra{ \mybra{\pi^{ -1 }(U_\alpha),(\phi_\alpha^{ -1 }\times id_{ \R^n })\circ\widetilde{ \phi_\alpha }  } }_\alpha$ provide the trivialization for $TM\to M$, thus making it a vector bundle.\par
+Indeed, as for every $p\in U_\alpha$ fixed $\mycbra{ \frac{\partial}{ \partial \phi_\alpha^i }\bigg|_p }_i$ provide a basis 
+for $T_pM$ we have $T_pM\ni\sum_iv_i\frac{ \partial }
+{ \partial \phi_\alpha^i }\bigg|_p\mapsto (\phi(p),v)\xrightarrow{ proj_2 }v\in\R^n$ is clearly an isomorphism. Furthermore,
+$\pi^{ -1 }(U_\alpha)\xrightarrow{ (\phi_\alpha^{ -1 }\times id_{ \R^n })\circ\widetilde{\phi_\alpha }}U_\alpha\times\R^n\xrightarrow
+{proj_1}U_\alpha$ coincides with $\pi$ and hence 
+$\mycbra{ \mybra{\pi^{ -1 }(U_\alpha),(\phi_\alpha^{ -1 }\times id_{ \R^n })\circ\widetilde{ \phi_\alpha }  } }_\alpha$ do form
+a trivialization.\par
+Finally, let's compute the cocycles. Indeed, let $p\in U_{ \alpha\beta }:=U_\alpha\cap U_\beta$ so
+that
+$\sum_iv_i\frac{ \partial }{ \partial \phi_\alpha^i }\bigg|_p
+\mapsto(\phi_\alpha(p),v)\in V_{ \alpha }\cap V_{ \beta }\times\R^n$ and
+$\sum_iw_i\frac{ \partial }
+{ \partial \phi_\beta^i }\bigg|_p\mapsto(\phi_\beta(p),w)\in V_{ \alpha }\cap V_{ \beta }\times\R^n$.
+Suppose now that 
+$\sum_iv_i\frac{ \partial }{ \partial \phi_\alpha^i }\bigg|_p=
+\sum_jw_j\frac{ \partial }{ \partial \phi_\beta^j }\bigg|_p$ and we want to express $w$ in terms of $v$.
+This is easy, as $\sum_iv_i\frac{ \partial }{ \partial \phi_\alpha^i }\bigg|_p=\sum_iv_i\sum_j\frac{ \partial\phi_\beta^j }{ \partial
+\phi_\alpha^i}\frac{ \partial }{ \partial \phi_\beta^j }\bigg|_{ \phi_\alpha(p) }$, hence as 
+$\mycbra{ \frac{\partial}{ \partial \phi_\beta^i }\bigg|_p }_i$ form a basis we should have
+\[w_j=\sum_iv_i\frac{ \partial\phi_\beta^j }{ \partial\phi_\alpha^i }\bigg|_{ \phi_\alpha(p) }\]
+and as matrix $\mycbra{ \frac{ \partial\phi_\beta^i }{ \partial\phi_\alpha^j }\bigg|_{ \phi_\alpha(p) } }_{ i,j }$
+is precisely the Jacobian of $V_\alpha\to V_\beta$ transition function evaluated at $\phi_\alpha(p)\in V_\alpha$, we are done.
+\myprobshort{ April 21, Exercise after Def 3.2.4 }{Suppose $\upupsilon\to M$ is a $G$-equivariant fiber bundle (that is,
+	$G$ acts on $\upupsilon$ and $M$ and projection $\pi:\upupsilon\to M$ intertwines these actions)
+	then for $g\in G$ and $s\in\Gamma(M,\upupsilon)$ $(\pi(g)\cdot s)(x):=g\cdot s(g^{ -1 }x)$ gives an action $G\curvearrowright\Gamma
+(M,\upupsilon)$.}
+First, we need to verify that $\pi(g)s$ so defined is indeed a section. This is easy, however, as (note that
+we denote the projection $\upupsilon\to M$ and action $\pi(g)$ with the same letter) $\pi((\pi(g)s)(x))=
+\pi(g\cdot s(g^{ -1 }x))=g\cdot\pi(s(g^{ -1 }x))=g\cdot g^{ -1 }\cdot x=x$, the second equality using $G$-equivariance
+of $\pi$ and the third using the fact that $s$ is a section.\par
+Next, we need to show that $\pi(\cdot)$ respects group structure. Definition makes it obvious that $\pi(1)s=s$ and
+the $\pi(g^{ -1 }s)=\pi^{ -1 }(g\cdot s)$ will follow if we'll be able to show that $\pi(g_1g_2)s=\pi(g_1)\pi(g_2)s$ and this
+will finish the proof. Latter is easy, however, as $(\pi(g_1)\pi(g_2)s)(x)=g_1\cdot(\pi(g_2)s)(g_1^{ -1 }x)=
+g_1g_2s(g_2^{ -1 }g_1^{ -1 }x)=(\pi(g_1g_2)s)(x)$.
+\myprobshort{April 28, Example 4.1.6}{Let $\Xi$ denote the space of all 2-by-4 complex matrices of rank 2 (with a structure of
+	a complex manifold), $H:=GL_2(\C)\times(\C^\times)^4/\Delta(\C^\times)$, where $\Delta(\C^\times):=
+\mysetn{\mybra{\mybra{\begin{smallmatrix}a^{ -1 }&0\\0&a^{ -1 }\end{smallmatrix}},(a,a,a,a)}}{a\in\C^\times}$ ($\Delta(C^\times)$
+is normal in $\widetilde{H}:=GL_2(\C)\times(\C^\times)^4$) and $\widetilde{H}\curvearrowright\Xi$ via $(A,(t_1,t_2,t_3,t_4))\cdot
+Z=A\cdot Z\cdot\diag\mybra{ t_1,t_2,t_3,t_4 }$ and this factors through $\Delta(\C^\times)$ to give $H\curvearrowright \Xi$. Show that
+this action is \dashuline{free}\textsuperscript{ (1) }. Furthermore, 
+$\Xi/H\simeq\mathbb{ PC }^1\setminus\mycbra{ 0,1,\infty }$\textsuperscript{ (2) }}
+\newcommand{\pcone}{\mathbb{PC}^1}
+\def\expr{\frac{(z_4-z_1)(z_3-z_2)}{(z_2-z_1)(z_3-z_4)}}
+First, we will show that the action $H\curvearrowright \Xi$ is free.
+	 Assume that for $(A,t_{ 1,2,3,4 })\in \widetilde{ H }$ and $Z\in \Xi$ we have $AZ\cdot\diag\mybra{ t_1,t_2,t_3,t_4 }=Z$.
+		Inspecting this equality we see that every column of $Z$ becomes the eigenvector of $A$ with
+		eigenvalues $t_{ 1,2,3,4 }$. Suppose that among these eigenvalues there are two different,
+		say $t_1\neq t_2$, we have that first two columns (they should form a basis for $\C^2$)
+		form eigenbasis of $\C^2$ and hence as other two columns are also eigenvectors, each of them
+		should be proportional to first or second column (as eigenvalues are different), which contradicts
+		the definition of $\Xi$. Hence, $t_{ 1,2,3,4 }$ are all the same and thus by adjusting with element
+		of $\Delta({ \C^\times })$ we can assume $AZ=Z$, which implies $A=I$. Hence, action is free.\par
+Let the map $\Xi\to\mathbb{ PC }^1$ be given by considering 4 columns of element of $\Xi$
+as 4 elements $z_{ 1,2,3,4 }\in\mathbb{ PC }^1$ and mapping to $\frac{(z_4-z_1)(z_3-z_2)}{(z_2-z_1)(z_3-z_4)}\in\mathbb{PC}^1$.
+To finish the proof of the theorem, we shall prove the following things:
+\begin{enumerate}
+	\item This map $\Xi\to\mathbb{ PC }^1$ is well-defined.
+	\item image does not include $0,1$ or $\infty\in\pcone$.
+	\item the whole $\pcone\setminus\mycbra{ 0,1,\infty}$ gets covered.
+	\item elements conjugate via $H$ map to the same element of $\pcone\setminus\mycbra{ 0,1,\infty}$.
+	\item if two elements map to the same in $\pcone$, they are conjugate via $H$.
+	\item map $\Xi\to\mathbb{ PC }^1\setminus\mycbra{ 0,1,\infty}$ is local diffeomorphism.
+\end{enumerate}
+And this is enough to finish the proof. So let's proceed:
+\begin{enumerate}
+	\item By considering 4 columns of $Z$ as members $z_{ 1,2,3,4 }$
+		of $\pcone$, the requirement on the elements of $\Xi$ to have rank
+		2 is the same as requiring $z_i$ to be pairwise different. 
+		As all $z_i$ are pairwise different, their pairwise differences are nonzero,
+		hence both enumerator and denominator of $\frac{(z_4-z_1)(z_3-z_2)}{(z_2-z_1)(z_3-z_4)}$ is nonzero.
+		If one (hence, exactly one) of $z_i$
+		is $\infty$, we define the $\frac{(z_4-z_1)(z_3-z_2)}{(z_2-z_1)(z_3-z_4)}$ by (well-defined, as can
+		be seen by direct calculation) $\to\infty$ limit. 
+	\item First suppose that one of $z_i$ is $\infty$. For definiteness we suppose that $z_1=\infty$ (all other cases
+		are treated analogously). According to definition, in this case $\frac{(z_4-z_1)(z_3-z_2)}{(z_2-z_1)(z_3-z_4)}=
+		\frac{ z_3-z_2 }{ z_3-z_4 }$ with $z_{ 2,3,4 }\in\C$ and this fraction cannot be 0 (as $z_3\neq z_2$),
+		1 (as $z_3-z_2=z_3-z_4\implies z_2=z_4$, but $z_2\neq z_4$) or $\infty$ (as $z_3\neq z_4$).\par
+		Second, assume that all of $z_i$ are in $\C$. As they are pairwise different, ratio cannot become
+		$0$ or $\infty$. Suppose thus that $\frac{(z_4-z_1)(z_3-z_2)}{(z_2-z_1)(z_3-z_4)}=1$ and this gives
+		$z_4z_3+z_1z_2=z_2z_3+z_1z_4$, equivalently $z_4(z_3-z_1)=z_2(z_3-z_1)$ and as $z_3-z_1\neq0$ we can
+		cancel it out to get $z_4=z_2$ -- contradiction.
+	\item Indeed, let $z\in\C$ be given, such that $z\neq0,1$. We take $x\in\C$ such that $x^2=z$ (such choice can
+		always be made). Note that as $z\neq1$ we may assume $x\neq\pm1$. Take further $z_{ 1,2,3,4 }\in\C\subset\pcone$
+		such that $z_3-z_2=x,\;z_2-z_1=1,\;z_3-z_4=1$ -- such choice can always be made. Then $z_4-z_1=
+		-(z_3-z_4)+z_3-z_2+z_2-z_1=x$ and hence $\expr=x^2=z$.\par
+		To finish the proof of this part we observe that that all $z_{ 1,2,3,4 }$ are pairwise different, hence their
+		quadruple can be identified with an element of $\Xi$. Indeed, we see that $z_2-z_1=1\neq0$, $z_3-z_1=
+		z_3-z_2+z_2-z_1=x+1\neq0$ (as $x\neq-1$ by above), $z_4-z_1=x\neq0$, $z_3-z_2=x\neq0$, $z_4-z_2=x-1\neq0$
+		and finally $z_4-z_3=-1\neq0$.
+	\item Note first that if 4 columns of element $M$ of $\Xi$ are realized as projective complex numbers, the action
+		of $(A,t_{ 1,2,3,4})$ on $M$ is as follows. First, $\diag(t_1,t_2,t_3,t_4)$ does not affect projective
+	complex numbers. Second, as matrix $A:=\left[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right]$
+		acts on column $[m_1;m_2]^T$ as $\frac{am_1+bm_2}{ cm_1+dm_2 }$, when 
+		$[m_1;m_2]^T$ is seen as projective complex number $z\in\pcone$ this action can be written as
+		$\frac{ az+b }{ cz+d }$ (understood as limit if $z=\infty$).\par
+		Now, if we replace $z_{ 1,2 }$ by the results of $A=
+		\left[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right]$ action
+		and recompute $z_1-z_2$ we get
+		\[\frac{ az_1+b }{ cz_1+d }-\frac{ az_2+b }{ cz_2+d }=\frac{ (az_1+b)(cz_2+d)-(az_2+b)(cz_1+d) }{ (cz_1+d)(cz_2+d) }
+		=\frac{ (ad-bc)(z_2-z_1) }{ (cz_1+d)(cz_2+d) }\]
+		hence if we act upon each $z_{ 1,2,3,4 }$ with $A$ the expression $\expr$ does not change.
+	\item In the light of the remarks of the previous item, we can assume from the outset that we have two quadruples
+		$z_{ 1,2,3,4 }$ and $z'_{ 1,2,3,4 }$ of projective complex numbers such that $\expr=
+		\frac{(z'_4-z'_1)(z'_3-z'_2)}{(z'_2-z'_1)(z'_3-z'_4)}$ and we want to show that there exists
+		$A\in GL_2(\C)$ such that $Az_i=z_i'$.\par
+		First, we note that $SL_2(\C)$ acts transitively on triples of complex numbers, as for $z_{ 1,2,3 }\in\C$
+		pairwise distinct
+	we have matrix $\left[\begin{smallmatrix}z_3(z_2-z_1)&z_1(z_3-z_2)\\z_2-z_1&z_3-z_2\end{smallmatrix}\right]\in GL_2(\C)$
+		mapping $0,1,\infty$ to $z_1$, $z_2$ and $z_3$ respectively. Adjusting it by complex factor brings the matrix to
+		$SL_2(\C)$.\par
+		Now, returning to our two quadruples 
+$z_{ 1,2,3,4 }$ and $z'_{ 1,2,3,4 }$, by adjusting both of them with the matrix $\left[\begin{smallmatrix}1+\epsilon&0\\\epsilon&1
+\end{smallmatrix}\right]
+		$ for $\epsilon\in\C$ small that brings $\infty$ to $(1+\epsilon)/\epsilon\in\C$ we may assume from the
+		outset that none of quadruples contain $\infty$.\par
+		Next, we adjust $z_{ 1,2,3,4 }$ with element of $SL_2(\C)$ (it will not change the $\expr$) so that
+		the first three elements of quadruples coincide. Then, as 
+		$\expr=\frac{(z'_4-z'_1)(z'_3-z'_2)}{(z'_2-z'_1)(z'_3-z'_4)}$ we have $z_4-z_1=z_4'-z_1'$ and hence
+		$z_4=z_4'$ and the quadruples coincide.
+	\item Finally, following \cite[Chapter 9]{lee} we shall show first that $H\curvearrowright\Xi$ is proper
+		action to apply \cite[Theorem 9.16]{lee} that will grant us that $\Xi/H$ is manifold and
+		$\pi:\Xi\to \Xi/H$ is a submersion. To prove the properness, assume that $\Xi\ni Z_n\to Z_0\in\Xi$
+		and $A_nZ_n\cdot\diag(t_1^{ (n) },t_2^{ (n) },t_3^{ (n) },t_4^{ (n) })\to Z'_0\in\Xi$. And we want
+		to show that some subsequence of $(A_n,(t_1^{ (n) },t_2^{ (n) },t_3^{ (n) },t_4^{ (n) }))$ converges (
+		enough to prove convergence in $\widetilde{H}$ as convergence in $H$ will then follow by continuity of
+		$\widetilde{ H }\to H$ epimorphism map).
+		Indeed, by adjusting with member of $\Delta(\C^\times)$ (for every $n$ separately) we may assume that
+		$(t_1^{ (n) },t_2^{ (n) },t_3^{ (n) },t_4^{ (n) })$ has some of its absolute values equal to one, hence
+		every $t_i^{ (n) }$ is bounded and (passing to subsequence) we may assume for every $1\leq i\leq 4$ 
+		we have $t_i^{ (n) }$ converges. We wish to show that limit cannot be zero. Indeed, assume $t_1^{ (n) }\to0$.
+		As at least one $t_i^{ (n) }$ should converge to non-zero, we may assume $t_2^{ (n) }$ does so.
+		Then, we should have (calling columns of $Z_n$ by $z_{ 1,2,3,4 }^{ (n) }$) that $A_nz_1^{ (n) }\to\infty$.
+		Similarly, $A_nz_2^{ (n) }$ should converge in $\C^2$. Now, as $Z_n$ converges in $\Xi$ we should have
+		$z_{ 3,4 }^{ (n) }=a_{ 3,4 }^{ (n) }z_1^{ (n) }+b_{ 3,4 }^{ (n) }z_2^{ (n) }$
+		with $a_{ 3,4 }^{ (n) }$
+		convergent to 4 nonzero complex numbers that form invertible 2-by-2 matrix.
+		. Hence, we have $A_nz_{ 3,4 }^{ (n) }\to\infty$. However, as
+		$z_{ 3,4 }^{ (n) }=a_{ 3,4 }^{ (n) }z_1^{ (n) }+b_{ 3,4 }^{ (n) }z_2^{ (n) }$ 
+		with $a_{ 3,4 }^{ (n) }$
+		convergent to 4 nonzero complex numbers can be inverted, to get $z_2^{ (n) }$ expressed as linear (converging to)
+		nontrivial combination of $z_3^{ (n) }$ and $z_4^{ (n) }$, hence we have $A_nz_2^{ (n) }\to\infty$, contrary to our
+		assumption. Thus we have $t_i^{ (n)}$ converging to elements of $\C^\times$. Now, as we have
+		$A_nZ_n\cdot\diag(t_1^{ (n) },t_2^{ (n) },t_3^{ (n) },t_4^{ (n) })\to Z'_0\in\Xi$ and $Z_n$ convergent
+		, we $Z_n\cdot\diag(t_1^{ (n) },t_2^{ (n) },t_3^{ (n) },t_4^{ (n) })$ converges in $\Xi$  and hence
+		$A_n$ convergent as well (in $GL_2(\C)$). Hence, 
+		Thus properness of $H\curvearrowright\Xi$ action is proven.\par
+		Now, as we have that $\pi:H\to\Xi/H$ is	smooth submersion, using appropriate coordinate chart
+		(given via constant rank theorem) that renders $\pi$ as simply a (restriction of) an $\R^{ 16 }\to\R^2$
+		projection, to see that $\Xi/H\to\pcone\setminus\mycbra{ 0,1,\infty }$ is local diffeomorphism,
+		it suffices to show that $\Xi\to\pcone\setminus\mycbra{ 0,1,\infty }$ is constant map of rank 2 (of full rank).
+		Latter, however, is true as fractional-linear map is always so (it has nonzero complex derivative).
+\end{enumerate}
+\myprobshort{ April 28, remark after Def. 4.1.7}
+{ With $\Xi$ and $H\curvearrowright\Xi$ as in previous problem, consider further the right action $\mathfrak{ S }_4
+\curvearrowright\Xi$ acting by column permutations
+show that $\Xi\to\mathbb{ PC }^1\setminus\mycbra{ 0,1,\infty }$ is $\mathfrak{ S }_4$
+-equivariant bundle (that is, projection is $\mathfrak{ S }_4$-intertwiner)
+and $H$-principal (that is equivariant for $H\curvearrowright\mathbb{ PC }^1\setminus\mycbra{
+0,1,\infty }$ trivial action, and $H$ acts on fibers
+transitively freely). Show further that $H$-action and $\mathfrak{ S }_4$ do not commute.}
+$H$-principality was shown in previous problem (to be precise, we {\it define} action of $H$ on $\pcone\setminus\mycbra{ 0,1,\infty }$
+in such a way that $\Xi/G$ becomes $G$-diffeomorphism and as we've seen $H$-orbits are precisely fibers
+). $\mathfrak{ S }_4$ acts equivariantly. In fact, we can {\it define} the action $\mathfrak{ S }_4\curvearrowright\pcone\setminus
+\mycbra{ 0,1,\infty }$ to make $\pi:\Xi\to\Xi/H$ intertwiner, once we show that elements of the same $\pi$-fiber go to the same fiber.
+As $\mathfrak{ S }_4$ is generated by three cycles $(1,2)$, $(2,3)$ and $(3,4)$ and it's enough to show fiber-preserving for these.
+But letting $A_{ 1,2,3,4 }$ denote $\expr$ with $id,(1,2),(2,3),(3,4)\mathfrak{ S }_4$ acted upon it respectively,
+we see by direct computation that $A_2=1-A_1$, $A_3=A_1/(A_1-1)$ and $A_4=1-A_1$ and this shows the desired.\par
+Finally, let us show that the actions do not commute. This is obvious, as, say $\diag(1,2,1,1)\in H$ and $(1,2)\in\mathfrak{S}_4$
+acting on an element of $\Xi$ do not commute.
+\myprobshort{ April 28, Prop. 4.2.1}{Suppose $\varpi:\Xi\to M$ is $H$-principal bundle and we have finite dimensional
+	representation $\tau:H\to\Aut(V)$. Define equivalence on $\Xi\times V$ via $(\xi,v)\sim(\xi h,\tau(h)^{ -1 }v)$ for $h\in H$
+	and write $\upupsilon:=\Xi\times_HV:=(\Xi\times V)/\sim$. Then,
+	\begin{enumerate}
+		\item $\upupsilon\ni[\xi,v]\to\varpi(\xi)\in M$ is vector bundle with fiber $V$;
+		\item If further $\Xi\to M$ is $G$-equivariant $H$-principal bundle, then $\upupsilon\to M$ is 
+			$G$-equivariant as well. 
+\end{enumerate}}
+\begin{enumerate}
+	\item Let $\mycbra{ \mybra{ U_\alpha\subset M,\phi_\alpha:\varpi^{ -1 }(U_\alpha)\to U_\alpha\times H } }_\alpha$
+		be the local trivialization of $\Xi\to M$.
+			We define $H_\alpha$ to be the part of the $\upupsilon$ bundle
+			above $U_\alpha\subset M$, that is the set $\mysetn{ [\xi,v]\in\Xi\times_HV }{ \varpi(\xi)\in U_\alpha }$
+			and write two components of map $\phi_\alpha:\varpi^{ -1 }(U_\alpha)\to U_\alpha\times H$ as 
+			$\phi_\alpha=(\varpi,h_\alpha)\in U_\alpha\times H$.
+			and define a map $F_\alpha:H_\alpha\to U_\alpha\times V$ via $[\xi,v]\mapsto(\varpi(\xi),\tau(h_\alpha
+			(\xi))v)\in U_\alpha\times V$. This map is well defined, as 
+			$F_\alpha([\xi h,\tau(h)^{ -1 }v])=(\varpi(\xi\cdot h),\tau(h_\alpha(\xi h))\tau(h)^{ -1 }v)=
+			(\varpi(\xi),\tau(h_\alpha(\xi))v)$ ($h_\alpha$ intertwines $H$-action, as $\phi_\alpha$ has to do so,
+			$\Xi$ being the principal $H$-bundle) and $F_\alpha$ is well-defined.\par
+			Furthermore, $F_\alpha$ descends to a diffeomorphism $H_\alpha\to U_\alpha\times V$, as 
+			can be seen using local
+			coordinates given by Constant Rank theorem for $\Xi\times V\to \Xi\times_HV$ submersion
+			(submersion, as $\Xi\times_HV$ may be seen as factor of $\Xi\times V$ via the right action of group $H$
+			by $h\cdot(\xi,v):=(\xi\cdot h,\tau(h)^{ -1 }v)$ and that action is smooth, free 
+			(because $H\curvearrowright\Xi$ is free) 
+			and proper 
+			(as $H\curvearrowright\Xi$ is free, which follows from equivariance of $h_\alpha$)
+			and then applying \cite[Theorem 9.16]{lee}) and noting that
+			$\varpi^{ -1 }(U_\alpha)\times V\ni(\xi,v)\to(\psi_\alpha(\xi),\tau(h_\alpha
+			(\xi))v)\in U_\alpha\times V$ was a submersion itself.\par
+			Finally, the fact that $\forall x\in M,\;F_\alpha\big|_{ \upupsilon_x }:\upupsilon_x\to\mycbra{ x }\times V$
+			is an isomorphism of linear spaces is apparent, as for every fixed $\xi\in\Xi$, $\tau(h_\alpha(\xi))$
+			is an isomorphism.
+		\item We let $G\curvearrowright\upupsilon$ via $g[\xi,v]:=[g\xi,v]$ (well-defined as left-multiplication
+			and right-multiplication commute; and factors through to a smooth action on $\upupsilon$, again as
+			$\Xi\times V\to\upupsilon=\Xi\times_HV$ is a submersion)
+			. Then it is clear that $\varpi([g\xi,v])=\varpi(g\xi)=g\varpi(\xi)$, the $\Xi\to M$ being the 
+			$G$-equivariant bundle.
+		$\varpi:\upupsilon\to M$ intertwines $G$-action, as 
+\end{enumerate}
+\myprobshort{April 28, Prop. 4.2.1}{In the setting of the previous problem, show that there's a natural bijection
+	$\Gamma(M,\upupsilon)\simeq C^\infty(\Xi,V)^H:=\mysetn{ F\in C^\infty(\Xi,V) }{\forall h\in H,\;F(\xi\cdot h)=\tau(h)^{ -1 }
+	F(\xi)}$. Show further that if $\Xi$ is $G$-equivariant principal $H$-bundle, then 
+	$\Gamma(M,\upupsilon)\simeq C^\infty(\Xi,V)^H$ is $G$-isomorphism, (with $G\curvearrowright C^\infty(\Xi,V)^H$
+	via $g\cdot f:=f(g^{ -1 }\cdot)$)}
+	First we construct the map $P:C^\infty(\Xi,V)^H\to\Gamma(M,\upupsilon)$ as follows.
+	Given $F\in C^\infty(\Xi,V)^H$ we define the section $s$ of $\upupsilon\to M$ as follows. For $\xi\in\Xi$
+	such that $\varpi(\xi)=x\in M$ we let $s(x):=[\xi,F(\xi)]$. It is independent of choice of $\xi$, as
+	$[\xi\cdot h,F(\xi h)]=[\xi,\tau(h)\tau(h)^{ -1 }F(\xi)]=[\xi,F(\xi)]$, hence $s$ is a well-defined $M\to\upupsilon$
+	map. It is smooth, as $\Xi\ni\xi\mapsto(\xi,F(\xi))\in\Xi\times V$ is smooth, hence (as $\Xi\times V\Xi\times_HV$ is
+	a smooth) the latter factors to smooth map $\Xi\to\upupsilon$ and finally (as $\Xi\to M$ is a surjection) map
+	$\Xi\to\upupsilon$ factors (as was shown above) to a {\it smooth} map $s:M\to\upupsilon$. Finally, $s$ is a section,
+	as $\varpi(s(x))=\varpi([\xi,F(\xi)])=\varpi(\xi)=x$ according to the way we've chosen $\xi$.\par
+	Next, we seek to show that $P:C^\infty(\Xi,V)^H\to\Gamma(M,\upupsilon)$ defined in previous paragraph is onto and injective.
+	The latter is clear, as if we'd have two maps $F,F'\in C^\infty(\Xi,V)^H$ giving rise to the same section of $\upupsilon$,
+	then this implies that for every $\xi\in\Xi$ we have $[\xi,F(\xi)]=[\xi,F'(\xi)]$, which implies (as $H$-action is
+	free) that $F(\xi)=F'(\xi)$ and hence $F=F'$. To show the surjectivity of $P$, let $s\in\Gamma(M,\upupsilon)$ be given.
+	We construct $F\in C^\infty(\Xi,V)^H$ as follows. Let $\xi\in \Xi$ be given and take arbitrary
+	$(\xi',v')\in s(\varpi(\xi))\in\upupsilon_{ \varpi
+	(\xi) }$. As $\varpi(\xi)=\varpi(\xi')$, we should have $\xi'=\xi\cdot h$ and we let $F(\xi):=\tau(h)v'$.
+	This definition is independent of choice of $\xi'$ as can be directly seen. Moreover, $F(\xi\cdot h)=\tau(h)^{ -1 }F(\xi)$
+	as can be seen by construction. Finally, $F(\cdot):\Xi\to V$ is smooth, which can be seen as follows. Let
+	$\mycbra{(U_\alpha\subset M,(\varpi,h_\alpha):\Xi\supset\varpi^{ -1 }(U_\alpha)\to U_\alpha\times H)}_\alpha$
+	and $\mycbra{ \mybra{ U_\alpha,\upupsilon\supset\varpi^{ -1 }(U_\alpha)\ni[\xi,v]\mapsto(\varpi(\xi),\tau(h_\alpha(\xi))^
+	{ -1 }v) } }$ be local trivializations of $\Xi\to M$ and $\upupsilon\to M$ respectively as discussed in a previous problem.
+	Then, above any $U_\alpha$ $s$ gives rise to a smooth function $s':U_\alpha\to V$ such that $\forall \xi\in \varpi^{ -1 }
+	(U_\alpha)$,
+	$[\xi,\tau(h_\alpha(\xi))^{ -1 }s'(x)]=s(\varpi(\xi))$
+	. Then, for any $\xi\in\varpi^{ -1 }(U_\alpha)$ we should have
+	$F(\xi)=\tau(h_\alpha(\xi))^{ -1 } 
+	s'(\varpi(\xi))$ according to the construction of $F$ above and hence $F$ is smooth on $U_\alpha$.
+	Now it is clear that $P(F)=s$, as above $U_\alpha$ we have (taking any $\xi$ such that $x=\varpi(\xi)$)
+	$P(F)(x)=[\xi,F(\xi)]=[\xi,\tau(h_\alpha(\xi))^{ -1 }s'(x)]=
+	s(\varpi(\xi))=s(x)$.\par
+ 	It is easy to note that under the additional hypothesis of $G$-equivariance of $\Xi$ the $P$ constructed
+	above intertwines $G$-action, as if $P(F)=s$ (recall that this means that $\forall \xi\in\Xi,\;s(\varpi(\xi))=[\xi,F(\xi)]
+	$)
+	and $\varpi(\xi)=x$, we have $P(g\cdot F)(x)=P(F(g^{ -1 }\cdot))(x)=
+	g[g^{ -1 }\xi,F(g^{ -1 }\xi)]=gs(g^{ -1 }x)$ (the last equality follows from the fact that $\varpi(g^{ -1 }\xi)=g^{ -1 }x$)
+	hence $P(g\cdot F)=gs(g^{ -1 }\cdot)=g\cdot s$.
+	\myprobshort{ May 12, Exercise 5.13}{
+		Show that for $k=-l\in-\Z_{ \geq0 }$ we have $\mysetn{ F\in\mathcal{ O }(\C^2\setminus\mycbra{ 0 } }
+	{\forall\lambda\in\C^\times,\;F(\lambda z_1,\lambda z_2)=\lambda^{ k }F(z_1,z_2)}$ consists of homogeneous
+polynomials of degree $l$ and is a vector space of degree $l+1$.}
+We start with showing that 
+$H:=\mysetn{ F\in\mathcal{ O }(\C^2\setminus\mycbra{ 0 } }
+	{\forall\lambda\in\C^\times,\;F(\lambda z_1,\lambda z_2)=\lambda^{ k }F(z_1,z_2)}$ consists of homogeneous polynomials of
+	degree $l$.
+	As it is clear that all homogeneous polynomials are indeed belong to $H$, it remains to prove the reverse inclusion.
+	So let $F\in H$ be given. Its homogeneity implies that it is bounded near $0$, hence has a removable singularity there,
+	hence $F$ extends to a holomorphic function on $\C^2$. Next, we write $F$ as power series $\sum_{ i,j=1 }^{ \infty }
+	a_{ i,j }z_1^iz_2^j$
+	centered around $0$ and
+	homogenity tells us that we should have for $E:=z_1\frac{ \partial }{ \partial z_1 }+z_2\frac{ \partial }{ \partial z_2 }$
+	$EF=lF$ holding on $C^2\setminus\mycbra{ 0 }$, hence at $0$ as well (by continuity)
+	and hence uniqueness of expansion tells us that
+	for $i+j\neq l$ we should have $a_{ i,j }=0$. Hence $F$ is a homogeneous polynomial.\par
+	Finally, the space homogeneous polynomials of degree $l$ clearly has dimension $l+1$, the $\mycbra{ z_1^iz_2^{ l-i } }_{ i=0 }
+	^l$ forming a basis.
+\myprobshort{ April 28, Theorem 5.2.2 }{ Considering $G\to G/H$ as $G$-equivariant $H$-principal bundle,
+	construct the associated bundle $\upupsilon\to G/H$
+	as above (with assumed $H\curvearrowright V$ finitely-dimensional representation).
+	Show that there is a natural bijection $\Gamma(G/H,\upupsilon)^G\simeq V^H$.}
+	As was shown above $\Gamma(G/H,\upupsilon)\simeq C^\infty(G,V)^H$ and (recalling that $G$
+	acts on $C^\infty(G,V)^H$ with $g\cdot F=F(g\cdot)$)
+	this isomorphism identifies $\Gamma(G/H,\upupsilon)^G$ with constant functions on $G$
+	and we get the desired morphism by mapping these functions to their value, say to $F(1)$. 
+	We indeed have $F\in V^H$, as $\forall h\in H,\;\tau(h)^{ -1 }F(1)=F(h)=F(1)$, the first
+	equality using the fact that $F\in C^\infty(G,V)^H$ and the second is the fact that $F$ is constant.
+	Conversely, given $v\in V^H$ constant function with value $v$ $G$ will be the member of $C^\infty(G,V)^H$
+	by the same computation as above and these constructions are clearly inverse to each other.
+%%\begin{myprob}[April 28, Proposition 4.2.1] Let $\varpi:\Xi\to M$ is $H$-principal bundle with right action,
+%%	$\tau:H\to\Diff(V)$ is group homomorphism (assume $V$ is a manifold)
+%%	. Define equivalence $\sim$ on $\Xi\times V$, equivalence class of
+%%	$(\xi,v)$ being all the elements $(\xi h,\tau(h)^{-1}v)$ for all $h\in H$.
+%%	Show that the following holds:
+%%	\begin{enumerate}
+%%		\item Map $\nu:=\Xi\times V/\sim\to M$, $[\xi,v]\mapsto\varpi(\xi)$ is a well-defined map,
+%%			which defines a fiber bundle with a fiber $V$.
+%%		\item If $\varpi:\Xi\to M$ was a $G$-equivariant $H$-principal bundle, then the bundle 
+%%			$\nu:=\Xi\times V/\sim\to M$ is $G$-equivariant.
+%%	\end{enumerate}
+%%\end{myprob}
+%%	\begin{enumerate}
+%%		\item First of all, the map $\nu$ is well-defined. Indeed, for any $h\in H$ we have
+%%			$\varpi[\xi h,\tau(h)^{-1}v]:=\varpi(\xi h)=\varpi(\xi)$, the last equality holds
+%%			true, since $\varpi:\Xi\to M$ is $H$-principal by hypothesis, hence
+%%			$\varpi[\xi h,\tau(h)^{-1}v]:=\varpi(\xi h)=\varpi(\xi)=:\varpi[\xi,v]$.
+%%
+%%			eu%TODO
+%%	\end{enumerate}
+%%\begin{myprob}[April 28, Thm. 4.2.3] There is natural bijection for associated bundle $\nu$ $\Gamma(M,\nu)\simeq
+%%	C^{\infty}(\Xi,V)^H:=\mysetn{F\in  C^{\infty}(M,V)}{F(gh)=\tau(h)^{-1}F(g)\forall h\in H\forall g\in G}$
+%%	and the action $G$ on $C^{\infty}(\Xi,V)$ leaves $C^{\infty}(\Xi,V)^H$ invariant.
+%%\end{myprob}%TODO
+\begin{thebibliography}{9}
+	\bibitem{lee}Lee, J.M. (2003). {\it Introduction to Smooth Manifolds}. Springer
+\end{thebibliography}
+\end{document}
+%NB: 10 pages
