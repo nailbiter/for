@@ -302,6 +302,31 @@ int set_tag(char* arg)
 }
 
 int remove_tag(char* arg)
+{
+    json_error_t error;
+
+    json_t* root = read_test("ttt.txt",&error);
+    if( !root ) return 0;
+
+    json_t *dataitems = json_object_get(root,"dataitems");
+    int replaced = 0;
+    for( int i = 0; i < json_array_size(dataitems); i++ )
+    {
+        json_t *tags = json_object_get(json_array_get(dataitems,i),"tags");
+        int flag = 0;
+        for( int j = 0; j < json_array_size(tags); j++ )
+            if( !strcmp(json_string_value(json_array_get(tags,j)),arg) )
+            {
+                json_array_remove(tags,j);
+                flag = 1;
+            }
+        if( flag ) replaced++;
+    }
+
+    save_test(root,"ttt.txt",NULL);
+    printf("\"%d items removed tag %s\"",replaced,arg);
+    return 0;
+}
 
 int commit_pending(char* arg)
 {
@@ -315,12 +340,14 @@ int commit_pending(char* arg)
     for( int i = 0; i < json_array_size(dataitems); i++ )
     {
         json_t *tags = json_object_get(json_array_get(dataitems,i),"tags");
+        int flag = 0;
         for( int j = 0; j < json_array_size(tags); j++ )
             if( !strcmp(json_string_value(json_array_get(tags,j)),"pending") )
             {
                 json_array_set(tags,j,json_string("simple"));
-                replaced++;
+                flag = 1;
             }
+        if( flag ) replaced++;
     }
 
     save_test(root,"ttt.txt",NULL);

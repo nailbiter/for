@@ -1,0 +1,44 @@
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{enumerate}
+\usepackage{CJKutf8}
+\usepackage{mystyle}
+
+\title{}
+\author{}
+\begin{document}
+\maketitle
+%104 год номер 4, 103 год номер 6, 101 год номер 8
+\begin{myprob}
+	Let $C$ be a simple closed curve \dots.
+\end{myprob}
+Indeed, Stokes theorem tells us (we shall denote by $A$ the region enclosed by $C$)
+\[\int_Czdx-2xdy+3ydz=\int_A\mbox{curl}(zdx-2xdy+3ydz)\cdot\mathbf{n}=\]
+\[=\int_A(3dxdy+dxdz-2dydz)\mathbf{n}\]
+and as normal vector for plane $x+y+z=1$ is $\mathbf{n}=(1/\sqrt{3},1/\sqrt{3},1/\sqrt{3})$ we have
+\[\int_A(3dxdy+dxdz-2dydz)\mathbf{n}=\mynorm{A}\frac{3+1-2}{\sqrt{3}}\]
+where $\mynorm{A}$ denotes the area of $A$ and this expression clearly depends only on area.
+
+\begin{myprob}
+	Find the positive oriented simple \dots.
+\end{myprob}
+Let us denote the region that this curve encloses as $A\subset\R^2$ and apply Stokes theorem that would give us
+\[\int_C(y^3-y)dx-2x^3dy=\int_A(3y^2-1)dydx-6x^2dxdy=\int_A(1-3y^2-6x^2)dxdy\]
+as we are interested in maximizing, integration should not be done over the regions where $1-3y^2-6x^2<0$ and should be done over
+the whole region where $1-3y^2-6x^2\geq0$, hence $A=\mysetn{(x,y)\in\R^2}{1-3y^2-6x^2}$, and $C$ is its boundary, which is the ellipse
+\[3y^2+6x^2=1\]
+\begin{myprob}
+	Let $\vec{F}=(P,Q,R)$\dots
+\end{myprob}
+We are going to prove this statement. It is in fact enough to show that for any two surface "pulled" on $\Gamma$ the integration
+will give the same result. In turn, for this it is sufficient to show that integrating $\vec{F}$ over the surface of any closed solid
+will give zero. To show, this for some particular solid $V$ we may apply Stokes theorem to see that
+\[\oiint_\partial \vec{F}\cdot\vec{n}_{\Sigma}dA=\iiint_V\mybra{\frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y}+\frac{\partial R}
+{\partial z}}dxdydz=0\]
+as expression in under the rightmost integral is zero by hypothesis.
+
+\end{document}
