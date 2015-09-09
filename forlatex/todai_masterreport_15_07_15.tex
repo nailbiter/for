@@ -107,7 +107,7 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	For fixed $\nu\in\Z_{ >0 }$
 	the non-trivial element of $\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})$ for $\lambda\in\C$ such that 
 	$\Re(\lambda+\nu)>n-1$ and $\Re(\lambda-\nu)>0$ can be extended to the generalized function on the whole $\R^n$,
-	but I \textbf{do not} know yet whether it extends to a kernel of an intertwiner.
+	which satisfies the equations.
 \end{remark}
 \footnotetext{ $\R^{ p-1}\times\R^{ q-1 }\ni(x,y)=(\sqrt{ s }\omega_{ p-2 },\sqrt{ \mu s }\omega_{ q-1 })$}
 \footnotetext{ $\R^{ p-1}\setminus\mycbra{ 0 }\ni x=\sqrt{ s }\omega_{ p-1 }$}
@@ -130,6 +130,37 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	where
 	\[\Theta:={ -\lambda/2-N/2-n'/2-M/2-m'/2 }\]
 	\[R(r,\mu)=1+2(1+\mu)r^2+(\mu-1)^2r^4\]
+\end{theorem}
+\end{frame}
+\begin{frame}{normalization $\tilde{K}_{ \lambda,\nu }$}
+\begin{theorem}[Kobayashi-Speh; Proposition 7.3]
+	Set $\tilde{K}^{\mathbb{ A }}_{ \lambda,\nu }:={{K}^{\mathbb{ A }}_{ \lambda,\nu }}/\Gamma(\frac{ \lambda+\nu-n+1 }{2})/
+	\Gamma(\frac{ \lambda-\nu }{ 2 })$. Then $\forall f\in C^{ \infty }(S^n)_K$ we have $
+	\myabra{\tilde{K}^{\mathbb{ A }}_{ \lambda,\nu },f}$ being holo on $\mathbb{ C }^2$. Moreover, $\mysbra{\forall f\in C^{ \infty }(S^n)
+	_K,\;\myabra{\tilde{K}^{\mathbb{ A }}_{ \lambda,\nu },f}=0}\iff (\lambda,\nu)\in L_{ \mbox{even} }$
+\end{theorem}
+\begin{theorem}[$O(p+1,q+1),\;n:=p+q$]
+	Let $K_{ \lambda,\nu }$ be the nontrivial element of $Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n)$
+	and normalize it as $\tilde{ K }_{ \lambda,\nu }
+	:=K_{ \lambda,\nu }/\Gamma(\frac{ \lambda+\nu-1-q }{ 2 })/\Gamma(\frac{ \lambda+ \nu-p+1}{ 2 })$
+	if $q$:even and $2\nu\geq q$ and 
+	$:=K_{ \lambda,\nu }/\Gamma(\frac{ \lambda-\nu-1 }{ 2 })/\Gamma(\frac{ \lambda+ \nu-p+1}{ 2 })$ otherwise.
+	Then $\forall F_\lambda[\psi,\psi',N,M,n',m']$ we have $\myabra{ \tilde{ K }_{ \lambda,\nu }, F_\lambda[\psi,\psi',N,M,n',m']}
+	$ being holo in $\lambda$. Moreover, $\forall (\lambda,\nu)\in\C\times\mathbb{ Z }_{ >0 },\;\tilde{ K }_{ \lambda,\nu }\neq0$.
+\end{theorem}
+\begin{remark}
+	Proof is done modulo the hypothesis %TODO: formulate the hypo
+	that seems to agree with the experimental data.
+\end{remark}
+\end{frame}
+\begin{frame}{meromorphic extension of ${K}_{ \lambda,\nu }$}
+\begin{theorem}[Kobayashi-Speh; Lemma 8.2]
+	\[\frac{ \partial }{ \partial x_n }K^+_{ \lambda+1,\nu }=(\lambda+\nu-n+1)K^+_{ \lambda,\nu }-2\nu K^+_{ \lambda,\nu +1}\]
+	\[\Delta_{ n-1 }K^+_{ \lambda+1,\nu-1 }=2(\nu-1)(2\nu-n+1)K^+_{ \lambda,\nu }-4(\nu-1)K^+_{\lambda+1,\nu+1  }\]
+\end{theorem}
+\begin{theorem}[$O(p+1,q+1),\;n:=(p)+(q)$]
+	\[\frac{ \partial }{ \partial x_p }K^+_{ \lambda,\nu }=-2K_{ \lambda,\nu+1 }+(\lambda+\nu-n)K_{ \lambda,\nu }\]
+	\[\Delta_{ p-1,q }K^+_{ \lambda+1,\nu-1 }=4\nu K^+_{ \lambda,\nu+1 }-4K^+_{ \lambda,\nu+2 }\]
 \end{theorem}
 \end{frame}
 \begin{frame}{Further work}%TODO
