@@ -13,7 +13,7 @@
 (define url "https://docs.google.com/spreadsheets/d/1uJWsDYS3-5UKc2JuRNtYM7O1kTzQXln6GM0meqhcJC8/pub?gid=1344010549&single=true&output=csv")
 
 (define (mail msg)
-(let ((port (open-output-pipe (string-append "mail -s " topic " " email-address))))
+(let ((port (open-output-pipe (string-append "mail -s " "\"" topic "\" " email-address))))
   (display msg port))
 )
 
@@ -29,7 +29,7 @@
        (todo(filter (lambda(e)(string=? dateline (cdr e)))todo))
        (todo(map (lambda(p)(string-append(car p)"\n*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+\n")) todo))
        (todoline (string-concatenate todo))
-       (todoline(string-append "TODO:\n"todoline))
+       (todoline(string-append "TODO:\n*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+\n"todoline))
        )
     ;(map (lambda(x)(begin(display x)(newline))) todo))
      todoline))
@@ -41,8 +41,3 @@
                    "Late per 15min\n"))
 
 (mail (string-append todoline "\n" rulesline))
-     
-;(display (download2string url))
-;(open-input-pipe (string-append "wget -O /tmp/nailbiter.txt " "\"" url "\""))
-;(display (download2string(string-append "\"" url "\"")))
-     ;(mytokenize "\n" (read-delimited "" (open-input-pipe(string-append "wget -O -" " \"" url "\"|tr -d '\\n' | tr '\\r' '\\n'" )))))
