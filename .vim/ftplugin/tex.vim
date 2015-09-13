@@ -3,3 +3,4 @@ set makeprg=sh\ ~/.vim/ftplugin/latex_or_xelatex.sh\ %\ %<\ &&\ cp\ %<.pdf\ ~/fo
 :command! -range UnComment <line1>,<line2>s@^%%@@ | noh
 set spell
 let b:doneTexCompiler = 1
+:imap <S-Tab> {  }<++><Left><Left><Left><Left><Left><Left>
