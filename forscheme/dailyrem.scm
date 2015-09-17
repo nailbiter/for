@@ -17,7 +17,7 @@
   (display msg port))
 )
 
-(define todoline
+(define lines
 (let* ((todo (mytokenize "\r" (read-delimited "" (open-input-pipe(string-append "wget -O -" " \"" url "\"")))))
        (todo(cdr todo))
        (todo (map (lambda(s)(string-drop s(inc(string-index s #\,)))) todo))
@@ -26,18 +26,14 @@
        (todo(map (lambda(s)(cons(myaux s)(string-drop s (inc(string-rindex s #\,)))))todo))
        (date (current-date))
        (dateline (format #f "~d/~2,'0d/~2,'0d" (date-year date)(date-month date)(date-day date)))
-       (todo(filter (lambda(e)(string=? dateline (cdr e)))todo))
-       (todo(map (lambda(p)(string-append(car p)"\n*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+\n")) todo))
-       (todoline (string-concatenate todo))
+       (today-todo(filter (lambda(e)(string=? dateline (cdr e)))todo))
+       (today-todo(map (lambda(p)(string-append(car p)"\n*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+\n")) today-todo))
+       (todoline (string-concatenate today-todo))
        (todoline(string-append "TODO:\n*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+\n"todoline))
+       (rules (filter (lambda(e)(string=? "2015/06/06" (cdr e)))todo))
+       (rulesline(string-concatenate(map(lambda(l)(string-append(car l)"\n"))rules)))
        )
     ;(map (lambda(x)(begin(display x)(newline))) todo))
-     todoline))
+     (list todoline rulesline)))
 
-(define rulesline(string-append
-                   "badcom/youtube/ lurkmore/news/movies/badreads 20\n"
-                   "eat _after_8 35\n"
-                   "Porn/Masturbation 100\n"
-                   "Late per 15min\n"))
-
-(mail (string-append todoline "\n" rulesline))
+(mail (string-concatenate (map (lambda(l)(string-append l "\n"))lines)))
