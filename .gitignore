@@ -11,3 +11,4 @@ forjava/*.class
 forjava/*.txt
 *.pdf
 alex.vim
+.vim/.netrwhist
