@@ -1,15 +1,20 @@
 (setlocale LC_ALL "")
 (include "misc.scm")
+(include "linpack.scm")
 
-;cmd-line --> cluster --> extract time --> subtract'n'sort --> output
-(define (fcn fn)
-  (let* ((lines (mytokenize "\n" (read-string (open-file fn "r"))))
-         (tester? (lambda(l)(=(string-length l)0)))
-         (split (letrec((s(lambda(acum l)(if(null? l)'()(if
-                                                          (tester?(car l))
-                                                          (if(null? acum)(s '() (cdr l))(cons acum(s '()(cdr l))))
-                                                          (s(append acum(list-head l 1))(cdr l)))))))
-                  (s '()lines)))
-    (list-head lines 5)))
+(define M (diag '( -1 1 1 -1)))
+(define (A e)(let((ch (/(+ e (/ 1 e))2))(sh (/(- e (/ 1 e))2)))(list->mat(list ch 0 0 sh 0 1 0 0 0 0 1 0 sh 0 0 ch))))
+(define (N y)(let((y2h (/(* y y)2))) (list->mat(list (+ 1 y2h) 0 y (- 0 y2h) 0 1 0 0 y 0 1 (- 0 y ) y2h 0 y (- 1 y2h)))))
+;(define (N- u v)(list(list (
 
-(map (lambda(e)(format #t "~a***~&" e)) (fold append '() (map fcn (cdr (command-line)))))
+(display(matrix->string/txt (matr-prod (N(- 0 (/ 2 3))) (A(/ 1 3)) M '((0)(1)(0)(1)))))
+(newline)
+(display(matrix->string/txt (matr-prod (A 3) (N(- 0 (/ 2 3))) (A(/ 1 3)))))
+(newline)
+(display(matrix->string/txt(matr-prod (A 3) '((2)(1)(-2)(-1)))))
+(newline)
+(display(matrix->string/txt (matr-prod M (A 3) (N(- 0 (/ 2 3))) (A(/ 1 3)) M)))
+(newline)
+(display(matrix->string/txt(matr-prod M '((2)(1)(-2)(1)))))
+(newline)
+(display(matrix->string/txt (N 3)))
