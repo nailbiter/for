@@ -29,6 +29,8 @@
                             (if (string=? key (car (car l))) (cdr (car l)) (get-value/msg (cdr l) key fallback-msg))))
 (define (get-random-elt l) (list-ref l (random (length l))))
 (define (trial pred maxnum) (define (inner iternum) (if (= iternum maxnum) #f (if (pred) #t (inner (inc iternum))))) (inner 0))
+(define (interleave l obj last-b)(if last-b (concatenate(map list l (dup obj (length l)))) 
+                                   (if(null? l)'()(cons(car l)(concatenate(map list(dup obj (dec(length l)))(cdr l) ))))))
 
 ;string processing
 (define (mytokenize regexp str) (define cr (make-regexp regexp))
@@ -46,6 +48,7 @@
 (define (concat-by-n l n)(cond ((null? l) '())((<(length l)n)(list (string-concatenate l)))(#t
                                                                                             (cons (string-concatenate (list-head l n))
                                                                                            (concat-by-n (list-tail l n) n)))))
+(define (match-harden f)(lambda(m)(if (regexp-match? m)(f m)'())))
 
 ;download2string
 (define (download2string url) (read-delimited "" (open-input-pipe (string-concatenate (list "wget -O - "

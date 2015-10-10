@@ -17,4 +17,4 @@
 (newline)
 (display(matrix->string/txt(matr-prod M '((2)(1)(-2)(1)))))
 (newline)
-(display(matrix->string/txt (N 3)))
+(display(matrix->string/txt (N 2)))
