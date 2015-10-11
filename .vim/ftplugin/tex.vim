@@ -4,3 +4,5 @@ set makeprg=sh\ ~/.vim/ftplugin/latex_or_xelatex.sh\ %\ %<\ &&\ cp\ %<.pdf\ ~/fo
 set spell
 let b:doneTexCompiler = 1
 :imap <S-Tab> {  }<++><Left><Left><Left><Left><Left><Left>
+:call IMAP('FMF', '\mathfrak{<++>}<++>', 'tex')
+:call IMAP('FML', '\mathbb{<++>}<++>', 'tex')

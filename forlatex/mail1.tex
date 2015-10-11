@@ -1,0 +1,50 @@
+
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{enumerate}
+\usepackage{CJKutf8}
+\usepackage{mystyle}
+
+%%\usepackage{fancyhdr}
+%%\pagestyle{fancy}
+%%\fancyfoot[C]{text me at \href{mailto:leontiev@ms.u-tokyo.ac.jp}{leontiev@ms.u-tokyo.ac.jp} if there are mistakes/obscurities}
+%%\fancyhead{}
+
+\title{}
+\author{}
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\maketitle
+とりあえず、私本当にThm 3.16を使えないと思います。
+何故かと言うと、理由がわかると思いますが、メールで説明ちょっと難しいですが、
+反例として $\myabs{x_p}^{\lambda+\nu-n}\mybra{|x|^2-|y^2|}^{-\nu}_+$
+は$M'A'$と$\mathfrak{n_+'}$-equivarianceの公式に満たされますが、
+symmetry breaking kernelではありません。
+汎関数は$\mathfrak{n}_+'$-equivarianceに満たされますが、
+$N_+'$-equivarianceに満たされていないと思います。
+
+ですので、問題２の答えるためにはちょっと追加的な頑張りが必要です。しかし、$\supp=\mycbra{ x_p=0 }$のsingular operator's kernel
+の形がわかります。ちなみに、問題５の答えは(residue formula)も分かると思います:
+\[\delta^{ (2k) }(x_p)\myabs{ \myabs{ x }^2-\myabs{y}^2 }^{ -\nu }=\frac{\myabs{ x_p }^{ \lambda+\nu-n }\myabs{ 
+\myabs{ x }^2-\myabs{ y }^2}^{ -\nu }}{ \Gamma\mybra{ \frac{ \lambda+\nu-n+1}{2} } }\bigg|_{ \lambda=-\nu+n-1-2k },\quad\Re(-\nu)<0\]
+でも、$\supp=\mycbra{ \myabs{ x }=\myabs{ y } }$のsingular operator's kernelの形はまだ証明されていません。
+実際には、この最後のについてちょっとわからなくなりました。元々は$\nu\in\mathbb{Z}_{ \geq0 }$の時にそのkernelはいつも存在すると思っていましたが、今はもしかしたら$\nu\in2\mathbb{Z}_{ \geq0 }+1$しか存在しないと思います（まだ証明はされていません）。
+何故かそう思うかというと、$R^{ p,q }\setminus\mycbra{ 0 }$に制限すると、あのkernelの形はそんな感じになります:$\delta^{ \nu-1 }\mybra
+{ \myabs{ x }^2-\myabs{ y }^2 }\myabs{ x_p }^{ \lambda+\nu-n }$。それで、($R^{ p,q }\setminus\mycbra{ 0 }$に制限して)
+residue formulaを書くと,そんな感じになると思います
+\[\delta^{ \nu-1 }\mybra
+{ \myabs{ x }^2-\myabs{ y }^2 }\myabs{ x_p }^{ \lambda+\nu-n }=
+\frac{\myabs{ x_p }^{ \lambda+\nu-n }\myabs{ 
+	\myabs{ x }^2-\myabs{ y }^2}^{ -\nu }}{ \Gamma\mybra{ \frac{ -\nu+1}{2} } }\bigg|_{ \nu=2k+1}
+\]
+$\nu=2k$時に${\myabs{ x_p }^{ \lambda+\nu-n }\myabs{ 
+	\myabs{ x }^2-\myabs{ y }^2}^{ -\nu }}$はpoleがありません。
+
+\end{CJK}
+%%\begin{thebibliography}{9}
+%%\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
+%%\end{thebibliography}
+\end{document}
