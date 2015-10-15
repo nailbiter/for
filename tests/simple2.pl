@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 @lines = ();
 $i = 0;
 while( <> )
