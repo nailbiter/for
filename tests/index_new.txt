@@ -13,8 +13,11 @@
 { "tags" : ["L19"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false},
 { "tags" : ["relatives"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false,"auxText" : "Own", "reflip":true},
 { "tags" : ["relatives"], "from" : 0, "to" : 2, "type" : "sc", "enabled" : false,"auxText" : "Others","reflip":true},
+{"type": "meta", "name": "relatives", "enabled": false, "enable": [-1,-2]},
 { "tags" : ["dates"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : false,"auxText" : ""},
-{ "tags" : ["relative time"], "from" : 0, "to" : 1, "auxTo":[2],"auxText":"tap to see japanese", "type" : "sc", "enabled" : true}
+{"type": "meta", "name": "dates", "enabled": false, "enable": [-1]},
+{ "tags" : ["relative time"], "from" : 0, "to" : 1, "auxTo":[2],"auxText":"tap to see japanese", "type" : "sc", "enabled" : true},
+{"type": "meta", "name": "relative time", "enabled": false, "enable": [-1]}
 ],
 ####
 "dataitems" : [
