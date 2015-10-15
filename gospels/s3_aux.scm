@@ -139,7 +139,7 @@
         (elems (list-ref args 1))
         (chapters (map roman2arabic (delete-duplicates(map car elems))))
         (chapters-n-sources(map(lambda(chap)(cons chap (download2string (string-append 
-                                                "\"http://www.kingjamesbibleonline.org/book.php?book=" (string-map (lambda (char) 
+                                                "\"http://old.kingjamesbibleonline.org/book.php?book=" (string-map (lambda (char) 
                                                 (if (char=? char #\space) #\+ char)) name) "&chapter=" chap "&verse=\""))))chapters))
         (extract-and-process-verses(lambda(elem)(let*((chap (roman2arabic(car elem)))
                                                      (start(cadr elem))
