@@ -26,7 +26,6 @@ command! -range -nargs=1 Cut :let @a = "" | <line1>,<line2>g@tags[^\]]*"<args>"@
 			"\%s@\n@@e |
 			"\%s@\S\zs\ze\S@\r@ge |
 			"\%sort | noh
-command! -range Hira <line1>,<line2>!echo "`cat`" | ~/for/tests/simple.pl
-command! -range RevHira <line1>,<line2>!echo "`cat`" | ~/for/tests/simple.pl rev
-command! -range Merge <line1>,<line2>!echo "`cat`" | ~/for/tests/simple2.pl
-command! -range EvenFirst <line1>,<line2>!echo "`cat`" | ~/for/tests/simple2.pl evenfirst
+command! -range Hira <line1>,<line2>!echo "`cat`" | ~/for/tests/simple_sh.sh
+command! -range RevHira <line1>,<line2>!echo "`cat`" | ~/for/tests/simple_sh.sh rev
+command! -range Merge <line1>,<line2>!echo "`cat`" | ~/for/tests/simple_sh.sh merge
