@@ -25,7 +25,6 @@ git add proj_JSFC/*.html
 git add scripts/*.sh
 
 ./scripts/export_lyxs.sh
-exit;#FIXME
 
 git commit -a -m "Commit"
 git push origin master
