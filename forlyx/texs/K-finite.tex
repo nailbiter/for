@@ -1,0 +1,93 @@
+%% LyX 2.0.8.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+  \theoremstyle{plain}
+  \newtheorem{prop}[thm]{\protect\propositionname}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{mystyle}
+
+\makeatother
+
+\usepackage{babel}
+  \providecommand{\propositionname}{Proposition}
+\providecommand{\theoremname}{Theorem}
+
+\begin{document}
+
+\section{Settings and Notations}
+\begin{enumerate}
+\item We let $p,q>\mathbb{Z}_{>0}$
+\item We let $K:=O(p+1)\times O(q+1)$ be the maximal compact subgroup of
+$G:=O(p+1,q+1)$.
+\item We will study kernel $K_{\lambda,\nu}^{C}\in\mathcal{D}'(\mathbb{R}^{p,q})$
+of the singular symmetry breaking operator supported on $\{Q=0\}$
+as defined in {[}todai\_masterreport\_15\_10\_14.pdf{]}. It was defined
+for $\nu\in2\mathbb{Z}_{\geq0}+1$ and $\left\{ \lambda\in\mathbb{C}\;|\;\mbox{\mbox{Re}}(\lambda-\mu-n)\notin\mathbb{Z}_{\le1}\right\} $
+\end{enumerate}
+
+\section{Statements}
+\begin{prop}
+On the $\mathfrak{n}_{-}\simeq\mathbb{R}^{p,q}$ the $K$-finite vectors
+lie in the subspace spanned by \textbf{
+\[
+F_{M,N,n',m',\psi,\psi'}(r\omega_{p-1},s\omega_{q-1}):=
+\]
+}
+
+\[
+:=R(r,s)^{-\lambda/2}\left(\frac{r}{\sqrt{R(r,s)}}\right)^{N}\left(\frac{s}{\sqrt{R(r,s)}}\right)^{M}\left(\frac{1-(r^{2}-s^{2})}{\sqrt{R(r,s)}}\right)^{n'}\left(\frac{1+(r^{2}-s^{2})}{\sqrt{R(r,s)}}\right)^{m'}\psi(\omega_{p-1})\psi'(\omega_{q-1})
+\]
+
+
+where $m',n',M',N\in\mathbb{Z}_{\geq0}$, $R(r,s):=(1-r^{2}+s^{2})^{2}+4r^{2}$
+and $(\psi,\psi')\in\mathcal{H}^{N}(\mathbb{S}^{p-1})\times\mathcal{H}^{M}(\mathbb{S}^{q-1})$.
+\end{prop}
+
+\begin{prop}
+The following holds\end{prop}
+\begin{enumerate}
+\item We have$\left\langle K_{\lambda,\nu}^{C},F_{M,N,n',m',\psi,\psi'}\right\rangle =0$
+if $M>0$, $N$:odd or $\psi\perp\mathcal{H}^{N}(\mathbb{S}^{p-1})^{O(p-1)}$.
+\item When $N$:even and $\psi(\omega_{p-1}):=\widetilde{\widetilde{C}}_{N}^{p/2-1}(\omega_{p-1}^{(p)})$,
+we have
+\[
+\left\langle K_{\lambda,\nu}^{C},F_{M,N,n',m',\psi,1}\right\rangle =R\cdot S
+\]
+where 
+\[
+S\simeq\frac{\Gamma\left(\lambda+\nu-p+1\right)}{\Gamma\left(\frac{\lambda+\nu-p-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu+N}{2}\right)}
+\]
+and 
+\[
+R=\sum_{i=0}^{\nu-1}c_{i}(m')\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}-i\right)\Gamma\left(\frac{m'+n'+\nu-2i}{2}\right)}{\Gamma\left(\frac{\lambda+N+m'+n'}{2}\right)}
+\]
+\\
+where $c_{i}(m')\in\mathbb{Q}[m']$ with $c_{0}=1$ and $(\alpha)_{j}=\alpha(\alpha-1)\dots(\alpha-j+1)$
+denotes the falling factorial.\end{enumerate}
+\begin{prop}
+Define $\widetilde{K}_{\lambda,\nu}^{C}$ as 
+\[
+\widetilde{K}_{\lambda,\nu}^{C}:=\begin{cases}
+\frac{K_{\lambda,\nu}^{C}}{\Gamma\left(\frac{\lambda+\nu-q}{2}\right)\Gamma\left(\frac{\lambda+\nu-p+1}{2}\right)} & q\mbox{: even and }2\nu\ge q\\
+\frac{K_{\lambda,\nu}^{C}}{\Gamma\left(\frac{\lambda-\nu}{2}\right)\Gamma\left(\frac{\lambda+\nu-p+1}{2}\right)} & \mbox{otherwise}
+\end{cases}
+\]
+
+
+Then $\forall\nu\in2\mathbb{Z}_{\ge0}+1,\forall F_{M,N,n',m',\psi,\psi'},\;\lambda\mapsto\left\langle \widetilde{K}_{\lambda,\nu}^{C},F_{M,N,n',m',\psi,\psi'}\right\rangle $:holomorphic
+and $\forall(\lambda,\nu)\in\mathbb{C}\times(2\mathbb{Z}_{\ge0}+1),\;\widetilde{K}_{\lambda,\nu}^{C}\ne0$.
+\end{prop}
+
+\section{Proofs}
+\end{document}
