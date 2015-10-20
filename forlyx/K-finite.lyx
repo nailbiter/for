@@ -28,7 +28,7 @@ theorems-ams
 \graphics default
 \default_output_format default
 \output_sync 0
-\bibtex_command default
+\bibtex_command bibtex
 \index_command default
 \paperfontsize default
 \spacing single
@@ -116,6 +116,12 @@ Statements
 \end_layout
 
 \begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:On-the-"
+
+\end_inset
+
 On the 
 \begin_inset Formula $\mathfrak{n}_{-}\simeq\mathbb{R}^{p,q}$
 \end_inset
@@ -124,7 +130,7 @@ On the
 \begin_inset Formula $K$
 \end_inset
 
--finite vectors lie in the subspace spanned by 
+-finite vectors are of the form 
 \series bold
 
 \begin_inset Formula 
@@ -150,7 +156,11 @@ F_{M,N,n',m',\psi,\psi'}(r\omega_{p-1},s\omega_{q-1}):=
 
 \begin_layout Proposition
 where 
-\begin_inset Formula $m',n',M',N\in\mathbb{Z}_{\geq0}$
+\begin_inset Formula $m',n',M,N\in\mathbb{Z}_{\geq0}$
+\end_inset
+
+, 
+\begin_inset Formula $m'+n'+M+N\in2\mathbb{Z}_{\geq0}$
 \end_inset
 
 , 
@@ -169,6 +179,12 @@ where
 \end_layout
 
 \begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:The-following-holds"
+
+\end_inset
+
 The following holds
 \end_layout
 
@@ -214,14 +230,11 @@ where
 status open
 
 \begin_layout Plain Layout
-TODO: 1.
- find 
-\backslash
-simeq constant; 2.
+TODO: 2.
  define what simeq means; 3.
- replace 
+ explain why we substitute Gegenbauer; find 
 \backslash
-psi
+simeq constant;
 \end_layout
 
 \end_inset
@@ -262,6 +275,12 @@ where
 \end_layout
 
 \begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:Define--as"
+
+\end_inset
+
 Define 
 \begin_inset Formula $\widetilde{K}_{\lambda,\nu}^{C}$
 \end_inset
@@ -285,15 +304,271 @@ Then
 \begin_inset Formula $\forall\nu\in2\mathbb{Z}_{\ge0}+1,\forall F_{M,N,n',m',\psi,\psi'},\;\lambda\mapsto\left\langle \widetilde{K}_{\lambda,\nu}^{C},F_{M,N,n',m',\psi,\psi'}\right\rangle $
 \end_inset
 
-:holomorphic and 
+ is a holomorphic map and 
 \begin_inset Formula $\forall(\lambda,\nu)\in\mathbb{C}\times(2\mathbb{Z}_{\ge0}+1),\;\widetilde{K}_{\lambda,\nu}^{C}\ne0$
 \end_inset
 
 .
 \end_layout
 
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:Suppose-there-exists"
+
+\end_inset
+
+Suppose there exists 
+\begin_inset Formula $\left\{ c_{i}\right\} _{i=0}^{m},\alpha\in\mathbb{C}$
+\end_inset
+
+ and increasing sequence 
+\begin_inset Formula $\left\{ k_{n}\right\} _{n}\subset\mathbb{Z}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\forall n\implies\sum_{i=0}^{m}c_{i}\Gamma(\alpha+i+k_{n})=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+Then all 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ are zero.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Lemma
+For 
+\begin_inset Formula $\lambda\in\mathbb{C}$
+\end_inset
+
+, we have an isomorphism of Frechet
+\begin_inset Formula $G$
+\end_inset
+
+-representations 
+\begin_inset Formula $\left(\pi_{\lambda,K},C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}\right)\xrightarrow{\sim}\left(l_{\Xi},C_{-\lambda}^{\infty}(\Xi^{p+1,q+1})\right)$
+\end_inset
+
+ given by 
+\begin_inset Formula $f\mapsto\left((x,y)\mapsto\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $\Xi^{p+1,q+1}:=\left\{ (x,y)\in\mathbb{R}^{p+1,q+1}\big|\left|x\right|_{p+1}=\left|y\right|_{q+1}\right\} \setminus\left\{ 0\right\} $
+\end_inset
+
+, 
+\begin_inset Formula $C_{-\lambda}^{\infty}(\Xi^{p+1,q+1}):=\left\{ f\in C^{\infty}(\Xi^{p+1,q+1})\big|\forall(t,x)\in\mathbb{R}^{\times}\times\Xi^{p+1,q+1},\; f(tx)=\left|t\right|^{-\lambda}f(x)\right\} $
+\end_inset
+
+, 
+\begin_inset Formula $C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}:=\left\{ f\in C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})\big|\forall(x,y)\in\mathbb{S}^{p}\times\mathbb{S}^{q},\; f(x,y)=f(-x,-y)\right\} $
+\end_inset
+
+ 
+\begin_inset Formula $l_{\Xi}$
+\end_inset
+
+ is left regular action induced by action of 
+\begin_inset Formula $G$
+\end_inset
+
+ on 
+\begin_inset Formula $\Xi^{p+1,q+1}$
+\end_inset
+
+ and 
+\begin_inset Formula $(\pi_{\lambda,K}(g)f)(x):=\left|g^{-1}\cdot x\right|^{-\lambda}f\left(\frac{g^{-1}\cdot x}{\left|g^{-1}\cdot x\right|}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $g^{-1}\cdot x$
+\end_inset
+
+ refers to action of 
+\begin_inset Formula $G\curvearrowright\Xi^{p+1,q+1}$
+\end_inset
+
+ and for 
+\begin_inset Formula $(x,y)\in\Xi^{p+1,q+1},\;\left|(x,y)\right|:=\left|x\right|_{p+1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Lemma
+Let 
+\begin_inset Formula $S\subset C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}$
+\end_inset
+
+ denote the subspace of 
+\begin_inset Formula $K$
+\end_inset
+
+-finite vectors.
+ Then,
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $S=\sum_{\left\{ (l,k)\in\mathbb{Z}_{\ge0}^{2}\big|l+k\in2\mathbb{Z}_{\ge0}\right\} }\mathcal{H}^{l}(\mathbb{S}^{p})\otimes\mathcal{H}^{k}(\mathbb{S}^{q})$
+\end_inset
+
+, where 
+\begin_inset Formula $\sum$
+\end_inset
+
+ denotes the span;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $S$
+\end_inset
+
+ is spanned by functions of the form 
+\begin_inset Formula $(\eta_{0},\eta,\xi_{0},\xi)\mapsto\left|\eta\right|^{N}\psi\left(\frac{\eta}{\left|\eta\right|}\right)\eta_{0}^{m'}\left|\xi\right|^{M}\psi'\left(\frac{\xi}{\left|\xi\right|}\right)\xi^{n'}$
+\end_inset
+
+ where 
+\begin_inset Formula $\left((\eta_{0},\eta),(\xi_{0},\xi)\right)\in\mathbb{S}^{p}\times\mathbb{S}^{q}$
+\end_inset
+
+, 
+\begin_inset Formula $M,N,m',n'\in\mathbb{Z}_{\geq0}$
+\end_inset
+
+ with 
+\begin_inset Formula $M+N+m'+n'\in2\mathbb{Z}_{\geq0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\psi,\psi\right)\in\mathcal{H}^{N}(\mathbb{S}^{p})\times\mathcal{H}^{M}(\mathbb{S}^{q})$
+\end_inset
+
+.;
+\end_layout
+
 \begin_layout Section
 Proofs
+\end_layout
+
+\begin_layout Proof
+(of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "prop:On-the-"
+
+\end_inset
+
+) Recall that the 
+\begin_inset Formula $K$
+\end_inset
+
+-finite vectors of 
+\begin_inset Formula $G\supset K=O(p+1)\times Q(q+1)$
+\end_inset
+
+ acting on 
+\begin_inset Formula $C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})$
+\end_inset
+
+ are given as 
+\begin_inset Formula $\bigoplus_{k,l=0}^{\infty}\mathcal{H}^{k}(\mathbb{S}^{p})\otimes\mathcal{H}^{l}(\mathbb{S}^{l})$
+\end_inset
+
+, as explained in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "howe1993homogeneous"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+(of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:Suppose-there-exists"
+
+\end_inset
+
+) Recall the formula 
+\begin_inset Formula $\Gamma(t+n)=t^{(n)}\cdot\Gamma(t)$
+\end_inset
+
+ (here 
+\begin_inset Formula $t^{(n)}:=t(t+1)\dots(t+n-1)$
+\end_inset
+
+ denotes the rising factioral).
+ It implies that 
+\begin_inset Formula $0=\sum_{i=0}^{m}c_{i}\Gamma(\alpha+i+k_{n})=\Gamma(\alpha+k_{n})\sum_{i=0}^{m}c_{i}(\alpha+k_{n})^{(i)}$
+\end_inset
+
+.
+ As 
+\begin_inset Formula $\Gamma(\alpha+n)\neq0$
+\end_inset
+
+ for 
+\begin_inset Formula $n$
+\end_inset
+
+ big enough, this implies that 
+\begin_inset Formula $\forall n>N,\;\sum_{i=0}^{m}c_{i}(\alpha+k_{n})^{(i)}=0$
+\end_inset
+
+ and since the latter expression is a polynomial in 
+\begin_inset Formula $k_{n}$
+\end_inset
+
+, it implies that 
+\begin_inset Formula $\forall x\in\mathbb{C},\;\sum_{i=0}^{m}c_{i}x^{(n)}=0$
+\end_inset
+
+ and hence that all 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ should vanish.
+\end_layout
+
+\begin_layout Proof
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "/home/u406/for/forlatex/todai_master"
+options "plain"
+
+\end_inset
+
+
 \end_layout
 
 \end_body

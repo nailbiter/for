@@ -3,16 +3,35 @@
 \documentclass[english]{article}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
+\usepackage{refstyle}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amssymb}
 
 \makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+
+\AtBeginDocument{\providecommand\propref[1]{\ref{prop:#1}}}
+\AtBeginDocument{\providecommand\lemref[1]{\ref{lem:#1}}}
+\RS@ifundefined{subref}
+  {\def\RSsubtxt{section~}\newref{sub}{name = \RSsubtxt}}
+  {}
+\RS@ifundefined{thmref}
+  {\def\RSthmtxt{theorem~}\newref{thm}{name = \RSthmtxt}}
+  {}
+\RS@ifundefined{lemref}
+  {\def\RSlemtxt{lemma~}\newref{lem}{name = \RSlemtxt}}
+  {}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
 \theoremstyle{plain}
 \newtheorem{thm}{\protect\theoremname}
   \theoremstyle{plain}
   \newtheorem{prop}[thm]{\protect\propositionname}
+  \theoremstyle{plain}
+  \newtheorem{lem}[thm]{\protect\lemmaname}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage{mystyle}
@@ -20,6 +39,7 @@
 \makeatother
 
 \usepackage{babel}
+  \providecommand{\lemmaname}{Lemma}
   \providecommand{\propositionname}{Proposition}
 \providecommand{\theoremname}{Theorem}
 
@@ -38,8 +58,8 @@ for $\nu\in2\mathbb{Z}_{\geq0}+1$ and $\left\{ \lambda\in\mathbb{C}\;|\;\mbox{\m
 
 \section{Statements}
 \begin{prop}
-On the $\mathfrak{n}_{-}\simeq\mathbb{R}^{p,q}$ the $K$-finite vectors
-lie in the subspace spanned by \textbf{
+\label{prop:On-the-}On the $\mathfrak{n}_{-}\simeq\mathbb{R}^{p,q}$
+the $K$-finite vectors are of the form \textbf{
 \[
 F_{M,N,n',m',\psi,\psi'}(r\omega_{p-1},s\omega_{q-1}):=
 \]
@@ -50,12 +70,12 @@ F_{M,N,n',m',\psi,\psi'}(r\omega_{p-1},s\omega_{q-1}):=
 \]
 
 
-where $m',n',M',N\in\mathbb{Z}_{\geq0}$, $R(r,s):=(1-r^{2}+s^{2})^{2}+4r^{2}$
-and $(\psi,\psi')\in\mathcal{H}^{N}(\mathbb{S}^{p-1})\times\mathcal{H}^{M}(\mathbb{S}^{q-1})$.
+where $m',n',M,N\in\mathbb{Z}_{\geq0}$, $m'+n'+M+N\in2\mathbb{Z}_{\geq0}$,
+$R(r,s):=(1-r^{2}+s^{2})^{2}+4r^{2}$ and $(\psi,\psi')\in\mathcal{H}^{N}(\mathbb{S}^{p-1})\times\mathcal{H}^{M}(\mathbb{S}^{q-1})$.
 \end{prop}
 
 \begin{prop}
-The following holds\end{prop}
+\label{prop:The-following-holds}The following holds\end{prop}
 \begin{enumerate}
 \item We have$\left\langle K_{\lambda,\nu}^{C},F_{M,N,n',m',\psi,\psi'}\right\rangle =0$
 if $M>0$, $N$:odd or $\psi\perp\mathcal{H}^{N}(\mathbb{S}^{p-1})^{O(p-1)}$.
@@ -76,7 +96,8 @@ R=\sum_{i=0}^{\nu-1}c_{i}(m')\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\le
 where $c_{i}(m')\in\mathbb{Q}[m']$ with $c_{0}=1$ and $(\alpha)_{j}=\alpha(\alpha-1)\dots(\alpha-j+1)$
 denotes the falling factorial.\end{enumerate}
 \begin{prop}
-Define $\widetilde{K}_{\lambda,\nu}^{C}$ as 
+\label{prop:Define--as}Define $\widetilde{K}_{\lambda,\nu}^{C}$
+as 
 \[
 \widetilde{K}_{\lambda,\nu}^{C}:=\begin{cases}
 \frac{K_{\lambda,\nu}^{C}}{\Gamma\left(\frac{\lambda+\nu-q}{2}\right)\Gamma\left(\frac{\lambda+\nu-p+1}{2}\right)} & q\mbox{: even and }2\nu\ge q\\
@@ -85,9 +106,66 @@ Define $\widetilde{K}_{\lambda,\nu}^{C}$ as
 \]
 
 
-Then $\forall\nu\in2\mathbb{Z}_{\ge0}+1,\forall F_{M,N,n',m',\psi,\psi'},\;\lambda\mapsto\left\langle \widetilde{K}_{\lambda,\nu}^{C},F_{M,N,n',m',\psi,\psi'}\right\rangle $:holomorphic
-and $\forall(\lambda,\nu)\in\mathbb{C}\times(2\mathbb{Z}_{\ge0}+1),\;\widetilde{K}_{\lambda,\nu}^{C}\ne0$.
+Then $\forall\nu\in2\mathbb{Z}_{\ge0}+1,\forall F_{M,N,n',m',\psi,\psi'},\;\lambda\mapsto\left\langle \widetilde{K}_{\lambda,\nu}^{C},F_{M,N,n',m',\psi,\psi'}\right\rangle $
+is a holomorphic map and $\forall(\lambda,\nu)\in\mathbb{C}\times(2\mathbb{Z}_{\ge0}+1),\;\widetilde{K}_{\lambda,\nu}^{C}\ne0$.
 \end{prop}
 
+\begin{lem}
+\label{lem:Suppose-there-exists}Suppose there exists $\left\{ c_{i}\right\} _{i=0}^{m},\alpha\in\mathbb{C}$
+and increasing sequence $\left\{ k_{n}\right\} _{n}\subset\mathbb{Z}$
+such that 
+\[
+\forall n\implies\sum_{i=0}^{m}c_{i}\Gamma(\alpha+i+k_{n})=0.
+\]
+
+
+Then all $c_{i}$ are zero.
+\end{lem}
+
+\begin{lem}
+For $\lambda\in\mathbb{C}$, we have an isomorphism of Frechet$G$-representations
+$\left(\pi_{\lambda,K},C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}\right)\xrightarrow{\sim}\left(l_{\Xi},C_{-\lambda}^{\infty}(\Xi^{p+1,q+1})\right)$
+given by $f\mapsto\left((x,y)\mapsto\right)$, where $\Xi^{p+1,q+1}:=\left\{ (x,y)\in\mathbb{R}^{p+1,q+1}\big|\left|x\right|_{p+1}=\left|y\right|_{q+1}\right\} \setminus\left\{ 0\right\} $,
+$C_{-\lambda}^{\infty}(\Xi^{p+1,q+1}):=\left\{ f\in C^{\infty}(\Xi^{p+1,q+1})\big|\forall(t,x)\in\mathbb{R}^{\times}\times\Xi^{p+1,q+1},\; f(tx)=\left|t\right|^{-\lambda}f(x)\right\} $,
+$C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}:=\left\{ f\in C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})\big|\forall(x,y)\in\mathbb{S}^{p}\times\mathbb{S}^{q},\; f(x,y)=f(-x,-y)\right\} $
+$l_{\Xi}$ is left regular action induced by action of $G$ on $\Xi^{p+1,q+1}$
+and $(\pi_{\lambda,K}(g)f)(x):=\left|g^{-1}\cdot x\right|^{-\lambda}f\left(\frac{g^{-1}\cdot x}{\left|g^{-1}\cdot x\right|}\right)$,
+where $g^{-1}\cdot x$ refers to action of $G\curvearrowright\Xi^{p+1,q+1}$
+and for $(x,y)\in\Xi^{p+1,q+1},\;\left|(x,y)\right|:=\left|x\right|_{p+1}$.
+\end{lem}
+
+\begin{lem}
+Let $S\subset C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}$
+denote the subspace of $K$-finite vectors. Then,\end{lem}
+\begin{enumerate}
+\item $S=\sum_{\left\{ (l,k)\in\mathbb{Z}_{\ge0}^{2}\big|l+k\in2\mathbb{Z}_{\ge0}\right\} }\mathcal{H}^{l}(\mathbb{S}^{p})\otimes\mathcal{H}^{k}(\mathbb{S}^{q})$,
+where $\sum$ denotes the span;
+\item $S$ is spanned by functions of the form $(\eta_{0},\eta,\xi_{0},\xi)\mapsto\left|\eta\right|^{N}\psi\left(\frac{\eta}{\left|\eta\right|}\right)\eta_{0}^{m'}\left|\xi\right|^{M}\psi'\left(\frac{\xi}{\left|\xi\right|}\right)\xi^{n'}$
+where $\left((\eta_{0},\eta),(\xi_{0},\xi)\right)\in\mathbb{S}^{p}\times\mathbb{S}^{q}$,
+$M,N,m',n'\in\mathbb{Z}_{\geq0}$ with $M+N+m'+n'\in2\mathbb{Z}_{\geq0}$
+and $\left(\psi,\psi\right)\in\mathcal{H}^{N}(\mathbb{S}^{p})\times\mathcal{H}^{M}(\mathbb{S}^{q})$.;
+\end{enumerate}
+
 \section{Proofs}
+\begin{proof}
+(of \propref{On-the-}) Recall that the $K$-finite vectors of $G\supset K=O(p+1)\times Q(q+1)$
+acting on $C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})$ are given
+as $\bigoplus_{k,l=0}^{\infty}\mathcal{H}^{k}(\mathbb{S}^{p})\otimes\mathcal{H}^{l}(\mathbb{S}^{l})$,
+as explained in \cite{howe1993homogeneous}. 
+\end{proof}
+
+\begin{proof}
+(of \lemref{Suppose-there-exists}) Recall the formula $\Gamma(t+n)=t^{(n)}\cdot\Gamma(t)$
+(here $t^{(n)}:=t(t+1)\dots(t+n-1)$ denotes the rising factioral).
+It implies that $0=\sum_{i=0}^{m}c_{i}\Gamma(\alpha+i+k_{n})=\Gamma(\alpha+k_{n})\sum_{i=0}^{m}c_{i}(\alpha+k_{n})^{(i)}$.
+As $\Gamma(\alpha+n)\neq0$ for $n$ big enough, this implies that
+$\forall n>N,\;\sum_{i=0}^{m}c_{i}(\alpha+k_{n})^{(i)}=0$ and since
+the latter expression is a polynomial in $k_{n}$, it implies that
+$\forall x\in\mathbb{C},\;\sum_{i=0}^{m}c_{i}x^{(n)}=0$ and hence
+that all $c_{i}$ should vanish.
+
+\bibliographystyle{plain}
+\bibliography{/home/u406/for/forlatex/todai_master}
+\end{proof}
+
 \end{document}
