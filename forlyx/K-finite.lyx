@@ -135,7 +135,7 @@ On the
 
 \begin_inset Formula 
 \[
-F_{M,N,n',m',\psi,\psi'}(r\omega_{p-1},s\omega_{q-1}):=
+F_{N,M,n',m',\psi,\psi'}(r\omega_{p-1},s\omega_{q-1}):=
 \]
 
 \end_inset
@@ -217,40 +217,46 @@ When
 \begin_inset Formula $\psi(\omega_{p-1}):=\widetilde{\widetilde{C}}_{N}^{p/2-1}(\omega_{p-1}^{(p)})$
 \end_inset
 
-, we have
-\begin_inset Formula 
-\[
-\left\langle K_{\lambda,\nu}^{C},F_{M,N,n',m',\psi,1}\right\rangle =R\cdot S
-\]
 
-\end_inset
-
-where
-\begin_inset Note Note
+\begin_inset Foot
 status open
 
 \begin_layout Plain Layout
-TODO: 2.
- define what simeq means; 3.
- explain why we substitute Gegenbauer; find 
-\backslash
-simeq constant;
+recall that 
+\emph on
+
+\begin_inset Formula $\mathcal{H}^{N}(\mathbb{S}^{n-1})^{O(n-1)}=\mathbb{C}\mbox{-span}\tilde{\tilde{C}}_{N}^{\frac{n}{2}-1}(\omega_{n-1}^{(n)})$
+\end_inset
+
+
 \end_layout
 
 \end_inset
 
- 
+, we have
 \begin_inset Formula 
 \[
-S\simeq\frac{\Gamma\left(\lambda+\nu-p+1\right)}{\Gamma\left(\frac{\lambda+\nu-p-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu+N}{2}\right)}
+\left\langle K_{\lambda,\nu}^{C},F_{N,M,n',m',\psi,1}\right\rangle =R\cdot S
 \]
 
 \end_inset
 
-and 
+where 
 \begin_inset Formula 
 \[
-R=\sum_{i=0}^{\nu-1}c_{i}(m')\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}-i\right)\Gamma\left(\frac{m'+n'+\nu-2i}{2}\right)}{\Gamma\left(\frac{\lambda+N+m'+n'}{2}\right)}
+S\simeq\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda-q+\nu+N}{2}\right)}
+\]
+
+\end_inset
+
+(here 
+\begin_inset Formula $\simeq$
+\end_inset
+
+ means proportionality up to a nonzero constant) and 
+\begin_inset Formula 
+\[
+R\simeq\sum_{i=0}^{\nu-1}c_{i}(m')\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)\Gamma\left(\frac{m'+n'+\nu-2i}{2}\right)}{\Gamma\left(\frac{\lambda+N+m'+n'}{2}\right)}
 \]
 
 \end_inset
@@ -267,11 +273,39 @@ where
 \begin_inset Formula $c_{0}=1$
 \end_inset
 
- and 
-\begin_inset Formula $(\alpha)_{j}=\alpha(\alpha-1)\dots(\alpha-j+1)$
+, 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $m'+(\nu-1)-2i<0\implies c_{i}(m')=0$
 \end_inset
 
- denotes the falling factorial.
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ and 
+\begin_inset Formula $(\alpha)_{j}:=\alpha(\alpha-1)\dots(\alpha-j+1)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proposition
@@ -282,15 +316,15 @@ name "prop:Define--as"
 \end_inset
 
 Define 
-\begin_inset Formula $\widetilde{K}_{\lambda,\nu}^{C}$
+\begin_inset Formula $\widetilde{K}_{\lambda,\nu}^{C}:=K_{\lambda,\nu}^{C}/\left(N_{\lambda,\nu}\cdot\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)\right)$
 \end_inset
 
- as 
+ where 
 \begin_inset Formula 
 \[
-\widetilde{K}_{\lambda,\nu}^{C}:=\begin{cases}
-\frac{K_{\lambda,\nu}^{C}}{\Gamma\left(\frac{\lambda+\nu-q}{2}\right)\Gamma\left(\frac{\lambda+\nu-p+1}{2}\right)} & q\mbox{: even and }2\nu\ge q\\
-\frac{K_{\lambda,\nu}^{C}}{\Gamma\left(\frac{\lambda-\nu}{2}\right)\Gamma\left(\frac{\lambda+\nu-p+1}{2}\right)} & \mbox{otherwise}
+N_{\lambda,\nu}:=\begin{cases}
+\Gamma\left(\frac{\lambda+\nu-q}{2}\right) & q\mbox{: even and }2\nu\ge q\\
+\Gamma\left(\frac{\lambda-\nu}{2}\right) & \mbox{otherwise}.
 \end{cases}
 \]
 
@@ -301,14 +335,28 @@ Define
 
 \begin_layout Proposition
 Then 
-\begin_inset Formula $\forall\nu\in2\mathbb{Z}_{\ge0}+1,\forall F_{M,N,n',m',\psi,\psi'},\;\lambda\mapsto\left\langle \widetilde{K}_{\lambda,\nu}^{C},F_{M,N,n',m',\psi,\psi'}\right\rangle $
+\begin_inset Formula $\forall\nu\in2\mathbb{Z}_{\ge0}+1,\forall F_{N,M,n',m',\psi,\psi'},\;\lambda\mapsto\left\langle \widetilde{K}_{\lambda,\nu}^{C},F_{N,M,n',m',\psi,\psi'}\right\rangle $
 \end_inset
 
- is a holomorphic map and 
+ is a holomorphic map.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:nonzero"
+
+\end_inset
+
+
 \begin_inset Formula $\forall(\lambda,\nu)\in\mathbb{C}\times(2\mathbb{Z}_{\ge0}+1),\;\widetilde{K}_{\lambda,\nu}^{C}\ne0$
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout --Separator--
@@ -354,6 +402,12 @@ Then all
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:For-,-we"
+
+\end_inset
+
 For 
 \begin_inset Formula $\lambda\in\mathbb{C}$
 \end_inset
@@ -367,22 +421,26 @@ For
 \end_inset
 
  given by 
-\begin_inset Formula $f\mapsto\left((x,y)\mapsto\right)$
+\begin_inset Formula $f\mapsto\left((x,y)\mapsto\left|x\right|^{-\lambda}f\left[\frac{(x,y)}{\left|x\right|}\right]\right)$
 \end_inset
 
 , where 
-\begin_inset Formula $\Xi^{p+1,q+1}:=\left\{ (x,y)\in\mathbb{R}^{p+1,q+1}\big|\left|x\right|_{p+1}=\left|y\right|_{q+1}\right\} \setminus\left\{ 0\right\} $
-\end_inset
+\begin_inset Formula 
+\[
+\Xi^{p+1,q+1}:=\left\{ (x,y)\in\mathbb{R}^{p+1,q+1}\big|\left|x\right|_{p+1}=\left|y\right|_{q+1}\right\} \setminus\left\{ 0\right\} 
+\]
 
-, 
-\begin_inset Formula $C_{-\lambda}^{\infty}(\Xi^{p+1,q+1}):=\left\{ f\in C^{\infty}(\Xi^{p+1,q+1})\big|\forall(t,x)\in\mathbb{R}^{\times}\times\Xi^{p+1,q+1},\; f(tx)=\left|t\right|^{-\lambda}f(x)\right\} $
-\end_inset
-
-, 
-\begin_inset Formula $C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}:=\left\{ f\in C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})\big|\forall(x,y)\in\mathbb{S}^{p}\times\mathbb{S}^{q},\; f(x,y)=f(-x,-y)\right\} $
 \end_inset
 
  
+\begin_inset Formula 
+\[
+C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}:=\left\{ f\in C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})\big|\forall(x,y)\in\mathbb{S}^{p}\times\mathbb{S}^{q},\; f(x,y)=f(-x,-y)\right\} 
+\]
+
+\end_inset
+
+, 
 \begin_inset Formula $l_{\Xi}$
 \end_inset
 
@@ -395,7 +453,7 @@ For
 \end_inset
 
  and 
-\begin_inset Formula $(\pi_{\lambda,K}(g)f)(x):=\left|g^{-1}\cdot x\right|^{-\lambda}f\left(\frac{g^{-1}\cdot x}{\left|g^{-1}\cdot x\right|}\right)$
+\begin_inset Formula $(\pi_{\lambda,K}(g)f)(x):=p\left(g^{-1}\cdot x\right)^{-\lambda}f\left(\frac{g^{-1}\cdot x}{p\left(g^{-1}\cdot x\right)}\right)$
 \end_inset
 
 , where 
@@ -407,7 +465,16 @@ For
 \end_inset
 
  and for 
-\begin_inset Formula $(x,y)\in\Xi^{p+1,q+1},\;\left|(x,y)\right|:=\left|x\right|_{p+1}$
+\begin_inset Formula $(x,y)\in\Xi^{p+1,q+1},\; p((x,y)):=\left|x\right|_{p+1}$
+\end_inset
+
+.
+ Moreover, 
+\begin_inset Formula $\pi_{\lambda,K}\big|_{K}$
+\end_inset
+
+ coincides with left-regular action induced by action 
+\begin_inset Formula $K\curvearrowright\mathbb{S}^{p}\times\mathbb{S}^{q}$
 \end_inset
 
 .
@@ -418,6 +485,12 @@ For
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:Let--denote"
+
+\end_inset
+
 Let 
 \begin_inset Formula $S\subset C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}$
 \end_inset
@@ -446,7 +519,7 @@ Let
 \end_inset
 
  is spanned by functions of the form 
-\begin_inset Formula $(\eta_{0},\eta,\xi_{0},\xi)\mapsto\left|\eta\right|^{N}\psi\left(\frac{\eta}{\left|\eta\right|}\right)\eta_{0}^{m'}\left|\xi\right|^{M}\psi'\left(\frac{\xi}{\left|\xi\right|}\right)\xi^{n'}$
+\begin_inset Formula $(\eta_{0},\eta,\xi_{0},\xi)\mapsto\left|\eta\right|^{N}\psi\left(\frac{\eta}{\left|\eta\right|}\right)\eta_{0}^{n'}\left|\xi\right|^{M}\psi'\left(\frac{\xi}{\left|\xi\right|}\right)\xi_{0}^{m'}$
 \end_inset
 
  where 
@@ -465,7 +538,7 @@ Let
 \begin_inset Formula $\left(\psi,\psi\right)\in\mathcal{H}^{N}(\mathbb{S}^{p})\times\mathcal{H}^{M}(\mathbb{S}^{q})$
 \end_inset
 
-.;
+.
 \end_layout
 
 \begin_layout Section
@@ -473,38 +546,488 @@ Proofs
 \end_layout
 
 \begin_layout Proof
-(of 
+(of prop.
+ 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "prop:On-the-"
 
 \end_inset
 
-) Recall that the 
+) Similarly to 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kobayashi2015symmetry"
+
+\end_inset
+
+, we have 
+\begin_inset Formula $I(\lambda)\simeq\left(l_{\Xi},C_{-\lambda}^{\infty}(\Xi^{p+1,q+1})\right)$
+\end_inset
+
+, so all we need to do is to calculate the pullback of the 
 \begin_inset Formula $K$
 \end_inset
 
 -finite vectors of 
-\begin_inset Formula $G\supset K=O(p+1)\times Q(q+1)$
+\begin_inset Formula $C_{-\lambda}^{\infty}(\Xi^{p+1,q+1})$
 \end_inset
 
- acting on 
-\begin_inset Formula $C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})$
+ under the embedding 
+\begin_inset Formula 
+\[
+\mathfrak{n}_{-}\simeq\mathbb{R}^{p,q}\ni(x,y)\mapsto(1-\left|x\right|^{2}+\left|y\right|^{2},\,2x,\,2y,\,1+\left|x\right|^{2}-\left|y\right|^{2})\in\Xi^{p+1,q+1}
+\]
+
 \end_inset
 
- are given as 
-\begin_inset Formula $\bigoplus_{k,l=0}^{\infty}\mathcal{H}^{k}(\mathbb{S}^{p})\otimes\mathcal{H}^{l}(\mathbb{S}^{l})$
+
+\end_layout
+
+\begin_layout Proof
+In turn, lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:For-,-we"
+
 \end_inset
 
-, as explained in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "howe1993homogeneous"
+ and the second item of 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:Let--denote"
 
+\end_inset
+
+ tells us what is the form of 
+\begin_inset Formula $K$
+\end_inset
+
+-finite vectors in 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left(l_{\Xi},C_{-\lambda}^{\infty}(\Xi^{p+1,q+1})\right)$
+\end_inset
+
+, and this gives the desired conclusion.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+(of prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:The-following-holds"
+
+\end_inset
+
+) Let us transfer to bipolar coordinates, where
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\left\langle K_{\lambda,\nu}^{C},F_{N,M,n',m',\psi,\psi'}\right\rangle =
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+=\int_{r=0}^{\infty}\int_{s=0}^{\infty}\delta^{(\nu-1)}(\frac{s^{2}}{r^{2}}-1)R(r,s)^{-\lambda/2}\left(\frac{r}{\sqrt{R(r,s)}}\right)^{N}\left(\frac{s}{\sqrt{R(r,s)}}\right)^{M}\left(\frac{1-(r^{2}-s^{2})}{\sqrt{R(r,s)}}\right)^{n'}\left(\frac{1+(r^{2}-s^{2})}{\sqrt{R(r,s)}}\right)^{m'}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\begin_inset Formula 
+\[
+\times r^{\lambda+\nu-n}r^{p-1}s^{q-1}dr\, ds\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\int_{\mathbb{S}^{p-1}}\psi(\omega_{p-1})\left|\omega_{p-1}^{(p)}\right|^{\lambda+\nu-n}d\omega_{p-1}\int_{\mathbb{S}^{q-1}}\psi'(\omega_{q-1})d\omega_{q-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now, as 
+\begin_inset Formula $\psi'\in\mathcal{H}^{M}(\mathbb{S}^{q-1})$
+\end_inset
+
+ we see that 
+\begin_inset Formula $\int_{\mathbb{S}^{q-1}}\psi'(\omega_{q-1})d\omega_{q-1}=0$
+\end_inset
+
+ unless 
+\begin_inset Formula $M=0$
 \end_inset
 
 .
+ Furthermore, as explained in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "lem 7.6"
+key "kobayashi2015symmetry"
+
+\end_inset
+
+, 
+\begin_inset Formula $\int_{\mathbb{S}^{p-1}}\psi(\omega_{p-1})\left|\omega_{p-1}^{(p)}\right|^{\lambda+\nu-n}d\omega_{p-1}=0$
+\end_inset
+
+ if 
+\begin_inset Formula $N$
+\end_inset
+
+ is odd or 
+\begin_inset Formula $\psi\perp\mathcal{H}^{N}(\mathbb{S}^{p-1})^{O(p-1)}$
+\end_inset
+
+.
+ This proves the first item.
+\end_layout
+
+\begin_layout Proof
+Regarding the second item, the 
+\begin_inset Formula $S$
+\end_inset
+
+ factor comes from the shown in 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "lem. 7.6"
+key "kobayashi2015symmetry"
+
+\end_inset
+
+ equality
+\begin_inset Formula 
+\[
+\int_{\mathbb{S}^{n-1}}\left|\omega_{n-1}^{(n)}\right|\tilde{\tilde{C}}_{N}^{\frac{n}{2}-1}(\omega_{n-1}^{(n)})d\omega_{n-1}\simeq\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-N}{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+We next rewrite the integral
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\int_{r=0}^{\infty}\int_{s=0}^{\infty}\delta^{(\nu-1)}(\frac{s^{2}}{r^{2}}-1)R(r,s)^{-\lambda/2}\left(\frac{r}{\sqrt{R(r,s)}}\right)^{N}\left(\frac{1-(r^{2}-s^{2})}{\sqrt{R(r,s)}}\right)^{n'}\left(\frac{1+(r^{2}-s^{2})}{\sqrt{R(r,s)}}\right)^{m'}\times r^{\lambda+\nu-n}r^{p-1}s^{q-1}dr\, ds
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+in coordinates 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ given as 
+\begin_inset Formula 
+\[
+x:=\frac{1+(r^{2}-s^{2})}{\sqrt{R(r,s)}},\quad y:=\frac{1-(r^{2}-s^{2})}{\sqrt{R(r,s)}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The integration domain then becomes 
+\begin_inset Formula $\left\{ (x,y)\in[-1,1]\times[-1,1]\big|x+y>0\right\} $
+\end_inset
+
+ and the whole integral becomes (up to proportionality)
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\int_{(x,y)\in D}\delta^{(\nu-1)}(x-y)(1-y^{2})^{\frac{\lambda+N+\nu-q-2}{2}}(1-x^{2})^{\frac{q-2}{2}}x^{m'}y^{n'}dx\, dy\simeq
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\simeq\int_{y=0}^{1}(1-y^{2})^{\frac{\lambda+N+\nu-q-2}{2}}y^{n'}\left[\frac{\partial^{\nu-1}}{\partial x^{\nu-1}}\bigg|_{x=y}(1-x^{2})^{\frac{q-2}{2}}x^{m'}\right]dy
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now, inductively one sees that 
+\begin_inset Formula 
+\[
+\frac{\partial^{\nu-1}}{\partial x^{\nu-1}}(1-x^{2})^{\frac{q-2}{2}}x^{m'}=\sum_{i=0}^{\nu-1}c_{i}(m')\left(\frac{q-2}{2}\right)_{\nu-1-i}(1-x^{2})^{\frac{q-2}{2}-(\nu-1)+i}x^{m'+(\nu-1)-2i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+with 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ having all the properties claimed in the proposition statement.
+ Now, using the equality 
+\begin_inset Formula 
+\[
+\int_{0}^{1}(1-y^{2})^{\alpha}y^{\beta}=\frac{\Gamma(\alpha+1)\Gamma\left(\frac{\beta+1}{2}\right)}{\Gamma\left(\frac{3}{2}+\alpha+\frac{\beta}{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+we have the latter integral being equal to
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\sum_{i=0}^{\nu-1}c_{i}(m')\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)\Gamma\left(\frac{m'+n'+\nu-2i}{2}\right)}{\Gamma\left(\frac{\lambda+N+m'+n'}{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+(of prop.
  
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Define--as"
+
+\end_inset
+
+) In the light of proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:The-following-holds"
+
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\langle K_{\lambda,\nu}^{C},F_{N,M,n',m',\psi,1}\right\rangle \simeq\sum_{i=0}^{\nu-1}c_{i}(m')\Gamma\left(\frac{m'+n'+\nu-2i}{2}\right)\cdot\frac{1}{\Gamma\left(\frac{\lambda+N+m'+n'}{2}\right)\Gamma\left(\frac{\lambda-q+\nu+N}{2}\right)}\times
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\times\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the sum above only the last multiplicand may have poles, so it suffices
+ to show that 
+\begin_inset Formula $\forall0\leq i\leq\nu-1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+F_{i}(\lambda):=\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)}{N_{\lambda,\nu}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}\simeq\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+are holomorphic as functions of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ The latter is obvious (in the equality there we've used the Legendre duplicatio
+n formula).
+ Regarding the former family of functions indexed by 
+\begin_inset Formula $0\leq i\leq\nu-1$
+\end_inset
+
+, it suffices to show the holomorphicity of 
+\begin_inset Formula $F_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $i$
+\end_inset
+
+ the biggest subject to 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left(\frac{q-2}{2}\right)_{\nu-1-i}\ne0$
+\end_inset
+
+ condition.
+ In subsequent, we denote such 
+\begin_inset Formula $i$
+\end_inset
+
+ by 
+\begin_inset Formula $i_{max}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let us consider the cases.
+ First, assume that we are in the case 
+\begin_inset Formula $q$
+\end_inset
+
+:even and 
+\begin_inset Formula $2\nu\geq q$
+\end_inset
+
+.
+ Then, 
+\begin_inset Formula $i_{max}=$
+\end_inset
+
+ and it su
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+N_{\lambda,\nu}:=\begin{cases}
+\Gamma\left(\frac{\lambda+\nu-q}{2}\right) & q\mbox{: even and }2\nu\ge q\\
+\Gamma\left(\frac{\lambda-\nu}{2}\right) & \mbox{otherwise}.
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout --Separator--
@@ -527,7 +1050,7 @@ reference "lem:Suppose-there-exists"
 \begin_inset Formula $t^{(n)}:=t(t+1)\dots(t+n-1)$
 \end_inset
 
- denotes the rising factioral).
+ denotes the rising factorial).
  It implies that 
 \begin_inset Formula $0=\sum_{i=0}^{m}c_{i}\Gamma(\alpha+i+k_{n})=\Gamma(\alpha+k_{n})\sum_{i=0}^{m}c_{i}(\alpha+k_{n})^{(i)}$
 \end_inset
@@ -558,6 +1081,324 @@ reference "lem:Suppose-there-exists"
 \end_inset
 
  should vanish.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+(of lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:For-,-we"
+
+\end_inset
+
+) The last statement is obvious, as for 
+\begin_inset Formula $g\in O(p+1)\times O(q+1)\subset O(p+1,q+1)$
+\end_inset
+
+ and 
+\begin_inset Formula $x\in\Xi^{p+1,q+1}$
+\end_inset
+
+we have 
+\begin_inset Formula $\left|g\cdot x\right|=\left|x\right|$
+\end_inset
+
+.
+ Apart from this, there are several things to be checked:
+\end_layout
+
+\begin_layout Itemize
+It is true, that 
+\begin_inset Formula $\left(\pi_{\lambda,K},C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(l_{\Xi},C_{-\lambda}^{\infty}(\Xi^{p+1,q+1})\right)$
+\end_inset
+
+ are indeed 
+\begin_inset Formula $G$
+\end_inset
+
+-representations.
+ That's straightforward;
+\end_layout
+
+\begin_layout Itemize
+It is true that for 
+\begin_inset Formula $f\in C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}$
+\end_inset
+
+ 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+function 
+\begin_inset Formula $\widetilde{f}(x,y)$
+\end_inset
+
+ on 
+\begin_inset Formula $\Xi^{p+1,q+1}$
+\end_inset
+
+ defined as 
+\begin_inset Formula $\widetilde{f}(x,y):=\left|x\right|^{-\lambda}f\left[\frac{(x,y)}{\left|x\right|}\right]$
+\end_inset
+
+ is in 
+\begin_inset Formula $C_{-\lambda}^{\infty}(\Xi^{p+1,q+1})$
+\end_inset
+
+.
+ Indeed, 
+\begin_inset Formula $\widetilde{f}(t\cdot(x,y))=\left|t\right|^{-\lambda}\left|x\right|^{-\lambda}f\left[\frac{t}{\left|t\right|}\cdot\frac{(x,y)}{\left|x\right|}\right]$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $t/\left|t\right|=\pm1$
+\end_inset
+
+ and as 
+\begin_inset Formula $f\in C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\widetilde{f}(t\cdot(x,y))=\left|t\right|^{-\lambda}\left|x\right|^{-\lambda}f\left[\frac{t}{\left|t\right|}\cdot\frac{(x,y)}{\left|x\right|}\right]=\left|t\right|^{-\lambda}\left|x\right|^{-\lambda}f\left[\frac{(x,y)}{\left|x\right|}\right]=\left|t\right|^{-\lambda}\widetilde{f}(x,y)$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+It is true that map 
+\begin_inset Formula $f\mapsto\widetilde{f}$
+\end_inset
+
+ is onto 
+\begin_inset Formula $C_{-\lambda}^{\infty}(\Xi^{p+1,q+1})$
+\end_inset
+
+ is 
+\begin_inset Formula $G$
+\end_inset
+
+-covariant.
+ That's also straightforward;
+\end_layout
+
+\begin_layout Itemize
+It is true that map 
+\begin_inset Formula $f\mapsto\widetilde{f}$
+\end_inset
+
+ is onto 
+\begin_inset Formula $C_{-\lambda}^{\infty}(\Xi^{p+1,q+1})$
+\end_inset
+
+ has an inverse.
+ Indeed, given 
+\begin_inset Formula $\widetilde{f}\in C_{-\lambda}^{\infty}(\Xi^{p+1,q+1})$
+\end_inset
+
+ define 
+\begin_inset Formula $f:=\widetilde{f}\big|_{\mathbb{S}^{p}\times\mathbb{S}^{q}}$
+\end_inset
+
+.
+ It is an element of 
+\begin_inset Formula $C(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}$
+\end_inset
+
+ and straightforward computations show that 
+\begin_inset Formula $\widetilde{f}\mapsto f$
+\end_inset
+
+ forms a desired inverse.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+(of lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:Let--denote"
+
+\end_inset
+
+) Recall that the 
+\begin_inset Formula $K$
+\end_inset
+
+-finite vectors of 
+\begin_inset Formula $G\supset K=O(p+1)\times Q(q+1)$
+\end_inset
+
+ acting on 
+\begin_inset Formula $C^{\infty}(\mathbb{S}^{p}\times\mathbb{S}^{q})$
+\end_inset
+
+ are given as 
+\begin_inset Formula $\sum_{k,l=0}^{\infty}\mathcal{H}^{k}(\mathbb{S}^{p})\otimes\mathcal{H}^{l}(\mathbb{S}^{q})$
+\end_inset
+
+ (where 
+\begin_inset Formula $\sum$
+\end_inset
+
+ denotes span), as explained in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "howe1993homogeneous"
+
+\end_inset
+
+.
+ As 
+\begin_inset Formula $C(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}$
+\end_inset
+
+ is a subrepresentation of 
+\begin_inset Formula $C(\mathbb{S}^{p}\times\mathbb{S}^{q})$
+\end_inset
+
+, 
+\begin_inset Formula $K$
+\end_inset
+
+-finite vectors of 
+\begin_inset Formula $C(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}$
+\end_inset
+
+ are precisely the 
+\begin_inset Formula $K$
+\end_inset
+
+-finite vectors of 
+\begin_inset Formula $C(\mathbb{S}^{p}\times\mathbb{S}^{q})$
+\end_inset
+
+ that belong to 
+\begin_inset Formula $C(\mathbb{S}^{p}\times\mathbb{S}^{q})^{\mathbb{Z}_{2}}$
+\end_inset
+
+.
+ This proves the first item.
+\end_layout
+
+\begin_layout Proof
+For the second item, recall the 
+\begin_inset Formula $O(n)\downarrow O(n-1)$
+\end_inset
+
+ branching rule mentioned in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kobayashi2015symmetry"
+
+\end_inset
+
+, namely that
+\begin_inset Formula 
+\[
+\mathcal{H}^{L}(\mathbb{S}^{n})\simeq\bigoplus_{N=0}^{L}\mathcal{H}^{N}(\mathbb{S}^{n-1})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+constructed explicitly with 
+\begin_inset Formula $I_{N}:\mathcal{H}^{N}(\mathbb{S}^{n-1})\to\mathcal{H}^{L}(\mathbb{S}^{n})$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+(I_{N}\psi)(\eta_{0},\eta):=\left|\eta\right|^{-N}\psi\left(\frac{\eta}{\left|\eta\right|}\right)\tilde{\tilde{C}}_{L-N}^{\frac{n-1}{2}+N}(\eta_{0}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Hence, we see that 
+\begin_inset Formula 
+\[
+S=\sum_{\left\{ (L,K)\in\mathbb{Z}_{\ge0}^{2}\big|K+L\in2\mathbb{Z}_{\ge0}\right\} }\mathcal{H}^{L}(\mathbb{S}^{p})\otimes\mathcal{H}^{K}(\mathbb{S}^{q})=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+=\sum_{\left\{ (L,K)\in\mathbb{Z}_{\ge0}^{2}\big|K+L\in2\mathbb{Z}_{\ge0}\right\} }\sum_{N,M=0}^{L,K}\left|\eta\right|^{N}\mathcal{H}^{N}\left(\frac{\eta}{\left|\eta\right|}\right)\tilde{\tilde{C}}_{L-N}^{\frac{p-1}{2}+N}(\eta_{0})\left|\xi\right|^{M}\mathcal{H}^{M}\left(\frac{\xi}{\left|\xi\right|}\right)\tilde{\tilde{C}}_{K-M}^{\frac{q-1}{2}+M}(\xi_{0})=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+=\sum_{N,M=0}^{\infty}\sum_{\left\{ n',m'\ge0\big|N+M+n'+m'\in2\mathbb{Z}_{\ge0}\right\} }\left|\eta\right|^{N}\mathcal{H}^{N}\left(\frac{\eta}{\left|\eta\right|}\right)\tilde{\tilde{C}}_{n'}^{\frac{p-1}{2}+N}(\eta_{0})\left|\xi\right|^{M}\mathcal{H}^{M}\left(\frac{\xi}{\left|\xi\right|}\right)\tilde{\tilde{C}}_{m'}^{\frac{q-1}{2}+M}(\xi_{0})=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+=\sum_{N,M=0}^{\infty}\sum_{\left\{ n',m'\ge0\big|N+M+n'+m'\in2\mathbb{Z}_{\ge0}\right\} }\left|\eta\right|^{N}\mathcal{H}^{N}\left(\frac{\eta}{\left|\eta\right|}\right)\eta_{0}^{n'}\left|\xi\right|^{M}\mathcal{H}^{M}\left(\frac{\xi}{\left|\xi\right|}\right)\xi_{0}^{m'}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The last equality holds true because 
+\begin_inset Formula $\tilde{\tilde{C_{m}^{\nu}}}$
+\end_inset
+
+ are polynomials of degree 
+\begin_inset Formula $m$
+\end_inset
+
+ whose highest term does not vanish, unless 
+\begin_inset Formula $\nu\in\mathbb{Z}_{<0}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
