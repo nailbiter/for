@@ -85,7 +85,7 @@ sense.
 			\begin{enumerate}
 				\item if $x_0\in U$ and $-x_0\in U$, then $F(x)=F(-x)$ for $x$ near $x_0$;
 				\item if $(m,x_0,m\cdot x_0)\in \Stab\times U\times U$, then $F(x)=F(m\cdot x)$ for
-					$x$ near $x_0$;
+					$x$ near $x_0$, where $\Stab:=\mysetn{g\in O(p,q)}{g\cdot e_p=e_p}$;
 				\item if $(\alpha,x_0,\alpha x_0)\in \R_{>0}\times U\times U$, then $\alpha^{
 					\lambda-\nu-n}F(x)=F(\alpha x)$ for $x$ near $x_0$;
 				\item $F$ is $N_+'$-invariant on $U$.
@@ -114,8 +114,10 @@ the fourth condition (invariance under $N_+'$) with its differential (which we'l
 where $E:=\sum_j x_j\frac{ \partial }{ \partial x_j }$ and $\varepsilon_j=+1$ for $1\leq j\leq p$ and $=-1$ otherwise.
 However, if $p,q>0$ the resulting system of conditions will be strictly weaker than the original one. Indeed, having
 fixed $(\lambda,\nu)\in\C^2$ such that $\Re(-\nu)>0$ and $\Re(\lambda+\nu-n)>0$ consider two distributions
-\[K_+:=\myabs{ x_p }^{ \lambda+\nu-n }Q_+^{ -\nu }(x)\]
-\[K_-:=\myabs{ x_p }^{ \lambda+\nu-n }Q_-^{ -\nu }(x)\]
+\[K_+(x):=\myabs{ x_p }^{ \lambda+\nu-n }Q_+^{ -\nu }(x)\]
+\[K_-(x):=\myabs{ x_p }^{ \lambda+\nu-n }Q_-^{ -\nu }(x)\]
+with $Q^{-\nu}_{\pm}(x):=\mathbf{1}_{\left\{ \pm Q>0 \right\}}Q^{\nu}(x)$, where $\mathbf{1}_A(x)$ denotes the
+characteristic function of a set $A$.
 It is directly verified that both satisfy first three properties together with differential of the fourth one. Nevertheless,
 they cannot be pullbacks of elements of \sone. Indeed, $P'$ acting on $G/P$
 has only one open orbit, which under $\mathfrak{n}_-(\cdot)$ is pulled back to $\R^{ p,q }\supset\mycbra{ Q\neq0 }$.

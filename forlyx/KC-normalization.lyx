@@ -213,6 +213,10 @@ When
 \begin_inset Formula $N$
 \end_inset
 
+ and 
+\begin_inset Formula $m'+n'$
+\end_inset
+
 :even and 
 \begin_inset Formula $\psi(\omega_{p-1}):=\widetilde{\widetilde{C}}_{N}^{p/2-1}(\omega_{p-1}^{(p)})$
 \end_inset
@@ -236,7 +240,7 @@ recall that
 , we have
 \begin_inset Formula 
 \[
-\left\langle K_{\lambda,\nu}^{C},F_{N,M,n',m',\psi,1}\right\rangle =R\cdot S
+\left\langle K_{\lambda,\nu}^{C},F_{N,0,n',m',\psi,1}\right\rangle =R\cdot S
 \]
 
 \end_inset
@@ -270,7 +274,7 @@ where
 \end_inset
 
  with 
-\begin_inset Formula $c_{0}=1$
+\begin_inset Formula $\deg(c_{i})=i$
 \end_inset
 
 , 
@@ -308,37 +312,48 @@ where
 .
 \end_layout
 
-\begin_layout Proposition
-\begin_inset CommandInset label
-LatexCommand label
-name "prop:Define--as"
-
-\end_inset
-
-Define 
-\begin_inset Formula $\widetilde{K}_{\lambda,\nu}^{C}:=K_{\lambda,\nu}^{C}/\left(N_{\lambda,\nu}\cdot\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)\right)$
-\end_inset
-
- where 
-\begin_inset Formula 
-\[
-N_{\lambda,\nu}:=\begin{cases}
-\Gamma\left(\frac{\lambda+\nu-q}{2}\right) & q\mbox{: even and }2\nu\ge q\\
-\Gamma\left(\frac{\lambda-\nu}{2}\right) & \mbox{otherwise}.
-\end{cases}
-\]
-
-\end_inset
-
+\begin_layout --Separator--
 
 \end_layout
 
 \begin_layout Proposition
-Then 
-\begin_inset Formula $\forall\nu\in2\mathbb{Z}_{\ge0}+1,\forall F_{N,M,n',m',\psi,\psi'},\;\lambda\mapsto\left\langle \widetilde{K}_{\lambda,\nu}^{C},F_{N,M,n',m',\psi,\psi'}\right\rangle $
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:Assume-that-1"
+
 \end_inset
 
- is a holomorphic map.
+Assume that 
+\begin_inset Formula $q$
+\end_inset
+
+ is odd and define 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}:=K_{\lambda,\nu}^{C}/\Gamma\left(\frac{\lambda+\nu-n+1}{}\right)/\Gamma\left(\frac{\lambda-\nu}{2}\right)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\forall(N,m',n')\in\mathbb{Z}_{\ge0}^{3}$
+\end_inset
+
+ such that 
+\begin_inset Formula $N,\; m'+n'\in2\mathbb{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi:=\tilde{\tilde{C}}_{N}^{p/2-1}(\omega_{p-1}^{(p)})$
+\end_inset
+
+, we have 
+\begin_inset Formula $\lambda\mapsto\left\langle \tilde{K}_{\lambda,\nu}^{C},F_{N,0,n',m',\psi,1}\right\rangle $
+\end_inset
+
+ being holomorphic function.
+ Moreover, 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}\ne0$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout --Separator--
@@ -348,15 +363,145 @@ Then
 \begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
-name "prop:nonzero"
+name "prop:Assume-that-2"
 
 \end_inset
 
-
-\begin_inset Formula $\forall(\lambda,\nu)\in\mathbb{C}\times(2\mathbb{Z}_{\ge0}+1),\;\widetilde{K}_{\lambda,\nu}^{C}\ne0$
+Assume that 
+\begin_inset Formula $q\in2\mathbb{Z}_{>0}$
 \end_inset
 
+, 
+\begin_inset Formula $q-2\nu\ge0$
+\end_inset
 
+ and define 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}:=K_{\lambda,\nu}^{C}/\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\forall(N,m',n')\in\mathbb{Z}_{\ge0}^{3}$
+\end_inset
+
+ such that 
+\begin_inset Formula $N,\; m'+n'\in2\mathbb{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi:=\tilde{\tilde{C}}_{N}^{p/2-1}(\omega_{p-1}^{(p)})$
+\end_inset
+
+, we have 
+\begin_inset Formula $\lambda\mapsto\left\langle \tilde{K}_{\lambda,\nu}^{C},F_{N,0,n',m',\psi,1}\right\rangle $
+\end_inset
+
+ being holomorphic function.
+ Moreover, 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}\ne0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:Assume-that-3"
+
+\end_inset
+
+Assume that 
+\begin_inset Formula $q\in2\mathbb{Z}_{>0}$
+\end_inset
+
+, 
+\begin_inset Formula $q-2\nu<0$
+\end_inset
+
+, 
+\begin_inset Formula $q-1\ge\nu$
+\end_inset
+
+ and define 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}:=K_{\lambda,\nu}^{C}/\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\forall(N,m',n')\in\mathbb{Z}_{\ge0}^{3}$
+\end_inset
+
+ such that 
+\begin_inset Formula $N,\; m'+n'\in2\mathbb{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi:=\tilde{\tilde{C}}_{N}^{p/2-1}(\omega_{p-1}^{(p)})$
+\end_inset
+
+, we have 
+\begin_inset Formula $\lambda\mapsto\left\langle \tilde{K}_{\lambda,\nu}^{C},F_{N,0,n',m',\psi,1}\right\rangle $
+\end_inset
+
+ being holomorphic function.
+ Moreover, 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}\ne0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:Assume-that-4"
+
+\end_inset
+
+Assume that 
+\begin_inset Formula $q\in2\mathbb{Z}_{>0}$
+\end_inset
+
+, 
+\begin_inset Formula $q-1<\nu$
+\end_inset
+
+ and define 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}:=K_{\lambda,\nu}^{C}/\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)l\Gamma\left(\frac{\lambda-\nu+q-2}{2}\right)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\forall(N,m',n')\in\mathbb{Z}_{\ge0}^{3}$
+\end_inset
+
+ such that 
+\begin_inset Formula $N,\; m'+n'\in2\mathbb{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi:=\tilde{\tilde{C}}_{N}^{p/2-1}(\omega_{p-1}^{(p)})$
+\end_inset
+
+, we have 
+\begin_inset Formula $\lambda\mapsto\left\langle \tilde{K}_{\lambda,\nu}^{C},F_{N,0,n',m',\psi,1}\right\rangle $
+\end_inset
+
+ being holomorphic function.
+ Moreover, 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}\ne0$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout --Separator--
@@ -374,8 +519,8 @@ Suppose there exists
 \begin_inset Formula $\left\{ c_{i}\right\} _{i=0}^{m},\alpha\in\mathbb{C}$
 \end_inset
 
- and increasing sequence 
-\begin_inset Formula $\left\{ k_{n}\right\} _{n}\subset\mathbb{Z}$
+ and increasing unbounded sequence 
+\begin_inset Formula $\left\{ k_{n}\right\} _{n}\subset\mathbb{Q}$
 \end_inset
 
  such that 
@@ -541,6 +686,81 @@ Let
 .
 \end_layout
 
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:Suppose-that-sets"
+
+\end_inset
+
+Suppose that 
+\begin_inset Formula $\left\{ A_{N}\right\} _{N}$
+\end_inset
+
+, 
+\begin_inset Formula $\left\{ B_{N}\right\} _{N}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left\{ C_{N}\right\} _{N}$
+\end_inset
+
+ are three families of sets indexed with 
+\begin_inset Formula $N\in\Lambda$
+\end_inset
+
+.
+ Then, the following holds:
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\forall N,\; N'\in\Lambda$
+\end_inset
+
+ we have 
+\begin_inset Formula $A_{N'}\cap B_{N}=\emptyset$
+\end_inset
+
+, then 
+\begin_inset Formula $\bigcap_{N\in\Lambda}\left(A_{N}\cup B_{N}\right)=\bigcap_{N\in\Lambda}A_{N}\cup\bigcup_{N\in\Lambda}B_{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\forall N,\; N'\in\Lambda$
+\end_inset
+
+ we have 
+\begin_inset Formula $A_{N'}\cap B_{N}=\emptyset$
+\end_inset
+
+, 
+\begin_inset Formula $x\in\bigcap_{N\in\Lambda}\left(A_{N}\cup B_{N}\cup C_{N}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\exists N_{0}\in\Lambda$
+\end_inset
+
+, such that 
+\begin_inset Formula $A_{N_{0}}\ni x$
+\end_inset
+
+, then 
+\begin_inset Formula $x\in\bigcap\left(A_{N}\cup C_{N}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark
+Proof of this lemma is straightforward and will be omitted.
+\end_layout
+
 \begin_layout Section
 Proofs
 \end_layout
@@ -557,7 +777,7 @@ reference "prop:On-the-"
 ) Similarly to 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "kobayashi2015symmetry"
+key "kobayashi2015symmetry,Kobayashi201489"
 
 \end_inset
 
@@ -745,10 +965,10 @@ key "kobayashi2015symmetry"
 
 \end_inset
 
- equality
+ identity
 \begin_inset Formula 
 \[
-\int_{\mathbb{S}^{n-1}}\left|\omega_{n-1}^{(n)}\right|\tilde{\tilde{C}}_{N}^{\frac{n}{2}-1}(\omega_{n-1}^{(n)})d\omega_{n-1}\simeq\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-N}{2}\right)}
+\int_{\mathbb{S}^{n-1}}\left|\omega_{n-1}^{(n)}\right|^{\lambda+\nu-n}\tilde{\tilde{C}}_{N}^{\frac{n}{2}-1}(\omega_{n-1}^{(n)})d\omega_{n-1}\simeq\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-N}{2}\right)}
 \]
 
 \end_inset
@@ -870,7 +1090,7 @@ we have the latter integral being equal to
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prop:Define--as"
+reference "prop:Assume-that-1"
 
 \end_inset
 
@@ -881,13 +1101,50 @@ reference "prop:The-following-holds"
 
 \end_inset
 
- we have
-\end_layout
-
-\begin_layout Standard
+ we have 
 \begin_inset Formula 
 \[
-\left\langle K_{\lambda,\nu}^{C},F_{N,M,n',m',\psi,1}\right\rangle \simeq\sum_{i=0}^{\nu-1}c_{i}(m')\Gamma\left(\frac{m'+n'+\nu-2i}{2}\right)\cdot\frac{1}{\Gamma\left(\frac{\lambda+N+m'+n'}{2}\right)\Gamma\left(\frac{\lambda-q+\nu+N}{2}\right)}\times
+\left\langle K_{\lambda,\nu}^{C},F_{N,0,n',m',\psi,1}\right\rangle \simeq\sum_{i=0}^{\nu-1}c_{i}(m')\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)\Gamma\left(\frac{m'+n'+\nu-2i}{2}\right)}{\Gamma\left(\frac{\lambda+N+m'+n'}{2}\right)}\cdot\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda-q+\nu+N}{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+The factors 
+\begin_inset Formula $c_{i}(m')\Gamma\left(\frac{m'+n'+\nu-2i}{2}\right)$
+\end_inset
+
+ cannot have poles due to the properties of 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ (see prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:The-following-holds"
+
+\end_inset
+
+).
+ Therefore, it suffices to show that 
+\begin_inset Formula $\forall i$
+\end_inset
+
+ with 
+\begin_inset Formula $0\leq i\leq\nu-1$
+\end_inset
+
+ the expression
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)}{\Gamma\left(\frac{\lambda-\nu}{2}\right)}\cdot\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)}
 \]
 
 \end_inset
@@ -896,72 +1153,51 @@ reference "prop:The-following-holds"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula 
-\[
-\times\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-In the sum above only the last multiplicand may have poles, so it suffices
- to show that 
-\begin_inset Formula $\forall0\leq i\leq\nu-1$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-F_{i}(\lambda):=\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)}{N_{\lambda,\nu}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-and
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}\simeq\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-are holomorphic as functions of 
+is holomorphic as a function of 
 \begin_inset Formula $\lambda$
 \end_inset
 
 .
- The latter is obvious (in the equality there we've used the Legendre duplicatio
-n formula).
- Regarding the former family of functions indexed by 
-\begin_inset Formula $0\leq i\leq\nu-1$
+ The first multiplicand is obviously so.
+ So is the second, once one recalls the Lagrange duplication identity to
+ write
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)}\simeq\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}
+\]
+
 \end_inset
 
-, it suffices to show the holomorphicity of 
-\begin_inset Formula $F_{i}$
+
+\begin_inset Newline newline
 \end_inset
 
- with 
-\begin_inset Formula $i$
+It remains therefore to show that 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}\ne0$
 \end_inset
 
- the biggest subject to 
+.
+ Assume on contrary that for some fixed 
+\begin_inset Formula $(\lambda,\nu)$
+\end_inset
+
+ it is not so.
+ Then we should have 
+\begin_inset Formula $\forall(N,m',n')\in\mathbb{Z}_{\ge0}^{3}$
+\end_inset
+
+ such that 
+\begin_inset Formula $N,\; m'+n'\in2\mathbb{Z}$
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Standard
+
 \family roman
 \series medium
 \shape up
@@ -973,51 +1209,9 @@ n formula).
 \uwave off
 \noun off
 \color none
-
-\begin_inset Formula $\left(\frac{q-2}{2}\right)_{\nu-1-i}\ne0$
-\end_inset
-
- condition.
- In subsequent, we denote such 
-\begin_inset Formula $i$
-\end_inset
-
- by 
-\begin_inset Formula $i_{max}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Let us consider the cases.
- First, assume that we are in the case 
-\begin_inset Formula $q$
-\end_inset
-
-:even and 
-\begin_inset Formula $2\nu\geq q$
-\end_inset
-
-.
- Then, 
-\begin_inset Formula $i_{max}=$
-\end_inset
-
- and it su
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
 \begin_inset Formula 
 \[
-N_{\lambda,\nu}:=\begin{cases}
-\Gamma\left(\frac{\lambda+\nu-q}{2}\right) & q\mbox{: even and }2\nu\ge q\\
-\Gamma\left(\frac{\lambda-\nu}{2}\right) & \mbox{otherwise}.
-\end{cases}
+\sum_{i=0}^{\nu-1}c_{i}(m')\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)}{\Gamma\left(\frac{\lambda-\nu}{2}\right)}\cdot\frac{\Gamma\left(\frac{m'+n'+\nu-2i}{2}\right)}{\Gamma\left(\frac{\lambda+N+m'+n'}{2}\right)}\cdot\frac{1}{\Gamma\left(\frac{\lambda-q+\nu+N}{2}\right)}\cdot\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}=0
 \]
 
 \end_inset
@@ -1025,9 +1219,607 @@ N_{\lambda,\nu}:=\begin{cases}
 
 \end_layout
 
+\begin_layout Standard
+We assume 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $m'$
+\end_inset
+
+ fixed for a moment and vary 
+\begin_inset Formula $n'$
+\end_inset
+
+ only.
+ Now, as 
+\begin_inset Formula $\Gamma\left(\frac{\lambda+N+m'+n'}{2}\right)$
+\end_inset
+
+ is finite for big 
+\begin_inset Formula $n'$
+\end_inset
+
+ we see that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sum_{i=0}^{\nu-1}c_{i}(m')\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)}{\Gamma\left(\frac{\lambda-\nu}{2}\right)}\cdot\Gamma\left(\frac{m'+n'+\nu-2i}{2}\right)\cdot\frac{1}{\Gamma\left(\frac{\lambda-q+\nu+N}{2}\right)}\cdot\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}=0
+\]
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+And then lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:Suppose-there-exists"
+
+\end_inset
+
+ and the fact that 
+\begin_inset Formula $c_{i}\ne0$
+\end_inset
+
+ imply that 
+\begin_inset Formula $\forall i$
+\end_inset
+
+ with 
+\begin_inset Formula $0\leq i\leq\nu-1$
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\frac{q-2}{2}\right)_{\nu-1-i}\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)}{\Gamma\left(\frac{\lambda-\nu}{2}\right)}\cdot\frac{1}{\Gamma\left(\frac{\lambda-q+\nu+N}{2}\right)}\cdot\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particular, it holds for 
+\begin_inset Formula $i=0$
+\end_inset
+
+ and thus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}\right)}{\Gamma\left(\frac{\lambda-\nu}{2}\right)}\cdot\frac{1}{\Gamma\left(\frac{\lambda-q+\nu+N}{2}\right)}\cdot\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then, if we let 
+\begin_inset Formula 
+\[
+A_{N}:=\left\{ \lambda\in\mathbb{C}\bigg|\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}\right)}{\Gamma\left(\frac{\lambda-\nu}{2}\right)}=0\right\} =\left\{ \lambda=\nu-N+2j\right\} _{j=1}^{N/2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+B_{N}:=\left\{ \lambda\in\mathbb{C}\bigg|\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}=0\right\} =\left\{ \lambda=-\nu+n+2j\right\} _{j=0}^{N/2-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{N}:=\left\{ \lambda\in\mathbb{C}\bigg|\frac{1}{\Gamma\left(\frac{\lambda-q+\nu+N}{2}\right)}=0\right\} =\left\{ \lambda=-\nu+q-N-2j\right\} _{j=0}^{\infty}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And 
+\begin_inset Formula $\lambda\in\bigcap_{N\in2\mathbb{Z}_{\ge0}}(A_{N}\cup B_{N}\cup C_{N})$
+\end_inset
+
+ and as 
+\begin_inset Formula $C_{N}\subset-\nu+2\mathbb{Z}+1$
+\end_inset
+
+, while 
+\begin_inset Formula $A_{N}\cup B_{N}\subset-\nu+2\mathbb{Z}$
+\end_inset
+
+, the first item of lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:Suppose-that-sets"
+
+\end_inset
+
+ and the fact that 
+\begin_inset Formula $B_{0}=A_{0}=\emptyset\implies\bigcap_{N\in2\mathbb{Z}_{\ge0}}(A_{N}\cup B_{N})=\emptyset$
+\end_inset
+
+ imply that 
+\begin_inset Formula $\lambda\in\bigcap_{N\in2\mathbb{Z}_{\ge0}}C_{N}=\emptyset$
+\end_inset
+
+.
+ This contradiction ends the proof.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+(of prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Assume-that-2"
+
+\end_inset
+
+) Let's start with proving the holomorphicity.
+ Similarly to the proof of prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Assume-that-1"
+
+\end_inset
+
+, it suffices to show that 
+\begin_inset Formula $\forall i$
+\end_inset
+
+ with 
+\begin_inset Formula $0\leq i\leq\nu-1$
+\end_inset
+
+ and 
+\begin_inset Formula $\forall N\in2\mathbb{Z}_{\ge0}$
+\end_inset
+
+ the expression
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+i\right)}{\Gamma\left(\frac{\lambda+\nu-q+N}{2}\right)}\cdot\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+is holomorphic as a function of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ The second multiplicand is obviously so, while the first is also so, as
+ 
+\begin_inset Formula $-\nu+i\ge\nu-q$
+\end_inset
+
+, as implied by 
+\begin_inset Formula $q-2\nu\ge0$
+\end_inset
+
+ hypothesis.
+ Thus, it remains to show that 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}\neq0$
+\end_inset
+
+, so we on contrary assume that for some 
+\begin_inset Formula $(\lambda,\nu)$
+\end_inset
+
+ it is not so.
+ Then, as in proof of prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Assume-that-1"
+
+\end_inset
+
+, this implies that 
+\begin_inset Formula $\forall N\in2\mathbb{Z}_{\ge0}$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\[
+\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-q+N}{2}\right)}\cdot\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Hence if we set
+\begin_inset Formula 
+\[
+A_{N}:=\left\{ \lambda\in\mathbb{C}\bigg|\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-q+N}{2}\right)}\right\} =\left\{ \lambda=-N+\nu+2j\right\} _{j=1}^{q/2-\nu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+B_{N}:=\left\{ \lambda\in\mathbb{C}\bigg|\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}=0\right\} =\left\{ \lambda=-\nu+n+2j\right\} _{j=0}^{N/2-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+we have to conclude that 
+\begin_inset Formula $\lambda\in\bigcap_{N\in2\mathbb{Z}_{\ge0}}(A_{N}\cup B_{N})$
+\end_inset
+
+.
+ Now, as 
+\begin_inset Formula $-N+\nu+q-2\nu<-\nu+n\iff q<n$
+\end_inset
+
+, we have that 
+\begin_inset Formula $\forall N,N',\; A_{N'}\cap B_{N}=\emptyset$
+\end_inset
+
+ and the first item of lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:Suppose-that-sets"
+
+\end_inset
+
+ together with the fact that 
+\begin_inset Formula $\bigcap_{N\in2\mathbb{Z}_{\ge0}}B_{N}\subset B_{0}=\emptyset$
+\end_inset
+
+, imply that 
+\begin_inset Formula $\lambda\in\bigcap_{N\in2\mathbb{Z}_{\ge0}}A_{N}=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+(of prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Assume-that-3"
+
+\end_inset
+
+) Let's start with proving the holomorphicity.
+ Similarly to the proof of prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Assume-that-1"
+
+\end_inset
+
+, it suffices to show that the following expression is holomorphic as a
+ function of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+\frac{q-2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-q+N}{2}\right)}\cdot\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Now, the second multiplicand is clearly holomorphic, while the first is
+ also so, as 
+\begin_inset Formula $-\nu+q-2\ge-q+\nu\iff q-1\ge\nu$
+\end_inset
+
+.
+ Thus, it remains to show that 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}\ne0$
+\end_inset
+
+ and as in the proof of prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Assume-that-1"
+
+\end_inset
+
+, the contradicting assumption implies that 
+\begin_inset Formula $\forall N\in2\mathbb{Z}_{\ge0}$
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+\frac{q-2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-q+N}{2}\right)}\cdot\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+and thus if we let 
+\begin_inset Formula 
+\[
+A_{N}:=\left\{ \lambda\in\mathbb{C}\bigg|\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+\frac{q-2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-q+N}{2}\right)}=0\right\} =\left\{ \lambda=q-\nu-N-2j\right\} _{j=0}^{q-\nu-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+B_{N}:=\left\{ \lambda\in\mathbb{C}\bigg|\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}\right\} =\left\{ \lambda=-\nu+n+2j\right\} _{j=0}^{N/2-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+we have to conclude that 
+\begin_inset Formula $\lambda\in\bigcap_{N\in2\mathbb{Z}_{\ge0}}(A_{N}\cup B_{N})$
+\end_inset
+
+.
+ Now, as 
+\begin_inset Formula $q-\nu-N<-\nu+n\iff q-N<n$
+\end_inset
+
+, we have that 
+\begin_inset Formula $\forall N,N',\; A_{N'}\cap B_{N}=\emptyset$
+\end_inset
+
+ and the first item of lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:Suppose-that-sets"
+
+\end_inset
+
+ together with the fact that 
+\begin_inset Formula $\bigcap_{N\in2\mathbb{Z}_{\ge0}}B_{N}\subset B_{0}=\emptyset$
+\end_inset
+
+, imply that 
+\begin_inset Formula $\lambda\in\bigcap_{N\in2\mathbb{Z}_{\ge0}}A_{N}=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+(of prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Assume-that-4"
+
+\end_inset
+
+) Let's start with proving the holomorphicity.
+ Similarly to the proof of prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Assume-that-1"
+
+\end_inset
+
+, it suffices to show that the following expression is holomorphic as a
+ function of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+\frac{q-2}{2}\right)}{\Gamma\left(\frac{\lambda-\nu+q-2}{2}\right)}\cdot\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Both multilpicands are clearly holomorphic.
+ Thus, it remains to show that 
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}\ne0$
+\end_inset
+
+ and as in the proof of prop.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:Assume-that-1"
+
+\end_inset
+
+, the contradicting assumption implies that 
+\begin_inset Formula $\forall N\in2\mathbb{Z}_{\ge0}$
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+\frac{q-2}{2}\right)}{\Gamma\left(\frac{\lambda-\nu+q-2}{2}\right)}\dot{\frac{1}{\Gamma\left(\frac{\lambda+\nu-q+N}{2}\right)}}\cdot\frac{\Gamma\left(\lambda+\nu-n+1\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+and thus if we let 
+\begin_inset Formula 
+\[
+C_{N}:=\left\{ \lambda\in\mathbb{C}\bigg|\frac{\Gamma\left(\frac{\lambda+N-\nu}{2}+\frac{q-2}{2}\right)}{\Gamma\left(\frac{\lambda-\nu+q-2}{2}\right)}=0\right\} =\left\{ \lambda=(\nu-q+2)-2j\right\} _{j=0}^{N/2-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\[
+B_{N}:=\left\{ \lambda\in\mathbb{C}\bigg|\frac{\Gamma\left(\frac{\lambda+\nu-n+2}{2}\right)}{\Gamma\left(\frac{\lambda+\nu-n-N+2}{2}\right)}\right\} =\left\{ \lambda=-\nu+n+2j\right\} _{j=0}^{N/2-1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+A_{N}:=\left\{ \lambda\in\mathbb{C}\bigg|\dot{\frac{1}{\Gamma\left(\frac{\lambda+\nu-q+N}{2}\right)}}=0\right\} =\left\{ \lambda=-\nu+q-N-2j\right\} _{j=0}^{\infty}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+we have to conclude that 
+\begin_inset Formula $\lambda\in\bigcap_{N\in2\mathbb{Z}_{\ge0}}(A_{N}\cup B_{N}\cup C_{N})$
+\end_inset
+
+.
+ Now, as 
+\begin_inset Formula $-\nu+q-N<-\nu+n\iff q-N<n$
+\end_inset
+
+, we have that 
+\begin_inset Formula $\forall N,N',\; A_{N'}\cap B_{N}=\emptyset$
+\end_inset
+
+ and the second item of lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:Suppose-that-sets"
+
+\end_inset
+
+ (with 
+\begin_inset Formula $N_{0}=0$
+\end_inset
+
+) implies that 
+\begin_inset Formula $\lambda\in\bigcap_{N\in2\mathbb{Z}_{\ge0}}(A_{N}\cup C_{N})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+As 
+\begin_inset Formula $\lambda\in A_{0}\cup C_{0}=A_{0}$
+\end_inset
+
+, we can write 
+\begin_inset Formula $\lambda=-\nu+q-N'$
+\end_inset
+
+ with 
+\begin_inset Formula $N'\in2\mathbb{Z}_{\ge0}$
+\end_inset
+
+.
+ Now, it should be that 
+\begin_inset Formula $\lambda\in A_{N'+2}\cup C_{N'+2}$
+\end_inset
+
+ and hence 
+\begin_inset Formula $\lambda\in C_{N'+2}$
+\end_inset
+
+ and thus 
+\begin_inset Formula $\lambda=-\nu+q-N'\geq\nu-q+N'+6$
+\end_inset
+
+, thus 
+\begin_inset Formula $-N'-3\ge\nu-q\ge0$
+\end_inset
+
+ (the rightmost inequality is implied by the hypothesis).
+ The obtained contradiction ends the proof.
 \end_layout
 
 \begin_layout --Separator--
@@ -1057,14 +1849,10 @@ reference "lem:Suppose-there-exists"
 
 .
  As 
-\begin_inset Formula $\Gamma(\alpha+n)\neq0$
+\begin_inset Formula $\Gamma(\alpha+z)\neq0$
 \end_inset
 
- for 
-\begin_inset Formula $n$
-\end_inset
-
- big enough, this implies that 
+ for, this implies that 
 \begin_inset Formula $\forall n>N,\;\sum_{i=0}^{m}c_{i}(\alpha+k_{n})^{(i)}=0$
 \end_inset
 
