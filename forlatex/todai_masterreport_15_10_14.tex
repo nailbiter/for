@@ -7,6 +7,8 @@
 \usepackage{enumerate}
 \usepackage{CJKutf8}
 \usepackage{mystyle}
+\usepackage{amscd}
+\usepackage{extarrows}
 
 \newcommand{\D}{\mathcal{D}}
 
@@ -22,7 +24,7 @@
 \newcommand{\Upp}{\mysetn{(x,y)\in\R^{p,q}}{x\neq0,\;y\neq0}}
 \newcommand{\Stab}{O(p,q)_{e_p}}
 \newcommand{\sol}[1][\R^{p,q}]{\mathcal{S}ol(#1;\lambda,\nu)}
-\newcommand{\solXi}{\sol[\Xi]\cap C(\Xi)}
+\newcommand{\solXi}{\sol[\Xi]}
 \maketitle
 \section{Definitions and Notations}
 We fix $p,q\in\Z_{\geq0}$, $n:=p+q$, $G:=O(p+1,q+1)$ and $G':=O(p+1,q+1)_{e_{p+1}}:=\mysetn{g\in G}{g\cdot e_{p+1}=e_{p+1}}\simeq
@@ -40,15 +42,15 @@ We then set,
 		\cosh(t)&0&\sinh(t)\\0&I_{ p+q }&0\\\sinh(t)&0&\cosh(t)
 	\end{bmatrix}
 }{t\in\R}.\]
-We also let $M':=M\cap G'$, $N_+':=N_+\cap G'$ and $A':=A\cap G'=A$.
+We also let $M':=M\cap G'$, $N_+':=N_+\cap G'$, $A':=A\cap G'=A$ and $P':=M'A'N'=P\cap G'$.
 
 We next set $\R^{ p+1,q+1 }\supset\Xi:=\mysetn{ (x,y)\in\R^{ p+1,q+1 }\setminus \left\{ 0 \right\}}{\myabs{x}=\myabs{y}}$.
 $\Xi$ is clearly invariant under left multiplication by the elements of $G$.
 \begin{mydef}
-	Having $(\lambda,\nu)\in\C^2$ and given $f\in C(\Xi)$ we say that $f\in\solXi$
+	Having $(\lambda,\nu)\in\C^2$ and given $f\in \D'(\Xi)$ we say that $f\in\solXi$
 	if $\forall t\in\R^\times,\;f(t\cdot)=\myabs{t}^{\lambda-n}f(\cdot)$ and 
 	$\forall m'a'(t)n'\in P'$
-	we have $f(m'a'(t)n'\cdot)=e^{ -t\nu }f(\cdot)$.
+	we have $f(m'a'(t)n'\cdot)=e^{ t\nu }f(\cdot)$.
 \end{mydef}
 
 We further let $X:=\Sp^p\times\Sp^q/\left\{ \pm1 \right\}$. Note that the action of $G$
@@ -68,17 +70,17 @@ We also define the embedding \[\R^{ p,q }\ni(u,v)\mapsto \mathfrak{n}_-(u,v):=\m
 	$F$ is $N_+'$-invariant on $U$ if 
 	$\forall b\in\R^{ p,q }$ with $b_p=0$ and $x_0\in U$ such that
 	$\frac{ x_0-Q(x)b }{ 1-2Q(x_0,b)+Q(x_0)Q(b) }\in U$ and the expression makes sense (i.e. 
-	the denominator is non-zero) we have \[\mybra{ 1-2Q(b,x)+Q(x)Q(b) }^{ \lambda-n }F
+	the denominator is non-zero) we have \[\myabs{ 1-2Q(b,x)+Q(x)Q(b) }^{ \lambda-n }F
 	\mybra{\frac{ x-Q(x)b }{ 1-2Q(x,b)+Q(x)Q(b)}}=F(x)\] equality holding for $x$ near $x_0$.
 \end{mydef}
-\begin{remark}
-It should be noted that although the map $\mysetn{b\in\R^{p,q}}{b_p=0}\times\R^{p,q}\ni(b,x)\mapsto
-\frac{ x-Q(x)b }{ 1-2Q(x,b)+Q(x)Q(b)}\in\R^{p,q}$ {\it does not} form an action of $N_{+}'$ on $\R^{p,q}$ in the sense
-of a Lie group acting on manifold (indeed, this map doesn't even always make sense), if one uses the concept of a local group
-of a local transformation group, as introduced, say in \cite{olver2000applications}, this ``action'' can be interpreted.
-Consequently, it induces the corresponding action on $\D'(U)$ and all in all, the word ``invariant'' in the above definition makes
-sense.
-\end{remark}
+%%\begin{remark}
+%%It should be noted that although the map $\mysetn{b\in\R^{p,q}}{b_p=0}\times\R^{p,q}\ni(b,x)\mapsto
+%%\frac{ x-Q(x)b }{ 1-2Q(x,b)+Q(x)Q(b)}\in\R^{p,q}$ {\it does not} form an action of $N_{+}'$ on $\R^{p,q}$ in the sense
+%%of a Lie group acting on manifold (indeed, this map doesn't even always make sense), if one uses the concept of a local group
+%%of a local transformation group, as introduced, say in \cite{olver2000applications}, this ``action'' can be interpreted.
+%%Consequently, it induces the corresponding action on $\D'(U)$ and all in all, the word ``invariant'' in the above definition makes
+%%sense.
+%%\end{remark}
 \begin{mydef}
 		 For $F\in\D'(U)$, where $U\subset\R^{ p,q }$ is the open set,
 			we say that $F\in\sol[U]$ if the following holds:
@@ -128,45 +130,119 @@ $\mybra{\D'(G\times_P\C_{\lambda-n} )\otimes\C_\nu}^{\Delta(P')}$ distribution.
 \section{The kernel of regular symmetry breaking operator}
 In this section we construct an element of $\sol$, that is supported on $\R^{ p,q }$ under some mild
 assumptions on the complex parameters. More precisely,
-\begin{myprop}
+\begin{myprop}\label{prop-regular}
 	Let $(\lambda,\nu)\in\C^2$ be such that $\Re(\lambda+\nu-n)>0$ and $\Re(-\nu)>0$. Then
 	$K_{ \lambda,\nu }^{ \R^n }(x):=\myabs{ x_p}^{ \lambda+\nu-n }\myabs{ Q(x) }^{ -\nu }$ is a continuous function,
 	which when seen as a generalized function on $\R^{ p,q }$, is supported on $\R^{ p,q }$ and is an element of $\sol$.
 \end{myprop}
 For the proof, we will need one technical result.
-\begin{mylem}
-	Let $f\in \solXi$. Then it's pullback under $R^{p,q}\ni(u,v)\mapsto
-	(1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2-\myabs{ v }^2)\in\Xi$ gives a continuous function on $\R^{p,q}$
-	which when seen as a generalized function, belongs to $\sol$.
+\begin{mylem}\label{lem-3}
+	Let $f\in \solXi$. Then it's pullback under $\iota:R^{p,q}\ni(u,v)\mapsto
+	(1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2-\myabs{ v }^2)\in\Xi$ gives an element of $\sol$.
 \end{mylem}
 \begin{myproof}
-	As we are talking about the generalized functions defined by continuous functions,
-	it suffices to show that pullback $F\in C(\R^{p,q})$
-	of $f\in C(\Xi)$
+	We recall that the restriction is a continuous function 
+	\[r:\D'(\Xi)\supset D_{\lambda-n}:=\mysetn{f\in\D'(\Xi)}{f(t\cdot)=t^{\lambda-n}f(\cdot)}\to\D'(\R^{p,q})\]
+	such that for $\varphi\in C(\Xi)\cap D_{\lambda-n}$ we have $r(\varphi)(x)=\varphi(\iota(x))$.
+	Note that $\solXi\subset D_{\lambda-n}$ by definition.
+	
+	We have to show that for $f\in\sol[\Xi]$
 	\begin{enumerate}
-		\item $F(x)=F(-x)$;
-		\item if $m\in O(p,q)$, then $F(x)=F(m\cdot x)$;
-		\item if $\alpha>0$, then $\alpha^{\lambda-\nu-n}F(x)=F(\alpha x)$;
+		\item $r(f)(x)=r(f)(-x)$;
+		\item if $m\in O(p,q)_{e_p}$, then $r(f)(x)=r(f)(m\cdot x)$;
+		\item if $\alpha>0$, then $\alpha^{\lambda-\nu-n}r(f)(x)=r(f)(\alpha x)$;
 		\item $\forall (b,x_0)\in\R^{ p,q }\times\R^{p,q}$ with $b_p=0$ and
 				${ 1-2Q(x_0,b)+Q(x_0)Q(b) }\neq0$
-				we have \[\mybra{ 1-2Q(b,x)+Q(b)Q(b) }^{ \lambda-n }F
-				\mybra{\frac{ x_0-Q(x)b }{ 1-2Q(x_0,b)+Q(x_0)Q(b)}}=F(x)\] equality holding for $x$ near $x_0$.
+				we have \[\mybra{ 1-2Q(b,x)+Q(b)Q(b) }^{ \lambda-n }r(f)
+				\mybra{\frac{ x_0-Q(x)b }{ 1-2Q(x_0,b)+Q(x_0)Q(b)}}=r(f)(x)\] equality holding for $x$ near $x_0$.
 	\end{enumerate}
-	Now, the direct computations show that the first and the second item are granted by the property
-	$\forall m\in M',\;f(m\cdot)=f(\cdot)$;
-	third is granted by $\forall t\in\R,\;f(a'(t)\cdot)=e^{-\nu t}f(\cdot)$;
-	and the fourth is granted by $\forall n\in N_+',\;f(n\cdot)=f(\cdot)$ all of which
-	should be satisfied by $f\in\solXi$.
+	Now, stated and proven below lemma \ref{lem-3-1} grants first and the second item. Similarly, lemmas \ref{lem-3-2} 
+	and \ref{lem-3-3} (both stated and proven below) grant third and fourth item respectively.
 \end{myproof}
-\begin{myproof}(of {\bf Proposition 2.1})\newline
-	First, due to the assumption on complex parameters, we see that $K_{ \lambda,\nu }^{ \R^n }$ is indeed well-defined and
-	is continuous, hence gives a regular distribution. The statement about support is also evident.\par
-	Now, let's consider continuous function on $\Xi$ given by
+\begin{mylem}\label{lem-3-1}
+	Let $f\in \solXi$. Then it's pullback $r(f)$ under $\iota:R^{p,q}\ni(u,v)\mapsto
+	(1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2-\myabs{ v }^2)\in\Xi$ satisfies $r(f)(x)=r(f)(-x)$
+	and $r(f)(m\cdot)=r(f)(\cdot)$ for $\forall m\in O(p,q)_{e_p}$.
+\end{mylem}
+\begin{myproof}
+	We start with proving the first assertion. Consider the diagram
+\[\begin{CD}
+		D_{\lambda-n}     @>F>>  D_{\lambda-n}\\
+@VVrV        @VVrV\\
+\D'(\R^{p,q})     @>\widetilde{F}>>  \D'(\R^{p,q})
+\end{CD}\]
+Where $F(f)(x):=f(-m_0x)$ and $\widetilde{F}(f)(x)=f(-x)$ where $m_0:=
+\begin{bmatrix}-1&0&0\\0&I_{p+q}&0\\0&0&-1\end{bmatrix}\in M'$.
+As this diagram is commutative if we start with an element of $C(\Xi)\cap D_{\lambda-n}$ and the latter subspace
+is dense in $D_{\lambda-n}$, we see that the diagram above commutes. As $f\in\solXi$ should satisfy $f(m_0\cdot)=f(\cdot)$ and
+$f(-x)=f(x)$, we see that $F(f)=f$ and this proves the first assertion.
+
+The derivation of the
+second assertion follows the similar pattern. We fix arbitrary $\widetilde{m}\in O(p,q)_{e_p}$ and let $F(f)(x)=f(m x)$ with 
+$m:=\begin{bmatrix}1&0&0\\0&\widetilde{m}&0\\0&0&1\end{bmatrix}\in M'$ and $\widetilde{F}(f)(x):=f(\widetilde{m} x)$. Finally,
+we use the fact that $f(m\cdot)=f(\cdot)$ for $f\in\solXi$.
+\end{myproof}
+\begin{mylem}\label{lem-3-2}
+	Let $f\in \solXi$. Then it's pullback $r(f)$ under $\iota:R^{p,q}\ni(u,v)\mapsto
+	(1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2-\myabs{ v }^2)\in\Xi$ satisfies 
+	$\alpha^{\lambda-\nu-n}r(f)(x)=r(f)(\alpha x)$ for $\forall\alpha>0$.
+\end{mylem}
+\begin{myproof}
+	We consider the same commutative diagram, as in proof of lemma \ref{lem-3-1}, except that we let $F(f)(x):=f(a_tx)$
+	where $a_t
+	\begin{bmatrix}
+		\cosh(t)&0&\sinh(t)\\0&I_{ p+q }&0\\\sinh(t)&0&\cosh(t)
+	\end{bmatrix}\in A'$ for some fixed $t\in\R$ and let $\widetilde{F}(f)(x):=e^{(\lambda-n)t}f(e^{-t}x)$.
+
+	Similarly to proof of lemma \ref{lem-3-1}, diagram turns out to be commutative and as for $f\in\solXi$ we should have
+	$F(f)(\cdot)=e^{\nu t}f(\cdot)$, hence we have $r(f)(e^t\cdot)=e^{(\lambda-\nu-n)t}f(\cdot)$, which is equivalent to what
+	we wanted to show.
+\end{myproof}
+\begin{mylem}\label{lem-3-3}
+	Let $f\in \solXi$. Then for it's pullback $r(f)$ under $\iota:R^{p,q}\ni(u,v)\mapsto
+	(1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2-\myabs{ v }^2)\in\Xi$ we have
+	$\forall (b,x_0)\in\R^{ p,q }\times\R^{p,q}$ with $b_p=0$ and
+	${ 1-2Q(x_0,b)+Q(x_0)Q(b) }\neq0$
+	we have \[\mybra{ 1-2Q(b,x)+Q(b)Q(b) }^{ \lambda-n }r(f)
+	\mybra{\frac{ x_0-Q(x)b }{ 1-2Q(x_0,b)+Q(x_0)Q(b)}}=r(f)(x)\] equality holding for $x$ near $x_0$.
+\end{mylem}
+\begin{myproof}%NB: in fact, here a *stronger* statement is proven: not ``some'' nbhd of x_0  as in hypothesis, but ``any''
+	So let $b\in\R^{p,q}$ be fixed with $b_p=0$ and let $c_b(x):=1-2Q(b,x)+Q(x)Q(b)$. Let
+	$U:=\subset\mysetn{x\in\R^{p,q}}{c_b(x)\neq0}$ (it's an open set). Note that for $\psi_b(x):=(x-Q(x)b)/c_b(x)$ 
+	we have \[c_{-b}(\psi_b(x))=\frac{1}{c_b(x)}\neq0\]
+	hence we have $\psi_{-b}\circ\psi_b=id$ equality holding on $U$. Thus, we see that $\psi_b$ on $U$ is a local diffeomorphism,
+	hence $V:=\psi_b(U)$ is an open set and repeating the argument above with $b$ and $-b$ interchanged we see that $\psi_b$
+	is a diffeomorphism $U\diffsm V$.
+
+	We now consider the diagram
+\[\begin{CD}
+D_{\lambda-n}     @>F>>  D_{\lambda-n}\\
+@VVrV        @VVrV\\
+\D'(\R^{p,q})  @.     \D'(\R^{p,q})\\
+@VV{\cdot\big|_V}V        @VV{\cdot\big|_U}V\\
+\D'(V)     @>\widetilde{F}>>  \D'(U)
+\end{CD}\]
+Where $F(f)(\cdot):=f(n\cdot)$ with $n:=
+\begin{bmatrix}
+	1-Q(b)/2&-b^TI_{p,q}&Q(b)/2\\
+	b&I_{p+q}&-b\\
+	-Q(b)/2&-b^TI_{p,q}&1+Q(b)/2
+\end{bmatrix}\in N_+'$ where $I_{p,q}$ denotes the diagonal matrix of $p+q$ columns
+whose first $p$ diagonal entries are $+1$ and next $q$ are $-1$, and $\widetilde{F}(f)(\cdot):=\myabs{c_b(\cdot)}^{\lambda-n}
+f(\psi_b(\cdot))$.
+
+The diagram above commutes if we start with an element of $C(\Xi)\cap D_{\lambda-n}$ (note that $n\cdot\iota(x)=c_b(x)\iota(\psi_b(x))
+$), hence commutes in general. Now, the statement to be shown is granted by the fact that for $f\in\solXi$ we should have
+$f(n\cdot)=f(\cdot)$.
+\end{myproof}
+\begin{myproof}(of {\bf Proposition \ref{prop-regular}})\newline
+	First, due to the assumption on complex parameters, we see that $K_{ \lambda,\nu }^{ \R^n }$ is indeed well-defined as a
+	distribution. The statement about support is also evident.\par
+	Now, let's consider distribution induced by continuous function on $\Xi$ given by
 	$\Xi\ni\xi\mapsto\myabs{\xi_p}^{\lambda+\nu-n}\myabs{\xi_{p+q+2}-\xi_1}^{-\nu}$. We easily see that 
 	it is well-behaved under $P'$ on $\Xi$ and pulls back to the multiple of $K_{ \lambda,\nu }^{ \R^n }$
-	under the $R^{p,q}\ni(u,v)\mapsto
-	[1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2-\myabs{ v }^2]\in\Xi$ gives a continuous function. Hence, the previous
-	lemma implies the desired conclusion.
+	under the $\iota:R^{p,q}\to\Xi$. Hence,
+	lemma \ref{lem-3} implies the desired conclusion.
 \end{myproof}
 \section{The kernel of singular symmetry breaking operator supported on $\left\{ x_p=0 \right\}$}
 In this section we (again, for parameters $(\lambda,\nu)$ in appropriate subset of $\C^2$)
@@ -512,6 +588,7 @@ The following fact needs to be stated before the next proof
 	\right)+\left( J_{p-1}\frac{\partial}{\partial z} \right)_i \right]\tilde{v}=0,\;1\leq i\leq p-1.\]
 	and as the latter is precisely \eqref{eq:sing_q_dx}, this finishes the proof.
 \end{myproof}
+\nocite{Kobayashi201489}
 \bibliography{todai_master}
 \bibliographystyle{plain}
 %%\begin{thebibliography}{9}
