@@ -249,16 +249,19 @@ In this section we (again, for parameters $(\lambda,\nu)$ in appropriate subset 
 explicitly construct distribution on $\R^{p,q}$ with support in $\left\{ x_p=0 \right\}$ and belongs to $\sol$.
 \begin{myprop}
 	Fix $k\in\Z_{\ge0}$ and let $\lambda\in\C$ be determined by $\nu\in\C$ so that $\lambda+\nu-n=-1-2k$ holds.
-	Then for $\Re(\nu)<-k$ 
-	\[K_{\lambda,\nu}^P(\varphi):=\sum_{i=0}^k\frac{(-1)^i(2k)!(\nu)_i}{(2k-2i)!i!}
-		\myabra{\delta^{(2k-2i)}(x_p),\myabs{\tilde{Q}}^{-\nu-i}\varphi}
+	Then for $\nu\notin\Z$
+	\[K_{\lambda,\nu}^P:=\sum_{i=0}^k\frac{(-1)^i(2k)!(\nu)_i}{(2k-2i)!i!}
+	\delta^{(2k-2i)}(x_p)\otimes\myabs{\tilde{Q}}^{-\nu-i}
 	\] with $(\nu)_i:=\nu(\nu-1)\cdots(\nu-i+1)$ and $\tilde{Q}(x,y):=\myabs{x}^2-\myabs{y}^2$ for $(x,y)\in\R^{p-1,q}$,
 	is well-defined distribution on $\R^{p,q}$ which is supported in $\left\{ x_p=0 \right\}$ and is well-behaved
 	under $P'$.
 \end{myprop}
 \begin{myproof}
-	First well-definedness is pretty obvious, as $\myabs{\tilde{Q}}^{(-\nu-i)}$ is at least in class $C^{k-i}\subset C^0$.
-	The claim about support then gets obvious as well.
+	First, well-definedness is clear (we need $\nu\notin\Z$ assumption to ensure that $\myabs{\tilde{Q}}^{-\nu-i}$
+	is well-defined).
+	The claim about support then gets obvious as well, so it remains to show that $K_{\lambda,\nu
+	}^P\in\sol$. Due to 
+	an analogue of \cite[prop. 3.18]{kobayashi2015symmetry} it suffices to show this under the assumption that $\Re(\nu)\gg0$.
 
 	As for being an element of $\sol$, the first three properties of definition are evident (note that $\tilde{Q}$ is
 	invariant under $\Stab$), only invariance
@@ -275,8 +278,8 @@ explicitly construct distribution on $\R^{p,q}$ with support in $\left\{ x_p=0 \
 	\right)$. Hence if we fix $\nu$ with $\Re(\nu)<0$,
 	and set $\tilde{F}_{\mu,\nu}:=\myabs{x_p}^{\mu}\myabs{\tilde{Q}}^{-\nu}/\Gamma\left( \frac{\mu
 	+1}{2} \right)$, we see that $\tilde{F}_{-2i-1,\nu}=F_{\nu,i}$ up to proportionality. Moreover, for $\Re(\mu)>0$,
-	$\tilde{F}_{\mu,\nu}\in L^1_{loc}$ and clearly satisfies \eqref{eq:sing_p}. Then, an analogue of 
-	\cite[prop. 3.18]{kobayashi2015symmetry}
+	$\tilde{F}_{\mu,\nu}\in L^1_{loc}$ and clearly satisfies \eqref{eq:sing_p}. 
+	Then, an analogue of \cite[prop. 3.18]{kobayashi2015symmetry}
 	implies that so does $\tilde{F}_{\mu,\nu}$ and hence so does $F_{\nu,i}$ and this ends the proof.
 \end{myproof}
 
