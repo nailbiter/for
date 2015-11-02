@@ -40,5 +40,8 @@ function swapIn(array,index,headLen)
 
 function decodeURLquery(query)
 {
-    return query.replace(/%22/g,'\"');
+    var res = query;
+    res = res.replace(/%22/g,'\"');
+    res = res.replace(/%20/g,' ');
+    return res;
 }

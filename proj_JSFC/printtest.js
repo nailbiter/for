@@ -3,7 +3,7 @@ var globalTest;
 function addDataItems(array)
 {
     var orig = globalTest.dataitems.length;
-    if( array.length > 0 ) console.log("files: " + array[0].dataitems.length);
+    if( array.length > 0 ) console.log("files: " + array[1].dataitems.length);
     for( var i = 0; i < array.length; i++ )
         globalTest.dataitems = globalTest.dataitems.concat(array[i].dataitems);
 
@@ -17,6 +17,8 @@ function print_test_continue()
 
     var test = globalTest;
     var filters = [];
+    var deb_count = 0;
+    console.log(test.generators);
     for( var i = 0; i < test.generators.length; i++ )
         if( test.generators[i].type == "meta" && test.generators[i].enabled )
         {
@@ -25,8 +27,12 @@ function print_test_continue()
                 for( var j = 0; j < test.generators[i].filter.length; j++ )
                     filters.push(test.generators[i].filter[j]);
             for( var j = 0; j < test.generators[i].enable.length; j++ )
+            {
                 test.generators[i+test.generators[i].enable[j]].enabled = true;
+                deb_count++;
+            }
         }
+    console.log("generators enabled: "+deb_count);
     for( var i = 0; i < test.generators.length; i++ )
     {
         if( !test.generators[i].enabled || test.generators[i].type == "meta")
@@ -45,6 +51,7 @@ function print_test_continue()
         //if( test.generators[i].hasOwnProperty("filter") ) qs = filter(qs,test.generators[i].filter);
         test.questions = test.questions.concat(qs);
     }
+    console.log("len="+test.questions.length);
 
     for( var i = 0; i < filters.length; i++ )
     {
