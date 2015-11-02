@@ -22,8 +22,9 @@ git add forplots/*.dat
 git add proj_JSFC/*.js
 git add proj_JSFC/*.html
 
-git add ftplugin/*.vim
-git add syntax/*.vim
+git add scripts/*.sh
+
+./scripts/export_lyxs.sh
 
 git commit -a -m "Commit"
 git push origin master

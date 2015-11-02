@@ -7,6 +7,8 @@
 \usepackage{enumerate}
 \usepackage{CJKutf8}
 \usepackage{mystyle}
+\usepackage{amscd}
+\usepackage{extarrows}
 
 \newcommand{\D}{\mathcal{D}}
 
@@ -18,80 +20,95 @@
 \title{}
 \author{Alex Leontiev}
 \begin{document}
-\newcommand{\sone}{$\mybra{\D'(G\times_{\lambda-n} P)\otimes\C_\nu}^{\Delta(P')}$}
+\newcommand{\sone}{$\mybra{\D'(G\times_P\C_{\lambda-n})\otimes\C_\nu}^{\Delta(P')}$}
 \newcommand{\Upp}{\mysetn{(x,y)\in\R^{p,q}}{x\neq0,\;y\neq0}}
+\newcommand{\Stab}{O(p,q)_{e_p}}
+\newcommand{\sol}[1][\R^{p,q}]{\mathcal{S}ol(#1;\lambda,\nu)}
+\newcommand{\solXi}{\sol[\Xi]}
 \maketitle
 \section{Definitions and Notations}
-We fix $p,q\in\Z_{\geq0}$, $n:=p+q$ and $G:=O(p+1,q+1)$.
+We fix $p,q\in\Z_{\geq0}$, $n:=p+q$, $G:=O(p+1,q+1)$ and $G':=O(p+1,q+1)_{e_{p+1}}:=\mysetn{g\in G}{g\cdot e_{p+1}=e_{p+1}}\simeq
+O(p,q+1)$.
 
-We then set, $O(p,q)':=\mysetn{ g\in O(p,q) }{ g\cdot e_p=e_p }$,
-$O(p+1,q+1)\supset M':=\mysetn{ \begin{bmatrix}\epsilon&0&0\\0&A&0\\0&0&\epsilon\end{bmatrix}}{A\in O(p,q)',\;\epsilon=\pm1}$,\\
-$O(p+1,q+1)\supset N_+':=\mysetn{
+We then set,
+\[M:=\mysetn{ \begin{bmatrix}\epsilon&0&0\\0&A&0\\0&0&\epsilon\end{bmatrix}}{A\in O(p,q),\;\epsilon=\pm1}\]
+\[N_+:=\mysetn{
 \begin{bmatrix}
 	1-\frac{ \myabs{ v }^2-\myabs{ w }^2 }{2}&-v^T&w^T&\frac{ \myabs{ v }^2-\myabs{ w }^2 }{2}\\
 	v&I_{ p }&0&-v\\w&0&I_q&-w\\-\frac{ \myabs{ v }^2-\myabs{ w }^2 }{2}&-v^T&w^T&1+\frac{ \myabs{ v }^2-\myabs{ w }^2 }{2}\\
-\end{bmatrix}}{v\in\R^p,\;w\in\R^q,\;v_p=0}$ and
-$O(p+1,q+1)\supset A':=\mysetn{a'(t):= 
+\end{bmatrix}}{v\in\R^p,\;w\in\R^q}\]
+\[A:=\mysetn{a'(t):= 
 	\begin{bmatrix}
 		\cosh(t)&0&\sinh(t)\\0&I_{ p+q }&0\\\sinh(t)&0&\cosh(t)
 	\end{bmatrix}
-}{t\in\R}$.
+}{t\in\R}.\]
+We also let $M':=M\cap G'$, $N_+':=N_+\cap G'$, $A':=A\cap G'=A$ and $P':=M'A'N'=P\cap G'$.
 
 We next set $\R^{ p+1,q+1 }\supset\Xi:=\mysetn{ (x,y)\in\R^{ p+1,q+1 }\setminus \left\{ 0 \right\}}{\myabs{x}=\myabs{y}}$.
-$\Xi$ is clearly invariant under left multiplication by the elements of $G$ and $G\supset P':=M'A'N'_+$.
+$\Xi$ is clearly invariant under left multiplication by the elements of $G$.
 \begin{mydef}
-	Having $(\lambda,\nu)\in\C^2$ and given $f\in L^1_{loc}(\Xi)$ we say that $f$ correctly behaves under $P'$
+	Having $(\lambda,\nu)\in\C^2$ and given $f\in \D'(\Xi)$ we say that $f\in\solXi$
 	if $\forall t\in\R^\times,\;f(t\cdot)=\myabs{t}^{\lambda-n}f(\cdot)$ and 
 	$\forall m'a'(t)n'\in P'$
-	we have $f(m'a'(t)n'\cdot)=e^{ -\nu }f(\cdot)$.
+	we have $f(m'a'(t)n'\cdot)=e^{ t\nu }f(\cdot)$.
 \end{mydef}
 
 We further let $X:=\Sp^p\times\Sp^q/\left\{ \pm1 \right\}$. Note that the action of $G$
 on $\Xi$ induces the action on $X=\Xi/\R^\times$. It turns out that the stabilizer $P\subset G$ of $p_+:=[1,0_{p+q},1]\in X$
 is the maximal parabolic subgroup of $G$, hence $X\simeq G/P$ via $gP\mapsto g\cdot p_+$. Having maximal parabolic subgroup
-fixed, we may also fix $\lambda\in\C$ and consider the $G\times_\lambda P$ bundle over $G/P\simeq X$. We shall be interested
-in the vector space $\mybra{\D'(G\times_{\lambda-n} P)\otimes\C_\nu}^{\Delta(P')}$ for $(\lambda,\nu)\in\C^2$ fixed.
+fixed, we may also fix $\lambda\in\C$ and define a $G$-equivariant line bundle
+$\mathcal{L}_{\lambda}:=G\times_P\C_\lambda$ over $G/P\simeq X$. We shall be interested
+in the vector space $\mybra{\D'(G\times_P\C_{\lambda-n} )\otimes\C_\nu}^{\Delta(P')}$ for $(\lambda,\nu)\in\C^2$ fixed.
 
-We also define the embedding $\R^{ p,q }\ni(u,v)\mapsto \mathfrak{n}_-(u,v):=\mysbra{\frac{
-	(1-\myabs{ u }^2+\myabs{ v }^2,2u^T,2v^T,1+\myabs{ u }^2
-	-\myabs{ v }^2)}{\sqrt{(1-r^2+s^2)^2+4r^2}}}\in X\simeq G/P$.
+We also define the embedding \[\R^{ p,q }\ni(u,v)\mapsto \mathfrak{n}_-(u,v):=\mysbra{\frac{
+	(1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2
+-\myabs{ v }^2)}{\sqrt{(1-\myabs{u}^2+\myabs{v}^2)^2+4\myabs{v}^2}}}\in X\simeq G/P\].
 	For $x,y\in\R^{ p,q }$
 	we set $Q(x,y):=x^TI_{ p,q }y$ and $Q(x):=Q(x,x)$.
-	\begin{mydef}
-			 For $F\in\D'(U)$, where $U\subset\R^{ p,q }$ is the open set, we say that
-				$F$ behaves correctly under $\mathfrak{n}_+'$ on $U$ if
-				$\forall b\in\R^{ p,q }$ with $b_p=0$ and $x_0\in U$ such that
-				$\frac{ x_0-Q(x)b }{ 1-2Q(x_0,b)+Q(x_0)Q(b) }\in U$ and the expression makes sense (i.e. 
-				the denominator is non-zero) we have \[\mybra{ 1-2Q(b,x)+Q(x)Q(b) }^{ \lambda-n }F
-				\mybra{\frac{ x-Q(x)b }{ 1-2Q(x,b)+Q(x)Q(b)}}=F(x)\] equality holding for $x$ near $x_0$.
-	\end{mydef}
-	\begin{mydef}
-			 For $F\in\D'(U)$, where $U\subset\R^{ p,q }$ is the open set,
-				we say that $F$ behaves correctly under $P'$ if the following holds:
-				\begin{enumerate}
-					\item if $x_0\in U$ and $-x_0\in U$, then $F(x)=F(-x)$ for $x$ near $x_0$;
-					\item if $(m,x_0,m\cdot x_0)\in O(p,q)'\times U\times U$, then $F(x)=F(m\cdot x)$ for
-						$x$ near $x_0$;
-					\item if $(\alpha,x_0,\alpha x_0)\in \R_{>0}\times U\times U$, then $\alpha^{
-						\lambda-\nu-n}F(x)=F(\alpha x)$ for $x$ near $x_0$;
-					\item $F$ behaves correctly under $N_+'$ on $U$.
-				\end{enumerate}
-	\end{mydef}
-	\begin{remark}
-		If we trivialize $G\times_{\lambda-n}P$ over simply-connected open $\mathfrak{n}_-(\R^{p,q})$,
-		these are precisely correctly behaving under $P'$
-		distributions on $\R^{ p,q }$ that are pullbacks of elements of 
-		$\mybra{\D'(G\times_{\lambda-n} P)\otimes\C_\nu}^{\Delta(P')}$
-		from $X\simeq G/P$.
-		In fact, due to the $P'\cdot\mathfrak{n}_-(\R^{ p,q })=X$ holding, given the
-		distribution correctly behaving under $P'$, it can be uniquely extended matched to elements of
-		$\mybra{\D'(G\times_{\lambda-n} P)\otimes\C_\nu}^{\Delta(P')}$
-		on $X$.
-	\end{remark}
-
+\begin{mydef}
+ For $F\in\D'(U)$, where $U\subset\R^{ p,q }$ is an open set, we say that
+	$F$ is $N_+'$-invariant on $U$ if 
+	$\forall b\in\R^{ p,q }$ with $b_p=0$ and $x_0\in U$ such that
+	$\frac{ x_0-Q(x)b }{ 1-2Q(x_0,b)+Q(x_0)Q(b) }\in U$ and the expression makes sense (i.e. 
+	the denominator is non-zero) we have \[\myabs{ 1-2Q(b,x)+Q(x)Q(b) }^{ \lambda-n }F
+	\mybra{\frac{ x-Q(x)b }{ 1-2Q(x,b)+Q(x)Q(b)}}=F(x)\] equality holding for $x$ near $x_0$.
+\end{mydef}
+%%\begin{remark}
+%%It should be noted that although the map $\mysetn{b\in\R^{p,q}}{b_p=0}\times\R^{p,q}\ni(b,x)\mapsto
+%%\frac{ x-Q(x)b }{ 1-2Q(x,b)+Q(x)Q(b)}\in\R^{p,q}$ {\it does not} form an action of $N_{+}'$ on $\R^{p,q}$ in the sense
+%%of a Lie group acting on manifold (indeed, this map doesn't even always make sense), if one uses the concept of a local group
+%%of a local transformation group, as introduced, say in \cite{olver2000applications}, this ``action'' can be interpreted.
+%%Consequently, it induces the corresponding action on $\D'(U)$ and all in all, the word ``invariant'' in the above definition makes
+%%sense.
+%%\end{remark}
+\begin{mydef}
+		 For $F\in\D'(U)$, where $U\subset\R^{ p,q }$ is the open set,
+			we say that $F\in\sol[U]$ if the following holds:
+			\begin{enumerate}
+				\item if $x_0\in U$ and $-x_0\in U$, then $F(x)=F(-x)$ for $x$ near $x_0$;
+				\item if $(m,x_0,m\cdot x_0)\in \Stab\times U\times U$, then $F(x)=F(m\cdot x)$ for
+					$x$ near $x_0$, where $\Stab:=\mysetn{g\in O(p,q)}{g\cdot e_p=e_p}$;
+				\item if $(\alpha,x_0,\alpha x_0)\in \R_{>0}\times U\times U$, then $\alpha^{
+					\lambda-\nu-n}F(x)=F(\alpha x)$ for $x$ near $x_0$;
+				\item $F$ is $N_+'$-invariant on $U$.
+			\end{enumerate}
+\end{mydef}
+\begin{remark}
+	If we trivialize $G\times_P\C_{\lambda-n}$ over simply-connected open $\mathfrak{n}_-(\R^{p,q})$ (the image of $\R^{p,q}$
+	under the embedding $\mathfrak{n}_-:\R^{p,q}\to G/P$ defined above),
+	these are precisely elements of $\sol[\R^{p,q}]$
+	that are the pullbacks of elements of 
+	$\mybra{\D'(G\times_P\C_{\lambda-n})\otimes\C_\nu}^{\Delta(P')}$
+	from $X\simeq G/P$.
+	In fact, due to the $P'\cdot\mathfrak{n}_-(\R^{ p,q })=X$ holding, given the element of $\sol[\R^{p,q}]$,
+	it can be uniquely matched to an element of
+	$\mybra{\D'(G\times_P\C_{\lambda-n} )\otimes\C_\nu}^{\Delta(P')}$
+	on $X$.
+\end{remark}
+\section{Non-equivalence of $N_+'$-invariance and $\mathfrak{n}'_+$-invariance}
 It is tempting to replace in the latter definition
-the fourth condition (correct behaviour under $N_+'$) with the differential of this
-law, which will then give the family of differential equations that need to be satisfied
+the fourth condition (invariance under $N_+'$) with its differential (which we'll call $\mathfrak{n}_+'$-invariance)
+, which will then give the family of differential equations that need to be satisfied:
 \begin{equation}
 \mysbra{(\lambda-n)\varepsilon_jx_j-\varepsilon_jx_jE+\frac{ 1 }{ 2 }Q(x)\frac{ \partial}{ \partial x_j } }F=0
 	\label{Ndiff}
@@ -99,115 +116,199 @@ law, which will then give the family of differential equations that need to be s
 where $E:=\sum_j x_j\frac{ \partial }{ \partial x_j }$ and $\varepsilon_j=+1$ for $1\leq j\leq p$ and $=-1$ otherwise.
 However, if $p,q>0$ the resulting system of conditions will be strictly weaker than the original one. Indeed, having
 fixed $(\lambda,\nu)\in\C^2$ such that $\Re(-\nu)>0$ and $\Re(\lambda+\nu-n)>0$ consider two distributions
-\[K_+:=\myabs{ x_p }^{ \lambda+\nu-n }Q_+^{ -\nu }(x)\]
-\[K_-:=\myabs{ x_p }^{ \lambda+\nu-n }Q_-^{ -\nu }(x)\]
+\[K_+(x):=\myabs{ x_p }^{ \lambda+\nu-n }Q_+^{ -\nu }(x)\]
+\[K_-(x):=\myabs{ x_p }^{ \lambda+\nu-n }Q_-^{ -\nu }(x)\]
+with $Q^{-\nu}_{\pm}(x):=\mathbf{1}_{\left\{ \pm Q>0 \right\}}Q^{\nu}(x)$, where $\mathbf{1}_A(x)$ denotes the
+characteristic function of a set $A$.
 It is directly verified that both satisfy first three properties together with differential of the fourth one. Nevertheless,
-they cannot be pullbacks of elements of \sone on $G/P$. Indeed, $P'$ acting on $G/P$
+they cannot be pullbacks of elements of \sone. Indeed, $P'$ acting on $G/P$
 has only one open orbit, which under $\mathfrak{n}_-(\cdot)$ is pulled back to $\R^{ p,q }\supset\mycbra{ Q\neq0 }$.
-Hence, if pullback of correctly behaving under $P'$ distribution on $G/P$ is supported on subset of $\mycbra{ Q\neq0 }$
+Hence, if pullback of element of \sone is supported on subset of $\mycbra{ Q\neq0 }$
 it should be supported on the whole $\mycbra{ Q\neq0 }$. However, $\supp(K_+)=\mycbra{ Q\geq0 }$ and
-$\supp(K_-)=\mycbra{ Q\leq0 }$. Hence, non of these is pullback of element of 
-$\mybra{\D'(G\times_{\lambda-n} P)\otimes\C_\nu}^{\Delta(P')}$ distribution.
-\section{Regular kernel}
-In this section we construct the correctly behaving under $P'$ distribution, that is supported on $\R^{ p,q }$ under some mild
+$\supp(K_-)=\mycbra{ Q\leq0 }$. Hence, none of these is pullback of element of 
+$\mybra{\D'(G\times_P\C_{\lambda-n} )\otimes\C_\nu}^{\Delta(P')}$ distribution.
+\section{The kernel of regular symmetry breaking operator}
+In this section we construct an element of $\sol$, that is supported on $\R^{ p,q }$ under some mild
 assumptions on the complex parameters. More precisely,
-\begin{myprop}
-	Let $(\lambda,\nu)\in\C^2$ be such that $\Re(\lambda+\nu)\geq0$, $\Re(\lambda-\nu)>0$ and $\Re(-\nu)>0$. Then
-	$K_{ \lambda,\nu }^{ \R^n }(x):=\myabs{ x_p}^{ \lambda+\nu-n }\myabs{ Q(x) }^{ -\nu }$ gives a regular distribution
-	on $\R^{ p,q }$ that is supported on $\R^{ p,q }$ and correctly behaves under $P'$.
+\begin{myprop}\label{prop-regular}
+	Let $(\lambda,\nu)\in\C^2$ be such that $\Re(\lambda+\nu-n)>0$ and $\Re(-\nu)>0$. Then
+	$K_{ \lambda,\nu }^{ \R^n }(x):=\myabs{ x_p}^{ \lambda+\nu-n }\myabs{ Q(x) }^{ -\nu }$ is a continuous function,
+	which when seen as a generalized function on $\R^{ p,q }$, is supported on $\R^{ p,q }$ and is an element of $\sol$.
 \end{myprop}
 For the proof, we will need one technical result.
-\begin{mylem}
-	Let $f\in L^1_{loc}(\Xi)$ be correctly behaving under $P'$. Then it's pullback under $R^{p,q}\ni(u,v)\mapsto
-	[1-\myabs{ u }^2+\myabs{ v }^2,2u^T,2v^T,1+\myabs{ u }^2-\myabs{ v }^2]\in\Xi$ gives a $L^1_{loc}$ function
-	on $R^{p,q}$, whose corresponding regular generalized function correctly behaves under $P'$.
+\begin{mylem}\label{lem-3}
+	Let $f\in \solXi$. Then it's pullback under $\iota:R^{p,q}\ni(u,v)\mapsto
+	(1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2-\myabs{ v }^2)\in\Xi$ gives an element of $\sol$.
 \end{mylem}
 \begin{myproof}
-	As we are talking about the regular distributions, it suffices to show that pullback $F\in L^1_{loc}$
-	of $f\in L^1_{loc}(\Xi)$ to $\R^{p,q}$
-	satisfies
+	We recall that the restriction is a continuous function 
+	\[r:\D'(\Xi)\supset D_{\lambda-n}:=\mysetn{f\in\D'(\Xi)}{f(t\cdot)=t^{\lambda-n}f(\cdot)}\to\D'(\R^{p,q})\]
+	such that for $\varphi\in C(\Xi)\cap D_{\lambda-n}$ we have $r(\varphi)(x)=\varphi(\iota(x))$.
+	Note that $\solXi\subset D_{\lambda-n}$ by definition.
+	
+	We have to show that for $f\in\sol[\Xi]$
 	\begin{enumerate}
-		\item $F(x)=F(-x)$;
-		\item if $m\in O(p,q)$, then $F(x)=F(m\cdot x)$;
-		\item if $\alpha>0$, then $\alpha^{\lambda-\nu-n}F(x)=F(\alpha x)$;
+		\item $r(f)(x)=r(f)(-x)$;
+		\item if $m\in O(p,q)_{e_p}$, then $r(f)(x)=r(f)(m\cdot x)$;
+		\item if $\alpha>0$, then $\alpha^{\lambda-\nu-n}r(f)(x)=r(f)(\alpha x)$;
 		\item $\forall (b,x_0)\in\R^{ p,q }\times\R^{p,q}$ with $b_p=0$ and
 				${ 1-2Q(x_0,b)+Q(x_0)Q(b) }\neq0$
-				we have \[\mybra{ 1-2Q(b,x)+Q(b)Q(b) }^{ \lambda-n }F
-				\mybra{\frac{ x_0-Q(x)b }{ 1-2Q(x_0,b)+Q(x_0)Q(b)}}=F(x)\] equality holding for $x$ near $x_0$.
+				we have \[\mybra{ 1-2Q(b,x)+Q(b)Q(b) }^{ \lambda-n }r(f)
+				\mybra{\frac{ x_0-Q(x)b }{ 1-2Q(x_0,b)+Q(x_0)Q(b)}}=r(f)(x)\] equality holding for $x$ near $x_0$.
 	\end{enumerate}
-	Now, the direct computations show that the first and the second item are granted by the property
-	$\forall m\in M',\;f(m\cdot)=f(\cdot)$;
-	third is granted by $\forall t\in\R,\;f(a'(t)\cdot)=e^{-\nu t}f(\cdot)$;
-	and the fourth is granted by $\forall n\in N_+',\;f(n\cdot)=f(\cdot)$ all of which
-	should be satisfied by correctly behaving under $P'$ $f\in L^1_{loc}(\Xi)$.
+	Now, stated and proven below lemma \ref{lem-3-1} grants first and the second item. Similarly, lemmas \ref{lem-3-2} 
+	and \ref{lem-3-3} (both stated and proven below) grant third and fourth item respectively.
 \end{myproof}
-\begin{myproof}(of {\bf Proposition 2.1})\newline
-	First, due to the assumption on complex parameters, we see that $K_{ \lambda,\nu }^{ \R^n }$ is indeed well-defined and
-	is continuous, hence gives a regular distribution. The statement about support is also evident.\par
-	Now, let's consider continuous function on $\Xi$ given by
+\begin{mylem}\label{lem-3-1}
+	Let $f\in \solXi$. Then it's pullback $r(f)$ under $\iota:R^{p,q}\ni(u,v)\mapsto
+	(1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2-\myabs{ v }^2)\in\Xi$ satisfies $r(f)(x)=r(f)(-x)$
+	and $r(f)(m\cdot)=r(f)(\cdot)$ for $\forall m\in O(p,q)_{e_p}$.
+\end{mylem}
+\begin{myproof}
+	We start with proving the first assertion. Consider the diagram
+\[\begin{CD}
+		D_{\lambda-n}     @>F>>  D_{\lambda-n}\\
+@VVrV        @VVrV\\
+\D'(\R^{p,q})     @>\widetilde{F}>>  \D'(\R^{p,q})
+\end{CD}\]
+Where $F(f)(x):=f(-m_0x)$ and $\widetilde{F}(f)(x)=f(-x)$ where $m_0:=
+\begin{bmatrix}-1&0&0\\0&I_{p+q}&0\\0&0&-1\end{bmatrix}\in M'$.
+As this diagram is commutative if we start with an element of $C(\Xi)\cap D_{\lambda-n}$ and the latter subspace
+is dense in $D_{\lambda-n}$, we see that the diagram above commutes. As $f\in\solXi$ should satisfy $f(m_0\cdot)=f(\cdot)$ and
+$f(-x)=f(x)$, we see that $F(f)=f$ and this proves the first assertion.
+
+The derivation of the
+second assertion follows the similar pattern. We fix arbitrary $\widetilde{m}\in O(p,q)_{e_p}$ and let $F(f)(x)=f(m x)$ with 
+$m:=\begin{bmatrix}1&0&0\\0&\widetilde{m}&0\\0&0&1\end{bmatrix}\in M'$ and $\widetilde{F}(f)(x):=f(\widetilde{m} x)$. Finally,
+we use the fact that $f(m\cdot)=f(\cdot)$ for $f\in\solXi$.
+\end{myproof}
+\begin{mylem}\label{lem-3-2}
+	Let $f\in \solXi$. Then it's pullback $r(f)$ under $\iota:R^{p,q}\ni(u,v)\mapsto
+	(1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2-\myabs{ v }^2)\in\Xi$ satisfies 
+	$\alpha^{\lambda-\nu-n}r(f)(x)=r(f)(\alpha x)$ for $\forall\alpha>0$.
+\end{mylem}
+\begin{myproof}
+	We consider the same commutative diagram, as in proof of lemma \ref{lem-3-1}, except that we let $F(f)(x):=f(a_tx)$
+	where $a_t
+	\begin{bmatrix}
+		\cosh(t)&0&\sinh(t)\\0&I_{ p+q }&0\\\sinh(t)&0&\cosh(t)
+	\end{bmatrix}\in A'$ for some fixed $t\in\R$ and let $\widetilde{F}(f)(x):=e^{(\lambda-n)t}f(e^{-t}x)$.
+
+	Similarly to proof of lemma \ref{lem-3-1}, diagram turns out to be commutative and as for $f\in\solXi$ we should have
+	$F(f)(\cdot)=e^{\nu t}f(\cdot)$, hence we have $r(f)(e^t\cdot)=e^{(\lambda-\nu-n)t}f(\cdot)$, which is equivalent to what
+	we wanted to show.
+\end{myproof}
+\begin{mylem}\label{lem-3-3}
+	Let $f\in \solXi$. Then for it's pullback $r(f)$ under $\iota:R^{p,q}\ni(u,v)\mapsto
+	(1-\myabs{ u }^2+\myabs{ v }^2,2u,2v,1+\myabs{ u }^2-\myabs{ v }^2)\in\Xi$ we have
+	$\forall (b,x_0)\in\R^{ p,q }\times\R^{p,q}$ with $b_p=0$ and
+	${ 1-2Q(x_0,b)+Q(x_0)Q(b) }\neq0$
+	we have \[\mybra{ 1-2Q(b,x)+Q(b)Q(b) }^{ \lambda-n }r(f)
+	\mybra{\frac{ x_0-Q(x)b }{ 1-2Q(x_0,b)+Q(x_0)Q(b)}}=r(f)(x)\] equality holding for $x$ near $x_0$.
+\end{mylem}
+\begin{myproof}%NB: in fact, here a *stronger* statement is proven: not ``some'' nbhd of x_0  as in hypothesis, but ``any''
+	So let $b\in\R^{p,q}$ be fixed with $b_p=0$ and let $c_b(x):=1-2Q(b,x)+Q(x)Q(b)$. Let
+	$U:=\subset\mysetn{x\in\R^{p,q}}{c_b(x)\neq0}$ (it's an open set). Note that for $\psi_b(x):=(x-Q(x)b)/c_b(x)$ 
+	we have \[c_{-b}(\psi_b(x))=\frac{1}{c_b(x)}\neq0\]
+	hence we have $\psi_{-b}\circ\psi_b=id$ equality holding on $U$. Thus, we see that $\psi_b$ on $U$ is a local diffeomorphism,
+	hence $V:=\psi_b(U)$ is an open set and repeating the argument above with $b$ and $-b$ interchanged we see that $\psi_b$
+	is a diffeomorphism $U\diffsm V$.
+
+	We now consider the diagram
+\[\begin{CD}
+D_{\lambda-n}     @>F>>  D_{\lambda-n}\\
+@VVrV        @VVrV\\
+\D'(\R^{p,q})  @.     \D'(\R^{p,q})\\
+@VV{\cdot\big|_V}V        @VV{\cdot\big|_U}V\\
+\D'(V)     @>\widetilde{F}>>  \D'(U)
+\end{CD}\]
+Where $F(f)(\cdot):=f(n\cdot)$ with $n:=
+\begin{bmatrix}
+	1-Q(b)/2&-b^TI_{p,q}&Q(b)/2\\
+	b&I_{p+q}&-b\\
+	-Q(b)/2&-b^TI_{p,q}&1+Q(b)/2
+\end{bmatrix}\in N_+'$ where $I_{p,q}$ denotes the diagonal matrix of $p+q$ columns
+whose first $p$ diagonal entries are $+1$ and next $q$ are $-1$, and $\widetilde{F}(f)(\cdot):=\myabs{c_b(\cdot)}^{\lambda-n}
+f(\psi_b(\cdot))$.
+
+The diagram above commutes if we start with an element of $C(\Xi)\cap D_{\lambda-n}$ (note that $n\cdot\iota(x)=c_b(x)\iota(\psi_b(x))
+$), hence commutes in general. Now, the statement to be shown is granted by the fact that for $f\in\solXi$ we should have
+$f(n\cdot)=f(\cdot)$.
+\end{myproof}
+\begin{myproof}(of {\bf Proposition \ref{prop-regular}})\newline
+	First, due to the assumption on complex parameters, we see that $K_{ \lambda,\nu }^{ \R^n }$ is indeed well-defined as a
+	distribution. The statement about support is also evident.\par
+	Now, let's consider distribution induced by continuous function on $\Xi$ given by
 	$\Xi\ni\xi\mapsto\myabs{\xi_p}^{\lambda+\nu-n}\myabs{\xi_{p+q+2}-\xi_1}^{-\nu}$. We easily see that 
 	it is well-behaved under $P'$ on $\Xi$ and pulls back to the multiple of $K_{ \lambda,\nu }^{ \R^n }$
-	under the $R^{p,q}\ni(u,v)\mapsto
-	[1-\myabs{ u }^2+\myabs{ v }^2,2u^T,2v^T,1+\myabs{ u }^2-\myabs{ v }^2]\in\Xi$ gives a $L^1_{loc}$. Hence, the previous
-	lemma implies the desired conclusion.
+	under the $\iota:R^{p,q}\to\Xi$. Hence,
+	lemma \ref{lem-3} implies the desired conclusion.
 \end{myproof}
-\section{Singular kernel supported on $\left\{ x_p=0 \right\}$}
-Finally, in this section we (again, for parameters $(\lambda,\nu)$ into appropriate subset of $\C^2$)
-explicitly construct distribution on $\R^{p,q}$ with support in $\left\{ x_p=0 \right\}$ and correctly behaving under $P'$.
+\section{The kernel of singular symmetry breaking operator supported on $\left\{ x_p=0 \right\}$}
+In this section we (again, for parameters $(\lambda,\nu)$ in appropriate subset of $\C^2$)
+explicitly construct distribution on $\R^{p,q}$ with support in $\left\{ x_p=0 \right\}$ and belongs to $\sol$.
 \begin{myprop}
 	Fix $k\in\Z_{\ge0}$ and let $\lambda\in\C$ be determined by $\nu\in\C$ so that $\lambda+\nu-n=-1-2k$ holds.
-	Then for $\Re(\nu)<-2k$ 
-	\[K_{\lambda,\nu}^P(\varphi):=\sum_{i=0}^k\frac{(-1)^i(2k)!(\nu)_i}{(2k-2i)!i!}
-		\myabra{\delta^{(2k-2k)}(x_p),\myabs{\tilde{Q}}^{-\nu-i}\varphi}
-	\] with $(\nu)_i$ denoting the falling factorial and $\tilde{Q}(x,y):=\myabs{x}^2-\myabs{y}^2$ for $(x,y)\in\R^{p-1,q}$,
+	Then for $\nu\notin\Z$
+	\[K_{\lambda,\nu}^P:=\sum_{i=0}^k\frac{(-1)^i(2k)!(\nu)_i}{(2k-2i)!i!}
+	\delta^{(2k-2i)}(x_p)\otimes\myabs{\tilde{Q}}^{-\nu-i}
+	\] with $(\nu)_i:=\nu(\nu-1)\cdots(\nu-i+1)$ and $\tilde{Q}(x,y):=\myabs{x}^2-\myabs{y}^2$ for $(x,y)\in\R^{p-1,q}$,
 	is well-defined distribution on $\R^{p,q}$ which is supported in $\left\{ x_p=0 \right\}$ and is well-behaved
 	under $P'$.
 \end{myprop}
 \begin{myproof}
-	First well-definedness is pretty obvious, as $\myabs{\tilde{Q}}^{(-\nu-i)}$ is at least in class $C^{2k-2i}\subset C^0$.
-	The claim about support then gets obvious as well.
+	First, well-definedness is clear (we need $\nu\notin\Z$ assumption to ensure that $\myabs{\tilde{Q}}^{-\nu-i}$
+	is well-defined).
+	The claim about support then gets obvious as well, so it remains to show that $K_{\lambda,\nu
+	}^P\in\sol$. Due to 
+	an analogue of \cite[prop. 3.18]{kobayashi2015symmetry} it suffices to show this under the assumption that $\Re(\nu)\gg0$.
 
-	As for correct behaviour under $P'$, the first three properties of definition are evident (note that $\tilde{Q}$ is
-	invariant under $O(p,q)'$), only correct behaviour
+	As for being an element of $\sol$, the first three properties of definition are evident (note that $\tilde{Q}$ is
+	invariant under $\Stab$), only invariance
 	under $N_+'$ requires more detailed explanation. It is sufficient thus to show (fixing $x_0\in\R^{p,q}$
 	and $b\in\R^{p,q}$ such that $b_p=0$ and $c_b(x_0):=1-2Q(b,x_0)+Q(x_0)Q(b)\neq0$ and letting 
 	$\psi_b(x):=(x-Q(x)b)/c_b(x)$ for $x$ near $x_0$) that for $F_{\nu,i}:=\delta^{(2i)}(x_p)\myabs{\tilde{Q}}^{-\nu}$ we have
 	\begin{equation}
 	F_{\nu,i}\left( \frac{x-Q(x)b}{c_b(x)}\right)=c_b^{1+2i+\nu}(x)F_{\nu,i}(x) 
 		\label{eq:sing_p}
-	\end{equation}<++>
+	\end{equation}
 	
 	It is known, however, from \cite[ch. I, sec. 3.5]{gelfand1980distribution}
 	that $\delta^{(2i)}(x)$ with $i\geq0$ is proportional to $\lim_{\nu\to-2i-1}\myabs{x}^{\nu}/\Gamma\left( \frac{\nu+1}{2}
-	\right)$. Hence if we fix $\nu$ and set $\tilde{F}_{\mu,\nu}:=\myabs{x_p}^{\mu}\myabs{\tilde{Q}}^{-\nu}/\Gamma\left( \frac{\mu
+	\right)$. Hence if we fix $\nu$ with $\Re(\nu)<0$,
+	and set $\tilde{F}_{\mu,\nu}:=\myabs{x_p}^{\mu}\myabs{\tilde{Q}}^{-\nu}/\Gamma\left( \frac{\mu
 	+1}{2} \right)$, we see that $\tilde{F}_{-2i-1,\nu}=F_{\nu,i}$ up to proportionality. Moreover, for $\Re(\mu)>0$,
-	$\tilde{F}_{\mu,\nu}$ is a regular distribution and clearly satisfies \eqref{eq:sing_p}. Then, holomorphicity
+	$\tilde{F}_{\mu,\nu}\in L^1_{loc}$ and clearly satisfies \eqref{eq:sing_p}. 
+	Then, an analogue of \cite[prop. 3.18]{kobayashi2015symmetry}
 	implies that so does $\tilde{F}_{\mu,\nu}$ and hence so does $F_{\nu,i}$ and this ends the proof.
 \end{myproof}
 
-\section{Singular kernel supported on $\left\{ Q=0 \right\}$}
-In this section, we construct the correctly behaving under $P'$ distribution on $R^{p,q}$ that is supported on
-$R^{p,q}\supset\left\{ Q=0 \right\}$ hypersurface, under some mild assumption on the complex parameters. More precisely,
+\section{The kernel of singular symmetry breaking operator supported on $\left\{ Q=0 \right\}$}
+In this section, we construct the distribution on $\R^{p,q}$ which is supported on
+$R^{p,q}\supset\left\{ Q=0 \right\}$ hypersurface and belongs to $\sol$,
+under some mild assumption on the complex parameters. More precisely,
 \begin{myprop}
 	Suppose $\nu\in2\Z_{\geq0}+1$ and $\lambda\in\Omega_\nu:=
-	\mysetn{\lambda\in\C}{\Re(\lambda-\nu+n)\notin\Z_{\leq1}}$.
-	Then there exists $F\in\D'(\R^{p,q})$ such that it is supported on $\left\{ Q=0 \right\}$ and correctly behaves
-	under $P'$. When $\Re(\lambda)>>0$ restricted to $\R^{p,q}\setminus\left\{ 0 \right\}$ we have $F(\varphi)=\myabra{
-		\delta^{\nu-1}(Q),\myabs{x_p}^{\lambda+\nu-n}\varphi}$.
-	Moreover, if $\nu\notin2\Z_{\geq0}-1$ such generalized function does not exist.
+	\mysetn{\lambda\in\C}{\Re(\lambda-\nu+n)\notin\Z_{\leq1}}$. Then, the following holds:
+	\begin{enumerate}
+		\item 
+	There exists $F\in\sol$ such that it is supported on $\left\{ Q=0 \right\}$.
+	When $\Re(\lambda)\gg0$ restricted to $\R^{p,q}\setminus\left\{ 0 \right\}$ we have $F(\varphi)=\myabra{
+		\delta^{\nu-1}(Q),\myabs{x_p}^{\lambda+\nu-n}\varphi}$;
+	\item Moreover, if $\nu\notin2\Z_{\geq0}-1$ such generalized function does not exist.
+	\end{enumerate}
 	\label{thm:sing_q}
 \end{myprop}
 We first state several auxiliary results, which we need to prove the latter proposition, then finish a proof with the help of them.
 Afterwards we will prove the auxiliary results.
 \begin{mylem}
-	If $\nu\notin2\Z_{\geq0}+1$, $F\in\D'(\R^{p,q}\setminus\left\{ 0 \right\})$ with $\supp(F)=\left\{ Q=0 \right\}$
-	and correctly behaves under $P'$,
+	If $\nu\notin2\Z_{\geq0}+1$, $F\in\sol[\R^{p,q}\setminus\left\{ 0 \right\}]$ with $\supp(F)=\left\{ Q=0 \right\}$
 	then $F=0$.
 	\label{lem:sing_q_1}
 \end{mylem}
 \begin{mylem}
-	Suppose $\nu\in2\Z_{\geq0}+1$. Then there exists $F\in\D'(\R^{p,q}\setminus\left\{ 0 \right\})$
-	that correctly behaves under $P'$ and such that $\supp(F)=\left\{ Q=0 \right\}$.
+	Suppose $\nu\in2\Z_{\geq0}+1$. Then there exists $F\in\sol[\R^{p,q}\setminus\left\{ 0 \right\}]$
+	such that $\supp(F)=\left\{ Q=0 \right\}$.
 	\label{lem:sing_q_2}
 \end{mylem}
 %proof: construct a distribution, show that its restriction to U' for ``good'' parameters coincides with 
@@ -216,12 +317,12 @@ Afterwards we will prove the auxiliary results.
 	If $F\in\D'(\mysetn{(x,y)\in\R^{p,q}}{x\neq0,\;y\neq0}$, $\supp(F)=\left\{ Q=0 \right\}$
 	, then $F$ extends to $\tilde{F}\in\D'(\R^{p,q}\setminus\left\{ 0 \right\})$ with $\supp(\tilde{F})=\left\{ Q=0 \right\}$
 	and any two such extensions would coincide.
-	Moreover, if $F$ correctly behaved under $P'$, so will $\tilde{F}$.
+	Moreover, if $F\in\sol[\Upp]$, then $\tilde{F}\in\sol[\R^{p,q}\setminus\left\{ 0 \right\}]$.
 	\label{lem:sing_q_3}
 \end{mylem}
 \begin{mylem}
-	Suppose $F\in\D'(\R^{p,q})$, $F\Big|_{\R^{p,q}\setminus\left\{ 0 \right\}}$ correctly behaves under $N_+'$ on $\R^{p,q}
-	\setminus\left\{ 0 \right\}$ and $F$ satisfies \eqref{Ndiff} on $\R^{p,q}$. Then, $F$ correctly behaves under $N_{+}'$
+	Suppose $F\in\D'(\R^{p,q})$, $F\Big|_{\R^{p,q}\setminus\left\{ 0 \right\}}$ is $N_+'$-invariant on $\R^{p,q}
+	\setminus\left\{ 0 \right\}$ and $F$ satisfies \eqref{Ndiff} on $\R^{p,q}$. Then, is $F$ $N_{+}'$-invariant
 	on $R^{p,q}$.
 	\label{lem:sing_q_4}
 \end{mylem}
@@ -233,15 +334,14 @@ Afterwards we will prove the auxiliary results.
 	\label{fact:sing_q}
 \end{myfact}
 \begin{myproof}{\bf (of Proposition \ref{thm:sing_q})}\newline
-	The last conclusion is granted by Lemma \ref{lem:sing_q_1}. Now, if $\nu\in2\Z_{\geq0}+1$, Lemma \ref{lem:sing_q_2}
-	grants the existence of correctly behaving $F\in\R^{p,q}\setminus\left\{ 0 \right\}$ with support in $\left\{ Q=0 \right\}$.
-	Moreover, as correct behaviour under $P'$ on $\R^{p,q}$ implies homogeneity with degree $\lambda-\nu-n$, Fact 
+	The second item is readily granted by Lemma \ref{lem:sing_q_1}. Now, if $\nu\in2\Z_{\geq0}+1$, Lemma \ref{lem:sing_q_2}
+	grants the existence of $F\in\sol[\R^{p,q}\setminus\left\{ 0 \right\}]$ with support in $\left\{ Q=0 \right\}$.
+	Moreover, as elements of $\sol$ are homogeneous with degree $\lambda-\nu-n$, Fact 
 	\ref{fact:sing_q}
 	implies the existence of an extension $\tilde{F}\in\D'(\R^{p,q})$ that satisfies \eqref{Ndiff} and items 1 and 2
-	from definition of correct behaviour under $P'$ on $\R^{p,q}$ (the latter is true because $\tilde{F}$ satisfies
+	from definition of $\sol$ (the latter is true because $\tilde{F}$ satisfies
 	discrete symmetries due to uniqueness part of Fact \ref{fact:sing_q}) and differential of item 2).
-	Hence, due to lemma \ref{lem:sing_q_3} $\tilde{F}$ also correctly behaves under $N_+'$, hence correctly behaves
-	under $P'$.
+	Hence, due to lemma \ref{lem:sing_q_3} $\tilde{F}$ is also $N_+'$-invariant, hence is in $\sol$.
 \end{myproof}
 Before starting the next proof, one more fact to be stated.
 \begin{myfact}\proofexplanation{\cite[Thm 2.2.4]{hormander1983analysis}}
@@ -258,8 +358,8 @@ Before starting the next proof, one more fact to be stated.
 	whatever extension $\tilde{F}$ would be, it should be equal to $F$ on $A$ and 0 on $B$, hence the uniqueness part 
 	of Fact \ref{fact:sing_q_1} grants the uniqueness. This proves the conclusion in the first sentence of Lemma being proven.
 
-	Now, assume that $F$ indeed correctly behaved under $P'$ on $A$. Note that both $\tilde{F}\Big|_A=F$ and
-	$F\Big|_B=0$ correctly behave under $P'$ on $A$ and $B$ respectively. This grants the desired conclusion.
+	Now, assume that $F\in\sol[A]$. Then both $\tilde{F}\Big|_A=F\in\sol[A]$ and
+	$F\Big|_B=0\in\sol[B]$. This grants the desired conclusion.
 \end{myproof}
 One more fact before the next proof.
 \begin{myfact}\proofexplanation{\cite[Thm 2.1.3]{hormander1983analysis}}
@@ -317,15 +417,14 @@ help and then finally prove the lemmas.
 \end{mydef}
 \begin{mylem}
 	\label{lem:sing_q_6}
-	If $F\in\D'(\Upp)$ has $\supp(F)=\left\{ Q=0 \right\}$, correctly behaves under $P'$,
+	If $F\in\sol[\Upp]$ has $\supp(F)=\left\{ Q=0 \right\}$,
 	then $F$ is a multiple of $K^C_{\lambda,\nu}$.
 \end{mylem}
 \begin{mylem}
 	\label{lem:sing_q_7}
 	for $\nu\in\Z_{>0}$
-	$K^C_{\lambda,\nu}$ as distribution on $\Upp$ satisfies the first three items of definition of correct behaviour under $P'$.
-	Moreover, it
-	is correctly behaving under $N_+'$ iff $\nu$ is odd.
+	$K^C_{\lambda,\nu}$ as distribution on $\Upp$ satisfies the first three items of definition of $\sol[\Upp]$.
+	Moreover, it is $N_+'$-invariant iff $\nu$ is odd.
 \end{mylem}
 \begin{myproof}\proofexplanation{of Lemma \ref{lem:sing_q_1}}
 	In the light of lemma \ref{lem:sing_q_3} it suffices to prove that $F\Big|_{\mysetn{(x,y)\in\R^{p,q}}{x\neq0,\;y\neq0}}=0$.
@@ -335,8 +434,8 @@ help and then finally prove the lemmas.
 	implies that in $(\mu,s,\omega_{p-1},\omega_{q-1})$ coordinates 
 	$F=\sum_{i\geq0}\delta^{(i)}(\mu-1)u_i$ with sum being locally finite.
 
-	Now, as $F$ correctly behaves under $P'$ on $\mysetn{(x,y)\in\R^{p,q}}{x\neq0,\;y\neq0}$, this in particular
-	implies correct behaviour under $N_+'$, hence equations \eqref{Ndiff}. Writing elements of $\R^{p,q}$
+	Now, as $F\in\sol[\mysetn{(x,y)\in\R^{p,q}}{x\neq0,\;y\neq0}]$, this in particular
+	implies $N_+'$-invariance, hence equations \eqref{Ndiff}. Writing elements of $\R^{p,q}$
 	as $(x,y)$ the last $q$ of these equations get written as \[\left[ -2\nu y_j+(\myabs{x}^2-\myabs{y}^2)\frac{\partial}{
 	\partial y_j} \right]F=0,\quad1\leq j\leq q\]
 	In turn, in bipolar coordinates $(x,y)=(r_1\omega_{p-1},r_2\omega_{q-1})$, where $\partial y_j/\partial r=
@@ -353,14 +452,14 @@ help and then finally prove the lemmas.
 	In case $\nu\in\Z_{>0}$, however, lemmas \ref{lem:sing_q_6} and \ref{lem:sing_q_7} grant the desired conclusion anyway.
 \end{myproof}
 \begin{myproof}\proofexplanation{of Lemma \ref{lem:sing_q_2}}
-	Lemma \ref{lem:sing_q_7} readily implies that $K^C_{\lambda,\nu}$ as a distribution on $\Upp$ correctly
-	behaves under $P'$ and it obviously satisfies $\supp(K^C_{\lambda,\nu})=\left\{ Q=0 \right\}$.
+	Lemma \ref{lem:sing_q_7} readily implies that $K^C_{\lambda,\nu}\in\sol[\Upp]$
+	and it obviously satisfies $\supp(K^C_{\lambda,\nu})=\left\{ Q=0 \right\}$.
 	Then, lemma \ref{lem:sing_q_3} gives the desired conclusion.
 \end{myproof}
 One more technical result needs to be stated and proved before the next proof:
 \begin{mylem}
 	\label{lem:sing_q_8}
-	Assume that $\nu\in\Z_{>0}$ is fixed. Then, for $\Re(\lambda)>>0$ we have
+	Assume that $\nu\in\Z_{>0}$ is fixed. Then, for $\Re(\lambda)\gg0$ we have
 	$K_{\lambda,\nu}^C\Big|_{\Upp}$ is proportional to a distribution
 	$G(\varphi):=\myabra{\delta^{(\nu-1)}(Q),\varphi\myabs{x_p}^{\lambda+\nu-n}}$
 	(here $\delta^{i}(Q)$ is defined as in
@@ -376,7 +475,7 @@ One more technical result needs to be stated and proved before the next proof:
 	perfectly coincides with the definition of $K_{\lambda,\nu}^C$.
 \end{myproof}
 \begin{myproof}\proofexplanation{of Lemma \ref{lem:sing_q_7}}
-	Due to the holomorphicity, we can assume that $\Re(\lambda)>>0$.
+	Due to the holomorphicity, we can assume that $\Re(\lambda)\gg0$.
 	Moreover, in the light of lemma \ref{lem:sing_q_3} it suffices to work with the restriction $K^C_{\lambda,\nu}\Big|_{\Upp}$,
 	which we will call $K$ for brevity from now and till the end of the proof. Lemma \ref{lem:sing_q_8} then tells
 	us that we can work with distribution $G\in\D'(\Upp)$ as defined there. When we will need to emphasize complex parameters
@@ -392,14 +491,14 @@ One more technical result needs to be stated and proved before the next proof:
 	\[G_{\lambda_0,\nu_0}=\lim_{\nu\to\nu_0=2k}\frac{\mybra{Q_+^{-\nu}-Q_-^{-\nu}}\myabs{x_p}^{\lambda+\nu-n}}
 		{\Gamma\left( \frac{-\nu+2}{2} \right)},\quad k\in\Z_{>0}\]
 	where in two last equalities in right-hand side we set $\lambda=\lambda_0+\nu_0-\nu$.
-	Now for $0<\myabs{\nu-\nu_0}<<1$ the enumerators of right-hand sides of the last two equalities are regular functionals
-	and as functions they are readily seen to satisfy first three items of correct behaviour under $P'$.
+	Now for $0<\myabs{\nu-\nu_0}\ll1$ the enumerators of right-hand sides of the last two equalities are regular functionals
+	and as functions they are readily seen to satisfy first three items of definition of $\sol[\Upp]$.
 
 	Fix $b\in\R^{p,q}$ with $b_p=0$, and set $c_b(x):=1-2Q(b,x)+Q(b)Q(x)$, $\psi_b(x):=(x-Q(x)b)/c_b(x)$.
 	As $Q(\psi_b(x))=Q(x)/c_b(x)$,
-	we see that for $G_1:={\myabs{Q}^{-\nu}\myabs{x_p}^{\lambda+\nu-n}}$ when $0<\myabs{\nu-(2k+1)}<<1$
+	we see that for $G_1:={\myabs{Q}^{-\nu}\myabs{x_p}^{\lambda+\nu-n}}$ when $0<\myabs{\nu-(2k+1)}\ll1$
 	\[G_1(\psi_b(x))=\myabs{c_b(x)}^{\lambda-n}G_1(x)\]
-	whereas for $G_2:={\mybra{Q_+^{-\nu}-Q_-^{-\nu}}\myabs{x_p}^{\lambda+\nu-n}}$ when $0<\myabs{\nu-2k}<<1$
+	whereas for $G_2:={\mybra{Q_+^{-\nu}-Q_-^{-\nu}}\myabs{x_p}^{\lambda+\nu-n}}$ when $0<\myabs{\nu-2k}\ll1$
 	and $c_b(x)<0$ we have
 	\[G_2(\psi_b(x))=-\myabs{c_b(x)}^{\lambda-n}G_2(x)\]
 	and due to holomorphicity similar relations hold for $G_{\lambda_0,\nu_0}$ when $\nu_0$ is odd or even respectively,
@@ -421,14 +520,15 @@ The following fact needs to be stated before the next proof
 	$u\in\D'(\R_{>0}\times\Sp^{p-1}\times
 	\Sp^{q-1})$ being independent of $\mu$.
 
-	Furthermore, correct behaviour under $P'$ implies homogeneity with degree
+	Furthermore, being an element of $\sol{\Upp}$
+	implies homogeneity with degree
 	$\lambda-\nu-n$ and hence that the Euler equation $EF=(\lambda-\nu-n)F$ should hold, with Euler operator $E$
 	in $(\mu,s,\omega_{p-1},\omega_{q-1})$ coordinates being written as $E=2s\frac{\partial}{\partial s}$, hence
 	$\frac{\partial}{\partial s}u=\frac{\lambda-\nu-n}{2}u$. Hence, applying fact \ref{fact:sing_q_4}
 	we see that $s^{-\frac{\lambda-\nu-n}{2}}u$ is independent of $s$, hence we may write $u=s^{\frac{\lambda-\nu-n}{2}}v$
 	with $v\in\D'(\Sp^{p-1}\times\Sp^{q-1})$ independent of $s$.
 
-	As $F$ has to be invariant under left multiplication by $O(q)\subset O(p,q)'$, we see that in fact $v$ is independent
+	As $F$ has to be invariant under left multiplication by $O(q)\subset \Stab$, we see that in fact $v$ is independent
 	of variables of $\Sp^{q-1}$, hence may be treated as $v\in\D'(\Sp^{p-1})$.
 	To finish the proof, it now 
 	suffices to show that under the polar coordinates transformation, $\tilde{v}:=s^{\lambda+\nu-n}v\in
@@ -459,7 +559,7 @@ The following fact needs to be stated before the next proof
 		\label{eq:sing_q_dx}
 	\end{equation}
 
-	Furthermore, differentiating condition 2 of correct behaviour under $P'$ for $F$ we see that (using the usual
+	Furthermore, differentiating condition 2 of definition of $\sol{\Upp}$ for $F\in\sol{\Upp}$ we see that (using the usual
 	splitting $(x,y)\in\R^{p,q}$) we should have
 	\[ \left[ x_i\partial y_j + y_j\partial x_i \right]F=0,\quad 1\le i\le p-1,\;1\leq j\leq q\]
 	which in $(\mu,s,\omega_{p-1},\omega_{q-1})$ gets written as
@@ -491,6 +591,7 @@ The following fact needs to be stated before the next proof
 	\right)+\left( J_{p-1}\frac{\partial}{\partial z} \right)_i \right]\tilde{v}=0,\;1\leq i\leq p-1.\]
 	and as the latter is precisely \eqref{eq:sing_q_dx}, this finishes the proof.
 \end{myproof}
+\nocite{Kobayashi201489}
 \bibliography{todai_master}
 \bibliographystyle{plain}
 %%\begin{thebibliography}{9}

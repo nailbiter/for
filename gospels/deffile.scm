@@ -1,6 +1,6 @@
-(define apostol-filename "apostol_week_20_after_the_Pentecost_18_10_2015.tex")
+(define apostol-filename "apostol_week_22_after_the_Pentecost_01_11_2015.tex")
 
-(define gospel-filename "gospel_week_20_after_the_Pentecost_18_10_2015.tex")
+(define gospel-filename "gospel_week_22_after_the_Pentecost_01_11_2015.tex")
 
-(define date "18/10/2015")
+(define date "01/11/2015")
 
