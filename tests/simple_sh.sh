@@ -4,7 +4,7 @@ if [ "$1" = "merge" ]; then
     i=0;
     while read line
     do
-        eval part$i="$line"
+        eval part$i='$line'
         i=`expr $i + 1`
 #        if test $i -eq 0
 #        then
