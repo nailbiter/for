@@ -246,41 +246,85 @@ $f(n\cdot)=f(\cdot)$.
 \end{myproof}
 \section{The kernel of singular symmetry breaking operator supported on $\left\{ x_p=0 \right\}$}
 In this section we (again, for parameters $(\lambda,\nu)$ in appropriate subset of $\C^2$)
-explicitly construct distribution on $\R^{p,q}$ with support in $\left\{ x_p=0 \right\}$ and belongs to $\sol$.
-\begin{myprop}
+explicitly construct distribution on $\R^{p,q}$ with support in $\left\{ x_p=0 \right\}$ and belonging to $\sol$.
+\begin{myprop}\label{prop:supp_p}
 	Fix $k\in\Z_{\ge0}$ and let $\lambda\in\C$ be determined by $\nu\in\C$ so that $\lambda+\nu-n=-1-2k$ holds.
-	Then for $\nu\notin\Z$
-	\[K_{\lambda,\nu}^P:=\sum_{i=0}^k\frac{(-1)^i(2k)!(\nu)_i}{(2k-2i)!i!}
-	\delta^{(2k-2i)}(x_p)\otimes\myabs{\tilde{Q}}^{-\nu-i}
-	\] with $(\nu)_i:=\nu(\nu-1)\cdots(\nu-i+1)$ and $\tilde{Q}(x,y):=\myabs{x}^2-\myabs{y}^2$ for $(x,y)\in\R^{p-1,q}$,
+	Then if $\Re(\nu)<-2k$ the distribution defined as
+	\[\myabra{K_{\lambda,\nu}^P,\varphi}:=\myabra{\delta^{(2k)}(x_p),\myabs{Q}^{-\nu}\varphi}\]
+%%	with $(\nu)^i:=\nu(\nu+1)\cdots(\nu+i-1)$ and $\tilde{Q}(x,y):=\myabs{x}^2-\myabs{y}^2$ for $(x,y)\in\R^{p-1,q}$,
 	is well-defined distribution on $\R^{p,q}$ which is supported in $\left\{ x_p=0 \right\}$ and is well-behaved
 	under $P'$.
-\end{myprop}
-\begin{myproof}
-	First, well-definedness is clear (we need $\nu\notin\Z$ assumption to ensure that $\myabs{\tilde{Q}}^{-\nu-i}$
-	is well-defined).
-	The claim about support then gets obvious as well, so it remains to show that $K_{\lambda,\nu
-	}^P\in\sol$. Due to 
-	an analogue of \cite[prop. 3.18]{kobayashi2015symmetry} it suffices to show this under the assumption that $\Re(\nu)\gg0$.
 
-	As for being an element of $\sol$, the first three properties of definition are evident (note that $\tilde{Q}$ is
-	invariant under $\Stab$), only invariance
-	under $N_+'$ requires more detailed explanation. It is sufficient thus to show (fixing $x_0\in\R^{p,q}$
-	and $b\in\R^{p,q}$ such that $b_p=0$ and $c_b(x_0):=1-2Q(b,x_0)+Q(x_0)Q(b)\neq0$ and letting 
-	$\psi_b(x):=(x-Q(x)b)/c_b(x)$ for $x$ near $x_0$) that for $F_{\nu,i}:=\delta^{(2i)}(x_p)\myabs{\tilde{Q}}^{-\nu}$ we have
-	\begin{equation}
-	F_{\nu,i}\left( \frac{x-Q(x)b}{c_b(x)}\right)=c_b^{1+2i+\nu}(x)F_{\nu,i}(x) 
-		\label{eq:sing_p}
-	\end{equation}
-	
+	Moreover, it can be analytically extended to all $\nu\notin\Lambda_P$, where $\Lambda_P$ being discrete.
+\end{myprop}
+The last statement of the proposition is granted by the following lemma, which we prove separately.
+\begin{mylem}\label{lem:supp_p}
+	For $k$ fixed and $\Re(\nu)<-2k$ we have
+	\[K^{P}_{\lambda,\nu}
+	=\sum_{i=0}^k\frac{(-1)^i(2k)!(\nu)^i}{(2k-2i)!i!}
+	\delta^{(2k-2i)}(x_p)\otimes \tilde{Q}_i
+	\]
+	where $(\nu)^{i}:=\nu(\nu+1)\dots(\nu+i-1)$ and
+	\[\tilde{Q}_i:=\begin{cases}
+			\tilde{Q}_+^{-\nu-2i}+\tilde{Q}_-^{-\nu-2i}&, i\in2\Z_{\ge0}\\
+			\tilde{Q}_+^{-\nu-2i}-\tilde{Q}_-^{-\nu-2i}&, i\in2\Z_{\ge0}+1
+	\end{cases}.\]
+	Here $\tilde{Q}$ is the $(p-1,q)$-indefinite form obtained as a restriction of $Q$ to $\left\{ x_p=0 \right\}$ and
+	$\tilde{Q}_{\pm}$ are defined as in \cite[sec. III.2.2]{gelfand1980distribution}.
+
+	Hence, $K_{\lambda,\nu}^P$ analytically extends to $\nu\notin\Lambda_P$.
+\end{mylem}
+\begin{myproof}
+	Recall that $\tilde{Q}^{\mu}_{\pm}$ were defined in \cite{gelfand1980distribution} as holomorphic distributions for
+	$\mu\notin\Lambda_0:=-\Z_{\ge1}\cup\left( -\frac{n-1}{2}-\Z_{\ge0} \right)$. Hence, all $\tilde{Q}_i$ are holomorphic
+	in $\nu$ and well defined for $\nu\notin\Lambda_P$ with $\Lambda_P:=\bigcup_{i=0}^k\mybra{-\Lambda_0-2i}=
+	\left( -2k+\Z_{\ge1} \right)\cup\left( \frac{n-1}{2}-2k+\Z_{\ge0} \right)$, the latter clearly
+	being discrete.
+
+	As for $\Re(\mu)>0$ we have $\myabs{Q}^{\mu}\in C^{\myfloor{\mu}}(\R^n)$, hence
+	for $\Re(\nu)<-2k$ the statement of lemma would follow
+	from the equality
+	\begin{equation}\frac{\partial^k}{\partial x_p^k}\bigg|_{x_p=0}\myabs{Q}^{\mu}=\begin{cases}
+			\binom{\mu}{2i}\mybra{\tilde{Q}_+^{\mu-2i}+\tilde{Q}_-^{\mu-2i}},&k=2i,\;i\in2\Z_{\ge0}\\
+			\binom{\mu}{2i}\mybra{\tilde{Q}_+^{\mu-2i}-\tilde{Q}_-^{\mu-2i}},&k=2i,\;i\in2\Z_{\ge0}+1\\
+			0,&k\in2\Z_{\ge0}+1
+	\label{eq:supp_p}
+	\end{cases}\end{equation}
+	holding for $k=0\dots N$ and $\Re(\mu)>N$,
+	and the Leibniz rule $(uv)^{(k)}=\sum_{i=0}^k\binom{k}{i}u^{(i)}v^{(k-i)}$.
+
+	It suffice thus to show the equality above. It follows by considering cases of $\tilde{Q}$ being zero, positive and negative
+	respectively. In the first case we see that for $k=0\dots N$,
+	$\lfrac{\partial^k}{\partial x_p^k}\big|_{x_p=0}\myabs{Q}^{\mu}=0
+	$ which perfectly agrees with the right-hand side of \eqref{eq:supp_p}.
+
+	In turn, when $\tilde{Q}>0$ we have $Q=\tilde{Q}+x_p^2$ being positive for small $x_p$ and from the expansion
+	\[\myabs{Q}^\mu=\mybra{\tilde{Q}+x_p^2}^\mu=\sum_{i=0}^\infty\binom{\mu}{i}\tilde{Q}^{\mu-i}x_p^{2i}\]
+	we see that in case $\tilde{Q}>0$ for $k=0\dots N$
+	\begin{equation*}\frac{\partial^k}{\partial x_p^k}\bigg|_{x_p=0}\myabs{Q}^{\mu}=\begin{cases}
+			\binom{\mu}{2i}{\tilde{Q}^{\mu-2i}},&k=2i,\;i\in2\Z_{\ge0}\\
+			\binom{\mu}{2i}{\tilde{Q}^{\mu-2i}},&k=2i,\;i\in2\Z_{\ge0}+1\\
+			0,&k\in2\Z_{\ge0}+1
+	\end{cases}\end{equation*}
+which again perfectly agrees with \eqref{eq:supp_p}, as $\tilde{Q}>0$ assumption implies that $\tilde{Q}^{\mu-2i}_-=0
+$ and $\tilde{Q}^{\mu-2i}=Q_{+}^{\mu-2i}$.
+
+Finally, the case $\tilde{Q}<0$ can be similarly verified to match \eqref{eq:supp_p}.
+\end{myproof}
+\begin{myproof}\proofexplanation{of prop. \ref{prop:supp_p}}
+	First, well-definedness is clear 
+	as for $\Re(\mu)>0$ we have $\myabs{Q}^{\mu}\in C^{\myfloor{\mu}}(\R^n)$ and every $C^k$ class is closed under product.
+	The claim about support then gets obvious as well, so it remains to show that $K_{\lambda,\nu
+	}^P\in\sol$.
+
+	For the remaining part of the proof we fix $\nu_0$ with $\Re(\nu_0)<-2k$.
 	It is known, however, from \cite[ch. I, sec. 3.5]{gelfand1980distribution}
-	that $\delta^{(2i)}(x)$ with $i\geq0$ is proportional to $\lim_{\nu\to-2i-1}\myabs{x}^{\nu}/\Gamma\left( \frac{\nu+1}{2}
-	\right)$. Hence if we fix $\nu$ with $\Re(\nu)<0$,
-	and set $\tilde{F}_{\mu,\nu}:=\myabs{x_p}^{\mu}\myabs{\tilde{Q}}^{-\nu}/\Gamma\left( \frac{\mu
-	+1}{2} \right)$, we see that $\tilde{F}_{-2i-1,\nu}=F_{\nu,i}$ up to proportionality. Moreover, for $\Re(\mu)>0$,
-	$\tilde{F}_{\mu,\nu}\in L^1_{loc}$ and clearly satisfies \eqref{eq:sing_p}. 
-	Then, an analogue of \cite[prop. 3.18]{kobayashi2015symmetry}
-	implies that so does $\tilde{F}_{\mu,\nu}$ and hence so does $F_{\nu,i}$ and this ends the proof.
+	that $\delta^{(2k)}(x)$ with $i\geq0$ is proportional to $\lim_{\mu\to-2k-1}\myabs{x}^{\mu}/\Gamma\left( \frac{\mu+1}{2}
+	\right)$. Hence if we
+	define the holomorphic in $\mu$ distribution ${F}_{\mu}:=\myabs{x_p}^{\mu}\myabs{{Q}}^{-\nu_0}/\Gamma\left( \frac{\mu
+	+1}{2} \right)$, we see that ${F}_{-2k-1}=K_{\lambda_0,\nu_0}^P$ up to proportionality. Moreover, for $\Re(\mu)>0$,
+	we see that enumerator of $F_{\mu}$ is an element of $\sol$ due to proposition \ref{prop-regular}.
+	The application of an analogue of \cite[prop. 3.18]{kobayashi2015symmetry} now ends the proof.
 \end{myproof}
 
 \section{The kernel of singular symmetry breaking operator supported on $\left\{ Q=0 \right\}$}

@@ -56,10 +56,11 @@
 
 (open-pipe (string-append "pdflatex -interaction batchmode " (enclose-in-quote apostol-filename) separator
                                   "pdflatex -interaction batchmode " (enclose-in-quote gospel-filename)) OPEN_WRITE)
-(let* ((deffile-filename "deffile.scm")
+(let* ((deffile-filename "deffile.sh")
        (outport (open-file deffile-filename "w"))
-       (defline (lambda (varname content)(string-append "(define " varname " " (enclose-in-double-quotes content) ")\n")))
+       ;(defline (lambda (varname content)(string-append "(define " varname " " (enclose-in-double-quotes content) ")\n")))
+       (defline (lambda (varname content)(string-append varname "=" (enclose-in-double-quotes content) )))
        (put-def (lambda (varname content)(write-line (defline varname content)  outport)))
-       )(begin(put-def "apostol-filename" apostol-filename)(put-def "gospel-filename" gospel-filename)(put-def "date" date)))
+       )(begin(put-def "apostol_filename" apostol-filename)(put-def "gospel_filename" gospel-filename)(put-def "date" date)))
 (newline)
 ;TODO make it "generate" .tex, not substitute into a template
