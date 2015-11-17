@@ -13,7 +13,7 @@
   <math|\<bbb-R\><rsup|p,q>> defined as
 
   <\equation>
-    K<rsub|\<lambda\>,\<nu\>><rsup|P>\<assign\><big|sum><rsub|i=0><rsup|k><frac|<around*|(|-1|)><rsup|i><around*|(|2k|)>!<around*|(|\<nu\>|)><rsub|><rsup|i>|<around*|(|2k-2i|)>!i!>\<delta\><rsup|<around*|(|2k-2i|)>><around*|(|x<rsub|p>|)>\<otimes\>Q<rsub|i>
+    K<rsub|\<lambda\>,\<nu\>><rsup|P>\<assign\><big|sum><rsub|i=0><rsup|k><frac|<around*|(|-1|)><rsup|i><around*|(|2k|)>!<around*|(|\<nu\>|)><rsub|><rsup|i>|<around*|(|2k-2i|)>!i!>\<delta\><rsup|<around*|(|2k-2i|)>><around*|(|x<rsub|p>|)>\<otimes\>Q<rsub|i><label|eq-1>
   </equation>
 
   with
@@ -54,9 +54,9 @@
   <\proposition>
     <label|prop-norm-1>Assume that <math|q\<in\>2\<bbb-Z\>> and
     <math|<frac|\<lambda\>+\<nu\>-q|2>\<notin\>-\<bbb-Z\><rsub|\<geqslant\>0>>.
-    Let <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>\<assign\>K<rsub|\<lambda\>,\<nu\>><rsup|P>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>+q-2|2>-\<nu\>|)>>.
+    Let <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>\<assign\>K<rsub|\<lambda\>,\<nu\>><rsup|P>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q+2|2>-\<nu\>|)>>.
     Then for every K-finite <math|F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>>
-    we have <math|<around*|\<langle\>|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>,1F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>|\<rangle\>>>
+    we have <math|<around*|\<langle\>|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>,F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>|\<rangle\>>>
     being holomorphic as a function of <math|\<nu\>>.
   </proposition>
 
@@ -64,7 +64,7 @@
     <label|prop-norm-2>Assume that <math|q\<in\>2\<bbb-Z\>> and
     <math|<frac|\<lambda\>+\<nu\>-q|2>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>>.
     Let <math|N<rsub|0>\<assign\>-<around*|(|\<lambda\>+\<nu\>-q|)>\<in\>2\<bbb-Z\><rsub|\<gtr\>0>>.
-    Let <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>:=K<rsub|\<lambda\>,\<nu\>><rsup|P>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/\<Gamma\><around*|(|1-\<nu\>|)>>.
+    Let <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>:=K<rsub|\<lambda\>,\<nu\>><rsup|P>/\<Gamma\><around*|(|1-\<nu\>|)>>.
     Then for every K-finite <math|F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>>
     we have <math|<around*|\<langle\>|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>,F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>|\<rangle\>>>
     being holomorphic as a function of <math|\<nu\>>.
@@ -73,29 +73,32 @@
   <\proposition>
     <label|prop-3>Assume setting the same as in prop. <reference|prop-norm-1>
     and <math|q=2>, then <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>>
-    has simple zeroes at <math|<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1<mid|\|><frac|\<lambda\>+\<nu\>|2>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
+    only has simple zeroes at <math|<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1<mid|\|><frac|\<lambda\>+\<nu\>-q+2|2>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
   </proposition>
 
   <\proposition>
     <label|prop-4>Assume setting the same as in prop. <reference|prop-norm-2>
-    \ and <math|q=2>, then <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>>
-    has simple zeroes at <math|<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1<mid|\|>1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
+    \ and <math|q=2>, then <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>\<neq\>0>
+    for all <math|\<nu\>\<in\>\<bbb-C\>>.
   </proposition>
 
   <\remark>
-    The previous two propositions show that in case <math|q=2>
-    <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>> can be renormalized to
-    become non-vanishing at all.
+    The previous two propositions show that in case <math|q=2> we can
+    renormalize <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>> to become
+    non-vanishing at all.
+  </remark>
+
+  <\remark>
+    I suppose that the conclusions of propositions <reference|prop-3> and
+    <reference|prop-4> hold in case <math|q\<in\>2\<bbb-Z\>> as well, but I
+    don't know how to prove this yet.
   </remark>
 
   <\proposition>
     <label|prop-6>Let <math|<wide|<wide|K|~>|~><rsup|P><rsub|\<lambda\>,\<nu\>>\<assign\>K<rsub|\<lambda\>,\<nu\>>/\<Gamma\><around*|(|-2k+1-\<nu\>|)>/\<Gamma\><around*|(|-2k+<frac|n-1|2>-\<nu\>|)>>.
-    Then for every K-finite <math|F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>>
-    we have <math|<around*|\<langle\>|<wide|<wide|K|~>|~><rsub|\<lambda\>,\<nu\>><rsup|P>,F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>|\<rangle\>>>
-    being holomorphic as a function of <math|\<nu\>>.
+    Then <math|<wide|<wide|K|~>|~><rsub|\<lambda\>,\<nu\>><rsup|P>> depends
+    on <math|\<nu\>\<in\>\<bbb-C\>> holomorphically.
   </proposition>
-
-  \;
 
   <section|Auxiliary results>
 
@@ -119,7 +122,7 @@
   </definition>
 
   <\lemma>
-    For <math|<around*|(|N,M,n<rprime|'>,m<rprime|'>|)>\<in\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|4>>
+    <label|lem-span>For <math|<around*|(|N,M,n<rprime|'>,m<rprime|'>|)>\<in\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|4>>
     such that <math|N+M+n<rprime|'>+m<rprime|'>> is even and
     <math|<around*|(|\<psi\>,\<psi\><rprime|'>|)>\<in\>\<cal-H\><rsup|N><around*|(|\<bbb-S\><rsup|p-1>|)>\<times\>\<cal-H\><rsup|M><around*|(|\<bbb-S\><rsup|q-1>|)>>,
     functions <math|<wide|F|~><rsub|N,M,s<rsup|n<rprime|'>><around*|(|t-s|)><rsup|m<rprime|'>>,\<psi\>,\<psi\><rprime|'>>>
@@ -419,15 +422,109 @@
     \;
   </proof>
 
+  <\definition>
+    <label|def-P>Given the meromorphic function <math|f> not identicall zero
+    with argument <math|\<nu\>\<in\>\<bbb-C\>> we define the map
+    <math|\<frak-P\><around*|(|f|)>:\<bbb-C\>\<rightarrow\>\<bbb-Z\>> with
+    <math|\<frak-P\><around*|(|f|)><around*|(|\<nu\><rsub|0>|)>=-m\<in\>-\<bbb-Z\><rsub|\<gtr\>0>>
+    if <math|f> has zero of order <math|m> at <math|\<nu\>=\<nu\><rsub|0>>,
+    <math|\<frak-P\><around*|(|f|)><around*|(|\<nu\><rsub|0>|)>=m\<in\>\<bbb-Z\><rsub|\<gtr\>0>>
+    if <math|f> has pole of order <math|m> at <math|\<nu\>=\<nu\><rsub|0>>
+    and <math|\<frak-P\><around*|(|f|)><around*|(|\<nu\><rsub|0>|)>=0>
+    otherwise. We also use <math|\<frak-P\><rsub|\<pm\>><around*|(|f|)>> to
+    denote positive and negahitve parts of <math|\<frak-P\><around*|(|f|)>>.
+
+    Similarly, we define <math|\<frak-P\><around*|(|F<rsub|\<nu\>>|)>> and
+    <math|\<frak-P\><rsub|\<pm\>><around*|(|F<rsub|\<nu\>>|)>>for
+    <math|F<rsub|\<nu\>>> meromorphic distribution depending on
+    <math|\<nu\>\<in\>\<bbb-C\>>.
+
+    For <math|f,g:\<bbb-C\>\<rightarrow\>\<bbb-Z\>> we will write
+    <math|f\<leqslant\>g> to denote the inequality holding on
+    <math|\<bbb-C\>>. For <math|<around*|{|f<rsub|i>|}><rsub|i\<in\>\<Lambda\>>>
+    being the finite set of <math|\<bbb-C\>\<rightarrow\>\<bbb-Z\>>
+    functions, we let <math|max<around*|{|f<rsub|i>|}><rsub|i\<in\>\<Lambda\>>>
+    and <math|<big|sum><around*|{|f<rsub|i>|}><rsub|i\<in\>\<Lambda\>>> to
+    denote pointwise maximum and sum respectively. When needing infix
+    notation, we will use <math|\<cup\>> and <math|+> respectively.
+
+    Although ambiguous, we will sometimes denote
+    <math|f:\<bbb-C\>\<rightarrow\>\<bbb-Z\>> satisfying
+    <math|f\<leqslant\>1> on <math|\<bbb-C\>> with sets
+    <math|<around*|{|f\<neq\>0|}>>, so for example
+    <math|<around*|{|\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>, for
+    example, may be used to denote <math|\<frak-P\><around*|(|\<Gamma\><around*|(|\<cdot\>|)>|)>>.
+  </definition>
+
+  <\remark>
+    The following properties of <math|\<frak-P\><around*|(|\<cdot\>|)>> are
+    evident:
+
+    <\enumerate>
+      <item><math|\<frak-P\><around*|(|\<Gamma\><around*|(|\<nu\>-a|)>|)>=<around*|{|\<nu\>\<in\>a-\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+
+      <item>if <math|<around*|{|f<rsub|i>|}><rsub|i>> are meromorphic
+      functions, then <math|\<frak-P\><rsub|><around*|(|<big|sum><rsub|i>f<rsub|i>|)>\<leqslant\>max<around*|{|\<frak-P\><rsub|><around*|(|f<rsub|i>|)>|}><rsub|i>;>
+
+      <item>If <math|f,g> are meromorphic,
+      <math|\<frak-P\><around*|(|f/g|)>=\<frak-P\><around*|(|f|)>-\<frak-P\><around*|(|g|)>>.
+    </enumerate>
+
+    Similar statements hold for meromorphic distributions on <math|\<bbb-C\>>
+    as well.
+  </remark>
+
+  <\lemma>
+    <label|lem-20>Let <math|<around*|{|F<rsub|\<nu\>><rsub|><rsup|<around*|(|i|)>><rsub|>|}><rsub|i>>
+    be finite set of meromorphic distributions depending on
+    <math|\<nu\>\<in\>\<bbb-C\>>. Then <math|\<frak-P\><around*|(|<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsup|<around*|(|i|)>><rsub|\<nu\>>|)>=max<around*|{|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i|)>>|)>|}><rsub|i>>.
+  </lemma>
+
+  <\proof>
+    It suffices to show the <math|\<geqslant\>>. Suppose that at
+    <math|\<nu\>=\<nu\><rsub|0>> we have <math|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i<rsub|0>|)>>|)><around*|(|\<nu\><rsub|0>|)>=max<around*|{|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i|)>>|)>|}><rsub|i><around*|(|\<nu\><rsub|0>|)>>.
+    This means that for some <math|u\<in\>\<cal-D\>> we have
+    <math|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i<rsub|0>|)>><around*|(|u|)>|)><around*|(|\<nu\><rsub|0>|)>=\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i<rsub|0>|)>>|)><around*|(|\<nu\><rsub|0>|)>>.
+    Hence, taking <math|\<varphi\>\<in\>\<cal-D\><around*|(|\<bbb-R\>|)>>
+    that equals to <math|x<rsup|i<rsub|0>>> near <math|x=0>, we have
+    <math|\<frak-P\><around*|(|<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsup|<around*|(|i|)>><rsub|\<nu\>>|)><around*|(|\<nu\><rsub|0>|)>\<geqslant\>\<frak-P\><around*|(|<around*|\<langle\>|<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsup|<around*|(|i|)>><rsub|\<nu\>>,\<varphi\>\<otimes\>u|\<rangle\>>|)><around*|(|\<nu\><rsub|0>|)>=\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i<rsub|0>|)>><around*|(|u|)>|)><around*|(|\<nu\><rsub|0>|)>=max<around*|{|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i|)>>|)>|}><rsub|i><around*|(|\<nu\><rsub|0>|)>>.
+  </proof>
+
   <section|Proofs>
 
   <\proof>
-    (of Proposition <reference|prop-1>) ...
+    (of Proposition <reference|prop-1>) Indeed, in the light of lemmas
+    <reference|lem-Mg0> and <reference|lem-span> it suffices to show that
   </proof>
 
   <\proof>
-    (of Proposition <reference|prop-6>) As follows from
-    <cite-detail|gelfand1980distribution|sec. III.2.2>
+    (of Proposition <reference|prop-6>) This follows from
+    <cite-detail|gelfand1980distribution|sec. III.2.2> and equation
+    <reference|eq-1>. Indeed, equation <reference|eq-1> using definition
+    <reference|def-P> and the remark following, we have (using lemma
+    <reference|lem-20>)
+
+    <\equation*>
+      \<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|P>|)><rsub|>=max<around*|{|\<frak-P\><rsub|><around*|(|<wide|Q|~><rsub|\<pm\>><rsup|-\<nu\>-2i>|)>|}><rsub|i=0><rsup|k>
+    </equation*>
+
+    Now, <cite-detail|gelfand1980distribution|sec. III.2.2> tells us that
+
+    <\equation*>
+      \<frak-P\><around*|(|Q<rsub|\<pm\>><rsup|\<nu\>>|)>\<leqslant\>\<frak-P\><rsub|+><around*|(|<wide|Q|~><rsub|\<pm\>><rsup|\<nu\>>|)>\<leqslant\><around*|{|\<nu\>\<in\>-1-\<bbb-Z\><rsub|\<geqslant\>0>|}>+<around*|{|\<nu\>\<in\>-<frac|n-1|2>-\<bbb-Z\><rsub|\<geqslant\>0>|}>
+    </equation*>
+
+    and hence
+
+    <\equation*>
+      \<frak-P\><rsub|+><around*|(|<wide|Q|~><rsub|\<pm\>><rsup|-\<nu\>-2i>|)>\<leqslant\><around*|{|-\<nu\>\<in\>2i-1-\<bbb-Z\><rsub|\<geqslant\>0>|}>+<around*|{|-\<nu\>\<in\>2i-<frac|n-1|2>-\<bbb-Z\><rsub|\<geqslant\>0>|}>
+    </equation*>
+
+    <\equation*>
+      \<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|P>|)>\<leqslant\><around*|{|-\<nu\>\<in\>2k-1-\<bbb-Z\><rsub|\<geqslant\>0>|}>+<around*|{|\<nu\>\<in\>2k-<frac|n-1|2>-\<bbb-Z\><rsub|\<geqslant\>0>|}>
+    </equation*>
+
+    \;
   </proof>
 
   <\bibliography|bib|plain|todai_master.bib>
@@ -448,22 +545,26 @@
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|2|1>>
     <associate|auto-3|<tuple|3|2>>
-    <associate|auto-4|<tuple|4|4>>
-    <associate|auto-5|<tuple|4|4>>
-    <associate|bib-gelfand1980distribution|<tuple|1|?>>
-    <associate|bib-kobayashi2015symmetry|<tuple|2|4>>
-    <associate|forre|<tuple|7|2>>
-    <associate|lem-1|<tuple|12|3>>
-    <associate|lem-2|<tuple|13|3>>
-    <associate|lem-3|<tuple|14|3>>
-    <associate|lem-Mg0|<tuple|10|2>>
-    <associate|lem-assume-the-setting|<tuple|11|2>>
+    <associate|auto-4|<tuple|4|5>>
+    <associate|auto-5|<tuple|4|5>>
+    <associate|bib-gelfand1980distribution|<tuple|1|5>>
+    <associate|bib-kobayashi2015symmetry|<tuple|2|5>>
+    <associate|def-P|<tuple|18|4>>
+    <associate|eq-1|<tuple|1|1>>
+    <associate|forre|<tuple|8|2>>
+    <associate|lem-1|<tuple|13|3>>
+    <associate|lem-2|<tuple|14|3>>
+    <associate|lem-20|<tuple|20|5>>
+    <associate|lem-3|<tuple|15|3>>
+    <associate|lem-Mg0|<tuple|11|2>>
+    <associate|lem-assume-the-setting|<tuple|12|2>>
     <associate|lem-gg0|<tuple|3|?>>
+    <associate|lem-span|<tuple|10|?>>
     <associate|prop-1|<tuple|1|1>>
     <associate|prop-2|<tuple|2|?>>
     <associate|prop-3|<tuple|3|1>>
     <associate|prop-4|<tuple|4|1>>
-    <associate|prop-6|<tuple|6|1>>
+    <associate|prop-6|<tuple|7|1>>
     <associate|prop-norm-1|<tuple|1|1>>
     <associate|prop-norm-2|<tuple|2|1>>
   </collection>
@@ -473,6 +574,8 @@
   <\collection>
     <\associate|bib>
       kobayashi2015symmetry
+
+      gelfand1980distribution
 
       gelfand1980distribution
     </associate>

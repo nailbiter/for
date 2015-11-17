@@ -27,12 +27,16 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>After fixing the computations related to kernel
-    <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> of singular SBO supported on
-    <math|<around*|{|x<rsub|p>=0|}>> I've realized that we have an equality\ 
+    <item>As I said originally, there two are two methods that can be
+    employed normalize <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> in the ``best
+    possible'' way and to determine where the normalized operator
+    <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>> gets zero. The first
+    consists of pairing <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> with
+    <math|K>-finite vector and finding multiplier that makes all these
+    pairings holomorphic. The second consists in applying an expansion
 
     <\equation>
-      K<rsub|\<lambda\>,\<nu\>><rsup|P>=<big|sum><rsub|i=0><rsup|k><frac|<around*|(|-1|)><rsup|i><around*|(|2k|)>!<around*|(|\<nu\>|)><rsub|><rsup|i>|<around*|(|2k-2i|)>!i!>\<delta\><rsup|<around*|(|2k-2i|)>><around*|(|x<rsub|p>|)>\<otimes\>Q<rsub|i>
+      K<rsub|\<lambda\>,\<nu\>><rsup|P>\<assign\><big|sum><rsub|i=0><rsup|k><frac|<around*|(|-1|)><rsup|i><around*|(|2k|)>!<around*|(|\<nu\>|)><rsub|><rsup|i>|<around*|(|2k-2i|)>!i!>\<delta\><rsup|<around*|(|2k-2i|)>><around*|(|x<rsub|p>|)>\<otimes\>Q<rsub|i><label|eq-1>
     </equation>
 
     with
@@ -41,23 +45,33 @@
       Q<rsub|i>\<assign\><choice|<tformat|<table|<row|<cell|<around*|\||<wide|Q|~>|\|><rsup|-\<nu\>-2i>>|<cell|,i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|sgn<around*|(|<wide|Q|~>|)><around*|\||<wide|Q|~>|\|><rsup|-\<nu\>-2i>>|<cell|,i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>
     </equation*>
 
-    Which in turn allows one (in principle, after doing nontrivial
-    computations) using the material in Gelfand-Shilov vol. 1, to precisely
-    calculate poles and residues of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>,
-    hence find a better normalization.
+    Here are relative pros and cons of these methods in tabular form
 
-    <item>Using essentially the same computations as in
-    <samp|KP-normalization.pdf>, I can normalize the kernel of the regular
-    SBO for <math|q=2> and know where the normalized kernel vanishes. I can
-    also normalize the regular operator's kernel for general
-    <math|q\<in\>2\<bbb-Z\>>, but I don't know when this normalization
-    vanishes in general.
+    <block*|<tformat|<table|<row|<cell|>|<cell|pairing with
+    <math|K>-finite>|<cell|expanding in <math|\<delta\>\<otimes\><around*|(|<wide|Q<rsub|>|~><rsub|+><rsup|\<nu\>>\<pm\><wide|Q|~><rsub|-><rsup|\<nu\>>|)>>>>|<row|<cell|scope>|<cell|<math|q\<in\>2\<bbb-Z\>>>|<cell|all>>|<row|<cell|complexity>|<cell|<math|q\<rightarrow\>\<infty\>>>|<cell|<math|k\<rightarrow\>\<infty\>>>>|<row|<cell|extends
+    to regular>|<cell|yes>|<cell|no>>>>>
+
+    <item>Some additional work done in <samp|KP-normalization.pdf>.
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do>
 
   <\enumerate>
     <item>Finish all proofs in <samp|KP-normalization.pdf>.
+
+    <item>Prove several additional statements in
+    <verbatim|KP-normalization.pdf>:
+
+    <\enumerate>
+      <item>I think, that I can show that
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>> in proposition 2 is
+      nonzero
+
+      <item>I want to show that <math|<around*|\||Q|\|><rsup|\<nu\>>> and
+      <math|<around*|\||Q|\|><rsup|\<nu\>>sgn*<around*|(|Q|)>> are
+      nowhere-vanishing distributions depending on
+      <math|\<nu\>\<in\>\<bbb-C\>>.
+    </enumerate>
 
     <item>Compare normalizations of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>
     obtained using the expression (1) together with those obtained by
@@ -76,7 +90,7 @@
     If done right, this'll give better answer to question 4 than we have at
     the moment.
 
-    <item>Something to do with <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
+    <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
 
     <\enumerate>
       <item>See how support changes for different <math|\<lambda\>>
@@ -91,6 +105,12 @@
   </with>
 
   <\enumerate>
+    <item>In one of the five questions You asked me long time ago, number 4
+    was normalization. Did this question assumed that I know where the
+    normalized operator gets zero? In other words, is the normalization I
+    have now for <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> good enough, or it
+    has to be improved?
+
     <item>If I understood correctly, You said that method used on
     Gelfand-Shilov to find poles and residues of
     <math|P<rsub|\<pm\>><rsup|\<nu\>>> can be used if singularities of the
@@ -109,8 +129,7 @@
 
   <with|font-series|bold|Comments>
 
-  This report was submitted very late. Starting from the next week, I pledge
-  to submit them before the end of every Monday, till the January.
+  (empty)
 </body>
 
 <\references>
@@ -119,5 +138,6 @@
     <associate|docs-internal-guid-b6e7b8ae-fabf-ee0f-e89e-238b9e36d2a3|<tuple|?|1>>
     <associate|docs-internal-guid-b6e7b8ae-fac0-10b2-c1d9-4fa5f85155a1|<tuple|?|1>>
     <associate|docs-internal-guid-b6e7b8ae-fac0-2832-1c7c-738d1a8a5962|<tuple|?|1>>
+    <associate|eq-1|<tuple|1|?>>
   </collection>
 </references>
