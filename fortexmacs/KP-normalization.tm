@@ -380,7 +380,7 @@
   </proof>
 
   <\lemma>
-    Fix <math|m\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> and let
+    <label|lem-16>Fix <math|m\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> and let
     <math|<wide|<wide|P|~>|~><rsup|even><rsub|a,-m>:=P<rsub|a,-m><rsup|even>\<cdot\>\<Gamma\><around*|(|a|)>>
     and <math|<wide|<wide|P|~>|~><rsub|a,-m><rsup|odd>:=<wide|P<rsub|>|~><rsub|a,-m><rsup|odd>\<cdot\>\<Gamma\><around*|(|a|)>>.
     Then, <math|<wide|<wide|P|~>|~><rsup|even><rsub|a,-m>> is holomorphic in
@@ -498,16 +498,15 @@
     <reference|lem-assume-the-setting>, it suffices to show that
 
     <\equation*>
-      <frac|1|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q+2|2>|)>><big|sum><rsub|i=0><rsup|<around*|(|q-2|)>/2><frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>
+      \<frak-P\><around*|(|<big|sum><rsub|i=0><rsup|<around*|(|q-2|)>/2><frac|P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|m<rprime|'>+i+1-\<nu\>>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>|)>\<leqslant\>\<frak-P\><around*|(|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q+2|2>|)>|)>
     </equation*>
 
-    is holomorphic for all <math|N,m<rprime|'>,n<rprime|'>> non-negative
-    integers with <math|N,m<rprime|'>+n<rprime|'>> even. Now, as
-    <math|L=<frac|\<lambda\>+\<nu\>+N-q|2>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>>
+    is holomorphic for all <math|<around*|(|N,m<rprime|'>,n<rprime|'>|)>\<in\>\<frak-I\>\<assign\><around*|{|<around*|(|N,m<rprime|'>,n<rprime|'>|)>\<in\>\<bbb-Z\><rsub|\<geqslant\>><mid|\|>N,m<rprime|'>+n<rprime|'>\<in\>2\<bbb-Z\><rsub|>|}>>.
+    Now, as <math|L=<frac|\<lambda\>+\<nu\>+N-q|2>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>>
     as implied by hypothesis, we see that
 
     <\equation*>
-      \<frak-P\><around*|(|<frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>|)>=
+      \<frak-P\><around*|(|<frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>\<Gamma\><around*|(|L+m<rprime|'>+i+1-\<nu\>|)>|)>=
     </equation*>
 
     <\equation*>
@@ -517,14 +516,58 @@
     Next, as lemmas <reference|lem-2> and <reference|lem-3> show us,
 
     <\equation*>
-      \<frak-P\><around*|(|<frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|)>\<leqslant\><choice|<tformat|<table|<row|<cell|\<nu\>=m<rprime|'>+i+1,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>>>|<row|<cell|\<emptyset\>,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>+1>>>>>
+      \<frak-P\><around*|(|<frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|)>\<leqslant\><choice|<tformat|<table|<row|<cell|<around*|{|\<nu\>=m<rprime|'>+i+1|}>,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>>>|<row|<cell|\<emptyset\>,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>+1>>>>>
     </equation*>
 
     we see that\ 
 
     <\equation*>
-      \<frak-P\><around*|(|<big|sum><rsub|i=0><rsup|<around*|(|q-2|)>/2><frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>|)>
+      \<frak-P\><around*|(|<big|sum><rsub|i=0><rsup|<around*|(|q-2|)>/2><frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>\<Gamma\><around*|(|L+m<rprime|'>+i+1-\<nu\>|)>|)>\<leqslant\>
     </equation*>
+
+    <\equation*>
+      \<leqslant\>max<around*|{|<frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>\<Gamma\><around*|(|L+m<rprime|'>+i+1-\<nu\>|)>|}><rsub|i=0><rsup|<around*|(|q-2|)>/2>=
+    </equation*>
+
+    <\equation*>
+      <around*|{|\<nu\>=m<rprime|'>+i+1<mid|\|>m<rprime|'>+i\<in\>2\<bbb-Z\>|}><rsub|i=0><rsup|<around*|(|q-2|)>/2>\<cup\><around*|{|\<nu\>=m<rprime|'>+1+<frac|\<lambda\>+N+\<nu\>-q|2>|}>
+    </equation*>
+
+    (note that we have <math|\<cup\>>, not <math|+> in the last equality,
+    because <math|m<rprime|'>+i+1\<nin\><around*|{|\<nu\>=1+i+m<rprime|'>+<frac|\<lambda\>+\<nu\>+N-q|2>|}>>)
+
+    hence\ 
+
+    <\equation*>
+      max<around*|{|<big|sum><rsub|i=0><rsup|<around*|(|q-2|)>/2><frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>|}><rsub|\<frak-I\>>\<leqslant\>
+    </equation*>
+
+    <\equation*>
+      \<leqslant\><around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cup\><around*|{|\<nu\>=<frac|\<lambda\>+\<nu\>-q+2|2>|}>
+    </equation*>
+
+    \;
+  </proof>
+
+  <\proof>
+    (of Proposition <reference|prop-2>) Similarly, we need to show that\ 
+
+    <\equation*>
+      \<frak-P\><around*|(|<big|sum><rsub|i=0><rsup|<around*|(|q-2|)>/2><frac|P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|m<rprime|'>+i+1-\<nu\>>\<Gamma\><around*|(|L+m<rprime|'>+i+1-\<nu\>|)>|)>\<leqslant\>\<frak-P\><around*|(|\<Gamma\><around*|(|1-\<nu\>|)>|)>
+    </equation*>
+
+    Now, we want to determine <math|\<frak-P\><around*|(|<frac|P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|m<rprime|'>+i+1-\<nu\>>\<Gamma\><around*|(|L+m<rprime|'>+i+1-\<nu\>|)>|)>>.
+    Let us consider cases.
+
+    As in the proposition statement, let <math|N<rsub|0>\<assign\>-<around*|(|\<lambda\>+\<nu\>-q|)>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>.
+    For <math|N\<less\>N<rsub|0>> we have, according to lemma
+    <reference|lem-16> that\ 
+
+    <\equation*>
+      \<frak-P\><around*|(|<frac|P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|m<rprime|'>+i+1-\<nu\>>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>|)>=<choice|<tformat|<table|<row|<cell|<around*|{|\<nu\>=m<rprime|'>+i+i|}>,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>>>|<row|<cell|\<emptyset\>,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>+1>>>>>
+    </equation*>
+
+    \;
   </proof>
 
   <\proof>
@@ -576,13 +619,14 @@
     <associate|auto-2|<tuple|2|1>>
     <associate|auto-3|<tuple|3|2>>
     <associate|auto-4|<tuple|4|5>>
-    <associate|auto-5|<tuple|4|5>>
-    <associate|bib-gelfand1980distribution|<tuple|1|5>>
-    <associate|bib-kobayashi2015symmetry|<tuple|2|5>>
+    <associate|auto-5|<tuple|4|6>>
+    <associate|bib-gelfand1980distribution|<tuple|1|6>>
+    <associate|bib-kobayashi2015symmetry|<tuple|2|6>>
     <associate|def-P|<tuple|18|4>>
     <associate|eq-1|<tuple|1|1>>
     <associate|forre|<tuple|8|2>>
     <associate|lem-1|<tuple|13|3>>
+    <associate|lem-16|<tuple|16|?>>
     <associate|lem-2|<tuple|14|3>>
     <associate|lem-20|<tuple|20|5>>
     <associate|lem-3|<tuple|15|3>>
