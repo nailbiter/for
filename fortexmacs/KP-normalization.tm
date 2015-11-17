@@ -494,7 +494,37 @@
 
   <\proof>
     (of Proposition <reference|prop-1>) Indeed, in the light of lemmas
-    <reference|lem-Mg0> and <reference|lem-span> it suffices to show that
+    <reference|lem-Mg0>, <reference|lem-span> and
+    <reference|lem-assume-the-setting>, it suffices to show that
+
+    <\equation*>
+      <frac|1|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q+2|2>|)>><big|sum><rsub|i=0><rsup|<around*|(|q-2|)>/2><frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>
+    </equation*>
+
+    is holomorphic for all <math|N,m<rprime|'>,n<rprime|'>> non-negative
+    integers with <math|N,m<rprime|'>+n<rprime|'>> even. Now, as
+    <math|L=<frac|\<lambda\>+\<nu\>+N-q|2>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>>
+    as implied by hypothesis, we see that
+
+    <\equation*>
+      \<frak-P\><around*|(|<frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>|)>=
+    </equation*>
+
+    <\equation*>
+      =\<frak-P\><around*|(|<frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|)>+<around*|{|\<nu\>=1+i+m<rprime|'>+<frac|\<lambda\>+\<nu\>+N-q|2>|}>
+    </equation*>
+
+    Next, as lemmas <reference|lem-2> and <reference|lem-3> show us,
+
+    <\equation*>
+      \<frak-P\><around*|(|<frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|)>\<leqslant\><choice|<tformat|<table|<row|<cell|\<nu\>=m<rprime|'>+i+1,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>>>|<row|<cell|\<emptyset\>,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>+1>>>>>
+    </equation*>
+
+    we see that\ 
+
+    <\equation*>
+      \<frak-P\><around*|(|<big|sum><rsub|i=0><rsup|<around*|(|q-2|)>/2><frac|1|m<rprime|'>+i+1-\<nu\>>P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>|)>
+    </equation*>
   </proof>
 
   <\proof>
@@ -559,7 +589,7 @@
     <associate|lem-Mg0|<tuple|11|2>>
     <associate|lem-assume-the-setting|<tuple|12|2>>
     <associate|lem-gg0|<tuple|3|?>>
-    <associate|lem-span|<tuple|10|?>>
+    <associate|lem-span|<tuple|10|2>>
     <associate|prop-1|<tuple|1|1>>
     <associate|prop-2|<tuple|2|?>>
     <associate|prop-3|<tuple|3|1>>
