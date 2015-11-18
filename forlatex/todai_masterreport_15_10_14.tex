@@ -260,10 +260,12 @@ explicitly construct distribution on $\R^{p,q}$ with support in $\left\{ x_p=0 \
 The last statement of the proposition is granted by the following lemma, which we prove separately.
 \begin{mylem}\label{lem:supp_p}
 	For $k$ fixed and $\Re(\nu)<-2k$ we have
-	\[K^{P}_{\lambda,\nu}
+	\begin{equation}
+	K^{P}_{\lambda,\nu}
 	=\sum_{i=0}^k\frac{(-1)^i(2k)!(\nu)^i}{(2k-2i)!i!}
 	\delta^{(2k-2i)}(x_p)\otimes \tilde{Q}_i
-	\]
+		\label{eq:supp_p_mero}
+	\end{equation}
 	where $(\nu)^{i}:=\nu(\nu+1)\dots(\nu+i-1)$ and
 	\[\tilde{Q}_i:=\begin{cases}
 			\tilde{Q}_+^{-\nu-2i}+\tilde{Q}_-^{-\nu-2i}&, i\in2\Z_{\ge0}\\
@@ -274,6 +276,15 @@ The last statement of the proposition is granted by the following lemma, which w
 
 	Hence, $K_{\lambda,\nu}^P$ analytically extends to $\nu\notin\Lambda_P$.
 \end{mylem}
+\begin{remark}
+	In fact, equation \eqref{eq:supp_p_mero} holds as equality of meromorphic distributions throughout $\nu\in\C$ (that is,
+	equality holds outside poles and at poles we have Laurent series coincide, see \cite[ch. I, A.2.3]{gelfand1980distribution}
+	for discussion of Laurent series for generalized functions depending on complex parameter
+	). Indeed, for $\varphi\in C^{\infty}_0$ being
+	both sides of \eqref{eq:supp_p_mero} paired with $\varphi$ are meromorphic and coincide for $\nu$ lying in some open
+	subset of $\C$, hence coincide outside their poles, hence Laurent series at poles coincide. And as $\varphi$ are arbitrary,
+	we are done.
+\end{remark}
 \begin{myproof}
 	Recall that $\tilde{Q}^{\mu}_{\pm}$ were defined in \cite{gelfand1980distribution} as holomorphic distributions for
 	$\mu\notin\Lambda_0:=-\Z_{\ge1}\cup\left( -\frac{n-1}{2}-\Z_{\ge0} \right)$. Hence, all $\tilde{Q}_i$ are holomorphic
