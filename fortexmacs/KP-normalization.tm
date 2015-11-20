@@ -621,10 +621,11 @@
   </proof>
 
   <\proof>
-    (of Proposition <reference|prop-2>) Similarly, we need to show that\ 
+    (of Proposition <reference|prop-2>) Similarly to proof of proposition
+    <reference|prop-1>, we need to show that\ 
 
     <\equation*>
-      \<frak-P\><around*|(|<big|sum><rsub|i=0><rsup|q-2><frac|P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|m<rprime|'>+i+1-\<nu\>>\<Gamma\><around*|(|L+m<rprime|'>+i+1-\<nu\>|)>|)>\<leqslant\>\<frak-P\><around*|(|\<Gamma\><around*|(|1-\<nu\>|)>|)>
+      max<around*|{|\<frak-P\><around*|(|<big|sum><rsub|i=0><rsup|q-2><frac|P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|m<rprime|'>+i+1-\<nu\>>\<Gamma\><around*|(|L+m<rprime|'>+i+1-\<nu\>|)>|)>|}><rsub|\<frak-I\>>\<leqslant\>\<frak-P\><around*|(|\<Gamma\><around*|(|1-\<nu\>|)>|)>
     </equation*>
 
     Now, we want to determine <math|\<frak-P\><around*|(|<frac|P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|m<rprime|'>+i+1-\<nu\>>\<Gamma\><around*|(|L+m<rprime|'>+i+1-\<nu\>|)>|)>>.
@@ -651,7 +652,7 @@
     Next, for <math|N=N<rsub|0>> we have
 
     <\equation*>
-      \<frak-P\><around*|(|<frac|P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|m<rprime|'>+i+1-\<nu\>>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>|)>=<choice|<tformat|<table|<row|<cell|<around*|{|\<nu\>=m<rprime|'>+i+1|}>,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>>>|<row|<cell|<around*|{|\<nu\>=m<rprime|'>+i+1|}>,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>+1>>>>>
+      \<frak-P\><around*|(|<frac|P<rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+i+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>F<rsub|i>|)>|m<rprime|'>+i+1-\<nu\>>\<Gamma\><around*|(|<frac|L|2>+m<rprime|'>+i+1-\<nu\>|)>|)>\<leqslant\><choice|<tformat|<table|<row|<cell|<around*|{|\<nu\>=m<rprime|'>+i+1|}>,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>>>|<row|<cell|<around*|{|\<nu\>=m<rprime|'>+i+1|}>,>|<cell|m<rprime|'>+i\<in\>2\<bbb-Z\>+1>>>>>
     </equation*>
 
     and consequently
@@ -829,15 +830,18 @@
   </bibliography>
 </body>
 
+<initial|<\collection>
+</collection>>
+
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|2|1>>
     <associate|auto-3|<tuple|3|2>>
     <associate|auto-4|<tuple|4|5>>
-    <associate|auto-5|<tuple|4|8>>
-    <associate|bib-gelfand1980distribution|<tuple|1|8>>
-    <associate|bib-kobayashi2015symmetry|<tuple|2|8>>
+    <associate|auto-5|<tuple|4|9>>
+    <associate|bib-gelfand1980distribution|<tuple|1|9>>
+    <associate|bib-kobayashi2015symmetry|<tuple|2|9>>
     <associate|def-P|<tuple|18|4>>
     <associate|eq-1|<tuple|1|1>>
     <associate|forre|<tuple|8|2>>
