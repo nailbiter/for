@@ -12,9 +12,9 @@
     supported on <math|<around*|{|x<rsub|p>=0|}>>, see
     <samp|KP-normalization.pdf>)
   </cell>>|<row|<cell|3. the renormalization of 2>|<\cell>
-    <with|font-series|bold|done> (see Prop. 5 of <samp|KP-normalization.pdf>,
-    although I do not know whether it is the ``best'' possible and I don't
-    know when it becomes zero)
+    <with|font-series|bold|done> (just not written up yet; I have the best
+    possible normalization, and with a little more effort can determine the
+    supports of the residues)
   </cell>>|<row|<\cell>
     5. hierarchy of 1 and the two <math|>operators in 2 by residue formulae
     under some mild assumption of the parameter
@@ -27,37 +27,21 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>As I said originally, there two are two methods that can be
-    employed normalize <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> in the ``best
-    possible'' way and to determine where the normalized operator
-    <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>> gets zero. The first
-    consists of pairing <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> with
-    <math|K>-finite vector and finding multiplier that makes all these
-    pairings holomorphic. The second consists in applying an expansion
+    <item>I've prepared a report for Professor Speh's seminar on
+    representation theory of <math|p>-adic groups.
 
-    <\equation>
-      K<rsub|\<lambda\>,\<nu\>><rsup|P>\<assign\><big|sum><rsub|i=0><rsup|k><frac|<around*|(|-1|)><rsup|i><around*|(|2k|)>!<around*|(|\<nu\>|)><rsub|><rsup|i>|<around*|(|2k-2i|)>!i!>\<delta\><rsup|<around*|(|2k-2i|)>><around*|(|x<rsub|p>|)>\<otimes\>Q<rsub|i><label|eq-1>
-    </equation>
-
-    with
-
-    <\equation*>
-      Q<rsub|i>\<assign\><choice|<tformat|<table|<row|<cell|<around*|\||<wide|Q|~>|\|><rsup|-\<nu\>-2i>>|<cell|,i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|sgn<around*|(|<wide|Q|~>|)><around*|\||<wide|Q|~>|\|><rsup|-\<nu\>-2i>>|<cell|,i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>
-    </equation*>
-
-    Here are relative pros and cons of these methods in tabular form
-
-    <block*|<tformat|<table|<row|<cell|>|<cell|pairing with
-    <math|K>-finite>|<cell|expanding in <math|\<delta\>\<otimes\><around*|(|<wide|Q<rsub|>|~><rsub|+><rsup|\<nu\>>\<pm\><wide|Q|~><rsub|-><rsup|\<nu\>>|)>>>>|<row|<cell|scope>|<cell|<math|q\<in\>2\<bbb-Z\>>>|<cell|all>>|<row|<cell|complexity>|<cell|<math|q\<rightarrow\>\<infty\>>>|<cell|<math|k\<rightarrow\>\<infty\>>>>|<row|<cell|extends
-    to regular>|<cell|yes>|<cell|no>>>>>
-
-    <item>Some additional work done in <samp|KP-normalization.pdf>.
+    <item>For <math|q=2> I can normalize the kernel of regular SBO such that
+    it vanishes on a discrete subset of <math|\<bbb-C\><rsup|2>>, but I
+    haven't written this up yet.
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do>
 
+  For the next week, I plan to do items 1-3 (or 1-4) of the following list:
+
   <\enumerate>
-    <item>Find the normalization for regular SBO kernel for <math|q=2>
+    <item>Find the best possible normalization for regular SBO kernel for
+    <math|q=2> and determine when it gets zero.
 
     <item>Normalize <math|<around*|\||Q|\|><rsup|\<nu\>>> and
     <math|<around*|\||Q|\|><rsup|\<nu\>>sgn<around*|(|Q|)>> using
@@ -67,12 +51,13 @@
 
     <\enumerate>
       <item>Find best possible normalization for
-      <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>.\ 
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>.
 
       <item>Compare it with <math|q=2> case done in
-      <verbatim|KP-normalization.pdf>
+      <verbatim|KP-normalization.pdf> to check for inconsistincies.
 
-      <item>Find supports using material in Gelfand-Shilov
+      <item>Find support of <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>>
+      depending on <math|\<nu\>> using material in Gelfand-Shilov.
     </enumerate>
 
     <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
@@ -82,7 +67,16 @@
 
       <item>Dimensional argument to explicitly determine
       <math|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>|)>>.
+
+      <item>Dimensional argument to explicitly determine
+      <math|Sol<rsub|C\<cup\>P><around*|(|\<bbb-R\><rsup|p,q>|)>>
     </enumerate>
+
+    <item>Find the best possible normalization of the kernel
+    <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> of reguar SBO
+    for <math|q\<in\>2\<bbb-Z\><rsub|\<gtr\>0>> case.
+
+    <item>Answer question 5 above.
 
     <item>Compare normalizations of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>
     obtained using the expression (1) together with those obtained by
@@ -106,28 +100,7 @@
     Questions
   </with>
 
-  <\enumerate>
-    <item>In one of the five questions You asked me long time ago, number 4
-    was normalization. Did this question assumed that I know where the
-    normalized operator gets zero? In other words, is the normalization I
-    have now for <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> good enough, or it
-    has to be improved?
-
-    <item>If I understood correctly, You said that method used on
-    Gelfand-Shilov to find poles and residues of
-    <math|P<rsub|\<pm\>><rsup|\<nu\>>> can be used if singularities of the
-    distribution being analytically continuated are transversal. As far as I
-    understand, integral
-
-    <\equation*>
-      <big|int><rsub|-1><rsup|1><around*|(|1-y<rsup|2>|)><rsup|<around*|(|\<lambda\>+\<nu\>+N-q-2|)>/2>y<rsup|n<rprime|'>><big|int><rsub|-1><rsup|1><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2>x<rsup|m<rprime|'>><around*|\||x-y|\|><rsup|-\<nu\>>d
-      x d y.
-    </equation*>
-
-    which I seek to normalize, has transversal singularities (these being
-    <math|x=\<pm\>1>, <math|y=\<pm\>1> and <math|x=y>). But I still have no
-    clear idea on how to proceed.
-  </enumerate>
+  (empty)
 
   <with|font-series|bold|Comments>
 

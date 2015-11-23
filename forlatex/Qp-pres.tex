@@ -1,0 +1,234 @@
+\documentclass[pdf,notes]{beamer}
+\mode<presentation>{\usetheme[secheader]{Boadilla}}
+\usepackage{mystyle}
+\includecomment{versiona}
+
+\newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
+\newcommand{\DEBUG}{}
+\newcommand{\mproof}[1]{\ifdefined\DEBUG\begin{proof}#1\end{proof}\fi}
+\newcommand{\tr}{\mbox{tr}}
+
+\makeatletter
+\def\th@mystyle{%
+    \normalfont % body font
+    \setbeamercolor{block title example}{bg=orange,fg=white}
+    \setbeamercolor{block body example}{bg=orange!20,fg=black}
+    \def\inserttheoremblockenv{exampleblock}
+  }
+\makeatother
+\theoremstyle{mystyle}
+\newtheorem{prop}{Proposition}
+
+\title{Admissible and smooth reps of $GL_2(\Q_p)$.}
+\subtitle{Definition and basic properties}
+\author{Alex Leontiev}
+%\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{clouds.jpg}}
+
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+\begin{frame}{Outline}
+			\tableofcontents
+%%		\item Basic properties of admissible and smooth representations.
+\end{frame}
+\section{Basic properties and definition of $F:=\Q_p$}
+\begin{frame}
+	Fix positive prime number $p$.
+	\begin{definition}
+		We introduce norm on $\Q$ defined by absolute value
+		$\myabs{0}_p:=0$ and $\myabs{p^n(a/b)}_p:=p^{-n}$
+		for $n\in\Z$ and $a,\;b$ pairwise simple with $p$.
+	\end{definition}
+		This is a metric. Moreover, $\forall a,b\in\Q$:
+		$\myabs{ab}_p=\myabs{a}_p\myabs{b}_p$, $\myabs{a+b}_p\le\max\left\{ \myabs{a}_p,\myabs{b}_p \right\}$.
+		Moreover, if $\myabs{a}_p\neq\myabs{b}_p$, we have $\myabs{a+b}_p=\max\left\{ \myabs{a}_p,\myabs{b}_p \right\}$.
+\end{frame}
+\begin{frame}
+	\begin{definition}
+		We let $\Q_p$ to be the completion of $\Q$ with respect to the above metric.
+	\end{definition}
+	\begin{prop}
+		$Q_p$ is locally compact topological field. Metric on $\Q$ extends to be a metric on $\Q_p$ with all distances
+		lying in set $\left\{ 0 \right\}\cup\left\{ p^n \right\}_{n\in\Z}$ (hence, $\Q_p$ is totally disconnected). Also in
+		$Q_p$ the only compact sets are closed and bounded ones and every bounded infinite set has a limit point.
+	\end{prop}
+\end{frame}
+\begin{frame}
+	\begin{definition}
+		We let $R_p:=\mysetn{x\in\Q_p}{\myabs{x}_p\le1}$, $\mathfrak{P}:=\mysetn{x\in\Q_p}{\myabs{x}_p<1}$,
+		$U:=\mysetn{x\in\Q_p}{\myabs{x}_p=1}$ and $\mathfrak{P}^n:=\mysetn{x\in\Q_p}{\myabs{x}<p^{-n}}$ for $n\in\Z$.
+	\end{definition}
+	\begin{prop}
+		$R_p$ is maximal compact subring of $\Q_p$, $\mathfrak{P}$ is unique maximal ideal of $R_p$. We have $\{
+			\mathfrak{P}^n\}_{n\in\Z}$
+			forming the local base of $0\in\Q_p$ consisting of open compact sets and $\left[ \mathfrak{P}^m:\mathfrak{P}^n
+			\right]=p^{m-n}$ for $m>n\in\Z$.
+	\end{prop}
+\end{frame}
+\begin{frame}
+	\begin{prop}
+		$\Z\subset R_p$ is dense.
+		\label{}
+	\end{prop}
+	\begin{prop}
+		$R_p$ can be written as a disjoint union $R_p=\bigsqcup_{k=0}^{p-1}\left( k+\mathfrak{P} \right)$. More generally,
+		every open set in $\Q_p$ can be written as a countable disjoint union of sets $a+\mathfrak{P}^n$ for $a\in\Q$
+		and $n\in\Z$.
+	\end{prop}
+\end{frame}
+\begin{frame}
+	\begin{prop}
+		We can introduce translation-invariant Haar measure $dx$ on $\Q_p$ normalized such that $\myabs{R_p}=1$.
+		Then, $d^{\times}x:=\left( 1-p^{-1} \right)\myabs{x}_p^{-1}dx$ forms a Haar measure on a multiplicative group
+		$Q_p^{\times}$ normalized such that $\myabs{R_p\setminus\left\{ 0 \right\}}_p=1$.
+	\end{prop}
+\end{frame}
+\section{Basic properties of $GL_n(F)$}
+\begin{frame}
+	From now on, $G$ will denote a closed subgroup of $GL_n(F)$ for $F=\Q_p$ for some prime $p\in\Z_{>0}$.
+	\begin{prop}
+		If $U\ni1$ is open in $G$, we can find $K\subset U$ -- compact open subgroup of $G$. Moreover, if $G$ is compact,
+		$K$ may in addition be taken to be normal in $G$.
+	\end{prop}
+	Hence, $G$ in particular is locally compact. Hence, we may take of Haar measure and unimodularity.
+	\begin{prop}
+		If $G=GL_n(\Q_p)$ or $G$ is compact, then it is unimodular.
+	\end{prop}
+\end{frame}
+\section{Basic properties of admissible and smooth reps}
+\begin{frame}
+	\begin{definition}
+		Let $(\pi,V)$ be a representation of $G$. We say $\pi$ is {\it smooth} if $\forall v\in V$ we have
+		$G_v:=\mysetn{g\in G}{g\cdot v=v}$ is open. If, in addition, for every open subgroup $U\subset G$ we have $V^U:=
+		\mysetn{v\in V}{\forall g\in U,\;g\cdot v=v}$ we have $V^U$ being finite-dimensional, we say
+		$\pi$ is {\it admissible}.
+	\end{definition}
+	\begin{example}
+		Let $C^\infty(G)$ be the set of locally constant $\C$-valued functions on $G$, $C^\infty_c(G)$ be the elements
+		of $C^\infty(G)$ with constant support and $C^\infty_u(G)$ be $f\in C^\infty(G)$ such that $\exists K\subset G$
+		compact open such that $f$ is $K$-bi-invariant. Then $C^\infty_u(G)$ and $C^\infty_c(G)$ are smooth representations
+		of $G$ with action given by multiplication from left or right.
+	\end{example}
+\end{frame}
+\begin{frame}
+	For $\Gamma$ topological group, let $\hat{\Gamma}$ denote the set of equivalence classes of finite dimensional
+	irreps $\pi$ of $\Gamma$
+	such that $\Ker(\pi)\subset \Gamma$ is open. If $V$ is $\Gamma$-module (with no continuity assumptions) and
+	$\rho\in\hat{\Gamma}$,
+	let $V(\rho)$ denote the sum of invariant subspaces of $V$ that are of class $\rho$.
+	\begin{prop}
+		If $\Gamma$ is finite, $V=\bigoplus_{\rho\in\hat{\Gamma}}V(\rho)$.
+		\label{<++>}
+	\end{prop}
+	\begin{theorem}
+		If $V$ is smooth representation of $G$ and $K\subset G$ is compact,
+		then $V=\bigoplus_{\rho\in\hat{K}}V(\rho)$. Moreover,
+		$V$ is admissible iff all $V(\rho)$ are finite-dimensional.
+		\label{}
+	\end{theorem}
+\end{frame}
+\begin{frame}
+	\begin{definition}
+		For $V$ being $G$-representation, and $\hat{v}$ -- $\C$-linear functional on $V$. We say $\hat{v}$ is {\it smooth}
+		if for all $g$ in some open set $1\in U\subset G$ we have $\forall v\in V,\;\hat{v}(g\cdot v)=\hat{v}(v)$.
+	\end{definition}
+	\begin{prop}
+		For $V$ being smooth $G$-representations, let $\hat{V}$ be set of smooth linear functionals on $V$. Then
+		$\hat{V}$ (with obvious action) is smooth $G$-module. Moreover, $\hat{V}\simeq\bigoplus_{\rho\in\hat{K}}V(\rho)
+		\,{\hat{}}$. Moreover, if $V$ was admissible, so will be $\hat{V}$ and we have self-duality.
+		\label{}
+	\end{prop}
+	This $\hat{V}$ is called contragredient representation.
+\end{frame}
+\begin{frame}
+	\begin{prop}
+		$C^{\infty}_c(G)$ is closed under convolution, which makes it an algebra without a unit.
+		We will call it {\it Hecke algebra} and denote $\mathcal{H}$.
+		\label{}
+	\end{prop}
+	\begin{prop}
+		For $K\subset G$ being open compact subgroup, let $C^{\infty}_K(G)\subset C^{\infty}_c(G)$ be the elements that
+		are $K$-bi-invariant. Then $C^{\infty}_K$ is also closed under convolution, which makes it an algebra $\mathcal{H}_K$
+		with identity given by $1_K/\myabs{K}$.
+		\label{}
+	\end{prop}
+\end{frame}
+\begin{frame}
+	\begin{definition}
+		For smooth representation $(\pi,V)$ of $G$ and $\varphi\in\mathcal{H}$ we define an endomorphism
+		$\pi(\varphi)$ on $V$ by $\pi(\varphi)v:=\int_G\varphi(g)\pi(g)v\;dg$.
+	\end{definition}
+	\begin{theorem}
+		For $(\pi,V)$: smooth rep of $G$ TFAE:
+		\begin{enumerate}
+			\item $\pi$ is irreducible;
+			\item $V$ is simple as an $\mathcal{H}$-module (the structure of $\mathcal{H}$-module given by previous
+				definition;
+			\item for every $K\subset G$ compact open subgroup, $V^{K}=0$ or $V^K$ is simple as $\mathcal{H}_K$-module.
+		\end{enumerate}
+		\label{}
+	\end{theorem}
+\end{frame}
+\section{Further properties of admissible and smooth reps}
+\begin{frame}
+	\begin{theorem}[Schur lemma]
+		If $(\pi,V)$ is admissible $G$-irrep and $A:V\to V$ is $G$-intertwiner, then $A=c\cdot I$ for some $c\in\C$.
+		\label{}
+	\end{theorem}
+	\begin{theorem}
+		If $(\pi,V)$ is admissible, $K\subset G$ is open compact subgroup
+		and $(\hat{\pi},\hat{V})$ is contragredient, then restriction of natural pairing
+		on $V\times\hat{V}$ to $V^K\times\hat{V}^{K}$ is non-degenerate.
+		\label{}
+	\end{theorem}
+\end{frame}
+\begin{frame}
+	\begin{definition}
+		Let $\mathcal{D}(G)$ denote the space of linear $\C$-valued functionals on $C^\infty_c(G)$. We call elements
+		of $\mathcal{D}(G)$ {\it distributions}. They form $G$-module.
+	\end{definition}
+	\begin{definition}
+		For $V$: $\C$-linear space and $A:V\to V$ be linear operator of finite rank, we define $\tr(A)$ as $\tr(A):=\tr(A
+		\bigg|_U:U\to U)$ for any finite dimensional $U$ containing image of $A$. Such $\tr(A)$ is well-defined.
+	\end{definition}
+	\begin{definition}
+		Let $(\pi,V)$ be admissible $G$-rep. We will call distribution $\chi_\pi:\varphi\to
+		\tr(\pi(\varphi))$ a {\it character} of $\pi$.
+	\end{definition}
+\end{frame}
+\begin{frame}
+	\begin{theorem}
+		Let $R$ be a $\C$-algebra and $E_i$ simple finite-dimensional $R$-modules for $i=1,2$. Then every element
+		$\varphi\in R$ denote homomorphism $\lambda_i(\varphi):E_i\to E_i$ given by multiplication with $\varphi$. If
+		$\forall\varphi\in R,\;\tr(\lambda_1(\varphi))=\tr(\lambda_2(\varphi))$, then $E_1\simeq E_2$.
+		\label{<++>}
+	\end{theorem}
+	\begin{theorem}
+		If $(\pi_i,V_i)$ for $i=1,2$ are admissible $G$-irreps and $\forall K\subset G$ cpt open subgroup we have
+		$V_1^K\simeq V_2^K$ as $\mathcal{H}_K$ modules, then $\pi_1\simeq\pi_2$.
+		\label{}
+	\end{theorem}
+	\begin{theorem}
+		If two admissible $G$-irreps have identical characters, they are isomorphic.
+		\label{}
+	\end{theorem}
+\end{frame}
+\begin{frame}
+	\begin{theorem}
+		For $G=GL_2(\Q_p)$ and $D\in\mathcal{D}$ being invariant under $Ad(G)$, we have $D$ being also invariant under 
+		transposition on $G$.
+		\label{}
+	\end{theorem}
+	\begin{theorem}
+		Let $G=GL_2(\Q_p)$ and $(\pi,V)$ be $G$-irrep. Then,
+		\begin{enumerate}
+			\item if $(\pi_1,V)$ defined as $\pi_1(g):=\pi(g^{-T})$, then $\pi_1\simeq\hat{\pi}$;
+			\item $(\pi_2,V)$ defined as $\pi_2(g):=\pi(\det(g)I)^{-1}\pi(g)$, then $\pi_2\simeq\hat{\pi}$.
+		\end{enumerate}
+		\label{}
+	\end{theorem}
+	\begin{theorem}
+		If $\pi$ is an admissible rep of $GL_n(\Q_p)$, then $\pi$ is irrep iff $\hat{\pi}$ is so.
+		\label{}
+	\end{theorem}
+\end{frame}
+\end{document}
