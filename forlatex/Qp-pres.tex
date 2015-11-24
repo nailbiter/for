@@ -1,3 +1,4 @@
+%\documentclass[pdf]{beamer}
 \documentclass[pdf,notes]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 \usepackage{mystyle}
@@ -5,8 +6,17 @@
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \newcommand{\DEBUG}{}
-\newcommand{\mproof}[1]{\ifdefined\DEBUG\begin{proof}#1\end{proof}\fi}
+\newcommand{\condproof}[1]{\ifdefined\DEBUG\begin{proof}#1\end{proof}\fi}
+\newcommand{\trueproof}[1]{\begin{proof}#1\end{proof}}
+\newcommand{\falseproof}[1]{}
 \newcommand{\tr}{\mbox{tr}}
+
+\makeatletter
+\newenvironment<>{proofs}[1][\proofname]{
+	\par
+	\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
+	{\usebeamertemplate{proof end}}
+\makeatother
 
 \makeatletter
 \def\th@mystyle{%
@@ -16,6 +26,7 @@
     \def\inserttheoremblockenv{exampleblock}
   }
 \makeatother
+
 \theoremstyle{mystyle}
 \newtheorem{prop}{Proposition}
 
@@ -27,8 +38,7 @@
 \begin{document}
 \begin{frame}\titlepage\end{frame}
 \begin{frame}{Outline}
-			\tableofcontents
-%%		\item Basic properties of admissible and smooth representations.
+\tableofcontents
 \end{frame}
 \section{Basic properties and definition of $F:=\Q_p$}
 \begin{frame}
@@ -91,7 +101,9 @@
 	\end{prop}
 	Hence, $G$ in particular is locally compact. Hence, we may take of Haar measure and unimodularity.
 	\begin{prop}
-		If $G=GL_n(\Q_p)$ or $G$ is compact, then it is unimodular.
+		If $G$ is compact, then it is unimodular.
+		If $G=GL_n(\Q_p)$, then the measure $d^{GL}x:=\myabs{\det(g)}^{-n}_pdx$ is unimodular, where $dx$ is the translation
+		invariant Haar measure on $M_n(\Q_p)$.
 	\end{prop}
 \end{frame}
 \section{Basic properties of admissible and smooth reps}
@@ -120,11 +132,33 @@
 		\label{<++>}
 	\end{prop}
 	\begin{theorem}
-		If $V$ is smooth representation of $G$ and $K\subset G$ is compact,
+		If $V$ is smooth representation of $G$ and $K\subset G$ is compact open,
 		then $V=\bigoplus_{\rho\in\hat{K}}V(\rho)$. Moreover,
 		$V$ is admissible iff all $V(\rho)$ are finite-dimensional.
 		\label{}
 	\end{theorem}
+\end{frame}
+\begin{frame}
+	\begin{proofs}
+		By prop. above, for $v\in V$ we can choose $K_0\triangleleft K$, so that finite group $\Gamma:=K/K_0$ ($\implies
+		\hat{\Gamma}\subset\hat{K}$) acts
+		on $V^{K_0}\ni v$\footnote{$k_0k\cdot v=k\cdot Ad(k^{-1})k_0\cdot v=k\cdot v$}
+		and hence \[v\in V^{K_0}=\bigoplus_{\rho\in\hat{\Gamma}}V^{K_0}(\rho)\subset\sum_{\rho\in\hat{K}}
+		V^{K_0}(\rho)\subset\sum_{\rho\in\hat{K}}V(\rho)\]
+
+		Decomposition is direct, as if $\sum_{i=1}^nc_{\rho_i}v_{\rho_i}=0$ and $K_0:=\bigcup_{i=1}^n\Ker(\rho_i)$, then
+		directness of decomposition of $\left\{ v_{\rho_i} \right\}_i\subset V^{K_0}\curvearrowleft\Gamma=K/K_0$ implies 
+		$c_{\rho_i}\equiv0$.
+	\end{proofs}
+\end{frame}
+\begin{frame}
+	\begin{proof}[(cont.)]
+		If $\pi$ is admissible, then $\forall V(\rho)\subset V^{\ker(\rho)}$:finite dimensional (since $\ker(\rho)$:open).
+
+		Conversely, if $\pi$ is not admissible, for some compact open $K_0\triangleleft K$ we have $V^{K_0}$: infinite
+		dimensional and as for $\Gamma:=K/K_0$ $V^{K_0}$ decomposes as direct sum, we should have for some $\rho_0\in
+		\hat{\Gamma}$ that $V^{K_0}(\rho_0)$: infinite dim. Hence, so should be $V(\rho_0)\supset V^{K_0}(\rho_0)$.
+	\end{proof}
 \end{frame}
 \begin{frame}
 	\begin{definition}
@@ -142,13 +176,13 @@
 \begin{frame}
 	\begin{prop}
 		$C^{\infty}_c(G)$ is closed under convolution, which makes it an algebra without a unit.
-		We will call it {\it Hecke algebra} and denote $\mathcal{H}$.
+		We will call it {\it Hecke algebra} and denote by $\mathcal{H}$.
 		\label{}
 	\end{prop}
 	\begin{prop}
 		For $K\subset G$ being open compact subgroup, let $C^{\infty}_K(G)\subset C^{\infty}_c(G)$ be the elements that
 		are $K$-bi-invariant. Then $C^{\infty}_K$ is also closed under convolution, which makes it an algebra $\mathcal{H}_K$
-		with identity given by $1_K/\myabs{K}$.
+		with identity given by $\varepsilon_K:=1_K/\myabs{K}$.
 		\label{}
 	\end{prop}
 \end{frame}
@@ -159,14 +193,35 @@
 	\end{definition}
 	\begin{theorem}
 		For $(\pi,V)$: smooth rep of $G$ TFAE:
-		\begin{enumerate}
+		\begin{enumerate}[(1)]
 			\item $\pi$ is irreducible;
 			\item $V$ is simple as an $\mathcal{H}$-module (the structure of $\mathcal{H}$-module given by previous
 				definition;
-			\item for every $K\subset G$ compact open subgroup, $V^{K}=0$ or $V^K$ is simple as $\mathcal{H}_K$-module.
+			\item for every $K\subset G$ compact open\footnote{typo in Prop. 4.2.3 in Bump} subgroup, $V^{K}=0$ or $V^K$ is simple as $\mathcal{H}_K$-module
+				\footnote{$V^K$ is invariant under $\mathcal{H}_K$}.
 		\end{enumerate}
 		\label{}
 	\end{theorem}
+\end{frame}
+\begin{frame}
+	\begin{proof}
+		$(2)\implies(1)$: true, as $G$-invariant subspace is $\mathcal{H}$-invariant.
+
+		$(1)\implies(2)$. Let $W\subset V$ be $\mathcal{H}$-invariant, $v\in W$ and $g\in G$. Then $v$ is fixed
+		by compact open $N\ni1$ and hence for $\mathcal{H}\ni\varphi:=1_{gN}/\mbox{vol}(N)$ we have 
+		$\mathcal{H}\ni\pi(\varphi)v=\pi(g)v$.
+
+		$(3)\implies(2)$. Let $0\subsetneq W\subsetneq V$ be $\mathcal{H}$-submodule. Take $w\in W$, $v\in V\setminus W$
+		and choose $K\ni1$ cpt open subgroup, such that it stabilizes both. Then, $w\in W^{K}$ and $v\in V^K$, hence $V^K$
+		is a proper $\mathcal{H}_K$ submodule of $V^K$.
+
+		$(2)\implies(3)$. Let $W\subset V^K$ be proper nonzero. It suffices to show $\pi(\mathcal{H})W\cap V^K=W$, as then 
+		$\pi(\mathcal{H})W\subset V$ is proper nonzero. Only $\subseteq$ is nontrivial. So let $\sum_i\pi(\varphi_i)w_i\in
+		V^K$. Then (as $\pi(\varepsilon_K)w_i=w_i$),
+		$\sum_i\pi(\varphi_i)w_i=\pi(\varepsilon_K)\sum_i\pi(\varphi_i)w_i=\sum_i\pi(\varepsilon_K
+		\star\varphi_i\star\varepsilon_K)w_i$. But as $\varepsilon_K\star\varphi_i\star\varepsilon_K\in\mathcal{H}_K$ and
+		$w_i\in W$, the latter sum is in $W$.
+	\end{proof}
 \end{frame}
 \section{Further properties of admissible and smooth reps}
 \begin{frame}
@@ -174,12 +229,24 @@
 		If $(\pi,V)$ is admissible $G$-irrep and $A:V\to V$ is $G$-intertwiner, then $A=c\cdot I$ for some $c\in\C$.
 		\label{}
 	\end{theorem}
+	\begin{proof}
+		Take $K$ so that $V^K\neq0$. Then $T\big|_{V^K}:V^K\to V^K$ and since $\dim(V^K)<\infty$, $T\big|_{V^K}$ has
+		eigenvalue $c$, hence $\ker(T-cI)\neq0\implies T-cI=0$.
+	\end{proof}
 	\begin{theorem}
 		If $(\pi,V)$ is admissible, $K\subset G$ is open compact subgroup
 		and $(\hat{\pi},\hat{V})$ is contragredient, then restriction of natural pairing
 		on $V\times\hat{V}$ to $V^K\times\hat{V}^{K}$ is non-degenerate.
 		\label{}
 	\end{theorem}
+\end{frame}
+\begin{frame}
+	\begin{proof}
+		Let $0\neq v\in V^K$. By the symmetry $\hat{\hat{V}}$, it suffices to find $\hat{v}\in\hat{V}^K$
+		such that $\hat{v}(v)\neq0$. Find $\hat{v}'\in\hat{V}$ such that $\hat{v}'(v)\neq0$. Then
+		\[0\neq\hat{v}'(v)=\hat{v}'(\pi(\varepsilon_K)v)=\left( \hat{\pi}(\varepsilon_K)v' \right)(v)\]
+		and since $\hat{\pi}(\varepsilon_K)v'\in\hat{V}^K$, we are done.
+	\end{proof}
 \end{frame}
 \begin{frame}
 	\begin{definition}
@@ -196,39 +263,115 @@
 	\end{definition}
 \end{frame}
 \begin{frame}
-	\begin{theorem}
+	\begin{theorem}[from ``Algebra'' by S. Lang]
 		Let $R$ be a $\C$-algebra and $E_i$ simple finite-dimensional $R$-modules for $i=1,2$. Then every element
 		$\varphi\in R$ denote homomorphism $\lambda_i(\varphi):E_i\to E_i$ given by multiplication with $\varphi$. If
 		$\forall\varphi\in R,\;\tr(\lambda_1(\varphi))=\tr(\lambda_2(\varphi))$, then $E_1\simeq E_2$.
-		\label{<++>}
 	\end{theorem}
+	\begin{fact}[Thm 3.2 from ``Algebra'' by S. Lang]
+		Let $E$ be semisimple $R$-module, $R':=\End_R(E)$ and $f\in\End_{R'}(E)$. Then if $\left\{ x_i \right\}_{i=1}^n\subset
+		E$ there exists $\alpha\in R$ such that $\alpha x_i=f(x_i)$.
+	\end{fact}
+	\note{
+		For completeness, let's prove the fact taken from ``Algebra''. We will prove only the case when $E$ decomposes
+		as {\it finite} direct sum of simples, since this suffices for our purposes.
+
+		First, let's consider the case $n=1$, that is
+		for $x\in E$ and $f\in\End_{R'}(E)$ we want to show that $\exists\alpha\in R$ with $\alpha\cdot x=f(x)$. Indeed,
+		the semisimplicity allows us to write $E=Rx\oplus F$ and consider $\pi:E\to Rx$ projection. Then, as $\pi\in R'$,
+		we have $f(x)=f(\pi(x))=\pi(f(x))$, hence $f(x)\in Rx$.
+
+		Next, assume $n>1$. Indeed, setting $\End(E^n)\ni f^{(n)}(y_1,\hdots,y_n):=(f(y_1),\hdots,f(y_n))
+		$ and letting $R_n':=\End_R(E^n)$ (one may view element of $R_n'$ as $n\times n$ matrix with entries in $R'$)
+		) we have $f^{(n)}\in\End_{R_n'}(E^n)$ and application of the previous paragraph ends
+		the proof in this case as well.
+	}
+	\begin{proofs}
+		Suppose $E_1\not\simeq E_2$, $E:=E_1\oplus E_2$ and $\pi_1\in\End(E)$ being projection on $E_1$.
+		Easy to see that for any $\varphi\in\End_{R}(E)$ we have $\varphi(E_i)\subset E_i$, hence $\pi_1\in\End_{R'}(E)$.
+		By the fact above we have $\alpha$ such that multiplication with $\lambda_1(\alpha)=id$ and $\lambda_2(\alpha)=0$.
+	\end{proofs}
+\end{frame}
+\begin{frame}
 	\begin{theorem}
 		If $(\pi_i,V_i)$ for $i=1,2$ are admissible $G$-irreps and $\forall K\subset G$ cpt open subgroup we have
 		$V_1^K\simeq V_2^K$ as $\mathcal{H}_K$ modules, then $\pi_1\simeq\pi_2$.
 		\label{}
 	\end{theorem}
+	We first prove the next theorem, and then the previous one.
 	\begin{theorem}
 		If two admissible $G$-irreps have identical characters, they are isomorphic.
 		\label{}
 	\end{theorem}
+	\begin{proof}
+		Take Two such irreps $(\pi_i,V_i)$ for $i=1,2$. For $K\subset G$ compact open subgroup, $E_i=V_i^K$ are isomorphic
+		as $\mathcal{H}_K$-modules by theorem from ``Algebra'' above, hence by previous theorem we are done.
+	\end{proof}
 \end{frame}
 \begin{frame}
-	\begin{theorem}
+	\begin{proofs}
+		Take $K\subset G$ compact open small enough so that $V_i^K$ are both non-zero. By proposition above, these are simple 
+		f-d $\mathcal{H}_K$ modules. By hypothesis, we should have $\mathcal{H}_K$-intertwiner $\sigma_K:V_1^K\diffsm V_2^K$.
+		By Schur lemma (for f-d simple modules) it is determined up to const.
+
+		Now, for $K_0\subset K$ open compact subgroup, we have $V_i^{K_0}\supset V_i^K$.
+		Similarly, hypothesis implies the existence of $\sigma_{K_0}:V_1^{K_0}\diffsm
+		V_2^{K_0}$. Then, as $\varepsilon_K\in\mathcal{H}_K\subset \mathcal{H}_{K_0}$,
+		$\pi_i(\varepsilon_K)V_i^{K_0}=V_i^{K}$ and $\sigma_{K_0}$ is an $\mathcal{H}_{K_0}$-intertwiner, we have 
+		$\sigma_{K_0}V^K_1=\sigma_{K_0}
+		\pi_1(\varepsilon_K)V^{K_0}_1=\pi_2(\varepsilon_K)\sigma_{K_0}V^{K_0}_1=\pi_2(\varepsilon_K)
+		V_2^{K_0}=V_2^K$. Thus, $\sigma_{K_0}\big|_{V_1^K}$
+		maps $V_1^K$ into $V_2^K$, hence induces $\mathcal{H}_K$ isomorphism
+		between $V_i^K$, which is then proportional to $\sigma_K$. By adjusting $\sigma_{K_0}$ we may then ensure 
+		$\sigma_{K_0}\big|_{K}=\sigma_K$.
+
+		Hence, by shrinking $K$ to ${1}$ we can obtain $\mathcal{H}$-intertwiner $\sigma:V_1\diffsm V_2$ and it remains
+		to show that it is in fact $G$-intertwiner.
+	\end{proofs}
+\end{frame}
+\begin{frame}
+	\begin{proof}
+		But the latter follows, as for $v_0\in V_1$, and $g_0\in G$ we can find compact open subgroup $N\subset G$ 
+		such that $N\subset G_{v_0}$ and $N\subset G_{\sigma(v_0)}$. 
+		Then by taking $\varphi_0:=1_{g_0N}/\myabs{N}$ we have $\pi_1(\varphi_0)v_0=\pi_1(g_0)v_0$ and $\pi_2(\varphi_0)
+		\sigma(v_0)=\pi_2(g_0)\sigma(v_0)$. 
+		
+		And as $\sigma$ intertwines $\pi_i(\varphi_0)$, it will also intertwine $\pi_i(g_0)$.
+	\end{proof}
+\end{frame}
+\begin{frame}
+	\begin{fact}
 		For $G=GL_2(\Q_p)$ and $D\in\mathcal{D}$ being invariant under $Ad(G)$, we have $D$ being also invariant under 
-		transposition on $G$.
+		transposition on $G$.\footnote{proven as at p.449 of Bump's book}
 		\label{}
-	\end{theorem}
+	\end{fact}
 	\begin{theorem}
-		Let $G=GL_2(\Q_p)$ and $(\pi,V)$ be $G$-irrep. Then,
-		\begin{enumerate}
-			\item if $(\pi_1,V)$ defined as $\pi_1(g):=\pi(g^{-T})$, then $\pi_1\simeq\hat{\pi}$;
-			\item $(\pi_2,V)$ defined as $\pi_2(g):=\pi(\det(g)I)^{-1}\pi(g)$, then $\pi_2\simeq\hat{\pi}$.
-		\end{enumerate}
-		\label{}
+		Let $G=GL_2(\Q_p)$ and $(\pi,V)$ be an admissible $G$-irrep. Then,
+		if $(\pi_1,V)$ defined as $\pi_1(g):=\pi(g^{-T})$, $\pi_1\simeq\hat{\pi}$.
 	\end{theorem}
+	We first prove the next theorem, and then the previous one.
 	\begin{theorem}
-		If $\pi$ is an admissible rep of $GL_n(\Q_p)$, then $\pi$ is irrep iff $\hat{\pi}$ is so.
+		If $\pi$ is an admissible rep of $G=GL_n(\Q_p)$, then $\pi$ is irrep iff $\hat{\pi}$ is so.
 		\label{}
 	\end{theorem}
+\end{frame}
+\begin{frame}
+	\begin{proof}
+		As by previous theorem $\hat{\pi}\simeq\pi_1$ and $G$ is clearly closed under $g\mapsto g^{-T}$,
+		we see that subspace of rep would be $\pi$-invariant iff it would be $\pi_1$ invariant and we're done.
+	\end{proof}
+	\begin{proof}
+		As $\chi_\pi$ is easily seen to be conjugation-invariant\footnote{if $g_0\in G$ and 
+			$\varphi\in\mathcal{H}_K\subset\mathcal{H}$, we may WLOG assume $Ad(g_0)K=K$ (by taking $K\leftarrow K\cap
+			Ad(g_0)K$) and hence $Ad(g_0)\mathcal{H}_K=\mathcal{H}_K$ and $Ad(g_0)V^K=V^K$, hence $\mbox{im}(\pi(\varphi
+			)), \mbox{im}(\pi(Ad(g_0)\varphi))\subset V^K$ and $\tr(\pi(\varphi)\big|_{V^K})=\tr(\pi(Ad(g_0)\varphi)
+		\big|_{V^K})$},
+		it is also transpose-invariant by the result above. Hence, if for $\varphi\in\mathcal{H}$ we define elements of $
+		\mathcal{H}$ by $\varphi^{-1}(g):=\varphi(g^{-1})$ and $\varphi^{-T}(g):=\varphi(g^{-T})$, we have
+		$\chi_{\pi_1}(\varphi)=\chi_{\pi}(\varphi^{-T})=\chi_\pi(\varphi^{-1})$.
+
+		Finally, $\pi(\varphi^{-1})$ and $\hat{\pi}(\varphi)$ are adjoints of each other, hence have equal trace,
+		hence $\chi_{\pi_1}(\varphi)=\chi_\pi(\varphi^{-1})=\chi_{\hat{\pi}}(\varphi)$ and hence $\hat{\pi}\simeq\pi_1$.
+	\end{proof}
 \end{frame}
 \end{document}
