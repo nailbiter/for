@@ -99,7 +99,14 @@
 		If $U\ni1$ is open in $G$, we can find $K\subset U$ -- compact open subgroup of $G$. Moreover, if $G$ is compact,
 		$K$ may in addition be taken to be normal in $G$.
 	\end{prop}
-	Hence, $G$ in particular is locally compact. Hence, we may take of Haar measure and unimodularity.
+	\note{
+		One possible choice is $G_i:=\mysetn{g\in G}{g-I_n\in M_n(\mathfrak{P}^i)}$. These $G_i$ form a
+		local base of cpt open neighborhoods of $1$.
+		
+		If $G$ is compact, we may assume $G\subset GL_n(R_p)$ and the same choice of $G_i$ then yields normal
+		subgroups.
+	}
+	Hence, $G$ in particular is locally compact and clearly Hausdorff. Hence, we may talk of Haar measure and unimodularity.
 	\begin{prop}
 		If $G$ is compact, then it is unimodular.
 		If $G=GL_n(\Q_p)$, then the measure $d^{GL}x:=\myabs{\det(g)}^{-n}_pdx$ is unimodular, where $dx$ is the translation
@@ -129,7 +136,7 @@
 	let $V(\rho)$ denote the sum of invariant subspaces of $V$ that are of class $\rho$.
 	\begin{prop}
 		If $\Gamma$ is finite, $V=\bigoplus_{\rho\in\hat{\Gamma}}V(\rho)$.
-		\label{<++>}
+		\label{}
 	\end{prop}
 	\begin{theorem}
 		If $V$ is smooth representation of $G$ and $K\subset G$ is compact open,
