@@ -431,7 +431,7 @@
     if <math|f> has pole of order <math|m> at <math|\<nu\>=\<nu\><rsub|0>>
     and <math|\<frak-P\><around*|(|f|)><around*|(|\<nu\><rsub|0>|)>=0>
     otherwise. We also use <math|\<frak-P\><rsub|\<pm\>><around*|(|f|)>> to
-    denote positive and negahitve parts of <math|\<frak-P\><around*|(|f|)>>.
+    denote positive and negative parts of <math|\<frak-P\><around*|(|f|)>>.
 
     Similarly, we define <math|\<frak-P\><around*|(|F<rsub|\<nu\>>|)>> and
     <math|\<frak-P\><rsub|\<pm\>><around*|(|F<rsub|\<nu\>>|)>>for
@@ -460,7 +460,13 @@
     evident:
 
     <\enumerate>
-      <item><math|\<frak-P\><around*|(|\<Gamma\><around*|(|\<nu\>-a|)>|)>=<around*|{|\<nu\>\<in\>a-\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      <item><math|\<frak-P\><around*|(|\<Gamma\><around*|(|\<nu\>-a|)>|)>=<around*|{|\<nu\>\<in\>a-\<bbb-Z\><rsub|\<geqslant\>0>|}>>;
+
+      <item>for <math|n\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
+      <math|\<frak-P\><around*|(|\<Gamma\><around*|(|t|)>/\<Gamma\><around*|(|t-n|)>|)>=-<around*|{|t=1,2,\<ldots\>,n|}>>;
+
+      <item>for <math|n\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
+      <math|\<frak-P\><around*|(|\<Gamma\><around*|(|t+n|)>/\<Gamma\><around*|(|n|)>|)>=-<around*|{|t=-n+1,-n+2,\<ldots\>,0|}>>;
 
       <item>if <math|<around*|{|f<rsub|i>|}><rsub|i>> are meromorphic
       functions, then <math|\<frak-P\><rsub|><around*|(|<big|sum><rsub|i>f<rsub|i>|)>\<leqslant\>max<around*|{|\<frak-P\><rsub|><around*|(|f<rsub|i>|)>|}><rsub|i>\<nosymbol\>>;

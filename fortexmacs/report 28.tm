@@ -40,18 +40,18 @@
   For the next week, I plan to do items 1-3 (or 1-4) of the following list:
 
   <\enumerate>
-    <item>Find the best possible normalization for regular SBO kernel for
-    <math|q=2> and determine when it gets zero.
+    <item>(Find the best possible normalization for regular SBO kernel for
+    <math|q=2> and determine when it gets zero.)
 
     <item>Normalize <math|<around*|\||Q|\|><rsup|\<nu\>>> and
     <math|<around*|\||Q|\|><rsup|\<nu\>>sgn<around*|(|Q|)>> using
     differential equation
 
-    <item>Related to <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>:
+    <item>Related to <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>:
 
     <\enumerate>
       <item>Find best possible normalization for
-      <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>.
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>.
 
       <item>Compare it with <math|q=2> case done in
       <verbatim|KP-normalization.pdf> to check for inconsistincies.
@@ -94,6 +94,8 @@
 
     If done right, this'll give better answer to question 4 than we have at
     the moment.
+
+    <item>Gelfand approach
   </enumerate>
 
   <\with|font-series|bold>
@@ -106,9 +108,6 @@
 
   (empty)
 </body>
-
-<initial|<\collection>
-</collection>>
 
 <\references>
   <\collection>
