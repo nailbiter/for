@@ -27,12 +27,10 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>I've prepared a report for Professor Speh's seminar on
-    representation theory of <math|p>-adic groups.
-
-    <item>For <math|q=2> I can normalize the kernel of regular SBO such that
-    it vanishes on a discrete subset of <math|\<bbb-C\><rsup|2>>, but I
-    haven't written this up yet.
+    <item>For <math|q=2> I can normalize the kernel of regular SBO in the
+    best possible way (so that it vanishes on discrete set and I can
+    explicitly describe it). However, the result is very different from
+    Kobayashi-Speh, so there might be a mistake somewhere.
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do>

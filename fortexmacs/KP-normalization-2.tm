@@ -3,7 +3,9 @@
 <style|<tuple|article|mystyle>>
 
 <\body>
-  <section|Setting>
+  <section|Setting and goal>
+
+  <section|Comments>
 
   <section|Main results>
 
@@ -43,8 +45,7 @@
   <\lemma>
     <label|lem-restricted> Meromorphic distribution
     <math|Q<rsub|\<pm\>><rsup|\<nu\>><mid|\|><rsub|<around*|{|x\<neq\>0|}>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>-<around*|{|0|}>|)>>
-    has simple poles at <math|\<nu\>\<in\>\<bbb-Z\><rsub|\<leqslant\>-1>>
-    with residues given by\ 
+    has simple poles at <math|\<nu\>\<in\>> with residues given by\ 
 
     <\equation*>
       res<rsub|\<nu\>=-k><around*|(|Q<rsub|\<pm\>><rsup|\<nu\>><mid|\|><rsub|<around*|{|x\<neq\>0|}>>|)>=<choice|<tformat|<table|<row|<cell|<frac|<around*|(|-1|)><rsup|k-1>|<around*|(|k-1|)>!>\<delta\><rsup|<around*|(|k-1|)>><around*|(|Q|)>,>|<cell|+>>|<row|<cell|<frac|1|<around*|(|k-1|)>!>\<delta\><rsup|<around*|(|k-1|)>><around*|(|Q|)>,>|<cell|->>>>>
@@ -55,7 +56,10 @@
     Follows if one views <math|Q<rsup|\<nu\>><rsub|\<pm\>><mid|\|><rsub|<around*|{|x\<neq\>0|}>>>
     as pullback of <math|x<rsub|\<pm\>><rsup|\<nu\>>> under
     <math|Q:\<bbb-R\><rsup|p,q>\<rightarrow\>\<bbb-R\>>, as we know residue
-    and poles of <math|x<rsub|\<pm\>><rsup|\<nu\>>>.
+    and poles of <math|x<rsub|\<pm\>><rsup|\<nu\>>>. By the way, information
+    on latter can be obtained in the same way we normalize
+    <math|<around*|\||Q|\|><rsup|\<nu\>>> and
+    <math|<around*|\||Q|\|><rsup|\<nu\>>sgn<around*|(|Q|)>> below.
   </proof>
 
   <\fact>
@@ -304,6 +308,64 @@
   </proof>
 
   <\lemma>
+    <label|lem-pq2holo>Assuming <math|p,q\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>>,
+    <math|Q<rsub|\<pm\>><rsup|\<nu\>>> only can have poles at points
+    <math|\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>1>> and these are no more
+    than simple.
+  </lemma>
+
+  <\proof>
+    Letting <math|<wide|Q|~><rsup|\<nu\>><rsub|\<pm\>>\<assign\>Q<rsup|\<nu\>><rsub|\<pm\>>/\<Gamma\><around*|(|\<nu\>+1|)>>
+    we have that relation <math|L Q<rsub|\<pm\>><rsup|\<nu\>+1>=\<pm\>4<around*|(|\<nu\>+1|)><around*|(|\<nu\>+n/2|)>Q<rsub|\<pm\>><rsup|\<nu\>>>
+    implies that <math|L<wide|Q|~><rsub|\<pm\>><rsup|\<nu\>+1>=\<pm\>4<around*|(|\<nu\>+n/2|)><wide|Q|~><rsub|\<pm\>><rsup|\<nu\>>>.
+    Hence, as lemma <reference|lem-restricted> together with fact
+    <reference|fact-horm-homog> (the latter being applicable) imply, we have
+    <math|<wide|Q|~><rsub|\<pm\>><rsup|1-n/2>\<simeq\>\<delta\><rsup|<around*|(|n/2-2|)>><around*|(|Q|)>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>|)>>,
+    fact <reference|fact-horm1> tells us that
+    <math|L<rsup|><wide|Q|~><rsub|\<pm\>><rsup|1-n/2>=0> and this implies
+    holomorphicity of <math|<wide|Q|~><rsub|\<pm\>><rsup|\<nu\>>>, which in
+    turn implies the desired.
+  </proof>
+
+  <\lemma>
+    <label|lem-r1-e>Let <math|p=q=2>, <math|L\<assign\><big|sum><rsub|i=0><rsup|p><frac|\<partial\><rsup|2>|\<partial\>x<rsub|i><rsup|2>>-<big|sum><rsub|j=0><rsup|q><frac|\<partial\><rsup|2>|\<partial\>y<rsub|j><rsup|2>>>.
+    Then for <math|i=0> and <math|<wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>>
+    defined as in proposition <reference|prop-2> we have
+    <math|<wide|F|~><rsup|<around*|(|0|)>><rsub|-2>\<simeq\>\<delta\><rsup|<around*|(|0|)>><around*|(|x|)>>.
+  </lemma>
+
+  <\proof>
+    Lemma <reference|lem-pq2holo> implies that
+    <math|Q<rsub|\<pm\>><rsup|\<nu\>>> only has poles at points
+    <math|\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>1>> and these are no more
+    than simple.
+
+    Then for <math|\<nu\>=\<nu\><rsub|0>\<in\>-\<bbb-Z\><rsub|\<geqslant\>1>>
+    we can expand <math|Q<rsub|\<pm\>><rsup|\<nu\>>> in Laurent series
+    <math|Q<rsup|\<nu\>><rsub|\<pm\>>=:<big|sum><rsub|k=-1><rsup|\<infty\>>Q<rsub|\<pm\>><rsup|<around*|(|\<nu\><rsub|0>;k|)>><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|k>>.
+    Now, analytic continuation of relation <math|L
+    Q<rsub|\<pm\>><rsup|\<nu\>+1>=\<pm\>4<around*|(|\<nu\>+1|)><around*|(|\<nu\>+2|)>Q<rsub|\<pm\>><rsup|\<nu\>>>
+    at <math|\<nu\>=-2> implies that <math|Q<rsub|\<pm\>><rsup|<around*|(|-2;k|)>>=\<mp\>L
+    Q<rsub|\<pm\>><rsup|<around*|(|-1;k+1|)>>>. Hence, in particular
+    <math|Q<rsub|\<pm\>><rsup|<around*|(|-2;-1|)>>=\<mp\>L
+    Q<rsub|\<pm\>><rsup|<around*|(|-1;0|)>>>. We also note that
+    <math|<wide|F|~><rsup|<around*|(|0|)>><rsub|-2>\<simeq\>Q<rsub|+><rsup|<around*|(|-2;-1|)>>+Q<rsub|->>.
+
+    Now, as simple poles of <math|Q<rsub|+><rsup|\<nu\>>> and
+    <math|Q<rsub|-><rsup|\<nu\>>> cancel at <math|\<nu\>=-1> when subtracted
+    (one can compute the residues explicitly by using lemma
+    <reference|lem-restricted> and fact <reference|fact-horm-homog>), we have
+    <math|<around*|\||Q|\|><rsup|-1>sgn<around*|(|Q|)>=Q<rsub|+><rsup|<around*|(|-1;0|)>>-Q<rsub|-><rsup|<around*|(|-1;0|)>>>
+    and by taking <math|L> of both sides and using discussion above we get
+    <math|-L<around*|\||Q|\|><rsup|-1>sgn<around*|(|Q|)>=Q<rsub|+><rsup|<around*|(|-2;-1|)>>+Q<rsub|-><rsup|<around*|(|-2;-1|)>>>.
+
+    On the other hand, as <math|2<around*|\||x|\|><rsup|-1>sgn<around*|(|x|)>=<around*|(|x+i0|)><rsup|-1>+<around*|(|x-i0|)><rsup|-1>>,
+    fact <reference|fact-horm2> implies that
+    <math|L<around*|\||Q|\|><rsup|-1>sgn<around*|(|Q|)>\<simeq\>\<delta\><rsup|<around*|(|0|)>><around*|(|x|)>>,
+    as <math|1+e<rsup|2\<pi\>i q>\<neq\>0>, since <math|q=2>.
+  </proof>
+
+  <\lemma>
     <label|lem-r6>Proposition <reference|prop-2> holds when
     <math|<around*|(|i,n/2,p|)>\<in\><around*|{|0|}>\<times\><around*|(|2\<bbb-Z\>+1|)>\<times\><around*|(|2\<bbb-Z\>+1|)>>
   </lemma>
@@ -378,20 +440,150 @@
     <math|<around*|(|i,n/2,p|)>\<in\><around*|{|0|}>\<times\><around*|(|2\<bbb-Z\>|)>\<times\><around*|(|2\<bbb-Z\>|)>>
   </lemma>
 
+  <\proof>
+    We start with holomorphicity. As we have recurrence relation
+    <math|L<rsup|2><wide|F|~><rsub|\<nu\>+2><rsup|<around*|(|i|)>>=64<around*|(|\<nu\>+2|)><around*|(|\<nu\>+n/2+1|)><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>>,
+    it suffices to show that <math|L<rsup|2><wide|F|~><rsub|\<nu\>>=0> for
+    <math|\<nu\>=0> (which is clear) and <math|\<nu\>=-n/2+1>. For the
+    latter, we know from lemma <reference|lem-restricted> that when
+    restricted to <math|<around*|{|x\<neq\>0|}>>,
+    <math|<wide|F|~><rsup|<around*|(|i|)>><rsub|-n/2+1>=\<delta\><rsup|<around*|(|n/2-2|)>><around*|(|Q|)>>
+    and as latter is homogeneous of degree <math|2-n>, fact
+    <reference|fact-horm-homog> and fact <reference|fact-horm1> imply that
+    <math|L<wide|F|~><rsup|<around*|(|i|)>><rsub|-n/2+1>=L\<delta\><rsup|<around*|(|n/2-2|)>><around*|(|Q|)>=0>.
+    This shows holomorphicity.
+
+    Now, to prove non-vanishing, we note that by lemma
+    <reference|lem-restricted> \ and the fact that
+    <math|<around*|\||Q|\|><rsup|\<nu\>>> has at most simple poles at
+    <math|-\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1> (which is implied by
+    holomorphicity shown above) we have <math|<wide|F|~><rsub|-1-2k><rsup|<around*|(|i|)>><mid|\|><rsub|<around*|{|x\<neq\>0|}>>=\<delta\><rsup|<around*|(|2k|)>><around*|(|Q|)>\<neq\>0>
+    in the light of the recurrence relation, it suffices to show that for
+    <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
+    <math|L<rsup|2k><wide|F|~><rsub|-n/2><rsup|<around*|(|i|)>>\<neq\>0>.
+    Therefore, we need to compute <math|<wide|F|~><rsup|<around*|(|i|)>><rsub|-n/2>>.
+    To be more precise, we shall show that the latter equals nonzero multiple
+    of <math|\<delta\><rsup|<around*|(|0|)>><around*|(|x|)>> and then
+    application of lemma <reference|lem-6> will end the proof.
+
+    \ As case <math|p=q=2> is handled by lemma <reference|lem-r1-e>, we may
+    assume <math|n/2\<geqslant\>4>. Recurrence relation implies that
+    <math|L<rsup|2><wide|F|~><rsub|-n/2+2><rsup|<around*|(|i|)>>\<simeq\><wide|F|~><rsup|<around*|(|i|)>><rsub|-n/2>>
+    and hence it suffices to compute <math|L<rsup|2><wide|F|~><rsub|-n/2+2><rsup|<around*|(|i|)>>\<simeq\>L<rsup|2><around*|\||Q|\|><rsup|-n/2+2>>.
+    Now, relation <math|L Q<rsub|\<pm\>><rsup|\<nu\>+1>=\<pm\>4<around*|(|\<nu\>+1|)><around*|(|\<nu\>+n/2|)>Q<rsub|\<pm\>><rsup|\<nu\>>>
+    implies that <math|L<rsup|2><around*|\||Q|\|><rsup|-n/2+2>\<simeq\>L<around*|\||Q|\|><rsup|-n/2+1>sgn<around*|(|Q|)>>
+    and then application of fact <reference|fact-horm2> ends the proof, as
+    for <math|n/2\<in\>2\<bbb-Z\>> we have
+    <math|2<around*|\||x|\|><rsup|-n/2+1>sgn<around*|(|x|)>=<around*|(|x+i0|)><rsup|-n/2+1>+<around*|(|x-i0|)><rsup|-n/2+1>>.
+  </proof>
+
+  <\lemma>
+    <label|lem-r4>Proposition <reference|prop-2> holds when
+    <math|<around*|(|i,n/2,p|)>\<in\><around*|{|1|}>\<times\><around*|(|2\<bbb-Z\>+1|)>\<times\><around*|(|2\<bbb-Z\>|)>>
+  </lemma>
+
+  <\proof>
+    We start with holomorphicity. Recurrence relation
+    <math|L<rsup|2><wide|F|~><rsub|\<nu\>+2><rsup|<around*|(|i|)>>=64<around*|(|\<nu\>+1|)><around*|(|\<nu\>+n/2+1|)><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>>
+    implies that we need to show <math|L<rsup|2><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>=0>
+    for <math|\<nu\>=1> (clear) and <math|\<nu\>=-n/2+1>. For latter, we see
+    that <math|<wide|F|~><rsup|<around*|(|i|)>><rsub|-n/2+1>\<simeq\>\<delta\><rsup|<around*|(|n/2-2|)>><around*|(|Q|)>>
+    by lemma <reference|lem-restricted> and fact <reference|fact-horm-homog>.
+    Then, application of fact <reference|fact-horm1> ends the proof of
+    holomorphicity.
+
+    Now, as in proof of lemma <reference|lem-r1>, lemma
+    <reference|lem-restricted> and lemma <reference|lem-6> imply that we just
+    need to show that <math|<wide|F|~><rsub|-n/2><rsup|<around*|(|i|)>>\<simeq\>Q<rsub|+><rsup|<around*|(|-n/2;-1|)>>-Q<rsub|-><rsup|<around*|(|-n/2;-1|)>>>
+    in fact is <math|\<simeq\>\<delta\><rsup|<around*|(|0|)>><around*|(|x|)>>
+    (we use notation for and facts about Laurent series from proof of lemma
+    <reference|lem-pq2holo>). Now, application of recurrence <math|L
+    Q<rsub|\<pm\>><rsup|\<nu\>>=\<pm\>4\<nu\><around*|(|\<nu\>+n/2-1|)>Q<rsub|\<pm\>><rsup|\<nu\>-1>>
+    at <math|\<nu\>=1-n/2> tells us that <math|Q<rsub|\<pm\>><rsup|<around*|(|1-n/2;0|)>>=\<pm\>c\<cdot\>Q<rsub|\<pm\>><rsup|<around*|(|-n/2;1|)>>>
+    and hence that <math|Q<rsub|+><rsup|<around*|(|-n/2;-1|)>>-Q<rsub|-><rsup|<around*|(|-n/2;-1|)>>\<simeq\>L<around*|\||Q|\|><rsup|1-n/2>>,
+    as <math|<around*|\||Q|\|><rsup|\<nu\>>> is holo near
+    <math|\<nu\>=1-n/2\<in\>2\<bbb-Z\>> (one sees this by computing residues
+    of <math|Q<rsub|\<pm\>><rsup|\<nu\>>> at <math|\<nu\>=1-n/2> by lemma
+    <reference|lem-restricted> and fact <reference|fact-horm-homog>). Now, as
+    for <math|n/2\<in\>2\<bbb-Z\>+1> we have
+    <math|2<around*|\||x|\|><rsup|1-n/2>=<around*|(|x+i0|)><rsup|1-n/2>+<around*|(|x+i0|)><rsup|1-n/2>>,
+    the proof is finished by application of fact <reference|fact-horm2>.
+  </proof>
+
   <\lemma>
     <label|lem-r2>Proposition <reference|prop-2> holds when
     <math|<around*|(|i,n/2,p|)>\<in\><around*|{|0|}>\<times\><around*|(|2\<bbb-Z\>+1|)>\<times\><around*|(|2\<bbb-Z\>|)>>
   </lemma>
+
+  <\proof>
+    We start with holomorphicity. The recurrence equation
+    <math|L<rsup|2><wide|F|~><rsup|<around*|(|i|)>><rsub|\<nu\>+2>=64<around*|(|\<nu\>+2|)><around*|(|\<nu\>+n/2|)><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>>
+    implies that we need to show that <math|L<rsup|2><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>=0>
+    for <math|\<nu\>=0> (clear) and <math|\<nu\>=-n/2+2>. Under the
+    hypothesis taken we have <math|p,q\<geqslant\>2\<Rightarrow\>n/2\<geqslant\>2\<Rightarrow\>n/2\<geqslant\>3>,
+    as <math|n/2\<in\>2\<bbb-Z\>+1>. Then we have
+    <math|<wide|F|~><rsub|-n/2+2><rsup|<around*|(|i|)>>\<simeq\>\<delta\><rsup|<around*|(|n/2-3|)>><around*|(|Q|)>>
+    by lemma <reference|lem-restricted> and by fact
+    <reference|fact-horm-homog>. Then, <math|L<rsup|2><wide|F|~><rsub|-n/2+2><rsup|<around*|(|i|)>>\<simeq\>L<rsup|>\<delta\><rsup|<around*|(|n/2-2|)>><around*|(|Q|)>=0>
+    the <math|\<simeq\>> by lemma <reference|lem-5> and the <math|=> by fact
+    <reference|fact-horm1>. This shows holomorphicity.
+
+    As in proof of lemma <reference|lem-r1>, lemma <reference|lem-restricted>
+    and lemma <reference|lem-6> imply that it suffcies to show that
+    <math|<wide|F|~><rsub|-n/2-1><rsup|<around*|(|i|)>>\<simeq\>Q<rsub|+><rsup|<around*|(|-n/2-1;-1|)>>+Q<rsub|-><rsup|<around*|(|-n/2-1;-1|)>>>
+    in fact is <math|\<simeq\>L\<delta\><rsup|<around*|(|0|)>><around*|(|x|)>>
+    (we use notation for and facts about Laurent series from proof of lemma
+    <reference|lem-pq2holo>).\ 
+
+    The latter, however, follows from <math|<wide|F|~><rsub|-n/2><rsup|<around*|(|i|)>>\<simeq\>Q<rsub|+><rsup|<around*|(|-n/2;-1|)>>-Q<rsub|-><rsup|<around*|(|-n/2;-1|)>>\<simeq\>\<delta\><rsup|<around*|(|0|)>><around*|(|x|)>>
+    established in proof of lemma <reference|lem-r4> and recurrence <math|L
+    Q<rsub|\<pm\>><rsup|\<nu\>>=\<pm\>4\<nu\><around*|(|\<nu\>+n/2-1|)>Q<rsub|\<pm\>><rsup|\<nu\>-1>>
+    at <math|\<nu\>=-n/2>.
+  </proof>
 
   <\lemma>
     <label|lem-r3>Proposition <reference|prop-2> holds when
     <math|<around*|(|i,n/2,p|)>\<in\><around*|{|1|}>\<times\><around*|(|2\<bbb-Z\>|)>\<times\><around*|(|2\<bbb-Z\>|)>>
   </lemma>
 
-  <\lemma>
-    <label|lem-r4>Proposition <reference|prop-2> holds when
-    <math|<around*|(|i,n/2,p|)>\<in\><around*|{|1|}>\<times\><around*|(|2\<bbb-Z\>+1|)>\<times\><around*|(|2\<bbb-Z\>|)>>
-  </lemma>
+  <\proof>
+    We start with proving holomorphicity. As recurrence equation is
+    <math|L<rsup|2><wide|F|~><rsub|\<nu\>+2><rsup|<around*|(|i|)>>=64<around*|(|\<nu\>+1|)><around*|(|\<nu\>+n/2|)><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>>,
+    it suffices to show that <math|L<rsup|2><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>=0>
+    for <math|\<nu\>=1> (this is clear) and <math|\<nu\>=-n/2+2>. For
+    <math|n/2\<geqslant\>4> case we have <math|<wide|F|~><rsup|<around*|(|i|)>><rsub|-n/2+2>\<simeq\>\<delta\><rsup|<around*|(|n/2-3|)>><around*|(|Q|)>>
+    and thus by lemma <reference|lem-5> <math|L<rsup|2><wide|F|~><rsup|<around*|(|i|)>><rsub|-n/2+2>\<simeq\>L<rsup|2>\<delta\><rsup|<around*|(|n/2-3|)>><around*|(|Q|)>\<simeq\>L\<delta\><rsup|<around*|(|n/2-2|)>>=0>,
+    the latter equality follows from fact <reference|fact-horm1>.\ 
+
+    For <math|n/2=2> case, we need to show that
+    <math|L<rsup|2>sgn<around*|(|Q|)>=0>. Now, employing lemma
+    <reference|lem-pq2holo> and writing Laurent expansion
+    <math|Q<rsup|\<nu\>><rsub|\<pm\>>=:<big|sum><rsub|k=-1><rsup|\<infty\>>Q<rsub|\<pm\>><rsup|<around*|(|\<nu\><rsub|0>;k|)>><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|k>>
+    for <math|\<nu\><rsub|0>\<in\>-\<bbb-Z\><rsub|\<geqslant\>1>>, we have
+    recurrence relation <math|Q<rsub|\<pm\>><rsup|\<nu\>+1>=\<pm\>4<around*|(|\<nu\>+1|)><around*|(|\<nu\>+2|)>Q<rsub|\<pm\>><rsup|\<nu\>>>
+    taken at <math|\<nu\>=-1> implying that <math|L
+    Q<rsub|\<pm\>><rsup|<around*|(|0;0|)>>=\<pm\>c\<cdot\>Q<rsub|\<pm\>><rsup|<around*|(|-1;-1|)>>>
+    for some <math|c\<neq\>0>. Therefore,
+    <math|L<rsup|2>sgn<around*|(|Q|)>=L<around*|(|L
+    Q<rsub|+><rsup|<around*|(|0;0|)>>-L Q<rsub|-><rsup|<around*|(|0;0|)>>|)>\<simeq\>L<around*|(|Q<rsub|+><rsup|<around*|(|-1;-1|)>>+Q<rsub|-><rsup|<around*|(|-1;-1|)>>|)>>,
+    the latter being equal to <math|L> of residue of
+    <math|<around*|\||Q|\|><rsup|\<nu\>>> at <math|\<nu\>=-1>. Now, lemma
+    <reference|lem-restricted> together with the fact
+    <math|<reference|fact-horm-homog> > together imply that the latter is
+    proportional to <math|L> of <math|\<delta\><rsup|<around*|(|0|)>><around*|(|Q|)>>
+    and hence fact <reference|fact-horm1> shows that it vanishes. This shows
+    holomorphicity.
+
+    Now, as in proof of lemma <reference|lem-r1>, lemma
+    <reference|lem-restricted> and lemma <reference|lem-6> imply that we just
+    need to show that <math|<wide|F|~><rsub|-n/2-1><rsup|<around*|(|i|)>>\<simeq\>Q<rsub|+><rsup|<around*|(|-n/2-1;-1|)>>-Q<rsub|-><rsup|<around*|(|-n/2-1;-1|)>>>
+    in fact is <math|\<simeq\>L\<delta\><rsup|<around*|(|0|)>><around*|(|x|)>>.
+    But then it was shown in the proof of lemma <reference|lem-r1> that
+    <math|Q<rsub|+><rsup|<around*|(|-n/2;-1|)>>+Q<rsub|-><rsup|<around*|(|-n/2;-1|)>>\<simeq\>\<delta\><rsup|<around*|(|0|)>><around*|(|x|)>>
+    and then application of equation <math|L
+    Q<rsub|\<pm\>><rsup|\<nu\>>=\<pm\>4\<nu\><around*|(|\<nu\>+n/2-1|)>Q<rsub|\<pm\>><rsup|\<nu\>-1>>
+    implies the desired.
+  </proof>
 
   <\lemma>
     <label|lem-r5>Proposition <reference|prop-2> holds when
@@ -401,7 +593,7 @@
   <\proof>
     Let's start with showing holomorphicity of
     <math|<wide|F|~><rsup|<around*|(|i|)>><rsub|\<nu\>>>. In the light of
-    recurrence equation <math|L<rsup|2><wide|F|~><rsub|\<nu\>+2><rsup|<around*|(|i|)>>=<around*|(|\<nu\>+2|)><around*|(|\<nu\>+n/2|)><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>>,
+    recurrence equation <math|L<rsup|2><wide|F|~><rsub|\<nu\>+2><rsup|<around*|(|i|)>>=64<around*|(|\<nu\>+2|)><around*|(|\<nu\>+n/2|)><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>>,
     we just need to show that <math|L<rsup|2><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>=0>
     for <math|\<nu\>=0> (which is obvious) and <math|\<nu\>=-n/2+2>. For the
     latter we need to show that <math|L<rsup|2><around*|\||Q|\|><rsup|2-n/2>=0>.
@@ -415,13 +607,49 @@
 
     To prove non-vanishing, in the light of recurrence equation, it suffices
     to show that for <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
-    <math|L<rsup|2k><wide|F|~><rsub|-1><rsup|<around*|(|i|)>>\<neq\>0>.\ 
+    <math|L<rsup|2k><wide|F|~><rsub|-1><rsup|<around*|(|i|)>>\<neq\>0>. Now,
+    simiarly to proof of lemma <reference|lem-r6>, we have
+    <math|<wide|F|~><rsub|-1><rsup|<around*|(|i|)>>=\<delta\><rsup|<around*|(|0|)>><around*|(|Q|)>>
+    and then lemma <reference|lem-5> implies that
+    <math|L<rsup|2k>\<delta\><rsup|<around*|(|0|)>><around*|(|Q|)>\<neq\>0>
+    for <math|2k\<leqslant\>n/2-2> and for <math|2k=n/2-2> we have by fact
+    <reference|fact-horm1> that <math|L<rsup|2k>\<delta\><rsup|<around*|(|0|)>><around*|(|Q|)>\<simeq\>L<rsup|2>\<delta\><rsup|<around*|(|n/2-2|)>><around*|(|Q|)>\<simeq\>L\<delta\><around*|(|x|)>>
+    and next lemma <reference|lem-6> implies the conclusion for
+    <math|2k\<gtr\>n/2-2>.
   </proof>
 
   <\lemma>
     <label|lem-r7>Proposition <reference|prop-2> holds when
     <math|<around*|(|i,n/2,p|)>\<in\><around*|{|1|}>\<times\><around*|(|2\<bbb-Z\>|)>\<times\><around*|(|2\<bbb-Z\>+1|)>>
   </lemma>
+
+  <\proof>
+    Again, we start with the holomorphicity. In the light of recurrence
+    equation <math|L<rsup|2><wide|F<rsub|>|~><rsub|\<nu\>+2><rsup|<around*|(|i|)>>=64<around*|(|\<nu\>+1|)><around*|(|\<nu\>+n/2+1|)><wide|F|~><rsub|\<nu\>>>
+    it suffices to show that <math|L<rsup|2><wide|F|~><rsub|\<nu\>><rsup|<around*|(|i|)>>>
+    has zeros at <math|\<nu\>=1> (this is clear, as
+    <math|<wide|F|~><rsub|1><rsup|<around*|(|i|)>>=Q>) and
+    <math|\<nu\>=-n/2+1>. For the latter, we need to show that
+    <math|L<rsup|2><around*|\||Q|\|><rsup|-n/2+1>sgn<around*|(|Q|)>=0>, which
+    is implied by fact <reference|fact-horm2> and the fact that
+    <math|2<around*|\||x|\|><rsup|-n/2+1>sgn<around*|(|x|)>=<around*|(|x+i0|)><rsup|-n/2+1>+<around*|(|x-i0|)><rsup|-n/2+1>>
+    when <math|n/2\<in\>2\<bbb-Z\>>. This proves horolomorphicity.
+
+    In the light of the recurrence equation to finish the proof it suffices
+    to show that for <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
+    <math|L<rsup|2k><wide|F|~><rsub|-2><rsup|<around*|(|i|)>>\<neq\>0>. Now,
+    lemma <reference|lem-restricted> implies that
+    <math|F<rsup|<around*|(|i|)>><rsub|-2><mid|\|><rsub|<around*|{|x\<neq\>0|}>>=\<delta\><rsup|<around*|(|1|)>><around*|(|Q|)>>
+    and hence in case <math|n/2=2> application of lemma <reference|lem-5>
+    ends the proof. In turn, when <math|n/2\<geqslant\>4> we can use fact
+    <reference|fact-horm-homog> and lemma <reference|lem-5> together to get
+    the desired <math|L<rsup|2k><wide|F|~><rsub|-2><rsup|<around*|(|i|)>>\<neq\>0>
+    for <math|2k\<leqslant\>n/2-4>. Then, for <math|2k=n/2-2> we have
+    <math|L<rsup|2k><wide|F|~><rsub|-2><rsup|<around*|(|i|)>>\<simeq\>L<rsup|2>\<delta\><rsup|<around*|(|n/2-3|)>><around*|(|Q|)>\<simeq\>L\<delta\><rsup|<around*|(|n/2-2|)>><around*|(|Q|)>\<simeq\>\<delta\><rsup|<around*|(|0|)>><around*|(|x|)>>
+    the last <math|\<simeq\>> following from fact <reference|fact-horm1>.
+    Finally, lemma <reference|lem-6> implies the conclusion for
+    <math|2k\<gtr\>n/2-2>.
+  </proof>
 
   <section|Proofs>
 
@@ -510,8 +738,23 @@
   After that,
 
   <\enumerate>
+    <item>Gelfand fact about double poles may be needless
+
+    <item>other gelfand fact may also be needless
+
+    <item>collect facts in one section
+
     <item>Determine supports and clearly list poles (e.g. circled pole --
     suport at 0, squared -- suport on <math|<around*|{|Q=0|}>>) as corollary
+
+    <item>write the report
+
+    <\enumerate>
+      <item>remark faster computation if start with
+      <math|Q<rsub|\<pm\>><rsup|\<nu\>>>;
+    </enumerate>
+
+    <item>ask about meeting (ask about gelfand technique)
   </enumerate>
 
   <\bibliography|bib|plain|todai_master.bib>
@@ -536,42 +779,45 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|?>>
-    <associate|auto-2|<tuple|2|?>>
-    <associate|auto-3|<tuple|3|?>>
-    <associate|auto-4|<tuple|4|?>>
-    <associate|auto-5|<tuple|5|?>>
-    <associate|auto-6|<tuple|1|?>>
-    <associate|auto-7|<tuple|1|?>>
-    <associate|bib-gelfand1980distribution|<tuple|1|?>>
-    <associate|bib-hormander1983analysis|<tuple|2|?>>
-    <associate|eq-1|<tuple|1|?>>
-    <associate|eq-2|<tuple|2|?>>
-    <associate|fact-gelfand-n:even|<tuple|5|?>>
-    <associate|fact-gelfand-n:odd|<tuple|4|?>>
-    <associate|fact-horm-homog|<tuple|7|?>>
-    <associate|fact-horm1|<tuple|8|?>>
-    <associate|fact-horm2|<tuple|9|?>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-2|<tuple|2|1>>
+    <associate|auto-3|<tuple|3|1>>
+    <associate|auto-4|<tuple|4|1>>
+    <associate|auto-5|<tuple|5|6>>
+    <associate|auto-6|<tuple|6|6>>
+    <associate|auto-7|<tuple|6|7>>
+    <associate|bib-gelfand1980distribution|<tuple|1|7>>
+    <associate|bib-hormander1983analysis|<tuple|2|7>>
+    <associate|eq-1|<tuple|1|6>>
+    <associate|eq-2|<tuple|2|6>>
+    <associate|fact-gelfand-n:even|<tuple|5|2>>
+    <associate|fact-gelfand-n:odd|<tuple|4|1>>
+    <associate|fact-horm-homog|<tuple|7|2>>
+    <associate|fact-horm1|<tuple|8|2>>
+    <associate|fact-horm2|<tuple|9|2>>
     <associate|fact-horm3|<tuple|7|?>>
     <associate|lem-10|<tuple|10|?>>
-    <associate|lem-4|<tuple|11|?>>
-    <associate|lem-5|<tuple|12|?>>
-    <associate|lem-6|<tuple|13|?>>
+    <associate|lem-4|<tuple|11|2>>
+    <associate|lem-5|<tuple|12|2>>
+    <associate|lem-6|<tuple|13|2>>
     <associate|lem-9|<tuple|9|?>>
-    <associate|lem-holo-nonzero|<tuple|10|?>>
-    <associate|lem-normalized-eq|<tuple|14|?>>
-    <associate|lem-r1|<tuple|18|?>>
-    <associate|lem-r2|<tuple|19|?>>
-    <associate|lem-r3|<tuple|20|?>>
-    <associate|lem-r4|<tuple|21|?>>
-    <associate|lem-r5|<tuple|22|?>>
-    <associate|lem-r6|<tuple|16|?>>
-    <associate|lem-r6-e|<tuple|15|?>>
-    <associate|lem-r7|<tuple|23|?>>
-    <associate|lem-r8|<tuple|17|?>>
-    <associate|lem-restricted|<tuple|3|?>>
-    <associate|prop-1|<tuple|1|?>>
-    <associate|prop-2|<tuple|2|?>>
+    <associate|lem-holo-nonzero|<tuple|10|2>>
+    <associate|lem-normalized-eq|<tuple|14|3>>
+    <associate|lem-pq2holo|<tuple|16|3>>
+    <associate|lem-r1|<tuple|20|4>>
+    <associate|lem-r1-e|<tuple|17|4>>
+    <associate|lem-r1-nonzero|<tuple|20|?>>
+    <associate|lem-r2|<tuple|22|5>>
+    <associate|lem-r3|<tuple|23|5>>
+    <associate|lem-r4|<tuple|21|5>>
+    <associate|lem-r5|<tuple|24|5>>
+    <associate|lem-r6|<tuple|18|4>>
+    <associate|lem-r6-e|<tuple|15|3>>
+    <associate|lem-r7|<tuple|25|5>>
+    <associate|lem-r8|<tuple|19|4>>
+    <associate|lem-restricted|<tuple|3|1>>
+    <associate|prop-1|<tuple|1|1>>
+    <associate|prop-2|<tuple|2|1>>
   </collection>
 </references>
 
@@ -595,29 +841,33 @@
       gelfand1980distribution
     </associate>
     <\associate|toc>
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Setting>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Setting
+      and goal> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Main
-      results> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Comments>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Auxiliary
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Main
       results> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Proofs>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Auxiliary
+      results> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>TODO>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Proofs>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>TODO>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
