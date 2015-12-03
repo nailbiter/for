@@ -476,7 +476,7 @@ Assume that
 \end_inset
 
  and define 
-\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}:=K_{\lambda,\nu}^{C}/\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)l\Gamma\left(\frac{\lambda-\nu+q-2}{2}\right)$
+\begin_inset Formula $\tilde{K}_{\lambda,\nu}^{C}:=K_{\lambda,\nu}^{C}/\Gamma\left(\frac{\lambda+\nu-n+1}{2}\right)/\Gamma\left(\frac{\lambda-\nu+q-2}{2}\right)$
 \end_inset
 
 .

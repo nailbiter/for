@@ -32,7 +32,7 @@
     <math|y=<frac|\<lambda\>-\<nu\>-q|2>> we have\ 
 
     <\equation*>
-      \<frak-P\><rsub|-><around*|(|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>|)>=<big|sqcup><rsub|k\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>>+1|)>><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y=k|}>
+      \<frak-P\><rsub|-><around*|(|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>|)>=<big|sqcup><rsub|k\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y=k|}>=<big|sqcup><rsub|\<nu\>\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>\<lambda\>-\<nu\>\<in\>2\<bbb-Z\><rsub|\<leqslant\>0>|}>
     </equation*>
   </proposition>
 
@@ -45,7 +45,8 @@
   <section|Auxilliary results>
 
   <\lemma>
-    <label|lem-2><math|<around*|\<langle\>|K<rsup|P><rsub|\<lambda\>,\<nu\>>,F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>|\<rangle\>>=0>
+    <label|lem-2>Suppose <math|q\<in\>2\<bbb-Z\>>. Then
+    <math|<around*|\<langle\>|K<rsup|P><rsub|\<lambda\>,\<nu\>>,F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>|\<rangle\>>=0>
     if <math|M\<gtr\>0>, <math|N> is odd or
     <math|\<psi\>\<perp\>\<cal-H\><rsup|N><around*|(|\<bbb-S\><rsup|p-1>|)><rsup|O<around*|(|p-1|)>>>.
     For <math|N> even, <math|m<rprime|'>+n<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
@@ -429,8 +430,11 @@
     It is clear that <math|M<rsub|odd>\<geqslant\><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsub|\<leqslant\>0><rsup|2><mid|\|>y\<leqslant\>-1,x-y\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>>.
     Moreover, lemma <reference|lem-9> implies that
     <math|M<rsub|odd>\<geqslant\><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y\<in\>\<bbb-Z\><rsub|\<leqslant\>0>|}>>.
-    Hence, <math|M=<big|sqcup><rsub|k\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>>+1|)>><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y=k|}>>
-    and this ends the proof.
+    Hence, <math|M=<big|sqcup><rsub|k\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>>+1|)>><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y=k|}>>.
+
+    Finally, the last equality follows from the obvious fact that for
+    <math|a,b\<in\>\<bbb-C\>> we have <math|<around*|(|a\<pm\>b|)>/2\<in\>\<bbb-Z\>>
+    iff <math|a,b\<in\>\<bbb-Z\>> and <math|a-b\<in\>2\<bbb-Z\>>.
   </proof>
 </body>
 

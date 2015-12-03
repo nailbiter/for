@@ -1,11 +1,27 @@
-\documentclass[8pt]{beamer}
-\mode<presentation>{\usetheme{Warsaw}}
+\documentclass[8pt,pdf,notes]{beamer}
+\mode<presentation>{\usetheme[secheader]{Boadilla}}
 \usepackage{mystyle}
-\usepackage{amsmath}
+\includecomment{versiona}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \newcommand{\Sol}{\mbox{Sol}}
 
+%%\makeatletter
+%%\newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
+%%{\usebeamertemplate{proof end}}
+%%\makeatother
+%%
+%%\makeatletter
+%%\def\th@mystyle{%
+%%	\normalfont % body font
+%%	\setbeamercolor{block title example}{bg=orange,fg=white}
+%%	\setbeamercolor{block body example}{bg=orange!20,fg=black}
+%%	\def\inserttheoremblockenv{exampleblock}
+%%}
+%%\makeatother
+%%
+%%\theoremstyle{mystyle}
+%%\newtheorem{prop}{Proposition}
 \makeatletter
 \def\th@mystyle{%
     \normalfont % body font
@@ -17,12 +33,17 @@
 \theoremstyle{mystyle}
 \newtheorem*{remark}{Remark}
 
-\title{Presentation on the Master Thesis Preparation}
-\subtitle{Alex Leontiev}
+\title{Presentation on Master Thesis preparation}
+\author{Alex Leontiev}
 
 \begin{document}
 \begin{frame}\titlepage\end{frame}
-\begin{frame}{$P'/G\backslash P$}
+\begin{frame}{Outline}
+	\tableofcontents
+\end{frame}
+
+\section{$P'/G\backslash P$}
+\begin{frame}<beamer:0>%this frame won't be seen
 	\begin{theorem}[Kobayashi-Speh]\[G/P=P'[q_+]\sqcup P'[p_+]\sqcup P'[p_+]=
 		(S^n-S^{n-1})\sqcup (S^{n-1}-{p_+})\sqcup p_+\]
 		and these are pulled back to $\R^n-\R^{n-1}$, $\R^{n-1}-0$ and $0$ respectively via Bruhat parametrization and
@@ -35,7 +56,8 @@
 Here $A:=\mycbra{x_{p-1}=0}$ and $B:=\mysetn{(x,y)\in\R^{p-1,q-1}}{\myabs{x}_{p-1}=\myabs{y}_{q-1}}$ closed subsets of $\R^n$.
 \end{theorem}
 \end{frame}
-\begin{frame}{Equations for kernels}
+\section{Equations for kernels}
+\begin{frame}<beamer:0>
 \begin{theorem}[Kobayashi-Speh]Kernel of symmetry breaker is distribution $F$ on $\R^n$ satisfies
 	\[E-(\lambda-\nu-n))F=0\quad\mbox{($A'$-action)}\]
 \[(2\nu x_j+(\myabs{x}^2+x_n^2)\frac{\partial}{\partial x_j})F=0,\;1\leq j\leq n-1\quad\mbox{($N_+'$-action)}\]
@@ -50,7 +72,8 @@ Here $A:=\mycbra{x_{p-1}=0}$ and $B:=\mysetn{(x,y)\in\R^{p-1,q-1}}{\myabs{x}_{p-
 \[F(-\tilde{x})=F(\tilde{x})\quad\mbox{($M'$-action)}\]
 \end{theorem}
 \end{frame}
-\begin{frame}{Differential symmetry breaking operators}
+\section{Differential symmetry breaking operators}
+\begin{frame}<beamer:0>
 \begin{theorem}[Kobayashi-Speh]
 	Differential symmetry breakers exist only when $\lambda-\nu=0,-2,-4,\hdots$ and in that case space of
 	differential symmetry breaking operators is one-dimensional (given by Gegenbauer polynomial)
@@ -59,7 +82,8 @@ Here $A:=\mycbra{x_{p-1}=0}$ and $B:=\mysetn{(x,y)\in\R^{p-1,q-1}}{\myabs{x}_{p-
 	literally the same
 \end{theorem}
 \end{frame}
-\begin{frame}{Lemma 6.7}
+\section{Lemma 6.7}
+\begin{frame}
 	The lemma deals with the exact sequence
 	\[0\rightarrow \Sol_{\mycbra{0}}(\R^n)\rightarrow \Sol(\R^n)\rightarrow\Sol(\R^n-\mycbra{0})\]
 	more precisely, it explicitly constructs basis for the rightmost term.
@@ -71,7 +95,7 @@ In my opinion, it is important to the whole argument. It's purpose is twofold:
 		look like when problem is restricted to open dense subset.
 \end{enumerate}
 \end{frame}
-\begin{frame}{Lemma 6.7}
+\begin{frame}
 \begin{theorem}[Kobayashi-Speh]
 	\[\Sol(\R^n-\mycbra{0})=\C g(x_n)(\myabs{x}^2+x_n^2)^{-\nu}\], where
 	\[\mathcal{D}'(\R)\ni g(x):=\left\{\begin{array}{ll}
@@ -91,7 +115,7 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	\[\Sol(\mycbra{Q<0})=\C\myabs{Q(x)}^{-\nu}g(x_p)\big|_{Q<0}\]
 \end{theorem}
 \end{frame}
-\begin{frame}{Lemma 6.7}
+\begin{frame}
 	Trying to understand $Sol_{\mycbra{Q=0}}(\R^n)$ we are led to another exact sequence
 	\[0\rightarrow\Sol_{\mycbra{0}}(\R^n)\rightarrow\Sol_{\mycbra{Q=0}}(\R^n)\rightarrow
 	\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})\]
@@ -112,7 +136,8 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 \footnotetext{ $\R^{ p-1}\times\R^{ q-1 }\ni(x,y)=(\sqrt{ s }\omega_{ p-2 },\sqrt{ \mu s }\omega_{ q-1 })$}
 \footnotetext{ $\R^{ p-1}\setminus\mycbra{ 0 }\ni x=\sqrt{ s }\omega_{ p-1 }$}
 \end{frame}
-\begin{frame}{$K$-finite vectors in non-compact picture}
+\section{$K$-finite vectors in non-compact picture}
+\begin{frame}
 \begin{theorem}[Kobayashi-Speh; Proposition 4.3]
 	The $K$-finite vectors in non-compact picture are equal to
 	\[\C\myabra{ F_\lambda[\psi,h]:N\in\Z_{ \geq0 },\;\psi\in\mathcal{ H }^N(\mathbb{ S }^{ n-1 }),\;h\in\C[s] }.\]
@@ -132,7 +157,8 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	\[R(r,\mu)=1+2(1+\mu)r^2+(\mu-1)^2r^4\]
 \end{theorem}
 \end{frame}
-\begin{frame}{normalization $\tilde{K}_{ \lambda,\nu }$}
+\section{normalization $\tilde{K}_{ \lambda,\nu }$}
+\begin{frame}
 \begin{theorem}[Kobayashi-Speh; Proposition 7.3]
 	Set $\tilde{K}^{\mathbb{ A }}_{ \lambda,\nu }:={{K}^{\mathbb{ A }}_{ \lambda,\nu }}/\Gamma(\frac{ \lambda+\nu-n+1 }{2})/
 	\Gamma(\frac{ \lambda-\nu }{ 2 })$. Then $\forall f\in C^{ \infty }(S^n)_K$ we have $
@@ -153,7 +179,8 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	that seems to agree with the experimental data.
 \end{remark}
 \end{frame}
-\begin{frame}{meromorphic extension of ${K}_{ \lambda,\nu }$}
+\section{meromorphic extension of ${K}_{ \lambda,\nu }$}
+\begin{frame}
 \begin{theorem}[Kobayashi-Speh; Lemma 8.2]
 	\[\frac{ \partial }{ \partial x_n }K^+_{ \lambda+1,\nu }=(\lambda+\nu-n+1)K^+_{ \lambda,\nu }-2\nu K^+_{ \lambda,\nu +1}\]
 	\[\Delta_{ n-1 }K^+_{ \lambda+1,\nu-1 }=2(\nu-1)(2\nu-n+1)K^+_{ \lambda,\nu }-4(\nu-1)K^+_{\lambda+1,\nu+1  }\]
@@ -163,7 +190,8 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	\[\Delta_{ p-1,q }K^+_{ \lambda,\nu }=-2(-3+p+q-2\nu) K^+_{ \lambda-1,\nu+1 }-4K^+_{ \lambda,\nu+2 }\]
 \end{theorem}
 \end{frame}
-\begin{frame}{Further work}%TODO
+\section{Further work}%TODO
+\begin{frame}
 	Possible approaches:
 	\begin{itemize}
 		\item Continue to mimic the argument in [Kobayashi-Speh]
@@ -182,26 +210,26 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 				$0\rightarrow\Sol_{\mycbra{ Q=0 }}(\R^n)\rightarrow\Sol(\R^n)\rightarrow
 				\Sol(\mycbra{Q\neq0})$
 			\end{enumerate}
-		\item F-method
-			\begin{enumerate}
-				\item {[done]} perform algebraic Fourier transform on the defining equations for kernel of symmetry
-					breaker. The only equation which will change substantially is the $N_+'$-action. It will
-					become second order PDE.
-				\item Read books [Slavyanov] and [Smirnov] suggested by Prof. Pevzner to find (maybe) and solve
-					equations for $N_+'$ action.
-				\item filter out among solutions to $N_+'$ action equations those that also satisfy $M'$ and $A'$
-					invariance.
-				\item make inverse algebraic Fourier transform to get explicit form of kernels
-			\end{enumerate}
-		\item Apply [Sun-Zhu]
-			\begin{enumerate}
-				\item Use data in [Howe-Tan] to find for fixed $(p,q)$ for which values of $(\lambda,\nu)$ both
-					$I(\lambda)$ is irreducible for $O(p,q)$ and $J(\nu)$ for $O(p-1,q)$.
-				\item Use the result [Sun-Zhu] to conclude that for those cases dimension of symmetry breakers
-					is no more than one.
-				\item Improve the upper bound to precise and construct explicit symmetry breakers in those cases.
-				\item see what we are left with
-			\end{enumerate}
+%%		\item F-method
+%%			\begin{enumerate}
+%%				\item {[done]} perform algebraic Fourier transform on the defining equations for kernel of symmetry
+%%					breaker. The only equation which will change substantially is the $N_+'$-action. It will
+%%					become second order PDE.
+%%				\item Read books [Slavyanov] and [Smirnov] suggested by Prof. Pevzner to find (maybe) and solve
+%%					equations for $N_+'$ action.
+%%				\item filter out among solutions to $N_+'$ action equations those that also satisfy $M'$ and $A'$
+%%					invariance.
+%%				\item make inverse algebraic Fourier transform to get explicit form of kernels
+%%			\end{enumerate}
+%%		\item Apply [Sun-Zhu]
+%%			\begin{enumerate}
+%%				\item Use data in [Howe-Tan] to find for fixed $(p,q)$ for which values of $(\lambda,\nu)$ both
+%%					$I(\lambda)$ is irreducible for $O(p,q)$ and $J(\nu)$ for $O(p-1,q)$.
+%%				\item Use the result [Sun-Zhu] to conclude that for those cases dimension of symmetry breakers
+%%					is no more than one.
+%%				\item Improve the upper bound to precise and construct explicit symmetry breakers in those cases.
+%%				\item see what we are left with
+%%			\end{enumerate}
 	\end{itemize}
 \end{frame}
 \begin{frame}{Questions (which I'll answer myself)}
@@ -224,4 +252,7 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 				{\it Generalized Functions. Vol. 1: Properties and Operations}. New York
 	\end{itemize}
 \end{frame}
+
 \end{document}
+
+
