@@ -22,19 +22,9 @@
     differential equation, determine supports of highest terms at poles.
   </enumerate-numeric>
 
-  <with|font-series|bold|What I plan to do>
-
-  For this week, I plan to do items 1-4 (maybe, 1-5) of the following list:
+  <with|font-series|bold|What I plan to do>:
 
   <\enumerate>
-    <item>(Write my documents for Monbusho till Thursday)
-
-    <\enumerate>
-      <item>(Speh machines)
-
-      <item>Ooi mathematica
-    </enumerate>
-
     <item>write report for Friday (start from page what? of todaireport
     slides)
 
@@ -63,13 +53,15 @@
       depending on <math|\<nu\>> using material in Gelfand-Shilov.
     </enumerate>
 
-    <item>Answer question 5 above (and <with|font-series|bold|confirm
-    normalization of regular for <math|q=2>>)
+    <item><with|font-shape|italic|<with|font-series|bold|Answer question 5
+    above>> (and <with|font-series|bold|confirm normalization of regular for
+    <math|q=2>>)
 
     <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
 
     <\enumerate>
-      <item>See how support changes for different <math|\<lambda\>>
+      <item><with|font-shape|italic|<with|font-series|bold|See how support
+      changes for different <math|\<lambda\>>>>
 
       <item>Dimensional argument to explicitly determine
       <math|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>|)>>.
@@ -99,7 +91,19 @@
     If done right, this'll give better answer to question 4 than we have at
     the moment.
 
-    <item>''Gelfand approach''
+    <item>Ideas for regular normalization:
+
+    <\enumerate>
+      <item>why do we have inconsistincies for
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> and
+      <math|K<rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>>?
+
+      <item>''Gelfand approach''
+
+      <item>residue formula
+
+      <item>Try to use recurrence relations, like\ 
+    </enumerate>
   </enumerate>
 
   <\with|font-series|bold>
@@ -112,6 +116,11 @@
     <item>You said about technique in Gelfand...
 
     <item>incorrect thm in K-Speh
+
+    <item><with|font-shape|italic|why did we do the recurrence relations
+    business in K-Speh>?
+
+    <item>pairing bullshit
   </enumerate>
 
   <with|font-series|bold|Comments>

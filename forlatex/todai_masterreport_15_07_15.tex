@@ -5,6 +5,8 @@
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \newcommand{\Sol}{\mbox{Sol}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\A}{\mathcal{A}}
 
 %%\makeatletter
 %%\newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
@@ -22,6 +24,7 @@
 %%
 %%\theoremstyle{mystyle}
 %%\newtheorem{prop}{Proposition}
+\newenvironment{prop}{\begin{exampleblock}{Proposition}\it}{\end{exampleblock}}
 \makeatletter
 \def\th@mystyle{%
     \normalfont % body font
@@ -127,11 +130,14 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	\otimes s^{-\nu }u$, where $u\in\mathcal{ D }'(\R_{ >0 }\times\mathbb{ S }^{ p-2 })$
 	is a pullback of $g(x_{ p-1 })$ via the polar coordinate change\footnotemark
 \end{theorem}
-\begin{remark}
+\begin{prop}
 	For fixed $\nu\in\Z_{ >0 }$
 	the non-trivial element of $\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})$ for $\lambda\in\C$ such that 
-	$\Re(\lambda+\nu)>n-1$ and $\Re(\lambda-\nu)>0$ can be extended to the generalized function on the whole $\R^n$,
-	which satisfies the equations.
+	$\Re(\lambda+\nu)>n-1$ and $\Re(\lambda-\nu)>0$ can be extended to the generalized function 
+	$K_{\lambda,\nu}^C\in\D'(\R^{p,q})$ with support in $\left\{ Q=0 \right\}$ which also satisfies the equations.
+\end{prop}
+\begin{remark}
+	Such kernel does not appear in case of [Kobayashi-Speh].
 \end{remark}
 \footnotetext{ $\R^{ p-1}\times\R^{ q-1 }\ni(x,y)=(\sqrt{ s }\omega_{ p-2 },\sqrt{ \mu s }\omega_{ q-1 })$}
 \footnotetext{ $\R^{ p-1}\setminus\mycbra{ 0 }\ni x=\sqrt{ s }\omega_{ p-1 }$}
@@ -157,102 +163,145 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	\[R(r,\mu)=1+2(1+\mu)r^2+(\mu-1)^2r^4\]
 \end{theorem}
 \end{frame}
-\section{normalization $\tilde{K}_{ \lambda,\nu }$}
+\section{Normalization of singular ${K}^C_{ \lambda,\nu }$ supported on $\left\{ Q=0 \right\}$}
 \begin{frame}
-\begin{theorem}[Kobayashi-Speh; Proposition 7.3]
-	Set $\tilde{K}^{\mathbb{ A }}_{ \lambda,\nu }:={{K}^{\mathbb{ A }}_{ \lambda,\nu }}/\Gamma(\frac{ \lambda+\nu-n+1 }{2})/
-	\Gamma(\frac{ \lambda-\nu }{ 2 })$. Then $\forall f\in C^{ \infty }(S^n)_K$ we have $
-	\myabra{\tilde{K}^{\mathbb{ A }}_{ \lambda,\nu },f}$ being holo on $\mathbb{ C }^2$. Moreover, $\mysbra{\forall f\in C^{ \infty }(S^n)
-	_K,\;\myabra{\tilde{K}^{\mathbb{ A }}_{ \lambda,\nu },f}=0}\iff (\lambda,\nu)\in L_{ \mbox{even} }$
-\end{theorem}
+\begin{prop}
+	For fixed $\nu\in\Z_{ >0 }$
+	the non-trivial element of $\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})$ for $\lambda\in\C$ such that 
+	$\Re(\lambda+\nu)>n-1$ and $\Re(\lambda-\nu)>0$ can be extended to the generalized function 
+	$K_{\lambda,\nu}^C\in\D'(\R^{p,q})$ with support in $\left\{ Q=0 \right\}$ which also satisfies the equations.
+\end{prop}
+%%\begin{theorem}[Kobayashi-Speh; Proposition 7.3]
+%%	Set $\tilde{K}^{\mathbb{ A }}_{ \lambda,\nu }:={{K}^{\mathbb{ A }}_{ \lambda,\nu }}/\Gamma(\frac{ \lambda+\nu-n+1 }{2})/
+%%	\Gamma(\frac{ \lambda-\nu }{ 2 })$. Then $\forall f\in C^{ \infty }(S^n)_K$ we have $
+%%	\myabra{\tilde{K}^{\mathbb{ A }}_{ \lambda,\nu },f}$ being holo on $\mathbb{ C }^2$. Moreover, $\mysbra{\forall f\in C^{ \infty }(S^n)
+%%	_K,\;\myabra{\tilde{K}^{\mathbb{ A }}_{ \lambda,\nu },f}=0}\iff (\lambda,\nu)\in L_{ \mbox{even} }$
+%%\end{theorem}
 \begin{theorem}[$O(p+1,q+1),\;n:=p+q$]
-	Let $K_{ \lambda,\nu }$ be the nontrivial element of $Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n)$
-	and normalize it as $\tilde{ K }_{ \lambda,\nu }
-	:=K_{ \lambda,\nu }/\Gamma(\frac{ \lambda+\nu-1-q }{ 2 })/\Gamma(\frac{ \lambda+ \nu-p+1}{ 2 })$
-	if $q$:even and $2\nu\geq q$ and 
-	$:=K_{ \lambda,\nu }/\Gamma(\frac{ \lambda-\nu-1 }{ 2 })/\Gamma(\frac{ \lambda+ \nu-p+1}{ 2 })$ otherwise.
-	Then $\forall F_\lambda[\psi,\psi',N,M,n',m']$ we have $\myabra{ \tilde{ K }_{ \lambda,\nu }, F_\lambda[\psi,\psi',N,M,n',m']}
-	$ being holo in $\lambda$. Moreover, $\forall (\lambda,\nu)\in\C\times\mathbb{ Z }_{ >0 },\;\tilde{ K }_{ \lambda,\nu }\neq0$.
+	Normalize $K^C_{ \lambda,\nu }$ as $\tilde{K}^C_{\lambda,\nu}:=K^C_{\lambda,\nu}/N$ with\[
+		N:=\begin{cases}
+		\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)\Gamma\left( \frac{\lambda-\nu}{2} \right),&q\in2\Z+1\\
+		\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right),&q\in2\Z,q-2\nu\ge0\\
+		\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right),&q\in2\Z,q-2\nu<0,q-1\ge\nu\\
+		\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)\Gamma\left( \frac{\lambda-\nu+q-2}{2} \right),&q\in2\Z,q-1<\nu\\
+		\end{cases}
+	\]
+	Then this normalization is {\bf perfect on $\C^1$}
+	, in sense that $\tilde{K}_{\lambda,\nu}^C$ is holomorphic in $\lambda\in\C$ and
+	never vanishes.
 \end{theorem}
 \begin{remark}
-	Proof is done modulo the hypothesis %TODO: formulate the hypo
-	that seems to agree with the experimental data.
+	I do not know the support of residues of $K^C_{\lambda,\nu}$
 \end{remark}
 \end{frame}
-\section{meromorphic extension of ${K}_{ \lambda,\nu }$}
+\section{Normalization of regular $K_{\lambda,\nu}^{\R^{n}}$}
 \begin{frame}
-\begin{theorem}[Kobayashi-Speh; Lemma 8.2]
-	\[\frac{ \partial }{ \partial x_n }K^+_{ \lambda+1,\nu }=(\lambda+\nu-n+1)K^+_{ \lambda,\nu }-2\nu K^+_{ \lambda,\nu +1}\]
-	\[\Delta_{ n-1 }K^+_{ \lambda+1,\nu-1 }=2(\nu-1)(2\nu-n+1)K^+_{ \lambda,\nu }-4(\nu-1)K^+_{\lambda+1,\nu+1  }\]
-\end{theorem}
-\begin{theorem}[$O(p+1,q+1),\;n:=(p)+(q)$]
-	\[\frac{ \partial }{ \partial x_p }K^+_{ \lambda,\nu }=-2K_{ \lambda,\nu+1 }+(\lambda+\nu-n)K_{ \lambda-1,\nu }\]
-	\[\Delta_{ p-1,q }K^+_{ \lambda,\nu }=-2(-3+p+q-2\nu) K^+_{ \lambda-1,\nu+1 }-4K^+_{ \lambda,\nu+2 }\]
-\end{theorem}
+	\begin{theorem}[from sec. 7.1 of \cite{kobayashi2015symmetry}]
+		For $\Re(\lambda-\nu)>0$ and $\Re(\lambda+\nu)>n-1$, $K_{\lambda,\nu}^{\mathbb{A}}(x,x_n):=\myabs{x_n}^{\lambda+\nu-n}
+		\left( \myabs{x}^2+x_n^2 \right)^{-\nu}\in L_{loc}^1(\R^n)$ defines kernel of regular SBO.
+		\label{}
+	\end{theorem}
+	\begin{theorem}[$G:=O(p+1,q+1),\;n:=p+q$]
+		For $\Re(\lambda+\nu-n)>0$ and $\Re(-\nu)>0$\footnote{perhaps, one can do better than that},
+		$K^{\R^n}_{\lambda,\nu}(x):=\myabs{x_p}^{\lambda+\nu-n}\myabs{Q(x)}^{-\nu
+		}\in C(\R^{p,q})$ defines kernel of regular SBO. 
+		\label{}
+	\end{theorem}
 \end{frame}
-\section{Further work}%TODO
 \begin{frame}
-	Possible approaches:
-	\begin{itemize}
-		\item Continue to mimic the argument in [Kobayashi-Speh]
-			\begin{enumerate}
-				\item verify that the regularization of non-trivial element of $\Sol_S(\R^n\setminus\mycbra{ 0 })$
-					is indeed a kernel of an intertwiner
-				\item see how it acts on $K$-finite vectors and where the poles are
-				\item Renormalize it and analytically continuate it to the kernel of 
-					regular symmetry breaking operator with support in $S$
-				\item use logic similar to Prop 11.12 and Prop 11.13 in [Kobayashi-Speh] to 
-					the question of when the last morphism
-	$0\rightarrow\Sol_{\mycbra{0}}(\R^n)\rightarrow\Sol_{\mycbra{Q=0}}(\R^n)\rightarrow
-	\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})$
-	is onto
-				\item go on to consider 
-				$0\rightarrow\Sol_{\mycbra{ Q=0 }}(\R^n)\rightarrow\Sol(\R^n)\rightarrow
-				\Sol(\mycbra{Q\neq0})$
-			\end{enumerate}
-%%		\item F-method
+	\begin{theorem}[prop. 7.3 of \cite{kobayashi2015symmetry}]
+		If we let \[\tilde{K}_{\lambda,\nu}^{\A}:=\frac{
+			K_{\lambda,\nu}^{\A}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)\Gamma
+		\left( \frac{\lambda-\nu}{2} \right)}\] then this normalization is {\bf perfect on $\C^2$} in the sense
+		that $\tilde{K}_{\lambda,\nu}^{\A}$ is holomorphic in $(\lambda,\nu)\in\C^2$ and vanishes only on discrete
+		set \[L_{even}:=\mysetn{(\lambda,\nu)\in\Z_{\le0}^2}{\lambda-\nu\in2\Z_{\le0}}\]
+		\label{}
+	\end{theorem}
+	\begin{theorem}[$G:=O(p+1,q+1),\;n:=p+q$]
+		Let \[\tilde{K}_{\lambda,\nu}^{\R^n}:=\frac{K_{\lambda,\nu}^{\R^n}}{\Gamma\left( \frac{\lambda-\nu-q+2}{2} \right)
+		\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)\Gamma\left( \frac{-\nu+1}{2} \right)}\]. Then for $q=2$
+		this is {\bf perfect on $\C^2$} normalization and it vanishes on \[L_{even}\sqcup\mysetn{(\lambda,\nu)\in\Z\times
+		\left( 2\Z_{\ge0}+1 \right)}{\lambda-\nu\in2\Z_{\le0}}\].
+		\label{}
+	\end{theorem}
+\end{frame}
+\section{References}
+\begin{frame}
+	{\footnotesize\bibliographystyle{alpha}
+\bibliography{todai_master}}
+\end{frame}
+%%\section{meromorphic extension of ${K}_{ \lambda,\nu }$}
+%%\begin{frame}
+%%\begin{theorem}[Kobayashi-Speh; Lemma 8.2]
+%%	\[\frac{ \partial }{ \partial x_n }K^+_{ \lambda+1,\nu }=(\lambda+\nu-n+1)K^+_{ \lambda,\nu }-2\nu K^+_{ \lambda,\nu +1}\]
+%%	\[\Delta_{ n-1 }K^+_{ \lambda+1,\nu-1 }=2(\nu-1)(2\nu-n+1)K^+_{ \lambda,\nu }-4(\nu-1)K^+_{\lambda+1,\nu+1  }\]
+%%\end{theorem}
+%%\begin{theorem}[$O(p+1,q+1),\;n:=(p)+(q)$]
+%%	\[\frac{ \partial }{ \partial x_p }K^+_{ \lambda,\nu }=-2K_{ \lambda,\nu+1 }+(\lambda+\nu-n)K_{ \lambda-1,\nu }\]
+%%	\[\Delta_{ p-1,q }K^+_{ \lambda,\nu }=-2(-3+p+q-2\nu) K^+_{ \lambda-1,\nu+1 }-4K^+_{ \lambda,\nu+2 }\]
+%%\end{theorem}
+%%\end{frame}
+%%\section{Further work}
+%%\begin{frame}
+%%	Possible approaches:
+%%	\begin{itemize}
+%%		\item Continue to mimic the argument in [Kobayashi-Speh]
 %%			\begin{enumerate}
-%%				\item {[done]} perform algebraic Fourier transform on the defining equations for kernel of symmetry
-%%					breaker. The only equation which will change substantially is the $N_+'$-action. It will
-%%					become second order PDE.
-%%				\item Read books [Slavyanov] and [Smirnov] suggested by Prof. Pevzner to find (maybe) and solve
-%%					equations for $N_+'$ action.
-%%				\item filter out among solutions to $N_+'$ action equations those that also satisfy $M'$ and $A'$
-%%					invariance.
-%%				\item make inverse algebraic Fourier transform to get explicit form of kernels
+%%				\item verify that the regularization of non-trivial element of $\Sol_S(\R^n\setminus\mycbra{ 0 })$
+%%					is indeed a kernel of an intertwiner
+%%				\item see how it acts on $K$-finite vectors and where the poles are
+%%				\item Renormalize it and analytically continuate it to the kernel of 
+%%					regular symmetry breaking operator with support in $S$
+%%				\item use logic similar to Prop 11.12 and Prop 11.13 in [Kobayashi-Speh] to 
+%%					the question of when the last morphism
+%%	$0\rightarrow\Sol_{\mycbra{0}}(\R^n)\rightarrow\Sol_{\mycbra{Q=0}}(\R^n)\rightarrow
+%%	\Sol_{\mycbra{Q=0}-\mycbra{0}}(\R^n-\mycbra{0})$
+%%	is onto
+%%				\item go on to consider 
+%%				$0\rightarrow\Sol_{\mycbra{ Q=0 }}(\R^n)\rightarrow\Sol(\R^n)\rightarrow
+%%				\Sol(\mycbra{Q\neq0})$
 %%			\end{enumerate}
-%%		\item Apply [Sun-Zhu]
-%%			\begin{enumerate}
-%%				\item Use data in [Howe-Tan] to find for fixed $(p,q)$ for which values of $(\lambda,\nu)$ both
-%%					$I(\lambda)$ is irreducible for $O(p,q)$ and $J(\nu)$ for $O(p-1,q)$.
-%%				\item Use the result [Sun-Zhu] to conclude that for those cases dimension of symmetry breakers
-%%					is no more than one.
-%%				\item Improve the upper bound to precise and construct explicit symmetry breakers in those cases.
-%%				\item see what we are left with
-%%			\end{enumerate}
-	\end{itemize}
-\end{frame}
-\begin{frame}{Questions (which I'll answer myself)}
-	\begin{enumerate}
-		\item Understand the proof of Prop 11.12 of [Kobayashi-Speh]
-		\item Understand the proof of Prop 11.7 of [Kobayashi-Speh]
-	\end{enumerate}
-\end{frame}
-\begin{frame}{References}
-	\begin{itemize}
-		\item {[Sun-Zhu]} Sun, Binyong, and Chen-Bo Zhu. "Multiplicity one theorems: the Archimedean case." 
-			{\it arXiv preprint arXiv:0903.1413 (2009)}.
-		\item {[Kobayashi-Speh]} Kobayashi, Toshiyuki, and Birgit Speh. "Symmetry breaking for representations of rank one orthogonal groups." (2015).
-		\item {[Slavyanov]} Slavianov, S.I.U. \&
-			Lay, W. (2000). {\it Special Functions: A Unified Theory Based on Singularities}. Oxford University Press
-		\item {[Smirnov]} Smirnov, V.I. (1964). {\it A Course of Higher Mathematics}.
-			Pergamon Press; [U.S.A. ed. distributed by Addison-Wesley Publishing Company, Reading, Mass.
-			\item {[Howe-Tan]} Howe, Roger E., and Eng-Chye Tan. "Homogeneous functions on light cones: the infinitesimal structure of some degenerate principal series representations." Bulletin of the American Mathematical Society 28.1 (1993): 1-74.
-		\item {[Gelfand-Shilov I]} Gelfand, I.M. \& Shilov, G.E. (1969).
-				{\it Generalized Functions. Vol. 1: Properties and Operations}. New York
-	\end{itemize}
-\end{frame}
+%%%%		\item F-method
+%%%%			\begin{enumerate}
+%%%%				\item {[done]} perform algebraic Fourier transform on the defining equations for kernel of symmetry
+%%%%					breaker. The only equation which will change substantially is the $N_+'$-action. It will
+%%%%					become second order PDE.
+%%%%				\item Read books [Slavyanov] and [Smirnov] suggested by Prof. Pevzner to find (maybe) and solve
+%%%%					equations for $N_+'$ action.
+%%%%				\item filter out among solutions to $N_+'$ action equations those that also satisfy $M'$ and $A'$
+%%%%					invariance.
+%%%%				\item make inverse algebraic Fourier transform to get explicit form of kernels
+%%%%			\end{enumerate}
+%%%%		\item Apply [Sun-Zhu]
+%%%%			\begin{enumerate}
+%%%%				\item Use data in [Howe-Tan] to find for fixed $(p,q)$ for which values of $(\lambda,\nu)$ both
+%%%%					$I(\lambda)$ is irreducible for $O(p,q)$ and $J(\nu)$ for $O(p-1,q)$.
+%%%%				\item Use the result [Sun-Zhu] to conclude that for those cases dimension of symmetry breakers
+%%%%					is no more than one.
+%%%%				\item Improve the upper bound to precise and construct explicit symmetry breakers in those cases.
+%%%%				\item see what we are left with
+%%%%			\end{enumerate}
+%%	\end{itemize}
+%%\end{frame}
+%%\begin{frame}{Questions (which I'll answer myself)}
+%%	\begin{enumerate}
+%%		\item Understand the proof of Prop 11.12 of [Kobayashi-Speh]
+%%		\item Understand the proof of Prop 11.7 of [Kobayashi-Speh]
+%%	\end{enumerate}
+%%\end{frame}
+%%\begin{frame}{References}
+%%	\begin{itemize}
+%%		\item {[Sun-Zhu]} Sun, Binyong, and Chen-Bo Zhu. "Multiplicity one theorems: the Archimedean case." 
+%%			{\it arXiv preprint arXiv:0903.1413 (2009)}.
+%%		\item {[Kobayashi-Speh]} Kobayashi, Toshiyuki, and Birgit Speh. "Symmetry breaking for representations of rank one orthogonal groups." (2015).
+%%		\item {[Slavyanov]} Slavianov, S.I.U. \&
+%%			Lay, W. (2000). {\it Special Functions: A Unified Theory Based on Singularities}. Oxford University Press
+%%		\item {[Smirnov]} Smirnov, V.I. (1964). {\it A Course of Higher Mathematics}.
+%%			Pergamon Press; [U.S.A. ed. distributed by Addison-Wesley Publishing Company, Reading, Mass.
+%%			\item {[Howe-Tan]} Howe, Roger E., and Eng-Chye Tan. "Homogeneous functions on light cones: the infinitesimal structure of some degenerate principal series representations." Bulletin of the American Mathematical Society 28.1 (1993): 1-74.
+%%		\item {[Gelfand-Shilov I]} Gelfand, I.M. \& Shilov, G.E. (1969).
+%%				{\it Generalized Functions. Vol. 1: Properties and Operations}. New York
+%%	\end{itemize}
+%%\end{frame}
 
 \end{document}
-
-

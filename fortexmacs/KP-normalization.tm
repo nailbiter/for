@@ -1,6 +1,8 @@
 <TeXmacs|1.0.7.18>
 
-<style|article>
+<project|master_master.tm>
+
+<style|<tuple|article|mystyle>>
 
 <\body>
   <section|Setting>
@@ -57,7 +59,7 @@
     Let <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>\<assign\>K<rsub|\<lambda\>,\<nu\>><rsup|P>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q+2|2>-\<nu\>|)>>.
     Then for every K-finite <math|F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>>
     we have <math|<around*|\<langle\>|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>,F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>|\<rangle\>>>
-    being holomorphic as a function of <math|\<nu\>>.
+    being holomorphic as a function of <math|\<nu\>\<in\>\<bbb-C\>>.
   </proposition>
 
   <\proposition>
@@ -422,10 +424,10 @@
   </proof>
 
   <\definition>
-    <label|def-P>Given the meromorphic function <math|f> not identicall zero
-    with argument <math|\<nu\>\<in\>\<bbb-C\>> we define the map
-    <math|\<frak-P\><around*|(|f|)>:\<bbb-C\>\<rightarrow\>\<bbb-Z\>> with
-    <math|\<frak-P\><around*|(|f|)><around*|(|\<nu\><rsub|0>|)>=-m\<in\>-\<bbb-Z\><rsub|\<gtr\>0>>
+    (from <verbatim|P-def.pdf>)Given the meromorphic function <math|f> not
+    identicall zero with argument <math|\<nu\>\<in\>\<bbb-C\>> we define the
+    map <math|\<frak-P\><around*|(|f|)>:\<bbb-C\>\<rightarrow\>\<bbb-Z\>>
+    with <math|\<frak-P\><around*|(|f|)><around*|(|\<nu\><rsub|0>|)>=-m\<in\>-\<bbb-Z\><rsub|\<gtr\>0>>
     if <math|f> has zero of order <math|m> at <math|\<nu\>=\<nu\><rsub|0>>,
     <math|\<frak-P\><around*|(|f|)><around*|(|\<nu\><rsub|0>|)>=m\<in\>\<bbb-Z\><rsub|\<gtr\>0>>
     if <math|f> has pole of order <math|m> at <math|\<nu\>=\<nu\><rsub|0>>
@@ -456,8 +458,8 @@
   </definition>
 
   <\remark>
-    The following properties of <math|\<frak-P\><around*|(|\<cdot\>|)>> are
-    evident:
+    (from <verbatim|P-def.pdf>)The following properties of
+    <math|\<frak-P\><around*|(|\<cdot\>|)>> are evident:
 
     <\enumerate>
       <item><math|\<frak-P\><around*|(|\<Gamma\><around*|(|\<nu\>-a|)>|)>=<around*|{|\<nu\>\<in\>a-\<bbb-Z\><rsub|\<geqslant\>0>|}>>;
@@ -479,14 +481,21 @@
     </enumerate>
 
     Similar statements hold for meromorphic distributions on <math|\<bbb-C\>>
-    as well.
+    as well.<reference|def-1>
   </remark>
 
   <\lemma>
-    <label|lem-20>Let <math|<around*|{|F<rsub|\<nu\>><rsub|><rsup|<around*|(|i|)>><rsub|>|}><rsub|i>>
+    Let <math|<around*|{|F<rsub|\<nu\>><rsub|><rsup|<around*|(|i|)>><rsub|>|}><rsub|i>>
     be finite set of meromorphic distributions depending on
     <math|\<nu\>\<in\>\<bbb-C\>>. Then <math|\<frak-P\><around*|(|<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsup|<around*|(|i|)>><rsub|\<nu\>>|)>=max<around*|{|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i|)>>|)>|}><rsub|i>>.
   </lemma>
+
+  <\fact>
+    <label|lem-20>(from <verbatim|P-def.pdf>)Let
+    <math|<around*|{|F<rsub|\<nu\>><rsub|><rsup|<around*|(|i|)>><rsub|>|}><rsub|i>>
+    be finite set of meromorphic distributions depending on
+    <math|\<nu\>\<in\>\<bbb-C\>>. Then <math|\<frak-P\><around*|(|<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsup|<around*|(|i|)>><rsub|\<nu\>>|)>=max<around*|{|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i|)>>|)>|}><rsub|i>>.
+  </fact>
 
   <\proof>
     It suffices to show the <math|\<geqslant\>>. Suppose that at
@@ -797,7 +806,7 @@
     (of Proposition <reference|prop-6>) This follows from
     <cite-detail|gelfand1980distribution|sec. III.2.2> and equation
     <reference|eq-1>. Indeed, equation <reference|eq-1> using definition
-    <reference|def-P> and the remark following, we have (using lemma
+    <reference|def-P> and the remark following, we have (using fact
     <reference|lem-20>)
 
     <\equation*>
@@ -823,51 +832,31 @@
     \;
   </proof>
 
-  <\bibliography|bib|plain|todai_master.bib>
-    <\bib-list|1>
-      <bibitem*|1><label|bib-gelfand1980distribution>IM<nbsp>Gelfand and
-      GE<nbsp>Shilov. <newblock>Distribution theory, vol. 1, 1980.
-
-      <bibitem*|2><label|bib-kobayashi2015symmetry>Toshiyuki Kobayashi and
-      Birgit Speh. <newblock>Symmetry breaking for representations of rank
-      one orthogonal groups. <newblock><with|font-shape|italic|Memoirs of the
-      American Mathematical Society>, 238(1126), 2015.
-    </bib-list>
-  </bibliography>
+  \;
 </body>
-
-<initial|<\collection>
-</collection>>
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|2|1>>
-    <associate|auto-3|<tuple|3|2>>
-    <associate|auto-4|<tuple|4|5>>
-    <associate|auto-5|<tuple|4|9>>
-    <associate|bib-gelfand1980distribution|<tuple|1|9>>
-    <associate|bib-kobayashi2015symmetry|<tuple|2|9>>
-    <associate|def-P|<tuple|18|4>>
-    <associate|eq-1|<tuple|1|1>>
-    <associate|forre|<tuple|8|2>>
-    <associate|lem-1|<tuple|13|3>>
-    <associate|lem-16|<tuple|16|4>>
-    <associate|lem-2|<tuple|14|3>>
-    <associate|lem-20|<tuple|20|5>>
-    <associate|lem-21|<tuple|21|5>>
-    <associate|lem-3|<tuple|15|3>>
-    <associate|lem-Mg0|<tuple|11|2>>
-    <associate|lem-assume-the-setting|<tuple|12|2>>
-    <associate|lem-gg0|<tuple|3|?>>
-    <associate|lem-span|<tuple|10|2>>
-    <associate|prop-1|<tuple|1|1>>
-    <associate|prop-2|<tuple|2|?>>
-    <associate|prop-3|<tuple|3|1>>
-    <associate|prop-4|<tuple|4|1>>
-    <associate|prop-6|<tuple|7|1>>
-    <associate|prop-norm-1|<tuple|1|1>>
-    <associate|prop-norm-2|<tuple|2|1>>
+    <associate|auto-1|<tuple|1|?>>
+    <associate|auto-2|<tuple|2|?>>
+    <associate|auto-3|<tuple|3|?>>
+    <associate|auto-4|<tuple|4|?>>
+    <associate|eq-1|<tuple|1|?>>
+    <associate|forre|<tuple|8|?>>
+    <associate|lem-1|<tuple|13|?>>
+    <associate|lem-16|<tuple|16|?>>
+    <associate|lem-2|<tuple|14|?>>
+    <associate|lem-20|<tuple|21|?>>
+    <associate|lem-21|<tuple|22|?>>
+    <associate|lem-3|<tuple|15|?>>
+    <associate|lem-Mg0|<tuple|11|?>>
+    <associate|lem-assume-the-setting|<tuple|12|?>>
+    <associate|lem-span|<tuple|10|?>>
+    <associate|prop-3|<tuple|3|?>>
+    <associate|prop-4|<tuple|4|?>>
+    <associate|prop-6|<tuple|7|?>>
+    <associate|prop-norm-1|<tuple|1|?>>
+    <associate|prop-norm-2|<tuple|2|?>>
   </collection>
 </references>
 
@@ -900,10 +889,6 @@
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Proofs>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
