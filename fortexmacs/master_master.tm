@@ -8,15 +8,86 @@
 
     <subsection|Setting and Goal>
 
-    In this note we\ 
+    In this note we develop a few basic properties of meromorphic
+    distributions depending on parameter. We recall that for open connected
+    <math|O\<subset\>\<bbb-C\><rsup|>> and discrete <math|P\<subset\>O>
+    (``discrete'' here means that every point of <math|P> has neighborhood in
+    <math|O> which contains no other points of <math|P>), we say and familiy
+    of distributions <math|<around*|{|f<rsub|\<nu\>>|}><rsub|\<nu\>\<in\>O\\P>>
+    is <with|font-shape|italic|meromorphic in <math|\<nu\>\<in\>O>> if for
+    every <math|\<varphi\>\<in\>C<rsub|c><rsup|\<infty\>>> we have
+    <math|O\<ni\>\<nu\>\<mapsto\><around*|\<langle\>|f<rsub|\<nu\>>,\<varphi\>|\<rangle\>>\<in\>\<bbb-C\>>
+    being meromorphic on <math|O> and holomorphic on <math|O\\X>.
 
     <subsection|Main results>
 
+    <\fact>
+      (<cite-detail|gelfand1980distribution|appendix A>)
+      <label|P-def:fact-gelfand>Let <math|<around*|{|f<rsub|n>|}><rsub|n>\<subset\>\<cal-D\><rprime|'><around*|(|X|)>>
+      (with <math|X>: open subset of Euclidean space), be sequence of
+      distributions such that <math|\<forall\>\<varphi\>\<in\>C<rsup|\<infty\>><rsub|c>>
+      we have <math|<around*|\<langle\>|f<rsub|n>,\<varphi\>|\<rangle\>>>
+      being convergent. Then there's <math|f\<in\>\<cal-D\><rprime|'><around*|(|X|)>>
+      such that <math|\<forall\>\<varphi\>\<in\>C<rsup|\<infty\>><rsub|c>> we
+      have <math|lim<rsub|n\<rightarrow\>\<infty\>><around*|\<langle\>|f<rsub|n>,\<varphi\>|\<rangle\>>=<around*|\<langle\>|f,\<varphi\>|\<rangle\>>>.
+    </fact>
+
+    <\lemma>
+      <label|P-def:lem-laurent-distr>If one fixes
+      <math|\<nu\><rsub|0>\<in\>O> and for fixed
+      <math|\<alpha\>\<in\>\<bbb-Z\><rsup|>> let
+      <math|<around*|(|\<varphi\>|)><rsup|\<alpha\>>> denotes the
+      <math|\<alpha\>>-th term of Laurent expansion of
+      <math|\<nu\>\<mapsto\><around*|\<langle\>|f<rsub|\<nu\>>,\<varphi\>|\<rangle\>>>
+      at <math|\<nu\><rsub|0>>, then <math|\<varphi\>\<mapsto\><around*|(|\<varphi\>|)><rsup|\<alpha\>>>
+      defines a distribution. Moreover, if <math|S> is closed smooth contour
+      around <math|\<nu\><rsub|0>> small enough so that
+      <math|\<forall\>\<varphi\>\<in\>C<rsup|\<infty\>><rsub|c>,<space|0.6spc><around*|\<langle\>|f<rsub|\<nu\>>,\<varphi\>|\<rangle\>>>
+      is holo on <math|S>, then\ 
+
+      <\equation*>
+        <around*|(|\<varphi\>|)><rsup|\<alpha\>>=<frac|1|2\<pi\>i><big|int><rsub|S><frac|<around*|\<langle\>|f<rsub|\<nu\>>,\<varphi\>|\<rangle\>>|<around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|\<alpha\>+1>>d\<nu\>
+      </equation*>
+    </lemma>
+
+    <\proof>
+      The last assertion follows from complex analysis, as
+      <math|\<nu\>\<mapsto\><around*|\<langle\>|f<rsub|\<nu\>>,\<varphi\>|\<rangle\>>>
+      is meromorphic.
+
+      Now, if we take <math|<around*|{|\<Gamma\><rsub|n>|}><rsub|n=1><rsup|\<infty\>>>
+      to be partitions of <math|S> with diameter tending to zero, we have
+
+      <\equation*>
+        lim<rsub|n\<rightarrow\>\<infty\>><frac|1|2\<pi\>i><big|sum><rsub|\<gamma\>\<in\>\<Gamma\>><frac|<around*|\<langle\>|f<rsub|\<gamma\>>,\<varphi\>|\<rangle\>>|<around*|(|\<gamma\>-\<nu\><rsub|0>|)><rsup|\<alpha\>+1>>d\<gamma\><rsub|>=<frac|1|2\<pi\>i><big|int><rsub|S><frac|<around*|\<langle\>|f<rsub|\<nu\>>,\<varphi\>|\<rangle\>>|<around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|\<alpha\>+1>>d\<nu\>
+      </equation*>
+
+      and as every term under limit in left-hand side is a well-defined
+      distribution, we have <math|\<varphi\>\<mapsto\><frac|1|2\<pi\>i><big|int><rsub|S><frac|<around*|\<langle\>|f<rsub|\<nu\>>,\<varphi\>|\<rangle\>>|<around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|\<alpha\>+1>>d\<nu\>>
+      defining a generalized function from the fact
+      <reference|P-def:fact-gelfand>.
+    </proof>
+
+    <\lemma>
+      <label|P-def:lem-mero-addition>Let <math|<around*|{|F<rsub|n><rsup|\<nu\>>|}><rsub|n>>
+      be a finite family of meromorphic distributions depending on
+      <math|\<nu\>\<in\>O>. Then <math|F<rsup|\<nu\>>\<assign\><big|sum><rsub|n>F<rsub|n><rsup|\<nu\>>>
+      is also meromorphic distribution and at every point
+      <math|\<nu\>\<in\>O> if we let <math|F<rsup|\<nu\>>=:<big|sum><rsub|k>F<rsub|k><rsup|><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|k>>
+      and <math|F<rsup|\<nu\>><rsub|n>=:<big|sum><rsub|k>F<rsup|n><rsub|k><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|k>>
+      be Laurent expansions, then <math|\<forall\>k,<space|0.6spc>F<rsub|k>=<big|sum><rsub|n>F<rsub|k><rsup|n>>.
+    </lemma>
+
+    <\proof>
+      Follows directly from lemma <reference|P-def:lem-laurent-distr> and
+      additivity of integral.
+    </proof>
+
     <\definition>
-      (from <verbatim|P-def.pdf>)<label|def-P>Given the meromorphic function
-      <math|f> not identicall zero with argument <math|\<nu\>\<in\>\<bbb-C\>>
-      we define the map <math|\<frak-P\><around*|(|f|)>:\<bbb-C\>\<rightarrow\>\<bbb-Z\>>
-      with <math|\<frak-P\><around*|(|f|)><around*|(|\<nu\><rsub|0>|)>=-m\<in\>-\<bbb-Z\><rsub|\<gtr\>0>>
+      <label|def-P>Given the meromorphic function <math|f> not identicall
+      zero with argument <math|\<nu\>\<in\>\<bbb-C\>> we define the map
+      <math|\<frak-P\><around*|(|f|)>:\<bbb-C\>\<rightarrow\>\<bbb-Z\>> with
+      <math|\<frak-P\><around*|(|f|)><around*|(|\<nu\><rsub|0>|)>=-m\<in\>-\<bbb-Z\><rsub|\<gtr\>0>>
       if <math|f> has zero of order <math|m> at <math|\<nu\>=\<nu\><rsub|0>>,
       <math|\<frak-P\><around*|(|f|)><around*|(|\<nu\><rsub|0>|)>=m\<in\>\<bbb-Z\><rsub|\<gtr\>0>>
       if <math|f> has pole of order <math|m> at <math|\<nu\>=\<nu\><rsub|0>>
@@ -47,8 +118,8 @@
     </definition>
 
     <\remark>
-      (from <verbatim|P-def.pdf>)The following properties of
-      <math|\<frak-P\><around*|(|\<cdot\>|)>> are evident:
+      The following properties of <math|\<frak-P\><around*|(|\<cdot\>|)>> are
+      evident:
 
       <\enumerate>
         <item><math|\<frak-P\><around*|(|\<Gamma\><around*|(|\<nu\>-a|)>|)>=<around*|{|\<nu\>\<in\>a-\<bbb-Z\><rsub|\<geqslant\>0>|}>>;
@@ -74,10 +145,11 @@
     </remark>
 
     <\lemma>
-      If <math|F<rsub|\<nu\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>>
+      <label|P-def:lem-delta-times-mero>If
+      <math|F<rsub|\<nu\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>>
       is meromorphic distribution depending on <math|\<nu\>\<in\>\<bbb-C\>>,
-      then for <math|P\<in\>D<rprime|'><around*|(|\<bbb-R\><rsup|m>|)>> we
-      have <math|P\<otimes\>F<rsub|\<nu\>>> being meromorphic distribution
+      then for <math|0\<neq\>P\<in\>D<rprime|'><around*|(|\<bbb-R\><rsup|m>|)>>
+      we have <math|P\<otimes\>F<rsub|\<nu\>>> being meromorphic distribution
       and <math|\<frak-P\><around*|(|P\<otimes\>F<rsub|\<nu\>>|)>=\<frak-P\><around*|(|F<rsub|\<nu\>>|)>>.
       Moreover, if <math|F<rsub|\<nu\>>=<big|sum><rsub|i>F<rsub|i><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|i>>
       and <math|P\<otimes\>F<rsub|\<nu\>>=<big|sum><rsub|i>f<rsub|i><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|i>>
@@ -88,7 +160,25 @@
     </lemma>
 
     <\proof>
-      TODO
+      Let's first show that for every <math|\<varphi\>\<in\>C<rsub|c><rsup|\<infty\>>>,
+      <math|\<nu\>\<mapsto\><around*|\<langle\>|P\<otimes\>F<rsub|\<nu\>>,\<varphi\>|\<rangle\>>>
+      is meromorphic. Indeed, let us employ variable split of
+      <math|R<rsup|m+n>> as <math|<around*|(|x,y|)>> with
+      <math|x\<in\>\<bbb-R\><rsup|m>> and <math|y\<in\>\<bbb-R\><rsup|n>>. It
+      is known from <cite-detail|hormander1983analysis|thm. 5.1.1> that
+      <math|<around*|\<langle\>|P\<otimes\>F<rsub|\<nu\>>,\<varphi\><around*|(|\<cdot\>,\<cdot\>|)>|)>=<around*|\<langle\>|F<rsub|\<nu\>>,y\<mapsto\><around*|\<langle\>|P,\<varphi\><around*|(|\<cdot\>,y|)>|\<rangle\>>|\<rangle\>>>
+      and the rightmost is meromorphic.
+
+      It suffices now to show the last assertion. Again, from
+      <cite-detail|hormander1983analysis|thm. 5.1.1>, it suffices to show
+      that for <math|\<varphi\>\<in\>C<rsup|\<infty\>><rsub|c><around*|(|\<bbb-R\><rsup|n>|)>>
+      and <math|\<psi\>\<in\>C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|m>|)>>
+      we have <math|<around*|\<langle\>|f<rsub|i>,\<psi\>\<otimes\>\<varphi\>|\<rangle\>>=<around*|\<langle\>|P,\<psi\>|\<rangle\>>\<cdot\><around*|\<langle\>|F<rsub|i>,\<varphi\>|\<rangle\>>>.
+      But by lemma <reference|P-def:lem-laurent-distr> we have
+
+      <\equation*>
+        <around*|\<langle\>|f<rsub|i>,\<psi\>\<otimes\>\<varphi\>|\<rangle\>>=<frac|1|2\<pi\>i><big|int><rsub|S><frac|<around*|\<langle\>|P\<otimes\>F<rsub|\<nu\>>,\<psi\>\<otimes\>\<varphi\>|\<rangle\>>|<around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|i+1>>=<frac|1|2\<pi\>i><big|int><rsub|S><frac|<around*|\<langle\>|P,\<psi\>|\<rangle\>><around*|\<langle\>|F<rsub|\<nu\>>,\<varphi\>|\<rangle\>>|<around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|i+1>>=<around*|\<langle\>|P,\<psi\>|\<rangle\>><frac|1|2\<pi\>i><big|int><rsub|S><frac|<around*|\<langle\>|F<rsub|\<nu\>>,\<varphi\>|\<rangle\>>|<around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|i+1>>=<around*|\<langle\>|P,\<psi\>|\<rangle\>>\<cdot\><around*|\<langle\>|F<rsub|i>,\<varphi\>|\<rangle\>>.
+      </equation*>
     </proof>
 
     <\lemma>
@@ -148,7 +238,7 @@
 
     <subsection|Proofs>
 
-    write something here
+    write something her
   <|show-part>
     <section|P-def>
   </show-part>
@@ -2962,9 +3052,26 @@
 
   <\hide-part|7>
     <\bibliography|bib|alpha|todai_master.bib>
-      <\bib-list|GS80>
+      <\bib-list|Hör83>
         <bibitem*|GS80><label|bib-gelfand1980distribution>IM<nbsp>Gelfand and
         GE<nbsp>Shilov. <newblock>Distribution theory, vol. 1, 1980.
+
+        <bibitem*|Hör83><label|bib-hormander1983analysis>Lars Hörmander.
+        <newblock><with|font-shape|italic|The Analysis of Linear Partial
+        Differential Operators: Vol.: 1.: Distribution Theory and Fourier
+        Analysis>. <newblock>Springer-Verlag, 1983.
+
+        <bibitem*|HT93><label|bib-howe1993homogeneous>Roger<nbsp>E Howe and
+        Eng-Chye Tan. <newblock>Homogeneous functions on light cones: the
+        infinitesimal structure of some degenerate principal series
+        representations. <newblock><with|font-shape|italic|Bulletin of the
+        American Mathematical Society>, 28(1):1--74, 1993.
+
+        <bibitem*|KS14><label|bib-Kobayashi201489>Toshiyuki Kobayashi and
+        Birgit Speh. <newblock>Intertwining operators and the restriction of
+        representations of rank-one orthogonal groups.
+        <newblock><with|font-shape|italic|Comptes Rendus Mathematique>,
+        352(2):89 -- 94, 2014.
 
         <bibitem*|KS15><label|bib-kobayashi2015symmetry>Toshiyuki Kobayashi
         and Birgit Speh. <newblock>Symmetry breaking for representations of
@@ -2974,9 +3081,26 @@
     </bibliography>
   <|hide-part>
     <\bibliography|bib|alpha|todai_master.bib>
-      <\bib-list|GS80>
+      <\bib-list|Hör83>
         <bibitem*|GS80><label|bib-gelfand1980distribution>IM<nbsp>Gelfand and
         GE<nbsp>Shilov. <newblock>Distribution theory, vol. 1, 1980.
+
+        <bibitem*|Hör83><label|bib-hormander1983analysis>Lars Hörmander.
+        <newblock><with|font-shape|italic|The Analysis of Linear Partial
+        Differential Operators: Vol.: 1.: Distribution Theory and Fourier
+        Analysis>. <newblock>Springer-Verlag, 1983.
+
+        <bibitem*|HT93><label|bib-howe1993homogeneous>Roger<nbsp>E Howe and
+        Eng-Chye Tan. <newblock>Homogeneous functions on light cones: the
+        infinitesimal structure of some degenerate principal series
+        representations. <newblock><with|font-shape|italic|Bulletin of the
+        American Mathematical Society>, 28(1):1--74, 1993.
+
+        <bibitem*|KS14><label|bib-Kobayashi201489>Toshiyuki Kobayashi and
+        Birgit Speh. <newblock>Intertwining operators and the restriction of
+        representations of rank-one orthogonal groups.
+        <newblock><with|font-shape|italic|Comptes Rendus Mathematique>,
+        352(2):89 -- 94, 2014.
 
         <bibitem*|KS15><label|bib-kobayashi2015symmetry>Toshiyuki Kobayashi
         and Birgit Speh. <newblock>Symmetry breaking for representations of
@@ -2996,16 +3120,20 @@
 
 <\references>
   <\collection>
-    <associate|Assume-that-1|<tuple|8|?|#2>>
-    <associate|Assume-that-2|<tuple|9|?|#2>>
-    <associate|Assume-that-3|<tuple|10|?|#2>>
-    <associate|Assume-that-4|<tuple|11|?|#2>>
-    <associate|For-,-we|<tuple|13|?|#2>>
-    <associate|Let--denote|<tuple|14|?|#2>>
-    <associate|On-the-|<tuple|6|?|#2>>
-    <associate|Suppose-that-sets|<tuple|15|?|#2>>
-    <associate|Suppose-there-exists|<tuple|12|?|#2>>
-    <associate|The-following-holds|<tuple|7|?|#2>>
+    <associate|Assume-that-1|<tuple|11|?|#2>>
+    <associate|Assume-that-2|<tuple|12|?|#2>>
+    <associate|Assume-that-3|<tuple|13|?|#2>>
+    <associate|Assume-that-4|<tuple|14|?|#2>>
+    <associate|For-,-we|<tuple|16|?|#2>>
+    <associate|Let--denote|<tuple|17|?|#2>>
+    <associate|On-the-|<tuple|9|?|#2>>
+    <associate|P-def:fact-gelfand|<tuple|1|?|#1>>
+    <associate|P-def:lem-delta-times-mero|<tuple|6|?|#1>>
+    <associate|P-def:lem-laurent-distr|<tuple|2|?|#1>>
+    <associate|P-def:lem-mero-addition|<tuple|3|?|#1>>
+    <associate|Suppose-that-sets|<tuple|18|?|#2>>
+    <associate|Suppose-there-exists|<tuple|15|?|#2>>
+    <associate|The-following-holds|<tuple|10|?|#2>>
     <associate|auto-1|<tuple|1|?>>
     <associate|auto-10|<tuple|3.0.1|?>>
     <associate|auto-11|<tuple|3.1|?>>
@@ -3084,62 +3212,65 @@
     <associate|auto.6-5|<tuple|6.4|?|#6>>
     <associate|auto.6-6|<tuple|6.5|?|#6>>
     <associate|auto.7-1|<tuple|6.5|?|#7>>
+    <associate|bib-Kobayashi201489|<tuple|KS14|?|#7>>
     <associate|bib-gelfand1980distribution|<tuple|GS80|?|#7>>
-    <associate|bib-hormander1983analysis|<tuple|2|?|#2>>
+    <associate|bib-hormander1983analysis|<tuple|Hör83|?|#7>>
+    <associate|bib-howe1993homogeneous|<tuple|HT93|?|#7>>
     <associate|bib-kobayashi2015symmetry|<tuple|KS15|?|#7>>
-    <associate|def-P|<tuple|1|?|#1>>
+    <associate|def-P|<tuple|4|?|#1>>
     <associate|eq-1|<tuple|6|?|#6>>
     <associate|eq-2|<tuple|2|?|#3>>
-    <associate|fact-1|<tuple|71|?|#6>>
-    <associate|fact-2|<tuple|73|?|#6>>
-    <associate|fact-horm-homog|<tuple|16|?|#3>>
-    <associate|fact-horm1|<tuple|17|?|#3>>
-    <associate|fact-horm2|<tuple|18|?|#3>>
+    <associate|fact-1|<tuple|74|?|#6>>
+    <associate|fact-2|<tuple|76|?|#6>>
+    <associate|fact-horm-homog|<tuple|19|?|#3>>
+    <associate|fact-horm1|<tuple|20|?|#3>>
+    <associate|fact-horm2|<tuple|21|?|#3>>
     <associate|footnote-1|<tuple|1|?|#2>>
     <associate|footnr-1|<tuple|1|?|#2>>
-    <associate|forre|<tuple|57|?|#5>>
-    <associate|lem-1|<tuple|62|?|#5>>
-    <associate|lem-16|<tuple|65|?|#5>>
-    <associate|lem-2|<tuple|63|?|#5>>
+    <associate|forre|<tuple|60|?|#5>>
+    <associate|lem-1|<tuple|65|?|#5>>
+    <associate|lem-16|<tuple|68|?|#5>>
+    <associate|lem-2|<tuple|66|?|#5>>
     <associate|lem-20|<tuple|6|?|#1>>
-    <associate|lem-21|<tuple|67|?|#5>>
-    <associate|lem-3|<tuple|64|?|#5>>
-    <associate|lem-4|<tuple|44|?|#4>>
-    <associate|lem-5|<tuple|46|?|#4>>
-    <associate|lem-5n|<tuple|45|?|#4>>
-    <associate|lem-6|<tuple|26|?|#3>>
-    <associate|lem-7|<tuple|48|?|#4>>
-    <associate|lem-8|<tuple|47|?|#4>>
-    <associate|lem-9|<tuple|49|?|#4>>
-    <associate|lem-Mg0|<tuple|60|?|#5>>
-    <associate|lem-assume-the-setting|<tuple|61|?|#5>>
-    <associate|lem-holo-nonzero|<tuple|23|?|#3>>
-    <associate|lem-holo-supp|<tuple|74|?|#6>>
-    <associate|lem-mero-supp|<tuple|5|?|#1>>
-    <associate|lem-n:odd-holo|<tuple|39|?|#3>>
-    <associate|lem-n:odd-n/2|<tuple|40|?|#3>>
-    <associate|lem-normalized-eq|<tuple|27|?|#3>>
-    <associate|lem-pq2holo|<tuple|29|?|#3>>
-    <associate|lem-r1|<tuple|33|?|#3>>
-    <associate|lem-r1-e|<tuple|30|?|#3>>
-    <associate|lem-r2|<tuple|35|?|#3>>
-    <associate|lem-r3|<tuple|36|?|#3>>
-    <associate|lem-r4|<tuple|34|?|#3>>
-    <associate|lem-r5|<tuple|37|?|#3>>
-    <associate|lem-r6|<tuple|31|?|#3>>
-    <associate|lem-r6-e|<tuple|28|?|#3>>
-    <associate|lem-r7|<tuple|38|?|#3>>
-    <associate|lem-r8|<tuple|32|?|#3>>
-    <associate|lem-restricted|<tuple|22|?|#3>>
-    <associate|lem-span|<tuple|59|?|#5>>
-    <associate|prop-1|<tuple|72|?|#6>>
-    <associate|prop-2|<tuple|20|?|#3>>
-    <associate|prop-3|<tuple|52|?|#5>>
-    <associate|prop-4|<tuple|53|?|#5>>
-    <associate|prop-6|<tuple|56|?|#5>>
-    <associate|prop-norm-1|<tuple|50|?|#5>>
-    <associate|prop-norm-2|<tuple|51|?|#5>>
-    <associate|prop-q=2|<tuple|41|?|#4>>
+    <associate|lem-21|<tuple|70|?|#5>>
+    <associate|lem-3|<tuple|67|?|#5>>
+    <associate|lem-4|<tuple|47|?|#4>>
+    <associate|lem-5|<tuple|49|?|#4>>
+    <associate|lem-5n|<tuple|48|?|#4>>
+    <associate|lem-6|<tuple|29|?|#3>>
+    <associate|lem-7|<tuple|51|?|#4>>
+    <associate|lem-8|<tuple|50|?|#4>>
+    <associate|lem-9|<tuple|52|?|#4>>
+    <associate|lem-Mg0|<tuple|63|?|#5>>
+    <associate|lem-assume-the-setting|<tuple|64|?|#5>>
+    <associate|lem-holo-nonzero|<tuple|26|?|#3>>
+    <associate|lem-holo-supp|<tuple|77|?|#6>>
+    <associate|lem-mero-addition|<tuple|3|?|#1>>
+    <associate|lem-mero-supp|<tuple|8|?|#1>>
+    <associate|lem-n:odd-holo|<tuple|42|?|#3>>
+    <associate|lem-n:odd-n/2|<tuple|43|?|#3>>
+    <associate|lem-normalized-eq|<tuple|30|?|#3>>
+    <associate|lem-pq2holo|<tuple|32|?|#3>>
+    <associate|lem-r1|<tuple|36|?|#3>>
+    <associate|lem-r1-e|<tuple|33|?|#3>>
+    <associate|lem-r2|<tuple|38|?|#3>>
+    <associate|lem-r3|<tuple|39|?|#3>>
+    <associate|lem-r4|<tuple|37|?|#3>>
+    <associate|lem-r5|<tuple|40|?|#3>>
+    <associate|lem-r6|<tuple|34|?|#3>>
+    <associate|lem-r6-e|<tuple|31|?|#3>>
+    <associate|lem-r7|<tuple|41|?|#3>>
+    <associate|lem-r8|<tuple|35|?|#3>>
+    <associate|lem-restricted|<tuple|25|?|#3>>
+    <associate|lem-span|<tuple|62|?|#5>>
+    <associate|prop-1|<tuple|75|?|#6>>
+    <associate|prop-2|<tuple|23|?|#3>>
+    <associate|prop-3|<tuple|55|?|#5>>
+    <associate|prop-4|<tuple|56|?|#5>>
+    <associate|prop-6|<tuple|59|?|#5>>
+    <associate|prop-norm-1|<tuple|53|?|#5>>
+    <associate|prop-norm-2|<tuple|54|?|#5>>
+    <associate|prop-q=2|<tuple|44|?|#4>>
   </collection>
 </references>
 

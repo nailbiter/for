@@ -25,9 +25,6 @@
   <with|font-series|bold|What I plan to do>:
 
   <\enumerate>
-    <item>write report for Friday (start from page what? of todaireport
-    slides)
-
     <item>Related to <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>:
 
     <\enumerate>
@@ -60,6 +57,8 @@
     <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
 
     <\enumerate>
+      <item>{redo the proof with <math|\<frak-P\>> to simplify and verify it}
+
       <item><with|font-shape|italic|<with|font-series|bold|See how support
       changes for different <math|\<lambda\>>>>
 
@@ -70,39 +69,22 @@
       <math|Sol<rsub|C\<cup\>P><around*|(|\<bbb-R\><rsup|p,q>|)>>
     </enumerate>
 
-    <item>Compare normalizations of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>
-    obtained using the expression (1) together with those obtained by
-    analyzing pairing of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> with
-    <math|K>-finite vectors.
-
-    <\enumerate>
-      <item>Prove holompricity in <verbatim|KR-normalization.pdf>
-
-      <item>maybe try to do <math|q=4> case
-
-      <item>Then, extend to all <math|q\<in\>2\<bbb-Z\>>. Find the best
-      possible normalization of the kernel
-      <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> of reguar SBO
-      for <math|q\<in\>2\<bbb-Z\><rsub|\<gtr\>0>> case.
-      <with|font-series|bold|Try to use recurrence relations and
-      normalization.>
-    </enumerate>
-
-    If done right, this'll give better answer to question 4 than we have at
-    the moment.
-
     <item>Ideas for regular normalization:
 
     <\enumerate>
+      <item>prove holomorphicity in <verbatim|KR-normalization>
+
+      <item><math|q=4>
+
+      <item>Try to use recurrence relations, like\ 
+
       <item>why do we have inconsistincies for
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> and
       <math|K<rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>>?
 
-      <item>''Gelfand approach''
+      <item><math|q=1> formula show to K
 
       <item>residue formula
-
-      <item>Try to use recurrence relations, like\ 
     </enumerate>
   </enumerate>
 
