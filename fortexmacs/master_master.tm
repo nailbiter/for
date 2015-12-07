@@ -3,7 +3,7 @@
 <style|<tuple|article|mystyle>>
 
 <\body>
-  <\show-part|1>
+  <\hide-part|1>
     <section|P-def>
 
     <subsection|Setting and Goal>
@@ -137,7 +137,10 @@
         are pairwise disjoint, we have <math|\<frak-P\><rsub|+><rsub|><around*|(|<big|sum><rsub|i>f<rsub|i>|)>=max<around*|{|\<frak-P\><rsub|+><rsub|><around*|(|f<rsub|i>|)>|}><rsub|i>\<nosymbol\>>;
 
         <item><math|\<frak-P\><around*|(|f/g|)>=\<frak-P\><around*|(|f|)>-\<frak-P\><around*|(|g|)>>
-        and <math|\<frak-P\><around*|(|f\<cdot\>g|)>=\<frak-P\><around*|(|f|)>+\<frak-P\><around*|(|g|)>>.
+        and <math|\<frak-P\><around*|(|f\<cdot\>g|)>=\<frak-P\><around*|(|f|)>+\<frak-P\><around*|(|g|)>>;
+
+        <item>For <math|F<rsub|\<nu\>>> meromorphic distribution we have
+        <math|\<frak-P\><around*|(|F<rsub|\<nu\>>|)>=max<around*|{|<around*|\<langle\>|F<rsub|\<nu\>>,\<varphi\>|\<rangle\>>|}><rsub|\<varphi\>\<in\>C<rsup|\<infty\>><rsub|c>>>;
       </enumerate>
 
       Similar statements hold for meromorphic distributions on
@@ -152,7 +155,7 @@
       we have <math|P\<otimes\>F<rsub|\<nu\>>> being meromorphic distribution
       and <math|\<frak-P\><around*|(|P\<otimes\>F<rsub|\<nu\>>|)>=\<frak-P\><around*|(|F<rsub|\<nu\>>|)>>.
       Moreover, if <math|F<rsub|\<nu\>>=<big|sum><rsub|i>F<rsub|i><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|i>>
-      and <math|P\<otimes\>F<rsub|\<nu\>>=<big|sum><rsub|i>f<rsub|i><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|i>>
+      and <math|P\<otimes\>F<rsub|\<nu\>>=<big|sum><rsub|i>f<rsub|i>\<cdot\><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|i>>
       are Laurent expansions of <math|F<rsub|\<nu\>>> and
       <math|P\<otimes\>F<rsub|\<nu\>>> respectively at some
       <math|\<nu\>\<in\>\<bbb-C\>>, we have
@@ -182,15 +185,17 @@
     </proof>
 
     <\lemma>
-      Let <math|<around*|{|F<rsub|\<nu\>><rsub|><rsup|<around*|(|i|)>><rsub|>|}><rsub|i>>
+      <label|P-def:lem-delta-max>Let <math|<around*|{|F<rsub|\<nu\>><rsub|><rsup|<around*|(|i|)>><rsub|>|}><rsub|i>>
       be finite set of meromorphic distributions depending on
       <math|\<nu\>\<in\>\<bbb-C\>>. Then <math|\<frak-P\><around*|(|<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsup|<around*|(|i|)>><rsub|\<nu\>>|)>=max<around*|{|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i|)>>|)>|}><rsub|i>>.
     </lemma>
 
     <\proof>
-      It suffices to show the <math|\<geqslant\>>. Suppose that at
-      <math|\<nu\>=\<nu\><rsub|0>> we have
-      <math|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i<rsub|0>|)>>|)><around*|(|\<nu\><rsub|0>|)>=max<around*|{|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i|)>>|)>|}><rsub|i><around*|(|\<nu\><rsub|0>|)>>.
+      As <math|\<leqslant\>> follows from lemmas
+      <reference|P-def:lem-mero-addition> and
+      <reference|P-def:lem-delta-times-mero>, it suffices to show the
+      <math|\<geqslant\>>. Suppose that at <math|\<nu\>=\<nu\><rsub|0>> we
+      have <math|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i<rsub|0>|)>>|)><around*|(|\<nu\><rsub|0>|)>=max<around*|{|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i|)>>|)>|}><rsub|i><around*|(|\<nu\><rsub|0>|)>>.
       This means that for some <math|u\<in\>\<cal-D\>> we have
       <math|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i<rsub|0>|)>><around*|(|u|)>|)><around*|(|\<nu\><rsub|0>|)>=\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i<rsub|0>|)>>|)><around*|(|\<nu\><rsub|0>|)>>.
       Hence, taking <math|\<varphi\>\<in\>\<cal-D\><around*|(|\<bbb-R\>|)>>
@@ -199,7 +204,7 @@
     </proof>
 
     <\lemma>
-      <label|lem-mero-supp>Suppose <math|<around*|{|F<rsub|i><rsup|\<nu\>>|}><rsub|i>\<subset\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>>
+      <label|P-def:lem-mero-supp>Suppose <math|<around*|{|F<rsub|i><rsup|\<nu\>>|}><rsub|i>\<subset\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>>
       is a finite family of meromorphic distributions depending on
       <math|\<nu\>\<in\>\<bbb-C\>> and <math|\<frak-P\><around*|(|F|)><around*|(|\<nu\><rsub|0>|)>=m>
       for <math|F\<assign\><big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsub|i><rsup|\<nu\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n+1>|)>>,
@@ -212,10 +217,12 @@
     </lemma>
 
     <\proof>
-      The result will follow once we will show that
-      <math|F<rsup|<around*|(|-m|)>>=<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsub|i><rsup|<around*|(|-m|)>>>.
-      Indeed, ``<math|\<subset\>>'' will then follow immediately, and
-      conversely for, say <math|x<rsub|0>\<in\>supp<around*|(|F<rsub|i<rsub|0>><rsup|<around*|(|-m|)>>|)>>
+      Lemmas <reference|P-def:lem-mero-addition> and
+      <reference|P-def:lem-delta-times-mero> imply that
+      <math|F<rsup|<around*|(|-m|)>>=<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsub|i><rsup|<around*|(|-m|)>>>
+      \ and then result follows easily. Indeed, ``<math|\<subset\>>'' will
+      then follows immediately, and conversely for, say
+      <math|x<rsub|0>\<in\>supp<around*|(|F<rsub|i<rsub|0>><rsup|<around*|(|-m|)>>|)>>
       and arbitrary given neighborhood <math|\<bbb-R\><rsup|n+1>\<supset\>M\<ni\><around*|{|0|}>\<times\>x<rsub|0>>
       we can take neighborhoods <math|\<bbb-R\><rsup|n>\<supset\>N\<ni\>x<rsub|0>>
       and <math|\<bbb-R\>\<supset\>N<rprime|'>\<ni\><around*|{|0|}>> small
@@ -228,20 +235,10 @@
       <math|supp<around*|(|\<psi\>|)>\<subset\>N<rprime|'>>, we have
       <math|supp<around*|(|\<psi\>\<otimes\>\<varphi\>|)>\<subset\>M> and
       <math|<around*|\<langle\>|F<rsup|<around*|(|-m|)>>,\<psi\>\<otimes\>\<varphi\><rsub|N>|\<rangle\>>\<simeq\><around*|\<langle\>|F<rsub|i<rsub|0>><rsup|<around*|(|-m|)>>,\<varphi\><rsub|N>|\<rangle\>>\<neq\>0>.
-
-      Hence, it suffices to show that <math|F<rsup|<around*|(|-m|)>>=<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsub|i><rsup|<around*|(|-m|)>>>.
-      In the light of fact <reference|fact-2>, for this it suffices to show
-      that if <math|<around*|{|G<rsub|i>|}>> is a finite family of
-      meromorphic distributions, and <math|G<rsub|i>=:<big|sum><rsub|k>G<rsub|i><rsup|<around*|(|k|)>><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|k>>
-      are Laurent expansions, then\ 
     </proof>
-
-    <subsection|Proofs>
-
-    write something her
-  <|show-part>
+  <|hide-part>
     <section|P-def>
-  </show-part>
+  </hide-part>
 
   <\hide-part|2>
     <section|KC-normalization>
@@ -423,7 +420,7 @@
     </enumerate>
 
     <\lemma>
-      <label|Suppose-that-sets>Suppose that
+      <label|KC-normalization:lem-Suppose-that-sets>Suppose that
       <math|<around*|{|A<rsub|N>|}><rsub|N>>,
       <math|<around*|{|B<rsub|N>|}><rsub|N>> and
       <math|<around*|{|C<rsub|N>|}><rsub|N>> are three families of sets
@@ -627,8 +624,8 @@
     And <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>\<cup\>C<rsub|N>|)>>
     and as <math|C<rsub|N>\<subset\>-\<nu\>+2*<with|math-font|Bbb|Z>+1>,
     while <math|A<rsub|N>\<cup\>B<rsub|N>\<subset\>-\<nu\>+2*<with|math-font|Bbb|Z>>,
-    the first item of lemma <reference|Suppose-that-sets> \ and the fact that
-    <math|B<rsub|0>=A<rsub|0>=\<emptyset\>\<Longrightarrow\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>|)>=\<emptyset\>>
+    the first item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
+    \ and the fact that <math|B<rsub|0>=A<rsub|0>=\<emptyset\>\<Longrightarrow\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>|)>=\<emptyset\>>
     imply that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>C<rsub|N>=\<emptyset\>>.
     This contradiction ends the proof.
 
@@ -671,8 +668,8 @@
       we have to conclude that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>|)>>.
       Now, as <math|-N+\<nu\>+q-2*\<nu\>\<less\>-\<nu\>+n\<Longleftrightarrow\>q\<less\>n>,
       we have that <math|\<forall\>N,N<rprime|'>,<space|0.75spc>A<rsub|N<rprime|'>>\<cap\>B<rsub|N>=\<emptyset\>>
-      and the first item of lemma <reference|Suppose-that-sets> \ together
-      with the fact that <math|<big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>B<rsub|N>\<subset\>B<rsub|0>=\<emptyset\>>,
+      and the first item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
+      \ together with the fact that <math|<big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>B<rsub|N>\<subset\>B<rsub|0>=\<emptyset\>>,
       imply that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>A<rsub|N>=\<emptyset\>>.
     </proof>
 
@@ -710,8 +707,8 @@
       we have to conclude that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>|)>>.
       Now, as <math|q-\<nu\>-N\<less\>-\<nu\>+n\<Longleftrightarrow\>q-N\<less\>n>,
       we have that <math|\<forall\>N,N<rprime|'>,<space|0.75spc>A<rsub|N<rprime|'>>\<cap\>B<rsub|N>=\<emptyset\>>
-      and the first item of lemma <reference|Suppose-that-sets> \ together
-      with the fact that <math|<big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>B<rsub|N>\<subset\>B<rsub|0>=\<emptyset\>>,
+      and the first item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
+      \ together with the fact that <math|<big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>B<rsub|N>\<subset\>B<rsub|0>=\<emptyset\>>,
       imply that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>A<rsub|N>=\<emptyset\>>.
     </proof>
 
@@ -752,8 +749,9 @@
       we have to conclude that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>\<cup\>C<rsub|N>|)>>.
       Now, as <math|-\<nu\>+q-N\<less\>-\<nu\>+n\<Longleftrightarrow\>q-N\<less\>n>,
       we have that <math|\<forall\>N,N<rprime|'>,<space|0.75spc>A<rsub|N<rprime|'>>\<cap\>B<rsub|N>=\<emptyset\>>
-      and the second item of lemma <reference|Suppose-that-sets> \ (with
-      <math|N<rsub|0>=0>) implies that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>C<rsub|N>|)>>.
+      and the second item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
+      \ (with <math|N<rsub|0>=0>) implies that
+      <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>C<rsub|N>|)>>.
 
       As <math|\<lambda\>\<in\>A<rsub|0>\<cup\>C<rsub|0>=A<rsub|0>>, we can
       write <math|\<lambda\>=-\<nu\>+q-N<rprime|'>> with
@@ -870,7 +868,7 @@
     <section|KC-normalization>
   </hide-part>
 
-  <\hide-part|3>
+  <\show-part|3>
     <section|Q-normalization>
 
     <subsubsection|Setting and goal>
@@ -1746,9 +1744,9 @@
       (of proposition <reference|prop-2>) The result is granted by lemmas
       <reference|lem-r6> to <reference|lem-r7>.
     </proof>
-  <|hide-part>
+  <|show-part>
     <section|Q-normalization>
-  </hide-part>
+  </show-part>
 
   <\hide-part|4>
     <section|KR-normalization-even>
@@ -2953,13 +2951,13 @@
 
     <subsection|Setting and goal>
 
-    In this note, we will the data obtained in <verbatim|Q-normalization.pdf>
-    to find the <with|font-shape|italic|perfect> normalization of kernel of
-    singular SBO, that is supported on <math|<around*|{|x<rsub|p>=0|}>>,
-    which is given as
+    In this note, we will the data obtained in chapter
+    <verbatim|Q-normalization> to find the <with|font-shape|italic|perfect>
+    normalization of kernel of singular SBO, that is supported on
+    <math|<around*|{|x<rsub|p>=0|}>>, which is given as
 
     <\equation>
-      K<rsub|\<lambda\>,\<nu\>><rsup|P>\<assign\><big|sum><rsub|i=0><rsup|k><frac|<around*|(|-1|)><rsup|i><around*|(|2k|)>!<around*|(|\<nu\>|)><rsub|><rsup|i>|<around*|(|2k-2i|)>!i!>\<delta\><rsup|<around*|(|2k-2i|)>><around*|(|x<rsub|p>|)>\<otimes\>Q<rsub|i><label|eq-1>\<nocomma\>,<space|1em>k\<assign\>\<lambda\>+\<nu\>-n
+      K<rsub|\<lambda\>,\<nu\>><rsup|P>\<assign\><big|sum><rsub|i=0><rsup|k><frac|<around*|(|-1|)><rsup|i><around*|(|2k|)>!<around*|(|\<nu\>|)><rsub|><rsup|i>|<around*|(|2k-2i|)>!i!>\<delta\><rsup|<around*|(|2k-2i|)>><around*|(|x<rsub|p>|)>\<otimes\>Q<rsub|i>,<space|1em>k\<assign\>\<lambda\>+\<nu\>-n
     </equation>
 
     with
@@ -2970,79 +2968,189 @@
 
     and <math|<around*|(|\<nu\>|)><rsub|><rsup|i>\<assign\>\<nu\><around*|(|\<nu\>+1|)>\<ldots\><around*|(|\<nu\>+i-1|)>>.
 
-    Again, as in <verbatim|Q-normalization.pdf> here perfect means that the
-    normalized kernel will be holomorphic in <math|\<nu\>\<in\>\<bbb-C\>> and
-    nonzero. We will also determine the support of normalized kernel.
-
-    The important role will be played by following statement, shown in
-    <verbatim|KP-normalization.pdf>:
-
-    <\fact>
-      <label|fact-1>(<verbatim|KP-normalization.pdf>) Let
-      <math|<around*|{|F<rsub|\<nu\>><rsub|><rsup|<around*|(|i|)>><rsub|>|}><rsub|i>>
-      be finite set of meromorphic distributions depending on
-      <math|\<nu\>\<in\>\<bbb-C\>>. Then <math|\<frak-P\><around*|(|<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>>\<otimes\>F<rsup|<around*|(|i|)>><rsub|\<nu\>>|)>=max<around*|{|\<frak-P\><around*|(|F<rsub|\<nu\>><rsup|<around*|(|i|)>>|)>|}><rsub|i>>.
-    </fact>
-
-    It implies that it is enough to understand
-    <math|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|i>Q<rsub|i>|)>> for
-    <math|0\<leqslant\>i\<leqslant\>k>.
+    Again, as in chapter <verbatim|Q-normalization>, here ``perfect'' means
+    that the normalized kernel will be holomorphic in
+    <math|\<nu\>\<in\>\<bbb-C\>> and nonzero. We will also determine the
+    support of a normalized kernel for every <math|\<nu\>\<in\>\<bbb-C\>>.
 
     <subsection|Main results>
 
     <\proposition>
-      <label|prop-1>For <math|n\<assign\>p+q\<in\>2\<bbb-Z\>+1> we have
+      <label|KP-normalization-2:prop-1>For
+      <math|n\<assign\>p+q\<in\>2\<bbb-Z\>+1> we have:
 
       <\equation*>
         \<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|P>|)>=<around*|(|-<frac|n|2>-2k+\<bbb-Z\><rsub|\<geqslant\>0>|)>\<sqcup\><choice|<tformat|<table|<row|<cell|<around*|[|1+2\<bbb-Z\><rsub|\<geqslant\>0>|]>,>|<cell|k=0>>|<row|<cell|<around*|[|1+\<bbb-Z\><rsub|\<geqslant\>0>|]>,>|<cell|k=1>>|<row|<cell|<around*|[|-2k+1|]>\<sqcup\><around*|[|-2k+3,-2k+4,\<ldots\>,-3|]>\<sqcup\><around*|[|1+\<bbb-Z\><rsub|\<geqslant\>0>|]>,>|<cell|k\<geqslant\>2,k\<in\>2\<bbb-Z\>>>|<row|<cell|<around*|[|-2k+2,-2k+3,\<ldots\>,-3|]>\<sqcup\><around*|[|1+\<bbb-Z\><rsub|\<geqslant\>0>|]>,>|<cell|k\<geqslant\>2,k\<in\>2\<bbb-Z\>+1>>>>>
       </equation*>
 
       where <math|<around*|[|a|]>> means that for pole at <math|a> highest
-      term is supported at <math|<around*|{|<wide|Q|~>=0|}>>, while
-      <math|<around*|(|a|)>> means that it is supported at
+      term is supported at <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>>,
+      while <math|<around*|(|a|)>> means that it is supported at
       <math|<around*|{|0|}>>, and <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>
       has support <math|<around*|{|x<rsub|p>=0|}>> at all points
       <math|\<nu\>\<in\>\<bbb-C\>> of holomorphicity.
     </proposition>
 
-    <subsection|Auxiliary results and facts>
+    <\proposition>
+      <label|KP-normalization-2:prop-2>For <math|p,q,n/2\<in\>2\<bbb-Z\>> we
+      have:
 
-    <\fact>
-      <label|fact-2>(from <verbatim|KP-normalization.pdf>) If
-      <math|F<rsub|\<nu\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>>
-      is meromorphic distribution depending on <math|\<nu\>\<in\>\<bbb-C\>>,
-      then for <math|P\<in\>D<rprime|'><around*|(|\<bbb-R\><rsup|m>|)>> we
-      have <math|P\<otimes\>F<rsub|\<nu\>>> being meromorphic distribution
-      and <math|\<frak-P\><around*|(|P\<otimes\>F<rsub|\<nu\>>|)>=\<frak-P\><around*|(|F<rsub|\<nu\>>|)>>.
-      Moreover, if <math|F<rsub|\<nu\>>=<big|sum><rsub|i>F<rsub|i><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|i>>
-      and <math|P\<otimes\>F<rsub|\<nu\>>=<big|sum><rsub|i>f<rsub|i><around*|(|\<nu\>-\<nu\><rsub|0>|)><rsup|i>>
-      are Laurent expansions of <math|F<rsub|\<nu\>>> and
-      <math|P\<otimes\>F<rsub|\<nu\>>> respectively at some
-      <math|\<nu\>\<in\>\<bbb-C\>>, we have
-      <math|f<rsub|i>=P\<otimes\>F<rsub|i>>.
-    </fact>
+      <\equation*>
+        \<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|<frac|n|2>+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k=0>>|<row|<cell|<around*|[|1+\<bbb-Z\><rsub|\<geqslant\>0>|]>,>|<cell|k=1>>|<row|<cell|<around*|[|1-2k|]>\<sqcup\><around*|(|2-2k|)>\<cup\><around*|[|3-2k,4-2k,\<ldots\>,-3|]>\<sqcup\><around*|(|-2|)>\<sqcup\><around*|[|1+\<bbb-Z\><rsub|\<geqslant\>0>|]>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>,n/2=2>>|<row|<cell|<around*|[|2-2k,3-2k,\<ldots\>,-3|]>\<sqcup\><around*|(|-2|)>\<sqcup\><around*|[|1+\<bbb-Z\><rsub|\<geqslant\>0>|]>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>+1,n/2=2>>|<row|<cell|<around*|[|-2k+1|]>\<sqcup\><around*|[|-2k+3,-2k+4,\<ldots\>,-3|]>\<sqcup\><around*|(|-2|)>\<sqcup\><around*|[|1+\<bbb-Z\><rsub|\<geqslant\>0>|]>,>|<cell|n/2\<geqslant\>4,k\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>>>|<row|<cell|<around*|[|-2k+2,-2k+3,\<ldots\>,-3|]>\<sqcup\><around*|(|-2|)>\<sqcup\><around*|[|1+\<bbb-Z\><rsub|\<geqslant\>0>|]>,,>|<cell|n/2\<geqslant\>4,k\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>+1>>>>>
+      </equation*>
+    </proposition>
+
+    <\proof>
+      (of proposition <reference|KP-normalization-2:prop-2>) First, cases
+      <math|k=0,1,2> are clear by direct computations and we can proceed
+      directly to <math|k\<geqslant\>3>. Moreover, lemma
+      <reference|KP-normalization-2:lem-aux-1> applies and tells us that we
+      can restrict attention to poles that belong to
+      <math|<around*|{|\<nu\>\<in\>\<bbb-Z\><rsub|\<leqslant\>0>|}>>.
+
+      We first consider <math|n/2=2> case. We shall proceed by induction,
+      <math|k=3> is a base cases and can be verified by direct computation.
+      Suppose now that statement is shown for
+      <math|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>2>> and we want to prove it
+      for <math|k+1>. That is, we have that
+      <math|max<around*|{|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|j>Q<rsub|j>|)>|}><rsub|j=0><rsup|k><mid|\|><rsub|\<bbb-Z\><rsub|\<leqslant\>0>>=<around*|[|1-2k|]>\<sqcup\><around*|(|2-2k|)>\<cup\><around*|[|3-2k,4-2k,\<ldots\>,-3|]>>
+      and we want to show that <math|><math|max<around*|{|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|j>Q<rsub|j>|)>|}><rsub|j=0><rsup|k+1><mid|\|><rsub|\<bbb-Z\><rsub|\<leqslant\>0>>=max<around*|{|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|j>Q<rsub|j>|)>|}><rsub|j=0><rsup|k><mid|\|><rsub|\<bbb-Z\><rsub|\<leqslant\>0>>\<cup\>\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|k+1>Q<rsub|k+1>|)><mid|\|><rsub|\<bbb-Z\><rsub|\<leqslant\>0>>=<around*|[|-2k,1-2k,\<ldots\>,-3|]>\<sqcup\><around*|(|-2|)>>.
+      As <math|\<frak-P\><around*|(|Q<rsub|k+1>|)>\<leqslant\>-2k+\<bbb-Z\><rsub|\<geqslant\>0>>
+      and in the light of first statement of lemma
+      <reference|KP-normalization-2:lem-aux-1>, it suffices to show that
+      <math|Q<rsub|k+1>> has poles at <math|-2k,-2k+2> and the residues have
+      support being equal to <math|<around*|{|Q=0|}>\<cap\><around*|{|x<rsub|p>=0|}>>.
+      The latter, however, follows, as it happens if
+      <math|4-2<around*|(|k+1|)>\<leqslant\>-<around*|(|k+1|)>> and the
+      latter holds if <math|k\<geqslant\>4>.
+
+      Next, suppose that statement is shown for
+      <math|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>+1> and we want to show it
+      for <math|k+1>, that is it suffices to show that
+      <math|<around*|[|2-2k,3-2k,\<ldots\>,-3|]>\<sqcup\><around*|(|-2|)><big|cup>\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|k+1>Q<rsub|k+1>|)>=<around*|[|-1-2k|]>\<sqcup\><around*|(|-2k|)>\<cup\><around*|[|1-2k,2-2k,\<ldots\>,-3|]>\<sqcup\><around*|(|-2|)>>.
+      Again, as <math|\<frak-P\><around*|(|Q<rsub|k+1>|)>\<leqslant\>-1-2k+\<bbb-Z\><rsub|\<geqslant\>0>>
+      and in the light of first statement of lemma
+      <reference|KP-normalization-2:lem-aux-1>, it suffices to show that
+      <math|<around*|(|\<nu\>|)><rsup|k+1>Q<rsub|k+1>> has poles at
+      <math|-1-2k> and <math|-2k> and the residues have supports
+      <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>> and
+      <math|<around*|{|0|}>> respectively.
+    </proof>
+
+    <subsection|Auxiliary results>
 
     <\lemma>
-      <label|lem-holo-supp>At points of holomorphicity
+      <label|KP-normalization-2:lem-holo-supp>At points of holomorphicity
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> has support equal to
       <math|<around*|{|x<rsub|p>=0|}>>.
     </lemma>
 
     <\proof>
-      In the light of fact <reference|fact-1> we see that point of
-      holomorphicity fo <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> should in
-      particular be point of holomorphicity of
+      In the light of lemma <reference|P-def:lem-delta-times-mero> we see
+      that point of holomorphicity of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>
+      should in particular be point of holomorphicity of
       <math|Q<rsub|i>=<around*|\||<wide|Q|~>|\|><rsup|-\<nu\>>>. Now, the
       latter is known to have full support at points of its holomorphicity.
+    </proof>
+
+    <\lemma>
+      <label|KP-normalization-2:lem-sets>Suppose
+      <math|<around*|{|A<rsub|n>|}><rsub|n>> be finite family of subsets of
+      <math|\<bbb-Z\>> of form <math|A<rsub|i>=<around*|{|a<rsub|i>,a<rsub|i>+1,\<ldots\>,b<rsub|i>|}>>
+      and such that every member of family intersects some other member.
+      Then, <math|<big|cup><rsub|n>A<rsub|n>=<around*|{|a,a+1,\<ldots\>,b|}>>
+      where <math|a\<assign\>min<around*|{|a<rsub|i>|}><rsub|i>> and
+      <math|b\<assign\>max<around*|{|b<rsub|i>|}><rsub|i>>.
+    </lemma>
+
+    <\proof>
+      Induction on size of family <math|<around*|{|A<rsub|n>|}><rsub|n>>.
+      Statement is clear when size is one, and when size is more, we take two
+      members <math|A<rsub|0>,A<rsub|1>\<in\><around*|{|A<rsub|n>|}><rsub|n>>
+      such that <math|A<rsub|0>\<cap\>A<rsub|1>\<neq\>\<varnothing\>> and
+      consider the new family <math|<around*|{|A<rsub|0>\<cup\>A<rsub|1>|}>\<cup\><around*|{|A<rsub|n>|}><rsub|n>\\<around*|{|A<rsub|0>,A<rsub|1>|}>>.
+    </proof>
+
+    <\lemma>
+      <label|KP-normalization-2:lem-nonzero><math|K<rsub|\<lambda\>,\<nu\>><rsup|P>\<neq\>0>
+      for all <math|\<nu\>\<in\>\<bbb-C\>>. In other words,
+      <math|\<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>\<geqslant\>0>.
+    </lemma>
+
+    <\proof>
+      This follows from lemma <reference|P-def:lem-delta-max> and the fact
+      that <math|<around*|\||<wide|Q|~>|\|><rsup|\<nu\>>\<neq\>0> for
+      <math|\<nu\>\<neq\>0>.
+    </proof>
+
+    <\lemma>
+      <label|KP-normalization-2:lem-aux-1>For <math|p,q\<in\>2\<bbb-Z\>> we
+      have <math|\<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>\<leqslant\><around*|{|\<nu\>\<in\>\<bbb-Z\>|}>>
+      with residues having their support contained in
+      <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>>. Moreover for
+      <math|k\<geqslant\>1> we have <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>
+      having simple poles at <math|\<nu\>\<in\>\<bbb-Z\><rsub|\<geqslant\>1>>
+      with residues having support <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>>.
+    </lemma>
+
+    <\proof>
+      The first statement follows easily from material in section
+      <verbatim|Q-normalization> about <math|\<frak-P\><around*|(|<around*|\||Q|\|><rsup|\<nu\>>|)>>
+      and <math|\<frak-P\><around*|(|<around*|\||Q|\|><rsup|\<nu\>>sgn<around*|(|Q|)>|)>>,
+      and lemmas <reference|P-def:lem-mero-supp> and
+      <reference|P-def:lem-delta-max>. Second also follows, as if
+      <math|k\<geqslant\>2> we should have
+      <math|\<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>\<geqslant\>max<around*|{|\<frak-P\><around*|(|Q<rsub|0>|)>,\<frak-P\><around*|(|\<nu\>Q<rsub|1>|)>|}>>
+      and <math|Q<rsub|0>> has simple poles at points
+      <math|<around*|{|\<nu\>\<in\>1+2\<bbb-Z\><rsub|\<geqslant\>0>|}>> with
+      residues supported on <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>>,
+      while <math|\<nu\>Q<rsub|1>> has simple poles at
+      <math|<around*|{|\<nu\>\<in\>2+2\<bbb-Z\><rsub|\<geqslant\>0>|}>> with
+      residues supported on the same set. Now, application of lemma
+      <reference|P-def:lem-mero-supp> and first statement proven above ends
+      the proof.
     </proof>
 
     <subsection|Proofs>
 
     <\proof>
-      (of proposition <reference|prop-1>) The last statement is readily
-      granted by lemma <reference|lem-holo-supp>, once all others will be
-      shown. Statement for <math|k=0,1> follow by direct computations, so we
-      proceed straightly to <math|k\<geqslant\>2> case.
+      (of proposition <reference|KP-normalization-2:prop-1>) The last
+      statement is readily granted by lemma
+      <reference|KP-normalization-2:lem-holo-supp>, once all others will be
+      shown. Statement for <math|k\<leqslant\>3> follows by direct
+      computations, so we proceed straightly to <math|k\<geqslant\>4> case.
+
+      Now, one sees that\ 
+
+      <\equation*>
+        \<frak-P\><around*|(|Q<rsub|i>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1-2i+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|<frac|n|2>-2i+\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\>>>|<row|<cell|<around*|[|2-2i+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|<frac|n|2>-2i+\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\>+1>>>>>
+      </equation*>
+
+      Now, first item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
+      implies immediately the <math|<around*|(|-<frac|n|2>-2k+\<bbb-Z\><rsub|\<geqslant\>0>|)>>
+      term in the result. Furthermore, as we see that
+
+      <\equation*>
+        \<bbb-Z\>\<cap\>\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|i>Q<rsub|i>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1-2i,3-2i,\<ldots\>,-i-1|]>\<sqcup\><around*|[|1+2\<bbb-Z\><rsub|\<geqslant\>0>|]>,>|<cell|i\<in\>2\<bbb-Z\>>>|<row|<cell|<around*|[|2-2i,4-2i,\<ldots\>,-i-1|]>\<sqcup\><around*|[|2+2\<bbb-Z\><rsub|\<geqslant\>0>|]>,>|<cell|i\<in\>2\<bbb-Z\>+1>>>>>
+      </equation*>
+
+      and similarly first item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
+      implies <math|<around*|[|1+\<bbb-Z\><rsub|\<geqslant\>0>|]>> term in
+      the result. Finally, letting <math|A<rsub|i>\<assign\><around*|[|1-2i,3-2i,\<ldots\>,-i-1|]>>
+      or <math|A<rsub|i>\<assign\><around*|[|2-2i,4-2i,\<ldots\>,-i-1|]>>
+      depending on <math|i> even or odd respectively, we see that for
+      <math|i\<geqslant\>4> we have <math|A<rsub|i>\<cap\>A<rsub|i+2>\<neq\>\<varnothing\>>.
+      Hence, lemma <reference|KP-normalization-2:lem-sets> implies that
+
+      <\equation*>
+        i=2j\<in\>2\<bbb-Z\><rsub|\<geqslant\>2>\<Rightarrow\><big|cup><rsup|j><rsub|k=0>A<rsub|2k>=\<varnothing\>\<cup\><around*|[|-3|]>\<cup\><around*|[|1-2i,3-2i,\<ldots\>,-5|]>=<around*|[|1-2i,3-2i,\<ldots\>,-3|]>,
+      </equation*>
+
+      <\equation*>
+        i=2j+1\<in\>2\<bbb-Z\><rsub|\<geqslant\>2>+1\<Rightarrow\><big|cup><rsub|k=0><rsup|j>A<rsub|2k+1>=<around*|[|-2|]>\<cup\><around*|[|-4|]>\<cup\><around*|[|2-2i,4-2i,\<ldots\>,-6|]>=<around*|[|2-2i,4-2i,\<ldots\>,-2|]>.
+      </equation*>
+
+      which gives the final answer.
     </proof>
 
     <subsection|TODO>
@@ -3125,12 +3233,21 @@
     <associate|Assume-that-3|<tuple|13|?|#2>>
     <associate|Assume-that-4|<tuple|14|?|#2>>
     <associate|For-,-we|<tuple|16|?|#2>>
+    <associate|KC-normalization:lem-Suppose-that-sets|<tuple|18|?|#2>>
+    <associate|KP-normalization-2:lem-aux-1|<tuple|79|?|#6>>
+    <associate|KP-normalization-2:lem-holo-supp|<tuple|76|?|#6>>
+    <associate|KP-normalization-2:lem-nonzero|<tuple|78|?|#6>>
+    <associate|KP-normalization-2:lem-sets|<tuple|77|?|#6>>
+    <associate|KP-normalization-2:prop-1|<tuple|74|?|#6>>
+    <associate|KP-normalization-2:prop-2|<tuple|75|?|#6>>
     <associate|Let--denote|<tuple|17|?|#2>>
     <associate|On-the-|<tuple|9|?|#2>>
     <associate|P-def:fact-gelfand|<tuple|1|?|#1>>
+    <associate|P-def:lem-delta-max|<tuple|7|?|#1>>
     <associate|P-def:lem-delta-times-mero|<tuple|6|?|#1>>
     <associate|P-def:lem-laurent-distr|<tuple|2|?|#1>>
     <associate|P-def:lem-mero-addition|<tuple|3|?|#1>>
+    <associate|P-def:lem-mero-supp|<tuple|8|?|#1>>
     <associate|Suppose-that-sets|<tuple|18|?|#2>>
     <associate|Suppose-there-exists|<tuple|15|?|#2>>
     <associate|The-following-holds|<tuple|10|?|#2>>
@@ -3218,10 +3335,10 @@
     <associate|bib-howe1993homogeneous|<tuple|HT93|?|#7>>
     <associate|bib-kobayashi2015symmetry|<tuple|KS15|?|#7>>
     <associate|def-P|<tuple|4|?|#1>>
-    <associate|eq-1|<tuple|6|?|#6>>
+    <associate|eq-1|<tuple|4|?|#5>>
     <associate|eq-2|<tuple|2|?|#3>>
     <associate|fact-1|<tuple|74|?|#6>>
-    <associate|fact-2|<tuple|76|?|#6>>
+    <associate|fact-2|<tuple|75|?|#6>>
     <associate|fact-horm-homog|<tuple|19|?|#3>>
     <associate|fact-horm1|<tuple|20|?|#3>>
     <associate|fact-horm2|<tuple|21|?|#3>>
@@ -3244,7 +3361,7 @@
     <associate|lem-Mg0|<tuple|63|?|#5>>
     <associate|lem-assume-the-setting|<tuple|64|?|#5>>
     <associate|lem-holo-nonzero|<tuple|26|?|#3>>
-    <associate|lem-holo-supp|<tuple|77|?|#6>>
+    <associate|lem-holo-supp|<tuple|76|?|#6>>
     <associate|lem-mero-addition|<tuple|3|?|#1>>
     <associate|lem-mero-supp|<tuple|8|?|#1>>
     <associate|lem-n:odd-holo|<tuple|42|?|#3>>
@@ -3263,7 +3380,7 @@
     <associate|lem-r8|<tuple|35|?|#3>>
     <associate|lem-restricted|<tuple|25|?|#3>>
     <associate|lem-span|<tuple|62|?|#5>>
-    <associate|prop-1|<tuple|75|?|#6>>
+    <associate|prop-1|<tuple|22|?|#3>>
     <associate|prop-2|<tuple|23|?|#3>>
     <associate|prop-3|<tuple|55|?|#5>>
     <associate|prop-4|<tuple|56|?|#5>>
