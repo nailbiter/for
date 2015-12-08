@@ -31,34 +31,15 @@
       case and comupute supports:
 
       <\enumerate>
-        <item>(<math|n<rprime|'>\<in\>2\<bbb-Z\>+1>)
+        <item>--\<gtr\> merge cases
 
-        <item>(check <math|p<rprime|'>\<equiv\>1 mod 2>, <math|q=2> to check
-        for inconsistincies)
-
-        <item>HERE: <math|p,q\<in\>2\<bbb-Z\>> and <math|n/2\<in\>2\<bbb-Z\>>
-        case --\<gtr\> remove aux1
-
-        <item>(check <math|p<rprime|'>\<equiv\>2 mod 4>, <math|q=2> to check
-        for inconsistincies)
-
-        <item><math|p,q\<in\>2\<bbb-Z\>> and <math|n/2\<in\>2\<bbb-Z\>+1>
-        case
-
-        <item>check <math|p<rprime|'>\<equiv\>0 mod 4>, <math|q=2> to check
-        for inconsistincies
-
-        <item><math|p,q\<in\>2\<bbb-Z\>+1> and <math|n/2\<in\>2\<bbb-Z\>>
-        case
+        <item>HERE: <math|p,q\<in\>2\<bbb-Z\>+1> and
+        <math|n/2\<in\>2\<bbb-Z\>> case
 
         <item><math|p,q\<in\>2\<bbb-Z\>+1> and <math|n/2\<in\>2\<bbb-Z\>+1>
         case
       </enumerate>
     </enumerate>
-
-    <item><with|font-shape|italic|<with|font-series|bold|Answer question 5
-    above>> (and <with|font-series|bold|confirm normalization of regular for
-    <math|q=2>>)
 
     <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
 
@@ -74,6 +55,10 @@
       <item>Dimensional argument to explicitly determine
       <math|Sol<rsub|C\<cup\>P><around*|(|\<bbb-R\><rsup|p,q>|)>>
     </enumerate>
+
+    <item><with|font-shape|italic|<with|font-series|bold|Answer question 5
+    above>> (and <with|font-series|bold|confirm normalization of regular for
+    <math|q=2>>)
 
     <item>Ideas for regular normalization:
 

@@ -2998,87 +2998,20 @@
       <math|p<rprime|'>,q,n<rprime|'>/2\<in\>2\<bbb-Z\>> we have:
 
       <\equation*>
-        \<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>=<around*|[|1+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><choice|<tformat|<table|<row|<cell|<around*|(|2+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>,k\<geqslant\>n<rprime|'>/2-2>>|<row|<cell|<around*|(|n/2-k+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>,k\<less\>n<rprime|'>/2-2>>|<row|<cell|<around*|(|2+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1,<around*|(|k-1|)>\<geqslant\>n<rprime|'>/2-2>>|<row|<cell|<around*|(|n/2-<around*|(|k-1|)>+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1,<around*|(|k-1|)>\<less\>n<rprime|'>/2-2>>>>>
+        \<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>=<around*|[|1+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><choice|<tformat|<table|<row|<cell|<around*|(|2+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>,k\<geqslant\>n<rprime|'>/2-2>>|<row|<cell|<around*|(|n<rprime|'>/2-k+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>,k\<less\>n<rprime|'>/2-2>>|<row|<cell|<around*|(|2+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1,<around*|(|k-1|)>\<geqslant\>n<rprime|'>/2-2>>|<row|<cell|<around*|(|n<rprime|'>/2-<around*|(|k-1|)>+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1,<around*|(|k-1|)>\<less\>n<rprime|'>/2-2>>>>>
       </equation*>
     </proposition>
 
-    <\proof>
-      (of proposition <reference|KP-normalization-2:prop-2>) Till the end of
-      proof we will use symbols <math|p,n> for <math|p<rprime|'>,n<rprime|'>>
-      respectively. Original <math|p,q> will not appear in this proof. First,
-      cases <math|k=0,1,2> are clear by direct computations and we can
-      proceed directly to <math|k\<geqslant\>3>. Moreover, lemma
-      <reference|KP-normalization-2:lem-aux-1> applies and tells us that we
-      can restrict attention to poles that belong to
-      <math|<around*|{|\<nu\>\<in\>\<bbb-Z\><rsub|\<leqslant\>0>|}>>.
-
-      We first consider <math|n/2=2> case. We shall proceed by induction,
-      <math|k=3> is a base cases and can be verified by direct computation.
-      Suppose now that statement is shown for
-      <math|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>2>> and we want to prove it
-      for <math|k+1>. That is, we have that
-      <math|max<around*|{|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|j>Q<rsub|j>|)>|}><rsub|j=0><rsup|k><mid|\|><rsub|\<bbb-Z\><rsub|\<leqslant\>0>>=<around*|[|1-2k|]>\<sqcup\><around*|(|2-2k|)>\<cup\><around*|[|3-2k,4-2k,\<ldots\>,-3|]>>
-      and we want to show that <math|><math|max<around*|{|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|j>Q<rsub|j>|)>|}><rsub|j=0><rsup|k+1><mid|\|><rsub|\<bbb-Z\><rsub|\<leqslant\>0>>=max<around*|{|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|j>Q<rsub|j>|)>|}><rsub|j=0><rsup|k><mid|\|><rsub|\<bbb-Z\><rsub|\<leqslant\>0>>\<cup\>\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|k+1>Q<rsub|k+1>|)><mid|\|><rsub|\<bbb-Z\><rsub|\<leqslant\>0>>=<around*|[|-2k,1-2k,\<ldots\>,-3|]>\<sqcup\><around*|(|-2|)>>.
-      As <math|\<frak-P\><around*|(|Q<rsub|k+1>|)>\<leqslant\>-2k+\<bbb-Z\><rsub|\<geqslant\>0>>
-      and in the light of first statement of lemma
-      <reference|KP-normalization-2:lem-aux-1>, it suffices to show that
-      <math|Q<rsub|k+1>> has poles at <math|-2k,-2k+2> and the residues have
-      support being equal to <math|<around*|{|Q=0|}>\<cap\><around*|{|x<rsub|p>=0|}>>.
-      The latter, however, follows, as it happens if
-      <math|4-2<around*|(|k+1|)>\<leqslant\>-<around*|(|k+1|)>> and the
-      latter holds if <math|k\<geqslant\>4>.
-
-      Next, suppose that statement is shown for
-      <math|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>+1> and we want to show it
-      for <math|k+1>, that is it suffices to show that\ 
+    <\proposition>
+      <label|KP-normalization-2:prop-3>Let <math|p<rprime|'>\<assign\>p-1>
+      and <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. For
+      <math|p<rprime|'>,q,n<rprime|'>/2\<in\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>\<times\><around*|(|1+2\<bbb-Z\><rsub|\<geqslant\>0>|)>>
+      we have:
 
       <\equation*>
-        <around*|[|2-2k,3-2k,\<ldots\>,-3|]>\<sqcup\><around*|(|-2|)><big|cup>\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|k+1>Q<rsub|k+1>|)>=<around*|[|-1-2k|]>\<sqcup\><around*|(|-2k|)>\<cup\><around*|[|1-2k,2-2k,\<ldots\>,-3|]>\<sqcup\><around*|(|-2|)>
+        \<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>=<around*|[|1+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><choice|<tformat|<table|<row|<cell|<around*|(|2+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>,<frac|n<rprime|'>|2>+1-k\<less\>2>>|<row|<cell|<around*|(|<frac|n<rprime|'>|2>+1-k+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>,<frac|n<rprime|'>|2>+1-k\<geqslant\>2>>|<row|<cell|<around*|(|2+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1,n<rprime|'>/2-k\<less\>2>>|<row|<cell|<around*|(|<frac|n<rprime|'>|2>-k+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1,n<rprime|'>/2-k\<geqslant\>2>>>>>
       </equation*>
-
-      Again, as <math|\<frak-P\><around*|(|Q<rsub|k+1>|)>\<leqslant\>-1-2k+\<bbb-Z\><rsub|\<geqslant\>0>>
-      and in the light of first statement of lemma
-      <reference|KP-normalization-2:lem-aux-1>, it suffices to show that
-      <math|<around*|(|\<nu\>|)><rsup|k+1>Q<rsub|k+1>> has poles at
-      <math|-1-2k>, <math|-2k> and <math|1-2k> and the residues have supports
-      <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>>,
-      <math|<around*|{|0|}>> and <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>>
-      respectively. This follows, as <math|Q<rsub|k+1> > satisfies these and
-      we have <math|1-2k\<leqslant\>-<around*|(|k+1|)>> holding for
-      <math|k\<geqslant\>3>. This ends the proof for <math|n/2=2> case.
-
-      For <math|n/2\<geqslant\>4>, the proof goes similarly by induction with
-      <math|k=3> being the base. For <math|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>2>\<rightarrow\>k+1>
-      step, we need to show that\ 
-
-      <\equation*>
-        <around*|[|-2k+1|]>\<sqcup\><around*|[|-2k+3,-2k+4,\<ldots\>,-3|]><big|cup>\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|k+1>Q<rsub|k+1>|)>=<around*|[|-2k,-2k+1,\<ldots\>,-3|]>.
-      </equation*>
-
-      Again, in the light of lemma <reference|KP-normalization-2:lem-aux-1>,
-      it is then sufficient to show that <math|<around*|(|\<nu\>|)><rsup|k+1>Q<rsub|k+1>>
-      has simple poles at <math|\<nu\>=-2k,-2k+2> and these have residues
-      supported on <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>>.
-      Now, this holds true, as <math|Q<rsub|k+1>> satisfies these (under
-      <math|n/2\<geqslant\>4> assumption) and we have
-      <math|4-2<around*|(|k+1|)>\<leqslant\>-<around*|(|k+1|)>> holding if
-      <math|k\<geqslant\>4>.
-
-      Similarly, for <math|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>+1\<rightarrow\>k+1>
-      step we need to show that
-
-      <\equation*>
-        <around*|[|-2k+2,-2k+3,\<ldots\>,-3|]><big|cup>\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|k+1>Q<rsub|k+1>|)>=<around*|[|-2k-1|]>\<sqcup\><around*|[|-2k+1,-2k+2,\<ldots\>,-3|]>.
-      </equation*>
-
-      and for this it suffices to show that
-      <math|<around*|(|\<nu\>|)><rsup|k+1>Q<rsub|k+1>> has simple poles at
-      <math|-2k-1,-2k+1> whose residue is supported on
-      <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>> and is
-      holomorphic at <math|<around*|{|-2k|}>>. Now, <math|Q<rsub|k+1>>
-      satisfies all these and we have <math|1-2k\<leqslant\>-<around*|(|k+1|)>>
-      holding for <math|k\<geqslant\>3>.
-    </proof>
+    </proposition>
 
     <subsection|Auxiliary results>
 
@@ -3127,32 +3060,14 @@
     </proof>
 
     <\lemma>
-      <label|KP-normalization-2:lem-aux-1>For
-      <math|p<rprime|'>,q\<in\>2\<bbb-Z\>> we have
-      <math|\<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>\<leqslant\><around*|{|\<nu\>\<in\>\<bbb-Z\>|}>>
-      with residues having their support contained in
-      <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>>. Moreover for
-      <math|k\<geqslant\>1> we have <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>
-      having simple poles at <math|\<nu\>\<in\>\<bbb-Z\><rsub|\<geqslant\>1>>
-      with residues having support <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>>.
+      <label|KP-normalization-2:lem-trivial>Let
+      <math|A\<subset\>1+\<bbb-Z\><rsub|\<geqslant\>0>>. Then for
+      <math|n\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
+      <math|<around*|(|-n+A|)>\\<around*|{|-n+1,-n+2,\<ldots\>,0|}>=<around*|(|-n+A|)>\<cap\>\<bbb-Z\><rsub|\<geqslant\>1>>.
     </lemma>
 
     <\proof>
-      The first statement follows easily from material in section
-      <verbatim|Q-normalization> about <math|\<frak-P\><around*|(|<around*|\||Q|\|><rsup|\<nu\>>|)>>
-      and <math|\<frak-P\><around*|(|<around*|\||Q|\|><rsup|\<nu\>>sgn<around*|(|Q|)>|)>>,
-      and lemmas <reference|P-def:lem-mero-supp> and
-      <reference|P-def:lem-delta-max>. Second also follows, as if
-      <math|k\<geqslant\>2> we should have
-      <math|\<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>\<geqslant\>max<around*|{|\<frak-P\><around*|(|Q<rsub|0>|)>,\<frak-P\><around*|(|\<nu\>Q<rsub|1>|)>|}>>
-      and <math|Q<rsub|0>> has simple poles at points
-      <math|<around*|{|\<nu\>\<in\>1+2\<bbb-Z\><rsub|\<geqslant\>0>|}>> with
-      residues supported on <math|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>>,
-      while <math|\<nu\>Q<rsub|1>> has simple poles at
-      <math|<around*|{|\<nu\>\<in\>2+2\<bbb-Z\><rsub|\<geqslant\>0>|}>> with
-      residues supported on the same set. Now, application of lemma
-      <reference|P-def:lem-mero-supp> and first statement proven above ends
-      the proof.
+      By direct computation.
     </proof>
 
     <subsection|Proofs>
@@ -3160,7 +3075,7 @@
     <\proof>
       (of proposition <reference|KP-normalization-2:prop-1>) Till the end of
       proof we will use symbols <math|p,n> for <math|p<rprime|'>,n<rprime|'>>
-      respectively. Original <math|p,q> will not appear in this proof. The
+      respectively. Original <math|p,n> will not appear in this proof. The
       last statement is readily granted by lemma
       <reference|KP-normalization-2:lem-holo-supp>, once all others will be
       shown.
@@ -3192,6 +3107,53 @@
       </equation*>
 
       as <math|2-i,1-i\<geqslant\>1-i>.
+    </proof>
+
+    <\proof>
+      (of proposition <reference|KP-normalization-2:prop-2>) Till the end of
+      proof we will use symbols <math|p,n> for <math|p<rprime|'>,n<rprime|'>>
+      respectively. Original <math|p,n> will not appear in this proof.
+      Definitions imply that <math|\<frak-P\><around*|(|Q<rsub|1>|)>=1+\<frak-P\><around*|(|Q<rsub|0>|)>>
+      (we treat <math|\<frak-P\><around*|(|<around*|\||Q|\|><rsup|-\<nu\>>|)>>
+      and <math|\<frak-P\><around*|(|<around*|\||Q|\|><rsup|-\<nu\>>sgn<around*|(|Q|)>|)>>
+      as sets) and hence
+
+      <\equation*>
+        \<frak-P\><around*|(|Q<rsub|i>|)>=-i+\<frak-P\><around*|(|Q<rsub|0>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1-i+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|<frac|n|2>-i+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|<around*|[|1-<around*|(|i-1|)>+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|<frac|n|2>-<around*|(|i-1|)>+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>
+      </equation*>
+
+      Now, lemma <reference|KP-normalization-2:lem-trivial> implies that
+
+      <\equation*>
+        \<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|i>Q<rsub|i>|)>=\<bbb-Z\><rsub|\<geqslant\>1>\<cap\><around*|(|-i+\<frak-P\><around*|(|Q<rsub|0>|)>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|max<around*|{|2,<frac|n|2>-i|}>+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|<around*|[|1+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|max<around*|{|2,<frac|n|2>-<around*|(|i-1|)>|}>+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>
+      </equation*>
+
+      and from this answer follows, as one sees that
+      <math|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|i>Q<rsub|i>|)>>
+      are non-decreasing.
+    </proof>
+
+    <\proof>
+      (of proposition <reference|KP-normalization-2:prop-3>) Till the end of
+      proof we will use symbols <math|p,n> for <math|p<rprime|'>,n<rprime|'>>
+      respectively. Original <math|p,n> will not appear in this proof.
+      Definitions imply that
+
+      <\equation*>
+        \<frak-P\><around*|(|Q<rsub|i>|)>=<choice|<tformat|<table|<row|<cell|-i+\<frak-P\><around*|(|Q<rsub|0>|)>,>|<cell|i\<in\>2\<bbb-Z\>>>|<row|<cell|-<around*|(|i-1|)>+\<frak-P\><around*|(|Q<rsub|1>|)>,>|<cell|i\<in\>2\<bbb-Z\>+1>>>>>=<choice|<tformat|<table|<row|<cell|<around*|[|1-i+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|<frac|n|2>+1-i+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|<around*|[|1-<around*|(|i-1|)>+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|<frac|n|2>-i+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>
+      </equation*>
+
+      Now, lemma <reference|KP-normalization-2:lem-trivial> implies that
+      <math|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|i>Q<rsub|i>|)>>
+      equals to
+
+      <\equation*>
+        <choice|<tformat|<table|<row|<cell|\<bbb-Z\><rsub|\<geqslant\>1>\<cap\><around*|(|-i+\<frak-P\><around*|(|Q<rsub|0>|)>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|\<bbb-Z\><rsub|\<geqslant\>1>\<cap\><around*|(|-<around*|(|i-1|)>+\<frak-P\><around*|(|Q<rsub|1>|)>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>=<choice|<tformat|<table|<row|<cell|<around*|[|1+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|max<around*|{|2,<frac|n|2>+1-i|}>+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|<around*|[|1+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|max<around*|{|2,<frac|n|2>-i|}>+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>
+      </equation*>
+
+      and from this answer follows, as one sees that
+      <math|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|i>Q<rsub|i>|)>>
+      are non-decreasing.
     </proof>
 
     <subsection|TODO>
@@ -3276,11 +3238,13 @@
     <associate|For-,-we|<tuple|16|?|#2>>
     <associate|KC-normalization:lem-Suppose-that-sets|<tuple|18|?|#2>>
     <associate|KP-normalization-2:lem-aux-1|<tuple|79|?|#6>>
-    <associate|KP-normalization-2:lem-holo-supp|<tuple|76|?|#6>>
-    <associate|KP-normalization-2:lem-nonzero|<tuple|78|?|#6>>
-    <associate|KP-normalization-2:lem-sets|<tuple|77|?|#6>>
+    <associate|KP-normalization-2:lem-holo-supp|<tuple|77|?|#6>>
+    <associate|KP-normalization-2:lem-nonzero|<tuple|79|?|#6>>
+    <associate|KP-normalization-2:lem-sets|<tuple|78|?|#6>>
+    <associate|KP-normalization-2:lem-trivial|<tuple|80|?|#6>>
     <associate|KP-normalization-2:prop-1|<tuple|74|?|#6>>
     <associate|KP-normalization-2:prop-2|<tuple|75|?|#6>>
+    <associate|KP-normalization-2:prop-3|<tuple|76|?|#6>>
     <associate|Let--denote|<tuple|17|?|#2>>
     <associate|On-the-|<tuple|9|?|#2>>
     <associate|P-def:fact-gelfand|<tuple|1|?|#1>>
