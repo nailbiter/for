@@ -268,8 +268,8 @@ The last statement of the proposition is granted by the following lemma, which w
 	\end{equation}
 	where $(\nu)^{i}:=\nu(\nu+1)\dots(\nu+i-1)$ and
 	\[\tilde{Q}_i:=\begin{cases}
-			\tilde{Q}_+^{-\nu-2i}+\tilde{Q}_-^{-\nu-2i}&, i\in2\Z_{\ge0}\\
-			\tilde{Q}_+^{-\nu-2i}-\tilde{Q}_-^{-\nu-2i}&, i\in2\Z_{\ge0}+1
+			\tilde{Q}_+^{-\nu-i}+\tilde{Q}_-^{-\nu-i}&, i\in2\Z_{\ge0}\\
+			\tilde{Q}_+^{-\nu-i}-\tilde{Q}_-^{-\nu-i}&, i\in2\Z_{\ge0}+1
 	\end{cases}.\]
 	Here $\tilde{Q}$ is the $(p-1,q)$-indefinite form obtained as a restriction of $Q$ to $\left\{ x_p=0 \right\}$ and
 	$\tilde{Q}_{\pm}$ are defined as in \cite[sec. III.2.2]{gelfand1980distribution}.
@@ -296,8 +296,8 @@ The last statement of the proposition is granted by the following lemma, which w
 	for $\Re(\nu)<-2k$ the statement of lemma would follow
 	from the equality
 	\begin{equation}\frac{\partial^k}{\partial x_p^k}\bigg|_{x_p=0}\myabs{Q}^{\mu}=\begin{cases}
-			\binom{\mu}{2i}\mybra{\tilde{Q}_+^{\mu-2i}+\tilde{Q}_-^{\mu-2i}},&k=2i,\;i\in2\Z_{\ge0}\\
-			\binom{\mu}{2i}\mybra{\tilde{Q}_+^{\mu-2i}-\tilde{Q}_-^{\mu-2i}},&k=2i,\;i\in2\Z_{\ge0}+1\\
+			k!\binom{\mu}{i}\mybra{\tilde{Q}_+^{\mu-i}+\tilde{Q}_-^{\mu-i}},&k=2i,\;i\in2\Z_{\ge0}\\
+			k!\binom{\mu}{i}\mybra{\tilde{Q}_+^{\mu-i}-\tilde{Q}_-^{\mu-i}},&k=2i,\;i\in2\Z_{\ge0}+1\\
 			0,&k\in2\Z_{\ge0}+1
 	\label{eq:supp_p}
 	\end{cases}\end{equation}
@@ -313,8 +313,8 @@ The last statement of the proposition is granted by the following lemma, which w
 	\[\myabs{Q}^\mu=\mybra{\tilde{Q}+x_p^2}^\mu=\sum_{i=0}^\infty\binom{\mu}{i}\tilde{Q}^{\mu-i}x_p^{2i}\]
 	we see that in case $\tilde{Q}>0$ for $k=0\dots N$
 	\begin{equation*}\frac{\partial^k}{\partial x_p^k}\bigg|_{x_p=0}\myabs{Q}^{\mu}=\begin{cases}
-			\binom{\mu}{2i}{\tilde{Q}^{\mu-2i}},&k=2i,\;i\in2\Z_{\ge0}\\
-			\binom{\mu}{2i}{\tilde{Q}^{\mu-2i}},&k=2i,\;i\in2\Z_{\ge0}+1\\
+			k!\binom{\mu}{i}{\tilde{Q}^{\mu-i}},&k=2i,\;i\in2\Z_{\ge0}\\
+			k!\binom{\mu}{i}{\tilde{Q}^{\mu-i}},&k=2i,\;i\in2\Z_{\ge0}+1\\
 			0,&k\in2\Z_{\ge0}+1
 	\end{cases}\end{equation*}
 which again perfectly agrees with \eqref{eq:supp_p}, as $\tilde{Q}>0$ assumption implies that $\tilde{Q}^{\mu-2i}_-=0

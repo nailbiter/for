@@ -23,14 +23,6 @@
   <with|font-series|bold|What I plan to do>:
 
   <\enumerate>
-    <item>misc:
-
-    <\enumerate>
-      <item>redo monbusho docs
-
-      <item>know when have submit title/text, so can compute 1 month advance
-    </enumerate>
-
     <item>Related to <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>:
 
     <\enumerate>
@@ -39,19 +31,22 @@
       case and comupute supports:
 
       <\enumerate>
-        <item>check <math|p\<equiv\>1 mod 2>, <math|q=2> to check for
-        inconsistincies
+        <item>(<math|n<rprime|'>\<in\>2\<bbb-Z\>+1>)
 
-        <item><math|p,q\<in\>2\<bbb-Z\>> and <math|n/2\<in\>2\<bbb-Z\>> case
+        <item>(check <math|p<rprime|'>\<equiv\>1 mod 2>, <math|q=2> to check
+        for inconsistincies)
 
-        <item>check <math|p\<equiv\>2 mod 4>, <math|q=2> to check for
-        inconsistincies
+        <item>HERE: <math|p,q\<in\>2\<bbb-Z\>> and <math|n/2\<in\>2\<bbb-Z\>>
+        case --\<gtr\> remove aux1
+
+        <item>(check <math|p<rprime|'>\<equiv\>2 mod 4>, <math|q=2> to check
+        for inconsistincies)
 
         <item><math|p,q\<in\>2\<bbb-Z\>> and <math|n/2\<in\>2\<bbb-Z\>+1>
         case
 
-        <item>check <math|p\<equiv\>0 mod 4>, <math|q=2> to check for
-        inconsistincies
+        <item>check <math|p<rprime|'>\<equiv\>0 mod 4>, <math|q=2> to check
+        for inconsistincies
 
         <item><math|p,q\<in\>2\<bbb-Z\>+1> and <math|n/2\<in\>2\<bbb-Z\>>
         case
