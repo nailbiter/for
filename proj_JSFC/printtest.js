@@ -278,6 +278,11 @@ function makeQuestion(generator, dataItem,dataItemIndex)
     question.answer = dataItem.items[generator.to];
     if( ( question.question == "" ) || ( question.answer == "" ) )
         return null;
+    if( generator.type == "sc" && generator.hasOwnProperty("pic") && ( dataItem.items.length > generator.pic ) )
+    {
+        question.pic = "http://people.cs.nctu.edu.tw/~inp9822058/pics/" + dataItem.items[generator.pic];
+        //FIXME: this should note be "hard-wired"
+    }
     if( generator.type == "sc" && generator.hasOwnProperty("auxTo") && ( dataItem.items.length > generator.auxTo[0] ) )
     { //FIXME: and there are these indexes
         question.answer += " <sub>(";
@@ -368,7 +373,8 @@ function displayNextQuestion(sm,questions,grade,fm)
         for( var i = 0; i < globalTest.fixedTags.length; i++ )
             tagButtonContainer.appendChild(makeButtonWithTextAndOnClick(globalTest.fixedTags[i].symbol,function(j)
                 {
-                    xmlRequest("myalert",[question.dataItemIndex,globalTest.fixedTags[j].tag,window.location.search.substring(1)],"settag",true);
+                    xmlRequest("myalert",
+                            [question.dataItemIndex,globalTest.fixedTags[j].tag,window.location.search.substring(1)],"settag",true);
                 },i));
 
     for(;;)

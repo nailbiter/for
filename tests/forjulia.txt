@@ -1,0 +1,37 @@
+# vim: set ft=fc_conf:
+{
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+#encoding - utf8
+#default skip_mode - random
+"selectionMode" : "shuff",
+"canListQuestions" : true,
+"favoritesModeAllowed":true,
+####
+#section 2 - quiz generator
+#taglist;qsttans;mode(sc,ti)
+"generators" : [
+{"tags" : ["day1"],"from":0,"to":1, "type" : "sc", "auxText" : "что значит?" ,"pic":2, "reflip" : true, "enabled" : true}
+#{"tags" : ["day1"],"from":0,"to":1, "type" : "sc", "auxText" : "что значит" , "reflip" : true, "enabled" : false}
+],
+
+####
+"dataitems" : [
+#english,hiragana,kanji;tags
+
+#TODO: check_phone(adjust_size) --> sendJulia via reminder
+{"items": ["la bañera","ванная","resized_bathroom.jpg"],"tags": ["day1"]},
+{"items": ["el excusado","туалет","resized_toilet.jpg"],"tags": ["day1"]},
+{"items": ["el lavamanos","раковина","resized_r.jpg"],"tags": ["day1"]},
+{"items": ["el botiquín","дорожная аптечка","resized_med.jpg"],"tags": ["day1"]},
+{"items": ["el jabón","мыло","resized_soap.jpg"],"tags": ["day1"]},
+{"items": ["la toalla","полотенце","medicaptechka_0.jpg"],"tags": ["day3"]},
+{"items": ["el cortinero","карниз для штор","medicaptechka_0.jpg"],"tags": ["day2"]},
+{"items": ["el gorro de baño","купальная шапочка","medicaptechka_0.jpg"],"tags": ["day2"]},
+{"items": ["la ducha","душ","medicaptechka_0.jpg"],"tags": ["day2"]},
+{"items": ["la jabonera","мыльница","medicaptechka_0.jpg"],"tags": ["day2"]},
+{"items": ["la esponja","мочалка","medicaptechka_0.jpg"],"tags": ["day2"]},
+{"items": ["el champú","шампунь","medicaptechka_0.jpg"],"tags": ["day3"]},
+{"items": ["el desagüe","водосток","medicaptechka_0.jpg"],"tags": ["day"]},
+
+{ "items" : ["I", "わたし - 私"], "tags" : ["L01"]}
+]}

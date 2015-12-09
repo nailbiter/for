@@ -1,3 +1,22 @@
+function displayQuestionSC_renderQA(questionText,QorA,question)
+{
+    if( QorA )
+        questionText.innerHTML = question.question;
+    else
+    {
+        questionText.innerHTML = question.answer;
+        if( question.hasOwnProperty("pic") )
+        {
+            //alert(question.pic);
+            var img = document.createElement("img");
+            img.src = question.pic;
+            img.alt = "hint";
+            img.width = "250";
+            questionText.parentElement.appendChild(img);
+        }
+    }
+}
+
 function displayQuestionSC(question,center,buttonContainer,callMeBack,questionText)
 {
     var buttonFlip = makeButtonWithTextAndOnClick("flip",null);
@@ -9,7 +28,7 @@ function displayQuestionSC(question,center,buttonContainer,callMeBack,questionTe
     {
         if( !wasReflippedFlag )
         {
-            questionText.innerHTML = question.answer;
+            displayQuestionSC_renderQA(questionText,false,question);
             if( question.hasOwnProperty("reflip") && question.reflip ) buttonContainer.appendChild(buttonRF);
             setButtonText(buttonFlip,"right");
             setButtonText(buttonSkip,"wrong");
@@ -32,10 +51,7 @@ function displayQuestionSC(question,center,buttonContainer,callMeBack,questionTe
     }
     buttonRF.onclick = function()
     {
-        if( questionText.innerHTML == question.question )
-            questionText.innerHTML = question.answer;
-        else
-            questionText.innerHTML = question.question;
+        displayQuestionSC_renderQA(questionText,questionText.innerHTML != question.question,question);
     }
 
     if( question.hasOwnProperty("auxText") )
