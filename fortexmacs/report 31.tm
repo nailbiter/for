@@ -16,17 +16,9 @@
 
   <with|font-series|bold|What has been done (additional)>
 
-  <\enumerate-numeric>
-    <item>Normalized <math|<around*|\||Q|\|><rsup|\<nu\>>> and
-    <math|<around*|\||Q|\|><rsup|\<nu\>>sgn<around*|(|Q|)>> using
-    differential equation, determined supports of highest terms at poles (see
-    <verbatim|Q-normalization.pdf> attached)
-
-    <item>Found best possible normalization for
-    <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> for
-    <math|p+q=:n\<in\>2\<bbb-Z\><rsub|\<geqslant\>>+1> case (see
-    <verbatim|KP-normalization.pdf> attached).
-  </enumerate-numeric>
+  <\enumerate>
+    <item>
+  </enumerate>
 
   <with|font-series|bold|What I plan to do>:
 
@@ -39,31 +31,15 @@
       case and comupute supports:
 
       <\enumerate>
-        <item>check <math|p\<equiv\>1 mod 2>, <math|q=2> to check for
-        inconsistincies
+        <item>--\<gtr\> merge cases
 
-        <item><math|p,q\<in\>2\<bbb-Z\>> and <math|n/2\<in\>2\<bbb-Z\>> case
-
-        <item>check <math|p\<equiv\>2 mod 4>, <math|q=2> to check for
-        inconsistincies
-
-        <item><math|p,q\<in\>2\<bbb-Z\>> and <math|n/2\<in\>2\<bbb-Z\>+1>
-        case
-
-        <item>check <math|p\<equiv\>0 mod 4>, <math|q=2> to check for
-        inconsistincies
-
-        <item><math|p,q\<in\>2\<bbb-Z\>+1> and <math|n/2\<in\>2\<bbb-Z\>>
-        case
+        <item>HERE: <math|p,q\<in\>2\<bbb-Z\>+1> and
+        <math|n/2\<in\>2\<bbb-Z\>> case
 
         <item><math|p,q\<in\>2\<bbb-Z\>+1> and <math|n/2\<in\>2\<bbb-Z\>+1>
         case
       </enumerate>
     </enumerate>
-
-    <item><with|font-shape|italic|<with|font-series|bold|Answer question 5
-    above>> (and <with|font-series|bold|confirm normalization of regular for
-    <math|q=2>>)
 
     <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
 
@@ -80,6 +56,10 @@
       <math|Sol<rsub|C\<cup\>P><around*|(|\<bbb-R\><rsup|p,q>|)>>
     </enumerate>
 
+    <item><with|font-shape|italic|<with|font-series|bold|Answer question 5
+    above>> (and <with|font-series|bold|confirm normalization of regular for
+    <math|q=2>>)
+
     <item>Ideas for regular normalization:
 
     <\enumerate>
@@ -87,7 +67,7 @@
 
       <item><math|q=4>
 
-      <item>Try to use recurrence relations, like\ 
+      <item>Try to use recurrence relations, like__
 
       <item>why do we have inconsistincies for
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> and
@@ -103,7 +83,18 @@
     Questions
   </with>
 
-  (empty)
+  <\enumerate>
+    <item>about residue formula
+
+    <item>You said about technique in Gelfand...
+
+    <item>incorrect thm in K-Speh
+
+    <item><with|font-shape|italic|why did we do the recurrence relations
+    business in K-Speh>?
+
+    <item>pairing bullshit
+  </enumerate>
 
   <with|font-series|bold|Comments>
 

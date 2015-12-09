@@ -12,3 +12,4 @@ forjava/*.txt
 *.pdf
 alex.vim
 .vim/.netrwhist
+forscheme/sec.scm

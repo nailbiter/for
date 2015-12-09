@@ -63,6 +63,8 @@
            )
     ))
 
+;mail sending
+
 ;script
 ;(display(fold max 0 '(1 2 3 4)))(newline)
 ;(define clocks (map (lambda(l)(let((h(car l))(m(cadr l)))(+ h (/ m 60.0))))
