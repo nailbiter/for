@@ -7,21 +7,21 @@
 
   In the field of representation theory one can roughly be said to studying
   objects (representations) and morphisms between them (symmetry breaking
-  operators). Now, while the former is well studied for more than 70 years
-  with some fairly good classification results available at this point, the
-  latter has attracted attention only relatively recently with general theory
-  introduced around 1990. The most fundamental case is that of symmetry
-  breaking between the pair of reductive groups. However, the symmetry
-  breaking in this case is known to be difficult and first case where
-  satisfying complete answer is possible was found only recently in
+  operators). Now, while the former has been well studied for more than 70
+  years with some fairly good classification results available at this point,
+  the latter has attracted attention only relatively recently with general
+  theory introduced around 1990. The most fundamental case is that of
+  symmetry breaking between the pair of reductive groups; however, the
+  symmetry breaking in this case is known to be difficult. The first example
+  of complete classification was accomplished only recently in
   <cite|kobayashi2015symmetry> by T. Kobayashi and B. Speh. Their work was
-  immediately followed by Clerk (France), Ørsted (Denmark), Millers and Gomez
+  immediately followed by Clerk (France), Ørsted (Denmark), Müllers and Gomez
   (USA) among others.
 
   The general problem of symmetry breaking between reductive groups, as led
-  up by professor Kobayashi, besides being fundamental in representation
-  theory, is also known to interact with geometry, PDE, real analysis and
-  number theory.
+  by professor Kobayashi, besides being fundamental in representation theory,
+  is also known to interact with geometry, PDE, real analysis and number
+  theory.
 
   <subparagraph|My research status>
 
@@ -31,94 +31,77 @@
   each by one complex parameter. Already the special case q=1, which was
   extensively treated in <cite|kobayashi2015symmetry> by Toshiyuki Kobayashi
   and Birgit Speh, was shown to be interacting with numerous mathematical
-  objects and theories (e.g. Juhl conformal equivariant operators (see
-  <cite|juhl2009families>) were obtained there as a particular case of
-  differential SBOs; Knapp-Stein operators, de-Sitter spaces, harmonic
-  analysis, branching laws of complementary series, etc.)
+  objects and theories (e.g. Knapp-Stein operators, de-Sitter spaces,
+  harmonic analysis, branching laws of complementary series, etc.). For
+  higher q one can immediately point out the special case (p,q)=(1,2) as
+  being equivalent to finding invariant trilinear forms for representations
+  of SL2, as one might see latter as SBOs of O(2,2)\<gtr\>O(2,1).
 
-  For higher q one can immediately point symmetry breaking
-  O(2,2)\<gtr\>O(2,1) as connected to several well-known problems. For
-  example, study of SBOs of O(p,q) includes theory of trilinear forms for
-  representations of SL2 (from representation theory), as one might see
-  latter as SBOs of O(2,2)\<gtr\>O(2,1). Moreover, based on the viewpoint
+  Of particular importance are so-called differential SBOs. In special case
+  q=1 these were shown to coincide with Juhl's conformal equivariant
+  operators (see <cite|juhl2009families>). Moreover, based on the viewpoint
   introduced in <cite|kobayashi2013differential>, one may see the
   Rankin-Cohen brackets (which in turn were originally introduced for the
   study of modular forms in number theory, but since then were seen to have
   connections with covariant quantization and ring structures on
-  representations spaces) as (being almost the same as) differential symmetry
-  breaking operators of O(2,2)\<gtr\>O(2,1) branching, which in turn is a
-  special case of SBOs of O(p,q).
+  representations spaces) as differential symmetry breaking operators of
+  O(2,2)\<gtr\>O(2,1) branching.
 
-  In the course of my work, I was able to accompilish the following:
+  In the course of my work, I have been trying to study both differential SBO
+  and the integral ones. The work can be divided into the following:
 
   <subparagraph|Project A. Geometry of flag manifold>
 
   <item>I gave complete classification of P'\\G/P orbit decomposition
   decomposition of flag variety G/P of G under the action of P' (maximal
-  parabolic subgroup of G'). That is, I was able to describe the number of
-  orbits for every p,q and derive the closure relations. This information is
-  extensively used in subsequent computations, as closed invariant under P'
-  subsets of G/P define a coarse invariant of a symmetry breakng operator.
-  One should also mention that these orbit decompositions can be seen as
-  generalizations of Iwasawa decomposition (if one takes G'=K, being maximal
-  compact) and Bruhat decomposition (if one takes G'=G).
+  parabolic subgroup of G'). That is, I was able to describe all orbits for
+  every p,q and derive the closure relations. This information is extensively
+  used in subsequent computations, as closed invariant under P' subsets of
+  G/P define a coarse invariant of a symmetry breakng operator. One should
+  also mention that these orbit decompositions can be seen as generalizations
+  of Iwasawa decomposition (if one takes G'=K, being maximal compact) and
+  Bruhat decomposition (if one takes G'=G).
 
-  <subparagraph|Project B. Construction>
+  <subparagraph|Project B. Construction of symmetry breaking operators>
 
   <item>As shown in <cite|kobayashi2015symmetry>, Schwartz kernel theorem
-  tells us that SBO are characterized by their kernels, which can then be
-  associated to some P'-covariant generalized functions on G/P flag manifold.
-  Hence their supports should be P'-invariant closed subsets of G/P, which
-  can be easily listed once P'\\G/P is known. It further turns out that
-  kernels on G/P are characterized by their restriction to open Bruhat cell,
-  and hence may be seen as generalized functions on Euclidean space that
-  satisfy system of PDEs together with some invariance conditions. As
-  explained above, there are only few known possibilities for their supports
-  and for values of parameters regular enough I was able to construct
-  explicitly these kernels with support in every possible set predicted by
-  orbit decomposition.
+  tells us that SBO are characterized by their distribution kernels, which
+  can then be associated to some P'-covariant generalized functions on G/P
+  flag manifold. By understanding geometry of flag variety and using relative
+  invariace (this being possible by results of Project A), I was able to
+  construct explicitly these kernels with support in every possible set
+  predicted by orbit decomposition for values of parameters regular enough.
 
-  <subparagraph|Project C. Spectrum of SBO>
+  <subparagraph|Project C. Spectrum of symmetry breaking operators>
 
-  As spherical vectors are mapped to spherical vectors of the same K-type by
-  symmetry breaking operators one naturally becomes interested in
-  eigenvalues. In particular, the case of K-fixed vector is of importance.
-  Using integral calculus I did some work in this direction with explicit
-  formulae obtained in case when q is odd. The particular case of
-  O(2,2)\<gtr\>O(2,1) branching is connected to Bernstein-Reznikov integrals
-  with answer obtained in <cite|clerc2011generalized> by another method.
+  As spherical vectors are mapped to spherical vectors under SBOs and spaces
+  of spherical vectors are one-dimensional, one naturally becomes interested
+  in multiplicity factors. Using integral formulae, I did some work in this
+  direction with explicit expressions obtained in case when q is odd. The
+  particular case of (p,q)=(2,1) was earlier obtained by Bernstein-Reznikov
+  integrals <cite|bernstein2004estimates>.
 
-  <subparagraph|Project D. Normalization>
+  <subparagraph|Project D. Meromorphic continuation of symmetry breaking
+  operators and normalization>
 
-  <item>Having constructed kernels for values of parameters regular enough,
-  one is then interested in extending them to the whole parameter space. As
-  kernels constructed in fact turn out to have holomorphic dependence on
-  parameter, one finds himself using theory of generalized functions
-  depending on holomorphic (meromorphic) parameter in order to carry out the
-  extension. In doing so, usually poles occur and one is interested in
-  determining their precise location and multiplicity, so to carry out the
-  normalization, after which dependence on parameters becomes holomorphic. I
-  was able to normalize kernels of the three (out of four) families of SBOs,
-  including differential operators. Moreover, I investigated residues at
-  poles and determined their support.
+  As representations we are dealing with depend on a pair of complex
+  parameters, so do the SBOs. Having constructed them for regular values of
+  parameters, one than have to determine whether the extension to the whole
+  parameter space is possible. Moreover, as for parameters regular enough the
+  dependence turns out to be holomorphic, one finds himself using theory of
+  generalized functions depending on holomorphic (meromorphic) parameter in
+  order to carry out the extension. In doing so, usually poles occur and one
+  is interested in determining their precise location and multiplicity, so to
+  carry out the normalization, after which dependence on parameters becomes
+  holomorphic. I was able to normalize all SBOs except of the regular one.
+  Moreover, I investigated residues at poles and determined their support.
 
-  The four families mentioned span solution space in the sense that for every
-  value of parameters one might find basis for solution space with basis
-  elements belonging every to these families with no two belonging to the
-  same family. The families, in turn, are characterized by the support of
-  kernels. In particular, one family consists of kernel of differential SBOs,
-  and is supported at origin, while other two are supported on subsets of
-  Euclidean space and corresponds to kernels of singular SBOs \U all these
-  families are one-dimensional for codimension 1 subset of parameter space
-  and vanish otherwise. This is in perfect agreement with the fact that
-  dimension of SBOs is generically one.
-
-  <subparagraph|Publications>
+  <subparagraph|My publications>
 
   <\itemize-dot>
-    <item>''A new criterion for the roughness of exponential dichotomy on R''
-    (with Petro Feketa), accepted for publication in Miskolc Mathematical
-    Notes
+    <item>P. Feketa and O. Leontiev, ''A new criterion for the roughness of
+    exponential dichotomy on R'', accepted for publication in Miskolc
+    Mathematical Notes
   </itemize-dot>
 
   <subparagraph|Research plan (short term)>
@@ -202,16 +185,14 @@
   interested in finding explicit formulas for basis elements of it.>
 
   <\bibliography|bib|alpha|todai_master.bib>
-    <\bib-list|CKØP11>
-      <bibitem*|CKØP11><label|bib-clerc2011generalized>J.-L. Clerc,
-      T.<nbsp>Kobayashi, B.<nbsp>Ørsted, and M.<nbsp>Pevzner.
-      <newblock>Generalized bernstein--reznikov integrals.
-      <newblock><with|font-shape|italic|Mathematische Annalen>,
-      349(2):395--431, 2011.
+    <\bib-list|GGP12>
+      <bibitem*|BR04><label|bib-bernstein2004estimates>J.<nbsp>Bernstein and
+      A.<nbsp>Reznikov. <newblock>Estimates of automorphic functions.
+      <newblock><with|font-shape|italic|Mosc. Math. J>, 4(1):19--37, 2004.
 
       <bibitem*|GGP12><label|bib-gan2011symplectic>W.<nbsp>T. Gan, B.<nbsp>H.
-      Gross, and D.<nbsp>Prasad. <newblock>Sur les conjectures de gross et
-      prasad. <newblock><with|font-shape|italic|Astérisque>, 2012.
+      Gross, and D.<nbsp>Prasad. <newblock>Sur les conjectures de Gross et
+      Prasad. <newblock><with|font-shape|italic|Astérisque>, 2012.
 
       <bibitem*|Juh09><label|bib-juhl2009families>A.<nbsp>Juhl.
       <newblock><with|font-shape|italic|Families of conformally covariant
@@ -249,6 +230,7 @@
     <associate|auto-7|<tuple|7|?>>
     <associate|auto-8|<tuple|8|?>>
     <associate|auto-9|<tuple|9|?>>
+    <associate|bib-bernstein2004estimates|<tuple|BR04|?>>
     <associate|bib-clerc2011generalized|<tuple|CKØP11|?>>
     <associate|bib-gan2011symplectic|<tuple|GGP12|?>>
     <associate|bib-juhl2009families|<tuple|Juh09|?>>
@@ -270,7 +252,7 @@
 
       kobayashi2015symmetry
 
-      clerc2011generalized
+      bernstein2004estimates
 
       kobayashi2015symmetry
 
@@ -291,13 +273,16 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3><vspace|0.15fn>
 
-      Project B. Construction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      Project B. Construction of symmetry breaking operators
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4><vspace|0.15fn>
 
-      Project C. Spectrum of SBO <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      Project C. Spectrum of symmetry breaking operators
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5><vspace|0.15fn>
 
-      Project D. Normalization <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      Project D. Meromorphic continuation of symmetry breaking operators and
+      normalization <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6><vspace|0.15fn>
 
       Publications <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>

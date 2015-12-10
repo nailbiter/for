@@ -1,9 +1,0 @@
-cle{bernstein2004estimates,
-  title={Estimates of automorphic functions},
-  author={Bernstein, Joseph and Reznikov, Andre},
-  journal={Mosc. Math. J},
-  volume={4},
-  number={1},
-  pages={19--37},
-  year={2004}
-}
