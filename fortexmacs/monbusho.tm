@@ -5,6 +5,16 @@
 <\body>
   <subparagraph|Theme>
 
+  In the field of representation theory one can roughly be said to studying
+  objects (representations) and morphisms between them (symmetry breaking
+  operators). Now, while the former is well studied for more than 70 years
+  with some fairly good classification results available at this point, the
+  latter has attracted attention only relatively recently with general theory
+  introduced around 1990 and the first case where satisfying complete answer
+  was obtained found only recently in <cite|kobayashi2015symmetry> by T.
+  Kobayashi and B. Speh. Their work was immediately followed by Clerk
+  (France), Ørsted (Denmark), Millers and Gomez (USA).\ 
+
   The general branching problem is an attempt to understand how given
   irreducible representation of group G is ``built'' from the irreducible
   representations of its subgroup G'.\ 
@@ -224,9 +234,6 @@
   </bibliography>
 </body>
 
-<initial|<\collection>
-</collection>>
-
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|?>>
@@ -248,13 +255,17 @@
     <\associate|bib>
       kobayashi2015symmetry
 
-      juhl2009families
-
-      kobayashi2013differential
+      kobayashi2015symmetry
 
       kobayashi2015symmetry
 
       gan2011symplectic
+
+      kobayashi2015symmetry
+
+      juhl2009families
+
+      kobayashi2013differential
 
       kobayashi2015symmetry
     </associate>
