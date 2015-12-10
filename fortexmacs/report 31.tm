@@ -17,37 +17,26 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>
+    <item>Find best possible normalization for
+    <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> for <math|n\<in\>2\<bbb-Z\>>
+    case and comupute supports
   </enumerate>
 
   <with|font-series|bold|What I plan to do>:
 
   <\enumerate>
-    <item>Related to <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>:
+    <item><math|A<rsub|\<lambda\>,\<nu\>>ll=c<around*|(|\<lambda\>,\<nu\>|)>ll>
 
-    <\enumerate>
-      <item>Find best possible normalization for
-      <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> for <math|n\<in\>2\<bbb-Z\>>
-      case and comupute supports:
-
-      <\enumerate>
-        <item>--\<gtr\> merge cases
-
-        <item>HERE: <math|p,q\<in\>2\<bbb-Z\>+1> and
-        <math|n/2\<in\>2\<bbb-Z\>> case
-
-        <item><math|p,q\<in\>2\<bbb-Z\>+1> and <math|n/2\<in\>2\<bbb-Z\>+1>
-        case
-      </enumerate>
-    </enumerate>
+    <item>put normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> in
+    presentation, merge cases
 
     <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
 
     <\enumerate>
       <item>{redo the proof with <math|\<frak-P\>> to simplify and verify it}
 
-      <item><with|font-shape|italic|<with|font-series|bold|See how support
-      changes for different <math|\<lambda\>>>>
+      <item><with|font-shape|italic|See how support changes for different
+      <math|\<lambda\>>>
 
       <item>Dimensional argument to explicitly determine
       <math|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>|)>>.
@@ -56,9 +45,8 @@
       <math|Sol<rsub|C\<cup\>P><around*|(|\<bbb-R\><rsup|p,q>|)>>
     </enumerate>
 
-    <item><with|font-shape|italic|<with|font-series|bold|Answer question 5
-    above>> (and <with|font-series|bold|confirm normalization of regular for
-    <math|q=2>>)
+    <item><with|font-shape|italic|Answer question 5 above> (and confirm
+    normalization of regular for <math|q=2>)
 
     <item>Ideas for regular normalization:
 
@@ -67,7 +55,8 @@
 
       <item><math|q=4>
 
-      <item>Try to use recurrence relations, like__
+      <item><with|font-series|bold|<with|font-shape|italic|Try to use
+      recurrence relations, like__>>
 
       <item>why do we have inconsistincies for
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> and

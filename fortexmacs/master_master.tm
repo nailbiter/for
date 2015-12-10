@@ -118,8 +118,8 @@
     </definition>
 
     <\remark>
-      The following properties of <math|\<frak-P\><around*|(|\<cdot\>|)>> are
-      evident:
+      <label|P-def:rem-def-P>The following properties of
+      <math|\<frak-P\><around*|(|\<cdot\>|)>> are evident:
 
       <\enumerate>
         <item><math|\<frak-P\><around*|(|\<Gamma\><around*|(|\<nu\>-a|)>|)>=<around*|{|\<nu\>\<in\>a-\<bbb-Z\><rsub|\<geqslant\>0>|}>>;
@@ -236,6 +236,54 @@
       <math|supp<around*|(|\<psi\>\<otimes\>\<varphi\>|)>\<subset\>M> and
       <math|<around*|\<langle\>|F<rsup|<around*|(|-m|)>>,\<psi\>\<otimes\>\<varphi\><rsub|N>|\<rangle\>>\<simeq\><around*|\<langle\>|F<rsub|i<rsub|0>><rsup|<around*|(|-m|)>>,\<varphi\><rsub|N>|\<rangle\>>\<neq\>0>.
     </proof>
+
+    <\definition>
+      <label|P-def:def-9>For meromorphic distribution or meromorphic function
+      <math|F<rsub|\<nu\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>>
+      on <math|\<nu\>\<in\>O\<subset\>\<bbb-C\>> one may also define
+      <math|\<frak-P\><rsup|e><around*|(|F<rsub|\<nu\>>|)>:O\<rightarrow\>\<bbb-Z\>\<times\>2<rsup|\<bbb-R\><rsup|n>>>
+      (with <math|2<rsup|\<bbb-R\><rsup|n>>> denoting the collection of
+      subsets of <math|\<bbb-R\><rsup|n>>) with first coordinate being equal
+      to <math|\<frak-P\><around*|(|F<rsub|\<nu\>>|)>> and the second being
+      equal to support of highest term of Laurent expansion at given
+      <math|\<nu\>\<in\>O>.
+
+      We shall also set the partial ordering on
+      <math|\<bbb-Z\>\<times\>2<rsup|\<bbb-R\><rsup|n>>> (where
+      <math|2<rsup|\<bbb-R\><rsup|n>>> denotes the set of subsets of
+      <math|\<bbb-R\><rsup|n>>) with <math|<around*|(|a,A|)>\<succcurlyeq\><around*|(|b,B|)>>
+      iff <math|a\<gtr\>b> or (<math|a=b> and <math|A\<supseteq\>B>).
+    </definition>
+
+    <\remark>
+      \ 
+
+      <\enumerate>
+        <item>In case of meromorphic function, it's highest term is
+        necessarily nonzero constant, hence has support
+        <math|\<bbb-R\><rsup|n>>.
+
+        <item>The ordering set on <math|\<bbb-Z\>\<times\>\<bbb-R\><rsup|n>>
+        enables us to talk of <math|\<geqslant\>> regarding to members of
+        <math|O\<rightarrow\>\<bbb-Z\>\<times\>2<rsup|\<bbb-R\><rsup|n>>> as
+        well (<math|\<geqslant\>> being meant to be pointwise). One may
+        similarly talk of maximum and sum of elements of
+        <math|O\<rightarrow\>\<bbb-Z\>\<times\>\<bbb-R\><rsup|n>>, having to
+        take respectively union and intersection of the supports
+
+        <item>Remark <reference|P-def:rem-def-P> holds literally with
+        <math|\<frak-P\>> replaced by <math|\<frak-P\><rsup|e>>. Subsequent
+        lemmas also hold with obvious modifications, in particular lemma
+        <reference|P-def:lem-delta-max> can then be restated as
+        <math|\<frak-P\><rsup|e><around*|(|<big|sum><rsub|i>\<delta\><rsup|<around*|(|i|)>><around*|(|x|)>\<otimes\>F<rsub|i><rsup|\<nu\>>|)>=<around*|{|0|}>\<times\>max<around*|{|\<frak-P\><rsup|e><around*|(|F<rsub|i><rsup|\<nu\>>|)>|}><rsub|i>>,
+        where for <math|p\<in\>\<bbb-C\>\<rightarrow\>\<bbb-Z\>\<times\>\<bbb-R\><rsup|n>>
+        we let <math|<around*|{|0|}>\<times\>p\<in\>\<bbb-C\>\<rightarrow\>\<bbb-Z\>\<times\>\<bbb-R\><rsup|n+1>>
+        by <math|<around*|(|<around*|{|0|}>\<times\>p|)><around*|(|\<nu\>|)>=<around*|(|p<rsub|1><around*|(|\<nu\>|)>,<around*|{|0|}>\<times\>p<rsub|2><around*|(|\<nu\>|)>|)>>
+        where <math|p<rsub|1>> and <math|p<rsub|2>> are compositions of
+        <math|p> with projections onto first and second coordinates
+        respectively.
+      </enumerate>
+    </remark>
   <|hide-part>
     <section|P-def>
   </hide-part>
@@ -3013,6 +3061,34 @@
       </equation*>
     </proposition>
 
+    <\proposition>
+      <label|KP-normalization-2:prop-4>Let <math|p<rprime|'>\<assign\>p-1>
+      and <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. Let also
+      <math|k<rprime|'>> be maximal even number that is <math|\<leqslant\>k>.
+      For <math|p<rprime|'>,q,n<rprime|'>/2\<in\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)><rsup|2>>
+      we have:
+
+      <\equation*>
+        \<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1,3,\<ldots\>,<frac|n<rprime|'>|2>-k<rprime|'>-2|]>\<sqcup\><around*|(|<frac|n<rprime|'>|2>-k<rprime|'>+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|k<rprime|'>\<leqslant\>n<rprime|'>/2-3>>|<row|<cell|<around*|(|<frac|n<rprime|'>|2>-k<rprime|'>,<frac|n<rprime|'>|2>-k<rprime|'>+2,\<ldots\>,-1|)>\<sqcup\><around*|(|1+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|k<rprime|'>\<gtr\>n<rprime|'>/2-3>>>>>
+      </equation*>
+
+      where upper-index <math|2> on the right-hand sides marks double poles.
+    </proposition>
+
+    <\proposition>
+      <label|KP-normalization-2:prop-5>Let <math|p<rprime|'>\<assign\>p-1>
+      and <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. Let also
+      <math|k<rprime|'>> be maximal odd number that is <math|\<leqslant\>k>.
+      For <math|p<rprime|'>,q,n<rprime|'>/2\<in\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)><rsup|>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)>>
+      we have:
+
+      <\equation*>
+        \<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|C>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1,3,\<ldots\>,<frac|n<rprime|'>|2>-2-k<rprime|'>|]>\<sqcup\><around*|(|<frac|n<rprime|'>|2>-k<rprime|'>+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|n<rprime|'>/2-3\<geqslant\>k<rprime|'>,>>|<row|<cell|<around*|(|<frac|n<rprime|'>|2>-k<rprime|'>,<frac|n<rprime|'>|2>-k<rprime|'>+2,\<ldots\>,-1|)>\<sqcup\><around*|(|1+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|k<rprime|'>\<gtr\>n<rprime|'>/2-3>>>>>
+      </equation*>
+
+      where upper-index <math|2> on the right-hand sides marks double poles.
+    </proposition>
+
     <subsection|Auxiliary results>
 
     <\lemma>
@@ -3156,6 +3232,64 @@
       are non-decreasing.
     </proof>
 
+    <\proof>
+      (of proposition <reference|KP-normalization-2:prop-4>) \ Till the end
+      of proof we will use symbols <math|p,n> for
+      <math|p<rprime|'>,n<rprime|'>> respectively. Original <math|p,n> will
+      not appear in this proof. We shall also employ notation
+      <math|\<frak-P\><rsup|e><around*|(|\<cdot\>|)>> as defined in
+      definition <reference|P-def:def-9> and subsequent remark.
+
+      Definitions imply that <math|\<frak-P\><rsup|e><around*|(|Q<rsub|1>|)><around*|(|\<nu\>+1|)>=\<frak-P\><rsup|e><around*|(|Q<rsub|0>|)><around*|(|\<nu\>|)>>
+      and hence if we let <math|i<rprime|'>> be the biggest even number that
+      is <math|\<leqslant\>i> (as <math|k<rprime|'>> in statement), then
+
+      <\equation*>
+        \<frak-P\><rsup|e><around*|(|Q<rsub|i>|)>=<around*|[|1-i<rprime|'>,3-i<rprime|'>,\<ldots\>,<frac|n|2>-i<rprime|'>-2|]>\<sqcup\><around*|(|<frac|n|2>-i<rprime|'>+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>
+      </equation*>
+
+      and hence\ 
+
+      <\equation*>
+        \<frak-P\><rsup|e><around*|(|<around*|(|\<nu\>|)><rsup|i>Q<rsub|i>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1,3,\<ldots\>,<frac|n|2>-i<rprime|'>-2|]>\<sqcup\><around*|(|<frac|n|2>-i<rprime|'>+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|n/2-i<rprime|'>\<geqslant\>0>>|<row|<cell|<around*|(|<frac|n|2>-i<rprime|'>,<frac|n|2>-i<rprime|'>+2,\<ldots\>,-1|)>\<sqcup\><around*|(|1+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|n/2-i<rprime|'>\<less\>0>>>>>
+      </equation*>
+
+      and the result follows as <math|\<frak-P\><rsup|e><around*|(|<around*|(|\<nu\>|)><rsup|i>Q<rsub|i>|)>>
+      form nondecreasing sequence of <math|\<bbb-C\>\<rightarrow\>\<bbb-Z\>>
+      functions (``nondecreasing'' in the sence of definition
+      <reference|P-def:def-9>).
+    </proof>
+
+    <\proof>
+      (of proposition <reference|KP-normalization-2:prop-5>) Till the end of
+      proof we will use symbols <math|p,n> for <math|p<rprime|'>,n<rprime|'>>
+      respectively. Original <math|p,n> will not appear in this proof. We
+      shall also employ notation <math|\<frak-P\><rsup|e><around*|(|\<cdot\>|)>>
+      as defined in definition <reference|P-def:def-9> and subsequent remark.
+
+      <\equation*>
+        \<frak-P\><rsup|e><around*|(|Q<rsub|i>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1-i,3-i,\<ldots\>,<frac|n|2>-1-i|]>\<sqcup\><around*|(|<frac|n|2>+1-i+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|<around*|[|1-<around*|(|i-1|)>,3,\<ldots\>,<frac|n|2>-3-<around*|(|i-1|)>|]>\<sqcup\><around*|(|<frac|n|2>-1-<around*|(|i-1|)>+2\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>
+      </equation*>
+
+      and hence
+
+      <\equation*>
+        \<frak-P\><around*|(|<around*|(|\<nu\><rsup|>|)><rsup|i>Q<rsub|i>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1,3,\<ldots\>,<frac|n|2>-1-i|]>\<sqcup\><around*|(|<frac|n|2>+1-i+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>,<frac|n|2>-1-i\<geqslant\>1>>|<row|<cell|<around*|(|<frac|n|2>+1-i,<frac|n|2>+3-i,\<ldots\>,-1|)>\<sqcup\><around*|(|1+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>,<frac|n|2>-1-i\<less\>1>>|<row|<cell|<around*|[|1,\<ldots\>,<frac|n|2>-i-2|]>\<sqcup\><around*|(|<frac|n|2>-i+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1,<frac|n|2>-2-i\<geqslant\>1>>|<row|<cell|<around*|(|<frac|n|2>-i,\<ldots\>,-1|)>\<sqcup\><around*|(|1+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|i\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1,<frac|n|2>-2-i\<less\>1>>>>>
+      </equation*>
+
+      and if we let <math|i<rprime|'>> be the biggest odd number that is
+      <math|\<leqslant\>i>, we can rewrite this as
+
+      <\equation*>
+        =<choice|<tformat|<table|<row|<cell|<around*|[|1,3,\<ldots\>,<frac|n|2>-2-i<rprime|'>|]>\<sqcup\><around*|(|<frac|n|2>-i<rprime|'>+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|n/2-3\<geqslant\>i<rprime|'>,>>|<row|<cell|<around*|(|<frac|n|2>-i<rprime|'>,<frac|n|2>-i<rprime|'>+2,\<ldots\>,-1|)>\<sqcup\><around*|(|1+2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>,>|<cell|i<rprime|'>\<gtr\>n/2-3>>>>>
+      </equation*>
+
+      and the result follows as <math|\<frak-P\><rsup|e><around*|(|<around*|(|\<nu\>|)><rsup|i>Q<rsub|i>|)>>
+      form nondecreasing sequence of <math|\<bbb-C\>\<rightarrow\>\<bbb-Z\>>
+      functions (``nondecreasing'' in the sence of definition
+      <reference|P-def:def-9>).
+    </proof>
+
     <subsection|TODO>
   <|show-part>
     <section|KP-normalization-2>
@@ -3231,31 +3365,35 @@
 
 <\references>
   <\collection>
-    <associate|Assume-that-1|<tuple|11|?|#2>>
-    <associate|Assume-that-2|<tuple|12|?|#2>>
-    <associate|Assume-that-3|<tuple|13|?|#2>>
-    <associate|Assume-that-4|<tuple|14|?|#2>>
-    <associate|For-,-we|<tuple|16|?|#2>>
-    <associate|KC-normalization:lem-Suppose-that-sets|<tuple|18|?|#2>>
+    <associate|Assume-that-1|<tuple|13|?|#2>>
+    <associate|Assume-that-2|<tuple|14|?|#2>>
+    <associate|Assume-that-3|<tuple|15|?|#2>>
+    <associate|Assume-that-4|<tuple|16|?|#2>>
+    <associate|For-,-we|<tuple|18|?|#2>>
+    <associate|KC-normalization:lem-Suppose-that-sets|<tuple|20|?|#2>>
     <associate|KP-normalization-2:lem-aux-1|<tuple|79|?|#6>>
-    <associate|KP-normalization-2:lem-holo-supp|<tuple|77|?|#6>>
-    <associate|KP-normalization-2:lem-nonzero|<tuple|79|?|#6>>
-    <associate|KP-normalization-2:lem-sets|<tuple|78|?|#6>>
-    <associate|KP-normalization-2:lem-trivial|<tuple|80|?|#6>>
-    <associate|KP-normalization-2:prop-1|<tuple|74|?|#6>>
-    <associate|KP-normalization-2:prop-2|<tuple|75|?|#6>>
-    <associate|KP-normalization-2:prop-3|<tuple|76|?|#6>>
-    <associate|Let--denote|<tuple|17|?|#2>>
-    <associate|On-the-|<tuple|9|?|#2>>
+    <associate|KP-normalization-2:lem-holo-supp|<tuple|81|?|#6>>
+    <associate|KP-normalization-2:lem-nonzero|<tuple|83|?|#6>>
+    <associate|KP-normalization-2:lem-sets|<tuple|82|?|#6>>
+    <associate|KP-normalization-2:lem-trivial|<tuple|84|?|#6>>
+    <associate|KP-normalization-2:prop-1|<tuple|76|?|#6>>
+    <associate|KP-normalization-2:prop-2|<tuple|77|?|#6>>
+    <associate|KP-normalization-2:prop-3|<tuple|78|?|#6>>
+    <associate|KP-normalization-2:prop-4|<tuple|79|?|#6>>
+    <associate|KP-normalization-2:prop-5|<tuple|80|?|#6>>
+    <associate|Let--denote|<tuple|19|?|#2>>
+    <associate|On-the-|<tuple|11|?|#2>>
+    <associate|P-def:def-9|<tuple|9|?|#1>>
     <associate|P-def:fact-gelfand|<tuple|1|?|#1>>
     <associate|P-def:lem-delta-max|<tuple|7|?|#1>>
     <associate|P-def:lem-delta-times-mero|<tuple|6|?|#1>>
     <associate|P-def:lem-laurent-distr|<tuple|2|?|#1>>
     <associate|P-def:lem-mero-addition|<tuple|3|?|#1>>
     <associate|P-def:lem-mero-supp|<tuple|8|?|#1>>
+    <associate|P-def:rem-def-P|<tuple|5|?|#1>>
     <associate|Suppose-that-sets|<tuple|18|?|#2>>
-    <associate|Suppose-there-exists|<tuple|15|?|#2>>
-    <associate|The-following-holds|<tuple|10|?|#2>>
+    <associate|Suppose-there-exists|<tuple|17|?|#2>>
+    <associate|The-following-holds|<tuple|12|?|#2>>
     <associate|auto-1|<tuple|1|?>>
     <associate|auto-10|<tuple|3.0.1|?>>
     <associate|auto-11|<tuple|3.1|?>>
@@ -3344,55 +3482,55 @@
     <associate|eq-2|<tuple|2|?|#3>>
     <associate|fact-1|<tuple|74|?|#6>>
     <associate|fact-2|<tuple|75|?|#6>>
-    <associate|fact-horm-homog|<tuple|19|?|#3>>
-    <associate|fact-horm1|<tuple|20|?|#3>>
-    <associate|fact-horm2|<tuple|21|?|#3>>
+    <associate|fact-horm-homog|<tuple|21|?|#3>>
+    <associate|fact-horm1|<tuple|22|?|#3>>
+    <associate|fact-horm2|<tuple|23|?|#3>>
     <associate|footnote-1|<tuple|1|?|#2>>
     <associate|footnr-1|<tuple|1|?|#2>>
-    <associate|forre|<tuple|60|?|#5>>
-    <associate|lem-1|<tuple|65|?|#5>>
-    <associate|lem-16|<tuple|68|?|#5>>
-    <associate|lem-2|<tuple|66|?|#5>>
+    <associate|forre|<tuple|62|?|#5>>
+    <associate|lem-1|<tuple|67|?|#5>>
+    <associate|lem-16|<tuple|70|?|#5>>
+    <associate|lem-2|<tuple|68|?|#5>>
     <associate|lem-20|<tuple|6|?|#1>>
-    <associate|lem-21|<tuple|70|?|#5>>
-    <associate|lem-3|<tuple|67|?|#5>>
-    <associate|lem-4|<tuple|47|?|#4>>
-    <associate|lem-5|<tuple|49|?|#4>>
-    <associate|lem-5n|<tuple|48|?|#4>>
-    <associate|lem-6|<tuple|29|?|#3>>
-    <associate|lem-7|<tuple|51|?|#4>>
-    <associate|lem-8|<tuple|50|?|#4>>
-    <associate|lem-9|<tuple|52|?|#4>>
-    <associate|lem-Mg0|<tuple|63|?|#5>>
-    <associate|lem-assume-the-setting|<tuple|64|?|#5>>
-    <associate|lem-holo-nonzero|<tuple|26|?|#3>>
+    <associate|lem-21|<tuple|72|?|#5>>
+    <associate|lem-3|<tuple|69|?|#5>>
+    <associate|lem-4|<tuple|49|?|#4>>
+    <associate|lem-5|<tuple|51|?|#4>>
+    <associate|lem-5n|<tuple|50|?|#4>>
+    <associate|lem-6|<tuple|31|?|#3>>
+    <associate|lem-7|<tuple|53|?|#4>>
+    <associate|lem-8|<tuple|52|?|#4>>
+    <associate|lem-9|<tuple|54|?|#4>>
+    <associate|lem-Mg0|<tuple|65|?|#5>>
+    <associate|lem-assume-the-setting|<tuple|66|?|#5>>
+    <associate|lem-holo-nonzero|<tuple|28|?|#3>>
     <associate|lem-holo-supp|<tuple|76|?|#6>>
     <associate|lem-mero-addition|<tuple|3|?|#1>>
     <associate|lem-mero-supp|<tuple|8|?|#1>>
-    <associate|lem-n:odd-holo|<tuple|42|?|#3>>
-    <associate|lem-n:odd-n/2|<tuple|43|?|#3>>
-    <associate|lem-normalized-eq|<tuple|30|?|#3>>
-    <associate|lem-pq2holo|<tuple|32|?|#3>>
-    <associate|lem-r1|<tuple|36|?|#3>>
-    <associate|lem-r1-e|<tuple|33|?|#3>>
-    <associate|lem-r2|<tuple|38|?|#3>>
-    <associate|lem-r3|<tuple|39|?|#3>>
-    <associate|lem-r4|<tuple|37|?|#3>>
-    <associate|lem-r5|<tuple|40|?|#3>>
-    <associate|lem-r6|<tuple|34|?|#3>>
-    <associate|lem-r6-e|<tuple|31|?|#3>>
-    <associate|lem-r7|<tuple|41|?|#3>>
-    <associate|lem-r8|<tuple|35|?|#3>>
-    <associate|lem-restricted|<tuple|25|?|#3>>
-    <associate|lem-span|<tuple|62|?|#5>>
-    <associate|prop-1|<tuple|22|?|#3>>
-    <associate|prop-2|<tuple|23|?|#3>>
-    <associate|prop-3|<tuple|55|?|#5>>
-    <associate|prop-4|<tuple|56|?|#5>>
-    <associate|prop-6|<tuple|59|?|#5>>
-    <associate|prop-norm-1|<tuple|53|?|#5>>
-    <associate|prop-norm-2|<tuple|54|?|#5>>
-    <associate|prop-q=2|<tuple|44|?|#4>>
+    <associate|lem-n:odd-holo|<tuple|44|?|#3>>
+    <associate|lem-n:odd-n/2|<tuple|45|?|#3>>
+    <associate|lem-normalized-eq|<tuple|32|?|#3>>
+    <associate|lem-pq2holo|<tuple|34|?|#3>>
+    <associate|lem-r1|<tuple|38|?|#3>>
+    <associate|lem-r1-e|<tuple|35|?|#3>>
+    <associate|lem-r2|<tuple|40|?|#3>>
+    <associate|lem-r3|<tuple|41|?|#3>>
+    <associate|lem-r4|<tuple|39|?|#3>>
+    <associate|lem-r5|<tuple|42|?|#3>>
+    <associate|lem-r6|<tuple|36|?|#3>>
+    <associate|lem-r6-e|<tuple|33|?|#3>>
+    <associate|lem-r7|<tuple|43|?|#3>>
+    <associate|lem-r8|<tuple|37|?|#3>>
+    <associate|lem-restricted|<tuple|27|?|#3>>
+    <associate|lem-span|<tuple|64|?|#5>>
+    <associate|prop-1|<tuple|24|?|#3>>
+    <associate|prop-2|<tuple|25|?|#3>>
+    <associate|prop-3|<tuple|57|?|#5>>
+    <associate|prop-4|<tuple|58|?|#5>>
+    <associate|prop-6|<tuple|61|?|#5>>
+    <associate|prop-norm-1|<tuple|55|?|#5>>
+    <associate|prop-norm-2|<tuple|56|?|#5>>
+    <associate|prop-q=2|<tuple|46|?|#4>>
   </collection>
 </references>
 
