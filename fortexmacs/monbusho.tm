@@ -7,17 +7,18 @@
 
   The general branching problem is an attempt to understand how given
   irreducible representation of group G is ``built'' from the irreducible
-  representations of its subgroup G'. Pursuing this question, one is lead to
-  symmetry breaking operators (SBOs), which are the G'-intertwining operators
-  going from given representation of G to a given representation of G'. One
-  is interested not only in dimension of space of these operators (which
-  roughly describes ``how many times'' given representation of G' can be
-  included in given representation of G), but also may further want to be
-  able to construct explicitly these operators in some geometric models of
-  representations. The latter strongly connects the whole subject with
-  analysis and geometry. The case where both groups G and G' are reductive is
-  perhaps of the most interest and crucial and one thus lead to symmetry
-  breaking between reductive groups.
+  representations of its subgroup G'.\ 
+
+  Pursuing this question, one is lead to symmetry breaking operators (SBOs),
+  which are the G'-intertwining operators going from given representation of
+  G to a given representation of G'. One is interested not only in dimension
+  of space of these operators (which roughly describes ``how many times''
+  given representation of G' can be included in given representation of G),
+  but also may further want to be able to construct explicitly these
+  operators in some geometric models of representations. The latter strongly
+  connects the whole subject with analysis and geometry. The case where both
+  groups G and G' are reductive is perhaps of the most interest and crucial
+  and one thus lead to symmetry breaking between reductive groups.
 
   The latter problem, as set up by professor Kobayashi, besides being
   fundamental and natural question to ask, has relation to a wide range of
@@ -151,6 +152,50 @@
   of meromorphic functions. As the solution space of equations on Euclidean
   space mentioned above forms finite-dimensional vectors space, one is also
   interested in finding explicit formulas for basis elements of it.
+
+  In particular, the subject of my master thesis (in prep.) is a study of
+  symmetry breaking operators (SBO) between induced representations of
+  G=O(p+1,q) and G'=O(p,q) corresponding to induction from maximal parabolic
+  subgroup, parametrized each by one complex parameter. Already the speacial
+  case q=1, which was extensively treated in <cite|kobayashi2015symmetry> by
+  Toshiyuki Kobayashi and Birgit Speh, was shown to be connected with
+  numerous mathematical objects and theories (e.g. Juhl conformal equivariant
+  operators in <cite|juhl2009families> were obtained as a particular case of
+  differential SBOs; Knapp-Stein operators, de-Sitter spaces, harmonic
+  analysis, branching laws of complementary series, etc.)
+
+  In for higher q one can immediately point symmetry breaking
+  O(2,2)\<gtr\>O(2,1) as connected to several well-known problems. For
+  example, study of SBOs of O(p,q) includes theory of trilinear forms for
+  representations of SL2 (from representation theory), as one might see
+  latter as SBOs of O(2,2)\<gtr\>O(2,1). Moreover, based on the viewpoint
+  introduced in <cite|kobayashi2013differential>, one may see the
+  Rankin-Cohen brackets (which in turn were originally introduced for the
+  study of modular forms in number theory, but since then were seen to have
+  connections with covariant quantization and ring structures on
+  representations spaces) as (being almost the same as) differential symmetry
+  breaking operators of O(2,2)\<gtr\>O(2,1) branching, which in turn is a
+  special case of SBOs of O(p,q).
+
+  <with|font-shape|italic|Besides treating q=1 case, in paper
+  <cite|kobayashi2015symmetry> some general techniques for studying SBOs of
+  pairs of reductive groups were also introduced. These allow one to reduce
+  problem of finding SBOs of reductive groups to that of finding generalized
+  functions on Euclidean space (the kernels of SBOs, given by Schwartz kernel
+  theorem) that satisfy system of PDEs and some invariance conditions.
+  Additional information is provided by the fact that the geometry of orbit
+  decomposition of flag manifold of G under the action of P' (maximal
+  parabolic subgroup of G') implies that these distributions may only have
+  some predetermined supports (finitely many, 8 for generic p,q). Latter
+  problem of finding such generalized functions can then be attacked by a
+  wide range of techniques from analysis, including theory of partial
+  differential equations, generalized functions and generalized functions
+  depending on meromorphic parameter, the latter connecting us with the
+  theory of meromorphic functions and complex analysis and allowing one to
+  employ striking properties of the latter, the most notable being rigidity
+  of meromorphic functions. As the solution space of equations on Euclidean
+  space mentioned above forms finite-dimensional vectors space, one is also
+  interested in finding explicit formulas for basis elements of it.>
 
   <\bibliography|bib|alpha|todai_master.bib>
     <\bib-list|GGP11>
