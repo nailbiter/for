@@ -17,9 +17,8 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>Find best possible normalization for
-    <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> for <math|n\<in\>2\<bbb-Z\>>
-    case and comupute supports
+    <item>Found best possible normalization for
+    <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> and have comuputed supports
   </enumerate>
 
   <with|font-series|bold|What I plan to do>:
