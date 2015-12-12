@@ -1,0 +1,45 @@
+qvar:6;
+
+declare(Beta,noun);
+Beta(a,b):=G(a)*G(b)/G(a+b);
+parse(x) := [at(x,[A=1,B=1,X=1]),A*diff(x,A)/x,B*diff(x,B)/x,X*diff(x,X)/x]$
+f(expr) := block([l,k,a,b,x],l:parse(expr),k:first(l),a:second(l),b:third(l),x:fourth(l),k*Beta(lambdatilde+x-nu+1+a,lambdatilde+b)/(x-nu+1))$
+mintype(e):=lmin(map(lambda([expr],apply1(expr,rule2)),args(substitute(nu=0,apply1(e,rule1)))));
+texoutput : ".texput.tex";
+
+texput(lambdatilde,"\\tilde{\\lambda}")$
+texput(G,"\\Gamma")$
+texput(L,"\\lambda")$
+texput(nu,"\\nu")$
+texput(Beta,["B(",")"],matchfix);
+
+set_tex_environment_default("\\begin{dmath}","\\end{dmath}");
+
+tex(q=qvar,texoutput);
+mintypeconst:qvar/2;
+
+matchdeclare(n,integerp,m,numberp,npos,lambda([x],x>0),nbig,lambda([x],x>mintypeconst));
+defmatch(match1,G(lambdatilde+n)/m);
+defrule(rule1,G(lambdatilde+n),1);
+defrule(rule2,G(lambdatilde+n)*m,n);
+defrule(rule3,G(lambdatilde+npos),(lambdatilde+npos-1)*G(lambdatilde+npos-1));
+defrule(rule4,G(-nu+lambdatilde+nbig),(-nu+lambdatilde+nbig-1)*G(-nu+lambdatilde+nbig-1));
+
+
+(A*B+(A-B)*X-X^2)^((qvar-2)/2);
+expand(%)$
+map(f,%);
+''%, nouns;
+
+substitute(G(-nu+2*lambdatilde+qvar-1)=1,%);
+apply1(%,rule3,rule4);
+%/G(lambdatilde)/G(-nu+lambdatilde+mintypeconst);
+factor(%);
+substitute([lambdatilde=(L+nu-qvar)/2],%);
+factor(%);
+tex(%,texoutput);
+
+G(lambdatilde)*G(-nu+lambdatilde+mintypeconst)/G(-nu+2*lambdatilde+qvar-1);
+substitute([lambdatilde=(L+nu-qvar)/2],%);
+factor(%);
+tex(c=%,texoutput);

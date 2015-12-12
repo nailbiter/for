@@ -18,16 +18,26 @@
 
   <\enumerate>
     <item>Found best possible normalization for
-    <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> and have comuputed supports
+    <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> and have comuputed supports at
+    poles
+
+    <item>formulated hypo about <math|A<rsub|\<lambda\>,\<nu\>>ll=c<around*|(|\<lambda\>,\<nu\>|)>ll>
   </enumerate>
 
   <with|font-series|bold|What I plan to do>:
 
   <\enumerate>
-    <item><math|A<rsub|\<lambda\>,\<nu\>>ll=c<around*|(|\<lambda\>,\<nu\>|)>ll>
+    <item><with|font-series|bold|put normalization of
+    <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> in presentation, merge cases>
 
-    <item>put normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> in
-    presentation, merge cases
+    <item><with|font-series|bold|<with|font-shape|italic|Try to use
+    recurrence relations, like...>>
+
+    <\enumerate>
+      <item>Prove the prop
+
+      <item>Inspect the equation
+    </enumerate>
 
     <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
 
@@ -47,6 +57,12 @@
     <item><with|font-shape|italic|Answer question 5 above> (and confirm
     normalization of regular for <math|q=2>)
 
+    <item><math|A<rsub|\<lambda\>,\<nu\>>ll=c<around*|(|\<lambda\>,\<nu\>|)>ll>
+
+    <\enumerate>
+      <item>prove hypothesis
+    </enumerate>
+
     <item>Ideas for regular normalization:
 
     <\enumerate>
@@ -54,8 +70,7 @@
 
       <item><math|q=4>
 
-      <item><with|font-series|bold|<with|font-shape|italic|Try to use
-      recurrence relations, like__>>
+      <item><with|font-shape|italic|Try to use recurrence relations, like__>
 
       <item>why do we have inconsistincies for
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> and
