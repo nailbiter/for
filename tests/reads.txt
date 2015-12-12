@@ -1,15 +1,7 @@
 # vim: set ft=fc_conf:
 {"selectionMode":
 "shuff",
-"generators":
-[{"enabled": false, "type": "sc", "auxText": "active", "tags": ["misc", "active"], "reflip": true, "notags": ["simple"], "to": 2, "filter": [25], "from": 0, "auxTo": [1]},
-{"enabled": false, "type": "sc", "auxText": "passive", "tags": ["misc", "passive"], "reflip": true, "notags": ["simple"], "to": 0, "filter": [25], "from": 2, "auxTo": [1]},
-{"enabled": false, "name": "active 25", "enable": [-2], "filter": [25, {"notags": "pending"}], "type": "meta"},
-{"enabled": false, "name": "passive 25", "enable": [-2], "filter": [25, {"notags": "pending"}], "type": "meta"},
-{"enabled": false, "name": "pending", "enable": [-3, -4], "filter": ["pending"], "type": "meta"}],
-"fixedTags":
-[{"tag": "simple", "symbol": "S"}, {"tag": "pending", "symbol": "P"}],
-"canListQuestions":
+"favoritesModeAllowed":
 true,
 "dataitems":
 [{"tags": ["T30", "misc", "active"], "items": ["period/cycle (math)", "しゅうき", "周期"]},
@@ -21,7 +13,7 @@ true,
 {"items": ["Clothes", "いふく", "衣服"], "tags": ["clothes", "T34", "misc", "active"]},
 {"items": ["Clothing / Garment", "いりょうひん", "衣料品"], "tags": ["clothes", "T34", "misc", "active"]},
 {"items": ["Japanese Summer Kimono / Japanese Bathrobe", "ゆかた", "浴衣"], "tags": ["clothes", "T34", "misc", "active"]},
-{"items": ["Coat", "", "コート"], "tags": ["clothes", "T34", "misc", "active", "pending", "simple"]},
+{"items": ["Coat", "", "コート"], "tags": ["clothes", "T34", "misc", "active", "simple"]},
 {"items": ["Overcoat", "", "オーバー"], "tags": ["clothes", "T34", "misc", "active", "simple"]},
 {"items": ["Suit", "", "スーツ"], "tags": ["clothes", "T34", "misc", "active", "simple"]},
 {"items": ["Business Suit", "せびろ", "背広"], "tags": ["clothes", "T34", "misc", "active"]},
@@ -70,12 +62,12 @@ true,
 {"tags": ["misc", "passive"], "items": ["Dirty, impure", "ふけつ", "不潔"]},
 {"tags": ["misc", "active", "simple"], "items": ["Become familiar with (i)", "なじむ", "馴染む"]},
 {"tags": ["misc", "active"], "items": ["Orthodoxy", "せいとうせい", "正統性"]},
-{"tags": ["misc", "passive", "pending"], "items": ["For gifts", "ぞうとうよう", "贈答用"]},
+{"tags": ["misc", "passive", "simple"], "items": ["For gifts", "ぞうとうよう", "贈答用"]},
 {"tags": ["misc", "active"], "items": ["to award (t)", "おくる", "贈る"]},
 {"tags": ["misc", "passive"], "items": ["Heresy", "じゃどう", "邪道"]},
 {"tags": ["misc", "passive"], "items": ["Intention", "しこう", "志向"]},
 {"tags": ["misc", "active"], "items": ["Recognition", "にんしき", "認識"]},
-{"tags": ["misc", "passive", "pending"], "items": ["Ready-made", "できあい", "出来合い"]},
+{"tags": ["misc", "passive", "simple"], "items": ["Ready-made", "できあい", "出来合い"]},
 {"tags": ["misc", "active"], "items": ["Habit", "くせ", "癖"]},
 {"tags": ["misc", "passive"], "items": ["Circumstances", "けいい", "経緯"]},
 {"tags": ["misc", "passive"], "items": ["Transmission", "はっしん", "発信"]},
@@ -280,263 +272,35 @@ true,
 {"tags": ["misc", "passive"], "items": ["Fox diet", "こしょく", "孤食"]},
 {"tags": ["misc", "passive"], "items": ["Cut off", "きりはなす", "切り離す"]},
 {"tags": ["misc", "passive"], "items": ["Principle", "しゅぎ", "主義"]},
-{"items": ["to publish/print (t)","かかげ","掲げ"],"tags": ["","misc","passive"]},
-{"items": ["Corporation","しゃだんほうじん","社団法人"],"tags": ["","misc","passive"]},
-{"items": ["Enrollment","ざいせき","在籍"],"tags": ["","misc","passive"]},
-{"items": ["Go","でむく","出向く"],"tags": ["","misc","passive"]},
-{"items": ["Concern","きかかり","気掛かり"],"tags": ["","misc","passive"]},
-{"items": ["Establish","せつりつする","設立する"],"tags": ["","misc","passive"]},
-{"items": ["Detonator","きばくざい","起爆剤"],"tags": ["","misc","passive"]},
-{"items": ["Outlook","みとおし","見通し"],"tags": ["","misc","passive"]},
-{"items": ["Surround","とりまく","取り巻く"],"tags": ["","misc","passive"]},
-{"items": ["skill/trick","コツ"],"tags": ["","misc","passive"]},
-{"items": ["mechanism","きこう","機構"],"tags": ["","misc","passive"]},
-{"items": ["both","そうほう","双方"],"tags": ["","misc","passive"]},
-{"items": ["Foundation","きそ","基礎"],"tags": ["","misc","passive"]},
-{"items": ["Competition","とうわざ","闘技"],"tags": ["","misc","passive"]},
-{"items": ["Noticeable","めだち","目立ち"],"tags": ["","misc","passive"]},
-{"items": ["Settled/arranged","すみ","済み"],"tags": ["","misc","passive"]},
-{"items": ["Hidden/secret","かくし","隠し"],"tags": ["","misc","passive"]},
-{"items": ["Health check up","けんこうしんだん","健康診断"],"tags": ["","misc","passive"]},
-{"items": ["bit by bit","ポツリポツリ"],"tags": ["","misc","passive"]},
-{"items": ["катафалк","れいきゅうしゃ","霊柩車"],"tags": ["","misc","passive"]},
-{"items": ["Unlucky year","やくどし","厄年"],"tags": ["","misc","passive"]},
-to conceal (t),ひめる,秘める
-to crave (t),ほしがる,欲しがる
-careful/cautious,しんちょう,慎重
-to let leak (t),もらす,漏らす
-exhibition,はっき,発揮
-bow,おじぎ,お辞儀
-lie down,ふせる,臥せる
-Breakthrough,とっぱ,突破
-Airlines,こうくう,航空
-Job offer,きゅうじん,求人
-Imitation,もぎ,模擬
-Dispersion,ぶんさん,分散
-Challenge,かだい,課題
-Field of view,しや,視野
-Gaze,にらむ,睨む
-Fortune telling,うらない,占い
-Intentionality,しこうせい,志向性
-Specification,めいき,明記
-core,ちゅうかく,中核
-Attitude,しせい,姿勢
-Guideline,ししん,指針
-Pinch,はさむ,挟む
-Operating,かどう,稼働
-Principle,しゅぎ,主義
-Willingness,いよく,意欲
-Penetrate,しんとうする,浸透する
-Teaching,しなん,指南
-Cultivate (t),やしなう,養う
-obtain,える,得る
-challenging,ちょうせん,挑戦
-Stimulus,しげき,刺激
-will/intention/motive,こころざし,志
-to prompt (t),うながす,促す
-Blood sampling,さいけつ,採血
-Department,ぶしょ,部署
-Make use of (t),いかす,活かす
-connection/relationships,へり,縁
-to bear (respons) (t),になう,担う
-Consultant/examiner,しんだんさむらい,診断士
-Get stuck,いきつまる,行き詰まる
-poor/scarce,とぼしい,乏しい
-Holding,かいさい,開催
-to cultivate (t),つちかう,培う
-Fixing/establishing,ていちゃく,定着
-Donation,きふ,寄付
-Contribution,こうけん,貢献
-Business card,めいし,名刺
-Evenness,いちりつ,一律
-Compensation,ほうしゅう,報酬
-for the time being,とうめん,当面
-be fixed (i),とまる,留まる
-Prerequisite,ぜんてい,前提
-Equilibrium,きんこう,均衡
-treatment,しょぐう,処遇
-Another problem,よぎ,余儀
-instruction,めいれい,命令
-Welfare,ふくりこうせい,福利厚生
-Hospitable,てあつい,手厚い
-Correction,ぜせい,是正
-Disparity,かくさ,格差
-Invite,まねく,招く
-To transmit/hand down,でんしょうする,伝承する
-Take up/settle,つく,就く
-aim,めざす,目指す
-Piling up,つみあがる,積み上がる
-Salary,きゅうよ,給与
-Vigilance/caution,けいかい,警戒
-recovery,かいふく,回復
-reform,かいかく,改革
-Countermeasure,たいさく,対策
-temporarily,いちじてき,一時的
-Childcare,いくじ,育児
-Aim (t),ねらう,狙う
-Mechanism,しくみ,仕組み
-in case of N,Nさいに,N際に
-Evacuation,ひなん,避難
-Create (eg. artpiece),そうしゅつする,創出する
-employee,じゅうぎょういん,従業員
-manager,けいえいしゃ,経営者
-Rush/flood,さっとう,殺到
-Total amount,そうがく,総額
-To be conscious,いしきする,意識する
-Acquisition,かくとく,獲得
-driven by N,Nにかられる
-Suspicion/doubt,ぎしん,疑心
-Mere facade,けいがい,形骸
-Penalty,ばっそく,罰則
-Gentleman's agreement,しんしきょうてい,紳士協定
-request,ようせい,要請
-Disclosure,かいじ,開示
-Positive/progressive,せっきょく,積極
-frame,わく,枠
-Be in accordance with (i),のりる,則る
-policy,ほうしん,方針
-Busy,あわただしい,慌ただしい
-To welcome,かんげいする,歓迎する
-to endeavor (t),つとめる,努める
-Establishment,かくりつ,確立
-system/order,ちつじょ,秩序
-get into full speed,ほんかくかする,本格化する
-hottest summer in 50 years,５０ねんぶりのあついなつです。,５０年ぶりの暑い夏です。
-to eat (t),くう,食う
-to approach (t),よせる,寄せる
-to narrow (t),はさめる,狭める
-Compatibility,りょうりつ,両立
-course,しんろ,進路
-Professor,きょうじゅ,教授
-Wish,しぼう,志望
-concern,けねん,懸念
-classwork/teaching,じゅぎょう,授業
-Transparency,とうめい,透明
-Consideration,はいりょ,配慮
-Be attentive,いきとどく,行き届く
-Scorching sun,えんてん,炎天
-to lament/to grieve (i),なげく,嘆く
-avoid,さける,避ける
-trading company,しょうしゃ,商社
-Relaxation,かんわ,緩和
-Member,かめい,加盟
-Foreign owned,がいしけい,外資系
-Substantially,じっしつてき,実質的
-to be prominent (i),めだつ,目立つ
-confusion/mix-up,こんらん,混乱
-attitude/orientation,しせい,姿勢
-Settlement/decision,けっちゃく,決着
-Turn/shift (i),てんじる,転じる
-Informal talk,こんだん,懇談
-Maintenance,いじ,維持
-mixing/complication,こうさく,交錯
-sunset,くれ,暮
-to follow in succession,あいつぐ,相次ぐ
-moving from place to place,てんてん,転々
-employment,こよう,雇用
-Japan Federation of Economic Organizations,けいだんれん,経団連
-Motivation letter,しぼうどうき,志望動機
-Relocation,てんきん,転勤
-pregnancy,にんしん,妊娠
-Emperor,こうてい,皇帝
-Household account book,かけいぼ,家計簿
-детский сад,ほいくえん,保育園
-To derail,とんざする,頓挫する
-wipe (e.g. wet skin),ぬぐう,拭う
-Notoriety,あくひょう,悪評
-Compatibility/coexistence,りょうりつ,両立
-(скрытый) марш на упреждение (する),ぬけがけ,抜け駆け
-Rush into,かけこむ,駆け込む
-General rule,げんそく,原則
-gradually,じょじょ,徐々
-Thereafter,いこう,以降
-policy/strategy,ほうしん,方針
-trade,つうしょう,通商
-Along (with smone),そって,沿って
-Practice,じっせん,実践
-Consideration/investigaiton,けんとう,検討
-Desperation,ひっし,必死
-Trial,しこう,試行
-That being said,とはいえ,とは言え
-positive/active,せっきょくてき,積極的
-advantage,りてん,利点
-significance/meaning,いぎ,意義
-Bridging/mediation,はしわたし,橋渡し
-Passive,しょうきょくてき,消極的
-Qualification,しかく,資格
-Tackle (problem),とりくむ,取り組む
-Holding a meeting,かいさい,開催
-One after another,あいつぎい,相次い
-squeeze (t),しぼる,絞る
-Round-table conference,こんだんかい,懇談会
-furniture,かぐ,家具
-to precede (i),さきだつ,先立つ
-to urge (t),うながす,促す
-Victory,ゆうしょう,優勝
-energy/vigor,せい,精
-unofficial offer,ないないてい,内々定
-to relax (i),ゆるむ,緩む
-Preparedness,こころがまえ,心構え
-Go through/pass,へる,経る
-More than doubled,ばいいじょう,倍以上
-Application,おうぼ,応募
-Target/object,たいしょう,対象
-Job Hunting,しゅうかつ,就活
-Relaxation,いきぬき,息抜き
-Apply,おうぼする,応募する
-holding a metting/opening an exhibition,かいさい,開催
-first ten days of month,じょうじゅん,上旬
-point (of statement),しゅし,趣旨
-to become dim (i),うすれる,薄れる
-Contact with,せっしょく,接触
-recession,ふきょう,不況
-desperation/eagerness,やっき,躍起
-Ensure,かくほ,確保
-to be impatient (i),あせる,焦る
-flight attendant,きゃくしつじょうむいん,客室乗務員
-Adoption/recruitment,さいよう,採用
-Organization,そしき,組織
-Narrow down,しぼりこむ,絞り込む
-Approach,せまる,迫る
-Job offer rate,ないていりつ,内定率
-Hold off/reduce (t),てひかえる,手控える
-Compete with (i),きそう,競う
-Obvious,いちもくりょうぜん,一目瞭然
-The person in charge,たんとうしゃ,担当者
-Careful,しゅうとう,周到
-to furnish/provide for (t),そなえる,備える
-Align with the surrounding,しゅういとそろえる,周囲とそろえる
-Past and present,こんじゃく,今昔
-innocent/unsofisticated,ういういしい,初々しい
-ceremony,しきてん,式典
-Hangar,かくのうこ,格納庫
-to face (i),のぞむ,臨む
-to seal,ふういんする,封印する
-Ice age,ひょうがき,氷河期
-Children,じどう,児童
-Guardian,ほごしゃ,保護者
-Slippery,すべりやすい,滑りやすい
-Evoke,かんきする,喚起する
-Frequent urination,ひんにょう,頻尿
-sickness in stomach,はきけ,吐き気
-vomiting,おうと,嘔吐
-suckling baby,にゅうじ,乳児
-to emerge (i),めばえる,芽生える
-deficiency/insufficiency,けつぼう,欠乏
-Unbalanced diet,へんしょく,偏食
-Nursery/child care,ほいく,保育
-Institution,しせつ,施設
-Manifest,めいじする,明示する
-Powder,ふんまつ,粉末
-Simplistic,あんい,安易
-Consume,せっしゅする,摂取する
-Growth,はついく,発育
-Ministry of Health, Labour and Welfare,こうせいろうどうしょう,厚生労働省
-Public welfare,こうせい,厚生
-tablet,じょうざい,錠剤
-Cipher,あんごう,暗号
-Search,たんさく,探索
-korean wine name,,チャミスル
+{"items": ["to publish/print (t)", "かかげ", "掲げ"], "tags": ["", "misc", "passive"]},
+{"items": ["Corporation", "しゃだんほうじん", "社団法人"], "tags": ["", "misc", "passive"]},
+{"items": ["Enrollment", "ざいせき", "在籍"], "tags": ["", "misc", "passive"]},
+{"items": ["Go", "でむく", "出向く"], "tags": ["", "misc", "passive"]},
+{"items": ["Concern", "きかかり", "気掛かり"], "tags": ["", "misc", "passive"]},
+{"items": ["Establish", "せつりつする", "設立する"], "tags": ["", "misc", "passive"]},
+{"items": ["Detonator", "きばくざい", "起爆剤"], "tags": ["", "misc", "passive"]},
+{"items": ["Outlook", "みとおし", "見通し"], "tags": ["", "misc", "passive"]},
+{"items": ["Surround", "とりまく", "取り巻く"], "tags": ["", "misc", "passive"]},
+{"items": ["skill/trick", "コツ"], "tags": ["", "misc", "passive"]},
+{"items": ["mechanism", "きこう", "機構"], "tags": ["", "misc", "passive"]},
+{"items": ["both", "そうほう", "双方"], "tags": ["", "misc", "passive"]},
+{"items": ["Foundation", "きそ", "基礎"], "tags": ["", "misc", "passive"]},
+{"items": ["Competition", "とうわざ", "闘技"], "tags": ["", "misc", "passive"]},
+{"items": ["Noticeable", "めだち", "目立ち"], "tags": ["", "misc", "passive"]},
+{"items": ["Settled/arranged", "すみ", "済み"], "tags": ["", "misc", "passive"]},
+{"items": ["Hidden/secret", "かくし", "隠し"], "tags": ["", "misc", "passive"]},
+{"items": ["Health check up", "けんこうしんだん", "健康診断"], "tags": ["", "misc", "passive"]},
+{"items": ["bit by bit", "ポツリポツリ"], "tags": ["", "misc", "passive"]},
+{"items": ["катафалк", "れいきゅうしゃ", "霊柩車"], "tags": ["", "misc", "passive"]},
+{"items": ["Unlucky year", "やくどし", "厄年"], "tags": ["", "misc", "passive"]},
 {"tags": ["misc", "passive"], "items": ["Covering ", "ひふく", "被覆"]}],
-"favoritesModeAllowed":
-true}
+"canListQuestions":
+true,
+"fixedTags":
+[{"tag": "simple", "symbol": "S"}, {"tag": "pending", "symbol": "P"}],
+"generators":
+[{"reflip": true, "enabled": false, "type": "sc", "auxText": "active", "tags": ["misc", "active"], "notags": ["simple"], "filter": [25], "to": 2, "auxTo": [1], "from": 0},
+{"reflip": true, "enabled": false, "type": "sc", "auxText": "passive", "tags": ["misc", "passive"], "notags": ["simple"], "filter": [25], "to": 0, "auxTo": [1], "from": 2},
+{"enabled": false, "filter": [25, {"notags": "pending"}], "name": "active 25", "enable": [-2], "type": "meta"},
+{"enabled": false, "filter": [25, {"notags": "pending"}], "name": "passive 25", "enable": [-2], "type": "meta"},
+{"enabled": false, "filter": ["pending"], "name": "pending", "enable": [-3, -4], "type": "meta"}]}
