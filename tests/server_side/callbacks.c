@@ -331,8 +331,10 @@ int remove_tag(char* arg)
 int commit_pending(char* arg)
 {
     json_error_t error;
+    char fname[50];
+    strcpy(fname,"reads.txt");
 
-    json_t* root = read_test("ttt.txt",&error);
+    json_t* root = read_test(fname,&error);
     if( !root ) return 0;
 
     json_t *dataitems = json_object_get(root,"dataitems");
@@ -350,7 +352,7 @@ int commit_pending(char* arg)
         if( flag ) replaced++;
     }
 
-    save_test(root,"ttt.txt",NULL);
-    printf("\"committed %d items\"",replaced);
+    save_test(root,"reads.txt",NULL);
+    printf("\"committed %d items in %s\"",replaced,fname);
     return 0;
 }
