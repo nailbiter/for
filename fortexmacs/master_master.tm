@@ -38,13 +38,16 @@
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> in presentation, merge cases>
 
       <item><with|font-series|bold|<with|font-shape|italic|Try to use
-      recurrence relations, like...>>
+      recurrence relations, for crude normalization>>
 
       <\enumerate>
         <item>Prove the prop
 
         <item>Inspect the equation (subst normalization from recur case,
         K-Speh), see picture
+
+        <item>try to do crude normalization for <cite|kobayashi2015symmetry>
+        case
       </enumerate>
 
       <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
@@ -2671,7 +2674,7 @@
 
     <subsection|Setting and goal>
 
-    In this note, we will the data obtained in chapter
+    In this note, we will the data obtained in section
     <verbatim|Q-normalization> to find the <with|font-shape|italic|perfect>
     normalization of kernel of singular SBO, that is supported on
     <math|<around*|{|x<rsub|p>=0|}>>, which is given as
@@ -3427,7 +3430,16 @@
 
     <subsection|Setting and goal>
 
-    hi there
+    In this section we attempt to use recurrence relations
+    <reference|KR-normalization-recur:eq-recur> below in order to normalize
+    kernel <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> of the
+    regular operator. We recall that the latter was initially defined for
+    <math|Re<around*|(|\<lambda\>+\<nu\>-n|)>,Re<around*|(|-\<nu\>|)>\<gtr\>0>
+    as
+
+    <\equation*>
+      K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>><around*|(|x|)>\<assign\><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||Q<around*|(|x|)>|\|><rsup|-\<nu\>>.
+    </equation*>
 
     <subsection|Main results>
 
@@ -3443,7 +3455,7 @@
       we have
 
       <\equation>
-        <label|KR-normalization-recur:eq-recur><choice|<tformat|<table|<row|<cell|<frac|\<partial\>|\<partial\>x<rsub|p>>K<rsub|\<lambda\>,\<nu\>,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>><rsup|\<bbb-R\><rsup|n>>=<around*|(|\<lambda\>+\<nu\>-n|)>\<varepsilon\><rsub|1>K<rsub|\<lambda\>-1,\<nu\>,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>>+\<varepsilon\><rsub|2><around*|(|-2\<nu\>|)>K<rsub|\<lambda\>,\<nu\>+1,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>>>>|<row|<cell|<wide|L|~>K<rsub|\<lambda\>,\<nu\>,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>><rsup|\<bbb-R\><rsup|n>>=2\<nu\>\<varepsilon\><rsub|2><around*|(|2\<nu\>-n+3|)>K<rsub|\<lambda\>-1,\<nu\>+1,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>>-4\<nu\><around*|(|\<nu\>+1|)>K<rsub|\<lambda\>,\<nu\>+2,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>>>>>>>,
+        <label|KR-normalization-recur:eq-recur><choice|<tformat|<table|<row|<cell|<frac|\<partial\>|\<partial\>x<rsub|p>>K<rsub|\<lambda\>,\<nu\>,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>><rsup|\<bbb-R\><rsup|n>>=<around*|(|\<lambda\>+\<nu\>-n|)>\<varepsilon\><rsub|1>K<rsub|\<lambda\>-1,\<nu\>,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>>+\<varepsilon\><rsub|2><around*|(|-2\<nu\>|)>K<rsub|\<lambda\>-1,\<nu\>+1,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>>>>|<row|<cell|<wide|L|~>K<rsub|\<lambda\>,\<nu\>,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>><rsup|\<bbb-R\><rsup|n>>=2\<nu\>\<varepsilon\><rsub|2><around*|(|2\<nu\>-n+3|)>K<rsub|\<lambda\>-1,\<nu\>+1,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>>-4\<nu\><around*|(|\<nu\>+1|)>K<rsub|\<lambda\>,\<nu\>+2,\<varepsilon\><rsub|1>,\<varepsilon\><rsub|2>>>>>>>,
       </equation>
 
       where <math|<wide|L|~>\<assign\><big|sum><rsub|i=1><rsup|p-1><frac|\<partial\><rsup|2>|\<partial\>x<rsub|i><rsup|2>>-<big|sum><rsub|j=1><rsup|q><frac|\<partial\><rsup|2>|\<partial\>y<rsub|j><rsup|2>>>.
