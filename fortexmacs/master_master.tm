@@ -42,21 +42,9 @@
     <with|font-series|bold|What I plan to do>:
 
     <\enumerate>
-      <item><with|font-series|bold|put normalization of
-      <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> in presentation, merge cases>
-
-      <item><with|font-series|bold|<with|font-shape|italic|Try to use
-      recurrence relations, for crude normalization>>
-
-      <\enumerate>
-        <item>Prove the prop
-
-        <item>Inspect the equation (subst normalization from recur case,
-        K-Speh), see picture
-
-        <item>try to do crude normalization for <cite|kobayashi2015symmetry>
-        case
-      </enumerate>
+      <item>Try to use recurrence relations, for crude
+      normalizatio<with|font-series|bold|>n of
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
 
       <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
 
@@ -74,9 +62,6 @@
         <math|Sol<rsub|C\<cup\>P><around*|(|\<bbb-R\><rsup|p,q>|)>>
       </enumerate>
 
-      <item><with|font-shape|italic|Answer question 5 above> (and confirm
-      normalization of regular for <math|q=2>)
-
       <item><math|A<rsub|\<lambda\>,\<nu\>>ll=c<around*|(|\<lambda\>,\<nu\>|)>ll>
 
       <\enumerate>
@@ -85,51 +70,21 @@
         <item>try <math|q\<in\>2\<bbb-Z\>+1>?
       </enumerate>
 
-      <item>Ideas for regular normalization:
-
-      <\enumerate>
-        <item>prove holomorphicity in <verbatim|KR-normalization>
-
-        <item><math|q=4>
-
-        <item><with|font-shape|italic|Try to use recurrence relations,
-        like__>
-
-        <item>why do we have inconsistincies for
-        <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> and
-        <math|K<rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>>?
-
-        <item><math|q=1> formula show to K
-
-        <item>residue formula
-      </enumerate>
+      <item>Develop the structure of master thesis
     </enumerate>
 
     <\with|font-series|bold>
-      Questions
+      Questions and Comments
     </with>
 
-    <\enumerate>
-      <item>about residue formula
-
-      <item>You said about technique in Gelfand...
-
-      <item>incorrect thm in K-Speh
-
-      <item><with|font-shape|italic|why did we do the recurrence relations
-      business in K-Speh>?
-
-      <item>pairing bullshit
-    </enumerate>
-
-    <with|font-series|bold|Comments>
-
     (empty)
+
+    \;
   <|hide-part>
     <section|report 31>
   </hide-part>
 
-  <\hide-part|3>
+  <\show-part|3>
     <section|generic report>
 
     \;
@@ -147,15 +102,7 @@
 
     <with|font-series|bold|What has been done (additional)>
 
-    <\enumerate>
-      <item>Found best possible normalization for
-      <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>> and have computed supports at
-      poles
-
-      <item>formulated hypo about <math|A<rsub|\<lambda\>,\<nu\>>ll=c<around*|(|\<lambda\>,\<nu\>|)>ll>
-
-      <item>
-    </enumerate>
+    \;
 
     <with|font-series|bold|What I plan to do>:
 
@@ -228,10 +175,6 @@
     </with>
 
     <\enumerate>
-      <item>about residue formula
-
-      <item>You said about technique in Gelfand...
-
       <item>incorrect thm in K-Speh
 
       <item><with|font-shape|italic|why did we do the recurrence relations
@@ -243,9 +186,9 @@
     <with|font-series|bold|Comments>
 
     (empty)
-  <|hide-part>
+  <|show-part>
     <section|generic report>
-  </hide-part>
+  </show-part>
 
   <\hide-part|4>
     <section|P-def>
@@ -3550,7 +3493,7 @@
     <section|KR-normalization-even>
   </hide-part>
 
-  <\show-part|10>
+  <\hide-part|10>
     <section|KR-normalization-recur>
 
     <subsection|Setting and goal>
@@ -3647,9 +3590,9 @@
       (of proposition <reference|KR-normalization-recur:prop-1>) The last
       statement follows once all others are shown. In turn, they follow from\ 
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|KR-normalization-recur>
-  </show-part>
+  </hide-part>
 
   <\hide-part|11>
     <\bibliography|bib|alpha|todai_master.bib>
@@ -3816,7 +3759,7 @@
     <associate|auto.2-10|<tuple|3.4|?|#2>>
     <associate|auto.2-11|<tuple|3.5|?|#2>>
     <associate|auto.2-12|<tuple|3.5|?|#2>>
-    <associate|auto.2-2|<tuple|3.1|?|#2>>
+    <associate|auto.2-2|<tuple|1.1|?|#2>>
     <associate|auto.2-3|<tuple|3.2|?|#2>>
     <associate|auto.2-4|<tuple|3.3|?|#2>>
     <associate|auto.2-5|<tuple|3.2.1|?|#2>>
