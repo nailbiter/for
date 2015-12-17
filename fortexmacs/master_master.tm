@@ -219,7 +219,15 @@
       <math|u\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>-<around*|{|0|}>|)>>
       is homogeneous of degree <math|a\<in\>\<bbb-C\>\\<around*|(|-n-\<bbb-Z\><rsub|\<geqslant\>0>|)>>,
       it's homogeneous extension <math|<wide|u|\<dot\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>>
-      exists and is unique subject to homogeneity requirement.
+      exists and is unique subject to homogeneity requirement. Moreover, for
+      arbitrary <math|\<psi\>\<in\>C<rsub|0><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|n>\\<around*|{|0|}>|)>>
+      satisfying <math|\<forall\>x\<neq\>0,<space|0.6spc><big|int><rsub|0><rsup|\<infty\>>\<psi\><around*|(|t
+      x|)>d t/t=1> we have
+
+      <\equation*>
+        <around*|\<langle\>|<wide|u|\<dot\>>,\<varphi\>|\<rangle\>>=<around*|\<langle\>|u,x\<mapsto\>\<psi\><around*|(|x|)>\<cdot\><around*|\<langle\>|t<rsub|+><rsup|a+n-1>,t\<mapsto\>\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>
+      </equation*>
     </fact>
 
     <\fact>
@@ -272,7 +280,7 @@
       <label|holomorphicity-preserving:prop-homog-holo>If
       <math|F<rsub|\<nu\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>\\<around*|{|0|}>|)>>
       is holomorphically dependent on <math|\<nu\>\<in\>O\<subset\>\<bbb-C\><rsup|n>>
-      with <math|F<rsub|\<nu\>>> being homogeneous of degree
+      (<math|O>:open) with <math|F<rsub|\<nu\>>> being homogeneous of degree
       <math|a<around*|(|\<nu\>|)>> holomorphically dependent on <math|\<nu\>>
       and <math|a<around*|(|O|)>\<subset\>\<bbb-C\>\\<around*|(|-n-\<bbb-Z\><rsub|\<geqslant\>0>|)>>,
       then <math|<wide|F<rsub|>|\<dot\>><rsub|\<nu\>>> holomorphically
@@ -292,9 +300,9 @@
       <math|\<Gamma\>> and <math|f> being as in fact
       <reference|holomorphicity-preserving:fact-pullback>, if
       <math|F<rsub|\<nu\>>\<in\>\<cal-D\><rprime|'><rsub|\<Gamma\>><around*|(|Y|)>>
-      is holomorphically dependent on <math|\<nu\>\<in\>O\<subset\>\<bbb-C\><rsup|n>>,
-      then <math|f<rsup|\<ast\>>F<rsub|\<nu\>>> is also holomorphically
-      dependent on <math|\<nu\>\<in\>O>.
+      is holomorphically dependent on <math|\<nu\>\<in\>O\<subset\>\<bbb-C\><rsup|n>>
+      (<math|O>:open), then <math|f<rsup|\<ast\>>F<rsub|\<nu\>>> is also
+      holomorphically dependent on <math|\<nu\>\<in\>O>.
     </proposition>
 
     <\proposition>
@@ -308,8 +316,8 @@
       <label|holomorphicity-preserving:prop-tensor-holo>If
       <math|X<rsub|i>\<subset\>\<bbb-R\><rsup|n<rsub|i>>> are open subsets
       for <math|i=1,2> and <math|u<rsup|<around*|(|i|)>><rsub|\<nu\>>\<in\>\<cal-D\><rprime|'><around*|(|X<rsub|i>|)>>
-      are holomorphically dependent on <math|\<nu\>\<in\>O\<subset\>\<bbb-C\><rsup|n>>,
-      then <math|u<rsub|\<nu\>><rsup|<around*|(|1|)>>\<otimes\>u<rsup|<around*|(|2|)>><rsub|\<nu\>>>
+      are holomorphically dependent on <math|\<nu\>\<in\>O\<subset\>\<bbb-C\><rsup|n>>
+      \ (<math|O>:open), then <math|u<rsub|\<nu\>><rsup|<around*|(|1|)>>\<otimes\>u<rsup|<around*|(|2|)>><rsub|\<nu\>>>
       is also holomorphically dependent on <math|\<nu\>\<in\>O>.
     </proposition>
 
@@ -328,8 +336,8 @@
     <\fact>
       <label|holomorphicity-preserving:fact-holo>Multivariable complex
       function <math|f:\<bbb-C\><rsup|n>\<supset\>O\<rightarrow\>\<bbb-C\>>
-      is holomorphic if it is continuous and for every variable
-      <math|z<rsub|i>> we have <math|\<partial\>f/\<partial\><overline|z<rsub|i>>=0>
+      (<math|O>:open) is holomorphic if it is continuous and for every
+      variable <math|z<rsub|i>> we have <math|\<partial\>f/\<partial\><overline|z<rsub|i>>=0>
       on <math|O> (this includes requirement that left-hand side is
       well-defined).
     </fact>
@@ -450,8 +458,8 @@
         x|)>|\|>\<leqslant\>M<big|int><rsub|0><rsup|R><around*|\||t<rsup|a<rsub|i>>-t<rsup|a<rsub|0>>|\|>\<rightarrow\>0.
       </equation*>
 
-      and as the latter estimate is independent of <math|x\<in\>K>, this ends
-      the proof.
+      (by dominated convergence) and as the latter estimate is independent of
+      <math|x\<in\>K>, this ends the proof.
     </proof>
 
     <\lemma>
@@ -521,21 +529,35 @@
     </proof>
 
     <\lemma>
-      For <math|a\<nin\>-\<bbb-Z\><rsub|\<geqslant\>1>> and
+      <label|holomorphicity-preserving:lem-t+ln-cts>Let
+      <math|\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsub|\<gtr\>0>|)>\<ni\>t<rsub|+><rsup|a>ln<around*|(|t|)>\<assign\><frac|d|d
+      a>t<rsub|+><rsup|a>> be holomorphically depending on
+      <math|a\<nin\>-\<bbb-Z\><rsub|\<geqslant\>1>> distribution. Then, for
+      <math|a<rsub|n>\<rightarrow\>a<rsub|0>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>1>>
+      and every <math|\<alpha\>\<in\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|n>>,
+      <math|\<varphi\>\<in\>C<rsub|0><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|n>|)>>
+      we have
+
+      <\equation*>
+        <around*|\<langle\>|t<rsub|>|\<rangle\>>
+      </equation*>
+    </lemma>
+
+    <\lemma>
+      <label|holomorphicity-preserving:lem-t+-smth-aux>For
+      <math|a\<nin\>-\<bbb-Z\><rsub|\<geqslant\>1>> and
       <math|\<varphi\>\<in\>C<rsub|0><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|n>|)>>
       we have for every <math|\<alpha\>\<in\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|n>>
 
       <\equation*>
-        lim<rsub|h\<rightarrow\>0><frac|\<partial\><rsup|\<alpha\>>|\<partial\>x<rsup|\<alpha\>>><around*|\<langle\>|<frac|t<rsub|+><rsup|a+h>-t<rsub|+><rsup|a>|h>,t\<rightarrow\>\<varphi\><around*|(|t
+        lim<rsub|h\<rightarrow\>0><frac|\<partial\><rsup|\<alpha\>>|\<partial\>x<rsup|\<alpha\>>><around*|\<langle\>|<frac|t<rsub|+><rsup|a+h>-t<rsub|+><rsup|a>|h>,t\<mapsto\>\<varphi\><around*|(|t
         x|)>|\<rangle\>>=<frac|\<partial\><rsup|\<alpha\>>|\<partial\>x<rsup|\<alpha\>>><around*|\<langle\>|t<rsub|+><rsup|a>
-        ln<around*|(|t|)>,t\<rightarrow\>\<varphi\><around*|(|t
-        x|)>|\<rangle\>>
+        ln<around*|(|t|)>,t\<mapsto\>\<varphi\><around*|(|t x|)>|\<rangle\>>
       </equation*>
 
-      uniformly on compact subsets of <math|\<bbb-R\><rsup|n>\\<around*|{|0|}>>.
-      Here <math|\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsub|\<gtr\>0>|)>\<ni\>t<rsub|+><rsup|a>ln<around*|(|t|)>\<assign\><frac|d|d
-      a>t<rsub|+><rsup|a>> is holomorphically depending on
-      <math|a\<nin\>-\<bbb-Z\><rsub|\<geqslant\>1>> distribution.
+      uniformly on compact subsets of <math|\<bbb-R\><rsup|n>\\<around*|{|0|}>>
+      with <math|t<rsub|+><rsup|a>ln<around*|(|t|)>> as in lemma
+      <reference|holomorphicity-preserving:lem-t+ln-cts>.
     </lemma>
 
     <\proof>
@@ -548,16 +570,16 @@
       and thus
 
       <\equation*>
-        <frac|\<partial\><rsup|\<alpha\>>|\<partial\>x<rsup|\<alpha\>>><around*|\<langle\>|<frac|t<rsub|+><rsup|a+h>-t<rsub|+><rsup|a>|h>,t\<rightarrow\>\<varphi\><around*|(|t
-        x|)>|\<rangle\>>=<around*|\<langle\>|<frac|t<rsub|+><rsup|a+h>-t<rsub|+><rsup|a>|h>,t\<rightarrow\>t<rsup|<around*|\||\<alpha\>|\|>><frac|\<partial\><rsup|\<alpha\>>\<varphi\>|\<partial\>x<rsup|\<alpha\>>><around*|(|t
+        <frac|\<partial\><rsup|\<alpha\>>|\<partial\>x<rsup|\<alpha\>>><around*|\<langle\>|<frac|t<rsub|+><rsup|a+h>-t<rsub|+><rsup|a>|h>,t\<mapsto\>\<varphi\><around*|(|t
+        x|)>|\<rangle\>>=<around*|\<langle\>|<frac|t<rsub|+><rsup|a+h>-t<rsub|+><rsup|a>|h>,t\<mapsto\>t<rsup|<around*|\||\<alpha\>|\|>><frac|\<partial\><rsup|\<alpha\>>\<varphi\>|\<partial\>x<rsup|\<alpha\>>><around*|(|t
         x|)>|\<rangle\>>
       </equation*>
 
       <\equation*>
         <frac|\<partial\><rsup|\<alpha\>>|\<partial\>x<rsup|\<alpha\>>><around*|\<langle\>|t<rsub|+><rsup|a>
-        ln<around*|(|t|)>,t\<rightarrow\>\<varphi\><around*|(|t
+        ln<around*|(|t|)>,t\<mapsto\>\<varphi\><around*|(|t
         x|)>|\<rangle\>>=<around*|\<langle\>|t<rsub|+><rsup|a>
-        ln<around*|(|t|)>,t\<rightarrow\>t<rsup|<around*|\||\<alpha\>|\|>><frac|\<partial\><rsup|\<alpha\>>\<varphi\>|\<partial\>x<rsup|\<alpha\>>><around*|(|t
+        ln<around*|(|t|)>,t\<mapsto\>t<rsup|<around*|\||\<alpha\>|\|>><frac|\<partial\><rsup|\<alpha\>>\<varphi\>|\<partial\>x<rsup|\<alpha\>>><around*|(|t
         x|)>|\<rangle\>>
       </equation*>
 
@@ -566,16 +588,151 @@
 
       <\equation*>
         <frac|d|d t>t<rsub|+><rsup|a+1>ln<around*|(|t|)>=<around*|(|a+1|)>t<rsub|+><rsup|a>ln<around*|(|t|)>+t<rsub|+><rsup|a>=<around*|(|a+1|)>t<rsub|+><rsup|a>ln<around*|(|t|)>+<frac|1|a+1><frac|d|d
-        t>t<rsub|+><rsup|a+1>
+        t>t<rsub|+><rsup|a+1>\<Rightarrow\>
       </equation*>
 
-      and by analytic continuation it holds for
+      <\equation*>
+        \<Rightarrow\>t<rsub|+><rsup|a>ln<around*|(|t|)>=<frac|1|a+1>\<cdot\><frac|d|d
+        t>t<rsub|+><rsup|a+1>ln<around*|(|t|)>-<frac|1|<around*|(|a+1|)><rsup|2>>\<cdot\><frac|d|d
+        t>t<rsup|a+1><rsub|+>
+      </equation*>
+
+      and by analytic continuation latter holds for
       <math|a\<nin\>-\<bbb-Z\><rsub|\<geqslant\>1>>. This together with the
       similar equality
 
       <\equation*>
-        \;
+        <frac|t<rsub|+><rsup|a+h>-t<rsub|+><rsup|a>|h>=<frac|d|d
+        t><frac|<frac|1|a+1+h>t<rsub|+><rsup|a+1+h>-<frac|1|a+1>t<rsub|+><rsup|a+1>|h>=<frac|d|d
+        t><frac|t<rsub|+><rsup|a+1+h>-t<rsub|+><rsup|a+1>|h<around*|(|a+1+h|)>>-<frac|d|d
+        t><frac|t<rsub|+><rsup|a+1>|<around*|(|a+1+h|)><around*|(|a+1|)>>
       </equation*>
+
+      and lemma <reference|holomorphicity-preserving:lem-t+-cts> allows us to
+      reduce to the case <math|Re<around*|(|a|)>\<gtr\>0>. Note that
+      <math|t<rsub|+><rsup|a>ln<around*|(|t|)>\<rightarrow\>0> then as
+      <math|t\<rightarrow\>0>. Finally, by lemma
+      <reference|holomorphicity-preserving:lem-phi-satisfies> and continuity
+      of <math|\<varphi\>> we have for <math|x\<in\>K> and some <math|M> big
+      independent of <math|x>
+
+      <\equation*>
+        <around*|\||<around*|\<langle\>|<frac|t<rsub|+><rsup|a+h>-t<rsub|+><rsup|a>|h>-t<rsub|+><rsup|a>
+        ln<around*|(|t|)>,t\<mapsto\>\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\|>=<around*|\||<big|int><rsub|0><rsup|R><around*|(|<frac|t<rsub|+><rsup|a+h>-t<rsub|+><rsup|a>|h>-t<rsub|+><rsup|a>
+        ln<around*|(|t|)>|)>\<varphi\><around*|(|t x|)>d t|\|>\<leqslant\>
+      </equation*>
+
+      <\equation*>
+        \<leqslant\>M<big|int><rsub|0><rsup|R><around*|\||<frac|t<rsub|+><rsup|a+h>-t<rsub|+><rsup|a>|h>-t<rsub|+><rsup|a>
+        ln<around*|(|t|)>|\|>d t\<rightarrow\>0.
+      </equation*>
+
+      (by dominated convergence) and as the latter estimate is independent of
+      <math|x\<in\>K>, this ends the proof.
+    </proof>
+
+    <\lemma>
+      <label|holomorphicity-preserving:lem-t+-smth>Suppose
+      <math|F<rsub|\<lambda\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>\\<around*|{|0|}>|)>>
+      depends on <math|\<lambda\>\<in\>O\<subset\>\<bbb-R\><rsup|n>>
+      (<math|O>:open) such that <math|\<lambda\>\<mapsto\>F<rsub|\<lambda\>>>
+      is of class <math|C<rsup|1>>, and is homogeneous of degree
+      <math|a<around*|(|\<lambda\>|)>> with
+      <math|\<lambda\>\<mapsto\>a<around*|(|\<lambda\>|)>> being
+      <math|C<rsup|1>> and <math|a<around*|(|O|)>\<subset\>\<bbb-C\>\\<around*|(|-\<bbb-Z\><rsub|\<geqslant\>1>|)>>.
+      Then, for <math|<wide|F|\<dot\>><rsub|\<lambda\>>> defined by fact
+      <reference|holomorphicity-preserving:fact-homog>, we have
+      <math|\<lambda\>\<mapsto\><wide|F|\<dot\>><rsub|\<lambda\>>> being also
+      of class <math|C<rsup|1>> and moreover for
+      <math|\<bbb-R\><rsup|n>\<ni\>h\<neq\>0> and <math|D<rsub|h>> denoting
+      directional derivative we have
+
+      <\equation>
+        <label|holomorphicity-preserving:eq-1>D<rsub|h><around*|\<langle\>|<wide|F|\<dot\>><rsub|\<lambda\>>,\<varphi\>|\<rangle\>>=<around*|\<langle\>|D<rsub|h>F<rsub|\<lambda\>>,x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|t<rsup|a<around*|(|\<lambda\>|)>-n+1><rsub|+>,\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>+D<rsub|h>a<around*|(|\<lambda\>|)>\<cdot\><around*|\<langle\>|F<rsub|\<lambda\>>,x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|t<rsub|+><rsup|a<around*|(|\<lambda\>|)>-n+1>ln<around*|(|t|)>,\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>,
+      </equation>
+
+      with <math|t<rsub|+><rsup|a<around*|(|\<lambda\>|)>>ln<around*|(|t|)>>
+      as in lemma <reference|holomorphicity-preserving:lem-t+-smth-aux> and
+      arbitrary fixed <math|\<psi\>> as in fact
+      <reference|holomorphicity-preserving:fact-homog>.
+    </lemma>
+
+    <\proof>
+      It is enough to prove the equality <reference|holomorphicity-preserving:eq-1>,
+      as it is continuous in <math|\<lambda\>>. Indeed,
+      <math|D<rsub|h>F<rsub|\<lambda\>>> is continuous in <math|\<lambda\>>
+      and <math|x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|t<rsup|a<around*|(|\<lambda\>|)>-n+1><rsub|+>,\<varphi\><around*|(|t
+      x|)>|\<rangle\>>> is continuous in <math|\<lambda\>> (in
+      <math|C<rsub|0><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|n>\\<around*|{|0|}>|)>>
+      topology) as <math|\<lambda\>\<mapsto\>a<around*|(|\<lambda\>|)>> is
+      continuous in <math|\<lambda\>> and by lemma
+      <reference|holomorphicity-preserving:lem-t+-cts>. Hence, by fact
+      <reference|holomorphicity-preserving:fact-completeness> first addend on
+      the right of equation <reference|holomorphicity-preserving:eq-1> is
+      continuous in <math|\<lambda\>>. Similarly, as
+      <math|x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|t<rsub|+><rsup|a<around*|(|\<lambda\>|)>-n+1>ln<around*|(|t|)>,\<varphi\><around*|(|t
+      x|)>|\<rangle\>>> is continuous in <math|\<lambda\>> in
+      <math|C<rsub|0><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|n>\\<around*|{|0|}>|)>>
+      topology by lemma <reference|holomorphicity-preserving:lem-t+ln-cts>
+      and <math|D<rsub|h>a<around*|(|\<lambda\>|)>> continuous in
+      <math|\<lambda\>> by hypothesis, the second addend on the right of
+      equation <reference|holomorphicity-preserving:eq-1> is continuous in
+      <math|\<lambda\>> as well.
+
+      Hence, it suffices to prove equality
+      <reference|holomorphicity-preserving:eq-1>. This is done by direct
+      computation is follows: by fact <reference|holomorphicity-preserving:fact-homog>
+      we have
+
+      <\equation*>
+        D<rsub|h><around*|\<langle\>|<wide|F|\<dot\>><rsub|\<lambda\>>,\<varphi\>|\<rangle\>>=lim<rsub|s\<rightarrow\>0><frac|<around*|\<langle\>|F<rsub|\<lambda\>+s
+        h>,x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|t<rsup|a<around*|(|\<lambda\>+s
+        h|)>-n+1><rsub|+>,\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>-<around*|\<langle\>|F<rsub|\<lambda\>>,x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|t<rsup|a<around*|(|\<lambda\>|)>-n+1><rsub|+>,\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>|s h>=
+      </equation*>
+
+      <\equation*>
+        =lim<rsub|s\<rightarrow\>0><around*|\<langle\>|<frac|F<rsub|\<lambda\>+s
+        h>-F<rsub|\<lambda\>>|s h>,x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|t<rsup|a<around*|(|\<lambda\>+s
+        h|)>-n+1><rsub|+>,\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>+
+      </equation*>
+
+      <\equation*>
+        +<frac|a<around*|(|\<lambda\>+s h|)>-a<around*|(|\<lambda\>|)>|s
+        h>\<cdot\>lim<rsub|s\<rightarrow\>0><around*|\<langle\>|F<rsub|\<lambda\>>,x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|<frac|t<rsup|a<around*|(|\<lambda\>+s
+        h|)>-n+1><rsub|+>-t<rsup|a<around*|(|\<lambda\>|)>-n+1><rsub|+>|a<around*|(|\<lambda\>+s
+        h|)>-a<around*|(|\<lambda\>|)>>,\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>.
+      </equation*>
+
+      Now, fact <reference|holomorphicity-preserving:fact-completeness> and
+      lemma <reference|holomorphicity-preserving:lem-t+-cts> imply that
+
+      <\equation*>
+        lim<rsub|s\<rightarrow\>0><around*|\<langle\>|<frac|F<rsub|\<lambda\>+s
+        h>-F<rsub|\<lambda\>>|s h>,x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|t<rsup|a<around*|(|\<lambda\>+s
+        h|)>-n+1><rsub|+>,\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>=<around*|\<langle\>|D<rsub|h>F<rsub|\<lambda\>>,x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|t<rsup|a<around*|(|\<lambda\>|)>-n+1><rsub|+>,\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>
+      </equation*>
+
+      and lemma <reference|holomorphicity-preserving:lem-t+-smth-aux> implies
+      that
+
+      <\equation*>
+        lim<rsub|s\<rightarrow\>0><around*|\<langle\>|F<rsub|\<lambda\>>,x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|<frac|t<rsup|a<around*|(|\<lambda\>+s
+        h|)>-n+1><rsub|+>-t<rsup|a<around*|(|\<lambda\>|)>-n+1><rsub|+>|a<around*|(|\<lambda\>+s
+        h|)>-a<around*|(|\<lambda\>|)>>,\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>=<around*|\<langle\>|F<rsub|\<lambda\>>,x\<mapsto\>\<psi\><around*|(|x|)><around*|\<langle\>|t<rsub|+><rsup|a<around*|(|\<lambda\>|)>-n+1>ln<around*|(|t|)>,\<varphi\><around*|(|t
+        x|)>|\<rangle\>>|\<rangle\>>
+      </equation*>
+
+      and this proves equality <reference|holomorphicity-preserving:eq-1>.
     </proof>
 
     <subsection|Proofs>\ 
@@ -643,7 +800,13 @@
       (of prop. <reference|holomorphicity-preserving:prop-homog-holo>) Lemma
       <reference|holomorphicity-preserving:lem-homog-ctt> grants us the
       continuity of <math|O\<ni\>\<nu\>\<mapsto\><wide|F|\<dot\>><rsub|\<nu\>>>.
-      Continuity and complex linearity imply that\ 
+      Lemma <reference|holomorphicity-preserving:lem-t+-smth> and requirement
+      that <math|F<rsub|\<nu\>>> and <math|a<around*|(|\<nu\>|)>> are
+      holomorphic in <math|\<nu\>> imply now that for
+      <math|\<nu\>=:<around*|(|z<rsub|1>,z<rsub|2>,\<ldots\>,z<rsub|n>|)>> we
+      have Cauchy-Riemann equations <math|<around*|(|\<partial\>/\<partial\><wide|z<rsub|i>|\<bar\>>|)><wide|F|\<dot\>><rsub|\<nu\>>>
+      holding for <math|<wide|F|\<dot\>><rsub|\<nu\>>> and the application of
+      fact <reference|holomorphicity-preserving:fact-holo> ends the proof.
     </proof>
 
     <subsection|TODO>
@@ -4188,45 +4351,45 @@
 
 <\references>
   <\collection>
-    <associate|Assume-that-1|<tuple|31|?|#6>>
-    <associate|Assume-that-2|<tuple|32|?|#6>>
-    <associate|Assume-that-3|<tuple|33|?|#6>>
-    <associate|Assume-that-4|<tuple|34|?|#6>>
-    <associate|For-,-we|<tuple|36|?|#6>>
-    <associate|KC-normalization:lem-Suppose-that-sets|<tuple|38|?|#6>>
+    <associate|Assume-that-1|<tuple|33|?|#6>>
+    <associate|Assume-that-2|<tuple|34|?|#6>>
+    <associate|Assume-that-3|<tuple|35|?|#6>>
+    <associate|Assume-that-4|<tuple|36|?|#6>>
+    <associate|For-,-we|<tuple|38|?|#6>>
+    <associate|KC-normalization:lem-Suppose-that-sets|<tuple|40|?|#6>>
     <associate|KP-normalization-2:lem-aux-1|<tuple|79|?|#6>>
-    <associate|KP-normalization-2:lem-holo-supp|<tuple|90|?|#9>>
-    <associate|KP-normalization-2:lem-nonzero|<tuple|92|?|#9>>
-    <associate|KP-normalization-2:lem-sets|<tuple|91|?|#9>>
-    <associate|KP-normalization-2:lem-trivial|<tuple|93|?|#9>>
-    <associate|KP-normalization-2:prop-1|<tuple|85|?|#9>>
-    <associate|KP-normalization-2:prop-2|<tuple|86|?|#9>>
-    <associate|KP-normalization-2:prop-3|<tuple|87|?|#9>>
-    <associate|KP-normalization-2:prop-4|<tuple|88|?|#9>>
-    <associate|KP-normalization-2:prop-5|<tuple|89|?|#9>>
+    <associate|KP-normalization-2:lem-holo-supp|<tuple|92|?|#9>>
+    <associate|KP-normalization-2:lem-nonzero|<tuple|94|?|#9>>
+    <associate|KP-normalization-2:lem-sets|<tuple|93|?|#9>>
+    <associate|KP-normalization-2:lem-trivial|<tuple|95|?|#9>>
+    <associate|KP-normalization-2:prop-1|<tuple|87|?|#9>>
+    <associate|KP-normalization-2:prop-2|<tuple|88|?|#9>>
+    <associate|KP-normalization-2:prop-3|<tuple|89|?|#9>>
+    <associate|KP-normalization-2:prop-4|<tuple|90|?|#9>>
+    <associate|KP-normalization-2:prop-5|<tuple|91|?|#9>>
     <associate|KR-normalization-even:hypo-maxima|<tuple|2|?|#10>>
-    <associate|KR-normalization-even:lem-2|<tuple|97|?|#10>>
-    <associate|KR-normalization-recur:eq-recur|<tuple|8|?|#11>>
+    <associate|KR-normalization-even:lem-2|<tuple|99|?|#10>>
+    <associate|KR-normalization-recur:eq-recur|<tuple|9|?|#11>>
     <associate|KR-normalization-recur:fact-pullback|<tuple|2|?|#4>>
-    <associate|KR-normalization-recur:lem-recur|<tuple|107|?|#11>>
-    <associate|KR-normalization-recur:lem-recur-crucial|<tuple|108|?|#11>>
+    <associate|KR-normalization-recur:lem-recur|<tuple|109|?|#11>>
+    <associate|KR-normalization-recur:lem-recur-crucial|<tuple|110|?|#11>>
     <associate|KR-normalization-recur:prop-1|<tuple|86|?|#10>>
-    <associate|KR-normalization-recur:prop-2|<tuple|104|?|#11>>
-    <associate|KR-normalization-recur:prop-3|<tuple|105|?|#11>>
-    <associate|KR-normalization-recur:prop-4|<tuple|106|?|#11>>
-    <associate|Let--denote|<tuple|37|?|#6>>
-    <associate|On-the-|<tuple|29|?|#6>>
-    <associate|P-def:def-9|<tuple|27|?|#5>>
-    <associate|P-def:fact-gelfand|<tuple|19|?|#5>>
-    <associate|P-def:lem-delta-max|<tuple|25|?|#5>>
-    <associate|P-def:lem-delta-times-mero|<tuple|24|?|#5>>
-    <associate|P-def:lem-laurent-distr|<tuple|20|?|#5>>
-    <associate|P-def:lem-mero-addition|<tuple|21|?|#5>>
-    <associate|P-def:lem-mero-supp|<tuple|26|?|#5>>
-    <associate|P-def:rem-def-P|<tuple|23|?|#5>>
+    <associate|KR-normalization-recur:prop-2|<tuple|106|?|#11>>
+    <associate|KR-normalization-recur:prop-3|<tuple|107|?|#11>>
+    <associate|KR-normalization-recur:prop-4|<tuple|108|?|#11>>
+    <associate|Let--denote|<tuple|39|?|#6>>
+    <associate|On-the-|<tuple|31|?|#6>>
+    <associate|P-def:def-9|<tuple|29|?|#5>>
+    <associate|P-def:fact-gelfand|<tuple|21|?|#5>>
+    <associate|P-def:lem-delta-max|<tuple|27|?|#5>>
+    <associate|P-def:lem-delta-times-mero|<tuple|26|?|#5>>
+    <associate|P-def:lem-laurent-distr|<tuple|22|?|#5>>
+    <associate|P-def:lem-mero-addition|<tuple|23|?|#5>>
+    <associate|P-def:lem-mero-supp|<tuple|28|?|#5>>
+    <associate|P-def:rem-def-P|<tuple|25|?|#5>>
     <associate|Suppose-that-sets|<tuple|18|?|#2>>
-    <associate|Suppose-there-exists|<tuple|35|?|#6>>
-    <associate|The-following-holds|<tuple|30|?|#6>>
+    <associate|Suppose-there-exists|<tuple|37|?|#6>>
+    <associate|The-following-holds|<tuple|32|?|#6>>
     <associate|auto-1|<tuple|1|?>>
     <associate|auto-10|<tuple|4|?>>
     <associate|auto-11|<tuple|4.1|?>>
@@ -4353,21 +4516,22 @@
     <associate|bib-howe1993homogeneous|<tuple|HT93|?|#12>>
     <associate|bib-kobayashi2015symmetry|<tuple|KS15|?|#12>>
     <associate|bib-treves1967topological|<tuple|Tre67|?|#12>>
-    <associate|def-P|<tuple|22|?|#5>>
-    <associate|eq-1|<tuple|3|?|#8>>
-    <associate|eq-2|<tuple|2|?|#7>>
+    <associate|def-P|<tuple|24|?|#5>>
+    <associate|eq-1|<tuple|4|?|#8>>
+    <associate|eq-2|<tuple|3|?|#7>>
     <associate|fact-1|<tuple|74|?|#6>>
     <associate|fact-2|<tuple|75|?|#6>>
-    <associate|fact-horm-homog|<tuple|39|?|#7>>
-    <associate|fact-horm1|<tuple|40|?|#7>>
-    <associate|fact-horm2|<tuple|41|?|#7>>
+    <associate|fact-horm-homog|<tuple|41|?|#7>>
+    <associate|fact-horm1|<tuple|42|?|#7>>
+    <associate|fact-horm2|<tuple|43|?|#7>>
     <associate|footnote-1|<tuple|1|?|#6>>
     <associate|footnote-2|<tuple|2|?|#10>>
     <associate|footnote-3|<tuple|3|?|#11>>
     <associate|footnr-1|<tuple|1|?|#6>>
     <associate|footnr-2|<tuple|2|?|#10>>
     <associate|footnr-3|<tuple|3|?|#11>>
-    <associate|forre|<tuple|71|?|#8>>
+    <associate|forre|<tuple|73|?|#8>>
+    <associate|holomorphicity-preserving:eq-1|<tuple|1|?|#4>>
     <associate|holomorphicity-preserving:fact-1|<tuple|1|?|#4>>
     <associate|holomorphicity-preserving:fact-2|<tuple|2|?|#4>>
     <associate|holomorphicity-preserving:fact-basic|<tuple|14|?|#4>>
@@ -4380,6 +4544,9 @@
     <associate|holomorphicity-preserving:lem-homog-ctt|<tuple|17|?|#4>>
     <associate|holomorphicity-preserving:lem-phi-satisfies|<tuple|15|?|#4>>
     <associate|holomorphicity-preserving:lem-t+-cts|<tuple|16|?|#4>>
+    <associate|holomorphicity-preserving:lem-t+-smth|<tuple|20|?|#4>>
+    <associate|holomorphicity-preserving:lem-t+-smth-aux|<tuple|19|?|#4>>
+    <associate|holomorphicity-preserving:lem-t+ln-cts|<tuple|18|?|#4>>
     <associate|holomorphicity-preserving:prop-1|<tuple|3|?|#4>>
     <associate|holomorphicity-preserving:prop-2|<tuple|5|?|#4>>
     <associate|holomorphicity-preserving:prop-homog-cts|<tuple|6|?|#4>>
@@ -4388,49 +4555,49 @@
     <associate|holomorphicity-preserving:prop-pullback-holo|<tuple|7|?|#4>>
     <associate|holomorphicity-preserving:prop-tensor-cts|<tuple|10|?|#4>>
     <associate|holomorphicity-preserving:prop-tensor-holo|<tuple|9|?|#4>>
-    <associate|lem-1|<tuple|76|?|#8>>
-    <associate|lem-16|<tuple|79|?|#8>>
-    <associate|lem-2|<tuple|77|?|#8>>
+    <associate|lem-1|<tuple|78|?|#8>>
+    <associate|lem-16|<tuple|81|?|#8>>
+    <associate|lem-2|<tuple|79|?|#8>>
     <associate|lem-20|<tuple|6|?|#1>>
-    <associate|lem-21|<tuple|81|?|#8>>
-    <associate|lem-3|<tuple|78|?|#8>>
-    <associate|lem-4|<tuple|98|?|#10>>
-    <associate|lem-5|<tuple|100|?|#10>>
-    <associate|lem-5n|<tuple|99|?|#10>>
-    <associate|lem-6|<tuple|49|?|#7>>
-    <associate|lem-7|<tuple|102|?|#10>>
-    <associate|lem-8|<tuple|101|?|#10>>
-    <associate|lem-9|<tuple|103|?|#10>>
-    <associate|lem-Mg0|<tuple|74|?|#8>>
-    <associate|lem-assume-the-setting|<tuple|75|?|#8>>
-    <associate|lem-holo-nonzero|<tuple|46|?|#7>>
+    <associate|lem-21|<tuple|83|?|#8>>
+    <associate|lem-3|<tuple|80|?|#8>>
+    <associate|lem-4|<tuple|100|?|#10>>
+    <associate|lem-5|<tuple|102|?|#10>>
+    <associate|lem-5n|<tuple|101|?|#10>>
+    <associate|lem-6|<tuple|51|?|#7>>
+    <associate|lem-7|<tuple|104|?|#10>>
+    <associate|lem-8|<tuple|103|?|#10>>
+    <associate|lem-9|<tuple|105|?|#10>>
+    <associate|lem-Mg0|<tuple|76|?|#8>>
+    <associate|lem-assume-the-setting|<tuple|77|?|#8>>
+    <associate|lem-holo-nonzero|<tuple|48|?|#7>>
     <associate|lem-holo-supp|<tuple|76|?|#6>>
     <associate|lem-mero-addition|<tuple|3|?|#1>>
     <associate|lem-mero-supp|<tuple|8|?|#1>>
-    <associate|lem-n:odd-holo|<tuple|62|?|#7>>
-    <associate|lem-n:odd-n/2|<tuple|63|?|#7>>
-    <associate|lem-normalized-eq|<tuple|50|?|#7>>
-    <associate|lem-pq2holo|<tuple|52|?|#7>>
-    <associate|lem-r1|<tuple|56|?|#7>>
-    <associate|lem-r1-e|<tuple|53|?|#7>>
-    <associate|lem-r2|<tuple|58|?|#7>>
-    <associate|lem-r3|<tuple|59|?|#7>>
-    <associate|lem-r4|<tuple|57|?|#7>>
-    <associate|lem-r5|<tuple|60|?|#7>>
-    <associate|lem-r6|<tuple|54|?|#7>>
-    <associate|lem-r6-e|<tuple|51|?|#7>>
-    <associate|lem-r7|<tuple|61|?|#7>>
-    <associate|lem-r8|<tuple|55|?|#7>>
-    <associate|lem-restricted|<tuple|45|?|#7>>
-    <associate|lem-span|<tuple|73|?|#8>>
-    <associate|prop-1|<tuple|42|?|#7>>
-    <associate|prop-2|<tuple|43|?|#7>>
-    <associate|prop-3|<tuple|66|?|#8>>
-    <associate|prop-4|<tuple|67|?|#8>>
-    <associate|prop-6|<tuple|70|?|#8>>
-    <associate|prop-norm-1|<tuple|64|?|#8>>
-    <associate|prop-norm-2|<tuple|65|?|#8>>
-    <associate|prop-q=2|<tuple|94|?|#10>>
+    <associate|lem-n:odd-holo|<tuple|64|?|#7>>
+    <associate|lem-n:odd-n/2|<tuple|65|?|#7>>
+    <associate|lem-normalized-eq|<tuple|52|?|#7>>
+    <associate|lem-pq2holo|<tuple|54|?|#7>>
+    <associate|lem-r1|<tuple|58|?|#7>>
+    <associate|lem-r1-e|<tuple|55|?|#7>>
+    <associate|lem-r2|<tuple|60|?|#7>>
+    <associate|lem-r3|<tuple|61|?|#7>>
+    <associate|lem-r4|<tuple|59|?|#7>>
+    <associate|lem-r5|<tuple|62|?|#7>>
+    <associate|lem-r6|<tuple|56|?|#7>>
+    <associate|lem-r6-e|<tuple|53|?|#7>>
+    <associate|lem-r7|<tuple|63|?|#7>>
+    <associate|lem-r8|<tuple|57|?|#7>>
+    <associate|lem-restricted|<tuple|47|?|#7>>
+    <associate|lem-span|<tuple|75|?|#8>>
+    <associate|prop-1|<tuple|44|?|#7>>
+    <associate|prop-2|<tuple|45|?|#7>>
+    <associate|prop-3|<tuple|68|?|#8>>
+    <associate|prop-4|<tuple|69|?|#8>>
+    <associate|prop-6|<tuple|72|?|#8>>
+    <associate|prop-norm-1|<tuple|66|?|#8>>
+    <associate|prop-norm-2|<tuple|67|?|#8>>
+    <associate|prop-q=2|<tuple|96|?|#10>>
   </collection>
 </references>
 
