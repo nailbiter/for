@@ -1,7 +1,7 @@
 qvar:6;
 
 declare(Beta,noun);
-Beta(a,b):=G(a)*G(b)/G(a+b);
+Beta(a,b):=2^(a+b-1)*G(a)*G(b)/G(a+b);
 parse(x) := [at(x,[A=1,B=1,X=1]),A*diff(x,A)/x,B*diff(x,B)/x,X*diff(x,X)/x]$
 f(expr) := block([l,k,a,b,x],l:parse(expr),k:first(l),a:second(l),b:third(l),x:fourth(l),k*Beta(lambdatilde+x-nu+1+a,lambdatilde+b)/(x-nu+1))$
 mintype(e):=lmin(map(lambda([expr],apply1(expr,rule2)),args(substitute(nu=0,apply1(e,rule1)))));
