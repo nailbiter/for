@@ -1,0 +1,65 @@
+(setlocale LC_ALL "")
+(use-modules (ice-9 rdelim))
+(use-modules (ice-9 regex))
+(use-modules (ice-9 popen))
+(use-modules (ice-9 format))
+(use-modules (srfi srfi-1))
+
+(load "s3_aux.scm")
+
+(define inport (open-file "buf.txt" "r"))
+(define outport (open-file "/home/nailbiter/public_html/reads.html" "w"))
+
+(display "<head><meta charset=\"UTF-8\"></head>" outport)
+
+(define (parse rus-title)
+  (let* (
+         (args (parse-russian-title rus-title))
+         (eng-title (get-eng-title args))
+         (chi-title (get-chi-title args))
+         ) (begin(display rus-title outport)(display "<br>" outport)(display eng-title outport)(display "<br>"outport)(display chi-title outport )(display "<br>" outport))))
+
+(define (loop)(let*(
+                    (line (read-line inport))
+                    (index (string-contains line ". "))
+                    (line1 (string-take line index))
+                    (line1 (string-append line1 "."))
+                    (line2 (substring line (+ index 4)))
+                    )(if (eof-object? line) '() (begin(parse line1)(parse line2)(loop)))));(begin(parse line)(loop)))))
+
+(loop)
+;;(define (get-all start-seq end-seq line l) (let((index (string-contains line start-seq)))(if (not index) l
+;;                                                                                     (let* ((iline (substring line (+(string-length start-seq)index)))
+;;                                                                                            (token (string-take iline (string-contains iline end-seq)))
+;;                                                                                            (iline (substring iline (+(string-length end-seq)(string-contains iline end-seq))))
+;;                                                                                            )(get-all start-seq end-seq iline (cons token l))))))
+;;
+;;
+;;(define (parse cmd)
+;;  (let* ((dum (string-contains cmd " "))
+;;         (date (string-take cmd dum))
+;;         (key (substring cmd (+ dum 1)))
+;;         (url (string-append "http://www.patriarchia.ru/bu/" date))
+;;         (source (download2string url))
+;;         (source (substring source (string-contains source "<span class='chten'>")))
+;;         (source (string-take source(string-contains source "</span>")))
+;;         ;(source (mytokenize "</div>\n<div>" source))
+;;         (source(get-all "<div>" "</div>" source '()))
+;;         (source (map (lambda(s) (regexp-substitute/global #f "<[^<>]*>" s 'pre 'post))source))
+;;         (source (map (lambda(s) (regexp-substitute/global #f "&nbsp;" s 'pre 'post))source))
+;;         (charset (list->char-set(list #\. #\space #\, #\- #\:)))
+;;         (parseline(lambda(line)(let*((index1 (string-index line charset))
+;;                                     (l1(string-take line index1))
+;;                                     (l2(substring line index1))
+;;                                     (l3(substring l2(string-index l2(char-set-complement charset))))
+;;                                     (index2 (string-contains l3 ". "))
+;;                                     (l4 (string-take l3 index2))
+;;                                     (l4 (string-append l4 "."))
+;;                                     (l5 (substring l3 (+ index2 3)))
+;;                                      )(list l1 l4 l5 ))))
+;;         (source (map parseline source))
+;;         (source (remove (lambda(item)(not(string=? (car item)key)))source))
+;;         (source(map cdr source))
+;;         )source));(map(lambda(text)(begin(display "text: ")(display (car text))(display"+")(display (list-ref text 1))(display"+")(display (list-ref text 2))(newline))) source)))
+;(define (loop)((lambda(line)(if (eof-object? line) '() (begin(map print-titles (flatten (parse line)))(newline)(loop))))(read-line inport)))
+;;2016-01-03 Лит

@@ -38,7 +38,7 @@ endfunction
 
 ":imap <S-Tab> <Space>}
 ":imap <S-Tab> <C-R>=expand('%:p:h')<CR>
-:nmap <C-L> :w <bar> make <CR>
+:nmap <C-L> :w <bar> make! <CR>
 ":imap  <C-R>={ '\<C-W>' }<CR>
 ":imap <S-Tab> <C-R>=expand('%:p:h') | @echo tesi<CR>oue
 
