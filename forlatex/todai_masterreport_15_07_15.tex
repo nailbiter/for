@@ -7,6 +7,7 @@
 \newcommand{\Sol}{\mbox{Sol}}
 \newcommand{\D}{\mathcal{D}}
 \newcommand{\A}{\mathcal{A}}
+\renewcommand{\setminus}{-}
 
 %%\makeatletter
 %%\newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
@@ -191,9 +192,50 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	, in sense that $\tilde{K}_{\lambda,\nu}^C$ is holomorphic in $\lambda\in\C$ and
 	never vanishes.
 \end{theorem}
-\begin{remark}
-	I do not know the support of residues of $K^C_{\lambda,\nu}$ at this point.
-\end{remark}
+\end{frame}
+\section{Normalization of singular ${K}^P_{ \lambda,\nu }$ supported on $\left\{ x_p=0 \right\}$}
+\begin{frame}
+	\begin{theorem}[\cite{kobayashi2015symmetry}]
+		For $\lambda+\nu-n=-1-2k,\;k\in2\Z_{\ge0}$
+		and $L_{\mbox{even}}:=\mysetn{\left( \lambda,\nu \right)\in\Z}{\lambda-\nu\in-2\Z_{\ge0}}$ 
+		we have \[\tilde{K}_{\lambda,\nu}^{\mathbb{B}}
+			:=\left( \myabs{x}^2+x_n^2 \right)^{-\nu}\delta^{(2k)}(x_n)/N,\quad
+		N:=\begin{cases}
+			\Gamma\left( \frac{n-1}{2}-\nu-k \right),&\left( \lambda,\nu \right)\notin L_{\mbox{even}}\\
+			1,&\left( \lambda,\nu \right)\in L_{\mbox{even}},\;n\in2\Z+1\footnote{
+				$L_{\mbox{even}}\cap\backslash\backslash\neq
+				\emptyset$
+			iff $n\in2\Z+1$}\\
+		\end{cases}\]
+		being the kernel of SBO supported on $\left\{ x_p=0 \right\}$ which is holomorphically dependent on
+		parameters and non-vanishing. Moreover, for $\slash\slash:=\mysetn{\left( \lambda,\nu \right)\in\C^2}
+		{\lambda-\nu\in-2\Z_{\ge0}}$, $\backslash\backslash:=\mysetn{\left( \lambda,\nu \right)\in\C^2}{\lambda+\nu-n+1\in-2\Z
+			_{\ge0}}$
+		and $\mathbb{X}:=\backslash\backslash\cap\slash\slash$ we have
+		\[
+			\supp\left( \tilde{K}_{\lambda,\nu}^{\mathbb{B}} \right)=
+			\begin{cases}
+				\left\{ 0 \right\},&\left(\lambda,\nu\right)\in\mathbb{X}\setminus L_{\mbox{even}}\\
+				\left\{ x_n=0 \right\},&\left( \lambda,\nu \right)\in\backslash\backslash\setminus\mathbb{X}\\
+				\left\{ x_n=0 \right\},&\left( \lambda,\nu \right)\in\L_{\mbox{even}},\;n\in2\Z+1.
+			\end{cases}
+		\]
+	\end{theorem}
+\end{frame}
+\begin{frame}
+	\begin{theorem}[$G:=O(p+1,q+1),\;n:=p+q$]	
+		For $n\in2\Z$ and $\lambda+\nu-n=-1-2k,\;k\in2\Z_{\ge0}$ we have
+		\[\tilde{K}_{\lambda,\nu}^P:=\myabs{Q}^{-\nu}\delta^{(2k)}(x_p)/N,\quad N:=\Gamma\left( \frac{n-1}{2}-\nu-k \right)
+		\Gamma\left( \frac{1-\nu}{2} \right)\]
+		being the kernel of SBO supported on $\left\{ x_p=0 \right\}$ which is holomorphically dependent on
+		parameters and non-vanishing. Moreover, we have\[
+			\supp\left( \tilde{K}_{\lambda,\nu}^P \right)=\begin{cases}
+				\left\{0 \right\},&\left(\lambda,\nu \right)\in \mathbb{X}(\iff\nu\in\frac{n-1}{2}-k+\Z_{\ge0})\\
+				\left\{ Q=0 \right\}\cap\left\{ x_p=0 \right\},&\nu\in1+2\Z_{\ge0}\\
+				\left\{ x_p=0 \right\},&\mbox{otherwise}.
+			\end{cases}
+		\]
+	\end{theorem}
 \end{frame}
 \section{Normalization of regular $K_{\lambda,\nu}^{\R^{n}}$}
 \begin{frame}
