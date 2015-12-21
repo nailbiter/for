@@ -1,6 +1,7 @@
 #! /bin/sh
 #echo "I'm alive!"
 tmp_dir=foraux
+
 if [ -e Makefile ]
 then
 	#echo "Makefile"
