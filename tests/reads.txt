@@ -568,72 +568,39 @@
 {"items": ["Accomplish","なす","為す"],"tags": ["","2.e","passive"]},
 {"items": ["serve","つとめる","務める"],"tags": ["","2.e","active","passive"]},
 
-Now, well
-to blame (t)
-Cruel/severe
-Psychiatry
-Denial
-Maturation
-Shrink (i)
-carry on one's shoulder (t)
-Contrast
-legitimate/established
-a:signs
-a:Dispensable
-Collapse
-turn inside out
-Letting go
-Promising
-Reach
-Designation
-Government order
-control/inhibition
-recovery
-Committee
-stay
-Confusing/perplexed
-Chief clerk
-Maintenance
-Significantly
-Improvement
-income
-Intention
-Editorial Board
-Promotion
-Shining
-さて
-責める
-酷
-精神科
-拒否
-成熟
-縮む
-担う
-対照的
-正規
-兆し
-可欠
-崩壊
-裏返し
-手放し
-頼もしい
-達す
-指定
-政令
-抑制
-回復
-委員会
-留まる
-戸惑う
-係長
-維持
-大幅
-改善
-所得
-志向
-編集委員
-昇格
-輝く
+{"items": ["Now","well","","さて"],"tags": ["","2.f","passive"]},
+{"items": ["to blame (t)","せめる","責める"],"tags": ["","2.f","passive"]},
+{"items": ["Cruel/severe","こく","酷"],"tags": ["","2.f","passive"]},
+{"items": ["Psychiatry","せいしんか","精神科"],"tags": ["","2.f","passive"]},
+{"items": ["Denial","きょひ","拒否"],"tags": ["","2.f","passive"]},
+{"items": ["Maturation","せいじゅく","成熟"],"tags": ["","2.f","passive"]},
+{"items": ["Shrink (i)","ちぢむ","縮む"],"tags": ["","2.f","passive"]},
+{"items": ["carry on one's shoulder (t)","になう","担う"],"tags": ["","2.f","passive"]},
+{"items": ["Contrast","たいしょうてき","対照的"],"tags": ["","2.f","passive"]},
+{"items": ["legitimate/established","せいき","正規"],"tags": ["","2.f","passive"]},
+{"items": ["signs","きざし","兆し"],"tags": ["","2.f","passive","active"]},
+{"items": ["Dispensable","かけつ","可欠"],"tags": ["","2.f","passive","active"]},
+{"items": ["Collapse","ほうかい","崩壊"],"tags": ["","2.f","passive"]},
+{"items": ["turn inside out","うらがえし","裏返し"],"tags": ["","2.f","passive"]},
+{"items": ["Letting go","てばなし","手放し"],"tags": ["","2.f","passive"]},
+{"items": ["Promising","たのもしい","頼もしい"],"tags": ["","2.f","passive"]},
+{"items": ["Reach","たっす","達す"],"tags": ["","2.f","passive"]},
+{"items": ["Designation","してい","指定"],"tags": ["","2.f","passive"]},
+{"items": ["Government order","せいれい","政令"],"tags": ["","2.f","passive"]},
+{"items": ["control/inhibition","よくせい","抑制"],"tags": ["","2.f","passive"]},
+{"items": ["recovery","かいふく","回復"],"tags": ["","2.f","passive"]},
+{"items": ["Committee","いいんかい","委員会"],"tags": ["","2.f","passive"]},
+{"items": ["stay","とまる","留まる"],"tags": ["","2.f","passive"]},
+{"items": ["Confusing/perplexed","とまどう","戸惑う"],"tags": ["","2.f","passive"]},
+{"items": ["Chief clerk","かかりちょう","係長"],"tags": ["","2.f","passive"]},
+{"items": ["Maintenance","いじ","維持"],"tags": ["","2.f","passive"]},
+{"items": ["Significantly","おおはば","大幅"],"tags": ["","2.f","passive"]},
+{"items": ["Improvement","かいぜん","改善"],"tags": ["","2.f","passive"]},
+{"items": ["income","しょとく","所得"],"tags": ["","2.f","passive"]},
+{"items": ["Intention","しこう","志向"],"tags": ["","2.f","passive"]},
+{"items": ["Editorial Board","へんしゅういいん","編集委員"],"tags": ["","2.f","passive"]},
+{"items": ["Promotion","しょうかく","昇格"],"tags": ["","2.f","passive"]},
+{"items": ["Shining","かがやく","輝く"],"tags": ["","2.f","passive"]},
 
 {"items": ["appearance (on stage)","とうじょう","登場"],"tags": ["","misc","passive"]},
 {"items": ["technology","ぎじゅつ","技術"],"tags": ["","misc","passive"]},
