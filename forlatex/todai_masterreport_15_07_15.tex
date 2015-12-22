@@ -223,14 +223,85 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	\end{theorem}
 \end{frame}
 \begin{frame}
+	Assume $n\in2\Z$.
+	\begin{theorem}[\cite{kobayashi2015symmetry}]
+		For $\lambda+\nu-n=-1-2k,\;k\in2\Z_{\ge0}$
+		 \[\tilde{K}_{\lambda,\nu}^{\mathbb{B}}
+			:=\left( \myabs{x}^2+x_n^2 \right)^{-\nu}\delta^{(2k)}(x_n)/N,\quad
+		N:=
+		\Gamma\left( \frac{n-1}{2}-\nu-k \right)
+		\footnote{
+		$\slash\slash:=\mysetn{\left( \lambda,\nu \right)\in\C^2}
+		{\lambda-\nu\in-2\Z_{\ge0}},\;\backslash\backslash:=\mysetn{\left( \lambda,\nu \right)\in\C^2}{\lambda+\nu-n+1\in-2\Z
+			_{\ge0}},\;
+			\mathbb{X}:={\backslash\backslash}\cap{\slash\slash}$;
+			$L_{\mbox{even}}\cap\backslash\backslash\neq
+			\emptyset$
+		iff $n\in2\Z+1$}\]
+		is the kernel of SBO supported in $\left\{ x_n=0 \right\}$ which is holo in $(\lambda,\nu)\in\C^2$ and
+		non-vanishing. 
+		\[
+			\supp\left( \tilde{K}_{\lambda,\nu}^{\mathbb{B}} \right)=
+			\begin{cases}
+				\left\{ 0 \right\},&\left(\lambda,\nu\right)\in\mathbb{X}\\
+				\left\{ x_n=0 \right\},&\mbox{otherwise}
+			\end{cases}
+		\]
+	\end{theorem}
+\end{frame}
+\begin{frame}
 	\begin{theorem}[$G:=O(p+1,q+1),\;n:=p+q$]	
-		For $n\in2\Z$ and $\lambda+\nu-n=-1-2k,\;k\in2\Z_{\ge0}$ we have
+		For $\lambda+\nu-n=-1-2k,\;k\in2\Z_{\ge0}$
 		\[\tilde{K}_{\lambda,\nu}^P:=\myabs{Q}^{-\nu}\delta^{(2k)}(x_p)/N,\quad N:=\Gamma\left( \frac{n-1}{2}-\nu-k \right)
 		\Gamma\left( \frac{1-\nu}{2} \right)\]
-		being the kernel of SBO supported on $\left\{ x_p=0 \right\}$ which is holomorphically dependent on
-		parameters and non-vanishing. Moreover, we have\[
+		is the kernel of SBO supported in $\left\{ x_p=0 \right\}$ which is holo in $(\lambda,\nu)\in\C^2$ and
+		non-vanishing. 
+		\[
 			\supp\left( \tilde{K}_{\lambda,\nu}^P \right)=\begin{cases}
 				\left\{0 \right\},&\left(\lambda,\nu \right)\in \mathbb{X}(\iff\nu\in\frac{n-1}{2}-k+\Z_{\ge0})\\
+				\left\{ Q=0 \right\}\cap\left\{ x_p=0 \right\},&\nu\in1+2\Z_{\ge0}\\
+				\left\{ x_p=0 \right\},&\mbox{otherwise}.
+			\end{cases}
+		\]
+	\end{theorem}
+\end{frame}
+\begin{frame}
+	Assume $n\in2\Z+1$ and $q\in2\Z$.
+	\begin{remark}
+	{For $n\in2\Z+1$ $\left( \lambda,\nu \right)\in L_{\mbox{even}}\subset\mathbb{X}$
+	iff $\nu\in(n-1)/2-k+\Z_{\ge0}$ and $\nu\le0$}
+	\end{remark}
+	\begin{theorem}[\cite{kobayashi2015symmetry}]
+		For $\lambda+\nu-n=-1-2k,\;k\in2\Z_{\ge0}$
+		 \[\tilde{K}_{\lambda,\nu}^{\mathbb{B}}
+			:=\left( \myabs{x}^2+x_n^2 \right)^{-\nu}\delta^{(2k)}(x_n)/N,\quad
+		N:=
+		\Gamma\left( \max\left\{\frac{n-1}{2}-k,1  \right\}-\nu \right)
+		\]
+		is the kernel of SBO supported in $\left\{ x_n=0 \right\}$ which is holo in $(\lambda,\nu)\in\C^2$ and
+		non-vanishing. 
+		\[
+			\supp\left( \tilde{K}_{\lambda,\nu}^{\mathbb{B}} \right)=
+			\begin{cases}
+				\left\{ 0 \right\},&\nu\in\max\left\{\frac{n-1}{2}-k,1  \right\}+\Z_{\ge0}\\
+				\left\{ x_n=0 \right\},&\mbox{otherwise}
+			\end{cases}
+		\]
+	\end{theorem}
+\end{frame}
+\begin{frame}
+	\begin{theorem}[$G:=O(p+1,q+1),\;n:=p+q$]	
+		For $\lambda+\nu-n=-1-2k,\;k\in2\Z_{\ge0}$
+		\[\tilde{K}_{\lambda,\nu}^P:=\myabs{Q}^{-\nu}\delta^{(2k)}(x_p)/N,\quad N:=\Gamma\left( 
+			\frac{\max\left\{ 2,\left( \frac{n-1}{2}-k \right)' \right\}-\nu}{2}
+			\right)
+		\Gamma\left( \frac{1-\nu}{2} \right)\]
+		(where $a'$ denotes the smallest even integer which is $\ge a$)
+		is the kernel of SBO supported in $\left\{ x_p=0 \right\}$ which is holo in $(\lambda,\nu)\in\C^2$ and
+		non-vanishing. 
+		\[
+			\supp\left( \tilde{K}_{\lambda,\nu}^P \right)=\begin{cases}
+				\left\{0 \right\},&\nu\in\max\left\{ \frac{n-1}{2}-k ,1\right\}+\Z_{\ge0},\;\nu\in2\Z\\
 				\left\{ Q=0 \right\}\cap\left\{ x_p=0 \right\},&\nu\in1+2\Z_{\ge0}\\
 				\left\{ x_p=0 \right\},&\mbox{otherwise}.
 			\end{cases}
