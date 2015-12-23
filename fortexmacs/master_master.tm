@@ -266,7 +266,7 @@
     We also define the embedding
 
     <\equation*>
-      \<bbb-R\><rsup|p,q>\<ni\><around|(|u,v|)>\<mapsto\><with|math-font|Euler|n><rsub|-><around|(|u,v|)>\<assign\><around*|[|<frac|<around|(|1-+<around*|\||v|\|><rsup|2>,2*u,2*v,1+<around*|\||u|\|><rsup|2>-<around*|\||v|\|><rsup|2>|)>|<sqrt|<around|(|1-<around*|\||u|\|><rsup|2>+<around*|\||v|\|><rsup|2>|)><rsup|2>+4<around*|\||v|\|><rsup|2>>>|]>\<in\>X\<simeq\>G/P
+      \<bbb-R\><rsup|p,q>\<ni\><around|(|u,v|)>\<mapsto\><with|math-font|Euler|n><rsub|-><around|(|u,v|)>\<assign\><around*|[|<frac|<around|(|1-<around*|\||u|\|><rsup|2>+<around*|\||v|\|><rsup|2>,2*u,2*v,1+<around*|\||u|\|><rsup|2>-<around*|\||v|\|><rsup|2>|)>|<sqrt|<around|(|1-<around*|\||u|\|><rsup|2>+<around*|\||v|\|><rsup|2>|)><rsup|2>+4<around*|\||v|\|><rsup|2>>>|]>\<in\>X\<simeq\>G/P
     </equation*>
 
     . For <math|x,y\<in\>\<bbb-R\><rsup|p,q>> we set
@@ -334,8 +334,8 @@
     <subsection|Main results>
 
     <\proposition>
-      For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>> we
-      have the following<\footnote>
+      <label|lem67:prop-67>For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
+      we have the following<\footnote>
         Note that when restricted to <math|<around*|{|Q\<neq\>0|}>>,
         <math|<around*|\||Q|\|><rsup|-\<nu\>>> is smooth, so this is just
         product of distribution and smooth function
@@ -472,20 +472,20 @@
     </proof>
 
     <\lemma>
-      <label|lem67:lem-homoR>For <math|\<lambda\>\<in\>\<bbb-C\>> and
+      <label|lem67:lem-homogR>pFor <math|\<lambda\>\<in\>\<bbb-C\>> and
       <math|E\<assign\>x<around*|(|\<partial\>/\<partial\>x|)>> we have\ 
 
       <\equation*>
         <stack|<tformat|<cwith|2|2|1|1|cell-halign|l>|<cwith|1|1|2|2|cell-halign|l>|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|>>>>>u\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\>\\<around*|{|0|}>|)>,<space|0.6spc>u<around*|(|-x|)>=u<around*|(|x|)>,<space|0.6spc>E
-        u=\<lambda\>u\<Leftrightarrow\>>|<cell|u<around*|(|x|)>\<in\>\<bbb-C\><around*|\||x|\|><rsup|\<lambda\>>>>|<row|<cell|u\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\>|)>,u<around*|(|-x|)>=u<around*|(|x|)>,<space|0.6spc>E
-        u=\<lambda\>u\<Leftrightarrow\>>|<cell|u<around*|(|x|)>\<in\>\<bbb-C\><around*|\||x|\|><rsup|\<lambda\>>/\<Gamma\><around*|(|<frac|\<lambda\>+1|2>|)>>>>>>
+        u=\<lambda\>u\<Leftrightarrow\>>|<cell|u<around*|(|x|)>\<in\>\<bbb-R\><around*|\||x|\|><rsup|\<lambda\>>>>|<row|<cell|u\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\>|)>,u<around*|(|-x|)>=u<around*|(|x|)>,<space|0.6spc>E
+        u=\<lambda\>u\<Leftrightarrow\>>|<cell|u<around*|(|x|)>\<in\>\<bbb-R\><around*|\||x|\|><rsup|\<lambda\>>/\<Gamma\><around*|(|<frac|\<lambda\>+1|2>|)>>>>>>
       </equation*>
     </lemma>
 
     <\fact>
-      <cite-detail|hormander1983analysis|thm. 7.1.18> If
-      <math|u\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>> and
-      <math|u<mid|\|><rsub|\<bbb-R\><rsup|n>\\<around*|{|0|}>>> is
+      <label|fact:homog-tempered><cite-detail|hormander1983analysis|thm.
+      7.1.18> If <math|u\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>>
+      and <math|u<mid|\|><rsub|\<bbb-R\><rsup|n>\\<around*|{|0|}>>> is
       homogeneous, then <math|u\<in\>\<cal-S\><rprime|'>\<subset\>\<cal-D\><rprime|'>>.
     </fact>
 
@@ -506,7 +506,37 @@
       <math|\<lambda\>>, so is <math|<around*|\||x|\|><rsup|\<lambda\>>/\<Gamma\><around*|(|<frac|\<lambda\>+1|2>|)>>
       and the latter satisfies requirements for
       <math|Re<around*|(|\<lambda\>|)>\<gg\>0>. Conversely, given such a
-      function <math|u>, first statement implies that we can pick\ 
+      function <math|u>, the reverse implication is readily granted by fact
+      <reference|holomorphicity-preserving:fact-homog> in case
+      <math|\<lambda\>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>>.\ 
+
+      In turn, <math|\<lambda\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>, we
+      have (according to the result above and as
+      <math|<around*|\||x|\|><rsup|-2n>> for
+      <math|n\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> is well-defined generalized
+      function on <math|\<bbb-R\>>) that for some <math|c\<in\>\<bbb-R\>>,
+      <math|u-c<around*|\||x|\|><rsup|\<lambda\>>> is supported at <math|0>,
+      hence should be a finite sum of derivatives of delta function. Now, as
+      <math|E<around*|(|u-c<around*|\||x|\|><rsup|\<lambda\>>|)>=\<lambda\><around*|(|u-c<around*|\||x|\|><rsup|\<lambda\>>|)>>
+      and derivatives of delta functions are linearly independent (this can
+      be seen by repeatedly applying <math|E> to the sum of them), we should
+      have <math|u-c<around*|\||x|\|><rsup|\<lambda\>>=a\<delta\><rsup|<around*|(|-1-\<lambda\>|)>><around*|(|x|)>>
+      (as <math|\<delta\><rsup|<around*|(|k|)>>> is homogeneous of degree
+      <math|-k-1>), but the right hand side of latter equality is odd, while
+      left-hand side is even, hence <math|u=c<around*|\||x|\|><rsup|\<lambda\>>>.
+
+      Finally, suppose that <math|\<lambda\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>-1>.
+      Now, fact <reference|fact:homog-tempered> implies that <math|u> under
+      the assumptions taken is in fact tempered distribution (note that the
+      first statement tells us directly that
+      <math|u<mid|\|><rsub|\<bbb-R\>\\<around*|{|0|}>>> is homogeneous),
+      hence we may consider Fourier transform
+      <math|<wide|u|^>\<in\>\<cal-S\><rprime|'><around*|(|\<bbb-R\>|)>\<subset\>\<cal-D\><rprime|'><around*|(|\<bbb-R\>|)>>
+      of it. Properties of Fourier transform imply that <math|<wide|u|^>> is
+      even real-valued on <math|\<cal-S\><around*|(|\<bbb-R\>|)>> and
+      <math|E<wide|u|^>=-<around*|(|\<lambda\>+1|)><wide|u|^>>, hence
+      <math|<wide|u|^>> is a multiple of <math|x<rsup|-\<lambda\>-1>> and
+      then inverse Fourier transform gives the desired.
     </proof>
 
     \;
@@ -523,17 +553,75 @@
     <\remark>
       Note that when <math|p=1>, <math|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<in\>C<rsup|\<infty\>>>
       on <math|<around*|{|Q\<gtr\>0|}>>, as all points of latter set have
-      positive <math|x<rsub|p>>.
+      <math|x<rsub|p>\<neq\>0>.
     </remark>
 
     <\proof>
-      \;
+      Note first that taking derivative of <eqref|eq-Nequiv> one arrives at
+      equations <eqref|Ndiff> and these in turn imply that for
+      <math|u\<in\>\<cal-S\>ol<around*|(|U;\<lambda\>,\<nu\>|)>> with
+      <math|U\<subset\><around*|{|Q\<neq\>0|}>> (note that then
+      <math|<around*|\||Q|\|><rsup|-\<nu\>>> is smooth nonzero on <math|U>)
+      one has <math|\<partial\><rsub|i><around*|(|<around*|\||Q|\|><rsup|\<nu\>>u|)>=0>
+      for <math|i\<in\><around*|{|1,2,\<ldots\>,n|}>\\<around*|{|p|}>>. Now,
+      Lemma <reference|lem67:lem-geom> implies that lemma
+      <reference|lem67:lem-tensor> is applicable (strictly speaking, we have
+      to re-order coordinates <math|x<rsub|1>,x<rsub|2>,\<ldots\>,x<rsub|p>>
+      though, to make <math|x<rsub|p>> be the first one), and the latter
+      tells us that <math|<around*|\||Q|\|><rsup|\<nu\>>u\<in\>\<bbb-C\>1<rsub|p-1>\<otimes\>u<rsub|0><around*|(|x<rsub|p>|)>\<otimes\>1<rsub|q>>
+      (where <math|1<rsub|k>> denotes constant 1 distribution on
+      <math|\<bbb-R\><rsup|k>>) with <math|u<rsub|0>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\>\\<around*|{|0|}>|)>>
+      even and satisfying <math|E u<rsub|0>=<around*|(|\<lambda\>-\<nu\>-n|)>u<rsub|0>>
+      (in case of <math|<around*|{|Q\<gtr\>0|}>> and <math|p=1>) or
+      <math|u<rsub|0>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\>|)>> even
+      and satisfying <math|E u<rsub|0>=<around*|(|\<lambda\>-\<nu\>-n|)>u<rsub|0>>
+      (otherwise). Then, application of lemma <reference|lem67:lem-homogR>
+      ends the proof.
     </proof>
+
+    <\lemma>
+      <label|lem67:lem-flip>For <math|p,q\<in\>\<bbb-Z\><rsub|\<geqslant\>1>>
+      let <math|Q>: quadratic form on <math|\<bbb-R\><rsup|p,q>>. For
+      <math|x,b\<in\>\<bbb-R\><rsup|p,q>> we let
+      <math|c<rsub|b><around*|(|x|)>\<assign\>1-2Q<around*|(|x,b|)>+Q<around*|(|x|)>Q<around*|(|b|)>>
+      and <math|\<psi\><rsub|b><around*|(|x|)>\<assign\><around*|(|x-Q<around*|(|x|)>b|)>/c<rsub|b><around*|(|x|)>>.
+
+      We then have the following:
+
+      <\enumerate>
+        <item>For <math|p=1> there exist <math|x<rsup|<around*|(|0|)>>,b<rsup|<around*|(|0|)>>\<in\>\<bbb-R\><rsup|p,q>>
+        with <math|b<rsup|<around*|(|0|)>><rsub|p>=0>, such that
+        <math|Q<around*|(|\<psi\><rsub|b<rsup|<around*|(|0|)>>><around*|(|x<rsup|<around*|(|0|)>>|)>|)>\<gtr\>0>
+        and <math|Q<around*|(|x<rsup|<around*|(|0|)>>|)>\<less\>0>;
+
+        <item>For <math|p\<gtr\>1> there exist
+        <math|x<rsup|<around*|(|0|)>>,b<rsup|<around*|(|0|)>>\<in\>\<bbb-R\><rsup|p,q>>
+        with same properties as in previous item and in addition, we can make
+        <math|\<psi\><rsub|b<rsup|<around*|(|0|)>>><around*|(|x<rsup|<around*|(|0|)>>|)>>
+        having it's <math|p>-th coordinate vanish.
+      </enumerate>
+    </lemma>
 
     <subsection|Proofs>
 
     <\proof>
-      \;
+      (of prop. <reference|lem67:prop-67>) We note that
+      <math|<around*|\||Q|\|><rsup|-\<nu\>><frac|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>>\<in\>\<cal-S\>ol<around*|(|<around*|{|Q\<neq\>0|}>;\<lambda\>,\<nu\>|)>>,
+      as it is clearly so for <math|Re<around*|(|\<lambda\>+\<nu\>|)>\<gg\>0>
+      by direct check and it holomorphically depends on
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>. Now, in
+      the light of lemma <reference|lem67:lem-Qpm> it suffices to show that
+      if <math|u\<in\>\<cal-S\>ol<around*|(|<around*|{|Q\<neq\>0|}>;\<lambda\>,\<nu\>|)>>
+      and <math|u<mid|\|><rsub|<around*|{|Q\<less\>0|}>>=0>, then <math|u=0>.
+
+      First, assume <math|p=1>. Lemma <reference|lem67:lem-Qpm> tells us that
+      if <math|u<mid|\|><rsub|<around*|{|Q\<gtr\>0|}>>\<neq\>0>, then it is
+      supported on the whole <math|<around*|{|Q\<gtr\>0|}>>. But then as for
+
+      We next note that for <math|x<rsub|0>\<assign\>> and
+      <math|b<rsub|0>\<assign\>> we have <math|Q<around*|(|x<rsub|0>|)>>,
+      while <math|Q<around*|(|<frac|x-Q<around|(|x|)>*b|1-2*Q<around|(|x,b|)>+Q<around|(|x|)>*Q<around|(|b|)>>|)>>,
+      hence\ 
     </proof>
   <|show-part>
     <section|Lemma 6.7>
@@ -781,7 +869,7 @@
       well-defined as a distribution. The statement about support is also
       evident.<vspace|1fn> Now, let's consider distribution induced by
       continuous function on <math|\<Xi\>> given by
-      <math|\<Xi\>\<ni\>\<xi\>\<mapsto\><myabs|\<xi\><rsub|p>><rsup|\<lambda\>+\<nu\>-n><myabs|\<xi\><rsub|p+q+2>-\<xi\><rsub|1>><rsup|-\<nu\>>>.
+      <math|\<Xi\>\<ni\>\<xi\>\<mapsto\><around*|\||\<xi\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||\<xi\><rsub|p+q+2>-\<xi\><rsub|1>|\|><rsup|-\<nu\>>>.
       We easily see that it is well-behaved under <math|P<rprime|'>> on
       <math|\<Xi\>> and pulls back to the multiple of
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|<R><rsup|n>>> under the
@@ -6305,6 +6393,7 @@
     <associate|fact-horm-homog|<tuple|12.1|?|#13>>
     <associate|fact-horm1|<tuple|12.2|?|#13>>
     <associate|fact-horm2|<tuple|12.3|?|#13>>
+    <associate|fact:homog-tempered|<tuple|4.8|?|#5>>
     <associate|fact:sing-q|<tuple|8.6|?|#9>>
     <associate|fact:sing-q-1|<tuple|8.7|?|#9>>
     <associate|fact:sing-q-2|<tuple|8.8|?|#9>>
@@ -6365,7 +6454,7 @@
     <associate|lem-2|<tuple|13.14|?|#14>>
     <associate|lem-20|<tuple|6|?|#1>>
     <associate|lem-21|<tuple|13.18|?|#14>>
-    <associate|lem-3|<tuple|13.15|?|#14>>
+    <associate|lem-3|<tuple|6.2|?|#7>>
     <associate|lem-3-1|<tuple|6.3|?|#7>>
     <associate|lem-3-2|<tuple|6.4|?|#7>>
     <associate|lem-3-3|<tuple|6.5|?|#7>>
@@ -6399,11 +6488,14 @@
     <associate|lem-restricted|<tuple|12.7|?|#13>>
     <associate|lem-span|<tuple|13.10|?|#14>>
     <associate|lem67:lem-Qpm|<tuple|4.9|?|#5>>
+    <associate|lem67:lem-flip|<tuple|4.11|?|#5>>
     <associate|lem67:lem-geom|<tuple|4.4|?|#5>>
     <associate|lem67:lem-geom-aux|<tuple|4.3|?|#5>>
     <associate|lem67:lem-homoR|<tuple|4.7|?|#5>>
+    <associate|lem67:lem-homogR|<tuple|4.7|?|#5>>
     <associate|lem67:lem-tensor|<tuple|4.6|?|#5>>
     <associate|lem67:lem-tensor-aux|<tuple|4.5|?|#5>>
+    <associate|lem67:prop-67|<tuple|4.1|?|#5>>
     <associate|lem:sing-q-1|<tuple|8.2|?|#9>>
     <associate|lem:sing-q-2|<tuple|8.3|?|#9>>
     <associate|lem:sing-q-3|<tuple|8.4|?|#9>>
