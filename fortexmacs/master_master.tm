@@ -92,7 +92,7 @@
     <section|report 32>
   </hide-part>
 
-  <\hide-part|3>
+  <\show-part|3>
     <section|generic report>
 
     \;
@@ -187,7 +187,7 @@
     </enumerate>
 
     <\with|font-series|bold>
-      Questions
+      Questions I'd like to get help with
     </with>
 
     <\enumerate>
@@ -206,14 +206,22 @@
       <item>operator in K-Orsted I -- it's not holo, is it?
     </enumerate>
 
+    <\with|font-series|bold>
+      Questions for myself
+    </with>
+
+    <\enumerate>
+      <item>tesi me hard
+    </enumerate>
+
     <with|font-series|bold|Comments>
 
     (empty)
 
     <surround|<assign|sone|<macro|<math|<mybra|<D><rprime|'><around|(|G\<times\><rsub|P><C><rsub|\<lambda\>-n>|)>\<otimes\><C><rsub|\<nu\>>><rsup|\<Delta\><around|(|P<rprime|'>|)>>>>><assign|Upp|<macro|<mysetn|(x,y)\<in\><R><rsup|p,q>|x\<neq\>0,<space|0.75spc>y\<neq\>0>>><assign|Stab|<macro|O(p,q)<rsub|e<rsub|p>>>><assign|sol*|<macro|1|<with|math-font|cal|S>ol(<arg|1>;\<lambda\>,\<nu\>)>><assign|sol|<macro|<sol*|<R><rsup|p,q>>>><assign|solXi|<macro|<sol*|\<Xi\>>>>||>
-  <|hide-part>
+  <|show-part>
     <section|generic report>
-  </hide-part>
+  </show-part>
 
   <\hide-part|4>
     <section|Definition and notations>
@@ -425,9 +433,23 @@
       </equation*>
     </proposition>
 
+    <\proposition>
+      <label|knappstein:prop-spherical>With
+      <math|\<b-1\><rsub|\<lambda\>>\<in\>I<around*|(|\<lambda\>|)>> and
+      <math|\<b-1\><rsub|\<nu\>>\<in\>J<around*|(|\<nu\>|)>> denoting
+      respective spherical vectors and using <math|Op> notation to denote
+      isomorphism <math|Op:\<cal-S\>ol<rsub|<around*|(|G,G|)>><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)><wide|\<rightarrow\>|~>Hom<rsub|G><around*|(|I<around*|(|\<lambda\>|)>,I<around*|(|\<nu\>|)>|)>>,
+      we have for <math|Re<around*|(|\<lambda\>-n|)>\<gtr\>0>
+
+      <\equation*>
+        Op<around*|(|<around*|\||Q|\|><rsup|\<lambda\>-n>|)>\<b-1\><rsub|\<lambda\>>\<simeq\><frac|\<Gamma\><around*|(|<frac|\<lambda\>-n+1|2>|)>\<Gamma\><around*|(|\<lambda\>-<frac|n|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>-q+1|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-p+1|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>>\<b-1\><rsub|\<nu\>>.
+      </equation*>
+    </proposition>
+
     <\remark>
-      The latter result could also be found in <cite-detail|KO1|thm. 3.9.1>,
-      as it is shown there that symmetry breaking operator
+      Similarly, the latter result can be extended to giving eigenvalues of
+      other <math|K>-types. It could also be found in <cite-detail|KO1|thm.
+      3.9.1>, as it is shown there that symmetry breaking operator
       <math|\<bbb-C\><rsub|\<lambda\>>\<rightarrow\>\<bbb-C\><rsub|-\<lambda\>>>
       has its kernel on <math|<around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)><rsup|2>>
       being equal (up to normalization) to
@@ -437,7 +459,7 @@
       vectors were computed.
 
       With the correspondence of proposition <reference|knappstein:prop-1>,
-      this is precisely <math|<around*|\||Q|\|><rsup|\<lambda\>-n/2>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>|)>\<nosymbol\>>.
+      this kernel is precisely <math|<around*|\||Q|\|><rsup|\<lambda\>-n/2>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>|)>\<nosymbol\>>.
       We note that in <cite|KO1> degenerate principal series
       <math|\<bbb-C\><rsub|\<lambda\>>> are parametrized differently, with
       the two parametrizations being connected by
@@ -547,6 +569,15 @@
 
       <\equation*>
         \<cal-S\>ol<around*|(|<around*|{|Q\<neq\>0|}>;\<lambda\>,\<nu\>|)>=\<bbb-C\><around*|\||Q|\|><rsup|-\<nu\>><frac|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>>
+      </equation*>
+    </proposition>
+
+    <\proposition>
+      <label|lem67:prop-dim1>For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<Omega\>\<assign\><around*|{|Re<around*|(|\<lambda\>+\<nu\>-n|)>,Re<around*|(|-\<nu\>|)>\<gtr\>1|}>\<subset\>\<bbb-C\><rsup|2>>
+      open nonempty we have
+
+      <\equation*>
+        dim<around*|(|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>|)>|)>=1
       </equation*>
     </proposition>
 
@@ -867,6 +898,31 @@
       to be supported at least on <math|<around*|{|x<rsub|p>=0|}>>. This
       contradiction gives the desired conclusion in case
       <math|p\<geqslant\>2> as well.
+    </proof>
+
+    <\proof>
+      (of prop. <reference|lem67:prop-dim1>) First we note that as for
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<Omega\><rsub|>> we have
+      <math|<around*|\||Q|\|><rsup|-\<nu\>><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<in\>C<rsup|1><around*|(|\<bbb-R\><rsup|p,q>|)>>
+      it can be directly verified that this is an element of
+      <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>,
+      this immediately giving us <math|\<geqslant\>1>.\ 
+
+      Regarding the opposite bound, we note that similarly to
+      <cite-detail|kobayashi2015symmetry|(6.10)> we have an exact sequence
+
+      <\equation*>
+        0\<rightarrow\>\<cal-S\>ol<rsub|<around*|{|Q=0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<rightarrow\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<rightarrow\>\<cal-S\>ol<around*|(|<around*|{|Q\<neq\>0|}>;\<lambda\>,\<nu\>|)>
+      </equation*>
+
+      Now, as for <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<Omega\>> lemma
+      <reference|lem:sing-q-1> (note that
+      <math|Re<around*|(|-\<nu\>|)>\<gtr\>1\<Rightarrow\>\<nu\>\<nin\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>)
+      and proposition <reference|diffSBO:prop-main> (note that
+      <math|Re<around*|(|\<lambda\>+\<nu\>-n|)>,Re<around*|(|-\<nu\>|)>\<gtr\>1\<Rightarrow\>Re<around*|(|\<lambda\>-\<nu\>|)>\<gtr\>n+3\<gtr\>0>)
+      tell us that <math|\<cal-S\>ol<rsub|<around*|{|Q=0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>=0>,
+      the proof is finished by an application of proposition
+      <reference|lem67:prop-67>.
     </proof>
   <|hide-part>
     <section|Lemma 6.7>
@@ -1288,7 +1344,7 @@
 
     <\proposition>
       \ Suppose <math|\<nu\>\<in\>2<Z><rsub|\<geq\>0>+1> and
-      <math|\<lambda\>\<in\>\<Omega\><rsub|\<nu\>>\<assign\><mysetn|\<lambda\>\<in\><C>|\<Re\>*<around|(|\<lambda\>-\<nu\>+n|)>\<nin\><Z><rsub|\<leq\>1>>>.
+      <math|\<lambda\>\<in\>\<Omega\><rsub|\<nu\>>\<assign\><mysetn|\<lambda\>\<in\><C>|Re<around|(|\<lambda\>-\<nu\>+n|)>\<nin\><Z><rsub|\<leq\>1>>>.
       Then, the following holds:
 
       <\enumerate>
@@ -1800,6 +1856,27 @@
   </hide-part>
 
   <\hide-part|11>
+    <section|Differential SBO>
+
+    <\proposition>
+      <label|diffSBO:prop-main><math|\<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<neq\>0\<Leftrightarrow\>\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>
+      and nontrivial element (when exists) is given by
+      <math|<wide|C|~><rsub|\<lambda\>-\<nu\>><rsup|\<lambda\>-<around*|(|n-1|)>/2><around*|(|<wide|\<Delta\>|~>,<frac|\<partial\>|\<partial\>x<rsub|p>>|)>>
+      where <math|<wide|\<Delta\>|~>> is a
+      <math|<around*|(|p-1,q|)>>-Laplacian and
+      <math|C<rsup|\<alpha\>><rsub|k><around*|(|\<cdot\>,\<cdot\>|)>> is the
+      2-variable inflation of renormalized Gegenbauer polynomial, as in
+      <cite-detail|kobayashi2015symmetry|(16.3)>.
+    </proposition>
+
+    <\proof>
+      \;
+    </proof>
+  <|hide-part>
+    <section|Differential SBO>
+  </hide-part>
+
+  <\hide-part|12>
     <section|Holomorphicity preserving>
 
     <subsection|Goal and setting>
@@ -2683,7 +2760,7 @@
     <section|Holomorphicity preserving>
   </hide-part>
 
-  <\hide-part|12>
+  <\hide-part|13>
     <section|P-def>
 
     <subsection|Setting and Goal>
@@ -2968,7 +3045,7 @@
     <section|P-def>
   </hide-part>
 
-  <\hide-part|13>
+  <\hide-part|14>
     <section|KC-normalization>
 
     <subsection|Settings and Notations>
@@ -3596,7 +3673,7 @@
     <section|KC-normalization>
   </hide-part>
 
-  <\hide-part|14>
+  <\hide-part|15>
     <section|Q-normalization>
 
     <subsubsection|Setting and goal>
@@ -4478,7 +4555,7 @@
     <section|Q-normalization>
   </hide-part>
 
-  <\hide-part|15>
+  <\hide-part|16>
     <section|KP-normalization>
 
     <subsection|Setting>
@@ -5233,7 +5310,7 @@
     <section|KP-normalization>
   </hide-part>
 
-  <\hide-part|16>
+  <\hide-part|17>
     <section|KP-normalization-2>
 
     <subsection|Setting and goal>
@@ -5544,7 +5621,7 @@
     <section|KP-normalization-2>
   </hide-part>
 
-  <\hide-part|17>
+  <\hide-part|18>
     <section|KR-normalization-even>
 
     <subsection|Setting>
@@ -6092,7 +6169,7 @@
     <section|KR-normalization-even>
   </hide-part>
 
-  <\show-part|18>
+  <\hide-part|19>
     <section|KR-normalization-recur>
 
     <subsection|Setting and goal>
@@ -6134,7 +6211,7 @@
       can be holomorphically extended to <math|<around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>Re<around*|(|\<lambda\>-\<nu\>|)>\<gtr\>0|}>><\footnote>
         note that the first region is in fact contained in the second one
       </footnote>. Moreover, it is nonzero on
-      <math|\<Omega\><rsub|0>-<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>-<around*|{|\<lambda\>+\<nu\>-n\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
+      <math|\<Omega\><rsub|0>-<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
     </proposition>
 
     <\hypo>
@@ -6305,14 +6382,38 @@
       (in the sense of product of smooth function and distribution).
     </lemma>
 
+    <\proof>
+      \;
+    </proof>
+
     <\lemma>
       <label|KR-normalization-recur:lem-nonvanishing-rr><math|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>>
       defined as in proposition <reference|KR-normalization-recur:prop-3> is
-      nonzero on <math|\<Omega\><rsub|0>-<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>-<around*|{|\<lambda\>+\<nu\>-n\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
+      nonzero on <math|\<Omega\><rsub|0>-<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
     </lemma>
 
     <\proof>
-      Indeed,\ 
+      Let's take <math|<around*|(|\<lambda\><rsub|0>,\<nu\><rsub|0>|)>\<in\>\<Omega\><rsub|0>-<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      and assume first that <math|Re<around*|(|\<lambda\><rsub|0>+\<nu\><rsub|0>-n|)>\<nin\>-2\<bbb-Z\><rsub|\<geqslant\>0>>.
+    </proof>
+
+    <\lemma>
+      For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<Omega\><rsub|>\<assign\><around*|{|Re<around*|(|\<lambda\>+\<nu\>-n|)>,Re<around*|(|-\<nu\>|)>\<gtr\>1|}>\<subset\>\<bbb-C\><rsup|2>>
+      nonempty open,
+
+      <\equation*>
+        <wide|\<bbb-T\>|~><rsub|m-\<nu\>>\<circ\>Op<around*|(|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,<around*|(|n-1|)>-\<nu\>>|)>=\<ldots\>Op<around*|(|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>|)>,<space|1em><around*|(|\<lambda\>,\<nu\>|)>\<in\>\<Omega\>
+      </equation*>
+    </lemma>
+
+    <\proof>
+      As <math|<wide|\<bbb-T\>|~><rsub|m-\<nu\>>\<circ\>Op<around*|(|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,<around*|(|n-1|)>-\<nu\>>|)>\<in\>Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>>,
+      proposition <reference|lem67:prop-dim1> immediately tells us that
+      <math|<wide|\<bbb-T\>|~><rsub|m-\<nu\>>\<circ\>Op<around*|(|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,<around*|(|n-1|)>-\<nu\>>|)>=c<around*|(|\<lambda\>,\<nu\>|)>Op<around*|(|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>|)>>.
+      The precise computation of <math|c<around*|(|\<lambda\>,\<nu\>|)>> is
+      carried out by applying both sides to spherical vector
+      <math|\<b-1\><rsub|\<lambda\>>\<in\>I<around*|(|\<lambda\>|)>> and
+      using<nbsp>
     </proof>
 
     <subsection|Proofs>
@@ -6373,11 +6474,11 @@
     </proof>
 
     \;
-  <|show-part>
+  <|hide-part>
     <section|KR-normalization-recur>
-  </show-part>
+  </hide-part>
 
-  <\hide-part|19>
+  <\hide-part|20>
     <\bibliography|bib|alpha|todai_master.bib>
       <\bib-list|Hör83>
         <bibitem*|CP82><label|bib-chazarain2011introduction>Jacques Chazarain
@@ -6487,109 +6588,109 @@
 
 <\references>
   <\collection>
-    <associate|Assume-that-1|<tuple|12.3|25|#13>>
-    <associate|Assume-that-2|<tuple|12.4|25|#13>>
-    <associate|Assume-that-3|<tuple|12.5|25|#13>>
-    <associate|Assume-that-4|<tuple|12.6|25|#13>>
-    <associate|For-,-we|<tuple|12.8|26|#13>>
-    <associate|KC-normalization:lem-Suppose-that-sets|<tuple|12.10|26|#13>>
+    <associate|Assume-that-1|<tuple|13.3|26|#14>>
+    <associate|Assume-that-2|<tuple|13.4|26|#14>>
+    <associate|Assume-that-3|<tuple|13.5|26|#14>>
+    <associate|Assume-that-4|<tuple|13.6|26|#14>>
+    <associate|For-,-we|<tuple|13.8|27|#14>>
+    <associate|KC-normalization:lem-Suppose-that-sets|<tuple|13.10|27|#14>>
     <associate|KP-normalization-2:lem-aux-1|<tuple|79|?|#6>>
-    <associate|KP-normalization-2:lem-holo-supp|<tuple|15.7|47|#16>>
-    <associate|KP-normalization-2:lem-nonzero|<tuple|15.9|47|#16>>
-    <associate|KP-normalization-2:lem-sets|<tuple|15.8|47|#16>>
-    <associate|KP-normalization-2:lem-trivial|<tuple|15.10|47|#16>>
-    <associate|KP-normalization-2:prop-1|<tuple|15.1|46|#16>>
-    <associate|KP-normalization-2:prop-2|<tuple|15.2|46|#16>>
-    <associate|KP-normalization-2:prop-3|<tuple|15.3|47|#16>>
-    <associate|KP-normalization-2:prop-4|<tuple|15.5|47|#16>>
-    <associate|KP-normalization-2:prop-5|<tuple|15.6|47|#16>>
+    <associate|KP-normalization-2:lem-holo-supp|<tuple|16.7|48|#17>>
+    <associate|KP-normalization-2:lem-nonzero|<tuple|16.9|48|#17>>
+    <associate|KP-normalization-2:lem-sets|<tuple|16.8|48|#17>>
+    <associate|KP-normalization-2:lem-trivial|<tuple|16.10|48|#17>>
+    <associate|KP-normalization-2:prop-1|<tuple|16.1|47|#17>>
+    <associate|KP-normalization-2:prop-2|<tuple|16.2|47|#17>>
+    <associate|KP-normalization-2:prop-3|<tuple|16.3|48|#17>>
+    <associate|KP-normalization-2:prop-4|<tuple|16.5|48|#17>>
+    <associate|KP-normalization-2:prop-5|<tuple|16.6|48|#17>>
     <associate|KR-normalization-even:hypo-maxima|<tuple|2|?|#10>>
-    <associate|KR-normalization-even:lem-2|<tuple|16.4|50|#17>>
-    <associate|KR-normalization-even:prop-hypoA|<tuple|16.3|50|#17>>
+    <associate|KR-normalization-even:lem-2|<tuple|17.4|51|#18>>
+    <associate|KR-normalization-even:prop-hypoA|<tuple|17.3|51|#18>>
     <associate|KR-normalization-recur-eq1|<tuple|10|?|#11>>
-    <associate|KR-normalization-recur:eq-1|<tuple|17.3|56|#18>>
-    <associate|KR-normalization-recur:eq-recur|<tuple|17.2|56|#18>>
+    <associate|KR-normalization-recur:eq-1|<tuple|18.3|57|#19>>
+    <associate|KR-normalization-recur:eq-recur|<tuple|18.2|57|#19>>
     <associate|KR-normalization-recur:fact-pullback|<tuple|2|?|#4>>
-    <associate|KR-normalization-recur:lem-mult-smth|<tuple|17.7|?|#18>>
-    <associate|KR-normalization-recur:lem-nonvanishing-rr|<tuple|17.8|?|#18>>
-    <associate|KR-normalization-recur:lem-recur|<tuple|17.5|56|#18>>
+    <associate|KR-normalization-recur:lem-mult-smth|<tuple|18.7|58|#19>>
+    <associate|KR-normalization-recur:lem-nonvanishing-rr|<tuple|18.8|58|#19>>
+    <associate|KR-normalization-recur:lem-recur|<tuple|18.5|57|#19>>
     <associate|KR-normalization-recur:lem-recur-crucial|<tuple|118|?|#11>>
-    <associate|KR-normalization-recur:lem-\|x\|-holo-in|<tuple|17.6|56|#18>>
+    <associate|KR-normalization-recur:lem-\|x\|-holo-in|<tuple|18.6|57|#19>>
     <associate|KR-normalization-recur:prop-1|<tuple|86|?|#10>>
-    <associate|KR-normalization-recur:prop-2|<tuple|17.1|55|#18>>
-    <associate|KR-normalization-recur:prop-3|<tuple|17.2|55|#18>>
+    <associate|KR-normalization-recur:prop-2|<tuple|18.1|56|#19>>
+    <associate|KR-normalization-recur:prop-3|<tuple|18.2|56|#19>>
     <associate|KR-normalization-recur:prop-4|<tuple|111|?|#11>>
-    <associate|KR-normalization-recur:prop-func-eq|<tuple|17.4|55|#18>>
-    <associate|Let--denote|<tuple|12.9|26|#13>>
-    <associate|Ndiff|<tuple|6.1|7|#7>>
-    <associate|On-the-|<tuple|12.1|25|#13>>
-    <associate|P-def:def-9|<tuple|11.9|24|#12>>
-    <associate|P-def:fact-gelfand|<tuple|11.1|22|#12>>
-    <associate|P-def:lem-delta-max|<tuple|11.7|23|#12>>
-    <associate|P-def:lem-delta-times-mero|<tuple|11.6|23|#12>>
-    <associate|P-def:lem-laurent-distr|<tuple|11.2|22|#12>>
-    <associate|P-def:lem-mero-addition|<tuple|11.3|23|#12>>
-    <associate|P-def:lem-mero-supp|<tuple|11.8|24|#12>>
-    <associate|P-def:rem-def-P|<tuple|11.5|23|#12>>
+    <associate|KR-normalization-recur:prop-func-eq|<tuple|18.4|56|#19>>
+    <associate|Let--denote|<tuple|13.9|27|#14>>
+    <associate|Ndiff|<tuple|6.1|8|#7>>
+    <associate|On-the-|<tuple|13.1|26|#14>>
+    <associate|P-def:def-9|<tuple|12.9|25|#13>>
+    <associate|P-def:fact-gelfand|<tuple|12.1|23|#13>>
+    <associate|P-def:lem-delta-max|<tuple|12.7|24|#13>>
+    <associate|P-def:lem-delta-times-mero|<tuple|12.6|24|#13>>
+    <associate|P-def:lem-laurent-distr|<tuple|12.2|23|#13>>
+    <associate|P-def:lem-mero-addition|<tuple|12.3|24|#13>>
+    <associate|P-def:lem-mero-supp|<tuple|12.8|25|#13>>
+    <associate|P-def:rem-def-P|<tuple|12.5|24|#13>>
     <associate|Suppose-that-sets|<tuple|18|?|#2>>
-    <associate|Suppose-there-exists|<tuple|12.7|25|#13>>
-    <associate|The-following-holds|<tuple|12.2|25|#13>>
+    <associate|Suppose-there-exists|<tuple|13.7|26|#14>>
+    <associate|The-following-holds|<tuple|13.2|26|#14>>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|5.1|5>>
-    <associate|auto-11|<tuple|5.2|5>>
-    <associate|auto-12|<tuple|5.3|7>>
-    <associate|auto-13|<tuple|6|7>>
-    <associate|auto-14|<tuple|7|8>>
-    <associate|auto-15|<tuple|8|10>>
-    <associate|auto-16|<tuple|9|11>>
-    <associate|auto-17|<tuple|10|16>>
-    <associate|auto-18|<tuple|10.1|16>>
-    <associate|auto-19|<tuple|10.2|16>>
+    <associate|auto-10|<tuple|5.2|6>>
+    <associate|auto-11|<tuple|5.3|8>>
+    <associate|auto-12|<tuple|6|8>>
+    <associate|auto-13|<tuple|7|9>>
+    <associate|auto-14|<tuple|8|11>>
+    <associate|auto-15|<tuple|9|12>>
+    <associate|auto-16|<tuple|10|17>>
+    <associate|auto-17|<tuple|11|17>>
+    <associate|auto-18|<tuple|11.1|17>>
+    <associate|auto-19|<tuple|11.2|17>>
     <associate|auto-2|<tuple|1|1>>
-    <associate|auto-20|<tuple|10.3|17>>
-    <associate|auto-21|<tuple|10.4|17>>
-    <associate|auto-22|<tuple|10.5|21>>
-    <associate|auto-23|<tuple|11|22>>
-    <associate|auto-24|<tuple|11.1|22>>
-    <associate|auto-25|<tuple|11.2|22>>
-    <associate|auto-26|<tuple|12|24>>
-    <associate|auto-27|<tuple|12.1|24>>
-    <associate|auto-28|<tuple|12.2|25>>
-    <associate|auto-29|<tuple|12.3|26>>
+    <associate|auto-20|<tuple|11.3|18>>
+    <associate|auto-21|<tuple|11.4|18>>
+    <associate|auto-22|<tuple|11.5|22>>
+    <associate|auto-23|<tuple|12|23>>
+    <associate|auto-24|<tuple|12.1|23>>
+    <associate|auto-25|<tuple|12.2|23>>
+    <associate|auto-26|<tuple|13|25>>
+    <associate|auto-27|<tuple|13.1|25>>
+    <associate|auto-28|<tuple|13.2|26>>
+    <associate|auto-29|<tuple|13.3|27>>
     <associate|auto-3|<tuple|2|1>>
-    <associate|auto-30|<tuple|13|31>>
-    <associate|auto-31|<tuple|13.0.1|31>>
-    <associate|auto-32|<tuple|13.1|32>>
-    <associate|auto-33|<tuple|13.2|32>>
-    <associate|auto-34|<tuple|13.2.1|33>>
-    <associate|auto-35|<tuple|13.2.2|38>>
-    <associate|auto-36|<tuple|14|39>>
-    <associate|auto-37|<tuple|14.1|39>>
-    <associate|auto-38|<tuple|14.2|39>>
-    <associate|auto-39|<tuple|14.3|40>>
+    <associate|auto-30|<tuple|14|32>>
+    <associate|auto-31|<tuple|14.0.1|32>>
+    <associate|auto-32|<tuple|14.1|33>>
+    <associate|auto-33|<tuple|14.2|33>>
+    <associate|auto-34|<tuple|14.2.1|34>>
+    <associate|auto-35|<tuple|14.2.2|39>>
+    <associate|auto-36|<tuple|15|40>>
+    <associate|auto-37|<tuple|15.1|40>>
+    <associate|auto-38|<tuple|15.2|40>>
+    <associate|auto-39|<tuple|15.3|41>>
     <associate|auto-4|<tuple|3|2>>
-    <associate|auto-40|<tuple|14.4|43>>
-    <associate|auto-41|<tuple|15|46>>
-    <associate|auto-42|<tuple|15.1|46>>
-    <associate|auto-43|<tuple|15.2|46>>
-    <associate|auto-44|<tuple|15.3|47>>
-    <associate|auto-45|<tuple|15.4|48>>
-    <associate|auto-46|<tuple|16|49>>
-    <associate|auto-47|<tuple|16.1|49>>
-    <associate|auto-48|<tuple|16.2|49>>
-    <associate|auto-49|<tuple|16.3|50>>
+    <associate|auto-40|<tuple|15.4|44>>
+    <associate|auto-41|<tuple|16|47>>
+    <associate|auto-42|<tuple|16.1|47>>
+    <associate|auto-43|<tuple|16.2|47>>
+    <associate|auto-44|<tuple|16.3|48>>
+    <associate|auto-45|<tuple|16.4|49>>
+    <associate|auto-46|<tuple|17|50>>
+    <associate|auto-47|<tuple|17.1|50>>
+    <associate|auto-48|<tuple|17.2|50>>
+    <associate|auto-49|<tuple|17.3|51>>
     <associate|auto-5|<tuple|4|4>>
-    <associate|auto-50|<tuple|16.4|53>>
-    <associate|auto-51|<tuple|17|55>>
-    <associate|auto-52|<tuple|17.1|55>>
-    <associate|auto-53|<tuple|17.2|55>>
-    <associate|auto-54|<tuple|17.3|56>>
-    <associate|auto-55|<tuple|17.4|57>>
-    <associate|auto-56|<tuple|17.4|57>>
+    <associate|auto-50|<tuple|17.4|54>>
+    <associate|auto-51|<tuple|18|56>>
+    <associate|auto-52|<tuple|18.1|56>>
+    <associate|auto-53|<tuple|18.2|56>>
+    <associate|auto-54|<tuple|18.3|57>>
+    <associate|auto-55|<tuple|18.4|58>>
+    <associate|auto-56|<tuple|18.4|59>>
     <associate|auto-6|<tuple|4.1|4>>
-    <associate|auto-7|<tuple|4.2|4>>
-    <associate|auto-8|<tuple|4.3|5>>
-    <associate|auto-9|<tuple|5|5>>
+    <associate|auto-7|<tuple|4.2|5>>
+    <associate|auto-8|<tuple|5|6>>
+    <associate|auto-9|<tuple|5.1|6>>
     <associate|auto.1-1|<tuple|1|?|#1>>
     <associate|auto.1-10|<tuple|2.2.2|?|#1>>
     <associate|auto.1-2|<tuple|2|?|#1>>
@@ -6601,40 +6702,41 @@
     <associate|auto.1-8|<tuple|2.3|?|#1>>
     <associate|auto.1-9|<tuple|2.2.1|?|#1>>
     <associate|auto.10-1|<tuple|9|?|#10>>
-    <associate|auto.10-2|<tuple|10.1|?|#10>>
+    <associate|auto.10-2|<tuple|10|?|#10>>
     <associate|auto.10-3|<tuple|10.2|?|#10>>
     <associate|auto.10-4|<tuple|10.3|?|#10>>
     <associate|auto.10-5|<tuple|10.4|?|#10>>
     <associate|auto.10-6|<tuple|10.5|?|#10>>
     <associate|auto.11-1|<tuple|10|?|#11>>
-    <associate|auto.11-2|<tuple|10.1|?|#11>>
-    <associate|auto.11-3|<tuple|10.2|?|#11>>
-    <associate|auto.11-4|<tuple|10.3|?|#11>>
-    <associate|auto.11-5|<tuple|10.4|?|#11>>
-    <associate|auto.11-6|<tuple|10.5|?|#11>>
+    <associate|auto.11-2|<tuple|11.1|?|#11>>
+    <associate|auto.11-3|<tuple|11.2|?|#11>>
+    <associate|auto.11-4|<tuple|11.3|?|#11>>
+    <associate|auto.11-5|<tuple|11.4|?|#11>>
+    <associate|auto.11-6|<tuple|11.5|?|#11>>
     <associate|auto.12-1|<tuple|11|?|#12>>
     <associate|auto.12-2|<tuple|11.1|?|#12>>
     <associate|auto.12-3|<tuple|11.2|?|#12>>
-    <associate|auto.12-4|<tuple|12.3|?|#12>>
-    <associate|auto.12-5|<tuple|12.2.1|?|#12>>
-    <associate|auto.12-6|<tuple|12.2.2|?|#12>>
+    <associate|auto.12-4|<tuple|11.3|?|#12>>
+    <associate|auto.12-5|<tuple|11.4|?|#12>>
+    <associate|auto.12-6|<tuple|11.5|?|#12>>
     <associate|auto.13-1|<tuple|12|?|#13>>
     <associate|auto.13-2|<tuple|12.1|?|#13>>
     <associate|auto.13-3|<tuple|12.2|?|#13>>
-    <associate|auto.13-4|<tuple|12.3|?|#13>>
+    <associate|auto.13-4|<tuple|13.3|?|#13>>
     <associate|auto.13-5|<tuple|13.2.1|?|#13>>
     <associate|auto.13-6|<tuple|13.2.2|?|#13>>
     <associate|auto.14-1|<tuple|13|?|#14>>
-    <associate|auto.14-2|<tuple|13.0.1|?|#14>>
-    <associate|auto.14-3|<tuple|13.1|?|#14>>
-    <associate|auto.14-4|<tuple|13.2|?|#14>>
-    <associate|auto.14-5|<tuple|13.2.1|?|#14>>
-    <associate|auto.14-6|<tuple|13.2.2|?|#14>>
+    <associate|auto.14-2|<tuple|13.1|?|#14>>
+    <associate|auto.14-3|<tuple|13.2|?|#14>>
+    <associate|auto.14-4|<tuple|13.3|?|#14>>
+    <associate|auto.14-5|<tuple|14.2.1|?|#14>>
+    <associate|auto.14-6|<tuple|14.2.2|?|#14>>
     <associate|auto.15-1|<tuple|14|?|#15>>
-    <associate|auto.15-2|<tuple|14.1|?|#15>>
-    <associate|auto.15-3|<tuple|14.2|?|#15>>
-    <associate|auto.15-4|<tuple|14.3|?|#15>>
-    <associate|auto.15-5|<tuple|14.4|?|#15>>
+    <associate|auto.15-2|<tuple|14.0.1|?|#15>>
+    <associate|auto.15-3|<tuple|14.1|?|#15>>
+    <associate|auto.15-4|<tuple|14.2|?|#15>>
+    <associate|auto.15-5|<tuple|14.2.1|?|#15>>
+    <associate|auto.15-6|<tuple|14.2.2|?|#15>>
     <associate|auto.16-1|<tuple|15|?|#16>>
     <associate|auto.16-2|<tuple|15.1|?|#16>>
     <associate|auto.16-3|<tuple|15.2|?|#16>>
@@ -6650,7 +6752,11 @@
     <associate|auto.18-3|<tuple|17.2|?|#18>>
     <associate|auto.18-4|<tuple|17.3|?|#18>>
     <associate|auto.18-5|<tuple|17.4|?|#18>>
-    <associate|auto.19-1|<tuple|17.4|?|#19>>
+    <associate|auto.19-1|<tuple|18|?|#19>>
+    <associate|auto.19-2|<tuple|18.1|?|#19>>
+    <associate|auto.19-3|<tuple|18.2|?|#19>>
+    <associate|auto.19-4|<tuple|18.3|?|#19>>
+    <associate|auto.19-5|<tuple|18.4|?|#19>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.2-10|<tuple|3.4|?|#2>>
     <associate|auto.2-11|<tuple|3.5|?|#2>>
@@ -6663,8 +6769,9 @@
     <associate|auto.2-7|<tuple|3.1|?|#2>>
     <associate|auto.2-8|<tuple|3.2|?|#2>>
     <associate|auto.2-9|<tuple|3.3|?|#2>>
+    <associate|auto.20-1|<tuple|18.4|?|#20>>
     <associate|auto.3-1|<tuple|2|?|#3>>
-    <associate|auto.3-2|<tuple|3|?|#3>>
+    <associate|auto.3-2|<tuple|2.1|?|#3>>
     <associate|auto.3-3|<tuple|4|?|#3>>
     <associate|auto.3-4|<tuple|4.3|?|#3>>
     <associate|auto.3-5|<tuple|4.2.1|?|#3>>
@@ -6706,166 +6813,175 @@
     <associate|auto.9-4|<tuple|9.3|?|#9>>
     <associate|auto.9-5|<tuple|9.4|?|#9>>
     <associate|auto.9-6|<tuple|9.5|?|#9>>
-    <associate|bib-KO1|<tuple|KØ03|57|#19>>
+    <associate|bib-KO1|<tuple|KØ03|59|#20>>
     <associate|bib-KO2|<tuple|KØ03|?>>
-    <associate|bib-Kobayashi201489|<tuple|KS14|57|#19>>
-    <associate|bib-chazarain2011introduction|<tuple|CP82|57|#19>>
-    <associate|bib-faraut1979distributions|<tuple|Far79|57|#19>>
-    <associate|bib-gelfand1980distribution|<tuple|GS80|57|#19>>
-    <associate|bib-hormander1983analysis|<tuple|Hör83|57|#19>>
-    <associate|bib-howe1993homogeneous|<tuple|HT93|57|#19>>
-    <associate|bib-kobayashi2015symmetry|<tuple|KS15|57|#19>>
-    <associate|bib-treves1967topological|<tuple|Tre67|58|#19>>
-    <associate|def-P|<tuple|11.4|23|#12>>
+    <associate|bib-Kobayashi201489|<tuple|KS14|59|#20>>
+    <associate|bib-chazarain2011introduction|<tuple|CP82|59|#20>>
+    <associate|bib-faraut1979distributions|<tuple|Far79|59|#20>>
+    <associate|bib-gelfand1980distribution|<tuple|GS80|59|#20>>
+    <associate|bib-hormander1983analysis|<tuple|Hör83|59|#20>>
+    <associate|bib-howe1993homogeneous|<tuple|HT93|59|#20>>
+    <associate|bib-kobayashi2015symmetry|<tuple|KS15|59|#20>>
+    <associate|bib-treves1967topological|<tuple|Tre67|59|#20>>
+    <associate|def-P|<tuple|12.4|24|#13>>
+    <associate|diffSBO:prop-main|<tuple|10.1|17|#11>>
     <associate|eq|<tuple|3.1|?|#4>>
-    <associate|eq-1|<tuple|14.1|39|#15>>
-    <associate|eq-2|<tuple|13.2|38|#14>>
+    <associate|eq-1|<tuple|15.1|40|#16>>
+    <associate|eq-2|<tuple|14.2|39|#15>>
     <associate|eq-Nequiv|<tuple|3.1|3|#4>>
-    <associate|eq:sing-q-dx|<tuple|9.1|15|#10>>
+    <associate|eq:sing-q-dx|<tuple|9.1|16|#10>>
     <associate|eq:supp-p|<tuple|8.2|11|#9>>
-    <associate|eq:supp-p-mero|<tuple|8.1|10|#9>>
+    <associate|eq:supp-p-mero|<tuple|8.1|11|#9>>
     <associate|fact-1|<tuple|74|?|#6>>
     <associate|fact-2|<tuple|75|?|#6>>
-    <associate|fact-horm-homog|<tuple|13.1|31|#14>>
-    <associate|fact-horm1|<tuple|13.2|31|#14>>
-    <associate|fact-horm2|<tuple|13.3|31|#14>>
-    <associate|fact:homog-tempered|<tuple|5.8|6|#6>>
-    <associate|fact:sing-q|<tuple|9.6|12|#10>>
-    <associate|fact:sing-q-1|<tuple|9.7|12|#10>>
-    <associate|fact:sing-q-2|<tuple|9.8|12|#10>>
+    <associate|fact-horm-homog|<tuple|14.1|32|#15>>
+    <associate|fact-horm1|<tuple|14.2|32|#15>>
+    <associate|fact-horm2|<tuple|14.3|32|#15>>
+    <associate|fact:homog-tempered|<tuple|5.9|7|#6>>
+    <associate|fact:sing-q|<tuple|9.6|13|#10>>
+    <associate|fact:sing-q-1|<tuple|9.7|13|#10>>
+    <associate|fact:sing-q-2|<tuple|9.8|13|#10>>
     <associate|fact:sing-q-3|<tuple|9.9|13|#10>>
-    <associate|fact:sing-q-4|<tuple|9.15|14|#10>>
+    <associate|fact:sing-q-4|<tuple|9.15|15|#10>>
     <associate|footnote-1|<tuple|1|?|#5>>
     <associate|footnote-11.1|<tuple|11.1|?|#12>>
     <associate|footnote-12.1|<tuple|12.1|25|#13>>
+    <associate|footnote-13.1|<tuple|13.1|26|#14>>
     <associate|footnote-16.1|<tuple|16.1|?|#17>>
     <associate|footnote-16.2|<tuple|16.2|?|#17>>
     <associate|footnote-17.1|<tuple|17.1|55|#18>>
     <associate|footnote-17.2|<tuple|17.2|55|#18>>
+    <associate|footnote-18.1|<tuple|18.1|56|#19>>
+    <associate|footnote-18.2|<tuple|18.2|56|#19>>
     <associate|footnote-2|<tuple|2|?|#12>>
     <associate|footnote-3|<tuple|3|?|#17>>
     <associate|footnote-4|<tuple|4|?|#17>>
     <associate|footnote-4.1|<tuple|4.1|?|#5>>
     <associate|footnote-4.2|<tuple|4.2|?|#5>>
     <associate|footnote-5|<tuple|5|?|#17>>
-    <associate|footnote-5.1|<tuple|5.1|5|#6>>
+    <associate|footnote-5.1|<tuple|5.1|6|#6>>
     <associate|footnr-1|<tuple|1|?|#5>>
     <associate|footnr-11.1|<tuple|11.1|?|#12>>
     <associate|footnr-12.1|<tuple|12.1|25|#13>>
+    <associate|footnr-13.1|<tuple|13.1|26|#14>>
     <associate|footnr-16.1|<tuple|16.1|?|#17>>
     <associate|footnr-16.2|<tuple|16.2|?|#17>>
     <associate|footnr-17.1|<tuple|17.1|55|#18>>
     <associate|footnr-17.2|<tuple|17.2|55|#18>>
+    <associate|footnr-18.1|<tuple|18.1|56|#19>>
+    <associate|footnr-18.2|<tuple|18.2|56|#19>>
     <associate|footnr-2|<tuple|2|?|#12>>
     <associate|footnr-3|<tuple|3|?|#17>>
     <associate|footnr-4|<tuple|4|?|#17>>
     <associate|footnr-4.1|<tuple|4.1|?|#5>>
     <associate|footnr-4.2|<tuple|4.2|?|#5>>
     <associate|footnr-5|<tuple|5|?|#17>>
-    <associate|footnr-5.1|<tuple|5.1|5|#6>>
-    <associate|forre|<tuple|14.8|40|#15>>
-    <associate|holomorphicity-preserving:def-holo-in-DG|<tuple|10.9|17|#11>>
-    <associate|holomorphicity-preserving:eq-1|<tuple|10.1|20|#11>>
+    <associate|footnr-5.1|<tuple|5.1|6|#6>>
+    <associate|forre|<tuple|15.8|41|#16>>
+    <associate|holomorphicity-preserving:def-holo-in-DG|<tuple|11.9|18|#12>>
+    <associate|holomorphicity-preserving:eq-1|<tuple|11.1|21|#12>>
     <associate|holomorphicity-preserving:fact-1|<tuple|1|?|#4>>
     <associate|holomorphicity-preserving:fact-2|<tuple|4|?|#4>>
-    <associate|holomorphicity-preserving:fact-basic|<tuple|10.19|18|#11>>
-    <associate|holomorphicity-preserving:fact-completeness|<tuple|10.18|17|#11>>
-    <associate|holomorphicity-preserving:fact-holo|<tuple|10.16|17|#11>>
-    <associate|holomorphicity-preserving:fact-homog|<tuple|10.1|16|#11>>
-    <associate|holomorphicity-preserving:fact-p1|<tuple|10.28|21|#11>>
-    <associate|holomorphicity-preserving:fact-p2|<tuple|10.27|21|#11>>
-    <associate|holomorphicity-preserving:fact-p3|<tuple|10.29|22|#11>>
-    <associate|holomorphicity-preserving:fact-pullback|<tuple|10.5|16|#11>>
-    <associate|holomorphicity-preserving:fact-tensor|<tuple|10.8|17|#11>>
-    <associate|holomorphicity-preserving:fact-treves|<tuple|10.17|17|#11>>
-    <associate|holomorphicity-preserving:lem-homog-ctt|<tuple|10.22|18|#11>>
-    <associate|holomorphicity-preserving:lem-phi-satisfies|<tuple|10.20|18|#11>>
-    <associate|holomorphicity-preserving:lem-t+-cts|<tuple|10.21|18|#11>>
-    <associate|holomorphicity-preserving:lem-t+-smth|<tuple|10.25|20|#11>>
-    <associate|holomorphicity-preserving:lem-t+-smth-aux|<tuple|10.24|19|#11>>
-    <associate|holomorphicity-preserving:lem-t+ln-cts|<tuple|10.23|19|#11>>
-    <associate|holomorphicity-preserving:lem-tensor-holo|<tuple|10.26|21|#11>>
+    <associate|holomorphicity-preserving:fact-basic|<tuple|11.19|19|#12>>
+    <associate|holomorphicity-preserving:fact-completeness|<tuple|11.18|18|#12>>
+    <associate|holomorphicity-preserving:fact-holo|<tuple|11.16|18|#12>>
+    <associate|holomorphicity-preserving:fact-homog|<tuple|11.1|17|#12>>
+    <associate|holomorphicity-preserving:fact-p1|<tuple|11.28|22|#12>>
+    <associate|holomorphicity-preserving:fact-p2|<tuple|11.27|22|#12>>
+    <associate|holomorphicity-preserving:fact-p3|<tuple|11.29|23|#12>>
+    <associate|holomorphicity-preserving:fact-pullback|<tuple|11.5|17|#12>>
+    <associate|holomorphicity-preserving:fact-tensor|<tuple|11.8|18|#12>>
+    <associate|holomorphicity-preserving:fact-treves|<tuple|11.17|18|#12>>
+    <associate|holomorphicity-preserving:lem-homog-ctt|<tuple|11.22|19|#12>>
+    <associate|holomorphicity-preserving:lem-phi-satisfies|<tuple|11.20|19|#12>>
+    <associate|holomorphicity-preserving:lem-t+-cts|<tuple|11.21|19|#12>>
+    <associate|holomorphicity-preserving:lem-t+-smth|<tuple|11.25|21|#12>>
+    <associate|holomorphicity-preserving:lem-t+-smth-aux|<tuple|11.24|20|#12>>
+    <associate|holomorphicity-preserving:lem-t+ln-cts|<tuple|11.23|20|#12>>
+    <associate|holomorphicity-preserving:lem-tensor-holo|<tuple|11.26|22|#12>>
     <associate|holomorphicity-preserving:prop-1|<tuple|3|?|#4>>
     <associate|holomorphicity-preserving:prop-2|<tuple|5|?|#4>>
-    <associate|holomorphicity-preserving:prop-homog-cts|<tuple|10.11|17|#11>>
-    <associate|holomorphicity-preserving:prop-homog-holo|<tuple|10.10|17|#11>>
-    <associate|holomorphicity-preserving:prop-pullback-cts|<tuple|10.13|17|#11>>
-    <associate|holomorphicity-preserving:prop-pullback-holo|<tuple|10.12|17|#11>>
-    <associate|holomorphicity-preserving:prop-tensor-cts|<tuple|10.15|17|#11>>
-    <associate|holomorphicity-preserving:prop-tensor-holo|<tuple|10.14|17|#11>>
-    <associate|knappstein:fact-faraut|<tuple|4.5|?|#5>>
+    <associate|holomorphicity-preserving:prop-homog-cts|<tuple|11.11|18|#12>>
+    <associate|holomorphicity-preserving:prop-homog-holo|<tuple|11.10|18|#12>>
+    <associate|holomorphicity-preserving:prop-pullback-cts|<tuple|11.13|18|#12>>
+    <associate|holomorphicity-preserving:prop-pullback-holo|<tuple|11.12|18|#12>>
+    <associate|holomorphicity-preserving:prop-tensor-cts|<tuple|11.15|18|#12>>
+    <associate|holomorphicity-preserving:prop-tensor-holo|<tuple|11.14|18|#12>>
+    <associate|knappstein:fact-faraut|<tuple|4.6|5|#5>>
     <associate|knappstein:prop-1|<tuple|4.1|4|#5>>
     <associate|knappstein:prop-holo|<tuple|4.2|4|#5>>
     <associate|knappstein:prop-kfinite|<tuple|4.3|4|#5>>
-    <associate|lem-1|<tuple|14.13|41|#15>>
-    <associate|lem-16|<tuple|14.16|42|#15>>
-    <associate|lem-2|<tuple|14.14|41|#15>>
+    <associate|knappstein:prop-spherical|<tuple|4.4|4|#5>>
+    <associate|lem-1|<tuple|15.13|42|#16>>
+    <associate|lem-16|<tuple|15.16|43|#16>>
+    <associate|lem-2|<tuple|15.14|42|#16>>
     <associate|lem-20|<tuple|6|?|#1>>
-    <associate|lem-21|<tuple|14.18|42|#15>>
-    <associate|lem-3|<tuple|14.15|41|#15>>
-    <associate|lem-3-1|<tuple|7.3|8|#8>>
-    <associate|lem-3-2|<tuple|7.4|9|#8>>
-    <associate|lem-3-3|<tuple|7.5|9|#8>>
-    <associate|lem-4|<tuple|16.5|50|#17>>
-    <associate|lem-5|<tuple|16.7|51|#17>>
-    <associate|lem-5n|<tuple|16.6|50|#17>>
-    <associate|lem-6|<tuple|13.11|34|#14>>
-    <associate|lem-7|<tuple|16.9|53|#17>>
-    <associate|lem-8|<tuple|16.8|51|#17>>
-    <associate|lem-9|<tuple|16.10|53|#17>>
-    <associate|lem-Mg0|<tuple|14.11|40|#15>>
-    <associate|lem-assume-the-setting|<tuple|14.12|40|#15>>
-    <associate|lem-holo-nonzero|<tuple|13.8|33|#14>>
+    <associate|lem-21|<tuple|15.18|43|#16>>
+    <associate|lem-3|<tuple|15.15|42|#16>>
+    <associate|lem-3-1|<tuple|7.3|9|#8>>
+    <associate|lem-3-2|<tuple|7.4|10|#8>>
+    <associate|lem-3-3|<tuple|7.5|10|#8>>
+    <associate|lem-4|<tuple|17.5|51|#18>>
+    <associate|lem-5|<tuple|17.7|52|#18>>
+    <associate|lem-5n|<tuple|17.6|51|#18>>
+    <associate|lem-6|<tuple|14.11|35|#15>>
+    <associate|lem-7|<tuple|17.9|54|#18>>
+    <associate|lem-8|<tuple|17.8|52|#18>>
+    <associate|lem-9|<tuple|17.10|54|#18>>
+    <associate|lem-Mg0|<tuple|15.11|41|#16>>
+    <associate|lem-assume-the-setting|<tuple|15.12|41|#16>>
+    <associate|lem-holo-nonzero|<tuple|14.8|34|#15>>
     <associate|lem-holo-supp|<tuple|76|?|#6>>
     <associate|lem-mero-addition|<tuple|3|?|#1>>
     <associate|lem-mero-supp|<tuple|8|?|#1>>
-    <associate|lem-n:odd-holo|<tuple|13.24|37|#14>>
-    <associate|lem-n:odd-n/2|<tuple|13.25|38|#14>>
-    <associate|lem-normalized-eq|<tuple|13.12|34|#14>>
-    <associate|lem-pq2holo|<tuple|13.14|35|#14>>
-    <associate|lem-r1|<tuple|13.18|36|#14>>
-    <associate|lem-r1-e|<tuple|13.15|35|#14>>
-    <associate|lem-r2|<tuple|13.20|36|#14>>
-    <associate|lem-r3|<tuple|13.21|37|#14>>
-    <associate|lem-r4|<tuple|13.19|36|#14>>
-    <associate|lem-r5|<tuple|13.22|37|#14>>
-    <associate|lem-r6|<tuple|13.16|35|#14>>
-    <associate|lem-r6-e|<tuple|13.13|34|#14>>
-    <associate|lem-r7|<tuple|13.23|37|#14>>
-    <associate|lem-r8|<tuple|13.17|36|#14>>
-    <associate|lem-restricted|<tuple|13.7|33|#14>>
-    <associate|lem-span|<tuple|14.10|40|#15>>
-    <associate|lem67:lem-Qpm|<tuple|5.9|6|#6>>
-    <associate|lem67:lem-flip|<tuple|5.11|7|#6>>
-    <associate|lem67:lem-geom|<tuple|5.4|5|#6>>
-    <associate|lem67:lem-geom-aux|<tuple|5.3|5|#6>>
+    <associate|lem-n:odd-holo|<tuple|14.24|38|#15>>
+    <associate|lem-n:odd-n/2|<tuple|14.25|39|#15>>
+    <associate|lem-normalized-eq|<tuple|14.12|35|#15>>
+    <associate|lem-pq2holo|<tuple|14.14|36|#15>>
+    <associate|lem-r1|<tuple|14.18|37|#15>>
+    <associate|lem-r1-e|<tuple|14.15|36|#15>>
+    <associate|lem-r2|<tuple|14.20|37|#15>>
+    <associate|lem-r3|<tuple|14.21|38|#15>>
+    <associate|lem-r4|<tuple|14.19|37|#15>>
+    <associate|lem-r5|<tuple|14.22|38|#15>>
+    <associate|lem-r6|<tuple|14.16|36|#15>>
+    <associate|lem-r6-e|<tuple|14.13|35|#15>>
+    <associate|lem-r7|<tuple|14.23|38|#15>>
+    <associate|lem-r8|<tuple|14.17|37|#15>>
+    <associate|lem-restricted|<tuple|14.7|34|#15>>
+    <associate|lem-span|<tuple|15.10|41|#16>>
+    <associate|lem67:lem-Qpm|<tuple|5.10|7|#6>>
+    <associate|lem67:lem-flip|<tuple|5.12|8|#6>>
+    <associate|lem67:lem-geom|<tuple|5.5|6|#6>>
+    <associate|lem67:lem-geom-aux|<tuple|5.4|6|#6>>
     <associate|lem67:lem-homoR|<tuple|4.7|?|#5>>
-    <associate|lem67:lem-homogR|<tuple|5.7|6|#6>>
-    <associate|lem67:lem-tensor|<tuple|5.6|6|#6>>
-    <associate|lem67:lem-tensor-aux|<tuple|5.5|5|#6>>
-    <associate|lem67:prop-67|<tuple|5.1|5|#6>>
+    <associate|lem67:lem-homogR|<tuple|5.8|7|#6>>
+    <associate|lem67:lem-tensor|<tuple|5.7|6|#6>>
+    <associate|lem67:lem-tensor-aux|<tuple|5.6|6|#6>>
+    <associate|lem67:prop-67|<tuple|5.1|6|#6>>
+    <associate|lem67:prop-dim1|<tuple|5.2|6|#6>>
     <associate|lem:sing-q-1|<tuple|9.2|12|#10>>
     <associate|lem:sing-q-2|<tuple|9.3|12|#10>>
     <associate|lem:sing-q-3|<tuple|9.4|12|#10>>
-    <associate|lem:sing-q-4|<tuple|9.5|12|#10>>
-    <associate|lem:sing-q-6|<tuple|9.12|13|#10>>
-    <associate|lem:sing-q-7|<tuple|9.13|13|#10>>
+    <associate|lem:sing-q-4|<tuple|9.5|13|#10>>
+    <associate|lem:sing-q-6|<tuple|9.12|14|#10>>
+    <associate|lem:sing-q-7|<tuple|9.13|14|#10>>
     <associate|lem:sing-q-8|<tuple|9.14|14|#10>>
-    <associate|lem:supp-p|<tuple|8.2|10|#9>>
+    <associate|lem:supp-p|<tuple|8.2|11|#9>>
     <associate|prop-1|<tuple|13.4|?|#14>>
     <associate|prop-2|<tuple|13.5|?|#14>>
-    <associate|prop-3|<tuple|14.3|39|#15>>
-    <associate|prop-4|<tuple|14.4|39|#15>>
-    <associate|prop-6|<tuple|14.7|39|#15>>
+    <associate|prop-3|<tuple|15.3|40|#16>>
+    <associate|prop-4|<tuple|15.4|40|#16>>
+    <associate|prop-6|<tuple|15.7|40|#16>>
     <associate|prop-eqns-for-kernels|<tuple|3.5|?|#4>>
-    <associate|prop-norm-1|<tuple|14.1|39|#15>>
-    <associate|prop-norm-2|<tuple|14.2|39|#15>>
-    <associate|prop-q=2|<tuple|16.1|49|#17>>
-    <associate|prop-regular|<tuple|7.1|8|#8>>
-    <associate|prop:supp-p|<tuple|8.1|10|#9>>
-    <associate|q-norm:prop-1|<tuple|13.4|32|#14>>
-    <associate|q-norm:prop-2|<tuple|13.5|32|#14>>
-    <associate|thm:sing-q|<tuple|2|11|#10>>
+    <associate|prop-norm-1|<tuple|15.1|40|#16>>
+    <associate|prop-norm-2|<tuple|15.2|40|#16>>
+    <associate|prop-q=2|<tuple|17.1|50|#18>>
+    <associate|prop-regular|<tuple|7.1|9|#8>>
+    <associate|prop:supp-p|<tuple|8.1|11|#9>>
+    <associate|q-norm:prop-1|<tuple|14.4|33|#15>>
+    <associate|q-norm:prop-2|<tuple|14.5|33|#15>>
+    <associate|thm:sing-q|<tuple|2|12|#10>>
   </collection>
 </references>
 
@@ -6887,6 +7003,8 @@
       faraut1979distributions
 
       hormander1983analysis
+
+      kobayashi2015symmetry
 
       gelfand1980distribution
 
@@ -6917,6 +7035,8 @@
       hormander1983analysis
 
       Kobayashi201489
+
+      kobayashi2015symmetry
 
       hormander1983analysis
 
@@ -7017,210 +7137,210 @@
       operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5><vspace|0.5fn>
 
-      <with|par-left|<quote|1.5fn>|4.1<space|2spc>Goal and setting
+      <with|par-left|<quote|1.5fn>|4.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6>>
 
-      <with|par-left|<quote|1.5fn>|4.2<space|2spc>Main results
+      <with|par-left|<quote|1.5fn>|4.2<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-7>>
 
-      <with|par-left|<quote|1.5fn>|4.3<space|2spc>Proofs
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8>>
-
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Lemma
       6.7> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9><vspace|0.5fn>
+      <no-break><pageref|auto-8><vspace|0.5fn>
 
       <with|par-left|<quote|1.5fn>|5.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10>>
+      <no-break><pageref|auto-9>>
 
       <with|par-left|<quote|1.5fn>|5.2<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11>>
+      <no-break><pageref|auto-10>>
 
       <with|par-left|<quote|1.5fn>|5.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-12>>
+      <no-break><pageref|auto-11>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>Non-equivalence
       of <with|mode|<quote|math>|N<rsub|+><rprime|'>>-invariance and
       <with|mode|<quote|math>|<with|math-font|<quote|Euler>|n><rprime|'><rsub|+>>-invariance>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13><vspace|0.5fn>
+      <no-break><pageref|auto-12><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>The
       kernel of regular symmetry breaking operator>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-14><vspace|0.5fn>
+      <no-break><pageref|auto-13><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>The
       kernel of singular symmetry breaking operator supported on
       <with|mode|<quote|math>|<around*|{|x<rsub|p>=0|}>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-15><vspace|0.5fn>
+      <no-break><pageref|auto-14><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>The
       kernel of singular symmetry breaking operator supported on
       <with|mode|<quote|math>|<around*|{|Q=0|}>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-15><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Differential
+      SBO> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-16><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Holomorphicity
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Holomorphicity
       preserving> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-17><vspace|0.5fn>
 
-      <with|par-left|<quote|1.5fn>|10.1<space|2spc>Goal and setting
+      <with|par-left|<quote|1.5fn>|11.1<space|2spc>Goal and setting
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-18>>
 
-      <with|par-left|<quote|1.5fn>|10.2<space|2spc>Facts
+      <with|par-left|<quote|1.5fn>|11.2<space|2spc>Facts
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-19>>
 
-      <with|par-left|<quote|1.5fn>|10.3<space|2spc>Main results
+      <with|par-left|<quote|1.5fn>|11.3<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-20>>
 
-      <with|par-left|<quote|1.5fn>|10.4<space|2spc>Auxilliary results and
+      <with|par-left|<quote|1.5fn>|11.4<space|2spc>Auxilliary results and
       facts <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-21>>
 
-      <with|par-left|<quote|1.5fn>|10.5<space|2spc>Proofs
+      <with|par-left|<quote|1.5fn>|11.5<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-22>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>P-def>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|12<space|2spc>P-def>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-23><vspace|0.5fn>
 
-      <with|par-left|<quote|1.5fn>|11.1<space|2spc>Setting and Goal
+      <with|par-left|<quote|1.5fn>|12.1<space|2spc>Setting and Goal
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-24>>
 
-      <with|par-left|<quote|1.5fn>|11.2<space|2spc>Main results
+      <with|par-left|<quote|1.5fn>|12.2<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-25>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|12<space|2spc>KC-normalization>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|13<space|2spc>KC-normalization>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-26><vspace|0.5fn>
 
-      <with|par-left|<quote|1.5fn>|12.1<space|2spc>Settings and Notations
+      <with|par-left|<quote|1.5fn>|13.1<space|2spc>Settings and Notations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-27>>
 
-      <with|par-left|<quote|1.5fn>|12.2<space|2spc>Statements
+      <with|par-left|<quote|1.5fn>|13.2<space|2spc>Statements
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-28>>
 
-      <with|par-left|<quote|1.5fn>|12.3<space|2spc>Proofs
+      <with|par-left|<quote|1.5fn>|13.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-29>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|13<space|2spc>Q-normalization>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|14<space|2spc>Q-normalization>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-30><vspace|0.5fn>
 
-      <with|par-left|<quote|3fn>|13.0.1<space|2spc>Setting and goal
+      <with|par-left|<quote|3fn>|14.0.1<space|2spc>Setting and goal
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-31>>
 
-      <with|par-left|<quote|1.5fn>|13.1<space|2spc>Comments
+      <with|par-left|<quote|1.5fn>|14.1<space|2spc>Comments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-32>>
 
-      <with|par-left|<quote|1.5fn>|13.2<space|2spc>Main results
+      <with|par-left|<quote|1.5fn>|14.2<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-33>>
 
-      <with|par-left|<quote|3fn>|13.2.1<space|2spc>Auxiliary results
+      <with|par-left|<quote|3fn>|14.2.1<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-34>>
 
-      <with|par-left|<quote|3fn>|13.2.2<space|2spc>Proofs
+      <with|par-left|<quote|3fn>|14.2.2<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-35>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|14<space|2spc>KP-normalization>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|15<space|2spc>KP-normalization>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-36><vspace|0.5fn>
 
-      <with|par-left|<quote|1.5fn>|14.1<space|2spc>Setting
+      <with|par-left|<quote|1.5fn>|15.1<space|2spc>Setting
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-37>>
 
-      <with|par-left|<quote|1.5fn>|14.2<space|2spc>Main results
+      <with|par-left|<quote|1.5fn>|15.2<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-38>>
 
-      <with|par-left|<quote|1.5fn>|14.3<space|2spc>Auxiliary results
+      <with|par-left|<quote|1.5fn>|15.3<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-39>>
 
-      <with|par-left|<quote|1.5fn>|14.4<space|2spc>Proofs
+      <with|par-left|<quote|1.5fn>|15.4<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-40>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|15<space|2spc>KP-normalization-2>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|16<space|2spc>KP-normalization-2>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-41><vspace|0.5fn>
 
-      <with|par-left|<quote|1.5fn>|15.1<space|2spc>Setting and goal
+      <with|par-left|<quote|1.5fn>|16.1<space|2spc>Setting and goal
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-42>>
 
-      <with|par-left|<quote|1.5fn>|15.2<space|2spc>Main results
+      <with|par-left|<quote|1.5fn>|16.2<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-43>>
 
-      <with|par-left|<quote|1.5fn>|15.3<space|2spc>Auxiliary results
+      <with|par-left|<quote|1.5fn>|16.3<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-44>>
 
-      <with|par-left|<quote|1.5fn>|15.4<space|2spc>Proofs
+      <with|par-left|<quote|1.5fn>|16.4<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-45>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|16<space|2spc>KR-normalization-even>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|17<space|2spc>KR-normalization-even>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-46><vspace|0.5fn>
 
-      <with|par-left|<quote|1.5fn>|16.1<space|2spc>Setting
+      <with|par-left|<quote|1.5fn>|17.1<space|2spc>Setting
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-47>>
 
-      <with|par-left|<quote|1.5fn>|16.2<space|2spc>Main results
+      <with|par-left|<quote|1.5fn>|17.2<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-48>>
 
-      <with|par-left|<quote|1.5fn>|16.3<space|2spc>Auxilliary results
+      <with|par-left|<quote|1.5fn>|17.3<space|2spc>Auxilliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-49>>
 
-      <with|par-left|<quote|1.5fn>|16.4<space|2spc>Proofs
+      <with|par-left|<quote|1.5fn>|17.4<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-50>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|17<space|2spc>KR-normalization-recur>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|18<space|2spc>KR-normalization-recur>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-51><vspace|0.5fn>
 
-      <with|par-left|<quote|1.5fn>|17.1<space|2spc>Setting and goal
+      <with|par-left|<quote|1.5fn>|18.1<space|2spc>Setting and goal
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-52>>
 
-      <with|par-left|<quote|1.5fn>|17.2<space|2spc>Main results
+      <with|par-left|<quote|1.5fn>|18.2<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-53>>
 
-      <with|par-left|<quote|1.5fn>|17.3<space|2spc>Auxiliary results
+      <with|par-left|<quote|1.5fn>|18.3<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-54>>
 
-      <with|par-left|<quote|1.5fn>|17.4<space|2spc>Proofs
+      <with|par-left|<quote|1.5fn>|18.4<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-55>>
 
