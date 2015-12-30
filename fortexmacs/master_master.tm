@@ -92,7 +92,7 @@
     <section|report 32>
   </hide-part>
 
-  <\show-part|3>
+  <\hide-part|3>
     <section|generic report>
 
     \;
@@ -219,9 +219,9 @@
     (empty)
 
     <surround|<assign|sone|<macro|<math|<mybra|<D><rprime|'><around|(|G\<times\><rsub|P><C><rsub|\<lambda\>-n>|)>\<otimes\><C><rsub|\<nu\>>><rsup|\<Delta\><around|(|P<rprime|'>|)>>>>><assign|Upp|<macro|<mysetn|(x,y)\<in\><R><rsup|p,q>|x\<neq\>0,<space|0.75spc>y\<neq\>0>>><assign|Stab|<macro|O(p,q)<rsub|e<rsub|p>>>><assign|sol*|<macro|1|<with|math-font|cal|S>ol(<arg|1>;\<lambda\>,\<nu\>)>><assign|sol|<macro|<sol*|<R><rsup|p,q>>>><assign|solXi|<macro|<sol*|\<Xi\>>>>||>
-  <|show-part>
+  <|hide-part>
     <section|generic report>
-  </show-part>
+  </hide-part>
 
   <\hide-part|4>
     <section|Definition and notations>
@@ -343,7 +343,7 @@
     <section|Definition and notations>
   </hide-part>
 
-  <\hide-part|5>
+  <\show-part|5>
     <section|Knapp-Stein operator>
 
     <subsection|Main results>
@@ -550,9 +550,9 @@
 
       and <math|s<around*|(|s-2|)>\<ldots\><around*|(|s-N+2|)>\<simeq\>\<Gamma\><around*|(|-s/2+N/2|)>/\<Gamma\><around*|(|-s/2|)>>.
     </proof>
-  <|hide-part>
+  <|show-part>
     <section|Knapp-Stein operator>
-  </hide-part>
+  </show-part>
 
   <\hide-part|6>
     <section|Lemma 6.7>
