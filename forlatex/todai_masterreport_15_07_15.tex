@@ -290,19 +290,43 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 	\end{theorem}
 \end{frame}
 \begin{frame}
-	\begin{theorem}[$G:=O(p+1,q+1),\;n:=p+q$]	
+	\begin{theorem}[$G:=O(p+1,q+1),\;n:=p+q$]
 		For $\lambda+\nu-n=-1-2k,\;k\in2\Z_{\ge0}$
-		\[\tilde{K}_{\lambda,\nu}^P:=\myabs{Q}^{-\nu}\delta^{(2k)}(x_p)/N,\quad N:=\Gamma\left( 
-			\frac{\max\left\{ 2,\left( \frac{n-1}{2}-k \right)' \right\}-\nu}{2}
-			\right)
+		\[\tilde{K}_{\lambda,\nu}^P:=\myabs{Q}^{-\nu}\delta^{(2k)}(x_p)/N,\quad N:=
+		\Gamma\left(\mybra{\left.\max\left\{ 2,\left( \frac{n-1}{2}-k \right)' \right\}-\nu}\right/2\right)
 		\Gamma\left( \frac{1-\nu}{2} \right)\]
 		(where $a'$ denotes the smallest even integer which is $\ge a$)
 		is the kernel of SBO supported in $\left\{ x_p=0 \right\}$ which is holo in $(\lambda,\nu)\in\C^2$ and
 		non-vanishing. 
 		\[
 			\supp\left( \tilde{K}_{\lambda,\nu}^P \right)=\begin{cases}
-				\left\{0 \right\},&\nu\in\max\left\{ \frac{n-1}{2}-k ,1\right\}+\Z_{\ge0},\;\nu\in2\Z\\
+				\left\{0 \right\},&\nu\in 2\Z\cap\left[\max\left\{ \frac{n-1}{2}-k ,1\right\}+\Z_{\ge0}\right]\\
 				\left\{ Q=0 \right\}\cap\left\{ x_p=0 \right\},&\nu\in1+2\Z_{\ge0}\\
+				\left\{ x_p=0 \right\},&\mbox{otherwise}.
+			\end{cases}
+		\]
+	\end{theorem}
+	\begin{remark}
+		$2\Z\cap\left[\max\left\{ \frac{n-1}{2}-k ,1\right\}+\Z_{\ge0}\right]$ is precisely the set of poles of
+		\[\Gamma\left(\mybra{\left.\max\left\{ 2,\left( \frac{n-1}{2}-k \right)' \right\}-\nu}\right/2\right).\]
+	\end{remark}
+\end{frame}
+\begin{frame}
+	Assume $n\in2\Z+1$ and $q\in2\Z+1$.
+	\begin{theorem}[$G:=O(p+1,q+1),\;n:=p+q$]
+		For $\lambda+\nu-n=-1-2k,\;k\in2\Z_{\ge0}$
+		\[\tilde{K}_{\lambda,\nu}^P:=\myabs{Q}^{-\nu}\delta^{(2k)}(x_p)/N,\quad N:=\Gamma\left( 
+			\frac{\left( \frac{n-1}{2}-k \right)'-\nu}{2}
+			\right)
+		\Gamma\left( \frac{1-\nu}{2} \right)\]
+		(where $a'$ denotes the smallest odd integer which is $\ge a$)
+		is the kernel of SBO supported in $\left\{ x_p=0 \right\}$ which is holo in $(\lambda,\nu)\in\C^2$ and
+		non-vanishing. 
+		\[
+			\supp\left( \tilde{K}_{\lambda,\nu}^P \right)=\begin{cases}
+				\left\{0 \right\},&\nu\in 2\Z_{\ge0}+\left( \frac{n-1}{2}-k \right)'\\
+				\left\{ Q=0 \right\}\cap\left\{ x_p=0 \right\},&\nu\in2\Z+1,\;
+				1\le\nu<\left( \frac{n-1}{2}-k \right)'\\
 				\left\{ x_p=0 \right\},&\mbox{otherwise}.
 			\end{cases}
 		\]
