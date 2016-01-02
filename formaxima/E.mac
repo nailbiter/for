@@ -1,0 +1,39 @@
+texoutput : ".texput.tex";
+texput(mylambda,"\\lambda")$
+texput(nu,"\\nu")$
+texput(lambdatilde,"\\tilde{\\lambda}")$
+texput(G,"\\Gamma")$
+
+/*(1-x^2)^l;
+diff(%,x);
+diff(%,x);
+substitute(x^2=(1-a),%);
+expand(%);
+collectterms(%,a);*/
+
+/*factor(lambda+(lambda-nu)*(k+1)/(nu-k-1));*/
+
+nu:9;
+mintypeconst:(-nu);
+matchdeclare(x,all,nint,lambda([y],y>mintypeconst),a,integerp);
+defrule(rule1,K(x,1),G((x-1)/2)*G((x-1)/2)*2^(x-2)/G(x-1));
+defrule(rule2,K(x,3),(G((x-3)/2))^2*2^(x-4)*(q-2)*(q-x-1)/(x-2)/G(x-3));
+defrule(rule3,K(x,5),3*G((x-5)/2)^2*2^(x-6)*(q-4)*(q-2)*(q-x-3)*(q-x-1)/((x-4)*(x-2)*G(x-5)));
+defrule(rule4,K(x,7),15*G((x-7)/2)^2*2^(x-8)*(q-6)*(q-4)*(q-2)*(q-x-5)*(q-x-3)*(q-x-1)/((x-6)*(x-4)*(x-2)*G(x-7)));
+defrule(gammarule1,G(mylambda/2+nint/2),(mylambda/2+nint/2-1)*G(mylambda/2+nint/2-1));
+defrule(gammarule2,G(mylambda+nint),(mylambda+nint-1)*G(mylambda+nint-1));
+
+(2*x-2)*(2*x-4)*K(mylambda-2,nu-2)-(2*x-2)*(2*x-3)*K(mylambda,nu-2);
+substitute(x=(mylambda+nu-q)/2,%);
+apply1(%,rule1,rule2,rule3,rule4);
+expand(%);
+apply1(%,gammarule1,gammarule2);
+/*substitute([lambdatilde=(mylambda+nu-q)/2],%);*/
+/*substitute(G((mylambda-1)/2)=(mylambda-3)/2*G((mylambda-3)/2),%);
+substitute(G((mylambda-1))=(mylambda-3)*(mylambda-2)*G(mylambda-3),%);*/
+factor(%);
+/*substitute(G(mylambda-3)=lambda([x],sqrt(pi)*G(x)*G(x+1/2)*2^(2*x-1))((mylambda-3)/2),%);*/
+
+if true
+then tex(%,texoutput)
+else stringout("/tmp/tmp.mac",%);

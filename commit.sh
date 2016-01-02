@@ -26,6 +26,8 @@ git add scripts/*.sh
 
 git add fortexmacs/*.tm
 
+git add formaxima/*.mac
+
 #./scripts/export_lyxs.sh
 
 git commit -a -m "Commit"

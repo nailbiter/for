@@ -12,4 +12,5 @@ forjava/*.txt
 *.pdf
 alex.vim
 .vim/.netrwhist
+formaxima/.texput.tex
 forscheme/sec.scm
