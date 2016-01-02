@@ -13,7 +13,9 @@ collectterms(%,a);*/
 
 /*factor(lambda+(lambda-nu)*(k+1)/(nu-k-1));*/
 
-nu:9;
+nuvar:9;
+tex(nu=nuvar,texoutput);
+nu:nuvar;
 mintypeconst:(-nu);
 matchdeclare(x,all,nint,lambda([y],y>mintypeconst),a,integerp);
 defrule(rule1,K(x,1),G((x-1)/2)*G((x-1)/2)*2^(x-2)/G(x-1));
