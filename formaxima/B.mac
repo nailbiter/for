@@ -1,0 +1,17 @@
+texoutput : ".texput.tex";
+(1-x^2)^l;
+diff(%,x);
+diff(%,x);
+substitute([x^2=1-a],%);
+expand(%);
+collectterms(%,a);
+tex(%,texoutput);
+
+texput(nu,"\\nu")$
+texput(lambd,"\\lambda")$
+expr:(nu-q-1)*(lambd-2)-(1-q)*(lambd-nu);
+expr;
+factor(%);
+tex(%,texoutput);
+at(expr,nu=2);
+tex(%,texoutput);

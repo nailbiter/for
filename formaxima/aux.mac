@@ -1,0 +1,9 @@
+texoutput : ".texput.tex"$
+texput(mylambda,"\\lambda")$
+texput(nu,"\\nu")$
+texput(lambdatilde,"\\tilde{\\lambda}")$
+texput(G,"\\Gamma")$
+
+(mylambda)*(q-mylambda+1)+(mylambda-2-nu)*(mylambda+nu-q+1);
+factor(%);
+tex(%,texoutput);

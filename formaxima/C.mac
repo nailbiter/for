@@ -1,0 +1,6 @@
+r:(1-y^2)^(1/2)/(x+y);
+s:(1-x^2)^(1/2)/(x+y);
+texoutput : ".texput.tex";
+
+diff(r,x)*diff(s,y)-diff(s,x)*diff(r,y);
+tex(factor(%),texoutput);
