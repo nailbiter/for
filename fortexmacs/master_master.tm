@@ -17,59 +17,70 @@
     \;
   </hide-part|>
 
-  <\hide-part|2>
-    <section|report 32>
+  <\show-part|2>
+    <section|report 33>
 
-    <block|<tformat|<twith|table-halign|l>|<cwith|2|2|1|-1|cell-hyphen|c>|<cwith|2|2|1|1|cell-width|5cm>|<cwith|2|2|1|1|cell-hmode|min>|<twith|table-width|7.5cm>|<twith|table-hmode|exact>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<cwith|1|1|1|1|cell-hyphen|t>|<twith|table-valign|b>|<cwith|2|2|2|2|cell-valign|t>|<table|<row|<\cell>
+    <block|<tformat|<twith|table-halign|l>|<cwith|2|2|1|-1|cell-hyphen|c>|<cwith|2|2|1|1|cell-width|5cm>|<cwith|2|2|1|1|cell-hmode|min>|<twith|table-width|7.5cm>|<twith|table-hmode|exact>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<cwith|1|1|1|1|cell-hyphen|t>|<twith|table-valign|b>|<cwith|2|2|2|2|cell-valign|t>|<cwith|3|5|2|2|cell-hyphen|t>|<table|<row|<\cell>
       <with|font-series|bold|What had to be done>
     </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
       Try to use recurrence relations, for crude
       normalizatio<with|font-series|bold|>n of
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
     </cell>|<\cell>
-      <with|font-series|bold|not done> (extended to
-      <math|\<Omega\><rsub|0>\<assign\><around*|{|Re<around*|(|\<lambda\>-\<nu\>|)>\<gtr\>0|}>>,
-      still have to work to extend to <math|\<bbb-C\><rsup|2>>)
-    </cell>>|<row|<cell|Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>>|<cell|<with|font-series|bold|not
-    done>, but I think can be done>>|<row|<cell|<math|A<rsub|\<lambda\>,\<nu\>>ll=c<around*|(|\<lambda\>,\<nu\>|)>ll>>|<cell|<with|font-series|bold|done>
-    for <math|q\<in\>2\<bbb-Z\>>>>|<row|<cell|develop structure and schedule
-    for master thesis>|<cell|<with|font-series|bold|not done>>>>>>
+      <with|font-series|bold|not done> (now seems to be unnecessary, at least
+      for <math|q\<in\>2\<bbb-Z\>> case)
+    </cell>>|<row|<cell|Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>>|<\cell>
+      <with|font-series|bold|not done>, (I know how support changes, but not
+      finished with dimensional argument yet)
+    </cell>>|<row|<cell|<math|A<rsub|\<lambda\>,\<nu\>>ll=c<around*|(|\<lambda\>,\<nu\>|)>ll>>|<\cell>
+      <with|font-series|bold|done> for <math|q\<in\>2\<bbb-Z\>>
+    </cell>>|<row|<cell|develop structure and schedule for master
+    thesis>|<\cell>
+      <with|font-series|bold|not done>
+    </cell>>>>>
 
     \;
 
     <with|font-series|bold|What has been done (additional)>
 
     <\enumerate>
-      <item>normalized and extended <math|<around*|\||Q|\|><rsup|-\<nu\>><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>>
-      to <math|Re<around*|(|\<lambda\>-\<nu\>|)>\<gtr\>0>
+      <item>Filled out the documents for PhD application (see attached .pdf
+      file);
 
-      <item>proved hypothesis about eigenvalue of spherical vector \ for
-      <math|q\<in\>2\<bbb-Z\>>
+      <item>Given closed (involving no addition and finite number of
+      multiplications of gamma functions) for pairing of
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> kernel of
+      regular SBO and <math|K>-finite vector;
+
+      <item>Find mistake in normalization of
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> kernel of singular SBO
+      supported on <math|<around*|{|Q=0|}>>. Also found another (more
+      explicit, direct and simple) method to carry out these computations and
+      now doing them;
     </enumerate>
 
     <with|font-series|bold|What I plan to do>:
 
     <\enumerate>
-      <item>Develop the structure of master thesis, set up the schedule
+      <item>Fill out and submit the documents:
 
-      <item>Use functional equations for crude normalization of kernel of
-      regular SBO and extending it to <math|\<bbb-C\><rsup|2>>
+      <\enumerate>
+        <item>for PhD application;
+
+        <item>for Master thesis title;
+      </enumerate>
 
       <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
 
       <\enumerate>
+        <item>Perfect normalization <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>
+        of <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>
+
         <item>See how support changes for different <math|\<lambda\>>
-
-        <item>Dimensional argument to explicitly determine
-        <math|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>|)>>.
-
-        <item>Dimensional argument to explicitly determine
-        <math|Sol<rsub|C\<cup\>P><around*|(|\<bbb-R\><rsup|p,q>|)>>
       </enumerate>
 
-      <item>Compute perfect normalization of kernel of regular SBO for
-      <math|q=4> and compute zero set. Try to develop conjecture about the
-      form of perfect normalization for even <math|q> and form of zero set.
+      <item>Deliver the first draft of master thesis
+      <with|font-series|bold|till Friday (Dec 8)>
     </enumerate>
 
     <\with|font-series|bold>
@@ -80,17 +91,57 @@
 
     <paragraph|Comments>
 
-    Contrary to expectations, normalization and extension to
-    <math|\<Omega\><rsub|0>> of kernel of regular SBO
-    <with|font-series|bold|did not> use recurrence relations (entirely done
-    with Hormander's wavefronts) and was less crude than I initially supposed
-    (i.e. for example <math|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>> versus
-    <math|\<Gamma\><around*|(|1-\<nu\>|)>>).
+    I'm in a very dangerous situation now, as I have to submit the final
+    version of master thesis in two weeks (Dec 19), while I haven't even
+    started typing the whole thing yet. At this point I think it's important
+    to put maximum effort on the product of master thesis, not on sharpening
+    the results. The latter can be done after Dec 19.
+
+    Therefore, I think it makes sense to divide the clearly state the things
+    which I think I can do, but with some additional time. Moreover, I'll
+    divide these into three categories:
+
+    <with|font-series|bold|First priority (things that
+    <with|font-shape|italic|has> to appear in master thesis):>
+
+    <\enumerate>
+      <item>Perfect normalization <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>
+      of <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>
+
+      <item>See how support changes for different <math|\<lambda\>>
+    </enumerate>
+
+    <with|font-series|bold|Second priority (things that
+    <with|font-shape|italic|would better> appear in master thesis):>
+
+    <\enumerate>
+      <item>Dimensional argument to explicitly determine
+      <math|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>|)>>.
+
+      <item>Dimensional argument to explicitly determine
+      <math|\<cal-S\>ol<rsub|C\<cup\>P><around*|(|\<bbb-R\><rsup|p,q>|)>>
+    </enumerate>
+
+    <with|font-series|bold|Third priority (things which I do not plan to
+    include, but could if time would permit):>
+
+    <\enumerate>
+      <item>Perfect normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
+      for <math|q\<in\>2\<bbb-Z\>>
+
+      <item>dimensional argument for <math|q\<in\>2\<bbb-Z\>> for the full
+      determination of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>|)>>
+
+      <item>dimensional argument for <math|<around*|{|\<lambda\>+\<nu\>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      for the full determination of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>|)>>
+    </enumerate>
 
     \;
-  <|hide-part>
+
+    \;
+  <|show-part>
     <section|report 32>
-  </hide-part>
+  </show-part>
 
   <\hide-part|3>
     <section|generic report>
@@ -4085,7 +4136,7 @@
     <section|KC-normalization>
   </hide-part>
 
-  <\show-part|16>
+  <\hide-part|16>
     <section|KC-normalization-2>
 
     <subsection|Goal and setting>
@@ -4380,9 +4431,9 @@
     <subsection|Proofs>
 
     \;
-  <|show-part>
+  <|hide-part>
     <section|KC-normalization-2>
-  </show-part>
+  </hide-part>
 
   <\hide-part|17>
     <section|Q-normalization>
@@ -8008,7 +8059,7 @@
     <associate|diffSBO:lem-aux|<tuple|10.1|17|#11>>
     <associate|diffSBO:prop-main|<tuple|10.2|17|#11>>
     <associate|eq|<tuple|3.1|?|#4>>
-    <associate|eq-1|<tuple|16.1|40|#17>>
+    <associate|eq-1|<tuple|17.1|40|#18>>
     <associate|eq-2|<tuple|16.2|40|#17>>
     <associate|eq-Nequiv|<tuple|3.1|3|#4>>
     <associate|eq:sing-q-dx|<tuple|9.1|16|#10>>
@@ -8113,8 +8164,8 @@
     <associate|lem-3-1|<tuple|7.3|9|#8>>
     <associate|lem-3-2|<tuple|7.4|10|#8>>
     <associate|lem-3-3|<tuple|7.5|10|#8>>
-    <associate|lem-4|<tuple|16.9|52|#17>>
-    <associate|lem-5|<tuple|16.10|52|#17>>
+    <associate|lem-4|<tuple|19.6|52|#20>>
+    <associate|lem-5|<tuple|19.8|52|#20>>
     <associate|lem-5n|<tuple|19.7|52|#20>>
     <associate|lem-6|<tuple|16.11|35|#17>>
     <associate|lem-7|<tuple|19.10|54|#20>>
