@@ -4126,13 +4126,14 @@
     </definition>
 
     <\proposition>
-      For <math|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1> fixed
+      <label|KC-normalization-2:prop-normalization>For
+      <math|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1> fixed
       <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>\<assign\>K<rsub|\<lambda\>,\<nu\>>/N>:
       (extends to) holomorphic nonzero distribution in
       <math|\<lambda\>\<in\>\<bbb-C\>>, where
 
       <\equation*>
-        N\<assign\><choice|<tformat|<table|<row|<cell|>|<cell|q\<in\>>>|<row|<cell|>|<cell|>>>>>
+        N\<assign\><choice|<tformat|<table|<row|<cell|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|q\<in\>>>|<row|<cell|>|<cell|>>>>>
       </equation*>
     </proposition>
 
@@ -7718,6 +7719,7 @@
     <associate|KC-normalization-2:lem-kfin-11|<tuple|15.4|?|#16>>
     <associate|KC-normalization-2:lem-kfinite|<tuple|15.5|?|#16>>
     <associate|KC-normalization-2:lem-kfinite-wrap|<tuple|15.6|?|#16>>
+    <associate|KC-normalization-2:prop-normalization|<tuple|15.2|?|#16>>
     <associate|KC-normalization:lem-Suppose-that-sets|<tuple|14.10|28|#15>>
     <associate|KC-normalization:prop-kfinite|<tuple|14.1|26|#15>>
     <associate|KC-normalization:prop-sol-extending|<tuple|9.4|?|#10>>
