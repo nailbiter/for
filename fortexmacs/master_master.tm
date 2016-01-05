@@ -17,7 +17,7 @@
     \;
   </hide-part|>
 
-  <\show-part|2>
+  <\hide-part|2>
     <section|report 33>
 
     <block|<tformat|<twith|table-halign|l>|<cwith|2|2|1|-1|cell-hyphen|c>|<cwith|2|2|1|1|cell-width|5cm>|<cwith|2|2|1|1|cell-hmode|min>|<twith|table-width|7.5cm>|<twith|table-hmode|exact>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<cwith|1|1|1|1|cell-hyphen|t>|<twith|table-valign|b>|<cwith|2|2|2|2|cell-valign|t>|<cwith|3|5|2|2|cell-hyphen|t>|<table|<row|<\cell>
@@ -139,9 +139,9 @@
     \;
 
     \;
-  <|show-part>
+  <|hide-part>
     <section|report 32>
-  </show-part>
+  </hide-part>
 
   <\hide-part|3>
     <section|generic report>
@@ -3317,21 +3317,24 @@
       <math|F<rsub|\<nu\>>> meromorphic distribution depending on
       <math|\<nu\>\<in\>\<bbb-C\>>.
 
+      It is notational convention that <math|\<frak-P\><around*|(|0|)>\<assign\>-\<infty\>>
+      constant function assigning <math|-\<infty\>>, although the latter does
+      not belong to <math|\<bbb-C\>\<rightarrow\>\<bbb-Z\>>.
+
       For <math|f,g:\<bbb-C\>\<rightarrow\>\<bbb-Z\>> we will write
       <math|f\<leqslant\>g> to denote the inequality holding on
       <math|\<bbb-C\>>. For <math|<around*|{|f<rsub|i>|}><rsub|i\<in\>\<Lambda\>>>
-      being the finite set of <math|\<bbb-C\>\<rightarrow\>\<bbb-Z\>>
-      functions, we let <math|max<around*|{|f<rsub|i>|}><rsub|i\<in\>\<Lambda\>>>
-      and <math|<big|sum><around*|{|f<rsub|i>|}><rsub|i\<in\>\<Lambda\>>> to
+      being the set of <math|\<bbb-C\>\<rightarrow\>\<bbb-Z\>> functions, we
+      let <math|max<around*|{|f<rsub|i>|}><rsub|i\<in\>\<Lambda\>>> and
+      <math|<big|sum><around*|{|f<rsub|i>|}><rsub|i\<in\>\<Lambda\>>> to
       denote pointwise maximum and sum respectively. When needing infix
       notation, we will use <math|\<cup\>> and <math|+> respectively.
 
       Although ambiguous, we will sometimes denote
       <math|f:\<bbb-C\>\<rightarrow\>\<bbb-Z\>> satisfying
       <math|f\<leqslant\>1> on <math|\<bbb-C\>> with sets
-      <math|<around*|{|f\<neq\>0|}>>, so for example
-      <math|<around*|{|\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>, for
-      example, may be used to denote <math|\<frak-P\><around*|(|\<Gamma\><around*|(|\<cdot\>|)>|)>>.
+      <math|<around*|{|f\<neq\>0|}>>, so <math|<around*|{|\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>,
+      for example, may be used to denote <math|\<frak-P\><around*|(|\<Gamma\><around*|(|\<cdot\>|)>|)>>.
     </definition>
 
     <\remark>
@@ -3501,6 +3504,76 @@
         respectively.
       </enumerate>
     </remark>
+
+    <subsection|Combinatorial lemmas>
+
+    In what follows we will have to compute on several occasions
+    <math|max<around*|{|\<frak-P\><around*|(|f<rsub|i>|)>|}><rsub|i\<in\>\<Lambda\>>>
+    for <math|<around*|{|f<rsub|i>|}><rsub|i\<in\>\<Lambda\>>> being
+    meromorphic functions. A few simple lemmas of combinatorial nature that
+    we state and prove below will facilitate these computations.
+
+    <\lemma>
+      <label|P-def:lem-threeset>Suppose that
+      <math|<around*|{|A<rsub|N>|}><rsub|N>>,
+      <math|<around*|{|B<rsub|N>|}><rsub|N>> and
+      <math|<around*|{|C<rsub|N>|}><rsub|N>> are three families of sets
+      indexed with <math|N\<in\>\<Lambda\>>. Then, the following holds:
+    </lemma>
+
+    <\enumerate>
+      <item>If <math|\<forall\>N,<space|0.75spc>N<rprime|'>\<in\>\<Lambda\>>
+      we have <math|A<rsub|N<rprime|'>>\<cap\>B<rsub|N>=\<emptyset\>>, then
+      <math|<big|cap><rsub|N\<in\>\<Lambda\>><around*|(|A<rsub|N>\<cup\>B<rsub|N>|)>=<big|cap><rsub|N\<in\>\<Lambda\>>A<rsub|N>\<cup\><big|cap><rsub|N\<in\>\<Lambda\>>B<rsub|N>>.
+
+      <item>If <math|\<forall\>N,<space|0.75spc>N<rprime|'>\<in\>\<Lambda\>>
+      we have <math|A<rsub|N<rprime|'>>\<cap\>B<rsub|N>=\<emptyset\>>,
+      <math|x\<in\><big|cap><rsub|N\<in\>\<Lambda\>><around*|(|A<rsub|N>\<cup\>B<rsub|N>\<cup\>C<rsub|N>|)>>
+      and <math|\<exists\>N<rsub|0>\<in\>\<Lambda\>>, such that
+      <math|A<rsub|N<rsub|0>>\<ni\>x>, then
+    </enumerate>
+
+    <\proof>
+      We will prove only the second assertion. Assume on contrary that
+      <math|x\<nin\><big|cap><rsub|N\<in\>\<Lambda\>><around*|(|A<rsub|N>\<cup\>C<rsub|N>|)>>
+      and hence for some <math|N<rsub|1>> we should have
+      <math|x\<nin\>A<rsub|N<rsub|1>>\<cup\>C<rsub|N<rsub|1>>>. Now, this
+      implies that <math|x\<in\>B<rsub|N<rsub|1>>>and hence that
+      <math|A<rsub|N<rsub|0>>\<cap\>B<rsub|N<rsub|1>>\<ni\>x>, thus giving a
+      contradiction.
+    </proof>
+
+    <\lemma>
+      <label|lem-4>Let <math|<around*|{|f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i\<in\>\<Lambda\>>>
+      for <math|j=1,2,3> be three families of
+      <math|\<bbb-C\><rsup|k>\<rightarrow\>\<bbb-Z\><rsub|\<geqslant\>0>>
+      functions and suppose that for all <math|i,j\<in\>\<Lambda\>> we have
+      sets <math|<around*|{|f<rsup|<around*|(|1|)>><rsub|i>\<neq\>0|}>> and
+      <math|<around*|{|f<rsub|j><rsup|<around*|(|2|)>>\<neq\>0|}>> being
+      disjoint. Assume moreover that for some
+      <math|i<rsub|0>\<in\>\<Lambda\>> we have
+      <math|f<rsup|<around*|(|1|)>><rsub|i<rsub|0>>\<equiv\>0> and
+      <math|f<rsup|<around*|(|3|)>><rsub|i<rsub|0>>=min<around*|{|f<rsub|i><rsup|<around*|(|3|)>>|}>>.
+      Then <math|min<around*|{|<big|sum><rsub|j=1><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i>=min<around*|{|<big|sum><rsub|j=2><rsup|3>f<rsub|i><rsup|<around*|(|j|)>>|}><rsub|i>>.
+    </lemma>
+
+    <\proof>
+      As <math|\<geqslant\>> is clear, it suffices to assume that for some
+      <math|x<rsub|0>\<in\>\<bbb-C\><rsup|k>> we have
+      <math|min<around*|{|<big|sum><rsub|j=1><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>\<gtr\>min<around*|{|<big|sum><rsub|j=2><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>>
+      and to reach a contradiction.
+
+      Now, <math|min<around*|{|<big|sum><rsub|j=1><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>\<leqslant\><around*|(|f<rsub|i<rsub|0>><rsup|<around*|(|1|)>>+f<rsub|i<rsub|0>><rsup|<around*|(|2|)>>+f<rsub|i<rsub|0>><rsup|<around*|(|3|)>>|)><around*|(|x<rsub|0>|)>=f<rsub|i<rsub|0>><rsup|<around*|(|2|)>><around*|(|x<rsub|0>|)>+f<rsub|i<rsub|0>><rsup|<around*|(|3|)>><around*|(|x<rsub|0>|)>>
+      and the assumption in previous paragraph implies that the rightmost
+      value is positive. Consider cases.
+
+      First, suppose that <math|f<rsub|i<rsub|0>><rsup|<around*|(|2|)>><around*|(|x<rsub|0>|)>=0>.
+      Then, <math|min<around*|{|<big|sum><rsub|j=1><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>\<leqslant\>f<rsub|i<rsub|0>><rsup|<around*|(|2|)>><around*|(|x<rsub|0>|)>+f<rsub|i<rsub|0>><rsup|<around*|(|3|)>><around*|(|x<rsub|0>|)>=f<rsup|<around*|(|3|)>><rsub|i<rsub|0>><around*|(|x<rsub|0>|)>=min<around*|{|f<rsup|<around*|(|3|)>><rsub|i<rsub|>><around*|(|x<rsub|0>|)>|}><rsub|i>\<leqslant\>min<around*|{|<big|sum><rsub|j=2><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>>.
+
+      Second, suppose that <math|f<rsub|i<rsub|0>><rsup|<around*|(|2|)>><around*|(|x<rsub|0>|)>=0\<Rightarrow\>x<rsub|0>\<in\><around*|{|f<rsub|i<rsub|0>><rsup|<around*|(|2|)>>\<neq\>0|}>>
+      and hypothesis implies that <math|\<forall\>i\<in\>\<Lambda\>,<space|0.6spc>f<rsub|i><rsup|<around*|(|2|)>><around*|(|x<rsub|0>|)>=0>
+      and hence <math|min<around*|{|<big|sum><rsub|j=1><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>=min<around*|{|<big|sum><rsub|j=2><rsup|3>f<rsub|i><rsup|<around*|(|j|)>>|}><rsub|i><around*|(|x<rsub|0>|)>>.
+    </proof>
   <|hide-part>
     <section|P-def>
   </hide-part>
@@ -3687,36 +3760,6 @@
       and <math|<around*|(|\<psi\>,\<psi\>|)>\<in\><with|math-font|cal|H><rsup|N><around|(|<with|math-font|Bbb|S><rsup|p>|)>\<times\><with|math-font|cal|H><rsup|M><around|(|<with|math-font|Bbb|S><rsup|q>|)>>.
     </enumerate>
 
-    <\lemma>
-      <label|KC-normalization:lem-Suppose-that-sets>Suppose that
-      <math|<around*|{|A<rsub|N>|}><rsub|N>>,
-      <math|<around*|{|B<rsub|N>|}><rsub|N>> and
-      <math|<around*|{|C<rsub|N>|}><rsub|N>> are three families of sets
-      indexed with <math|N\<in\>\<Lambda\>>. Then, the following holds:
-    </lemma>
-
-    <\enumerate>
-      <item>If <math|\<forall\>N,<space|0.75spc>N<rprime|'>\<in\>\<Lambda\>>
-      we have <math|A<rsub|N<rprime|'>>\<cap\>B<rsub|N>=\<emptyset\>>, then
-      <math|<big|cap><rsub|N\<in\>\<Lambda\>><around*|(|A<rsub|N>\<cup\>B<rsub|N>|)>=<big|cap><rsub|N\<in\>\<Lambda\>>A<rsub|N>\<cup\><big|cup><rsub|N\<in\>\<Lambda\>>B<rsub|N>>.
-
-      <item>If <math|\<forall\>N,<space|0.75spc>N<rprime|'>\<in\>\<Lambda\>>
-      we have <math|A<rsub|N<rprime|'>>\<cap\>B<rsub|N>=\<emptyset\>>,
-      <math|x\<in\><big|cap><rsub|N\<in\>\<Lambda\>><around*|(|A<rsub|N>\<cup\>B<rsub|N>\<cup\>C<rsub|N>|)>>
-      and <math|\<exists\>N<rsub|0>\<in\>\<Lambda\>>, such that
-      <math|A<rsub|N<rsub|0>>\<ni\>x>, then
-    </enumerate>
-
-    <\proof>
-      We will prove only the second assertion. Assume on contrary that
-      <math|x\<nin\><big|cap><rsub|N\<in\>\<Lambda\>><around*|(|A<rsub|N>\<cup\>C<rsub|N>|)>>
-      and hence for some <math|N<rsub|1>> we should have
-      <math|x\<nin\>A<rsub|N<rsub|1>>\<cup\>C<rsub|N<rsub|1>>>. Now, this
-      implies that <math|x\<in\>B<rsub|N<rsub|1>>>and hence that
-      <math|A<rsub|N<rsub|0>>\<cap\>B<rsub|N<rsub|1>>\<ni\>x>, thus giving a
-      contradiction.
-    </proof>
-
     <subsection|Proofs>
 
     <\proof>
@@ -3892,8 +3935,8 @@
     And <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>\<cup\>C<rsub|N>|)>>
     and as <math|C<rsub|N>\<subset\>-\<nu\>+2*<with|math-font|Bbb|Z>+1>,
     while <math|A<rsub|N>\<cup\>B<rsub|N>\<subset\>-\<nu\>+2*<with|math-font|Bbb|Z>>,
-    the first item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
-    \ and the fact that <math|B<rsub|0>=A<rsub|0>=\<emptyset\>\<Longrightarrow\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>|)>=\<emptyset\>>
+    the first item of lemma <reference|P-def:lem-threeset> \ and the fact
+    that <math|B<rsub|0>=A<rsub|0>=\<emptyset\>\<Longrightarrow\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>|)>=\<emptyset\>>
     imply that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>C<rsub|N>=\<emptyset\>>.
     This contradiction ends the proof.
 
@@ -3936,8 +3979,8 @@
       we have to conclude that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>|)>>.
       Now, as <math|-N+\<nu\>+q-2*\<nu\>\<less\>-\<nu\>+n\<Longleftrightarrow\>q\<less\>n>,
       we have that <math|\<forall\>N,N<rprime|'>,<space|0.75spc>A<rsub|N<rprime|'>>\<cap\>B<rsub|N>=\<emptyset\>>
-      and the first item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
-      \ together with the fact that <math|<big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>B<rsub|N>\<subset\>B<rsub|0>=\<emptyset\>>,
+      and the first item of lemma <reference|P-def:lem-threeset> \ together
+      with the fact that <math|<big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>B<rsub|N>\<subset\>B<rsub|0>=\<emptyset\>>,
       imply that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>A<rsub|N>=\<emptyset\>>.
     </proof>
 
@@ -3975,8 +4018,8 @@
       we have to conclude that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>|)>>.
       Now, as <math|q-\<nu\>-N\<less\>-\<nu\>+n\<Longleftrightarrow\>q-N\<less\>n>,
       we have that <math|\<forall\>N,N<rprime|'>,<space|0.75spc>A<rsub|N<rprime|'>>\<cap\>B<rsub|N>=\<emptyset\>>
-      and the first item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
-      \ together with the fact that <math|<big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>B<rsub|N>\<subset\>B<rsub|0>=\<emptyset\>>,
+      and the first item of lemma <reference|P-def:lem-threeset> \ together
+      with the fact that <math|<big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>B<rsub|N>\<subset\>B<rsub|0>=\<emptyset\>>,
       imply that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>>A<rsub|N>=\<emptyset\>>.
     </proof>
 
@@ -4017,9 +4060,8 @@
       we have to conclude that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>B<rsub|N>\<cup\>C<rsub|N>|)>>.
       Now, as <math|-\<nu\>+q-N\<less\>-\<nu\>+n\<Longleftrightarrow\>q-N\<less\>n>,
       we have that <math|\<forall\>N,N<rprime|'>,<space|0.75spc>A<rsub|N<rprime|'>>\<cap\>B<rsub|N>=\<emptyset\>>
-      and the second item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
-      \ (with <math|N<rsub|0>=0>) implies that
-      <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>C<rsub|N>|)>>.
+      and the second item of lemma <reference|P-def:lem-threeset> \ (with
+      <math|N<rsub|0>=0>) implies that <math|\<lambda\>\<in\><big|cap><rsub|N\<in\>2*<with|math-font|Bbb|Z><rsub|\<ge\>0>><around|(|A<rsub|N>\<cup\>C<rsub|N>|)>>.
 
       As <math|\<lambda\>\<in\>A<rsub|0>\<cup\>C<rsub|0>=A<rsub|0>>, we can
       write <math|\<lambda\>=-\<nu\>+q-N<rprime|'>> with
@@ -4136,7 +4178,7 @@
     <section|KC-normalization>
   </hide-part>
 
-  <\hide-part|16>
+  <\show-part|16>
     <section|KC-normalization-2>
 
     <subsection|Goal and setting>
@@ -4157,10 +4199,7 @@
     well-defined by the same reasoning as in proof of proposition
     <reference|KR-normalization-recur:prop-3>.
 
-    We will use notations <math|F<rsub|N,M,n<rprime|'>,m<rprime|'>,\<psi\>,\<psi\><rprime|'>>>
-    and <math|<wide|F|~><rsub|N,M,g<around*|(|t,s|)>,\<psi\>,1><rsup|>>
-    introduced in definition <reference|KC-normalization-2:def-ftilde>. We
-    shall also employ the notion of <math|\<frak-P\><around*|(|\<cdot\>|)>>
+    We shall also employ the notion of <math|\<frak-P\><around*|(|\<cdot\>|)>>
     as given in definition <reference|def-P> and related notions.
 
     <subsection|Main results>
@@ -4184,7 +4223,7 @@
       <math|\<lambda\>\<in\>\<bbb-C\>>, where
 
       <\equation*>
-        N\<assign\><choice|<tformat|<table|<row|<cell|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|q\<in\>>>|<row|<cell|>|<cell|>>>>>
+        N\<assign\><choice|<tformat|<table|<row|<cell|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|q\<in\>2\<bbb-Z\>+1>>|<row|<cell|>|<cell|>>>>>
       </equation*>
     </proposition>
 
@@ -4426,15 +4465,129 @@
     </proof>
 
     <\lemma>
-      \;
+      <label|KC-normalization-2:lem-Pcomputation>Fix
+      <math|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>. For
+      <math|><math|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|2>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)>\<times\><around*|{|0,1|}>>
+      we have
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|\<frak-P\><around*|(|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|C>,F<rsub|N,0><around*|[|\<psi\><rsub|N>,1;<around*|(|s
+        t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>=>|<cell|>>|<row|<cell|>|<cell|<choice|<tformat|<table|<row|<cell|-A<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>-B<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>->|<cell|>>|<row|<cell|-C<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>-D<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>+E<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>,>|<cell|p\<gtr\>1,q\<in\>2\<bbb-Z\><rsub|>+1>>|<row|<cell|-C<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>-D<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>+E<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>,>|<cell|p=1,<space|0.6spc>N=0>>|<row|<cell|-\<infty\>,>|<cell|p=1,<space|0.6spc>N\<gtr\>0>>|<row|<cell|-A<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>-B<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>->|<cell|>>|<row|<cell|-C<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>-D<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>+E<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>,>|<cell|p\<gtr\>1,<space|0.6spc>q\<in\>2\<bbb-Z\>,<space|0.6spc>n<rprime|'>\<gtr\><frac|\<nu\>-q-1|2>>>|<row|<cell|-\<infty\>>|<cell|p\<gtr\>1,<space|0.6spc>q\<in\>2\<bbb-Z\>,<space|0.6spc>n<rprime|'>\<leqslant\><frac|\<nu\>-q-1|2>>>>>>>|<cell|>>|<row|<cell|>|<cell|A<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>\<assign\>-\<frak-P\><around*|(|<frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+2|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>>|)>=<around*|{|\<lambda\>=n-\<nu\>+2j|}><rsub|j=0><rsup|<around*|(|N-2|)>/2>>|<cell|>>|<row|<cell|>|<cell|B<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>\<assign\>-\<frak-P\><around*|(|\<Gamma\><rsup|-1><around*|(|<frac|\<lambda\>-q+\<nu\>+N|2>|)>|)>=<around*|{|\<lambda\>\<in\>q-\<nu\>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>|<row|<cell|>|<cell|C<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>\<assign\>-\<frak-P\><around*|(|<around*|(|<around*|(|q-2m<rprime|'>-2n<rprime|'>-\<lambda\>-N-1|)>|)><rsub|<around*|(|\<nu\>-1|)>/2>|)>=<around*|{|\<lambda\>=q-2m<rprime|'>-N-1-2j|}><rsub|j=0><rsup|<around*|(|\<nu\>-3|)>/2>>|<cell|>>|<row|<cell|>|<cell|D<rsup|><rsub|m<rprime|'>,n<rprime|'>,N,i>\<assign\>-\<frak-P\><around*|(|\<Gamma\><rsup|-1><around*|(|<frac|\<lambda\>+N+2m<rprime|'>+2n<rprime|'>+2i|2>|)>|)>=<around*|{|\<lambda\>\<in\>-N-2m<rprime|'>-2n<rprime|'>-2i-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>|<row|<cell|>|<cell|E<rsub|m<rprime|'>,n<rprime|'>,N,i>=\<frak-P\><around*|(|\<Gamma\><around*|(|<frac|\<lambda\>+N+2m<rprime|'>+2n<rprime|'>-\<nu\>|2>|)>|)>=<around*|{|\<lambda\>\<in\>-N-2m<rprime|'>-2n<rprime|'>+\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>>>
+      </eqnarray>
     </lemma>
+
+    <\proof>
+      The lemma follows directly from the formulae in lemma
+      <reference|KC-normalization-2:lem-kfinite> once one recalls that
+      <math|\<frak-P\><around*|(|\<Gamma\><around*|(|x|)>/\<Gamma\><around*|(|x-k|)>|)>=-<around*|{|x=j|}><rsub|j=1><rsup|k>>
+      and <math|\<frak-P\><around*|(|<around*|(|<around*|(|x|)>|)><rsub|k>|)>=-<around*|{|x=2j|}><rsub|j=0><rsup|k-1>>.
+      One thing to notice is that
+
+      <\equation*>
+        <around*|(|<around*|(|q+2n<rprime|'>-2|)>|)><rsub|<around*|(|\<nu\>-1|)>/2>=0\<Leftrightarrow\>q\<in\>2\<bbb-Z\><rsub|\<geqslant\>1><space|1em>and<space|1em>q+2n<rprime|'>-\<nu\>+1\<leqslant\>0.
+      </equation*>
+    </proof>
+
+    <\lemma>
+      <label|KC-normalization-2:lem-normalization-qodd-aux-1>For
+      <math|q\<in\>2\<bbb-Z\>+1> and <math|p\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>>
+      with notation as in lemma <reference|KC-normalization-2:lem-Pcomputation>
+      we have
+
+      <\equation*>
+        min<rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>><around*|{|C<rsub|m<rprime|'>,n<rprime|'>,0,i>+D<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>+A<rsub|m<rprime|'>,n<rprime|'>,N,i>+B<rsub|m<rprime|'>,n<rprime|'>,N,i>|}>=
+        \<varnothing\>
+      </equation*>
+    </lemma>
+
+    <\proof>
+      Indeed, letting <math|\<frak-I\>\<assign\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|2>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)>\<times\><around*|{|0,1|}>>
+      we have
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|min<rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>><around*|{|C<rsub|m<rprime|'>,n<rprime|'>,0,i>+D<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>+A<rsub|m<rprime|'>,n<rprime|'>,N,i>+B<rsub|m<rprime|'>,n<rprime|'>,N,i>|}>=>|<cell|>>|<row|<cell|>|<cell|=
+        -<big|cap><rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>><around*|(|<around*|{|\<lambda\>=q-2m<rprime|'>-N-1-2j|}><rsub|j=0><rsup|<around*|(|\<nu\>-3|)>/2>\<cup\><around*|{|\<lambda\>\<in\>-N-2m<rprime|'>-2n<rprime|'>-2i-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|\<nobracket\>>\<cup\>>|<cell|>>|<row|<cell|>|<cell|\<cup\><around*|{|\<lambda\>\<in\>q-\<nu\>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}><around*|\<nobracket\>|\<cup\><around*|{|\<lambda\>=n-\<nu\>+2j|}><rsub|j=0><rsup|<around*|(|N-2|)>/2>|)>=>|<cell|>>|<row|<cell|>|<cell|=<big|cap><rsub|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|<around*|{|\<lambda\>\<in\>q-\<nu\>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cup\><around*|{|\<lambda\>=n-\<nu\>+2j|}><rsub|j=0><rsup|<around*|(|N-2|)>/2>\<cup\>|\<nobracket\>>>|<cell|>>|<row|<cell|>|<cell|\<cup\><around*|\<nobracket\>|<big|cap><rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|2>\<times\><around*|{|0,1|}>><around*|(|<around*|{|\<lambda\>=q-2m<rprime|'>-N-1-2j|}><rsub|j=0><rsup|<around*|(|\<nu\>-3|)>/2>\<cup\><around*|{|\<lambda\>\<in\>-N-2m<rprime|'>-2n<rprime|'>-2i-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|)>|)>=>|<cell|>>|<row|<cell|>|<cell|=<big|cap><rsub|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|<around*|{|\<lambda\>\<in\>q-\<nu\>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cup\><around*|{|\<lambda\>=n-\<nu\>+2j|}><rsub|j=0><rsup|<around*|(|N-2|)>/2>|)>.>|<cell|>>>>
+      </eqnarray>
+
+      Now, as we have <math|q-\<nu\>\<less\>n-\<nu\>>, the first item of
+      lemma <reference|P-def:lem-threeset> implies that latter equals to
+
+      <\equation*>
+        =<big|cap><rsub|N2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|<around*|{|\<lambda\>\<in\>q-\<nu\>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|)>\<cup\><big|cap><rsub|\<Nu\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|{|\<lambda\>=n-\<nu\>+2j|}><rsub|j=0><rsup|<around*|(|N-2|)>/2>\<varnothing\>\<cup\>\<varnothing\>
+        = \<varnothing\>.
+      </equation*>
+    </proof>
+
+    <\lemma>
+      <label|KC-normalization-2:lem-normalization-qodd>Proposition
+      <reference|KC-normalization-2:prop-normalization> holds for
+      <math|q\<in\>2\<bbb-Z\>+1>.
+    </lemma>
+
+    <\proof>
+      Fix <math|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1> and let
+      <math|\<frak-I\>\<assign\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|2>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)>\<times\><around*|{|0,1|}>>
+      and <math|\<frak-I\><rsub|0>\<assign\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|2>\<times\><around*|{|0,1|}>>
+      to facitilate the notation. As we need to show that
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>/N> is holomorphic and nonzero,
+      it suffices to show that for any <math|K>-finite vector <math|F> we
+      have <math|\<lambda\>\<mapsto\><around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|C>,F|\<rangle\>>>
+      being holomorphic and for every <math|\<lambda\>\<in\>\<bbb-C\>> one
+      can find <math|K>-finite vector <math|F<rsub|0>> such that
+      <math|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|C>,F<rsub|0>|\<rangle\>>\<neq\>0>.
+
+      Employing <math|\<frak-P\><around*|(|\<cdot\>|)>>-notation, in the
+      light of lemma <reference|KC-normalization-2:lem-kfinite-wrap> it
+      suffices to show that
+
+      <\equation*>
+        max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>><around*|{|\<frak-P\><around*|(|<around*|\<langle\>|<frac|K<rsub|\<lambda\>,\<nu\>><rsup|C>|N>,F<rsub|N,0><around*|[|\<psi\><rsub|N>,1;<around*|(|s
+        t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>|}><rsub|>=
+        \<varnothing\>
+      </equation*>
+
+      For this it suffices to compute
+
+      <\equation*>
+        max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>><around*|{|\<frak-P\><around*|(|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|C>,F<rsub|N,0><around*|[|\<psi\><rsub|N>,1;<around*|(|s
+        t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>|}><rsub|>
+      </equation*>
+
+      We first treat <math|p=1> case. With reference to formulae of lemma
+      <reference|KC-normalization-2:lem-Pcomputation>, we note that under the
+      assumption <math|q\<in\>2\<bbb-Z\>+1> and <math|p=1> we have
+      <math|supp<around*|(|C<rsub|m<rprime|'>,n<rprime|'>,N,i>|)>,supp<around*|(|D<rsub|m<rprime|'>,n<rprime|'>,N,i>|)>\<subset\>\<lambda\>+2\<bbb-Z\>>
+      and <math|supp<around*|(|E<rsub|m<rprime|'>,n<rprime|'>,N,i>|)>\<subset\>\<lambda\>+2\<bbb-Z\>+1>,
+      hence we have
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|max<rsub|><around*|{|\<frak-P\><around*|(|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|C>,F<rsub|N,0><around*|[|\<psi\><rsub|N>,1;<around*|(|s
+        t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>|}><rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>>=>|<cell|>>|<row|<cell|>|<cell|=-min<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\><rsub|0>><around*|{|C<rsub|m<rprime|'>,n<rprime|'>,0,i>+D<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>|}>+max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\>><around*|{|E<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>|}>=>|<cell|>>|<row|<cell|>|<cell|=
+        -<big|cap><rsub|<around*|(|m<rprime|'>,n<rprime|'>i|)>\<in\>\<frak-I\><rsub|0>><around*|(|<around*|{|\<lambda\>=q-2m<rprime|'>-N-1-2j|}><rsub|j=0><rsup|<around*|(|\<nu\>-3|)>/2>\<cup\><around*|{|\<lambda\>\<in\>-N-2m<rprime|'>-2n<rprime|'>-2i-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|)>+>|<cell|>>|<row|<cell|>|<cell|+<big|cup><rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\><rsub|0>><around*|{|\<lambda\>\<in\>-N-2m<rprime|'>-2n<rprime|'>+\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>|<row|<cell|>|<cell|=-\<varnothing\>+<around*|{|\<lambda\>\<in\>\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>>>
+      </eqnarray>
+
+      which gives the answer in the <math|p=1> case.
+
+      Next, we treat <math|p\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>> case.
+      Similarly, to above, we have <math|C<rsub|m<rprime|'>,n<rprime|'>,N,i>>,
+      <math|D<rsub|m<rprime|'>,n<rprime|'>,N,i>>,
+      <math|A<rsub|m<rprime|'>,n<rprime|'>,N,i>> and
+      <math|B<rsub|m<rprime|'>,n<rprime|'>,N,i>> vanishing outside
+      <math|\<nu\>+2\<bbb-Z\>>, while <math|E<rsub|m<rprime|'>,n<rprime|'>,N,i>>
+      vanishes outside <math|\<nu\>+2\<bbb-Z\>+1>. Hence, appl we have
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|max<rsub|><around*|{|\<frak-P\><around*|(|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|C>,F<rsub|N,0><around*|[|\<psi\><rsub|N>,1;<around*|(|s
+        t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>|}><rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>>=>|<cell|>>|<row|<cell|>|<cell|=-min<rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>><around*|{|C<rsub|m<rprime|'>,n<rprime|'>,0,i>+D<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>+A<rsub|m<rprime|'>,n<rprime|'>,N,i>+B<rsub|m<rprime|'>,n<rprime|'>,N,i>|}>+max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\>><around*|{|E<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>|}>=>|<cell|>>|<row|<cell|>|<cell|>|<cell|>>|<row|<cell|>|<cell|=-\<varnothing\>+<around*|{|\<lambda\>\<in\>\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>>>
+      </eqnarray>
+    </proof>
 
     <subsection|Proofs>
 
     \;
-  <|hide-part>
+  <|show-part>
     <section|KC-normalization-2>
-  </hide-part>
+  </show-part>
 
   <\hide-part|17>
     <section|Q-normalization>
@@ -6244,12 +6397,12 @@
         \<frak-P\><around*|(|Q<rsub|i>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1-i+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|<frac|n|2>-i+\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\>>>|<row|<cell|<around*|[|2-i+2\<bbb-Z\><rsub|\<geqslant\>0>|]>\<sqcup\><around*|(|<frac|n|2>-i+\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|i\<in\>2\<bbb-Z\>+1>>>>>
       </equation*>
 
-      Now, first item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
-      implies immediately the <math|<around*|(|-<frac|n|2>-k+\<bbb-Z\><rsub|\<geqslant\>0>|)>>
+      Now, first item of lemma <reference|P-def:lem-threeset> implies
+      immediately the <math|<around*|(|-<frac|n|2>-k+\<bbb-Z\><rsub|\<geqslant\>0>|)>>
       term in the result.\ 
 
-      The first item of lemma <reference|KC-normalization:lem-Suppose-that-sets>
-      now implies that to finish we need to show that (we may treat
+      The first item of lemma <reference|P-def:lem-threeset> now implies that
+      to finish we need to show that (we may treat
       <math|\<frak-P\><around*|(|<around*|(|\<nu\>|)><rsup|i>Q<rsub|i>|)>> as
       a set in accordance with definition <reference|def-P>, as
       <math|Q<rsub|i>> has only simple poles)
@@ -6484,38 +6637,6 @@
       Follows from similar lemma in <verbatim|KP-normalization.pdf>, the only
       difference being is that <math|S> is now precisely the same as in
       <verbatim|KC-normalization.pdf>.
-    </proof>
-
-    <\lemma>
-      <label|lem-4>Let <math|<around*|{|f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i\<in\>\<Lambda\>>>
-      for <math|j=1,2,3> be three families of
-      <math|\<bbb-C\><rsup|k>\<rightarrow\>\<bbb-Z\><rsub|\<geqslant\>0>>
-      functions and suppose that for all <math|i,j\<in\>\<Lambda\>> we have
-      sets <math|<around*|{|f<rsup|<around*|(|1|)>><rsub|i>\<neq\>0|}>> and
-      <math|<around*|{|f<rsub|j><rsup|<around*|(|2|)>>\<neq\>0|}>> being
-      disjoint. Assume moreover that for some
-      <math|i<rsub|0>\<in\>\<Lambda\>> we have
-      <math|f<rsup|<around*|(|1|)>><rsub|i<rsub|0>>\<equiv\>0> and
-      <math|f<rsup|<around*|(|3|)>><rsub|i<rsub|0>>=min<around*|{|f<rsub|i><rsup|<around*|(|3|)>>|}>>.
-      Then <math|min<around*|{|<big|sum><rsub|j=1><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i>=min<around*|{|<big|sum><rsub|j=2><rsup|3>f<rsub|i><rsup|<around*|(|j|)>>|}><rsub|i>>.
-    </lemma>
-
-    <\proof>
-      As <math|\<geqslant\>> is clear, it suffices to assume that for some
-      <math|x<rsub|0>\<in\>\<bbb-C\><rsup|k>> we have
-      <math|min<around*|{|<big|sum><rsub|j=1><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>\<gtr\>min<around*|{|<big|sum><rsub|j=2><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>>
-      and to reach a contradiction.
-
-      Now, <math|min<around*|{|<big|sum><rsub|j=1><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>\<leqslant\><around*|(|f<rsub|i<rsub|0>><rsup|<around*|(|1|)>>+f<rsub|i<rsub|0>><rsup|<around*|(|2|)>>+f<rsub|i<rsub|0>><rsup|<around*|(|3|)>>|)><around*|(|x<rsub|0>|)>=f<rsub|i<rsub|0>><rsup|<around*|(|2|)>><around*|(|x<rsub|0>|)>+f<rsub|i<rsub|0>><rsup|<around*|(|3|)>><around*|(|x<rsub|0>|)>>
-      and the assumption in previous paragraph implies that the rightmost
-      value is positive. Consider cases.
-
-      First, suppose that <math|f<rsub|i<rsub|0>><rsup|<around*|(|2|)>><around*|(|x<rsub|0>|)>=0>.
-      Then, <math|min<around*|{|<big|sum><rsub|j=1><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>\<leqslant\>f<rsub|i<rsub|0>><rsup|<around*|(|2|)>><around*|(|x<rsub|0>|)>+f<rsub|i<rsub|0>><rsup|<around*|(|3|)>><around*|(|x<rsub|0>|)>=f<rsup|<around*|(|3|)>><rsub|i<rsub|0>><around*|(|x<rsub|0>|)>=min<around*|{|f<rsup|<around*|(|3|)>><rsub|i<rsub|>><around*|(|x<rsub|0>|)>|}><rsub|i>\<leqslant\>min<around*|{|<big|sum><rsub|j=2><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>>.
-
-      Second, suppose that <math|f<rsub|i<rsub|0>><rsup|<around*|(|2|)>><around*|(|x<rsub|0>|)>=0\<Rightarrow\>x<rsub|0>\<in\><around*|{|f<rsub|i<rsub|0>><rsup|<around*|(|2|)>>\<neq\>0|}>>
-      and hypothesis implies that <math|\<forall\>i\<in\>\<Lambda\>,<space|0.6spc>f<rsub|i><rsup|<around*|(|2|)>><around*|(|x<rsub|0>|)>=0>
-      and hence <math|min<around*|{|<big|sum><rsub|j=1><rsup|3>f<rsup|<around*|(|j|)>><rsub|i>|}><rsub|i><around*|(|x<rsub|0>|)>=min<around*|{|<big|sum><rsub|j=2><rsup|3>f<rsub|i><rsup|<around*|(|j|)>>|}><rsub|i><around*|(|x<rsub|0>|)>>.
     </proof>
 
     <\lemma>
@@ -7766,12 +7887,15 @@
     <associate|Assume-that-4|<tuple|14.6|27|#15>>
     <associate|For-,-we|<tuple|14.8|27|#15>>
     <associate|KC-normalization-2:def-ftilde|<tuple|15.1|41|#16>>
+    <associate|KC-normalization-2:lem-P|<tuple|15.7|?|#16>>
+    <associate|KC-normalization-2:lem-Pcomputation|<tuple|15.7|?|#16>>
     <associate|KC-normalization-2:lem-kfin-00|<tuple|15.3|?|#16>>
     <associate|KC-normalization-2:lem-kfin-11|<tuple|15.4|?|#16>>
     <associate|KC-normalization-2:lem-kfinite|<tuple|15.5|?|#16>>
     <associate|KC-normalization-2:lem-kfinite-wrap|<tuple|15.6|?|#16>>
+    <associate|KC-normalization-2:lem-normalization-qodd|<tuple|15.9|?|#16>>
+    <associate|KC-normalization-2:lem-normalization-qodd-aux-1|<tuple|15.8|?|#16>>
     <associate|KC-normalization-2:prop-normalization|<tuple|15.2|?|#16>>
-    <associate|KC-normalization:lem-Suppose-that-sets|<tuple|14.10|28|#15>>
     <associate|KC-normalization:prop-kfinite|<tuple|14.1|26|#15>>
     <associate|KC-normalization:prop-sol-extending|<tuple|9.4|?|#10>>
     <associate|KP-normalization-2:lem-aux-1|<tuple|79|?|#6>>
@@ -7787,9 +7911,9 @@
     <associate|KP-normalization:lem-Mg0|<tuple|17.10|41|#18>>
     <associate|KR-normalization-even:hypo-maxima|<tuple|2|?|#10>>
     <associate|KR-normalization-even:lem-2|<tuple|19.5|52|#20>>
-    <associate|KR-normalization-even:lem-kfinite-00-aux|<tuple|19.12|55|#20>>
+    <associate|KR-normalization-even:lem-kfinite-00-aux|<tuple|19.11|55|#20>>
     <associate|KR-normalization-even:lem-kfinite-11|<tuple|17.11|?|#18>>
-    <associate|KR-normalization-even:lem-kfinite-11-aux|<tuple|19.13|56|#20>>
+    <associate|KR-normalization-even:lem-kfinite-11-aux|<tuple|19.12|56|#20>>
     <associate|KR-normalization-even:prop-holo|<tuple|19.4|51|#20>>
     <associate|KR-normalization-even:prop-hypoA|<tuple|17.12|51|#18>>
     <associate|KR-normalization-even:prop-kfinite|<tuple|19.3|51|#20>>
@@ -7823,6 +7947,7 @@
     <associate|P-def:lem-laurent-distr|<tuple|13.2|24|#14>>
     <associate|P-def:lem-mero-addition|<tuple|13.3|24|#14>>
     <associate|P-def:lem-mero-supp|<tuple|13.8|25|#14>>
+    <associate|P-def:lem-threeset|<tuple|13.11|28|#14>>
     <associate|P-def:rem-def-P|<tuple|13.5|25|#14>>
     <associate|Suppose-that-sets|<tuple|18|?|#2>>
     <associate|Suppose-there-exists|<tuple|14.7|27|#15>>
@@ -7936,7 +8061,7 @@
     <associate|auto.14-1|<tuple|13|?|#14>>
     <associate|auto.14-2|<tuple|13.1|?|#14>>
     <associate|auto.14-3|<tuple|13.2|?|#14>>
-    <associate|auto.14-4|<tuple|14.3|?|#14>>
+    <associate|auto.14-4|<tuple|13.3|?|#14>>
     <associate|auto.14-5|<tuple|14.4|?|#14>>
     <associate|auto.14-6|<tuple|14|?|#14>>
     <associate|auto.15-1|<tuple|14|?|#15>>
@@ -8061,7 +8186,7 @@
     <associate|diffSBO:lem-aux|<tuple|10.1|17|#11>>
     <associate|diffSBO:prop-main|<tuple|10.2|17|#11>>
     <associate|eq|<tuple|3.1|?|#4>>
-    <associate|eq-1|<tuple|17.1|40|#18>>
+    <associate|eq-1|<tuple|16.1|40|#17>>
     <associate|eq-2|<tuple|16.2|40|#17>>
     <associate|eq-Nequiv|<tuple|3.1|3|#4>>
     <associate|eq:sing-q-dx|<tuple|9.1|16|#10>>
@@ -8166,13 +8291,13 @@
     <associate|lem-3-1|<tuple|7.3|9|#8>>
     <associate|lem-3-2|<tuple|7.4|10|#8>>
     <associate|lem-3-3|<tuple|7.5|10|#8>>
-    <associate|lem-4|<tuple|19.6|52|#20>>
-    <associate|lem-5|<tuple|19.8|52|#20>>
-    <associate|lem-5n|<tuple|19.7|52|#20>>
+    <associate|lem-4|<tuple|16.9|52|#17>>
+    <associate|lem-5|<tuple|16.10|52|#17>>
+    <associate|lem-5n|<tuple|19.6|52|#20>>
     <associate|lem-6|<tuple|16.11|35|#17>>
-    <associate|lem-7|<tuple|19.10|54|#20>>
-    <associate|lem-8|<tuple|19.9|53|#20>>
-    <associate|lem-9|<tuple|19.11|55|#20>>
+    <associate|lem-7|<tuple|19.9|54|#20>>
+    <associate|lem-8|<tuple|19.8|53|#20>>
+    <associate|lem-9|<tuple|19.10|55|#20>>
     <associate|lem-assume-the-setting|<tuple|17.11|42|#18>>
     <associate|lem-holo-nonzero|<tuple|16.8|35|#17>>
     <associate|lem-holo-supp|<tuple|76|?|#6>>
