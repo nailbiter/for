@@ -1,6 +1,6 @@
 <TeXmacs|1.0.7.18>
 
-<style|article>
+<style|<tuple|article|mystyle>>
 
 <\body>
   <math|<frac|\<Gamma\>*<around*|(|\<lambda\>+\<nu\>-n+1|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>-q+\<nu\>+N|2>|)>>>
@@ -12,54 +12,6 @@
   </equation*>
 
   <section|Unplugged>
-
-  <\lemma>
-    <label|lem-21>Let <math|Q> be non-degenerate
-    <math|<around*|(|p,q|)>>-quadratic form. Generalized functions
-    <math|Q<rsub|\<pm\>><rsup|\<nu\>>> as defined in
-    <cite-detail|gelfand1980distribution|sec III.2.2> together with
-    distributions <math|<around*|\||Q|\|><rsup|\<nu\>>\<assign\>Q<rsub|+><rsup|\<nu\>>+Q<rsub|-><rsup|\<nu\>>>
-    and <math|<around*|\||Q|\|><rsup|\<nu\>>sgn<around*|(|Q|)>\<assign\>Q<rsub|+><rsup|\<nu\>>-Q<rsub|-><rsup|\<nu\>>>
-    are all nonvanishing for <math|\<nu\>\<in\>\<bbb-C\>>.
-  </lemma>
-
-  <\remark>
-    It is implied by material at <cite-detail|gelfand1980distribution|sec
-    III.2.2> that all four distributions have isolated algebraic poles at
-    <math|\<bbb-Z\><rsub|\<leqslant\>-1>\<cup\><around*|(|-<frac|p+q|2>-\<bbb-Z\><rsub|\<geqslant\>0>|)>>
-    and what we mean by ``being nonvanishing'' at these points is that the
-    constant term of Laurent series is non-zero.
-  </remark>
-
-  <\remark>
-    Next proof is due to Nakahama-san.
-  </remark>
-
-  <\proof>
-    Let <math|\<varphi\><rsub|><rsup|+>> and <math|\<varphi\><rsub|><rsup|->>
-    be elements of <math|C<rsub|0><rsup|\<infty\>>> with support lying in
-    <math|<around*|{|Q\<gtr\>0|}>> and <math|<around*|{|Q\<less\>0|}>>
-    respectively. Define further <math|\<varphi\><rsup|\<pm\>><rsub|\<nu\>>\<assign\><around*|\||Q|\|><rsup|-Im<around*|(|\<nu\>|)>>\<varphi\><rsup|\<pm\>>>.\ 
-
-    We will use generic symbol <math|Q<rsub|\<nu\>>> to denote any one of the
-    four distributions we have in statement. To demonstrate what we need to
-    show it suffices for every <math|\<nu\><rsub|0>\<in\>\<bbb-C\>> find
-    <math|\<varphi\><rsub|0>\<in\>C<rsup|\<infty\>><rsub|0>> such that
-    <math|<around*|\<langle\>|Q<rsub|\<nu\><rsub|0>>,\<varphi\><rsub|0>|\<rangle\>>\<neq\>0>
-    (in particular, at <math|\<nu\><rsub|0>> pole of <math|Q<rsub|\<nu\>>>
-    one sees this sufficiency by expanding into Laurent series).
-
-    Fixing <math|\<nu\><rsub|0>\<in\>\<bbb-C\>>, analytic rigidity in
-    <math|\<nu\>\<in\>\<bbb-C\>> implies that up to sign we have
-    <math|<around*|\<langle\>|Q<rsup|\<nu\>>,\<varphi\><rsup|\<pm\>><rsub|\<nu\><rsub|0>>|\<rangle\>>=<big|int><around*|\||Q|\|><rsup|\<nu\>>\<varphi\><rsup|\<pm\>><rsub|\<nu\><rsub|0>>>
-    with integration being well-defined due to the assumptions imposed on
-    <math|supp<around*|(|\<varphi\><rsub|\<pm\>>|)>>.
-
-    Hence, in particular <math|<around*|\<langle\>|Q<rsup|\<nu\><rsub|0>>,\<varphi\><rsub|\<nu\><rsub|0>><rsup|\<pm\>>|\<rangle\>>=<big|int><around*|\||Q|\|><rsup|Re<around*|(|\<nu\><rsub|0>|)>>\<varphi\><rsub|><rsup|\<pm\>>>
-    up to sign, and since we can always make choice of
-    <math|\<varphi\><rsup|+>> or <math|\<varphi\><rsup|->> to make the latter
-    integral positive, this ends the proof.
-  </proof>
 
   <\lemma>
     <label|KR-normalization-recur:lem-recur>Assume
@@ -173,6 +125,51 @@
     carried out by applying both sides to spherical vector
     <math|\<b-1\><rsub|\<lambda\>>\<in\>I<around*|(|\<lambda\>|)>> and using\ 
   </proof>
+
+  <subsection|P odd/even stuff>
+
+  <\lemma>
+    <label|lem-16>Fix <math|m\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> and let
+    <math|<wide|<wide|P|~>|~><rsup|even><rsub|a,-m>:=P<rsub|a,-m><rsup|even>\<cdot\>\<Gamma\><around*|(|a|)>>
+    and <math|<wide|<wide|P|~>|~><rsub|a,-m><rsup|odd>:=<wide|P<rsub|>|~><rsub|a,-m><rsup|odd>\<cdot\>\<Gamma\><around*|(|a|)>>.
+    Then, <math|<wide|<wide|P|~>|~><rsup|even><rsub|a,-m>> is holomorphic in
+    <math|a\<in\>\<bbb-C\>> and nonzero (the latter is in sense that
+    <math|\<forall\>a<space|0.6spc>\<exists\>g\<in\>\<bbb-C\><around*|[|t|]>>
+    such that <math|<wide|<wide|P|~>|~><rsup|even><rsub|a,-m><around*|(|g|)>\<neq\>0>),
+    while <math|<wide|P|~><rsup|odd><rsub|a,-m>> is nonzero and furthermore
+    holomorphic if <math|m\<gtr\>0>, while if <math|m=0> it has only simple
+    pole at <math|a=0>.
+  </lemma>
+
+  <\remark>
+    Similar statement holds with <math|a> and <math|b> interchanged.
+  </remark>
+
+  <\proof>
+    Statements about holomorphicity and the pole of
+    <math|<wide|P|~><rsub|a,0><rsup|odd>> follow, as poles of
+    <math|\<Gamma\><around*|(|a|)>> matches zeros of
+    <math|P<rsub|a,-m><rsup|even>> and <math|<wide|P|~><rsub|a,-m><rsup|odd>>
+    with <math|m\<gtr\>1> and these poles are all simple.
+
+    Now, straightforward computations
+
+    <\equation*>
+      <wide|<wide|P|~>|~><rsub|a,-m<rsub|>><rsup|even><around*|(|<around*|(|1-t<rsup|2>|)><rsup|m><rsup|<rsub|>>|)>\<simeq\><frac|\<Gamma\><around*|(|a+m|)>|\<Gamma\><around*|(|a-m+2m|)>>\<cdot\><frac|\<Gamma\><around*|(|0|)>|\<Gamma\><around*|(|-m|)>>\<simeq\>1\<neq\>0
+    </equation*>
+
+    <\equation*>
+      m\<gtr\>1\<Rightarrow\><wide|<wide|P|~>|~><rsub|a,-m<rsub|>><rsup|odd><around*|(|t<around*|(|1-t<rsup|2>|)><rsup|m-1<rsub|>>|)>\<simeq\><frac|\<Gamma\><around*|(|a+m-1|)>|\<Gamma\><around*|(|a-m+2m-1|)>>\<cdot\><frac|\<Gamma\><around*|(|-1|)>|\<Gamma\><around*|(|-m|)>>\<simeq\>1\<neq\>0
+    </equation*>
+
+    <\equation*>
+      <wide|<wide|P|~>|~><rsup|odd><rsub|a,0><around*|(|t<around*|(|1-t<rsup|2>|)><rsup|0>|)>\<simeq\><frac|\<Gamma\><around*|(|a|)>|\<Gamma\><around*|(|a+1|)>>\<cdot\><frac|\<Gamma\><around*|(|0|)>|\<Gamma\><around*|(|0|)>>=\<infty\>\<Leftrightarrow\>a=0
+    </equation*>
+
+    end the proof.
+
+    \;
+  </proof>
 </body>
 
 <initial|<\collection>
@@ -180,12 +177,42 @@
 
 <\references>
   <\collection>
+    <associate|KR-normalization-even:fact-P-K|<tuple|6|?>>
+    <associate|KR-normalization-even:lem-1|<tuple|6|?>>
+    <associate|KR-normalization-even:lem-2|<tuple|7|?>>
+    <associate|KR-normalization-even:lem-3|<tuple|8|?>>
     <associate|KR-normalization-recur:eq-recur|<tuple|1|?>>
-    <associate|KR-normalization-recur:lem-recur|<tuple|4|?>>
-    <associate|KR-normalization-recur:prop-2|<tuple|5|?>>
-    <associate|KR-normalization-recur:prop-func-eq|<tuple|6|?>>
+    <associate|KR-normalization-recur:lem-recur|<tuple|1|?>>
+    <associate|KR-normalization-recur:prop-2|<tuple|2|?>>
+    <associate|KR-normalization-recur:prop-func-eq|<tuple|3|?>>
     <associate|auto-1|<tuple|1|?>>
     <associate|auto-2|<tuple|1.1|?>>
+    <associate|auto-3|<tuple|1.2|?>>
+    <associate|lem-1|<tuple|6|?>>
+    <associate|lem-16|<tuple|6|?>>
+    <associate|lem-2|<tuple|7|?>>
     <associate|lem-21|<tuple|1|?>>
+    <associate|lem-3|<tuple|8|?>>
   </collection>
 </references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|bib>
+      kobayashi2015symmetry
+    </associate>
+    <\associate|toc>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Unplugged>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-1><vspace|0.5fn>
+
+      <with|par-left|<quote|1.5fn>|1.1<space|2spc>Unproven
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2>>
+
+      <with|par-left|<quote|1.5fn>|1.2<space|2spc>P odd/even stuff
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3>>
+    </associate>
+  </collection>
+</auxiliary>
