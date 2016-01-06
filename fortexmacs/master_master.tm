@@ -4223,7 +4223,19 @@
       <math|\<lambda\>\<in\>\<bbb-C\>>, where
 
       <\equation*>
-        N\<assign\><choice|<tformat|<table|<row|<cell|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|q\<in\>2\<bbb-Z\>+1>>|<row|<cell|>|<cell|>>>>>
+        N\<assign\><choice|<tformat|<table|<row|<cell|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|q\<in\>2\<bbb-Z\>+1>>|<row|<cell|\<Gamma\><around*|(|<frac|\<lambda\>-min<around*|{|\<nu\>,q-\<nu\>|}>|2>|)>>|<cell|q\<in\>2\<bbb-Z\>,<space|0.6spc>p=1>>|<row|<cell|1,>|<cell|q\<in\>2\<bbb-Z\>,p\<gtr\>1.>>>>>
+      </equation*>
+    </proposition>
+
+    <\proposition>
+      <label|KC-normalization-2:prop-supp>For
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>>
+      and <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>> as defined in
+      proposition <reference|KC-normalization-2:prop-normalization> support
+      of <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>> is given as
+
+      <\equation*>
+        =<choice|<tformat|<table|<row|<cell|,>|<cell|>>|<row|<cell|>|<cell|>>>>>
       </equation*>
     </proposition>
 
@@ -4513,7 +4525,7 @@
       lemma <reference|P-def:lem-threeset> implies that latter equals to
 
       <\equation*>
-        =<big|cap><rsub|N2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|<around*|{|\<lambda\>\<in\>q-\<nu\>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|)>\<cup\><big|cap><rsub|\<Nu\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|{|\<lambda\>=n-\<nu\>+2j|}><rsub|j=0><rsup|<around*|(|N-2|)>/2>\<varnothing\>\<cup\>\<varnothing\>
+        =<big|cap><rsub|N2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|<around*|{|\<lambda\>\<in\>q-\<nu\>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|)>\<cup\><big|cap><rsub|\<Nu\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|{|\<lambda\>=n-\<nu\>+2j|}><rsub|j=0><rsup|<around*|(|N-2|)>/2>=\<varnothing\>\<cup\>\<varnothing\>
         = \<varnothing\>.
       </equation*>
     </proof>
@@ -4553,17 +4565,23 @@
         t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>|}><rsub|>
       </equation*>
 
+      Moreover, we note that lemma <reference|supp-Q:prop-supp-xnoq0> implies
+      in particular that <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> is nonzero
+      for <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>>
+      and therefore one can compute <math|\<frak-P\><rsub|+>> instead of
+      <math|\<frak-P\>>.
+
       We first treat <math|p=1> case. With reference to formulae of lemma
       <reference|KC-normalization-2:lem-Pcomputation>, we note that under the
       assumption <math|q\<in\>2\<bbb-Z\>+1> and <math|p=1> we have
       <math|supp<around*|(|C<rsub|m<rprime|'>,n<rprime|'>,N,i>|)>,supp<around*|(|D<rsub|m<rprime|'>,n<rprime|'>,N,i>|)>\<subset\>\<lambda\>+2\<bbb-Z\>>
       and <math|supp<around*|(|E<rsub|m<rprime|'>,n<rprime|'>,N,i>|)>\<subset\>\<lambda\>+2\<bbb-Z\>+1>,
-      hence we have
+      hence we have (we use <math|f<rsub|+>> notation to denote positive part
+      of <math|f:\<bbb-C\>\<rightarrow\>\<bbb-Z\>>)
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|max<rsub|><around*|{|\<frak-P\><around*|(|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|C>,F<rsub|N,0><around*|[|\<psi\><rsub|N>,1;<around*|(|s
-        t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>|}><rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>>=>|<cell|>>|<row|<cell|>|<cell|=-min<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\><rsub|0>><around*|{|C<rsub|m<rprime|'>,n<rprime|'>,0,i>+D<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>|}>+max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\>><around*|{|E<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>|}>=>|<cell|>>|<row|<cell|>|<cell|=
-        -<big|cap><rsub|<around*|(|m<rprime|'>,n<rprime|'>i|)>\<in\>\<frak-I\><rsub|0>><around*|(|<around*|{|\<lambda\>=q-2m<rprime|'>-N-1-2j|}><rsub|j=0><rsup|<around*|(|\<nu\>-3|)>/2>\<cup\><around*|{|\<lambda\>\<in\>-N-2m<rprime|'>-2n<rprime|'>-2i-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|)>+>|<cell|>>|<row|<cell|>|<cell|+<big|cup><rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\><rsub|0>><around*|{|\<lambda\>\<in\>-N-2m<rprime|'>-2n<rprime|'>+\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>|<row|<cell|>|<cell|=-\<varnothing\>+<around*|{|\<lambda\>\<in\>\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|max<rsub|><around*|{|\<frak-P\><rsub|+><around*|(|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|C>,F<rsub|N,0><around*|[|\<psi\><rsub|N>,1;<around*|(|s
+        t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>|}><rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>>=>|<cell|>>|<row|<cell|>|<cell|=max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\><rsub|0>><around*|(|-C<rsub|m<rprime|'>,n<rprime|'>,0,i>-D<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>|)><rsub|+>+max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\>><around*|{|E<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>|}>=>|<cell|>>|<row|<cell|>|<cell|=max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\><rsub|0>>0+<big|cup><rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\><rsub|0>><around*|{|\<lambda\>\<in\>-N-2m<rprime|'>-2n<rprime|'>+\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=-\<varnothing\>+<around*|{|\<lambda\>\<in\>\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>>>
       </eqnarray>
 
       which gives the answer in the <math|p=1> case.
@@ -4573,18 +4591,87 @@
       <math|D<rsub|m<rprime|'>,n<rprime|'>,N,i>>,
       <math|A<rsub|m<rprime|'>,n<rprime|'>,N,i>> and
       <math|B<rsub|m<rprime|'>,n<rprime|'>,N,i>> vanishing outside
-      <math|\<nu\>+2\<bbb-Z\>>, while <math|E<rsub|m<rprime|'>,n<rprime|'>,N,i>>
-      vanishes outside <math|\<nu\>+2\<bbb-Z\>+1>. Hence, appl we have
+      <math|\<lambda\>+2\<bbb-Z\>>, while
+      <math|E<rsub|m<rprime|'>,n<rprime|'>,N,i>> vanishes outside
+      <math|\<lambda\>+2\<bbb-Z\>+1>. Hence, applying lemma
+      <reference|KC-normalization-2:lem-normalization-qodd-aux-1> we have
 
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|max<rsub|><around*|{|\<frak-P\><around*|(|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|C>,F<rsub|N,0><around*|[|\<psi\><rsub|N>,1;<around*|(|s
-        t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>|}><rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>>=>|<cell|>>|<row|<cell|>|<cell|=-min<rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>><around*|{|C<rsub|m<rprime|'>,n<rprime|'>,0,i>+D<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>+A<rsub|m<rprime|'>,n<rprime|'>,N,i>+B<rsub|m<rprime|'>,n<rprime|'>,N,i>|}>+max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\>><around*|{|E<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>|}>=>|<cell|>>|<row|<cell|>|<cell|>|<cell|>>|<row|<cell|>|<cell|=-\<varnothing\>+<around*|{|\<lambda\>\<in\>\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>>>
+        t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>|}><rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>>=>|<cell|>>|<row|<cell|>|<cell|=max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>><around*|(|-C<rsub|m<rprime|'>,n<rprime|'>,0,i>-D<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>-A<rsub|m<rprime|'>,n<rprime|'>,N,i>-B<rsub|m<rprime|'>,n<rprime|'>,N,i>|)><rsub|+>+max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\>><around*|{|E<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>|}>=>|<cell|>>|<row|<cell|>|<cell|=-\<varnothing\>+<around*|{|\<lambda\>\<in\>\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>>>
       </eqnarray>
+
+      Finally, case <math|p\<in\>2\<bbb-Z\><rsub|\<geqslant\>1>+1> is treated
+      similarly, only this time we have <math|A<rsub|m<rprime|'>,n<rprime|'>,N,i>>
+      vanishing outside <math|\<lambda\>+2\<bbb-Z\>+1> and hence
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|max<rsub|><around*|{|\<frak-P\><around*|(|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|C>,F<rsub|N,0><around*|[|\<psi\><rsub|N>,1;<around*|(|s
+        t|)><rsup|i><around*|(|1-s<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-t<rsup|2>|)><rsup|m<rprime|'>>|]>|\<rangle\>>|)>|}><rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>>=>|<cell|>>|<row|<cell|>|<cell|=max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,N,i|)>\<in\>\<frak-I\>><around*|(|-C<rsub|m<rprime|'>,n<rprime|'>,0,i>-D<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>-B<rsub|m<rprime|'>,n<rprime|'>,N,i>|)><rsub|+>+max<rsub|<around*|(|m<rprime|'>,n<rprime|'>,i|)>\<in\>\<frak-I\>><around*|{|E<rsub|m<rprime|'>,n<rprime|'>,0<rprime|'>i>-A<rsub|m<rprime|'>,n<rprime|'>,N,i>|}>=>|<cell|>>|<row|<cell|>|<cell|=-\<varnothing\>+<around*|{|\<lambda\>\<in\>\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>.>|<cell|>>>>
+      </eqnarray>
+    </proof>
+
+    <\lemma>
+      <label|KC-normalization-2:lem-normalization-q-even-p-1>Proposition
+      <reference|KC-normalization-2:prop-normalization> holds for
+      <math|q\<in\>2\<bbb-Z\>> and <math|p=1>.
+    </lemma>
+
+    <\proof>
+      We proceed as in proof of lemma <reference|KC-normalization-2:lem-normalization-qodd>.
+      Under the assumptions taken on <math|<around*|(|p,q|)>> we have
+      <math|D<rsub|m<rprime|'>,n<rprime|'>,N,i>\<subset\>\<lambda\>+2\<bbb-Z\>>,
+      while <math|C<rsub|m<rprime|'>,n<rprime|'>,N,i>,E<rsub|m<rprime|'>,n<rprime|'>,N,i>\<subset\>\<lambda\>+2\<bbb-Z\>+1>.
+
+      Therefore, as in proof of lemma <reference|KC-normalization-2:lem-normalization-qodd>,
+      it reduces to one having to compute for
+      <math|\<frak-I\>\<assign\>\<bbb-Z\><rsub|\<geqslant\>0>\<times\><around*|(|max<around*|{|<frac|\<nu\>-q+1|2>,0|}>+\<bbb-Z\><rsub|\<geqslant\>0>|)>>
+      and <math|f<rsub|+>> denoting the positive part of <math|f<rsub|+>>,
+      the result of
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|max<rsub|<around*|(|m<rprime|'>,n<rprime|'>|)>\<in\>\<frak-I\>><around*|(|<around*|{|\<lambda\>\<in\>-2m<rprime|'>-2n<rprime|'>+\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>-<around*|{|\<lambda\>=q-2m<rprime|'>-1-2j|}><rsub|j=0><rsup|<around*|(|\<nu\>-3|)>/2>|)><rsub|+>=>|<cell|>>|<row|<cell|>|<cell|=<big|cup><rsub|<around*|(|m<rprime|'>,n<rprime|'>|)>\<in\>\<frak-I\>><around*|(|<around*|{|\<lambda\>\<in\>-2m<rprime|'>-2n<rprime|'>+\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\\<around*|{|\<lambda\>=q-2m<rprime|'>-1-2j|}><rsub|j=0><rsup|<around*|(|\<nu\>-3|)>/2>|)>=>|<cell|>>|<row|<cell|>|<cell|=<big|cup><rsub|m<rprime|'>=0><rsup|\<infty\>><big|cup><rsub|n<rprime|'>=max<around*|{|<frac|\<nu\>-q+1|2>,0|}>><rsup|\<infty\>><around*|(|<around*|{|\<lambda\>\<in\>-2m<rprime|'>-2n<rprime|'>+\<nu\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\\<around*|{|\<lambda\>=-2m<rprime|'>+q-1-2j|}><rsub|j=0><rsup|<around*|(|\<nu\>-3|)>/2>|)>=>|<cell|>>|<row|<cell|>|<cell|=<big|cup><rsub|m<rprime|'>=0><rsup|\<infty\>><around*|(|<around*|{|\<lambda\>\<in\>min<around*|{|q-\<nu\>-1,0|}>+\<nu\>-2m<rprime|'>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\\<around*|{|\<lambda\>=-2m<rprime|'>+q-\<nu\>+2+2j|}><rsub|j=0><rsup|<around*|(|\<nu\>-3|)>/2>|)><rsup|>=>|<cell|>>>>
+      </eqnarray>
+
+      and as <math|><math|min<around*|{|q-\<nu\>-1,0|}>+\<nu\>\<leqslant\>q-1=q-\<nu\>+2+<around*|(|\<nu\>-3|)>>,
+      the latter equals to
+
+      <\equation*>
+        =<big|cup><rsub|m<rprime|'>=0><rsup|\<infty\>><around*|{|\<lambda\>\<in\>-2m<rprime|'>+min<around*|{|q-1,\<nu\>,q-\<nu\>|}>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=<around*|{|\<lambda\>\<in\>min<around*|{|q-1,\<nu\>,q-\<nu\>|}>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>.
+      </equation*>
+
+      and as <math|min<around*|{|q-1,\<nu\>,q-\<nu\>|}>=min<around*|{|q-1,\<nu\>|}>>,
+      we are done.
+    </proof>
+
+    <\lemma>
+      <label|KC-normalization-2:lem-normalization-q-even-p-odd>Proposition
+      <reference|KC-normalization-2:prop-normalization> holds for
+      <math|q\<in\>2\<bbb-Z\>> and <math|p\<gtr\>1>.
+    </lemma>
+
+    <\proof>
+      We first do the proof for <math|p\<in\>2\<bbb-Z\>+1>. The proof goes
+      similarly to that of lemma <reference|KC-normalization-2:lem-normalization-q-even-p-1>.
+      We have <math|A<rsub|m<rprime|'>,n<rprime|'>,N,i>,<space|0.6spc>D<rsub|m<rprime|'>,n<rprime|'>,N,i>\<subset\>\<lambda\>+2\<bbb-Z\>>,
+      while <math|C<rsub|m<rprime|'>,n<rprime|'>,N,i>,E<rsub|m<rprime|'>,n<rprime|'>,N,i>,D<rsub|m<rprime|'>,n<rprime|'>,N,i>\<subset\>\<lambda\>+2\<bbb-Z\>+1>.
+      Thus we need to compute for <math|\<frak-I\>\<assign\>\<bbb-Z\><rsub|\<geqslant\>0>\<times\><around*|(|max<around*|{|<frac|\<nu\>-q+1|2>,0|}>+\<bbb-Z\><rsub|\<geqslant\>0>|)>\<times\>2\<bbb-Z\><rsub|\<geqslant\>0>>
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<big|cup><rsub|<around*|(|m<rprime|'>,n<rprime|'>,N|)>\<in\>\<frak-I\>><around*|{|\<lambda\>\<in\>-2n<rprime|'>-N+\<nu\>-2m<rprime|'>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\\>|<cell|>>|<row|<cell|>|<cell|<around*|(|<around*|{|\<lambda\>=-2m<rprime|'>+q-N-\<nu\>+2+2j|}><rsub|j=0><rsup|<around*|(|\<nu\>-3|)>/2>\<cup\><around*|{|\<lambda\>\<in\>q-\<nu\>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|)>=>|<cell|>>|<row|<cell|>|<cell|=<big|cup><rsub|<around*|(|m<rprime|'>,N|)>\<in\>\<bbb-Z\><rsub|\<geqslant\>0>\<times\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|{|\<lambda\>\<in\>-N-2m<rprime|'>+min<around*|{|q-1,\<nu\>,q-\<nu\>|}>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\\<around*|{|\<lambda\>\<in\>q-\<nu\>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=>|<cell|>>|<row|<cell|>|<cell|=<big|cup><rsub|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|{|\<lambda\>\<in\>-N+min<around*|{|\<nu\>,q-\<nu\>|}>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\\<around*|{|\<lambda\>\<in\>q-\<nu\>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=\<varnothing\>.>|<cell|>>>>
+      </eqnarray>
+
+      The case <math|p\<in\>2\<bbb-Z\>> is then handled similarly.
     </proof>
 
     <subsection|Proofs>
 
-    \;
+    <\proof>
+      (of prop. <reference|KC-normalization-2:prop-normalization>) Follows
+      from lemmas <reference|KC-normalization-2:lem-normalization-qodd>,
+      <reference|KC-normalization-2:lem-normalization-q-even-p-1> and
+      <reference|KC-normalization-2:lem-normalization-q-even-p-odd>
+    </proof>
   <|show-part>
     <section|KC-normalization-2>
   </show-part>
@@ -7888,14 +7975,17 @@
     <associate|For-,-we|<tuple|14.8|27|#15>>
     <associate|KC-normalization-2:def-ftilde|<tuple|15.1|41|#16>>
     <associate|KC-normalization-2:lem-P|<tuple|15.7|?|#16>>
-    <associate|KC-normalization-2:lem-Pcomputation|<tuple|15.7|?|#16>>
-    <associate|KC-normalization-2:lem-kfin-00|<tuple|15.3|?|#16>>
-    <associate|KC-normalization-2:lem-kfin-11|<tuple|15.4|?|#16>>
-    <associate|KC-normalization-2:lem-kfinite|<tuple|15.5|?|#16>>
-    <associate|KC-normalization-2:lem-kfinite-wrap|<tuple|15.6|?|#16>>
-    <associate|KC-normalization-2:lem-normalization-qodd|<tuple|15.9|?|#16>>
-    <associate|KC-normalization-2:lem-normalization-qodd-aux-1|<tuple|15.8|?|#16>>
+    <associate|KC-normalization-2:lem-Pcomputation|<tuple|15.8|?|#16>>
+    <associate|KC-normalization-2:lem-kfin-00|<tuple|15.4|?|#16>>
+    <associate|KC-normalization-2:lem-kfin-11|<tuple|15.5|?|#16>>
+    <associate|KC-normalization-2:lem-kfinite|<tuple|15.6|?|#16>>
+    <associate|KC-normalization-2:lem-kfinite-wrap|<tuple|15.7|?|#16>>
+    <associate|KC-normalization-2:lem-normalization-q-even-p-1|<tuple|15.11|?|#16>>
+    <associate|KC-normalization-2:lem-normalization-q-even-p-odd|<tuple|15.12|?|#16>>
+    <associate|KC-normalization-2:lem-normalization-qodd|<tuple|15.10|?|#16>>
+    <associate|KC-normalization-2:lem-normalization-qodd-aux-1|<tuple|15.9|?|#16>>
     <associate|KC-normalization-2:prop-normalization|<tuple|15.2|?|#16>>
+    <associate|KC-normalization-2:prop-supp|<tuple|15.3|?|#16>>
     <associate|KC-normalization:prop-kfinite|<tuple|14.1|26|#15>>
     <associate|KC-normalization:prop-sol-extending|<tuple|9.4|?|#10>>
     <associate|KP-normalization-2:lem-aux-1|<tuple|79|?|#6>>
@@ -8186,7 +8276,7 @@
     <associate|diffSBO:lem-aux|<tuple|10.1|17|#11>>
     <associate|diffSBO:prop-main|<tuple|10.2|17|#11>>
     <associate|eq|<tuple|3.1|?|#4>>
-    <associate|eq-1|<tuple|16.1|40|#17>>
+    <associate|eq-1|<tuple|17.1|40|#18>>
     <associate|eq-2|<tuple|16.2|40|#17>>
     <associate|eq-Nequiv|<tuple|3.1|3|#4>>
     <associate|eq:sing-q-dx|<tuple|9.1|16|#10>>
@@ -8292,7 +8382,7 @@
     <associate|lem-3-2|<tuple|7.4|10|#8>>
     <associate|lem-3-3|<tuple|7.5|10|#8>>
     <associate|lem-4|<tuple|16.9|52|#17>>
-    <associate|lem-5|<tuple|16.10|52|#17>>
+    <associate|lem-5|<tuple|19.7|52|#20>>
     <associate|lem-5n|<tuple|19.6|52|#20>>
     <associate|lem-6|<tuple|16.11|35|#17>>
     <associate|lem-7|<tuple|19.9|54|#20>>
