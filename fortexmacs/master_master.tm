@@ -935,7 +935,7 @@
       \ We consider the same commutative diagram, as in proof of lemma
       <reference|lem-3-1>, except that we let
       <math|F<around|(|f|)><around|(|x|)>\<assign\>f*<around|(|a<rsub|t>*x|)>>
-      where <math|a<rsub|t><around*|[|<tabular*|<tformat|<table|<row|<cell|cosh
+      where <math|a<rsub|t>:=<around*|[|<tabular*|<tformat|<table|<row|<cell|cosh
       <around|(|t|)>>|<cell|0>|<cell|sinh
       <around|(|t|)>>>|<row|<cell|0>|<cell|I<rsub|p+q>>|<cell|0>>|<row|<cell|sinh
       <around|(|t|)>>|<cell|0>|<cell|cosh
@@ -1076,8 +1076,6 @@
       and is supported inside <math|<around*|{|0|}>> for
       <math|\<lambda\>\<in\>-\<bbb-Z\><rsub|\<gtr\>0>>.
     </proof>
-
-    \ 
 
     <subsection|Proofs>
 
