@@ -3,7 +3,7 @@
 <style|<tuple|article|mystyle>>
 
 <\body>
-  <\hide-part|1>
+  <\show-part|1>
     <math|<frac|\<Gamma\>*<around*|(|\<lambda\>+\<nu\>-n+1|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>-q+\<nu\>+N|2>|)>>>
 
     <math|<wide|<wide|C|~>|~><rsub|N><rsup|p/2-1><around|(|\<omega\><rsub|p-1><rsup|<around|(|p|)>>|)>>
@@ -11,7 +11,22 @@
     <\equation*>
       <big|int><rsub|<with|math-font|Bbb|S><rsup|n-1>><around*|\||\<omega\><rsub|n-1><rsup|<around|(|n|)>>|\|><rsup|\<lambda\>+\<nu\>-n>*<wide|<wide|C|~>|~><rsub|N><rsup|<frac|n|2>-1><around|(|\<omega\><rsub|n-1><rsup|<around|(|n|)>>|)>*d*\<omega\><rsub|n-1>\<simeq\><frac|\<Gamma\>*<around*|(|\<lambda\>+\<nu\>-n+1|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-N|2>|)>>
     </equation*>
-  </hide-part|>
+
+    <\remark>
+      If we trivialize <math|G\<times\><rsub|P>\<bbb-C\><rsub|\<lambda\>-n>>
+      over simply-connected open <math|<with|math-font|Euler|n><rsub|-><around|(|\<bbb-R\><rsup|p,q>|)>>
+      (the image of <math|\<bbb-R\><rsup|p,q>> under the embedding
+      <math|<with|math-font|Euler|n><rsub|->:\<bbb-R\><rsup|p,q>\<to\>G/P>
+      defined above), these are precisely elements of
+      <math|<sol*|\<bbb-R\><rsup|p,q>>> that are the pullbacks of elements of
+      <math|<mybra|<D><rprime|'><around|(|G\<times\><rsub|P><C><rsub|\<lambda\>-n>|)>\<otimes\><C><rsub|\<nu\>>><rsup|\<Delta\><around|(|P<rprime|'>|)>>>
+      from <math|X\<simeq\>G/P>. In fact, due to the
+      <math|P<rprime|'>\<cdot\><with|math-font|Euler|n><rsub|-><around|(|<R><rsup|p,q>|)>=X>
+      holding, given the element of <math|<sol*|<R><rsup|p,q>>>, it can be
+      uniquely matched to an element of <math|<mybra|<D><rprime|'><around|(|G\<times\><rsub|P><C><rsub|\<lambda\>-n>|)>\<otimes\><C><rsub|\<nu\>>><rsup|\<Delta\><around|(|P<rprime|'>|)>>>
+      on <math|X>.
+    </remark>
+  </show-part|>
 
   <\hide-part|2>
     <section|Unplugged misc>
@@ -400,7 +415,7 @@
     <section|pullback for KR>
   </hide-part>
 
-  <\show-part|6>
+  <\hide-part|6>
     <section|Commutative diagrams>
 
     <\session|xypic|default>
@@ -436,9 +451,9 @@
         \;
       </input>
     </session>
-  <|show-part>
+  <|hide-part>
     <section|Commutative diagrams>
-  </show-part>
+  </hide-part>
 </body>
 
 <initial|<\collection>
@@ -451,9 +466,9 @@
     <associate|KR-normalization-even:lem-2|<tuple|7|?>>
     <associate|KR-normalization-even:lem-3|<tuple|8|?>>
     <associate|KR-normalization-recur:eq-recur|<tuple|1|?|#2>>
-    <associate|KR-normalization-recur:lem-recur|<tuple|1|?|#2>>
-    <associate|KR-normalization-recur:prop-2|<tuple|2|?|#2>>
-    <associate|KR-normalization-recur:prop-func-eq|<tuple|3|?|#3>>
+    <associate|KR-normalization-recur:lem-recur|<tuple|2|?|#2>>
+    <associate|KR-normalization-recur:prop-2|<tuple|3|?|#2>>
+    <associate|KR-normalization-recur:prop-func-eq|<tuple|4|?|#3>>
     <associate|auto-1|<tuple|1|?>>
     <associate|auto-2|<tuple|2|?>>
     <associate|auto-3|<tuple|3|?>>
@@ -464,14 +479,15 @@
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.5-1|<tuple|4|?|#5>>
     <associate|auto.6-1|<tuple|5|?|#6>>
+    <associate|auto.6-2|<tuple|6|?|#6>>
     <associate|lem-1|<tuple|6|?>>
-    <associate|lem-16|<tuple|6|?|#4>>
+    <associate|lem-16|<tuple|7|?|#4>>
     <associate|lem-2|<tuple|7|?>>
     <associate|lem-21|<tuple|1|?>>
-    <associate|lem-3|<tuple|9|?|#5>>
-    <associate|lem-3-1|<tuple|10|?|#5>>
-    <associate|lem-3-2|<tuple|11|?|#5>>
-    <associate|lem-3-3|<tuple|12|?|#5>>
+    <associate|lem-3|<tuple|10|?|#5>>
+    <associate|lem-3-1|<tuple|11|?|#5>>
+    <associate|lem-3-2|<tuple|12|?|#5>>
+    <associate|lem-3-3|<tuple|13|?|#5>>
   </collection>
 </references>
 

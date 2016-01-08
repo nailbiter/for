@@ -254,6 +254,60 @@
     (empty)
 
     <surround|<assign|sone|<macro|<math|<mybra|<D><rprime|'><around|(|G\<times\><rsub|P><C><rsub|\<lambda\>-n>|)>\<otimes\><C><rsub|\<nu\>>><rsup|\<Delta\><around|(|P<rprime|'>|)>>>>><assign|Upp|<macro|<mysetn|(x,y)\<in\><R><rsup|p,q>|x\<neq\>0,<space|0.75spc>y\<neq\>0>>><assign|Stab|<macro|O(p,q)<rsub|e<rsub|p>>>><assign|sol*|<macro|1|<with|math-font|cal|S>ol(<arg|1>;\<lambda\>,\<nu\>)>><assign|sol|<macro|<sol*|<R><rsup|p,q>>>><assign|solXi|<macro|<sol*|\<Xi\>>>>||>
+
+    <section|misc>
+
+    <subsection|Comments>
+
+    While doing this computation I've realized that conceptually it is not
+    difficult indeed. Moreover, I believe these could be done faster if one
+    would proceed in the following fashion:
+
+    <\enumerate>
+      <item>Choose normalizations <math|<wide|Q|~><rsub|\<pm\>><rsup|\<nu\>>\<assign\>Q<rsub|\<pm\>><rsup|\<nu\>>/\<Gamma\><around*|(|\<nu\>+1|)>/\<Gamma\><around*|(|\<nu\>+<frac|n|2>|)>>
+      and show that these are holomorphic -- this is trivial to do, as
+      recurrence relation becomes <math|L
+      <wide|Q|~><rsub|\<pm\>><rsup|\<nu\>+1>=\<pm\>4<wide|Q|~><rsub|\<pm\>><rsup|\<nu\>>>.
+
+      <item>See that these never vanish for <math|n\<in\>2\<bbb-Z\>+1> --
+      hence <math|Q<rsub|\<pm\>><rsup|\<nu\>>> have only at most simple poles
+      at points <math|-\<bbb-Z\><rsub|\<geqslant\>1>\<sqcup\><around*|(|-<frac|n|2>-\<bbb-Z\><rsub|\<geqslant\>0>|)>>.
+      Moreover, residues can be computed explicitly via recurrence equations.
+
+      <item>See that these never vanish for <math|p,q\<in\>2\<bbb-Z\>+1>.
+      Hence, <math|Q<rsub|\<pm\>><rsup|\<nu\>>> has at most single poles for
+      <math|-1,-2,\<ldots\>,-<frac|n|2>+1> and at most double poles for
+      <math|\<nu\>=-<frac|n|2>,-<frac|n|2>-1,\<ldots\>> moreover residues can
+      be computed for at most simple poles and for at most double poles we
+      can compute leading term in Laurent series. Moreover, for at most
+      double poles we can also compute residues by inspecting term
+      corresponding to <math|\<nu\><rsup|1>> in Taylor expansion of
+      <math|<wide|Q|~><rsub|\<pm\>><rsup|\<nu\>>> at <math|\<nu\>=-n/2+1>
+      (which in turn is proportional to <math|\<nu\><rsup|0>> term of Laurent
+      expansion of <math|Q<rsub|\<pm\><rsup|>><rsup|\<nu\>>> around the same
+      point) and computing <math|L>'s of it.
+
+      <item>Note that <math|<wide|Q|~><rsub|\<pm\>><rsup|\<nu\>>> is nonzero
+      for <math|-1,-2,\<ldots\>,-<frac|n|2>+1>, but vanishes poles for
+      <math|\<nu\>=-<frac|n|2>,-<frac|n|2>-1,\<ldots\>>, hence
+      <math|Q<rsub|\<pm\>><rsup|\<nu\>>> has simple poles at both groups of
+      points. Then residues at first group can be computed as before, while
+      residues at the second can be computed by taking <math|L>'s of term
+      corresponding to <math|\<nu\><rsup|1>> in Taylor expansion of
+      <math|<wide|Q|~><rsub|\<pm\>><rsup|\<nu\>>> at <math|\<nu\>=-n/2+1>
+      (which in turn is proportional to <math|\<nu\><rsup|0>> term of Laurent
+      expansion of <math|Q<rsub|\<pm\><rsup|>><rsup|\<nu\>>> around the same
+      point).
+
+      <item>Use results of three previous steps to get data about
+      <math|<around*|\||Q|\|><rsup|\<nu\>>> and
+      <math|<around*|\||Q|\|><rsup|\<nu\>>sgn<around*|(|Q|)>>.
+    </enumerate>
+
+    Moreover, I should note that despite my initial feeling this method is
+    ``robust''. That is, normalization in first step is quite ``natural'' one
+    to guess. Despite it's not being the best possible, it can be later
+    adjusted in course of steps 2-4.
   <|show-part>
     <section|generic report>
   </show-part>
@@ -271,6 +325,8 @@
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.2-2|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
+    <associate|auto.3-2|<tuple|3|?|#3>>
+    <associate|auto.3-3|<tuple|3.1|?|#3>>
   </collection>
 </references>
 
