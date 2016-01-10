@@ -415,7 +415,7 @@
     <section|pullback for KR>
   </hide-part>
 
-  <\show-part|6>
+  <\hide-part|6>
     <section|Commutative diagrams>
 
     <\session|xypic|default>
@@ -529,11 +529,11 @@
 
       \;
     </session>
-  <|show-part>
+  <|hide-part>
     <section|Commutative diagrams>
-  </show-part>
+  </hide-part>
 
-  <\hide-part|7>
+  <\show-part|7>
     <section|nice thm>
 
     <\lemma>
@@ -627,9 +627,60 @@
       Finally, the commutativity of the diagram follows by approximation by
       smooth functions, as all arrows are continuous.
     </proof>
-  <|hide-part>
+
+    <\lemma>
+      <label|sol:lem-Eequivhomog>For <math|F\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|m>|)>>
+      and <math|a\<in\>\<bbb-C\>> TFAE:
+
+      <\enumerate>
+        <item><math|\<forall\>\<alpha\>\<gtr\>0>,
+        <math|F<around*|(|\<alpha\>\<cdot\>|)>=\<alpha\><rsup|a>F<around*|(|\<cdot\>|)>>;
+
+        <item><math|E F=a F>, where <math|E\<assign\><big|sum><rsub|i=1><rsup|m>x<rsub|i>\<partial\><rsub|i>>
+        is an Euler operator.
+      </enumerate>
+    </lemma>
+
+    <\proof>
+      We recall that what <math|F<around*|(|\<alpha\>\<cdot\>|)>=\<alpha\><rsup|a>F<around*|(|\<cdot\>|)>>
+      means for <math|F\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|m>|)>>
+      is that for every <math|\<varphi\>\<in\>C<rsup|\<infty\>><rsub|0><around*|(|\<bbb-R\><rsup|m>|)>>
+      we have <math|<around*|\<langle\>|F,\<varphi\>|\<rangle\>>=\<alpha\><rsup|a+m><around*|\<langle\>|F,\<varphi\><rsub|\<alpha\>>|\<rangle\>>>,
+      where <math|\<varphi\><rsub|\<alpha\>><around*|(|\<cdot\>|)>\<assign\>\<varphi\><around*|(|\<alpha\>\<cdot\>|)>>.
+      We now fix arbitrary <math|U\<subset\>\<bbb-R\><rsub|\<gtr\>0>> open
+      and such that <math|<wide|U|\<bar\>>> is a compact subset of
+      <math|\<bbb-R\><rsub|\<gtr\>0>>, and let
+      <math|\<Phi\>:\<bbb-R\><rsup|m>\<times\>U\<ni\><around*|(|x,\<alpha\>|)>\<mapsto\><around*|\<langle\>|F,\<varphi\><rsub|\<alpha\>>|\<rangle\>>>.
+      The assumptions we put on <math|U> imply that
+      <math|S<rsub|\<alpha\>>\<assign\><around*|{|x\<in\>\<bbb-R\><rsup|m><mid|\|>\<exists\>\<alpha\>\<in\><wide|U|\<bar\>>,<space|0.6spc>\<alpha\><rsup|-1>x\<in\>supp<around*|(|\<varphi\>|)>|}>\<subset\>\<bbb-R\><rsup|m>>
+      is compact and since <math|\<forall\>\<alpha\>\<in\>U> we have
+      <math|\<varphi\><rsub|\<alpha\>>=0> outside <math|S<rsub|\<alpha\>>>,
+      we can apply fact <reference|holomorphicity-preserving:fact-basic>
+      which tells us that <math|\<Phi\>\<in\>C<rsup|\<infty\>><around*|(|\<bbb-R\><rsup|m>\<times\>U|)>>
+      and <math|\<partial\>\<Phi\>/\<partial\>
+      \<alpha\>=<around*|\<langle\>|F,<around*|(|\<partial\>/\<partial\>\<alpha\>|)>\<varphi\><rsub|\<alpha\>>|\<rangle\>>=<around*|\<langle\>|F,<around*|(|E
+      \<varphi\>|)><around*|(|\<alpha\>\<cdot\>|)>|\<rangle\>>>.
+
+      Now, we show that the first item implies the second. Indeed, assuming
+      that <math|\<forall\>\<alpha\>\<gtr\>0>,
+      <math|F<around*|(|\<alpha\>\<cdot\>|)>=\<alpha\><rsup|a>F<around*|(|\<cdot\>|)>>
+      holds, the argument above implies that
+      <math|\<forall\>\<alpha\>\<gtr\>0,<space|0.6spc>\<alpha\><rsup|a-m>\<Phi\><around*|(|x,\<alpha\>|)>=\<Phi\><around*|(|x,1|)>>
+      and taking the derivative of both sides with respect to
+      <math|\<alpha\>> at <math|\<alpha\>=1>, one arrives at
+      <math|<around*|(|a+m|)><around*|\<langle\>|F,\<varphi\>|\<rangle\>>+<around*|\<langle\>|F,E
+      \<varphi\>|\<rangle\>>=<around*|(|a+m|)><around*|\<langle\>|F,\<varphi\>|\<rangle\>>-<around*|\<langle\>|E
+      F,\<varphi\>|\<rangle\>>-m<around*|\<langle\>|F\<comma\>\<varphi\>|\<rangle\>>>
+      and this implies the second item.
+
+      Conversely, assuming <math|E F=a F> holds, consider
+      <math|\<Phi\><around*|(|x,\<alpha\>|)>> as above. We now have
+      <math|\<partial\><around*|(|\<alpha\><rsup|a+m>\<Phi\>|)>/\<partial\>\<alpha\>=<around*|(|a+m|)>\<alpha\><rsup|a+m><around*|\<langle\>|F,\<varphi\><rsub|\<alpha\>>|\<rangle\>>+\<alpha\><rsup|a+m><around*|\<langle\>|F,<around*|(|E
+      \<varphi\>|)><rsub|\<alpha\>>|\<rangle\>>>.
+    </proof>
+  <|show-part>
     <section|nice thm>
-  </hide-part>
+  </show-part>
 </body>
 
 <initial|<\collection>
@@ -667,6 +718,7 @@
     <associate|lem-3-1|<tuple|11|?|#5>>
     <associate|lem-3-2|<tuple|12|?|#5>>
     <associate|lem-3-3|<tuple|13|?|#5>>
+    <associate|sol:lem-Eequivhomog|<tuple|15|?|#7>>
   </collection>
 </references>
 
