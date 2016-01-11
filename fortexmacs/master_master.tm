@@ -3714,7 +3714,7 @@
     <section|Double coset decomposition <math|P<rprime|'>\\G/P>><label|sec:doublePGP>
   </hide-part>
 
-  <\hide-part|11>
+  <\show-part|11>
     <section|<math|\<cal-S\>ol<rsub|><around*|(|U;\<lambda\>,\<nu\>|)>> and
     related notions><label|sec:sol>
 
@@ -3985,7 +3985,7 @@
     </definition>
 
     <\proof>
-      (of prop. <reference|sol:prop-sol>)Proposition
+      (of prop. <reference|sol:prop-sol>) Proposition
       <reference|doublePGP:prop-pnp> implies that we can apply
       <cite-detail|kobayashi2015symmetry|thm. 3.16> and it immediately gives
 
@@ -4081,10 +4081,10 @@
       of remark after the definition <reference|sol:def-sol>, the conclusion
       is implied by lemma <reference|sol:lem-holodep>.
     </proof>
-  <|hide-part>
+  <|show-part>
     <section|<math|\<cal-S\>ol<rsub|><around*|(|U;\<lambda\>,\<nu\>|)>> and
     related notions><label|sec:sol>
-  </hide-part>
+  </show-part>
 
   <\hide-part|12>
     <section|Non-equivalence of <math|N<rsub|+><rprime|'>>-invariance and
@@ -4931,7 +4931,7 @@
     operator><label|sec:supp-R>
   </hide-part>
 
-  <\show-part|15>
+  <\hide-part|15>
     <section|The kernel of singular symmetry breaking operator supported on
     <math|<around*|{|x<rsub|p>=0|}>>><label|sec:supp-P>
 
@@ -4964,7 +4964,7 @@
     <subsection|Auxiliary lemmas>
 
     <\lemma>
-      <label|lem:supp-p>For <math|k> fixed and
+      <label|lem:supp-p>For <math|p\<geqslant\>2>, <math|k> fixed and
       <math|Re<around|(|\<nu\>|)>\<less\>-2*k> we have
 
       <\equation>
@@ -4981,7 +4981,11 @@
       Here <math|<wide|Q|~>> is the <math|<around|(|p-1,q|)>>-indefinite form
       obtained as a restriction of <math|Q> to
       <math|<around*|{|x<rsub|p>=0|}>> and <math|<wide|Q|~><rsub|\<pm\>>> are
-      defined as in <cite-detail|gelfand1980distribution|sec. III.2.2>.
+      defined as in <cite-detail|gelfand1980distribution|sec. III.2.2>. When
+      <math|p=1> the above formula is valid with
+      <math|<wide|Q|~><rsub|+><rsup|-\<nu\>-i>> replaced by <math|0> and
+      <math|<wide|Q|~><rsub|-><rsup|-\<nu\>-i>> by
+      <math|<around*|\||<wide|Q|~>|\|><rsup|-\<nu\>-i>> everywhere.
     </lemma>
 
     <\remark>
@@ -5163,10 +5167,10 @@
       uniformly on compacta. But this is then readily implied by lemma
       <reference|supp-P:lem-on-compacta>.
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|The kernel of singular symmetry breaking operator supported on
     <math|<around*|{|x<rsub|p>=0|}>>><label|sec:supp-P>
-  </show-part>
+  </hide-part>
 
   <\hide-part|16>
     <section|The kernel of singular symmetry breaking operator supported on
@@ -6633,10 +6637,12 @@
   <\hide-part|19>
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>><label|sec:KP-normalization>
 
-    In this section, we will the data obtained in section
-    <reference|section:q-norm> to find the <with|font-shape|italic|perfect>
-    normalization of kernel of singular SBO, that is supported on
-    <math|<around*|{|x<rsub|p>=0|}>>, which is given as
+    Recall that in section <reference|sec:supp-P> we constructed a member of
+    <math|\<cal-S\>ol<rsub|<around*|{|x<rsub|p>=0|}>><around*|(|Q;\<lambda\>,\<nu\>|)>>
+    for <math|\<lambda\>+\<nu\>-n=-1-2k> with
+    <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> holomorphically depending on
+    <math|\<nu\>\<in\>\<bbb-C\>\\\<Lambda\><rsub|P>> with
+    <math|\<Lambda\><rsub|P>> being some discrete set. It was defined as
 
     <\equation>
       K<rsub|\<lambda\>,\<nu\>><rsup|P>\<assign\><big|sum><rsub|i=0><rsup|k><frac|<around*|(|-1|)><rsup|i><around*|(|2k|)>!<around*|(|\<nu\>|)><rsub|><rsup|i>|<around*|(|2k-2i|)>!i!>\<delta\><rsup|<around*|(|2k-2i|)>><around*|(|x<rsub|p>|)>\<otimes\>Q<rsub|i>,<space|1em>k\<assign\>\<lambda\>+\<nu\>-n
@@ -6651,16 +6657,24 @@
     and <math|<around*|(|\<nu\>|)><rsub|><rsup|i>\<assign\>\<nu\><around*|(|\<nu\>+1|)>\<ldots\><around*|(|\<nu\>+i-1|)>>.
     Here <math|<wide|Q|~>> denotes <math|<around*|(|p-1,q|)>>-quadratic form.
 
-    Again, as in section <reference|section:q-norm>, here ``perfect''
-    normalization means that the normalized kernel will be holomorphic in
-    <math|\<nu\>\<in\>\<bbb-C\>> and nonzero. We will also determine the
-    support of a normalized kernel for every <math|\<nu\>\<in\>\<bbb-C\>>.
+    In this section, we will use the data obtained in section
+    <reference|section:q-norm> to find the precise location of poles of
+    <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>. This is equivalent to find
+    normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> which makes it
+    holomorphic in <math|\<nu\>\<in\>\<bbb-C\>> and nowhere vanishing. We
+    will also determine the support of a highest order term at every pole,
+    this being equivalent to find support of normalization at every
+    <math|\<nu\>\<in\>\<bbb-C\>>.
+
+    In the light of proposition <reference|sol:prop-holocont>, the normalized
+    kernel will then be a member of <math|\<cal-S\>ol<rsub|<around*|{|x<rsub|p>=0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>.\ 
 
     <subsection|Main results>
 
     <\proposition>
-      <label|KP-normalization-2:prop-1>Let <math|p<rprime|'>\<assign\>p-1>
-      and <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. For
+      <label|KP-normalization-2:prop-1>Let
+      <math|p<rprime|'>\<assign\>p-1\<geqslant\>1> and
+      <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. For
       <math|n<rprime|'>\<in\>2\<bbb-Z\>+1> we have:
 
       <\equation*>
@@ -6676,8 +6690,9 @@
     </proposition>
 
     <\proposition>
-      <label|KP-normalization-2:prop-2>Let <math|p<rprime|'>\<assign\>p-1>
-      and <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. For
+      <label|KP-normalization-2:prop-2>Let
+      <math|p<rprime|'>\<assign\>p-1\<geqslant\>1> and
+      <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. For
       <math|p<rprime|'>,q,n<rprime|'>/2\<in\>2\<bbb-Z\>> we have:
 
       <\equation*>
@@ -6686,8 +6701,9 @@
     </proposition>
 
     <\proposition>
-      <label|KP-normalization-2:prop-3>Let <math|p<rprime|'>\<assign\>p-1>
-      and <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. For
+      <label|KP-normalization-2:prop-3>Let
+      <math|p<rprime|'>\<assign\>p-1\<geqslant\>1> and
+      <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. For
       <math|p<rprime|'>,q,n<rprime|'>/2\<in\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2>\<times\><around*|(|1+2\<bbb-Z\><rsub|\<geqslant\>0>|)>>
       we have:
 
@@ -6697,7 +6713,8 @@
     </proposition>
 
     <\remark>
-      The statement of two previous theorems can be summarized as follows:\ 
+      The statement of two previous propositions can be summarized as
+      follows:\ 
 
       for <math|n<rprime|'>,q\<in\>2\<bbb-Z\>> we have
 
@@ -6710,8 +6727,9 @@
     </remark>
 
     <\proposition>
-      <label|KP-normalization-2:prop-4>Let <math|p<rprime|'>\<assign\>p-1>
-      and <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. Let also
+      <label|KP-normalization-2:prop-4>Let
+      <math|p<rprime|'>\<assign\>p-1\<geqslant\>1> and
+      <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. Let also
       <math|k<rprime|'>> be maximal even number that is <math|\<leqslant\>k>.
       For <math|p<rprime|'>,q,n<rprime|'>/2\<in\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)><rsup|3>>
       we have:
@@ -6724,8 +6742,9 @@
     </proposition>
 
     <\proposition>
-      <label|KP-normalization-2:prop-5>Let <math|p<rprime|'>\<assign\>p-1>
-      and <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. Let also
+      <label|KP-normalization-2:prop-5>Let
+      <math|p<rprime|'>\<assign\>p-1\<geqslant\>1> and
+      <math|n<rprime|'>\<assign\>p<rprime|'>+q=n-1>. Let also
       <math|k<rprime|'>> be maximal odd number that is <math|\<leqslant\>k>.
       For <math|p<rprime|'>,q,n<rprime|'>/2\<in\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)><rsup|>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)>>
       we have:
@@ -6736,6 +6755,15 @@
 
       where upper-indexes <math|2> on the right-hand sides indicate double
       poles.
+    </proposition>
+
+    <\proposition>
+      <label|KP-normalization-2:prop-p=1>For <math|p=1> and
+      <math|n<rprime|'>:=n-1> we have
+
+      <\equation*>
+        \<frak-P\><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|P>|)>=<choice|<tformat|<table|<row|<cell|<around*|(|n<rprime|'>/2-k+\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|n\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|<around*|(|max<around*|{|0,n<rprime|'>/2-k|}>+\<bbb-Z\><rsub|\<geqslant\>0>|)>,>|<cell|n\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1.>>>>>
+      </equation*>
     </proposition>
 
     <subsection|Auxiliary results>
@@ -6937,6 +6965,18 @@
       form nondecreasing sequence of <math|\<bbb-C\>\<rightarrow\>\<bbb-Z\>>
       functions (``nondecreasing'' in the sence of definition
       <reference|P-def:def-9>).
+    </proof>
+
+    <\proof>
+      (of prop. <reference|KP-normalization-2:prop-p=1>) We note that for
+      <math|r=<big|sum><rsub|i=1><rsup|m>x<rsub|i><rsup|2>> defined on
+      <math|\<bbb-R\><rsup|m>> we have
+
+      <\equation*>
+        \<frak-P\><around*|(|r<rsup|\<nu\>>|)>=<around*|{|\<nu\>=-m/2-\<bbb-Z\><rsub|\<geqslant\>0>|}>
+      </equation*>
+
+      and from this the answer follows with computations similar to above.
     </proof>
   <|hide-part>
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>><label|sec:KP-normalization>
@@ -7830,7 +7870,7 @@
         is given by composition
 
         <\equation*>
-          Hom<rsub|G><around*|(|I<around*|(|\<lambda\>|)>,I<around*|(|\<nu\>|)>|)><wide|\<rightarrow\>|~>\<cal-D\><rprime|'><around*|(|<around*|(|G/P|)><rsup|2>,\<cal-L\><rsub|\<nu\>>\<boxtimes\>\<cal-L\><rsub|n-\<lambda\>>|)><rsup|\<Delta\><around*|(|G|)>><wide|\<rightarrow\>|~><around*|(|\<cal-D\><rprime|'><around*|(|G/P,\<cal-L\><rsub|n-\<lambda\>>|)>\<otimes\>\<bbb-C\><rsub|\<nu\>>|)><rsup|\<Delta\><around*|(|P|)>><wide|\<rightarrow\>|~>\<cal-S\>ol<rsub|<around*|(|G,G|)>><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>
+          Hom<rsub|G><around*|(|I<around*|(|\<lambda\>|)>,I<around*|(|\<nu\>|)>|)><wide|\<rightarrow\>|~>\<cal-D\><rprime|'><around*|(|<around*|(|G/P|)><rsup|2>,\<bbb-C\><rsub|\<nu\>>\<boxtimes\>\<bbb-C\><rsub|n-\<lambda\>>|)><rsup|\<Delta\><around*|(|G|)>><wide|\<rightarrow\>|~><around*|(|\<cal-D\><rprime|'><around*|(|G/P,\<bbb-C\><rsub|n-\<lambda\>>|)>\<otimes\>\<bbb-C\><rsub|\<nu\>>|)><rsup|\<Delta\><around*|(|P|)>><wide|\<rightarrow\>|~>\<cal-S\>ol<rsub|<around*|(|G,G|)>><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>
         </equation*>
 
         where maps from left to right are:
@@ -8039,15 +8079,16 @@
     <associate|KC-normalization:prop-kfinite|<tuple|16.1|45|#18>>
     <associate|KC-normalization:prop-sol-extending|<tuple|9.4|?|#10>>
     <associate|KP-normalization-2:lem-aux-1|<tuple|79|?|#6>>
-    <associate|KP-normalization-2:lem-holo-supp|<tuple|17.7|54|#19>>
-    <associate|KP-normalization-2:lem-nonzero|<tuple|17.9|54|#19>>
-    <associate|KP-normalization-2:lem-sets|<tuple|17.8|54|#19>>
-    <associate|KP-normalization-2:lem-trivial|<tuple|17.10|54|#19>>
+    <associate|KP-normalization-2:lem-holo-supp|<tuple|17.8|54|#19>>
+    <associate|KP-normalization-2:lem-nonzero|<tuple|17.10|54|#19>>
+    <associate|KP-normalization-2:lem-sets|<tuple|17.9|54|#19>>
+    <associate|KP-normalization-2:lem-trivial|<tuple|17.11|54|#19>>
     <associate|KP-normalization-2:prop-1|<tuple|17.1|53|#19>>
     <associate|KP-normalization-2:prop-2|<tuple|17.2|53|#19>>
     <associate|KP-normalization-2:prop-3|<tuple|17.3|53|#19>>
     <associate|KP-normalization-2:prop-4|<tuple|17.5|54|#19>>
     <associate|KP-normalization-2:prop-5|<tuple|17.6|54|#19>>
+    <associate|KP-normalization-2:prop-p=1|<tuple|17.7|?|#19>>
     <associate|KP-normalization:lem-Mg0|<tuple|14.1|41|#17>>
     <associate|KR-normalization-even:fact-P-K|<tuple|18.4|57|#20>>
     <associate|KR-normalization-even:hypo-maxima|<tuple|2|?|#10>>
