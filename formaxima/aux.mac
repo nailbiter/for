@@ -4,6 +4,18 @@ texput(nu,"\\nu")$
 texput(lambdatilde,"\\tilde{\\lambda}")$
 texput(G,"\\Gamma")$
 
-(mylambda)*(q-mylambda+1)+(mylambda-2-nu)*(mylambda+nu-q+1);
+/*(mylambda)*(q-mylambda+1)+(mylambda-2-nu)*(mylambda+nu-q+1);
+factor(%);
+tex(%,texoutput);*/
+
+r:sqrt(1-x^2)/(x+y);
+s:sqrt(1-y^2)/(x+y);
+diff(r,y)*diff(s,x)-diff(r,x)*diff(s,y);
+factor(%);
+tex(%,texoutput);
+
+X:(1-x^2)/(1+x^2);
+Y:2*x/(1+x^2);
+X*diff(Y,x)-Y*diff(X,x);
 factor(%);
 tex(%,texoutput);
