@@ -5974,8 +5974,9 @@
     <\proposition>
       <label|k-finite:prop-claim2>For <math|K\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
       there exists unique <math|K<rsup|\<Xi\>>\<in\>\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|\<nu\>>\<assign\><around*|{|f\<in\>\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><mid|\|>\<forall\>p<rprime|'>\<in\>P<rprime|'>,<space|0.6spc>f<around*|(|p<rprime|'>\<cdot\>|)>=\<nu\><around*|(|p<rprime|'>|)><rsup|>f<around*|(|\<cdot\>|)>|}>>
-      such that <math|\<psi\><rsup|\<ast\>>K<rsup|\<Xi\>>=K>. Moreover, if
-      <math|K<rsub|\<mu\>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
+      such that <math|\<psi\><rsup|\<ast\>>K<rsup|\<Xi\>>=K> (for
+      <math|\<psi\>:\<frak-n\><rsub|->\<hookrightarrow\>\<Xi\>> embedding).
+      Moreover, if <math|K<rsub|\<mu\>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
       is holomorphic as generalized function on <math|\<bbb-R\><rsup|p,q>>
       depending on <math|\<mu\>\<in\>\<Omega\>>
       (<math|\<Omega\>\<subset\>\<bbb-C\><rsup|n>> open) and
@@ -5987,27 +5988,41 @@
     </proposition>
 
     <\proposition>
-      <label|k-finite:prop-holo-to-holo>For
-      <math|K\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>,
-      we let <math|k\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
-      be the restriction of <math|K<rsup|\<Xi\>>> constructed in proposition
-      <reference|k-finite:prop-claim2> to
-      <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>\<subset\>\<Xi\>>
-      (well-defined by lemma <reference|k-finite:lem-restriction-to-S>). Then
-      if <math|K<rsub|\<mu\>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
-      is holomorphic as distribution in <math|\<mu\>\<in\>\<Omega\>>, with
-      <math|\<Omega\>\<subset\>\<bbb-C\><rsup|k>> open and
-      <math|\<lambda\><around*|(|\<cdot\>|)>\<comma\>\<nu\><around*|(|\<cdot\>|)>>
-      holomorphic on <math|\<Omega\>>, we have corresponding
-      \ <math|k<rsub|\<mu\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
-      be holomomorphic also.
+      <label|k-finite:prop-holo-to-holo>Let
+      <math|\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)><rsup|\<lambda\>\<comma\>\<nu\>>\<assign\><around*|{|k\<in\>\<cal-D\><rprime|'><rsub|><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)><mid|\|>\<forall\>p<rprime|'>\<in\>P<rprime|'>,<space|0.6spc>l<rsub|p<rprime|'>><rsup|\<lambda\>-n>k<around*|(|p<rprime|'>\<cdot\>|)>=\<nu\><around*|(|p<rprime|'>|)>k<around*|(|\<cdot\>|)>;k<around*|(|<around*|(|-1|)>\<cdot\>|)>=k<around*|(|\<cdot\>|)>|}>>,
+      where for <math|p<rprime|'>\<in\>P<rprime|'>> we define
+      <math|l<rsub|p<rprime|'>>\<in\>C<rsup|\<infty\>><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>\<rightarrow\>\<bbb-R\><rsub|\<gtr\>0>|)>>
+      as <math|l<rsub|p<rprime|'>><around*|(|x|)>\<assign\><around*|\||p<rprime|'>\<cdot\>x|\|>>,
+      where for <math|\<xi\>=<around*|(|\<xi\><rsub|i>|)><rsub|i=1><rsup|p+q+2>>
+      we let <math|<around*|\||\<xi\>|\|>\<assign\><around*|\||<around*|(|\<xi\><rsub|i>|)><rsub|i=1><rsup|p+1>|\|><rsub|p+1>>
+      and we let <math|P<rprime|'>> act on
+      <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>> by first acting as
+      on element of <math|\<Xi\>> and then projecting back to
+      <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>>. Then:
 
-      Moreover, suppose that <math|\<lambda\><around*|(|\<cdot\>|)>,\<nu\><around*|(|\<cdot\>|)>>
-      and <math|k<rsub|\<mu\>>> holomorphically extend to
-      <math|\<Omega\><rprime|'>\<supset\>\<Omega\>>. Then,
-      <math|K<rsub|\<mu\>>> also extends to an element of
-      <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
-      for <math|\<mu\>\<in\>\<Omega\><rprime|'>>.
+      <\enumerate>
+        <item>For every <math|a\<bbb-C\>>
+
+        <item>For <math|K\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+        there exists unique <math|K<rsup|S>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)><rsup|\<lambda\>\<comma\>\<nu\>>>
+        such that ;
+
+        <item>Moreover, if <math|K<rsub|\<mu\>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
+        is holomorphic as distribution in <math|\<mu\>\<in\>\<Omega\>>, with
+        <math|\<Omega\>\<subset\>\<bbb-C\><rsup|k>> open and
+        <math|\<lambda\><around*|(|\<cdot\>|)>\<comma\>\<nu\><around*|(|\<cdot\>|)>>
+        holomorphic on <math|\<Omega\>>, we have corresponding
+        \ <math|<around*|(|K<rsub|\<mu\>>|)><rsup|S>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
+        be holomomorphic also.
+
+        <item>Suppose that setting is as in the previous item and moreover
+        that <math|\<lambda\><around*|(|\<cdot\>|)>,\<nu\><around*|(|\<cdot\>|)>>
+        and <math|k<rsub|\<mu\>>> holomorphically extend to
+        <math|\<Omega\><rprime|'>\<supset\>\<Omega\>>. Then,
+        <math|K<rsub|\<mu\>>> also extends to an element of
+        <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
+        for <math|\<mu\>\<in\>\<Omega\><rprime|'>>.
+      </enumerate>
     </proposition>
 
     <subsection|Auxiliary lemmas>
@@ -6439,8 +6454,12 @@
       x|)>=<around*|\||t|\|><rsup|\<lambda\>-n>f<rsub|V><around*|(|x|)>>.
       Therefore (as both side of <math|<eqref|k-finite:eq-compat-N>> are
       homogeneous of order <math|\<lambda\>-n>), it suffices to show that for
-      arbitrary <math|x\<in\>U> we have <math|<around*|\||c<rsub|b><around*|(|x|)>|\|><rsup|\<lambda\>-n>f<rsub|V><around*|(|\<psi\><rsub|b><around*|(|x|)>|)>=<around*|(|f<rsub|V>|)><rsup|\<lambda\>-n><around*|(|n<around*|(|-b|)>\<psi\><rsub|><around*|(|x|)>|)>>.
-      As <math|n<around*|(|-b|)>\<psi\><around*|(|x|)>=c<rsub|-b><around*|(|x|)>\<psi\><around*|(|\<psi\><rsub|-b><around*|(|x|)>|)>>
+      arbitrary <math|x\<in\>U> we have <math|<around*|\||c<rsub|b><around*|(|x|)>|\|><rsup|\<lambda\>-n>f<rsub|V><around*|(|\<psi\><rsub|b><around*|(|x|)>|)>=<around*|(|f<rsub|V>|)><rsup|\<lambda\>-n><around*|(|n<around*|(|b|)>\<psi\><rsub|><around*|(|x|)>|)>>.
+      As <math|n<around*|(|b|)>\<psi\><around*|(|x|)>=c<rsub|b><around*|(|x|)>\<psi\><around*|(|\<psi\><rsub|b><around*|(|x|)>|)>>
+      and <math|<around*|(|f<rsub|V>|)><rsup|\<lambda\>-n>> is homogeneous of
+      degree <math|\<lambda\>-n> by construction, the
+      <math|<around*|\||c<rsub|b><around*|(|x|)>|\|><rsup|\<lambda\>-n>f<rsub|V><around*|(|\<psi\><rsub|b><around*|(|x|)>|)>=<around*|(|f<rsub|V>|)><rsup|\<lambda\>-n><around*|(|n<around*|(|b|)>\<psi\><rsub|><around*|(|x|)>|)>>
+      holds and the proof is over.
     </proof>
 
     <subsection|Proofs>
@@ -6549,6 +6568,10 @@
       Therefore, applying lemma <reference|k-finite:lem-compat> we see that
       <math|\<nu\><around*|(|p<rprime|'>p<rsub|j><rprime|'>|)><around*|\<langle\>|k,L<rsub|p<rsub|j><rprime|'>><rsup|\<ast\>>L<rsub|p<rprime|'>><rsup|\<ast\>>\<varphi\>|\<rangle\>>=\<nu\><around*|(|p<rprime|'>p<rsub|j><rprime|'>|)><around*|\<langle\>|L<rsub|p<rprime|'>>L<rsub|p<rsub|j><rprime|'>>k,<rsup|>\<varphi\>|\<rangle\>>=\<nu\><around*|(|p<rprime|'>p<rsub|j><rprime|'>|)>\<nu\><around*|(|p<rprime|''>|)><around*|\<langle\>|L<rsub|p<rprime|'>>L<rsub|p<rprime|'><rsub|j>>L<rsub|p<rprime|''>>k,\<varphi\>|\<rangle\>>=\<nu\><around*|(|p<rsub|i><rprime|'>|)><around*|\<langle\>|k,L<rsub|p<rsub|i><rprime|'>><rsup|\<ast\>>\<varphi\>|\<rangle\>>>.
       This proves <math|<eqref|k-finite:eq-claim2>> and ends the proof.
+    </proof>
+
+    <\proof>
+      (of prop. <reference|k-finite:prop-holo-to-holo>)
     </proof>
   <|show-part>
     <section|Role of <math|K>-finite vectors>
@@ -9248,6 +9271,7 @@
     <associate|holomorphicity-preserving:prop-pullback-holo|<tuple|2.12|5|#4>>
     <associate|holomorphicity-preserving:prop-tensor-cts|<tuple|2.15|5|#4>>
     <associate|holomorphicity-preserving:prop-tensor-holo|<tuple|2.14|5|#4>>
+    <associate|k-finite:def-Slm|<tuple|16.2|?|#18>>
     <associate|k-finite:def-holo|<tuple|16.1|?|#18>>
     <associate|k-finite:eq-claim2|<tuple|16.2|?|#18>>
     <associate|k-finite:eq-compat-N|<tuple|16.1|?|#18>>
