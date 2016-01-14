@@ -256,76 +256,88 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-55><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|bold|math-font-series|bold|17<space|2spc>Normalization
-      of <with|mode|math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>>
+      <with|par-left|1.5fn|16.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-56><vspace|0.5fn>
+      <no-break><pageref|auto-56>>
 
-      <with|par-left|1.5fn|17.1<space|2spc>Main results
+      <with|par-left|1.5fn|16.2<space|2spc>Auxiliary lemmas
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-57>>
 
-      <with|par-left|1.5fn|17.2<space|2spc>Auxiliary results
+      <with|par-left|1.5fn|16.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-58>>
 
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|17<space|2spc>Normalization
+      of <with|mode|math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-59><vspace|0.5fn>
+
+      <with|par-left|1.5fn|17.1<space|2spc>Main results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-60>>
+
+      <with|par-left|1.5fn|17.2<space|2spc>Auxiliary results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-61>>
+
       <with|par-left|1.5fn|17.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-59>>
+      <no-break><pageref|auto-62>>
 
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|18<space|2spc>Normalization
       of <with|mode|math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-60><vspace|0.5fn>
+      <no-break><pageref|auto-63><vspace|0.5fn>
 
       <with|par-left|1.5fn|18.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-61>>
+      <no-break><pageref|auto-64>>
 
       <with|par-left|1.5fn|18.2<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-62>>
+      <no-break><pageref|auto-65>>
 
       <with|par-left|1.5fn|18.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-63>>
+      <no-break><pageref|auto-66>>
 
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|19<space|2spc>Normalization
       of <with|mode|math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-64><vspace|0.5fn>
+      <no-break><pageref|auto-67><vspace|0.5fn>
 
       <with|par-left|1.5fn|19.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-65>>
+      <no-break><pageref|auto-68>>
 
       <with|par-left|1.5fn|19.2<space|2spc>Auxilliary results (I)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-66>>
+      <no-break><pageref|auto-69>>
 
       <with|par-left|1.5fn|19.3<space|2spc>Auxiliary results (II)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-67>>
+      <no-break><pageref|auto-70>>
 
       <with|par-left|1.5fn|19.4<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-68>>
+      <no-break><pageref|auto-71>>
 
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|20<space|2spc>Application:
       Knapp-Stein operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-69><vspace|0.5fn>
+      <no-break><pageref|auto-72><vspace|0.5fn>
 
       <with|par-left|1.5fn|20.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-70>>
+      <no-break><pageref|auto-73>>
 
       <with|par-left|1.5fn|20.2<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-71>>
+      <no-break><pageref|auto-74>>
 
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-72><vspace|0.5fn>
+      <no-break><pageref|auto-75><vspace|0.5fn>
     </table-of-contents>
 
     <surround|<assign|sone|<macro|<math|<mybra|<D><rprime|'><around|(|G\<times\><rsub|P><C><rsub|\<lambda\>-n>|)>\<otimes\><C><rsub|\<nu\>>><rsup|\<Delta\><around|(|P<rprime|'>|)>>>>><assign|Upp|<macro|<mysetn|(x,y)\<in\><R><rsup|p,q>|x\<neq\>0,<space|0.75spc>y\<neq\>0>>><assign|Stab|<macro|O(p,q)<rsub|e<rsub|p>>>><assign|sol*|<macro|1|<with|math-font|cal|S>ol(<arg|1>;\<lambda\>,\<nu\>)>><assign|sol|<macro|<sol*|<R><rsup|p,q>>>><assign|solXi|<macro|<sol*|\<Xi\>>>>||>
@@ -566,76 +578,88 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-55><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|bold|math-font-series|bold|17<space|2spc>Normalization
-      of <with|mode|math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>>
+      <with|par-left|1.5fn|16.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-56><vspace|0.5fn>
+      <no-break><pageref|auto-56>>
 
-      <with|par-left|1.5fn|17.1<space|2spc>Main results
+      <with|par-left|1.5fn|16.2<space|2spc>Auxiliary lemmas
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-57>>
 
-      <with|par-left|1.5fn|17.2<space|2spc>Auxiliary results
+      <with|par-left|1.5fn|16.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-58>>
 
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|17<space|2spc>Normalization
+      of <with|mode|math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-59><vspace|0.5fn>
+
+      <with|par-left|1.5fn|17.1<space|2spc>Main results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-60>>
+
+      <with|par-left|1.5fn|17.2<space|2spc>Auxiliary results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-61>>
+
       <with|par-left|1.5fn|17.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-59>>
+      <no-break><pageref|auto-62>>
 
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|18<space|2spc>Normalization
       of <with|mode|math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-60><vspace|0.5fn>
+      <no-break><pageref|auto-63><vspace|0.5fn>
 
       <with|par-left|1.5fn|18.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-61>>
+      <no-break><pageref|auto-64>>
 
       <with|par-left|1.5fn|18.2<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-62>>
+      <no-break><pageref|auto-65>>
 
       <with|par-left|1.5fn|18.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-63>>
+      <no-break><pageref|auto-66>>
 
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|19<space|2spc>Normalization
       of <with|mode|math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-64><vspace|0.5fn>
+      <no-break><pageref|auto-67><vspace|0.5fn>
 
       <with|par-left|1.5fn|19.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-65>>
+      <no-break><pageref|auto-68>>
 
       <with|par-left|1.5fn|19.2<space|2spc>Auxilliary results (I)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-66>>
+      <no-break><pageref|auto-69>>
 
       <with|par-left|1.5fn|19.3<space|2spc>Auxiliary results (II)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-67>>
+      <no-break><pageref|auto-70>>
 
       <with|par-left|1.5fn|19.4<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-68>>
+      <no-break><pageref|auto-71>>
 
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|20<space|2spc>Application:
       Knapp-Stein operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-69><vspace|0.5fn>
+      <no-break><pageref|auto-72><vspace|0.5fn>
 
       <with|par-left|1.5fn|20.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-70>>
+      <no-break><pageref|auto-73>>
 
       <with|par-left|1.5fn|20.2<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-71>>
+      <no-break><pageref|auto-74>>
 
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-72><vspace|0.5fn>
+      <no-break><pageref|auto-75><vspace|0.5fn>
     </table-of-contents>
   </hide-part>
 
@@ -4707,7 +4731,7 @@
     <subsection|Main results>
 
     <\proposition>
-      <label|prop-regular>Let <math|<around|(|\<lambda\>,\<nu\>|)>\<in\><C><rsup|2>>
+      <label|supp-R:prop-regular>Let <math|<around|(|\<lambda\>,\<nu\>|)>\<in\><C><rsup|2>>
       be such that <math|Re<around|(|\<lambda\>+\<nu\>-n|)>\<gtr\>0> and
       <math|Re(-\<nu\>)\<gtr\>0>. Then
 
@@ -4721,7 +4745,7 @@
     </proposition>
 
     <\proposition>
-      <label|KR-normalization-recur:prop-3>Distribution\ 
+      <label|supp-R:prop-3>Distribution\ 
 
       <\equation*>
         K<rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>\<assign\><frac|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||Q|\|><rsup|\<um\>\<nu\>>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>\<Gamma\><around*|(|<frac|-\<nu\>+1|2>|)>>
@@ -4739,10 +4763,9 @@
     <\proposition>
       <label|KR-normalization-recur:prop-supp>For
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> defined in
-      proposition <reference|KR-normalization-recur:prop-3> we have its
-      restriction to <math|\<bbb-R\><rsup|n>\\<around*|{|0|}>> being
-      holomorphic in <math|<around*|(|\<lambda\>,\<nu\>|)>> with support
-      being equal to
+      proposition <reference|supp-R:prop-3> we have its restriction to
+      <math|\<bbb-R\><rsup|n>\\<around*|{|0|}>> being holomorphic in
+      <math|<around*|(|\<lambda\>,\<nu\>|)>> with support being equal to
 
       <\equation*>
         =<choice|<tformat|<table|<row|<cell|\<bbb-R\><rsup|n>\\<around*|{|0|}>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<nin\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<nin\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>>|<row|<cell|<around*|{|Q=0|}>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<nin\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>>|<row|<cell|<around*|{|x<rsub|p>=0|}>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<nin\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>>|<row|<cell|\<varnothing\>,>|<cell|p=1,<space|0.6spc><around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>>|<row|<cell|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>,>|<cell|p\<gtr\>1,<space|0.6spc><around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>.>>>>>
@@ -4753,8 +4776,8 @@
 
     <\lemma>
       <label|KR-normalization-recur:lem-nonvanishing-ss><math|K<rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>>
-      defined as in proposition <reference|KR-normalization-recur:prop-3>
-      \ is nonzero on <math|\<Omega\><rsub|0>\<cap\><around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      defined as in proposition <reference|supp-R:prop-3> \ is nonzero on
+      <math|\<Omega\><rsub|0>\<cap\><around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>
       iff <math|p\<neq\>1>. Moreover, for <math|p\<gtr\>1> it has support
       being equal to <math|<around*|{|Q=0|}>\<cap\><around*|{|x<rsub|p>=0|}>>.
     </lemma>
@@ -4777,8 +4800,8 @@
       Now, we proceed to <math|p\<gtr\>1> case. Let's take an arbitrary point
       <math|x<rsub|0>\<in\><around*|{|Q=0|}>\<cap\><around*|{|x<rsub|p>=0|}>>
       (this set is nonempty under the <math|p\<neq\>1> condition). As was
-      noted in proof of proposition <reference|KR-normalization-recur:prop-3>,
-      we have normals of <math|<around*|{|Q=0|}>> and
+      noted in proof of proposition <reference|supp-R:prop-3>, we have
+      normals of <math|<around*|{|Q=0|}>> and
       <math|<around*|{|x<rsub|p>=0|}>> being independent at <math|x<rsub|0>>,
       hence we may introduce local coordinate system
       <math|y<around*|(|x|)>=<around*|(|y<rsub|1><around*|(|x|)>,y<rsub|2><around*|(|x|)>,\<ldots\>,y<rsub|n><around*|(|x|)>|)>\<in\>\<Pi\><rsub|i>U<rsub|i>\<subset\>\<Pi\><rsub|i>\<bbb-R\>>
@@ -4827,7 +4850,7 @@
     <subsection|Proofs>
 
     <\proof>
-      (of prop. <reference|prop-regular>) All items of definition
+      (of prop. <reference|supp-R:prop-regular>) All items of definition
       <reference|sol:def-sol> can be seen directly to hold. In particular,
       <math|N<rsub|+><rprime|'>>-invariance as in definition
       <reference|def-n-nots:def-n+invar> holds, since
@@ -4842,8 +4865,8 @@
     </proof>
 
     <\proof>
-      (of prop. <reference|KR-normalization-recur:prop-3>) For the sake of
-      brevity, we let <math|\<Omega\><rsub|0>\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<lambda\>\<um\>n\<in\>\<bbb-Z\><rsub|\<leqslant\>0>|}>>.
+      (of prop. <reference|supp-R:prop-3>) For the sake of brevity, we let
+      <math|\<Omega\><rsub|0>\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<lambda\>\<um\>n\<in\>\<bbb-Z\><rsub|\<leqslant\>0>|}>>.
       For the proof, it suffices to construct some holomorphically dependent
       on <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<Omega\><rsub|0>>
       distribution <math|F<rsub|\<lambda\>,\<nu\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>|)>>
@@ -4890,9 +4913,9 @@
     <\proof>
       (of prop. <reference|KR-normalization-recur:prop-supp>) The fact that
       restriction is holomorphic follows by inspecting the proof of
-      proposition <reference|KR-normalization-recur:prop-3>. The last two
-      rows are given by lemma <reference|KR-normalization-recur:lem-nonvanishing-ss>.
-      The first row is given by second and third item of lemma
+      proposition <reference|supp-R:prop-3>. The last two rows are given by
+      lemma <reference|KR-normalization-recur:lem-nonvanishing-ss>. The first
+      row is given by second and third item of lemma
       <reference|supp-n-waves:lem-supp-xp>, which shows that both
       <math|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>>
       and <math|<around*|\||Q|\|><rsup|-\<nu\>>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>>
@@ -5104,8 +5127,8 @@
       about support then gets obvious as well, so it remains to show that
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>\<in\><sol>>.
 
-      In the light of proposition <reference|KR-normalization-recur:prop-3>,
-      it suffices to show that we have <math|K<rsup|P><rsub|\<lambda\>,\<nu\>>=K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
+      In the light of proposition <reference|supp-R:prop-3>, it suffices to
+      show that we have <math|K<rsup|P><rsub|\<lambda\>,\<nu\>>=K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
       for <math|\<lambda\>-\<nu\>-n=-1-2k> and
       <math|Re<around*|(|\<nu\>|)>\<ll\>0>. Moreover, in the light of the
       fact <reference|holomorphicity-preserving:fact-homog> (and the
@@ -5207,7 +5230,7 @@
     <\remark>
       The multiplication of distributions here is defined as in
       <cite|hormander1983analysis>, well-definedness being shown in the proof
-      of proposition <reference|KR-normalization-recur:prop-3>. We note that
+      of proposition <reference|supp-R:prop-3>. We note that
       <math|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>> in
       expression for <math|p=1> case makes sense without the normalization by
       gamma function, as for <math|p=1> we have
@@ -5727,7 +5750,7 @@
       as for <math|Re<around*|(|\<lambda\>|)>\<gg\>0> it coincides with
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>><mid|\|><rsub|\<bbb-R\><rsup|n>\\<around*|{|0|}>>>
       with <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>
-      as defined in proposition <reference|KR-normalization-recur:prop-3>
+      as defined in proposition <reference|supp-R:prop-3>
 
       Therefore, it suffices to show that
       <math|dim<around*|(|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>\\<around*|{|0|}>;\<lambda\>,\<nu\>|)>|)>\<leqslant\>1>.
@@ -5988,41 +6011,105 @@
     </proposition>
 
     <\proposition>
-      <label|k-finite:prop-holo-to-holo>Let
-      <math|\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)><rsup|\<lambda\>\<comma\>\<nu\>>\<assign\><around*|{|k\<in\>\<cal-D\><rprime|'><rsub|><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)><mid|\|>\<forall\>p<rprime|'>\<in\>P<rprime|'>,<space|0.6spc>l<rsub|p<rprime|'>><rsup|\<lambda\>-n>k<around*|(|p<rprime|'>\<cdot\>|)>=\<nu\><around*|(|p<rprime|'>|)>k<around*|(|\<cdot\>|)>;k<around*|(|<around*|(|-1|)>\<cdot\>|)>=k<around*|(|\<cdot\>|)>|}>>,
-      where for <math|p<rprime|'>\<in\>P<rprime|'>> we define
-      <math|l<rsub|p<rprime|'>>\<in\>C<rsup|\<infty\>><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>\<rightarrow\>\<bbb-R\><rsub|\<gtr\>0>|)>>
-      as <math|l<rsub|p<rprime|'>><around*|(|x|)>\<assign\><around*|\||p<rprime|'>\<cdot\>x|\|>>,
-      where for <math|\<xi\>=<around*|(|\<xi\><rsub|i>|)><rsub|i=1><rsup|p+q+2>>
-      we let <math|<around*|\||\<xi\>|\|>\<assign\><around*|\||<around*|(|\<xi\><rsub|i>|)><rsub|i=1><rsup|p+1>|\|><rsub|p+1>>
-      and we let <math|P<rprime|'>> act on
-      <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>> by first acting as
-      on element of <math|\<Xi\>> and then projecting back to
-      <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>>. Then:
+      <label|k-finite:prop-holo-to-holo>For
+      <math|K\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+      let <math|K<rsup|S>\<assign\>\<iota\><rsup|\<ast\>>K<rsup|\<Xi\>>>,
+      where <math|K<rsup|\<Xi\>>> is as in proposition
+      <reference|k-finite:prop-claim2> and
+      <math|\<iota\>:\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>\<hookrightarrow\>\<Xi\>>
+      is the embedding. Then, if <math|K<rsub|\<mu\>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
+      is holomorphic as distribution in <math|\<mu\>\<in\>\<Omega\>>, with
+      <math|\<Omega\>\<subset\>\<bbb-C\><rsup|k>> open and
+      <math|\<lambda\><around*|(|\<cdot\>|)>\<comma\>\<nu\><around*|(|\<cdot\>|)>>
+      holomorphic on <math|\<Omega\>>, we have corresponding
+      \ <math|<around*|(|K<rsub|\<mu\>>|)><rsup|S>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
+      be holomomorphic also. Moreover, if
+      <math|\<lambda\><around*|(|\<cdot\>|)>,\<nu\><around*|(|\<cdot\>|)>>
+      and <math|<around*|(|K<rsub|\<mu\>>|)><rsup|S>> holomorphically extend
+      to <math|\<Omega\><rprime|'>\<supset\>\<Omega\>>, <math|K<rsub|\<mu\>>>
+      also extends to an element of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
+      for <math|\<mu\>\<in\>\<Omega\><rprime|'>> and we have
+      <math|<around*|(|K<rsub|\<mu\>>|)><rsup|S>=\<iota\><rsup|\<ast\>>K<rsub|\<mu\>><rsup|\<Xi\>>>
+      for <math|\<mu\>\<in\>\<Omega\><rprime|'>>.
+    </proposition>
 
-      <\enumerate>
-        <item>For every <math|a\<bbb-C\>>
+    <\proposition>
+      <label|k-finite:prop-kfinite-extension-oneparam>Suppose
+      <math|\<Omega\>\<subset\>\<bbb-C\>> is open with
+      <math|D\<subset\>\<Omega\>> discrete. Suppose further that <math|M> is
+      a smooth manifold with fixed volume form and
+      <math|D<rsub|\<mu\>>\<in\>\<cal-D\><rprime|'><around*|(|M|)>> is
+      holomorphic in <math|\<mu\>\<in\>\<Omega\>\\D>. Suppose further that
+      for every <math|f\<in\>Z> with <math|Z\<subset\>C<rsup|\<infty\>><rsub|0><around*|(|M|)>>
+      dense (in the sense of Frechet topology on
+      <math|C<rsub|0><rsup|\<infty\>><around*|(|M|)>>) we have
+      <math|<around*|\<langle\>|D<rsub|\<mu\>>,f|\<rangle\>>> being
+      holomorphic in <math|\<mu\>\<in\>\<Omega\>>. Then <math|D<rsub|\<mu\>>>
+      extends to a holomorphic in <math|\<mu\>\<in\>\<Omega\>> generalized
+      function on <math|M>. <math|>
+    </proposition>
 
-        <item>For <math|K\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
-        there exists unique <math|K<rsup|S>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)><rsup|\<lambda\>\<comma\>\<nu\>>>
-        such that ;
+    <\remark>
+      Fixed volume form allows us to make sense of pairing of distribution
+      and smooth function with compact support on <math|M>, as we
+      <with|font-series|bold|do not> define
+      <math|\<cal-D\><rprime|'><around*|(|M|)>> is dual of
+      <math|C<rsub|0><rsup|\<infty\>><around*|(|M|)>> -- see discussion in
+      <cite-detail|hormander1983analysis|sec 6.3>.
+    </remark>
 
-        <item>Moreover, if <math|K<rsub|\<mu\>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
-        is holomorphic as distribution in <math|\<mu\>\<in\>\<Omega\>>, with
-        <math|\<Omega\>\<subset\>\<bbb-C\><rsup|k>> open and
-        <math|\<lambda\><around*|(|\<cdot\>|)>\<comma\>\<nu\><around*|(|\<cdot\>|)>>
-        holomorphic on <math|\<Omega\>>, we have corresponding
-        \ <math|<around*|(|K<rsub|\<mu\>>|)><rsup|S>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
-        be holomomorphic also.
+    <\proposition>
+      <label|k-finite:prop-KR-hook-1>For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|Re<around*|(|-\<nu\>|)>\<gtr\>0,Re<around*|(|\<lambda\>+\<nu\>-n|)>\<gtr\>0|}>>
+      we have <math|K<rsub|\<lambda\>,\<nu\>>\<assign\><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||Q|\|><rsup|-\<nu\>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+      by proposition <reference|supp-R:prop-regular>. Then, the corresponding
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|S>> (given by proposition
+      <reference|k-finite:prop-claim2>) equals to
+      <math|=<around*|\||\<xi\><rsub|p+1>|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||\<xi\><rsub|p+q+2>-\<xi\><rsub|1>|\|><rsup|-\<nu\>>>.
+      Moreover, for every <math|F\<in\>\<cal-H\><rsup|a><around*|(|\<bbb-S\><rsup|p>|)>\<otimes\>\<cal-H\><rsup|b><around*|(|\<bbb-S\><rsup|q>|)>\<subset\>C<rsup|\<infty\>><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
+      with <math|a+b\<in\>2\<bbb-Z\>> we have
 
-        <item>Suppose that setting is as in the previous item and moreover
-        that <math|\<lambda\><around*|(|\<cdot\>|)>,\<nu\><around*|(|\<cdot\>|)>>
-        and <math|k<rsub|\<mu\>>> holomorphically extend to
-        <math|\<Omega\><rprime|'>\<supset\>\<Omega\>>. Then,
-        <math|K<rsub|\<mu\>>> also extends to an element of
-        <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
-        for <math|\<mu\>\<in\>\<Omega\><rprime|'>>.
-      </enumerate>
+      <\equation>
+        <around*|\<langle\>|K<rsup|S><rsub|\<lambda\>,\<nu\>>,F|\<rangle\>>=<big|sum><rprime|'><rsub|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>k<rsub|N>\<cdot\>\<varphi\><rsub|N><around*|[|g<rsub|N>|]><label|k-finite:eq-hookR>
+      </equation>
+
+      where <math|g<rsub|N>> are even polynomials (``even'' in the sense
+      <math|g<around*|(|x,y|)>=g<around*|(|-x,-y|)>>), <math|k<rsub|N>> are
+      some entire nonzero functions in <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
+      (depending only on <math|F> and <math|N>), <math|<big|sum><rprime|'>>
+      denotes finite sum and\ 
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|\<varphi\><rsub|N><around*|[|g|]><around*|(|\<lambda\>,\<nu\>|)>\<assign\><frac|\<Gamma\><around*|(|\<lambda\>+\<nu\>-n+1|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>+N-q|2>|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2><around*|(|1-y<rsup|2>|)><rsup|<around*|(|\<lambda\>+\<nu\>+N-q|)>/2-1>g<around*|(|x,y|)>d
+        x d y.>|<cell|>>>>
+      </eqnarray>
+
+      Moreover, for every <math|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>> and
+      even polynomial <math|g> there exists
+      <math|F\<in\><big|sum><rsub|i,a<rsub|i>+b<rsub|i>\<in\>2\<bbb-Z\>><rprime|'>\<cal-H\><rsup|a<rsub|i>><around*|(|\<bbb-S\><rsup|p>|)>\<otimes\>\<cal-H\><rsup|b<rsub|i>><around*|(|\<bbb-S\><rsup|q>|)>>
+      such that <math|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|S>,F|\<rangle\>>=k\<cdot\>\<varphi\><rsub|N><around*|[|g|]>>
+      for some <math|k> entire nonzero in
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>.
+    </proposition>
+
+    <\remark>
+      Note that under the assumption <math|<around*|{|Re<around*|(|-\<nu\>|)>\<gtr\>0,Re<around*|(|\<lambda\>+\<nu\>-n|)>\<gtr\>0|}>>
+      <math|\<varphi\><rsub|N><around*|[|g|]>> are holomorphic.
+    </remark>
+
+    <\proposition>
+      <label|k-finite:prop-KR-hook-2>For <math|R> meromorphic nonzero in
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\>> and
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>
+      as defined in proposition <reference|supp-R:prop-3> for
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<lambda\>-\<nu\>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      we have <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/N>
+      extending to holomorphic in <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\>>
+      distribution if for every <math|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
+      and <math|g>:even polynomial we have
+      <math|\<varphi\><rsub|N><around*|[|g|]>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/R>
+      extending to holomorphic in <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\>>.
+      Moreover, for <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
+      we have <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R=0\<Leftrightarrow\>\<forall\>N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>\<forall\>g,<space|0.6spc><around*|(|\<varphi\><rsub|N><around*|[|g|]>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/R|)><around*|(|\<lambda\>,\<nu\>|)>=0>.
     </proposition>
 
     <subsection|Auxiliary lemmas>
@@ -6571,7 +6658,149 @@
     </proof>
 
     <\proof>
-      (of prop. <reference|k-finite:prop-holo-to-holo>)
+      (of prop. <reference|k-finite:prop-holo-to-holo>) We note that the
+      restriction <math|\<iota\><rsup|\<ast\>>K<rsup|\<Xi\>>> is well-defined
+      by lemma <reference|k-finite:lem-restriction-to-S>. Holomorphicity of
+      <math|<around*|(|K<rsub|\<mu\>>|)><rsup|S>> follows by holomorphicity
+      part of proposition <reference|k-finite:prop-claim2> and proposition
+      <reference|holomorphicity-preserving:prop-pullback-holo>, so it remains
+      to prove the part regarding the holomorphic extension. So suppose that
+      <math|<around*|(|K<rsub|\<mu\>>|)><rsup|S>> extends to
+      <math|\<mu\>\<in\>\<Omega\><rprime|'>\<supset\>\<Omega\>>. Then,
+      holomorphicity implies that for <math|\<mu\>\<in\>\<Omega\><rprime|'>>
+      <math|<around*|(|K<rsub|\<mu\>>|)><rsup|S>> is still even as
+      distribution on <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>>.
+      Then, the converse part of lemma <reference|k-finite:lem-restriction-to-S>
+      and lemma <reference|k-finite:lem-abs-is-holo> together with
+      holomorphicity of tensor and pullback imply that we can construct
+      <math|k<rsub|\<mu\>>\<in\>\<cal-D\><rprime|'><rsub|\<lambda\><around*|(|\<mu\>|)>-n><around*|(|\<Xi\>|)>>
+      that is holomorphic in <math|\<mu\>\<in\>\<Omega\><rprime|'>> and such
+      that <math|\<iota\><rsup|\<ast\>>k<rsub|\<mu\>>=<around*|(|K<rsub|\<mu\>>|)><rsup|S>>.
+      Then, <math|k<rsub|\<mu\>>=<around*|(|K<rsub|\<mu\>>|)><rsup|\<Xi\>>>
+      for <math|\<mu\>\<in\>\<Omega\>> (as their restriction to
+      <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>> and homogeneity
+      degree coincides, this is implied by lemma
+      <reference|k-finite:lem-restriction-to-S>). Then,
+      <math|\<psi\><rsup|\<ast\>>k<rsub|\<mu\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>|)>>
+      is holomorphic in <math|\<mu\>> (by proposition
+      <reference|holomorphicity-preserving:prop-pullback-holo>) and coincides
+      with <math|K<rsub|\<mu\>>> for <math|\<mu\>\<in\>\<Omega\>>, hence
+      proposition <reference|sol:prop-holocont> implies that
+      <math|\<psi\><rsup|\<ast\>>k<rsub|\<mu\>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
+      for <math|\<mu\>\<in\>\<Omega\><rprime|'>>. It remains to show that we
+      have <math|<around*|(|K<rsub|\<mu\>>|)><rsup|S>=\<iota\><rsup|\<ast\>>K<rsub|\<mu\>><rsup|\<Xi\>>>
+      for <math|\<mu\>\<in\>\<Omega\><rprime|'>>. But this is clear, as both
+      sides are holomorphic in <math|\<mu\>\<in\>\<Omega\><rprime|'>> and
+      they coincide of <math|\<mu\>\<in\>\<Omega\><rprime|'>>.
+    </proof>
+
+    <\proof>
+      (of prop. <reference|k-finite:prop-kfinite-extension-oneparam>) Indeed,
+      build the Laurent expansion of <math|K<rsub|\<mu\>>> at arbitrary
+      <math|\<mu\><rsub|0>\<in\>D>: <math|K<rsub|\<mu\>>=<big|sum><rsub|i=-\<infty\>><rsup|\<infty\>>K<rsub|i><around*|(|\<mu\>-\<mu\><rsub|0>|)><rsup|i>>.
+      The hypothesis then implies that for every <math|\<varphi\>\<in\>Z> we
+      have <math|<around*|\<langle\>|K<rsub|i>,\<varphi\>|\<rangle\>>=0> for
+      every <math|i\<in\>-\<bbb-Z\><rsub|\<gtr\>0>> and hence we see that
+      <math|K<rsub|i>=0> for <math|i\<less\>0> and thus <math|K<rsub|\<mu\>>>
+      is holomorphic at <math|\<mu\><rsub|0>>. As <math|\<mu\><rsub|0>> was
+      arbitrary, we are done.
+    </proof>
+
+    <\proof>
+      (of prop. <reference|k-finite:prop-KR-hook-1>)
+    </proof>
+
+    <\fact>
+      <label|k-finite:fact-hartogs><cite-detail|krantz1982function|thm.
+      1.2.5> Let <math|\<Omega\>\<subset\>\<bbb-C\><rsup|n>> be an open set
+      and <math|f:\<Omega\>\<rightarrow\>\<bbb-C\>>. Suppose that for each
+      <math|j\<in\><around*|{|1,2,\<ldots\>,n|}>> and each fixed
+      <math|<around*|(|z<rsub|i>|)><rsub|i=1,i\<neq\>j><rsup|n>> we have
+      <math|<around*|{|z\<in\>\<bbb-C\><mid|\|><around*|(|z<rsub|1>,z<rsub|2>,\<ldots\>,z<rsub|j-1>,z,z<rsub|j+1>,\<ldots\>,z<rsub|n>|)>\<in\>\<Omega\>|}>\<ni\>z\<mapsto\>f<around*|(|z<rsub|1>,z<rsub|2>,\<ldots\>,z<rsub|j-1>,z,z<rsub|j+1>,\<ldots\>,z<rsub|n>|)>>
+      is holomorphic as function of <math|z>. Then, <math|f> is continuous on
+      <math|\<Omega\>> and hence holomorphic on <math|\<Omega\>>.
+    </fact>
+
+    <\proof>
+      (of prop. <reference|k-finite:prop-KR-hook-2>) As
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R> is
+      holomorphic in <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<lambda\>+\<nu\>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      and is a member of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>,
+      proposition <reference|k-finite:prop-holo-to-holo> gives us
+      corresponding <math|k<rsub|\<lambda\>,\<nu\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>.
+      Moreover, proposition <reference|k-finite:prop-KR-hook-1> tells us that
+      for <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|Re<around*|(|-\<nu\>|)>\<gtr\>0,Re<around*|(|\<lambda\>+\<nu\>-n|)>\<gtr\>0|}>>
+      and <math|F\<in\>\<cal-H\><rsup|a><around*|(|\<bbb-S\><rsup|p>|)>\<otimes\>\<cal-H\><rsup|b><around*|(|\<bbb-S\><rsup|q>|)>>
+      with <math|a+b\<in\>2\<bbb-Z\>> we have
+
+      <\equation*>
+        <around*|\<langle\>|k<rsub|\<lambda\>,\<nu\>>,F|\<rangle\>>=<big|sum><rprime|'><rsub|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>><rsup|>k<rsub|N><around*|(|\<lambda\>,\<nu\>|)>\<cdot\><frac|\<varphi\><rsub|N><around*|[|g<rsub|N>|]><around*|(|\<lambda\>,\<nu\>|)>|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>R<around*|(|\<lambda\>,\<nu\>|)>>.
+      </equation*>
+
+      Now, as both sides of latter equality are holomorphic in
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<lambda\>+\<nu\>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      (the right-hand side is so by hypothesis), it extends to
+      <math|<around*|{|\<lambda\>+\<nu\>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
+
+      Now, we fix <math|\<lambda\>=\<lambda\><rsub|0>\<in\>\<bbb-C\>> and let
+      <math|k<rsub|\<nu\>>\<assign\>k<rsub|\<lambda\><rsub|0>,\<nu\>>>. The
+      latter is holomorphic in <math|\<nu\>\<in\>\<bbb-C\>\\D<rsub|>> with
+      <math|D<rsub|>\<assign\><around*|{|\<nu\>\<in\>\<bbb-C\><mid|\|>\<lambda\><rsub|0>+\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
+      We want to show that <math|k<rsub|\<nu\>>> extends to holomorphic in
+      <math|\<nu\>\<in\>\<bbb-C\>> distribution. Proposition
+      <reference|k-finite:prop-kfinite-extension-oneparam> tells us that it
+      suffices to show that for every <math|F\<in\>\<cal-H\><rsup|a><around*|(|\<bbb-S\><rsup|p>|)>\<otimes\>\<cal-H\><rsup|b><around*|(|\<bbb-S\><rsup|q>|)>>
+      we have <math|<around*|\<langle\>|k<rsub|\<nu\>>,F|\<rangle\>>> being
+      holomorphic in <math|\<nu\>\<in\>\<bbb-C\>>. Now, for
+      <math|a+b\<in\>2\<bbb-Z\>+1> we have <math|k<rsub|\<nu\>>> being even,
+      while <math|F> is odd and hence <math|<around*|\<langle\>|k<rsub|\<nu\>>,F|\<rangle\>>=0>
+      clearly holomorphic in <math|\<nu\>>. For <math|a+b\<in\>2\<bbb-Z\>>
+      the conclusion in turn is granted by hypothesis. Repeating the same
+      argument with <math|\<nu\>=\<nu\><rsub|0>> fixed and using fact
+      <reference|k-finite:fact-hartogs> tells us that
+      <math|k<rsub|\<lambda\>,\<nu\>>> extends to holomorphic in
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
+      distribution on <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>> and
+      thus proposition <reference|k-finite:prop-holo-to-holo> tells us that
+      so does <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R>.
+
+      It remains to show that for for <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
+      we have <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R=0\<Leftrightarrow\>\<forall\>N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>\<forall\>g,<space|0.6spc><around*|(|\<varphi\><rsub|N><around*|[|g|]>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/R|)><around*|(|\<lambda\>,\<nu\>|)>=0>.
+      Note that proposition <reference|k-finite:prop-holo-to-holo> tells us
+      that <math|k<rsub|\<lambda\>,\<nu\>>=\<iota\><rsup|\<ast\>><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R|)><rsup|\<Xi\>>>
+      (with <math|<around*|(|\<cdot\>|)><rsup|\<Xi\>>> as in proposition
+      <reference|k-finite:prop-claim2>). We first show the
+      ``<math|\<Leftarrow\>>''. Assuming that
+      <math|\<forall\>N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>\<forall\>g,<space|0.6spc><around*|(|\<varphi\><rsub|N><around*|[|g|]>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/R|)><around*|(|\<lambda\>,\<nu\>|)>=0>
+      we see that <math|<around*|\<langle\>|k<rsub|\<lambda\>,\<nu\>>,F|\<rangle\>>=0>
+      for every <math|F\<in\>\<cal-H\><rsup|a><around*|(|\<bbb-S\><rsup|p>|)>\<otimes\>\<cal-H\><rsup|b><around*|(|\<bbb-S\><rsup|q>|)>>
+      with <math|a+b\<in\>2\<bbb-Z\>>. Arguing as in previous paragraph we
+      see that <math|<around*|\<langle\>|k<rsub|\<lambda\>,\<nu\>>,F|\<rangle\>>=0>
+      for <math|F\<in\>\<cal-H\><rsup|a><around*|(|\<bbb-S\><rsup|p>|)>\<otimes\>\<cal-H\><rsup|b><around*|(|\<bbb-S\><rsup|q>|)>>
+      without the <math|a+b\<in\>2\<bbb-Z\>> assumption. Hence
+      <math|k<rsub|\<lambda\>,\<nu\>>=0>. Lemma
+      <reference|k-finite:lem-restriction-to-S> now implies that
+      <math|<around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R|)><rsup|\<Xi\>>\<in\>\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)>>
+      is zero and hence <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R=\<psi\><rsup|\<ast\>><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R|)><rsup|\<Xi\>>=0>.
+
+      Finally, we show the ``<math|\<Rightarrow\>>'' direction, so we assume
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R=0>. This
+      implies (by the uniqueness part of lemma
+      <reference|k-finite:prop-claim2>) that
+      <math|<around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R|)><rsup|\<Xi\>>=0>,
+      hence <math|k<rsub|\<lambda\>,\<nu\>>=\<iota\><rsup|\<ast\>><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/R|)><rsup|\<Xi\>>=0>.
+      Proposition <reference|k-finite:prop-KR-hook-1> now implies that for
+      every <math|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>> and even polynomial
+      <math|g> there exists <math|F\<in\><big|sum><rsub|i,a<rsub|i>+b<rsub|i>\<in\>2\<bbb-Z\>><rprime|'>\<cal-H\><rsup|a<rsub|i>><around*|(|\<bbb-S\><rsup|p>|)>\<otimes\>\<cal-H\><rsup|b<rsub|i>><around*|(|\<bbb-S\><rsup|q>|)>>
+      such that <math|<around*|\<langle\>|k<rsub|\<lambda\>,\<nu\>><rsup|>,F|\<rangle\>>=k\<cdot\>\<varphi\><rsub|N><around*|[|g|]>//\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/R>
+      for some <math|k> entire nonzero in
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>> (the
+      actual statement of proposition <reference|k-finite:prop-KR-hook-1> was
+      made to hold on <math|<around*|{|Re<around*|(|-\<nu\>|)>\<gtr\>0,Re<around*|(|\<lambda\>+\<nu\>-n|)>\<gtr\>0|}>>,
+      but as both sides are analytic in <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      it extends) and thus we conclude that
+      <math|\<varphi\><rsub|N><around*|[|g|]>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/R=0>.
+      As <math|N> and <math|g> were arbitrary, we are done.
     </proof>
   <|show-part>
     <section|Role of <math|K>-finite vectors>
@@ -6594,7 +6823,7 @@
     to <math|\<bbb-R\><rsup|n>> given by fact
     <reference|holomorphicity-preserving:fact-homog>, the product being
     well-defined by the same reasoning as in proof of proposition
-    <reference|KR-normalization-recur:prop-3>.
+    <reference|supp-R:prop-3>.
 
     We shall also employ the notion of <math|\<frak-P\><around*|(|\<cdot\>|)>>
     as given in definition <reference|def-P> and related notions.
@@ -7603,7 +7832,7 @@
     In this part, we will try to normalize kernel of regular symmetry
     breaking operator under the assumption
     <math|q\<in\>2\<bbb-Z\><rsub|\<gtr\>0>>. As shown in proposition
-    <reference|KR-normalization-recur:prop-3>, for an open subset of
+    <reference|supp-R:prop-3>, for an open subset of
     <math|<around*|{|\<lambda\>-\<nu\>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>\<subset\>\<bbb-C\><rsup|2>>
     we have kernel of regular SBO <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
     being equal to\ 
@@ -8692,6 +8921,10 @@
         for symmetric pairs. <newblock><with|font-shape|italic|to appear in
         Selecta Mathematica>, 2013.
 
+        <bibitem*|Kra82><label|bib-krantz1982function>S.G. Krantz.
+        <newblock><with|font-shape|italic|Function theory of several complex
+        variables>. <newblock>Pure and applied mathematics. Wiley, 1982.
+
         <bibitem*|KS14><label|bib-Kobayashi201489>Toshiyuki Kobayashi and
         Birgit Speh. <newblock>Intertwining operators and the restriction of
         representations of rank-one orthogonal groups.
@@ -8751,6 +8984,10 @@
         operators. I-General theory and F-method. II-Rankin-Cohen operators
         for symmetric pairs. <newblock><with|font-shape|italic|to appear in
         Selecta Mathematica>, 2013.
+
+        <bibitem*|Kra82><label|bib-krantz1982function>S.G. Krantz.
+        <newblock><with|font-shape|italic|Function theory of several complex
+        variables>. <newblock>Pure and applied mathematics. Wiley, 1982.
 
         <bibitem*|KS14><label|bib-Kobayashi201489>Toshiyuki Kobayashi and
         Birgit Speh. <newblock>Intertwining operators and the restriction of
@@ -8844,7 +9081,6 @@
     <associate|KR-normalization-recur:lem-recur-crucial|<tuple|118|?|#11>>
     <associate|KR-normalization-recur:prop-1|<tuple|86|?|#10>>
     <associate|KR-normalization-recur:prop-2|<tuple|20.2|59|#21>>
-    <associate|KR-normalization-recur:prop-3|<tuple|12.2|35|#14>>
     <associate|KR-normalization-recur:prop-4|<tuple|111|?|#11>>
     <associate|KR-normalization-recur:prop-func-eq|<tuple|20.3|60|#21>>
     <associate|KR-normalization-recur:prop-nonzero|<tuple|18.3|?|#19>>
@@ -8914,25 +9150,28 @@
     <associate|auto-53|<tuple|15.2|44>>
     <associate|auto-54|<tuple|15.3|44>>
     <associate|auto-55|<tuple|16|45>>
-    <associate|auto-56|<tuple|17|45>>
-    <associate|auto-57|<tuple|17.1|46>>
-    <associate|auto-58|<tuple|17.2|52>>
-    <associate|auto-59|<tuple|17.3|53>>
+    <associate|auto-56|<tuple|16.1|45>>
+    <associate|auto-57|<tuple|16.2|46>>
+    <associate|auto-58|<tuple|16.3|52>>
+    <associate|auto-59|<tuple|17|53>>
     <associate|auto-6|<tuple|2|4>>
-    <associate|auto-60|<tuple|18|53>>
-    <associate|auto-61|<tuple|18.1|53>>
-    <associate|auto-62|<tuple|18.2|54>>
-    <associate|auto-63|<tuple|18.3|54>>
-    <associate|auto-64|<tuple|19|56>>
-    <associate|auto-65|<tuple|19.1|56>>
-    <associate|auto-66|<tuple|19.2|57>>
-    <associate|auto-67|<tuple|19.3|61>>
-    <associate|auto-68|<tuple|19.4|63>>
-    <associate|auto-69|<tuple|20|65>>
+    <associate|auto-60|<tuple|17.1|53>>
+    <associate|auto-61|<tuple|17.2|53>>
+    <associate|auto-62|<tuple|17.3|54>>
+    <associate|auto-63|<tuple|18|54>>
+    <associate|auto-64|<tuple|18.1|56>>
+    <associate|auto-65|<tuple|18.2|56>>
+    <associate|auto-66|<tuple|18.3|57>>
+    <associate|auto-67|<tuple|19|61>>
+    <associate|auto-68|<tuple|19.1|63>>
+    <associate|auto-69|<tuple|19.2|65>>
     <associate|auto-7|<tuple|2.1|4>>
-    <associate|auto-70|<tuple|20.1|65>>
-    <associate|auto-71|<tuple|20.2|66>>
-    <associate|auto-72|<tuple|20.5|67>>
+    <associate|auto-70|<tuple|19.3|65>>
+    <associate|auto-71|<tuple|19.4|66>>
+    <associate|auto-72|<tuple|20|67>>
+    <associate|auto-73|<tuple|20.1|?>>
+    <associate|auto-74|<tuple|20.2|?>>
+    <associate|auto-75|<tuple|20.5|?>>
     <associate|auto-8|<tuple|2.2|5>>
     <associate|auto-9|<tuple|2.3|5>>
     <associate|auto.1-1|<tuple|1|?|#1>>
@@ -9142,6 +9381,7 @@
     <associate|bib-howe1993homogeneous|<tuple|HT93|62|#23>>
     <associate|bib-kobayashi2013differential|<tuple|KP13|62|#23>>
     <associate|bib-kobayashi2015symmetry|<tuple|KS15|62|#23>>
+    <associate|bib-krantz1982function|<tuple|Kra82|?|#23>>
     <associate|bib-treves1967topological|<tuple|Tre67|62|#23>>
     <associate|bib-wallach1988real|<tuple|Wal88|62|#23>>
     <associate|def-P|<tuple|4.3|12|#6>>
@@ -9273,25 +9513,31 @@
     <associate|holomorphicity-preserving:prop-tensor-holo|<tuple|2.14|5|#4>>
     <associate|k-finite:def-Slm|<tuple|16.2|?|#18>>
     <associate|k-finite:def-holo|<tuple|16.1|?|#18>>
-    <associate|k-finite:eq-claim2|<tuple|16.2|?|#18>>
-    <associate|k-finite:eq-compat-N|<tuple|16.1|?|#18>>
-    <associate|k-finite:lem-abs-is-holo|<tuple|16.10|?|#18>>
+    <associate|k-finite:eq-claim2|<tuple|16.3|?|#18>>
+    <associate|k-finite:eq-compat-N|<tuple|16.2|?|#18>>
+    <associate|k-finite:eq-hookR|<tuple|16.1|?|#18>>
+    <associate|k-finite:fact-hartogs|<tuple|16.22|?|#18>>
+    <associate|k-finite:lem-abs-is-holo|<tuple|16.15|?|#18>>
     <associate|k-finite:lem-approx-by-homog|<tuple|16.6|?|#18>>
-    <associate|k-finite:lem-claim1|<tuple|16.8|?|#18>>
-    <associate|k-finite:lem-claim1-aux|<tuple|16.4|?|#18>>
-    <associate|k-finite:lem-claim1-aux-2|<tuple|16.6|?|#18>>
-    <associate|k-finite:lem-compat|<tuple|16.14|?|#18>>
-    <associate|k-finite:lem-compat-A|<tuple|16.12|?|#18>>
-    <associate|k-finite:lem-compat-M|<tuple|16.13|?|#18>>
-    <associate|k-finite:lem-compat-N|<tuple|16.16|?|#18>>
-    <associate|k-finite:lem-compat-N-aux|<tuple|16.15|?|#18>>
-    <associate|k-finite:lem-good-cover|<tuple|16.9|?|#18>>
+    <associate|k-finite:lem-claim1|<tuple|16.13|?|#18>>
+    <associate|k-finite:lem-claim1-aux|<tuple|16.9|?|#18>>
+    <associate|k-finite:lem-claim1-aux-2|<tuple|16.11|?|#18>>
+    <associate|k-finite:lem-compat|<tuple|16.19|?|#18>>
+    <associate|k-finite:lem-compat-A|<tuple|16.17|?|#18>>
+    <associate|k-finite:lem-compat-M|<tuple|16.18|?|#18>>
+    <associate|k-finite:lem-compat-N|<tuple|16.21|?|#18>>
+    <associate|k-finite:lem-compat-N-aux|<tuple|16.20|?|#18>>
+    <associate|k-finite:lem-good-cover|<tuple|16.14|?|#18>>
     <associate|k-finite:lem-holo-is-easy|<tuple|16.11|?|#18>>
-    <associate|k-finite:lem-homocone|<tuple|16.3|?|#18>>
-    <associate|k-finite:lem-restriction-to-N|<tuple|16.5|?|#18>>
-    <associate|k-finite:lem-restriction-to-S|<tuple|16.11|?|#18>>
+    <associate|k-finite:lem-homocone|<tuple|16.8|?|#18>>
+    <associate|k-finite:lem-restriction-to-N|<tuple|16.10|?|#18>>
+    <associate|k-finite:lem-restriction-to-S|<tuple|16.16|?|#18>>
+    <associate|k-finite:prop-KR-hook|<tuple|16.4|?|#18>>
+    <associate|k-finite:prop-KR-hook-1|<tuple|16.5|?|#18>>
+    <associate|k-finite:prop-KR-hook-2|<tuple|16.7|?|#18>>
     <associate|k-finite:prop-claim2|<tuple|16.1|?|#18>>
     <associate|k-finite:prop-holo-to-holo|<tuple|16.2|?|#18>>
+    <associate|k-finite:prop-kfinite-extension-oneparam|<tuple|16.3|?|#18>>
     <associate|knappstein:fact-faraut|<tuple|20.5|66|#22>>
     <associate|knappstein:prop-1|<tuple|20.1|65|#22>>
     <associate|knappstein:prop-holo|<tuple|20.2|66|#22>>
@@ -9364,7 +9610,6 @@
     <associate|prop-norm-1|<tuple|14.1|41|#17>>
     <associate|prop-norm-2|<tuple|14.1|41|#17>>
     <associate|prop-q=2|<tuple|19.3|57|#21>>
-    <associate|prop-regular|<tuple|12.1|34|#14>>
     <associate|prop:supp-p|<tuple|13.1|36|#15>>
     <associate|q-main|<tuple|7.2|?|#8>>
     <associate|q-norm:lem-nonzero-strong|<tuple|5.8|16|#7>>
@@ -9403,6 +9648,8 @@
     <associate|supp-Q:prop-sol-extending|<tuple|14.4|39|#16>>
     <associate|supp-Q:prop-supp-xnoq0|<tuple|14.5|39|#16>>
     <associate|supp-R|<tuple|12|?|#14>>
+    <associate|supp-R:prop-3|<tuple|12.2|35|#14>>
+    <associate|supp-R:prop-regular|<tuple|12.1|34|#14>>
     <associate|supp-n-waves:lem-at-least|<tuple|3.3|11|#5>>
     <associate|supp-n-waves:lem-supp-xp|<tuple|3.2|10|#5>>
     <associate|supp-n-waves:lem-\|x\|-holo-in|<tuple|3.1|10|#5>>
@@ -9526,6 +9773,10 @@
       kobayashi2015symmetry
 
       kobayashi2013differential
+
+      hormander1983analysis
+
+      krantz1982function
 
       howe1993homogeneous
 
@@ -9796,76 +10047,88 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-55><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|17<space|2spc>Normalization
-      of <with|mode|<quote|math>|K<rsub|\<lambda\>,\<nu\>><rsup|C>>>
+      <with|par-left|<quote|1.5fn>|16.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-56><vspace|0.5fn>
+      <no-break><pageref|auto-56>>
 
-      <with|par-left|<quote|1.5fn>|17.1<space|2spc>Main results
+      <with|par-left|<quote|1.5fn>|16.2<space|2spc>Auxiliary lemmas
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-57>>
 
-      <with|par-left|<quote|1.5fn>|17.2<space|2spc>Auxiliary results
+      <with|par-left|<quote|1.5fn>|16.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-58>>
 
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|17<space|2spc>Normalization
+      of <with|mode|<quote|math>|K<rsub|\<lambda\>,\<nu\>><rsup|C>>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-59><vspace|0.5fn>
+
+      <with|par-left|<quote|1.5fn>|17.1<space|2spc>Main results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-60>>
+
+      <with|par-left|<quote|1.5fn>|17.2<space|2spc>Auxiliary results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-61>>
+
       <with|par-left|<quote|1.5fn>|17.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-59>>
+      <no-break><pageref|auto-62>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|18<space|2spc>Normalization
       of <with|mode|<quote|math>|K<rsub|\<lambda\>,\<nu\>><rsup|P>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-60><vspace|0.5fn>
+      <no-break><pageref|auto-63><vspace|0.5fn>
 
       <with|par-left|<quote|1.5fn>|18.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-61>>
+      <no-break><pageref|auto-64>>
 
       <with|par-left|<quote|1.5fn>|18.2<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-62>>
+      <no-break><pageref|auto-65>>
 
       <with|par-left|<quote|1.5fn>|18.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-63>>
+      <no-break><pageref|auto-66>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|19<space|2spc>Normalization
       of <with|mode|<quote|math>|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-64><vspace|0.5fn>
+      <no-break><pageref|auto-67><vspace|0.5fn>
 
       <with|par-left|<quote|1.5fn>|19.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-65>>
+      <no-break><pageref|auto-68>>
 
       <with|par-left|<quote|1.5fn>|19.2<space|2spc>Auxilliary results (I)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-66>>
+      <no-break><pageref|auto-69>>
 
       <with|par-left|<quote|1.5fn>|19.3<space|2spc>Auxiliary results (II)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-67>>
+      <no-break><pageref|auto-70>>
 
       <with|par-left|<quote|1.5fn>|19.4<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-68>>
+      <no-break><pageref|auto-71>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|20<space|2spc>Application:
       Knapp-Stein operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-69><vspace|0.5fn>
+      <no-break><pageref|auto-72><vspace|0.5fn>
 
       <with|par-left|<quote|1.5fn>|20.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-70>>
+      <no-break><pageref|auto-73>>
 
       <with|par-left|<quote|1.5fn>|20.2<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-71>>
+      <no-break><pageref|auto-74>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-72><vspace|0.5fn>
+      <no-break><pageref|auto-75><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
