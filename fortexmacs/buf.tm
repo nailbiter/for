@@ -3,7 +3,7 @@
 <style|<tuple|article|mystyle>>
 
 <\body>
-  <\hide-part|1>
+  <\show-part|1>
     <math|<frac|\<Gamma\>*<around*|(|\<lambda\>+\<nu\>-n+1|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>-q+\<nu\>+N|2>|)>>>
 
     <math|<wide|<wide|C|~>|~><rsub|N><rsup|p/2-1><around|(|\<omega\><rsub|p-1><rsup|<around|(|p|)>>|)>>
@@ -26,7 +26,14 @@
       uniquely matched to an element of <math|<mybra|<D><rprime|'><around|(|G\<times\><rsub|P><C><rsub|\<lambda\>-n>|)>\<otimes\><C><rsub|\<nu\>>><rsup|\<Delta\><around|(|P<rprime|'>|)>>>
       on <math|X>.
     </remark>
-  </hide-part|>
+
+    In particular, for <math|F:=F<rsub|0,0,0,1,1>\<in\>C<rsup|\<infty\>><around*|(|\<bbb-R\><rsup|p,q>|)>>
+    being the spherical vector we have
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>,F|\<rangle\>>\<simeq\><frac|<around*|(|\<lambda\>-1|)><around*|(|\<lambda\>-3|)>\<ldots\><around*|(|\<lambda\>-q+1|)>|\<Gamma\><around*|(|\<lambda\>|)>>\<times\><frac|1|\<Gamma\><around*|(|<around*|(|q+1-\<nu\>|)>/2|)>>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>.>|<cell|>>>>
+    </eqnarray>
+  </show-part|>
 
   <\hide-part|2>
     <section|Unplugged misc>
@@ -415,7 +422,7 @@
     <section|pullback for KR>
   </hide-part>
 
-  <\show-part|6>
+  <\hide-part|6>
     <section|Commutative diagrams>
 
     <\session|xypic|default>
@@ -609,9 +616,9 @@
       <math|\<psi\><rsup|\<ast\>>k<rsub|\<mu\>>=K<rsub|\<mu\>>>, with an
       embedding <math|\<psi\>:\<frak-n\><rsub|->\<ni\>X\<mapsto\>exp<around*|(|X|)>P\<in\>G/P>.
     </proposition>
-  <|show-part>
+  <|hide-part>
     <section|Commutative diagrams>
-  </show-part>
+  </hide-part>
 
   <\hide-part|7>
     <section|nice thm>
