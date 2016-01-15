@@ -1787,9 +1787,46 @@
     </lemma>
 
     <\proof>
+      More precisely, we will show that for
+      <math|M\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1> we have
+      <math|<around*|\||x|\|><rsup|\<nu\>>/\<Gamma\><around*|(|<around*|(|\<nu\>+1|)>/2|)>>
+      is holomorphic on <math|C<rsup|k><rsub|0><around*|(|\<bbb-R\>|)>> in
+      <math|\<nu\>\<in\><around*|{|Re<around*|(|\<nu\>|)>\<gtr\>-M|}>>
+
+      We first prove the statement for <math|f<rsub|\<nu\>>\<assign\><around*|\||x|\|><rsup|\<nu\>>/\<Gamma\><around*|(|\<nu\>+1|)>>.
       Without loss of generality, we assume
-      <math|M\<in\>\<bbb-Z\><rsub|\<gtr\>0>> and proceed by induction on
-      <math|M>.\ 
+      <math|M\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1> and proceed by induction
+      on <math|M>. For <math|M=1> we have
+      <math|<around*|\||x|\|><rsup|\<nu\>>> being <math|L<rsup|1><rsub|loc>>
+      for <math|Re<around*|(|\<nu\>|)>\<gtr\>-1> and thus statement follows
+      upon letting <math|k=0> for these cases. Now, we have recurrence
+      relation for\ 
+
+      <\equation*>
+        <frac|d<rsup|2>|d x<rsup|2>>f<rsub|\<nu\>+2>=f<rsub|\<nu\>>.
+      </equation*>
+
+      Assume now that for some <math|M> we have shown that
+      <math|f<rsub|\<nu\>>> is holomorphic in
+      <math|\<nu\>\<in\><around*|{|Re<around*|(|\<nu\>|)>\<gtr\>-M|}>> on
+      <math|C<rsub|0><rsup|k><around*|(|\<bbb-R\>|)>>. Then, for arbitrary
+      <math|\<varphi\>\<in\>C<rsup|k+2><rsub|0><around*|(|\<bbb-R\>|)>> we
+      have
+
+      <\equation*>
+        <around*|\<langle\>| f<rsub|\<nu\>>,\<varphi\>|\<rangle\>>=<around*|\<langle\>|f<rsub|\<nu\>+2>,\<varphi\><rprime|''>|\<rangle\>>,<space|1em>\<varphi\><rprime|''>\<in\>C<rsub|0><rsup|k><around*|(|\<bbb-R\>|)>
+      </equation*>
+
+      And assuming that the right-hand side is analytic if
+      <math|Re<around*|(|\<nu\>+2|)>\<gtr\>-M> the equality above implies
+      that <math|<around*|\<langle\>|f<rsub|\<nu\>>,\<varphi\>|\<rangle\>>>
+      can be continued to be analytic in <math|\<nu\>\<in\><around*|{|Re<around*|(|\<nu\>|)>\<gtr\>-M-2|}>>.
+      This implies the statement for <math|f<rsub|\<nu\>>>. Now, we note that
+      <math|f<rsub|-2k>=0> for <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>1>>,
+      as <math|f<rsub|-2>=<around*|(|d<rsup|2>/d x<rsup|2>|)>1=0> and thus
+      the statement about the holomorphicity should be also true for
+      <math|f<rsub|\<nu\>>\<cdot\>\<Gamma\><around*|(|<around*|(|\<nu\>+2|)>/2|)>>
+      and this implies the desired.
     </proof>
 
     <\lemma>
@@ -6669,7 +6706,31 @@
     </lemma>
 
     <\proof>
-      \;
+      The first item is clear, as one observes that for
+      <math|a<around*|(|t|)>\<in\>A<rprime|'>> as in
+      <math|<eqref|def-n-nots:eq-A>>, we have
+
+      <\equation*>
+        a<around*|(|t|)>\<psi\><around*|(|x|)>=e<rsup|t>\<cdot\>\<psi\><around*|(|e<rsup|-t>x|)>.
+      </equation*>
+
+      For the second item, uniqueness part of lemma
+      <reference|k-finite:lem-claim1> implies that it suffices to show that
+      for <math|F\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>|)>>
+      and <math|a<around*|(|t|)>\<in\>A<rprime|'>> as above, we have\ 
+
+      <\equation>
+        \<psi\><rsup|\<ast\>><around*|(|L<rsub|a<around*|(|t|)>>F<rsup|\<lambda\>-n>|)><around*|(|\<cdot\>|)>=e<rsup|<around*|(|n-\<lambda\>|)>t>F<around*|(|*e<rsup|t>\<cdot\>|)><label|k-finite:eq-compat-A>
+      </equation>
+
+      as then <math|\<lambda\>-\<nu\>-n>-homogeneity of
+      <math|K\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+      would imply that <math|e<rsup|<around*|(|n-\<lambda\>|)>t>F<around*|(|*e<rsup|t>\<cdot\>|)>=e<rsup|-\<nu\>>F<around*|(|\<cdot\>|)>>.
+
+      In turn, as both sides <math|<eqref|k-finite:eq-compat-A>> are
+      continuous in <math|F>, we can assume
+      <math|F\<in\>C<rsup|\<infty\>><rsub|0><around*|(|\<bbb-R\><rsup|p,q>|)>>
+      and the statement then becomes clear.
     </proof>
 
     <\lemma>
@@ -6689,7 +6750,8 @@
     </lemma>
 
     <\proof>
-      \;
+      Proof is almost identical to that of lemma
+      <reference|k-finite:lem-compat-A>.
     </proof>
 
     <\lemma>
@@ -6764,8 +6826,6 @@
       <math|<around*|\||c<rsub|b><around*|(|x|)>|\|><rsup|\<lambda\>-n>f<rsub|V><around*|(|\<psi\><rsub|b><around*|(|x|)>|)>=<around*|(|f<rsub|V>|)><rsup|\<lambda\>-n><around*|(|n<around*|(|b|)>\<psi\><rsub|><around*|(|x|)>|)>>
       holds and the proof is over.
     </proof>
-
-    <subsection|Auxiliary lemmas (II)>
 
     <\lemma>
       <label|k-finite:lem-c1>Fix <math|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>.
@@ -10044,8 +10104,9 @@
     <associate|holomorphicity-preserving:prop-tensor-holo|<tuple|2.14|5|#4>>
     <associate|k-finite:def-Slm|<tuple|16.2|?|#18>>
     <associate|k-finite:def-holo|<tuple|16.1|?|#18>>
-    <associate|k-finite:eq-claim2|<tuple|16.4|?|#18>>
-    <associate|k-finite:eq-compat-N|<tuple|16.3|?|#18>>
+    <associate|k-finite:eq-claim2|<tuple|16.5|?|#18>>
+    <associate|k-finite:eq-compat-A|<tuple|16.3|?|#18>>
+    <associate|k-finite:eq-compat-N|<tuple|16.4|?|#18>>
     <associate|k-finite:eq-hookC|<tuple|16.2|?|#18>>
     <associate|k-finite:eq-hookR|<tuple|16.1|?|#18>>
     <associate|k-finite:fact-hartogs|<tuple|16.17|?|#18>>

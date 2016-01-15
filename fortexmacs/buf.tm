@@ -33,6 +33,18 @@
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>,F|\<rangle\>>\<simeq\><frac|<around*|(|\<lambda\>-1|)><around*|(|\<lambda\>-3|)>\<ldots\><around*|(|\<lambda\>-q+1|)>|\<Gamma\><around*|(|\<lambda\>|)>>\<times\><frac|1|\<Gamma\><around*|(|<around*|(|q+1-\<nu\>|)>/2|)>>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>.>|<cell|>>>>
     </eqnarray>
+
+    <\lemma>
+      <label|k-finite:lem-KC-c0>Fix <math|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>.
+      Then there exists <math|M> such that for
+      <math|\<lambda\>\<in\>\<Omega\><rsub|M>\<assign\><around*|{|\<lambda\>\<in\>\<bbb-C\><mid|\|>Re<around*|(|\<lambda\>|)>\<gtr\>M|}>>
+      such that for <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|n>\\<around*|{|0|}>|)>>
+      as ...
+    </lemma>
+
+    <\proof>
+      ...
+    </proof>
   </show-part|>
 
   <\hide-part|2>
@@ -729,9 +741,9 @@
     <associate|KR-normalization-even:lem-2|<tuple|7|?>>
     <associate|KR-normalization-even:lem-3|<tuple|8|?>>
     <associate|KR-normalization-recur:eq-recur|<tuple|1|?|#2>>
-    <associate|KR-normalization-recur:lem-recur|<tuple|2|?|#2>>
-    <associate|KR-normalization-recur:prop-2|<tuple|3|?|#2>>
-    <associate|KR-normalization-recur:prop-func-eq|<tuple|4|?|#3>>
+    <associate|KR-normalization-recur:lem-recur|<tuple|3|?|#2>>
+    <associate|KR-normalization-recur:prop-2|<tuple|4|?|#2>>
+    <associate|KR-normalization-recur:prop-func-eq|<tuple|5|?|#3>>
     <associate|auto-1|<tuple|1|?>>
     <associate|auto-2|<tuple|2|?>>
     <associate|auto-3|<tuple|3|?>>
@@ -745,17 +757,18 @@
     <associate|auto.6-1|<tuple|5|?|#6>>
     <associate|auto.6-2|<tuple|6|?|#6>>
     <associate|auto.7-1|<tuple|7|?|#7>>
-    <associate|def-n-nots:lem-commdiag|<tuple|16|?|#7>>
-    <associate|k-finite:def-holo|<tuple|14|?|#6>>
-    <associate|k-finite:prop-holo-to-holo|<tuple|15|?|#6>>
+    <associate|def-n-nots:lem-commdiag|<tuple|17|?|#7>>
+    <associate|k-finite:def-holo|<tuple|15|?|#6>>
+    <associate|k-finite:lem-KC-c0|<tuple|2|?|#1>>
+    <associate|k-finite:prop-holo-to-holo|<tuple|16|?|#6>>
     <associate|lem-1|<tuple|6|?>>
-    <associate|lem-16|<tuple|7|?|#4>>
+    <associate|lem-16|<tuple|8|?|#4>>
     <associate|lem-2|<tuple|7|?>>
     <associate|lem-21|<tuple|1|?>>
-    <associate|lem-3|<tuple|10|?|#5>>
-    <associate|lem-3-1|<tuple|11|?|#5>>
-    <associate|lem-3-2|<tuple|12|?|#5>>
-    <associate|lem-3-3|<tuple|13|?|#5>>
+    <associate|lem-3|<tuple|11|?|#5>>
+    <associate|lem-3-1|<tuple|12|?|#5>>
+    <associate|lem-3-2|<tuple|13|?|#5>>
+    <associate|lem-3-3|<tuple|14|?|#5>>
     <associate|sol:lem-Eequivhomog|<tuple|15|?|#7>>
   </collection>
 </references>
