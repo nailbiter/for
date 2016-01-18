@@ -3,7 +3,7 @@
 <style|<tuple|article|mystyle>>
 
 <\body>
-  <\show-part|1>
+  <\hide-part|1>
     <math|<frac|\<Gamma\>*<around*|(|\<lambda\>+\<nu\>-n+1|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>-q+\<nu\>+N|2>|)>>>
 
     <math|<wide|<wide|C|~>|~><rsub|N><rsup|p/2-1><around|(|\<omega\><rsub|p-1><rsup|<around|(|p|)>>|)>>
@@ -45,7 +45,7 @@
     <\proof>
       ...
     </proof>
-  </show-part|>
+  </hide-part|>
 
   <\hide-part|2>
     <section|Unplugged misc>
@@ -594,7 +594,11 @@
 
       \;
     </session>
+  <|hide-part>
+    <section|Commutative diagrams>
+  </hide-part>
 
+  <\hide-part|7>
     <section|Kfinite>
 
     <\definition>
@@ -629,10 +633,10 @@
       embedding <math|\<psi\>:\<frak-n\><rsub|->\<ni\>X\<mapsto\>exp<around*|(|X|)>P\<in\>G/P>.
     </proposition>
   <|hide-part>
-    <section|Commutative diagrams>
+    <section|Kfinite>
   </hide-part>
 
-  <\hide-part|7>
+  <\hide-part|8>
     <section|nice thm>
 
     <\lemma>
@@ -729,10 +733,37 @@
   <|hide-part>
     <section|nice thm>
   </hide-part>
-</body>
 
-<initial|<\collection>
-</collection>>
+  <\show-part|9>
+    <section|playground>
+
+    <\equation*>
+      <choice|<tformat|<table|<row|<cell|P<rprime|'><around*|(|0<rsub|p>,1,0<rsub|q>,1|)>\<sqcup\>P<rprime|'><around*|(|1,0<rsub|p+q>,-1|)>\<sqcup\>P<rprime|'><around*|(|0<rsub|p>,1,1,0<rsub|q>|)>\<sqcup\>P<rprime|'><around*|(|1,0<rsub|p+q>,1|)>,>|<cell|p=1>>|<row|<cell|P<rprime|'><around*|(|0<rsub|p>,1,0<rsub|q>,1|)>\<sqcup\>P<rprime|'><around*|(|1,0<rsub|p+q>,-1|)>\<sqcup\>P<rprime|'><around*|(|0<rsub|p>,1,1,0<rsub|q>|)>\<sqcup\>P<rprime|'><around*|(|1,0<rsub|p+q>,1|)>\<sqcup\>P<rprime|'><around*|(|0<rsub|p-1>,1,0,1,0<rsub|q>|)>,>|<cell|p\<gtr\>1>>>>>
+    </equation*>
+
+    joeoeoueeueue
+
+    <section|TODO>
+
+    <\enumerate>
+      <item>
+    </enumerate>
+
+    <subsection|FIXME>
+
+    <\enumerate>
+      <item>rising factorial notation
+    </enumerate>
+
+    <subsection|reprint:>
+
+    <\enumerate>
+      <item>intro <math|P<rprime|'>\\G/P>
+    </enumerate>
+  <|show-part>
+    <section|TODO>
+  </show-part>
+</body>
 
 <\references>
   <\collection>
@@ -750,17 +781,25 @@
     <associate|auto-4|<tuple|4|?>>
     <associate|auto-5|<tuple|5|?>>
     <associate|auto-6|<tuple|6|?>>
+    <associate|auto-7|<tuple|7|?>>
+    <associate|auto-8|<tuple|8|?>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.5-1|<tuple|4|?|#5>>
     <associate|auto.6-1|<tuple|5|?|#6>>
     <associate|auto.6-2|<tuple|6|?|#6>>
-    <associate|auto.7-1|<tuple|7|?|#7>>
-    <associate|def-n-nots:lem-commdiag|<tuple|17|?|#7>>
-    <associate|k-finite:def-holo|<tuple|15|?|#6>>
+    <associate|auto.7-1|<tuple|6|?|#7>>
+    <associate|auto.7-2|<tuple|8|?|#7>>
+    <associate|auto.8-1|<tuple|7|?|#8>>
+    <associate|auto.9-1|<tuple|8|?|#9>>
+    <associate|auto.9-2|<tuple|9|?|#9>>
+    <associate|auto.9-3|<tuple|9.1|?|#9>>
+    <associate|auto.9-4|<tuple|9.2|?|#9>>
+    <associate|def-n-nots:lem-commdiag|<tuple|17|?|#8>>
+    <associate|k-finite:def-holo|<tuple|15|?|#7>>
     <associate|k-finite:lem-KC-c0|<tuple|2|?|#1>>
-    <associate|k-finite:prop-holo-to-holo|<tuple|16|?|#6>>
+    <associate|k-finite:prop-holo-to-holo|<tuple|16|?|#7>>
     <associate|lem-1|<tuple|6|?>>
     <associate|lem-16|<tuple|8|?|#4>>
     <associate|lem-2|<tuple|7|?>>
@@ -799,9 +838,17 @@
       diagrams> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>nice
-      thm> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>Kfinite>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>nice
+      thm> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>TODO>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-8><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

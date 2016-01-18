@@ -47,21 +47,28 @@
 \end{frame}
 
 \section{$P'/G\backslash P$}
-\begin{frame}<beamer:0>%this frame won't be seen
+\begin{frame}%%this frame won't be seen
 	\begin{theorem}[Kobayashi-Speh]\[G/P=P'[q_+]\sqcup P'[p_+]\sqcup P'[p_+]=
 		(S^n-S^{n-1})\sqcup (S^{n-1}-{p_+})\sqcup p_+\]
 		and these are pulled back to $\R^n-\R^{n-1}$, $\R^{n-1}-0$ and $0$ respectively via Bruhat parametrization and
 		only the first one is open dense in $\R^n$.
 \end{theorem}
 \begin{theorem}[$O(p,q),\;n:=(p-1)+(q-1)$]
-	\[G/P=P'[0_{p-1},1,0_{q-1},1]\sqcup P'[q+]\sqcup P'[0_{p-2},1,0,1,0_{q-1}]\sqcup P'[p_+]\sqcup P'[p_-]\]
+\[ G/P=\left\{ \begin{array}{ll}
+     P' ( 0_p, 1, 0_q, 1) \sqcup P' ( 1, 0_{p + q}, - 1) \sqcup P' ( 0_p, 1,
+     1, 0_q) \sqcup P' ( 1, 0_{p + q}, 1), & p = 1\\
+     P' ( 0_p, 1, 0_q, 1) \sqcup P' ( 1, 0_{p + q}, - 1) \sqcup P' ( 0_p, 1,
+     1, 0_q) \sqcup&\\
+     \sqcup P' ( 1, 0_{p + q}, 1) \sqcup P' ( 0_{p - 1}, 1, 0, 1,
+     0_q), & p > 1
+   \end{array} \right. \]
 	and these are pulled back to $\R^n-A-B,\;B-A,\;A\cap B-{0},\;{0}$ and $A-B$ respectively via Bruhat parametrization and
 		only the first one is open dense in $\R^n$.
 Here $A:=\mycbra{x_{p-1}=0}$ and $B:=\mysetn{(x,y)\in\R^{p-1,q-1}}{\myabs{x}_{p-1}=\myabs{y}_{q-1}}$ closed subsets of $\R^n$.
 \end{theorem}
 \end{frame}
 \section{Equations for kernels}
-\begin{frame}<beamer:0>
+\begin{frame}
 \begin{theorem}[Kobayashi-Speh]Kernel of symmetry breaker is distribution $F$ on $\R^n$ satisfies
 	\[E-(\lambda-\nu-n))F=0\quad\mbox{($A'$-action)}\]
 \[(2\nu x_j+(\myabs{x}^2+x_n^2)\frac{\partial}{\partial x_j})F=0,\;1\leq j\leq n-1\quad\mbox{($N_+'$-action)}\]
@@ -77,7 +84,7 @@ Here $A:=\mycbra{x_{p-1}=0}$ and $B:=\mysetn{(x,y)\in\R^{p-1,q-1}}{\myabs{x}_{p-
 \end{theorem}
 \end{frame}
 \section{Differential symmetry breaking operators}
-\begin{frame}<beamer:0>
+\begin{frame}
 \begin{theorem}[Kobayashi-Speh]
 	Differential symmetry breakers exist only when $\lambda-\nu=0,-2,-4,\hdots$ and in that case space of
 	differential symmetry breaking operators is one-dimensional (given by Gegenbauer polynomial)
