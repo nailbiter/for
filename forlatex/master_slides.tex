@@ -2,6 +2,8 @@
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 \usepackage{mystyle}
 \usepackage{geometry,amsmath,amssymb,bbm,xypic}
+\usepackage{xeCJK}
+\usepackage{ruby}
 \includecomment{versiona}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
@@ -17,14 +19,15 @@
 \newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
 \newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
 \newcommand{\tmtextit}[1]{{\itshape{#1}}}
-\usepackage{xeCJK}
-\usepackage{ruby}
+\newcommand{\mss}{//}
+\newcommand{\mbb}{\backslash\backslash}
+\newcommand{\mmm}{\mid\mid}
 
 \setCJKmainfont{IPAMincho}
 
 \newenvironment{setting}{\begin{exampleblock}{設定.}\it}{\end{exampleblock}}
 \newenvironment{question}{\begin{block}{問.}\it}{\end{block}}
-\newenvironment{prop}{\begin{block}{命題.}\it}{\end{block}}
+\newenvironment{prop}[1][]{\begin{block}{命題#1.}\it}{\end{block}}
 \makeatletter
 \def\th@mystyle{%
     \normalfont % body font
@@ -46,6 +49,16 @@
 %%     }%
 %%    \usebeamertemplate{block begin}}
 %%{\par\usebeamertemplate{block end}\end{actionenv}}
+\newenvironment<>{notation}{%
+  \begin{actionenv}#1%
+      \def\insertblocktitle{記号}%
+      \par%
+      \mode<presentation>{%
+        \setbeamercolor{block title}{fg=white,bg=orange!20!black}
+       \setbeamercolor{block body}{fg=black,bg=olive!50}
+     }%
+    \usebeamertemplate{block begin}}
+{\par\usebeamertemplate{block end}\end{actionenv}}
 \newenvironment<>{cor}{%
   \begin{actionenv}#1%
       \def\insertblocktitle{系}%
@@ -80,10 +93,10 @@
 \end{frame}
 \section{Equations for kernels}
 \begin{frame}
-	\begin{prop}
+	\begin{prop}[ (prop. 9.4)]
 		\begin{equation*}
-			\Hom_{G'}(I\left( \lambda \right),J(\nu))\simeq \D'(\mybra{G\times_P\mathbb{C}_{n-\lambda}}
-			\otimes\mathbb{C}_\nu)^{
+			\Hom_{G'}(I\left( \lambda \right),J(\nu))\simeq \mybra{\D'(G/P,G\times_P\mathbb{C}_{n-\lambda})
+			\otimes\mathbb{C}_\nu}^{
 			\Delta P'}\simeq\Sol(\R^{p,q};\lambda,\nu)
 		\end{equation*}
 ここで、$\mathcal{S} \tmop{ol} ( \mathbbm{R}^{p, q} ; \lambda,
@@ -102,15 +115,16 @@
 \end{eqnarray}
 \end{enumerate}
 	\end{prop}
-	\begin{prop}
-		If $F_\mu$ is holomorphic in $\mu\in\Omega\subset\Co^k$, $\lambda(\cdot),\nu(\cdot)$ are holo on $\Omega$ and
-		for $\mu\in\Omega'\subset\Omega$ we have $F_\mu\in\Sol(\R^{p,q};\lambda(\mu),\nu(\mu))$, then this is
+	\begin{prop}[ (prop. 9.5)]
+		Suppose $F_\mu\in\D'(U)$
+		is holomorphic in $\mu\in\Omega\subset\Co^k$, $\lambda(\cdot),\nu(\cdot)$ are holo on $\Omega$ and
+		for $\mu\in\Omega'\subset\Omega$ we have $F_\mu\in\Sol(U;\lambda(\mu),\nu(\mu))$. Then this is
 		so also for $\mu\in\Omega$.
 	\end{prop}
 \end{frame}
-\section{$P'/G\backslash P$}
+\section{$P'\backslash G/P$}
 \begin{frame}
-\begin{prop}
+\begin{prop}[ (prop. 8.1, 8.2)]
 	\begin{equation*}
 	G/P=\left\{ \begin{array}{ll}
 	P' ( 0_p, 1, 0_q, 1) \sqcup P' ( 1, 0_{p + q}, - 1) \sqcup P' ( 0_p, 1,
@@ -128,11 +142,12 @@
 \end{prop}
 \begin{cor}
 	\begin{itemize}
-		\item $P'N_-P=G$;
+		\item $P'N_-P=G$ (prop. 8.3);
 		\item Supports can only be $\R^{p,q}$, $C$, $P$, $C\cap P$, $C\cup P$ or $\left\{ 0 \right\}$.
 	\end{itemize}
 \end{cor}
 \end{frame}
+\section{Exact sequences}
 \begin{frame}
 	We have the following diagram.
 	\begin{equation*}
@@ -154,17 +169,35 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 			$0\rightarrow\Sol_{C}(\R^n;\lambda,\nu)\hookrightarrow\Sol(\R^n;\lambda,\nu)
 			\rightarrow\Sol(\R^n\setminus C;\lambda,\nu)$
 	\end{enumerate}
-	The nontrivial part is to know for a given pair of parameters $(\lambda,\nu)\in\Co^2$ whether the last morphism
-	is onto or not. For this we need to create as many as possible families of kernels.
+	\begin{prop}[ (prop. 14.2)]
+		\begin{equation*}
+			\Sol_C\left( \R^n\setminus\left\{ 0 \right\};\lambda,\nu \right)=\Co
+			\begin{cases}
+				0,&\nu\nin2\Z_{\ge0}+1\\
+				\delta^{(\nu-1)}(Q)\cdot\myabs{x_p}^{\lambda+\nu-n},&p=1,\nu\in2\Z_{\ge0}+1\\
+				\delta^{(\nu-1)}(Q)\cdot\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{
+				\lambda+\nu-n+1}{2} \right)},&p>1,\nu\in2\Z_{\ge0}+1.
+			\end{cases}
+		\end{equation*}
+	\end{prop}
+	\begin{prop}[ (prop. 11.1)]
+		\begin{equation*}
+			\Sol\left( \R^n\setminus C;\lambda,\nu \right)=
+			\Co\myabs{Q}^{-\nu}\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}.
+		\end{equation*}
+	\end{prop}
+	The nontrivial part therefore is to know for a given pair of parameters $(\lambda,\nu)\in\Co^2$ whether the last morphism
+	is onto or not. We still cannot do this at the moment. As a preliminary, we need to construct as many as possible families of
+	kernels.
 \end{frame}
 \section{Kernel of regular SBO}
 \begin{frame}
-\begin{prop}
+\begin{prop}[ (prop. 12.1)]
 	For $\Re(\lambda+\nu-n),\Re(-\nu)>0$ we have continuous function\begin{equation*}
 		\myabs{x_p}^{\lambda+\nu-n}\myabs{Q}^{-\nu}\in\Sol(\R^{p,q};\lambda,\nu)
 	\end{equation*}
 \end{prop}
-\begin{prop}
+\begin{prop}[ (prop. 12.2, 12.3)]
 	For $(\lambda,\nu)\in\mathbb{C}^2$ with $\lambda-\nu\nin\Z_{\ge1}$ the {\bf well-defined} product of generalized
 	functions\begin{equation*}
 		\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\cdot
@@ -172,11 +205,33 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 	\end{equation*}
 	has the {\bf unique}
 	extension to a homogeneous $K^{\R^n}_{\lambda,\nu}\in\Sol(\R^{p,q};\lambda,\nu)$.
+	Moreover,\begin{equation*}
+		\supp\left(K^{\R^n}_{\lambda,\nu}  \right)=\begin{cases}
+			\R^n,&(\lambda,\nu)\in\mmm^c\cap\mbb^c\\
+			C,&(\lambda,\nu)\in\mmm\cap\mbb^c\\
+			P,&(\lambda,\nu)\in\mmm^c\cap\mbb\\
+			\emptyset,&p=1,(\lambda,\nu)\in\mmm\cap\mbb\\
+			P\cap C,&p>1,(\lambda,\nu)\in\mmm\cap\mbb
+		\end{cases}
+	\end{equation*}
 \end{prop}
+\end{frame}
+\begin{frame}
+\begin{notation}
+\begin{gather*}
+	\slash\slash:=\mysetn{\left( \lambda,\nu \right)\in\Co^2}{\lambda-\nu\in-2\Z_{\ge0}}=\mysetn{(\lambda,\nu)\in\Co^2}{
+		\Gamma\left( \frac{\lambda-\nu}{2} \right)=\infty},\\
+\backslash\backslash:=\mysetn{\left( \lambda,\nu \right)\in\Co^2}{\lambda+\nu-n+1\in-2\Z_{\ge0}}=\mysetn{(\lambda,\nu)\in\Co^2}{
+		\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)=\infty},\\
+\mathbb{X}:={\backslash\backslash}\cap{\slash\slash},\\
+\mmm:=\mysetn{(\lambda,\nu)\in\Co^2}{\nu\in2\Z_{\ge0}+1}=\mysetn{(\lambda,\nu)\in\Co^2}{
+		\Gamma\left( \frac{1-\nu}{2} \right)=\infty}.
+\end{gather*}
+\end{notation}
 \end{frame}
 \section{Kernel of singular SBO supported on $C$}
 \begin{frame}
-	\begin{prop}
+	\begin{prop}[ (prop. 14.4)]
 		For $\nu\in2\Z_{\ge0}+1$ and $\lambda\in\Co$ such that $\lambda-\nu\nin-\Z_{\ge1}$ the\begin{equation*}
   \left\{ \begin{array}{ll}
  \delta^{( \nu - 1)} ( Q) \cdot | x_p |^{\lambda + \nu - n}, & p = 1\\
@@ -185,18 +240,19 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
  \end{array} \right. 
 		\end{equation*}
 	has the {\bf unique}
-	extension to a homogeneous $K^C_{\lambda,\nu}\in\Sol_C(\R^{p,q};\lambda,\nu)$.
+	extension to a homogeneous $K^C_{\lambda,\nu}\in\Sol_C(\R^{p,q};\lambda,\nu)$. 
 	\end{prop}
 \end{frame}
 \section{Kernel of singular SBO supported on $P$}
 \begin{frame}
-	\begin{prop}For $k\in\Z_{\ge0}$, $\Re(\nu)\ll0$ and $\lambda$ defined by $\lambda+\nu-n=-1-2k$, the product\begin{equation*}
+	\begin{prop}[ (prop. 13.1)]
+		For $k\in\Z_{\ge0}$, $\Re(\nu)\ll0$ and $\lambda$ defined by $\lambda+\nu-n=-1-2k$, the product\begin{equation*}
 			\delta^{(2k)}(x_p)\cdot\myabs{Q}^{-\nu}\in\D'(\R^{p,q}\setminus\left\{ 0 \right\})
 		\end{equation*}
 	has the {\bf unique}
 	extension to a homogeneous $K^P_{\lambda,\nu}\in\Sol_P(\R^{p,q};\lambda,\nu)$.
 	\end{prop}
-	\begin{prop}
+	\begin{prop}[ (lem. 13.2)]
 		For $k,\lambda$ as above and $\Re(\nu)\ll0$ there is an equality
 			 \begin{eqnarray}
 			 & K^P_{\lambda, \nu} = \sum_{i = 0}^k \frac{(- 1)^i (2 k) !
@@ -217,7 +273,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 \end{frame}
 \section{Differential symmetry breaking operators}
 \begin{frame}
-\begin{prop}
+\begin{prop}[ (prop. 15.1)]
 	\begin{equation*}
 		\Sol_{\left\{ 0 \right\}}(\R^{p,q};\lambda,\nu)=\begin{cases}0,&\lambda-\nu\nin2\Z_{\le0}\\
 			\Co \tilde{C}_{\nu-\lambda}^{\lambda-(n-1)/2}\mybra{\tilde{\Delta},\frac{\partial}{\partial x_p}},&
@@ -234,7 +290,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 \section{Normalization of $K^P_{\lambda,\nu}$}
 \begin{frame}
 	Assume $n\in2\Z$.
-	\begin{prop}
+	\begin{prop}[ (prop. 18.1, 18.7)]
 		Let $\tilde{K}^P_{\lambda,\nu}:=K^P_{\lambda,\nu}/N$ where \begin{equation*}
 			N:=\Gamma\left( \frac{n-1}{2}-\nu-k \right)\times\begin{cases}
 				1,&p=1\\
@@ -250,20 +306,10 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 			\end{cases}
 		\end{equation*}
 	\end{prop}
-		\begin{remark}
-		\begin{eqnarray}
-			&\slash\slash:=\mysetn{\left( \lambda,\nu \right)\in\Co^2}
-		{\lambda-\nu\in-2\Z_{\ge0}},
-		&\nonumber\\
-		&\backslash\backslash:=\mysetn{\left( \lambda,\nu \right)\in\Co^2}{\lambda+\nu-n+1\in-2\Z
-			_{\ge0}},&\nonumber\\
-		&\mathbb{X}:={\backslash\backslash}\cap{\slash\slash}.&\nonumber
-		\end{eqnarray}
-		\end{remark}
 \end{frame}
 \begin{frame}
 	Assume $n\in2\Z+1$ and $q\in2\Z$.
-	\begin{prop}
+	\begin{prop}[ (prop. 18.2, 18.3, 18.7)]
 		Let $\tilde{K}^P_{\lambda,\nu}:=K^P_{\lambda,\nu}/N$ where \begin{equation*}
 			N:=\begin{cases}
 				\Gamma\left( \max\left\{ 0,\frac{n-1}{2}-k \right\}-\nu \right),&p=1\\
@@ -288,7 +334,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 \end{frame}
 \begin{frame}
 	Assume $n\in2\Z+1$ and $q\in2\Z+1$.
-	\begin{prop}
+	\begin{prop}[ (prop. 18.5, 18.6, 18.7)]
 		Let $\tilde{K}^P_{\lambda,\nu}:=K^P_{\lambda,\nu}/N$ where \begin{equation*}
 			N:=\begin{cases}
 				\Gamma\left( \max\left\{ 0,\frac{n-1}{2}-k \right\}-\nu \right),&p=1\\
@@ -314,7 +360,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 \end{frame}
 \section{Normalization of $K^C_{\lambda,\nu}$}
 \begin{frame}
-	\begin{prop}
+	\begin{prop}[ (prop. 16.8, 16.9)]
 		Fix $\nu\in2\Z_{\ge0}+1$. Suppose $R$ is meromorphic in $\lambda\in\Co$. Then $K^C_{\lambda,\nu}/R(\lambda)$
 		is holomorphic in $\lambda\in\Co$ if for every $N\in2\Z_{\ge0}$ and every $g\in\Co\left[ x,y \right]$ even
 		polynomial we have $\varphi_N\left[ g \right]\left( \lambda,\nu \right)/R(\lambda)$ being holo in $\lambda\in\Co$ for
@@ -334,7 +380,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 		we have $\varphi_N[g](\lambda,\nu)/R(\lambda)=0$.
 	\end{prop}
 	\end{frame}\begin{frame}
-	\begin{prop}
+	\begin{prop}[ (prop. 17.1, 17.2)]
 		For fixed $\nu\in2\Z_{\ge0}+1$ let \begin{equation*}
 	N \assign \left\{ \begin{array}{ll}
      \Gamma \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbbm{Z}+ 1\\
@@ -373,7 +419,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 \end{frame}
 \section{Normalization of $K^{\R^n}_{\lambda,\nu}$}
 \begin{frame}
-	\begin{prop}
+	\begin{prop}[ (prop. 16.5, 16.7)]
 		Suppose $R$ is meromorphic in $(\lambda,\nu)\in\Co^2$. Then $K^{\R^n}_{\lambda,\nu}/R(\lambda,\nu)$
 		is holomorphic in $(\lambda,\nu)\in\Co$ if for every $N\in2\Z_{\ge0}$ and every $g\in\Co\left[ x,y \right]$ even
 		polynomial we have $\varphi_N\left[ g \right]\left( \lambda,\nu \right)/\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)
@@ -396,7 +442,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 		we have $\varphi_N[g](\lambda,\nu)/\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)
 		/\Gamma\left( \frac{1-\nu}{2} \right)/R(\lambda,\nu)=0$.
 	\end{prop}
-	\begin{prop}
+	\begin{prop}[ (prop. 19.2)]
 	Assume $q\in2\Z$.
 		Let $N:=\Gamma\left( \frac{\lambda-\nu}{2} \right)$. Then $\tilde{K}_{\lambda,\nu}^{\R^n}:=K_{\lambda,\nu}^{
 			\R^{n}}/N$ is holomorphic in $\left( \lambda,\nu \right)\in\Co^2$ and vanishes on a discrete
@@ -404,4 +450,3 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 	\end{prop}
 \end{frame}
 \end{document}
-%TODO: blocks: setting, corollary
