@@ -53,7 +53,7 @@
 		and these are pulled back to $\R^n-\R^{n-1}$, $\R^{n-1}-0$ and $0$ respectively via Bruhat parametrization and
 		only the first one is open dense in $\R^n$.
 \end{theorem}
-\begin{theorem}[$O(p,q),\;n:=(p-1)+(q-1)$]
+\begin{theorem}[$O(p+1,q+1),\;n:=p+q$]
 \[ G/P=\left\{ \begin{array}{ll}
      P' ( 0_p, 1, 0_q, 1) \sqcup P' ( 1, 0_{p + q}, - 1) \sqcup P' ( 0_p, 1,
      1, 0_q) \sqcup P' ( 1, 0_{p + q}, 1), & p = 1\\
@@ -62,9 +62,10 @@
      \sqcup P' ( 1, 0_{p + q}, 1) \sqcup P' ( 0_{p - 1}, 1, 0, 1,
      0_q), & p > 1
    \end{array} \right. \]
-	and these are pulled back to $\R^n-A-B,\;B-A,\;A\cap B-{0},\;{0}$ and $A-B$ respectively via Bruhat parametrization and
-		only the first one is open dense in $\R^n$.
-Here $A:=\mycbra{x_{p-1}=0}$ and $B:=\mysetn{(x,y)\in\R^{p-1,q-1}}{\myabs{x}_{p-1}=\myabs{y}_{q-1}}$ closed subsets of $\R^n$.
+   and these are pulled back to $\R^n-P\cup C,\;P-C,\;C\cap P-\left\{ 0 \right\}
+   ,\;{0}$ and $C-P$ respectively (note that $P\cap C=\left\{ 0 \right\}$ iff $p=1$)
+   via Bruhat cell parametrization and only the first one is open dense in $\R^n$.
+Here $P:=\mycbra{x_{p}=0}$ and $C:=\mysetn{(x,y)\in\R^{p,q}}{\myabs{x}_{p}=\myabs{y}_{q}}$ closed subsets of $\R^n$.
 \end{theorem}
 \end{frame}
 \section{Equations for kernels}
@@ -75,11 +76,12 @@ Here $A:=\mycbra{x_{p-1}=0}$ and $B:=\mysetn{(x,y)\in\R^{p-1,q-1}}{\myabs{x}_{p-
 \[F(mx,x_n)=F(x,x_n),\;\forall m\in O(n-1)\quad\mbox{($M'$-action)}\]
 \[F(-\tilde{x})=F(\tilde{x})\quad\mbox{($M'$-action)}\]
 \end{theorem}
-\begin{theorem}[O(p,q), $Q(\cdot)$ denotes indefinite $(p-1,q-1)$-norm on $\R^{ p,q }$]Kernel of symmetry breaker is distribution $F$ on $\R^{(p-1)+(q-1)}=:\R^n$ satisfies
-\[E-(\lambda-\nu-n))F=0\quad\mbox{($A$-action)}\]
+\begin{theorem}[O(p,q), $Q(\cdot)$ denotes indefinite $(p,q)$-norm on $\R^{ p,q }$]
+	Kernel of symmetry breaker is distribution $F$ on $\R^{p,q}$ satisfies
+\[E-(\lambda-\nu-n))F=0\quad\mbox{($A'$-action)}\]
 \[(2\epsilon_j\nu x_j+Q(x)\frac{\partial}{\partial x_j})F=0,\;1\leq j\leq n,\;j\neq p-1\quad\mbox{
 ($N'_+$-action)}\]
-\[F(x,x_{p-1},y)=F(x',x_{p-1},y'),\;(x',y'):=m(x,y)\;\forall m\in O(p-2,q-1)\quad\mbox{($M'$-action)}\]
+\[F(x,x_{p-1},y)=F(x',x_{p-1},y'),\;(x',y'):=m(x,y)\;\forall m\in O(p,q)_{e_p}\quad\mbox{($M'$-action)}\]
 \[F(-\tilde{x})=F(\tilde{x})\quad\mbox{($M'$-action)}\]
 \end{theorem}
 \end{frame}
