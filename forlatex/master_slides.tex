@@ -275,9 +275,9 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 \begin{frame}
 \begin{prop}[ (prop. 15.1)]
 	\begin{equation*}
-		\Sol_{\left\{ 0 \right\}}(\R^{p,q};\lambda,\nu)=\begin{cases}0,&\lambda-\nu\nin2\Z_{\le0}\\
+		\Sol_{\left\{ 0 \right\}}(\R^{p,q};\lambda,\nu)=\begin{cases}0,&(\lambda,\nu)\nin\mss\\
 			\Co \tilde{C}_{\nu-\lambda}^{\lambda-(n-1)/2}\mybra{\tilde{\Delta},\frac{\partial}{\partial x_p}},&
-			\lambda-\nu\in2\Z_{\le0}\\
+			(\lambda,\nu)\in\mss\\
 		\end{cases}
 	\end{equation*}
 	here,\begin{eqnarray}
@@ -393,26 +393,18 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 	Moreover, $\supp\left( \tilde{K}^C_{\lambda,\nu} \right)$ 
 	equals to\begin{equation*}
 	\left\{ \begin{array}{lll}
-     \{ 0 \}, & p = 1, q \in 2\mathbbm{Z}+ 1, & \lambda - \nu \in -
-     2\mathbbm{Z}_{\geqslant 0}\\
-     \{ Q = 0 \}, & p = 1, q \in 2\mathbbm{Z}+ 1, & \lambda - \nu \nin -
-     2\mathbbm{Z}_{\geqslant 0}\\
+     \{ 0 \}, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda,\nu)\in\mss\\
+     \{ Q = 0 \}, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda,\nu)\nin\mss\\
      \{ 0 \}, & p = 1, q \in 2\mathbbm{Z}, & \lambda - \min \{ \nu, q - \nu \}
      \in - 2\mathbbm{Z}_{\geqslant 0}\\
      \{ Q = 0 \}, & p = 1, q \in 2\mathbbm{Z}, & \lambda - \min \{ \nu, q -
      \nu \} \nin - 2\mathbbm{Z}_{\geqslant 0}\\
-     \{ 0 \}, & p > 1, q \in 2\mathbbm{Z}+ 1, & \lambda - \nu \in -
-     2\mathbbm{Z}_{\geqslant 0}\\
-     \{ Q = 0 \}, & p > 1, q \in 2\mathbbm{Z}_{} + 1, & \lambda - \nu \nin -
-     2\mathbbm{Z}_{\geqslant 0}, \lambda + \nu - n \nin -
-     2\mathbbm{Z}_{\geqslant 0} - 1\\
+     \{ 0 \}, & p > 1, q \in 2\mathbbm{Z}+ 1, & (\lambda,\nu)\in\mss\\
+     \{ Q = 0 \}, & p > 1, q \in 2\mathbbm{Z}_{} + 1, & (\lambda,\nu)\in\mss^c\cap\mbb^c\\
      \{ Q = 0 \} \cap \{ x_p = 0 \}, & p > 1, q \in 2\mathbbm{Z}_{} + 1, &
-     \lambda - \nu \nin - 2\mathbbm{Z}_{\geqslant 0}, \lambda + \nu - n \in -
-     2\mathbbm{Z}_{\geqslant 0} - 1\\
-     \{ Q = 0 \}, & p > 1, q \in 2\mathbbm{Z}, & \lambda + \nu - n \nin -
-     2\mathbbm{Z}_{\geqslant 0} - 1\\
-     \{ Q = 0 \} \cap \{ x_p = 0 \}, & p > 1, q \in 2\mathbbm{Z}, & \lambda +
-     \nu - n \in - 2\mathbbm{Z}_{\geqslant 0} - 1
+     (\lambda,\nu)\in\mss^c\cap\mbb\\
+     \{ Q = 0 \}, & p > 1, q \in 2\mathbbm{Z}, & (\lambda,\nu)\nin\mbb\\
+     \{ Q = 0 \} \cap \{ x_p = 0 \}, & p > 1, q \in 2\mathbbm{Z}, & (\lambda,\nu)\in\mbb\\
    \end{array} \right. 
 		\end{equation*}
 	\end{prop}
