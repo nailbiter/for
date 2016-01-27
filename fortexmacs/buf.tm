@@ -737,33 +737,17 @@
   <\show-part|9>
     <section|playground>
 
-    <\equation*>
-      <choice|<tformat|<table|<row|<cell|P<rprime|'><around*|(|0<rsub|p>,1,0<rsub|q>,1|)>\<sqcup\>P<rprime|'><around*|(|1,0<rsub|p+q>,-1|)>\<sqcup\>P<rprime|'><around*|(|0<rsub|p>,1,1,0<rsub|q>|)>\<sqcup\>P<rprime|'><around*|(|1,0<rsub|p+q>,1|)>,>|<cell|p=1>>|<row|<cell|P<rprime|'><around*|(|0<rsub|p>,1,0<rsub|q>,1|)>\<sqcup\>P<rprime|'><around*|(|1,0<rsub|p+q>,-1|)>\<sqcup\>P<rprime|'><around*|(|0<rsub|p>,1,1,0<rsub|q>|)>\<sqcup\>P<rprime|'><around*|(|1,0<rsub|p+q>,1|)>\<sqcup\>P<rprime|'><around*|(|0<rsub|p-1>,1,0,1,0<rsub|q>|)>,>|<cell|p\<gtr\>1>>>>>
-    </equation*>
-
-    joeoeoueeueue
-
-    <section|TODO>
-
-    <\enumerate>
-      <item>
-    </enumerate>
-
-    <subsection|FIXME>
-
-    <\enumerate>
-      <item>rising factorial notation
-    </enumerate>
-
-    <subsection|reprint:>
-
-    <\enumerate>
-      <item>intro <math|P<rprime|'>\\G/P>
-    </enumerate>
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|\<varphi\><rsub|N><around*|[|g|]><around*|(|\<lambda\>,\<nu\>|)>\<assign\><choice|<tformat|<table|<row|<cell|\<Gamma\><around*|(|\<lambda\>+\<nu\>-n+1|)>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N\<upl\>2|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>+N-q|2>|)>,>|<cell|p\<gtr\>1>>|<row|<cell|1,>|<cell|p=1,N=0>>|<row|<cell|0,>|<cell|p=1,N\<gtr\>0>>>>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2><around*|(|1-y<rsup|2>|)><rsup|<around*|(|\<lambda\>+\<nu\>+N-q|)>/2-1>g<around*|(|x,y|)>d
+      x d y.>|<cell|>>>>
+    </eqnarray>
   <|show-part>
     <section|TODO>
   </show-part>
 </body>
+
+<initial|<\collection>
+</collection>>
 
 <\references>
   <\collection>
@@ -793,7 +777,7 @@
     <associate|auto.7-2|<tuple|8|?|#7>>
     <associate|auto.8-1|<tuple|7|?|#8>>
     <associate|auto.9-1|<tuple|8|?|#9>>
-    <associate|auto.9-2|<tuple|9|?|#9>>
+    <associate|auto.9-2|<tuple|8.1|?|#9>>
     <associate|auto.9-3|<tuple|9.1|?|#9>>
     <associate|auto.9-4|<tuple|9.2|?|#9>>
     <associate|def-n-nots:lem-commdiag|<tuple|17|?|#8>>
