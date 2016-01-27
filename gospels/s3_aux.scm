@@ -89,7 +89,8 @@
 (define myflatten(lambda(l)(if(null? l)'()(if(and(list?(car l))(eq?(caar l)s))(union(cdar l)(myflatten(cdr l)))
                                             (cons(car l)(myflatten(cdr l)))))))
   (define (mymap proc l init)(if(null? l)'()(let((res(proc(car l)init)))(cons (car res) (mymap proc (cdr l)(cdr res))))))
-  (let* ((tokenized (mytokenize " *, *" text))
+  (let* (
+         (tokenized (mytokenize " *, *" text))
          (name (string-filter (lambda (char) (not (eq? #\. char))) (list-ref tokenized 0)))
          (tokenized (list-tail tokenized 2))
          (chapter (roman2arabic (list-ref tokenized 0)))
