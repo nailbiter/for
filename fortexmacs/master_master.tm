@@ -665,7 +665,7 @@
     </table-of-contents>
   </hide-part>
 
-  <\show-part|3>
+  <\hide-part|3>
     <section|Introduction>
 
     <subsection|Motivation and Background>
@@ -1051,9 +1051,9 @@
 
     I'd like to thank my supervisor Toshiyuki Kobayashi who brought this
     topic to my attention and taught me all the techniques necessary.
-  <|show-part>
+  <|hide-part>
     <section|Introduction>
-  </show-part>
+  </hide-part>
 
   <\hide-part|4>
     <section|Holomorphicity preserving><label|sec:holomorphicity-preserving>
@@ -5290,45 +5290,67 @@
 
     <\lemma>
       <label|lem67:lem-homogImpliesE>Let <math|U\<subset\>\<bbb-R\><rsup|m>>
-      be an open cone and <math|F\<in\>\<cal-D\><rprime|'><around*|(|U|)>> be
-      homogeneous of degree <math|a\<in\>\<bbb-C\>> (that is,
-      <math|\<forall\>\<alpha\>\<gtr\>0>,
-      <math|F<around*|(|\<alpha\>\<cdot\>|)>=\<alpha\><rsup|a>F<around*|(|\<cdot\>|)>>).
-      Then <math|E F=a F> on <math|U>.
+      be an open cone and <math|F\<in\>\<cal-D\><rprime|'><around*|(|U|)>>.
+      Then <math|F> is homogeneous of degree <math|a\<in\>\<bbb-C\>> (that
+      is, <math|\<forall\>\<alpha\>\<gtr\>0>,
+      <math|F<around*|(|\<alpha\>\<cdot\>|)>=\<alpha\><rsup|a>F<around*|(|\<cdot\>|)>>)
+      iff <math|E F=a F> on <math|U>.
     </lemma>
 
     <\proof>
-      We do proof for <math|U=\<bbb-R\><rsup|k>>, the proof of general case
-      following the same pattern. We recall that what
+      We do proof for <math|U=\<bbb-R\><rsup|m>>, the proof of general case
+      following the same pattern. We first prove the
+      ``<math|\<Rightarrow\>>'' direction. We recall that what
       <math|F<around*|(|\<alpha\>\<cdot\>|)>=\<alpha\><rsup|a>F<around*|(|\<cdot\>|)>>
       means for <math|F\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|m>|)>>
       is that for every <math|\<varphi\>\<in\>C<rsup|\<infty\>><rsub|0><around*|(|\<bbb-R\><rsup|m>|)>>
       we have <math|<around*|\<langle\>|F,\<varphi\>|\<rangle\>>=\<alpha\><rsup|a+m><around*|\<langle\>|F,\<varphi\><rsub|\<alpha\>>|\<rangle\>>>,
       where <math|\<varphi\><rsub|\<alpha\>><around*|(|\<cdot\>|)>\<assign\>\<varphi\><around*|(|\<alpha\>\<cdot\>|)>>.
-      We now fix arbitrary <math|U\<subset\>\<bbb-R\><rsub|\<gtr\>0>> open
-      and such that <math|<wide|U|\<bar\>>> is a compact subset of
+      We now fix arbitrary <math|1\<in\>V\<subset\>\<bbb-R\><rsub|\<gtr\>0>>
+      open and such that <math|<wide|V|\<bar\>>> is a compact subset of
       <math|\<bbb-R\><rsub|\<gtr\>0>>, and let
-      <math|\<Phi\>:\<bbb-R\><rsup|m>\<times\>U\<ni\><around*|(|x,\<alpha\>|)>\<mapsto\><around*|\<langle\>|F,\<varphi\><rsub|\<alpha\>>|\<rangle\>>>.
-      The assumptions we put on <math|U> imply that
-      <math|S<rsub|\<alpha\>>\<assign\><around*|{|x\<in\>\<bbb-R\><rsup|m><mid|\|>\<exists\>\<alpha\>\<in\><wide|U|\<bar\>>,<space|0.6spc>\<alpha\><rsup|-1>x\<in\>supp<around*|(|\<varphi\>|)>|}>\<subset\>\<bbb-R\><rsup|m>>
-      is compact and since <math|\<forall\>\<alpha\>\<in\>U> we have
+      <math|\<Phi\>:V\<ni\>\<alpha\>\<mapsto\><around*|\<langle\>|F,\<varphi\><rsub|\<alpha\>>|\<rangle\>>>.
+      The assumptions we put on <math|V> imply that
+      <math|S<rsub|\<alpha\>>\<assign\><around*|{|x\<in\>\<bbb-R\><rsup|m><mid|\|>\<exists\>\<alpha\>\<in\><wide|V|\<bar\>>,<space|0.6spc>\<alpha\><rsup|-1>x\<in\>supp<around*|(|\<varphi\>|)>|}>\<subset\>\<bbb-R\><rsup|m>>
+      is compact and since <math|\<forall\>\<alpha\>\<in\>V> we have
       <math|\<varphi\><rsub|\<alpha\>>=0> outside <math|S<rsub|\<alpha\>>>,
       we can apply fact <reference|holomorphicity-preserving:fact-basic>
-      which tells us that <math|\<Phi\>\<in\>C<rsup|\<infty\>><around*|(|\<bbb-R\><rsup|m>\<times\>U|)>>
+      which tells us that <math|\<Phi\>\<in\>C<rsup|\<infty\>><around*|(|V|)>>
       and <math|\<partial\>\<Phi\>/\<partial\>
       \<alpha\>=<around*|\<langle\>|F,<around*|(|\<partial\>/\<partial\>\<alpha\>|)>\<varphi\><rsub|\<alpha\>>|\<rangle\>>=<around*|\<langle\>|F,<around*|(|E
       \<varphi\>|)><around*|(|\<alpha\>\<cdot\>|)>|\<rangle\>>>.
 
       Now, assuming that <math|\<forall\>\<alpha\>\<gtr\>0>,
       <math|F<around*|(|\<alpha\>\<cdot\>|)>=\<alpha\><rsup|a>F<around*|(|\<cdot\>|)>>
-      holds, the argument above implies that
-      <math|\<forall\>\<alpha\>\<gtr\>0,<space|0.6spc>\<alpha\><rsup|a-m>\<Phi\><around*|(|x,\<alpha\>|)>=\<Phi\><around*|(|x,1|)>>
+      holds, the definitions made imply that
+      <math|\<forall\>\<alpha\>\<gtr\>0,<space|0.6spc>\<alpha\><rsup|a+m>\<Phi\><around*|(|\<alpha\>|)>=\<Phi\><around*|(|1|)>>
       and taking the derivative of both sides with respect to
       <math|\<alpha\>> at <math|\<alpha\>=1>, one arrives at
-      <math|<around*|(|a+m|)><around*|\<langle\>|F,\<varphi\>|\<rangle\>>+<around*|\<langle\>|F,E
+      <math|0=<around*|(|a+m|)><around*|\<langle\>|F,\<varphi\>|\<rangle\>>+<around*|\<langle\>|F,E
       \<varphi\>|\<rangle\>>=<around*|(|a+m|)><around*|\<langle\>|F,\<varphi\>|\<rangle\>>-<around*|\<langle\>|E
       F,\<varphi\>|\<rangle\>>-m<around*|\<langle\>|F\<comma\>\<varphi\>|\<rangle\>>>
-      and this implies that <math|E F=a F> on <math|U>.
+      and \ this implies that <math|E F=a F> on <math|\<bbb-R\><rsup|m>>
+      (since <math|\<varphi\>> was arbitrary). This proves the
+      ``<math|\<Rightarrow\>>''.
+
+      Now, assume <math|E F=a F> holds on <math|\<bbb-R\><rsup|m>> and let
+      <math|V> be as above and <math|\<Phi\>:V\<ni\>\<alpha\>\<mapsto\>\<alpha\><rsup|a+m><around*|\<langle\>|F,\<varphi\><rsub|\<alpha\>>|\<rangle\>>\<in\>\<bbb-C\>>
+      be as above. It suffices to show now that
+      <math|<around*|(|\<partial\>/\<partial\>\<alpha\>|)>\<Phi\>=0> on
+      <math|V>. We first show that it holds for <math|\<alpha\>=1>. This is
+      so, as <math|<around*|(|\<partial\>/\<partial\>\<alpha\>|)><mid|\|><rsub|\<alpha\>=1>\<Phi\>=a<around*|\<langle\>|F,\<varphi\>|\<rangle\>>-<around*|\<langle\>|E
+      F,\<varphi\>|\<rangle\>>> as shown above, and the latter is equal to 0
+      by hypothesis.\ 
+
+      Next, take arbitrary <math|\<alpha\><rsub|0>\<in\>V> and
+      <math|V<rprime|'>> neighborhood of <math|1> small enough so that
+      <math|V<rprime|'>\<cdot\>\<alpha\><rsub|0>\<subset\>V>. Then for
+      <math|\<Phi\><rprime|'>:V<rprime|'>\<ni\>\<beta\>\<mapsto\>\<beta\><rsup|a+m><around*|\<langle\>|F,<around*|(|\<varphi\><rsub|\<alpha\><rsub|0>>|)><rsub|\<beta\>>|\<rangle\>>>
+      we have <math|\<Phi\><rprime|'><around*|(|\<beta\>|)>=\<alpha\><rsub|0><rsup|-m-a>\<Phi\><around*|(|\<beta\>\<alpha\><rsub|0>|)>>
+      and the previous paragraph now implies that
+      <math|<around*|(|\<partial\>/\<partial\>\<beta\>|)><mid|\|><rsub|\<beta\>=1>\<Phi\><rprime|'>=0>
+      and hence that <math|<around*|(|\<partial\>/\<partial\>\<alpha\>|)><mid|\|><rsub|\<alpha\>=\<alpha\><rsub|0>>\<Phi\>=0>
+      and this ends the proof.
     </proof>
 
     <\lemma>
@@ -6620,25 +6642,6 @@
       But it is readily implied by lemma <reference|supp-Q:lem-sing-q-4>.
     </proof>
 
-    <\lemma>
-      <label|diffSBO:lem-E>For <math|f\<in\>\<cal-D\><rprime|'><rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|k>|)>>
-      we have <math|f> is homogeneous of degree <math|a\<in\>\<bbb-C\>> iff
-      <math|E f=a f>, where <math|E=<big|sum><rsub|i=1><rsup|k>x<rsub|i>\<partial\><rsub|i>>
-      is an Euler operator.
-    </lemma>
-
-    <\proof>
-      As ``<math|\<Rightarrow\>>'' is readily implied by lemma
-      <reference|lem67:lem-homogImpliesE>, we only prove the converse. As
-      <math|f\<in\>\<cal-D\><rprime|'><rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|k>|)>>
-      is a finite sum of derivatives of delta functions, these are lineary
-      independent and we have <math|E\<delta\><rsup|\<alpha\>>=<around*|(|-<around*|\||\<alpha\>|\|>-k|)>\<delta\><rsup|\<alpha\>>>,
-      the condition <math|E f=a f> implies that
-      <math|a\<in\>-\<bbb-Z\><rsub|\<geqslant\>k>> and
-      <math|f=<big|sum><rsub|<around*|\||\<alpha\>|\|>=-a-k>c<rsub|\<alpha\>>\<delta\><rsup|\<alpha\>>>
-      and this immediately implies homogeneity of degree <math|a.>
-    </proof>
-
     <subsection|Proofs>
 
     <\proof>
@@ -6650,9 +6653,10 @@
       identification given via the pairing
       <math|<frac|1|4><around*|(|X,Y|)>\<mapsto\>tr<around*|(|X Y|)>>.\ 
 
-      Lemmas <reference|diffSBO:lem-aux> and <reference|diffSBO:lem-E> tell
-      us that we are looking for <math|F\<in\>\<cal-D\><rprime|'><rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|p,q>|)>>
-      belong to <math|\<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+      Lemmas <reference|diffSBO:lem-aux> and
+      <reference|lem67:lem-homogImpliesE> tell us that
+      <math|F\<in\>\<cal-D\><rprime|'><rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|p,q>|)>>
+      belongs to <math|\<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
       iff it satisfies
 
       <\eqnarray>
@@ -8001,7 +8005,7 @@
   </hide-part>
 
   <\hide-part|20>
-    <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>><label|sec:KP-normalization>
+    q<section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>><label|sec:KP-normalization>
 
     Recall that in section <reference|sec:supp-P> we constructed a member of
     <math|\<cal-S\>ol<rsub|<around*|{|x<rsub|p>=0|}>><around*|(|Q;\<lambda\>,\<nu\>|)>>
@@ -8344,7 +8348,7 @@
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>><label|sec:KP-normalization>
   </hide-part>
 
-  <\hide-part|21>
+  <\show-part|21>
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>><label|sec:KR-normalization-even>
 
     In this part, we will try to normalize kernel of regular symmetry
@@ -9172,9 +9176,9 @@
     </proof>
 
     \;
-  <|hide-part>
+  <|show-part>
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>><label|sec:KR-normalization-even>
-  </hide-part>
+  </show-part>
 
   <\hide-part|22>
     <section|Application: Knapp-Stein operator><label|sec:knappstein>

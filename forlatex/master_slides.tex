@@ -12,6 +12,7 @@
 \newcommand{\D}{\mathcal{D}}
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\Co}{\mathbb{C}}
+\newcommand{\X}{\mathbb{X}}
 \renewcommand{\setminus}{-}
 \newcommand{\assign}{:=}
 \newcommand{\comma}{{,}}
@@ -81,14 +82,13 @@
 
 \section{設定}
 \begin{frame}
-	\begin{setting}
-		$p\ge1,\;q\ge2$, $G:=O(p+1,q+1)$, $G':=O(p+1,q+1)_{e_{p+1}}\simeq O(p,q+1)$.
-	\end{setting}
 	\begin{question}
 	{与えられた $( \lambda, \nu) \in
 	\mathbbm{C}^2$に対して、\ruby{対称性}{たいしょうせい}の破れ作用素の空間 $\tmop{Hom}_{G'} ( I (
 	\lambda), J ( \nu))$ を具体的に求めよ。特に、この空間の\ruby{基底}{きてい}を具体的に求めよ。ここで、$I(\lambda):=G\times_P\mathbb{C}_\lambda$
-	と$J(\nu):=G'\times_{P'}\mathbb{C}_\nu$は$G$と$G'$の\ruby{退化主系列}{たいかしゅけいれつ}である。}	
+	と$J(\nu):=G'\times_{P'}\mathbb{C}_\nu$は$G$と$G'$の\ruby{退化主系列}{たいかしゅけいれつ}である。
+		$p\ge1,\;q\ge2$, $G:=O(p+1,q+1)$, $G':=O(p+1,q+1)_{e_{p+1}}\simeq O(p,q+1)$.
+}	
 	\end{question}
 \end{frame}
 \section{Equations for kernels}
@@ -99,27 +99,28 @@
 			\otimes\mathbb{C}_\nu}^{
 			\Delta P'}\simeq\Sol(\R^{p,q};\lambda,\nu)
 		\end{equation*}
-ここで、$\mathcal{S} \tmop{ol} ( \mathbbm{R}^{p, q} ; \lambda,
-\nu)$ は以下の条件を満たす超関数$F \in \mathcal{D}' (
-\mathbbm{R}^{p, q})$の空間である:
+ここで、$\mathcal{S} \tmop{ol} ( U; \lambda,
+\nu)$ は以下の条件を満たす超関数$F \in \mathcal{D}' (U)$
+($U\subset\mathbbm{R}^{p, q}$開部分集合)の空間である:
 \begin{enumerate}
-	\item $F$は\ruby{斉}{せい} $\lambda-\nu-n$-次である;
- \item $F$は偶関数である;
-\item $\forall m \in O ( p, q)_{e_p} \assign \{ m \in O ( p, q) | m \cdot e_p = e_p \},\quad F ( m \cdot) = F ( \cdot)$が成立する;
- \item $b, x_0 \in \mathbbm{R}^{p, q}$, $b_p = 0$ と $c_b
- ( x_0) : = 1 - 2 Q ( b, x_0) + Q ( x_0) Q ( b) \neq 0$であれば、 $x_0$の近傍上で
-\begin{eqnarray}
-& | c_b ( \cdot) |^{\lambda - n} F ( \psi_b ( \cdot)) = F (\cdot)
-\;　\mbox{が成立}& \nonumber\\
-& \mbox{ここで、}\;\psi_b ( x) \assign \frac{x - Q (x) b}{c_b ( x)} . & \nonumber
-\end{eqnarray}
+	\item $(x,\alpha,\alpha x)\in U\times\R_{>0}\times U$であれば,
+		$x$の近傍上で\begin{equation*}
+			F(\alpha\cdot)=\alpha^{\lambda-\nu-n}F(\cdot);
+		\end{equation*}
+	\item $(x,-x)\in U\times U$であれば、$x$の近傍上で$F( (-1)\cdot)=F(\cdot)$;
+	\item $(x,m,m\cdot x)\in U\times O(p,q)_{e_p}\times U$であれば、$x$の近傍上で$F(m\cdot)=F(\cdot)$;
+	\item $(x,b,\psi_b(x))\in U\times\R^{p,q}\times U$であれば、$x$の\ruby{近傍}{きんぼう}
+		上で\begin{equation*}F(\cdot)=\myabs{c_b(\cdot)}^{\lambda-n}F(\psi_b(\cdot))
+			\end{equation*}
+		(ここで $b_p=0$, $c_b(x):=1-2Q(b,x)+Q(b)Q(x)$と$\psi_b(x):=(x-Q(x)b)/c_b(x)$);
 \end{enumerate}
 	\end{prop}
 	\begin{prop}[ (prop. 9.5)]
-		Suppose $F_\mu\in\D'(U)$
-		is holomorphic in $\mu\in\Omega\subset\Co^k$, $\lambda(\cdot),\nu(\cdot)$ are holo on $\Omega$ and
-		for $\mu\in\Omega'\subset\Omega$ we have $F_\mu\in\Sol(U;\lambda(\mu),\nu(\mu))$. Then this is
-		so also for $\mu\in\Omega$.
+		超関数 $F_\mu\in\D'(U)$は正則的なパラメータ$\mu\in\Omega\subset\Co^k$によって、
+		$\lambda(\cdot),\nu(\cdot)$は$\Omega$上の正則な関数とする。
+		全ての$\mu\in\Omega'\subset\Omega$に$F_\mu\in\Sol(U;\lambda(\mu),\nu(\mu))$であれば、
+		全ての$\mu\in\Omega$にも成立。
+		$\mu\in\Omega$.
 	\end{prop}
 \end{frame}
 \section{$P'\backslash G/P$}
@@ -198,7 +199,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 	\end{equation*}
 \end{prop}
 \begin{prop}[ (prop. 12.2, 12.3)]
-	For $(\lambda,\nu)\in\mathbb{C}^2$ with $\lambda-\nu\nin\Z_{\ge1}$ the {\bf well-defined} product of generalized
+	For $(\lambda,\nu)\in\mathbb{C}^2$ with $\lambda-\nu\nin\Z_{\ge0}$ the {\bf well-defined} product of generalized
 	functions\begin{equation*}
 		\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\cdot
 		\frac{\myabs{Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\D'(\R^{p,q}\setminus\left\{ 0 \right\})
@@ -232,7 +233,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 \section{Kernel of singular SBO supported on $C$}
 \begin{frame}
 	\begin{prop}[ (prop. 14.4)]
-		For $\nu\in2\Z_{\ge0}+1$ and $\lambda\in\Co$ such that $\lambda-\nu\nin-\Z_{\ge1}$ the\begin{equation*}
+		For $\nu\in2\Z_{\ge0}+1$ and $\lambda\in\Co$ such that $\lambda-\nu\nin-\Z_{\ge0}$ the\begin{equation*}
   \left\{ \begin{array}{ll}
  \delta^{( \nu - 1)} ( Q) \cdot | x_p |^{\lambda + \nu - n}, & p = 1\\
  \delta^{( \nu - 1)} ( Q) \cdot \frac{| x_p |^{\lambda + \nu -
@@ -280,7 +281,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 			(\lambda,\nu)\in\mss\\
 		\end{cases}
 	\end{equation*}
-	here,\begin{eqnarray}
+	ここで,\begin{eqnarray}
 		&\tilde{C}^\mu_N(s,t):=s^{N/2}\tilde{C}^\mu_N\mybra{\frac{t}{\sqrt{s}}}&\nonumber\\
 		&\tilde{C}^\mu_N(t):=\frac{\Gamma(\mu)}{\Gamma(\mu+N/2)}\frac{\Gamma(2\mu+N)}{\Gamma(N+1)\Gamma(2\mu)}
 		{}_2F_1\mybra{2\mu+N,-N;\mu+\frac{1}{2};\frac{1-t}{2}}&\nonumber
@@ -301,7 +302,7 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 		\begin{equation*}
 			\supp\left( \tilde{K}_{\lambda,\nu}^P \right)=\begin{cases}
 				\left\{0 \right\},&\left(\lambda,\nu \right)\in \mathbb{X}(\iff\nu\in\frac{n-1}{2}-k+\Z_{\ge0})\\
-				\left\{ Q=0 \right\}\cap\left\{ x_p=0 \right\},&p>1,\;\nu\in1+2\Z_{\ge0}\\
+				\left\{ Q=0 \right\}\cap\left\{ x_p=0 \right\},&p>1,\;(\lambda,\nu)\in\mmm\\
 				\left\{ x_p=0 \right\},&\mbox{otherwise}.
 			\end{cases}
 		\end{equation*}
@@ -321,7 +322,8 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 		Then $\tilde{K}^P_{\lambda,\nu}$ is nonzero and holomorphic in $\nu\in\Co$. Moreover,
 		\begin{align*}
 			p=1\implies&\supp\left( \tilde{K}_{\lambda,\nu}^P \right)=\begin{cases}
-				\left\{0 \right\},&\nu\in\max\left\{ 0,\frac{n-1}{2}-k \right\}+\Z_{\ge0}\\
+				\left\{0 \right\},&(\lambda,\nu)\in\X,\nu\ge0
+				\footnote{$\nu\in\max\left\{ 0,\frac{n-1}{2}-k \right\}+\Z_{\ge0}\iff (\lambda,\nu)\in\X$}\\
 				\left\{ x_p=0 \right\},&\mbox{otherwise}.
 			\end{cases}\\
 			p>1\implies&\supp\left( \tilde{K}_{\lambda,\nu}^P \right)=\begin{cases}
@@ -395,10 +397,14 @@ Therefore, as we want to know $\Sol(\R^n;\lambda,\nu)$, we proceed in steps:
 	\left\{ \begin{array}{lll}
      \{ 0 \}, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda,\nu)\in\mss\\
      \{ Q = 0 \}, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda,\nu)\nin\mss\\
-     \{ 0 \}, & p = 1, q \in 2\mathbbm{Z}, & \lambda - \min \{ \nu, q - \nu \}
-     \in - 2\mathbbm{Z}_{\geqslant 0}\\
-     \{ Q = 0 \}, & p = 1, q \in 2\mathbbm{Z}, & \lambda - \min \{ \nu, q -
-     \nu \} \nin - 2\mathbbm{Z}_{\geqslant 0}\\
+     \{ 0 \}, & p = 1, q \in 2\mathbbm{Z}, & (\lambda,\nu)\in\mbb\cap\mss\footnote
+     {for $p=1,q\in2\Z$ we have $\lambda - \min \{ \nu, q - \nu \}
+     \in - 2\mathbbm{Z}_{\geqslant 0}\iff(\lambda,\nu)\in\mbb\cap\mss$}\\
+%%     \lambda - \min \{ \nu, q - \nu \}
+%%     \in - 2\mathbbm{Z}_{\geqslant 0}\\
+     \{ Q = 0 \}, & p = 1, q \in 2\mathbbm{Z}, & (\lambda,\nu)\nin\mbb\cap\mss\\
+%%     \lambda - \min \{ \nu, q -
+%%     \nu \} \nin - 2\mathbbm{Z}_{\geqslant 0}\\
      \{ 0 \}, & p > 1, q \in 2\mathbbm{Z}+ 1, & (\lambda,\nu)\in\mss\\
      \{ Q = 0 \}, & p > 1, q \in 2\mathbbm{Z}_{} + 1, & (\lambda,\nu)\in\mss^c\cap\mbb^c\\
      \{ Q = 0 \} \cap \{ x_p = 0 \}, & p > 1, q \in 2\mathbbm{Z}_{} + 1, &
