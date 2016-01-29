@@ -19,13 +19,13 @@
          (chi-title (get-chi-title args))
          ) (begin(display rus-title outport)(display "<br>" outport)(display eng-title outport)(display "<br>"outport)(display chi-title outport )(display "<br>" outport))))
 
-(define (loop)(let*(
-                    (line (read-line inport))
-                    (index (string-contains line ". "))
+(define (loop)(let((line (read-line inport))) (if (eof-object? line) '() (let*(
+                    
+                    (index (string-contains line ".  "))
                     (line1 (string-take line index))
                     (line1 (string-append line1 "."))
                     (line2 (substring line (+ index 4)))
-                    )(if (eof-object? line) '() (begin(parse line1)(parse line2)(loop)))));(begin(parse line)(loop)))))
+                    )(begin(parse line1)(parse line2)(display "<br>"outport)(loop))))));(begin(parse line)(loop)))))
 
 (loop)
 ;;(define (get-all start-seq end-seq line l) (let((index (string-contains line start-seq)))(if (not index) l
