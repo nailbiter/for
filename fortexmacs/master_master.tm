@@ -8387,440 +8387,21 @@
       function. Moreover,\ 
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=<around*|[|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>|]>\<sqcup\><around*|[|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>|]>>|<cell|>>|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>+\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>=<choice|<tformat|<table|<row|<cell|<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|p=1>>|<row|<cell|\<varnothing\>,>|<cell|p\<gtr\>1>>>>>\\<around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>:discrete.>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=<around*|[|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>|]>\<sqcup\><around*|[|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>|]>>|<cell|>>|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>+\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>=<choice|<tformat|<table|<row|<cell|<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|p=1>>|<row|<cell|\<varnothing\>,>|<cell|p\<gtr\>1>>>>>\\<around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>.>|<cell|>>>>
       </eqnarray>
-
-      In particular, <math|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>
-      is discrete.
     </proposition>
 
     <\proposition>
-      <label|prop-q=2>For <math|q=2>, <math|p\<gtr\>1>, and
-      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> as in
-      proposition <reference|KR-normalization-even:prop-holo>, for
-      <math|x:=<frac|\<lambda\>+\<nu\>-q|2>>,
-      <math|y:=<frac|\<lambda\>-\<nu\>-q|2>> we have\ 
+      <label|KR-normalization-even:prop-zeroset>For <math|q\<in\>2\<bbb-Z\>>
+      and <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
+      as in proposition <reference|KR-normalization-even:prop-holo>, we have
 
       <\equation*>
-        \<frak-P\><rsub|-><around*|(|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>|)>=<big|sqcup><rsub|k\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y=k|}>=<big|sqcup><rsub|\<nu\>\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>\<lambda\>-\<nu\>\<in\>2\<bbb-Z\><rsub|\<leqslant\>0>|}>.
+        \<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>=<big|sqcup><rsub|\<nu\>\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>\<lambda\>-\<nu\>\<in\>2\<bbb-Z\><rsub|\<leqslant\>0>|}>.
       </equation*>
     </proposition>
 
-    <subsection|Auxilliary results (I)>
-
-    <\fact>
-      <label|KR-normalization-even:fact-P-K><cite-detail|kobayashi2015symmetry|Lemma
-      7.5>For <math|g\<in\>\<bbb-C\><around*|[|t|]>> and
-      <math|<around*|(|a,b|)>\<in\>\<bbb-C\><rsup|2>> let\ 
-
-      <\equation*>
-        P<rsub|a,b><around*|(|g|)>\<assign\>:=<frac|1|\<Gamma\><around*|(|a|)>\<Gamma\><around*|(|b|)>><big|int><rsub|-1><rsup|1><around*|(|1-t|)><rsup|a-1><around*|(|1+t|)><rsup|b-1>g<around*|(|t|)>d
-        t.
-      </equation*>
-
-      Then, <math|P<rsub|a,b><around*|(|g|)>> is holomorphic as a function in
-      <math|<around*|(|a,b|)>\<in\>\<bbb-C\><rsup|2>> and moreover
-      <math|P<rsub|a,b>\<equiv\>0\<Leftrightarrow\><around*|(|a,b|)>\<in\>\<bbb-Z\><rsub|\<leqslant\>0><rsup|2>>.
-    </fact>
-
-    <\lemma>
-      <label|KR-normalization-even:lem-Poddeven>Let
-      <math|a,b\<in\>\<bbb-C\><rsup|>> and
-      <math|g\<in\>\<bbb-C\><around*|[|t|]>> be a polynomial in <math|t>
-      which is even as a function on <math|\<bbb-R\>>. Let
-      <math|P<rsub|a,b><rsup|even/odd><around*|(|\<cdot\>|)>> be restriction
-      of <math|P<rsub|a,b><around*|(|\<cdot\>|)>> to the subspace of even/odd
-      polynomials. Then <math|P<rsup|even><rsub|a,b>\<equiv\>0\<Leftrightarrow\><around*|(|a,b|)>\<in\>\<bbb-Z\><rsub|\<leqslant\>0><rsup|2>>,
-      while <math|P<rsup|odd><rsub|a,b>\<equiv\>0> iff
-      <math|<around*|(|a,b|)>\<in\>\<bbb-Z\><rsub|\<leqslant\>0><rsup|2>> or
-      <math|a=b>. Also, <math|<wide|P|~><rsup|odd><rsub|a,b><around*|(|g|)>\<assign\><frac|1|a-b>P<rsup|odd><rsub|a,b><around*|(|g|)>>
-      is holomorphic and <math|<wide|P|~><rsub|a,b><rsup|odd>\<equiv\>0> iff
-      <math|<around*|(|a,b|)>\<in\>\<bbb-Z\><rsub|\<leqslant\>0><rsup|2>> and
-      <math|a+b\<less\>0>.
-    </lemma>
-
-    <\proof>
-      We first do <math|P<rsup|even><rsub|a,b>>. The first assertion follows
-      immediately from fact <reference|KR-normalization-even:fact-P-K>. It
-      also follows from that fact that <math|<around*|(|a,b|)>\<in\>\<bbb-Z\><rsub|\<leqslant\>0><rsup|2>\<Rightarrow\>P<rsub|a,b><rsup|even>\<equiv\>0>,
-      so it suffices to prove the reverse implication.
-
-      Note that <math|P<rsup|even><rsub|a,b>\<equiv\>0> iff
-      <math|\<forall\>n\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have (we will
-      use <math|\<simeq\>> to denote proportionality up to nonzero finite
-      constant)
-
-      <\equation*>
-        0=P<rsub|a,b><rsup|even><around*|(|<around*|(|1-t<rsup|2>|)><rsup|n>|)>\<simeq\><frac|\<Gamma\><around*|(|a+n|)>|\<Gamma\><around*|(|a|)>>\<cdot\><frac|\<Gamma\><around*|(|b+n|)>|\<Gamma\><around*|(|b|)>>\<cdot\><frac|1|\<Gamma\><around*|(|a+b+2n|)>>.
-      </equation*>
-
-      Hence if for some <math|<around*|(|a<rsub|0>,b<rsub|0>|)>\<in\>\<bbb-C\><rsup|2>>
-      we have <math|P<rsup|even><rsub|a<rsub|0>,b<rsub|0>>\<equiv\>0>, we
-      should have <math|<around*|(|a<rsub|0>,b<rsub|0>|)>\<in\><big|cap><rsub|n=0><rsup|\<infty\>>A<rsub|n>>,
-      where <math|A<rsub|n>\<assign\><big|cup><rsub|i=-n+1><rsup|0><around*|{|a=i|}>\<cup\><big|cup><rsub|i=-n+1><rsup|0><around*|{|b=i|}>\<cup\><big|cup><rsub|i=0><rsup|\<infty\>><around*|{|a+b+2n=-i|}>>.
-      In particular, as we should have <math|<around*|(|a<rsub|0>,b<rsub|0>|)>\<in\>A<rsub|n>>
-      for <math|n> big, we should have at least one of <math|a<rsub|0>> or
-      <math|b<rsub|0>> being non-positive integer. WLOG, we assume that
-      <math|a<rsub|0>\<in\>\<bbb-Z\><rsub|\<leqslant\>0>>. Now, as
-      <math|<around*|(|a<rsub|0>,b<rsub|0>|)>\<in\>A<rsub|0>>, we should have
-      <math|b<rsub|0>\<in\>\<bbb-Z\>>. Therefore, in order to finish the
-      proof it suffices to assume that <math|a<rsub|0>\<less\>0>,
-      <math|b<rsub|0>\<gtr\>0> and to reach a contradiction.
-
-      As we should have <math|<around*|(|a<rsub|0>,b<rsub|0>|)>\<in\>A<rsub|-a<rsub|0>>>,
-      assumptions taken imply that <math|a<rsub|0>+b<rsub|0>-2a<rsub|0>\<leq\>0>,
-      and hence that <math|b<rsub|0>\<leqslant\>a<rsub|0>\<less\>0>, which is
-      a contradiction.
-
-      Next we do <math|P<rsup|odd><rsub|a,b>>. Similarly to above, it
-      suffices to prove the <math|P<rsup|odd><rsub|a,b>\<equiv\>0\<Rightarrow\><around*|(|a,b|)>\<in\>\<bbb-Z\><rsub|\<leqslant\>0><rsup|2>>
-      implication. Similarly, we have <math|P<rsub|a,b><rsup|odd>\<equiv\>0>
-      iff <math|\<forall\>n\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
-      <math|P<rsup|odd><rsub|a,b><around*|(|t<around*|(|1-t<rsup|2>|)><rsup|n>|)>=0>
-      iff <math|\<forall\>n\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have (we
-      will use <math|\<simeq\>> to denote proportionality up to nonzero
-      finite constant)
-
-      <\equation*>
-        0=<frac|1|2>P<rsup|odd><rsub|a,b><around*|(|<around*|(|1+t|)><around*|(|1-t<rsup|2>|)><rsup|n>|)>-<frac|1|2>P<rsub|a,b><rsup|odd><around*|(|<around*|(|1-t|)><around*|(|1-t<rsup|2>|)><rsup|n>|)>\<simeq\>
-      </equation*>
-
-      <\equation*>
-        \<simeq\><frac|\<Gamma\><around*|(|a+n|)>\<Gamma\><around*|(|b+n+1|)>-\<Gamma\><around*|(|a+n+1|)>\<Gamma\><around*|(|b+n|)>|\<Gamma\><around*|(|a|)>\<Gamma\><around*|(|b|)>\<Gamma\><around*|(|a+b+2n+1|)>>=
-      </equation*>
-
-      <\equation*>
-        =<frac|\<Gamma\><around*|(|a+n|)>\<Gamma\><around*|(|b+n|)>\<cdot\><around*|(|b+n|)>-\<Gamma\><around*|(|a+n|)>\<Gamma\><around*|(|b+n|)>\<cdot\><around*|(|a+n|)>|\<Gamma\><around*|(|a|)>\<Gamma\><around*|(|b|)>\<Gamma\><around*|(|a+b+2n+1|)>>=
-      </equation*>
-
-      <\equation*>
-        =<around*|(|b-a|)><frac|\<Gamma\><around*|(|a+n|)>|\<Gamma\><around*|(|a|)>>\<cdot\><frac|\<Gamma\><around*|(|b+n|)>|\<Gamma\><around*|(|b|)>>\<cdot\><frac|1|\<Gamma\><around*|(|a+b+2n+1|)>>.
-      </equation*>
-
-      Hence, if for <math|<around*|(|a<rsub|0>,b<rsub|0>|)>> we have
-      <math|P<rsub|a<rsub|0>,b<rsub|0><rsup|>><rsup|odd>\<equiv\>0>, we
-      should have have either <math|a<rsub|0>=b<rsub|0>> or
-      <math|<around*|(|a<rsub|0>,b<rsub|0>|)>\<in\><big|cap><rsub|n=0><rsup|\<infty\>>A<rsub|n>>,
-      where <math|A<rsub|n>\<assign\><big|cup><rsub|i=-n+1><rsup|0><around*|{|a=i|}>\<cup\><big|cup><rsub|i=-n+1><rsup|0><around*|{|b=i|}>\<cup\><big|cup><rsub|i=0><rsup|\<infty\>><around*|{|a+b+2n+1=-i|}>>.\ 
-
-      To finish the proof, we claim that <math|<big|cap><rsub|n=0><rsup|\<infty\>>A<rsub|n>=\<bbb-Z\><rsub|\<leqslant\>0><rsup|2>\\<around*|(|0,0|)>>.
-      The <math|\<supset\>> inclusion is clear, as is clear that
-      <math|<around*|(|\<bbb-Z\><rsub|\<leqslant\>0>\<times\>\<bbb-R\>|)>\<cup\><around*|(|\<bbb-R\>\<times\>\<bbb-Z\><rsub|\<leqslant\>0>|)>\<supset\><big|cap><rsub|n=0><rsup|\<infty\>>A<rsub|n>>,
-      so it remains to prove the reverse. Similarly to proof of lemma
-      <reference|KR-normalization-even:lem-2>, WLOG we can assume
-      <math|a<rsub|0>\<in\>\<bbb-Z\><rsub|\<leqslant\>0>> and then we get
-      <math|b<rsub|0>\<in\>\<bbb-Z\>> and
-      <math|a<rsub|0>+b<rsub|0>\<leqslant\>-1>. Thus, it suffices to assume
-      <math|a\<less\>0>, <math|b\<gtr\>0> and to reach a contradiction.
-
-      But as <math|<around*|(|a<rsub|0>,b<rsub|0>|)>\<in\>A<rsub|-a<rsub|0>>\<nocomma\>>,
-      we should have <math|a<rsub|0>+b<rsub|0>-2a<rsub|0>+1\<leqslant\>0> and
-      hence <math|b<rsub|0>\<leqslant\>a<rsub|0>-1\<less\>0>, which gives a
-      contradiction.
-    </proof>
-
-    <\lemma>
-      <label|KR-normalization-even:lem-2>Suppose <math|q=2>, <math|p\<gtr\>1>
-      and let <math|\<varphi\><rsub|N><around*|[|g|]>> be as in proposition
-      <reference|k-finite:prop-KR-hook-2>. Then, for
-      <math|m<rprime|'>+n<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
-
-      <\equation*>
-        \<varphi\><rsub|N,n<rprime|'>,m<rprime|'>>\<assign\><frac|\<varphi\><rsub|N><around*|[|y<rsup|n<rprime|'>><around*|(|x-y|)><rsup|m<rprime|'>>|]>|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+\<nu\>-n+1|)>/2|)>>=<frac|R\<cdot\>S|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>>
-      </equation*>
-
-      where
-
-      <\equation*>
-        S=<frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+2|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N\<upl\>2|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>+N-q|2>|)>>
-      </equation*>
-
-      and
-
-      <\equation*>
-        R\<simeq\><frac|1|<around*|(|m<rprime|'>+1|)>-\<nu\>>P<rsub|><rsup|<around*|(|i|)>><rsub|L+m<rprime|'>+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>|)>\<cdot\>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>+N-q|2>+m<rprime|'>+1-\<nu\>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>+N-q|2>|)>
-      </equation*>
-
-      where <math|L\<assign\><frac|\<lambda\>+\<nu\>+N-q|2>>,
-      <math|P<rsup|<around*|(|i|)>><rsub|a,b>\<assign\>P<rsup|even><rsub|a,b>>
-      if <math|m<rprime|'>\<in\>2\<bbb-Z\>> and
-      <math|\<assign\>P<rsup|odd><rsub|a,b>> otherwise with
-      <math|P<rsup|even/odd><rsub|a,b>> defined as in lemma
-      <reference|KR-normalization-even:lem-Poddeven>.
-    </lemma>
-
-    <\proof>
-      The expression <math|R\<cdot\>S/\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>>
-      and expression for <math|S> follow from proposition
-      <reference|k-finite:prop-KR-hook-2>. The thing to notice is that
-
-      <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|R\<simeq\><big|int><rsub|-1><rsup|1><around*|(|1-y<rsup|2>|)><rsup|L-1>y<rsup|n<rprime|'>><big|int><rsub|-1><rsup|1><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|x-y|)><rsup|m<rprime|'>>d
-        x d y=>|<cell|>>|<row|<cell|>|<cell|=<big|int><rsub|-1><rsup|1><around*|(|1-y<rsup|2>|)><rsup|L-1>y<rsup|n<rprime|'>><big|int><rsub|-1-y><rsup|1-y><around*|\||x|\|><rsup|-\<nu\>>x<rsup|m<rprime|'>>d
-        x d y=>|<cell|>>|<row|<cell|>|<cell|=<big|int><rsub|-1><rsup|1><around*|(|1-y<rsup|2>|)><rsup|L-1>y<rsup|n<rprime|'>><frac|<around*|(|1-y|)><rsup|m<rprime|'>-\<nu\>+1>+<around*|(|-1|)><rsup|m<rprime|'>><around*|(|1+y|)><rsup|m<rprime|'>-\<nu\>+1>|m<rprime|'>-\<nu\>+1>
-        d y\<simeq\>>|<cell|>>|<row|<cell|>|<cell|\<simeq\><frac|1|m<rprime|'>-\<nu\>+1><big|int><rsub|-1><rsup|1><around*|(|1-y<rsup|2>|)><rsup|L-1>y<rsup|n<rprime|'>><around*|(|1-y|)><rsup|m<rprime|'>-\<nu\>+1>
-        d y>|<cell|>>>>
-      </eqnarray>
-
-      and the latter equals to the expression given for <math|R> in the
-      statement just by definition of <math|P<rsup|even/odd><rsub|a,b>>.
-    </proof>
-
-    <\lemma>
-      <label|lem-5n>Let <math|<around*|{|A<rsub|n>|}><rsub|n=0><rsup|\<infty\>>>
-      be sequence of subsets of <math|\<bbb-C\><rsup|2>> (we parametrize
-      latter with <math|<around*|(|x,y|)>\<in\>\<bbb-C\><rsup|2>>)
-
-      <\enumerate>
-        <item>Then for <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>>,
-        <math|<around*|(|x<rsub|0>,-k|)>\<in\><big|cap><rsub|n=0><rsup|\<infty\>><around*|(|A<rsub|n>\<cup\><around*|{|y=-n+1,-n+2,\<ldots\>0|}>|)>\<Leftrightarrow\>x<rsub|0>\<in\><big|cap><rsub|n=0><rsup|k><around*|(|A<rsub|n>|)><rsup|<around*|(|2|)>><rsub|-k>>,
-        where for subset <math|X\<subset\>\<bbb-C\><rsup|2>>,
-        <math|X<rsup|<around*|(|2|)>><rsub|y<rsub|0>>\<assign\><around*|{|x<mid|\|><around*|(|x,y<rsub|0>|)>\<in\>X|}>>.
-
-        <item>If moreover <math|<big|cap><rsub|n=0><rsup|\<infty\>>A<rsub|n>=\<emptyset\>>,
-        then <math|<big|cap><rsub|n=0><rsup|\<infty\>><around*|(|A<rsub|n>\<cup\><around*|{|y=-n+1,-n+2,\<ldots\>0|}>|)>=<big|sqcup><rsub|n=0><rsup|\<infty\>><around*|(|<big|cap><rsub|k=0><rsup|n><around*|(|A<rsub|n>|)><rsup|<around*|(|2|)>><rsub|-k>\<times\><around*|{|-n|}>|)>>
-      </enumerate>
-    </lemma>
-
-    <\proof>
-      First, assume that first item holds true and let's prove the second
-      one. The hypothesis <math|<big|cap><rsub|n=0><rsup|\<infty\>>A<rsub|n>=\<emptyset\>>
-      implies that for <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\><big|cap><rsub|n=0><rsup|\<infty\>><around*|(|A<rsub|n>\<cup\><around*|{|y=-n+1,-n+2,\<ldots\>0|}>|)>>
-      we have for big <math|n>, <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\><around*|{|y=-n+1,-n+2,\<ldots\>,0|}>>
-      and thus <math|y<rsub|0>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>>.
-      Application of the first item then ends the proof of the second.
-
-      So, let's show the second item. It is clear that for <math|n\<gtr\>k>
-      we have <math|<around*|(|x<rsub|0>,-k|)>\<in\><around*|(|A<rsub|n>\<cup\><around*|{|y=-n+1,-n+2,\<ldots\>0|}>|)>>
-      and hence <math|<around*|(|x<rsub|0>,-k|)>\<in\><big|cap><rsub|n=0><rsup|\<infty\>><around*|(|A<rsub|n>\<cup\><around*|{|y=-n+1,-n+2,\<ldots\>0|}>|)>\<Leftrightarrow\><around*|(|x<rsub|0>,-k|)>\<in\><big|cap><rsub|n=0><rsup|k><around*|(|A<rsub|n>\<cup\><around*|{|y=-n+1,-n+2,\<ldots\>0|}>|)>>
-      and the latter in turn is equivalent to
-      <math|<around*|(|x<rsub|0>,-k|)>\<in\><big|cap><rsub|n=0><rsup|k>A<rsub|n>>.
-      This ends the proof.
-    </proof>
-
-    <\lemma>
-      <label|lem-5>
-
-      <\equation*>
-        min<around*|{|<around*|{|x,y\<in\>-k-\<bbb-Z\><rsub|\<geqslant\>0>|}>+<around*|{|y=1-k,2-k,\<ldots\>,0|}>|}><rsub|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>=<around*|{|x,y\<in\>-\<bbb-Z\><rsub|\<geqslant\>0><mid|\|>y\<geqslant\>x|}>
-      </equation*>
-
-      and
-
-      <\equation*>
-        min<around*|{|<around*|{|x,y\<in\>-k-\<bbb-Z\><rsub|\<geqslant\>0>,x+y\<less\>-2k|}>+<around*|{|y=1-k,2-k,\<ldots\>,0|}>|}><rsub|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>=<around*|{|x,y\<in\>\<bbb-Z\><rsub|\<leqslant\>0><mid|\|>y\<gtr\>x|}>.
-      </equation*>
-    </lemma>
-
-    <\proof>
-      Indeed, as for any <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
-      <math|<around*|{|x,y\<in\>-k-\<bbb-Z\><rsub|\<geqslant\>0>|}>> and
-      <math|<around*|{|y=1-k,2-k,\<ldots\>,0|}> being disjoint\<nocomma\>>,
-      we have <math|<around*|{|x,y\<in\>-k-\<bbb-Z\><rsub|\<geqslant\>0>|}>+<around*|{|y=1-k,2-k,\<ldots\>,0|}>=<around*|{|x,y\<in\>-k-\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cup\><around*|{|y=1-k,2-k,\<ldots\>,0|}>>
-      and thus what we need to show can be rewritten as\ 
-
-      <\equation*>
-        <big|cap><rsub|k=0><rsup|\<infty\>><around*|(|<around*|{|x,y\<in\>-k-\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cup\><around*|{|y=1-k,2-k,\<ldots\>,0|}>|)>=<around*|{|x,y\<in\>-\<bbb-Z\><rsub|\<geqslant\>0><mid|\|>y\<geqslant\>x|}>
-      </equation*>
-
-      This now follows from lemma <reference|lem-5n>. The proof of the second
-      equality goes similarly.
-    </proof>
-
-    <\lemma>
-      <label|lem-8>Let <math|\<frak-I\>\<assign\><around*|{|<around*|(|N,m<rprime|'>,n<rprime|'>|)>\<in\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|3><mid|\|>N,m<rprime|'>+n<rprime|'>\<in\>2\<bbb-Z\>|}>>
-      and for <math|m<rsub|0><rprime|'>\<in\>\<bbb-Z\><rsub|\<geqslant\>0>>
-      let <math|\<frak-I\><rsub|m<rprime|'><rsub|0>><rsup|<around*|(|2|)>>\<assign\><around*|{|<around*|(|N,m<rprime|'>,n<rprime|'>|)>\<in\>\<frak-I\><mid|\|>m<rprime|'>=m<rprime|'><rsub|0>|}>>.\ 
-
-      Then, for <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
-      as in proposition <reference|prop-q=2> and
-      <math|\<varphi\><rsub|N,n<rprime|'>,m<rprime|'>>> as in lemma
-      <reference|KR-normalization-even:lem-2> we have
-
-      <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|min<around*|{|\<frak-P\><rsub|-><around*|(|\<varphi\><rsub|N,n<rprime|'>,m<rprime|'>>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>+1-\<nu\>|)>|)>|}><rsub|\<frak-I\><rsup|<around*|(|2|)>><rsub|m<rprime|'><rsub|0>>>=A<rsub|m<rsub|0><rprime|'>>+B<rsub|m<rsub|0><rprime|'>>+C<rsub|m<rsub|0><rprime|'>>,>|<cell|>>|<row|<cell|>|<cell|A<rsub|m<rsub|0><rprime|'>>\<assign\><around*|{|<frac|\<lambda\>-\<nu\>-q|2>=-m<rprime|'>,-m<rprime|'>+1,\<ldots\>,-1|}>,>|<cell|>>|<row|<cell|>|<cell|B<rsub|m<rsub|0><rprime|'>>=<choice|<tformat|<table|<row|<cell|<around*|{|<around*|(|\<lambda\>+\<nu\>-q|)>/2+m<rprime|'>+1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,m<rprime|'>+1-\<nu\>\<in\>\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|m<rsub|0><rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0><rsub|>>>|<row|<cell|<around*|{|<around*|(|\<lambda\>+\<nu\>-q|)>/2+m<rprime|'>+1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,m<rprime|'>+1-\<nu\>\<in\>\<bbb-Z\><rsub|\<gtr\>0>|}>>|<cell|m<rprime|'><rsub|0>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>,>|<cell|>>|<row|<cell|>|<cell|C<rsub|m<rsub|0><rprime|'>>\<assign\><choice|<tformat|<table|<row|<cell|<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1\\<around*|{|m<rprime|'>+1|}>|}>,>|<cell|m<rsub|0><rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>,>|<cell|m<rsub|0><rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>.>|<cell|>>>>
-      </eqnarray>
-    </lemma>
-
-    <\proof>
-      Lemma <reference|KR-normalization-even:lem-2> immediately implies that\ 
-
-      <\equation*>
-        <wide|\<varphi\>|~><rsub|N,n<rprime|'>,m<rprime|'>>\<assign\><frac|\<varphi\><rsub|N,n<rprime|'>,m<rprime|'>>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>+1-\<nu\>|)>>=
-      </equation*>
-
-      <\equation*>
-        =<frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+2|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N\<upl\>2|2>|)>>\<cdot\><frac|1|<around*|(|<around*|(|m<rprime|'>+1|)>-\<nu\>|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>>P<rsup|odd/even><rsub|L+m<rprime|'>+1-\<nu\>,L><around*|(|y<rsup|n<rprime|'>>|)><frac|\<Gamma\><around*|(|L+m<rprime|'>+1-\<nu\>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>+1-\<nu\>|)>>.
-      </equation*>
-
-      For <math|N<rsub|0>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>> and
-      <math|m<rsub|0><rprime|'>\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we let
-      <math|\<frak-I\><rsup|<around*|(|1,2|)>><rsub|N<rsub|0>,m<rsub|0><rprime|'>>\<assign\><around*|{|<around*|(|N<rsub|0>,m<rsub|0><rprime|'>,n<rprime|'>|)><mid|\|><around*|(|N<rsub|0>,m<rsub|0><rprime|'>,n<rprime|'>|)>\<in\>\<frak-I\>|}>>.
-
-      Then, as <math|\<frak-P\><around*|(|f\<cdot\>g|)>=\<frak-P\><around*|(|f|)>+\<frak-P\><around*|(|g|)>>,
-      and due to <math|min<around*|{|\<frak-P\><rsub|-><around*|(|<around*|(|a,b|)>\<mapsto\>P<rsup|odd/even><rsub|a,b><around*|(|t<rsup|n>|)>|)>|}><rsub|n\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>/1+2\<bbb-Z\><rsub|\<geqslant\>0>>>
-
-      \ being computed in lemma <reference|KR-normalization-even:lem-Poddeven>,
-      we have for <math|m<rprime|'>\<in\>2\<bbb-Z\>>
-
-      <\equation*>
-        min<around*|{|\<frak-P\><rsub|-><around*|(|<wide|\<varphi\>|~><rsub|N,n<rprime|'>,m<rprime|'>>|)>|}><rsub|\<frak-I\><rsup|<around*|(|1,2|)>><rsub|N<rsub|0>,m<rprime|'><rsub|0>>>=<around*|{|<frac|\<lambda\>+\<nu\>-n|2>=0,1,\<ldots\>,<frac|N-2|2>|}>+<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1\\<around*|{|m<rprime|'>+1|}>|}>+
-      </equation*>
-
-      <\equation*>
-        +<around*|{|<frac|\<lambda\>+\<nu\>+N-q|2>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,<frac|\<lambda\>+\<nu\>+N-q|2>+m<rprime|'>+1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>+
-      </equation*>
-
-      <\equation*>
-        +<around*|{|<frac|\<lambda\>+\<nu\>-q|2>-\<nu\>=-<around*|(|m<rprime|'>+<frac|N|2>|)>,-<around*|(|m<rprime|'>+<frac|N|2>|)>+1,\<ldots\>,-1|}>,
-      </equation*>
-
-      while for <math|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1> we
-      have
-
-      <\equation*>
-        min<around*|{|\<frak-P\><rsub|-><around*|(|<wide|\<varphi\>|~><rsub|N,n<rprime|'>,m<rprime|'>>|)>|}><rsub|\<frak-I\><rsup|<around*|(|1,2|)>><rsub|N<rsub|0>,m<rprime|'><rsub|0>>>=<around*|{|<frac|\<lambda\>+\<nu\>-n|2>=0,1,\<ldots\>,<frac|N-2|2>|}>+<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>+
-      </equation*>
-
-      <\equation*>
-        +<around*|{|<frac|\<lambda\>+\<nu\>+N-q|2>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,<frac|\<lambda\>+\<nu\>+N-q|2>+m<rprime|'>+1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,\<lambda\>+N-q+m<rprime|'>+1\<less\>0|}>+
-      </equation*>
-
-      <\equation*>
-        +<around*|{|<frac|\<lambda\>+\<nu\>-q|2>-\<nu\>=-<around*|(|m<rprime|'>+<frac|N|2>|)>,-<around*|(|m<rprime|'>+<frac|N|2>|)>+1,\<ldots\>,-1|}>.
-      </equation*>
-
-      Now, we we want to compute for <math|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
-
-      <\equation*>
-        min<around*|{|<around*|{|<frac|\<lambda\>+\<nu\>-n|2>=0,1,\<ldots\>,<frac|N-2|2>|}>+<around*|{|<frac|\<lambda\>+\<nu\>+N-q|2>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,<frac|\<lambda\>+\<nu\>+N-q|2>+m<rprime|'>+1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>+<around*|{|<frac|\<lambda\>+\<nu\>-q|2>-\<nu\>=-<around*|(|m<rprime|'>+<frac|N|2>|)>,-<around*|(|m<rprime|'>+<frac|N|2>|)>+1,\<ldots\>,-1|}>|}><rsub|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
-      </equation*>
-
-      Lemma <reference|lem-4> implies now (we assign
-      <math|f<rsup|<around*|(|i|)>>> for <math|i=1,2,3> in the same order as
-      the addends appear in previous expression) that the previous expression
-      equals to
-
-      <\equation*>
-        min<around*|{|<around*|{|<frac|\<lambda\>+\<nu\>-q|2>-\<nu\>=-<around*|(|m<rprime|'>+<frac|N|2>|)>,-<around*|(|m<rprime|'>+<frac|N|2>|)>+1,\<ldots\>,-1|}>+<around*|{|<frac|\<lambda\>+\<nu\>+N-q|2>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,<frac|\<lambda\>+\<nu\>+N-q|2>+m<rprime|'>+1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>|}><rsub|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
-      </equation*>
-
-      Setting <math|<wide|y|~>\<assign\><around*|(|\<lambda\>+\<nu\>-q|)>/2+m<rprime|'>+1-\<nu\>>
-      and <math|<wide|x|~>\<assign\><around*|(|\<lambda\>+\<nu\>-q|)>/2> the
-      above can be rewritten as
-
-      <\equation*>
-        <around*|{|<wide|y|~>=1,2,\<ldots\>,m<rprime|'>|}>+min<around*|{|<around*|{|<wide|y|~>=1-<frac|N|2>,2-<frac|N|2>,\<ldots\>,0|}>+<around*|{|<wide|x|~>,<wide|y|~>\<in\>-<frac|N|2>-\<bbb-Z\><rsub|\<geqslant\>0>|}>|}><rsub|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>=
-      </equation*>
-
-      <\equation*>
-        =<around*|{|<wide|y|~>=1,2,\<ldots\>,m<rprime|'>|}>+<around*|{|<wide|x|~>,<wide|y|~>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0><mid|\|><wide|y|~>\<geqslant\><wide|x|~>|}>=
-      </equation*>
-
-      <\equation*>
-        =<around*|{|<frac|\<lambda\>-\<nu\>-q|2>=-m<rprime|'>,-m<rprime|'>+1,\<ldots\>,-1|}>+<around*|{|<around*|(|\<lambda\>+\<nu\>-q|)>/2+m<rprime|'>+1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,m<rprime|'>+1-\<nu\>\<in\>\<bbb-Z\><rsub|\<geqslant\>0>|}>
-      </equation*>
-
-      (the second equality is by lemma <reference|lem-5>).\ 
-
-      Similarly, for <math|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>,
-      we want to compute
-
-      <\equation*>
-        min<around*|{|<around*|{|<frac|\<lambda\>+\<nu\>-n|2>=0,1,\<ldots\>,<frac|N-2|2>|}>+<around*|{|<frac|\<lambda\>+\<nu\>+N-q|2>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,<frac|\<lambda\>+\<nu\>+N-q|2>+m<rprime|'>+1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,\<lambda\>+N-q+m<rprime|'>+1\<less\>0|}>+<around*|{|<frac|\<lambda\>+\<nu\>-q|2>-\<nu\>=-<around*|(|m<rprime|'>+<frac|N|2>|)>,-<around*|(|m<rprime|'>+<frac|N|2>|)>+1,\<ldots\>,-1|}>|}><rsub|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
-      </equation*>
-
-      and again lemma <reference|lem-4> implies that this equals to
-
-      <\equation*>
-        min<around*|{|<around*|{|<frac|\<lambda\>+\<nu\>-q|2>-\<nu\>=-<around*|(|m<rprime|'>+<frac|N|2>|)>,-<around*|(|m<rprime|'>+<frac|N|2>|)>+1,\<ldots\>,-1|}>+<around*|{|<frac|\<lambda\>+\<nu\>+N-q|2>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,<frac|\<lambda\>+\<nu\>+N-q|2>+m<rprime|'>+1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,\<lambda\>+N-q+m<rprime|'>+1\<less\>0|}>|}><rsub|N\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
-      </equation*>
-
-      and defining <math|<wide|x|~>,<wide|y|~>> same as above one has again
-      by lemma <reference|lem-5> that the latter expression equals to
-
-      <\equation*>
-        <around*|{|<frac|\<lambda\>-\<nu\>-q|2>=-m<rprime|'>,-m<rprime|'>+1,\<ldots\>,-1|}>+<around*|{|<around*|(|\<lambda\>+\<nu\>-q|)>/2+m<rprime|'>+1-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,m<rprime|'>+1-\<nu\>\<in\>\<bbb-Z\><rsub|\<gtr\>0>|}>
-      </equation*>
-
-      This ends the proof.
-    </proof>
-
-    <\lemma>
-      <label|lem-7>We have let <math|A<rsub|m>>, <math|B<rsub|m>> and
-      <math|C<rsub|m>> be as in lemma <reference|lem-8>. Then
-
-      <\equation*>
-        min<around*|{|A<rsub|m>+B<rsub|m>+C<rsub|m>|}><rsub|m\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>=<big|sqcup><rsub|k\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>>+1|)>><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y=k|}>
-      </equation*>
-    </lemma>
-
-    <\proof>
-      As defined in lemma <reference|lem-7>, for
-      <math|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>,
-      <math|A<rsub|m<rprime|'>>=<around*|{|y=-m<rprime|'>,-m<rprime|'>+1,\<ldots\>,-1|}>>,
-      <math|B<rsub|m<rprime|'>>=><math|<around*|{|x\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,y+m<rprime|'>+1\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,x-y\<leqslant\>m<rprime|'>+1|}>>
-      and <math|C<rsub|m<rprime|'>>=<around*|{|x-y\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1\\<around*|{|m<rprime|'>+1|}>|}>>.
-      As <math|min<around*|{|A<rsub|m<rprime|'>>+B<rsub|m<rprime|'>>+C<rsub|m<rprime|'>>|}><rsub|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>\<leqslant\>A<rsub|0>+B<rsub|0>+C<rsub|0>\<leqslant\>1>,
-      we just need to find the result of set operation
-
-      <\equation*>
-        <big|cap><rsub|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|A<rsub|m<rprime|'>>\<cup\>B<rsub|m<rprime|'>>\<cup\>C<rsub|m<rprime|'>>|)>
-      </equation*>
-
-      So, let's <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\>\<bbb-C\><rsup|2>>
-      and we need to decide whether it belongs to the intersection above.\ 
-
-      Furthermore, as <math|<big|cap><rsub|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>A<rsub|m<rprime|'>>=\<emptyset\>>,
-      we . Moreover, as <math|A<rsub|0>+B<rsub|0>+C<rsub|0>\<leqslant\><around*|{|x-y\<in\>\<bbb-Z\><rsub|\<leqslant\>0>|}>+<around*|{|x-y\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>>,
-      we may assume <math|x<rsub|0>-y<rsub|0>=m<rsub|0><rprime|'>+1\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>
-      or <math|x<rsub|0>-y<rsub|0>\<in\>\<bbb-Z\><rsub|\<leqslant\>0>>.\ 
-
-      Now, in the first case we see that <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\><big|cap><rsub|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|A<rsub|m<rprime|'>>\<cup\>B<rsub|m<rprime|'>>\<cup\>C<rsub|m<rprime|'>>|)>\<Leftrightarrow\><around*|(|x<rsub|0>,y<rsub|0>|)>\<in\>A<rsub|m<rsub|0><rprime|'>>\<cup\>B<rsub|m<rsub|0><rprime|'>>\<cup\>C<rsub|m<rsub|0><rprime|'>>>.
-      Latter, in turn is equivalent to <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\>A<rsub|m<rsub|0><rprime|'>>\<cup\>B<rsub|m<rsub|0><rprime|'>>>.
-      Now, <math|A<rsub|m<rprime|'><rsub|0>>\<cap\><around*|{|x-y=m<rsub|0><rprime|'>+1|}>=<around*|{|*<around*|(|x,y|)>\<in\>\<bbb-Z\>\<times\><around*|{|-m<rsub|0><rprime|'>,-m<rsub|0><rprime|'>+1,\<ldots\>,-1|}><mid|\|>x-y=m<rsub|0><rprime|'>+1|}>>
-      and <math|B<rsub|m<rsub|0><rprime|'>>\<cap\><around*|{|x-y=m<rsub|0><rprime|'>+1|}>=<around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsub|\<leqslant\>0><rsup|2><mid|\|>x-y=m<rsub|0><rprime|'>+1|}>>
-      and hence <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\><big|cap><rsub|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|A<rsub|m<rprime|'>>\<cup\>B<rsub|m<rprime|'>>\<cup\>C<rsub|m<rprime|'>>|)>\<Leftrightarrow\><around*|(|x<rsub|0>,y<rsub|0>|)>\<in\><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,x-y=m<rsub|0><rprime|'>+1|}>>
-      and this gives the <math|<big|sqcup><rsub|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>>+1><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y=k|}>>
-      term in lemma statement.
-
-      Next, assume <math|x<rsub|0>-y<rsub|0>=-l\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>>
-      and thus <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\><big|cap><rsub|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|A<rsub|m<rprime|'>>\<cup\>B<rsub|m<rprime|'>>\<cup\>C<rsub|m<rprime|'>>|)>\<Leftrightarrow\><around*|(|x<rsub|0>,y<rsub|0>|)>\<in\><big|cap><rsub|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|A<rsub|m<rprime|'>>\<cup\>B<rsub|m<rprime|'>>|)>>.
-      The second item of lemma <reference|lem-5n> (applied to
-      <math|<around*|{|A<rsub|m>+<around*|(|0,1|)>|}><rsub|m>> and
-      <math|<around*|{|B<rsub|m>+<around*|(|0,1|)>|}><rsub|m>>) now implies
-      that the latter happens iff <math|y<rsub|0>=-k\<in\>-\<bbb-Z\><rsub|\<geqslant\>1>>
-      and <math|x<rsub|0>\<in\><big|cap><rsub|i=0><rsup|k-1><around*|(|B<rsub|i>|)><rsub|-k><rsup|<around*|(|2|)>>=<around*|(|B<rsub|0>|)><rsup|<around*|(|2|)>><rsub|<rsub|-k>>=<around*|{|l-k|}>>
-      and thus every <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\>\<bbb-Z\>>
-      with <math|x<rsub|0>-y<rsub|0>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>> and
-      <math|y<rsub|0>\<in\>-\<bbb-Z\><rsub|\<geqslant\>1>> belongs to
-      <math|<big|cap><rsub|m<rprime|'>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>><around*|(|A<rsub|m<rprime|'>>\<cup\>B<rsub|m<rprime|'>>\<cup\>C<rsub|m<rprime|'>>|)>>
-      and this gives the <math|<big|sqcup><rsub|k\<in\>\<bbb-Z\><rsub|\<leqslant\>0>><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y=k|}>>
-      term in lemma statement.
-    </proof>
-
-    <\lemma>
-      <label|lem-9>For <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\>\<bbb-Z\><rsup|2>>
-      with <math|x<rsub|0>-y<rsub|0>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>>,
-      <math|y<rsub|0>\<leqslant\>-1>, and let <math|A<rsub|m>>,
-      <math|B<rsub|m>>, <math|C<rsub|m>> as in lemma <reference|lem-8> we
-      have <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\><big|cap><rsub|m\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1><around*|(|A<rsub|m>\<cup\>B<rsub|m>\<cup\>C<rsub|m>|)>>.
-    </lemma>
-
-    <\proof>
-      First, we note that lemma is true when <math|y<rsub|0>=-1>, as for
-      <math|m\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1> we have
-      <math|A<rsub|m>\<supset\><around*|{|y=-1|}>>. So we may assume
-      <math|y<rsub|0>\<leqslant\>-2>. Let
-      <math|m<rsub|0>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1> be biggest
-      subject to condition <math|-m<rsub|0>\<gtr\>y<rsub|0>>. We see that by
-      lemma <reference|lem-5n> <math|<around*|(|x<rsub|0>,y<rsub|0>|)>\<in\><big|cap><rsub|m\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1><around*|(|A<rsub|m>\<cup\>B<rsub|m>\<cup\>C<rsub|m>|)>\<Leftrightarrow\><around*|(|x<rsub|0>,y<rsub|0>|)>\<in\><big|cap><rsub|m\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1><around*|(|A<rsub|m>\<cup\>B<rsub|m>|)>\<Leftrightarrow\>x<rsub|0>\<in\><big|cap><rsub|k=0><rsup|<around*|(|m<rsub|0>-1|)>/2><around*|(|B<rsub|2k+1>|)><rsup|<around*|(|2|)>><rsub|y<rsub|0>>=<around*|(|B<rsub|1>|)><rsup|<around*|(|2|)>><rsub|y<rsub|0>>>
-      and the latter holds true under the assumptions
-      <math|x<rsub|0>\<leqslant\>-2> and <math|x<rsub|0>-y<rsub|0>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>>,
-      as <math|B<rsub|1>\<supset\><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-2,x-y\<leqslant\>0|}>>.
-    </proof>
-
-    <subsection|Auxiliary results (II)>
+    <subsection|Auxiliary results>
 
     <\lemma>
       <label|KR-normalization-even:lem-kfinite-00-aux>We have
@@ -9027,6 +8608,63 @@
       As this equality is true, the proof is over.
     </proof>
 
+    <\lemma>
+      <label|KR-normalization-even:lem-zeroset-aux-1>For
+      <math|\<pi\>:\<bbb-C\><rsup|2>\<rightarrow\>\<bbb-C\>> denoting the
+      projection onto the second coordiate,
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> as in
+      proposition <reference|KR-normalization-even:prop-holo> and
+      <math|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>> we have\ 
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|\<pi\><around*|(|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>=>|<cell|>>|<row|<cell|>|<cell|=<big|cap><rsub|<around*|(|i,2m<rprime|'>,2n<rprime|'>,N|)>\<in\>\<frak-I\><rprime|'>><choice|<tformat|<table|<row|<cell|<big|cup><rsub|j=2><rsup|5>B<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>,>|<cell|p=1>>|<row|<cell|<big|cup><rsub|j=1><rsup|5>B<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>,>|<cell|p\<gtr\>1>>>>>,>|<cell|>>|<row|<cell|>|<cell|\<frak-I\><rprime|'>\<assign\><choice|<tformat|<table|<row|<cell|<around*|{|<around*|(|i,2m<rprime|'>,2n<rprime|'>,N|)>\<in\><around*|{|0,1|}>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2><rsub|>\<times\><around*|{|0|}><mid|\|>2m<rprime|'>+2n<rprime|'>\<leqslant\>2k|}>,>|<cell|p=1>>|<row|<cell|<around*|{|<around*|(|i,2m<rprime|'>,2n<rprime|'>,N|)>\<in\><around*|{|0,1|}>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|3><rsub|><mid|\|>2m<rprime|'>+2n<rprime|'>+N\<leqslant\>2k|}>,>|<cell|p\<gtr\>1>>>>>.>|<cell|>>|<row|<cell|>|<cell|B<rsup|<around*|(|1|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>:=<around*|{|\<nu\>=<frac|n|2>+k+0,1,\<ldots\>,<frac|N-2|2>|}>,>|<cell|>>|<row|<cell|>|<cell|B<rsup|<around*|(|2|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>:=<around*|{|\<nu\>=<frac|q-N|2>+k+<around*|(|1-m<rprime|'>|)>,<around*|(|2-m<rprime|'>|)>,\<ldots\>,0|}>,>|<cell|>>|<row|<cell|>|<cell|B<rsup|<around*|(|3|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>:=<around*|{|\<nu\>\<in\>q-1-2m<rprime|'>-N+2k-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|>>|<row|<cell|>|<cell|B<rsup|<around*|(|4|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>:=<around*|{|\<nu\>\<in\>-2m<rprime|'>-2n<rprime|'>-N-2i+2k-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|>>|<row|<cell|>|<cell|B<rsup|<around*|(|5|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>:=<around*|{|\<nu\>=q+2n<rprime|'>+1+2\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cup\><choice|<tformat|<table|<row|<cell|\<varnothing\>,>|<cell|i=0>>|<row|<cell|<around*|{|\<nu\>=0|}>,>|<cell|i=1>>>>>.>|<cell|>>>>
+      </eqnarray>
+    </lemma>
+
+    <\proof>
+      This is clear by direct computations, as one observes that for\ 
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|B<rsup|<around*|(|1|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>:=\<pi\><around*|(|A<rsup|<around*|(|1|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>=<around*|{|\<nu\>=<frac|n|2>+k+0,1,\<ldots\>,<frac|N-2|2>|}>>|<cell|>>|<row|<cell|>|<cell|B<rsup|<around*|(|2|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>:=\<pi\><around*|(|A<rsup|<around*|(|2|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>=<around*|{|\<nu\>=<frac|q-N|2>+k+<around*|(|1-m<rprime|'>|)>,<around*|(|2-m<rprime|'>|)>,\<ldots\>,0|}>>|<cell|>>|<row|<cell|>|<cell|B<rsup|<around*|(|3|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>:=\<pi\><around*|(|A<rsup|<around*|(|3|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>=<around*|{|\<nu\>\<in\>q-1-2m<rprime|'>-N+2k-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>|<row|<cell|>|<cell|B<rsup|<around*|(|4|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>:=\<pi\><around*|(|A<rsup|<around*|(|4|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>=<around*|{|\<nu\>\<in\>-2m<rprime|'>-2n<rprime|'>-N-2i+2k-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>|<row|<cell|>|<cell|B<rsup|<around*|(|5|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>:=\<pi\><around*|(|A<rsup|<around*|(|5|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>=<around*|{|\<nu\>=q+2n<rprime|'>+1+2\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cup\><choice|<tformat|<table|<row|<cell|\<varnothing\>,>|<cell|i=0>>|<row|<cell|<around*|{|\<nu\>=0|}>,>|<cell|i=1>>>>>>|<cell|>>>>
+      </eqnarray>
+    </proof>
+
+    <\lemma>
+      <label|KR-normalization-even:lem-zeroset-aux-2>For
+      <math|\<pi\>:\<bbb-C\><rsup|2>\<rightarrow\>\<bbb-C\>> denoting the
+      projection onto the second coordiate,
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> as in
+      proposition <reference|KR-normalization-even:prop-holo> and
+      <math|k\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>> we have
+
+      <\equation*>
+        \<pi\><around*|(|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>\<cap\><around*|{|\<nu\>\<in\>2k-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=<around*|{|\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>.
+      </equation*>
+    </lemma>
+
+    <\proof>
+      We let <math|B<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>>
+      be as in the lemma <reference|KR-normalization-even:lem-zeroset-aux-1>.
+      We first show the ``<math|\<supseteq\>>''. As
+      <math|B<rsup|<around*|(|4|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<supset\><around*|{|-2-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      (since for <math|<around*|(|i,m<rprime|'>,n<rprime|'>,N|)>\<in\>\<frak-I\><rprime|'>>
+      we have <math|2m<rprime|'>+2n<rprime|'>+N\<leqslant\>2k>) and
+      <math|0\<in\>B<rsup|<around*|(|4|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>>
+      when <math|i=0> and <math|0\<in\>B<rsup|<around*|(|4|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>>
+      when <math|i=1>, the ``<math|\<supseteq\>>'' holds.
+
+      It remains thus to show the ``<math|\<subseteq\>>''. For this we note
+      that for <math|<around*|(|i,m<rprime|'>,n<rprime|'>,N|)>\<assign\><around*|(|0,0,2k,0|)>>
+      we have
+
+      <\equation*>
+        <big|cup><rsub|j=1><rsup|5>B<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<nu\>\<in\>2k-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=<big|cup><rsub|j=2><rsup|5>B<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<nu\>\<in\>2k-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=B<rsup|<around*|(|4|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<nu\>\<in\>2k-2\<bbb-Z\><rsub|\<geqslant\>0>|}>
+      </equation*>
+
+      and as the latter equals to <math|<around*|{|\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>,
+      this ends the proof.
+    </proof>
+
     <subsection|Proofs>
 
     <\proof>
@@ -9105,74 +8743,88 @@
       Next, we compute <math|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>.
       The expression for <math|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>
       is readily given by proposition <reference|KR-normalization-recur:prop-supp>.
-
-      Finally, we show that <math|><math|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>
-      is discrete by showing that
-
-      <\equation*>
-        \<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>+\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>\<subset\><around*|{|\<lambda\>+\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cap\><around*|(|<around*|{|\<lambda\>\<in\>\<bbb-Z\>|}>\<cup\><around*|{|\<nu\>\<in\>\<bbb-Z\>|}>|)>
-      </equation*>
-
-      Proposition <reference|k-finite:prop-KR-hook-2> together with the
-      reasoning of the previous paragraph then tell us that
-      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>
-      iff <math|<wide|\<varphi\>|~><rsub|N><around*|[|<around*|(|x
-      y|)><rsup|i><around*|(|1-x<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-y<rsup|2>|)><rsup|m<rprime|'>>|]><around*|(|\<lambda\>,\<nu\>|)>=0>
-      for every <math|<around*|(|i,N,m<rprime|'>,n<rprime|'>|)>\<in\><around*|{|0,1|}>\<times\>2\<bbb-Z\><rsub|\<geqslant\>0>\<times\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|2>>.
-      Now, assuming that <math|<around*|(|\<lambda\>,\<nu\>|)>\<nin\><around*|{|\<lambda\>\<in\>\<bbb-Z\>|}>\<cup\><around*|{|\<nu\>\<in\>\<bbb-Z\>|}>>
-      we see that <math|f<rsub|4,5><rsup|<around*|(|i,m<rprime|'>,n<rprime|'>,N|)>><around*|(|\<lambda\>,\<nu\>|)>\<neq\>0>
-      and setting <math|N=m<rprime|'>=n<rprime|'>=i=0>, we have
-      <math|f<rsub|1,2,3><rsup|<around*|(|i,m<rprime|'>,n<rprime|'>,N|)>><around*|(|\<lambda\>,\<nu\>|)>=1>
-      and hence <math|<around*|(|\<lambda\>,\<nu\>|)>\<nin\>\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>.
     </proof>
 
     <\proof>
-      (of Proposition <reference|prop-q=2>) In the light of proposition
-      <reference|k-finite:prop-KR-hook-2>, we have for
-      <math|<wide|\<varphi\>|~><rsub|N,n<rprime|'>,m<rprime|'>>> as in proof
-      of lemma <reference|lem-8>
+      (of prop. <reference|KR-normalization-even:prop-zeroset>) We first show
+      that <math|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>=\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
+      Indeed, assume that <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<lambda\>-\<nu\>\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cap\>\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>.
+      As <math|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>> is then
+      finite, we see that
 
       <\equation*>
-        \<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=min
-        <around*|{|\<frak-P\><rsub|-><around*|(|<wide|\<varphi\>|~><rsub|N,n<rprime|'>,m<rprime|'>>|)>|}><rsub|\<frak-I\>>,<space|1em>\<frak-I\>\<assign\><around*|{|<around*|(|N,n<rprime|'>,m<rprime|'>|)>\<in\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|3><mid|\|>N,m<rprime|'>+n<rprime|'>\<in\>2\<bbb-Z\>|}>
+        <wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>><mid|\|><rsub|\<bbb-R\><rsup|n>\\<around*|{|0|}>>\<simeq\>K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>><mid|\|><rsub|\<bbb-R\><rsup|n>\\<around*|{|0|}>>
       </equation*>
 
-      and lemma <reference|lem-8> tells us that it equals to
-      <math|min<around*|{|A<rsub|m<rsub|>>+B<rsub|m<rsub|>>+C<rsub|m<rsub|>>|}><rsub|m\<in\>\<bbb-Z\><rsub|\<geqslant\>0>>>
-      with <math|A<rsub|m>>, <math|B<rsub|m>> and <math|C<rsub|m>> as defined
-      in that lemma's statement.
+      and it would suffice to show that the latter is nonzero. Proposition
+      <reference|KR-normalization-recur:prop-supp> now implies that
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>><mid|\|><rsub|\<bbb-R\><rsup|n>\\<around*|{|0|}>>=0>
+      only when <math|p=1> and <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n=-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>,
+      but then we have <math|\<lambda\>-\<nu\>\<in\>n-1-2\<bbb-Z\><rsub|\<geqslant\>0>=q-2\<bbb-Z\><rsub|\<geqslant\>0>\<subset\>2\<bbb-Z\>>
+      (as <math|q\<in\>2\<bbb-Z\>>) which contradicts the assumption
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<lambda\>-\<nu\>\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
+      This shows that <math|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>=\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
 
-      To finish the proof we need to compute
-      <math|M<rsub|even>\<assign\>min<around*|{|A<rsub|m<rsub|>>+B<rsub|m<rsub|>>+C<rsub|m<rsub|>>|}><rsub|m\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>
-      and <math|M<rsub|odd>\<assign\>min<around*|{|A<rsub|m<rsub|>>+B<rsub|m<rsub|>>+C<rsub|m<rsub|>>|}><rsub|m\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>
-      and <math|M\<assign\>min<around*|{|M<rsub|even>,M<rsub|odd>|}>>. We
-      employ the variable change <math|x=<frac|\<lambda\>+\<nu\>-q|2>> and
-      <math|y=<frac|\<lambda\>-\<nu\>-q|2>>. Note that <math|\<nu\>=x-y>.
+      Now, with the reference to <math|f<rsub|j><rsup|<around*|(|i,m<rprime|'>,n<rprime|'>,N|)>><around*|(|\<lambda\>,\<nu\>|)>>
+      defined for <math|j=1,2,\<ldots\>,5> in the proof of proposition
+      <reference|KR-normalization-even:prop-holo>, we let
 
-      We can rewrite <math|A<rsub|m>> and <math|B<rsub|m>> as
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|A<rsup|<around*|(|1|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>=\<frak-P\><rsub|-><around*|(|f<rsub|1><rsup|<around*|(|i,m<rprime|'>,n<rprime|'>,N|)>>|)>=<around*|{|\<lambda\>+\<nu\>=n+0,2,\<ldots\>,N-2|}>>|<cell|>>|<row|<cell|>|<cell|A<rsup|<around*|(|2|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>=\<frak-P\><rsub|-><around*|(|f<rsub|2><rsup|<around*|(|i,m<rprime|'>,n<rprime|'>,N|)>>|)>=<around*|{|\<lambda\>+\<nu\>=q-N+<around*|(|2-2m<rprime|'>|)>,<around*|(|4-2m<rprime|'>|)>,\<ldots\>,-2,0|}>>|<cell|>>|<row|<cell|>|<cell|A<rsup|<around*|(|6|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>=\<frak-P\><rsub|-><around*|(|f<rsub|3><rsup|<around*|(|i,m<rprime|'>,n<rprime|'>,N|)>>|)>=<around*|{|\<lambda\>-\<nu\>=-2n<rprime|'>-2m<rprime|'>-N+2,\<ldots\>,-2,0|}>>|<cell|>>|<row|<cell|>|<cell|A<rsup|<around*|(|3|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>=<around*|{|\<lambda\>\<in\>q-1-2m<rprime|'>-N-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>|<row|<cell|>|<cell|A<rsup|<around*|(|4|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>=<around*|{|\<lambda\>\<in\>-2m<rprime|'>-2n<rprime|'>-N-2i-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>|<row|<cell|>|<cell|A<rsup|<around*|(|5|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>=\<frak-P\><rsub|-><around*|(|f<rsub|5><rsup|<around*|(|i,m<rprime|'>,n<rprime|'>,N|)>>|)>=<around*|{|\<nu\>=q+2n<rprime|'>+1+2\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cup\><choice|<tformat|<table|<row|<cell|\<varnothing\>,>|<cell|i=0>>|<row|<cell|<around*|{|\<nu\>=0|}>,>|<cell|i=1>>>>>>|<cell|>>>>
+      </eqnarray>
+
+      Note that\ 
 
       <\equation*>
-        A<rsub|m>=<around*|{|y=-m,-m+1,\<ldots\>,-1|}>
+        \<frak-P\><rsub|-><around*|(|f<rsub|4><rsup|<around*|(|i,m<rprime|'>,n<rprime|'>,N|)>>|)>=A<rsub|i,m<rprime|'>,n<rprime|'>,N><rsup|<around*|(|3|)>>+A<rsub|i,m<rprime|'>,n<rprime|'>,N><rsup|<around*|(|4|)>>,
       </equation*>
+
+      this following from the duplication formula and the fact that one has
+      for <math|i=0,1> the set equality <math|<around*|{|i,i+1|}>=<around*|{|1,2i|}>>.
+
+      Now, propositions <reference|k-finite:prop-KR-hook-2>,
+      <reference|KR-normalization-even:prop-kfinite> and the observation that
+      the family <math|<around*|{|<around*|(|x
+      y|)><rsup|i><around*|(|1-x<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-y<rsup|2>|)><rsup|m<rprime|'>>|}><rsub|i\<in\><around*|{|0,1|}>,<around*|(|m<rprime|'>,n<rprime|'>|)>\<in\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|2>>>
+      spans all even two-variable polynomials imply that we have
 
       <\equation*>
-        B<rsub|m>=<choice|<tformat|<table|<row|<cell|<around*|{|x\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,y+m+1\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,x-y\<leqslant\>m+1|}>>|<cell|m\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|<around*|{|x\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,y+m+1\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>,x-y\<less\>m+1|}>>|<cell|m\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1>>>>>
+        \<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=<big|cap><rsub|<around*|(|i,2m<rprime|'>,2n<rprime|'>,N|)>\<in\>\<frak-I\>><choice|<tformat|<table|<row|<cell|<big|cup><rsub|j=2><rsup|6>A<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>,>|<cell|p=1>>|<row|<cell|<big|cup><rsub|j=1><rsup|6>A<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>,>|<cell|p\<gtr\>1>>>>>,<space|2em>\<frak-I\>\<assign\><choice|<tformat|<table|<row|<cell|<around*|{|0,1|}>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2><rsub|>\<times\><around*|{|0|}>,>|<cell|p=1>>|<row|<cell|<around*|{|0,1|}>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|3><rsub|>,>|<cell|p\<gtr\>1>>>>>
       </equation*>
 
-      Now, by lemma <reference|lem-7> we have
+      Now, as we seek to compute <math|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>,
+      we may assume <math|\<lambda\>-\<nu\>=-2k\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>
+      and let <math|\<pi\>:\<bbb-C\><rsup|2>\<rightarrow\>\<bbb-C\>> be the
+      projection onto the second coordinate. We then have that
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|\<pi\><around*|(|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>=>|<cell|>>|<row|<cell|>|<cell|=<big|cap><rsub|<around*|(|i,2m<rprime|'>,2n<rprime|'>,N|)>\<in\>\<frak-I\>><choice|<tformat|<table|<row|<cell|<big|cup><rsub|j=2><rsup|6>\<pi\><around*|(|A<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>,>|<cell|p=1>>|<row|<cell|<big|cup><rsub|j=1><rsup|6>\<pi\><around*|(|A<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>,>|<cell|p\<gtr\>1>>>>>=,<space|2em>\<frak-I\>\<assign\><choice|<tformat|<table|<row|<cell|<around*|{|0,1|}>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2><rsub|>\<times\><around*|{|0|}>,>|<cell|p=1>>|<row|<cell|<around*|{|0,1|}>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|3><rsub|>,>|<cell|p\<gtr\>1>>>>>>|<cell|>>|<row|<cell|>|<cell|=<big|cap><rsub|<around*|(|i,2m<rprime|'>,2n<rprime|'>,N|)>\<in\>\<frak-I\><rprime|'>><choice|<tformat|<table|<row|<cell|<big|cup><rsub|j=2><rsup|5>\<pi\><around*|(|A<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>,>|<cell|p=1>>|<row|<cell|<big|cup><rsub|j=1><rsup|5>\<pi\><around*|(|A<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>,>|<cell|p\<gtr\>1>>>>>,>|<cell|>>|<row|<cell|>|<cell|\<frak-I\><rprime|'>\<assign\><choice|<tformat|<table|<row|<cell|<around*|{|<around*|(|i,2m<rprime|'>,2n<rprime|'>,N|)>\<in\><around*|{|0,1|}>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2><rsub|>\<times\><around*|{|0|}><mid|\|>2m<rprime|'>+2n<rprime|'>\<leqslant\>2k|}>,>|<cell|p=1>>|<row|<cell|<around*|{|<around*|(|i,2m<rprime|'>,2n<rprime|'>,N|)>\<in\><around*|{|0,1|}>\<times\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|3><rsub|><mid|\|>2m<rprime|'>+2n<rprime|'>+N\<leqslant\>2k|}>,>|<cell|p\<gtr\>1>>>>>.>|<cell|>>>>
+      </eqnarray>
+
+      With <math|B<rsup|<around*|(|j|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>>
+      as in lemma <reference|KR-normalization-even:lem-zeroset-aux-1>, one
+      further obsrves that as <math|q+2n<rprime|'>+1-2\<leqslant\>q-1-2m<rprime|'>-N+2k>,
+      one has
 
       <\equation*>
-        M<rsub|even>=<big|sqcup><rsub|k\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>>+1|)>><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y=k|}>
+        B<rsup|<around*|(|3|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>\<cup\>B<rsup|<around*|(|5|)>><rsub|i,m<rprime|'>,n<rprime|'>,N>=<around*|{|\<nu\>\<in\>1+2\<bbb-Z\>|}>\<cup\><choice|<tformat|<table|<row|<cell|\<varnothing\>,>|<cell|i=0>>|<row|<cell|<around*|{|\<nu\>=0|}>,>|<cell|i=1>>>>>.
       </equation*>
 
-      It is clear that <math|M<rsub|odd>\<geqslant\><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsub|\<leqslant\>0><rsup|2><mid|\|>y\<leqslant\>-1,x-y\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>>.
-      Moreover, lemma <reference|lem-9> implies that
-      <math|M<rsub|odd>\<geqslant\><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y\<in\>\<bbb-Z\><rsub|\<leqslant\>0>|}>>.
-      Hence, <math|M=<big|sqcup><rsub|k\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>>+1|)>><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-1,<space|0.6spc>x-y=k|}>>.
+      Therefore, <math|\<pi\><around*|(|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>\<supset\><around*|{|\<nu\>\<in\>1+2\<bbb-Z\>|}>>.
+      On the other hand,
 
-      Finally, the last equality follows from the obvious fact that for
-      <math|a,b\<in\>\<bbb-C\>> we have <math|<around*|(|a\<pm\>b|)>/2\<in\>\<bbb-Z\>>
-      iff <math|a,b\<in\>\<bbb-Z\>> and <math|a-b\<in\>2\<bbb-Z\>>.
+      <\equation*>
+        \<pi\><around*|(|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>\<subset\><big|cup><rsub|j=1><rsup|5>B<rsub|0,0,0,0><rsup|<around*|(|j|)>>=<big|cup><rsub|j=1><rsup|4>B<rsub|0,0,0,0><rsup|<around*|(|j|)>>=<around*|{|\<nu\>\<in\>1+2\<bbb-Z\>|}>\<cup\><around*|{|\<nu\>\<in\>2k-2\<bbb-Z\><rsub|\<geqslant\>0>|}>
+      </equation*>
+
+      and to finish the proof it suffices to show that\ 
+
+      <\equation*>
+        \<pi\><around*|(|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>|)>\<cap\><around*|{|\<nu\>\<in\>2k-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=<around*|{|\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>.
+      </equation*>
+
+      But this is readily granted by lemma
+      <reference|KR-normalization-even:lem-zeroset-aux-2>.
     </proof>
 
     \;
@@ -9731,17 +9383,21 @@
     <associate|KP-normalization-2:prop-5|<tuple|18.6|64|#20>>
     <associate|KP-normalization-2:prop-p=1|<tuple|18.7|64|#20>>
     <associate|KP-normalization:lem-Mg0|<tuple|14.1|41|#17>>
-    <associate|KR-normalization-even:fact-P-K|<tuple|19.4|67|#21>>
+    <associate|KR-normalization-even:fact-P-K|<tuple|19.5|67|#21>>
     <associate|KR-normalization-even:hypo-maxima|<tuple|2|?|#10>>
-    <associate|KR-normalization-even:lem-2|<tuple|19.6|68|#21>>
+    <associate|KR-normalization-even:lem-2|<tuple|19.7|68|#21>>
     <associate|KR-normalization-even:lem-3|<tuple|16.7|?|#16>>
-    <associate|KR-normalization-even:lem-Poddeven|<tuple|19.5|67|#21>>
-    <associate|KR-normalization-even:lem-kfinite-00-aux|<tuple|19.12|71|#21>>
+    <associate|KR-normalization-even:lem-Poddeven|<tuple|19.6|67|#21>>
+    <associate|KR-normalization-even:lem-kfinite-00-aux|<tuple|19.4|71|#21>>
     <associate|KR-normalization-even:lem-kfinite-11|<tuple|17.11|?|#18>>
-    <associate|KR-normalization-even:lem-kfinite-11-aux|<tuple|19.13|72|#21>>
+    <associate|KR-normalization-even:lem-kfinite-11-aux|<tuple|19.5|72|#21>>
+    <associate|KR-normalization-even:lem-zeroset-aux|<tuple|19.8|?|#21>>
+    <associate|KR-normalization-even:lem-zeroset-aux-1|<tuple|19.6|?|#21>>
+    <associate|KR-normalization-even:lem-zeroset-aux-2|<tuple|19.7|?|#21>>
     <associate|KR-normalization-even:prop-holo|<tuple|19.2|66|#21>>
     <associate|KR-normalization-even:prop-hypoA|<tuple|17.12|51|#18>>
     <associate|KR-normalization-even:prop-kfinite|<tuple|19.1|66|#21>>
+    <associate|KR-normalization-even:prop-zeroset|<tuple|19.3|?|#21>>
     <associate|KR-normalization-recur-eq1|<tuple|10|?|#11>>
     <associate|KR-normalization-recur:eq-1|<tuple|3.1|12|#5>>
     <associate|KR-normalization-recur:eq-recur|<tuple|20.1|60|#21>>
@@ -10256,12 +9912,12 @@
     <associate|lem-3-2|<tuple|6.4|8|#6>>
     <associate|lem-3-3|<tuple|6.5|8|#6>>
     <associate|lem-4|<tuple|5.13|19|#7>>
-    <associate|lem-5|<tuple|19.8|68|#21>>
-    <associate|lem-5n|<tuple|19.7|68|#21>>
+    <associate|lem-5|<tuple|5.14|68|#7>>
+    <associate|lem-5n|<tuple|19.8|68|#21>>
     <associate|lem-6|<tuple|5.15|19|#7>>
-    <associate|lem-7|<tuple|19.10|70|#21>>
-    <associate|lem-8|<tuple|19.9|69|#21>>
-    <associate|lem-9|<tuple|19.11|71|#21>>
+    <associate|lem-7|<tuple|19.11|70|#21>>
+    <associate|lem-8|<tuple|19.10|69|#21>>
+    <associate|lem-9|<tuple|19.12|71|#21>>
     <associate|lem-assume-the-setting|<tuple|14.2|42|#17>>
     <associate|lem-holo-nonzero|<tuple|5.12|19|#7>>
     <associate|lem-holo-supp|<tuple|76|?|#6>>
