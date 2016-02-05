@@ -7,11 +7,16 @@ then
 	#echo "Makefile"
 	shift
 	make $*
-else
-	if [ $(grep 'xeCJK\|fontspec' $1) ]
-    then
-        latexmk -pdf -pdflatex='xelatex %O %S' -outdir=foraux $1
-    else
-        latexmk -pdf -outdir=$tmp_dir $1
-    fi
+    exit
 fi
+
+test=`head -n1 $1`
+if [  $test = '%japanese' ]
+then
+    latexmk -pdf -pdflatex='xelatex %O %S' -outdir=foraux $1
+    echo jap
+    exit
+fi
+
+latexmk -pdf -outdir=$tmp_dir $1
+echo eng
