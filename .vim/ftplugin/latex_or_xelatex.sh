@@ -18,5 +18,12 @@ then
     exit
 fi
 
+if [  $test = '%simple' ]
+then
+    pdflatex -interaction batchmode $1
+    echo simple
+    exit
+fi
+
 latexmk -pdf -outdir=$tmp_dir $1
 echo eng
