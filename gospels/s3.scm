@@ -39,7 +39,7 @@
 
 (define apo-list (myprocessreading (myformatextract "apo.tex")))
 (define gosp-list (myprocessreading (myformatextract "gosp.tex")))
-(define separator " && ")
+(define separator " ; ")
 
 (define space->underscore(lambda(s)(string-map(lambda (char)(if (char=? char #\space) #\_ char))s)))
 (define slash->underscore(lambda(s)(string-map(lambda (char)(if (char=? char #\/) #\_ char))s)))

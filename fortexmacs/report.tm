@@ -4,69 +4,50 @@
 
 <\body>
   <\show-part|2>
-    <section|report 33>
+    <section|report 34>
 
-    <block|<tformat|<twith|table-halign|l>|<cwith|2|2|1|-1|cell-hyphen|c>|<cwith|2|2|1|1|cell-width|5cm>|<cwith|2|2|1|1|cell-hmode|min>|<twith|table-width|7.5cm>|<twith|table-hmode|exact>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<cwith|1|1|1|1|cell-hyphen|t>|<twith|table-valign|b>|<cwith|2|2|2|2|cell-valign|t>|<cwith|3|5|2|2|cell-hyphen|t>|<table|<row|<\cell>
+    <block|<tformat|<twith|table-halign|l>|<twith|table-width|7.5cm>|<twith|table-hmode|exact>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<cwith|1|1|1|1|cell-hyphen|t>|<twith|table-valign|b>|<table|<row|<\cell>
       <with|font-series|bold|What had to be done>
-    </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
-      Try to use recurrence relations, for crude
-      normalizatio<with|font-series|bold|>n of
-      <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
-    </cell>|<\cell>
-      <with|font-series|bold|not done> (now seems to be unnecessary, at least
-      for <math|q\<in\>2\<bbb-Z\>> case)
-    </cell>>|<row|<cell|Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>>|<\cell>
-      <with|font-series|bold|not done>, (I know how support changes, but not
-      finished with dimensional argument yet)
-    </cell>>|<row|<cell|<math|A<rsub|\<lambda\>,\<nu\>>ll=c<around*|(|\<lambda\>,\<nu\>|)>ll>>|<\cell>
-      <with|font-series|bold|done> for <math|q\<in\>2\<bbb-Z\>>
-    </cell>>|<row|<cell|develop structure and schedule for master
-    thesis>|<\cell>
-      <with|font-series|bold|not done>
-    </cell>>>>>
+    </cell>|<cell|<with|font-series|bold|What has been
+    done>>>|<row|<cell|(empty)>|<cell|(empty)>>>>>
 
     \;
 
     <with|font-series|bold|What has been done (additional)>
 
     <\enumerate>
-      <item>Filled out the documents for PhD application (see attached .pdf
-      file);
+      <item>Complete determination of <math|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>;
 
-      <item>Given closed (involving no addition and finite number of
-      multiplications of gamma functions) for pairing of
-      <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> kernel of
-      regular SBO and <math|K>-finite vector;
-
-      <item>Find mistake in normalization of
-      <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> kernel of singular SBO
-      supported on <math|<around*|{|Q=0|}>>. Also found another (more
-      explicit, direct and simple) method to carry out these computations and
-      now doing them;
+      <item>Perfect normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
+      for <math|q\<in\>2\<bbb-Z\>> and determination of support for every
+      <math|<around*|(|\<lambda\>,\<nu\>|)>>.
     </enumerate>
 
-    <with|font-series|bold|What I plan to do>:
+    <with|font-series|bold|What I plan to do during this week>:
 
     <\enumerate>
-      <item>Fill out and submit the documents:
+      <item>I think I can show that for <math|q\<in\>2\<bbb-Z\>+1> the
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>\<assign\>K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>>
+      is holomorphic and vanishes on discrete set. This will give the perfect
+      normalization for <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>;
 
-      <\enumerate>
-        <item>for PhD application;
+      <item>Finish reading chapter IX of Knapp ``Lie groups beyond...'';
 
-        <item>for Master thesis title;
-      </enumerate>
+      <item>Finish reading chapter I of ``Fourier analysis on Euclidean
+      spaces''.
+    </enumerate>
 
-      <item>Related to <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>:>
+    <with|font-series|bold|What I plan to do later>
 
-      <\enumerate>
-        <item>Perfect normalization <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>
-        of <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>
+    <\enumerate>
+      <item>Somehow compute the zero set of
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>. It
+      suffices to do so for <math|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>.
+      The first case to try is <math|\<lambda\>-\<nu\>=0>;
 
-        <item>See how support changes for different <math|\<lambda\>>
-      </enumerate>
-
-      <item>Deliver the first draft of master thesis
-      <with|font-series|bold|till Friday (Dec 8)>
+      <item>Dimensional argument to explicitly determine
+      <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+      for <math|q\<in\>2\<bbb-Z\>>.
     </enumerate>
 
     <\with|font-series|bold>
@@ -77,55 +58,12 @@
 
     <paragraph|Comments>
 
-    I'm in a very dangerous situation now, as I have to submit the final
-    version of master thesis in two weeks (Dec 19), while I haven't even
-    started typing the whole thing yet. At this point I think it's important
-    to put maximum effort on the product of master thesis, not on sharpening
-    the results. The latter can be done after Dec 19.
-
-    Therefore, I think it makes sense to divide the clearly state the things
-    which I think I can do, but with some additional time. Moreover, I'll
-    divide these into three categories:
-
-    <with|font-series|bold|First priority (things that
-    <with|font-shape|italic|has> to appear in master thesis):>
-
-    <\enumerate>
-      <item>Perfect normalization <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>
-      of <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>
-
-      <item>See how support changes for different <math|\<lambda\>>
-    </enumerate>
-
-    <with|font-series|bold|Second priority (things that
-    <with|font-shape|italic|would better> appear in master thesis):>
-
-    <\enumerate>
-      <item>Dimensional argument to explicitly determine
-      <math|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>|)>>.
-
-      <item>Dimensional argument to explicitly determine
-      <math|\<cal-S\>ol<rsub|C\<cup\>P><around*|(|\<bbb-R\><rsup|p,q>|)>>
-    </enumerate>
-
-    <with|font-series|bold|Third priority (things which I do not plan to
-    include, but could if time would permit):>
-
-    <\enumerate>
-      <item>Perfect normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
-      for <math|q\<in\>2\<bbb-Z\>>
-
-      <item>dimensional argument for <math|q\<in\>2\<bbb-Z\>> for the full
-      determination of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>|)>>
-
-      <item>dimensional argument for <math|<around*|{|\<lambda\>+\<nu\>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>>
-      for the full determination of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>|)>>
-    </enumerate>
+    \;
   <|show-part>
     <section|report 33>
   </show-part>
 
-  <\show-part|3>
+  <\hide-part|3>
     <section|generic report>
 
     \;
@@ -308,9 +246,9 @@
     ``robust''. That is, normalization in first step is quite ``natural'' one
     to guess. Despite it's not being the best possible, it can be later
     adjusted in course of steps 2-4.
-  <|show-part>
+  <|hide-part>
     <section|generic report>
-  </show-part>
+  </hide-part>
 </body>
 
 <\initial>
@@ -347,6 +285,14 @@
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>generic
       report> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto.3-1><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>misc>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto.3-2><vspace|0.5fn>
+
+      <with|par-left|<quote|1.5fn>|3.1<space|2spc>Comments
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto.3-3>>
     </associate>
   </collection>
 </auxiliary>

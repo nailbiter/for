@@ -312,33 +312,46 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-68>>
 
-      <with|par-left|1.5fn|19.2<space|2spc>Auxilliary results (I)
+      <with|par-left|1.5fn|19.2<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-69>>
 
-      <with|par-left|1.5fn|19.3<space|2spc>Auxiliary results (II)
+      <with|par-left|1.5fn|19.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-70>>
 
-      <with|par-left|1.5fn|19.4<space|2spc>Proofs
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|20<space|2spc>Determination
+      of <with|mode|math|\<cal-S\>ol<rsub|<around*|{|Q=0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-71>>
-
-      <vspace*|1fn><with|font-series|bold|math-font-series|bold|20<space|2spc>Application:
-      Knapp-Stein operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-72><vspace|0.5fn>
+      <no-break><pageref|auto-71><vspace|0.5fn>
 
       <with|par-left|1.5fn|20.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-72>>
+
+      <with|par-left|1.5fn|20.2<space|2spc>Auxiliary lemmas
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-73>>
 
-      <with|par-left|1.5fn|20.2<space|2spc>Proofs
+      <with|par-left|1.5fn|20.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-74>>
 
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|21<space|2spc>Application:
+      Knapp-Stein operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-75><vspace|0.5fn>
+
+      <with|par-left|1.5fn|21.1<space|2spc>Main results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-76>>
+
+      <with|par-left|1.5fn|21.2<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-77>>
+
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-75><vspace|0.5fn>
+      <no-break><pageref|auto-78><vspace|0.5fn>
     </table-of-contents>
 
     <surround|<assign|sone|<macro|<math|<mybra|<D><rprime|'><around|(|G\<times\><rsub|P><C><rsub|\<lambda\>-n>|)>\<otimes\><C><rsub|\<nu\>>><rsup|\<Delta\><around|(|P<rprime|'>|)>>>>><assign|Upp|<macro|<mysetn|(x,y)\<in\><R><rsup|p,q>|x\<neq\>0,<space|0.75spc>y\<neq\>0>>><assign|Stab|<macro|O(p,q)<rsub|e<rsub|p>>>><assign|sol*|<macro|1|<with|math-font|cal|S>ol(<arg|1>;\<lambda\>,\<nu\>)>><assign|sol|<macro|<sol*|<R><rsup|p,q>>>><assign|solXi|<macro|<sol*|\<Xi\>>>>||>
@@ -635,33 +648,46 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-68>>
 
-      <with|par-left|1.5fn|19.2<space|2spc>Auxilliary results (I)
+      <with|par-left|1.5fn|19.2<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-69>>
 
-      <with|par-left|1.5fn|19.3<space|2spc>Auxiliary results (II)
+      <with|par-left|1.5fn|19.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-70>>
 
-      <with|par-left|1.5fn|19.4<space|2spc>Proofs
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|20<space|2spc>Determination
+      of <with|mode|math|\<cal-S\>ol<rsub|<around*|{|Q=0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-71>>
-
-      <vspace*|1fn><with|font-series|bold|math-font-series|bold|20<space|2spc>Application:
-      Knapp-Stein operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-72><vspace|0.5fn>
+      <no-break><pageref|auto-71><vspace|0.5fn>
 
       <with|par-left|1.5fn|20.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-72>>
+
+      <with|par-left|1.5fn|20.2<space|2spc>Auxiliary lemmas
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-73>>
 
-      <with|par-left|1.5fn|20.2<space|2spc>Proofs
+      <with|par-left|1.5fn|20.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-74>>
 
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|21<space|2spc>Application:
+      Knapp-Stein operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-75><vspace|0.5fn>
+
+      <with|par-left|1.5fn|21.1<space|2spc>Main results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-76>>
+
+      <with|par-left|1.5fn|21.2<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-77>>
+
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-75><vspace|0.5fn>
+      <no-break><pageref|auto-78><vspace|0.5fn>
     </table-of-contents>
   </hide-part>
 
@@ -736,12 +762,13 @@
 
     On the other hand, this setting is important to number theory (cf.
     Gross-Prasad conjecture <cite|gan2011symplectic>, Rankin-Cohen bracket
-    <cite|kobayashi2013differential>), conformal geometry (cf. Juhl conformal
-    differential operators <cite|juhl2009families>) and, of course,
-    representation theory. Already the special cases are very important. In
-    particular, the latter sections of <cite|kobayashi2015symmetry> contain
-    some of the applications for <math|O<around*|(|n+1,1|)>\<supset\>O<around*|(|n,1|)>>
-    case. Another particular case <math|O<around*|(|2,2|)>\<supset\>O<around*|(|2,1|)>>
+    <cite|kobayashi2015differential1>,<cite|kobayashi2015differential2>),
+    conformal geometry (cf. Juhl conformal differential operators
+    <cite|juhl2009families>) and, of course, representation theory. Already
+    the special cases are very important. In particular, the latter sections
+    of <cite|kobayashi2015symmetry> contain some of the applications for
+    <math|O<around*|(|n+1,1|)>\<supset\>O<around*|(|n,1|)>> case. Another
+    particular case <math|O<around*|(|2,2|)>\<supset\>O<around*|(|2,1|)>>
     (see <cite|clerc2011generalized>) is equivalent to the problem of finding
     invariant trilinear forms on representations of
     <math|SL<rsub|2><around*|(|\<bbb-R\>|)>>.
@@ -6722,7 +6749,7 @@
 
         hence <math|g<around*|(|s|)>> should be proportional to
         <math|C<rsup|\<lambda\>-<around*|(|n-1|)>/2><rsub|a><around*|(|s|)>>
-        (see <cite-detail|kobayashi2013differential|thm. 11.4>). Indeed,
+        (see <cite-detail|kobayashi2015differential2|thm. 11.4>). Indeed,
         other polynomial solution (say, <math|<wide|C|~>>) of this equation
         arises only when <math|\<alpha\>\<assign\>\<lambda\>-<around*|(|n-1|)>/2\<in\>\<bbb-Z\>+1/2>
         and <math|1-2a\<leqslant\>2\<alpha\>\<leqslant\>-a>. But then
@@ -8354,7 +8381,7 @@
     q<section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>><label|sec:KP-normalization>
   </hide-part>
 
-  <\hide-part|21>
+  <\show-part|21>
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>><label|sec:KR-normalization-even>
 
     In this part, we will try to normalize kernel of regular symmetry
@@ -8405,6 +8432,17 @@
       <\equation*>
         \<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>=<big|sqcup><rsub|\<nu\>\<in\>\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>\<lambda\>-\<nu\>\<in\>2\<bbb-Z\><rsub|\<leqslant\>0>|}>.
       </equation*>
+    </proposition>
+
+    <\proposition>
+      <label|KR-normalization-even:prop-odd>Assume
+      <math|q\<in\>2\<bbb-Z\>+1>. Then for
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> as in
+      proposition <reference|supp-R:prop-3>,
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>\<assign\>K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>>
+      extends to holomorphic in <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
+      distribution that vanishes on a discrete subset of
+      <math|\<bbb-C\><rsup|2>>.
     </proposition>
 
     <subsection|Auxiliary results>
@@ -8707,6 +8745,16 @@
       this ends the proof.
     </proof>
 
+    <subsection|Auxiliary results (II)>
+
+    <\lemma>
+      Suppose <math|\<mu\>\<in\>\<Omega\>\<subset\>\<bbb-C\><rsup|n>> is a
+      parameter and <math|F<rsub|\<mu\>>> is holo in <math|\<mu\>> being
+      homogeneous of degree <math|a<around*|(|\<mu\>|)>> (with
+      <math|a<around*|(|\<cdot\>|)>> being holo on <math|\<Omega\>>) and
+      even. Then,\ 
+    </lemma>
+
     <subsection|Proofs>
 
     <\proof>
@@ -8832,11 +8880,15 @@
       But this is readily granted by lemma
       <reference|KR-normalization-even:lem-zeroset-aux-2>.
     </proof>
-  <|hide-part>
-    <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>><label|sec:KR-normalization-even>
-  </hide-part>
 
-  <\show-part|22>
+    <\proof>
+      (of prop. <reference|KR-normalization-even:prop-odd>)
+    </proof>
+  <|show-part>
+    <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>><label|sec:KR-normalization-even>
+  </show-part>
+
+  <\hide-part|22>
     <section|Determination of <math|\<cal-S\>ol<rsub|<around*|{|Q=0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>><label|sec:dim-C>
 
     In this section we explicitly determine
@@ -8881,8 +8933,8 @@
     </remark>
 
     <\lemma>
-      Suppose <math|S\<subset\>\<bbb-R\><rsup|n>> is closed such that
-      <math|dim<around*|(|\<cal-S\>ol<rsub|S><around*|(|\<bbb-R\><rsup|p,q>\\<around*|{|0|}>;\<lambda\>,\<nu\>|)>|)>\<leqslant\>1>.
+      <label|dim-C:lem-zeromap>Suppose <math|S\<subset\>\<bbb-R\><rsup|n>> is
+      closed such that <math|dim<around*|(|\<cal-S\>ol<rsub|S><around*|(|\<bbb-R\><rsup|p,q>\\<around*|{|0|}>;\<lambda\>,\<nu\>|)>|)>\<leqslant\>1>.
       Suppose further <math|0\<in\>\<Omega\>\<subset\>\<bbb-C\>> is an open
       set with <math|\<lambda\><around*|(|\<cdot\>|)>,\<nu\><around*|(|\<cdot\>|)>>
       holomorphic on <math|\<Omega\>> and such that
@@ -8967,11 +9019,79 @@
     <subsection|Proofs>
 
     <\proof>
-      (of prop. <reference|dim-C:prop-main>)\ 
+      (of prop. <reference|dim-C:prop-main>) We will assume
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><mid|\|><mid|\|>> from the
+      outset and call by <math|\<pi\>> the rightmost homomorphism of the
+      exact sequence
+
+      <\equation*>
+        0\<rightarrow\>\<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<rightarrow\>\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<rightarrow\>\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>\\<around*|{|0|}>;\<lambda\>,\<nu\>|)>.
+      </equation*>
+
+      First, for <math|p\<gtr\>1,q\<in\>2\<bbb-Z\>> case, propositions
+      <reference|KC-normalization-2:prop-supp> and
+      <reference|supp-Q:prop-supp-xnoq0> readily show that <math|\<pi\>> is
+      onto hence the result \ for <math|p\<gtr\>1,q\<in\>\<bbb-Z\>> case.
+
+      Next, <math|p=1,q\<in\>2\<bbb-Z\>+1> case. Propositions
+      <reference|KC-normalization-2:prop-supp> and
+      <reference|supp-Q:prop-supp-xnoq0> show us that <math|\<pi\>> is onto,
+      unless <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>//>, in which case
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>> has support
+      <math|<around*|{|0|}>>, hence is an element of
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>>. It
+      suffices than to show that in this case <math|\<pi\>=0>. But this is
+      readily granted by lemma <reference|dim-C:lem-zeromap> applied for
+      <math|S\<assign\>C> and <math|K<rsup|<around*|(|\<mu\>|)>>\<assign\><wide|K|~><rsub|\<mu\>+\<lambda\><rsub|0>,\<nu\><rsub|0>><rsup|C>>,
+      where we assume <math|<around*|(|\<lambda\><rsub|0>,\<nu\><rsub|0>|)>\<in\><around*|\|||\|>\<cap\>//>.
+      It is true that <math|<around*|(|d/d\<mu\>|)><mid|\|><rsub|\<mu\>=0>K<rsub|><rsup|<around*|(|\<mu\>|)>>>
+      is supported at <math|<around*|{|Q=0|}>>, as we recall that
+      <math|K<rsub|\<mu\>+\<lambda\><rsub|0>,\<nu\><rsub|0>><rsup|C>> (with
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> defined as in proposition
+      <reference|supp-Q:prop-sol-extending>, so that
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>=K<rsub|\<lambda\>,\<nu\>><rsup|C>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>>)
+      has pole at <math|\<mu\>=0> and is supported at
+      <math|<around*|{|Q=0|}>> near <math|\<mu\>=0>.
+
+      Similarly, in <math|p\<gtr\>1,q\<in\>2\<bbb-Z\>+1> case the reasoning
+      goes literally the same as in previous paragraph.
+
+      Finalyl, for <math|q\<in\>2\<bbb-Z\>,p=1> case we reason as follows.
+      First of all, we note that for <math|q\<in\>2\<bbb-Z\>> and
+      <math|\<nu\>\<in\>2\<bbb-Z\>+1> we have <math|2\<nu\>-q\<equiv\>0 mod
+      2> and thus (keep in mind that <math|p=1>)
+
+      <\equation*>
+        \<lambda\>-min<around*|{|\<nu\>,q-\<nu\>|}>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>\<Leftrightarrow\>\<lambda\>-\<nu\>,\<lambda\>-q+\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>\<Leftrightarrow\><around*|(|\<lambda\>,\<nu\>|)>\<in\>
+        //\<cap\>\\\\.
+      </equation*>
+
+      Therefore, propositions <reference|KC-normalization-2:prop-supp> and
+      <reference|supp-Q:prop-supp-xnoq0> imply that <math|\<pi\>> is onto
+      unless <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\> //\<cap\>\\\\> and
+      hence for <math|<around*|(|\<lambda\>,\<nu\>|)>\<nin\>//\<cap\>\\\\> we
+      have <math|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>=\<bbb-C\><wide|K|~><rsup|C><rsub|\<lambda\>,\<nu\>>\<oplus\>\<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>
+      and therefore
+
+      <\equation*>
+        \<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>=<choice|<tformat|<table|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>\<oplus\>\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>,>|<cell|//<rsup|>\<cap\>\\\\<rsup|c>>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>,>|<cell|//<rsup|c>>>>>>
+      </equation*>
+
+      and lemma <reference|dim-C:lem-zeromap> implies that for
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\> //\<cap\>\\\\> we have
+      <math|\<pi\>=0> and <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>
+      spans <math|\<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>,
+      hence
+
+      <\equation*>
+        \<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>=<choice|<tformat|<table|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C><rsup|<around*|{|0|}>>,>|<cell|//<rsup|>\<cap\>\\\\>>>>>
+      </equation*>
+
+      and altogether, these give an answer.
     </proof>
-  <|show-part>
-    <section|Determination of <math|\<cal-S\>ol<rsub|S><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>>
-  </show-part>
+  <|hide-part>
+    <section|Determination of <math|\<cal-S\>ol<rsub|<around*|{|Q=0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>><label|sec:dim-C>
+  </hide-part>
 
   <\hide-part|23>
     <section|Application: Knapp-Stein operator><label|sec:knappstein>
@@ -9260,9 +9380,10 @@
         Integral geometry and representation theory>. <newblock>Academic
         Press, 1966.
 
-        <bibitem*|GS><label|bib-gelfand1980distribution>I.<nbsp>M. Gelfand
+        <bibitem*|GS69><label|bib-gelfand1980distribution>I.<nbsp>M. Gelfand
         and G.<nbsp>E. Shilov. <newblock><with|font-shape|italic|Generalized
-        functions. Vol. 1, Properties and operations>.
+        functions. Vol. 1, Properties and operations>. <newblock>Academic
+        Press, 1969.
 
         <bibitem*|HC76><label|bib-harishchandra1978harmonic>Harish-Chandra.
         <newblock>Harmonic analysis on real reductive groups III. The
@@ -9323,11 +9444,17 @@
         <with|font-shape|italic|Representations of Reductive Groups>, pages
         277--322. Springer, 2015.
 
-        <bibitem*|KP13><label|bib-kobayashi2013differential>T.<nbsp>Kobayashi
-        and M.<nbsp>Pevzner. <newblock>Differential symmetry breaking
-        operators. I-General theory and F-method. II-Rankin-Cohen operators
-        for symmetric pairs. <newblock><with|font-shape|italic|to appear in
-        Selecta Mathematica>, 2013.
+        <bibitem*|KP15a><label|bib-kobayashi2015differential1>Toshiyuki
+        Kobayashi and Michael Pevzner. <newblock>Differential symmetry
+        breaking operators: I. General theory and F-method.
+        <newblock><with|font-shape|italic|Selecta Mathematica>, pages 1--45,
+        2015.
+
+        <bibitem*|KP15b><label|bib-kobayashi2015differential2>Toshiyuki
+        Kobayashi and Michael Pevzner. <newblock>Differential symmetry
+        breaking operators: II. Rankin--Cohen operators for symmetric pairs.
+        <newblock><with|font-shape|italic|Selecta Mathematica>, pages 1--65,
+        2015.
 
         <bibitem*|Kra82><label|bib-krantz1982function>S.<nbsp>G. Krantz.
         <newblock><with|font-shape|italic|Function theory of several complex
@@ -9348,9 +9475,10 @@
         132 of <with|font-shape|italic|Pure and Applied Mathematics>.
         <newblock>Academic press, 1988.
 
-        <bibitem*|War71><label|bib-warner1971foundations>F.<nbsp>W. Warner.
-        <newblock>Foundations of differentiable manifolds and lie groups.
-        scott, foresman and co., glenview, ill, 1971.
+        <bibitem*|War71><label|bib-warner1971foundations>F<nbsp>Warner.
+        <newblock>Foundations of differential geometry and Lie groups.
+        <newblock><with|font-shape|italic|Scott Foresman and Company,
+        Glenview>, 1971.
       </bib-list>
     </bibliography>
   <|hide-part>
@@ -9387,9 +9515,10 @@
         Integral geometry and representation theory>. <newblock>Academic
         Press, 1966.
 
-        <bibitem*|GS><label|bib-gelfand1980distribution>I.<nbsp>M. Gelfand
+        <bibitem*|GS69><label|bib-gelfand1980distribution>I.<nbsp>M. Gelfand
         and G.<nbsp>E. Shilov. <newblock><with|font-shape|italic|Generalized
-        functions. Vol. 1, Properties and operations>.
+        functions. Vol. 1, Properties and operations>. <newblock>Academic
+        Press, 1969.
 
         <bibitem*|HC76><label|bib-harishchandra1978harmonic>Harish-Chandra.
         <newblock>Harmonic analysis on real reductive groups III. The
@@ -9450,11 +9579,17 @@
         <with|font-shape|italic|Representations of Reductive Groups>, pages
         277--322. Springer, 2015.
 
-        <bibitem*|KP13><label|bib-kobayashi2013differential>T.<nbsp>Kobayashi
-        and M.<nbsp>Pevzner. <newblock>Differential symmetry breaking
-        operators. I-General theory and F-method. II-Rankin-Cohen operators
-        for symmetric pairs. <newblock><with|font-shape|italic|to appear in
-        Selecta Mathematica>, 2013.
+        <bibitem*|KP15a><label|bib-kobayashi2015differential1>Toshiyuki
+        Kobayashi and Michael Pevzner. <newblock>Differential symmetry
+        breaking operators: I. General theory and F-method.
+        <newblock><with|font-shape|italic|Selecta Mathematica>, pages 1--45,
+        2015.
+
+        <bibitem*|KP15b><label|bib-kobayashi2015differential2>Toshiyuki
+        Kobayashi and Michael Pevzner. <newblock>Differential symmetry
+        breaking operators: II. Rankin--Cohen operators for symmetric pairs.
+        <newblock><with|font-shape|italic|Selecta Mathematica>, pages 1--65,
+        2015.
 
         <bibitem*|Kra82><label|bib-krantz1982function>S.<nbsp>G. Krantz.
         <newblock><with|font-shape|italic|Function theory of several complex
@@ -9475,9 +9610,10 @@
         132 of <with|font-shape|italic|Pure and Applied Mathematics>.
         <newblock>Academic press, 1988.
 
-        <bibitem*|War71><label|bib-warner1971foundations>F.<nbsp>W. Warner.
-        <newblock>Foundations of differentiable manifolds and lie groups.
-        scott, foresman and co., glenview, ill, 1971.
+        <bibitem*|War71><label|bib-warner1971foundations>F<nbsp>Warner.
+        <newblock>Foundations of differential geometry and Lie groups.
+        <newblock><with|font-shape|italic|Scott Foresman and Company,
+        Glenview>, 1971.
       </bib-list>
     </bibliography>
   </hide-part>
@@ -9529,15 +9665,16 @@
     <associate|KR-normalization-even:lem-2|<tuple|19.7|68|#21>>
     <associate|KR-normalization-even:lem-3|<tuple|16.7|?|#16>>
     <associate|KR-normalization-even:lem-Poddeven|<tuple|19.6|67|#21>>
-    <associate|KR-normalization-even:lem-kfinite-00-aux|<tuple|19.4|71|#21>>
+    <associate|KR-normalization-even:lem-kfinite-00-aux|<tuple|19.5|71|#21>>
     <associate|KR-normalization-even:lem-kfinite-11|<tuple|17.11|?|#18>>
-    <associate|KR-normalization-even:lem-kfinite-11-aux|<tuple|19.5|72|#21>>
+    <associate|KR-normalization-even:lem-kfinite-11-aux|<tuple|19.6|72|#21>>
     <associate|KR-normalization-even:lem-zeroset-aux|<tuple|19.8|?|#21>>
-    <associate|KR-normalization-even:lem-zeroset-aux-1|<tuple|19.6|?|#21>>
-    <associate|KR-normalization-even:lem-zeroset-aux-2|<tuple|19.7|?|#21>>
+    <associate|KR-normalization-even:lem-zeroset-aux-1|<tuple|19.7|?|#21>>
+    <associate|KR-normalization-even:lem-zeroset-aux-2|<tuple|19.8|?|#21>>
     <associate|KR-normalization-even:prop-holo|<tuple|19.2|66|#21>>
     <associate|KR-normalization-even:prop-hypoA|<tuple|17.12|51|#18>>
     <associate|KR-normalization-even:prop-kfinite|<tuple|19.1|66|#21>>
+    <associate|KR-normalization-even:prop-odd|<tuple|19.4|?|#21>>
     <associate|KR-normalization-even:prop-zeroset|<tuple|19.3|?|#21>>
     <associate|KR-normalization-recur-eq1|<tuple|10|?|#11>>
     <associate|KR-normalization-recur:eq-1|<tuple|3.1|12|#5>>
@@ -9790,7 +9927,7 @@
     <associate|auto.21-2|<tuple|19.1|?|#21>>
     <associate|auto.21-3|<tuple|19.2|?|#21>>
     <associate|auto.21-4|<tuple|19.3|?|#21>>
-    <associate|auto.21-5|<tuple|20|?|#21>>
+    <associate|auto.21-5|<tuple|19.4|?|#21>>
     <associate|auto.21-6|<tuple|20.1|?|#21>>
     <associate|auto.21-7|<tuple|20.2|?|#21>>
     <associate|auto.21-8|<tuple|20.3|?|#21>>
@@ -9863,7 +10000,7 @@
     <associate|bib-faraut1979distributions|<tuple|Far79|77|#24>>
     <associate|bib-gan2011symplectic|<tuple|GGP12|77|#24>>
     <associate|bib-gelfand1966generalized|<tuple|GGV66|77|#24>>
-    <associate|bib-gelfand1980distribution|<tuple|GS|77|#24>>
+    <associate|bib-gelfand1980distribution|<tuple|GS69|77|#24>>
     <associate|bib-harishchandra1978harmonic|<tuple|HC76|77|#24>>
     <associate|bib-hormander1983analysis|<tuple|Hör83|77|#24>>
     <associate|bib-howe1993homogeneous|<tuple|HT93|77|#24>>
@@ -9871,8 +10008,10 @@
     <associate|bib-kobayashi1994discrete1|<tuple|Kob94|77|#24>>
     <associate|bib-kobayashi1998discrete2|<tuple|Kob98a|78|#24>>
     <associate|bib-kobayashi1998discrete3|<tuple|Kob98b|78|#24>>
-    <associate|bib-kobayashi2013differential|<tuple|KP13|78|#24>>
+    <associate|bib-kobayashi2013differential|<tuple|KP13|78>>
     <associate|bib-kobayashi2014classification|<tuple|KM14|77|#24>>
+    <associate|bib-kobayashi2015differential1|<tuple|KP15a|?|#24>>
+    <associate|bib-kobayashi2015differential2|<tuple|KP15b|?|#24>>
     <associate|bib-kobayashi2015program|<tuple|Kob15|78|#24>>
     <associate|bib-kobayashi2015symmetry|<tuple|KS15|78|#24>>
     <associate|bib-krantz1982function|<tuple|Kra82|78|#24>>
@@ -9895,6 +10034,7 @@
     <associate|dim-C:eq-1|<tuple|20.1|?|#22>>
     <associate|dim-C:eq-2|<tuple|20.2|?|#22>>
     <associate|dim-C:fact-E+A|<tuple|20.2|?|#22>>
+    <associate|dim-C:lem-zeromap|<tuple|20.4|?|#22>>
     <associate|dim-C:prop-main|<tuple|20.1|?|#22>>
     <associate|doublePGP:lem-Gp-act-Xi|<tuple|8.7|30|#10>>
     <associate|doublePGP:lem-comput|<tuple|8.5|30|#10>>
@@ -10198,7 +10338,9 @@
 
       gan2011symplectic
 
-      kobayashi2013differential
+      kobayashi2015differential1
+
+      kobayashi2015differential2
 
       juhl2009families
 
@@ -10337,6 +10479,12 @@
       howe1993homogeneous
 
       krantz1982function
+
+      kobayashi2015symmetry
+
+      kobayashi2015symmetry
+
+      kobayashi2015symmetry
 
       kobayashi2015symmetry
 
@@ -10652,7 +10800,7 @@
       <no-break><pageref|auto-70>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|20<space|2spc>Determination
-      of <with|mode|<quote|math>|\<cal-S\>ol<rsub|S><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>>
+      of <with|mode|<quote|math>|\<cal-S\>ol<rsub|<around*|{|Q=0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-71><vspace|0.5fn>
 
