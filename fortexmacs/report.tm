@@ -4,50 +4,80 @@
 
 <\body>
   <\show-part|2>
-    <section|report 34>
+    <section|report 36>
 
-    <block|<tformat|<twith|table-halign|l>|<twith|table-width|7.5cm>|<twith|table-hmode|exact>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<cwith|1|1|1|1|cell-hyphen|t>|<twith|table-valign|b>|<table|<row|<\cell>
+    <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
       <with|font-series|bold|What had to be done>
-    </cell>|<cell|<with|font-series|bold|What has been
-    done>>>|<row|<cell|(empty)>|<cell|(empty)>>>>>
+    </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
+      Compute the zero set of <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>.
+      It suffices to do so for <math|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>.
+    </cell>|<cell|>>>>>
 
     \;
 
     <with|font-series|bold|What has been done (additional)>
 
     <\enumerate>
-      <item>Complete determination of <math|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>;
-
-      <item>Perfect normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
-      for <math|q\<in\>2\<bbb-Z\>> and determination of support for every
-      <math|<around*|(|\<lambda\>,\<nu\>|)>>.
+      <item>
     </enumerate>
 
     <with|font-series|bold|What I plan to do during this week>:
 
     <\enumerate>
-      <item>I think I can show that for <math|q\<in\>2\<bbb-Z\>+1> the
-      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>\<assign\>K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>>
-      is holomorphic and vanishes on discrete set. This will give the perfect
-      normalization for <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>;
+      <item>Compute the zero set of <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>.
+      It suffices to do so for <math|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>.
 
-      <item>Finish reading chapter IX of Knapp ``Lie groups beyond...'';
+      <item>Dimensional argument to explicitly determine
+      <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+      for <math|q\<in\>2\<bbb-Z\>>.
 
-      <item>Finish reading chapter I of ``Fourier analysis on Euclidean
-      spaces''.
+      <item>Start reading some book on multivariable complex analysis
+      (perhaps, Hormander or Grauert) and Gelfand-Graev volume 2
     </enumerate>
 
     <with|font-series|bold|What I plan to do later>
 
     <\enumerate>
-      <item>Somehow compute the zero set of
-      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>. It
-      suffices to do so for <math|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>.
-      The first case to try is <math|\<lambda\>-\<nu\>=0>;
+      <item>Try to compute <math|c<rsub|\<lambda\>,\<nu\>>> constant in
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>1<rsub|\<lambda\>>=c<rsub|\<lambda\>,\<nu\>>1<rsub|\<nu\>>>
+      or at least determine precise location of its poles/zeros
 
-      <item>Dimensional argument to explicitly determine
-      <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
-      for <math|q\<in\>2\<bbb-Z\>>.
+      <item>Determine functional equations and residue formulae
+
+      <item>Check <math|U<around*|(|p+1,q+1|)>\<supset\>U<around*|(|p,q+1|)>>,
+      <math|Sp<around*|(||)>> settings for whether:
+
+      <\enumerate>
+        <item><math|P<rsub|><rprime|'>N<rsub|-> P=G> holds;
+
+        <item>coset structure under the pullback;
+
+        <item>whether homogeneity is in place
+
+        <item>cosets intersect transversally (cf. wavefronts) afar from
+        origin
+      </enumerate>
+
+      <item>my own:
+
+      <\enumerate>
+        <item>Write up all
+
+        <\enumerate>
+          <item>write up pf
+
+          <item>modularize
+
+          <item>clean up KR-even and hooks (leave hooks? to compute constant
+          explicitly)
+        </enumerate>
+
+        <item>van Leeuven
+
+        <item>Feketa
+
+        <item>(Sano)
+      </enumerate>
     </enumerate>
 
     <\with|font-series|bold>
@@ -57,8 +87,6 @@
     (empty)
 
     <paragraph|Comments>
-
-    \;
   <|show-part>
     <section|report 33>
   </show-part>

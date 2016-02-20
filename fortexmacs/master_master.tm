@@ -1323,7 +1323,16 @@
 
         <item>If <math|u<rsub|j>\<rightarrow\>u<rsub|0>\<in\>\<cal-D\><rprime|'><around*|(|X|)>>
         and <math|\<varphi\><rsub|j>\<rightarrow\>\<varphi\><rsub|0>\<in\>C<rsup|\<infty\>><rsub|0><around*|(|X|)>>,
-        then <math|<around*|\<langle\>|u<rsub|j>,\<varphi\><rsub|j>|\<rangle\>>\<rightarrow\><around*|\<langle\>|u<rsub|0>,\<varphi\><rsub|0>|\<rangle\>>>.
+        then <math|<around*|\<langle\>|u<rsub|j>,\<varphi\><rsub|j>|\<rangle\>>\<rightarrow\><around*|\<langle\>|u<rsub|0>,\<varphi\><rsub|0>|\<rangle\>>>;
+
+        <item>If <math|u<rsub|j>\<rightarrow\>u<rsub|0>\<in\>\<cal-D\><rprime|'><around*|(|X|)>>
+        and <math|K\<subset\>X> is compact there exist <math|C,k\<gtr\>0>
+        such that for all <math|\<varphi\>\<in\>C<rsub|0><rsup|\<infty\>><around*|(|X|)>>
+        supported inside <math|K> we have
+
+        <\equation*>
+          <around*|\||<around*|\<langle\>|u<rsub|j>,\<varphi\>|\<rangle\>>|\|>\<leqslant\><big|sum><rsub|<around*|\||\<alpha\>|\|>\<leqslant\>k>sup<around*|\||\<partial\><rsup|\<alpha\>>\<varphi\>|\|>
+        </equation*>
       </enumerate>
     </fact>
 
@@ -1948,6 +1957,48 @@
     function <math|<around*|\||x|\|><rsup|\<lambda\>>>, its normalization
     <math|<around*|\||x|\|><rsup|\<lambda\>>/\<Gamma\><around*|(|<around*|(|\<lambda\>+1|)>/2|)>>
     and their pullbacks.
+
+    <\lemma>
+      <label|supp-n-waves:lem-weakened-conv>Let
+      <math|\<bbb-C\>\<ni\>\<lambda\><rsub|n>\<rightarrow\>\<lambda\><rsub|0>=-n\<in\>-\<bbb-Z\><rsub|\<geqslant\>1>>
+      and <math|\<varphi\><rsub|n>,\<varphi\><rsub|0>\<in\>C<rsup|\<infty\>><rsub|0><around*|(|\<bbb-R\><rsub|\<geqslant\>0>|)>>
+      such that <math|\<varphi\><rsub|n>\<rightarrow\>\<varphi\><rsub|0>>
+      with all derivatives pointwise on <math|\<bbb-R\><rsub|\<geqslant\>0>>
+      and for every <math|k> we have <math|sup<rsub|n,x\<in\>\<bbb-R\>><around*|\||\<varphi\><rsub|n><rsup|<around*|(|k|)>><around*|(|x|)>|\|>\<less\>\<infty\>>.
+      Then,\ 
+
+      <\equation*>
+        <around*|\<langle\>|<frac|x<rsub|+><rsup|\<lambda\><rsub|n>>|\<Gamma\><around*|(|\<lambda\><rsub|n>+1|)>>,\<varphi\><rsub|n>|\<rangle\>>\<rightarrow\><around*|\<langle\>|\<delta\><rsup|<around*|(|n-1|)>>,\<varphi\><rsub|0>|\<rangle\>>
+      </equation*>
+    </lemma>
+
+    <\proof>
+      It is not difficult to see that for
+      <math|Re<around*|(|\<lambda\>|)>\<gtr\>-k-1> we have
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|x<rsub|+><rsup|\<lambda\>>,\<varphi\>|\<rangle\>>=<big|int><rsub|0><rsup|1>x<rsup|\<lambda\>><around*|[|\<varphi\><around*|(|x|)>-\<varphi\><around*|(|0|)>-x\<varphi\><rprime|'><around*|(|0|)>-\<ldots\>-<frac|x<rsup|k-1>|<around*|(|k-1|)>!>\<varphi\><rsup|<around*|(|k-1|)>><around*|(|x|)>|]>d
+        x+>|<cell|>>|<row|<cell|>|<cell|+<big|int><rsub|1><rsup|\<infty\>>x<rsup|\<lambda\>>\<varphi\><around*|(|x|)>
+        d x+<big|sum><rsub|i=1><rsup|k><frac|\<varphi\><rsup|<around*|(|i-1|)>><around*|(|0|)>|<around*|(|i-1|)>!<around*|(|\<lambda\>+i|)>>>|<cell|>>>>
+      </eqnarray>
+
+      and this implies that to see the desired one only needs to show that
+      first and second summands on the right are bounded as
+      <math|\<lambda\><rsub|n>\<rightarrow\>\<lambda\><rsub|0>> uniformly in
+      <math|n>.
+
+      Now as hypothesis implies that <math|\<varphi\><rsub|n>> are uniformly
+      bounded, the <math|<big|int><rsub|1><rsup|\<infty\>>x<rsup|\<lambda\><rsub|n>>\<varphi\><around*|(|x|)>
+      d x> is bounded in <math|n>. Similaryl, we have that for
+      <math|0\<leqslant\>x\<leqslant\>1> by Taylor theorem
+
+      <\equation*>
+        <around*|[|\<varphi\><rsub|n><around*|(|x|)>-\<varphi\><rsub|n><around*|(|0|)>-x\<varphi\><rprime|'><rsub|n><around*|(|0|)>-\<ldots\>-<frac|x<rsup|k-1>|<around*|(|k-1|)>!>\<varphi\><rsup|<around*|(|k-1|)>><rsub|n><around*|(|x|)>|]>\<leqslant\><frac|x<rsup|k>|k!>sup<rsub|x\<in\>\<bbb-R\>><around*|\||\<varphi\><rsub|n><rsup|<around*|(|k|)>>|\|>
+      </equation*>
+
+      and as the hypothesis implies that right-hand side is bounded uniformly
+      in <math|n>, the first addend is also bounded and the result follows.
+    </proof>
 
     <\lemma>
       <label|supp-n-waves:lem-\|x\|-holo-in>For
@@ -8384,11 +8435,9 @@
   <\show-part|21>
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>><label|sec:KR-normalization-even>
 
-    In this part, we will try to normalize kernel of regular symmetry
-    breaking operator under the assumption
-    <math|q\<in\>2\<bbb-Z\><rsub|\<gtr\>0>>. As shown in proposition
-    <reference|supp-R:prop-3>, for an open subset of
-    <math|<around*|{|\<lambda\>-\<nu\>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>\<subset\>\<bbb-C\><rsup|2>>
+    In this part, we normalize the kernel of regular symmetry breaking
+    operator. As shown in proposition <reference|supp-R:prop-3>, for an open
+    subset of <math|<around*|{|\<lambda\>-\<nu\>\<nin\>-\<bbb-Z\><rsub|\<geqslant\>0>|}>\<subset\>\<bbb-C\><rsup|2>>
     we have kernel of regular SBO <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
     being equal to\ 
 
@@ -8435,14 +8484,17 @@
     </proposition>
 
     <\proposition>
-      <label|KR-normalization-even:prop-odd>Assume
-      <math|q\<in\>2\<bbb-Z\>+1>. Then for
+      <label|KR-normalization-even:prop-odd>For
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> as in
       proposition <reference|supp-R:prop-3>,
       <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>\<assign\>K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>>
       extends to holomorphic in <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
       distribution that vanishes on a discrete subset of
-      <math|\<bbb-C\><rsup|2>>.
+      <math|\<bbb-C\><rsup|2>>. More precisely,
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=<around*|[|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|]>\<sqcup\><around*|[|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|]>,>|<cell|>>|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=<choice|<tformat|<table|<row|<cell|<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|p=1>>|<row|<cell|\<varnothing\>,>|<cell|p\<gtr\>1>>>>>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|>>|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cap\><around*|{|\<nu\>\<in\>I|}>,>|<cell|>>|<row|<cell|>|<cell|I\<assign\><choice|<tformat|<table|<row|<cell|\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>,>|<cell|q\<in\>2\<bbb-Z\>>>|<row|<cell|2\<bbb-Z\>,>|<cell|q\<in\>2\<bbb-Z\>+1>>>>>.>|<cell|>>>>
+      </eqnarray>
     </proposition>
 
     <subsection|Auxiliary results>
@@ -8748,12 +8800,142 @@
     <subsection|Auxiliary results (II)>
 
     <\lemma>
-      Suppose <math|\<mu\>\<in\>\<Omega\>\<subset\>\<bbb-C\><rsup|n>> is a
-      parameter and <math|F<rsub|\<mu\>>> is holo in <math|\<mu\>> being
-      homogeneous of degree <math|a<around*|(|\<mu\>|)>> (with
-      <math|a<around*|(|\<cdot\>|)>> being holo on <math|\<Omega\>>) and
-      even. Then,\ 
+      <label|KR-normalization-even:lem-gelfand>Let
+      <math|\<Omega\>\<subset\>\<bbb-C\>> be an open set and
+      <math|a:\<Omega\>\<rightarrow\>\<bbb-C\>> be holo with nonvanishing
+      derivative. Suppose that for <math|D\<subset\>\<Omega\>> discrete we
+      have <math|F<rsub|\<lambda\>>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|k>|)>>
+      be holomorphic in <math|\<lambda\>\<in\>\<Omega\>\\D> and homogeneous
+      of degree <math|a<around*|(|\<lambda\>|)>> and
+      <math|D=a<rsup|-1><around*|(|-k-\<bbb-Z\><rsub|\<geqslant\>0>|)>>.
+      Suppose further that <math|F<rsub|\<lambda\>><mid|\|><rsub|\<bbb-R\><rsup|k>-<around*|{|0|}>>>
+      extends to holo in <math|\<lambda\>\<in\>\<Omega\>>.
+
+      Then, <math|<wide|F|~><rsub|\<lambda\>>:=F<rsub|\<lambda\>>/\<Gamma\><around*|(|a<around*|(|\<lambda\>|)>+k|)>>
+      extends to holomorphic in <math|\<lambda\>\<in\>\<Omega\>>. Moreover,
+      for <math|\<lambda\><rsub|>\<in\>D> we have
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<wide|F|~><rsub|\<lambda\><rsub|>>=<big|sum><rsub|<around*|\||\<alpha\>|\|>=-a<around*|(|\<lambda\>|)>-k>c<rsub|\<alpha\>>\<delta\><rsup|<around*|(|\<alpha\>|)>>>|<cell|>>|<row|<cell|>|<cell|c<rsub|\<alpha\>>\<assign\><around*|\<langle\>|F<rsub|\<lambda\>><mid|\|><rsub|\<bbb-S\><rsup|k>>,x<rsup|\<alpha\>>|\<rangle\>>>|<cell|>>>>
+      </eqnarray>
     </lemma>
+
+    <\remark>
+      This basically is a restatement of a discussion in
+      <cite-detail|gelfand1980distribution|III.Ÿ3.5>.
+    </remark>
+
+    <\proof>
+      We first claim that <math|F<rsub|\<lambda\>><mid|\|><rsub|\<bbb-S\><rsup|k>>>
+      is well-defined and holomorphic in <math|\<lambda\>\<in\>\<Omega\>>.
+      Indeed, under the assumption that <math|F<rsub|\<lambda\>><mid|\|><rsub|\<bbb-R\><rsup|k>-<around*|{|0|}>>>
+      extends to holomorphic distribution in
+      <math|\<lambda\>\<in\>\<Omega\>>, we have similarly to the proof of
+      lemma <reference|k-finite:lem-holo-easy> that <math|F<rsub|\<lambda\>>>
+      is holomorphic in <math|\<cal-D\><rprime|'><rsub|\<Gamma\>><around*|(|\<bbb-R\><rsup|k>-<around*|{|0|}>|)>>
+      with <math|\<Gamma\>> being the cone
+      <math|<around*|{|<around*|(|x,\<xi\>|)>\<in\>\<bbb-R\><rsup|k>\\<around*|{|0|}>\<times\>\<bbb-R\><rsup|k><mid|\|>x\<perp\>\<xi\>|}>>
+      and thus proposition <reference|holomorphicity-preserving:prop-pullback-holo>
+      implies the claim.
+
+      Discreteness of <math|D> allows us to consider matters locally near
+      every point of <math|D>, thus we may assume
+      <math|D=<around*|{|\<lambda\><rsub|0>|}>>. Moreover, as
+      <math|a<around*|(|\<lambda\>|)>> has novanishing derivative at
+      <math|\<lambda\><rsub|0>>, we can biholomorphically change coordinates
+      in parameter space and thus assume that
+      <math|a<around*|(|\<lambda\>|)>=\<lambda\>> and
+      <math|\<lambda\><rsub|0>=-k-l\<in\>-k-\<bbb-Z\><rsub|\<geqslant\>0>>.
+      We next claim that near (but not equal to)
+      <math|\<lambda\>=\<lambda\><rsub|0>> we have\ 
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|<wide|F|~><rsub|\<lambda\>>,\<varphi\>|\<rangle\>>=<frac|1|\<Gamma\><around*|(|\<lambda\>+k|)>><around*|\<langle\>|r<rsup|\<lambda\>+k-1>,u<rsub|\<lambda\>>|\<rangle\>>,<eq-number><label|KR-normalization-even:eq-lemeq>>|<cell|>>|<row|<cell|>|<cell|u<rsub|\<lambda\>><around*|(|r|)>\<assign\><around*|\<langle\>|F<rsub|\<lambda\>><mid|\|><rsub|\<bbb-S\><rsup|k-1>>,\<varphi\><around*|(|r\<cdot\>|)>|\<rangle\>>.>|<cell|>>>>
+      </eqnarray>
+
+      We note that <math|u\<in\>C<rsup|\<infty\>><rsub|0><around*|(|\<bbb-R\><rsub|\<geqslant\>0>|)>>,
+      as is easily seen by direct check. Now, both sides
+      <math|<eqref|KR-normalization-even:eq-lemeq>> are clearly homogeneous
+      of degree <math|\<lambda\>>, so it suffices (by fact
+      <reference|holomorphicity-preserving:fact-homog>) to show that they
+      coincide on <math|\<bbb-R\><rsup|k>\\<around*|{|0|}>>, where the
+      equality is clear (passing to polar coordinates
+      <math|F<rsub|\<lambda\>>> becomes tensor product).
+
+      We next show that <math|<wide|F|~><rsub|\<lambda\>>> is holomorphic at
+      <math|\<lambda\>=\<lambda\><rsub|0>>. We fix
+      <math|\<varphi\>\<in\>C<rsup|\<infty\>><rsub|0><around*|(|\<bbb-R\><rsup|k>|)>>
+      and it suffices to show the continuity of right-hand side of
+      <math|<eqref|KR-normalization-even:eq-lemeq>> in <math|\<lambda\>>. So
+      suppose that <math|\<lambda\><rsub|n>\<rightarrow\>\<lambda\><rsub|0>=-k-l>.
+      Now, lemma <reference|supp-n-waves:lem-weakened-conv> implies that we
+      just need to show that <math|u<rsub|\<lambda\><rsub|n>>\<assign\>u<rsub|n>\<rightarrow\>u<rsub|0>\<assign\>u<rsub|\<lambda\><rsub|0>>>
+      pointwise with all derivatives in <math|\<bbb-R\><rsub|\<geqslant\>0>>
+      and that <math|u<rsub|\<lambda\><rsub|n>>> have their derivatives are
+      uniformly bounded in <math|n>. Now, fact
+      <reference|holomorphicity-preserving:fact-basic> applied to
+      <math|\<psi\>:\<bbb-R\><rsub|\<geqslant\>0>\<times\>\<bbb-S\><rsup|k-1>\<ni\><around*|(|r,\<omega\>|)>\<mapsto\>\<varphi\><around*|(|r\<omega\>|)>>
+      implies that (we let <math|f<rsub|\<lambda\>>\<assign\>F<rsub|\<lambda\>><mid|\|><rsub|\<bbb-S\><rsup|n-1>>>
+      and <math|\<varphi\><rsup|<around*|(|\<alpha\>|)>>> denotes partial
+      derivative)
+
+      <\equation*>
+        <frac|d<rsup|m>|d r<rsup|m>>u<rsub|\<lambda\>><around*|(|r|)>=<around*|\<langle\>|f<rsub|\<lambda\>>,<frac|d<rsup|m>|d
+        r<rsup|m>>\<varphi\><around*|(|r\<cdot\>|)>|\<rangle\>>=<around*|\<langle\>|f<rsub|\<lambda\>>,<big|sum><rsub|<around*|\||\<alpha\>|\|>=m>\<omega\><rsup|\<alpha\>>\<varphi\><rsup|<around*|(|\<alpha\>|)>><around*|(|r\<cdot\>|)>|\<rangle\>>
+      </equation*>
+
+      which readily settles the issue about the pointwise convergence of
+      derivatives, so it only remains to show that these are uniformly
+      bounded in <math|n> and <math|x\<in\>\<bbb-R\><rsub|\<geqslant\>0>>.
+      The latter equality implies that it suffices to show this for the 0-th
+      derivative. That is, we just need to show that <math|u<rsub|n>> are
+      uniformly bounded in <math|r\<in\>\<bbb-R\><rsub|\<geqslant\>0>> and
+      <math|n>.
+
+      Now, the third item of fact <reference|holomorphicity-preserving:fact-basic>
+      tells us that
+
+      <\equation*>
+        <around*|\||<around*|\<langle\>|f<rsub|n>,\<varphi\><around*|(|r\<cdot\>|)>|\<rangle\>>|\|>\<leqslant\>C<big|sum><rsub|i=0><rsup|k>sup<around*|\||\<partial\><rsup|i>\<varphi\><around*|(|r\<cdot\>|)>|\|>=<big|sum><rsub|i=0><rsup|k>sup<around*|(|<big|sum><rsub|<around*|\||\<alpha\>|\|>=i>r<rsup|i>\<varphi\><rsup|<around*|(|\<alpha\>|)>><around*|(|r\<cdot\>|)>|)>
+      </equation*>
+
+      and as the right-hand side is uniformly bounded in <math|n> and
+      <math|r>, we are done with showing the holomorphicity of
+      <math|<wide|F|~><rsub|\<lambda\>>>.
+
+      Finally, we need to show what <math|<wide|F|~><rsub|\<lambda\>>>
+      becomes for <math|\<lambda\>=\<lambda\><rsub|0>>. As by hypothesis
+      <math|F<rsub|\<lambda\>><mid|\|><rsub|<around*|{|x\<neq\>0|}>>> is
+      holomorphic at <math|\<lambda\><rsub|0>>, we see that
+      <math|F<rsub|\<lambda\>>/\<Gamma\><around*|(|\<lambda\>+k|)><mid|\|><rsub|<around*|{|x\<neq\>0|}>>>
+      necessary vanishes at <math|\<lambda\>=\<lambda\><rsub|0>>, thus
+      <math|<wide|F|~><rsub|\<lambda\><rsub|0>>> is supported only at
+      <math|<around*|{|0|}>> and therefore should be a finite sum of
+      derivatives of delta functions. Moreover, as
+      <math|<wide|F|~><rsub|\<lambda\>>> is holomorphic in <math|\<lambda\>>,
+      it has to be homogeneous of degree <math|\<lambda\><rsub|0>> at
+      <math|\<lambda\><rsub|0>> and therefore
+
+      <\equation*>
+        <wide|F|~><rsub|\<lambda\><rsub|0>>=<big|sum><rsub|<around*|\||\<alpha\>|\|>=-a<around*|(|\<lambda\>|)>-k>c<rsub|\<alpha\>>\<delta\><rsup|<around*|(|\<alpha\>|)>>.
+      </equation*>
+
+      and
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|c<rsub|\<alpha\>>=<frac|<around*|\<langle\>|<wide|F|~><rsub|\<lambda\><rsub|0>>,x<rsup|\<alpha\>>|\<rangle\>>|<around*|\||\<alpha\>|\|>!>=<frac|<around*|\<langle\>|\<delta\><rsup|-k-\<lambda\><rsub|0>>,u|\<rangle\>>|<around*|(|-k-\<lambda\><rsub|0>|)>!>=>|<cell|>>>>
+      </eqnarray>
+
+      where <math|u=<around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,x<rsup|\<alpha\>>|\<rangle\>>=<around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,r<rsup|-\<lambda\><rsub|0>-k>\<omega\><rsup|\<alpha\>>|\<rangle\>>=r<rsup|-\<lambda\><rsub|0>-k><around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,\<omega\><rsup|\<alpha\>>|\<rangle\>>><math|>
+      (where <math|\<omega\>\<assign\>x<mid|\|><rsub|\<bbb-S\><rsup|n-1>>>)
+      and thus we can continue
+
+      <\equation*>
+        =<around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,\<omega\><rsup|\<alpha\>>|\<rangle\>><frac|<around*|\<langle\>|\<delta\><rsup|-k-\<lambda\><rsub|0>>,r<rsup|-\<lambda\><rsub|0>-k>|\<rangle\>>|<around*|(|-k-\<lambda\><rsub|0>|)>!>=<around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,\<omega\><rsup|\<alpha\>>|\<rangle\>>,
+      </equation*>
+
+      and we are done.
+    </proof>
 
     <subsection|Proofs>
 
@@ -8882,7 +9064,142 @@
     </proof>
 
     <\proof>
-      (of prop. <reference|KR-normalization-even:prop-odd>)
+      (of prop. <reference|KR-normalization-even:prop-odd>) We first show
+      that <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
+      is indeed holomorphic. In the light of fact
+      <reference|k-finite:fact-hartogs> it suffices to fix one parameter and
+      show that <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
+      is holomorphic as a function of the other one. We fix
+      <math|\<nu\>=\<nu\><rsub|0>> (the case
+      <math|\<lambda\>=\<lambda\><rsub|0>> fixed is handled in the same way).
+      As <math|K<rsub|\<lambda\>>\<assign\>K<rsub|\<lambda\>,\<nu\><rsub|0>>>
+      is homogeneous of degree <math|\<lambda\>-\<nu\><rsub|0>-n>, lemma
+      <reference|KR-normalization-even:lem-gelfand> allows us to conclude
+      that <math|<wide|<wide|K|~>|~><rsub|\<lambda\>>\<assign\>K<rsub|\<lambda\>,\<nu\><rsub|0>><rsup|\<bbb-R\><rsup|n>>/\<Gamma\><around*|(|\<lambda\>-\<nu\><rsub|0>|)>>
+      is holomorphic. Moreover, the same lemma
+      <reference|KR-normalization-even:lem-gelfand> implies that for
+      <math|\<lambda\>-\<nu\><rsub|0>\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>>,
+      we have <math|<wide|<wide|K|~>|~><rsub|\<lambda\>>=0>, as for
+      <math|<around*|\||\<alpha\>|\|>=\<nu\><rsub|0>-\<lambda\>\<in\>1+2\<bbb-Z\><rsub|\<geqslant\>0>>
+      we have <math|c<rsub|\<alpha\>>\<assign\><around*|\<langle\>|K<rsub|\<lambda\>,\<nu\><rsub|0>><rsup|\<bbb-R\><rsup|n>><mid|\|><rsub|\<bbb-S\><rsup|n-1>>,x<rsup|\<alpha\>>|\<rangle\>>=0>,
+      as <math|x<rsup|\<alpha\>>> is odd, while
+      <math|K<rsub|\<lambda\>,\<nu\><rsub|0>><rsup|\<bbb-R\><rsup|n>><mid|\|><rsub|\<bbb-S\><rsup|n-1>>>
+      is even. Hence, in fact already <math|<wide|K|~><rsub|\<lambda\>>\<assign\>K<rsub|\<lambda\>,\<nu\><rsub|0>><rsup|\<bbb-R\><rsup|n>>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\><rsub|0>|2>|)>>
+      is holomorphic, and from this the holomorphicity of
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
+      function follows.
+
+      From the way we did normalization it immediately follows that
+
+      <\equation*>
+        \<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=\<frak-P\><rsub|-><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>.
+      </equation*>
+
+      From this and proposition <reference|KR-normalization-recur:prop-supp>
+      the expression for <math|\<frak-P\><rsub|-><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      follows. Thus it remains to give an expression for
+      <math|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
+
+      Now, the formulae of lemma <reference|KR-normalization-even:lem-gelfand>
+      imply that for <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
+
+      <\equation*>
+        \<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>=min<around*|{|\<frak-P\><rsub|-><around*|(|<frac|<around*|\<langle\>|<around*|\||Q|\|><rsup|-\<nu\>><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>,x<rsup|\<gamma\>>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>><mid|\|><rsub|\<lambda\>-\<nu\>=-2k>|)>|}><rsub|<around*|\||\<gamma\>|\|>=2k>
+      </equation*>
+
+      Note that the holomorphicity of an argument of
+      <math|\<frak-P\><rsub|->> on the right-hand side of the latter equation
+      is guaranteed by holomorphicity assertion of proposition
+      <reference|KR-normalization-recur:prop-supp>. It suffices therefore to
+      explicitly compute the <math|\<frak-P\>> of meromorphic in
+      <math|<around*|(|\<lambda\>,\<nu\>|)>> function
+      <math|<around*|\<langle\>|<around*|\||Q|\|><rsup|-\<nu\>><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>,\<omega\><rsup|\<alpha\>>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>>
+      under the constraint <math|\<lambda\>+\<nu\>=-2k>. For this explicit
+      formula for <math|<around*|\<langle\>|<around*|\||Q|\|><rsup|-\<nu\>><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>,\<omega\><rsup|\<alpha\>>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>>
+      would come handy and we now proceed with giving such a formula.
+
+      One notes that for <math|Re<around*|(|-\<nu\>|)>,Re<around*|(|\<lambda\>+\<nu\>|)>\<gg\>0>
+      one has by passing to bipolar coordinates
+      <math|x=<around*|(|r\<omega\>,s\<omega\><rprime|'>|)>\<in\>\<bbb-R\><rsup|p>\<times\>\<bbb-R\><rsup|q>>
+      (and splitting multiindex <math|\<gamma\>\<in\>\<bbb-Z\><rsub|\<geqslant\>0><rsup|n>>
+      as <math|\<gamma\>=:<around*|(|\<alpha\>,\<beta\>|)>> accordingly) that
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|<around*|\||Q|\|><rsup|-\<nu\>><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>,x<rsup|\<gamma\>>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>=<big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<omega\><rsup|\<alpha\><rsub|p>><rsub|p><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d\<omega\>\<times\><big|int><rsub|\<bbb-S\><rsup|q-1>><around*|(|\<omega\><rprime|'>|)><rsup|\<beta\>>d\<omega\><rprime|'>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|int><rsub|r<rsup|2>+s<rsup|2>=1;r,s\<gtr\>0><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|-\<nu\>>r<rsup|\<lambda\>+\<nu\>-n>r<rsup|p-1>s<rsup|q-1>d
+        r d s\<simeq\>>|<cell|>>>>
+      </eqnarray>
+
+      where we split multiindex <math|\<alpha\>\<in\>\<bbb-Z\><rsup|p><rsub|\<geqslant\>0>>
+      as <math|\<alpha\>=:<around*|(|<wide|\<alpha\>|~>,\<alpha\><rsub|p>|)>>
+      and split <math|\<omega\>\<in\>\<bbb-S\><rsup|p-1>> as
+      <math|\<omega\>=:<around*|(|<wide|\<omega\>|~>,\<omega\><rsub|p>|)>>.
+      One further notes that <math|<big|int><rsub|\<bbb-S\><rsup|q-1>><around*|(|\<omega\><rprime|'>|)><rsup|\<beta\>>d\<omega\><rprime|'>=0>
+      unless <math|<around*|\||\<beta\>|\|>\<assign\><big|sum><rsub|j>\<beta\><rsub|j>\<in\>2\<bbb-Z\>>
+      and thus we may in subsequent assume that this is so. Hence, (as
+      <math|<around*|\||\<gamma\>|\|>=<around*|\||\<alpha\>|\|>+<around*|\||\<beta\>|\|>=2k>)
+      we can restrict ourselves to situation
+      <math|<around*|\||\<alpha\>|\|>=:2a\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
+      and <math|<around*|\||\<beta\>|\|>=:2b\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>.
+      Then, we may continue as\ 
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|\<simeq\><big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<omega\><rsup|\<alpha\><rsub|p>><rsub|p><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d\<omega\><big|int><rsub|r<rsup|2>+s<rsup|2>=1;r,s\<gtr\>0><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|-\<nu\>>r<rsup|\<lambda\>+\<nu\>-n>r<rsup|p-1>s<rsup|q-1>d
+        r d s=>|<cell|>>|<row|<cell|>|<cell|\<simeq\><big|int><rsub|-1><rsup|1><around*|\||t|\|><rsup|\<lambda\>+\<nu\>-n>t<rsup|\<alpha\><rsub|p>><around*|(|1-t<rsup|2>|)><rsup|<around*|(|p-1|)>>>|<cell|>>>>
+      </eqnarray>
+
+      (here we passed to cylindrical coordinates in the integration in first
+      multiplicand)
+
+      \;
+
+      We now want to show that <math|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>>
+      is nonzero outside some discrete subset of <math|\<bbb-C\><rsup|2>>. In
+      the light of proposition <reference|KR-normalization-recur:prop-supp>
+      and the way we did the normalization, it suffices to show that for
+      every <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
+      <math|<wide|K|~><rsub|\<nu\>-2k,\<nu\>>> being nonzero outside some
+      discrete subset of <math|\<bbb-C\>>. Now, in the light of formulae of
+      lemma <reference|KR-normalization-even:lem-gelfand> it suffices to show
+      that <math|<around*|\<langle\>|K<rsub|\<nu\>-2k,\<nu\>><mid|\|><rsub|\<bbb-S\><rsup|n-1>>,x<rsub|p><rsup|2k>|\<rangle\>>>
+      vanishes only on a discrete subset of <math|\<bbb-C\>>. As this is
+      known to be holomorphic, it suffices to show that this function is
+      non-zero. We now note that for <math|Re<around*|(|-\<nu\>|)>,Re<around*|(|\<lambda\>+\<nu\>|)>\<gg\>0>
+      we have (changing to bipolar coordinates)
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><mid|\|><rsub|\<bbb-S\><rsup|n-1>>,x<rsub|p><rsup|2k>|\<rangle\>>=<frac|<around*|\<langle\>|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||Q|\|><rsup|-\<nu\>>,x<rsub|p><rsup|2k>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>>=<frac|1|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p><rsup|>|\|><rsup|\<lambda\>+2k+\<nu\>-n>d\<omega\>\<times\><big|int><rsub|0><rsup|1><around*|\||1-2x|\|><rsup|-\<nu\>>x<rsup|<frac|\<lambda\>+2k+\<nu\>-q|2>-1><around*|(|1-x|)><rsup|<frac|q-2|2>>d
+        x.>|<cell|>>>>
+      </eqnarray>
+
+      and it is clear that the first two multiplicands on the right become
+      meromorphic in <math|\<nu\>> when we substitute
+      <math|\<lambda\>=\<nu\>-2k>, we (assuming
+      <math|<around*|\<langle\>|K<rsub|\<nu\>-2k,\<nu\>><mid|\|><rsub|\<bbb-S\><rsup|n-1>>,x<rsub|p><rsup|2k>|\<rangle\>>\<equiv\>0>
+      to get contradiction) are lead to conclude that
+
+      <\equation*>
+        <big|int><rsub|0><rsup|1><around*|\||1-2x|\|><rsup|-\<nu\>>x<rsup|<frac|2\<nu\>-q|2>-1><around*|(|1-x|)><rsup|<frac|q-2|2>>d
+        x\<simeq\><big|int><rsub|-1><rsup|1><around*|\||w|\|><rsup|-\<nu\>><around*|(|1-w|)><rsup|\<nu\>-q/2-1><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2>d
+        w\<equiv\>0.
+      </equation*>
+
+      However, as we have
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||w|\|><rsup|-\<nu\>><around*|(|1-w|)><rsup|\<nu\>-q/2-1><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2>d
+        w=<big|int><rsub|-1><rsup|-1/2>+<big|int><rsub|-1/2><rsup|1/2>+<big|int><rsub|1/2><rsup|1>>|<cell|>>>>
+      </eqnarray>
+
+      and at <math|\<nu\>=1> the first and third addends on right-hand side
+      are holomorphic (note that <math|q\<in\>2\<bbb-Z\>+1> by hypothesis),
+      which the second has simple pole with residue proportional to
+
+      <\equation*>
+        <around*|(|1-w|)><rsup|-q/2-1><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2><mid|\|><rsub|w=0>\<neq\>0,
+      </equation*>
+
+      we see that pole at <math|\<nu\>=1> has nonzero residue, which
+      contradicts to assumption made and ends the proof.
     </proof>
   <|show-part>
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>><label|sec:KR-normalization-even>
@@ -9660,11 +9977,14 @@
     <associate|KP-normalization-2:prop-5|<tuple|18.6|64|#20>>
     <associate|KP-normalization-2:prop-p=1|<tuple|18.7|64|#20>>
     <associate|KP-normalization:lem-Mg0|<tuple|14.1|41|#17>>
+    <associate|KR-normalization-even:eq-lemeq|<tuple|19.2|?|#21>>
+    <associate|KR-normalization-even:eq-rf|<tuple|19.2|?|#21>>
     <associate|KR-normalization-even:fact-P-K|<tuple|19.5|67|#21>>
     <associate|KR-normalization-even:hypo-maxima|<tuple|2|?|#10>>
     <associate|KR-normalization-even:lem-2|<tuple|19.7|68|#21>>
     <associate|KR-normalization-even:lem-3|<tuple|16.7|?|#16>>
     <associate|KR-normalization-even:lem-Poddeven|<tuple|19.6|67|#21>>
+    <associate|KR-normalization-even:lem-gelfand|<tuple|19.9|?|#21>>
     <associate|KR-normalization-even:lem-kfinite-00-aux|<tuple|19.5|71|#21>>
     <associate|KR-normalization-even:lem-kfinite-11|<tuple|17.11|?|#18>>
     <associate|KR-normalization-even:lem-kfinite-11-aux|<tuple|19.6|72|#21>>
@@ -10158,10 +10478,10 @@
     <associate|k-finite:eq-hookC|<tuple|16.2|51|#18>>
     <associate|k-finite:eq-hookR|<tuple|16.1|51|#18>>
     <associate|k-finite:fact-hartogs|<tuple|16.17|56|#18>>
-    <associate|k-finite:lem-1|<tuple|3.3|13|#5>>
+    <associate|k-finite:lem-1|<tuple|3.4|13|#5>>
     <associate|k-finite:lem-KC-c0|<tuple|16.16|?|#18>>
     <associate|k-finite:lem-KC-c2|<tuple|16.18|?|#18>>
-    <associate|k-finite:lem-abs-is-holo|<tuple|3.2|13|#5>>
+    <associate|k-finite:lem-abs-is-holo|<tuple|3.3|13|#5>>
     <associate|k-finite:lem-approx-by-homog|<tuple|16.6|?|#18>>
     <associate|k-finite:lem-c1|<tuple|16.15|53|#18>>
     <associate|k-finite:lem-c2|<tuple|16.16|54|#18>>
@@ -10306,9 +10626,10 @@
     <associate|supp-R|<tuple|12|?|#14>>
     <associate|supp-R:prop-3|<tuple|12.2|40|#14>>
     <associate|supp-R:prop-regular|<tuple|12.1|40|#14>>
-    <associate|supp-n-waves:lem-at-least|<tuple|3.5|13|#5>>
-    <associate|supp-n-waves:lem-supp-xp|<tuple|3.4|13|#5>>
-    <associate|supp-n-waves:lem-\|x\|-holo-in|<tuple|3.1|12|#5>>
+    <associate|supp-n-waves:lem-at-least|<tuple|3.6|13|#5>>
+    <associate|supp-n-waves:lem-supp-xp|<tuple|3.5|13|#5>>
+    <associate|supp-n-waves:lem-weakened-conv|<tuple|3.1|?|#5>>
+    <associate|supp-n-waves:lem-\|x\|-holo-in|<tuple|3.2|12|#5>>
     <associate|thm:sing-q|<tuple|14.1|35|#16>>
   </collection>
 </references>
