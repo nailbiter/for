@@ -9125,8 +9125,7 @@
       as <math|\<gamma\>=:<around*|(|\<alpha\>,\<beta\>|)>> accordingly) that
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|<around*|\||Q|\|><rsup|-\<nu\>><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>,x<rsup|\<gamma\>>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>=<big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<omega\><rsup|\<alpha\><rsub|p>><rsub|p><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d\<omega\>\<times\><big|int><rsub|\<bbb-S\><rsup|q-1>><around*|(|\<omega\><rprime|'>|)><rsup|\<beta\>>d\<omega\><rprime|'>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|int><rsub|r<rsup|2>+s<rsup|2>=1;r,s\<gtr\>0><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|-\<nu\>>r<rsup|\<lambda\>+\<nu\>-n>r<rsup|p-1>s<rsup|q-1>d
-        r d s\<simeq\>>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|<around*|\||Q|\|><rsup|-\<nu\>><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>,x<rsup|\<gamma\>>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>=<big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<omega\><rsup|\<alpha\><rsub|p>><rsub|p><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d\<omega\>\<times\><big|int><rsub|\<bbb-S\><rsup|q-1>><around*|(|\<omega\><rprime|'>|)><rsup|\<beta\>>d\<omega\><rprime|'>\<times\>>|<cell|>>>>
       </eqnarray>
 
       where we split multiindex <math|\<alpha\>\<in\>\<bbb-Z\><rsup|p><rsub|\<geqslant\>0>>
@@ -9143,12 +9142,83 @@
       Then, we may continue as\ 
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|\<simeq\><big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<omega\><rsup|\<alpha\><rsub|p>><rsub|p><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d\<omega\><big|int><rsub|r<rsup|2>+s<rsup|2>=1;r,s\<gtr\>0><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|-\<nu\>>r<rsup|\<lambda\>+\<nu\>-n>r<rsup|p-1>s<rsup|q-1>d
-        r d s=>|<cell|>>|<row|<cell|>|<cell|\<simeq\><big|int><rsub|-1><rsup|1><around*|\||t|\|><rsup|\<lambda\>+\<nu\>-n>t<rsup|\<alpha\><rsub|p>><around*|(|1-t<rsup|2>|)><rsup|<around*|(|p-1|)>>>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|\<simeq\><big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<omega\><rsup|\<alpha\><rsub|p>><rsub|p><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d\<omega\><big|int><rsub|r<rsup|2>+s<rsup|2>=1;r,s\<gtr\>0><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|-\<nu\>>r<rsup|\<lambda\>+\<nu\>-n>r<rsup|p+a-1>s<rsup|q+b-1>d
+        r d s\<simeq\>>|<cell|>>>>
       </eqnarray>
 
-      (here we passed to cylindrical coordinates in the integration in first
-      multiplicand)
+      Now, inspecting the expression for the volume element of
+      <math|\<bbb-S\><rsup|p-1>> sphere, one concludes that for
+      <math|p\<gtr\>1>
+
+      <\equation*>
+        <big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<omega\><rsup|\<alpha\><rsub|p>><rsub|p><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d\<omega\>=<big|int><rsub|0><rsup|\<pi\>><around*|\||cos\<varphi\>|\|><rsup|\<lambda\>+\<nu\>-n>cos<rsup|\<alpha\><rsub|p>>\<varphi\><rsup|>\<cdot\>sin<rsup|p-2>\<varphi\><around*|[|<big|int><rsub|\<bbb-S\><rsup|p-2>><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d<wide|\<omega\>|~>|]>d\<varphi\>
+      </equation*>
+
+      and as <math|<big|int><rsub|\<bbb-S\><rsup|p-2>><wide|\<omega\>|~><rsup|<wide|\<alpha\><rsub|>|~><rsub|p>>d<wide|\<omega\>|~>=0>
+      unless <math|<around*|\||<wide|\<alpha\>|~><rsub|p>|\|>\<in\>2\<bbb-Z\>>,
+      we can assume in subsequent that this is so, hence
+      <math|\<alpha\><rsub|p>\<in\>2\<bbb-Z\>>. Whereas for <math|p=1> we
+      have
+
+      <\equation*>
+        <big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<omega\><rsup|\<alpha\><rsub|p>><rsub|p><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d\<omega\>=<choice|<tformat|<table|<row|<cell|0,>|<cell|\<alpha\><rsub|p>\<nin\>2\<bbb-Z\>>>|<row|<cell|const\<neq\>0,>|<cell|\<alpha\><rsub|p>\<in\>2\<bbb-Z\>>>>>>
+      </equation*>
+
+      \ Moreover, using the formula for integrating along the curve
+      <math|y=<sqrt|1-t<rsup|2>>> in <math|\<bbb-R\><rsup|2>>, one sees that
+
+      <\equation*>
+        <big|int><rsub|r<rsup|2>+s<rsup|2>=1;r,s\<gtr\>0><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|-\<nu\>>r<rsup|\<lambda\>+\<nu\>-n>r<rsup|p+a-1>s<rsup|q+b-1>d
+        r d s=<big|int><rsub|0><rsup|1><around*|\||1-2t<rsup|2>|\|><rsup|-\<nu\>><frac|1|<sqrt|1-t<rsup|2>>>t<rsup|\<lambda\>+\<nu\>-n+p+a-1><sqrt|1-t<rsup|2>><rsup|q+b-1>d
+        t
+      </equation*>
+
+      and therefore we can continue the chain of equalities above in case
+      <math|p\<gtr\>1> (case <math|p=1> is handled similarly) as
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|\<simeq\><big|int><rsub|0><rsup|\<pi\>><around*|\||cos\<varphi\>|\|><rsup|\<lambda\>+\<nu\>-n>cos<rsup|\<alpha\><rsub|p>>\<varphi\><rsup|>\<cdot\>sin<rsup|p-2>\<varphi\>d\<varphi\><big|int><rsub|0><rsup|1><around*|\||1-2t<rsup|2>|\|><rsup|-\<nu\>><frac|1|<sqrt|1-t<rsup|2>>>t<rsup|\<lambda\>+\<nu\>+a-n+p-1><sqrt|1-t<rsup|2>><rsup|q+b-1>d
+        t=>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||t|\|><rsup|\<lambda\>+\<nu\>-n>t<rsup|\<alpha\><rsub|p>><around*|(|1-t<rsup|2>|)><rsup|<around*|(|p-3|)>/2>d
+        t<big|int><rsub|0><rsup|1><around*|\||1-2t|\|><rsup|-\<nu\>><around*|(|1-t|)><rsup|<around*|(|q+b-2|)>/2>t<rsup|<around*|(|\<lambda\>+a+\<nu\>-q|)>/2-1>d
+        t\<simeq\>>|<cell|>>>>
+      </eqnarray>
+
+      and as we assume that <math|\<alpha\><rsub|p>\<in\>2\<bbb-Z\>>, we have
+      that
+
+      <\equation*>
+        <big|int><rsub|-1><rsup|1><around*|\||t|\|><rsup|\<lambda\>+\<nu\>-n>t<rsup|\<alpha\><rsub|p>><around*|(|1-t<rsup|2>|)><rsup|<around*|(|p-3|)>/2>d
+        t=2<big|int><rsub|0><rsup|1>t<rsup|\<lambda\>+\<nu\>-n+\<alpha\><rsub|p>><around*|(|1-t<rsup|2>|)><rsup|<around*|(|p-3|)>/2>d
+        t=2<big|int><rsub|0><rsup|1>t<rsup|<frac|\<lambda\>+\<nu\>-n+\<alpha\><rsub|p>-1|2>><around*|(|1-t|)><rsup|<frac|p-3|2>>d
+        t
+      </equation*>
+
+      thus we can continue as (using the expression for beta function)
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|\<simeq\><big|int><rsub|0><rsup|1>t<rsup|<frac|\<lambda\>+\<nu\>-n+\<alpha\><rsub|p>-1|2>><around*|(|1-t|)><rsup|<frac|p-3|2>>d
+        t<big|int><rsub|0><rsup|1><around*|\||1-2t|\|><rsup|-\<nu\>><around*|(|1-t|)><rsup|<around*|(|q+a-2|)>/2>t<rsup|<around*|(|\<lambda\>+b+\<nu\>-q|)>/2-1>d
+        t\<simeq\>>|<cell|>>|<row|<cell|>|<cell|\<simeq\><frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+\<alpha\><rsub|p>+1|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q+\<alpha\><rsub|p>|2>|)>><big|int><rsub|-1><rsup|1><around*|\||w|\|><rsup|-\<nu\>><around*|(|1-w|)><rsup|<around*|(|\<lambda\>+a+\<nu\>-q|)>/2-1><around*|(|1+w|)><rsup|<around*|(|q+b-2|)>/2>d
+        w\<simeq\>>|<cell|>>>>
+      </eqnarray>
+
+      and accidentally the latter expression holds also for <math|p=1>. Now,
+      using the (valid for regular enough values of parameters) expression
+
+      <\equation*>
+        <big|int><rsub|0><rsup|1><around*|(|1+t|)><rsup|-a><around*|(|1-t|)><rsup|c-1>t<rsup|b-1>d
+        t= <rsub|2>F<rsub|1><around*|(|a,b;b+c;-1|)><frac|\<Gamma\><around*|(|b|)>\<Gamma\><around*|(|c|)>|\<Gamma\><around*|(|b+c|)>>
+      </equation*>
+
+      we arrive at the expression
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||w|\|><rsup|-\<nu\>><around*|(|1-w|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2>d
+        w=>|<cell|>>|<row|<cell|>|<cell|=<big|int><rsub|0><rsup|1>w<rsup|-\<nu\>><around*|(|1-w|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2>d
+        w+<big|int><rsub|0><rsup|1>w<rsup|-\<nu\>><around*|(|1+w|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1><around*|(|1-w|)><rsup|<around*|(|q-2|)>/2>d
+        w=>|<cell|>>|<row|<cell|>|<cell|=
+        <rsub|2>F<rsub|1><around*|(|1-|)>>|<cell|>>>>
+      </eqnarray>
 
       \;
 
