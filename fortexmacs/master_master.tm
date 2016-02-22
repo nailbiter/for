@@ -9144,7 +9144,8 @@
 
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|\<simeq\><big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>\<omega\><rsup|\<alpha\><rsub|p>><rsub|p><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d\<omega\><big|int><rsub|r<rsup|2>+s<rsup|2>=1;r,s\<gtr\>0><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|-\<nu\>>r<rsup|\<lambda\>+\<nu\>-n>r<rsup|p-1>s<rsup|q-1>d
-        r d s=>|<cell|>>|<row|<cell|>|<cell|\<simeq\><big|int><rsub|-1><rsup|1><around*|\||t|\|><rsup|\<lambda\>+\<nu\>-n>t<rsup|\<alpha\><rsub|p>><around*|(|1-t<rsup|2>|)><rsup|<around*|(|p-1|)>>>|<cell|>>>>
+        r d s=>|<cell|>>|<row|<cell|>|<cell|\<simeq\><big|int><rsub|-1><rsup|1><around*|\||t|\|><rsup|\<lambda\>+\<nu\>-n>t<rsup|\<alpha\><rsub|p>><around*|(|1-t<rsup|2>|)><rsup|<around*|(|p-3|)>/2><around*|[|<big|int><rsub|\<bbb-S\><rsup|p-2>><wide|\<omega\>|~><rsup|<wide|\<alpha\>|~>>d<wide|\<omega\>|~>|]>d
+        t<big|int>>|<cell|>>>>
       </eqnarray>
 
       (here we passed to cylindrical coordinates in the integration in first
