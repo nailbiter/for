@@ -8089,7 +8089,7 @@
   </hide-part>
 
   <\hide-part|20>
-    q<section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>><label|sec:KP-normalization>
+    <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|P>>><label|sec:KP-normalization>
 
     Recall that in section <reference|sec:supp-P> we constructed a member of
     <math|\<cal-S\>ol<rsub|<around*|{|x<rsub|p>=0|}>><around*|(|Q;\<lambda\>,\<nu\>|)>>
@@ -8493,7 +8493,7 @@
       <math|\<bbb-C\><rsup|2>>. More precisely,
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=<around*|[|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|]>\<sqcup\><around*|[|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|]>,>|<cell|>>|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=<choice|<tformat|<table|<row|<cell|<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|p=1>>|<row|<cell|\<varnothing\>,>|<cell|p\<gtr\>1>>>>>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|>>|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cap\><around*|{|\<nu\>\<in\>I|}>,>|<cell|>>|<row|<cell|>|<cell|I\<assign\><choice|<tformat|<table|<row|<cell|\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>,>|<cell|q\<in\>2\<bbb-Z\>>>|<row|<cell|2\<bbb-Z\>,>|<cell|q\<in\>2\<bbb-Z\>+1>>>>>.>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=<around*|[|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|]>\<sqcup\><around*|[|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>|]>,>|<cell|>>|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=<choice|<tformat|<table|<row|<cell|<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|p=1>>|<row|<cell|\<varnothing\>,>|<cell|p\<gtr\>1>>>>>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|>>|<row|<cell|>|<cell|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>\<cap\><around*|{|\<nu\>\<in\>I|}>,>|<cell|>>|<row|<cell|>|<cell|I\<assign\><choice|<tformat|<table|<row|<cell|\<bbb-Z\><rsub|\<leqslant\>0>\<cup\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>+1|)>,>|<cell|q\<in\>2\<bbb-Z\>>>|<row|<cell|2\<bbb-Z\>,>|<cell|q\<in\>2\<bbb-Z\>+1.>>>>>>|<cell|>>>>
       </eqnarray>
     </proposition>
 
@@ -9092,19 +9092,19 @@
       From the way we did normalization it immediately follows that
 
       <\equation*>
-        \<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=\<frak-P\><rsub|-><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>.
+        \<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=\<frak-P\><rsub|-><rsub|><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>.
       </equation*>
 
       From this and proposition <reference|KR-normalization-recur:prop-supp>
       the expression for <math|\<frak-P\><rsub|-><around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>
       follows. Thus it remains to give an expression for
-      <math|\<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\\<around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
+      <math|\<frak-P\><rsub|-><rsub|><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>=-\<frak-P\><rsub|><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>.
 
       Now, the formulae of lemma <reference|KR-normalization-even:lem-gelfand>
       imply that for <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
 
       <\equation*>
-        \<frak-P\><rsub|-><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>=min<around*|{|\<frak-P\><rsub|-><around*|(|<frac|<around*|\<langle\>|<around*|\||Q|\|><rsup|-\<nu\>><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>,x<rsup|\<gamma\>>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>><mid|\|><rsub|\<lambda\>-\<nu\>=-2k>|)>|}><rsub|<around*|\||\<gamma\>|\|>=2k>
+        -\<frak-P\><rsub|><around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<cap\><around*|{|\<lambda\>-\<nu\>=-2k|}>=max<around*|{|\<frak-P\><rsub|><around*|(|<frac|<around*|\<langle\>|<around*|\||Q|\|><rsup|-\<nu\>><around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>,x<rsup|\<gamma\>>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>><mid|\|><rsub|\<lambda\>-\<nu\>=-2k>|)>|}><rsub|<around*|\||\<gamma\>|\|>=2k>
       </equation*>
 
       Note that the holomorphicity of an argument of
@@ -9137,8 +9137,8 @@
       and thus we may in subsequent assume that this is so. Hence, (as
       <math|<around*|\||\<gamma\>|\|>=<around*|\||\<alpha\>|\|>+<around*|\||\<beta\>|\|>=2k>)
       we can restrict ourselves to situation
-      <math|<around*|\||\<alpha\>|\|>=:2a\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
-      and <math|<around*|\||\<beta\>|\|>=:2b\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>.
+      <math|<around*|\||\<alpha\>|\|>=:a\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>
+      and <math|<around*|\||\<beta\>|\|>=:b\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>>.
       Then, we may continue as\ 
 
       <\eqnarray>
@@ -9203,73 +9203,68 @@
       </eqnarray>
 
       and accidentally the latter expression holds also for <math|p=1>. Now,
-      using the (valid for regular enough values of parameters) expression
-
-      <\equation*>
-        <big|int><rsub|0><rsup|1><around*|(|1+t|)><rsup|-a><around*|(|1-t|)><rsup|c-1>t<rsup|b-1>d
-        t= <rsub|2>F<rsub|1><around*|(|a,b;b+c;-1|)><frac|\<Gamma\><around*|(|b|)>\<Gamma\><around*|(|c|)>|\<Gamma\><around*|(|b+c|)>>
-      </equation*>
-
-      we arrive at the expression
+      using the (valid for regular enough values of parameters) formula
+      <math|<big|int><rsub|0><rsup|1><around*|(|1+t|)><rsup|-a><around*|(|1-t|)><rsup|c-1>t<rsup|b-1>d
+      t= <rsub|2>F<rsub|1><around*|(|a,b;b+c;-1|)>B<around*|(|b,c|)>> we
+      arrive at the expression
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||w|\|><rsup|-\<nu\>><around*|(|1-w|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2>d
-        w=>|<cell|>>|<row|<cell|>|<cell|=<big|int><rsub|0><rsup|1>w<rsup|-\<nu\>><around*|(|1-w|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2>d
-        w+<big|int><rsub|0><rsup|1>w<rsup|-\<nu\>><around*|(|1+w|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1><around*|(|1-w|)><rsup|<around*|(|q-2|)>/2>d
+        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||w|\|><rsup|-\<nu\>><around*|(|1-w|)><rsup|<around*|(|\<lambda\>+a+\<nu\>-q|)>/2-1><around*|(|1+w|)><rsup|<around*|(|q+b-2|)>/2>d
+        w=>|<cell|>>|<row|<cell|>|<cell|=<big|int><rsub|0><rsup|1>w<rsup|-\<nu\>><around*|(|1-w|)><rsup|<around*|(|\<lambda\>+a+\<nu\>-q|)>/2-1><around*|(|1+w|)><rsup|<around*|(|q+b-2|)>/2>d
+        w+<big|int><rsub|0><rsup|1>w<rsup|-\<nu\>><around*|(|1+w|)><rsup|<around*|(|\<lambda\>+\<nu\>+a-q|)>/2-1><around*|(|1-w|)><rsup|<around*|(|q+b-2|)>/2>d
         w=>|<cell|>>|<row|<cell|>|<cell|=
-        <rsub|2>F<rsub|1><around*|(|1-|)>>|<cell|>>>>
+        <rsub|2>F<rsub|1><around*|(|1-<frac|q+b|2>,1-\<nu\>;<frac|\<lambda\>-\<nu\>-q+a|2>+1;-1|)>B<around*|(|1\<um\>\<nu\>,<frac|\<lambda\>+\<nu\>-q+a|2>|)>+>|<cell|>>|<row|<cell|>|<cell|+<rsub|2>F<rsub|1><around*|(|1-<frac|\<lambda\>+\<nu\>-q+a|2>,1-\<nu\>;<frac|q+b|2>-\<nu\>+1;-1|)>B<around*|(|1-\<nu\>,<frac|q+b|2>|)>>|<cell|>>>>
       </eqnarray>
 
       \;
 
-      We now want to show that <math|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>>
-      is nonzero outside some discrete subset of <math|\<bbb-C\><rsup|2>>. In
-      the light of proposition <reference|KR-normalization-recur:prop-supp>
-      and the way we did the normalization, it suffices to show that for
-      every <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>> we have
-      <math|<wide|K|~><rsub|\<nu\>-2k,\<nu\>>> being nonzero outside some
-      discrete subset of <math|\<bbb-C\>>. Now, in the light of formulae of
-      lemma <reference|KR-normalization-even:lem-gelfand> it suffices to show
-      that <math|<around*|\<langle\>|K<rsub|\<nu\>-2k,\<nu\>><mid|\|><rsub|\<bbb-S\><rsup|n-1>>,x<rsub|p><rsup|2k>|\<rangle\>>>
-      vanishes only on a discrete subset of <math|\<bbb-C\>>. As this is
-      known to be holomorphic, it suffices to show that this function is
-      non-zero. We now note that for <math|Re<around*|(|-\<nu\>|)>,Re<around*|(|\<lambda\>+\<nu\>|)>\<gg\>0>
-      we have (changing to bipolar coordinates)
+      Now, as we assume that <math|\<lambda\>-\<nu\>=-2k=a+b>, we conclude
+      that both hypergeometric functions in the previous expression have
+      their first and third arguments being equal, and as we have an equality
+      (seen for example by recalling power series expansion of
+      <math|<rsub|2>F<rsub|1>>), <math|<rsub|2>F<rsub|1><around*|(|a,b;a,-1|)>=2<rsup|-b>>,
+      we can continue the above chain of equalities as
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><mid|\|><rsub|\<bbb-S\><rsup|n-1>>,x<rsub|p><rsup|2k>|\<rangle\>>=<frac|<around*|\<langle\>|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||Q|\|><rsup|-\<nu\>>,x<rsub|p><rsup|2k>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>>=<frac|1|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p><rsup|>|\|><rsup|\<lambda\>+2k+\<nu\>-n>d\<omega\>\<times\><big|int><rsub|0><rsup|1><around*|\||1-2x|\|><rsup|-\<nu\>>x<rsup|<frac|\<lambda\>+2k+\<nu\>-q|2>-1><around*|(|1-x|)><rsup|<frac|q-2|2>>d
-        x.>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|\<simeq\><frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+\<alpha\><rsub|p>+1|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q+\<alpha\><rsub|p>|2>|)>><around*|(|B<around*|(|1\<um\>\<nu\>,<frac|\<lambda\>+\<nu\>-q+a|2>|)>+B<around*|(|1-\<nu\>,<frac|q+b|2>|)>|)>=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+\<alpha\><rsub|p>+1|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q+\<alpha\><rsub|p>|2>|)>>\<Gamma\><around*|(|1-\<nu\>|)><around*|{|<frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q+a|2>|)>|\<Gamma\><around*|(|1+<frac|\<lambda\>-\<nu\>-q+a|2>|)>>+<frac|\<Gamma\><around*|(|<frac|q+b|2>|)>|\<Gamma\><around*|(|1-\<nu\>+<frac|q+b|2>|)>>|}>=>|<cell|>>>>
       </eqnarray>
 
-      and it is clear that the first two multiplicands on the right become
-      meromorphic in <math|\<nu\>> when we substitute
-      <math|\<lambda\>=\<nu\>-2k>, we (assuming
-      <math|<around*|\<langle\>|K<rsub|\<nu\>-2k,\<nu\>><mid|\|><rsub|\<bbb-S\><rsup|n-1>>,x<rsub|p><rsup|2k>|\<rangle\>>\<equiv\>0>
-      to get contradiction) are lead to conclude that
+      substituting <math|\<lambda\>=\<nu\>-2k> and <math|b=2k-a> the above
+      gets rewritten as
 
       <\equation*>
-        <big|int><rsub|0><rsup|1><around*|\||1-2x|\|><rsup|-\<nu\>>x<rsup|<frac|2\<nu\>-q|2>-1><around*|(|1-x|)><rsup|<frac|q-2|2>>d
-        x\<simeq\><big|int><rsub|-1><rsup|1><around*|\||w|\|><rsup|-\<nu\>><around*|(|1-w|)><rsup|\<nu\>-q/2-1><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2>d
-        w\<equiv\>0.
+        <frac|\<Gamma\><around*|(|<frac|2\<nu\>-2k-n+\<alpha\><rsub|p>+1|2>|)>|\<Gamma\><around*|(|<frac|2\<nu\>-2k-q+\<alpha\><rsub|p>|2>|)>>\<Gamma\><around*|(|1-\<nu\>|)><around*|{|<frac|\<Gamma\><around*|(|<frac|2\<nu\>-2k-q+a|2>|)>|\<Gamma\><around*|(|1+<frac|-2k-q+a|2>|)>>+<frac|\<Gamma\><around*|(|<frac|q+2k-a|2>|)>|\<Gamma\><around*|(|1-\<nu\>+<frac|q+2k-a|2>|)>>|}>.
       </equation*>
 
-      However, as we have
+      The reasoning at the beginning of the proof now suggests that it
+      suffices to find
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||w|\|><rsup|-\<nu\>><around*|(|1-w|)><rsup|\<nu\>-q/2-1><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2>d
-        w=<big|int><rsub|-1><rsup|-1/2>+<big|int><rsub|-1/2><rsup|1/2>+<big|int><rsub|1/2><rsup|1>>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|max<around*|{|\<frak-P\><rsub|><around*|(|<frac|\<Gamma\><around*|(|<frac|2\<nu\>-2k-n+\<alpha\><rsub|p>+1|2>|)>|\<Gamma\><around*|(|<frac|2\<nu\>-2k-q+\<alpha\><rsub|p>|2>|)>>\<times\>|\<nobracket\>>|\<nobracket\>>>|<cell|>>|<row|<cell|>|<cell|\<times\><around*|\<nobracket\>|<around*|\<nobracket\>|<frac|\<Gamma\><around*|(|1-\<nu\>|)>|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>><around*|{|<frac|\<Gamma\><around*|(|<frac|2\<nu\>-2k-q+a|2>|)>|\<Gamma\><around*|(|1+<frac|-2k-q+a|2>|)>>+<frac|\<Gamma\><around*|(|<frac|q+2k-a|2>|)>|\<Gamma\><around*|(|1-\<nu\>+<frac|q+2k-a|2>|)>>|}>|)>|}><rsub|<around*|(|\<alpha\><rsub|p>,a|)>\<in\>\<frak-I\>>>|<cell|>>>>
       </eqnarray>
 
-      and at <math|\<nu\>=1> the first and third addends on right-hand side
-      are holomorphic (note that <math|q\<in\>2\<bbb-Z\>+1> by hypothesis),
-      which the second has simple pole with residue proportional to
+      where <math|\<frak-I\>\<assign\><around*|{|<around*|(|\<alpha\><rsub|p>,a|)>\<in\><around*|(|2\<bbb-Z\><rsub|\<geqslant\>0>|)><rsup|2><mid|\|>\<alpha\><rsub|p>\<leqslant\>a\<leqslant\>2k|}>>.
+      Now, using the formulae <math|\<Gamma\><around*|(|1-z|)>\<Gamma\><around*|(|z|)>=\<pi\>/sin<around*|(|\<pi\>z|)>>
+      and <math|sin<around*|(|\<alpha\>|)>+sin<around*|(|\<beta\>|)>=2sin<around*|(|<around*|(|\<alpha\>+\<beta\>|)>/2|)>cos<around*|(|<around*|(|\<alpha\>-\<beta\>|)>/2|)>>,
+      we obtain
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|2\<nu\>-2k-q+a|2>|)>|\<Gamma\><around*|(|1+<frac|-2k-q+a|2>|)>>+<frac|\<Gamma\><around*|(|<frac|q+2k-a|2>|)>|\<Gamma\><around*|(|1-\<nu\>+<frac|q+2k-a|2>|)>>\<simeq\><frac|sin<frac|\<pi\>\<nu\>|2>cos<around*|[|\<pi\><around*|(|x-<frac|\<nu\>|2>|)>|]>|\<Gamma\><around*|(|1-x|)>\<Gamma\><around*|(|1+x-\<nu\>|)>sin<around*|[|\<pi\><around*|(|\<nu\>-x|)>|]>sin<around*|(|x|)>>\<simeq\>>|<cell|>>|<row|<cell|>|<cell|\<simeq\><frac|sin<frac|\<pi\>\<nu\>|2>cos<around*|[|\<pi\><around*|(|x-<frac|\<nu\>|2>|)>|]>|\<Gamma\><around*|(|1+x-\<nu\>|)>sin<around*|[|\<pi\><around*|(|\<nu\>-x|)>|]>>\<simeq\>sin<frac|\<pi\>\<nu\>|2>cos<around*|[|\<pi\><around*|(|x-<frac|\<nu\>|2>|)>|]>\<Gamma\><around*|(|\<nu\>-x|)><space|1em>,<space|0.6spc>x\<assign\><frac|q|2>+k-<frac|a|2>\<gtr\>0.>|<cell|>>>>
+      </eqnarray>
+
+      Thus we see that it is sufficient to compute
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|max<around*|{|A<rsub|\<alpha\><rsub|p>,a>+B<rsub|\<alpha\><rsub|p>,a>+C<rsub|\<alpha\><rsub|p>,a>+D<rsub|\<alpha\><rsub|p>,a>|}><rsub|<around*|(|\<alpha\><rsub|p>,a|)>\<in\>\<frak-I\>>>|<cell|>>|<row|<cell|>|<cell|A<rsub|\<alpha\><rsub|p>,a>\<assign\>\<frak-P\><around*|(|<frac|\<Gamma\><around*|(|1-\<nu\>|)>|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>>|)>=<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>|}>>|<cell|>>|<row|<cell|>|<cell|B<rsub|\<alpha\><rsub|p>,a>\<assign\>\<frak-P\><around*|(|<frac|\<Gamma\><around*|(|<frac|2\<nu\>-2k-n+\<alpha\><rsub|p>+1|2>|)>|\<Gamma\><around*|(|<frac|2\<nu\>-2k-n+1|2>|)>>|)>=-<around*|{|\<nu\>-k+<frac|1-n|2>=1-<frac|\<alpha\><rsub|p>|2>,2-<frac|\<alpha\><rsub|p>|2>,\<ldots\>,0|}>>|<cell|>>|<row|<cell|>|<cell|C<rsub|\<alpha\><rsub|p>,a>\<assign\>\<frak-P\><around*|(|<frac|\<Gamma\><around*|(|\<nu\>-<frac|q|2>-k+<frac|a|2>|)>|\<Gamma\><around*|(|<frac|2\<nu\>-2k-q+\<alpha\><rsub|p>|2>|)>>|)>=<around*|{|\<nu\>-<frac|q|2>-k+<frac|\<alpha\><rsub|p>|2>=1-<frac|a-\<alpha\><rsub|p>|2>,2-<frac|a-\<alpha\><rsub|p>|2>,\<ldots\>,0|}>>|<cell|>>|<row|<cell|>|<cell|D<rsub|\<alpha\><rsub|p>,a>\<assign\>\<frak-P\><around*|(|sin<frac|\<pi\>\<nu\>|2>cos<around*|[|\<pi\><around*|(|<frac|q+2k-a|2>-<frac|\<nu\>|2>|)>|]>|)>=-<around*|{|\<nu\>\<in\>2\<bbb-Z\>|}>-<around*|{|\<nu\>\<in\>1+q+2k-a+2\<bbb-Z\>|}>>|<cell|>>>>
+      </eqnarray>
+
+      hence
 
       <\equation*>
-        <around*|(|1-w|)><rsup|-q/2-1><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2><mid|\|><rsub|w=0>\<neq\>0,
+        max<around*|{|A<rsub|\<alpha\><rsub|p>,a>+B<rsub|\<alpha\><rsub|p>,a>+C<rsub|\<alpha\><rsub|p>,a>+D<rsub|\<alpha\><rsub|p>,a>|}><rsub|<around*|(|\<alpha\><rsub|p>,a|)>\<in\>\<frak-I\>>=-<around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<less\>0>|}>-<around*|{|\<nu\>\<in\>1+q+2\<bbb-Z\>|}>
       </equation*>
 
-      we see that pole at <math|\<nu\>=1> has nonzero residue, which
-      contradicts to assumption made and ends the proof.
+      and this directly implies the desired result.
     </proof>
   <|show-part>
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>><label|sec:KR-normalization-even>
@@ -9299,7 +9294,7 @@
 
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>=<choice|<tformat|<table|<row|<cell|\<bbb-C\><wide|K|~><rsup|<around*|{|0|}>><rsub|\<lambda\>,\<nu\>>\<oplus\>\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>,>|<cell|p\<gtr\>1,q\<in\>2\<bbb-Z\>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\>//>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>,>|<cell|p\<gtr\>1,q\<in\>2\<bbb-Z\>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\><rsup|>//<rsup|c>>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>,>|<cell|q\<in\>2\<bbb-Z\>+1>|<cell|>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>\<oplus\>\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>,>|<cell|p=1,q\<in\>2\<bbb-Z\>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\>
-        //\<cap\>\\\\<rsup|c>>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>>,>|<cell|p=1,q\<in\>2\<bbb-Z\>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\>
+        //\<cap\>\\\\<rsup|c>>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>,>|<cell|p=1,q\<in\>2\<bbb-Z\>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\>
         //<rsup|c>\<cup\>\\\\>>>>>>|<cell|>>|<row|<cell|>|<cell|<mid|\|><mid|\|>\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>,<space|1em>//\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|>>|<row|<cell|>|<cell|\\\\\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,<space|1em>A<rsup|c>\<assign\>\<bbb-C\><rsup|2>-A.>|<cell|>>>>
       </eqnarray>
     </proposition>

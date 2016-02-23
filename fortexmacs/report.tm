@@ -11,38 +11,39 @@
     </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
       Compute the zero set of <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>.
       It suffices to do so for <math|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>.
-    </cell>|<cell|>>>>>
+    </cell>|<cell|<with|font-series|bold|done>>>>>>
 
     \;
 
     <with|font-series|bold|What has been done (additional)>
 
     <\enumerate>
-      <item>
+      <item>Attended the conference in Kyushu;
+
+      <item>Read section 8.1 of Ahlfors's ``Complex Analysis''
+
+      <item>Read pp. 1-8 of Grauert's book on multivariable complex analysis
     </enumerate>
 
     <with|font-series|bold|What I plan to do during this week>:
 
     <\enumerate>
-      <item>Compute the zero set of <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>.
-      It suffices to do so for <math|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>.
-
       <item>Dimensional argument to explicitly determine
-      <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
-      for <math|q\<in\>2\<bbb-Z\>>.
+      <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>;
 
-      <item>Start reading some book on multivariable complex analysis
-      (perhaps, Hormander or Grauert) and Gelfand-Graev volume 2
+      <item>Continue reading Grauert's book on multivariable complex analysis
+      and Gelfand-Graev volume 2;
+
+      <item>Try to compute <math|c<rsub|\<lambda\>,\<nu\>>> constant in
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>1<rsub|\<lambda\>>=c<rsub|\<lambda\>,\<nu\>>1<rsub|\<nu\>>>
+      for <math|q\<in\>2\<bbb-Z\>+1> or at least determine precise location
+      of its poles/zeros.
     </enumerate>
 
     <with|font-series|bold|What I plan to do later>
 
     <\enumerate>
-      <item>Try to compute <math|c<rsub|\<lambda\>,\<nu\>>> constant in
-      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>1<rsub|\<lambda\>>=c<rsub|\<lambda\>,\<nu\>>1<rsub|\<nu\>>>
-      or at least determine precise location of its poles/zeros
-
-      <item>Determine functional equations and residue formulae
+      <item>Determine functional equations and residue formulae for SBOs;
 
       <item>Check <math|U<around*|(|p+1,q+1|)>\<supset\>U<around*|(|p,q+1|)>>,
       <math|Sp<around*|(||)>> settings for whether:
@@ -52,31 +53,10 @@
 
         <item>coset structure under the pullback;
 
-        <item>whether homogeneity is in place
+        <item>whether homogeneity is in place;
 
         <item>cosets intersect transversally (cf. wavefronts) afar from
-        origin
-      </enumerate>
-
-      <item>my own:
-
-      <\enumerate>
-        <item>Write up all
-
-        <\enumerate>
-          <item>write up pf
-
-          <item>modularize
-
-          <item>clean up KR-even and hooks (leave hooks? to compute constant
-          explicitly)
-        </enumerate>
-
-        <item>van Leeuven
-
-        <item>Feketa
-
-        <item>(Sano)
+        origin.
       </enumerate>
     </enumerate>
 
@@ -84,7 +64,16 @@
       Questions
     </with>
 
-    (empty)
+    <\enumerate>
+      <item>Am I right for the setting discussed in Kobayashi-Speh we have\ 
+
+      <\equation*>
+        Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>=Hom<rsub|G<rprime|'>><around*|(|J<around*|(|\<nu\>|)>,I<around*|(|\<lambda\>|)>|)>
+      </equation*>
+
+      so that the difference between SBOs from ``big'' representation to
+      ``small'' and from ``small'' to ``big'' becomes irrelevant?
+    </enumerate>
 
     <paragraph|Comments>
   <|show-part>
