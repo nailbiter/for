@@ -4,7 +4,7 @@
 
 <\body>
   <\show-part|2>
-    <section|report 36>
+    <section|report 37>
 
     <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
       <with|font-series|bold|What had to be done>
@@ -65,14 +65,8 @@
     </with>
 
     <\enumerate>
-      <item>Am I right for the setting discussed in Kobayashi-Speh we have\ 
-
-      <\equation*>
-        Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>=Hom<rsub|G<rprime|'>><around*|(|J<around*|(|\<nu\>|)>,I<around*|(|\<lambda\>|)>|)>
-      </equation*>
-
-      so that the difference between SBOs from ``big'' representation to
-      ``small'' and from ``small'' to ``big'' becomes irrelevant?
+      <item>If I will reproduce results of Kobayashi-Speh with use of Fourier
+      transform and F-method, will it be interesting as a separated article
     </enumerate>
 
     <paragraph|Comments>
