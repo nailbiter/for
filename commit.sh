@@ -1,8 +1,10 @@
 cd ~/for
 git add forlatex/*.tex
-git add forlatex/*.jpg
 git add forlatex/*.sty
+
+git add forlatex/*.jpg
 git add forlatex/*.png
+git add forlatex/*.eps
 
 git add gospels/*.tex
 git add gospels/*.txt

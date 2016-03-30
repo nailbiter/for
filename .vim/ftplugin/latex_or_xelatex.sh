@@ -25,5 +25,24 @@ then
     exit
 fi
 
+if [  $test = '%platex' ]
+then
+    latexmk -latex='platex %O %S' -outdir=foraux $1
+    fname=`echo $1 | cut -f1 -d'.'`
+    echo -e "*.pdf: *.dvi\n\tdvipdfmx $<" | make -C $tmp_dir  -f - $fname.pdf
+    echo platex
+    exit
+fi
+
+if [  $test = '%postscript' ]
+then
+    latexmk -latex='latex %O %S' -outdir=foraux $1
+    fname=`echo $1 | cut -f1 -d'.'`
+    echo -e "$tmp_dir/$fname.ps: $tmp_dir/$fname.dvi\n\tdvips -o $tmp_dir/$fname.ps $<" | make -f - $tmp_dir/$fname.ps
+    echo $test
+    exit
+fi
+
 latexmk -pdf -outdir=$tmp_dir $1
 echo eng
+

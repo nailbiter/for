@@ -1,0 +1,394 @@
+%platex
+%%%%%%%%%%%%%%%2015年度Annual Report用(学生)スタイルファイル%%%%%%%%%%%%%%%%%%%%%%%%
+%このFormatはpLaTex を使用しています。
+%以下に報告書の基本形が示してありますので、参考にしてお書き下さい。 
+%数字は２桁以上は全て半角で書いて下さい。 
+%文末の空白は必ず半角でお願いします。全角の空白は TeX では特殊文字と 
+%判断して問題を起こすことがあります。
+%数式はかならずmath mode でお願いいたします。 
+%事務局では校正をせずにprint out したものをそのまま印刷に回しますので、 
+%一度コンパイルして、スペルチェック、校正は必ず行なって下さい。 
+%まとめの編集の都合上、\newcommand, \renewcommand, \def の追加等はさけて下さいま%すようお願いいたします。
+
+
+
+\documentclass[a4j,twocolumn]{jarticle}
+
+\usepackage{amssymb,amsmath}
+\textheight=25cm
+\textwidth=15cm
+\parskip=0mm
+\parindent=0mm
+\topmargin=-1cm
+\oddsidemargin=5mm
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 新しい連絡先
+% 2016年度から所属や連絡先が変わる予定の方は連絡先（住所・メールアドレス）
+%をご記入下さい。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 2015年度　東大数理における該当する身分を選択し、それ以外の項目は
+% 削除して下さい。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%教授 (Professor) 
+%%准教授 (Associate Professor)
+%%助教 (Reseach Associates)
+%%特任教授 (Project Professor)
+%%特任准教授 (Project Associate Professor)
+%%特任助教 (Project Research Associate) 
+%%教育支援員 (Teaching Support Staffs)
+%%外国人客員教授・准教授 (Foreign Visiting (Associate) Professor)
+%%連携併任講座 (Special Visiting Chairs) 
+%%客員教授 (Visiting Professors) 
+%%学振特別研究員 (JSPS Fellow)
+%%特任研究員 (Project Researcher) 
+%%協力研究員 (Associate Fellows)
+%%博士課程学生 (Doctoral Course Students)
+修士課程学生 (Master's Course Student)
+%%研究生 (Research Student)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 氏名（ローマ字綴りで名字は全て大文字,名前は最初の字だけ大文字） 
+% を書いて下さい.
+%{\bf 数理 太郎 (SURI Taro)}
+%学生で学振DC1・学振DC2に該当する者は記入をして下さい。
+%学生でFMSPコース生に該当する者は記入して下さい。
+%\hspace{5cm}(学振DC1または学振DC2)
+%\hspace{5cm}(FMSPコース生)
+%というように
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+{\bf レオンチエフ　アレックス (LEONTIEV Oleksii)}
+%\hspace{5cm}(学振DC1または学振DC2)
+%\hspace{5cm}(FMSPコース生)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 索引用データ
+% 一人あたりAlphabet順索引・五十音順索引用に
+% ２行必要です。
+%
+% 日本人 
+% \index{アルファベット表記 (日本語表記)}
+% \index{かな読み@日本語表記}
+% 例
+% \index{TSUBOI Takashi (坪井 俊)}
+% \index{つぼいたかし@坪井 俊}
+%
+% 外国人(漢字表記なし)
+% \index{アルファベット表記}
+% \index{かな読み@カタカナ表記}
+% 例
+\index{Leontiev Oleksii}
+\index{れおんちえふ　あれっくす@レオンチエフ　アレックス}
+%
+% 外国人(漢字表記あり)
+% \index{アルファベット表記 (漢字表記)}
+% \index{かな読み@カタカナ表記}
+% 例
+% \index{LI Xiaolong (李 曉龍)}
+% \index{りしゃおろん@リ シャオロン}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\vspace{0.2cm}
+\noindent
+A. 研究概要
+
+\vspace{0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 研究の要約を日本語で,その下に英訳をつけて書いて下さい.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%和文%
+$G$ を Lie 群、$G'$ を $G$ の閉部分群とする。さらに、$(\pi,V)$と$(\tau,W)$を$G$と$G'$の表現とする。
+その時、$V$から$W$へ$G'$-線形作用素は対称性破れ作用素と呼ばれる。特に、$\pi$が無
+限次元で、$G'$ が非コンパクトの時、対称性破れ作用素の空間$\mbox{Hom}_{G'}(\pi\big|_{G'},\tau)$を
+具体的に求めるという問題はかなり難しい。しかし最近、$O(n + 1, 1) \supset O(n, 1)$ という特別な場合
+に、すべての対称性の破れ作用素が2014、2015年に小林俊行氏と B. Speh 氏によって
+完全に分類された。これはその問題の完全な答えとして、一番最初である。\\
+私の目的は小林俊行氏と B. Speh 氏によって発展された一般な手法によって、$(G, G') = (O(p+1,q),O(p,q))$
+の場合の対称性の破れ作用素を研究するということであった。
+具体的には、以下の問題を考えた:\\
+{\noindent}\textbf{問\textbf{1}.}{与えられた $( \lambda, \nu) \in
+\mathbb{C}^2$
+に対して、対称性の破れ作用素の空間 $\operatorname{Hom}_{G'}(I(\lambda),J(\nu))$ を具体的に求めよ。
+特に、この空間の基底を具体的に求めよ。ここで、$I(\lambda):=C^{\infty}\left(  G\times_P\mathbb{C}_\lambda\right)$
+と$J(\nu):=C^{\infty}\left( G'\times_{P'}\mathbb{C}_{\nu} \right)$は$G$と
+$G'$の退化主系列である。}\\
+私は本年度の研究において、この問題に完全な答えを与えた。さらに、
+具体的に作られた基底の元の特徴も調べた。
+
+
+
+\vspace{0.5cm}
+%英文%
+Let $G$ be a Lie group and $G'$ be its closed subgroup. Moreover, let $(\pi,V)$ and $(\tau,W)$ be representations of $G$ and $G'$
+respectively. Then, the $G'$-intertwining operator from $V$ to $W$ is called symmetry breaking operator. In particular, when 
+$\pi$ is infinitely-dimensional and $G'$ is non-compact, the problem of explicit description of space
+$\mbox{Hom}_{G'}(\pi\big|_{G'},\tau)$ of symmetry breaking operators becomes highly nontrivial. However, in their recent work 
+T. Kobayashi and B. Speh (2014,2015) were able to obtain the complete classification of symmetry breaking operators between
+the principal series in the setting $(G, G') = (O(n+1,1),O(n,1))$. To my knowledge, this is the first example of complete
+description of symmetry breaking operators.\\
+My goal was to classify symmetry breaking operators between the degenerate principal series representations for the setting
+$(G, G') = (O(p+1,q),O(p,q))$. More precisely, the following question was posed:\\
+{\noindent}\textbf{Question \textbf{1}.}{\itshape{For every pair $( \lambda, \nu) \in
+\mathbb{C}^2$, explicitly describe the space
+$\operatorname{Hom}_{G'}(I(\lambda),J(\nu))$ of symmetry breaking operators. In particular, find the explicit basis.
+Here $I(\lambda):=C^{\infty}\left(  G\times_P\mathbb{C}_\lambda\right)$
+and $J(\nu):=C^{\infty}\left( G'\times_{P'}\mathbb{C}_{\nu} \right)$ are the degenerate principal series representations of $G$ and
+$G'$respectively.}}\\
+During this year I was able to give a complete answer to the latter question. Besides, I've explicitly constructed basis
+elements and investigated their properties.
+
+
+
+
+%\\%
+\vspace{0.2cm}
+
+
+\noindent
+B. 発表論文
+\begin{enumerate}
+	\item O. Leontiev and P. Feketa, ``A new criterion for the roughness of exponential dichotomy on $\mathbb{R}$''. {\it
+		Miskolc Mathematical Notes}, 16(2): 987-994, 2015;
+\end{enumerate}
+
+\vspace{0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 5年以内(2011～2015年度)10篇まで書いて下さい。但し、2015年1月1日～ 
+% 2015年12月31日に出版されたものは、10篇を超えてもすべて含めて下さい。
+% 様式は以下の例のように
+% 著者・共著者名・ \lq\lq 題名・ジャーナル名・巻・年・ページの順に書いて下さい.
+% タイトルの前に著者・共著者名を入れる形です。
+% 共著の場合 T. Katsura and #.####などと書きwith 共著者名とはしない様に
+% お願い致します。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%\begin{enumerate}
+%\item G. van der Geer and T. Katsura：\lq\lq On a stratification of 
+%the moduli of K3 surfaces",
+%J.\ Eur.\ Math.\ Soc. {\bf 2} (2000) 259--290.
+%\end{enumerate}
+
+\vspace{0.2cm}
+\noindent
+C. 口頭発表
+\begin{enumerate}
+	\item N. Wallach ``Real Reductive Groups I'' Sec. 3.1--3.5 の解説,
+		リー群の表現論と群作用についての研究会,
+		玉原国際セミナーハウス, 2015 年 8 月.
+\end{enumerate}
+
+\vspace{0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% シンポジュームや学外セミナーでの発表で5年以内(2011～2015年度)10項目まで。 
+% タイトル・シンポジューム(またはセミナー等)名・場所・月・年を 
+% 書いて下さい.国際会議の場合は国名をお願いします.タイトルは原題で。 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%\begin{enumerate}
+%\item (1) 曲面の写像類群とは, (2) 写像類群をめぐるこれまでの結果と夢,
+%Encounter with Mathematics 第11回, 中央大学理工学部,
+%1999年4,5月.
+%\end{enumerate}
+
+\vspace{0.2cm}
+\noindent
+D. 講義 (学生さんは記入されなくてもよい。)
+
+\vspace{0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 講義名, 講義の種類,簡単な内容説明を1,2行でお願いします。 
+% 講義の種類は, 数理大学院・4年生共通講義, 理学部2年生(後期)・3年生向け講義, 
+% 教養学部前期課程講義, 教養学部基礎科学科講義, 
+% 集中講義のいずれかでお願いします。
+% 集中講義の場合は,場所と時期もお願いします。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{enumerate}
+%<例>\item 代数幾何学・代数学XG : 代数幾何の入門講義,代数多様体の定義 
+% などのほか, 代数多様体の変形理論を扱った.(数理大学院・4年生共通講義) 
+
+%\end{enumerate}
+
+\vspace{0.2cm}
+
+
+
+
+\noindent
+E. 修士・博士論文 (学生さんは記入されなくてもよい。)
+
+\vspace{0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 今年度に学位を取得した人の論文の指導教官または主査の方はお願いします。 
+% 学位を取得した人の名前を日本語・ローマ字名で,論文名は原題でお願いします。 
+% 論文博士か課程博士か修士かは氏名の前に書いて下さい。 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}
+	\item O. Leontiev , ``Study of symmetry breaking operators of indefinite orthogonal groups $O(p,q)$'', 東京大学修士論文
+		(2016).
+\end{enumerate}
+
+%\begin{enumerate}
+%<例>\item (論文博士)中山 昇(NAKAYAMA Noboru): On smooth exceptional 
+% curves in threefolds.
+%<例>\item (修士)高田 聖治(TAKADA Seiji): 正標数の代数曲面の cotangent 
+% bundle のstability と Bogomolov の不等式. 
+
+%\end{enumerate}
+
+\vspace{0.2cm}
+\noindent
+F. 対外研究サービス
+
+\vspace{0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 学会役員,雑誌のエディター,学外セミナーやシンポジュームのオーガナイザー等 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%\begin{enumerate}
+%\item
+
+
+%\end{enumerate}
+
+\vspace{0.2cm}
+\noindent
+G. 受賞
+
+\vspace{0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 過去５年の間にありましたら書いて下さい。 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{enumerate}
+	\item 文部科学省奨学金 (2014--2016).
+\end{enumerate}
+
+
+
+
+
+\vspace{0.2cm}
+\noindent
+
+H. 海外からのビジター
+
+%\vspace{0.1cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% JSPS等で海外からのビジターのホストになった方は、
+%% 研究内容,講演のスケジュール、内容などの簡単な紹介を英語で書いて下さい。 
+%% または、Ａ～同じように書いてもらってください。
+%% 人数が多い場合は、主なものを5件までとします。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% ☆その他
+% 研究会などのプログラムについては、下記のTex形式で作成をし、別のファイルとして
+%お送り下さい。
+%
+%以下の研究会のプログラム原稿は、提出されていますので改めて提出される必要は
+%ございません。
+%1. 表面・界面ダイナミクスの数理 IX
+%2.「佐武先生の数学・佐武先生の思い出」
+%3. Tokyo-Berkeley Summer School 
+%4. Trends in Modern Geometry & the 10th pacific Rim complex 
+%5. リーマン面に関連する位相幾何学
+%6. 表面・界面ダイナミクスの数理 X
+%7. MCM 2015 Autumn
+%8. Yakov Eliashberg　氏　連続講演会
+%9. 日本数学会異分野・異業研究交流会2015
+%10.高木レクチャー
+%11.日仏共同小研究集会「写像類群とタイミュラー空間の幾何学」
+%12.Rigidity School, Tokyo 2015
+%13.The 10-th Anniversary Tokyo-Seoul Conference in Mathematics 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[a4paper,10pt]{article}
+%\usepackage{amssymb,amsmath}
+%\begin{document}
+
+%\begin{Large}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\noindent
+%{\bf The 4th East Asian Conference on Algebraic Topology}
+%研究集会のタイトルをご記入下さい。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%{ }
+
+%\end{Large}
+
+%\vspace{2mm}
+
+%\begin{large}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\noindent
+%{December 5 -- December 9, 2011}
+%
+%\noindent
+%{Lecture Hall, Graduate School of Mathematical Sciences, 
+%The University of Tokyo}
+%研究集会の開催日、開催場所をご記入下さい。
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\noindent
+%{ }
+
+%\noindent
+%{ }
+
+%\vspace{2mm}
+
+%\noindent
+%{\bf Program}
+%\end{large}
+
+%\vspace{2mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\noindent
+%{\bf Monday, December 5}
+%
+%\vspace{2mm}
+%
+%\noindent
+%9:30 -- 10:15   {\bf Kazuo Habiro} (RIMS, Kyoto University)
+%
+%Quantum fundamental groups of 3-manifolds
+%上の例のように以下にプログラムを記入して下さい。
+%
+%
+%\end{document}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\vspace{0.2cm}
+\noindent
+%連携併任講座
+
+\vspace{0.1cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%連携併任講座の教官の世話人になった方は, その教官についての成果
+%(A)から(G)までをご報告ください.
+%（別頁に掲載致します）または書いていただくよう依頼をお願い致します
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\end{document} 

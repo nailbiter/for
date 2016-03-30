@@ -750,14 +750,18 @@
     <section|nice thm>
   </hide-part>
 
-  <\show-part|9>
+  <\hide-part|9>
     <section|playground>
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|\<varphi\><rsub|N><around*|[|g|]><around*|(|\<lambda\>,\<nu\>|)>\<assign\><choice|<tformat|<table|<row|<cell|\<Gamma\><around*|(|\<lambda\>+\<nu\>-n+1|)>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N\<upl\>2|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>+N-q|2>|)>,>|<cell|p\<gtr\>1>>|<row|<cell|1,>|<cell|p=1,N=0>>|<row|<cell|0,>|<cell|p=1,N\<gtr\>0>>>>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2><around*|(|1-y<rsup|2>|)><rsup|<around*|(|\<lambda\>+\<nu\>+N-q|)>/2-1>g<around*|(|x,y|)>d
       x d y.>|<cell|>>>>
     </eqnarray>
+  <|hide-part>
+    <section|playground>
+  </hide-part>
 
+  <\hide-part|10>
     <section|q=2 zeroset>
 
     <subsection|Auxilliary results (I)>
@@ -1173,8 +1177,102 @@
       <math|x<rsub|0>\<leqslant\>-2> and <math|x<rsub|0>-y<rsub|0>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>>,
       as <math|B<rsub|1>\<supset\><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-2,x-y\<leqslant\>0|}>>.
     </proof>
+  <|hide-part>
+    <section|q=2 zeroset>
+  </hide-part>
+
+  <\show-part|11>
+    <section|Dim argument>
+
+    <\proposition>
+      <label|dim-C:prop-main>With <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>
+      defined as in proposition <reference|KC-normalization-2:prop-normalization>
+      and <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>> as
+      in proposition <reference|diffSBO:prop-main> we have for
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<mid\>\<mid\>>
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>=<choice|<tformat|<table|<row|<cell|\<bbb-C\><wide|K|~><rsup|<around*|{|0|}>><rsub|\<lambda\>,\<nu\>>\<oplus\>\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>,>|<cell|p\<gtr\>1,q\<in\>2\<bbb-Z\>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\>//>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>,>|<cell|p\<gtr\>1,q\<in\>2\<bbb-Z\>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\><rsup|>//<rsup|c>>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>,>|<cell|q\<in\>2\<bbb-Z\>+1>|<cell|>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>\<oplus\>\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>,>|<cell|p=1,q\<in\>2\<bbb-Z\>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\>
+        //\<cap\>\\\\<rsup|c>>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>,>|<cell|p=1,q\<in\>2\<bbb-Z\>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\>
+        //<rsup|c>\<cup\>\\\\>>>>>>|<cell|>>|<row|<cell|>|<cell|<mid|\|><mid|\|>\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>,<space|1em>//\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,>|<cell|>>|<row|<cell|>|<cell|\\\\\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>,<space|1em>A<rsup|c>\<assign\>\<bbb-C\><rsup|2>-A.>|<cell|>>>>
+      </eqnarray>
+    </proposition>
+
+    <subsection|Proofs>
+
+    <\proof>
+      (of prop. <reference|dim-C:prop-main>) We will assume
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><mid|\|><mid|\|>> from the
+      outset and call by <math|\<pi\>> the rightmost homomorphism of the
+      exact sequence
+
+      <\equation*>
+        0\<rightarrow\>\<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<rightarrow\>\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<rightarrow\>\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|p,q>\\<around*|{|0|}>;\<lambda\>,\<nu\>|)>.
+      </equation*>
+
+      First, for <math|p\<gtr\>1,q\<in\>2\<bbb-Z\>> case, propositions
+      <reference|KC-normalization-2:prop-supp> and
+      <reference|supp-Q:prop-supp-xnoq0> readily show that <math|\<pi\>> is
+      onto hence the result \ for <math|p\<gtr\>1,q\<in\>\<bbb-Z\>> case.
+
+      Next, <math|p=1,q\<in\>2\<bbb-Z\>+1> case. Propositions
+      <reference|KC-normalization-2:prop-supp> and
+      <reference|supp-Q:prop-supp-xnoq0> show us that <math|\<pi\>> is onto,
+      unless <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>//>, in which case
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>> has support
+      <math|<around*|{|0|}>>, hence is an element of
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>>. It
+      suffices than to show that in this case <math|\<pi\>=0>. But this is
+      readily granted by lemma <reference|sol-MO:lem-zeromap-point> applied
+      for <math|S\<assign\>C> and <math|K<rsup|<around*|(|\<mu\>|)>>\<assign\><wide|K|~><rsub|\<mu\>+\<lambda\><rsub|0>,\<nu\><rsub|0>><rsup|C>>,
+      where we assume <math|<around*|(|\<lambda\><rsub|0>,\<nu\><rsub|0>|)>\<in\><around*|\|||\|>\<cap\>//>.
+      It is true that <math|<around*|(|d/d\<mu\>|)><mid|\|><rsub|\<mu\>=0>K<rsub|><rsup|<around*|(|\<mu\>|)>>>
+      is supported at <math|<around*|{|Q=0|}>>, as we recall that
+      <math|K<rsub|\<mu\>+\<lambda\><rsub|0>,\<nu\><rsub|0>><rsup|C>> (with
+      <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> defined as in proposition
+      <reference|supp-Q:prop-sol-extending>, so that
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>=K<rsub|\<lambda\>,\<nu\>><rsup|C>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>>)
+      has pole at <math|\<mu\>=0> and is supported at
+      <math|<around*|{|Q=0|}>> near <math|\<mu\>=0>.
+
+      Similarly, in <math|p\<gtr\>1,q\<in\>2\<bbb-Z\>+1> case the reasoning
+      goes literally the same as in previous paragraph.
+
+      Finalyl, for <math|q\<in\>2\<bbb-Z\>,p=1> case we reason as follows.
+      First of all, we note that for <math|q\<in\>2\<bbb-Z\>> and
+      <math|\<nu\>\<in\>2\<bbb-Z\>+1> we have <math|2\<nu\>-q\<equiv\>0 mod
+      2> and thus (keep in mind that <math|p=1>)
+
+      <\equation*>
+        \<lambda\>-min<around*|{|\<nu\>,q-\<nu\>|}>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>\<Leftrightarrow\>\<lambda\>-\<nu\>,\<lambda\>-q+\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>\<Leftrightarrow\><around*|(|\<lambda\>,\<nu\>|)>\<in\>
+        //\<cap\>\\\\.
+      </equation*>
+
+      Therefore, propositions <reference|KC-normalization-2:prop-supp> and
+      <reference|supp-Q:prop-supp-xnoq0> imply that <math|\<pi\>> is onto
+      unless <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\> //\<cap\>\\\\> and
+      hence for <math|<around*|(|\<lambda\>,\<nu\>|)>\<nin\>//\<cap\>\\\\> we
+      have <math|\<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>=\<bbb-C\><wide|K|~><rsup|C><rsub|\<lambda\>,\<nu\>>\<oplus\>\<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>
+      and therefore
+
+      <\equation*>
+        \<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>=<choice|<tformat|<table|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>\<oplus\>\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>,>|<cell|//<rsup|>\<cap\>\\\\<rsup|c>>>|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>,>|<cell|//<rsup|c>>>>>>
+      </equation*>
+
+      and lemma <reference|sol-MO:lem-zeromap-point> implies that for
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\> //\<cap\>\\\\> we have
+      <math|\<pi\>=0> and <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>
+      spans <math|\<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>,
+      hence
+
+      <\equation*>
+        \<cal-S\>ol<rsub|C><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>=<choice|<tformat|<table|<row|<cell|\<bbb-C\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C><rsup|<around*|{|0|}>>,>|<cell|//<rsup|>\<cap\>\\\\>>>>>
+      </equation*>
+
+      and altogether, these give an answer.
+    </proof>
   <|show-part>
-    <section|TODO>
+    <section|Dim argument>
   </show-part>
 </body>
 
@@ -1183,16 +1281,18 @@
 
 <\references>
   <\collection>
-    <associate|KR-normalization-even:fact-P-K|<tuple|18|?|#9>>
+    <associate|KR-normalization-even:fact-P-K|<tuple|18|?|#10>>
     <associate|KR-normalization-even:lem-1|<tuple|6|?>>
-    <associate|KR-normalization-even:lem-2|<tuple|20|?|#9>>
+    <associate|KR-normalization-even:lem-2|<tuple|20|?|#10>>
     <associate|KR-normalization-even:lem-3|<tuple|8|?>>
-    <associate|KR-normalization-even:lem-Poddeven|<tuple|19|?|#9>>
+    <associate|KR-normalization-even:lem-Poddeven|<tuple|19|?|#10>>
     <associate|KR-normalization-recur:eq-recur|<tuple|1|?|#2>>
     <associate|KR-normalization-recur:lem-recur|<tuple|3|?|#2>>
     <associate|KR-normalization-recur:prop-2|<tuple|4|?|#2>>
     <associate|KR-normalization-recur:prop-func-eq|<tuple|5|?|#3>>
     <associate|auto-1|<tuple|1|?>>
+    <associate|auto-10|<tuple|9.1|?>>
+    <associate|auto-11|<tuple|10|?>>
     <associate|auto-2|<tuple|2|?>>
     <associate|auto-3|<tuple|3|?>>
     <associate|auto-4|<tuple|4|?>>
@@ -1200,6 +1300,11 @@
     <associate|auto-6|<tuple|6|?>>
     <associate|auto-7|<tuple|7|?>>
     <associate|auto-8|<tuple|8|?>>
+    <associate|auto-9|<tuple|9|?>>
+    <associate|auto.10-1|<tuple|9|?|#10>>
+    <associate|auto.10-2|<tuple|9.1|?|#10>>
+    <associate|auto.11-1|<tuple|10|?|#11>>
+    <associate|auto.11-2|<tuple|10.1|?|#11>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
     <associate|auto.4-1|<tuple|3|?|#4>>
@@ -1212,9 +1317,11 @@
     <associate|auto.9-1|<tuple|8|?|#9>>
     <associate|auto.9-2|<tuple|9|?|#9>>
     <associate|auto.9-3|<tuple|9.1|?|#9>>
-    <associate|auto.9-4|<tuple|9.2|?|#9>>
+    <associate|auto.9-4|<tuple|10|?|#9>>
     <associate|auto.9-5|<tuple|9.3|?|#9>>
     <associate|def-n-nots:lem-commdiag|<tuple|17|?|#8>>
+    <associate|dim-C:lem-zeromap|<tuple|26|?|#11>>
+    <associate|dim-C:prop-main|<tuple|26|?|#11>>
     <associate|k-finite:def-holo|<tuple|15|?|#7>>
     <associate|k-finite:lem-KC-c0|<tuple|2|?|#1>>
     <associate|k-finite:prop-holo-to-holo|<tuple|16|?|#7>>
@@ -1226,11 +1333,11 @@
     <associate|lem-3-1|<tuple|12|?|#5>>
     <associate|lem-3-2|<tuple|13|?|#5>>
     <associate|lem-3-3|<tuple|14|?|#5>>
-    <associate|lem-5|<tuple|22|?|#9>>
-    <associate|lem-5n|<tuple|21|?|#9>>
-    <associate|lem-7|<tuple|24|?|#9>>
-    <associate|lem-8|<tuple|23|?|#9>>
-    <associate|lem-9|<tuple|25|?|#9>>
+    <associate|lem-5|<tuple|22|?|#10>>
+    <associate|lem-5n|<tuple|21|?|#10>>
+    <associate|lem-7|<tuple|24|?|#10>>
+    <associate|lem-8|<tuple|23|?|#10>>
+    <associate|lem-9|<tuple|25|?|#10>>
     <associate|sol:lem-Eequivhomog|<tuple|15|?|#7>>
   </collection>
 </references>
@@ -1239,6 +1346,12 @@
   <\collection>
     <\associate|bib>
       hormander1983analysis
+
+      kobayashi2015symmetry
+
+      kobayashi2015symmetry
+
+      kobayashi2015symmetry
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Unplugged
@@ -1269,9 +1382,21 @@
       thm> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-7><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>TODO>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>playground>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-8><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>q=2
+      zeroset> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-9><vspace|0.5fn>
+
+      <with|par-left|<quote|1.5fn>|9.1<space|2spc>Auxilliary results (I)
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-10>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Dim
+      argument> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-11><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

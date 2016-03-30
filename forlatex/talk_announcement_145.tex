@@ -1,0 +1,96 @@
+%postscript
+\documentclass{article}
+%\usepackage{fancybox}% http://ctan.org/pkg/fancybox
+\usepackage{pgfornament}
+\usetikzlibrary{calc}
+\usepackage{epsfig}
+\usepackage{pst-node}% http://ctan.org/pkg/pstricks
+\usepackage{xcolor}% http://ctan.org/pkg/xcolor
+\usepackage{eso-pic}% http://ctan.org/pkg/eso-pic
+\usepackage[T1,T2A]{fontenc}         % внутрішнє кодування шрифтів (може бути декілька);
+                                          % вказане останнім діє по замовчуванню;
+                                          % кириличне має співпадати з заданим в ukrhyph.tex.
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+                                          % може бути cp1251, koi8-u, macukr, iso88595, utf8.
+\usepackage[english,ukrainian]{babel} % національна локалізація; може бути декілька
+\begin{document} 
+\pagestyle{empty}
+\parindent 0pt
+
+\begin{titlepage}
+  \AddToShipoutPictureBG*{%
+    \begin{pspicture}(\paperwidth,\paperheight)
+      \psset{xunit=\the\paperwidth,yunit=\the\paperheight,nodesep=2cm}
+      \pnode(1,1){page.northeast}%
+      \pnode(0,0){page.southwest}%
+
+      \psframe[linestyle=dashed,linewidth=10pt,linecolor=orange!50]([angle=45]page.southwest)([angle=-135]page.northeast)
+    \end{pspicture}
+  }
+
+\newcommand{\hl}{\bigskip\hrule\bigskip}
+\pagestyle{empty}
+
+\setlength{\unitlength}{\textwidth}
+
+\begin{picture}(0,0)(0,-0.05)
+\put(-0.09,0){\epsfig{file=gerb145.eps,height=2cm}}
+\put(0.5,0.04){\makebox(0,0){\Large http://www.lic145.kiev.ua/}}
+\put(0.5,0.08){\makebox(0,0){\Large Київський природничо-науковий ліцей №145}}
+\put(0.5,-0.01){\makebox(0,0){\rule{\textwidth}{0.5pt}}}
+%\put(1,0){\makebox(0,0)[rb]{\epsfig{file=pics/gerb145.eps,height=1.8cm}}}
+\end{picture}
+
+\begin{center}
+{\huge \bf Переваги і недоліки навчання за кордоном\\
+для випускників ліцею №145}
+\bigskip
+
+{\Large 
+{\bfseries {\it Олексій Леонтьєв}} \\
+Tokyo University\\Graduate School of Mathematical Sciences, M.A.}
+\end{center}
+
+{\small Зміст: Протягом 8 років десь близько 40 випускників 145 ліцею стали студентами Тайванського National
+Chiao Tung University. Їх долі склалися по-різному: частина з них продовжує навчання в престижних університетах на Тайвані
+і не тільки (NTU (Тайвань), Chalmers U (Швеція), Princeton (США) тощо), дехто зараз працює в галузях торгівлі, електронної
+інженерії, програмування тощо. На прикладі мене і моїх знайомих я спробую пояснити переваги і недоліки навчання за кордоном (більш
+точно, переваги і недоліки вступу в NCTU), на що треба очікувати потрапивши туди і які перспективи відкриває цей крок.
+
+В 2009 році я потрапив на Тайвань, будучи випускником ліцею №145 разом із п’ятьма іншими хлопцями і дівчатами. Після цього я навчався
+в NCTU протягом 3.5 років (отримавши звання бакалавра з двох факультетів: програмування і прикладної математики)
+, провів семестр як студент за обміном в HKU (Гонконг), а також два роки в Tokyo University (Японія) де
+отримав звання магістра в області теорії представлень груп Лі. Володію англійською, китайською і японською мовами.
+}\\
+
+\bigskip
+\begin{center}
+\begin{tikzpicture}[every node/.style={inner sep=0pt}]
+\node[text width=8cm,align=center](Text){
+\begin{tabular}{ll}
+День:&(empty)\\
+Час:&(empty)\\
+Місце:&(empty)\\
+Мова:&російська\\
+\end{tabular}
+};
+\node[shift={(-1cm,1cm)},anchor=north west](CNW)
+at (Text.north west) {\pgfornament[width=1.75cm]{61}};
+\node[shift={(1cm,1cm)},anchor=north east](CNE)
+at (Text.north east) {\pgfornament[width=1.75cm,symmetry=v]{61}};
+\node[shift={(-1cm,-1cm)},anchor=south west](CSW)
+at (Text.south west) {\pgfornament[width=1.75cm,symmetry=h]{61}};
+\node[shift={(1cm,-1cm)},anchor=south east](CSE)
+at (Text.south east) {\pgfornament[width=1.75cm,symmetry=c]{61}};
+\pgfornamenthline{CNW}{CNE}{north}{82}
+\pgfornamenthline{CSW}{CSE}{south}{82}
+%%\pgfornamentvline{CNW}{CSW}{west}{82}
+%%\pgfornamentvline{CNE}{CSE}{east}{82}
+\end{tikzpicture}
+\end{center}
+\begin{center}
+\bigskip
+Запрошуємо усіх бажаючих!
+\end{center}
+\end{titlepage}
+\end{document}

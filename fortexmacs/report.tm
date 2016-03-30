@@ -4,49 +4,75 @@
 
 <\body>
   <\show-part|2>
-    <section|report 37>
+    <section|report 38>
 
     <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
       <with|font-series|bold|What had to be done>
     </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
-      Compute the zero set of <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>.
-      It suffices to do so for <math|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>.
-    </cell>|<cell|<with|font-series|bold|done>>>>>>
+      Determine functional equations and residue formulae for SBOs;
+    </cell>|<cell|<with|font-series|bold|not done> (see below for
+    discussion)>>|<row|<\cell>
+      Check <math|U<around*|(|p+1,q+1|)>\<supset\>U<around*|(|p,q+1|)>>
+      settings
+    </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
     \;
 
     <with|font-series|bold|What has been done (additional)>
 
     <\enumerate>
-      <item>Attended the conference in Kyushu;
-
-      <item>Read section 8.1 of Ahlfors's ``Complex Analysis''
-
-      <item>Read pp. 1-8 of Grauert's book on multivariable complex analysis
+      <item>
     </enumerate>
 
     <with|font-series|bold|What I plan to do during this week>:
 
     <\enumerate>
-      <item>Dimensional argument to explicitly determine
-      <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>;
+      <item>Read the following books/articles:
 
-      <item>Continue reading Grauert's book on multivariable complex analysis
-      and Gelfand-Graev volume 2;
+      <\enumerate>
+        <item>Volume 2 of Gelfand-Shilov
 
-      <item>Try to compute <math|c<rsub|\<lambda\>,\<nu\>>> constant in
-      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>1<rsub|\<lambda\>>=c<rsub|\<lambda\>,\<nu\>>1<rsub|\<nu\>>>
-      for <math|q\<in\>2\<bbb-Z\>+1> or at least determine precise location
-      of its poles/zeros.
-    </enumerate>
+        <item>Grauert, Fritzsche ``Several Complex variables''
 
-    <with|font-series|bold|What I plan to do later>
+        <item>M. Atiyah ``Resolution of singularities and division of
+        distributions''
+      </enumerate>
 
-    <\enumerate>
-      <item>Determine functional equations and residue formulae for SBOs;
+      <item>Find the constant <math|c<rsub|\<lambda\>,\<nu\>>>, so that
+      <math|A<rsub|\<lambda\>,\<nu\>>\<circ\>T<rsub|n-\<lambda\>,\<lambda\>>=c<rsub|\<lambda\>,\<nu\>>A<rsub|n-\<lambda\>,\<nu\>>>.
+      This task can be divided into following:
 
-      <item>Check <math|U<around*|(|p+1,q+1|)>\<supset\>U<around*|(|p,q+1|)>>,
-      <math|Sp<around*|(||)>> settings for whether:
+      <\enumerate>
+        <item>Show that <math|A<rsub|\<lambda\>,\<nu\>>\<circ\>T<rsub|n-\<lambda\>,\<lambda\>>=c<rsub|\<lambda\>,\<nu\>>A<rsub|n-\<lambda\>,\<nu\>>>
+        holds for <math|<around*|(|\<lambda\>,\<nu\>|)>> ``sufficiently
+        regular'' (<with|font-series|bold|done>);
+
+        <item>Explain what convolution of two kernels means, at least for
+        ``sufficiently regular'' parameters (perhaps, it cannot be defined
+        for general distributions, but we can use special properties of
+        kernels (e.g. homogeneity) to make sense of it);
+
+        <item>Explain why composition <math|A<rsub|\<lambda\>,\<nu\>>\<circ\>T<rsub|n-\<lambda\>,\<lambda\>>>
+        results in convolution of kernels;
+
+        <item>Prove that Fourier transforms of kernels of
+        <math|A<rsub|\<lambda\>,\<nu\>>> and
+        <math|T<rsub|n-\<lambda\>,\<lambda\>>> can be multiplied and that
+        Fourier transform of convolution of kernels equals to product of
+        Fourier transforms;
+
+        <item>Carry out the computations of <math|c<rsub|\<lambda\>,\<nu\>>>
+        when restricted to <math|Q\<gtr\>0> open subset (as Fourier
+        transforms of <math|A<rsub|\<lambda\>,\<nu\>>> and
+        <math|T<rsub|n-\<lambda\>,\<lambda\>>> take simpler form there);
+
+        <item>Using holomorphicity (meromorphicity?) argument, conclude that
+        <math|A<rsub|\<lambda\>,\<nu\>>\<circ\>T<rsub|n-\<lambda\>,\<lambda\>>=c<rsub|\<lambda\>,\<nu\>>A<rsub|n-\<lambda\>,\<nu\>>>
+        holds for all <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>.
+      </enumerate>
+
+      <item>Check <math|U<around*|(|p+1,q+1|)>\<supset\>U<around*|(|p,q+1|)>>
+      settings for whether:
 
       <\enumerate>
         <item><math|P<rsub|><rprime|'>N<rsub|-> P=G> holds;
@@ -60,13 +86,25 @@
       </enumerate>
     </enumerate>
 
+    <with|font-series|bold|What I plan to do later>
+
+    <\enumerate>
+      <item>Determine functional equations and residue formulae for SBOs
+    </enumerate>
+
     <\with|font-series|bold>
       Questions
     </with>
 
     <\enumerate>
-      <item>If I will reproduce results of Kobayashi-Speh with use of Fourier
-      transform and F-method, will it be interesting as a separated article
+      <item>Suppose we have homogeneous polynomial <math|g> in <math|p+q>
+      variables <math|<around*|{|x<rsub|i>|}><rsub|i=1><rsup|p>> and
+      <math|<around*|{|y<rsub|j>|}><rsub|j=1><rsup|q>>. Suppose it is
+      invariant under <math|O<around*|(|p-1,q|)>> (acting on
+      <math|\<bbb-R\><rsup|p,q>>, so that it fixes <math|x<rsub|p>>). Then it
+      can be shown that <math|g> is in fact polynomial in <math|x<rsub|p>>
+      and <math|<wide|Q|~>\<assign\><big|sum><rsub|i=1><rsup|p-1>x<rsub|i><rsup|2>-<big|sum><rsub|j=1><rsup|>y<rsub|j><rsup|2>>.
+      How to prove this?
     </enumerate>
 
     <paragraph|Comments>
