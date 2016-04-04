@@ -9764,7 +9764,7 @@
 
         <item>For <math|N<rsub|0>> as in proposition
         <reference|q-norm:prop-1>, <reference|q-norm:prop-2> or
-        <reference|q-norm:prop-pqzero> (whatever appropriate) we have
+        <reference|q-norm:prop-pqzero> (whichever is applicable) we have
         <math|<around*|\||Q|\|><rsup|\<lambda\>-n>/N<rsub|0>> extending to
         holomorphic in <math|\<lambda\>\<in\>\<bbb-C\>> nonvanishing element
         of <math|\<cal-S\>ol<rsub|<around*|(|G,G|)>><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,n-\<lambda\>|)>>.
