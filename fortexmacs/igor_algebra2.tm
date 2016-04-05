@@ -145,15 +145,78 @@
     <item>Trivially, <math|p<around*|(|1|)>=1>. As we have\ 
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|2=2=1+1>|<cell|>>|<row|<cell|>|<cell|3=3=1+2=1+1+1>|<cell|>>|<row|<cell|>|<cell|4=4=1+3=2+1+1=1+1+1+1>|<cell|>>|<row|<cell|>|<cell|5=5>|<cell|>>|<row|<cell|>|<cell|6=6>|<cell|>>|<row|<cell|>|<cell|7=>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|2=2=1+1;>|<cell|>>|<row|<cell|>|<cell|3=3=1+2=1+1+1;>|<cell|>>|<row|<cell|>|<cell|4=4=1+3=2+2=2+1+1=1+1+1+1;>|<cell|>>|<row|<cell|>|<cell|5=5=1+4=2+3=1+1+3=1+2+2=1+1+1+2=1+1+1+1+1;>|<cell|>>|<row|<cell|>|<cell|6=6=1+5=2+4=3+3=1+1+4=1+2+3=2+2+2=>|<cell|>>|<row|<cell|>|<cell|=1+1+1+3=1+1+2+2=1+1+1+1+2=1+1+1+1+1+1;>|<cell|>>|<row|<cell|>|<cell|7=7=1+6=2+5=3+4=1+1+5=1+2+4=1+3+3=1+1+1+4=>|<cell|>>|<row|<cell|>|<cell|=1+1+2+3=1+2+2+2=2+2+2+3=1+1+1+1+3=1+1+1+2+2=>|<cell|>>|<row|<cell|>|<cell|=1+1+1+1+1+2=1+1+1+1+1+1+1;>|<cell|>>>>
+    </eqnarray>
+
+    we have
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|p<around*|(|1|)>=1>|<cell|>>|<row|<cell|>|<cell|p<around*|(|2|)>=2>|<cell|>>|<row|<cell|>|<cell|p<around*|(|3|)>=3>|<cell|>>|<row|<cell|>|<cell|p<around*|(|4|)>=5>|<cell|>>|<row|<cell|>|<cell|p<around*|(|5|)>=7>|<cell|>>|<row|<cell|>|<cell|p<around*|(|6|)>=11>|<cell|>>|<row|<cell|>|<cell|p<around*|(|7|)>=15>|<cell|>>>>
     </eqnarray>
   </enumerate-alpha>
 
-  Exercise 37: 4, 5, 6, 7, 8
-
   <section|section 48>
 
-  Exercise 48: 9, 10, 11, 12, 13, 14`
+  Before doing these exercises, let's compile the following table:
+
+  <center|<block|<tformat|<table|<row|<cell|<math|x=>>|<cell|<math|<sqrt|2>>>|<cell|<math|<sqrt|3>>>|<cell|<math|<sqrt|5>>>>|<row|<cell|<math|\<tau\><rsub|2><around*|(|x|)>=>>|<cell|<math|-<sqrt|2>>>|<cell|<math|<sqrt|3>>>|<cell|<math|<sqrt|5>>>>|<row|<cell|<math|\<tau\><rsub|3><around*|(|x|)>>=>|<cell|<math|<sqrt|2>>>|<cell|<math|-<sqrt|3>>>|<cell|<math|<sqrt|5>>>>|<row|<cell|<math|\<tau\><rsub|5><around*|(|x|)>>=>|<cell|<math|<sqrt|2>>>|<cell|<math|<sqrt|3>>>|<cell|<math|-<sqrt|5>>>>>>>>
+
+  <\exercise>
+    exercise 9
+  </exercise>
+
+  According to the table above, <math|\<tau\><rsub|2><around*|(|<sqrt|3>|)>=<sqrt|3>>
+
+  <\exercise>
+    exercise 10
+  </exercise>
+
+  According to the table above, <math|\<tau\><rsub|2><around*|(|<sqrt|5>|)>=<sqrt|5>>.
+  Hence,
+
+  <\equation*>
+    \<tau\><rsub|2><around*|(|<sqrt|2>+<sqrt|5>|)>=\<tau\><rsub|2><around*|(|<sqrt|2>|)>+\<tau\><rsub|2><around*|(|<sqrt|5>|)>=-<sqrt|2>+<sqrt|5>
+  </equation*>
+
+  <\exercise>
+    exercise 11
+  </exercise>
+
+  We have
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|\<tau\><rsub|3>\<tau\><rsub|2><around*|(|<sqrt|2>+3<sqrt|5>|)>=\<tau\><rsub|3>\<tau\><rsub|2><around*|(|<sqrt|2>|)>+\<tau\><rsub|3>\<tau\><rsub|2><around*|(|<sqrt|3>|)>\<tau\><rsub|3>\<tau\><rsub|2><around*|(|<sqrt|3>|)>\<tau\><rsub|3>\<tau\><rsub|2><around*|(|<sqrt|5>|)>=>|<cell|>>|<row|<cell|>|<cell|=-<sqrt|2>+3<sqrt|5>>|<cell|>>>>
+  </eqnarray>
+
+  <\exercise>
+    exercise 12
+  </exercise>
+
+  We have
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<around*|(|\<tau\><rsub|5>\<tau\><rsub|3>|)><around*|(|<frac|<sqrt|2>-3<sqrt|5>|2<sqrt|3>-<sqrt|2>>|)>=<frac|\<tau\><rsub|5>\<tau\><rsub|3><around*|(|<sqrt|2>|)>-\<tau\><rsub|5>\<tau\><rsub|3><around*|(|<sqrt|3>|)><rsup|2>\<tau\><rsub|5>\<tau\><rsub|3><around*|(|<sqrt|5>|)>|\<tau\><rsub|5>\<tau\><rsub|3><around*|(|<sqrt|2>|)><rsup|2>\<tau\><rsub|5>\<tau\><rsub|3><around*|(|<sqrt|3>|)>-\<tau\><rsub|5>\<tau\><rsub|3><around*|(|<sqrt|2>|)>>=<frac|<sqrt|2>+3<sqrt|5>|-2<sqrt|3>-<sqrt|2>>.>|<cell|>>>>
+  </eqnarray>
+
+  <\exercise>
+    exercise 13
+  </exercise>
+
+  We have
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|\<tau\><rsub|5><rsup|2>\<tau\><rsub|3>\<tau\><rsub|2><around*|(|<sqrt|2>+<sqrt|45>|)>=\<tau\><rsub|5><rsup|2>\<tau\><rsub|3>\<tau\><rsub|2><around*|(|<sqrt|2>|)>+\<tau\><rsub|5><rsup|2>\<tau\><rsub|3>\<tau\><rsub|2><around*|(|<sqrt|3>|)><rsup|2>\<tau\><rsub|5><rsup|2>\<tau\><rsub|3>\<tau\><rsub|2><around*|(|<sqrt|5>|)>=>|<cell|>>|<row|<cell|>|<cell|=-<sqrt|2>+3<sqrt|5>.>|<cell|>>>>
+  </eqnarray>
+
+  <\exercise>
+    exercise 14
+  </exercise>
+
+  We have
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|\<tau\><rsub|3><around*|[|\<tau\><rsub|5><around*|(|<sqrt|2>-<sqrt|3>+<around*|(|\<tau\><rsub|2>\<tau\><rsub|5>|)><around*|(|<sqrt|30>|)>|)>|]>=>|<cell|>>|<row|<cell|>|<cell|=\<tau\><rsub|3>\<tau\><rsub|5><around*|(|<sqrt|2>|)>-\<tau\><rsub|3>\<tau\><rsub|5><around*|(|<sqrt|3>|)>+\<tau\><rsub|3>\<tau\><rsub|5>\<tau\><rsub|2>\<tau\><rsub|5><around*|(|<sqrt|2>|)>\<tau\><rsub|3>\<tau\><rsub|5>\<tau\><rsub|2>\<tau\><rsub|5><around*|(|<sqrt|3>|)>\<tau\><rsub|3>\<tau\><rsub|5>\<tau\><rsub|2>\<tau\><rsub|5><around*|(|<sqrt|5>|)>=>|<cell|>>|<row|<cell|>|<cell|=<sqrt|2>+<sqrt|3>+<sqrt|30>.>|<cell|>>>>
+  </eqnarray>
 </body>
 
 <\initial>
@@ -176,6 +239,10 @@
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|section
       37> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|section
+      48> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
