@@ -761,7 +761,7 @@
     <section|playground>
   </hide-part>
 
-  <\hide-part|10>
+  <\show-part|10>
     <section|q=2 zeroset>
 
     <subsection|Auxilliary results (I)>
@@ -1177,11 +1177,18 @@
       <math|x<rsub|0>\<leqslant\>-2> and <math|x<rsub|0>-y<rsub|0>\<in\>-\<bbb-Z\><rsub|\<geqslant\>0>>,
       as <math|B<rsub|1>\<supset\><around*|{|<around*|(|x,y|)>\<in\>\<bbb-Z\><rsup|2><mid|\|>y\<leqslant\>-2,x-y\<leqslant\>0|}>>.
     </proof>
-  <|hide-part>
-    <section|q=2 zeroset>
-  </hide-part>
 
-  <\show-part|11>
+    \;
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<frac|\<varphi\><rsub|N><around*|[|<around*|(|x
+      y|)><rsup|i><around*|(|1-x<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-y<rsup|2>|)><rsup|m<rprime|'>><rsup|>|]>|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+\<nu\>-n+1|)>/2|)>>=2<rsup|\<lambda\>><choice|<tformat|<table|<row|<cell|<frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+2|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>>,>|<cell|p\<gtr\>1>>|<row|<cell|1,>|<cell|p=1,N=0>>|<row|<cell|0,>|<cell|p=1,N\<gtr\>0>>>>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>|2>+m<rprime|'>+<frac|N-q|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>|2>+<frac|N-q|2>|)>>\<times\>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>+m<rprime|'>+n<rprime|'>+<frac|N|2>|)>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><choice|<tformat|<table|<row|<cell|<frac|<around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-1|)><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-3|)>\<ldots\><around*|(|\<lambda\>+2m<rprime|'>+N-q+1|)>|\<Gamma\><rsup|><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N|)>>,>|<cell|i=0>>|<row|<cell|<frac|<around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-1|)><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-3|)>\<ldots\><around*|(|\<lambda\>+2m<rprime|'>+N-q+1|)>|\<Gamma\><rsup|><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N+1|)>>,>|<cell|i=1>>>>>\<times\>>|<cell|<lprime|`>>>|<row|<cell|>|<cell|\<times\><around*|(|\<nu\>-1|)><rsup|-1><around*|(|\<nu\>-3|)><rsup|-1>\<ldots\><around*|(|\<nu\>-q-2n<rprime|'>+1|)><rsup|-1><frac|1|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>>\<times\><choice|<tformat|<table|<row|<cell|1,>|<cell|i=0>>|<row|<cell|\<nu\>,>|<cell|i=1>>>>>\<simeq\>>|<cell|>>|<row|<cell|>|<cell|\<simeq\><choice|<tformat|<table|<row|<cell|<frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+2|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>>,>|<cell|p\<gtr\>1>>|<row|<cell|1,>|<cell|p=1,N=0>>|<row|<cell|0,>|<cell|p=1,N\<gtr\>0>>>>>\<times\><frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>|2>+m<rprime|'>+<frac|N-q|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>|2>+<frac|N-q|2>|)>>\<times\>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>+m<rprime|'>+n<rprime|'>+<frac|N|2>|)>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><frac|<around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-1|)><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-3|)>\<ldots\><around*|(|\<lambda\>+2m<rprime|'>+N-q+1|)>|\<Gamma\><rsup|><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N+i|)>>\<times\><frac|\<nu\><rsup|i>|\<Gamma\><around*|(|<frac|q+2n<rprime|'>+1-\<nu\>|2>|)>>>|<cell|>>>>
+    </eqnarray>
+  <|show-part>
+    <section|q=2 zeroset>
+  </show-part>
+
+  <\hide-part|11>
     <section|Dim argument>
 
     <\proposition>
@@ -1271,9 +1278,9 @@
 
       and altogether, these give an answer.
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|Dim argument>
-  </show-part>
+  </hide-part>
 </body>
 
 <initial|<\collection>
