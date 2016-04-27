@@ -166,8 +166,8 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-34>>
 
-      <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>The
-      solutions <with|mode|math|\<cal-S\>ol<around*|(|<around*|{|Q\<neq\>0|}>;\<lambda\>,\<nu\>|)>>>
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>Determination
+      of <with|mode|math|\<cal-S\>ol<around*|(|<around*|{|Q\<neq\>0|}>;\<lambda\>,\<nu\>|)>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-35><vspace|0.5fn>
 
@@ -316,42 +316,62 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-69>>
 
-      <with|par-left|1.5fn|19.3<space|2spc>Proofs
+      <with|par-left|1.5fn|19.3<space|2spc>Auxiliary results (II)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-70>>
 
-      <vspace*|1fn><with|font-series|bold|math-font-series|bold|20<space|2spc>Determination
-      of <with|mode|math|\<cal-S\>ol<rsub|<around*|{|Q=0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>>
+      <with|par-left|1.5fn|19.4<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-71><vspace|0.5fn>
+      <no-break><pageref|auto-71>>
+
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|20<space|2spc>Determination
+      of <with|mode|math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-72><vspace|0.5fn>
 
       <with|par-left|1.5fn|20.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-72>>
-
-      <with|par-left|1.5fn|20.2<space|2spc>Auxiliary lemmas
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-73>>
 
-      <with|par-left|1.5fn|20.3<space|2spc>Proofs
+      <with|par-left|1.5fn|20.2<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-74>>
 
+      <with|par-left|1.5fn|20.3<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-75>>
+
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|21<space|2spc>Application:
       Knapp-Stein operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-75><vspace|0.5fn>
+      <no-break><pageref|auto-76><vspace|0.5fn>
 
       <with|par-left|1.5fn|21.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-76>>
+      <no-break><pageref|auto-77>>
 
       <with|par-left|1.5fn|21.2<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-77>>
+      <no-break><pageref|auto-78>>
+
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|22<space|2spc>Formula>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-79><vspace|0.5fn>
+
+      <with|par-left|1.5fn|22.1<space|2spc>Main results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-80>>
+
+      <with|par-left|1.5fn|22.2<space|2spc>Auxiliary lemmas
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-81>>
+
+      <with|par-left|1.5fn|22.3<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-82>>
 
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-78><vspace|0.5fn>
+      <no-break><pageref|auto-83><vspace|0.5fn>
     </table-of-contents>
 
     <surround|<assign|sone|<macro|<math|<mybra|<D><rprime|'><around|(|G\<times\><rsub|P><C><rsub|\<lambda\>-n>|)>\<otimes\><C><rsub|\<nu\>>><rsup|\<Delta\><around|(|P<rprime|'>|)>>>>><assign|Upp|<macro|<mysetn|(x,y)\<in\><R><rsup|p,q>|x\<neq\>0,<space|0.75spc>y\<neq\>0>>><assign|Stab|<macro|O(p,q)<rsub|e<rsub|p>>>><assign|sol*|<macro|1|<with|math-font|cal|S>ol(<arg|1>;\<lambda\>,\<nu\>)>><assign|sol|<macro|<sol*|<R><rsup|p,q>>>><assign|solXi|<macro|<sol*|\<Xi\>>>>||>
@@ -502,8 +522,8 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-34>>
 
-      <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>The
-      solutions <with|mode|math|\<cal-S\>ol<around*|(|<around*|{|Q\<neq\>0|}>;\<lambda\>,\<nu\>|)>>>
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>Determination
+      of <with|mode|math|\<cal-S\>ol<around*|(|<around*|{|Q\<neq\>0|}>;\<lambda\>,\<nu\>|)>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-35><vspace|0.5fn>
 
@@ -652,42 +672,62 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-69>>
 
-      <with|par-left|1.5fn|19.3<space|2spc>Proofs
+      <with|par-left|1.5fn|19.3<space|2spc>Auxiliary results (II)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-70>>
 
-      <vspace*|1fn><with|font-series|bold|math-font-series|bold|20<space|2spc>Determination
-      of <with|mode|math|\<cal-S\>ol<rsub|<around*|{|Q=0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>>
+      <with|par-left|1.5fn|19.4<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-71><vspace|0.5fn>
+      <no-break><pageref|auto-71>>
+
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|20<space|2spc>Determination
+      of <with|mode|math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-72><vspace|0.5fn>
 
       <with|par-left|1.5fn|20.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-72>>
-
-      <with|par-left|1.5fn|20.2<space|2spc>Auxiliary lemmas
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-73>>
 
-      <with|par-left|1.5fn|20.3<space|2spc>Proofs
+      <with|par-left|1.5fn|20.2<space|2spc>Auxiliary results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-74>>
 
+      <with|par-left|1.5fn|20.3<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-75>>
+
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|21<space|2spc>Application:
       Knapp-Stein operator> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-75><vspace|0.5fn>
+      <no-break><pageref|auto-76><vspace|0.5fn>
 
       <with|par-left|1.5fn|21.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-76>>
+      <no-break><pageref|auto-77>>
 
       <with|par-left|1.5fn|21.2<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-77>>
+      <no-break><pageref|auto-78>>
+
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|22<space|2spc>Formula>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-79><vspace|0.5fn>
+
+      <with|par-left|1.5fn|22.1<space|2spc>Main results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-80>>
+
+      <with|par-left|1.5fn|22.2<space|2spc>Auxiliary lemmas
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-81>>
+
+      <with|par-left|1.5fn|22.3<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-82>>
 
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-78><vspace|0.5fn>
+      <no-break><pageref|auto-83><vspace|0.5fn>
     </table-of-contents>
   </hide-part>
 
@@ -1082,7 +1122,7 @@
     <section|Introduction>
   </hide-part>
 
-  <\show-part|4>
+  <\hide-part|4>
     <section|Holomorphicity preserving><label|sec:holomorphicity-preserving>
 
     In this note we attempt to inspect a few operations on distributions
@@ -1945,9 +1985,9 @@
       uniformly bounded in <math|j> on compacta of <math|Y>. But the latter
       is implied by continuity of <math|u> and this ends the proof.
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|Holomorphicity preserving><label|sec:holomorphicity-preserving>
-  </show-part>
+  </hide-part>
 
   <\hide-part|5>
     <section|Miscellaneous results related to
@@ -4557,7 +4597,7 @@
     <section|Double coset decomposition <math|P<rprime|'>\\G/P>><label|sec:doublePGP>
   </hide-part>
 
-  <\hide-part|11>
+  <\show-part|11>
     \ <section|<math|\<cal-S\>ol<rsub|><around*|(|U;\<lambda\>,\<nu\>|)>> and
     related notions><label|sec:sol>
 
@@ -4625,7 +4665,7 @@
         and <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>> we
         have <math|u\<in\>\<cal-S\>ol<around*|(|U;\<lambda\>,\<nu\>|)>\<Leftrightarrow\>\<forall\>i\<in\>\<Lambda\>,<space|0.6spc>u<mid|\|><rsub|U<rsub|i>>\<in\>\<cal-S\>ol<around*|(|U<rsub|i>;\<lambda\>,\<nu\>|)>>;
 
-        <item>When <math|U> is an open cone, item 3 is equivalent to the
+        <item>when <math|U> is an open cone, item 3 is equivalent to the
         usual definition of homogeneity of order <math|\<lambda\>-\<nu\>-n>;
       </enumerate>
     </remark>
@@ -4924,10 +4964,10 @@
       of remark after the definition <reference|sol:def-sol>, the conclusion
       is implied by lemma <reference|sol:lem-holodep>.
     </proof>
-  <|hide-part>
+  <|show-part>
     \ <section|<math|\<cal-S\>ol<rsub|><around*|(|U;\<lambda\>,\<nu\>|)>> and
     related notions><label|sec:sol>
-  </hide-part>
+  </show-part>
 
   <\hide-part|12>
     <section|Non-equivalence of <math|N<rsub|+><rprime|'>>-invariance and
@@ -6854,7 +6894,6 @@
       holomorphic on <math|\<Omega\>>, we have
       <math|<around*|(|K<rsub|\<mu\>>|)><rsup|\<Xi\>>> being holomorphic in
       <math|\<cal-D\><rprime|'><rsub|\<Gamma\><rsub|\<Xi\>>><around*|(|\<Xi\>|)>>.
-      <math|>
     </proposition>
 
     <\proposition>
@@ -8517,7 +8556,8 @@
     <subsection|Auxiliary results>
 
     <\lemma>
-      <label|KR-normalization-even:lem-kfinite-00-aux>We have
+      <label|KR-normalization-even:lem-kfinite-00-aux>We have for
+      <math|q\<in\>2\<bbb-Z\>>
 
       <\equation*>
         <big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2><around*|(|1-y<rsup|2>|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1><around*|\||x-y|\|><rsup|-\<nu\>>d
@@ -9910,6 +9950,109 @@
   </hide-part>
 
   <\hide-part|24>
+    <section|Formula>
+
+    <subsection|Main results>
+
+    <\proposition>
+      <label|prop-formula>The following identity holds:
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2><around*|(|1-y<rsup|2>|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1>d
+        x d y=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>cos<around*|(|<frac|\<lambda\>\<pi\>|2>|)>\<Gamma\><around*|(|<frac|-q+\<nu\>+\<lambda\>|2>|)>sin<around*|(|<frac|\<pi\><around*|(|\<lambda\>+\<nu\>-q|)>|2>|)>\<Gamma\><around*|(|<frac|q|2>|)>\<Gamma\><around*|(|<frac|q-\<lambda\>+1|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)><sqrt|\<pi\>>sin<around*|(|<frac|<around*|(|\<lambda\>+\<nu\>|)>\<pi\>|2>|)>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>.>|<cell|>>>>
+      </eqnarray>
+    </proposition>
+
+    <subsection|Auxiliary lemmas>
+
+    <subsection|Proofs>
+
+    <\proof>
+      (of prop. <reference|prop-formula>) Before going to manipulations, we
+      note that every single of them can be justified for
+      <math|<around*|(|\<lambda\>,\<nu\>|)>> lying in some open domain in
+      <math|\<bbb-C\><rsup|2>> and then extended by analytic continuation. We
+      proceed with the following chain of identities:
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2>d
+        x=<big|int><rsub|-1-y><rsup|1-y><around*|\||w|\|><rsup|-\<nu\>><around*|(|1-<around*|(|w+y|)>|)><rsup|<around*|(|q-2|)>/2><around*|(|1+<around*|(|w+y|)>|)><rsup|<around*|(|q-2|)>/2>d
+        w=<rsup|>>|<cell|>>|<row|<cell|>|<cell|=<big|int><rsub|0><rsup|1-y><around*|\||w|\|><rsup|-\<nu\>><around*|(|<around*|(|1-y|)>-w|)><rsup|<around*|(|q-2|)>/2><around*|(|w+<around*|(|1+y|)>|)><rsup|<around*|(|q-2|)>/2>d
+        w+>|<cell|>>|<row|<cell|>|<cell|+<big|int><rsub|0><rsup|1+y><around*|\||w|\|><rsup|-\<nu\>><around*|(|<around*|(|1+y|)>-w|)><rsup|<around*|(|q-2|)>/2><around*|(|w+<around*|(|1-y|)>|)><rsup|<around*|(|q-2|)>/2>d
+        w=>|<cell|>>>>
+      </eqnarray>
+    </proof>
+
+    We now recall the formula <cite-detail|gradshteinryzhik|ET II 186(9),
+    p.315>:
+
+    <\equation*>
+      <big|int><rsub|0><rsup|u>x<rsup|\<nu\>-1><around*|(|x+\<alpha\>|)><rsup|\<lambda\>><around*|(|u-x|)><rsup|\<mu\>-1>=\<alpha\><rsup|\<lambda\>>u<rsup|\<mu\>+\<nu\>-1>B<around*|(|\<mu\>,\<nu\>|)><rsub|2>F<rsub|1><around*|(|-\<lambda\>,\<nu\>;\<mu\>+\<nu\>;-<frac|u|\<alpha\>>|)>.
+    </equation*>
+
+    applying it to both addends allows us to continue the above chain as
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|=<around*|(|1+y|)><rsup|<around*|(|q-2|)>/2><around*|(|1-y|)><rsup|q/2-\<nu\>>B<around*|(|<frac|q|2>,1-\<nu\>|)><space|0.2spc><rsup|><rsub|2>F<rsub|1><around*|(|<frac|2-q|2>,1-\<nu\>;<frac|q|2>+1-\<nu\>;-<frac|1-y|1+y>|)><rsub|>+>|<cell|>>|<row|<cell|>|<cell|+<around*|(|1-y|)><rsup|<around*|(|q-2|)>/2><around*|(|1+y|)><rsup|q/2-\<nu\>>B<around*|(|<frac|q|2>,1-\<nu\>|)><space|0.2spc><rsup|><rsub|2>F<rsub|1><around*|(|<frac|2-q|2>,1-\<nu\>;<frac|q|2>+1-\<nu\>;-<frac|1+y|1-y>|)><rsub|>.>|<cell|>>>>
+    </eqnarray>
+
+    Substitituting this into the left-hand side of the equality we seek to
+    prove, one arrives at
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2><around*|(|1-y<rsup|2>|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1>d
+      x d y=>|<cell|>>|<row|<cell|>|<cell|=B<around*|(|<frac|q|2>,1-\<nu\>|)><big|int><rsub|-1><rsup|1><around*|(|1+y|)><rsup|<frac|\<lambda\>+\<nu\>|2>-2><around*|(|1-y|)><rsup|<frac|\<lambda\>-\<nu\>|2>-1><space|0.2spc><rsup|><rsub|2>F<rsub|1><around*|(|<frac|2-q|2>,1-\<nu\>;<frac|q|2>+1-\<nu\>;-<frac|1-y|1+y>|)>d
+      y+>|<cell|>>|<row|<cell|>|<cell|+B<around*|(|<frac|q|2>,1-\<nu\>|)><big|int><rsub|-1><rsup|1><around*|(|1-y|)><rsup|<frac|\<lambda\>+\<nu\>|2>-2><around*|(|1+y|)><rsup|<frac|\<lambda\>-\<nu\>|2>-1><space|0.2spc><rsup|><rsub|2>F<rsub|1><around*|(|<frac|2-q|2>,1-\<nu\>;<frac|q|2>+1-\<nu\>;-<frac|1+y|1-y>|)>d
+      y=>|<cell|>>>>
+    </eqnarray>
+
+    and doing the variable change <math|y\<leftarrow\> -y> in the second
+    integral, we continue as
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|=2B<around*|(|<frac|q|2>,1-\<nu\>|)><big|int><rsub|-1><rsup|1><around*|(|1+y|)><rsup|<frac|\<lambda\>+\<nu\>|2>-2><around*|(|1-y|)><rsup|<frac|\<lambda\>-\<nu\>|2>-1><space|0.2spc><rsup|><rsub|2>F<rsub|1><around*|(|<frac|2-q|2>,1-\<nu\>;<frac|q|2>+1-\<nu\>;-<frac|1-y|1+y>|)>d
+      y=>|<cell|>>>>
+    </eqnarray>
+
+    Now, we use the series expansion\ 
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<rsub|2>F<rsub|1><around*|(|\<alpha\>,\<beta\>;\<gamma\>;x|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|\<alpha\>|)><rsub|n><around*|(|\<beta\>|)><rsub|n>|n!<around*|(|\<gamma\>|)><rsub|n>>x<rsup|n>>|<cell|>>|<row|<cell|>|<cell|<around*|(|a|)><rsub|n>\<assign\><frac|\<Gamma\><around*|(|a+n|)>|\<Gamma\><around*|(|a|)>>>|<cell|>>>>
+    </eqnarray>
+
+    term-by-term integration and the formula
+
+    <\equation*>
+      <big|int><rsub|-1><rsup|1><around*|(|1-y|)><rsup|a><around*|(|1+y|)><rsup|b>d
+      y=2<rsup|a+b+1><frac|\<Gamma\><around*|(|a+1|)>\<Gamma\><around*|(|b+1|)>|\<Gamma\><around*|(|a+b+2|)>>
+    </equation*>
+
+    to continue the chain of equalities above as
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|=2<rsup|\<lambda\>-1>B<around*|(|<frac|q|2>,1-\<nu\>|)><big|sum><rsub|n=0><rsup|\<infty\>><around*|(|-1|)><rsup|n><frac|<around*|(|<frac|2-q|2>|)><rsub|n><around*|(|1-\<nu\>|)><rsub|n>|<around*|(|q/2+1-\<nu\>|)><rsub|n>>\<times\><frac|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>+n|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>|2>-n-1|)>|\<Gamma\><around*|(|\<lambda\>-1|)>>=>|<cell|>>|<row|<cell|>|<cell|=2<rsup|\<lambda\>-1>B<around*|(|<frac|q|2>,1-\<nu\>|)>B<around*|(|<frac|\<lambda\>-\<nu\>|2>,<frac|\<lambda\>+\<nu\>|2>-1|)><big|sum><rsub|n=0><rsup|\<infty\>><around*|(|-1|)><rsup|n><frac|<around*|(|<frac|2-q|2>|)><rsub|n><around*|(|1-\<nu\>|)><rsub|n><around*|(|<frac|\<lambda\>-\<nu\>|2>|)><rsub|n>|<around*|(|q/2+1-\<nu\>|)><rsub|n><around*|(|<frac|\<lambda\>+\<nu\>|2>-n-1|)><rsub|n>>=>|<cell|>>|<row|<cell|>|<cell|=2<rsup|\<lambda\>-1>B<around*|(|<frac|q|2>,1-\<nu\>|)>B<around*|(|<frac|\<lambda\>-\<nu\>|2>,<frac|\<lambda\>+\<nu\>|2>-1|)><big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|<frac|2-q|2>|)><rsub|n><around*|(|1-\<nu\>|)><rsub|n><around*|(|<frac|\<lambda\>-\<nu\>|2>|)><rsub|n>|<around*|(|q/2+1-\<nu\>|)><rsub|n><around*|(|2-<frac|\<lambda\>+\<nu\>|2>|)><rsub|n>>=>|<cell|>>|<row|<cell|>|<cell|=2<rsup|\<lambda\>-1>B<around*|(|<frac|q|2>,1-\<nu\>|)>B<around*|(|<frac|\<lambda\>-\<nu\>|2>,<frac|\<lambda\>+\<nu\>|2>-1|)><space|0.6spc><rsub|3>F<rsub|2><around*|(|1-\<nu\>,<frac|2-q|2>,<frac|\<lambda\>-\<nu\>|2>;<frac|q|2>+1-\<nu\>,2-<frac|\<lambda\>+\<nu\>|2>;1|)>=>|<cell|>>>>
+    </eqnarray>
+
+    Now, we recall the formula <cite-detail|NIST:DLMF|<hlink|<hlink|http://dlmf.nist.gov/16.4.E4|http://dlmf.nist.gov/16.4.E4>|>>:
+
+    <\equation*>
+      <rsub|3>F<rsub|2><around*|(|a,b,c;a-b+1,a-c+1;1|)>=<frac|\<Gamma\><around*|(|<frac|a|2>+1|)>\<Gamma\><around*|(|a-b+1|)>\<Gamma\><around*|(|a-c+1|)>\<Gamma\><around*|(|<frac|a|2>-b-c+1|)>|\<Gamma\><around*|(|a+1|)>\<Gamma\><around*|(|<frac|a|2>-b+1|)>\<Gamma\><around*|(|<frac|a|2>-c+1|)>\<Gamma\><around*|(|a-b-c+1|)>>.
+    </equation*>
+
+    which allows us to continue as
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|=<frac|2<rsup|\<lambda\>-1>*<space|0.25spc>\<Gamma\>*<around*|(|1-\<nu\>|)>*<space|0.25spc>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>*<space|0.25spc>\<Gamma\>*<around*|(|<frac|3|2>-<frac|\<nu\>|2>|)>*<space|0.25spc>\<Gamma\>*<around*|(|-<frac|\<nu\>|2>-<frac|\<lambda\>|2>+2|)>*<space|0.25spc>\<Gamma\>*<around*|(|<frac|\<nu\>|2>+<frac|\<lambda\>|2>-1|)>*<space|0.25spc>\<Gamma\><around*|(|<frac|q|2>|)>*<space|0.25spc>\<Gamma\><around*|(|<frac|q-\<lambda\>+1|2>|)>|\<Gamma\>*<around*|(|<frac|3|2>-<frac|\<lambda\>|2>|)>*<space|0.25spc>\<Gamma\>*<around*|(|\<lambda\>-1|)>*<space|0.25spc>\<Gamma\>*<around*|(|2-\<nu\>|)>*<space|0.25spc>\<Gamma\>*<around*|(|<frac|q|2>-<frac|\<nu\>|2>-<frac|\<lambda\>|2>+1|)>*<space|0.25spc>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>,>|<cell|>>>>
+    </eqnarray>
+
+    which after some trivial calculations (involving Euler reflection
+    formula, duplication formula and <math|\<Gamma\><around*|(|x|)>=<around*|(|x-1|)>\<Gamma\><around*|(|x-1|)>>
+    formulae for Gamma function) gives the desired right-hand side.
+  <|hide-part>
+    <section|Formula>
+  </hide-part>
+
+  <\hide-part|25>
     <\bibliography|bib|alpha|todai_master.bib>
       <\bib-list|CKØP11>
         <bibitem*|CKØP11><label|bib-clerc2011generalized>J.-L. Clerc,
@@ -9927,6 +10070,10 @@
         <newblock>Plancherel formula for reductive symmetric spaces.
         <newblock>147(2):417--452, 1998.
 
+        <bibitem*|DLMF><label|bib-NIST:DLMF>NIST Digital Library of
+        Mathematical Functions. <newblock>http://dlmf.nist.gov/, Release
+        1.0.10 of 2015-08-07.
+
         <bibitem*|Far79><label|bib-faraut1979distributions>J.<nbsp>Faraut.
         <newblock>Distributions sphériques sur les espaces hyperboliques.
         <newblock><with|font-shape|italic|J. Math. Pures Appl.>, 58:369--444,
@@ -9942,6 +10089,12 @@
         <newblock><with|font-shape|italic|Generalized functions. Vol. 5,
         Integral geometry and representation theory>. <newblock>Academic
         Press, 1966.
+
+        <bibitem*|GRJ00><label|bib-gradshteinryzhik>I.S.
+        Gradshte<math|<wide|<text|\Y>|\<breve\>>>n, I.M. Ryzhik, and
+        A.<nbsp>Jeffrey. <newblock><with|font-shape|italic|Table of
+        Integrals, Series, and Products, Sixth edition>. <newblock>Academic
+        Press, New York, 2000.
 
         <bibitem*|GS69><label|bib-gelfand1980distribution>I.<nbsp>M. Gelfand
         and G.<nbsp>E. Shilov. <newblock><with|font-shape|italic|Generalized
@@ -10062,6 +10215,10 @@
         <newblock>Plancherel formula for reductive symmetric spaces.
         <newblock>147(2):417--452, 1998.
 
+        <bibitem*|DLMF><label|bib-NIST:DLMF>NIST Digital Library of
+        Mathematical Functions. <newblock>http://dlmf.nist.gov/, Release
+        1.0.10 of 2015-08-07.
+
         <bibitem*|Far79><label|bib-faraut1979distributions>J.<nbsp>Faraut.
         <newblock>Distributions sphériques sur les espaces hyperboliques.
         <newblock><with|font-shape|italic|J. Math. Pures Appl.>, 58:369--444,
@@ -10077,6 +10234,12 @@
         <newblock><with|font-shape|italic|Generalized functions. Vol. 5,
         Integral geometry and representation theory>. <newblock>Academic
         Press, 1966.
+
+        <bibitem*|GRJ00><label|bib-gradshteinryzhik>I.S.
+        Gradshte<math|<wide|<text|\Y>|\<breve\>>>n, I.M. Ryzhik, and
+        A.<nbsp>Jeffrey. <newblock><with|font-shape|italic|Table of
+        Integrals, Series, and Products, Sixth edition>. <newblock>Academic
+        Press, New York, 2000.
 
         <bibitem*|GS69><label|bib-gelfand1980distribution>I.<nbsp>M. Gelfand
         and G.<nbsp>E. Shilov. <newblock><with|font-shape|italic|Generalized
@@ -10353,9 +10516,12 @@
     <associate|auto-76|<tuple|21|80>>
     <associate|auto-77|<tuple|21.1|80>>
     <associate|auto-78|<tuple|21.2|81>>
-    <associate|auto-79|<tuple|21.8|82>>
+    <associate|auto-79|<tuple|22|82>>
     <associate|auto-8|<tuple|2.2|7>>
-    <associate|auto-80|<tuple|22.8|?>>
+    <associate|auto-80|<tuple|22.1|?>>
+    <associate|auto-81|<tuple|22.2|?>>
+    <associate|auto-82|<tuple|22.3|?>>
+    <associate|auto-83|<tuple|22.1|?>>
     <associate|auto-9|<tuple|2.3|8>>
     <associate|auto.1-1|<tuple|1|?|#1>>
     <associate|auto.1-10|<tuple|2.2.2|?|#1>>
@@ -10509,11 +10675,15 @@
     <associate|auto.23-1|<tuple|21|?|#23>>
     <associate|auto.23-2|<tuple|21.1|?|#23>>
     <associate|auto.23-3|<tuple|21.2|?|#23>>
-    <associate|auto.23-4|<tuple|20.3|?|#23>>
-    <associate|auto.24-1|<tuple|21.8|?|#24>>
-    <associate|auto.24-2|<tuple|21.1|?|#24>>
-    <associate|auto.24-3|<tuple|21.2|?|#24>>
-    <associate|auto.25-1|<tuple|21.8|?|#25>>
+    <associate|auto.23-4|<tuple|22|?|#23>>
+    <associate|auto.23-5|<tuple|22.1|?|#23>>
+    <associate|auto.23-6|<tuple|22.2|?|#23>>
+    <associate|auto.23-7|<tuple|22.3|?|#23>>
+    <associate|auto.24-1|<tuple|22|?|#24>>
+    <associate|auto.24-2|<tuple|22.1|?|#24>>
+    <associate|auto.24-3|<tuple|22.2|?|#24>>
+    <associate|auto.24-4|<tuple|22.3|?|#24>>
+    <associate|auto.25-1|<tuple|22.3|?|#25>>
     <associate|auto.3-1|<tuple|1|?|#3>>
     <associate|auto.3-2|<tuple|1.1|?|#3>>
     <associate|auto.3-3|<tuple|1.2|?|#3>>
@@ -10566,34 +10736,36 @@
     <associate|auto.KC-normalization:lem-sing-q-4-3|<tuple|9.2|?|#KC-normalization:lem-sing-q-4>>
     <associate|auto.KC-normalization:lem-sing-q-4-4|<tuple|9.3|?|#KC-normalization:lem-sing-q-4>>
     <associate|auto.KC-normalization:lem-sing-q-4-5|<tuple|9.4|?|#KC-normalization:lem-sing-q-4>>
-    <associate|bib-KO1|<tuple|KØ03|82|#24>>
+    <associate|bib-KO1|<tuple|KØ03|82|#25>>
     <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-Kobayashi201489|<tuple|KS14|75>>
-    <associate|bib-chazarain2011introduction|<tuple|CP82|82|#24>>
-    <associate|bib-clerc2011generalized|<tuple|CKØP11|82|#24>>
-    <associate|bib-delorme1998plancherel|<tuple|Del98|82|#24>>
-    <associate|bib-faraut1979distributions|<tuple|Far79|82|#24>>
-    <associate|bib-gan2011symplectic|<tuple|GGP12|82|#24>>
-    <associate|bib-gelfand1966generalized|<tuple|GGV66|82|#24>>
-    <associate|bib-gelfand1980distribution|<tuple|GS69|82|#24>>
-    <associate|bib-harishchandra1978harmonic|<tuple|HC76|82|#24>>
-    <associate|bib-hormander1983analysis|<tuple|Hör83|82|#24>>
-    <associate|bib-howe1993homogeneous|<tuple|HT93|82|#24>>
-    <associate|bib-juhl2009families|<tuple|Juh09|82|#24>>
-    <associate|bib-kobayashi1994discrete1|<tuple|Kob94|82|#24>>
-    <associate|bib-kobayashi1998discrete2|<tuple|Kob98a|82|#24>>
-    <associate|bib-kobayashi1998discrete3|<tuple|Kob98b|82|#24>>
+    <associate|bib-NIST:DLMF|<tuple|DLMF|?|#25>>
+    <associate|bib-chazarain2011introduction|<tuple|CP82|82|#25>>
+    <associate|bib-clerc2011generalized|<tuple|CKØP11|82|#25>>
+    <associate|bib-delorme1998plancherel|<tuple|Del98|82|#25>>
+    <associate|bib-faraut1979distributions|<tuple|Far79|82|#25>>
+    <associate|bib-gan2011symplectic|<tuple|GGP12|82|#25>>
+    <associate|bib-gelfand1966generalized|<tuple|GGV66|82|#25>>
+    <associate|bib-gelfand1980distribution|<tuple|GS69|82|#25>>
+    <associate|bib-gradshteinryzhik|<tuple|GRJ00|?|#25>>
+    <associate|bib-harishchandra1978harmonic|<tuple|HC76|82|#25>>
+    <associate|bib-hormander1983analysis|<tuple|Hör83|82|#25>>
+    <associate|bib-howe1993homogeneous|<tuple|HT93|82|#25>>
+    <associate|bib-juhl2009families|<tuple|Juh09|82|#25>>
+    <associate|bib-kobayashi1994discrete1|<tuple|Kob94|82|#25>>
+    <associate|bib-kobayashi1998discrete2|<tuple|Kob98a|82|#25>>
+    <associate|bib-kobayashi1998discrete3|<tuple|Kob98b|82|#25>>
     <associate|bib-kobayashi2013differential|<tuple|KP13|78>>
-    <associate|bib-kobayashi2014classification|<tuple|KM14|82|#24>>
-    <associate|bib-kobayashi2015differential1|<tuple|KP15a|82|#24>>
-    <associate|bib-kobayashi2015differential2|<tuple|KP15b|82|#24>>
-    <associate|bib-kobayashi2015program|<tuple|Kob15|82|#24>>
-    <associate|bib-kobayashi2015symmetry|<tuple|KS15|82|#24>>
-    <associate|bib-krantz1982function|<tuple|Kra82|82|#24>>
-    <associate|bib-oshima1984description|<tuple|OM84|82|#24>>
+    <associate|bib-kobayashi2014classification|<tuple|KM14|82|#25>>
+    <associate|bib-kobayashi2015differential1|<tuple|KP15a|82|#25>>
+    <associate|bib-kobayashi2015differential2|<tuple|KP15b|82|#25>>
+    <associate|bib-kobayashi2015program|<tuple|Kob15|82|#25>>
+    <associate|bib-kobayashi2015symmetry|<tuple|KS15|82|#25>>
+    <associate|bib-krantz1982function|<tuple|Kra82|82|#25>>
+    <associate|bib-oshima1984description|<tuple|OM84|82|#25>>
     <associate|bib-treves1967topological|<tuple|Tre67|75>>
-    <associate|bib-wallach1988real|<tuple|Wal88|82|#24>>
-    <associate|bib-warner1971foundations|<tuple|War71|82|#24>>
+    <associate|bib-wallach1988real|<tuple|Wal88|82|#25>>
+    <associate|bib-warner1971foundations|<tuple|War71|82|#25>>
     <associate|def-P|<tuple|4.3|15|#6>>
     <associate|def-n-nots|<tuple|7|22|#9>>
     <associate|def-n-nots:def-n+invar|<tuple|9.1|33|#11>>
@@ -10778,7 +10950,7 @@
     <associate|lem-3-1|<tuple|6.5|8|#6>>
     <associate|lem-3-2|<tuple|6.4|8|#6>>
     <associate|lem-3-3|<tuple|6.5|8|#6>>
-    <associate|lem-4|<tuple|5.13|20|#7>>
+    <associate|lem-4|<tuple|4.11|20|#6>>
     <associate|lem-5|<tuple|5.14|20|#7>>
     <associate|lem-5n|<tuple|19.8|68|#21>>
     <associate|lem-6|<tuple|5.15|20|#7>>
@@ -10833,6 +11005,7 @@
     <associate|prop-4|<tuple|14.1|41|#17>>
     <associate|prop-6|<tuple|14.1|41|#17>>
     <associate|prop-eqns-for-kernels|<tuple|3.5|?|#4>>
+    <associate|prop-formula|<tuple|22.1|?|#24>>
     <associate|prop-norm-1|<tuple|14.1|41|#17>>
     <associate|prop-norm-2|<tuple|14.1|41|#17>>
     <associate|prop-q=2|<tuple|19.3|67|#21>>
@@ -11085,6 +11258,10 @@
       kobayashi2015symmetry
 
       faraut1979distributions
+
+      gradshteinryzhik
+
+      NIST:DLMF
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Introduction>
@@ -11420,9 +11597,25 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-78>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|22<space|2spc>Formula>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-79><vspace|0.5fn>
+
+      <with|par-left|<quote|1.5fn>|22.1<space|2spc>Main results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-80>>
+
+      <with|par-left|<quote|1.5fn>|22.2<space|2spc>Auxiliary lemmas
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-81>>
+
+      <with|par-left|<quote|1.5fn>|22.3<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-82>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-83><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

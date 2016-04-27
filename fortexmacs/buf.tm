@@ -1,6 +1,6 @@
 <TeXmacs|1.0.7.18>
 
-<style|<tuple|article|mystyle>>
+<style|<tuple|article|mystyle|number-long-article>>
 
 <\body>
   <\hide-part|1>
@@ -761,7 +761,7 @@
     <section|playground>
   </hide-part>
 
-  <\show-part|10>
+  <\hide-part|10>
     <section|q=2 zeroset>
 
     <subsection|Auxilliary results (I)>
@@ -1184,9 +1184,9 @@
       <tformat|<table|<row|<cell|>|<cell|<frac|\<varphi\><rsub|N><around*|[|<around*|(|x
       y|)><rsup|i><around*|(|1-x<rsup|2>|)><rsup|n<rprime|'>><around*|(|1-y<rsup|2>|)><rsup|m<rprime|'>><rsup|>|]>|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+\<nu\>-n+1|)>/2|)>>=2<rsup|\<lambda\>><choice|<tformat|<table|<row|<cell|<frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+2|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>>,>|<cell|p\<gtr\>1>>|<row|<cell|1,>|<cell|p=1,N=0>>|<row|<cell|0,>|<cell|p=1,N\<gtr\>0>>>>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>|2>+m<rprime|'>+<frac|N-q|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>|2>+<frac|N-q|2>|)>>\<times\>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>+m<rprime|'>+n<rprime|'>+<frac|N|2>|)>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><choice|<tformat|<table|<row|<cell|<frac|<around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-1|)><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-3|)>\<ldots\><around*|(|\<lambda\>+2m<rprime|'>+N-q+1|)>|\<Gamma\><rsup|><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N|)>>,>|<cell|i=0>>|<row|<cell|<frac|<around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-1|)><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-3|)>\<ldots\><around*|(|\<lambda\>+2m<rprime|'>+N-q+1|)>|\<Gamma\><rsup|><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N+1|)>>,>|<cell|i=1>>>>>\<times\>>|<cell|<lprime|`>>>|<row|<cell|>|<cell|\<times\><around*|(|\<nu\>-1|)><rsup|-1><around*|(|\<nu\>-3|)><rsup|-1>\<ldots\><around*|(|\<nu\>-q-2n<rprime|'>+1|)><rsup|-1><frac|1|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>>\<times\><choice|<tformat|<table|<row|<cell|1,>|<cell|i=0>>|<row|<cell|\<nu\>,>|<cell|i=1>>>>>\<simeq\>>|<cell|>>|<row|<cell|>|<cell|\<simeq\><choice|<tformat|<table|<row|<cell|<frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+2|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n-N+2|2>|)>>,>|<cell|p\<gtr\>1>>|<row|<cell|1,>|<cell|p=1,N=0>>|<row|<cell|0,>|<cell|p=1,N\<gtr\>0>>>>>\<times\><frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>|2>+m<rprime|'>+<frac|N-q|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>|2>+<frac|N-q|2>|)>>\<times\>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>+m<rprime|'>+n<rprime|'>+<frac|N|2>|)>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><frac|<around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-1|)><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N-3|)>\<ldots\><around*|(|\<lambda\>+2m<rprime|'>+N-q+1|)>|\<Gamma\><rsup|><around*|(|\<lambda\>+2m<rprime|'>+2n<rprime|'>+N+i|)>>\<times\><frac|\<nu\><rsup|i>|\<Gamma\><around*|(|<frac|q+2n<rprime|'>+1-\<nu\>|2>|)>>>|<cell|>>>>
     </eqnarray>
-  <|show-part>
+  <|hide-part>
     <section|q=2 zeroset>
-  </show-part>
+  </hide-part>
 
   <\hide-part|11>
     <section|Dim argument>
@@ -1281,6 +1281,74 @@
   <|hide-part>
     <section|Dim argument>
   </hide-part>
+
+  <\hide-part|12>
+    <section|TODO>
+
+    <\enumerate>
+      <item>Try to prove the following theorem, using the hint You gave
+
+      <\theorem*>
+        \;
+      </theorem*>
+
+      Suppose we have homogeneous polynomial <math|g> in <math|p+q> variables
+      <math|<around*|{|x<rsub|i>|}><rsub|i=1><rsup|p>> and
+      <math|<around*|{|y<rsub|j>|}><rsub|j=1><rsup|q>>. Suppose it is
+      invariant under <math|O<around*|(|p-1,q|)>> (acting on
+      <math|\<bbb-R\><rsup|p,q>>, so that it fixes <math|x<rsub|p>>). Then it
+      can be shown that <math|g> is in fact polynomial in <math|x<rsub|p>>
+      and <math|<wide|Q|~>\<assign\><big|sum><rsub|i=1><rsup|p-1>x<rsub|i><rsup|2>-<big|sum><rsub|j=1><rsup|>y<rsub|j><rsup|2>>.
+
+      <item>Find the constant <math|c<rsub|\<lambda\>,\<nu\>>>, so that
+      <math|A<rsub|\<lambda\>,\<nu\>>\<circ\>T<rsub|n-\<lambda\>,\<lambda\>>=c<rsub|\<lambda\>,\<nu\>>A<rsub|n-\<lambda\>,\<nu\>>>.
+      This task can be divided into following:
+
+      <\enumerate>
+        <item>Show that <math|A<rsub|\<lambda\>,\<nu\>>\<circ\>T<rsub|n-\<lambda\>,\<lambda\>>=c<rsub|\<lambda\>,\<nu\>>A<rsub|n-\<lambda\>,\<nu\>>>
+        holds for <math|<around*|(|\<lambda\>,\<nu\>|)>> ``sufficiently
+        regular'' (<with|font-series|bold|done>);
+
+        <item>Explain what convolution of two kernels means, at least for
+        ``sufficiently regular'' parameters (perhaps, it cannot be defined
+        for general distributions, but we can use special properties of
+        kernels (e.g. homogeneity) to make sense of it);
+
+        <item>Explain why composition <math|A<rsub|\<lambda\>,\<nu\>>\<circ\>T<rsub|n-\<lambda\>,\<lambda\>>>
+        results in convolution of kernels;
+
+        <item>Prove that Fourier transforms of kernels of
+        <math|A<rsub|\<lambda\>,\<nu\>>> and
+        <math|T<rsub|n-\<lambda\>,\<lambda\>>> can be multiplied and that
+        Fourier transform of convolution of kernels equals to product of
+        Fourier transforms;
+
+        <item>Carry out the computations of <math|c<rsub|\<lambda\>,\<nu\>>>
+        when restricted to <math|Q\<gtr\>0> open subset (as Fourier
+        transforms of <math|A<rsub|\<lambda\>,\<nu\>>> and
+        <math|T<rsub|n-\<lambda\>,\<lambda\>>> take simpler form there);
+
+        <item>Using holomorphicity (meromorphicity?) argument, conclude that
+        <math|A<rsub|\<lambda\>,\<nu\>>\<circ\>T<rsub|n-\<lambda\>,\<lambda\>>=c<rsub|\<lambda\>,\<nu\>>A<rsub|n-\<lambda\>,\<nu\>>>
+        holds for all <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>.
+      </enumerate>
+    </enumerate>
+  <|hide-part>
+    <section|TODO>
+  </hide-part>
+
+  <\show-part|13>
+    <section|Formula>
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|x<rsub|\<lambda\>,\<nu\>>\<assign\><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2><around*|(|1-y<rsup|2>|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1>d
+      x d y;>|<cell|>>|<row|<cell|>|<cell|x<rsub|\<lambda\>,\<nu\>>=C<rsub|\<lambda\>,\<nu\>>x<rsub|n\<um\>\<lambda\>,\<nu\>>>|<cell|>>|<row|<cell|>|<cell|C<rsub|\<lambda\>,\<nu\>>:=<frac|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-q+\<nu\>|2>|)>\<Gamma\><around*|(|<frac|q+1-\<lambda\>|2>|)>\<Gamma\><around*|(|<frac|n-\<lambda\>|2>|)>|\<Gamma\><around*|(|<frac|n\<um\>\<lambda\>-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>\<Gamma\><around*|(|<frac|n-\<lambda\>-q+\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-p+1|2>|)>>\<times\><frac|cos<around*|(|\<pi\>\<lambda\>/2|)>K|cos<around*|(|\<pi\><around*|(|p-\<lambda\>|)>/2|)>>>|<cell|>>|<row|<cell|>|<cell|K\<assign\><frac|e<rsup|-\<pi\>i
+      q/2><around*|(|e<rsup|\<pi\>\<lambda\>i>-1|)>+e<rsup|\<pi\>q
+      i/2><around*|(|1-e<rsup|-\<pi\>\<lambda\>i>|)>|e<rsup|\<pi\>\<lambda\>i>-e<rsup|-\<pi\>\<lambda\>i>>.>|<cell|>>|<row|<cell|>|<cell|x<rsub|\<lambda\>,\<nu\>>=<around*|(|-1|)><rsup|q/2>2<rsup|\<lambda\>-1><around*|(|<frac|q-2|2>|)>!<frac|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>|)>|\<Gamma\><around*|(|\<lambda\>|)>>\<times\><frac|\<Gamma\><around*|(|<frac|1-\<lambda\>+q|2>|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|1-\<lambda\>|2>|)>\<Gamma\><around*|(|<frac|1-\<nu\>+q|2>|)>>=>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-1|)><rsup|q/2>|<sqrt|\<pi\>>><around*|(|<frac|q-2|2>|)>!<frac|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>|)>cos<around*|(|\<pi\>\<lambda\>/2|)>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>>\<times\><frac|\<Gamma\><around*|(|<frac|1-\<lambda\>+q|2>|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|1-\<nu\>+q|2>|)>>.>|<cell|>>>>
+    </eqnarray>
+  <|show-part>
+    <section|Formula>
+  </show-part>
 </body>
 
 <initial|<\collection>
@@ -1288,18 +1356,21 @@
 
 <\references>
   <\collection>
-    <associate|KR-normalization-even:fact-P-K|<tuple|18|?|#10>>
+    <associate|KR-normalization-even:fact-P-K|<tuple|9.1|?|#10>>
     <associate|KR-normalization-even:lem-1|<tuple|6|?>>
-    <associate|KR-normalization-even:lem-2|<tuple|20|?|#10>>
+    <associate|KR-normalization-even:lem-2|<tuple|9.3|?|#10>>
     <associate|KR-normalization-even:lem-3|<tuple|8|?>>
-    <associate|KR-normalization-even:lem-Poddeven|<tuple|19|?|#10>>
-    <associate|KR-normalization-recur:eq-recur|<tuple|1|?|#2>>
-    <associate|KR-normalization-recur:lem-recur|<tuple|3|?|#2>>
-    <associate|KR-normalization-recur:prop-2|<tuple|4|?|#2>>
-    <associate|KR-normalization-recur:prop-func-eq|<tuple|5|?|#3>>
+    <associate|KR-normalization-even:lem-Poddeven|<tuple|9.2|?|#10>>
+    <associate|KR-normalization-recur:eq-recur|<tuple|1.1|?|#2>>
+    <associate|KR-normalization-recur:lem-recur|<tuple|1.1|?|#2>>
+    <associate|KR-normalization-recur:prop-2|<tuple|1.2|?|#2>>
+    <associate|KR-normalization-recur:prop-func-eq|<tuple|2.1|?|#3>>
     <associate|auto-1|<tuple|1|?>>
     <associate|auto-10|<tuple|9.1|?>>
     <associate|auto-11|<tuple|10|?>>
+    <associate|auto-12|<tuple|10.1|?>>
+    <associate|auto-13|<tuple|11|?>>
+    <associate|auto-14|<tuple|12|?>>
     <associate|auto-2|<tuple|2|?>>
     <associate|auto-3|<tuple|3|?>>
     <associate|auto-4|<tuple|4|?>>
@@ -1312,6 +1383,13 @@
     <associate|auto.10-2|<tuple|9.1|?|#10>>
     <associate|auto.11-1|<tuple|10|?|#11>>
     <associate|auto.11-2|<tuple|10.1|?|#11>>
+    <associate|auto.11-3|<tuple|11|?|#11>>
+    <associate|auto.11-4|<tuple|12|?|#11>>
+    <associate|auto.12-1|<tuple|11|?|#12>>
+    <associate|auto.13-1|<tuple|12|?|#13>>
+    <associate|auto.13-2|<tuple|12.1|?|#13>>
+    <associate|auto.13-3|<tuple|12.2|?|#13>>
+    <associate|auto.13-4|<tuple|12.3|?|#13>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
     <associate|auto.4-1|<tuple|3|?|#4>>
@@ -1326,25 +1404,26 @@
     <associate|auto.9-3|<tuple|9.1|?|#9>>
     <associate|auto.9-4|<tuple|10|?|#9>>
     <associate|auto.9-5|<tuple|9.3|?|#9>>
-    <associate|def-n-nots:lem-commdiag|<tuple|17|?|#8>>
+    <associate|def-n-nots:lem-commdiag|<tuple|7.1|?|#8>>
     <associate|dim-C:lem-zeromap|<tuple|26|?|#11>>
-    <associate|dim-C:prop-main|<tuple|26|?|#11>>
-    <associate|k-finite:def-holo|<tuple|15|?|#7>>
+    <associate|dim-C:prop-main|<tuple|10.1|?|#11>>
+    <associate|k-finite:def-holo|<tuple|6.1|?|#7>>
     <associate|k-finite:lem-KC-c0|<tuple|2|?|#1>>
-    <associate|k-finite:prop-holo-to-holo|<tuple|16|?|#7>>
+    <associate|k-finite:prop-holo-to-holo|<tuple|6.2|?|#7>>
     <associate|lem-1|<tuple|6|?>>
-    <associate|lem-16|<tuple|8|?|#4>>
+    <associate|lem-16|<tuple|3.1|?|#4>>
     <associate|lem-2|<tuple|7|?>>
     <associate|lem-21|<tuple|1|?>>
-    <associate|lem-3|<tuple|11|?|#5>>
-    <associate|lem-3-1|<tuple|12|?|#5>>
-    <associate|lem-3-2|<tuple|13|?|#5>>
-    <associate|lem-3-3|<tuple|14|?|#5>>
-    <associate|lem-5|<tuple|22|?|#10>>
-    <associate|lem-5n|<tuple|21|?|#10>>
-    <associate|lem-7|<tuple|24|?|#10>>
-    <associate|lem-8|<tuple|23|?|#10>>
-    <associate|lem-9|<tuple|25|?|#10>>
+    <associate|lem-3|<tuple|4.2|?|#5>>
+    <associate|lem-3-1|<tuple|4.3|?|#5>>
+    <associate|lem-3-2|<tuple|4.4|?|#5>>
+    <associate|lem-3-3|<tuple|4.5|?|#5>>
+    <associate|lem-5|<tuple|9.5|?|#10>>
+    <associate|lem-5n|<tuple|9.4|?|#10>>
+    <associate|lem-7|<tuple|9.7|?|#10>>
+    <associate|lem-8|<tuple|9.6|?|#10>>
+    <associate|lem-9|<tuple|9.8|?|#10>>
+    <associate|prop-formula|<tuple|12.1|?|#13>>
     <associate|sol:lem-Eequivhomog|<tuple|15|?|#7>>
   </collection>
 </references>
@@ -1353,10 +1432,6 @@
   <\collection>
     <\associate|bib>
       hormander1983analysis
-
-      kobayashi2015symmetry
-
-      kobayashi2015symmetry
 
       kobayashi2015symmetry
     </associate>
@@ -1404,6 +1479,18 @@
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Dim
       argument> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11><vspace|0.5fn>
+
+      <with|par-left|<quote|1.5fn>|10.1<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-12>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>TODO>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-13><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|12<space|2spc>Formula>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-14><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

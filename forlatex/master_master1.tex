@@ -3455,6 +3455,424 @@ holds.
   \{ 0 \}$ is non-empty as well.
 \end{proof}
 
+\section{$\mathcal{S} \tmop{ol}_{} ( U ; \lambda, \nu)$ and related
+notions}\label{sec:sol}
+
+\subsection{Main results}
+
+\begin{definition}
+  \label{def-n-nots:def-n+invar}For $F \in \D' (U)$, where $U \subset
+  \mathbbm{R}^{p, q}$ is an open set, we say that $F$ is
+  \tmtextbf{$N_+'$-invariant on $U$} if $\forall b \in \mathbbm{R}^{p, q}$
+  with $b_p = 0$ and $x_0 \in U$ such that $\frac{x_0 - Q (x_0) b}{1 - 2 Q
+  (x_0, b) + Q (x_0) Q (b)} \in U$ and the expression makes sense (i.e. the
+  denominator is non-zero) we have
+  \begin{equation}
+    \label{eq-Nequiv} | 1 - 2 Q (b, x) + Q (x) Q (b) |^{\lambda - n} F \left(
+    \frac{x - Q (x) b}{1 - 2 Q (x, b) + Q (x) Q (b)} \right) = F (x)
+  \end{equation}
+  equality holding for $x$ near $x_0$.
+\end{definition}
+
+\begin{definition}
+  \label{sol:def-sol}For $F \in \D' (U)$, where $U \subset \mathbbm{R}^{p, q}$
+  is the open set, we say that $F \in \mathcal{S} \tmop{ol} (U ; \lambda,
+  \nu)$ if the following holds:
+  \begin{enumerate}
+    \item if $x_0 \in U$ and $- x_0 \in U$, then $F (x) = F (- x)$ for $x$
+    near $x_0$;
+    
+    \item if $(m, x_0, m \cdot x_0) \in O (p, q)_{e_p} \times U \times U$,
+    then $F (x) = F (m \cdot x)$ for $x$ near $x_0$, where $O (p, q)_{e_p}
+    \assign \{g \in O (p, q) |g \cdot e_p = e_p \}$;
+    
+    \item if $(\alpha, x_0, \alpha x_0) \in \mathbbm{R}_{> 0} \times U \times
+    U$, then $\alpha^{\lambda - \nu - n} F (x) = F (\alpha x)$ for $x$ near
+    $x_0$;
+    
+    \item $F$ is $N_+'$-invariant on $U$.{
+    
+    }{
+    
+    }For a closed set $S \subset U$ we will also use the notation $\mathcal{S}
+    \tmop{ol}_S ( U ; \lambda, \nu) \assign \{ u \in \mathcal{S} \tmop{ol} ( U
+    ; \lambda, \nu) | \tmop{supp} ( u) \subset S \}$
+  \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  It is easy to observe the following:
+  \begin{enumerate}
+    \item more precisely, item 1. means that for $( x_0, - x_0) \in U^2$ there
+    is an open sets $U \supset V \ni x_0$ such that for $\psi : x \mapsto - x$
+    a difeomorphism of $\mathbbm{R}^{p, q}$ we have $u |_V = \psi^{\ast} ( u
+    |_{\psi ( V)})$. Similarly, items 2, 3 and $N_+'$-invariance are
+    explained. Note that all condinitions of definition \ref{sol:def-sol} are
+    particular instances of situation in lemma \ref{sol:lem-holodep} (say, for
+    item 4 one takes $\psi = \psi_b$ and $f = | c_b |$);
+    
+    \item that if $U = \bigcup_{i \in \Lambda} U_i$ is an open cover, then for
+    $u \in \mathcal{D}' ( U)$ and $( \lambda, \nu) \in \mathbbm{C}^2$ we have
+    $u \in \mathcal{S} \tmop{ol} ( U ; \lambda, \nu) \Leftrightarrow \forall i
+    \in \Lambda, \; u |_{U_i} \in \mathcal{S} \tmop{ol} ( U_i ; \lambda,
+    \nu)$;
+    
+    \item When $U$ is an open cone, item 3 is equivalent to the usual
+    definition of homogeneity of order $\lambda - \nu - n$;
+  \end{enumerate}
+\end{remark}
+
+\begin{proposition}
+  \label{sol:prop-sol}For every $( \lambda, \nu) \in \mathbbm{C}^2$ we have
+  $\mathcal{S} \tmop{ol} ( \mathbbm{R}^{p, q} ; \lambda, \nu) \simeq
+  \tmop{Hom}_{G'} ( I ( \lambda), J ( \nu))$.
+\end{proposition}
+
+\begin{proposition}
+  \label{sol:prop-holocont}Suppose that $\Omega' \subseteq \Omega \subset
+  \mathbbm{C}^k$ are open sets and $\Omega \ni \mu \mapsto ( \lambda ( \mu),
+  \nu ( \mu)) \in \mathbbm{C}^2$ is holomorphic open map. Suppose further that
+  $K_{\mu} \in \mathcal{D}' ( U)$ with ($U \subset \mathbbm{R}^{p, q}$:open)
+  holomorphically depends on $\mu \in \Omega$ and for $\mu \in \Omega'$ we
+  have $K_{\mu} \in \mathcal{S} \tmop{ol} ( U ; \lambda ( \mu), \nu ( \mu))$.
+  Then $K_{\mu} \in \mathcal{S} \tmop{ol} ( U ; \lambda ( \mu), \nu ( \mu))$
+  for $\mu \in \Omega$ as well.
+\end{proposition}
+
+\begin{remark}
+  The last two propositions are \tmtextbf{not} new. The statement and proof
+  below are just rephrasing and somehow elaboration of those given in
+  {\cite[thm 3.16]{kobayashi2015symmetry}} and {\cite[prop.
+  3.18]{kobayashi2015symmetry}} respectively.
+\end{remark}
+
+\subsection{Auxiliary lemmas}
+
+\begin{lemma}
+  \label{sol:lem-unfold}For $G \assign O ( p + 1, q + 1)$ and $\lambda \in
+  \mathfrak{a}_{\mathbbm{C}}^{\ast}$ let $\lambda : P \rightarrow
+  \mathbbm{C}^{\times}$ be a homomorphism defined as in proposition
+  \ref{def-n-nots:prop-degseries}. Then for $C^{\infty} ( G)_{\lambda} \assign
+  \left\{ f \in C^{\infty} ( G) | \forall p \in P, \; f ( \cdot p) = \lambda (
+  p^{- 1}) f ( \cdot) \right\}$ we have the map $C^{\infty} \ni f ( \cdot)
+  \mapsto [ g P \mapsto [ g, f ( g)]] \in C^{\infty} ( G \times_P
+  \mathbbm{C}_{\lambda})$ being an isomorphism of vector spaces.
+\end{lemma}
+
+\begin{proof}
+  The well-definedness of this map is straightforward to verify. Conversely,
+  given $f' \in C^{\infty} ( G \times_P \mathbbm{C}_{\lambda})$, we can
+  construct the corresponding element of $C^{\infty} ( G)_{\lambda}$ as
+  follows: for $g \in G$ we let $f ( g) \assign x \in \mathbbm{C}$ such that
+  $( g, x) \in f' ( g H)$. It is easy to see that such $x$ exists and is
+  unique. The obtained mapping $g \mapsto f ( g)$ forms a smooth map of
+  $C^{\infty} ( G)$, which is in fact an element of $C^{\infty} (
+  G)_{\lambda}$, as we should have $g p$ for $p \in P$ being mapped to
+  $\lambda ( p^{- 1}) f ( g)$, since $[ g, x] = [ g p, \lambda ( p^{- 1}) x]$.
+\end{proof}
+
+\begin{lemma}
+  \label{sol:lem-commdiag}Recall the $G \assign O ( p + 1, q + 1)
+  \curvearrowright \Xi$ action. Fix $U \subset N_- \simeq \mathfrak{n}_-
+  \simeq \mathbbm{R}^{p, q}$ an open set. The following diagram then commutes:
+  
+  \begin{center}
+    \includegraphics[scale=0.6]{master_master-6.png}
+  \end{center}
+  
+  Here for $\lambda \in \mathbbm{C}$, and $V \subset \Xi$ invariant under
+  multiplication by $\mathbbm{R}^{\times}$ we let $C^{\infty}_{- \lambda} ( V)
+  \assign \left\{ f \in C^{\infty} ( V) | \forall \alpha \in
+  \mathbbm{R}^{\times}, \; f ( \alpha \cdot) = | \alpha |^{- \lambda} f (
+  \cdot) \right\}$. $G \times_P \mathbbm{C}_{\lambda} |_{\psi ( U)}$ denotes
+  the portion of vector bundle $G \times_P \mathbbm{C}_{\lambda}$ above $\psi
+  ( U)$. $\psi ( \cdot)$ denotes embedding of $N_- \simeq \mathfrak{n}_-
+  \simeq \mathbbm{R}^{p, q}$ into $G / P$ (on the left) or into $\Xi$ (on
+  right) The top map is a continuous $G$-equivariant isomorphism, defined for
+  $f ( \cdot) \in C^{\infty} ( G \times_P \mathbbm{C}_{\lambda}) \simeq
+  C^{\infty} ( G)_{\lambda}$ as $\tilde{f} \in C^{\infty}_{- \lambda} ( \Xi)$,
+  $\tilde{f} ( g p_+) \assign f ( g)$ (here $p_+ \assign ( 1, 0_{p + q}, 1)
+  \in \Xi$). The left vertical arrow is a restriction to an open subset $\psi
+  ( U) P \subset G / P$. The right-vertical arrow is restriction to a
+  submanifold $U \cdot ( 1, 0_{p + q}, 1) \subset \Xi$.
+\end{lemma}
+
+\begin{proof}
+  We assume $U =\mathfrak{n}_-$ for simplicity, the proof for general $U$
+  proceeds in precisely the same manner. First, we show that for smooth
+  functions the top map is well-defined. Indeed, let $f \in C^{\infty} (
+  G)_{\lambda} $ as in lemma \ref{sol:lem-unfold}. Then the map $\tilde{f} : g
+  ( 1, 0_{p + q}, 1) \mapsto f ( g)$ on $G p_+$ is well-defined, as
+  centralizer of $p_+$ equals to $M^0 N_+$ by proposition
+  \ref{def-n-nots:prop-ximodel}, and for $\lambda : P \rightarrow
+  \mathbbm{C}^{\times}$ is in lemma \ref{sol:lem-unfold}, we have $\lambda (
+  M^0 N_+)$. Moreover, as action $G \curvearrowright \Xi$ is transitive by an
+  argument similar to that of lemma \ref{doublePGP:lem-Gp-act-Xi}, we have $g
+  p_+ \mapsto f ( g)$ being well-defined map $\tilde{f} \in C^{\infty} (
+  \Xi)$.
+  
+  We next show that $\tilde{f}$ is also homogeneous of degree $- \lambda$, as
+  we have for $\tilde{f} ( - g p_+) = \tilde{f} ( g m_0 p_+)$, for $m_0
+  \assign \tmop{diag} ( - 1, 1_{p + q}, 1) \in M$ and hence $\tilde{f} ( g m_0
+  p_+) \assign f ( g m_0) = f ( g_{}) = \tilde{f} ( g p_+)$, since $f \in
+  C^{\infty} ( G)_{\lambda}$. Similarly, for $\alpha \in \mathbbm{R}_{> 0}$ we
+  have $\tilde{f} ( \alpha g p_+) = \tilde{f} ( g a ( t) p_+)$ with $a ( t)$
+  is in (\ref{def-n-nots:eq-A}) for $t = \ln ( \alpha)$, and hence the chain
+  of equalities continues as $= \tilde{f} ( g a ( t) p_+) \assign f ( g a (
+  t)) = e^{- \lambda t} f ( g) = \alpha^{- \lambda} f ( g p_+)$. This shows
+  homogeneity.
+  
+  The fact that top map is isomorphic is implied by the fact that we can
+  construct inverse map $C^{\infty}_{- \lambda} ( \Xi) \rightarrow C^{\infty}
+  ( G)_{\lambda}$ by $\tilde{f} \mapsto f$, where we set $f ( g) \assign
+  \tilde{f} ( g p_+)$. It can be similarly to above shown that this map is
+  well-defined.
+  
+  Finally, the diagram commutes by direct inspection and proposition
+  \ref{def-n-nots:prop-ximodel}.
+\end{proof}
+
+\begin{lemma}
+  \label{sol:lem-holodep}Suppose $\Omega' \subset \Omega \subset
+  \mathbbm{C}^m$ are an open set and $\kappa : \Omega \rightarrow \mathbbm{C}$
+  is holomorphic. Suppose also that $U, V \subset \mathbbm{R}^k$ are open with
+  $\psi : U \rightarrow V$ diffeomorphism, and $K_{\mu}^U \in \mathcal{D}' (
+  U), K^V_{\mu} \in \mathcal{D}' ( V)$ are holomorphic in $\mu \in \Omega$.
+  Then if for $f \in C^{\infty} ( U \rightarrow \mathbbm{R}_{> 0})$ we have
+  $\forall \mu \in \Omega', \; f^{\kappa ( \mu)} K^U_{\mu} = \psi^{\ast}
+  K^V_{\mu}$, then this also holds for every $\mu \in \Omega$.
+\end{lemma}
+
+\begin{proof}
+  In the light of holomorphic rigidity, it suffices to show that $\psi^{\ast}
+  K^V_{\mu}, f^{\kappa ( \mu)} K^U_{\mu} \in \mathcal{D}' ( U)$ are
+  holomorphic in $\mu \in \Omega$. For $\psi^{\ast} K_{\mu}^V$ this is readily
+  given by proposition \ref{holomorphicity-preserving:prop-pullback-holo}.
+  Regarding $f^{\kappa ( \mu)} K^U_{\mu}$, lemma
+  \ref{KR-normalization-recur:lem-mult-smth} implies that the latter can be
+  seen as product of distributions and hence in the light of propositions
+  \ref{holomorphicity-preserving:prop-tensor-holo} and
+  \ref{holomorphicity-preserving:prop-pullback-holo}, it suffices to show that
+  $f^{\kappa ( \mu)}$ is holomorphic when seen as an element of $\mathcal{D}'
+  ( U)$. This can be proven directly.
+\end{proof}
+
+\subsection{Proofs}
+
+\begin{definition}
+  \label{sol:def-localaciton}For $\lambda \in \mathbbm{C}$ let $P'
+  \curvearrowright G / P$ by left multiplication. Introduce also an embedding
+  $\mathbbm{R}^{p, q} \ni w \mapsto \psi ( w) \assign n_- ( w) P \in G / P$.
+  Suppose now that $( U, V)$ is a pair of open subsets of $\mathbbm{R}^{p, q}$
+  and $p' \in P$ such that $\psi ( U) = p' \psi ( V)$. Then straightforward
+  generalization of lemma \ref{KR-normalization-recur:lem-pull-comm-restr}
+  tells us that the following diagram commutes
+  \begin{center}
+    \includegraphics[scale=0.6]{master_master-7.png}
+  \end{center}
+  here $G \times_P \mathbbm{C}_{\lambda} |_{\psi ( U)}$ denotes portion of the
+  bundle above $\psi ( U)$ and similarly for $\psi ( V)$. The top and bottom
+  maps are isomorphisms. Now, pullback by $\psi ( \cdot)$ induces the
+  isomorphism $\mathcal{D}' ( U) \rightarrow \mathcal{D}' ( V)$ so that the
+  following map commutes:
+  
+  \begin{center}
+    \includegraphics[scale=0.6]{master_master-8.png}
+  \end{center}
+  
+  all maps of it are isomorphisms and we will call the one at the bottom by $c
+  ( \lambda ; p' ; U, V) : \mathcal{D}' ( U) \rightarrow \mathcal{D}' ( V)$.
+\end{definition}
+
+\begin{definition}
+  \label{sol:def-D'n}For $( \lambda, \nu) \in \mathbbm{C}^2$ we let
+  $\mathcal{D}' ( \mathfrak{n}_-, \mathbbm{C}_{n - \lambda} \otimes
+  \mathbbm{C}_{\nu})^{M' A', \mathfrak{n}'_+}$ to denote the space of $u \in
+  \mathcal{D}' ( \mathbbm{R}^{p, q})$ such that for all $U, V, p'$ as in
+  definition \ref{sol:def-localaciton} we have $u |_V = \nu^{} ( ( p')^{- 1})
+  c ( n - \lambda ; p' ; U, V) u |_V$ with homomorphism $\nu : P' \rightarrow
+  \mathbbm{C}^{\times}$ defined as in proposition
+  \ref{def-n-nots:prop-degseries}.
+\end{definition}
+
+\begin{proof}
+  (of prop. \ref{sol:prop-sol}) Proposition \ref{doublePGP:prop-pnp} implies
+  that we can apply {\cite[thm. 3.16]{kobayashi2015symmetry}} and it
+  immediately gives
+  \[ \tmop{Hom}_{G'} ( I ( \lambda), J ( \nu)) \simeq \mathcal{D}' (
+     \mathfrak{n}_-, \mathbbm{C}_{n - \lambda} \otimes \mathbbm{C}_{\nu})^{M'
+     A', \mathfrak{n}'_+} \]
+  Hence it suffices to show that $\mathcal{D}' ( \mathfrak{n}_-,
+  \mathbbm{C}_{n - \lambda} \otimes \mathbbm{C}_{\nu})^{M' A',
+  \mathfrak{n}'_+} =\mathcal{S} \tmop{ol} ( \mathbbm{R}^{p, q} ; \lambda,
+  \nu)$ as in definition \ref{sol:def-sol}. Hence, we just need to concretely
+  write down the $c ( \lambda ; p' ; U, V)$ map of \ref{sol:def-localaciton}.
+  Moreover, as we have all arrows in commutative diagrams of definitions
+  \ref{sol:def-localaciton} being continuous and mapping smooth to smooth,
+  using approximation by smooth sections, we can assume that we have
+  $\mathcal{D}'$ replaced by $C^{\infty}$ in all diagrams of definitions
+  \ref{sol:def-localaciton}. Now, lemma \ref{sol:lem-commdiag} allows us to
+  rewrite second commutative diagram of definition \ref{sol:def-localaciton}
+  (with $\lambda$ replaced by $n - \lambda$, according to definition
+  \ref{sol:def-D'n})
+  
+  \begin{center}
+    \includegraphics[scale=0.6]{master_master-9.png}
+  \end{center}
+  
+  with an embedding $\psi : \mathbbm{R}^{p, q} \ni w \mapsto n_- ( w) \cdot (
+  1, 0_{p + q}, 1) = ( 1 - Q ( w), 2 w, 1 + Q ( w)) \in \Xi$.
+  
+  Now, let $( p, U, V)$ be as in definition \ref{sol:def-localaciton}. If $p$
+  is of the form
+  \[ p \assign \left[ \begin{array}{ccc}
+       1 & 0 & 0\\
+       0 & m & 0\\
+       0 & 0 & 1
+     \end{array} \right] \in M' \]
+  with $m \in O ( p, q)$ such that $m \cdot e_p = e_p$, then for $w \in
+  \mathbbm{R}^{p, q}$ we have $p \cdot \psi ( w) = \psi ( m \cdot w)$.
+  
+  This implies that for $p, U, V$ as in definition \ref{sol:def-localaciton}
+  with $p$ as above we should have $U = w V$ (and conversely all such triples
+  satisfy definition \ref{sol:def-localaciton}) and $c ( p ; \lambda ; U, V) (
+  F) ( \cdot) = F ( w \cdot)$.
+  
+  Next ,for an element $p \assign \tmop{diag} ( - 1, 1_{p + q}, - 1) \in M'$
+  we have $p \cdot \psi ( w) = \psi ( - w)$. This implies that for $p, U, V$
+  as in definition \ref{sol:def-localaciton} with $p$ as above we should have
+  $U = - V$ (and conversely all such triples satisfy definition
+  \ref{sol:def-localaciton}) and $c ( p ; \lambda ; U, V) ( F) ( \cdot) = F (
+  ( - 1) \cdot)$.
+  
+  Next, for an element $a ( t) \in A'$ as in (\ref{def-n-nots:eq-A}), direct
+  calculations show that we have we have $a ( t) \cdot \psi ( w) = e^t \psi (
+  e^{- t} w)$ and hence for an element $f \in C^{\infty}_{\lambda - n}$ we
+  would have $f ( a ( t) \psi ( w)) = e^{( \lambda - n) t} f ( \psi ( e^{- t}
+  w))$, which implies that for $p, U, V$ as in definition
+  \ref{sol:def-localaciton} with $p = a ( t)$ as above we should have $U =
+  e^{- t} V$ (and conversely all such triples satisfy definition
+  \ref{sol:def-localaciton}) and $c ( a ( t) ; \lambda ; U, V) ( F) ( \cdot) =
+  e^{( \lambda - n) t} F ( e^{- t} \cdot)$.
+  
+  Finally, for $w \in \mathbbm{R}^{p, q}$ with $w_p = 0$ and an element $n_+ (
+  w) \in N'_+$ as in (\ref{def-n-nots:eq-N+}), we observe that for $v \in
+  \mathbbm{R}^{p, q}$ we have for $\psi_w ( \cdot)$ and $c_w ( \cdot)$ as in
+  definition \ref{def-n-nots:def-n+invar}
+  \[ n_+ ( w) n_- ( v) = c_w ( v) \cdot n_- ( \psi_w ( v)) \]
+  whenever both sides make sense. Hence, for $p, U, V$ as in definition
+  \ref{sol:def-localaciton} with $p = n_+ ( w)$ as above we should have $U =
+  \psi_w ( V)$ (and conversely all such triples satisfy definition
+  \ref{sol:def-localaciton}) and $c ( n_+ ( w) ; \lambda ; U, V) ( F) ( \cdot)
+  = | c_w ( \cdot) |^{\lambda - n} F ( \psi_w ( \cdot))$.
+  
+  As the reasoning above tells us how $c ( \lambda ; p' ; U, V)$ are written
+  for $p' \in M', A', N_+'$, we see that these are precisely equivalent to
+  items of definition \ref{sol:def-sol} and thus Langlands decomposition of
+  $P'$ tells us now that $\mathcal{D}' ( \mathfrak{n}_-, \mathbbm{C}_{n -
+  \lambda} \otimes \mathbbm{C}_{\nu})^{M' A', \mathfrak{n}'_+} =\mathcal{S}
+  \tmop{ol} ( \mathbbm{R}^{p, q} ; U, V)$.
+\end{proof}
+
+\begin{proof}
+  (of prop. \ref{sol:prop-holocont}) In the light of the first item of remark
+  after the definition \ref{sol:def-sol}, the conclusion is implied by lemma
+  \ref{sol:lem-holodep}.
+\end{proof}
+
+\section{Non-equivalence of $N_+'$-invariance and
+$\mathfrak{n}'_+$-invariance}\label{sec:n-nonequiv}
+
+One might wonder whether it is possible to replace the item 4 of definition
+\ref{sol:def-sol} with the differential of that (local) action of $N_+'$ on
+$\mathbbm{R}^{p, q}$. We will call the latter $\mathfrak{n}_+'$-invariance.
+Explicitly written, it becomes the system of differential equations
+\begin{equation}
+  \left[ (\lambda - n) \varepsilon_j x_j - \varepsilon_j x_j E + \frac{1}{2} Q
+  (x) \frac{\partial}{\partial x_j} \right] F = 0, \hspace{1em} j = \{ 1, 2,
+  \ldots, n \} \backslash \{ p \} \label{Ndiff}
+\end{equation}
+with $E \assign \sum_j x_j  \frac{\partial}{\partial x_j}$ and $\varepsilon_j
+= + 1$ for $1 \leq j \leq p$ and $= - 1$ otherwise.
+
+The purpose of this section is to show that this in general will not be
+equivalent to the original definition. To this end we introduce
+
+\begin{definition}
+  \label{n-nonequiv:def-solprime}For $( \lambda, \nu) \in \mathbbm{C}^2$ and
+  $U \subset \mathbbm{R}^{p, q}$ open, we let $\mathcal{S} \tmop{ol}'_{} ( U ;
+  \lambda, \nu)$ to denote set of distributions $u \in \mathcal{D}' ( U)$,
+  satisfying first three items of definition \ref{sol:def-sol} and equations
+  (\ref{Ndiff}).
+  
+  We will also use the notation $\mathcal{S} \tmop{ol}_S' ( U ; \lambda, \nu)
+  \assign \{ u \in \mathcal{S} \tmop{ol} ( U ; \lambda, \nu) | \tmop{supp} (
+  u) \subset S \}$ for $S \subset U$ closed. We note that $\mathcal{S}
+  \tmop{ol}'_S ( U ; \lambda, \nu) \supset \mathcal{S} \tmop{ol}_S ( U ;
+  \lambda, \nu)$.
+\end{definition}
+
+\begin{proposition}
+  $\mathcal{S} \tmop{ol}'_{} ( \mathbbm{R}^{p, q} ; \lambda, \nu)$ is strictly
+  bigger than $\mathcal{S} \tmop{ol}_{} ( \mathbbm{R}^{p, q} ; \lambda, \nu)$
+  for $\tmop{Re} (- \nu) > 0$ and $\tmop{Re} (\lambda + \nu - n) > 0$
+\end{proposition}
+
+\subsection{Auxiliary lemmas}
+
+\begin{lemma}
+  \label{lem67:lem-flip}For $p, q \in \mathbbm{Z}_{\geqslant 1}$ let $Q$:
+  quadratic form on $\mathbbm{R}^{p, q}$. For $x, b \in \mathbbm{R}^{p, q}$ we
+  let $c_b ( x) \assign 1 - 2 Q ( x, b) + Q ( x) Q ( b)$ and $\psi_b ( x)
+  \assign ( x - Q ( x) b) / c_b ( x)$.
+  
+  We then have the following:
+  \begin{enumerate}
+    \item For $p \geqslant 1$ there exist $x^{( 0)}, b^{( 0)} \in
+    \mathbbm{R}^{p, q}$ with $b^{( 0)}_p = 0$, such that $Q ( \psi_{b^{( 0)}}
+    ( x^{( 0)})) > 0$ and $Q ( x^{( 0)}) < 0$;
+    
+    \item For $p \geqslant 2$ we can in addition make $\psi_{b^{( 0)}} ( x^{(
+    0)})$ having it's $p$-th coordinate vanish.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  For the first item, it suffices to find $x^{( 0)}$ and $b^{( 0)}$ such that
+  $Q ( x^{( 0)}) < 0$ and $Q ( x^{( 0)} - Q ( x^{( 0)}) b^{( 0)}) > 0$ (note
+  that this will automatically grant $c_{b^{( 0)}} ( x^{( 0)}) \neq 0$, as $Q
+  ( x - Q ( x) b) = Q ( x) ( 1 - 2 Q ( x, b) + Q ( x) Q ( b))$). Now, by
+  assuming $x_i^{( 0)} = b^{( 0)}_i = 0$ for $i \neq p, p + 1$ (while still
+  requiring $b_p^{( 0)} = 0$), and thus we have $Q ( x^{( 0)}) = ( x_p^{(
+  0)})^2 - ( x_{p + 1}^{( 0)})^2$ and $Q ( x^{( 0)} - Q ( x^{( 0)}) b^{( 0)})
+  = ( x_p^{( 0)})^2 - ( x_{p + 1}^{( 0)} - ( ( x_p^{( 0)})^2 - ( x_{p + 1}^{(
+  0)})^2) b^{( 0)}_{p + 1})^2$. Hence, by taking arbitrary $x^{( 0)}$ with $Q
+  ( x^{( 0)}) < 0$ and $b_{p + 1}^{( 0)} \assign x_{p + 1}^{( 0)} / ( ( x_p^{(
+  0)})^2 - ( x_{p + 1}^{( 0)})^2)$, we get the required pair of elements of
+  $\mathbbm{R}^{p, q}$. This shows the first item.
+  
+  Regarding the second item, we proceed similarly, except that this time we
+  require $x_i^{( 0)} = 0$ for $i \neq p - 1, p + 1$, $b^{( 0)}_i = 0$ for $i
+  \neq p$ and replace $x_p^{( 0)}$ by $x_{p - 1}^{( 0)}$ everywhere in
+  computations of previous paragraph. As $\psi_{b^{( 0)}} ( x^{( 0)})$ and
+  $x^{( 0)}$ have their $p$-th component being the same, this construction
+  suffices.
+\end{proof}
+
+\subsection{Proofs}
+
+\begin{proof}
+  Having fixed $(\lambda, \nu) \in \C^2$ such that $\tmop{Re} (- \nu) > 0$ and
+  $\tmop{Re} (\lambda + \nu - n) > 0$ consider the distribution
+  \[ K_+ (x) \assign | x_p |^{\lambda + \nu - n} Q_+^{- \nu} (x) . \]
+  It is directly verified that it belongs to $\mathcal{S} \tmop{ol}' (
+  \mathbbm{R}^{p, q} ; \lambda, \nu)$. Suppose now that $K_+ \in \mathcal{S}
+  \tmop{ol} ( \mathbbm{R}^{p, q} ; \lambda, \nu)$. As we have $K_+$ vanishing
+  outside $\{ Q \geqslant 0 \} \subset \mathbbm{R}^{p, q}$, $N_+'$-invariance
+  and lemma \ref{lem67:lem-flip} imply that $K_+$ vanishes at some open subset
+  of $\{ Q > 0 \}$. But this clearly contradicts the way we defined $K_+$.
+\end{proof}
+
 \begin{thebibliography}{CK{\O}P11}
   \bibitem[CK{\O}P11]{clerc2011generalized}J.-L. Clerc, T.~Kobayashi,
   B.~{\O}rsted, and M.~Pevzner. {\newblock}Generalized bernstein--reznikov
