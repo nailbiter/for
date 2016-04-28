@@ -10,10 +10,7 @@
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
     Determine functional equations and residue formulae for SBOs;
   </cell>|<cell|<with|font-series|bold|partially done> (can describe the
-  coset structure)>>|<row|<\cell>
-    Try to prove the theorem about <math|O<around*|(|p-1,q|)>> invariant
-    polynomials
-  </cell>|<cell|<with|font-series|bold|not done>>>>>>
+  coset structure)>>>>>
 
   \;
 
@@ -26,12 +23,9 @@
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Derive residue formulae (Thursday)
+    <item>Derive functional equations (Thirsday, Friday)
 
-    <item>Check <math|U<around*|(|p+1,q+1|)>\<supset\>U<around*|(|p,q+1|)>>
-    settings for coset structure and equations (Thursday)
-
-    <item>Derive functional equations (Friday)
+    <item>Derive residue formulae (weekend)
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>

@@ -4597,7 +4597,7 @@
     <section|Double coset decomposition <math|P<rprime|'>\\G/P>><label|sec:doublePGP>
   </hide-part>
 
-  <\show-part|11>
+  <\hide-part|11>
     \ <section|<math|\<cal-S\>ol<rsub|><around*|(|U;\<lambda\>,\<nu\>|)>> and
     related notions><label|sec:sol>
 
@@ -4964,10 +4964,10 @@
       of remark after the definition <reference|sol:def-sol>, the conclusion
       is implied by lemma <reference|sol:lem-holodep>.
     </proof>
-  <|show-part>
+  <|hide-part>
     \ <section|<math|\<cal-S\>ol<rsub|><around*|(|U;\<lambda\>,\<nu\>|)>> and
     related notions><label|sec:sol>
-  </show-part>
+  </hide-part>
 
   <\hide-part|12>
     <section|Non-equivalence of <math|N<rsub|+><rprime|'>>-invariance and
@@ -9949,7 +9949,83 @@
     <section|Application: Knapp-Stein operator><label|sec:knappstein>
   </hide-part>
 
-  <\hide-part|24>
+  <\show-part|24>
+    <section|Holomorphicity of symmetry breaking operators><label|sec:holoop>
+
+    <subsection|Main results>
+
+    <\definition>
+      Suppose <math|\<Omega\>\<subset\>\<bbb-C\><rsup|m>> is an open domain
+      and <math|\<lambda\><around*|(|\<cdot\>|)>,\<nu\><around*|(|\<cdot\>|)>>
+      are holomorphic on <math|\<Omega\>>. Suppose further that for every
+      <math|\<mu\>\<in\>\<Omega\>> we have
+      <math|H<rsub|\<mu\>>\<in\>Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\><around*|(|\<mu\>|)>|)>,J<around*|(|\<nu\><around*|(|\<mu\>|)>|)>|)>\<simeq\>\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|\<lambda\>-n>\<boxtimes\>\<bbb-C\><rsub|\<nu\>>|)><rsup|G<rprime|'>>>.
+      Now, for <math|K<rsub|M>\<assign\>M\<cap\>K> and
+      <math|K<rsub|M><rprime|'>\<assign\>P<rprime|'>\<cap\>K<rsub|M>> the
+      <math|K>-equivariant diffeomorphism <math|K/K<rsub|M>\<rightarrow\>G/P>
+      induces <math|K>-diffeomorphism between vector bundles
+      <math|G\<times\><rsub|\<lambda\>>\<bbb-C\>> over <math|G/P> and
+      <math|\<bbb-C\>\<times\>K/K<rsub|M>> over <math|K<rsub|M>>, thus it
+      induces <math|\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|\<lambda\>-n>\<boxtimes\>\<bbb-C\><rsub|\<nu\>>|)><rsup|G<rprime|'>>\<hookrightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>
+      monomorphism.
+
+      We say <math|H<rsub|\<mu\>>> is <with|font-series|bold|holomorphic in
+      <math|\<mu\>\<in\>\<Omega\>>> if the image of <math|H<rsub|\<mu\>>> in
+      <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>
+      is holomorphic.
+    </definition>
+
+    <\definition>
+      Let the setting be as in previous definition. Similarly as there, we
+      have Frechet space isomorphisms <math|C<rsup|\<infty\>><around*|(|K/K<rsub|M>|)>\<simeq\>I<around*|(|\<lambda\>|)>>
+      and <math|C<rsup|\<infty\>><around*|(|K<rprime|'>/K<rsub|M><rprime|'>|)>\<simeq\>J<around*|(|\<nu\>|)>>
+      which are respectively <math|K> and <math|K<rprime|'>>-equivariant.
+      These induce the inclusion <math|Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>\<hookrightarrow\>Hom<rsub|K<rprime|'>><around*|(|C<rsup|\<infty\>><around*|(|K/K<rsub|M>|)><rsub|K>,C<rsup|\<infty\>><around*|(|K<rprime|'>/K<rsub|M><rprime|'>|)><rsub|K<rprime|'>>|)>>.\ 
+
+      We say that <math|H<rsub|\<mu\>>> is <with|font-series|bold|weakly
+      holomorphic in> <math|\<mu\>\<in\>\<Omega\>> if when restricted to
+      every <math|K<rprime|'>>-irreducible finite dimensional representation
+      of <math|C<rsup|\<infty\>><around*|(|K/K<rsub|M>|)><rsub|K>>,
+      <math|H<rsub|\<mu\>>> is given by matrix with items holomorphic in
+      <math|\<mu\>>.
+    </definition>
+
+    <\remark>
+      One can give similar definitions for
+      <math|H<rsub|\<mu\>>\<in\>Hom<rsub|G><around*|(|I<around*|(|\<lambda\><around*|(|\<mu\>|)>|)>,I<around*|(|\<lambda\><rprime|'><around*|(|\<mu\>|)>|)>|)>>
+      and we shall use them in what follows.
+    </remark>
+
+    <\proposition>
+      <label|holoop:prop-comp-of-holo-is-holo>Suppose
+      <math|\<Omega\>\<subset\>\<bbb-C\><rsup|m>> open domain with
+      <math|\<lambda\><around*|(|\<cdot\>|)>,\<nu\><around*|(|\<cdot\>|)>,\<nu\><rprime|'><around*|(|\<cdot\>|)>>
+      being all holomorphic on <math|\<Omega\>>. Suppose further that
+      <math|H<rsub|\<mu\>>\<in\>Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\><around*|(|\<mu\>|)>|)>,J<around*|(|\<nu\><around*|(|\<mu\>|)>|)>|)>>
+      and <math|H<rprime|'><rsub|\<mu\>>\<in\>Hom<rsub|G<rprime|'>><around*|(|J<around*|(|\<nu\><around*|(|\<mu\>|)>|)>,J<around*|(|\<nu\><rprime|'><around*|(|\<mu\>|)>|)>|)>>
+      are weakly holomorphic. Then, their composition
+    </proposition>
+
+    <\proposition>
+      <label|holoop:prop-holo-rigidity>
+    </proposition>
+
+    <\proposition>
+      \;
+    </proposition>
+
+    <subsection|Auxiliary lemmas>
+
+    <subsection|Proofs>
+
+    <\proof>
+      (of proposition <reference|holoop:prop-comp-of-holo-is-holo>)\ 
+    </proof>
+  <|show-part>
+    <section|Holomorphicity of symmetry breaking operators><label|sec:holoop>
+  </show-part>
+
+  <\hide-part|25>
     <section|Formula>
 
     <subsection|Main results>
@@ -10052,7 +10128,7 @@
     <section|Formula>
   </hide-part>
 
-  <\hide-part|25>
+  <\hide-part|26>
     <\bibliography|bib|alpha|todai_master.bib>
       <\bib-list|CKØP11>
         <bibitem*|CKØP11><label|bib-clerc2011generalized>J.-L. Clerc,
@@ -10518,10 +10594,11 @@
     <associate|auto-78|<tuple|21.2|81>>
     <associate|auto-79|<tuple|22|82>>
     <associate|auto-8|<tuple|2.2|7>>
-    <associate|auto-80|<tuple|22.1|?>>
-    <associate|auto-81|<tuple|22.2|?>>
-    <associate|auto-82|<tuple|22.3|?>>
-    <associate|auto-83|<tuple|22.1|?>>
+    <associate|auto-80|<tuple|23|?>>
+    <associate|auto-81|<tuple|23.1|?>>
+    <associate|auto-82|<tuple|23.2|?>>
+    <associate|auto-83|<tuple|23.3|?>>
+    <associate|auto-84|<tuple|23.3|?>>
     <associate|auto-9|<tuple|2.3|8>>
     <associate|auto.1-1|<tuple|1|?|#1>>
     <associate|auto.1-10|<tuple|2.2.2|?|#1>>
@@ -10683,7 +10760,11 @@
     <associate|auto.24-2|<tuple|22.1|?|#24>>
     <associate|auto.24-3|<tuple|22.2|?|#24>>
     <associate|auto.24-4|<tuple|22.3|?|#24>>
-    <associate|auto.25-1|<tuple|22.3|?|#25>>
+    <associate|auto.25-1|<tuple|23|?|#25>>
+    <associate|auto.25-2|<tuple|23.1|?|#25>>
+    <associate|auto.25-3|<tuple|23.2|?|#25>>
+    <associate|auto.25-4|<tuple|23.3|?|#25>>
+    <associate|auto.26-1|<tuple|23.3|?|#26>>
     <associate|auto.3-1|<tuple|1|?|#3>>
     <associate|auto.3-2|<tuple|1.1|?|#3>>
     <associate|auto.3-3|<tuple|1.2|?|#3>>
@@ -10736,36 +10817,36 @@
     <associate|auto.KC-normalization:lem-sing-q-4-3|<tuple|9.2|?|#KC-normalization:lem-sing-q-4>>
     <associate|auto.KC-normalization:lem-sing-q-4-4|<tuple|9.3|?|#KC-normalization:lem-sing-q-4>>
     <associate|auto.KC-normalization:lem-sing-q-4-5|<tuple|9.4|?|#KC-normalization:lem-sing-q-4>>
-    <associate|bib-KO1|<tuple|KØ03|82|#25>>
+    <associate|bib-KO1|<tuple|KØ03|82|#26>>
     <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-Kobayashi201489|<tuple|KS14|75>>
-    <associate|bib-NIST:DLMF|<tuple|DLMF|?|#25>>
-    <associate|bib-chazarain2011introduction|<tuple|CP82|82|#25>>
-    <associate|bib-clerc2011generalized|<tuple|CKØP11|82|#25>>
-    <associate|bib-delorme1998plancherel|<tuple|Del98|82|#25>>
-    <associate|bib-faraut1979distributions|<tuple|Far79|82|#25>>
-    <associate|bib-gan2011symplectic|<tuple|GGP12|82|#25>>
-    <associate|bib-gelfand1966generalized|<tuple|GGV66|82|#25>>
-    <associate|bib-gelfand1980distribution|<tuple|GS69|82|#25>>
-    <associate|bib-gradshteinryzhik|<tuple|GRJ00|?|#25>>
-    <associate|bib-harishchandra1978harmonic|<tuple|HC76|82|#25>>
-    <associate|bib-hormander1983analysis|<tuple|Hör83|82|#25>>
-    <associate|bib-howe1993homogeneous|<tuple|HT93|82|#25>>
-    <associate|bib-juhl2009families|<tuple|Juh09|82|#25>>
-    <associate|bib-kobayashi1994discrete1|<tuple|Kob94|82|#25>>
-    <associate|bib-kobayashi1998discrete2|<tuple|Kob98a|82|#25>>
-    <associate|bib-kobayashi1998discrete3|<tuple|Kob98b|82|#25>>
+    <associate|bib-NIST:DLMF|<tuple|DLMF|?|#26>>
+    <associate|bib-chazarain2011introduction|<tuple|CP82|82|#26>>
+    <associate|bib-clerc2011generalized|<tuple|CKØP11|82|#26>>
+    <associate|bib-delorme1998plancherel|<tuple|Del98|82|#26>>
+    <associate|bib-faraut1979distributions|<tuple|Far79|82|#26>>
+    <associate|bib-gan2011symplectic|<tuple|GGP12|82|#26>>
+    <associate|bib-gelfand1966generalized|<tuple|GGV66|82|#26>>
+    <associate|bib-gelfand1980distribution|<tuple|GS69|82|#26>>
+    <associate|bib-gradshteinryzhik|<tuple|GRJ00|?|#26>>
+    <associate|bib-harishchandra1978harmonic|<tuple|HC76|82|#26>>
+    <associate|bib-hormander1983analysis|<tuple|Hör83|82|#26>>
+    <associate|bib-howe1993homogeneous|<tuple|HT93|82|#26>>
+    <associate|bib-juhl2009families|<tuple|Juh09|82|#26>>
+    <associate|bib-kobayashi1994discrete1|<tuple|Kob94|82|#26>>
+    <associate|bib-kobayashi1998discrete2|<tuple|Kob98a|82|#26>>
+    <associate|bib-kobayashi1998discrete3|<tuple|Kob98b|82|#26>>
     <associate|bib-kobayashi2013differential|<tuple|KP13|78>>
-    <associate|bib-kobayashi2014classification|<tuple|KM14|82|#25>>
-    <associate|bib-kobayashi2015differential1|<tuple|KP15a|82|#25>>
-    <associate|bib-kobayashi2015differential2|<tuple|KP15b|82|#25>>
-    <associate|bib-kobayashi2015program|<tuple|Kob15|82|#25>>
-    <associate|bib-kobayashi2015symmetry|<tuple|KS15|82|#25>>
-    <associate|bib-krantz1982function|<tuple|Kra82|82|#25>>
-    <associate|bib-oshima1984description|<tuple|OM84|82|#25>>
+    <associate|bib-kobayashi2014classification|<tuple|KM14|82|#26>>
+    <associate|bib-kobayashi2015differential1|<tuple|KP15a|82|#26>>
+    <associate|bib-kobayashi2015differential2|<tuple|KP15b|82|#26>>
+    <associate|bib-kobayashi2015program|<tuple|Kob15|82|#26>>
+    <associate|bib-kobayashi2015symmetry|<tuple|KS15|82|#26>>
+    <associate|bib-krantz1982function|<tuple|Kra82|82|#26>>
+    <associate|bib-oshima1984description|<tuple|OM84|82|#26>>
     <associate|bib-treves1967topological|<tuple|Tre67|75>>
-    <associate|bib-wallach1988real|<tuple|Wal88|82|#25>>
-    <associate|bib-warner1971foundations|<tuple|War71|82|#25>>
+    <associate|bib-wallach1988real|<tuple|Wal88|82|#26>>
+    <associate|bib-warner1971foundations|<tuple|War71|82|#26>>
     <associate|def-P|<tuple|4.3|15|#6>>
     <associate|def-n-nots|<tuple|7|22|#9>>
     <associate|def-n-nots:def-n+invar|<tuple|9.1|33|#11>>
@@ -10896,6 +10977,8 @@
     <associate|holomorphicity-preserving:prop-pullback-holo|<tuple|2.12|7|#4>>
     <associate|holomorphicity-preserving:prop-tensor-cts|<tuple|2.15|8|#4>>
     <associate|holomorphicity-preserving:prop-tensor-holo|<tuple|2.14|8|#4>>
+    <associate|holoop:prop-comp-of-holo-is-holo|<tuple|22.4|?|#24>>
+    <associate|holoop:prop-holo-rigidity|<tuple|22.5|?|#24>>
     <associate|k-finite:def-Slm|<tuple|16.2|?|#18>>
     <associate|k-finite:def-holo|<tuple|16.1|?|#18>>
     <associate|k-finite:eq-claim2|<tuple|16.5|56|#18>>
@@ -10950,7 +11033,7 @@
     <associate|lem-3-1|<tuple|6.5|8|#6>>
     <associate|lem-3-2|<tuple|6.4|8|#6>>
     <associate|lem-3-3|<tuple|6.5|8|#6>>
-    <associate|lem-4|<tuple|4.11|20|#6>>
+    <associate|lem-4|<tuple|5.13|20|#7>>
     <associate|lem-5|<tuple|5.14|20|#7>>
     <associate|lem-5n|<tuple|19.8|68|#21>>
     <associate|lem-6|<tuple|5.15|20|#7>>
@@ -11005,7 +11088,7 @@
     <associate|prop-4|<tuple|14.1|41|#17>>
     <associate|prop-6|<tuple|14.1|41|#17>>
     <associate|prop-eqns-for-kernels|<tuple|3.5|?|#4>>
-    <associate|prop-formula|<tuple|22.1|?|#24>>
+    <associate|prop-formula|<tuple|23.1|?|#25>>
     <associate|prop-norm-1|<tuple|14.1|41|#17>>
     <associate|prop-norm-2|<tuple|14.1|41|#17>>
     <associate|prop-q=2|<tuple|19.3|67|#21>>
@@ -11023,6 +11106,7 @@
     <associate|sec:dim-C|<tuple|20|?|#22>>
     <associate|sec:doublePGP|<tuple|8|30|#10>>
     <associate|sec:holomorphicity-preserving|<tuple|2|6|#4>>
+    <associate|sec:holoop|<tuple|22|?|#24>>
     <associate|sec:k-finite|<tuple|16|52|#18>>
     <associate|sec:kfinite|<tuple|16|?|#18>>
     <associate|sec:knappstein|<tuple|21|80|#23>>
@@ -11597,25 +11681,29 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-78>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|22<space|2spc>Formula>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|22<space|2spc>Holomorphicity
+      of symmetry breaking operators> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-79><vspace|0.5fn>
 
-      <with|par-left|<quote|1.5fn>|22.1<space|2spc>Main results
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|23<space|2spc>Formula>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-80>>
+      <no-break><pageref|auto-80><vspace|0.5fn>
 
-      <with|par-left|<quote|1.5fn>|22.2<space|2spc>Auxiliary lemmas
+      <with|par-left|<quote|1.5fn>|23.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-81>>
 
-      <with|par-left|<quote|1.5fn>|22.3<space|2spc>Proofs
+      <with|par-left|<quote|1.5fn>|23.2<space|2spc>Auxiliary lemmas
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-82>>
 
+      <with|par-left|<quote|1.5fn>|23.3<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-83>>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-83><vspace|0.5fn>
+      <no-break><pageref|auto-84><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
