@@ -1346,6 +1346,12 @@
       q/2><around*|(|e<rsup|\<pi\>\<lambda\>i>-1|)>+e<rsup|\<pi\>q
       i/2><around*|(|1-e<rsup|-\<pi\>\<lambda\>i>|)>|e<rsup|\<pi\>\<lambda\>i>-e<rsup|-\<pi\>\<lambda\>i>>.>|<cell|>>|<row|<cell|>|<cell|x<rsub|\<lambda\>,\<nu\>>=<around*|(|-1|)><rsup|q/2>2<rsup|\<lambda\>-1><around*|(|<frac|q-2|2>|)>!<frac|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>|)>|\<Gamma\><around*|(|\<lambda\>|)>>\<times\><frac|\<Gamma\><around*|(|<frac|1-\<lambda\>+q|2>|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|1-\<lambda\>|2>|)>\<Gamma\><around*|(|<frac|1-\<nu\>+q|2>|)>>=>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-1|)><rsup|q/2>|<sqrt|\<pi\>>><around*|(|<frac|q-2|2>|)>!<frac|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>|)>cos<around*|(|\<pi\>\<lambda\>/2|)>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>>\<times\><frac|\<Gamma\><around*|(|<frac|1-\<lambda\>+q|2>|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|1-\<nu\>+q|2>|)>>.>|<cell|>>>>
     </eqnarray>
+
+    <section|FIXME>
+
+    <\enumerate>
+      <item>Def. 9.10 second diagram <math|\<cal-D\>\<rightarrow\>\<cal-D\><rprime|'>>
+    </enumerate>
   <|show-part>
     <section|Formula>
   </show-part>
@@ -1387,7 +1393,7 @@
     <associate|auto.11-4|<tuple|12|?|#11>>
     <associate|auto.12-1|<tuple|11|?|#12>>
     <associate|auto.13-1|<tuple|12|?|#13>>
-    <associate|auto.13-2|<tuple|12.1|?|#13>>
+    <associate|auto.13-2|<tuple|13|?|#13>>
     <associate|auto.13-3|<tuple|12.2|?|#13>>
     <associate|auto.13-4|<tuple|12.3|?|#13>>
     <associate|auto.2-1|<tuple|1|?|#2>>

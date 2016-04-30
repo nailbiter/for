@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.0.7.18>
 
 <style|<tuple|article|mystyle|number-long-article|doxygen|american>>
 
@@ -10024,7 +10024,21 @@
     </remark>
 
     <\proposition>
-      About spherical multiple
+      <label|holoop:prop-sphermult>Let <math|H\<in\>Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>>
+      and <math|K\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+      the corresponding kernel. Proposition
+      <reference|k-finite:prop-holo-to-holo> establishes the injective map of
+      vector spaces <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<hookrightarrow\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
+      and we let <math|K<rsup|S>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
+      be the image of <math|K>. Let further (with reference to maps discussed
+      in definition <reference|holoop:def-weakholo>)
+      <math|1<rsub|\<lambda\>>> and <math|1<rsub|\<nu\>>> be spherical
+      vectors defined as <math|C<rsup|\<infty\>><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>\<ni\>1\<mapsto\>1<rsub|\<lambda\>>\<in\>I<around*|(|\<lambda\>|)>>
+      and <math|C<rsup|\<infty\>><around*|(|\<bbb-S\><rsup|p-1>\<times\>\<bbb-S\><rsup|q>|)>\<ni\>1\<mapsto\>1<rsub|\<nu\>>\<in\>J<around*|(|\<nu\>|)>>.
+      Then <math|G<rprime|'>>-equivariance implies that <math|H
+      1<rsub|\<lambda\>>=c 1<rsub|\<nu\>>> for <math|c\<in\>\<bbb-C\>>.
+
+      We have <math|c=<around*|\<langle\>|K<rsup|S>,1|\<rangle\>><rsub|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>><rsub|>>.
     </proposition>
 
     <subsection|Auxiliary lemmas>
@@ -10048,12 +10062,17 @@
     </definition>
 
     <\lemma>
-      Strong holomorphicity implies weak holomorphicity
+      <label|holoop:lem-strong-implies-weak>Strong holomorphicity implies
+      weak holomorphicity.
     </lemma>
+
+    <\proof>
+      \;
+    </proof>
 
     <\lemma>
       Holomorphicity of <math|K<rsub|\<mu\>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><around*|(|\<mu\>|)>,\<nu\><around*|(|\<mu\>|)>|)>>
-      implies strong holomorphicity
+      implies strong holomorphicity.
     </lemma>
 
     <subsection|Proofs>
@@ -10974,15 +10993,15 @@
     <associate|eq:supp-p-mero|<tuple|13.1|43|#15>>
     <associate|fact-1|<tuple|74|?|#6>>
     <associate|fact-2|<tuple|75|?|#6>>
-    <associate|fact-horm-homog|<tuple|5|18|#7>>
-    <associate|fact-horm1|<tuple|5|18|#7>>
-    <associate|fact-horm2|<tuple|5|18|#7>>
-    <associate|fact:homog-tempered|<tuple|11.8|39|#13>>
-    <associate|fact:localization|<tuple|3|38|#13>>
-    <associate|fact:sing-q|<tuple|14.3|50|#16>>
-    <associate|fact:sing-q-2|<tuple|14.7|46|#16>>
-    <associate|fact:sing-q-3|<tuple|14.7|46|#16>>
-    <associate|fact:sing-q-4|<tuple|3|38|#13>>
+    <associate|fact-horm-homog|<tuple|5.1|18|#7>>
+    <associate|fact-horm1|<tuple|5.2|18|#7>>
+    <associate|fact-horm2|<tuple|5.3|18|#7>>
+    <associate|fact:homog-tempered|<tuple|11.12|39|#13>>
+    <associate|fact:localization|<tuple|11.7|38|#13>>
+    <associate|fact:sing-q|<tuple|14.17|50|#16>>
+    <associate|fact:sing-q-2|<tuple|14.8|46|#16>>
+    <associate|fact:sing-q-3|<tuple|14.9|46|#16>>
+    <associate|fact:sing-q-4|<tuple|11.8|38|#13>>
     <associate|footnote-1|<tuple|1|?|#5>>
     <associate|footnote-10.1|<tuple|10.1|?|#11>>
     <associate|footnote-11.1|<tuple|11.1|37|#13>>
@@ -11040,39 +11059,41 @@
     <associate|footnr-8.1|<tuple|8.1|?|#9>>
     <associate|footnr-9.1|<tuple|9.1|?|#10>>
     <associate|forre|<tuple|14.1|41|#17>>
-    <associate|holomorphicity-preserving:def-holo-in-DG|<tuple|2.6|7|#4>>
+    <associate|holomorphicity-preserving:def-holo-in-DG|<tuple|2.9|7|#4>>
     <associate|holomorphicity-preserving:eq-1|<tuple|2.1|10|#4>>
     <associate|holomorphicity-preserving:fact-1|<tuple|1|?|#4>>
     <associate|holomorphicity-preserving:fact-2|<tuple|4|?|#4>>
-    <associate|holomorphicity-preserving:fact-basic|<tuple|3|8|#4>>
-    <associate|holomorphicity-preserving:fact-completeness|<tuple|2.3|8|#4>>
-    <associate|holomorphicity-preserving:fact-holo|<tuple|2.3|8|#4>>
+    <associate|holomorphicity-preserving:fact-basic|<tuple|2.18|8|#4>>
+    <associate|holomorphicity-preserving:fact-completeness|<tuple|2.17|8|#4>>
+    <associate|holomorphicity-preserving:fact-holo|<tuple|2.16|8|#4>>
     <associate|holomorphicity-preserving:fact-homog|<tuple|2.1|6|#4>>
-    <associate|holomorphicity-preserving:fact-p1|<tuple|2.19|11|#4>>
+    <associate|holomorphicity-preserving:fact-p1|<tuple|2.26|11|#4>>
     <associate|holomorphicity-preserving:fact-p2|<tuple|11.27|23|#12>>
-    <associate|holomorphicity-preserving:fact-p3|<tuple|2.4|12|#4>>
-    <associate|holomorphicity-preserving:fact-pullback|<tuple|2.3|7|#4>>
-    <associate|holomorphicity-preserving:fact-tensor|<tuple|2.5|7|#4>>
-    <associate|holomorphicity-preserving:lem-homog-ctt|<tuple|2.15|9|#4>>
-    <associate|holomorphicity-preserving:lem-phi-satisfies|<tuple|2.13|8|#4>>
-    <associate|holomorphicity-preserving:lem-t+-cts|<tuple|2.14|8|#4>>
-    <associate|holomorphicity-preserving:lem-t+-smth|<tuple|2.18|10|#4>>
-    <associate|holomorphicity-preserving:lem-t+-smth-aux|<tuple|2.17|10|#4>>
-    <associate|holomorphicity-preserving:lem-t+ln-cts|<tuple|2.16|9|#4>>
-    <associate|holomorphicity-preserving:lem-tensor-holo|<tuple|2.19|11|#4>>
+    <associate|holomorphicity-preserving:fact-p3|<tuple|2.27|12|#4>>
+    <associate|holomorphicity-preserving:fact-pullback|<tuple|2.5|7|#4>>
+    <associate|holomorphicity-preserving:fact-tensor|<tuple|2.8|7|#4>>
+    <associate|holomorphicity-preserving:lem-homog-ctt|<tuple|2.21|9|#4>>
+    <associate|holomorphicity-preserving:lem-phi-satisfies|<tuple|2.19|8|#4>>
+    <associate|holomorphicity-preserving:lem-t+-cts|<tuple|2.20|8|#4>>
+    <associate|holomorphicity-preserving:lem-t+-smth|<tuple|2.24|10|#4>>
+    <associate|holomorphicity-preserving:lem-t+-smth-aux|<tuple|2.23|10|#4>>
+    <associate|holomorphicity-preserving:lem-t+ln-cts|<tuple|2.22|9|#4>>
+    <associate|holomorphicity-preserving:lem-tensor-holo|<tuple|2.25|11|#4>>
     <associate|holomorphicity-preserving:prop-1|<tuple|3|?|#4>>
     <associate|holomorphicity-preserving:prop-2|<tuple|5|?|#4>>
-    <associate|holomorphicity-preserving:prop-homog-cts|<tuple|2.8|7|#4>>
-    <associate|holomorphicity-preserving:prop-homog-holo|<tuple|2.7|7|#4>>
-    <associate|holomorphicity-preserving:prop-pullback-cts|<tuple|2.10|8|#4>>
-    <associate|holomorphicity-preserving:prop-pullback-holo|<tuple|2.9|7|#4>>
-    <associate|holomorphicity-preserving:prop-tensor-cts|<tuple|2.12|8|#4>>
-    <associate|holomorphicity-preserving:prop-tensor-holo|<tuple|2.11|8|#4>>
+    <associate|holomorphicity-preserving:prop-homog-cts|<tuple|2.11|7|#4>>
+    <associate|holomorphicity-preserving:prop-homog-holo|<tuple|2.10|7|#4>>
+    <associate|holomorphicity-preserving:prop-pullback-cts|<tuple|2.13|8|#4>>
+    <associate|holomorphicity-preserving:prop-pullback-holo|<tuple|2.12|7|#4>>
+    <associate|holomorphicity-preserving:prop-tensor-cts|<tuple|2.15|8|#4>>
+    <associate|holomorphicity-preserving:prop-tensor-holo|<tuple|2.14|8|#4>>
     <associate|holoop:def-strongholo|<tuple|22.8|?|#24>>
     <associate|holoop:def-weakholo|<tuple|22.1|?|#24>>
+    <associate|holoop:lem-strong-implies-weak|<tuple|22.9|?|#24>>
     <associate|holoop:prop-comp-of-holo-is-holo|<tuple|22.3|?|#24>>
     <associate|holoop:prop-holo-rigidity|<tuple|22.4|?|#24>>
     <associate|holoop:prop-main|<tuple|22.5|?|#24>>
+    <associate|holoop:prop-sphermult|<tuple|22.7|?|#24>>
     <associate|k-finite:def-Slm|<tuple|16.2|?|#18>>
     <associate|k-finite:def-holo|<tuple|16.1|?|#18>>
     <associate|k-finite:eq-claim2|<tuple|16.5|56|#18>>
@@ -11080,7 +11101,7 @@
     <associate|k-finite:eq-compat-N|<tuple|16.4|54|#18>>
     <associate|k-finite:eq-hookC|<tuple|16.2|52|#18>>
     <associate|k-finite:eq-hookR|<tuple|16.1|52|#18>>
-    <associate|k-finite:fact-hartogs|<tuple|16.5|57|#18>>
+    <associate|k-finite:fact-hartogs|<tuple|16.17|57|#18>>
     <associate|k-finite:lem-1|<tuple|3.4|14|#5>>
     <associate|k-finite:lem-KC-c0|<tuple|16.16|?|#18>>
     <associate|k-finite:lem-KC-c2|<tuple|16.18|?|#18>>
@@ -11113,7 +11134,7 @@
     <associate|knappstein:def-n+invar|<tuple|21.1|80|#23>>
     <associate|knappstein:def-sol|<tuple|21.2|80|#23>>
     <associate|knappstein:eq-Nequiv|<tuple|21.1|80|#23>>
-    <associate|knappstein:fact-faraut|<tuple|21.2|81|#23>>
+    <associate|knappstein:fact-faraut|<tuple|21.8|81|#23>>
     <associate|knappstein:prop-1|<tuple|21.4|80|#23>>
     <associate|knappstein:prop-holo|<tuple|21.5|80|#23>>
     <associate|knappstein:prop-kfinite|<tuple|21.6|80|#23>>
@@ -11127,52 +11148,52 @@
     <associate|lem-3-1|<tuple|6.5|8|#6>>
     <associate|lem-3-2|<tuple|6.4|8|#6>>
     <associate|lem-3-3|<tuple|6.5|8|#6>>
-    <associate|lem-4|<tuple|5.10|20|#7>>
-    <associate|lem-5|<tuple|5.11|20|#7>>
+    <associate|lem-4|<tuple|5.13|20|#7>>
+    <associate|lem-5|<tuple|5.14|20|#7>>
     <associate|lem-5n|<tuple|19.8|68|#21>>
-    <associate|lem-6|<tuple|5.12|20|#7>>
+    <associate|lem-6|<tuple|5.15|20|#7>>
     <associate|lem-7|<tuple|19.11|70|#21>>
     <associate|lem-8|<tuple|19.10|69|#21>>
     <associate|lem-9|<tuple|19.12|71|#21>>
     <associate|lem-assume-the-setting|<tuple|14.2|42|#17>>
-    <associate|lem-holo-nonzero|<tuple|5.9|20|#7>>
+    <associate|lem-holo-nonzero|<tuple|5.12|20|#7>>
     <associate|lem-holo-supp|<tuple|76|?|#6>>
     <associate|lem-mero-addition|<tuple|3|?|#1>>
     <associate|lem-mero-supp|<tuple|8|?|#1>>
-    <associate|lem-n:odd-holo|<tuple|5.25|24|#7>>
-    <associate|lem-n:odd-n/2|<tuple|5.26|24|#7>>
-    <associate|lem-normalized-eq|<tuple|5.13|20|#7>>
-    <associate|lem-pq2holo|<tuple|5.15|21|#7>>
-    <associate|lem-r1|<tuple|5.19|22|#7>>
-    <associate|lem-r1-e|<tuple|5.16|21|#7>>
-    <associate|lem-r2|<tuple|5.21|23|#7>>
-    <associate|lem-r3|<tuple|5.22|23|#7>>
-    <associate|lem-r4|<tuple|5.20|22|#7>>
-    <associate|lem-r5|<tuple|5.23|23|#7>>
-    <associate|lem-r6|<tuple|5.17|22|#7>>
-    <associate|lem-r6-e|<tuple|5.14|21|#7>>
-    <associate|lem-r7|<tuple|5.24|23|#7>>
-    <associate|lem-r8|<tuple|5.18|22|#7>>
-    <associate|lem-restricted|<tuple|5.5|19|#7>>
+    <associate|lem-n:odd-holo|<tuple|5.28|24|#7>>
+    <associate|lem-n:odd-n/2|<tuple|5.29|24|#7>>
+    <associate|lem-normalized-eq|<tuple|5.16|20|#7>>
+    <associate|lem-pq2holo|<tuple|5.18|21|#7>>
+    <associate|lem-r1|<tuple|5.22|22|#7>>
+    <associate|lem-r1-e|<tuple|5.19|21|#7>>
+    <associate|lem-r2|<tuple|5.24|23|#7>>
+    <associate|lem-r3|<tuple|5.25|23|#7>>
+    <associate|lem-r4|<tuple|5.23|22|#7>>
+    <associate|lem-r5|<tuple|5.26|23|#7>>
+    <associate|lem-r6|<tuple|5.20|22|#7>>
+    <associate|lem-r6-e|<tuple|5.17|21|#7>>
+    <associate|lem-r7|<tuple|5.27|23|#7>>
+    <associate|lem-r8|<tuple|5.21|22|#7>>
+    <associate|lem-restricted|<tuple|5.8|19|#7>>
     <associate|lem-span|<tuple|14.1|41|#17>>
-    <associate|lem67:fact-pullback|<tuple|3|38|#13>>
-    <associate|lem67:lem-Qpm|<tuple|11.11|40|#13>>
-    <associate|lem67:lem-eveninall|<tuple|11.10|40|#13>>
+    <associate|lem67:fact-pullback|<tuple|11.9|38|#13>>
+    <associate|lem67:lem-Qpm|<tuple|11.15|40|#13>>
+    <associate|lem67:lem-eveninall|<tuple|11.14|40|#13>>
     <associate|lem67:lem-flip|<tuple|10.3|37|#12>>
     <associate|lem67:lem-geom|<tuple|11.5|38|#13>>
     <associate|lem67:lem-geom-aux|<tuple|11.4|38|#13>>
     <associate|lem67:lem-homoR|<tuple|4.7|?|#5>>
-    <associate|lem67:lem-homogImpliesE|<tuple|11.9|39|#13>>
-    <associate|lem67:lem-homogR|<tuple|11.8|39|#13>>
-    <associate|lem67:lem-tensor|<tuple|11.7|39|#13>>
+    <associate|lem67:lem-homogImpliesE|<tuple|11.13|39|#13>>
+    <associate|lem67:lem-homogR|<tuple|11.11|39|#13>>
+    <associate|lem67:lem-tensor|<tuple|11.10|39|#13>>
     <associate|lem67:lem-tensor-aux|<tuple|11.6|38|#13>>
     <associate|lem67:prop-67|<tuple|11.1|37|#13>>
     <associate|lem67:prop-dim1|<tuple|11.2|37|#13>>
     <associate|lem:sing-q-1|<tuple|14.1|45|#16>>
     <associate|lem:sing-q-2|<tuple|9.5|12|#10>>
     <associate|lem:sing-q-3|<tuple|14.6|45|#16>>
-    <associate|lem:sing-q-6|<tuple|14.9|46|#16>>
-    <associate|lem:sing-q-7|<tuple|14.13|48|#16>>
+    <associate|lem:sing-q-6|<tuple|14.11|46|#16>>
+    <associate|lem:sing-q-7|<tuple|14.15|48|#16>>
     <associate|lem:sing-q-8|<tuple|9.14|14|#10>>
     <associate|lem:supp-p|<tuple|13.2|43|#15>>
     <associate|n-nonequiv:def-solprime|<tuple|10.1|36|#12>>
@@ -11188,10 +11209,10 @@
     <associate|prop-q=2|<tuple|19.3|67|#21>>
     <associate|prop:supp-p|<tuple|13.1|43|#15>>
     <associate|q-main|<tuple|7.2|?|#8>>
-    <associate|q-norm:lem-nonzero-strong|<tuple|5.6|19|#7>>
-    <associate|q-norm:prop-1|<tuple|5.1|18|#7>>
-    <associate|q-norm:prop-2|<tuple|5.2|18|#7>>
-    <associate|q-norm:prop-pqzero|<tuple|5.4|19|#7>>
+    <associate|q-norm:lem-nonzero-strong|<tuple|5.9|19|#7>>
+    <associate|q-norm:prop-1|<tuple|5.4|18|#7>>
+    <associate|q-norm:prop-2|<tuple|5.5|18|#7>>
+    <associate|q-norm:prop-pqzero|<tuple|5.7|19|#7>>
     <associate|sec:KC-normalization|<tuple|17|58|#19>>
     <associate|sec:KP-normalization|<tuple|18|64|#20>>
     <associate|sec:KR-normalization-even|<tuple|19|67|#21>>
@@ -11231,10 +11252,10 @@
     <associate|sol:prop-sol|<tuple|9.4|34|#11>>
     <associate|supp-C:lem-operator|<tuple|14.16|?|#16>>
     <associate|supp-P:lem-on-compacta|<tuple|13.4|44|#15>>
-    <associate|supp-Q:lem-flip|<tuple|14.11|48|#16>>
-    <associate|supp-Q:lem-operator|<tuple|14.14|49|#16>>
+    <associate|supp-Q:lem-flip|<tuple|14.13|48|#16>>
+    <associate|supp-Q:lem-operator|<tuple|14.16|49|#16>>
     <associate|supp-Q:lem-sing-q-4|<tuple|14.7|46|#16>>
-    <associate|supp-Q:lem-sing-q-7-aux|<tuple|14.12|48|#16>>
+    <associate|supp-Q:lem-sing-q-7-aux|<tuple|14.14|48|#16>>
     <associate|supp-Q:prop-onedim|<tuple|14.2|45|#16>>
     <associate|supp-Q:prop-sol-extending|<tuple|14.4|45|#16>>
     <associate|supp-Q:prop-supp-xnoq0|<tuple|14.5|45|#16>>
