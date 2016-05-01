@@ -353,25 +353,29 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-78>>
 
-      <vspace*|1fn><with|font-series|bold|math-font-series|bold|22<space|2spc>Formula>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|22<space|2spc>Holomorphicity
+      of symmetry breaking operators> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-79><vspace|0.5fn>
 
-      <with|par-left|1.5fn|22.1<space|2spc>Main results
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|23<space|2spc>Formula>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-80>>
+      <no-break><pageref|auto-80><vspace|0.5fn>
 
-      <with|par-left|1.5fn|22.2<space|2spc>Auxiliary lemmas
+      <with|par-left|1.5fn|23.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-81>>
 
-      <with|par-left|1.5fn|22.3<space|2spc>Proofs
+      <with|par-left|1.5fn|23.2<space|2spc>Auxiliary lemmas
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-82>>
 
+      <with|par-left|1.5fn|23.3<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-83>>
+
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-83><vspace|0.5fn>
+      <no-break><pageref|auto-84><vspace|0.5fn>
     </table-of-contents>
 
     <surround|<assign|sone|<macro|<math|<mybra|<D><rprime|'><around|(|G\<times\><rsub|P><C><rsub|\<lambda\>-n>|)>\<otimes\><C><rsub|\<nu\>>><rsup|\<Delta\><around|(|P<rprime|'>|)>>>>><assign|Upp|<macro|<mysetn|(x,y)\<in\><R><rsup|p,q>|x\<neq\>0,<space|0.75spc>y\<neq\>0>>><assign|Stab|<macro|O(p,q)<rsub|e<rsub|p>>>><assign|sol*|<macro|1|<with|math-font|cal|S>ol(<arg|1>;\<lambda\>,\<nu\>)>><assign|sol|<macro|<sol*|<R><rsup|p,q>>>><assign|solXi|<macro|<sol*|\<Xi\>>>>||>
@@ -709,25 +713,29 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-78>>
 
-      <vspace*|1fn><with|font-series|bold|math-font-series|bold|22<space|2spc>Formula>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|22<space|2spc>Holomorphicity
+      of symmetry breaking operators> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-79><vspace|0.5fn>
 
-      <with|par-left|1.5fn|22.1<space|2spc>Main results
+      <vspace*|1fn><with|font-series|bold|math-font-series|bold|23<space|2spc>Formula>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-80>>
+      <no-break><pageref|auto-80><vspace|0.5fn>
 
-      <with|par-left|1.5fn|22.2<space|2spc>Auxiliary lemmas
+      <with|par-left|1.5fn|23.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-81>>
 
-      <with|par-left|1.5fn|22.3<space|2spc>Proofs
+      <with|par-left|1.5fn|23.2<space|2spc>Auxiliary lemmas
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-82>>
 
+      <with|par-left|1.5fn|23.3<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-83>>
+
       <vspace*|1fn><with|font-series|bold|math-font-series|bold|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-83><vspace|0.5fn>
+      <no-break><pageref|auto-84><vspace|0.5fn>
     </table-of-contents>
   </hide-part>
 
@@ -10058,9 +10066,9 @@
       completion induces <math|\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|\<lambda\>-n>\<boxtimes\>\<bbb-C\><rsub|\<nu\>>|)><rsup|G<rprime|'>>\<hookrightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>
       map.
 
-      We say <math|H<rsub|\<mu\>>> is <with|font-series|bold|holomorphic in
-      <math|\<mu\>\<in\>\<Omega\>>> if the image of <math|H<rsub|\<mu\>>> in
-      <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>
+      We say <math|H<rsub|\<mu\>>> is <with|font-series|bold|strongly
+      holomorphic in <math|\<mu\>\<in\>\<Omega\>>> if the image of
+      <math|H<rsub|\<mu\>>> in <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>
       is holomorphic.
     </definition>
 
@@ -10070,8 +10078,29 @@
     </lemma>
 
     <\proof>
-      We first note that the statement would be implied by the commutativity
-      of the diagram
+      Re-examining the definitions <reference|holoop:def-strongholo> and
+      <reference|holoop:def-weakholo>, we note that the statement would be
+      implied by the commutativity of the diagram
+
+      <center|<image|master_master-10.eps|70ex|14ex||>>
+
+      with left and right arrows as in definitions
+      <reference|holoop:def-weakholo> and <reference|holoop:def-strongholo>
+      respectively and horizontal arrows implied by Schwartz theorem, as
+      strong holomorphicity implies that corresponding element of
+      <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rprime|'><rsub|M>|)><rsup|K<rprime|'>>>
+      is holomorphically dependent on a parameter, hence for
+      <math|<around*|(|f,g|)>\<in\>C<rsup|\<infty\>><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)><rsub|K>\<times\>C<rsup|\<infty\>><around*|(|\<bbb-S\><rsup|p-1>\<times\>\<bbb-S\><rsup|q>|)><rsub|K<rprime|'>>>
+      we have <math|<around*|\<langle\>|H
+      f,g|\<rangle\>>=<around*|\<langle\>|K,f\<otimes\>g|\<rangle\>>> being
+      holomorphic, where <math|H\<in\>Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>>
+      and <math|K\<in\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>
+      corresponding.
+
+      We now explain why the diagram commutes. It follows by direct
+      computations, as all arrows are induced by the same<space|1em>x
+
+      \;
     </proof>
 
     <\lemma>
@@ -10255,293 +10284,11 @@
 
   <\hide-part|26>
     <\bibliography|bib|alpha|todai_master.bib>
-      <\bib-list|CKØP11>
-        <bibitem*|CKØP11><label|bib-clerc2011generalized>J.-L. Clerc,
-        T.<nbsp>Kobayashi, B.<nbsp>Ørsted, and M.<nbsp>Pevzner.
-        <newblock>Generalized bernstein--reznikov integrals.
-        <newblock><with|font-shape|italic|Mathematische Annalen>,
-        349(2):395--431, 2011.
-
-        <bibitem*|CP82><label|bib-chazarain2011introduction>J.<nbsp>Chazarain
-        and A.<nbsp>Piriou. <newblock><with|font-shape|italic|Introduction to
-        the theory of linear partial differential equations>.
-        <newblock>North-Holland Publishing Company, 1982.
-
-        <bibitem*|Del98><label|bib-delorme1998plancherel>P.<nbsp>Delorme.
-        <newblock>Plancherel formula for reductive symmetric spaces.
-        <newblock>147(2):417--452, 1998.
-
-        <bibitem*|DLMF><label|bib-NIST:DLMF>NIST Digital Library of
-        Mathematical Functions. <newblock>http://dlmf.nist.gov/, Release
-        1.0.10 of 2015-08-07.
-
-        <bibitem*|Far79><label|bib-faraut1979distributions>J.<nbsp>Faraut.
-        <newblock>Distributions sphériques sur les espaces hyperboliques.
-        <newblock><with|font-shape|italic|J. Math. Pures Appl.>, 58:369--444,
-        1979.
-
-        <bibitem*|GGP12><label|bib-gan2011symplectic>W.<nbsp>T. Gan,
-        B.<nbsp>H. Gross, and D.<nbsp>Prasad. <newblock>Sur les conjectures
-        de Gross et Prasad. <newblock><with|font-shape|italic|Astérisque>,
-        2012.
-
-        <bibitem*|GGV66><label|bib-gelfand1966generalized>I.<nbsp>M. Gelfand,
-        M.<nbsp>I. Graev, and N.<nbsp>Y. Vilenkin.
-        <newblock><with|font-shape|italic|Generalized functions. Vol. 5,
-        Integral geometry and representation theory>. <newblock>Academic
-        Press, 1966.
-
-        <bibitem*|GRJ00><label|bib-gradshteinryzhik>I.S.
-        Gradshte<math|<wide|<text|\Y>|\<breve\>>>n, I.M. Ryzhik, and
-        A.<nbsp>Jeffrey. <newblock><with|font-shape|italic|Table of
-        Integrals, Series, and Products, Sixth edition>. <newblock>Academic
-        Press, New York, 2000.
-
-        <bibitem*|GS69><label|bib-gelfand1980distribution>I.<nbsp>M. Gelfand
-        and G.<nbsp>E. Shilov. <newblock><with|font-shape|italic|Generalized
-        functions. Vol. 1, Properties and operations>. <newblock>Academic
-        Press, 1969.
-
-        <bibitem*|HC76><label|bib-harishchandra1978harmonic>Harish-Chandra.
-        <newblock>Harmonic analysis on real reductive groups III. The
-        Maass-Selberg relations and the Plancherel formula.
-        <newblock><with|font-shape|italic|Annals of Mathematics>,
-        104(1):117--201, 1976.
-
-        <bibitem*|Hör83><label|bib-hormander1983analysis>L.<nbsp>Hörmander.
-        <newblock><with|font-shape|italic|The Analysis of Linear Partial
-        Differential Operators: Vol.: 1.: Distribution Theory and Fourier
-        Analysis>. <newblock>Springer-Verlag, 1983.
-
-        <bibitem*|HT93><label|bib-howe1993homogeneous>R.<nbsp>E. Howe and
-        E.-C. Tan. <newblock>Homogeneous functions on light cones: the
-        infinitesimal structure of some degenerate principal series
-        representations. <newblock><with|font-shape|italic|Bulletin of the
-        American Mathematical Society>, 28(1):1--74, 1993.
-
-        <bibitem*|Juh09><label|bib-juhl2009families>A.<nbsp>Juhl.
-        <newblock><with|font-shape|italic|Families of conformally covariant
-        differential operators, Q-curvature and holography>, volume 275.
-        <newblock>Springer Science & Business Media, 2009.
-
-        <bibitem*|KM14><label|bib-kobayashi2014classification>T.<nbsp>Kobayashi
-        and T.<nbsp>Matsuki. <newblock>Classification of finite-multiplicity
-        symmetric pairs. <newblock><with|font-shape|italic|Transformation
-        Groups>, 19(2):457--493, 2014.
-
-        <bibitem*|KØ03><label|bib-KO1>T.<nbsp>Kobayashi and B.<nbsp>Ørsted.
-        <newblock>Analysis on the minimal representation of
-        <with|font-family|rm|O><math|<around|(|p,q|)>>.<with|font-family|rm|I>.
-        Realization via conformal geometry.
-        <newblock><with|font-shape|italic|Adv. Math.>, 180:486--512, 2003.
-
-        <bibitem*|Kob94><label|bib-kobayashi1994discrete1>T.<nbsp>Kobayashi.
-        <newblock>Discrete decomposability of the restriction of
-        <math|A<rsub|q><around|(|\<lambda\>|)>> with respect to reductive
-        subgroups and its applications. <newblock><with|font-shape|italic|Inventiones
-        mathematicae>, 117(1):181--205, 1994.
-
-        <bibitem*|Kob98a><label|bib-kobayashi1998discrete2>T.<nbsp>Kobayashi.
-        <newblock>Discrete decomposability of the restriction of
-        <math|A<rsub|q><around|(|\<lambda\>|)>> with respect to reductive
-        subgroups II: Micro-local analysis and asymptotic K-support.
-        <newblock><with|font-shape|italic|Annals of mathematics>, pages
-        709--729, 1998.
-
-        <bibitem*|Kob98b><label|bib-kobayashi1998discrete3>T.<nbsp>Kobayashi.
-        <newblock>Discrete decomposability of the restriction of
-        <math|A<rsub|q><around|(|\<lambda\>|)>> with respect to reductive
-        subgroups III. restriction of Harish-Chandra modules and associated
-        varieties. <newblock><with|font-shape|italic|Inventiones
-        mathematicae>, 131(2):229--256, 1998.
-
-        <bibitem*|Kob15><label|bib-kobayashi2015program>T.<nbsp>Kobayashi.
-        <newblock>A program for branching problems in the representation
-        theory of real reductive groups. <newblock>In
-        <with|font-shape|italic|Representations of Reductive Groups>, pages
-        277--322. Springer, 2015.
-
-        <bibitem*|KP15a><label|bib-kobayashi2015differential1>Toshiyuki
-        Kobayashi and Michael Pevzner. <newblock>Differential symmetry
-        breaking operators: I. General theory and F-method.
-        <newblock><with|font-shape|italic|Selecta Mathematica>, pages 1--45,
-        2015.
-
-        <bibitem*|KP15b><label|bib-kobayashi2015differential2>Toshiyuki
-        Kobayashi and Michael Pevzner. <newblock>Differential symmetry
-        breaking operators: II. Rankin--Cohen operators for symmetric pairs.
-        <newblock><with|font-shape|italic|Selecta Mathematica>, pages 1--65,
-        2015.
-
-        <bibitem*|Kra82><label|bib-krantz1982function>S.<nbsp>G. Krantz.
-        <newblock><with|font-shape|italic|Function theory of several complex
-        variables>. <newblock>Pure and applied mathematics. Wiley, 1982.
-
-        <bibitem*|KS15><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi and
-        B.<nbsp>Speh. <newblock>Symmetry breaking for representations of rank
-        one orthogonal groups. <newblock><with|font-shape|italic|Memoirs of
-        the American Mathematical Society>, 238(1126), 2015.
-
-        <bibitem*|OM84><label|bib-oshima1984description>T.<nbsp>Oshima and
-        T.<nbsp>Matsuki. <newblock>A description of discrete series for
-        semisimple symmetric spaces. <newblock><with|font-shape|italic|Adv.
-        Stud. Pure Math>, 4:331--390, 1984.
-
-        <bibitem*|Wal88><label|bib-wallach1988real>N.<nbsp>Wallach.
-        <newblock><with|font-shape|italic|Real Reductive Groups I>, volume
-        132 of <with|font-shape|italic|Pure and Applied Mathematics>.
-        <newblock>Academic press, 1988.
-
-        <bibitem*|War71><label|bib-warner1971foundations>F<nbsp>Warner.
-        <newblock>Foundations of differential geometry and Lie groups.
-        <newblock><with|font-shape|italic|Scott Foresman and Company,
-        Glenview>, 1971.
-      </bib-list>
+      \;
     </bibliography>
   <|hide-part>
     <\bibliography|bib|alpha|todai_master.bib>
-      <\bib-list|CKØP11>
-        <bibitem*|CKØP11><label|bib-clerc2011generalized>J.-L. Clerc,
-        T.<nbsp>Kobayashi, B.<nbsp>Ørsted, and M.<nbsp>Pevzner.
-        <newblock>Generalized bernstein--reznikov integrals.
-        <newblock><with|font-shape|italic|Mathematische Annalen>,
-        349(2):395--431, 2011.
-
-        <bibitem*|CP82><label|bib-chazarain2011introduction>J.<nbsp>Chazarain
-        and A.<nbsp>Piriou. <newblock><with|font-shape|italic|Introduction to
-        the theory of linear partial differential equations>.
-        <newblock>North-Holland Publishing Company, 1982.
-
-        <bibitem*|Del98><label|bib-delorme1998plancherel>P.<nbsp>Delorme.
-        <newblock>Plancherel formula for reductive symmetric spaces.
-        <newblock>147(2):417--452, 1998.
-
-        <bibitem*|DLMF><label|bib-NIST:DLMF>NIST Digital Library of
-        Mathematical Functions. <newblock>http://dlmf.nist.gov/, Release
-        1.0.10 of 2015-08-07.
-
-        <bibitem*|Far79><label|bib-faraut1979distributions>J.<nbsp>Faraut.
-        <newblock>Distributions sphériques sur les espaces hyperboliques.
-        <newblock><with|font-shape|italic|J. Math. Pures Appl.>, 58:369--444,
-        1979.
-
-        <bibitem*|GGP12><label|bib-gan2011symplectic>W.<nbsp>T. Gan,
-        B.<nbsp>H. Gross, and D.<nbsp>Prasad. <newblock>Sur les conjectures
-        de Gross et Prasad. <newblock><with|font-shape|italic|Astérisque>,
-        2012.
-
-        <bibitem*|GGV66><label|bib-gelfand1966generalized>I.<nbsp>M. Gelfand,
-        M.<nbsp>I. Graev, and N.<nbsp>Y. Vilenkin.
-        <newblock><with|font-shape|italic|Generalized functions. Vol. 5,
-        Integral geometry and representation theory>. <newblock>Academic
-        Press, 1966.
-
-        <bibitem*|GRJ00><label|bib-gradshteinryzhik>I.S.
-        Gradshte<math|<wide|<text|\Y>|\<breve\>>>n, I.M. Ryzhik, and
-        A.<nbsp>Jeffrey. <newblock><with|font-shape|italic|Table of
-        Integrals, Series, and Products, Sixth edition>. <newblock>Academic
-        Press, New York, 2000.
-
-        <bibitem*|GS69><label|bib-gelfand1980distribution>I.<nbsp>M. Gelfand
-        and G.<nbsp>E. Shilov. <newblock><with|font-shape|italic|Generalized
-        functions. Vol. 1, Properties and operations>. <newblock>Academic
-        Press, 1969.
-
-        <bibitem*|HC76><label|bib-harishchandra1978harmonic>Harish-Chandra.
-        <newblock>Harmonic analysis on real reductive groups III. The
-        Maass-Selberg relations and the Plancherel formula.
-        <newblock><with|font-shape|italic|Annals of Mathematics>,
-        104(1):117--201, 1976.
-
-        <bibitem*|Hör83><label|bib-hormander1983analysis>L.<nbsp>Hörmander.
-        <newblock><with|font-shape|italic|The Analysis of Linear Partial
-        Differential Operators: Vol.: 1.: Distribution Theory and Fourier
-        Analysis>. <newblock>Springer-Verlag, 1983.
-
-        <bibitem*|HT93><label|bib-howe1993homogeneous>R.<nbsp>E. Howe and
-        E.-C. Tan. <newblock>Homogeneous functions on light cones: the
-        infinitesimal structure of some degenerate principal series
-        representations. <newblock><with|font-shape|italic|Bulletin of the
-        American Mathematical Society>, 28(1):1--74, 1993.
-
-        <bibitem*|Juh09><label|bib-juhl2009families>A.<nbsp>Juhl.
-        <newblock><with|font-shape|italic|Families of conformally covariant
-        differential operators, Q-curvature and holography>, volume 275.
-        <newblock>Springer Science & Business Media, 2009.
-
-        <bibitem*|KM14><label|bib-kobayashi2014classification>T.<nbsp>Kobayashi
-        and T.<nbsp>Matsuki. <newblock>Classification of finite-multiplicity
-        symmetric pairs. <newblock><with|font-shape|italic|Transformation
-        Groups>, 19(2):457--493, 2014.
-
-        <bibitem*|KØ03><label|bib-KO1>T.<nbsp>Kobayashi and B.<nbsp>Ørsted.
-        <newblock>Analysis on the minimal representation of
-        <with|font-family|rm|O><math|<around|(|p,q|)>>.<with|font-family|rm|I>.
-        Realization via conformal geometry.
-        <newblock><with|font-shape|italic|Adv. Math.>, 180:486--512, 2003.
-
-        <bibitem*|Kob94><label|bib-kobayashi1994discrete1>T.<nbsp>Kobayashi.
-        <newblock>Discrete decomposability of the restriction of
-        <math|A<rsub|q><around|(|\<lambda\>|)>> with respect to reductive
-        subgroups and its applications. <newblock><with|font-shape|italic|Inventiones
-        mathematicae>, 117(1):181--205, 1994.
-
-        <bibitem*|Kob98a><label|bib-kobayashi1998discrete2>T.<nbsp>Kobayashi.
-        <newblock>Discrete decomposability of the restriction of
-        <math|A<rsub|q><around|(|\<lambda\>|)>> with respect to reductive
-        subgroups II: Micro-local analysis and asymptotic K-support.
-        <newblock><with|font-shape|italic|Annals of mathematics>, pages
-        709--729, 1998.
-
-        <bibitem*|Kob98b><label|bib-kobayashi1998discrete3>T.<nbsp>Kobayashi.
-        <newblock>Discrete decomposability of the restriction of
-        <math|A<rsub|q><around|(|\<lambda\>|)>> with respect to reductive
-        subgroups III. restriction of Harish-Chandra modules and associated
-        varieties. <newblock><with|font-shape|italic|Inventiones
-        mathematicae>, 131(2):229--256, 1998.
-
-        <bibitem*|Kob15><label|bib-kobayashi2015program>T.<nbsp>Kobayashi.
-        <newblock>A program for branching problems in the representation
-        theory of real reductive groups. <newblock>In
-        <with|font-shape|italic|Representations of Reductive Groups>, pages
-        277--322. Springer, 2015.
-
-        <bibitem*|KP15a><label|bib-kobayashi2015differential1>Toshiyuki
-        Kobayashi and Michael Pevzner. <newblock>Differential symmetry
-        breaking operators: I. General theory and F-method.
-        <newblock><with|font-shape|italic|Selecta Mathematica>, pages 1--45,
-        2015.
-
-        <bibitem*|KP15b><label|bib-kobayashi2015differential2>Toshiyuki
-        Kobayashi and Michael Pevzner. <newblock>Differential symmetry
-        breaking operators: II. Rankin--Cohen operators for symmetric pairs.
-        <newblock><with|font-shape|italic|Selecta Mathematica>, pages 1--65,
-        2015.
-
-        <bibitem*|Kra82><label|bib-krantz1982function>S.<nbsp>G. Krantz.
-        <newblock><with|font-shape|italic|Function theory of several complex
-        variables>. <newblock>Pure and applied mathematics. Wiley, 1982.
-
-        <bibitem*|KS15><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi and
-        B.<nbsp>Speh. <newblock>Symmetry breaking for representations of rank
-        one orthogonal groups. <newblock><with|font-shape|italic|Memoirs of
-        the American Mathematical Society>, 238(1126), 2015.
-
-        <bibitem*|OM84><label|bib-oshima1984description>T.<nbsp>Oshima and
-        T.<nbsp>Matsuki. <newblock>A description of discrete series for
-        semisimple symmetric spaces. <newblock><with|font-shape|italic|Adv.
-        Stud. Pure Math>, 4:331--390, 1984.
-
-        <bibitem*|Wal88><label|bib-wallach1988real>N.<nbsp>Wallach.
-        <newblock><with|font-shape|italic|Real Reductive Groups I>, volume
-        132 of <with|font-shape|italic|Pure and Applied Mathematics>.
-        <newblock>Academic press, 1988.
-
-        <bibitem*|War71><label|bib-warner1971foundations>F<nbsp>Warner.
-        <newblock>Foundations of differential geometry and Lie groups.
-        <newblock><with|font-shape|italic|Scott Foresman and Company,
-        Glenview>, 1971.
-      </bib-list>
+      \;
     </bibliography>
   </hide-part>
 </body>
@@ -10885,6 +10632,7 @@
     <associate|auto.24-3|<tuple|22.2|?|#24>>
     <associate|auto.24-4|<tuple|22.3|?|#24>>
     <associate|auto.24-5|<tuple|23|?|#24>>
+    <associate|auto.24-6|<tuple|23|?|#24>>
     <associate|auto.25-1|<tuple|24|?|#25>>
     <associate|auto.25-2|<tuple|24.1|?|#25>>
     <associate|auto.25-3|<tuple|24.2|?|#25>>
