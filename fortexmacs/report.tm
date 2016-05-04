@@ -1,36 +1,44 @@
-<TeXmacs|1.0.7.18>
+<TeXmacs|1.99.4>
 
-<style|article>
+<style|<tuple|article|american>>
 
 <\body>
-  <section|report 41>
+  <section|report 42>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
     Determine functional equations and residue formulae for SBOs;
-  </cell>|<cell|<with|font-series|bold|partially done> (can describe the
-  coset structure)>>>>>
+  </cell>|<cell|<with|font-series|bold|partially done> (still need to write
+  everything up)>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>Made a seminar report on section 3.3 of <cite|wallach1988real>
+    <item>Made a seminar report on section 3.4 of <cite|wallach1988real>
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Derive functional equations (Thirsday, Friday)
+    <item>Derive residue formulae (tuesday);
 
-    <item>Derive residue formulae (weekend)
+    <item>Write first draft of JSPS application (wednesday);
+
+    <item>Prove functional identities modulo some technical lemmas
+    (thursday);
+
+    <item>Prove these technical lemmas (friday);
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>
 
   <\enumerate>
+    <item>Normalize <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
+    with help of <math|K>-finite vectors
+
     <item>Work with <math|U<around*|(|p,q|)>>
 
     <item>Try to prove the theorem about <math|O<around*|(|p,q|)>> invariant
@@ -42,16 +50,19 @@
   </with>
 
   <\enumerate>
+    <item>Is it better to write application for JSPS in Japanese or in
+    English?
+
     <item>As I said before, I would very appreciate if You would give me some
-    concrete ``PhD graduation requirements'', so I will have something to aim
+    concrete \PPhD graduation requirements\Q, so I will have something to aim
     at. It would be very helpful for me from the purely psychological
     prospective.
   </enumerate>
 
   <paragraph|Comments>
 
-  I have problems writing equation for <math|N<rsub|+>>-equivariance in
-  <math|U<around*|(|p,q|)>> setting. It seems to be too complicated.
+  I was not very productive last two weeks. I'll compensate for this starting
+  from this week.
 
   <\bibliography|bib|alpha|report.bib>
     <\bib-list|Wal88>
@@ -65,7 +76,6 @@
 
 <\initial>
   <\collection>
-    <associate|language|american>
     <associate|page-type|letter>
   </collection>
 </initial>
@@ -92,10 +102,10 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>report
-      41> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      42> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
-      <with|par-left|<quote|6fn>|Comments
+      <with|par-left|<quote|4tab>|Comments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.15fn>>
 

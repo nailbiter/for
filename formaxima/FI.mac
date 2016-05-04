@@ -42,3 +42,9 @@ substitute(sin(Pi*(-q+nu+mylambda)/2)=-(-1)^k*cos(Pi*(nu+mylambda)/2),%);
 substitute(cos(Pi*(q+p-mylambda)/2)=-(-1)^k*sin(Pi*(p-mylambda)/2),%);
 substitute(sin(Pi*(p+q+nu-mylambda)/2)=(-1)^k*cos(Pi*(p+nu-mylambda)/2),%);
 tex(K=%,texoutput);
+
+a:q/2;
+c:(mylambda-nu)/2;
+d:mylambda-q/2;
+Gamma(d)*Gamma(2*c-d+1)/Gamma(c+(a-d+1)/2)/Gamma(c+1-(a+d)/2)/Gamma((a+d)/2)/Gamma((d-a+1)/2);
+tex(expand(%),texoutput);
