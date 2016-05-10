@@ -8,29 +8,34 @@
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
-    Determine functional equations and residue formulae for SBOs;
-  </cell>|<cell|<with|font-series|bold|partially done> (still need to write
-  everything up)>>>>>
+    Derive residue formulae (tuesday);
+  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
+    Write first draft of JSPS application
+  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
+    Prove functional identities modulo some technical lemmas (thursday);
+  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
+    Prove these technical lemmas (friday);
+  </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
-  <\enumerate>
-    <item>Made a seminar report on section 3.4 of <cite|wallach1988real>
-  </enumerate>
+  (empty)
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Derive residue formulae (tuesday);
+    <item>Finish writing JSPS application and show to You (wed)
 
-    <item>Write first draft of JSPS application (wednesday);
+    <item>Finish proving technical lemmas for functional identities and
+    refine residue formulae (thu, fri)
 
-    <item>Prove functional identities modulo some technical lemmas
-    (thursday);
-
-    <item>Prove these technical lemmas (friday);
+    <item>Normalize <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
+    with help of <math|K>-finite vectors; better normalization for
+    <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> (optimize the proof using the
+    fact that <math|2xy=<around*|(|x-y|)><rsup|2>-x<rsup|2>-y<rsup|2>>)
+    (weekend)
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>
@@ -38,6 +43,10 @@
   <\enumerate>
     <item>Normalize <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
     with help of <math|K>-finite vectors
+
+    <item>Better normalization for <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>
+    (optimize the proof using the fact that
+    <math|2xy=<around*|(|x-y|)><rsup|2>-x<rsup|2>-y<rsup|2>>)
 
     <item>Work with <math|U<around*|(|p,q|)>>
 
@@ -50,9 +59,6 @@
   </with>
 
   <\enumerate>
-    <item>Is it better to write application for JSPS in Japanese or in
-    English?
-
     <item>As I said before, I would very appreciate if You would give me some
     concrete \PPhD graduation requirements\Q, so I will have something to aim
     at. It would be very helpful for me from the purely psychological

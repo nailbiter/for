@@ -7496,8 +7496,6 @@
       branching law given in <cite-detail|kobayashi2015symmetry|sec 4.2>, we
       see that we can assume (again, due to linearity) that
 
-      <section|>
-
       <\equation*>
         F<around*|(|\<xi\>,\<eta\>|)>=<around*|\||\<xi\><rprime|'>|\|><rsup|N>\<phi\><around*|(|<frac|\<xi\><rprime|'>|<around*|\||\<xi\><rprime|'>|\|>>|)>\<xi\><rsub|1><rsup|m<rprime|'>><around*|\||\<eta\><rprime|'>|\|><rsup|M>\<phi\><rprime|'><around*|(|<frac|\<eta\><rprime|'>|<around*|\||\<eta\><rprime|'>|\|>>|)>\<eta\><rsub|q+1><rsup|n<rprime|'>>
       </equation*>
@@ -8253,6 +8251,24 @@
       </equation*>
     </proposition>
 
+    <\remark>
+      <label|KP-normalization-2:remark>The above propositions imply that
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>> defined for
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<lambda\>+\<nu\>-n=-1-2k\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+      as
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<wide|K|~><rsub|\<lambda\>\<comma\>\<nu\>><rsup|P>\<assign\>>|<cell|>>|<row|<cell|>|<cell|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>/<choice|<tformat|<table|<row|<cell|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|n-1|2>-\<nu\>-k|)>,>|<cell|n\<in\>2\<bbb-Z\>,p\<gtr\>1>>|<row|<cell|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|max<around*|{|2,<around*|(|<around*|(|n-1|)>/2-k|)><rprime|'>|}>-\<nu\>|2>|)>,>|<cell|n\<in\>2\<bbb-Z\>+1,q\<in\>2\<bbb-Z\>,p\<gtr\>1;<space|0.6spc>a<rprime|'>\<assign\>min<around*|{|x<mid|\|>a\<leqslant\>x\<in\>2\<bbb-Z\>|}>>>|<row|<cell|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|<around*|(|<around*|(|n-1|)>/2-k|)><rprime|'>-\<nu\>|2>|)>,>|<cell|n\<in\>2\<bbb-Z\>+1,q\<in\>2\<bbb-Z\>+1,p\<gtr\>1;<space|0.6spc>a<rprime|'>\<assign\>min<around*|{|x<mid|\|>a\<leqslant\>x\<in\>2\<bbb-Z\>+1|}>>>|<row|<cell|\<Gamma\><around*|(|<frac|n-1|2>-\<nu\>-k|)>,>|<cell|p=1,n\<in\>2\<bbb-Z\>>>|<row|<cell|\<Gamma\><around*|(|max<around*|{|<frac|n-1|2>-k,0|}>-\<nu\>|)>,>|<cell|p=1,n\<in\>2\<bbb-Z\>+1>>>>>>|<cell|>>>>
+      </eqnarray>
+
+      <\equation*>
+        \;
+      </equation*>
+
+      is holomorphic and nonvanishing member of
+      <math|\<cal-S\>ol<rsub|P><around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>.
+    </remark>
+
     <subsection|Auxiliary results>
 
     <\lemma>
@@ -8475,11 +8491,12 @@
       we have
 
       <\equation*>
-        \<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>=<choice|<tformat|<table|<row|<cell|\<bbb-C\>\<cdot\><wide|C|~><rsub|\<nu\>-\<lambda\>><rsup|\<lambda\>-<around*|(|n-1|)>/2><around*|(|<wide|\<Delta\>|~>,<frac|\<partial\>|\<partial\>x<rsub|p>>|)>,>|<cell|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|0,>|<cell|otherwise>>>>>
+        \<cal-S\>ol<rsub|<around*|{|0|}>><around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>=<choice|<tformat|<table|<row|<cell|\<bbb-C\>\<cdot\><wide|C|~><rsub|\<nu\>-\<lambda\>><rsup|\<lambda\>-<around*|(|n-1|)>/2><around*|(|-<wide|\<Delta\>|~><wide|\<delta\>|~><around*|(|x|)>,\<delta\><around*|(|x<rsub|p>|)>|)>,>|<cell|\<lambda\>-\<nu\>\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>>>|<row|<cell|0,>|<cell|otherwise>>>>>
       </equation*>
 
       where <math|<wide|\<Delta\>|~>> is a
-      <math|<around*|(|p-1,q|)>>-Laplacian and
+      <math|<around*|(|p-1,q|)>>-Laplacian, <math|<wide|\<delta\>|~>> is
+      dirac delta on all variables except of <math|x<rsub|p>> and
       <math|C<rsup|\<alpha\>><rsub|k><around*|(|\<cdot\>,\<cdot\>|)>> is the
       2-variable inflation of renormalized Gegenbauer polynomial, as in
       <cite-detail|kobayashi2015symmetry|(16.3)>. For
@@ -8487,7 +8504,7 @@
       use the notation
 
       <\equation*>
-        <wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>\<assign\><wide|C|~><rsub|\<nu\>-\<lambda\>><rsup|\<lambda\>-<around*|(|n-1|)>/2><around*|(|<wide|\<Delta\>|~>,<frac|\<partial\>|\<partial\>x<rsub|p>>|)>.
+        <wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>\<assign\><wide|C|~><rsub|\<nu\>-\<lambda\>><rsup|\<lambda\>-<around*|(|n-1|)>/2><around*|(|-<wide|\<Delta\>|~><wide|\<delta\>|~><around*|(|x|)>,\<delta\><around*|(|x<rsub|p>|)>|)>.
       </equation*>
     </proposition>
 
@@ -8596,7 +8613,7 @@
     <section|Differential symmetry breaking operators><label|sec:diffSBO>
   </hide-part>
 
-  <\show-part|21>
+  <\hide-part|21>
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>><label|sec:KR-normalization-even>
 
     In this part, we normalize the kernel of regular symmetry breaking
@@ -8638,17 +8655,6 @@
       </eqnarray>
     </proposition>
 
-    <\proposition>
-      <label|KR-normalization-even:prop-sphermult>Proposition
-      <reference|k-finite:prop-holo-to-holo> defines a linear map
-      <math|T:\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>\<hookrightarrow\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>.
-      We have
-
-      <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|T<around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>,1|\<rangle\>>=2\<cdot\>2<rsup|>\<pi\><rsup|<around*|(|p-1|)>/2>\<times\>2\<pi\><rsup|q/2>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\>2<rsup|-\<lambda\>-1><frac|cos<around*|(|<frac|\<lambda\>\<pi\>|2>|)>sin<around*|(|<frac|\<pi\><around*|(|\<lambda\>+\<nu\>-q|)>|2>|)>\<Gamma\><around*|(|<frac|q-\<lambda\>+1|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)><sqrt|\<pi\>>sin<around*|(|<frac|<around*|(|\<lambda\>+\<nu\>|)>\<pi\>|2>|)>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>.>|<cell|>>>>
-      </eqnarray>
-    </proposition>
-
     <\remark>
       <label|KR-normalization-even:rmk-Atilde>It follows that for
       <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>L> (with <math|L> as in
@@ -8668,6 +8674,22 @@
       <\equation*>
         =<choice|<tformat|<table|<row|<cell|\<bbb-R\><rsup|n>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<nin\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<nin\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>>|<row|<cell|<around*|{|Q=0|}>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<nin\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>>|<row|<cell|<around*|{|x<rsub|p>=0|}>,>|<cell|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<nin\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>>|<row|<cell|\<varnothing\>,>|<cell|p=1,<space|0.6spc><around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>>|<row|<cell|<around*|{|x<rsub|p>=0|}>\<cap\><around*|{|Q=0|}>,>|<cell|p\<gtr\>1,<space|0.6spc><around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|\<nu\>\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>+1|}>\<cap\><around*|{|\<lambda\>+\<nu\>-n\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>.>>>>>
       </equation*>
+    </remark>
+
+    <\proposition>
+      <label|KR-normalization-even:prop-sphermult>Proposition
+      <reference|k-finite:prop-holo-to-holo> defines a linear map
+      <math|T:\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>\<hookrightarrow\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>.
+      We have
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|T<around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>,1|\<rangle\>>=2\<times\>2<rsup|1-\<lambda\>><frac|\<pi\><rsup|n/2>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>\<Gamma\><around*|(|-<frac|q|2>+<frac|\<lambda\>+1|2>|)>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>.>|<cell|>>>>
+      </eqnarray>
+    </proposition>
+
+    <\remark>
+      Note that when <math|q=0> this precisely matches the expression in
+      <cite-detail|kobayashi2015symmetry|prop. 7.4>.
     </remark>
 
     <subsection|Auxiliary results>
@@ -8975,15 +8997,15 @@
 
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2><around*|(|1-y<rsup|2>|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1>d
-        x d y=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>cos<around*|(|<frac|\<lambda\>\<pi\>|2>|)>\<Gamma\><around*|(|<frac|-q+\<nu\>+\<lambda\>|2>|)>sin<around*|(|<frac|\<pi\><around*|(|\<lambda\>+\<nu\>-q|)>|2>|)>\<Gamma\><around*|(|<frac|q|2>|)>\<Gamma\><around*|(|<frac|q-\<lambda\>+1|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)><sqrt|\<pi\>>sin<around*|(|<frac|<around*|(|\<lambda\>+\<nu\>|)>\<pi\>|2>|)>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>.>|<cell|>>>>
+        x d y=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|<frac|q|2>|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>\<Gamma\><around*|(|-<frac|q|2>+<frac|\<lambda\>+1|2>|)>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>.>|<cell|>>>>
       </eqnarray>
     </lemma>
 
     <\proof>
-      Before going to manipulations, we note that every single of them can be
-      justified for <math|<around*|(|\<lambda\>,\<nu\>|)>> lying in some open
-      domain in <math|\<bbb-C\><rsup|2>> and then extended by analytic
-      continuation. We proceed with the following chain of identities:
+      Before going to manipulations, we note that they are justified on open
+      domain <math|<around*|{|a\<less\>Re<around*|(|\<nu\>|)>\<less\>b,Re<around*|(|\<lambda\>|)>\<gtr\>c|}>>
+      for appropriate <math|b\<less\>0> and <math|c\<gg\>0>. We proceed with
+      the following chain of identities:
 
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2>d
@@ -9024,6 +9046,15 @@
         y=>|<cell|>>>>
       </eqnarray>
 
+      applying Pfaff transformation <math|<rsub|2>F<rsub|1><around*|(|a,b;c;z|)>=<around*|(|1-z|)><rsup|-a><rsub|>
+      <rsub|2>F<rsub|1><around*|(|a,c-b;c;<frac|z|z-1>|)>> we have above
+      being equal to
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|=2<rsup|q/2>B<around*|(|<frac|q|2>,1-\<nu\>|)><big|int><rsub|-1><rsup|1><around*|(|1+y|)><rsup|<frac|\<lambda\>+\<nu\>-q|2>-1><around*|(|1-y|)><rsup|<frac|\<lambda\>-\<nu\>|2>-1><space|0.2spc><rsup|><rsub|2>F<rsub|1><around*|(|<frac|2-q|2>,<frac|q|2>;<frac|q|2>+1-\<nu\>;<frac|1-y|2>|)>d
+        y=>|<cell|>>>>
+      </eqnarray>
+
       Now, we use the series expansion\ 
 
       <\eqnarray>
@@ -9040,24 +9071,21 @@
       to continue the chain of equalities above as
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|=2<rsup|\<lambda\>-1>B<around*|(|<frac|q|2>,1-\<nu\>|)><big|sum><rsub|n=0><rsup|\<infty\>><around*|(|-1|)><rsup|n><frac|<around*|(|<frac|2-q|2>|)><rsub|n><around*|(|1-\<nu\>|)><rsub|n>|<around*|(|q/2+1-\<nu\>|)><rsub|n>n!>\<times\><frac|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>+n|)>\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>|2>-n-1|)>|\<Gamma\><around*|(|\<lambda\>-1|)>>=>|<cell|>>|<row|<cell|>|<cell|=2<rsup|\<lambda\>-1>B<around*|(|<frac|q|2>,1-\<nu\>|)>B<around*|(|<frac|\<lambda\>-\<nu\>|2>,<frac|\<lambda\>+\<nu\>|2>-1|)><big|sum><rsub|n=0><rsup|\<infty\>><around*|(|-1|)><rsup|n><frac|<around*|(|<frac|2-q|2>|)><rsub|n><around*|(|1-\<nu\>|)><rsub|n><around*|(|<frac|\<lambda\>-\<nu\>|2>|)><rsub|n>|<around*|(|q/2+1-\<nu\>|)><rsub|n><around*|(|<frac|\<lambda\>+\<nu\>|2>-n-1|)><rsub|n>n!>=>|<cell|>>|<row|<cell|>|<cell|=2<rsup|\<lambda\>-1>B<around*|(|<frac|q|2>,1-\<nu\>|)>B<around*|(|<frac|\<lambda\>-\<nu\>|2>,<frac|\<lambda\>+\<nu\>|2>-1|)><big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|<frac|2-q|2>|)><rsub|n><around*|(|1-\<nu\>|)><rsub|n><around*|(|<frac|\<lambda\>-\<nu\>|2>|)><rsub|n>|<around*|(|q/2+1-\<nu\>|)><rsub|n><around*|(|2-<frac|\<lambda\>+\<nu\>|2>|)><rsub|n>n!>=>|<cell|>>|<row|<cell|>|<cell|=2<rsup|\<lambda\>-1>B<around*|(|<frac|q|2>,1-\<nu\>|)>B<around*|(|<frac|\<lambda\>-\<nu\>|2>,<frac|\<lambda\>+\<nu\>|2>-1|)><space|0.6spc><rsub|3>F<rsub|2><around*|(|1-\<nu\>,<frac|2-q|2>,<frac|\<lambda\>-\<nu\>|2>;<frac|q|2>+1-\<nu\>,2-<frac|\<lambda\>+\<nu\>|2>;1|)>=>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|=2<rsup|q/2>B<around*|(|<frac|q|2>,1-\<nu\>|)><big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|<frac|2-q|2>|)><rsub|n><around*|(|<frac|q|2>|)><rsub|n>|<around*|(|q/2+1-\<nu\>|)><rsub|n>n!>2<rsup|-n>\<times\>2<rsup|\<lambda\>+n-1-q/2>B<around*|(|<frac|\<lambda\>-\<nu\>|2>+n,<frac|\<lambda\>+\<nu\>-q|2>|)>=>|<cell|>>|<row|<cell|>|<cell|=2<rsup|\<lambda\>-1>B<around*|(|<frac|q|2>,1-\<nu\>|)>B<around*|(|<frac|\<lambda\>-\<nu\>|2>,<frac|\<lambda\>+\<nu\>-q|2>|)><big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|<frac|2-q|2>|)><rsub|n><around*|(|<frac|q|2>|)><rsub|n><around*|(|<frac|\<lambda\>-\<nu\>|2>|)><rsub|n>|<around*|(|q/2+1-\<nu\>|)><rsub|n><around*|(|\<lambda\>-<frac|q|2>|)><rsub|n>n!>=>|<cell|>>|<row|<cell|>|<cell|=2<rsup|\<lambda\>-1>B<around*|(|<frac|q|2>,1-\<nu\>|)>B<around*|(|<frac|\<lambda\>-\<nu\>|2>,<frac|\<lambda\>+\<nu\>-q|2>|)><rsub|>
+        <rsub|3>F<rsub|2><around*|(|<frac|q|2>,<frac|2-q|2>,<frac|\<lambda\>-\<nu\>|2>;\<lambda\>-<frac|q|2>,<frac|q|2>+1-\<nu\>;1|)>=>|<cell|>>>>
       </eqnarray>
 
-      Now, we recall the formula <cite-detail|NIST:DLMF|<hlink|<hlink|http://dlmf.nist.gov/16.4.E4|http://dlmf.nist.gov/16.4.E4>|>>:
+      Now, we recall the formula <cite-detail|NIST:DLMF|<hlink|<hlink|http://dlmf.nist.gov/16.4.E7|http://dlmf.nist.gov/16.4.E7>|>>:
 
       <\equation*>
-        <rsub|3>F<rsub|2><around*|(|a,b,c;a-b+1,a-c+1;1|)>=<frac|\<Gamma\><around*|(|<frac|a|2>+1|)>\<Gamma\><around*|(|a-b+1|)>\<Gamma\><around*|(|a-c+1|)>\<Gamma\><around*|(|<frac|a|2>-b-c+1|)>|\<Gamma\><around*|(|a+1|)>\<Gamma\><around*|(|<frac|a|2>-b+1|)>\<Gamma\><around*|(|<frac|a|2>-c+1|)>\<Gamma\><around*|(|a-b-c+1|)>>.
+        <rsub|3>F<rsub|2><space|-0.17em><around*|(|<ontop|a,1-a,c|d,2*c-d+1>;1|)>=<frac|\<pi\>*\<Gamma\><space|-0.17em><around*|(|d|)>*\<Gamma\>*<space|-0.17em><around*|(|2*c-d+1|)>*2<rsup|1-2*c>|\<Gamma\>*<space|-0.17em><around*|(|c+<frac|1|2>*<around|(|a-d+1|)>|)>*\<Gamma\>*<space|-0.17em><around*|(|c+1-<frac|1|2>*<around|(|a+d|)>|)>*\<Gamma\>*<space|-0.17em><around*|(|<frac|1|2>*<around|(|a+d|)>|)>*\<Gamma\>*<space|-0.17em><around*|(|<frac|1|2>*<around|(|d-a+1|)>|)>>
       </equation*>
 
       which allows us to continue as
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|=<frac|2<rsup|\<lambda\>-1>*<space|0.25spc>\<Gamma\>*<around*|(|1-\<nu\>|)>*<space|0.25spc>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>*<space|0.25spc>\<Gamma\>*<around*|(|<frac|3|2>-<frac|\<nu\>|2>|)>*<space|0.25spc>\<Gamma\>*<around*|(|-<frac|\<nu\>|2>-<frac|\<lambda\>|2>+2|)>*<space|0.25spc>\<Gamma\>*<around*|(|<frac|\<nu\>|2>+<frac|\<lambda\>|2>-1|)>*<space|0.25spc>\<Gamma\><around*|(|<frac|q|2>|)>*<space|0.25spc>\<Gamma\><around*|(|<frac|q-\<lambda\>+1|2>|)>|\<Gamma\>*<around*|(|<frac|3|2>-<frac|\<lambda\>|2>|)>*<space|0.25spc>\<Gamma\>*<around*|(|\<lambda\>-1|)>*<space|0.25spc>\<Gamma\>*<around*|(|2-\<nu\>|)>*<space|0.25spc>\<Gamma\>*<around*|(|<frac|q|2>-<frac|\<nu\>|2>-<frac|\<lambda\>|2>+1|)>*<space|0.25spc>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>,>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|=<frac|2<rsup|\<lambda\>-1>\<Gamma\><around*|(|<frac|q|2>|)>\<Gamma\><around*|(|1-\<nu\>|)>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>|)>\<pi\>\<Gamma\><around*|(|<frac|q|2>+1-\<nu\>|)>\<Gamma\><around*|(|\<lambda\>-<frac|q|2>|)>2<rsup|1-\<lambda\>+\<nu\>><rsup|>|\<Gamma\><around*|(|<frac|q|2>+1-\<nu\>|)>\<Gamma\><around*|(|\<lambda\>-q/2|)>\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>\<Gamma\><around*|(|1-\<nu\>/2|)>\<Gamma\><around*|(|-<frac|q|2>+<frac|\<lambda\>+1|2>|)>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|<frac|q|2>|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>\<Gamma\><around*|(|-<frac|q|2>+<frac|\<lambda\>+1|2>|)>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>.>|<cell|>>>>
       </eqnarray>
-
-      which after some simple calculations (using only Euler reflection
-      formula, duplication formula and <math|\<Gamma\><around*|(|x|)>=<around*|(|x-1|)>\<Gamma\><around*|(|x-1|)>>
-      formulae for Gamma function) gives the desired right-hand side.
     </proof>
 
     <\lemma>
@@ -9178,13 +9206,13 @@
       <math|\<lambda\><rsub|0>> and therefore
 
       <\equation*>
-        <wide|F|~><rsub|\<lambda\><rsub|0>>=<big|sum><rsub|<around*|\||\<alpha\>|\|>=-a<around*|(|\<lambda\>|)>-k>c<rsub|\<alpha\>>\<delta\><rsup|<around*|(|\<alpha\>|)>>.
+        <wide|F|~><rsub|\<lambda\><rsub|0>>=<big|sum><rsub|<around*|\||\<alpha\>|\|>=-\<lambda\><rsub|0>-k>c<rsub|\<alpha\>>\<delta\><rsup|<around*|(|\<alpha\>|)>>.
       </equation*>
 
       and
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|c<rsub|\<alpha\>>=<frac|<around*|\<langle\>|<wide|F|~><rsub|\<lambda\><rsub|0>>,x<rsup|\<alpha\>>|\<rangle\>>|<around*|\||\<alpha\>|\|>!>=<frac|<around*|\<langle\>|\<delta\><rsup|-k-\<lambda\><rsub|0>>,u|\<rangle\>>|<around*|(|-k-\<lambda\><rsub|0>|)>!>=>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|c<rsub|\<alpha\>>=<around*|(|-1|)><rsup|<around*|\||\<alpha\>|\|>><frac|<around*|\<langle\>|<wide|F|~><rsub|\<lambda\><rsub|0>>,x<rsup|\<alpha\>>|\<rangle\>>|<around*|\||\<alpha\>|\|>!>=<around*|(|-1|)><rsup|<around*|\||\<alpha\>|\|>><frac|<around*|\<langle\>|\<delta\><rsup|-k-\<lambda\><rsub|0>>,u|\<rangle\>>|<around*|(|-k-\<lambda\><rsub|0>|)>!>=>|<cell|>>>>
       </eqnarray>
 
       where <math|u=<around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,x<rsup|\<alpha\>>|\<rangle\>>=<around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,r<rsup|-\<lambda\><rsub|0>-k>\<omega\><rsup|\<alpha\>>|\<rangle\>>=r<rsup|-\<lambda\><rsub|0>-k><around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,\<omega\><rsup|\<alpha\>>|\<rangle\>>><math|>
@@ -9192,7 +9220,7 @@
       and thus we can continue
 
       <\equation*>
-        =<around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,\<omega\><rsup|\<alpha\>>|\<rangle\>><frac|<around*|\<langle\>|\<delta\><rsup|-k-\<lambda\><rsub|0>>,r<rsup|-\<lambda\><rsub|0>-k>|\<rangle\>>|<around*|(|-k-\<lambda\><rsub|0>|)>!>=<around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,\<omega\><rsup|\<alpha\>>|\<rangle\>>,
+        =<around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,\<omega\><rsup|\<alpha\>>|\<rangle\>><around*|(|-1|)><rsup|<around*|\||\<alpha\>|\|>><frac|<around*|\<langle\>|\<delta\><rsup|-k-\<lambda\><rsub|0>>,r<rsup|-\<lambda\><rsub|0>-k>|\<rangle\>>|<around*|(|-k-\<lambda\><rsub|0>|)>!>=<around*|\<langle\>|f<rsub|\<lambda\><rsub|0>>,\<omega\><rsup|\<alpha\>>|\<rangle\>>,
       </equation*>
 
       and we are done.
@@ -9359,7 +9387,7 @@
 
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|\<simeq\><big|int><rsub|0><rsup|\<pi\>><around*|\||cos\<varphi\>|\|><rsup|\<lambda\>+\<nu\>-n>cos<rsup|\<alpha\><rsub|p>>\<varphi\><rsup|>\<cdot\>sin<rsup|p-2>\<varphi\>d\<varphi\><big|int><rsub|0><rsup|1><around*|\||1-2t<rsup|2>|\|><rsup|-\<nu\>><frac|1|<sqrt|1-t<rsup|2>>>t<rsup|\<lambda\>+\<nu\>+a-n+p-1><sqrt|1-t<rsup|2>><rsup|q+b-1>d
-        t=>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||t|\|><rsup|\<lambda\>+\<nu\>-n>t<rsup|\<alpha\><rsub|p>><around*|(|1-t<rsup|2>|)><rsup|<around*|(|p-3|)>/2>d
+        t=>|<cell|>>|<row|<cell|>|<cell|=<big|int><rsub|-1><rsup|1><around*|\||t|\|><rsup|\<lambda\>+\<nu\>-n>t<rsup|\<alpha\><rsub|p>><around*|(|1-t<rsup|2>|)><rsup|<around*|(|p-3|)>/2>d
         t<big|int><rsub|0><rsup|1><around*|\||1-2t|\|><rsup|-\<nu\>><around*|(|1-t|)><rsup|<around*|(|q+b-2|)>/2>t<rsup|<around*|(|\<lambda\>+a+\<nu\>-q|)>/2-1>d
         t\<simeq\>>|<cell|>>>>
       </eqnarray>
@@ -9488,14 +9516,14 @@
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|=2<big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><rsub|>d\<omega\>\<times\><big|int><rsub|\<bbb-S\><rsup|q-1>>d\<omega\><rprime|'>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|int><rsub|r,s=0><rsup|\<infty\>>R<rsup|-\<lambda\>/2>r<rsup|\<lambda\>+\<nu\>-n>r<rsup|p-1>s<rsup|q-1><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|-\<nu\>>d
         r d s=>|<cell|>>|<row|<cell|>|<cell|=2\<cdot\><choice|<tformat|<table|<row|<cell|2<rsup|1-\<lambda\>-\<nu\>+n>\<pi\><rsup|p/2><frac|\<Gamma\><around*|(|\<lambda\>+\<nu\>-n+1|)>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+2|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-q+\<nu\>|2>|)>>,>|<cell|p\<gtr\>1>>|<row|<cell|2,>|<cell|p=1>>>>>\<times\><frac|2\<pi\><rsup|q/2>|\<Gamma\><around*|(|<frac|q|2>|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\>2<rsup|-\<lambda\>-1><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||x-y|\|><rsup|-\<nu\>><around*|(|1-y<rsup|2>|)><rsup|<around*|(|\<lambda\>+\<nu\>-q|)>/2-1><around*|(|1-x<rsup|2>|)><rsup|<around*|(|q-2|)>/2>d
-        x d y=>|<cell|<around*|(|lemma<space|1em><reference|KR-normalization-even:lem-formula>|)>>>|<row|<cell|>|<cell|=2\<cdot\>2<rsup|>\<pi\><rsup|<around*|(|p-1|)>/2><frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>-q+\<nu\>|2>|)>>\<times\><frac|2\<pi\><rsup|q/2>|\<Gamma\><around*|(|<frac|q|2>|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\>2<rsup|-\<lambda\>-1><frac|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>cos<around*|(|<frac|\<lambda\>\<pi\>|2>|)>\<Gamma\><around*|(|<frac|-q+\<nu\>+\<lambda\>|2>|)>sin<around*|(|<frac|\<pi\><around*|(|\<lambda\>+\<nu\>-q|)>|2>|)>\<Gamma\><around*|(|<frac|q|2>|)>\<Gamma\><around*|(|<frac|q-\<lambda\>+1|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)><sqrt|\<pi\>>sin<around*|(|<frac|<around*|(|\<lambda\>+\<nu\>|)>\<pi\>|2>|)>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>,>|<cell|>>>>
+        x d y=>|<cell|<around*|(|lemma<space|1em><reference|KR-normalization-even:lem-formula>|)>>>|<row|<cell|>|<cell|=2\<cdot\>2<rsup|>\<pi\><rsup|<around*|(|p-1|)>/2><frac|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>-q+\<nu\>|2>|)>>\<times\><frac|2\<pi\><rsup|q/2>|\<Gamma\><around*|(|<frac|q|2>|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\>2<rsup|-\<lambda\>-1><frac|\<Gamma\><around*|(|<frac|q|2>|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-q|2>|)>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>\<Gamma\><around*|(|-<frac|q|2>+<frac|\<lambda\>+1|2>|)>\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>,>|<cell|>>>>
       </eqnarray>
 
       which gives the result after few simple additional computations.
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|Normalization of <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>><label|sec:KR-normalization-even>
-  </show-part>
+  </hide-part>
 
   <\hide-part|22>
     <section|Determination of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>><label|sec:sol-MO>
@@ -9950,8 +9978,7 @@
   <\hide-part|23>
     <section|Application: Knapp-Stein operator><label|sec:knappstein>
 
-    The material of this section is not used elsewhere in the paper, we
-    rather use it to show how techniques introduced in
+    In this section we show how techniques introduced in
     <cite|kobayashi2015symmetry> and used in this paper can be applied to
     find a concrete form of <math|G>-invariant
     <math|I<around*|(|\<lambda\>|)>\<rightarrow\>I<around*|(|n-\<lambda\>|)>>
@@ -10760,20 +10787,163 @@
 
     <subsection|Main results>
 
-    \;
+    <\proposition>
+      <label|resform:prop-from-regular>The following holds:
+
+      <\enumerate>
+        <item>For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>//\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<lambda\>-\<nu\>=-2k\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+        we have <math|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>=q<rsub|<around*|{|0|}>><rsup|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)><wide|K|~><rsup|<around*|{|0|}>><rsub|\<lambda\>,\<nu\>>>,
+        where
+
+        <\equation*>
+          q<rsub|<around*|{|0|}>><rsup|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>=2<rsup|-\<nu\>-2l><around*|(|-1|)><rsup|l>l!\<pi\><rsup|<around*|(|n-4|)>/2>\<Gamma\><around*|(|1-<frac|\<nu\>|2>|)><around*|[|sin<frac|\<pi\>q|2>+sin<around*|(|\<pi\><around*|(|\<nu\>-q/2|)>|)>|]>;
+        </equation*>
+
+        <item>For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<mid\>\<mid\>\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<nu\>=-1-2k\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+        we have <math|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>=q<rsub|C><rsup|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)><wide|K|~><rsup|C><rsub|\<lambda\>,\<nu\>>>,
+        where
+
+        <\equation*>
+          q<rsub|C><rsup|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>=<frac|<around*|(|-1|)><rsup|k>k!|<around*|(|2k|)>!><choice|<tformat|<table|<row|<cell|1,>|<cell|q\<in\>2\<bbb-Z\>+1>>|<row|<cell|\<Gamma\><around*|(|<frac|\<lambda\>-min<around*|{|\<nu\>,q-\<nu\>|}>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|q\<in\>2\<bbb-Z\>,p=1>>|<row|<cell|1/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|q\<in\>2\<bbb-Z\>,p\<gtr\>1>>>>>;
+        </equation*>
+
+        <item>For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\\\\\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2><mid|\|>\<lambda\>+\<nu\>-n=-1-2k\<in\>-1-2\<bbb-Z\><rsub|\<geqslant\>0>|}>>
+        we have <math|<wide|K|~><rsup|\<bbb-R\><rsup|n>><rsub|\<lambda\>,\<nu\>>=q<rsub|P><rsup|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)><wide|K|~><rsup|P><rsub|\<lambda\>,\<nu\>>>,
+        where
+
+        <\equation*>
+          q<rsub|C><rsup|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>=<frac|<around*|(|-1|)><rsup|k>k!|<around*|(|2k|)>!><choice|<tformat|<table|<row|<cell|1,>|<cell|n\<in\>2\<bbb-Z\>,p\<gtr\>1>>|<row|<cell|\<Gamma\><around*|(|<frac|max<around*|{|2,<around*|(|<around*|(|n-1|)>/2-k|)><rprime|'>|}>-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|n\<in\>2\<bbb-Z\>+1,q\<in\>2\<bbb-Z\>,p\<gtr\>1;<space|0.6spc>a<rprime|'>\<assign\>min<around*|{|x<mid|\|>a\<leqslant\>x\<in\>2\<bbb-Z\>|}>>>|<row|<cell|\<Gamma\><around*|(|<frac|<around*|(|<around*|(|n-1|)>/2-k|)><rprime|'>-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|n\<in\>2\<bbb-Z\>+1,q\<in\>2\<bbb-Z\>+1,p\<gtr\>1;<space|0.6spc>a<rprime|'>\<assign\>min<around*|{|x<mid|\|>a\<leqslant\>x\<in\>2\<bbb-Z\>+1|}>>>|<row|<cell|1/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>,>|<cell|p=1,n\<in\>2\<bbb-Z\>>>|<row|<cell|\<Gamma\><around*|(|max<around*|{|<frac|n-1|2>-k,0|}>-\<nu\>|)>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|p=1,n\<in\>2\<bbb-Z\>+1>>>>>;
+        </equation*>
+      </enumerate>
+    </proposition>
 
     <subsection|Auxiliary results>
 
+    <\lemma>
+      <label|resform:lem-from-regular-1-1>For
+      <math|\<lambda\>-\<nu\>=-2l\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>> we
+      have <math|<around*|\<langle\>|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>,x<rsub|p><rsup|2l>|\<rangle\>>=2<rsup|2l><around*|(|\<nu\>-<frac|n-1|2>-l|)><rsub|l>>.
+    </lemma>
+
+    <\proof>
+      Indeed, we recall that <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>:=<wide|C|~><rsub|\<nu\>-\<lambda\>><rsup|\<lambda\>-<around*|(|n-1|)>/2><around*|(|-<wide|\<Delta\>|~><wide|\<delta\>|~><around*|(|x|)>,\<delta\><around*|(|x<rsub|p>|)>|)>>,
+      where <math|<wide|C|~><rsup|\<mu\>><rsub|2l><around*|(|s,t|)>> is
+      defined as in <cite-detail|kobayashi2015symmetry|(16.3)> with the
+      formula
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<wide|C|~><rsub|2l><rsup|\<mu\>><around*|(|s,t|)>=<big|sum><rsub|j=0><rsup|l>a<rsub|j><around*|(|l;\<mu\>|)>s<rsup|j>t<rsup|2l-2j>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|j><around*|(|l;\<mu\>|)>=<frac|<around*|(|-1|)><rsup|j>2<rsup|2l-2j>|j!<around*|(|2l-2j|)>!><around*|(|\<mu\>+l|)><rsub|l-j>>|<cell|>>>>
+      </eqnarray>
+
+      We therefore have
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>,x<rsub|p><rsup|2l>|\<rangle\>>=<big|sum><rsub|j=0><rsup|l>a<rsub|j><around*|(|l;\<mu\>|)><around*|(|-<wide|\<Delta\>|~>|)><rsup|j><around*|(|\<partial\>/\<partial\>x<rsub|p>|)><rsup|2l-2j>x<rsub|p><rsup|2l><mid|\|><rsub|x=0>=<around*|(|2l|)>!a<rsub|0><around*|(|l;\<lambda\>-<frac|n-1|2>|)>=>|<cell|>>|<row|<cell|>|<cell|=2<rsup|2l><around*|(|\<lambda\>-<frac|n-1|2>+l|)><rsub|l>=2<rsup|2l><around*|(|\<nu\>-<frac|n-1|2>-l|)><rsub|l>>|<cell|>>>>
+      </eqnarray>
+    </proof>
+
+    <\lemma>
+      <label|resform:lem-from-regular-1-2>For
+      <math|\<lambda\>-\<nu\>=-2l\<in\>-2\<bbb-Z\><rsub|\<geqslant\>0>> we
+      have\ 
+
+      <\equation*>
+        <around*|\<langle\>|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>,x<rsub|p><rsup|2l>|\<rangle\>>=<around*|(|-1|)><rsup|l>l!<around*|(|\<nu\>-<frac|n-1|2>-l|)><rsub|l>\<pi\><rsup|<around*|(|n-4|)>/2>2<rsup|-\<nu\>>\<Gamma\><around*|(|1-<frac|\<nu\>|2>|)><around*|[|sin<frac|\<pi\>q|2>+sin<around*|(|\<pi\><around*|(|\<nu\>-q/2|)>|)>|]>.
+      </equation*>
+    </lemma>
+
+    <\proof>
+      One just examines computations done in proof of proposition
+      <reference|KR-normalization-even:prop-zeroset> more closely:
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<around*|\<langle\>|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>,x<rsub|p><rsup|2l>|\<rangle\>>=<frac|\<Gamma\><around*|(|\<lambda\>-\<nu\>|)>|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>><around*|\<langle\>|<frac|<frac|<around*|\||Q|\|><rsup|-\<nu\>>|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>>\<cdot\><frac|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>|\<Gamma\><around*|(|<around*|(|\<lambda\>+\<nu\>-n+1|)>/2|)>>|\<Gamma\><around*|(|\<lambda\>-\<nu\>|)>>,x<rsub|p><rsup|2l>|\<rangle\>>=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>+1|2>|)>2<rsup|\<lambda\>-\<nu\>-1>|<sqrt|\<pi\>>>\<times\><around*|(|2l|)>!<around*|\<langle\>|<frac|<around*|\||Q|\|><rsup|-\<nu\>>|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>>\<cdot\><frac|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>|\<Gamma\><around*|(|<around*|(|\<lambda\>+\<nu\>-n+1|)>/2|)>>,\<omega\><rsub|p><rsup|2l>|\<rangle\>><rsub|\<bbb-S\><rsup|n-1>>=>|<cell|>>|<row|<cell|>|<cell|=*<frac|\<Gamma\><around*|(|<frac|1|2>-k|)>2<rsup|-2k-1>|<sqrt|\<pi\>>>\<times\><frac|<around*|(|2l|)>!|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+\<nu\>-n+1|)>/2|)>>\<times\><big|int><rsub|\<bbb-S\><rsup|p-1>><around*|\||\<omega\><rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n+2l>d\<omega\>\<times\><big|int><rsub|\<bbb-S\><rsup|q-1>>d\<omega\><rprime|'>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|int><rsub|r<rsup|2>+s<rsup|2>=1;r,s\<gtr\>0><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|-\<nu\>>r<rsup|\<lambda\>+\<nu\>-n+2l+p-1>s<rsup|q-1>d
+        r d s=>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-1|)><rsup|l>l!/2|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>\<Gamma\><around*|(|<around*|(|2\<nu\>-2l-n+1|)>/2|)>>\<times\><frac|2\<pi\><rsup|<around*|(|p-1|)>/2>\<Gamma\><around*|(|<frac|2\<nu\>-n+1|2>|)>|\<Gamma\><around*|(|<frac|2\<nu\>-q|2>|)>>\<times\><frac|2\<pi\><rsup|q/2>|\<Gamma\><around*|(|q/2|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><frac|1|2><big|int><rsub|0><rsup|1><around*|\||1-2t|\|><rsup|-\<nu\>>t<rsup|<around*|(|\<lambda\>+\<nu\>-q+2l|)>/2-1><around*|(|1-t|)><rsup|<around*|(|q-2|)>/2>d
+        t=>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-1|)><rsup|l>l!<around*|(|\<nu\>-<frac|n-1|2>-l|)><rsub|l>|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>>\<times\><frac|2\<pi\><rsup|<around*|(|n-1|)>/2>|\<Gamma\><around*|(|\<nu\>-q/2|)>\<Gamma\><around*|(|q/2|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\>2<rsup|-<around*|(|\<lambda\>+\<nu\>+2l|)>/2><big|int><rsub|-1><rsup|1><around*|\||w|\|><rsup|-\<nu\>><around*|(|1+w|)><rsup|<around*|(|q-2|)>/2><around*|(|1-w|)><rsup|<around*|(|2\<nu\>-q|)>/2-1>d
+        w=>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-1|)><rsup|l>l!<around*|(|\<nu\>-<frac|n-1|2>-l|)><rsub|l>|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>>\<times\><frac|2\<pi\><rsup|<around*|(|n-1|)>/2>|\<Gamma\><around*|(|\<nu\>-q/2|)>\<Gamma\><around*|(|q/2|)>>\<times\>2<rsup|-\<nu\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><around*|[|<rsub|>
+        <rsub|2>F<rsub|1><around*|(|1-<frac|q|2>,1-\<nu\>;1-<frac|q|2>;-1|)>B<around*|(|1-\<nu\>,<frac|2\<nu\>-q|2>|)>+<rsub|2>F<rsub|1><around*|(|1-<frac|2\<nu\>-q|2>,1-\<nu\>;<frac|q|2>-\<nu\>+1;-1|)>B<around*|(|1-\<nu\>,<frac|q|2>|)>|]>=>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-1|)><rsup|l>l!<around*|(|\<nu\>-<frac|n-1|2>-l|)><rsub|l>|\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>>\<times\><frac|2\<pi\><rsup|<around*|(|n-1|)>/2>|\<Gamma\><around*|(|\<nu\>-q/2|)>\<Gamma\><around*|(|q/2|)>>\<times\><frac|\<Gamma\><around*|(|1-\<nu\>|)>|2><around*|[|<frac|\<Gamma\><around*|(|\<nu\>-q/2|)>|\<Gamma\><around*|(|1-q/2|)>>+<frac|\<Gamma\><around*|(|q/2|)>|\<Gamma\><around*|(|1-\<nu\>+q/2|)>>|]>=>|<cell|>>|<row|<cell|>|<cell|=<around*|(|-1|)><rsup|l>l!<around*|(|\<nu\>-<frac|n-1|2>-l|)><rsub|l>2\<pi\><rsup|<around*|(|n-1|)>/2><frac|\<Gamma\><around*|(|1-\<nu\>|)>|2\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>><around*|[|<frac|1|\<Gamma\><around*|(|q/2|)>\<Gamma\><around*|(|1-q/2|)>>+<frac|1|\<Gamma\><around*|(|\<nu\>-q/2|)>\<Gamma\><around*|(|1-\<nu\>+q/2|)>>|]>=>|<cell|>>|<row|<cell|>|<cell|=<around*|(|-1|)><rsup|l>l!<around*|(|\<nu\>-<frac|n-1|2>-l|)><rsub|l>\<pi\><rsup|<around*|(|n-1|)>/2><frac|\<Gamma\><around*|(|1-\<nu\>|)>|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>><around*|[|<frac|sin<frac|\<pi\>q|2>|\<pi\>>+<frac|sin<around*|(|\<pi\><around*|(|\<nu\>-q/2|)>|)>|\<pi\>>|]>.>|<cell|>>>>
+      </eqnarray>
+
+      and this gives the answer after some additional easy simplfications.
+    </proof>
+
     <subsection|Proofs>
+
+    <\proof>
+      (of proposition <reference|resform:prop-from-regular>) We start with
+      proving the first item. We fix <math|k\<in\>\<bbb-Z\><rsub|\<geqslant\>0>>
+      and let <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
+      be connected by the relation <math|\<lambda\>-\<nu\>=-2k>. Propositions
+      <reference|KR-normalization-recur:prop-supp> and
+      <reference|KR-normalization-even:prop-zeroset> imply that for generic
+      <math|\<lambda\>> we have <math|supp<around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=<around*|{|0|}>>
+      and hence proposition <reference|diffSBO:prop-main> then implies that
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> and
+      <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|0|}>>> must be
+      proportional. The exact proportionality constant is then found using
+      lemmas <reference|resform:lem-from-regular-1-1> and
+      <reference|resform:lem-from-regular-1-2>. This proves the first item.
+
+      \ Second item directly follows from proposition
+      <reference|KC-normalization-2:prop-normalization> and the fact that for
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<mid\>\<mid\>> we have
+      <math|<around*|\||Q|\|><rsup|-\<nu\>>/\<Gamma\><around*|(|<around*|(|1-\<nu\>|)>/2|)>=<around*|(|-1|)><rsup|k>\<delta\><rsup|<around*|(|2k|)>><around*|(|Q|)>k!/<around*|(|2k|)>!>.
+      Similarly, the third item follows from definition in proposition
+      <reference|prop:supp-p> and remark <reference|KP-normalization-2:remark>.
+    </proof>
   <|hide-part>
     <section|Residue formulae><label|sec:resform>
   </hide-part>
 
-  <\hide-part|27>
+  <\show-part|27>
     <section|Functional identities><label|sec:funcident>
-  <|hide-part>
+
+    <subsection|Main results>
+
+    <\proposition>
+      <label|funcident:prop-main>Let <math|Op:\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)><wide|\<rightarrow\>|~>Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>>
+      and \ be isomorphisms introduced in proposition
+      <reference|sol:prop-sol> and <math|<wide|\<bbb-T\>|~><rsub|\<lambda\>>:I<around*|(|\<lambda\>|)>\<rightarrow\>I<around*|(|n-\<lambda\>|)>>
+      be as in proposition <reference|knappstein:prop-holo>.
+
+      The for <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
+      the following relations hold:
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<wide|\<bbb-T\>|~><rsub|n-1-\<nu\>>\<circ\>Op<around*|(|<wide|K|~><rsub|\<lambda\>,n-1-\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=q<rsup|T\<bbb-R\><rsup|n>><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>Op<around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>|<cell|>>|<row|<cell|>|<cell|Op<around*|(|<wide|K|~><rsub|n-\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<circ\><wide|\<bbb-T\>|~><rsub|\<lambda\>>=q<rsup|\<bbb-R\><rsup|n>T><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>Op<around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>|<cell|>>|<row|<cell|>|<cell|q<rsup|T\<bbb-R\><rsup|n>><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>\<assign\>>|<cell|>>|<row|<cell|>|<cell|q<rsup|\<bbb-R\><rsup|n>T><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>\<assign\>>|<cell|>>>>
+      </eqnarray>
+    </proposition>
+
+    <subsection|Auxiliary lemmas>
+
+    <subsection|Proofs>
+
+    <\proof>
+      (of prop. <reference|funcident:prop-main>) We will only prove the first
+      equality, the proof of the second going along the similar lines. Now,
+      proposition <reference|holoop:prop-main> implies that all three
+      operators involved in equality are holomorphic in their parameters,
+      hence proposition <reference|holoop:prop-comp-of-holo-is-holo> implies
+      that so is the composition on the left-hand side.\ 
+
+      Now, proposition <reference|holoop:prop-holo-rigidity> implies that it
+      suffices to prove the equality only for
+      <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\><around*|{|Re<around*|(|\<lambda\>+\<nu\>-n|)>,Re<around*|(|-\<nu\>|)>\<gtr\>1|}>>,
+      where proposition <reference|lem67:prop-dim1> tells us that left-hand
+      side and right-hand side (both being members of
+      <math|Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>>)
+      have to be proportional. Now, as all three operators involved map
+      spherical vector to spherical vectors and the space of spherical
+      vectors is one-dimensional, we can apply both sides to the spherical
+      <math|1<rsub|\<lambda\>>\<in\>I<around*|(|\<lambda\>|)>>, and as
+      proposition <reference|holoop:prop-sphermult> together with proposition
+      <reference|KR-normalization-even:prop-sphermult> and its
+      straightforward analogue for <math|<wide|\<bbb-T\>|~><rsub|\<nu\>>>
+      tell us how to compute spherical multiples, we get the equality.
+    </proof>
+  <|show-part>
     <section|Functional identities><label|sec:funcident>
-  </hide-part>
+  </show-part>
 
   <\hide-part|28>
     \;
@@ -11088,60 +11258,62 @@
     <associate|Assume-that-2|<tuple|14.3|27|#15>>
     <associate|Assume-that-3|<tuple|14.4|27|#15>>
     <associate|Assume-that-4|<tuple|14.5|27|#15>>
-    <associate|CAS:def-CAS|<tuple|23.1|?|#24>>
-    <associate|CAS:def-map|<tuple|23.2|?|#24>>
-    <associate|CAS:prop-GoverP|<tuple|23.4|?|#24>>
-    <associate|CAS:prop-invariant|<tuple|23.6|?|#24>>
+    <associate|CAS:def-CAS|<tuple|22.1|?|#24>>
+    <associate|CAS:def-map|<tuple|22.2|?|#24>>
+    <associate|CAS:prop-GoverP|<tuple|22.4|?|#24>>
+    <associate|CAS:prop-invariant|<tuple|22.6|?|#24>>
     <associate|For-,-we|<tuple|17.3|46|#19>>
     <associate|KC-normalization-2:def-ftilde|<tuple|17.2|45|#19>>
     <associate|KC-normalization-2:lem-P|<tuple|15.7|?|#16>>
-    <associate|KC-normalization-2:lem-Pcomputation|<tuple|17.6|61|#18>>
-    <associate|KC-normalization-2:lem-kfin-00|<tuple|17.3|59|#18>>
-    <associate|KC-normalization-2:lem-kfin-11|<tuple|17.4|60|#18>>
-    <associate|KC-normalization-2:lem-kfinite|<tuple|17.5|61|#18>>
+    <associate|KC-normalization-2:lem-Pcomputation|<tuple|16.6|61|#18>>
+    <associate|KC-normalization-2:lem-kfin-00|<tuple|16.3|59|#18>>
+    <associate|KC-normalization-2:lem-kfin-11|<tuple|16.4|60|#18>>
+    <associate|KC-normalization-2:lem-kfinite|<tuple|16.5|61|#18>>
     <associate|KC-normalization-2:lem-kfinite-wrap|<tuple|17.6|50|#19>>
-    <associate|KC-normalization-2:lem-normalization-q-even-p-1|<tuple|17.9|63|#18>>
-    <associate|KC-normalization-2:lem-normalization-q-even-p-odd|<tuple|17.10|63|#18>>
-    <associate|KC-normalization-2:lem-normalization-qodd|<tuple|17.8|62|#18>>
-    <associate|KC-normalization-2:lem-normalization-qodd-aux-1|<tuple|17.7|62|#18>>
-    <associate|KC-normalization-2:prop-normalization|<tuple|17.1|59|#18>>
-    <associate|KC-normalization-2:prop-supp|<tuple|17.2|59|#18>>
+    <associate|KC-normalization-2:lem-normalization-q-even-p-1|<tuple|16.9|63|#18>>
+    <associate|KC-normalization-2:lem-normalization-q-even-p-odd|<tuple|16.10|63|#18>>
+    <associate|KC-normalization-2:lem-normalization-qodd|<tuple|16.8|62|#18>>
+    <associate|KC-normalization-2:lem-normalization-qodd-aux-1|<tuple|16.7|62|#18>>
+    <associate|KC-normalization-2:prop-normalization|<tuple|16.1|59|#18>>
+    <associate|KC-normalization-2:prop-supp|<tuple|16.2|59|#18>>
     <associate|KC-normalization:prop-kfinite|<tuple|17.1|45|#19>>
     <associate|KC-normalization:prop-sol-extending|<tuple|9.4|?|#10>>
     <associate|KP-normalization-2:lem-aux-1|<tuple|79|?|#6>>
-    <associate|KP-normalization-2:lem-holo-supp|<tuple|18.8|65|#19>>
-    <associate|KP-normalization-2:lem-nonzero|<tuple|18.10|65|#19>>
-    <associate|KP-normalization-2:lem-sets|<tuple|18.9|65|#19>>
-    <associate|KP-normalization-2:lem-trivial|<tuple|18.11|65|#19>>
-    <associate|KP-normalization-2:prop-1|<tuple|18.1|64|#19>>
-    <associate|KP-normalization-2:prop-2|<tuple|18.2|64|#19>>
-    <associate|KP-normalization-2:prop-3|<tuple|18.3|64|#19>>
-    <associate|KP-normalization-2:prop-4|<tuple|18.5|65|#19>>
-    <associate|KP-normalization-2:prop-5|<tuple|18.6|65|#19>>
-    <associate|KP-normalization-2:prop-p=1|<tuple|18.7|65|#19>>
+    <associate|KP-normalization-2:lem-holo-supp|<tuple|17.9|65|#19>>
+    <associate|KP-normalization-2:lem-nonzero|<tuple|17.11|65|#19>>
+    <associate|KP-normalization-2:lem-sets|<tuple|17.10|65|#19>>
+    <associate|KP-normalization-2:lem-trivial|<tuple|17.12|65|#19>>
+    <associate|KP-normalization-2:prop-1|<tuple|17.1|64|#19>>
+    <associate|KP-normalization-2:prop-2|<tuple|17.2|64|#19>>
+    <associate|KP-normalization-2:prop-3|<tuple|17.3|64|#19>>
+    <associate|KP-normalization-2:prop-4|<tuple|17.5|65|#19>>
+    <associate|KP-normalization-2:prop-5|<tuple|17.6|65|#19>>
+    <associate|KP-normalization-2:prop-p=1|<tuple|17.7|65|#19>>
+    <associate|KP-normalization-2:remark|<tuple|17.8|?|#19>>
     <associate|KP-normalization:lem-Mg0|<tuple|14.1|41|#17>>
-    <associate|KR-normalization-even:eq-lemeq|<tuple|20.2|72|#21>>
+    <associate|KR-normalization-even:eq-lemeq|<tuple|19.2|72|#21>>
     <associate|KR-normalization-even:eq-rf|<tuple|19.2|?|#21>>
     <associate|KR-normalization-even:fact-P-K|<tuple|19.5|67|#21>>
     <associate|KR-normalization-even:hypo-maxima|<tuple|2|?|#10>>
     <associate|KR-normalization-even:lem-2|<tuple|19.7|68|#21>>
     <associate|KR-normalization-even:lem-3|<tuple|16.7|?|#16>>
     <associate|KR-normalization-even:lem-Poddeven|<tuple|19.6|67|#21>>
-    <associate|KR-normalization-even:lem-formula|<tuple|20.9|?|#21>>
-    <associate|KR-normalization-even:lem-gelfand|<tuple|20.10|72|#21>>
-    <associate|KR-normalization-even:lem-kfinite-00-aux|<tuple|20.5|68|#21>>
+    <associate|KR-normalization-even:lem-formula|<tuple|19.10|?|#21>>
+    <associate|KR-normalization-even:lem-gelfand|<tuple|19.11|72|#21>>
+    <associate|KR-normalization-even:lem-kfinite-00-aux|<tuple|19.6|68|#21>>
     <associate|KR-normalization-even:lem-kfinite-11|<tuple|17.11|?|#18>>
-    <associate|KR-normalization-even:lem-kfinite-11-aux|<tuple|20.6|69|#21>>
+    <associate|KR-normalization-even:lem-kfinite-11-aux|<tuple|19.7|69|#21>>
     <associate|KR-normalization-even:lem-zeroset-aux|<tuple|19.8|?|#21>>
-    <associate|KR-normalization-even:lem-zeroset-aux-1|<tuple|20.7|70|#21>>
-    <associate|KR-normalization-even:lem-zeroset-aux-2|<tuple|20.8|71|#21>>
+    <associate|KR-normalization-even:lem-zeroset-aux-1|<tuple|19.8|70|#21>>
+    <associate|KR-normalization-even:lem-zeroset-aux-2|<tuple|19.9|71|#21>>
     <associate|KR-normalization-even:prop-holo|<tuple|19.2|66|#21>>
     <associate|KR-normalization-even:prop-hypoA|<tuple|17.12|51|#18>>
-    <associate|KR-normalization-even:prop-kfinite|<tuple|20.1|67|#21>>
-    <associate|KR-normalization-even:prop-odd|<tuple|20.2|68|#21>>
-    <associate|KR-normalization-even:prop-sphermult|<tuple|20.3|?|#21>>
+    <associate|KR-normalization-even:prop-kfinite|<tuple|19.1|67|#21>>
+    <associate|KR-normalization-even:prop-odd|<tuple|19.2|68|#21>>
+    <associate|KR-normalization-even:prop-sphermult|<tuple|19.4|?|#21>>
+    <associate|KR-normalization-even:prop-sphermult-2|<tuple|19.6|?|#21>>
     <associate|KR-normalization-even:prop-zeroset|<tuple|19.3|?|#21>>
-    <associate|KR-normalization-even:rmk-Atilde|<tuple|20.4|68|#21>>
+    <associate|KR-normalization-even:rmk-Atilde|<tuple|19.3|68|#21>>
     <associate|KR-normalization-recur-eq1|<tuple|10|?|#11>>
     <associate|KR-normalization-recur:eq-1|<tuple|3.1|13|#5>>
     <associate|KR-normalization-recur:eq-recur|<tuple|20.1|60|#21>>
@@ -11345,16 +11517,16 @@
     <associate|auto.17.9-3|<tuple|16.2|?|#17.9>>
     <associate|auto.17.9-4|<tuple|16.3|?|#17.9>>
     <associate|auto.17.9-5|<tuple|16.4|?|#17.9>>
-    <associate|auto.18-1|<tuple|17|?|#18>>
-    <associate|auto.18-2|<tuple|17.1|?|#18>>
-    <associate|auto.18-3|<tuple|17.2|?|#18>>
-    <associate|auto.18-4|<tuple|17.3|?|#18>>
+    <associate|auto.18-1|<tuple|16|?|#18>>
+    <associate|auto.18-2|<tuple|16.1|?|#18>>
+    <associate|auto.18-3|<tuple|16.2|?|#18>>
+    <associate|auto.18-4|<tuple|16.3|?|#18>>
     <associate|auto.18-5|<tuple|16.4|?|#18>>
     <associate|auto.18-6|<tuple|18.5|?|#18>>
-    <associate|auto.19-1|<tuple|18|?|#19>>
-    <associate|auto.19-2|<tuple|18.1|?|#19>>
-    <associate|auto.19-3|<tuple|18.2|?|#19>>
-    <associate|auto.19-4|<tuple|18.3|?|#19>>
+    <associate|auto.19-1|<tuple|17|?|#19>>
+    <associate|auto.19-2|<tuple|17.1|?|#19>>
+    <associate|auto.19-3|<tuple|17.2|?|#19>>
+    <associate|auto.19-4|<tuple|17.3|?|#19>>
     <associate|auto.19-5|<tuple|17.4|?|#19>>
     <associate|auto.19-6|<tuple|15.5|?|#19>>
     <associate|auto.2-1|<tuple|1|?|#2>>
@@ -11401,57 +11573,60 @@
     <associate|auto.2.16-4|<tuple|8.3|?|#2.16>>
     <associate|auto.2.16-5|<tuple|8.4|?|#2.16>>
     <associate|auto.2.17-1|<tuple|9|?|#2.17>>
-    <associate|auto.20-1|<tuple|19|?|#20>>
-    <associate|auto.20-2|<tuple|19.1|?|#20>>
-    <associate|auto.20-3|<tuple|19.2|?|#20>>
-    <associate|auto.20-4|<tuple|19.3|?|#20>>
+    <associate|auto.20-1|<tuple|18|?|#20>>
+    <associate|auto.20-2|<tuple|18.1|?|#20>>
+    <associate|auto.20-3|<tuple|18.2|?|#20>>
+    <associate|auto.20-4|<tuple|18.3|?|#20>>
     <associate|auto.20-5|<tuple|19.4|?|#20>>
     <associate|auto.20-6|<tuple|16.5|?|#20>>
-    <associate|auto.21-1|<tuple|20|?|#21>>
-    <associate|auto.21-2|<tuple|20.1|?|#21>>
-    <associate|auto.21-3|<tuple|20.2|?|#21>>
-    <associate|auto.21-4|<tuple|20.3|?|#21>>
-    <associate|auto.21-5|<tuple|20.4|?|#21>>
+    <associate|auto.21-1|<tuple|19|?|#21>>
+    <associate|auto.21-2|<tuple|19.1|?|#21>>
+    <associate|auto.21-3|<tuple|19.2|?|#21>>
+    <associate|auto.21-4|<tuple|19.3|?|#21>>
+    <associate|auto.21-5|<tuple|19.4|?|#21>>
     <associate|auto.21-6|<tuple|20.1|?|#21>>
     <associate|auto.21-7|<tuple|20.2|?|#21>>
     <associate|auto.21-8|<tuple|20.3|?|#21>>
-    <associate|auto.22-1|<tuple|21|?|#22>>
-    <associate|auto.22-2|<tuple|21.1|?|#22>>
-    <associate|auto.22-3|<tuple|21.2|?|#22>>
-    <associate|auto.22-4|<tuple|21.3|?|#22>>
+    <associate|auto.22-1|<tuple|20|?|#22>>
+    <associate|auto.22-2|<tuple|20.1|?|#22>>
+    <associate|auto.22-3|<tuple|20.2|?|#22>>
+    <associate|auto.22-4|<tuple|20.3|?|#22>>
     <associate|auto.22-5|<tuple|20.4|?|#22>>
     <associate|auto.22-6|<tuple|20.5|?|#22>>
-    <associate|auto.23-1|<tuple|22|?|#23>>
-    <associate|auto.23-2|<tuple|22.1|?|#23>>
-    <associate|auto.23-3|<tuple|22.2|?|#23>>
+    <associate|auto.23-1|<tuple|21|?|#23>>
+    <associate|auto.23-2|<tuple|21.1|?|#23>>
+    <associate|auto.23-3|<tuple|21.2|?|#23>>
     <associate|auto.23-4|<tuple|22|?|#23>>
     <associate|auto.23-5|<tuple|22.1|?|#23>>
     <associate|auto.23-6|<tuple|22.2|?|#23>>
     <associate|auto.23-7|<tuple|22.3|?|#23>>
-    <associate|auto.24-1|<tuple|23|?|#24>>
+    <associate|auto.24-1|<tuple|22|?|#24>>
     <associate|auto.24-10|<tuple|25|?|#24>>
-    <associate|auto.24-2|<tuple|23.1|?|#24>>
-    <associate|auto.24-3|<tuple|23.2|?|#24>>
-    <associate|auto.24-4|<tuple|23.3|?|#24>>
+    <associate|auto.24-2|<tuple|22.1|?|#24>>
+    <associate|auto.24-3|<tuple|22.2|?|#24>>
+    <associate|auto.24-4|<tuple|22.3|?|#24>>
     <associate|auto.24-5|<tuple|23|?|#24>>
     <associate|auto.24-6|<tuple|23.1|?|#24>>
     <associate|auto.24-7|<tuple|23.2|?|#24>>
     <associate|auto.24-8|<tuple|23.3|?|#24>>
     <associate|auto.24-9|<tuple|24|?|#24>>
-    <associate|auto.25-1|<tuple|24|?|#25>>
-    <associate|auto.25-2|<tuple|24.1|?|#25>>
-    <associate|auto.25-3|<tuple|24.2|?|#25>>
-    <associate|auto.25-4|<tuple|24.3|?|#25>>
-    <associate|auto.26-1|<tuple|25|?|#26>>
-    <associate|auto.26-2|<tuple|25.1|?|#26>>
-    <associate|auto.26-3|<tuple|25.2|?|#26>>
-    <associate|auto.26-4|<tuple|25.3|?|#26>>
-    <associate|auto.27-1|<tuple|26|?|#27>>
+    <associate|auto.25-1|<tuple|23|?|#25>>
+    <associate|auto.25-2|<tuple|23.1|?|#25>>
+    <associate|auto.25-3|<tuple|23.2|?|#25>>
+    <associate|auto.25-4|<tuple|23.3|?|#25>>
+    <associate|auto.26-1|<tuple|24|?|#26>>
+    <associate|auto.26-2|<tuple|24.1|?|#26>>
+    <associate|auto.26-3|<tuple|24.2|?|#26>>
+    <associate|auto.26-4|<tuple|24.3|?|#26>>
+    <associate|auto.27-1|<tuple|25|?|#27>>
+    <associate|auto.27-2|<tuple|25.1|?|#27>>
+    <associate|auto.27-3|<tuple|25.2|?|#27>>
+    <associate|auto.27-4|<tuple|25.3|?|#27>>
     <associate|auto.28-1|<tuple|27|?|#28>>
     <associate|auto.28-2|<tuple|27.1|?|#28>>
     <associate|auto.28-3|<tuple|27.2|?|#28>>
     <associate|auto.28-4|<tuple|27.3|?|#28>>
-    <associate|auto.29-1|<tuple|26|?|#29>>
+    <associate|auto.29-1|<tuple|25.3|?|#29>>
     <associate|auto.3-1|<tuple|1|?|#3>>
     <associate|auto.3-2|<tuple|1.1|?|#3>>
     <associate|auto.3-3|<tuple|1.2|?|#3>>
@@ -11544,8 +11719,9 @@
     <associate|def-n-nots:prop-degseries|<tuple|7.4|27|#9>>
     <associate|def-n-nots:prop-ximodel|<tuple|7.7|28|#9>>
     <associate|diffSBO:lem-E|<tuple|15.3|49|#17>>
-    <associate|diffSBO:lem-aux|<tuple|19.2|51|#20>>
-    <associate|diffSBO:prop-main|<tuple|19.1|50|#20>>
+    <associate|diffSBO:lem-aux|<tuple|18.2|51|#20>>
+    <associate|diffSBO:prop-main|<tuple|18.1|50|#20>>
+    <associate|diffSBO:prop-sphermult|<tuple|18.2|?|#20>>
     <associate|dim-C:eq-1|<tuple|20.1|?|#22>>
     <associate|dim-C:eq-2|<tuple|20.2|?|#22>>
     <associate|dim-C:fact-E+A|<tuple|20.7|?|#22>>
@@ -11636,6 +11812,7 @@
     <associate|footnr-8.1|<tuple|8.1|?|#9>>
     <associate|footnr-9.1|<tuple|9.1|?|#10>>
     <associate|forre|<tuple|14.1|41|#17>>
+    <associate|funcident:prop-main|<tuple|25.1|?|#27>>
     <associate|holomorphicity-preserving:def-holo-in-DG|<tuple|2.9|7|#4>>
     <associate|holomorphicity-preserving:eq-1|<tuple|2.1|10|#4>>
     <associate|holomorphicity-preserving:fact-1|<tuple|1|?|#4>>
@@ -11664,16 +11841,16 @@
     <associate|holomorphicity-preserving:prop-pullback-holo|<tuple|2.12|7|#4>>
     <associate|holomorphicity-preserving:prop-tensor-cts|<tuple|2.15|8|#4>>
     <associate|holomorphicity-preserving:prop-tensor-holo|<tuple|2.14|8|#4>>
-    <associate|holoop:def-strongholo|<tuple|24.8|?|#25>>
-    <associate|holoop:def-weakholo|<tuple|24.1|?|#25>>
-    <associate|holoop:lem-commdiag|<tuple|24.12|?|#25>>
-    <associate|holoop:lem-main|<tuple|24.10|?|#25>>
-    <associate|holoop:lem-sphermult-aux|<tuple|24.11|?|#25>>
-    <associate|holoop:lem-strong-implies-weak|<tuple|24.9|?|#25>>
-    <associate|holoop:prop-comp-of-holo-is-holo|<tuple|24.3|?|#25>>
-    <associate|holoop:prop-holo-rigidity|<tuple|24.4|?|#25>>
-    <associate|holoop:prop-main|<tuple|24.5|?|#25>>
-    <associate|holoop:prop-sphermult|<tuple|24.7|?|#25>>
+    <associate|holoop:def-strongholo|<tuple|23.8|?|#25>>
+    <associate|holoop:def-weakholo|<tuple|23.1|?|#25>>
+    <associate|holoop:lem-commdiag|<tuple|23.12|?|#25>>
+    <associate|holoop:lem-main|<tuple|23.10|?|#25>>
+    <associate|holoop:lem-sphermult-aux|<tuple|23.11|?|#25>>
+    <associate|holoop:lem-strong-implies-weak|<tuple|23.9|?|#25>>
+    <associate|holoop:prop-comp-of-holo-is-holo|<tuple|23.3|?|#25>>
+    <associate|holoop:prop-holo-rigidity|<tuple|23.4|?|#25>>
+    <associate|holoop:prop-main|<tuple|23.5|?|#25>>
+    <associate|holoop:prop-sphermult|<tuple|23.7|?|#25>>
     <associate|k-finite:def-Slm|<tuple|16.2|?|#18>>
     <associate|k-finite:def-holo|<tuple|16.1|?|#18>>
     <associate|k-finite:eq-claim2|<tuple|15.5|56|#17>>
@@ -11681,7 +11858,7 @@
     <associate|k-finite:eq-compat-N|<tuple|15.4|54|#17>>
     <associate|k-finite:eq-hookC|<tuple|15.2|52|#17>>
     <associate|k-finite:eq-hookR|<tuple|15.1|52|#17>>
-    <associate|k-finite:fact-hartogs|<tuple|16.1|57|#17>>
+    <associate|k-finite:fact-hartogs|<tuple|15.17|57|#17>>
     <associate|k-finite:lem-1|<tuple|3.4|14|#5>>
     <associate|k-finite:lem-KC-c0|<tuple|16.16|?|#18>>
     <associate|k-finite:lem-KC-c2|<tuple|16.18|?|#18>>
@@ -11711,13 +11888,13 @@
     <associate|k-finite:prop-claim2|<tuple|15.1|52|#17>>
     <associate|k-finite:prop-holo-to-holo|<tuple|15.2|52|#17>>
     <associate|k-finite:prop-kfinite-extension-oneparam|<tuple|15.3|52|#17>>
-    <associate|knappstein:def-n+invar|<tuple|22.1|80|#23>>
-    <associate|knappstein:def-sol|<tuple|22.2|80|#23>>
-    <associate|knappstein:eq-Nequiv|<tuple|22.1|80|#23>>
-    <associate|knappstein:fact-faraut|<tuple|22.8|81|#23>>
-    <associate|knappstein:prop-1|<tuple|22.4|80|#23>>
-    <associate|knappstein:prop-holo|<tuple|22.5|80|#23>>
-    <associate|knappstein:prop-kfinite|<tuple|22.6|80|#23>>
+    <associate|knappstein:def-n+invar|<tuple|21.1|80|#23>>
+    <associate|knappstein:def-sol|<tuple|21.2|80|#23>>
+    <associate|knappstein:eq-Nequiv|<tuple|21.1|80|#23>>
+    <associate|knappstein:fact-faraut|<tuple|21.8|81|#23>>
+    <associate|knappstein:prop-1|<tuple|21.4|80|#23>>
+    <associate|knappstein:prop-holo|<tuple|21.5|80|#23>>
+    <associate|knappstein:prop-kfinite|<tuple|21.6|80|#23>>
     <associate|knappstein:prop-spherical|<tuple|19.4|3|#20>>
     <associate|lem-1|<tuple|14.1|42|#17>>
     <associate|lem-16|<tuple|14.1|44|#17>>
@@ -11793,36 +11970,39 @@
     <associate|q-norm:prop-1|<tuple|5.4|18|#7>>
     <associate|q-norm:prop-2|<tuple|5.5|18|#7>>
     <associate|q-norm:prop-pqzero|<tuple|5.7|19|#7>>
-    <associate|sec:CAS|<tuple|23|?|#24>>
-    <associate|sec:KC-normalization|<tuple|17|58|#18>>
-    <associate|sec:KP-normalization|<tuple|18|64|#19>>
-    <associate|sec:KR-normalization-even|<tuple|20|67|#21>>
+    <associate|resform:lem-from-regular-1-1|<tuple|24.2|?|#26>>
+    <associate|resform:lem-from-regular-1-2|<tuple|24.3|?|#26>>
+    <associate|resform:prop-from-regular|<tuple|24.1|?|#26>>
+    <associate|sec:CAS|<tuple|22|?|#24>>
+    <associate|sec:KC-normalization|<tuple|16|58|#18>>
+    <associate|sec:KP-normalization|<tuple|17|64|#19>>
+    <associate|sec:KR-normalization-even|<tuple|19|67|#21>>
     <associate|sec:def-n-nots|<tuple|7|27|#9>>
-    <associate|sec:diffSBO|<tuple|19|50|#20>>
+    <associate|sec:diffSBO|<tuple|18|50|#20>>
     <associate|sec:dim-C|<tuple|20|?|#22>>
     <associate|sec:doublePGP|<tuple|8|30|#10>>
-    <associate|sec:funcident|<tuple|26|?|#27>>
+    <associate|sec:funcident|<tuple|25|?|#27>>
     <associate|sec:holomorphicity-preserving|<tuple|2|6|#4>>
-    <associate|sec:holoop|<tuple|24|?|#25>>
+    <associate|sec:holoop|<tuple|23|?|#25>>
     <associate|sec:k-finite|<tuple|15|52|#17>>
     <associate|sec:kfinite|<tuple|16|?|#18>>
-    <associate|sec:knappstein|<tuple|22|80|#23>>
+    <associate|sec:knappstein|<tuple|21|80|#23>>
     <associate|sec:lem67|<tuple|11|37|#13>>
     <associate|sec:n-nonequiv|<tuple|10|36|#12>>
     <associate|sec:pull-tensor-mult|<tuple|6|25|#8>>
-    <associate|sec:resform|<tuple|25|?|#26>>
+    <associate|sec:resform|<tuple|24|?|#26>>
     <associate|sec:sol|<tuple|9|33|#11>>
-    <associate|sec:sol-MO|<tuple|21|76|#22>>
+    <associate|sec:sol-MO|<tuple|20|76|#22>>
     <associate|sec:supp-P|<tuple|13|43|#15>>
     <associate|sec:supp-Q|<tuple|14|45|#16>>
     <associate|sec:supp-R|<tuple|12|41|#14>>
     <associate|section:q-norm|<tuple|5|17|#7>>
-    <associate|sol-MO:lem-E2|<tuple|21.3|76|#22>>
-    <associate|sol-MO:lem-strangeelement|<tuple|21.5|77|#22>>
-    <associate|sol-MO:lem-zeromap|<tuple|21.8|78|#22>>
-    <associate|sol-MO:lem-zeromap-point|<tuple|21.6|77|#22>>
-    <associate|sol-MO:prop-main|<tuple|21.2|76|#22>>
-    <associate|sol-MO:prop-solonnonzero|<tuple|21.1|76|#22>>
+    <associate|sol-MO:lem-E2|<tuple|20.3|76|#22>>
+    <associate|sol-MO:lem-strangeelement|<tuple|20.5|77|#22>>
+    <associate|sol-MO:lem-zeromap|<tuple|20.8|78|#22>>
+    <associate|sol-MO:lem-zeromap-point|<tuple|20.6|77|#22>>
+    <associate|sol-MO:prop-main|<tuple|20.2|76|#22>>
+    <associate|sol-MO:prop-solonnonzero|<tuple|20.1|76|#22>>
     <associate|sol:def-D'n|<tuple|9.11|35|#11>>
     <associate|sol:def-localaciton|<tuple|9.10|35|#11>>
     <associate|sol:def-sol|<tuple|9.2|33|#11>>

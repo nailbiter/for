@@ -1,0 +1,16 @@
+texoutput : ".texput.tex"$
+texput(mylambda,"\\lambda")$
+texput(nu,"\\nu")$
+texput(mu,"\\mu")$
+texput(lambdatilde,"\\tilde{\\lambda}")$
+texput(G,"\\Gamma")$
+texput(rtilde,"\\tilde{r}");
+texput(xp,"{x_p}");
+set_tex_environment_default("\\begin{dmath}","\\end{dmath}");
+/*tex(%,texoutput);*/
+
+
+((1+rtilde^2+xp^2-s^2)^2+4*s^2)^mu;
+diff(%,xp,12);
+substitute(xp=0,%);
+tex(%,texoutput);
