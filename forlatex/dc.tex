@@ -1,0 +1,425 @@
+\documentclass[11pt,a4paper,twoside]{jarticle}
+%==== 科研費LaTeX =============================================
+%	2017(H29)年度 DC
+%============================================================
+% 2008-03-08: Taku Yamanaka (JSPS Research Center for Science Systems / Osaka Univ.)
+% 2009-03-03: Yoko Yanagida (Assistant)
+% 2010-03-03: Taku: Imported new features introduced in 2009 fall.
+% 2011-02-25: Taku: Revised for JFY2013.
+% 2013-03-14: Taku: Revised for JFY2014.
+% 2014-02-22: Taku: Revised for JFY2015.
+% 2016-02-26: Taku: Revised for JFY2017.
+%============================================================
+\input{forms/form00_header}
+% user01_header
+%＝＝＝　様式のファイルの形式の指定　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+%   PDFではなく、eps の様式を読み込む場合は、次の行の頭に「%」をつけてください。
+\setboolean{usePDFform}{true}
+%＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+\input{forms/form01_header}
+
+% user02_header
+%＝＝＝　予算の表の印刷　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+% 予算の集計の表を出すためには、次の行の頭の%を消してください。
+%\setboolean{BudgetSummary}{true}
+%＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+%＝＝＝ For English, uncomment the next line to left-justify inside table columns.
+%\renewcommand{\KLCLLang}{\KLCL}
+
+% ＝＝＝　一部のページだけタイプセット　＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+% New in 2009 fall version!
+% 選んだページだけタイプセットするには、次の例の頭の%を消し、並べてください。
+% 複数のページを選ぶこともできます。
+% 提出前には、必ず全てコメントアウト(頭に%をつける)してください。
+%ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
+%\KLTypesetPage{1}			% p.1 (or p.1を含む連続したページ),
+%\KLTypesetPage{3}			% p.3 (or p.3を含む連続したページ),
+%\KLTypesetPagesInRange{5}{6}	% p.5 ~ p.6,
+%\KLTypesetPagesInRange{8}{10}	% and p.8 ~ p.10
+%＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+% ===== my favorite packages ====================================
+% ここに、自分の使いたいパッケージを宣言して下さい。
+\usepackage{wrapfig}
+\bibliographystyle{alpha}
+\usepackage{amssymb}
+%\usepackage{mb}
+% \usepackage{color} % でも科研費の書類はグレースケールで印刷されます
+%\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+%==========================================================
+
+\newcommand{\KLShouKeiLine}[1]{\cline{#1}}
+%もし、小計の上の線を取れと事務に言われたら、
+%「そのようなことは、記入要項に書かれていないし、学振はそのようなことは気にしていない。」と
+% 突っぱねる。
+% それでもなお消せと理不尽なことを言われたら、次の行の 最初の「%」を消す。	
+%\renewcommand{\KLShouKeiLine}[1]{}
+
+\newcommand{\KLBudgetTableFontSize}{small}	% 予算の表のフォントの大きさ: small, footnotesize
+\newcommand{\KLFundsTableFontSize}{normalsize}	%応募中、受入れ予定の研究費のフォントの大きさ：normalsize, small, footnotesize
+
+% ===== my personal definitions ==================================
+% ここに、自分のよく使う記号などを定義して下さい。
+\newcommand{\klpionn}{K_L \to \pi^0 \nu \overline{\nu}}
+\newcommand{\kppipnn}{K^+ \to \pi^+ \nu \overline{\nu}}
+
+
+\input{forms/hook3} % for future maintenance
+% ===== Global definitions for the PD form ======================
+%　基本情報
+%
+%------ 研究課題名  -------------------------------------------
+\newcommand{\研究課題名}{Symmetry breaking operators}
+
+%----- 研究機関名と研究代表者の氏名-----------------------
+\newcommand{\研究機関名}{東京大学}
+\newcommand{\申請者氏名}{レオンチエフ\,オレクシィ}
+\newcommand{\研究代表者氏名}{\申請者氏名}
+
+%---- 研究期間の最終年度 ----------------
+\newcommand{\研究期間の最終元号年度}{31}	%平成で、半角数字のみ
+%=========================================================
+\input{forms/form02_2017_header}	%<<<
+\input{forms/form03_header}
+\input{forms/form05_dc_header}
+\input{forms/form07_header}
+%============================================================
+%endPrelude
+
+\begin{document}
+\input{forms/hook5} % for future maintenance
+%============================================================
+%     User Inputs
+%============================================================
+
+%form: dc_form_03-04.tex ; user: dc_03-04_preparation_etc.tex
+%========== DC =========
+%===== p. 03-04 現在までの研究状況 =============
+\section{現在までの研究状況}
+%watermark: w03_past_dc
+\newcommand{\myquotes}[1]{``#1''}
+\newcommand{\研究の背景}{%
+%begin  研究の背景＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+	\begin{thebibliography}{99}
+	\bibitem{CKOP11}J. L. Clerc, T. Kobayashi, {{\O}}rsted, B., Pevzner, M. (2011). \myquotes{Generalized Bernstein–Reznikov integrals}. Mathematische Annalen, 349(2), 395-431.
+	\bibitem{GGP12}  W. T. Gan, B. H. Gross, and D. Prasad. \myquotes{Sur les conjectures de Gross et Prasad}. Ast\'erisque, 2012.
+	\bibitem{Juh09}  A. Juhl. \myquotes{Families of conformally covariant differential operators, Q-curvature and holography}, volume 275. Birkh\"auser Basel, 2009.
+	\bibitem{KS15}  T. Kobayashi and B. Speh. \myquotes{Symmetry breaking for representations of rank one orthogonal groups}. Memoirs of the American Mathematical Society, 238(1126), 2015. 
+	\bibitem{KP16b}T. Kobayashi and M. Pevzner, \myquotes{Differential symmetry breaking operators. II. Rankin-Cohen operators for symmetric pairs}, Selecta Mathematica (N.S.) 22 (2016), no. 2, 
+		847-911.
+	\bibitem{HT93} R. E. Howe, and E.-C. Tan. \myquotes{Homogeneous functions on light cones: the infinitesimal structure of some degenerate principal series representations.} 
+		Bulletin of the American Mathematical Society 28.1 (1993): 1-74.
+	\bibitem{KOSS15}T. Kobayashi, B. {{\O}}rsted, P. Somberg, V. Sou{{\v c}}ek (2015). \myquotes{Branching laws for Verma modules and applications in parabolic geometry. I.} Advances in Mathematics, 285, 1796-1852.
+	\end{thebibliography}
+%end  研究の背景 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+\newcommand{\現在までの研究状況}{%
+%begin  現在までの研究状況＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+	The main subject of my studies are the symmetry breaking operators (SBO), which in the most generality can be defined as 
+	$G'$-intertwining operators between the irreducible representation of Lie group $G$ and the irreducible representation of its closed subgroup $G'$.\\
+	Up to this point my work concerned the classification of $G'$-intertwining operators between induced representations $I(\lambda)$ and $J(\nu)$ of $G=O(p+1,q)$ and $G'=O(p,q)$ respectively
+	corresponding to induction from maximal parabolic subgroup,
+	parametrized each by one complex parameter. Already the special case $q=1$, which was extensively treated in \cite{KS15} by Toshiyuki Kobayashi and Birgit Speh,
+	was shown to be interacting with numerous mathematical objects and theories (e.g. Knapp-Stein operators, de-Sitter spaces, harmonic analysis, branching laws of complementary series, etc.).
+	For higher $q$ one can immediately point out the special case $(p,q)=(1,2)$ as being equivalent to finding invariant trilinear forms for representations of $SL_2$, as one might see latter as 
+	SBOs of $O(2,2)\supset O(2,1)$.\\
+	Of particular importance are so-called differential SBOs. In special case $q=1$
+	these were shown to coincide with Juhl's conformal equivariant operators (see \cite{Juh09}).
+	Moreover, based on the viewpoint introduced in \cite{KP16b}, one may see the Rankin-Cohen brackets 
+	(which in turn were originally introduced for the study of modular forms in number theory, but since then were seen to have connections with covariant quantization and ring structures
+	on representations spaces) as differential symmetry breaking operators of $O(2,2)\supset O(2,1)$ branching.
+	In the course of my work, I have been trying to study both differential SBO and the integral ones. 
+	The work can be divided into the following:\\
+	\textbf{Project A.} Geometry of flag manifold\\
+	I gave complete classification of $P'\\G/P$ orbit decomposition of flag variety $G/P$ of $G$ under the action of $P'$ (maximal parabolic subgroup of $G'$).
+	That is, I was able to describe all orbits for every p,q and derive the closure relations.
+	This information is extensively used in subsequent computations, as closed  subsets of $G/P$ invariant under $P'$ define a coarse invariant
+	of a symmetry breaking operator.
+	One should also mention that these orbit decompositions can be seen as generalizations of Iwasawa decomposition
+	(if one takes $G'=K$, being maximal compact) and Bruhat decomposition (if one takes $G'=G$).\\
+	\textbf{Project B.} Construction of symmetry breaking operators\\
+	As shown in \cite{KS15},
+	Schwartz kernel theorem tells us that SBO are characterized by their distribution kernels,
+	which can then be associated to $P'$-covariant generalized functions on $G/P$ flag manifold.
+	Understanding the geometry of flag variety and using relative invariace (this being possible by results of Project A),
+	I was able to construct explicitly these kernels with support in every possible set predicted by orbit decomposition for values of parameters regular enough.\\
+	\textbf{Project C.} Spectrum of symmetry breaking operators \\
+	As spherical vectors are mapped to spherical vectors under SBOs and spaces of spherical vectors are one-dimensional,
+	one naturally becomes interested in multiplicity factors. Using integral formulae,
+	I was able to find closed expressions for these multiplicity factors. The particular case of $(p,q)=(1,2)$ was earlier obtained by Bernstein-Reznikov integrals \cite{CKOP11}.\\
+	\textbf{Project D.} Meromorphic continuation of symmetry breaking operators and normalization\\
+	As representations we are dealing with depend on a pair of complex parameters, so do the SBOs. Having constructed them for regular values of parameters,i
+	one then has to determine whether the extension to the whole parameter space is possible. Moreover, as for parameters regular enough the dependence turns out to be holomorphic,
+	one finds himself using theory of generalized functions depending on holomorphic (meromorphic) parameter in order to carry out the extension. In doing so, poles usually occur and one is 
+	then interested in determining their precise location and multiplicity, so to carry out the normalization, after which dependence on parameters becomes holomorphic. 
+	I was able to normalize all SBOs. Moreover, I investigated residues at poles and determined their support.\\
+	\textbf{Project E.} Classification of symmetry breaking operators for every value of a parameter\\
+	Having constructed enough holomorphic families of SBOs as a result of Project D, I was able to show that they span space of SBOs for every values of parameters, thus I was able to
+	give explicit basis for $\mbox{Hom}_{G'}(I\left( \lambda \right),J\left( \nu \right))$ for every $\left( \lambda,\nu \right)\in\mathbb{C}^2$.\\
+	\textbf{Project F.} Functional relations and residue formulae\\
+	It turns out that generically all SBOs are (proportional to the) residues of a regular family $\tilde{K}_{\lambda,\nu}^{\mathbb{R}^n}$
+	and I was able to precisely prove this fact and compute the proportionality coefficients.
+	Similarly, for Knapp-Stein intertwining operators $\tilde{\mathbb{T}}_\nu:J(\nu)\to J(n-1-\nu)$ and $\tilde{\mathbb{T}}_\lambda:I(\lambda)\to I(n-\lambda)$
+	we have that operators $\tilde{\mathbb{T}}_{n-1-\nu}\circ \tilde{K}_{\lambda,n-1-\nu}^{\mathbb{R}^n}$ and $\tilde{K}_{\lambda,\nu}^{\mathbb{R}^n}$ are proportional
+	and $\tilde{K}_{n-\lambda,\nu}^{\mathbb{R}^n}\circ \tilde{\mathbb{T}}_\lambda$ and $\tilde{K}_{\lambda,\nu}^{\mathbb{R}^n}$ are proportional. I was able to determine precisely
+	proportionality coefficients and derive similar relations for other families of SBO.
+%end  現在までの研究状況 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+%form: dc_form_05.tex ; user: dc_05_purpose.tex
+%========== DC =========
+%===== p. 05 研究の目的・内容 =============
+\subsection{研究の目的・内容}
+\newcommand{\研究目的}{%
+%begin  研究目的と内容 (figureやtable使用可)＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+In the field of representation theory one can roughly be said to studying objects (representations) and morphisms between them (symmetry breaking operators).
+Now, while the former has been well studied for more than 70 years with some fairly good classification results available at this point,
+the latter has attracted attention only relatively recently with general theory introduced no earlier than around 1990.
+The most fundamental case is that of symmetry breaking between the pair of reductive groups; however, the symmetry breaking in this case is known to be difficult.
+The first example of complete classification was accomplished only recently in \cite{KS15} by T. Kobayashi and B. Speh.
+Their work was immediately followed by Clerk (France), {\O}rsted (Denmark), M\"ullers and Gomez (USA) among others.
+
+The general problem of symmetry breaking between reductive groups, as led by professor Kobayashi, besides
+being fundamental in representation theory, is also known to interact with geometry, PDE, real analysis and number theory.
+
+My primary research goal is to apply techniques of \cite{KS15} to other settings beyond $O(p+1,q)\supset O(p,q)$ (e.g. $U(p+1,q)\supset U(p,q)$ and $Sp(p+1,q)\supset Sp(p,q)$)
+so to obtain a complete classification of symmetry breaking operators for these settings. As mentioned before, techniques employed are mostly analytic in nature: essentially, the problem
+reduces to classifying all distributions over Euclidean space that satisfy certain system of PDEs together with some group-invariance conditions. Basically, this problem is solved in the 
+following way:\begin{enumerate}
+	\item One first classifies $P'\backslash G/P$ cosets so to understand what support can SBOs have;
+	\item For values of parameters ``regular'' enough one constructs several families of SBOs holomorphically dependent on parameters having support in each set as predicted on previous step;
+	\item One then determines location of poles for every family and normalizes them; after normalization is done one has to determine the support of residues;
+	\item One proves that constructed families exhaust the space of SBOs.
+\end{enumerate}
+As mentioned above, it should be the case that this scheme will apply to the symmetry breaking between degenerate principal series of $U(p+1,q)\supset U(p,q)$ and $Sp(p+1,q)\supset Sp(p,q)$
+module some minor technical issues which I (hopefully) will be able to resolve,
+and (with less degree of confidence) to the non-degenerate principal series of $O(p+1,q)\supset O(p,q)$ (that is, the induction done with respect to \textit{minimal}, not \textit{maximal} parabolic).
+%end  研究目的と内容 (figureやtable使用可) ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+%form: dc_form_06.tex ; user: dc_06_plan.tex
+%========== DC =========
+%===== p. 06 研究の特色・独創的な点、年次計画 =============
+\newcommand{\研究の特色と独創的な点}{%
+%begin  研究の特色と独創的な点＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝FIXME
+	To the best of my knowledge, \cite{KS15} is the first paper to tackle the question of symmetry breaking
+	between the \textit{infinite-dimensional} representations of the \textit{non-compact} groups. Moreover, it is the first
+	paper to give a complete classification result. My work (which is a direct generalization of \cite{KS15}) can be seen as a demonstration of the 
+	robustness of the techniques introduced there, which allow one to tackle the (highly nontrivial) problem of symmetry breaking in a uniform and direct way.
+	Moreover, in the course of my work I met some difficulties which were non-existent in
+	$O(n+1,1)\supset O(n,1)$ case (most notably, difficult to compute integrals) and consquently was able to resolve them. 
+
+	In my opinion, these techniques provide new, completely analytic approach to the problem of symmetry breaking and are thus worth studying. 
+	Obtained formulae generalize and relate to several well-known results (e.g. \cite{CKOP11}). Moreover, they allow to see these results from the
+	different unified viewpoint. 
+%end  研究の特色と独創的な点 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+\newcommand{\年次計画１年目}{%
+%begin  年次計画１年目＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+	First, there's still something to be done in $O(p+1,q)\supset O(p,q)$ case. After
+	one completely understands the structure of SBO space and has functional identities,
+	the latter can be used in order to get further information (e.g. composition series) about representations corresponding to induction from maximal parabolic.
+	One may then investigate how images/kernels of various SBOs match up with the composition series structure.
+
+ 	Next, I'm planning to extend the results obtained for $O(p+1,q)\supset O(p,q)$ above
+	to $U(p+1,q)\supset U(p,q)$ and $Sp(p+1,q)\supset Sp(p,q)$ settings. It appears to be possible to achieve results in the scope of
+	projects A, B and D (geometry of flag manifold; construction of SBO; meromorphic continuation and normalization) at least. The reason to this
+	being that we have a very concrete picture for degenerate principal series representation in this case: the space of homogeneous functions on the light cone
+	(cf. \cite{HT93}). 
+%end  年次計画１年目 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+\newcommand{\年次計画２年目}{%
+%begin  年次計画２年目＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+	For the second year I'm planning to investigate the symmetry breaking between principal series representations of $O(p+1,q)$ and $O(p,q)$ corresponding to induction
+	from the \textit{minimal} parabolic, as opposed to the \textit{maximal} parabolic. This setting is expected to be much more complicated, as the number of $P'\backslash G/P$ cosets
+	grows with $(p,q)$ and the closure relations consequently also become depending on a $(p,q)$ in a very nontrivial way. Similarly, principal series are given no more by two complex
+	parameters, but the number of complex parameters grows linearly with $\left( p,q \right)$.
+%end  年次計画２年目 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+\newcommand{\年次計画３年目}{%
+%begin  年次計画３年目＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+%end  年次計画３年目 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+%form: dc_form_07.tex ; user: dc_07_rights.tex
+%========== DC =========
+%===== p. 07 人権の保護及び法令等の遵守への対応 =============
+\subsection{人権の保護及び法令等の遵守への対応}
+\newcommand{\人権の保護及び法令等の遵守への対応}{%
+%begin  人権の保護及び法令等の遵守への対応　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+	該当なし。
+%end  人権の保護及び法令等の遵守への対応　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+%form: dc_form_08.tex ; user: dc_08_publications.tex
+%========== DC =========
+%===== p. 08 研究業績 =============
+\section{研究業績}
+\subsection{学術雑誌(紀要・論文集等も含む)に発表した論文及び著書}
+\newcommand{\学術雑誌等に発表した論文または著書}{%
+%begin  学術雑誌等に発表した論文または著書＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+	
+	\begin{enumerate}
+		\item[](査読有り)%===========================
+		\item \underline{O. Leontiev}, P. Feketa,
+			``A new criterion for the roughness of exponential dichotomy on $\mathbb{R}$'',
+				Miskolc Mathematical Notes, 16(2), pp. 987--994, 2015.
+
+		\item[](査読なし)%=============================
+%%		\item Kobo Abe$^3$, \underline{H. Yukawa}$^1$, 
+%%				``仔象は死んだ'', 
+%%				安部公房全集, {\bf 26}, 100-200, (2004).
+			
+			なし
+	\end{enumerate}
+%end  学術雑誌等に発表した論文または著書 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+\subsection{学術雑誌等又は商業誌における解説・総説}
+\newcommand{\学術雑誌等または商業誌における解説や総説}{%
+%begin  学術雑誌等または商業誌における解説や総説＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+	なし
+%%	\begin{enumerate}
+%%		\item R.~Kipling, \underline{H. Yukawa},
+%%				``The Elephant's Child (象の鼻はなぜ長い)'', 
+%%				Nature, {\bf 999}, 777-779, (2003).
+%%	\end{enumerate}
+%end  学術雑誌等または商業誌における解説や総説 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+\subsection{国際会議における発表}
+\newcommand{\国際会議における発表}{%
+%begin  国際会議における発表＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+	なし
+%%	\begin{enumerate}
+%%		\item 
+%%			$\circ$ 湯川秀樹、
+%%			``Theory of Elephant Eggs'', 
+%%			原始殻物理国際会議、
+%%			カラチ、2006年2月
+%%
+%%		\item $\circ$ 湯川秀樹、Jacques-Yves Cousteau,
+%%			``How to search for whale eggs'',
+%%			国際海洋探索会議、ハワイ、2003年4月
+%%	\end{enumerate}
+%end  国際会議における発表 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+\subsection{国内学会・シンポジウムにおける発表}
+\newcommand{\国内学会やシンポジウムにおける発表}{%
+%begin  国内学会やシンポジウムにおける発表＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+	なし
+%%	\begin{enumerate}
+%%		\item $\circ$ 湯川秀樹、朝永振一郎、
+%%			「ほ乳類の真の意味」、
+%%			ほ乳類学会、
+%%			東京、2003年6月
+%%	\end{enumerate}
+%%	他３件
+%end  国内学会やシンポジウムにおける発表 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+\subsection{特許等}
+\newcommand{\特許等}{%
+%begin  特許等＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+	なし
+%%	\begin{enumerate}
+%%		\item[](公開中)
+%%		\item 800800号、「クジラの卵を用いた深海潜水艇」\underline{湯川秀樹}、2003年4月
+%%%		\item[] (申請中)
+%%%		\item 8000000号、「象の卵を用いた（ひ・み・つ）」、\underline{湯川秀樹}、2007年4月
+%%	\end{enumerate}		
+%end  特許等 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+\subsection{その他の業績}
+\newcommand{\その他の業績}{%
+%begin  その他の業績＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+		\begin{enumerate}
+			\item Monbukagakusho Scholarship recipient April 2014--March 2016.
+			\item The University of Tokyo Graduate School of Mathematical Sciences Director's Prize of the academic year 2015.
+		\end{enumerate}
+%end  その他の業績 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+\subsection{発表前}
+\newcommand{\発表前の業績}{%
+%begin  発表前の業績＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+%%	【発表(印刷)前】\\
+%%	{\bf(1)学術雑誌等（紀要・論文集等も含む)に採録決定されたもの}\\
+%%	　(査読有り)\\
+%%	　1) 島崎藤村$^2$ 「夜明け前」『中央公論』中央公論社、800号、pp1-800 (1935). 
+%%	  (証明書\textcircled{1}添付)\\
+%%	  \noindent
+%%	  {\bf(4)国際学会・シンポジウム等における発表の申し込みが受理されたもの}\\
+%%	　2) ◯\underline{湯川秀樹}「象の卵、ついに発見！」『オリンピック』ロンドン, 2012年
+%%	  (証明書\textcircled{2}添付)
+%end  発表前の業績 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+%form: dc_form_09.tex ; user: dc_09_myself.tex
+%========== DC =========
+%===== p. 09 自己評価 =============
+\section{自己評価}
+\newcommand{\自己評価}{%
+%begin  自己評価＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+{\bf 1. 研究職を志望する動機、目指す研究者像、自己の長所等}
+
+My primary motivation for research work in representation theory is the beauty of the subject. Representation theory enjoys being at the junction of analysis, algebra and geometry,
+hence the techniques from all three areas (and their mixes) can and are extensively employed. Feeling myself more confident with analysis and geometry, I am very enthusiastic about
+applying analytic techniques to questions of representation theory. Besides, the method works by reducing the problem to solving system of PDEs and this is additional inspiration for me,
+as I am interested in problem of finding the exact symbolic solutions to PDEs -- something that one does not see happening very often. Similarly, I find it being additional motivation that
+this work required symbolic computation of integrals and particular values of special functions.
+
+Though I'm working on a very technical and narrow problem now, my future vision of myself as a researcher is a bit different. Similarly to my academic supervisor, I would like to become
+well-versed in many areas of representation theory, so to be able to see my work and work of others in much more broad context.
+
+My strong points can be summarized as follows:\begin{enumerate}
+	\item I've completely solved the case of $O(p+1,q)\supset O(p,q)$ branching, so I guess I have reasons to expect success in other settings as well;
+	\item I'm deeply interested in the subject
+\end{enumerate}
+
+\vspace{5mm}
+{\bf 2. 自己評価をする上で、特に重要と思われる事項}
+
+The points I would like to emphasize in the evaluation above are as follows:\begin{enumerate}
+	\item I was the recipient of the prestigious Monbukagakusho Scholarship during
+		my Master studies;
+	\item My Master thesis was awarded with graduate School of Mathematical Sciences Director's Prize of the academic year 2015.
+\end{enumerate}
+%end  自己評価 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+}
+
+% hook9 : right before \end{document} ============
+
+%endUserFiles
+\input{forms/hook7} % for future maintenance
+
+\input{forms/dc_forms}
+%endFormatFile
+
+\input{forms/hook9} % for future maintenance
+\end{document}
+%TODO:
+%write english version:
+%		current situation 
+%	research target
+%	research specialty
+%		year plan <--
+%		research publish <--
+%	self evaluation
+%show to K
+%(translate)
+%show to other ppl:
+%	Orita
+%	
