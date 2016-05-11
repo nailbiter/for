@@ -110,8 +110,8 @@
 	\bibitem{GGP12}  W. T. Gan, B. H. Gross, and D. Prasad, \myquotes{Sur les conjectures de Gross et Prasad}, Ast\'erisque, {Soci{\'e}t{\'e} Math{\'e}matique de France}, 346, 2012.
 	\bibitem{KS15}  T. Kobayashi and B. Speh. \myquotes{Symmetry breaking for representations of rank one orthogonal groups},
 		Memoirs of the A. M. S., A. M. S., 238(1126), 2015. 
-	\bibitem{KOSS15}T. Kobayashi, B. {{\O}}rsted, P. Somberg, V. Sou{{\v c}}ek, \myquotes{Branching laws for Verma modules and applications in parabolic geometry. I}, Advances in Mathematics, Elsevier
-		, 285, pp. 1796--1852, 2015.
+	\bibitem{KOSS15}T. Kobayashi, B. {{\O}}rsted, P. Somberg, V. Sou{{\v c}}ek, \myquotes{Branching laws for Verma modules and applications in parabolic geometry. I}, Advances in Mathematics,
+		Elsevier, 285, pp. 1796--1852, 2015.
 %%	\bibitem{K15}T. Kobayashi,
 %%		\myquotes{A program for branching problems in the representation theory of real reductive groups}, Representations of Lie Groups: In Honor of David A. Vogan, Jr. on his 60th Birthday,
 %%		 Birkh\"auser, 312, pp. 277--322., 2015.
@@ -225,16 +225,22 @@ and (with less degree of confidence) to the non-degenerate principal series of $
 %========== DC =========
 %===== p. 06 研究の特色・独創的な点、年次計画 =============
 \newcommand{\研究の特色と独創的な点}{%
-%begin  研究の特色と独創的な点＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝FIXME
+%begin  研究の特色と独創的な点＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 	To the best of my knowledge, \cite{KS15} is the first paper to tackle the question of symmetry breaking
 	between the \textit{infinite-dimensional} representations of the \textit{non-compact} groups. Moreover, it is the first
 	paper to give a complete classification result. My work (which is a direct generalization of \cite{KS15}) can be seen as a demonstration of the 
 	robustness of the techniques introduced there, which allow one to tackle the (highly nontrivial) problem of symmetry breaking in a uniform and direct way.
 	Moreover, in the course of my work I met some difficulties which were non-existent in
 	$O(n+1,1)\supset O(n,1)$ case (most notably, difficult to compute integrals) and consquently was able to resolve them. 
+	In the course of doing so, new techniques were found
+	in addition to the ones used in \cite{KS15}.
+	Most notably, for normalization of families of SBOs in addition to the technique used in \cite{KS15} (using $K$-finite vectors)
+	the additional two were developed. These in fact allow one to largely surpass integral computations whatsoever, thus alleviating one of the main difficulties of the whole method.
 
 	In my opinion, these techniques provide new, completely analytic approach to the problem of symmetry breaking and are thus worth studying. 
-	Obtained formulae generalize and relate to several well-known results (e.g. \cite{CKOP11}). Moreover, they allow to see these results from the
+	Besides being among the first examples of complete answer to the problem of symmetry breaking between infinitely-dimensional representations of non-compact groups, the obtained
+	results are also of interest in relation to the known ones.
+	Obtained formulae generalize and relate to several well-known results (e.g. \cite{CKOP11}). Moreover, they allow one to see these results from the
 	different unified viewpoint. 
 %end  研究の特色と独創的な点 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 }
@@ -244,22 +250,25 @@ and (with less degree of confidence) to the non-degenerate principal series of $
 	First, there's still something to be done in $O(p+1,q)\supset O(p,q)$ case. After
 	one completely understands the structure of SBO space and has functional identities,
 	the latter can be used in order to get further information (e.g. composition series) about representations corresponding to induction from maximal parabolic.
-	One may then investigate how images/kernels of various SBOs match up with the composition series structure.
+	One may then investigate how images/kernels of various SBOs match up with the composition series structure (cf. \cite[sec. 13]{KS15}).
 
  	Next, I'm planning to extend the results obtained for $O(p+1,q)\supset O(p,q)$ above
 	to $U(p+1,q)\supset U(p,q)$ and $Sp(p+1,q)\supset Sp(p,q)$ settings. It appears to be possible to achieve results in the scope of
 	projects A, B and D (geometry of flag manifold; construction of SBO; meromorphic continuation and normalization) at least. The reason to this
-	being that we have a very concrete picture for degenerate principal series representation in this case: the space of homogeneous functions on the light cone
-	(cf. \cite{HT93}). 
+	being that we have a very concrete picture for degenerate principal series representation in this case: the space of homogeneous functions on a light cone
+	(cf. \cite{HT93}). On the other hand, the success of other projects depend on whether one will be able to find the closed form (or at least investigate the poles) of 
+	the certain integrals.
 %end  年次計画１年目 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 }
 
 \newcommand{\年次計画２年目}{%
 %begin  年次計画２年目＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+	If everything will go well with the projects above, one can go for an even more challenging setting.
 	For the second year I'm planning to investigate the symmetry breaking between principal series representations of $O(p+1,q)$ and $O(p,q)$ corresponding to induction
 	from the \textit{minimal} parabolic, as opposed to the \textit{maximal} parabolic. This setting is expected to be much more complicated, as the number of $P'\backslash G/P$ cosets
-	grows with $(p,q)$ and the closure relations consequently also become depending on a $(p,q)$ in a very nontrivial way. Similarly, principal series are given no more by two complex
-	parameters, but the number of complex parameters grows linearly with $\left( p,q \right)$.
+	and the complexity of their closure relations grow with $(p,q)$. Similarly, principal series are given no more by two complex
+	parameters, but the number of complex parameters grows linearly with $\left( p,q \right)$. Nevertheless, even in this setting the Project A appears to be a reasonable
+	goal.
 %end  年次計画２年目 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 }
 
@@ -396,27 +405,31 @@ and (with less degree of confidence) to the non-degenerate principal series of $
 %begin  自己評価＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 {\bf 1. 研究職を志望する動機、目指す研究者像、自己の長所等}
 
-My primary motivation for research work in representation theory is the beauty of the subject. Representation theory enjoys being at the junction of analysis, algebra and geometry,
-hence the techniques from all three areas (and their mixes) can and are extensively employed. Feeling myself more confident with analysis and geometry, I am very enthusiastic about
-applying analytic techniques to questions of representation theory. Besides, the method works by reducing the problem to solving system of PDEs and this is additional inspiration for me,
-as I am interested in problem of finding the exact symbolic solutions to PDEs -- something that one does not see happening very often. Similarly, I find it being additional motivation that
-this work required symbolic computation of integrals and particular values of special functions.
+私の研究職を志望する重要な動機が表現論の美しさです。表現論は解析、幾何と代数の間の分野なので、この３つの手法が表現論によく使われています。私は個人的に幾何と解析の方が分かると思うので、
+表現論に対して解析的な技法を使用することに対して大変興味があります。更に、本手法が表現論の問題を連立偏微分方程式にするので、連立偏微分方程式の解析解を見つけないといけないし、
+連立偏微分方程式の解析解にして興味がある私にとって追加的な面白みになります。同様に、計算のため色々な積分と特殊関数の閉形式の計算は私にとって面白いです。
+%%My primary motivation for research work in representation theory is the beauty of the subject. Representation theory enjoys being at the junction of analysis, algebra and geometry,
+%%hence the techniques from all three areas (and their mixes) can and are extensively employed. Feeling myself more confident with analysis and geometry, I am very enthusiastic about
+%%applying analytic techniques to questions of representation theory. Besides, the method works by reducing the problem to solving system of PDEs and this is additional inspiration for me,
+%%as I am interested in problem of finding the exact symbolic solutions to PDEs -- something that one does not see happening very often. Similarly, I find it being additional motivation that
+%%this work required symbolic computation of integrals and particular values of special functions.
 
-Though I'm working on a very technical and narrow problem now, my future vision of myself as a researcher is a bit different. Similarly to my academic supervisor, I would like to become
-well-versed in many areas of representation theory, so to be able to see my work and work of others in much more broad context.
+私は今かなりテクニカルで狭い問題を解けていますが、目指す研究者像はそうではありません。私は自分の指導教員のように、色々な表現論の分野に対して知識があるようになりたいです。そうならば、
+自分の研究と他の数学者の研究をもっと広いコンテクストに見えるようになると思うからです。
+%%Though I'm working on a very technical and narrow problem now, my future vision of myself as a researcher is a bit different. Similarly to my academic supervisor, I would like to become
+%%well-versed in many areas of representation theory, so to be able to see my work and work of others in much more broad context.
 
-My strong points can be summarized as follows:\begin{enumerate}
-	\item I've completely solved the case of $O(p+1,q)\supset O(p,q)$ branching, so I guess I have reasons to expect success in other settings as well;
-	\item I'm deeply interested in the subject
+自分の長所は以下のようになります:\begin{enumerate}
+	\item 私は$O(p+1,q)\supset O(p,q)$の場合に完全な答えを得たので、他の場合にも成功出来ると思います；
+	\item 私は日本語と英語以上、ロシア語と中国語で話せて、台湾、香港とウクライナに勉強して、あの国の研究者と接触します。
+%%	\item I've completely solved the case of $O(p+1,q)\supset O(p,q)$ branching, so I guess I have reasons to expect success in other settings as well;
+%%	\item I'm deeply interested in the subject
 \end{enumerate}
 
 \vspace{5mm}
 {\bf 2. 自己評価をする上で、特に重要と思われる事項}
-
-The points I would like to emphasize in the evaluation above are as follows:\begin{enumerate}
-	\item I was the recipient of the prestigious Monbukagakusho Scholarship during
-		my Master studies;
-	\item My Master thesis was awarded with graduate School of Mathematical Sciences Director's Prize of the academic year 2015.
+\begin{enumerate}
+	\item 私は日本文化に対して大興味があって、日本語がもっとうまくなりたいの為、来学期は日本語集中講義を受けるつもりです。
 \end{enumerate}
 %end  自己評価 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
 }
@@ -436,7 +449,7 @@ The points I would like to emphasize in the evaluation above are as follows:\beg
 	%		current situation 
 	%		research target
 %		research specialty
-%		year plan <--
+	%		year plan <--
 	%		research publish <--
 %		self evaluation
 %show to K
