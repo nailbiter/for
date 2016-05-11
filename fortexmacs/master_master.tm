@@ -9975,7 +9975,7 @@
     <section|Determination of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>><label|sec:sol-MO>
   </hide-part>
 
-  <\hide-part|23>
+  <\show-part|23>
     <section|Application: Knapp-Stein operator><label|sec:knappstein>
 
     In this section we show how techniques introduced in
@@ -10095,9 +10095,8 @@
       <label|knappstein:prop-kfinite>For <math|<around*|\||Q|\|><rsup|\<lambda\>-n>\<in\>\<cal-S\>ol<rsub|<around*|(|G,G|)>><around*|(|\<bbb-R\><rsup|n>,\<lambda\>,n-\<lambda\>|)>>
       for <math|Re<around*|(|\<lambda\>|)>\<gg\>0>, let
       <math|K<rsub|\<lambda\>,\<nu\>><rsup|S>\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
-      be as given by proposition (given by proposition
-      <reference|k-finite:prop-holo-to-holo>; note that
-      <math|\<cal-S\>ol<rsub|<around*|(|G,G|)>><around*|(|U;\<lambda\>,\<nu\>|)>\<subseteq\>\<cal-S\>ol<around*|(|U;\<lambda\>,\<nu\>|)>>).
+      be as given by proposition <reference|k-finite:prop-holo-to-holo> (note
+      that <math|\<cal-S\>ol<rsub|<around*|(|G,G|)>><around*|(|U;\<lambda\>,\<nu\>|)>\<subseteq\>\<cal-S\>ol<around*|(|U;\<lambda\>,\<nu\>|)>>).
       Then, for every <math|F\<in\>\<cal-H\><rsup|a><around*|(|\<bbb-S\><rsup|p>|)>\<otimes\>\<cal-H\><rsup|b><around*|(|\<bbb-S\><rsup|q>|)>\<subset\>C<rsup|\<infty\>><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
       with <math|a+b\<in\>2\<bbb-Z\>> we have
 
@@ -10119,6 +10118,15 @@
       Moreover, for every <math|<around*|(|n<rprime|'>,m<rprime|'>|)>\<in\>\<frak-I\>>
       there exists <math|F\<in\><big|sum><rsub|i,a<rsub|i>+b<rsub|i>\<in\>2\<bbb-Z\>><rprime|'>\<cal-H\><rsup|a<rsub|i>><around*|(|\<bbb-S\><rsup|p>|)>\<otimes\>\<cal-H\><rsup|b<rsub|i>><around*|(|\<bbb-S\><rsup|q>|)>>
       such that <math|<around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|S>,F|\<rangle\>>\<simeq\>\<varphi\><rsub|n<rprime|'>,m<rprime|'>>>.
+
+      In particular, for <math|N<rsub|0>> as in proposition
+      <reference|q-norm:prop-1>, <reference|q-norm:prop-2> or
+      <reference|q-norm:prop-pqzero> (whichever is applicable and assuming
+      <math|q\<gtr\>0,p\<geqslant\>0>)
+
+      <\equation*>
+        <around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|S>/N<rsub|0>,1|\<rangle\>>=2\<times\>2<rsup|1-\<lambda\>>\<pi\><rsup|<frac|n+1|2>><choice|<tformat|<table|<row|<cell|<frac|1|2<rsup|1-\<lambda\>><sqrt|\<pi\>>\<Gamma\><around*|(|\<lambda\>|)>>,>|<cell|p=0>>|<row|<cell|<frac|1|\<Gamma\><around*|(|\<lambda\>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-q|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-p|)>/2|)>>,>|<cell|p\<gtr\>0,n\<in\>2\<bbb-Z\>+1>>|<row|<cell|<frac|\<Gamma\><around*|(|<around*|(|\<lambda\>-n/2+1|)>/2|)>|\<Gamma\><around*|(|\<lambda\>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-q|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-p|)>/2|)>>\<times\><frac|1|<sqrt|\<pi\>>2<rsup|1-\<lambda\>+n/2>>,>|<cell|p\<gtr\>0,<frac|n|2>+p\<in\>2\<bbb-Z\>>>|<row|<cell|<frac|\<Gamma\><around*|(|<around*|(|\<lambda\>-n/2|)>/2|)>|\<Gamma\><around*|(|\<lambda\>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-q|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-p|)>/2|)>>\<times\><frac|1|<sqrt|\<pi\>>2<rsup|1-\<lambda\>+n/2>>,>|<cell|p\<gtr\>0,<frac|n|2>+p\<in\>2\<bbb-Z\>+1.>>>>>
+      </equation*>
     </proposition>
 
     <\remark>
@@ -10180,7 +10188,7 @@
       integral
 
       <\eqnarray*>
-        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|r,s=0><rsup|\<infty\>><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|\<lambda\>-n>R<rsup|-\<lambda\>/2><around*|(|<frac|r|<sqrt|R>>|)><rsup|N><around*|(|<frac|s|<sqrt|R>>|)><rsup|M><around*|(|<frac|1-<around*|(|r<rsup|2>-s<rsup|2>|)>|<sqrt|R>>|)><rsup|n<rprime|'>><around*|(|<frac|1+<around*|(|r<rsup|2>-s<rsup|2>|)>|<sqrt|R>>|)><rsup|m<rprime|'>>d
+        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|r,s=0><rsup|\<infty\>><around*|\||r<rsup|2>-s<rsup|2>|\|><rsup|\<lambda\>-n>R<rsup|-\<lambda\>/2><around*|(|<frac|r|<sqrt|R>>|)><rsup|N><around*|(|<frac|s|<sqrt|R>>|)><rsup|M><around*|(|<frac|1-<around*|(|r<rsup|2>-s<rsup|2>|)>|<sqrt|R>>|)><rsup|n<rprime|'>><around*|(|<frac|1+<around*|(|r<rsup|2>-s<rsup|2>|)>|<sqrt|R>>|)><rsup|m<rprime|'>>r<rsup|p-1>s<rsup|q-1>d
         r d s\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|int><rsub|\<bbb-S\><rsup|p>>\<psi\>
         <around*|(|\<omega\><rsub|p>|)>d\<omega\><rsub|p>\<times\><big|int><rsub|\<bbb-S\><rsup|q>>\<psi\><rprime|'><around*|(|\<omega\><rsub|q>|)>d\<omega\><rsub|q>.>|<cell|>>>>
       </eqnarray*>
@@ -10223,9 +10231,9 @@
 
       and <math|s<around*|(|s-2|)>\<ldots\><around*|(|s-N+2|)>\<simeq\>\<Gamma\><around*|(|-s/2+N/2|)>/\<Gamma\><around*|(|-s/2|)>>.
     </proof>
-  <|hide-part>
+  <|show-part>
     <section|Application: Knapp-Stein operator><label|sec:knappstein>
-  </hide-part>
+  </show-part>
 
   <\hide-part|24>
     <section|CAS and related notions><label|sec:CAS>
@@ -10895,7 +10903,7 @@
     <section|Residue formulae><label|sec:resform>
   </hide-part>
 
-  <\show-part|27>
+  <\hide-part|27>
     <section|Functional identities><label|sec:funcident>
 
     <subsection|Main results>
@@ -10936,14 +10944,15 @@
       spherical vector to spherical vectors and the space of spherical
       vectors is one-dimensional, we can apply both sides to the spherical
       <math|1<rsub|\<lambda\>>\<in\>I<around*|(|\<lambda\>|)>>, and as
-      proposition <reference|holoop:prop-sphermult> together with proposition
-      <reference|KR-normalization-even:prop-sphermult> and its
-      straightforward analogue for <math|<wide|\<bbb-T\>|~><rsub|\<nu\>>>
-      tell us how to compute spherical multiples, we get the equality.
+      proposition <reference|holoop:prop-sphermult> (and its straightforward
+      analogue for members of <math|Hom<rsub|G><around*|(|I<around*|(|\<lambda\>|)>,I<around*|(|\<nu\>|)>|)>>)
+      together with propositions <reference|KR-normalization-even:prop-sphermult>
+      and <reference|knappstein:prop-kfinite> tell us how to compute
+      spherical multiples, we get the equality.
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|Functional identities><label|sec:funcident>
-  </show-part>
+  </hide-part>
 
   <\hide-part|28>
     \;
@@ -12634,11 +12643,3 @@
     </associate>
   </collection>
 </auxiliary>
-
-<\links>
-  <\collection>
-    <id|+LjKNd8laraMncG>
-    <target|+LjKNd8laraMncF|tmfs://aux/Link page>
-    <locator|+LjKNd8laraMncE|<id|+LjKNd8laraMncF>>
-  </collection>
-</links>
