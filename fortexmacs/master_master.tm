@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.0.7.18>
 
 <style|<tuple|article|mystyle|number-long-article|doxygen|american>>
 
@@ -7559,7 +7559,7 @@
       variable change to coordinates <math|<around|(|x,y|)>> given as
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|x\<assign\><frac|1+<around|(|r<rsup|2>-s<rsup|2>|)>|<sqrt|R<around|(|r,s|)>>>,<space|1em>y\<assign\><frac|1-<around|(|r<rsup|2>-s<rsup|2>|)>|<sqrt|R<around|(|r,s|)>>>,<space|1em><frac|\<partial\><around*|(|r,s|)>|\<partial\><around*|(|x,y|)>>=-<frac|1|<sqrt|1-s<rsup|2>><sqrt|1-r<rsup|2>><around*|(|x+y|)><rsup|2>>>|<cell|>>|<row|<cell|>|<cell|r=<frac|<sqrt|1-y<rsup|2>>|x+y>,<space|1em>s=<frac|<sqrt|1-x<rsup|2>>|x+y>>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|x\<assign\><frac|1+<around|(|r<rsup|2>-s<rsup|2>|)>|<sqrt|R<around|(|r,s|)>>>,<space|1em>y\<assign\><frac|1-<around|(|r<rsup|2>-s<rsup|2>|)>|<sqrt|R<around|(|r,s|)>>>,<space|1em><frac|\<partial\><around*|(|r,s|)>|\<partial\><around*|(|x,y|)>>=-<frac|1|<sqrt|1-x<rsup|2>><sqrt|1-y<rsup|2>><around*|(|x+y|)><rsup|2>>>|<cell|>>|<row|<cell|>|<cell|r=<frac|<sqrt|1-y<rsup|2>>|x+y>,<space|1em>s=<frac|<sqrt|1-x<rsup|2>>|x+y>>|<cell|>>>>
       </eqnarray>
 
       we can rewrite that integral as equal to (up to multiple inpendent of
@@ -9975,7 +9975,7 @@
     <section|Determination of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>><label|sec:sol-MO>
   </hide-part>
 
-  <\show-part|23>
+  <\hide-part|23>
     <section|Application: Knapp-Stein operator><label|sec:knappstein>
 
     In this section we show how techniques introduced in
@@ -10125,7 +10125,7 @@
       <math|q\<gtr\>0,p\<geqslant\>0>)
 
       <\equation*>
-        <around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|S>/N<rsub|0>,1|\<rangle\>>=2\<times\>2<rsup|1-\<lambda\>>\<pi\><rsup|<frac|n+1|2>><choice|<tformat|<table|<row|<cell|<frac|1|2<rsup|1-\<lambda\>><sqrt|\<pi\>>\<Gamma\><around*|(|\<lambda\>|)>>,>|<cell|p=0>>|<row|<cell|<frac|1|\<Gamma\><around*|(|\<lambda\>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-q|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-p|)>/2|)>>,>|<cell|p\<gtr\>0,n\<in\>2\<bbb-Z\>+1>>|<row|<cell|<frac|\<Gamma\><around*|(|<around*|(|\<lambda\>-n/2+1|)>/2|)>|\<Gamma\><around*|(|\<lambda\>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-q|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-p|)>/2|)>>\<times\><frac|1|<sqrt|\<pi\>>2<rsup|1-\<lambda\>+n/2>>,>|<cell|p\<gtr\>0,<frac|n|2>+p\<in\>2\<bbb-Z\>>>|<row|<cell|<frac|\<Gamma\><around*|(|<around*|(|\<lambda\>-n/2|)>/2|)>|\<Gamma\><around*|(|\<lambda\>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-q|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-p|)>/2|)>>\<times\><frac|1|<sqrt|\<pi\>>2<rsup|1-\<lambda\>+n/2>>,>|<cell|p\<gtr\>0,<frac|n|2>+p\<in\>2\<bbb-Z\>+1.>>>>>
+        <around*|\<langle\>|K<rsub|\<lambda\>,\<nu\>><rsup|S>/N<rsub|0>,1|\<rangle\>>=2\<times\>\<pi\><rsup|<frac|n|2>><choice|<tformat|<table|<row|<cell|\<Gamma\><rsup|-1><around*|(|\<lambda\>|)>,>|<cell|p=0>>|<row|<cell|<frac|2<rsup|1-\<lambda\>><sqrt|\<pi\>>|\<Gamma\><around*|(|\<lambda\>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-q|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-p|)>/2|)>>,>|<cell|p\<gtr\>0,n\<in\>2\<bbb-Z\>+1>>|<row|<cell|<frac|\<Gamma\><around*|(|<around*|(|\<lambda\>-n/2+1|)>/2|)>|\<Gamma\><around*|(|\<lambda\>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-q|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-p|)>/2|)>>,>|<cell|p\<gtr\>0,<frac|n|2>+p\<in\>2\<bbb-Z\>>>|<row|<cell|<frac|\<Gamma\><around*|(|<around*|(|\<lambda\>-n/2|)>/2|)>|\<Gamma\><around*|(|\<lambda\>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-q|)>/2|)>\<Gamma\><around*|(|<around*|(|\<lambda\>+1-p|)>/2|)>>,>|<cell|p\<gtr\>0,<frac|n|2>+p\<in\>2\<bbb-Z\>+1.>>>>>
       </equation*>
     </proposition>
 
@@ -10231,9 +10231,9 @@
 
       and <math|s<around*|(|s-2|)>\<ldots\><around*|(|s-N+2|)>\<simeq\>\<Gamma\><around*|(|-s/2+N/2|)>/\<Gamma\><around*|(|-s/2|)>>.
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|Application: Knapp-Stein operator><label|sec:knappstein>
-  </show-part>
+  </hide-part>
 
   <\hide-part|24>
     <section|CAS and related notions><label|sec:CAS>
@@ -10465,7 +10465,7 @@
     <section|CAS and related notions><label|sec:CAS>
   </hide-part>
 
-  <\hide-part|25>
+  <\show-part|25>
     <section|Holomorphicity of symmetry breaking operators><label|sec:holoop>
 
     <subsection|Main results>
@@ -10636,7 +10636,7 @@
       We then consider a map
 
       <\equation*>
-        T:\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>><wide|\<rightarrow\>|~>\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>><rsup|K<rprime|'>><wide|\<rightarrow\>|~>\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>><rsup|L<around*|(|K<rprime|'>|)>><wide|\<rightarrow\>|~>\<cal-D\><rprime|'><around*|(|K|)><rsup|K<rprime|'>><rsub|K<rsub|M>><wide|\<rightarrow\>|~>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>|)><rsup|K<rprime|'>>.
+        T:\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>><wide|\<rightarrow\>|~>\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>><rsup|K<rprime|'>><wide|\<rightarrow\>|~>\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>><rsup|R<around*|(|K<rprime|'>|)>><wide|\<rightarrow\>|~>\<cal-D\><rprime|'><around*|(|K|)><rsup|K<rprime|'><rsub|M>><rsub|K<rsub|M>><wide|\<rightarrow\>|~>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>|)><rsup|K<rprime|'><rsub|M>>,
       </equation*>
 
       where the maps from left to right are respectively:
@@ -10657,12 +10657,13 @@
         where\ 
 
         <\equation*>
-          \<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>><rsup|L<around*|(|K<rprime|'>|)>>\<assign\><around*|{|f\<in\>\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><mid|\|>\<forall\><around*|(|k,k<rprime|'>,k<rprime|''>|)>\<in\>K<rsub|M>\<times\>K<rsub|M><rprime|'>\<times\>K<rprime|'>,<space|0.6spc>f<around*|(|k<rprime|''>|)>|}>;
+          \<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>><rsup|R<around*|(|K<rprime|'>|)>>\<assign\><around*|{|f\<in\>\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsub|><mid|\|>\<forall\><around*|(|k,k<rprime|'>,k<rprime|''>|)>\<in\>K<rsub|M>\<times\>K<rsub|M><rprime|'>\<times\>K<rprime|'>,<space|0.6spc>f<around*|(|<around*|(|k<rprime|'>|)><rsup|-1>\<cdot\>k,k<rprime|''>\<cdot\>k<rprime|'>|)>=f<around*|(|\<cdot\>,\<cdot\>|)>|}>;
         </equation*>
 
         <item>Restriction onto the first coordinate (makes sense by the
-        definition of <math|\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsup|L<around*|(|K<rprime|'>|)>><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>>>),
-        where we let <math|><math|\<cal-D\><rprime|'><around*|(|K|)><rsup|K<rprime|'>><rsub|K<rsub|M>>\<assign\><around*|{|f\<in\>\<cal-D\><rprime|'><around*|(|K|)><mid|\|>\<forall\><around*|(|k,k<rprime|'>|)>\<in\>K<rsub|M>\<times\>K<rprime|'>,<space|0.6spc>f<around*|(|k\<cdot\>k<rprime|'>|)>=f<around*|(|\<cdot\>|)>|}>>;
+        <math|K<rprime|'>>-invariance of elements of
+        <math|\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsup|R<around*|(|K<rprime|'>|)>><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>>>),
+        where we let <math|><math|\<cal-D\><rprime|'><around*|(|K|)><rsup|K<rprime|'><rsub|M>><rsub|K<rsub|M>>\<assign\><around*|{|f\<in\>\<cal-D\><rprime|'><around*|(|K|)><mid|\|>\<forall\><around*|(|k,k<rprime|'>|)>\<in\>K<rsub|M><rprime|'>\<times\>K<rprime|'>,<space|0.6spc>f<around*|(|k\<cdot\>k<rprime|'>|)>=f<around*|(|\<cdot\>|)>|}>>;
 
         <item>Induced by <math|\<cal-D\><rprime|'><around*|(|K|)><rsub|K<rsub|M>>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>|)>>
         map (see proposition <reference|CAS:prop-GoverP> and apply
@@ -10675,10 +10676,27 @@
       even members of <math|\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
       with <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>|)>> by the
       diffeomorphism <math|K/K<rsub|M>\<simeq\>\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/<around*|{|\<pm\>|}>>).
+      Moreover, <math|T> is an isomorphism of CAS.
     </lemma>
 
     <\proof>
-      Direct implication of lemma <reference|holoop:lem-commdiag>
+      The first part is a direct implication of lemma
+      <reference|holoop:lem-commdiag>. We now show that <math|T> is an
+      isomorphism of CAS. As <math|T> is continuous, is isomorphism and maps
+      <math|C<rsup|\<infty\>><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>
+      onto <math|C<rsup|\<infty\>><around*|(|K/K<rsub|M>|)><rsup|K<rprime|'><rsub|M>>>,
+      it suffices to show that both spaces are CAS. We start with
+      <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M><rprime|'>|)><rsup|K<rsub|M><rprime|'>>>.
+      It is clear that if <math|C<rsup|\<infty\>><around*|(|K/K<rsub|M>|)><rsup|K<rsub|M><rprime|'>>\<ni\>f<rsub|n>\<rightarrow\>f\<in\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>|)>>,
+      then <math|f\<in\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>|)><rsup|K<rsub|M><rprime|'>>>.
+      Moreover, if <math|f\<in\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>|)><rsup|K<rsub|M><rprime|'>>>
+      and we take <math|C<rsup|\<infty\>><around*|(|K/K<rsub|M>|)>\<ni\>f<rsub|n>\<rightarrow\>f>,
+      we can let <math|f<rsub|n><rprime|'><around*|(|\<cdot\>|)>=<big|int><rsub|k\<in\>K<rsub|M><rprime|'>>f<rsub|n><around*|(|k\<cdot\>|)>d
+      k> and then <math|f<rsub|n><rprime|'>\<in\>C<rsup|\<infty\>><around*|(|K/K<rsub|M><rprime|'>|)><rsup|K<rsub|M><rprime|'>>>,
+      while still <math|f<rsub|n><rprime|'>\<rightarrow\>f>. This shows that
+      <math|><math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M><rprime|'>|)><rsup|K<rsub|M><rprime|'>>>
+      is CAS. The fact that <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>
+      is CAS now follows from continuity of <math|T>.
     </proof>
 
     <\lemma>
@@ -10786,9 +10804,9 @@
         =<frac|1|2><around*|\<langle\>|K<rsup|S>,1|\<rangle\>><rsub|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>><around*|\||1|\|><rsup|2><rsub|K<rprime|'>/K<rsub|M><rprime|'>>.
       </equation*>
     </proof>
-  <|hide-part>
+  <|show-part>
     <section|Holomorphicity of symmetry breaking operators><label|sec:holoop>
-  </hide-part>
+  </show-part>
 
   <\hide-part|26>
     <section|Residue formulae><label|sec:resform>
@@ -10820,7 +10838,7 @@
         where
 
         <\equation*>
-          q<rsub|C><rsup|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>=<frac|<around*|(|-1|)><rsup|k>k!|<around*|(|2k|)>!><choice|<tformat|<table|<row|<cell|1,>|<cell|n\<in\>2\<bbb-Z\>,p\<gtr\>1>>|<row|<cell|\<Gamma\><around*|(|<frac|max<around*|{|2,<around*|(|<around*|(|n-1|)>/2-k|)><rprime|'>|}>-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|n\<in\>2\<bbb-Z\>+1,q\<in\>2\<bbb-Z\>,p\<gtr\>1;<space|0.6spc>a<rprime|'>\<assign\>min<around*|{|x<mid|\|>a\<leqslant\>x\<in\>2\<bbb-Z\>|}>>>|<row|<cell|\<Gamma\><around*|(|<frac|<around*|(|<around*|(|n-1|)>/2-k|)><rprime|'>-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|n\<in\>2\<bbb-Z\>+1,q\<in\>2\<bbb-Z\>+1,p\<gtr\>1;<space|0.6spc>a<rprime|'>\<assign\>min<around*|{|x<mid|\|>a\<leqslant\>x\<in\>2\<bbb-Z\>+1|}>>>|<row|<cell|1/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>,>|<cell|p=1,n\<in\>2\<bbb-Z\>>>|<row|<cell|\<Gamma\><around*|(|max<around*|{|<frac|n-1|2>-k,0|}>-\<nu\>|)>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|p=1,n\<in\>2\<bbb-Z\>+1>>>>>;
+          q<rsub|C><rsup|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>=<frac|<around*|(|-1|)><rsup|k>k!|<around*|(|2k|)>!><choice|<tformat|<table|<row|<cell|1,>|<cell|n\<in\>2\<bbb-Z\>,p\<gtr\>1>>|<row|<cell|\<Gamma\><around*|(|<frac|max<around*|{|2,<around*|(|<around*|(|n-1|)>/2-k|)><rprime|'>|}>-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|n\<in\>2\<bbb-Z\>+1,q\<in\>2\<bbb-Z\>,p\<gtr\>1;<space|0.6spc>a<rprime|'>\<assign\>min<around*|{|x<mid|\|>a\<leqslant\>x\<in\>2\<bbb-Z\>|}>>>|<row|<cell|\<Gamma\><around*|(|<frac|<around*|(|<around*|(|n-1|)>/2-k|)><rprime|'>-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|n\<in\>2\<bbb-Z\>+1,q\<in\>2\<bbb-Z\>+1,p\<gtr\>1;<space|0.6spc>a<rprime|'>\<assign\>min<around*|{|x<mid|\|>a\<leqslant\>x\<in\>2\<bbb-Z\>+1|}>>>|<row|<cell|1/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>,>|<cell|p=1,n\<in\>2\<bbb-Z\>>>|<row|<cell|\<Gamma\><around*|(|max<around*|{|<frac|n-1|2>-k,0|}>-\<nu\>|)>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|p=1,n\<in\>2\<bbb-Z\>+1>>>>>
         </equation*>
       </enumerate>
     </proposition>
@@ -10918,7 +10936,7 @@
       the following relations hold:
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|<wide|\<bbb-T\>|~><rsub|n-1-\<nu\>>\<circ\>Op<around*|(|<wide|K|~><rsub|\<lambda\>,n-1-\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=q<rsup|T\<bbb-R\><rsup|n>><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>Op<around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>|<cell|>>|<row|<cell|>|<cell|Op<around*|(|<wide|K|~><rsub|n-\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<circ\><wide|\<bbb-T\>|~><rsub|\<lambda\>>=q<rsup|\<bbb-R\><rsup|n>T><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>Op<around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>|<cell|>>|<row|<cell|>|<cell|q<rsup|T\<bbb-R\><rsup|n>><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>\<assign\>>|<cell|>>|<row|<cell|>|<cell|q<rsup|\<bbb-R\><rsup|n>T><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>\<assign\>>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|<wide|\<bbb-T\>|~><rsub|n-1-\<nu\>>\<circ\>Op<around*|(|<wide|K|~><rsub|\<lambda\>,n-1-\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>=q<rsup|T\<bbb-R\><rsup|n>><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>Op<around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>|<cell|>>|<row|<cell|>|<cell|Op<around*|(|<wide|K|~><rsub|n-\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>\<circ\><wide|\<bbb-T\>|~><rsub|\<lambda\>>=q<rsup|\<bbb-R\><rsup|n>T><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>Op<around*|(|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>|)>>|<cell|>>|<row|<cell|>|<cell|q<rsup|T\<bbb-R\><rsup|n>><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>\<assign\>\<pi\><rsup|<frac|n-1|2>><choice|<tformat|<table|<row|<cell|<frac|<sqrt|\<pi\>>2<rsup|1-q+\<nu\>>|\<Gamma\><around*|(|<frac|q-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<nu\>+1|2>|)>>,>|<cell|p=1>>|<row|<cell|<frac|sin<around*|(|\<pi\><frac|p-\<nu\>|2>|)>|\<pi\>>\<times\><frac|<sqrt|\<pi\>>2<rsup|2-n+\<nu\>>|\<Gamma\><around*|(|<frac|n-1-\<nu\>|2>|)>>,>|<cell|n-1\<in\>1+2\<bbb-Z\>>>|<row|<cell|<frac|sin<around*|(|\<pi\><frac|p-\<nu\>|2>|)>|\<pi\>>\<times\><frac|\<Gamma\><around*|(|<frac|n/2-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|n-1-\<nu\>|2>|)>>,>|<cell|<frac|n-1|2>+p-1\<in\>2\<bbb-Z\>>>|<row|<cell|<frac|sin<around*|(|\<pi\><frac|p-\<nu\>|2>|)>|\<pi\>>\<times\><frac|\<Gamma\><around*|(|<frac|n/2-\<nu\>-1|2>|)>|\<Gamma\><around*|(|<frac|n-1-\<nu\>|2>|)>>,>|<cell|<frac|n-1|2>+p-1\<in\>1+2\<bbb-Z\>>>>>>>|<cell|>>|<row|<cell|>|<cell|q<rsup|\<bbb-R\><rsup|n>T><rsub|\<bbb-R\><rsup|n>><around*|(|\<lambda\>,\<nu\>|)>\<assign\><frac|2<rsup|2\<lambda\>-n>\<pi\><rsup|-n/2>|\<Gamma\><around*|(|<frac|n-\<lambda\>|2>|)>>\<times\><frac|sin<around*|[|\<pi\><frac|p-\<lambda\>+1|2>|]>|\<pi\>>\<times\><choice|<tformat|<table|<row|<cell|2<rsup|1-\<lambda\>><sqrt|\<pi\>>,>|<cell|n\<in\>2\<bbb-Z\>+1>>|<row|<cell|\<Gamma\><around*|(|<frac|\<lambda\>-n/2+1|2>|)>,>|<cell|n/2+p\<in\>2\<bbb-Z\>>>|<row|<cell|\<Gamma\><around*|(|<frac|\<lambda\>-n/2|2>|)>,>|<cell|n/2+p\<in\>2\<bbb-Z\>+1>>>>>>|<cell|>>>>
       </eqnarray>
     </proposition>
 

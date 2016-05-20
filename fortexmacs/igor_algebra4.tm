@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.0.7.18>
 
 <style|generic>
 
@@ -48,32 +48,147 @@
     7
   </problem*>
 
+  Exercise 10 (done below) implies that
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|\<bbb-Z\><rsub|2><around*|[|x|]>\<ni\>\<Phi\><rsub|3>=<frac|x<rsup|3>-1|x-1>=x<rsup|2>+x+1>|<cell|>>|<row|<cell|>|<cell|\<bbb-Z\><rsub|3><around*|[|x|]>\<ni\>\<Phi\><rsub|8>=<frac|x<rsup|8>-1|x<rsup|4>-1>=x<rsup|4>+1>|<cell|>>>>
+  </eqnarray>
+
   <\problem*>
     9
   </problem*>
+
+  <\enumerate-alpha>
+    <item>false; this fact is mentioned in the textbook
+
+    <item>true; this is just the definition given in the textbook
+
+    <item>false; as Theorem 55.4 that size of group is
+    <math|\<varphi\><around*|(|n|)>>, not <math|n>
+
+    <item>true; again, by Theorem 55.4
+
+    <item>true; by Theorem 55.4
+
+    <item>false; as <math|5> divides 25, but its square also does so;
+
+    <item>true; as 17 is Fermat prime;
+
+    <item>false; as 2 is not Fermat prime, but regular 2-gon (aka. ``line
+    segment'') is constructible
+
+    <item>false; not all of them are primes to begin with
+
+    <item>true; this is the part of definition
+  </enumerate-alpha>
 
   <\problem*>
     10
   </problem*>
 
+  It is easy to see that right-hand side divides left-hand side. Indeed, let
+  <math|d\<mid\>n> be arbitrary and consider <math|\<Phi\><rsub|d>>. It is
+  known that <math|\<Phi\><rsub|d>\<mid\>x<rsup|d>-1>, but as
+  <math|x<rsup|d>-1\<mid\>x<rsup|n>-1> (since for <math|y=x<rsup|d>> and
+  <math|k> such that <math|n=k d> we have
+  <math|x<rsup|n>-1=y<rsup|k>-1=<around*|(|y-1|)><around*|(|1+y<rsup|2>+y<rsup|3>+\<ldots\>+y<rsup|k-1>|)>=<around*|(|x<rsup|d>-1|)><around*|(|1+y<rsup|2>+y<rsup|3>+\<ldots\>+y<rsup|k-1>|)>>;
+  note that this works even in characteristic <math|p\<neq\>0>, as we assume
+  <math|p> does not divide <math|n>) and thus
+  <math|\<Phi\><rsub|d><mid|\|>x<rsup|n>-1>. This shows that right-hand
+  divides left-hand.
+
+  Conversely, let <math|\<xi\>> be a root of <math|x<rsup|n>-1>. As roots of
+  <math|x<rsup|n>-1> in its splitting field form cyclic group, <math|\<xi\>>
+  generates a cyclic subgroup <math|C> of it of order <math|d<mid|\|>n>.
+  Then, <math|\<xi\>> is the root of <math|x<rsup|d>-1> and moreover all
+  elements of <math|C> are roots of <math|x<rsup|d>-1> as well, since they
+  exhaust all roots. As <math|\<xi\>> is then a generator, by definition
+  <math|\<Phi\><rsub|d><around*|(|\<xi\>|)>=0> and hence <math|\<xi\>> is the
+  root of right-hand side as well. Hence, left-hand side divides right-hand
+  side
+
+  As both left-hand and right-hand sides are monic polynomials, we are done.
+
   <\problem*>
     11
   </problem*>
+
+  We shall use the previous exercise. It implies that
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|\<Phi\><rsub|1>=x-1>|<cell|>>|<row|<cell|>|<cell|\<Phi\><rsub|2>=<frac|x<rsup|2>-1|x-1>=x+1>|<cell|>>|<row|<cell|>|<cell|\<Phi\><rsub|3>=<frac|x<rsup|3>-1|x-1>=x<rsup|2>+x+1>|<cell|>>|<row|<cell|>|<cell|\<Phi\><rsub|4>=<frac|x<rsup|4>-1|x<rsup|2>-1>=x<rsup|2>+1>|<cell|>>|<row|<cell|>|<cell|\<Phi\><rsub|5>=<frac|x<rsup|5>-1|x-1>=x<rsup|4>+x<rsup|3>+x<rsup|2>+x+1>|<cell|>>|<row|<cell|>|<cell|\<Phi\><rsub|6>=<frac|x<rsup|6>-1|<around*|(|x-1|)><around*|(|x<rsup|2>+x+1|)><around*|(|x+1|)>>=x<rsup|2>-x+1>|<cell|>>>>
+  </eqnarray>
+
+  <section|section 56>
+
+  <\exercise*>
+    exercise 2
+  </exercise*>
+
+  Yes, as making substitution <math|t=x<rsup|2>> we can bring it to quartic
+  and then just take square roots.
+
+  <\exercise*>
+    exercise 3
+  </exercise*>
+
+  <\enumerate-alpha>
+    <item>true; this is the definition
+
+    <item>true; this is the consequence of theorem 56.4
+
+    <item>true; by lemma 56.3
+
+    <item>false; as <math|<sqrt|\<pi\>>> is not transcendental over
+    <math|\<bbb-Q\><around*|(|\<pi\>|)>> (its a root of
+    <math|x<rsup|2>-\<pi\>\<in\>\<bbb-Q\><around*|(|\<pi\>|)><around*|[|x|]>>)
+
+    <item>true; in fact let <math|F\<subset\>E> be finite extension of finite
+    field. Now, as we know that <math|G<around*|(|E/\<bbb-Z\><rsub|p>|)>> is
+    cyclic (generator is <math|z\<mapsto\>z<rsup|n>> with
+    <math|n=<around*|[|E:\<bbb-Z\><rsub|p>|]>>), the
+    <math|G<around*|(|E/F|)>\<subset\>G<around*|(|E/\<bbb-Z\><rsub|p>|)>> is
+    also cyclic and hence solvablue
+
+    <item>false; quintic <math|x<rsup|5>> is solvable by radicals over
+    <math|\<bbb-R\>>
+
+    <item>true; mentioned in the text
+
+    <item>false; by taking all field operations and square roots we can only
+    arrive at extension <math|E> of base field <math|F> whose degree
+    <math|<around*|[|E:F|]>=2<rsup|k>>, while e.g. for cubic
+    <math|x<rsup|3>-1> its splitting field has degree 3 over <math|\<bbb-R\>>
+
+    <item>false; <math|x<rsup|3>>'s zeros are attainable by these operations
+
+    <item>true; the equivalent condition for polynomial to being solvable by
+    radicals is to have solvable Galois group, while the latter condition is
+    formulated in terms of subnormal series
+  </enumerate-alpha>
 </body>
+
+<initial|<\collection>
+</collection>>
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|?|../../.TeXmacs/texts/scratch/no_name_1.tm>>
-    <associate|auto-2|<tuple|2|?|../../.TeXmacs/texts/scratch/no_name_1.tm>>
+    <associate|auto-1|<tuple|1|?>>
+    <associate|auto-2|<tuple|2|?>>
+    <associate|auto-3|<tuple|3|?>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|toc>
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>section
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|section
       54> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|section
+      55> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

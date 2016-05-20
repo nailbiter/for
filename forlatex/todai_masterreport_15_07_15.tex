@@ -1,6 +1,7 @@
 \documentclass[8pt,pdf,notes]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 \usepackage{mystyle}
+\usepackage{geometry,amsmath,amssymb,bbm}
 \includecomment{versiona}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
@@ -8,6 +9,14 @@
 \newcommand{\D}{\mathcal{D}}
 \newcommand{\A}{\mathcal{A}}
 \renewcommand{\setminus}{-}
+\newcommand{\assign}{:=}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+%%%%%%%%%% End TeXmacs macros
+
+%%\newcommand{\C}{{\mathbbm{C}}}\newcommand{\Z}{{\mathbbm{Z}}}
+%%\newcommand{\Sp}{{\mathbbm{S}}} \newcommand{\R}{{\mathbbm{R}}}
+%%\newcommand{\mybra}[1]{(#1)} \newcommand{\mysbra}[1]{\left[#1\right]}
+%%\newcommand{\mycbra}[1]{\left\{#1\right\}}
 
 %%\makeatletter
 %%\newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
@@ -370,6 +379,121 @@ Trying to mimic the logic of [Kobayashi-Speh] we are led to consider the exact s
 		this is {\bf perfect on $\C^2$} normalization. For $q=2$ it vanishes on \[L_{even}\sqcup\mysetn{(\lambda,\nu)\in\Z\times
 		\left( 2\Z_{\ge0}+1 \right)}{\lambda-\nu\in2\Z_{\le0}}\].
 		\label{}
+	\end{theorem}
+\end{frame}
+\section{Residue formulae}
+\newcommand{\Hom}{\mbox{Hom}}
+\begin{frame}\begin{theorem}
+     For $( \lambda, \nu) \in / / \assign \{ ( \lambda, \nu) \in
+    \mathbbm{C}^2 | \lambda - \nu = - 2 k \in - 2\mathbbm{Z}_{\geqslant 0} \}$
+    we have $\tilde{K}^{\mathbbm{R}^n}_{\lambda, \nu} = q_{\{ 0
+    \}}^{\mathbbm{R}^n} ( \lambda, \nu) \tilde{K}^{\{ 0 \}}_{\lambda, \nu}$,
+    where
+    \[ q_{\{ 0 \}}^{\mathbbm{R}^n} ( \lambda, \nu) = 2^{- \nu - 2 l} ( - 1)^l
+       l! \pi^{( n - 4) / 2} \Gamma \left( 1 - \frac{\nu}{2} \right) \left[
+       \sin \frac{\pi q}{2} + \sin ( \pi ( \nu - q / 2)) \right] ; \]
+     For $( \lambda, \nu) \in \mid \mid \assign \{ ( \lambda, \nu) \in
+    \mathbbm{C}^2 | \nu = - 1 - 2 k \in - 1 - 2\mathbbm{Z}_{\geqslant 0} \}$
+    we have $\tilde{K}^{\mathbbm{R}^n}_{\lambda, \nu} = q_C^{\mathbbm{R}^n} (
+    \lambda, \nu) \tilde{K}^C_{\lambda, \nu}$, where
+    \[ q_C^{\mathbbm{R}^n} ( \lambda, \nu) = \frac{( - 1)^k k!}{( 2 k) !}
+       \left\{ \begin{array}{ll}
+         1, & q \in 2\mathbbm{Z}+ 1\\
+         \Gamma \left( \frac{\lambda - \min \{ \nu, q - \nu \}}{2} \right) /
+         \Gamma \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbbm{Z},
+         p = 1\\
+         1 / \Gamma \left( \frac{\lambda - \nu}{2} \right), & q \in
+         2\mathbbm{Z}, p > 1
+       \end{array} \right. ; \]
+     For $( \lambda, \nu) \in \backslash\backslash \assign \{ ( \lambda,
+    \nu) \in \mathbbm{C}^2 | \lambda + \nu - n = - 1 - 2 k \in - 1 -
+    2\mathbbm{Z}_{\geqslant 0} \}$ we have
+    $\tilde{K}^{\mathbbm{R}^n}_{\lambda, \nu} = q_P^{\mathbbm{R}^n} ( \lambda,
+    \nu) \tilde{K}^P_{\lambda, \nu}$, where
+    \[ q_P^{\mathbbm{R}^n} ( \lambda, \nu) = \frac{( - 1)^k k!}{( 2 k) !}
+       \left\{ \begin{array}{ll}
+         1, & n \in 2\mathbbm{Z}, p > 1\\
+         \Gamma \left( \frac{\max \{ 2, ( ( n - 1) / 2 - k)' \} - \nu}{2}
+         \right) / \Gamma \left( \frac{\lambda - \nu}{2} \right), & n \in
+         2\mathbbm{Z}+ 1, q \in 2\mathbbm{Z}, p > 1 ; \; a' \assign \min \{ x
+         | a \leqslant x \in 2\mathbbm{Z} \}\\
+         \Gamma \left( \frac{( ( n - 1) / 2 - k)' - \nu}{2} \right) / \Gamma
+         \left( \frac{\lambda - \nu}{2} \right), & n \in 2\mathbbm{Z}+ 1, q
+         \in 2\mathbbm{Z}+ 1, p > 1 ; \; a' \assign \min \{ x | a \leqslant x
+         \in 2\mathbbm{Z}+ 1 \}\\
+         1 / \Gamma \left( \frac{1 - \nu}{2} \right), & p = 1, n \in
+         2\mathbbm{Z}\\
+         \Gamma \left( \max \left\{ \frac{n - 1}{2} - k, 0 \right\} - \nu
+         \right) / \Gamma \left( \frac{1 - \nu}{2} \right) / \Gamma \left(
+         \frac{\lambda - \nu}{2} \right), & p = 1, n \in 2\mathbbm{Z}+ 1
+       \end{array} \right. \]
+		\label{}
+	\end{theorem}
+\end{frame}
+\section{Functional relations}
+\begin{frame}
+	\begin{definition}
+		Knapp-Stein operator is the operator $\tilde{\mathbb{T}}_{\lambda}\in\Hom_{G}(I(\lambda),I(n-\lambda))$
+		with kernel $\myabs{Q}^{\lambda-n}/N$ where \begin{equation*}
+			N=\begin{cases}
+				\Gamma\left( \lambda-n/2 \right),&p=1\\
+				\Gamma\left( \frac{\lambda-n+1}{2} \right)\Gamma\left( \lambda-n/2 \right),&n\in2\Z+1\\
+				\Gamma\left( \frac{\lambda-n+1}{2} \right)\Gamma\left( \frac{\lambda-n/2}{2} \right),&n/2+p\in2\Z\\
+				\Gamma\left( \frac{\lambda-n+1}{2} \right)\Gamma\left( \frac{\lambda-n/2+1}{2} \right),&n/2+p\in2\Z\\
+			\end{cases}
+		\end{equation*}
+	\end{definition}
+	\begin{theorem}
+		
+  Let $\tmop{Op} : \mathcal{S} \tmop{ol} (
+  \mathbbm{R}^n ; \lambda, \nu) \tilde{\rightarrow} \tmop{Hom}_{G'} ( I (
+  \lambda), J ( \nu))$ and be isomorphism as in \cite{kobayashi2015symmetry}
+  and $\tilde{\mathbbm{T}}_{\lambda} : I ( \lambda)
+  \rightarrow I ( n - \lambda)$ be as above.
+  
+  Then for $( \lambda, \nu) \in \mathbbm{C}^2$ the following relations hold:
+  \begin{eqnarray}
+    & \tmop{Op} ( \tilde{K}_{n - \lambda, \nu}^{\mathbbm{R}^n}) \circ
+    \tilde{\mathbbm{T}}_{\lambda} = q^{\mathbbm{R}^n T}_{\mathbbm{R}^n} (
+    \lambda, \nu) \tmop{Op} ( \tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}) & 
+    \nonumber\\
+    & q^{\mathbbm{R}^n T}_{\mathbbm{R}^n} ( \lambda, \nu) \assign \frac{2^{2
+    \lambda - n} \pi^{- n / 2}}{\Gamma \left( \frac{n - \lambda}{2} \right)}
+    \times \frac{\sin \left[ \pi \frac{p - \lambda + 1}{2} \right]}{\pi}
+    \times \left\{ \begin{array}{ll}
+      2^{1 - \lambda} \sqrt{\pi}, & n \in 2\mathbbm{Z}+ 1\\
+      \Gamma \left( \frac{\lambda - n / 2 + 1}{2} \right), & n / 2 + p \in
+      2\mathbbm{Z}\\
+      \Gamma \left( \frac{\lambda - n / 2}{2} \right), & n / 2 + p \in
+      2\mathbbm{Z}+ 1
+    \end{array} \right. &  \nonumber
+  \end{eqnarray}
+		\label{}
+	\end{theorem}
+\end{frame}
+\begin{frame}
+	\begin{theorem}
+		\begin{eqnarray*}& \tilde{\mathbbm{T}}_{n - 1 - \nu} \circ \tmop{Op} ( \tilde{K}_{\lambda,
+    n - 1 - \nu}^{\mathbbm{R}^n}) = q^{T\mathbbm{R}^n}_{\mathbbm{R}^n} (
+    \lambda, \nu) \tmop{Op} ( \tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}) & 
+    \nonumber\\
+    & q^{T\mathbbm{R}^n}_{\mathbbm{R}^n} ( \lambda, \nu) \assign \pi^{\frac{n
+    - 1}{2}} \left\{ \begin{array}{ll}
+      \frac{\sqrt{\pi} 2^{1 - q + \nu}}{\Gamma \left( \frac{q - \nu}{2}
+      \right) \Gamma \left( \frac{\nu + 1}{2} \right)}, & p = 1\\
+      \frac{\sin \left( \pi \frac{p - \nu}{2} \right)}{\pi} \times
+      \frac{\sqrt{\pi} 2^{2 - n + \nu}}{\Gamma \left( \frac{n - 1 - \nu}{2}
+      \right)}, & n - 1 \in 1 + 2\mathbbm{Z}\\
+      \frac{\sin \left( \pi \frac{p - \nu}{2} \right)}{\pi} \times
+      \frac{\Gamma \left( \frac{n / 2 - \nu}{2} \right)}{\Gamma \left( \frac{n
+      - 1 - \nu}{2} \right)}, & \frac{n - 1}{2} + p - 1 \in 2\mathbbm{Z}\\
+      \frac{\sin \left( \pi \frac{p - \nu}{2} \right)}{\pi} \times
+      \frac{\Gamma \left( \frac{n / 2 - \nu - 1}{2} \right)}{\Gamma \left(
+      \frac{n - 1 - \nu}{2} \right)}, & \frac{n - 1}{2} + p - 1 \in 1 +
+      2\mathbbm{Z}
+    \end{array} \right. &  \nonumber\\
+		\label{<++>}
+	\end{eqnarray*}
 	\end{theorem}
 \end{frame}
 \section{References}

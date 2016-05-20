@@ -1,20 +1,23 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.0.7.18>
 
 <style|<tuple|article|american>>
 
 <\body>
-  <section|report 42>
+  <section|report 43>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
-    Derive residue formulae (tuesday);
+    Finish writing JSPS application and show to You (wed)
   </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
-    Write first draft of JSPS application
-  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
-    Prove functional identities modulo some technical lemmas (thursday);
-  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
-    Prove these technical lemmas (friday);
+    Normalize <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> with
+    help of <math|K>-finite vectors; better normalization for
+    <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> (optimize the proof using the
+    fact that <math|2xy=<around*|(|x-y|)><rsup|2>-x<rsup|2>-y<rsup|2>>)
+    (weekend)
+  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
+    Finish proving technical lemmas for functional identities and refine
+    residue formulae (thu, fri)
   </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
   \;
@@ -23,19 +26,17 @@
 
   (empty)
 
-  <with|font-series|bold|What I plan to do during this week>:
+  <with|font-series|bold|What I plan to do during this week> (in order of
+  priority):
 
   <\enumerate>
-    <item>Finish writing JSPS application and show to You (wed)
+    <item>Decide on a topic for my next week presentation (tue, wed)
 
-    <item>Finish proving technical lemmas for functional identities and
-    refine residue formulae (thu, fri)
+    <item>Finish proving technical lemmas for functional identities (wed)
 
-    <item>Normalize <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
-    with help of <math|K>-finite vectors; better normalization for
-    <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> (optimize the proof using the
-    fact that <math|2xy=<around*|(|x-y|)><rsup|2>-x<rsup|2>-y<rsup|2>>)
-    (weekend)
+    <item>See whether I can determine images of SBOs (thu, fri)
+
+    <item>Prepare for my next week presentation
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>
@@ -58,17 +59,12 @@
     Questions
   </with>
 
-  <\enumerate>
-    <item>As I said before, I would very appreciate if You would give me some
-    concrete \PPhD graduation requirements\Q, so I will have something to aim
-    at. It would be very helpful for me from the purely psychological
-    prospective.
-  </enumerate>
+  (empty)
 
   <paragraph|Comments>
 
-  I was not very productive last two weeks. I'll compensate for this starting
-  from this week.
+  Today (may 17) I got letter from Math Society of Japan that they accept my
+  application.
 
   <\bibliography|bib|alpha|report.bib>
     <\bib-list|Wal88>
@@ -103,15 +99,12 @@
 
 <\auxiliary>
   <\collection>
-    <\associate|bib>
-      wallach1988real
-    </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>report
       42> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
-      <with|par-left|<quote|4tab>|Comments
+      <with|par-left|<quote|6fn>|Comments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.15fn>>
 

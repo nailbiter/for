@@ -1,5 +1,5 @@
 #! /bin/sh
-#echo "I'm alive!"
+echo "I'm alive!"
 tmp_dir=foraux
 
 if [ -e Makefile ]
@@ -10,7 +10,7 @@ then
     exit
 fi
 
-test=`head -n1 $1`
+test=`head -n1 "$1"`
 if [  $test = '%japanese' ]
 then
     latexmk -pdf -pdflatex='xelatex %O %S' -outdir=foraux $1
@@ -20,7 +20,7 @@ fi
 
 if [  $test = '%simple' ]
 then
-    pdflatex -interaction batchmode $1
+    pdflatex -interaction batchmode "$1"
     echo simple
     exit
 fi
