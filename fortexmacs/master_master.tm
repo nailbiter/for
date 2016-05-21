@@ -1,4 +1,4 @@
-<TeXmacs|1.0.7.18>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|mystyle|number-long-article|doxygen|american>>
 
@@ -14,9 +14,7 @@
   </hide-preamble>
 
   <\hide-part|1>
-    <doc-data|<doc-title|Study of symmetry breaking operators of indefinite
-    orthogonal groups <math|O<around*|(|p,q|)>>>|<doc-author|<author-data|<author-name|Alex
-    Leontiev>>>>
+    \;
   </hide-part|>
 
   <\hide-part|2>
@@ -10726,7 +10724,17 @@
         <reference|CAS:prop-invariant>;
 
         <item><math|\<cal-D\><rprime|'><around*|(|G\<times\>G<rprime|'>|)><rsub|P\<times\>P<rprime|'>><rsup|P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>
-        is induced ...
+        is composition\ 
+
+        <\equation*>
+          \<cal-D\><rprime|'><around*|(|G\<times\>G<rprime|'>|)><rsub|P\<times\>P<rprime|'>><rsup|P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'>*<around*|(|K\<times\>K<rprime|'>|)><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>><rsup|K<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>
+        </equation*>
+
+        where last morphism is by propositions <reference|CAS:prop-GoverP>
+        and <reference|CAS:prop-invariant>, while the first one is induced by
+        restriction <math|\<cal-D\><rprime|'><around*|(|G\<times\>G<rprime|'>|)><rsub|P\<times\>P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'>*<around*|(|K\<times\>K<rprime|'>|)>>
+        (note that <math|K P=G>, so we can use restriction in sense of
+        <cite|hormander1983analysis>);
 
         <item><math|\<cal-D\><rprime|'><around*|(|G\<times\>G<rprime|'>|)><rsup|P><rsub|P\<times\>P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'><around*|(|G|)><rsub|P><rsup|P<rprime|'>>>
         is induced via prop. <reference|CAS:prop-invariant> via isomorphism\ 
@@ -10746,9 +10754,24 @@
 
         <item><math|\<cal-D\><rprime|'><around*|(|G|)><rsub|P><rsup|P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|P>>
         is by proposition <reference|CAS:prop-GoverP> (granting
-        <math|\<cal-D\><rprime|'><around*|(|G|)><rsub|P>\<rightarrow\>\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)>>
-        isomorphism of CAS, note that ) and proposition
-        <reference|CAS:prop-invariant>;
+        <math|\<cal-D\><rprime|'><around*|(|G|)><rsub|M<rsub|0>N<rsub|+>>\<rightarrow\>\<cal-D\><rprime|'><around*|(|\<Xi\>|)>>
+        isomorphism of CAS, note that <math|G\<curvearrowright\>\<Xi\>> has
+        <math|M<rsub|0>N<rsub|+>> as stabilizer of
+        <math|<around*|(|1,0<rsub|p+q>,1|)>> with <math|M<rsub|0>\<subset\>M>
+        of index 2) and proposition <reference|CAS:prop-invariant>;
+
+        <item><math|\<cal-D\><rprime|'><around*|(|G/P,\<bbb-C\><rsub|n-\<lambda\>>|)><rsup|P<rprime|'>>\<rightarrow\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+        is a pullback via embedding <math|\<bbb-R\><rsup|p,q>\<simeq\>\<frak-n\><rsub|+>\<longhookrightarrow\>G/P>
+        (note that we can trivialize <math|\<bbb-C\><rsub|n-\<lambda\>>>
+        above <math|\<frak-n\><rsub|+>>);
+
+        <item><math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|P<rprime|'>>\<rightarrow\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+        is pullback via embedding <math|\<bbb-R\><rsup|p,q>\<longhookrightarrow\>\<Xi\>>
+        as in proposition <reference|k-finite:prop-claim2> (it also shows
+        that it's an isomorphism);
+
+        <item><math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'>*<around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/<around*|{|\<pm\>|}>|)>>
+        is pullback via embedding <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>\<longhookrightarrow\>\<Xi\>>;
       </enumerate>
     </lemma>
 
@@ -11023,11 +11046,13 @@
   </hide-part>
 
   <\hide-part|28>
+    <section|Images of symmetry breaking operators>
+
     \;
 
     \;
   <|hide-part>
-    <section|Formula>
+    <section|Images of symmetry breaking operators>
   </hide-part>
 
   <\hide-part|29>
@@ -11516,11 +11541,11 @@
     <associate|auto-9|<tuple|2.3|8>>
     <associate|auto-90|<tuple|24.3|?>>
     <associate|auto-91|<tuple|25|?>>
-    <associate|auto-92|<tuple|26|?>>
-    <associate|auto-93|<tuple|26.1|?>>
-    <associate|auto-94|<tuple|26.2|?>>
-    <associate|auto-95|<tuple|26.3|?>>
-    <associate|auto-96|<tuple|26.3|?>>
+    <associate|auto-92|<tuple|25.1|?>>
+    <associate|auto-93|<tuple|25.2|?>>
+    <associate|auto-94|<tuple|25.3|?>>
+    <associate|auto-95|<tuple|26|?>>
+    <associate|auto-96|<tuple|26|?>>
     <associate|auto.1-1|<tuple|1|?|#1>>
     <associate|auto.1-10|<tuple|2.2.2|?|#1>>
     <associate|auto.1-2|<tuple|1.1|?|#1>>
@@ -11699,11 +11724,12 @@
     <associate|auto.27-2|<tuple|25.1|?|#27>>
     <associate|auto.27-3|<tuple|25.2|?|#27>>
     <associate|auto.27-4|<tuple|25.3|?|#27>>
-    <associate|auto.28-1|<tuple|27|?|#28>>
+    <associate|auto.27-5|<tuple|26|?|#27>>
+    <associate|auto.28-1|<tuple|26|?|#28>>
     <associate|auto.28-2|<tuple|27.1|?|#28>>
     <associate|auto.28-3|<tuple|27.2|?|#28>>
     <associate|auto.28-4|<tuple|27.3|?|#28>>
-    <associate|auto.29-1|<tuple|25.3|?|#29>>
+    <associate|auto.29-1|<tuple|26|?|#29>>
     <associate|auto.3-1|<tuple|1|?|#3>>
     <associate|auto.3-2|<tuple|1.1|?|#3>>
     <associate|auto.3-3|<tuple|1.2|?|#3>>
@@ -12276,6 +12302,12 @@
 
       kobayashi2015differential2
 
+      kobayashi2015symmetry
+
+      gradshteinryzhik
+
+      NIST:DLMF
+
       gelfand1980distribution
 
       kobayashi2015symmetry
@@ -12300,9 +12332,7 @@
 
       wallach1988real
 
-      gradshteinryzhik
-
-      NIST:DLMF
+      kobayashi2015symmetry
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Introduction>
@@ -12689,21 +12719,21 @@
       identities> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-91><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|26<space|2spc>Formula>
+      <with|par-left|<quote|1tab>|25.1<space|2spc>Main results
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-92><vspace|0.5fn>
+      <no-break><pageref|auto-92>>
 
-      <with|par-left|<quote|1tab>|26.1<space|2spc>Main results
+      <with|par-left|<quote|1tab>|25.2<space|2spc>Auxiliary lemmas
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-93>>
 
-      <with|par-left|<quote|1tab>|26.2<space|2spc>Auxiliary lemmas
+      <with|par-left|<quote|1tab>|25.3<space|2spc>Proofs
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-94>>
 
-      <with|par-left|<quote|1tab>|26.3<space|2spc>Proofs
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-95>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|26<space|2spc>Images
+      of symmetry breaking operators> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-95><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
