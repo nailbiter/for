@@ -1,4 +1,4 @@
-<TeXmacs|1.0.7.18>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|mystyle|number-long-article|doxygen|american>>
 
@@ -10774,24 +10774,22 @@
         is pullback via embedding <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>\<longhookrightarrow\>\<Xi\>>;
 
         <item>map <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<rightarrow\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
-        is th
+        is the composition of inverse of <math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|P<rprime|'>>\<rightarrow\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+        isomorphism (see prop. <reference|k-finite:prop-claim2>) and pullback
+        via <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>\<longhookrightarrow\>\<Xi\>>
+        (we note that it's easy to observe that
+        <math|<around*|{|f\<in\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)><mid|\|>f<around*|(|-\<cdot\>,-\<cdot\>|)>=f<around*|(|\<cdot\>,\<cdot\>|)>|}>\<rightarrow\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/<around*|{|\<pm\>|}>|)>>
+        is isomorphism of CAS).
       </enumerate>
     </lemma>
 
     <\proof>
-      We first claim that the rectangle involving
-      <math|\<cal-D\><rprime|'><around*|(|G|)><rsub|P><rsup|P<rprime|'>>>,
-      <math|\<cal-D\><rprime|'><around*|(|G/P,\<bbb-C\><rsub|n-\<lambda\>>|)><rsup|P<rprime|'>>>,
+      We first note that the triangle involving
+      <math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|P<rprime|'>>>,
       <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
-      and <math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|P<rprime|'>>>
-      commutes. Indeed, if we replace the latter by respectively
-      <math|\<cal-D\><rprime|'><around*|(|G|)><rsub|P>>,
-      <math|\<cal-D\><rprime|'><around*|(|G/P,\<bbb-C\><rsub|n-\<lambda\>>|)>>,
-      <math|\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>|)>> and
-      <math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)>>, the
-      obtained diagram of CAS will commute (as it does so if we start from
-      member of <math|C<rsup|\<infty\>><around*|(|G|)><rsub|P>>). And as maps
-      in the original diagram were the same, it commutes as well.
+      and <math|\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/<around*|{|\<pm\>|}>|)>>
+      commutes by definition of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<rightarrow\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/<around*|{|\<pm\>|}>|)>>
+      map.
 
       Next, we claim that the rectangle involving
       <math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|P<rprime|'>>>,
@@ -10815,8 +10813,24 @@
       Next, we claim that the triangle constisting of
       <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>,
       <math|\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|n-\<lambda\>>\<times\>\<bbb-C\><rsub|\<nu\>>|)><rsup|G<rprime|'>>>
-      and <math|\<cal-D\><rprime|'><around*|(|G\<times\>G<rprime|'>|)><rsub|P\<times\>P<rprime|'>><rsup|P<rprime|'>>>.
-      </proof>
+      and <math|\<cal-D\><rprime|'><around*|(|G\<times\>G<rprime|'>|)><rsub|P\<times\>P<rprime|'>><rsup|P<rprime|'>>>
+      commutes. We note that if we leave arrows the same and replace vertices
+      by respectively <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)>>,
+      <math|\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|n-\<lambda\>><around*|\<nobracket\>|\<times\>\<bbb-C\><rsub|\<nu\>>|\<nobracket\>>|)>>
+      and <math|\<cal-D\><rprime|'><around*|(|G<around*|\<nobracket\>|\<times\>G<rprime|'>|\<nobracket\>>|)><rsub|P\<times\>P<rprime|'>>>,
+      then we obtain the diagram of CAS: indeed,
+
+      <\enumerate>
+        <item>arrow <math|\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|n-\<lambda\>>\<times\>\<bbb-C\><rsub|\<nu\>>|)><rsub|>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)>>
+        is induced by ...;
+
+        <item>arrow <math|\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|n-\<lambda\>><around*|\<nobracket\>|\<times\>\<bbb-C\><rsub|\<nu\>>|\<nobracket\>>|)>\<rightarrow\>\<cal-D\><rprime|'><around*|(|G<around*|\<nobracket\>|\<times\>G<rprime|'>|\<nobracket\>>|)><rsub|P\<times\>P<rprime|'>>>
+        is isomorphism of CAS by proposition <reference|CAS:prop-GoverP>;
+
+        <item>arrow <math|\<cal-D\><rprime|'><around*|(|G<around*|\<nobracket\>|\<times\>G<rprime|'>|\<nobracket\>>|)><rsub|P\<times\>P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)>>
+        is s
+      </enumerate>
+    </proof>
 
     <subsection|Proofs>
 

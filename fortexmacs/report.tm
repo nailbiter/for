@@ -1,42 +1,40 @@
-<TeXmacs|1.0.7.18>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|american>>
 
 <\body>
-  <section|report 43>
+  <section|report 44>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
-    Finish writing JSPS application and show to You (wed)
+    Decide on a topic for my Thursday presentation
   </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
-    Normalize <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>> with
-    help of <math|K>-finite vectors; better normalization for
-    <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> (optimize the proof using the
-    fact that <math|2xy=<around*|(|x-y|)><rsup|2>-x<rsup|2>-y<rsup|2>>)
-    (weekend)
+    Prepare for my Thursday presentation
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
-    Finish proving technical lemmas for functional identities and refine
-    residue formulae (thu, fri)
+    See whether I can determine images of SBOs
+  </cell>|<cell|<with|font-series|bold|done> (I think I can)>>|<row|<\cell>
+    Finish proving technical lemmas for functional identities\ 
   </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
-  (empty)
+  <\enumerate>
+    <item>read sections X.1-X.3 of <cite|knapp2013lie> (\PPrehomogeneous
+    vector spaces\Q)
+  </enumerate>
 
-  <with|font-series|bold|What I plan to do during this week> (in order of
-  priority):
+  <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Decide on a topic for my next week presentation (tue, wed)
+    <item>Prepare for my Thursday presentation, send You slides before end of
+    Wednesday (tue, wed)
 
-    <item>Finish proving technical lemmas for functional identities (wed)
+    <item>Finish proving technical lemmas for functional identities (tue);
 
-    <item>See whether I can determine images of SBOs (thu, fri)
-
-    <item>Prepare for my next week presentation
+    <item>Determine images of SBOs (thu, fri);
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>
@@ -59,19 +57,32 @@
     Questions
   </with>
 
-  (empty)
+  <\enumerate>
+    <item>Suppose <math|G> is reductive, <math|P=M A N\<subset\>G> parabolic
+    with <math|P\<curvearrowright\>V> (induced) representation,
+    <math|K\<subset\>G> maximal compact with
+    <math|K<rsub|M>\<assign\>K\<cap\>M> and <math|G\<times\><rsub|P>V> is
+    homogeneous vector bundle. We then have that diffeomorphism
+    <math|K/K<rsub|M><wide|\<rightarrow\>|~>G/P> induces the pullback of
+    <math|G\<times\><rsub|P>V> which gives a vector bundle
+    <math|K\<times\><rsub|K<rsub|M>>V> over <math|K/K<rsub|M>>. Am I correct
+    that the two vector bundles <math|K\<times\><rsub|K<rsub|M>>V> and
+    <math|K\<times\><rsub|P>V> are <with|font-series|bold|not> diffeomorphic?
+    If yes, is that normal then that pulled back bundle induced by
+    diffeomorphism of base spaces is not diffeomorphic to the original
+    bundle?
+  </enumerate>
 
   <paragraph|Comments>
 
-  Today (may 17) I got letter from Math Society of Japan that they accept my
-  application.
+  If you could take some time to talk to me on Thursday or Friday, I would be
+  very happy.
 
   <\bibliography|bib|alpha|report.bib>
-    <\bib-list|Wal88>
-      <bibitem*|Wal88><label|bib-wallach1988real>N.<nbsp>Wallach.
-      <newblock><with|font-shape|italic|Real Reductive Groups I>, volume 132
-      of <with|font-shape|italic|Pure and Applied Mathematics>.
-      <newblock>Academic press, 1988.
+    <\bib-list|Kna13>
+      <bibitem*|Kna13><label|bib-knapp2013lie>Anthony<nbsp>W Knapp.
+      <newblock><with|font-shape|italic|Lie groups beyond an introduction>,
+      volume 140. <newblock>Birkhäuser Basel, 2013.
     </bib-list>
   </bibliography>
 </body>
@@ -93,18 +104,22 @@
     <associate|auto.3-2|<tuple|3|?|#3>>
     <associate|auto.3-3|<tuple|3.1|?|#3>>
     <associate|bib-grauert2012several|<tuple|GF12|?>>
+    <associate|bib-knapp2013lie|<tuple|Kna13|?>>
     <associate|bib-wallach1988real|<tuple|Wal88|1>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
+    <\associate|bib>
+      knapp2013lie
+    </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>report
-      42> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      44> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
-      <with|par-left|<quote|6fn>|Comments
+      <with|par-left|<quote|4tab>|Comments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.15fn>>
 
