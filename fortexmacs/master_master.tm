@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.0.7.18>
 
 <style|<tuple|article|mystyle|number-long-article|doxygen|american>>
 
@@ -10772,12 +10772,51 @@
 
         <item><math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'>*<around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/<around*|{|\<pm\>|}>|)>>
         is pullback via embedding <math|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>\<longhookrightarrow\>\<Xi\>>;
+
+        <item>map <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>\<rightarrow\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>>
+        is th
       </enumerate>
     </lemma>
 
     <\proof>
-      \;
-    </proof>
+      We first claim that the rectangle involving
+      <math|\<cal-D\><rprime|'><around*|(|G|)><rsub|P><rsup|P<rprime|'>>>,
+      <math|\<cal-D\><rprime|'><around*|(|G/P,\<bbb-C\><rsub|n-\<lambda\>>|)><rsup|P<rprime|'>>>,
+      <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+      and <math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|P<rprime|'>>>
+      commutes. Indeed, if we replace the latter by respectively
+      <math|\<cal-D\><rprime|'><around*|(|G|)><rsub|P>>,
+      <math|\<cal-D\><rprime|'><around*|(|G/P,\<bbb-C\><rsub|n-\<lambda\>>|)>>,
+      <math|\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>|)>> and
+      <math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)>>, the
+      obtained diagram of CAS will commute (as it does so if we start from
+      member of <math|C<rsup|\<infty\>><around*|(|G|)><rsub|P>>). And as maps
+      in the original diagram were the same, it commutes as well.
+
+      Next, we claim that the rectangle involving
+      <math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)><rsup|P<rprime|'>>>,
+      <math|\<cal-D\><rprime|'><around*|(|G|)><rsub|P><rsup|P<rprime|'>>>,
+      <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
+      and <math|\<cal-D\><rprime|'><around*|(|G/P,\<bbb-C\><rsub|n-\<lambda\>>|)><rsup|P<rprime|'>>>
+      commutes. Indeed, if we leave arrows intact and replace vertices by
+      respectively <math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)>>,
+      <math|\<cal-D\><rprime|'><around*|(|G|)><rsub|P>>,
+      <math|\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>|)>> and
+      <math|\<cal-D\><rprime|'><around*|(|G/P,\<bbb-C\><rsub|n-\<lambda\>>|)>>
+      respectively, the obtained diagram will be the diagram of CAS (by
+      proposition <reference|CAS:prop-GoverP> applied to upper and left
+      arrows and properties of distribution pullback; note that
+      <math|\<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)>\<rightarrow\>\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/<around*|{|\<pm\>|}>|)>
+      and \<cal-D\><rprime|'><rsub|\<lambda\>-n><around*|(|\<Xi\>|)>\<rightarrow\>\<cal-D\><rprime|'><around*|(|\<bbb-R\><rsup|p,q>|)>>
+      are maps of CAS) which has then to commute, as it does so if we start
+      from the member of <math|\<cal-D\><rprime|'><around*|(|G|)><rsub|P>>.
+      Hence, the original rectangle formed a commuting diagram.
+
+      Next, we claim that the triangle constisting of
+      <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>,
+      <math|\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|n-\<lambda\>>\<times\>\<bbb-C\><rsub|\<nu\>>|)><rsup|G<rprime|'>>>
+      and <math|\<cal-D\><rprime|'><around*|(|G\<times\>G<rprime|'>|)><rsub|P\<times\>P<rprime|'>><rsup|P<rprime|'>>>.
+      </proof>
 
     <subsection|Proofs>
 
