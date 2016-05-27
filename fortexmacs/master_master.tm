@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.0.7.18>
 
 <style|<tuple|article|mystyle|number-long-article|doxygen|american>>
 
@@ -10822,14 +10822,35 @@
 
       <\enumerate>
         <item>arrow <math|\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|n-\<lambda\>>\<times\>\<bbb-C\><rsub|\<nu\>>|)><rsub|>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)>>
-        is induced by ...;
+        is induced by the fact that the direct bundle over
+        <math|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>> is
+        pullback of <math|\<bbb-C\><rsub|n-\<lambda\>>\<times\>\<bbb-C\><rsub|\<nu\>>>
+        over <math|G/P\<times\>G<rprime|'>/P<rprime|'>> and thus
+        <math|\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|n-\<lambda\>>\<times\>\<bbb-C\><rsub|\<nu\>>|)><rsub|>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)>>
+        is induced by pullback of smooth sections, hence is map of CAS;
 
         <item>arrow <math|\<cal-D\><rprime|'><around*|(|G/P\<times\>G<rprime|'>/P<rprime|'>,\<bbb-C\><rsub|n-\<lambda\>><around*|\<nobracket\>|\<times\>\<bbb-C\><rsub|\<nu\>>|\<nobracket\>>|)>\<rightarrow\>\<cal-D\><rprime|'><around*|(|G<around*|\<nobracket\>|\<times\>G<rprime|'>|\<nobracket\>>|)><rsub|P\<times\>P<rprime|'>>>
         is isomorphism of CAS by proposition <reference|CAS:prop-GoverP>;
 
         <item>arrow <math|\<cal-D\><rprime|'><around*|(|G<around*|\<nobracket\>|\<times\>G<rprime|'>|\<nobracket\>>|)><rsub|P\<times\>P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)>>
-        is s
+        is a composition of <math|\<cal-D\><rprime|'><around*|(|G\<times\>G<rprime|'>|)><rsub|P\<times\>P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>>>
+        (induced by pullback via <math|K\<times\>K<rprime|'>\<longhookrightarrow\>G\<times\>G<rprime|'>>)
+        and <math|\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)>>
+        induced by prop. <reference|CAS:prop-GoverP>. Proposition
+        <reference|CAS:prop-GoverP> then immediately implies that the latter
+        map is an isomorphism of CAS, so it remains to show only that
+        <math|\<cal-D\><rprime|'><around*|(|G\<times\>G<rprime|'>|)><rsub|P\<times\>P<rprime|'>>\<rightarrow\>\<cal-D\><rprime|'><around*|(|K\<times\>K<rprime|'>|)><rsub|K<rsub|M>\<times\>K<rsub|M><rprime|'>>>
+        is a map of CAS.\ 
       </enumerate>
+
+      The fact that the latter diagram of CAS commutes now follows, as it
+      does so for smooth elements. Hence, the original diagram also commuted.
+
+      Finally, we are to show that the triangle involving
+      <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>|)><rsup|K<rprime|'><rsub|M>><rsup|>>,
+      <math|\<cal-D\><rprime|'><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/<around*|{|\<pm\>|}>|)>>
+      and <math|\<cal-D\><rprime|'><around*|(|K/K<rsub|M>\<times\>K<rprime|'>/K<rsub|M><rprime|'>|)><rsup|K<rprime|'>>>
+      commutes. We note that\ 
     </proof>
 
     <subsection|Proofs>
