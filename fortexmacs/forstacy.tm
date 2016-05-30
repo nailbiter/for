@@ -55,6 +55,8 @@
   </equation*>
 
   is increasing\ 
+
+  \;
 </body>
 
 <\references>
