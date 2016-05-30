@@ -3,18 +3,17 @@
 <style|<tuple|article|american>>
 
 <\body>
-  <section|report 44>
+  <section|report 45>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
-    Decide on a topic for my Thursday presentation
+    Prepare for my Thursday presentation, send You slides before end of
+    Wednesday
   </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
-    Prepare for my Thursday presentation
-  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
-    See whether I can determine images of SBOs
-  </cell>|<cell|<with|font-series|bold|done> (I think I can)>>|<row|<\cell>
-    Finish proving technical lemmas for functional identities\ 
+    Finish proving technical lemmas for functional identities (tue);
+  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
+    Determine images of SBOs (thu, fri);
   </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
   \;
@@ -22,19 +21,22 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>read sections X.1-X.3 of <cite|knapp2013lie> (\PPrehomogeneous
-    vector spaces\Q)
+    <item>Delivered the talk on Thursday seminar
+    (<cite-detail|knapp2013lie|chapter X \PPrehomogeneous vector spaces\Q>)
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Prepare for my Thursday presentation, send You slides before end of
-    Wednesday (tue, wed)
+    <item>Determine images of SBOs:
 
-    <item>Finish proving technical lemmas for functional identities (tue);
+    <\enumerate>
+      <item>Prove the auxiliary lemmas for even-even (tue)
 
-    <item>Determine images of SBOs (thu, fri);
+      <item>Prove the auxiliary lemmas for odd-odd (wed)
+
+      <item>Compute image of regular SBO (thu, fri)
+    </enumerate>
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>
@@ -57,21 +59,7 @@
     Questions
   </with>
 
-  <\enumerate>
-    <item>Suppose <math|G> is reductive, <math|P=M A N\<subset\>G> parabolic
-    with <math|P\<curvearrowright\>V> (induced) representation,
-    <math|K\<subset\>G> maximal compact with
-    <math|K<rsub|M>\<assign\>K\<cap\>M> and <math|G\<times\><rsub|P>V> is
-    homogeneous vector bundle. We then have that diffeomorphism
-    <math|K/K<rsub|M><wide|\<rightarrow\>|~>G/P> induces the pullback of
-    <math|G\<times\><rsub|P>V> which gives a vector bundle
-    <math|K\<times\><rsub|K<rsub|M>>V> over <math|K/K<rsub|M>>. Am I correct
-    that the two vector bundles <math|K\<times\><rsub|K<rsub|M>>V> and
-    <math|K\<times\><rsub|P>V> are <with|font-series|bold|not> diffeomorphic?
-    If yes, is that normal then that pulled back bundle induced by
-    diffeomorphism of base spaces is not diffeomorphic to the original
-    bundle?
-  </enumerate>
+  (empty)
 
   <paragraph|Comments>
 

@@ -3,7 +3,7 @@
 <style|generic>
 
 <\body>
-  <assign|hi|hellothere><new-theorem|fact|Fact><new-theorem|hypo|Hypothesis><inactive|<assign|mysetn|<inactive|<macro|left|right|{<arg|left>\|<arg|right>}>>>>
+  <assign|hi|hellothere><new-theorem|fact|Fact><new-theorem|claim|Claim><new-theorem|hypo|Hypothesis><inactive|<assign|mysetn|<inactive|<macro|left|right|{<arg|left>\|<arg|right>}>>>>
 </body>
 
 <\initial>
