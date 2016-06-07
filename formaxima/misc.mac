@@ -6,10 +6,10 @@ texput(G,"\\Gamma")$
 texput(Pi,"\\pi")$
 texput(F,"_2F_1")$
 texput(F32,"_3F_2")$
-set_tex_environment_default("\\begin{dmath}","\\end{dmath}");
+/*set_tex_environment_default("\\begin{dmath}","\\end{dmath}");*/
 /*tex(%,texoutput);*/
 
-matchdeclare([a,b,c,d,e,f,g],true);
+/*matchdeclare([a,b,c,d,e,f,g],true);
 defrule(rule1,F(c,d,e,(-y-1)/(1-y))*B(f,g)*(1-y)^a*(1+y)^b,F(c,d,e,(y-1)/(1+y))*(1+y)^a*(1-y)^b*B(f,g));
 defrule(rule2,F(c,d,e,(y-1)/(y+1))*B(f,g)*(1-y)^a*(1+y)^b,B(a+1,b+1)*2^(a+b+1)*F32(c,d,a+1,e,-b,1)*B(f,g));
 
@@ -26,6 +26,30 @@ expr:apply1(%,rule1,rule2);
 substitute([a=0,b=0,c=1,d=1],expr)-
 substitute([a=1,b=0,c=0,d=1],expr)-
 substitute([a=0,b=1,c=1,d=0],expr)+
-substitute([a=1,b=1,c=0,d=0],expr);
+substitute([a=1,b=1,c=0,d=0],expr);*/
 
+N:(G(-k)/G((1-b-nu)/2)/G((2*b+q)/2)/sqrt(Pi))^(-1)*G(p/2+i)/G((p-1)/2+k+i)/G((1+b-nu+q)/2);
+G(q/2)*sqrt(Pi)*G((1-nu)/2)*G((mylambda-nu)/2)*G((mylambda+nu-q)/2)/G(mylambda/2)/G((mylambda+1-q)/2)/G((q-nu+1)/2);
+expr:substitute(first(solve([C=-nu,(q-2)/2=A,(mylambda+nu-q)/2-1=B],[nu,q,mylambda])),%);
+Poch(x,n):=G(x+n)/G(x);
+Poch(-k,j)*Poch(k+(p-1)/2+i,j)/Poch(p/2+i,j)*substitute([C=-nu-b,A=(q+2*b-2)/2,B=(mylambda+nu+i-q)/2-1+j],expr);
+substitute(2*((i+mylambda+nu-q)/2+j-1)=(i+mylambda+nu-q)+2*j-1,%);
+%/N;
+substitute(2*(b+nu)=2*b+2*nu,%);
+substitute(2*(-nu-b)=-2*b-2*nu,%);
+tex(%,texoutput);
+
+-k+(1+i+mylambda-nu)/2+(p-1)/2+k+i+(1+i+mylambda+nu-q)/2+1-
+((1+b+i+mylambda)/2+p/2+i+(2-b+i+mylambda-q)/2);
+expand(%);
+tex(%,texoutput);
+
+a:(p-1)/2+k+i;
+b:(1+i+mylambda-nu)/2;
+c:(1+i+mylambda+nu-q)/2;
+d:(1+B+i+mylambda)/2;
+e:p/2+i;
+f:(2-B+i+mylambda-q)/2;
+[a,d-b,d-c,d,a-e-k+1,a-f-k+1];
+expand(%);
 tex(%,texoutput);
