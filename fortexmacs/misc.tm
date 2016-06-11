@@ -48,4 +48,8 @@
     <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1>C<rsup|\<mu\>+1/2><rsub|N><around*|(|x|)>C<rsup|\<mu\>><rsub|N-2k><around*|(|x|)><around*|(|1-x<rsup|2>|)><rsup|\<mu\>-1/2>dx=>|<cell|>>|<row|<cell|>|<cell|=<big|int><rsub|-1><rsup|1><frac|d<rsup|N-2k>|dx<rsup|N-2k>>C<rsup|\<mu\>+1/2><rsub|N><around*|(|x|)><around*|(|1-x<rsup|2>|)><rsup|\<mu\>+N-2k+2k-1/2>dx\<simeq\>>|<cell|>>|<row|<cell|>|<cell|\<simeq\><big|int><rsub|-1><rsup|1>C<rsub|2k><rsup|\<mu\>+1/2+N-2k><around*|(|1-x<rsup|2>|)><rsup|\<mu\>+N-2k-1/2>dx=>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-x<rsup|2>|)><rsup|-1/2><frac|d<rsup|2k>|d
     x<rsup|2k>><around*|(|1-x<rsup|2>|)><rsup|\<mu\>+N>>|<cell|>>>>
   </eqnarray>
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<around*|(|1-\<eta\><rsub|p><rsup|2>|)><rsup|a/2><wide|<wide|C|~>|~><rsup|<frac|p-2|2>><rsub|a><around*|(|0|)><wide|<wide|C|~>|~><rsup|<frac|p-1|2>+a><rsub|N><around*|(|\<eta\><rsub|p>|)>=<big|sum><rsub|i=0<mid|\|>i\<in\>2\<bbb-Z\>><rsup|a+N>k<rsub|i><wide|<wide|C|~>|~><rsup|<frac|p-2|2>><rsub|i><around*|(|\<eta\><rsub|p>|)><wide|<wide|C|~>|~><rsup|<frac|p-1|2>+i><rsub|a+N-i><around*|(|0|)>>|<cell|>>|<row|<cell|>|<cell|a=0\<Rightarrow\><wide|<wide|C|~>|~><rsup|<frac|p-2|2>><rsub|0><around*|(|0|)><wide|<wide|C|~>|~><rsup|<frac|p-1|2>><rsub|N><around*|(|\<eta\><rsub|p>|)>=<big|sum><rsub|i=0<mid|\|>i\<in\>2\<bbb-Z\>><rsup|N>k<rsub|i><wide|<wide|C|~>|~><rsup|<frac|p-2|2>><rsub|i><around*|(|\<eta\><rsub|p>|)><wide|<wide|C|~>|~><rsup|<frac|p-1|2>+i><rsub|a+N-i><around*|(|0|)>>|<cell|>>|<row|<cell|>|<cell|>|<cell|>>>>
+  </eqnarray>
 </body>
