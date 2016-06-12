@@ -1,4 +1,4 @@
-<TeXmacs|1.0.7.18>
+<TeXmacs|1.99.4>
 
 <style|generic>
 
@@ -48,8 +48,9 @@
   representations spaces) as differential symmetry breaking operators of
   O(2,2)\<gtr\>O(2,1) branching.
 
-  In the course of my work, I have been trying to study both differential SBO
-  and the integral ones. The work can be divided into the following:
+  \<#2018\>In the course of my work, I have been trying to study both
+  differential SBO and the integral ones. The work can be divided into the
+  following:
 
   <subparagraph|Project A. Geometry of flag manifold>
 
@@ -159,7 +160,7 @@
     <\bib-list|GGP12>
       <bibitem*|BR04><label|bib-bernstein2004estimates>J.<nbsp>Bernstein and
       A.<nbsp>Reznikov. <newblock>Estimates of automorphic functions.
-      <newblock><with|font-shape|italic|Mosc. Math. J>, 4(1):19--37, 2004.
+      <newblock><with|font-shape|italic|Mosc. Math. J>, 4(1):19\U37, 2004.
 
       <bibitem*|GGP12><label|bib-gan2011symplectic>W.<nbsp>T. Gan, B.<nbsp>H.
       Gross, and D.<nbsp>Prasad. <newblock>Sur les conjectures de Gross et
