@@ -52,7 +52,13 @@ e:p/2+i;
 f:(2-B+i+mylambda-q)/2;
 [a,d-b,d-c,d,a-e-k+1,a-f-k+1];
 expand(%);
-tex(%,texoutput);*/
+tex(%,texoutput);
 
 substitute([A=-(N-i)/2,B=(N-i)/2+(p-1)/2+i,C=(p-1)/2+1+i],G(C)*G(C-A-B)/G(C-A)/G(C-B));
+tex(%,texoutput);*/
+
+G(q/2)*sqrt(Pi)*G((1-nu)/2)*G((mylambda-nu)/2)*G((mylambda+nu-q)/2)/G(mylambda/2)/G((mylambda+1-q)/2)*G((q-nu+1)/2);
+substitute(solve([A=(q-2)/2,B=(mylambda+nu-q)/2-1],[mylambda,q]),%);
+substitute((2+2*B)/2=1+B,%);
+substitute((2+2*A)/2=1+A,%);
 tex(%,texoutput);

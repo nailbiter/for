@@ -17,7 +17,7 @@
   <\theorem>
     For <math|p,q\<geqslant\>1> the action
     <math|P<rprime|'>\<curvearrowright\>G/P\<simeq\>\<Xi\>/\<bbb-R\><rsup|\<times\>>\<simeq\><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>|)>/<around*|{|\<pm\>|}>>
-    has 5 (if <math|p\<gtr\>1>) or 3 (if <math|p=1>) orbits, whose explicit
+    has 5 (if <math|p\<gtr\>1>) or 4 (if <math|p=1>) orbits, whose explicit
     form and closure relations are known.
   </theorem>
 
@@ -151,9 +151,6 @@
     </bib-list>
   </bibliography>
 </body>
-
-<initial|<\collection>
-</collection>>
 
 <\references>
   <\collection>

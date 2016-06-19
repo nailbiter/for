@@ -1,0 +1,176 @@
+%japanese
+\documentclass[a4paper,10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{geometry,amsmath,amssymb,bbm,xypic}
+\usepackage[all,cmtip]{xy}
+\usepackage{xeCJK}
+\setCJKmainfont{IPAMincho}
+\usepackage{amsmath,amssymb,bbm,ulem,float,mystyle}
+\usepackage{xeCJK}
+\setCJKmainfont{IPAMincho}
+
+%%%%%%%%%% Start TeXmacs macros
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\assign}{:=}
+\newcommand{\comma}{{,}}
+\newcommand{\nin}{\not\in}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\newcommand{\um}{-}
+\newtheorem{theorem}{定理}
+\newcommand{\sol}{\mathcal{S}ol(\R^{p,q};\lambda,\nu)}
+\newcommand{\Hom}{\mbox{Hom}}
+\newcommand{\Op}{\mbox{\normalfont Op}}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\uline{以下の}は小林氏とSpeh氏の$O(n,1)$の対称性破れ作用素の性質についての
+論文\cite{kobayashi2015symmetry}を一般化する
+目指し、小林俊行氏と共同作業。
+%%This is joint work with Toshiyuki Kobayashi aimed to extend the results of his
+%%earlier paper with Birgit Speh studying properties of symmetry breaking
+%%operators of $O (n, 1)$. 
+対称性破れ作用素というのは、$G=O(p+1,q+1)$の退化主系列表現
+$I(\lambda)$から、$G'$の退化主系列表現$J(\nu)$への
+$G'$絡み作用素である。
+%%$G'$退会主系列
+%%Symmetry breaking operators (SBOs) are
+%%$G'$-intertwining operators between the degenerate principal series
+%%representations $I (\lambda)$ and $J (\nu)$ of $G \assign O (p + 1, q + 1)$
+%%and its closed subgroup $G' \assign O (p, q + 1)$ respectively, parametrized
+%%by $(\lambda, \nu) \in \mathbbm{C}^2$.
+
+得られた結果が以下の通りになる:
+
+\begin{theorem}
+$p, q \geqslant 1$\uline{で}、 $P,P':=P\cap G'$を$G,G'$の最大故物型部分群とする。
+  $P'\backslash G/P$の閉集合と\uline{閉包関係}が以下の通りになり：\\
+  $p>1$の時
+  \begin{figure}[H]\centerline{\xymatrix{&G/P\ar@{-}[ld]\ar@{-}[rd]&\\H
+	  :=\mysetn{[\xi,\eta]\in G/P\simeq \Sp^p\times\Sp^q/\left\{ \pm\right\}}{\xi_{p}=0}
+	  \ar@{-}[rd]&&C
+	  :=\mysetn{[\xi,\eta]\in G/P\simeq \Sp^p\times\Sp^q/\left\{ \pm\right\}}{\xi_{0}=\eta_q}
+	  \ar@{-}[ld]\\&H\cap C\ar@{-}[d]&\\&\{[0]\}:=\left\{ [1,0_{p+q},1] \right\}&}}\end{figure}
+  $p=1$の時
+  \begin{figure}[H]\centerline{\xymatrix{&G/P\ar@{-}[ld]\ar@{-}[rd]&\\H\ar@{-}[rd]&&C\ar@{-}[ld]\\&\{[0]\}&}}\end{figure}
+\end{theorem}
+
+\begin{theorem}
+	以下のように$\Op$と$\mathcal{S}$写像を定義する：
+	\begin{figure}[H]\centerline{\xymatrixcolsep{7pc}\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\mathcal{S}}
+		&\left( \mathcal{D}'(G/P,\mathbb{C}_{n-\lambda})\otimes\mathbb{C}_\nu \right)^{P'}
+		\ar[r]_{F\mapsto \supp(F)}\ar[d]^{\simeq}_{\mbox{rest}}
+		&P'\backslash G/P\\
+		&\sol\ar[lu]^{\mbox{Op}}_{\simeq}&
+		}}\end{figure}
+	そうすると、次のような結果が成り立つ
+	\begin{description}
+		\item[G/P場合]ある$(\lambda,\nu)\in \mathbb{C}^2$に正則に依存する対称性破れ作用素$\Op^{\R^n}_{\lambda,\nu}$。
+			更に、$\Re(\lambda+\nu-n),\Re(-\nu)>0$を満たす$(\lambda,\nu)\in \mathbb{C}^2$に対して$\mathcal{S}(\Op^{\R^n}_{\lambda,\nu})=G/P$が成り立つ。
+			さらに、$\Re(\lambda+\nu-n),\Re(-\nu)>0$を満たす$(\lambda,\nu)\in \mathbb{C}^2$に対して
+			\[\Op^{-1}(\Op^{\R^n}_{\lambda,\nu})=\frac{\myabs{x_p}^{\lambda+\nu-n}\myabs{Q}^{-\nu}}{N},\quad N:=
+				{\Gamma\left( \frac{\lambda-\nu}{2} \right)
+				\Gamma\left( \frac{1-\nu}{2} \right)\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\]
+				更に、$\mysetn{(\lambda,\nu)\in\mathbb{C}^2}{\Op^{\R^n}_{\lambda,\nu}=0}\subset\mathbb{C}^2$が\uline{知られている}離散集合。
+			\item[H場合]
+				ある$(\lambda,\nu)\in \mathbb{C}^2:\lambda+\nu-n=-1-2k\in-1-2\Z_{\ge0}$に正則に依存する対称性破れ作用素$\Op^{H}_{\lambda,\nu}\neq0$。
+				$Re(\nu)<-2k$を満たす$\nu\in\mathbb{C}$に対して、$\mathcal{S}(\Op^{H}_{\lambda,\nu})=H$。さらに、
+				\[\Op^{-1}(\Op^{H}_{\lambda,\nu})=\frac{\rho\left( \delta^{(2k)}(x_p)\times\myabs{Q}^{-\nu} \right)}{N_H}\]
+				ここで $a \nin - n -\mathbbm{Z}_{\geqslant 0}$-次の斉次性を持つ超関数$F \in \mathcal{D}' (\mathbbm{R}^n \backslash \{ 0 \})$
+				に対して$\rho(F)\in\mathcal{D}' (\mathbbm{R}^n)$ が唯一$a$-次の斉次性を持つ$\rho(F)\big|_{\R^n\setminus\left\{ 0 \right\}}=F$を
+				満たす超関数(\uline{cf}. {\cite[thm. 3.2.3]{hormander1983analysis}}) 。$\times$が
+				$\mathbb{R}^n\setminus\left\{ 0 \right\}$上の超関数積(cf. {\cite[thm. 8.2.10]{hormander1983analysis}})。
+				$N_H$が上の$N$のような$(\lambda,\nu)$の関数。
+			\item[C場合]
+				ある$(\lambda,\nu)\in \mathbb{C}\times\left( -1-2\Z_{\ge0} \right)$に正則に依存する対称性破れ作用素$\Op^{C}_{\lambda,\nu}\neq0$。
+				$Re(\lambda+\nu-n+1)>0$を満たす$\lambda\in\mathbb{C}$に対して、$\mathcal{S}(\Op^{C}_{\lambda,\nu})=C$。さらに、
+				\[\Op^{-1}(\Op^{H}_{\lambda,\nu})=\frac{\rho\left(\myabs{x_p}^{\lambda+\nu-n+1}\times\delta^{(-1-\nu}(Q) \right)}{N_C}\]
+				ここで$N_C$が上の$N$のような$(\lambda,\nu)$の関数。
+			\item[$\left\{ 0 \right\}$場合] ある
+				ある$(\lambda,\nu)\in \mathbb{C}^2:\lambda-\nu\in-2\Z_{\ge0}$に正則に依存する対称性破れ作用素$\Op^{ \left\{ 0 \right\} }_{\lambda,\nu}
+				\neq0$。
+				更に、$\mathcal{S}\left(\Op^{ \left\{ 0 \right\} }_{\lambda,\nu}  \right)=\left\{ [0] \right\}$。更に、
+				\[\Op^{-1}(\Op^{ \left\{0\right\}}_{\lambda,\nu})=\tilde{C}_{\nu-\lambda}^{\lambda-(n-1)/2}(-\tilde{\Delta}\tilde{\delta},\delta(x_p))\]
+				ここで$\tilde{C}(s,t)$の二変数多項式が\cite[(16.3)]{kobayashi2015symmetry}のように、
+				$\tilde{\Delta}$が $(p - 1, q)$-ラプラス作用素, $\tilde{\delta}$ が$\left\{ x_1,\dots,x_{p-1},y_1,\dots,y_q \right\}$
+				変数のデルタ関数。
+				更に、
+				$H\in\Hom_{G'}(I(\lambda),J(\nu))$が$\mathcal{S}(H)\subset\left\{ [0] \right\}$を満たすと、
+				$H\in\mathbb{C}\cdot\Op^{ \left\{0\right\}}_{\lambda,\nu}$が成り立つ。
+	\end{description}
+
+\end{theorem}
+
+\begin{theorem}
+  $p > 1$に対して
+  \begin{eqnarray}
+    & \mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda \comma \nu) = \left\{
+    \begin{array}{ll}
+      \mathbbm{C} \tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n} \oplus \mathbbm{C}
+      \tilde{K}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in / /, \nu \in
+      L\\
+      \mathbbm{C} \tilde{K}^{\mathbbm{R}^n}_{\lambda, \nu}, &
+      \tmop{otherwise},
+    \end{array} \right. &  \nonumber
+  \end{eqnarray}
+  ここで $\mid \mid, / /$と $L$ が
+  $\mathbbm{C}^2$の知られている部分集合.$p=1$に対して似ている命題も成り立つ。
+\end{theorem}
+
+\begin{theorem}
+	$1_{\lambda} \in I (\lambda), 1_{\nu} \in I (\nu)$\uline{球面ベクトル}に対して
+  \[ \tmop{Op} (\tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}) 1_{\lambda} = 2^{1 -
+     \lambda} \frac{\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
+     \Gamma \left( - \frac{q}{2} + \frac{\lambda + 1}{2} \right) \Gamma \left(
+     \frac{q - \nu + 1}{2} \right)} 1_{\nu} \quad\mbox{が成り立つ。}\]
+  上に記載された$\tilde{K}_{\lambda, \nu}^C, \tilde{K}_{\lambda, \nu}^P$対称性破れ作用素に対して似ている命題も成り立つ。
+\end{theorem}
+
+\begin{theorem}
+  $(\lambda, \nu) \in / / \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 |
+  \lambda - \nu = - 2 k \in - 2\mathbbm{Z}_{\geqslant 0} \}$に対して
+  $\tilde{K}^{\mathbbm{R}^n}_{\lambda, \nu} = q_{\{ 0 \}}^{\mathbbm{R}^n}
+  (\lambda, \nu) \tilde{K}^{\{ 0 \}}_{\lambda, \nu}$が成り立つ。ここで
+  $q^{\mathbbm{R}^n}_{\{ 0 \}} (\lambda, \nu)$ と $q^{\mathbbm{R}^n
+  T}_{\mathbbm{R}^n} (\lambda, \nu)$が知られている$(\lambda,\nu)$の関数。
+  上に記載された$\tilde{K}_{\lambda, \nu}^C, \tilde{K}_{\lambda, \nu}^P$対称性破れ作用素に対して似ている命題も成り立つ。
+\end{theorem}
+
+\begin{theorem}
+  $\tilde{\mathbbm{T}}_{\lambda} : I (\lambda) \rightarrow I (n -
+  \lambda)$ がKnapp-Stein作用素で、$(\lambda, \nu) \in \mathbbm{C}^2$とする。
+  そうすると、以下のような結果が成り立つ:
+  \begin{eqnarray}
+    & \tilde{\mathbbm{T}}_{n - 1 - \nu} \circ \tmop{Op} (\tilde{K}_{\lambda,
+    n - 1 - \nu}^{\mathbbm{R}^n}) = q^{T\mathbbm{R}^n}_{\mathbbm{R}^n}
+    (\lambda, \nu) \tmop{Op} (\tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}) & 
+    \nonumber\\
+    & \tmop{Op} (\tilde{K}_{n - \lambda, \nu}^{\mathbbm{R}^n}) \circ
+    \tilde{\mathbbm{T}}_{\lambda} = q^{\mathbbm{R}^n T}_{\mathbbm{R}^n}
+    (\lambda, \nu) \tmop{Op} (\tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}), & 
+    \nonumber
+  \end{eqnarray}
+  ここで $q^{T\mathbbm{R}^n}_{\mathbbm{R}^n} (\lambda, \nu)$ と
+  $q^{\mathbbm{R}^n T}_{\mathbbm{R}^n} (\lambda, \nu)$が知られている関数。
+  上に記載された$\tilde{K}_{\lambda, \nu}^C, \tilde{K}_{\lambda, \nu}^P$対称性破れ作用素に対して似ている命題も成り立つ。
+\end{theorem}
+
+\begin{thebibliography}{Hör83}
+  \bibitem[H{\"o}r83]{hormander1983analysis}L.~H{\"o}rmander.
+  {\newblock}\tmtextit{The Analysis of Linear Partial Differential Operators:
+  Vol.: 1.: Distribution Theory and Fourier Analysis}.
+  {\newblock}Springer-Verlag, 1983.
+  
+  \bibitem[KS15]{kobayashi2015symmetry}T.~Kobayashi and B.~Speh.
+  {\newblock}Symmetry breaking for representations of rank one orthogonal
+  groups. {\newblock}\tmtextit{Memoirs of the American Mathematical Society},
+  238(1126), 2015.
+\end{thebibliography}
+
+\end{document}

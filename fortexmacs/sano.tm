@@ -1,6 +1,6 @@
-<TeXmacs|1.0.7.18>
+<TeXmacs|1.99.4>
 
-<style|article>
+<style|<tuple|article|japanese>>
 
 <\body>
   \<#3092\>\<#3081\>\<#3050\>\<#3063\>\<#3066\>=concerning
@@ -74,16 +74,16 @@
   </equation>
 
   <\enumerate>
-    <item>What is an ``equation''
+    <item>What is an \Pequation\Q
 
-    <item>What does it mean to ``solve''
+    <item>What does it mean to \Psolve\Q
   </enumerate>
 
   questions arise. Let's rephrase (\<#8A00\>\<#3044\>\<#63DB\>\<#3048\>\<#3066\>=\<#3044\>\<#3044\>\<#304B\>\<#3048\>\<#3066\>)
   them in different way.
 
   At about the same time as Spinoza, there lived a person called Tschirnhaus
-  -- he developed transformation theory for equations. In other words, let
+  \U he developed transformation theory for equations. In other words, let
 
   <\equation>
     y<rsub|j>=\<varphi\><rsub|j><around*|(|x|)>,<space|1em>j=1,\<ldots\>,n
@@ -107,7 +107,7 @@
   </equation>
 
   Then one can get solution to (1) from those of (3) and (1) and (3) can be
-  thought of as ``the same''.
+  thought of as \Pthe same\Q.
 
   Well (\<#3055\>\<#3066\>), finitely generated <math|k>-algebra
 
@@ -130,10 +130,3 @@
 
   In the language of schemes,
 </body>
-
-<\initial>
-  <\collection>
-    <associate|font|sys-japanese>
-    <associate|language|japanese>
-  </collection>
-</initial>
