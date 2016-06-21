@@ -1,0 +1,47 @@
+/*play with Gegenbauer poly's for a:odd*/
+texoutput : ".texput.tex"$
+texput(mylambda,"\\lambda")$
+texput(nu,"\\nu")$
+texput(lambdatilde,"\\tilde{\\lambda}")$
+texput(G,"\\Gamma")$
+/*tex(%,texoutput);*/
+
+N:0;
+a[0]:(mylambda-nu+N)/2;/*j+i*/
+a[1]:(1+mylambda-p-q+nu+N)/2;/*j*/
+a[2]:(mylambda+nu-q+N)/2;/*j+i*/
+a[3]:(1+b+mylambda+N)/2;/*j+i*/
+a[4]:(2-b+mylambda-q+N)/2;/*j+i*/
+a[5]:(mylambda+nu-q+N)/2;/*j*/
+
+poch(x,n):=product(x+i,i,0,n-1);
+myxdegree(expr):=x*diff(expr,x)/expr;
+mycoeff(expr):=substitute([x=1,y=1],expr);
+myydegree(expr):=y*diff(expr,y)/expr;
+F(i,j):=poch(a[0],i+j)*poch(a[1],j)*poch(a[2],i+j)/poch(a[3],i+j)/poch(a[4],i+j)/poch(a[5],j);
+norm:G(a[0])*G(a[1])*G(a[2])/G(a[3])/G(a[4])/G(a[5]);
+myplus(a,b):=G(a+b);
+
+myreplace1_inner(expr,i,lim,symbol):=block([],if i>=lim then expr else myreplace1_inner(substitute(G((symbol+2*i)/2)=
+2*G((symbol+2*i+2)/2)/(symbol+2*i),expr),i+1,lim,symbol) );
+myreplace1(expr,timesnum,symbol):=myreplace1_inner(expr,0,timesnum,symbol);
+
+load(facexp)$
+a:5;
+tex(a,texoutput);
+expand(factor(ultraspherical(a,p/2-1,X)));
+map(lambda([e],e*(1-y)^(a/2)/sqrt(1-x)),substitute(X=sqrt(1-x)/sqrt(1-y),%));
+expand(%);
+factor(map(lambda([e],mycoeff(e)*F(myxdegree(e),myydegree(e))),%));
+/*factor(myreplace1(myreplace1(norm*
+expand(%))),a/2,b+mylambda+N),a/2,1-b+mylambda-q+N)
+/(product(p-2+i,i,0,a-1)/(G(p+A-2)/G(p-2)))
+/(product((b+nu+2*i)/2,i,0,a/2-1)/(G((b+nu+A)/2)/G((b+nu)/2)))
+/(product((b-nu+q-1-2*i)/2,i,0,a/2-1)/(G((b-nu+q+1)/2)/G((b-nu+q+1-A)/2))));*/
+tex(%,texoutput);
+
+/*tex(2=tryout(2),texoutput);
+tex(4=tryout(4),texoutput);*/
+/*tex(6=tryout(6),texoutput);*/
+/*tex(8=tryout(8),texoutput);*/
+tex(factor(1-(a[0]+j+i)*(a[2]+j+i)/(a[3]+j+i)/(a[4]+j+i)),texoutput);

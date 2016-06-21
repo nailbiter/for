@@ -1,47 +1,61 @@
 <TeXmacs|1.99.4>
 
-<style|<tuple|article|american>>
+<style|<tuple|generic|american|mystyle>>
 
 <\body>
-  <section|report 45>
+  <section|report 46>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
-    Prepare for my Thursday presentation, send You slides before end of
-    Wednesday
-  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
-    Finish proving technical lemmas for functional identities (tue);
-  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
     Determine images of SBOs (thu, fri);
-  </cell>|<cell|<with|font-series|bold|not done>>>>>>
+  </cell>|<cell|<with|font-series|bold|not done> (but see below)>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>Delivered the talk on Thursday seminar
-    (<cite-detail|knapp2013lie|chapter X \PPrehomogeneous vector spaces\Q>)
+    <item>Computer experiments show that the following hypothesis holds:
+
+    <\hypo>
+      Assume <math|a\<in\>2\<bbb-Z\><rsub|\<geqslant\>0>,p\<in\>\<bbb-Z\><rsub|\<geqslant\>0>>.
+      Let <math|\<bbb-C\><around*|[|x,y|]>\<ni\>P<rsub|a><around*|(|x,y|)>\<assign\>C<rsup|p/2-1><rsub|a><around*|(|<sqrt|<frac|1-x|1-y>>|)><around*|(|1-y|)><rsup|a/2>>
+      and <math|\<varphi\>:\<bbb-C\><around*|[|x,y|]>\<rightarrow\>\<bbb-C\>>
+      linear defined as
+
+      <\equation*>
+        \<varphi\><around*|(|x<rsup|i>y<rsup|j>|)>=<frac|\<Gamma\>*<around*|(|j+<frac|a<rsub|1>|2>|)>*<space|0.17em>\<Gamma\>*<around*|(|j+i+<frac|a<rsub|0>|2>|)>*<space|0.17em>\<Gamma\>*<around*|(|<frac|-1+a<rsub|1>+p|2>+j+i|)>|\<Gamma\>*<around*|(|j+i+<frac|a<rsub|2>|2>|)>*<space|0.17em>\<Gamma\>*<around*|(|<frac|-1+a<rsub|1>+p|2>+j|)>*<space|0.17em>\<Gamma\>*<around*|(|<frac|a<rsub|0>+a<rsub|1>-a<rsub|2>+p|2>+j+i|)>>,
+      </equation*>
+
+      then
+
+      <\equation*>
+        \<varphi\><around*|(|P<rsub|a>|)>=<frac|<around*|(|-1|)><rsup|a/2>\<Gamma\><around*|(|<frac|a<rsub|0>|2>|)>*<space|0.17em>\<Gamma\><around*|(|<frac|a<rsub|1>|2>|)>*<space|0.17em>\<Gamma\>*<around*|(|-<frac|-2-a<rsub|0>+a<rsub|2>|2>|)>*<space|0.17em>\<Gamma\>*<around*|(|a+p-2|)>*<space|0.17em>\<Gamma\><around*|(|<frac|a<rsub|1>-a<rsub|2>+p+a|2>|)>|\<Gamma\><around*|(|a+1|)>\<Gamma\><around*|(|<frac|a+a<rsub|2>|2>|)>*<space|0.17em>\<Gamma\>*<around*|(|p-2|)>*<space|0.17em>\<Gamma\><around*|(|<frac|a<rsub|1>-a<rsub|2>+p|2>|)>*<space|0.17em>\<Gamma\><around*|(|<frac|a+a<rsub|0>+a<rsub|1>-a<rsub|2>+p|2>|)>*<space|0.17em>\<Gamma\>*<around*|(|-<frac|-2-a<rsub|0>+a<rsub|2>+a|2>|)>>
+      </equation*>
+    </hypo>
+
+    Similar hypothesis can be formulated for <math|a\<in\>2\<bbb-Z\>+1>.
+    Assuming this hypothes, one can give easy criterion on whether
+    <math|\<cal-H\><rsup|a><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|b><around*|(|\<bbb-S\><rsup|q>|)>>
+    is in the image of SBO (and, in principle, compute images of SBO
+    independent of results in Howe-Tan).
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Determine images of SBOs:
+    <item>Prove the hypothesis;
 
-    <\enumerate>
-      <item>Prove the auxiliary lemmas for even-even (tue)
-
-      <item>Prove the auxiliary lemmas for odd-odd (wed)
-
-      <item>Compute image of regular SBO (thu, fri)
-    </enumerate>
+    <item>Finish talk application for the conference of Japan Math Society in
+    September.
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>
 
   <\enumerate>
+    <item>Compute images of SBOs
+
     <item>Normalize <math|K<rsub|\<lambda\>,\<nu\>><rsup|\<bbb-R\><rsup|n>>>
     with help of <math|K>-finite vectors
 
@@ -59,20 +73,14 @@
     Questions
   </with>
 
-  (empty)
+  <\enumerate>
+    <item>Could You give any suggestions about proving the hypothesis?
+  </enumerate>
 
   <paragraph|Comments>
 
-  If you could take some time to talk to me on Thursday or Friday, I would be
-  very happy.
-
-  <\bibliography|bib|alpha|report.bib>
-    <\bib-list|Kna13>
-      <bibitem*|Kna13><label|bib-knapp2013lie>Anthony<nbsp>W Knapp.
-      <newblock><with|font-shape|italic|Lie groups beyond an introduction>,
-      volume 140. <newblock>Birkhäuser Basel, 2013.
-    </bib-list>
-  </bibliography>
+  I'm missed the last week report. I extremely apologize for this and will
+  try to get more concentrated.
 </body>
 
 <\initial>
@@ -99,12 +107,9 @@
 
 <\auxiliary>
   <\collection>
-    <\associate|bib>
-      knapp2013lie
-    </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>report
-      44> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      46> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
