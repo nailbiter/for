@@ -4,14 +4,15 @@ texput(mylambda,"\\lambda")$
 texput(nu,"\\nu")$
 texput(lambdatilde,"\\tilde{\\lambda}")$
 texput(G,"\\Gamma")$
+texput(A,"a")$
 /*tex(%,texoutput);*/
 
 N:0;
 a[0]:(mylambda-nu+N)/2;/*j+i*/
 a[1]:(1+mylambda-p-q+nu+N)/2;/*j*/
 a[2]:(mylambda+nu-q+N)/2;/*j+i*/
-a[3]:(1+b+mylambda+N)/2;/*j+i*/
-a[4]:(2-b+mylambda-q+N)/2;/*j+i*/
+a[3]:(1+b+mylambda+N)/2;/*j+i*//*diff*/
+a[4]:(2-b+mylambda-q+N)/2;/*j+i*//*diff*/
 a[5]:(mylambda+nu-q+N)/2;/*j*/
 
 poch(x,n):=product(x+i,i,0,n-1);
@@ -31,14 +32,28 @@ a:5;
 tex(a,texoutput);
 expand(factor(ultraspherical(a,p/2-1,X)));
 map(lambda([e],e*(1-y)^(a/2)/sqrt(1-x)),substitute(X=sqrt(1-x)/sqrt(1-y),%));
+%*x;
 expand(%);
 factor(map(lambda([e],mycoeff(e)*F(myxdegree(e),myydegree(e))),%));
-/*factor(myreplace1(myreplace1(norm*
-expand(%))),a/2,b+mylambda+N),a/2,1-b+mylambda-q+N)
-/(product(p-2+i,i,0,a-1)/(G(p+A-2)/G(p-2)))
-/(product((b+nu+2*i)/2,i,0,a/2-1)/(G((b+nu+A)/2)/G((b+nu)/2)))
-/(product((b-nu+q-1-2*i)/2,i,0,a/2-1)/(G((b-nu+q+1)/2)/G((b-nu+q+1-A)/2))));*/
 tex(%,texoutput);
+%*norm;
+myreplace1(%,(a-1)/2,1+b+mylambda);
+myreplace1(%,(a-1)/2,2-b+mylambda-q);
+factor(%);
+%/(product(p-2+i,i,0,a-1)/(G(p+A-2)/G(p-2)));
+%/(product((b+nu+1+2*i)/2,i,0,(a-1)/2-1)/(G((b+nu+1+(A-1))/2)/G((b+1+nu)/2)));
+%/(product((b-nu+q-2*i)/2,i,1,(a-1)/2)/(G((b-nu+q)/2)/G((b-nu+q-(A-1))/2)));
+substitute(factorial(a)=G(A+1),%);
+substitute(a+b+mylambda=A+b+mylambda,%);
+substitute(-a-1+b-mylambda+q=-A-1+b-mylambda+q,%);
+%*(-1)^((a-1)/2)*(-1)^((A-1)/2);
+expr:%;
+tex(expr,texoutput);
+
+ruls:solve([A[0]=a[0]*2,A[1]=a[1]*2,A[2]=a[4]*2],[mylambda,nu,q]);
+tex(ruls,texoutput);
+tex(substitute(ruls,myplus(a[0],i+j)*myplus(a[1],j)*myplus(a[2],i+j)/myplus(a[3],i+j)/myplus(a[4],i+j)/myplus(a[5],j)),texoutput);
+tex(substitute(ruls,expr),texoutput);
 
 /*tex(2=tryout(2),texoutput);
 tex(4=tryout(4),texoutput);*/

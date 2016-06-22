@@ -1,0 +1,18 @@
+/*playing with gegenbauer (3)*/
+texoutput : ".texput.tex"$
+texput(mylambda,"\\lambda")$
+texput(nu,"\\nu")$
+texput(lambdatilde,"\\tilde{\\lambda}")$
+texput(G,"\\Gamma")$
+/*tex(%,texoutput);*/
+
+/*Podd(a,p):=*/
+Peven(k,p):=expand(map(lambda([e],e*(1-y)^k),substitute(X=sqrt(1-x)/sqrt(1-y),expand(factor(ultraspherical(2*k,p/2-1,X))))));
+Podd(k,p):=expand(map(lambda([e],e*sqrt(1-y)*(1-y)^k/sqrt(1-x)),substitute(X=sqrt(1-x)/sqrt(1-y),expand(factor(ultraspherical(2*k+1,p/2-1,X))))));
+
+tex(Peven(1,p),texoutput);
+tex(Podd(1,p),texoutput);
+tex(Peven(2,p),texoutput);
+tex(Podd(2,p),texoutput);
+tex(Peven(3,p),texoutput);
+tex(Podd(3,p),texoutput);
