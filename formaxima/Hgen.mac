@@ -4,15 +4,30 @@ texput(mylambda,"\\lambda")$
 texput(nu,"\\nu")$
 texput(lambdatilde,"\\tilde{\\lambda}")$
 texput(G,"\\Gamma")$
+texput(A,"a");
 /*tex(%,texoutput);*/
+
+N:0;
+a[0]:(A[1]-p)/2;/*j*/
+a[1]:A[0]/2;/*j+i*/
+a[2]:(-1+A[1])/2;/*j+i*/
+a[3]:A[2]/2;/*j+i*/
+a[4]:(-1+A[1])/2;/*j*/
+a[5]:(2+A[0]+A[1]-A[2])/2;/*j+i*/
+
+poch(x,n):=product(x+i,i,0,n-1);
+myxdegree(expr):=x*diff(expr,x)/expr;
+mycoeff(expr):=substitute([x=1,y=1],expr);
+myydegree(expr):=y*diff(expr,y)/expr;
+F(i,j):=poch(a[0],j)*poch(a[1],j+i)*poch(a[2],i+j)/poch(a[3],i+j)/poch(a[4],j)/poch(a[5],j+i);
+norm:G(a[0])*G(a[1])*G(a[2])/G(a[3])/G(a[4])/G(a[5]);
+myplus(a,b):=G(a+b);
+mymap(poly):=factor(map(lambda([e],mycoeff(e)*F(myxdegree(e),myydegree(e))),expand(poly)));
 
 /*Podd(a,p):=*/
 Peven(k,p):=expand(map(lambda([e],e*(1-y)^k),substitute(X=sqrt(1-x)/sqrt(1-y),expand(factor(ultraspherical(2*k,p/2-1,X))))));
 Podd(k,p):=expand(map(lambda([e],e*sqrt(1-y)*(1-y)^k/sqrt(1-x)),substitute(X=sqrt(1-x)/sqrt(1-y),expand(factor(ultraspherical(2*k+1,p/2-1,X))))));
 
-tex(Peven(1,p),texoutput);
-tex(Podd(1,p),texoutput);
-tex(Peven(2,p),texoutput);
-tex(Podd(2,p),texoutput);
-tex(Peven(3,p),texoutput);
-tex(Podd(3,p),texoutput);
+for i:1 thru 6 do tex(i=mymap((y-x)^i),texoutput)$
+tex(norm,texoutput);
+tex(mymap((y-x)^3*(1-y)^3),texoutput)$
