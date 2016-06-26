@@ -83,6 +83,38 @@ function displayQuestionTI(question,center,buttonContainer,callMeBack,questionTe
     buttonContainer.insertBefore(inputText,buttonContainer.firstChild);
 }
 
+function displayQuestionBS(question,center,buttonContainer,callMeBack,questionText)
+{
+    console.log("\t"+question.answers.size);
+    shuffle(question.answers);
+    var answersSize = question.select;
+    var buttonSubmit = makeButtonWithTextAndOnClick("submit",null);
+    var inputSelect = document.createElement("select");
+    swapIn(question.answers,question.answers.indexOf(question.answer),answersSize);
+    console.log("==============================");
+    for( var i = 0; i < answersSize; i++ )
+    {
+        var option = document.createElement("option");
+        option.text = question.answers[i];
+        console.log(question.answers[i]);
+        inputSelect.appendChild(option);
+    }
+
+    buttonSubmit.onclick = function()
+    {
+        var score = {};
+        score.maxScore = question.hasOwnProperty("maxScore") ? question.maxScore : 1.0;
+        if( question.answers[inputSelect.selectedIndex] == question.answer )
+            score.curScore = score.maxScore;
+        else
+            score.curScore = 0;
+        callMeBack(score);
+    }
+
+    buttonContainer.insertBefore(buttonSubmit,buttonContainer.firstChild);
+    buttonContainer.insertBefore(inputSelect,buttonContainer.firstChild);
+}
+
 function displayQuestionSI(question,center,buttonContainer,callMeBack,questionText)
 {
     console.log("\t"+question.answers.size);

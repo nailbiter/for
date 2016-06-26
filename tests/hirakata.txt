@@ -1,0 +1,22 @@
+# vim: set ft=fc_conf:
+#first section - skip_mode: (rand,seq,adapt)+timing - empty so far
+{
+"selectionMode" : "shuff",
+"generators" : [
+{ "tags" : ["self check"], "from" : 0, "to" : 1, "type" : "sc", "enabled" : true,"auxText" : "tap on a picture to see the chinese translation"},
+{ "tags" : ["type in"], "from" : 0, "to" : 1, "type" : "ti", "enabled" : true,"auxText" : "type the word in reverse"}
+],
+"dataitems" : [
+####
+{ "items" : ["1+1=?", "2"], "tags" : ["select", "tag"]},
+{ "items" : ["2+2=?", "4"], "tags" : ["select", "tag"]},
+{ "items" : ["3+3=?", "6"], "tags" : ["select", "tag"]},
+#
+{ "items" : ["paradero", "oredarap"], "tags" : ["type in", "tag"]},
+{ "items" : ["tango", "ognat"], "tags" : ["type in", "tag"]},
+{ "items" : ["melange", "egnalem"], "tags" : ["type in", "tag"]},
+#
+{ "items" : ["table", "桌"], "tags" : ["self check", "tag"]},
+{ "items" : ["chair", "椅子"], "tags" : ["self check", "tag"]},
+{ "items" : ["apple", "蘋果"], "tags" : ["self check", "tag"]}
+]}

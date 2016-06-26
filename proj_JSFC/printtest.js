@@ -37,7 +37,7 @@ function print_test_continue()
     {
         if( !test.generators[i].enabled || test.generators[i].type == "meta")
             continue;
-        if( test.generators[i].type == "si" )
+        if( test.generators[i].type == "si" || test.generators[i].type == "bs")
             test.generators[i].answers = [];
         var qs = [];
         for( var k = 0; k < test.dataitems.length; k++ )
@@ -211,7 +211,7 @@ function show_generators(generators,selectionModeObj,test,grade)
                 if( x.checked )
                 {
                     console.log("I was before add with "+JSON.stringify(generators[i]));
-                    if( generators[i].type == "si" )
+                    if( generators[i].type == "si" || generators[i].type == "bs")
                         generators[i].answers = [];
                     for( var k = 0; k < test.dataitems.length; k++ )
                     {
@@ -296,7 +296,18 @@ function makeQuestion(generator, dataItem,dataItemIndex)
         question.auxText = generator.auxText;
     question.type = generator.type;
 
-    var siRegexp = /^si[0-9]*$/;
+    var bsRegexp = /^bs[0-9]*$/;
+    if( bsRegexp.test(generator.type) )
+    {
+        if( !generator.hasOwnProperty("answers") )
+            generator.answers = [];
+        generator.answers.push(dataItem.items[generator.to]);
+        question.answers = generator.answers;
+        question.type = "bs";
+        question.select = (generator.type == "bs") ? 0 : parseInt(generator.type.substr(2));
+    }
+
+    var siRegexp = /^si[0-9]+$/;
     if( siRegexp.test(generator.type) )
     {
         if( !generator.hasOwnProperty("answers") )
@@ -304,7 +315,7 @@ function makeQuestion(generator, dataItem,dataItemIndex)
         generator.answers.push(dataItem.items[generator.to]);
         question.answers = generator.answers;
         question.type = "si";
-        question.select = (generator.type == "si") ? 0 : parseInt(generator.type.substr(2));
+        question.select = parseInt(generator.type.substr(2));
     }
 
     if( generator.type == "ti" ) {}
@@ -401,6 +412,9 @@ function displayNextQuestion(sm,questions,grade,fm)
 
     if( question.type == "si" )
         displayQuestionSI(question,center,buttonContainer,callMeBack,questionText)
+
+    if( question.type == "bs" )
+        displayQuestionBS(question,center,buttonContainer,callMeBack,questionText)
 }
 
 function show_questions(questions,fm,selectionModeObj,grade)
