@@ -88,31 +88,33 @@ function displayQuestionBS(question,center,buttonContainer,callMeBack,questionTe
     console.log("\t"+question.answers.size);
     shuffle(question.answers);
     var answersSize = question.select;
-    var buttonSubmit = makeButtonWithTextAndOnClick("submit",null);
-    var inputSelect = document.createElement("select");
+    var answerButtons  = document.createElement("div");
+    //var buttonSubmit = makeButtonWithTextAndOnClick("submit",null);
     swapIn(question.answers,question.answers.indexOf(question.answer),answersSize);
     console.log("==============================");
+    var fcn = function(val)
+    {
+        return function()
+        {
+            var score = {};
+            score.maxScore = question.hasOwnProperty("maxScore") ? question.maxScore : 1.0;
+            
+            if( question.answers[val] == question.answer )
+                score.curScore = score.maxScore;
+            else
+                score.curScore = 0;
+            callMeBack(score);
+        }
+    }
     for( var i = 0; i < answersSize; i++ )
     {
-        var option = document.createElement("option");
-        option.text = question.answers[i];
+        /*option.text = question.answers[i];
         console.log(question.answers[i]);
-        inputSelect.appendChild(option);
+        inputSelect.appendChild(option);*/
+        //buttonContainer.insertBefore(buttonSubmit,buttonContainer.firstChild);
+        answerButtons.appendChild(makeButtonWithTextAndOnClick(question.answers[i],fcn(i)));
     }
-
-    buttonSubmit.onclick = function()
-    {
-        var score = {};
-        score.maxScore = question.hasOwnProperty("maxScore") ? question.maxScore : 1.0;
-        if( question.answers[inputSelect.selectedIndex] == question.answer )
-            score.curScore = score.maxScore;
-        else
-            score.curScore = 0;
-        callMeBack(score);
-    }
-
-    buttonContainer.insertBefore(buttonSubmit,buttonContainer.firstChild);
-    buttonContainer.insertBefore(inputSelect,buttonContainer.firstChild);
+    buttonContainer.insertBefore(answerButtons,buttonContainer.childNodes[0]);
 }
 
 function displayQuestionSI(question,center,buttonContainer,callMeBack,questionText)
