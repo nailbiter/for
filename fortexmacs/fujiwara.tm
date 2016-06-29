@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.0.7.18>
 
 <style|generic>
 
@@ -57,8 +57,82 @@
   <math|<around*|{|e<rsup|t X>|}><rsub|t\<in\>\<bbb-R\>>> as well, hence
   <math|e<rsup|X>\<in\>G<around*|(|f|)>>. Conversely, if
   <math|Ad<around*|(|e<rsup|X>|)>f=f> for <math|X\<in\>\<frak-g\>>, then
-  <math|<around*|(|id-e<rsup|-X>|)><around*|(|\<frak-g\>|)>\<subset\>ker<around*|(|f|)>>,
-  </body>
+  <math|C\<assign\><around*|{|t\<in\>\<bbb-R\><mid|\|>Ad<around*|(|e<rsup|t
+  X>|)>f=f|}>> forms a closed additive subgroup of <math|\<bbb-R\>>, which
+  should be either equal to <math|\<bbb-R\>> (in which case we're done, as
+  then for every <math|t\<in\>\<bbb-R\>> we have <math|Ad<around*|(|e<rsup|t
+  X>|)>f=f> and taking derivative at <math|t=0> we have
+  <math|X\<in\>\<frak-h\>>) or is discrete. Assuming the latter (to arrive at
+  contradiction) we take minimal <math|t<rsub|0>\<gtr\>0> such that
+  <math|t<rsub|0>\<in\>C>. We then have for
+  <math|x\<assign\>Ad<rsup|\<ast\>><around*|(|e<rsup|t<rsub|0>X/2>|)>> and
+  hence <math|x f\<neq\>f>, but <math|x<rsup|2>f=f>, hence
+  <math|x<around*|(|x f-f|)>=-<around*|(|x f-f|)>> and assuming that
+  <math|f\<neq\>0> (otherwise the whole statement trivially holds) we have
+  <math|x=Ad<around*|(|e<rsup|t<rsub|0>X/2>|)>=exp<around*|(|ad<rsup|\<ast\>><around*|(|t<rsub|0>X/2|)>|)>\<in\>GL<around*|(|\<frak-g\><rsup|\<ast\>><rsub|\<bbb-C\>>|)>>
+  having eigenvalue -1 and hence (applying, for example, Jordan canonical
+  form for <math|ad<rsup|\<ast\>><around*|(|t<rsub|0>X/2|)>\<in\>\<frak-g\>\<frak-l\><around*|(|\<frak-g\><rsub|\<bbb-C\>><rsup|\<ast\>>|)>>)
+  we see that <math|ad<rsup|\<ast\>><around*|(|t<rsub|0>X/2|)>> has
+  eigenvalue of the form <math|i\<pi\><around*|(|1+2k|)>,k\<in\>\<bbb-Z\>>
+  and hence (as in arbitrary fixed basis for
+  <math|\<frak-g\><rsup|\<ast\>><rsub|\<bbb-C\>>> if
+  <math|ad<rsup|\<ast\>><around*|(|X|)>> for <math|X\<in\>\<frak-g\>> is
+  given by matrix <math|M>, then <math|ad<around*|(|X|)>> is given in
+  corresponding basis for <math|\<frak-g\><rsub|\<bbb-C\>>> by
+  <math|-M<rsup|\<ast\>>>) so does <math|ad<around*|(|X|)>\<in\>\<frak-g\>\<frak-l\><around*|(|\<frak-g\><rsub|\<bbb-C\>>|)>>.
+  Now, the latter contradicts theorem 1.4 from the class that says in
+  particular that <math|G> is exponentially solvable iff <math|\<frak-g\>> is
+  exponential (which means that for every <math|X\<in\>\<frak-g\>>,
+  <math|ad<around*|(|X|)>\<in\>\<frak-g\>\<frak-l\><around*|(|\<frak-g\><rsub|\<bbb-C\>>|)>>
+  has no purely imaginary nonzero eigenvalues).
+
+  <\problem>
+    Let <math|G=exp\<frak-g\>> be nilpo and <math|H<rsub|1,2>\<subset\>G>:
+    closed connected subgroups. Show that
+    <math|H<rsub|1>H<rsub|2>\<subset\>G> is closed.
+  </problem>
+
+  We first show that under the given assumptions on <math|G>, we have for
+  <math|H\<subset\>G> closed connected subgroup, that
+  <math|exp:Lie<around*|(|H|)>\<rightarrow\>H> is a diffeomorphism. Indeed,
+  the latter map is an open map (as it's a restriction of
+  <math|exp:Lie<around*|(|G|)>\<rightarrow\>G> to linear subspace) and closed
+  map (again, as restriction of <math|exp:Lie<around*|(|G|)>\<rightarrow\>G>),
+  hence it's image in <math|H> is open closed, and since (as
+  <math|H>:connected), <math|exp> is onto, 1-1 open map, hence
+  diffeomorphism. We now proceed with proving the statement.
+
+  We shall proceed by induction on dimension of <math|G>. In case of
+  one-dimensional nilpo group, it is necessary isomorphic to
+  <math|<around*|(|\<bbb-R\>,+|)>> and the statement is clear by inspection.
+  We assume therefore, that <math|dim G=n> and that the statement holds for
+  all nilpo groups, for which <math|exp> is diffeomorphism and whose
+  dimension is less than <math|n>. Now, as <math|\<frak-g\>> is nilpo, it has
+  nontrivial center and we can take its one-dimensional subspace
+  <math|\<frak-a\>>, which then will automatically become an ideal and hence
+  <math|A\<assign\>exp<around*|(|\<frak-a\>|)>\<simeq\>\<frak-a\>> is normal
+  subgroup of <math|G>. We then have that <math|G/A=:G<rprime|'>> of
+  dimension <math|n-1> is also nilpotent and
+  <math|exp:Lie<around*|(|G<rprime|'>|)>\<simeq\>\<frak-g\>/\<frak-a\>\<rightarrow\>G/A=G<rprime|'>>
+  is a diffeomorphism. Furthermore, denoting by
+  <math|H<rsub|1><rprime|'>,H<rsub|2><rprime|'>> and
+  <math|<around*|(|H<rsub|1>H<rsub|2>|)><rprime|'>> the images of
+  correspondingly <math|H<rsub|1>,H<rsub|2>> and <math|H<rsub|1>H<rsub|2>>
+  under the projection map <math|G\<rightarrow\>G/A>, we have that
+  <math|H<rsub|1,2><rprime|'>\<subset\>G<rprime|'>> are closed subgroups (in
+  particular, they are closed as <math|exp:Lie<around*|(|G<rprime|'>|)>\<rightarrow\>G<rprime|'>>
+  is diffeo and <math|Lie<around*|(|H<rsub|1,2><rprime|'>|)>=\<frak-h\><rsub|1,2>/\<frak-a\>>,
+  where <math|\<frak-h\><rsub|1,2>:=Lie<around*|(|H<rsub|1,2>|)>>, and hence
+  <math|H<rsub|1,2><rprime|'>\<simeq\>\<frak-h\><rsub|1,2>/\<frak-a\>>, and
+  the latter are linear subspaces, hence closed in
+  <math|\<frak-g\>/\<frak-a\>\<simeq\>Lie<around*|(|G<rprime|'>|)>>) that are
+  also connected (as continuous images of connected sets). Hence, induction
+  assumption implies that <math|H<rsub|1><rprime|'>H<rsub|2><rprime|'>> is
+  closed and, as direct check implies that
+  <math|H<rsub|1><rprime|'>H<rsub|2><rprime|'>=<around*|(|H<rsub|1>H<rsub|2>|)><rprime|'>>
+  we see that <math|<around*|(|H<rsub|1>H<rsub|2>|)><rprime|'>\<subset\>G<rprime|'>>
+  is closed. Now,\ 
+</body>
 
 <initial|<\collection>
 </collection>>
