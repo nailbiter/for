@@ -28,15 +28,14 @@ myreplace1_inner(expr,i,lim,symbol):=block([],if i>=lim then expr else myreplace
 myreplace1(expr,timesnum,symbol):=myreplace1_inner(expr,0,timesnum,symbol);
 
 load(facexp)$
-a:5;
+a:3;
 tex(a,texoutput);
 expand(factor(ultraspherical(a,p/2-1,X)));
 map(lambda([e],e*(1-y)^(a/2)/sqrt(1-x)),substitute(X=sqrt(1-x)/sqrt(1-y),%));
-%*x;
 expand(%);
 factor(map(lambda([e],mycoeff(e)*F(myxdegree(e),myydegree(e))),%));
-tex(%,texoutput);
-%*norm;
+eexpr:%*norm;
+eexpr;
 myreplace1(%,(a-1)/2,1+b+mylambda);
 myreplace1(%,(a-1)/2,2-b+mylambda-q);
 factor(%);
@@ -54,9 +53,4 @@ ruls:solve([A[0]=a[0]*2,A[1]=a[1]*2,A[2]=a[4]*2],[mylambda,nu,q]);
 tex(ruls,texoutput);
 tex(substitute(ruls,myplus(a[0],i+j)*myplus(a[1],j)*myplus(a[2],i+j)/myplus(a[3],i+j)/myplus(a[4],i+j)/myplus(a[5],j)),texoutput);
 tex(substitute(ruls,expr),texoutput);
-
-/*tex(2=tryout(2),texoutput);
-tex(4=tryout(4),texoutput);*/
-/*tex(6=tryout(6),texoutput);*/
-/*tex(8=tryout(8),texoutput);*/
-tex(factor(1-(a[0]+j+i)*(a[2]+j+i)/(a[3]+j+i)/(a[4]+j+i)),texoutput);
+tex(substitute(ruls,eexpr),texoutput);

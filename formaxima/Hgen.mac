@@ -38,7 +38,7 @@ tex(mymap((y-x)^3*(1-y)^3),texoutput)$*/
 
 Feven(a):=G(a+p-2)*G((a1-a2+a)/2)*(-1)^(a/2)/G(a+1)/G((a+a2)/2)/G((a1-a2)/2)/G((a+a0+a1-a2)/2)/G((2+a0-a-a2)/2);
 Fodd(a):=G(a+p-2)*G((a1-a2+a+1)/2)*(-1)^((a-1)/2)/G(a+1)/G((a+a2-1)/2)/G((a1-a2+2)/2)/G((a+a0+a1-a2+1)/2)/G((3+a0-a-a2)/2);
-(2*n+1)*Fodd(2*n+1)=(4*n-1+p)*Feven(2*n)-(2*n-3+p)*Fodd(2*n-1);
+(2*n+1)*Fodd(2*n+1)=((4*n-2+p)*Feven(2*n)-(2*n-3+p)*Fodd(2*n-1));
 substitute((2*n-2)/2=n-1,%);
 substitute((-1)^(n-1)=(-1)*(-1)^n,%);
 substitute((-1)^n=1,%);
@@ -51,5 +51,8 @@ substitute([gammahalfrule_minus(a2+2*n),G((a2+2*n-2)/2)=1],%);
 substitute([gammahalfrule_plus(a0+a1-a2+2*n),G((a0+a1-a2+2*n)/2)=1],%);
 substitute([gammahalfrule_plus(2+a0-a2-2*n),G((2+a0-a2-2*n)/2)=1],%);
 substitute([G((p+2*n-3)+2)=((p+2*n-3)+1)*G((p+2*n-3)+1),G((p+2*n-3)+1)=(p+2*n-3)*G((p+2*n-3))],%);substitute(G((p+2*n-3))=1,%);
-factor(%);
-tex(%,texoutput);
+substitute(-3+2*n+p=1,%);
+expr:%;
+
+tex(expr,texoutput);
+tex(factor(expr),texoutput);

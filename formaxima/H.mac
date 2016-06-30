@@ -48,7 +48,7 @@ myreplace1(expr,timesnum,symbol):=myreplace1_inner(expr,0,timesnum,symbol);
 
 load(facexp)$
 tryout(a):=factor(myreplace1(myreplace1(norm*factor(map(lambda([e],mycoeff(e)*F(myxdegree(e),myydegree(e))),
-expand(map(lambda([e],e*(1-y)^(a/2)),substitute(X=sqrt(1-x)/sqrt(1-y),expand(factor(ultraspherical(a,p/2-2,X)))))))),a/2,b+mylambda+N),a/2,1-b+mylambda-q+N)
+expand(map(lambda([e],e*(1-y)^(a/2)),substitute(X=sqrt(1-x)/sqrt(1-y),expand(factor(ultraspherical(a,p/2-1,X)))))))),a/2,b+mylambda+N),a/2,1-b+mylambda-q+N)
 /(product(p-2+i,i,0,a-1)/(G(p+A-2)/G(p-2)))
 /(product((b+nu+2*i)/2,i,0,a/2-1)/(G((b+nu+A)/2)/G((b+nu)/2)))
 /(product((b-nu+q-1-2*i)/2,i,0,a/2-1)/(G((b-nu+q+1)/2)/G((b-nu+q+1-A)/2))));
@@ -63,6 +63,7 @@ tex(substitute(ruls,b+mylambda),texoutput);*/
 substitute(ruls,myplus(a[0],i+j)*myplus(a[1],j)*myplus(a[2],i+j)/myplus(a[3],i+j)/myplus(a[4],i+j)/myplus(a[5],j));
 expand(%);combine(%);
 tex(%,texoutput);
+tex(2=factor(substitute(ruls,tryout(2))),texoutput);
 tex(4=factor(substitute(ruls,tryout(4))),texoutput);
 tex(6=factor(substitute(ruls,tryout(6))),texoutput);
 quit;
