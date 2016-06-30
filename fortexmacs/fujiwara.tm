@@ -1,4 +1,4 @@
-<TeXmacs|1.0.7.18>
+<TeXmacs|1.99.4>
 
 <style|generic>
 
@@ -89,7 +89,7 @@
   <\problem>
     Let <math|G=exp\<frak-g\>> be nilpo and <math|H<rsub|1,2>\<subset\>G>:
     closed connected subgroups. Show that
-    <math|H<rsub|1>H<rsub|2>\<subset\>G> is closed.
+    <math|H<rsub|2>H<rsub|1>\<subset\>G> is closed.
   </problem>
 
   We first show that under the given assumptions on <math|G>, we have for
@@ -105,34 +105,115 @@
   We shall proceed by induction on dimension of <math|G>. In case of
   one-dimensional nilpo group, it is necessary isomorphic to
   <math|<around*|(|\<bbb-R\>,+|)>> and the statement is clear by inspection.
-  We assume therefore, that <math|dim G=n> and that the statement holds for
-  all nilpo groups, for which <math|exp> is diffeomorphism and whose
-  dimension is less than <math|n>. Now, as <math|\<frak-g\>> is nilpo, it has
-  nontrivial center and we can take its one-dimensional subspace
-  <math|\<frak-a\>>, which then will automatically become an ideal and hence
-  <math|A\<assign\>exp<around*|(|\<frak-a\>|)>\<simeq\>\<frak-a\>> is normal
-  subgroup of <math|G>. We then have that <math|G/A=:G<rprime|'>> of
-  dimension <math|n-1> is also nilpotent and
-  <math|exp:Lie<around*|(|G<rprime|'>|)>\<simeq\>\<frak-g\>/\<frak-a\>\<rightarrow\>G/A=G<rprime|'>>
-  is a diffeomorphism. Furthermore, denoting by
-  <math|H<rsub|1><rprime|'>,H<rsub|2><rprime|'>> and
-  <math|<around*|(|H<rsub|1>H<rsub|2>|)><rprime|'>> the images of
-  correspondingly <math|H<rsub|1>,H<rsub|2>> and <math|H<rsub|1>H<rsub|2>>
-  under the projection map <math|G\<rightarrow\>G/A>, we have that
-  <math|H<rsub|1,2><rprime|'>\<subset\>G<rprime|'>> are closed subgroups (in
-  particular, they are closed as <math|exp:Lie<around*|(|G<rprime|'>|)>\<rightarrow\>G<rprime|'>>
-  is diffeo and <math|Lie<around*|(|H<rsub|1,2><rprime|'>|)>=\<frak-h\><rsub|1,2>/\<frak-a\>>,
-  where <math|\<frak-h\><rsub|1,2>:=Lie<around*|(|H<rsub|1,2>|)>>, and hence
-  <math|H<rsub|1,2><rprime|'>\<simeq\>\<frak-h\><rsub|1,2>/\<frak-a\>>, and
-  the latter are linear subspaces, hence closed in
-  <math|\<frak-g\>/\<frak-a\>\<simeq\>Lie<around*|(|G<rprime|'>|)>>) that are
-  also connected (as continuous images of connected sets). Hence, induction
-  assumption implies that <math|H<rsub|1><rprime|'>H<rsub|2><rprime|'>> is
-  closed and, as direct check implies that
-  <math|H<rsub|1><rprime|'>H<rsub|2><rprime|'>=<around*|(|H<rsub|1>H<rsub|2>|)><rprime|'>>
-  we see that <math|<around*|(|H<rsub|1>H<rsub|2>|)><rprime|'>\<subset\>G<rprime|'>>
-  is closed. Now,\ 
+  We also note that the statement is clearly true when <math|G> is abelian,
+  so in subsequent we assume it is not so. Now, let
+  <math|H<rsub|1,2>\<subset\>G> be closed connected subgroups and we can
+  assume that both are proper with <math|\<frak-h\><rsub|1,2>> being their
+  respective Lie subalgebras. We then have, by proposition <reference|1>,
+  that there is ideal <math|\<frak-g\><rprime|'>> of codimension 1 in
+  <math|\<frak-g\>> that contains <math|\<frak-h\><rsub|1>>. If it also
+  contains <math|\<frak-h\><rsub|2>>, we can apply inductive assumption to
+  finish the proof, so we assume it is not so. Hence, we have
+  <math|\<frak-h\><rsub|2>=\<frak-h\><rsub|2><rprime|'>\<oplus\>\<bbb-R\>X>
+  for <math|\<frak-h\><rsub|2><rprime|'>\<assign\>\<frak-h\><rsub|2>\<cap\>\<frak-g\><rprime|'>>
+  and <math|\<frak-g\>=\<frak-g\><rsub|0>\<oplus\>\<bbb-R\>X>. We also have
+  <math|H<rsub|2>=exp<around*|(|\<bbb-R\>X|)>H<rsub|2><rprime|'>>, where
+  <math|H<rsub|2><rprime|'>\<assign\>exp<around*|(|\<frak-h\><rsub|2><rprime|'>|)>>,
+  by proposition <reference|2> below, and similarly,
+  <math|G=exp<around*|(|\<bbb-R\>X|)>G<rprime|'>> for
+  <math|G<rprime|'>\<assign\>exp<around*|(|\<frak-g\><rprime|'>|)>> we
+  suppose that for <math|<around*|(|t<rsub|n>,h<rsub|n><rprime|'>,h<rsub|n>|)>\<in\>\<bbb-R\>\<times\>H<rsub|2><rprime|'>\<times\>H<rsub|1>>
+  <math|exp<around*|(|t<rsub|n>X|)>h<rsub|n><rprime|'>h<rsub|n>\<rightarrow\>exp<around*|(|t
+  <rsub|0>X|)>g<rprime|'>>. Now, as by proposition <reference|2>, the map
+  <math|G=exp<around*|(|\<bbb-R\>X|)>G<rprime|'>\<ni\>exp<around*|(|t
+  X|)>g<rprime|'>\<mapsto\>t\<in\>\<bbb-R\>> is smooth (hence, continuos), we
+  have <math|t<rsub|n>\<rightarrow\>t<rsub|0>>, and we thus can conclude that
+  <math|h<rsub|n><rprime|'>h<rsub|n>\<rightarrow\>g<rprime|'>>. Now,
+  induction assumption kicks in to show that
+  <math|g<rprime|'>\<in\>H<rsub|2><rprime|'>H<rsub|1>> and we thus have
+  <math|exp<around*|(|t X|)>g<rprime|'>\<in\>exp<around*|(|\<bbb-R\>X|)>H<rsub|2><rprime|'>H<rsub|1>=H<rsub|2>H<rsub|1>>.
+
+  <\proposition>
+    <label|2>Suppose <math|G=exp\<frak-g\>> is nilpotent and
+    <math|\<frak-h\>\<subset\>\<frak-g\>> is an ideal of codimension 1, so
+    that <math|\<frak-g\>=\<frak-h\>\<oplus\>\<bbb-R\>X>. We than have that
+    for <math|H\<assign\>exp<around*|(|\<frak-h\>|)>> the map
+    <math|\<bbb-R\>X\<times\>H\<ni\><around*|(|\<alpha\>X,h|)>\<mapsto\>exp<around*|(|\<alpha\>X|)>h\<in\>G>
+    is a Lie group isomorphism, with <math|\<bbb-R\>X\<times\>H> given the
+    semi-direct group structure (with <math|\<bbb-R\>X\<curvearrowright\>H>
+    by adjoint). Hence, in particular, the latter map is a diffeomorphism.
+  </proposition>
+
+  <\proof>
+    The fact that given map is a group homomorphism is clear by inspection.
+    Moreover, map is easily seen to be 1-1. Moreover, it is an open map (be
+    shifting from left with element of <math|exp<around*|(|\<bbb-R\>X|)>> and
+    from right we element of <math|H> it suffices to check this only at the
+    identity). Finally, the fact that map is onto is shown by induction on
+    <math|dim G> (induction step is provided by the observation that if
+    <math|\<frak-z\>>:center of <math|\<frak-g\>> {which should be non-empty}
+    has empty intersection with <math|\<frak-h\>>, we may assume
+    <math|X\<in\>\<frak-z\>> and then surjectiveness is clear by Lie algebra
+    considerations, while in opposite case we may divide out by
+    <math|exp<around*|(|\<frak-h\>\<cap\>\<frak-z\>|)>>, so to reduce the
+    dimension of <math|G>).
+  </proof>
+
+  <\proposition>
+    <label|1>Let <math|\<frak-g\>> be nilpotent Lie algebra and
+    <math|\<frak-h\>\<subset\>\<frak-g\>>: proper subalgebra. Then, there is
+    ideal of codimension 1 in <math|\<frak-g\>> that contains
+    <samp|<math|\<frak-h\>>.>
+  </proposition>
+
+  <\proof>
+    Proposition <reference|3> below implies that we only need to find a
+    subalgebra of codimension 1, that contains <math|\<frak-h\>>. We now
+    proceed by induction on <math|dim\<frak-g\>-dim\<frak-h\>>, the case of
+    it being equal to 1 being handled by proposition <reference|3>. For
+    <math|\<frak-h\>> we can consider <math|N<rsub|\<frak-g\>><around*|(|\<frak-h\>|)>\<assign\><around*|{|X\<in\>\<frak-g\><mid|\|>ad<around*|(|X|)>\<frak-h\>\<subset\>\<frak-h\>|}>>,
+    which is a subalgebra properly containing <math|\<frak-h\>> (this follows
+    from Engel's theorem applied to <math|\<frak-h\>\<curvearrowright\>\<frak-g\>/\<frak-h\>>).
+    Now, if <math|N<rsub|\<frak-g\>><around*|(|\<frak-h\>|)>=\<frak-g\>>,
+    that is <math|\<frak-h\>> is an ideal, we can let
+    <math|\<pi\>:\<frak-g\>\<rightarrow\>\<frak-g\>/\<frak-h\>> be projection
+    map, and considering composition series of nilpotent Lie algebra
+    <math|\<frak-g\>/\<frak-h\>>, take ideal
+    <math|\<frak-a\>\<subset\>\<frak-g\>/\<frak-h\>> of codimension 1. The
+    <math|\<pi\><rsup|-1><around*|(|\<frak-a\>|)>> will then be the required
+    ideal. Conversely, if <math|N<rsub|\<frak-g\>><around*|(|\<frak-h\>|)>\<neq\>\<frak-g\>>,
+    we are done by inductive assumption.
+  </proof>
+
+  <\proposition>
+    <label|3>Let <math|\<frak-g\>> be nilpotent Lie algebra and
+    <math|\<frak-h\>\<subset\>\<frak-g\>>: subalgebra of codimension 1. Then
+    <math|\<frak-h\>> is an ideal.
+  </proposition>
+
+  <\proof>
+    Suppose this is not so, so we have <math|\<frak-h\>\<oplus\>\<bbb-R\>X=\<frak-g\>>.
+    We then have for <math|H\<in\>\<frak-h\>> that
+    <math|<around*|[|H,X|]>=H<rprime|'>+\<alpha\><around*|(|H|)>X>, where
+    <math|H<rprime|'>\<in\>\<frak-h\>> and
+    <math|H\<mapsto\>\<alpha\><around*|(|H|)>> is seen to be a linear map,
+    which (by assumption) is not trivial on <math|\<frak-h\>>. We then take
+    <math|H<rsub|0>> such that <math|\<alpha\><around*|(|H<rsub|0>|)>\<neq\>0>
+    and computations show that <math|ad<rsup|n><around*|(|H<rsub|0>|)>X=H<rsub|n><rprime|'>+\<alpha\><rsup|n><around*|(|H<rsub|0>|)>X>,
+    where <math|H<rsub|n><rprime|'>\<in\>\<frak-h\>>, hence in particular for
+    every <math|n\<gtr\>0> we have <math|ad<rsup|n><around*|(|H<rsub|0>|)>X\<neq\>0>.
+    As this contradicts the <math|\<frak-g\>>:nilpotent assumption, we're
+    done.
+  </proof>
 </body>
 
 <initial|<\collection>
 </collection>>
+
+<\references>
+  <\collection>
+    <associate|1|<tuple|3|?>>
+    <associate|2|<tuple|2|?>>
+    <associate|3|<tuple|4|?>>
+  </collection>
+</references>
