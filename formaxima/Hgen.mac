@@ -6,7 +6,7 @@ texput(lambdatilde,"\\tilde{\\lambda}")$
 texput(G,"\\Gamma")$
 texput(A,"a");
 /*tex(%,texoutput);*/
-set_tex_environment_default("\\begin{dmath}","\\end{dmath}");
+set_tex_environment_default("\\begin{dmath*}","\\end{dmath*}");
 
 N:0;
 a[0]:(A[1]-p)/2;/*j*/
@@ -25,6 +25,9 @@ norm:G(a[0])*G(a[1])*G(a[2])/G(a[3])/G(a[4])/G(a[5]);
 myplus(a,b):=G(a+b);
 mymap(poly):=factor(map(lambda([e],mycoeff(e)*F(myxdegree(e),myydegree(e))),expand(poly)));
 
+gammahalfrule_plus(x):=G((x+2)/2)=x/2*G(x/2);
+gammahalfrule_minus(x):=G(x/2)=(x-2)/2*G((x-2)/2);
+
 /*Podd(a,p):=*/
 Peven(k,p):=expand(map(lambda([e],e*(1-y)^k),substitute(X=sqrt(1-x)/sqrt(1-y),expand(factor(ultraspherical(2*k,p/2-1,X))))));
 Podd(k,p):=expand(map(lambda([e],e*sqrt(1-y)*(1-y)^k/sqrt(1-x)),substitute(X=sqrt(1-x)/sqrt(1-y),expand(factor(ultraspherical(2*k+1,p/2-1,X))))));
@@ -35,7 +38,7 @@ tex(mymap((y-x)^3*(1-y)^3),texoutput)$*/
 
 Feven(a):=G(a+p-2)*G((a1-a2+a)/2)*(-1)^(a/2)/G(a+1)/G((a+a2)/2)/G((a1-a2)/2)/G((a+a0+a1-a2)/2)/G((2+a0-a-a2)/2);
 Fodd(a):=G(a+p-2)*G((a1-a2+a+1)/2)*(-1)^((a-1)/2)/G(a+1)/G((a+a2-1)/2)/G((a1-a2+2)/2)/G((a+a0+a1-a2+1)/2)/G((3+a0-a-a2)/2);
-(2*n+1)*Fodd(2*n+1)=(4*n-1+p/2)*Feven(2*n)-(2*n-3+p)*Fodd(2*n-1);
+(2*n+1)*Fodd(2*n+1)=(4*n-1+p)*Feven(2*n)-(2*n-3+p)*Fodd(2*n-1);
 substitute((2*n-2)/2=n-1,%);
 substitute((-1)^(n-1)=(-1)*(-1)^n,%);
 substitute((-1)^n=1,%);
@@ -43,4 +46,10 @@ substitute(G((2+a1-a2)/2)=(a1-a2)/2*G((a1-a2)/2),%);
 substitute(G((a1-a2)/2)=1,%);
 substitute(G((2+a1-a2+2*n)/2)=G((a1-a2+2*n)/2)*((a1-a2+2*n)/2),%);
 substitute(G((a1-a2+2*n)/2)=1,%);
+substitute([G(2*n+2)=(2*n+1)*G(2*n+1),G(2*n+1)=2*n*G(2*n)],%);substitute(G(2*n)=1,%);
+substitute([gammahalfrule_minus(a2+2*n),G((a2+2*n-2)/2)=1],%);
+substitute([gammahalfrule_plus(a0+a1-a2+2*n),G((a0+a1-a2+2*n)/2)=1],%);
+substitute([gammahalfrule_plus(2+a0-a2-2*n),G((2+a0-a2-2*n)/2)=1],%);
+substitute([G((p+2*n-3)+2)=((p+2*n-3)+1)*G((p+2*n-3)+1),G((p+2*n-3)+1)=(p+2*n-3)*G((p+2*n-3))],%);substitute(G((p+2*n-3))=1,%);
+factor(%);
 tex(%,texoutput);
