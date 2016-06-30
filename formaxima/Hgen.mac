@@ -6,6 +6,7 @@ texput(lambdatilde,"\\tilde{\\lambda}")$
 texput(G,"\\Gamma")$
 texput(A,"a");
 /*tex(%,texoutput);*/
+set_tex_environment_default("\\begin{dmath}","\\end{dmath}");
 
 N:0;
 a[0]:(A[1]-p)/2;/*j*/
@@ -28,6 +29,18 @@ mymap(poly):=factor(map(lambda([e],mycoeff(e)*F(myxdegree(e),myydegree(e))),expa
 Peven(k,p):=expand(map(lambda([e],e*(1-y)^k),substitute(X=sqrt(1-x)/sqrt(1-y),expand(factor(ultraspherical(2*k,p/2-1,X))))));
 Podd(k,p):=expand(map(lambda([e],e*sqrt(1-y)*(1-y)^k/sqrt(1-x)),substitute(X=sqrt(1-x)/sqrt(1-y),expand(factor(ultraspherical(2*k+1,p/2-1,X))))));
 
-for i:1 thru 6 do tex(i=mymap((y-x)^i),texoutput)$
+/*for i:1 thru 6 do tex(i=mymap((y-x)^i),texoutput)$
 tex(norm,texoutput);
-tex(mymap((y-x)^3*(1-y)^3),texoutput)$
+tex(mymap((y-x)^3*(1-y)^3),texoutput)$*/
+
+Feven(a):=G(a+p-2)*G((a1-a2+a)/2)*(-1)^(a/2)/G(a+1)/G((a+a2)/2)/G((a1-a2)/2)/G((a+a0+a1-a2)/2)/G((2+a0-a-a2)/2);
+Fodd(a):=G(a+p-2)*G((a1-a2+a+1)/2)*(-1)^((a-1)/2)/G(a+1)/G((a+a2-1)/2)/G((a1-a2+2)/2)/G((a+a0+a1-a2+1)/2)/G((3+a0-a-a2)/2);
+(2*n+1)*Fodd(2*n+1)=(4*n-1+p/2)*Feven(2*n)-(2*n-3+p)*Fodd(2*n-1);
+substitute((2*n-2)/2=n-1,%);
+substitute((-1)^(n-1)=(-1)*(-1)^n,%);
+substitute((-1)^n=1,%);
+substitute(G((2+a1-a2)/2)=(a1-a2)/2*G((a1-a2)/2),%);
+substitute(G((a1-a2)/2)=1,%);
+substitute(G((2+a1-a2+2*n)/2)=G((a1-a2+2*n)/2)*((a1-a2+2*n)/2),%);
+substitute(G((a1-a2+2*n)/2)=1,%);
+tex(%,texoutput);
