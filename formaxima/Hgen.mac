@@ -6,9 +6,7 @@ texput(lambdatilde,"\\tilde{\\lambda}")$
 texput(G,"\\Gamma")$
 texput(A,"a");
 /*tex(%,texoutput);*/
-set_tex_environment_default("\\begin{dmath*}","\\end{dmath*}");
 
-N:0;
 a[0]:(A[1]-p)/2;/*j*/
 a[1]:A[0]/2;/*j+i*/
 a[2]:(-1+A[1])/2;/*j+i*/
@@ -82,3 +80,9 @@ expr:%;
 
 tex(expr,texoutput);
 tex(factor(expr),texoutput);
+
+norm:G(a0/2)*G((a1-p)/2)*G((2+a0-a2)/2)/G(p-2);
+Feven(a):=norm*G(a+p-2)*G((a1-a2+a)/2)*(-1)^(a/2)/G(a+1)/G((a+a2)/2)/G((a1-a2)/2)/G((a+a0+a1-a2)/2)/G((2+a0-a-a2)/2);
+Fodd(a):=norm*G(a+p-2)*G((a1-a2+a+1)/2)*(-1)^((a-1)/2)/G(a+1)/G((a+a2-1)/2)/G((a1-a2+2)/2)/G((a+a0+a1-a2+1)/2)/G((3+a0-a-a2)/2);
+tex(factor(psubst([a0=(mylambda-nu+N),a1=(1+mylambda-q+nu+N),a2=(-b+2+mylambda-q+N)],Fodd(a))),texoutput);
+tex(factor(psubst([a0=(mylambda-nu+N),a1=(1+mylambda-q+nu+N),a2=(-b+1+mylambda-q+N)],Feven(a))),texoutput);

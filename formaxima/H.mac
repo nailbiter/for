@@ -26,7 +26,6 @@ denom:(P2(a[3])*P2(a[4])*P2(a[5]));
 expr:expand(%);
 for i:0 thru 6 do tex(coeff(expr,N,i),texoutput);*/
 
-N:0;
 a[0]:(mylambda-nu+N)/2;/*j+i*/
 a[1]:(1+mylambda-p-q+nu+N)/2;/*j*/
 a[2]:(mylambda+nu-q+N)/2;/*j+i*/
@@ -64,9 +63,9 @@ substitute(ruls,myplus(a[0],i+j)*myplus(a[1],j)*myplus(a[2],i+j)/myplus(a[3],i+j
 expand(%);combine(%);
 tex(%,texoutput);
 
-tex(2=factor(substitute(ruls,tryout(2))),texoutput);
-tex(4=factor(substitute(ruls,tryout(4))),texoutput);
-tex(6=factor(substitute(ruls,tryout(6))),texoutput);
+tex(2=factor(tryout(2)),texoutput);
+tex(4=factor(tryout(4)),texoutput);
+tex(6=factor(tryout(6)),texoutput);
 quit;
 
 myadd(expr):=block([c:substitute([x=0,y=0],expr)],-c+factor(c));
