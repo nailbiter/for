@@ -50,7 +50,7 @@ expr:%;
 tex(expr,texoutput);
 
 ruls:solve([A[0]=a[0]*2,A[1]=a[1]*2,A[2]=a[4]*2],[mylambda,nu,q]);
-tex(ruls,texoutput);
+tex(substitute(ruls,[a[0],a[1],a[2],a[3],a[4],a[5]]),texoutput);
 tex(substitute(ruls,myplus(a[0],i+j)*myplus(a[1],j)*myplus(a[2],i+j)/myplus(a[3],i+j)/myplus(a[4],i+j)/myplus(a[5],j)),texoutput);
 tex(substitute(ruls,expr),texoutput);
 tex(substitute(ruls,eexpr),texoutput);

@@ -49,20 +49,20 @@ substitute(2*j+mylambda-n+nu+p+N=2*j+mylambda-q+nu+N,%);
 substitute((2*i+2*j+mylambda+nu+N)/2-nu=(2*i+2*j+mylambda-nu+N)/2,%);
 %/norm1;
 expand(%);combine(%);
-final_expr1:-%;
-tex(final_expr1,texoutput);
+final_expr1:-factor(%);
+tex("odd"=final_expr1,texoutput);
 
 norm;
 %/G((1-nu)/2)/G((mylambda+nu-n+1)/2)/G((mylambda-nu)/2);
 substitute(G(-nu-b+1)=G(1-(nu+b)/2)*G((1-nu-b)/2),%);
 substitute(G(1-nu)=G((1-nu)/2)*G(1-nu/2),%);
-tex(%,texoutput);
+tex("norm even"=%,texoutput);
 
 norm1;
 %/G((1-nu)/2)/G((mylambda+nu-n+1)/2)/G((mylambda-nu)/2);
 substitute(G(-nu-b+1)=G(1-(nu+b)/2)*G((1-nu-b)/2),%);
 substitute(G(1-nu)=G((1-nu)/2)*G(1-nu/2),%);
-tex(%,texoutput);
+tex("norm odd"=%,texoutput);
 
 final_expr*norm;
 substitute([i=0,j=0],%);
