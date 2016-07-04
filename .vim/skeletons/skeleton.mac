@@ -4,3 +4,4 @@ texput(nu,"\\nu")$
 texput(lambdatilde,"\\tilde{\\lambda}")$
 texput(G,"\\Gamma")$
 /*tex(%,texoutput);*/
+/*set_tex_environment_default("\\begin{dmath*}","\\end{dmath*}");*/

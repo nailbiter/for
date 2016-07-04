@@ -1,0 +1,17 @@
+texoutput : ".texput.tex"$
+texput(mylambda,"\\lambda")$
+texput(nu,"\\nu")$
+texput(lambdatilde,"\\tilde{\\lambda}")$
+texput(G,"\\Gamma")$
+/*tex(%,texoutput);*/
+/*set_tex_environment_default("\\begin{dmath*}","\\end{dmath*}");*/
+
+solve([a0=N+(p-1)/2+a,a1=(mylambda-nu)/2,a2=(mylambda+nu-p-q+1)/2,a3=(a+b+mylambda)/2,a4=(1+a-b+mylambda-q)/2,a5=1/2],[a,mylambda,nu,p,q]);
+tex(%,texoutput);
+
+N:1;
+poch(x,n):=product(x+i,i,0,n-1);
+F43(k,x,y,z,a,b,c):=sum(poch(-k,i)*poch(x,i)*poch(y,i)*poch(z,i)/poch(a,i)/poch(b,i)/poch(c,i)/i!,i,0,k);
+expr:F43(N,N+(p-1)/2+a,(mylambda-nu)/2,(mylambda+nu-p-q+1)/2,(a+b+mylambda)/2,(1+a-b+mylambda-q),1/2);
+tex(expr,texoutput);
+tex(factor(expr),texoutput);
