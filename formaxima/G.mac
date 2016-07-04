@@ -14,10 +14,16 @@ substitute((4-2*nu+2*A+2*B)/2=2-nu+A+B,%);
 expr:%;
 tex(expr,texoutput);
 
-expr1:-G(1-nu/2)*G(A+1)*G(B+A-nu+2)*G(B+1)/G((3-nu+2*A)/2)/G((4-nu+2*B)/2)/G((5-nu+2*A+2*B)/2);
+expr;
+psubst([nu=nu+1,B=B+1],%);
+%*nu/2/(B+1);
+substitute(G(nu/2)=
+/*expr1:-G(1-nu/2)*G(A+1)*G(B+A-nu+2)*G(B+1)/G((3-nu+2*A)/2)/G((4-nu+2*B)/2)/G((5-nu+2*A+2*B)/2);*/
+expr1:%;
 tex(expr1,texoutput);
 
-tex(expand(psubst([-nu=-nu-b,A=(q-2)/2+b,B=(2*i+mylambda+nu-q+N+2*j)/2-1],expr)),texoutput);
+tex("even"=factor(expand(psubst([-nu=-nu-b,A=(q-2)/2+b,B=(2*i+mylambda+nu-q+N+2*j)/2-1],expr))),texoutput);
+tex("odd"=factor(expand(psubst([nu=nu+b,A=(q-2)/2+b,B=(2*i+mylambda+nu-q+N+2*j)/2-1],expr1))),texoutput);
 
 norm:G(1-nu)*G((1-b-nu)/2)/G(-nu-b+1)/G((1+b-nu+q)/2);
 norm1:G(1-nu)*G(1-(b+nu)/2)/G(-nu-b+1)/G((1+b-nu+q)/2);
