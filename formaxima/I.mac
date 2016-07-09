@@ -4,7 +4,7 @@ texput(nu,"\\nu")$
 texput(lambdatilde,"\\tilde{\\lambda}")$
 texput(G,"\\Gamma")$
 /*tex(%,texoutput);*/
-/*set_tex_environment_default("\\begin{dmath*}","\\end{dmath*}");*/
+set_tex_environment_default("\\begin{dmath*}","\\end{dmath*}");
 
 A:(mylambda+nu-q+N)/2-1;
 B:(q-2)/2;
@@ -24,3 +24,12 @@ tex(a,texoutput);
 expand(factor(ultraspherical(a,(p-1)/2+N,sqrt(1-x))));
 mymap(%);
 tex(%,texoutput);
+
+/*kill(a);
+ruls:solve([(p-1)/2+a=x0,(mylambda-nu)/2=x1,(mylambda+nu-p-q+1)/2=x2,(1+a-b+mylambda-q)/2=x3],[p,q,mylambda,nu,a,b]);
+tex(ruls,texoutput);
+tex(expand(substitute(ruls,(a+b+mylambda)/2)),texoutput);
+
+substitute([a1=-N/2,a2=N/2+(p-1)/2+a,a3=(mylambda-nu)/2,a4=(mylambda+nu-p-q+1),b1=1/2,b2=(1+a-b+mylambda-q)/2,b3=(a+b+mylambda)/2],[b3-a1-a4-1,b2-a1-a3-1,a1+a2-b1-1,b3-a2-a3-1,b2-a2-a4-1,a3+a4-b1-1]/2);
+expand(%);
+tex(%,texoutput);*/
