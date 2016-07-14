@@ -46,3 +46,7 @@ substitute(n=p+q,%);
 expand(%);factor(%);
 substitute([q+p-mylambda+b+a-1=n-mylambda+b+a-1,q+p-2*mylambda=n-2*mylambda],%);
 tex(%,texoutput);
+
+substitute([A=b+q-1,B=mylambda-q/2,C=q/2],[C-A,C-B,C,C-A-B]);
+factor(%);
+tex(%,texoutput);
