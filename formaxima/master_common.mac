@@ -1,0 +1,9 @@
+texoutput : ".texput.tex"$
+texput(mylambda,"\\lambda")$
+texput(nu,"\\nu")$
+texput(lambdatilde,"\\tilde{\\lambda}")$
+texput(G,"\\Gamma")$
+/*tex(%,texoutput);*/
+/*set_tex_environment_default("\\begin{dmath*}","\\end{dmath*}");*/
+
+myexpr(N,A,B):=(G((1-N)/2)*G(A+1)*G(B+1)*G(B+A-N+2))/(G((2*A-N+3)/2)*G((2*B-N+3)/2)*G((2*B+2*A-N+4)/2));
