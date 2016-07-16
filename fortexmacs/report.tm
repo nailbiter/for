@@ -3,7 +3,7 @@
 <style|<tuple|generic|american|mystyle>>
 
 <\body>
-  <section|report 48>
+  <section|report 49>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
@@ -66,9 +66,8 @@
 
   <paragraph|Comments>
 
-  I was extremely slow for the last 2 weeks. The partial reason is that my PC
-  is too old, so I cannot use it and have to use the public machines, which
-  are often busy.
+  I am extremely sorry for sending this week report with such a delay (6
+  days). I will put effort to get back in my rhythm.
 </body>
 
 <\initial>
@@ -97,7 +96,7 @@
   <\collection>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      47> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      48> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|6fn>|Comments

@@ -50,10 +50,10 @@ expand(%);factor(%);
 substitute([q+p-mylambda+b+a-1=n-mylambda+b+a-1,q+p-2*mylambda=n-2*mylambda],%);
 tex(%,texoutput);
 
-myexpr(-(mylambda-n-a-b),(q-2+2*a)/2,(p-2+2*b)/2);
+myexpr(-(mylambda-n-a-b),(q-2+2*b)/2,(p-2+2*a)/2);
 expand(%);factor(%);
-%/G((2*b+p)/2);
-%/G((2*a+q)/2);
+%/G((2*b+q)/2);
+%/G((2*a+p)/2);
 substitute(2*mylambda-2*n+p+q=2*mylambda-n,%);
 substitute(a+b+mylambda-n+p+q=a+b+mylambda,%);
 %*G(n-mylambda+a+b)/G(n-mylambda);

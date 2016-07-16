@@ -1,0 +1,18 @@
+texoutput : ".texput.tex"$
+texput(mylambda,"\\lambda")$
+texput(nu,"\\nu")$
+texput(lambdatilde,"\\tilde{\\lambda}")$
+texput(G,"\\Gamma")$
+/*tex(%,texoutput);*/
+/*set_tex_environment_default("\\begin{dmath*}","\\end{dmath*}");*/
+
+load("master_common.mac");
+
+myexpr(-(mylambda-n-a-b),(q-2+2*b)/2,(p-2+2*a)/2);
+expand(%);factor(%);
+%/G((2*b+q)/2);
+%/G((2*a+p)/2);
+substitute(2*mylambda-2*n+p+q=2*mylambda-n,%);
+substitute(a+b+mylambda-n+p+q=a+b+mylambda,%);
+%*G(n-mylambda+a+b)/G(n-mylambda);
+tex(%,texoutput);
