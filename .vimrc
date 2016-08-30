@@ -5,6 +5,8 @@ filetype on
 :au BufNewFile *.html r ~/.vim/skeletons/skeleton.html
 :au BufNewFile *.mac r ~/.vim/skeletons/skeleton.mac
 
+au BufNewFile,BufRead *.wl set filetype=mma
+
 function! SKEL_spec()
 	0r /usr/share/vim/current/skeletons/skeleton.spec
 	language time en_US
