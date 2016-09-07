@@ -11,6 +11,7 @@ then
 fi
 
 test=`head -n1 "$1"`
+
 if [  $test = '%japanese' ]
 then
     latexmk -pdf -pdflatex='xelatex %O %S' -outdir=$tmp_dir $1
@@ -40,6 +41,14 @@ then
     fname=`echo $1 | cut -f1 -d'.'`
     echo -e "$tmp_dir/$fname.ps: $tmp_dir/$fname.dvi\n\tdvips -o $tmp_dir/$fname.ps $<" | make -f - $tmp_dir/$fname.ps
     echo $test
+    exit
+fi
+
+array=( $test )
+if [ ${array[0]} = '%make' ]
+then
+    make  -f ${array[1]}
+    echo make!
     exit
 fi
 
