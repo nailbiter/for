@@ -1,6 +1,6 @@
 #! /bin/sh
 echo "I'm alive!"
-tmp_dir=foraux
+tmp_dir=~/for/forlatex/foraux
 
 if [ -e Makefile ]
 then
@@ -13,7 +13,7 @@ fi
 test=`head -n1 "$1"`
 if [  $test = '%japanese' ]
 then
-    latexmk -pdf -pdflatex='xelatex %O %S' -outdir=foraux $1
+    latexmk -pdf -pdflatex='xelatex %O %S' -outdir=$tmp_dir $1
     echo jap
     exit
 fi
@@ -27,7 +27,7 @@ fi
 
 if [  $test = '%platex' ]
 then
-    latexmk -latex='platex %O %S' -outdir=foraux $1
+    latexmk -latex='platex %O %S' -outdir=$tmp_dir $1
     fname=`echo $1 | cut -f1 -d'.'`
     echo -e "*.pdf: *.dvi\n\tdvipdfmx $<" | make -C $tmp_dir  -f - $fname.pdf
     echo platex

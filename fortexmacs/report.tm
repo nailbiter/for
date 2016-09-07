@@ -57,6 +57,9 @@
 
     <item>Try to prove the theorem about <math|O<around*|(|p,q|)>> invariant
     polynomials
+
+    <item>See why 3f2 approach doesn't work for
+    <math|\<nu\>-q\<in\>2\<bbb-Z\>>.
   </enumerate>
 
   <\with|font-series|bold>
@@ -64,22 +67,14 @@
   </with>
 
   <\enumerate-numeric>
-    <item>You said that in the article <cite|KO2> the characteristic of the
-    <math|A<rsub|\<frak-q\>><around*|(|\<lambda\>|)>> module as a
-    submodule/quotient of <math|I<around*|(|\<lambda\>|)>> is given. Indeed,
-    I found it as a <cite-detail|KO2|fact 5.4>. Nevertheless, the
-    characterization is given only under the <math|p+q\<in\>2\<bbb-Z\>>
-    assumption. What is the corresponding characterization for
-    <math|p+q\<in\>2\<bbb-Z\>+1>?
+    <item>K-Speh typos in Gegenbauer (16.5) and (16.4)
 
-    <item>Am I right that it only suffices to compute the
-    <math|m<around*|(|\<pi\>,A<rsub|\<frak-q\><rprime|'>><around*|(|\<nu\>|)>|)>>
-    and <math|m<around*|(|A<rsub|\<frak-q\>><around*|(|\<lambda\>|)>,\<tau\>|)>>
-    where <math|\<pi\>> and <math|\<tau\>> are irreps of <math|G> and
-    <math|G<rprime|'>> respectively occuring as composition series of
-    <math|I<around*|(|\<bbb-C\>|)>> and <math|J<around*|(|\<bbb-C\>|)>>
-    respectively? I mean, is that true that I <with|font-shape|italic|do not>
-    need to compute <with|font-shape|italic|all> multiplicities?
+    <item>Idea with <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>>
+    and <math|J<around*|(|\<nu\>\<otimes\>\<varepsilon\>|)>>
+
+    <item>Okuda\ 
+
+    <item>When well You be absent?
   </enumerate-numeric>
 
   <paragraph|Comments>
@@ -120,11 +115,6 @@
 
 <\auxiliary>
   <\collection>
-    <\associate|bib>
-      KO2
-
-      KO2
-    </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
       51> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
