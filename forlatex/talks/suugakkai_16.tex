@@ -1,22 +1,20 @@
 %make suugakkai_16_aux/Makefile
-\documentclass[8pt,notes]{beamer}
+\documentclass[8pt,notes,notheorems]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 \usepackage{mystyle}
-\usepackage{geometry,amsmath,amssymb,bbm,xypic}
+\usepackage{geometry}
+\usepackage{amsmath}
 \usepackage{xeCJK}
 \usepackage{ruby}
-\includecomment{versiona}
 \usepackage{enumerate}
 \usepackage{setspace}
-\usepackage{amsmath,amssymb,bbm,xypic}
+\usepackage{xypic}
 \usepackage[all,cmtip]{xy}
-\usepackage{amsmath,amssymb,bbm,ulem,float,mystyle}
+\usepackage{bbm,ulem,float,mystyle}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{setspace}
-\usepackage{comment}
-%\excludecomment{versiona}
-\includecomment{versiona}
+\usepackage{tikz-cd}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \newcommand{\Sol}{\mathcal{S}\mbox{ol}}
@@ -44,6 +42,49 @@
 \newcommand{\Op}{\mbox{\normalfont Op}}
 \newcommand{\OpR}{\mbox{\it R}}
 
+\setbeamertemplate{theorem}[ams style]
+\setbeamertemplate{theorems}[numbered]
+
+\makeatletter
+    \ifbeamer@countsect
+      \newtheorem{theorem}{\translate{Theorem}}[section]
+    \else
+      \newtheorem{theorem}{\translate{Theorem}}
+    \fi
+    \newtheorem{corollary}{\translate{Corollary}}
+    \newtheorem{fact}{\translate{Fact}}
+    \newtheorem{lemma}{\translate{Lemma}}
+    \newtheorem{problem}{\translate{Problem}}
+    \newtheorem{solution}{\translate{Solution}}
+
+    \theoremstyle{definition}
+    \newtheorem{definition}{\translate{Definition}}
+    \newtheorem{definitions}{\translate{Definitions}}
+
+    \theoremstyle{example}
+    \newtheorem{example}{\translate{Example}}
+    \newtheorem{examples}{\translate{Examples}}
+
+
+    % Compatibility
+    \newtheorem{Beispiel}{Beispiel}
+    \newtheorem{Beispiele}{Beispiele}
+    \theoremstyle{plain}
+    \newtheorem{Loesung}{L\"osung}
+    \newtheorem{Satz}{Satz}
+    \newtheorem{Folgerung}{Folgerung}
+    \newtheorem{Fakt}{Fakt}
+    \newenvironment{Beweis}{\begin{proof}[Beweis.]}{\end{proof}}
+    \newenvironment{Lemma}{\begin{lemma}}{\end{lemma}}
+    \newenvironment{Proof}{\begin{proof}}{\end{proof}}
+    \newenvironment{Theorem}{\begin{theorem}}{\end{theorem}}
+    \newenvironment{Problem}{\begin{problem}}{\end{problem}}
+    \newenvironment{Corollary}{\begin{corollary}}{\end{corollary}}
+    \newenvironment{Example}{\begin{example}}{\end{example}}
+    \newenvironment{Examples}{\begin{examples}}{\end{examples}}
+    \newenvironment{Definition}{\begin{definition}}{\end{definition}}
+\makeatother
+
 \setCJKmainfont{Hiragino Mincho Pro}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \hypersetup{colorlinks=true,urlcolor=blue}
@@ -63,59 +104,22 @@
 \theoremstyle{mystyle}
 \newtheorem*{remark}{注.}
 
-%%\newenvironment<>{setting}{%
-%%  \begin{actionenv}#1%
-%%      \def\insertblocktitle{Setting}%
-%%      \par%
-%%      \mode<presentation>{%
-%%        \setbeamercolor{block title}{fg=white,bg=orange!20!black}
-%%       \setbeamercolor{block body}{fg=black,bg=olive!50}
-%%     }%
-%%    \usebeamertemplate{block begin}}
-%%{\par\usebeamertemplate{block end}\end{actionenv}}
-%%\newenvironment<>{notation}{%
-%%  \begin{actionenv}#1%
-%%      \def\insertblocktitle{記号}%
-%%      \par%
-%%      \mode<presentation>{%
-%%        \setbeamercolor{block title}{fg=white,bg=orange!20!black}
-%%       \setbeamercolor{block body}{fg=black,bg=olive!50}
-%%     }%
-%%    \usebeamertemplate{block begin}}
-%%{\par\usebeamertemplate{block end}\end{actionenv}}
-%%\newenvironment<>{cor}{%
-%%  \begin{actionenv}#1%
-%%      \def\insertblocktitle{系}%
-%%      \par%
-%%      \mode<presentation>{%
-%%        \setbeamercolor{block title}{fg=white,bg=orange!20!black}
-%%       \setbeamercolor{block body}{fg=black,bg=olive!50}
-%%     }%
-%%    \usebeamertemplate{block begin}}
-%%{\par\usebeamertemplate{block end}\end{actionenv}}
-
-%%\title{
-%%\author{レオンチエフ　アレックス}
-%%\institute{Tokyo U, Graduate School of Math Sciences}
-
-\title{Symmetry breaking operators of indefinite orthogonal groups $O(p,q)$\footnote[1]{copy available at \url{nailbiter.insomnia247.nl/kansai2016.pdf}}}
+\title{Symmetry breaking operators of indefinite orthogonal groups $O(p,q)$}
 
 % A subtitle is optional and this may be deleted
 
-\author{Alex~Leontiev\inst{1} \and Toshiyuki~Kobayashi\inst{2}}
-% - Give the names in the same order as the appear in the paper.
-% - Use the \inst{?} command only if the authors have different
-%   affiliation.
+\author{Toshiyuki~Kobayashi\inst{2} \and Alex~Leontiev\inst{1}}
 
 \institute[Tokyo U] % (optional, but mostly needed)
 {
   \inst{1}%
-  Graduate School of Math Sciences\\
-  Tokyo U
+  Graduate School of Mathematical Sciences\\
+  The University of Tokyo
   \and
   \inst{2}%
-  Graduate School of Math Sciences, IPMU\\
-  Tokyo U}
+  Graduate School of Mathematical Sciences, Kavli IPMU\\
+  The University of Tokyo
+  }
 % - Use the \inst command only if there are several affiliations.
 % - Keep it simple, no one is interested in your street address.
 
@@ -127,10 +131,33 @@
 \subject{Representation Theory}
 
 \begin{document}
+\section{Setting}
 \begin{frame}\titlepage\end{frame}
 
-\section{Problem Statement}
 \begin{frame}
+	\begin{setting}
+		%\xymatrixcolsep{5pc}
+		\xymatrix{
+			& \mathcal{L}_\lambda\mbox{ :conformal line bundle},\lambda\in\mathbb{C}\ar[d]\\
+			{\begin{array}{c}
+  		G=O(p+1,q+1)
+	\end{array}}	\ar@/^2pc/[r] &G/P\simeq (\Sp^p\times\Sp^q)/\left\{ \pm I \right\}\\
+	{\begin{array}{c}\bigcup\\P=MAN\end{array}}
+	\ar@/^2pc/[rd]^{\mbox{conformal transformations}}&\\
+	{\begin{array}{c}\bigcup\\M_+N=O(p,q)\ltimes \mathbb{R}^{p,q} \end{array}}\ar@/^2pc/[r]^{\mbox{isometries}}&
+	\mathbb{R}^{p,q}=\left( \mathbb{R}^{p+q},ds^2=dx_1^2+\ldots+dx_p^2-dx_{p+1}^2-\ldots-dx_{p+q}^2 \right)\ar@{^{(}->}[uu]
+	_{\mbox{conformal 
+	compactification}}
+		}
+
+		\vspace{1pc}
+		Similarly, for $G\supset G'\simeq O(p,q+1)$ we define $P'$ and $\mathcal{L}_{\nu}$ for $\nu\in\mathbb{C}$.
+
+		\vspace{1pc}
+		We let $I(\lambda):=C^\infty(G/P,\mathcal{L}_\lambda),J(\nu):=C^\infty(G'/P',\mathcal{L}_\nu)$. These are representations of $G$ and $G'$ respectively.
+	\end{setting}
+\end{frame}
+\begin{frame}<presentation:0>
 	\begin{setting}
 		\begin{enumerate}
 			\item 
@@ -176,6 +203,9 @@ $I(\lambda):=\{f\in C^\infty(G)\mid \forall h\in P,\;f(\cdot h)=\lambda(h) f(\cd
 with $G$-action by left multiplication, and similarly for $J(\nu)$.
 		\end{enumerate}
 	\end{setting}
+\end{frame}
+\section{Problem Statement}
+\begin{frame}
 	\begin{question}
 \begin{enumerate}
 \item Find the explicit basis for $\Hom_{G'}(I(\lambda),J(\nu))$.
@@ -184,32 +214,34 @@ with $G$-action by left multiplication, and similarly for $J(\nu)$.
 	\end{question}
 \end{frame}
 \begin{frame}
-\begin{theorem}
+	\begin{fact}[Kobyashi-Speh, 2015]
     The following diagram commutes:
     \vspace{-0.8cm}
 \begin{figure}[H]
-	\centerline{\xymatrixcolsep{5pc}\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\mathcal{S}}
-	&\left( I^{-\infty}(n-\lambda)\otimes\mathbb{C}_\nu \right)^{P'}
+	\centerline{
+		\xymatrixcolsep{5pc}
+		\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\mathcal{S}}
+		&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda}) \otimes\mathbb{C}_\nu \right)^{P'}
 	\ar[r]_{F\mapsto \supp(F)}\ar[d]^{\simeq}_{\mbox{rest}}
 	&2^{P'\backslash G/P}\\
 	&\sol\subset\mathcal{D}'(\R^{p,q})\ar[lu]^{\mbox{Op}}_{\simeq}&
-	}}
+	}
+}
 \end{figure}
-\end{theorem}
-\begin{theorem}
+\end{fact}
+\end{frame}
+\begin{frame}
 Note that $G$ acts on $\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}$ and on its quotient space
 $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
 \[
 	X:=G/P\simeq X^{p,q},\quad Y:=\mysetn{[\xi,\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\]
 	\[C:=\mysetn{[\xi,\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\quad\left\{ [0] \right\}:=\left\{ [1,0_{p+q},1] \right\}\]
+\begin{theorem}
 For $p>1$, the left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
   \begin{figure}[H]
 	  \vspace{-0.2cm}\hspace{2cm}
-    \xymatrixrowsep{0.1cm}\xymatrix{
-        &Y\ar@{-}[ld]\ar@{-}[rd]&&\\
-	X\ar@{-}[rd]&&Y\cap C\ar@{-}[ld]\ar@{-}[r]&\left\{ [0] \right\}\\
-	&C&&
-    }
+    \xymatrixrowsep{0.1cm}
+	\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&Y\cap C\ar@{-}[d]&\\&\{[0]\}&}
 \end{figure}
 \end{theorem}
 \end{frame}
@@ -217,6 +249,71 @@ For $p>1$, the left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
 	\begin{theorem}
 		We can construct the following families of SBOs which holomorphically depend on parameters:
 		\input{suugakkai_16_aux/table1.tex}
+	\end{theorem}
+\end{frame}
+\section{Classification of SBO}
+\begin{frame}
+	\begin{theorem}
+		We can find basis for $\Hom_{G'}(I(\lambda),J(\nu))$ for every $(\lambda,\nu)\in \mathbb{C}^2$. In particular, for $p>1$ we have
+  \begin{eqnarray}
+	  & \Hom_{G'}(I(\lambda),J(\nu))= \left\{
+    \begin{array}{ll}
+	    \mathbbm{C} {\tilde{\OpR}}_{\lambda, \nu}^{X} \oplus \mathbbm{C}
+      {\OpR}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in / /\cap 
+      \mid\mid\mid \\
+      \mathbbm{C} \OpR^X_{\lambda, \nu}, &
+      \mbox{\normalfont otherwise.}
+    \end{array} \right. &  \nonumber
+  \end{eqnarray}
+		\label{}
+	\end{theorem}
+\end{frame}
+\section{Spherical multiple}
+\begin{frame}
+	\begin{theorem}
+		Let $1_\lambda\in C^\infty(G/P,\mathcal{L}_\lambda)^K,1_\nu\in C^\infty(G'/P',\mathcal{L}_\nu)^{K'}$ be the spherical vectors. We then have
+	\[ \OpR^X_{\lambda, \nu} 1_{\lambda} = 2^{1 -
+     \lambda} \frac{\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
+     \Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
+     \frac{q - \nu + 1}{2} \right)} 1_{\nu}. \]
+	\end{theorem}
+\end{frame}
+\section{Residue theorems}
+\begin{frame}
+	\begin{theorem}
+		For $(\lambda,\nu)\in //$ and $l:=\frac{\nu-\lambda}{2}$ the following holds:
+  \[\OpR_{\lambda,\nu}^X  = 2^{1- \nu - 2 l} (- 1)^l l!
+	  \pi^{(n - 2) / 2} \Gamma^{-1}\left( \frac{\nu}{2} \right)
+     \sin\left( \frac{1+q-\nu}{2}\pi \right)
+     \OpR_{\lambda,\nu}^{ \left\{ 0 \right\} } ; \]
+	\end{theorem}
+\end{frame}
+\section{Functional identities}
+\begin{frame}
+	\begin{fact}[Knapp-Stein operator]
+		There is a nontrivial $G$-invariant operator $\tilde{\mathbb{T}_{\lambda}}:I(\lambda)\to I(n-\lambda)$ which holomorphically depends on $\lambda\in \mathbb{C}$.
+	\end{fact}
+	\begin{theorem}
+		Let $n':=n-1$. Then the following holds:
+\begin{eqnarray}
+	& \tilde{\mathbbm{T}}_{n - 1 - \nu} \circ \OpR^X_{\lambda,\nu}= q^{T\mathbbm{R}^n}_{\mathbbm{R}^n} (\lambda,
+  \nu) \OpR^X_{\lambda,\nu} &  \nonumber\\
+  & \OpR^X_{\lambda,\nu} \circ
+  \tilde{\mathbbm{T}}_{\lambda} = q^{\mathbbm{R}^n T}_{\mathbbm{R}^n}
+  (\lambda, \nu) \OpR^X_{\lambda,\nu} & 
+  \nonumber\\
+  & q^{\mathbbm{R}^n T}_{\mathbbm{R}^n} (\lambda, \nu) \assign \frac{2^{2
+  \lambda - n} \pi^{- n / 2}}{\Gamma \left( \frac{n - \lambda}{2} \right)}
+  \times \frac{\sin \left[ \pi \frac{p - \lambda + 1}{2} \right]}{\pi} \times
+  \left\{ \begin{array}{ll}
+    2^{1 - \lambda} \sqrt{\pi}, & n \in 2\mathbbm{Z}+ 1\\
+    \Gamma \left( \frac{\lambda - n / 2 + 1}{2} \right), & n / 2 + p \in
+    2\mathbbm{Z}\\
+    \Gamma \left( \frac{\lambda - n / 2}{2} \right), & n / 2 + p \in
+    2\mathbbm{Z}+ 1
+  \end{array} \right. &  \nonumber
+\end{eqnarray}
+		\label{}
 	\end{theorem}
 \end{frame}
 \end{document}
