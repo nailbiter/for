@@ -14,7 +14,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{setspace}
-\usepackage{tikz-cd}
+\usepackage{tikz-cd,array}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \newcommand{\Sol}{\mathcal{S}\mbox{ol}}
@@ -23,7 +23,7 @@
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\Co}{\mathbb{C}}
 \newcommand{\X}{\mathbb{X}}
-\renewcommand{\setminus}{-}
+\renewcommand{\setminus}{\backslash}
 \newcommand{\nin}{\not\in}
 \newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
 \newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
@@ -102,22 +102,22 @@
   	}
 \makeatother
 \theoremstyle{mystyle}
-\newtheorem*{remark}{注.}
+\newtheorem*{remark}{Remark.}
 
 \title{Symmetry breaking operators of indefinite orthogonal groups $O(p,q)$}
 
 % A subtitle is optional and this may be deleted
 
-\author{Toshiyuki~Kobayashi\inst{2} \and Alex~Leontiev\inst{1}}
+\author{Toshiyuki~Kobayashi\inst{1} \and \underline{Alex~Leontiev}\inst{2}}
 
 \institute[Tokyo U] % (optional, but mostly needed)
 {
   \inst{1}%
-  Graduate School of Mathematical Sciences\\
+  Graduate School of Mathematical Sciences, Kavli IPMU\\
   The University of Tokyo
   \and
   \inst{2}%
-  Graduate School of Mathematical Sciences, Kavli IPMU\\
+  Graduate School of Mathematical Sciences\\
   The University of Tokyo
   }
 % - Use the \inst command only if there are several affiliations.
@@ -131,30 +131,37 @@
 \subject{Representation Theory}
 
 \begin{document}
-\section{Setting}
+\section{}
 \begin{frame}\titlepage\end{frame}
 
 \begin{frame}
+		\newdir{:=}{{}}
 	\begin{setting}
 		%\xymatrixcolsep{5pc}
 		\xymatrix{
-			& \mathcal{L}_\lambda\mbox{ :conformal line bundle},\lambda\in\mathbb{C}\ar[d]\\
-			{\begin{array}{c}
+			& \mathcal{L}_\lambda\mbox{ :conformally equivariant line bundle},\lambda\in\mathbb{C}
+			\ar[d]\\
   		G=O(p+1,q+1)
-	\end{array}}	\ar@/^2pc/[r] &G/P\simeq (\Sp^p\times\Sp^q)/\left\{ \pm I \right\}\\
-	{\begin{array}{c}\bigcup\\P=MAN\end{array}}
-	\ar@/^2pc/[rd]^{\mbox{conformal transformations}}&\\
-	{\begin{array}{c}\bigcup\\M_+N=O(p,q)\ltimes \mathbb{R}^{p,q} \end{array}}\ar@/^2pc/[r]^{\mbox{isometries}}&
+		\ar@/^2pc/[r] &G/P\simeq (\Sp^p\times\Sp^q)/\left\{ \pm I \right\}\\
+		P=MAN\ar@{:=}[u]_{\hspace{-0.25cm}\bigcup}
+		\ar@/^2pc/[rd]^{{\begin{array}{c}\; \\\mbox{conformal transformations}\end{array}}}
+		%\mbox\newline oeueou}\vspace{0.8cm}}
+		&\\
+	M_+N=O(p,q)\ltimes \mathbb{R}^{p,q}
+	\ar@{:=}[u]_{\hspace{-0.25cm}\bigcup}
+	\ar@/^2pc/[r]^{\mbox{isometries}}&
 	\mathbb{R}^{p,q}=\left( \mathbb{R}^{p+q},ds^2=dx_1^2+\ldots+dx_p^2-dx_{p+1}^2-\ldots-dx_{p+q}^2 \right)\ar@{^{(}->}[uu]
 	_{\mbox{conformal 
 	compactification}}
+	\vspace{2cm}
 		}
-
-		\vspace{1pc}
-		Similarly, for $G\supset G'\simeq O(p,q+1)$ we define $P'$ and $\mathcal{L}_{\nu}$ for $\nu\in\mathbb{C}$.
-
-		\vspace{1pc}
-		We let $I(\lambda):=C^\infty(G/P,\mathcal{L}_\lambda),J(\nu):=C^\infty(G'/P',\mathcal{L}_\nu)$. These are representations of $G$ and $G'$ respectively.
+	\end{setting}
+	\begin{setting}
+		\[\begin{array}{ccc}
+		G:=O(p+1,q+1)&\curvearrowright &I(\lambda):=C^\infty(G/P,\mathcal{L}_\lambda)\\
+		\bigcup&&\\
+		G':=O(p,q+1)&\curvearrowright &J(\nu):=C^\infty(G'/P',\mathcal{L}_\nu)
+		\end{array}\]
 	\end{setting}
 \end{frame}
 \begin{frame}<presentation:0>
@@ -204,17 +211,26 @@ with $G$-action by left multiplication, and similarly for $J(\nu)$.
 		\end{enumerate}
 	\end{setting}
 \end{frame}
-\section{Problem Statement}
-\begin{frame}
+\begin{frame}{Problem Statement}
+	\begin{setting}
+		\[\begin{array}{ccc}
+		G:=O(p+1,q+1)&\curvearrowright &I(\lambda):=C^\infty(G/P,\mathcal{L}_\lambda)\\
+		\bigcup&&\\
+		G':=O(p,q+1)&\curvearrowright &J(\nu):=C^\infty(G'/P',\mathcal{L}_\nu)
+		\end{array}\]
+	\end{setting}
 	\begin{question}
 \begin{enumerate}
-\item Find the explicit basis for $\Hom_{G'}(I(\lambda),J(\nu))$.
-\item Find the properties of elements of $\Hom_{G'}(I(\lambda),J(\nu))$ (e.g. their images, kernels etc.)
+\item Construct the explicit basis for $\Hom_{G'}(I(\lambda),J(\nu))$.
+\item Find the properties of elements of $\Hom_{G'}(I(\lambda),J(\nu))$ (e.g. their images, functional equations etc.)
 \end{enumerate}
 	\end{question}
+	\begin{remark}
+		In \cite{kobayashi2015symmetry} the complete answer for these questions was obtained in the case $q=0$ (that is, $(G,G')=(O(n+1,1),O(n,1))$).
+	\end{remark}
 \end{frame}
 \begin{frame}
-	\begin{fact}[Kobyashi-Speh, 2015]
+	\begin{fact}[\cite{kobayashi2015symmetry}]
     The following diagram commutes:
     \vspace{-0.8cm}
 \begin{figure}[H]
@@ -234,14 +250,24 @@ with $G$-action by left multiplication, and similarly for $J(\nu)$.
 Note that $G$ acts on $\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}$ and on its quotient space
 $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
 \[
-	X:=G/P\simeq X^{p,q},\quad Y:=\mysetn{[\xi,\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\]
-	\[C:=\mysetn{[\xi,\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\quad\left\{ [0] \right\}:=\left\{ [1,0_{p+q},1] \right\}\]
-\begin{theorem}
-For $p>1$, the left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
+	X:=G/P\simeq X^{p,q},\quad Y:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\]
+	\[C:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\quad\left\{ [0] \right\}:=\left\{ [1,0_{p+q},1] \right\}\]
+\begin{theorem}[classification of closed $P'$-invariant subsets of $G/P$]
+The left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
   \begin{figure}[H]
-	  \vspace{-0.2cm}\hspace{2cm}
-    \xymatrixrowsep{0.1cm}
-	\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&Y\cap C\ar@{-}[d]&\\&\{[0]\}&}
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+	    \xymatrixrowsep{0.5pc}
+	    \xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&Y\cap C\ar@{-}[d]&\\&\{[0]\}&}
+	\caption{when $p>1$}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}{0.3\textwidth}
+	    \xymatrixrowsep{0.5pc}
+	{\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&\{[0]\}&}}
+	\caption{when $p=1$}
+    \end{subfigure}
 \end{figure}
 \end{theorem}
 \end{frame}
@@ -251,8 +277,7 @@ For $p>1$, the left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
 		\input{suugakkai_16_aux/table1.tex}
 	\end{theorem}
 \end{frame}
-\section{Classification of SBO}
-\begin{frame}
+\begin{frame}{Classification of SBO}
 	\begin{theorem}
 		We can find basis for $\Hom_{G'}(I(\lambda),J(\nu))$ for every $(\lambda,\nu)\in \mathbb{C}^2$. In particular, for $p>1$ we have
   \begin{eqnarray}
@@ -267,9 +292,12 @@ For $p>1$, the left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
   \end{eqnarray}
 		\label{}
 	\end{theorem}
+	\begin{corollary}
+		The space of symmetry breaking operators $\Hom_{G'}(I(\lambda),J(\nu))$ is one-dimensional for $(\lambda,\nu)$ outside
+		the discrete set $//\cap\mid\mid\mid$. When $(\lambda,\nu)\in//\cap\mid\mid\mid$, the space is two-dimensional.
+	\end{corollary}
 \end{frame}
-\section{Spherical multiple}
-\begin{frame}
+\begin{frame}{Spherical multiple}
 	\begin{theorem}
 		Let $1_\lambda\in C^\infty(G/P,\mathcal{L}_\lambda)^K,1_\nu\in C^\infty(G'/P',\mathcal{L}_\nu)^{K'}$ be the spherical vectors. We then have
 	\[ \OpR^X_{\lambda, \nu} 1_{\lambda} = 2^{1 -
@@ -277,21 +305,31 @@ For $p>1$, the left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
      \Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
      \frac{q - \nu + 1}{2} \right)} 1_{\nu}. \]
 	\end{theorem}
+	\begin{remark}
+		This result was previously obtained for $p=q=1$ case in \cite{clerc2011generalized}.
+	\end{remark}
 \end{frame}
-\section{Residue theorems}
-\begin{frame}
+\begin{frame}{Residue theorem}
 	\begin{theorem}
-		For $(\lambda,\nu)\in //$ and $l:=\frac{\nu-\lambda}{2}$ the following holds:
-  \[\OpR_{\lambda,\nu}^X  = 2^{1- \nu - 2 l} (- 1)^l l!
-	  \pi^{(n - 2) / 2} \Gamma^{-1}\left( \frac{\nu}{2} \right)
-     \sin\left( \frac{1+q-\nu}{2}\pi \right)
+		For $(\lambda,\nu)\in //$ the distribution $\left( \myabs{x_p}^{\lambda+\nu-n+1}/\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right) \right)\times
+		\left( \myabs{Q}^{-\nu}/\Gamma\left( \frac{1-\nu}{2} \right) \right)$ has the pole with the residue given by
+		\[\frac{ \frac{\myabs{x_p}^{\lambda+\nu-n+1}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2}\right) }\cdot
+			\frac{\myabs{Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2}\right)} }{\Gamma\left( \frac{\lambda-\nu}{2} \right)}
+			=\frac{ (- 1)^l l\pi^{(n - 2) / 2} !
+		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
+	\tilde{C}_{\nu - \lambda}^{\lambda - \frac{n
+  	- 1}{2}} ({\Delta}_{\mathbb{R}^{p-1,q}} {\delta}_{\mathbb{R}^{p+q-1}}, \delta (x_p))
+		\]
+		where $l:=\frac{\nu-\lambda}{2}$.
+		Hence taking $\Op(\cdot)$ on both sides
+  \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^l l\pi^{(n - 2) / 2} !
+		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
      \OpR_{\lambda,\nu}^{ \left\{ 0 \right\} } ; \]
 	\end{theorem}
 \end{frame}
-\section{Functional identities}
-\begin{frame}
+\begin{frame}{Functional identities}
 	\begin{fact}[Knapp-Stein operator]
-		There is a nontrivial $G$-invariant operator $\tilde{\mathbb{T}_{\lambda}}:I(\lambda)\to I(n-\lambda)$ which holomorphically depends on $\lambda\in \mathbb{C}$.
+		There is a nontrivial $G$-invariant operator $\tilde{\mathbb{T}}_{\lambda}:I(\lambda)\to I(n-\lambda)$ which holomorphically depends on $\lambda\in \mathbb{C}$.
 	\end{fact}
 	\begin{theorem}
 		Let $n':=n-1$. Then the following holds:
@@ -300,8 +338,11 @@ For $p>1$, the left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
   \nu) \OpR^X_{\lambda,\nu} &  \nonumber\\
   & \OpR^X_{\lambda,\nu} \circ
   \tilde{\mathbbm{T}}_{\lambda} = q^{\mathbbm{R}^n T}_{\mathbbm{R}^n}
-  (\lambda, \nu) \OpR^X_{\lambda,\nu} & 
-  \nonumber\\
+  (\lambda, \nu) \OpR^X_{\lambda,\nu} & \nonumber
+\end{eqnarray}
+\pause
+Here, for example
+\begin{eqnarray}
   & q^{\mathbbm{R}^n T}_{\mathbbm{R}^n} (\lambda, \nu) \assign \frac{2^{2
   \lambda - n} \pi^{- n / 2}}{\Gamma \left( \frac{n - \lambda}{2} \right)}
   \times \frac{\sin \left[ \pi \frac{p - \lambda + 1}{2} \right]}{\pi} \times
@@ -313,7 +354,10 @@ For $p>1$, the left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
     2\mathbbm{Z}+ 1
   \end{array} \right. &  \nonumber
 \end{eqnarray}
-		\label{}
 	\end{theorem}
+\end{frame}
+\begin{frame}
+	{\footnotesize\bibliographystyle{apalike}
+\bibliography{todai_master}}
 \end{frame}
 \end{document}
