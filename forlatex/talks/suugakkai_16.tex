@@ -18,7 +18,7 @@
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \newcommand{\Sol}{\mathcal{S}\mbox{ol}}
-\newcommand{\Hom}{\mbox{Hom}}
+\newcommand{\Hom}{\mbox{\normalfont Hom}}
 \newcommand{\D}{\mathcal{D}}
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\Co}{\mathbb{C}}
@@ -40,6 +40,7 @@
 \newcommand{\um}{-}
 \newcommand{\sol}{\mathcal{S}ol(\R^{p,q};\lambda,\nu)}
 \newcommand{\Op}{\mbox{\normalfont Op}}
+\newcommand{\Res}{\operatorname{Res}\displaylimits}
 \newcommand{\OpR}{\mbox{\it R}}
 
 \setbeamertemplate{theorem}[ams style]
@@ -226,19 +227,18 @@ with $G$-action by left multiplication, and similarly for $J(\nu)$.
 \end{enumerate}
 	\end{question}
 	\begin{remark}
-		In \cite{kobayashi2015symmetry} the complete answer for these questions was obtained in the case $q=0$ (that is, $(G,G')=(O(n+1,1),O(n,1))$).
+		In \cite{kobayashi2015symmetry} (published in Memoirs of AMS) the complete answer for these questions was obtained in the case $q=0$ (that is, $(G,G')=(O(n+1,1),O(n,1))$).
 	\end{remark}
 \end{frame}
 \begin{frame}
 	\begin{fact}[\cite{kobayashi2015symmetry}]
-    The following diagram commutes:
-    \vspace{-0.8cm}
+    Let $n:=p+q$. The following diagram commutes:
 \begin{figure}[H]
 	\centerline{
 		\xymatrixcolsep{5pc}
 		\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\mathcal{S}}
 		&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda}) \otimes\mathbb{C}_\nu \right)^{P'}
-	\ar[r]_{F\mapsto \supp(F)}\ar[d]^{\simeq}_{\mbox{rest}}
+	\ar[r]_-{F\mapsto \supp(F)}\ar[d]^{\simeq}_{\mbox{rest}}
 	&2^{P'\backslash G/P}\\
 	&\sol\subset\mathcal{D}'(\R^{p,q})\ar[lu]^{\mbox{Op}}_{\simeq}&
 	}
@@ -253,19 +253,19 @@ $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
 	X:=G/P\simeq X^{p,q},\quad Y:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\]
 	\[C:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\quad\left\{ [0] \right\}:=\left\{ [1,0_{p+q},1] \right\}\]
 \begin{theorem}[classification of closed $P'$-invariant subsets of $G/P$]
-The left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
+	The left $P'$-invariant closed subspaces of $G/P$ are as follows (numbers indicate codimension):\\
   \begin{figure}[H]
     \centering
-    \begin{subfigure}{0.3\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
 	    \xymatrixrowsep{0.5pc}
-	    \xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&Y\cap C\ar@{-}[d]&\\&\{[0]\}&}
+	    \xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rd]_1&&C\ar@{-}[ld]^1\\&Y\cap C\ar@{-}[dd]^{p+q-2}&\\&&\\&\{[0]\}&}
 	\caption{when $p>1$}
     \end{subfigure}
     ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
       %(or a blank line to force the subfigure onto a new line)
-    \begin{subfigure}{0.3\textwidth}
+    \begin{subfigure}[t]{0.3\textwidth}
 	    \xymatrixrowsep{0.5pc}
-	{\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&\{[0]\}&}}
+	    {\xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rddd]_{p+q-2}&&C\ar@{-}[lddd]^{p+q-2}\\&&\\&&\\&\{[0]\}&}}
 	\caption{when $p=1$}
     \end{subfigure}
 \end{figure}
@@ -290,11 +290,19 @@ The left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
       \mbox{\normalfont otherwise.}
     \end{array} \right. &  \nonumber
   \end{eqnarray}
+  Note that $//\cap\mid\mid\mid\subset\mathbb{C}^2$ is a countable discrete subset.
 		\label{}
 	\end{theorem}
 	\begin{corollary}
-		The space of symmetry breaking operators $\Hom_{G'}(I(\lambda),J(\nu))$ is one-dimensional for $(\lambda,\nu)$ outside
-		the discrete set $//\cap\mid\mid\mid$. When $(\lambda,\nu)\in//\cap\mid\mid\mid$, the space is two-dimensional.
+  \begin{eqnarray}
+	  & \dim\Hom_{G'}(I(\lambda),J(\nu))= \left\{
+    \begin{array}{ll}
+	    2, & (\lambda, \nu) \in / /\cap 
+      \mid\mid\mid \\
+      1, &
+      \mbox{\normalfont otherwise.}
+    \end{array} \right. &  \nonumber
+  \end{eqnarray}
 	\end{corollary}
 \end{frame}
 \begin{frame}{Spherical multiple}
@@ -306,25 +314,26 @@ The left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
      \frac{q - \nu + 1}{2} \right)} 1_{\nu}. \]
 	\end{theorem}
 	\begin{remark}
-		This result was previously obtained for $p=q=1$ case in \cite{clerc2011generalized}.
+		This result was previously obtained for $p=q=1$ case in \cite{bernstein2004estimates}.
 	\end{remark}
 \end{frame}
 \begin{frame}{Residue theorem}
 	\begin{theorem}
-		For $(\lambda,\nu)\in //$ the distribution $\left( \myabs{x_p}^{\lambda+\nu-n+1}/\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right) \right)\times
-		\left( \myabs{Q}^{-\nu}/\Gamma\left( \frac{1-\nu}{2} \right) \right)$ has the pole with the residue given by
-		\[\frac{ \frac{\myabs{x_p}^{\lambda+\nu-n+1}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2}\right) }\cdot
-			\frac{\myabs{Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2}\right)} }{\Gamma\left( \frac{\lambda-\nu}{2} \right)}
-			=\frac{ (- 1)^l l\pi^{(n - 2) / 2} !
-		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
+		The distribution
+		\[K_{\lambda,\nu}^{\mathbb{R}^{p,q}}:=\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
+		\frac{\myabs{Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\]
+		has the pole at $(\lambda,\nu)\in//$ with the residue given by
+		\[\Res_{(\lambda,\nu)\in//}K_{\lambda,\nu}^{\mathbb{R}^{p,q}}=\frac{K_{\lambda,\nu}^{\mathbb{R}^{p,q}}}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}
+			=\frac{ (- 1)^k k!\pi^{(n - 2) / 2} 
+		}{2^{ \nu + 2 k-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
 	\tilde{C}_{\nu - \lambda}^{\lambda - \frac{n
   	- 1}{2}} ({\Delta}_{\mathbb{R}^{p-1,q}} {\delta}_{\mathbb{R}^{p+q-1}}, \delta (x_p))
 		\]
-		where $l:=\frac{\nu-\lambda}{2}$.
-		Hence taking $\Op(\cdot)$ on both sides
-  \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^l l\pi^{(n - 2) / 2} !
-		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
-     \OpR_{\lambda,\nu}^{ \left\{ 0 \right\} } ; \]
+		where $k:=\frac{\nu-\lambda}{2}$.
+		Hence taking $\Op(\cdot)$ on both sides we get
+  \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^k k!\pi^{(n - 2) / 2} 
+		}{2^{ \nu + 2 k-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
+     \OpR_{\lambda,\nu}^{ \left\{ 0 \right\} },\quad(\lambda,\nu)\in// . \]
 	\end{theorem}
 \end{frame}
 \begin{frame}{Functional identities}
@@ -334,9 +343,9 @@ The left $P'$-invariant closed subspaces of $G/P$ are as follows:\\
 	\begin{theorem}
 		Let $n':=n-1$. Then the following holds:
 \begin{eqnarray}
-	& \tilde{\mathbbm{T}}_{n - 1 - \nu} \circ \OpR^X_{\lambda,\nu}= q^{T\mathbbm{R}^n}_{\mathbbm{R}^n} (\lambda,
+	& \tilde{\mathbbm{T}}_{n' - \nu} \circ \OpR^X_{\lambda,n'-\nu}= q^{T\mathbbm{R}^n}_{\mathbbm{R}^n} (\lambda,
   \nu) \OpR^X_{\lambda,\nu} &  \nonumber\\
-  & \OpR^X_{\lambda,\nu} \circ
+  & \OpR^X_{n-\lambda,\nu} \circ
   \tilde{\mathbbm{T}}_{\lambda} = q^{\mathbbm{R}^n T}_{\mathbbm{R}^n}
   (\lambda, \nu) \OpR^X_{\lambda,\nu} & \nonumber
 \end{eqnarray}
@@ -351,7 +360,7 @@ Here, for example
     \Gamma \left( \frac{\lambda - n / 2 + 1}{2} \right), & n / 2 + p \in
     2\mathbbm{Z}\\
     \Gamma \left( \frac{\lambda - n / 2}{2} \right), & n / 2 + p \in
-    2\mathbbm{Z}+ 1
+    2\mathbbm{Z}+ 1.
   \end{array} \right. &  \nonumber
 \end{eqnarray}
 	\end{theorem}
