@@ -15,6 +15,7 @@
 \usepackage{subcaption}
 \usepackage{setspace}
 \usepackage{tikz-cd,array}
+\usepackage{catchfilebetweentags}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \newcommand{\Sol}{\mathcal{S}\mbox{ol}}
@@ -165,53 +166,6 @@
 		\end{array}\]
 	\end{setting}
 \end{frame}
-\begin{frame}<presentation:0>
-	\begin{setting}
-		\begin{enumerate}
-			\item 
-				Let $p,q\ge1$, $G:=O(p+1,q+1)$ and $G':=O(p+1,q+1)_{e_{p+1}}\simeq O(p,q+1)$. 
-			\item
-				Let $P:=MAN$ and $P':=G'\cap P=M'AN'$ :max parabolic, where\\
-\newcommand{\longminus}{\textemdash\textemdash}
-\hspace{-1.05cm}  \begin{tabular}{l@{}}
-    $N \assign \left\{ \left[ \begin{array}{lll}
-      1 - Q & -^t w' & Q\\
-      w & I_{p + q} & - w\\
-      - Q & -^t w' & 1 + Q
-    \end{array} \right] \middle| \begin{array}{c}
-      (x, y) \in \mathbbm{R}^{p, q}\\
-      w \assign (x, y)\\
-      w' \assign (x, - y)\\
-      Q \assign \frac{| x |^2 - | y |^2}{2}
-    \end{array} \right\}$, $M \assign \left\{ \left[ \begin{array}{ccc}
-      \epsilon & 0 & 0\\
-      0 & A & 0\\
-      0 & 0 & \epsilon
-    \end{array} \right] \middle| \begin{array}{c}
-      A \in O (p, q)\\
-      \epsilon = \pm 1
-    \end{array} \right\}$\\
-    $N' \assign \left\{ \longminus \longminus \longminus'' \longminus
-    \longminus \longminus \middle| \begin{array}{c}
-      \longminus'' \longminus\\
-      x_p = 0
-    \end{array} \right\}$, $M' \assign \left\{ \longminus'' \longminus
-    \middle| \begin{array}{c}
-      \longminus'' \longminus\\
-      A e_p = e_p
-    \end{array} \right\}$\\
-    $A \assign a (\mathbbm{R})$, \quad$a (t) \assign \left[ \begin{array}{ccc}
-      \cosh (t) & 0 & \sinh (t)\\
-      0 & I_{p + q} & 0\\
-      \sinh (t) & 0 & \cosh (t)
-    \end{array} \right]$
-  \end{tabular}
-			\item For $(\lambda,\nu)\in\mathbb{C}^2$ we let $I(\lambda),J(\nu)$ to be the degenerate principal series of $G,G'$ respectively, i.e.
-$I(\lambda):=\{f\in C^\infty(G)\mid \forall h\in P,\;f(\cdot h)=\lambda(h) f(\cdot)\}$, where $\lambda:P\ni m\cdot a(t)\cdot n\mapsto e^{-\lambda t}$ is a $P$-representation and
-with $G$-action by left multiplication, and similarly for $J(\nu)$.
-		\end{enumerate}
-	\end{setting}
-\end{frame}
 \begin{frame}{Problem Statement}
 	\begin{setting}
 		\[\begin{array}{ccc}
@@ -349,6 +303,8 @@ $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
   \tilde{\mathbbm{T}}_{\lambda} = q^{\mathbbm{R}^n T}_{\mathbbm{R}^n}
   (\lambda, \nu) \OpR^X_{\lambda,\nu} & \nonumber
 \end{eqnarray}
+
+\setbeamercovered{transparent}
 \pause
 Here, for example
 \begin{eqnarray}
@@ -368,5 +324,55 @@ Here, for example
 \begin{frame}
 	{\footnotesize\bibliographystyle{apalike}
 \bibliography{todai_master}}
+\end{frame}
+\begin{frame}
+	\begin{setting}
+		\begin{enumerate}
+			\item 
+				Let $p,q\ge1$, $G:=O(p+1,q+1)$ and $G':=O(p+1,q+1)_{e_{p+1}}\simeq O(p,q+1)$. 
+			\item
+				Let $P:=MAN$ and $P':=G'\cap P=M'AN'$ :max parabolic, where\\
+\newcommand{\longminus}{\textemdash\textemdash}
+\hspace{-1.05cm}  \begin{tabular}{l@{}}
+    $N \assign \left\{ \left[ \begin{array}{lll}
+      1 - Q & -^t w' & Q\\
+      w & I_{p + q} & - w\\
+      - Q & -^t w' & 1 + Q
+    \end{array} \right] \middle| \begin{array}{c}
+      (x, y) \in \mathbbm{R}^{p, q}\\
+      w \assign (x, y)\\
+      w' \assign (x, - y)\\
+      Q \assign \frac{| x |^2 - | y |^2}{2}
+    \end{array} \right\}$, $M \assign \left\{ \left[ \begin{array}{ccc}
+      \epsilon & 0 & 0\\
+      0 & A & 0\\
+      0 & 0 & \epsilon
+    \end{array} \right] \middle| \begin{array}{c}
+      A \in O (p, q)\\
+      \epsilon = \pm 1
+    \end{array} \right\}$\\
+    $N' \assign \left\{ \longminus \longminus \longminus'' \longminus
+    \longminus \longminus \middle| \begin{array}{c}
+      \longminus'' \longminus\\
+      x_p = 0
+    \end{array} \right\}$, $M' \assign \left\{ \longminus'' \longminus
+    \middle| \begin{array}{c}
+      \longminus'' \longminus\\
+      A e_p = e_p
+    \end{array} \right\}$\\
+    $A \assign a (\mathbbm{R})$, \quad$a (t) \assign \left[ \begin{array}{ccc}
+      \cosh (t) & 0 & \sinh (t)\\
+      0 & I_{p + q} & 0\\
+      \sinh (t) & 0 & \cosh (t)
+    \end{array} \right]$
+  \end{tabular}
+			\item For $(\lambda,\nu)\in\mathbb{C}^2$ we let $I(\lambda),J(\nu)$ to be the degenerate principal series of $G,G'$ respectively, i.e.
+$I(\lambda):=\{f\in C^\infty(G)\mid \forall h\in P,\;f(\cdot h)=\lambda(h) f(\cdot)\}$, where $\lambda:P\ni m\cdot a(t)\cdot n\mapsto e^{-\lambda t}$ is a $P$-representation and
+with $G$-action by left multiplication, and similarly for $J(\nu)$.
+		\end{enumerate}
+	\end{setting}
+\end{frame}
+\begin{frame}
+	\ExecuteMetaData[test.tex]{tako}
 \end{frame}
 \end{document}
