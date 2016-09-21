@@ -30,7 +30,9 @@ if [  $test = '%platex' ]
 then
     latexmk -latex='platex %O %S' -outdir=$tmp_dir $1
     fname=`echo $1 | cut -f1 -d'.'`
-    echo -e "*.pdf: *.dvi\n\tdvipdfmx $<" | make -C $tmp_dir  -f - $fname.pdf
+    echo fname = $fname
+    echo 1 = $1
+    echo -e "$fname.pdf: $fname.dvi\n\tdvipdfmx $<" | make -C $tmp_dir  -f - $fname.pdf
     echo platex
     exit
 fi
@@ -56,12 +58,11 @@ if [ ${array[0]} = '%texmacs' ]
 then
     #latexmk -pdf -outdir=$tmp_dir $1
     echo "textmacs!"
-    fname_tex=`echo ${array[1]} | cut -f1 -d'.' `
+    fname=${array[1]}
+    fname_tex=`echo $fname | cut -f1 -d'.' `
     fname_tex=."${fname_tex##*/}".tex
-    echo -e ".PHONY: all\nall : $1 $fname_tex\n\tlatexmk -pdf -outdir=$tmp_dir $1\n$fname_tex : ${array[1]}\n\t/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs --convert test.tm $fname_tex --quit\n\tperl -i.orig -pe " "'"'s/\\{\\\\comment\\{<([^>]*)>\\}\}/\\%<\\1>\\n/g'"'"' $@'|make -f -  all
+    echo -e ".PHONY: all\nall : $1 $fname_tex\n\tlatexmk -pdf -outdir=$tmp_dir $1\n$fname_tex : $fname\n\t/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs --convert $fname $fname_tex --quit\n\tperl -i.orig -pe " "'"'s/\\{\\\\comment\\{<([^>]*)>\\}\}/\\%<\\1>\\n/g'"'" " $fname_tex"|make -f -  all
     exit
 fi
 
-
 echo eng
-

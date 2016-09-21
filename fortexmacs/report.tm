@@ -28,8 +28,6 @@
   <\enumerate>
     <item>Write 6 pages extract of the main results and show You the first
     draft (tuesday)
-
-    <item>\ 
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>
@@ -163,8 +161,8 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|3|1>>
+    <associate|auto-2|<tuple|1|2>>
+    <associate|auto-3|<tuple|3|2>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.2-2|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|1|?|#3>>
@@ -174,7 +172,7 @@
     <associate|bib-grauert2012several|<tuple|GF12|?>>
     <associate|bib-knapp2013lie|<tuple|Kna13|?>>
     <associate|bib-kobayashi2014classification|<tuple|KM14|?>>
-    <associate|bib-kobayashi2015classification|<tuple|KO15|?>>
+    <associate|bib-kobayashi2015classification|<tuple|KO15|2>>
     <associate|bib-wallach1988real|<tuple|Wal88|1>>
   </collection>
 </references>
@@ -183,6 +181,10 @@
   <\collection>
     <\associate|bib>
       kobayashi2015classification
+
+      kobayashi2015classification
+
+      kobayashi2014classification
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
