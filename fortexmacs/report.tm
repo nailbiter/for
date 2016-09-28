@@ -3,31 +3,63 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 52>
+  <section|report 53>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
-    Prepare for talk in Osaka
-  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
-    \;
-  </cell>|<cell|<with|font-series|bold|not done> (but I have an idea of how
-  to do this)>>>>>
+    Make the 6-pages extract
+  </cell>|<cell|<strong|done>>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>Delivered talk in Osaka (some thoughts about it are in Comments
-    section)
+    <item>Made the fixes for the 6 pages extract;
+
+    <item>Read chapter I of Borel-Wallach
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Write 6 pages extract of the main results and show You the first
-    draft (tuesday)
+    <item>Project 1: Streamline the work already done (wed):
+
+    <\enumerate-numeric>
+      <item>Construct (and normalize) regular SBO in one section;
+
+      <item>Define <math|R<rsub|\<lambda\>,\<nu\>><rsup|Y,C>> as residues of
+      regular SBO (cf the residue formulae) and compute their supports (in
+      next section);
+
+      <item>Divide the article in 4 pieces and regroup the sections
+      accordingly;
+
+      <item>check the integral formulae in literature and use reference, if
+      possible
+    </enumerate-numeric>
+
+    <item>Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
+    symmetry breaking (thu):
+
+    <\enumerate-numeric>
+      <item>Slightly generalize the theoretical part
+
+      <item>Set up the equations for <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><rsup|\<varepsilon\>>,\<nu\><rsup|\<varepsilon\><rprime|'>>|)>>
+      where <math|\<varepsilon\>,\<varepsilon\><rprime|'>\<in\><around*|{|\<pm\>|}>>
+      (they're the same, with the only change being
+      <math|F<around*|(|-\<cdot\>|)>=F<around*|(|\<cdot\>|)>> becoming
+      <math|F<around*|(|-\<cdot\>|)>=\<varepsilon\>\<varepsilon\><rprime|'>F<around*|(|\<cdot\>|)>>)
+
+      <item>Classify <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>-<around*|{|0|}>;\<lambda\><rsup|\<varepsilon\>>,\<nu\><rsup|\<varepsilon\><rprime|'>>|)>>
+    </enumerate-numeric>
+
+    <item>Work on for <math|U<around*|(|p,q|)>> case (sat):
+
+    <\enumerate-numeric>
+      <item>Check the geometry
+    </enumerate-numeric>
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>
@@ -65,9 +97,18 @@
     <\enumerate-numeric>
       <item>Generalize the theoretical part
 
-      <item>Get the equations for kernels
+      <item>Set up the equations for <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><rsup|\<varepsilon\>>,\<nu\><rsup|\<varepsilon\><rprime|'>>|)>>
+      where <math|\<varepsilon\>,\<varepsilon\><rprime|'>\<in\><around*|{|\<pm\>|}>>
+      (they're the same, with the only change being
+      <math|F<around*|(|-\<cdot\>|)>=F<around*|(|\<cdot\>|)>> becoming
+      <math|F<around*|(|-\<cdot\>|)>=\<varepsilon\>\<varepsilon\><rprime|'>F<around*|(|\<cdot\>|)>>)
 
-      <item>Solve them
+      <item>Classify <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>-<around*|{|0|}>;\<lambda\><rsup|\<varepsilon\>>,\<nu\><rsup|\<varepsilon\><rprime|'>>|)>>
+
+      <item>Define <math|R<rsub|\<lambda\>,\<nu\>><rsup|Y,C>> as residues,
+      compute their support
+
+      <item>Classify <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><rsup|\<varepsilon\>>,\<nu\><rsup|\<varepsilon\><rprime|'>>|)>>
 
       <item>Compute images and morphisms between
       <math|A<rsub|\<frak-q\>><around*|(|\<lambda\>|)>>
@@ -85,7 +126,13 @@
     </enumerate-numeric>
 
     <item>Set up the equations that define kernels of SBO for
-    <math|U<around*|(|p,q|)>> case
+    <math|U<around*|(|p,q|)>> case:
+
+    <\enumerate-numeric>
+      <item>Check the geometry
+
+      <item>Set up the equations for SBO kernels
+    </enumerate-numeric>
   </enumerate-numeric>
 
   <\with|font-series|bold>
@@ -93,52 +140,16 @@
   </with>
 
   <\enumerate-numeric>
-    <item>How to compute cohomology of flag variety <math|G/P>?
+    <item>Is there any sense to consider, say
+    <math|U<around*|(|p,q|)>\<supset\>O<around*|(|p,q|)>> branching?
 
-    <item>Is that true that all subquotients of <math|J<around*|(|\<nu\>|)>>
-    appear as images of SBO?
-
-    <item>You mentioned the \Pbad example\Q that the \Pgeneric\Q irrep of
-    <math|SL<rsub|3>> restricted to some its subgoup has continuous spectrum
-    with <math|\<infty\>>-multiplicity. Where can I read about the detailed
-    construction?
-
-    <item>Is that possible to get the copy of slides for Your talk in Kansai
-    U (only for personal use)? I found the talk very inspiring and
-    explaining, but I would love to see slides a couply of times more
+    <item>Is this a general phenomena that all SBOs are obtained as residues
+    of the regular one?
   </enumerate-numeric>
 
   <paragraph|Comments>
 
-  I've delivered talk in Osaka. Unfortunately, it did not go thet well. Some
-  of my thoughts as to what the reason was are as follows (in order of
-  descending priority):
-
-  <\enumerate-numeric>
-    <item>I was unable to convey to geometers the importance of the results
-    obtained \U I'm planning to work on it before the talk in Hiroshima by
-    reading Borel-Wallach
-
-    <item>I've spoke too fast and forget to say a few things You suggests me
-    to (perhaps, because being nervous)
-
-    <item>I had some minor problems with mic (check that beforehand next
-    time)
-  </enumerate-numeric>
-
-  One more thing. I think I can streamline the arguments done so far for
-  <math|O<around*|(|p,q|)>> case by defining
-  <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|P>> and
-  <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>> (SBOs with generic
-  support <math|Y> and <math|C> respectively defined for
-  <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\\\\> and
-  <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<mid\>\<mid\>> respectively)
-  not a-priory, but as residues of regular SBO. This will save the (huge)
-  work done in normalizing them and reduce it to just normalizing regular
-  SBO. The latter, in turn, can be normalized by purely analytical means (ie.
-  without invoking \PSBO is holomorphic on <math|K>-finite vectors
-  <math|\<Rightarrow\>> it is holomorphic\Q theorem, whose rigorous proof
-  takes some effort).
+  (empty)
 
   <\bibliography|bib|tm-alpha|todai_master>
     <\bib-list|1>
@@ -162,7 +173,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|2>>
-    <associate|auto-3|<tuple|3|2>>
+    <associate|auto-3|<tuple|1|2>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.2-2|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|1|?|#3>>
@@ -188,7 +199,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      52> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      53> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
