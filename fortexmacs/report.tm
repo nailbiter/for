@@ -28,13 +28,32 @@
 
     <\enumerate-numeric>
       <item>Construct (and normalize) regular SBO in one section;
+      (<with|font-shape|italic|done>)
 
       <item>Define <math|R<rsub|\<lambda\>,\<nu\>><rsup|Y,C>> as residues of
       regular SBO (cf the residue formulae) and compute their supports (in
-      next section);
+      next section): <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>\<rightarrow\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|Y>>
+
+      <item>prove \Puniqueness theorems\Q and reprove the SBO
+      classification_;
+
+      <item>fix residue theorem (only <math|<around*|{|0|}>> remains)
 
       <item>Divide the article in 4 pieces and regroup the sections
-      accordingly;
+      accordingly:
+
+      <\enumerate-roman>
+        <item>Auxiliary modules + geometry
+
+        <item>definition of <math|\<cal-S\>ol>, construction of SBOs,
+        classification of SBOs, (<with|font-series|bold|theoritical:>Sol=Hom)
+
+        <item>residue, functional ident, spherical, (Knapp-Stein),
+        (<with|font-series|bold|theoritical:>)
+
+        <item>(images of Knapp-Stein), images, Aq
+        (<with|font-series|bold|theoritical:>)
+      </enumerate-roman>
 
       <item>check the integral formulae in literature and use reference, if
       possible
@@ -52,13 +71,16 @@
       <math|F<around*|(|-\<cdot\>|)>=F<around*|(|\<cdot\>|)>> becoming
       <math|F<around*|(|-\<cdot\>|)>=\<varepsilon\>\<varepsilon\><rprime|'>F<around*|(|\<cdot\>|)>>)
 
-      <item>Classify <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>-<around*|{|0|}>;\<lambda\><rsup|\<varepsilon\>>,\<nu\><rsup|\<varepsilon\><rprime|'>>|)>>
+      <item>Classify <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>-<around*|{|0|}>;\<lambda\>\<otimes\>\<varepsilon\>,\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
     </enumerate-numeric>
 
     <item>Work on for <math|U<around*|(|p,q|)>> case (sat):
 
     <\enumerate-numeric>
-      <item>Check the geometry
+      <item>Check the geometry (<math|P<rprime|'>\<curvearrowright\>G/P>
+      action, <math|P<rprime|'>N<rsub|->P=G>)
+
+      <item>set up the equations
     </enumerate-numeric>
   </enumerate>
 

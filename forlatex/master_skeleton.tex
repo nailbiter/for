@@ -1,8 +1,9 @@
+%mypipes
 %texmacs ~/for/fortexmacs/master_extract.tm
 \documentclass[10pt]{article} % use larger type; default would be 10pt
 
 \usepackage{enumerate}
-\usepackage[left=0.6in,top=1in,bottom=1in]{geometry}
+\usepackage[right=0.3in,left=0.6in,top=1in,bottom=1in]{geometry}
 \usepackage{setspace}
 \usepackage{amsmath,amssymb,bbm,xypic}
 \usepackage[all,cmtip]{xy}
@@ -15,6 +16,8 @@
 \usepackage{multirow}
 \usepackage[table]{xcolor}
 \includecomment{versiona}
+\usepackage{tikz}
+\usepackage{bashful}
 
 %%%%%%%%%% Start TeXmacs macros
 \catcode`\<=\active \def<{
@@ -56,6 +59,13 @@
 
 %commands for socles
 \newcommand{\mycolo}{\cellcolor{blue!25}}
+\newcommand{\socle}[1]{{
+\begin{tabular}{|c|}
+	\hline
+	$#1$\\
+	\hline
+\end{tabular}
+}}
 \newcommand{\socleA}[2]{
 {\begin{tabular}{|c|}
 \hline
@@ -89,8 +99,44 @@ $#1$ & $\oplus$  & $#2$ \\
 \hline
 \end{tabular}
 }}
+\newcommand{\socleAA}[3]{{
+\begin{tabular}{|c|}
+\hline
+$#3$\\
+\hline
+$#2$\\
+\hline
+$#1$\\
+\hline
+\end{tabular}
+}}
+\newcommand{\socleAAP}[4]{{
+\begin{tabular}{|c|c|c|}
+\hline
+$#3$ & $\oplus$  & $#4$ \\
+\hline
+\multicolumn{3}{|c|}{$#2$}\\
+\hline
+\multicolumn{3}{|c|}{$#1$}\\
+\hline
+\end{tabular}
+}}
+\newcommand{\soclePAA}[4]{{
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{3}{|c|}{$#4$}\\
+\hline
+\multicolumn{3}{|c|}{$#3$}\\
+\hline
+$#1$ & $\oplus$  & $#2$ \\
+\hline
+\end{tabular}
+}}
+
 \newcommand{\even}{2\Z}
 \newcommand{\odd}{2\Z+1}
+\newcommand{\bb}{\backslash\backslash}
+\renewcommand{\ss}{//}
 %%%%%%%%%% End TeXmacs macros
 
 \begin{document}
@@ -111,21 +157,23 @@ $#1$ & $\oplus$  & $#2$ \\
   \maketitle
 
   \begin{versiona}
-We fix $p, q \in \mathbbm{Z}_{\geq 1}$, $n \assign p + q$, $G \assign O (p +
-1, q + 1)$ and $G' \assign O (p + 1, q + 1)_{e_{p + 1}} \assign \mysetn{g \in
+We fix $p, q \in \mathbbm{N}_+$, $n \assign p + q$, $G \assign O (p +
+1, q + 1)$ and $G' \assign \mysetn{g \in
 G}{g \cdot e_{p + 1} = e_{p + 1}} \simeq O (p, q + 1)$. We shall be interested
 in the following
 \ExecuteMetaData[.master_extract.tex]{tagsetting}
-
-Here $Q (\cdot)$ denotes the \ $(p, q)$-quadratic form and $J$ is the
-diagonal\,matrix with $p$ ``+1'' entries and $q$ ``-1'' entries. We also let
-$M' \assign M \cap G'$, $N_{\pm}' \assign N_{\pm} \cap G' \simeq
-\mathbbm{R}^{p - 1, q}$, $A' \assign A \cap G' = A$. Then $G$ is a reductive
-group (of non-inner type) with $P \assign M A N_+ \subset G$ being a maximal
-parabolic subgroup of $G$. $P = M A N_+$ is a Langlands decomposition. In
-particular, multiplication $M \times A \times N_+ \rightarrow P$ is a
-diffeomorphism. Similarly $P' \assign M' A' N_+' = P \cap G'$ is maximal
-parabolic of $G'$.
+Then $P:=MAN_{+}$ is a Langlands decomposition of a maximal parabolic subgroup of $G$
+and $P':=P\cap G'$ is maximal parabolic subgroup of $G'$
+%%Then $G$ is a reductive
+%%group (of non-inner type) with $P \assign M A N_+ \subset G$ being a maximal
+%%parabolic subgroup of $G$. $P = M A N_+$ is a Langlands decomposition. In
+%%particular, multiplication $M \times A \times N_+ \rightarrow P$ is a
+%%diffeomorphism. 
+%%We also let
+%%$M' \assign M \cap G'$, $N_{\pm}' \assign N_{\pm} \cap G' \simeq
+%%\mathbbm{R}^{p - 1, q}$, $A' \assign A \cap G' = A$. 
+%%$P' \assign M' A' N_+' = P \cap G'$ is then maximal
+%%parabolic of $G'$.
 
 \begin{definition}
 	\label{def1}For $F \in \mathcal{D}' (\R^{p,q})$
@@ -210,10 +258,10 @@ We can construct the following families of SBOs which holomorphically depend on 
 Here:
 \begin{itemize}
 	\item $\mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in
-	- 2\mathbbm{Z}_{\geqslant 0} \cup (q + 1 + 2\mathbbm{Z}) \},\quad \backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\Z_{\ge0}}$;
+	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \},\quad \backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\N}$;
 \item $/ / \assign
 \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
-2\mathbbm{Z}_{\leqslant 0} \},\quad \mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\Z_{\ge0}}$;
+-2\N \},\quad \mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N}$;
 \item $\tilde{C}(s,t)$ is a two-variable inflation of renormalized Gegenbauer polynomial, defined as in [Kobayashi-Speh].
 \end{itemize}
 Moreover,\\
@@ -269,12 +317,12 @@ Moreover,\\
 		Now, the generalized function defined as
 		\begin{equation*}
 			\myabs{Q}^{\lambda-n}\times\begin{cases}
-				\Gamma^{-1}\left( \lambda-n/2 \right),&q=0\\
-				\Gamma^{-1}\left( \frac{\lambda-n+1}{2} \right)\Gamma^{-1}\left( \lambda-n/2 \right),&q>0,n\in2\Z+1\\
-  \Gamma^{-1} \left( \frac{\nu + 1}{2} \right) \Gamma ^{-1}\left( \frac{\nu + n / 2 +
-  1}{2} \right), &q>0, n / 2 + p \in 2\mathbbm{Z}+ 1\\
-  \Gamma^{-1} \left( \frac{\nu + 1}{2} \right) \Gamma ^{-1}\left( \frac{\nu + n / 2}{2}
-  \right), & q>0,n / 2 + p \in 2\mathbbm{Z}
+				\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}=0\\
+				\Gamma^{-1}\left( \frac{\lambda-n+1}{2} \right)\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}>0,n\in2\Z+1\\
+  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2+
+  1}{2} \right), &\min\left\{ p,q \right\}>0, n / 2 + p \in 2\mathbbm{Z}+ 1\\
+  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2}{2}
+  \right), & \min\left\{ p,q \right\}>0,n / 2 + p \in 2\mathbbm{Z}
 			\end{cases}
 		\end{equation*}
 		is the member of $\Sol_G(\R^{p,q},\lambda,n-\lambda)$ and we shall denote the corresponding member of $\Hom_{G}(I(\lambda),I(n-\lambda))$ by $\tilde{\mathbb{T}}_{\lambda}$
@@ -285,61 +333,122 @@ Moreover,\\
 		Let $n':=n-1$. We then have:
 \ExecuteMetaData[.master_extract.tex]{functional}
 	\end{theorem}
-	When considering degenerate principal series of $O(p,q)$ with $q=1$ we will use the notation $T(\cdot)$ for irreducible infinite-dimensional subquotient (or subrepresentation) of it
-	as in \cite[p.19]{kobayashi2015symmetry}.
-	Furthermore, let:\\
-\ExecuteMetaData[.master_extract.tex]{Add}
-Note that as a $K'$-module we have
-\[J(\nu)\simeq\bigoplus_{(a,b)\in\mathfrak{I}}\mathcal{H}^a(\Sp^{p-1})\otimes \mathcal{H}^{b}(\Sp^q)\]
-Which allows us to consider $K'$-submodules (and in particular, $G'$-submodules) of $J(\nu)$ as subsets of $\mathfrak{I}$. Using this identification, we have:
+%%	When considering degenerate principal series of $O(p,q)$ with $q=1$ we will use the notation $T(\cdot)$ for irreducible infinite-dimensional subquotient (or subrepresentation) of it
+%%	as in \cite[p.19]{kobayashi2015symmetry}.
+%%	Furthermore, let:\\
+%%\ExecuteMetaData[.master_extract.tex]{Add}
+%%Note that as a $K'$-module we have
+%%\[\mybra{J(\nu)}_{K'}\simeq\sum_{(a,b)\in\mathfrak{I}}\mathcal{H}^a(\Sp^{p-1})\otimes \mathcal{H}^{b}(\Sp^q),\]
+%%%Note that \cite[fact 3.14]{kobayashi2015symmetry} 
+%%which allows us to consider $(\mathfrak{g}',K')$-submodules of $\mybra{J(\nu)}_{K'}$ as subsets of $\mathfrak{I}$. 
+%%%%In turn,
+%%%%due to the old result of Harish-Chandra (cf. \cite{howe1993homogeneous}) allows us to identify $(\mathfrak{g}',K')$-submodules of $\mybra{J(\nu)}_{K'}$ with $G'$-submodules of $J(\nu)$ (as Frechet 
+%%%%representation).
+%%Using this identification, we have:
+	As in \cite{howe1993homogeneous}, we represent $K'$-types in $(\mathfrak{g}',K')$ module $J(\nu)_{K'}$ as points in $\R^2$ plane (with $K'$-type $\mathcal{H}^{x}\left( \Sp^{p-1} \right)
+	\mathcal{H}^j\left( \Sp^q \right)$ represented by point $(i,j)$). With this identification we have
 \begin{theorem}[images of SBOs]
-	The image of regular SBO $R_{\lambda,\nu}^X$ is full unless $(\lambda,\nu)\in\Z$. In the latter case, they are as follows
-	(here for $(\lambda,\nu)\in//$ we set $l:=\frac{\nu-\lambda}{2}$ and for $(\lambda,\nu)\in\backslash\backslash$ we set
-	$k:=-\frac{\lambda+\nu-n+1}{2}$):\\
+	The regular SBO $R_{\lambda,\nu}^X$ is onto unless $(\lambda,\nu)\in\Z$. In the latter case, the images of the underlying $(\mathfrak{g},K)$ module $I(\lambda)_K$ under the
+	regular symmetry breaking operator $R_{\lambda,\nu}^X$ are given as follows (
+	here for $(\lambda,\nu)\in//$ we set $l:=\frac{\nu-\lambda}{2}$ and for $(\lambda,\nu)\in\backslash\backslash$ we set
+	$k:=-\frac{\lambda+\nu-n+1}{2}$; the barriers $A^{\pm\pm}$ are defined as in \cite{howe1993homogeneous}): \\
+%%	The tables below are to be read as follows:
+%%	\begin{itemize}
+%%		\item The leftmost column shows the assumptions on $\nu$ (the composition series of $J(\nu)_{K'}$ are determined by it);
+%%		\item every cell of table shows the corresponding composition series of $J(\nu)_{K'}$ (in the bottom-to-top fashion) and the items colored in blue are precisely those
+%%			that are included into the image of corresponding $R_{\lambda,\nu}^X$;
+%%	\end{itemize}
 	for $p>1$:
 	\begin{enumerate}
-		\item Suppose $p\in2\Z+1$ and $q\in2\Z$. Then, if $\nu\in2\Z,0<\nu<n-1$, $R_{\lambda,\nu}^X$ is onto. Otherwise,
-			\begin{figure}[H]
-		\hskip-1.1cm\noindent\begin{tabular}{@{}r@{}cccc}
-					&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,
-					k\ge l$&{\normalfont CS}\\[15pt]
-					$\even\ni\nu\leq0$&\socleA{\mycolo A^0(-\nu)}{A^3(-\nu)}&\socleA{\mycolo A^0(-\nu)}{A^3(-\nu)}&\socleA{ A^0(-\nu)}{A^3(-\nu)}&
-					\socleA{ A^0(-\nu)}{A^3(-\nu)}
-				\\[15pt]
-				$\odd\ni\nu\leq\frac{n-3}{2}$&\socleAP{\mycolo A^{12}(-\nu)}{A^1(-\nu)}{\mycolo A^2(-\nu)}&
-				\socleAP{ \mycolo A^{12}(-\nu)}{A^1(-\nu)}{ A^2(-\nu)}&\socleAP{ A^{12}(-\nu)}{A^1(-\nu)}{ A^2(-\nu)}&\socleAP{ A^{12}(-\nu)}{A^1(-\nu)}{ A^2(-\nu)}\\
-				\end{tabular}
-			\end{figure}
+	\item Suppose $p\in2\Z+1$ and $q\in2\Z$. Then, if $\nu\in2\Z,0<\nu<n-1$, $R_{\lambda,\nu}^X$ is onto. Otherwise,
+	  \begin{figure}[H]
+	    \hskip-1.1cm\noindent\begin{tabular}{m{3cm}ccc}
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[15pt]
+	      {\vspace{-3cm} $ \even\ni\nu\leq0$}:&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0))' '((App 0 1 0))' '((App 0 0 0))'"}\\[15pt]
+	      \vspace{-3cm}$\odd\ni\nu\leq\frac{n-3}{2}$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 0 0)(Amp 0 0 0))'"}\\[25pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[15pt]
+	      \vspace{-3cm}$\odd\ni\nu=\frac{n-1}{2}:$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0)(Apm 1 0 0))' '()' '((Apm 0 0 0)(Apm 1 0 0))'"}\\[25pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[15pt]
+	      \vspace{-3cm}$\even\ni\nu\ge n-1$:&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1))' '((App 1 3 1))' '((App 1 2 1))'"}\\[25pt]
+	      \vspace{-3cm}$\odd\ni\nu\ge\frac{n+1}{2}$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 1 0 1)(Amp 1 2 1))' '((Apm 1 0 1)(Amp 1 0 1))' '((Apm 1 0 1)(Amp 1 0 1))'"}\\[25pt]
+	    \end{tabular}
+	  \end{figure}
+	\item Suppose $p,q\in\odd$. Then,
 		\begin{figure}[H]
-		\hskip-1.0cm\noindent
-		\begin{tabular}{@{}r@{}ccc}
-				&$\mybra{//\cup\backslash\backslash}^c$ & $//\cap\backslash\backslash,
-				k=l$&{\normalfont CS}\\[15pt]
-				$\odd\ni\nu=\frac{n-1}{2}$&\socleP{A^1(-\nu)}{\mycolo A^2(-\nu)}&\socleP{A^1(-\nu)}{A^2(-\nu)}&\socleP{A^1(-\nu)}{A^2(-\nu)}
-			\\[15pt]
+			\centering
+			\begin{tabular}{m{3cm}ccc}
+			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[15pt]
+			\vspace{-3cm}$\odd\ni\nu\le0$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0)(Apm 0 0 0))' '((App 0 0 0)(Apm 0 0 0))'"}\\[15pt]
+			\vspace{-3cm}$\odd\ni\nu\le n-3$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 3 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[15pt]
+			\vspace{-3cm}$\even\ni\nu>0$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0))' '((Apm 0 11 0))' '((Apm 0 0 0))'"}\\[15pt]
+			\vspace{-3cm}$\odd\ni\nu>n-3$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1)(Apm 1 0 1))' '((App 1 0 1)(Apm 1 2 1))' '((App 1 3 1)(Apm 1 0 1))'"}\\[15pt]
+			  
 		\end{tabular}
 		\end{figure}
+	\item Suppose $p,q\in\even$. Then,
 		\begin{figure}[H]
-		\hskip-1.1cm\noindent\begin{tabular}{@{}r@{}cccc}
-					&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,
-					k\le l$&{\normalfont CS}\\[15pt]
-					$\even\ni\nu\ge n-1$&\socleA{\mycolo A^3(-\nu)}{\mycolo A^0(-\nu)}&\socleA{\mycolo A^3(-\nu)}{\mycolo A^0(-\nu)}&\socleA{\mycolo A^3(-\nu)}{ A^0(-\nu)}&
-					\socleA{A^3(-\nu)}{ A^0(-\nu)}
-				\\[15pt]
-	$\odd\ni\nu\ge\frac{n+1}{2}$&\soclePA{A^1(\nu-n')}{\mycolo A^2(\nu-n')}{A^{12}(\nu-n')}&\soclePA{A^1(\nu-n')}{A^2(\nu-n')}{A^{12}(\nu-n')}&\soclePA{A^1(\nu-n')}{A^2(\nu-n')}{A^{12}(\nu-n')}
-		&\soclePA{A^1(\nu-n')}{A^2(\nu-n')}{A^{12}(\nu-n')}
-				\end{tabular}
+			\centering
+			\begin{tabular}{m{3cm}ccc}
+			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[15pt]
+			\vspace{-3cm}$\odd\ni\nu\le0$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0)(Amp 0 0 0))' '((App 0 0 0)(Amp 0 0 0))'"}\\[15pt]
+			\vspace{-3cm}$\odd\ni\nu\le n-3$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 3 0))' '((Apm 0 11 0))' '((Apm 0 0 0))'"}\\[15pt]
+			\vspace{-3cm}$\even\ni\nu>0$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 11 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[15pt]
+			\vspace{-3cm}$\odd\ni\nu>n-3:$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Amp 1 0 1))'"}\\[15pt]
+		\end{tabular}
 		\end{figure}
+	\item Suppose $p\in\even,q\in\odd$. Then for $\nu\in\odd$ we have $R_{\lambda,\nu}^X$ being onto. Otherwise (for $\nu\in\even$) we have,
+	  \begin{figure}[H]
+	    \hskip-1.1cm\noindent\begin{tabular}{m{3cm}ccc}
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[15pt]
+	      \vspace{-3cm}$\nu\leq0$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 0 0)(Apm 0 0 0)(Amp 0 0 0))'"}\\[15pt]
+	      \vspace{-3cm}$\nu\leq\frac{n-3}{2}$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 0 0)(Amp 0 0 0))'"}\\[25pt]
+              $(\lambda,\nu)\in$&:$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[15pt]
+	      \vspace{-3cm}$\odd\ni\nu=\frac{n-1}{2}:$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0)(Apm 1 0 0))' '()' '((Apm 0 0 0)(Apm 1 0 0))'"}\\[25pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[15pt]
+	      \vspace{-3cm}$\frac{n+1}{2}\le\nu\le n-3$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 1 0 1)(Amp 1 2 1))' '((Apm 1 0 1)(Amp 1 0 1))' '((Apm 1 0 1)(Amp 1 0 1))'"}\\[25pt]
+	      \vspace{-3cm}$\nu>n-3$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 0 1)(Apm 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Apm 1 0 1)(Amp 1 0 1))' '((App 1 0 1)(Apm 1 0 1)(Amp 1 0 1))'"}\\[15pt]
+	    \end{tabular}
+	  \end{figure}
 	\end{enumerate}
+	for $p=1$:\\
+%%	When $0<\nu<q$ we have $R_{\lambda,\nu}^X$ be onto iff $(\lambda,\nu)\notin\left( //\cap\mid\mid\mid \right)\cup\left( \bb\cap\mid\mid \right)$ and have zero image otherwise.
+%%	For other cases, the situation is follows:
+%%	\begin{figure}[H]
+%%		\begin{tikzpicture}[scale=0.8]
+%%		\draw [opacity=0.2,blue,fill=blue] (0,0.36)--(1.5,0.36)--(1.5,-0.36)--(0,-0.36);
+%%		\draw[thick] (0,0) -- (3,0);
+%%		\draw[fill=black] (0,0) circle (2pt);
+%%		\draw[fill=black] (1.5,0) circle (2pt);
+%%		\node at (1.5,0) {\huge ]};
+%%		\node[align=center, above] at (1.5,0.5) {$-\nu$};
+%%	\end{tikzpicture}
+	\begin{figure}[H]
+		\centering\begin{tabular}{p{4.5cm}cccp{2.5cm}p{2.5cm}}
+		$(\lambda,\nu)\in$ & $\mybra{\ss\cup\bb}^c$ & $\ss-\bb$ & $\bb-\ss$ & $\ss\cap\bb,k<l$ & $\ss\cap\bb,k\geq l$\\
+		\vspace{-0.7cm}$\even\ni\nu\le0$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(0 1)' '(0 0)' '(0 1)' '()' '(0 0)'"}\\
+		\vspace{-0.5cm}$\nu,q\in2\Z,0<\nu<q$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(1)' '(1)' '(1)' '(1)' '(1)'"}\\
+		\vspace{-0.5cm}$\nu\in2\Z,q\in2\Z+1,0<\nu<q$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(1)' '(0)' '(1)' '(1)' '(1)'"}\\
+		\vspace{-0.7cm}$q\in\even,\even\ni\nu\ge q$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(1 2)' '(1 2)' '(1 1)' '(1 1)' '()'"}\\
+		\vspace{-0.7cm}$q\in\odd,\even\ni\nu\ge q$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(1 1)' '(1 0)' '(1 1)' '(1 1)' '()'"}\\
+		\vspace{-0.7cm}$q\in\even,\odd\ni\nu\le0$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(0 2)' '(0 0)' '(0 2)' '()' '(0 0)'"}\\
+		\vspace{-0.7cm}$q\in\odd,\odd\ni\nu\le0$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(0 2)' '(0 2)' '(0 2)' '()' '(0 0)'"}\\
+		\vspace{-0.5cm}$q\in2\Z,\nu\in\odd,0<\nu<q$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(1)' '(0)' '(0)' '(0)' '(1)'"}\\
+		\vspace{-0.5cm}$\nu,q\in2\Z,0<\nu<q$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(1)' '(1)' '(0)' '(0)' '(1)'"}\\
+		\vspace{-0.7cm}$q\in\even,\odd\ni\nu\ge q$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(1 1)' '(1 0)' '(1 0)' '(1 0)' '()'"}\\
+		\vspace{-0.7cm}$q\in\odd,\odd\ni\nu\ge q$:&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '(1 2)' '(1 2)' '(1 0)' '(1 0)' '()'"}\\
+	\end{tabular}\end{figure}
 \end{theorem}
 \begin{remark}
-	Similarly we can compute images of any other SBO constructed in Theorem 2.
+	Although we omit the corresponding diagrams for brevity, the images of other SBO constructed in Theorem 2 are also computed. Note that
+	the proof of this theorem was done \textit{without} using the information of \cite{howe1993homogeneous}.
 \end{remark}
 Now, we recall the defined in \cite{KO2} irreducible representations $\pi_{\pm,\lambda}^{p,q}$ of $O(p,q)$. Comparing the definitions, one sees that as 
-representations of $O(p+1,q+1)$ we have
+representations of $O(p+1,q+1)$ we have for $p>0$:
 \begin{equation*}
 	\lambda+q-1\in2\Z\implies\pi_{+,\lambda+\frac{n}{2}}^{p+1,q+1}\simeq A^1\left(\lambda  \right),\quad\lambda-p+1\in2\Z\implies\pi_{-,\lambda+\frac{n}{2} }^{p+1,q+1}\simeq A^2\left(\lambda\right)
 \end{equation*}
+and for $q>0$ (which is our constant assumption in this work) we have $T(\nu-q)=\pi_{-,\nu-q/2}^{1,q+1}$.
+
 \begin{theorem}[$G'$-invariant maps between Zuckerman modules $\pi_{\pm,\lambda}^{p,q}$]
 	The dimensions of $\Hom_{G'}\left(\pi_{\pm,{n}/{2}-\lambda}^{p+1,q+1} ,\pi_{\pm,\nu-{n'}/{2}}^{p,q+1} \right)$
 	are as follows:\newline
@@ -348,9 +457,3 @@ representations of $O(p+1,q+1)$ we have
 \bibliography{todai_master}
 \bibliographystyle{alpha}
 \end{document}
-
-%FIXME
-	%knapp-stein normalization
-	%k-speh, k-orsted references
-
-%	compute support of R^Y

@@ -6,6 +6,7 @@ filetype on
 :au BufNewFile *.mac r ~/.vim/skeletons/skeleton.mac
 
 au BufNewFile,BufRead *.wl set filetype=mma
+au BufNewFile,BufRead *.gplot set filetype=gnuplot
 
 function! SKEL_spec()
 	0r /usr/share/vim/current/skeletons/skeleton.spec
