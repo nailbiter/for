@@ -3,36 +3,37 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 53>
+  <section|report 55>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
-    Make the 6-pages extract
-  </cell>|<cell|<strong|done>>>>>>
+    Project 1: Streamline the work already done (wed)
+  </cell>|<cell|<strong|not done>>>|<row|<\cell>
+    Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
+    symmetry breaking (thu)
+  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
+    Work on for <math|U<around*|(|p,q|)>> case (sat)
+  </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>Made the fixes for the 6 pages extract;
-
-    <item>Read chapter I of Borel-Wallach
+    <item>Read first and second appendix of Lang's SL2
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
+    <item>Reading: read Lang's SL2 and Borel-Wallach.
+
     <item>Project 1: Streamline the work already done (wed):
 
     <\enumerate-numeric>
-      <item>Construct (and normalize) regular SBO in one section;
-      (<with|font-shape|italic|done>)
-
-      <item>Define <math|R<rsub|\<lambda\>,\<nu\>><rsup|Y,C>> as residues of
-      regular SBO (cf the residue formulae) and compute their supports (in
-      next section): <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>\<rightarrow\><wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|Y>>
+      <item>Define <math|R<rsub|\<lambda\>,\<nu\>><rsup|Y>> as residue of
+      regular SBO (cf the residue formulae) and compute its support;
 
       <item>prove \Puniqueness theorems\Q and reprove the SBO
       classification_;
@@ -161,17 +162,11 @@
     Questions
   </with>
 
-  <\enumerate-numeric>
-    <item>Is there any sense to consider, say
-    <math|U<around*|(|p,q|)>\<supset\>O<around*|(|p,q|)>> branching?
-
-    <item>Is this a general phenomena that all SBOs are obtained as residues
-    of the regular one?
-  </enumerate-numeric>
+  (empty)
 
   <paragraph|Comments>
 
-  (empty)
+  I did intolerably small amount of work last week. I'll try to catch up.
 
   <\bibliography|bib|tm-alpha|todai_master>
     <\bib-list|1>
@@ -221,7 +216,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      53> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      54> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments

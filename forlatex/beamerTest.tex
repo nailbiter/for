@@ -1,0 +1,65 @@
+%simple
+\documentclass[pdf,notes]{beamer}
+\mode<presentation>{\usetheme[secheader]{Boadilla}}
+\usepackage{mystyle,lipsum}
+\includecomment{versiona}
+
+\newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
+
+\makeatletter
+\newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
+{\usebeamertemplate{proof end}}
+\makeatother
+
+\makeatletter
+\def\th@mystyle{%
+	\normalfont % body font
+	\setbeamercolor{block title example}{bg=orange,fg=white}
+	\setbeamercolor{block body example}{bg=orange!20,fg=black}
+	\def\inserttheoremblockenv{exampleblock}
+}
+\makeatother
+
+\theoremstyle{mystyle}
+\newtheorem{prop}{Proposition}
+\setbeamertemplate{headline}{}
+%%\setbeamertemplate{theorems}[numbered]
+
+\title{Test presentation}
+\subtitle{with very big slides}
+\author{Alex Leontiev}
+
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+\begin{frame}{Outline}
+	\tableofcontents
+\end{frame}
+\section{tesi me}
+\begin{frame}
+	\noindent
+\begin{minipage}[b][\textheight]{\textwidth}
+	\begin{theorem}\lipsum[1]\end{theorem}
+	\begin{theorem}\lipsum[1]\end{theorem}
+\end{minipage}
+\end{frame}
+\begin{frame}
+	\noindent
+\begin{minipage}[b][\textheight]{\textwidth}
+	\begin{theorem}\lipsum[1]\end{theorem}
+	\begin{theorem}\lipsum[1-2]\end{theorem}
+\end{minipage}
+\end{frame}
+\begin{frame}
+	\noindent
+\begin{minipage}[b][\textheight]{\textwidth}
+	\begin{theorem}\lipsum[1]\end{theorem}
+	\begin{theorem}\lipsum[1-2]\end{theorem}
+	\begin{theorem}
+		and one more tesi me
+		\label{}
+	\end{theorem}
+\end{minipage}
+\end{frame}
+\end{document}
+
+

@@ -1,0 +1,617 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,bbm}
+
+%%%%%%%%%% Start TeXmacs macros
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\assign}{:=}
+\newcommand{\comma}{{,}}
+\newcommand{\dueto}[1]{\textup{\textbf{(#1) }}}
+\newcommand{\nin}{\not\in}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmrsub}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\tmrsup}[1]{\textsuperscript{#1}}
+\newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+%%%%%%%%%% End TeXmacs macros
+
+\providecommand{\*}{{\myralph}}
+\providecommand{\*}{{\myralph}}
+\newcommand{\mynorm}[1]{\|#1\|}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\lfrac}[2]{{\mybra{#1/#2}}}
+\newcommand{\myset}[1]{\left\{#1\right\}}
+\newcommand{\mysca}[2]{\left\<less>#1, #2\right\<gtr>}
+\newcommand{\mysetn}[2]{\left\{ #1 \middle|  #2 \right\}}
+\newcommand{\myfincol}[2]{\left\{#1\right\}\tmrsub{i=1}\tmrsup{#2}}
+\newcommand{\mysfrac}[2]{\tmrsup{#1}/\tmrsub{#2}}
+\newcommand{\mycol}[2]{\left\{#1\right\}\tmrsub{#2}}
+\newcommand{\mysetg}[1]{\left\<less>\left\{#1\right\}\right\<gtr>}
+\newcommand{\myvec}[1]{{\overrightharp{\ensuremath{#1}}}}
+\newcommand{\myvecprodexpanded}[6]{\left|\begin{tabular}{ccc}
+  \mathbf{i} & \mathbf{j} & \mathbf{k}\\
+  #1 & #2 & #3\\
+  #4 & #5 & #6
+\end{tabular}\right|= \left|\begin{tabular}{cc}
+  #2 & #3\\
+  #5 & #6
+\end{tabular}\right|\mathbf{i} -\left|\begin{tabular}{cc}
+  #1 & #3\\
+  #4 & #6
+\end{tabular}\right|\mathbf{j} +\left|\begin{tabular}{cc}
+  #1 & #2\\
+  #4 & #5
+\end{tabular}\right|\mathbf{k}}
+\newcommand{\mybra}[1]{\left(#1\right)}
+\newcommand{\mycbra}[1]{\left\{#1\right\}}
+\newcommand{\mysbra}[1]{\left[#1\right]}
+\newcommand{\myabra}[1]{\left\<less>#1\right\<gtr>}
+\newcommand{\myceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\myfloor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\mypic}{{\macro{1}{2}{\begin{figure}[h]
+  
+  \caption{}
+\end{figure}}}}
+\newcommand{\mypicwtitle}{{\macro{1}{2}{3}{\begin{figure}[h]
+  \\
+  
+  \caption{}
+\end{figure}}}}
+\newcommand{\myexplain}[1]{(\tmtextit{#1})}
+\newcommand{\myr}[1]{R\tmrsup{#1}}
+\newcommand{\mys}[1]{S\tmrsup{#1}}
+\newcommand{\mybramatii}[4]{\left(\begin{tabular}{rr}
+  #1 & #2\\
+  #3 & #4
+\end{tabular}\right)}
+\newcommand{\mybramatiii}[9]{\left(\begin{tabular}{lll}
+  #1 & #2 & #3\\
+  #4 & #5 & #6\\
+  #7 & #8 & #9
+\end{tabular}\right)}
+\newcommand{\C}{C}
+\newcommand{\F}{F}
+\newcommand{\Z}{Z}
+\newcommand{\R}{R}
+\newcommand{\N}{N}
+\newcommand{\Q}{Q}
+\newcommand{\Sp}{S}
+\newcommand{\myprobshort}{{\macro{1}{2}{{\myprob{{\dueto{}}}}}}}
+\newcommand{\diffsm}{\xrightarrow{{\sim}}}
+\providecommand{\lim}{{\oldlim}}
+\providecommand{\int}{{\oldint}}
+\providecommand{\min}{{\oldmin}}
+\providecommand{\max}{{\oldmax}}
+\providecommand{\sum}{{\oldsum}}
+\providecommand{\sup}{{\oldsup}}
+\newcommand{\tmRe}{\mathrm{Re}}
+\newcommand{\tmIm}{\mathrm{Im}}
+\newcommand{\Ker}{\mathrm{Ker}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\Diff}{\mathrm{Diff}}
+\newcommand{\End}{\mathrm{End}}
+\newtheorem{mythm}{Theorem}
+\newtheorem{mylem}{Lemma}
+\newtheorem{myprop}{Proposition}
+\newtheorem{mycor}{Corollary}
+\newtheorem{myprob}{Problem}
+\newtheorem{myfact}{Fact}
+\newcommand{\myqed}{{\nobreak}{\ifvmode}{\else} {\ifdim}{\lastskip}<1.5em
+{\lastskip} {\hspace{}}{\tmfi}{\nobreak}{\vrule}height0.75em width0.5em
+depth0.25em{\tmfi}}
+\newcommand{\myqed}{\ensuremath{\blacksquare}}
+\newcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+\newcommand{\myproof*}[2]{{\trivlist{\item[{\hspace{}}\tmtextbf{#1}]
+#2{\myqed}}}}
+\newcommand{\myproof}[1]{{\myproof*{Proof.}{#1}}}
+\newcommand{\proofexplanation}{{\macro{1}{\tmtextbf{()}}}}
+
+\begin{document}
+
+%<*tagsetting>
+
+\begin{equation*}
+   I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
+  1, \ldots, - 1}_q), \quad \Q (x) \assign \,^t \! x I_{p, q} x, \; x \in
+  \mathbbm{R}^{p + q} 
+\end{equation*}
+\begin{align*}
+   &M &\assign& \left\{ \left( \begin{array}{ccc}
+    \epsilon & 0 & 0\\
+    0 & A & 0\\
+    0 & 0 & \epsilon
+  \end{array} \right) \middle| \begin{array}{c}
+    A \in O (p, q),\\
+    \epsilon = \pm 1
+  \end{array} \right\}&\simeq &O(p,q)\times \Z_2  \\
+   &N_+ &\assign& \left\{ n_+ (b) \assign I_{n + 2} + \left( \begin{array}{lll}
+    - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)\\
+    b & 0 & - b\\
+    - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)
+  \end{array} \right) \middle| b \in \mathbbm{R}^{p + q} \right\} &\simeq&
+  \mathbbm{R}^{p + q},\\
+  &A &\assign& \mysetn{a (t) \assign \left( \begin{array}{ccc}
+    \cosh (t) & 0 & \sinh (t)\\
+    0 & I_{p + q} & 0\\
+    \sinh (t) & 0 & \cosh (t)
+  \end{array} \right)}{t \in \mathbbm{R}} &\simeq &\mathbbm{R}.
+\end{align*}
+%</tagsetting>
+
+
+%<*table>
+
+
+\hspace*{-3.5cm}\begin{tabular}{@{}|l|l|p{2cm}|l|}
+  \hline
+  & $\tmop{Op} : 
+  \Sol(\mathbbm{R}^{p, q} ; \lambda, \nu)
+  \rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu))$ & defined for $(\lambda,\nu)\in D_S$ &
+  ${\Supp} (\cdot) =$\\
+  \hline
+  $R_{\lambda, \nu}^X =$ & $\tmop{Op} \left( \frac{| x_p |^{\lambda + \nu - n}
+  | \Q |^{- \nu}}{\Gamma \left( \frac{\lambda - \nu}{2} \right) \Gamma \left(
+  \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left( \frac{1 - \nu}{2}
+  \right)} \right)$ & $D_X:= \mathbbm{C}^2$ & $\left\{
+  \begin{array}{ll}
+    X, & (\lambda, \nu) \nin \mid \mid \cup \backslash\backslash \cup / /\\
+    C, & (\lambda, \nu) \in \mid \mid -\backslash\backslash - / /\\
+    Y, & (\lambda, \nu) \in \backslash\backslash - \mid \mid - / /\\
+    \varnothing, & p = 1, \; (\lambda, \nu) \in \mid \mid \cap
+    \backslash\backslash - / /\\
+    Y \cap C, & p > 1, \; (\lambda, \nu) \in \mid \mid \cap
+    \backslash\backslash - / / .\\
+    \varnothing, & (\lambda, \nu) \in / / \cap \mid \mid \mid\\
+    \{ [0] \}, & (\lambda, \nu) \in / / - \mid \mid \mid
+  \end{array} \right.$\\
+  \hline
+  $\tilde{R}^X_{\lambda, \nu} =$ & $\tmop{Op} \left( \frac{| x_p |^{\lambda +
+  \nu - n} | \Q |^{- \nu}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
+  \right) \Gamma \left( \frac{1 - \nu}{2} \right)} \right)$ & $\tilde{D}_X:=
+   \mid \mid \mid$ &
+$\left\{ \begin{array}{ll}
+  X, & (\lambda, \nu) \nin \mid \mid \cup \backslash\backslash\\
+  C, & (\lambda, \nu) \in \mid \mid -\backslash\backslash\\
+  Y, & (\lambda, \nu) \in \backslash\backslash - \mid \mid\\
+  \varnothing, & p = 1, \; (\lambda, \nu) \in \mid \mid \cap
+  \backslash\backslash - / /\\
+  \{ 0 \}, & p = 1, (\lambda, \nu) \in \mid \mid \cap \backslash\backslash
+  \cap / /\\
+  Y \cap C, & p > 1, \; (\lambda, \nu) \in \mid \mid \cap \backslash\backslash
+  .
+\end{array} \right.$\\
+  \hline
+  $R_{\lambda, \nu}^Y =$ & $\tmop{Op} \left( \frac{| x_p |^{\lambda + \nu - n}
+  | \Q |^{- \nu} q_Y^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
+  \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left(
+  \frac{1 - \nu}{2} \right)} \right)$ & $D_Y:=
+  \backslash\backslash$ & $Y$ (generically, and always $\neq \varnothing$)\\
+  \hline
+  $R_{\lambda, \nu}^C =$ & $\tmop{Op} \left( \frac{| x_p |^{\lambda + \nu - n}
+  | \Q |^{- \nu} q_C^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
+  \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left(
+  \frac{1 - \nu}{2} \right)} \right)$ & $D_C:= \mid \mid$ &
+  $\left\{ \begin{array}{lll}
+    \{ [0] \}, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda, \nu) \in / /\\
+    C, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda, \nu) \nin / /\\
+    \{ [0] \}, & p = 1, q \in 2\mathbbm{Z}, & (\lambda, \nu) \in / / \cap
+    \backslash\backslash\\
+    C, & p = 1, q \in 2\mathbbm{Z}, & (\lambda, \nu) \nin / / \cap
+    \backslash\backslash\\
+    \{ [0] \}, & p > 1, q \in 2\mathbbm{Z}+ 1, & (\lambda, \nu) \in / /\\
+    C, & p > 1, q \in 2\mathbbm{Z}_{} + 1, & (\lambda, \nu) \nin / / \cup
+    \backslash\backslash\\
+    C \cap Y, & p > 1, q \in 2\mathbbm{Z}_{} + 1, & (\lambda, \nu) \in
+    \backslash\backslash - / /\\
+    C, & p > 1, q \in 2\mathbbm{Z}, & (\lambda, \nu) \nin
+    \backslash\backslash\\
+    C \cap Y, & p > 1, q \in 2\mathbbm{Z}, & (\lambda, \nu) \in
+    \backslash\backslash
+  \end{array} \right.$\\
+  \hline
+  $R_{\lambda, \nu}^{\{ 0 \}} =$ & $\tmop{Op} 
+  \left( \sum_{j=0}^{\frac{\nu-\lambda}{2}}a_j\delta^j_{\mathbbm{R}^{p + q - 1}}\delta_{\R^{p+q-1}} \delta^{\nu-\lambda-2j}(x_p)\right)
+  $ & $D_{ \left\{ 0 \right\}}:=
+  / /$ & $\{ [0] \}$\\
+  \hline
+\end{tabular}
+
+%</table>
+
+
+%<*residue>
+
+\[ \hspace*{-3cm}q_C^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
+     1, & q \in 2\mathbbm{Z}+ 1, p > 1\\
+     \Gamma^{} \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
+     2\mathbbm{Z}, p = 1 \comma \nu \leqslant q - \nu\\
+     \Gamma^{} \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbbm{Z}, p
+     = 1 \comma \nu > q - \nu\\
+     \Gamma \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbbm{Z}, p >
+     1\\
+     \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
+     2\mathbbm{Z}+ 1, p = 1
+   \end{array} \right. \]
+\[ \hspace*{-3cm} q_Y^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
+     1, & n \in 2\mathbbm{Z}, p > 1\\
+     \Gamma \left( \frac{\lambda - \nu}{2} \right) \Gamma^{- 1} \left(
+     \frac{1}{2} \left( \max \left\{ 2, \left( \frac{\lambda + \nu}{2}
+     \right)' \right\} - \nu \right) \right), & n - 1, q \in 2\mathbbm{Z}, p >
+     1 ; \; a' \assign \min \{ x | a \leqslant x \in 2\mathbbm{Z} \}\\
+     \Gamma \left( \frac{\lambda - \nu}{2} \right) \Gamma^{- 1} \left(
+     \frac{\left( \frac{\lambda + \nu}{2} \right)' - \nu}{2} \right), & n, q
+     \in 2\mathbbm{Z}+ 1, p > 1 ; \; a' \assign \min \{ x | a \leqslant x \in
+     2\mathbbm{Z}+ 1 \}\\
+     \Gamma \left( \frac{1 - \nu}{2} \right), & p = 1, n \in 2\mathbbm{Z}
+     (\Leftrightarrow q \in 2\mathbbm{Z}+ 1)\\
+     \Gamma \left( \frac{1 - \nu}{2} \right) \Gamma \left( \frac{\lambda -
+     \nu}{2} \right) / \Gamma \left( \max \left\{ \frac{\lambda + \nu}{2}, 0
+     \right\} - \nu \right), & p = 1, n \in 2\mathbbm{Z}+ 1 (\Leftrightarrow q
+     \in 2\mathbbm{Z}) .
+   \end{array} \right. \]
+%</residue>
+
+
+%<*classification>
+
+\[ p = 1 \Rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu)) = \left\{
+   \begin{array}{ll}
+     \mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \in \mathbbm{C}^2 - (/ /
+     \cap \mid \mid \mid) - (\mid \mid \cap \backslash\backslash)\\
+     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ 0
+     \}}_{\lambda, \nu}, & (\lambda, \nu) \in (/ / \cap \mid \mid \mid) -
+     (\mid \mid \cap \backslash\backslash)\\
+     \mathbbm{C}R^P_{\lambda, \nu} \oplus \mathbbm{C}R^C_{\lambda, \nu}, &
+     (\lambda, \nu) \in (\mid \mid \cap \backslash\backslash) - / /\\
+     \mathbbm{C}R^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid
+     \cap \backslash\backslash \cap / /
+   \end{array} \right. \]
+\[ p > 1 \Rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu)) = \left\{
+   \begin{array}{ll}
+     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ 0
+     \}}_{\lambda, \nu \lambda, \nu}, & (\lambda, \nu) \in / / \cap \mid \mid
+     \mid\\
+     \mathbbm{C}R^X_{\lambda, \nu}, & \tmop{otherwise}
+   \end{array} \right. \]
+%</classification>
+
+
+%<*functional>
+
+
+
+\begin{eqnarray}
+  & \tilde{\mathbbm{T}}_{n' - \nu} \circ R^X_{\lambda, n' - \nu} = q^{T X}_X
+  (\lambda, \nu) R^X_{\lambda, \nu} &  \nonumber\\
+  & R_{n - \lambda, \nu}^X \circ \tilde{\mathbbm{T}}_{\lambda} = q^{X T}_X
+  (\lambda, \nu) R_{\lambda, \nu}^X &  \nonumber\\
+  & q^{T X}_X (\lambda, \nu) \assign \pi^{\frac{n - 1}{2}} \left\{
+  \begin{array}{ll}
+    \frac{\sqrt{\pi} 2^{1 - q + \nu}}{\Gamma \left( \frac{q - \nu}{2} \right)
+    \Gamma \left( \frac{\nu + 1}{2} \right)}, & p = 1\\
+    \frac{\sin \left( \pi \frac{p - \nu}{2} \right)}{\pi} \times
+    \frac{\sqrt{\pi} 2^{2 - n + \nu}}{\Gamma \left( \frac{n - 1 - \nu}{2}
+    \right)}, & n - 1 \in 1 + 2\mathbbm{Z}\\
+    \frac{\sin \left( \pi \frac{p - \nu}{2} \right)}{\pi} \times \frac{\Gamma
+    \left( \frac{n / 2 - \nu}{2} \right)}{\Gamma \left( \frac{n - 1 - \nu}{2}
+    \right)}, & \frac{n - 1}{2} + p - 1 \in 2\mathbbm{Z}\\
+    \frac{\sin \left( \pi \frac{p - \nu}{2} \right)}{\pi} \times \frac{\Gamma
+    \left( \frac{n / 2 - \nu - 1}{2} \right)}{\Gamma \left( \frac{n - 1 -
+    \nu}{2} \right)}, & \frac{n - 1}{2} + p - 1 \in 1 + 2\mathbbm{Z}
+  \end{array} \right. &  \nonumber\\
+  & q^{X T}_X (\lambda, \nu) \assign \frac{2^{2 \lambda - n} \pi^{- n /
+  2}}{\Gamma \left( \frac{n - \lambda}{2} \right)} \times \frac{\sin \left[
+  \pi \frac{p - \lambda + 1}{2} \right]}{\pi} \times \left\{ \begin{array}{ll}
+    2^{1 - \lambda} \sqrt{\pi}, & n \in 2\mathbbm{Z}+ 1\\
+    \Gamma \left( \frac{\lambda - n / 2 + 1}{2} \right), & n / 2 + p \in
+    2\mathbbm{Z}\\
+    \Gamma \left( \frac{\lambda - n / 2}{2} \right), & n / 2 + p \in
+    2\mathbbm{Z}+ 1
+  \end{array} \right. &  \nonumber
+\end{eqnarray}
+%</functional>
+
+
+%<*Add>
+
+\begin{eqnarray}
+  & \mathfrak{I} \assign \{  (x, y) \in \mathbbm{N}^2 \mid x + y \in
+  2\mathbbm{Z} \} &  \nonumber\\
+  & A^0 (a) \assign \{ (x, y) \in \mathfrak{I} | x + y \leqslant a \}, \; A^3
+  (a) \assign \{ (x, y) \in \mathfrak{I} | x + y > a \} &  \nonumber\\
+  & A^{12} (a) \assign \{ (x, y) \in \mathfrak{I} | - a - p + 1 \leqslant x -
+  y \leqslant a + q - 1 \}, \; A^{13} (a) \assign \{ (x, y) \in \mathfrak{I} |
+  x - y \leqslant a + q - 1, x + y > a \} &  \nonumber\\
+  & A^1 (a) : = \{ (x, y) \in \mathfrak{I} | x - y > a + q - 1 \}, \; A^2 (a)
+  : = \{ (x, y) \in \mathfrak{I} | - a - p + 1 > x - y \} &  \nonumber\\
+  & A^{123} (a) \assign A^{12} (a) \cap A^3 (a), \quad A^{23} (a) \assign \{
+  (x, y) \in \mathfrak{I} | - a - p + 1 \leqslant x - y, x + y > a \} & 
+  \nonumber
+\end{eqnarray}
+%</Add>
+
+
+%<*imagesX>
+
+
+for $p > 1$:
+\begin{enumerate}
+  \item Suppose $p \in 2\mathbbm{Z}+ 1$ and $q \in 2\mathbbm{Z}$. Then $\nu
+  \in 2\mathbbm{Z}, 0 < \nu < n - 1 \Rightarrow R_{\lambda, \nu}^X :
+  \tmop{onto}$. Otherwise,{\newline}
+  
+  \begin{tabular}{|c|c|}
+    \hline
+    $\nu \leqslant \frac{p + q + 1}{2} - 2$ & $\nu \in 2\mathbbm{Z}+ 1$\\
+    \hline
+    $(/ / \cup \backslash\backslash)^c$ & $A^{12} (- \nu) \cup A^2 (- \nu)$\\
+    \hline
+    $\backslash\backslash - / /$ & $A^{12} (- \nu)$\\
+    \hline
+    $/ / \Rightarrow / / \cap \backslash\backslash, k \geqslant l$ &
+    $\varnothing$\\
+    \hline
+  \end{tabular}\,\begin{tabular}{|c|c|}
+    \hline
+    $\nu = \frac{n - 1}{2}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
+    \hline
+    $(/ / \cup \backslash\backslash)^c$ & $A^2 (- \nu)$\\
+    \hline
+    $/ / \cap \backslash\backslash, k = l$ & $\varnothing$\\
+    \hline
+  \end{tabular}\,\begin{tabular}{|c|c|c|}
+    \hline
+    $\frac{n + 1}{2} \leqslant \nu$ & $n - 3 < \nu \in 2\mathbbm{Z}$ & $\nu
+    \in 2\mathbbm{Z}+ 1$\\
+    \hline
+    $(/ / \cup \backslash\backslash)^c$ & $\tmop{full}$ & $A^2 (\nu - n')$\\
+    \hline
+    $/ / \cap \backslash\backslash, k < l$ & $A^3 (\nu - n')$ &
+    $\varnothing$\\
+    \hline
+    $/ / -\backslash\backslash$ & $\tmop{full}$ & $\varnothing$\\
+    \hline
+  \end{tabular}
+  
+  \item Suppose $p, q \in 2\mathbbm{Z}+ 1$($\Rightarrow \backslash\backslash
+  \cap / / \cap \{ \nu \in \mathbbm{Z} \} = \varnothing$).{\newline}
+  
+  \begin{tabular}{|c|c|c|}
+    \hline
+    $\nu \leqslant 0$ & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
+    \hline
+    $(/ / \cup \backslash\backslash)^c$ & $A^0 (- \nu)$ & $\tmop{full}$\\
+    \hline
+    $\backslash\backslash - / /$ & $A^0 (- \nu)$ & $A^1 (\nu - n')$\\
+    \hline
+    $/ / -\backslash\backslash$ & $\varnothing$ & $\tmop{full}$\\
+    \hline
+  \end{tabular}\quad\begin{tabular}{|c|c|c|}
+    \hline
+    $0 < \nu$ & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
+    \hline
+    $(/ / \cup \backslash\backslash)^c$ & $A^2 (\nu - n')$ & $\tmop{full}$\\
+    \hline
+    $\backslash\backslash - / /$ & $A^2 (\nu - n')$ & $A^1 (\nu - n')$\\
+    \hline
+    $/ / -\backslash\backslash$ & $\varnothing$ & $\tmop{full}$\\
+    \hline
+  \end{tabular}
+  
+  \item Suppose $p, q \in 2\mathbbm{Z}$ ($\Rightarrow \backslash\backslash
+  \cap / / \cap \{ \nu \in \mathbbm{Z} \} = \varnothing$){\newline}
+  
+  \begin{tabular}{|c|c|c|}
+    \hline
+    $\nu \leqslant 0$ & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
+    \hline
+    $(/ / \cup \backslash\backslash)^c$ & $A^0 (- \nu)$ & $A^2 (\nu - n')$\\
+    \hline
+    $\backslash\backslash - / /$ & $A^0 (- \nu)$ & $A^2 (\nu - n')$\\
+    \hline
+    $/ / -\backslash\backslash$ & $\varnothing$ & $\varnothing$\\
+    \hline
+  \end{tabular}\quad\begin{tabular}{|c|c|c|}
+    \hline
+    $0 < \nu$ & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
+    \hline
+    $(/ / \cup \backslash\backslash)^c$ & $\tmop{full}$ & $A^2 (\nu - n')$\\
+    \hline
+    $\backslash\backslash - / /$ & $A^1 (\nu - n')$ & $A^2 (\nu - n')$\\
+    \hline
+    $/ / -\backslash\backslash$ & $\tmop{full}$ & $\varnothing$\\
+    \hline
+  \end{tabular}
+  
+  \item Suppose $p \in 2\mathbbm{Z}, q \in 2\mathbbm{Z}+ 1$. Then for $\nu \in
+  2\mathbbm{Z}+ 1 \Rightarrow J (\nu) : \tmop{irred} \Rightarrow R_{\lambda,
+  \nu}^X : \tmop{onto}$. For $\nu \in 2\mathbbm{Z}${\newline}
+  
+  \begin{tabular}{|c|c|}
+    \hline
+    $\nu \leqslant 0$ & $\nu \in 2\mathbbm{Z}$\\
+    \hline
+    $(/ / \cup \backslash\backslash)^c$ & $A^0 (- \nu)$\\
+    \hline
+    $\backslash\backslash - / /$ & $A^0 (- \nu)$\\
+    \hline
+    $/ / \cap \backslash\backslash, k > l$ & $\varnothing$\\
+    \hline
+  \end{tabular}\quad\begin{tabular}{|c|c|}
+    \hline
+    $0 < \nu \leqslant \frac{p + q + 1}{2} - 2$ & $\nu \in 2\mathbbm{Z}$\\
+    \hline
+    $(/ / \cup \backslash\backslash)^c$ & $A^{12} (- \nu) \cup A^2 (- \nu)$\\
+    \hline
+    $\backslash\backslash - / /$ & $A^{12} (- \nu)$\\
+    \hline
+    $/ / \cap \backslash\backslash, k > l$ & $\varnothing$\\
+    \hline
+    CS & $A^{12} (- \nu) \cup A^1 (- \nu) \cup A^2 (- \nu)$\\
+    \hline
+  \end{tabular}\quad\begin{tabular}{|c|c|}
+    \hline
+    $\frac{p + q - 1}{2} \leqslant \nu$ & $\nu \in 2\mathbbm{Z}$\\
+    \hline
+    $(/ / \cup \backslash\backslash)^c$ & $A^2 (\nu - n')$\\
+    \hline
+    $/ / \cap \backslash\backslash, k < l$ & $\varnothing$\\
+    \hline
+    $/ / -\backslash\backslash$ & $\varnothing$\\
+    \hline
+  \end{tabular}
+\end{enumerate}
+for $p = 1$: {\newline}
+
+\begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  $(\lambda, \nu) \in$ & $(/ / \cup \backslash\backslash)^c$ & $/ /
+  -\backslash\backslash$ & $\backslash\backslash - / /$ & $/ / \cap
+  \backslash\backslash, k < l$ & $/ / \cap \backslash\backslash, k \geqslant
+  l$\\
+  \hline
+  $\nu \in 2\mathbbm{Z}, \nu \leqslant 0$ & $F (- \nu)$ & $\varnothing$ & $F
+  (- \nu)$ & $\times$ & $\varnothing$\\
+  \hline
+  $\nu \in 2\mathbbm{Z}, 0 < \nu < q$ & $\tmop{full}$ & $\left\{
+  \begin{array}{l}
+    q \in 2\mathbbm{Z} \Rightarrow \tmop{full}\\
+    q \in 2\mathbbm{Z}+ 1 \Rightarrow \varnothing
+  \end{array} \right.$ & $\tmop{full}$ & $\tmop{full}$ & $\tmop{full}$\\
+  \hline
+  $\nu \in 2\mathbbm{Z}, q \leqslant \nu$ & $\left\{ \begin{array}{l}
+    q \in 2\mathbbm{Z} \Rightarrow \tmop{full}\\
+    q \in 2\mathbbm{Z}+ 1 \Rightarrow T (\nu - n')
+  \end{array} \right.$ & $\left\{ \begin{array}{l}
+    q \in 2\mathbbm{Z} \Rightarrow \tmop{full}\\
+    q \in 2\mathbbm{Z}+ 1 \Rightarrow \varnothing
+  \end{array} \right.$ & $T (\nu - n')$ & $T (\nu - n')$ & $\times$\\
+  \hline
+  $\nu \in 2\mathbbm{Z}+ 1, \nu \leqslant 0$ & $\tmop{full}$ & $\left\{
+  \begin{array}{l}
+    q \in 2\mathbbm{Z}+ 1 \Rightarrow \tmop{full}\\
+    q \in 2\mathbbm{Z} \Rightarrow \varnothing
+  \end{array} \right.$ & $\tmop{full}$ & $\times$ & $\varnothing$\\
+  \hline
+  $\nu \in 2\mathbbm{Z}+ 1, 0 < \nu < q$ & $\tmop{full}$ & $\left\{
+  \begin{array}{l}
+    q \in 2\mathbbm{Z}+ 1 \Rightarrow \tmop{full}\\
+    q \in 2\mathbbm{Z} \Rightarrow \varnothing
+  \end{array} \right.$ & $\varnothing$ & $\varnothing$ & $\tmop{full}$\\
+  \hline
+  $\nu \in 2\mathbbm{Z}+ 1, q \leqslant \nu$ & $\left\{ \begin{array}{l}
+    q \in 2\mathbbm{Z}+ 1 \Rightarrow \tmop{full}\\
+    q \in 2\mathbbm{Z} \Rightarrow T (\nu - n')
+  \end{array} \right.$ & $\left\{ \begin{array}{l}
+    q \in 2\mathbbm{Z}+ 1 \Rightarrow \tmop{full}\\
+    q \in 2\mathbbm{Z} \Rightarrow \varnothing
+  \end{array} \right.$ & $\varnothing$ & $\varnothing$ & $\times$\\
+  \hline
+\end{tabular}
+
+%</imagesX>
+
+
+%<*Aq>
+
+
+\begin{tabular}{|c|c|c|}
+  \hline
+  $p = 1, q \in 2\mathbbm{Z}$ & $\pi^{p, q + 1}_{-, \nu - q / 2}, \nu \in q +
+  2\mathbbm{N}$ & $\pi^{p, q + 1}_{-, \nu - q / 2}, \nu \in q + 1 +
+  2\mathbbm{N}$\\
+  \hline
+  $\pi_{+, n / 2 - \lambda}^{p + 1, q + 1}, \lambda \in q - 1 - 2\mathbbm{N}$
+  & $0$ & $0$\\
+  \hline
+  $\pi_{-, n / 2 - \lambda}^{p + 1, q + 1}, \lambda \in 2\mathbbm{N}$ & $0$ &
+  $1 \Leftrightarrow (\lambda, \nu) \nin \backslash\backslash$\\
+  \hline
+\end{tabular}$\newline$
+
+$\begin{array}{|c|c|c|}
+  \hline
+  p = 1, q \in 2\mathbbm{Z}+ 1 & \pi^{p, q + 1}_{-, \nu - q / 2}, \nu \in q +
+  2\mathbbm{N} & \pi^{p, q + 1}_{-, \nu - q / 2}, \nu \in q + 1 +
+  2\mathbbm{N}\\
+  \hline
+  \pi^{p + 1, q + 1}_{+, n / 2 - \lambda}, 2\mathbbm{Z} \ni \lambda \leqslant
+  \frac{q - 1}{2} & 0 & 0\\
+  \hline
+  \pi_{-, n / 2 - \lambda}^{p + 1, q + 1}, 2\mathbbm{Z} \ni \lambda \leqslant
+  \frac{q - 1}{2} & 0 & 1 \Leftrightarrow (\lambda, \nu) \nin
+  \backslash\backslash\\
+  \hline
+\end{array}$
+
+{\newline}
+
+$\begin{array}{|c|c|c|}
+  \hline
+  p, q \in 2\mathbbm{Z} & \pi^{p, q + 1}_{+, \nu - n' / 2}, 2\mathbbm{Z} \ni
+  \nu > 0 & \pi^{p, q + 1}_{-, \nu - n' / 2}, \nu \in 2\mathbbm{Z}+ 1\\
+  \hline
+  \pi^{p + 1, q + 1}_{+, n / 2 - \lambda}, 2\mathbbm{Z}+ 1 \ni \lambda
+  \leqslant n / 2 & 1 \Leftrightarrow (\lambda, \nu) \in \backslash\backslash
+  & 1 \Leftrightarrow \lambda > \nu \Leftrightarrow (\lambda, \nu) \nin / /\\
+  \hline
+  \pi^{p + 1, q + 1}_{-, n / 2 - \lambda}, 2\mathbbm{Z}+ 1 \ni \lambda
+  \leqslant n / 2 & 0 & 1 \Leftrightarrow (\lambda, \nu), (n - \lambda, \nu)
+  \in / /\\
+  \hline
+\end{array} \newline$
+
+$\begin{array}{|c|c|c|}
+  \hline
+  p \in 2\mathbbm{Z}, q \in 2\mathbbm{Z}+ 1 & \pi^{p, q + 1}_{+, \nu - n' /
+  2}, 2\mathbbm{Z} \ni \nu \geqslant n' / 2 & \pi^{p, q + 1}_{-, \nu - n' /
+  2}, 2\mathbbm{Z} \ni \nu \geqslant n' / 2\\
+  \hline
+  \pi^{p + 1, q + 1}_{+, n / 2 - \lambda}, \lambda \in 2\mathbbm{Z} & 0 & 1
+  \Leftrightarrow (\lambda, \nu) \nin / /\\
+  \hline
+  \pi^{p + 1, q + 1}_{-, n / 2 - \lambda}, \lambda \in n - 2\mathbbm{N}_+ & 0
+  & 1 \Leftrightarrow (n - \lambda, \nu) \in / /\\
+  \hline
+\end{array}$
+
+{\newline}
+
+\begin{tabular}{|c|c|c|}
+  \hline
+  $p \in 2\mathbbm{Z}+ 1, q \in 2\mathbbm{Z}$ & $\pi^{p, q + 1}_{+, \nu - n' /
+  2}, 2\mathbbm{Z}+ 1 \ni \nu \geqslant n' / 2$ & $\pi^{p, q + 1}_{-, \nu - n'
+  / 2}, 2\mathbbm{Z}+ 1 \ni \nu \geqslant n' / 2$\\
+  \hline
+  $\pi^{p + 1, q + 1}_{+, n / 2 - \lambda}, \lambda \in n - 2\mathbbm{N}_+$ &
+  $0$ & $1 \Leftrightarrow (\lambda, \nu) \nin / / \Leftrightarrow \lambda >
+  \nu$\\
+  \hline
+  $\pi^{p + 1, q + 1}_{-, n / 2 - \lambda}, \lambda \in 2\mathbbm{Z}$ & $0$ &
+  $1 \Leftrightarrow (n - \lambda, \nu) \in / /$\\
+  \hline
+\end{tabular}{\newline}
+
+$\begin{array}{|c|c|c|}
+  \hline
+  p, q \in 2\mathbbm{Z}+ 1 & \pi^{p, q + 1}_{+, \nu - n' / 2}, \nu \in
+  2\mathbbm{Z}+ 1 & \pi^{p, q + 1}_{-, \nu - n' / 2}, \nu \in 2\mathbbm{N}\\
+  \hline
+  \pi^{p + 1, q + 1}_{+, n / 2 - \lambda}, \lambda \in 2\mathbbm{Z}, \lambda
+  \leqslant n / 2 & 1 \Leftrightarrow (\lambda, \nu) \in \backslash\backslash
+  & 0\\
+  \hline
+  \pi^{p + 1, q + 1}_{-, n / 2 - \lambda},, \lambda \in 2\mathbbm{Z}, \lambda
+  \leqslant n / 2 & 0 & 1 \Leftrightarrow (n - \lambda, \nu) \in / /\\
+  \hline
+\end{array}$
+
+%</Aq>
+
+
+\
+
+\end{document}
