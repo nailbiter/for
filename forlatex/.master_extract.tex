@@ -113,11 +113,6 @@ depth0.25em{\tmfi}}
 
 %<*tagsetting>
 
-\begin{equation*}
-   I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
-  1, \ldots, - 1}_q), \quad \Q (x) \assign \,^t \! x I_{p, q} x, \; x \in
-  \mathbbm{R}^{p + q} 
-\end{equation*}
 \begin{align*}
    &M &\assign& \left\{ \left( \begin{array}{ccc}
     \epsilon & 0 & 0\\
@@ -149,13 +144,13 @@ depth0.25em{\tmfi}}
   \hline
   & $\tmop{Op} : 
   \Sol(\mathbbm{R}^{p, q} ; \lambda, \nu)
-  \rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu))$ & defined for $(\lambda,\nu)\in D_S$ &
-  ${\Supp} (\cdot) =$\\
+  \rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu))$ & $D_S$ &
+  ${\Supp} (\cdot)$\\
   \hline
-  $R_{\lambda, \nu}^X =$ & $\tmop{Op} \left( \frac{| x_p |^{\lambda + \nu - n}
-  | \Q |^{- \nu}}{\Gamma \left( \frac{\lambda - \nu}{2} \right) \Gamma \left(
+  $R_{\lambda, \nu}^X =$ & $ \frac{\tmop{Op} \left(| x_p |^{\lambda + \nu - n}
+  | \Q |^{- \nu} \right)}{\Gamma \left( \frac{\lambda - \nu}{2} \right) \Gamma \left(
   \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left( \frac{1 - \nu}{2}
-  \right)} \right)$ & $D_X:= \mathbbm{C}^2$ & $\left\{
+  \right)}$ & $D_X:= \mathbbm{C}^2$ & $\left\{
   \begin{array}{ll}
     X, & (\lambda, \nu) \nin \mid \mid \cup \backslash\backslash \cup / /\\
     C, & (\lambda, \nu) \in \mid \mid -\backslash\backslash - / /\\
@@ -168,9 +163,9 @@ depth0.25em{\tmfi}}
     \{ [0] \}, & (\lambda, \nu) \in / / - \mid \mid \mid
   \end{array} \right.$\\
   \hline
-  $\tilde{R}^X_{\lambda, \nu} =$ & $\tmop{Op} \left( \frac{| x_p |^{\lambda +
-  \nu - n} | \Q |^{- \nu}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
-  \right) \Gamma \left( \frac{1 - \nu}{2} \right)} \right)$ & $\tilde{D}_X:=
+  $\tilde{R}^X_{\lambda, \nu} =$ & $\frac{\tmop{Op} \left( | x_p |^{\lambda +
+  \nu - n} | \Q |^{- \nu}\right)}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
+  \right) \Gamma \left( \frac{1 - \nu}{2} \right)} $ & $\tilde{D}_X:=
    \mid \mid \mid$ &
 $\left\{ \begin{array}{ll}
   X, & (\lambda, \nu) \nin \mid \mid \cup \backslash\backslash\\
@@ -184,16 +179,16 @@ $\left\{ \begin{array}{ll}
   .
 \end{array} \right.$\\
   \hline
-  $R_{\lambda, \nu}^Y =$ & $\tmop{Op} \left( \frac{| x_p |^{\lambda + \nu - n}
-  | \Q |^{- \nu} q_Y^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
+  $R_{\lambda, \nu}^Y =$ & $\frac{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}
+  | \Q |^{- \nu}  \right)}{\Gamma \left( \frac{\lambda - \nu}{2}
   \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left(
-  \frac{1 - \nu}{2} \right)} \right)$ & $D_Y:=
+  \frac{1 - \nu}{2} \right)}\cdot q_Y^X (\lambda, \nu)$ & $D_Y:=
   \backslash\backslash$ & $Y$ (generically, and always $\neq \varnothing$)\\
   \hline
-  $R_{\lambda, \nu}^C =$ & $\tmop{Op} \left( \frac{| x_p |^{\lambda + \nu - n}
-  | \Q |^{- \nu} q_C^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
+  $R_{\lambda, \nu}^C =$ & $\frac{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}
+  | \Q |^{- \nu}  \right)}{\Gamma \left( \frac{\lambda - \nu}{2}
   \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left(
-  \frac{1 - \nu}{2} \right)} \right)$ & $D_C:= \mid \mid$ &
+  \frac{1 - \nu}{2} \right)}\cdot q_C^X (\lambda, \nu)$ & $D_C:= \mid \mid$ &
   $\left\{ \begin{array}{lll}
     \{ [0] \}, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda, \nu) \in / /\\
     C, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda, \nu) \nin / /\\
@@ -212,8 +207,10 @@ $\left\{ \begin{array}{ll}
     \backslash\backslash
   \end{array} \right.$\\
   \hline
-  $R_{\lambda, \nu}^{\{ 0 \}} =$ & $\tmop{Op} 
-  \left( \sum_{j=0}^{\frac{\nu-\lambda}{2}}a_j\delta^j_{\mathbbm{R}^{p + q - 1}}\delta_{\R^{p+q-1}} \delta^{\nu-\lambda-2j}(x_p)\right)
+  $R_{\lambda, \nu}^{\{ 0 \}} =$ & 
+  $\tmop{Op} \left( \tilde{C}_{\nu -
+  \lambda}^{\lambda - \frac{n - 1}{2}} \left(\Delta_{\mathbbm{R}^{p - 1, q}}
+  \delta_{\mathbbm{R}^{p + q - 1}}, \delta (x_p)\right) \right)
   $ & $D_{ \left\{ 0 \right\}}:=
   / /$ & $\{ [0] \}$\\
   \hline
