@@ -76,7 +76,7 @@ End of customized bst file
 %--------------------
 %ORDERING OF REFERENCES (if author-year citations)
 %   %: (def) Alphabetical
-% seq-lab,%: By label
+ seq-lab,%: By label
 % seq-labc,%: By label and cite order
 % seq-key,%: By label and cite key
 % seq-yr,%: Year ordered
@@ -470,7 +470,7 @@ End of customized bst file
 %--------------------
 %ABBREVIATE WORD `PAGES' (if not using external language file)
     %: (def) `Page(s)'
-% pp,%: `Page' abbreviated
+ pp,%: `Page' abbreviated
 % ppx,%: `Page' omitted
 %--------------------
 %ABBREVIATE WORD `EDITORS':

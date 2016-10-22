@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `alph,nm-init,ed-au,dt-jnl,yr-par,xmth,vol-bf,volp-com,jdt-pc,jwdpg,num-xser,isbn,issn,doi,xedn,and-xcom,nfss,')
+%% merlin.mbs  (with options: `alph,seq-lab,nm-init,ed-au,dt-jnl,yr-par,xmth,vol-bf,volp-com,jdt-pc,jwdpg,num-xser,isbn,issn,doi,pp,xedn,and-xcom,nfss,')
 %% ----------------------------------------
 %% ***  ***
 %% 
@@ -248,10 +248,10 @@ FUNCTION {bbl.in}
 { "in" }
 
 FUNCTION {bbl.pages}
-{ "pp. " }
+{ "pp." }
 
 FUNCTION {bbl.page}
-{ "page" }
+{ "p." }
 
 FUNCTION {bbl.chapter}
 { "chapter" }
@@ -1358,27 +1358,33 @@ FUNCTION {editor.key.organization.label}
 }
 
 FUNCTION {calc.label}
-{ type$ "book" =
-  type$ "inbook" =
-  or
-    'author.editor.key.label
-    { type$ "proceedings" =
-        'editor.key.organization.label
-        { type$ "manual" =
-            'author.key.organization.label
-            'author.key.label
-          if$
-        }
-      if$
-    }
+{ key empty$
+  { type$ "book" =
+    type$ "inbook" =
+    or
+      'author.editor.key.label
+      { type$ "proceedings" =
+          'editor.key.organization.label
+          { type$ "manual" =
+              'author.key.organization.label
+              'author.key.label
+            if$
+          }
+        if$
+      }
+    if$
+    duplicate$
+    year field.or.null purify$ #-1 #2 substring$
+    *
+    'label :=
+    year field.or.null purify$ #-1 #4 substring$
+    *
+    sortify 'sort.label :=
+  }
+  { key 'label :=
+    key sortify 'sort.label :=
+  }
   if$
-  duplicate$
-  year field.or.null purify$ #-1 #2 substring$
-  *
-  'label :=
-  year field.or.null purify$ #-1 #4 substring$
-  *
-  sortify 'sort.label :=
 }
 FUNCTION {sort.format.names}
 { 's :=
@@ -1395,6 +1401,11 @@ FUNCTION {sort.format.names}
           "   "  *
           namesleft #1 = t "others" = and
             { "zzzzz" 't := }
+            'skip$
+          if$
+          numnames #2 > nameptr #2 = and
+            { "zz" * year field.or.null * "   " *
+            }
             'skip$
           if$
           t sortify *
