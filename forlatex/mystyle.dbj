@@ -421,15 +421,15 @@ End of customized bst file
 %--------------------
 %EDITOR IN COLLECTIONS:
     %: (def) Same as for edited book
-% edby,%: In booktitle, edited by .. 
-% edby-par,%: In booktitle (edited by ..)
-% edby-parc,%: In booktitle, (edited by ..)
-% edby,edbyx,%: In booktitle, editor ..
-% edby,edbyw,%: In booktitle, (editor) ..
-% edby-par,edbyx,%: In booktitle (editor..)
-% edby-parc,edbyx,%: In booktitle, (editor..)
-% edby,edbyy,%: In booktitle, .., editor
-% edby-par,edbyy,%: In booktitle (.., editor)
+% edby,%: In: booktitle, edited by .. 
+% edby-par,%: In: booktitle (edited by ..)
+% edby-parc,%: In: booktitle, (edited by ..)
+% edby,edbyx,%: In: booktitle, editor ..
+% edby,edbyw,%: In: booktitle, (editor) ..
+% edby-par,edbyx,%: In: booktitle (editor..)
+% edby-parc,edbyx,%: In: booktitle, (editor..)
+% edby,edbyy,%: In: booktitle, .., editor
+% edby-par,edbyy,%: In: booktitle (.., editor)
 %--------------------
 %CAPITALIZE `EDITOR' OR `EDITED BY' (if editor capitalizable)
 %   %: (def) `(editor,..)' or `(edited by..)'

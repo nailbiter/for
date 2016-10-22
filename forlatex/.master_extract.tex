@@ -118,21 +118,21 @@ depth0.25em{\tmfi}}
     \epsilon & 0 & 0\\
     0 & A & 0\\
     0 & 0 & \epsilon
-  \end{array} \right) \middle| \begin{array}{c}
-    A \in O (p, q),\\
+  \end{array} \right) \middle| 
+    A \in O (p, q),\;
     \epsilon = \pm 1
-  \end{array} \right\}&\simeq &O(p,q)\times \Z_2  \\
-   &N_+ &\assign& \left\{ n_+ (b) \assign I_{n + 2} + \left( \begin{array}{lll}
-    - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)\\
-    b & 0 & - b\\
-    - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)
-  \end{array} \right) \middle| b \in \mathbbm{R}^{p + q} \right\} &\simeq&
-  \mathbbm{R}^{p + q},\\
+  \right\}&\simeq &O(p,q)\times \Z_2,  \\
   &A &\assign& \mysetn{a (t) \assign \left( \begin{array}{ccc}
     \cosh (t) & 0 & \sinh (t)\\
     0 & I_{p + q} & 0\\
     \sinh (t) & 0 & \cosh (t)
-  \end{array} \right)}{t \in \mathbbm{R}} &\simeq &\mathbbm{R}.
+  \end{array} \right)}{t \in \mathbbm{R}} &\simeq &\mathbbm{R},\\
+   &N_+ &\assign& \left\{  I_{n + 2} + \left( \begin{array}{lll}
+    - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)\\
+    b & 0 & - b\\
+    - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)
+  \end{array} \right) \middle| b \in \mathbbm{R}^{p + q} \right\} &\simeq&
+  \mathbbm{R}^{p + q}.\\
 \end{align*}
 %</tagsetting>
 
@@ -140,17 +140,17 @@ depth0.25em{\tmfi}}
 %<*table>
 
 
-\hspace*{-3.5cm}\begin{tabular}{@{}|l|l|p{2cm}|l|}
+\hspace*{-3cm}\begin{tabular}{@{}|l|l|l|l|}
   \hline
-  & $\tmop{Op} : 
+  $R_{\lambda,\nu}^S$& $\tmop{Op} : 
   \Sol(\mathbbm{R}^{p, q} ; \lambda, \nu)
   \rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu))$ & $D_S$ &
   ${\Supp} (\cdot)$\\
   \hline
-  $R_{\lambda, \nu}^X =$ & $ \frac{\tmop{Op} \left(| x_p |^{\lambda + \nu - n}
-  | \Q |^{- \nu} \right)}{\Gamma \left( \frac{\lambda - \nu}{2} \right) \Gamma \left(
+  $R_{\lambda, \nu}^X =$ & $ \frac{1}{\Gamma \left( \frac{\lambda - \nu}{2} \right) \Gamma \left(
   \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left( \frac{1 - \nu}{2}
-  \right)}$ & $D_X:= \mathbbm{C}^2$ & $\left\{
+  \right)}{\tmop{Op} \left(| x_p |^{\lambda + \nu - n}
+  | \Q |^{- \nu} \right)}$ & $\mathbbm{C}^2$ & $\left\{
   \begin{array}{ll}
     X, & (\lambda, \nu) \nin \mid \mid \cup \backslash\backslash \cup / /\\
     C, & (\lambda, \nu) \in \mid \mid -\backslash\backslash - / /\\
@@ -163,9 +163,9 @@ depth0.25em{\tmfi}}
     \{ [0] \}, & (\lambda, \nu) \in / / - \mid \mid \mid
   \end{array} \right.$\\
   \hline
-  $\tilde{R}^X_{\lambda, \nu} =$ & $\frac{\tmop{Op} \left( | x_p |^{\lambda +
-  \nu - n} | \Q |^{- \nu}\right)}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
-  \right) \Gamma \left( \frac{1 - \nu}{2} \right)} $ & $\tilde{D}_X:=
+  $\tilde{R}^X_{\lambda, \nu} =$ & $\frac{1}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
+  \right) \Gamma \left( \frac{1 - \nu}{2} \right)}{\tmop{Op} \left( | x_p |^{\lambda +
+  \nu - n} | \Q |^{- \nu}\right)} $ & $
    \mid \mid \mid$ &
 $\left\{ \begin{array}{ll}
   X, & (\lambda, \nu) \nin \mid \mid \cup \backslash\backslash\\
@@ -179,16 +179,16 @@ $\left\{ \begin{array}{ll}
   .
 \end{array} \right.$\\
   \hline
-  $R_{\lambda, \nu}^Y =$ & $\frac{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}
-  | \Q |^{- \nu}  \right)}{\Gamma \left( \frac{\lambda - \nu}{2}
+  $R_{\lambda, \nu}^Y =$ & $\frac{ q_Y^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
   \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left(
-  \frac{1 - \nu}{2} \right)}\cdot q_Y^X (\lambda, \nu)$ & $D_Y:=
+  \frac{1 - \nu}{2} \right)}{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}
+  | \Q |^{- \nu}  \right)}$ & $
   \backslash\backslash$ & $Y$ (generically, and always $\neq \varnothing$)\\
   \hline
-  $R_{\lambda, \nu}^C =$ & $\frac{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}
-  | \Q |^{- \nu}  \right)}{\Gamma \left( \frac{\lambda - \nu}{2}
+  $R_{\lambda, \nu}^C =$ & $\frac{ q_C^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
   \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left(
-  \frac{1 - \nu}{2} \right)}\cdot q_C^X (\lambda, \nu)$ & $D_C:= \mid \mid$ &
+  \frac{1 - \nu}{2} \right)}{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}
+  | \Q |^{- \nu}  \right)}$ & $ \mid \mid$ &
   $\left\{ \begin{array}{lll}
     \{ [0] \}, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda, \nu) \in / /\\
     C, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda, \nu) \nin / /\\
@@ -209,9 +209,9 @@ $\left\{ \begin{array}{ll}
   \hline
   $R_{\lambda, \nu}^{\{ 0 \}} =$ & 
   $\tmop{Op} \left( \tilde{C}_{\nu -
-  \lambda}^{\lambda - \frac{n - 1}{2}} \left(\Delta_{\mathbbm{R}^{p - 1, q}}
+  \lambda}^{\lambda - \frac{n - 1}{2}} \left(-\Delta_{\mathbbm{R}^{p - 1, q}}
   \delta_{\mathbbm{R}^{p + q - 1}}, \delta (x_p)\right) \right)
-  $ & $D_{ \left\{ 0 \right\}}:=
+  $ & $
   / /$ & $\{ [0] \}$\\
   \hline
 \end{tabular}
@@ -281,9 +281,9 @@ $\left\{ \begin{array}{ll}
 
 
 \begin{eqnarray}
-  & \tilde{\mathbbm{T}}_{n' - \nu} \circ R^X_{\lambda, n' - \nu} = q^{T X}_X
+    & \tilde{\mathbbm{T}}^{G'}_{n-1 - \nu} \circ R^X_{\lambda, n' - \nu} = q^{T X}_X
   (\lambda, \nu) R^X_{\lambda, \nu} &  \nonumber\\
-  & R_{n - \lambda, \nu}^X \circ \tilde{\mathbbm{T}}_{\lambda} = q^{X T}_X
+  & R_{n - \lambda, \nu}^X \circ \tilde{\mathbbm{T}}^G_{\lambda} = q^{X T}_X
   (\lambda, \nu) R_{\lambda, \nu}^X &  \nonumber\\
   & q^{T X}_X (\lambda, \nu) \assign \pi^{\frac{n - 1}{2}} \left\{
   \begin{array}{ll}
