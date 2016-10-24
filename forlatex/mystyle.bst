@@ -582,12 +582,14 @@ FUNCTION {either.or.check}
 FUNCTION {format.bvolume}
 { volume empty$
     { "" }
-    { bbl.volume volume tie.or.space.prefix
+    { 
+      "" volume tie.or.space.prefix
       "volume" bibinfo.check * *
       series "series" bibinfo.check
       duplicate$ empty$ 'pop$
-        { swap$ bbl.of space.word * swap$
-          emphasize * }
+        { swap$ "" * swap$
+                "," *
+          emphasize swap$ * }
       if$
       "volume and number" number either.or.check
     }
