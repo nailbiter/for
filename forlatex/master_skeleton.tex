@@ -86,6 +86,10 @@
 
 \newcommand{\even}{2\Z}
 \newcommand{\odd}{2\Z+1}
+\newcommand{\teven}{\mbox{\textrm{: even}}}
+\newcommand{\todd}{\mbox{\textrm{: odd}}}
+\newcommand{\tevenText}[1]{\vspace{-3cm}$\begin{array}{c}\nu\teven\\\nu#1\end{array}$}
+\newcommand{\toddText}[1]{\vspace{-3cm}$\begin{array}{c}\nu\todd\\\nu#1\end{array}$}
 \newcommand{\bb}{\backslash\backslash}
 \renewcommand{\ss}{//}
 %%%%%%%%%% End TeXmacs macros
@@ -369,41 +373,47 @@ parameter $(\lambda,\nu)\in\C^2$.
 \begin{enumerate}[(1)]
 	\item Suppose $p\in2\N_++1$ and $q\in2\Z$. Then, if $\nu\in2\Z,0<\nu<n-1$, $R_{\lambda,\nu}^X$ is surjective. Otherwise,
 		\hspace*{-1cm}\begin{figure}[H]
-			\noindent\begin{tabular}{m{3.2cm}p{3.5cm}p{3.5cm}p{3.5cm}}
+			\noindent\begin{tabular}{m{1.3cm}rrr}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[15pt]
-	      {\vspace{-3cm} $ \even\ni\nu\leq0$}:&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0))' '((App 0 1 0))' '((App 0 3 0 K0)(App 0 1 0 Kt))'"}\\[15pt]
-	      \vspace{-3cm}$\odd\ni\nu\leq\frac{n-3}{2}$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 11 0 Kt)(Amp 0 3 0 K0))'"}\\[15pt]
+	      {\vspace{-3cm} $ \begin{array}{l}
+	      \nu\teven\\ \nu\le0
+      \end{array}$}&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0))' '((App 0 1 0))' '((App 0 3 0 K0)(App 0 1 0 Kt))'"}\\[15pt]
+      \vspace{-3cm}$\begin{array}{l}
+	      \nu\todd\\ \nu\le\frac{n-3}{2}
+      \end{array}$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 11 0 Kt)(Amp 0 3 0 K0))'"}\\[15pt]
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[15pt]
-	      \vspace{-3cm}$\odd\ni\nu=\frac{n-1}{2}:$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0)(Apm 1 0 0))' '()' '((Apm 0 3 0 K0)(Apm 1 11 0 Kt))'"}\\[15pt]
+	      \vspace{-3cm}$\begin{array}{c}\nu\todd\\\nu=\frac{n-1}{2}
+	      \end{array}$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0)(Apm 1 0 0))' '()' '((Apm 0 3 0 K0)(Apm 1 11 0 Kt))'"}\\[15pt]
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[15pt]
-	      \vspace{-3cm}$\even\ni\nu\ge n-1$:&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1))' '((App 1 3 1))' '((App 1 2 1))'"}\\[15pt]
-	      \vspace{-3cm}$\odd\ni\nu\ge\frac{n+1}{2}$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 1 0 1)(Amp 1 2 1))' '((Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((Apm 1 2 1 K0)(Amp 1 2 1 K0)(Amp 1 2 1 Kt))'"}\\[25pt]
+	      \vspace{-3cm}$\begin{array}{c}\nu\teven\\\nu\ge{n-1}\end{array}$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1))' '((App 1 3 1))' '((App 1 2 1))'"}\\[15pt]
+	      \vspace{-3cm}$\begin{array}{c}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 1 0 1)(Amp 1 2 1))' '((Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((Apm 1 2 1 K0)(Amp 1 2 1 K0)(Amp 1 2 1 Kt))'"}\\[25pt]
 	    \end{tabular}
+	    %$\begin{array}{c}\nu\todd\\\nu=\frac{n-1}{2\end{array}}$
 	  \end{figure}
 	\item Suppose $p,q\in\odd$ and $p>1$. Then,
 		\begin{figure}[H]
-			\noindent\begin{tabular}{m{3.2cm}p{3.5cm}p{3.5cm}p{3.5cm}}
+			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[15pt]
-			\vspace{-3cm}$\odd\ni\nu\le0$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0))'"}\\[15pt]
-			\vspace{-3cm}$\odd\ni\nu\le n-3$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 3 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[15pt]
-			\vspace{-3cm}$\even\ni\nu>0$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0))' '((Apm 0 11 0))' '((Apm 0 11 0 Kt)(Apm 0 3 0 K0))'"}\\[15pt]
-			\vspace{-3cm}$\odd\ni\nu>n-3$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1)(Apm 1 0 1))' '((App 1 0 1)(Apm 1 2 1))' '((App 1 3 1)(Apm 1 0 1))'"}\\[15pt]
+			\tevenText{\le0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0))'"}\\[15pt]
+			\toddText{\le n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 3 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[15pt]
+			\tevenText{>0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0))' '((Apm 0 11 0))' '((Apm 0 11 0 Kt)(Apm 0 3 0 K0))'"}\\[15pt]
+			\toddText{>n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1)(Apm 1 0 1))' '((App 1 0 1)(Apm 1 2 1))' '((App 1 3 1)(Apm 1 0 1))'"}\\[15pt]
 			  
 		\end{tabular}
 		\end{figure}
 	\item Suppose $p,q\in\even$. Then,
 		\begin{figure}[H]
-			\noindent\begin{tabular}{m{3.2cm}p{3.5cm}p{3.5cm}p{3.5cm}}
+			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[15pt]
-			\vspace{-3cm}$\odd\ni\nu\le0$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Amp 0 3 0 K0))'"}\\[15pt]
-			\vspace{-3cm}$\odd\ni\nu\le n-3$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 3 0))' '((Apm 0 11 0))' '((Apm 0 3 0 K0)(Apm 0 11 0 Kt))'"}\\[15pt]
-			\vspace{-3cm}$\even\ni\nu>0$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 11 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[15pt]
-			\vspace{-3cm}$\odd\ni\nu>n-3:$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Amp 1 2 1))' '((App 1 3 1 K0)(Amp 1 2 1 Kt))'"}\\[15pt]
+			\tevenText{\le0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Amp 0 3 0 K0))'"}\\[15pt]
+			\toddText{\le n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 3 0))' '((Apm 0 11 0))' '((Apm 0 3 0 K0)(Apm 0 11 0 Kt))'"}\\[15pt]
+			\tevenText{>0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 11 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[15pt]
+			\toddText{>n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Amp 1 2 1))' '((App 1 3 1 K0)(Amp 1 2 1 Kt))'"}\\[15pt]
 		\end{tabular}
 		\end{figure}
-	\item Suppose $p\in\even,q\in\odd$. Then for $\nu\in\odd$ we have $R_{\lambda,\nu}^X$ being surjective. Otherwise (for $\nu\in\even$) we have,
+	\item Suppose $p\in\even,q\in\odd$. Then for $\nu\in\odd$, $R_{\lambda,\nu}^X$ is surjective. Otherwise (for $\nu\in\even$) we have,
 	  \begin{figure}[H]
-			\noindent\begin{tabular}{m{3.2cm}p{3.5cm}p{3.5cm}p{3.5cm}}
+		  \noindent\begin{tabular}{@{}m{3.2cm}@{}rrr}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[15pt]
 	      \vspace{-3cm}$\nu\leq0$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0)(Amp 0 0 0))'"}\\[15pt]
 	      \vspace{-3cm}$0<\nu\leq\frac{n-3}{2}$:&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 11 0 Kt)(Amp 0 3 0 K0))'"}\\[25pt]

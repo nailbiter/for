@@ -56,7 +56,7 @@
          ((= arrows 0)(drawarrows '(0 1.5) '(1.5 0) 2 0.15)))
        (cond
          ((= labelConfig 1)(begin
-                             (drawlabel (map + basept '(-1.4 -0.3))"\\nu-n+1")
+                             (drawlabel (map + basept '(-1.4 -0.6))"\\nu-n+1")
                              (drawlabel (map + (myreverse basept) '(-1.8 -0.3) ) "\\nu-n+1")
                              (drawlabel '(1.2 1.2) "A^{--}")))
          ((= labelConfig 0)(begin
@@ -76,7 +76,7 @@
          ((= arrows 1)(drawarrows basept (map + basept lenvec) 3 0.19))
          ((= arrows 0)(drawarrows basept (map + basept lenvec) 1 0.19)))
        (cond
-         ((= labelConfig 1)(begin(drawlabel (map + basept lenvec '(0 0.3))"A^{-+}")(drawlabel (map + basept '(1 -0.3))"\\nu-p+2")))
+         ((= labelConfig 1)(begin(drawlabel (map + basept lenvec '(0 0.3))"A^{-+}")(drawlabel (map + basept '(1 -0.7))"\\nu-p+2")))
          ((= labelConfig 0)(begin(drawlabel (map + basept lenvec '(0 0.3))"A^{+-}")(drawlabel (map + basept '(0.0 -0.9))"-\\nu+q-1"))))
        (cond
          ((= fill 3)(myfill-global  color (list axeslen 0)(list axeslen axeslen)(list 0 axeslen) '(0 0)))
