@@ -92,7 +92,7 @@
          ((= arrows 0)(drawarrows basept (map + basept lenvec) 3 0.19)))
        (cond
          ((= labelConfig 1)(begin(drawlabel(map + basept lenvec '(0.4 0))"A^{+-}")(drawlabel(map + basept '(-1.1 0))"\\nu-q+1")))
-         ((= labelConfig 0)(begin(drawlabel(map + basept lenvec '(0.4 0))"A^{-+}")(drawlabel(map + basept '(-1.1 0))"-\\nu+p-2"))))
+         ((= labelConfig 0)(begin(drawlabel(map + basept lenvec '(0.4 0))"A^{-+}")(drawlabel(map + basept '(-1.3 0))"-\\nu+p-2"))))
        (cond
          ((= fill 3)(myfill-global  color (list axeslen 0)(list axeslen axeslen)(list 0 axeslen) '(0 0)))
          ((= fill 11)(myfill-global  color  basept (map + basept lenvec)(list axeslen axeslen)(list axeslen 0) '(0 0)))

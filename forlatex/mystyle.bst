@@ -526,7 +526,7 @@ FUNCTION {n.dashify}
 
 FUNCTION {word.in}
 { bbl.in capitalize
-  " " * }
+  ": " * }
 
 FUNCTION {format.date}
 {
@@ -1034,26 +1034,51 @@ FUNCTION {incollection}
   format.title "title" output.check
   new.block
   crossref missing$
-    { format.in.ed.booktitle "booktitle" output.check
-      format.bvolume output
-      format.number.series output
-      format.chapter.pages output
-      new.sentence
-      format.publisher.address output
-      format.edition output
-      format.isbn output
+    {
+      journal
+      "journal" bibinfo.check
+      emphasize
+      "journal" output.check
+      format.vol.num.pages output
     }
-    { format.incoll.inproc.crossref output.nonnull
-      format.chapter.pages output
+    { format.article.crossref output.nonnull
+      format.pages output
     }
   if$
-  format.date "year" output.check
-  date.block
+  format.issn output
   format.doi output
   new.block
   format.note output
+  new.block
+  format.in.ed.booktitle "booktitle" output.check
   fin.entry
 }
+%%{ output.bibitem
+%%  format.authors "author" output.check
+%%  new.block
+%%  format.title "title" output.check
+%%  new.block
+%%  crossref missing$
+%%    { format.in.ed.booktitle "booktitle" output.check
+%%      format.bvolume output
+%%      format.number.series output
+%%      format.chapter.pages output
+%%      new.sentence
+%%      format.publisher.address output
+%%      format.edition output
+%%      format.isbn output
+%%    }
+%%    { format.incoll.inproc.crossref output.nonnull
+%%      format.chapter.pages output
+%%    }
+%%  if$
+%%  format.date "year" output.check
+%%  date.block
+%%  format.doi output
+%%  new.block
+%%  format.note output
+%%  fin.entry
+%%}
 FUNCTION {inproceedings}
 { output.bibitem
   format.authors "author" output.check
