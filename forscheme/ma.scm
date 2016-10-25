@@ -4,6 +4,7 @@
 
 ;constants
 (define scale 0.6)
+(define fontline "\\small")
 (define axeslen 3)
 (define (get-color-line symbol)
   (cond
@@ -34,7 +35,7 @@
         (print-final (lambda()(format #t " ;~%")))
         (print-iter (lambda(pt)(format #t " -- ~a"(drawpoint pt)))))
     (begin(print-initial)(format #t "~a" (drawpoint (car l)))(map print-iter (cdr l)) (print-final))))
-(define (drawlabel pt text)(format #t "\\node at ~a {$~a$};~%" (drawpoint pt)text))
+(define (drawlabel pt text)(format #t "\\node at ~a {~a $~a$};~%" (drawpoint pt)fontline text))
 (define (draw-axes)(begin
                      (format #t "\\draw [<->,thick] ~a node (yaxis) [above] {}~%"(drawpoint(list 0 axeslen)))
                      (format #t "~/|- ~a node (xaxis) [right] {};~%" (drawpoint (list axeslen 0)))))
@@ -52,15 +53,15 @@
   (begin
        (format #t "\\draw (0,1.5)  -- (1.5,0) ;~%")
        (cond
-         ((= arrows 1)(drawarrows basept (myreverse basept) 0 0.15))
-         ((= arrows 0)(drawarrows '(0 1.5) '(1.5 0) 2 0.15)))
+         ((= arrows 1)(drawarrows basept (myreverse basept) 0 0.25))
+         ((= arrows 0)(drawarrows '(0 1.5) '(1.5 0) 2 0.25)))
        (cond
          ((= labelConfig 1)(begin
-                             (drawlabel (map + basept '(-1.4 -0.6))"\\nu-n+1")
+                             (drawlabel (map + basept '(-1.4 -0.9))"\\nu-n+1")
                              (drawlabel (map + (myreverse basept) '(-1.8 -0.3) ) "\\nu-n+1")
-                             (drawlabel '(1.2 1.2) "A^{--}")))
+                             (drawlabel '(1.4 1.4) "A^{--}")))
          ((= labelConfig 0)(begin
-                               (format #t "\\node at (1.15,1.15) {$A^{++}$};~%")
+                               (drawlabel '(1.4 1.4) "A^{++}")
                                (drawlabel (map + (myreverse basept) '(-1.1 -0.3)) "-\\nu")
                                (drawlabel (map + basept '(-0.6 -0.3)) "-\\nu"))))
        (cond
@@ -76,8 +77,8 @@
          ((= arrows 1)(drawarrows basept (map + basept lenvec) 3 0.19))
          ((= arrows 0)(drawarrows basept (map + basept lenvec) 1 0.19)))
        (cond
-         ((= labelConfig 1)(begin(drawlabel (map + basept lenvec '(0 0.3))"A^{-+}")(drawlabel (map + basept '(1 -0.7))"\\nu-p+2")))
-         ((= labelConfig 0)(begin(drawlabel (map + basept lenvec '(0 0.3))"A^{+-}")(drawlabel (map + basept '(0.0 -0.9))"-\\nu+q-1"))))
+         ((= labelConfig 1)(begin(drawlabel (map + basept lenvec '(0.7 0.3))"A^{-+}")(drawlabel (map + basept '(1 -0.7))"\\nu-p+2")))
+         ((= labelConfig 0)(begin(drawlabel (map + basept lenvec '(0.7 0.3))"A^{+-}")(drawlabel (map + basept '(0.0 -0.9))"-\\nu+q-1"))))
        (cond
          ((= fill 3)(myfill-global  color (list axeslen 0)(list axeslen axeslen)(list 0 axeslen) '(0 0)))
          ((= fill 11)(myfill-global  color  basept (map + basept lenvec)(list axeslen axeslen)(list 0 axeslen) '(0 0)))
@@ -91,8 +92,8 @@
          ((= arrows 1)(drawarrows basept (map + basept lenvec) 1 0.19))
          ((= arrows 0)(drawarrows basept (map + basept lenvec) 3 0.19)))
        (cond
-         ((= labelConfig 1)(begin(drawlabel(map + basept lenvec '(0.4 0))"A^{+-}")(drawlabel(map + basept '(-1.4 0))"\\nu-q+1")))
-         ((= labelConfig 0)(begin(drawlabel(map + basept lenvec '(0.4 0))"A^{-+}")(drawlabel(map + basept '(-1.7 0.1))"-\\nu+p-2"))))
+         ((= labelConfig 1)(begin(drawlabel(map + basept lenvec '(0.4 0.4))"A^{+-}")(drawlabel(map + basept '(-1.4 0.9))"\\nu-q+1")))
+         ((= labelConfig 0)(begin(drawlabel(map + basept lenvec '(0.4 0.4))"A^{-+}")(drawlabel(map + basept '(-1.7 0.1))"-\\nu+p-2"))))
        (cond
          ((= fill 3)(myfill-global  color (list axeslen 0)(list axeslen axeslen)(list 0 axeslen) '(0 0)))
          ((= fill 11)(myfill-global  color  basept (map + basept lenvec)(list axeslen axeslen)(list axeslen 0) '(0 0)))
@@ -124,8 +125,8 @@
                                          (begin
                                            (drawfilledcirc (list (/ axeslen 2) 0))
                                            (if(= l1 0)
-                                             (format #t "\\node at (1.5,0) {\\huge ]};~%\\node[align=center, above] at (1.5,0.5) {$-\\nu$}~%;")
-                                             (format #t "\\node at (1.5,0) {\\huge [};~%\\node[align=center, above] at (1.5,0.5) {$\\nu-q$}~%;"))
+                                             (format #t "\\node at (1.5,0) {\\huge ]};~%\\node[align=center, above] at (1.5,0.5) {~a $-\\nu$}~%;" fontline)
+                                             (format #t "\\node at (1.5,0) {\\huge [};~%\\node[align=center, above] at (1.5,0.5) {~a $\\nu-q$}~%;" fontline))
                                            (cond 
                                              ((=(car rem)0)'())
                                              ((=(car rem)2)(myfill 0 axeslen))

@@ -122,11 +122,11 @@ depth0.25em{\tmfi}}
     A \in O (p, q),\;
     \epsilon = \pm 1
   \right\}&\simeq &O(p,q)\times \Z_2,  \\
-  &A &\assign& \mysetn{a (t) \assign \left( \begin{array}{ccc}
+  &A &\assign& \left\{a (t) \assign \left( \begin{array}{ccc}
     \cosh (t) & 0 & \sinh (t)\\
     0 & I_{p + q} & 0\\
     \sinh (t) & 0 & \cosh (t)
-  \end{array} \right)}{t \in \mathbbm{R}} &\simeq &\mathbbm{R},\\
+  \end{array} \right)\middle| t \in \mathbbm{R}\right\} &\simeq &\mathbbm{R},\\
    &N_+ &\assign& \left\{  I_{n + 2} + \left( \begin{array}{ccc}
     - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)\\
     b & 0 & - b\\
@@ -140,12 +140,12 @@ depth0.25em{\tmfi}}
 %<*table>
 
 
-\begin{tabular}{@{}|l|l|l|l|}
+\begin{tabular}{@{}|@{}l@{}|@{}l@{}|l@{}|@{}l@{}|}
   \hline
   $R_{\lambda,\nu}^S$& $\tmop{Op} : 
   \Sol(\mathbbm{R}^{p, q} ; \lambda, \nu)
-  \rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu))$ & $D_S$ &
-  ${\Supp} (\cdot)$\\
+  \rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu))$ & $D_S\,$ &
+  $\,{\Supp} (\cdot)$\\
   \hline
   $R_{\lambda, \nu}^X =$ & $ \frac{1}{\Gamma \left( \frac{\lambda - \nu}{2} \right) \Gamma \left(
   \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left( \frac{1 - \nu}{2}
@@ -179,15 +179,15 @@ $\left. \begin{array}{ll}
   .
 \end{array} \right.$\\
   \hline
-  $R_{\lambda, \nu}^Y =$ & $\frac{ q_Y^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
-  \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)}{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}
+  $R_{\lambda, \nu}^Y =$ & $\frac{(-1)^k k! q_Y^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
+  \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)}{\tmop{Op} \left( \delta^{(2k)}(x_p)
   | \Q |^{- \nu}  \right)}$ & $
   \backslash\backslash$ & $Y$ {\rm(generically, and always $\neq \varnothing$)}.\\
   \hline
-  $R_{\lambda, \nu}^C =$ & $\frac{ q_C^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
+  $R_{\lambda, \nu}^C =$ & $\frac{(-1)^l l! q_C^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
   \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left(
-  \frac{1 - \nu}{2} \right)}{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}
-  | \Q |^{- \nu}  \right)}$ & $ \mid \mid$ &
+  \frac{1 - \nu}{2} \right)}{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}\delta^{2l}\left( \Q \right)
+    \right)}$ & $ \mid \mid$ &
   $\left. \begin{array}{lll}
 	  \{ [o] \}, &q\todd, & (\lambda, \nu) \in / /,\\
     C, & q\todd, & (\lambda, \nu) \nin / /,\\
