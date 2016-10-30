@@ -71,4 +71,6 @@ then
     exit
 fi
 
+    latexmk -pdf -outdir=foraux $1
+
 echo eng
