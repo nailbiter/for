@@ -1,3 +1,4 @@
+#!/usr/local/bin/perl
 use strict;
 use warnings;
 use Set::Tiny;
@@ -24,7 +25,7 @@ print "set_refs has ".$set_refs->size()." elems\n";
 print "set_labels has ".$set_labels->size()." elems\n";
 
 my @diff = $set_refs->difference($set_labels)->members;
-print "\ndead refs are: \n\n";
+print "\ndead links are: \n\n";
 foreach my $number (@diff)
 {
 	print ("$number\n");
