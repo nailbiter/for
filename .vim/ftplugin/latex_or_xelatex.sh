@@ -46,6 +46,15 @@ then
     exit
 fi
 
+if [  $test = '%classic' ]
+then
+    latex  -output-directory=$tmp_dir $1
+    fname=`echo $1 | cut -f1 -d'.'`
+    echo -e "$tmp_dir/$fname.pdf: $tmp_dir/$fname.dvi\n\tdvipdf $< $tmp_dir/$fname.pdf " | make -f - $tmp_dir/$fname.pdf
+    echo classic
+    exit
+fi
+
 array=( $test )
 if [ ${array[0]} = '%make' ]
 then
