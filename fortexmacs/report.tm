@@ -3,13 +3,13 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 57>
+  <section|report 58>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
     Project 1: Streamline the work already done (wed)
-  </cell>|<cell|<strong|not done>>>|<row|<\cell>
+  </cell>|<cell|<strong|done>>>|<row|<\cell>
     Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
     symmetry breaking (thu)
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
@@ -21,50 +21,21 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>Delivered the report on last Thursday about the computation of
-    Selberg integral via the Macdonald polynomials
+    <item>Read Appendix 1,2 of Lang's \PSL2\Q
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Reading: read Lang's SL2
+    <item>Reading: read Lang's \PSL2\Q
 
-    <item>Project 1: Streamline the work already done (wed):
+    <item>Misc tasks:
 
     <\enumerate-numeric>
-      <item>Define <math|R<rsub|\<lambda\>,\<nu\>><rsup|Y>> as residue of
-      regular SBO (cf the residue formulae) and compute its support;
+      <item>Compute image of <math|A<rsup|2>> under SBOs;
 
-      <item>prove \Puniqueness theorems\Q and reprove the SBO
-      classification_;
-
-      <item>fix residue theorem (only <math|<around*|{|0|}>> remains)
-
-      <item>Divide the article in 4 pieces and regroup the sections
-      accordingly:
-
-      <\enumerate-roman>
-        <item>Auxiliary modules + geometry
-
-        <item>definition of <math|\<cal-S\>ol>, construction of SBOs,
-        classification of SBOs, (<with|font-series|bold|theoretical:>Sol=Hom)
-
-        <item>residue, functional ident, spherical, (Knapp-Stein),
-        (<with|font-series|bold|theoretical:>)
-
-        <item>(images of Knapp-Stein), images, Aq
-        (<with|font-series|bold|theoretical:>)
-      </enumerate-roman>
-
-      <item>check the integral formulae in literature and use reference, if
-      possible:
-
-      <\enumerate-numeric>
-        <item>Confirm that the formulae match
-
-        <item>Is this a new proof?
-      </enumerate-numeric>
+      <item>see whether it's possible to compute the image of Yamabe
+      operator's kernel under SBOs;
     </enumerate-numeric>
 
     <item>Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
@@ -224,7 +195,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      56> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      57> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments

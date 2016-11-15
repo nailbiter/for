@@ -1,0 +1,5 @@
+(load "misc.scm")
+(define x (make-undefined-variable))
+(if (= 2 2)(variable-set! x 42))
+(if(variable-bound? x)(display (variable-ref x))(display "unbound\n"))
+(display(download2string "http://www.patriarchia.ru/bible/co2/11/"))

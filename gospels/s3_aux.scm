@@ -116,6 +116,7 @@
         (regexp "</a>([0-9]+)</td>[^:print:]*<td class='BibleStixTxt[^']*'>([^<>]+)</td>")
         (chapters-n-sources(map(lambda(chap)(cons chap (download2string (string-append "http://www.patriarchia.ru/bible/"
                                                 (get-value rus2rusurl-table name)"/" chap "/"))))chapters))
+        ;(dum(format #t "chapters-n-sources: ~a"chapters-n-sources))
         (extract-and-process-verses(lambda(elem)(let*((chap (roman2arabic(car elem)))
                                                      (start(cadr elem))
                                                      (end(caddr elem))

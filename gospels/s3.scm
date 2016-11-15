@@ -19,15 +19,21 @@
 (define (mypairing l) (map cons (map (lambda (s) (string-concatenate (list "mypattern" s )))
 	(list "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" "a" "b" "c" "d" "e" "f")) l))
 
-(define (myformatextract filename) 
+(define (myformatextract filename)
   (map (lambda (block) 
 					  (if (<= (length (mytokenize "\n" block)) 1) block
 		(string-drop-right (string-concatenate (map (lambda (line) (string-concatenate (list line "\\\\\n"))) (mytokenize "\n" block))) 1)
 					    ))
 				     (mytokenize "\n\n" (myextract filename))))
+(define flag(make-undefined-variable))
 (define (myprocessreading reading) (let* (
 					(inner reading)
-					(args (parse-russian-title (list-ref inner 4)))
+                    ;(dum(if(variable-bound? flag) ))
+                    (inner(replace inner 4(if(variable-bound? flag)(variable-ref flag)((lambda(line)(let*((index (string-contains line ".  "))
+                    (line1 (string-take line index))
+                    (line1 (string-append line1 "."))
+                    (line2 (substring line (+ index 4))))(begin(variable-set! flag line2) line1)))(list-ref inner 4)))))
+                    (args (parse-russian-title (list-ref inner 4)))
 					(inner (replace inner 5 (get-eng-title args)))
 					(inner (replace inner 6 (get-chi-title args)))
 					(inner (replace inner 7 (get-rdg-russian-text args)))
