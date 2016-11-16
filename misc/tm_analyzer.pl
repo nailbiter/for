@@ -46,7 +46,7 @@ print "\nuseless stats are: \n\n";
 my $i = 0;
 foreach my $number (@diff)
 {
-	if( $number =~ /bib-/ ||  $number =~ /^section:/ || $number =~ /^sec:/ || $number eq "def-n-nots:eq-A" || $number eq "CAS:def-CAS" || $number eq "Aqimages" || $number =~ "def-IqN" )
+	if( $number =~ /bib-/ ||  $number =~ /^section:/ || $number =~ /^sec:/ || $number eq "def-n-nots:eq-A" || $number eq "CAS:def-CAS" || $number eq "Aqimages" || $number =~ "def-IqN" || $number eq "images:lem-Psi-convergence" )
 	{
 		next;
 	}
