@@ -432,6 +432,60 @@ For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
 %%	We have $\dim_{\C}\SBO\in\left\{ 1,2 \right\}$ for all $(\lambda,\nu)\in\C^2$.
 %%\end{corollary}
 }
+\headerbox{Result \#4}{name=spherical,column=2,row=0}
+{
+\begin{theorem}[spectrum of sph. vectors]\label{thm:spherical}
+Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$ be the spherical vectors normalized so that $\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$. With this normalization and $n:=p+q$ as before, we have:
+\[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} =  \frac{2^{1 -
+\lambda}\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
+\Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
+\frac{q - \nu + 1}{2} \right)} \mathbbm{1}_{\nu}. \]
+\end{theorem}
+}
+\headerbox{Result \#5 (residue formulae)}{name=residue,column=2,below=spherical}
+{
+\begin{theorem}
+	Let $n:=p+q\;(p,q\ge1)$ as before.
+	For $(\lambda,\nu)\in//$, we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$. Then we have
+  \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^l l!\pi^{(n - 2) / 2} 
+		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
+     \OpR_{\lambda,\nu}^{ \left\{ o \right\} },\;(\lambda,\nu)\in// . \]
+	\end{theorem}
+}
+\headerbox{Result \#6 (functional identities)}{name=functional,column=2,below=residue}
+{
+	\begin{definition}
+		Similarly to the construction of Fact \ref{fact1}, for $G=O(p+1,q+1)$ we have $\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$
+		where $\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$.
+
+		Now, the generalized function defined as
+		\begin{equation*}
+			\myabs{\Q}^{\lambda-n}\times\begin{cases}
+				\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}=0,\\
+				\Gamma^{-1}\left( \frac{\lambda-n+1}{2} \right)\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}>0,n\in2\Z+1,\\
+  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2+
+  1}{2} \right), &\min\left\{ p,q \right\}>0, n / 2 + p \in 2\mathbbm{Z}+ 1,\\
+  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2}{2}
+  \right), & \min\left\{ p,q \right\}>0,n / 2 + p \in 2\mathbbm{Z}
+			\end{cases}
+		\end{equation*}
+		belongs to $\Sol_G(\R^{p,q};\lambda,n-\lambda)$ and we can use it to
+		define an intertwining operator of $G=O(p+1,q+1)$,
+		$\tilde{\mathbb{T}}^{G}_{\lambda}:I(\lambda)\to
+		I(n-\lambda)$
+		(\textit{Knapp--Stein operator}).
+		The result of this construction repeated with $G'=O(p,q+1)$ in place of $G$ will be denoted by $\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$.
+	\end{definition}
+	\begin{theorem}[functional identities]
+		Let $n:=p+q\;(p,q\ge1)$ as before.
+		We have:
+\ExecuteMetaData[.master_extract.tex]{functional}
+	\end{theorem}
+}
+\headerbox{Result \#6 (images)}{name=images,column=2,below=functional}
+{
+	For every $(\lambda,\nu)\in\C^2$ we can compute image of every SBO constructed in Theorem \ref{thm:construction}.
+}
 
 \end{poster}
 
