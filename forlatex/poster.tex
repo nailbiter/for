@@ -1,34 +1,22 @@
-\documentclass[final]{beamer}
-\usetheme{RJH}
-\usepackage[orientation=portrait,size=custom,width=90,height=120,scale=1.4,debug]{beamerposter}
-\usepackage[absolute,overlay]{textpos}
-\setlength{\TPHorizModule}{1cm}
-\setlength{\TPVertModule}{1cm}
-
-\title{The demise of the spotted swamp frog}
-\author{Rob J Hyndman}
-\footer{More information at \texttt{robjhyndman.com}}
-\date{}
-
-	\begin{document}
-	\begin{frame}{ }
-		
-			\begin{textblock}{19.5}(1,5)
-				\begin{block}{The spotted frog habitat}
-				Blah blah blah
-			\end{block}
-		
-			\begin{block}{Some interesting specimens}
-			Stuff and nonsense
-		\end{block}
-	\end{textblock}
-
-	\begin{textblock}{19.3}(21.8,5)
-		\begin{block}{My latest paper about frogs}
-			Published in the \emph{Journal of Irreproducible Results}.
-		\end{block}
-	
-	\end{textblock}
-
-\end{frame}
+%classic
+\documentclass[portrait,a0b,final]{a0poster}
+\usepackage{pstricks,pst-grad}
+\newrgbcolor{lightviolet}{0.8 0.3 0.7}
+\newcommand{\fancytitle}[1]{
+  \begin{center}
+    \psshadowbox[linewidth=2mm,framearc=0.1,linecolor=blue,
+                 fillstyle=gradient,gradangle=0,gradbegin=white,
+                 gradend=lightviolet,gradmidpoint=1.0,framesep=1em]
+                 {#1}
+   \end{center}
+   \vspace{0.015\textheight}
+}
+\begin{document}
+\fancytitle{My Title}
+\begin{minipage}{0.49\linewidth}
+	First column {\lightviolet any word}
+  \end{minipage}
+  \begin{minipage}{0.49\linewidth}
+	    Second column
+    \end{minipage}
 \end{document}
