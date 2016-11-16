@@ -1,0 +1,442 @@
+\documentclass[portrait,final,paperwidth=90cm,paperheight=120cm,fontscale=0.3]{baposter}
+
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{bm}
+\usepackage{url}
+\usepackage{mystyle}
+\usepackage{enumerate}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,bbm,xypic}
+\usepackage[all,cmtip]{xy}
+\usepackage{amsmath,amssymb,bbm,float,mystyle}
+\usepackage[normalem]{ulem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{catchfilebetweentags}
+\usepackage{multirow}
+\usepackage{bbm}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{array}
+
+%\usepackage{times}
+%\usepackage{helvet}
+%\usepackage{bookman}
+\usepackage{palatino}
+
+
+\graphicspath{{images/}{../images/}}
+\usetikzlibrary{calc}
+
+\newcommand{\SET}[1]  {\ensuremath{\mathcal{#1}}}
+\newcommand{\MAT}[1]  {\ensuremath{\boldsymbol{#1}}}
+\newcommand{\VEC}[1]  {\ensuremath{\boldsymbol{#1}}}
+\newcommand{\Video}{\SET{V}}
+\newcommand{\video}{\VEC{f}}
+\newcommand{\track}{x}
+\newcommand{\Track}{\SET T}
+\newcommand{\LMs}{\SET L}
+\newcommand{\lm}{l}
+\newcommand{\PosE}{\SET P}
+\newcommand{\posE}{\VEC p}
+\newcommand{\negE}{\VEC n}
+\newcommand{\NegE}{\SET N}
+\newcommand{\Occluded}{\SET O}
+\newcommand{\occluded}{o}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Some math symbols used in the text
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Multicol Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\columnsep}{1.5em}
+\setlength{\columnseprule}{0mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Save space in lists. Use this after the opening of the list
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\compresslist}{%
+\setlength{\itemsep}{1pt}%
+\setlength{\parskip}{0pt}%
+\setlength{\parsep}{0pt}%
+}
+\newcommand{\assign}{:=}
+\newcommand{\comma}{{,}}
+\newcommand{\nin}{\not\in}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\newcommand{\um}{-}
+
+\newtheorem{theorem}{Theorem}
+\newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
+\newcommand{\Hom}{\mbox{\normalfont Hom}}
+\newcommand{\Sol}{\mathcal{S}\!{\it ol}}
+\newcommand{\Ind}{\mbox{\normalfont Ind}}
+\newcommand{\Supp}{\mathcal{S}\!{\it upp}}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}{Fact}
+%\newtheorem{definition}{Definition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newcommand{\dueto}[1]{\textup{\textbf{(#1) }}}
+\newcommand{\tmrsub}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\tmrsup}[1]{\textsuperscript{#1}}
+\newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{problem}{Problem}
+\newcommand{\Op}{\mbox{\normalfont Op}}
+\newcommand{\Res}{\operatorname{Res}\displaylimits}
+\newcommand{\OpR}{\mbox{\it R}}
+\renewcommand{\Q}{Q_{p,q}}
+\newcommand{\IlambdaGprime}{I(\lambda)\kern-0.3em\mid_{G'}}
+\newcommand{\SBO}{\Hom_{G'}\left(\IlambdaGprime,J(\nu) \right)}
+\renewcommand{\setminus}{-}
+%%%%%%%%%% End TeXmacs macros
+
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{2em}
+
+\newcommand{\even}{2\Z}
+\newcommand{\odd}{2\Z+1}
+\newcommand{\teven}{\mbox{\textrm{: even}}}
+\newcommand{\todd}{\mbox{\textrm{: odd}}}
+\newcommand{\tevenText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu#1\end{array}$}
+\newcommand{\toddText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu#1\end{array}$}
+\newcommand{\mm}{\mid\mid}
+\newcommand{\bb}{\backslash\backslash}
+\renewcommand{\ss}{//}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Begin of Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Here starts the poster
+%%%---------------------------------------------------------------------------
+%%% Format it to your taste with the options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define some colors
+
+%\definecolor{lightblue}{cmyk}{0.83,0.24,0,0.12}
+\definecolor{lightblue}{rgb}{0.145,0.6666,1}
+
+% Draw a video
+\newlength{\FSZ}
+\newcommand{\drawvideo}[3]{% [0 0.25 0.5 0.75 1 1.25 1.5]
+   \noindent\pgfmathsetlength{\FSZ}{\linewidth/#2}
+   \begin{tikzpicture}[outer sep=0pt,inner sep=0pt,x=\FSZ,y=\FSZ]
+   \draw[color=lightblue!50!black] (0,0) node[outer sep=0pt,inner sep=0pt,text width=\linewidth,minimum height=0] (video) {\noindent#3};
+   \path [fill=lightblue!50!black,line width=0pt] 
+     (video.north west) rectangle ([yshift=\FSZ] video.north east) 
+    \foreach \x in {1,2,...,#2} {
+      {[rounded corners=0.6] ($(video.north west)+(-0.7,0.8)+(\x,0)$) rectangle +(0.4,-0.6)}
+    }
+;
+   \path [fill=lightblue!50!black,line width=0pt] 
+     ([yshift=-1\FSZ] video.south west) rectangle (video.south east) 
+    \foreach \x in {1,2,...,#2} {
+      {[rounded corners=0.6] ($(video.south west)+(-0.7,-0.2)+(\x,0)$) rectangle +(0.4,-0.6)}
+    }
+;
+   \foreach \x in {1,...,#1} {
+     \draw[color=lightblue!50!black] ([xshift=\x\linewidth/#1] video.north west) -- ([xshift=\x\linewidth/#1] video.south west);
+   }
+   \foreach \x in {0,#1} {
+     \draw[color=lightblue!50!black] ([xshift=\x\linewidth/#1,yshift=1\FSZ] video.north west) -- ([xshift=\x\linewidth/#1,yshift=-1\FSZ] video.south west);
+   }
+   \end{tikzpicture}
+}
+
+\hyphenation{resolution occlusions}
+%%
+\begin{poster}%
+  % Poster Options
+  {
+  % Show grid to help with alignment
+  grid=false,
+  % Column spacing
+  colspacing=1em,
+  % Color style
+  bgColorOne=white,
+  bgColorTwo=white,
+  borderColor=lightblue,
+  headerColorOne=black,
+  headerColorTwo=lightblue,
+  headerFontColor=white,
+  boxColorOne=white,
+  boxColorTwo=lightblue,
+  % Format of textbox
+  textborder=roundedleft,
+  % Format of text header
+  eyecatcher=true,
+  headerborder=closed,
+  headerheight=0.1\textheight,
+%  textfont=\sc, An example of changing the text font
+  headershape=roundedright,
+  headershade=shadelr,
+  headerfont=\Large\bf\textsc, %Sans Serif
+  textfont={\setlength{\parindent}{1.5em}},
+  boxshade=plain,
+%  background=shade-tb,
+  background=plain,
+  linewidth=2pt
+  }
+  % Eye Catcher
+  {\includegraphics[height=5em]{images/graph_occluded}} 
+  % Title
+  {\bf\textsc{Symmetry Breaking Operators of Indefinite Orthogonal Groups $O(p,q)$}\vspace{0.5em}}
+  % Authors
+  {\textsc{ Toshiyuki Kobayashi and Alex Leontiev}}
+  % University logo
+  {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
+    \includegraphics[height=8.0em]{images/logo}
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Now define the boxes that make up the poster
+%%%---------------------------------------------------------------------------
+%%% Each box has a name and can be placed absolutely or relatively.
+%%% The only inconvenience is that you can only specify a relative position 
+%%% towards an already declared box. So if you have a box attached to the 
+%%% bottom, one to the top and a third one which should be in between, you 
+%%% have to specify the top and bottom boxes before you specify the middle 
+%%% box.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %
+    % A coloured circle useful as a bullet with an adjustably strong filling
+    \newcommand{\colouredcircle}{%
+      \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
+
+  \headerbox{Setting}{name=setting,column=0,row=0}{
+	  \begin{equation*}
+  \Q (x) \assign \,^t \! x I_{p, q} x, \; (x \in
+  \mathbbm{R}^{p + q}),
+	  \end{equation*}
+\begin{equation*}
+	\mbox{where }I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
+  1, \ldots, - 1}_q).
+  \vspace*{-0.8cm}
+\end{equation*}
+\begin{align*}
+	G &\assign O (p +
+	1, q + 1)\\&=\left\{ g\in GL_{n+2}\left( \R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}
+\end{align*}
+where $n:=p+q$.
+Define
+a maximal parabolic subgroup $P=MAN_{+}$ with
+\begin{align*}
+   M &\assign \left\{ \left( \begin{array}{ccc}
+    \epsilon  &0  &0\\
+    0  &A  &0\\
+    0  &0  &\epsilon
+  \end{array} \right)
+  \right\}_{A \in O (p, q),\;
+    \epsilon = \pm 1}\kern-1em\simeq O(p,q)\times \Z_2,  \\
+  A &\assign \left\{a (t) \assign \left( \begin{array}{ccc}
+    \cosh (t)  &0  &\sinh (t)\\
+    0  &I_{p + q}  &0\\
+    \sinh (t)  &0  &\cosh (t)
+  \end{array} \right)\right\}_{ t \in \mathbbm{R}} \\&\simeq \mathbbm{R},\\
+  N_+ &\assign\!\left\{\!  \left( \begin{array}{@{}c@{}c@{}c@{}}
+    1- \frac{1}{2} \Q (b) , &\,-^t \! (I_{p, q} b),  &\frac{1}{2} \Q (b)\\
+    b  &I_{n}&  - b\\
+    - \frac{1}{2} \Q (b),  &- \,^t \! (I_{p, q} b),  &1+\frac{1}{2} \Q (b)
+  \end{array} \right)\right\}_{b \in \mathbbm{R}^n } \\&\simeq
+  \mathbbm{R}^n.
+\end{align*}
+{\noindent For complex parameter $\lambda\in\C$ we define (unnormalized) spherical degenerate principal series representations of $G$ as}
+{\centering
+	$\displaystyle
+\begin{aligned}
+I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
+&\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\right.\\&\left.\quad\forall(g,ma(t)n)\in G\times P \right\}.
+\end{aligned}
+$}
+We realize $G':=O(p,q+1)$ as the subgroup $G_{e_{p+1}}:=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}$ of $G$. 
+Then $G'$ is {\it compatible} with $P$ in the sense that 
+$P':=P\cap G'$ is also a maximal parabolic subgroup
+with Langlands decomposition $P'=(G'\cap M)A (G'\cap N_+)$,
+because $A\subset G'$.
+Similarly, we define (unnormalized) spherical degenerate principal series representations $J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$ of $G'$ for $\nu\in\C$.
+ }
+ \headerbox{Problem}{name=problem,column=0,below=setting}
+ {
+	 \begin{problem}
+		 \begin{align*}
+			 &\SBO = \mbox{\large\bf ?}\\
+			 &\quad\uparrow\mbox{{\it symmetry breaking operators} (\textit{SBOs} for short)}
+		 \end{align*}
+%%		 For any given $(\lambda,\nu)\in\C^2$ find all , that is 
+%%		 all members of the space $\SBO$.
+	 \end{problem}
+	 \begin{problem}
+		 Investigate the properties of SBOs (e.g. residue formulae, functional equations, compute their images).
+	 \end{problem}
+ }
+ \headerbox{Notations}{name=notations,column=0,below=problem}
+ {
+\begin{itemize}
+	\item $\mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in
+	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \}$;
+	\item $\backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\N}$;
+	\item $/ / \assign
+	\{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
+	-2\N \}$;
+	\item$\quad \mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N}$;
+	\item $\tilde{C}(s,t)$ as in \cite[(16.3)]{kobayashi2015symmetry}.
+	\item $A:=\ss\cap\mid\mid\mid,\quad X:=\mm\cap\bb$
+	\end{itemize}
+ }
+ \headerbox{References}{name=references,column=0,below=notations}
+ {
+    \smaller
+    \nocite{kobayashi2015symmetry}
+    \nocite{kobayashi2016differential1}
+\bibliographystyle{mystyle}
+\bibliography{todai_master}
+   \vspace{0.3em}
+ }
+ \headerbox{Key Fact}{name=keyfact,column=1,row=0}
+ {
+Applying the very general result proven in \cite[Chap.\ 3]{kobayashi2015symmetry} to our particular setting, we get the following:
+\begin{fact}[{\cite[Thm. 3.16]{kobayashi2015symmetry}}]\label{fact1}
+Let $n:=p+q$. The following diagram commutes:
+\vspace{-0.8cm}
+\begin{figure}[H]
+	\xymatrixcolsep{0.0pc}
+	\hspace*{-1.3cm}\xymatrix{
+&2^{P'\backslash G/P}\\
+		\SBO\ar[r]^{\simeq} \ar[ur]^{\Supp}
+	&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda}) \otimes\mathbb{C}_\nu \right)^{P'}
+\ar[u]_-{F\mapsto \supp(F)}\ar[dl]^{\simeq}_{\mbox{rest}}\\
+{\hspace{1.65cm}\sol\subset\mathcal{D}'(\R^{p,q})}\ar[u]^{\mbox{Op}}_{\simeq}\\
+}
+\end{figure}
+\end{fact}
+ }
+ \headerbox{Result \#1}{name=suppclassif,column=1,below=keyfact}
+ {
+\begin{theorem}[classification of closed $P'$-invariant subsets of $G/P$]
+	Suppose $p,q\ge1$.
+	The left $P'$-invariant closed subsets of $G/P$ are described in the following Hasse diagram. Here 
+	$
+	\begin{array}{l}
+	        \xymatrixrowsep{0.5pc}
+		\xymatrix{A\ar@{-}[d]^m\\B}
+	\end{array}
+	$
+	means that $A\supset B$ and that the generic part of $B$ is of codimension $m$ in $A$.
+	\vspace*{-0.5cm}
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+	    \xymatrixrowsep{0.5pc}
+	    \xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rd]_1&&C\ar@{-}[ld]^1\\&C\cap Y\ar@{-}[dd]^{p+q-2}&\\&&\\&\{[o]\}&}
+	\caption{when $p>1$}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[t]{0.3\textwidth}
+	    \xymatrixrowsep{0.5pc}
+	    {\xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rddd]_{p+q-2}&&C\ar@{-}[lddd]^{p+q-2}\\&&\\&&\\&\{[o]\}&}}
+	\caption{when $p=1$}
+    \end{subfigure}
+\end{figure}
+\end{theorem}
+ }
+ \headerbox{Result \#2}{name=construction,column=1,below=suppclassif}
+ {
+\begin{theorem}[construction of SBO]\label{thm:construction}
+	For $S=X,Y,C,$ and $\left\{ o \right\}$, the following operators $R_{\lambda,\nu}^S$ and $\tilde{R}_{\lambda,\nu}^X$ are SBOs, which depend holomorphically on $(\lambda,\nu)\in D_S$. 
+	
+	Moreover, $\Supp(R_{\lambda,\nu}^S)\subset S$, ``='' generically and were computed explicitly.\\
+	\newcommand{\mystack}[2]{\begin{array}{@{}c@{}}#1\\#2\end{array}}
+	\begin{tabular}{@{}|@{}b{1.6cm}@{}|@{}l@{}|}
+  \hline
+  $R_{\lambda,\nu}^S$& $\tmop{Op} : 
+  \Sol(\mathbbm{R}^{p, q} ; \lambda, \nu)
+  \rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu))$\\
+  \hline
+  $\mystack{\tilde{R}^X_{\lambda, \nu} =}{(\lambda,\nu)\in\mid\mid\mid}$ & $\frac{1}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
+  \right) \Gamma \left( \frac{1 - \nu}{2} \right)}{\tmop{Op} \left( | x_p |^{\lambda +
+  \nu - n} | \Q |^{- \nu}\right)} $ \\
+  \hline
+  $\mystack{R_{\lambda, \nu}^Y =}{(\lambda,\nu)\in\bb}$ & ${ q_Y^X (\lambda, \nu)}{\tmop{Op} \left( \delta^{(2k)}(x_p)
+  | \Q |^{- \nu}  \right)}$.\\
+  \hline
+  $\mystack{R_{\lambda, \nu}^C =}{(\lambda,\nu)\in\mm}$ & $q_C^X (\lambda, \nu){\tmop{Op} \left( | x_p |^{\lambda + \nu - n}\delta^{(2m)}\left( \Q \right)
+    \right)}$ \\
+  \hline
+  $\mystack{R_{\lambda, \nu}^{\{ o \}} =}{(\lambda,\nu)\in\ss}$ & 
+  $\tmop{Op} \left( \tilde{C}_{\nu -
+  \lambda}^{\lambda - \frac{n - 1}{2}} \left(-\Delta_{\mathbbm{R}^{p - 1, q}}
+  \delta_{\mathbbm{R}^{p + q - 1}}, \delta (x_p)\right) \right)$\\
+  \hline
+\end{tabular}
+\end{theorem}
+%We set $m:=\frac{1}{2}\left( \nu-1 \right)\in\N$ for $(\lambda,\nu)\in\mm$ and $k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$ for $(\lambda,\nu)\in\bb$.
+For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
+\[ q_C^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
+		\Gamma^{-1} \left(\frac{\lambda-\nu}{2} \right), & q \in
+     2\mathbbm{Z}, \nu \leqslant q - \nu,\\
+     \Gamma^{-1} \left( \frac{\lambda + \nu-n+1}{2} \right), & q \in 2\mathbbm{Z},
+     \nu > q - \nu,\\
+     \Gamma^{-1} \left( \frac{\lambda - \nu}{2} \right), & q \in
+     2\mathbbm{Z}+ 1.
+   \end{array} \right. \]
+\[q_Y^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
+		\Gamma^{-1}\left( \frac{\lambda-\nu}{2} \right), & 
+     q\todd\mbox{ or }\lambda+\lambda\ge0,\\
+     \Gamma^{-1} \left(     - \nu \right), & q\teven,\lambda+\nu<0.
+   \end{array} \right. \]
+}
+
+\headerbox{Result \#3 (classif. of SBOs)}{name=classif,column=1,below=construction}
+{
+\begin{theorem}\label{thm:classif}
+	Suppose $p,q\ge1$, let $H:=\SBO$.
+\[ p = 1 \Rightarrow H = \left\{
+	\begin{array}{@{}l@{}l@{}}
+     \mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \notin  A\cup X
+     ,\\
+     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
+     \}}_{\lambda, \nu}, & (\lambda, \nu) \in A -
+     X,\\
+     \mathbbm{C}R^P_{\lambda, \nu} \oplus \mathbbm{c}r^c_{\lambda, \nu}, &
+     (\lambda, \nu) \in X - / /,\\
+     \mathbbm{C}R^{\{ o \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid
+     \cap \backslash\backslash \cap / /.
+   \end{array} \right. \]
+\[ p > 1 \Rightarrow H = \left\{
+   \begin{array}{ll}
+     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
+     \}}_{\lambda, \nu \lambda, \nu}, & (\lambda, \nu) \in / / \cap \mid \mid
+     \mid,\\
+     \mathbbm{C}R^X_{\lambda, \nu}, & \tmop{otherwise.}
+   \end{array} \right. \]
+\end{theorem}
+%%\begin{corollary}\label{cor:classif}
+%%	We have $\dim_{\C}\SBO\in\left\{ 1,2 \right\}$ for all $(\lambda,\nu)\in\C^2$.
+%%\end{corollary}
+}
+
+\end{poster}
+
+\end{document}
+%put the contents
+%decide order
+%expand/compress/rephrase
+%add colors?
