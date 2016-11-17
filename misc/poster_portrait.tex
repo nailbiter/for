@@ -1,5 +1,6 @@
 \documentclass[portrait,final,paperwidth=90cm,paperheight=120cm,fontscale=0.3]{baposter}
 
+\usepackage{adjustbox}
 \usepackage{tcolorbox}
 \usepackage{lipsum}
 \usepackage{calc}
@@ -400,7 +401,7 @@ For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
      \Gamma^{-1} \left( \frac{\lambda - \nu}{2} \right), & q \in
      2\mathbbm{Z}+ 1.
    \end{array} \right. \]
-\[q_Y^X (\lambda, \nu) : = \same\]
+   \[q_Y^X (\lambda, \nu) : = \raisebox{-0.4cm}{\mbox{\includegraphics[scale=0.1,trim=0mm 12mm 0mm 0mm]{images/qr}}}\]
 }
 
 \headerbox{Result \#3 (classif. of SBOs)}{name=classif,column=1,below=construction}
@@ -495,12 +496,6 @@ For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
 \headerbox{Result \#7 (images of SBOs)}{name=images,column=2,below=functional}
 {
 	For every $(\lambda,\nu)\in\C^2$ we can determine image of every SBO constructed in Theorem \ref{thm:construction}.
-}
-\headerbox{test}{name=test,column=2,below=images}
-{
-	\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=A nice heading]
-		\lipsum[2]
-	\end{tcolorbox}
 }
 
 \end{poster}
