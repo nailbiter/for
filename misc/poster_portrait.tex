@@ -1,5 +1,7 @@
 \documentclass[portrait,final,paperwidth=90cm,paperheight=120cm,fontscale=0.3]{baposter}
 
+\usepackage{tcolorbox}
+\usepackage{lipsum}
 \usepackage{calc}
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -51,6 +53,7 @@
 \newcommand{\NegE}{\SET N}
 \newcommand{\Occluded}{\SET O}
 \newcommand{\occluded}{o}
+\newcommand{\same}{\dots\mbox{(similar)}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Some math symbols used in the text
@@ -295,14 +298,14 @@ Similarly, we define (unnormalized) spherical degenerate principal series repres
 	\item $/ / \assign
 	\{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
 	-2\N \}$;
-	\item$\quad \mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N}$;
-	\item $\tilde{C}(s,t)$ as in \cite[(16.3)]{kobayashi2015symmetry}.
-	\item $A:=\ss\cap\mid\mid\mid,\quad X:=\mm\cap\bb$
+	\item$ \mid\mid:=\C\times\left( 2\N+1 \right);\tilde{C}(s,t)$ as in \cite[(16.3)]{kobayashi2015symmetry};
+	\item $A:=\ss\cap\mid\mid\mid, X:=\mm\cap\bb$
 	\end{itemize}
  }
  \headerbox{References}{name=references,column=0,below=notations}
  {
     \smaller
+    \nocite{kobayashi2015program}
     \nocite{kobayashi2015symmetry}
     \nocite{kobayashi2016differential1}
 \bibliographystyle{mystyle}
@@ -397,11 +400,7 @@ For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
      \Gamma^{-1} \left( \frac{\lambda - \nu}{2} \right), & q \in
      2\mathbbm{Z}+ 1.
    \end{array} \right. \]
-\[q_Y^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
-		\Gamma^{-1}\left( \frac{\lambda-\nu}{2} \right), & 
-     q\todd\mbox{ or }\lambda+\lambda\ge0,\\
-     \Gamma^{-1} \left(     - \nu \right), & q\teven,\lambda+\nu<0.
-   \end{array} \right. \]
+\[q_Y^X (\lambda, \nu) : = \same\]
 }
 
 \headerbox{Result \#3 (classif. of SBOs)}{name=classif,column=1,below=construction}
@@ -432,27 +431,28 @@ For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
 %%	We have $\dim_{\C}\SBO\in\left\{ 1,2 \right\}$ for all $(\lambda,\nu)\in\C^2$.
 %%\end{corollary}
 }
-\headerbox{Result \#4}{name=spherical,column=2,row=0}
+\headerbox{Result \#4 }{name=spherical,column=2,row=0}
 {
-\begin{theorem}[spectrum of sph. vectors]\label{thm:spherical}
-Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$ be the spherical vectors normalized so that $\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$. With this normalization and $n:=p+q$ as before, we have:
+\begin{theorem}[spectrum for spherical vectors]\label{thm:spherical}
+	Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu^{K'}$ be the spherical vectors normalized so that $\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$.
+	With $n:=p+q\;(p,q\ge1)$ we have:
 \[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} =  \frac{2^{1 -
 \lambda}\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
 \Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
 \frac{q - \nu + 1}{2} \right)} \mathbbm{1}_{\nu}. \]
 \end{theorem}
 }
-\headerbox{Result \#5 (residue formulae)}{name=residue,column=2,below=spherical}
+\headerbox{Result \#5 (residue formula)}{name=residue,column=2,below=spherical}
 {
 \begin{theorem}
 	Let $n:=p+q\;(p,q\ge1)$ as before.
 	For $(\lambda,\nu)\in//$, we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$. Then we have
   \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^l l!\pi^{(n - 2) / 2} 
 		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
-     \OpR_{\lambda,\nu}^{ \left\{ o \right\} },\;(\lambda,\nu)\in// . \]
+     \OpR_{\lambda,\nu}^{ \left\{ o \right\} },\;(\lambda,\nu)\in//. \]
 	\end{theorem}
 }
-\headerbox{Result \#6 (functional identities)}{name=functional,column=2,below=residue}
+\headerbox{Result \#6}{name=functional,column=2,below=residue}
 {
 	\begin{definition}
 		Similarly to the construction of Fact \ref{fact1}, for $G=O(p+1,q+1)$ we have $\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$
@@ -462,11 +462,7 @@ Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$ be the 
 		\begin{equation*}
 			\myabs{\Q}^{\lambda-n}\times\begin{cases}
 				\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}=0,\\
-				\Gamma^{-1}\left( \frac{\lambda-n+1}{2} \right)\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}>0,n\in2\Z+1,\\
-  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2+
-  1}{2} \right), &\min\left\{ p,q \right\}>0, n / 2 + p \in 2\mathbbm{Z}+ 1,\\
-  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2}{2}
-  \right), & \min\left\{ p,q \right\}>0,n / 2 + p \in 2\mathbbm{Z}
+				\same,&\dots
 			\end{cases}
 		\end{equation*}
 		belongs to $\Sol_G(\R^{p,q};\lambda,n-\lambda)$ and we can use it to
@@ -479,12 +475,32 @@ Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$ be the 
 	\begin{theorem}[functional identities]
 		Let $n:=p+q\;(p,q\ge1)$ as before.
 		We have:
-\ExecuteMetaData[.master_extract.tex]{functional}
+\begin{eqnarray}
+    & \tilde{\mathbbm{T}}^{G'}_{n-1 - \nu} \circ R^X_{\lambda, n' - \nu} =\pi^{\frac{n - 3}{2}} q^{T X}_X
+  (\lambda, \nu) R^X_{\lambda, \nu}, &  \nonumber\\
+  & R_{n - \lambda, \nu}^X \circ \tilde{\mathbbm{T}}^G_{\lambda} =2^{2\lambda-n}\pi^{-\frac{n}{2}-1} q^{X T}_X
+  (\lambda, \nu) R_{\lambda, \nu}^X, &  \nonumber
+  \end{eqnarray}
+  where
+  \begin{gather*}
+  q^{T X}_X (\lambda, \nu) \assign\frac{\sin\left( \frac{p-\nu}{2} \pi\right)}{\Gamma\left( \frac{n-1-\nu}{2} \right)} \ \left\{
+	  \begin{array}{@{}l@{}l}
+    {\Gamma\left( \frac{n / 2 - \nu}{2} \right)}, & \frac{n - 1}{2}+p\todd,\\
+    \dots&
+  \end{array} \right.\\
+  q^{X T}_X (\lambda, \nu) \assign\same
+\end{gather*}
 	\end{theorem}
 }
-\headerbox{Result \#6 (images)}{name=images,column=2,below=functional}
+\headerbox{Result \#7 (images of SBOs)}{name=images,column=2,below=functional}
 {
-	For every $(\lambda,\nu)\in\C^2$ we can compute image of every SBO constructed in Theorem \ref{thm:construction}.
+	For every $(\lambda,\nu)\in\C^2$ we can determine image of every SBO constructed in Theorem \ref{thm:construction}.
+}
+\headerbox{test}{name=test,column=2,below=images}
+{
+	\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=A nice heading]
+		\lipsum[2]
+	\end{tcolorbox}
 }
 
 \end{poster}
