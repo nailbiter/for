@@ -3,17 +3,17 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 58>
+  <section|report 59>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
-    Project 1: Streamline the work already done (wed)
-  </cell>|<cell|<strong|done>>>|<row|<\cell>
     Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
     symmetry breaking (thu)
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     Work on for <math|U<around*|(|p,q|)>> case (sat)
+  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
+    misc tasks (image of <math|A<rsup|2>> under SBOs, image of Yamabe ker)
   </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
   \;
@@ -21,7 +21,10 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>Read Appendix 1,2 of Lang's \PSL2\Q
+    <item>Read Appendix 3 of Lang's \PSL2\Q
+
+    <item>Created program for drawing diagrams such as attached (see
+    <verbatim|dimplots.pdf>)
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do during this week>:
@@ -144,7 +147,7 @@
 
   <paragraph|Comments>
 
-  I did intolerably small amount of work the last 3 weeks. I'll have to catch
+  I did intolerably small amount of work the last 4 weeks. I'll have to catch
   up.
 
   <\bibliography|bib|tm-alpha|todai_master>
@@ -195,7 +198,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      57> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      58> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments

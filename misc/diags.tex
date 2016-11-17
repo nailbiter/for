@@ -1,0 +1,190 @@
+%mypipes
+%texmacs ~/for/fortexmacs/master_extract.tm
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,bbm,xypic}
+\usepackage[all,cmtip]{xy}
+\usepackage{amsmath,amssymb,bbm,float}
+\usepackage[normalem]{ulem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{setspace}
+\usepackage{comment}
+\usepackage{catchfilebetweentags}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\includecomment{versiona}
+\usepackage{tikz}
+\usepackage{bashful}
+\usetikzlibrary{patterns}
+\usepackage{bbm}
+
+%%%%%%%%%% Start TeXmacs macros
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\assign}{:=}
+\newcommand{\comma}{{,}}
+\newcommand{\nin}{\not\in}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\newcommand{\um}{-}
+
+\newtheorem{theorem}{Theorem}
+\newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
+\newcommand{\Hom}{\mbox{\normalfont Hom}}
+\newcommand{\Sol}{\mathcal{S}\!{\it ol}}
+\newcommand{\Ind}{\mbox{\normalfont Ind}}
+\newcommand{\Supp}{\mathcal{S}\!{\it upp}}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}{Fact}
+%\newtheorem{definition}{Definition}
+\newtheorem{definition}{Definition}
+
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\dueto}[1]{\textup{\textbf{(#1) }}}
+\newcommand{\tmrsub}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\tmrsup}[1]{\textsuperscript{#1}}
+\newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
+\newtheorem{proposition}{Proposition}
+\newcommand{\Op}{\mbox{\normalfont Op}}
+\newcommand{\Res}{\operatorname{Res}\displaylimits}
+\newcommand{\OpR}{\mbox{\it R}}
+\newcommand{\Q}{Q_{p,q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\mybra}[1]{\left(#1\right)}
+\newcommand{\IlambdaGprime}{I(\lambda)\kern-0.3em\mid_{G'}}
+\newcommand{\SBO}{\Hom_{G'}\left(\IlambdaGprime,J(\nu) \right)}
+\renewcommand{\setminus}{-}
+%%%%%%%%%% End TeXmacs macros
+
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{2em}
+
+\newcommand{\even}{2\Z}
+\newcommand{\odd}{2\Z+1}
+\newcommand{\teven}{\mbox{\textrm{: even}}}
+\newcommand{\todd}{\mbox{\textrm{: odd}}}
+\newcommand{\tevenText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu#1\end{array}$}
+\newcommand{\toddText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu#1\end{array}$}
+\newcommand{\mm}{\mid\mid}
+\newcommand{\bb}{\backslash\backslash}
+\renewcommand{\ss}{//}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+\begin{enumerate}[(1)]
+	\item Suppose $p\in2\N_++1$ and $q\in2\Z$. Then, if $\nu\in2\Z,0<\nu<n-1$, $R_{\lambda,\nu}^X$ is surjective. Otherwise,
+		\hspace*{-1cm}\begin{figure}[H]
+			\noindent\begin{tabular}{m{1.3cm}rrr}
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
+	      {\vspace{-3cm} $ \begin{array}{l}
+	      \nu\teven\\ \nu\le0
+      \end{array}$}&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0))' '((App 0 1 0))' '((App 0 3 0 K0)(App 0 1 0 Kt))'"}\\[0pt]
+      \vspace{-3cm}$\begin{array}{l}
+	      \nu\todd\\ \nu\le\frac{n-3}{2}
+      \end{array}$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 11 0 Kt)(Amp 0 3 0 K0))'"}\\[0pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
+	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu=\frac{n-1}{2}
+	      \end{array}$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0)(Apm 1 0 0))' '()' '((Apm 0 3 0 K0)(Apm 1 11 0 Kt))'"}\\[0pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
+	      \vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu\ge{n-1}\end{array}$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1))' '((App 1 3 1))' '((App 1 2 1))'"}\\[0pt]
+	    \end{tabular}
+	  \end{figure}
+		\begin{figure}[H]
+			\noindent\begin{tabular}{m{1.3cm}rrr}
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
+	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 1 0 1)(Amp 1 2 1))' '((Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((Apm 1 2 1 K0)(Amp 1 2 1 K0)(Amp 1 2 1 Kt))'"}\\[25pt]
+	    \end{tabular}
+	  \end{figure}
+	\item Suppose $p,q\in\odd$ and $p>1$. Then,
+		\begin{figure}[H]
+			\noindent\begin{tabular}{m{1.3cm}rrr}
+			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
+			\tevenText{\le0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0))'"}\\[0pt]
+			\toddText{\le n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 3 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[0pt]
+			\tevenText{>0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0))' '((Apm 0 11 0))' '((Apm 0 11 0 Kt)(Apm 0 3 0 K0))'"}\\[0pt]
+			\toddText{>n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1)(Apm 1 0 1))' '((App 1 0 1)(Apm 1 2 1))' '((App 1 3 1)(Apm 1 0 1))'"}\\[0pt]
+			  
+		\end{tabular}
+		\end{figure}
+	\item Suppose $p,q\in\even$. Then,
+		\begin{figure}[H]
+			\noindent\begin{tabular}{m{1.3cm}rrr}
+			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
+			\tevenText{\le0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Amp 0 3 0 K0))'"}\\[0pt]
+			\toddText{\le n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 3 0))' '((Apm 0 11 0))' '((Apm 0 3 0 K0)(Apm 0 11 0 Kt))'"}\\[0pt]
+			\tevenText{>0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 11 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[0pt]
+			\toddText{>n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Amp 1 2 1))' '((App 1 3 1 K0)(Amp 1 2 1 Kt))'"}\\[0pt]
+		\end{tabular}
+		\end{figure}
+	\item Suppose $p\in\even,q\in\odd$. Then for $\nu\in\odd$, $R_{\lambda,\nu}^X$ is surjective. Otherwise (for $\nu\in\even$) we have,
+	  \begin{figure}[H]
+		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
+	      \vspace{-3cm}$\nu\leq0$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0)(Amp 0 0 0))'"}\\[0pt]
+	      \vspace{-3cm}$
+	      \begin{array}{l}
+		      \nu>0\\\nu\le\frac{n-3}{2}
+	      \end{array}
+	      $&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 11 0 Kt)(Amp 0 3 0 K0))'"}\\[0pt]
+              $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
+	      \vspace{-3cm}$
+	      \begin{array}{l}
+		      \nu\todd\\\nu=\frac{n-1}{2}
+	      \end{array}
+	      $&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0)(Apm 1 0 0))' '()' '((Apm 0 11 0 Kt)(Apm 1 3 0 K0))'"}\\[0pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
+	      \vspace{-3cm}
+	      $
+	      \begin{array}{l}
+		      \nu\ge\frac{n+1}{2}\\\nu\le n-3
+	      \end{array}
+	      $
+	      &\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 1 0 1)(Amp 1 2 1))' '((Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((Apm 1 2 1 K0)(Amp 1 2 1 Kt)(Amp 1 2 1 K0))'"}\\[0pt]
+	      \vspace{-3cm}$
+	      \nu>n-3$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 0 1)(Apm 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((App 1 0 1)(Apm 1 2 1 K0)(Amp 1 2 1 Kt)(Amp 1 2 1 K0))'"}\\[0pt]
+	    \end{tabular}
+	  \end{figure}
+	\end{enumerate}
+	\vspace{-0.9cm}
+	In the diagrams above some of them are filled not with gray, but with colored diagonal lines. This means that the image of the regular
+	SBO $R_{\lambda,\nu}^X$ is zero and the (green/purple)
+	ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{ \left\{ o \right\}}$ and $\tilde{R}_{\lambda,\nu}^X$ respectively.
+	For $p=1$ we have:\\
+	\newcommand{\mystack}[2]{$\begin{array}{l}#1\\#2\end{array}$}
+	\begin{figure}[H]
+		\begin{tabular}{p{3.2cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.3cm}p{2.3cm}}
+		$(\lambda,\nu)\in$ & $\mybra{\ss\cup\bb}^c$ & $\ss-\bb$ & $\bb-\ss$ & $\ss\cap\bb,k<l$ & $\ss\cap\bb,k\geq l$\\
+		\vspace{-0.7cm}\mystack{\nu\teven}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		'((def 0 1))' '((Kt 0 1)(K0 0 2))' '((def 0 1))' '()' '((K0 0 2)(Kt 0 1))'"}\\
+		\vspace{-0.5cm}\mystack{\nu,q\teven}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		'((def 1))' '((def 1))' '((def 1))' '((def 1))' '((def 1))'"}\\
+		\vspace{-0.5cm}\mystack{\nu\teven,q\todd}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1))' '((Kt 1)(K0 1))' '((def 1))' '((def 1))' '((def 1))'"}\\
+		\vspace{-0.7cm}\mystack{\nu,q\teven}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 2))' '((def 1 2))' '((def 1 1))' '((def 1 1))' '()'"}\\
+		\vspace{-0.7cm}\mystack{\nu\teven,q\todd}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 1))' '((Kt 1 1)(K0 1 2))' '((def 1 1))' '((def 1 1))' '()'"}\\
+		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 0 2))' '((Kt 0 2)(K0 0 2))' '((def 0 2))' '()' '((K0 0 2)(Kt 0 2))'"}\\
+		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 0 2))' '((def 0 2))' '((def 0 2))' '()' '((def 0 2))'"}\\
+		\vspace{-0.5cm}\mystack{\nu\todd,q\teven}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm	'((def 1))' '((Kt 1)(K0 1))' '((KC 1)(KY 1))' '((Kt 1)(K0 1))' '((def 1))'"}\\
+		\vspace{-0.5cm}\mystack{\nu,q\todd}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1))' '((def 1))' '((KC 1)(KY 1))' '((Kt 1)(K0 1))' '((def 1))'"}\\
+		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 1))' '((Kt 1 1)(K0 1 2))' '((KY 1 1)(KC 1 1))' '((Kt 1 1)(K0 1 1))' '()'"}\\
+		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 2))' '((def 1 2))' '((KY 1 1)(KC 1 2))' '((K0 1 2)(Kt 1 2))' '()'"}\\
+	\end{tabular}\end{figure}
+	In the diagrams above some of them are filled not with gray, but with colored diagonal lines. This means that the image of the regular SBO $R_{\lambda,\nu}^X$ is zero and:
+	\begin{itemize}
+		\item For $(\lambda,\nu)\in\ss$ the (green/purple)
+			ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{ \left\{ o \right\}}$ and $\tilde{R}_{\lambda,\nu}^X$ 
+			respectively.
+		\item For $(\lambda,\nu)\in\ss$ the (blue/red) ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{Y}$ and ${R}_{\lambda,\nu}^C$ 
+			respectively.
+	\end{itemize}
+\end{document}
+
+

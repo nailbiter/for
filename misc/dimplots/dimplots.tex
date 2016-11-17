@@ -1,4 +1,4 @@
-\documentclass[tikz,border=5mm]{standalone}
+\documentclass[tikz,border=5mm]{article}
 \usepackage{tikz, pgfplots}
 \usepackage[]{amsmath}
 \usetikzlibrary{arrows}
@@ -12,36 +12,10 @@
 \usetikzlibrary{shapes.geometric}
 \pgfplotsset{compat=1.12}
 \begin{document}
-\begin{tikzpicture}
-\begin{axis}[
- xlabel = $\lambda$,
- ylabel = $\nu$,
-  xmin=-12,xmax=12,
-  ymin=-12,ymax=12,
- label style={font=\tiny},
-  label style ={at={(ticklabel cs:1.5)}},
-  xtick={-10,-9,...,10},
- tick label style={font=\tiny},
- legend style={at={(0.5,-0.1)},anchor=north,font=\tiny},
- axis lines=middle,
- legend cell align=left
-  ]
-  \node at (10,10) {\pgfuseplotmark{triangle*}};
-  \node at (7,6) {\pgfuseplotmark{square*}};
-  \node at (0,0) {\pgfuseplotmark{*}};
-\draw[color=red,line width=0.3mm] (02,02) -- (06,06);
-\addlegendimage{line width=0.3mm,color=red,style=dotted}
-\addlegendentry{Analytical results}
-\addlegendimage{only marks, mark=square*}
-\addlegendentry{Algebraic results}
-\addlegendimage{only marks, mark=triangle*},
-\addlegendentry{Qual results}
-
-\addplot [variable=\t,samples=200,domain=0:360] ({09.50052*cos(t)},{09.45021*sin(t)});
-\addlegendentry{Parametric analytic}
-\end{axis}
-\end{tikzpicture}
+\begin{figure}
 \input{diag1}
+\caption{support of regular SBO for $(p,q)=(3,5)$}
+\end{figure}
 \end{document}
 %having two families of lines
 %moving bounds and axes appropriately
