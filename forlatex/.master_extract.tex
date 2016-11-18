@@ -3,10 +3,6 @@
 \usepackage{amsmath,amssymb,bbm}
 
 %%%%%%%%%% Start TeXmacs macros
-\catcode`\<=\active \def<{
-\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
-\catcode`\>=\active \def>{
-\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
 \newcommand{\assign}{:=}
 \newcommand{\comma}{{,}}
 \newcommand{\dueto}[1]{\textup{\textbf{(#1) }}}
@@ -18,96 +14,73 @@
 \newcommand{\tmtextit}[1]{{\itshape{#1}}}
 %%%%%%%%%% End TeXmacs macros
 
-\providecommand{\*}{{\myralph}}
-\providecommand{\*}{{\myralph}}
-\newcommand{\mynorm}[1]{\|#1\|}
-\newcommand{\myabs}[1]{\left|#1\right|}
-\newcommand{\lfrac}[2]{{\mybra{#1/#2}}}
-\newcommand{\myset}[1]{\left\{#1\right\}}
-\newcommand{\mysca}[2]{\left\<less>#1, #2\right\<gtr>}
-\newcommand{\mysetn}[2]{\left\{ #1 \middle|  #2 \right\}}
-\newcommand{\myfincol}[2]{\left\{#1\right\}\tmrsub{i=1}\tmrsup{#2}}
-\newcommand{\mysfrac}[2]{\tmrsup{#1}/\tmrsub{#2}}
-\newcommand{\mycol}[2]{\left\{#1\right\}\tmrsub{#2}}
-\newcommand{\mysetg}[1]{\left\<less>\left\{#1\right\}\right\<gtr>}
-\newcommand{\myvec}[1]{{\overrightharp{\ensuremath{#1}}}}
-\newcommand{\myvecprodexpanded}[6]{\left|\begin{tabular}{ccc}
-  \mathbf{i} & \mathbf{j} & \mathbf{k}\\
-  #1 & #2 & #3\\
-  #4 & #5 & #6
-\end{tabular}\right|= \left|\begin{tabular}{cc}
-  #2 & #3\\
-  #5 & #6
-\end{tabular}\right|\mathbf{i} -\left|\begin{tabular}{cc}
-  #1 & #3\\
-  #4 & #6
-\end{tabular}\right|\mathbf{j} +\left|\begin{tabular}{cc}
-  #1 & #2\\
-  #4 & #5
-\end{tabular}\right|\mathbf{k}}
-\newcommand{\mybra}[1]{\left(#1\right)}
-\newcommand{\mycbra}[1]{\left\{#1\right\}}
-\newcommand{\mysbra}[1]{\left[#1\right]}
-\newcommand{\myabra}[1]{\left\<less>#1\right\<gtr>}
-\newcommand{\myceil}[1]{\left\lceil#1\right\rceil}
-\newcommand{\myfloor}[1]{\left\lfloor#1\right\rfloor}
-\newcommand{\mypic}{{\macro{1}{2}{\begin{figure}[h]
-  
-  \caption{}
-\end{figure}}}}
-\newcommand{\mypicwtitle}{{\macro{1}{2}{3}{\begin{figure}[h]
-  \\
-  
-  \caption{}
-\end{figure}}}}
-\newcommand{\myexplain}[1]{(\tmtextit{#1})}
-\newcommand{\myr}[1]{R\tmrsup{#1}}
-\newcommand{\mys}[1]{S\tmrsup{#1}}
-\newcommand{\mybramatii}[4]{\left(\begin{tabular}{rr}
-  #1 & #2\\
-  #3 & #4
-\end{tabular}\right)}
-\newcommand{\mybramatiii}[9]{\left(\begin{tabular}{lll}
-  #1 & #2 & #3\\
-  #4 & #5 & #6\\
-  #7 & #8 & #9
-\end{tabular}\right)}
-\newcommand{\C}{C}
-\newcommand{\F}{F}
-\newcommand{\Z}{Z}
-\newcommand{\R}{R}
-\newcommand{\N}{N}
-\newcommand{\Q}{Q}
-\newcommand{\Sp}{S}
-\newcommand{\myprobshort}{{\macro{1}{2}{{\myprob{{\dueto{}}}}}}}
-\newcommand{\diffsm}{\xrightarrow{{\sim}}}
-\providecommand{\lim}{{\oldlim}}
-\providecommand{\int}{{\oldint}}
-\providecommand{\min}{{\oldmin}}
-\providecommand{\max}{{\oldmax}}
-\providecommand{\sum}{{\oldsum}}
-\providecommand{\sup}{{\oldsup}}
-\newcommand{\tmRe}{\mathrm{Re}}
-\newcommand{\tmIm}{\mathrm{Im}}
-\newcommand{\Ker}{\mathrm{Ker}}
-\newcommand{\supp}{\mathrm{supp}}
-\newcommand{\Diff}{\mathrm{Diff}}
-\newcommand{\End}{\mathrm{End}}
-\newtheorem{mythm}{Theorem}
-\newtheorem{mylem}{Lemma}
-\newtheorem{myprop}{Proposition}
-\newtheorem{mycor}{Corollary}
-\newtheorem{myprob}{Problem}
-\newtheorem{myfact}{Fact}
-\newcommand{\myqed}{{\nobreak}{\ifvmode}{\else} {\ifdim}{\lastskip}<1.5em
-{\lastskip} {\hspace{}}{\tmfi}{\nobreak}{\vrule}height0.75em width0.5em
-depth0.25em{\tmfi}}
-\newcommand{\myqed}{\ensuremath{\blacksquare}}
-\newcommand{\qedsymbol}{\ensuremath{\blacksquare}}
-\newcommand{\myproof*}[2]{{\trivlist{\item[{\hspace{}}\tmtextbf{#1}]
-#2{\myqed}}}}
-\newcommand{\myproof}[1]{{\myproof*{Proof.}{#1}}}
-\newcommand{\proofexplanation}{{\macro{1}{\tmtextbf{()}}}}
+%%\providecommand{\*}{{\myralph}}
+%%\providecommand{\*}{{\myralph}}
+%%\newcommand{\mynorm}[1]{\|#1\|}
+%%\newcommand{\myabs}[1]{\left|#1\right|}
+%%\newcommand{\lfrac}[2]{{\mybra{#1/#2}}}
+%%\newcommand{\myset}[1]{\left\{#1\right\}}
+%%\newcommand{\mysca}[2]{\left\<less>#1, #2\right\<gtr>}
+%%\newcommand{\mysetn}[2]{\left\{ #1 \middle|  #2 \right\}}
+%%\newcommand{\myfincol}[2]{\left\{#1\right\}\tmrsub{i=1}\tmrsup{#2}}
+%%\newcommand{\mysfrac}[2]{\tmrsup{#1}/\tmrsub{#2}}
+%%\newcommand{\mycol}[2]{\left\{#1\right\}\tmrsub{#2}}
+%%\newcommand{\mysetg}[1]{\left\<less>\left\{#1\right\}\right\<gtr>}
+%%\newcommand{\myvec}[1]{{\overrightharp{\ensuremath{#1}}}}
+%%\newcommand{\mybra}[1]{\left(#1\right)}
+%%\newcommand{\mycbra}[1]{\left\{#1\right\}}
+%%\newcommand{\mysbra}[1]{\left[#1\right]}
+%%\newcommand{\myabra}[1]{\left\<less>#1\right\<gtr>}
+%%\newcommand{\myceil}[1]{\left\lceil#1\right\rceil}
+%%\newcommand{\myfloor}[1]{\left\lfloor#1\right\rfloor}
+%%\newcommand{\mypic}{{\macro{1}{2}{\begin{figure}[h]
+%%  
+%%  \caption{}
+%%\end{figure}}}}
+%%\newcommand{\mypicwtitle}{{\macro{1}{2}{3}{\begin{figure}[h]
+%%  \\
+%%  
+%%  \caption{}
+%%\end{figure}}}}
+%%\newcommand{\myexplain}[1]{(\tmtextit{#1})}
+%%\newcommand{\myr}[1]{R\tmrsup{#1}}
+%%\newcommand{\mys}[1]{S\tmrsup{#1}}
+%%\newcommand{\C}{C}
+%%\newcommand{\F}{F}
+%%\newcommand{\Z}{Z}
+%%\newcommand{\R}{R}
+%%\newcommand{\N}{N}
+%%\newcommand{\Q}{Q}
+%%\newcommand{\Sp}{S}
+%%\newcommand{\myprobshort}{{\macro{1}{2}{{\myprob{{\dueto{}}}}}}}
+%%\newcommand{\diffsm}{\xrightarrow{{\sim}}}
+%%\providecommand{\lim}{{\oldlim}}
+%%\providecommand{\int}{{\oldint}}
+%%\providecommand{\min}{{\oldmin}}
+%%\providecommand{\max}{{\oldmax}}
+%%\providecommand{\sum}{{\oldsum}}
+%%\providecommand{\sup}{{\oldsup}}
+%%\newcommand{\tmRe}{\mathrm{Re}}
+%%\newcommand{\tmIm}{\mathrm{Im}}
+%%\newcommand{\Ker}{\mathrm{Ker}}
+%%\newcommand{\supp}{\mathrm{supp}}
+%%\newcommand{\Diff}{\mathrm{Diff}}
+%%\newcommand{\End}{\mathrm{End}}
+%%\newtheorem{mythm}{Theorem}
+%%\newtheorem{mylem}{Lemma}
+%%\newtheorem{myprop}{Proposition}
+%%\newtheorem{mycor}{Corollary}
+%%\newtheorem{myprob}{Problem}
+%%\newtheorem{myfact}{Fact}
+%%\newcommand{\myqed}{{\nobreak}{\ifvmode}{\else} {\ifdim}{\lastskip}<1.5em
+%%{\lastskip} {\hspace{}}{\tmfi}{\nobreak}{\vrule}height0.75em width0.5em
+%%depth0.25em{\tmfi}}
+%%\newcommand{\myqed}{\ensuremath{\blacksquare}}
+%%\newcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+%%\newcommand{\myproof*}[2]{{\trivlist{\item[{\hspace{}}\tmtextbf{#1}]
+%%#2{\myqed}}}}
+%%\newcommand{\myproof}[1]{{\myproof*{Proof.}{#1}}}
+%%\newcommand{\proofexplanation}{{\macro{1}{\tmtextbf{()}}}}
 
 \begin{document}
 

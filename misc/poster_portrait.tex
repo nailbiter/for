@@ -1,5 +1,11 @@
 \documentclass[portrait,final,paperwidth=90cm,paperheight=120cm,fontscale=0.3]{baposter}
 
+\usepackage{textcomp}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\usepackage{pifont}
+\usepackage{bbding}
+\usepackage{scalerel}
 \usepackage{adjustbox}
 \usepackage{tcolorbox}
 \usepackage{lipsum}
@@ -29,6 +35,7 @@
 \usepackage{graphicx}
 \usepackage{multicol}
 \usepackage{array}
+\usepackage{stmaryrd}
 
 %\usepackage{times}
 %\usepackage{helvet}
@@ -80,6 +87,9 @@
 \newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
 \newcommand{\tmtextit}[1]{{\itshape{#1}}}
 \newcommand{\um}{-}
+\newcommand{\mybox}[2]{
+	\begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=#1]#2\end{tcolorbox}
+}
 
 \newtheorem{theorem}{Theorem}
 \newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
@@ -224,86 +234,63 @@
     \newcommand{\colouredcircle}{%
       \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em); \draw[draw=black,fill=lightblue,line width=0.03em] (0,0) circle(0.18em);}}
 
-  \headerbox{Setting}{name=setting,column=0,row=0}{
-	  \begin{equation*}
-  \Q (x) \assign \,^t \! x I_{p, q} x, \; (x \in
-  \mathbbm{R}^{p + q}),
-	  \end{equation*}
-\begin{equation*}
-	\mbox{where }I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
-  1, \ldots, - 1}_q).
-  \vspace*{-0.8cm}
-\end{equation*}
-\begin{align*}
-	G &\assign O (p +
-	1, q + 1)\\&=\left\{ g\in GL_{n+2}\left( \R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}
-\end{align*}
-where $n:=p+q$.
-Define
-a maximal parabolic subgroup $P=MAN_{+}$ with
-\begin{align*}
-   M &\assign \left\{ \left( \begin{array}{ccc}
-    \epsilon  &0  &0\\
-    0  &A  &0\\
-    0  &0  &\epsilon
-  \end{array} \right)
-  \right\}_{A \in O (p, q),\;
-    \epsilon = \pm 1}\kern-1em\simeq O(p,q)\times \Z_2,  \\
-  A &\assign \left\{a (t) \assign \left( \begin{array}{ccc}
-    \cosh (t)  &0  &\sinh (t)\\
-    0  &I_{p + q}  &0\\
-    \sinh (t)  &0  &\cosh (t)
-  \end{array} \right)\right\}_{ t \in \mathbbm{R}} \\&\simeq \mathbbm{R},\\
-  N_+ &\assign\!\left\{\!  \left( \begin{array}{@{}c@{}c@{}c@{}}
-    1- \frac{1}{2} \Q (b) , &\,-^t \! (I_{p, q} b),  &\frac{1}{2} \Q (b)\\
-    b  &I_{n}&  - b\\
-    - \frac{1}{2} \Q (b),  &- \,^t \! (I_{p, q} b),  &1+\frac{1}{2} \Q (b)
-  \end{array} \right)\right\}_{b \in \mathbbm{R}^n } \\&\simeq
-  \mathbbm{R}^n.
-\end{align*}
-{\noindent For complex parameter $\lambda\in\C$ we define (unnormalized) spherical degenerate principal series representations of $G$ as}
-{\centering
-	$\displaystyle
-\begin{aligned}
-I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
-&\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\right.\\&\left.\quad\forall(g,ma(t)n)\in G\times P \right\}.
-\end{aligned}
-$}
-We realize $G':=O(p,q+1)$ as the subgroup $G_{e_{p+1}}:=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}$ of $G$. 
-Then $G'$ is {\it compatible} with $P$ in the sense that 
-$P':=P\cap G'$ is also a maximal parabolic subgroup
-with Langlands decomposition $P'=(G'\cap M)A (G'\cap N_+)$,
-because $A\subset G'$.
-Similarly, we define (unnormalized) spherical degenerate principal series representations $J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$ of $G'$ for $\nu\in\C$.
+  \headerbox{Philosophy}{name=setting,column=0,row=0}{
+	  \begin{tcolorbox}[colback=green!5,colframe=green!40!black,title= ``Program for branching problems''\cite{kobayashi2015program}]
+		  Representation and its restriction:
+\begin{figure}[H]
+	\hspace{1.35cm}
+	\xymatrixrowsep{0.2pt}
+	\xymatrix{
+		G\ar[r]^-\pi&GL_{\C}(V)&(\dim V=\infty)\\
+		\bigcup&&\\
+		G'\ar@{.>}[uur]_{\pi\big|_{G'}}&&
+	}
+\end{figure}
+			Branching problem = Understand $\pi\big|_{G'}$.
+	\end{tcolorbox}
+	  \begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=ABC of symmetry breaking]
+		  \renewcommand\labelitemi{\ding{117}}
+		  \begin{enumerate}
+			  \item[($\mathcal{A}$)] $\mathcal{A}$bstract features of the restriction;
+			  \item[($\mathcal{B}$)] $\mathcal{B}$ranching laws (irreducible decomposition) of $\pi\big|_{G'}$;
+			  \item[($\mathcal{C}$)] $\mathcal{C}$onstruct SBOs.
+		  \end{enumerate}
+	  \end{tcolorbox}
+  \mybox{Definition}{
+	  Suppose $G'\xrightarrow{\;\;\pi'} GL_{\C}(W)$ another representation.
+We say $A:V\to W$ is {\it symmetry breaking operator} ({\it SBO} for brevity) if $\forall g'\in G'$
+\begin{figure}[H]
+\hspace{1.3cm}
+\xymatrixrowsep{0.2pt}
+\xymatrix{
+	V\ar[dd]^A\ar[rr]^{\pi(g')}&&V\ar[dd]^A\\
+	&{\scaleobj{2.5}{\circlearrowright}}&\\
+	W\ar[rr]^{\pi'(g')}&&W
+}
+\end{figure}
+}
+\mybox{This work concerns:}{
+	\begin{enumerate}
+		\item[($\mathcal{C}$1)] Construct SBOs;
+		\item[($\mathcal{C}$2)] Classify SBOs;
+		\item[($\mathcal{C}$3)] Functional equations;
+		\item[($\mathcal{C}$4)] Residue formulae;
+		\item[($\mathcal{C}$5)] Ker and Image of SBOs.
+	\end{enumerate}
+}
  }
- \headerbox{Problem}{name=problem,column=0,below=setting}
+ \headerbox{Setting}{name=problem,column=0,below=setting}
  {
-	 \begin{problem}
-		 \begin{align*}
-			 &\SBO = \mbox{\large\bf ?}\\
-			 &\quad\uparrow\mbox{{\it symmetry breaking operators} (\textit{SBOs} for short)}
-		 \end{align*}
-%%		 For any given $(\lambda,\nu)\in\C^2$ find all , that is 
-%%		 all members of the space $\SBO$.
-	 \end{problem}
-	 \begin{problem}
-		 Investigate the properties of SBOs (e.g. residue formulae, functional equations, compute their images).
-	 \end{problem}
+	 \begin{equation*}
+		 \begin{array}{@{}c@{}cl}
+ &(G,G')=&\\
+ &\left( O(n+1,1),O(n,1) \right)\mbox{\cite{kobayashi2015symmetry}}&\mbox{first {\bf complete}}\\
+ &&\mbox{ answer to ($\mathcal{C}2$)}\\
+ \implies&\left( O(p+1,q),O(p,q) \right)\mbox{\textsc{Goal}}&
+ \end{array}
+	 \end{equation*}
  }
- \headerbox{Notations}{name=notations,column=0,below=problem}
- {
-\begin{itemize}
-	\item $\mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in
-	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \}$;
-	\item $\backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\N}$;
-	\item $/ / \assign
-	\{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
-	-2\N \}$;
-	\item$ \mid\mid:=\C\times\left( 2\N+1 \right);\tilde{C}(s,t)$ as in \cite[(16.3)]{kobayashi2015symmetry};
-	\item $A:=\ss\cap\mid\mid\mid, X:=\mm\cap\bb$
-	\end{itemize}
- }
- \headerbox{References}{name=references,column=0,below=notations}
+ \headerbox{References}{name=references,column=0,below=problem}
  {
     \smaller
     \nocite{kobayashi2015program}
@@ -366,7 +353,7 @@ Let $n:=p+q$. The following diagram commutes:
 \begin{theorem}[construction of SBO]\label{thm:construction}
 	For $S=X,Y,C,$ and $\left\{ o \right\}$, the following operators $R_{\lambda,\nu}^S$ and $\tilde{R}_{\lambda,\nu}^X$ are SBOs, which depend holomorphically on $(\lambda,\nu)\in D_S$. 
 	
-	Moreover, $\Supp(R_{\lambda,\nu}^S)\subset S$, ``='' generically and were computed explicitly.\\
+	Moreover, $\Supp(R_{\lambda,\nu}^S)\subset S$, ``='' generically and are determined explicitly.\\
 	\newcommand{\mystack}[2]{\begin{array}{@{}c@{}}#1\\#2\end{array}}
 	\begin{tabular}{@{}|@{}b{1.6cm}@{}|@{}l@{}|}
   \hline
@@ -404,19 +391,32 @@ For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
    \[q_Y^X (\lambda, \nu) : = \raisebox{-0.4cm}{\mbox{\includegraphics[scale=0.1,trim=0mm 12mm 0mm 0mm]{images/qr}}}\]
 }
 
-\headerbox{Result \#3 (classif. of SBOs)}{name=classif,column=1,below=construction}
+ \headerbox{Notations}{name=notations,column=1,below=construction}
+ {
+\begin{itemize}
+	\item $\mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in
+	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \}$;
+	\item $\backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\N}$;
+	\item $/ / \assign
+	\{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
+	-2\N \}$;
+	\item$ \mid\mid:=\C\times\left( 2\N+1 \right);\tilde{C}(s,t)$ as in \cite[(16.3)]{kobayashi2015symmetry};
+	\item $\mathcal{A}:=\ss\cap\mid\mid\mid, \mathcal{X}:=\mm\cap\bb$
+	\end{itemize}
+ }
+\headerbox{Result \#3 (classif. of SBOs)}{name=classif,column=2,row=0}
 {
 \begin{theorem}\label{thm:classif}
 	Suppose $p,q\ge1$, let $H:=\SBO$.
 \[ p = 1 \Rightarrow H = \left\{
 	\begin{array}{@{}l@{}l@{}}
-     \mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \notin  A\cup X
+		\mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \notin  \mathcal{A}\cup \mathcal{X}
      ,\\
      \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
-     \}}_{\lambda, \nu}, & (\lambda, \nu) \in A -
-     X,\\
+     \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mathcal{A} -
+     \mathcal{X},\\
      \mathbbm{C}R^P_{\lambda, \nu} \oplus \mathbbm{c}r^c_{\lambda, \nu}, &
-     (\lambda, \nu) \in X - / /,\\
+     (\lambda, \nu) \in \mathcal{X} - / /,\\
      \mathbbm{C}R^{\{ o \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid
      \cap \backslash\backslash \cap / /.
    \end{array} \right. \]
@@ -432,10 +432,10 @@ For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
 %%	We have $\dim_{\C}\SBO\in\left\{ 1,2 \right\}$ for all $(\lambda,\nu)\in\C^2$.
 %%\end{corollary}
 }
-\headerbox{Result \#4 }{name=spherical,column=2,row=0}
+\headerbox{Result \#4 }{name=spherical,column=2,below=classif}
 {
 \begin{theorem}[spectrum for spherical vectors]\label{thm:spherical}
-	Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu^{K'}$ be the spherical vectors normalized so that $\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$.
+	Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$ be the spherical vectors normalized so that $\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$.
 	With $n:=p+q\;(p,q\ge1)$ we have:
 \[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} =  \frac{2^{1 -
 \lambda}\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
