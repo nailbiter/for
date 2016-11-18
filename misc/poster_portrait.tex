@@ -46,6 +46,9 @@
 \usepackage{tikz}
 \graphicspath{{images/}{../images/}}
 \usetikzlibrary{calc}
+\usetikzlibrary{patterns}
+
+\newcommand{\Conv}{\mathop{\scalebox{1.5}{\raisebox{-0.2ex}{$\ast$}}}}
 
 \newcommand{\SET}[1]  {\ensuremath{\mathcal{#1}}}
 \newcommand{\MAT}[1]  {\ensuremath{\boldsymbol{#1}}}
@@ -131,6 +134,49 @@
 \newcommand{\mm}{\mid\mid}
 \newcommand{\bb}{\backslash\backslash}
 \renewcommand{\ss}{//}
+
+ \newcommand{\tikzcone}[1]{
+ \begin{tikzpicture}[scale=#1,rotate=-30]
+\def\h{6}
+\def\a{2}
+\def\b{0.5}
+\definecolor{top}{RGB}{65,134,198}
+\definecolor{middle}{RGB}{126,169,208}
+\def\shadebody{\fill[
+    left color=top,
+    right color=top,
+    middle color=middle,
+    shading=axis,
+    opacity=1
+    ] }
+\def\shadetop{\fill[
+    top color=top,
+    bottom color=top,
+    middle color=middle,
+    shading=axis,
+    opacity=1
+    ] }
+
+
+\shadebody
+  (\a,0) -- (0,\h) -- (-\a,0) arc (180:360:\a cm and \b cm);
+\draw[line width = 0.5pt] 
+  (-\a,0) arc (180:360:\a cm and \b cm) -- (0,\h) -- cycle;
+
+  %upper part
+\shadetop
+(0,2*\h) circle (\a cm and \b cm);
+
+\shadebody
+  (\a,2*\h) -- (0,\h) -- (-\a,2*\h) arc (180:360:\a cm and \b cm);
+  \draw[line width = 0.5pt] 
+  (-\a,2*\h) arc (180:360:\a cm and \b cm) -- (0,\h) -- cycle;
+
+  \draw[line width = 0.5pt] 
+  (\a,2*\h) arc (0:180:\a cm and \b cm);
+\end{tikzpicture}
+ }
+ \newcommand{\raisedtikzcone}{\raisebox{-0.2cm}{\tikzcone{0.05}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Begin of Document
@@ -237,29 +283,30 @@
 
   \headerbox{Philosophy}{name=setting,column=0,row=0}{
 	  \begin{tcolorbox}[colback=green!5,colframe=green!40!black,title= ``Program for branching problems''\cite{kobayashi2015program}]
-		  Representation and its restriction:
+		  Representation $\pi$ and its restriction $\pi\big|_{G'}$:
 \begin{figure}[H]
 	\hspace{1.35cm}
 	\xymatrixrowsep{0.2pt}
 	\xymatrix{
 		G\ar[r]^-\pi&GL_{\C}(V)&(\dim V=\infty)\\
 		\bigcup&&\\
-		G'\ar@{.>}[uur]_{\pi\big|_{G'}}&&
+		G'\ar@{-->}[uur]_{\pi\big|_{G'}}&&
 	}
+\vspace{-0.5cm}
 \end{figure}
 			Branching problem = Understand $\pi\big|_{G'}$.
 	\end{tcolorbox}
-	\mybox{ABC Program of Branching \cite{kobayashi2015symmetry}}{
+	\mybox{ABC Program of Branching \cite{kobayashi2015program}}{
 		  \renewcommand\labelitemi{\ding{117}}
 		  \begin{enumerate}
 			  \item[($\mathcal{A}$)] $\mathcal{A}$bstract features of the restriction;
-			  \item[($\mathcal{B}$)] $\mathcal{B}$ranching laws (irreducible decomposition) of $\pi\big|_{G'}$;
+			  \item[($\mathcal{B}$)] $\mathcal{B}$ranching laws\\ (irreducible decomposition) of $\pi\big|_{G'}$;
 			  \item[($\mathcal{C}$)] $\mathcal{C}$onstruct SBOs.
 		  \end{enumerate}
 	  }
-  \mybox{Definition}{
+  \mybox{Definition (SBO)}{
 	  Suppose $G'\xrightarrow{\;\;\pi'} GL_{\C}(W)$ another representation.
-We say $A:V\to W$ is {\it symmetry breaking operator} ({\it SBO} for brevity) if $\forall g'\in G'$
+	  SBO (symmetry breaking operator) is a linear map $A:V\to W$ satisfying $\forall g'\in G'$
 \begin{figure}[H]
 \hspace{1.3cm}
 \xymatrixrowsep{0.2pt}
@@ -271,70 +318,47 @@ We say $A:V\to W$ is {\it symmetry breaking operator} ({\it SBO} for brevity) if
 \end{figure}
 }
 \mybox{This work concerns:}{
-	Program $\mathcal{C}$ for SBOs (symmetry breaking operators)
+	Program $\mathcal{C}$ for SBOs
 	\begin{enumerate}
 		\item[($\mathcal{C}$1)] Construct SBOs;
 		\item[($\mathcal{C}$2)] Classify SBOs;
-		\item[($\mathcal{C}$3)] Functional equations;
-		\item[($\mathcal{C}$4)] Residue formulae;
+		\item[($\mathcal{C}$3)] Functional equations among SBOs;
+		\item[($\mathcal{C}$4)] Residue formulae of SBOs;
 		\item[($\mathcal{C}$5)] Image of SBOs.
 	\end{enumerate}
 }
  }
- \newcommand{\tikzcone}[1]{
- \begin{tikzpicture}[scale=#1]
-\def\h{6}
-\def\a{2}
-\def\b{0.5}
-\definecolor{top}{RGB}{65,134,198}
-\definecolor{middle}{RGB}{126,169,208}
-\def\shadebody{\fill[
-    left color=top,
-    right color=top,
-    middle color=middle,
-    shading=axis,
-    opacity=1
-    ] }
-\def\shadetop{\fill[
-    top color=top,
-    bottom color=top,
-    middle color=middle,
-    shading=axis,
-    opacity=1
-    ] }
 
-
-\shadebody
-  (\a,0) -- (0,\h) -- (-\a,0) arc (180:360:\a cm and \b cm);
-\draw[line width = 0.5pt] 
-  (-\a,0) arc (180:360:\a cm and \b cm) -- (0,\h) -- cycle;
-
-  %upper part
-\shadetop
-(0,2*\h) circle (\a cm and \b cm);
-
-\shadebody
-  (\a,2*\h) -- (0,\h) -- (-\a,2*\h) arc (180:360:\a cm and \b cm);
-  \draw[line width = 0.5pt] 
-  (-\a,2*\h) arc (180:360:\a cm and \b cm) -- (0,\h) -- cycle;
-
-  \draw[line width = 0.5pt] 
-  (\a,2*\h) arc (0:180:\a cm and \b cm);
-
-
-
-
-
-
-\end{tikzpicture}
-
- }
  \headerbox{Setting}{name=problem,column=0,below=setting}
  {
-	 ($\mathcal{C}1$--$\mathcal{C}2$) were proposed and carried out in \cite{kobayashi2015symmetry} for  
-	 rank one case $(G,G'=( O(n+1, 1), O(n,1)))$.
-	 We generalize to higher rank case $(G,G')=(O(p+1,q+1, O(p,q+1)))$.\\
-	 \tikzcone{0.3}
+	 \mybox{{$(G,G')=(O(p+1,q+1, O(p,q+1)))$}}
+	 {
+		 $(\mathcal{C}1)$--$(\mathcal{C}5)$ were proposed and carried out {\bf completely} in \cite{kobayashi2015symmetry} for  
+	 rank one case $q=0$.\\
+	 We generalize to higher rank case.
+ 	}
+	\mybox{{$\left( \pi,\pi' \right)=(I(\lambda),J(\nu))$ ``standard'' reps}}{
+		\begin{equation*}
+			\kern-0.5cm\raisedtikzcone:=\left\{ (x,y)\in\R^{p+1}\times\R^{q+1}\mid \myabs{x}=\myabs{y}\neq0 \right\}.
+		\end{equation*}
+		\begin{equation*}
+			\kern-0.5cm I(\lambda):=\left\{f\in C^\infty\left( \raisedtikzcone \right)\mbox{: homog. of deg. $-\lambda$}\right\},\lambda\in\C.
+		\end{equation*}
+		\begin{equation*}
+			\kern-0.5cm G\curvearrowright \raisedtikzcone\leadsto G\curvearrowright I(\lambda)\doteqdot C^\infty(\R^{p+q}).
+		\end{equation*}
+		Similarly, $G'\curvearrowright J(\nu)\doteqdot C^\infty (\R^{p+q-1})$ for $\nu\in\C$.
+%%		\hspace{-0.25cm}$G\curvearrowright$ \raisedtikzcone=$\left\{ (x,y)\in\R^{p+1}\times\R^{q+1}\mid \myabs{x}=\myabs{y}\neq0 \right\}.$\\
+%%		\vspace{-0.35cm}
+%%		\begin{equation*}
+%%			\kern-0.5cm\leadsto G\curvearrowright \pi:=I(\lambda):=
+%%		\end{equation*}
+%%		\vspace{-0.6cm}
+%%		\begin{equation*}
+%%			\kern-0.4cm:=\left\{ f\in C^\infty\left( \raisebox{-0.2cm}{\tikzcone{0.05}} \right) \mbox{: homogeneous of deg.} -\lambda \right\}.
+%%		\end{equation*}
+%%		Similarly for $\pi'=J(\nu)$ of $G'$.
+ 	}
  }
  \headerbox{References}{name=references,column=0,below=problem}
  {
@@ -348,7 +372,7 @@ We say $A:V\to W$ is {\it symmetry breaking operator} ({\it SBO} for brevity) if
  }
  \headerbox{Key Fact}{name=keyfact,column=1,row=0}
  {
-Applying the very general result proven in \cite[Chap.\ 3]{kobayashi2015symmetry} to our particular setting, we get the following:
+Applying the very general result proven in \cite[Chap.\ 3]{kobayashi2015symmetry} to our particular setting, we get the following. Let $n=p+q$.
 \begin{fact}[{\cite[Thm. 3.16]{kobayashi2015symmetry}}]\label{fact1}
 Let $n:=p+q$. The following diagram commutes:
 \vspace{-0.8cm}
@@ -359,7 +383,7 @@ Let $n:=p+q$. The following diagram commutes:
 		\SBO\ar[r]^{\simeq} \ar[ur]^{\Supp}
 	&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda}) \otimes\mathbb{C}_\nu \right)^{P'}
 \ar[u]_-{F\mapsto \supp(F)}\ar[dl]^{\simeq}_{\mbox{rest}}\\
-{\hspace{1.65cm}\sol\subset\mathcal{D}'(\R^{p,q})}\ar[u]^{\mbox{Op}}_{\simeq}\\
+{\hspace{1.65cm}\sol\subset\mathcal{D}'(\R^n)}\ar[u]^{\mbox{Op}}_{\simeq}\\
 }
 \end{figure}
 \end{fact}
@@ -397,44 +421,56 @@ Let $n:=p+q$. The following diagram commutes:
  \headerbox{Result \#2}{name=construction,column=1,below=suppclassif}
  {
 \begin{theorem}[construction of SBO]\label{thm:construction}
-	For $S=X,Y,C,$ and $\left\{ o \right\}$, the following operators $R_{\lambda,\nu}^S$ and $\tilde{R}_{\lambda,\nu}^X$ are SBOs, which depend holomorphically on $(\lambda,\nu)\in D_S$. 
+	For $S=X,Y,C,$ and $\left\{ o \right\}$, the following operators $R_{\lambda,\nu}^S$ and $\tilde{R}_{\lambda,\nu}^X$ are SBOs, which depend meromorphically on $(\lambda,\nu)\in D_S$. 
 	
 	Moreover, $\Supp(R_{\lambda,\nu}^S)\subset S$, ``='' generically and are determined explicitly.\\
-	\newcommand{\mystack}[2]{\begin{array}{@{}c@{}}#1\\#2\end{array}}
-	\begin{tabular}{@{}|@{}b{1.6cm}@{}|@{}l@{}|}
+	%\newcommand{\mystack}[2]{\begin{array}{@{}c@{}}#1\\#2\end{array}}
+	\begin{center}
+	\begin{tabular}{@{}|@{}c@{}|c|@{}c@{}|}
   \hline
-  $R_{\lambda,\nu}^S$& $\tmop{Op} : 
-  \Sol(\mathbbm{R}^{p, q} ; \lambda, \nu)
-  \rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu))$\\
+  $S$ & $D_S$ & $K_{\lambda,\nu}^S$ \\
   \hline
-  $\mystack{\tilde{R}^X_{\lambda, \nu} =}{(\lambda,\nu)\in\mid\mid\mid}$ & $\frac{1}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
-  \right) \Gamma \left( \frac{1 - \nu}{2} \right)}{\tmop{Op} \left( | x_p |^{\lambda +
-  \nu - n} | \Q |^{- \nu}\right)} $ \\
+  $X$ & $\C^2$ & $\myabs{x_p}^{\lambda+\nu-n}\myabs{\Q}^{-\nu}$ \\
   \hline
-  $\mystack{R_{\lambda, \nu}^Y =}{(\lambda,\nu)\in\bb}$ & ${ q_Y^X (\lambda, \nu)}{\tmop{Op} \left( \delta^{(2k)}(x_p)
-  | \Q |^{- \nu}  \right)}$.\\
+  $Y$ & $\bb$ & $\delta^{\left( 2k \right)}(x_p)\myabs{\Q}^{-\nu},k:=\frac{n-1-\lambda-\nu}{2}$ \\
   \hline
-  $\mystack{R_{\lambda, \nu}^C =}{(\lambda,\nu)\in\mm}$ & $q_C^X (\lambda, \nu){\tmop{Op} \left( | x_p |^{\lambda + \nu - n}\delta^{(2m)}\left( \Q \right)
-    \right)}$ \\
+  $C$ & $\mm$ & $\myabs{x_p}^{\lambda+\nu-n}\delta^{(2m)}\left( \Q \right),m:=\frac{\nu-1}{2}$ \\
   \hline
-  $\mystack{R_{\lambda, \nu}^{\{ o \}} =}{(\lambda,\nu)\in\ss}$ & 
-  $\tmop{Op} \left( \tilde{C}_{\nu -
+  $\left\{ 0 \right\}$ & $\ss$ & $\tilde{C}_{\nu -
   \lambda}^{\lambda - \frac{n - 1}{2}} \left(-\Delta_{\mathbbm{R}^{p - 1, q}}
-  \delta_{\mathbbm{R}^{p + q - 1}}, \delta (x_p)\right) \right)$\\
-  \hline
+  \delta_{\mathbbm{R}^{p + q - 1}}, \delta (x_p)\right)$\\ \hline
+%%  $\mystack{\tilde{R}^X_{\lambda, \nu} =}{(\lambda,\nu)\in\mid\mid\mid}$ & $\frac{1}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
+%%  \right) \Gamma \left( \frac{1 - \nu}{2} \right)}{\tmop{Op} \left( | x_p |^{\lambda +
+%%  \nu - n} | \Q |^{- \nu}\right)} $ \\
+%%  \hline
+%%  $\mystack{R_{\lambda, \nu}^Y =}{(\lambda,\nu)\in\bb}$ & ${ q_Y^X (\lambda, \nu)}{\tmop{Op} \left( \delta^{(2k)}(x_p)
+%%  | \Q |^{- \nu}  \right)}$.\\
+%%  \hline
+%%  $\mystack{R_{\lambda, \nu}^C =}{(\lambda,\nu)\in\mm}$ & $q_C^X (\lambda, \nu){\tmop{Op} \left( | x_p |^{\lambda + \nu - n}\delta^{(2m)}\left( \Q \right)
+%%    \right)}$ \\
+%%  \hline
+%%  $\mystack{R_{\lambda, \nu}^{\{ o \}} =}{(\lambda,\nu)\in\ss}$ & 
+%%  $\tmop{Op} \left( \tilde{C}_{\nu -
+%%  \lambda}^{\lambda - \frac{n - 1}{2}} \left(-\Delta_{\mathbbm{R}^{p - 1, q}}
+%%  \delta_{\mathbbm{R}^{p + q - 1}}, \delta (x_p)\right) \right)$\\
+%%  \hline
 \end{tabular}
+	\end{center}
+	For every $S=X,Y,C$ and $\left\{ 0 \right\}$ we can
+	determine $\tilde{R}_{\lambda,\nu}$: ``renormalization'' 
+	depending {\it holomorphically} on $(\lambda,\nu)\in D_S$ (renormalization factors are given by Gamma functions explicitly).
 \end{theorem}
 %We set $m:=\frac{1}{2}\left( \nu-1 \right)\in\N$ for $(\lambda,\nu)\in\mm$ and $k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$ for $(\lambda,\nu)\in\bb$.
-For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
-\[ q_C^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
-		\Gamma^{-1} \left(\frac{\lambda-\nu}{2} \right), & q \in
-     2\mathbbm{Z}, \nu \leqslant q - \nu,\\
-     \Gamma^{-1} \left( \frac{\lambda + \nu-n+1}{2} \right), & q \in 2\mathbbm{Z},
-     \nu > q - \nu,\\
-     \Gamma^{-1} \left( \frac{\lambda - \nu}{2} \right), & q \in
-     2\mathbbm{Z}+ 1.
-   \end{array} \right. \]
-   \[q_Y^X (\lambda, \nu) : = \raisebox{-0.4cm}{\mbox{\includegraphics[scale=0.1,trim=0mm 12mm 0mm 0mm]{images/qr}}}\]
+%%For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
+%%\[ q_C^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
+%%		\Gamma^{-1} \left(\frac{\lambda-\nu}{2} \right), & q \in
+%%     2\mathbbm{Z}, \nu \leqslant q - \nu,\\
+%%     \Gamma^{-1} \left( \frac{\lambda + \nu-n+1}{2} \right), & q \in 2\mathbbm{Z},
+%%     \nu > q - \nu,\\
+%%     \Gamma^{-1} \left( \frac{\lambda - \nu}{2} \right), & q \in
+%%     2\mathbbm{Z}+ 1.
+%%   \end{array} \right. \]
+%%   \[q_Y^X (\lambda, \nu) : = \same\]
 }
 
  \headerbox{Notations}{name=notations,column=1,below=construction}
@@ -446,87 +482,84 @@ For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
 	\item $/ / \assign
 	\{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
 	-2\N \}$;
-	\item$ \mid\mid:=\C\times\left( 2\N+1 \right);\tilde{C}(s,t)$ as in \cite[(16.3)]{kobayashi2015symmetry};
-	\item $\mathcal{A}:=\ss\cap\mid\mid\mid, \mathcal{X}:=\mm\cap\bb$
+	\item$ \mid\mid:=\C\times\left( 2\N+1 \right)$;
+	\item $\mathcal{A}:=\ss\cap\mid\mid\mid, \mathcal{X}:=\mm\cap\bb$;
+	\item $\tilde{C}(s,t)$ inflated renormalized Gegebauer polynomial as in \cite[(16.3)]{kobayashi2015symmetry}.
 	\end{itemize}
  }
-\headerbox{Result \#3 (classif. of SBOs)}{name=classif,column=2,row=0}
+\headerbox{{R}esult \#3 (SBOs classification)}{name=classif,column=2,row=0}
 {
 \begin{theorem}\label{thm:classif}
 	Suppose $p,q\ge1$, let $H:=\SBO$.
 \[ p = 1 \Rightarrow H = \left\{
 	\begin{array}{@{}l@{}l@{}}
-		\mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \notin  \mathcal{A}\cup \mathcal{X}
+		\mathbbm{C}\tilde{R}^X_{\lambda, \nu}, & (\lambda, \nu) \notin  \mathcal{A}\cup \mathcal{X}
      ,\\
-     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
+     \mathbbm{C} \tilde{\tilde{R}}^X_{\lambda, \nu} \oplus \mathbbm{C}\tilde{R}^{\{ o
      \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mathcal{A} -
      \mathcal{X},\\
-     \mathbbm{C}R^P_{\lambda, \nu} \oplus \mathbbm{c}r^c_{\lambda, \nu}, &
+     \mathbbm{C}\tilde{R}^P_{\lambda, \nu} \oplus \mathbbm{c}r^c_{\lambda, \nu}, &
      (\lambda, \nu) \in \mathcal{X} - / /,\\
-     \mathbbm{C}R^{\{ o \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid
+     \mathbbm{C}\tilde{R}^{\{ o \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid
      \cap \backslash\backslash \cap / /.
    \end{array} \right. \]
 \[ p > 1 \Rightarrow H = \left\{
    \begin{array}{ll}
-     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
+     \mathbbm{C} \tilde{\tilde{R}}^X_{\lambda, \nu} \oplus \mathbbm{C}\tilde{R}^{\{ o
      \}}_{\lambda, \nu \lambda, \nu}, & (\lambda, \nu) \in / / \cap \mid \mid
      \mid,\\
-     \mathbbm{C}R^X_{\lambda, \nu}, & \tmop{otherwise.}
+     \mathbbm{C}\tilde{R}^X_{\lambda, \nu}, & \tmop{otherwise.}
    \end{array} \right. \]
 \end{theorem}
 %%\begin{corollary}\label{cor:classif}
 %%	We have $\dim_{\C}\SBO\in\left\{ 1,2 \right\}$ for all $(\lambda,\nu)\in\C^2$.
 %%\end{corollary}
 }
-\headerbox{Result \#4 }{name=spherical,column=2,below=classif}
+\headerbox{{R}esult \#4 (spectrum) }{name=spherical,column=2,below=classif}
 {
-\begin{theorem}[spectrum for spherical vectors]\label{thm:spherical}
+\begin{theorem}\label{thm:spherical}
 	Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$ be the spherical vectors normalized so that $\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$.
 	With $n:=p+q\;(p,q\ge1)$ we have:
-\[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} =  \frac{2^{1 -
+\[ \tilde{R}^X_{\lambda, \nu} \mathbbm{1}_{\lambda} =  \frac{2^{1 -
 \lambda}\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
 \Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
 \frac{q - \nu + 1}{2} \right)} \mathbbm{1}_{\nu}. \]
 \end{theorem}
 }
-\headerbox{Result \#5 (residue formula)}{name=residue,column=2,below=spherical}
+\headerbox{{R}esult \#5 (residue formula)}{name=residue,column=2,below=spherical}
 {
 \begin{theorem}
 	Let $n:=p+q\;(p,q\ge1)$ as before.
 	For $(\lambda,\nu)\in//$, we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$. Then we have
-  \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^l l!\pi^{(n - 2) / 2} 
+  \[\tilde{R}_{\lambda,\nu}^X  = \frac{ (- 1)^l l!\pi^{(n - 2) / 2} 
 		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
-     \OpR_{\lambda,\nu}^{ \left\{ o \right\} },\;(\lambda,\nu)\in//. \]
+	\tilde{R}_{\lambda,\nu}^{ \left\{ o \right\} }.\]
 	\end{theorem}
 }
-\headerbox{Result \#6}{name=functional,column=2,below=residue}
+\headerbox{{R}esult \#6}{name=functional,column=2,below=residue}
 {
 	\begin{definition}
-		Similarly to the construction of Fact \ref{fact1}, for $G=O(p+1,q+1)$ we have $\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$
-		where $\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$.
-
-		Now, the generalized function defined as
-		\begin{equation*}
-			\myabs{\Q}^{\lambda-n}\times\begin{cases}
-				\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}=0,\\
-				\same,&\dots
-			\end{cases}
-		\end{equation*}
-		belongs to $\Sol_G(\R^{p,q};\lambda,n-\lambda)$ and we can use it to
-		define an intertwining operator of $G=O(p+1,q+1)$,
-		$\tilde{\mathbb{T}}^{G}_{\lambda}:I(\lambda)\to
-		I(n-\lambda)$
-		(\textit{Knapp--Stein operator}).
+		The {\it Knapp-Stein operator} is a $G$-intertwining holomorphic operator defined as
+		$\tilde{\mathbb{T}}_{\lambda}^G:I(\lambda)\ni f\mapsto q_T(\lambda)\myabs{\Q}^{\lambda-n}\Conv f\in I(n-\lambda)$, where $q_T(\lambda,\nu)$ is explicitly given by Gamma factors.
+%%		Similarly to the construction of Fact \ref{fact1}, for $G=O(p+1,q+1)$ we have $\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$
+%%		where $\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$.
+%%
+%%		Now, the generalized function defined as $\myabs{\Q}^{\lambda-n}q_T(\lambda,\nu)$ 
+%%		belongs to $\Sol_G(\R^{p,q};\lambda,n-\lambda)$ and we can use it to
+%%		define an intertwining operator of $G=O(p+1,q+1)$,
+%%		$\tilde{\mathbb{T}}^{G}_{\lambda}:I(\lambda)\to
+%%		I(n-\lambda)$
+%%		(\textit{Knapp--Stein operator}).
 		The result of this construction repeated with $G'=O(p,q+1)$ in place of $G$ will be denoted by $\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$.
 	\end{definition}
 	\begin{theorem}[functional identities]
 		Let $n:=p+q\;(p,q\ge1)$ as before.
 		We have:
 \begin{eqnarray}
-    & \tilde{\mathbbm{T}}^{G'}_{n-1 - \nu} \circ R^X_{\lambda, n' - \nu} =\pi^{\frac{n - 3}{2}} q^{T X}_X
-  (\lambda, \nu) R^X_{\lambda, \nu}, &  \nonumber\\
-  & R_{n - \lambda, \nu}^X \circ \tilde{\mathbbm{T}}^G_{\lambda} =2^{2\lambda-n}\pi^{-\frac{n}{2}-1} q^{X T}_X
-  (\lambda, \nu) R_{\lambda, \nu}^X, &  \nonumber
+    & \tilde{\mathbbm{T}}^{G'}_{n-1 - \nu} \circ \tilde{R}^X_{\lambda, n' - \nu} =\pi^{\frac{n - 3}{2}} q^{T X}_X
+  (\lambda, \nu) \tilde{R}^X_{\lambda, \nu}, &  \nonumber\\
+  & \tilde{R}_{n - \lambda, \nu}^X \circ \tilde{\mathbbm{T}}^G_{\lambda} =2^{2\lambda-n}\pi^{-\frac{n}{2}-1} q^{X T}_X
+  (\lambda, \nu) \tilde{R}_{\lambda, \nu}^X, &  \nonumber
   \end{eqnarray}
   where
   \begin{gather*}
@@ -539,9 +572,18 @@ For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
 \end{gather*}
 	\end{theorem}
 }
-\headerbox{Result \#7 (images of SBOs)}{name=images,column=2,below=functional}
+\headerbox{{R}esult \#7 (images of the SBOs)}{name=images,column=2,below=functional}
 {
 	For every $(\lambda,\nu)\in\C^2$ we can determine image of every SBO constructed in Theorem \ref{thm:construction}.
+	\mybox{{Example: $p$: even, $q$: odd, $\nu\in-\N$}}{{\tiny
+      \begin{figure}[H]
+	      \hspace{-0.5cm}
+	      \noindent\begin{tabular}{@{}m{1.6cm}@{}c@{}c@{}c@{}}
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\
+	      &\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0)(Amp 0 0 0))'"}
+      \end{tabular}
+      \end{figure}
+      }}
 }
 
 \end{poster}

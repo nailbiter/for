@@ -3,8 +3,8 @@
 (use-modules (srfi srfi-1))
 
 ;constants
-(define scale 0.6)
-(define fontline "\\small")
+(define scale 0.3)
+(define fontline "\\tiny")
 (define axeslen 3)
 (define (get-color-line symbol)
   (cond
@@ -17,7 +17,7 @@
 ;procedures
 (define (myreverse l)(list(cadr l)(car l)))
 (define (drawfilledcirc pt)(format #t "\\draw[fill=black] ~a circle (2pt);~%" (drawpoint pt)))
-(define (drawline pt1 pt2)(format #t "\\draw[thick] ~a  -- ~a ;~%" (drawpoint pt1)(drawpoint pt2)))
+(define (drawline pt1 pt2)(format #t "\\draw ~a  -- ~a ;~%" (drawpoint pt1)(drawpoint pt2)))
 (define (tikzpic callback)(begin
                             (format #t "{\\begin{tikzpicture}[scale=~f]~%" scale)
                             (draw-axes)
@@ -44,7 +44,7 @@
   (let*((mult(lambda(x)(* x len)))
         (lenvec(cond((= dir 0)(map mult '(1 1)))((= dir 1)(map mult '(-1 1)))((= dir 2)(map mult '(-1 -1)))((= dir 3)(map mult '(1 -1)))))
         (ratios '(0.25 0.5 0.75))
-        (drawarrow(lambda(start end)(format #t "\\draw [thick,->] ~a -- ~a;~%" (drawpoint start)(drawpoint end))))
+        (drawarrow(lambda(start end)(format #t "\\draw [->] ~a -- ~a;~%" (drawpoint start)(drawpoint end))))
         (est(lambda(p1 p2 rat)(map + p1 (map(lambda(x)(* x rat))(map - p2 p1)))))
         (innerproc(lambda(r)(drawarrow(est start end r)(map + (est start end r)lenvec)))))
     (map innerproc ratios)))
@@ -78,7 +78,7 @@
          ((= arrows 0)(drawarrows basept (map + basept lenvec) 1 0.19)))
        (cond
          ((= labelConfig 1)(begin(drawlabel (map + basept lenvec '(0.7 0.3))"A^{-+}")(drawlabel (map + basept '(1 -0.7))"\\nu-p+2")))
-         ((= labelConfig 0)(begin(drawlabel (map + basept lenvec '(0.7 0.3))"A^{+-}")(drawlabel (map + basept '(0.0 -0.9))"-\\nu+q-1"))))
+         ((= labelConfig 0)(begin(drawlabel (map + basept lenvec '(0.7 0.3))"A^{+-}")(drawlabel (map + basept '(0.0 -0.9))""))))
        (cond
          ((= fill 3)(myfill-global  color (list axeslen 0)(list axeslen axeslen)(list 0 axeslen) '(0 0)))
          ((= fill 11)(myfill-global  color  basept (map + basept lenvec)(list axeslen axeslen)(list 0 axeslen) '(0 0)))
@@ -93,7 +93,7 @@
          ((= arrows 0)(drawarrows basept (map + basept lenvec) 3 0.19)))
        (cond
          ((= labelConfig 1)(begin(drawlabel(map + basept lenvec '(0.4 0.4))"A^{+-}")(drawlabel(map + basept '(-1.4 0.9))"\\nu-q+1")))
-         ((= labelConfig 0)(begin(drawlabel(map + basept lenvec '(0.4 0.4))"A^{-+}")(drawlabel(map + basept '(-1.7 0.1))"-\\nu+p-2"))))
+         ((= labelConfig 0)(begin(drawlabel(map + basept lenvec '(0.4 0.4))"A^{-+}")(drawlabel(map + basept '(-1.7 0.1))""))))
        (cond
          ((= fill 3)(myfill-global  color (list axeslen 0)(list axeslen axeslen)(list 0 axeslen) '(0 0)))
          ((= fill 11)(myfill-global  color  basept (map + basept lenvec)(list axeslen axeslen)(list axeslen 0) '(0 0)))
