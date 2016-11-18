@@ -43,6 +43,7 @@
 \usepackage{palatino}
 
 
+\usepackage{tikz}
 \graphicspath{{images/}{../images/}}
 \usetikzlibrary{calc}
 
@@ -248,14 +249,14 @@
 \end{figure}
 			Branching problem = Understand $\pi\big|_{G'}$.
 	\end{tcolorbox}
-	  \begin{tcolorbox}[colback=green!5,colframe=green!40!black,title=ABC of symmetry breaking]
+	\mybox{ABC Program of Branching \cite{kobayashi2015symmetry}}{
 		  \renewcommand\labelitemi{\ding{117}}
 		  \begin{enumerate}
 			  \item[($\mathcal{A}$)] $\mathcal{A}$bstract features of the restriction;
 			  \item[($\mathcal{B}$)] $\mathcal{B}$ranching laws (irreducible decomposition) of $\pi\big|_{G'}$;
 			  \item[($\mathcal{C}$)] $\mathcal{C}$onstruct SBOs.
 		  \end{enumerate}
-	  \end{tcolorbox}
+	  }
   \mybox{Definition}{
 	  Suppose $G'\xrightarrow{\;\;\pi'} GL_{\C}(W)$ another representation.
 We say $A:V\to W$ is {\it symmetry breaking operator} ({\it SBO} for brevity) if $\forall g'\in G'$
@@ -263,13 +264,14 @@ We say $A:V\to W$ is {\it symmetry breaking operator} ({\it SBO} for brevity) if
 \hspace{1.3cm}
 \xymatrixrowsep{0.2pt}
 \xymatrix{
-	V\ar[dd]^A\ar[rr]^{\pi(g')}&&V\ar[dd]^A\\
+	V\ar[dd]^{\pi(g')}\ar[rr]^A&&W\ar[dd]^{\pi'(g')}\\
 	&{\scaleobj{2.5}{\circlearrowright}}&\\
-	W\ar[rr]^{\pi'(g')}&&W
+	V\ar[rr]^A&&W
 }
 \end{figure}
 }
 \mybox{This work concerns:}{
+	Program $\mathcal{C}$ for SBOs (symmetry breaking operators)
 	\begin{enumerate}
 		\item[($\mathcal{C}$1)] Construct SBOs;
 		\item[($\mathcal{C}$2)] Classify SBOs;
@@ -279,16 +281,65 @@ We say $A:V\to W$ is {\it symmetry breaking operator} ({\it SBO} for brevity) if
 	\end{enumerate}
 }
  }
+ \newcommand{\tikzcone}[1]{
+ \begin{tikzpicture}[scale=#1]
+\def\h{6}
+\def\a{2}
+\def\b{0.5}
+\definecolor{top}{RGB}{65,134,198}
+\definecolor{middle}{RGB}{126,169,208}
+\def\shadebody{\fill[
+    left color=top,
+    right color=top,
+    middle color=middle,
+    shading=axis,
+    opacity=1
+    ] }
+\def\shadetop{\fill[
+    top color=top,
+    bottom color=top,
+    middle color=middle,
+    shading=axis,
+    opacity=1
+    ] }
+
+
+\shadebody
+  (\a,0) -- (0,\h) -- (-\a,0) arc (180:360:\a cm and \b cm);
+\draw[line width = 0.5pt] 
+  (-\a,0) arc (180:360:\a cm and \b cm) -- (0,\h) -- cycle;
+
+  %upper part
+\shadetop
+(0,2*\h) circle (\a cm and \b cm);
+
+\shadebody
+  (\a,2*\h) -- (0,\h) -- (-\a,2*\h) arc (180:360:\a cm and \b cm);
+  \draw[line width = 0.5pt] 
+  (-\a,2*\h) arc (180:360:\a cm and \b cm) -- (0,\h) -- cycle;
+
+  \draw[line width = 0.5pt] 
+  (\a,2*\h) arc (0:180:\a cm and \b cm);
+
+
+
+
+
+
+\end{tikzpicture}
+
+ }
  \headerbox{Setting}{name=problem,column=0,below=setting}
  {
 	 \begin{equation*}
 		 \begin{array}{@{}c@{}cl}
  &(G,G')=&\\
- &\left( O(n+1,1),O(n,1) \right)\mbox{\cite{kobayashi2015symmetry}}&\mbox{first {\bf complete}}\\
+ &\left( O(n+1,1),O(n,1) \right)\mbox{\;\cite{kobayashi2015symmetry}}&\mbox{first {\bf complete}}\\
  &&\mbox{ answer to ($\mathcal{C}2$)}\\
- \implies&\left( O(p+1,q),O(p,q) \right)\mbox{\textsc{Goal}}&
+ \implies&\left( O(p+1,q),O(p,q) \right)\mbox{\textsc{\;Goal}}&
  \end{array}
 	 \end{equation*}
+	 \tikzcone{0.3}
  }
  \headerbox{References}{name=references,column=0,below=problem}
  {
