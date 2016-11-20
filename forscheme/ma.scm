@@ -3,7 +3,7 @@
 (use-modules (srfi srfi-1))
 
 ;constants
-(define scale 0.3)
+(define scale 0.5)
 (define fontline "\\tiny")
 (define axeslen 3)
 (define (get-color-line symbol)
@@ -24,7 +24,7 @@
                             (callback)
                             (format #t "\\end{tikzpicture}}~%")))
 (define (tikzpic-1 callback)(begin
-                            (format #t "{\\begin{tikzpicture}[scale=~f]~%" scale)
+                            (format #t "{\\hspace{-1.5cm}\\begin{tikzpicture}[scale=~f]~%" scale)
                             (drawline '(0 0) (list axeslen 0))
                             (drawfilledcirc '(0 0))
                             (callback)
@@ -37,8 +37,8 @@
     (begin(print-initial)(format #t "~a" (drawpoint (car l)))(map print-iter (cdr l)) (print-final))))
 (define (drawlabel pt text)(format #t "\\node at ~a {~a $~a$};~%" (drawpoint pt)fontline text))
 (define (draw-axes)(begin
-                     (format #t "\\draw [<->,thick] ~a node (yaxis) [above] {}~%"(drawpoint(list 0 axeslen)))
-                     (format #t "~/|- ~a node (xaxis) [right] {};~%" (drawpoint (list axeslen 0)))))
+                     (format #t "\\draw [<->,thick] ~a node (yaxis) [above] {\\tiny $\\mathcal{H}^b(\\Sp^q)$}~%"(drawpoint(list 0 axeslen)))
+                     (format #t "~/|- ~a node (xaxis) [below] {\\tiny $\\mathcal{H}^a(\\Sp^{p-1})$};~%" (drawpoint (list axeslen 0)))))
 (define (myforeach each interleave l)(begin(each(car l))(for-each (lambda(x)(begin(interleave)(each x)))(cdr l)))); only use for l!='()
 (define (drawarrows start end dir len)
   (let*((mult(lambda(x)(* x len)))
@@ -111,7 +111,7 @@
                                                                    ((eq? line 'Amp)(Amp arrows fill labelConfig colorline))
                                                                    ((eq? line 'Apm)(Apm arrows fill labelConfig colorline)))))
                                                        ( read (open-input-string x)))))))
-                         (lambda()(display "&"))
+                         (lambda()(display "&\\hspace{-0.5cm}"))
                          (cdr arg)))
 (define (mp1 arg)(myforeach
                          (lambda(x)(if(string=? x "()")

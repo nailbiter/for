@@ -36,6 +36,7 @@
 \usepackage{multicol}
 \usepackage{array}
 \usepackage{stmaryrd}
+\usepackage{CJKutf8}	
 
 %\usepackage{times}
 %\usepackage{helvet}
@@ -44,6 +45,18 @@
 
 
 \usepackage{tikz}
+\usepackage{tikz, pgfplots}
+\usepackage[]{amsmath}
+\usetikzlibrary{arrows}
+\usepackage{pgfplots}
+\pgfplotsset{width=8cm,compat=1.9}
+\usetikzlibrary{pgfplots.dateplot}
+\usepackage{pgfplotstable}
+\usepackage{filecontents}
+\usetikzlibrary{arrows}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{shapes.geometric}
+\pgfplotsset{compat=1.12}
 \graphicspath{{images/}{../images/}}
 \usetikzlibrary{calc}
 \usetikzlibrary{patterns}
@@ -195,32 +208,6 @@
 \definecolor{lightblue}{rgb}{0.145,0.6666,1}
 
 % Draw a video
-\newlength{\FSZ}
-\newcommand{\drawvideo}[3]{% [0 0.25 0.5 0.75 1 1.25 1.5]
-   \noindent\pgfmathsetlength{\FSZ}{\linewidth/#2}
-   \begin{tikzpicture}[outer sep=0pt,inner sep=0pt,x=\FSZ,y=\FSZ]
-   \draw[color=lightblue!50!black] (0,0) node[outer sep=0pt,inner sep=0pt,text width=\linewidth,minimum height=0] (video) {\noindent#3};
-   \path [fill=lightblue!50!black,line width=0pt] 
-     (video.north west) rectangle ([yshift=\FSZ] video.north east) 
-    \foreach \x in {1,2,...,#2} {
-      {[rounded corners=0.6] ($(video.north west)+(-0.7,0.8)+(\x,0)$) rectangle +(0.4,-0.6)}
-    }
-;
-   \path [fill=lightblue!50!black,line width=0pt] 
-     ([yshift=-1\FSZ] video.south west) rectangle (video.south east) 
-    \foreach \x in {1,2,...,#2} {
-      {[rounded corners=0.6] ($(video.south west)+(-0.7,-0.2)+(\x,0)$) rectangle +(0.4,-0.6)}
-    }
-;
-   \foreach \x in {1,...,#1} {
-     \draw[color=lightblue!50!black] ([xshift=\x\linewidth/#1] video.north west) -- ([xshift=\x\linewidth/#1] video.south west);
-   }
-   \foreach \x in {0,#1} {
-     \draw[color=lightblue!50!black] ([xshift=\x\linewidth/#1,yshift=1\FSZ] video.north west) -- ([xshift=\x\linewidth/#1,yshift=-1\FSZ] video.south west);
-   }
-   \end{tikzpicture}
-}
-
 \hyphenation{resolution occlusions}
 %%
 \begin{poster}%
@@ -258,9 +245,15 @@
   % Eye Catcher
   {\includegraphics[height=5em]{images/graph_occluded}} 
   % Title
-  {\bf\textsc{Symmetry Breaking Operators of Indefinite Orthogonal Groups $O(p,q)$}\vspace{0.5em}}
+  %
+  {\bf\textsc{Symmetry Breaking Operators of Indefinite Orthogonal Groups $O(p,q)$}\\
+  \begin{CJK}{UTF8}{min}日本数学会　異分野・異業種研究交流会2016\end{CJK}\vspace{0.5em}}
   % Authors
-  {\textsc{ Toshiyuki Kobayashi and Alex Leontiev}}
+  {\textsc{Alex Leontiev
+	  \begin{CJK}{UTF8}{min}
+		  (東京大学・大学院数理科学研究科)
+	  \end{CJK}
+  }}
   % University logo
   {% The makebox allows the title to flow into the logo, this is a hack because of the L shaped logo.
     \includegraphics[height=8.0em]{images/logo}
@@ -285,12 +278,12 @@
 	  \begin{tcolorbox}[colback=green!5,colframe=green!40!black,title= ``Program for branching problems''\cite{kobayashi2015program}]
 		  Representation $\pi$ and its restriction $\pi\big|_{G'}$:
 \begin{figure}[H]
-	\hspace{1.35cm}
 	\xymatrixrowsep{0.2pt}
+	\xymatrixcolsep{0.5cm}
 	\xymatrix{
-		G\ar[r]^-\pi&GL_{\C}(V)&(\dim V=\infty)\\
-		\bigcup&&\\
-		G'\ar@{-->}[uur]_{\pi\big|_{G'}}&&
+		\pi:&G\ar[r]&GL_{\C}(V)&(\dim V=\infty)\\
+		&\bigcup&&\\
+		&G'\ar@{-->}[uur]_{\pi\big|_{G'}}&&
 	}
 \vspace{-0.5cm}
 \end{figure}
@@ -305,9 +298,10 @@
 		  \end{enumerate}
 	  }
   \mybox{Definition (SBO)}{
-	  Suppose $G'\xrightarrow{\;\;\pi'} GL_{\C}(W)$ another representation.
-	  SBO (symmetry breaking operator) is a linear map $A:V\to W$ satisfying $\forall g'\in G'$
+	  Suppose $\pi':G'\to GL_{\C}(W)$ another representation.
+	  SBO (symmetry breaking operator) is a linear map $A:V\to W$ satisfying for $g'\in G'$
 \begin{figure}[H]
+	\vspace{-0.7cm}
 \hspace{1.3cm}
 \xymatrixrowsep{0.2pt}
 \xymatrix{
@@ -315,10 +309,10 @@
 	&{\scaleobj{2.5}{\circlearrowright}}&\\
 	V\ar[rr]^A&&W
 }
+\vspace{-0.2cm}
 \end{figure}
 }
-\mybox{This work concerns:}{
-	Program $\mathcal{C}$ for SBOs
+\mybox{{This work concerns: Program $\mathcal{C}$ for SBOs}}{
 	\begin{enumerate}
 		\item[($\mathcal{C}$1)] Construct SBOs;
 		\item[($\mathcal{C}$2)] Classify SBOs;
@@ -331,33 +325,25 @@
 
  \headerbox{Setting}{name=problem,column=0,below=setting}
  {
-	 \mybox{{$(G,G')=(O(p+1,q+1, O(p,q+1)))$}}
+	 \mybox{{$(G,G')=(O(p+1,q+1), O(p,q+1)))$}}
 	 {
 		 $(\mathcal{C}1)$--$(\mathcal{C}5)$ were proposed and carried out {\bf completely} in \cite{kobayashi2015symmetry} for  
 	 rank one case $q=0$.\\
-	 We generalize to higher rank case.
+	 We generalize to higher rank case. This is {joint work} with T. Kobayashi.\vspace{-0.2cm}
  	}
-	\mybox{{$\left( \pi,\pi' \right)=(I(\lambda),J(\nu))$ ``standard'' reps}}{
+	\mybox{{\hspace{-0.5cm}$\left( \pi,\pi' \right)\kern-0.15cm=\kern-0.15cm(I(\lambda),J(\nu))$ ``standard'' reps for $(\lambda,\nu)\kern-0.1cm\in\kern-0.1cm\C^2$}}{
+			\vspace{-0.5cm}
 		\begin{equation*}
+			\vspace{-0.4cm}
 			\kern-0.5cm\raisedtikzcone:=\left\{ (x,y)\in\R^{p+1}\times\R^{q+1}\mid \myabs{x}=\myabs{y}\neq0 \right\}.
 		\end{equation*}
 		\begin{equation*}
-			\kern-0.5cm I(\lambda):=\left\{f\in C^\infty\left( \raisedtikzcone \right)\mbox{: homog. of deg. $-\lambda$}\right\},\lambda\in\C.
+			\kern-0.5cm I(\lambda)\!:=\!\left\{f\in C^\infty\left(\kern-0.12cm \raisedtikzcone \kern-0.12cm\right)\mbox{: homog. of deg. $-\lambda$}\right\}.
 		\end{equation*}
 		\begin{equation*}
 			\kern-0.5cm G\curvearrowright \raisedtikzcone\leadsto G\curvearrowright I(\lambda)\doteqdot C^\infty(\R^{p+q}).
 		\end{equation*}
-		Similarly, $G'\curvearrowright J(\nu)\doteqdot C^\infty (\R^{p+q-1})$ for $\nu\in\C$.
-%%		\hspace{-0.25cm}$G\curvearrowright$ \raisedtikzcone=$\left\{ (x,y)\in\R^{p+1}\times\R^{q+1}\mid \myabs{x}=\myabs{y}\neq0 \right\}.$\\
-%%		\vspace{-0.35cm}
-%%		\begin{equation*}
-%%			\kern-0.5cm\leadsto G\curvearrowright \pi:=I(\lambda):=
-%%		\end{equation*}
-%%		\vspace{-0.6cm}
-%%		\begin{equation*}
-%%			\kern-0.4cm:=\left\{ f\in C^\infty\left( \raisebox{-0.2cm}{\tikzcone{0.05}} \right) \mbox{: homogeneous of deg.} -\lambda \right\}.
-%%		\end{equation*}
-%%		Similarly for $\pi'=J(\nu)$ of $G'$.
+		Similarly, $G'\curvearrowright J(\nu)\doteqdot C^\infty (\R^{p+q-1})$.\vspace{-0.2cm}
  	}
  }
  \headerbox{References}{name=references,column=0,below=problem}
@@ -372,9 +358,9 @@
  }
  \headerbox{Key Fact}{name=keyfact,column=1,row=0}
  {
-Applying the very general result proven in \cite[Chap.\ 3]{kobayashi2015symmetry} to our particular setting, we get the following. Let $n=p+q$.
+	 Applying the very general result proven in \cite[Chap.\ 3]{kobayashi2015symmetry} to our particular setting, we get the following. Let $n:=p+q$.\vspace{-0.2cm}
 \begin{fact}[{\cite[Thm. 3.16]{kobayashi2015symmetry}}]\label{fact1}
-Let $n:=p+q$. The following diagram commutes:
+ The following diagram commutes:
 \vspace{-0.8cm}
 \begin{figure}[H]
 	\xymatrixcolsep{0.0pc}
@@ -388,9 +374,9 @@ Let $n:=p+q$. The following diagram commutes:
 \end{figure}
 \end{fact}
  }
- \headerbox{Result \#1}{name=suppclassif,column=1,below=keyfact}
+ \headerbox{{Result \#1}}{name=suppclassif,column=1,below=keyfact}
  {
-\begin{theorem}[classification of closed $P'$-invariant subsets of $G/P$]
+	 \begin{theorem}[classification of $P'\backslash G/P$]
 	Suppose $p,q\ge1$.
 	The left $P'$-invariant closed subsets of $G/P$ are described in the following Hasse diagram. Here 
 	$
@@ -413,17 +399,30 @@ Let $n:=p+q$. The following diagram commutes:
     \begin{subfigure}[t]{0.3\textwidth}
 	    \xymatrixrowsep{0.5pc}
 	    {\xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rddd]_{p+q-2}&&C\ar@{-}[lddd]^{p+q-2}\\&&\\&&\\&\{[o]\}&}}
-	\caption{when $p=1$}
+	\vspace{0.25cm}
+	    \caption{when $p=1$}
     \end{subfigure}
 \end{figure}
 \end{theorem}
  }
- \headerbox{Result \#2}{name=construction,column=1,below=suppclassif}
+ \headerbox{Result \#2 (SBOs construction)}{name=construction,column=1,below=suppclassif}
  {
 \begin{theorem}[construction of SBO]\label{thm:construction}
-	For $S=X,Y,C,$ and $\left\{ o \right\}$, the following operators $R_{\lambda,\nu}^S$ and $\tilde{R}_{\lambda,\nu}^X$ are SBOs, which depend meromorphically on $(\lambda,\nu)\in D_S$. 
+	For $S=X,Y,C,$ and $\left\{ [o] \right\}$, the following operators $R_{\lambda,\nu}^S$ are SBOs, which depend meromorphically on $(\lambda,\nu)\in D_S$. 
 	
-	Moreover, $\Supp(R_{\lambda,\nu}^S)\subset S$, ``='' generically and are determined explicitly.\\
+	Moreover, $\Supp(R_{\lambda,\nu}^S)\subset S$, ``='' generically and are determined explicitly.\\\vspace{-0.3cm}
+	\mybox{{Example: Support of $\tilde{R}^X_{\lambda,\nu}$ for $(p,q)=(2,3)$}}
+	{
+		\begin{center}
+		\vspace{-0.5cm}
+		\begin{figure}[H]
+			\centering
+		\input{|"guile -e diag1 $HOME/for/misc/dimplots/genplot.scm"}
+		\end{figure}
+		\vspace{-1cm}
+		\end{center}
+	}
+	\vspace{-0.3cm}
 	%\newcommand{\mystack}[2]{\begin{array}{@{}c@{}}#1\\#2\end{array}}
 	\begin{center}
 	\begin{tabular}{@{}|@{}c@{}|c|@{}c@{}|}
@@ -436,7 +435,7 @@ Let $n:=p+q$. The following diagram commutes:
   \hline
   $C$ & $\mm$ & $\myabs{x_p}^{\lambda+\nu-n}\delta^{(2m)}\left( \Q \right),m:=\frac{\nu-1}{2}$ \\
   \hline
-  $\left\{ 0 \right\}$ & $\ss$ & $\tilde{C}_{\nu -
+  $\left\{ [o] \right\}$ & $\ss$ & $\tilde{C}_{\nu -
   \lambda}^{\lambda - \frac{n - 1}{2}} \left(-\Delta_{\mathbbm{R}^{p - 1, q}}
   \delta_{\mathbbm{R}^{p + q - 1}}, \delta (x_p)\right)$\\ \hline
 %%  $\mystack{\tilde{R}^X_{\lambda, \nu} =}{(\lambda,\nu)\in\mid\mid\mid}$ & $\frac{1}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
@@ -456,7 +455,8 @@ Let $n:=p+q$. The following diagram commutes:
 %%  \hline
 \end{tabular}
 	\end{center}
-	For every $S=X,Y,C$ and $\left\{ 0 \right\}$ we can
+	\vspace{-0.3cm}
+	For every $S=X,Y,C$ and $\left\{ [o] \right\}$ we can
 	determine $\tilde{R}_{\lambda,\nu}$: ``renormalization'' 
 	depending {\it holomorphically} on $(\lambda,\nu)\in D_S$ (renormalization factors are given by Gamma functions explicitly).
 \end{theorem}
@@ -484,14 +484,14 @@ Let $n:=p+q$. The following diagram commutes:
 	-2\N \}$;
 	\item$ \mid\mid:=\C\times\left( 2\N+1 \right)$;
 	\item $\mathcal{A}:=\ss\cap\mid\mid\mid, \mathcal{X}:=\mm\cap\bb$;
-	\item $\tilde{C}(s,t)$ inflated renormalized Gegebauer polynomial as in \cite[(16.3)]{kobayashi2015symmetry}.
+	\item $\tilde{C}(s,t)$: inflated renormalized Gegenbauer polynomial as in \cite[(16.3)]{kobayashi2015symmetry}.
 	\end{itemize}
  }
 \headerbox{{R}esult \#3 (SBOs classification)}{name=classif,column=2,row=0}
 {
 \begin{theorem}\label{thm:classif}
-	Suppose $p,q\ge1$, let $H:=\SBO$.
-\[ p = 1 \Rightarrow H = \left\{
+	Suppose $p,q\ge1$, let $\mathfrak{H}:=\SBO$.
+	\[ p = 1 \Rightarrow \mathfrak{H} = \left\{
 	\begin{array}{@{}l@{}l@{}}
 		\mathbbm{C}\tilde{R}^X_{\lambda, \nu}, & (\lambda, \nu) \notin  \mathcal{A}\cup \mathcal{X}
      ,\\
@@ -503,7 +503,7 @@ Let $n:=p+q$. The following diagram commutes:
      \mathbbm{C}\tilde{R}^{\{ o \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid
      \cap \backslash\backslash \cap / /.
    \end{array} \right. \]
-\[ p > 1 \Rightarrow H = \left\{
+   \[ p > 1 \Rightarrow \mathfrak{H} = \left\{
    \begin{array}{ll}
      \mathbbm{C} \tilde{\tilde{R}}^X_{\lambda, \nu} \oplus \mathbbm{C}\tilde{R}^{\{ o
      \}}_{\lambda, \nu \lambda, \nu}, & (\lambda, \nu) \in / / \cap \mid \mid
@@ -525,22 +525,28 @@ Let $n:=p+q$. The following diagram commutes:
 \Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
 \frac{q - \nu + 1}{2} \right)} \mathbbm{1}_{\nu}. \]
 \end{theorem}
+\begin{remark}
+	Theorem \ref{thm:spherical} was known in Bernstein--Reznikov (2004) for $p=q=1$.
+\end{remark}
 }
 \headerbox{{R}esult \#5 (residue formula)}{name=residue,column=2,below=spherical}
 {
 \begin{theorem}
-	Let $n:=p+q\;(p,q\ge1)$ as before.
 	For $(\lambda,\nu)\in//$, we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$. Then we have
   \[\tilde{R}_{\lambda,\nu}^X  = \frac{ (- 1)^l l!\pi^{(n - 2) / 2} 
 		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
 	\tilde{R}_{\lambda,\nu}^{ \left\{ o \right\} }.\]
 	\end{theorem}
 }
-\headerbox{{R}esult \#6}{name=functional,column=2,below=residue}
+\headerbox{{R}esult \#6 (func-al identities)}{name=functional,column=2,below=residue}
 {
 	\begin{definition}
+		Let $n:=p+q\;(p,q\ge1)$ as before.
 		The {\it Knapp-Stein operator} is a $G$-intertwining holomorphic operator defined as
-		$\tilde{\mathbb{T}}_{\lambda}^G:I(\lambda)\ni f\mapsto q_T(\lambda)\myabs{\Q}^{\lambda-n}\Conv f\in I(n-\lambda)$, where $q_T(\lambda,\nu)$ is explicitly given by Gamma factors.
+		\begin{equation*}
+		\tilde{\mathbb{T}}_{\lambda}^G:I(\lambda)\ni f\mapsto q_T(\lambda)\myabs{\Q}^{\lambda-n}\Conv f\in I(n-\lambda)
+		\end{equation*}
+		where $q_T(\lambda,\nu)$ is explicitly given by Gamma factors.
 %%		Similarly to the construction of Fact \ref{fact1}, for $G=O(p+1,q+1)$ we have $\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$
 %%		where $\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$.
 %%
@@ -550,10 +556,10 @@ Let $n:=p+q$. The following diagram commutes:
 %%		$\tilde{\mathbb{T}}^{G}_{\lambda}:I(\lambda)\to
 %%		I(n-\lambda)$
 %%		(\textit{Knapp--Stein operator}).
-		The result of this construction repeated with $G'=O(p,q+1)$ in place of $G$ will be denoted by $\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$.
+		For $G'=O(p,q+1)$ we similarly define $\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$.
 	\end{definition}
-	\begin{theorem}[functional identities]
-		Let $n:=p+q\;(p,q\ge1)$ as before.
+	\begin{theorem}
+		
 		We have:
 \begin{eqnarray}
     & \tilde{\mathbbm{T}}^{G'}_{n-1 - \nu} \circ \tilde{R}^X_{\lambda, n' - \nu} =\pi^{\frac{n - 3}{2}} q^{T X}_X
@@ -567,20 +573,22 @@ Let $n:=p+q$. The following diagram commutes:
 	  \begin{array}{@{}l@{}l}
     {\Gamma\left( \frac{n / 2 - \nu}{2} \right)}, & \frac{n - 1}{2}+p\todd,\\
     \dots&
-  \end{array} \right.\\
-  q^{X T}_X (\lambda, \nu) \assign\same
+  \end{array} \right.
 \end{gather*}
+and $q_X^{TX}(\lambda,\nu)$ is similarly explicitly given by Gamma functions.
 	\end{theorem}
 }
 \headerbox{{R}esult \#7 (images of the SBOs)}{name=images,column=2,below=functional}
 {
 	For every $(\lambda,\nu)\in\C^2$ we can determine image of every SBO constructed in Theorem \ref{thm:construction}.
-	\mybox{{Example: $p$: even, $q$: odd, $\nu\in-\N$}}{{\tiny
+	\mybox{{\hspace{-0.55cm}Example: Images of $\tilde{R}_{\lambda,\nu}^X$ for $p$:even, $q$:odd, $\nu\kern-0.1cm\in\kern-0.1cm-\N$\hspace{-0.05cm}}}{{\tiny
       \begin{figure}[H]
-	      \hspace{-0.5cm}
-	      \noindent\begin{tabular}{@{}m{1.6cm}@{}c@{}c@{}c@{}}
-	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\
-	      &\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0)(Amp 0 0 0))'"}
+	      \vspace{-0.4cm}
+	      \hspace{-0.65cm}
+	      \renewcommand{\Sp}{\mathbb{S}}
+	      \begin{tabular}{@{}c@{}c@{}c@{}}
+		      $(\lambda,\nu)\in\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash$\\[0.4cm]
+	      \input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0)(Amp 0 0 0))'"}
       \end{tabular}
       \end{figure}
       }}
