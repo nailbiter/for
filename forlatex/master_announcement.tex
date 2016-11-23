@@ -1,18 +1,26 @@
-%platex
-\documentclass[12pt]{msjproc} % use larger type; default would be 10pt
+%mypipes
+%texmacs ~/for/fortexmacs/master_extract.tm
+\documentclass[12pt]{article} % use larger type; default would be 10pt
 
 \usepackage{enumerate}
+\usepackage{geometry}
 \usepackage{setspace}
 \usepackage{amsmath,amssymb,bbm,xypic}
 \usepackage[all,cmtip]{xy}
-\usepackage{amsmath,amssymb,bbm,ulem,float,mystyle}
+\usepackage{amsmath,amssymb,bbm,float,mystyle}
+\usepackage[normalem]{ulem}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{setspace}
 \usepackage{comment}
-%\excludecomment{versiona}
 \usepackage{catchfilebetweentags}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
 \includecomment{versiona}
+\usepackage{tikz}
+\usepackage{bashful}
+\usetikzlibrary{patterns}
+\usepackage{bbm}
 
 %%%%%%%%%% Start TeXmacs macros
 \catcode`\<=\active \def<{
@@ -85,14 +93,16 @@
 \newcommand{\mm}{\mid\mid}
 \newcommand{\bb}{\backslash\backslash}
 \renewcommand{\ss}{//}
+%%%%%%%%%% End TeXmacs macros
 
 \begin{document}
 
-\title{Symmetry breaking of indefinite orthogonal groups $O(p,q)$}
+\title{Symmetry breaking operators for representations of indefinite orthogonal groups $O(p,q)$}
 
   %%%% 講演者1
-  \author{小林俊行}{東京大学}
-  \author{レオンチエフ　アレックス}{東京大学}
+\author{Toshiyuki Kobayashi\thanks{Partially supported by Grant-in-Aid for Scientific
+	Research (A) (25247006), Japan Society for the Promotion of Science.} (The University of Tokyo, Kavli IPMU)\\
+  Alex Leontiev (The University of Tokyo)}
 
   %%%% 講演者2
 
@@ -102,58 +112,141 @@
   %%%% 謝辞、キーワード、MSCコード  
 
   \maketitle
+  \section{$\mathcal{ABC}$ program for branching}
 
-\begin{spacing}{0.8}
-	This work aims to generalize the results of \cite{kobayashi2015symmetry}
-	regarding the symmetry breaking in the $O(n+1,1)\downarrow O(n,1)$ case. This is joint work with T. Kobayashi.
-	What we call ``symmetry breaking operators'' (SBOs, for short) in this work are the $G'$ intertwining operators between the spherical degenerate principal series representations $I(\lambda)$
-	of $G=O(p+1,q+1)$ and $J(\nu)$ of its closed subgroup $G'\simeq O(p,q+1)$ induced from maximal parabolic subgroups.
-\end{spacing}
+  \section{Setting}
+  \begin{versiona}
+	  Let us set up some notation. We define the standard quadratic form
+	  $\Q$ on $\R^n$ ($n:=p+q$) of signature $(p,q)$ by
+	  \begin{equation*}
+  \Q (x) \assign \,^t \! x I_{p, q} x, \; (x \in
+  \mathbbm{R}^{p + q}),
+	  \end{equation*}
+	  where
+\begin{equation*}
+   I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
+  1, \ldots, - 1}_q).
+\end{equation*}
+We set $G \assign O (p +
+1, q + 1)=\left\{ g\in GL\left( p+q+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}$, and define
+a maximal parabolic subgroup $P=MAN_{+}$ with
+\ExecuteMetaData[.master_extract.tex]{tagsetting}
+For complex parameter $\lambda\in\C$ we define (unnormalized) spherical degenerate principal series representations of $G$ as
+\begin{align*}
+I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
+&\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}.
+\end{align*}
 
-Below we will denote by $Q_{p+1,q+1}$ the indefinite quadratic form of signature $(p+1,q+1)$ on $\R^{p+1,q+1}$.
-$G$ will denote the group of transformations preserving $Q_{p+1,q+1}$. As $G$ preserves $Q_{p+1,q+1}$, it also preserves
-$\Xi^{p+1,q+1}:=\mysetn{x\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{Q_{p+1,q+1}(x)=0}$、and we will denote the stabilizer subgroup of 
-$[e_0+e_{p+q+1}]\in X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}$ by
-$P$. $G'$ is the stabilizer subgroup of $e_p$ in $G$ and $P':=G\cap P$.
+We realize $G':=O(p,q+1)$ as the subgroup $G_{e_{p+1}}:=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}$ of $G$. 
+Then $G'$ is {\it compatible} with $P$ in the sense that 
+$P':=P\cap G'$ is also a maximal parabolic subgroup
+with Langlands decomposition $P'=(G'\cap M)A (G'\cap N_+)$,
+because $A\subset G'$.
+Similarly, we define (unnormalized) spherical degenerate principal series representations $J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$ of $G'$ for $\nu\in\C$.
 
+The objects of this study are then \textit{symmetry breaking operators} (\textit{SBOs} for short),
+that is, $G'$-intertwining operators between the $G$-module $I(\lambda)$ regarded as a $G'$-module by restriction and the $G'$-module $J(\nu)$. We denote by $\SBO$ the totality
+of such operators.
+
+The general theory \cite{kobayashi2013finite,kobayashi2014classification} implies the following {\it a priory} estimate of its dimension in our particular setting.
+\begin{fact}
+	The dimension of $\SBO$ is uniformly bounded in $(\lambda,\nu)\in\C^2$.
+\end{fact}
+We shall find an explicit basis of $\SBO$ in our setting in Theorem \ref{thm:classif}, and in particular, its dimension in Corollary \ref{cor:classif}.
+
+\section{Main Results}
+In order to analyze the space $\SBO$ of symmetry breaking operators, we begin with:
+\begin{definition} \label{def1}
+	Let $h(b,x):=1-2\,^t\!bI_{p,q}x+\Q(b)\Q(x)$ for $b,x\in\R^{n}\;(n=p+q)$. A distribution
+	$F \in \mathcal{D}' (\R^{p,q})$ is said to be
+  \tmtextit{$N_+'$-invariant} if 
+  for any $b\in\R^n$ with $b_p=0$
+  \begin{equation*}
+    \label{eq-Nequiv} | h(b,x) |^{\lambda - n} F \left(
+    \frac{x - \Q (x) b}{h(b,x)} \right) = F (x)
+  \end{equation*}
+  holds in the open set of $x\in\R^{p,q}$ satisfying $h(b,x)\neq0$.
+  
+\end{definition}
+
+\begin{definition}\label{def2}We let $O(p-1,q)$ act on $\R^n$ $(n=p+q)$ by leaving $x_p$ invariant. Let $\sol$ 
+	denote the space of distributions $F\in\mathcal{D}'(\R^n)$ satisfying the following four conditions:
+\begin{enumerate}[(1)]
+    \item $F (x) = F (- x)$;
+    \item $F$ is $O(p-1,q)$-invariant;
+    \item $F$ is homogeneous of degree $\lambda-\nu-n$;
+    \item $F$ is $N_+'$-invariant on $\R^{p,q}$.
+  \end{enumerate}
+\end{definition}
+\end{versiona}
+
+Applying the very general result proven in \cite[Chap.\ 3]{kobayashi2015symmetry} to our particular setting, we get the following:
+\begin{fact}[{\cite[Thm. 3.16]{kobayashi2015symmetry}}]\label{fact1}
+Let $n:=p+q$. The following diagram commutes:
+\begin{figure}[H]
+\centerline{
+	\xymatrixcolsep{5pc}
+	\xymatrix{\SBO\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\Supp}
+	&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda}) \otimes\mathbb{C}_\nu \right)^{P'}
+\ar[r]_-{F\mapsto \supp(F)}\ar[d]^{\simeq}_{\mbox{rest}}
+&2^{P'\backslash G/P}\\
+&{\hspace{1.65cm}\sol\subset\mathcal{D}'(\R^{p,q})}\ar[lu]^{\mbox{Op}}_{\simeq}&
+}
+}
+\end{figure}
+\end{fact}
+
+In particular, for $T\in\SBO$, $\Supp(T)$ is a closed subset of $P'\backslash G/P$.
+Thus one sees that closed subsets of the finite double coset space $P'\backslash G/P$ provide an important invariant of the symmetry breaking operators. Therefore,
+the first step to classify SBOs is to describe explicitly the double coset space $P'\backslash G/P$ together with its closure relations.
+
+The natural action of $G=O(p+1,q+1)$ on $\R^{p+1,q+1}$ leaves
+$\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}$ invariant, and thus $G$ acts naturally on its quotient space
+$X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}$. 
+Geometrically, $X^{p,q}$ is identified with the direct product manifold $\Sp^p\times\Sp^q$ equipped with the pseudo-Riemannian metric $g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$,
+modulo the direct product of antipodal maps, and $G$ is the group of conformal transformations of $X^{p,q}$.
+We set
 \[
-	\mbox{Let }X:=G/P\simeq X^{p,q},\quad Y:=\mysetn{[\xi,\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\]
-	\[C:=\mysetn{[\xi,\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\quad\left\{ [o] \right\}:=\left\{ [1,0_{p+q},1] \right\}.
-  \]
-
-\begin{theorem}
-$p, q \geqslant 1$に対して、
-  $G/P$の$P'$不変閉集合と{包含関係}が以下の通りになる：\\
+	X:=G/P\simeq X^{p,q},\quad Y:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\]
+	\[C:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\quad\left\{ [o] \right\}:=\left\{ [1:0_{p+q}:1] \right\}.\]
+\begin{theorem}[classification of closed $P'$-invariant subsets of $G/P$]
+	Suppose $p,q\ge1$.
+	The left $P'$-invariant closed subsets of $G/P$ are described in the following Hasse diagram. Here 
+	$
+	\begin{array}{l}
+	        \xymatrixrowsep{0.5pc}
+		\xymatrix{A\ar@{-}[d]^m\\B}
+	\end{array}
+	$
+	means that $A\supset B$ and that the generic part of $B$ is of codimension $m$ in $A$.\\
   \begin{figure}[H]
-	  
     \centering
-    \begin{subfigure}{0.3\textwidth}
-	\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&Y\cap C\ar@{-}[d]&\\&\{[0]\}&}
-	\caption{$p>1$の時}
+    \begin{subfigure}[t]{0.3\textwidth}
+	    \xymatrixrowsep{0.5pc}
+	    \xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rd]_1&&C\ar@{-}[ld]^1\\&C\cap Y\ar@{-}[dd]^{p+q-2}&\\&&\\&\{[o]\}&}
+	\caption{when $p>1$}
     \end{subfigure}
     ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
       %(or a blank line to force the subfigure onto a new line)
-    \begin{subfigure}{0.3\textwidth}
-	\raisebox{40mm}
-	{\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&\{[0]\}&}}
-	\caption{$p=1$の時}
+    \begin{subfigure}[t]{0.3\textwidth}
+	    \xymatrixrowsep{0.5pc}
+	    {\xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rddd]_{p+q-2}&&C\ar@{-}[lddd]^{p+q-2}\\&&\\&&\\&\{[o]\}&}}
+	\caption{when $p=1$}
     \end{subfigure}
 \end{figure}
 \end{theorem}
-
-以下では
-の2つの写像$\Op$と$\mathcal{S}$を定義する：
-\begin{figure}[H]
-	  
-	\centerline{\xymatrixcolsep{7pc}\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\mathcal{S}upp}
-	&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda})\otimes\mathbb{C}_\nu \right)^{P'}
-	\ar[r]_{F\mapsto \supp(F)}\ar[d]^{\simeq}_{\mbox{rest}}
-	&2^{P'\backslash G/P}\\
-	&\sol\subset\mathcal{D}'(\R^{p,q})\ar[lu]^{\mbox{Op}}_{\simeq}&
-	}}
-	  
-\end{figure}
-\begin{theorem}[construction of SBOs]\label{thm:construction}
+Now, for each closed subset $S$ of $P'\backslash G/P$, we construct a family of SBOs, to be denote by $R^S_{\lambda,\nu}$, such that:
+\begin{itemize}
+	\item $R_{\lambda,\nu}^S$ is defined for $(\lambda,\nu)\in D_S$, where $D_S$ is the subset of $\C^2$ (more precisely, it is either the whole $\C^2$, or is a countable
+		union of one-dimensional complex affine spaces);
+	\item $R_{\lambda,\nu}^S$ depends holomorphically on $(\lambda,\nu)\in D_S$;
+	\item for every $(\lambda,\nu)\in D_S$ we have $\Supp(R_{\lambda,\nu}^S)\subset S$ and the equality holds for generic $(\lambda,\nu)$.
+\end{itemize}
+These operators may vanish at special values of $(\lambda,\nu)$ (see Remark \ref{rmk:thm:construction}). Correspondingly, we shall also define
+a family of SBOs as a renormalization, to be denoted by $\tilde{R}^X_{\lambda,\nu}$. On the other hand, we shall omit the case when $S=C\cap Y$ for $p=1$;
+$S=C$ or $Y$ for $p>1$, as those are not used for the classification below (see Theorem \ref{thm:classif}).
+\newpage
+\begin{theorem}[construction of SBO]\label{thm:construction}
 	For $S=X,Y,C,$ and $\left\{ o \right\}$, the following operators $R_{\lambda,\nu}^S$ and $\tilde{R}_{\lambda,\nu}^X$ are symmetry breaking operators from $\IlambdaGprime$ to $J(\nu)$, which depend holomorphically on $(\lambda,\nu)\in D_S$. Moreover, $\Supp(R_{\lambda,\nu}^S)\subset S$, and are given explicitly as follows.\\
 \ExecuteMetaData[.master_extract.tex]{table}\vspace{\baselineskip}
 Let us explain the notation in the table.
@@ -169,698 +262,122 @@ Let us explain the notation in the table.
 We set $m:=\frac{1}{2}\left( \nu-1 \right)\in\N$ for $(\lambda,\nu)\in\mm$ and $k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$ for $(\lambda,\nu)\in\bb$.
 For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
 \ExecuteMetaData[.master_extract.tex]{residue}
-\begin{theorem}[対称性破れ作用素の分類]
-  $p > 1$に対して
-  \begin{eqnarray}
-	  & \Hom_{G'}(I(\lambda),J(\nu))= \left\{
-    \begin{array}{ll}
-      \mathbbm{C} {\OpR}_{\lambda, \nu}^{X} \oplus \mathbbm{C}
-      {\OpR}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in / /\cap 
-      L\\
-      \mathbbm{C} \OpR^X_{\lambda, \nu}, &
-      \mbox{\normalfont otherwise.}
-    \end{array} \right. &  \nonumber
-  \end{eqnarray}
-  特に、$\dim\Hom_{G'}(I(\lambda),J(\nu))=1\iff(\lambda,\nu)\in//\cap L$。
-  ここで、$//\assign \{ (\lambda, \nu) \in \mathbbm{C}^2 |
-  \lambda - \nu = - 2 k \in - 2\mathbbm{Z}_{\geqslant 0} \}$。$L\subset\mathbb{C}^2$は
-  複数余次元$1$の部分集合（具体形は省略する）。
-  $p=1$に対して同様の命題が成り立つ。
-\begin{versiona}
-\[ \mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda, \nu) = \left\{
-   \begin{array}{ll}
-     \tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}, & (\lambda, \nu) \in
-     \mathbbm{C}^2 - (/ / \cap L) - (| | \cap \backslash\backslash)\\
-     \widetilde{\tilde{K}}_{\lambda, \nu}^{\mathbbm{R}^n} \oplus \tilde{K}^{\{
-     0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in (/ / \cap L) - (| | \cap
-     \backslash\backslash)\\
-     \tilde{K}_{\lambda, \nu}^P \oplus \tilde{K}_{\lambda, \nu}^C, & (\lambda,
-     \nu) \in (| | \cap \backslash\backslash) - / /\\
-     \tilde{K}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid
-     \mid \cap \backslash\backslash \cap / /
-   \end{array} \right. \]
-\[ L \assign \left\{ \begin{array}{ll}
-     \{ (\lambda, \nu) \in \mathbbm{C}^2 | \nu \in \mathbbm{Z}_{\leqslant 0}
-     \cup (2\mathbbm{Z}_{\geqslant 0} + 1) \}, & q \in 2\mathbbm{Z}\\
-     \{ (\lambda, \nu) \in \mathbbm{C}^2 | \nu \in 2\mathbbm{Z} \}, & q \in
-     2\mathbbm{Z}+ 1.
-   \end{array} \right. \]
-\end{versiona}
+\begin{remark}
+	$R_{\lambda,\nu}^S$ is a differential operator if $S=\left\{ o \right\}$ owing to the general theory of differential SBOs established in \cite[Chap.\ 2]{kobayashi2016differential1}.
+	By definition, $R_{\lambda,\nu}^{ \left\{ o \right\}}$ in Theorem \ref{thm:construction} amounts to
+	\begin{equation*}
+		R_{\lambda,\nu}^{ \left\{ o \right\}}=
+		\sum_{j=0}^{\frac{\nu-\lambda}{2}}\frac{(-1)^j2^{\nu-\lambda-2j}}{j!(\nu-\lambda-2j)!}\prod_{i=1}^{\frac{\nu-\lambda}{2}-j}\left( \frac{n
+		+1}{2}+\frac{\nu+\lambda}{2}
+		+i \right)\left(- \Delta_{\mathbbm{R}^{p-1,q}} \right)^j\left( \frac{\partial}{\partial x_p} \right)^{\nu-\lambda-2j}.
+	\end{equation*}
+	This formula was previously found in \cite[Thms. 5.1.1 and 5.2.1]{juhl2009families}, \cite[(10.1)]{kobayashi2015symmetry} for $q=0$ and in \cite[Thm.\ 4.3]{kobayashi2015branching}
+	for general $p,q$.
+\end{remark}
+\begin{remark}\label{rmk:thm:construction}
+	The rightmost column in Theorem \ref{thm:construction} implies $R_{\lambda,\nu}^{ \left\{ o \right\}},R_{\lambda,\nu}^Y,R_{\lambda,\nu}^C\neq0$
+	for every $(\lambda,\nu)\in\C^2$, while
+	$R^X_{\lambda,\nu}=0$ iff $(\lambda,\nu)$ belongs to the following discrete set
+	\[\begin{cases}
+			//\cap\mid\mid\mid,&p>1,\\
+			\mybra{//\cap\mid\mid\mid} \cup \mybra{\backslash\backslash\cap\mid\mid},&p=1,
+		\end{cases}
+	\]
+	and $\tilde{R}_{\lambda,\nu}^X=0$ iff $p=1$ and $(\lambda,\nu)$ is in the discrete set $\backslash\backslash\cap \mid\mid$.
+\end{remark}
+The SBOs in Theorem \ref{thm:construction} are not always linearly independent, but exhaust all SBOs. We provide explicit
+basis for $\SBO$ for every $(\lambda,\nu)\in \mathbb{C}^2$ as follows:
+\begin{theorem}[classification of SBOs]\label{thm:classif}
+	Suppose $p,q\ge1$.
+		\ExecuteMetaData[.master_extract.tex]{classification}
 \end{theorem}
-
-\begin{theorem}[$K$不変ベクトルにおける``固有値'']
-	正規化された$K$不変ベクトル$1_{\lambda} \in I (\lambda)$と$K'$不変ベクトル$1_{\nu} \in I (\nu)$に対して
-	\[ \OpR^X_{\lambda, \nu} 1_{\lambda} = 2^{1 -
-     \lambda} \frac{\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
-     \Gamma \left( - \frac{q}{2} + \frac{\lambda + 1}{2} \right) \Gamma \left(
-     \frac{q - \nu + 1}{2} \right)} 1_{\nu} \quad\mbox{が成り立つ。}\]
+\begin{corollary}\label{cor:classif}
+	We have $\dim_{\C}\SBO\in\left\{ 1,2 \right\}$ for all $(\lambda,\nu)\in\C^2$.
+\end{corollary}
+The degenerate principal series representation $I(\lambda)$ of $G$ contains the one-dimensional subspace of spherical vectors (i.e. $K$-fixed vectors), and likewise $J(\nu)$ of $G'$.
+Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$ be the spherical vectors normalized so that $\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$. With this normalization, we have:
+\begin{theorem}[spectrum for spherical vectors]\label{thm:spherical}
+	Let $n:=p+q\;(p,q\ge1)$ as before.
+\[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} =  \frac{2^{1 -
+\lambda}\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
+\Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
+\frac{q - \nu + 1}{2} \right)} \mathbbm{1}_{\nu}. \]
 \end{theorem}
-\begin{versiona}
+\begin{remark}
+	Theorem \ref{thm:spherical} was known in \cite[Lem. A.5]{bernstein2004estimates} for $p=q=1$, which was extended in \cite[Thm. 1.1]{clerc2011generalized} for higher dimensional cases.
+	See also \cite[Prop.\ 7.4]{kobayashi2015symmetry} for $q=0$ case.
+\end{remark}
+For $(\lambda,\nu)\in\C^2\setminus//$, we set 
+\[K_{\lambda,\nu}^{\mathbb{R}^{p,q}}:=\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
+\frac{\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\sol.\]
+Then $R_{\lambda,\nu}^X=\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( K_{\lambda,\nu}^X \right)$. We recall that the left-hand side extends to a family of SBOs with holomorphic
+parameter $(\lambda,\nu)\in\C^2$.
+\begin{theorem}[residue formula]
+	Let $n:=p+q\;(p,q\ge1)$ as before.
+	For $(\lambda,\nu)\in//$, we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$. Then we have
+  \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^l l!\pi^{(n - 2) / 2} 
+		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
+     \OpR_{\lambda,\nu}^{ \left\{ o \right\} },\quad(\lambda,\nu)\in// . \]
+	\end{theorem}
 	\begin{remark}
-\[ \begin{array}{ll}
-     \int_{x, y = - 1}^1 | x - y |^{- \nu} (1 - x^2)^A (1 - y^2)^B d x d y =
-     \frac{\Gamma \left( \frac{1 - \nu}{2} \right) \hspace{0.25em} \sqrt{\pi} 
-     \hspace{0.25em} \Gamma (A + 1)  \hspace{0.25em} \Gamma (B + 1) 
-     \hspace{0.25em} \Gamma (B + A - \nu + 2)}{\Gamma \left( \frac{2
-     \hspace{0.25em} A - \nu + 3}{2} \right)  \hspace{0.25em} \Gamma \left(
-     \frac{2 \hspace{0.25em} B - \nu + 3}{2} \right)  \hspace{0.25em} \Gamma
-     \left( \frac{2 \hspace{0.25em} B + 2 \hspace{0.25em} A - \nu + 4}{2}
-     \right)} & \\
-     \int_{x, y = - 1}^1 | x - y |^{- \nu} \tmop{sgn} (x - y) (1 - x^2)^A y (1
-     - y^2)^B d x d y = - \frac{\Gamma \left( 1 - \frac{\nu}{2} \right) 
-     \hspace{0.25em} \sqrt{\pi}  \hspace{0.25em} \Gamma (A + 1) 
-     \hspace{0.25em} \Gamma (B + 1)  \hspace{0.25em} \Gamma (B + A - \nu +
-     2)}{\Gamma \left( \frac{2 \hspace{0.25em} A - \nu + 2}{2} \right) 
-     \hspace{0.25em} \Gamma \left( \frac{2 \hspace{0.25em} (B + 1) - \nu +
-     2}{2} \right)  \hspace{0.25em} \Gamma \left( \frac{2 \hspace{0.25em} (B +
-     1) + 2 \hspace{0.25em} A - \nu + 3}{2} \right)} & 
-   \end{array} \]
+		The residue formula in the case $q=0$ was given in \cite[Thm. 12.2]{kobayashi2015symmetry}.
 	\end{remark}
-\end{versiona}
+	\begin{definition}
+		Similarly to the construction of Fact \ref{fact1}, for $G=O(p+1,q+1)$ we have $\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$
+		where $\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$ is defined to be the space of generalized functions on $\R^{p+q}$ that satisfy
+		the four items in Definition \ref{def2}, except that in second item $O(p,q)_{e_p}$ is replaced by $O(p,q)$ and the fourth item is replaced by $N_+$-invariance
+		on $\R^{p,q}$, which in turn is defined as in Definition \ref{def1}, with the only difference that we do not assume $b_p=0$ anymore.
 
-\begin{theorem}[留数定理]
-  $(\lambda, \nu) \in / / $に対して
-  $\OpR^{X}_{\lambda, \nu} = q_{\{ 0 \}}^{X}
-  (\lambda, \nu) \OpR^{\{ 0 \}}_{\lambda, \nu}$が成り立つ。
-\end{theorem}
-\begin{versiona}
-\begin{enumerate}
-  \item For $(\lambda, \nu) \in / / \assign \{ (\lambda, \nu) \in
-  \mathbbm{C}^2 | \lambda - \nu = - 2 k \in - 2\mathbbm{Z}_{\geqslant 0} \}$
-  we have $\tilde{K}^{\mathbbm{R}^n}_{\lambda, \nu} = q_{\{ 0
-  \}}^{\mathbbm{R}^n} (\lambda, \nu) \tilde{K}^{\{ 0 \}}_{\lambda, \nu}$,
-  where
-  \[ q_{\{ 0 \}}^{\mathbbm{R}^n} (\lambda, \nu) = 2^{- \nu - 2 l} (- 1)^l l!
-     \pi^{(n - 4) / 2} \Gamma \left( 1 - \frac{\nu}{2} \right) \left[ \sin
-     \frac{\pi q}{2} + \sin (\pi (\nu - q / 2)) \right] ; \]
-  \item For $(\lambda, \nu) \in \mid \mid \assign \{ (\lambda, \nu) \in
-  \mathbbm{C}^2 | \nu = - 1 - 2 k \in - 1 - 2\mathbbm{Z}_{\geqslant 0} \}$ we
-  have $\tilde{K}^{\mathbbm{R}^n}_{\lambda, \nu} = q_C^{\mathbbm{R}^n}
-  (\lambda, \nu) \tilde{K}^C_{\lambda, \nu}$, where
-  \[ q_C^{\mathbbm{R}^n} (\lambda, \nu) = \frac{(- 1)^k k!}{(2 k) !} \left\{
-     \begin{array}{ll}
-       1, & q \in 2\mathbbm{Z}+ 1\\
-       \Gamma \left( \frac{\lambda - \min \{ \nu, q - \nu \}}{2} \right) /
-       \Gamma \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbbm{Z}, p
-       = 1\\
-       1 / \Gamma \left( \frac{\lambda - \nu}{2} \right), & q \in
-       2\mathbbm{Z}, p > 1
-     \end{array} \right. ; \]
-  \item For $(\lambda, \nu) \in \backslash\backslash \assign \{ (\lambda, \nu)
-  \in \mathbbm{C}^2 | \lambda + \nu - n = - 1 - 2 k \in - 1 -
-  2\mathbbm{Z}_{\geqslant 0} \}$ we have $\tilde{K}^{\mathbbm{R}^n}_{\lambda,
-  \nu} = q_P^{\mathbbm{R}^n} (\lambda, \nu) \tilde{K}^P_{\lambda, \nu}$, where
-  \[\hspace*{-3cm} q_C^{\mathbbm{R}^n} (\lambda, \nu) = \frac{(- 1)^k k!}{(2 k) !} \left\{
-     \begin{array}{ll}
-       1, & n \in 2\mathbbm{Z}, p > 1\\
-       \frac{\Gamma \left( \frac{\max \{ 2, ((n - 1) / 2 - k)' \} - \nu}{2} \right)}{\Gamma \left( \frac{\lambda - \nu}{2} \right)}
-       , & n-1,q \in 2\mathbbm{Z}+
-       1, p > 1 ; \; a' \assign \min \{ x | a \leqslant x
-       \in 2\mathbbm{Z} \}\\
-       \frac{\Gamma \left( \frac{((n - 1) / 2 - k)' - \nu}{2} \right) }{ \Gamma
-       \left( \frac{\lambda - \nu}{2} \right)}
-       , & n \in 2\mathbbm{Z}+ 1, q \in
-       2\mathbbm{Z}+ 1, p > 1 ; \; a' \assign \min \{ x | a \leqslant x \in
-       2\mathbbm{Z}+ 1 \}\\
-       1 / \Gamma \left( \frac{1 - \nu}{2} \right), & p = 1, n \in
-       2\mathbbm{Z}\\
-       \frac{\Gamma \left( \max \left\{ \frac{n - 1}{2} - k, 0 \right\} - \nu
-       \right)}{\Gamma \left( \frac{1 - \nu}{2} \right)\Gamma \left(
-       \frac{\lambda - \nu}{2} \right)}
-        , & p = 1, n \in 2\mathbbm{Z}+ 1
-     \end{array} \right. \]
-\end{enumerate}
-\end{versiona}
-\begin{theorem}[factorization identities]
-  $\tilde{\mathbbm{T}}_{\lambda} : I (\lambda) \rightarrow I (n -
-  \lambda)$ をKnapp-Stein作用素とする。$(\lambda, \nu) \in \mathbbm{C}^2$に対して
-  $\tilde{\mathbbm{T}}_{n - 1 - \nu} \circ \OpR_{\lambda,
-    n - 1 - \nu}^{X} = q^{T X}_{X}
-    (\lambda, \nu) \OpR_{\lambda, \nu}^{X}$と$ \OpR_{n - \lambda, \nu}^X \circ
-    \tilde{\mathbbm{T}}_{\lambda} = q^{X T}_{X}
-    (\lambda, \nu) \OpR_{\lambda, \nu}^{X}$が成り立つ。
+		Now, the generalized function defined as
+		\begin{equation*}
+			\myabs{\Q}^{\lambda-n}\times\begin{cases}
+				\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}=0,\\
+				\Gamma^{-1}\left( \frac{\lambda-n+1}{2} \right)\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}>0,n\in2\Z+1,\\
+  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2+
+  1}{2} \right), &\min\left\{ p,q \right\}>0, n / 2 + p \in 2\mathbbm{Z}+ 1,\\
+  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2}{2}
+  \right), & \min\left\{ p,q \right\}>0,n / 2 + p \in 2\mathbbm{Z}
+			\end{cases}
+		\end{equation*}
+		belongs to $\Sol_G(\R^{p,q};\lambda,n-\lambda)$ and we can use it to
+		define an intertwining operator of $G=O(p+1,q+1)$,
+		$\tilde{\mathbb{T}}^{G}_{\lambda}:I(\lambda)\to
+		I(n-\lambda)$
+		(\textit{Knapp--Stein operator}).
+		The result of this construction repeated with $G'=O(p,q+1)$ in place of $G$ will be denoted by $\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$.
+	\end{definition}
+	\begin{theorem}[functional identities]
+		Let $n:=p+q\;(p,q\ge1)$ as before.
+		We have:
+\ExecuteMetaData[.master_extract.tex]{functional}
+	\end{theorem}
+	\begin{remark}
+		The functional identities in the case $q=0$ were proven in \cite[Thm. 12.6]{kobayashi2015program}.
+	\end{remark}
+	Since the representation $J(\nu)$ of $G'=O(p,q+1)$ is multiplicity-free as a $K'$-module, we can describe its $(\mathfrak{g}',K')$-submodules by means of subsets of $\N_{+}^2$
+	for $p>1$, which parametrize the $K'$-structure of $J(\nu)$ by the spherical harmonics $\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$.
+	As in \cite{howe1993homogeneous}, we also indicate the Jordan--H\"older series (socle filtrations) of $J(\nu)$ by using arrows.
+	We then have:
+\begin{theorem}[images of SBOs]
+	For every $(\lambda,\nu)$ we have computed the image of every SBO constructed in Theorem \ref{thm:construction}.
 \end{theorem}
 \begin{remark}
-	上に記述された $N_C(\lambda,\nu)$、$N_Y(\lambda,\nu)$、$q_{ \left\{ 0 \right\}}^{X}(\lambda,\nu)$、$q_X^{TX}(\lambda,\nu)$、$q_X^{XT}(\lambda,\nu)$
-	は$\Gamma$関数を用いて明示的に記述される。
+	Note that
+	the proof of this theorem is performed \textit{independent of} of \cite{howe1993homogeneous}.
 \end{remark}
-\begin{versiona}
-	
-The following holds:
-
-\begin{eqnarray}
-  & \tilde{\mathbbm{T}}_{n - 1 - \nu} \circ \tmop{Op} (\tilde{K}_{\lambda, n
-  - 1 - \nu}^{\mathbbm{R}^n}) = q^{T\mathbbm{R}^n}_{\mathbbm{R}^n} (\lambda,
-  \nu) \tmop{Op} (\tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}) &  \nonumber\\
-  & \tmop{Op} (\tilde{K}_{n - \lambda, \nu}^{\mathbbm{R}^n}) \circ
-  \tilde{\mathbbm{T}}_{\lambda} = q^{\mathbbm{R}^n T}_{\mathbbm{R}^n}
-  (\lambda, \nu) \tmop{Op} (\tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}) & 
-  \nonumber\\
-  & q^{T\mathbbm{R}^n}_{\mathbbm{R}^n} (\lambda, \nu) \assign \pi^{\frac{n -
-  1}{2}} \left\{ \begin{array}{ll}
-    \frac{\sqrt{\pi} 2^{1 - q + \nu}}{\Gamma \left( \frac{q - \nu}{2} \right)
-    \Gamma \left( \frac{\nu + 1}{2} \right)}, & p = 1\\
-    \frac{\sin \left( \pi \frac{p - \nu}{2} \right)}{\pi} \times
-    \frac{\sqrt{\pi} 2^{2 - n + \nu}}{\Gamma \left( \frac{n - 1 - \nu}{2}
-    \right)}, & n - 1 \in 1 + 2\mathbbm{Z}\\
-    \frac{\sin \left( \pi \frac{p - \nu}{2} \right)}{\pi} \times \frac{\Gamma
-    \left( \frac{n / 2 - \nu}{2} \right)}{\Gamma \left( \frac{n - 1 - \nu}{2}
-    \right)}, & \frac{n - 1}{2} + p - 1 \in 2\mathbbm{Z}\\
-    \frac{\sin \left( \pi \frac{p - \nu}{2} \right)}{\pi} \times \frac{\Gamma
-    \left( \frac{n / 2 - \nu - 1}{2} \right)}{\Gamma \left( \frac{n - 1 -
-    \nu}{2} \right)}, & \frac{n - 1}{2} + p - 1 \in 1 + 2\mathbbm{Z}
-  \end{array} \right. &  \nonumber\\
-  & q^{\mathbbm{R}^n T}_{\mathbbm{R}^n} (\lambda, \nu) \assign \frac{2^{2
-  \lambda - n} \pi^{- n / 2}}{\Gamma \left( \frac{n - \lambda}{2} \right)}
-  \times \frac{\sin \left[ \pi \frac{p - \lambda + 1}{2} \right]}{\pi} \times
-  \left\{ \begin{array}{ll}
-    2^{1 - \lambda} \sqrt{\pi}, & n \in 2\mathbbm{Z}+ 1\\
-    \Gamma \left( \frac{\lambda - n / 2 + 1}{2} \right), & n / 2 + p \in
-    2\mathbbm{Z}\\
-    \Gamma \left( \frac{\lambda - n / 2}{2} \right), & n / 2 + p \in
-    2\mathbbm{Z}+ 1
-  \end{array} \right. &  \nonumber
-\end{eqnarray}
-\end{versiona}
-\begin{theorem}[対称性破れ作用素の像]
-%%	$\nu\notin\Z$ならば、$R_{\lambda,\nu}^X$が全射になる。与えられた$\nu\in\Z$に対した、$R_{\lambda,\nu}^X$の像
-%%	を具体的に決定できる。
-	$\nu$が整数でなければ、$J(\nu)$は既約である。
-	この場合は$R_{\lambda,\nu}^X$は$(\mathfrak{g},K)$-加群のレベルで全射となる。
-	$\nu$が既約でない場合は全射とは限らないが、その像が、
-	どのような$G'$の表現としてどのような表現であるか $(\mathfrak{g},K)$-加群のレベルで
-	完全に記述することができる。
-\end{theorem}
-\begin{versiona}
-	
-\begin{theorem}
-  \label{images:prop-criterion}Let $\tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}
-  \in \mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda, \nu)$ be kernel of''
-  regular SBO for $(\lambda, \nu) \in \mathbbm{C}^2$. Then, for
-  $\pi_{\lambda}, \pi_{\nu}'$ as in lemma \ref{images:lem-bastheor} and $a, b
-  \in \mathbbm{Z}_{\geqslant 0}$ with $a + b \in 2\mathbbm{Z}$ (we also assume
-  $a = 0, 1$ in $p = 1$ case, as $\mathcal{H}^a (\mathbbm{S}^0) \neq 0
-  \Leftrightarrow a \in \{ 0, 1 \}$) we have $(\pi_{\nu}')^{- 1}
-  (\mathcal{H}^a (\mathbbm{S}^{p - 1}) \otimes \mathcal{H}^b (\mathbbm{S}^q))
-  \tmop{image} (\tmop{Op} (\tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}))$ iff
-  $\forall N \in 2\mathbbm{Z}_{\geqslant 0}$
-  \begin{eqnarray}
-    & \frac{\Gamma \left( \frac{a + b + \nu}{2} \right) \Gamma \left(
-    \frac{\lambda - \nu + N}{2} \right) \Gamma \left( \frac{1 + \lambda + \nu
-    - n + N}{2} \right)}{\Gamma \left( \frac{\lambda - \nu}{2} \right) \Gamma
-    \left( \frac{1 + \lambda - n + \nu}{2} \right) \Gamma \left( \frac{\nu}{2}
-    \right)} \times \frac{1}{\Gamma \left( \frac{1 - a + b - \nu + q}{2}
-    \right)  \hspace{0.17em} \Gamma \left( \frac{a + b + \lambda + N}{2}
-    \right)  \hspace{0.17em} \Gamma \left( \frac{1 + a - b + \lambda - q +
-    N}{2} \right)} = 0 &  \nonumber
-  \end{eqnarray}
-  and if $(\pi_{\nu}')^{- 1} (\mathcal{H}^a (\mathbbm{S}^{p - 1}) \otimes
-  \mathcal{H}^b (\mathbbm{S}^q)) \tmop{image} (\tmop{Op} (\tilde{K}_{\lambda,
-  \nu}^{\mathbbm{R}^n}))$, then $(\pi_{\nu}')^{- 1} (\mathcal{H}^a
-  (\mathbbm{S}^{p - 1}) \otimes \mathcal{H}^b (\mathbbm{S}^q)) \cap
-  \tmop{image} (\tmop{Op} (\tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n})) =
-  \varnothing$.
-\end{theorem}
-
+Now, we recall from \cite{KO2} the five equivalent definitions of the
+irreducible unitary representations $\pi_{\pm,\lambda}^{p,q}$ of $O(p,q)$.
+\begin{theorem}[$G'$-invariant maps between Zuckerman modules $\pi_{\pm,\lambda}^{p,q}$]\label{thm:Aq}
+	Let $n=p+q,\;(p,q\ge1)$ and $n':=n-1$.
+	The dimensions of $\Hom_{G'}\left(\pi_{\pm,{n}/{2}-\lambda}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\pm,\nu-{n'}/{2}}^{p,q+1} \right)$
+	are as follows:\newline
+\ExecuteMetaData[.master_extract.tex]{Aq}\\\vspace{\baselineskip}
 \begin{remark}
-  We will use the shorthand $\tmop{image} (\tilde{K}_{\lambda, \nu})$ to
-  denote $(a, b) \in \mathbbm{Z}_{\geqslant 0}$ with $a + b \in 2\mathbbm{Z}$
-  such that $(\pi_{\nu}')^{- 1} (\mathcal{H}^a (\mathbbm{S}^{p - 1}) \otimes
-  \mathcal{H}^b (\mathbbm{S}^q)) \subset \tmop{image} (\tmop{Op}
-  (\tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}))$.
+Theorem \ref{thm:Aq} generalizes \cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}.
 \end{remark}
-
-\begin{theorem}
-  \label{images:prop-main}Let $\mathcal{I} \assign \{ (a, b) \in
-  \mathbbm{Z}_{\geqslant 0} | a + b \in 2\mathbbm{Z} \}$. We then have
-  $\tmop{image} (\tilde{K}_{\lambda, \nu}) =\mathcal{I}$ if $\nu \nin
-  \mathbbm{Z}$. Moreover:
-  
-  for $p > 1$:
-\newcommand{\noplus}{}
-  \begin{enumerate}
-    \item Suppose $p$:odd and $q$:even. We then have:
-    \begin{enumerate}
-      \item If $\nu \in - 2\mathbbm{Z}_{\geqslant 0}$ we have
-      \[ \tmop{image} (\tilde{K}_{\lambda, \nu}) = \left\{ \begin{array}{ll}
-           A^{+ +} \assign \{ (a, b) \in \mathcal{I} | a + b \leqslant - \nu
-           \}, & \tmop{otherwise}\\
-           \varnothing, & (\lambda, \nu) \in / /
-         \end{array} \right. \]
-      \item If $\nu \in - 1 - 2\mathbbm{Z}_{\geqslant 0}$ we have
-      \begin{eqnarray}
-        & \tmop{image} (\tilde{K}_{\lambda, \nu}) = \left\{ \begin{array}{ll}
-          \varnothing, & (\lambda, \nu) \in / /\\
-          A^{- +} \cap A^{\noplus + -}, & (\lambda, \nu) \in
-          \backslash\backslash - / /\\
-          A^{+ -}, & (\lambda, \nu) \nin \backslash\backslash \cup / /
-        \end{array} \right. &  \nonumber\\
-        & A^{- +} \assign \{ (a, b) \in \mathcal{I} | b - a \leqslant - \nu +
-        p - 2 \} &  \nonumber\\
-        & \mathcal{I}= (A^{\noplus \noplus + -} - A^{- +}) \sqcup (A^{- +} -
-        A^{+ -}) \sqcup (A^{- +} \cap A^{\noplus + -}) &  \nonumber\\
-        & A^{\noplus \noplus + -} \assign \{ (a, b) \in \mathcal{I} | a - b
-        \leqslant - \nu + q - 1 \} &  \nonumber
-      \end{eqnarray}
-      \item If $0 < \nu \leqslant \frac{p + q + 1}{2} - 2$, then $\mathcal{I}=
-      (A^{\noplus \noplus + -} - A^{- +}) \sqcup (A^{- +} - A^{+ -}) \sqcup
-      (A^{- +} \cap A^{\noplus + -})$ and
-      \begin{center}
-        \begin{tabular}{|c|c|c|}
-          \hline
-          & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
-          \hline
-          $(/ / \cup \backslash\backslash)^c$ & $\tmop{full}$ & $A^{+ -}$\\
-          \hline
-          $\backslash\backslash - / /$ & $\tmop{full}$ & $A^{+ -} \cap A^{-
-          +}$\\
-          \hline
-          $/ / \cap \backslash\backslash, k \geqslant l$ & $\tmop{full}$ &
-          $\varnothing$\\
-          \hline
-        \end{tabular}
-      \end{center}
-      \item If $\nu = \frac{p + q + 1}{2} - 1$, then $A^{+ -} \cap A^{- +} =
-      \varnothing$ and
-      \begin{center}
-        \begin{tabular}{|c|c|c|}
-          \hline
-          & $n \in 4\mathbbm{Z}+ 1 \Leftrightarrow \nu \in 2\mathbbm{Z}$ & $n
-          \in 4\mathbbm{Z}+ 3 \Leftrightarrow \nu \in 2\mathbbm{Z}+ 1$\\
-          \hline
-          $(/ / \cup \backslash\backslash)^c$ & $\tmop{full}$ & $A^{+ -}$\\
-          \hline
-          $/ / \cap \backslash\backslash, k = l$ & $\tmop{full}$ &
-          $\varnothing$\\
-          \hline
-        \end{tabular}
-      \end{center}
-      \item If $\frac{p + q + 1}{2} \leqslant \nu \leqslant (p + q + 1) - 4$,
-      then $A^{+ -} \cap A^{- +} = \varnothing$ and
-      
-      \begin{center}
-        \begin{center}
-          \begin{tabular}{|c|c|c|}
-            \hline
-            & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
-            \hline
-            $(/ / \cup \backslash\backslash)^c$ & $\tmop{full}$ & $A^{+ -}$\\
-            \hline
-            $/ / \cap \backslash\backslash, k < l$ & $\tmop{full}$ &
-            $\varnothing$\\
-            \hline
-            $/ / -\backslash\backslash$ & $\tmop{full}$ & $\varnothing$\\
-            \hline
-          \end{tabular}
-        \end{center}
-      \end{center}
-      
-      \item If $\nu > (p + q + 1) - 4$, then $A^{+ -} \cap A^{- +} =
-      \varnothing$ and for $A^{- -} \assign \{ (a, b) \in \mathcal{I} | a + b
-      \geqslant \nu - n + 3 \}$
-      
-      \begin{center}
-        \begin{center}
-          \begin{center}
-            \begin{center}
-              \begin{tabular}{|c|c|c|}
-                \hline
-                & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
-                \hline
-                $(/ / \cup \backslash\backslash)^c$ & $\tmop{full}$ & $A^{+
-                -}$\\
-                \hline
-                $/ / \cap \backslash\backslash, k < l$ & $A^{- -}$ &
-                $\varnothing$\\
-                \hline
-                $/ / -\backslash\backslash$ & $\tmop{full}$ & $\varnothing$\\
-                \hline
-              \end{tabular}
-            \end{center}
-          \end{center}
-          
-          \ 
-        \end{center}
-      \end{center}
-    \end{enumerate}
-    \item Suppose $p, q \in 2\mathbbm{Z}+ 1$ (note that this implies
-    $\backslash\backslash \cap / / = \varnothing$). Then
-    \begin{enumerate}
-      \item If $\nu \leqslant 0$, then $A^{\noplus + +} \subset A^{+ -}$ and
-      
-      \begin{center}
-        \begin{center}
-          \begin{center}
-            \begin{center}
-              \begin{tabular}{|c|c|c|}
-                \hline
-                & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
-                \hline
-                $(/ / \cup \backslash\backslash)^c$ & $A^{\noplus + +}$ &
-                $\tmop{full}$\\
-                \hline
-                $\backslash\backslash - / /$ & $A^{\noplus + +}$ & $A^{- +}$\\
-                \hline
-                $/ / -\backslash\backslash$ & $\varnothing$ & $\tmop{full}$\\
-                \hline
-              \end{tabular}
-            \end{center}
-          \end{center}
-        \end{center}
-      \end{center}
-      
-      \item If $0 < \nu \leqslant p + q - 3$, then
-      
-      \begin{center}
-        \begin{center}
-          \begin{center}
-            \begin{center}
-              \begin{tabular}{|c|c|c|}
-                \hline
-                & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
-                \hline
-                $(/ / \cup \backslash\backslash)^c$ & $A^{\noplus + -}$ &
-                $\tmop{full}$\\
-                \hline
-                $\backslash\backslash - / /$ & $A^{\noplus + -}$ & $A^{- +}$\\
-                \hline
-                $/ / -\backslash\backslash$ & $\varnothing$ & $\tmop{full}$\\
-                \hline
-              \end{tabular}
-            \end{center}
-          \end{center}
-        \end{center}
-      \end{center}
-      
-      \
-      
-      \item If $\nu > p + q - 3$, then $A^{- -} \supset A^{- +}$ and
-      
-      \
-      
-      \begin{center}
-        \begin{center}
-          \begin{center}
-            \begin{center}
-              \begin{tabular}{|c|c|c|}
-                \hline
-                & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
-                \hline
-                $(/ / \cup \backslash\backslash)^c$ & $A^{\noplus + -}$ &
-                $\tmop{full}$\\
-                \hline
-                $\backslash\backslash - / /$ & $A^{+ -}$ & $A^{- +}$\\
-                \hline
-                $/ / -\backslash\backslash$ & $\varnothing$ & $\tmop{full}$\\
-                \hline
-              \end{tabular}
-            \end{center}
-          \end{center}
-        \end{center}
-      \end{center}
-      
-      \ 
-    \end{enumerate}
-    \item Suppose $p, q \in 2\mathbbm{Z}$ (note that this implies
-    $\backslash\backslash \cap / / = \varnothing$). Then
-    \begin{enumerate}
-      \item If $\nu \leqslant 0$, then $A^{\noplus + +} \subset A^{- +}$ and
-      
-      \begin{center}
-        \begin{center}
-          \begin{center}
-            \begin{center}
-              \begin{tabular}{|c|c|c|}
-                \hline
-                & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
-                \hline
-                $(/ / \cup \backslash\backslash)^c$ & $A^{\noplus + +}$ &
-                $A^{+ -}$\\
-                \hline
-                $\backslash\backslash - / /$ & $A^{\noplus + +}$ & $A^{+ -}$\\
-                \hline
-                $/ / -\backslash\backslash$ & $\varnothing$ & $\varnothing$\\
-                \hline
-              \end{tabular}
-            \end{center}
-          \end{center}
-        \end{center}
-      \end{center}
-      
-      \item If $0 < \nu \leqslant p + q - 3$, then
-      
-      \begin{center}
-        \begin{center}
-          \begin{center}
-            \begin{center}
-              \begin{tabular}{|c|c|c|}
-                \hline
-                & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
-                \hline
-                $(/ / \cup \backslash\backslash)^c$ & $\tmop{full}$ & $A^{+
-                -}$\\
-                \hline
-                $\backslash\backslash - / /$ & $A^{- +}$ & $A^{+ -}$\\
-                \hline
-                $/ / -\backslash\backslash$ & $\tmop{full}$ & $\varnothing$\\
-                \hline
-              \end{tabular}
-            \end{center}
-          \end{center}
-        \end{center}
-      \end{center}
-      
-      \
-      
-      \item If $\nu > p + q - 3$, then $A^{+ -} \subset A^{- -}$ and
-      
-      \begin{center}
-        \begin{center}
-          \begin{center}
-            \begin{center}
-              \begin{tabular}{|c|c|c|}
-                \hline
-                & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$\\
-                \hline
-                $(/ / \cup \backslash\backslash)^c$ & $\tmop{full}$ & $A^{+
-                -}$\\
-                \hline
-                $\backslash\backslash - / /$ & $A^{- +}$ & $A^{+ -}$\\
-                \hline
-                $/ / -\backslash\backslash$ & $\tmop{full}$ & $\varnothing$\\
-                \hline
-              \end{tabular}
-            \end{center}
-          \end{center}
-        \end{center}
-      \end{center}
-      
-      \ 
-    \end{enumerate}
-    \item Suppose $p \in 2\mathbbm{Z}, q \in 2\mathbbm{Z}+ 1$. Then
-    \begin{enumerate}
-      \item If $\nu \leqslant 0$, then $A^{+ +} \subset A^{+ -}, A^{- +}$ and
-      (here and in subsequent we enclose into square brackets that part of the
-      criterion that do not cause effect because for the range of $\nu$)
-      
-      \begin{center}
-        \begin{center}
-          \begin{tabular}{|c|c|c|c|}
-            \hline
-            & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$ &
-            $\tmop{criterion}$\\
-            \hline
-            $(/ / \cup \backslash\backslash)^c$ & $A^{+ +}$ & $\tmop{full}$ &
-            $\frac{\Gamma \left( \frac{a + b + \nu}{2} \right)}{\Gamma \left(
-            \frac{\nu}{2} \right)} \times \frac{1}{\Gamma \left( \frac{1 - a +
-            b - \nu + q}{2} \right)}$\\
-            \hline
-            $\backslash\backslash - / /$ & $A^{+ +}$ & $\tmop{full}$ &
-            $\frac{\Gamma \left( \frac{a + b + \nu}{2} \right)}{\Gamma \left(
-            \frac{\nu}{2} \right)} \times \frac{1}{\Gamma \left( \frac{1 - a +
-            b - \nu + q}{2} \right)} \times \frac{1}{\left[ \Gamma \left(
-            \frac{a + b + n - 1 - \nu}{2} \right) \right] \Gamma \left(
-            \frac{a - b + p - \nu}{2} \right)}$\\
-            \hline
-            $/ / \cap \backslash\backslash, k > l$ & $\varnothing$ &
-            $\tmop{full}$ & $\frac{\Gamma \left( \frac{a + b + \nu}{2}
-            \right)}{\Gamma \left( \frac{\nu}{2} \right)} \times
-            \frac{1}{\Gamma \left( \frac{1 - a + b - \nu + q}{2} \right)}
-            \times \frac{1}{\Gamma \left( \frac{a + b + \nu}{2} \right) \Gamma
-            \left( \frac{1 + a - b - q + \nu}{2} \right)}$\\
-            \hline
-          \end{tabular}
-        \end{center}
-      \end{center}
-      
-      \item If $0 < \nu \leqslant \frac{p + q + 1}{2} - 2$, then
-      \begin{center}
-        \begin{tabular}{|c|c|c|c|}
-          \hline
-          & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$ &
-          $\tmop{criterion}$\\
-          \hline
-          $(/ / \cup \backslash\backslash)^c$ & $A^{+ -}$ & $\tmop{full}$ &
-          $\Gamma^{- 1} \left( \frac{1 - a + b - \nu + q}{2} \right)$\\
-          \hline
-          $\backslash\backslash - / /$ & $A^{\noplus + -} \cap A^{- +}$ &
-          $\tmop{full}$ & $\Gamma^{- 1} \left( \frac{1 - a + b - \nu + q}{2}
-          \right) \left[ \Gamma^{- 1} \left( \frac{a + b + n - 1 - \nu}{2}
-          \right) \right] \Gamma^{- 1} \left( \frac{a - b + p - \nu}{2}
-          \right)$\\
-          \hline
-          $/ / \cap \backslash\backslash, k > l$ & $\varnothing$ &
-          $\tmop{full}$ & $\Gamma^{- 1} \left( \frac{1 - a + b - \nu + q}{2}
-          \right) \left[ \Gamma^{- 1} \left( \frac{a + b + \nu}{2} \right)
-          \right] \Gamma^{- 1} \left( \frac{1 + a - b + \nu - q}{2} \right)$\\
-          \hline
-        \end{tabular}
-      \end{center}
-      \item If $\nu = \frac{p + q + 1}{2} - 1$, then $A^{+ -} \cap A^{- +} =
-      \varnothing$ and
-      \begin{center}
-        \begin{tabular}{|c|c|c|c|}
-          \hline
-          & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$ &
-          $\tmop{criterion}$\\
-          \hline
-          $(/ / \cup \backslash\backslash)^c$ & $A^{+ -}$ & $\tmop{full}$ &
-          $\Gamma^{- 1} \left( \frac{1 - a + b - \nu + q}{2} \right)$\\
-          \hline
-          $/ / \cap \backslash\backslash, k = l$ & $\varnothing$ &
-          $\tmop{full}$ & $\Gamma^{- 1} \left( \frac{1 - a + b - \nu + q}{2}
-          \right) \left[ \Gamma^{- 1} \left( \frac{a + b + \nu}{2} \right)
-          \right] \Gamma^{- 1} \left( \frac{1 + a - b + \nu - q}{2} \right)$\\
-          \hline
-        \end{tabular}
-      \end{center}
-      \item If $\frac{p + q + 1}{2} \leqslant \nu \leqslant (p + q + 1) - 4$,
-      then $A^{+ -} \cap A^{- +} = \varnothing$ and
-      
-      \begin{center}
-        \begin{center}
-          \begin{tabular}{|c|c|c|c|}
-            \hline
-            & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$ &
-            $\tmop{criterion}$\\
-            \hline
-            $(/ / \cup \backslash\backslash)^c$ & $A^{+ -}$ & $\tmop{full}$ &
-            $\Gamma^{- 1} \left( \frac{1 - a + b - \nu + q}{2} \right)$\\
-            \hline
-            $/ / \cap \backslash\backslash, k < l$ & $\varnothing$ &
-            $\tmop{full}$ & $\Gamma^{- 1} \left( \frac{1 - a + b - \nu + q}{2}
-            \right) \left[ \Gamma^{- 1} \left( \frac{a + b + n - 1 - \nu}{2}
-            \right) \right] \Gamma^{- 1} \left( \frac{a - b + p - \nu}{2}
-            \right)$\\
-            \hline
-            $/ / -\backslash\backslash$ & $\varnothing$ & $\tmop{full}$ &
-            $\Gamma^{- 1} \left( \frac{1 - a + b - \nu + q}{2} \right) \left[
-            \Gamma^{- 1} \left( \frac{a + b + \nu}{2} \right) \right]
-            \Gamma^{- 1} \left( \frac{1 + a - b + \nu - q}{2} \right)$\\
-            \hline
-          \end{tabular}
-        \end{center}
-      \end{center}
-      
-      \item If $\nu > (p + q + 1) - 4$, then $A^{+ -} \cap A^{- +} =
-      \varnothing$ and
-      
-      \begin{center}
-        \begin{center}
-          \begin{center}
-            \begin{center}
-              \begin{tabular}{|c|c|c|c|}
-                \hline
-                & $\nu \in 2\mathbbm{Z}$ & $\nu \in 2\mathbbm{Z}+ 1$ &
-                $\tmop{criterion}$\\
-                \hline
-                $(/ / \cup \backslash\backslash)^c$ & $A^{+ -}$ &
-                $\tmop{full}$ & $\Gamma^{- 1} \left( \frac{1 - a + b - \nu +
-                q}{2} \right)$\\
-                \hline
-                $/ / \cap \backslash\backslash, k < l$ & $\varnothing$ &
-                $\tmop{full}$ & $\Gamma^{- 1} \left( \frac{1 - a + b - \nu +
-                q}{2} \right) \Gamma^{- 1} \left( \frac{a + b + n - 1 -
-                \nu}{2} \right) \Gamma^{- 1} \left( \frac{a - b + p - \nu}{2}
-                \right)$\\
-                \hline
-                $/ / -\backslash\backslash$ & $\varnothing$ & $\tmop{full}$ &
-                $\Gamma^{- 1} \left( \frac{1 - a + b - \nu + q}{2} \right)
-                \left[ \Gamma^{- 1} \left( \frac{a + b + \nu}{2} \right)
-                \right] \Gamma^{- 1} \left( \frac{1 + a - b + \nu - q}{2}
-                \right)$\\
-                \hline
-              \end{tabular}
-            \end{center}
-          \end{center}
-          
-          \ 
-        \end{center}
-      \end{center}
-      
-      \ 
-    \end{enumerate}
-  \end{enumerate}
-  for $p = 1$:
-  \begin{center}
-	  \hspace*{-3cm}\begin{tabular}{|c|c|c|c|c|c|}
-      \hline
-      $(\lambda, \nu) \in$ & $(/ / \cup \backslash\backslash)^c$ & $/ /
-      -\backslash\backslash$ & $\backslash\backslash - / /$ & $/ / \cap
-      \backslash\backslash, k < l$ & $/ / \cap \backslash\backslash, k
-      \geqslant l$\\
-      \hline
-      $\nu \leqslant 0, \nu \in 2\mathbbm{Z}$ & $M$ & $\varnothing$ & $M$ &
-      $\times$ & $\varnothing$\\
-      \hline
-      $0 < \nu < q, \nu \in 2\mathbbm{Z}$ & $\tmop{full}$ & $\left\{
-      \begin{array}{ll}
-        \nu - q \in 2\mathbbm{Z} \Rightarrow & \tmop{full}\\
-        \nu - q \in 2\mathbbm{Z}+ 1 \Rightarrow & \varnothing
-      \end{array} \right.$ & $\tmop{full}$ & $\tmop{full}$ & $\tmop{full}$\\
-      \hline
-      $q \leqslant \nu, \nu \in 2\mathbbm{Z}$ & $\left\{ \begin{array}{ll}
-        \nu - q \in 2\mathbbm{Z} \Rightarrow & \tmop{full}\\
-        \nu - q \in 2\mathbbm{Z}+ 1 \Rightarrow & M
-      \end{array} \right.$ & $\left\{ \begin{array}{ll}
-        \nu - q \in 2\mathbbm{Z} \Rightarrow & \tmop{full}\\
-        \nu - q \in 2\mathbbm{Z}+ 1 \Rightarrow & \varnothing
-      \end{array} \right.$ & $M$ & $M$ & $\times$\\
-      \hline
-      $\nu \leqslant 0, \nu \in 2\mathbbm{Z}+ 1$ & $\tmop{full}$ & $\left\{
-      \begin{array}{ll}
-        \nu - q \in 2\mathbbm{Z} \Rightarrow & \tmop{full}\\
-        \nu - q \in 2\mathbbm{Z}+ 1 \Rightarrow & \varnothing
-      \end{array} \right.$ & $\tmop{full}$ & $\times$ & $\varnothing$\\
-      \hline
-      $0 < \nu < q, \nu \in 2\mathbbm{Z}+ 1$ & $\tmop{full}$ & $\left\{
-      \begin{array}{ll}
-        \nu - q \in 2\mathbbm{Z} \Rightarrow & \varnothing\\
-        \nu - q \in 2\mathbbm{Z}+ 1 \Rightarrow & \tmop{full}
-      \end{array} \right.$ & $\varnothing$ & $\varnothing$ & $\tmop{full}$\\
-      \hline
-      $q \leqslant \nu, \nu \in 2\mathbbm{Z}+ 1$ & $\left\{ \begin{array}{ll}
-        \nu - q \in 2\mathbbm{Z} \Rightarrow & \tmop{full}\\
-        \nu - q \in 2\mathbbm{Z}+ 1 \Rightarrow & M
-      \end{array} \right.$ & $\left\{ \begin{array}{ll}
-        \nu - q \in 2\mathbbm{Z} \Rightarrow & \tmop{full}\\
-        \nu - q \in 2\mathbbm{Z}+ 1 \Rightarrow & \varnothing
-      \end{array} \right.$ & $\varnothing$ & $\varnothing$ & $\times$\\
-      \hline
-    \end{tabular}
-    
-  \end{center}
-  here we assume $\backslash\backslash = \{ \lambda + \nu - n + 1 = - 2 k \in
-  - 2\mathbbm{Z}_{\geqslant 0} \}$, $/ / = \{ \lambda - \nu = - 2 l \in -
-  2\mathbbm{Z}_{\geqslant 0} \}$. Moreover, for $\nu \leqslant 0$ we let $M
-  \assign \{ b \in \mathbbm{Z} | b \leqslant - \nu \}$, while for $\nu
-  \geqslant q$ we let $M \assign \{ b \in \mathbbm{Z} | b \geqslant \nu - q +
-  1 \}$.
-    \end{theorem} 
-\end{versiona}
-\begin{remark}
-  	上に記載された対称性破れ作用素$\OpR_{\lambda, \nu}^C, \OpR_{\lambda, \nu}^Y$に対して定理４、５、６、７と同様な命題も成り立つ。
-\end{remark}
-\bibliographystyle{alpha}
+\end{theorem}
+\nocite{kobayashi2015program}
+\small
 \bibliography{todai_master}
+\bibliographystyle{mystyle}
 \end{document}
