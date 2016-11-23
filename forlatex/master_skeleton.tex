@@ -361,7 +361,7 @@ parameter $(\lambda,\nu)\in\C^2$.
 	\begin{remark}
 		The functional identities in the case $q=0$ were proven in \cite[Thm. 12.6]{kobayashi2015program}.
 	\end{remark}
-	Since the representation $J(\nu)$ of $G'=O(p,q+1)$ is multiplicity-free as a $K'$-module, we can describe its $(\mathfrak{g}',K')$-submodules by means of subsets of $\N_{+}$
+	Since the representation $J(\nu)$ of $G'=O(p,q+1)$ is multiplicity-free as a $K'$-module, we can describe its $(\mathfrak{g}',K')$-submodules by means of subsets of $\N_{+}^2$
 	for $p>1$, which parametrize the $K'$-structure of $J(\nu)$ by the spherical harmonics $\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$.
 	As in \cite{howe1993homogeneous}, we also indicate the Jordan--H\"older series (socle filtrations) of $J(\nu)$ by using arrows.
 	We then have:
@@ -380,31 +380,31 @@ parameter $(\lambda,\nu)\in\C^2$.
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
 	      {\vspace{-3cm} $ \begin{array}{l}
 	      \nu\teven\\ \nu\le0
-      \end{array}$}&\input{f1}\\[0pt]
+      \end{array}$}&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0))' '((App 0 1 0))' '((App 0 3 0 K0)(App 0 1 0 Kt))'"}\\[0pt]
       \vspace{-3cm}$\begin{array}{l}
 	      \nu\todd\\ \nu\le\frac{n-3}{2}
-      \end{array}$&\input{f2}\\[0pt]
+      \end{array}$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 11 0 Kt)(Amp 0 3 0 K0))'"}\\[0pt]
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
 	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu=\frac{n-1}{2}
-	      \end{array}$&\input{f3}\\[0pt]
+	      \end{array}$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0)(Apm 1 0 0))' '()' '((Apm 0 3 0 K0)(Apm 1 11 0 Kt))'"}\\[0pt]
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
-	      \vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu\ge{n-1}\end{array}$&\input{f4}\\[0pt]
+	      \vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu\ge{n-1}\end{array}$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1))' '((App 1 3 1))' '((App 1 2 1))'"}\\[0pt]
 	    \end{tabular}
 	  \end{figure}
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
-	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{f5}\\[25pt]
+	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 1 0 1)(Amp 1 2 1))' '((Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((Apm 1 2 1 K0)(Amp 1 2 1 K0)(Amp 1 2 1 Kt))'"}\\[25pt]
 	    \end{tabular}
 	  \end{figure}
 	\item Suppose $p,q\in\odd$ and $p>1$. Then,
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
-			\tevenText{\le0}&\input{f6}\\[0pt]
-			\toddText{\le n-3}&\input{f7}\\[0pt]
-			\tevenText{>0}&\input{f8}\\[0pt]
-			\toddText{>n-3}&\input{f9}\\[0pt]
+			\tevenText{\le0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0))'"}\\[0pt]
+			\toddText{\le n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 3 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[0pt]
+			\tevenText{>0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0))' '((Apm 0 11 0))' '((Apm 0 11 0 Kt)(Apm 0 3 0 K0))'"}\\[0pt]
+			\toddText{>n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1)(Apm 1 0 1))' '((App 1 0 1)(Apm 1 2 1))' '((App 1 3 1)(Apm 1 0 1))'"}\\[0pt]
 			  
 		\end{tabular}
 		\end{figure}
@@ -412,28 +412,28 @@ parameter $(\lambda,\nu)\in\C^2$.
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
-			\tevenText{\le0}&\input{f10}\\[0pt]
-			\toddText{\le n-3}&\input{f11}\\[0pt]
-			\tevenText{>0}&\input{f12}\\[0pt]
-			\toddText{>n-3}&\input{f13}\\[0pt]
+			\tevenText{\le0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Amp 0 3 0 K0))'"}\\[0pt]
+			\toddText{\le n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 3 0))' '((Apm 0 11 0))' '((Apm 0 3 0 K0)(Apm 0 11 0 Kt))'"}\\[0pt]
+			\tevenText{>0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 11 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[0pt]
+			\toddText{>n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Amp 1 2 1))' '((App 1 3 1 K0)(Amp 1 2 1 Kt))'"}\\[0pt]
 		\end{tabular}
 		\end{figure}
 	\item Suppose $p\in\even,q\in\odd$. Then for $\nu\in\odd$, $R_{\lambda,\nu}^X$ is surjective. Otherwise (for $\nu\in\even$) we have,
 	  \begin{figure}[H]
 		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
-	      \vspace{-3cm}$\nu\leq0$&\input{f14}\\[0pt]
+	      \vspace{-3cm}$\nu\leq0$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0)(Amp 0 0 0))'"}\\[0pt]
 	      \vspace{-3cm}$
 	      \begin{array}{l}
 		      \nu>0\\\nu\le\frac{n-3}{2}
 	      \end{array}
-	      $&\input{f15}\\[0pt]
+	      $&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 11 0 Kt)(Amp 0 3 0 K0))'"}\\[0pt]
               $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
 	      \vspace{-3cm}$
 	      \begin{array}{l}
 		      \nu\todd\\\nu=\frac{n-1}{2}
 	      \end{array}
-	      $&\input{f16}\\[0pt]
+	      $&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0)(Apm 1 0 0))' '()' '((Apm 0 11 0 Kt)(Apm 1 3 0 K0))'"}\\[0pt]
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
 	      \vspace{-3cm}
 	      $
@@ -441,9 +441,9 @@ parameter $(\lambda,\nu)\in\C^2$.
 		      \nu\ge\frac{n+1}{2}\\\nu\le n-3
 	      \end{array}
 	      $
-	      &\input{f17}\\[0pt]
+	      &\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 1 0 1)(Amp 1 2 1))' '((Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((Apm 1 2 1 K0)(Amp 1 2 1 Kt)(Amp 1 2 1 K0))'"}\\[0pt]
 	      \vspace{-3cm}$
-	      \nu>n-3$&\input{f18}\\[0pt]
+	      \nu>n-3$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 0 1)(Apm 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((App 1 0 1)(Apm 1 2 1 K0)(Amp 1 2 1 Kt)(Amp 1 2 1 K0))'"}\\[0pt]
 	    \end{tabular}
 	  \end{figure}
 	\end{enumerate}
@@ -457,17 +457,17 @@ parameter $(\lambda,\nu)\in\C^2$.
 	\begin{figure}[H]
 		\begin{tabular}{p{3.2cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.3cm}p{2.3cm}}
 		$(\lambda,\nu)\in$ & $\mybra{\ss\cup\bb}^c$ & $\ss-\bb$ & $\bb-\ss$ & $\ss\cap\bb,k<l$ & $\ss\cap\bb,k\geq l$\\
-		\vspace{-0.7cm}\mystack{\nu\teven}{\nu\le0}&\input{f19}\\
-		\vspace{-0.5cm}\mystack{\nu,q\teven}{0<\nu<q}&\input{f20}\\
-		\vspace{-0.5cm}\mystack{\nu\teven,q\todd}{0<\nu<q}&\input{f21}\\
-		\vspace{-0.7cm}\mystack{\nu,q\teven}{\nu\ge q}&\input{f22}\\
-		\vspace{-0.7cm}\mystack{\nu\teven,q\todd}{\nu\ge q}&\input{f23}\\
-		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\le0}&\input{f24}\\
-		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\le0}&\input{f25}\\
-		\vspace{-0.5cm}\mystack{\nu\todd,q\teven}{0<\nu<q}&\input{f26}\\
-		\vspace{-0.5cm}\mystack{\nu,q\todd}{0<\nu<q}&\input{f27}\\
-		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\ge q}&\input{f28}\\
-		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\ge q}&\input{f29}\\
+		\vspace{-0.7cm}\mystack{\nu\teven}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		'((def 0 1))' '((Kt 0 1)(K0 0 2))' '((def 0 1))' '()' '((K0 0 2)(Kt 0 1))'"}\\
+		\vspace{-0.5cm}\mystack{\nu,q\teven}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		'((def 1))' '((def 1))' '((def 1))' '((def 1))' '((def 1))'"}\\
+		\vspace{-0.5cm}\mystack{\nu\teven,q\todd}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1))' '((Kt 1)(K0 1))' '((def 1))' '((def 1))' '((def 1))'"}\\
+		\vspace{-0.7cm}\mystack{\nu,q\teven}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 2))' '((def 1 2))' '((def 1 1))' '((def 1 1))' '()'"}\\
+		\vspace{-0.7cm}\mystack{\nu\teven,q\todd}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 1))' '((Kt 1 1)(K0 1 2))' '((def 1 1))' '((def 1 1))' '()'"}\\
+		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 0 2))' '((Kt 0 2)(K0 0 2))' '((def 0 2))' '()' '((K0 0 2)(Kt 0 2))'"}\\
+		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 0 2))' '((def 0 2))' '((def 0 2))' '()' '((def 0 2))'"}\\
+		\vspace{-0.5cm}\mystack{\nu\todd,q\teven}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm	'((def 1))' '((Kt 1)(K0 1))' '((KC 1)(KY 1))' '((Kt 1)(K0 1))' '((def 1))'"}\\
+		\vspace{-0.5cm}\mystack{\nu,q\todd}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1))' '((def 1))' '((KC 1)(KY 1))' '((Kt 1)(K0 1))' '((def 1))'"}\\
+		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 1))' '((Kt 1 1)(K0 1 2))' '((KY 1 1)(KC 1 1))' '((Kt 1 1)(K0 1 1))' '()'"}\\
+		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 2))' '((def 1 2))' '((KY 1 1)(KC 1 2))' '((K0 1 2)(Kt 1 2))' '()'"}\\
 	\end{tabular}\end{figure}
 	In the diagrams above some of them are filled not with gray, but with colored diagonal lines. This means that the image of the regular SBO $R_{\lambda,\nu}^X$ is zero and:
 	\begin{itemize}
