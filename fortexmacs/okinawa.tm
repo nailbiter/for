@@ -152,19 +152,68 @@
       \;
     </theorem*>
 
+    <\fact>
+      (classification of differential SBO, see <cite|kobayashi2015branching>)
+      For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>//\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>\<mid\>\<lambda\>-\<nu\>\<in\>-2\<bbb-N\>|}>>,
+      let
+
+      <\equation*>
+        <wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|<around*|[|o|]>|}>>\<assign\>Op<around*|(|<wide|C|~><rsub|\<nu\>-\<lambda\>><rsup|\<lambda\>-<frac|n-1|2>>*<around*|(|-\<Delta\><rsub|<with|math-font|Bbb*|R><rsup|p-1,q>>*\<delta\><rsub|<with|math-font|Bbb*|R><rsup|p+q-1>>,\<delta\><around|(|x<rsub|p>|)>|)>|)>,
+      </equation*>
+
+      where <math|<wide|C|~><around|(|s,t|)>> is a polynomial of
+      two-variable's, which obtained by inflation of the renormalized
+      Gegenbauer polynomial, defined as in
+      <cite-detail|kobayashi2015symmetry|(16.3)>.
+
+      It is a differential SBO (i.e. <math|\<cal-S\>upp<around*|(|<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|<around*|[|o|]>|}>>|)>=<around*|{|0|}>>)
+      and any differential SBO is proportional to it.
+    </fact>
+
     <\theorem*>
-      (construction of SBOs) For <math|S=X,Y,C>, and
-      <math|<around*|{|<around*|[|o|]>|}>>, the following operators
-      <math|R<rsub|\<lambda\>,\<nu\>><rsup|S>> and
+      (construction of regular SBO) For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
+      with <math|Re<around*|(|-\<nu\>|)>,Re<around*|(|\<lambda\>+\<nu\>-n|)>\<gtr\>0>
+      the continuous function
+
+      <\equation*>
+        <around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||Q<rsub|p,q>|\|><rsup|-\<nu\>>
+      </equation*>
+
+      is a member of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>>
+      and we let
+
+      <\equation*>
+        R<rsub|\<lambda\>,\<nu\>><rsup|X>\<assign\>Op<around*|(|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||Q<rsub|p,q>|\|><rsup|-\<nu\>>|)>.
+      </equation*>
+    </theorem*>
+
+    <\theorem*>
+      (normalization of regular SBO) <math|R<rsub|\<lambda\>,\<nu\>><rsup|X>>
+      can be meromorphically extended to <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>.
+      Moreover, we can normalize it as
+
+      <\equation*>
+        <wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|X>\<assign\>R<rsub|\<lambda\>,\<nu\>><rsup|X>/\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>/\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>/\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>,
+      </equation*>
+
+      so that it becomes holomorphic in <math|<around*|(|\<lambda\>,\<nu\>|)>>.
+      It then vanishes on a discrete set of <math|\<bbb-C\><rsup|2>> and we
+      have computed support at every <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>.
+    </theorem*>
+
+    <\theorem*>
+      (construction of singular SBOs) For <math|S=X,Y,C>, and the following
+      operators <math|R<rsub|\<lambda\>,\<nu\>><rsup|S>> and
       <math|<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|X>> are symmetry breaking
       operators from <math|I<around*|(|\<lambda\>|)>\<mid\><rsub|G<rprime|'>>>
       to <math|J<around|(|\<nu\>|)>>, which depend holomorphically on
-      <math|<around|(|\<lambda\>,\<nu\>|)>\<in\>D<rsub|S>>. Moreover,
-      <math|\<cal-S\>upp<around|(|R<rsub|\<lambda\>,\<nu\>><rsup|S>|)>\<subseteq\>S>
+      <math|<around|(|\<lambda\>,\<nu\>|)>\<in\>D<rsub|S>> and are
+      renormalizations of <math|<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|X>>.
+      Moreover, <math|\<cal-S\>upp<around|(|R<rsub|\<lambda\>,\<nu\>><rsup|S>|)>\<subseteq\>S>
       with \P=\Q holding generically and are determined explicitly.
 
       <\center>
-        <block|<tformat|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|1|1|1|-1|cell-tborder|1ln>|<cwith|1|1|1|-1|cell-bborder|1ln>|<cwith|2|2|1|-1|cell-bborder|1ln>|<cwith|3|3|1|-1|cell-bborder|1ln>|<cwith|4|4|1|-1|cell-bborder|1ln>|<cwith|5|5|1|-1|cell-bborder|1ln>|<cwith|6|6|1|-1|cell-bborder|1ln>|<table|<row|<cell|<math|R<rsub|\<lambda\>,\<nu\>><rsup|S>>>|<cell|<math|Op:\<cal-S\>ol<around|(|<with|math-font|Bbb*|R><rsup|p,q>;\<lambda\>,\<nu\>|)>\<rightarrow\>Hom<rsub|G<rprime|'>><around|(|I<around|(|\<lambda\>|)>,J<around|(|\<nu\>|)>|)>>>|<cell|<math|D<rsub|S><space|0.17em>>>|<cell|<math|<space|0.17em>\<cal-S\>upp<around|(|\<cdummy\>|)>>>>|<row|<cell|<math|R<rsub|\<lambda\>,\<nu\>><rsup|X>=>>|<cell|<math|q<rsub|X><around*|(|\<lambda\>,\<nu\>|)>Op<around*|(|<around|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><around|\||Q<rsub|p,q>|\|><rsup|-\<nu\>>|)>>>|<cell|<math|<with|math-font|Bbb*|C><rsup|2>>>|<cell|<math|<around*|\<nobracket\>|\<ldots\>|\<nobracket\>>>>>|<row|<cell|<math|<wide|R|~><rsup|X><rsub|\<lambda\>,\<nu\>>=>>|<cell|<math|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>q<rsub|X><around*|(|\<lambda\>,\<nu\>|)>Op<around*|(|<around|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n><around|\||Q<rsub|p,q>|\|><rsup|-\<nu\>>|)>>>|<cell|<math|\<mid\>\<mid\>\<mid\>>>|<cell|<math|<around*|\<nobracket\>|\<ldots\>|\<nobracket\>>>>>|<row|<cell|<math|R<rsub|\<lambda\>,\<nu\>><rsup|Y>=>>|<cell|<math|(-1)<rsup|k>k!q<rsub|Y><around|(|\<lambda\>,\<nu\>|)>*Op<around*|(|\<delta\><rsup|<around|(|2*k|)>><around|(|x<rsub|p>|)><around|\||Q<rsub|p,q>|\|><rsup|-\<nu\>>|)>>>|<cell|<math|\\\\>>|<cell|...>>|<row|<cell|<math|R<rsub|\<lambda\>,\<nu\>><rsup|C>=>>|<cell|<math|(-1)<rsup|m>m!q<rsub|C><around|(|\<lambda\>,\<nu\>|)>><math|*Op<around*|(|<around|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>*\<delta\><rsup|<around|(|2*m|)>><around*|(|Q<rsub|p,q>|)>|)>>>|<cell|<math|\<mid\>\<mid\>>>|<cell|<math|<around*|\<nobracket\>|\<ldots\>|\<nobracket\>>>>>|<row|<cell|<math|R<rsub|\<lambda\>,\<nu\>><rsup|<around|{|<around*|[|o|]>|}>>=>>|<cell|<math|Op<around*|(|<wide|C|~><rsub|\<nu\>-\<lambda\>><rsup|\<lambda\>-<frac|n-1|2>>*<around*|(|-\<Delta\><rsub|<with|math-font|Bbb*|R><rsup|p-1,q>>*\<delta\><rsub|<with|math-font|Bbb*|R><rsup|p+q-1>>,\<delta\><around|(|x<rsub|p>|)>|)>|)>>>|<cell|<math|//>>|<cell|<math|<around*|{|<around*|[|o|]>|}>>>>>>>
+        <block|<tformat|<cwith|1|-1|1|-1|cell-valign|c>|<cwith|1|1|1|-1|cell-tborder|1ln>|<cwith|1|1|1|-1|cell-bborder|1ln>|<cwith|2|2|1|-1|cell-bborder|1ln>|<cwith|3|3|1|-1|cell-bborder|1ln>|<cwith|4|4|1|-1|cell-bborder|1ln>|<table|<row|<cell|<math|R<rsub|\<lambda\>,\<nu\>><rsup|S>>>|<cell|<math|D<rsub|S><space|0.17em>>>>|<row|<cell|<math|<wide|<wide|R|~>|~><rsub|\<lambda\>,\<nu\>><rsup|X>=>>|<cell|>>|<row|<cell|<math|<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|Y>=>>|<cell|<math|\\\\>>>|<row|<cell|<math|<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|C>=>>|<cell|<math|\<mid\>\<mid\>>>>>>>
 
         \;
       </center>
@@ -172,32 +221,11 @@
       Let us explain the notation in the table.
 
       <\itemize>
-        <item>for <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\\\\>,
-        <math|k\<assign\><frac|\<lambda\>+\<nu\>-n+1|2>>;
-
-        <item>for <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<mid\>\<mid\>,>
-        <math|m\<assign\><frac|\<nu\>-1|2>>;
-
         <item><math|\<mid\>\<mid\>\<mid\>\<assign\><around|{|<around|(|\<lambda\>,\<nu\>|)>\<in\><with|math-font|Bbb*|C><rsup|2>\<mid\>\<nu\>\<in\>-2*<with|math-font|Bbb*|N>\<cup\><around|(|q+1+2*<with|math-font|Bbb*|Z>|)>|}>>;
 
         <item><math|\<backslash\>*\<backslash\>\<assign\><mysetn|<around|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\>|\<lambda\>+\<nu\>-n+1\<in\>-2\<bbb-C\>>>;
 
-        <item><math|//\<assign\><around|{|<around|(|\<lambda\>,\<nu\>|)>\<in\><with|math-font|Bbb*|C><rsup|2>\<mid\>\<lambda\>-\<nu\>\<in\>-2\<bbb-N\>|}>>;
-
-        <item><math|\<mid\>\<mid\>\<assign\><mysetn|<around|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>|\<nu\>\<in\>1+2\<bbb-N\>>>;
-
-        <item><math|<wide|C|~><around|(|s,t|)>> is a polynomial of
-        two-variable's, which obtained by inflation of the renormalized
-        Gegenbauer polynomial, defined as in
-        <cite-detail|kobayashi2015symmetry|(16.3)>.
-
-        <\equation*>
-          q<rsub|Y><around|(|\<lambda\>,\<nu\>|)>\<assign\><around*|{|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|l>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|l>|<cwith|1|-1|2|2|cell-rborder|0ln>|<table|<row|<cell|\<Gamma\><rsup|-1><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>,>|<cell|q\<in\>2*<with|math-font|Bbb*|Z>+1<space|0.6spc>or<space|0.6spc>\<lambda\>+\<nu\>\<geqslant\>0>>|<row|<cell|\<Gamma\><rsup|-1>*<around*|(|-\<nu\>|)>,>|<cell|otherwise.>>>>>|\<nobracket\>>
-        </equation*>
-
-        <\equation*>
-          q<rsub|C><around|(|\<lambda\>,\<nu\>|)>\<assign\>\<ldots\>,<space|1em>q<rsub|X><around*|(|\<lambda\>,\<nu\>|)>\<assign\>\<ldots\>
-        </equation*>
+        <item><math|\<mid\>\<mid\>\<assign\><mysetn|<around|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>|\<nu\>\<in\>1+2\<bbb-N\>>>.
       </itemize>
     </theorem*>
 
@@ -213,11 +241,11 @@
       (classification of SBOs)
 
       <\equation*>
-        p=1\<Rightarrow\>Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>=<around*|{|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|l>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|l>|<cwith|1|-1|2|2|cell-rborder|0ln>|<table|<row|<cell|<with|math-font|Bbb*|C>*R<rsup|X><rsub|\<lambda\>,\<nu\>>,>|<cell|<around|(|\<lambda\>,\<nu\>|)>\<in\><with|math-font|Bbb*|C><rsup|2>-(//\<cap\>\<mid\>\<mid\>\<mid\>)-(\<mid\>\<mid\>\<cap\>\<backslash\>*\<backslash\>),>>|<row|<cell|<with|math-font|Bbb*|C>*<wide|R|~><rsup|X><rsub|\<lambda\>,\<nu\>>\<oplus\><with|math-font|Bbb*|C>*R<rsup|<around|{|o|}>><rsub|\<lambda\>,\<nu\>>,>|<cell|<around|(|\<lambda\>,\<nu\>|)>\<in\>(//\<cap\>\<mid\>\<mid\>\<mid\>)-(\<mid\>\<mid\>\<cap\>\<backslash\>*\<backslash\>),>>|<row|<cell|<with|math-font|Bbb*|C>*R<rsup|P><rsub|\<lambda\>,\<nu\>>\<oplus\><with|math-font|Bbb*|C>*R<rsup|C><rsub|\<lambda\>,\<nu\>>,>|<cell|<around|(|\<lambda\>,\<nu\>|)>\<in\>(\<mid\>\<mid\>\<cap\>\<backslash\>*\<backslash\>)-//,>>|<row|<cell|<with|math-font|Bbb*|C>*R<rsup|<around|{|o|}>><rsub|\<lambda\>,\<nu\>>,>|<cell|<around|(|\<lambda\>,\<nu\>|)>\<in\>\<mid\>\<mid\>\<cap\>\<backslash\>*\<backslash\>\<cap\>//.>>>>>|\<nobracket\>>
+        p=1\<Rightarrow\>Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>=<around*|{|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|l>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|l>|<cwith|1|-1|2|2|cell-rborder|0ln>|<table|<row|<cell|<with|math-font|Bbb*|C>*<wide|R|~><rsup|X><rsub|\<lambda\>,\<nu\>>,>|<cell|<around|(|\<lambda\>,\<nu\>|)>\<in\><with|math-font|Bbb*|C><rsup|2>-(//\<cap\>\<mid\>\<mid\>\<mid\>)-(\<mid\>\<mid\>\<cap\>\<backslash\>*\<backslash\>),>>|<row|<cell|<with|math-font|Bbb*|C>*<wide|<wide|R|~>|~><rsup|X><rsub|\<lambda\>,\<nu\>>\<oplus\><with|math-font|Bbb*|C>*<wide|R|~><rsup|<around|{|o|}>><rsub|\<lambda\>,\<nu\>>,>|<cell|<around|(|\<lambda\>,\<nu\>|)>\<in\>(//\<cap\>\<mid\>\<mid\>\<mid\>)-(\<mid\>\<mid\>\<cap\>\<backslash\>*\<backslash\>),>>|<row|<cell|<with|math-font|Bbb*|C>*<wide|R|~><rsup|Y><rsub|\<lambda\>,\<nu\>>\<oplus\><with|math-font|Bbb*|C>*<wide|R|~><rsup|C><rsub|\<lambda\>,\<nu\>>,>|<cell|<around|(|\<lambda\>,\<nu\>|)>\<in\>(\<mid\>\<mid\>\<cap\>\<backslash\>*\<backslash\>)-//,>>|<row|<cell|<with|math-font|Bbb*|C>*<wide|R|~><rsup|<around|{|<around*|[|o|]>|}>><rsub|\<lambda\>,\<nu\>>,>|<cell|<around|(|\<lambda\>,\<nu\>|)>\<in\>\<mid\>\<mid\>\<cap\>\<backslash\>*\<backslash\>\<cap\>//.>>>>>|\<nobracket\>>
       </equation*>
 
       <\equation*>
-        p\<gtr\>1\<Rightarrow\>Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>=<around*|{|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|l>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|l>|<cwith|1|-1|2|2|cell-rborder|0ln>|<table|<row|<cell|<with|math-font|Bbb*|C>*<wide|R|~><rsup|X><rsub|\<lambda\>,\<nu\>>\<oplus\><with|math-font|Bbb*|C>*R<rsup|<around|{|o|}>><rsub|\<lambda\>,\<nu\>*\<lambda\>,\<nu\>>,>|<cell|<around|(|\<lambda\>,\<nu\>|)>\<in\>//\<cap\>\<mid\>\<mid\>\<mid\>,>>|<row|<cell|<with|math-font|Bbb*|C>*R<rsup|X><rsub|\<lambda\>,\<nu\>>,>|<cell|otherwise.>>>>>|\<nobracket\>>
+        p\<gtr\>1\<Rightarrow\>Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>=<around*|{|<tabular*|<tformat|<cwith|1|-1|1|1|cell-halign|l>|<cwith|1|-1|1|1|cell-lborder|0ln>|<cwith|1|-1|2|2|cell-halign|l>|<cwith|1|-1|2|2|cell-rborder|0ln>|<table|<row|<cell|<with|math-font|Bbb*|C>*<wide|<wide|R|~>|~><rsup|X><rsub|\<lambda\>,\<nu\>>\<oplus\><with|math-font|Bbb*|C>*<wide|R|~><rsup|<around|{|o|}>><rsub|\<lambda\>,\<nu\>*\<lambda\>,\<nu\>>,>|<cell|<around|(|\<lambda\>,\<nu\>|)>\<in\>//\<cap\>\<mid\>\<mid\>\<mid\>,>>|<row|<cell|<with|math-font|Bbb*|C>*<wide|R|~><rsup|X><rsub|\<lambda\>,\<nu\>>,>|<cell|otherwise.>>>>>|\<nobracket\>>
       </equation*>
     </theorem*>
 
@@ -228,7 +256,7 @@
       <math|n\<assign\>p+q*<space|0.27em><around|(|p,q\<ge\>1|)>> as before.
 
       <\equation*>
-        R<rsub|\<lambda\>,\<nu\>><rsup|X><with|math-font|Bbb*|1><rsub|\<lambda\>>=<frac|2<rsup|1-\<lambda\>>*\<pi\><rsup|n/2>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>+1-q|2>|)>*\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>*<with|math-font|Bbb*|1><rsub|\<nu\>>.
+        <wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|X><with|math-font|Bbb*|1><rsub|\<lambda\>>=<frac|2<rsup|1-\<lambda\>>*\<pi\><rsup|n/2>|\<Gamma\><around*|(|<frac|\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|\<lambda\>+1-q|2>|)>*\<Gamma\><around*|(|<frac|q-\<nu\>+1|2>|)>>*<with|math-font|Bbb*|1><rsub|\<nu\>>.
       </equation*>
     </theorem*>
 
@@ -246,7 +274,7 @@
       <tformat|<table|<row|<cell|>|<cell|K<rsub|\<lambda\>,\<nu\>><rsup|<with|math-font|Bbb|R><rsup|p,q>>\<assign\><frac|<around*|\||x<rsub|p>|\|><rsup|\<lambda\>+\<nu\>-n>|\<Gamma\><around*|(|<frac|\<lambda\>+\<nu\>-n+1|2>|)>>\<times\><frac|<around*|\||Q<rsub|p,q>|\|><rsup|-\<nu\>>|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>>\<in\>\<cal-S\>ol<around*|(|\<bbb-R\><rsup|n>;\<lambda\>,\<nu\>|)>.>|<cell|>>|<row|<cell|>|<cell|where<space|0.6spc>Q<rsub|p,q><around*|(|x|)>=<big|sum><rsub|i=1><rsup|p>x<rsub|i><rsup|2>-<big|sum><rsub|i=p+1><rsup|p+q>x<rsub|i><rsup|2>>|<cell|>>>>
     </eqnarray>
 
-    Then <math|R<rsub|\<lambda\>,\<nu\>><rsup|X>=<frac|1|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>>Op<around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|X>|)>>.
+    Then <math|<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|X>=<frac|1|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>>Op<around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|X>|)>>.
     We recall that the left-hand side extends to a family of SBOs with
     holomorphic parameter <math|<around|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>.
 
@@ -257,8 +285,8 @@
       Then we have
 
       <\equation*>
-        R<rsub|\<lambda\>,\<nu\>><rsup|X>=<frac|(-1)<rsup|l>l!\<pi\><rsup|<around|(|n-2|)>/2>|2<rsup|\<nu\>+2*l-1>>\<cdot\><frac|sin
-        <around*|(|<frac|1+q-\<nu\>|2>*\<pi\>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>>R<rsub|\<lambda\>,\<nu\>><rsup|<around*|{|<around*|[|o|]>|}>>,<space|1em><around|(|\<lambda\>,\<nu\>|)>\<in\>//.
+        <wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|X>=<frac|(-1)<rsup|l>l!\<pi\><rsup|<around|(|n-2|)>/2>|2<rsup|\<nu\>+2*l-1>>\<cdot\><frac|sin
+        <around*|(|<frac|1+q-\<nu\>|2>*\<pi\>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>><wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|<around*|[|o|]>|}>>,<space|1em><around|(|\<lambda\>,\<nu\>|)>\<in\>//.
       </equation*>
     </theorem*>
 
@@ -291,7 +319,7 @@
 
     <\theorem*>
       (functional identities) Let <math|n\<assign\>p+q> as before. We have:
-      <eqnarray|<tformat|<table|<row|<cell|>|<cell|<wide|<with|math-font|Bbb*|T>|~><rsup|G<rprime|'>><rsub|n-1-\<nu\>>\<circ\>R<rsup|X><rsub|\<lambda\>,n<rprime|'>-\<nu\>>=q<rsup|T*X><rsub|X><around|(|\<lambda\>,\<nu\>|)>*R<rsup|X><rsub|\<lambda\>,\<nu\>>,>|<cell|>>|<row|<cell|>|<cell|R<rsub|n-\<lambda\>,\<nu\>><rsup|X>\<circ\><wide|<with|math-font|Bbb*|T>|~><rsup|G><rsub|\<lambda\>>=q<rsup|X*T><rsub|X><around|(|\<lambda\>,\<nu\>|)>*R<rsub|\<lambda\>,\<nu\>><rsup|X>,>|<cell|>>>>>
+      <eqnarray|<tformat|<table|<row|<cell|>|<cell|<wide|<with|math-font|Bbb*|T>|~><rsup|G<rprime|'>><rsub|n-1-\<nu\>>\<circ\><wide|R|~><rsup|X><rsub|\<lambda\>,n<rprime|'>-\<nu\>>=q<rsup|T*X><rsub|X><around|(|\<lambda\>,\<nu\>|)>*<wide|R|~><rsup|X><rsub|\<lambda\>,\<nu\>>,>|<cell|>>|<row|<cell|>|<cell|<wide|R|~><rsub|n-\<lambda\>,\<nu\>><rsup|X>\<circ\><wide|<with|math-font|Bbb*|T>|~><rsup|G><rsub|\<lambda\>>=q<rsup|X*T><rsub|X><around|(|\<lambda\>,\<nu\>|)>*<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|X>,>|<cell|>>>>>
 
       where
 
@@ -311,11 +339,6 @@
 
     <\bibliography|bib|tm-alpha|todai_master.bib>
       <\bib-list|7>
-        <bibitem*|BR04><label|bib-bernstein2004estimates>J.<nbsp>Bernstein<localize|
-        and >A.<nbsp>Reznikov.<newblock> Estimates of automorphic
-        functions.<newblock> <with|font-shape|italic|Mosc. Math. J>,
-        <with|font-series|bold|4>(1):19\U37, 2004.<newblock>
-
         <bibitem*|CKØP11><label|bib-clerc2011generalized>J.-L.<nbsp>Clerc,
         T.<nbsp>Kobayashi, B.<nbsp>Ørsted<localize|, and
         >M.<nbsp>Pevzner.<newblock> Generalized Bernstein--Reznikov
@@ -354,6 +377,13 @@
         <localize|volume> <with|font-series|bold|238><localize| of
         ><with|font-shape|italic|Memoirs of the Amer. Math. Soc>.<newblock>
         American Mathematical Society, 2015.<newblock>
+
+        <bibitem*|KØSS15><label|bib-kobayashi2015branching>Toshiyuki
+        Kobayashi, Bent Ørsted, Petr Somberg<localize|, and
+        >Vladim<math|<wide|<text|\Y>|\<acute\>>>r Sou£ek.<newblock> Branching
+        laws for verma modules and applications in parabolic geometry.
+        I.<newblock> <with|font-shape|italic|Advances in Mathematics>,
+        285:1796\U1852, 2015.<newblock>
       </bib-list>
     </bibliography>
   </with>
@@ -377,6 +407,7 @@
     <associate|bib-clerc2011generalized|<tuple|CKØP11|5>>
     <associate|bib-kobayashi2013finite|<tuple|KO13|5>>
     <associate|bib-kobayashi2014classification|<tuple|KM14|5>>
+    <associate|bib-kobayashi2015branching|<tuple|KØSS15|?>>
     <associate|bib-kobayashi2015program|<tuple|Kob15|5>>
     <associate|bib-kobayashi2015symmetry|<tuple|KS15|5>>
     <associate|thm:spherical|<tuple|3|?|../../.TeXmacs/texts/scratch/no_name_9.tm>>
@@ -397,6 +428,8 @@
       kobayashi2014classification
 
       kobayashi2015symmetry
+
+      kobayashi2015branching
 
       kobayashi2015symmetry
 
