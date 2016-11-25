@@ -111,12 +111,10 @@
     <math|G<rprime|'>>.
 
     <frame|Conformal viewpoint:> Geometrically
-    <math|I<around*|(|\<lambda\>|)>> arise from conformal geometry:
+    <math|I<around*|(|\<lambda\>|)>=C<rsup|\<infty\>><around*|(|X,\<cal-L\><rsub|\<lambda\>>|)>>
+    arise from conformal geometry:
 
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|X\<assign\>\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/\<pm\>>|<cell|>>|<row|<cell|>|<cell|\<rightsquigarrow\>Conf<around*|(|X|)>=O<around*|(|p+1,q+1|)>=G\<curvearrowright\>>|<cell|>>|<row|<cell|>|<cell|\<curvearrowright\>\<cal-L\><rsub|\<lambda\>>\<rightarrow\>X=G/P:conformally
-      equivariant line bundle>|<cell|>>|<row|<cell|>|<cell|\<rightsquigarrow\>G\<curvearrowright\>I<around*|(|\<lambda\>|)>=C<rsup|\<infty\>><around*|(|X,\<cal-L\><rsub|\<lambda\>>|)>.>|<cell|>>>>
-    </eqnarray>
+    <image|../../Desktop/okinawa3.png|1004px|336px||>
 
     <\remark*>
       Works <cite|kobayashi2013finite>,<cite|kobayashi2014classification>
@@ -398,18 +396,18 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|2|2>>
-    <associate|auto-3|<tuple|3|3>>
-    <associate|auto-4|<tuple|4|5>>
-    <associate|auto-5|<tuple|4|?>>
-    <associate|bib-Kobayashi2008|<tuple|Kob08|5>>
+    <associate|auto-2|<tuple|2|1>>
+    <associate|auto-3|<tuple|3|2>>
+    <associate|auto-4|<tuple|4|4>>
+    <associate|auto-5|<tuple|4|6>>
+    <associate|bib-Kobayashi2008|<tuple|Kob08|6>>
     <associate|bib-bernstein2004estimates|<tuple|BR04|5>>
-    <associate|bib-clerc2011generalized|<tuple|CKØP11|5>>
-    <associate|bib-kobayashi2013finite|<tuple|KO13|5>>
-    <associate|bib-kobayashi2014classification|<tuple|KM14|5>>
-    <associate|bib-kobayashi2015branching|<tuple|KØSS15|?>>
-    <associate|bib-kobayashi2015program|<tuple|Kob15|5>>
-    <associate|bib-kobayashi2015symmetry|<tuple|KS15|5>>
+    <associate|bib-clerc2011generalized|<tuple|CKØP11|6>>
+    <associate|bib-kobayashi2013finite|<tuple|KO13|6>>
+    <associate|bib-kobayashi2014classification|<tuple|KM14|6>>
+    <associate|bib-kobayashi2015branching|<tuple|KØSS15|6>>
+    <associate|bib-kobayashi2015program|<tuple|Kob15|6>>
+    <associate|bib-kobayashi2015symmetry|<tuple|KS15|6>>
     <associate|thm:spherical|<tuple|3|?|../../.TeXmacs/texts/scratch/no_name_9.tm>>
   </collection>
 </references>
