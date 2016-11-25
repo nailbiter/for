@@ -33,7 +33,7 @@ git add formaxima/*.mac
 #./scripts/export_lyxs.sh
 
 git commit -a -m "Commit"
-git push origin master
+git push --all origin
 
 if [ $1 == "push" ]
 then
