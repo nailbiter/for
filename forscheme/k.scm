@@ -1,0 +1,16 @@
+(use-modules (ice-9 format))
+(use-modules (ice-9 eval-string))
+(use-modules (srfi srfi-1))
+
+(define (myrandom mean varovermean)(+ mean (* mean varovermean (random:exp))))
+
+(let* ((dev 0.4)
+       (t1(myrandom (/ 4 28) dev))
+        (t2(myrandom (/ 6 28) dev))
+        (t3(myrandom (/ 10 28) dev))
+        (t4(myrandom (/ 8 28) dev))
+        (sum (+ t1 t2 t3 t4))
+        (total-time 25.23478923)
+        (res (map (lambda(x)(/(* total-time x)sum)) (list t1 t2 t3 t4)))
+        )
+  (map (lambda(x)(format #t "~dm ~ds~%" (floor x) (floor(* 60(- x (floor x))))))res))
