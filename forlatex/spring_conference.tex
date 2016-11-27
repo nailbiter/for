@@ -9,6 +9,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{setspace}
+\usepackage{enumitem}
 
 %%%%%%%%%% Start TeXmacs macros
 \catcode`\<=\active \def<{
@@ -43,7 +44,7 @@
 
 \begin{document}
 
-\title{共形変換群$O(p,q)$に関する対称性破れ作用壮素}
+\title{共形変換群$O(p,q)$に関する対称性破れ作用素}
 
   %%%% 講演者1
   \author{小林俊行}{東京大学}
@@ -61,55 +62,36 @@
 小林氏とSpeh氏の$O(n+1,1)\downarrow O(n,1)$の対称性破れ作用素についての
 著書[KS15]\footnotemark[\ref{note1}]を高階の群の組$\mybra{O(p+1,q+1),O(p,q+1}$に一般化することを目指す。以下は
 小林俊行氏と共同研究を報告する。
-標準球面の直積$\Sp^p\times\Sp^q$に、第１成分は正定値、第２成分は負定値となる計量を与え。更に対蹠点を同一視することによって得られる、符号$(p,q)$	擬リーマン多様体を
+標準球面の直積$\Sp^p\times\Sp^q$に、第１成分は正定値、第２成分は負定値となる計量を与え、更に対蹠点を同一視することによって得られる、符号$(p,q)$	擬リーマン多様体を\vspace{-0.6cm}
 \begin{equation*}
 	X\equiv X^{p,q}\equiv \left( \Sp^p\times\Sp^q \right)/\Z_2
+	\vspace{-0.2cm}
 \end{equation*}
 を表す。$q=0$の場合は$X^{p,0}\simeq \Sp^p$であり、立体射影の逆写像を一般化することにより、$X^{p,q}$は平坦な擬リーマン多様体$\R^{p,q}$の共形コンパクト化であることがわかる。$\R^{\left( p+ 1\right)+\left( q+ 1\right)}$
-上の符号$(p+1,q+1)$をもつ標準二次形式を$Q_{p+1,q+1}$と表し。$Q_{p+1,q+1}$を保つ線形変換からなる群を$G=O(p+1,q+1)$とする。$G$は$X$に共形変換群として作用する。共形変換群の一般理論　(Kobayashi-Orsted, Part I, Adv. Math., 
-2003)　より、複素数$\lambda$をパラメータとする表現の於$I(\lambda)$を$C^\infty(X)$上に定めることができる。簡約リー群の言葉で言い換えると、$X$は$G$の（一般化された）旗多様体$G/P$と同一視でき、
-$I(\lambda)$は極大放物型部分群$P=MAN$から誘導された球退化主系列表現である。$G$の簡約部分群として第$p$座標の固定部分群を考える。$G$の表現$I(\lambda)$と同様に$\nu\in\C$に対して$G'\simeq O(p,q+1)$の表現$J(\nu)$
-を$C^\infty(X^{p-1,q})$上に定義する。
+上の符号$(p+1,q+1)$をもつ標準二次形式を$Q_{p+1,q+1}$と表し、$Q_{p+1,q+1}$を保つ線形変換からなる群を$G=O(p+1,q+1)$とする。$G$は$X$に共形変換群として作用する。共形変換群の一般理論(Kobayashi-Orsted, Part I, Adv. Math., 
+2003)より、複素数$\lambda$をパラメータとする表現の族$I(\lambda)$を$C^\infty(X)$上に定めることができる。簡約リー群の言葉で言い換えると、$X$は$G$の（一般化された）旗多様体$G/P$と同一視でき、
+$I(\lambda)$は極大放物型部分群$P=MAN$から誘導された球退化主系列表現である。$G$の簡約部分群として第$p$座標の固定部分群を$G'$とすると、$G$の表現$I(\lambda)$と同様に$\nu\in\C$に対して$G'\simeq O(p,q+1)$の表現$J(\nu)$
+を$C^\infty(X^{p-1,q})$上に定義される。
 \begin{definition}
 	連続な線形写像$T:C^\infty(X^{p,q})\to C^\infty(X^{p-1,q})$で
-	\begin{equation*}
-		J(\nu)(g)\circ T=T\circ I(\lambda)(g)\qquad(\forall g\in G')
-	\end{equation*}
+		$J(\nu)(g)\circ T=T\circ I(\lambda)(g),\forall g\in G'$
+を満たすものを対称性破れ作用素(SBO)という。
 \end{definition}
-をまたすものを対称性破れ作用素(SBO)という。
 \begin{question}[KS15]
-すべての$\lambda,\nu\in\C$に対して、対称性破れ作用素を構成し、分類せよ
+	すべての$\lambda,\nu\in\C$に対して、対称性破れ作用素を構成し、分類せよ。\vspace{-0.2cm}
 \end{question}
-$q=0$の場合に、この問題は[KS15]で完全に解決された。以下では$p,q>0$の場合に、この問題が解決したことを報告する。
-
-手法は[KS15]で開発された手法を用いるが、$p,q$が一般の場合には、構成がやや複雑になる。$X=X^{p,q}\simeq G/P$, $Y:=X^{p-1,q}\simeq G'/P'$とすきその
-稠密な座標近傍$\R^{p,q}\supset\R^{p-1,q}$（表現論の言葉では$N$-picture）を考える、$C$を$\R^{p,q}$の錐$Q_{p,q}=0$を$X$内で閉包をとって定まる閉集合、
-$[o]$を$\R^{p,q}$の原点の$X$におけた像とする。このとき両側乗り余類$P'\backslash G/P$は以下の形で与えられる。
+$q=0$の場合には、この問題は[KS15]で完全に解決された。以下では$p,q>0$の場合には、この問題が解決したことを報告する。
+手法は[KS15]で開発された手法を用いるが、$p,q$が一般の場合には、構成がやや複雑になる。$X=X^{p,q}\simeq G/P$, $Y:=X^{p-1,q}\simeq G'/P'$とおき、その
+稠密な座標近傍$\R^{p,q}\supset\R^{p-1,q}$（表現論の言葉では$N$-picture）を考える。$C$を$\R^{p,q}$の錐$Q_{p,q}=0$を$X$内で閉包をとって定まる閉集合、
+$o$を$\R^{p,q}$の原点の$X$における像とする。このとき両側乗余類$P'\backslash G/P$は以下の形で与えられる。
 \begin{theorem}
-$p, q \geqslant 1$に対して、
-  $G/P$の$P'$不変閉集合と{包含関係}が以下の通りになる：\\
-  \begin{figure}[H]
-	  \vspace{-4ex}
-    \centering
-    \begin{subfigure}{0.3\textwidth}
-	\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&Y\cap C\ar@{-}[d]&\\&\{[0]\}&}
-	\caption{$p>1$の時}
-    \end{subfigure}
-    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-      %(or a blank line to force the subfigure onto a new line)
-    \begin{subfigure}{0.3\textwidth}
-	\raisebox{40mm}
-	{\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&\{[0]\}&}}
-	\caption{$p=1$の時}
-    \end{subfigure}
-\end{figure}
+	$C$、$Y$、$C\cap Y$、
+	$\left\{ o \right\}$が両側剰余類$P'\backslash G/P$の閉集合となる。\vspace{-0.1cm}
 \end{theorem}
-
-[KS15]の一般論を用いて、以下の
-の2つの写像$\Op$と$\mathcal{S}$を定義する：
+[KS15]の一般論を用いて、以下のの2つの写像$\Op$と$\mathcal{S}$を定義する：
 \begin{figure}[H]
-	  \vspace{-3ex}
-	\centerline{\xymatrixcolsep{7pc}\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\mathcal{S}}
+	  \vspace{-0.2cm}
+	\centerline{\xymatrixcolsep{7pc}\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^1.5pc/[rr]_(0.8){\mathcal{S}}
 	&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda})\otimes\mathbb{C}_\nu \right)^{P'}
 	\ar[r]_{F\mapsto \supp(F)}\ar[d]^{\simeq}_{\mbox{rest}}
 	&2^{P'\backslash G/P}\\
@@ -118,13 +100,15 @@ $p, q \geqslant 1$に対して、
 	  \vspace{-3.5ex}
 \end{figure}
 \begin{theorem}[対称性破れ作用素の構成]
-次のような対称性破れ作用素が構成される（well-definednessも定理の一部である）。
-	\begin{description}
+	次のような対称性破れ作用素が構成される（well-definednessも定理の一部である）。\vspace{-0.3cm}
+\setlist[description]{leftmargin=0.2cm}
+\begin{description}
+		\vspace{-0.2cm}
 		\item[regular SBO:]$(\lambda,\nu)\in \mathbb{C}^2$に正則に依存する対称性破れ作用素$\OpR^{X}_{\lambda,\nu}:I(\lambda)\to J(\nu)$。
 
 				$R_{\lambda,\nu}^X$ はまず、$\Re(\lambda+\nu)>n$かつ$\Re\nu<0$のとき
-				局所可積分関数$\myabs{x_p}^{\lambda+\nu-n}\myabs{Q_{p,q}}^{-\nu}$の定数値を核関数とし。
-				$(\lambda,\nu)\in\C^2$二関する以下のような解析接続として定義もの解析接続として定義される。
+				局所可積分関数$\myabs{x_p}^{\lambda+\nu-n}\myabs{Q_{p,q}}^{-\nu}$の定数倍を核関数とし、
+				$(\lambda,\nu)\in\C^2$に関する以下のような解析接続として定義される。
 				\[\Op^{-1}(\OpR^{X}_{\lambda,\nu})={N(\lambda,\nu)}{\myabs{x_p}^{\lambda+\nu-n}\myabs{Q_{p,q}}^{-\nu}},\quad N^{-1}(\lambda,\nu):=
 					{\Gamma\left( \scalebox{0.8}{$\frac{\lambda-\nu}{2}$} \right)
 					\Gamma\left( \scalebox{0.8}{$\frac{1-\nu}{2}$} \right)
@@ -137,7 +121,6 @@ $p, q \geqslant 1$に対して、
 				\newcommand{\sniptB}{核超関数は}
 				\newcommand{\sniptE}{\sniptB}
 				\newcommand{\sniptC}{ここで$N_Y(\lambda,\nu)$は$\Gamma$関数で表示される}
-				\newcommand{\sniptF}{genericな$\lambda$に対して$\mathcal{S}\left( R_{\lambda,\nu}^C \right)=C$}
 				\newcommand{\sniptD}{genericな$\lambda$に対して$\mathcal{S}\left( R_{\lambda,\nu}^Y \right)=Y$}
 				\newcommand{\sniptG}{$k:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$のとき}
 				\newcommand{\sniptH}{R_{\lambda,\nu}^{ \left\{ o \right\}}=\tilde{C}_{\nu-\lambda}^{\lambda-\frac{n-1}{2}}\mybra{-\Delta_{\R^{p-1,q}},\frac{\partial}{\partial x_p}}}
@@ -145,18 +128,14 @@ $p, q \geqslant 1$に対して、
 				\sniptA
 				$\nu\in\mathbb{C}$に
 				正則に依存する対称性破れ作用素$\OpR^{Y}_{\lambda,\nu}\neq0$。\sniptB
-					\vspace{-1.8ex}
 						\[\Op^{-1}(\OpR^{Y}_{\lambda,\nu})={N_Y(\lambda,\nu)}{\delta^{(2k)}(x_p)\times\myabs{Q_{p,q}}
-							^{-\nu}}.\]
-							\sniptC。\sniptD。
-				$\delta^{(l)}(x)$は一変数デルタ関数の$l$階微分である。
+						^{-\nu}}.\]
 			\item[$C$に付随する特異積分:]
-				$\nu\in-1-2\Z_{\ge0}$とする。
-				$\lambda\in \mathbb{C}$に正則に依存する対称性破れ作用素$\OpR^{C}_{\lambda,\nu}\neq0$。
-				\sniptE
-				 \vspace{-1.8ex}
+				$\nu\in-1-2\N$とする。
+				$\lambda\in \mathbb{C}$に正則に依存する対称性破れ作用素$\OpR^{C}_{\lambda,\nu}\neq0$。\sniptE
+				 
 					 \[\Op^{-1}(\OpR^{C}_{\lambda,\nu})={N_C
-						(\lambda,\nu)}{\myabs{x_p}^{\lambda+\nu-n+1}\times\delta^{(-1-\nu)}(Q_{p,q}) }.\]
+					 (\lambda,\nu)}{\myabs{x_p}^{\lambda+\nu-n+1}\times\delta^{(-1-\nu)}(Q_{p,q}) }.\]
 			\item[微分対称性破れ作用素:] 
 				\sniptG$\lambda\in\mathbb{C}$
 				に正則に依存する対称性破れ作用素$\OpR^{ \left\{ 0 \right\} }_{\lambda,\nu}\neq0$。
@@ -167,43 +146,42 @@ $p, q \geqslant 1$に対して、
   vol.{\bf 238}, 2015.
 }で与えられた二変数多項式。
 	\end{description}
+
 \end{theorem}
+				\newcommand{\sniptF}{genericには$\mathcal{S}\left( R_{\lambda,\nu}^S \right)=S$}
+				\noindent{$S=Y,C$に対して、$N_S(\lambda,\nu)$は$\Gamma$関数で表示される}。\sniptF。
 				\newcommand{\sniptI}[1]{\begin{corollary}
-					\[\dim\Hom_{G'}\left( I(\lambda),J(\nu) \right)\in\left\{ 1,2 \right\}\quad\left( \forall\lambda,\forall\nu\in\C \right).\]
+					$\dim\Hom_{G'}\left( I(\lambda),J(\nu) \right)\in\left\{ 1,2 \right\}\quad\left( \forall\lambda,\forall\nu\in\C \right)$.
 					等号成立#1
 			\end{corollary}}
 			\newcommand{\sniptJ}{$(\lambda,\nu)$が特殊値のとき$R_{\lambda,\nu}^X$は$R_{\lambda,\nu}^Y$,$R_{\lambda,\nu}^C$,$R^{ \left\{ o \right\}}_{\lambda,\nu}$の定数倍となる。
-		定数倍を含めて、すべての明示式が決定される。}
-		\newcommand{\sniptK}{となる。定数$q_X^{TX}(\lambda,\nu)$,$q_X^{XT}(\lambda,\nu)$の明示式が決定される。}
+		定数倍の係数はすべて明示的に決定される。}
+		\newcommand{\sniptK}{となる。定数$q_X^{TX}(\lambda,\nu)$,$q_X^{XT}(\lambda,\nu)$明示式が決定される。}
 		\newcommand{\sniptL}{さらに、$I(\lambda)$や$J(\nu)$のsubqutientとして現わるZuckermanの導来関手加群$A_{\mathfrak{q}}(\lambda)$に関する対称性破れ作用素の存在条件が得られるが、これは別の機会に述べたい。}
-\vspace{-3ex}
 \begin{theorem}[対称性破れ作用素の分類]
-  $p > 1$に対して\vspace{-1.5ex}
+  $p > 1$に対して
   \begin{eqnarray}
 	  & \Hom_{G'}(I(\lambda),J(\nu))= \left\{
     \begin{array}{ll}
       \mathbbm{C} {\OpR}_{\lambda, \nu}^{X} \oplus \mathbbm{C}
       {\OpR}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in / /\cap 
-      L\\
+      \mid\mid\mid\\
       \mathbbm{C} \OpR^X_{\lambda, \nu}, &
-      \mbox{\normalfont otherwise.}\vspace{-1ex}
-    \end{array} \right. &  \nonumber\vspace{-1.5ex}
+      \mbox{\normalfont otherwise.}
+    \end{array} \right. &  \nonumber
   \end{eqnarray}
-  $p=1$に対して同様の命題が成り立つ。
 \end{theorem}
   \sniptI{$\iff(\lambda,\nu)\in//\cap \mid\mid\mid$。
   ここで、$//\assign \{ (\lambda, \nu) \in \mathbbm{C}^2 |
-  \lambda - \nu = - 2 k \in - 2\mathbbm{Z}_{\geqslant 0} \}$。$\mid\mid\mid\subset\mathbb{C}^2$は
-  複数余次元$1$の部分集合（具体形は省略する）。}
-\vspace{-2ex}
+  \lambda - \nu = - 2 k \in - 2\N \}$、$\mid\mid\mid:=\left\{ (\lambda,\nu)\in\C^2\mid \nu\in-2\N\cup(q+1+2\Z) \right\}$。
+  }
 \begin{theorem}[$K$不変ベクトルにおける``固有値'']
-	正規化された$K$不変ベクトル$\mathbbm{1}_{\lambda} \in I (\lambda)$と$K'$不変ベクトル$\mathbbm{1}_{\nu} \in I (\nu)$に対して\vspace{-3.0ex}
+	正規化された$K$不変ベクトル$\mathbbm{1}_{\lambda} \in I (\lambda)$と$K'$不変ベクトル$\mathbbm{1}_{\nu} \in I (\nu)$に対して
 	\[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} = 2^{1 -
      \lambda} \frac{\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
      \Gamma \left( - \frac{q}{2} + \frac{\lambda + 1}{2} \right) \Gamma \left(
      \frac{q - \nu + 1}{2} \right)} \mathbbm{1}_{\nu} \quad\mbox{が成り立つ。}\]
 \end{theorem}
-\vspace{-2ex}
 \begin{theorem}[留数定理]
 	\sniptJ
 \end{theorem}
