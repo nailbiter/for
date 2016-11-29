@@ -8,240 +8,35 @@
 
   <section|<value|n1>>
 
-  <value|s1><value|s2><value|s3><value|s4><value|t9><value|t10>
+  <value|s1><value|s2><value|s3><value|s4><specific|texmacs|><value|s5><value|s6><value|s7>
 
-  <\equation*>
-    <value|t11>
-  </equation*>
+  <section|<value|n2>>
 
-  <value|t12>
-
-  <section|<value|t13>>
-
-  <value|t14><value|t15><value|t16><value|t17><value|t18><value|t19><value|t20><value|t21><value|t22><value|t23><value|t24>
-
-  <\equation*>
-    <t25>
-  </equation*>
-
-  <value|t26>
-
-  <\equation*>
-    <t27>
-  </equation*>
-
-  <t28>
-
-  <\equation*>
-    <value|t29>
-  </equation*>
-
-  <t30>
-
-  <\equation*>
-    <value|t31>
-  </equation*>
-
-  <value|t32><value|conformal>
+  <value|sb1><value|sb2><value|sb3><value|sb4><value|sb5><value|sb6><value|sb7><sb8><sb9><sb10><value|sb11><value|sb12><sb13><value|sb14><sb15><value|sb16>
 
   <\remark>
     <value|r1>
   </remark>
 
-  <section|<t38>>
+  <section|<value|n3>>
 
-  <value|t39><t40>
+  <value|sc1><value|sc2>
 
-  <\fact>
-    <value|f1>
-  </fact>
-
-  We set
-
-  <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|>|<cell|<value|defX>,>>|<row|<cell|>|<cell|>|<cell|<value|defY>,>>|<row|<cell|>|<cell|>|<cell|<value|defC>,>>|<row|<cell|>|<cell|>|<cell|<value|defo>.>>>>
-  </eqnarray>
+  <value|f1><no-indent><value|sc3>
 
   <\theorem>
-    (description of double coset <math|P<rprime|'>\\G/P>) We set
-
-    <center|<value|m8>>
-
-    \;
+    <value|t1>
   </theorem>
 
   <\fact>
-    (classification of differential SBO, see <cite|kobayashi2015branching>)
-    For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>//\<assign\><around*|{|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>\<mid\>\<nu\>-\<lambda\>\<in\>2\<bbb-N\>|}>>,
-    let
-
-    <center|<value|m9>>
-
-    where <math|<wide|C|~><around|(|s,t|)>> is a polynomial of two-variables,
-    obtained by inflation of the renormalized Gegenbauer polynomial, defined
-    as in <cite-detail|kobayashi2015symmetry|(16.3)>.
-
-    It is a differential SBO (i.e. <math|\<cal-S\>upp<around*|(|<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|<around*|{|<around*|[|o|]>|}>>|)>=<around*|{|0|}>>)
-    and any differential SBO is proportional to it.
+    <f2>
   </fact>
 
-  <\theorem>
-    (construction of regular SBO) For <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>
-    with <math|Re<around*|(|\<nu\>|)>\<less\>0> and
-    <math|Re<around*|(|\<lambda\>+\<nu\>-n|)>\<gtr\>0> the continuous
-    function
+  <value|t2a><value|t2b><value|t3a><value|t3b><value|t4a><value|t4b><value|t5><value|t6>
 
-    <\equation*>
-      <value|m10>
-    </equation*>
+  <section|<value|n4>>
 
-    is a member of <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\>,\<nu\>|)>>
-    and we let
-
-    <\equation*>
-      R<rsub|\<lambda\>,\<nu\>><rsup|X>\<assign\>Op<around*|(|<value|m10>|)>.
-    </equation*>
-  </theorem>
-
-  <\theorem>
-    (normalization of regular SBO) <math|R<rsub|\<lambda\>,\<nu\>><rsup|X>>
-    can be meromorphically extended to <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>.
-    Moreover,
-
-    <\equation*>
-      <value|m11>
-    </equation*>
-
-    becomes an SBO dependending holomorphically on
-    <math|<around*|(|\<lambda\>,\<nu\>|)>>. It then vanishes on a discrete
-    set of <math|\<bbb-C\><rsup|2>> which we can determine.
-  </theorem>
-
-  <\theorem>
-    (construction of singular SBOs) For <math|S=X,Y,C>, and the following
-    operators <math|R<rsub|\<lambda\>,\<nu\>><rsup|S>> and
-    <math|<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|X>> are symmetry breaking
-    operators from <math|I<around*|(|\<lambda\>|)>\<mid\><rsub|G<rprime|'>>>
-    to <math|J<around|(|\<nu\>|)>>, which depend holomorphically on
-    <math|<around|(|\<lambda\>,\<nu\>|)>\<in\>D<rsub|S>> and are
-    renormalizations of <math|<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|X>>.
-    Moreover, <math|\<cal-S\>upp<around|(|R<rsub|\<lambda\>,\<nu\>><rsup|S>|)>\<subseteq\>S>
-    with \P=\Q holding generically and are determined explicitly.
-
-    <\center>
-      <value|m12>
-    </center>
-
-    Let us explain the notation in the table.
-
-    <\itemize>
-      <item><value|m13>
-
-      <item><value|m14>
-
-      <item><value|m15>
-    </itemize>
-  </theorem>
-
-  <\theorem>
-    (dimension of SBO space) For all <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>,
-
-    <\equation*>
-      dim Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>\<in\><around*|{|1,2|}>.
-    </equation*>
-  </theorem>
-
-  <\theorem>
-    (classification of SBOs)
-
-    <center|<value|m16>>
-
-    \;
-  </theorem>
-
-  <section|Solution to <math|<value|c3>-<value|c5>>>
-
-  <\theorem>
-    (spectrum for spherical vectors) Let <math|n\<assign\>p+q*<space|0.27em><around|(|p,q\<ge\>1|)>>
-    as before.
-
-    <center|<value|m17>>
-
-    \;
-  </theorem>
-
-  <\remark>
-    <value|rmspher>
-  </remark>
-
-  For <math|<around|(|\<lambda\>,\<nu\>|)>\<nin\>//>, we set
-
-  <\equation*>
-    <value|m18>
-  </equation*>
-
-  Then <math|<wide|R|~><rsub|\<lambda\>,\<nu\>><rsup|X>=<frac|1|\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>>Op<around*|(|K<rsub|\<lambda\>,\<nu\>><rsup|X>|)>>.
-  We recall that the left-hand side extends to a family of SBOs with
-  holomorphic parameter <math|<around|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>.
-
-  <\theorem>
-    (residue formula) Suppose <math|<around|(|\<lambda\>,\<nu\>|)>\<in\>//>,
-    namely <math|l\<assign\><frac|1|2>*<around*|(|\<nu\>-\<lambda\>|)>\<in\>\<bbb-N\>>.
-    Then we have
-
-    <\equation*>
-      <value|m19>
-    </equation*>
-  </theorem>
-
-  <\remark>
-    <value|rmres>
-  </remark>
-
-  <\definition*>
-    The <underline|Knapp-Stein operator> is a <math|G>-intertwining operator
-    defined as
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<value|m20>>|<cell|>>>>
-    </eqnarray>
-
-    where <math|q<rsub|T><around*|(|\<lambda\>|)>> is explicitly given by
-    Gamma factors. We compare the composition
-    <math|R<rsub|n-\<lambda\>,\<nu\>><rsup|X>\<circ\><wide|\<bbb-T\>|~><rsub|\<lambda\>><rsup|G>>
-    and <math|R<rsub|\<lambda\>,\<nu\>><rsup|X>>. They should be proportional
-    to each other.
-
-    <center|<value|m21>>
-
-    For <math|G<rprime|'>=O<around*|(|p,q+1|)>> we similarly define
-    <math|<wide|\<bbb-T\>|~><rsub|\<nu\>><rsup|G<rprime|'>>:J<around*|(|\<nu\>|)>\<rightarrow\>J<around*|(|n-1-\<nu\>|)>>.
-
-    <center|<value|m22>>
-
-    \;
-  </definition*>
-
-  <\theorem>
-    (functional identities) Let <math|n\<assign\>p+q> as before. We have:\ 
-
-    <center|<value|m23>>
-
-    where
-
-    <center|<value|m24>>
-
-    \;
-  </theorem>
-
-  <\remark>
-    <value|rmfunc>
-  </remark>
-
-  <\theorem>
-    (images of SBOs) We can compute images of every SBOs constructed above
-    for every <math|<around*|(|\<lambda\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>>.
-  </theorem>
+  <value|t7><value|r2><value|t8><value|d1><value|d2><value|t9><value|t10>
 
   <\bibliography|bib|tm-alpha|todai_master.bib>
     <\bib-list|7>
@@ -307,8 +102,8 @@
     <associate|auto-2|<tuple|2|1>>
     <associate|auto-3|<tuple|3|2>>
     <associate|auto-4|<tuple|4|4>>
-    <associate|auto-5|<tuple|10|5>>
-    <associate|auto-6|<tuple|10|?>>
+    <associate|auto-5|<tuple|4|5>>
+    <associate|auto-6|<tuple|5|?>>
     <associate|bib-Kobayashi2005|<tuple|Kob05|6>>
     <associate|bib-Kobayashi2008|<tuple|Kob08|6>>
     <associate|bib-bernstein2004estimates|<tuple|BR04|5>>
@@ -343,13 +138,9 @@
 
       kobayashi2015symmetry
 
-      clerc2011generalized
-
       kobayashi2015symmetry
 
       kobayashi2015symmetry
-
-      kobayashi2015program
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Branching
@@ -360,12 +151,12 @@
       program for branching> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Classification
-      of SBOs> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc><uninit>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Solution
-      to <with|mode|<quote|math>|<with|mode|<quote|math>|<around*|(|\<cal-C\>3|)>>-<with|mode|<quote|math>|<around*|(|\<cal-C\>5|)>>>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Solutions
+      to <with|mode|<quote|math>|<around*|(|\<cal-C\>3|)>-<around*|(|\<cal-C\>5|)>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4><vspace|0.5fn>
 
