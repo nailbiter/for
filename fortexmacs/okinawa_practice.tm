@@ -7,6 +7,28 @@
     <doc-data|<doc-title|Symmetry breaking of indefinite orthogonal groups
     <math|O<around*|(|p,q|)>>>>
 
+    <section|Branching problem>
+
+    <value|ta2><value|ta3>
+
+    <center|<value|m1>>
+
+    <value|ta4><value|ta5a>
+
+    <\equation*>
+      <value|csplit>
+    </equation*>
+
+    <value|ta5b><value|ta6><value|ta7a>
+
+    <\equation*>
+      Hom<rsub|G<rprime|'>><around*|(|<value|pig>,\<tau\>|)>
+    </equation*>
+
+    <value|ta7b>
+
+    <section|<value|abc> >
+
     <\bibliography|bib|tm-alpha|todai_master.bib>
       <\bib-list|7>
         <bibitem*|CKØP11><label|bib-clerc2011generalized>J.-L.<nbsp>Clerc,
@@ -67,9 +89,9 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|?|1>>
-    <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|3|3>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-2|<tuple|2|1>>
+    <associate|auto-3|<tuple|2|3>>
     <associate|auto-4|<tuple|4|5>>
     <associate|auto-5|<tuple|10|6>>
     <associate|bib-Kobayashi2008|<tuple|Kob08|6>>
@@ -86,14 +108,21 @@
 
 <\auxiliary>
   <\collection>
+    <\associate|bib>
+      Kobayashi2008
+    </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Branching
       problem> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc><with|mode|<quote|math>|\<cal-A\>\<cal-B\>\<cal-C\>>
+      > <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2><vspace|0.5fn>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-2><vspace|0.5fn>
+      <no-break><pageref|auto-3><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
