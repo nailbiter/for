@@ -1,0 +1,94 @@
+<TeXmacs|1.99.4>
+
+<style|<tuple|article|mystyle|number-europe|okinawa>>
+
+<\body>
+  <doc-data|<doc-title|Symmetry breaking of indefinite orthogonal groups
+  <math|O<around*|(|p,q|)>>>>
+
+  <\bibliography|bib|tm-alpha|todai_master.bib>
+    <\bib-list|6>
+      <bibitem*|KM14><label|bib-kobayashi2014classification>T.<nbsp>Kobayashi<localize|
+      and >T.<nbsp>Matsuki.<newblock> Classification of finite-multiplicity
+      symmetric pairs.<newblock> <localize|In
+      ><with|font-shape|italic|<with|font-family|rm|font-shape|right|font-series|medium|Special
+      Issue in honour of Professor Dynkin for his 90th birthday>>,
+      <localize|volume><nbsp>19, <localize|pages >457\U493. Springer,
+      2014.<newblock>
+
+      <bibitem*|KO13><label|bib-kobayashi2013finite>T.<nbsp>Kobayashi<localize|
+      and >T.<nbsp>Oshima.<newblock> Finite multiplicity theorems for
+      induction and restriction.<newblock> <with|font-shape|italic|Advances
+      in Mathematics>, 248:921\U944, 2013.<newblock>
+
+      <bibitem*|Kob05><label|bib-Kobayashi2005>Toshiyuki Kobayashi.<newblock>
+      <with|font-shape|italic|Restrictions of Unitary Representations of Real
+      Reductive Groups>, <localize|pages >139\U207.<newblock> Birkhäuser,
+      2005.<newblock>
+
+      <bibitem*|Kob15><label|bib-kobayashi2015program>T.<nbsp>Kobayashi.<newblock>
+      A program for branching problems in the representation theory of real
+      reductive groups.<newblock> <localize|In
+      ><with|font-shape|italic|<with|font-family|rm|font-shape|right|font-series|medium|Special
+      issue in honor of Vogan's 60th years birthday>>, <localize|volume> 312,
+      <localize|pages >277\U322. Birkhäuser, 2015.<newblock>
+
+      <bibitem*|KS15><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
+      and >B.<nbsp>Speh.<newblock> <with|font-shape|italic|Symmetry Breaking
+      for Representations of Rank One Orthogonal Groups>, <localize|volume>
+      <with|font-series|bold|238><localize| of
+      ><with|font-shape|italic|Memoirs of the Amer. Math. Soc>.<newblock>
+      2015.<newblock>
+
+      <bibitem*|KØSS15><label|bib-kobayashi2015branching>T.<nbsp>Kobayashi,
+      B.<nbsp>Ørsted, P.<nbsp>Somberg<localize|, and
+      >V.<nbsp>Sou£ek.<newblock> Branching laws for verma modules and
+      applications in parabolic geometry. I.<newblock>
+      <with|font-shape|italic|Advances in Mathematics>, 285:1796\U1852,
+      2015.<newblock>
+    </bib-list>
+  </bibliography>
+</body>
+
+<\initial>
+  <\collection>
+    <associate|font-base-size|11>
+    <associate|info-flag|none>
+    <associate|magnification|1>
+  </collection>
+</initial>
+
+<\references>
+  <\collection>
+    <associate|auto-1|<tuple|?|1>>
+    <associate|auto-2|<tuple|1|1>>
+    <associate|auto-3|<tuple|3|2>>
+    <associate|auto-4|<tuple|4|4>>
+    <associate|auto-5|<tuple|4|5>>
+    <associate|auto-6|<tuple|5|?>>
+    <associate|bib-Kobayashi2005|<tuple|Kob05|5>>
+    <associate|bib-Kobayashi2008|<tuple|Kob08|6>>
+    <associate|bib-bernstein2004estimates|<tuple|BR04|5>>
+    <associate|bib-clerc2011generalized|<tuple|CKØP11|5>>
+    <associate|bib-kobayashi2013finite|<tuple|KO13|5>>
+    <associate|bib-kobayashi2014classification|<tuple|KM14|5>>
+    <associate|bib-kobayashi2015branching|<tuple|KØSS15|5>>
+    <associate|bib-kobayashi2015program|<tuple|Kob15|5>>
+    <associate|bib-kobayashi2015symmetry|<tuple|KS15|5>>
+    <associate|thm:spherical|<tuple|3|?|../../.TeXmacs/texts/scratch/no_name_9.tm>>
+  </collection>
+</references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|toc>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Branching
+      problem> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-1><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2><vspace|0.5fn>
+    </associate>
+  </collection>
+</auxiliary>
