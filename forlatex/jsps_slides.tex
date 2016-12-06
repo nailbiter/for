@@ -1,0 +1,244 @@
+%japanese
+\documentclass[8pt,notes,notheorems]{beamer}
+\mode<presentation>{\usetheme[secheader]{Boadilla}}
+\usepackage{mystyle}
+\usepackage{xcolor}
+\usepackage{xeCJK}
+\usepackage{amsmath,amssymb,bbm,xypic}
+\includecomment{versiona}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\usepackage{pifont}
+%%\usepackage{bbding}
+\usepackage{scalerel}
+%%\usepackage{adjustbox}
+%%\usepackage{tcolorbox}
+%%\usepackage{lipsum}
+%%\usepackage{calc}
+%%\usepackage{graphicx}
+%%\usepackage{amsmath}
+%%\usepackage{amssymb}
+%%\usepackage{relsize}
+%%\usepackage{multirow}
+%%\usepackage{rotating}
+%%\usepackage{bm}
+%%\usepackage{url}
+%%\usepackage{mystyle}
+%%\usepackage{enumerate}
+%%\usepackage{geometry}
+%%\usepackage{setspace}
+%%\usepackage{amsmath,amssymb,bbm,xypic}
+\usepackage[all,cmtip]{xy}
+%%\usepackage{amsmath,amssymb,bbm,float,mystyle}
+%%\usepackage[normalem]{ulem}
+%%\usepackage{caption}
+%%\usepackage{subcaption}
+%%\usepackage{setspace}
+%%\usepackage{catchfilebetweentags}
+%%\usepackage{multirow}
+%%\usepackage{bbm}
+%%\usepackage{graphicx}
+%%\usepackage{multicol}
+%%\usepackage{array}
+%%\usepackage{stmaryrd}
+%%\usepackage{CJKutf8}	
+
+%\usepackage{times}
+%\usepackage{helvet}
+%\usepackage{bookman}
+\usepackage{palatino}
+
+\newcommand{\glue}[2][7.5cm]{\makebox[#1]{#2\hfill}}
+\newcommand{\redunderline}[1]{ {\Huge\color{red}{\underline{\color{black}{{\small #1}}}}} }
+\newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
+\newcommand{\Hom}{\mbox{\normalfont Hom}}
+
+\makeatletter
+\newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
+{\usebeamertemplate{proof end}}
+\makeatother
+
+\makeatletter
+\def\th@mystyle{%
+	\normalfont % body font
+	\setbeamercolor{block title example}{bg=orange,fg=white}
+	\setbeamercolor{block body example}{bg=orange!20,fg=black}
+	\def\inserttheoremblockenv{exampleblock}
+}
+\makeatother
+
+\theoremstyle{mystyle}
+\newtheorem{prop}{Proposition}
+\newtheorem{example*}{例}
+\setCJKmainfont{Hiragino Mincho Pro}
+\newcommand{\mybox}[2]{
+	\begin{tcolorbox}[colback=green!5,colframe=orange!40,title=#1]#2\end{tcolorbox}
+}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot} レオンチエフ　オレクシィ東京大学、ＤＣ　面接資料
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot} 研究話題『対称性破れの作用素』
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\title{対称性破れの作用素}
+\author{レオンチエフ　オレクシィ\\東京大学　大学院数理科学研究科\\博士課程１年生\\[2em]特別研究員DC2　受人研究者: 小林俊行教授}
+\date{平成２８年12月5日}
+
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+\begin{frame}{DC申請書を提出した後の活動（平成２８年５月--１１月）：}
+	\mybox{}{
+	（講演）
+	\begin{enumerate}
+		\item \glue{広島大学幾何セミナー、\smallskip 広島大学}{\underline{７月１９日}}
+		\item Workshop on ``Actions of Reductive Groups and Global Analysis''、東京大学\\\glue{玉原国際セミナーハウス}\underline{８月１１日}
+		\item \glue{日本数学会２０１６年度秋季総合分科会、関西大学} \underline{９月１８日}
+		\item \glue{広島幾何学研究集会２０１６、広島大学} \underline{１０月７日}
+		\item \glue{日本数学会　異分野・異業種研究交流会2016、明治大学} \underline{１１月１９日}
+		\item \glue{Symposium on Representation Theory、沖縄} \underline{１１月３０日}
+	\end{enumerate}
+	\vspace{2em}
+	（論文）--査読なし
+	\begin{enumerate}
+		\setcounter{enumi}{6}
+		\item Symmetry breaking operators of indefinite orthogonal groups $O(p,q)$、日本数学会２０１６年度秋季総合、幾何学分科会　講演アブストラクト,２pages,
+		\item Symmetry breaking operators for representations of indefinite orthogonal groups $O(p,q)$、Symposium on Representation Theory 2016, pp. 39--52.
+		\item Symmetry breaking of conformal transformation group $O(p,q)$、日本数学会2017年度年会　函数解析学分科会　講演アブストラクト,２pages (出版予定).
+	\end{enumerate}
+}
+\end{frame}
+\begin{frame}{{\large \mbox{これまでの研究業績Ａ$-$対称性破れ作用素の構成と分類（〜2016年11月）}}}
+	\mybox{\color{black}表現論（線形の対称性）の重要問題}{
+		\vspace{-0.5em}
+		\begin{itemize}
+			\item 『最小の単位』を理解する $-$ \hspace{0.1cm}既約表現の分類, \dots
+			\item 『最小の単位』 に分解する $-$ \redunderline{\normalsize 分岐則}\hspace{-0.1cm}, \dots
+		\vspace{-1.5em}
+		\end{itemize}
+	}
+	\vspace{-0.5em}
+	\mybox{\color{black}分規則とは？}{
+		ベクトル空間$V$の大きな対称性群（$G$の表現）から小さな対称性
+		（部分群$G'$の表現）に落としたとき、何が起こるかを理解する。\\[0.5em]
+		{\bf 例.}\quad テンソル積の分解の記述。
+\begin{itemize}
+	\item \glue[4.5cm]{$\;\dim V<\infty$, $G$はコンパクト\dots} 分岐則は古くから良く研究されている
+	\item \glue[4.5cm]{\redunderline{{\normalsize$\dim V=\infty$, $G$は非コンパクト\dots}}} 分岐則は難しく、本格的な研究はようやく\\
+		\glue[4.5cm]{}\mbox{１９９０年頃から始まった}
+		\vspace{-0.5em}
+\end{itemize}
+		}\vspace{-0.5em}
+		\mybox{\color{black}研究のテーマ：対称性破れの作用素({$\dim V=\infty$ のとき})}{\vspace{-1em}
+	\xymatrixrowsep{0.6cm}
+	\xymatrixcolsep{1cm}
+	\begin{equation*}
+\xymatrix{
+	{{\begin{array}{c}\mbox{大きな群}\\ G\end{array}}\ar@/_/[d]_{\mbox{既約表現}}}&\subset&{\begin{array}{c}\mbox{小さな群}\\ G'\end{array}}\ar@/^/[d]^{\mbox{既約表現}}\\
+	V\ar@{-->}[rr]^{\mbox{\fbox{対称性破れ作用素}}}&&W
+}
+\vspace{-1em}
+	\end{equation*}
+		}\vspace{-0.5em}
+\end{frame}
+\begin{frame}{{\large \mbox{これまでの研究業績Ｂ$-$対称性破れ作用素の構成と分類（〜2016年11月）}}}
+\mybox{\color{black}主定理}{
+	高階の非コンパクトなリー群の組
+	\begin{equation*}
+		(G, G')=(O(p+1,q), O(p,q))
+	\end{equation*}
+	の球退化主系列表現の間の\redunderline{{\normalsize 対称性破れ作用素}}\hspace{-0.1cm}を幾何的に構成し、それを完全に分類した。
+}
+\mybox{\color{black}関連する研究}{
+	\begin{itemize}
+		\item 先駆的結果（最初の完全な分類結果）\\
+			{Kobayashi-Speh, Memoirs of AMS, 112 pages, 2015（q=1の場合に対応する）\hspace{-0.1cm};}
+		\item 微分作用素として表される対称性破れ作用素の研究\\
+			\mbox{Rankin$-$Cohen, Zagier, Juhl, Fefferman$-$Graham, Kobayashi$-$Pevzner (2016), \dots}
+		\item 競合する動き(２０１６年１２月現在、未出版)\\
+			Kobayashi$-$Speh (2015)の出版後、Clerc(フラーンス)、Gomez（米国）、{\O}rsted(デンマーク)、M\"ollers（ドイツ）、Zhang（スウェデン） 等が関連研究を始めている。
+	\end{itemize}
+}
+\end{frame}
+\begin{frame}{主定理の証明$-$４部構成}
+	\mybox{\color{black}『対称性破れ作用素の幾何的構成と分類』の証明ー４部構成}
+	{
+		\begin{enumerate}[\hspace{-0.5cm}I]
+			\item （群論）群$O(p+1,q)$のある両側剰余類とその閉包関係の決定\vspace{0.5em}
+			\item （幾何的構成）パートＩのsubvarietyに台をもつ超函数を核とする積分変換の構成\vspace{0.5em}
+			\item {（解析接続）パートＩＩで構成された超函数の、表現パラメータに関する解析接続の証明\vspace{0.5em}}
+			\item （分類の完成）対称性破れ作用素の関数等式やスペクトラム．留数の決定\vspace{0.5em}
+		\end{enumerate}
+	}
+	\mybox{\color{black}定理の証明ー総計約１００〜１２０頁の論文を準備中}{
+		\begin{tabular}{lclclcll}
+			Ｉ&+&ＩＩ&+&ＩＩＩ&+&ＩＶ=&主定理\\
+			２１頁&+&２８頁&+& ２５頁&+&３３頁.&（現在、加筆・修正中）
+		\end{tabular}
+	}
+\end{frame}
+\begin{frame}{今後の研究計画Ａ（２０１９年３月まで）}
+		 \begin{enumerate}[(1)]
+			 \item 所属研究室(小林俊行教授）の特徴
+				 \begin{itemize}
+					 \item[$\ast$]新しい分野を興し、世界をリードする研究を行っている。
+					 \item[$\ast$] 世界中からアクティブな研究者が訪れ、文献にない情報が入る。
+					　\item[$\ast$]メンバーの専攻分野は代数・幾何・解析と多岐に亘る。
+				 \end{itemize}
+			 \item 私の研究計画の特徴
+				 \begin{itemize}
+					 \item[$\ast$]先行研究はランク１の場合に限られている。
+					 \item[$\ast$] 一方、私の研究は高階の群に対する最初の『対称性破れ作用素の研究』への挑戦である。
+				    　　\item[$\ast$]扱っている設定は、共形幾何、および、整数論の特別な問題と
+					ゆるやかな繋がりがある。
+				 \end{itemize}
+			 \item 具体的計画
+				 \begin{itemize}
+					 \item[Ａ]（１年目）：対称性破れ作用素の\redunderline{特殊値を分析}\hspace{-0.08cm}することによって、
+					 部分商として現れるZuckerman導来函手加群の分岐則における重複度を
+					 決定する
+				 \item[Ｂ ] (2年目）:をベクトル束値に設定を
+					 して\redunderline{一般化}\hspace{-0.1cm}し、特に微分形式の空間における対称性破れ作用素の構成・分類を実行する\vspace{1em}
+				\item[] {\huge \dots}　最近の研究を実現しつつ、関連する隣接分野の知識も少しずつ増やす。
+				 \end{itemize}
+		 \end{enumerate}
+\end{frame}
+\begin{frame}{今後の研究計画Ｂ（２０１９年３月までの２年間）}
+	\begin{figure}[h]
+  	\begin{center}
+		\includegraphics[scale=0.4]{/Users/nailbiter/Downloads/futur}
+	  \vspace{-1em}
+	  \end{center}
+	\end{figure}
+%%				\begin{enumerate}[A]
+%%					\item $O(p+1,q)\downarrow O(p,q)$に関する
+%%						退化主系列表現の対称性破れ作用素
+%%						　（構成と分類-2016年度）
+%%					\item （未解決問題）Zuckerman導来函手加群の
+%%						分岐則。\\2017年度は、この未解決問題を、
+%%						退化主系列表現のsubquotientの場合に解決することを目指す
+%%					\item 対称性破れ作用素の``特殊値''の分析、Selberg型積分の分析
+%%					\item モジュラー多様体の位相的性質
+%%					\item Gross-Prasad予想($O_n\downarrow O_{n-1}$)
+%%					\item ホッジ理論の精密化(松島$-$村上$-$Borel$-$Wallach$-$Voan$-$Zuckerman)   小さなフォントを使う
+%%					\item ベクトル束への一般化
+%%					\item 符号$(p,q)$をもつ擬リーマン多様体とその超曲面における対称性破れ作用素の構成と分類。\\
+%%					2018年度は、モデル空間$\Sp^p\times\Sp^q$上の微分形式に作用する対称性破れ作用素の分類を目指す。
+%%				\end{enumerate}
+\end{frame}
+\end{document}
+
+

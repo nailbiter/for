@@ -3,7 +3,7 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 59>
+  <section|report 60>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
@@ -21,10 +21,7 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>Read Appendix 3 of Lang's \PSL2\Q
-
-    <item>Created program for drawing diagrams such as attached (see
-    <verbatim|dimplots.pdf>)
+    <item>
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do during this week>:
@@ -35,6 +32,10 @@
     <item>Misc tasks:
 
     <\enumerate-numeric>
+      <item>Modify master paper, so that criterion of vanishing
+      <math|I<rsub|a<rprime|'>\<rightarrow\>a><rsup|<around*|(|p\<rightarrow\>p|)>>\<cal-H\><rsup|a<rprime|'>><around*|(|\<bbb-S\><rsup|p-1>|)>\<boxtimes\>\<cal-H\><rsup|b><around*|(|\<bbb-S\><rsup|q>|)>>'s
+      image under the SBO.
+
       <item>Compute image of <math|A<rsup|2>> under SBOs;
 
       <item>see whether it's possible to compute the image of Yamabe
@@ -198,7 +199,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      58> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      59> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments

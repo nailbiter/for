@@ -6,18 +6,8 @@
   <doc-data|<doc-title|Symmetry breaking of indefinite orthogonal groups
   <math|O<around*|(|p,q|)>>>>
 
-  <section|<value|n1>>
-
-  <value|s1><value|s2>
-
   <\bibliography|bib|tm-alpha|todai_master.bib>
-    <\bib-list|7>
-      <bibitem*|CKØP11><label|bib-clerc2011generalized>J.-L.<nbsp>Clerc,
-      T.<nbsp>Kobayashi, B.<nbsp>Ørsted<localize|, and
-      >M.<nbsp>Pevzner.<newblock> Generalized Bernstein--Reznikov
-      integrals.<newblock> <with|font-shape|italic|Mathematische Annalen>,
-      349(2):395\U431, 2011.<newblock>
-
+    <\bib-list|6>
       <bibitem*|KM14><label|bib-kobayashi2014classification>T.<nbsp>Kobayashi<localize|
       and >T.<nbsp>Matsuki.<newblock> Classification of finite-multiplicity
       symmetric pairs.<newblock> <localize|In
@@ -48,43 +38,43 @@
       for Representations of Rank One Orthogonal Groups>, <localize|volume>
       <with|font-series|bold|238><localize| of
       ><with|font-shape|italic|Memoirs of the Amer. Math. Soc>.<newblock>
-      American Mathematical Society, 2015.<newblock>
+      2015.<newblock>
 
-      <bibitem*|KØSS15><label|bib-kobayashi2015branching>Toshiyuki Kobayashi,
-      Bent Ørsted, Petr Somberg<localize|, and
-      >Vladim<math|<wide|<text|\Y>|\<acute\>>>r Sou£ek.<newblock> Branching
-      laws for verma modules and applications in parabolic geometry.
-      I.<newblock> <with|font-shape|italic|Advances in Mathematics>,
-      285:1796\U1852, 2015.<newblock>
+      <bibitem*|KØSS15><label|bib-kobayashi2015branching>T.<nbsp>Kobayashi,
+      B.<nbsp>Ørsted, P.<nbsp>Somberg<localize|, and
+      >V.<nbsp>Sou£ek.<newblock> Branching laws for verma modules and
+      applications in parabolic geometry. I.<newblock>
+      <with|font-shape|italic|Advances in Mathematics>, 285:1796\U1852,
+      2015.<newblock>
     </bib-list>
   </bibliography>
 </body>
 
 <\initial>
   <\collection>
-    <associate|font-base-size|12>
-    <associate|info-flag|minimal>
+    <associate|font-base-size|11>
+    <associate|info-flag|none>
     <associate|magnification|1>
   </collection>
 </initial>
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-1|<tuple|?|1>>
     <associate|auto-2|<tuple|1|1>>
     <associate|auto-3|<tuple|3|2>>
     <associate|auto-4|<tuple|4|4>>
     <associate|auto-5|<tuple|4|5>>
     <associate|auto-6|<tuple|5|?>>
-    <associate|bib-Kobayashi2005|<tuple|Kob05|6>>
+    <associate|bib-Kobayashi2005|<tuple|Kob05|5>>
     <associate|bib-Kobayashi2008|<tuple|Kob08|6>>
     <associate|bib-bernstein2004estimates|<tuple|BR04|5>>
     <associate|bib-clerc2011generalized|<tuple|CKØP11|5>>
-    <associate|bib-kobayashi2013finite|<tuple|KO13|6>>
+    <associate|bib-kobayashi2013finite|<tuple|KO13|5>>
     <associate|bib-kobayashi2014classification|<tuple|KM14|5>>
-    <associate|bib-kobayashi2015branching|<tuple|KØSS15|6>>
-    <associate|bib-kobayashi2015program|<tuple|Kob15|6>>
-    <associate|bib-kobayashi2015symmetry|<tuple|KS15|6>>
+    <associate|bib-kobayashi2015branching|<tuple|KØSS15|5>>
+    <associate|bib-kobayashi2015program|<tuple|Kob15|5>>
+    <associate|bib-kobayashi2015symmetry|<tuple|KS15|5>>
     <associate|thm:spherical|<tuple|3|?|../../.TeXmacs/texts/scratch/no_name_9.tm>>
   </collection>
 </references>
