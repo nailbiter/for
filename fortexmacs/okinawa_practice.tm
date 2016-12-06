@@ -6,6 +6,26 @@
   <doc-data|<doc-title|Symmetry breaking of indefinite orthogonal groups
   <math|O<around*|(|p,q|)>>>>
 
+  <section|<value|n1>>
+
+  <value|s1><value|s2><value|s3><value|s4><value|s5><value|s6><value|s7>
+
+  <section|<value|n2>>
+
+  <value|sb1><value|sb2><value|sb3><value|sb4><value|sb5><value|sb6><value|sb7><value|sb8><value|sb9><value|sb10><value|sb11><value|sb12><value|sb13><value|sb14><value|sb15><value|sb16><value|r1>
+
+  <section|<value|n3>>
+
+  <value|sc1><value|sc2>
+
+  <value|f1>
+
+  <value|sc3><value|t1><value|f2><value|t2a><value|t2b><value|t3a><value|t3b><value|t4a><value|t4b><value|t5><value|t6>
+
+  <section|<value|n4>>
+
+  <value|t7><value|r2><value|sd1><value|t8><value|d1><value|d2><value|t9><value|t10>
+
   <\bibliography|bib|tm-alpha|todai_master.bib>
     <\bib-list|6>
       <bibitem*|KM14><label|bib-kobayashi2014classification>T.<nbsp>Kobayashi<localize|
@@ -60,8 +80,8 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|?|1>>
-    <associate|auto-2|<tuple|1|1>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-2|<tuple|2|1>>
     <associate|auto-3|<tuple|3|2>>
     <associate|auto-4|<tuple|4|4>>
     <associate|auto-5|<tuple|4|5>>
@@ -81,14 +101,52 @@
 
 <\auxiliary>
   <\collection>
+    <\associate|bib>
+      Kobayashi2005
+
+      kobayashi2015program
+
+      kobayashi2015symmetry
+
+      kobayashi2013finite
+
+      kobayashi2014classification
+
+      kobayashi2015symmetry
+
+      kobayashi2015symmetry
+
+      kobayashi2015branching
+
+      kobayashi2015symmetry
+
+      kobayashi2015symmetry
+
+      kobayashi2015symmetry
+
+      kobayashi2015symmetry
+    </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Branching
       problem> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc><with|mode|<quote|math>|\<cal-A\>\<cal-B\>\<cal-C\>>
+      program for branching> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Classification
+      of SBOs> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Solutions
+      to <with|mode|<quote|math>|<around*|(|\<cal-C\>3|)>-<around*|(|\<cal-C\>5|)>>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4><vspace|0.5fn>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-2><vspace|0.5fn>
+      <no-break><pageref|auto-5><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
