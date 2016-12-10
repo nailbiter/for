@@ -116,42 +116,36 @@
 
 Suppose $G \supset G'$ are reductive groups and $\pi$ is irreducible
 representation of $G$. If we restrict $\pi$ to $G'$, in general it is no
-longer irreducible.
-
-\begin{center}
+longer irreducible.\\
 \begin{figure}[H]
 	\xymatrixrowsep{0.2pt}
 	\xymatrixcolsep{0.5cm}
-	\xymatrix{
+	\centering
+	\hspace{2.8cm}\xymatrix{
 		\pi:&G\ar[r]&GL_{\C}(V)&(\dim V=\infty)\\
 		&\bigcup&&\\
-		&G'\ar@{-->}[uur]_{\pi\big|_{G'}}&&
+		&G'\ar@{-->}[uur]_{\pi\big|_{G'}}&&\\
 	}
-\vspace{-0.5cm}
 \end{figure}
+\begin{center}
+	\fbox{{\textbf{Branching problem}} (in a wider sense) = Understand $\pi\!\mid_{G'}.$}
 \end{center}
-
-
-{\underline{Branching problem}} (in a wider sense) =
-
-= Understand $\pi \mid_{G'} .$
-
-These are well-studied (e.g. combinatorial algorithm) for $\pi$
+These are well-studied (e.g. combinatorial algorithm) for $\pi$:
 finitely-dimensional and $G$: compact. In this setting, $\pi$ always splits
 into a direct sum
-\[ \pi \mid_{G'} = \bigoplus_{\tau \in \widehat{G'}} m (\pi, \tau) \tau \]
+\[ \pi\!\mid_{G'} = \bigoplus_{\tau \in \widehat{G'}} m (\pi, \tau) \tau \]
 of irreducibles $\tau$ of $G'$.
 
-However, when $\dim (\pi) = \infty$ and $G, G'$ are non-compact, the situation
+However, when $\dim\pi = \infty$ and $G, G'$ are non-compact, the situation
 becomes much more involved and was not studied seriously before Kobayashi's
 theory appeared in 90s. In particular, several examples that show that
 behaviour is very wild in general were constructed {\cite{Kobayashi2008}}.
 
-{\underline{SBOs:}} an idea to understand ``indecomposable'' restriction $\pi
+{\textbf{SBOs:}} an idea to understand ``indecomposable'' restriction $\pi\!
 \mid_{G'}$ is to compare it with irreducible representations $\tau$ of the
 small group $G'$, i.e. to study the space
-\[ \tmop{Hom}_{G'} (\pi \mid_{G'}, \tau) \]
-of {\underline{symmetry breaking operators}} (SBOs, for short).
+\[ \tmop{Hom}_{G'} (\pi\!\mid_{G'}, \tau) \]
+of {\textbf{symmetry breaking operators}} (SBOs, for short).
 
 \section{$\mathcal{A}\mathcal{B}\mathcal{C}$ program for branching}
 
@@ -160,10 +154,10 @@ program for studying branching of noncompact groups, which can be summarized
 as follows:
 \begin{description}
   \item[($\mathcal{A}$)] $\mathcal{A}$bstract features of the representation
-  (i.e. we want to find triples $(G, G', \pi)$, so that $\pi \mid_{G'}$ is
+  (i.e. we want to find triples $(G, G', \pi)$, so that $\pi\!\mid_{G'}$ is
   manageable);
   
-  \item[$(\mathcal{B})$] $\mathcal{B}$ranching law of $\pi \mid_{G'}$;
+  \item[$(\mathcal{B})$] $\mathcal{B}$ranching law of $\pi\!\mid_{G'}$;
   
   \item[$(\mathcal{C})$] $\mathcal{C}$onstruction of SBOs.
 \end{description}
@@ -210,7 +204,7 @@ geometry:
   & \rightsquigarrow G \curvearrowright I (\lambda) = C^{\infty} (X,
   \mathcal{L}_{\lambda}) . &  \nonumber
 \end{eqnarray}
-{\noindent}\tmtextbf{Remark . }Works {\cite{kobayashi2013finite}},
+{\noindent}\tmtextbf{Remark. }Works {\cite{kobayashi2013finite}},
 {\cite{kobayashi2014classification}} regarding the part $\mathcal{A}$ (a
 priori estimate) for this setting, imply that $\dim (\tmop{Hom}_{G'} (I
 (\lambda), J (\nu)))$ is uniformly bounded in $(\lambda, \nu) \in
@@ -233,23 +227,23 @@ $P$. $G'$ is the stabilizer subgroup of $e_p$ in $G$ and $P':=G\cap P$.
 
 \[
 	\mbox{Let }X:=G/P\simeq X^{p,q},\quad Y:=\mysetn{[\xi,\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\]
-	\[C:=\mysetn{[\xi,\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\quad\left\{ [o] \right\}:=\left\{ [1,0_{p+q},1] \right\}.
+	\[C:=\mysetn{[\xi,\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\quad\left\{ o \right\}:=\left\{ [1,0_{p+q},1] \right\}.
   \]
 
 \begin{theorem}
 For $p, q \geqslant 1$, $P'$-invariant closed subspaces of $G/P$ are given as follows:\\
   \begin{figure}[H]
-	  
     \centering
     \begin{subfigure}{0.3\textwidth}
-	\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&Y\cap C\ar@{-}[d]&\\&\{[o]\}&}
+	\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&Y\cap C\ar@{-}[d]&\\&\{o\}&}
 	\caption{$p>1$}
     \end{subfigure}
     ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
       %(or a blank line to force the subfigure onto a new line)
     \begin{subfigure}{0.3\textwidth}
 	\raisebox{40mm}
-	{\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\&\{[o]\}&}}
+	{\xymatrix{&X\ar@{-}[ld]\ar@{-}[rd]&\\Y\ar@{-}[rd]&&C\ar@{-}[ld]\\  &\{o\}&}}
+	\vspace{0.38cm}
 	\caption{$p=1$}
     \end{subfigure}
 \end{figure}
@@ -290,7 +284,7 @@ $\IlambdaGprime$ to $J(\nu)$, which depend holomorphically on $(\lambda,\nu)\in 
     C \cap Y, & p > 1, \; (\lambda, \nu) \in \mid \mid \cap
     \backslash\backslash - / /,\\
     \varnothing, & (\lambda, \nu) \in / / \cap \mid \mid \mid,\\
-    \{ [o] \}, & (\lambda, \nu) \in / / - \mid \mid \mid\!.
+    \{ o \}, & (\lambda, \nu) \in / / - \mid \mid \mid\!.
   \end{array} \right.$\\
   \hline
   $\tilde{R}^X_{\lambda, \nu} =$ & $\frac{1}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
@@ -333,9 +327,9 @@ $ \begin{array}{ll}
   \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) }{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}\delta^{(2m)}\left( \Q \right)
     \right)}$ & $ \mid \mid$ &
   $\left. \begin{array}{lll}
-	  \{ [o] \}, &q\todd, & (\lambda, \nu) \in / /,\\
+	  \{ o \}, &q\todd, & (\lambda, \nu) \in / /,\\
     C, & q\todd, & (\lambda, \nu) \nin / /,\\
-    \{ [o] \}, & q\teven , & (\lambda, \nu) \in / / \cap
+    \{ o \}, & q\teven , & (\lambda, \nu) \in / / \cap
     \backslash\backslash,\\
     C, & q\teven, & (\lambda, \nu) \nin / / \cap
     \backslash\backslash.
@@ -346,7 +340,7 @@ $ \begin{array}{ll}
   \lambda}^{\lambda - \frac{n - 1}{2}} \left(-\Delta_{\mathbbm{R}^{p - 1, q}}
   \delta_{\mathbbm{R}^{p + q - 1}}, \delta (x_p)\right) \right)
   $ & $
-  / /$ & $\{ [o] \}$\\
+  / /$ & $\{ o \}$\\
   \hline
 \end{tabular}
 Let us explain the notation in the table.
@@ -364,18 +358,26 @@ For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
 \ExecuteMetaData[.master_extract.tex]{residue}
 \vspace{-3ex}
 \begin{theorem}[classification of SBOs]
-  For $p > 1$ we have\vspace{-1.5ex}
-  \begin{eqnarray}
-	  & \Hom_{G'}(I(\lambda),J(\nu))= \left\{
-    \begin{array}{ll}
-      \mathbbm{C} {\OpR}_{\lambda, \nu}^{X} \oplus \mathbbm{C}
-      {\OpR}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in / /\cap 
-      \mid\mid\mid\\
-      \mathbbm{C} \OpR^X_{\lambda, \nu}, &
-      \mbox{\normalfont otherwise.}\vspace{-1ex}
-    \end{array} \right. &  \nonumber\vspace{-1.5ex}
-  \end{eqnarray}
-  For $p=1$ similar result was obtained.
+  We have\vspace{-1.5ex}
+\[ p = 1 \Rightarrow \SBO = \left\{
+   \begin{array}{ll}
+     \mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \nin (/ /
+     \cap \mid \mid \mid) - (\mid \mid \cap \backslash\backslash),\\
+     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
+     \}}_{\lambda, \nu}, & (\lambda, \nu) \in (/ / \cap \mid \mid \mid) -
+     (\mid \mid \cap \backslash\backslash),\\
+     \mathbbm{C}R^P_{\lambda, \nu} \oplus \mathbbm{C}R^C_{\lambda, \nu}, &
+     (\lambda, \nu) \in (\mid \mid \cap \backslash\backslash) - / /,\\
+     \mathbbm{C}R^{\{ o \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid
+     \cap \backslash\backslash \cap / /.
+   \end{array} \right. \]
+\[ p > 1 \Rightarrow \SBO = \left\{
+   \begin{array}{ll}
+     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
+     \}}_{\lambda, \nu \lambda, \nu}, & (\lambda, \nu) \in / / \cap \mid \mid
+     \mid,\\
+     \mathbbm{C}R^X_{\lambda, \nu}, & \tmop{otherwise.}
+   \end{array} \right. \]
 \end{theorem}
 \vspace{-2ex}
 \begin{theorem}[spectrum for spherical vectors]
