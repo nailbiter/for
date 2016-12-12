@@ -1,9 +1,9 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 60>
+  <section|report 61>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
@@ -21,25 +21,31 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>
+    <item>Finished restructuring master paper<strong|>
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Reading: read Lang's \PSL2\Q
+    <item>Reading:
+
+    <\enumerate>
+      <item>Reading: read Lang's \PSL2\Q;
+
+      <item>Read \PHidden Symmetries\Q
+
+      <item>Read \PCONFORMAL SYMMETRY BREAKING OPERATORS FOR ANTI-DE SITTER
+      SPACES\Q
+    </enumerate>
 
     <item>Misc tasks:
 
     <\enumerate-numeric>
-      <item>Modify master paper, so that criterion of vanishing
-      <math|I<rsub|a<rprime|'>\<rightarrow\>a><rsup|<around*|(|p\<rightarrow\>p|)>>\<cal-H\><rsup|a<rprime|'>><around*|(|\<bbb-S\><rsup|p-1>|)>\<boxtimes\>\<cal-H\><rsup|b><around*|(|\<bbb-S\><rsup|q>|)>>'s
-      image under the SBO.
-
       <item>Compute image of <math|A<rsup|2>> under SBOs;
 
-      <item>see whether it's possible to compute the image of Yamabe
-      operator's kernel under SBOs;
+      <item>Compute image of Yamabe kernel under SBOs for <math|p=1>;
+
+      <item>Compute image of <math|A<rsup|1>> under SBOs for <math|p=1>;
     </enumerate-numeric>
 
     <item>Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
@@ -55,15 +61,6 @@
       <math|F<around*|(|-\<cdot\>|)>=\<varepsilon\>\<varepsilon\><rprime|'>F<around*|(|\<cdot\>|)>>)
 
       <item>Classify <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>-<around*|{|0|}>;\<lambda\>\<otimes\>\<varepsilon\>,\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
-    </enumerate-numeric>
-
-    <item>Work on for <math|U<around*|(|p,q|)>> case (sat):
-
-    <\enumerate-numeric>
-      <item>Check the geometry (<math|P<rprime|'>\<curvearrowright\>G/P>
-      action, <math|P<rprime|'>N<rsub|->P=G>)
-
-      <item>set up the equations
     </enumerate-numeric>
   </enumerate>
 
@@ -148,8 +145,10 @@
 
   <paragraph|Comments>
 
-  I did intolerably small amount of work the last 4 weeks. I'll have to catch
-  up.
+  I am sure that I can compute the image of every <math|G>-submodule of
+  <math|I<around*|(|\<lambda\>|)>> under SBOs for <math|p=1> case. It will
+  require some computations, which I hope to finish in a week or so. I will
+  also try to extend this method for <math|p\<gtr\>1>.
 
   <\bibliography|bib|tm-alpha|todai_master>
     <\bib-list|1>
@@ -165,6 +164,7 @@
 
 <\initial>
   <\collection>
+    <associate|magnification|1.4>
     <associate|page-type|letter>
   </collection>
 </initial>
@@ -172,19 +172,9 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|1|2>>
-    <associate|auto-3|<tuple|1|2>>
-    <associate|auto.2-1|<tuple|1|?|#2>>
-    <associate|auto.2-2|<tuple|1|?|#2>>
-    <associate|auto.3-1|<tuple|1|?|#3>>
-    <associate|auto.3-2|<tuple|3|?|#3>>
-    <associate|auto.3-3|<tuple|3.1|?|#3>>
-    <associate|bib-KO2|<tuple|KØ03|?>>
-    <associate|bib-grauert2012several|<tuple|GF12|?>>
-    <associate|bib-knapp2013lie|<tuple|Kna13|?>>
-    <associate|bib-kobayashi2014classification|<tuple|KM14|?>>
-    <associate|bib-kobayashi2015classification|<tuple|KO15|2>>
-    <associate|bib-wallach1988real|<tuple|Wal88|1>>
+    <associate|auto-2|<tuple|1|3>>
+    <associate|auto-3|<tuple|1|3>>
+    <associate|bib-kobayashi2015classification|<tuple|KO15|3>>
   </collection>
 </references>
 
@@ -199,7 +189,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      59> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      61> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
