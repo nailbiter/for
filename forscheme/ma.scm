@@ -24,7 +24,7 @@
                             (callback)
                             (format #t "\\end{tikzpicture}}~%")))
 (define (tikzpic-1 callback)(begin
-                            (format #t "{\\hspace{-1.5cm}\\begin{tikzpicture}[scale=~f]~%" scale)
+                            (format #t "{\\hspace{-1.5cm}\\begin{tikzpicture}[scale=~f]~%" 0.7)
                             (drawline '(0 0) (list axeslen 0))
                             (drawfilledcirc '(0 0))
                             (callback)
@@ -37,8 +37,8 @@
     (begin(print-initial)(format #t "~a" (drawpoint (car l)))(map print-iter (cdr l)) (print-final))))
 (define (drawlabel pt text)(format #t "\\node at ~a {~a $~a$};~%" (drawpoint pt)fontline text))
 (define (draw-axes)(begin
-                     (format #t "\\draw [<->,thick] ~a node (yaxis) [above] {\\tiny $\\mathcal{H}^b(\\Sp^q)$}~%"(drawpoint(list 0 axeslen)))
-                     (format #t "~/|- ~a node (xaxis) [below] {\\tiny $\\mathcal{H}^a(\\Sp^{p-1})$};~%" (drawpoint (list axeslen 0)))))
+                     (format #t "\\draw [<->,thick] ~a node (yaxis) [above] {}~%"(drawpoint(list 0 axeslen)))
+                     (format #t "~/|- ~a node (xaxis) [below] {};~%" (drawpoint (list axeslen 0)))))
 (define (myforeach each interleave l)(begin(each(car l))(for-each (lambda(x)(begin(interleave)(each x)))(cdr l)))); only use for l!='()
 (define (drawarrows start end dir len)
   (let*((mult(lambda(x)(* x len)))
@@ -115,7 +115,7 @@
                          (cdr arg)))
 (define (mp1 arg)(myforeach
                          (lambda(x)(if(string=? x "()")
-                                     (format #t "{\\vspace{-0.7cm}$\\quad\\;\\;\\quad\\times$}")(tikzpic-1(lambda()(map(lambda(l)
+                                     (format #t "{\\vspace{-0.9cm}$\\kern-0.6cm\\times$}")(tikzpic-1(lambda()(map(lambda(l)
                                      (let*((l1(cadr l))(rem(cddr l))(pad 0.05)(wid 0.36)(mysum(reduce + 0 (cdr l)))
                                            (myfill(lambda(x1 x2)(format #t"\\draw ~a ~a -- ~a -- ~a -- ~a ~%;"
                                            (get-color-line (car l))

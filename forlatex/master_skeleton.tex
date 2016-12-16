@@ -376,7 +376,7 @@ parameter $(\lambda,\nu)\in\C^2$.
 \begin{enumerate}[(1)]
 	\item Suppose $p\in2\N_++1$ and $q\in2\Z$. Then, if $\nu\in2\Z,0<\nu<n-1$, $R_{\lambda,\nu}^X$ is surjective. Otherwise,
 		\hspace*{-1cm}\begin{figure}[H]
-			\noindent\begin{tabular}{m{1.3cm}rrr}
+			\noindent\begin{tabular}{m{1.6cm}rrr}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
 	      {\vspace{-3cm} $ \begin{array}{l}
 	      \nu\teven\\ \nu\le0
@@ -456,9 +456,9 @@ parameter $(\lambda,\nu)\in\C^2$.
 	\newcommand{\mystack}[2]{$\begin{array}{l}#1\\#2\end{array}$}
 
 	\begin{figure}[H]
-		\begin{tabular}{p{3.2cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.3cm}p{2.3cm}}
-		$(\lambda,\nu)\in$ & $\mybra{\ss\cup\bb}^c$ & $\ss-\bb$ & $\bb-\ss$ & $\ss\cap\bb,k<l$ & $\ss\cap\bb,k\geq l$\\
-		\vspace{-0.7cm}\mystack{\nu\teven}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		'((def 0 1))' '((Kt 0 1)(K0 0 2))' '((def 0 1))' '()' '((K0 0 2)(Kt 0 1))'"}\\
+		\begin{tabular}{p{4.1cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.3cm}p{2.3cm}}
+		$(\lambda,\nu)\in$ & $\kern-1.2cm\mybra{\ss\cup\bb}^c$ & $\kern-1.2cm\ss-\bb$ & $\kern-1.2cm\bb-\ss$ & $\kern-1.3cm\ss\cap\bb,k<l$ & $\kern-1.3cm\ss\cap\bb,k\geq l$\\
+		\mystack{\nu\teven}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		'((def 0 1))' '((Kt 0 1)(K0 0 2))' '((def 0 1))' '()' '((K0 0 2)(Kt 0 1))'"}\\
 		\vspace{-0.5cm}\mystack{\nu,q\teven}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		'((def 1))' '((def 1))' '((def 1))' '((def 1))' '((def 1))'"}\\
 		\vspace{-0.5cm}\mystack{\nu\teven,q\todd}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1))' '((Kt 1)(K0 1))' '((def 1))' '((def 1))' '((def 1))'"}\\
 		\vspace{-0.7cm}\mystack{\nu,q\teven}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 2))' '((def 1 2))' '((def 1 1))' '((def 1 1))' '()'"}\\
@@ -475,7 +475,7 @@ parameter $(\lambda,\nu)\in\C^2$.
 		\item For $(\lambda,\nu)\in\ss$ the (green/purple)
 			ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{ \left\{ o \right\}}$ and $\tilde{R}_{\lambda,\nu}^X$ 
 			respectively.
-		\item For $(\lambda,\nu)\in\ss$ the (blue/red) ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{Y}$ and ${R}_{\lambda,\nu}^C$ 
+		\item For $(\lambda,\nu)\notin\ss$ the (blue/red) ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{Y}$ and ${R}_{\lambda,\nu}^C$ 
 			respectively.
 	\end{itemize}
 \begin{remark}
