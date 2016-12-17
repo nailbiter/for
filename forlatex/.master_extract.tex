@@ -100,11 +100,12 @@
     0 & I_{p + q} & 0\\
     \sinh (t) & 0 & \cosh (t)
   \end{array} \right)\middle| t \in \mathbbm{R}\right\} &\simeq &\mathbbm{R},\\
-  &N_+\kern-0.1cm &\assign& \left\{  I_{n + 2} +\kern-0.1cm\left( \begin{array}{@{}ccc@{}}
+  &N_+\kern-0.1cm &\assign& \left\{  I_{n + 2}\kern-0.1cm +\kern-0.1cm\left( \begin{array}{@{}ccc@{}}
     - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)\\
     b & 0 & - b\\
     - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)
-  \end{array} \right) \middle| b \in \mathbbm{R}^{n} \right\} &\simeq&
+  \end{array} \right) \middle| b \in \mathbbm{R}^{n} \right\}\\
+  &&\simeq&
   \mathbbm{R}^{n}.\\
 \end{align*}
 %</tagsetting>
@@ -198,21 +199,21 @@ $ \begin{array}{ll}
 
 %<*residue>
 
-\[ q_C^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
+\[ q_C^X (\lambda, \nu) : = \left\{ \begin{array}{@{}l@{}l@{}}
      \Gamma^{} \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
-     2\mathbbm{Z}, \nu \leqslant q - \nu,\\
+     2\mathbbm{Z}, \nu \le \frac{q}{2},\\
      \Gamma^{} \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbbm{Z},
-     \nu > q - \nu,\\
+     \nu > \frac{q}{2},\\
      \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
      2\mathbbm{Z}+ 1.
    \end{array} \right. \]
 \[q_Y^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
      1, & 
       q \in 2\mathbbm{Z}+ 1,\\
+      1,&q\in2\Z,\lambda+\nu\ge0\\
       \Gamma \left( \frac{\lambda -
-     \nu}{2} \right) / \Gamma \left( \max \left\{ \frac{\lambda + \nu}{2}, 0
-     \right\} - \nu \right), & q
-     \in 2\mathbbm{Z}.
+     \nu}{2} \right) / \Gamma \left(  - \nu \right), & q
+     \in 2\mathbbm{Z},\lambda+\nu<0.
    \end{array} \right. \]
 %</residue>
 
