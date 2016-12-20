@@ -28,7 +28,7 @@ fi
 
 if [  $test = '%platex' ]
 then
-    latexmk -latex='platex %O %S' -outdir=$tmp_dir $1
+    latexmk -latex='platex -shell-escape -enable-pipes %O %S' -outdir=$tmp_dir $1
     fname=`echo $1 | cut -f1 -d'.'`
     echo fname = $fname
     echo 1 = $1
