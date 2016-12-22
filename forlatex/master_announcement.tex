@@ -11,7 +11,7 @@
 \usepackage{caption}
 \usepackage{setspace}
 \usepackage{comment}
-\usepackage{catchfilebetweentags}
+%\usepackage{catchfilebetweentags}
 \usepackage{multirow}
 \usepackage[table]{xcolor}
 \includecomment{versiona}
@@ -40,8 +40,8 @@
 \newcommand{\Sol}{\mathcal{S}\!{\it ol}}
 \newcommand{\Ind}{\mbox{\normalfont Ind}}
 \newcommand{\Supp}{\mathcal{S}\!{\it upp}}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}{Remark}[theorem]
+\newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{fact}{Fact}[section]
 %\newtheorem{definition}{Definition}
 \theoremstyle{definition}
@@ -192,7 +192,7 @@ The classification of symmetric pairs $(G,G')$ satisfying the above geometric co
 
 On the other hand, switching the order in \eqref{eq:1}, we may consider another space
 \begin{equation*}
-	\Hom_{G'}\left( \left( \pi' \right)^\infty,\pi^\infty_{G'} \right)
+	\Hom_{G'}\left( \left( \pi' \right)^\infty,\pi^\infty\kern-0.1cm\mid_{G'} \right)
 \end{equation*}
 or $\Hom_{\mathfrak{g}',K'}\left( \pi_{K'}',\pi_{K} \right)$.
 The study of these objects brought us to the theory of discretely decomposable restrictions \cite{kobayashi1998discrete2,kobayashi1998discrete3}
@@ -236,11 +236,6 @@ pair $(G, G') = (O (n + 1, 1), O (n, 1))$ of real rank one groups.
 %%\tmtextbf{Goal}: extend this to higher rank case $(G, G') = (O (p + 1, q + 1),
 %%O (p, q + 1))$. The class of the ``standard'' representations we are working
 %%with are \tmtextbf{degenerate spherical principal series representations}:
-We note that Fact \ref{fact:1} assures the following {\it a priori} estimate:\begin{equation*}
-	m(\pi,\pi')\mbox{ is uniformly bounded}
-\end{equation*}
-for the pair $(G,G')$ if the Lie algebras $(\mathfrak{g},\mathfrak{g}')$ are real forms of $(\mathfrak{sl}(n+1,\C),\mathfrak{gl}(n,\C))$
-or $(\mathfrak{o}(n+1,\C),\mathfrak{o}(n,\C))$, in particular, if $(G,G')$ is of the form \eqref{eq:2}. This may be thought of as an answer to Program $\mathcal{A}$.
 
 In this note we describe the multiplicities for degenerate spherical principal series representations $\pi=I(\lambda)$ of $G$ and $\pi=J(\nu)$ of $G'$ for the pair
 of higher real rank\begin{equation}\tag{2.1}\label{eq:2}
@@ -248,6 +243,12 @@ of higher real rank\begin{equation}\tag{2.1}\label{eq:2}
 \end{equation}
 and give an answer to $\left( \mathcal{C}1-\mathcal{C}4 \right)$. The answer to $\left( \mathcal{C}5 \right)$ will be given
 in a subsequent paper together with an application to the restriction problem of Zuckerman derived functor modules.
+
+We note that Fact \ref{fact:1} assures the following {\it a priori} estimate:\begin{equation*}
+	m(\pi,\pi')\mbox{ is uniformly bounded}
+\end{equation*}
+for the pair $(G,G')$ if the Lie algebras $(\mathfrak{g},\mathfrak{g}')$ are real forms of $(\mathfrak{sl}(n+1,\C),\mathfrak{gl}(n,\C))$
+or $(\mathfrak{o}(n+1,\C),\mathfrak{o}(n,\C))$, in particular, if $(G,G')$ is of the form \eqref{eq:2}. This may be thought of as an answer to Program $\mathcal{A}$.
 \section{Settings}
 Let $G=O(p+1,q+1)$ be the automorphism group of the quadratic form
 	  $\Q$ on $\R^n$ ($n:=p+q$) of signature $(p,q)$ defined by
@@ -265,9 +266,14 @@ with the Levi part
 $M A \simeq O (p, q) \times \{ \pm 1 \} \times \mathbbm{R}$, of $G$.
 We take the representation space of $I(\lambda)\assign \tmop{Ind}_P^G (\mathbbm{C}_{\lambda}), \quad \lambda
   \in \mathbbm{C}$ to be the space of $C^\infty$ sections
-of the $G$-equivariant line bundle $G\times_{P}\left( \chi_\lambda,\C \right)\to G/P$, so that $I(\lambda)$ itself is the smooth Fr\'echet globalization of moderate growth.
-\underline{
-The parametrization is chosen in a way that $I(\lambda)$ contains a finite-dimensional representation as a subrepresentation if $-\lambda\in\N$ and as a quotient if $\lambda-\left( p+q\right)\in\N$.}
+of the $G$-equivariant line bundle\[
+	\mathcal{L}_\lambda=G\times_{P}\left( \chi_\lambda,\C \right)\to G/P
+\]
+so that $I(\lambda)$ itself is the smooth Fr\'echet globalization of moderate growth.
+The parametrization is chosen in a way that if $p-q\in2\Z$, then 
+$I(\lambda)$ contains a finite-dimensional representation as a subrepresentation if $-\lambda\in\N$ and even and as a quotient if $\lambda-\left( p+q\right)\in\N$ and $\lambda$ is even;
+while if $p-q\in2\Z+1$, then 
+$I(\lambda)$ contains a finite-dimensional representation as a subrepresentation if $-\lambda\in\N$ and $\lambda-p$ is even and as a quotient if $\lambda-\left( p+q\right)\in\N$ and $\lambda-q$ is even.
 %%\begin{eqnarray}
 %%  & I (\lambda) , &  \nonumber\\
 %%  & J (\nu) \assign \tmop{Ind}_{P'}^{G'} (\mathbbm{C}_{\nu}), \quad \nu \in
@@ -355,6 +361,54 @@ of conformal construction of representations.
 %%with Langlands decomposition $P'=(G'\cap M)A (G'\cap N_+)$,
 %%because $A\subset G'$.
 %%Similarly, we define (unnormalized) spherical degenerate principal series representations $J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$ of $G'$ for $\nu\in\C$.
+\section{Multiplicity formulae}
+In this section we determine explicitly the multiplicity
+\begin{equation*}
+	m(I(\lambda),J(\nu))=\dim\Hom_{G'}\left( I(\lambda)\kern-0.1cm\mid_{G'},J(\nu) \right)
+\end{equation*}
+for any $\lambda,\nu\in\C$. We define the following four subsets of $\C^2$:
+\begin{itemize}
+	\item $\mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in
+	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \}$;
+\item $\backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\N}$;
+\item $/ / \assign\mysetn{(\lambda, \nu) \in \mathbbm{C}^2}{\lambda - \nu \in-2\N }$;
+\item $\mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N}$
+\end{itemize}
+and the following subsets of $\Z^2$ by $\mathcal{A}:=//\cap\mid\mid\mid$ and $\mathcal{X}:=\mid\mid\cap\backslash\backslash$.
+\begin{theorem}
+	Let $(G,G')$ be as in \eqref{eq:2} with $p,q\ge1$. Then\begin{equation*}
+		m(I(\lambda),J(\nu))\in\left\{ 1,2 \right\}
+	\end{equation*}
+	for all $\lambda,\nu\in\C$. Furthermore, $m(I(\lambda),J(\nu))=2$ if and only if one of the following conditions holds:
+	\begin{enumerate}[C{a}se 1.]
+		\item $p>1$. $(\lambda,\nu)\in\mathcal{A}$.
+		\item $p=1$ and $q$ is odd. $(\lambda,\nu)\in\mathcal{A}\cup\mathcal{X}$.
+		\item $p=1$ and $q$ is even. $(\lambda,\nu)\in\mathcal{A}\cup\mathcal{X}-\mathcal{X}\cap//$.
+	\end{enumerate}
+	\label{thm:multiplicity}
+\end{theorem}
+We shall construct explicitly all the symmetry breaking operators in the next section (see Theorem \ref{thm:classif}).
+\section{Construction of symmetry breaking operators}
+We realize a symmetry breaking operator $T$ in the $N$-pictures of $I(\lambda)$ and $J(\nu)$ as follows:
+
+\begin{figure}[h]
+\centering
+\hspace{1.2cm}
+	\xymatrix@R=1mm
+	{
+		I(\lambda)\ar[ddd]_{\rotatebox{90}{$\sim$}}^{\iota_\lambda^{*}}\ar[r]^T &J(\nu)\ar[ddd]_{\rotatebox{90}{$\sim$}}^{\iota_\nu^{*}}\\
+		\\\\
+		\iota_\lambda^*\left( I(\lambda) \right)\ar@{-->}[r]&\iota_\nu^{*}\left( J(\nu) \right)\vspace*{-1cm}\\
+		\vspace*{-1cm}\bigcap&\bigcap\\
+		C^\infty(\R^{p+q})&C^\infty(\R^{p+q-1})
+	}
+\end{figure}
+
+We shall find a distribution $K_T\in\mathcal{D}'\left( \R^{p+q} \right)$ such that
+\begin{equation*}
+	\iota_\nu(Tf)(x)'=\int_{\R^n}K_T(x'-y',-y_{p+1})(\iota_\lambda^*f)(y',y_{p+1})dy'dy_{p+1}
+\end{equation*}
+for all $f\in I(\lambda)$, where $x',y'\in\R^{p+q-1}$. To be more precise, we need some notation.
 
 The objects of this study are then \textit{symmetry breaking operators} (\textit{SBOs} for short),
 that is, $G'$-intertwining operators between the $G$-module $I(\lambda)$ regarded as a $G'$-module by restriction and the $G'$-module $J(\nu)$. We denote by $\SBO$ the totality
@@ -411,8 +465,13 @@ Thus one sees that closed subsets of the finite double coset space $P'\backslash
 the first step to classify SBOs is to describe explicitly the double coset space $P'\backslash G/P$ together with its closure relations.
 
 The natural action of $G=O(p+1,q+1)$ on $\R^{p+1,q+1}$ leaves
-$\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}$ invariant, and thus $G$ acts naturally on its quotient space
-$X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}$. 
+\begin{equation*}
+	\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}
+\end{equation*}
+invariant, and thus $G$ acts naturally on its quotient space
+\begin{equation*}
+	X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}.
+\end{equation*}
 Geometrically, $X^{p,q}$ is identified with the direct product manifold $\Sp^p\times\Sp^q$ equipped with the pseudo-Riemannian metric $g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$,
 modulo the direct product of antipodal maps, and $G$ is the group of conformal transformations of $X^{p,q}$.
 We set
@@ -463,11 +522,11 @@ Now, for each closed subset $S$ of $P'\backslash G/P$, we construct a family of 
 These operators may vanish at special values of $(\lambda,\nu)$ (see Remark \ref{rmk:thm:construction}). Correspondingly, we shall also define
 a family of SBOs as a renormalization, to be denoted by $\tilde{R}^X_{\lambda,\nu}$. On the other hand, we shall omit the case when $S=C\cap Y$ for $p=1$;
 $S=C$ or $Y$ for $p>1$, as those are not used for the classification below (see Theorem \ref{thm:classif}).
-\newpage
 \begin{theorem}[construction of SBO]\label{thm:construction}
 	For $S=X,Y,C,$ and $\left\{ o \right\}$, the following operators $R_{\lambda,\nu}^S$ and $\tilde{R}_{\lambda,\nu}^X$ are symmetry breaking operators from $\IlambdaGprime$ to $J(\nu)$, which depend holomorphically on $(\lambda,\nu)\in D_S$. Moreover, $\Supp(R_{\lambda,\nu}^S)\subset S$, and are given explicitly as follows.
 
-\begin{tabular}[c]{@{}|@{}l@{}|@{}l@{}|l@{}|}
+	\hspace*{-1cm}
+	\begin{tabular}[c]{@{}|@{}l@{}|@{}l@{}|l@{}|}
   \hline
   $R_{\lambda,\nu}^S$& $\tmop{Op} : 
   \Sol(\mathbbm{R}^{p, q} ; \lambda, \nu)
@@ -479,6 +538,11 @@ $S=C$ or $Y$ for $p>1$, as those are not used for the classification below (see 
   \right)}{\tmop{Op} \left(| x_p |^{\lambda + \nu - n}
   | \Q |^{- \nu} \right)}$ & $\mathbbm{C}^2$ \\
   \hline
+  $\tilde{R}_{\lambda,\nu}^X$ &$\frac{1}{ \Gamma \left(
+  \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left( \frac{1 - \nu}{2}
+  \right)}{\tmop{Op} \left(| x_p |^{\lambda + \nu - n}
+  | \Q |^{- \nu} \right)}$ & $\mid\mid\mid$ 
+  \\\hline
   $R_{\lambda, \nu}^Y =$ & $\frac{(-1)^k k! q_Y^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
   \right) }{\tmop{Op} \left( \delta^{(2k)}(x_p)
   | \Q |^{- \nu}  \right)}$ & $
@@ -497,27 +561,35 @@ $S=C$ or $Y$ for $p>1$, as those are not used for the classification below (see 
   \hline
 \end{tabular}
 
-Let us explain the notation in the table.
-\begin{itemize}
-	\item $\mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in
-	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \}$;
-\item $\backslash\backslash\kern-0.1cm:=\kern-0.15cm\mysetn{\kern-0.1cm(\lambda,\nu)\kern-0.15cm\in\kern-0.15cm\C^2}{\lambda+\nu-n+1\kern-0.15cm\in\kern-0.1cm-2\N\kern-0.1cm}$\kern-0.1cm;
-\item $/ / \assign\mysetn{(\lambda, \nu) \in \mathbbm{C}^2}{\lambda - \nu \in-2\N }$;
-\item $\mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N}$;
-\item $\tilde{C}(s,t)$ is a polynomial of two-variable's, which obtained by inflation of the renormalized Gegenbauer polynomial, defined as in \cite[(16.3)]{kobayashi2015symmetry}.
-\end{itemize}
+Here $\tilde{C}(s,t)$ is a polynomial of two-variable's, which obtained by inflation of the renormalized Gegenbauer polynomial, defined as in \cite[(16.3)]{kobayashi2015symmetry}.
 \end{theorem}
 We set $m:=\frac{1}{2}\left( \nu-1 \right)\in\N$ for $(\lambda,\nu)\in\mm$ and $k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$ for $(\lambda,\nu)\in\bb$.
 For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
-\ExecuteMetaData[.master_extract.tex]{residue}
+\[ q_C^X (\lambda, \nu) : = \left\{ \begin{array}{@{}l@{}l@{}}
+     \Gamma^{} \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
+     2\mathbbm{Z}, \nu \le \frac{q}{2},\\
+     \Gamma^{} \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbbm{Z},
+     \nu > \frac{q}{2},\\
+     \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
+     2\mathbbm{Z}+ 1.
+   \end{array} \right. \]
+\[q_Y^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
+     1, & 
+      q \in 2\mathbbm{Z}+ 1,\\
+      1,&q\in2\Z,\lambda+\nu\ge0\\
+      \Gamma \left( \frac{\lambda -
+     \nu}{2} \right) / \Gamma \left(  - \nu \right), & q
+     \in 2\mathbbm{Z},\lambda+\nu<0.
+   \end{array} \right. \]
 \begin{remark}
+	Suppose $(\lambda,\nu)\in//$. We set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$.
 	$R_{\lambda,\nu}^S$ is a differential operator if $S=\left\{ o \right\}$ owing to the general theory of differential SBOs established in \cite[Chap.\ 2]{kobayashi2016differential1}.
 	By definition, $R_{\lambda,\nu}^{ \left\{ o \right\}}$ in Theorem \ref{thm:construction} amounts to
 	\begin{gather*}
 		R_{\lambda,\nu}^{ \left\{ o \right\}}=
-	\sum_{j=0}^{\frac{\nu-\lambda}{2}}\frac{(-1)^j2^{\nu-\lambda-2j}}{j!(\nu-\lambda-2j)!}\times\\\times\prod_{i=1}^{\frac{\nu-\lambda}{2}-j}\left( \frac{n
+	\sum_{j=0}^l\frac{(-1)^j2^{2l-2j}}{j!(2l-2j)!}\times \\\times\prod_{i=1}^{\frac{\nu-\lambda}{2}-j}\left( \frac{n
 		+1}{2}+\frac{\nu+\lambda}{2}
-		+i \right)\left(- \Delta_{\mathbbm{R}^{p-1,q}} \right)^j\left( \frac{\partial}{\partial x_p} \right)^{\nu-\lambda-2j}.
+		+i \right)\left(- \Delta_{\mathbbm{R}^{p-1,q}} \right)^j\left( \frac{\partial}{\partial x_p} \right)^{2l-2j}.
 	\end{gather*}
 	This formula was previously found in \cite[Thms. 5.1.1 and 5.2.1]{juhl2009families}, \cite[(10.1)]{kobayashi2015symmetry} for $q=0$ and in \cite[Thm.\ 4.3]{kobayashi2015branching}
 	for general $p,q$.
@@ -544,7 +616,7 @@ basis for $\SBO$ for every $(\lambda,\nu)\in \mathbb{C}^2$ as follows:
 	   \mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \notin \mathcal{A}\cup\mathcal{X},\\
      \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
      \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mathcal{A} -\mathcal{X},\\
-     \mathbbm{C}R^P_{\lambda, \nu} \oplus \mathbbm{C}R^C_{\lambda, \nu}, &
+     \mathbbm{C}R^Y_{\lambda, \nu} \oplus \mathbbm{C}R^C_{\lambda, \nu}, &
      (\lambda, \nu) \in \mathcal{X} - / /,\\
      \mathbbm{C}R^{\{ o \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid
      \cap \backslash\backslash \cap / /.
@@ -553,15 +625,11 @@ basis for $\SBO$ for every $(\lambda,\nu)\in \mathbb{C}^2$ as follows:
 \left\{%FIXME
    \begin{array}{ll}
      \mathbb{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbb{C}R^{\{ o
-     \}}_{\lambda, \nu \lambda, \nu}, & (\lambda, \nu) \in \mathcal{A},\\
+     \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mathcal{A},\\
      \mathbb{C}R^X_{\lambda, \nu}, & \mbox{otherwise.}
    \end{array} \right. 
 	\end{gather*}
-	where $\mathcal{A}:=//\cap\mid\mid\mid$ and $\mathcal{X}:=\mid\mid\cap\backslash\backslash$.
 \end{theorem}
-\begin{corollary}\label{cor:classif}
-	We have $\dim_{\C}\SBO\in\left\{ 1,2 \right\}$ for all $(\lambda,\nu)\in\C^2$.
-\end{corollary}
 The degenerate principal series representation $I(\lambda)$ of $G$ contains the one-dimensional subspace of spherical vectors (i.e. $K$-fixed vectors), and likewise $J(\nu)$ of $G'$.
 Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$ be the spherical vectors normalized so that $\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$. With this normalization, we have:
 \begin{theorem}[spectrum for spherical vectors]\label{thm:spherical}
@@ -576,7 +644,7 @@ Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$ be the 
 	See also \cite[Prop.\ 7.4]{kobayashi2015symmetry} for $q=0$ case.
 \end{remark}
 For $(\lambda,\nu)\in\C^2\setminus//$, we set 
-\[K_{\lambda,\nu}^{\mathbb{R}^{p,q}}:=\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
+\[K_{\lambda,\nu}^X:=\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
 \frac{\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\sol.\]
 Then $R_{\lambda,\nu}^X=\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( K_{\lambda,\nu}^X \right)$. We recall that the left-hand side extends to a family of SBOs with holomorphic
 parameter $(\lambda,\nu)\in\C^2$.
@@ -598,7 +666,7 @@ parameter $(\lambda,\nu)\in\C^2$.
 
 		Now, the generalized function defined as
 		\begin{equation*}
-			\myabs{\Q}^{\lambda-n}\times\left\{\begin{array}[]{@{}l@{}l@{}}
+			\kern-2cm\myabs{\Q}^{\lambda-n}\times\left\{\begin{array}[]{@{}l@{}l@{}}
 				\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}=0,\\
 				\Gamma^{-1}\left( \frac{\lambda-n+1}{2} \right)\Gamma^{-1}\left( \lambda-n/2 \right),&p,q>0,n\todd,\\
   \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2+
