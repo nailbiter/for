@@ -1516,7 +1516,8 @@ FUNCTION {editor.organization.sort}
   if$
 }
 FUNCTION {presort}
-{ calc.label
+{ 
+  calc.label
   sort.label
   "    "
   *
