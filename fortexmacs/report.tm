@@ -1,9 +1,9 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 61>
+  <section|report 62>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
@@ -21,7 +21,8 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>Finished restructuring master paper<strong|>
+    <item>Computed image of <math|A<rsup|12>> under SBO (see
+    <verbatim|D25.pdf> attached)
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do during this week>:
@@ -41,11 +42,12 @@
     <item>Misc tasks:
 
     <\enumerate-numeric>
-      <item>Compute image of <math|A<rsup|2>> under SBOs;
+      <item>Collect information regarded to the integral formula paper
+      <with|font-series|bold|(thu)>. Draw the tree diagram for the special
+      cases of the formula proven.
 
-      <item>Compute image of Yamabe kernel under SBOs for <math|p=1>;
-
-      <item>Compute image of <math|A<rsup|1>> under SBOs for <math|p=1>;
+      <item>Make dependence diagram for lemmas in section C19.5
+      (<with|font-series|bold|fri)>
     </enumerate-numeric>
 
     <item>Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
@@ -141,14 +143,23 @@
     Questions
   </with>
 
-  (empty)
+  <\enumerate>
+    <item>Should I denote the kernel for, say
+    <math|R<rsup|C><rsub|\<lambda\>,\<nu\>>> (SBO supported on
+    <math|<around*|{|Q=0|}>>) as <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>
+    now? I used the notation <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>
+    in the paper, which I think is <with|font-shape|italic|more> consistent
+    with Kobayashi-Speh. However, the notation
+    <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> was used in the announcement.
+  </enumerate>
 
   <paragraph|Comments>
 
-  I am sure that I can compute the image of every <math|G>-submodule of
-  <math|I<around*|(|\<lambda\>|)>> under SBOs for <math|p=1> case. It will
-  require some computations, which I hope to finish in a week or so. I will
-  also try to extend this method for <math|p\<gtr\>1>.
+  I found mistake in my diagrams for images (it looks like I've made a few
+  mistakes while copying the statement of the theorem proven in paper). I
+  will double check.
+
+  Again, thanks a lot for the help with the announcement.
 
   <\bibliography|bib|tm-alpha|todai_master>
     <\bib-list|1>

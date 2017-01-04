@@ -21,7 +21,7 @@ fi
 
 if [  $test = '%simple' ]
 then
-    pdflatex -interaction batchmode "$1"
+    pdflatex -interaction batchmode '$1'
     echo simple
     exit
 fi
