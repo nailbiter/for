@@ -76,7 +76,8 @@ fi
 
 if [ ${array[0]} = '%mypipes' ]
 then
-    latexmk -g -pdf -pdflatex='pdflatex -shell-escape --enable-pipes %O %S' -outdir=$tmp_dir $1
+    latexmk -g -pdf -pdflatex='pdflatex -shell-escape -enable-pipes %O %S' -outdir=$tmp_dir $1
+    echo mypipes
     exit
 fi
 
