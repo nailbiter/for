@@ -1,0 +1,88 @@
+%mypipes
+\documentclass[12pt,landscape]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{enumerate}
+\usepackage{CJKutf8}
+\usepackage{mystyle}
+\usepackage{pdflscape}
+\usepackage{prerex,mystyle}
+\usepackage[left=4pt,right=4pt]{geometry}
+\usepackage[default,scale=0.92]{opensans}
+\usepackage{dot2texi}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\renewcommand{\seriesdefault}{sb}
+\renewcommand{\ttfamily}{\fontfamily{cmtt}\fontseries{m}\selectfont}
+
+%%\usepackage{fancyhdr}
+%%\pagestyle{fancy}
+%%\fancyfoot[C]{text me at \href{mailto:leontiev@ms.u-tokyo.ac.jp}{leontiev@ms.u-tokyo.ac.jp} if there are mistakes/obscurities}
+%%\fancyhead{}
+
+\begin{document}
+\begin{dot2tex}[]//fdp
+  digraph G {
+      node [shape="box"]
+      splines=line;
+		subgraph cluster_0 { 
+			label="Section C19.5 (``Spherical multiple'')"; 
+            "Lem. 20.9"; "Lem. 20.8"; "Prop. 20.4"; "Lem. 20.10";"Prop. 20.6"
+		} 
+		subgraph cluster_1 { 
+			label="Section A5 (``Some integral formul\ae'')"; 
+            "Prop. 6.4";
+		} 
+      "Lem. 19.3" -> "Prop. 20.4"
+      "Lem. 19.8" ->  "Prop. 20.4"
+      "Lem. 20.8" ->  "Prop. 20.4"
+      "Lem. 20.9" ->  "Prop. 20.4"
+      "Lem. 20.10" ->  "Prop. 20.4"
+      "Prop. 20.4" ->  "Prop. 20.6"
+      "Prop. 6.4" ->  "Prop. 20.6"
+    }
+\end{dot2tex}
+%%	  War10 -> S [label="k_2=0"];
+%%	  DF85 -> S [label=" ",texlbl="$\kern-2cm\begin{array}[]{c}p=n,\\m=0\end{array}$"];
+%%  
+%%	  TV03 -> S [label="k_1=0"];
+%%	  War09 -> TV03;
+%%	  War10 -> War10p [label="k_1=k_2=1"]
+%%	  KL -> WS [color="blue",dir=both]
+%%	  Sp -> DS [color="blue",dir=both]
+%%	  S -> Sp [label="k=2"]
+%%	  WS -> DS [dir=both]
+%%	  Sp -> Spp [label=" ", texlbl="$\alpha=\beta$"]
+%%	  KL -> Spp  [label=" ", texlbl="$A=B$"]
+%%	  War10p -> War10pp [label=" ",texlbl="$\begin{array}[]{c}\alpha_1=\beta_1,\\\alpha_2=\beta_2\end{array}$"];
+%%	  KL -> War10pp[label=" ",texlbl="$\kern2cm A+B=\nu+1$"];
+%%	  TV03 -> TV03p [label=" ",texlbl="$\begin{array}[]{c}k_1=k_2,\\ \alpha_1=1,\\\alpha_2=\beta_2\end{array}$"];
+%%	  KL -> TV03p [label=" ",texlbl="$A=0$"];
+%%	  DF85 -> DF85p [label=" ",texlbl="$\begin{array}[]{c}p=n=1,\\m=r=1\end{array}$"];
+%%	  DF85p -> DF85pp [label=" ",texlbl="$\alpha=\beta$"];
+%%	  KL -> DF85pp [label=" ",texlbl="$\nu=2$"];
+%%
+%%    KL [shape="box",label="{\mbox{[KL]}}"];
+%%    S [shape="box",label="\mbox{[S]}"];
+%%    War10 [shape="box",label="\mbox{\cite{warnaar2010sl3}}"];
+%%    DF85 [shape="box",label="\mbox{\cite{dotsenko1985four}}"];
+%%    TV03 [shape="box",label="\mbox{\cite{tarasov2003selberg}}"];
+%%    War09 [shape="box",label="\mbox{\cite{warnaar2009selberg}}"];
+%%    War10p [shape="box",label="\mbox{\cite{warnaar2010sl3}'}"];
+%%    War10pp [shape="box",label="\mbox{\cite{warnaar2010sl3}''}"];
+%%    WS [shape="box",label="\mbox{[WS]}"]
+%%    Sp  [shape="box",label="\mbox{[S]'}"]
+%%    DS  [shape="box",label="\mbox{[DS]}"]
+%%    Spp [shape="box",label="\mbox{[S]''}"]
+%%    TV03p [shape="box",label="\mbox{\cite{tarasov2003selberg}'}"]
+%%    DF85p [shape="box",label="\mbox{\cite{dotsenko1985four}'}"]
+%%    DF85pp [shape="box",label="\mbox{\cite{dotsenko1985four}''}"]
+
+%%\begin{thebibliography}{9}
+%%\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
+%%\end{thebibliography}
+\end{document}
+
+

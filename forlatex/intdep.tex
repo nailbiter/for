@@ -81,10 +81,12 @@
 %%\end{center}
 %%\newpage
 \begin{landscape}
+	\newgeometry{left=-5cm,top=4cm,bottom=0cm,right=0cm}
+	\vspace*{5cm}
 \begin{dot2tex}[mathmode]//fdp
   digraph G {
 	  War10 -> S [label="k_2=0"];
-	  DF85 -> S [label=" ",texlbl="$\begin{array}[]{c}p=n,\\m=0\end{array}$"];
+	  DF85 -> S [label=" ",texlbl="$\kern-2cm\begin{array}[]{c}p=n,\\m=0\end{array}$"];
   
 	  TV03 -> S [label="k_1=0"];
 	  War09 -> TV03;
@@ -96,28 +98,58 @@
 	  Sp -> Spp [label=" ", texlbl="$\alpha=\beta$"]
 	  KL -> Spp  [label=" ", texlbl="$A=B$"]
 	  War10p -> War10pp [label=" ",texlbl="$\begin{array}[]{c}\alpha_1=\beta_1,\\\alpha_2=\beta_2\end{array}$"];
-	  KL -> War10pp[label=" ",texlbl="$A+B=\nu+1$"];
+	  KL -> War10pp[label=" ",texlbl="$\kern2cm A+B=\nu+1$"];
 	  TV03 -> TV03p [label=" ",texlbl="$\begin{array}[]{c}k_1=k_2,\\ \alpha_1=1,\\\alpha_2=\beta_2\end{array}$"];
 	  KL -> TV03p [label=" ",texlbl="$A=0$"];
 	  DF85 -> DF85p [label=" ",texlbl="$\begin{array}[]{c}p=n=1,\\m=r=1\end{array}$"];
 	  DF85p -> DF85pp [label=" ",texlbl="$\alpha=\beta$"];
-	  //KL -> DF85pp [label=" ",texlbl="$\nu=2$"];
+	  KL -> DF85pp [label=" ",texlbl="$\nu=2$"];
 
-    KL [shape="box",label="{\mbox{[KL]}}"];
-    S [shape="box",label="\mbox{[S]}"];
-    War10 [shape="box",label="\mbox{\cite{warnaar2010sl3}}"];
-    DF85 [shape="box",label="\mbox{\cite{dotsenko1985four}}"];
-    TV03 [shape="box",label="\mbox{\cite{tarasov2003selberg}}"];
-    War09 [shape="box",label="\mbox{\cite{warnaar2009selberg}}"];
-    War10p [shape="box",label="\mbox{\cite{warnaar2010sl3}'}"];
-    War10pp [shape="box",label="\mbox{\cite{warnaar2010sl3}''}"];
-    WS [shape="box",label="\mbox{[WS]}"]
-    Sp  [shape="box",label="\mbox{[S]'}"]
-    DS  [shape="box",label="\mbox{[DS]}"]
-    Spp [shape="box",label="\mbox{[S]''}"]
-    TV03p [shape="box",label="\mbox{\cite{tarasov2003selberg}'}"]
-    DF85p [shape="box",label="\mbox{\cite{dotsenko1985four}'}"]
-    DF85pp [shape="box",label="\mbox{\cite{dotsenko1985four}''}"]
+    KL [shape="box",label="{\mbox{[KL]}}:3"];
+    S [shape="box",label="\mbox{[S]}:3"];
+    War10 [shape="box",label="\mbox{\cite{warnaar2010sl3}}:4"];
+    DF85 [shape="box",label="\mbox{\cite{dotsenko1985four}}:3"];
+    TV03 [shape="box",label="\mbox{\cite{tarasov2003selberg}}:4"];
+    War09 [shape="box",label="\mbox{\cite{warnaar2009selberg}}:2n+2"];
+    War10p [shape="box",label="\mbox{\cite{warnaar2010sl3}'}:4"];
+    War10pp [shape="box",label="\mbox{\cite{warnaar2010sl3}''}:2"];
+    WS [shape="box",label="\mbox{[WS]}:3"]
+    Sp  [shape="box",label="\mbox{[S]'}:3"]
+    DS  [shape="box",label="\mbox{[DS]}:3"]
+    Spp [shape="box",label="\mbox{[S]''}:2"]
+    TV03p [shape="box",label="\mbox{\cite{tarasov2003selberg}'}:2"]
+    DF85p [shape="box",label="\mbox{\cite{dotsenko1985four}'}:3"]
+    DF85pp [shape="box",label="\mbox{\cite{dotsenko1985four}''}:2"]
+    }
+\end{dot2tex}
+\end{landscape}
+\begin{landscape}
+	\newgeometry{left=-3.7cm,top=4cm,bottom=0cm,right=0cm}
+	\vspace*{5cm}
+\begin{dot2tex}[mathmode]//fdp
+  digraph G {
+	  War10 -> S [label="k_2=0"];
+	  DF85 -> S [label=" ",texlbl="$\begin{array}[]{c}p=n,\\m=0\end{array}$"];
+  
+	  TV03 -> S [label=" ",texlbl="$\kern-2cm k_1=0$"]
+	  War10 -> War10pp [label=" ",texlbl="$\begin{array}[]{c}k_1=k_2=1,\\\alpha_1=\beta_1,\\\alpha_2=\beta_2\end{array}$"];
+	  S -> Spp [label=" ", texlbl="$\begin{array}[]{c}k=2,\\\alpha=\beta\end{array}$"]
+	  KL -> Spp  [label=" ", texlbl="$A=B$"]
+	  KL -> War10pp[label=" ",texlbl="$A+B=\nu+1$"];
+	  TV03 -> TV03p [label=" ",texlbl="$\begin{array}[]{c}k_1=k_2,\\ \alpha_1=1,\\\alpha_2=\beta_2\end{array}$"];
+	  KL -> TV03p [label=" ",texlbl="$\kern0.5cm A=0$"];
+	  DF85 -> DF85pp [label=" ",texlbl="$\begin{array}[]{c}p=n=1,\\m=r=1,\\\alpha=\beta\end{array}$"];
+	  KL -> DF85pp [label=" ",texlbl="$\nu=2$"];
+
+    KL [shape="box",label="{\mbox{[KL]}}:3"];
+    S [shape="box",label="\mbox{[S]}:3"];
+    War10 [shape="box",label="\mbox{\cite{warnaar2010sl3}}:4"];
+    DF85 [shape="box",label="\mbox{\cite{dotsenko1985four}}:3"];
+    TV03 [shape="box",label="\mbox{\cite{tarasov2003selberg}}:4"];
+    War10pp [shape="box",label="\mbox{\cite{warnaar2010sl3}''}:2"];
+    Spp [shape="box",label="\mbox{[S]''}:2"]
+    TV03p [shape="box",label="\mbox{\cite{tarasov2003selberg}'}:2"]
+    DF85pp [shape="box",label="\mbox{\cite{dotsenko1985four}''}:2"]
     }
 \end{dot2tex}
 \end{landscape}
@@ -130,6 +162,8 @@ Formulae above are as follows:\begin{equation*}
 		\mbox{[S]}:&\int_{D_k}\Pi_{i=1}^kt_i^\alpha(1-t_i)^\beta\Delta^{2\gamma}(t)\;dt=\cdots,\\
 		\mbox{\cite{warnaar2010sl3}}:&\int_{C_{\beta_1,\gamma}^{k_1,k_2}}\Pi_{i=1}^{k_1}t_i^{\alpha_1-1}(1-t_i)^{\beta_1}\Pi_{j=1}^{k_2}s_j^{\alpha_2}(1-s_j)^{\beta_2}
 		\Delta^{2\gamma}(t)\Delta^{2\gamma}(s)\Delta^{-\gamma}(t,s)\;dt\;ds,\quad\beta_1+\beta_2=\gamma+1,\\
+		\mbox{\cite{tarasov2003selberg}}:&\displaystyle\int_{C^{k_1,k_2}_{\gamma}}\prod_{i=1}^{k_1}t_i^{\alpha_1-1}\prod_{j=1}^{k_2}s_j^{\alpha_2-1}(1-s_j)^{\beta_2-1}\Delta^{2\gamma}(t)\Delta^{2\gamma}
+		(s)\Delta^{-\gamma}(t,s)\;dt\;ds,\\
 		\mbox{\cite{dotsenko1985four}}:&\displaystyle\int_{[0,1]^p}\int_{[1,\infty]^{n-p}}\int_{[0,1]^r}\int_{[1,\infty]^{m-r}}\prod_{i=1}^nt_i^\alpha(1-t_i)^\beta
 		\prod_{j=1}^m\tau_j^{\alpha'}(1-\tau_j)^{\beta'}\Delta^{-2}(t,\tau)\Delta^{2\gamma}(t)\Delta^{2\gamma}(\tau)\;dt\;d\tau=\cdots,\\
 		&{\alpha}/{\alpha'}={\beta}/{\beta'}=-\gamma,\quad\gamma\gamma'=1,\\
