@@ -1,0 +1,103 @@
+%mypipes
+\documentclass[12pt,landscape]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{enumerate}
+\usepackage{CJKutf8}
+\usepackage{mystyle}
+\usepackage{pdflscape}
+\usepackage{prerex,mystyle}
+\usepackage[left=0pt,right=4pt]{geometry}
+\usepackage[default,scale=0.92]{opensans}
+\usepackage{dot2texi}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\renewcommand{\seriesdefault}{sb}
+\renewcommand{\ttfamily}{\fontfamily{cmtt}\fontseries{m}\selectfont}
+
+%%\usepackage{fancyhdr}
+%%\pagestyle{fancy}
+%%\fancyfoot[C]{text me at \href{mailto:leontiev@ms.u-tokyo.ac.jp}{leontiev@ms.u-tokyo.ac.jp} if there are mistakes/obscurities}
+%%\fancyhead{}
+
+\begin{document}
+
+\hspace{-20cm}\begin{dot2tex}[scale=0.9,dot]//fdp
+  digraph G {
+      "Lemma 6.12" -> "Proposition 6.4"
+      "Lemma 6.10" -> "Proposition 6.4"
+      "Remark 6.7" -> "Proposition 6.4"
+      "Lemma 6.8" -> "Lemma 6.12"
+      "Definition 6.9" -> "Lemma 6.12"
+      "Lemma 6.13" -> "Lemma 6.10"
+      "Proposition 6.1" -> "Lemma 6.8"
+      "Definition 6.6" -> "Remark 6.7"
+      "Definition 6.2" -> "Remark 6.7"
+      "Definition 6.2" -> "Proposition 6.4"
+      "Definition 6.6" -> "Lemma 6.12"
+      "Definition 6.6" -> "Lemma 6.14"
+      "Definition 6.9" -> "Lemma 6.10"
+      "Lemma 6.11" -> "Lemma 6.10"
+
+      "Proposition 6.1" [color=blue,shape=box]
+      "Proposition 6.4" [color=blue,shape=box]
+      "Definition 6.6" [color=black,shape=trapezium]
+      "Definition 6.2" [color=black,shape=trapezium]
+      "Definition 6.9" [color=black,shape=trapezium]
+    }
+\end{dot2tex}
+\newpage
+{\bf Proposition 6.1} \begin{equation*}
+	\begin{array}[]{c}
+		\int_{-1}^1\int_{-1}^2\myabs{u-v}^{-\nu}(1-u^2)^A(1-v^2)^B\;du\;dv=\cdots,\\
+		\int_{-1}^1\int_{-1}^2\mbox{\normalfont sgn}\mybra{u-v}\myabs{u-v}^{-\nu}(1-u^2)^Av(1-v^2)^B\;du\;dv=\cdots.
+	\end{array}
+\end{equation*}
+
+{\bf Definition 6.2} \begin{equation*}
+	\Psi_{a',b}(P):=\iiint_{[-1,1]^3}(1-u^2)^{\frac{q-2}{2}}(1-v^2)^{\frac{\lambda+\nu-q}{2}-1}(1-w^2)^{\frac{p-3}{2}}\myabs{w}^{\lambda+\nu-n}\myabs{u-v}^{-\nu}\tilde{C}^{\frac{p}{2}-1}_{a'}
+	\left(  
+	\frac{v}{\sqrt{1-w^2(1-v^2)}}
+	\right)\left( 1-w^2(1-v^2) \right)^{a'/2}\tilde{C}^{\frac{q-1}{2}}_b(u)P(w^2(1-v^2))d(u,v,w)
+\end{equation*}
+
+{\bf Definition 6.6}\begin{equation*}
+	\Phi_{b,N}(P):=\cdots\iiint_{[-1,1]^3}(1-u^2)^{\frac{q-2}{2}}(1-v^2)^{\frac{\lambda+\nu-q}{2}+N-1}(1-w^2)^{\frac{p-3}{2}}\myabs{w}^{\lambda+\nu-n+2N}\myabs{u-v}^{-\nu}P(v,(1-v^2)w^2)
+	\tilde{C}^{\frac{q-1}{2}}_b(u)d(u,v,w).
+\end{equation*}
+
+{\bf Definition 6.9}\begin{equation*}
+	\varphi_{\varepsilon}^p(x^i y^j):=\cdots
+\end{equation*}
+
+{\bf Lemma 6.8}\begin{equation*}
+	\begin{array}[]{c}
+		\Phi_{b,N}( (1-X^2)^iY^j)=\cdots,\\
+		\Phi_{b,N}(X(1-X^2)^iY^j)=\cdots.\\
+	\end{array}
+\end{equation*}
+
+{\bf Lemma 6.11} \ldots(auxiliary computation for Lemma 6.10).
+
+{\bf Lemma 6.13} $\varphi_a( (x-y)^i)(a_0,a_1,a_2)=\cdots$
+
+{\bf Lemma 6.10} $\varphi_a(p_a)=\ldots$
+
+{\bf Lemma 6.12} $\Phi_{b,N}\left( P(1-X^2,Y) \right)(\lambda,\nu)\simeq \varphi_a(P)(\lambda-\nu+2N,\cdots,\cdots)$.
+
+{\bf Lemma 6.14} For the open region $\Omega\subset \C^2$ (indep. of $b,N$), $\Phi_{b,N}(p)(\lambda,\nu)$ converges for every polynomial $p$ and any $(\lambda,\nu)\in\C^2$.
+
+{\bf Remark 6.7} $\Psi_{a',b}(t^N)/G(\lambda,\nu,n)=\Phi_{b,N}\left( \tilde{C}_{a'}^{\frac{p}{2}-1}\left( \frac{X}{\sqrt{1-Y}} \right)(1-Y)^{a'/2} \right).$
+
+{\bf Proposition 6.4} \begin{equation*}
+	\begin{array}[]{c}
+		\Psi_{a',b}(t^N)=\cdots,\\
+		\Psi_{a',b}\left( \tilde{C}_{a-a'}^{\frac{p-1}{2}+a'}(\sqrt{t}) \right)=\cdots
+	\end{array}
+\end{equation*}
+
+\end{document}
+
+
