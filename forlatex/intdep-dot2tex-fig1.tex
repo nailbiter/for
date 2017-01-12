@@ -1,54 +1,50 @@
 
-\begin{tikzpicture}[>=latex,line join=bevel,]
+\begin{tikzpicture}[>=latex,line join=bevel,scale=0.9,transform shape]
 %%
-\node (DF85p) at (108.39bp,190.0bp) [draw,rectangle] {$\mbox{\cite{dotsenko1985four}'}:3$};
-  \node (War09) at (681.39bp,349.0bp) [draw,rectangle] {$\mbox{\cite{warnaar2009selberg}}:2n+2$};
-  \node (DF85) at (203.39bp,276.0bp) [draw,rectangle] {$\mbox{\cite{dotsenko1985four}}:3$};
-  \node (War10p) at (331.39bp,190.0bp) [draw,rectangle] {$\mbox{\cite{warnaar2010sl3}'}:4$};
-  \node (Spp) at (661.39bp,18.0bp) [draw,rectangle] {$\mbox{[S]''}:2$};
-  \node (Sp) at (889.39bp,104.0bp) [draw,rectangle] {$\mbox{[S]'}:3$};
-  \node (KL) at (505.39bp,190.0bp) [draw,rectangle] {${\mbox{[KL]}}:3$};
-  \node (S) at (630.39bp,190.0bp) [draw,rectangle] {$\mbox{[S]}:3$};
-  \node (War10) at (424.39bp,276.0bp) [draw,rectangle] {$\mbox{\cite{warnaar2010sl3}}:4$};
-  \node (War10pp) at (331.39bp,104.0bp) [draw,rectangle] {$\mbox{\cite{warnaar2010sl3}''}:2$};
-  \node (DF85pp) at (106.39bp,104.0bp) [draw,rectangle] {$\mbox{\cite{dotsenko1985four}''}:2$};
-  \node (WS) at (500.39bp,104.0bp) [draw,rectangle] {$\mbox{[WS]}:3$};
-  \node (DS) at (539.39bp,18.0bp) [draw,rectangle] {$\mbox{[DS]}:3$};
-  \node (TV03) at (681.39bp,276.0bp) [draw,rectangle] {$\mbox{\cite{tarasov2003selberg}}:4$};
-  \node (TV03p) at (717.39bp,104.0bp) [draw,rectangle] {$\mbox{\cite{tarasov2003selberg}'}:2$};
-  \draw [->] (War10p) ..controls (331.39bp,160.36bp) and (331.39bp,145.43bp)  .. (War10pp);
+\node (DF85p) at (278.87bp,104.0bp) [draw,rectangle] {$\mbox{\cite{dotsenko1985four}'}:2$};
+  \node (War09) at (783.87bp,263.0bp) [draw,rectangle] {$\mbox{\cite{warnaar2009selberg}}:2n+2$};
+  \node (DF85) at (103.87bp,190.0bp) [draw,rectangle] {$\mbox{\cite{dotsenko1985four}}:3$};
+  \node (War10p) at (500.87bp,104.0bp) [draw,rectangle] {$\mbox{\cite{warnaar2010sl3}'}:2$};
+  \node (AARp) at (728.87bp,104.0bp) [draw,rectangle] {$\mbox{\cite{andrews1999special}}':2$};
+  \node (Sp) at (609.87bp,18.0bp) [draw,rectangle] {$\mbox{[S]'}:2$};
+  \node (KL) at (965.87bp,190.0bp) [draw,rectangle] {${\mbox{[KL]}}:3$};
+  \node (S) at (110.87bp,104.0bp) [draw,rectangle] {$\mbox{[S]}:3$};
+  \node (War10) at (323.87bp,190.0bp) [draw,rectangle] {$\mbox{\cite{warnaar2010sl3}}:4$};
+  \node (AAR) at (548.87bp,190.0bp) [draw,rectangle] {$\mbox{\cite{andrews1999special}}:2$};
+  \node (TV03) at (783.87bp,190.0bp) [draw,rectangle] {$\mbox{\cite{tarasov2003selberg}}:4$};
+  \node (TV03p) at (965.87bp,104.0bp) [draw,rectangle] {$\mbox{\cite{tarasov2003selberg}'}:2$};
+  \draw [->] (War09) ..controls (783.87bp,236.88bp) and (783.87bp,227.18bp)  .. (TV03);
+  \draw [->] (TV03) ..controls (673.58bp,172.64bp) and (670.71bp,172.31bp)  .. (667.87bp,172.0bp) .. controls (546.34bp,158.61bp) and (514.99bp,166.49bp)  .. (393.37bp,154.0bp) .. controls (345.06bp,149.04bp) and (228.03bp,135.27bp)  .. (S);
   \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
   \pgfsetstrokecolor{strokecol}
-  \draw (333.14bp,147.0bp) node {$\begin{array}[]{c}\alpha_1=\beta_1,\\\alpha_2=\beta_2\end{array}$};
-  \draw [->] (War09) ..controls (681.39bp,322.88bp) and (681.39bp,313.18bp)  .. (TV03);
-  \draw [->] (TV03) ..controls (663.55bp,245.9bp) and (654.25bp,230.23bp)  .. (S);
-  \draw (676.34bp,233.0bp) node {$k_1=0$};
-  \draw [->] (KL) ..controls (420.09bp,161.5bp) and (377.7bp,148.67bp)  .. (339.39bp,140.0bp) .. controls (290.99bp,129.04bp) and (276.06bp,129.89bp)  .. (DF85pp);
-  \draw (391.14bp,147.0bp) node {$\nu=2$};
-  \draw [->] (DF85) ..controls (169.52bp,245.33bp) and (151.16bp,228.72bp)  .. (DF85p);
-  \draw (164.14bp,233.0bp) node {$\begin{array}[]{c}p=n=1,\\m=r=1\end{array}$};
-  \draw [blue,<->] (KL) ..controls (503.19bp,152.07bp) and (502.58bp,141.62bp)  .. (WS);
-  \draw [->] (KL) ..controls (442.12bp,158.73bp) and (405.54bp,140.65bp)  .. (War10pp);
-  \draw (430.14bp,147.0bp) node {$\kern2cm A+B=\nu+1$};
-  \draw [->] (DF85p) ..controls (107.7bp,160.36bp) and (107.36bp,145.43bp)  .. (DF85pp);
-  \draw (110.14bp,147.0bp) node {$\alpha=\beta$};
-  \draw [->] (Sp) ..controls (807.44bp,73.09bp) and (756.98bp,54.053bp)  .. (Spp);
-  \draw (790.14bp,61.0bp) node {$\alpha=\beta$};
-  \draw [blue,<->] (Sp) ..controls (770.83bp,69.836bp) and (653.31bp,47.758bp)  .. (605.39bp,36.0bp) .. controls (603.45bp,35.522bp) and (601.47bp,35.03bp)  .. (DS);
-  \draw [<->] (WS) ..controls (517.29bp,66.733bp) and (522.37bp,55.549bp)  .. (DS);
-  \draw [->] (TV03) ..controls (693.99bp,252.18bp) and (696.61bp,245.96bp)  .. (698.39bp,240.0bp) .. controls (709.17bp,203.9bp) and (713.88bp,160.55bp)  .. (TV03p);
-  \draw (713.14bp,190.0bp) node {$\begin{array}[]{c}k_1=k_2,\\ \alpha_1=1,\\\alpha_2=\beta_2\end{array}$};
-  \draw [->] (DF85) ..controls (283.34bp,246.9bp) and (325.52bp,233.55bp)  .. (363.89bp,226.0bp) .. controls (454.72bp,208.13bp) and (480.51bp,225.6bp)  .. (571.39bp,208.0bp) .. controls (572.84bp,207.72bp) and (574.3bp,207.42bp)  .. (S);
-  \draw (365.14bp,233.0bp) node {$\kern-2cm\begin{array}[]{c}p=n,\\m=0\end{array}$};
-  \draw [->] (KL) ..controls (539.12bp,150.87bp) and (569.8bp,115.65bp)  .. (596.89bp,86.0bp) .. controls (609.89bp,71.774bp) and (624.66bp,56.158bp)  .. (Spp);
-  \draw (598.14bp,104.0bp) node {$A=B$};
-  \draw [->] (War10) ..controls (391.23bp,245.33bp) and (373.26bp,228.72bp)  .. (War10p);
-  \draw (415.79bp,233.0bp) node {$k_1=k_2=1$};
-  \draw [->] (War10) ..controls (499.71bp,244.56bp) and (543.74bp,226.18bp)  .. (S);
-  \draw (557.34bp,233.0bp) node {$k_2=0$};
-  \draw [->] (S) ..controls (719.23bp,160.5bp) and (786.5bp,138.16bp)  .. (Sp);
-  \draw (786.34bp,147.0bp) node {$k=2$};
-  \draw [->] (KL) ..controls (569.89bp,166.35bp) and (586.37bp,160.05bp)  .. (601.39bp,154.0bp) .. controls (623.17bp,145.23bp) and (647.02bp,135.05bp)  .. (TV03p);
-  \draw (635.14bp,147.0bp) node {$A=0$};
+  \draw (394.62bp,147.0bp) node {$\kern-1.5cm k_1=0$};
+  \draw [->] (KL) ..controls (1056.9bp,152.28bp) and (1111.8bp,119.38bp)  .. (1082.9bp,86.0bp) .. controls (1055.8bp,54.815bp) and (785.15bp,31.031bp)  .. (Sp);
+  \draw (1092.6bp,104.0bp) node {$\kern-8cm \begin{array}[]{l}\\\\\\\\\\\\A=B\end{array}$};
+  \draw [->] (DF85) ..controls (213.52bp,167.26bp) and (226.44bp,161.38bp)  .. (237.87bp,154.0bp) .. controls (247.21bp,147.97bp) and (255.45bp,139.13bp)  .. (DF85p);
+  \draw (255.62bp,147.0bp) node {$\begin{array}[]{l}p=n=1,\\m=r=1,\\ \alpha=\beta\end{array}$};
+  \draw [->] (AAR) ..controls (614.33bp,158.73bp) and (652.17bp,140.65bp)  .. (AARp);
+  \draw (650.62bp,147.0bp) node {$\begin{array}[]{l}n=2,\\j=l=k=1,\\ \alpha=\beta\end{array}$};
+  \draw [->] (KL) ..controls (965.87bp,160.36bp) and (965.87bp,145.43bp)  .. (TV03p);
+  \draw (967.62bp,147.0bp) node {$ A=0$};
+  \draw [->] (KL) ..controls (906.02bp,173.1bp) and (902.92bp,172.51bp)  .. (899.87bp,172.0bp) .. controls (777.09bp,151.52bp) and (744.2bp,166.68bp)  .. (620.37bp,154.0bp) .. controls (521.97bp,143.93bp) and (495.49bp,137.49bp)  .. (DF85p);
+  \draw (621.62bp,147.0bp) node {$\kern-3cm\nu=2$};
+  \draw [->] (TV03) ..controls (816.21bp,161.28bp) and (832.84bp,148.52bp)  .. (849.37bp,140.0bp) .. controls (860.21bp,134.41bp) and (872.07bp,129.52bp)  .. (TV03p);
+  \draw (850.62bp,147.0bp) node {$\begin{array}[]{l}k_1=k_2,\\ \alpha_1=1,\\\alpha_2=\beta_2\end{array}$};
+  \draw [->] (DF85) ..controls (106.28bp,160.36bp) and (107.5bp,145.43bp)  .. (S);
+  \draw (109.62bp,147.0bp) node {$\kern-0cm\begin{array}[]{c}p=n,\\m=0\end{array}$};
+  \draw [->] (KL) ..controls (906.7bp,161.81bp) and (878.57bp,149.37bp)  .. (852.87bp,140.0bp) .. controls (838.27bp,134.68bp) and (822.49bp,129.6bp)  .. (AARp);
+  \draw (888.62bp,147.0bp) node {$\kern1cm\begin{array}[]{l}A=B+1\\\end{array}$};
+  \draw [->] (War10) ..controls (388.23bp,158.73bp) and (425.45bp,140.65bp)  .. (War10p);
+  \draw (424.62bp,147.0bp) node {$\begin{array}[]{l}\alpha_1=\beta_1,\\\alpha_2=\beta_2,\\k_1=k_2\end{array}$};
+  \draw [->] (War10) ..controls (207.77bp,168.39bp) and (189.42bp,162.07bp)  .. (172.98bp,154.0bp) .. controls (159.9bp,147.59bp) and (147.09bp,138.0bp)  .. (S);
+  \draw (191.82bp,147.0bp) node {$k_2=0$};
+  \draw [->] (KL) ..controls (905.97bp,173.38bp) and (902.89bp,172.67bp)  .. (899.87bp,172.0bp) .. controls (885.68bp,168.86bp) and (723.07bp,141.36bp)  .. (War10p);
+  \draw (794.62bp,147.0bp) node {$\kern-2cm A+B=\nu+1$};
+  \draw [->] (S) ..controls (158.84bp,87.527bp) and (161.89bp,86.718bp)  .. (164.87bp,86.0bp) .. controls (302.71bp,52.75bp) and (468.69bp,32.475bp)  .. (Sp);
+  \draw (324.62bp,61.0bp) node {$\begin{array}[]{c}
+  k=2,\\ \alpha=\beta
+  \end{array}$};
+  \draw [->] (AAR) ..controls (436.25bp,172.67bp) and (433.54bp,172.33bp)  .. (430.87bp,172.0bp) .. controls (345.14bp,161.48bp) and (320.5bp,177.43bp)  .. (237.37bp,154.0bp) .. controls (223.79bp,150.17bp) and (221.85bp,145.55bp)  .. (208.87bp,140.0bp) .. controls (194.92bp,134.03bp) and (179.62bp,128.12bp)  .. (S);
+  \draw (239.62bp,147.0bp) node {$\begin{array}[]{l}\\\\\\\\\qquad\qquad\qquad j=k=0\end{array}$};
 %
 \end{tikzpicture}
