@@ -1,9 +1,9 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 62>
+  <section|report 63>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
@@ -13,16 +13,19 @@
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     Work on for <math|U<around*|(|p,q|)>> case (sat)
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
-    misc tasks (image of <math|A<rsup|2>> under SBOs, image of Yamabe ker)
-  </cell>|<cell|<with|font-series|bold|not done>>>>>>
+    image of <math|A<rsup|1>> under SBOs
+  </cell>|<cell|<with|font-series|bold|not done> (but I can do
+  <math|p=1>)>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>Computed image of <math|A<rsup|12>> under SBO (see
-    <verbatim|D25.pdf> attached)
+    <item>Confirmed that I can compute the image of <math|A<rsup|1>> for
+    <math|p=1>;
+
+    <item>Read Lang's SL2's Chapter 6;
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do during this week>:
@@ -38,17 +41,6 @@
       <item>Read \PCONFORMAL SYMMETRY BREAKING OPERATORS FOR ANTI-DE SITTER
       SPACES\Q
     </enumerate>
-
-    <item>Misc tasks:
-
-    <\enumerate-numeric>
-      <item>Collect information regarded to the integral formula paper
-      <with|font-series|bold|(thu)>. Draw the tree diagram for the special
-      cases of the formula proven.
-
-      <item>Make dependence diagram for lemmas in section C19.5
-      (<with|font-series|bold|fri)>
-    </enumerate-numeric>
 
     <item>Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
     symmetry breaking (thu):
@@ -78,23 +70,6 @@
       <item>Make the residue formulae look more meaningful
     </enumerate-numeric>
 
-    <item>Project 2: Determine for which <math|P\<subset\>G>: parabolic of
-    <math|G=O<around*|(|p+1,q+1|)>> (or <math|=U<around*|(|p+1,q+1|)>,Sp<around*|(|p+1,q+1|)>>)
-    we have <math|P<rprime|'>N<rsub|->P=G> holding:
-
-    <\enumerate-numeric>
-      <item>Classify the conjugacy classes of parabolic subgroups of
-      <math|G=O<around*|(|p,q|)>> (in particular, am I right that conjugacy
-      class is single for every given dimension)
-
-      <item>Roughly understand the geometry of
-      <math|P<rprime|'>\<curvearrowright\>G/P> action
-
-      <item>See whether <math|P<rprime|'>N<rsub|->P=G> holds
-
-      <item>Do this for <math|G=U<around*|(|p,q|)>,Sp<around*|(|p,q|)>>
-    </enumerate-numeric>
-
     <item>Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
     symmetry breaking:
 
@@ -118,17 +93,6 @@
       <math|A<rsub|\<frak-q\>><around*|(|\<lambda\>|)>>
     </enumerate-numeric>
 
-    <item>Compute the bound on <math|Hom<rsub|G<rprime|'>><around*|(|I<around*|(|\<lambda\>|)>,J<around*|(|\<nu\>|)>|)>>
-    multiplicity predicted by <cite|kobayashi2015classification> and compare
-    it with the actually obtained:
-
-    <\enumerate-numeric>
-      <item>Read <cite|kobayashi2015classification> and
-      <cite|kobayashi2014classification> carefully
-
-      <item>Do the computations
-    </enumerate-numeric>
-
     <item>Set up the equations that define kernels of SBO for
     <math|U<around*|(|p,q|)>> case:
 
@@ -137,29 +101,35 @@
 
       <item>Set up the equations for SBO kernels
     </enumerate-numeric>
+
+    <item>Project 2: Determine for which <math|P\<subset\>G>: parabolic of
+    <math|G=O<around*|(|p+1,q+1|)>> (or <math|=U<around*|(|p+1,q+1|)>,Sp<around*|(|p+1,q+1|)>>)
+    we have <math|P<rprime|'>N<rsub|->P=G> holding:
+
+    <\enumerate-numeric>
+      <item>Classify the conjugacy classes of parabolic subgroups of
+      <math|G=O<around*|(|p,q|)>> (in particular, am I right that conjugacy
+      class is single for every given dimension)
+
+      <item>Roughly understand the geometry of
+      <math|P<rprime|'>\<curvearrowright\>G/P> action
+
+      <item>See whether <math|P<rprime|'>N<rsub|->P=G> holds
+
+      <item>Do this for <math|G=U<around*|(|p,q|)>,Sp<around*|(|p,q|)>>
+    </enumerate-numeric>
   </enumerate-numeric>
 
   <\with|font-series|bold>
     Questions
   </with>
 
-  <\enumerate>
-    <item>Should I denote the kernel for, say
-    <math|R<rsup|C><rsub|\<lambda\>,\<nu\>>> (SBO supported on
-    <math|<around*|{|Q=0|}>>) as <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>>
-    now? I used the notation <math|<wide|K|~><rsub|\<lambda\>,\<nu\>><rsup|C>>
-    in the paper, which I think is <with|font-shape|italic|more> consistent
-    with Kobayashi-Speh. However, the notation
-    <math|K<rsub|\<lambda\>,\<nu\>><rsup|C>> was used in the announcement.
-  </enumerate>
+  (empty)
 
   <paragraph|Comments>
 
-  I found mistake in my diagrams for images (it looks like I've made a few
-  mistakes while copying the statement of the theorem proven in paper). I
-  will double check.
-
-  Again, thanks a lot for the help with the announcement.
+  I want to thank You once again for Your help during this week. I apologize
+  that I make silly computational mistakes, I'll try to improve.
 
   <\bibliography|bib|tm-alpha|todai_master>
     <\bib-list|1>
@@ -191,16 +161,9 @@
 
 <\auxiliary>
   <\collection>
-    <\associate|bib>
-      kobayashi2015classification
-
-      kobayashi2015classification
-
-      kobayashi2014classification
-    </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      61> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      63> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
