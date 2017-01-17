@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    121013,       3185]
-NotebookOptionsPosition[    120207,       3153]
-NotebookOutlinePosition[    120565,       3169]
-CellTagsIndexPosition[    120522,       3166]
+NotebookDataLength[     39963,       1114]
+NotebookOptionsPosition[     39087,       1080]
+NotebookOutlinePosition[     39445,       1096]
+CellTagsIndexPosition[     39402,       1093]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -24,8 +24,6 @@ Cell[BoxData[""], "Input",
 
 Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.681091083151354*^9, 3.68109108885671*^9}}],
-
-Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -262,198 +260,335 @@ Cell[BoxData[{
    "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{
-    RowBox[{"MyBasisAndImages", "[", 
-     RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
-    RowBox[{"Simplify", "[", 
-     RowBox[{"Block", "[", 
-      RowBox[{
-       RowBox[{"{", 
+   RowBox[{"MyBasisAndImages", "[", 
+    RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"Block", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"fss", "=", 
+         RowBox[{"inSS", "[", 
+          RowBox[{"x", ",", "y"}], "]"}]}], ",", 
+        RowBox[{"fbb", "=", 
+         RowBox[{"inBB", "[", 
+          RowBox[{"x", ",", "y"}], "]"}]}]}], "}"}], ",", 
+      RowBox[{"Simplify", "[", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
         RowBox[{
-         RowBox[{"fss", "=", 
-          RowBox[{"inSS", "[", 
-           RowBox[{"x", ",", "y"}], "]"}]}], ",", 
-         RowBox[{"fbb", "=", 
-          RowBox[{"inBB", "[", 
-           RowBox[{"x", ",", "y"}], "]"}]}]}], "}"}], ",", 
-       RowBox[{"Simplify", "[", 
-        RowBox[{"Which", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"\[Nu]", "\[LessEqual]", "0"}], "&&", 
+          RowBox[{
+           RowBox[{"Substitute", "[", 
+            RowBox[{"\[Nu]", "/", "2"}], "]"}], "\[Element]", "Integers"}]}], 
+         ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"!", "fbb"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"R", ",", "F"}], "}"}], "}"}], ",", "True", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "J"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Rt", ",", "F"}], "}"}]}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
          RowBox[{
           RowBox[{
-           RowBox[{"\[Nu]", "\[LessEqual]", "0"}], "&&", 
-           RowBox[{
-            RowBox[{"Substitute", "[", 
-             RowBox[{"\[Nu]", "/", "2"}], "]"}], "\[Element]", "Integers"}]}],
-           ",", 
-          RowBox[{"Which", "[", 
-           RowBox[{
-            RowBox[{"!", "fbb"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"{", 
-              RowBox[{"R", ",", "F"}], "}"}], "}"}], ",", "True", ",", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"0", ",", "J"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"Rt", ",", "F"}], "}"}]}], "}"}]}], "]"}], ",", 
-          "\[IndentingNewLine]", 
+           RowBox[{"\[Nu]", "/", "2"}], "\[Element]", "Integers"}], "&&", 
           RowBox[{
-           RowBox[{
-            RowBox[{"\[Nu]", "/", "2"}], "\[Element]", "Integers"}], "&&", 
-           RowBox[{
-            RowBox[{"q", "/", "2"}], "\[Element]", "Integers"}], "&&", 
-           RowBox[{"\[Nu]", "\[GreaterEqual]", "q"}]}], ",", 
-          RowBox[{"Which", "[", 
-           RowBox[{
-            RowBox[{"!", "fbb"}], ",", 
-            RowBox[{"{", 
-             RowBox[{"{", 
-              RowBox[{"R", ",", "J"}], "}"}], "}"}], ",", "True", ",", 
-            RowBox[{"{", 
-             RowBox[{"{", 
-              RowBox[{"R", ",", "T"}], "}"}], "}"}]}], "]"}], ",", 
-          "\[IndentingNewLine]", 
+           RowBox[{"q", "/", "2"}], "\[Element]", "Integers"}], "&&", 
+          RowBox[{"\[Nu]", "\[GreaterEqual]", "q"}]}], ",", 
+         RowBox[{"Which", "[", 
           RowBox[{
-           RowBox[{
-            RowBox[{"\[Nu]", "/", "2"}], "\[Element]", "Integers"}], "&&", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"(", 
-              RowBox[{"q", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
-            "Integers"}], "&&", 
-           RowBox[{"\[Nu]", "\[GreaterEqual]", "q"}]}], ",", 
-          RowBox[{"Which", "[", 
-           RowBox[{
-            RowBox[{"fss", "&&", 
-             RowBox[{"!", "fbb"}]}], ",", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"0", ",", "J"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], ",", "True", ",", 
-            RowBox[{"{", 
-             RowBox[{"{", 
-              RowBox[{"R", ",", "T"}], "}"}], "}"}]}], "]"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{
-            RowBox[{"Expand", "[", 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{"\[Nu]", "-", "1"}], ")"}], "/", "2"}], "]"}], 
-            "\[Element]", "Integers"}], "&&", 
-           RowBox[{"\[Nu]", "\[LessEqual]", "0"}], "&&", 
-           RowBox[{
-            RowBox[{"q", "/", "2"}], "\[Element]", "Integers"}]}], ",", 
-          RowBox[{"Which", "[", 
-           RowBox[{"fss", ",", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"0", ",", "J"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}], ",", "True", ",", 
-            RowBox[{"{", 
-             RowBox[{"{", 
-              RowBox[{"R", ",", "J"}], "}"}], "}"}]}], "]"}], ",", 
-          "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{
-            RowBox[{
-             RowBox[{"(", 
-              RowBox[{"\[Nu]", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
-            "Integers"}], "&&", 
-           RowBox[{"\[Nu]", "\[LessEqual]", "0"}], "&&", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"(", 
-              RowBox[{"q", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
-            "Integers"}]}], ",", 
-          RowBox[{"{", 
+           RowBox[{"!", "fbb"}], ",", 
            RowBox[{"{", 
-            RowBox[{"R", ",", "J"}], "}"}], "}"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"{", 
+             RowBox[{"R", ",", "J"}], "}"}], "}"}], ",", "True", ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"R", ",", "T"}], "}"}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"\[Nu]", "/", "2"}], "\[Element]", "Integers"}], "&&", 
           RowBox[{
            RowBox[{
+            RowBox[{"(", 
+             RowBox[{"q", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
+           "Integers"}], "&&", 
+          RowBox[{"\[Nu]", "\[GreaterEqual]", "q"}]}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{"fss", "&&", 
+            RowBox[{"!", "fbb"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "J"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], ",", "True", ",", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{"R", ",", "T"}], "}"}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Expand", "[", 
             RowBox[{
              RowBox[{"(", 
-              RowBox[{"\[Nu]", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
-            "Integers"}], "&&", 
-           RowBox[{
-            RowBox[{"q", "/", "2"}], "\[Element]", "Integers"}], "&&", 
-           RowBox[{"\[Nu]", "\[GreaterEqual]", "q"}]}], ",", 
-          RowBox[{"Which", "[", 
-           RowBox[{
+              RowBox[{"\[Nu]", "-", "1"}], ")"}], "/", "2"}], "]"}], 
+           "\[Element]", "Integers"}], "&&", 
+          RowBox[{"\[Nu]", "\[LessEqual]", "0"}], "&&", 
+          RowBox[{
+           RowBox[{"q", "/", "2"}], "\[Element]", "Integers"}]}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{"fss", ",", 
+           RowBox[{"{", 
             RowBox[{
-             RowBox[{"!", "fss"}], "&&", 
-             RowBox[{"!", "fbb"}]}], ",", 
-            RowBox[{"{", 
              RowBox[{"{", 
-              RowBox[{"R", ",", "T"}], "}"}], "}"}], ",", 
-            RowBox[{"fss", "&&", 
-             RowBox[{"!", "fbb"}]}], ",", 
+              RowBox[{"0", ",", "J"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}], ",", "True", ",", 
+           RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"0", ",", "J"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], ",", 
-            RowBox[{"fbb", "&&", 
-             RowBox[{"!", "fss"}]}], ",", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"C", ",", "T"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"Y", ",", "T"}], "}"}]}], "}"}], ",", "True", ",", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"0", ",", "T"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}]}], "]"}], ",", 
-          "\[IndentingNewLine]", 
+             RowBox[{"R", ",", "J"}], "}"}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
           RowBox[{
            RowBox[{
-            RowBox[{
-             RowBox[{"(", 
-              RowBox[{"\[Nu]", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
-            "Integers"}], "&&", 
+            RowBox[{"(", 
+             RowBox[{"\[Nu]", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
+           "Integers"}], "&&", 
+          RowBox[{"\[Nu]", "\[LessEqual]", "0"}], "&&", 
+          RowBox[{
            RowBox[{
-            RowBox[{
-             RowBox[{"(", 
-              RowBox[{"q", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
-            "Integers"}], "&&", 
-           RowBox[{"\[Nu]", "\[GreaterEqual]", "q"}]}], ",", 
-          RowBox[{"Which", "[", 
+            RowBox[{"(", 
+             RowBox[{"q", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
+           "Integers"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"R", ",", "J"}], "}"}], "}"}], ",", "\[IndentingNewLine]", 
+         
+         RowBox[{
+          RowBox[{
            RowBox[{
-            RowBox[{
-             RowBox[{"!", "fss"}], "&&", 
-             RowBox[{"!", "fbb"}]}], ",", 
+            RowBox[{"(", 
+             RowBox[{"\[Nu]", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
+           "Integers"}], "&&", 
+          RowBox[{
+           RowBox[{"q", "/", "2"}], "\[Element]", "Integers"}], "&&", 
+          RowBox[{"\[Nu]", "\[GreaterEqual]", "q"}]}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"!", "fss"}], "&&", 
+            RowBox[{"!", "fbb"}]}], ",", 
+           RowBox[{"{", 
             RowBox[{"{", 
+             RowBox[{"R", ",", "T"}], "}"}], "}"}], ",", 
+           RowBox[{"fss", "&&", 
+            RowBox[{"!", "fbb"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{
              RowBox[{"{", 
-              RowBox[{"R", ",", "J"}], "}"}], "}"}], ",", 
-            RowBox[{"fss", "&&", 
-             RowBox[{"!", "fbb"}]}], ",", 
+              RowBox[{"0", ",", "J"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], ",", 
+           RowBox[{"fbb", "&&", 
+            RowBox[{"!", "fss"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"C", ",", "T"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Y", ",", "T"}], "}"}]}], "}"}], ",", "True", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "T"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"\[Nu]", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
+           "Integers"}], "&&", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"q", "-", "1"}], ")"}], "/", "2"}], "\[Element]", 
+           "Integers"}], "&&", 
+          RowBox[{"\[Nu]", "\[GreaterEqual]", "q"}]}], ",", 
+         RowBox[{"Which", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"!", "fss"}], "&&", 
+            RowBox[{"!", "fbb"}]}], ",", 
+           RowBox[{"{", 
             RowBox[{"{", 
-             RowBox[{"R", ",", "J"}], "}"}], ",", 
-            RowBox[{"fbb", "&&", 
-             RowBox[{"!", "fss"}]}], ",", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"C", ",", "J"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"Y", ",", "T"}], "}"}]}], "}"}], ",", "True", ",", 
-            RowBox[{"{", 
-             RowBox[{
-              RowBox[{"{", 
-               RowBox[{"0", ",", "J"}], "}"}], ",", 
-              RowBox[{"{", 
-               RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}]}], "]"}]}], "]"}], 
-        "]"}]}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
+             RowBox[{"R", ",", "J"}], "}"}], "}"}], ",", 
+           RowBox[{"fss", "&&", 
+            RowBox[{"!", "fbb"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{"R", ",", "J"}], "}"}], ",", 
+           RowBox[{"fbb", "&&", 
+            RowBox[{"!", "fss"}]}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"C", ",", "J"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Y", ",", "T"}], "}"}]}], "}"}], ",", "True", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "J"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}]}], "]"}]}], "]"}], 
+       "]"}]}], "]"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"MyBasisAndImagesP", "[", 
+     RowBox[{
+     "fss_", ",", "fbb_", ",", "nuNonPos_", ",", "nuEven_", ",", "qEven_"}], 
+     "]"}], ":=", 
+    RowBox[{"Simplify", "[", 
+     RowBox[{"Which", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"nuNonPos", "&&", "nuEven"}], ",", 
+       RowBox[{"Which", "[", 
+        RowBox[{
+         RowBox[{"!", "fbb"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"R", ",", "F"}], "}"}], "}"}], ",", "True", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "J"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Rt", ",", "F"}], "}"}]}], "}"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"nuEven", "&&", "qEven", "&&", 
+        RowBox[{"!", "nuNonPos"}]}], ",", 
+       RowBox[{"Which", "[", 
+        RowBox[{
+         RowBox[{"!", "fbb"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"R", ",", "J"}], "}"}], "}"}], ",", "True", ",", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"R", ",", "T"}], "}"}], "}"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"nuEven", "&&", 
+        RowBox[{"!", "qEven"}], "&&", 
+        RowBox[{"!", "nuNonPos"}]}], ",", 
+       RowBox[{"Which", "[", 
+        RowBox[{
+         RowBox[{"fss", "&&", 
+          RowBox[{"!", "fbb"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "J"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], ",", "True", ",", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"R", ",", "T"}], "}"}], "}"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"!", "nuEven"}], "&&", "nuNonPos", "&&", "qEven"}], ",", 
+       RowBox[{"Which", "[", 
+        RowBox[{"fss", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "J"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}], ",", "True", ",", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"R", ",", "J"}], "}"}], "}"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"!", "nuEven"}], "&&", "nuNonPos", "&&", 
+        RowBox[{"!", "qEven"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"{", 
+         RowBox[{"R", ",", "J"}], "}"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"!", "nuEven"}], "&&", "qEven", "&&", 
+        RowBox[{"!", "nuNonPos"}]}], ",", 
+       RowBox[{"Which", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"!", "fss"}], "&&", 
+          RowBox[{"!", "fbb"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"R", ",", "T"}], "}"}], "}"}], ",", 
+         RowBox[{"fss", "&&", 
+          RowBox[{"!", "fbb"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "J"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], ",", 
+         RowBox[{"fbb", "&&", 
+          RowBox[{"!", "fss"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"C", ",", "T"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Y", ",", "T"}], "}"}]}], "}"}], ",", "True", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "T"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"!", "nuEven"}], "&&", 
+        RowBox[{"!", "qEven"}], "&&", 
+        RowBox[{"!", "nuNonPos"}]}], ",", 
+       RowBox[{"Which", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"!", "fss"}], "&&", 
+          RowBox[{"!", "fbb"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"{", 
+           RowBox[{"R", ",", "J"}], "}"}], "}"}], ",", 
+         RowBox[{"fss", "&&", 
+          RowBox[{"!", "fbb"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"R", ",", "J"}], "}"}], ",", 
+         RowBox[{"fbb", "&&", 
+          RowBox[{"!", "fss"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"C", ",", "J"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Y", ",", "T"}], "}"}]}], "}"}], ",", "True", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "J"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}]}], "]"}]}], "]"}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{
     RowBox[{"\[Lambda]", "=", 
@@ -581,30 +716,31 @@ Cell[BoxData[{
             RowBox[{"2", "*", "l"}]}], ",", 
            RowBox[{"q", "+", "1", "+", 
             RowBox[{"2", "*", "l"}]}]}], "}"}]}], "}"}]}], "]"}], "//", 
-     "MatrixForm"}]}], "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Table", "[", 
+     "MatrixForm"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
    RowBox[{
-    RowBox[{"F", "[", 
-     RowBox[{"\[Lambda]", ",", "\[Nu]"}], "]"}], ",", 
-    RowBox[{"{", 
-     RowBox[{"\[Lambda]", ",", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"F", "[", 
+       RowBox[{"\[Lambda]", ",", "\[Nu]"}], "]"}], ",", 
       RowBox[{"{", 
-       RowBox[{
-       "0", ",", "\"\<-2*l\>\"", ",", "\"\<n-2-2*l\>\"", ",", "\"\<2+2*l\>\"",
-         ",", "\"\<n+2*l\>\""}], "}"}]}], "}"}], ",", 
-    RowBox[{"{", 
-     RowBox[{"\[Nu]", ",", 
+       RowBox[{"\[Lambda]", ",", 
+        RowBox[{"{", 
+         RowBox[{
+         "0", ",", "\"\<-2*l\>\"", ",", "\"\<n-2-2*l\>\"", ",", 
+          "\"\<2+2*l\>\"", ",", "\"\<n+2*l\>\""}], "}"}]}], "}"}], ",", 
       RowBox[{"{", 
-       RowBox[{
-       "0", ",", "\"\<-1-2*m\>\"", ",", "\"\<-2*m\>\"", ",", "\"\<q+2*m\>\"", 
-        ",", "\"\<q+1+2*m\>\""}], "}"}]}], "}"}]}], "]"}], "//", 
-  "MatrixForm"}], "\[IndentingNewLine]", 
- RowBox[{
+       RowBox[{"\[Nu]", ",", 
+        RowBox[{"{", 
+         RowBox[{
+         "0", ",", "\"\<-1-2*m\>\"", ",", "\"\<-2*m\>\"", ",", 
+          "\"\<q+2*m\>\"", ",", "\"\<q+1+2*m\>\""}], "}"}]}], "}"}]}], "]"}], 
+    "//", "MatrixForm"}], "*)"}], "\[IndentingNewLine]", 
   RowBox[{"(*", 
    RowBox[{"Simplify", "[", 
     RowBox[{"RHSzero", "[", 
-     RowBox[{"\[Lambda]", ",", "\[Nu]"}], "]"}], "]"}], "*)"}]}]}], "Input",
+     RowBox[{"\[Lambda]", ",", "\[Nu]"}], "]"}], "]"}], 
+   "*)"}]}], "\[IndentingNewLine]", "MyBasisAndImages"}], "Input",
  CellChangeTimes->{
   3.681090348853978*^9, 3.681090430323197*^9, {3.681091074154056*^9, 
    3.681091168575145*^9}, {3.681091265665032*^9, 3.681091389943912*^9}, {
@@ -682,2241 +818,32 @@ Cell[BoxData[{
    3.6907771841447153`*^9, 3.690777184228125*^9}, {3.690777236593856*^9, 
    3.6907772403453007`*^9}, {3.690777404678944*^9, 3.690777438312086*^9}, {
    3.690777578294125*^9, 3.6907775912046328`*^9}, {3.690777766828178*^9, 
-   3.690777788416361*^9}, {3.690777900031004*^9, 3.690777919348905*^9}}],
+   3.690777788416361*^9}, {3.690777900031004*^9, 3.690777919348905*^9}, {
+   3.693290185393737*^9, 3.693290495858424*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"MyBasisAndImagesP", "[", 
+  RowBox[{"False", ",", "False", ",", "True", ",", "True", ",", "False"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MyBasisAndImagesP", "[", 
+  RowBox[{"False", ",", "False", ",", "False", ",", "False", ",", "False"}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.6932904993910313`*^9, 3.69329050037764*^9}, {
+  3.693291398198929*^9, 3.693291461673263*^9}}],
 
 Cell[BoxData[
- TagBox[
-  RowBox[{"(", "\[NoBreak]", GridBox[{
-     {"0", "\<\"-1-2*m\"\>", "\<\"-2*m\"\>", "\<\"q+2*m\"\>", \
-"\<\"q+1+2*m\"\>"},
-     {"\<\"-2*l\"\>", 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[Element]", "Integers"}],
-               "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{"\<\"-1-2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"-1-2*m\"\>", "2"], "\[Element]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"-1-2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}], "&&", 
-                RowBox[{"\<\"-1-2*m\"\>", ">", "0"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"-1-2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}], "&&", 
-              RowBox[{"l", "<", "m"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", ">", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "F"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", "m"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "T"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", "m"}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"-2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"C", ",", "T"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Y", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "<", "m"}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"-2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[Element]", "Integers"}], 
-              "&&", 
-              RowBox[{"l", "<", "m"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[Element]", "Integers"}], 
-              "&&", 
-              RowBox[{"\<\"q+2*m\"\>", ">", "0"}], "&&", 
-              RowBox[{"l", "<", "m"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[Element]", "Integers"}], 
-              "&&", 
-              RowBox[{"l", "\[GreaterEqual]", "m"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", ">", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "F"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[Element]", "Integers"}], 
-              "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", "m"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "<", "m"}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "T"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", "m"}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[Element]", 
-               "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{"\<\"q+1+2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"q+1+2*m\"\>", "2"], "\[Element]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}], "&&", 
-                RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False]},
-     {"\<\"n-2-2*l\"\>", 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}], "&&", 
-              RowBox[{"l", "<", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[Element]", "Integers"}],
-               "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", ">", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "F"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[Element]", "Integers"}],
-               "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "T"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"-1-2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"C", ",", "T"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Y", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "<", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"-1-2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{"\<\"-2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"-2*m\"\>", "2"], "\[Element]", "Integers"}],
-                 "&&", 
-                RowBox[{"\<\"-2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}], "&&", 
-                RowBox[{"\<\"-2*m\"\>", ">", "0"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"-2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[Element]", "Integers"}], 
-              "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{"\<\"q+2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"q+2*m\"\>", "2"], "\[Element]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}], "&&", 
-                RowBox[{"\<\"q+2*m\"\>", ">", "0"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[Element]", 
-               "Integers"}], "&&", 
-              RowBox[{"l", "<", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[Element]", 
-               "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "<", 
-               RowBox[{"m", "+", "Q"}]}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[Element]", 
-               "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "F"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[Element]", 
-               "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", 
-               RowBox[{"m", "+", "Q"}]}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "<", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "T"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False]},
-     {"\<\"2+2*l\"\>", 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[Element]", "Integers"}],
-               "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{"\<\"-1-2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"-1-2*m\"\>", "2"], "\[Element]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"-1-2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}], "&&", 
-                RowBox[{"\<\"-1-2*m\"\>", ">", "0"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"-1-2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", 
-               RowBox[{"m", "+", "Q"}]}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"-2*m\"\>", "\[LessEqual]", "0"}]}], ")"}], "||", 
-              
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"-2*m\"\>", "2"], "\[Element]", "Integers"}],
-                 "&&", 
-                RowBox[{"\<\"-2*m\"\>", ">", "0"}], "&&", 
-                RowBox[{"\<\"-2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}], "&&", 
-                RowBox[{"l", "\[GreaterEqual]", 
-                 RowBox[{"m", "+", "Q"}]}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"\<\"-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{
-                    FractionBox["1", "2"], " ", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-                   "\[Element]", "Integers"}], "&&", 
-                  RowBox[{"l", "\[GreaterEqual]", 
-                   RowBox[{"m", "+", "Q"}]}], "&&", 
-                  RowBox[{
-                   FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-                   "Integers"}], "&&", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"\<\"-2*m\"\>", ">", "0"}], "||", 
-                    RowBox[{
-                    RowBox[{
-                    FractionBox["1", "2"], " ", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-                    "\[NotElement]", "Integers"}]}], ")"}]}], ")"}], "||", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{
-                   FractionBox["\<\"-2*m\"\>", "2"], "\[Element]", 
-                   "Integers"}], "&&", 
-                  RowBox[{"\<\"-2*m\"\>", ">", "0"}], "&&", 
-                  RowBox[{
-                   RowBox[{"1", "+", "l"}], "\[LessEqual]", 
-                   RowBox[{"m", "+", "Q"}]}]}], ")"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "F"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-              RowBox[{
-               RowBox[{"1", "+", "l"}], "\[LessEqual]", 
-               RowBox[{"m", "+", "Q"}]}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"C", ",", "T"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Y", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "<", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"-2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[Element]", "Integers"}], 
-              "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"q+2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-                RowBox[{"l", "\[GreaterEqual]", 
-                 RowBox[{"m", "+", "Q"}]}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"q+2*m\"\>", "2"], "\[Element]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"q+2*m\"\>", ">", "0"}], "&&", 
-                RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "\[GreaterEqual]", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-              RowBox[{
-               RowBox[{"1", "+", "l"}], "\[LessEqual]", 
-               RowBox[{"m", "+", "Q"}]}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"l", "<", 
-               RowBox[{"m", "+", "Q"}]}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[Element]", 
-               "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{"\<\"q+1+2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"q+1+2*m\"\>", "2"], "\[Element]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}], "&&", 
-                RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False]},
-     {"\<\"n+2*l\"\>", 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[Element]", "Integers"}],
-               "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-              RowBox[{"l", ">", "m"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"-1-2*m\"\>", "\[LessEqual]", "0"}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"-1-2*m\"\>", "2"], "\[Element]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"-1-2*m\"\>", ">", "0"}], "&&", 
-                RowBox[{"\<\"-1-2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}], "&&", 
-                RowBox[{"l", ">", "m"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"\<\"-1-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{
-                   RowBox[{
-                    FractionBox["1", "2"], " ", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-                   "\[Element]", "Integers"}], "&&", 
-                  RowBox[{"l", ">", "m"}], "&&", 
-                  RowBox[{
-                   FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-                   "Integers"}], "&&", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"\<\"-1-2*m\"\>", ">", "0"}], "||", 
-                    RowBox[{
-                    RowBox[{
-                    FractionBox["1", "2"], " ", 
-                    RowBox[{"(", 
-                    RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-                    "\[NotElement]", "Integers"}]}], ")"}]}], ")"}], "||", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{
-                   FractionBox["\<\"-1-2*m\"\>", "2"], "\[Element]", 
-                   "Integers"}], "&&", 
-                  RowBox[{"\<\"-1-2*m\"\>", ">", "0"}], "&&", 
-                  RowBox[{"l", "\[LessEqual]", "m"}]}], ")"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "F"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[Element]", "Integers"}],
-               "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-              RowBox[{"l", "\[LessEqual]", "m"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"C", ",", "T"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Y", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-1-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"-1-2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-1-2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{"l", "\[LessEqual]", "m"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-1-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{"\<\"-2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"-2*m\"\>", "2"], "\[Element]", "Integers"}],
-                 "&&", 
-                RowBox[{"\<\"-2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}], "&&", 
-                RowBox[{"\<\"-2*m\"\>", ">", "0"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"-2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"-2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"-2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"-2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[Element]", "Integers"}], 
-              "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{"\<\"q+2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"q+2*m\"\>", "2"], "\[Element]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}], "&&", 
-                RowBox[{"\<\"q+2*m\"\>", ">", "0"}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False], 
-      TagBox[GridBox[{
-         {"\[Piecewise]", GridBox[{
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "F"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[Element]", 
-               "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[LessEqual]", "0"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "J"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-                 "\[Element]", "Integers"}], "&&", 
-                RowBox[{
-                 FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"q+1+2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-                RowBox[{"l", ">", "m"}]}], ")"}], "||", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{
-                 FractionBox["\<\"q+1+2*m\"\>", "2"], "\[Element]", 
-                 "Integers"}], "&&", 
-                RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}], "&&", 
-                RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-                 RowBox[{"2", " ", "Q"}]}]}], ")"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{"{", 
-               RowBox[{"R", ",", "T"}], "}"}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{"l", ">", "m"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "J"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[LessEqual]", "0"}], "&&", 
-              RowBox[{"l", "\[LessEqual]", "m"}]}]},
-            {
-             RowBox[{"{", 
-              RowBox[{
-               RowBox[{"{", 
-                RowBox[{"0", ",", "J"}], "}"}], ",", 
-               RowBox[{"{", 
-                RowBox[{"Rt", ",", "T"}], "}"}]}], "}"}], 
-             RowBox[{
-              RowBox[{
-               RowBox[{
-                FractionBox["1", "2"], " ", 
-                RowBox[{"(", 
-                 RowBox[{
-                  RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-               "\[Element]", "Integers"}], "&&", 
-              RowBox[{"\<\"q+1+2*m\"\>", "\[GreaterEqual]", 
-               RowBox[{"2", " ", "Q"}]}], "&&", 
-              RowBox[{"(", 
-               RowBox[{
-                RowBox[{"\<\"q+1+2*m\"\>", ">", "0"}], "||", 
-                RowBox[{
-                 RowBox[{
-                  FractionBox["1", "2"], " ", 
-                  RowBox[{"(", 
-                   RowBox[{
-                    RowBox[{"-", "1"}], "+", "\<\"q+1+2*m\"\>"}], ")"}]}], 
-                 "\[NotElement]", "Integers"}]}], ")"}], "&&", 
-              RowBox[{"l", "\[LessEqual]", "m"}], "&&", 
-              RowBox[{
-               FractionBox["\<\"q+1+2*m\"\>", "2"], "\[NotElement]", 
-               "Integers"}]}]},
-            {"0", 
-             TagBox["True",
-              "PiecewiseDefault",
-              AutoDelete->True]}
-           },
-           AllowedDimensions->{2, Automatic},
-           Editable->True,
-           
-           GridBoxAlignment->{
-            "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-           
-           GridBoxItemSize->{
-            "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, 
-             "Rows" -> {{1.}}, "RowsIndexed" -> {}},
-           GridBoxSpacings->{"Columns" -> {
-               Offset[0.27999999999999997`], {
-                Offset[0.84]}, 
-               Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-               Offset[0.2], {
-                Offset[0.4]}, 
-               Offset[0.2]}, "RowsIndexed" -> {}},
-           Selectable->True]}
-        },
-        GridBoxAlignment->{
-         "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
-        GridBoxItemSize->{
-         "Columns" -> {{Automatic}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}},
-           "RowsIndexed" -> {}},
-        GridBoxSpacings->{"Columns" -> {
-            Offset[0.27999999999999997`], {
-             Offset[0.35]}, 
-            Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, 
-          "Rows" -> {
-            Offset[0.2], {
-             Offset[0.4]}, 
-            Offset[0.2]}, "RowsIndexed" -> {}}],
-       "Piecewise",
-       DeleteWithContents->True,
-       Editable->False,
-       SelectWithContents->True,
-       Selectable->False]}
-    },
-    GridBoxAlignment->{
-     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
-      "RowsIndexed" -> {}},
-    GridBoxSpacings->{"Columns" -> {
-        Offset[0.27999999999999997`], {
-         Offset[0.7]}, 
-        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
-        Offset[0.2], {
-         Offset[0.4]}, 
-        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
-  Function[BoxForm`e$, 
-   MatrixForm[BoxForm`e$]]]], "Output",
- CellChangeTimes->{
-  3.690776005621954*^9, {3.690776131743548*^9, 3.6907761765042*^9}, {
-   3.690776207106319*^9, 3.690776234871572*^9}, {3.6907764108099413`*^9, 
-   3.690776446258704*^9}, {3.690776498832499*^9, 3.6907765709620256`*^9}, 
-   3.690776873777775*^9, 3.6907770277229357`*^9, 3.690777186581193*^9, 
-   3.690777241164669*^9, {3.690777410546356*^9, 3.690777439160101*^9}, 
-   3.6907775396127157`*^9, 3.690777595175212*^9, 3.69077775365831*^9}]
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"R", ",", "F"}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.693291420399228*^9, 3.693291465597883*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"R", ",", "J"}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.693291420399228*^9, 3.693291465605115*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3170,22 +1097,24 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 117, 2, 28, "Input"],
 Cell[678, 24, 91, 1, 28, "Input"],
+Cell[772, 27, 30612, 794, 845, "Input"],
 Cell[CellGroupData[{
-Cell[794, 29, 25892, 655, 692, "Input"],
-Cell[26689, 686, 86581, 2232, 756, "Output"]
+Cell[31409, 825, 409, 8, 46, InheritFromParent],
+Cell[31821, 835, 163, 4, 28, "Output"],
+Cell[31987, 841, 163, 4, 62, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[113307, 2923, 219, 6, 45, "Input"],
-Cell[113529, 2931, 241, 6, 44, "Output"]
+Cell[32187, 850, 219, 6, 45, "Input"],
+Cell[32409, 858, 241, 6, 44, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[113807, 2942, 1572, 46, 65, "Input"],
-Cell[115382, 2990, 1068, 34, 64, "Output"]
+Cell[32687, 869, 1572, 46, 65, "Input"],
+Cell[34262, 917, 1068, 34, 64, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[116487, 3029, 168, 2, 28, "Input"],
-Cell[116658, 3033, 1812, 59, 64, "Output"],
-Cell[118473, 3094, 1718, 56, 64, "Output"]
+Cell[35367, 956, 168, 2, 28, "Input"],
+Cell[35538, 960, 1812, 59, 64, "Output"],
+Cell[37353, 1021, 1718, 56, 64, "Output"]
 }, Open  ]]
 }
 ]
