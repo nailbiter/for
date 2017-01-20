@@ -172,29 +172,24 @@
   </lemma>
 
   <\proof>
-    We note that beta-integral and Proposition 6.1 readily give the
-    <math|i=0> case:
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|\||u-v|\|><rsup|-\<nu\>><around*|[|<big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<beta\>-1/2>w<rsup|\<mu\>-1/2>d
-      w|]>d u d v=F<around*|(|\<alpha\>,\<beta\>,\<mu\>,\<nu\>|)>:=>|<cell|>>|<row|<cell|>|<cell|\<assign\>\<Gamma\><around*|(|\<beta\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<times\><frac|<sqrt|\<pi\>>\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|2+\<alpha\>+\<beta\>+\<mu\>-\<nu\>|)>*|\<Gamma\><around*|(|<frac|3|2>+\<alpha\>-<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|3|2>+\<beta\>+\<mu\>-<frac|\<nu\>|2>|)>\<Gamma\><around*|(|2+\<alpha\>+\<beta\>+\<mu\>-<frac|\<nu\>|2>|)>>.>|<cell|>>>>
-    </eqnarray>
-
-    Now, for the general case, we employ the equality
+    The integral expression for hypergeometric function
 
     <\equation*>
-      <around*|(|1-w<around*|(|1-v<rsup|2>|)>|)><rsup|i>=<rsub|1>F<rsub|0><around*|(|-i;;w<around*|(|1-v<rsup|2>|)>|)>,
+      <big|int><rsub|0><rsup|1><around*|(|1-x|)><rsup|\<alpha\>><around*|(|1-z
+      x|)><rsup|\<beta\>>x<rsup|\<gamma\>>=B<around*|(|\<gamma\>+1,\<alpha\>+1|)><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-\<beta\>,\<gamma\>+1>>|<row|<cell|\<alpha\>+\<gamma\>+2>>>>>;z|)>
     </equation*>
 
-    and expand the latter hypergeometric in series, so to get
+    together with power series expansion of hypergeometric implies that the
+    LHS equals to
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|\||u-v|\|><rsup|-\<nu\>><around*|[|<big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<beta\>-1/2>w<rsup|\<mu\>-1/2><around*|(|1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><rsup|i>d
-      w|]> d u d v=>|<cell|>>|<row|<cell|>|<cell|=<big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|-i|)><rsub|j>|j!><big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>+i><around*|\||u-v|\|><rsup|-\<nu\>><around*|[|<big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<beta\>-1/2>w<rsup|\<mu\>+i-1/2>d
-      w|]> d u d v=>|<cell|>>|<row|<cell|>|<cell|=<big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|-i|)><rsub|j>|j!>F<around*|(|\<alpha\>,\<beta\>,\<mu\>+i,\<nu\>|)>=<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|\<beta\>+<frac|1|2>|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|3|2>+\<alpha\>-<frac|\<nu\>|2>|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|\<times\><big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|-i|)><rsub|j>|j!><frac|\<Gamma\><around*|(|\<mu\>+i+<frac|1|2>|)>\<Gamma\><around*|(|2+\<alpha\>+\<beta\>+\<mu\>+i-\<nu\>|)>*|\<Gamma\><around*|(|<frac|3|2>+\<beta\>+\<mu\>+i-<frac|\<nu\>|2>|)>\<Gamma\><around*|(|2+\<alpha\>+\<beta\>+\<mu\>+i-<frac|\<nu\>|2>|)>>>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|B<around*|(|\<mu\>+<frac|1|2>,\<beta\>+<frac|1|2>|)><big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|-i|)><rsub|j><around*|(|\<mu\>+<frac|1|2>|)><rsub|j>|j!<around*|(|\<mu\>+\<beta\>+1|)><rsub|j>><big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>+i><around*|\||u-v|\|><rsup|-\<nu\>>d
+      u d v=>|<cell|>>|<row|<cell|>|<cell|<frac|B<around*|(|\<mu\>+<frac|1|2>,\<beta\>+<frac|1|2>|)>\<Gamma\><around*|(|1+\<beta\>+\<mu\>|)><sqrt|\<pi\>>\<Gamma\><around*|(|1+\<alpha\>|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|3|2>+\<alpha\>-<frac|\<nu\>|2>|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|-i|)><rsub|j><around*|(|\<mu\>+<frac|1|2>|)><rsub|j>|j!><frac|\<Gamma\><around*|(|2+j+\<alpha\>+\<beta\>+\<mu\>-\<nu\>|)>|\<Gamma\><around*|(|<frac|3|2>+j+\<beta\>+\<mu\>-<frac|\<nu\>|2>|)>\<Gamma\><around*|(|2+j+\<alpha\>+\<beta\>+\<mu\>-<frac|\<nu\>|2>|)>>>|<cell|>>>>
     </eqnarray>
 
-    and the rest follows.
+    \;
+
+    and the rest is just the definition of <math|<rsub|3>F<rsub|2>>.
   </proof>
 
   <\lemma>
