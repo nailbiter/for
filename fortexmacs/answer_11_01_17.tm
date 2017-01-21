@@ -152,20 +152,31 @@
   </enumerate>
 
   <\question>
-    In order to compute the images of SBOs, which integral was used?
+    How does integral in Question 8 changes if we do variable change:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|[|<stack|<tformat|<table|<row|<cell|u>>|<row|<cell|v>>|<row|<cell|z>>>>>|]>\<rightsquigarrow\><around*|[|<stack|<tformat|<table|<row|<cell|\<theta\>=arccos<around*|(|u|)>>>|<row|<cell|\<psi\>=arccos<around*|(|<frac|v|<sqrt|1-w<around*|(|1-v<rsup|2>|)>>>|)>>>|<row|<cell|\<varphi\>=arcsin<around*|(|<sqrt|1-w<around*|(|1-v<rsup|2>|)>>|)>>>>>>|]>>|<cell|>>>>
+    </eqnarray>
   </question>
 
-  In <math|<around*|(|\<theta\>,\<psi\>,\<varphi\>|)>>-varibles, it is the
-  integral
+  <\answer>
+    The Jacobial is
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<frac|\<partial\><around*|(|u,v,z|)>|\<partial\><around*|(|\<theta\>,\<psi\>,\<varphi\>|)>>=>|<cell|>>>>
+    </eqnarray>
+
+    Hence the integral is:
+
+    <math|<tabular|<tformat|<table|<row|<cell|<big|int><rsub|D><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|(|1-w|)><rsup|\<beta\>-<frac|1|2>><around*|\||w|\|><rsup|\<mu\>-<frac|1|2>><around*|\||u-v|\|><rsup|-\<nu\>><wide|C|~><rsup|\<beta\>><rsub|a<rprime|'>><around*|(|<frac|v|<sqrt|1-w<around*|(|1-v<rsup|2><rsup|>|)>>>|)><around*|(|1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><rsup|<frac|a<rprime|'>|2>><wide|C|~><rsup|\<alpha\>+<frac|1|2>><rsub|b><around*|(|u|)>d
+    u v w=>>|<row|<cell|=<frac|\<Gamma\><around*|(|\<alpha\>+<frac|1|2>+<around*|[|<frac|b|2>|]>|)>\<Gamma\><around*|(|\<beta\>|)>|\<Gamma\><around*|(|\<beta\>+<around*|[|<frac|a<rprime|'>|2>|]>|)>><frac|(2\<beta\>)<rsub|a<rprime|'>><around*|(|-1|)><rsup|<frac|a<rprime|'>-b|2>><around*|(|2\<alpha\>+1|)><rsub|b>|a<rprime|'>!
+    b!><around*|\<nobracket\>|\<times\>\<pi\>\<Gamma\><around*|(|\<beta\>+<frac|1|2>|)>\<Gamma\><around*|(|2\<alpha\>+1|)>2<rsup|-2\<alpha\>>|\<nobracket\>>\<times\>>>|<row|<cell|<frac|\<Gamma\><around*|(|<frac|a<rprime|'>+b+\<nu\>|2>|)>\<Gamma\><around*|(|\<mu\>-\<nu\>+\<alpha\>+\<beta\>+2|)>\<Gamma\><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|3-a<rprime|'>+b-\<nu\>+2\<alpha\>|2>|)>*<space|0.17em>\<Gamma\><around*|(|<frac|a<rprime|'>+b+2\<mu\>-\<nu\>+2\<alpha\>+2\<beta\>+4|2>|)>\<Gamma\><around*|(|<frac|a<rprime|'>-b+2\<mu\>-\<nu\>+2\<beta\>+3|2>|)>>.>>>>>>
+  </answer>
+
+  With notation
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>|)><around*|(|\<lambda\>+l/2|)>\<times\>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|0><rsup|\<pi\>><big|int><rsub|0><rsup|\<pi\>/2><big|int><rsub|0><rsup|\<pi\>/2>sin<rsup|2\<nu\>-m><around*|(|\<varphi\>|)>cos<rsup|a>\<varphi\><around*|\||cos\<theta\>-cos\<psi\>sin\<varphi\>|\|><rsup|-b>v<rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)>v<rsub|m><rsup|\<mu\>><around*|(|\<psi\>|)>d\<psi\>d\<varphi\>d\<theta\>=>|<cell|>>|<row|<cell|>|<cell|<frac|(2\<mu\>)<rsub|l+m><around*|(|-1|)><rsup|<frac|m-l|2>>|m!l!><around*|\<nobracket\>|\<times\>\<pi\><wide|\<Gamma\>|~><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|2\<lambda\>+1+l|)>2<rsup|-1-2\<lambda\>>|\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|l+m+b|2>|)>\<Gamma\><around*|(|<frac|a+2\<lambda\>+2\<mu\>+3-2b|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>\<Gamma\><around*|(|<frac|l+m+a+2\<lambda\>+2\<mu\>+3-b|2>+N|)>*<space|0.17em>\<Gamma\><around*|(|<frac|m-l+a+2\<mu\>+3-b|2>|)>>.>|<cell|>>>>
-  </eqnarray>
-
-  Here\ 
-
-  <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|v<rsub|l><rsup|\<lambda\>><around*|(|\<theta\>|)>\<assign\><around*|(|sin\<theta\>|)><rsup|2\<lambda\>>C<rsup|\<lambda\>><rsub|l><around*|(|cos\<theta\>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|q-1|2>\<rightsquigarrow\>\<lambda\>,>|<cell|b\<rightsquigarrow\>l,>>|<row|<cell|>|<cell|<frac|p|2>-1\<rightsquigarrow\>\<mu\>,>|<cell|a<rprime|'>\<rightsquigarrow\>m,>>|<row|<cell|>|<cell|<frac|p-1|2>+a<rprime|'>\<rightsquigarrow\>\<nu\>,>|<cell|a-a<rprime|'>\<rightsquigarrow\>n,>>|<row|<cell|>|<cell|\<lambda\>+\<nu\>-<around*|(|p+q|)>\<rightsquigarrow\>a,>|<cell|\<nu\>\<rightsquigarrow\>b.>>>>
+    <tformat|<table|<row|<cell|>|<cell|<wide|v|~><rsub|l><rsup|\<lambda\>><around*|(|\<theta\>|)>\<assign\><around*|(|sin\<theta\>|)><rsup|2\<lambda\>><wide|C|~><rsup|\<lambda\>><rsub|l><around*|(|cos\<theta\>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|q-1|2>\<rightsquigarrow\>\<lambda\>,>|<cell|b\<rightsquigarrow\>l,>>|<row|<cell|>|<cell|<frac|p|2>-1\<rightsquigarrow\>\<mu\>,>|<cell|a<rprime|'>\<rightsquigarrow\>m,>>|<row|<cell|>|<cell|<frac|p-1|2>+a<rprime|'>\<rightsquigarrow\>\<nu\>,>|<cell|a-a<rprime|'>\<rightsquigarrow\>n,>>|<row|<cell|>|<cell|\<lambda\>+\<nu\>-<around*|(|p+q|)>\<rightsquigarrow\>a,>|<cell|\<nu\>\<rightsquigarrow\>b.>>>>
   </eqnarray>
 
   <\question>
@@ -190,8 +201,8 @@
     so to get
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|(|1-w|)><rsup|\<beta\>-<frac|1|2>><around*|\||w|\|><rsup|\<mu\>-<frac|1|2>><around*|\||u-v|\|><rsup|-\<nu\>><wide|C|~><rsup|\<beta\>><rsub|a<rprime|'>><around*|(|v,1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><wide|<wide|C|~>|~><rsup|\<alpha\>+<frac|1|2>><rsub|b><around*|(|u,1|)>d
-      u v w=,>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<alpha\>+<frac|1|2>+<around*|[|<frac|b|2>|]>|)>\<Gamma\><around*|(|\<beta\>|)>|\<Gamma\><around*|(|\<beta\>+<around*|[|<frac|a<rprime|'>|2>|]>|)>><frac|(2\<beta\>)<rsub|a<rprime|'>><around*|(|-1|)><rsup|<frac|a<rprime|'>-b|2>><around*|(|2\<alpha\>+1|)><rsub|b>|a<rprime|'>!
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|(|1-w|)><rsup|\<beta\>-<frac|1|2>><around*|\||w|\|><rsup|\<mu\>-<frac|1|2>><around*|\||u-v|\|><rsup|-\<nu\>><wide|C|~><rsup|\<beta\>><rsub|a<rprime|'>><around*|(|v,1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><wide|C|~><rsup|\<alpha\>+<frac|1|2>><rsub|b><around*|(|u,1|)>d
+      u v w=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<alpha\>+<frac|1|2>+<around*|[|<frac|b|2>|]>|)>\<Gamma\><around*|(|\<beta\>|)>|\<Gamma\><around*|(|\<beta\>+<around*|[|<frac|a<rprime|'>|2>|]>|)>><frac|(2\<beta\>)<rsub|a<rprime|'>><around*|(|-1|)><rsup|<frac|a<rprime|'>-b|2>><around*|(|2\<alpha\>+1|)><rsub|b>|a<rprime|'>!
       b!><around*|\<nobracket\>|\<times\>\<pi\>\<Gamma\><around*|(|\<beta\>+<frac|1|2>|)>\<Gamma\><around*|(|2\<alpha\>+1|)>2<rsup|-2\<alpha\>>|\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|a<rprime|'>+b+\<nu\>|2>|)>\<Gamma\><around*|(|\<mu\>-\<nu\>+\<alpha\>+\<beta\>+2|)>\<Gamma\><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|3-a<rprime|'>+b-\<nu\>+2\<alpha\>|2>|)>*<space|0.17em>\<Gamma\><around*|(|<frac|a<rprime|'>+b+2\<mu\>-\<nu\>+2\<alpha\>+2\<beta\>+4|2>|)>\<Gamma\><around*|(|<frac|a<rprime|'>-b+2\<mu\>-\<nu\>+2\<beta\>+3|2>|)>>.>|<cell|>>|<row|<cell|>|<cell|D\<assign\><around*|{|<around*|(|u,v,w|)>\<in\><around*|[|-1,1|]><rsup|2>\<times\><around*|[|0,1|]>|}>.>|<cell|>>|<row|<cell|>|<cell|\<alpha\>,\<beta\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>;<space|1em>a<rprime|'>,b\<in\>\<bbb-N\>\<mid\>a+b\<in\>2\<bbb-N\>.>|<cell|>>>>
     </eqnarray>
 
