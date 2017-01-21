@@ -1,9 +1,9 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 63>
+  <section|report 64>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
@@ -14,7 +14,7 @@
     Work on for <math|U<around*|(|p,q|)>> case (sat)
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     image of <math|A<rsup|1>> under SBOs
-  </cell>|<cell|<with|font-series|bold|not done> (but I can do
+  </cell>|<cell|<with|font-series|bold|not done> (but I did do
   <math|p=1>)>>>>>
 
   \;
@@ -22,10 +22,8 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate-numeric>
-    <item>Confirmed that I can compute the image of <math|A<rsup|1>> for
-    <math|p=1>;
-
-    <item>Read Lang's SL2's Chapter 6;
+    <item>Confirmed that I can readily handle 15/32 of the remaining cases
+    for the image <math|A<rsup|1>>
   </enumerate-numeric>
 
   <with|font-series|bold|What I plan to do during this week>:

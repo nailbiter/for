@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|number-europe>>
 
@@ -133,7 +133,16 @@
   </remark>
 
   <\question>
-    Are any particular cases of the equation in question 6 are known?
+    Are any particular cases of the
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|(|1-w|)><rsup|\<beta\>-<frac|1|2>><around*|\||w|\|><rsup|\<mu\>-<frac|1|2>><around*|\||u-v|\|><rsup|-\<nu\>><wide|C|~><rsup|\<beta\>><rsub|a<rprime|'>><around*|(|v,1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><wide|<wide|C|~>|~><rsup|\<alpha\>-<frac|1|2>><rsub|b><around*|(|u|)>d
+      u d v d w,>|<cell|>>|<row|<cell|>|<cell|D\<assign\><around*|{|<around*|(|u,v,w|)>\<in\><around*|[|-1,1|]><rsup|2>\<times\><around*|[|0,1|]>|}>.>|<cell|>>|<row|<cell|>|<cell|\<alpha\>,\<beta\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>;<space|1em>a<rprime|'>,b\<in\>\<bbb-N\>\<mid\>a+b\<in\>2\<bbb-N\>.>|<cell|>>>>
+    </eqnarray>
+
+    Now, the known special cases of the latter integral are a
+
+    quation in question 6 are known?
   </question>
 
   To my current knowledge, the known cases are:
@@ -150,8 +159,7 @@
   integral
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>|)><around*|(|\<lambda\>+l/2|)>\<times\>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|0><rsup|\<pi\>><big|int><rsub|0><rsup|\<pi\>/2><big|int><rsub|0><rsup|\<pi\>/2>sin<rsup|2\<nu\>-m><around*|(|\<varphi\>|)>cos<rsup|a>\<varphi\><around*|\||cos\<theta\>-cos\<psi\>sin\<varphi\>|\|><rsup|-b>v<rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)>v<rsub|m><rsup|\<mu\>><around*|(|\<psi\>|)>d\<psi\>d\<varphi\>d\<theta\>=>|<cell|>>|<row|<cell|>|<cell|<frac|(2\<mu\>)<rsub|m+n><around*|(|-1|)><rsup|<frac|n+m-l|2>><around*|(|2\<lambda\>+1|)><rsub|l>|\<Gamma\>(m+1)
-    \<Gamma\><around*|(|l+1|)>><around*|\<nobracket\>|\<times\>\<pi\><wide|\<Gamma\>|~><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|2\<lambda\>+1|)>2<rsup|-1-2\<lambda\>>|\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|l+m+b|2>|)>\<Gamma\><around*|(|<frac|a+2\<lambda\>+2\<mu\>+3-2b|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>\<Gamma\><around*|(|<frac|l+m+a+2\<lambda\>+2\<mu\>+3-b|2>+N|)>*<space|0.17em>\<Gamma\><around*|(|<frac|m-l+a+2\<mu\>+3-b|2>|)>>.>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>|)><around*|(|\<lambda\>+l/2|)>\<times\>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|0><rsup|\<pi\>><big|int><rsub|0><rsup|\<pi\>/2><big|int><rsub|0><rsup|\<pi\>/2>sin<rsup|2\<nu\>-m><around*|(|\<varphi\>|)>cos<rsup|a>\<varphi\><around*|\||cos\<theta\>-cos\<psi\>sin\<varphi\>|\|><rsup|-b>v<rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)>v<rsub|m><rsup|\<mu\>><around*|(|\<psi\>|)>d\<psi\>d\<varphi\>d\<theta\>=>|<cell|>>|<row|<cell|>|<cell|<frac|(2\<mu\>)<rsub|l+m><around*|(|-1|)><rsup|<frac|m-l|2>>|m!l!><around*|\<nobracket\>|\<times\>\<pi\><wide|\<Gamma\>|~><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|2\<lambda\>+1+l|)>2<rsup|-1-2\<lambda\>>|\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|l+m+b|2>|)>\<Gamma\><around*|(|<frac|a+2\<lambda\>+2\<mu\>+3-2b|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>\<Gamma\><around*|(|<frac|l+m+a+2\<lambda\>+2\<mu\>+3-b|2>+N|)>*<space|0.17em>\<Gamma\><around*|(|<frac|m-l+a+2\<mu\>+3-b|2>|)>>.>|<cell|>>>>
   </eqnarray>
 
   Here\ 
@@ -159,6 +167,59 @@
   <\eqnarray>
     <tformat|<table|<row|<cell|>|<cell|v<rsub|l><rsup|\<lambda\>><around*|(|\<theta\>|)>\<assign\><around*|(|sin\<theta\>|)><rsup|2\<lambda\>>C<rsup|\<lambda\>><rsub|l><around*|(|cos\<theta\>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|q-1|2>\<rightsquigarrow\>\<lambda\>,>|<cell|b\<rightsquigarrow\>l,>>|<row|<cell|>|<cell|<frac|p|2>-1\<rightsquigarrow\>\<mu\>,>|<cell|a<rprime|'>\<rightsquigarrow\>m,>>|<row|<cell|>|<cell|<frac|p-1|2>+a<rprime|'>\<rightsquigarrow\>\<nu\>,>|<cell|a-a<rprime|'>\<rightsquigarrow\>n,>>|<row|<cell|>|<cell|\<lambda\>+\<nu\>-<around*|(|p+q|)>\<rightsquigarrow\>a,>|<cell|\<nu\>\<rightsquigarrow\>b.>>>>
   </eqnarray>
+
+  <\question>
+    Which specializations of integral in Question 7 are previously known?
+  </question>
+
+  <\answer>
+    For simplicity, we shall use the <math|<around*|(|u,v,w|)>>-variables
+    from Question 1:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-u<rsup|2>|)><rsup|<frac|q-2|2>><around*|(|1-v<rsup|2>|)><rsup|<frac|\<lambda\>+\<nu\>-q|2>+N-1><around*|(|1-w<rsup|2>|)><rsup|<frac|p-3|2>><around*|\||w|\|><rsup|\<lambda\>+\<nu\>-n+2N><around*|\||u-v|\|><rsup|-\<nu\>><wide|C|~><rsup|<frac|p|2>-1><rsub|a<rprime|'>><around*|(|v,<sqrt|1-w<rsup|2><around*|(|1-v<rsup|2><rsup|>|)>>|)><wide|<wide|C|~>|~><rsup|<frac|q-1|2>><rsub|b><around*|(|u|)>d
+      u d v d w.>|<cell|>>>>
+    </eqnarray>
+
+    We also do the parameter and variable substitutions,
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|w<rsup|2>\<rightsquigarrow\>w,<frac|\<lambda\>+\<nu\>-n|2>+<around*|(|1-w<rsup|2><around*|(|1-v<rsup|2><rsup|>|)>|)><rsup|<frac|a<rprime|'>|2>>N\<rightsquigarrow\>\<mu\>,<frac|p-2|2>\<rightsquigarrow\>\<beta\>,<frac|q-2|2>\<rightsquigarrow\>\<alpha\>>|<cell|>>>>
+    </eqnarray>
+
+    so to get
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|(|1-w|)><rsup|\<beta\>-<frac|1|2>><around*|\||w|\|><rsup|\<mu\>-<frac|1|2>><around*|\||u-v|\|><rsup|-\<nu\>><wide|C|~><rsup|\<beta\>><rsub|a<rprime|'>><around*|(|v,1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><wide|<wide|C|~>|~><rsup|\<alpha\>+<frac|1|2>><rsub|b><around*|(|u,1|)>d
+      u v w=,>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<beta\>|)>|\<Gamma\><around*|(|\<beta\>+<around*|[|<frac|a<rprime|'>|2>|]>|)>><frac|(2\<beta\>)<rsub|a<rprime|'>><around*|(|-1|)><rsup|<frac|a<rprime|'>-b|2>><around*|(|2\<alpha\>+2|)><rsub|b>|a<rprime|'>!
+      b!><around*|\<nobracket\>|\<times\>\<pi\>\<Gamma\><around*|(|\<beta\>+<frac|1|2>|)>\<Gamma\><around*|(|2\<alpha\>+2|)>2<rsup|-1-2\<alpha\>>|\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|a<rprime|'>+b+\<nu\>|2>|)>\<Gamma\><around*|(|\<mu\>-\<nu\>+\<alpha\>+\<beta\>+2|)>\<Gamma\><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|3-a<rprime|'>+b-\<nu\>+2\<alpha\>|2>|)>*<space|0.17em>\<Gamma\><around*|(|<frac|a<rprime|'>+b+2\<mu\>-\<nu\>+2\<alpha\>+2\<beta\>+4|2>|)>\<Gamma\><around*|(|<frac|a<rprime|'>-b+2\<mu\>-\<nu\>+2\<beta\>+3|2>|)>>.>|<cell|>>|<row|<cell|>|<cell|D\<assign\><around*|{|<around*|(|u,v,w|)>\<in\><around*|[|-1,1|]><rsup|2>\<times\><around*|[|0,1|]>|}>.>|<cell|>>|<row|<cell|>|<cell|\<alpha\>,\<beta\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>;<space|1em>a<rprime|'>,b\<in\>\<bbb-N\>\<mid\>a+b\<in\>2\<bbb-N\>.>|<cell|>>>>
+    </eqnarray>
+
+    Now, the known special cases of the latter integral are as follows:
+
+    <\enumerate>
+      <item><math|b=a<rprime|'>=0>: product of beta-integral and integral
+      from Proposition 6.1 (first item):
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|\<Gamma\><around*|(|\<alpha\>+<frac|1|2>|)>\<times\><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|\||u-v|\|><rsup|-\<nu\>>d
+        u d v\<times\><big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<beta\>-<frac|1|2>><around*|\||w|\|><rsup|\<mu\>-<frac|1|2>>d
+        w=>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<alpha\>+<frac|1|2>|)>\<times\><frac|<sqrt|\<pi\>>*\<Gamma\>*<around|(|\<alpha\>+1|)>*\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>*\<Gamma\>*<around|(|\<alpha\>+\<beta\>+\<mu\>-\<nu\>+2|)>|\<Gamma\>*<around*|(|\<alpha\>-<frac|\<nu\>|2>+<frac|3|2>|)>*\<Gamma\>*<around*|(|\<beta\>+\<mu\>-<frac|\<nu\>|2>+<frac|3|2>|)>*\<Gamma\>*<around*|(|\<alpha\>+\<beta\>+\<mu\>-<frac|\<nu\>|2>+2|)>>\<times\>\<Gamma\><around*|(|\<beta\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>>|<cell|>>>>
+      </eqnarray>
+
+      <item><math|b=a<rprime|'>=1>: product of beta-integral (we let
+      <math|B<around*|(|x,y|)>\<assign\><big|int><rsub|0><rsup|1>t<rsup|x-1><around*|(|1-n|)><rsup|y-1>d
+      t>)) and integral from Proposition 6.1 (second item):
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|\<alpha\>+<frac|1|2>|)><around*|(|2\<alpha\>+1|)>\<times\><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>>
+        u v<around*|\||u-v|\|><rsup|-\<nu\>>d u d
+        v\<times\>B<around*|(|\<beta\>+<frac|1|2>,\<mu\>+<frac|1|2>|)>=>|<cell|>>|<row|<cell|>|<cell|<frac|-\<nu\>|2>\<Gamma\><around*|(|\<alpha\>+<frac|1|2>|)><around*|(|2\<alpha\>+1|)><big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>+1><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>>
+        \ v sgn<around*|(|u-v|)><around*|\||u-v|\|><rsup|-\<nu\>-1>d u v
+        B<around*|(|\<beta\>+<frac|1|2>,\<mu\>+<frac|1|2>|)>=>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<alpha\>+<frac|3|2>|)>\<times\><frac|2\<nu\>\<beta\><sqrt|\<pi\>>*\<Gamma\>*<around|(|\<alpha\>+2|)>*\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>*\<Gamma\>*<around|(|\<beta\>+\<mu\>+1|)>*\<Gamma\>*<around|(|\<alpha\>+\<beta\>+\<mu\>-\<nu\>+2|)>|\<Gamma\>*<around*|(|\<alpha\>-<frac|\<nu\>|2>+<frac|3|2>|)>*\<Gamma\>*<around*|(|\<beta\>+\<mu\>-<frac|\<nu\>|2>+<frac|3|2>|)>*\<Gamma\>*<around*|(|\<alpha\>+\<beta\>+\<mu\>-<frac|\<nu\>|2>+3|)>>\<times\><frac|\<Gamma\><around*|(|\<beta\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>|\<Gamma\><around*|(|\<mu\>+\<beta\>+1|)>>>|<cell|>>>>
+      </eqnarray>
+    </enumerate>
+  </answer>
 </body>
 
 <\initial>
