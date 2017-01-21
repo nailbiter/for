@@ -12,9 +12,13 @@
     define the linear functional
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|\<Psi\><rsub|a<rprime|'>,b><rsup|>:\<bbb-C\><around*|[|t|]>\<rightarrow\>\<frak-M\><around*|(|\<lambda\>,\<nu\>|)>>|<cell|>>|<row|<cell|>|<cell|\<Psi\><rsub|a<rprime|'>,b><around*|(|P|)>\<equiv\>\<Psi\><rsub|a<rprime|'>,b><rsup|p,q><around*|(|P|)>\<assign\>>|<cell|>>|<row|<cell|>|<cell|\<assign\><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-u<rsup|2>|)><rsup|<frac|q-2|2>><around*|(|1-v<rsup|2>|)><rsup|<frac|\<lambda\>+\<nu\>-q|2>-1><around*|(|1-w<rsup|2>|)><rsup|<frac|p-3|2>><around*|\||w|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||u-v|\|><rsup|-\<nu\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<space|2em>\<times\><wide|C|~><rsup|<frac|p|2>-1><rsub|a<rprime|'>><around*|(|<frac|v|<sqrt|1-w<rsup|2><around*|(|1-v<rsup|2><rsup|>|)>>>|)><around*|(|1-w<rsup|2><around*|(|1-v<rsup|2><rsup|>|)>|)><rsup|<frac|a<rprime|'>|2>><wide|<wide|C|~>|~><rsup|<frac|q-1|2>><rsub|b><around*|(|u|)>P<around*|(|w<rsup|2><around*|(|1-v<rsup|2>|)>|)>d
+      <tformat|<table|<row|<cell|>|<cell|\<Psi\><rsub|a<rprime|'>,b><rsup|>:\<bbb-C\><around*|[|t|]>\<rightarrow\>\<frak-M\><around*|(|\<lambda\>,\<nu\>|)>>|<cell|>>|<row|<cell|>|<cell|\<Psi\><rsub|a<rprime|'>,b><around*|(|P|)>\<equiv\>\<Psi\><rsub|a<rprime|'>,b><rsup|p,q><around*|(|P|)>\<assign\>>|<cell|>>|<row|<cell|>|<cell|\<assign\><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-u<rsup|2>|)><rsup|<frac|q-2|2>><around*|(|1-v<rsup|2>|)><rsup|<frac|\<lambda\>+\<nu\>-q|2>-1><around*|(|1-w<rsup|2>|)><rsup|<frac|p-3|2>><around*|\||w|\|><rsup|\<lambda\>+\<nu\>-n><around*|\||u-v|\|><rsup|-\<nu\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<space|2em>\<times\><wide|C|~><rsup|<frac|p|2>-1><rsub|a<rprime|'>><around*|(|v,1-w<rsup|2><around*|(|1-v<rsup|2><rsup|>|)>|)><wide|<wide|C|~>|~><rsup|<frac|q-1|2>><rsub|b><around*|(|u|)>P<around*|(|w<rsup|2><around*|(|1-v<rsup|2>|)>|)>d
       u d v u w,>|<cell|>>>>
     </eqnarray>
+
+    where <math|<wide|C|~><rsup|\<mu\>><rsub|N><around*|(|s,t|)>> is a
+    two-variable inflation of renormalized Gegenbauer polynomial, defined as
+    in <cite-detail|kobayashi2015symmetry|(16.3)>.
   </definition>
 
   <\proposition>
@@ -57,8 +61,8 @@
     <math|w<rsup|2>\<rightsquigarrow\>w>)
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><big|int><rsub|0><rsup|1><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|(|1-w|)><rsup|\<beta\>-1/2>w<rsup|\<mu\>-1/2><around*|\||u-v|\|><rsup|-\<nu\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<space|2em>\<times\>C<rsup|\<beta\>><rsub|a<rprime|'>><around*|(|<frac|v|<sqrt|1-w<around*|(|1-v<rsup|2><rsup|>|)>>>|)><around*|(|1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><rsup|<frac|a<rprime|'>|2>>d
-      w d u d v=,>|<cell|>>|<row|<cell|>|<cell|<around*|(|<frac|q-1|2>\<rightsquigarrow\>\<alpha\>,<space|1em><frac|\<lambda\>+\<nu\>-n+1+2N|2>\<rightsquigarrow\>\<mu\>,<space|1em><frac|p-2|2>\<rightsquigarrow\>\<beta\>|)>>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><big|int><rsub|0><rsup|1><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|(|1-w|)><rsup|\<beta\>-1/2>w<rsup|\<mu\>-1/2><around*|\||u-v|\|><rsup|-\<nu\>><wide|C|~><rsup|\<beta\>><rsub|a<rprime|'>><around*|(|v,1-w<around*|(|1-v<rsup|2><rsup|>|)>|)>d
+      w d u d v=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<frac|q-1|2>\<rightsquigarrow\>\<alpha\>,<space|1em><frac|\<lambda\>+\<nu\>-n+1+2N|2>\<rightsquigarrow\>\<mu\>,<space|1em><frac|p-2|2>\<rightsquigarrow\>\<beta\>|)>>|<cell|>>>>
     </eqnarray>
 
     Lemma <reference|newpf:lem-twoeq> tells that it equals to
@@ -117,7 +121,7 @@
     It is necessary to given an expression for an integral
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-u<rsup|2>|)><rsup|<frac|q-2|2>><around*|(|1-v<rsup|2>|)><rsup|<frac|\<lambda\>+\<nu\>-q|2>-1+N><around*|(|1-w<rsup|2>|)><rsup|<frac|p-3|2>><around*|\||w|\|><rsup|\<lambda\>+\<nu\>-n+2N><around*|\||u-v|\|><rsup|-\<nu\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<space|2em>\<times\><wide|C|~><rsup|<frac|p|2>-1><rsub|a<rprime|'>><around*|(|<frac|v|<sqrt|1-w<rsup|2><around*|(|1-v<rsup|2><rsup|>|)>>>|)><around*|(|1-w<rsup|2><around*|(|1-v<rsup|2><rsup|>|)>|)><rsup|<frac|a<rprime|'>|2>><wide|<wide|C|~>|~><rsup|<frac|q-1|2>><rsub|b><around*|(|u|)>d
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-u<rsup|2>|)><rsup|<frac|q-2|2>><around*|(|1-v<rsup|2>|)><rsup|<frac|\<lambda\>+\<nu\>-q|2>-1+N><around*|(|1-w<rsup|2>|)><rsup|<frac|p-3|2>><around*|\||w|\|><rsup|\<lambda\>+\<nu\>-n+2N><around*|\||u-v|\|><rsup|-\<nu\>>\<times\><wide|C|~><rsup|<frac|p|2>-1><rsub|a<rprime|'>><around*|(|v,1-w<rsup|2><around*|(|1-v<rsup|2><rsup|>|)>|)><wide|<wide|C|~>|~><rsup|<frac|q-1|2>><rsub|b><around*|(|u|)>d
       u d v u w.>|<cell|>>>>
     </eqnarray>
 
@@ -138,8 +142,8 @@
     <label|newpf:lem-twoeq>The following holds:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><big|int><rsub|0><rsup|1><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|(|1-w|)><rsup|\<beta\>-1/2>w<rsup|\<mu\>-1/2><around*|\||u-v|\|><rsup|-\<nu\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<space|2em>\<times\>C<rsup|\<beta\>><rsub|a<rprime|'>><around*|(|<frac|v|<sqrt|1-w<around*|(|1-v<rsup|2><rsup|>|)>>>|)><around*|(|1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><rsup|<frac|a<rprime|'>|2>>d
-      w d u d v=>|<cell|>>|<row|<cell|>|<cell|=<around*|(|<stack|<tformat|<table|<row|<cell|a<rprime|'>+2\<beta\>-1>>|<row|<cell|a<rprime|'>>>>>>|)><big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|-a<rprime|'>/2|)><rsub|i><around*|(|a<rprime|'>/2+\<beta\>|)><rsub|i>|<around*|(|\<beta\>+1/2|)><rsub|i>i!>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>+i><around*|\||u-v|\|><rsup|-\<nu\>><around*|[|<big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<beta\>+i-1/2>w<rsup|\<mu\>-1/2><around*|(|1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><rsup|<frac|a<rprime|'>|2>-i>d
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><big|int><rsub|0><rsup|1><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|(|1-w|)><rsup|\<beta\>-1/2>w<rsup|\<mu\>-1/2><around*|\||u-v|\|><rsup|-\<nu\>>\<times\>C<rsup|\<beta\>><rsub|a<rprime|'>><around*|(|v,1-w<around*|(|1-v<rsup|2>|)>|)>d
+      w d u d v=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<stack|<tformat|<table|<row|<cell|a<rprime|'>+2\<beta\>-1>>|<row|<cell|a<rprime|'>>>>>>|)><big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|-a<rprime|'>/2|)><rsub|i><around*|(|a<rprime|'>/2+\<beta\>|)><rsub|i>|<around*|(|\<beta\>+1/2|)><rsub|i>i!>\<times\>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>+i><around*|\||u-v|\|><rsup|-\<nu\>><around*|[|<big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<beta\>+i-1/2>w<rsup|\<mu\>-1/2><around*|(|1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><rsup|<frac|a<rprime|'>|2>-i>d
       w|]> d u d v>|<cell|>>>>
     </eqnarray>
   </lemma>
@@ -216,13 +220,21 @@
     </equation*>
 
     is the coefficient at <math|t<rsup|l>> of power series expansion of
-    <math|<around*|(|1-t|)><rsup|a<rprime|'>/2+\<beta\>>\<cdot\><around*|(|1-t|)><rsup|\<mu\><rprime|'>-\<beta\>+1/2>>,
+    <math|<around*|(|1-t|)><rsup|a<rprime|'>/2+\<beta\>><around*|(|1-t|)><rsup|\<mu\><rprime|'>-\<beta\>+1/2>>,
     and the latter expression is independent of <math|\<beta\>>.
   </proof>
 
   <\bibliography|bib|tm-plain|todai_master.bib>
-    <\bib-list|1>
-      <bibitem*|1><label|bib-NIST:DLMF>NIST Digital Library of Mathematical
+    <\bib-list|2>
+      <bibitem*|1><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
+      and >B.<nbsp>Speh.<newblock> <with|font-shape|italic|Symmetry Breaking
+      for Representations of Rank One Orthogonal Groups>, <localize|volume>
+      <with|font-series|bold|238><localize| of
+      ><with|font-shape|italic|<with|font-family|rm|font-shape|right|font-series|medium|Memoirs
+      of the Amer. Math. Soc>>.<newblock> 2015.<newblock> Available at
+      <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
+
+      <bibitem*|2><label|bib-NIST:DLMF>NIST Digital Library of Mathematical
       Functions.<newblock> http://dlmf.nist.gov/, Release 1.0.10 of
       2015-08-07.<newblock>
     </bib-list>
@@ -237,8 +249,9 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|5|5|../../.TeXmacs/texts/scratch/no_name_23.tm>>
-    <associate|bib-NIST:DLMF|<tuple|1|5|../../.TeXmacs/texts/scratch/no_name_23.tm>>
+    <associate|auto-1|<tuple|5|4|../../.TeXmacs/texts/scratch/no_name_23.tm>>
+    <associate|bib-NIST:DLMF|<tuple|2|4|../../.TeXmacs/texts/scratch/no_name_23.tm>>
+    <associate|bib-kobayashi2015symmetry|<tuple|1|4|../../.TeXmacs/texts/scratch/no_name_23.tm>>
     <associate|newpf:def|<tuple|1|1|../../.TeXmacs/texts/scratch/no_name_23.tm>>
     <associate|newpf:lem-crit|<tuple|4|3|../../.TeXmacs/texts/scratch/no_name_23.tm>>
     <associate|newpf:lem-indep|<tuple|5|4|../../.TeXmacs/texts/scratch/no_name_23.tm>>
@@ -253,6 +266,8 @@
 <\auxiliary>
   <\collection>
     <\associate|bib>
+      kobayashi2015symmetry
+
       NIST:DLMF
     </associate>
     <\associate|toc>
