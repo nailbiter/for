@@ -1,0 +1,55 @@
+%simple
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+\usepackage[utf8]{inputenc}       % кодування документа; замість cp866nav
+\usepackage{extsizes}
+\usepackage[top=0.5in,bottom=0.5in,left=0.5in,right=0.5in]{geometry}
+\usepackage[russian,english]{babel} % національна локалізація; може бути декілька
+\usepackage{setspace}
+\usepackage{CJKutf8}
+\usepackage{mdframed}
+\usepackage{extsizes}
+\usepackage{setspace}
+\title{Divine Liturgy\\Reading from The Epistles}
+\author{Week 30 after the Pentecost\vspace{
+-3ex%for author
+}}
+\date{\vspace{
+-5ex%for date
+}}
+\begin{document}
+\pagenumbering{gobble}
+\begin{otherlanguage*}{russian}
+\maketitle
+\end{otherlanguage*}
+\vspace*{\fill}
+\Large%for eng/rus
+\singlespacing %\\onehalfspacing \\doublespacing % for eng/rus
+\framebox[\textwidth]{
+\begin{minipage}[t]{0.45\textwidth}
+\begin{otherlanguage*}{russian}
+\textbf{2 Тим., 298 зач., IV, 5–8.}\\
+\Large%for eng/rus
+
+\end{otherlanguage*}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.45\textwidth}
+
+\textbf{.}\\
+
+\end{minipage}}
+\vspace*{\fill}
+\newpage
+\Huge%for chi
+\vspace*{\fill}
+\begin{spacing}{1.3}%for chinese
+\framebox[\textwidth]{
+\begin{minipage}[t]{\textwidth}
+\begin{CJK}{UTF8}{bsmi}
+\textbf{.}\\
+
+\end{CJK}
+\end{minipage}}
+\end{spacing}
+\vspace*{\fill}
+\end{document}

@@ -1,3 +1,3 @@
-apostol_filename="apostol_week_29_after_the_Pentecost_(enlisted)_08_01_2017.tex"
-gospel_filename="gospel_week_29_after_the_Pentecost_(enlisted)_08_01_2017.tex"
-date="08/01/2017"
+apostol_filename="apostol_week_30_after_the_Pentecost_15_01_2017.tex"
+gospel_filename="gospel_week_30_after_the_Pentecost_15_01_2017.tex"
+date="15/01/2017"

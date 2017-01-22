@@ -90,7 +90,9 @@
                                             (cons(car l)(myflatten(cdr l)))))))
   (define (mymap proc l init)(if(null? l)'()(let((res(proc(car l)init)))(cons (car res) (mymap proc (cdr l)(cdr res))))))
   (let* (
+         ;(dum(begin(display "hi")(newline)))
          (tokenized (mytokenize " *, *" text))
+         (dum(begin(display tokenized)(newline)(display(length tokenized))(newline)))
          (name (string-filter (lambda (char) (not (eq? #\. char))) (list-ref tokenized 0)))
          (tokenized (list-tail tokenized 2))
          (chapter (roman2arabic (list-ref tokenized 0)))
