@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|article|number-europe>>
 
@@ -151,6 +151,15 @@
     <item>The partial case <math|l=m=n=0> is Proposition 6.1;
   </enumerate>
 
+  <\definition>
+    For <math|x,y\<in\>\<bbb-C\>> we let
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|B<around*|(|x,y|)>\<assign\><frac|\<Gamma\><around*|(|x|)>\<Gamma\><around*|(|y|)>|\<Gamma\><around*|(|x+y|)>><big|int><rsub|0><rsup|1><around*|(|1-t|)><rsup|x-1>t<rsup|y-1>d
+      t.>|<cell|>>>>
+    </eqnarray>
+  </definition>
+
   <\question>
     How does equality in Question 8 changes if we do variable change:
 
@@ -190,7 +199,40 @@
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<alpha\>+a+1><around|(|\<varphi\>|)>cos<rsup|2\<mu\>><around|(|\<varphi\>|)><around*|\||cos
       <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
       <around|(|\<varphi\>|)>|\|><rsup|-\<nu\>><wide|v|~><rsup|\<alpha\>><rsub|a><around*|(|\<psi\>|)><wide|v|~><rsup|\<beta\>><rsub|b><around*|(|\<theta\>|)>=<htab|5mm>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|a+b-1>\<Gamma\><around*|(|\<alpha\>+<frac|1|2>+<around*|[|<frac|a|2>|]>|)><around*|(|-1|)><rsup|<frac|a-b|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<beta\>+<around*|[|b/2|]>+<frac|1|2>|)>|a!
-      b!><around*|\<nobracket\>||\<nobracket\>><eq-number><label|eq-2>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|a+b+\<nu\>|2>|)>\<Gamma\><around*|(|\<mu\>-\<nu\>+\<alpha\>+\<beta\>+3/2|)>\<Gamma\><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|2-a+b-\<nu\>+2\<beta\>|2>|)>*<space|0.17em>\<Gamma\><around*|(|<frac|a+b+2\<mu\>-\<nu\>+2\<alpha\>+2\<beta\>+3|2>|)>\<Gamma\><around*|(|<frac|a-b+2\<mu\>-\<nu\>+2\<alpha\>+3|2>|)>>.>|<cell|>>>>
+      b!><around*|\<nobracket\>||\<nobracket\>><eq-number><label|eq-2>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|a+b+\<nu\>|2>|)>\<Gamma\><around*|(|\<mu\>-\<nu\>+\<alpha\>+\<beta\>+3/2|)>\<Gamma\><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|a+b+2\<mu\>-\<nu\>+2\<alpha\>+2\<beta\>+3|2>|)>\<Gamma\><around*|(|<frac|2-a+b-\<nu\>+2\<beta\>|2>|)>*\<Gamma\><around*|(|<frac|a-b+2\<mu\>-\<nu\>+2\<alpha\>+3|2>|)>>,>|<cell|>>>>
+    </eqnarray>
+
+    or using the beta function defined above,
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<alpha\>+a+1><around|(|\<varphi\>|)>cos<rsup|2\<mu\>><around|(|\<varphi\>|)><around*|\||cos
+      <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
+      <around|(|\<varphi\>|)>|\|><rsup|-\<nu\>><wide|v|~><rsup|\<alpha\>><rsub|a><around*|(|\<psi\>|)><wide|v|~><rsup|\<beta\>><rsub|b><around*|(|\<theta\>|)>=<htab|5mm>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|a+b-1>\<Gamma\><around*|(|\<alpha\>+<frac|1|2>+<around*|[|<frac|a|2>|]>|)><around*|(|-1|)><rsup|<frac|a-b|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<beta\>+<around*|[|b/2|]>+<frac|1|2>|)>|a!
+      b!><around*|\<nobracket\>||\<nobracket\>>>|<cell|>>|<row|<cell|>|<cell|<frac|B<around*|(|<frac|a+b+\<nu\>|2>,\<mu\>-\<nu\>+\<alpha\>+\<beta\>+3/2|)>\<Gamma\><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|2-a+b-\<nu\>+2\<beta\>|2>|)>*\<Gamma\><around*|(|<frac|a-b+2\<mu\>-\<nu\>+2\<alpha\>+3|2>|)>>.>|<cell|>>>>
+    </eqnarray>
+
+    Further, making the substitution:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|\<beta\>\<rightsquigarrow\>\<lambda\>,b\<rightsquigarrow\>l,\<alpha\>\<rightsquigarrow\>\<mu\>,a\<rightsquigarrow\>m,\<mu\>\<rightsquigarrow\>a/2,\<nu\>\<rightsquigarrow\>b,>|<cell|>>>>
+    </eqnarray>
+
+    we get
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||cos
+      <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
+      <around|(|\<varphi\>|)>|\|><rsup|-b><wide|v|~><rsup|\<mu\>><rsub|m><around*|(|\<psi\>|)><wide|v|~><rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)>=<htab|5mm>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|m+l-1>\<Gamma\><around*|(|\<mu\>+<frac|1|2>+<around*|[|<frac|m|2>|]>|)><around*|(|-1|)><rsup|<frac|m-l|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<lambda\>+<around*|[|l/2|]>+<frac|1|2>|)>|a!
+      b!><around*|\<nobracket\>||\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|m+l+b|2>|)>\<Gamma\><around*|(|a/2-b+\<mu\>+\<lambda\>+3/2|)>\<Gamma\><around*|(|a/2+1/2|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|m+l+a-b+2\<mu\>+2\<lambda\>+3|>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|m-l+a-\<nu\>+2\<mu\>+3|2>|)>>.>|<cell|>>>>
+    </eqnarray>
+
+    or
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||cos
+      <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
+      <around|(|\<varphi\>|)>|\|><rsup|-b><wide|v|~><rsup|\<mu\>><rsub|m><around*|(|\<psi\>|)><wide|v|~><rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)>=<htab|5mm>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|m+l-1>\<Gamma\><around*|(|\<mu\>+<frac|1|2>+<around*|[|<frac|m|2>|]>|)><around*|(|-1|)><rsup|<frac|m-l|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<lambda\>+<around*|[|l/2|]>+<frac|1|2>|)>|a!
+      b!><around*|\<nobracket\>||\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|B<around*|(|<frac|m+l+b|2>,a/2-b+\<mu\>+\<lambda\>+3/2|)>\<Gamma\><around*|(|a/2+1/2|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|m-l+a-\<nu\>+2\<mu\>+3|2>|)>>.>|<cell|>>>>
     </eqnarray>
   </answer>
 
@@ -219,7 +261,7 @@
     We also do the parameter and variable substitutions,
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|w<rsup|2>\<rightsquigarrow\>w,<frac|\<lambda\>+\<nu\>-n|2>+<around*|(|1-w<rsup|2><around*|(|1-v<rsup|2><rsup|>|)>|)><rsup|<frac|a<rprime|'>|2>>N\<rightsquigarrow\>\<mu\>,<frac|p-2|2>\<rightsquigarrow\>\<beta\>,<frac|q-2|2>\<rightsquigarrow\>\<alpha\>>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|w<rsup|2>\<rightsquigarrow\>w,<frac|\<lambda\>+\<nu\>-n|2>+N\<rightsquigarrow\>\<mu\>,<frac|p-2|2>\<rightsquigarrow\>\<beta\>,<frac|q-2|2>\<rightsquigarrow\>\<alpha\>>|<cell|>>>>
     </eqnarray>
 
     so to get
@@ -296,9 +338,9 @@
 
 <\references>
   <\collection>
-    <associate|eq-1|<tuple|2|?>>
-    <associate|eq-2|<tuple|1|?>>
-    <associate|eq-3|<tuple|3|?>>
+    <associate|eq-1|<tuple|2|6>>
+    <associate|eq-2|<tuple|1|5>>
+    <associate|eq-3|<tuple|3|7>>
     <associate|q1|<tuple|1|1>>
   </collection>
 </references>
