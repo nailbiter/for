@@ -1,12 +1,23 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
-<style|article>
+<style|<tuple|article|number-europe>>
 
 <\body>
   <date>
 
   <\proposition>
-    <label|prop-1>Suppose <math|u\<leqslant\>0>. Then the following holds:
+    <label|prop-1>Suppose <math|u\<leqslant\>1>. Then the following holds:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|0><rsup|1><around*|(|1-w<rsup|2>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|\||1-u
+      w|\|><rsup|\<gamma\>>d w=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|\<alpha\>+1|)>|2><around*|(|<frac|u\<Gamma\><around*|(|<frac|\<beta\>+2|2>|)>|\<gamma\>\<Gamma\><around*|(|<frac|\<alpha\>+4+\<beta\>|2>|)>>
+      <rsub|3>F<rsub|2><around*|(|<stack|<tformat|<table|<row|<cell|<frac|\<gamma\>+1|2>,<frac|\<gamma\>+2|2>,<frac|\<beta\>+2|2>>>|<row|<cell|<frac|3|2>,<frac|\<alpha\>+4+\<beta\>|2>>>>>>;u<rsup|2>|)>+<frac|\<Gamma\><around*|(|<frac|\<beta\>+1|2>|)>|\<Gamma\><around*|(|<frac|\<alpha\>+3+\<beta\>|2>|)>>
+      <rsub|3>F<rsub|2><around*|(|<stack|<tformat|<table|<row|<cell|<frac|\<gamma\>|2>,<frac|\<gamma\>+1|2>,<frac|\<beta\>+1|2>>>|<row|<cell|<frac|1|2>,<frac|\<alpha\>+3+\<beta\>|2>>>>>>;u<rsup|2>|)>|)>.>|<cell|>>>>
+    </eqnarray>
+  </proposition>
+
+  <\proposition>
+    <label|prop-2>Suppose <math|u\<geqslant\>1>. Then the following holds:
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|0><rsup|1><around*|(|1-w<rsup|2>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|\||1-u
@@ -21,18 +32,65 @@
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|0><rsup|1><around*|(|1-w<rsup|2>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|\||1-u
       w|\|><rsup|\<gamma\>>d w=<big|int><rsub|0><rsup|1><around*|(|1-w<rsup|2>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|(|1+<around*|(|-u|)>w|)><rsup|\<gamma\>>d
       w=>|<cell|>>|<row|<cell|>|<cell|=<frac|1|2><big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<alpha\>>w<rsup|<frac|\<beta\>-1|2>><around*|(|1-u<sqrt|w>|)><rsup|\<gamma\>>d
-      w=<frac|1|2><big|sum><rsub|i=0><rsup|\<infty\>><binom|\<gamma\>|n><around*|(|-u|)><rsup|n><big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<alpha\>>w<rsup|<frac|\<beta\>-1+n|2>>d
-      w>|<cell|>>|<row|<cell|>|<cell|=<frac|1|2><big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|\<gamma\>|)><rsub|n>|n!>u<rsup|n><frac|\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|<frac|\<beta\>+1+n|2>|)>|\<Gamma\><around*|(|<frac|\<alpha\>+3+n+\<beta\>|2>|)>>=<frac|\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(||)>|2>
-      <rsub|2>F<rsub|1><around*|(|;u|)>>|<cell|>>>>
+      w=<frac|1|2><big|sum><rsub|n=0><rsup|\<infty\>><binom|\<gamma\>|n><around*|(|-u|)><rsup|n><big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<alpha\>>w<rsup|<frac|\<beta\>-1+n|2>>d
+      w=>|<cell|>>|<row|<cell|>|<cell|<frac|1|2><big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|\<gamma\>|)><rsub|n>|n!><frac|\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|<frac|\<beta\>+1+n|2>|)>|\<Gamma\><around*|(|<frac|\<alpha\>+3+n+\<beta\>|2>|)>>u<rsup|n>=<frac|\<Gamma\><around*|(|\<alpha\>+1|)>|2>u<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|\<gamma\>|)><rsub|2n+1>\<Gamma\><around*|(|<frac|\<beta\>+2|2>+n|)>|<around*|(|2n+1|)>!\<Gamma\><around*|(|<frac|\<alpha\>+4+\<beta\>|2>+n|)>><around*|(|u<rsup|2>|)><rsup|n>+>|<cell|>>|<row|<cell|>|<cell|+<frac|\<Gamma\><around*|(|\<alpha\>+1|)>|2><big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|\<gamma\>|)><rsub|2n>\<Gamma\><around*|(|<frac|\<beta\>+1|2>+n|)>|<around*|(|2n|)>!\<Gamma\><around*|(|<frac|\<alpha\>+3+\<beta\>|2>+n|)>><around*|(|u<rsup|2>|)><rsup|n>=>|<cell|>>>>
+    </eqnarray>
+
+    by Lemma <reference|lem-1> (note that <math|<around*|(|1|)><rsub|n>=n!>)
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|\<alpha\>+1|)>|2><around*|(|u<big|sum><rsub|n=0><rsup|\<infty\>><frac|\<gamma\><rsup|-1><around*|(|<frac|\<gamma\>+1|2>|)><rsub|n><around*|(|<frac|\<gamma\>+2|2>|)><rsub|n>\<Gamma\><around*|(|<frac|\<beta\>+2|2>+n|)>|<around*|(|1|)><rsub|n><around*|(|<frac|3|2>|)><rsub|n>\<Gamma\><around*|(|<frac|\<alpha\>+4+\<beta\>|2>+n|)>><around*|(|u<rsup|2>|)><rsup|n>+<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|<frac|\<gamma\>|2>|)><rsub|n><around*|(|<frac|\<gamma\>+1|2>|)><rsub|n>\<Gamma\><around*|(|<frac|\<beta\>+1|2>+n|)>|<around*|(|<frac|1|2>|)><rsub|n><around*|(|1|)><rsub|n>\<Gamma\><around*|(|<frac|\<alpha\>+3+\<beta\>|2>+n|)>><around*|(|u<rsup|2>|)><rsup|n>|)>=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|\<alpha\>+1|)>|2><around*|(|<frac|u\<Gamma\><around*|(|<frac|\<beta\>+2|2>|)>|\<gamma\>\<Gamma\><around*|(|<frac|\<alpha\>+4+\<beta\>|2>|)>>
+      <rsub|3>F<rsub|2><around*|(|<stack|<tformat|<table|<row|<cell|<frac|\<gamma\>+1|2>,<frac|\<gamma\>+2|2>,<frac|\<beta\>+2|2>>>|<row|<cell|<frac|3|2>,<frac|\<alpha\>+4+\<beta\>|2>>>>>>;u<rsup|2>|)>+<frac|\<Gamma\><around*|(|<frac|\<beta\>+1|2>|)>|\<Gamma\><around*|(|<frac|\<alpha\>+3+\<beta\>|2>|)>>
+      <rsub|3>F<rsub|2><around*|(|<stack|<tformat|<table|<row|<cell|<frac|\<gamma\>|2>,<frac|\<gamma\>+1|2>,<frac|\<beta\>+1|2>>>|<row|<cell|<frac|1|2>,<frac|\<alpha\>+3+\<beta\>|2>>>>>>;u<rsup|2>|)>|)>.>|<cell|>>>>
     </eqnarray>
   </render-proof>
-</body>
 
-<initial|<\collection>
-</collection>>
+  <\render-proof|Proof of Proposition <reference|prop-2>>
+    We proceed as follows:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|0><rsup|1><around*|(|1-w<rsup|2>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|\||1-u
+      w|\|><rsup|\<gamma\>>d w=<big|int><rsub|0><rsup|1/u><around*|(|1-w<rsup|2>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|(|1-u
+      w|)><rsup|\<gamma\>>d w+<big|int><rsub|1/u><rsup|1><around*|(|1-w<rsup|2>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|(|u
+      w-1|)><rsup|\<gamma\>>d w>|<cell|>>>>
+    </eqnarray>
+
+    We compute the two integrals on RHS one-by-one:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|0><rsup|1/u><around*|(|1-w<rsup|2>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|(|1-u
+      w|)><rsup|\<gamma\>>d w=u<rsup|-\<beta\>-1><big|int><rsub|0><rsup|1><around*|(|1-<frac|w<rsup|2>|u<rsup|2>>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|(|1-w|)><rsup|\<gamma\>>d
+      w=>|<cell|>>|<row|<cell|>|<cell|u<rsup|-\<beta\>-1><big|sum><rsub|n\<geqslant\>0><frac|<around*|(|-\<alpha\>|)><rsub|n>|n!>u<rsup|-2n><frac|\<Gamma\><around*|(|\<alpha\>+2n+\<beta\>+1|)>\<Gamma\><around*|(|\<gamma\>+1|)>|\<Gamma\><around*|(|\<alpha\>+2n+\<beta\>+\<gamma\>+2|)>>=>|<cell|>>|<row|<cell|>|<cell|<frac|u<rsup|-\<beta\>-1>\<Gamma\><around*|(|\<gamma\>+1|)>\<Gamma\><around*|(|\<alpha\>+\<beta\>+1|)>|\<Gamma\><around*|(|\<alpha\>+\<beta\>+\<gamma\>+2|)>><big|sum><rsub|n\<geqslant\>0><frac|<around*|(|-\<alpha\>|)><rsub|n>|n!>\<cdot\><frac|<around*|(|\<alpha\>+\<beta\>+1|)><rsub|2n>|<around*|(|\<alpha\>+\<beta\>+\<gamma\>+2|)><rsub|2n>>u<rsup|-2n>=>|<cell|>>|<row|<cell|>|<cell|<frac|u<rsup|-\<beta\>-1>\<Gamma\><around*|(|\<gamma\>+1|)>\<Gamma\><around*|(|\<alpha\>+\<beta\>+1|)>|\<Gamma\><around*|(|\<alpha\>+\<beta\>+\<gamma\>+2|)>><big|sum><rsub|n\<geqslant\>0><frac|<around*|(|-\<alpha\>|)><rsub|n>|n!>\<cdot\><frac|<around*|(|<frac|\<alpha\>+\<beta\>+1|2>|)><rsub|n><around*|(|<frac|\<alpha\>+\<beta\>+2|2>|)><rsub|n>|<around*|(|<frac|\<alpha\>+\<beta\>+\<gamma\>+2|2>|)><rsub|2n><around*|(|<frac|\<alpha\>+\<beta\>+\<gamma\>+3|2>|)><rsub|2n>>u<rsup|-2n>=>|<cell|>>|<row|<cell|>|<cell|=<frac|u<rsup|-\<beta\>-1>\<Gamma\><around*|(|\<gamma\>+1|)>\<Gamma\><around*|(|\<alpha\>+\<beta\>+1|)>|\<Gamma\><around*|(|\<alpha\>+\<beta\>+\<gamma\>+2|)>>
+      <rsub|3>F<rsub|2><around*|(|<stack|<tformat|<table|<row|<cell|-\<alpha\>,<frac|\<alpha\>+\<beta\>+1|2>,<frac|\<alpha\>+\<beta\>+2|2>>>|<row|<cell|<frac|\<alpha\>+\<beta\>+\<gamma\>+2|2>,<frac|\<alpha\>+\<beta\>+\<gamma\>+3|2>>>>>>;u<rsup|-2>|)>,>|<cell|>>>>
+    </eqnarray>
+
+    and
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|1/u><rsup|1><around*|(|1-w<rsup|2>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|(|u
+      w-1|)><rsup|\<gamma\>>d w=u<rsup|-\<beta\>-1><big|int><rsub|1><rsup|u><around*|(|1-<frac|w<rsup|2>|u<rsup|2>>|)><rsup|\<alpha\>>w<rsup|\<beta\>><around*|(|w-1|)><rsup|\<gamma\>>d
+      w=>|<cell|>>|<row|<cell|>|<cell|u<rsup|-\<beta\>-1><big|int><rsub|1/u><rsup|1><around*|(|1-<frac|1|w<rsup|2>u<rsup|2>>|)><rsup|\<alpha\>>w<rsup|-\<beta\>-\<gamma\>-2><around*|(|1-w|)><rsup|\<gamma\>>d
+      w>|<cell|>>>>
+    </eqnarray>
+  </render-proof>
+
+  <\lemma>
+    <label|lem-1>The following holds for <math|n\<in\>\<bbb-N\>,\<gamma\>\<in\>\<bbb-C\>>:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|(|\<gamma\>|)><rsub|2n>=4<rsup|n><around*|(|<frac|\<gamma\>|2>|)><rsub|n><around*|(|<frac|\<gamma\>+1|2>|)><rsub|n>>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<gamma\>|)><rsub|2n+1>=4<rsup|n>\<gamma\><rsup|-1><around*|(|<frac|\<gamma\>+1|2>|)><rsub|n><around*|(|<frac|\<gamma\>+2|2>|)><rsub|n>>|<cell|>>>>
+    </eqnarray>
+  </lemma>
+
+  <\proof>
+    Evident.
+  </proof>
+</body>
 
 <\references>
   <\collection>
-    <associate|prop-1|<tuple|1|?|../../.TeXmacs/texts/scratch/no_name_18.tm>>
+    <associate|lem-1|<tuple|1|1>>
+    <associate|prop-1|<tuple|1|1>>
+    <associate|prop-2|<tuple|2|?>>
   </collection>
 </references>
