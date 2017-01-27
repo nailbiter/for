@@ -232,7 +232,7 @@
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||cos
       <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
       <around|(|\<varphi\>|)>|\|><rsup|-b><wide|v|~><rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)><wide|v|~><rsup|\<mu\>><rsub|m><around*|(|\<psi\>|)>d\<theta\>d\<psi\>d\<varphi\>=<htab|5mm>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|m+l-1><around*|(|-1|)><rsup|<frac|m-l|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>+<around*|[|<frac|m|2>|]>|)>\<Gamma\><around*|(|\<lambda\>+<around*|[|<frac|l|2>|]>+<frac|1|2>|)>|a!
-      b!><around*|\<nobracket\>||\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|B<around*|(|<frac|m+l+b|2>,<frac|a-2b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|m-l+a-\<nu\>+2\<mu\>+3|2>|)>>.>|<cell|>>>>
+      b!><around*|\<nobracket\>||\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|B<around*|(|<frac|m+l+b|2>,<frac|a-2b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|m-l+a-\<nu\>+2\<mu\>+3|2>|)>>.>|<cell|>>|<row|<cell|>|<cell|\<lambda\>,\<mu\>,a,b\<in\>\<bbb-C\>;<space|1em>l,m\<in\>\<bbb-N\>\<mid\>l+m\<in\>2\<bbb-N\>>|<cell|>>>>
     </eqnarray>
   </answer>
 
@@ -309,10 +309,8 @@
         v\<times\>B<around*|(|\<mu\>+<frac|1|2>,<frac|a+1|2>|)>=>|<cell|>>|<row|<cell|>|<cell|=<frac|4<around*|(|-b|)>|2\<lambda\>+1>\<cdot\><frac|\<Gamma\><around*|(|<frac|1-b|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|a|2>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|3|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>-b+<frac|a|2>+<frac|3|2>|)>|\<Gamma\><around*|(|\<mu\>-<frac|a-b+3|2>|)>\<Gamma\><around*|(|\<lambda\>-<frac|b|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+<frac|a-b+5|2>|)>>>|<cell|>>>>
       </eqnarray>
 
-      <item><math|\<nu\>=0>: going to coordinates of the Question 7, it
-      becomes the product of three beta integrals
-
-      <math|<tabular|<tformat|<table|<row|<cell|>|<cell|\<beta\>\<rightsquigarrow\>\<lambda\>,b\<rightsquigarrow\>l,\<alpha\>\<rightsquigarrow\>\<mu\>,a\<rightsquigarrow\>m,\<mu\>\<rightsquigarrow\>a/2,\<nu\>\<rightsquigarrow\>b,>|<cell|>>>>>>
+      <item><math|b=0>: going to coordinates of the Question 7, it becomes
+      the product of three beta integrals
 
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><wide|v|~><rsup|\<mu\>><rsub|m><around*|(|\<psi\>|)><wide|v|~><rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)>=>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|m+l-1><around*|(|-1|)><rsup|<frac|l-m|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>+<around*|[|<frac|m|2>|]>|)>\<Gamma\><around*|(|\<lambda\>+<around*|[|<frac|l|2>|]>+<frac|1|2>|)>|l!
@@ -332,7 +330,6 @@
   <\collection>
     <associate|eq-1|<tuple|2|6>>
     <associate|eq-2|<tuple|1|4>>
-    <associate|eq-3|<tuple|3|7>>
     <associate|q1|<tuple|1|1>>
   </collection>
 </references>
