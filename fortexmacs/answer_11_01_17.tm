@@ -1,8 +1,20 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|number-europe>>
 
 <\body>
+  <\hide-preamble>
+    \;
+
+    <assign|enumerate|<\macro|body>
+      <\with|enumerate-level|<plus|<value|enumerate-level>|2>>
+        <compound|<merge|enumerate-|<enumerate-reduce|<value|enumerate-level>>>|<arg|body>>
+      </with>
+    </macro>>
+
+    \;
+  </hide-preamble>
+
   <date|>
 
   <\question>
@@ -202,7 +214,7 @@
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<alpha\>+a+1><around|(|\<varphi\>|)>cos<rsup|2\<mu\>><around|(|\<varphi\>|)><around*|\||cos
       <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
       <around|(|\<varphi\>|)>|\|><rsup|-\<nu\>><wide|v|~><rsup|\<alpha\>><rsub|a><around*|(|\<psi\>|)><wide|v|~><rsup|\<beta\>><rsub|b><around*|(|\<theta\>|)>=<htab|5mm>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|a+b-1>\<Gamma\><around*|(|\<alpha\>+<frac|1|2>+<around*|[|<frac|a|2>|]>|)><around*|(|-1|)><rsup|<frac|a-b|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<beta\>+<around*|[|b/2|]>+<frac|1|2>|)>|a!
-      b!><around*|\<nobracket\>||\<nobracket\>><eq-number><label|eq-2>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|a+b+\<nu\>|2>|)>\<Gamma\><around*|(|\<mu\>-\<nu\>+\<alpha\>+\<beta\>+3/2|)>\<Gamma\><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|a+b+2\<mu\>-\<nu\>+2\<alpha\>+2\<beta\>+3|2>|)>\<Gamma\><around*|(|<frac|2-a+b-\<nu\>+2\<beta\>|2>|)>*\<Gamma\><around*|(|<frac|a-b+2\<mu\>-\<nu\>+2\<alpha\>+3|2>|)>>,>|<cell|>>>>
+      b!><around*|\<nobracket\>||\<nobracket\>>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|a+b+\<nu\>|2>|)>\<Gamma\><around*|(|\<mu\>-\<nu\>+\<alpha\>+\<beta\>+3/2|)>\<Gamma\><around*|(|\<mu\>+1/2|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|a+b+2\<mu\>-\<nu\>+2\<alpha\>+2\<beta\>+3|2>|)>\<Gamma\><around*|(|<frac|2-a+b-\<nu\>+2\<beta\>|2>|)>*\<Gamma\><around*|(|<frac|a-b+2\<mu\>-\<nu\>+2\<alpha\>+3|2>|)>>,>|<cell|>>>>
     </eqnarray>
 
     or using the beta function defined above,
@@ -226,7 +238,7 @@
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||cos
       <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
       <around|(|\<varphi\>|)>|\|><rsup|-b><wide|v|~><rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)><wide|v|~><rsup|\<mu\>><rsub|m><around*|(|\<psi\>|)>d\<theta\>d\<psi\>d\<varphi\>=<htab|5mm>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|m+l-1><around*|(|-1|)><rsup|<frac|m-l|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>+<around*|[|<frac|m|2>|]>|)>\<Gamma\><around*|(|\<lambda\>+<around*|[|<frac|l|2>|]>+<frac|1|2>|)>|a!
-      b!><around*|\<nobracket\>||\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|m+l+b|2>|)>\<Gamma\><around*|(|<frac|a-2b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|m+l+a-b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|m-l+a-\<nu\>+2\<mu\>+3|2>|)>>.>|<cell|>>>>
+      b!><around*|\<nobracket\>||\<nobracket\>>\<times\><eq-number><label|eq-2>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|m+l+b|2>|)>\<Gamma\><around*|(|<frac|a-2b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|m+l+a-b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|m-l+a-b+2\<mu\>+3|2>|)>>.>|<cell|>>>>
     </eqnarray>
 
     or
@@ -235,7 +247,7 @@
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||cos
       <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
       <around|(|\<varphi\>|)>|\|><rsup|-b><wide|v|~><rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)><wide|v|~><rsup|\<mu\>><rsub|m><around*|(|\<psi\>|)>d\<theta\>d\<psi\>d\<varphi\>=<htab|5mm>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|m+l-1><around*|(|-1|)><rsup|<frac|m-l|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>+<around*|[|<frac|m|2>|]>|)>\<Gamma\><around*|(|\<lambda\>+<around*|[|<frac|l|2>|]>+<frac|1|2>|)>|a!
-      b!><around*|\<nobracket\>||\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|B<around*|(|<frac|m+l+b|2>,<frac|a-2b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|m-l+a-\<nu\>+2\<mu\>+3|2>|)>>.>|<cell|>>|<row|<cell|>|<cell|\<lambda\>,\<mu\>,a,b\<in\>\<bbb-C\>;<space|1em>l,m\<in\>\<bbb-N\>\<mid\>l+m\<in\>2\<bbb-N\>>|<cell|>>>>
+      b!><around*|\<nobracket\>||\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|B<around*|(|<frac|m+l+b|2>,<frac|a-2b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|m-l+a-b+2\<mu\>+3|2>|)>>.>|<cell|>>|<row|<cell|>|<cell|\<lambda\>,\<mu\>,a,b\<in\>\<bbb-C\>;<space|1em>l,m\<in\>\<bbb-N\>\<mid\>l+m\<in\>2\<bbb-N\>>|<cell|>>>>
     </eqnarray>
   </answer>
 
@@ -290,16 +302,16 @@
 
     Now, the known special cases of the latter integral are as follows:
 
-    (in parameters of Question 8)
+    (in parameters of Question 8):
 
-    <\enumerate>
+    <\enumerate-numeric>
       <item><math|m=l=0>: product of beta-integral and integral from
       Proposition 6.1 (first item):
 
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-u<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-v<rsup|2>|)><rsup|<frac|a|2>+\<mu\>><around*|\||u-v|\|><rsup|-b>d
         u d v\<times\><big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<mu\>-<frac|1|2>><around*|\||w|\|><rsup|<frac|a-1|2>>d
-        w=>|<cell|>>|<row|<cell|>|<cell|<frac|<sqrt|\<pi\>>*\<Gamma\>*<around|(|\<lambda\>+<frac|1|2>|)>*\<Gamma\><around*|(|<frac|1-b|2>|)>*\<Gamma\>*<around|(|\<lambda\>+\<mu\>+<frac|a|2>-b+<frac|3|2>|)>|2\<Gamma\>*<around*|(|\<lambda\>-<frac|b|2>+1|)>*\<Gamma\>*<around*|(|\<mu\>+<frac|a-b|2>+<frac|3|2>|)>*\<Gamma\>*<around*|(|\<lambda\>+\<mu\>+<frac|a-b|2>+<frac|3|2>|)>>\<cdot\>B<around*|(|\<mu\>+<frac|1|2>,<frac|a+1|2>|)>>|<cell|>>>>
+        w=>|<cell|>>|<row|<cell|>|<cell|<frac|<sqrt|\<pi\>>*\<Gamma\>*<around|(|\<lambda\>+<frac|1|2>|)>*\<Gamma\><around*|(|<frac|1-b|2>|)>*\<Gamma\>*<around|(|\<lambda\>+\<mu\>+<frac|a|2>-b+<frac|3|2>|)>|\<Gamma\>*<around*|(|\<lambda\>-<frac|b|2>+1|)>*\<Gamma\>*<around*|(|\<mu\>+<frac|a-b|2>+<frac|3|2>|)>*\<Gamma\>*<around*|(|\<lambda\>+\<mu\>+<frac|a-b|2>+<frac|3|2>|)>>\<cdot\>B<around*|(|\<mu\>+<frac|1|2>,<frac|a+1|2>|)>>|<cell|>>>>
       </eqnarray>
 
       <item><math|m=l=1>: product of beta-integral (we let
@@ -309,23 +321,24 @@
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|4<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-u<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-v<rsup|2>|)><rsup|<frac|a|2>+\<mu\>>
         u v<around*|\||u-v|\|><rsup|-b>d u d
-        v\<times\><big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<mu\>-<frac|1|2>><around*|\||w|\|><rsup|<frac|a-1|2>>d
+        v<big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<mu\>-<frac|1|2>><around*|\||w|\|><rsup|<frac|a-1|2>>d
         w=>|<cell|>>|<row|<cell|>|<cell|<frac|4<around*|(|-b|)>|2\<lambda\>+1><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-u<rsup|2>|)><rsup|\<lambda\>+<frac|1|2>><around*|(|1-v<rsup|2>|)><rsup|<frac|a|2>+\<mu\>>
         \ v<around*|\||u-v|\|><rsup|-b-1>sgn<around*|(|u-v|)>d u d
-        v\<times\>B<around*|(|\<mu\>+<frac|1|2>,<frac|a+1|2>|)>=>|<cell|>>|<row|<cell|>|<cell|=<frac|4<around*|(|-b|)>|2\<lambda\>+1>\<cdot\><frac|\<Gamma\><around*|(|<frac|1-b|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|a|2>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|3|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>-b+<frac|a|2>+<frac|3|2>|)>|\<Gamma\><around*|(|\<mu\>-<frac|a-b+3|2>|)>\<Gamma\><around*|(|\<lambda\>-<frac|b|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+<frac|a-b+5|2>|)>>>|<cell|>>>>
+        v<big|int><rsub|0><rsup|1><around*|(|1-w|)><rsup|\<mu\>-<frac|1|2>><around*|\||w|\|><rsup|<frac|a-1|2>>d
+        w=>|<cell|>>|<row|<cell|>|<cell|=<frac|4b|2\<lambda\>+1>\<cdot\><frac|\<Gamma\><around*|(|<frac|1-b|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|a|2>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|3|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>-b+<frac|a|2>+<frac|3|2>|)>|\<Gamma\><around*|(|\<mu\>-<frac|a-b+3|2>|)>\<Gamma\><around*|(|\<lambda\>-<frac|b|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+<frac|a-b+5|2>|)>>\<cdot\>B<around*|(|\<mu\>+<frac|1|2>,<frac|a+1|2>|)>>|<cell|>>>>
       </eqnarray>
-    </enumerate>
+    </enumerate-numeric>
 
-    (in parameters of Question 7)
+    (in parameters of Question 7):
 
-    <\enumerate>
+    <\enumerate-numeric>
       <item><math|m=l=0>: product of beta-integral and integral from
       Proposition 6.1 (first item):
 
       <\eqnarray>
         <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||cos
         <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
-        <around|(|\<varphi\>|)>|\|><rsup|-b>d\<theta\>d\<psi\>d\<varphi\>=>|<cell|>>|<row|<cell|>|<cell|<frac|<sqrt|\<pi\>>*\<Gamma\>*<around|(|\<lambda\>+<frac|1|2>|)>*\<Gamma\><around*|(|<frac|1-b|2>|)>*\<Gamma\>*<around|(|\<lambda\>+\<mu\>+<frac|a|2>-b+<frac|3|2>|)>|2\<Gamma\>*<around*|(|\<lambda\>-<frac|b|2>+1|)>*\<Gamma\>*<around*|(|\<mu\>+<frac|a-b|2>+<frac|3|2>|)>*\<Gamma\>*<around*|(|\<lambda\>+\<mu\>+<frac|a-b|2>+<frac|3|2>|)>>\<cdot\>B<around*|(|\<mu\>+<frac|1|2>,<frac|a+1|2>|)>>|<cell|>>>>
+        <around|(|\<varphi\>|)>|\|><rsup|-b>sin<rsup|2\<lambda\>><around*|(|\<theta\>|)>sin<rsup|2\<mu\>><around*|(|\<psi\>|)>d\<theta\>d\<psi\>d\<varphi\>=>|<cell|>>|<row|<cell|>|<cell|<frac|<sqrt|\<pi\>>*\<Gamma\>*<around|(|\<lambda\>+<frac|1|2>|)>*\<Gamma\><around*|(|<frac|1-b|2>|)>*\<Gamma\>*<around|(|\<lambda\>+\<mu\>+<frac|a|2>-b+<frac|3|2>|)>|2\<Gamma\>*<around*|(|\<lambda\>-<frac|b|2>+1|)>*\<Gamma\>*<around*|(|\<mu\>+<frac|a-b|2>+<frac|3|2>|)>*\<Gamma\>*<around*|(|\<lambda\>+\<mu\>+<frac|a-b|2>+<frac|3|2>|)>>\<cdot\>B<around*|(|\<mu\>+<frac|1|2>,<frac|a+1|2>|)>>|<cell|>>>>
       </eqnarray>
 
       <item><math|m=l=1>: product of beta-integral (we let
@@ -333,22 +346,35 @@
       t>)) and integral from Proposition 6.1 (second item):
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|4<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||cos
+        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||cos
         <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
-        <around|(|\<varphi\>|)>|\|><rsup|-b>\<theta\>\<psi\>d\<theta\>d\<psi\>d\<varphi\>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<around*|(|-b|)>|2\<lambda\>+1>\<cdot\><frac|\<Gamma\><around*|(|<frac|1-b|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|a|2>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|3|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>-b+<frac|a|2>+<frac|3|2>|)>|\<Gamma\><around*|(|\<mu\>-<frac|a-b+3|2>|)>\<Gamma\><around*|(|\<lambda\>-<frac|b|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+<frac|a-b+5|2>|)>>>|<cell|>>>>
+        <around|(|\<varphi\>|)>|\|><rsup|-b>cos<around*|(|\<theta\>|)>cos<around*|(|\<psi\>|)>sin<rsup|2\<lambda\>><around*|(|\<theta\>|)>sin<rsup|2\<mu\>><around*|(|\<psi\>|)>d\<theta\>d\<psi\>d\<varphi\>>|<cell|>>|<row|<cell|>|<cell|=<frac|2b|2\<lambda\>+1>\<cdot\><frac|\<Gamma\><around*|(|<frac|1-b|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|a|2>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|3|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>-b+<frac|a|2>+<frac|3|2>|)>|\<Gamma\><around*|(|\<mu\>-<frac|a-b+3|2>|)>\<Gamma\><around*|(|\<lambda\>-<frac|b|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+<frac|a-b+5|2>|)>>\<cdot\>B<around*|(|\<mu\>+<frac|1|2>,<frac|a+1|2>|)>>|<cell|>>>>
       </eqnarray>
 
       <item><math|b=0>: going to coordinates of the Question 7, it becomes
       the product of three beta integrals
 
       <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><wide|v|~><rsup|\<mu\>><rsub|m><around*|(|\<psi\>|)><wide|v|~><rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)>=>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|m+l-1><around*|(|-1|)><rsup|<frac|l-m|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>+<around*|[|<frac|m|2>|]>|)>\<Gamma\><around*|(|\<lambda\>+<around*|[|<frac|l|2>|]>+<frac|1|2>|)>|l!
-        m!><around*|\<nobracket\>||\<nobracket\>>\<times\><eq-number><label|eq-1>>|<cell|>>|<row|<cell|>|<cell|\<times\><frac|\<Gamma\><around*|(|<frac|a+3|2>+\<mu\>+\<lambda\>+3/2|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1|2>|)>|\<Gamma\><around*|(|<frac|2-m+l+2\<lambda\>|2>|)>*<space|0.17em>\<Gamma\><around*|(|<frac|m+l+a+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|l-m+a+2\<mu\>+3|2>|)>>\<times\><choice|<tformat|<table|<row|<cell|1,>|<cell|l=m=0,>>|<row|<cell|0,>|<cell|otherwise.>>>>>>|<cell|>>>>
+        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><wide|v|~><rsup|\<mu\>><rsub|m><around*|(|\<psi\>|)><wide|v|~><rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)>=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<pi\>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>|2>\<cdot\><around*|\<nobracket\>||\<nobracket\>><frac|\<Gamma\><around*|(|<frac|a+1|2>|)>|\<Gamma\><around*|(|<frac|2+2\<lambda\>|2>|)>*<space|0.17em>\<Gamma\><around*|(|<frac|a+2\<mu\>+3|2>|)>>\<cdot\><choice|<tformat|<table|<row|<cell|1,>|<cell|l=m=0,>>|<row|<cell|0,>|<cell|otherwise.>>>>><eq-number><label|eq-1>>|<cell|>>>>
       </eqnarray>
-    </enumerate>
-  </answer>
 
-  Now, the known special cases of the latter integral are as follows:
+      <\proof>
+        This equality is obtained by substitution of <math|\<nu\>=0> in
+        <math|<eqref|eq-2>>. On the other hand, we can evaluate the LHS of
+        <math|<eqref|eq-1>> as:
+
+        <\eqnarray>
+          <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><wide|v|~><rsup|\<mu\>><rsub|m><around*|(|\<psi\>|)><wide|v|~><rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)>=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>|\<Gamma\><around*|(|\<mu\>+<around*|[|<frac|m+1|2>|]>|)>\<Gamma\><around*|(|\<lambda\>+<around*|[|<frac|l+1|2>|]>|)>><big|int><rsub|0><rsup|\<pi\>/2>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)>d\<varphi\><big|int><rsub|0><rsup|\<pi\>>sin<rsup|2\<mu\>><around*|(|\<psi\>|)>C<rsup|\<mu\>><rsub|m><around*|(|cos\<psi\>|)>d\<psi\><big|int><rsub|0><rsup|\<pi\>>sin<rsup|2\<lambda\>><around*|(|\<theta\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|cos\<theta\>|)>d\<theta\>>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>|\<Gamma\><around*|(|\<mu\>+<around*|[|<frac|m+1|2>|]>|)>\<Gamma\><around*|(|\<lambda\>+<around*|[|<frac|l+1|2>|]>|)>><big|int><rsub|0><rsup|1><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+<frac|m|2>>t<rsup|a>d
+          t<big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|m><rsup|\<mu\>><around*|(|s|)>d
+          s<big|int><rsub|-1><rsup|1><around*|(|1-v<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|v|)>d
+          v=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>|\<Gamma\><around*|(|\<mu\>+<around*|[|<frac|m+1|2>|]>|)>\<Gamma\><around*|(|\<lambda\>+<around*|[|<frac|l+1|2>|]>|)>>\<cdot\><frac|\<Gamma\><around*|(|\<mu\>+<frac|m|2>+1|)>\<Gamma\><around*|(|<frac|a+1|2>|)>|2\<Gamma\><around*|(|\<mu\>+<frac|m|2>+<frac|a+3|2>|)>><choice|<tformat|<table|<row|<cell|<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>|\<Gamma\><around*|(|\<mu\>+1|)>>,>|<cell|m=0>>|<row|<cell|0,>|<cell|m\<gtr\>0>>>>><choice|<tformat|<table|<row|<cell|<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>|\<Gamma\><around*|(|\<lambda\>+1|)>>,>|<cell|l=0>>|<row|<cell|0,>|<cell|l\<gtr\>0>>>>>=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|<frac|a+1|2>|)>|2\<Gamma\><around*|(|\<mu\>+<frac|a+3|2>|)>>\<cdot\><frac|\<pi\>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>|\<Gamma\><around*|(|\<lambda\>+1|)>
+          >\<cdot\><choice|<tformat|<table|<row|<cell|1,>|<cell|l=m=0,>>|<row|<cell|0,>|<cell|otherwise.>>>>>>|<cell|>>>>
+        </eqnarray>
+
+        Which is precisely the same as RHS of <math|<eqref|eq-1>>.
+      </proof>
+    </enumerate-numeric>
+  </answer>
 </body>
 
 <\initial>
@@ -360,7 +386,8 @@
 <\references>
   <\collection>
     <associate|eq-1|<tuple|4|7>>
-    <associate|eq-2|<tuple|1|4>>
+    <associate|eq-2|<tuple|1|5>>
+    <associate|eq-3|<tuple|5|7>>
     <associate|eq:q8-1|<tuple|3|6>>
     <associate|q1|<tuple|1|1>>
   </collection>
