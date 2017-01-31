@@ -80,7 +80,7 @@
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<around*|\||<big|int><rsub|D<rprime|'>>sin<rsup|2\<mu\>+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||s-t*sin
       <around|(|\<varphi\>|)>|\|><rsup|b><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-      s d t d\<varphi\>|\|>\<leqslant\>4\<cdot\><frac|\<pi\>|2>\<cdot\>2<rsup|<around*|\||b|\|>>,>|<cell|>>>>
+      s d t d\<varphi\>|\|>\<leqslant\>4\<cdot\><frac|\<pi\>|2>\<cdot\>2<rsup|Re<around*|(|b|)>>,>|<cell|>>>>
     </eqnarray>
 
     while for the second addend, the Stirling approximation implies that the
