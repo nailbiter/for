@@ -28,6 +28,7 @@ substitute([a=1,b=0,c=0,d=1],expr)-
 substitute([a=0,b=1,c=1,d=0],expr)+
 substitute([a=1,b=1,c=0,d=0],expr);*/
 
+Poch(x,n):=G(x+n)/G(x);
 /*N:(G(-k)/G((1-b-nu)/2)/G((2*b+q)/2)/sqrt(Pi))^(-1)*G(p/2+i)/G((p-1)/2+k+i)/G((1+b-nu+q)/2);
 G(q/2)*sqrt(Pi)*G((1-nu)/2)*G((mylambda-nu)/2)*G((mylambda+nu-q)/2)/G(mylambda/2)/G((mylambda+1-q)/2)/G((q-nu+1)/2);
 expr:substitute(first(solve([C=-nu,(q-2)/2=A,(mylambda+nu-q)/2-1=B],[nu,q,mylambda])),%);
@@ -55,7 +56,7 @@ expand(%);
 tex(%,texoutput);
 
 substitute([A=-(N-i)/2,B=(N-i)/2+(p-1)/2+i,C=(p-1)/2+1+i],G(C)*G(C-A-B)/G(C-A)/G(C-B));
-tex(%,texoutput);*/
+ex(%,texoutput);*/
 
 G(q/2)*sqrt(Pi)*G((1-nu)/2)*G((mylambda-nu)/2)*G((mylambda+nu-q)/2)/G(mylambda/2)/G((mylambda+1-q)/2)*G((q-nu+1)/2);
 substitute(solve([A=(q-2)/2,B=(mylambda+nu-q)/2-1],[mylambda,q]),%);
