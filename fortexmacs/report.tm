@@ -1,9 +1,9 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 64>
+  <section|report 65>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
@@ -14,52 +14,19 @@
     Work on for <math|U<around*|(|p,q|)>> case (sat)
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     image of <math|A<rsup|1>> under SBOs
-  </cell>|<cell|<with|font-series|bold|not done>>>>>>
+  </cell>|<cell|<with|font-series|bold|not done> (5 cases remain, as for
+  now)>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
-  <\enumerate-numeric>
-    <item>Confirmed that I can readily handle 16 of the 29 cases for the
-    image of <math|A<rsup|1>> under the SBOs;
-
-    <item>With a lot of Your help, did some work on the integral equality
-    paper:
-
-    <\enumerate>
-      <item>Brought the second equality to two beautiful forms:
-
-      <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D>sin<rsup|2\<mu\>+m+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||cos
-        <around|(|\<theta\>|)>-cos <around|(|\<psi\>|)>*sin
-        <around|(|\<varphi\>|)>|\|><rsup|-b><wide|v|~><rsup|\<lambda\>><rsub|l><around*|(|\<theta\>|)><wide|v|~><rsup|\<mu\>><rsub|m><around*|(|\<psi\>|)>d\<theta\>d\<psi\>d\<varphi\>=<htab|5mm>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|m+l-1><around*|(|-1|)><rsup|<frac|m-l|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>+<around*|[|<frac|m|2>|]>|)>\<Gamma\><around*|(|\<lambda\>+<around*|[|<frac|l|2>|]>+<frac|1|2>|)>|a!
-        b!><around*|\<nobracket\>||\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|B<around*|(|<frac|m+l+b|2>,<frac|a-2b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|m-l+a-\<nu\>+2\<mu\>+3|2>|)>>;>|<cell|>>|<row|<cell|>|<cell|D=<around*|{|<around*|(|\<theta\>,\<psi\>,\<varphi\>|)>\<in\><around*|[|0,\<pi\>|]><rsup|2>\<times\><around*|[|0,<frac|\<pi\>|2>|]>|}>;\<mu\>,a,b,\<lambda\>\<in\>\<bbb-C\>,l,m\<in\>\<bbb-N\>\<mid\>l+m\<in\>2\<bbb-N\>>|<cell|>>>>
-      </eqnarray>
-
-      or, equivalently
-
-      <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D><around*|(|1-u<rsup|2>|)><rsup|\<alpha\>><around*|(|1-v<rsup|2>|)><rsup|\<mu\>+\<beta\>><around*|(|1-w|)><rsup|\<beta\>-<frac|1|2>><around*|\||w|\|><rsup|\<mu\>-<frac|1|2>><around*|\||u-v|\|><rsup|-\<nu\>><wide|C|~><rsup|\<beta\>><rsub|a<rprime|'>><around*|(|v,1-w<around*|(|1-v<rsup|2><rsup|>|)>|)><wide|C|~><rsup|\<alpha\>+<frac|1|2>><rsub|b><around*|(|u,1|)>d
-        u v w=>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|a<rprime|'>+b><around*|(|-1|)><rsup|<frac|a<rprime|'>-b|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<beta\>+<frac|1|2>+<around*|[|<frac|a<rprime|'>+1|2>|]>|)>\<Gamma\><around*|(|\<alpha\>+1+<around*|[|<frac|b+1|2>|]>|)>|a<rprime|'>!
-        b!>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|B<around*|(|<frac|a<rprime|'>+b+\<nu\>|2>,\<mu\>-\<nu\>+\<alpha\>+\<beta\>+2|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|3-a<rprime|'>+b-\<nu\>+2\<alpha\>|2>|)>*\<Gamma\><around*|(|<frac|a<rprime|'>-b+2\<mu\>-\<nu\>+2\<beta\>+3|2>|)>>.>|<cell|>>|<row|<cell|>|<cell|D\<assign\><around*|{|<around*|(|u,v,w|)>\<in\><around*|[|-1,1|]><rsup|2>\<times\><around*|[|0,1|]>|}>.>|<cell|>>|<row|<cell|>|<cell|\<alpha\>,\<beta\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>;<space|1em>a<rprime|'>,b\<in\>\<bbb-N\>\<mid\>a+b\<in\>2\<bbb-N\>.>|<cell|>>>>
-      </eqnarray>
-
-      <item>Found three specializations of these integrals;
-    </enumerate>
-  </enumerate-numeric>
+  (empty)
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Image of <math|A<rsup|1>>:
-
-    <\enumerate>
-      <item>Write up the 16 cases I can handle
-
-      <item>Compute the image of <math|A<rsup|1>> under SBOs for as many
-      cases as possible (13 remains)
-    </enumerate>
+    <item>Image of <math|A<rsup|1>>: finish remaining 5 cases
 
     <item>Reading:
 
@@ -72,20 +39,10 @@
       SPACES\Q
     </enumerate>
 
-    <item>Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
-    symmetry breaking (thu):
+    <item>Make the short proof of the integral equality more general.
 
-    <\enumerate-numeric>
-      <item>Slightly generalize the theoretical part
-
-      <item>Set up the equations for <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><rsup|\<varepsilon\>>,\<nu\><rsup|\<varepsilon\><rprime|'>>|)>>
-      where <math|\<varepsilon\>,\<varepsilon\><rprime|'>\<in\><around*|{|\<pm\>|}>>
-      (they're the same, with the only change being
-      <math|F<around*|(|-\<cdot\>|)>=F<around*|(|\<cdot\>|)>> becoming
-      <math|F<around*|(|-\<cdot\>|)>=\<varepsilon\>\<varepsilon\><rprime|'>F<around*|(|\<cdot\>|)>>)
-
-      <item>Classify <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>-<around*|{|0|}>;\<lambda\>\<otimes\>\<varepsilon\>,\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
-    </enumerate-numeric>
+    <item>Run through the Kobayashi-Kubo-Pevzner and estimate whether I can
+    do the same for continuous (i.e., non-differential) SBOs.
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>
@@ -179,7 +136,6 @@
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|3>>
     <associate|auto-3|<tuple|1|3>>
-    <associate|auto-4|<tuple|1|?>>
     <associate|bib-kobayashi2015classification|<tuple|KO15|3>>
   </collection>
 </references>
