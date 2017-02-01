@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|generic|mystyle>>
 
@@ -14,18 +14,30 @@
     </eqnarray>
   </proposition*>
 
-  <\lemma*>
-    The following holds:
+  <\lemma>
+    <label|lem1>The following holds:
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D<rprime|'>>sin<rsup|2\<mu\>+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||s-t*sin
       <around|(|\<varphi\>|)>|\|><rsup|b><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
       s d t d\<varphi\>=<htab|5mm>>|<cell|>>|<row|<cell|>|<cell|=<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>|2><around*|\<nobracket\>||\<nobracket\>>\<cdot\><frac|\<Gamma\><around*|(|<frac|a+2b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1+b|2>|)>|\<Gamma\><around*|(|<frac|a+b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|2+b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|a+b+2\<mu\>+3|2>|)>>,<eq-number><label|eq-1>>|<cell|>>|<row|<cell|>|<cell|D<rprime|'>\<assign\><around*|{|<around*|(|s,t,\<varphi\>|)>\<in\><around*|[|-1,1|]><rsup|2>\<times\><around*|[|0,<frac|\<pi\>|2>|]>|}>,<space|1em>\<lambda\>,\<mu\>,a,b\<in\>\<bbb-C\>.>|<cell|>>>>
     </eqnarray>
-  </lemma*>
+  </lemma>
+
+  <\lemma>
+    <label|lem2>The following holds:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|\||s
+      a-t b|\|><rsup|\<nu\>><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B>d
+      s d t=<frac|<around*|\||a|\|><rsup|\<nu\>>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+\<nu\>|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|<frac|\<nu\>|2>+A+<frac|3|2>|)>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|\<nu\>|2>,-<frac|1+\<nu\>|2>-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>,>|<cell|>>|<row|<cell|>|<cell|a,b\<in\>\<bbb-R\>,<around*|\||a|\|>\<gtr\><around*|\||b|\|>;<space|1em>A,B,\<nu\>\<in\>\<bbb-C\>.>|<cell|>>>>
+    </eqnarray>
+  </lemma>
 
   <\proof>
-    (of Proposition, assuming Lemma) We first make the change of variable
+    (of Proposition, assuming Lemma <reference|lem1>) We first make the
+    change of variable
 
     <\equation*>
       cos<around*|(|\<theta\>|)>\<rightsquigarrow\>s,cos<around*|(|\<psi\>|)>\<rightsquigarrow\>t
@@ -44,19 +56,11 @@
     </eqnarray>
 
     Now, making the parameter change <math|\<mu\>+m\<rightsquigarrow\>\<mu\>,\<lambda\>+l\<rightsquigarrow\>l,b-l-m\<rightsquigarrow\>b>
-    we see that integral is precisely that of Lemma.
+    we see that integral is precisely that of Lemma <reference|lem1>.
   </proof>
 
-  <\fact>
-    <label|fact><with|font-series|bold|(Carlson's theorem)> Suppose
-    <math|f:<around*|{|z\<in\>\<bbb-C\>\<mid\>Re<around*|(|z|)>\<gtr\>0|}>\<rightarrow\>\<bbb-C\>>
-    is holomorphic and bounded. Then if <math|f<around*|(|z|)>=0> for
-    <math|\<forall\>z\<in\>\<bbb-N\><rsub|+>>, then <math|f> is constantly
-    zero.
-  </fact>
-
   <\proof>
-    (of Lemma) Fix the <math|Re<around*|(|a|)>,Re<around*|(|\<mu\>|)>,Re<around*|(|\<lambda\>|)>\<gtr\>0>
+    (of Lemma <reference|lem1>) Fix the <math|Re<around*|(|a|)>,Re<around*|(|\<mu\>|)>,Re<around*|(|\<lambda\>|)>\<gtr\>0>
     and consider the function of <math|b> defined as
 
     <\eqnarray>
@@ -92,24 +96,47 @@
     We then proceed as:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D<rprime|'>>sin<rsup|2\<mu\>+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|(|s-t*sin
-      <around|(|\<varphi\>|)>|)><rsup|2n><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|cos\<varphi\>\<rightsquigarrow\>r,d
-      r=-sin\<varphi\>d\<varphi\>,sin<rsup|2><around*|(|\<varphi\>|)>\<rightsquigarrow\>1-r<rsup|2>|)>>|<cell|>>|<row|<cell|>|<cell|4<big|int><rsub|<around*|[|0,1|]><rsup|3>><around*|(|1-r<rsup|2>|)><rsup|\<mu\>>r<rsup|a><around*|(|s-t*<sqrt|1-r<rsup|2>>|)><rsup|2n><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-      r d s d t=>|<cell|>>|<row|<cell|>|<cell|=4<big|sum><rsub|i=0><rsup|n><frac|<around*|(|-2n|)><rsub|2i>|<around*|(|2i|)>!><big|int><rsub|<around*|[|0,1|]><rsup|3>><around*|(|1-r<rsup|2>|)><rsup|\<mu\>+n-i>r<rsup|a>s<rsup|2i>t<rsup|2n-2i><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|s<rsup|2>\<rightsquigarrow\>s,t<rsup|2>\<rightsquigarrow\>t|)>>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|n><frac|<around*|(|-2n|)><rsub|2i>|<around*|(|2i|)>!><big|int><rsub|<around*|[|0,1|]><rsup|3>><around*|(|1-r|)><rsup|\<mu\>+n-i>r<rsup|<frac|a-1|2>>s<rsup|i-<frac|1|2>>t<rsup|n-i-<frac|1|2>><around*|(|1-s|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t|)><rsup|\<mu\>-<frac|1|2>>=>|<cell|>>|<row|<cell|>|<cell|<frac|1|2><big|sum><rsub|i=0><rsup|n><frac|<around*|(|-2n|)><rsub|2i>|<around*|(|2i|)>!>\<cdot\><frac|\<Gamma\><around*|(|<frac|a+1|2>|)>|\<Gamma\><around*|(|\<mu\>+n-i+<frac|a+3|2>|)>>\<cdot\><frac|\<Gamma\><around*|(|i+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>|\<Gamma\><around*|(|i+\<lambda\>+1|)>>\<cdot\>\<Gamma\><around*|(|n-i+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><sqrt|\<pi\>>\<Gamma\><around*|(|n+<frac|1|2>|)>|2><big|sum><rsub|i=0><rsup|n><frac|<around*|(|-n|)><rsub|i>|<around*|(|1|)><rsub|i>>\<cdot\><frac|1|\<Gamma\><around*|(|\<mu\>+n-i+<frac|a+3|2>|)>>\<cdot\><frac|1|\<Gamma\><around*|(|i+\<lambda\>+1|)>>\<cdot\><around*|(|-1|)><rsup|i>=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|n+<frac|1|2>|)>sin<around*|(|\<pi\><around*|(|-\<mu\>-n-<frac|a+1|2>|)>|)>|2<sqrt|\<pi\>>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|n><frac|<around*|(|-n|)><rsub|i>|i!>\<cdot\><frac|<around*|(|-\<mu\>-n-<frac|a+1|2>|)><rsub|i>|<around*|(|\<lambda\>+1|)><rsub|i>>=<frac|\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)><sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|n+<frac|1|2>|)>|2\<Gamma\><around*|(|\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+n-i+<frac|a+3|2>|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-n,-\<mu\>-n-<frac|a+1|2>>>|<row|<cell|\<lambda\>+1>>>>>;1|)>,>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D<rprime|'>>sin<rsup|2\<mu\>+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||s-t*sin
+      <around|(|\<varphi\>|)>|\|><rsup|b><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|cos\<varphi\>\<rightsquigarrow\>r,d
+      r=-sin\<varphi\>d\<varphi\>,sin<rsup|2><around*|(|\<varphi\>|)>\<rightsquigarrow\>1-r<rsup|2>|)>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|<around*|[|0,1|]>\<times\><around*|[|-1,1|]><rsup|2>><around*|(|1-r<rsup|2>|)><rsup|\<mu\>>r<rsup|a><around*|\||s-t*<sqrt|1-r<rsup|2>>|\|><rsup|b><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
+      r d s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|Lemma<space|0.6spc><reference|lem2>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+b|2>|)>|\<Gamma\><around*|(|\<mu\>+1|)>\<Gamma\><around*|(|<frac|b|2>+\<lambda\>+1|)>><big|int><rsub|-1><rsup|1><around*|(|1-r<rsup|2>|)><rsup|\<mu\>>r<rsup|a>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|b|2>,\<lambda\>-<frac|b|2>>>|<row|<cell|\<mu\>+1>>>>>;1-r<rsup|2>|)>d
+      r=>|<cell|>>|<row|<cell|>|<cell|<around*|(|expanding<space|0.6spc>series|)>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+b|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>|2\<Gamma\><around*|(|<frac|b|2>+\<lambda\>+1|)>\<Gamma\><around*|(|<frac|a+3+2\<mu\>|2>|)>>\<cdot\><rsub|3>F<rsub|2><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|b|2>,\<lambda\>-<frac|b|2>,\<mu\>+1>>|<row|<cell|\<mu\>+1,<frac|a+3+2\<mu\>|2>>>>>>;1|)>=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+b|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>|2\<Gamma\><around*|(|<frac|b|2>+\<lambda\>+1|)>\<Gamma\><around*|(|<frac|a+3+2\<mu\>|2>|)>>\<cdot\><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|b|2>,\<lambda\>-<frac|b|2>>>|<row|<cell|<frac|a+3+2\<mu\>|2>>>>>>;1|)>=>|<cell|>>>>
     </eqnarray>
 
     and the application of the formula <math|<rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;1|)>=<frac|\<Gamma\><around*|(|c|)>\<Gamma\><around*|(|c-a-b|)>|\<Gamma\><around*|(|c-a|)>\<Gamma\><around*|(|c-b|)>>>
     ends the proof.
   </proof>
-</body>
 
-<initial|<\collection>
-</collection>>
+  <\fact>
+    <label|fact><with|font-series|bold|(Carlson's theorem)> Suppose
+    <math|f:<around*|{|z\<in\>\<bbb-C\>\<mid\>Re<around*|(|z|)>\<gtr\>0|}>\<rightarrow\>\<bbb-C\>>
+    is holomorphic and bounded. Then if <math|f<around*|(|z|)>=0> for
+    <math|\<forall\>z\<in\>\<bbb-N\><rsub|+>>, then <math|f> is constantly
+    zero.
+  </fact>
+
+  <\proof>
+    (of Lemma <reference|lem2>) (TODO: show that we can apply Fact)...
+
+    So we let <math|\<nu\>=2n\<in\>2\<bbb-N\>> and proceed as:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|(|s
+      a-t b|)><rsup|2n><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B>d
+      s d t=<big|sum><rsub|i=0><rsup|n><frac|<around*|(|-2n|)><rsub|i>|<around*|(|1|)><rsub|2i>>b<rsup|2i>a<rsup|2n-2i><big|int><rsub|s,t=-1><rsup|1>t<rsup|2i>s<rsup|2n-2i><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|a<rsup|2n><big|sum><rsub|i=0><rsup|n><frac|<around*|(|-n|)><rsub|i><around*|(|1/2-n|)><rsub|i>|<around*|(|1/2|)><rsub|i>i!>\<cdot\><frac|\<Gamma\><around*|(|i+<frac|1|2>|)>\<Gamma\><around*|(|B+1|)>|\<Gamma\><around*|(|B+i+<frac|3|2>|)>>\<cdot\><frac|\<Gamma\><around*|(|n-i+<frac|1|2>|)>\<Gamma\><around*|(|B+1|)>|\<Gamma\><around*|(|n-i+B+<frac|3|2>|)>>\<cdot\><around*|(|<frac|b<rsup|2>|a<rsup|2>>|)><rsup|i>=>|<cell|>>|<row|<cell|>|<cell|<frac|a<rsup|2n>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|n+<frac|1|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|n+A+<frac|3|2>|)>><big|sum><rsub|i=0><rsup|n><frac|<around*|(|-n|)><rsub|i><around*|(|1/2-n|)><rsub|i>|i!>\<cdot\><frac|1|<around*|(|B+<frac|3|2>|)><rsub|i>>\<cdot\><frac|<around*|(|n+<frac|1|2>|)><rsub|-i>|<around*|(|n+A+<frac|3|2>|)><rsub|-i>>\<cdot\><around*|(|<frac|b<rsup|2>|a<rsup|2>>|)><rsup|i>=>|<cell|>>|<row|<cell|>|<cell|<frac|a<rsup|2n>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|n+<frac|1|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|n+A+<frac|3|2>|)>><big|sum><rsub|i=0><rsup|n><frac|<around*|(|-n|)><rsub|i>|i!>\<cdot\><frac|<around*|(|-<frac|1|2>-n-A|)><rsub|i>|<around*|(|B+<frac|3|2>|)><rsub|i>>\<cdot\><around*|(|<frac|b<rsup|2>|a<rsup|2>>|)><rsup|i>=>|<cell|>>|<row|<cell|>|<cell|<frac|a<rsup|2n>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|n+<frac|1|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|n+A+<frac|3|2>|)>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-n,-<frac|1|2>-n-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|\||a|\|><rsup|\<nu\>>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+\<nu\>|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|<frac|\<nu\>|2>+A+<frac|3|2>|)>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|\<nu\>|2>,-<frac|1+\<nu\>|2>-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>.>|<cell|>>>>
+    </eqnarray>
+  </proof>
+</body>
 
 <\references>
   <\collection>
-    <associate|eq-1|<tuple|1|1|../../.TeXmacs/texts/scratch/no_name_18.tm>>
-    <associate|eq-2|<tuple|1|?|../../.TeXmacs/texts/scratch/no_name_18.tm>>
-    <associate|fact|<tuple|1|1|../../.TeXmacs/texts/scratch/no_name_18.tm>>
+    <associate|eq-1|<tuple|1|1>>
+    <associate|fact|<tuple|3|2>>
+    <associate|lem1|<tuple|1|1>>
+    <associate|lem2|<tuple|2|1>>
   </collection>
 </references>
