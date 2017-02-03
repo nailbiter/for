@@ -60,7 +60,12 @@
   </proof>
 
   <\proof>
-    (of Lemma <reference|lem1>) We then proceed as:
+    (of Lemma <reference|lem1>, using Fact)
+  </proof>
+
+  <\proof>
+    (of Lemma <reference|lem1>, using Lemma <reference|lem2>) We then proceed
+    as:
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D<rprime|'>>sin<rsup|2\<mu\>+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||s-t*sin
@@ -165,12 +170,12 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|2|4|../../.TeXmacs/texts/scratch/no_name_18.tm>>
-    <associate|bib-NIST:DLMF|<tuple|2|4|../../.TeXmacs/texts/scratch/no_name_18.tm>>
-    <associate|bib-gradshteinryzhik|<tuple|1|4|../../.TeXmacs/texts/scratch/no_name_18.tm>>
-    <associate|eq-1|<tuple|1|1|../../.TeXmacs/texts/scratch/no_name_18.tm>>
-    <associate|lem1|<tuple|1|1|../../.TeXmacs/texts/scratch/no_name_18.tm>>
-    <associate|lem2|<tuple|2|1|../../.TeXmacs/texts/scratch/no_name_18.tm>>
+    <associate|auto-1|<tuple|2|4>>
+    <associate|bib-NIST:DLMF|<tuple|2|4>>
+    <associate|bib-gradshteinryzhik|<tuple|1|4>>
+    <associate|eq-1|<tuple|1|1>>
+    <associate|lem1|<tuple|1|1>>
+    <associate|lem2|<tuple|2|1>>
   </collection>
 </references>
 
@@ -178,8 +183,6 @@
   <\collection>
     <\associate|bib>
       gradshteinryzhik
-
-      NIST:DLMF
 
       NIST:DLMF
 
