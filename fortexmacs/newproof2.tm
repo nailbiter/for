@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|generic|mystyle>>
 
@@ -127,30 +127,20 @@
       <frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>|i!<around*|(|A+\<nu\>+2|)><rsub|i>>2<rsup|-i>
       <big|int><rsub|t=-1><rsup|1><around*|(|1-t
       b|)><rsup|A+\<nu\>+1+i><around*|(|1-t<rsup|2>|)><rsup|B>d
-      t=>|<cell|>>|<row|<cell|>|<cell|\<ldots\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|1+t\<rightsquigarrow\>2w|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)><big|sum><rsub|i=0><rsup|\<infty\>>
+      t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|expand
+      <math|<around*|(|1-t b|)><rsup|A+\<nu\>+1+1>> in series in <math|t
+      b>>|)>>|<cell|>>|<row|<cell|>|<cell|=2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)><big|sum><rsub|i=0><rsup|\<infty\>>
       <frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>|i!<around*|(|A+\<nu\>+2|)><rsub|i>>2<rsup|-i>
-      2<rsup|2B+1><around*|(|1+b|)><rsup|A+\<nu\>+1+i><big|int><rsub|0><rsup|1><around*|(|1-<frac|2b|1+b>
-      w|)><rsup|A+\<nu\>+1+i>w<rsup|B><around*|(|1-w|)><rsup|B>d
-      w=>|<cell|>>>>
-    </eqnarray>
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|(|B<around*|(|c,c-b|)>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;z|)>=<big|int><rsub|0><rsup|1>x<rsup|b-1><around*|(|1-x|)><rsup|c-b-1><around*|(|1-z
-      x|)><rsup|-a>d x,<space|1em>Re<around*|(|c|)>\<gtr\>Re<around*|(|b|)>\<gtr\>0|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)>B<around*|(|B+1,B+1|)><big|sum><rsub|i=0><rsup|\<infty\>>
+      <big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|-A-\<nu\>-i-1|)><rsub|2j>|<around*|(|2j|)>!>b<rsup|2j><big|int><rsub|t=-1><rsup|1>t<rsup|2j><around*|(|1-t<rsup|2>|)><rsup|B>d
+      t=>|<cell|>>|<row|<cell|>|<cell|2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)><big|sum><rsub|i=0><rsup|\<infty\>>
       <frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>|i!<around*|(|A+\<nu\>+2|)><rsub|i>>2<rsup|-i>
-      2<rsup|2B+1><around*|(|1+b|)><rsup|A+\<nu\>+1+i>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-A-\<nu\>-1-i,B+1>>|<row|<cell|2B+2>>>>>;<frac|2b|1+b>|)>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<cite-detail|NIST:DLMF|<math-up|http://dlmf.nist.gov/15.8.E15>>:<space|1em><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|2b>>>>>;z|)>=<around*|(|1-<frac|z|2>|)><rsup|-a>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|a|2>,<frac|a+1|2>>>|<row|<cell|b+<frac|1|2>>>>>>;<around*|(|<frac|z|2-z>|)><rsup|2>|)>|)>>|<cell|>>>>
+      <big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|-A-\<nu\>-i-1|)><rsub|2j>|<around*|(|2j|)>!>B<around*|(|j+<frac|1|2>,B+1|)>b<rsup|2j>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<around*|(|x|)><rsub|2j>=4<rsup|j><around*|(|x/2|)><rsub|j><around*|(|<around*|(|x+1|)>/2|)><rsub|j>|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)>\<Gamma\><around*|(|B+1|)><sqrt|\<pi\>><big|sum><rsub|i,j=0><rsup|\<infty\>>
+      <frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>|i!<around*|(|A+\<nu\>+2|)><rsub|i>>2<rsup|-i><frac|<around*|(|-A-\<nu\>-i-1|)><rsub|2j>|4<rsup|j>j!\<Gamma\><around*|(|j+B+<frac|3|2>|)>>b<rsup|2j>=>|<cell|>>|<row|<cell|>|<cell|2<rsup|A+1>\<Gamma\><around*|(|\<nu\>+1|)>\<Gamma\><around*|(|A+1|)>\<Gamma\><around*|(|B+1|)><sqrt|\<pi\>><big|sum><rsub|i,j=0><rsup|\<infty\>>
+      <frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>\<Gamma\><around*|(|-A-\<nu\>-i-1+2j|)>|i!\<Gamma\><around*|(|A+\<nu\>+2+i|)>\<Gamma\><around*|(|-A-\<nu\>-i-1|)>>\<cdot\><frac|2<rsup|-i>|4<rsup|j>j!\<Gamma\><around*|(|j+B+<frac|3|2>|)>>b<rsup|2j>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<Gamma\><around*|(|1-x|)>\<Gamma\><around*|(|x|)>=<frac|\<pi\>|sin<around*|(|\<pi\>x|)>>|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|A+1>\<Gamma\><around*|(|\<nu\>+1|)>\<Gamma\><around*|(|A+1|)>\<Gamma\><around*|(|B+1|)><sqrt|\<pi\>><big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>|i!\<Gamma\><around*|(|A+\<nu\>+2+i-2j|)>>\<cdot\><frac|2<rsup|-i>|4<rsup|j>j!\<Gamma\><around*|(|j+B+<frac|3|2>|)>>b<rsup|2j>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|summation
+      in <math|i>>|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|A+1>\<Gamma\><around*|(|\<nu\>+1|)>\<Gamma\><around*|(|A+1|)>\<Gamma\><around*|(|B+1|)><sqrt|\<pi\>><big|sum><rsub|j=0><rsup|\<infty\>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-A,A+1>>|<row|<cell|A+\<nu\>+2-2j>>>>>;<frac|1|2>|)>\<cdot\><frac|b<rsup|2j>|4<rsup|j>j!\<Gamma\><around*|(|j+B+<frac|3|2>|)>\<Gamma\><around*|(|A+\<nu\>+2-2j|)>>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|<cite-detail|NIST:DLMF|http://dlmf.nist.gov/15.4.E30>:><space|0.6spc><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,1-a>>|<row|<cell|b>>>>>;<frac|1|2>|)>=<frac|2<rsup|1-b><sqrt|\<pi\>>\<Gamma\><around*|(|b|)>|\<Gamma\><around*|(|<frac|a+b|2>|)>\<Gamma\><around*|(|<frac|b-a+1|2>|)>>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|2<rsup|-\<nu\>>\<Gamma\><around*|(|\<nu\>+1|)>\<Gamma\><around*|(|A+1|)>\<Gamma\><around*|(|B+1|)>\<pi\>|\<Gamma\><around*|(|<frac|\<nu\>+1|2>|)>\<Gamma\><around*|(|<frac|2A+\<nu\>+3|2>|)>><big|sum><rsub|j=0><rsup|\<infty\>><frac|1|\<Gamma\><around*|(|<frac|\<nu\>+2|2>-j|)>\<Gamma\><around*|(|<frac|2A+\<nu\>+3|2>-j|)>>\<cdot\><frac|b<rsup|2j>|j!\<Gamma\><around*|(|j+B+<frac|3|2>|)>>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<around*|(|x|)><rsub|-j>=<around*|(|-1|)><rsup|j>/<around*|(|1-x|)><rsub|j>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|2<rsup|-\<nu\>>\<Gamma\><around*|(|\<nu\>+1|)>\<Gamma\><around*|(|A+1|)>\<Gamma\><around*|(|B+1|)>\<pi\>|\<Gamma\><around*|(|<frac|\<nu\>+2|2>|)>\<Gamma\><around*|(|<frac|2A+\<nu\>+3|2>|)>\<Gamma\><around*|(|B+<frac|3|2>|)>><big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|-\<nu\>|)><rsub|j><around*|(|-<frac|2A+\<nu\>+1|2>|)><rsub|j>b<rsup|2j>|j!<around*|(|B+<frac|3|2>|)><rsub|j>>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<Gamma\><around*|(|2x|)>=2<rsup|2x-1>\<Gamma\><around*|(|x|)>\<Gamma\><around*|(|x+1/2|)>/<sqrt|\<pi\>>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|\<nu\>+1|2>|)>\<Gamma\><around*|(|A+1|)>\<Gamma\><around*|(|B+1|)><sqrt|\<pi\>>|\<Gamma\><around*|(|<frac|2A+\<nu\>+3|2>|)>\<Gamma\><around*|(|B+<frac|3|2>|)>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-\<nu\>,-A-<frac|\<nu\>+1|2>>>|<row|<cell|B+<frac|3|2>>>>>>;b<rsup|2>|)><rsub|>.>|<cell|>>>>
     </eqnarray>
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)>B<around*|(|B+1,B+1|)><big|sum><rsub|i=0><rsup|\<infty\>>
-      <frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>|i!<around*|(|A+\<nu\>+2|)><rsub|i>>2<rsup|-i>
-      2<rsup|2B+1> <rsup|><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|-A-\<nu\>-1-i|2>,<frac|-A-\<nu\>-i|2>>>|<row|<cell|B+3/2>>>>>;b<rsup|2>|)>=>|<cell|>>>>
-    </eqnarray>
-
-    \;
   </proof>
 
   <\bibliography|bib|tm-plain|todai_master.bib>
@@ -175,12 +165,12 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|2|3>>
-    <associate|bib-NIST:DLMF|<tuple|2|3>>
-    <associate|bib-gradshteinryzhik|<tuple|1|3>>
-    <associate|eq-1|<tuple|1|1>>
-    <associate|lem1|<tuple|1|1>>
-    <associate|lem2|<tuple|2|1>>
+    <associate|auto-1|<tuple|2|4|../../.TeXmacs/texts/scratch/no_name_18.tm>>
+    <associate|bib-NIST:DLMF|<tuple|2|4|../../.TeXmacs/texts/scratch/no_name_18.tm>>
+    <associate|bib-gradshteinryzhik|<tuple|1|4|../../.TeXmacs/texts/scratch/no_name_18.tm>>
+    <associate|eq-1|<tuple|1|1|../../.TeXmacs/texts/scratch/no_name_18.tm>>
+    <associate|lem1|<tuple|1|1|../../.TeXmacs/texts/scratch/no_name_18.tm>>
+    <associate|lem2|<tuple|2|1|../../.TeXmacs/texts/scratch/no_name_18.tm>>
   </collection>
 </references>
 
@@ -188,6 +178,8 @@
   <\collection>
     <\associate|bib>
       gradshteinryzhik
+
+      NIST:DLMF
 
       NIST:DLMF
 
