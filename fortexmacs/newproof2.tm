@@ -75,134 +75,96 @@
     ends the proof.
   </proof>
 
-  <\fact>
-    <label|fact><with|font-series|bold|(Carlson's theorem)> Suppose
-    <math|f:<around*|{|z\<in\>\<bbb-C\>\<mid\>Re<around*|(|z|)>\<gtr\>0|}>\<rightarrow\>\<bbb-C\>>
-    is holomorphic and bounded. Then if <math|f<around*|(|z|)>=0> for
-    <math|\<forall\>z\<in\>\<bbb-N\><rsub|+>>, then <math|f> is constantly
-    zero.
-  </fact>
-
   <\proof>
-    (of Lemma <reference|lem2>) We fix <math|a,b\<in\>\<bbb-R\>> as in the
-    statement and <math|A,B\<in\>\<bbb-C\>> with the additional condition
-    that <math|Re<around*|(|A|)>\<gtr\>0,Re<around*|(|B|)>\<gtr\>0>
-    (holomorphic rigidity implies that we can even assume
-    <math|B\<in\>\<bbb-R\>>) and consider the function
+    (of Lemma <reference|lem2>) First of all, note that by dividing both
+    sides by <math|<around*|\||a|\|><rsup|\<nu\>>> we can readily assume that
+    <math|a=1> and <math|-1\<less\>b\<less\>1>. We then proceed as follows:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|F<around*|(|\<nu\>|)>\<assign\><big|int><rsub|s,t=-1><rsup|1><around*|\||s
-      a-t b|\|><rsup|\<nu\>><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B>d
-      s d t->|<cell|>>|<row|<cell|>|<cell|<frac|<around*|\||a|\|><rsup|\<nu\>>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+\<nu\>|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|<frac|\<nu\>|2>+A+<frac|3|2>|)>>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|\<nu\>|2>,-<frac|1+\<nu\>|2>-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|\||s
+      -t b|\|><rsup|\<nu\>><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|t=-1><rsup|1><around*|(|<big|int><rsub|-1><rsup|t
+      b><around*|(|t b-s|)><rsup|\<nu\>><around*|(|1-s<rsup|2>|)><rsup|A>d
+      s+<big|int><rsub|t b><rsup|1><around*|(|s-t
+      b|)><rsup|\<nu\>><around*|(|1-s<rsup|2>|)><rsup|A>d
+      s|)><around*|(|1-t<rsup|2>|)><rsup|B>d
+      t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|t
+      b-s\<rightsquigarrow\>w,s-t b\<rightsquigarrow\>w<rprime|'>|)>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|t=-1><rsup|1><around*|(|<big|int><rsub|0><rsup|t
+      b+1>w<rsup|\<nu\>><around*|(|w+1-t b|)><rsup|A><around*|(|1+t
+      b-w|)><rsup|A>d w+<big|int><rsub|0><rsup|1-t
+      b>w<rprime|'><rsup|\<nu\>><around*|(|1-t
+      b-w<rprime|'>|)><rsup|A><around*|(|1+t b+w<rprime|'>|)><rsup|A>d
+      w<rprime|'>|)><around*|(|1-t<rsup|2>|)><rsup|B>d t=>|<cell|>>>>
     </eqnarray>
 
-    defined for <math|b\<in\>\<bbb-C\>> such that
-    <math|Re<around*|(|b|)>\<gtr\>0>. Note that
-    <math|F<around*|(|\<cdot\>|)>> is holomorphic: in particular,
-    hypergeometric is so due to the <math|Re<around*|(|B|)>\<gtr\>0> and
-    <math|<around*|\||b|\|>\<less\><around*|\||a|\|>> assumptions; integral
-    is holomorphic, as we can directly take the derivative under the integral
-    by the Lebesgue Dominated convergence. Further, Lemma <reference|lem3>
-    tells us that for appropriate <math|c,b\<gtr\>0> we have
-    <math|F<rprime|'><around*|(|\<nu\>|)>\<assign\>F<around*|(|\<nu\>|)>/c<rsup|b>>
-    being bounded for <math|Re<around*|(|\<nu\>|)>\<gtr\>b>, hence we see
-    that Fact <reference|fact> (applied to
-    <math|F<rprime|'><around*|(|\<cdot\>|)>>) above implies that we can prove
-    the equality for <math|\<nu\>\<in\>2\<bbb-N\>>.
-
-    So we let <math|\<nu\>=2n\<in\>2\<bbb-N\>> and proceed as:
+    Now, the formula <cite-detail|gradshteinryzhik|ET II 186(9), p.315>:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|(|s
-      a-t b|)><rsup|2n><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B>d
-      s d t=<big|sum><rsub|i=0><rsup|n><frac|<around*|(|-2n|)><rsub|i>|<around*|(|1|)><rsub|2i>>b<rsup|2i>a<rsup|2n-2i><big|int><rsub|s,t=-1><rsup|1>t<rsup|2i>s<rsup|2n-2i><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|a<rsup|2n><big|sum><rsub|i=0><rsup|n><frac|<around*|(|-n|)><rsub|i><around*|(|1/2-n|)><rsub|i>|<around*|(|1/2|)><rsub|i>i!>\<cdot\><frac|\<Gamma\><around*|(|i+<frac|1|2>|)>\<Gamma\><around*|(|B+1|)>|\<Gamma\><around*|(|B+i+<frac|3|2>|)>>\<cdot\><frac|\<Gamma\><around*|(|n-i+<frac|1|2>|)>\<Gamma\><around*|(|B+1|)>|\<Gamma\><around*|(|n-i+B+<frac|3|2>|)>>\<cdot\><around*|(|<frac|b<rsup|2>|a<rsup|2>>|)><rsup|i>=>|<cell|>>|<row|<cell|>|<cell|<frac|a<rsup|2n>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|n+<frac|1|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|n+A+<frac|3|2>|)>><big|sum><rsub|i=0><rsup|n><frac|<around*|(|-n|)><rsub|i><around*|(|1/2-n|)><rsub|i>|i!>\<cdot\><frac|1|<around*|(|B+<frac|3|2>|)><rsub|i>>\<cdot\><frac|<around*|(|n+<frac|1|2>|)><rsub|-i>|<around*|(|n+A+<frac|3|2>|)><rsub|-i>>\<cdot\><around*|(|<frac|b<rsup|2>|a<rsup|2>>|)><rsup|i>=>|<cell|>>|<row|<cell|>|<cell|<frac|a<rsup|2n>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|n+<frac|1|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|n+A+<frac|3|2>|)>><big|sum><rsub|i=0><rsup|n><frac|<around*|(|-n|)><rsub|i>|i!>\<cdot\><frac|<around*|(|-<frac|1|2>-n-A|)><rsub|i>|<around*|(|B+<frac|3|2>|)><rsub|i>>\<cdot\><around*|(|<frac|b<rsup|2>|a<rsup|2>>|)><rsup|i>=>|<cell|>>|<row|<cell|>|<cell|<frac|a<rsup|2n>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|n+<frac|1|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|n+A+<frac|3|2>|)>>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-n,-<frac|1|2>-n-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|\||a|\|><rsup|\<nu\>>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+\<nu\>|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|<frac|\<nu\>|2>+A+<frac|3|2>|)>>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|\<nu\>|2>,-<frac|1+\<nu\>|2>-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|0><rsup|u>x<rsup|\<nu\>-1><around*|(|x+\<alpha\>|)><rsup|\<lambda\>><around*|(|u-x|)><rsup|\<mu\>-1>d
+      x=\<alpha\><rsup|\<lambda\>>u<rsup|\<mu\>+\<nu\>-1>B<around*|(|\<mu\>,\<nu\>|)><rsub|2>F<rsub|1><around*|(|-\<lambda\>,\<nu\>;\<mu\>+\<nu\>;-<frac|u|\<alpha\>>|)>,>|<cell|>>|<row|<cell|>|<cell|<around*|\||arg<around*|(|<frac|u|a>|)>|\|>\<less\>\<pi\>,Re<around*|(|\<mu\>|)>\<gtr\>0,Re<around*|(|\<nu\>|)>\<gtr\>0.>|<cell|>>>>
     </eqnarray>
+
+    allows us to continue as
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|=B<around*|(|\<nu\>+1,A+1|)><big|int><rsub|t=-1><rsup|1>>|<cell|>>|<row|<cell|>|<cell|<around*|(|<around*|(|1-t
+      b|)><rsup|A><around*|(|1+t b|)><rsup|A+\<nu\>+1>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-A,\<nu\>+1>>|<row|<cell|A+\<nu\>+2>>>>>;<frac|t
+      b+1|t b-1>|)>+<around*|(|1+t b|)><rsup|A><around*|(|1-t
+      b|)><rsup|A+\<nu\>+1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-A,\<nu\>+1>>|<row|<cell|A+\<nu\>+2>>>>>;<frac|t
+      b-1|t b+1>|)>|)><around*|(|1-t<rsup|2>|)><rsup|B>d
+      t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|<cite-detail|NIST:DLMF|http://dlmf.nist.gov/15.8.E1>>:<space|1em><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;z|)>=<around*|(|1-z|)><rsup|-a>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,c-b>>|<row|<cell|c>>>>>;<frac|z|z-1>|)>,<space|1em><around*|\||ph<around*|(|1-z|)>|\|>\<less\>\<pi\>|)>>|<cell|>>|<row|<cell|>|<cell|=2<rsup|A>B<around*|(|\<nu\>+1,A+1|)><big|int><rsub|t=-1><rsup|1>>|<cell|>>|<row|<cell|>|<cell|<around*|(|<around*|(|1+t
+      b|)><rsup|A+\<nu\>+1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-A,A+1>>|<row|<cell|A+\<nu\>+2>>>>>;<frac|t
+      b+1|2>|)>+<around*|(|1-t b|)><rsup|A+\<nu\>+1>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-A,A+1>>|<row|<cell|A+\<nu\>+2>>>>>;<frac|1-t
+      b|2>|)>|)><around*|(|1-t<rsup|2>|)><rsup|B>d
+      t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|<math|t\<rightsquigarrow\>-t>
+      in the first integral>|)>>|<cell|>>|<row|<cell|>|<cell|=2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)><big|int><rsub|t=-1><rsup|1><around*|(|1-t
+      b|)><rsup|A+\<nu\>+1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-A,A+1>>|<row|<cell|A+\<nu\>+2>>>>>;<frac|1-t
+      b|2>|)><around*|(|1-t<rsup|2>|)><rsup|B>d
+      t=>|<cell|>>|<row|<cell|>|<cell|2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)><big|sum><rsub|i=0><rsup|\<infty\>>
+      <frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>|i!<around*|(|A+\<nu\>+2|)><rsub|i>>2<rsup|-i>
+      <big|int><rsub|t=-1><rsup|1><around*|(|1-t
+      b|)><rsup|A+\<nu\>+1+i><around*|(|1-t<rsup|2>|)><rsup|B>d
+      t=>|<cell|>>|<row|<cell|>|<cell|\<ldots\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|1+t\<rightsquigarrow\>2w|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)><big|sum><rsub|i=0><rsup|\<infty\>>
+      <frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>|i!<around*|(|A+\<nu\>+2|)><rsub|i>>2<rsup|-i>
+      2<rsup|2B+1><around*|(|1+b|)><rsup|A+\<nu\>+1+i><big|int><rsub|0><rsup|1><around*|(|1-<frac|2b|1+b>
+      w|)><rsup|A+\<nu\>+1+i>w<rsup|B><around*|(|1-w|)><rsup|B>d
+      w=>|<cell|>>>>
+    </eqnarray>
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|(|B<around*|(|c,c-b|)>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;z|)>=<big|int><rsub|0><rsup|1>x<rsup|b-1><around*|(|1-x|)><rsup|c-b-1><around*|(|1-z
+      x|)><rsup|-a>d x,<space|1em>Re<around*|(|c|)>\<gtr\>Re<around*|(|b|)>\<gtr\>0|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)>B<around*|(|B+1,B+1|)><big|sum><rsub|i=0><rsup|\<infty\>>
+      <frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>|i!<around*|(|A+\<nu\>+2|)><rsub|i>>2<rsup|-i>
+      2<rsup|2B+1><around*|(|1+b|)><rsup|A+\<nu\>+1+i>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-A-\<nu\>-1-i,B+1>>|<row|<cell|2B+2>>>>>;<frac|2b|1+b>|)>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<cite-detail|NIST:DLMF|<math-up|http://dlmf.nist.gov/15.8.E15>>:<space|1em><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|2b>>>>>;z|)>=<around*|(|1-<frac|z|2>|)><rsup|-a>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|a|2>,<frac|a+1|2>>>|<row|<cell|b+<frac|1|2>>>>>>;<around*|(|<frac|z|2-z>|)><rsup|2>|)>|)>>|<cell|>>>>
+    </eqnarray>
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|2<rsup|A+1>B<around*|(|\<nu\>+1,A+1|)>B<around*|(|B+1,B+1|)><big|sum><rsub|i=0><rsup|\<infty\>>
+      <frac|<around*|(|-A|)><rsub|i><around*|(|A+1|)><rsub|i>|i!<around*|(|A+\<nu\>+2|)><rsub|i>>2<rsup|-i>
+      2<rsup|2B+1> <rsup|><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|-A-\<nu\>-1-i|2>,<frac|-A-\<nu\>-i|2>>>|<row|<cell|B+3/2>>>>>;b<rsup|2>|)>=>|<cell|>>>>
+    </eqnarray>
+
+    \;
   </proof>
 
-  <\lemma>
-    <label|lem3>Let <math|B\<gtr\>0>. Then
+  <\bibliography|bib|tm-plain|todai_master.bib>
+    <\bib-list|2>
+      <bibitem*|1><label|bib-gradshteinryzhik>I.S.<nbsp>Gradshten,
+      I.M.<nbsp>Ryzhik<localize|, and >A.<nbsp>Jeffrey.<newblock>
+      <with|font-shape|italic|Table of Integrals, Series, and Products, Sixth
+      edition>.<newblock> Academic Press, New York, 2000.<newblock>
 
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|F<around*|(|\<nu\>|)>\<assign\><big|int><rsub|s,t=-1><rsup|1><around*|\||s
-      a-t b|\|><rsup|\<nu\>><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B>d
-      s d t->|<cell|>>|<row|<cell|>|<cell|<frac|<around*|\||a|\|><rsup|\<nu\>>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+\<nu\>|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|<frac|\<nu\>|2>+A+<frac|3|2>|)>>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|\<nu\>|2>,-<frac|1+\<nu\>|2>-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>>|<cell|>>>>
-    </eqnarray>
-
-    be defined for <math|Re<around*|(|\<nu\>|)>\<gtr\>0>. We then have
-    <math|F<around*|(|\<nu\>|)>=O<around*|(|c<rsup|Re<around*|(|\<nu\>|)>>|)>>
-    for some appropriate <math|c>. More precisely, there exists <math|c,C,b>
-    such that for <math|Re<around*|(|\<nu\>|)>\<gtr\>b> we have
-    <math|<around*|\||F<around*|(|\<nu\>|)>|\|>\<less\>C\<cdot\>e<rsup|Re<around*|(|\<nu\>|)>>>.
-  </lemma>
-
-  <\proof>
-    First, it is clear that <math|<around*|\||a|\|><rsup|\<nu\>>=O<around*|(|<around*|\||\<nu\>|\|><rsup|Re<around*|(|\<nu\>|)>>|)>>.
-    We next see that
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|\||<big|int><rsub|s,t=-1><rsup|1><around*|\||s
-      a-t b|\|><rsup|\<nu\>><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B>d
-      s d t|\|>\<leqslant\>4<around*|(|<around*|\||a|\|>+<around*|\||b|\|>|)><rsup|\<nu\>>,>|<cell|>>>>
-    </eqnarray>
-
-    hence the first addend is clearly <math|O<around*|(|<around*|(|<around*|\||a|\|>+<around*|\||b|\|>|)><rsup|Re<around*|(|\<nu\>|)>>|)>>.
-    Similarly, Stirling's approximation implies that
-
-    <\equation*>
-      <frac|\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+\<nu\>|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|<frac|\<nu\>|2>+A+<frac|3|2>|)>>=O<around*|(|c<rsup|Re<around*|(|\<nu\>|)>>|)>
-      for appropriate<space|0.6spc>c\<gtr\>0.
-    </equation*>
-
-    Finally, series expansion tells us that
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|\||
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|\<nu\>|2>,-<frac|1+\<nu\>|2>-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>|\|>\<leqslant\><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|<around*|\||\<nu\>|\|>|2>,<around*|\||A|\|>+<frac|<around*|\||\<nu\>|\|>|2>>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>\<leqslant\>>|<cell|>>>>
-    </eqnarray>
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|\<nu\>|2>,-<frac|1+\<nu\>|2>-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>=<around*|(|1-b<rsup|2>/a<rsup|2>|)><rsup|B+2+\<nu\>+A>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|B+<frac|\<nu\>+3|2>,A+B+<frac|\<nu\>+4|2>>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>>|<cell|>>>>
-    </eqnarray>
-  </proof>
-
-  Fix the <math|Re<around*|(|a|)>,Re<around*|(|\<mu\>|)>,Re<around*|(|\<lambda\>|)>\<gtr\>0>
-  and consider the function of <math|b> defined as
-
-  <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|F<around*|(|b|)>\<equiv\>F<rsub|a,\<mu\>,\<lambda\>><around*|(|b|)>\<assign\>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|D<rprime|'>>sin<rsup|2\<mu\>+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||s-t*sin
-    <around|(|\<varphi\>|)>|\|><rsup|b><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-    s d t d\<varphi\>->|<cell|>>|<row|<cell|>|<cell|-<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>|2><around*|\<nobracket\>||\<nobracket\>>\<cdot\><frac|\<Gamma\><around*|(|<frac|a+2b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1+b|2>|)>|\<Gamma\><around*|(|<frac|a+b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|2+b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|a+b+2\<mu\>+3|2>|)>>,>|<cell|>>>>
-  </eqnarray>
-
-  defined for <math|b>, such that <math|Re<around*|(|b|)>\<gtr\>0>. Now,
-  <math|F<around*|(|\<cdot\>|)>> is holomorphic, as the second addend is
-  clearly so (<math|\<Gamma\><around*|(|\<cdot\>|)>> is holomorphic on right
-  half-plane) and the integral is holomorphic in <math|b>, as we can
-  differentiate under the sign of integral, using the Lebesgue dominated
-  convergence theorem. Hence, to prove the Lemma it suffices to show that
-  <math|F<around*|(|\<cdot\>|)>> is constantly zero on
-  <math|<around*|{|z\<in\>\<bbb-C\>\<mid\>Re<around*|(|z|)>\<gtr\>C|}>> for
-  <math|C> big enough. Now, to apply Fact <reference|fact> it suffices to
-  show that <math|F<around*|(|*\<cdot\>|)>> is bounded. For the first addend,
-  we have an estimate
-
-  <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|<around*|\||<big|int><rsub|D<rprime|'>>sin<rsup|2\<mu\>+1><around|(|\<varphi\>|)>cos<rsup|a><around|(|\<varphi\>|)><around*|\||s-t*sin
-    <around|(|\<varphi\>|)>|\|><rsup|b><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-    s d t d\<varphi\>|\|>\<leqslant\>4\<cdot\><frac|\<pi\>|2>\<cdot\>2<rsup|Re<around*|(|b|)>>,>|<cell|>>>>
-  </eqnarray>
-
-  while for the second addend, the Stirling approximation implies that the
-  second addend is bounded. Hence, the Fact applies to the function
-  <math|F<rprime|'><around*|(|b|)>\<assign\>F<around*|(|b|)>/2<rsup|b>>
-  instead of <math|F<around*|(|\<cdot\>|)>> and <math|C> big enough..
+      <bibitem*|2><label|bib-NIST:DLMF>NIST Digital Library of Mathematical
+      Functions.<newblock> http://dlmf.nist.gov/, Release 1.0.10 of
+      2015-08-07.<newblock>
+    </bib-list>
+  </bibliography>
 </body>
 
 <\initial>
@@ -213,10 +175,28 @@
 
 <\references>
   <\collection>
+    <associate|auto-1|<tuple|2|3>>
+    <associate|bib-NIST:DLMF|<tuple|2|3>>
+    <associate|bib-gradshteinryzhik|<tuple|1|3>>
     <associate|eq-1|<tuple|1|1>>
-    <associate|fact|<tuple|3|2>>
     <associate|lem1|<tuple|1|1>>
     <associate|lem2|<tuple|2|1>>
-    <associate|lem3|<tuple|4|?>>
   </collection>
 </references>
+
+<\auxiliary>
+  <\collection>
+    <\associate|bib>
+      gradshteinryzhik
+
+      NIST:DLMF
+
+      NIST:DLMF
+    </associate>
+    <\associate|toc>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-1><vspace|0.5fn>
+    </associate>
+  </collection>
+</auxiliary>
