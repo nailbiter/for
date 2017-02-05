@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|generic|mystyle>>
 
@@ -29,15 +29,21 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|\||s
-      a-t b|\|><rsup|\<nu\>><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B>d
-      s d t=<frac|<around*|\||a|\|><rsup|\<nu\>>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+\<nu\>|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|<frac|\<nu\>|2>+A+<frac|3|2>|)>>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|\<nu\>|2>,-<frac|1+\<nu\>|2>-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>,>|<cell|>>|<row|<cell|>|<cell|a,b\<in\>\<bbb-R\>,<around*|\||a|\|>\<gtr\><around*|\||b|\|>;<space|1em>A,B,\<nu\>\<in\>\<bbb-C\>.>|<cell|>>>>
+      a-t b|\|><rsup|\<nu\>><around*|(|1-s<rsup|2>|)><rsup|A><around*|(|1-t<rsup|2>|)><rsup|B><wide|C|~><rsub|m><rsup|A+<frac|1|2>><around*|(|s|)><wide|C|~><rsub|l><rsup|B+<frac|1|2>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|\||a|\|><rsup|\<nu\>>\<Gamma\><around*|(|B+1|)>\<Gamma\><around*|(|A+1|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+\<nu\>|2>|)>|\<Gamma\><around*|(|B+<frac|3|2>|)>\<Gamma\><around*|(|<frac|\<nu\>|2>+A+<frac|3|2>|)>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|\<nu\>|2>,-<frac|1+\<nu\>|2>-A>>|<row|<cell|B+<frac|3|2>>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>,>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|\||s
+      a-t b|\|><rsup|\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>><wide|C|~><rsub|l><rsup|\<lambda\>><around*|(|s|)><wide|C|~><rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|\||a|\|><rsup|\<nu\>>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)><sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1+\<nu\>|2>|)>|\<Gamma\><around*|(|\<mu\>+1|)>\<Gamma\><around*|(|<frac|\<nu\>|2>+\<lambda\>+1|)>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-<frac|\<nu\>|2>,-<frac|\<nu\>|2>-\<lambda\>>>|<row|<cell|\<mu\>+1>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>,>|<cell|>>|<row|<cell|>|<cell|a,b\<in\>\<bbb-R\>,<around*|\||a|\|>\<geqslant\><around*|\||b|\|>;<space|1em>\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>;<space|1em>l,m\<in\>\<bbb-N\>\<mid\>l+m\<in\>2\<bbb-N\>.>|<cell|>>>>
     </eqnarray>
   </lemma>
 
   <\proof>
-    (of Proposition, assuming Lemma <reference|lem1>) We first make the
-    change of variable
+    (of Proposition, assuming Lemma <reference|lem2>) We proceed as follows:
+
+    \;
+
+    We first make the change of variables
 
     <\equation*>
       cos<around*|(|\<theta\>|)>\<rightsquigarrow\>s,cos<around*|(|\<psi\>|)>\<rightsquigarrow\>t
