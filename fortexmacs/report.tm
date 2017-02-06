@@ -28,21 +28,23 @@
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
+    <item>Prepare the materials for the JSPS application;<space|13em>
+
     <item>Run through the Kobayashi-Kubo-Pevzner and estimate whether I can
-    do the same for continuous (i.e., non-differential) SBOs.
+    do the same for continuous (i.e., non-differential) SBOs;
 
     <item>Estimate the work that should be done for the analogue of
-    Howe-Tan's results for the case of differential forms.
+    Howe-Tan's results for the case of differential forms;
 
     <item>Reading:
 
     <\enumerate>
       <item>Reading: read Lang's \PSL2\Q;
 
-      <item>Read \PHidden Symmetries\Q
+      <item>Read \PHidden Symmetries\Q;
 
       <item>Read \PCONFORMAL SYMMETRY BREAKING OPERATORS FOR ANTI-DE SITTER
-      SPACES\Q
+      SPACES\Q.
     </enumerate>
   </enumerate>
 
@@ -51,53 +53,13 @@
   The work is divided into several projects:
 
   <\enumerate-numeric>
-    <item>Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
+    <item>Project 3: Investigate the <math|\<varpi\><rsub|\<lambda\>,\<alpha\>><rsup|i>\<rightarrow\>\<varpi\><rsub|\<nu\>,\<beta\>><rsup|j>>
     symmetry breaking:
 
     <\enumerate-numeric>
       <item>Generalize the theoretical part
 
-      <item>Set up the equations for <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><rsup|\<varepsilon\>>,\<nu\><rsup|\<varepsilon\><rprime|'>>|)>>
-      where <math|\<varepsilon\>,\<varepsilon\><rprime|'>\<in\><around*|{|\<pm\>|}>>
-      (they're the same, with the only change being
-      <math|F<around*|(|-\<cdot\>|)>=F<around*|(|\<cdot\>|)>> becoming
-      <math|F<around*|(|-\<cdot\>|)>=\<varepsilon\>\<varepsilon\><rprime|'>F<around*|(|\<cdot\>|)>>)
-
-      <item>Classify <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>-<around*|{|0|}>;\<lambda\><rsup|\<varepsilon\>>,\<nu\><rsup|\<varepsilon\><rprime|'>>|)>>
-
-      <item>Define <math|R<rsub|\<lambda\>,\<nu\>><rsup|Y,C>> as residues,
-      compute their support
-
-      <item>Classify <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<lambda\><rsup|\<varepsilon\>>,\<nu\><rsup|\<varepsilon\><rprime|'>>|)>>
-
-      <item>Compute images and morphisms between
-      <math|A<rsub|\<frak-q\>><around*|(|\<lambda\>|)>>
-    </enumerate-numeric>
-
-    <item>Set up the equations that define kernels of SBO for
-    <math|U<around*|(|p,q|)>> case:
-
-    <\enumerate-numeric>
-      <item>Check the geometry
-
-      <item>Set up the equations for SBO kernels
-    </enumerate-numeric>
-
-    <item>Project 2: Determine for which <math|P\<subset\>G>: parabolic of
-    <math|G=O<around*|(|p+1,q+1|)>> (or <math|=U<around*|(|p+1,q+1|)>,Sp<around*|(|p+1,q+1|)>>)
-    we have <math|P<rprime|'>N<rsub|->P=G> holding:
-
-    <\enumerate-numeric>
-      <item>Classify the conjugacy classes of parabolic subgroups of
-      <math|G=O<around*|(|p,q|)>> (in particular, am I right that conjugacy
-      class is single for every given dimension)
-
-      <item>Roughly understand the geometry of
-      <math|P<rprime|'>\<curvearrowright\>G/P> action
-
-      <item>See whether <math|P<rprime|'>N<rsub|->P=G> holds
-
-      <item>Do this for <math|G=U<around*|(|p,q|)>,Sp<around*|(|p,q|)>>
+      <item>Set up the equations for <math|\<cal-S\>ol<around*|(|\<bbb-R\><rsup|p,q>;\<varpi\><rsub|\<lambda\>,\<alpha\>><rsup|i>,\<varpi\><rsub|\<nu\>,\<beta\>><rsup|j>|)>>;
     </enumerate-numeric>
   </enumerate-numeric>
 
@@ -133,9 +95,9 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|1|3>>
-    <associate|auto-3|<tuple|1|3>>
-    <associate|bib-kobayashi2015classification|<tuple|KO15|3>>
+    <associate|auto-2|<tuple|1|1>>
+    <associate|auto-3|<tuple|1|1>>
+    <associate|bib-kobayashi2015classification|<tuple|KO15|1>>
   </collection>
 </references>
 
@@ -143,7 +105,7 @@
   <\collection>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      65> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      67> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
