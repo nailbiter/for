@@ -3,7 +3,9 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 65>
+  <section|report 67>
+
+  <date|>
 
   <block|<tformat|<twith|table-halign|l>|<cwith|1|1|1|-1|cell-width|7.5cm>|<cwith|1|1|1|-1|cell-hmode|exact>|<twith|table-valign|b>|<twith|table-width|1par>|<twith|table-hmode|exact>|<cwith|1|-1|1|1|cell-width|>|<cwith|1|-1|1|1|cell-hmode|auto>|<cwith|1|-1|1|1|cell-hyphen|t>|<table|<row|<\cell>
     <with|font-series|bold|What had to be done>
@@ -11,22 +13,26 @@
     Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
     symmetry breaking (thu)
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
-    Work on for <math|U<around*|(|p,q|)>> case (sat)
-  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     image of <math|A<rsup|1>> under SBOs
-  </cell>|<cell|<with|font-series|bold|not done> (5 cases remain, as for
-  now)>>>>>
+  </cell>|<cell|<with|font-series|bold|done>>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
-  (empty)
+  <\enumerate>
+    <item>Made shorted proof of the integral formula without using Carlson's
+    theorem;
+  </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Image of <math|A<rsup|1>>: finish remaining 5 cases
+    <item>Run through the Kobayashi-Kubo-Pevzner and estimate whether I can
+    do the same for continuous (i.e., non-differential) SBOs.
+
+    <item>Estimate the work that should be done for the analogue of
+    Howe-Tan's results for the case of differential forms.
 
     <item>Reading:
 
@@ -38,11 +44,6 @@
       <item>Read \PCONFORMAL SYMMETRY BREAKING OPERATORS FOR ANTI-DE SITTER
       SPACES\Q
     </enumerate>
-
-    <item>Make the short proof of the integral equality more general.
-
-    <item>Run through the Kobayashi-Kubo-Pevzner and estimate whether I can
-    do the same for continuous (i.e., non-differential) SBOs.
   </enumerate>
 
   <with|font-series|bold|What I plan to do later>
@@ -108,9 +109,7 @@
 
   <paragraph|Comments>
 
-  I want to thank You once again for Your help during this week. I apologize
-  that I make silly computational mistakes, I'll try to improve. I will also
-  make my responses faster.
+  (empty)
 
   <\bibliography|bib|tm-alpha|todai_master>
     <\bib-list|1>
@@ -144,7 +143,7 @@
   <\collection>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      64> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      65> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
