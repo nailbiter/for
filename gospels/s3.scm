@@ -34,7 +34,7 @@
                     (line1 (string-append line1 "."))
                     (line2 (substring line (+ index 4))))(begin(variable-set! flag line2) line1)))(list-ref inner 4)))))
                     (args (parse-russian-title (list-ref inner 4)))
-                    (dum(begin(display(list-ref inner 4))(newline)(display args)(newline)))
+                    (dum(begin(display(list-ref inner 4))(newline)(display args)(newline)(newline)))
 					(inner (replace inner 5 (get-eng-title args)))
 					(inner (replace inner 6 (get-chi-title args)))
 					(inner (replace inner 7 (get-rdg-russian-text args)))
