@@ -1,8 +1,8 @@
 -n ~/bin/sed -i '$ i\<tr><td align="center"><b>
--n 08/01/2017
+-n 12/02/2017
 -n </b></td>\n<td align="center"><a href="docs/
--n apostol_week_29_after_the_Pentecost_(enlisted)_08_01_2017.pdf
+-n apostol_week_about_the_Prodigal_Son_12_02_2017.pdf
 -n "\n>Reading from Epistles. (Чтение из Апостола)</a></td>\n<td align="center"><a href="docs/
--n gospel_week_29_after_the_Pentecost_(enlisted)_08_01_2017.pdf
+-n gospel_week_about_the_Prodigal_Son_12_02_2017.pdf
 -n "\n>Reading from Gospels (Чтение из Евангелие)</a></td></tr>' 
 -n ~/public_html/readings.html
