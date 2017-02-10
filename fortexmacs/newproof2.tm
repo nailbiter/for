@@ -3,6 +3,8 @@
 <style|<tuple|generic|mystyle>>
 
 <\body>
+  <date|>
+
   <\proposition*>
     The following holds:
 
@@ -276,7 +278,7 @@
     <associate|bib-NIST:DLMF|<tuple|2|6>>
     <associate|bib-gradshteinryzhik|<tuple|1|6>>
     <associate|eq-1|<tuple|1|1>>
-    <associate|fact|<tuple|3|3>>
+    <associate|fact|<tuple|2|3>>
     <associate|footnote-1|<tuple|1|3>>
     <associate|footnr-1|<tuple|1|3>>
     <associate|lem1|<tuple|1|1>>
