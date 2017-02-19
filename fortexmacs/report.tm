@@ -1,9 +1,9 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 67>
+  <section|report 68>
 
   <date|>
 
@@ -12,24 +12,20 @@
   </cell>|<cell|<with|font-series|bold|What has been done>>>|<row|<\cell>
     Project 3: Investigate the <math|I<around*|(|\<lambda\>\<otimes\>\<varepsilon\>|)>\<rightarrow\>J<around*|(|\<nu\>\<otimes\>\<varepsilon\><rprime|'>|)>>
     symmetry breaking (thu)
-  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
-    image of <math|A<rsup|1>> under SBOs
-  </cell>|<cell|<with|font-series|bold|done>>>>>>
+  </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>Made shorted proof of the integral formula without using Carlson's
-    theorem;
+    <item>Prepared the materials for the JSPS application (thanks a lot for
+    Your support!);
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
-    <item>Prepare the materials for the JSPS application;<space|13em>
-
     <item>Run through the Kobayashi-Kubo-Pevzner and estimate whether I can
     do the same for continuous (i.e., non-differential) SBOs;
 
