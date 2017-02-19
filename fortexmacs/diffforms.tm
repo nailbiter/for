@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|article|mystyle|structured-section|number-europe|number-long-article>>
 
@@ -142,6 +142,8 @@
     <section|Howe-Tan for differential forms|>
 
     <date|>
+
+    \;
   <|show-part>
     <section|Howe-Tan for differential forms|>
   </show-part>

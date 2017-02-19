@@ -1,3 +1,3 @@
-apostol_filename="apostol_week_about_the_Prodigal_Son_12_02_2017.tex"
-gospel_filename="gospel_week_about_the_Prodigal_Son_12_02_2017.tex"
-date="12/02/2017"
+apostol_filename="apostol_week_Sunday_before_the_Great_Lent_26_02_2017.tex"
+gospel_filename="gospel_week_Sunday_before_the_Great_Lent_26_02_2017.tex"
+date="26/02/2017"
