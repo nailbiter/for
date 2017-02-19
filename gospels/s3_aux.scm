@@ -90,21 +90,23 @@
                                             (cons(car l)(myflatten(cdr l)))))))
   (define (mymap proc l init)(if(null? l)'()(let((res(proc(car l)init)))(cons (car res) (mymap proc (cdr l)(cdr res))))))
   (let* (
-         ;(dum(begin(display "hi")(newline)))
+         (dum(begin(format #t "parse-russian-title~%")(newline)))
          (tokenized (mytokenize " *, *" text))
          (dum(begin(display tokenized)(newline)(display(length tokenized))(newline)))
          (name (string-filter (lambda (char) (not (eq? #\. char))) (list-ref tokenized 0)))
          (tokenized (list-tail tokenized 2))
-         (chapter (roman2arabic (list-ref tokenized 0)))
-         (verses(map (lambda(m)(map(lambda(n)(match:substring m n))'(1 2 3 4)))(list-matches 
-                                         ", *([XVI]*),? *([0-9]+) *- *([XVI]*),? *([0-9]+)[^.,0-9XVI]*" text)))
+         ;(chapter (roman2arabic (list-ref tokenized 0)))
+         (verses(list-matches ", *([XVI]*),? *([0-9]+) *– *([XVI]*),? *([0-9]+)[^.,0-9XVI]*" text))
+         (verses(map (lambda(m)(map(lambda(n)(match:substring m n))'(1 2 3 4))) verses));5
+         (dum(format #t "verses: ~a, len ~a~%" verses(map length verses)))
          (verses (mymap (lambda(verse prev-chap)(let*((c1 (list-ref verse 0))(c2 (list-ref verse 2))
                                                      (v1(list-ref verse 1))(v2(list-ref verse 3))
                                                      (c1(if(string-null? c1)prev-chap c1))(c2(if(string-null? c2)c1 c2))
                                                      (new-verse(if(eq? c1 c2)(list c1 v1 v2)
                                                                  (list s(list c1 v1 'end)(list c2 'start v2))))
                                                          )(cons new-verse c1))) verses "error-chap"))
-         )(list name (myflatten verses))))
+         (res(list name (myflatten verses)))
+         )res))
 
 ;russian text
 ;</a>7</td>
@@ -116,9 +118,10 @@
         (elems (list-ref args 1))
         (chapters (map roman2arabic (delete-duplicates(map car elems))))
         (regexp "</a>([0-9]+)</td>[^:print:]*<td class='BibleStixTxt[^']*'>([^<>]+)</td>")
-        (chapters-n-sources(map(lambda(chap)(cons chap (download2string (string-append "http://www.patriarchia.ru/bible/"
-                                                (get-value rus2rusurl-table name)"/" chap "/"))))chapters))
-        ;(dum(format #t "chapters-n-sources: ~a"chapters-n-sources))
+        (chapters-n-sources(map(lambda(chap)(cons chap  (string-append "http://www.patriarchia.ru/bible/"(get-value rus2rusurl-table name)"/" chap "/")))chapters) )
+        (dum(format #t "src[0]: ~a~%len: ~a~%" (list-ref chapters-n-sources 0)(length chapters-n-sources)))
+        (chapters-n-sources(map(lambda(p)(cons(car p)(download2string(cdr p))))chapters-n-sources))
+        (dum(format #t "src[0]: ~a~%len: ~a~%" (list-ref chapters-n-sources 0)(length chapters-n-sources)))
         (extract-and-process-verses(lambda(elem)(let*((chap (roman2arabic(car elem)))
                                                      (start(cadr elem))
                                                      (end(caddr elem))
