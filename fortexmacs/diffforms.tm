@@ -143,7 +143,28 @@
 
     <date|>
 
-    \;
+    <\fact>
+      <label|2:fact-irreps-of-on><cite-detail|kobayashi2016classification|p.
+      54> The following holds:
+
+      <\enumerate>
+        <item>The finitely-dimensional irreps of <math|O<around*|(|n|)>> are
+        parametrized by the partitions <math|<around*|(|a<rsub|1>\<geq\>a<rsub|2>\<geq\>\<ldots\>\<geq\>a<rsub|n>\<geq\>0|)>>
+        </enumerate>
+    </fact>
+
+    <\proposition>
+      Using the parametrization of Fact <reference|2:fact-irreps-of-on>, we
+      have
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|>|<cell|>>>>
+      </eqnarray>
+    </proposition>
+
+    <\proof>
+      Fact <reference|2:fact-irreps-of-on> and Frobenius reciprocity.
+    </proof>
   <|show-part>
     <section|Howe-Tan for differential forms|>
   </show-part>
@@ -182,12 +203,13 @@
     <associate|1:fact-1|<tuple|1.1|1|#2>>
     <associate|1:prop-q0|<tuple|1.3|1|#2>>
     <associate|1:prop-qb1|<tuple|1.4|2|#2>>
+    <associate|2:fact-irreps-of-on|<tuple|2.1|?|#3>>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|2|2>>
     <associate|auto-3|<tuple|2|?>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
-    <associate|auto.4-1|<tuple|2|?|#4>>
+    <associate|auto.4-1|<tuple|2.1|?|#4>>
     <associate|bib-kobayashi2016classification|<tuple|KKP16|2|#4>>
     <associate|fact-1|<tuple|1.1|?>>
   </collection>
