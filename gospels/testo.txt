@@ -1,1 +1,8 @@
-~/bin/sed -i '$ i\<tr><td align="center"><b>26/02/2017</b></td>\n<td align="center"><a href="docs/apostol_week_Sunday_before_the_Great_Lent_26_02_2017.pdf"\n>Reading from Epistles. (Чтение из Апостола)</a></td>\n<td align="center"><a href="docs/gospel_week_Sunday_before_the_Great_Lent_26_02_2017.pdf"\n>Reading from Gospels (Чтение из Евангелие)</a></td></tr>' ~/public_html/readings.html
+-n ~/bin/sed -i '$ i\<tr><td align="center"><b>
+-n 26/02/2017
+-n </b></td>\n<td align="center"><a href="docs/
+-n apostol_week_Sunday_before_the_Great_Lent_26_02_2017.pdf
+-n "\n>Reading from Epistles. (Чтение из Апостола)</a></td>\n<td align="center"><a href="docs/
+-n gospel_week_Sunday_before_the_Great_Lent_26_02_2017.pdf
+-n "\n>Reading from Gospels (Чтение из Евангелие)</a></td></tr>' 
+-n ~/public_html/readings.html

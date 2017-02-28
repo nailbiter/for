@@ -15,7 +15,7 @@
     \;
   </hide-preamble>
 
-  <date|>
+  '<date|>
 
   <\question>
     <label|q1>How does the statement of Proposition 6.4
@@ -398,32 +398,45 @@
     <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m-\<nu\>|2>,<frac|m-\<nu\>-l|2>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>>|<cell|>>|<row|<cell|>|<cell|a,b\<in\>\<bbb-R\>,<around*|\||a|\|>\<geqslant\><around*|\||b|\|>;<space|1em>\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>;<space|1em>l,m\<in\>\<bbb-N\>\<mid\>l+m\<in\>2\<bbb-N\>.>|<cell|>>>>
   </eqnarray>
 
+  \;
+
+  In the subsequent questions we use consider the Theorem:
+
+  \;
+
+  <\theorem>
+    <label|thm-1> The following holds:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|\||\<varepsilon\>s
+      a+\<varepsilon\><rprime|'>t b|\|><rsup|2\<nu\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=\<varepsilon\><rsup|l><around*|(|\<varepsilon\><rprime|'>|)><rsup|m><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l+m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>max
+      <rsup|2\<nu\>><around*|{|<around*|\||a|\|>,<around*|\||b|\|>|}>\<times\>,>|<cell|>>|<row|<cell|>|<cell|\<times\><choice|<tformat|<table|<row|<cell|<frac|<around*|(|b/a|)><rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>|\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>>,>|<cell|<around*|\||b|\|>\<leqslant\><around*|\||a|\|>>>|<row|<cell|<frac|<around*|(|a/b|)><rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|l-m|2>-\<nu\>-\<mu\>>>|<row|<cell|\<lambda\>+l+1>>>>>;<frac|a<rsup|2>|b<rsup|2>>|)>|\<Gamma\><around*|(|\<lambda\>+l+1|)>\<Gamma\><around*|(|\<nu\>+<frac|m-l|2>+\<mu\>+1|)>>,>|<cell|<around*|\||a|\|>\<leqslant\><around*|\||b|\|>>>>>>>|<cell|>>|<row|<cell|>|<cell|u<rsub|l><rsup|\<lambda\>><around*|(|s|)>\<assign\><frac|2<rsup|2\<lambda\>-1>l!\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|2\<lambda\>+l|)>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>,\<varepsilon\><rprime|'>=\<pm\>1;<space|1em>a,b\<in\>\<bbb-R\><rsub|\<geqslant\>0>;<space|1em>\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>;<space|1em>l,m\<in\>\<bbb-N\>\<mid\>l+m\<in\>2\<bbb-N\>.>|<cell|>>>>
+    </eqnarray>
+  </theorem>
+
   <\question>
-    Is the RHS of the
-
-    <\theorem*>
-      \;
-
-      <\eqnarray>
-        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|\||s
-        a-t b|\|><rsup|2\<nu\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-        s d t=<frac|a<rsup|l>b<rsup|m><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>><around*|\||a|\|><rsup|2\<nu\>-m-l>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>|\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|<frac|2\<nu\>+l-m|2>+\<lambda\>+1|)>>
-        <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>,>|<cell|>>|<row|<cell|>|<cell|u<rsub|l><rsup|\<lambda\>><around*|(|s|)>\<assign\><frac|2<rsup|2\<lambda\>-1>l!\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|2\<lambda\>+l|)>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>,>|<cell|>>|<row|<cell|>|<cell|\<lambda\>,\<mu\>,\<nu\>,a,b\<in\>\<bbb-C\>;<space|1em>l,m\<in\>\<bbb-N\>\<mid\>l+m\<in\>2\<bbb-N\>.>|<cell|>>>>
-      </eqnarray>
-    </theorem*>
-
-    invariant under the <math|<around*|(|\<lambda\>,l,b|)>\<leftrightarrow\><around*|(|\<mu\>,m,b|)>>
+    Is the RHS of the Theorem <reference|thm-1> invariant under the
+    <math|<around*|(|\<lambda\>,l,b|)>\<leftrightarrow\><around*|(|\<mu\>,m,b|)>>
     change?
   </question>
 
-  Indeed, the non-symmetric part of RHS changes as follows:
+  Evidently, so.
+
+  <\question>
+    Which ODE of the second order does <math|f<around*|(|x|)>\<assign\>u<rsub|l><rsup|\<lambda\>><around*|(|x|)>>
+    satisfy?
+  </question>
+
+  It satisfies:
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|<frac|<around*|\||b|\|><rsup|2\<nu\>-m-l>\<pi\><rsup|3/2>|\<Gamma\><around*|(|\<lambda\>+l+1|)>\<Gamma\><around*|(|<frac|2\<nu\>+m-l|2>+\<mu\>+1|)>>
-    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|l-m|2>-\<nu\>-\<mu\>>>|<row|<cell|\<lambda\>+l+1>>>>>;<frac|a<rsup|2>|b<rsup|2>>|)>=>|<cell|>>|<row|<cell|>|<cell|>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><frac|d<rsup|2>|d
+    x<rsup|2>><around*|(|<around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f|)>-<around*|(|2\<lambda\>+1|)>x<frac|d|d
+    x><around*|(|<around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f|)>+l<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f=0\<Leftrightarrow\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|3/2-\<lambda\>>f<rprime|''>+<around*|(|1-2\<lambda\>|)><around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f<rprime|'>+2<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>x<around*|(|1-x<rsup|2>|)><rsup|-1/2-\<lambda\>>f-<around*|(|2\<lambda\>+1|)>x<around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f<rprime|'>+l<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f+<around*|(|1-x<rsup|2>|)><rsup|-1/2-\<lambda\>><around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>f=0\<Leftrightarrow\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|3/2-\<lambda\>>f<rprime|''>+>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>><around*|[|<around*|(|1-2\<lambda\>|)>-<around*|(|2\<lambda\>+1|)>x|]>f<rprime|'>+>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|-1/2-\<lambda\>><around*|(|<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>+l<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)>+2<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>x|)>f=0\<Leftrightarrow\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|2>f<rprime|''>+<around*|(|1-x<rsup|2>|)><around*|(|<around*|(|1-2\<lambda\>|)>-<around*|(|2\<lambda\>+1|)>x|)>f<rprime|'>+<around*|(|<around*|(|2x+1|)><around*|(|\<lambda\><rsup|2>-1/4|)>+l<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)>|)>f=0>|<cell|>>>>
   </eqnarray>
-
-  \;
 </body>
 
 <\initial>
@@ -439,5 +452,6 @@
     <associate|eq-3|<tuple|5|7>>
     <associate|eq:q8-1|<tuple|3|6>>
     <associate|q1|<tuple|1|1>>
+    <associate|thm-1|<tuple|1|8>>
   </collection>
 </references>

@@ -51,7 +51,7 @@
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
       x|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
       s d t=>|<cell|>>|<row|<cell|>|<cell|B<around*|(|a,c|)>B<around*|(|b,<frac|1|2>|)>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-c+<frac|1|2>,-a-c+1>>|<row|<cell|b+<frac|1|2>>>>>>;x<rsup|2>|)>,>|<cell|>>|<row|<cell|>|<cell|a,b,c\<in\>\<bbb-C\>,<space|0.6spc>t\<in\><around*|[|-1,1|]>.>|<cell|>>>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-c+1/2,-a-c+1>>|<row|<cell|b+1/2>>>>>;x<rsup|2>|)>,>|<cell|>>|<row|<cell|>|<cell|a,b,c\<in\>\<bbb-C\>,<space|0.6spc>x\<in\><around*|[|-1,1|]>.>|<cell|>>>>
     </eqnarray>
   </lemma>
 
@@ -97,7 +97,7 @@
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|\||s
       a-t b|\|><rsup|\<nu\>-l-m><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
       s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|\||a|\|><rsup|\<nu\>-l-m><big|int><rsub|s,t=-1><rsup|1><around*|\||s
-      -<frac|a|b>t|\|><rsup|\<nu\>-l-m><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      -<frac|b|a>t|\|><rsup|\<nu\>-l-m><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
       s d t.>|<cell|>>>>
     </eqnarray>
 
@@ -118,6 +118,18 @@
 
   <\proof>
     Indeed,\ 
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||s-x|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
+      s=>|<cell|>>|<row|<cell|>|<cell|<around*|(|t\<assign\><around*|(|1+s|)>/2|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|2a+2c-2><big|int><rsub|0><rsup|1><around*|\||t-<frac|x+1|2>|\|><rsup|2c-1>t<rsup|a-1><around*|(|1-t|)><rsup|a-1>d
+      t=>|<cell|>>|<row|<cell|>|<cell|2<rsup|2a+1><around*|\||x+1|\|><rsup|2c-1><big|int><rsub|0><rsup|1><around*|\||1-<frac|2|x+1>t|\|><rsup|2c-1>t<rsup|a-1><around*|(|1-t|)><rsup|a-1>d
+      t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|B<around*|(|b,c-b|)><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;z|)>=<big|int><rsub|0><rsup|1>x<rsup|b-1><around*|(|1-x|)><rsup|c-b-1><around*|(|1-z
+      x|)><rsup|-a>d x|)>>|<cell|>>>>
+    </eqnarray>
+
+    \;
+
+    Indeed,
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||s-x|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d

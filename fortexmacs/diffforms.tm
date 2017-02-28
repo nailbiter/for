@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|mystyle|structured-section|number-europe|number-long-article>>
 
@@ -144,13 +144,31 @@
     <date|>
 
     <\fact>
-      <label|2:fact-irreps-of-on><cite-detail|kobayashi2016classification|p.
-      54> The following holds:
+      <label|2:fact-irreps-of-on>The following holds:
 
       <\enumerate>
-        <item>The finitely-dimensional irreps of <math|O<around*|(|n|)>> are
-        parametrized by the partitions <math|<around*|(|a<rsub|1>\<geq\>a<rsub|2>\<geq\>\<ldots\>\<geq\>a<rsub|n>\<geq\>0|)>>
-        </enumerate>
+        <item><cite-detail|howe2005stable|1.1>The finitely-dimensional irreps
+        of <math|O<around*|(|n|)>> are parametrized by the partitions
+        <math|<around*|(|a<rsub|1>\<geq\>a<rsub|2>\<geq\>\<ldots\>\<geq\>a<rsub|n>\<geq\>0|)>>
+        of the following two types (here <math|a<rsub|i>\<gtr\>0> and
+        <math|k\<in\>\<bbb-N\>\<mid\>2k\<leqslant\>n>):
+
+        <\eqnarray>
+          <tformat|<table|<row|<cell|>|<cell|<math-up|Type
+          I:><around*|(|a<rsub|1>,a<rsub|2>,\<ldots\>,a<rsub|k>,<wide*|0,0,\<ldots\>,0|\<wide-underbrace\>><rsub|n-k>|)>,>|<cell|>>|<row|<cell|>|<cell|<math-up|Type
+          II:> <around*|(|a<rsub|1>,a<rsub|2>,\<ldots\>,a<rsub|k>,<wide*|1,1,\<ldots\>,1|\<wide-underbrace\>><rsub|n-2k>,<wide*|0,0,\<ldots\>,0|\<wide-underbrace\>><rsub|k>|)>.>|<cell|>>>>
+        </eqnarray>
+
+        In particular, <math|\<wedge\><rsup|i><around*|(|\<bbb-C\><rsup|n>|)>>
+        corresponds to <math|<around*|(|1<rsup|i>|)>> and
+        <math|\<cal-H\><rsup|i><around*|(|\<bbb-C\><rsup|n>|)>> to
+        <math|<around*|(|i|)>>.
+
+        <item><cite-detail|howe2005stable|2.2.2> Let the partition
+        <math|\<lambda\>> representing the finitely-dimensional irrep
+        <math|\<tau\><rsub|\<lambda\>>> of <math|O<around*|(|n|)>>. We then
+        have
+      </enumerate>
     </fact>
 
     <\proposition>
@@ -171,7 +189,12 @@
 
   <\hide-part|4>
     <\bibliography|bib|alpha|todai_master.bib>
-      <\bib-list|KKP16>
+      <\bib-list|HTW05>
+        <bibitem*|HTW05><label|bib-howe2005stable>Roger Howe, Eng-Chye Tan,
+        and Jeb Willenbring. <newblock>Stable branching rules for classical
+        symmetric pairs. <newblock><with|font-shape|italic|Transactions of
+        the American mathematical society>, 357(4):1601\U1626, 2005.
+
         <bibitem*|KKP16><label|bib-kobayashi2016classification>Toshiyuki
         Kobayashi, Toshihisa Kubo, and Michael Pevzner.
         <newblock>Classification of differential symmetry breaking operators
@@ -181,7 +204,12 @@
     </bibliography>
   <|hide-part>
     <\bibliography|bib|alpha|todai_master.bib>
-      <\bib-list|KKP16>
+      <\bib-list|HTW05>
+        <bibitem*|HTW05><label|bib-howe2005stable>Roger Howe, Eng-Chye Tan,
+        and Jeb Willenbring. <newblock>Stable branching rules for classical
+        symmetric pairs. <newblock><with|font-shape|italic|Transactions of
+        the American mathematical society>, 357(4):1601\U1626, 2005.
+
         <bibitem*|KKP16><label|bib-kobayashi2016classification>Toshiyuki
         Kobayashi, Toshihisa Kubo, and Michael Pevzner.
         <newblock>Classification of differential symmetry breaking operators
@@ -206,10 +234,11 @@
     <associate|2:fact-irreps-of-on|<tuple|2.1|?|#3>>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|2|2>>
-    <associate|auto-3|<tuple|2|?>>
+    <associate|auto-3|<tuple|2.1|?>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
     <associate|auto.4-1|<tuple|2.1|?|#4>>
+    <associate|bib-howe2005stable|<tuple|HTW05|?|#4>>
     <associate|bib-kobayashi2016classification|<tuple|KKP16|2|#4>>
     <associate|fact-1|<tuple|1.1|?>>
   </collection>
@@ -223,15 +252,23 @@
       kobayashi2016classification
 
       kobayashi2016classification
+
+      howe2005stable
+
+      kobayashi2016classification
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>First
       section> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Howe-Tan
+      for differential forms> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2><vspace|0.5fn>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-2><vspace|0.5fn>
+      <no-break><pageref|auto-3><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
