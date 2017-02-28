@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|generic|mystyle>>
 
@@ -109,34 +109,20 @@
     <label|lem3-aux-1>We have the following:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||s-x|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
-      s=>|<cell|>>|<row|<cell|>|<cell|2<rsup|a-1>B<around*|(|2c,a|)><around*|(|<around*|(|1+x|)><rsup|2c+a-1>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a>>>>>;<frac|x+1|2>|)>+<around*|(|1-x|)><rsup|2c+a-1>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|1-x|2>|)>|)>,>|<cell|>>|<row|<cell|>|<cell|a,c\<in\>\<bbb-C\>,<space|1em>x\<in\><around*|[|-1,1|]>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|s-x|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
+      s=2<rsup|a-1>B<around*|(|2c,a|)><around*|(|1\<mp\>x|)><rsup|2c+a-1>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|1\<mp\>x|2>|)>,>|<cell|>>|<row|<cell|>|<cell|a,c\<in\>\<bbb-C\>,<space|1em>x\<in\><around*|[|-1,1|]>.>|<cell|>>>>
     </eqnarray>
   </lemma>
 
   <\proof>
-    Indeed,\ 
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||s-x|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
-      s=>|<cell|>>|<row|<cell|>|<cell|<around*|(|t\<assign\><around*|(|1+s|)>/2|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|2a+2c-2><big|int><rsub|0><rsup|1><around*|\||t-<frac|x+1|2>|\|><rsup|2c-1>t<rsup|a-1><around*|(|1-t|)><rsup|a-1>d
-      t=>|<cell|>>|<row|<cell|>|<cell|2<rsup|2a+1><around*|\||x+1|\|><rsup|2c-1><big|int><rsub|0><rsup|1><around*|\||1-<frac|2|x+1>t|\|><rsup|2c-1>t<rsup|a-1><around*|(|1-t|)><rsup|a-1>d
-      t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|B<around*|(|b,c-b|)><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;z|)>=<big|int><rsub|0><rsup|1>x<rsup|b-1><around*|(|1-x|)><rsup|c-b-1><around*|(|1-z
-      x|)><rsup|-a>d x|)>>|<cell|>>>>
-    </eqnarray>
-
-    \;
-
     Indeed,
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|\||s-x|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
-      s=<big|int><rsub|-1-x><rsup|1-x><around*|\||w|\|><rsup|2c-1><around*|(|1-<around*|(|w+x|)><rsup|2>|)><rsup|a-1>d
-      w=>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|0><rsup|1+x>w<rsup|2c-1><around*|(|1-x+w|)><rsup|a-1><around*|(|1+x-w|)><rsup|a-1>d
-      w+<big|int><rsub|0><rsup|1-x>w<rsup|2c-1><around*|(|1+x+w|)><rsup|a-1><around*|(|1-x-w|)><rsup|a-1>d
-      w=>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|s-x|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
+      s=<big|int><rsub|-1-x><rsup|1-x><around*|(|w|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-<around*|(|w+x|)><rsup|2>|)><rsup|a-1>d
+      w=>|<cell|>>|<row|<cell|>|<cell|=<big|int><rsub|0><rsup|1\<mp\>x>w<rsup|2c-1><around*|(|1\<pm\>x+w|)><rsup|a-1><around*|(|1\<mp\>x-w|)><rsup|a-1>d
+      w.>|<cell|>>>>
     </eqnarray>
 
     Now, the formula <cite-detail|gradshteinryzhik|ET II 186(9), p.315>:
@@ -149,9 +135,8 @@
     tells us that we can continue as
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|B<around*|(|2c,a|)><around*|(|<around*|(|1-x|)><rsup|a-1><around*|(|1+x|)><rsup|2c+a-1>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|x+1|x-1>|)>+<around*|(|1+x|)><rsup|a-1><around*|(|1-x|)><rsup|2c+a-1>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|x-1|x+1>|)>|)>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|B<around*|(|2c,a|)>\<cdot\><around*|(|1\<pm\>x|)><rsup|a-1><around*|(|1\<mp\>x|)><rsup|2c+a-1>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|x\<mp\>1|x\<pm\>1>|)>,>|<cell|>>>>
     </eqnarray>
 
     after this, it only remains to apply the transformation formula
@@ -259,11 +244,6 @@
     <associate|auto-1|<tuple|4|5>>
     <associate|bib-NIST:DLMF|<tuple|2|5>>
     <associate|bib-gradshteinryzhik|<tuple|1|5>>
-    <associate|eq-1|<tuple|1|1>>
-    <associate|fact|<tuple|2|2>>
-    <associate|footnote-1|<tuple|1|2>>
-    <associate|footnr-1|<tuple|1|2>>
-    <associate|lem1|<tuple|1|1>>
     <associate|lem2|<tuple|1|1>>
     <associate|lem3|<tuple|2|2>>
     <associate|lem3-aux-1|<tuple|3|3>>
