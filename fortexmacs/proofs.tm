@@ -30,9 +30,10 @@
     <math-up| in fact, similarly to [KL] we can prove a bit more
     general:>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|<around*|(|u,v|)>\<in\><around*|[|-1,1|]>\<mid\>\<pm\><around*|(|u-v|)>\<gtr\>0><around*|\||u-v|\|><rsup|-\<nu\>><around*|(|1-u<rsup|2>|)><rsup|A><around*|(|1-v<rsup|2>|)><rsup|B>d
     u d v=>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|<around*|(|u,v|)>\<in\><around*|[|-1,1|]>><around*|(|u-v|)><rsub|\<pm\>><rsup|-\<nu\>><around*|(|1-u<rsup|2>|)><rsup|A><around*|(|1-v<rsup|2>|)><rsup|B>d
-    u d v=>|<cell|>>|<row|<cell|>|<cell|,>|<cell|>>|<row|<cell|>|<cell|<math-up|and
+    u d v=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)><space|0.25spc><sqrt|\<pi\>>*<space|0.25spc>\<Gamma\>*<around*|(|A+1|)>*<space|0.25spc>\<Gamma\>*<around*|(|B+1|)>*<space|0.25spc>\<Gamma\>*<around*|(|B+A-\<nu\>+2|)>|2\<Gamma\><around*|(|<frac|2*<space|0.25spc>A-\<nu\>+3|2>|)>*<space|0.25spc>\<Gamma\><around*|(|<frac|2*<space|0.25spc>B-\<nu\>+3|2>|)>*<space|0.25spc>\<Gamma\><around*|(|<frac|2*<space|0.25spc>B+2*<space|0.25spc>A-\<nu\>+4|2>|)>>,>|<cell|>>|<row|<cell|>|<cell|<math-up|and
     similarly for [KLg]. Using that, we proceed
-    as:>>|<cell|>>|<row|<cell|>|<cell|LHS<around*|(|<math-up|<cite|warnaar2010sl3>>|)>=>|<cell|>>>>
+    as:>>|<cell|>>|<row|<cell|>|<cell|LHS<around*|(|<math-up|<cite|warnaar2010sl3>><rprime|''>|)>=<big|int><rsub|C<rsub|\<alpha\><rsub|1>,\<gamma\>><rsup|1,1><around*|[|0,1|]>>t<rsup|\<alpha\><rsub|1>-1><around*|(|1-t|)><rsup|\<alpha\><rsub|1>-1>s<rsup|\<alpha\><rsub|2>-1><around*|(|1-s|)><rsup|\<alpha\><rsub|2>-1><around*|\||t-s|\|><rsup|-\<gamma\>>d
+    s d t=>|<cell|>>|<row|<cell|>|<cell|>|<cell|>>>>
   </eqnarray>
 
   <\bibliography|bib|alpha|intdep.bib>

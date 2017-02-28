@@ -48,9 +48,9 @@
     <label|lem3>The following holds:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
-      x|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|B<around*|(|a,c|)>B<around*|(|b,<frac|1|2>|)>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
+      x|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|1|2>B<around*|(|a,c|)>B<around*|(|b,<frac|1|2>|)>
       <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-c+1/2,-a-c+1>>|<row|<cell|b+1/2>>>>>;x<rsup|2>|)>,>|<cell|>>|<row|<cell|>|<cell|a,b,c\<in\>\<bbb-C\>,<space|0.6spc>x\<in\><around*|[|-1,1|]>.>|<cell|>>>>
     </eqnarray>
   </lemma>
@@ -184,12 +184,15 @@
     (of Lemma <reference|lem3>) We proceed as follows:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><frame|<big|int><rsub|-1><rsup|1><around*|\||s-t
-      x|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><frame|<big|int><rsub|-1><rsup|1><around*|(|s-t
+      x|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>><around*|(|1-t<rsup|2>|)><rsup|b-1>d
       s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|Lemma
-      <reference|lem3-aux-1>>|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|a>B<around*|(|2c,a|)><big|int><rsub|-1><rsup|1><around*|(|1-t
+      <reference|lem3-aux-1>>|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|a-1>B<around*|(|2c,a|)><big|int><rsub|-1><rsup|1><around*|(|1\<mp\>t
+      x|)><rsup|2c+a-1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a>>>>>;<frac|1\<mp\>t
+      x|2>|)><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      t=>|<cell|>>|<row|<cell|>|<cell|2<rsup|a-1>B<around*|(|2c,a|)><big|int><rsub|-1><rsup|1><around*|(|1-t
       x|)><rsup|2c+a-1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a>>>>>;<frac|1-t
-      x|2>|)><around*|(|1-t<rsup|2>|)><rsup|b-1>d t.>|<cell|>>>>
+      x|2>|)><around*|(|1-t<rsup|2>|)><rsup|b-1>d t=.>|<cell|>>>>
     </eqnarray>
 
     Now, expanding the hypergeometric function in power series, we can
