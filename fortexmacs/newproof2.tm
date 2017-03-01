@@ -111,7 +111,7 @@
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|s-x|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
       s=2<rsup|a-1>B<around*|(|2c,a|)><around*|(|1\<mp\>x|)><rsup|2c+a-1>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|1\<mp\>x|2>|)>,>|<cell|>>|<row|<cell|>|<cell|a,c\<in\>\<bbb-C\>,<space|1em>x\<in\><around*|[|-1,1|]>.>|<cell|>>>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|1\<mp\>x|2>|)>,>|<cell|>>|<row|<cell|>|<cell|<around*|(|a,c|)>\<in\><around*|{|\<bbb-C\><rsup|2>\<mid\>Re<around*|(|a|)>,Re<around*|(|c|)>\<gtr\>0|}>,<space|1em>x\<in\><around*|[|-1,1|]>.>|<cell|>>>>
     </eqnarray>
   </lemma>
 
@@ -151,32 +151,23 @@
   <\lemma>
     <label|lem3-aux-2>We have <math|<big|int><rsub|-1><rsup|1><around*|(|1-t
     x|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
-    t=B<around*|(|<frac|1|2>,b|)> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-a|2>,<frac|2-a|2>>>|<row|<cell|b+<frac|1|2>>>>>>;t<rsup|2>|)>>
-    for <math|a,b\<in\>\<bbb-C\>,x\<in\><around*|[|-1,1|]>>.
+    t=B<around*|(|<frac|1|2>,b|)> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-a|2>,<frac|2-a|2>>>|<row|<cell|b+<frac|1|2>>>>>>;x<rsup|2>|)>>
+    for <math|<around*|(|a,b|)>\<in\><around*|{|\<bbb-C\><rsup|2>\<mid\>Re<around*|(|b|)>\<gtr\>0|}>,x\<in\><around*|[|-1,1|]>>.
   </lemma>
 
   <\proof>
-    Indeed, we expand <math|<around*|(|1-t x|)><rsup|a-1>> in series
-
-    <\equation*>
-      <around*|(|1-t x|)><rsup|a-1>=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|i>|i!><around*|(|t
-      x|)><rsup|i>
-    </equation*>
-
-    and apply the beta integral\ 
-
-    <\equation*>
-      <big|int><rsub|-1><rsup|1>t<rsup|i><around*|(|1-t<rsup|2>|)>t<rsup|b-1>
-      d t=<choice|<tformat|<table|<row|<cell|B<around*|(|<frac|i+1|2>,b|)>,>|<cell|i:even,>>|<row|<cell|0,>|<cell|i:odd.>>>>>,i\<in\>\<bbb-Z\>
-    </equation*>
-
-    so to conclude that
+    Indeed,\ 
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-t
       x|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
-      t=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|2i>|<around*|(|2i|)>!>B<around*|(|i+<frac|1|2>,b|)>t<rsup|2i>=>|<cell|>>|<row|<cell|>|<cell|B<around*|(|<frac|1|2>,b|)><big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|<frac|1-a|2>|)><rsub|i><around*|(|<frac|2-a|2>|)><rsub|i><around*|(|i+<frac|1|2>|)><rsub|i>|i!<around*|(|i+<frac|1|2>|)><rsub|i><around*|(|i+<frac|1|2>+b|)><rsub|i>>t<rsup|2i>=B<around*|(|<frac|1|2>,b|)>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-a|2>,<frac|2-a|2>>>|<row|<cell|b+<frac|1|2>>>>>>;t<rsup|2>|)>.>|<cell|>>>>
+      t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|t\<rightarrow\>2u-1|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|a+2b-2><around*|(|1+x|)><rsup|a-1><big|int><rsub|0><rsup|1>u<rsup|b-1><around*|(|1-u|)><rsup|b-1><around*|(|1-<frac|2x|1+x>u|)><rsup|a-1>d
+      u=>|<cell|>>|<row|<cell|>|<cell|<around*|(|B<around*|(|b,c-b|)><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;z|)>=<big|int><rsub|0><rsup|1>x<rsup|b-1><around*|(|1-x|)><rsup|c-b-1><around*|(|1-z
+      x|)><rsup|-a>d x,<space|1em>Re<around*|(|c|)>\<gtr\>Re<around*|(|b|)>\<gtr\>0|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|a+2b-2><around*|(|<frac|1+x|2>|)><rsup|a-1>B<around*|(|b,b|)>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,b>>|<row|<cell|2b>>>>>;<frac|2x|1+x>|)>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<space|0.6spc><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|2b>>>>>;z|)>=<around*|(|1-z/2|)><rsup|-a>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a/2,a/2+1/2>>|<row|<cell|b+1/2>>>>>;<around*|(|<frac|z|2-z>|)><rsup|2>|)>|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|2b-1>B<around*|(|b,b|)>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-a|2>,<frac|2-a|2>>>|<row|<cell|b+<frac|1|2>>>>>>;x<rsup|2>|)>=B<around*|(|<frac|1|2>,b|)>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-a|2>,<frac|2-a|2>>>|<row|<cell|b+<frac|1|2>>>>>>;x<rsup|2>|)>.>|<cell|>>>>
     </eqnarray>
   </proof>
 
