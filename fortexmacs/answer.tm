@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|number-europe>>
 
@@ -425,7 +425,8 @@
   I do not have alternative proof at the moment.
 
   <\question>
-    Which ODE of the second order does <math|f<around*|(|x|)>\<assign\>u<rsub|l><rsup|\<lambda\>><around*|(|x|)>>
+    <label|q-ode>Which ODE of the second order does
+    <math|f<around*|(|x|)>\<assign\>u<rsub|l><rsup|\<lambda\>><around*|(|x|)>>
     satisfy?
   </question>
 
@@ -505,6 +506,31 @@
     u d v=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|[KL]>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><frac|\<Gamma\><around*|(|-1/2|)><sqrt|\<pi\>>\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1|)>|\<Gamma\><around*|(|\<alpha\>+1/2|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)><around*|(|\<alpha\><rprime|'>+\<alpha\>|)>>=<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><frac|-2\<pi\>\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1|)>|\<Gamma\><around*|(|\<alpha\>+1/2|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)><around*|(|\<alpha\><rprime|'>+\<alpha\>|)>>>|<cell|>>|<row|<cell|>|<cell|<frac|-\<pi\>/2|\<alpha\>+\<alpha\><rprime|'>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\><rprime|'>|)>|2<rsup|2\<alpha\><rprime|'>-1>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\>|)>|2<rsup|2\<alpha\>-1>\<Gamma\><around*|(|\<alpha\>+1/2|)>>=RHS<around*|(|<math-up|<cite|dotsenko1985four>><rprime|'>|)>.>|<cell|>>>>
   </eqnarray>
 
+  <\question>
+    What are the singular points of the ODE in Question <reference|q-ode>?
+  </question>
+
+  Indeed, the ODE gets rewritten as:
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|f<rprime|''>+<frac|1-2\<lambda\>-<around*|(|2\<lambda\>+1|)>x|1-x<rsup|2>>f<rprime|'>+<frac|<around*|(|2x+1|)><around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>+<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)>|<around*|(|1-x<rsup|2>|)><rsup|2>>f=0,>|<cell|>>>>
+  </eqnarray>
+
+  thus one immediately sees that there are two candidates: <math|x=1> and
+  <math|x=-1>. We expand the coefficients around <math|x=1> first:
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<frac|1-2\<lambda\>-<around*|(|2\<lambda\>+1|)>x|1-x<rsup|2>>=<frac|2\<lambda\>|x-1>+\<ldots\>,>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|2x+1|)><around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>+<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)>|<around*|(|1-x<rsup|2>|)><rsup|2>>=<frac|3<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>/4|<around*|(|x-1|)><rsup|2>>+\<ldots\>,>|<cell|>>>>
+  </eqnarray>
+
+  and then around the <math|x=-1>:
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<frac|1-2\<lambda\>-<around*|(|2\<lambda\>+1|)>x|1-x<rsup|2>>=<frac|1|x+1>+\<ldots\>,>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|2x+1|)><around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>+<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)>|<around*|(|1-x<rsup|2>|)><rsup|2>>=<frac|-<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>/2|<around*|(|x+1|)><rsup|2>>+\<ldots\>,>|<cell|>>>>
+  </eqnarray>
+
+  hence one sees that both singular points <math|x=\<pm\>1> are regular.
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
@@ -534,13 +560,14 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|12|13>>
+    <associate|auto-1|<tuple|13|13>>
     <associate|bib-dotsenko1985four|<tuple|DF85|13>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|13>>
     <associate|bib-warnaar2010sl3|<tuple|War10|13>>
     <associate|eq-1|<tuple|4|7>>
     <associate|eq-2|<tuple|1|5>>
     <associate|eq:q8-1|<tuple|3|6>>
+    <associate|q-ode|<tuple|11|9>>
     <associate|q1|<tuple|1|1>>
     <associate|thm-1|<tuple|1|8>>
   </collection>
