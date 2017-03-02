@@ -6,11 +6,12 @@
   <section|Main results>
 
   <\theorem>
-    <label|main-thm>For <math|\<lambda\>,\<mu\>,\<gamma\>\<in\>\<bbb-C\>>
-    such that
+    <label|main-thm>We set <math|u<rsub|l><rsup|\<lambda\>><around*|(|s|)>\<assign\><frac|2<rsup|2\<lambda\>-1>l!\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|2\<lambda\>+l|)>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>>
+    and similarly for <math|u<rsub|m><rsup|\<mu\>><around*|(|t|)>>. For
+    <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> such that
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>,Re<around*|(|\<gamma\>|)>\<gtr\>-1/2,>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>,Re<around*|(|\<nu\>|)>\<gtr\>-1/2,>|<cell|>>>>
     </eqnarray>
 
     <math|x\<in\><around*|[|0,1|]>> and <math|l,m\<in\>\<bbb-N\>> such that
@@ -18,21 +19,21 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<gamma\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-      s d t,>|<cell|>>>>
+      x|)><rsub|\<pm\>><rsup|2\<nu\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>x<rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;x<rsup|2>|)>|2\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>>,>|<cell|>>>>
     </eqnarray>
 
-    and we have
+    Namely,
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<frac|2<rsup|2\<lambda\>-1>l!\<Gamma\><around*|(|\<lambda\>|)>2<rsup|2\<mu\>-1>m!\<Gamma\><around*|(|\<mu\>|)>|\<Gamma\><around*|(|2\<lambda\>+l|)>\<Gamma\><around*|(|2\<mu\>+m|)>><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<gamma\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-\<gamma\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<gamma\>|)>x<rsup|m>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<gamma\>,<frac|m-l|2>-\<gamma\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;x<rsup|2>|)>|2\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<gamma\>+<frac|l-m|2>+\<lambda\>+1|)>>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
+      x|)><rsub|\<pm\>><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|2\<lambda\>+l|)>\<Gamma\><around*|(|2\<mu\>+m|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>x<rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;x<rsup|2>|)>|2<rsup|2\<lambda\>+2\<mu\>-2>l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>2\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>>.>|<cell|>>>>
     </eqnarray>
   </theorem>
 
-  Namely, <math|u<rsub|l><rsup|\<lambda\>><around*|(|s|)>\<assign\><frac|2<rsup|2\<lambda\>-1>l!\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|2\<lambda\>+l|)>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>>.
   Note that as Gegenbauer polynomial <math|g<around*|(|s|)>\<assign\>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>>
   satisfies the second-order differential equation
 
@@ -48,16 +49,21 @@
     <tformat|<table|<row|<cell|>|<cell|<around*|(|1-s<rsup|2>|)><rsup|2>f<rprime|''>+<around*|(|1-x<rsup|2>|)><around*|(|1-2\<lambda\>-<around*|(|2\<lambda\>+1|)>x|)>f<rprime|'>+<around*|(|<around*|(|2s+1|)><around*|(|\<lambda\><rsup|2>-1/4|)>+l<around*|(|l+2\<lambda\>|)><around*|(|1-s<rsup|2>|)>|)>f=0.>|<cell|>>>>
   </eqnarray>
 
-  The latter second-order ODE has two singular points: <math|s=-1> and
-  <math|s=1>, both of which are regular.
-
-  <with|font-series|bold|TODO:> talk about the other solution
-
   <\remark*>
     As we have <math|u<rsub|l><rsup|\<lambda\>><around*|(|-s|)>=<around*|(|-1|)><rsup|l>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>>,
     we see that we can extend statement of Theorem <reference|main-thm> to
     include the <math|-1\<leqslant\>x\<leqslant\>0> case.
   </remark*>
+
+  <\corollary*>
+    Setting <math|x=1> in the statement of Theorem <reference|main-thm> we
+    get:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsub|\<pm\>><rsup|2\<gamma\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|2\<lambda\>+l|)>\<Gamma\><around*|(|2\<mu\>+m|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+1+2\<nu\>+\<lambda\>|)>|2<rsup|2\<lambda\>+2\<mu\>-2>l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>2\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1-<frac|l-m|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+m+1+\<nu\>+\<lambda\>-<frac|m-l|2>|)>>.>|<cell|>>>>
+    </eqnarray>
+  </corollary*>
 
   <section|Proof of Main Theorem>
 
@@ -75,43 +81,58 @@
   </lemma>
 
   <\proof>
-    (of Theorem <reference|main-thm>, using Lemma <reference|lem2>) We
-    proceed as follows:
+    (of Theorem <reference|main-thm>, using Lemma <reference|lem2>) Recall
+    the Rodrigues' formula for the Gegenbauer polynomial:
+
+    <\equation*>
+      C<rsub|l><rsup|\<lambda\>><around*|(|t|)>\<cdot\><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>=<frac|<around*|(|-2|)><rsup|l>|l!>\<cdot\><frac|\<Gamma\><around*|(|l+\<lambda\>|)>\<Gamma\><around*|(|l+2\<lambda\>|)>|\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|2l+2\<lambda\>|)>>\<cdot\><frac|d<rsup|l>|d
+      t<rsup|l>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>+l>
+    </equation*>
+
+    We proceed as follows:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<gamma\>><frame|C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>>\<cdot\><frame|C<rsub|m><rsup|\<mu\>><around*|(|t|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|C<rsub|l><rsup|\<lambda\>><around*|(|t|)>\<cdot\><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>=<frac|<around*|(|-2|)><rsup|l>|l!>\<cdot\><frac|\<Gamma\><around*|(|l+\<lambda\>|)>\<Gamma\><around*|(|l+2\<lambda\>|)>|\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|2l+2\<lambda\>|)>>\<cdot\><frac|d<rsup|l>|d
-      t<rsup|l>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>+l>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|2<rsup|l+m>\<Gamma\><around*|(|l+\<lambda\>|)>\<Gamma\><around*|(|l+2\<lambda\>|)>\<Gamma\><around*|(|m+\<mu\>|)>\<Gamma\><around*|(|m+2\<mu\>|)>|l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|2l+2\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2m+2\<mu\>|)>><big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<gamma\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
+      x|)><rsub|\<pm\>><rsup|2\<nu\>><frame|C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>>\<cdot\><frame|C<rsub|m><rsup|\<mu\>><around*|(|t|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|2<rsup|l+m>\<Gamma\><around*|(|l+\<lambda\>|)>\<Gamma\><around*|(|l+2\<lambda\>|)>\<Gamma\><around*|(|m+\<mu\>|)>\<Gamma\><around*|(|m+2\<mu\>|)>|l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|2l+2\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2m+2\<mu\>|)>><big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
+      x|)><rsub|\<pm\>><rsup|2\<nu\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
       s d t.>|<cell|>>>>
     </eqnarray>
 
-    We then compute the integral. First, integration by parts shows that
+    If <math|Re<around*|(|\<nu\>|)>\<gtr\><frac|l+m|2>>,
+    <math|Re<around*|(|\<lambda\>|)>\<gtr\><frac|1|2>> and
+    <math|Re<around*|(|\<mu\>|)>\<gtr\><frac|1|2>>, then integration by parts
+    shows that the integral in the right-hand side amounts to
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<gamma\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-1|)><rsup|m><big|int><rsub|s,t=-1><rsup|1><frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<gamma\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
-      s d t.>|<cell|>>>>
+      x|)><rsub|\<pm\>><rsup|2\<nu\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-1|)><rsup|m><big|int><rsub|s,t=-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>><frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|(|s-t
+      x|)><rsub|\<pm\>><rsup|2\<nu\>>d s d
+      t.<eq-number><label|eq-1>>|<cell|>>>>
     </eqnarray>
 
     Next, since <math|l+m\<in\>2\<bbb-N\>> we have that
-    <math|<frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|(|s-t
-    x|)><rsub|\<pm\>><rsup|2\<gamma\>>=<around*|(|-2\<gamma\>|)><rsub|l+m><around*|(|-x|)><rsup|m><around*|(|s-t
-    x|)><rsub|\<pm\>><rsup|2\<gamma\>-l-m>>, hence we have
+
+    <\equation*>
+      <frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|(|s-t
+      x|)><rsub|\<pm\>><rsup|2\<nu\>>=<around*|(|-2\<nu\>|)><rsub|l+m><around*|(|-x|)><rsup|m><around*|(|s-t
+      x|)><rsub|\<pm\>><rsup|2\<nu\>-l-m>,
+    </equation*>
+
+    hence <math|<eqref|eq-1>> equals
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<gamma\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-2\<gamma\>|)><rsub|l+m><around*|(|-x|)><rsup|m><big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<gamma\>-l-m><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      x|)><rsub|\<pm\>><rsup|2\<nu\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-2\<nu\>|)><rsub|l+m><around*|(|-x|)><rsup|m><big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
+      x|)><rsub|\<pm\>><rsup|2\<nu\>-l-m><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
       s d t.>|<cell|>>>>
     </eqnarray>
 
-    The application of Lemma <reference|lem2> then allows to compute the
-    latter integral, whilst the answer follows after some simplifications.
+    The application of Lemma <reference|lem2> to <math|<eqref|eq-1>> then
+    allows to compute the latter integral, whilst the answer follows after
+    some simplifications.
   </proof>
 
   <section|Proof of Lemma <reference|lem2>>
@@ -195,7 +216,7 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsub|\<pm\>><rsup|2\<gamma\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-      s d t=<frac|\<Gamma\><around*|(|<frac|1|2>+\<gamma\>|)><sqrt|\<pi\>>\<Gamma\><around*|(|\<lambda\>-<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>-<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<gamma\>+1|)>|2\<Gamma\><around*|(|\<lambda\>+\<gamma\>+1|)>\<Gamma\><around*|(|\<mu\>+\<gamma\>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<gamma\>+1|)>>.>|<cell|>>>>
+      s d t=<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|<frac|1|2>+\<gamma\>|)>\<Gamma\><around*|(|\<lambda\>-<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>-<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<gamma\>+1|)>|2\<Gamma\><around*|(|\<lambda\>+\<gamma\>+1|)>\<Gamma\><around*|(|\<mu\>+\<gamma\>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<gamma\>+1|)>>.>|<cell|>>>>
     </eqnarray>
   </corollary*>
 
@@ -208,19 +229,23 @@
   <\eqnarray>
     <tformat|<table|<row|<cell|<around*|[|<math-up|S>|]><rprime|''>:>|<cell|<big|int><rsub|<around*|(|t<rsub|1>,t<rsub|2>|)>\<in\><around*|[|0,1|]><rsup|2>>t<rsub|1><rsup|\<alpha\>-1>t<rsub|2><rsup|\<alpha\>-1><around*|(|1-t<rsub|1>|)><rsup|\<alpha\>-1><around*|(|1-t<rsub|2>|)><rsup|\<alpha\>-1><around*|\||t<rsub|1>-t<rsub|2>|\|><rsup|2\<gamma\>>d
     t<rsub|1>d t<rsub|2>=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><rsup|2><around*|(|\<alpha\>|)>|\<Gamma\><around*|(|2\<alpha\>+\<gamma\>|)>>\<cdot\><frac|\<Gamma\><rsup|2><around*|(|\<alpha\>+\<gamma\>|)>\<Gamma\><around*|(|1+2\<gamma\>|)>|\<Gamma\><around*|(|2\<alpha\>+2\<gamma\>|)>\<Gamma\><around*|(|1+\<gamma\>|)>>;>|<cell|>>|<row|<cell|<math-up|<cite|warnaar2010sl3>><rprime|''>:>|<cell|<big|int><rsub|<around*|(|s,t|)>\<in\>C<rsub|\<alpha\><rsub|1>,\<gamma\>><rsup|1,1><around*|[|0,1|]>>t<rsup|\<alpha\><rsub|1>-1><around*|(|1-t|)><rsup|\<alpha\><rsub|1>-1>s<rsup|\<alpha\><rsub|2>-1><around*|(|1-s|)><rsup|\<alpha\><rsub|2>-1><around*|\||t-s|\|><rsup|-\<gamma\>>d
-    s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<alpha\><rsub|1>|)>\<Gamma\><around*|(|\<alpha\><rsub|1>-\<gamma\>|)>|\<Gamma\><around*|(|2\<alpha\><rsub|1>-\<gamma\>|)>>\<cdot\><frac|\<Gamma\><rsup|2><around*|(|\<alpha\><rsub|2>|)>|\<Gamma\><around*|(|2\<alpha\><rsub|2>-\<gamma\>|)>>\<cdot\><frac|\<Gamma\><around*|(|\<alpha\><rsub|1>+\<alpha\><rsub|2>-\<gamma\>|)>|\<Gamma\><around*|(|\<alpha\><rsub|1>+\<alpha\><rsub|1>|)>>=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|\<alpha\><rsub|1>|)>\<Gamma\><around*|(|1-\<alpha\><rsub|2>|)>|\<Gamma\><around*|(|1+\<alpha\><rsub|1>-\<alpha\><rsub|2>|)>>\<cdot\><frac|\<Gamma\><rsup|2><around*|(|\<alpha\><rsub|2>|)>|\<Gamma\><around*|(|1+\<alpha\><rsub|2>-\<alpha\><rsub|1>|)>>\<cdot\><frac|1|\<Gamma\><around*|(|\<alpha\><rsub|1>+\<alpha\><rsub|2>|)>>,<space|1em>\<alpha\><rsub|1>+\<alpha\><rsub|2>=\<gamma\>+1,>|<cell|>>|<row|<cell|>|<cell|<space|1em>C<rsub|\<alpha\><rsub|1>,\<gamma\>><rsup|1,1><around*|[|0,1|]>=<around*|{|<around*|(|t,s|)>\<in\><around*|[|0,1|]><rsup|2>\<mid\>t\<less\>s|}>+<frac|sin<around*|(|\<pi\>\<alpha\><rsub|1>|)>|sin<around*|(|\<pi\>\<alpha\><rsub|2>|)>><around*|{|<around*|(|t,s|)>\<in\><around*|[|0,1|]><rsup|2>\<mid\>t\<gtr\>s|}>;>|<cell|>>|<row|<cell|<math-up|<cite|tarasov2003selberg>><rprime|'>:>|<cell|<big|int><rsub|<around*|(|s,t|)>\<in\><around*|[|0,1|]><rsup|2>>s<rsup|\<alpha\><rsub|2>-1><around*|(|1-s|)><rsup|\<alpha\><rsub|2>-1><around*|(|t-s|)><rsub|-><rsup|-\<gamma\>>d
-    s d t=<frac|\<Gamma\><around*|(|\<alpha\><rsub|2>|)>|<around*|(|1-\<gamma\>|)>>\<cdot\><frac|\<Gamma\><around*|(|1+\<alpha\><rsub|2>-\<gamma\>|)>|\<Gamma\><around*|(|1+2\<alpha\><rsub|2>-\<gamma\>|)>>;>|<cell|>>|<row|<cell|<math-up|<cite|dotsenko1985four>><rprime|'>:>|<cell|<big|int><rsub|<around*|(|t,\<tau\>|)>\<in\><around*|[|0,1|]><rsup|2>>t<rsup|\<alpha\><rprime|'>><around*|(|1-t|)><rsup|\<alpha\><rprime|'>>\<tau\><rsup|\<alpha\>><around*|(|1-\<tau\>|)><rsup|\<alpha\>><around*|\||t-\<tau\>|\|><rsup|-2>d
-    td\<tau\>=<frac|<around*|(|\<alpha\>/\<alpha\><rprime|'>|)><rsup|2>|<around*|(|-\<alpha\>/\<alpha\><rprime|'>-1|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|1|2\<alpha\><rsup|4>>\<times\><frac|\<Gamma\><rsup|2><around*|(|1+\<alpha\><rprime|'>|)>|\<Gamma\><around*|(|2\<alpha\><rprime|'>|)>>\<times\><frac|\<Gamma\><rsup|2><around*|(|1+\<alpha\>|)>|\<Gamma\><around*|(|2\<alpha\>|)>>=>|<cell|>>|<row|<cell|>|<cell|<frac|-\<pi\>/2|\<alpha\>+\<alpha\><rprime|'>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\><rprime|'>|)>|2<rsup|2\<alpha\><rprime|'>-1>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\>|)>|2<rsup|2\<alpha\>-1>\<Gamma\><around*|(|\<alpha\>+1/2|)>>.>|<cell|>>>>
+    s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<alpha\><rsub|1>|)>\<Gamma\><around*|(|\<alpha\><rsub|1>-\<gamma\>|)>|\<Gamma\><around*|(|2\<alpha\><rsub|1>-\<gamma\>|)>>\<cdot\><frac|\<Gamma\><rsup|2><around*|(|\<alpha\><rsub|2>|)>|\<Gamma\><around*|(|2\<alpha\><rsub|2>-\<gamma\>|)>>\<cdot\><frac|\<Gamma\><around*|(|\<alpha\><rsub|1>+\<alpha\><rsub|2>-\<gamma\>|)>|\<Gamma\><around*|(|\<alpha\><rsub|1>+\<alpha\><rsub|1>|)>>=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|\<alpha\><rsub|1>|)>\<Gamma\><around*|(|1-\<alpha\><rsub|2>|)>|\<Gamma\><around*|(|1+\<alpha\><rsub|1>-\<alpha\><rsub|2>|)>>\<cdot\><frac|\<Gamma\><rsup|2><around*|(|\<alpha\><rsub|2>|)>|\<Gamma\><around*|(|1+\<alpha\><rsub|2>-\<alpha\><rsub|1>|)>>\<cdot\><frac|1|\<Gamma\><around*|(|\<alpha\><rsub|1>+\<alpha\><rsub|2>|)>>,<space|1em>\<alpha\><rsub|1>+\<alpha\><rsub|2>=\<gamma\>+1,>|<cell|>>|<row|<cell|>|<cell|<space|1em>C<rsub|\<alpha\><rsub|1>,\<gamma\>><rsup|1,1><around*|[|0,1|]>=<around*|{|<around*|(|t,s|)>\<in\><around*|[|0,1|]><rsup|2>\<mid\>t\<less\>s|}>+<frac|sin<around*|(|\<pi\>\<alpha\><rsub|1>|)>|sin<around*|(|\<pi\><around*|(|\<gamma\>+1-\<alpha\><rsub|1>|)>|)>><around*|{|<around*|(|t,s|)>\<in\><around*|[|0,1|]><rsup|2>\<mid\>t\<gtr\>s|}>;>|<cell|>>|<row|<cell|<math-up|<cite|tarasov2003selberg>><rprime|'>:>|<cell|<big|int><rsub|<around*|(|s,t|)>\<in\><around*|[|0,1|]><rsup|2>>s<rsup|\<alpha\><rsub|2>-1><around*|(|1-s|)><rsup|\<alpha\><rsub|2>-1><around*|(|t-s|)><rsub|-><rsup|-\<gamma\>>d
+    s d t=<frac|\<Gamma\><around*|(|\<alpha\><rsub|2>|)>|<around*|(|1-\<gamma\>|)>>\<cdot\><frac|\<Gamma\><around*|(|1+\<alpha\><rsub|2>-\<gamma\>|)>|\<Gamma\><around*|(|1+2\<alpha\><rsub|2>-\<gamma\>|)>>;>|<cell|>>|<row|<cell|<math-up|<cite|dotsenko1985four>><rprime|'>:>|<cell|PV<big|int><rsub|<around*|(|t,\<tau\>|)>\<in\><around*|[|0,1|]><rsup|2>>t<rsup|\<alpha\><rprime|'>><around*|(|1-t|)><rsup|\<alpha\><rprime|'>>\<tau\><rsup|\<alpha\>><around*|(|1-\<tau\>|)><rsup|\<alpha\>><around*|\||t-\<tau\>|\|><rsup|-2>d
+    t d\<tau\>=<frac|<around*|(|\<alpha\>/\<alpha\><rprime|'>|)><rsup|2>|<around*|(|-\<alpha\>/\<alpha\><rprime|'>-1|)>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|1|2\<alpha\><rsup|4>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\><rprime|'>|)><rsup|2>|\<Gamma\><around*|(|2\<alpha\><rprime|'>|)>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\>|)><rsup|2>|\<Gamma\><around*|(|2\<alpha\>|)>>=>|<cell|>>|<row|<cell|>|<cell|<frac|-\<pi\>/2|\<alpha\>+\<alpha\><rprime|'>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\><rprime|'>|)>|2<rsup|2\<alpha\><rprime|'>-1>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\>|)>|2<rsup|2\<alpha\>-1>\<Gamma\><around*|(|\<alpha\>+1/2|)>>.>|<cell|>>>>
   </eqnarray>
 
   <\bibliography|bib|alpha|intdep.bib>
-    <\bib-list|3>
+    <\bib-list|4>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko<localize|
       and >Vladimir<nbsp>A Fateev.<newblock> Four-point correlation functions
       and the operator algebra in 2d conformal invariant theories with
       central charge <math|c\<leq\>1>.<newblock>
       <with|font-shape|italic|Nuclear Physics B>, 251:691\U734,
       1985.<newblock>
+
+      <bibitem*|NIS><label|bib-NIST:DLMF>NIST Digital Library of Mathematical
+      Functions.<newblock> http://dlmf.nist.gov/, Release 1.0.10 of
+      2015-08-07.<newblock>
 
       <bibitem*|TV03><label|bib-tarasov2003selberg>V Tarasov<localize| and
       >Alexander Varchenko.<newblock> Selberg-type integrals associated with
@@ -243,16 +268,18 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|2|1>>
+    <associate|auto-2|<tuple|2|2>>
     <associate|auto-3|<tuple|3|2>>
-    <associate|auto-4|<tuple|4|2>>
-    <associate|auto-5|<tuple|4|3>>
-    <associate|bib-dotsenko1985four|<tuple|DF85|3>>
-    <associate|bib-tarasov2003selberg|<tuple|TV03|3>>
-    <associate|bib-warnaar2010sl3|<tuple|War10|3>>
-    <associate|lem2|<tuple|2|1>>
+    <associate|auto-4|<tuple|4|4>>
+    <associate|auto-5|<tuple|4|4>>
+    <associate|bib-NIST:DLMF|<tuple|NIS|5>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|4>>
+    <associate|bib-tarasov2003selberg|<tuple|TV03|5>>
+    <associate|bib-warnaar2010sl3|<tuple|War10|5>>
+    <associate|eq-1|<tuple|1|2>>
+    <associate|lem2|<tuple|2|2>>
     <associate|lem3|<tuple|3|2>>
-    <associate|lem4|<tuple|4|2>>
+    <associate|lem4|<tuple|4|3>>
     <associate|main-thm|<tuple|1|1>>
   </collection>
 </references>
