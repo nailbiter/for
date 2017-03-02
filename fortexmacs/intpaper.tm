@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|article>
 
@@ -14,13 +14,19 @@
     </eqnarray>
 
     <math|x\<in\><around*|[|0,1|]>> and <math|l,m\<in\>\<bbb-N\>> such that
-    <math|l+m\<in\>2\<bbb-N\>> we have
+    <math|l+m\<in\>2\<bbb-N\>> the following integral converges:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s+t
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
       x|)><rsub|\<pm\>><rsup|2\<gamma\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-      s d t=<frac|<around*|(|-\<gamma\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l+m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<gamma\>|)>x<rsup|m>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<gamma\>,<frac|m-l|2>-\<gamma\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;x<rsup|2>|)>|2\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<gamma\>+<frac|l-m|2>+\<lambda\>+1|)>>,>|<cell|>>|<row|<cell|>|<cell|.>|<cell|>>>>
+      s d t,>|<cell|>>>>
+    </eqnarray>
+
+    and is equal to
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|=<frac|<around*|(|-\<gamma\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<gamma\>|)>x<rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<gamma\>,<frac|m-l|2>-\<gamma\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;x<rsup|2>|)>|2\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<gamma\>+<frac|l-m|2>+\<lambda\>+1|)>>.>|<cell|>>>>
     </eqnarray>
   </theorem>
 
@@ -51,16 +57,6 @@
     we see that we can extend statement of Theorem <reference|main-thm> to
     include the <math|-1\<leqslant\>x\<leqslant\>0> case.
   </remark*>
-
-  <\corollary*>
-    Setting <math|x=-1> and <math|l=m=0> in the statement of Theorem
-    <reference|main-thm> we get:
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsub|\<pm\>><rsup|2\<gamma\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-      s d t=<frac|\<Gamma\><around*|(|<frac|1|2>+\<gamma\>|)><sqrt|\<pi\>>\<Gamma\><around*|(|\<lambda\>-<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>-<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<gamma\>+1|)>|2\<Gamma\><around*|(|\<lambda\>+\<gamma\>+1|)>\<Gamma\><around*|(|\<mu\>+\<gamma\>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<gamma\>+1|)>>.>|<cell|>>>>
-    </eqnarray>
-  </corollary*>
 
   <section|Proof of Main Theorem>
 
@@ -115,12 +111,40 @@
 
   <section|Special values>
 
+  <\corollary*>
+    Setting <math|x=1> and <math|l=m=0> in the statement of Theorem
+    <reference|main-thm> we get:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsub|\<pm\>><rsup|2\<gamma\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
+      s d t=<frac|\<Gamma\><around*|(|<frac|1|2>+\<gamma\>|)><sqrt|\<pi\>>\<Gamma\><around*|(|\<lambda\>-<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>-<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<gamma\>+1|)>|2\<Gamma\><around*|(|\<lambda\>+\<gamma\>+1|)>\<Gamma\><around*|(|\<mu\>+\<gamma\>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<gamma\>+1|)>>.>|<cell|>>>>
+    </eqnarray>
+  </corollary*>
+
   <\center>
     <image|intdep.png|753px|249px||>
   </center>
 
+  <cite|warnaar>
+
   <\bibliography|bib|alpha|intdep.bib>
-    \;
+    <\bib-list|War10>
+      <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
+      Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions and
+      the operator algebra in 2d conformal invariant theories with central
+      charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
+      Physics B>, 251:691\U734, 1985.
+
+      <bibitem*|TV03><label|bib-tarasov2003selberg>V<nbsp>Tarasov and
+      Alexander Varchenko. <newblock>Selberg-type integrals associated with
+      sl 3. <newblock><with|font-shape|italic|Letters in Mathematical
+      Physics>, 65(3):173\U185, 2003.
+
+      <bibitem*|War10><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.
+      <newblock>The sl3 selberg integral.
+      <newblock><with|font-shape|italic|Advances in Mathematics>,
+      224(2):499\U524, 2010.
+    </bib-list>
   </bibliography>
 </body>
 
@@ -137,16 +161,21 @@
     <associate|auto-3|<tuple|3|1>>
     <associate|auto-4|<tuple|4|2>>
     <associate|auto-5|<tuple|4|2>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|?>>
+    <associate|bib-tarasov2003selberg|<tuple|TV03|?>>
+    <associate|bib-warnaar2010sl3|<tuple|War10|?>>
     <associate|lem2|<tuple|2|1>>
     <associate|lem3|<tuple|3|1>>
     <associate|lem4|<tuple|4|1>>
-    <associate|main-thim|<tuple|1|?|../../.TeXmacs/texts/scratch/no_name_23.tm>>
     <associate|main-thm|<tuple|1|1>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
+    <\associate|bib>
+      iguri2009selberg
+    </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Main
       results> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
