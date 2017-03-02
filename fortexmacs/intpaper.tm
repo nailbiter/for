@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|article>
 
@@ -80,13 +80,59 @@
     </eqnarray>
   </lemma>
 
+  We set
+
+  <\equation*>
+    <around*|(|y|)><rsub|j>\<assign\><frac|\<Gamma\><around*|(|y+j|)>|\<Gamma\><around*|(|y|)>>.
+  </equation*>
+
+  If <math|j\<in\>\<bbb-N\>> then<math|<\footnote>
+    <math-up|shouldn't it be <math|<around*|(|y|)><rsub|j>?>>
+  </footnote>>
+
+  <\equation*>
+    y<rsub|j>=y<around*|(|y+1|)>\<ldots\><around*|(|y+j-1|)>.
+  </equation*>
+
+  Further, it is easy to see
+
+  <\equation*>
+    <tabular|<tformat|<table|<row|<cell|y<rsub|j><around*|(|1-y|)><rsub|-j>>|<cell|=<around*|(|-1|)><rsup|j>,<eq-number><label|eqn:p1>>>|<row|<cell|<around*|(|<frac|y|2>|)><rsub|j><around*|(|<frac|1+y|2>|)><rsub|j>>|<cell|=2<rsup|-2j><around*|(|y|)><rsub|2j>,<eq-number><label|eqn:p2>>>|<row|<cell|<around*|(|y|)><rsub|i><around*|(|y-2j|)><rsub|2j>>|<cell|=<around*|(|1-y-i|)><rsub|2j><around*|(|y-2j|)><rsub|i>,<eq-number><label|eqn:p3>>>>>>
+  </equation*>
+
+  We<\footnote>
+    shouldn't it be\Pwe claim\Q (from small letter)? the comma happened just
+    before...
+  </footnote> claim<\footnote>
+    I had difficulties reading the last equation (the eqn:p3), so I might be
+    wrong; anyway, expression is correct
+  </footnote>
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>
+    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-d-i|2>,<frac|2-d-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;x<rsup|2>|)>>|<cell|>>|<row|<cell|>|<cell|=<big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|j><around*|(|d|)><rsub|2j>x<rsup|2j>|2<rsup|2j>j!<around*|(|b+<frac|1|2>|)><rsub|j>>
+    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,1-a>>|<row|<cell|d-2j>>>>>;<frac|1|2>|)>.<eq-number><label|eqn:Fijsum>>|<cell|>>>>
+  </eqnarray>
+
+  Indeed, by expanding the hypergeometric function in power series and by
+  using <math|<eqref|eqn:p2>>, the left-hand side of
+  <math|<eqref|eqn:Fijsum>> amounts to
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i+2j>i!<around*|(|d|)><rsub|i>>
+    <frac|<around*|(|1-d-i|)><rsub|2j>|<around*|(|b+<frac|1|2>|)><rsub|j>>x<rsup|2j>,>|<cell|>>>>
+  </eqnarray>
+
+  which equals to the right-hand side of <math|<eqref|eqn:Fijsum>> by
+  <math|<eqref|eqn:p3>>.
+
   <\proof>
     (of Theorem <reference|main-thm>, using Lemma <reference|lem2>) Recall
-    the Rodrigues' formula for the Gegenbauer polynomial:
+    Rodrigues' formula for the Gegenbauer polynomial:
 
     <\equation*>
       C<rsub|l><rsup|\<lambda\>><around*|(|t|)>\<cdot\><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>=<frac|<around*|(|-2|)><rsup|l>|l!>\<cdot\><frac|\<Gamma\><around*|(|l+\<lambda\>|)>\<Gamma\><around*|(|l+2\<lambda\>|)>|\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|2l+2\<lambda\>|)>>\<cdot\><frac|d<rsup|l>|d
-      t<rsup|l>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>+l>
+      t<rsup|l>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>+l><eq-number><label|eqn:Rod>
     </equation*>
 
     We proceed as follows:
@@ -109,7 +155,7 @@
       x|)><rsub|\<pm\>><rsup|2\<nu\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
       s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-1|)><rsup|m><big|int><rsub|s,t=-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>><frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|(|s-t
       x|)><rsub|\<pm\>><rsup|2\<nu\>>d s d
-      t.<eq-number><label|eq-1>>|<cell|>>>>
+      t.<eq-number><label|eqn:derst>>|<cell|>>>>
     </eqnarray>
 
     Next, since <math|l+m\<in\>2\<bbb-N\>> we have that
@@ -120,7 +166,7 @@
       x|)><rsub|\<pm\>><rsup|2\<nu\>-l-m>,
     </equation*>
 
-    hence <math|<eqref|eq-1>> equals
+    hence <math|<eqref|eqn:derst>> equals
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
@@ -130,9 +176,9 @@
       s d t.>|<cell|>>>>
     </eqnarray>
 
-    The application of Lemma <reference|lem2> to <math|<eqref|eq-1>> then
-    allows to compute the latter integral, whilst the answer follows after
-    some simplifications.
+    The application of Lemma <reference|lem2> to <math|<eqref|eqn:derst>>
+    then allows to compute the latter integral, whilst the answer follows
+    after some simplifications.
   </proof>
 
   <section|Proof of Lemma <reference|lem2>>
@@ -235,26 +281,26 @@
   </eqnarray>
 
   <\bibliography|bib|alpha|intdep.bib>
-    <\bib-list|4>
-      <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko<localize|
-      and >Vladimir<nbsp>A Fateev.<newblock> Four-point correlation functions
-      and the operator algebra in 2d conformal invariant theories with
-      central charge <math|c\<leq\>1>.<newblock>
-      <with|font-shape|italic|Nuclear Physics B>, 251:691\U734,
-      1985.<newblock>
+    <\bib-list|DLMF>
+      <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
+      Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions and
+      the operator algebra in 2d conformal invariant theories with central
+      charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
+      Physics B>, 251:691\U734, 1985.
 
-      <bibitem*|NIS><label|bib-NIST:DLMF>NIST Digital Library of Mathematical
-      Functions.<newblock> http://dlmf.nist.gov/, Release 1.0.10 of
-      2015-08-07.<newblock>
+      <bibitem*|DLMF><label|bib-NIST:DLMF>NIST Digital Library of
+      Mathematical Functions. <newblock>http://dlmf.nist.gov/, Release 1.0.10
+      of 2015-08-07.
 
-      <bibitem*|TV03><label|bib-tarasov2003selberg>V Tarasov<localize| and
-      >Alexander Varchenko.<newblock> Selberg-type integrals associated with
-      sl 3.<newblock> <with|font-shape|italic|Letters in Mathematical
-      Physics>, 65(3):173\U185, 2003.<newblock>
+      <bibitem*|TV03><label|bib-tarasov2003selberg>V<nbsp>Tarasov and
+      Alexander Varchenko. <newblock>Selberg-type integrals associated with
+      sl 3. <newblock><with|font-shape|italic|Letters in Mathematical
+      Physics>, 65(3):173\U185, 2003.
 
-      <bibitem*|War10><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.<newblock>
-      The sl3 selberg integral.<newblock> <with|font-shape|italic|Advances in
-      Mathematics>, 224(2):499\U524, 2010.<newblock>
+      <bibitem*|War10><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.
+      <newblock>The sl3 selberg integral.
+      <newblock><with|font-shape|italic|Advances in Mathematics>,
+      224(2):499\U524, 2010.
     </bib-list>
   </bibliography>
 </body>
@@ -268,17 +314,30 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|2|2>>
-    <associate|auto-3|<tuple|3|2>>
+    <associate|auto-2|<tuple|2|1>>
+    <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|4|4>>
-    <associate|auto-5|<tuple|4|4>>
-    <associate|bib-NIST:DLMF|<tuple|NIS|5>>
-    <associate|bib-dotsenko1985four|<tuple|DF85|4>>
+    <associate|auto-5|<tuple|4|5>>
+    <associate|auto-6|<tuple|4|?>>
+    <associate|bib-NIST:DLMF|<tuple|DLMF|5>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|5>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|5>>
     <associate|bib-warnaar2010sl3|<tuple|War10|5>>
-    <associate|eq-1|<tuple|1|2>>
-    <associate|lem2|<tuple|2|2>>
-    <associate|lem3|<tuple|3|2>>
+    <associate|eq-1|<tuple|4|2>>
+    <associate|eqn:Fijsum|<tuple|4|2>>
+    <associate|eqn:Rod|<tuple|5|?>>
+    <associate|eqn:derst|<tuple|6|?>>
+    <associate|eqn:p1|<tuple|1|2>>
+    <associate|eqn:p2|<tuple|2|2>>
+    <associate|eqn:p3|<tuple|3|2>>
+    <associate|footnote-1|<tuple|1|2>>
+    <associate|footnote-2|<tuple|2|2>>
+    <associate|footnote-3|<tuple|3|2>>
+    <associate|footnr-1|<tuple|1|2>>
+    <associate|footnr-2|<tuple|2|2>>
+    <associate|footnr-3|<tuple|3|2>>
+    <associate|lem2|<tuple|2|1>>
+    <associate|lem3|<tuple|3|3>>
     <associate|lem4|<tuple|4|3>>
     <associate|main-thm|<tuple|1|1>>
   </collection>

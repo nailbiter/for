@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|number-europe>>
 
@@ -521,16 +521,32 @@
   <math|x=-1>. We expand the coefficients around <math|x=1> first:
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|<frac|1-2\<lambda\>-<around*|(|2\<lambda\>+1|)>x|1-x<rsup|2>>=<frac|2\<lambda\>|x-1>+\<ldots\>,>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|2x+1|)><around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>+<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)>|<around*|(|1-x<rsup|2>|)><rsup|2>>=<frac|3<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>/4|<around*|(|x-1|)><rsup|2>>+\<ldots\>,>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|<frac|1-2\<lambda\>-<around*|(|2\<lambda\>+1|)>x|1-x<rsup|2>>=<frac|2\<lambda\>|x-1>+\<ldots\>,>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|2x+1|)><around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>+<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)>|<around*|(|1-x<rsup|2>|)><rsup|2>>=<frac|3<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>/4|<around*|(|x-1|)><rsup|2>>+\<ldots\>>|<cell|>>>>
   </eqnarray>
 
-  and then around the <math|x=-1>:
+  The indicial equation becomes:
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|r<around*|(|r-1|)>+2\<lambda\>r+<frac|3|4><around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>=0\<Leftrightarrow\>r<rsup|2>+2<around*|(|\<lambda\>+<frac|1|2>|)>r+<frac|3<around*|(|\<lambda\><rsup|2>-1/4|)>|4>=0,>|<cell|>>>>
+  </eqnarray>
+
+  and the exponents are <math|r=-<around*|(|\<lambda\>+<frac|1|2>|)>\<pm\><frac|1|2><sqrt|<around*|(|\<lambda\>+<frac|7|2>|)><around*|(|\<lambda\>+<frac|1|2>|)>>>.
+
+  Then, around the <math|x=-1>:
 
   <\eqnarray>
     <tformat|<table|<row|<cell|>|<cell|<frac|1-2\<lambda\>-<around*|(|2\<lambda\>+1|)>x|1-x<rsup|2>>=<frac|1|x+1>+\<ldots\>,>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|2x+1|)><around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>+<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)>|<around*|(|1-x<rsup|2>|)><rsup|2>>=<frac|-<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>/2|<around*|(|x+1|)><rsup|2>>+\<ldots\>,>|<cell|>>>>
   </eqnarray>
 
-  hence one sees that both singular points <math|x=\<pm\>1> are regular.
+  The indicial equuation becomes:
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|r<around*|(|r-1|)>+r-<frac|1|2><around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>=0,>|<cell|>>>>
+  </eqnarray>
+
+  and the exponents are <math|r=\<pm\><frac|<sqrt|<around*|(|\<lambda\>-1/2|)><around*|(|\<lambda\>+1/2|)>>|<sqrt|2>>>.
+
+  Also, one sees that both singular points <math|x=\<pm\>1> are regular.
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
