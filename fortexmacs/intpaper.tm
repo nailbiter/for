@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|article>
 
@@ -125,25 +125,17 @@
     <image|intdep.png|753px|249px||>
   </center>
 
-  <cite|warnaar>
+  <cite|warnaar2008bisymmetric>
 
   <\bibliography|bib|alpha|intdep.bib>
-    <\bib-list|War10>
-      <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
-      Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions and
-      the operator algebra in 2d conformal invariant theories with central
-      charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
-      Physics B>, 251:691\U734, 1985.
-
-      <bibitem*|TV03><label|bib-tarasov2003selberg>V<nbsp>Tarasov and
-      Alexander Varchenko. <newblock>Selberg-type integrals associated with
-      sl 3. <newblock><with|font-shape|italic|Letters in Mathematical
-      Physics>, 65(3):173\U185, 2003.
-
-      <bibitem*|War10><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.
-      <newblock>The sl3 selberg integral.
-      <newblock><with|font-shape|italic|Advances in Mathematics>,
-      224(2):499\U524, 2010.
+    <\bib-list|War08>
+      <bibitem*|War08><label|bib-warnaar2008bisymmetric>S<nbsp>Ole Warnaar.
+      <newblock>Bisymmetric functions, macdonald polynomials and
+      <math|<with|math-font|Euler|s*l><rsub|3>> basic hypergeometric series.
+      <newblock><with|font-shape|italic|Compositio Mathematica>,
+      144(02):271\U303, 2008. <newblock><with|font-series|bold|I've looked
+      through this paper. Seems to be the <math|q>-generalization of
+      Tarasov-Varchenko>.
     </bib-list>
   </bibliography>
 </body>
@@ -163,6 +155,7 @@
     <associate|auto-5|<tuple|4|2>>
     <associate|bib-dotsenko1985four|<tuple|DF85|?>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|?>>
+    <associate|bib-warnaar2008bisymmetric|<tuple|War08|?>>
     <associate|bib-warnaar2010sl3|<tuple|War10|?>>
     <associate|lem2|<tuple|2|1>>
     <associate|lem3|<tuple|3|1>>
@@ -174,7 +167,7 @@
 <\auxiliary>
   <\collection>
     <\associate|bib>
-      iguri2009selberg
+      warnaar2008bisymmetric
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Main
