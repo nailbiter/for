@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|article>
 
@@ -63,7 +63,7 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsub|\<pm\>><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|2\<lambda\>+l|)>\<Gamma\><around*|(|2\<mu\>+m|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|3|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|2<rsup|2\<lambda\>+2\<mu\>-1>l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+1-<frac|l-m|2>|)>\<Gamma\><around*|(|\<mu\>+1+\<nu\>+\<lambda\>+<frac|m+l|2>|)>>.>|<cell|>>>>
+      s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|2\<lambda\>+l|)>\<Gamma\><around*|(|2\<mu\>+m|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|3|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|2<rsup|2\<lambda\>+2\<mu\>-1>l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+1-<frac|l-m|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1+<frac|m+l|2>|)>>.>|<cell|>>>>
     </eqnarray>
   </corollary*>
 
@@ -100,11 +100,11 @@
     <tabular|<tformat|<table|<row|<cell|y<rsub|j><around*|(|1-y|)><rsub|-j>>|<cell|=<around*|(|-1|)><rsup|j>,<eq-number><label|eqn:p1>>>|<row|<cell|<around*|(|<frac|y|2>|)><rsub|j><around*|(|<frac|1+y|2>|)><rsub|j>>|<cell|=2<rsup|-2j><around*|(|y|)><rsub|2j>,<eq-number><label|eqn:p2>>>|<row|<cell|<around*|(|y|)><rsub|i><around*|(|1-y|)><rsub|2j>>|<cell|=<around*|(|1-y-i|)><rsub|2j><around*|(|y-2j|)><rsub|i>.<eq-number><label|eqn:p3>>>>>>
   </equation*>
 
-  We let
+  We set
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|G<around*|(|a,d;J|)>=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>
-    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-d-i|2>,<frac|2-d-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;J<rsup|2>|)>.>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|G<around*|(|a,d;\<zeta\>|)>=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>
+    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-d-i|2>,<frac|2-d-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;\<zeta\>|)>.>|<cell|>>>>
   </eqnarray>
 
   We claim
@@ -120,7 +120,7 @@
 
   <\eqnarray>
     <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i+2j>i!j!<around*|(|d|)><rsub|i>>
-    <frac|<around*|(|1-d-i|)><rsub|2j>|<around*|(|b+<frac|1|2>|)><rsub|j>>J<rsup|2j>,>|<cell|>>>>
+    <frac|<around*|(|1-d-i|)><rsub|2j>|<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>,>|<cell|>>>>
   </eqnarray>
 
   which is equal to the right-hand side of <math|<eqref|eqn:Fijsum>> by
@@ -214,8 +214,8 @@
     <label|lem:Fisum>
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|G<around*|(|a,d;J|)>=<frac|2<rsup|1-d><sqrt|\<pi\>>\<Gamma\><around*|(|d|)>|\<Gamma\><around*|(|<frac|a+d|2>|)>\<Gamma\><around*|(|<frac|1-a+d|2>|)>>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-<frac|a+d|2>,<frac|1+a-d|2>>>|<row|<cell|b+<frac|1|2>>>>>>;J|)>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|G<around*|(|a,d;\<zeta\>|)>=<frac|2<rsup|1-d><sqrt|\<pi\>>\<Gamma\><around*|(|d|)>|\<Gamma\><around*|(|<frac|a+d|2>|)>\<Gamma\><around*|(|<frac|1-a+d|2>|)>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-<frac|a+d|2>,<frac|1+a-d|2>>>|<row|<cell|b+<frac|1|2>>>>>>;\<zeta\>|)>.>|<cell|>>>>
     </eqnarray>
   </lemma>
 
@@ -270,15 +270,11 @@
     The right-hand of <math|<eqref|eqn:Fijsum>> amounts to\ 
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|1-d|)><rsub|2j>J<rsup|j>|2<rsup|2j>j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<cdot\><frac|2<rsup|1-d+2j><sqrt|\<pi\>>\<Gamma\><around*|(|d-2j|)>|\<Gamma\><around*|(|<frac|a+d|2>-j|)>\<Gamma\><around*|(|<frac|1-a+d|2>-j|)>>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|1-d><sqrt|\<pi\>>\<Gamma\><around*|(|d|)>|\<Gamma\><around*|(|<frac|a+d|2>|)>\<Gamma\><around*|(|<frac|1-a+d|2>|)>><big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|1-<frac|a+d|2>|)><rsub|j><around*|(|<frac|1+a-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>J<rsup|j>>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|1-d|)><rsub|2j>\<zeta\><rsup|j>|2<rsup|2j>j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<cdot\><frac|2<rsup|1-d+2j><sqrt|\<pi\>>\<Gamma\><around*|(|d-2j|)>|\<Gamma\><around*|(|<frac|a+d|2>-j|)>\<Gamma\><around*|(|<frac|1-a+d|2>-j|)>>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|1-d><sqrt|\<pi\>>\<Gamma\><around*|(|d|)>|\<Gamma\><around*|(|<frac|a+d|2>|)>\<Gamma\><around*|(|<frac|1-a+d|2>|)>><big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|1-<frac|a+d|2>|)><rsub|j><around*|(|<frac|1+a-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>>|<cell|>>>>
     </eqnarray>
 
     by <math|<eqref|eqn:p1>>. Hence Lemma <reference|lem:Fisum> is proved.
   </render-proof>
-
-  <with|font-series|bold|TODO:> proof of Lemma <reference|lem3>
-
-  <with|font-series|bold|TODO:> proof of Lemma <reference|lem4>
 
   <section|Special values>
 
@@ -344,12 +340,10 @@
     <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|4|4>>
     <associate|auto-5|<tuple|4|5>>
-    <associate|auto-6|<tuple|4|?>>
     <associate|bib-NIST:DLMF|<tuple|DLMF|5>>
     <associate|bib-dotsenko1985four|<tuple|DF85|5>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|5>>
     <associate|bib-warnaar2010sl3|<tuple|War10|6>>
-    <associate|eq-1|<tuple|4|2>>
     <associate|eqn:Fijsum|<tuple|4|2>>
     <associate|eqn:Rod|<tuple|5|2>>
     <associate|eqn:derst|<tuple|6|3>>
@@ -357,11 +351,7 @@
     <associate|eqn:p2|<tuple|2|2>>
     <associate|eqn:p3|<tuple|3|2>>
     <associate|footnote-1|<tuple|1|2>>
-    <associate|footnote-2|<tuple|2|2>>
-    <associate|footnote-3|<tuple|3|2>>
     <associate|footnr-1|<tuple|1|2>>
-    <associate|footnr-2|<tuple|2|2>>
-    <associate|footnr-3|<tuple|3|2>>
     <associate|lem2|<tuple|2|2>>
     <associate|lem3|<tuple|3|3>>
     <associate|lem4|<tuple|4|3>>
