@@ -5,36 +5,37 @@
 <\body>
   <section|Main results>
 
+  We set <math|u<rsub|l><rsup|\<lambda\>><around*|(|s|)>\<assign\><frac|2<rsup|2\<lambda\>-1>l!\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|2\<lambda\>+l|)>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>>.
+
   <\theorem>
-    <label|main-thm>We set <math|u<rsub|l><rsup|\<lambda\>><around*|(|s|)>\<assign\><frac|2<rsup|2\<lambda\>-1>l!\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|2\<lambda\>+l|)>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>>
-    and similarly for <math|u<rsub|m><rsup|\<mu\>><around*|(|t|)>>. For
-    <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> such that
+    <label|main-thm> For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> such
+    that
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>,Re<around*|(|\<nu\>|)>\<gtr\>-1/2,>|<cell|>>>>
     </eqnarray>
 
-    <math|x\<in\><around*|[|0,1|]>> and <math|l,m\<in\>\<bbb-N\>> such that
+    <math|z\<in\><around*|[|0,1|]>> and <math|l,m\<in\>\<bbb-N\>> such that
     <math|l+m\<in\>2\<bbb-N\>> the following integral converges:
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<nu\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>x<rsup|m>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;x<rsup|2>|)>|2\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>>,>|<cell|>>>>
+      z|)><rsub|\<pm\>><rsup|2\<nu\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>z<rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;z<rsup|2>|)>|2\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>>,>|<cell|>>>>
     </eqnarray>
 
     Namely,
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|2\<lambda\>+l|)>\<Gamma\><around*|(|2\<mu\>+m|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>x<rsup|m>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;x<rsup|2>|)>|2<rsup|2\<lambda\>+2\<mu\>-2>l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>2\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>>.>|<cell|>>>>
+      z|)><rsub|\<pm\>><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|\<Gamma\><around*|(|2\<lambda\>+l|)>\<Gamma\><around*|(|2\<mu\>+m|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|3|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>z<rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;z<rsup|2>|)>|2<rsup|2\<lambda\>+2\<mu\>-2>l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>2\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>>.>|<cell|>>>>
     </eqnarray>
   </theorem>
 
-  Note that as Gegenbauer polynomial <math|g<around*|(|s|)>\<assign\>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>>
+  Note that as the Gegenbauer polynomial <math|g<around*|(|s|)>\<assign\>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>>
   satisfies the second-order differential equation
 
   <\eqnarray>
@@ -46,22 +47,23 @@
   satisfies
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|<around*|(|1-s<rsup|2>|)><rsup|2>f<rprime|''>+<around*|(|1-x<rsup|2>|)><around*|(|1-2\<lambda\>-<around*|(|2\<lambda\>+1|)>x|)>f<rprime|'>+<around*|(|<around*|(|2s+1|)><around*|(|\<lambda\><rsup|2>-1/4|)>+l<around*|(|l+2\<lambda\>|)><around*|(|1-s<rsup|2>|)>|)>f=0.>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|<around*|(|1-s<rsup|2>|)><rsup|2>f<rprime|''>+<around*|(|1-s<rsup|2>|)><around*|(|1-2\<lambda\>-<around*|(|2\<lambda\>+1|)>s|)>f<rprime|'>+<around*|(|<around*|(|2s+1|)><around*|(|\<lambda\><rsup|2>-1/4|)>+l<around*|(|l+2\<lambda\>|)><around*|(|1-s<rsup|2>|)>|)>f=0.>|<cell|>>>>
   </eqnarray>
 
   <\remark*>
     As we have <math|u<rsub|l><rsup|\<lambda\>><around*|(|-s|)>=<around*|(|-1|)><rsup|l>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>>,
     we see that we can extend statement of Theorem <reference|main-thm> to
-    include the <math|-1\<leqslant\>x\<leqslant\>0> case.
+    include the <math|-1\<leqslant\>z\<leqslant\>0> case.
   </remark*>
 
+  The substitution of <math|z=1> in Theorem <reference|main-thm> yields:
+
   <\corollary*>
-    Setting <math|x=1> in the statement of Theorem <reference|main-thm> we
-    get:
+    \;
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsub|\<pm\>><rsup|2\<gamma\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|2\<lambda\>+l|)>\<Gamma\><around*|(|2\<mu\>+m|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+1+2\<nu\>+\<lambda\>|)>|2<rsup|2\<lambda\>+2\<mu\>-2>l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>2\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1-<frac|l-m|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+m+1+\<nu\>+\<lambda\>-<frac|m-l|2>|)>>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsub|\<pm\>><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|2\<lambda\>+l|)>\<Gamma\><around*|(|2\<mu\>+m|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|3|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|2<rsup|2\<lambda\>+2\<mu\>-1>l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+1-<frac|l-m|2>|)>\<Gamma\><around*|(|\<mu\>+1+\<nu\>+\<lambda\>+<frac|m+l|2>|)>>.>|<cell|>>>>
     </eqnarray>
   </corollary*>
 
@@ -70,13 +72,13 @@
   <\lemma>
     <label|lem2>For <math|a,b,c\<in\>\<bbb-C\>> such that
     <math|Re<around*|(|a|)>,Re<around*|(|b|)>,Re<around*|(|c|)>\<gtr\>0> and
-    <math|0\<leqslant\>x\<leqslant\>1> we have
+    <math|0\<leqslant\>z\<leqslant\>1> we have
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      z|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
       s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|1|2>B<around*|(|a,c|)>B<around*|(|b,<frac|1|2>|)>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-c+1/2,-a-c+1>>|<row|<cell|b+1/2>>>>>;x<rsup|2>|)>.>|<cell|>>>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-c+1/2,-a-c+1>>|<row|<cell|b+1/2>>>>>;z<rsup|2>|)>.>|<cell|>>>>
     </eqnarray>
   </lemma>
 
@@ -86,52 +88,53 @@
     <around*|(|y|)><rsub|j>\<assign\><frac|\<Gamma\><around*|(|y+j|)>|\<Gamma\><around*|(|y|)>>.
   </equation*>
 
-  If <math|j\<in\>\<bbb-N\>> then<math|<\footnote>
-    <math-up|shouldn't it be <math|<around*|(|y|)><rsub|j>?>>
-  </footnote>>
+  If <math|j\<in\>\<bbb-N\>> then
 
   <\equation*>
-    y<rsub|j>=y<around*|(|y+1|)>\<ldots\><around*|(|y+j-1|)>.
+    <around*|(|y|)><rsub|j>=y<around*|(|y+1|)>\<cdots\><around*|(|y+j-1|)>.
   </equation*>
 
   Further, it is easy to see
 
   <\equation*>
-    <tabular|<tformat|<table|<row|<cell|y<rsub|j><around*|(|1-y|)><rsub|-j>>|<cell|=<around*|(|-1|)><rsup|j>,<eq-number><label|eqn:p1>>>|<row|<cell|<around*|(|<frac|y|2>|)><rsub|j><around*|(|<frac|1+y|2>|)><rsub|j>>|<cell|=2<rsup|-2j><around*|(|y|)><rsub|2j>,<eq-number><label|eqn:p2>>>|<row|<cell|<around*|(|y|)><rsub|i><around*|(|y-2j|)><rsub|2j>>|<cell|=<around*|(|1-y-i|)><rsub|2j><around*|(|y-2j|)><rsub|i>,<eq-number><label|eqn:p3>>>>>>
+    <tabular|<tformat|<table|<row|<cell|y<rsub|j><around*|(|1-y|)><rsub|-j>>|<cell|=<around*|(|-1|)><rsup|j>,<eq-number><label|eqn:p1>>>|<row|<cell|<around*|(|<frac|y|2>|)><rsub|j><around*|(|<frac|1+y|2>|)><rsub|j>>|<cell|=2<rsup|-2j><around*|(|y|)><rsub|2j>,<eq-number><label|eqn:p2>>>|<row|<cell|<around*|(|y|)><rsub|i><around*|(|1-y|)><rsub|2j>>|<cell|=<around*|(|1-y-i|)><rsub|2j><around*|(|y-2j|)><rsub|i>.<eq-number><label|eqn:p3>>>>>>
   </equation*>
 
-  We<\footnote>
-    shouldn't it be\Pwe claim\Q (from small letter)? the comma happened just
-    before...
-  </footnote> claim<\footnote>
-    I had difficulties reading the last equation (the eqn:p3), so I might be
-    wrong; anyway, expression is correct
-  </footnote>
+  We let
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>
-    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-d-i|2>,<frac|2-d-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;x<rsup|2>|)>>|<cell|>>|<row|<cell|>|<cell|=<big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|j><around*|(|d|)><rsub|2j>x<rsup|2j>|2<rsup|2j>j!<around*|(|b+<frac|1|2>|)><rsub|j>>
+    <tformat|<table|<row|<cell|>|<cell|G<around*|(|a,d;J|)>=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>
+    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-d-i|2>,<frac|2-d-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;J<rsup|2>|)>.>|<cell|>>>>
+  </eqnarray>
+
+  We claim
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|G<around*|(|a,d;J|)>=<big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|1-d|)><rsub|2j>J<rsup|2j>|2<rsup|2j>j!<around*|(|b+<frac|1|2>|)><rsub|j>>
     <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,1-a>>|<row|<cell|d-2j>>>>>;<frac|1|2>|)>.<eq-number><label|eqn:Fijsum>>|<cell|>>>>
   </eqnarray>
 
   Indeed, by expanding the hypergeometric function in power series and by
-  using <math|<eqref|eqn:p2>>, the left-hand side of
+  using <math|<eqref|eqn:p2>> with <math|y=d>, the left-hand side of
   <math|<eqref|eqn:Fijsum>> amounts to
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i+2j>i!<around*|(|d|)><rsub|i>>
-    <frac|<around*|(|1-d-i|)><rsub|2j>|<around*|(|b+<frac|1|2>|)><rsub|j>>x<rsup|2j>,>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i+2j>i!j!<around*|(|d|)><rsub|i>>
+    <frac|<around*|(|1-d-i|)><rsub|2j>|<around*|(|b+<frac|1|2>|)><rsub|j>>J<rsup|2j>,>|<cell|>>>>
   </eqnarray>
 
-  which equals to the right-hand side of <math|<eqref|eqn:Fijsum>> by
+  which is equal to the right-hand side of <math|<eqref|eqn:Fijsum>> by
   <math|<eqref|eqn:p3>>.
 
   <\proof>
     (of Theorem <reference|main-thm>, using Lemma <reference|lem2>) Recall
-    Rodrigues' formula for the Gegenbauer polynomial:
+    the Rodrigues' formula for the Gegenbauer polynomial:<\footnote>
+      It might be prettier to write <math|u<rsub|l><rsup|\<lambda\>><around*|(|t|)>=<around*|(|-1|)><rsup|l><sqrt|\<pi\>>\<Gamma\><rsup|-1><around*|(|l+\<lambda\>+<frac|1|2>|)><frac|d<rsup|l>|d
+      t<rsup|l>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>+l>.>
+    </footnote>
 
     <\equation*>
-      C<rsub|l><rsup|\<lambda\>><around*|(|t|)>\<cdot\><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>=<frac|<around*|(|-2|)><rsup|l>|l!>\<cdot\><frac|\<Gamma\><around*|(|l+\<lambda\>|)>\<Gamma\><around*|(|l+2\<lambda\>|)>|\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|2l+2\<lambda\>|)>>\<cdot\><frac|d<rsup|l>|d
+      u<rsub|l><rsup|\<lambda\>><around*|(|t|)>=<around*|(|-1|)><rsup|l>2<rsup|2\<lambda\>+l-1><frac|\<Gamma\><around*|(|l+\<lambda\>|)>|\<Gamma\><around*|(|2l+2\<lambda\>|)>>\<cdot\><frac|d<rsup|l>|d
       t<rsup|l>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>+l><eq-number><label|eqn:Rod>
     </equation*>
 
@@ -139,9 +142,9 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<nu\>><frame|C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>>\<cdot\><frame|C<rsub|m><rsup|\<mu\>><around*|(|t|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|2<rsup|l+m>\<Gamma\><around*|(|l+\<lambda\>|)>\<Gamma\><around*|(|l+2\<lambda\>|)>\<Gamma\><around*|(|m+\<mu\>|)>\<Gamma\><around*|(|m+2\<mu\>|)>|l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|2l+2\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2m+2\<mu\>|)>><big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<nu\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      z|)><rsub|\<pm\>><rsup|2\<nu\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|2<rsup|2\<lambda\>+2\<mu\>+l+m-2>\<Gamma\><around*|(|l+\<lambda\>|)>\<Gamma\><around*|(|m+\<mu\>|)>|\<Gamma\><around*|(|2l+2\<lambda\>|)>\<Gamma\><around*|(|2m+2\<mu\>|)>><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
+      z|)><rsub|\<pm\>><rsup|2\<nu\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
       s d t.>|<cell|>>>>
     </eqnarray>
 
@@ -151,10 +154,10 @@
     shows that the integral in the right-hand side amounts to
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<nu\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-1|)><rsup|m><big|int><rsub|s,t=-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>><frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<nu\>>d s d
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
+      z|)><rsub|\<pm\>><rsup|2\<nu\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-1|)><rsup|m><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>><frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|(|s-t
+      z|)><rsub|\<pm\>><rsup|2\<nu\>>d s d
       t.<eq-number><label|eqn:derst>>|<cell|>>>>
     </eqnarray>
 
@@ -162,17 +165,17 @@
 
     <\equation*>
       <frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<nu\>>=<around*|(|-2\<nu\>|)><rsub|l+m><around*|(|-x|)><rsup|m><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<nu\>-l-m>,
+      z|)><rsub|\<pm\>><rsup|2\<nu\>>=<around*|(|-2\<nu\>|)><rsub|l+m><around*|(|-z|)><rsup|m><around*|(|s-t
+      z|)><rsub|\<pm\>><rsup|2\<nu\>-l-m>,
     </equation*>
 
     hence <math|<eqref|eqn:derst>> equals
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<nu\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-2\<nu\>|)><rsub|l+m><around*|(|-x|)><rsup|m><big|int><rsub|s,t=-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2\<nu\>-l-m><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
+      z|)><rsub|\<pm\>><rsup|2\<nu\>><frac|\<partial\>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-2\<nu\>|)><rsub|l+m><around*|(|-z|)><rsup|m><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
+      z|)><rsub|\<pm\>><rsup|2\<nu\>-l-m><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
       s d t.>|<cell|>>>>
     </eqnarray>
 
@@ -186,24 +189,33 @@
   <\lemma>
     <label|lem3>For <math|a,c\<in\>\<bbb-C\>> such that
     <math|Re<around*|(|a|)>,Re<around*|(|c|)>\<gtr\>0> and
-    <math|-1\<leqslant\>x\<leqslant\>1> we have
+    <math|-1\<leqslant\>z\<leqslant\>1> we have
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|s-x|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
-      s=2<rsup|a-1>B<around*|(|2c,a|)><around*|(|1\<mp\>x|)><rsup|2c+a-1>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|1\<mp\>x|2>|)>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|s-z|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
+      s=2<rsup|a-1>B<around*|(|2c,a|)><around*|(|1\<mp\>z|)><rsup|2c+a-1>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|1\<mp\>z|2>|)>.>|<cell|>>>>
     </eqnarray>
   </lemma>
 
   <\lemma>
     <label|lem4>For <math|a,b\<in\>\<bbb-C\>> such that
     <math|Re<around*|(|a|)>,Re<around*|(|b|)>\<gtr\>0> and
-    <math|x\<in\><around*|[|-1,1|]>> we have
+    <math|z\<in\><around*|[|-1,1|]>> we have
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-t
-      x|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
-      t=B<around*|(|<frac|1|2>,b|)> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-a|2>,<frac|2-a|2>>>|<row|<cell|b+<frac|1|2>>>>>>;x<rsup|2>|)>.>|<cell|>>>>
+      z|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      t=B<around*|(|<frac|1|2>,b|)> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-a|2>,<frac|2-a|2>>>|<row|<cell|b+<frac|1|2>>>>>>;z<rsup|2>|)>.>|<cell|>>>>
+    </eqnarray>
+  </lemma>
+
+  <\lemma>
+    <label|lem:Fisum>
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|G<around*|(|a,d;J|)>=<frac|2<rsup|1-d><sqrt|\<pi\>>\<Gamma\><around*|(|d|)>|\<Gamma\><around*|(|<frac|a+d|2>|)>\<Gamma\><around*|(|<frac|1-a+d|2>|)>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-<frac|a+d|2>,<frac|1+a-d|2>>>|<row|<cell|b+<frac|1|2>>>>>>;J|)>.>|<cell|>>>>
     </eqnarray>
   </lemma>
 
@@ -213,14 +225,14 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><frame|<big|int><rsub|-1><rsup|1><around*|(|s-t
-      x|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      z|)><rsub|\<pm\>><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>><around*|(|1-t<rsup|2>|)><rsup|b-1>d
       s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|Lemma
       <reference|lem3>>|)>>|<cell|>>|<row|<cell|>|<cell|2<rsup|a-1>B<around*|(|2c,a|)><big|int><rsub|-1><rsup|1><around*|(|1\<mp\>t
-      x|)><rsup|2c+a-1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a>>>>>;<frac|1\<mp\>t
-      x|2>|)><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      z|)><rsup|2c+a-1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a>>>>>;<frac|1\<mp\>t
+      z|2>|)><around*|(|1-t<rsup|2>|)><rsup|b-1>d
       t=>|<cell|>>|<row|<cell|>|<cell|2<rsup|a-1>B<around*|(|2c,a|)><big|int><rsub|-1><rsup|1><around*|(|1-t
-      x|)><rsup|2c+a-1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a>>>>>;<frac|1-t
-      x|2>|)><around*|(|1-t<rsup|2>|)><rsup|b-1>d t=.>|<cell|>>>>
+      z|)><rsup|2c+a-1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a>>>>>;<frac|1-t
+      z|2>|)><around*|(|1-t<rsup|2>|)><rsup|b-1>d t=.>|<cell|>>>>
     </eqnarray>
 
     Now, expanding the hypergeometric function in power series, we can
@@ -228,13 +240,13 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-t
-      x|)><rsup|2c+a-1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a>>>>>;<frac|1-t
-      x|2>|)><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      z|)><rsup|2c+a-1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a>>>>>;<frac|1-t
+      z|2>|)><around*|(|1-t<rsup|2>|)><rsup|b-1>d
       t=>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|i><around*|(|a|)><rsub|i>|2<rsup|i>i!<around*|(|2c+a|)><rsub|i>><frame|<big|int><rsub|-1><rsup|1><around*|(|1-t
-      x|)><rsup|2c+a-1+i><around*|(|1-t<rsup|2>|)><rsup|b-1>>d
+      z|)><rsup|2c+a-1+i><around*|(|1-t<rsup|2>|)><rsup|b-1>>d
       t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|Lemma
       <reference|lem4>>|)>>|<cell|>>|<row|<cell|>|<cell|B<around*|(|<frac|1|2>,b|)><big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|i><around*|(|a|)><rsub|i>|2<rsup|i>i!<around*|(|2c+a|)><rsub|i>>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-2c-a-i|2>,<frac|2-2c-a-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;x<rsup|2>|)>.>|<cell|>>>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-2c-a-i|2>,<frac|2-2c-a-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;z<rsup|2>|)>.>|<cell|>>>>
     </eqnarray>
 
     Finally, expanding the hypergeometric function in power series, the
@@ -242,13 +254,27 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|i><around*|(|a|)><rsub|i>|2<rsup|i>i!<around*|(|2c+a|)><rsub|i>>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-2c-a-i|2>,<frac|2-2c-a-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;x<rsup|2>|)>=>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|i><around*|(|a|)><rsub|i>|2<rsup|i>i!j!<around*|(|b+<frac|1|2>|)><rsub|j>4<rsup|j>>\<cdot\><frame|<frac|<around*|(|1-2c-a-i|)><rsub|2j>|<around*|(|2c+a|)><rsub|i>>>x<rsup|2j>=>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|i><around*|(|a|)><rsub|i>|2<rsup|i>i!j!<around*|(|b+<frac|1|2>|)><rsub|j>4<rsup|j><around*|(|2c+a-2j|)><rsub|i><around*|(|2c+a|)><rsub|-2j>>x<rsup|2j>=<big|sum><rsub|j=0><rsup|\<infty\>><frac|1|j!<around*|(|b+<frac|1|2>|)><rsub|j>4<rsup|j><around*|(|2c+a|)><rsub|-2j>><frame|
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a-2j>>>>>;<frac|1|2>|)>>x<rsup|2j>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|<cite-detail|NIST:DLMF|http://dlmf.nist.gov/15.4.E30>:><space|0.6spc><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,1-a>>|<row|<cell|b>>>>>;<frac|1|2>|)>=<frac|2<rsup|1-b><sqrt|\<pi\>>\<Gamma\><around*|(|b|)>|\<Gamma\><around*|(|<frac|a+b|2>|)>\<Gamma\><around*|(|<frac|b-a+1|2>|)>>|)>>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|j=0><rsup|\<infty\>><frac|1|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<cdot\><frac|2<rsup|1-2c-a><sqrt|\<pi\>>\<Gamma\><around*|(|2c+a-2j|)>|\<Gamma\><around*|(|c+a-j|)>\<Gamma\><around*|(|c+<frac|1|2>-j|)><around*|(|2c+a|)><rsub|-2j>>x<rsup|2j>=<frac|\<Gamma\><around*|(|2c+a|)>2<rsup|1-2c-a><sqrt|\<pi\>>|\<Gamma\><around*|(|c+a|)>\<Gamma\><around*|(|c+<frac|1|2>|)>><big|sum><rsub|j=0><rsup|\<infty\>><frac|x<rsup|2j><around*|(|1-c-a|)><rsub|j><around*|(|<frac|1|2>-c|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>,>|<cell|>>>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-2c-a-i|2>,<frac|2-2c-a-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;z<rsup|2>|)>=>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|i><around*|(|a|)><rsub|i>|2<rsup|i>i!j!<around*|(|b+<frac|1|2>|)><rsub|j>4<rsup|j>>\<cdot\><frame|<frac|<around*|(|1-2c-a-i|)><rsub|2j>|<around*|(|2c+a|)><rsub|i>>>z<rsup|2j>=>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|i><around*|(|a|)><rsub|i>|2<rsup|i>i!j!<around*|(|b+<frac|1|2>|)><rsub|j>4<rsup|j><around*|(|2c+a-2j|)><rsub|i><around*|(|2c+a|)><rsub|-2j>>z<rsup|2j>=<big|sum><rsub|j=0><rsup|\<infty\>><frac|1|j!<around*|(|b+<frac|1|2>|)><rsub|j>4<rsup|j><around*|(|2c+a|)><rsub|-2j>><frame|
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a-2j>>>>>;<frac|1|2>|)>>z<rsup|2j>=>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|j=0><rsup|\<infty\>><frac|1|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<cdot\><frac|2<rsup|1-2c-a><sqrt|\<pi\>>\<Gamma\><around*|(|2c+a-2j|)>|\<Gamma\><around*|(|c+a-j|)>\<Gamma\><around*|(|c+<frac|1|2>-j|)><around*|(|2c+a|)><rsub|-2j>>z<rsup|2j>=<frac|\<Gamma\><around*|(|2c+a|)>2<rsup|1-2c-a><sqrt|\<pi\>>|\<Gamma\><around*|(|c+a|)>\<Gamma\><around*|(|c+<frac|1|2>|)>><big|sum><rsub|j=0><rsup|\<infty\>><frac|z<rsup|2j><around*|(|1-c-a|)><rsub|j><around*|(|<frac|1|2>-c|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>,>|<cell|>>>>
     </eqnarray>
 
     and it now only remains to write the definition of hypergeometric
     function.
   </proof>
+
+  <math|<math-up|<cite-detail|NIST:DLMF|http://dlmf.nist.gov/15.4.E30>:><space|0.6spc><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,1-a>>|<row|<cell|b>>>>>;<frac|1|2>|)>=<frac|2<rsup|1-b><sqrt|\<pi\>>\<Gamma\><around*|(|b|)>|\<Gamma\><around*|(|<frac|a+b|2>|)>\<Gamma\><around*|(|<frac|b-a+1|2>|)>>>
+
+  <\render-proof|Proof of Lemma <reference|lem:Fisum>>
+    \;
+
+    The right-hand of <math|<eqref|eqn:Fijsum>> amounts to\ 
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|1-d|)><rsub|2j>J<rsup|j>|2<rsup|2j>j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<cdot\><frac|2<rsup|1-d+2j><sqrt|\<pi\>>\<Gamma\><around*|(|d-2j|)>|\<Gamma\><around*|(|<frac|a+d|2>-j|)>\<Gamma\><around*|(|<frac|1-a+d|2>-j|)>>>|<cell|>>|<row|<cell|>|<cell|=<frac|2<rsup|1-d><sqrt|\<pi\>>\<Gamma\><around*|(|d|)>|\<Gamma\><around*|(|<frac|a+d|2>|)>\<Gamma\><around*|(|<frac|1-a+d|2>|)>><big|sum><rsub|j=0><rsup|\<infty\>><frac|<around*|(|1-<frac|a+d|2>|)><rsub|j><around*|(|<frac|1+a-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>J<rsup|j>>|<cell|>>>>
+    </eqnarray>
+
+    by <math|<eqref|eqn:p1>>. Hence Lemma <reference|lem:Fisum> is proved.
+  </render-proof>
 
   <with|font-series|bold|TODO:> proof of Lemma <reference|lem3>
 
@@ -257,7 +283,7 @@
   <section|Special values>
 
   <\corollary*>
-    Setting <math|x=1> and <math|l=m=0> in the statement of Theorem
+    Setting <math|z=1> and <math|l=m=0> in the statement of Theorem
     <reference|main-thm> we get:
 
     <\eqnarray>
@@ -314,7 +340,7 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|2|1>>
+    <associate|auto-2|<tuple|2|2>>
     <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|4|4>>
     <associate|auto-5|<tuple|4|5>>
@@ -322,11 +348,11 @@
     <associate|bib-NIST:DLMF|<tuple|DLMF|5>>
     <associate|bib-dotsenko1985four|<tuple|DF85|5>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|5>>
-    <associate|bib-warnaar2010sl3|<tuple|War10|5>>
+    <associate|bib-warnaar2010sl3|<tuple|War10|6>>
     <associate|eq-1|<tuple|4|2>>
     <associate|eqn:Fijsum|<tuple|4|2>>
-    <associate|eqn:Rod|<tuple|5|?>>
-    <associate|eqn:derst|<tuple|6|?>>
+    <associate|eqn:Rod|<tuple|5|2>>
+    <associate|eqn:derst|<tuple|6|3>>
     <associate|eqn:p1|<tuple|1|2>>
     <associate|eqn:p2|<tuple|2|2>>
     <associate|eqn:p3|<tuple|3|2>>
@@ -336,9 +362,10 @@
     <associate|footnr-1|<tuple|1|2>>
     <associate|footnr-2|<tuple|2|2>>
     <associate|footnr-3|<tuple|3|2>>
-    <associate|lem2|<tuple|2|1>>
+    <associate|lem2|<tuple|2|2>>
     <associate|lem3|<tuple|3|3>>
     <associate|lem4|<tuple|4|3>>
+    <associate|lem:Fisum|<tuple|5|?>>
     <associate|main-thm|<tuple|1|1>>
   </collection>
 </references>

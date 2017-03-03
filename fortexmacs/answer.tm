@@ -548,6 +548,38 @@
 
   Also, one sees that both singular points <math|x=\<pm\>1> are regular.
 
+  <\corollary>
+    <label|cor>
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsub|\<pm\>><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|2\<lambda\>+l|)>\<Gamma\><around*|(|2\<mu\>+m|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|3|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+1+2\<nu\>+\<lambda\>|)>|2<rsup|2\<lambda\>+2\<mu\>-1>l!m!\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1-<frac|l-m|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+1+\<nu\>+\<lambda\>+<frac|m+l|2>|)>>=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+1+2\<nu\>+\<lambda\>|)>|2l!m!\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1-<frac|l-m|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+1+\<nu\>+\<lambda\>+<frac|m+l|2>|)>>.>|<cell|>>>>
+    </eqnarray>
+  </corollary>
+
+  <\question>
+    Use the Corollary <reference|cor> to evaluate the integral
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|n><around*|(|x|)>H<rsub|m><around*|(|y|)>.>|<cell|>>>>
+    </eqnarray>
+  </question>
+
+  It equals to
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<frame|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|\<nu\>+<frac|m+l|2>>.>>|<cell|>>>>
+  </eqnarray>
+
+  Indeed,\ 
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+    s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+1+2\<nu\>+\<lambda\>|)>|l!m!\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1-<frac|l-m|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+1+\<nu\>+\<lambda\>+<frac|m+l|2>|)>>\<Rightarrow\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<mu\>\<rightarrow\>\<lambda\>,s\<rightarrow\><frac|x|<sqrt|\<lambda\>>>,t\<rightarrow\><frac|y|<sqrt|\<lambda\>>>|)>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|-<sqrt|\<lambda\>>><rsup|<sqrt|\<lambda\>>><big|int><rsub|-<sqrt|\<lambda\>>><rsup|<sqrt|\<lambda\>>><around*|\||x-y|\|><rsup|2\<nu\>><around*|(|1-<frac|x<rsup|2>|\<lambda\>>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-<frac|y<rsup|2>|\<lambda\>>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|<frac|x|<sqrt|\<lambda\>>>|)>C<rsub|m><rsup|\<lambda\>><around*|(|<frac|y|<sqrt|\<lambda\>>>|)>d
+    x d y=>|<cell|>>|<row|<cell|>|<cell|<frac|\<lambda\><rsup|1+\<nu\>><around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<lambda\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)><rsup|2><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Gamma\><around*|(|1+2\<nu\>+2\<lambda\>|)>|l!m!\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|\<lambda\>+1-<frac|l-m|2>+\<nu\>|)>\<Gamma\><around*|(|1+\<nu\>+2\<lambda\>+<frac|m+l|2>|)>>\<Rightarrow\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<lambda\>\<rightarrow\>\<infty\>;<space|1em>\<lambda\><rsup|-<frac|n|2>>C<rsub|n><rsup|\<lambda\>><around*|(|<frac|x|<sqrt|\<lambda\>>>|)>\<rightarrow\><frac|H<rsub|n><around*|(|x|)>|n!>,<space|0.6spc><around*|(|1-<frac|x<rsup|2>|\<lambda\>>|)><rsup|\<lambda\>-<frac|1|2>>\<rightarrow\>e<rsup|-x<rsup|2>>|)>>|<cell|>>|<row|<cell|>|<cell|<frame|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|n><around*|(|x|)>H<rsub|m><around*|(|y|)>d
+    x d y>=<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>>|<cell|>>|<row|<cell|>|<cell|lim<rsub|\<lambda\>\<rightarrow\>\<infty\>><frac|\<lambda\><rsup|1+\<nu\>-<frac|m+l|2>><around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<lambda\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)><rsup|2>\<Gamma\><around*|(|1+2\<nu\>+2\<lambda\>|)>|\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|\<lambda\>+1-<frac|l-m|2>+\<nu\>|)>\<Gamma\><around*|(|1+\<nu\>+2\<lambda\>+<frac|m+l|2>|)>>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<Gamma\><around*|(|z+a|)>/\<Gamma\><around*|(|z+b|)>\<sim\>z<rsup|a-b>,<space|1em><around*|(|2\<lambda\>|)><rsub|l>\<sim\>2<rsup|l>\<lambda\><rsup|l>|)>>|<cell|>>|<row|<cell|>|<cell|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|l+m>lim<rsub|\<lambda\>\<rightarrow\>\<infty\>><around*|(|\<lambda\><rsup|1+\<nu\>+<frac|m+l|2>>\<lambda\><rsup|<frac|1|2>-<around*|(|\<nu\>+<frac|l-m|2>+1|)>>\<lambda\><rsup|<frac|1|2>-1-<frac|l-m|2>+\<nu\>><around*|(|2\<lambda\>|)><rsup|1+2\<nu\>-1-\<nu\>-<frac|m+l|2>>|)>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|l+m>2<rsup|\<nu\>-<frac|m+l|2>>lim<rsub|\<lambda\>\<rightarrow\>\<infty\>><around*|(|\<lambda\><rsup|1+\<nu\>+<frac|m+l|2>>\<lambda\><rsup|-1>\<lambda\><rsup|\<nu\>-<frac|m+l|2>>|)>=>|<cell|>>|<row|<cell|>|<cell|<frame|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|\<nu\>+<frac|m+l|2>>>.>|<cell|>>>>
+  </eqnarray>
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
@@ -577,10 +609,11 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|13|14>>
-    <associate|bib-dotsenko1985four|<tuple|DF85|14>>
-    <associate|bib-tarasov2003selberg|<tuple|TV03|14>>
-    <associate|bib-warnaar2010sl3|<tuple|War10|14>>
+    <associate|auto-1|<tuple|14|15>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|15>>
+    <associate|bib-tarasov2003selberg|<tuple|TV03|15>>
+    <associate|bib-warnaar2010sl3|<tuple|War10|15>>
+    <associate|cor|<tuple|1|14>>
     <associate|eq-1|<tuple|4|7>>
     <associate|eq-2|<tuple|1|5>>
     <associate|eq:q8-1|<tuple|3|6>>
