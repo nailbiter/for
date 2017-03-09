@@ -15,7 +15,7 @@
     \;
   </hide-preamble>
 
-  '<date|>
+  <date|>
 
   <\question>
     <label|q1>How does the statement of Proposition 6.4
@@ -561,7 +561,7 @@
     <label|q14>Use the Corollary <reference|cor> to evaluate the integral
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|n><around*|(|x|)>H<rsub|m><around*|(|y|)>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|n><around*|(|x|)>H<rsub|m><around*|(|y|)>.<eq-number><label|eqn:herm1>>|<cell|>>>>
     </eqnarray>
   </question>
 
@@ -640,11 +640,27 @@
   Indeed,\ 
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|\||\<varepsilon\>s
+    <tformat|<table|<row|<cell|>|<cell|LHS<eqref|eqn:thm1>=>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|s,t=-1><rsup|1><around*|\||\<varepsilon\>s
     a+\<varepsilon\><rprime|'>t b|\|><rsup|2\<nu\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-    s d t=\<varepsilon\><rsup|l><around*|(|\<varepsilon\><rprime|'>|)><rsup|m><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l+m|2>>\<pi\><rsup|3/2>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<times\>,>|<cell|>>|<row|<cell|>|<cell|\<times\><choice|<tformat|<table|<row|<cell|<frac|<around*|\||a|\|><rsup|2\<nu\>><around*|(|b/a|)><rsup|m>
-    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>|\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>>,>|<cell|<around*|\||b|\|>\<leqslant\><around*|\||a|\|>>>|<row|<cell|<frac|<around*|\||b|\|><rsup|2\<nu\>><around*|(|a/b|)><rsup|m>
-    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|l-m|2>-\<nu\>-\<mu\>>>|<row|<cell|\<lambda\>+l+1>>>>>;<frac|a<rsup|2>|b<rsup|2>>|)>|\<Gamma\><around*|(|\<lambda\>+l+1|)>\<Gamma\><around*|(|\<nu\>+<frac|m-l|2>+\<mu\>+1|)>>,>|<cell|<around*|\||a|\|>\<leqslant\><around*|\||b|\|>>>>>>>|<cell|>>|<row|<cell|>|<cell|u<rsub|l><rsup|\<lambda\>><around*|(|s|)>\<assign\><frac|2<rsup|2\<lambda\>-1>l!\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|2\<lambda\>+l|)>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>,\<varepsilon\><rprime|'>=\<pm\>1;<space|1em>a,b\<in\>\<bbb-R\><rsub|\<geqslant\>0>;<space|1em><around*|(|l,m|)>\<in\><around*|{|\<bbb-N\><rsup|2>\<mid\>l+m\<in\>2\<bbb-N\>|}>;>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\><around*|{|\<bbb-C\><rsup|3>\<mid\>Re<around*|(|<frac|\<nu\>-l-m|2>|)>,Re<around*|(|\<lambda\>+l|)>,Re<around*|(|\<mu\>+m|)>\<gtr\>-1/2|}>.>|<cell|>>>>
+    s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<nu\>=0|)>>|<cell|>>|<row|<cell|>|<cell|<frac|l!m!\<pi\>|<around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>><big|int><rsub|s,t=-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+    s d t=>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<delta\><rsup|x><rsub|y>\<assign\><choice|<tformat|<table|<row|<cell|0,>|<cell|x\<neq\>y>>|<row|<cell|1,>|<cell|x=y>>>>>,<space|1em><big|int><rsub|-1><rsup|1><around*|(|1-x<rsup|2>|)><rsup|\<alpha\>-1>d
+    x=2<rsup|2\<alpha\>-1>B<around*|(|\<alpha\>,\<alpha\>|)>=<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|\<alpha\>|)>|\<Gamma\><around*|(|\<alpha\>+<frac|1|2>|)>>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|l!m!\<pi\><rsup|2>\<delta\><rsub|l><rsup|0>\<delta\><rsub|m><rsup|0>|<around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1|)>>=<frac|\<pi\><rsup|2>\<delta\><rsub|l><rsup|0>\<delta\><rsub|m><rsup|0>|\<Gamma\><around*|(|\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1|)>>;>|<cell|>>|<row|<cell|>|<cell|RHS<eqref|eqn:thm1>=>|<cell|>>|<row|<cell|>|<cell|<frame|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>>>\<times\>\<ldots\>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<nu\>=0|)>>|<cell|>>|<row|<cell|>|<cell|\<delta\><rsup|0><rsub|l+m>RHS<eqref|eqn:thm1>=\<delta\><rsub|l><rsup|0>\<delta\><rsub|m><rsup|0>\<pi\><rsup|2><choice|<tformat|<table|<row|<cell|<frac|<rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|0,-\<lambda\>>>|<row|<cell|\<mu\>+1>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>|\<Gamma\><around*|(|\<mu\>+1|)>\<Gamma\><around*|(|\<lambda\>+1|)>>,>|<cell|<around*|\||b|\|>\<leqslant\><around*|\||a|\|>,>>|<row|<cell|<frac|
+    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|0,-\<mu\>>>|<row|<cell|\<lambda\>+1>>>>>;<frac|a<rsup|2>|b<rsup|2>>|)>|\<Gamma\><around*|(|\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1|)>>,>|<cell|<around*|\||a|\|>\<leqslant\><around*|\||b|\|>,>>>>>=<frac|\<pi\><rsup|2>\<delta\><rsub|l><rsup|0>\<delta\><rsub|m><rsup|0>|\<Gamma\><around*|(|\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1|)>>.>|<cell|>>>>
+  </eqnarray>
+
+  <\question>
+    Can we use prove more general equality than that of
+    <math|<eqref|eqn:herm1>> using the same techniques?
+  </question>
+
+  Indeed,
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+    s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+1+2\<nu\>+\<lambda\>|)>|l!m!\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1-<frac|l-m|2>+\<nu\>|)>\<Gamma\><around*|(|\<mu\>+1+\<nu\>+\<lambda\>+<frac|m+l|2>|)>>\<Rightarrow\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|s\<rightarrow\><frac|x|<sqrt|\<lambda\>>>,t\<rightarrow\><frac|y|<sqrt|\<mu\>>>,\<mu\>\<rightarrow\>z\<lambda\>,z\<gtr\>0|)>>|<cell|>>|<row|<cell|>|<cell|<frac|1|\<lambda\><sqrt|z>><big|int><rsub|-<sqrt|\<lambda\>>><rsup|<sqrt|\<lambda\>>><big|int><rsub|-<sqrt|z\<lambda\>>><rsup|<sqrt|z\<lambda\>>><around*|\||<frac|x-y/<sqrt|z>|<sqrt|\<lambda\>>>|\|><rsup|2\<nu\>><around*|(|1-<frac|x<rsup|2>|\<lambda\>>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-<frac|y<rsup|2>|z\<lambda\>>|)><rsup|z\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|<frac|x<rsup|2>|\<lambda\>>|)>C<rsub|m><rsup|z\<lambda\>><around*|(|<frac|y<rsup|2>|z\<lambda\>>|)>d
+    s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|2\<lambda\>|)><rsub|l><around*|(|2z\<lambda\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|z\<lambda\>+<frac|1|2>|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Gamma\><around*|(|z\<lambda\>+1+2\<nu\>+\<lambda\>|)>|l!m!\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|z\<lambda\>+1-<frac|l-m|2>+\<nu\>|)>\<Gamma\><around*|(|z\<lambda\>+1+\<nu\>+\<lambda\>+<frac|m+l|2>|)>>\<Rightarrow\>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|-<sqrt|\<lambda\>>><rsup|<sqrt|\<lambda\>>><big|int><rsub|-<sqrt|z\<lambda\>>><rsup|<sqrt|z\<lambda\>>><around*|\||x-<frac|y|<sqrt|z>>|\|><rsup|2\<nu\>><around*|(|1-<frac|x<rsup|2>|\<lambda\>>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-<frac|y<rsup|2>|z\<lambda\>>|)><rsup|z\<lambda\>-<frac|1|2>>\<lambda\><rsup|-<frac|n|2>>C<rsub|l><rsup|\<lambda\>><around*|(|<frac|x<rsup|2>|\<lambda\>>|)><around*|(|z\<lambda\>|)><rsup|-<frac|m|2>>C<rsub|m><rsup|z\<lambda\>><around*|(|<frac|y<rsup|2>|z\<lambda\>>|)>d
+    s d t=>|<cell|>>|<row|<cell|>|<cell|<frac|\<lambda\><rsup|1+\<nu\>-<frac|m+n|2>>z<rsup|<frac|1-m|2>><around*|(|2\<lambda\>|)><rsub|l><around*|(|2z\<lambda\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|z\<lambda\>+<frac|1|2>|)><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Gamma\><around*|(|z\<lambda\>+1+2\<nu\>+\<lambda\>|)>|l!m!\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|z\<lambda\>+1-<frac|l-m|2>+\<nu\>|)>\<Gamma\><around*|(|z\<lambda\>+1+\<nu\>+\<lambda\>+<frac|m+l|2>|)>>\<Rightarrow\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|l\<rightarrow\>n<space|1em>;\<lambda\>\<rightarrow\>\<infty\>;<space|1em>\<lambda\><rsup|-<frac|n|2>>C<rsub|n><rsup|\<lambda\>><around*|(|<frac|x|<sqrt|\<lambda\>>>|)>\<rightarrow\><frac|H<rsub|n><around*|(|x|)>|n!>,<space|0.6spc><around*|(|1-<frac|x<rsup|2>|\<lambda\>>|)><rsup|\<lambda\>-<frac|1|2>>\<rightarrow\>e<rsup|-x<rsup|2>>|)>>|<cell|>>|<row|<cell|>|<cell|<frame|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-<frac|y|<sqrt|z>>|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|n><around*|(|x|)>H<rsub|m><around*|(|y|)>d
+    x d y>=<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>z<rsup|<frac|1-m|2>>>|<cell|>>|<row|<cell|>|<cell|lim<rsub|\<lambda\>\<rightarrow\>\<infty\>><frac|\<lambda\><rsup|1+\<nu\>-<frac|m+n|2>><around*|(|2\<lambda\>|)><rsub|n><around*|(|2z\<lambda\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|z\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|1+2\<nu\>+<around*|(|z+1|)>\<lambda\>|)>|\<Gamma\><around*|(|\<nu\>+<frac|n-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|z\<lambda\>+1-<frac|n-m|2>+\<nu\>|)>\<Gamma\><around*|(|1+\<nu\>+<around*|(|z+1|)>\<lambda\>+<frac|m+n|2>|)>>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<Gamma\><around*|(|z+a|)>/\<Gamma\><around*|(|z+b|)>\<sim\>z<rsup|a-b>,<space|1em><around*|(|2\<lambda\>|)><rsub|n>\<sim\>2<rsup|n>\<lambda\><rsup|n>|)>>|<cell|>>|<row|<cell|>|<cell|<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|n+m>z<rsup|<frac|1+m|2>>\<times\>>|<cell|>>|<row|<cell|>|<cell|lim<rsub|\<lambda\>\<rightarrow\>\<infty\>><around*|(|\<lambda\><rsup|1+\<nu\>+<frac|m+n|2>>\<lambda\><rsup|<frac|1|2>-<around*|(|\<nu\>+<frac|n-m|2>+1|)>><around*|(|z\<lambda\>|)><rsup|<frac|1|2>-1+<frac|n-m|2>-\<nu\>><around*|(|<around*|(|z+1|)>\<lambda\>|)><rsup|1+2\<nu\>-1-\<nu\>-<frac|m+n|2>>|)>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|n+m><around*|(|1+z|)><rsup|\<nu\>-<frac|m+n|2>>z<rsup|<frac|n|2>-\<nu\>>lim<rsub|\<lambda\>\<rightarrow\>\<infty\>><around*|(|\<lambda\><rsup|1+\<nu\>+<frac|m+n|2>>\<lambda\><rsup|-1>\<lambda\><rsup|\<nu\>-<frac|m+n|2>>|)>=>|<cell|>>|<row|<cell|>|<cell|<frame|<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|m+n><around*|(|1+z|)><rsup|\<nu\>-<frac|m+n|2>>z<rsup|<frac|n|2>-\<nu\>>>.>|<cell|>>>>
   </eqnarray>
 
   <\bibliography|bib|alpha|intdep.bib>
@@ -675,13 +691,13 @@
 
 <\initial>
   <\collection>
-    <associate|magnification|1>
+    <associate|magnification|1.2>
   </collection>
 </initial>
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|17|17>>
+    <associate|auto-1|<tuple|18|17>>
     <associate|bib-dotsenko1985four|<tuple|DF85|17>>
     <associate|bib-mackenzie2003hermite|<tuple|MT03|17>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|17>>
@@ -690,6 +706,7 @@
     <associate|eq-1|<tuple|4|7>>
     <associate|eq-2|<tuple|1|5>>
     <associate|eq:q8-1|<tuple|3|6>>
+    <associate|eqn:herm1|<tuple|6|?>>
     <associate|eqn:thm1|<tuple|5|9>>
     <associate|q-ode|<tuple|11|9>>
     <associate|q1|<tuple|1|1>>

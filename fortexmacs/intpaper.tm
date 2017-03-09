@@ -89,11 +89,13 @@
   <reference|cor:1>:
 
   <\corollary>
-    <label|cor:Hermite>
+    <label|cor:Hermite>For <math|z\<geqslant\>0> the following integral
+    converges:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|l><around*|(|x|)>H<rsub|m><around*|(|y|)>d
-      x d y>|<cell|>>|<row|<cell|>|<cell|=<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>2<rsup|\<nu\>+<frac|l+m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-z
+      y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|l><around*|(|x|)>H<rsub|m><around*|(|y|)>d
+      x d y>|<cell|>>|<row|<cell|>|<cell|=<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|m+n><around*|(|z<rsup|2>+1|)><rsup|\<nu\>-<frac|m+n|2>>z<rsup|m>.>|<cell|>>>>
     </eqnarray>
   </corollary>
 
@@ -330,7 +332,7 @@
     </eqnarray>
   </corollary>
 
-  <image|intdep.png|197px|66px||>
+  <image|intdep.png|788px|264px||>
 
   <\example>
     <math|<around*|[|<math-up|S>|]><rprime|''>>
@@ -373,22 +375,15 @@
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|AAR99>
-      <bibitem*|AAR99><label|bib-andrews1999special>G.<nbsp>E. Andrews, R.
-      Askey, and R.it Roy. <newblock>Special functions, vol.
-      <with|font-series|bold|71> of encyclopedia of mathematics and its
-      applications, 1999
+      <bibitem*|AAR99><label|bib-andrews1999special>George<nbsp>E Andrews,
+      Richard Askey, and Ranjan Roy. <newblock>Special functions, volume 71
+      of encyclopedia of mathematics and its applications, 1999.
 
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
       Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions and
       the operator algebra in 2d conformal invariant theories with central
       charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
       Physics B>, 251:691\U734, 1985.
-
-      <bibitem*|GRJ00><label|bib-gradshteinryzhik>I.S.
-      Gradshte<math|<wide|<text|\Y>|\<breve\>>>n, I.M. Ryzhik, and
-      A.<nbsp>Jeffrey. <newblock><with|font-shape|italic|Table of Integrals,
-      Series, and Products, Sixth edition>. <newblock>Academic Press, New
-      York, 2000.
 
       <bibitem*|TV03><label|bib-tarasov2003selberg>V<nbsp>Tarasov and
       Alexander Varchenko. <newblock>Selberg-type integrals associated with
@@ -431,7 +426,7 @@
     <associate|cor:1|<tuple|1.3|2>>
     <associate|cor:Hermite|<tuple|1.4|2>>
     <associate|eqn:Fijsum|<tuple|3.6|5>>
-    <associate|eqn:Rod|<tuple|2.2|3>>
+    <associate|eqn:Rod|<tuple|2.2|2>>
     <associate|eqn:derst|<tuple|2.3|3>>
     <associate|eqn:iF|<tuple|3.1|4>>
     <associate|eqn:main|<tuple|1.1|1>>
@@ -465,7 +460,7 @@
     <associate|footnr-4.4|<tuple|4.4|5>>
     <associate|lem2|<tuple|2.1|2>>
     <associate|lem3|<tuple|3.1|3>>
-    <associate|lem4|<tuple|3.2|4>>
+    <associate|lem4|<tuple|3.2|3>>
     <associate|lem:Fisum|<tuple|3.3|4>>
     <associate|main-thm|<tuple|1.1|1>>
     <associate|prop:2|<tuple|2.1|2>>
