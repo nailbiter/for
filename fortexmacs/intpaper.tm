@@ -347,7 +347,7 @@
   </example>
 
   <\example>
-    <math|<math-up|<cite-detail|dotsenko1985four|A35>><rprime|'>>
+    <math|<math-up|<cite-detail|dotsenko1985four|(A35)>><rprime|'>>
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|Re<around*|(|<frac|\<lambda\>-<frac|1|2>|\<mu\>-<frac|1|2>>|)>\<less\>0,Re
@@ -404,12 +404,12 @@
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|2|2>>
     <associate|auto-3|<tuple|3|3>>
-    <associate|auto-4|<tuple|4|6>>
-    <associate|auto-5|<tuple|4.5|8>>
-    <associate|bib-Selberg:411367|<tuple|Sel44|8>>
-    <associate|bib-andrews1999special|<tuple|AAR99|8>>
-    <associate|bib-dotsenko1985four|<tuple|DF85|8>>
-    <associate|bib-tarasov2003selberg|<tuple|TV03|8>>
+    <associate|auto-4|<tuple|4|5>>
+    <associate|auto-5|<tuple|4.5|7>>
+    <associate|bib-Selberg:411367|<tuple|Sel44|7>>
+    <associate|bib-andrews1999special|<tuple|AAR99|7>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|7>>
+    <associate|bib-tarasov2003selberg|<tuple|TV03|7>>
     <associate|bib-warnaar2010sl3|<tuple|War10|8>>
     <associate|cor:1|<tuple|1.3|2>>
     <associate|cor:Hermite|<tuple|1.4|2>>
