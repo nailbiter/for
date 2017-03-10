@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|svjour|number-long-article>>
 
@@ -342,7 +342,7 @@
       <tformat|<table|<row|<cell|>|<cell|Re
       \<mu\>\<gtr\>-<frac|1|2>,<around*|\||Re
       \<nu\>|\|>\<ll\>1,>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<lambda\>+2\<nu\>+1>><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|t-s|)><rsub|+><rsup|2\<nu\>>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<cdot\><frac|\<Gamma\><around*|(|<frac|3|2>+\<lambda\>+2\<nu\>|)>\<Gamma\><around*|(|1+2\<nu\>|)>|\<Gamma\><around*|(|2+2\<nu\>|)>\<Gamma\><around*|(|2+2\<lambda\>+2\<nu\>|)>>,>|<cell|>>|<row|<cell|>|<cell|<around*|(|k<rsub|1>,k<rsub|2>,\<alpha\>,\<beta\><rsub|1>,\<beta\><rsub|2>,\<gamma\>|)>=<around*|(|1,1,\<lambda\>+<frac|1|2>,\<lambda\>+<frac|1|2>,1,-2\<nu\>|)>.>|<cell|>>>>
+      s d t=>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<cdot\><frac|\<Gamma\><around*|(|<frac|3|2>+\<lambda\>+2\<nu\>|)>\<Gamma\><around*|(|1+2\<nu\>|)>|\<Gamma\><around*|(|2+2\<nu\>|)>\<Gamma\><around*|(|2+2\<lambda\>+2\<nu\>|)>>=<frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|<frac|3|2>+\<lambda\>+2\<nu\>|)>|<around*|(|1+2\<nu\>|)>\<Gamma\><around*|(|2+2\<lambda\>+2\<nu\>|)>>,>|<cell|>>|<row|<cell|>|<cell|<around*|(|k<rsub|1>,k<rsub|2>,\<alpha\>,\<beta\><rsub|1>,\<beta\><rsub|2>,\<gamma\>|)>=<around*|(|1,1,\<lambda\>+<frac|1|2>,\<lambda\>+<frac|1|2>,1,-2\<nu\>|)>.>|<cell|>>>>
     </eqnarray>
   </example>
 
@@ -352,7 +352,7 @@
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|Re<around*|(|<frac|\<lambda\>-<frac|1|2>|\<mu\>-<frac|1|2>>|)>\<less\>0,Re
       \<mu\>\<gtr\><frac|1|2>,>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<lambda\>+2\<mu\>-2>>PV<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>><around*|\||s-t|\|><rsup|-2>d
-      s d t>|<cell|>>|<row|<cell|>|<cell|=<around*|(|<frac|\<mu\>-<frac|1|2>|\<lambda\>-<frac|1|2>>|)><rsup|2><frac|1|-<frac|\<mu\>-<frac|1|2>|\<lambda\>-<frac|1|2>>-1>\<times\><frac|1|<around*|(|\<mu\>-<frac|1|2>|)><rsup|2><around*|(|2\<mu\>-1|)>>\<times\><frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>|\<Gamma\><around*|(|2\<lambda\>-1|)>>\<times\><frac|\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>|\<Gamma\><around*|(|2\<mu\>-1|)>>=,>|<cell|>>|<row|<cell|>|<cell|=<frac|-1|2<around*|(|\<mu\>+\<lambda\>-1|)>>\<cdot\><frac|\<Gamma\><around*|(|\<lambda\>-<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>-<frac|1|2>|)>|\<Gamma\><around*|(|2\<lambda\>-1|)>\<Gamma\><around*|(|2\<mu\>-1|)>>,>|<cell|>>|<row|<cell|>|<cell|<around*|(|n,m,\<alpha\>,\<beta\>,\<rho\>|)>=<around*|(|1,1,\<mu\>-<frac|1|2>,\<mu\>-<frac|1|2>,-<frac|\<mu\>-<frac|1|2>|\<lambda\>-<frac|1|2>>|)>.>|<cell|>>>>
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<around*|(|<frac|\<mu\>-<frac|1|2>|\<lambda\>-<frac|1|2>>|)><rsup|2><frac|1|-<frac|\<mu\>-<frac|1|2>|\<lambda\>-<frac|1|2>>-1>\<times\><frac|1|<around*|(|\<mu\>-<frac|1|2>|)><rsup|2><around*|(|2\<mu\>-1|)>>\<times\><frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)><rsup|2>|\<Gamma\><around*|(|2\<lambda\>-1|)>>\<times\><frac|\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><rsup|2>|\<Gamma\><around*|(|2\<mu\>-1|)>>=,>|<cell|>>|<row|<cell|>|<cell|=<frac|-1|2<around*|(|\<mu\>+\<lambda\>-1|)>>\<cdot\><frac|\<Gamma\><around*|(|\<lambda\>-<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>-<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>|\<Gamma\><around*|(|2\<lambda\>-1|)>\<Gamma\><around*|(|2\<mu\>-1|)>>,>|<cell|>>|<row|<cell|>|<cell|<around*|(|n,m,\<alpha\>,\<beta\>,\<rho\>|)>=<around*|(|1,1,\<mu\>-<frac|1|2>,\<mu\>-<frac|1|2>,-<frac|\<mu\>-<frac|1|2>|\<lambda\>-<frac|1|2>>|)>.>|<cell|>>>>
     </eqnarray>
   </example>
 
@@ -406,12 +406,9 @@
     <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|4|6>>
     <associate|auto-5|<tuple|4.5|8>>
-    <associate|auto-6|<tuple|4.5|?>>
-    <associate|bib-NIST:DLMF|<tuple|DLMF|6>>
     <associate|bib-Selberg:411367|<tuple|Sel44|8>>
     <associate|bib-andrews1999special|<tuple|AAR99|8>>
     <associate|bib-dotsenko1985four|<tuple|DF85|8>>
-    <associate|bib-gradshteinryzhik|<tuple|GRJ00|8>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|8>>
     <associate|bib-warnaar2010sl3|<tuple|War10|8>>
     <associate|cor:1|<tuple|1.3|2>>
@@ -426,32 +423,10 @@
     <associate|eqn:p3|<tuple|3.5|5>>
     <associate|eqn:quad|<tuple|3.2|4>>
     <associate|eqn:stz|<tuple|2.1|2>>
-    <associate|footnote-1|<tuple|1|2>>
     <associate|footnote-1.1|<tuple|1.1|1>>
-    <associate|footnote-1.2|<tuple|1.2|1>>
-    <associate|footnote-2.1|<tuple|2.1|2>>
-    <associate|footnote-2.2|<tuple|2.2|3>>
-    <associate|footnote-3.1|<tuple|3.1|4>>
-    <associate|footnote-3.2|<tuple|3.2|4>>
-    <associate|footnote-3.3|<tuple|3.3|?>>
     <associate|footnote-4.1|<tuple|4.1|6>>
-    <associate|footnote-4.2|<tuple|4.2|8>>
-    <associate|footnote-4.3|<tuple|4.3|6>>
-    <associate|footnote-4.4|<tuple|4.4|5>>
-    <associate|footnr-1|<tuple|1|2>>
     <associate|footnr-1.1|<tuple|1.1|1>>
-    <associate|footnr-1.2|<tuple|1.2|1>>
-    <associate|footnr-2.1|<tuple|2.1|2>>
-    <associate|footnr-2.2|<tuple|2.2|3>>
-    <associate|footnr-3.1|<tuple|3.1|4>>
-    <associate|footnr-3.2|<tuple|3.2|4>>
-    <associate|footnr-3.3|<tuple|3.3|?>>
     <associate|footnr-4.1|<tuple|4.1|6>>
-    <associate|footnr-4.2|<tuple|4.2|7>>
-    <associate|footnr-4.3|<tuple|4.3|6>>
-    <associate|footnr-4.4|<tuple|4.4|5>>
-    <associate|lem2|<tuple|2.1|2>>
-    <associate|lem3|<tuple|3.1|4>>
     <associate|lem4|<tuple|3.1|3>>
     <associate|lem:Fisum|<tuple|3.2|3>>
     <associate|main-thm|<tuple|1.1|1>>
