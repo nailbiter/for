@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|svjour|number-long-article>>
 
@@ -72,25 +72,16 @@
     </eqnarray>
   </corollary>
 
-  By the limit formula
+  Selberg-type integrals are related to (finite-dimensional) representation
+  theory of semisimple Lie algebras, see <cite|tarasov2003selberg>,<cite|forrester2008importance>
+  and references therein. On the other hand, Theorem <reference|main-thm> and
+  Corollary <reference|cor:1> will be used in the study of symmetry breaking
+  operators for infinite-dimensional representations when we extend the work
+  <cite|kobayashi2015symmetry> to indefinite orthogonal groups
+  <math|O<around*|(|p,q|)>>. This will be done in a separate paper.
 
-  <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|H<rsub|n><around*|(|x|)>=n!lim<rsub|\<lambda\>\<rightarrow\>\<infty\>>\<lambda\><rsup|-<frac|n|2>>C<rsub|n><rsup|\<lambda\>><around*|(|<frac|x|<sqrt|\<lambda\>|>>|)>,>|<cell|>>>>
-  </eqnarray>
-
-  we deduce an integral formula of the Hermite polynomial from Corollaly
-  <reference|cor:1>:
-
-  <\corollary>
-    <label|cor:Hermite>For <math|z\<geqslant\>0> the following integral
-    converges:
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-z
-      y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|l><around*|(|x|)>H<rsub|m><around*|(|y|)>d
-      x d y=<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|m+n><around*|(|z<rsup|2>+1|)><rsup|\<nu\>-<frac|m+n|2>>z<rsup|m>.>|<cell|>>>>
-    </eqnarray>
-  </corollary>
+  Special cases and the limit case of Theorem <reference|main-thm> will be
+  discussed in Section <reference|sec:4>.
 
   <section|Proof of main theorem><label|sec:2>
 
@@ -111,8 +102,7 @@
   </proposition>
 
   <\render-proof|Proof of Theorem <reference|main-thm>>
-    (using Proposition <reference|prop:2>) By the Rodrigues formula for the
-    Gegenbauer polynomial:
+    By the Rodrigues formula for the Gegenbauer polynomial:
 
     <\equation*>
       u<rsub|l><rsup|\<lambda\>><around*|(|t|)>=<frac|<around*|(|-1|)><rsup|l>2<rsup|-l><sqrt|\<pi\>>|\<Gamma\><around*|(|\<lambda\>+l+<frac|1|2>|)>>\<cdot\><frac|d<rsup|l>|d
@@ -127,8 +117,8 @@
       s d t.>|<cell|>>>>
     </eqnarray>
 
-    If <math|Re \<nu\>\<gtr\><frac|l+m|2>>, <math|Re
-    \<lambda\>\<gtr\><frac|1|2>> and <math|Re \<mu\>\<gtr\><frac|1|2>>, then
+    Suppose that <math|Re \<nu\>\<gtr\><frac|l+m|2>>, <math|Re
+    \<lambda\>\<gtr\><frac|1|2>> and <math|Re \<mu\>\<gtr\><frac|1|2>>. Then
     <math|<around*|\||s-t z|\|><rsup|2\<nu\>>> is of <math|C<rsup|l+m>> class
     and the above integral is equal to
 
@@ -137,7 +127,7 @@
       z|\|><rsup|2\<nu\>>d s d t<eq-number><label|eqn:derst>>|<cell|>>>>
     </eqnarray>
 
-    by integration by parts. Next, since <math|l+m\<in\>2\<bbb-N\>> we have
+    by integration by parts. Since <math|l+m\<in\>2\<bbb-N\>> we have
 
     <\equation*>
       <frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|\||s-t
@@ -163,8 +153,8 @@
   the proof of Theorem <reference|main-thm>. We use the following two lemmas.
 
   <\lemma>
-    <label|lem4>For <math|a,b\<in\>\<bbb-C\>> with <math|Re a,Re b\<gtr\>0>
-    and <math|z\<in\><around*|[|-1,1|]>> we have
+    <label|lem4>For <math|a,b,z\<in\>\<bbb-C\>> with <math|Re a,Re b\<gtr\>0>
+    and <math|<around*|\||z|\|>\<less\>1> we have
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-t
@@ -183,8 +173,8 @@
     </eqnarray>
   </lemma>
 
-  Postponing the verification of Lemmas <reference|lem3>, <reference|lem4>
-  and <reference|lem:Fisum>, we first show Proposition <reference|prop:2>.
+  Postponing the verification of Lemmas <reference|lem4> and
+  <reference|lem:Fisum>, we first show Proposition <reference|prop:2>.
 
   <\render-proof|Proof of Proposition <reference|prop:2>>
     By the change of variables <math|s=<around*|(|1-z|)><around*|(|1-t|)>+z>,
@@ -192,17 +182,15 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|s-z|)><rsub|+><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
-      s=2<rsup|a-1><around*|(|1-z|)><rsup|a+2c-1><big|int><rsub|0><rsup|1>t<rsup|a-1><around*|(|1-t|)><rsup|2c-1><around*|(|1-<frac|1-z|2>t|)><rsup|a-1>d
-      t>|<cell|>>>>
+      s=2<rsup|a-1>B<around*|(|2c,a|)><around*|(|1-z|)><rsup|2c+a>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|1-z|2>|)>>|<cell|>>>>
     </eqnarray>
 
-    because <math|-1\<leqslant\>s\<leqslant\>1> and <math|s-z\<geqslant\>0>
-    if and only if <math|0\<leqslant\>t\<leqslant\>1>. The right-hand side
-    equals <math|2<rsup|a-1>B<around*|(|2c,a|)><around*|(|1-z|)><rsup|2c+a>
-    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|1-z|2>|)>>
     from Euler's integral representation of the hypergeometric function
-    <math|<rsub|2>F<rsub|1>>. The left-hand side of <math|<eqref|eqn:stz>>
-    equals:
+    <math|<rsub|2>F<rsub|1>>, because <math|-1\<leqslant\>s\<leqslant\>1> and
+    <math|s-z\<geqslant\>0> if and only if
+    <math|0\<leqslant\>t\<leqslant\>1>. Therefore the left-hand side of
+    <math|<eqref|eqn:stz>> equals:
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|2<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
@@ -230,8 +218,8 @@
       <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-2c-a-i|2>,<frac|2-2c-a-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;z<rsup|2>|)>.>|<cell|>>>>
     </eqnarray>
 
-    Now Proposition <reference|prop:2> follows from Lemma
-    <reference|lem:Fisum>.
+    Now <math|><eqref|eqn:stz> follows from Lemma <reference|lem:Fisum> with
+    <math|\<zeta\>=z<rsup|2>>.
   </render-proof>
 
   <\render-proof|Proof of Lemma <reference|lem4>>
@@ -245,7 +233,8 @@
     </eqnarray>
 
     Applying the following quadratic transformation of
-    <math|<rsub|2>F<rsub|1>> (cf. <cite-detail|andrews1999special|Thm. 3.13>)
+    <math|<rsub|2>F<rsub|1>> (cf. <cite-detail|andrews1999special|Thm.
+    3.13>):
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<space|0.6spc><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,b>>|<row|<cell|2b>>>>>;u|)>=<around*|(|1-<frac|z|2>|)><rsup|a-1>
@@ -296,94 +285,197 @@
     Lemma <reference|lem:Fisum> is proved.
   </render-proof>
 
-  <section|Special values>
+  <section|Limit case and Special values><label|sec:4>
 
-  Setting <math|l=m=0> in the statement of Corollary <reference|cor:1> we
-  get:
+  In this section we examine our main result (Theorem <reference|main-thm>)
+  by taking the \Plimit\Q or by evaluating at special values of parameters.
+  We also compare them with special values of the existing integral formulæ
+  such as the Selberg-type formulæ.
+
+  Since the Hermite polynomial <math|H<rsub|n><around*|(|x|)>> is obtained as
+  a limit of the Gegenbauer polynomial:
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|H<rsub|n><around*|(|x|)>=n!lim<rsub|\<lambda\>\<rightarrow\>\<infty\>>\<lambda\><rsup|-<frac|n|2>>C<rsub|n><rsup|\<lambda\>><around*|(|<frac|x|<sqrt|\<lambda\>|>>|)>,>|<cell|>>>>
+  </eqnarray>
+
+  we can deduce the following integral formula of the Hermite polynomial from
+  Corollaly <reference|cor:1>:
 
   <\corollary>
-    \;
+    <label|cor:Hermite>Suppose <math|l,m\<in\>\<bbb-N\>> with <math|l+m>
+    even.
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-      s d t=<frac|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-z
+      y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|l><around*|(|x|)>H<rsub|m><around*|(|y|)>d
+      x d y=<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>2<rsup|l+m>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)><around*|(|z<rsup|2>+1|)><rsup|\<nu\>-<frac|l+m|2>>z<rsup|m>.>|<cell|>>>>
     </eqnarray>
   </corollary>
 
-  <image|intdep.png|788px|264px||>
-
   <\example>
-    <math|><cite|Selberg:411367><math|<rprime|''>><\footnote>
-      I noticed you removed <math|t<rsub|1>,s<rsub|1>> in the end of every
-      example, except of this one. Is this intentional?
-    </footnote>
+    (Mehta integral <cite|mehta2004random>) The Mehta integral
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|Re
-      \<lambda\>\<gtr\>-<frac|1|2>,<around*|\||\<nu\>|\|>\<ll\>1,<frac|1|2<rsup|4\<lambda\>+2\<nu\>>><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|\||s-t|\|><rsup|2\<nu\>>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)><rsup|2>|\<Gamma\><around*|(|2\<lambda\>+1+\<nu\>|)>>\<cdot\><frac|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|1|2>|)><rsup|2>\<Gamma\><around*|(|1+2\<nu\>|)>|\<Gamma\><around*|(|2\<lambda\>+2\<nu\>+1|)>\<Gamma\><around*|(|1+\<nu\>|)>>,>|<cell|>>|<row|<cell|>|<cell|<around*|(|k,\<alpha\>,\<beta\>\<comma\>\<gamma\>,t<rsub|1>,t<rsub|2>|)>=<around*|(|2,\<lambda\>+<frac|1|2>,\<lambda\>+<frac|1|2>,\<nu\>,<frac|1+s|2>,<frac|1+t|2>|)>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<frac|1|<around*|(|2\<pi\>|)><rsup|n/2>><big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>>\<ldots\><big|int><rsub|-\<infty\>><rsup|\<infty\>><big|prod><rsub|i=1><rsup|n>e<rsup|-t<rsub|i><rsup|2>/2><rsub|><big|prod><rsub|1\<leqslant\>i\<less\>j\<leqslant\>n><around*|\||t<rsub|i>-t<rsub|j>|\|><rsup|2\<nu\>>d
+      t<rsub|1>\<cdots\>d t<rsub|n>>|<cell|>>|<row|<cell|>|<cell|=<big|prod><rsub|j=1><rsup|n><frac|\<Gamma\><around*|(|1+j\<nu\>|)>|\<Gamma\><around*|(|1+\<nu\>|)>>>|<cell|>>>>
     </eqnarray>
-  </example>
 
-  <\example>
-    <math|<math-up|<cite-detail|warnaar2010sl3|(1.4)>><rprime|''>>
+    in special case <math|n=2> implies the following equation
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|Re\<lambda\>\<gtr\>-<frac|1|2>,Re
-      \<mu\>\<gtr\>-<frac|1|2>,<around*|\||\<lambda\>+\<mu\>|\|>\<ll\>1;<space|1em>\<mu\>\<nin\><frac|1|2>+\<bbb-Z\>,>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|\<lambda\>+\<mu\>>><around*|(|<big|int><big|int><rsub|0\<leqslant\>s\<less\>t\<leqslant\>1>+<frac|cos<around*|(|\<pi\>\<lambda\>|)>|cos<around*|(|\<pi\>\<mu\>|)>><big|int><big|int><rsub|0\<leqslant\>t\<less\>s\<leqslant\>1>|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>><around*|\||s-t|\|><rsup|-\<lambda\>-\<mu\>>d
-      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|<frac|1|2>-\<mu\>|)>|\<Gamma\><around*|(|\<lambda\>+1-\<mu\>|)>>\<cdot\><frac|\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><rsup|2>|\<Gamma\><around*|(|\<mu\>+1-\<lambda\>|)>>\<cdot\><frac|1|\<Gamma\><around*|(|\<lambda\>+\<mu\>+1|)>>,>|<cell|>>|<row|<cell|>|<cell|<around*|(|k<rsub|1>,k<rsub|2>,\<alpha\><rsub|1>,\<beta\><rsub|1>,\<alpha\><rsub|2>\<comma\>\<beta\><rsub|2>,\<gamma\>|)>=<around*|(|1,1,\<lambda\>+<frac|1|2>,\<lambda\>+<frac|1|2>,\<mu\>+<frac|1|2>,\<mu\>+<frac|1|2>\<comma\>\<lambda\>+\<mu\>|)>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<frac|1|2\<pi\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>>e<rsup|-<frac|x<rsup|2>+y<rsup|2>|2>><around*|\||x-y|\|><rsup|2\<nu\>>d
+      x d y=<frac|\<Gamma\><around*|(|1+2\<nu\>|)>|\<Gamma\><around*|(|1+\<nu\>|)>>.>|<cell|>>|<row|<cell|>|<cell|>|<cell|>>>>
     </eqnarray>
+
+    This coincides with the special case of Corollary <reference|cor:Hermite>
+    with <math|<around*|(|l,m,z|)>=<around*|(|0,0,1|)>>.
   </example>
 
-  <\example>
-    <math|<math-up|<cite-detail|tarasov2003selberg|(3.4)>><rprime|'>>
+  In what follows, we shall examine the relationship between Theorem
+  <reference|main-thm> and some known integral formulæ by Selberg, Dotsenko,
+  Fateev, Tarasov Varchenko, Warnaar among others when the parameters take
+  special values. The hierarchy of the formulæ treated here is summarized in
+  Table <reference|table>.
 
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|Re
-      \<mu\>\<gtr\>-<frac|1|2>,<around*|\||Re
-      \<nu\>|\|>\<ll\>1,>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<lambda\>+2\<nu\>+1>><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|t-s|)><rsub|+><rsup|2\<nu\>>d
-      s d t=>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<cdot\><frac|\<Gamma\><around*|(|<frac|3|2>+\<lambda\>+2\<nu\>|)>\<Gamma\><around*|(|1+2\<nu\>|)>|\<Gamma\><around*|(|2+2\<nu\>|)>\<Gamma\><around*|(|2+2\<lambda\>+2\<nu\>|)>>=<frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|<frac|3|2>+\<lambda\>+2\<nu\>|)>|<around*|(|1+2\<nu\>|)>\<Gamma\><around*|(|2+2\<lambda\>+2\<nu\>|)>>,>|<cell|>>|<row|<cell|>|<cell|<around*|(|k<rsub|1>,k<rsub|2>,\<alpha\>,\<beta\><rsub|1>,\<beta\><rsub|2>,\<gamma\>|)>=<around*|(|1,1,\<lambda\>+<frac|1|2>,\<lambda\>+<frac|1|2>,1,-2\<nu\>|)>.>|<cell|>>>>
-    </eqnarray>
-  </example>
+  For this, we shall consider the special case of Theorem
+  <reference|main-thm> with <math|<around*|(|l,m,z|)>=<around*|(|0,0,1|)>>,
+  or equivalently, of Corollary <reference|cor:1> with
+  <math|<around*|(|l,m|)>=<around*|(|0,0|)>>:
 
-  <\example>
-    <math|<math-up|<cite-detail|dotsenko1985four|(A35)>><rprime|'>>
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|Re<around*|(|<frac|\<lambda\>-<frac|1|2>|\<mu\>-<frac|1|2>>|)>\<less\>0,Re
-      \<mu\>\<gtr\><frac|1|2>,>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<lambda\>+2\<mu\>-2>>PV<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>><around*|\||s-t|\|><rsup|-2>d
-      s d t>|<cell|>>|<row|<cell|>|<cell|=<around*|(|<frac|\<mu\>-<frac|1|2>|\<lambda\>-<frac|1|2>>|)><rsup|2><frac|1|-<frac|\<mu\>-<frac|1|2>|\<lambda\>-<frac|1|2>>-1>\<times\><frac|1|<around*|(|\<mu\>-<frac|1|2>|)><rsup|2><around*|(|2\<mu\>-1|)>>\<times\><frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)><rsup|2>|\<Gamma\><around*|(|2\<lambda\>-1|)>>\<times\><frac|\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><rsup|2>|\<Gamma\><around*|(|2\<mu\>-1|)>>=,>|<cell|>>|<row|<cell|>|<cell|=<frac|-1|2<around*|(|\<mu\>+\<lambda\>-1|)>>\<cdot\><frac|\<Gamma\><around*|(|\<lambda\>-<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>-<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>|\<Gamma\><around*|(|2\<lambda\>-1|)>\<Gamma\><around*|(|2\<mu\>-1|)>>,>|<cell|>>|<row|<cell|>|<cell|<around*|(|n,m,\<alpha\>,\<beta\>,\<rho\>|)>=<around*|(|1,1,\<mu\>-<frac|1|2>,\<mu\>-<frac|1|2>,-<frac|\<mu\>-<frac|1|2>|\<lambda\>-<frac|1|2>>|)>.>|<cell|>>>>
-    </eqnarray>
-  </example>
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
+    s d t=<frac|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>>.<eq-number><label|eqn:lm0>>|<cell|>>>>
+  </eqnarray>
 
   \;
 
-  <\bibliography|bib|alpha|intdep.bib>
-    <\bib-list|AAR99>
-      <bibitem*|AAR99><label|bib-andrews1999special>George<nbsp>E Andrews,
-      Richard Askey, and Ranjan Roy. <newblock>Special functions, volume 71
-      of encyclopedia of mathematics and its applications, 1999.
+  <\example>
+    <label|ex:1>(Selberg integral <cite|Selberg:411367>) The Selberg integral
 
-      <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
-      Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions and
-      the operator algebra in 2d conformal invariant theories with central
-      charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
-      Physics B>, 251:691\U734, 1985.
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|0><rsup|1>\<ldots\><big|int><rsub|0><rsup|1><big|prod><rsub|i=1><rsup|n>t<rsub|i><rsup|\<alpha\>-1><around*|(|1-t<rsub|i>|)><rsup|\<beta\>-1><around*|\||<big|prod><rsub|1\<leqslant\>i\<less\>j\<leqslant\>n><around*|(|t<rsub|i>-t<rsub|j>|)>|\|><rsup|2\<nu\>>d
+      t<rsub|1>\<cdots\>d t<rsub|n><eq-number><label|eqn:selberg>>|<cell|>>|<row|<cell|>|<cell|=<big|prod><rsub|j=1><rsup|n><frac|\<Gamma\><around*|(|\<alpha\>+<around*|(|j-1|)>\<nu\>|)>\<Gamma\><around*|(|\<beta\>+<around*|(|j-1|)>\<nu\>|)>\<Gamma\><around*|(|1+j\<nu\>|)>|\<Gamma\><around*|(|\<alpha\>+\<beta\>+<around*|(|n+j-2|)>\<nu\>|)>\<Gamma\><around*|(|1+\<nu\>|)>>>|<cell|>>>>
+    </eqnarray>
 
-      <bibitem*|Sel44><label|bib-Selberg:411367>A<nbsp>Selberg.
-      <newblock>Remarks on a multiple integral.
-      <newblock><with|font-shape|italic|Norsk Mat. Tidsskr.>, 26:71\U78,
-      1944.
+    is a generalization of the Euler beta integral. A special case of
+    <math|<eqref|eqn:selberg>> with <math|<around*|(|n,\<alpha\>,\<beta\>|)>=<around*|(|2,\<lambda\>+<frac|1|2>,\<lambda\>+<frac|1|2>|)>>
+    says\ 
 
-      <bibitem*|TV03><label|bib-tarasov2003selberg>V<nbsp>Tarasov and
-      Alexander Varchenko. <newblock>Selberg-type integrals associated with
-      sl 3. <newblock><with|font-shape|italic|Letters in Mathematical
-      Physics>, 65(3):173\U185, 2003.
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<frac|1|2<rsup|4\<lambda\>+2\<nu\>>><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|\||s-t|\|><rsup|2\<nu\>>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)><rsup|2>|\<Gamma\><around*|(|2\<lambda\>+1+\<nu\>|)>>\<cdot\><frac|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|1|2>|)><rsup|2>\<Gamma\><around*|(|1+2\<nu\>|)>|\<Gamma\><around*|(|2\<lambda\>+2\<nu\>+1|)>\<Gamma\><around*|(|1+\<nu\>|)>>,>|<cell|>>>>
+    </eqnarray>
 
-      <bibitem*|War10><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.
-      <newblock>The sl3 selberg integral.
-      <newblock><with|font-shape|italic|Advances in Mathematics>,
-      224(2):499\U524, 2010.
+    after a change of variables <math|<around*|(|t<rsub|1>,t<rsub|2>|)>=<around*|(|<frac|1+s|2>,<frac|1+t|2>|)>>.
+    This coincides with the special case of Theorem <reference|main-thm> with
+    <math|l=m=0>, <math|z=1> and <math|\<lambda\>=\<mu\>>.\ 
+  </example>
+
+  <\example>
+    <label|ex:2>(Warnaar integral) The integral formula (1.4) in
+    <cite|warnaar2010sl3> in the special case
+    <math|<around*|(|k<rsub|1>,k<rsub|2>,\<alpha\><rsub|1>,\<beta\><rsub|1>,\<alpha\><rsub|2>\<comma\>\<beta\><rsub|2>,\<gamma\>|)>=<around*|(|1,1,\<lambda\>+<frac|1|2>,\<lambda\>+<frac|1|2>,\<mu\>+<frac|1|2>,\<mu\>+<frac|1|2>\<comma\>\<lambda\>+\<mu\>|)>>
+    implies the following equation
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<frac|1|2<rsup|\<lambda\>+\<mu\>>><around*|(|<big|int><big|int><rsub|0\<leqslant\>s\<less\>t\<leqslant\>1>+<frac|cos<around*|(|\<pi\>\<lambda\>|)>|cos<around*|(|\<pi\>\<mu\>|)>><big|int><big|int><rsub|0\<leqslant\>t\<less\>s\<leqslant\>1>|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>><around*|\||s-t|\|><rsup|-\<lambda\>-\<mu\>>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|<frac|1|2>-\<mu\>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><rsup|2>|\<Gamma\><around*|(|\<lambda\>+1-\<mu\>|)>\<Gamma\><around*|(|\<mu\>+1-\<lambda\>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+1|)>>.>|<cell|>>>>
+    </eqnarray>
+
+    This coincides with the special case of Theorem <reference|main-thm> with
+    <math|<around*|(|l,m,z,\<nu\>|)>=<around*|(|0,0,1,-<frac|\<lambda\>+\<mu\>|2>|)>>.
+  </example>
+
+  <\example>
+    <label|ex:3>(<math|\<frak-s\>\<frak-l\><rsub|3>> Selberg integral of
+    Tarasov and Varchenko) The integral formula (3.4) in
+    <cite|tarasov2003selberg> in the special case
+    <math|<around*|(|k<rsub|1>,k<rsub|2>,\<alpha\>,\<beta\><rsub|1>,\<beta\><rsub|2>,\<gamma\>|)>=<around*|(|1,1,\<lambda\>+<frac|1|2>,\<lambda\>+<frac|1|2>,1,-2\<nu\>|)>>
+    reduces to the following equation
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<frac|1|2<rsup|2\<lambda\>+2\<nu\>+1>><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|t-s|)><rsub|+><rsup|2\<nu\>>d
+      s d t=<frac|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|<frac|3|2>+\<lambda\>+2\<nu\>|)>|<around*|(|1+2\<nu\>|)>\<Gamma\><around*|(|2+2\<lambda\>+2\<nu\>|)>>.>|<cell|>>>>
+    </eqnarray>
+
+    This coincides with the special case of Theorem <reference|main-thm> with
+    <math|<around*|(|l,m,z,\<mu\>|)>=<around*|(|0,0,1,<frac|1|2>|)>>.
+  </example>
+
+  <\example>
+    <label|ex:4>(Dotsenko-Fateev integral) The integral formula
+    (A1)<math|=>(A35) in <cite|dotsenko1985four> in the special case
+    <math|<around*|(|n,m,\<alpha\>,\<beta\>,\<rho\>|)>=<around*|(|1,1,\<mu\>-<frac|1|2>,\<mu\>-<frac|1|2>,-<frac|\<mu\>-<frac|1|2>|\<lambda\>-<frac|1|2>>|)>>
+    reduces to the following equation
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|2<rsup|2-2\<lambda\>-2\<mu\>><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>><around*|\||s-t|\|><rsup|-2>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|-2\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)><rsup|2>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><rsup|2>|<around*|(|\<lambda\>+\<mu\>-1|)>\<Gamma\><around*|(|2\<lambda\>|)>\<Gamma\><around*|(|2\<mu\>|)>>.>|<cell|>>>>
+    </eqnarray>
+
+    This coincides with the special case of Theorem <reference|main-thm> with
+    <math|<around*|(|l,m,z,\<nu\>|)>=<around*|(|0,0,1,-1|)>>.
+  </example>
+
+  The hierarchy of the integral formulæ in Examples
+  <reference|ex:1>-<reference|ex:4> and Theorem <reference|main-thm> is
+  summarized as follows:
+
+  \;
+
+  <big-table|<tabular|<tformat|<table|<row|<cell|<image|intdep.png|788px|264px||>>>>>>|Hierarchy
+  of various integral formulæ<label|table>>
+
+  <\bibliography|bib|tm-plain|intdep.bib>
+    <\bib-list|8>
+      <bibitem*|1><label|bib-andrews1999special>George<nbsp>E Andrews,
+      Richard Askey<localize|, and >Ranjan Roy.<newblock>
+      <with|font-shape|italic|Special Functions>,
+      <localize|volume><nbsp><with|font-series|bold|71><localize| of
+      ><with|font-shape|italic|Encyclopedia of Mathematics and its
+      Applications>.<newblock> Cambridge University Press, Cambridge,
+      1999.<newblock>
+
+      <bibitem*|2><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko<localize|
+      and >Vladimir<nbsp>A Fateev.<newblock> Four-point correlation functions
+      and the operator algebra in 2d conformal invariant theories with
+      central charge <math|c\<leq\>1>.<newblock>
+      <with|font-shape|italic|Nuclear Physics B>, 251:691\U734,
+      1985.<newblock>
+
+      <bibitem*|3><label|bib-forrester2008importance>Peter
+      Forrester<localize| and >SVEN Warnaar.<newblock> The importance of the
+      selberg integral.<newblock> <with|font-shape|italic|Bulletin of the
+      American Mathematical Society>, 45(4):489\U534, 2008.<newblock>
+      <with|font-series|bold|I've read this paper completely>.<newblock>
+
+      <bibitem*|4><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
+      and >B.<nbsp>Speh.<newblock> <with|font-shape|italic|Symmetry Breaking
+      for Representations of Rank One Orthogonal Groups>, <localize|volume>
+      <with|font-series|bold|238><localize| of
+      ><with|font-shape|italic|Memoirs of the Amer. Math. Soc>.<newblock>
+      American Mathematical Society, 2015.<newblock> Available at
+      <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
+
+      <bibitem*|5><label|bib-mehta2004random>Madan<nbsp>Lal Mehta.<newblock>
+      <with|font-shape|italic|Random matrices>, <localize|volume>
+      142.<newblock> Academic press, 2004.<newblock>
+
+      <bibitem*|6><label|bib-Selberg:411367>A Selberg.<newblock> Remarks on a
+      multiple integral.<newblock> <with|font-shape|italic|Norsk Mat.
+      Tidsskr.>, 26:71\U78, 1944.<newblock>
+
+      <bibitem*|7><label|bib-tarasov2003selberg>V Tarasov<localize| and
+      >Alexander Varchenko.<newblock> Selberg-type integrals associated with
+      <math|<with|math-font|Euler|s*l><rsub|3>>.<newblock>
+      <with|font-shape|italic|Letters in Mathematical Physics>,
+      65(3):173\U185, 2003.<newblock>
+
+      <bibitem*|8><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.<newblock> The
+      <math|<with|math-font|Euler|s*l><rsub|3>> Selberg integral.<newblock>
+      <with|font-shape|italic|Advances in Mathematics>, 224(2):499\U524,
+      2010.<newblock>
     </bib-list>
   </bibliography>
 </body>
@@ -405,43 +497,72 @@
     <associate|auto-2|<tuple|2|2>>
     <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|4|5>>
-    <associate|auto-5|<tuple|4.5|7>>
-    <associate|bib-Selberg:411367|<tuple|Sel44|7>>
-    <associate|bib-andrews1999special|<tuple|AAR99|7>>
-    <associate|bib-dotsenko1985four|<tuple|DF85|7>>
-    <associate|bib-tarasov2003selberg|<tuple|TV03|7>>
-    <associate|bib-warnaar2010sl3|<tuple|War10|8>>
+    <associate|auto-5|<tuple|4.1|8>>
+    <associate|auto-6|<tuple|4.1|8>>
+    <associate|bib-Selberg:411367|<tuple|6|8>>
+    <associate|bib-andrews1999special|<tuple|1|8>>
+    <associate|bib-dotsenko1985four|<tuple|2|8>>
+    <associate|bib-forrester2008importance|<tuple|3|8>>
+    <associate|bib-kobayashi2015symmetry|<tuple|4|8>>
+    <associate|bib-mehta2004random|<tuple|5|?>>
+    <associate|bib-tarasov2003selberg|<tuple|7|8>>
+    <associate|bib-warnaar2010sl3|<tuple|8|8>>
     <associate|cor:1|<tuple|1.3|2>>
-    <associate|cor:Hermite|<tuple|1.4|2>>
+    <associate|cor:Hermite|<tuple|4.1|6>>
     <associate|eqn:Fijsum|<tuple|3.6|5>>
     <associate|eqn:Rod|<tuple|2.2|2>>
     <associate|eqn:derst|<tuple|2.3|3>>
     <associate|eqn:iF|<tuple|3.1|3>>
+    <associate|eqn:lm0|<tuple|4.1|6>>
     <associate|eqn:main|<tuple|1.1|1>>
     <associate|eqn:p1|<tuple|3.3|5>>
     <associate|eqn:p2|<tuple|3.4|5>>
     <associate|eqn:p3|<tuple|3.5|5>>
     <associate|eqn:quad|<tuple|3.2|4>>
+    <associate|eqn:selberg|<tuple|4.2|6>>
     <associate|eqn:stz|<tuple|2.1|2>>
+    <associate|ex:1|<tuple|4.3|6>>
+    <associate|ex:2|<tuple|4.4|7>>
+    <associate|ex:3|<tuple|4.5|7>>
+    <associate|ex:4|<tuple|4.6|7>>
+    <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-1.1|<tuple|1.1|1>>
-    <associate|footnote-4.1|<tuple|4.1|6>>
+    <associate|footnote-4.1|<tuple|4.1|7>>
+    <associate|footnote-4.2|<tuple|4.2|7>>
+    <associate|footnote-4.3|<tuple|4.3|7>>
+    <associate|footnote-4.4|<tuple|4.4|8>>
+    <associate|footnote-4.5|<tuple|4.5|?>>
     <associate|footnr-1.1|<tuple|1.1|1>>
-    <associate|footnr-4.1|<tuple|4.1|6>>
+    <associate|footnr-4.1|<tuple|4.1|7>>
+    <associate|footnr-4.2|<tuple|4.2|7>>
+    <associate|footnr-4.3|<tuple|4.3|7>>
+    <associate|footnr-4.4|<tuple|4.4|8>>
+    <associate|footnr-4.5|<tuple|4.5|?>>
     <associate|lem4|<tuple|3.1|3>>
     <associate|lem:Fisum|<tuple|3.2|3>>
     <associate|main-thm|<tuple|1.1|1>>
     <associate|prop:2|<tuple|2.1|2>>
     <associate|sec:2|<tuple|2|2>>
     <associate|sec:3|<tuple|3|3>>
+    <associate|sec:4|<tuple|4|5>>
+    <associate|table|<tuple|4.1|8>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|bib>
+      tarasov2003selberg
+
+      forrester2008importance
+
+      kobayashi2015symmetry
+
       andrews1999special
 
       andrews1999special
+
+      mehta2004random
 
       Selberg:411367
 
@@ -450,6 +571,9 @@
       tarasov2003selberg
 
       dotsenko1985four
+    </associate>
+    <\associate|table>
+      <tuple|normal|Hierarchy of various integral formulæ|<pageref|auto-5>>
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|0.3fn>Main
@@ -464,13 +588,13 @@
       of Proposition <reference|prop:2>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|0.3fn>Special
-      values> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|0.3fn>Limit
+      case and Special values> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|References>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5><vspace|0.5fn>
+      <no-break><pageref|auto-6><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

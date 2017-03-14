@@ -618,8 +618,7 @@
   I have not found explicit reference yet. \PMathematica\Q software seems to
   not know this equality.\ 
 
-  Nevertheless, I have found references <cite-detail|mackenzie2003hermite|(15)>
-  and<new-line><hlink|http://functions.wolfram.com/Polynomials/HermiteH/21/02/01/0008/|http://functions.wolfram.com/Polynomials/HermiteH/21/02/01/0008/>
+  Nevertheless, I have found references and<new-line><hlink|http://functions.wolfram.com/Polynomials/HermiteH/21/02/01/0008/|http://functions.wolfram.com/Polynomials/HermiteH/21/02/01/0008/>
   for the equality:
 
   <\eqnarray>
@@ -649,9 +648,16 @@
   </eqnarray>
 
   <\question>
-    Can we use prove more general equality than that of
+    <label|q18>Can we use prove more general equality than that of
     <math|<eqref|eqn:herm1>> using the same techniques?
   </question>
+
+  In fact, we can show:
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-<frac|y|<sqrt|z>>|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|n><around*|(|x|)>H<rsub|m><around*|(|y|)>d
+    x d y=<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|m+n><around*|(|1+z|)><rsup|\<nu\>-<frac|m+n|2>>z<rsup|<frac|n|2>-\<nu\>>>|<cell|>>>>
+  </eqnarray>
 
   Indeed,
 
@@ -663,6 +669,41 @@
     x d y>=<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>z<rsup|<frac|1-m|2>>>|<cell|>>|<row|<cell|>|<cell|lim<rsub|\<lambda\>\<rightarrow\>\<infty\>><frac|\<lambda\><rsup|1+\<nu\>-<frac|m+n|2>><around*|(|2\<lambda\>|)><rsub|n><around*|(|2z\<lambda\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|z\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|1+2\<nu\>+<around*|(|z+1|)>\<lambda\>|)>|\<Gamma\><around*|(|\<nu\>+<frac|n-m|2>+\<lambda\>+1|)>\<Gamma\><around*|(|z\<lambda\>+1-<frac|n-m|2>+\<nu\>|)>\<Gamma\><around*|(|1+\<nu\>+<around*|(|z+1|)>\<lambda\>+<frac|m+n|2>|)>>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<Gamma\><around*|(|z+a|)>/\<Gamma\><around*|(|z+b|)>\<sim\>z<rsup|a-b>,<space|1em><around*|(|2\<lambda\>|)><rsub|n>\<sim\>2<rsup|n>\<lambda\><rsup|n>|)>>|<cell|>>|<row|<cell|>|<cell|<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|n+m>z<rsup|<frac|1+m|2>>\<times\>>|<cell|>>|<row|<cell|>|<cell|lim<rsub|\<lambda\>\<rightarrow\>\<infty\>><around*|(|\<lambda\><rsup|1+\<nu\>+<frac|m+n|2>>\<lambda\><rsup|<frac|1|2>-<around*|(|\<nu\>+<frac|n-m|2>+1|)>><around*|(|z\<lambda\>|)><rsup|<frac|1|2>-1+<frac|n-m|2>-\<nu\>><around*|(|<around*|(|z+1|)>\<lambda\>|)><rsup|1+2\<nu\>-1-\<nu\>-<frac|m+n|2>>|)>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|n+m><around*|(|1+z|)><rsup|\<nu\>-<frac|m+n|2>>z<rsup|<frac|n|2>-\<nu\>>lim<rsub|\<lambda\>\<rightarrow\>\<infty\>><around*|(|\<lambda\><rsup|1+\<nu\>+<frac|m+n|2>>\<lambda\><rsup|-1>\<lambda\><rsup|\<nu\>-<frac|m+n|2>>|)>=>|<cell|>>|<row|<cell|>|<cell|<frame|<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>2<rsup|m+n><around*|(|1+z|)><rsup|\<nu\>-<frac|m+n|2>>z<rsup|<frac|n|2>-\<nu\>>>.>|<cell|>>>>
   </eqnarray>
 
+  <\question>
+    Is there any relation of the equality in Question <reference|q18> to some
+    known results for <math|l,m\<neq\>0>?
+  </question>
+
+  Indeed, the equality in Question <reference|q18> is equivalent to
+
+  \;
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-z
+    y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|l><around*|(|x|)>H<rsub|m><around*|(|y|)>d
+    x d y=<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>2<rsup|l+m>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)><around*|(|z<rsup|2>+1|)><rsup|\<nu\>-<frac|l+m|2>>z<rsup|m>.>|<cell|>>>>
+  </eqnarray>
+
+  Now, setting <math|<around*|(|z,m|)>=<around*|(|0,0|)>> we get
+
+  \;
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|l><around*|(|x|)>d
+    x d y=<around*|(|-\<nu\>|)><rsub|<frac|l|2>><around*|(|-1|)><rsup|<frac|l|2>>2<rsup|l>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Leftrightarrow\>>|<cell|>>|<row|<cell|>|<cell|<big|int><rsub|0><rsup|\<infty\>>x<rsup|2\<nu\>>e<rsup|-x<rsup|2>>H<rsub|l><around*|(|x|)>d
+    x =<around*|(|-\<nu\>|)><rsub|<frac|l|2>><around*|(|-1|)><rsup|<frac|l|2>>2<rsup|l-1>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>.>|<cell|>>>>
+  </eqnarray>
+
+  Using the orthogonality of the functions
+  <math|<around*|{|e<rsup|-x<rsup|2>/2>H<rsub|n><around*|(|x|)>|}><rsub|n=0><rsup|\<infty\>>>
+  implies the expansion
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|x<rsup|2\<nu\>>=\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)><big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<nu\>|)><rsub|n><around*|(|-1|)><rsup|n>|2<around*|(|2n|)>!<sqrt|\<pi\>>>H<rsub|2n><around*|(|x|)>,>|<cell|>>>>
+  </eqnarray>
+
+  which is a generalization of <cite-detail|rainville1960special|Ch. 11 (4)>.
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
@@ -671,19 +712,20 @@
       charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
       Physics B>, 251:691\U734, 1985.
 
-      <bibitem*|MT03><label|bib-mackenzie2003hermite>Mark<nbsp>R Mackenzie
-      and A<nbsp>Kiet Tieu. <newblock>Hermite neural network correlation and
-      application. <newblock><with|font-shape|italic|IEEE transactions on
-      signal processing>, 51(12):3210\U3219, 2003.
+      <bibitem*|Pou98><label|bib-poularikas1998handbook>Alexander<nbsp>D
+      Poularikas. <newblock><with|font-shape|italic|Handbook of formulas and
+      tables for signal processing>, volume<nbsp>13. <newblock>CRC Press,
+      1998.
 
       <bibitem*|TV03><label|bib-tarasov2003selberg>V<nbsp>Tarasov and
       Alexander Varchenko. <newblock>Selberg-type integrals associated with
-      sl 3. <newblock><with|font-shape|italic|Letters in Mathematical
-      Physics>, 65(3):173\U185, 2003.
+      <math|<with|math-font|Euler|s*l><rsub|3>>.
+      <newblock><with|font-shape|italic|Letters in Mathematical Physics>,
+      65(3):173\U185, 2003.
 
       <bibitem*|War10><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.
-      <newblock>The sl3 selberg integral.
-      <newblock><with|font-shape|italic|Advances in Mathematics>,
+      <newblock>The <math|<with|math-font|Euler|s*l><rsub|3>> Selberg
+      integral. <newblock><with|font-shape|italic|Advances in Mathematics>,
       224(2):499\U524, 2010.
     </bib-list>
   </bibliography>
@@ -697,9 +739,11 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|18|17>>
-    <associate|bib-dotsenko1985four|<tuple|DF85|17>>
+    <associate|auto-1|<tuple|19|18>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|18>>
     <associate|bib-mackenzie2003hermite|<tuple|MT03|17>>
+    <associate|bib-mishra1991integrals|<tuple|Mis91|18>>
+    <associate|bib-poularikas1998handbook|<tuple|Pou98|?>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|18>>
     <associate|bib-warnaar2010sl3|<tuple|War10|18>>
     <associate|cor|<tuple|1|14>>
@@ -712,6 +756,7 @@
     <associate|q1|<tuple|1|1>>
     <associate|q14|<tuple|14|14>>
     <associate|q15|<tuple|15|15>>
+    <associate|q18|<tuple|18|16>>
     <associate|thm-1|<tuple|1|8>>
   </collection>
 </references>
@@ -760,8 +805,6 @@
       dotsenko1985four
 
       dotsenko1985four
-
-      mackenzie2003hermite
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
