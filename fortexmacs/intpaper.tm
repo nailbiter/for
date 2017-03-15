@@ -24,7 +24,7 @@
     <label|main-thm>Suppose <math|l,m\<in\>\<bbb-N\>> such that <math|l+m> is
     even. For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with <math|Re
     \<lambda\>,Re \<mu\>,Re \<nu\>\<gtr\>-1/2,> and for
-    <math|z\<in\><around*|[|0,1|]>><\footnote>
+    <math|0\<leqslant\>z\<leqslant\>1><\footnote>
       Check the proof when <math|z=1>
     </footnote>, \ the following integral converges:
 
@@ -35,8 +35,7 @@
       <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;z<rsup|2>|)>|\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>>,<eq-number><label|eqn:main>>|<cell|>>>>
     </eqnarray>
 
-    where the Pochammer symbol <math|<around*|(|y|)><rsub|j>> stands for the
-    rising factorial <math|y<around*|(|y+1|)><around*|(|y+2|)>\<cdots\><around*|(|y+j-1|)>>
+    where <math|<around*|(|y|)><rsub|j>\<assign\>y<around*|(|y+1|)><around*|(|y+2|)>\<cdots\><around*|(|y+j-1|)>>
     for <math|j\<in\>\<bbb-N\>>.
   </theorem>
 
@@ -56,9 +55,9 @@
   </eqnarray>
 
   <\remark>
-    As we have <math|u<rsub|l><rsup|\<lambda\>><around*|(|-s|)>=<around*|(|-1|)><rsup|l>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>>,
-    we see that we can extend statement of Theorem <reference|main-thm> to
-    include the <math|-1\<leqslant\>z\<leqslant\>0> case.
+    Since <math|u<rsub|l><rsup|\<lambda\>><around*|(|-s|)>=<around*|(|-1|)><rsup|l>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>>,
+    Theorem <reference|main-thm> can be extended easily to the case
+    <math|-1\<leqslant\>z\<leqslant\>0>.
   </remark>
 
   The substitution of <math|z=1> in Theorem <reference|main-thm> yields:
@@ -73,7 +72,7 @@
   </corollary>
 
   Selberg-type integrals are related to (finite-dimensional) representation
-  theory of semisimple Lie algebras, see <cite|tarasov2003selberg>,<cite|forrester2008importance>
+  theory of semisimple Lie algebras, see <cite|forrester2008importance>,<cite|tarasov2003selberg>
   and references therein. On the other hand, Theorem <reference|main-thm> and
   Corollary <reference|cor:1> will be used in the study of symmetry breaking
   operators for infinite-dimensional representations when we extend the work
@@ -285,12 +284,12 @@
     Lemma <reference|lem:Fisum> is proved.
   </render-proof>
 
-  <section|Limit case and Special values><label|sec:4>
+  <section|Limit case and special values><label|sec:4>
 
   In this section we examine our main result (Theorem <reference|main-thm>)
   by taking the \Plimit\Q or by evaluating at special values of parameters.
   We also compare them with special values of the existing integral formulæ
-  such as the Selberg-type formulæ.
+  such as the Selberg-type integrals.
 
   Since the Hermite polynomial <math|H<rsub|n><around*|(|x|)>> is obtained as
   a limit of the Gegenbauer polynomial:
@@ -338,7 +337,7 @@
   special values. The hierarchy of the formulæ treated here is summarized in
   Table <reference|table>.
 
-  For this, we shall consider the special case of Theorem
+  For this, we limit ourselves to the special case of Theorem
   <reference|main-thm> with <math|<around*|(|l,m,z|)>=<around*|(|0,0,1|)>>,
   or equivalently, of Corollary <reference|cor:1> with
   <math|<around*|(|l,m|)>=<around*|(|0,0|)>>:
@@ -496,35 +495,35 @@
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|2|2>>
     <associate|auto-3|<tuple|3|3>>
-    <associate|auto-4|<tuple|4|5>>
+    <associate|auto-4|<tuple|4|6>>
     <associate|auto-5|<tuple|4.1|8>>
-    <associate|auto-6|<tuple|4.1|8>>
-    <associate|bib-Selberg:411367|<tuple|6|8>>
-    <associate|bib-andrews1999special|<tuple|1|8>>
-    <associate|bib-dotsenko1985four|<tuple|2|8>>
-    <associate|bib-forrester2008importance|<tuple|3|8>>
-    <associate|bib-kobayashi2015symmetry|<tuple|4|8>>
-    <associate|bib-mehta2004random|<tuple|5|?>>
-    <associate|bib-tarasov2003selberg|<tuple|7|8>>
-    <associate|bib-warnaar2010sl3|<tuple|8|8>>
+    <associate|auto-6|<tuple|4.1|9>>
+    <associate|bib-Selberg:411367|<tuple|6|9>>
+    <associate|bib-andrews1999special|<tuple|1|9>>
+    <associate|bib-dotsenko1985four|<tuple|2|9>>
+    <associate|bib-forrester2008importance|<tuple|3|9>>
+    <associate|bib-kobayashi2015symmetry|<tuple|4|9>>
+    <associate|bib-mehta2004random|<tuple|5|9>>
+    <associate|bib-tarasov2003selberg|<tuple|7|9>>
+    <associate|bib-warnaar2010sl3|<tuple|8|9>>
     <associate|cor:1|<tuple|1.3|2>>
     <associate|cor:Hermite|<tuple|4.1|6>>
     <associate|eqn:Fijsum|<tuple|3.6|5>>
     <associate|eqn:Rod|<tuple|2.2|2>>
     <associate|eqn:derst|<tuple|2.3|3>>
     <associate|eqn:iF|<tuple|3.1|3>>
-    <associate|eqn:lm0|<tuple|4.1|6>>
+    <associate|eqn:lm0|<tuple|4.1|7>>
     <associate|eqn:main|<tuple|1.1|1>>
     <associate|eqn:p1|<tuple|3.3|5>>
     <associate|eqn:p2|<tuple|3.4|5>>
     <associate|eqn:p3|<tuple|3.5|5>>
     <associate|eqn:quad|<tuple|3.2|4>>
-    <associate|eqn:selberg|<tuple|4.2|6>>
+    <associate|eqn:selberg|<tuple|4.2|7>>
     <associate|eqn:stz|<tuple|2.1|2>>
-    <associate|ex:1|<tuple|4.3|6>>
+    <associate|ex:1|<tuple|4.3|7>>
     <associate|ex:2|<tuple|4.4|7>>
-    <associate|ex:3|<tuple|4.5|7>>
-    <associate|ex:4|<tuple|4.6|7>>
+    <associate|ex:3|<tuple|4.5|8>>
+    <associate|ex:4|<tuple|4.6|8>>
     <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-1.1|<tuple|1.1|1>>
     <associate|footnote-4.1|<tuple|4.1|7>>
@@ -544,7 +543,7 @@
     <associate|prop:2|<tuple|2.1|2>>
     <associate|sec:2|<tuple|2|2>>
     <associate|sec:3|<tuple|3|3>>
-    <associate|sec:4|<tuple|4|5>>
+    <associate|sec:4|<tuple|4|6>>
     <associate|table|<tuple|4.1|8>>
   </collection>
 </references>
