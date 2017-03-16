@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|svjour|number-long-article>>
 
@@ -9,7 +9,7 @@
     <assign|section-sep|<macro|<sectional-sep>>>
   </hide-preamble>
 
-  <date|%d %B at %k:%M>
+  <date|>
 
   <section|Main results>
 
@@ -23,8 +23,15 @@
   <\theorem>
     <label|main-thm>Suppose <math|l,m\<in\>\<bbb-N\>> such that <math|l+m> is
     even. For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with <math|Re
-    \<lambda\>,Re \<mu\>,Re \<nu\>\<gtr\>-1/2,> and for
-    <math|0\<leqslant\>z\<leqslant\>1><\footnote>
+    \<lambda\>,Re \<mu\>,Re \<nu\>\<gtr\>-1/2><\footnote>
+      I think we need to make the assumption <math|Re \<nu\>\<gtr\>0>. Note
+      that the conditions for convergence of Selberg integral
+      <math|<big|int><rsub|t\<in\><around*|[|0,1|]><rsup|n>>\<Pi\><rsup|\<alpha\>-1,\<beta\>-1><around*|(|t|)>\<Delta\><rsup|2\<gamma\>><around*|(|t|)>d
+      t> are <math|Re \<alpha\>,Re \<beta\>\<gtr\>0> and <math|Re
+      \<gamma\>\<gtr\>-min<around*|{|<frac|1|n>,<frac|Re
+      \<alpha\>|n-1>,<frac|Re \<beta\>|n-1>|}>>, as noted in
+      <cite|forrester2008importance>.
+    </footnote>, and for <math|0\<leqslant\>z\<leqslant\>1><\footnote>
       Check the proof when <math|z=1>
     </footnote>, \ the following integral converges:
 
@@ -524,19 +531,10 @@
     <associate|ex:2|<tuple|4.4|7>>
     <associate|ex:3|<tuple|4.5|8>>
     <associate|ex:4|<tuple|4.6|8>>
-    <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-1.1|<tuple|1.1|1>>
-    <associate|footnote-4.1|<tuple|4.1|7>>
-    <associate|footnote-4.2|<tuple|4.2|7>>
-    <associate|footnote-4.3|<tuple|4.3|7>>
-    <associate|footnote-4.4|<tuple|4.4|8>>
-    <associate|footnote-4.5|<tuple|4.5|?>>
+    <associate|footnote-1.2|<tuple|1.2|?>>
     <associate|footnr-1.1|<tuple|1.1|1>>
-    <associate|footnr-4.1|<tuple|4.1|7>>
-    <associate|footnr-4.2|<tuple|4.2|7>>
-    <associate|footnr-4.3|<tuple|4.3|7>>
-    <associate|footnr-4.4|<tuple|4.4|8>>
-    <associate|footnr-4.5|<tuple|4.5|?>>
+    <associate|footnr-1.2|<tuple|1.2|?>>
     <associate|lem4|<tuple|3.1|3>>
     <associate|lem:Fisum|<tuple|3.2|3>>
     <associate|main-thm|<tuple|1.1|1>>
@@ -551,9 +549,9 @@
 <\auxiliary>
   <\collection>
     <\associate|bib>
-      tarasov2003selberg
-
       forrester2008importance
+
+      tarasov2003selberg
 
       kobayashi2015symmetry
 
@@ -588,7 +586,7 @@
       <no-break><pageref|auto-3><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|0.3fn>Limit
-      case and Special values> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      case and special values> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|References>
