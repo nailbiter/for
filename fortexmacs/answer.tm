@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|article|number-europe>>
 
@@ -733,19 +733,86 @@
 
   Indeed, as for <math|\<lambda\>\<nin\>-\<bbb-N\>> we have
   <math|deg<around*|(|C<rsup|\<lambda\>><rsub|n>|)>=n> (this can be seen from
-  the recurrence relation), hence the orthogonality of Gegenbauer polynomials
-  imply that <math|<around*|{|C<rsub|n><rsup|\<lambda\>>|}><rsub|n\<in\>\<bbb-N\>>>
-  form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]>,<around*|(|1-x<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>d
-  x|)>>. Consequently, if <math|\<lambda\>,\<mu\>\<nin\>-\<bbb-N\>>, we have
-  that <math|<around*|{|C<rsub|n><rsup|\<lambda\>>\<otimes\>C<rsub|m><rsup|\<mu\>>|}><rsub|m,n\<in\>\<bbb-N\>>>
-  form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]>,<around*|(|1-x<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-y<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-  x d y|)>>. Consequently, for <math|Re \<lambda\>,Re \<mu\>,Re
-  \<nu\>\<gtr\>-<frac|1|2>><\footnote>
-    FIXME
-  </footnote> we can expand <math|<around*|\||x-y|\|><rsup|2\<nu\>>> into
-  <math|<around*|{|C<rsub|n><rsup|\<lambda\>>\<otimes\>C<rsub|m><rsup|\<mu\>>|}><rsub|m,n\<in\>\<bbb-N\>>><\footnote>
-    FIXME: elaborate (why <math|<around*|\||x-y|\|><rsup|2\<nu\>>\<in\>L<rsup|2>>)
-  </footnote>.
+  the recurrence relation), the orthogonality of Gegenbauer polynomials
+  implies that <math|<around*|{|C<rsub|n><rsup|\<lambda\>>|}><rsub|n\<in\>\<bbb-N\>>>
+  form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>d
+  s|)>>. Consequently, if <math|\<lambda\>,\<mu\>\<nin\>-\<bbb-N\>>, we have
+  that <math|<around*|{|C<rsub|l><rsup|\<lambda\>>\<otimes\>C<rsub|m><rsup|\<mu\>>|}><rsub|l,m\<in\>\<bbb-N\>>>
+  form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
+  s d t|)>>. Consequently, for <math|Re \<lambda\>,Re
+  \<mu\>\<gtr\>-<frac|1|2>> and <math|Re<around*|(|\<nu\>|)>\<gtr\>0> we can
+  expand <math|<around*|\||s-t|\|><rsup|2\<nu\>>> into
+  <math|<around*|{|C<rsub|n><rsup|\<lambda\>>\<otimes\>C<rsub|m><rsup|\<mu\>>|}><rsub|m,n\<in\>\<bbb-N\>>>.
+  In fact, the coefficients of the expansion can be explicitly written in
+  Gamma functions. More precisely,
+
+  <\theorem>
+    For <math|Re \<lambda\>,Re \<mu\>\<gtr\>-<frac|1|2>> and
+    <math|Re<around*|(|\<nu\>|)>\<gtr\>0> the following holds:<\footnote>
+      Similar result for <math|<around*|\||s-t|\|><rsup|2\<nu\>>sgn<around*|(|s-t|)>>
+      can be proven. I will do this in a next version.
+    </footnote>
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||s-t|\|><rsup|2\<nu\>>=<big|sum><rsub|l,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m>=<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|\<lambda\>+l|)><around*|(|\<mu\>+m|)><around*|(|-1|)><rsup|<frac|l-m|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>>.>|<cell|>>>>
+    </eqnarray>
+  </theorem>
+
+  Even more general result holds:
+
+  <\theorem>
+    <label|thm:4>For <math|Re \<lambda\>,Re \<mu\>\<gtr\>-<frac|1|2>>,
+    <math|Re<around*|(|\<nu\>|)>\<gtr\>0> and
+    <math|0\<leqslant\>z\<leqslant\>1> the following holds<\footnote>
+      Similar result for <math|<around*|\||s-t
+      z|\|><rsup|2\<nu\>>sgn<around*|(|s-t z|)>> can be proven. I will do
+      this in a next version.
+    </footnote>:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
+      z|\|><rsup|2\<nu\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|<around*|\||s-t
+      z|\|><rsup|2\<nu\>>=<big|sum><rsub|l,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|l,m><around*|(|z|)>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m><around*|(|z|)>=<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)><around*|(|\<lambda\>+l|)>z<rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;z<rsup|2>|)>|<sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>>.>|<cell|>>>>
+    </eqnarray>
+  </theorem>
+
+  <\remark>
+    Using the fact that <math|C<rsub|m><rsup|\<mu\>><around*|(|-t|)>=<around*|(|-1|)><rsup|m>C<rsub|m><rsup|\<mu\>><around*|(|t|)>>,
+    we see that the result of Theorem <reference|thm:4> can be extended to
+    <math|-1\<leqslant\>z\<less\>0>.
+  </remark>
+
+  Similarly, it can be seen from the recurrence relation that Hermite
+  polynomials <math|H<rsub|n><around*|(|x|)>> have their degree equal to
+  their index, hence their orthogonality implies that
+  <math|<around*|{|H<rsub|l>\<otimes\>H<rsub|m>|}><rsub|l,m\<in\>\<bbb-N\>>>
+  form the orthonormal basis of <math|L<rsup|2><around*|(|\<bbb-R\><rsup|2>,e<rsup|-x<rsup|2>-y<rsup|2>>d
+  x d y|)>>. Taking the limit of the Theorem <reference|thm:4> and using the
+  relation <math|\<lambda\><rsup|-<frac|n|2>>C<rsub|n><rsup|\<lambda\>><around*|(|<frac|x|<sqrt|\<lambda\>>>|)>\<rightarrow\><frac|H<rsub|n><around*|(|x|)>|n!>>,
+  we easily arrive at
+
+  <\corollary>
+    <label|cor:3>For <math|Re \<lambda\>,Re \<mu\>\<gtr\>-<frac|1|2>>,
+    <math|Re<around*|(|\<nu\>|)>\<gtr\>0> and <math|z\<geqslant\>0> the
+    following holds<\footnote>
+      Similar result for <math|<around*|\||x- z
+      y|\|><rsup|2\<nu\>>sgn<around*|(|s-t z|)>> can be proven. I will do
+      this in a next version.
+    </footnote>:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||x-z
+      y|\|><rsup|2\<nu\>>=<big|sum><rsub|l,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|l,m><around*|(|z|)>H<rsub|m><around*|(|x|)>H<rsub|l><around*|(|y|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m><around*|(|z|)>=<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)><around*|(|z<rsup|2>+1|)><rsup|\<nu\>-<frac|l+m|2>>z<rsup|m>|\<pi\><rsup|<frac|1|2>>l!m!>.>|<cell|>>>>
+    </eqnarray>
+  </corollary>
+
+  <\remark>
+    Using the fact that <math|H<rsub|m><around*|(|-y|)>=<around*|(|-1|)><rsup|m>H<rsub|m><around*|(|y|)>>,
+    we see that the result of Corollary <reference|cor:3> can be extended to
+    <math|z\<leqslant\>0>.
+  </remark>
 
   <new-page>
 
@@ -783,33 +850,34 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|2|20>>
-    <associate|bib-dotsenko1985four|<tuple|DF85|20>>
-    <associate|bib-mackenzie2003hermite|<tuple|MT03|17>>
-    <associate|bib-mishra1991integrals|<tuple|Mis91|18>>
-    <associate|bib-poularikas1998handbook|<tuple|Pou98|?>>
-    <associate|bib-rainville1960special|<tuple|Rai60|20>>
-    <associate|bib-tarasov2003selberg|<tuple|TV03|20>>
-    <associate|bib-warnaar2010sl3|<tuple|War10|20>>
+    <associate|auto-1|<tuple|4|21>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|21>>
+    <associate|bib-rainville1960special|<tuple|Rai60|21>>
+    <associate|bib-tarasov2003selberg|<tuple|TV03|21>>
+    <associate|bib-warnaar2010sl3|<tuple|War10|21>>
     <associate|cor|<tuple|1|14>>
-    <associate|cor:2|<tuple|2|?>>
+    <associate|cor:2|<tuple|2|16>>
+    <associate|cor:3|<tuple|3|?>>
     <associate|eq-1|<tuple|4|7>>
     <associate|eq-2|<tuple|1|5>>
     <associate|eq:q8-1|<tuple|3|6>>
     <associate|eqn:herm1|<tuple|6|14>>
-    <associate|eqn:main|<tuple|7|?>>
+    <associate|eqn:main|<tuple|7|18>>
     <associate|eqn:thm1|<tuple|5|8>>
-    <associate|footnote-1|<tuple|1|?>>
-    <associate|footnote-2|<tuple|2|?>>
-    <associate|footnr-1|<tuple|1|?>>
-    <associate|footnr-2|<tuple|2|?>>
+    <associate|footnote-1|<tuple|1|19>>
+    <associate|footnote-2|<tuple|2|19>>
+    <associate|footnote-3|<tuple|3|20>>
+    <associate|footnr-1|<tuple|1|19>>
+    <associate|footnr-2|<tuple|2|19>>
+    <associate|footnr-3|<tuple|3|20>>
     <associate|q-ode|<tuple|11|8>>
     <associate|q1|<tuple|1|1>>
     <associate|q14|<tuple|14|14>>
     <associate|q15|<tuple|15|15>>
     <associate|q18|<tuple|18|16>>
     <associate|thm-1|<tuple|1|8>>
-    <associate|thm-2|<tuple|2|?>>
+    <associate|thm-2|<tuple|2|18>>
+    <associate|thm:4|<tuple|4|19>>
   </collection>
 </references>
 
