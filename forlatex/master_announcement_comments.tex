@@ -1,0 +1,1311 @@
+%platex
+\documentclass[reqno,12pt]{pja00} % use larger type; default would be 10pt
+
+\usepackage[dvipdfmx]{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage{enumerate}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,xypic}
+\usepackage[all,cmtip]{xy}
+\usepackage{amsmath,amssymb,float,mystyle}
+\usepackage[normalem]{ulem}
+\usepackage{caption}
+\usepackage{setspace}
+%\usepackage{catchfilebetweentags}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{minibox}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{float}
+
+%%%%%%%%%% Start TeXmacs macros
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\assign}{:=}
+\newcommand{\comma}{{,}}
+\newcommand{\nin}{\not\in}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\newcommand{\um}{-}
+
+\newtheorem{theorem}{Theorem}[section]
+\newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
+\newcommand{\Hom}{\mbox{\normalfont Hom}}
+\newcommand{\Sol}{\mathcal{S}\!{\it ol}}
+\newcommand{\Ind}{\mbox{\normalfont Ind}}
+\newcommand{\Supp}{\mathcal{S}\!{\it upp}}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{definition}{Definition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\makeatletter
+\newtheoremstyle{exampstyle}
+  {\topsep} % Space above
+  {\topsep} % Space below
+  { {\addtolength{\@totalleftmargin}{3.5cm}
+     \addtolength{\linewidth}{-3.5cm}
+        \parshape 1 3.5em \linewidth}} % Body font
+  {-2.5cm} % Indent amount
+  {\bfseries} % Theorem head font
+  {.} % Punctuation after theorem head
+  {.5em} % Space after theorem head
+  {} % Theorem head spec (can be left empty, meaning `normal')
+\makeatother
+
+%%%redefine cite
+%%\makeatletter
+%%\let\cite\relax
+%%\DeclareRobustCommand{\cite}{%
+%%  \let\new@cite@pre\@gobble
+%%  \@ifnextchar[\new@cite{\@citex[]}}
+%%\def\new@cite[#1]{\@ifnextchar[{\new@citea{#1}}{\@citex[#1]}}
+%%\def\new@citea#1{\def\new@cite@pre{#1}\@citex}
+%%\def\@cite#1#2{[{\new@cite@pre\space#1\if\relax\detokenize{#2}\relax\else, #2\fi}]}
+%%\makeatother
+
+\theoremstyle{exampstyle} \newtheorem{examp}[theorem]{Theorem}
+
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\dueto}[1]{\textup{\textbf{(#1) }}}
+\newcommand{\tmrsub}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\tmrsup}[1]{\textsuperscript{#1}}
+\newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
+\newcommand{\Op}{\mbox{\normalfont Op}}
+\newcommand{\Res}{\operatorname{Res}\displaylimits}
+\newcommand{\OpR}{\mbox{\it R}}
+\renewcommand{\Q}{Q_{p,q}}
+\newcommand{\IlambdaGprime}{I(\lambda)\kern-0.3em\mid_{G'}}
+\newcommand{\SBO}{\Hom_{G'}\left(\IlambdaGprime,J(\nu) \right)}
+
+\let\oldsetminus\setminus
+\let\setminus-
+%%\newcommand{\oldsetminus}{\setminus}
+%%\renewcommand{\setminus}{-}
+%%%%%%%%%% End TeXmacs macros
+
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{2em}
+
+\newcommand{\even}{2\Z}
+\newcommand{\odd}{2\Z+1}
+\newcommand{\teven}{\mbox{\textrm{: even}}}
+\newcommand{\todd}{\mbox{\textrm{: odd}}}
+\newcommand{\tevenText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu#1\end{array}$}
+\newcommand{\toddText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu#1\end{array}$}
+
+\newcommand{\mmm}{\mid\mid\mid}
+\newcommand{\mm}{\mid\mid}
+\newcommand{\bb}{\backslash\backslash}
+\renewcommand{\ss}{//}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\title{Symmetry breaking operators for the restriction of representations of indefinite orthogonal groups $O(p,q)$}
+%%
+%%  %%%% 講演者1
+\Author{1}{Toshiyuki}{Kobayashi}
+\Author{2}{Alex}{Leontiev}
+\affiliation{1}{Kavli IPMU and Graduate School of Mathematical Sciences, The University of Tokyo}
+\affiliation{2}{Graduate School of Mathematical Sciences, The University of Tokyo}
+%%\author{Toshiyuki Kobayashi\thanks{Partially supported by Grant-in-Aid for Scientific
+%%	Research (A) (25247006), Japan Society for the Promotion of Science.} (The University of Tokyo, Kavli IPMU)\\
+%%  Alex Leontiev (The University of Tokyo)}
+%%
+%%  %%%% 講演者2
+%%
+%%  %%%% 日付
+%%%  \date{2012年3月26日}
+%%
+%%  %%%% 謝辞、キーワード、MSCコード  
+\KeyWords{ {Representation theory}{reductive group}{branching law}{broken symmetry}{conformal geometry}{symmetry breaking operator}{Verma module}}
+\Subject[2010]{22E46; 33C45, 53C35}
+
+  \maketitle
+\begin{abstract}
+	For the pair $(G, G') =(O(p+1, q+1), O(p,q+1))$, we construct and give a complete classification of intertwining operators (\textit{symmetry breaking operators})
+	between
+most degenerate spherical
+principal series representations of 
+$G$ and those of the subgroup $G'$, extending the results of Kobayashi--Speh in the real rank one case where $q=0$
+ [Memoirs of Amer. Math. Soc. 2015].
+Functional identities and residue formul\ae\, of the regular symmetry breaking operators are also provided 
+explicitly.
+The results contribute to Program C of branching problems suggested by the first author [Progr. Math. 2015].
+\end{abstract}
+
+\section{Branching problem}
+
+Suppose $G \supset G'$ are reductive groups and $\pi$ is an irreducible
+representation of $G$. 
+%%If we restrict $\pi$ to $G'$, in general it is no
+%%longer irreducible.\\
+%%\begin{figure}[h]
+%%	\xymatrixrowsep{0.2pt}
+%%	\xymatrixcolsep{0.5cm}
+%%	\centering
+%%	\hspace{2.8cm}\xymatrix{
+%%		\pi:&G\ar[r]&GL_{\C}(V)&(\dim V=\infty)\\
+%%		&\bigcup&&\\
+%%		&G'\ar@{-->}[uur]_{\pi\big|_{G'}}&&\\
+%%	}
+%%\end{figure}
+%%\begin{center}
+%%    \minibox[frame]{{\textbf{Branching problem}}\\
+%%        (in a wider sense) = Understand $\pi\!\mid_{G'}.$}
+%%\end{center}
+%%These are well-studied (e.g. combinatorial algorithm) for $\pi$:
+%%finitely-dimensional and $G$: compact. In this setting, $\pi$ always splits
+The restriction of $\pi$ to the subgroup $G'$ is no more irreducible in general as a representation
+of $G'$. If $G$ is compact, then any irreducible $\pi$ is finite-dimensional and splits
+into a finite direct sum
+\[ \pi\!\mid_{G'} = \bigoplus_{\pi' \in \widehat{G'}} m (\pi, \pi') \pi' \]
+of irreducibles $\pi'$ of $G'$ with multiplicities $m(\pi,\pi')$. These multiplicities have been studied
+by various techniques including combinatorial algorithms.
+
+However, 
+for noncompact $G'$ and for infinite-dimensional $\pi$,
+the restriction $\pi\kern-0.1cm\mid_{G'}$
+is not always a direct sum of irreducible representations, see \cite{kobayashi1998discrete3} for details.
+%%and the ``multiplicity'' (see (**) below)
+%%\begin{equation*}
+%%	m(\pi,\pi')=\dim\,\Hom_{G'}\left( \pi\!\mid_{G'},\pi' \right)
+%%\end{equation*}
+%%is not always finite for irreducible representations $\pi$ and $\pi'$ of $G$ and $G'$ respectively
+In order to define the ``multiplicity'' in this generality, we recall that, associated to a continuous representation $\pi$ of a Lie group on a Banach space $\mathcal{H}$, 
+a continuous representation $\pi^\infty$ is defined on the Fr\'echet space $\mathcal{H}^\infty$ of $C^\infty$-vectors of $\mathcal{H}$.
+Given another representation $\pi'$ of a subgroup $G'$, we consider the space of continuous $G'$-intertwining operators ({\it symmetry breaking operators})
+\begin{equation}\label{eq:1}
+	\Hom_{G'}\left( \pi^\infty\!\mid_{G'}, \left( \pi' \right)^\infty\right).\tag{1.1}
+\end{equation}
+If both $\pi$ and $\pi'$ are admissible representations of finite length of reductive Lie groups $G$ and $G'$, respectively, then the dimension of the space \eqref{eq:1} is determined by the underlying
+$(\mathfrak{g},K)$-module $\pi_K$ of $\pi$ and the $(\mathfrak{g}',K')$-module $\pi'_{K'}$ of $\pi'$, and is independent of the choice of Banach globalizations by the 
+Casselman--Wallach theory
+\cite[Chap.\ 11]{wallach1988real2}. We denote by $m(\pi,\pi')$ the dimension of \eqref{eq:1}, and call it the {\it multiplicity} of $\pi'$ in the restriction $\pi\!\mid_{G'}$.
+
+The above definition of the multiplicity $m(\pi,\pi')$ makes sense for nonunitary representations $\pi$ and $\pi'$, too. 
+
+In general, $m(\pi,\pi')$ may be infinite, even when $G'$ is a 
+maximal reductive subgroup of $G$
+({\it e.g.}\;symmetric pairs), see \cite{Kobayashi2014}.
+By the theory of real spherical spaces \cite{kobayashi2013finite}, the geometric criterion for finite multiplicities was established in \cite{Kobayashi2014} and \cite{kobayashi2013finite} with classification in \cite{kobayashi2014classification}.
+\begin{fact}\label{fact:1} Let $(G,G')$ be a pair of real reductive Lie groups with complexification $(G_{\C},G'_{\C})$.
+	\begin{enumerate}[(1)]
+		\item The multiplicity $m(\pi,\pi')$ is finite for all irreducible representations $\pi$ of $G$ and all irreducible representations $\pi'$ of $G'$ if and only if
+			a minimal parabolic subgroup of $G'$ has an open orbit on the real flag variety of $G$.
+		\item The multiplicity $m(\pi,\pi')$ is uniformly bounded if and only if a Borel subgroup of $G_{\C}'$ has an open orbit on the complex flag variety of $G_{\C}$.
+	\end{enumerate}
+\end{fact}
+
+On the other hand, switching the order in \eqref{eq:1}, we may also consider another space
+\begin{equation*}
+	\Hom_{G'}\left( \left( \pi' \right)^\infty,\pi^\infty\kern-0.1cm\mid_{G'} \right)\mbox{ or }\Hom_{\mathfrak{g}',K'}\left( \pi_{K'}',\pi_{K}\kern-0.1cm\mid_{\mathfrak{g}',K'} \right).
+\end{equation*}
+The study of these objects is closely related to the theory of discretely decomposable restrictions \cite{kobayashi1998discrete2,kobayashi1998discrete3}
+
+\section{$\mathcal{A}\mathcal{B}\mathcal{C}$ program for branching}
+
+In {\cite{kobayashi2015program}} the first author suggested a program
+for studying branching of representations of reductive groups, which may be summarized
+as follows:
+\begin{description}
+  \item[$(\mathcal{A})$] $\mathcal{A}$bstract features of the restriction;
+%%  (i.e. we want to find triples $(G, G', \pi)$, so that $\pi\!\mid_{G'}$ is
+%%  manageable);
+  
+  \item[$(\mathcal{B})$] $\mathcal{B}$ranching law of $\pi\!\mid_{G'}$;
+  
+  \item[$(\mathcal{C})$] $\mathcal{C}$onstruction of symmetry breaking operators.
+\end{description}
+Program $\mathcal{A}$ aims for establishing the general theory of the restrictions $\pi\!\mid_{G'}$
+({\it e.g.} spectrum, multiplicity), which would single out the {\it good} triples $\left( G,G',\pi \right)$. In turn, we could expect concrete and detailed study of those restrictions
+$\pi\!\mid_{G'}$ through Programs $\mathcal{B}$ and $\mathcal{C}$.
+
+The main theme of this work is Program ${\mathcal{C}}$ for certain standard
+representations with focus on symmetry breaking operators (SBO for short) as follows:
+\begin{description}
+  \item[$(\mathcal{C}1)$] Construct SBOs;
+  \item[$(\mathcal{C}2)$] Classify all SBOs;
+  \item[$(\mathcal{C}3)$] Find residue \uwave{formul\ae} for SBOs;
+  \item[$(\mathcal{C}4)$] Study functional equations among SBOs;
+  \item[$(\mathcal{C}5)$] Determine the images of subquotients by SBOs.
+\end{description}
+The subprogram $(\mathcal{C}1) - (\mathcal{C}5)$ was proposed by
+Kobayashi--Speh in their book {\cite{kobayashi2015symmetry}} with
+a complete answer to $(\mathcal{C}1) - (\mathcal{C}5)$ for the
+pair $(G, G') = (O (n + 1, 1), O (n, 1))$ of real rank one groups.
+
+%%\tmtextbf{Goal}: extend this to higher rank case $(G, G') = (O (p + 1, q + 1),
+%%O (p, q + 1))$. The class of the ``standard'' representations we are working
+%%with are \tmtextbf{degenerate spherical principal series representations}:
+
+In this note we describe the multiplicities for degenerate spherical principal series representations $\pi=I(\lambda)$ of $G$ and $\pi'=J(\nu)$ of $G'$ for the pair
+of higher real rank groups\begin{equation}\tag{2.1}\label{eq:2}
+	(G,G')=\left( O(p+1,q+1),O(p,q+1) \right)\kern-0.1cm,
+\end{equation}
+and give an answer to $\left( \mathcal{C}1)-(\mathcal{C}4 \right)$. The subprogram $\left( \mathcal{C}5 \right)$ will be discussed
+in a subsequent paper together with an application to the restriction problem of Zuckerman derived functor modules.
+
+Concerning Program $\mathcal{A}$, we note that Fact \ref{fact:1} assures the following {\it a priori} estimate:\begin{equation*}
+	m(\pi,\pi')\mbox{ is uniformly bounded}
+\end{equation*}
+if the Lie algebras $(\mathfrak{g},\mathfrak{g}')$ are real forms of $(\mathfrak{sl}(n+1,\C),\mathfrak{gl}(n,\C))$
+or $(\mathfrak{o}(n+1,\C),\mathfrak{o}(n,\C))$, in particular, if $(G,G')$ is of the form \eqref{eq:2}.
+\section{Settings}
+Let $G=O(p+1,q+1)$ be the automorphism group of the quadratic form
+on $\R^{p+q+2}$ of signature $(p+1,q+1)$ defined by
+\begin{equation*}
+	Q_{p+1,q+1}(x)
+		=x_0^2+\cdots+x_{p}^2-x_{p+1}^2-\cdots-x_{p+q+1}^2.
+\end{equation*}
+
+A degenerate spherical principal series representation $I(\lambda):=\Ind_P^G(\C_{\lambda})$ with parameter $\lambda\in\C$ of $G$ is induced from
+a character $\C_\lambda$ of a maximal parabolic subgroup $P=MAN_+$
+with Levi part
+$M A \simeq O (p, q) \times \{ \pm 1 \} \times \mathbb{R}$.
+We realize $I(\lambda)$ on the space of $C^\infty$ sections
+of the $G$-equivariant line bundle\[
+	\mathcal{L}_\lambda=G\times_{P}\C_\lambda\to G/P
+\]
+so that $I(\lambda)$ itself is the smooth Fr\'echet globalization of moderate growth.
+Our parametrization is chosen in a way that
+$I(\lambda)$ contains a finite-dimensional submodule if $-\lambda\in2\N$ and a finite-dimensional quotient if $\lambda-\left( p+q\right)\in2\N$ ({\it cf.} \cite{howe1993homogeneous}).
+%%\begin{eqnarray}
+%%  & I (\lambda) , &  \nonumber\\
+%%  & J (\nu) \assign \tmop{Ind}_{P'}^{G'} (\mathbb{C}_{\nu}), \quad \nu \in
+%%  \mathbb{C}. &  \nonumber
+%%\end{eqnarray}
+%%where $P \subset G$ is the maximal parabolic subgroup 
+%%with the Levi part
+%%\[ M A \simeq O (p, q) \times \{ \pm 1 \} \times \mathbb{R}, \]
+%%$P' = P \cap G'$ is a maximal parabolic of $G'$.
+
+Let $G'=O(p,q+1)$ be the stabilizer of the basis element $e_p$. Similarly to $I(\lambda)$,
+we denote by $J(\nu):=\Ind_{P'}^{G'}\left( \C_\nu \right)$ the representation of $G'$
+induced from a character $\C_\nu$ of a
+maximal parabolic
+subgroup $P'$ of $G'$ with Levi part $O(p-1,q)\times\left\{ \pm1 \right\}\times\R$.
+
+%%\fbox{Conformal viewpoint:} 
+The representation $I (\lambda)$ arises from conformal
+geometry as follows. We endow the direct product manifold $\Sp^p\times\Sp^q$ with the pseudo-Riemannian structure $g_{\Sp^p}\oplus\left( -g_{\Sp^q} \right)$ of signature $(p,q)$.
+Then the group $G=O(p+1,q+1)$ acts as conformal diffeomorphisms on $\Sp^p\times\Sp^q$, and also on its quotient space $X=\left( \Sp^p\times\Sp^q \right)/\Z_2$
+by identifying
+the direct product of
+antipodal points. By
+the general theory of conformal {groups}, one has a family of representations $\varpi_\lambda$ on $C^\infty(X)$
+with parameter $\lambda\in\C$ \cite[Sect.\ 2]{KO1}. Then $X$ identifies with $G/P$, and $\varpi_\lambda$ identifies with $I(\lambda)$. Thus the
+branching problem in our setting arises from the
+conformal construction of representations for $(X,Y)=\left( \left(\Sp^p\times\Sp^q  \right)/\Z_2,\left( \Sp^{p-1}\times\Sp^q \right)/\Z_2 \right)$.
+%%:
+%%\begin{eqnarray}
+%%  & X \assign \mathbbm{S}^p \times \mathbbm{S}^q / \pm &  \nonumber\\
+%%  & \rightsquigarrow \tmop{Conf} (X) = O (p + 1, q + 1) = G \curvearrowright  &  \nonumber\\[15pt]
+%%  & \curvearrowright \begin{array}[c]{c|l}
+%%      \mathcal{L}_{\lambda}:&\mbox{conformally}\\
+%%      \downarrow&\mbox{equivariant}\\
+%%      X=G/P&\mbox{line bundle}
+%%  \end{array}& \nonumber\\%\tmop{conformally} \tmop{equivariant} \tmop{line} \tmop{bundle & \nonumber\\}
+%%  & \rightsquigarrow G \curvearrowright I (\lambda) = C^{\infty} (X,\mathcal{L}_{\lambda}) . &  \nonumber
+%%\end{eqnarray}
+
+%%{\noindent}\tmtextbf{Remark. }Works {\cite{kobayashi2013finite}},
+%%{\cite{kobayashi2014classification}} regarding the part $\mathcal{A}$ (a
+%%priori estimate) for this setting, imply that $\dim (\tmop{Hom}_{G'} (I
+%%(\lambda), J (\nu)))$ is uniformly bounded in $(\lambda, \nu) \in
+%%\mathbb{C}^2$.{\hspace*{\fill}}{\medskip}
+%%
+%%
+%%	This work aims to generalize the results of \cite{kobayashi2015symmetry}
+%%	regarding the symmetry breaking in the $O(n+1,1)\downarrow O(n,1)$ case. This is joint work with T. Kobayashi.
+%%	What we call ``symmetry breaking operators'' (SBOs, for short) in this work are the $G'$ intertwining operators between the spherical degenerate principal series representations $I(\lambda)$
+%%	of $G=O(p+1,q+1)$ and $J(\nu)$ of its closed subgroup $G'\simeq O(p,q+1)$ induced from maximal parabolic subgroups.
+%%  \begin{versiona}
+%%	  Let us set up some notation. We define the standard quadratic form
+%%	  \begin{equation*}
+%%  \Q (x) \assign \,^t \! x I_{p, q} x, \; (x \in
+%%  \mathbb{R}^{p + q}),
+%%	  \end{equation*}
+%%	  where
+%%\begin{equation*}
+%%   I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
+%%  1, \ldots, - 1}_q).
+%%\end{equation*}
+%%We set $G \assign O (p +
+%%1, q + 1)=\left\{ g\in GL\left( n+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}$, and define
+%%a maximal parabolic subgroup $P=MAN_{+}$ with
+%%\begin{equation*}
+%%	\begin{array}[]{@{}l@{}l@{}}
+%%		M&{\assign \left\{ \left( \begin{array}{ccc}
+%%    \epsilon & 0 & 0\\
+%%    0 & A & 0\\
+%%    0 & 0 & \epsilon
+%%  \end{array} \right) \middle| { \begin{array}[]{@{}c@{}c@{}}
+%% A\in O(p,q),\\ \epsilon =\pm1
+%%  \end{array}}
+%%  \right\}}\simeq O(p,q)\times \Z_2,\\
+%%  A&{\assign \left\{a (t) \assign \left( \begin{array}{ccc}
+%%    \cosh (t) & 0 & \sinh (t)\\
+%%    0 & I_{p + q} & 0\\
+%%    \sinh (t) & 0 & \cosh (t)
+%%  \end{array} \right)\middle| t \in \mathbb{R}\right\}} \simeq \mathbb{R},\\
+%%  N_+&\assign {\left\{\kern-0.1cm I_{n + 2}\kern-0.1cm +\kern-0.1cm\left( \begin{array}{@{}ccc@{}}
+%%    - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)\\
+%%    b & 0 & - b\\
+%%    - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)
+%%  \end{array} \right)\kern-0.1cm\middle| b \in \mathbb{R}^{n} \kern-0.1cm\right\}}\\
+%%  &\simeq\mathbb{R}^{n}.
+%%	\end{array}
+%%\end{equation*}
+%%
+%%We realize $G':=O(p,q+1)$ as the subgroup $G_{e_{p+1}}:=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}$ of $G$. 
+%%Then $G'$ is {\it compatible} with $P$ in the sense that 
+%%$P':=P\cap G'$ is also a maximal parabolic subgroup
+%%with Langlands decomposition $P'=(G'\cap M)A (G'\cap N_+)$,
+%%because $A\subset G'$.
+%%Similarly, we define (unnormalized) spherical degenerate principal series representations $J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$ of $G'$ for $\nu\in\C$.
+\section{Multiplicity formul\ae}
+In this section we determine explicitly the multiplicity
+\begin{equation*}
+	m(I(\lambda),J(\nu))=\dim\Hom_{G'}\left( I(\lambda)\kern-0.1cm\mid_{G'},J(\nu) \right).
+\end{equation*}
+We shall see \uwave{that} $m(I(\lambda),J(\nu))>0$ for all $\lambda,\nu\in\C$. More precisely, we
+define the following four subsets of $\C^2$:
+\begin{align*}
+	 \mmm &\assign \{ (\lambda, \nu) \in \mathbb{C}^2 \mid \nu \in
+	- 2\mathbb{N} \cup (q + 1 + 2\mathbb{Z}) \},\\
+ \bb&\assign\mysetn{(\lambda,\nu)\in\C^2}{n-1-\lambda-\nu\in2\N},\\
+ \ss &\assign\mysetn{(\lambda, \nu) \in \mathbb{C}^2}{\nu-\lambda \in2\N },\\
+ \mm&\assign\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N},
+\end{align*}
+and two subsets of $\Z^2$ by 
+\begin{equation*}
+	\mathcal{A}:=\ss\cap\mm\mbox{ and }\mathcal{X}:=\mm\cap\bb.
+\end{equation*}
+\begin{theorem}
+	Let $(G,G')$ be as in \eqref{eq:2} with $p,q\ge1$. Then\begin{equation*}
+		m(I(\lambda),J(\nu))\in\left\{ 1,2 \right\}
+	\end{equation*}
+	for all $\lambda,\nu\in\C$. Furthermore, $m(I(\lambda),J(\nu))=2$ if and only if one of the following conditions holds:
+	\begin{enumerate}[C{a}se 1.]
+		\item $p>1$. $(\lambda,\nu)\in\mathcal{A}$.
+		\item $p=1$ and $q$ is odd. $(\lambda,\nu)\in\mathcal{A}\cup\mathcal{X}$.
+		\item $p=1$ and $q$ is even. $(\lambda,\nu)\in\mathcal{A}\cup\mathcal{X}-\mathcal{X}\cap//$.
+	\end{enumerate}
+	\label{thm:multiplicity}
+\end{theorem}
+We shall construct explicitly all the symmetry breaking operators in Section \ref{sec:constr}.
+\section{Double coset space $P'\backslash G/P$}
+As we observe in Fact \ref{fact:1} (and Fact \ref{fact1} below), the double coset space $P'\backslash G/P$ plays a fundamental role in analyzing symmetry breaking operators\begin{equation*}
+	\Ind_P^G(\sigma)\to\Ind_{P'}^{G'}(\tau),
+\end{equation*}where $\sigma$ is a representation of a parabolic subgroup $P$ of $G$ and $\tau$ is that of a parabolic subgroup $P'$ of $G'$. The description of the double coset space $P'\backslash G/P$
+is nothing but the Bruhat decomposition if $G'=G$; the Iwasawa decomposition if $G'$ is a maximal compact subgroup $K$ of $G$ where $P'$ is automatically equal to $K$. In this section we give a description
+of $P'\backslash G/P$ together with its closure relation in the setting where $(G,G',P,P')$ is given {as} in Section 3.
+
+The natural action of $G=O(p+1,q+1)$ on $\R^{p+q+2}$ preserves the isotropic cone
+\begin{equation*}
+	\Xi:=\mysetn{x\in\R^{p+q+2}\setminus\left\{ 0 \right\}}{Q_{p+1,q+1}(x)=0},
+\end{equation*}
+inducing the $G$-action on its quotient space
+\begin{equation*}
+	X:=\Xi/\R^{\times}\simeq \left( \Sp^p\times\Sp^q \right)/\Z_2.
+\end{equation*}
+%%Geometrically, $X^{p,q}$ is identified with the direct product manifold $\Sp^p\times\Sp^q$ equipped with the pseudo-Riemannian metric $g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$,
+%%modulo the direct product of antipodal maps, and $G$ is the group of conformal transformations of $X^{p,q}$.
+%%We set
+%%\[X:=G/P\simeq X^{p,q},\]
+%%%\[Y:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q},\]
+%%\begin{align*}
+%%	Y&:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\\
+%%	&\simeq X^{p-1,q},
+%%\end{align*}
+%%\begin{align*}
+%%	C&:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\\
+%%	&\simeq X^{p-1,q-1}\cup\Xi^{p,q},
+%%\end{align*}
+%%\[\left\{ [o] \right\}:=\left\{ [1:0_{p+q}:1] \right\}.\]
+We define the subvarieties of $X$ by　
+\begin{align*}
+	Y&\assign\mysetn{[x]\in X}{x_p=0},\\
+	C&\assign\mysetn{[x]\in X}{x_0=x_{p+q+1}}.
+\end{align*}
+Let $P$ be the stabilizer of the point \begin{equation*}
+	o:=\left[ 1:0:\dots:0:1 \right]\in X,
+\end{equation*}and $P':=P\cap G'$. Then $X$ and $Y$ are identified with the real flag varieties $G/P$ and $G'/P'$, respectively.
+\begin{theorem}[description of $P'\backslash G/P$]%[classification of closed $P'$-invariant subsets of $G/P$]
+	\label{thm:cloclassif}
+	Suppose $p,q\ge1$.
+	The left $P'$-invariant closed subsets of $G/P$ are described in the following Hasse diagram. Here 
+	$
+	\begin{array}{l}
+	        \xymatrixrowsep{0.5pc}
+		\xymatrix{A\ar@{-}[d]^m\\B}
+	\end{array}
+	$
+	means that $A\supset B$ and that the subvariety $B$ is of codimension $m$ in $A$.\\
+  \begin{figure}[h]
+    \hspace{-0.6cm}
+    \begin{subfigure}[t]{0.3\textwidth}
+	    \hspace{0.2cm}
+	    \xymatrixrowsep{0.5pc}
+	    \xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rd]_1&&C\ar@{-}[ld]^1\\&C\cap Y\ar@{-}[dd]^{p+q-2}&\\&&\\&\{[o]\}&}
+	\caption{when $p>1$}
+    \end{subfigure}
+     %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+    \hspace{-1.6cm}\begin{subfigure}[t]{0.3\textwidth}
+	    \hspace{0.8cm}
+	    \xymatrixrowsep{0.5pc}
+	    {\xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rddd]_{p+q-1}&&C\ar@{-}[lddd]^{p+q-1}\\&&\\&&\\&\{[o]\}&}}
+	    \vspace{0.2cm}
+	\caption{when $p=1$}
+    \end{subfigure}
+    \hspace{-1cm}
+\end{figure}
+\end{theorem}
+\section{Construction of symmetry breaking operators\label{sec:constr}}
+Let $n:=p+q$. The slice of $\Xi$ by the hyperplane $x_0+x_{p+q+1}=2$
+defines the coordinates $\left( x_1,\dots,x_n \right)\in\R^n$ \uwave{on} the open Bruhat cell $U$ of $G/P$, and induces the $N$-picture of the representation $I(\lambda)$\begin{equation*}
+	\iota_\lambda^*:I(\lambda)\hookrightarrow C^\infty(\R^n)
+\end{equation*}via the trivialization $\mathcal{L}_\lambda\kern-0.1cm\mid_{U}\simeq\R^n\times\C$.
+
+We shall realize
+a symmetry breaking operator $T$ in the $N$-pictures of $I(\lambda)$ and $J(\nu)$, and
+find a distribution $K_T\in\mathcal{D}'\left( \R^n \right)$ such that $\iota^*_\nu(Tf)(x')$ is given by
+\begin{equation*}
+	\int_{\R^n}K_T(x'-y',-y_{p+1})(\iota_\lambda^*f)(y',y_{p+1})dy'dy_{p+1}
+\end{equation*}
+\begin{figure}[h]
+\centering
+\hspace{1.2cm}
+	\xymatrixcolsep{0.2pc}
+	\xymatrix
+	{
+		&I(\lambda)\ar[d]_{\rotatebox{90}{$\sim$}}^{\iota_\lambda^{*}}\ar[rr]^T &&J(\nu)\ar[d]_{\rotatebox{90}{$\sim$}}^{\iota_\nu^{*}}&\\
+		C^\infty(\R^n)\supset&\iota_\lambda^*\left( I(\lambda) \right)\ar@{-->}[rr]&&\iota_\nu^{*}\left( J(\nu) \right)&\subset C^\infty(\R^{n-1})\vspace*{-1cm}\\
+	}
+\end{figure}
+for all $f\in I(\lambda)$, where $x',y'\in\R^{n-1}$. 
+%%To be more precise, we need some notation.
+%%
+%%The objects of this study are then \textit{symmetry breaking operators} (\textit{SBOs} for short),
+%%that is, $G'$-intertwining operators between the $G$-module $I(\lambda)$ regarded as a $G'$-module by restriction and the $G'$-module $J(\nu)$. We denote by $\SBO$ the totality
+%%of such operators.
+
+%%The general theory \cite{kobayashi2013finite,kobayashi2014classification} implies the following {\it a priory} estimate of its dimension in our particular setting.
+%%\begin{fact}\label{fact:1}
+%%	The dimension of $\SBO$ is uniformly bounded in $(\lambda,\nu)\in\C^2$.
+%%\end{fact}
+%%We shall find an explicit basis of $\SBO$ in our setting in Theorem \ref{thm:classif}, and in particular, its dimension in Corollary \ref{cor:classif}.
+
+In order to analyze the 
+distribution kernels $K_T$
+%%space $\SBO$ 
+of symmetry breaking operators $T$, we begin with:
+\begin{definition}\label{def2}We let $O(p-1,q)$ act on $\R^n$ $(n=p+q)$ by leaving $x_p$ invariant. We define $\sol$ 
+	to be the space of distributions $F\in\mathcal{D}'(\R^n)$ satisfying the following three conditions:
+\begin{enumerate}[(1)]
+    \item $F$ is $O(p-1,q)$-invariant and $F(x)=F(-x)$;
+    \item $F$ is homogeneous of degree $\lambda-\nu-n$;
+    \item $F$ is $N_+'$-invariant.
+  \end{enumerate}
+\end{definition}
+%%\end{versiona}
+Applying the general result proven in \cite[Chap.\ 3]{kobayashi2015symmetry} to our particular setting, we get the following:
+\begin{fact}[{\cite[Thm.\ 3.16]{kobayashi2015symmetry}}]\label{fact1}
+Recall 
+	$n=p+q\;(p,q\ge1)$. Then the following diagram commutes:\\
+	\xymatrixcolsep{0.0pc}
+	\hspace*{-1.3cm}\xymatrix{
+		\SBO\ar[r]^{\simeq}&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda}) \otimes\mathbb{C}_\nu \right)^{P'}
+\ar[dl]^{\simeq}_{\mbox{\rm Rest}}\\
+{\hspace{1.65cm}\sol\subset\mathcal{D}'(\R^n)}\ar[u]^{\mbox{Op}}_{\simeq}\\
+}
+\end{fact}
+For $T\in\SBO$, $\Supp(T)$ is defined to be the support of the distribution kernel $K_T\in\left( \mathcal{D}'\left( G/P,\mathcal{L}_{n-\lambda} \right)\otimes\C_\nu \right)^{P'}$.
+Then $\Supp(T)$
+is a closed subset of $P'\backslash G/P$.
+By \cite[Sect.\ 2]{kobayashi2016differential1}, $T$ is a {\it differential} symmetry breaking operator if and only if $\Supp(T)$ is a singleton.
+%%Thus one sees that closed subsets of the finite double coset space $P'\backslash G/P$ provide an important invariant of the symmetry breaking operators. 
+%%Therefore, the first step to classify SBOs is to describe explicitly the double coset space $P'\backslash G/P$ together with its closure relations.
+
+Conversely, for each closed subset $S$ of $P'\backslash G/P$, we construct a family $R^S_{\lambda,\nu}$ of SBOs such that:
+\begin{itemize}
+	\item The domain $D_S$ of the definition of $R_{\lambda,\nu}^S$ is
+		either the whole $\C^2$, or is a countable
+		union of one-dimensional complex affine spaces;
+	\item $R_{\lambda,\nu}^S$ depends holomorphically on $(\lambda,\nu)\in D_S$;
+	\item $\Supp(R_{\lambda,\nu}^S)\subset S$ for every $(\lambda,\nu)\in D_S$, and the equality holds for generic points in $D_S$.
+\end{itemize}
+The relationship among these operators will be discussed in Section 8.
+In this note, we omit the case when $S=C\cap Y$ \uwave{for $p=1$ (I think it's better to remove this, as we do not discuss $C\cap P$ even when $p>1$)};
+$S=C$ or $Y$ for $p>1$, as they are covered by the ``residues'' of other operators
+and are not used for the classification in Theorem \ref{thm:classif} below.
+
+Here is a summary of the symmetry breaking operators that we construct below.\\
+\begin{equation*}
+\begin{array}[]{lll|l|l}
+	R_{\lambda,\nu}^S&=&\Op\left(K_{\lambda,\nu}^S  \right)&D_S&\mbox{\uwave{constructed in}}\\
+	\hline
+	R_{\lambda,\nu}^X&=&\Op\left(K_{\lambda,\nu}^X  \right)&\C^2&\mbox{Theorem \ref{thm:regular}}\\
+	\tilde{R}_{\lambda,\nu}^X&=&\Op\left(\tilde{K}_{\lambda,\nu}^X  \right)&\mmm&\mbox{Theorem \ref{thm:X2}}\\
+	R_{\lambda,\nu}^Y&=&\Op\left(K_{\lambda,\nu}^Y  \right)&\bb&\mbox{Theorem \ref{thm:singY}}\\
+	R_{\lambda,\nu}^C&=&\Op\left(K_{\lambda,\nu}^C  \right)&\mm&\mbox{Theorem \ref{thm:singC}}\\
+	R_{\lambda,\nu}^{\mycbra{o}}&=&\Op\left(K_{\lambda,\nu}^{\mycbra{o}}  \right)&\ss&\mbox{Fact \ref{fact:singo}}\\
+\end{array}
+\end{equation*}
+
+\begin{theorem}[regular symmetry breaking operator]\label{thm:regular}
+	Suppose $n=p+q$ with $p,q\ge1$.
+	\begin{enumerate}[(1)]
+		\item There exists a family of symmetry breaking operators $R_{\lambda,\nu}^X\in\Hom_{G'}(I(\lambda)\kern-0.1cm\mid_{G'},J(\nu))$ that depends 
+			holomorphically on the \uwave{entire} $(\lambda,\nu)\in\C^2$ with the distribution kernel $K_{\lambda,\nu}^X(x)$ given by\begin{equation*}
+		\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2}\right)\Gamma\left( \frac{\lambda+\nu-n+1}{2}\right)\Gamma\left( \frac{1-\nu}{2}   \right)}\myabs{x_p}^{\lambda+\nu-n}
+		\myabs{\Q}^{-\nu}.
+	\end{equation*}
+\item 
+	$R^X_{\lambda,\nu}$ vanishes if and only if $(\lambda,\nu)$ belongs to the discrete set $\mathcal{A}$ for $p>1$\uwave{; }$\mathcal{A}\cup\mathcal{X}$ for $p=1,q$ odd\uwave{;}
+	and $\mathcal{A}\cup\mathcal{X}-\mathcal{X}\cap//$ for $p=1,q$ even.
+\item 
+	$\Supp(R_{\lambda,\nu}^X)\subset Y,C$ or $\left\{ o \right\}$ if $(\lambda,\nu)\in\backslash\backslash,\mid\mid$ or $//$, respectively, and $\Supp(R_{\lambda,\nu}^X)=X$
+	otherwise.
+	\end{enumerate}
+\end{theorem}
+We shall renormalize $R_{\lambda,\nu}^X$ in the place where
+$R_{\lambda,\nu}^X$ vanishes. For this, we begin with
+an observation that $\Gamma\left( \frac{\lambda-\nu}{2} \right)$ is holomorphic in $\C^2\setminus //$, and therefore\begin{equation*}
+	\tilde{K}_{\lambda,\nu}^X:=\Gamma\left( \frac{\lambda-\nu}{2} \right)K_{\lambda,\nu}^X
+	=\frac{\myabs{x_p}^{\lambda+\nu-n}\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)\Gamma\left( \frac{1-\nu}{2} \right)}
+\end{equation*}
+makes sense if $(\lambda,\nu)\in\C^2\setminus //$. Moreover, in light of the fact that $K_{\lambda,\nu}^X$ vanishes on $\mathcal{A}=\mid\mid\mid\cap//$ by
+Theorem \ref{thm:regular} (2), we obtain its analytic continuation on $\mid\mid\mid$ as follows.\begin{theorem}[renormalized operator $\tilde{R}_{\lambda,\nu}^X$]
+	\begin{enumerate}[(1)]
+		\item The renormalized symmetry breaking operator\begin{equation*}
+				\tilde{R}_{\lambda,\nu}^X:=\Op\left( \tilde{K}_{\lambda,\nu}^X \right)\in\Hom_{G'}\left( I(\lambda)\kern-0.1cm\mid_{G'},J(\nu) \right)
+			\end{equation*}is defined for $(\lambda,\nu)\in\mid\mid\mid$ that depends holomorphically 
+			on $\lambda$ in the entire $\C$ for each fixed $\nu$.
+		\item $\tilde{R}^X_{\lambda,\nu}$ vanishes if and only if $p=1$, $q$ even and $(\lambda,\nu)\in\mathcal{X}\setminus//$.
+	\end{enumerate}
+	\label{thm:X2}
+\end{theorem}
+
+We introduce a discontinuous function $N\colon\R\to\Z$ by $N(x):=x$ if $x$ is a positive integer; $=0$ otherwise.
+
+Associated to closed subsets $Y$ and $C$ in $P'\backslash G/P$ we define families of symmetry breaking operators. For later purpose, we discuss only the case $p=1$.
+\begin{theorem}[singular symmetry breaking operators $R_{\lambda,\nu}^Y$]\label{thm:singY}
+	Suppose $p=1$ and $q\ge1$. For $(\lambda,\nu)\in\backslash\backslash$, we fix $k:=\frac{1}{2}\left( q-\lambda-\nu \right)\in\N$. Then there exists a family of symmetry breaking operators
+	$R_{\lambda,\nu}^Y$ that depends holomorphically on $\nu$ in the entire plane $\C$ with the distribution kernel $K_{\lambda,\nu}^Y$ given by\begin{equation*}
+		\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2}+N\left( k-\frac{q}{2} \right) \right)}\delta^{(2k)}(x_p)\myabs{\Q}^{-\nu}.
+	\end{equation*}
+\end{theorem}
+\begin{theorem}[singular symmetry breaking operators $R_{\lambda,\nu}^C$]\label{thm:singC}
+	Suppose $p=1$ and $q\ge1$. For $(\lambda,\nu)\in\mid\mid$, we fix $m:=\frac{1}{2}\left(\nu-1 \right)\in\N$. Then there exists a family of symmetry breaking operators
+	$R_{\lambda,\nu}^C$ that depends holomorphically on $\lambda$ in the entire plane $\C$ with the distribution kernel $K_{\lambda,\nu}^C$ given by
+	\begin{equation*}
+	\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2}+N\left(\nu- \frac{q}{2} \right) \right)}\myabs{x_p}^{\lambda+\nu-n}\delta^{(2m)}(\Q).
+	\end{equation*}
+\end{theorem}
+
+%%\begin{theorem}[construction of SBO]\label{thm:construction}
+%%	For $S=X,Y,C,$ and $\left\{ o \right\}$, the following operators $R_{\lambda,\nu}^S$ and $\tilde{R}_{\lambda,\nu}^X$ are symmetry breaking operators from $\IlambdaGprime$ to $J(\nu)$, which depend holomorphically on $(\lambda,\nu)\in D_S$. Moreover, $\Supp(R_{\lambda,\nu}^S)\subset S$, and are given explicitly as follows.
+%%
+%%	\hspace*{-2cm}
+%%	%\hspace*{-1cm}
+%%	\begin{tabular}[c]{@{}|@{}l@{}|@{}l@{}|l@{}|}
+%%  \hline
+%%  $R_{\lambda,\nu}^S$& $\tmop{Op} : 
+%%  \Sol(\mathbb{R}^{p, q} ; \lambda, \nu)
+%%  \rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu))$ & $D_S\,$ 
+%%  \\
+%%  \hline
+%%  $R_{\lambda, \nu}^X =$ & $ \frac{1}{\Gamma \left( \frac{\lambda - \nu}{2} \right) \Gamma \left(
+%%  \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left( \frac{1 - \nu}{2}
+%%  \right)}{\tmop{Op} \left(| x_p |^{\lambda + \nu - n}
+%%  | \Q |^{- \nu} \right)}$ & $\mathbb{C}^2$ \\
+%%  \hline
+%%  $\tilde{R}_{\lambda,\nu}^X$ &$\frac{1}{ \Gamma \left(
+%%  \frac{\lambda + \nu - n + 1}{2} \right) \Gamma \left( \frac{1 - \nu}{2}
+%%  \right)}{\tmop{Op} \left(| x_p |^{\lambda + \nu - n}
+%%  | \Q |^{- \nu} \right)}$ & $\mid\mid\mid$ 
+%%  \\\hline
+%%  $R_{\lambda, \nu}^Y =$ & $\frac{(-1)^k k! q_Y^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
+%%  \right) }{\tmop{Op} \left( \delta^{(2k)}(x_p)
+%%  | \Q |^{- \nu}  \right)}$ & $
+%%  \backslash\backslash$ \\
+%%  \hline
+%%  $R_{\lambda, \nu}^C =$ & $\frac{(-1)^m m! q_C^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
+%%  \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) }{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}\delta^{(2m)}\left( \Q \right)
+%%    \right)}$ & $ \mid \mid$ \\
+%%  \hline
+%%  $R_{\lambda, \nu}^{\{ o \}} =$ & 
+%%  $\tmop{Op} \left( \tilde{C}_{\nu -
+%%  \lambda}^{\lambda - \frac{n - 1}{2}} \left(-\Delta_{\mathbb{R}^{p - 1, q}}
+%%  \delta_{\mathbb{R}^{p + q - 1}}, \delta (x_p)\right) \right)
+%%  $ & $
+%%  / /$\\
+%%  \hline
+%%\end{tabular}
+%%
+%%Here $\tilde{C}(s,t)$ is a polynomial of two-variable's, which obtained by inflation of the renormalized Gegenbauer polynomial, defined as in \cite[(16.3)]{kobayashi2015symmetry}.
+%%\end{theorem}
+%%We set $m:=\frac{1}{2}\left( \nu-1 \right)\in\N$ for $(\lambda,\nu)\in\mm$ and $k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$ for $(\lambda,\nu)\in\bb$.
+%%For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
+%%\[ q_C^X (\lambda, \nu) : = \left\{ \begin{array}{@{}l@{}l@{}}
+%%     \Gamma^{} \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
+%%     2\mathbb{Z}, \nu \le \frac{q}{2},\\
+%%     \Gamma^{} \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbb{Z},
+%%     \nu > \frac{q}{2},\\
+%%     \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
+%%     2\mathbb{Z}+ 1.
+%%   \end{array} \right. \]
+%%\[q_Y^X (\lambda, \nu) : = \left\{ \begin{array}{ll}
+%%     1, & 
+%%      q \in 2\mathbb{Z}+ 1,\\
+%%      1,&q\in2\Z,\lambda+\nu\ge0\\
+%%      \Gamma \left( \frac{\lambda -
+%%     \nu}{2} \right) / \Gamma \left(  - \nu \right), & q
+%%     \in 2\mathbb{Z},\lambda+\nu<0.
+%%   \end{array} \right. \]
+\begin{fact}\label{fact:singo}
+	Suppose $(\lambda,\nu)\in//$. We set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$.
+	We define $R_{\lambda,\nu}^{ \left\{ o \right\}}:C^\infty\left( \R^n \right)\to C^\infty\left( \R^{n-1} \right)$ by
+%%	$R_{\lambda,\nu}^S$ is a differential operator if $S=\left\{ o \right\}$ owing to the general theory of differential SBOs established in \cite[Chap.\ 2]{kobayashi2016differential1}.
+%%	By definition, $R_{\lambda,\nu}^{ \left\{ o \right\}}$ in Theorem \ref{thm:construction} amounts to
+	\begin{equation*}
+		\mbox{\normalfont Rest}_{x_p=0}\;\circ
+	\sum_{j=0}^la_j\left( \lambda,\nu \right)\left(- \Delta_{\mathbb{R}^{p-1,q}} \right)^j\left( \frac{\partial}{\partial x_p} \right)^{2l-2j}
+	\end{equation*}
+	where $a_j(\lambda,\nu)$ is given by\begin{equation*}
+		a_j(\lambda,\nu)=\frac{(-1)^j2^{2l-2j}}{j!(2l-2j)!}\prod_{i=1}^{l-j}\left(\frac{\lambda+\nu-n-1}{2} 
+		+i \right).
+	\end{equation*}
+	Then $R_{\lambda,\nu}^{ \left\{ o \right\}}\in\Hom_{G'}\left( I(\lambda)\kern-0.1cm\mid_{G'},J(\nu) \right)$.
+	The coefficients $a_j(\lambda,\nu)$ gives rise to a Gegenbauer polynomial\begin{equation*}
+		\tilde{C}_{2l}^{\lambda+\frac{n-1}{2}}(t)=\sum_{j=0}^la_j(\lambda,\nu)t^{2l-2j}
+	\end{equation*}
+	renormalized as $\tilde{C}_{2l}^{\lambda+\frac{n-1}{2}}(0)=\left( -1 \right)^l/l!$.
+
+	The operator $R_{\lambda,\nu}^{\left\{ o \right\}}$
+	was previously found in \cite[Thms.\ 5.1.1 and 5.2.1]{juhl2009families} for $q=0$ and in \cite[Thm.\ 4.3]{kobayashi2015branching}
+	for general $p,q$.
+	The distribution kernel is given by
+	\begin{equation*}
+		K_{\lambda,\nu}^{ \left\{ o \right\} }:=\sum_{j=0}^la_j(\lambda,\nu)\left( -\Delta_{\R^{p-1,q}} \right)^j\delta_{\R^{p+q-1}}\delta^{\left( 2l-2j \right)}(x_p).
+	\end{equation*}
+\end{fact}
+\begin{remark}\label{rmk:thm:construction}
+%%	The rightmost column in Theorem \ref{thm:construction} 
+%%	\uwave{not ``in Theorem \ref{thm:construction}'', but ``in table above''}
+%%	implies $R_{\lambda,\nu}^{ \left\{ o \right\}},R_{\lambda,\nu}^Y,R_{\lambda,\nu}^C\neq0$
+%%	for every $(\lambda,\nu)\in\C^2$, while
+%%%%	\[\begin{cases}
+%%%%			//\cap\mid\mid\mid,&p>1,\\
+%%%%			\mybra{//\cap\mid\mid\mid} \cup \mybra{\backslash\backslash\cap\mid\mid},&p=1,
+%%%%		\end{cases}
+%%%%	\]
+%%	%and 
+%%	$\tilde{R}_{\lambda,\nu}^X=0$ if and only if $p=1$ and $(\lambda,\nu)$ is in the discrete set $\backslash\backslash\cap \mid\mid$.
+	The operators $R_{\lambda,\nu}^Y$, $R_{\lambda,\nu}^C$ and $R^{ \left\{ o \right\}}_{\lambda,\nu}$ do not vanish.
+\end{remark}
+These SBOs are not always linearly independent, but exhaust all SBOs. We provide explicit
+basis for $\SBO$ for every $(\lambda,\nu)\in \mathbb{C}^2$ as follows:
+\begin{theorem}[classification of SBOs]\label{thm:classif}
+	The vector space $\Hom_{G'}\left( I(\lambda)\kern-0.1cm\mid_{G'},J(\nu) \right)$ is spanned by the operators as below.
+	\begin{enumerate}[(1)]
+		\item Suppose $p=1$ and $q\ge1$.
+			\begin{equation*}
+\left\{
+   \begin{array}{ll}
+	   R^X_{\lambda, \nu}, & \mbox{\normalfont if }(\lambda, \nu) \notin \mathcal{A}\cup\mathcal{X},\\
+      \tilde{R}^X_{\lambda, \nu} , R^{\{ o
+      \}}_{\lambda, \nu}, & \mbox{\normalfont if }(\lambda, \nu) \in \mathcal{A} -\mathcal{X},\\
+     R^Y_{\lambda, \nu} , R^C_{\lambda, \nu}, &
+     \mbox{\normalfont if }(\lambda, \nu) \in \mathcal{X} - / /,\\
+     R^{\{ o \}}_{\lambda, \nu}, & \mbox{\normalfont if }(\lambda, \nu) \in \mid \mid
+     \cap \backslash\backslash \cap / /.
+   \end{array} \right.
+			\end{equation*}
+		\item Suppose $p\ge2$ and $q\ge1$.
+			\begin{equation*}
+\left\{
+   \begin{array}{ll}
+      \tilde{R}^X_{\lambda, \nu} , R^{\{ o
+     \}}_{\lambda, \nu}, & \mbox{\normalfont if }(\lambda, \nu) \in \mathcal{A},\\
+     R^X_{\lambda, \nu}, & \mbox{otherwise.}
+   \end{array} \right. 
+			\end{equation*}
+	\end{enumerate}
+\end{theorem}
+\section{Spectrum of SBOs}
+The representation $I(\lambda)$ of $G$ contains a one-dimensional subspace of spherical vectors ({\it i.e.} $K$-fixed vectors), and likewise $J(\nu)$ of $G'$.
+Let $\mathbf{1}_\lambda\in I(\lambda),\mathbf{1}_\nu\in J(\nu)$ be the spherical vectors normalized by $\mathbf{1}_\lambda(e)=\mathbf{1}_\nu(e)=1$. With this normalization, we have:
+\begin{theorem}[spectrum for spherical vectors]\label{thm:spherical}
+	Let $n=p+q\;(p,q\ge1)$ as before.
+\[ \OpR^X_{\lambda, \nu} \mathbf{1}_{\lambda} =  \frac{2^{1 -
+\lambda}\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
+\Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
+\frac{q - \nu + 1}{2} \right)} \mathbf{1}_{\nu}. \]
+\end{theorem}
+\begin{remark}
+	Theorem \ref{thm:spherical} was known in \cite[Lem.\ A.5]{bernstein2004estimates} for $p=q=1$ and in \cite[Prop.\ 7.4]{kobayashi2015symmetry} for $q=0$.
+ 	Another generalization was given in \cite[Thm.\ 1.1]{clerc2011generalized}
+	for higher dimensional cases.
+\end{remark}
+\section{Residue {formul\ae} of symmetry breaking operators}
+The regular symmetry breaking operators $R_{\lambda,\nu}^X$ have two complex parameters $(\lambda,\nu)\in\C^2$, whereas the singular operators $R_{\lambda,\nu}^Y$, $R_{\lambda,\nu}^C$, and
+$R_{\lambda,\nu}^{ \left\{ o \right\}}$ are defined
+for $(\lambda,\nu)\in\backslash\backslash$, $\mid\mid$ and $//$, respectively. We find the relationship
+among these operators as explicit residue formulae. 
+
+Let $\left( x \right)_j$ be the Pochhammer symbol defined by\begin{equation*}
+	\left( x \right)_j=x(x+1)\dots(x+j-1).
+\end{equation*}
+Proposition \ref{prop} treats easier cases as the subvarieties $Y$ and $C$ are of codimension one in $X$ (see Theorem \ref{thm:cloclassif}).
+\begin{proposition}\label{prop}
+	Suppose $p=1$.\begin{enumerate}[(1)]
+		\item For $(\lambda,\nu)\in\backslash\backslash$, we set $k=\frac{1}{2}\left( q-\lambda-\nu \right)\in\N$. Then
+\begin{equation*}
+R_{\lambda,\nu}^X=\frac{(-1)^kk!}{(2k)!}\frac{\left( \frac{\lambda-\nu}{2} \right)_{N\left(k-\frac{q}{2}  \right)}}{\Gamma\left( \frac{1-\nu}{2}\right) }R_{\lambda,\nu}^Y\mbox{ if }(\lambda,\nu)\in\backslash\backslash.
+\end{equation*}
+\item For $(\lambda,\nu)\in\mid\mid$, we set $m:=\frac{1}{2}\left( \nu-1 \right)\in\N$. Then
+\begin{equation*}
+R_{\lambda,\nu}^X=\frac{(-1)^mm!}{(2m)!}\frac{\left( \frac{\lambda-\nu}{2} \right)_{N\left( \nu-\frac{q}{2} \right)}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2}\right)}R_{\lambda,\nu}^C\mbox{ if }(\lambda,\nu)\in\mid\mid.
+\end{equation*}
+	\end{enumerate}
+\end{proposition}
+\begin{theorem}[residue formula]
+	Let $n=p+q\;(p,q\ge1)$.
+	For $(\lambda,\nu)\in//$, we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$. Then we have for $(\lambda,\nu)\in//$
+  \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^l l!\pi^{(n - 2) / 2} 
+		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
+	\OpR_{\lambda,\nu}^{ \left\{ o \right\} }. \]
+	\end{theorem}
+	\begin{remark}
+		The residue formula in the case $q=0$ was given in \cite[Thm.\ 12.2]{kobayashi2015symmetry}.
+	\end{remark}
+	\section{Functional identities among SBOs}
+		Let $n:=p+q$ as before.
+	We recall that there exist nonzero Knapp--Stein intertwining operators\begin{equation*}
+		\tilde{\mathbb{T}}_\lambda^G:I(\lambda)\to I(n-\lambda)
+	\end{equation*}
+	with holomorphic parameter $\lambda\in\C$ by the distribution kernel in the $N$-picture normalized as follows:\begin{equation*}
+		\begin{array}[]{c}
+			\frac{1}{\Gamma\left( \frac{\lambda-n+1}{2} \right)\Gamma\left( \frac{2\lambda-n+2}{4} \right)\Gamma\left( \frac{2\lambda-n}{4} \right)}\cdot{\myabs{\Q}^{\lambda-n}} \times\\
+		\left\{\begin{array}[]{@{}l@{}l@{}}
+			\Gamma\left( \frac{\lambda-n+2}{2} \right),&\mbox{if $\min(p,q)=0$,}\\
+			1,&\mbox{if $p,q>0$, $p\not\equiv q$ mod 2}\\
+			\Gamma\left( \frac{2\lambda-n}{4} \right),&\mbox{if $p,q>0$, $p-q\equiv 2$ mod 4}\\
+			\Gamma\left( \frac{2\lambda-n+2}{4} \right),&\mbox{if $p,q>0$, $p-q\equiv0$ mod 4}
+		\end{array}\right.
+		\end{array}
+	\end{equation*}
+
+	For $G'=O(p,q+1)$, we write
+		$\tilde{\mathbb{T}}_{\nu}^{G'}:J(\nu)\to J(n-1-\nu)$
+	for the Knapp--Stein intertwining operator.
+
+%%	\begin{definition}
+%%		Similarly to the construction of Fact \ref{fact1}, for $G=O(p+1,q+1)$ we have $\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$
+%%		where $\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$ is defined to be the space of generalized functions on $\R^{p+q}$ that satisfy
+%%		the four items in Definition \ref{def2}, except that in second item $O(p,q)_{e_p}$ is replaced by $O(p,q)$ and the fourth item is replaced by $N_+$-invariance
+%%		on $\R^{p,q}$, which in turn is defined as in Definition \ref{def1}, with the only difference that we do not assume $b_p=0$ anymore.
+%%
+%%		Now, the generalized function defined as
+%%  \begin{equation*}\begin{array}[]{c}
+%%			\myabs{Q}^{\lambda-n}\times\\
+%%			\times\left\{\begin{array}[]{@{}l@{}l@{}}
+%%				\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}=0,\\
+%%				\Gamma^{-1}\left( \frac{\lambda-n+1}{2} \right)\Gamma^{-1}\left( \lambda-n/2 \right),&p,q>0,n\todd,\\
+%%  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2+
+%%  1}{2} \right), &p,q>0, \frac{n}{2} + p \todd,\\
+%%  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2}{2}
+%%  \right), & p,q>0,\frac{n}{2} + p \teven
+%%			\end{array}
+%%  \right.
+%%	  \end{array}
+%%  \end{equation*}
+%%
+%%%%		\begin{equation*}
+%%%%			\kern-2cm\myabs{\Q}^{\lambda-n}\times\left\{\begin{array}[]{@{}l@{}l@{}}
+%%%%				\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}=0,\\
+%%%%				\Gamma^{-1}\left( \frac{\lambda-n+1}{2} \right)\Gamma^{-1}\left( \lambda-n/2 \right),&p,q>0,n\todd,\\
+%%%%  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2+
+%%%%  1}{2} \right), &p,q>0, \frac{n}{2} + p \todd,\\
+%%%%  \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2}{2}
+%%%%  \right), & p,q>0,\frac{n}{2} + p \teven
+%%%%			\end{array}
+%%%%  \right.
+%%%%		\end{equation*}
+%%		belongs to $\Sol_G(\R^{p,q};\lambda,n-\lambda)$ and we can use it to
+%%		define an intertwining operator of $G=O(p+1,q+1)$,
+%%		$\tilde{\mathbb{T}}^{G}_{\lambda}:I(\lambda)\to
+%%		I(n-\lambda)$
+%%		(\textit{Knapp--Stein operator}).
+%%		The result of this construction repeated with $G'=O(p,q+1)$ in place of $G$ will be denoted by $\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$.
+%%	\end{definition}
+	\begin{theorem}[functional identities]
+		For any $\lambda,\nu\in\C$, we have
+		\begin{equation*}
+			\begin{array}[]{c}
+		\tilde{\mathbb{T}}^{G'}_{n-1 - \nu} \circ R^X_{\lambda, n-1 - \nu} =\frac{\pi^{\frac{n - 3}{2}}\sin\left( \frac{p-\nu}{2} \pi\right)}{\Gamma\left( \frac{n-1-\nu}{2} \right)} a%q^{T X}_X
+  (\lambda, \nu) R^X_{\lambda, \nu},\\
+		 R_{n - \lambda, \nu}^X \circ \tilde{\mathbb{T}}^G_{\lambda} = 
+  \frac{\pi^{-\frac{n}{2}-1}\sin\left( \frac{p-\lambda+1}{2}\pi \right)}{2^{n-2\lambda}\Gamma\left( \frac{n-\lambda}{2} \right)}
+  b%q^{X T}_X
+  (\lambda, \nu) R_{\lambda, \nu}^X, 
+			\end{array}
+		\end{equation*}
+  where
+  \begin{equation*}
+	  \begin{array}[]{ll}
+		  a(\lambda,\nu)&=\left\{\begin{array}[]{ll}
+			  2^{\frac{1-n}{2}}\Gamma\left( \frac{1-\nu}{2} \right),&\mbox{\normalfont if $p=1$},\\
+			  2^{\frac{1-n}{2}},&\mbox{\normalfont if $p>1$,$p\equiv q$ mod 2},\\
+			  \Gamma\left( \frac{n-2\nu}{2} \right),&\mbox{\normalfont if $p>1$, $p-q\equiv1$ mod 4},\\
+			  \Gamma\left( \frac{n-2\nu-2}{4} \right),&\mbox{\normalfont if $p>1$, $p-q\equiv3$ mod 4},\\
+		  \end{array}\right.\\
+		  b(\lambda,\nu)&=\left\{\begin{array}[]{ll}
+			  2^{-\frac{n}{2}},&\mbox{\normalfont\kern0.76cm if $p\equiv q+1$ mod 2},\\
+			  \Gamma\left( \frac{2\lambda-n+2}{4} \right),&\mbox{\kern0.76cm\normalfont if $p-q\equiv0$ mod 4},\\
+			  \Gamma\left( \frac{2\lambda-n}{4} \right),&\mbox{\kern0.76cm\normalfont if $p-q\equiv2$ mod 4.}\\
+		  \end{array}\right.
+	  \end{array}
+%%%%	\kern-1.5cm 
+%%	q^{T X}_X (\lambda, \nu) \assign \ \left\{
+%%		\begin{array}{@{}l@{}l@{}}
+%%      {\sqrt{\pi} 2^{1 - q + \nu}\Gamma\left( \frac{1-\nu}{2} \right)}, & p = 1,\\
+%%    {\sqrt{\pi} 2^{2 - n + \nu}}, & n  \teven,\\
+%%    {\Gamma
+%%    \left( \frac{n / 2 - \nu}{2} \right)}, & \frac{n - 1}{2} + p  \todd,\\
+%%    {\Gamma
+%%    \left( \frac{n / 2 - \nu - 1}{2} \right)}, & \frac{n - 1}{2} + p\teven,
+%%  \end{array} \right.  
+%%  \end{equation*}
+%%  \begin{equation*}
+%%%%	  \kern-1.5cm
+%%	q^{X T}_X (\lambda, \nu) \assign
+%%	\left\{ \begin{array}{@{}l@{}l@{}}
+%%    2^{1 - \lambda} \sqrt{\pi}, & n \in 2\mathbb{Z}+ 1,\\
+%%    \Gamma \left( \frac{\lambda - n / 2 + 1}{2} \right), & \frac{n}{2} + p \in
+%%    2\mathbb{Z},\\
+%%    \Gamma \left( \frac{\lambda - n / 2}{2} \right), & \frac{n}{2} + p \in
+%%    2\mathbb{Z}+ 1.
+%%  \end{array} \right.  
+  \end{equation*}
+	\end{theorem}
+	\begin{remark}
+		The functional identities in the case $q=0$ were proven in \cite[Thm.\ 12.6]{kobayashi2015program}.
+	\end{remark}
+	A detailed proof will appear elsewhere.
+
+	{\bf Acknowledgement.} The first author was partially supported by the Grant-in-Aid for Scientific Research (A) 25247006.
+%%	Since the representation $J(\nu)$ of $G'=O(p,q+1)$ is multiplicity-free as a $K'$-module, we can describe its $(\mathfrak{g}',K')$-submodules by means of subsets of $\N_{+}^2$
+%%	for $p>1$, which parametrize the $K'$-structure of $J(\nu)$ by the spherical harmonics $\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$.
+%%	As in \cite{howe1993homogeneous}, we also indicate the Jordan--H\"older series (socle filtrations) of $J(\nu)$ by using arrows.
+%%	We then have:
+%%\begin{theorem}[images of SBOs]
+%%	The regular SBO $R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$ is surjective,
+%%	unless $\nu\in\Z$. In the latter case, the images of the underlying $(\mathfrak{g},K)$-module $I(\lambda)_K$ under
+%%	$R_{\lambda,\nu}^X$ are given as follows (here we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$ for $(\lambda,\nu)\in//$ and $k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)
+%%	\in\N$ for
+%%	$(\lambda,\nu)\in\backslash\backslash$; the barriers $A^{\pm\pm}$ are defined as in \cite{howe1993homogeneous}): \\
+%%	for $p>1$:
+%%\end{theorem}
+%%\begin{enumerate}[(1)]
+%%	\item Suppose $p\in2\N_++1$ and $q\in2\Z$. Then, if $\nu\in2\Z,0<\nu<n-1$, $R_{\lambda,\nu}^X$ is surjective. Otherwise,\newpage
+%%		\hspace*{-1cm}\begin{figure}[h]
+%%			\noindent\begin{tabular}{m{1.6cm}rrr}
+%%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
+%%	      {\vspace{-3cm} $ \begin{array}{l}
+%%	      \nu\teven\\ \nu\le0
+%%      \end{array}$}&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0))' '((App 0 1 0))' '((App 0 3 0 K0)(App 0 1 0 Kt))'"}\\[0pt]
+%%      \vspace{-3cm}$\begin{array}{l}
+%%	      \nu\todd\\ \nu\le\frac{n-3}{2}
+%%      \end{array}$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 11 0 Kt)(Amp 0 3 0 K0))'"}\\[0pt]
+%%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
+%%	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu=\frac{n-1}{2}
+%%	      \end{array}$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0)(Apm 1 0 0))' '()' '((Apm 0 3 0 K0)(Apm 1 11 0 Kt))'"}\\[0pt]
+%%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
+%%	      \vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu\ge{n-1}\end{array}$&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1))' '((App 1 3 1))' '((App 1 2 1))'"}\\[0pt]
+%%	    \end{tabular}
+%%	  \end{figure}
+%%		\begin{figure}[h]
+%%			\noindent\begin{tabular}{m{1.3cm}rrr}
+%%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
+%%	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 1 0 1)(Amp 1 2 1))' '((Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((Apm 1 2 1 K0)(Amp 1 2 1 K0)(Amp 1 2 1 Kt))'"}\\[25pt]
+%%	    \end{tabular}
+%%	  \end{figure}
+%%	\item Suppose $p,q\in\odd$ and $p>1$. Then,\clearpage
+%%		\begin{figure}[h]
+%%			\noindent\begin{tabular}{m{1.3cm}rrr}
+%%			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
+%%			\tevenText{\le0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0)(Apm 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0))'"}\\[0pt]
+%%			\toddText{\le n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 3 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[0pt]
+%%			\tevenText{>0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0))' '((Apm 0 11 0))' '((Apm 0 11 0 Kt)(Apm 0 3 0 K0))'"}\\[0pt]
+%%			\toddText{>n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 3 1)(Apm 1 0 1))' '((App 1 0 1)(Apm 1 2 1))' '((App 1 3 1)(Apm 1 0 1))'"}\\[0pt]
+%%			  
+%%		\end{tabular}
+%%		\end{figure}
+%%	\item Suppose $p,q\in\even$. Then,\clearpage
+%%		\begin{figure}[h]
+%%			\noindent\begin{tabular}{m{1.3cm}rrr}
+%%			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
+%%			\tevenText{\le0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Amp 0 3 0 K0))'"}\\[0pt]
+%%			\toddText{\le n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 3 0))' '((Apm 0 11 0))' '((Apm 0 3 0 K0)(Apm 0 11 0 Kt))'"}\\[0pt]
+%%			\tevenText{>0}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Amp 0 11 0))' '((Amp 0 11 0))' '((Amp 0 3 0))'"}\\[0pt]
+%%			\toddText{>n-3}&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Amp 1 2 1))' '((App 1 3 1 K0)(Amp 1 2 1 Kt))'"}\\[0pt]
+%%		\end{tabular}
+%%		\end{figure}
+%%	\item Suppose $p\in\even,q\in\odd$. Then for $\nu\in\odd$, $R_{\lambda,\nu}^X$ is surjective. Otherwise (for $\nu\in\even$) we have,\clearpage
+%%	  \begin{figure}[h]
+%%		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
+%%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
+%%	      \vspace{-3cm}$\nu\leq0$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0)(Apm 0 0 0)(Amp 0 0 0))' '((App 0 1 0 Kt)(Apm 0 3 0 K0)(Amp 0 0 0))'"}\\[0pt]
+%%	      \vspace{-3cm}$
+%%	      \begin{array}{l}
+%%		      \nu>0\\\nu\le\frac{n-3}{2}
+%%	      \end{array}
+%%	      $&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 0 1 0)(Amp 0 2 0))' '((Apm 0 1 0)(Amp 0 0 0))' '((Apm 0 11 0 Kt)(Amp 0 3 0 K0))'"}\\[0pt]
+%%              $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
+%%	      \vspace{-3cm}$
+%%	      \begin{array}{l}
+%%		      \nu\todd\\\nu=\frac{n-1}{2}
+%%	      \end{array}
+%%	      $&\input{|"guile  -e mp $HOME/for/forscheme/ma.scm '((Apm 0 11 0)(Apm 1 0 0))' '()' '((Apm 0 11 0 Kt)(Apm 1 3 0 K0))'"}\\[0pt]
+%%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
+%%	      \vspace{-3cm}
+%%	      $
+%%	      \begin{array}{l}
+%%		      \nu\ge\frac{n+1}{2}\\\nu\le n-3
+%%	      \end{array}
+%%	      $
+%%	      &\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((Apm 1 0 1)(Amp 1 2 1))' '((Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((Apm 1 2 1 K0)(Amp 1 2 1 Kt)(Amp 1 2 1 K0))'"}\\[0pt]
+%%	      \vspace{-3cm}$
+%%	      \nu>n-3$&\input{|"guile -e mp $HOME/for/forscheme/ma.scm '((App 1 0 1)(Apm 1 0 1)(Amp 1 2 1))' '((App 1 0 1)(Apm 1 3 1 K0)(Amp 1 2 1 Kt))' '((App 1 0 1)(Apm 1 2 1 K0)(Amp 1 2 1 Kt)(Amp 1 2 1 K0))'"}\\[0pt]
+%%	    \end{tabular}
+%%	  \end{figure}
+%%	\end{enumerate}
+%%	\vspace{-0.9cm}
+%%	In the diagrams above some of them are filled not with gray, but with colored diagonal lines. This means that the image of the regular
+%%	SBO $R_{\lambda,\nu}^X$ is zero and the (green/purple)
+%%	ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{ \left\{ o \right\}}$ and $\tilde{R}_{\lambda,\nu}^X$ respectively.
+%%
+%%	For $p=1$ we have:\clearpage
+%%	\newcommand{\mystack}[2]{$\begin{array}{l}#1\\#2\end{array}$}
+%%
+%%	\begin{figure}[h]
+%%		\begin{tabular}{p{4.1cm}p{2.0cm}p{2.0cm}}
+%%		$(\lambda,\nu)\in$ & $\kern-1.2cm\mybra{\ss\cup\bb}^c$ & $\kern-1.2cm\ss-\bb$ \\
+%%		\mystack{\nu\teven}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		'((def 0 1))' '((Kt 0 1)(K0 0 2))'  "}\\
+%%		\vspace{-0.5cm}\mystack{\nu,q\teven}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		'((def 1))' '((def 1))' "}\\
+%%		\vspace{-0.5cm}\mystack{\nu\teven,q\todd}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1))' '((Kt 1)(K0 1))' "}\\
+%%		\vspace{-0.7cm}\mystack{\nu,q\teven}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 2))' '((def 1 2))' "}\\
+%%		\vspace{-0.7cm}\mystack{\nu\teven,q\todd}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 1))' '((Kt 1 1)(K0 1 2))' "}\\
+%%		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 0 2))' '((Kt 0 2)(K0 0 2))' "}\\
+%%		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\le0}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 0 2))' '((def 0 2))' "}\\
+%%		\vspace{-0.5cm}\mystack{\nu\todd,q\teven}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm	'((def 1))' '((Kt 1)(K0 1))' "}\\
+%%		\vspace{-0.5cm}\mystack{\nu,q\todd}{0<\nu<q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1))' '((def 1))'  "}\\
+%%		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm '((def 1 1))' '((Kt 1 1)(K0 1 2))' "}\\
+%%		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\ge q}&\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	'((def 1 2))' '((def 1 2))' "}\\
+%%	\end{tabular}\end{figure}
+%%
+%%	\begin{figure}[h]
+%%		\hspace{2cm}
+%%		\begin{tabular}{p{2.0cm}p{2.3cm}p{2.3cm}}
+%%		$\kern-1.3cm\bb-\ss$ & $\kern-1.5cm\ss\cap\bb,k<l$ & $\kern-1.3cm\ss\cap\bb,k\geq l$\\
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		 '((def 0 1))' '()' '((K0 0 2)(Kt 0 1))'"}\\[0.75em]
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 		 '((def 1))' '((def 1))' '((def 1))'"}\\[0.75em]
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	 '((def 1))' '((def 1))' '((def 1))'"}\\[0.75em]
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	 '((def 1 1))' '((def 1 1))' '()'"}\\[1.6em]
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	 '((def 1 1))' '((def 1 1))' '()'"}\\[1.8em]
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	 '((def 0 2))' '()' '((K0 0 2)(Kt 0 2))'"}\\[0.75em]
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	 '((def 0 2))' '()' '((def 0 2))'"}\\[0.3em]
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm	 '((KC 1)(KY 1))' '((Kt 1)(K0 1))' '((def 1))'"}\\[0.75em]
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	 '((KC 1)(KY 1))' '((Kt 1)(K0 1))' '((def 1))'"}\\[0.85em]
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm  '((KY 1 1)(KC 1 1))' '((Kt 1 1)(K0 1 1))' '()'"}\\[1.8em]
+%%		\input{|"guile -e mp1 $HOME/for/forscheme/ma.scm 	 '((KY 1 1)(KC 1 2))' '((K0 1 2)(Kt 1 2))' '()'"}\\
+%%	\end{tabular}\end{figure}
+%%	In the diagrams above some of them are filled not with gray, but with colored diagonal lines. This means that the image of the regular SBO $R_{\lambda,\nu}^X$ is zero and:
+%%	\begin{itemize}
+%%		\item For $(\lambda,\nu)\in\ss$ the (green/purple)
+%%			ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{ \left\{ o \right\}}$ and $\tilde{R}_{\lambda,\nu}^X$ 
+%%			respectively.
+%%		\item For $(\lambda,\nu)\notin\ss$ the (blue/red) ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{Y}$ and ${R}_{\lambda,\nu}^C$ 
+%%			respectively.
+%%	\end{itemize}
+%%\begin{remark}
+%%	We can also find the images of the other SBOs in Theorem \ref{thm:construction} as well.
+%%	Note that
+%%	the proof of this theorem is performed \textit{independent of} of \cite{howe1993homogeneous}.
+%%\end{remark}
+%%Now, we recall from \cite{KO2} the five equivalent definitions of the
+%%irreducible unitary representations $\pi_{\pm,\lambda}^{p,q}$ of $O(p,q)$.
+%%\begin{theorem}[$G'$-invariant maps between Zuckerman modules $\pi_{\pm,\lambda}^{p,q}$]\label{thm:Aq}
+%%	Let $n=p+q,\;(p,q\ge1)$ and $n':=n-1$.
+%%	The dimensions of $\Hom_{G'}\left(\pi_{\pm,{n}/{2}-\lambda}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\pm,\nu-{n'}/{2}}^{p,q+1} \right)$
+%%	are as follows:\newline
+%%	\hspace*{-1.3cm}\begin{tabular}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+%%  \hline
+%%  \mystack{p = 1,}{ q \in 2\mathbb{Z}} & \mystack{\pi^{p, q + 1}_{-, \nu - q / 2}, }{\nu \in q +
+%%  2\mathbb{N}} &\mystack{\pi^{p, q + 1}_{-, \nu - q / 2},}{\nu \in q + 1 +
+%%  2\mathbb{N}}\\
+%%  \hline
+%%  \mystack{\pi_{+, n / 2 - \lambda}^{p + 1, q + 1},}{ \lambda \in q - 1 - 2\mathbb{N}}
+%%  & $0$ & $0$\\
+%%  \hline
+%%  $\pi_{-, n / 2 - \lambda}^{p + 1, q + 1}, \lambda \in 2\mathbb{N}$ & $0$ &
+%%  $1 \Leftrightarrow (\lambda, \nu) \nin \backslash\backslash$\\
+%%  \hline
+%%\end{tabular}\\
+%%\hspace*{-1.3cm}$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+%%  \hline
+%%  \begin{array}{c}
+%%    p = 1,\\
+%%    q \in 2\mathbb{Z}+ 1
+%%  \end{array} & \begin{array}{c}
+%%    \pi^{p, q + 1}_{-, \nu - q / 2},\\
+%%    \nu \in q + 2\mathbb{N}
+%%  \end{array} & \begin{array}{c}
+%%    \pi^{p, q + 1}_{-, \nu - q / 2},\\
+%%    \nu \in q + 1 + 2\mathbb{N}
+%%  \end{array}\\
+%%  \hline
+%%  \begin{array}{c}
+%%    \pi^{p + 1, q + 1}_{+, n / 2 - \lambda},\\
+%%    2\mathbb{Z} \ni \lambda \leqslant \frac{q - 1}{2}
+%%  \end{array} & 0 & 0\\
+%%  \hline
+%%  \begin{array}{c}
+%%    \pi_{-, n / 2 - \lambda}^{p + 1, q + 1},\\
+%%    2\mathbb{Z} \ni \lambda \leqslant \frac{q - 1}{2}
+%%  \end{array} & 0 & 1 \Leftrightarrow (\lambda, \nu) \nin
+%%  \backslash\backslash\\
+%%  \hline
+%%\end{array}$\\
+%%$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+%%  \hline
+%%  p, q \in 2\mathbb{Z} & \begin{array}{c}
+%%    \pi^{p, q + 1}_{+, \nu - n' / 2},\\
+%%    \nu \in 2\mathbb{N}_+
+%%  \end{array} & \begin{array}{c}
+%%    \pi^{p, q + 1}_{-, \nu - n' / 2},\\
+%%    \nu \in 2\mathbb{Z}+ 1
+%%  \end{array}\\
+%%  \hline
+%%  \begin{array}{c}
+%%    \pi^{p + 1, q + 1}_{+, n / 2 - \lambda},\\
+%%    n/2\ge\lambda\todd
+%%  \end{array} & 1 \Leftrightarrow (\lambda, \nu) \in \backslash\backslash & 1
+%%  \Leftrightarrow \lambda > \nu \Leftrightarrow (\lambda, \nu) \nin / /\\
+%%  \hline
+%%  \begin{array}{c}
+%%    \pi^{p + 1, q + 1}_{-, n / 2 - \lambda},\\
+%%    n/2\ge\lambda\todd
+%%  \end{array} & 0 & 1 \Leftrightarrow (\lambda, \nu), (n - \lambda, \nu) \in /
+%%  /\\
+%%  \hline
+%%\end{array} \newline$
+%%
+%%$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+%%  \hline
+%%  \begin{array}{c}
+%%    p \in 2\mathbb{Z},\\
+%%    q \in 2\mathbb{Z}+ 1
+%%  \end{array} & \begin{array}{c}
+%%    \pi^{p, q + 1}_{+, \nu - n' / 2},\\
+%%    2\mathbb{Z} \ni \nu \geqslant n' / 2
+%%  \end{array} & \begin{array}{c}
+%%    \pi^{p, q + 1}_{-, \nu - n' / 2},\\
+%%    2\mathbb{Z} \ni \nu \geqslant n' / 2
+%%  \end{array}\\
+%%  \hline
+%%  \begin{array}{c}
+%%    \pi^{p + 1, q + 1}_{+, n / 2 - \lambda},\\
+%%    \lambda \in 2\mathbb{Z}
+%%  \end{array} & 0 & 1 \Leftrightarrow (\lambda, \nu) \nin / /\\
+%%  \hline
+%%  \begin{array}{c}
+%%    \pi^{p + 1, q + 1}_{-, n / 2 - \lambda},\\
+%%    \lambda \in n - 2\mathbb{N}_+
+%%  \end{array} & 0 & 1 \Leftrightarrow (n - \lambda, \nu) \in / /\\
+%%  \hline
+%%\end{array}$
+%%
+%%\hspace*{-1.1cm}\begin{tabular}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+%%  \hline
+%%  \begin{tabular}{c}
+%%    $p \in 2\mathbb{Z}+ 1,$\\
+%%    $q \in 2\mathbb{Z}$
+%%  \end{tabular} & $\begin{array}{c}
+%%    \pi^{p, q + 1}_{+, \nu - n' / 2},\\
+%%    2\mathbb{Z}+ 1 \ni \nu \geqslant n' / 2
+%%  \end{array}$ & $\begin{array}{c}
+%%    \pi^{p, q + 1}_{-, \nu - n' / 2},\\
+%%    2\mathbb{Z}+ 1 \ni \nu \geqslant n' / 2
+%%  \end{array}$\\
+%%  \hline
+%%  $\begin{array}{c}
+%%    \pi^{p + 1, q + 1}_{+, n / 2 - \lambda},\\
+%%    \lambda \in n - 2\mathbb{N}_+
+%%  \end{array}$ & $0$ & $1 \Leftrightarrow (\lambda, \nu) \nin / /
+%%  \Leftrightarrow \lambda > \nu$\\
+%%  \hline
+%%  $\begin{array}{c}
+%%    \pi^{p + 1, q + 1}_{-, n / 2 - \lambda},\\
+%%    \lambda \in 2\mathbb{Z}
+%%  \end{array}$ & $0$ & $1 \Leftrightarrow (n - \lambda, \nu) \in / /$\\
+%%  \hline
+%%\end{tabular}
+%%
+%%$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+%%  \hline
+%%  p, q \in 2\mathbb{Z}+ 1 & \begin{array}{c}
+%%    \pi^{p, q + 1}_{+, \nu - n' / 2},\\
+%%    \nu \in 2\mathbb{Z}+ 1
+%%  \end{array} & \begin{array}{c}
+%%    \pi^{p, q + 1}_{-, \nu - n' / 2},\\
+%%    \nu \in 2\mathbb{N}
+%%  \end{array}\\
+%%  \hline
+%%  \begin{array}{c}
+%%    \pi^{p + 1, q + 1}_{+, n / 2 - \lambda},\\
+%%    \lambda \in 2\mathbb{Z}, \lambda \leqslant n / 2
+%%  \end{array} & 1 \Leftrightarrow (\lambda, \nu) \in \backslash\backslash &
+%%  0\\
+%%  \hline
+%%  \begin{array}{c}
+%%    \pi^{p + 1, q + 1}_{-, n / 2 - \lambda},\\
+%%    \lambda \in 2\mathbb{Z}, \lambda \leqslant n / 2
+%%  \end{array} & 0 & 1 \Leftrightarrow (n - \lambda, \nu) \in / /\\
+%%  \hline
+%%\end{array}$
+%%\begin{remark}
+%%Theorem \ref{thm:Aq} generalizes \cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}.
+%%\end{remark}
+%%\end{theorem}
+\nocite{kobayashi1998discrete2}
+\nocite{kobayashi2015program}
+\small
+\begin{thebibliography}{14}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[1]{bernstein2004estimates}
+J.~Bernstein and A.~Reznikov.
+\newblock Estimates of automorphic functions.
+\newblock \emph{{\normalfont Mosc. Math. J}}, \textbf{\textbf{4}}, (2004),
+  pp. 19--37.
+
+  \bibitem[2]{clerc2011generalized}
+J.-L. Clerc, T.~Kobayashi, B.~{\O}rsted and M.~Pevzner.
+\newblock Generalized {B}ernstein--{R}eznikov integrals.
+\newblock \emph{{\normalfont Math. Ann.}}, \textbf{349}, (2011), pp.
+\href{http://dx.doi.org/10.1007/s00208-010-0516-4}{395--431}.
+
+\bibitem[3]{howe1993homogeneous}
+R.~E. Howe and E.-C. Tan.
+\newblock Homogeneous functions on light cones: the infinitesimal structure of
+  some degenerate principal series representations.
+\newblock \emph{{\normalfont Bull. Amer. Math. Soc. (N. S.)}}, \textbf{28},
+  (1993), pp. 1--74.
+
+\bibitem[4]{juhl2009families}
+A.~Juhl.
+\newblock \emph{Families of {C}onformally {C}ovariant {D}ifferential
+  {O}perators, {Q}-curvature and {H}olography}, \emph{{\normalfont Progr.
+  Math},} \textbf{275},
+\newblock Birkh{\"a}user (2009).
+\newblock ISBN 978-3-7643-9900-9.
+
+\bibitem[5]{kobayashi1998discrete2}
+T.~Kobayashi.
+\newblock Discrete decomposability of the restriction of {$A_q(\lambda)$} with
+  respect to reductive subgroups {II}: Micro-local analysis and asymptotic
+  {K}-support.
+  \newblock \emph{{\normalfont Ann. Math. (2)}}, \textbf{147}, (1998), pp. \href{http://dx.doi.org/10.2307/120963}{709--729}.
+
+\bibitem[6]{kobayashi1998discrete3}
+T.~Kobayashi.
+\newblock Discrete decomposability of the restriction of {$A_q(\lambda)$} with
+  respect to reductive subgroups {III}. {R}estriction of {H}arish-{C}handra
+  modules and associated varieties.
+\newblock \emph{{\normalfont Invent. Math.}}, \textbf{131}, (1998), pp.
+\href{http://dx.doi.org/10.1007/s002220050203}{229--256}.
+
+\bibitem[7]{Kobayashi2014}
+T.~Kobayashi.
+\newblock {S}hintani functions, real spherical manifolds, and
+  symmetry breaking operators.
+  \newblock \emph{{\normalfont Dev. Math.}}, \textbf{37}, (2014), pp. \href{http://dx.doi.org/10.4171/OWR/2014/3}{127--159}.
+
+\bibitem[8]{kobayashi2015program}
+T.~Kobayashi.
+\newblock A program for branching problems in the representation theory of real
+  reductive groups.
+\newblock \emph{{\normalfont Progr. Math.}}, \textbf{312}, (2015), pp.
+\href{http://dx.doi.org/10.1007/978-3-319-23443-4_10}{277--322}.
+\newblock In: \emph{{\normalfont Special issue in honor of Vogan's 60th years
+  birthday}}.
+
+\bibitem[9]{kobayashi2014classification}
+T.~Kobayashi and T.~Matsuki.
+\newblock Classification of finite-multiplicity symmetric pairs.
+\newblock \emph{{\normalfont Transformation Groups}}, \textbf{19}, (2014),
+pp. \href{http://dx.doi.org/10.1007/s00031-014-9265-x}{457--493}.
+\newblock In: \emph{{\normalfont Special Issue in honour of Dynkin
+  for his 90th birthday}}.
+
+
+  \bibitem[10]{KO1}
+T.~Kobayashi and B.~{\O}rsted.
+\newblock Analysis on the minimal representation of\/ {${\rm
+  O}(p,q)$}.{\;}{{\rm{I}}. Realization via conformal geometry}.
+\newblock \emph{\normalfont Adv. Math.}, \textbf{180}, (2003), pp. 486--512.
+
+\bibitem[11]{kobayashi2015branching}
+T.~Kobayashi, B.~{\O}rsted, P.~Somberg and V.~Sou{\v{c}}ek.
+\newblock Branching laws for verma modules and applications in parabolic
+  geometry. {I}.
+\newblock \emph{{\normalfont Adv. Math.}}, \textbf{285}, (2015), pp.
+\href{http://dx.doi.org/10.1016/j.aim.2015.08.020}{1796--1852}.
+
+\bibitem[12]{kobayashi2013finite}
+T.~Kobayashi and T.~Oshima.
+\newblock Finite multiplicity theorems for induction and restriction.
+\newblock \emph{{\normalfont Adv. Math.}}, \textbf{248}, (2013), pp. \href{http://dx.doi.org/10.1016/j.aim.2013.07.015}{921--944}.
+
+\bibitem[13]{kobayashi2016differential1}
+T.~Kobayashi and M.~Pevzner.
+\newblock Differential symmetry breaking operators: I. {G}eneral theory and
+  {F}-method.
+\newblock \emph{{\normalfont Selecta Math. (N. S.)}}, \textbf{22}, (2016),
+  pp. 801--845.
+
+\bibitem[14]{kobayashi2015symmetry}
+T.~Kobayashi and B.~Speh.
+\newblock \emph{Symmetry {B}reaking for {R}epresentations of {R}ank {O}ne
+  {O}rthogonal {G}roups}, \emph{{\normalfont Memoirs of the Amer. Math. Soc},}
+  \textbf{\href{http://dx.doi.org/10.1090/memo/1126}{238}}, (2015).
+\newblock ISBN 978-1-4704-1922-6.
+
+\bibitem[15]{wallach1988real2}
+N.~Wallach.
+\newblock \emph{Real Reductive Groups II}, \emph{{\normalfont Pure and Applied
+  Mathematics},} \textbf{132},
+\newblock Academic {P}ress (1992).
+\newblock ISBN 978-0127329611.
+
+\end{thebibliography}
+\end{document}
