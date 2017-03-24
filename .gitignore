@@ -2,6 +2,10 @@ docs/
 *.aux
 *.log
 *.out
+forlatex/*.pdf
+forlatex/*.log
+forlatex/*.aux
+forlatex/*.synctex.gz
 forscheme/*.txt
 forplots/*.png
 forplots/*.jpg
