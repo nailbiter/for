@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|svjour|number-long-article>>
 
@@ -549,6 +549,8 @@
 <\auxiliary>
   <\collection>
     <\associate|bib>
+      forrester2008importance
+
       forrester2008importance
 
       tarasov2003selberg

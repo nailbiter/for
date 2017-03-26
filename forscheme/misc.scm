@@ -6,6 +6,7 @@
 (use-modules (ice-9 rdelim))
 (use-modules (ice-9 popen))
 
+(define PI 3.14159265359)
 ;misc
 (define (partite ls le) (if(null? ls)le(cons(list-head le(car ls))(partite(cdr ls)(list-tail le (car ls))))))
 (define (sum l) (if (null? l) 0 (+ (car l) (sum (cdr l)))))
@@ -31,6 +32,18 @@
 (define (trial pred maxnum) (define (inner iternum) (if (= iternum maxnum) #f (if (pred) #t (inner (inc iternum))))) (inner 0))
 (define (interleave l obj last-b)(if last-b (concatenate(map list l (dup obj (length l)))) 
                                    (if(null? l)'()(cons(car l)(concatenate(map list(dup obj (dec(length l)))(cdr l) ))))))
+(define (inc-var varref . incl)(if(null? incl)(variable-set! varref (inc(variable-ref varref)))(variable-set! varref (+ (car incl)(variable-ref varref)))))
+(define(compose . func )(define (iter obj funcs)(if(null? funcs)obj(iter((car funcs)obj)(cdr funcs))))(lambda(x)(iter x func)))
+(define (throw-if res badvalue msg)(if(eq? res badvalue)(throw msg) res))
+(define (identity-map x)x)
+(define (search-list pred l)
+  (define (iter li count)(cond((null? li)#f)((pred(car li))count)(else(iter(cdr li)(inc count)))))
+  (iter l 0))
+(define (query-list pred l)
+  (define (iter li)(cond((null? li)#f)((pred(car li))(car li))(else(iter(cdr li)))))
+  (iter l))
+(define (get-value l key def . comparison)(let*((c-in(if(null? comparison)eq?(car comparison)))(item(query-list (lambda(i)(c-in key(car i)))l)))(if(eq? #f item)def(cadr item))))
+
 
 ;string processing
 (define (mytokenize regexp str) (define cr (make-regexp regexp))

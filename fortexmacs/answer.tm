@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|number-europe>>
 
@@ -732,16 +732,16 @@
   </question>
 
   Indeed, as for <math|\<lambda\>\<nin\>-\<bbb-N\>> we have
-  <math|deg<around*|(|C<rsup|\<lambda\>><rsub|n>|)>=n> (this can be seen from
-  the recurrence relation), the orthogonality of Gegenbauer polynomials
-  implies that <math|<around*|{|C<rsub|n><rsup|\<lambda\>>|}><rsub|n\<in\>\<bbb-N\>>>
+  <math|\<forall\>n\<in\>\<bbb-N\>,deg<around*|(|C<rsup|\<lambda\>><rsub|n>|)>=n>
+  (this can be seen from the recurrence relation), the orthogonality of
+  Gegenbauer polynomials implies that <math|<around*|{|C<rsub|n><rsup|\<lambda\>>|}><rsub|n\<in\>\<bbb-N\>>>
   form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>d
   s|)>>. Consequently, if <math|\<lambda\>,\<mu\>\<nin\>-\<bbb-N\>>, we have
   that <math|<around*|{|C<rsub|l><rsup|\<lambda\>>\<otimes\>C<rsub|m><rsup|\<mu\>>|}><rsub|l,m\<in\>\<bbb-N\>>>
   form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
   s d t|)>>. Consequently, for <math|Re \<lambda\>,Re
   \<mu\>\<gtr\>-<frac|1|2>> and <math|Re<around*|(|\<nu\>|)>\<gtr\>0> we can
-  expand <math|<around*|\||s-t|\|><rsup|2\<nu\>>> into
+  expand <math|<around*|\||s+t|\|><rsup|2\<nu\>>> into
   <math|<around*|{|C<rsub|n><rsup|\<lambda\>>\<otimes\>C<rsub|m><rsup|\<mu\>>|}><rsub|m,n\<in\>\<bbb-N\>>>.
   In fact, the coefficients of the expansion can be explicitly written in
   Gamma functions. More precisely,
@@ -754,9 +754,15 @@
     </footnote>
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|\||s-t|\|><rsup|2\<nu\>>=<big|sum><rsub|l,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m>=<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|\<lambda\>+l|)><around*|(|\<mu\>+m|)><around*|(|-1|)><rsup|<frac|l-m|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>sgn<rsup|<frac|1\<pm\>1|2>><around*|(|s+
+      z|)>=<big|sum><rsub|l,m=0\<mid\>l+m\<equiv\><frac|1\<pm\>1|2>mod
+      2><rsup|\<infty\>>a<rsub|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m>=<frac|<around*|(|\<lambda\>+l|)><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)><around*|(|1+\<nu\>|)><rsub|-<frac|l+m|2>>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>>.>|<cell|>>>>
     </eqnarray>
   </theorem>
+
+  <\proof>
+    Follows from Theorem <reference|thm:4> upon taking <math|z=1>.
+  </proof>
 
   Even more general result holds:
 
@@ -770,11 +776,11 @@
     </footnote>:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
-      z|\|><rsup|2\<nu\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-      s d t>|<cell|>>|<row|<cell|>|<cell|<around*|\||s-t
-      z|\|><rsup|2\<nu\>>=<big|sum><rsub|l,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|l,m><around*|(|z|)>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m><around*|(|z|)>=<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)><around*|(|\<lambda\>+l|)>z<rsup|m>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;z<rsup|2>|)>|<sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t
+      z|\|><rsup|2\<nu\>>sgn<rsup|<frac|1\<pm\>1|2>><around*|(|s+t
+      z|)>=<big|sum><rsub|l,m=0\<mid\>l+m\<equiv\><frac|1\<pm\>1|2>mod
+      2><rsup|\<infty\>>a<rsub|l,m><around*|(|z|)>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m><around*|(|z|)>=<frac|\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)><around*|(|\<lambda\>+l|)>z<rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;z<rsup|2>|)>|<around*|(|1+\<nu\>|)><rsub|-<frac|l+m|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>>,>|<cell|>>>>
     </eqnarray>
   </theorem>
 
@@ -783,6 +789,70 @@
     we see that the result of Theorem <reference|thm:4> can be extended to
     <math|-1\<leqslant\>z\<less\>0>.
   </remark>
+
+  <\example>
+    Setting <math|z=0> we arrive at the equality
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||s|\|><rsup|2\<nu\>>sgn<rsup|<frac|1\<pm\>1|2>><around*|(|s|)>=<big|sum><rsub|l=0\<mid\>l\<equiv\><frac|1\<pm\>1|2>mod
+      2><rsup|\<infty\>><frac|\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>|)><around*|(|\<lambda\>+l|)>|<around*|(|1+\<nu\>|)><rsub|-<frac|l|2>><sqrt|\<pi\>>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l|2>+1|)>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>.>|<cell|>>>>
+    </eqnarray>
+
+    Now, taking <math|2\<nu\>=n\<in\>\<bbb-N\>> and taking the sign to be
+    <math|+> or <math|-> depending on whether <math|n> is even or
+    respectively odd, we arrive at the formula:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|s<rsup|n>=<big|sum><rsub|l=0><rsup|<around*|[|<frac|n|2>|]>><frac|2<rsup|-n>n!<around*|(|\<lambda\>+n-2l|)>|l!<around*|(|\<lambda\>|)><rsub|n-l+1>>C<rsub|n-2l><rsup|\<lambda\>><around*|(|s|)>,>|<cell|>>>>
+    </eqnarray>
+
+    which is equivalent to the one previously derived in
+    <cite-detail|rainville1960special|Ÿ144, (36)>.
+  </example>
+
+  <\proof>
+    Orthogonality of Gegenbauer polynomials
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|l<rprime|'>><rsup|\<lambda\><rprime|'>><around*|(|s|)>d
+      s=<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)><around*|(|2\<lambda\>|)><rsub|l>|l!<around*|(|l+\<lambda\>|)>\<Gamma\><around*|(|\<lambda\>|)>>\<delta\><rsub|l><rsup|l<rprime|'>>>|<cell|>>>>
+    </eqnarray>
+
+    implies that for <math|l+m> even
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<frac|\<pi\>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>|l!m!<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>>a<rsub|l,m><around*|(|z|)>>|<cell|>>|<row|<cell|>|<cell|=<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
+      z|\|><rsup|2\<nu\>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-s<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t.>|<cell|>>>>
+    </eqnarray>
+
+    Now, Theorem 1.1 of <samp|intpaper.pdf> essentially states that
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<frac|l!m!\<pi\>|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)><around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s+t
+      z|\|><rsup|2\<nu\>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-s<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|\<pi\><rsup|<frac|3|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)><around*|(|-z|)><rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;z<rsup|2>|)>|<around*|(|1+\<nu\>|)><rsub|-<frac|l+m|2>>\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>>,>|<cell|>>>>
+    </eqnarray>
+
+    whereas the expression for <math|a<rsub|l,m><around*|(|z|)>> for
+    <math|l+m> even follows.
+
+    Similarly, to compute an expression for <math|a<rsub|l,m><around*|(|z|)>>
+    for <math|l+m> odd, one should compute the integral
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s+t
+      z|\|><rsup|2\<nu\>>sgn<around*|(|s-t
+      z|)><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-s<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t>|<cell|>>>>
+    </eqnarray>
+
+    for <math|l+m> odd. It is computed similarly to the proof of Theorem 1.1
+    in <samp|intpaper.pdf> and is essentially Rodrigues formula for
+    Gegenbauer polynomials, integration by parts and Proposition 2.1 from
+    <samp|intpaper.pdf>.
+  </proof>
 
   Similarly, it can be seen from the recurrence relation that Hermite
   polynomials <math|H<rsub|n><around*|(|x|)>> have their degree equal to
@@ -803,8 +873,10 @@
     </footnote>:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|\||x-z
-      y|\|><rsup|2\<nu\>>=<big|sum><rsub|l,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|l,m><around*|(|z|)>H<rsub|m><around*|(|x|)>H<rsub|l><around*|(|y|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m><around*|(|z|)>=<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)><around*|(|z<rsup|2>+1|)><rsup|\<nu\>-<frac|l+m|2>>z<rsup|m>|\<pi\><rsup|<frac|1|2>>l!m!>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||x+z
+      y|\|><rsup|2\<nu\>>sgn<rsup|<frac|1\<pm\>1|2>><around*|(|x+z
+      y|)>=<big|sum><rsub|l,m=0\<mid\>l+m\<equiv\><frac|1\<pm\>1|2>mod
+      2><rsup|\<infty\>>a<rsub|l,m><around*|(|z|)>H<rsub|l><around*|(|x|)>H<rsub|m><around*|(|y|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m><around*|(|z|)>=<frac|\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)><around*|(|z<rsup|2>+1|)><rsup|\<nu\>-<frac|l+m|2>>z<rsup|m>|<around*|(|1+\<nu\>|)><rsub|-<frac|l+m|2>>\<pi\><rsup|<frac|1|2>>l!m!>.>|<cell|>>>>
     </eqnarray>
   </corollary>
 
@@ -813,6 +885,26 @@
     we see that the result of Corollary <reference|cor:3> can be extended to
     <math|z\<leqslant\>0>.
   </remark>
+
+  <\example>
+    Setting <math|z=0> we arrive at the equality
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||x|\|><rsup|2\<nu\>>sgn<rsup|<frac|1\<pm\>1|2>><around*|(|x|)>=<big|sum><rsub|l=0\<mid\>l\<equiv\><frac|1\<pm\>1|2>mod
+      2><rsup|\<infty\>><frac|\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)><around*|(|z<rsup|2>+1|)><rsup|\<nu\>-<frac|l|2>>|<around*|(|1+\<nu\>|)><rsub|-<frac|l|2>>\<pi\><rsup|<frac|1|2>>l!>H<rsub|l><around*|(|x|)>.>|<cell|>>>>
+    </eqnarray>
+
+    Now, taking <math|2\<nu\>=n\<in\>\<bbb-N\>> and taking the sign to be
+    <math|+> or <math|-> depending on whether <math|n> is even or
+    respectively odd, we arrive at the formul:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|x<rsup|n>=<big|sum><rsub|l=0><rsup|<around*|[|<frac|n|2>|]>><frac|2<rsup|-n>n!|l!<around*|(|n-2l|)>!>H<rsub|n-2l><around*|(|x|)>,>|<cell|>>>>
+    </eqnarray>
+
+    which is equivalent to the one previously derived in
+    <cite-detail|rainville1960special|Ÿ110, (4)>.
+  </example>
 
   <new-page>
 
@@ -850,14 +942,14 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|4|21>>
+    <associate|auto-1|<tuple|2|21>>
     <associate|bib-dotsenko1985four|<tuple|DF85|21>>
     <associate|bib-rainville1960special|<tuple|Rai60|21>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|21>>
     <associate|bib-warnaar2010sl3|<tuple|War10|21>>
     <associate|cor|<tuple|1|14>>
     <associate|cor:2|<tuple|2|16>>
-    <associate|cor:3|<tuple|3|?>>
+    <associate|cor:3|<tuple|3|20>>
     <associate|eq-1|<tuple|4|7>>
     <associate|eq-2|<tuple|1|5>>
     <associate|eq:q8-1|<tuple|3|6>>

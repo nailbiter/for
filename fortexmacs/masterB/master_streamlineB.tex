@@ -1,0 +1,2857 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{geometry,amsmath,amssymb,graphicx,bbm,hyperref,latexsym,amsthm}
+\usepackage{geometry,amsmath,amssymb,graphicx,bbm,latexsym,mathtools}
+\geometry{letterpaper}
+\usepackage[all]{xy}
+\usepackage{xypic}
+\usepackage{catchfilebetweentags}
+\usepackage[toc,page]{appendix}
+\usepackage{dot2texi}
+\usepackage{tikz}
+
+%custom theorems
+%\newtheorem{theorem}{Theorem}[section]
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\ontop}[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+\newcommand*{\longhookrightarrow}{\ensuremath{\lhook\joinrel\relbar\joinrel\rightarrow}} 
+\newcommand{\nobracket}{}
+\newcommand{\nni}{\not\ni}
+\newcommand{\nosymbol}{}
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\assign}{:=}
+\newcommand{\comma}{{,}}
+\newcommand{\nin}{\not\in}
+\newcommand{\nocomma}{}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmrsub}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\tmrsup}[1]{\textsuperscript{#1}}
+\newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\newcommand{\tmtextup}[1]{{\upshape{#1}}}
+\newcommand{\um}{-}
+\renewenvironment{proof}{\noindent\textbf{Proof\ }}{\hspace*{\fill}$\Box$\medskip}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{fact}[proposition]{Fact}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{Remark}
+%%%%%%%%%% End TeXmacs macros
+
+\newcommand{\D}{\mathcal{D}}
+% 
+
+\newcommand{\supp}{\tmop{supp}}
+% 
+
+\newcommand{\proofexplanation}[1]{(#1)}
+% 
+
+\newcommand{\C}{\ensuremath{\mathbbm{C}}}
+\newcommand{\Z}{\mathbbm{Z}}
+% 
+
+\newcommand{\Sp}{\mathbbm{S}}
+% 
+
+\newcommand{\R}{\mathbbm{R}}
+% 
+
+\newcommand{\mybra}[1]{(#1)}
+% 
+
+\newcommand{\mysbra}[1]{\left[ #1 \right]}
+% 
+
+\newcommand{\mycbra}[1]{\left\{#1\right\}}
+\newcommand{\sone}{\ensuremath{\mybra{\D' (G \times_P \C_{\lambda - n})
+\otimes \C_{\nu}}^{\Delta (P')}}}
+\newcommand{\Upp}{{\mysetn{(x,y){\in}{\R}\tmrsup{p,q}}{x{\neq}0,{\hspace{0.75em}}y{\neq}0}}}
+\newcommand{\Stab}{O(p,q)\tmrsub{e\tmrsub{p}}}
+%\newcommand{\sol*}[1]{S ol(#1; {\lambda}, {\nu})}
+\newcommand{\sol}{{\sol*{{\R}\tmrsup{p,q}}}}
+\newcommand{\solXi}{{\sol*{{\Xi}}}}
+
+\begin{document}
+
+\setcounter{section}{8}
+\section{$\mathcal{S} \tmop{ol} (U ; \lambda, \nu)$ and related notions (B8)}\label{sec:sol}
+
+
+\subsection{Main results}
+
+\begin{definition}
+  \label{def-n-nots:def-n+invar}For $F \in \D' (U)$, where $U \subset
+  \mathbbm{R}^{p, q}$ is an open set, we say that $F$ is
+  \tmtextbf{$N_+'$-invariant on $U$} if $\forall b \in \mathbbm{R}^{p, q}$
+  with $b_p = 0$ and $x_0 \in U$ such that $\frac{x_0 - Q (x_0) b}{1 - 2 Q
+  (x_0, b) + Q (x_0) Q (b)} \in U$ and the expression makes sense (i.e. the
+  denominator is non-zero) we have
+  \begin{equation}
+    \label{eq-Nequiv} | 1 - 2 Q (b, x) + Q (x) Q (b) |^{\lambda - n} F \left(
+    \frac{x - Q (x) b}{1 - 2 Q (x, b) + Q (x) Q (b)} \right) = F (x)
+  \end{equation}
+  equality holding for $x$ near $x_0$.
+\end{definition}
+
+\begin{definition}
+  \label{sol:def-sol}For $F \in \D' (U)$, where $U \subset \mathbbm{R}^{p, q}$
+  is the open set, we say that $F \in \mathcal{S} \tmop{ol} (U ; \lambda,
+  \nu)$ if the following holds:
+  \begin{enumerate}
+    \item if $x_0 \in U$ and $- x_0 \in U$, then $F (x) = F (- x)$ for $x$
+    near $x_0$;
+    
+    \item if $(m, x_0, m \cdot x_0) \in O (p, q)_{e_p} \times U \times U$,
+    then $F (x) = F (m \cdot x)$ for $x$ near $x_0$, where $O (p, q)_{e_p}
+    \assign \{g \in O (p, q) |g \cdot e_p = e_p \}$;
+    
+    \item if $(\alpha, x_0, \alpha x_0) \in \mathbbm{R}_{> 0} \times U \times
+    U$, then $\alpha^{\lambda - \nu - n} F (x) = F (\alpha x)$ for $x$ near
+    $x_0$;
+    
+    \item $F$ is $N_+'$-invariant on $U$.{
+    
+    }{
+    
+    }For a closed set $S \subset U$ we will also use the notation $\mathcal{S}
+    \tmop{ol}_S (U ; \lambda, \nu) \assign \{ u \in \mathcal{S} \tmop{ol} (U ;
+    \lambda, \nu) | \tmop{supp} (u) \subset S \}$
+  \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  It is easy to observe the following:
+  \begin{enumerate}
+    \item more precisely, item 1. means that for $(x_0, - x_0) \in U^2$ there
+    is an open sets $U \supset V \ni x_0$ such that for $\psi : x \mapsto - x$
+    a diffeomorphism of $\mathbbm{R}^{p, q}$ we have $u \mid_V =
+    \psi^{\ast} (u |_{\psi (V)})$. Similarly, items 2, 3 and $N_+'$-invariance
+    are explained. Note that all condinitions of definition \ref{sol:def-sol}
+    are particular instances of situation in lemma \ref{sol:lem-holodep} (say,
+    for item 4 one takes $\psi = \psi_b$ and $f = | c_b |$);
+    
+    \item that if $U = \bigcup_{i \in \Lambda} U_i$ is an open cover, then for
+    $u \in \mathcal{D}' (U)$ and $(\lambda, \nu) \in \mathbbm{C}^2$ we have $u
+    \in \mathcal{S} \tmop{ol} (U ; \lambda, \nu) \Leftrightarrow \forall i \in
+    \Lambda, \; u \mid_{U_i} \in \mathcal{S} \tmop{ol} (U_i ; \lambda,
+    \nu)$;
+    
+    \item when $U$ is an open cone, item 3 is equivalent to the usual
+    definition of homogeneity of order $\lambda - \nu - n$;
+  \end{enumerate}
+\end{remark}
+
+\begin{proposition}
+  \label{sol:prop-sol}For every $(\lambda, \nu) \in \mathbbm{C}^2$ we have
+  $\mathcal{S} \tmop{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu) \simeq
+  \tmop{Hom}_{G'} (I (\lambda), J (\nu))$.
+\end{proposition}
+
+\begin{proposition}
+  \label{sol:prop-holocont}Suppose that $\Omega' \subseteq \Omega \subset
+  \mathbbm{C}^k$ are open sets and $\Omega \ni \mu \mapsto (\lambda (\mu), \nu
+  (\mu)) \in \mathbbm{C}^2$ is holomorphic open map. Suppose further that
+  $K_{\mu} \in \mathcal{D}' (U)$ with ($U \subset \mathbbm{R}^{p, q}$:open)
+  holomorphically depends on $\mu \in \Omega$ and for $\mu \in \Omega'$ we
+  have $K_{\mu} \in \mathcal{S} \tmop{ol} (U ; \lambda (\mu), \nu (\mu))$.
+  Then $K_{\mu} \in \mathcal{S} \tmop{ol} (U ; \lambda (\mu), \nu (\mu))$ for
+  $\mu \in \Omega$ as well.
+\end{proposition}
+
+\begin{remark}
+  The last two propositions are \tmtextbf{not} new. The statement and proof
+  below are just rephrasing and somehow elaboration of those given in
+  {\cite[thm 3.16]{kobayashi2015symmetry}} and {\cite[prop.
+  3.18]{kobayashi2015symmetry}} respectively.
+\end{remark}
+
+\subsection{Auxiliary lemmas}
+
+\begin{lemma}
+  \label{sol:lem-unfold}For $G \assign O (p + 1, q + 1)$ and $\lambda \in
+  \mathfrak{a}_{\mathbbm{C}}^{\ast}$ let $\lambda : P \rightarrow
+  \mathbbm{C}^{\times}$ be a homomorphism defined as in proposition
+  \ref{def-n-nots:prop-degseries}. Then for $C^{\infty} (G)_{\lambda} \assign
+  \left\{ f \in C^{\infty} (G) \mid \forall p \in P, \; f (\cdot p) =
+  \lambda (p^{- 1}) f (\cdot) \right\}$ we have the map $C^{\infty} \ni f
+  (\cdot) \mapsto [g P \mapsto [g, f (g)]] \in C^{\infty} (G \times_P
+  \mathbbm{C}_{\lambda})$ being an isomorphism of vector spaces.
+\end{lemma}
+
+\begin{proof}
+  The well-definedness of this map is straightforward to verify. Conversely,
+  given $f' \in C^{\infty} (G \times_P \mathbbm{C}_{\lambda})$, we can
+  construct the corresponding element of $C^{\infty} (G)_{\lambda}$ as
+  follows: for $g \in G$ we let $f (g) \assign x \in \mathbbm{C}$ such that
+  $(g, x) \in f' (g H)$. It is easy to see that such $x$ exists and is unique.
+  The obtained mapping $g \mapsto f (g)$ forms a smooth map of $C^{\infty}
+  (G)$, which is in fact an element of $C^{\infty} (G)_{\lambda}$, as we
+  should have $g p$ for $p \in P$ being mapped to $\lambda (p^{- 1}) f (g)$,
+  since $[g, x] = [g p, \lambda (p^{- 1}) x]$.
+\end{proof}
+
+\begin{lemma}
+  \label{sol:lem-commdiag}Recall the $G \assign O (p + 1, q + 1)
+  \curvearrowright \Xi$ action. Fix $U \subset N_- \simeq \mathfrak{n}_-
+  \simeq \mathbbm{R}^{p, q}$ an open set. The following diagram then commutes:
+  
+\ExecuteMetaData[../masterdiags/b1.tex]{diagram}
+  
+  Here for $\lambda \in \mathbbm{C}$, and $V \subset \Xi$ invariant under
+  multiplication by $\mathbbm{R}^{\times}$ we let $C^{\infty}_{- \lambda} (V)
+  \assign \left\{ f \in C^{\infty} (V) \mid \forall \alpha \in
+  \mathbbm{R}^{\times}, \; f (\alpha \cdot) = | \alpha |^{- \lambda} f (\cdot)
+  \right\}$. $G \times_P \mathbbm{C}_{\lambda} \mid_{\psi (U)}$ denotes
+  the portion of vector bundle $G \times_P \mathbbm{C}_{\lambda}$ above $\psi
+  (U)$. $\psi (\cdot)$ denotes embedding of $N_- \simeq \mathfrak{n}_- \simeq
+  \mathbbm{R}^{p, q}$ into $G / P$ (on the left) or into $\Xi$ (on right) The
+  top map is a continuous $G$-equivariant isomorphism, defined for $f (\cdot)
+  \in C^{\infty} (G \times_P \mathbbm{C}_{\lambda}) \simeq C^{\infty}
+  (G)_{\lambda}$ as $\tilde{f} \in C^{\infty}_{- \lambda} (\Xi)$, $\tilde{f}
+  (g p_+) \assign f (g)$ (here $p_+ \assign (1, 0_{p + q}, 1) \in \Xi$). The
+  left vertical arrow is a restriction to an open subset $\psi (U) P \subset G
+  / P$. The right-vertical arrow is restriction to a submanifold $U \cdot (1,
+  0_{p + q}, 1) \subset \Xi$.
+\end{lemma}
+
+\begin{proof}
+  We assume $U =\mathfrak{n}_-$ for simplicity, the proof for general $U$
+  proceeds in precisely the same manner. First, we show that for smooth
+  functions the top map is well-defined. Indeed, let $f \in C^{\infty}
+  (G)_{\lambda} $ as in lemma \ref{sol:lem-unfold}. Then the map $\tilde{f} :
+  g (1, 0_{p + q}, 1) \mapsto f (g)$ on $G p_+$ is well-defined, as
+  centralizer of $p_+$ equals to $M^0 N_+$ by proposition
+  \ref{def-n-nots:prop-ximodel}, and for $\lambda : P \rightarrow
+  \mathbbm{C}^{\times}$ is in lemma \ref{sol:lem-unfold}, we have $\lambda
+  (M^0 N_+)$. Moreover, as action $G \curvearrowright \Xi$ is transitive by an
+  argument similar to that of lemma \ref{doublePGP:lem-Gp-act-Xi}, we have $g
+  p_+ \mapsto f (g)$ being well-defined map $\tilde{f} \in C^{\infty} (\Xi)$.
+  
+  We next show that $\tilde{f}$ is also homogeneous of degree $- \lambda$, as
+  we have for $\tilde{f} (- g p_+) = \tilde{f} (g m_0 p_+)$, for $m_0 \assign
+  \tmop{diag} (- 1, 1_{p + q}, 1) \in M$ and hence $\tilde{f} (g m_0 p_+)
+  \assign f (g m_0) = f (g) = \tilde{f} (g p_+)$, since $f \in C^{\infty}
+  (G)_{\lambda}$. Similarly, for $\alpha \in \mathbbm{R}_{> 0}$ we have
+  $\tilde{f} (\alpha g p_+) = \tilde{f} (g a (t) p_+)$ with $a (t)$ is in
+  (\ref{def-n-nots:eq-A}) for $t = \ln (\alpha)$, and hence the chain of
+  equalities continues as $= \tilde{f} (g a (t) p_+) \assign f (g a (t)) =
+  e^{- \lambda t} f (g) = \alpha^{- \lambda} f (g p_+)$. This shows
+  homogeneity.
+  
+  The fact that top map is isomorphic is implied by the fact that we can
+  construct inverse map $C^{\infty}_{- \lambda} (\Xi) \rightarrow C^{\infty}
+  (G)_{\lambda}$ by $\tilde{f} \mapsto f$, where we set $f (g) \assign
+  \tilde{f} (g p_+)$. It can be similarly to above shown that this map is
+  well-defined.
+  
+  Finally, the diagram commutes by direct inspection and proposition
+  \ref{def-n-nots:prop-ximodel}.
+\end{proof}
+
+\begin{lemma}
+  \label{sol:lem-holodep}Suppose $\Omega' \subset \Omega \subset
+  \mathbbm{C}^m$ are an open set and $\kappa : \Omega \rightarrow \mathbbm{C}$
+  is holomorphic. Suppose also that $U, V \subset \mathbbm{R}^k$ are open with
+  $\psi : U \rightarrow V$ diffeomorphism, and $K_{\mu}^U \in \mathcal{D}'
+  (U), K^V_{\mu} \in \mathcal{D}' (V)$ are holomorphic in $\mu \in \Omega$.
+  Then if for $f \in C^{\infty} (U \rightarrow \mathbbm{R}_{> 0})$ we have
+  $\forall \mu \in \Omega', \; f^{\kappa (\mu)} K^U_{\mu} = \psi^{\ast}
+  K^V_{\mu}$, then this also holds for every $\mu \in \Omega$.
+\end{lemma}
+
+\begin{proof}
+  In the light of holomorphic rigidity, it suffices to show that $\psi^{\ast}
+  K^V_{\mu}, f^{\kappa (\mu)} K^U_{\mu} \in \mathcal{D}' (U)$ are holomorphic
+  in $\mu \in \Omega$. For $\psi^{\ast} K_{\mu}^V$ this is readily given by
+  proposition \ref{holomorphicity-preserving:prop-pullback-holo}. Regarding
+  $f^{\kappa (\mu)} K^U_{\mu}$, lemma
+  \ref{KR-normalization-recur:lem-mult-smth} implies that the latter can be
+  seen as product of distributions and hence in the light of propositions
+  \ref{holomorphicity-preserving:prop-tensor-holo} and
+  \ref{holomorphicity-preserving:prop-pullback-holo}, it suffices to show that
+  $f^{\kappa (\mu)}$ is holomorphic when seen as an element of $\mathcal{D}'
+  (U)$. This can be proven directly.
+\end{proof}
+
+\subsection{Proofs}
+
+\begin{definition}
+  \label{sol:def-localaciton}For $\lambda \in \mathbbm{C}$ let $P'
+  \curvearrowright G / P$ by left multiplication. Introduce also an embedding
+  $\mathbbm{R}^{p, q} \ni w \mapsto \psi (w) \assign n_- (w) P \in G / P$.
+  Suppose now that $(U, V)$ is a pair of open subsets of $\mathbbm{R}^{p, q}$
+  and $p' \in P$ such that $\psi (U) = p' \psi (V)$. Then straightforward
+  generalization of lemma \ref{KR-normalization-recur:lem-pull-comm-restr}
+  tells us that the following diagram commutes
+  \centerline{\xymatrix{A\ar[r]\ar[d] &B\ar[d]\\C\ar[r] &D} }
+  here $G \times_P \mathbbm{C}_{\lambda} \mid_{\psi (U)}$ denotes portion
+  of the bundle above $\psi (U)$ and similarly for $\psi (V)$. The top and
+  bottom maps are isomorphisms. Now, pullback by $\psi (\cdot)$ induces the
+  isomorphism $\mathcal{D}' (U) \rightarrow \mathcal{D}' (V)$ so that the
+  following map commutes:
+  
+  \centerline{\xymatrix{A\ar[r]\ar[d] &B\ar[d]\\C\ar[r] &D} }
+  
+  all maps of it are isomorphisms and we will call the one at the bottom by $c
+  (\lambda ; p' ; U, V) : \mathcal{D}' (U) \rightarrow \mathcal{D}' (V)$.
+\end{definition}
+
+\begin{definition}
+  \label{sol:def-D'n}For $(\lambda, \nu) \in \mathbbm{C}^2$ we let
+  $\mathcal{D}' (\mathfrak{n}_-, \mathbbm{C}_{n - \lambda} \otimes
+  \mathbbm{C}_{\nu})^{M' A', \mathfrak{n}'_+}$ to denote the space of $u \in
+  \mathcal{D}' (\mathbbm{R}^{p, q})$ such that for all $U, V, p'$ as in
+  definition \ref{sol:def-localaciton} we have $u \mid_V = \nu^{} ((p')^{-
+  1}) c (n - \lambda ; p' ; U, V) u \mid_V$ with homomorphism $\nu : P'
+  \rightarrow \mathbbm{C}^{\times}$ defined as in proposition
+  \ref{def-n-nots:prop-degseries}.
+\end{definition}
+
+\begin{proof}
+  (of prop. \ref{sol:prop-sol}) Proposition \ref{doublePGP:prop-pnp} implies
+  that we can apply {\cite[thm. 3.16]{kobayashi2015symmetry}} and it
+  immediately gives
+  \[ \tmop{Hom}_{G'} (I (\lambda), J (\nu)) \simeq \mathcal{D}'
+     (\mathfrak{n}_-, \mathbbm{C}_{n - \lambda} \otimes \mathbbm{C}_{\nu})^{M'
+     A', \mathfrak{n}'_+} \]
+  Hence it suffices to show that $\mathcal{D}' (\mathfrak{n}_-, \mathbbm{C}_{n
+  - \lambda} \otimes \mathbbm{C}_{\nu})^{M' A', \mathfrak{n}'_+} =\mathcal{S}
+  \tmop{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$ as in definition
+  \ref{sol:def-sol}. Hence, we just need to concretely write down the $c
+  (\lambda ; p' ; U, V)$ map of \ref{sol:def-localaciton}. Moreover, as we
+  have all arrows in commutative diagrams of definitions
+  \ref{sol:def-localaciton} being continuous and mapping smooth to smooth,
+  using approximation by smooth sections, we can assume that we have
+  $\mathcal{D}'$ replaced by $C^{\infty}$ in all diagrams of definitions
+  \ref{sol:def-localaciton}. Now, lemma \ref{sol:lem-commdiag} allows us to
+  rewrite second commutative diagram of definition \ref{sol:def-localaciton}
+  (with $\lambda$ replaced by $n - \lambda$, according to definition
+  \ref{sol:def-D'n})
+  
+  \centerline{\xymatrix{A\ar[r]\ar[d] &B\ar[d]\\C\ar[r] &D} }
+  
+  with an embedding $\psi : \mathbbm{R}^{p, q} \ni w \mapsto n_- (w) \cdot (1,
+  0_{p + q}, 1) = (1 - Q (w), 2 w, 1 + Q (w)) \in \Xi$.
+  
+  Now, let $(p, U, V)$ be as in definition \ref{sol:def-localaciton}. If $p$
+  is of the form
+  \[ p \assign \left[ \begin{array}{ccc}
+       1 & 0 & 0\\
+       0 & m & 0\\
+       0 & 0 & 1
+     \end{array} \right] \in M' \]
+  with $m \in O (p, q)$ such that $m \cdot e_p = e_p$, then for $w \in
+  \mathbbm{R}^{p, q}$ we have $p \cdot \psi (w) = \psi (m \cdot w)$.
+  
+  This implies that for $p, U, V$ as in definition \ref{sol:def-localaciton}
+  with $p$ as above we should have $U = w V$ (and conversely all such triples
+  satisfy definition \ref{sol:def-localaciton}) and $c (p ; \lambda ; U, V)
+  (F) (\cdot) = F (w \cdot)$.
+  
+  Next ,for an element $p \assign \tmop{diag} (- 1, 1_{p + q}, - 1) \in M'$ we
+  have $p \cdot \psi (w) = \psi (- w)$. This implies that for $p, U, V$ as in
+  definition \ref{sol:def-localaciton} with $p$ as above we should have $U = -
+  V$ (and conversely all such triples satisfy definition
+  \ref{sol:def-localaciton}) and $c (p ; \lambda ; U, V) (F) (\cdot) = F ((-
+  1) \cdot)$.
+  
+  Next, for an element $a (t) \in A'$ as in (\ref{def-n-nots:eq-A}), direct
+  calculations show that we have we have $a (t) \cdot \psi (w) = e^t \psi
+  (e^{- t} w)$ and hence for an element $f \in C^{\infty}_{\lambda - n}$ we
+  would have $f (a (t) \psi (w)) = e^{(\lambda - n) t} f (\psi (e^{- t} w))$,
+  which implies that for $p, U, V$ as in definition \ref{sol:def-localaciton}
+  with $p = a (t)$ as above we should have $U = e^{- t} V$ (and conversely all
+  such triples satisfy definition \ref{sol:def-localaciton}) and $c (a (t) ;
+  \lambda ; U, V) (F) (\cdot) = e^{(\lambda - n) t} F (e^{- t} \cdot)$.
+  
+  Finally, for $w \in \mathbbm{R}^{p, q}$ with $w_p = 0$ and an element $n_+
+  (w) \in N'_+$ as in (\ref{def-n-nots:eq-N+}), we observe that for $v \in
+  \mathbbm{R}^{p, q}$ we have for $\psi_w (\cdot)$ and $c_w (\cdot)$ as in
+  definition \ref{def-n-nots:def-n+invar}
+  \[ n_+ (w) n_- (v) = c_w (v) \cdot n_- (\psi_w (v)) \]
+  whenever both sides make sense. Hence, for $p, U, V$ as in definition
+  \ref{sol:def-localaciton} with $p = n_+ (w)$ as above we should have $U =
+  \psi_w (V)$ (and conversely all such triples satisfy definition
+  \ref{sol:def-localaciton}) and $c (n_+ (w) ; \lambda ; U, V) (F) (\cdot) = |
+  c_w (\cdot) |^{\lambda - n} F (\psi_w (\cdot))$.
+  
+  As the reasoning above tells us how $c (\lambda ; p' ; U, V)$ are written
+  for $p' \in M', A', N_+'$, we see that these are precisely equivalent to
+  items of definition \ref{sol:def-sol} and thus Langlands decomposition of
+  $P'$ tells us now that $\mathcal{D}' (\mathfrak{n}_-, \mathbbm{C}_{n -
+  \lambda} \otimes \mathbbm{C}_{\nu})^{M' A', \mathfrak{n}'_+} =\mathcal{S}
+  \tmop{ol} (\mathbbm{R}^{p, q} ; U, V)$.
+\end{proof}
+
+\begin{proof}
+  (of prop. \ref{sol:prop-holocont}) In the light of the first item of remark
+  after the definition \ref{sol:def-sol}, the conclusion is implied by lemma
+  \ref{sol:lem-holodep}.
+\end{proof}
+
+\section{Determination of $\mathcal{S} \tmop{ol} (\{ Q \neq 0 \} ; \lambda,\nu)$ (B9)}\label{sec:lem67}
+
+
+\subsection{Main results}
+
+\begin{proposition}
+  \label{lem67:prop-67}For $(\lambda, \nu) \in \mathbbm{C}^2$ we have the
+  following\footnote{Note that when restricted to $\{ Q \neq 0 \}$, $| Q |^{-
+  \nu}$ is smooth, so this is just product of distribution and smooth
+  function}:
+  \[ \mathcal{S} \tmop{ol} (\{ Q \neq 0 \} ; \lambda, \nu) =\mathbbm{C} | Q
+     |^{- \nu} \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda
+     + \nu - n + 1}{2} \right)} \]
+\end{proposition}
+
+\subsection{Auxiliary results}
+
+\begin{definition}
+	\label{lem67:def-SCSCC}
+  Fix $n \in \mathbbm{Z}_{\geqslant 1}$ and define the following:
+  \begin{enumerate}
+    \item Let $\mathcal{S}\mathcal{C} \subset 2^{\mathbbm{R}^n}$ be the family
+    of all open subsets $U \subset \mathbbm{R}^n$ such that $\forall x_0 \in
+    \mathbbm{R}^{n - 1}$ we have sets $\{ t \geqslant 0 | (x_0, t) \in U \}$
+    and $\{ t \leqslant 0 | (x_0, t) \in U \}$ being connected (for $n = 1$ we
+    let $\mathcal{S}\mathcal{C}$ denote all open subsets of $\mathbbm{R}^1$);
+    
+    \item Let $\mathcal{S}\mathcal{S}\mathcal{C} \subset 2^{\mathbbm{R}^n}$ to
+    denote the family of all open subsets $U \subset \mathbbm{R}^n$ such that
+    we have $\pi^i (U) \in \mathcal{S}\mathcal{C}$ for $i = 0 \ldots n - 1$,
+    where $\pi : \mathbbm{R}^n \rightarrow \mathbbm{R}^{n - 1}$ is projection
+    along the last coordinate.
+  \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+  \label{lem67:lem-geom-aux}For $Q$ being quadratic form on $\mathbbm{R}^{p,
+  q}$ with $p, q \geqslant 1$, $n \assign p + q$, $\tilde{Q}$ quadratic form
+  on $\mathbbm{R}^{p, q - 1}$ and $\pi : \mathbbm{R}^n \rightarrow
+  \mathbbm{R}^{n - 1}$ projection along the last coordinate, we have
+  \begin{eqnarray*}
+    \pi (\{ Q > 0 \}) = \{ \tilde{Q} > 0 \} &  & \\
+    \pi (\{ Q < 0 \}) =\mathbbm{R}^{n - 1} &  & 
+  \end{eqnarray*}
+\end{lemma}
+
+\begin{proof}
+  The $\supseteq$ is clear for both equalities and this immediately proves the
+  second one. For the first, $\subseteq$ is also clear, as $Q (x, x_n) =
+  \tilde{Q} (x) - x_n^2 \leqslant \tilde{Q} (x)$.
+\end{proof}
+
+\begin{lemma}
+  \label{lem67:lem-geom}If $Q$ is a quadratic form on $\mathbbm{R}^{p, q}$
+  with $p, q \geqslant 1$, then $\{ \pm Q > 0 \} \in
+  \mathcal{S}\mathcal{C}\mathcal{C}$.
+\end{lemma}
+
+\begin{proof}
+  In the light of lemma \ref{lem67:lem-geom-aux} (and as for $P$ quadratic on
+  $\mathbbm{R}^{k, 0}$, $\{ P > 0 \} =\mathbbm{R}^{n - 1} \backslash \{ 0 \}
+  \in \mathcal{S}\mathcal{C}\mathcal{C}$ clearly), it suffices to show that
+  $\{ \pm Q > 0 \} \in \mathcal{S}\mathcal{C}$. But the latter follows by
+  direct check, as for $x_0 \in \mathbbm{R}^{n - 1}$ and $\varepsilon_{1, 2} =
+  \pm 1$, $\{ t | \varepsilon_1 t \geqslant 0, \varepsilon_2 Q (x_0, t) > 0 \}
+  = \{ t | \varepsilon_1 t \geqslant 0, \varepsilon_2 t^2 < \tmop{const} \}$
+  with $\tmop{const} : = \varepsilon_2 Q (x_0, 0)$ and is clearly connected.
+\end{proof}
+
+\begin{lemma}
+	\label{lem67:lem-tensor-aux}With notation as in Definition \ref{lem67:def-SCSCC}, let $\mathcal{S}\mathcal{C} \ni X \subset
+  \mathbbm{R}^n$ be stable under change of sign of $x_n$ and $u \in
+  \mathcal{D}' (X)$ with $\partial_n u = 0$ and even in the $x_n$. Then, there
+  exists unique $g \in \mathcal{D}' (\pi (X))$ such that $u = (g \otimes 1)
+  \mid_X$. Moreover,
+  \begin{enumerate}
+    \item If $\psi$ and $\psi'$ are diffemorophisms of $X$ and $\pi (X)$
+    respectively, such that $\pi \circ \psi = \psi' \circ \pi$ and $u (\psi
+    (\cdot)) = u (\cdot)$ on $X$, then $g (\psi' (\cdot)) = g (\cdot)$ on $\pi
+    (X)$;
+    
+    \item If $X$ was an open cone and for Euler operator $E$ we have $E u =
+    \lambda u$ on $X$ for some $\lambda \in \mathbbm{C}$, then $\tilde{E} g =
+    \lambda g$, where $\tilde{E}$ is Euler operator in $\mathbbm{R}^{n - 1}$
+    (note that $\pi (X)$ is also an open cone);
+    
+    \item If for some $i < n$ we have $\partial_i u = 0$, then $\partial_i g =
+    0$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{fact}
+\label{fact:localization}{\cite[Thm 2.2.4]{hormander1983analysis}}
+Let $X_i$ be the family of open subsets of $\R^n$ and $f_i \in \D' (X_i)$.
+Suppose further that $\forall i, j, \hspace{0.75em} f_i \mid_{X_i \cap
+X_j} = f_j \mid_{X_i \cap X_j}$. Then there exists unique $f \in \D'
+(\bigcup_i X_i)$ such that $f \mid_{X_i} =
+f_i$.
+\end{fact}
+
+\begin{fact}
+{\proofexplanation{{\cite[Thm. 3.1.4']{hormander1983analysis}}}}
+\label{fact:sing-q-4}Let $u \in \D' (Y \times I)$ with $Y \subset \R^n$ open
+and $I \subset \R$ interval. Assume further that $\partial_n u = 0$. Then,
+there exists a distribution $u_0 \in \D' (Y)$ such that $u (\varphi) = \int_I
+u_0  (x \mapsto \varphi (x, t))  \hspace{0.75em}
+dt$.
+\end{fact}
+
+\begin{fact}
+\label{lem67:fact-pullback}{\cite[thm.
+6.1.2]{hormander1983analysis}} For $X_j \subset \mathbbm{R}^{n_j}$ for $j = 1,
+2$ being open sets and $f : X_1 \rightarrow X_2$ such that $\forall x \in X_1,
+\; (D f) (x) : \mathbbm{R}^{n_1} \rightarrow \mathbbm{R}^{n_2}$ is surjective,
+there is unique continuous map $f^{\ast} : \mathcal{D}' (X_2) \rightarrow
+\mathcal{D}' (X_1)$ such that for $u \in C^{\infty} (X_2)$ we have $f^{\ast} u
+= u \circ f$. Moreover, the following formulae hold:
+\begin{eqnarray}
+  & \partial_j f^{\ast} u = \sum_{k = 1}^{n_2} \partial_j f_k \cdot f^{\ast}
+  (\partial_k u) &  \nonumber\\
+  & (f^{\ast} a) (f^{\ast} u) = f^{\ast} (a u), \quad a \in C^{\infty} (X_2)
+  &  \nonumber
+\end{eqnarray}
+\end{fact}
+
+\begin{proof}
+  We first prove the uniqueness of $g$. Suppose $u = (g \otimes 1) \mid_X
+  = (g' \otimes 1) \mid_X$ for $g, g' \in \mathcal{D}' (X)$. Take $y_0 \in
+  \pi (X)$, then there exists $x_0 \in X$ such that $\pi (x_0) = y_0$ and we
+  can take a small open neighborhood $y_0 \in U \subset \pi (X)$ such that for
+  some open interval $I \subset \mathbbm{R}$ we have $x_0 \in U \times I
+  \subset X$. Uniqueness part of fact
+  \ref{holomorphicity-preserving:fact-tensor} then implies that $u \mid_{U
+  \times I} = g \mid_U \otimes 1 = g' \mid_U \otimes 1$ and then again
+  uniqueness of fact \ref{holomorphicity-preserving:fact-tensor} implies that
+  $g \mid_U = g' \mid_U$. As $y_0 \in X$ was arbitrary, application of
+  fact \ref{fact:localization} shows that $g = g'$. This shows the uniqueness.
+  
+  Now, we prove the existence. We take arbitrary $y_0 \in \pi (X)$ and
+  corresponding $x_0 \ni U$ as in previous paragraph, so that $x_0 \in U
+  \times I \subset X$. Fact \ref{fact:sing-q-4} then tells us that $u
+  \mid_{U \times I} = u \mid_U \otimes g_U$ for some $g_U \in
+  \mathcal{D}' (U)$. In the light of fact \ref{fact:localization}, it suffices
+  then to show that for $U, U' \subset \pi (X)$ such that $U \cap U' \neq
+  \varnothing$ and $I, I' \subset \mathbbm{R}$ connected we have $g_U =
+  g_{U'}$ on $U \cap U'$. Again, fact \ref{fact:localization} allows us to
+  work locally, so we take $y_0 \in U \cap U'$. We take corresponding $x_0 \in
+  U \times I$ and $x_0' \in U \times I'$ such that $\pi (x_0) = \pi (x_0') =
+  y_0$.
+  
+  If $x_0$ and $x_0'$ lie on the same side of $\{ x_n = 0 \}$ plane (say, both
+  have $n$-th corrdinate non-negative), then assumption $X \in
+  \mathcal{S}\mathcal{C}$ tells us that $x_0$ and $x_0'$ can be connected by
+  line segment $J$ orthogonal to $\{ x_n = 0 \}$ and lying within $U$. Due to
+  the openness of $X$ we then can take small $y_0 \in V \subset \pi (X)$ and
+  $J \subset J' \subset \mathbbm{R}$ such that $V \times J' \subset X$. Fact
+  \ref{fact:sing-q-4} then implies that $u \mid_{V \times J'} = g_V
+  \otimes 1$ and thus $g_U \mid_V = g_{U'} \mid_V$.
+  
+  On the other hand, if $x_0$ and $x_0'$ lie on different sides, invariance
+  of $X$ and $u$ with respect to flip in the $n$-th coordinate allows us to
+  bring this situation to the one discussed in the previous paragraph and thus
+  to get the same conclusion. This shows existence.
+  
+  Finally, we show items 1, 2 and 3. Item 1 readily follows by uniqueness
+  we've shown, as we have $u = \psi^{\ast} u = \psi^{\ast} \pi_n^{\ast} g =
+  (\pi_n \circ \psi)^{\ast} g = (\psi' \circ \pi_n)^{\ast} g = \pi_n^{\ast}
+  (\psi')^{\ast} g = (\psi')^{\ast} g \otimes 1$. Item 3 holds true by, as we
+  have $\partial_i (g \otimes 1) = (\partial_i g) \otimes 1$, this in turn
+  holding by uniqueness part of fact
+  \ref{holomorphicity-preserving:fact-tensor}. And finally, item 2 holds true
+  because of the formulae in fact \ref{lem67:fact-pullback}.
+\end{proof}
+
+\begin{lemma}
+	\label{lem67:lem-tensor}With notation as in Definition \ref{lem67:def-SCSCC}, let $\mathcal{S}\mathcal{S}\mathcal{C} \ni X \subset
+  \mathbbm{R}^n$ be stable under $(x_i)_{i = 1}^n \mapsto (\varepsilon_i
+  x_i)_{i = 1}^n$ for $\varepsilon_i = \pm 1$ and $u \in \mathcal{D}' (X)$
+  with $\partial_i u = 0$ for $i = 2, 3, \ldots, n$ and even in every $x_i$.
+  Then, there exists unique $g \in \mathcal{D}' (\pi^{n - 1} (X))$ which is
+  even (note that $\pi^{n - 1} (X) \subset \mathbbm{R}$). Moreover, if $X$ was
+  an open cone and $E u = \lambda u$ for $\lambda \in \mathbbm{C}$ and $E$
+  Euler operator, then $\pi^{n - 1} (X)$ is an open cone as well with $x
+  \frac{\partial}{\partial x} g = \lambda g$.
+\end{lemma}
+
+\begin{proof}
+  Let's do the induction on $n$, the case $n = 1$ being trivial, as hypothesis
+  and conclusion coincide. Now, assuming statement holding for lower
+  dimensions, let's prove it for $X \subset \mathbbm{R}^n$. Lemma
+  \ref{lem67:lem-tensor-aux} readily grants us $g \in \mathcal{D}' (\pi (X))$,
+  so that $u = (g \otimes 1) \mid_X$. Now, $g$ is even in every $x_i$ with
+  $i \geqslant 2$ and for $i \geqslant 2$, $\partial_i g = 0$ by first and
+  third item of lemma \ref{lem67:lem-tensor-aux} respectively and this allows
+  us to use induction assumption and finish the proof. The resulting $g$ is
+  even, as $u$ was even in all $x_i$ by hypothesis. The ``moreover'' part of
+  lemma follows similarly by induction, employing item 2. of lemma
+  \ref{lem67:lem-tensor-aux} on induction step.
+\end{proof}
+
+\begin{lemma}
+  \label{lem67:lem-homogR}For $\lambda \in \mathbbm{C}$ and $E \assign x
+  (\partial / \partial x)$ we have
+  \[ \begin{array}{cc}
+       \begin{array}{c}
+         
+       \end{array} u \in \mathcal{D}' (\mathbbm{R}\backslash \{ 0 \}), \; u (-
+       x) = u (x), \; E u = \lambda u \Leftrightarrow & u (x) \in \mathbbm{R}
+       | x |^{\lambda}\\
+       u \in \mathcal{D}' (\mathbbm{R}), u (- x) = u (x), \; E u = \lambda u
+       \Leftrightarrow & u (x) \in \mathbbm{R} | x |^{\lambda} / \Gamma \left(
+       \frac{\lambda + 1}{2} \right)
+     \end{array} \]
+\end{lemma}
+
+\begin{fact}
+\label{fact:homog-tempered}{\cite[thm.
+7.1.18]{hormander1983analysis}} If $u \in \mathcal{D}' (\mathbbm{R}^n)$ and $u
+\mid_{\mathbbm{R}^n \backslash \{ 0 \}}$ is homogeneous, then $u \in
+\mathcal{S}' \subset \mathcal{D}'$.
+\end{fact}
+
+\begin{proof}
+  Indeed, the first statement follows, as condition $E u = \lambda u$ implies
+  that $(\partial / \partial x) (| x |^{- \lambda} u)$=0 on $\mathbbm{R}^{}
+  \backslash \{ 0 \}$ and hence fact \ref{fact:sing-q-4} implies that $u = c_+
+  x_+^{\lambda} + c_- x_-^{\lambda}$ and evenness assumption implies that $c_+
+  = c_-$ which gives the final answer. And conversely, multiples of $| x
+  |^{\lambda}$ clearly satisfy the requirements.
+  
+  Regarding the second statement, multiples of $| x |^{\lambda} / \Gamma
+  \left( \frac{\lambda + 1}{2} \right)$ clearly satisfy the requirements, as
+  requirements are analytic in $\lambda$, so is $| x |^{\lambda} / \Gamma
+  \left( \frac{\lambda + 1}{2} \right)$ and the latter satisfies requirements
+  for $\tmop{Re} (\lambda) \gg 0$. Conversely, given such a function $u$, the
+  reverse implication is readily granted by fact
+  \ref{holomorphicity-preserving:fact-homog} in case $\lambda \nin
+  -\mathbbm{Z}_{\geqslant 0}$.
+  
+  In turn, $\lambda \in - 2\mathbbm{Z}_{\geqslant 0}$, we have (according to
+  the result above and as $| x |^{- 2 n}$ for $n \in \mathbbm{Z}_{\geqslant
+  0}$ is well-defined generalized function on $\mathbbm{R}$) that for some $c
+  \in \mathbbm{R}$, $u - c | x |^{\lambda}$ is supported at $0$, hence should
+  be a finite sum of derivatives of delta function. Now, as $E (u - c | x
+  |^{\lambda}) = \lambda (u - c | x |^{\lambda})$ and derivatives of delta
+  functions are linearly independent (this can be seen by repeatedly applying
+  $E$ to the sum of them), we should have $u - c | x |^{\lambda} = a
+  \delta^{(- 1 - \lambda)} (x)$ (as $\delta^{(k)}$ is homogeneous of degree $-
+  k - 1$), but the right hand side of latter equality is odd, while left-hand
+  side is even, hence $u = c | x |^{\lambda}$.
+  
+  Finally, suppose that $\lambda \in - 2\mathbbm{Z}_{\geqslant 0} - 1$. Now,
+  fact \ref{fact:homog-tempered} implies that $u$ under the assumptions taken
+  is in fact tempered distribution (note that the first statement tells us
+  directly that $u \mid_{\mathbbm{R}\backslash \{ 0 \}}$ is homogeneous),
+  hence we may consider Fourier transform $\hat{u} \in \mathcal{S}'
+  (\mathbbm{R}) \subset \mathcal{D}' (\mathbbm{R})$ of it. Properties of
+  Fourier transform imply that $\hat{u}$ is even real-valued on $\mathcal{S}
+  (\mathbbm{R})$ and $E \hat{u} = - (\lambda + 1) \hat{u}$, hence $\hat{u}$ is
+  a multiple of $x^{- \lambda - 1}$ and then inverse Fourier transform gives
+  the desired.
+\end{proof}
+
+\begin{lemma}
+  \label{lem67:lem-homogImpliesE}Let $U \subset \mathbbm{R}^m$ be an open cone
+  and $F \in \mathcal{D}' (U)$. Then $F$ is homogeneous of degree $a \in
+  \mathbbm{C}$ (that is, $\forall \alpha > 0$, $F (\alpha \cdot) = \alpha^a F
+  (\cdot)$) iff $E F = a F$ on $U$.
+\end{lemma}
+
+\begin{proof}
+  We do proof for $U =\mathbbm{R}^m$, the proof of general case following the
+  same pattern. We first prove the ``$\Rightarrow$'' direction. We recall that
+  what $F (\alpha \cdot) = \alpha^a F (\cdot)$ means for $F \in \mathcal{D}'
+  (\mathbbm{R}^m)$ is that for every $\varphi \in C^{\infty}_0
+  (\mathbbm{R}^m)$ we have $\langle F, \varphi \rangle = \alpha^{a + m}
+  \langle F, \varphi_{\alpha} \rangle$, where $\varphi_{\alpha} (\cdot)
+  \assign \varphi (\alpha \cdot)$. We now fix arbitrary $1 \in V \subset
+  \mathbbm{R}_{> 0}$ open and such that $\bar{V}$ is a compact subset of
+  $\mathbbm{R}_{> 0}$, and let $\Phi : V \ni \alpha \mapsto \langle F,
+  \varphi_{\alpha} \rangle$. The assumptions we put on $V$ imply that
+  $S_{\alpha} \assign \left\{ x \in \mathbbm{R}^m \mid \exists \alpha \in
+  \bar{V}, \; \alpha^{- 1} x \in \tmop{supp} (\varphi) \right\} \subset
+  \mathbbm{R}^m$ is compact and since $\forall \alpha \in V$ we have
+  $\varphi_{\alpha} = 0$ outside $S_{\alpha}$, we can apply fact
+  \ref{holomorphicity-preserving:fact-basic} which tells us that $\Phi \in
+  C^{\infty} (V)$ and $\partial \Phi / \partial \alpha = \langle F, (\partial
+  / \partial \alpha) \varphi_{\alpha} \rangle = \langle F, (E \varphi) (\alpha
+  \cdot) \rangle$.
+  
+  Now, assuming that $\forall \alpha > 0$, $F (\alpha \cdot) = \alpha^a F
+  (\cdot)$ holds, the definitions made imply that $\forall \alpha > 0, \;
+  \alpha^{a + m} \Phi (\alpha) = \Phi (1)$ and taking the derivative of both
+  sides with respect to $\alpha$ at $\alpha = 1$, one arrives at $0 = (a + m)
+  \langle F, \varphi \rangle + \langle F, E \varphi \rangle = (a + m) \langle
+  F, \varphi \rangle - \langle E F, \varphi \rangle - m \langle F \comma
+  \varphi \rangle$ and \ this implies that $E F = a F$ on $\mathbbm{R}^m$
+  (since $\varphi$ was arbitrary). This proves the ``$\Rightarrow$''.
+  
+  Now, assume $E F = a F$ holds on $\mathbbm{R}^m$ and let $V$ be as above and
+  $\Phi : V \ni \alpha \mapsto \alpha^{a + m} \langle F, \varphi_{\alpha}
+  \rangle \in \mathbbm{C}$ be as above. It suffices to show now that
+  $(\partial / \partial \alpha) \Phi = 0$ on $V$. We first show that it holds
+  for $\alpha = 1$. This is so, as $(\partial / \partial \alpha)
+  \mid_{\alpha = 1} \Phi = a \langle F, \varphi \rangle - \langle E F,
+  \varphi \rangle$ as shown above, and the latter is equal to 0 by hypothesis.
+  
+  Next, take arbitrary $\alpha_0 \in V$ and $V'$ neighborhood of $1$ small
+  enough so that $V' \cdot \alpha_0 \subset V$. Then for $\Phi' : V' \ni \beta
+  \mapsto \beta^{a + m} \langle F, (\varphi_{\alpha_0})_{\beta} \rangle$ we
+  have $\Phi' (\beta) = \alpha_0^{- m - a} \Phi (\beta \alpha_0)$ and the
+  previous paragraph now implies that $(\partial / \partial \beta)
+  \mid_{\beta = 1} \Phi' = 0$ and hence that $(\partial / \partial \alpha)
+  \mid_{\alpha = \alpha_0} \Phi = 0$ and this ends the proof.
+\end{proof}
+
+\begin{lemma}
+  \label{lem67:lem-eveninall}eSuppose $X \subset \mathbbm{R}^{p, q}$ is stable
+  under $(x_i)_{i = 1}^n \mapsto (\varepsilon_i x_i)_{i = 1}^n$ with $n
+  \assign p + q$ and $u \in \mathcal{S} \tmop{ol} (X ; \lambda, \nu)$. Then
+  $u$ is even in all coordinates.
+\end{lemma}
+
+\begin{proof}
+  Evenness in $x_i$ with $i \neq p$ is readily given by item 2 of definition
+  \ref{sol:def-sol}. As item 1 also implies $u$ being even in $X$, it should
+  be also even in $x_p$ as well.
+\end{proof}
+
+\begin{lemma}
+  \label{lem67:lem-Qpm}For $(\lambda, \nu) \in \mathbbm{C}^2$ and $p, q
+  \geqslant 1$ we have:
+  \[ \begin{array}{c}
+       \mathcal{S} \tmop{ol} (\{ Q > 0 \} ; \lambda, \nu) =\mathbbm{C} \left\{
+       \begin{array}{ll}
+         Q_+^{- \nu} | x_p |^{\lambda + \nu - n}, & p = 1\\
+         Q_+^{- \nu} \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left(
+         \frac{\lambda + \nu - n + 1}{2} \right)}, & p \geqslant 2
+       \end{array} \right.\\
+       \mathcal{S} \tmop{ol} (\{ Q < 0 \} ; \lambda, \nu) =\mathbbm{C}Q_-^{-
+       \nu} \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda +
+       \nu - n + 1}{2} \right)}
+     \end{array} \]
+\end{lemma}
+
+\begin{remark}
+  Note that when $p = 1$, $| x_p |^{\lambda + \nu - n} \in C^{\infty}$ on $\{
+  Q > 0 \}$, as all points of latter set have $x_p > 0$.
+\end{remark}
+
+\begin{proof}
+  $\supseteq$ is easy to see. Indeed, the direct verification of can be done
+  in case $\tmop{Re} (\lambda + \nu) \gg 0$, when $| x_p |^{\lambda + \nu - n}
+  \in C^1$ and then it can be seen for all $(\lambda, \nu) \in \mathbbm{C}^2$
+  by proposition \ref{sol:prop-holocont} (distributions in the right-hand
+  sides of formulae in statement depend on $(\lambda, \nu) \in \mathbbm{C}^2$
+  holomorphically due to propositions
+  \ref{holomorphicity-preserving:prop-tensor-holo} and
+  \ref{holomorphicity-preserving:prop-pullback-holo}).
+  
+  Thus, it remain to show $\subseteq$. Note first that taking derivative of
+  (\ref{eq-Nequiv}) one arrives at equations (\ref{Ndiff}) and these in turn
+  imply that for $u \in \mathcal{S} \tmop{ol} (U ; \lambda, \nu)$ with $U
+  \subset \{ Q \neq 0 \}$ (note that then $| Q |^{- \nu}$ is smooth nonzero on
+  $U$) one has $\partial_i (| Q |^{\nu} u) = 0$ for $i \in \{ 1, 2, \ldots, n
+  \} \backslash \{ p \}$. Now, lemmas \ref{lem67:lem-geom} and
+  \ref{lem67:lem-eveninall} implies that lemma \ref{lem67:lem-tensor} is
+  applicable (strictly speaking, we have to re-order coordinates $x_1, x_2,
+  \ldots, x_p$ though, to make $x_p$ be the first one), and the latter tells
+  us that $| Q |^{\nu} u \in \mathbbm{C}1_{\mathbbm{R}^{p - 1}} \otimes u_0
+  (x_p) \otimes 1_{\mathbbm{R}^q}$ (where $1_U$ denotes constant 1
+  distribution on $U$) with $u_0 \in \mathcal{D}' (\mathbbm{R}\backslash \{ 0
+  \})$ (in case of $\{ Q > 0 \}$ and $p = 1$) or $u_0 \in \mathcal{D}'
+  (\mathbbm{R})$ (otherwise) being even. Moreover, lemma
+  \ref{lem67:lem-homogImpliesE} and ``moreover'' part of lemma
+  \ref{lem67:lem-tensor} imply that $E u_0 = (\lambda - \nu - n) u_0$. Then,
+  application of lemma \ref{lem67:lem-homogR} ends the proof.
+\end{proof}
+
+\begin{lemma}
+  \label{lem67:lem-flip}For $p, q \in \mathbbm{Z}_{\geqslant 1}$ let $Q$:
+  quadratic form on $\mathbbm{R}^{p, q}$. For $x, b \in \mathbbm{R}^{p, q}$ we
+  let $c_b (x) \assign 1 - 2 Q (x, b) + Q (x) Q (b)$ and $\psi_b (x) \assign
+  (x - Q (x) b) / c_b (x)$.
+  
+  We then have the following:
+  \begin{enumerate}
+    \item For $p \geqslant 1$ there exist $x^{(0)}, b^{(0)} \in
+    \mathbbm{R}^{p, q}$ with $b^{(0)}_p = 0$, such that $Q (\psi_{b^{(0)}}
+    (x^{(0)})) > 0$ and $Q (x^{(0)}) < 0$;
+    
+    \item For $p \geqslant 2$ we can in addition make $\psi_{b^{(0)}}
+    (x^{(0)})$ having it's $p$-th coordinate vanish.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  For the first item, it suffices to find $x^{(0)}$ and $b^{(0)}$ such that $Q
+  (x^{(0)}) < 0$ and $Q (x^{(0)} - Q (x^{(0)}) b^{(0)}) > 0$ (note that this
+  will automatically grant $c_{b^{(0)}} (x^{(0)}) \neq 0$, as $Q (x - Q (x) b)
+  = Q (x) (1 - 2 Q (x, b) + Q (x) Q (b))$). Now, by assuming $x_i^{(0)} =
+  b^{(0)}_i = 0$ for $i \neq p, p + 1$ (while still requiring $b_p^{(0)} =
+  0$), and thus we have $Q (x^{(0)}) = (x_p^{(0)})^2 - (x_{p + 1}^{(0)})^2$
+  and $Q (x^{(0)} - Q (x^{(0)}) b^{(0)}) = (x_p^{(0)})^2 - (x_{p + 1}^{(0)} -
+  ((x_p^{(0)})^2 - (x_{p + 1}^{(0)})^2) b^{(0)}_{p + 1})^2$. Hence, by taking
+  arbitrary $x^{(0)}$ with $Q (x^{(0)}) < 0$ and $b_{p + 1}^{(0)} \assign x_{p
+  + 1}^{(0)} / ((x_p^{(0)})^2 - (x_{p + 1}^{(0)})^2)$, we get the required
+  pair of elements of $\mathbbm{R}^{p, q}$. This shows the first item.
+  
+  Regarding the second item, we proceed similarly, except that this time we
+  require $x_i^{(0)} = 0$ for $i \neq p - 1, p + 1$, $b^{(0)}_i = 0$ for $i
+  \neq p$ and replace $x_p^{(0)}$ by $x_{p - 1}^{(0)}$ everywhere in
+  computations of previous paragraph. As $\psi_{b^{(0)}} (x^{(0)})$ and
+  $x^{(0)}$ have their $p$-th component being the same, this construction
+  suffices.
+\end{proof}
+
+\subsection{Proofs}
+
+\begin{proof}
+  (of prop. \ref{lem67:prop-67}) We note that $| Q |^{- \nu} \frac{| x_p
+  |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
+  \right)} \in \mathcal{S} \tmop{ol} (\{ Q \neq 0 \} ; \lambda, \nu)$, as it
+  is clearly so for $\tmop{Re} (\lambda + \nu) \gg 0$ (when it becomes $C^1$)
+  by direct check, and it holomorphically depends on $(\lambda, \nu) \in
+  \mathbbm{C}^2$ (we use propositions
+  \ref{holomorphicity-preserving:prop-tensor-holo} and
+  \ref{holomorphicity-preserving:prop-pullback-holo} to see this and then
+  proposition \ref{sol:prop-holocont}). Now, in the light of lemma
+  \ref{lem67:lem-Qpm} it suffices to show that if $u \in \mathcal{S} \tmop{ol}
+  (\{ Q \neq 0 \} ; \lambda, \nu)$ and $u \mid_{\{ Q < 0 \}} = 0$, then $u
+  = 0$.
+  
+  First, assume $p = 1$. Lemma \ref{lem67:lem-Qpm} tells us that if $u
+  \mid_{\{ Q > 0 \}} \neq 0$, then it is supported on the whole $\{ Q > 0
+  \}$. But then the first item of lemma \ref{lem67:lem-flip}, equation
+  (\ref{eq-Nequiv}) and assumption $u \mid_{\{ Q < 0 \}}$ imply that near
+  some $y \in \{ Q > 0 \}$ we have $u = 0$ and this contradiction gives the
+  desired conclusion in case $p = 1$.
+  
+  Similarly, for $p \geqslant 2$ the second item of lemma \ref{lem67:lem-flip}
+  equation (\ref{eq-Nequiv}) and assumption $u \mid_{\{ Q < 0 \}}$ imply
+  that near some $y \in \{ Q > 0 \} \cap \{ x_p = 0 \}$ we have $u = 0$.
+  But then lemma \ref{lem67:lem-Qpm} tells us that if $u \mid_{\{ Q > 0
+  \}} \neq 0$, it has to be supported at least on $\{ x_p = 0 \}$. This
+  contradiction gives the desired conclusion in case $p \geqslant 2$ as well.
+\end{proof}
+
+\section{The construction of regular symmetry breaking operator (B10)}\label{sec:supp-R}
+
+
+In this section we will construct the distribution $\tilde{K}_{\lambda, \nu}^X
+\in \mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda, \nu)$ which is holomorphic
+in $(\lambda, \nu) \in \mathbbm{C}^2$ and vanishes on a discrete subset of
+$\mathbbm{C}^2$.
+
+Here, we let
+\begin{eqnarray}
+  & \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in 1 +
+  2\mathbbm{Z}_{\geqslant 0} \}, &  \nonumber\\
+  & / / \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in -
+  2\mathbbm{Z}_{\geqslant 0} \}, &  \nonumber\\
+  & \backslash\backslash \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid
+  \lambda + \nu - n + 1 \in - 2\mathbbm{Z}_{\geqslant 0} \}, &  \nonumber\\
+  & \mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in -
+  2\mathbbm{Z}_{\geqslant 0} \cup (q + 1 + 2\mathbbm{Z}) \}, &  \nonumber
+\end{eqnarray}
+and the closed subsets of $\mathbbm{R}^n$:
+\begin{eqnarray}
+  & X \assign \mathbbm{R}^{p, q}, &  \nonumber\\
+  & Y \assign \{ x \in \mathbbm{R}^{p, q} \mid x_p = 0 \}, &  \nonumber\\
+  & C \assign \{ x \in \mathbbm{R}^{p, q} \mid Q (x) = 0 \} . &  \nonumber
+\end{eqnarray}
+
+\subsection{Main results}
+
+\begin{proposition}
+  \label{supp-R:prop-main}The generalized function
+  \[ \tilde{K}_{\lambda, \nu}^X \assign \frac{| x_p |^{\lambda + \nu - n} | Q
+     |^{- \nu}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) \Gamma
+     \left( \frac{1 - \nu}{2} \right) \Gamma \left( \frac{\lambda - \nu}{2}
+     \right)} \in \mathcal{D}' (\mathbbm{R}^{p, q}) \]
+  defined initially by corresponding continuous function for $\tmop{Re} (-
+  \nu), \tmop{Re} (\lambda + \nu - n) > 0$ holomorphically extends to
+  $(\lambda, \nu) \in \mathbbm{C}^2$. It is a member of $\mathcal{S} \tmop{ol}
+  (\mathbbm{R}^{p, q} ; \lambda, \nu)$ and we will denote the corresponding
+  member of $\tmop{Hom}_{G'} (I (\lambda), J (\nu))$ by $R_{\lambda, \nu}^X$.
+  We furthermore have
+  \[ \tmop{supp} (\tilde{K}_{\lambda, \nu}^X) = \left\{ \begin{array}{ll}
+       X, & (\lambda, \nu) \nin \mid \mid \cup \backslash\backslash \cup / /\\
+       C, & (\lambda, \nu) \in \mid \mid -\backslash\backslash - / /\\
+       Y, & (\lambda, \nu) \in \backslash\backslash - \mid \mid - / /\\
+       \varnothing, & p = 1, \; (\lambda, \nu) \in \mid \mid \cap
+       \backslash\backslash - / /\\
+       Y \cap C, & p > 1, \; (\lambda, \nu) \in \mid \mid \cap
+       \backslash\backslash - / /\\
+       \varnothing, & (\lambda, \nu) \in / / \cap \mid \mid \mid\\
+       \{ 0 \}, & (\lambda, \nu) \in / / - \mid \mid \mid .
+     \end{array} \right. \]
+\end{proposition}
+
+\subsection{Auxiliary results}
+
+\begin{lemma}
+  \label{supp-R:lem-gelfand}Let $\Omega \subset \mathbbm{C}$ be an open set
+  and $a : \Omega \rightarrow \mathbbm{C}$ be holo with nonvanishing
+  derivative. Suppose that for $D \subset \Omega$ discrete we have
+  $F_{\lambda} \in \mathcal{D}' (\mathbbm{R}^k)$ be holomorphic in $\lambda
+  \in \Omega \backslash D$ and homogeneous of degree $a (\lambda)$ and $D =
+  a^{- 1} (- k -\mathbbm{Z}_{\geqslant 0})$. Suppose further that $F_{\lambda}
+  \mid_{\mathbbm{R}^k - \{ 0 \}}$ extends to holo in $\lambda \in \Omega$.
+  
+  Then, $\tilde{F}_{\lambda} : = \tilde{\rho} (F_{\lambda} \mid_{\mathbbm{R}^k
+  - \{ 0 \}}) \assign F_{\lambda} / \Gamma (a (\lambda) + k)$ extends to
+  holomorphic in $\lambda \in \Omega$. Moreover, for $\lambda \in D$ we
+  have
+  \begin{eqnarray}
+    & \tilde{F}_{\lambda} = \sum_{| \alpha | = - a (\lambda) - k}
+    c_{\alpha} \delta^{(\alpha)} &  \nonumber\\
+    & c_{\alpha} \assign \langle F_{\lambda} |_{\mathbbm{S}^k}, x^{\alpha}
+    \rangle &  \nonumber
+  \end{eqnarray}
+\end{lemma}
+
+\begin{remark}
+  This basically is a restatement of a discussion in
+  {\cite[III.{\textsection}3.5]{gelfand1980distribution}}.
+\end{remark}
+
+\begin{proof}
+  We first claim that $F_{\lambda} \mid_{\mathbbm{S}^k}$ is well-defined
+  and holomorphic in $\lambda \in \Omega$. Indeed, under the assumption that
+  $F_{\lambda} \mid_{\mathbbm{R}^k - \{ 0 \}}$ extends to holomorphic
+  distribution in $\lambda \in \Omega$, we have similarly to the proof of
+  lemma \ref{k-finite:lem-holo-easy} that $F_{\lambda}$ is holomorphic in
+  $\mathcal{D}'_{\Gamma} (\mathbbm{R}^k - \{ 0 \})$ with $\Gamma$ being the
+  cone $\{ (x, \xi) \in \mathbbm{R}^k \backslash \{ 0 \} \times \mathbbm{R}^k
+  | x \perp \xi \}$ and thus proposition
+  \ref{holomorphicity-preserving:prop-pullback-holo} implies the claim.
+  
+  Discreteness of $D$ allows us to consider matters locally near every point
+  of $D$, thus we may assume $D = \{ \lambda_0 \}$. Moreover, as $a (\lambda)$
+  has novanishing derivative at $\lambda_0$, we can biholomorphically change
+  coordinates in parameter space and thus assume that $a (\lambda) = \lambda$
+  and $\lambda_0 = - k - l \in - k -\mathbbm{Z}_{\geqslant 0}$. We next claim
+  that near (but not equal to) $\lambda = \lambda_0$ we have
+  \begin{eqnarray}
+    & \langle \tilde{F}_{\lambda}, \varphi \rangle = \frac{1}{\Gamma (\lambda
+    + k)} \langle r^{\lambda + k - 1}, u_{\lambda} \rangle, 
+    \label{KR-normalization-even:eq-lemeq} & \\
+    & u_{\lambda} (r) \assign \langle F_{\lambda} |_{\mathbbm{S}^{k - 1}},
+    \varphi (r \cdot) \rangle . &  \nonumber
+  \end{eqnarray}
+  We note that $u \in C^{\infty}_0 (\mathbbm{R}_{\geqslant 0})$, as is easily
+  seen by direct check. Now, both sides
+  $(\ref{KR-normalization-even:eq-lemeq})$ are clearly homogeneous of degree
+  $\lambda$, so it suffices (by fact
+  \ref{holomorphicity-preserving:fact-homog}) to show that they coincide on
+  $\mathbbm{R}^k \backslash \{ 0 \}$, where the equality is clear (passing to
+  polar coordinates $F_{\lambda}$ becomes tensor product).
+  
+  We next show that $\tilde{F}_{\lambda}$ is holomorphic at $\lambda =
+  \lambda_0$. We fix $\varphi \in C^{\infty}_0 (\mathbbm{R}^k)$ and it
+  suffices to show the continuity of right-hand side of
+  $(\ref{KR-normalization-even:eq-lemeq})$ in $\lambda$. So suppose that
+  $\lambda_n \rightarrow \lambda_0 = - k - l$. Now, lemma
+  \ref{supp-n-waves:lem-weakened-conv} implies that we just need to show that
+  $u_{\lambda_n} \assign u_n \rightarrow u_0 \assign u_{\lambda_0}$ pointwise
+  with all derivatives in $\mathbbm{R}_{\geqslant 0}$ and that $u_{\lambda_n}$
+  have their derivatives are uniformly bounded in $n$. Now, fact
+  \ref{holomorphicity-preserving:fact-basic} applied to $\psi :
+  \mathbbm{R}_{\geqslant 0} \times \mathbbm{S}^{k - 1} \ni (r, \omega) \mapsto
+  \varphi (r \omega)$ implies that (we let $f_{\lambda} \assign F_{\lambda}
+  \mid_{\mathbbm{S}^{n - 1}}$ and $\varphi^{(\alpha)}$ denotes partial
+  derivative)
+  \[ \frac{d^m}{d r^m} u_{\lambda} (r) = \left\langle f_{\lambda},
+     \frac{d^m}{d r^m} \varphi (r \cdot) \right\rangle = \left\langle
+     f_{\lambda}, \sum_{| \alpha | = m} \omega^{\alpha} \varphi^{(\alpha)} (r
+     \cdot) \right\rangle \]
+  which readily settles the issue about the pointwise convergence of
+  derivatives, so it only remains to show that these are uniformly bounded in
+  $n$ and $x \in \mathbbm{R}_{\geqslant 0}$. The latter equality implies that
+  it suffices to show this for the 0-th derivative. That is, we just need to
+  show that $u_n$ are uniformly bounded in $r \in \mathbbm{R}_{\geqslant 0}$
+  and $n$.
+  
+  Now, the third item of fact \ref{holomorphicity-preserving:fact-basic} tells
+  us that
+  \[ | \langle f_n, \varphi (r \cdot) \rangle | \leqslant C \sum_{i = 0}^k
+     \sup | \partial^i \varphi (r \cdot) | = \sum_{i = 0}^k \sup \left(
+     \sum_{| \alpha | = i} r^i \varphi^{(\alpha)} (r \cdot) \right) \]
+  and as the right-hand side is uniformly bounded in $n$ and $r$, we are done
+  with showing the holomorphicity of $\tilde{F}_{\lambda}$.
+  
+  Finally, we need to show what $\tilde{F}_{\lambda}$ becomes for $\lambda =
+  \lambda_0$. As by hypothesis $F_{\lambda} \mid_{\{ x \neq 0 \}}$ is
+  holomorphic at $\lambda_0$, we see that $F_{\lambda} / \Gamma (\lambda + k)
+  \mid_{\{ x \neq 0 \}}$ necessary vanishes at $\lambda = \lambda_0$, thus
+  $\tilde{F}_{\lambda_0}$ is supported only at $\{ 0 \}$ and therefore should
+  be a finite sum of derivatives of delta functions. Moreover, as
+  $\tilde{F}_{\lambda}$ is holomorphic in $\lambda$, it has to be homogeneous
+  of degree $\lambda_0$ at $\lambda_0$ and therefore
+  \[ \tilde{F}_{\lambda_0} = \sum_{| \alpha | = - \lambda_0 - k} c_{\alpha}
+     \delta^{(\alpha)} . \]
+  and
+  \begin{eqnarray}
+    & c_{\alpha} = (- 1)^{| \alpha |} \frac{\langle \tilde{F}_{\lambda_0},
+    x^{\alpha} \rangle}{| \alpha | !} = (- 1)^{| \alpha |} \frac{\langle
+    \delta^{- k - \lambda_0}, u \rangle}{(- k - \lambda_0) !} = &  \nonumber
+  \end{eqnarray}
+  where $u = \langle f_{\lambda_0}, x^{\alpha} \rangle = \langle
+  f_{\lambda_0}, r^{- \lambda_0 - k} \omega^{\alpha} \rangle = r^{- \lambda_0
+  - k} \langle f_{\lambda_0}, \omega^{\alpha} \rangle$ (where $\omega \assign
+  x \mid_{\mathbbm{S}^{n - 1}}$) and thus we can continue
+  \[ = \langle f_{\lambda_0}, \omega^{\alpha} \rangle (- 1)^{| \alpha |}
+     \frac{\langle \delta^{- k - \lambda_0}, r^{- \lambda_0 - k} \rangle}{(- k
+     - \lambda_0) !} = \langle f_{\lambda_0}, \omega^{\alpha} \rangle, \]
+  and we are done.
+\end{proof}
+
+\begin{lemma}
+  \label{supp-R:lem-supp-of-K}The distribution $K_{\lambda, \nu}^X \in
+  \mathcal{D}' (\mathbbm{R}^n - \{ 0 \})$, defined as an proof of proposition
+  \ref{supp-R:prop-main}, has the support being equal to
+  \[ \tmop{supp} (K_{\lambda, \nu}^X) = (\mathbbm{R}^n - \{ 0 \}) \cap \left\{
+     \begin{array}{ll}
+       \mathbbm{R}^n, & (\lambda, \nu) \in (\backslash\backslash \cup \mid
+       \mid)^c,\\
+       \{ x_p = 0 \}, & (\lambda, \nu) \in \backslash\backslash - \mid \mid,\\
+       \{ Q = 0 \}, & (\lambda, \nu) \in \mid \mid -\backslash\backslash,\\
+       \{ x_p = 0 \} \cap \{ Q = 0 \}, & p > 1, (\lambda, \nu) \in
+       \backslash\backslash \cap \mid \mid,\\
+       \varnothing, & p = 1, (\lambda, \nu) \in \backslash\backslash \cap \mid
+       \mid .
+     \end{array} \right. \]
+\end{lemma}
+
+\begin{proof}
+  First of all, for $(\lambda, \nu) \in (\backslash\backslash \cup \mid
+  \mid)^c$ we have that both $| x_p |^{\lambda + \nu - n} / \Gamma \left(
+  \frac{\lambda + \nu - n + 1}{2} \right), | Q |^{- \nu} / \Gamma \left(
+  \frac{1 - \nu}{2} \right)$ are smooth nonzero when restricted to $\{ Q \neq
+  0, x_p \neq 0 \}$ and hence by lemma
+  \ref{KR-normalization-recur:lem-mult-smth}, so is the restriction of
+  $K_{\lambda, \nu}^X$ to $\{ Q \neq 0, x_p \neq 0 \}$, hence in this case
+  $\tmop{supp} (K_{\lambda, \nu}^X) \supset \{ Q \neq 0, x_p \neq 0 \}$, hence
+  the statement.
+  
+  Next, for $(\lambda, \nu) \in \mid \mid -\backslash\backslash$ we have $| Q
+  |^{- \nu} / \Gamma \left( \frac{1 - \nu}{2} \right)$ being zero on $\{ Q
+  \neq 0 \}$, hence again by lemma \ref{KR-normalization-recur:lem-mult-smth},
+  we have $\tmop{supp} (K_{\lambda, \nu}^X) \subset \{ Q = 0 \}$. On the other
+  hand, we have $| x_p |^{\lambda + \nu - n} / \Gamma \left( \frac{\lambda +
+  \nu - n + 1}{2} \right)$ being smooth nonzero when restricted to $\{ x_p
+  \neq 0 \}$, hence by lemma \ref{KR-normalization-recur:lem-mult-smth} we
+  conclude that $K_{\lambda, \nu}^X$ is nonzero at the points of $\{ Q = 0,
+  x_p \neq 0 \}$, hence $\{ Q = 0 \} \subset \tmop{supp} (K_{\lambda, \nu}^X)
+  \subset \{ Q = 0, x_p \neq 0 \}$, hence the conclusion. Similarly, the case
+  $(\lambda, \nu) \in \backslash\backslash - \mid \mid$ is handled.
+  
+  So, finally, we assume $(\lambda, \nu) \in \mid \mid \cap
+  \backslash\backslash$. When $p = 1$ we know that $\{ x_p = 0 \} \cap \{ Q =
+  0 \} = \{ 0 \}$, hence (as $K_{\lambda, \nu}^X \in \mathcal{D}'
+  (\mathbbm{R}^n - \{ 0 \})$), we conclude by lemma
+  \ref{KR-normalization-recur:lem-mult-smth} that $K_{\lambda, \nu}^X$ is zero
+  on $\{ x_p \neq 0 \}$ and on $\{ Q \neq 0 \}$, hence the conclusion.
+  
+  Finally, we proceed to $p > 1$ case. Logic same as that of previous
+  paragraph implies that $\tmop{supp} (K_{\lambda, \nu}^X) \subset \{ Q = 0,
+  x_p = 0 \}$, so we only need to show the converse inclusion. Let's take an
+  arbitrary point $x_0 \in \{ Q = 0 \} \cap \{ x_p = 0 \}$ (this set is
+  nonempty under the $p \neq 1$ condition). It is seen by the direct check,
+  that we have normals of $\{ Q = 0 \}$ and $\{ x_p = 0 \}$ being independent
+  at $x_0$, hence we may introduce local coordinate system $y (x) = (y_1 (x),
+  y_2 (x), \ldots, y_n (x)) \in \Pi_i U_i \subset \Pi_i \mathbbm{R}$ near
+  $x_0$, so that $y_1 (x) = x_p$ and $y_2 (x) = Q (x)$.
+  
+  Then, recalling the way pullback was defined in
+  {\cite{hormander1983analysis}}, we see that $| x_p |^{\lambda + \nu - n} /
+  \Gamma ((\lambda + \nu - n + 1) / 2)$ and $| Q |^{- \nu} / \Gamma ((1 - \nu)
+  / 2)$ have expressions (proportional to) $\delta^a (y_1) \otimes 1_{\Pi_{i
+  \geqslant 2} U_i}$ and $1_{U_1} \otimes \delta^b (y_2) \otimes 1_{\Pi_{i
+  \geqslant 3} U_i}$ respectively with $a \assign - (\lambda + \nu - n + 1) /
+  2$ and $b \assign - (- \nu + 1) / 2$. Then, applying lemma
+  \ref{KR-normalization-recur:lem-mult-distrib-tensor} with $(X, Y) : = U_1,
+  \Pi_{i \geqslant 2} U_i$ and $\Gamma_2^1 = \Gamma_1^2 = \varnothing$;
+  $\Gamma^1_1$ and $\Gamma_2^2$ full in $U_1$ and $\Pi_{i \geqslant 2} U_i$
+  respectively, we have that $K_{\lambda, \nu}^{\mathbbm{R}^n}$ has in $y (x)$
+  expression $(\delta^a (y_1) \cdot 1_{U_1}) \otimes (1_{\Pi_{i \geqslant 2}
+  U_i} \cdot \delta^b (y_2) \otimes 1_{\Pi_{i \geqslant 3} U_i})$. Finally,
+  lemma \ref{KR-normalization-recur:lem-mult-smth} tells us that latter equals
+  to $\delta^a (y_1) \otimes (\delta^b (y_2) \otimes 1_{\Pi_{i \geqslant 3}
+  U_i})$. But the latter is tensor product of nonzero distributions, hence
+  nonzero. This shows that under the hypothesis taken $K_{\lambda,
+  \nu}^{\mathbbm{R}^n}$ is supported at least on $\{ Q = 0 \} \cap \{ x_p = 0
+  \}$.
+\end{proof}
+
+\begin{lemma}
+  \label{supp-R:lem-Kzero}Suppose $(\lambda, \nu) \nin / /$ and
+  $\tilde{K}_{\lambda, \nu}^X$ is defined as in the proof of proposition
+  \ref{supp-R:prop-main}. Then $\tilde{K}_{\lambda, \nu}^X = 0$ iff $(\lambda,
+  \nu) \in \mid \mid \mid$.
+\end{lemma}
+
+\begin{proof}
+  We assume $\lambda - \nu = - 2 k \in - 2\mathbbm{Z}_{\geqslant 0}$. The way
+  $\tilde{K}_{\lambda, \nu}^X$ is defined together with the lemma
+  \ref{supp-R:lem-gelfand} imply that $\tilde{K}_{\lambda, \nu}^X = 0$ iff
+  \[ \forall \gamma \in \mathbbm{Z}_{\geqslant 0}^n, | \gamma | = 2 k, \quad
+     \left\langle \frac{| Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2}
+     \right)} \cdot \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left(
+     \frac{\lambda + \nu - n + 1}{2} \right)} \mid_{\mathbbm{S}^{n - 1}},
+     \omega^{\gamma} \right\rangle = 0. \]
+  Thus, explicit formula for $\langle | Q |^{- \nu} | x_p |^{\lambda + \nu -
+  n}, \omega^{\gamma} \rangle_{\mathbbm{S}^{n - 1}}$ would come handy and we
+  now proceed with giving such a formula.
+  
+  One notes that for $\tmop{Re} (- \nu), \tmop{Re} (\lambda + \nu) \gg 0$ one
+  has by passing to bipolar coordinates $x = (r \omega, s \omega') \in
+  \mathbbm{R}^p \times \mathbbm{R}^q$ (and splitting multiindex $\gamma \in
+  \mathbbm{Z}_{\geqslant 0}^n$ as $\gamma = : (\alpha, \beta)$ accordingly)
+  that
+  \begin{eqnarray}
+    & \langle | Q |^{- \nu} | x_p |^{\lambda + \nu - n}, x^{\gamma}
+    \rangle_{\mathbbm{S}^{n - 1}} = \int_{\mathbbm{S}^{p - 1}} | \omega_p
+    |^{\lambda + \nu - n} \omega^{\alpha_p}_p \tilde{\omega}^{\tilde{\alpha}}
+    d \omega \times \int_{\mathbbm{S}^{q - 1}} (\omega')^{\beta} d \omega'
+    \times &  \nonumber\\
+    & \int_{r^2 + s^2 = 1 ; r, s > 0} | r^2 - s^2 |^{- \nu} r^{\lambda + \nu
+    - n} r^{p + a - 1} s^{q + b - 1} d r d s, &  \nonumber
+  \end{eqnarray}
+  where we split multiindex $\alpha \in \mathbbm{Z}^p_{\geqslant 0}$ as
+  $\alpha = : (\tilde{\alpha}, \alpha_p)$ and split $\omega \in \mathbbm{S}^{p
+  - 1}$ as $\omega = : (\tilde{\omega}, \omega_p)$. One further notes that
+  $\int_{\mathbbm{S}^{q - 1}} (\omega')^{\beta} d \omega' = 0$ unless $| \beta
+  | \assign \sum_j \beta_j \in 2\mathbbm{Z}$ and thus we may in subsequent
+  assume that this is so. Hence, (as $| \gamma | = | \alpha | + | \beta | = 2
+  k$) we can restrict ourselves to situation $| \alpha | = : a \in
+  2\mathbbm{Z}_{\geqslant 0}$ and $| \beta | = : b \in 2\mathbbm{Z}_{\geqslant
+  0}$. Then, we may continue as
+  \begin{eqnarray}
+    & \simeq \int_{\mathbbm{S}^{p - 1}} | \omega_p |^{\lambda + \nu - n}
+    \omega^{\alpha_p}_p \tilde{\omega}^{\tilde{\alpha}} d \omega \int_{r^2 +
+    s^2 = 1 ; r, s > 0} | r^2 - s^2 |^{- \nu} r^{\lambda + \nu - n} r^{p + a -
+    1} s^{q + b - 1} d r d s \simeq &  \nonumber
+  \end{eqnarray}
+  Now, inspecting the expression for the volume element of $\mathbbm{S}^{p -
+  1}$ sphere, one concludes that for $p > 1$
+  \[ \int_{\mathbbm{S}^{p - 1}} | \omega_p |^{\lambda + \nu - n}
+     \omega^{\alpha_p}_p \tilde{\omega}^{\tilde{\alpha}} d \omega =
+     \int_0^{\pi} | \cos \varphi |^{\lambda + \nu - n} \cos^{\alpha_p}
+     \varphi^{} \cdot \sin^{p - 2} \varphi \left[ \int_{\mathbbm{S}^{p - 2}}
+     \tilde{\omega}^{\tilde{\alpha}} d \tilde{\omega} \right] d \varphi \]
+  and as $\int_{\mathbbm{S}^{p - 2}} \tilde{\omega}^{\widetilde{\alpha}_p}
+  d \tilde{\omega} = 0$ unless $| \tilde{\alpha}_p | \in 2\mathbbm{Z}$, we can
+  assume in subsequent that this is so, hence $\alpha_p \in 2\mathbbm{Z}$.
+  Whereas for $p = 1$ we have
+  \[ \int_{\mathbbm{S}^{p - 1}} | \omega_p |^{\lambda + \nu - n}
+     \omega^{\alpha_p}_p \tilde{\omega}^{\tilde{\alpha}} d \omega = \left\{
+     \begin{array}{ll}
+       0, & \alpha_p \nin 2\mathbbm{Z}\\
+       \tmop{const} \neq 0, & \alpha_p \in 2\mathbbm{Z}
+     \end{array} \right. \]
+  Moreover, using the formula for integrating along the curve $y = \sqrt{1 -
+  t^2}$ in $\mathbbm{R}^2$, one sees that
+  \[ \int_{r^2 + s^2 = 1 ; r, s > 0} | r^2 - s^2 |^{- \nu} r^{\lambda + \nu -
+     n} r^{p + a - 1} s^{q + b - 1} d r d s = \int_0^1 | 1 - 2 t^2 |^{- \nu}
+     \frac{1}{\sqrt{1 - t^2}} t^{\lambda + \nu - n + p + a - 1} \sqrt{1 -
+     t^2}^{q + b - 1} d t \]
+  and therefore we can continue the chain of equalities above in case $p > 1$
+  (case $p = 1$ is handled similarly) as
+  \begin{eqnarray}
+    & \simeq \int_0^{\pi} | \cos \varphi |^{\lambda + \nu - n}
+    \cos^{\alpha_p} \varphi^{} \cdot \sin^{p - 2} \varphi d \varphi \int_0^1 |
+    1 - 2 t^2 |^{- \nu} \frac{1}{\sqrt{1 - t^2}} t^{\lambda + \nu + a - n + p
+    - 1} \sqrt{1 - t^2}^{q + b - 1} d t = &  \nonumber\\
+    & = \int_{- 1}^1 | t |^{\lambda + \nu - n} t^{\alpha_p} (1 - t^2)^{(p -
+    3) / 2} d t \int_0^1 | 1 - 2 t |^{- \nu} (1 - t)^{(q + b - 2) / 2}
+    t^{(\lambda + a + \nu - q) / 2 - 1} d t \simeq &  \nonumber
+  \end{eqnarray}
+  and as we assume that $\alpha_p \in 2\mathbbm{Z}$, we have that
+  \[ \int_{- 1}^1 | t |^{\lambda + \nu - n} t^{\alpha_p} (1 - t^2)^{(p - 3) /
+     2} d t = 2 \int_0^1 t^{\lambda + \nu - n + \alpha_p} (1 - t^2)^{(p - 3) /
+     2} d t = 2 \int_0^1 t^{\frac{\lambda + \nu - n + \alpha_p - 1}{2}} (1 -
+     t)^{\frac{p - 3}{2}} d t \]
+  thus we can continue as (using the expression for beta function)
+  \begin{eqnarray}
+    & \simeq \int_0^1 t^{\frac{\lambda + \nu - n + \alpha_p - 1}{2}} (1 -
+    t)^{\frac{p - 3}{2}} d t \int_0^1 | 1 - 2 t |^{- \nu} (1 - t)^{(q + a - 2)
+    / 2} t^{(\lambda + b + \nu - q) / 2 - 1} d t \simeq &  \nonumber\\
+    & \simeq \frac{\Gamma \left( \frac{\lambda + \nu - n + \alpha_p + 1}{2}
+    \right)}{\Gamma \left( \frac{\lambda + \nu - q + \alpha_p}{2} \right)}
+    \int_{- 1}^1 | w |^{- \nu} (1 - w)^{(\lambda + a + \nu - q) / 2 - 1} (1 +
+    w)^{(q + b - 2) / 2} d w \simeq &  \nonumber
+  \end{eqnarray}
+  and accidentally the latter expression holds also for $p = 1$. Now, using
+  the (valid for regular enough values of parameters) formula $\int_0^1 (1 +
+  t)^{- a} (1 - t)^{c - 1} t^{b - 1} d t =_2 F_1 (a, b ; b + c ; - 1) B (b,
+  c)$ we arrive at the expression
+  \begin{eqnarray}
+    & \int_{- 1}^1 | w |^{- \nu} (1 - w)^{(\lambda + a + \nu - q) / 2 - 1} (1
+    + w)^{(q + b - 2) / 2} d w = &  \nonumber\\
+    & = \int_0^1 w^{- \nu} (1 - w)^{(\lambda + a + \nu - q) / 2 - 1} (1 +
+    w)^{(q + b - 2) / 2} d w + \int_0^1 w^{- \nu} (1 + w)^{(\lambda + \nu + a
+    - q) / 2 - 1} (1 - w)^{(q + b - 2) / 2} d w = &  \nonumber\\
+    & =_2 F_1 \left( 1 - \frac{q + b}{2}, 1 - \nu ; \frac{\lambda - \nu - q +
+    a}{2} + 1 ; - 1 \right) B \left( 1 \um \nu, \frac{\lambda + \nu - q +
+    a}{2} \right) + &  \nonumber\\
+    & _2 F_1 \left( 1 - \frac{\lambda + \nu - q + a}{2}, 1 - \nu ; \frac{q +
+    b}{2} - \nu + 1 ; - 1 \right) B \left( 1 - \nu, \frac{q + b}{2} \right) & 
+    \nonumber
+  \end{eqnarray}
+  
+  
+  Now, as we assume that $\lambda - \nu = - 2 k = - (a + b)$, we conclude that
+  both hypergeometric functions in the previous expression have their first
+  and third arguments being equal, and as we have an equality (seen for
+  example by recalling power series expansion of $_2 F_1$), $_2 F_1 (a, b ; a,
+  - 1) = 2^{- b}$, we can continue the above chain of equalities as
+  \begin{eqnarray}
+    & \simeq \frac{\Gamma \left( \frac{\lambda + \nu - n + \alpha_p + 1}{2}
+    \right)}{\Gamma \left( \frac{\lambda + \nu - q + \alpha_p}{2} \right)}
+    \left( B \left( 1 \um \nu, \frac{\lambda + \nu - q + a}{2} \right) + B
+    \left( 1 - \nu, \frac{q + b}{2} \right) \right) = &  \nonumber\\
+    & = \frac{\Gamma \left( \frac{\lambda + \nu - n + \alpha_p + 1}{2}
+    \right)}{\Gamma \left( \frac{\lambda + \nu - q + \alpha_p}{2} \right)}
+    \Gamma (1 - \nu) \left\{ \frac{\Gamma \left( \frac{\lambda + \nu - q +
+    a}{2} \right)}{\Gamma \left( 1 + \frac{\lambda - \nu - q + a}{2} \right)}
+    + \frac{\Gamma \left( \frac{q + b}{2} \right)}{\Gamma \left( 1 - \nu +
+    \frac{q + b}{2} \right)} \right\} = &  \nonumber
+  \end{eqnarray}
+  substituting $\lambda = \nu - 2 k$ and $b = 2 k - a$ the above gets
+  rewritten as\quad
+  \[ \frac{\Gamma \left( \frac{2 \nu - 2 k - n + \alpha_p + 1}{2}
+     \right)}{\Gamma \left( \frac{2 \nu - 2 k - q + \alpha_p}{2} \right)}
+     \Gamma (1 - \nu) \left\{ \frac{\Gamma \left( \frac{2 \nu - 2 k - q +
+     a}{2} \right)}{\Gamma \left( 1 + \frac{- 2 k - q + a}{2} \right)} +
+     \frac{\Gamma \left( \frac{q + 2 k - a}{2} \right)}{\Gamma \left( 1 - \nu
+     + \frac{q + 2 k - a}{2} \right)} \right\} . \]
+  The reasoning at the beginning of the proof now suggests that it suffices to
+  find
+  \begin{eqnarray}
+    & \max \left\{ \mathfrak{P} \left( \frac{\Gamma \left( \frac{2 \nu - 2
+    k - n + \alpha_p + 1}{2} \right)}{\Gamma \left( \frac{2 \nu - 2 k - q +
+    \alpha_p}{2} \right)} \times \right. \right. &  \nonumber\\
+    & \times \left. \left. \frac{\Gamma (1 - \nu)}{\Gamma \left( \frac{1 -
+    \nu}{2} \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)}
+    \left\{ \frac{\Gamma \left( \frac{2 \nu - 2 k - q + a}{2} \right)}{\Gamma
+    \left( 1 + \frac{- 2 k - q + a}{2} \right)} + \frac{\Gamma \left( \frac{q
+    + 2 k - a}{2} \right)}{\Gamma \left( 1 - \nu + \frac{q + 2 k - a}{2}
+    \right)} \right\} \right) \right\}_{(\alpha_p, a) \in \mathfrak{I}} & 
+    \nonumber
+  \end{eqnarray}
+  where $\mathfrak{I} \assign \{ (\alpha_p, a) \in (2\mathbbm{Z}_{\geqslant
+  0})^2 | \alpha_p \leqslant a \leqslant 2 k \}$. Now, using the formulae
+  $\Gamma (1 - z) \Gamma (z) = \pi / \sin (\pi z)$ and $\sin (\alpha) + \sin
+  (\beta) = 2 \sin ((\alpha + \beta) / 2) \cos ((\alpha - \beta) / 2)$, we
+  obtain
+  \begin{eqnarray}
+    & \frac{\Gamma \left( \frac{2 \nu - 2 k - q + a}{2} \right)}{\Gamma
+    \left( 1 + \frac{- 2 k - q + a}{2} \right)} + \frac{\Gamma \left( \frac{q
+    + 2 k - a}{2} \right)}{\Gamma \left( 1 - \nu + \frac{q + 2 k - a}{2}
+    \right)} \simeq \frac{\sin \frac{\pi \nu}{2} \cos \left[ \pi \left( x -
+    \frac{\nu}{2} \right) \right]}{\Gamma (1 - x) \Gamma (1 + x - \nu) \sin
+    [\pi (\nu - x)] \sin (x)} \simeq &  \nonumber\\
+    & \simeq \frac{\sin \frac{\pi \nu}{2} \cos \left[ \pi \left( x -
+    \frac{\nu}{2} \right) \right]}{\Gamma (1 + x - \nu) \sin [\pi (\nu - x)]}
+    \simeq \sin \frac{\pi \nu}{2} \cos \left[ \pi \left( x - \frac{\nu}{2}
+    \right) \right] \Gamma (\nu - x) \quad, \; x \assign \frac{q}{2} + k -
+    \frac{a}{2} > 0. &  \nonumber
+  \end{eqnarray}
+  Thus we see that it is sufficient to compute
+  \begin{eqnarray}
+    & \max \{ A_{\alpha_p, a} + B_{\alpha_p, a} + C_{\alpha_p, a} +
+    D_{\alpha_p, a} \}_{(\alpha_p, a) \in \mathfrak{I}} &  \nonumber\\
+    & A_{\alpha_p, a} \assign \mathfrak{P} \left( \frac{\Gamma (1 -
+    \nu)}{\Gamma \left( \frac{1 - \nu}{2} \right)} \right) = \{ \nu \in
+    2\mathbbm{Z}_{> 0} \} &  \nonumber\\
+    & B_{\alpha_p, a} \assign \mathfrak{P} \left( \frac{\Gamma \left( \frac{2
+    \nu - 2 k - n + \alpha_p + 1}{2} \right)}{\Gamma \left( \frac{2 \nu - 2 k
+    - n + 1}{2} \right)} \right) = - \left\{ \nu - k + \frac{1 - n}{2} = 1 -
+    \frac{\alpha_p}{2}, 2 - \frac{\alpha_p}{2}, \ldots, 0 \right\} & 
+    \nonumber\\
+    & C_{\alpha_p, a} \assign \mathfrak{P} \left( \frac{\Gamma \left( \nu -
+    \frac{q}{2} - k + \frac{a}{2} \right)}{\Gamma \left( \nu - \frac{q}{2} - k
+    + \frac{\alpha_p}{2} \right)} \right) = - \left\{ \nu - \frac{q}{2} - k +
+    \frac{\alpha_p}{2} = 1 - \frac{a - \alpha_p}{2}, 2 - \frac{a -
+    \alpha_p}{2}, \ldots, 0 \right\} &  \nonumber\\
+    & D_{\alpha_p, a} \assign \mathfrak{P} \left( \sin \frac{\pi \nu}{2} \cos
+    \left[ \pi \left( \frac{q + 2 k - a}{2} - \frac{\nu}{2} \right) \right]
+    \right) = - \{ \nu \in 2\mathbbm{Z} \} - \{ \nu \in 1 + q + 2 k - a +
+    2\mathbbm{Z} \} &  \nonumber
+  \end{eqnarray}
+  hence
+  \[ \max \{ A_{\alpha_p, a} + B_{\alpha_p, a} + C_{\alpha_p, a} +
+     D_{\alpha_p, a} \}_{(\alpha_p, a) \in \mathfrak{I}} = - \{ \nu \in
+     2\mathbbm{Z}_{< 0} \} - \{ \nu \in 1 + q + 2\mathbbm{Z} \} \]
+  and this directly implies the desired result.
+\end{proof}
+
+\subsection{Proofs}
+
+\begin{proof}
+  (of prop. \ref{supp-R:prop-main}) Using fact
+  \ref{holomorphicity-preserving:fact-pullback}, we define distributions $|
+  x_p |^{\lambda + \nu - n} / \Gamma \left( \frac{\lambda + \nu - n + 1}{2}
+  \right), | Q |^{- \nu} / \Gamma \left( \frac{1 - \nu}{2} \right) \in
+  \mathcal{D}' (\mathbbm{R}^n - \{ 0 \})$ as a pullback of $| x |^{\mu} /
+  \Gamma \left( \frac{\mu + 1}{2} \right) \in \mathcal{D}' (\mathbbm{R})$ via
+  smooth $\mathbbm{R}^n - \{ 0 \} \rightarrow \mathbbm{R}$ submersions given
+  by $x \mapsto x_p, x \rightarrow Q (x)$ respectively. Now, proposition
+  \ref{holomorphicity-preserving:prop-pullback-holo} and lemma
+  \ref{supp-n-waves:lem-|x|-holo-in} tell us that $| x_p |^{\lambda + \nu - n}
+  / \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right), | Q |^{- \nu} /
+  \Gamma \left( \frac{1 - \nu}{2} \right) \in \mathcal{D}' (\mathbbm{R}^n - \{
+  0 \})$ are holomorphic in $\mathcal{D}'_{\Gamma_1} (\mathbbm{R}^n - \{ 0
+  \}), \mathcal{D}'_{\Gamma_2} (\mathbbm{R}^n - \{ 0 \})$ respectively where
+  $\Gamma_1, \Gamma_2$ are normal bundles of $\{ x_p = 0 \}, \{ Q = 0 \}$
+  respectively. Now, propositions
+  \ref{holomorphicity-preserving:prop-tensor-holo},
+  \ref{holomorphicity-preserving:prop-pullback-holo} imply that the product
+  (see {\cite{hormander1983analysis}})
+  \[ K_{\lambda, \nu}^X \assign \frac{| Q |^{- \nu}}{\Gamma \left( \frac{1 -
+     \nu}{2} \right)} \cdot \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left(
+     \frac{\lambda + \nu - n + 1}{2} \right)} \in \mathcal{D}' (\mathbbm{R}^n
+     - \{ 0 \}) \]
+  is holomorphic in $(\lambda, \nu) \in \mathbbm{C}^2$. Furthermore,
+  propositions \ref{holomorphicity-preserving:prop-pullback-cts} and
+  \ref{holomorphicity-preserving:prop-tensor-cts} imply that for the open
+  region
+  \[ \Omega \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \tmop{Re} (-
+     \nu), \tmop{Re} (\lambda + \nu - n) > 0 \} \]
+  the latter distribution coincides with the corresponding continuous
+  function. As the latter is homogeneous of degree $\lambda - \nu - n$, so
+  should be $K_{\lambda, \nu}^X$ and as the latter is holomorphic, it is
+  homogeneous not only on $\Omega$, but for the whole $\mathbbm{C}^2$. Next,
+  fact \ref{holomorphicity-preserving:fact-homog} implies that for $(\lambda,
+  \nu) \nin / /$ $K_{\lambda, \nu}^X$ extends to the homogeneous distribution
+  $\rho (K_{\lambda, \nu}^X) \in \mathcal{D}' (\mathbbm{R}^n)$, which is also
+  holomorphic in $(\lambda, \nu) \nin / /$ by proposition
+  \ref{holomorphicity-preserving:prop-homog-holo} and coincides with the
+  corresponding conituous function by proposition
+  \ref{holomorphicity-preserving:prop-homog-cts}.
+  
+  Now, as it is clear (by direct check) that for $(\lambda, \nu) \in \Omega$
+  the continuous function $| Q |^{- \nu} | x_p |^{\lambda + \nu - n}$ is a
+  member of $\mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda, \nu)$, as $| Q
+  |^{- \nu} | x_p |^{\lambda + \nu - n}$ is proportional to $\rho (K_{\lambda,
+  \nu}^X)$ for $(\lambda, \nu) \in \Omega$ by previous paragraph, we have
+  $\forall (\lambda, \nu) \in \Omega, \rho (K_{\lambda, \nu}^X) \in
+  \mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda, \nu)$. Hence, by proposition
+  \ref{sol:prop-holocont}, we have $\forall (\lambda, \nu) \nin / /, \rho
+  (K_{\lambda, \nu}^X) \in \mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda,
+  \nu)$. Finally, by lemma \ref{supp-R:lem-gelfand}, $\tilde{K}_{\lambda,
+  \nu}^X \assign \rho (K_{\lambda, \nu}^X) / \Gamma \left( \frac{\lambda -
+  \nu}{2} \right)$ (equal to that of the proposition statement by the
+  uniqueness of holomorphic continuation) is holomorphic in $(\lambda, \nu)
+  \in \mathbbm{C}^2$, and hence is a member of $\mathcal{S} \tmop{ol}
+  (\mathbbm{R}^n ; \lambda, \nu)$, again by proposition
+  \ref{sol:prop-holocont}. This proves all of the proposition, except for the
+  last information on $\tmop{supp} (\tilde{K}_{\lambda, \nu}^X)$.
+  
+  We first suppose $(\lambda, \nu) \nin / /$, so that $\tilde{K}_{\lambda,
+  \nu}^X$ is proportional to $\rho (K_{\lambda, \nu}^X)$ and as (by uniqueness
+  part of fact \ref{holomorphicity-preserving:fact-homog} and closedness of
+  support) we have
+  \[ \tmop{supp} (\rho (F)) = \left\{ \begin{array}{ll}
+       \varnothing, & F = 0\\
+       \tmop{supp} (F) \cup \{ 0 \} & F \neq 0
+     \end{array} \right., \]
+  it suffices to compute the support of $K_{\lambda, \nu}^X \in \mathcal{D}'
+  (\mathbbm{R}^n - \{ 0 \})$, which is in turn given by lemma
+  \ref{supp-R:lem-supp-of-K}.
+  
+  Finally, we assume $(\lambda, \nu) \in / /$, where lemma
+  \ref{supp-R:lem-gelfand} implies that $\tmop{supp} (\tilde{K}_{\lambda,
+  \nu}^X) \in \{ 0 \}$, so it suffices to know whether $\tilde{K}_{\lambda,
+  \nu}^X$ is zero or not, the information provided by lemma
+  \ref{supp-R:lem-Kzero}. This ends the proof.
+\end{proof}
+
+\section{Construction of singular symmetry breaking operators (B11)}\label{sec:supp-sing}
+
+
+In this section we construct three more families of SBO that are
+holomorphically dependent on parameters $(\lambda, \nu)$ lying $\mid \mid
+\mid, \backslash\backslash, \mid \mid$.
+
+\subsection{Main results}
+
+\begin{proposition}
+  \label{supp-sing:prop-supp-mmm}Suppose $(\lambda, \nu) \in \mid \mid \mid$
+  and define $\widetilde{\tilde{K}}_{\lambda, \nu}^X$ as
+  \[ \widetilde{\tilde{K}}_{\lambda, \nu}^X \assign \Gamma \left(
+     \frac{\lambda - \nu}{2} \right) \tilde{K}_{\lambda, \nu}^X . \]
+  We then have $\widetilde{\tilde{K}}_{\lambda, \nu}^X \in
+  \mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda, \nu)$ being holomorphic in $
+  (\lambda, \nu) \in \mid \mid \mid$ and moreover
+  \[ \tmop{supp} (\widetilde{\tilde{K}}_{\lambda, \nu}^Y) = \left\{
+     \begin{array}{lll}
+       X, &  & (\lambda, \nu) \nin \mid \mid \cup \backslash\backslash\\
+       C, &  & (\lambda, \nu) \in \mid \mid -\backslash\backslash\\
+       Y, &  & (\lambda, \nu) \in \backslash\backslash - \mid \mid\\
+       \varnothing, & p = 1, \; & (\lambda, \nu) \in \mid \mid \cap
+       \backslash\backslash - / /\\
+       \{ 0 \}, & p = 1, & (\lambda, \nu) \in \mid \mid \cap
+       \backslash\backslash \cap / /\\
+       Y \cap C, & p > 1, & (\lambda, \nu) \in \mid \mid \cap
+       \backslash\backslash .
+     \end{array} \right. \]
+\end{proposition}
+
+\begin{proposition}
+  \label{supp-sing:prop-supp-Y}Suppose $(\lambda, \nu) \in
+  \backslash\backslash$ and define $\tilde{K}_{\lambda, \nu}^Y$ as
+  \[ \tilde{K}^Y_{\lambda, \nu} \assign \tilde{K}_{\lambda, \nu}^X \times
+     \left\{ \begin{array}{lll}
+       \Gamma \left( \frac{1 - \nu}{2} \right), & p = 1, q \in 2\mathbbm{Z}+
+       1, & \\
+       \Gamma \left( \frac{1 - \nu}{2} \right), & p = 1, q \in 2\mathbbm{Z}, &
+       \lambda + \nu > 0,\\
+       \Gamma \left( \frac{\lambda - \nu}{2} \right) / \Gamma \left( -
+       \frac{\nu}{2} \right), & p = 1, q \in 2\mathbbm{Z}, & \lambda + \nu
+       \leqslant 0,\\
+       1, & n \in 2\mathbbm{Z}, p > 1, & \\
+       \Gamma \left( \frac{\lambda - \nu + 2}{4} \right), & q \in
+       2\mathbbm{Z}+ 1, p \in 2\mathbbm{Z}_{\geqslant 1}, & \frac{\lambda +
+       \nu}{2} : \tmop{odd},\\
+       \Gamma \left( \frac{\lambda - \nu}{4} \right), & q \in 2\mathbbm{Z}+ 1,
+       p \in 2\mathbbm{Z}_{\geqslant 1}, & \frac{\lambda + \nu}{2} :
+       \tmop{even},\\
+       \Gamma \left( \frac{\lambda - \nu}{2} \right) / \Gamma \left( \frac{2 -
+       \nu}{2} \right), & q \in 2\mathbbm{Z}, p \in 2\mathbbm{Z}_{\geqslant 1}
+       + 1, & \lambda + \nu \leqslant 0,\\
+       \Gamma \left( \frac{\lambda - \nu + 2}{4} \right), & q \in
+       2\mathbbm{Z}, p \in 2\mathbbm{Z}_{\geqslant 1} + 1 & \lambda + \nu > 0,
+       \tmop{even},\\
+       \Gamma \left( \frac{\lambda - \nu}{4} \right), & q \in 2\mathbbm{Z}, p
+       \in 2\mathbbm{Z}_{\geqslant 1} + 1 & \lambda + \nu > 0, \tmop{odd} .
+     \end{array} \right. \]
+  We then have $\tilde{K}^Y_{\lambda, \nu} \in \mathcal{S} \tmop{ol}_Y
+  (\mathbbm{R}^n ; \lambda, \nu)$ being nonzelo holomorphic in $ (\lambda,
+  \nu) \in \backslash\backslash$ and moreover
+  \begin{eqnarray}
+    & \tmop{supp} (\tilde{K}_{\lambda, \nu}^Y) = \left\{ \begin{array}{ll}
+      \left\{ \begin{array}{ll}
+        Y, & (\lambda, \nu) \nin / /,\\
+        \{ 0 \}, & (\lambda, \nu) \in / /,
+      \end{array} \right. & \begin{array}{c}
+        p = 1, q : \tmop{odd} \quad \tmop{or}\\
+        p = 1, q : \tmop{even}, (\lambda, \nu) \in \backslash\backslash^+,
+      \end{array}\\
+      \left\{ \begin{array}{ll}
+        Y, & \nu \nin \mathbbm{Z}_{\geqslant 0},\\
+        \{ 0 \}, & \nu \in \mathbbm{Z}_{\geqslant 0},
+      \end{array} \right. & p = 1, q : \tmop{even}, (\lambda, \nu) \in
+      \backslash\backslash^-,\\
+      \left\{ \begin{array}{ll}
+        Y, & (\lambda, \nu) \in \mid \mid \sqcup / /,\\
+        Y \cap C, & (\lambda, \nu) \in \mid \mid,\\
+        \{ 0 \}, & (\lambda, \nu) \in / /,
+      \end{array} \right. & p > 1, n \in 2\mathbbm{Z},\\
+      \left\{ \begin{array}{ll}
+        Y, & (\lambda, \nu) \nin \mid \mid \cup / /^-,\\
+        \{ 0 \}, & (\lambda, \nu) \in / /^-,\\
+        Y \cap C, & (\lambda, \nu) \in \mid \mid - / /^-,
+      \end{array} \right. & q \in 2\mathbbm{Z}+ 1, p \in
+      2\mathbbm{Z}_{\geqslant 1},\\
+      \left\{ \begin{array}{ll}
+        Y, & (\lambda, \nu) \in \mid \mid \sqcup / /^+,\\
+        \{ 0 \}, & (\lambda, \nu) \in / /^+\\
+        Y \cap C, & (\lambda, \nu) \in \mid \mid
+      \end{array} \right. & q \in 2\mathbbm{Z}, p \in 1 +
+      2\mathbbm{Z}_{\geqslant 1}, (\lambda, \nu) \in \backslash\backslash^+,\\
+      \left\{ \begin{array}{ll}
+        Y, & \nu \nin \mathbbm{Z}_{\geqslant 0},\\
+        Y \cap C, & (\lambda, \nu) \in \mid \mid,\\
+        \{ 0 \}, & \nu \in 2\mathbbm{Z}_{\geqslant 0},
+      \end{array} \right. & q \in 2\mathbbm{Z}, p \in 1 +
+      2\mathbbm{Z}_{\geqslant 1}, (\lambda, \nu) \in \backslash\backslash^-,
+    \end{array} \right. &  \nonumber\\
+    & / /^{\pm} \assign \left\{ (\lambda, \nu) \in / / \mid \nu \equiv
+    \frac{1 - (\pm 1)}{2} \; \tmop{mod} \; 2 \right\}, \quad
+    \backslash\backslash^+ \assign \{ (\lambda, \nu) \in \backslash\backslash
+    \mid \lambda + \nu > 0 \}, \quad \backslash\backslash^- \assign
+    \backslash\backslash -\backslash\backslash^+ . &  \nonumber
+  \end{eqnarray}
+\end{proposition}
+
+\begin{proposition}
+  \label{supp-sing:prop-supp-C}Suppose $(\lambda, \nu) \in \mid \mid$ and
+  define $\tilde{K}_{\lambda, \nu}^C$ as
+  \[ \tilde{K}^C_{\lambda, \nu} \assign \tilde{K}_{\lambda, \nu}^X \times
+     \left\{ \begin{array}{ll}
+       1, & q \in 2\mathbbm{Z}+ 1, p > 1\\
+       \Gamma^{} \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
+       2\mathbbm{Z}, p = 1 \comma \nu \leqslant q / 2\\
+       \Gamma^{} \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbbm{Z},
+       p = 1 \comma \nu > q / 2\\
+       \Gamma \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbbm{Z}, p
+       > 1\\
+       \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
+       2\mathbbm{Z}+ 1, p = 1,
+     \end{array} \right. \]
+  We then have $\tilde{K}^C_{\lambda, \nu} \in \mathcal{S} \tmop{ol}_C
+  (\mathbbm{R}^n ; \lambda, \nu)$ being nonzero holomorphic in $ (\lambda,
+  \nu) \in \mid \mid$ and moreover
+  \[ \tmop{supp} (\tilde{K}_{\lambda, \nu}^C) = \left\{ \begin{array}{lll}
+       \{ [0] \}, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda, \nu) \in / /\\
+       C, & p = 1, q \in 2\mathbbm{Z}+ 1, & (\lambda, \nu) \nin / /\\
+       \{ [0] \}, & p = 1, q \in 2\mathbbm{Z}, & (\lambda, \nu) \in / / \cap
+       \backslash\backslash\\
+       C, & p = 1, q \in 2\mathbbm{Z}, & (\lambda, \nu) \nin / / \cap
+       \backslash\backslash\\
+       \{ [0] \}, & p > 1, q \in 2\mathbbm{Z}+ 1, & (\lambda, \nu) \in / /\\
+       C, & p > 1, q \in 2\mathbbm{Z} + 1, & (\lambda, \nu) \nin / / \cup
+       \backslash\backslash\\
+       C \cap Y, & p > 1, q \in 2\mathbbm{Z} + 1, & (\lambda, \nu) \in
+       \backslash\backslash - / /\\
+       C, & p > 1, q \in 2\mathbbm{Z}, & (\lambda, \nu) \nin
+       \backslash\backslash\\
+       C \cap Y, & p > 1, q \in 2\mathbbm{Z}, & (\lambda, \nu) \in
+       \backslash\backslash,
+     \end{array} \right. \]
+\end{proposition}
+
+\subsection{Auxiliary lemmas}
+
+\begin{lemma}
+  \label{supp-sing:lem-strangelove}For $p = 1, q \in 2\mathbbm{Z}$ we have
+  $\widetilde{\tilde{K}}_{\lambda, \nu}^X \neq 0$ when $(\lambda, \nu) \in
+  \mid \mid \cap \backslash\backslash \cap / /$.
+\end{lemma}
+
+\begin{proof}
+  Fix first $\nu_0$ such that $\mathbbm{C} \times \{ \nu_0 \} \subset \mid
+  \mid$. Now, for generic $\lambda,$ $\widetilde{\tilde{K}}_{\lambda,
+  \nu_0}^X$ is the nonzero finite multiple of $\tilde{K}_{\lambda, \nu_0}^X$,
+  and hence (proving this for $\tilde{K}_{\lambda, \nu}^X$ by analytic
+  ridigity and reduction to case $\tmop{Re} (- \nu), \tmop{Re} (\lambda + \nu
+  - n) \gg 0$, when $\tilde{K}_{\lambda, \nu}^X$ gets continuous), we have
+  (for generic $\lambda$ and by holomorphicity of
+  $\widetilde{\tilde{K}}_{\lambda, \nu}^X$ expanding it to all $\lambda$)
+  \[ \langle \widetilde{\tilde{K}}_{\lambda, \nu_0}^X, x^{\gamma} \rangle
+     \simeq \Gamma (\lambda - \nu_0 + | \gamma |) \left\langle \frac{| Q |^{-
+     \nu_0}}{\Gamma \left( \frac{1 - \nu_0}{2} \right)} \cdot \frac{| \omega_p
+     |^{\lambda + \nu_0 - n}}{\Gamma \left( \frac{\lambda + \nu_0 - n + 1}{2}
+     \right)}, \omega^{\gamma} \right\rangle_{\mathbbm{S}^{n - 1}} \]
+  and proof of proposition \ref{supp-R:prop-main} implies that (from now on,
+  we take $\omega^{2 \gamma} = y^{\beta} \in \mathbbm{C} [\mathbbm{S}^{q -
+  1}]$, where $| \beta | = 2 k \in 2\mathbbm{Z}_{\geqslant 0}$)
+  \[ \left\langle \frac{| Q |^{- \nu_0}}{\Gamma \left( \frac{1 - \nu_0}{2}
+     \right)} \cdot \frac{| \omega_p |^{\lambda + \nu_0 - n}}{\Gamma \left(
+     \frac{\lambda + \nu_0 - n + 1}{2} \right)}, \omega^{\gamma}
+     \right\rangle_{\mathbbm{S}^{n - 1}} = f_1 (\lambda) \frac{1}{\Gamma
+     \left( 1 + \frac{\lambda - \nu_0 - q}{2} \right)} + f_2 (\lambda)
+     \frac{\Gamma \left( \frac{q + 2 k}{2} \right)}{\Gamma \left(
+     \frac{\lambda + \nu_0 - q}{2} \right) \Gamma \left( 1 - \nu_0 + \frac{q +
+     2 k}{2} \right)}, \]
+  where $f_{1, 2}$ are holomorphic near $\lambda = \lambda_0$, such that
+  $(\lambda_0, \nu_0) \in \mid \mid \cap \backslash\backslash \cap / /$ and
+  $\lambda_0 - \nu_0 = - 2 k$; and such that $f_1 (\lambda_0, \nu_0) = f_2
+  (\lambda_0, \nu_0) \neq 0$. Hence,
+  \[ \langle \widetilde{\tilde{K}}_{\lambda, \nu_0}^X, x^{\gamma} \rangle
+     \simeq \frac{\Gamma \left( \frac{\lambda - \lambda_0}{2} \right)}{\Gamma
+     \left( \frac{\lambda - \lambda_0}{2} + \frac{\lambda_0 - \nu_0 - q +
+     2}{2} \right)} + f (\lambda) \frac{\Gamma \left( \frac{\lambda -
+     \lambda_0}{2} \right)}{\Gamma \left( \frac{\lambda - \lambda_0}{2} +
+     \frac{\lambda_0 + \nu_0 - q}{2} \right)} \times \frac{\Gamma \left(
+     \frac{q + \nu_0 - \lambda_0}{2} \right)}{\Gamma \left( 1 -
+     \frac{\lambda_0 + \nu_0 - q}{2} \right)} \simeq \]
+  Now, as we see that all three fractions are holomorphic when $\lambda =
+  \lambda_0$ (first two have their denominators and enumerators' poles cancel;
+  while the third one's denominator and enumerator are finite nonzero for
+  $\lambda = \lambda_0$), hence we can simply substitute $\lambda = \lambda_0$
+  (note that $\Gamma (x) / \Gamma (x - n) \rightarrow (- 1)^n n!$ as $x
+  \rightarrow 0$):
+  \begin{eqnarray}
+    & \simeq \left( - \frac{\lambda_0 - \nu_0 - q + 2}{2} \right) ! + \left(
+    - \frac{\lambda_0 + \nu_0 - q}{2} \right) ! \frac{\Gamma \left( \frac{q +
+    \nu_0 - \lambda_0}{2} \right)}{\Gamma \left( 1 - \frac{\lambda_0 + \nu_0 -
+    q}{2} \right)} > 0 \Rightarrow \tmop{nonzero} . &  \nonumber
+  \end{eqnarray}
+\end{proof}
+
+\begin{lemma}
+  \label{supp-sing:lem-strangelove-Y}For $p = 1, q \in 2\mathbbm{Z}, (\lambda,
+  \nu) \in \backslash\backslash \cap \mid \mid \cap / /$ we have
+  $\tilde{K}_{\lambda, \nu}^Y \neq 0$.
+\end{lemma}
+
+\begin{proof}
+  We take $(\lambda_0, \nu_0) \in \backslash\backslash \cap \mid \mid \cap /
+  /$ with $k \assign (\nu_0 - \lambda_0) / 2$ and consider $(\lambda, \nu)$
+  changing in the set $\{ (\lambda, \nu) \mid \lambda + \nu = \lambda_0 +
+  \nu_0 \}$. Now, for generic $(\lambda, \nu)$, $\tilde{K}_{\lambda, \nu}^Y$
+  is the nonzero finite multiple of $\tilde{K}_{\lambda, \nu}^X$, and hence
+  (proving this for $\tilde{K}_{\lambda, \nu}^X$ by analytic ridigity and
+  reduction to case $\tmop{Re} (- \nu), \tmop{Re} (\lambda + \nu - n) \gg 0$,
+  when $\tilde{K}_{\lambda, \nu}^X$ gets continuous), we have (for generic
+  $\lambda$ and by holomorphicity of $\widetilde{\tilde{K}}_{\lambda, \nu}^X$
+  expanding it to all $\lambda$)
+  \[ \langle \tilde{K}_{\lambda, \nu}^Y, x^{\gamma} \rangle \simeq \Gamma
+     (\lambda - \nu + | \gamma |) \left\langle \frac{| Q |^{- \nu}}{\Gamma
+     \left( \frac{1 - \nu}{2} \right)} \cdot \frac{| \omega_p |^{\lambda + \nu
+     - n}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)},
+     \omega^{\gamma} \right\rangle_{\mathbbm{S}^{n - 1}} \]
+  and proof of proposition \ref{supp-R:prop-main} implies that (from now on,
+  we take $\omega^{2 \gamma} = y^{\beta} \in \mathbbm{C} [\mathbbm{S}^{q -
+  1}]$, where $| \beta | = 2 k \in 2\mathbbm{Z}_{\geqslant 0}$)
+  \[ \left\langle \frac{| Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2}
+     \right)} \cdot \frac{| \omega_p |^{\lambda + \nu - n}}{\Gamma \left(
+     \frac{\lambda + \nu - n + 1}{2} \right)}, \omega^{\gamma}
+     \right\rangle_{\mathbbm{S}^{n - 1}} = \frac{1}{\Gamma \left( 1 +
+     \frac{\lambda - \nu - q}{2} \right)} + f (\lambda) \frac{\Gamma \left(
+     \frac{q + 2 k}{2} \right)}{\Gamma \left( \frac{\lambda + \nu - q}{2}
+     \right) \Gamma \left( 1 - \nu + \frac{q + 2 k}{2} \right)}, \]
+  where $f$ is holomorphic near $(\lambda_0, \nu_0)$, such that $f (\lambda_0,
+  \nu_0) = 1$, and as $\lambda + \nu - q = \lambda_0 + \nu_0 - q \in -
+  2\mathbbm{Z}_{\geqslant 0}$, the second addend vanishes. Hence,
+  \[ \langle \tilde{K}_{\lambda, \nu}^Y, x^{\gamma} \rangle \simeq
+     \frac{\Gamma \left( \frac{\lambda - \lambda_0}{2} \right)}{\Gamma \left(
+     (\lambda - \lambda_0) + \frac{\lambda_0 - \nu_0 - q + 2}{2} \right)} . \]
+  and as $(\lambda, \nu) \rightarrow (\lambda_0, \nu_0)$, the poles cancel and
+  the fraction tends to a nonzero number.
+\end{proof}
+
+\begin{lemma}
+  \label{supp-sing:lem-strangeelement}If $p = 1$ for $(\lambda, \nu) \in
+  \backslash\backslash$ and $(\lambda, \nu) \in \mid \mid$ respectively we
+  have distributions
+  \[ \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n
+     + 1}{2} \right)} \cdot | Q |^{- \nu}, | x_p |^{\lambda + \nu - n} \cdot
+     \frac{| Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in
+     \mathcal{D}' (\mathbbm{R}^n - \{ 0 \}) \]
+  being well-defined (ie. the generalized function product used to define them
+  is well-defined) members of $\mathcal{S} \tmop{ol} (\mathbbm{R}^n - \{ 0 \}
+  ; \lambda, \nu)$ holomorphic in $(\lambda, \nu) \in \backslash\backslash,
+  \mid \mid$ respectively. Moreover
+  \begin{eqnarray}
+    & \tmop{supp} \left( \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left(
+    \frac{\lambda + \nu - n + 1}{2} \right)} \cdot | Q |^{- \nu} \right) = C
+    \cap \{ \mathbbm{R}^n - \{ 0 \} \} &  \nonumber\\
+    & \tmop{supp} \left( | x_p |^{\lambda + \nu - n} \cdot \frac{| Q |^{-
+    \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \right) = Y \cap \{
+    \mathbbm{R}^n - \{ 0 \} \} &  \nonumber
+  \end{eqnarray}
+\end{lemma}
+
+\begin{proof}
+  We do the proof only for $\frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left(
+  \frac{\lambda + \nu - n + 1}{2} \right)} \cdot | Q |^{- \nu}$, as the other
+  half is handled in the same way. We note that uniqueness of holomorphic
+  continuation implies that $\frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left(
+  \frac{\lambda + \nu - n + 1}{2} \right)} \cdot | Q |^{- \nu} = \Gamma \left(
+  \frac{1 - \nu}{2} \right) K_{\lambda, \nu}^X$ (with $K_{\lambda, \nu}^X \in
+  \mathcal{D}' (\mathbbm{R}^n - \{ 0 \})$ defined as in proof of proposition
+  \ref{supp-R:prop-main}) and lemma \ref{supp-R:lem-supp-of-K} implies that
+  $\Gamma \left( \frac{1 - \nu}{2} \right) K_{\lambda, \nu}$ is indeed
+  holomorphic, whereas it is an element of $\mathcal{S} \tmop{ol}
+  (\mathbbm{R}^n - \{ 0 \} ; \lambda, \nu)$ by proposition
+  \ref{sol:prop-holocont}. Finally, as $\tmop{supp} \left( \frac{| x_p
+  |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
+  \right)} \right) \subset \{ x_p = 0 \}$ we see that $\tmop{supp} \left(
+  \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n +
+  1}{2} \right)} \cdot | Q |^{- \nu} \right) \subset \{ x_p = 0 \}$ by lemma
+  \ref{KR-normalization-recur:lem-mult-smth}, while one the other hand $| Q
+  |^{- \nu}$ is smooth nonzero on $\{ Q \neq 0 \}$, hence by lemma
+  \ref{KR-normalization-recur:lem-mult-smth} again we have $\tmop{supp} \left(
+  \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n +
+  1}{2} \right)} \cdot | Q |^{- \nu} \right) \supset \{ x_p = 0 \} \cap \{ Q
+  \neq 0 \}$, whereas the conclusion.
+\end{proof}
+
+\subsection{Proofs}
+
+\begin{proof}
+  (of prop. \ref{supp-sing:prop-supp-mmm}) The information in proposition
+  \ref{supp-R:prop-main} implies that under the given assumptions (that is,
+  $(\lambda, \nu) \in \mid \mid \mid$) we have $K_{\lambda, \nu}^X \in
+  \mathcal{D}' (\mathbbm{R}^n - \{ 0 \})$, as defined in proof of proposition
+  \ref{supp-R:prop-main} extends to the homogeneous distribution on
+  $\mathbbm{R}^n$, so the result about $\tmop{supp}
+  (\widetilde{\tilde{K}}_{\lambda, \nu}^X) = \tmop{supp} (K_{\lambda, \nu}^X)$
+  follows from lemma \ref{supp-R:lem-supp-of-K} for all cases except
+  $(\lambda, \nu) \in \backslash\backslash \cap \mid \mid \cap / /$, when it
+  follows from lemma \ref{supp-sing:lem-strangelove}.
+\end{proof}
+
+\begin{proof}
+  (of prop. \ref{supp-sing:prop-supp-Y}) We will proceed case by case, based
+  on the expression for $\tilde{K}_{\lambda, \nu}^Y$ given in the statement,
+  spending a paragraph on every case. We note that we always implicity assume
+  that $(\lambda, \nu) \in \backslash\backslash$ in this proof and whether the
+  set (in)equality is written, like $A \supset B$, it is assumed to mean that
+  $A \cap \backslash\backslash \supset B \cap \backslash\backslash$. First, we
+  suppose $p = 1$ and $q$ is odd. We note that in this case $\mid \mid \mid
+  =\mathbbm{C} \times (2\mathbbm{Z})$, $\mid \mid \mid \cap \mid \mid =
+  \varnothing$ and $\mid \mid \cap / / = \mid \mid \mid \cap / / =
+  \varnothing$. Hence, we have
+  \[ \tmop{supp} (\tilde{K}_{\lambda, \nu}^X) = \left\{ \begin{array}{ll}
+       Y, & (\lambda, \nu) \nin \mid \mid \sqcup / /,\\
+       \varnothing, & (\lambda, \nu) \in \mid \mid (= \mid \mid - / /),\\
+       \{ 0 \}, & (\lambda, \nu) \in / / .
+     \end{array} \right. \]
+  This immediately implies that $\tilde{K}_{\lambda, \nu}^X = 0$ whenever
+  $(\lambda, \nu) \in \mid \mid$, hence the $\tilde{K}_{\lambda, \nu}^Y$ as
+  defined in statement is holomorphic. It only remains to show that
+  $\tmop{supp} (\tilde{K}_{\lambda, \nu}^Y) = Y$ for $(\lambda, \nu) \in \mid
+  \mid (= \mid \mid - / /)$, but the latter readily follows from the fact that
+  $\Gamma \left( \frac{\lambda - \nu}{2} \right) < \infty$ at these points and
+  lemma \ref{supp-sing:lem-strangeelement}.
+  
+  Next, we go to the case $p = 1, q : \tmop{even}, \lambda + \nu > 0$. In
+  particular, the latter implies that $/ / \cap (\mathbbm{C} \times
+  \mathbbm{Z}_{\leqslant 0}) = \varnothing$, hence $/ / \cap \mid \mid \mid =
+  / / \cap \mid \mid$. We also have $\mathbbm{C} \times
+  (\mathbbm{Z}_{\leqslant 0} \cup (2\mathbbm{Z}_{\geqslant 0} + 1)) = \mid
+  \mid \mid \supset \mid \mid$ and hence in this case
+  \[ \tmop{supp} (\tilde{K}_{\lambda, \nu}^X) = \left\{ \begin{array}{ll}
+       Y, & (\lambda, \nu) \nin \mid \mid \cup / /,\\
+       \varnothing, & (\lambda, \nu) \in \mid \mid - / /,\\
+       \varnothing, & (\lambda, \nu) \in / / \cap \mid \mid (= / / \cap \mid
+       \mid \mid),\\
+       \{ 0 \}, & (\lambda, \nu) \in / / - \mid \mid (= / / - \mid \mid \mid),
+     \end{array} \right. = \left\{ \begin{array}{ll}
+       Y, & (\lambda, \nu) \nin \mid \mid \cup / /,\\
+       \varnothing, & (\lambda, \nu) \in \mid \mid,\\
+       \{ 0 \}, & (\lambda, \nu) \in / / - \mid \mid .
+     \end{array} \right. \]
+  and then we continue as in the previous paragraph.
+  
+  Next, we got to the case $p = 1, q : \tmop{even}, \lambda + \nu \leqslant
+  0$. The latter implies that $\mid \mid \subset / /$, hence
+  \[ \tmop{supp} (\tilde{K}_{\lambda, \nu}^X) = \left\{ \begin{array}{ll}
+       Y, & (\lambda, \nu) \nin / /,\\
+       \varnothing, & (\lambda, \nu) \in / / \cap \mid \mid \mid,\\
+       \{ 0 \}, & (\lambda, \nu) \in / / - \mid \mid \mid .
+     \end{array} \right. \]
+  This immediately implies that for $(\lambda, \nu) \in / /$ (which implies
+  $\nu \in \mathbbm{Z}$) we have $\tilde{K}_{\lambda, \nu}^X = 0$, unless $\nu
+  \in 2\mathbbm{Z}_{\geqslant 0}$, which implies that $\tilde{K}_{\lambda,
+  \nu}^Y$ is holomorphic. It then remains to show that we have $\tmop{supp}
+  (\tilde{K}_{\lambda, \nu}^Y) = \{ 0 \}$ for $(\lambda, \nu) \in / / \cap
+  \mid \mid \mid$. Now, for $\nu \leqslant 0$ this follows by lemma
+  \ref{supp-sing:lem-strangeelement}, while for $\nu > 0$ by lemma
+  \ref{supp-sing:lem-strangelove-Y}.
+  
+  Next, we suppose $n \in 2\mathbbm{Z}, p > 1$, in which case we have $/ /
+  \cap \mid \mid \mid = \varnothing$, hence $\tilde{K}_{\lambda, \nu}^X \neq
+  0$, hence the conclusion.
+  
+  Next, we suppose $q \in 2\mathbbm{Z}+ 1, p \in 2\mathbbm{Z}_{\geqslant 1},
+  \frac{\lambda + \nu}{2} : \tmop{odd}$. To show that $\tilde{K}_{\lambda .
+  \nu}^Y$ is holomorphic, it suffices to show that $\tilde{K}_{\lambda, \nu}^X
+  = 0$ for $(\lambda, \nu) \in \backslash\backslash \cap / /$, if $\frac{\nu -
+  \lambda}{2} : \tmop{odd}$. For this we suppose $\lambda - \nu = - 2 l$ with
+  $l : \tmop{odd}$. This implies that $\nu = \frac{\lambda + \nu}{2} -
+  \frac{\lambda - \nu}{2} = \frac{\lambda + \nu}{2} - l$ is the difference of
+  odd and odd, hence even, hence $(\lambda, \nu) \in \mid \mid \mid$, hence
+  the conclusion. To compute the supports, we note that $\tilde{K}_{\lambda,
+  \nu}^X$ and $\tilde{K}_{\lambda, \nu}^Y$ can have different supports only
+  for $(\lambda, \nu) \in / /$ with $l : \tmop{odd}$. Now, as $\nu \equiv l +
+  1 \tmop{mod} 2$, since $(\lambda + \nu) / 2 : \tmop{odd}$, we have that
+  these points are not in $\mid \mid$, hence we may use lemma
+  \ref{supp-sing:lem-strangeelement}. In this way we have
+  \[ \tmop{supp} (\tilde{K}_{\lambda, \nu}^Y) = \left\{ \begin{array}{ll}
+       Y, & (\lambda, \nu) \nin \mid \mid \cup / / = \mid \mid \cup / /^- \cup
+       / /^+,\\
+       Y \cap C, & (\lambda, \nu) \in \mid \mid - / / = \mid \mid - / /^-,\\
+       Y, & / / \cap \mid \mid \mid = / /^+,\\
+       \{ 0 \}, & / / - \mid \mid \mid = / /^-,
+     \end{array} \right. = \left\{ \begin{array}{ll}
+       Y, & (\lambda, \nu) \nin \mid \mid \cup / /^-,\\
+       Y \cap C, & (\lambda, \nu) \in \mid \mid - / /^-,\\
+       \{ 0 \}, & / /^- .
+     \end{array} \right. \]
+  
+  
+  Next, we handle the case $q : \tmop{odd}, p \in 2\mathbbm{Z}_{\geqslant 1},
+  \frac{\lambda + \nu}{2} : \tmop{even}$ in the previous paragraph.
+  
+  Next, we consider the case $q : \tmop{even}, p \in 2\mathbbm{Z}_{\geqslant
+  1} + 1, \lambda + \nu \leqslant 0$ (the latter implies that $\mid \mid
+  \subset / /$). First, the holomorphicity is clear. Regarding the support, we
+  have (using lemma \ref{supp-sing:lem-strangeelement})
+  \begin{eqnarray}
+    & \tmop{supp} (\tilde{K}_{\lambda, \nu}^Y) = \left\{ \begin{array}{ll}
+      Y, & (\lambda, \nu) \nin \mid \mid \cup / / = / /,\\
+      ?, & / / \cap \mid \mid \mid = \{ (\lambda, \nu) \in / / \mid \nu \in
+      2\mathbbm{Z}_{\leqslant 0} - 1 \} \sqcup \{ (\lambda, \nu) \in / / \mid
+      \nu \in 2\mathbbm{Z}_{\geqslant 0} + 1 \} \sqcup \{ (\lambda, \nu) \in /
+      / \mid \nu \in 2\mathbbm{Z}_{\leqslant 0} \},\\
+      \{ 0 \}, & / / - \mid \mid \mid = \{ (\lambda, \nu) \in / / \mid \nu \in
+      2\mathbbm{Z}_{> 0} \},
+    \end{array} \right. = &  \nonumber
+  \end{eqnarray}
+  now, we can use lemma \ref{supp-R:lem-supp-of-K} to resolve question marks
+  for $\{ (\lambda, \nu) \in / / \mid \nu \in 2\mathbbm{Z}_{\leqslant 0} - 1
+  \}, \{ (\lambda, \nu) \in / / \mid \nu \in 2\mathbbm{Z}_{\geqslant 0} + 1
+  \}, \{ (\lambda, \nu) \in / / \mid \nu \in 2\mathbbm{Z}_{\leqslant 0} \}$,
+  hence getting the
+  \begin{eqnarray}
+    & = \left\{ \begin{array}{ll}
+      Y, & (\lambda, \nu) \nin / /,\\
+      Y, & \{ (\lambda, \nu) \in / / \mid \nu \in 2\mathbbm{Z}_{\leqslant 0} -
+      1 \},\\
+      Y \cap C, & \{ (\lambda, \nu) \in / / \mid \nu \in
+      2\mathbbm{Z}_{\geqslant 0} + 1 \},\\
+      Y, & \{ (\lambda, \nu) \in / / \mid \nu \in 2\mathbbm{Z}_{\leqslant 0}
+      \},\\
+      \{ 0 \}, & \{ (\lambda, \nu) \in / / \mid \nu \in 2\mathbbm{Z}_{> 0} \},
+    \end{array} \right. = \left\{ \begin{array}{ll}
+      Y, & (\lambda, \nu) \in / /^c \cup (/ / \cap (\mathbbm{C} \times
+      \mathbbm{Z}_{\leqslant 0})) = / / \cap (\mathbbm{C} \times
+      \mathbbm{Z}_{> 0}) =,\\
+      Y \cap C, & \{ (\lambda, \nu) \in / / \mid \nu \in
+      2\mathbbm{Z}_{\geqslant 0} + 1 \} = \mid \mid,\\
+      \{ 0 \}, & \{ (\lambda, \nu) \in / / \mid \nu \in 2\mathbbm{Z}_{> 0} \}
+      = \{ (\lambda, \nu) \mid \nu \in 2\mathbbm{Z}_{> 0} \},
+    \end{array} \right. &  \nonumber
+  \end{eqnarray}
+  Finally, we are left with two cases, when $q : \tmop{even}, p \in
+  2\mathbbm{Z}_{\geqslant 1} + 1, (\lambda, \nu) \in \backslash\backslash^+$.
+  We assume $\frac{\lambda + \nu}{2} :$odd, the other parity being handled in
+  precisely the same way. Now, to show that the $\tilde{K}_{\lambda, \nu}^Y$
+  is holomorphic, it suffices to show that if $(\lambda, \nu) \in
+  \backslash\backslash$ and $\frac{\nu - \lambda}{2} : \tmop{even}$ implies
+  $(\lambda, \nu) \in \mid \mid \mid$. The latter is clear, however, as $\nu =
+  \frac{\lambda + \nu}{2} - \frac{\lambda - \nu}{2}$:odd under these
+  assumptions (note that $\mathbbm{C} \times (2\mathbbm{Z}+ 1) \subset \mid
+  \mid \mid$). This shows the holomorphicity. We also note that $(\lambda,
+  \nu) \in / / \cap \mid \mid \mid$ iff $(\lambda, \nu) \in / / \cap \mid \mid
+  \subseteq / /^-$ (as $(\lambda, \nu) \in / /$ and $\nu \leqslant 0$ would
+  imply $\frac{\lambda + \nu}{2} = \frac{\lambda - \nu}{2} + \nu \leqslant 0$
+  contradicting the $(\lambda, \nu) \in \backslash\backslash^+$ assumption),
+  iff $(\lambda, \nu) \in / /^-$ (again, as $(\lambda, \nu) \in / /, \nu
+  \leqslant 0$ would imply the contradiction). Keeping this in mind, we
+  compute the support as
+  \begin{eqnarray}
+    & \tmop{supp} (\tilde{K}_{\lambda, \nu}^Y) = \left\{ \begin{array}{ll}
+      Y, & (\lambda, \nu) \nin \mid \mid \cup / / = \mid \mid \sqcup / /^+,\\
+      Y \cap C, & (\lambda, \nu) \in \mid \mid - / / = \mid \mid - / /^-,\\
+      ?, & (\lambda, \nu) \in / / \cap \mid \mid \mid = / /^-,\\
+      \{ 0 \}, & (\lambda, \nu) \in / / - \mid \mid \mid = / /^+,
+    \end{array} \right. = &  \nonumber
+  \end{eqnarray}
+  Now, $/ /^- = \left\{ (\lambda, \nu) \in / / \mid \frac{\nu - \lambda}{2} :
+  \tmop{even} \right\}$ (as $\frac{\lambda + \nu}{2}$:odd), hence we can use
+  lemma \ref{supp-R:lem-supp-of-K} to resolve the question mark, thus
+  continuing as
+  \begin{eqnarray}
+    & = \left\{ \begin{array}{ll}
+      Y, & (\lambda, \nu) \nin \mid \mid \sqcup / /^+,\\
+      Y \cap C, & (\lambda, \nu) \in \mid \mid - / /^-,\\
+      Y \cap C, & (\lambda, \nu) \in / /^- = / /^- \cap \mid \mid,\\
+      \{ 0 \}, & (\lambda, \nu) \in / /^+,
+    \end{array} \right. = \left\{ \begin{array}{ll}
+      Y, & (\lambda, \nu) \nin \mid \mid \sqcup / /^+,\\
+      Y \cap C, & (\lambda, \nu) \in \mid \mid,\\
+      \{ 0 \}, & (\lambda, \nu) \in / /^+ .
+    \end{array} \right. &  \nonumber
+  \end{eqnarray}
+\end{proof}
+
+\begin{proof}
+  (of prop. \ref{supp-sing:prop-supp-C}) First, we consider the $p > 1$ case,
+  when $\tilde{K}_{\lambda, \nu}^X$ vanishes iff $(\lambda, \nu) \in / / \cap
+  \mid \mid \mid$. Now, if $q \in 2\mathbbm{Z}+ 1$, we see that $\mid \mid
+  \cap (/ / \cap \mid \mid \mid) = \varnothing$, hence the answer. Conversely,
+  if $q \in 2\mathbbm{Z}$, we have $\mid \mid \subset \mid \mid \mid$, hence
+  $\tilde{K}_{\lambda, \nu}^C$ as defined in proposition is holomorphic, which
+  implies that under the given assumptions $K_{\lambda, \nu}^X$ as defined in
+  proof of proposition \ref{supp-R:prop-main} extends to $\mathbbm{R}^n$ and
+  the result about support follows from lemma \ref{supp-R:lem-supp-of-K}.
+  Thus, we proceed to $p = 1$ case.
+  
+  When $q \in 2\mathbbm{Z}+ 1$, we have $\mid \mid \cap \mid \mid \mid =
+  \varnothing$, hence under these assumptions (ie. that $q \in 2\mathbbm{Z}+
+  1, (\lambda, \nu) \in \mid \mid$) we have that $\tilde{K}_{\lambda, \nu}^X =
+  0$ iff $(\lambda, \nu) \in \backslash\backslash$, hence $\tilde{K}_{\lambda,
+  \nu}^C$ is holomorphic and due to the uniqueness of holomorphic extension
+  implies that
+  \[ \tilde{K}_{\lambda, \nu}^C = \tilde{\rho} \left( \frac{| Q |^{-
+     \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \cdot | x_p |^{\lambda +
+     \nu - n} \right) = \Gamma^{- 1} \left( \frac{\lambda - \nu}{2} \right)
+     \rho \left( \frac{| Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)}
+     \cdot | x_p |^{\lambda + \nu - n} \right) \]
+  (where $\frac{| Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \cdot
+  | x_p |^{\lambda + \nu - n} \in \mathcal{D}' (\mathbbm{R}^n - \{ 0 \})$ is
+  as in lemma \ref{supp-sing:lem-strangeelement}) and as $\mid \mid \cap \mid
+  \mid \mid = \varnothing$, we conclude that
+  \[ \tmop{supp} (\tilde{K}_{\lambda, \nu}^C) = \left\{ \begin{array}{ll}
+       \{ 0 \}, & (\lambda, \nu) \in / /\\
+       \tmop{supp} \left( \frac{| Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2}
+       \right)} \cdot | x_p |^{\lambda + \nu - n} \right) \cup \{ 0 \}, &
+       (\lambda, \nu) \nin / /,
+     \end{array} \right. \]
+  whereas the answer follows from lemma \ref{supp-sing:lem-strangeelement}.
+  
+  Finally, we turn to the case $q \in 2\mathbbm{Z}$, when $\mid \mid \subset
+  \mid \mid \mid$, whereas we have $\tilde{K}_{\lambda, \nu}^X = 0$ iff
+  $(\lambda, \nu) \in / / \cup \backslash\backslash$ and as we have $q - 2 \nu
+  \geqslant 0 \Rightarrow \mid \mid \cap / / \subset \mid \mid \cap
+  \backslash\backslash$ and $q - 2 \nu < 0 \Rightarrow \mid \mid \cap
+  \backslash\backslash \subset \mid \mid \cap / /$, we conclude that
+  $\tilde{K}_{\lambda, \nu}^C$ as it is defined is holomorphic. Now, consider
+  cases. First, if $q - 2 \nu \geqslant 0$, we have the information about
+  support following as in the previous paragraph. On contrary, if $q - 2 \nu <
+  0$, the definitions imply that $\tilde{K}_{\lambda, \nu}^C = \rho
+  (K_{\lambda, \nu}^X)$ and the information about support follows from lemmas
+  \ref{supp-R:lem-supp-of-K} and \ref{supp-sing:lem-strangelove}.
+\end{proof}
+
+\
+
+\
+
+\
+
+\
+
+\section{Differential symmetry breaking operators (B12)}\label{sec:diffSBO}
+
+\subsection{Main results}
+
+\begin{proposition}
+  \label{diffSBO:prop-main}For $(\lambda, \nu) \in \mathbbm{C}^2$ we have
+  \[ \mathcal{S} \tmop{ol}_{\{ 0 \}} (\mathbbm{R}^{p, q} ; \lambda, \nu) =
+     \left\{ \begin{array}{ll}
+       \mathbbm{C} \cdot \tilde{C}_{\nu - \lambda}^{\lambda - (n - 1) / 2} (-
+       \tilde{\Delta} \tilde{\delta} (x), \delta (x_p)), & \lambda - \nu \in -
+       2\mathbbm{Z}_{\geqslant 0}\\
+       0, & \tmop{otherwise}
+     \end{array} \right. \]
+  where $\tilde{\Delta}$ is a $(p - 1, q)$-Laplacian, $\tilde{\delta}$ is
+  dirac delta on all variables except of $x_p$ and $C^{\alpha}_k (\cdot,
+  \cdot)$ is the 2-variable inflation of renormalized Gegenbauer polynomial,
+  as in {\cite[(16.3)]{kobayashi2015symmetry}}. For $\lambda - \nu \in -
+  2\mathbbm{Z}_{\geqslant 0}$ we will use the notation
+  \[ \tilde{K}_{\lambda, \nu}^{\{ 0 \}} \assign \tilde{C}_{\nu -
+     \lambda}^{\lambda - (n - 1) / 2} (- \tilde{\Delta} \tilde{\delta} (x),
+     \delta (x_p)) . \]
+\end{proposition}
+
+\subsection{Auxiliary results}
+
+\begin{lemma}
+  \label{diffSBO:lem-aux}For $f \in \mathcal{D}'_{\{ 0 \}} (\mathbbm{R}^{p,
+  q}) \assign \{ f \in \mathcal{D}' (\mathbbm{R}^{p, q}) | \tmop{supp} (f)
+  \subset \{ 0 \} \}$ we have $f$ is $N_+'$-invariant on $\mathbbm{R}^{p, q}$
+  (def. \ref{def-n-nots:def-n+invar}) iff it satisfies equations (\ref{Ndiff})
+\end{lemma}
+
+\begin{proof}
+  As ``$\Rightarrow$'' part is clear, we just prove the converse. But it is
+  readily implied by lemma \ref{supp-Q:lem-sing-q-4}.
+\end{proof}
+
+\subsection{Proofs}
+
+\begin{proof}
+  (of prop. \ref{diffSBO:prop-main}) We apply algebraic Fourier transform $F_c
+  : \mathcal{D}'_{\{ 0 \}} (\mathfrak{n}_-) \rightarrow \tmop{Pol}
+  (\mathfrak{n}_-^{\ast})^{}$ defined by formula $(F_c f) (\xi) \assign
+  \hat{F} (\xi) \assign \int_{\mathfrak{n}_-}^{} f (x) \exp \langle x, \xi
+  \rangle d x$. We further identify $\mathfrak{n}_-^{\ast}$ dual of
+  $\mathfrak{n}_-$ with $\mathfrak{n}_+$, identification given via the pairing
+  $\frac{1}{4} (X, Y) \mapsto \tmop{tr} (X Y)$.
+  
+  Lemmas \ref{diffSBO:lem-aux} and \ref{lem67:lem-homogImpliesE} tell us that
+  $F \in \mathcal{D}'_{\{ 0 \}} (\mathbbm{R}^{p, q})$ belongs to $\mathcal{S}
+  \tmop{ol}_{\{ 0 \}} (\mathbbm{R}^{p, q} ; \lambda, \nu)$ iff it satisfies
+  \begin{eqnarray}
+    & E F = (\lambda - \nu - n) F &  \nonumber\\
+    & F (- x) = F (x) &  \nonumber\\
+    & F (g \cdot) = F (\cdot), \quad \forall g \in O (p, q)_{e_p} \assign \{
+    g \in O (p, q) | g \cdot x_p = x_p \} \simeq O (p - 1, q) &  \nonumber\\
+    & \left[ (\lambda - n) \varepsilon_j x_j - \varepsilon_j x_j E +
+    \frac{1}{2} Q (x) \frac{\partial}{\partial x_j} \right] F = 0, \quad 1
+    \leqslant j \leqslant n, j \neq p &  \nonumber
+  \end{eqnarray}
+  Under the algebraic Fourier transform $F_c$ these change as follows (we note
+  that $E$ under $F_c$ becomes $- E - n$, multiplication by $x_j$ becomes
+  $\partial / \partial \zeta_j$ and $\partial / \partial x_j$ becomes
+  multiplication by $- \zeta_j$):
+  \begin{eqnarray}
+    & E \hat{F} = (\nu - \lambda) \hat{F} &  \nonumber\\
+    & \hat{F} (- x) = \hat{F} (x) &  \nonumber\\
+    & \hat{F} (g \cdot) = \hat{F} (\cdot), \quad \forall g \in O (p, q)_{e_p}
+    \assign \{ g \in O (p, q) | g \cdot x_p = x_p \} \simeq O (p - 1, q) & 
+    \nonumber\\
+    & \left[ - \frac{1}{2} \varepsilon_j \zeta_j \tilde{\Delta} + (\lambda +
+    E) \frac{\partial}{\partial \zeta_j} \right] \hat{F} = 0, \quad 1
+    \leqslant j \leqslant n, j \neq p, \quad \tilde{\Delta} \assign \sum_{i =
+    1, i \neq p}^n \varepsilon_j \frac{\partial}{\partial \zeta_j} . & 
+    \nonumber
+  \end{eqnarray}
+  Now, we make the following observations:
+  \begin{enumerate}
+    \item As $\hat{F}$ satisfies $E \hat{F} = (\nu - \lambda) \hat{F}
+    \nocomma$, it should be homogeneous of degree $\lambda - \nu$. But as it
+    is a polynomial, it's homogeneity degree can only be positive integer, so
+    we immediately see that $\mathcal{S} \tmop{ol}_{\{ 0 \}} (\mathbbm{R}^{p,
+    q} ; \lambda, \nu) = 0$ if $\lambda - \nu \nin -\mathbbm{Z}_{\geqslant
+    0}$;
+    
+    \item Moreover, as $\hat{F}$ satisfies $\hat{F} (- x) = \hat{F} (x)$, it
+    should be even and hence $\mathcal{S} \tmop{ol}_{\{ 0 \}} (\mathbbm{R}^{p,
+    q} ; \lambda, \nu) = 0$ if $\lambda - \nu \nin - 2\mathbbm{Z}_{\geqslant
+    0}$;
+    
+    \item The requirement $\hat{F} (g \cdot) = \hat{F} (\cdot), \quad \forall
+    g \in O (p, q)_{e_p}$ implies that $\hat{F}$ is polynomial in $\tilde{Q}
+    \assign \sum_{i = 1 ; i \neq p}^n \varepsilon_i x_i^2$ and $x_p$. Hence,
+    using homogeneity with degree $a \assign \nu - \lambda \in
+    2\mathbbm{Z}_{\geqslant 0}$ we can write then $\hat{F} = \tilde{Q}^{a / 2}
+    g \left( x_{p - 1} / \sqrt{\tilde{Q}} \right)$ with $g (\cdot)$ being a
+    polynomial;
+    
+    \item Substituting this into the $\left[ - \frac{1}{2} \varepsilon_j
+    \zeta_j \tilde{\Delta} + (\lambda + E) \frac{\partial}{\partial \zeta_j}
+    \right] \hat{F} = 0$ gives
+    \[ g (t) (n - 1 - a - 2 \lambda) a - g' (t) \times (n - 2 - 2 \lambda) t
+       + (t^2 + 1) g'' (t) = 0 ; \]
+    \item Substituting $t = i s$ into the previous equation gives (we abuse
+    notation and write $g (s)$ in place of $g (i s)$)
+    \[ g (s) (n - 1 - 2 \lambda) a - g' (s) (n - 2 - 2 \lambda) s + (1 - s^2)
+       g'' (s) = 0 ; \]
+    hence $g (s)$ should be proportional to $C^{\lambda - (n - 1) / 2}_a (s)$
+    (see {\cite[thm. 11.4]{kobayashi2015differential2}}). Indeed, other
+    polynomial solution (say, $\tilde{C}$) of this equation arises only when
+    $\alpha \assign \lambda - (n - 1) / 2 \in \mathbbm{Z}+ 1 / 2$ and $1 - 2 a
+    \leqslant 2 \alpha \leqslant - a$. But then $\tilde{C}$ has its top term
+    is a non-zero multiple of $t^{- (2 \alpha + a)}$, but as $\alpha \in
+    \mathbbm{Z}+ 1 / 2$, we have $- (2 \alpha + a) \in 2\mathbbm{Z}+ 1$, which
+    contradicts evenness of $\hat{F}$.
+  \end{enumerate}
+  The result now follows by taking the inverse Fourier transform.
+\end{proof}
+
+\section{Determination of $\mathcal{S} \tmop{ol}_C (\mathbbm{R}^n - \{ 0 \} ;\lambda, \nu)$ (B13)}\label{sec:uniq-c}
+
+
+\subsection{Main results}
+
+\begin{proposition}
+  \label{sol-MO:prop-solCnonzero}The following holds:
+  \[ \mathcal{S} \tmop{ol}_C (\mathbbm{R}^{p, q} \backslash \{ 0 \} ; \lambda,
+     \nu) =\mathbbm{C} \left\{ \begin{array}{ll}
+       \delta^{(\nu - 1)} (Q) \cdot | x_p |^{\lambda + \nu - n}, & p = 1,
+       (\lambda, \nu) \in \mid \mid\\
+       \delta^{(\nu - 1)} (Q) \cdot \frac{| x_p |^{\lambda + \nu - n}}{\Gamma
+       ((\lambda + \nu - n + 1) / 2)}, & p > 1, (\lambda, \nu) \in \mid \mid\\
+       0, & (\lambda, \nu) \nin \mid \mid
+     \end{array} \right. . \]
+\end{proposition}
+
+\subsection{Auxiliary lemmas}
+
+\begin{lemma}
+  \label{uniq-c:lem-generic}Proposition \ref{sol-MO:prop-solCnonzero} holds
+  for $(\lambda, \nu) \nin \mid \mid$.
+\end{lemma}
+
+\begin{proof}
+  So let's suppose $\nu \nin 2\mathbbm{Z}_{\geqslant 0} + 1$ and $F \in
+  \mathcal{S} \tmop{ol}_{\{ Q = 0 \}} (\mathbbm{R}^{p, q} ; \lambda, \nu)$. In
+  the light of lemma \ref{lem:sing-q-3} it suffices to prove that $F
+  \mid_{\{ (x, y) \in \R^{p, q} |x \neq 0, \hspace{0.75em} y \neq 0\}} =
+  0$. Abusing notation, from now and till the end of the proof we will call
+  this restriction $F$. We recall the $(\mu, s, \omega_{p - 1}, \omega_{q -
+  1}) \in \mathbbm{R}_{> 0}^2 \times \mathbbm{S}^{p - 1} \times \mathbbm{S}^{q
+  - 1}$ coordinates parametrizing $\{ x \neq 0 \} \cap \{ y \neq 0 \}$ that
+  were introduced in lemma \ref{lem:sing-q-6}.
+  
+  As $\supp (F) \subset \{ Q = 0 \}$ and the latter subset in the $(\mu, s,
+  \omega_{p - 1}, \omega_{q - 1})$ coordinates becomes $\{ \mu = 1 \}$, fact
+  \ref{fact:sing-q-3} \ implies that in $(\mu, s, \omega_{p - 1}, \omega_{q -
+  1})$ coordinates $F = \sum_{i \geq 0} \delta^{(i)}  (\mu - 1) u_i$ with the
+  sum being locally finite. Now, lemma \ref{supp-Q:lem-operator} implies that
+  $\mysbra{\nu + (\mu - 1)  \frac{\partial}{\partial \mu}} F = 0$ and
+  substituting this in $F = \sum_{i \geq 0} \delta^{(i)}  (\mu - 1) u_i$ and
+  keeping in mind the formula $(\mu - 1)  \frac{\partial}{\partial \mu}
+  \delta^{(i)}  (\mu - 1) = - (i + 1) \delta^{(i)}  (\mu - 1)$ we get
+  (invoking the uniqueness part of fact \ref{fact:sing-q-3}) $(\nu - (i + 1))
+  u_i = 0$. This implies that $F = 0$, unless $\nu \in \Z_{> 0}$.
+  
+  So, it remains to handle the case $\nu \in 2\mathbbm{Z}_{> 0}$ now. But then
+  the conclusion is implied by lemmas \ref{lem:sing-q-6} and
+  \ref{lem:sing-q-7}.
+\end{proof}
+
+\begin{lemma}
+  \label{lem:sing-q-3}If $F \in \D' (\{ x \neq 0 \} \cap \{ y \neq 0
+  \})$\footnote{$\{ x \neq 0 \} \assign \{ (x, y) \in \mathbbm{R}^{p, q} | x
+  \neq 0 \}$ and similarly $\{ y \neq 0 \}$ is defined}, $\supp (F) = \{ Q = 0
+  \}$ , then $F$ extends to $\tilde{F} \in \D' (\R^{p, q} \setminus \{ 0 \})$
+  with $\supp (\tilde{F}) = \{ Q = 0 \}$ and any two such extensions would
+  coincide. Moreover, if $F \in \mathcal{S} \tmop{ol}_{\{ Q = 0 \}} (\{ x \neq
+  0 \} \cap \{ y \neq 0 \} ; \lambda, \nu)$, then $\tilde{F} \in \mathcal{S}
+  \tmop{ol}_{\{ Q = 0 \}} \left( \R^{p, q} \setminus \{ 0 \} ; \lambda, \nu
+  \right)$.
+\end{lemma}
+
+\begin{proof}
+  Note that $\R^{p, q} \setminus \{ 0 \} = A \cup B \assign \{ (x, y) \in
+  \R^{p, q} \backslash \{ 0 \} |x \neq 0, \hspace{0.75em} y \neq 0\} \cup \{
+  (x, y) \in \R^{p, q} \backslash \{ 0 \} | | x | \neq | y | \}$. If we define
+  $\tilde{F}$ as $F$ on $A$ and 0 on $B$, the Fact \ref{fact:localization} \
+  shows that $\tilde{F}$ is a well-defined extension, and this proves the
+  existence part. Regarding the uniqueness part, whatever extension
+  $\tilde{F}$ would be, it should be equal to $F$ on $A$ and 0 on $B$, hence
+  the uniqueness part of Fact \ref{fact:localization} \ grants the uniqueness.
+  This proves the conclusion in the first sentence.
+  
+  Now, assume that $F \in \mathcal{S} \tmop{ol} (A ; \lambda, \nu)$. Then both
+  $\tilde{F} \mid_A = F \in \mathcal{S} \tmop{ol} (A ; \lambda, \nu)$ and
+  $F \mid_B = 0 \in \mathcal{S} \tmop{ol} (B ; \lambda, \nu)$. This grants
+  the desired conclusion.
+\end{proof}
+
+\begin{lemma}
+  \label{supp-Q:lem-sing-q-4}Suppose $F \in \D' (\R^{p, q})$, $F
+  \mid_{\R^{p, q} \setminus \{ 0 \}}$ is $N_+'$-invariant on $\R^{p, q}
+  \setminus \{ 0 \}$ and $F$ satisfies (\ref{Ndiff}) on $\R^{p, q}$. Then, $F$
+  is $N_+'$-invariant on $R^{p, q}$.
+\end{lemma}
+
+\begin{fact}
+\label{fact:sing-q-2}{\proofexplanation{{\cite[Thm
+2.1.3]{hormander1983analysis}}}} Suppose $\phi \in C^{\infty}  (X \times Y)$
+where $X, \hspace{0.25em} Y \in \R^m, \hspace{0.25em} \R^n$ are open sets and
+$\phi (x, y) = 0$ if $x \nin K \subset X$, where $K$ is compact. Then for any
+$u \in \D' (X)$ $y \mapsto u (\phi (\cdot, y))$ is smooth function and $\left.
+\left. \frac{\partial}{\partial y_i}  (y \mapsto u (\phi (\cdot, y)) \right) =
+u \left( \frac{\partial}{\partial y_i} u \right( \cdot, y)
+\right)$.
+\end{fact}
+
+\begin{proof}
+  Fix arbitrary $b \in \R^{p, q}$ with $b_p = 0$ and let $c_b (x) \assign 1 -
+  2 Q (b, x) + Q (b) Q (x)$, $\psi_b (x) \assign (x - Q (x) b) / c_b (x)$.
+  What needs to be shown is that near $x = 0$ we have $F (x) = F (\psi_b (x))
+  c_b^{\lambda - n} (x)$.
+  
+  Let us take open $\R^{p, q} \supset U \ni \{ 0 \}$ such that $\forall (t, x)
+  \in (- 1 / 2, 3 / 2) \times U$ we have $c_{tb} (x) \neq 0$ and let us
+  further fix arbitrary $\phi \in C_0^{\infty} (V)$. Define $(- 3 / 2, 1 / 2)
+  \ni t \mapsto f (t) \assign \langle F (\psi_{tb} (x)) c_{tb}^{\lambda - n},
+  \phi \rangle \in \R$. Recalling what $F (\psi_{tb} (x)) c_{tb}^{\lambda -
+  n}$ means in a distribution sense, we may write $\langle F (\psi_{tb} (x))
+  c_{tb}^{\lambda - n}, \phi \rangle = \langle F, \phi_t \rangle$ for $\phi_t
+  \in C^{\infty} ((- 1 / 2, 3 / 2) \times V)$ the deformation of $\phi$.
+  Further restricting if necessary $\supp (\phi)$ we may ensure that $\phi_t$
+  vanishes outside $(- 1 / 2, 3 / 2) \times K$ for some compact $K \times V$.
+  Fact \ref{fact:sing-q-2} \ then tells us that $f$ is smooth and $f' (t) =
+  \langle D_b F, \phi_t \rangle$, where $D_b = \sum_j b_j \mysbra{2 \nu
+  \varepsilon_j x_j + \frac{1}{2} Q (x) \frac{\partial}{\partial x_j}}$ But
+  then the hypothesis of the lemma implies that $D_b F = 0$, hence $f' (t) =
+  0$, hence $f (1) = f (0)$ and this implies the desired conclusion.
+\end{proof}
+
+\begin{fact}
+{\proofexplanation{{\cite[Thm. 2.3.5]{hormander1983analysis}}}}
+\label{fact:sing-q-3}Let $x = (x', x'')$ be a splitting of the variables in
+$\R^n$ in two groups. If $u \in \D' (\R^n)$ has compact support and the latter
+is contained in the plane $x' = 0$,
+\[ u = \sum_{| \alpha | \leq k} u_{\alpha} \delta^{(\alpha)} (x') \]
+with $u_{\alpha}$ is distribution with compact support in the $x''$
+variables.
+\end{fact}
+
+\begin{remark}
+  Using the cutoff function, this fact can be applied to distributions $u$ of
+  non-compact support, the sum $u = \sum_{| \alpha | \leq k} u_{\alpha}
+  \delta^{(\alpha)} (x')$ then becoming locally compact. Also, such extension
+  is easily seen to be unique.
+\end{remark}
+
+\begin{definition}
+  \label{n-nonequiv:def-solprime}It is possible to weaken the definition
+  \ref{sol:def-sol} by replacing the item 4 of it with the differential of
+  that (local) action of $N_+'$ on $\mathbbm{R}^{p, q}$. We will call the
+  latter $\mathfrak{n}_+'$-invariance. Explicitly written, it becomes the
+  system of differential equations
+  \begin{equation}
+    \left[ (\lambda - n) \varepsilon_j x_j - \varepsilon_j x_j E + \frac{1}{2}
+    Q (x) \frac{\partial}{\partial x_j} \right] F = 0, \quad j = \{ 1, 2,
+    \ldots, n \} \backslash \{ p \} \label{Ndiff}
+  \end{equation}
+  with $E \assign \sum_j x_j  \frac{\partial}{\partial x_j}$ and
+  $\varepsilon_j = + 1$ for $1 \leq j \leq p$ and $= - 1$ otherwise.
+  
+  For $(\lambda, \nu) \in \mathbbm{C}^2$ and $U \subset \mathbbm{R}^{p, q}$
+  open, we let $\mathcal{S} \tmop{ol}' (U ; \lambda, \nu)$ to denote set of
+  distributions $u \in \mathcal{D}' (U)$, satisfying first three items of
+  definition \ref{sol:def-sol} and equations (\ref{Ndiff}).
+  
+  We will also use the notation $\mathcal{S} \tmop{ol}_S' (U ; \lambda, \nu)
+  \assign \{ u \in \mathcal{S} \tmop{ol} (U ; \lambda, \nu) | \tmop{supp} (u)
+  \subset S \}$ for $S \subset U$ closed.
+\end{definition}
+
+\begin{remark}
+  We note that $\mathcal{S} \tmop{ol}'_S (U ; \lambda, \nu) \supset
+  \mathcal{S} \tmop{ol}_S (U ; \lambda, \nu)$.
+\end{remark}
+
+\begin{lemma}
+  \label{lem:sing-q-6}For $\nu \in \mathbbm{Z}_{> 0}$ we have $\mathcal{S}
+  \tmop{ol}_{\{ Q = 0 \}}' (\{ x \neq 0 \} \cap \{ y \neq 0 \} ; \lambda, \nu)
+  =\mathbbm{C}K^{(p)}_{\lambda, \nu}$ with $\mathcal{S} \tmop{ol}'_S (U ;
+  \lambda, \nu)$ as in definition \ref{n-nonequiv:def-solprime}.
+\end{lemma}
+
+\begin{remark}
+  $K^{(p)}_{\lambda, \nu}$ is defined as follows. For $(m, \mu) \in
+  \mathbbm{Z}_{> 0} \times \mathbbm{C}$ we let
+  \[ \mathcal{D}' (\mathbbm{R}^m \backslash \{ 0 \}) \ni f_{\mu}^{(m)} \assign
+     \left\{ \begin{array}{ll}
+       | x |^{\mu}, & m = 1\\
+       | x |^{\mu} / \Gamma ((\mu + 1) / 2), & m > 1
+     \end{array} \right. \]
+  (see {\cite[ch. III, sec. 3.2, 3.3]{gelfand1980distribution}} for definition
+  of distribution $| x |^{\lambda}$).
+  
+  Fix $\nu \in \mathbbm{Z}_{> 0}$ and $g \in \D' (\R_{> 0} \times \Sp^{p -
+  1})$ be pullback of $f^{(p)}_{\lambda + \nu - n} (x_p) \in \mathcal{D}'
+  (\mathbbm{R}^p \backslash \{ 0 \})$ via the polar coordinates.
+  
+  We introduce the coordinate system to parametrize $\{(x, y) \in \R^{p, q} |x
+  \neq 0, \hspace{0.75em} y \neq 0\}$. These will be $(\mu, s, \omega_{p - 1},
+  \omega_{q - 1})$ coordinates given by $\{ (x, y) \in \R^{p, q} |x \neq 0,
+  \hspace{0.75em} y \neq 0\} \ni (x, y) = (\sqrt{s} \omega_{p - 1}, \sqrt{\mu
+  s} \omega_{q - 1}$ with $(\mu, s, \omega_{p - 1}, \omega_{q - 1}) \in \R_{>
+  0} \times \R_{> 0} \times \Sp^{p - 1} \times \Sp^{q - 1}$.
+  
+  We define $K^{(p)}_{\lambda, \nu} \in \D' (\R_{> 0} \times \R_{> 0} \times
+  \Sp^{p - 1} \times \Sp^{q - 1})$ to be the distribution $K^{(p)}_{\lambda,
+  \nu} \assign \delta^{(\nu - 1)}  (\mu - 1) \otimes s^{- \nu} g \otimes
+  1_{\Sp^{q - 1}}$ in variables $(\mu, s, \omega_{p - 1}, \omega_{q - 1}) \in
+  \R_{> 0} \times \left( \R_{> 0} \times \Sp^{p - 1} \right) \times \Sp^{q -
+  1}$.
+\end{remark}
+
+\begin{proof}
+  Applying fact \ref{fact:sing-q-3}, in $(\mu, s, \omega_{p - 1}, \omega_{q -
+  1})$ coordinates $F$ should be of the form $F = \sum_{i \geq 0} \delta^{(i)}
+  (\mu - 1) \otimes u_i$ with sum being locally finite and $u_i \in \D'
+  (\R_{> 0} \times \Sp^{p - 1} \times \mathbbm{S}^{q - 1})$ being independent
+  of $\mu$. Similarly as in proof of lemma \ref{uniq-c:lem-generic}, we can
+  conclude that $F = \delta^{(\nu - 1)}  (\mu - 1) u$ globally with $u \in \D'
+  (\R_{> 0} \times \mathbbm{S}^{p - 1} \times \mathbbm{S}^{q - 1})$ being
+  independent of $\mu$.
+  
+  Furthermore, being an element of $\mathcal{S} \tmop{ol}_{\{ Q = 0 \}} (\{ x
+  \neq 0 \} \cap \{ y \neq 0 \} ; \lambda, \nu)$ implies homogeneity with
+  degree $\lambda - \nu - n$ and hence that the Euler equation $EF = (\lambda
+  - \nu - n) F$ should hold, with Euler operator $E$ in $(\mu, s, \omega_{p -
+  1}, \omega_{q - 1})$ coordinates being written as $E = 2 s
+  \frac{\partial}{\partial s}$, hence $\frac{\partial}{\partial s} u =
+  \frac{\lambda - \nu - n}{2} u$. Hence, applying fact \ref{fact:sing-q-4} \
+  we see that $s^{- \frac{\lambda - \nu - n}{2}} u$ is independent of $s$,
+  hence we may write $u = s^{\frac{\lambda - \nu - n}{2}} v$ with $v \in \D'
+  (\mathbbm{S}^{p - 1} \times \mathbbm{S}^{q - 1})$ independent of $s$.
+  
+  As $F$ has to be invariant under left multiplication by $O (q) \subset O (p,
+  q)_{e_p}$, we see that in fact $v$ is independent of variables of
+  $\mathbbm{S}^{q - 1}$, hence may be treated as $v \in \D' (\mathbbm{S}^{p -
+  1})$. To finish the proof, it now suffices to show that under the polar
+  coordinates transformation, $\tilde{v} \assign s^{\lambda + \nu - n} v \in
+  \D' (\R_{> 0} \times \mathbbm{S}^{p - 1})$ becomes proportional to
+  $f_{\lambda + \nu - n}^{(p)} (x_p)$. In the light of lemmas
+  \ref{lem67:lem-tensor} and \ref{lem67:lem-homogR}, for this it suffices to
+  show that $(\partial / \partial x_i)  \tilde{v} = 0$ and that $\tilde{v}$ is
+  homogeneous of degree $\lambda + \nu - n$ (the latter is obvious from the
+  above).
+  
+  To derive the required equalities we will need to understand how equations
+  (\ref{Ndiff}) get written in $(\mu, s, \omega_{p - 1}, \omega_{q - 1})$
+  coordinates and how $(\partial / \partial x_i)  \tilde{v} = 0$ get written.
+  We assume that we fix two parametrizations $\R^{p - 1} \supset U \ni
+  (z_i)_{i = 1}^{p - 1} \mapsto (\omega_{p - 1}^{(j)} (z))_{j = 1}^p \in
+  \mathbbm{S}^{p - 1} \subset \R^p$ and $\R^{q - 1} \supset U \ni (w_i)_{i =
+  1}^{q - 1} \mapsto (\omega_{q - 1}^{(j)} (w))_{j = 1}^q \in \mathbbm{S}^{q -
+  1} \subset \R^q$. We will denote the first order derivatives of these by
+  $D_{p - 1}$ and $D_{q - 1}$ respectively (these being $p - 1 \times p$ and
+  $q - 1 \times q$ matrices respectively). We will also use shorthands to
+  denote column-vectors: $\partial / \partial z \assign \left[
+  \frac{\partial}{\partial z_i} \right]_i$ and $\partial / \partial w \assign
+  \left[ \frac{\partial}{\partial w_j} \right]_j$
+  
+  We will start with the former task. Under the polar parametrization $x =
+  \sqrt{s} \cdot \omega_{p - 1}$ the desired equality $(\partial / \partial
+  x_i)  \tilde{v} = 0$ for $1 \leq i \leq p - 1$ gets written as
+  \[ \left[ \frac{1}{\sqrt{s}} \omega_{p - 1}^{(i)} 2 s
+     \frac{\partial}{\partial s} + \frac{1}{\sqrt{s}}  \left( J_{p - 1} 
+     \frac{\partial}{\partial z} \right)_i \right]  \tilde{v} = 0, \quad 1
+     \leq i \leq p - 1 \]
+  as we further know that $\tilde{v}$ is homogeneous of degree $\lambda + \nu
+  - n$ and Euler operator is written as $E = 2 s \frac{\partial}{\partial s}$,
+  this can be rewritten as
+  \begin{equation}
+    \left[ \omega_{p - 1}^{(i)} (\lambda + \nu - n) + \left( J_{p - 1} 
+    \frac{\partial}{\partial z} \right)_i \right]  \tilde{v} = 0, \quad 1 \leq
+    i \leq p - 1 \label{eq:sing-q-dx}
+  \end{equation}
+  Furthermore, differentiating condition 2 of definition of $\mathcal{S}
+  \tmop{ol} (\R^{p, q} ; \lambda, \nu)\{(x, y) \in \R^{p, q} |x \neq 0,
+  \hspace{0.75em} y \neq 0\}$ for $F \in \mathcal{S} \tmop{ol} (\R^{p, q} ;
+  \lambda, \nu)\{(x, y) \in \R^{p, q} |x \neq 0, \hspace{0.75em} y \neq 0\}$
+  we see that (using the usual splitting $(x, y) \in \R^{p, q}$) we should
+  have
+  \[ [x_i \partial y_j + y_j \partial x_i] F = 0, \quad 1 \le i \le p - 1,
+     \hspace{0.75em} 1 \leq j \leq q \]
+  which in $(\mu, s, \omega_{p - 1}, \omega_{q - 1})$ gets written as
+  \[ \sqrt{s} \omega^{(i)}_{p - 1}  \left[ \omega^{(j - 1)}_{q - 1}  \frac{2
+     \sqrt{\mu}}{\sqrt{s}} \cdot \frac{\partial}{\partial \mu} +
+     \frac{1}{\sqrt{s \mu}}  \left( J_{q - 1}  \frac{\partial}{\partial w}
+     \right)_j \right] F + \]
+  \[ \sqrt{s \mu} \omega^{(j)}_{q - 1}  \left[ \omega_{p - 1}^{(i)}  \left( -
+     2 \mu / \sqrt{s}  \frac{\partial}{\partial \mu} + 2 \sqrt{s} 
+     \frac{\partial}{\partial s} \right) + \frac{1}{\sqrt{s}}  \left( J_{p -
+     1}  \frac{\partial}{\partial z} \right)_i \right] F = 0. \]
+  As $F$ is independent of $w$ (as shown above) this gets rewritten as
+  \[ \omega^{(i)}_{p - 1}  \left[ \omega^{(j - 1)}_{q - 1}  \frac{2}{\sqrt{s}}
+     \cdot \frac{\partial}{\partial \mu} \right] F + \omega^{(j)}_{q - 1} 
+     \left[ \omega_{p - 1}^{(i)}  \left( - 2 \mu / \sqrt{s} 
+     \frac{\partial}{\partial \mu} + 2 \sqrt{s}  \frac{\partial}{\partial s}
+     \right) + \frac{1}{\sqrt{s}}  \left( J_{p - 1}  \frac{\partial}{\partial
+     z} \right)_i \right] F = 0. \]
+  We also can choose $j$, so that $\omega^{(j)}_{q - 1} \neq 0$ locally, hence
+  we can divide it and $\sqrt{s}$ out to get
+  \[ \omega^{(i)}_{p - 1}  \left[ 2 \cdot \frac{\partial}{\partial \mu}
+     \right] F + \left[ \omega_{p - 1}^{(i)}  \left( - 2 \mu
+     \frac{\partial}{\partial \mu} + 2 s \frac{\partial}{\partial s} \right) +
+     \left( J_{p - 1}  \frac{\partial}{\partial z} \right)_i \right] F = 0. \]
+  where homogeneity of order $\lambda - \nu - n$ of $F$ renders this into
+  \[ \omega^{(i)}_{p - 1} 2 (1 - \mu) \cdot \frac{\partial}{\partial \mu} F +
+     \left[ \omega_{p - 1}^{(i)}  (\lambda - \nu - n) + \left( J_{p - 1} 
+     \frac{\partial}{\partial z} \right)_i \right] F = 0. \]
+  substituting here $F = \delta^{(\nu - 1)}  (\mu - 1) u$ and using $(\mu - 1)
+  \frac{\partial}{\partial \mu} \delta^{(i)}  (\mu - 1) = - (i + 1)
+  \delta^{(i + 1)}  (\mu - 1)$, we get
+  \[ 2 \nu \omega^{(i)}_{p - 1} u + \left[ \omega_{p - 1}^{(i)}  (\lambda -
+     \nu - n) + \left( J_{p - 1}  \frac{\partial}{\partial z} \right)_i
+     \right] u = 0. \]
+  and finally substituting $u = s^{- 2 \nu}  \tilde{v}$ one gets
+  \[ \left[ \omega_{p - 1}^{(i)}  (\lambda + \nu - n) + \left( J_{p - 1} 
+     \frac{\partial}{\partial z} \right)_i \right]  \tilde{v} = 0,
+     \hspace{0.75em} 1 \leq i \leq p - 1. \]
+  and as the latter is precisely (\ref{eq:sing-q-dx}), this finishes the
+  proof.
+\end{proof}
+
+\begin{lemma}
+  \label{supp-Q:lem-flip}For $x, b \in \mathbbm{R}^{p, q}$ we let $c_b (x)
+  \assign 1 - 2 Q (x, b) + Q (x) Q (b)$ and $\psi_b (x) \assign (x - Q (x) b)
+  / c_b (x)$. Then for every $x \in \mathbbm{R}^{p, q} \backslash \{ 0 \}$
+  with $Q (x) = 0$ there exists $b \in \mathbbm{R}^{p, q}$ with $b_p = 0$ such
+  that $c_b (x) < 0$.
+\end{lemma}
+
+\begin{proof}
+  As under the hypothesis taken $c_b (x) = 1 - 2 Q (x, b)$, the statement
+  follows.
+\end{proof}
+
+\begin{lemma}
+  \label{supp-Q:lem-sing-q-7-aux}For arbitrary $x \in \mathbbm{R}^{p, q}
+  \backslash \{ 0 \}$ with $Q (x) = 0$ there exists $b \in \mathbbm{R}^{p, q}$
+  with $b_p = 0$ such that for $\tilde{x}$ near $x$
+  \[ \left( \frac{Q_+^{\mu} - Q_-^{\mu}}{\Gamma ((\mu + 2) / 2)} \right)
+     (\psi_b (\tilde{x})) = - \frac{1}{| c_b (\tilde{x}) |^{\mu}} \left(
+     \frac{Q_+^{\mu} - Q_-^{\mu}}{\Gamma ((\mu + 2) / 2)} \right) (\tilde{x})
+  \]
+\end{lemma}
+
+\begin{proof}
+  Lemma \ref{supp-Q:lem-flip} gives us $b$ such that $b_p = 0$ and $c_b (x) <
+  0$, and since the latter inequality is strict, it also holds for $\tilde{x}$
+  near $x$. When seen as distributions on $\mathbbm{R}^{p, q} \backslash \{ 0
+  \}$, both sides are holomorphic in $\mu \in \mathbbm{C}$, thus it suffices
+  to show the equality for $\tmop{Re} (\mu) \gg 0$. Thus, we can forget about
+  gamma-multipliers.
+  
+  Observe that $Q (\psi_b (\tilde{x})) = Q (\tilde{x}) / c_b (\tilde{x})
+  \nocomma$, hence $| Q |^{\mu} (\psi_b (\tilde{x})) = | Q |^{\mu} (\tilde{x})
+  / | c_b (\tilde{x}) |^{\mu} \nocomma$. For $\tilde{x} \in \{ Q = 0 \}$ the
+  statement then holds trivially, as both sides vanish. When $\tilde{x} \in \{
+  Q > 0 \}$ we have $\psi_b (\tilde{x}) \in \{ Q < 0 \}$ by the observation
+  above, hence the right-hand side being equal to $- | Q |^{\mu}
+  (\tilde{x}) / | c_b (\tilde{x}) |^{\mu}$, while left-hand side equals to $-
+  | Q |^{\mu} (\psi_b (\tilde{x}))$ and the observation above grants the
+  desired conclusion. Similarly, case $\tilde{x} \in \{ Q < 0 \}$ is handled.
+\end{proof}
+
+\begin{lemma}
+  \label{lem:sing-q-7}With $K_{\lambda, \nu}^{(p)} \in \mathcal{D}' (\{ x \neq
+  0 \} \cap \{ y \neq 0 \})$ as in lemma \ref{lem:sing-q-6}, we have for $\nu
+  \in 2\mathbbm{Z}_{> 0}$ that $K_{\lambda, \nu}^{(p)}$ is not
+  $N_+'$-invariant.
+\end{lemma}
+
+\begin{proof}
+  We note that for $f_{\mu}^m \in \mathcal{D}' (\mathbbm{R}^m \backslash \{ 0
+  \})$ as in lemma \ref{lem:sing-q-6}, we have product of distributions
+  $(f_{\lambda + \nu - n}^p (x_p) \otimes 1_{\{ y \neq 0 \}}) \cdot
+  \delta^{(\nu - 1)} (Q) \in \mathcal{D}' (\{ x \neq 0 \} \cap \{ y \neq 0
+  \})$ being proportional to $K_{\lambda, \nu}^{(p)}$ by lemmas
+  \ref{KR-normalization-recur:lem-mult-comm-pull} and
+  \ref{KR-normalization-recur:lem-mult-distrib-tensor}. Then, it suffices to
+  prove the statement for $(f_{\lambda + \nu - n}^p (x_p) \otimes 1_{\{ y \neq
+  0 \}}) \cdot \delta^{(\nu - 1)} (Q)$, which we'll call $G$ (or $G_{\lambda,
+  \nu}$) for brevity till the end of the proof. First we can fix $\nu \in
+  2\mathbbm{Z}_{> 0}$ and assume that $\tmop{Re} (\lambda) \gg 0$ and thus
+  ignore the $\Gamma (\cdot)$-multiple in $f_{\lambda + \nu - n}^p$, if it was
+  there.
+  
+  The residue information obtained in {\cite[ch. III, sec
+  2.2]{gelfand1980distribution}} tells us that restricted to $\R^{p, q}
+  \setminus \{ 0 \}$ we have
+  \[ \delta^{(2 k - 1)} (Q) = \frac{Q_+^{- \mu} - Q_-^{- \mu}}{\Gamma \left(
+     \frac{- \mu + 2}{2} \right)} \mid_{\mu = 2 k}, \quad k \in \Z_{> 0}
+  \]
+  
+  
+  and right hand side is holomorphic in $\mu \in \mathbbm{C}$. Hence lemma
+  similar to \ref{supp-n-waves:lem-|x|-holo-in} for $x_+^{\mu} - x_-^{\mu}$ in
+  place of $| x |^{\mu}$ and lemmas
+  \ref{holomorphicity-preserving:prop-pullback-holo} and
+  \ref{holomorphicity-preserving:prop-tensor-holo} tell us that
+  \[ G_{\lambda, \nu} = \lim_{\mu \to \nu = 2 k}  \frac{(Q_+^{- \mu} -
+     Q_-^{- \mu}) | x_p |^{\lambda + \mu - n}}{\Gamma \left( \frac{- \mu +
+     2}{2} \right)}, \quad k \in \Z_{> 0} . \]
+  Thus we can call distribution under the last limit as $G_{\lambda, \mu}$ ,
+  allowing $\mu \in \mathbbm{C}$.
+  
+  Now, we fix arbitrary $x \in \{ x \neq 0 \} \cap \{ y \neq 0 \}$ with $Q (x)
+  \neq 0$. Lemma \ref{supp-Q:lem-sing-q-7-aux} gives us $b \in \mathbbm{R}^{p,
+  q}$ with $b_p = 0$ for this $x$. As $x$ and $x - Q (x) b$ have the same
+  $p$-th coordinate, conclusion of lemma \ref{supp-Q:lem-sing-q-7-aux} tells
+  us that
+  \[ G_{\lambda, \mu} (\psi_b (\tilde{x})) = - | c_b (\tilde{x}) |^{- (\lambda
+     - n)} G_{\lambda, \mu} (\tilde{x}) \]
+  holding for $\tilde{x}$ near $x$. Now, as both sides are holomorphic, we can
+  take the $\mu \rightarrow \nu = 2 k \in 2\mathbbm{Z}_{> 0}$ limit to get
+  \[ G_{\lambda, \nu} (\psi_b (\tilde{x})) = - | c_b (\tilde{x}) |^{- (\lambda
+     - n)} G_{\lambda, \nu} (\tilde{x}) \]
+  Furthermore, by analytic continuation this relation also holds for all
+  $\lambda \in \mathbbm{C}$. Finally, assuming (in order to get a
+  contradiction) that $G_{\lambda, \nu}$ is $N_+'$-invariant, we should have
+  as well that
+  \[ G_{\lambda, \nu} (\psi_b (\tilde{x})) = | 1 - 2 Q (b, \tilde{x}) + Q
+     (\tilde{x}) Q (b) |^{- (\lambda - n)} G_{\lambda, \nu} (\tilde{x}) \]
+  and together the latter two equalities imply that $G_{\lambda, \nu}
+  (\tilde{x}) = 0$ near $x \in \{ Q = 0 \}$.
+  
+  To reach the contradiction it suffices now to show that $G_{\lambda, \nu}$
+  is supported at least on $\{ Q = 0 \} \cap \{ x_p = 0 \}$ for $p > 1$ and at
+  least on $\{ Q = 0 \}$ when $p = 1$. Now, the latter is implied by lemma
+  \ref{supp-n-waves:lem-at-least} and the fact that for $p = 1$
+  $(\mathbbm{R}^n \backslash \{ 0 \}) \cap \{ Q = 0 \} \subset \{ x_p \neq 0
+  \}$ and $| x_p |^{\lambda + \nu - n}$ is smooth nonvanishing on this set. In
+  turn, the former is implied for $(\lambda, \nu) \nin \backslash\backslash$
+  by lemmas \ref{supp-n-waves:lem-at-least} and
+  \ref{supp-n-waves:lem-supp-xp}, and for $(\lambda, \nu) \in
+  \backslash\backslash$ by an argument similar to that of lemma
+  \ref{supp-R:lem-supp-of-K}.
+\end{proof}
+
+\begin{lemma}
+  \label{supp-Q:lem-operator}For $F \in \mathcal{S} \tmop{ol} (\{ (x, y) \in
+  \R^{p, q} |x \neq 0, \hspace{0.75em} y \neq 0\}; \lambda, \nu)$ when
+  transfering to $(\mu, s, \omega_{p - 1}, \omega_{q - 1})$ coordinates (with
+  domain $(\mu, s, \omega_{p - 1}, \omega_{q - 1}) \in \mathbbm{R}_{> 0}^2
+  \times \mathbbm{S}^{p - 1} \times \mathbbm{S}^{q - 1}$ and related to $(x,
+  y) \in \{ (x, y) \in \R^{p, q} |x \neq 0, \hspace{0.75em} y \neq 0\}$ via $x
+  = \sqrt{s} \omega_{p - 1}, y = \sqrt{\mu s} \omega_{q - 1}$) we have
+  \[ \mysbra{\nu + (\mu - 1)  \frac{\partial}{\partial \mu}} F = 0. \]
+\end{lemma}
+
+\begin{proof}
+  As $F \in \mathcal{S} \tmop{ol} (\{ (x, y) \in \R^{p, q} |x \neq 0,
+  \hspace{0.75em} y \neq 0\}; \lambda, \nu)$, this in particular implies
+  $N_+'$-invariance, hence equations (\ref{Ndiff}). Writing elements of
+  $\R^{p, q}$ as $(x, y)$ the last $q$ of these equations get written as
+  \[ \left[ - 2 \nu y_j + (| x |^2 - | y |^2) \frac{\partial}{\partial y_j}
+     \right] F = 0, \quad 1 \leq j \leq q \]
+  In turn, in bipolar coordinates $(x, y) = (r_1 \omega_{p - 1}, r_2 \omega_{q
+  - 1})$, where $\partial y_j / \partial r = y_j / r_2$ these get written as
+  \[ \mysbra{- 2 \nu \frac{y_j^2}{r_2} + (r_1^2 - r_2^2)  \frac{\partial
+     y_j}{\partial r_2}  \frac{\partial}{\partial y_j}} F = 0, \quad 1 \leq j
+     \leq q \]
+  and summing these up and writing in $(\mu, s, \omega_{p - 1}, \omega_{q -
+  1})$ we get
+  \[ \mysbra{\nu + (\mu - 1)  \frac{\partial}{\partial \mu}} F = 0 \]
+  and this ends the proof.
+\end{proof}
+
+\subsection{Proofs}
+
+\begin{proof}
+  (of prop. \ref{sol-MO:prop-solCnonzero}) The case $(\lambda, \nu) \nin \mid
+  \mid$ is readily handled by lemma \ref{uniq-c:lem-generic}, so we assume the
+  contrary in subsequent. Now, lemma \ref{supp-R:lem-supp-of-K} readily grants
+  the $\supseteq$ part. Therefore, it suffices to show that $\dim (\mathcal{S}
+  \tmop{ol}_C (\mathbbm{R}^n - \{ 0 \} ; \lambda, \nu)) \leqslant 1$. In the
+  light of lemma \ref{lem:sing-q-3} and remark after the definition
+  \ref{n-nonequiv:def-solprime}, it suffices to show that
+  \[ \dim (\mathcal{S} \tmop{ol}_C' (\{ x \neq 0, y \neq 0 \} ; \lambda,
+     \nu)) \leqslant 1. \]
+  As the latter is readily granted by lemma \ref{lem:sing-q-6}, we are done.
+\end{proof}
+
+\section{Determination of $\mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda,\nu)$ (B14)}\label{sec:sol-MO}
+
+
+In this section we explicitly determine the space $\mathcal{S} \tmop{ol}
+(\mathbbm{R}^n ; \lambda, \nu)$ for every $(\lambda, \nu) \in \mathbbm{C}^2$.
+
+\subsection{Main results}
+
+\begin{proposition}
+  \label{sol-MO:prop-solonnonzero}We have
+  \begin{eqnarray}
+    & \mathcal{S} \tmop{ol} (\mathbbm{R}^n - \{ 0 \} ; \lambda, \nu) =
+    \left\{ \begin{array}{ll}
+      \mathbbm{C} | Q |^{- \nu} \delta^{(2 k)} (x_p) \oplus \mathbbm{C} | x_p
+      |^{\lambda + \nu - n} \delta^{(\nu - 1)} (Q), & p = 1, \; (\lambda, \nu)
+      \in \mid \mid \cap \backslash\backslash, k : = - \frac{\lambda + \nu - n
+      + 1}{2}\\
+      \mathbbm{C} \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left(
+      \frac{\lambda + \nu - n + 1}{2} \right)} \cdot \frac{| Q |^{-
+      \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)}, & \tmop{otherwise}
+    \end{array} \right. &  \nonumber
+  \end{eqnarray}
+\end{proposition}
+
+\begin{proposition}
+  \label{sol-MO:prop-main}For $p = 1$ we have
+  \[ \mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda, \nu) = \left\{
+     \begin{array}{ll}
+       \tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}, & (\lambda, \nu) \in
+       \mathbbm{C}^2 - (/ / \cap \mid \mid \mid) - (| | \cap
+       \backslash\backslash)\\
+       \widetilde{\tilde{K}}_{\lambda, \nu}^{\mathbbm{R}^n} \oplus
+       \tilde{K}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in (/ / \cap \mid
+       \mid \mid) - (| | \cap \backslash\backslash)\\
+       \tilde{K}_{\lambda, \nu}^P \oplus \tilde{K}_{\lambda, \nu}^C, &
+       (\lambda, \nu) \in (| | \cap \backslash\backslash) - / /\\
+       \tilde{K}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid
+       \mid \cap \backslash\backslash \cap / /
+     \end{array} \right. \]
+  whereas for $p > 1$ we have
+  \[ \mathcal{S} \tmop{ol} (\mathbbm{R}^n ; \lambda \comma \nu) = \left\{
+     \begin{array}{ll}
+       \widetilde{\tilde{K}}_{\lambda, \nu}^{\mathbbm{R}^n} \oplus
+       \tilde{K}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in / / \cap \mid
+       \mid \mid,\\
+       \tilde{K}^{\mathbbm{R}^n}_{\lambda, \nu}, & \tmop{otherwise}
+     \end{array} \right. \]
+\end{proposition}
+
+\subsection{Auxiliary results}
+
+\begin{lemma}
+  \label{sol-MO:lem-E2}Suppose $\{ 0 \} \in O \subset \mathbbm{R}^n$ is open
+  and $M$ a manifold. Suppose further that for $f \in \mathcal{D}' (O \times
+  M)$ we have $f$ supported inside $\{ 0 \} \times M$ and let $E = \sum x_i
+  \frac{\partial}{\partial x_i}$ be an Euler operator on $\mathbbm{R}^n$ and
+  $a \in \mathbbm{C}$. Then we have
+  \[ (E - a)^2 f = 0 \Rightarrow (E - a) f = 0 \]
+\end{lemma}
+
+\begin{remark}
+  This is a straightforward generalization of {\cite[lem.
+  11.11]{kobayashi2015symmetry}} with proof done essentially in the same way.
+\end{remark}
+
+\begin{proof}
+  As fact \ref{fact:sing-q-3} (together with the localization argument by fact
+  \ref{fact:localization}) implies,
+  \[ f = \sum_{\alpha} \delta^{(\alpha)} \otimes f_{\alpha}, \; f_{\alpha} \in
+     \mathcal{D}' (M) . \]
+  and hence
+  \[ (E - a)^2 f = \sum_{\alpha} \delta^{(\alpha)} \otimes (| \alpha |^{} -
+     a)^2 f_{\alpha} = 0 \]
+  hence $\forall \alpha, \; (| \alpha |^{} - a)^2 f_{\alpha} = 0$. Now, for
+  every fixed $\alpha$ the latter implies that either $(| \alpha | - a) = 0$
+  or $f_{\alpha} = 0$, hence in any case $(| \alpha |^{} - a)^{} f_{\alpha} =
+  0$ and thus $(E - a) f = 0$.
+\end{proof}
+
+\begin{lemma}
+  \label{sol-MO:lem-zeromap-point}Suppose $S \subset \mathbbm{R}^n$ is closed
+  such that $\dim (\mathcal{S} \tmop{ol}_S (\mathbbm{R}^{p, q} \backslash \{ 0
+  \} ; \lambda, \nu)) \leqslant 1$. Suppose further $0 \in \Omega \subset
+  \mathbbm{C}$ is an open set with $\lambda (\cdot), \nu (\cdot)$ holomorphic
+  on $\Omega$ and such that $\lambda (\mu) - \nu (\mu) - \mu = \tmop{const}$
+  on $\Omega$. Suppose further that $K^{(\mu)} \in \mathcal{S} \tmop{ol}_S
+  (\mathbbm{R}^{p, q} ; \lambda (\mu), \nu (\mu))$, $K^{(0)}$ is supported
+  at $\{ 0 \}$ and $(d / d \mu) \mid_{\mu = 0} K^{(\mu)}$ is supported
+  at closed subset bigger than $\{ 0 \}$.
+  
+  Then, the restriction map $\mathcal{S} \tmop{ol}_S (\mathbbm{R}^{p, q} ;
+  \lambda (0), \nu (0)) \rightarrow \mathcal{S} \tmop{ol}_S (\mathbbm{R}^{p,
+  q} \backslash \{ 0 \} ; \lambda (0), \nu (0))$ is a zero map.
+\end{lemma}
+
+\begin{remark}
+  This is essentially a slight generalization of {\cite[lemma
+  11.8]{kobayashi2015symmetry}} with tecnhique of proof being exactly the
+  same.
+\end{remark}
+
+\begin{proof}
+  Indeed, suppose $F \in \mathcal{S} \tmop{ol}_S (\mathbbm{R}^{p, q} ; \lambda
+  (0), \nu (0))$. We will show that $F \mid_{\mathbbm{R}^n \backslash \{ 0
+  \}} = 0$. Indeed, we first note that expanding $K^{(\mu)}$ in Taylor
+  series near $\mu = 0$ we have
+  \[ K^{(\mu)} = K_0 + \mu \cdot K_1 + \mu^2 \cdot K_2 + \ldots \]
+  and the hypothesis now implies that $K_0$ is supported at $\{ 0 \}$ and $K_1
+  \mid_{\mathbbm{R}^n \backslash \{ 0 \}} \neq 0$.
+  
+  We also note that $K_1 \in \mathcal{S} \tmop{ol}_S (\mathbbm{R}^n
+  \backslash \{ 0 \} ; \lambda, \nu)$, as $F^{(\mu)} \assign K^{(\mu)} / \mu
+  \mid_{\mathbbm{R}^n \backslash \{ 0 \}} \in \mathcal{S} \tmop{ol}_S
+  (\mathbbm{R}^{p, q} \backslash \{ 0 \} ; \lambda (\mu), \nu (\mu))$ for $\mu
+  \neq 0$ and as $F^{(0)} = K_1$ and $F^{(\mu)}$ is holomorphic at $\mu = 0$,
+  proposition \ref{sol:prop-holocont} implies that $K_1 \in \mathcal{S}
+  \tmop{ol} (\mathbbm{R}^n \backslash \{ 0 \} ; \lambda, \nu)$. The fact
+  that $K_1$ vanishes outside $S$ follows by continuity.
+  
+  Now, as $\dim (\mathcal{S} \tmop{ol}_S (\mathbbm{R}^{p, q} \backslash \{ 0
+  \} ; \lambda, \nu)) \leqslant 1$ we should have
+  \[ F \mid_{\mathbbm{R}^n \backslash \{ 0 \}} = c \cdot K_1
+     \mid_{\mathbbm{R}^n \backslash \{ 0 \}} \]
+  and it suffices to show that $c = 0$.
+  
+  Next, hypothesis $\lambda (\mu) + \nu (\mu) - \mu = \tmop{const}$ implies
+  that for some $a \in \mathbbm{C}$ we have $\lambda (\mu) - \nu (\mu) - n = a
+  + \mu$ and as member of $\mathcal{S} \tmop{ol}_S (\mathbbm{R}^n ; \lambda,
+  \nu)$ should be homogeneous of degree $\lambda + \nu - n$, we should have
+  \[ (E - a) K^{(\mu)} = \mu \cdot K^{(\mu)}, \]
+  and therefore by {\cite[lem. 11.10]{kobayashi2015symmetry}}, we have
+  \[ (E - a) K_0 = 0, \qquad (E - a) K_1 = K_0 . \]
+  Moreover, as $F \in \mathcal{S} \tmop{ol}_S (\mathbbm{R}^{p, q} ; \lambda
+  (0), \nu (0))$ by assumption, we should have $(E - a) F = 0$.
+  
+  Now, for $h \assign F - c \cdot K_1$ supported inside $\{ 0 \}$ distribution
+  we should have $(E - a)^2 h = 0$, hence lemma \ref{sol-MO:lem-E2} implies
+  that $(E - a) h = 0$ and therefore $0 = (E - a) F = c (E - a) K_1 = c \cdot
+  K_0$, hence $c = 0$.
+\end{proof}
+
+\begin{lemma}
+  \label{sol-MO:lem-zeromap}For exact sequence
+  \[ 0 \rightarrow \mathcal{S} \tmop{ol}_C (\mathbbm{R}^n - \{ 0 \} ; \lambda,
+     \nu) \rightarrow \mathcal{S} \tmop{ol} (\mathbbm{R}^n - \{ 0 \} ;
+     \lambda, \nu) \xrightarrow{\pi} \mathcal{S} \tmop{ol} (\mathbbm{R}^n - C
+     ; \lambda, \nu) \]
+  and when
+  \begin{eqnarray}
+    & (\lambda, \nu) \in \left\{ \begin{array}{ll}
+      \mid \mid, & p > 1\\
+      \mid \mid \um \backslash\backslash, & p = 1
+    \end{array} \right. &  \nonumber
+  \end{eqnarray}
+  with $\mid \mid$ and $\backslash\backslash$ as in proposition
+  \ref{sol-MO:prop-solonnonzero}, we have $\pi = 0$.
+\end{lemma}
+
+\begin{proof}
+  We assume
+  \[ (\lambda_0, \nu_0) \in \left\{ \begin{array}{ll}
+       \mid \mid, & p > 1\\
+       \mid \mid \um \backslash\backslash, & p = 1
+     \end{array} \right. \]
+  and let
+  \[ K^{(\nu)} \assign \frac{| x_p |^{\lambda_0 + \nu - n}}{\Gamma \left(
+     \frac{\lambda_0 + \nu - n + 1}{2} \right)} \cdot \frac{| Q |^{-
+     \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S} \tmop{ol}
+     (\mathbbm{R}^n - \{ 0 \} ; \lambda_0, \nu) . \]
+  Now, if we write the Taylor expansion $K^{(\nu)} = K_0 + (\nu - \nu_0)
+  K_1 + (\nu - \nu_0)^2 K_2 + \ldots$, the hypothesis together with lemma
+  \ref{supp-R:lem-supp-of-K} imply that $K_0 \neq 0$ is supported within $\{ Q
+  = 0 \}$. Moreover, considering $K^{(\nu)} \mid_{\{ Q \neq 0 \}} / (\nu -
+  \nu_0)$ which is holomorphic at $\nu_0$, we note that $K_1 \mid_{\{ Q
+  \neq 0 \}} \in \mathcal{S} \tmop{ol} (\{ Q \neq 0 \} ; \lambda_0, \nu_0)$
+  and is nonzero (the latter follows, since we notice that $K_1 \mid_{\{ Q
+  \neq 0 \}}$ is nonzero multiple of $\frac{| x_p |^{\lambda_0 + \nu_0 -
+  n}}{\Gamma \left( \frac{\lambda_0 + \nu_0 - n + 1}{2} \right)} \cdot | Q
+  |^{- \nu_0} \mid_{\{ Q \neq 0 \}}$, which is nonzero).
+  
+  Now, we assume that $F \in \mathcal{S} \tmop{ol} (\mathbbm{R}^n \backslash
+  \{ 0 \} ; \lambda_0, \nu_0)$ and show that $F \mid_{\{ Q \neq 0 \}}$=0,
+  this will be sufficient to end the proof. As $\mathcal{S} \tmop{ol} (\{ Q
+  \neq 0 \} ; \lambda_0, \nu_0)$ is at most-one dimensional (by proposition
+  \ref{lem67:prop-67}) and $0 \neq K_1 \mid_{\{ Q \neq 0 \}} \in
+  \mathcal{S} \tmop{ol} (\{ Q \neq 0 \} ; \lambda_0, \nu_0)$, we have $K_1
+  \mid_{\{ Q \neq 0 \}} = c \cdot F \mid_{\{ Q \neq 0 \}}$ and it now
+  suffices to show that $c = 0$.
+  
+  We now let $U \assign \{ (x, y) \in \mathbbm{R}^{p, q} | x \neq 0, y \neq 0
+  \}$, $k^{(\nu)} \assign K^{(\nu)} \mid_U \in \mathcal{S} \tmop{ol} (U ;
+  \lambda_0, \nu)$ with corresponding Taylor expansion $k^{(\nu)} = k_0 + (\nu
+  - \nu_0) k_1 + \ldots$ with $k_i = K_i \mid_U$, and $f \assign F
+  \mid_U \in \mathcal{S} \tmop{ol} (U ; \lambda_0, \nu_0)$. The above
+  implies that $c \cdot k_1 \mid_{\{ Q \neq 0 \}} = f \mid_{\{ Q \neq
+  0 \}}$. We also note that as $\mathcal{D}' (\mathbbm{R}^n \backslash \{ 0
+  \}) \ni K_0 \neq 0$ and supported within $\{ Q = 0 \}$, we have $k_0 \neq 0$
+  (as $\{ Q = 0 \}$ and $\mathbbm{R}^p \times \{ 0 \} \cup \{ 0 \} \times
+  \mathbbm{R}^q$ are closed and disjoint inside $\mathbbm{R}^n \backslash \{ 0
+  \}$). Now, lemma \ref{supp-Q:lem-operator} implies that (passing to $(\mu,
+  s, \omega_{p - 1}, \omega_{q - 1})$ coordinates) we have $\left[ \nu_0 -
+  (\mu - 1) \frac{\partial}{\partial \mu} \right] F = 0$ and $\left[ \nu -
+  (\mu - 1) \frac{\partial}{\partial \mu} \right] k^{(\nu)} = 0$. Moreover,
+  the latter and {\cite[lem. 11.10]{kobayashi2015symmetry}} imply than that
+  \[ \left[ \nu_0 - (\mu - 1) \frac{\partial}{\partial \mu} \right] k_0 = 0,
+     \quad \left[ \nu_0 - (\mu - 1) \frac{\partial}{\partial \mu} \right] k_1
+     + k_0 = 0. \]
+  Now, we have $h \assign F_0 - c K_1 \in \mathcal{D}' (U)$ being supported
+  inside $\{ Q = 0 \}$ and moreover that $\left[ \nu_0 - (\mu - 1)
+  \frac{\partial}{\partial \mu} \right]^2 h = 0$. Hence, lemma
+  \ref{sol-MO:lem-E2} implies that $\left[ \nu_0 - (\mu - 1)
+  \frac{\partial}{\partial \mu} \right]^{} h = 0$ and thus $c \left[ \nu_0 -
+  (\mu - 1) \frac{\partial}{\partial \mu} \right] k_1 = c k_1 = 0$ and as $k_1
+  \neq 0$, this implies that $c = 0$ and we are done.
+\end{proof}
+
+\subsection{Proofs}
+
+\begin{proof}
+  (of prop. \ref{sol-MO:prop-solonnonzero}) First of all, we recall that we
+  have an exact sequence
+  \[ 0 \rightarrow \mathcal{S} \tmop{ol}_C (\mathbbm{R}^n - \{ 0 \})
+     \rightarrow \mathcal{S} \tmop{ol} (\mathbbm{R}^n - \{ 0 \})
+     \xrightarrow{\pi} \mathcal{S} \tmop{ol} (\mathbbm{R}^n - C) \]
+  and propositions \ref{sol-MO:prop-solCnonzero} and \ref{lem67:prop-67}
+  respectively tell us that
+  \begin{eqnarray}
+    & \mathcal{S} \tmop{ol}_C (\mathbbm{R}^{p, q} \backslash \{ 0 \} ;
+    \lambda, \nu) =\mathbbm{C} \left\{ \begin{array}{ll}
+      \delta^{(\nu - 1)} (Q) \cdot | x_p |^{\lambda + \nu - n}, & p = 1, \nu
+      \in 2\mathbbm{Z}_{\geqslant 0} + 1\\
+      \delta^{(\nu - 1)} (Q) \cdot \frac{| x_p |^{\lambda + \nu - n}}{\Gamma
+      ((\lambda + \nu - n + 1) / 2)}, & p > 1, \nu \in 2\mathbbm{Z}_{\geqslant
+      0} + 1\\
+      0, & \nu \nin 2\mathbbm{Z}_{\geqslant 0} + 1
+    \end{array} \right. &  \nonumber\\
+    & \mathcal{S} \tmop{ol} (\mathbbm{R}^n - C ; \lambda, \nu) =\mathbbm{C} |
+    Q |^{- \nu} \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda
+    + \nu - n + 1}{2} \right)}, &  \nonumber
+  \end{eqnarray}
+  and so the thing is to know whether $\pi$ is onto or zero map for given
+  $(\lambda, \nu) \in \mathbbm{C}^2$. Now, as we have (see proof of prop.
+  \ref{supp-R:prop-main})
+  \[ \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n
+     + 1}{2} \right)} \cdot \frac{| Q |^{- \nu}}{\Gamma \left( \frac{1 -
+     \nu}{2} \right)} \in \mathcal{S} \tmop{ol} (\mathbbm{R}^n - \{ 0 \} ;
+     \lambda, \nu), \]
+  it is clear that $\pi$ is onto for $(\lambda, \nu) \nin \mid \mid$ and this
+  gives the part of an answer. Moreover, if $p = 1$, we have lemma
+  \ref{supp-sing:lem-strangeelement} (more specifically, the distribution $| Q
+  |^{- \nu} \frac{| x_p |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda +
+  \nu - n + 1}{2} \right)}$ constructed in it) giving us that $\pi$ is onto as
+  well when $(\lambda, \nu) \in \mid \mid \cap \backslash\backslash$. On the
+  other hand, for other cases lemma \ref{sol-MO:lem-zeromap} tells us that
+  $\pi = 0$ and this ends the proof.
+\end{proof}
+
+\begin{proof}
+  (of prop. \ref{sol-MO:prop-main}) We employ an exact sequence
+  \[ 0 \rightarrow \mathcal{S} \tmop{ol}_{\{ 0 \}} (\mathbbm{R}^n) \rightarrow
+     \mathcal{S} \tmop{ol} (\mathbbm{R}^n) \xrightarrow{\pi} \mathcal{S}
+     \tmop{ol} (\mathbbm{R}^n \um \{ 0 \}) \]
+  and again as $\mathcal{S} \tmop{ol}_{\{ 0 \}} (\mathbbm{R}^n)$ and
+  $\mathcal{S} \tmop{ol} (\mathbbm{R}^n \um \{ 0 \})$ are explicitly
+  determined by propositions \ref{diffSBO:prop-main} and
+  \ref{sol-MO:prop-solonnonzero} respectively, the thing is to know what is
+  the image of $\pi$ for given $(\lambda, \nu) \in \mathbbm{C}^2$.
+  
+  We first consider the $p > 1$ case, when $\mathcal{S} \tmop{ol}
+  (\mathbbm{R}^n - \{ 0 \} ; \lambda, \nu)$ is spanned by an element $\frac{|
+  x_p |^{\lambda + \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2}
+  \right)} \cdot \frac{| Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2}
+  \right)}$. For $(\lambda, \nu) \nin / /$ we have $\pi$ being onto, as the
+  image of $\tilde{K}_{\lambda, \nu}^{\mathbbm{R}^n}$ covers the generating
+  elements of $\mathcal{S} \tmop{ol} (\mathbbm{R}^n - \{ 0 \} ; \lambda,
+  \nu)$. Now, for $(\lambda_0, \nu_0) \in / /$ with $\nu_0 \nin L$ we have
+  $\tilde{K}_{\lambda_0, \nu_0}^{\mathbbm{R}^n}$ being nonzero and supported
+  at $\{ 0 \}$ (hence it is a multiple of $\tilde{K}_{\lambda, \nu}^{\{ 0
+  \}}$) and if we let $K_{\lambda} \assign \tilde{K}_{\lambda,
+  \nu_0}^{\mathbbm{R}^n}$, we have that it satisfies the hypothesis of lemma
+  \ref{sol-MO:lem-zeromap-point} with $S =\mathbbm{R}^n$ (in particular, the
+  part about the support of the derivative is granted by lemma
+  \ref{supp-R:lem-supp-of-K}) and hence $\pi = 0$ in this case. Finally, if
+  $(\lambda_0, \nu_0) \in / /$ and $\nu_0 \in L$, the element $K_{\lambda}
+  \assign \widetilde{\tilde{K}}_{\lambda, \nu_0}^{\mathbbm{R}^n}$ has its
+  image covering generator of $\mathcal{S} \tmop{ol} (\mathbbm{R}^n \um \{ 0
+  \})$.
+  
+  We now turn to $p = 1$ case. First of all, for $(\lambda, \nu) \in / / \cup
+  (| | \cap \backslash\backslash)$ we have $\tilde{K}_{\lambda,
+  \nu}^{\mathbbm{R}^n}$ being nonzero and $\mathcal{S} \tmop{ol}
+  (\mathbbm{R}^n - \{ 0 \} ; \lambda \comma \nu)$ is one-dimensional, and we
+  see that $\pi$ is onto in this case. Similaly, we have $\pi$ being onto for
+  $(\lambda, \nu) \in (/ / \cap L) - (| | \cap \backslash\backslash)$ (this
+  time however, the generator of $\mathcal{S} \tmop{ol} (\mathbbm{R}^n - \{ 0
+  \} ; \lambda \comma \nu)$ is covered not by $\tilde{K}_{\lambda,
+  \nu}^{\mathbbm{R}^n}$, but by $\widetilde{\tilde{K}}_{\lambda,
+  \nu}^{\mathbbm{R}^n}$). \ Next, for $(\lambda, \nu) \in / / - L - (\mid
+  \mid \cap \backslash\backslash)$ we have $\pi = 0$ by lemma
+  \ref{sol-MO:lem-zeromap-point} (applied to $K_{\mu} = \tilde{K}_{\mu,
+  \nu}^{\mathbbm{R}^n}$). This gives the first two rows of an answer for $p =
+  2$ given in the statement.
+  
+  We next consider the case $(\lambda, \nu) \in (| | \cap
+  \backslash\backslash) - / /$. Propositions \ref{supp-sing:prop-supp-Y} and
+  \ref{supp-sing:prop-supp-C} tell us that $\tilde{K}_{\lambda, \nu}^Y$ and
+  $\tilde{K}_{\lambda, \nu}^C$ are both nonzero and their respective images
+  under $\pi$ cover the two generators of $\mathcal{S} \tmop{ol}
+  (\mathbbm{R}^n - \{ 0 \} ; \lambda, \nu)$ listed in proposition
+  \ref{sol-MO:prop-solonnonzero}. Hence, $\pi$ is onto in this case. Finally,
+  let us assume that $(\lambda_0, \nu_0) \in \mid \mid \cap
+  \backslash\backslash \cap / /$. As the latter set is nonempty only when $q
+  \in 2\mathbbm{Z}$, we may assume it is so in subsequent. In this case
+  $\tilde{K}_{\lambda, \nu}^P$ and $\tilde{K}_{\lambda, \nu}^C$ are both
+  nonzero and supported at $\{ 0 \}$. We can introduce linear maps $\lambda,
+  \lambda', \nu, \nu' : \mathbbm{C} \rightarrow \mathbbm{C}$ such that for any
+  $\mu \in \mathbbm{C}$, we have $(\lambda (\mu), \nu (\mu)) \in \mid
+  \mid$, $(\lambda' (\mu), \nu' (\mu)) \in \backslash\backslash$ and
+  $(\lambda (0), \nu (0)) = (\lambda' (0), \nu' (0)) = (\lambda_0, \nu_0)$.
+  We then let $K^C_{(\mu)} \assign \tilde{K}_{\lambda (\mu), \nu (\mu)}^C$ and
+  $K^P_{(\mu)} \assign \tilde{K}^P_{\lambda' (\mu), \nu' (\mu)}$ and introduce
+  the Taylor series expansions
+  \[ K^C_{(\mu)} = K^C_0 + \mu K_1^C + \ldots, \qquad K^P_{(\mu)} = K_0^P +
+     \mu K_1^P + \ldots \]
+  It can be seen (inspecting the way we defined $K_{\lambda, \nu}^C$ and
+  $K_{\lambda, \nu}^P$ and normalized them) that $K_1^C$ and $K_1^P$ have
+  their supports equal to $C$ and $P$ (hence, linear independent) respectively
+  and their restrictions to $\mathbbm{R}^n - \{ 0 \}$ are elements of
+  $\mathcal{S} \tmop{ol} (\mathbbm{R}^n - \{ 0 \} ; \lambda_0, \nu_0)$, hence
+  they span $\mathcal{S} \tmop{ol} (\mathbbm{R}^n - \{ 0 \} ; \lambda_0,
+  \nu_0)$. We claim that $\pi = 0$. Indeed, suppose $F \in \mathcal{S}
+  \tmop{ol} (\mathbbm{R}^n ; \lambda_0, \nu_0)$. We then have $F
+  \mid_{\mathbbm{R}^n - \{ 0 \}} = a K_1^C \mid_{\mathbbm{R}^n - \{ 0
+  \}} + b K_1^P \mid_{\mathbbm{R}^n - \{ 0 \}}$ for some $(a, b) \in
+  \mathbbm{C}^2$ and then the proof of lemma \ref{sol-MO:lem-zeromap-point}
+  goes through (with $K_{\mu} \assign a K_{(\mu)}^C + b K^P_{(\mu)}$) to show
+  that $F \mid_{\mathbbm{R}^n - \{ 0 \}} = 0$. Since $F$ was arbitrary, we
+  are done.
+\end{proof}
+\bibliographystyle{alpha}
+\bibliography{todai_master}
+\end{document}

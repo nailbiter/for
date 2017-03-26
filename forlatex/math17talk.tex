@@ -1,10 +1,11 @@
+%japanese
 % !TEX TS-program = pdflatex
 % !TEX encoding = UTF-8 Unicode
 
 % This is a simple template for a LaTeX document using the "article" class.
 % See "book", "report", "letter" for other types of document.
 
-\documentclass[11pt]{article} % use larger type; default would be 10pt
+\documentclass[12pt]{article} % use larger type; default would be 10pt
 
 \usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
 
@@ -24,6 +25,8 @@
 % \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 
 %%% PACKAGES
+\usepackage{ulem}
+\usepackage{setspace}
 \usepackage{booktabs} % for much better looking tables
 \usepackage{array} % for better arrays (eg matrices) in maths
 \usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
@@ -33,7 +36,12 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{xeCJK}
-\setCJKmainfont[AutoFakeBold=true]{MS PGothic}
+\usepackage{ruby}
+\renewcommand\rubysep{-5ex}
+
+%CJK font
+%\setCJKmainfont[AutoFakeBold=true]{MS PGothic}
+\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro}
 % These packages are all incorporated in the memoir class to one degree or another...
 
 %%% HEADERS & FOOTERS
@@ -55,14 +63,20 @@
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
 
 %%%my commands
-\newcommand{\slide}[1]{\noindent$\backslash\backslash$[#1]\\}
+\newcounter{framecount}
+\newcommand{\slide}{\noindent\stepcounter{framecount}$\backslash\backslash$[\arabic{framecount}]\\}
 \newcommand{\mytime}[1]{\noindent #1\\}
 \newcommand{\Sp}{\ensuremath \mathbb{S}^p}
 \newcommand{\Sq}{\ensuremath \mathbb{S}^q}
-\newcommand{\kana}[2]{#1{\scriptsize (#2)}}
+%\newcommand{\kana}[2]{#1{\scriptsize (#2)}}
+\newcommand{\kana}[2]{\ruby{#1}{#2}}
 \newcommand{\J}{$J(\nu)$}
 \newcommand{\I}{$I(\lambda)$}
 \newcommand{\doubt}[1]{\fbox{#1}}
+\newcommand{\mynum}{}
+\newcommand{\pause}{$\bullet$}
+\newcommand{\slowly}[1]{\dashuline{#1}}
+\newcommand{\continuously}[1]{\underline{#1}}
 
 %%% END Article customizations
 
@@ -74,131 +88,176 @@
          % otherwise the current date is printed 
 
 \begin{document}
-\slide{1}
+\doublespacing
+\slide
 初めまして。東京大学、数理科学研究科のレオンチエフ・アレックスと申します。
-今日は不定値直交（チョッコウ）群$O(p,q)$の対称性破れ作用素というタイトルでお話ししたいと思います。
+今日は
+\slowly{不定値\kana{直交}{チョッコウ}群}$O(p,q)$の
+\slowly{対称性破れ作用素}というタイトルでお話ししたいと思います。
 最初は、設定から始めます。\\
-\mytime{0:11}
+\mytime{0:00:11}
 
-\slide{2}
+\slide
 $p$次元球面$\Sp$と$q$次元球面$\Sq$の\kana{直積}{チョクセキ}
-多様体を考えましょう。$\Sp$上に普通のリーマン計量を入れ、一方、\kana{第}{ダイ}２\kana{成分}{セイブン}の球面$\Sq$上にはネガティブなリーマン計量を入れることによって、
+多様体を考えましょう。$\Sp$\kana{上}{{ ジョウ}}に普通のリーマン計量を入れ、一方、\kana{第}{ダイ}２\kana{成分}{セイブン}の球面$\Sq$\kana{上}{{ ジョウ}}にはネガティブなリーマン計量を入れることによって、
 直積多様体に符号が$(p,q)$
-の不定値計量を与えます。この擬リーマン多様体の共形変換群$G$は、不定値直交群$O(p+1,q+1)$と同型になります。特に、$q$が0と等しい場合は、球面の
+の不定値計量を与えます。この擬リーマン多様体の共形変換群$G$は、{不定値直交群}
+$O(p+1,q+1)$と同型になります。特に、$q$が0と等しい場合は、球面の
 \kana{共形変換群}{キョウケイヘンカングン}が、Lorentz群と同型になるという\kana{古典的}{コテンテキナ}な\kana{結果}{ケッカ}になります。更に、直積多様体$\Sp$かける$\Sq$の
-\kana{対跡点}{タイセキテン}を\kana{同ー視}{ドウイツシ}することによって得られる商多様体は、群$G$を極大放物型部分群$P$で割ることによって得られる\kana{実}{ジツ}\kana{旗}{ハタ}
-多様体$G/P$と同型になっています。更に、このdiagramにおける$\mathbb{R}^{p,q}$のconformal compactificationの\kana{逆写像}{ギャクシャゾウ}は\kana{立体射影}{リッタイシャエイ}
-の一般化になります。さて、G/Pを擬リーマン多様体とみたとき、\kana{共形幾何}{キョウケイキカ}
+\kana{対跡点}{タイセキテン}を\kana{同ー視}{ドウイツシ}することによって得られる商多様体は、群$G$を極大放物型部分群$P$で割ることによって得られる\kana{実}{ジツ}\pause\continuously{\kana{旗}{ハタ}
+\kern-0.15cm多様体}$G/P$と同型になっています。更に、このdiagramにおける$\mathbb{R}^{p,q}$は\slowly{open Bruhat cell}
+ですが、\kana{共形幾何}{キョウケイキカ}の\kana{立場}{タチバ}{からは}
+conformal compactificationの\kana{逆写像}{ギャクシャゾウ}は\kana{立体射影}{リッタイシャエイ}
+の一般化とみなせます。さて、$G/P$を擬リーマン多様体とみたとき、\kana{共形幾何}{キョウケイキカ}
 の\kana{一般論}{イッパンロン}
 から複素数$\lambda$をパ
-ラメータとするconformally equivariant line bundleのfamilyを定義することができます。
-これをL$\lambda$と書くことにします。そうすると、
+ラメータとするconformally equivariant line bundlesのfamilyを定義することができます。
+これを$L_\lambda$と書くことにします。そうすると、
 $L_\lambda$の$C$無限sectionのなす
 Fr\'echet空間上に実現される$G$の表現は$G$の球退化主系列表現になります。
 この退化主系列表現を$I(\lambda)$と書くことにします。同様に、直積球面$
-Sp\times \Sq$のcodimension oneの部分多様体に対して同じことを考えますと\kana{複素}{フクソ}
-数パラメーター$\nu$に対して同じように部分群$G'＝O(p,q+1)$の球退化主系列表現が定まります。これを$J(\nu)$と書くことにします。このようにして、群$G$とその部分群$G'$の無限次元表現
+\Sp\times \Sq$\slowly{のcodimension one}の部分多様体に対して同じことを考えますと\kana{複素}{フクソ}
+数パラメーター$\nu$に対して同じように部分群$G'=O(p,q+1)$の球退化主系列表現が定まります。これを\slowly{\J}と書くことにします。このようにして、群$G$とその部分群$G'$の無限次元表現
 $I(\lambda)$と$J(\nu)$がそれぞれ定義されました。\\
-\mytime{2:13}
+\mytime{{0:02:04}}
 
-\slide{3}
+\slide
 さて、部分群$G'$の表現に\kana{注目}{チュウモク}して$G$の表現
-\I から$G'$の表現\J への連続な$G'$-intertwining operatorはsymmetry breaking operator,対称性破れ作用素と呼ばれます。ここで\I は群Gの表現ですが、
-\kana{制限}{セイゲン}することによって部分群$G'$の表現とみなしているの\doubt{です}。スライドではsymmetry breaking operatorの
-\kana{頭文字}{カシラモジ}を\doubt{とって}SBOと\kana{略記}{リャクキ}することにします。
-これに関して重要な問題を\kana{挙}{ア}げましょう：まずすべての複素数パラメーター$(\lambda,\nu)$に対して、対称性破れ作用素を構成し、完全な分類を与えることが大きな\kana{目標}{モクヒョウ}
-となります。更に、対称性破れ作用素の\kana{間}{アイダ}の\kana{函数等式}{カンスウトウシキ}や留数などの性質を調べることも重要な問題です。
-これらの問題は、\kana{無限次元}{ムゲンジゲン}表現の分岐則の研究を\kana{深化}{シンカ}させるものですが、一般には非常に難しいもので、今まで\kana{殆ど}{ホトンド}
+\I から$G'$の表現\J への連続な$G'$-intertwining operatorはsymmetry breaking operator,対称性破れ作用素と呼ばれます。ここで\I は群$G$の表現ですが、
+\kana{制限}{セイゲン}することによって部分群$G'$の表現とみなしているの{です}。スライドでは\slowly{symmetry breaking operator}の
+\kana{頭文字}{カシラモジ}を{とって}SBOと\kana{略記}{リャクキ}することにします。
+これに関して重要な問題を\kana{挙}{ア}げましょう：まずすべての複素数パラメーター$(\lambda,\nu)$に対して、対称性破れ作用素を\kana{構成}{コウセイ}し、完全な分類を与えることが大きな\kana{目標}{モクヒョウ}
+となります。更に、対称性破れ作用素の\kana{間}{アイダ}の\kana{函数等式}{カンスウトウシキ}や\slowly{\kana{留数}{リュウスウ}}などの性質を調べることも重要な問題です。
+これらの\kana{課題}{カダイ}は、\kana{無限次元}{ムゲンジゲン}表現の分岐則の研究を\kana{深化}{シンカ}させるものですが、一般には非常に難しいもので、今まで\kana{殆ど}{ホトンド}
 研究が行われてきていませんでした。しかし、2015年にアメリカ数学会のannalsに\kana{出版}{シュッパン}されたKobayashiとSpehの本で$q$は0と等しい場合に対してこの２つ問題の完全
-な答えが証明されました。その成功の重要なストラテジーは次の３つだと思います。\\
+な答えが証明されました。その\kana{成功}{セイコウ}の重要なストラテジーは次の３つだと思います。\\
+\mytime{0:01:18}
 
-\slide{4}
+\slide
 1つ\kana{目}{メ}はまず\kana{良}{ヨ}い\kana{設定}{セッテイ}
 を選ぶことです。$\lambda$と$\nu$を\kana{止}{ト}めたとき、\kana{一次独立}{イチジドクリツナ}
 な対称性破れ作用素が\kana{高々}{タカダカ}\kana{有限個}{ユウゲンコ}
 しかない設定は、この問題に対するwell-posedなcaseと考えられます。
-このための\kana{幾何学}{キカガク}的な条件はKobayashi-Oshima
-によって研究されています。更に、$P$や$P'$が\kana{極小}{キョクショウ}
-放物型部分群の場合にはKobayashi-Matsukiによる分類があります。
-２つ目は\kana{実}{ジツ}旗多様体$G/P$における$P’$-invariantなclosed subsetそれぞれに対し、
-対称性破れ作用素を構成し、そのmeromorphic continuationを証明するというステップです。構成をしたあとは分類になります。
-これが３つ目のステップです。closed setが小さいものから\kana{順}{ジュン}に\kana{分類}{ブンルイ}します。
-そのstarting pointは、closed setが1点の\kana{場合}{バアイ}\doubt{で}、
-このときは微分作用素で表せる対称性破れ作用素と\doubt{なります}。
+このための\kana{幾何学}{キカガク}的な条件はKobayashi先生とOshima Toshio先生
+によって\kana{予め}{アラカジメ}研究されていました。
+これは小林先生の\kana{提唱}{テイショウ}したプログラム、いわゆる Kobayashi Program Aに\kana{相当}{ソウトウ}する部分です。
+\footnote{I was not sure that I've read Your instructions correctly. Did I position this sentence in the right place?}
+更に、$P$や$P'$が\kana{極小}{キョクショウ}
+放物型部分群の場合にはKobayashi先生とMatsuki先生による分類があります。
+２つ目は\kana{実}{ジツ}旗多様体$G/P$における$P'$-invariantなclosed subsetそれぞれに対し、
+対称性破れ作用素のfamilyを構成し、更に、そのmeromorphic continuationを証明するというステップです。\slowly{構成をした\kana{後}{アト}}は分類になります。
+これが３つ目のステップです。Closed setが小さいものから\kana{帰納的}{キノウテキ}に\kana{順}{ジュン}に\kana{分類}{ブンルイ}します。
+そのstarting pointは、closed setが1点の\kana{場合}{バアイ}{で}、
+このときは対称性破れ作用素は微分作用素で表せ\doubt{ます}。
 このときは新しい手法であるF-methodが使えます。Strategy(2)と（３）については、
 成功の重要な理由が次のファクトだと思います。\\
-\mytime{1:13}
+\mytime{{0:01:12}}
 
-\slide{５}
+\slide
+この\kana{図}{ズ}はKobayashi-Spehの\kana{一般論}{イッパンロン}を\kana{今}{イマ}\kana{考}{カンガ}{え}ようとしている\kana{場合}{バアイ}に\kana{当}{ア}てはめたものです。
 下の$S\mbox{ol}\left(
 \mathbb{R}^{p,q}
-\right)$という空間がある$(\lambda,\nu)$に依存する偏微分方程式を満たす超関数空間です。ここで、左から真ん中への同型写像はSchwartzの\kana{核}{カク}
-定理を\kana{用}{モチ}います、真ん中から下へのrestという写像は、\kana{稠密}{チュウミツ}な開集合で\doubt{ある}open Bruhat cellに\kana{積分核}{セキブンカク}
+\right)$という空間はある$(\lambda,\nu)$に依存する偏微分方程式を満たす超関数空間です。ここで、左から真ん中への同型写像はSchwartzの\kana{核}{カク}
+定理を\kana{用}{モチ}います、真ん中から下へのrestという写像は、open Bruhat cellに\kana{積分核}{セキブンカク}
 を制限することによって\kana{導}{ミチビ}かれます。この２つの写像は線形空間の同型写像になります。
-なので、抽象的な対称性破れ作用素空間の代わりに具体的なEuclid空間上の偏微分方程式の解空間を研究してもいいということになります。
+なので、抽象的な対称性破れ作用素空間の代わりに具体的なEuclid空間上の\kana{連立}{レンリツ}偏微分方程式の解空間を研究に\kana{置}{オ}き\kana{換}{カ}えることができます。
 ポイントはもう１つあります。真ん中の空間は$G/P$上の$P'$不変超関数空間なので、それぞれの元のサーポトが$P'$不変$G/P$閉部分集合になります。
-つまり、真ん中のベクトル空間からGの両側剰余空間へのが\kana{定}{サダ}\doubt{まった}ということです。この両側剰余空間は有限なので、$P'$不変$G/P$閉部分集合が大切なinvariantになります。\\
-\mytime{1:30}
+つまり、真ん中のベクトル空間から$G$の\kana{両側剰余}{リョウガワジョウヨ}空間へのが\kana{定}{サダ}{まった}ということです。Target spaceであるこの\kana{両側剰余}
+{リョウガワジョウヨ}空間は有限なので、$P'$不変$G/P$閉部分集合が大切なinvariantになります。\\
+\mytime{{0:01:14}}
 
-\slide{5}
-先ほどのストラテジーの\kana{第一歩}{ダイイッポ}として、両側\kana{剰余}{ジョウヨ}類とそのclosure relations、\kana{閉包}{ヘイホウ}関係の分類を述べます。
+\slide
+\kana{今}{イマ}、\kana{述}{ノ}べた
+ストラテジー
+を$G$が不定値直交群の\kana{場合}{バアイ}に\kana{用}{モチ}いる
+\kana{第一歩}{ダイイッポ}として、両側\kana{剰余類}{ジョウヨルイ}とその\slowly{closure relations}、\kana{閉包}{ヘイホウ}関係の\kana{記述}{キジュツ}を述べます。
 今の設定では、両側\kana{剰余類}{ジョウヨルイ}の\kana{個数}{コスウ}は、$p$は1以上ならば５つあり、$p$が１に等しいならば、４つにな
-ることが証明されます。図式では、$X$が\kana{全体}{ゼンタイ}、すなわち実旗多様体を表し。edgeのとなりの数字がgenericなcodimensionを表します。\\
-\mytime{0:52}
+ることが証明されます。図式では、$X$が\slowly{\kana{全体}{ゼンタイ}}、すなわち実旗多様体を表し、edgeのとなりの数字がgenericなcodimensionを表します。\\
+\mytime{{0:00:36}}
 
-\slide{6}
-次の結果として、複素数パラメーターに正則に（つまり、holomorphicに）依存する対称性破れ作用素のファミリーを３つ構成します。ここで$R_{\lambda,\nu}^X$は、そのサーポトが
+\slide
+次の結果
+は対称性破れ作用素の\kana{構成}{コウセイ}では、ここでは
+\doubt{と}、複素数パラメーターに正則に\quad つまり、holomorphicに依存する対称性破れ作用素のファミリーを３つ構成します。ここで$R_{\lambda,\nu}^X$は、その
+\kana{核関数}{カクカンスウ}の
+サーポトが
 genericには$X$\kana{全体}{ゼンタイ}と等しくなるので、regular対称性破れ作用素と呼ばれています。$\tilde{R}_{\lambda,\nu}^X$はregular対称性破れ作用素のrenormalizationです。
-\kana{//}{ナナメノニジョウセン}と\kana{|||}{タテノサンブンセン}とういうのはパラメータ集合で、affine subspaceの\kana{可算和}{カサンワ}です。$\tilde{C}$を用いて記述できます。
-最後に、$R^{\{o\}}_{\lambda,\nu}$は微分作用素となります。微分対称性破れ作用素はGegenbauer多項式から導かれる２変数多項式を用いて記述できます。\\
-\mytime{0:40}
+\kana{//}{ナナメノニジョウセン}$\qquad$と\kana{|||}{タテノサンブンセン}とはパラメータ集合で、affine subspaceの\kana{可算和}{カサンワ}です。
+最後に、$R^{\{o\}}_{\lambda,\nu}$は微分作用素{となります。この微分対称性破れ作用素の具体的な公式はGegenbauer多項式から}{導かれる２変数多項式を用いて記述できます。}\\
+\mytime{0:00:53}
 
-\slide{7}
-３つ目の定理は、対称性破れ作用素の分類です。特に対称性破れ作用素の空間はgenericには１次元ですが、可算無限離散集合では２次元になることが証明されます。\\
-\mytime{0:20}
+\slide
+３つ目の定理は、対称性破れ作用素の分類です。
+\kana{次元}{ジゲン}について\kana{述}{ノ}べるとすると
+対称性破れ作用素の空間はgenericには１次元ですが、\kana{可算無限離散}{カサンムゲンリサン}集合では
+\slowly{２次元}になることが証明されます。\\
+\mytime{0:00:14}
 
-\slide{9}
+\slide
 次の定理はregular対称性破れ作用素の
-留数定理です。２つの超関数はそれぞれ正則パラメータをもつ超関数ですが、そのwavefront setが重なりをもつので、積はwell-defined
+\slowly{\kana{留数}{リュウスウ}定理}です。ここに\kana{記}{シル}した２つの超関数はそれぞれ正則パラメータをもつ超関数ですが、そのwavefront setが重なりをもつので、
+\kana{超関数}{チョウカンスウ}の
+\slowly{\kana{積}{セキ}}はwell-defined
 とは限りません。well-definedでない\kana{場所}{トコロ}にまた新しいpoleが\kana{生}{ショウ}じます。このpoleのresidueは微分対称性破れ作用素
-になります。比例\kana{定数}{テイスウ}は
-\kana{初等関数}{ショトウカンスウ}の\kana{積}{セキ}として具体的に\kana{表}{アラワ}すことができました。\\
-\mytime{0:25}
+になります。より\kana{精密}{セイミツ}に、比例\kana{定数}{テイスウ}を
+\slowly{\kana{初等}{ショトウ}}\kana{関数}{カンスウ}の{\kana{積}{セキ}}として具体的に\kana{表}{アラワ}すことができました。\\
+\mytime{0:00:28}
 
-\slide{10.1}
+\slide
 さて、intertwining operatorと対称性破れ作用素の\kana{合成}{ゴウセイ}は\kana{再び}{フタタビ}対称性破れ作用素になります。
 次の結果は、intertwining operatorとして\kana{古典}{コテン}的なKnapp-Stein作用素
-を\kana{選}{エラ}んだ\doubt{とき}、それと新しいregular対称性破れ作用素の\kana{合成}{ゴウセイ}がどのようになるかという\kana{問}{トイ}に答えるものです。以下のような関数等式を得ました。\\
-\mytime{0:35}
+を\kana{選}{エラ}んだ{とき}、それと
+ここで\kana{求}{モト}めた
+新しいregular対称性破れ作用素の\kana{合成}{ゴウセイ}がどのようになるかという\kana{問}{トイ}に答えるものです。以下のような関数等式を得ました。\\
+\mytime{0:00:21}
 
-\slide{10.2}
-\kana{手法}{シュホウ}について\doubt{少し}\kana{触}{フ}れましょう。２つの無限次元表現の間の対称性破れ作用素を調べるために、特定のベクトルに対する作用を具体的に計算します。異なる空間の上での写像ですが、コンパクト群の作用によるある種の標準化を用いることによって、一般化した意味での\kana{固有値}{コユウチ}
-を定義することができます。この固有値がいつゼロになるかどうかを決定することが\kana{鍵}{カギ}になります。そのためのに、いくつかの公式を証明しました。その１つは、次の定理です。
-\mytime{0:44}
+\slide
+最後に\slowly{\kana{手法}{シュホウ}}について{すこし}\kana{触}{フ}れましょう。２つの無限次元表現の間の対称性破れ作用素を調べるために、特定のベクトルに対する作用を具体的に計算します。
+\kana{異なる}{コトナル}空間の上での写像ですが、コンパクト群の作用によるある\kana{種}{{シュ}}の標準化を用いることによって、一般化した意味での\kana{固有値}{コユウチ}
+を定義することができます。この固有値がいつゼロになるかどうかを決定することが\kana{鍵}{カギ}になります。{そのための}、いくつかの公式を証明しました。その１つは、次の定理です。
+\mytime{0:00:38}
 
-\slide{8}
-次の結果によると、\I の$K$-finiteベクトルのイメージが\J の$K'$-finiteベクトルと比例になります。
-比例定数も計算できて、極点と\kana{零点}{レイテン}を分けるように積公式で表せます。Bernstein-Reznikovは$p=q=1$、Kobayashi-Spehは$p$は一般で$q=0$の場合にそれぞれ
+\slide
+この結果は、\I の$K$-finiteベクトルのイメージが\J の$K'$-finiteベクトルと比例にな
+ることを、\kana{精密}{セイミツ}に\kana{表}{アラワ}したものです。
+比例定数も計算できて、\kana{零点}{レイテン}が分かるように積公式で表せます。Bernstein-Reznikovは$p=q=1$、Kobayashi-Spehは$p$は一般で$q=0$の場合にそれぞれ
 \kana{先行結果}{センコウケッカ}がありす。\\
-\mytime{0:22}
+\mytime{0:00:22}
 
-\slide{8}
+\slide
 次の\kana{命題}{メイダイ}では、$s+t$の\kana{ベキ乗}{ベキジョウ}を２つのGegenbauer\kana{多項式}{タコウシキ}
 で\kana{展開}{テンカイ}するという公式です。実はもう少し一般の公式も証明できているのですが、ここでの発表では記述を簡単にするため、\kana{少し}{スコシ}
 \kana{特殊化}{トクシュカ}してで\kana{記述}{キジュツ}しました。
-\kana{係数}{ケイスウ}は$\Gamma$\kana{関数}{カンスウ}の積として表せるの\doubt{つこ}その\kana{零点}{レイテン}が\kana{決定}{ケッテイ}できるのか\kana{応用上}{オウヨウジョウ}ポイントとなります。
-しかし、この簡単な形でも、いろいろな文献を探したのですが、見つけることができませんでした。もし、何かご\kana{存知}{ゾンジ}でしたら、\kana{教えて}{オシエテ}いただけるとありがたいです。
+\kana{係数}{ケイスウ}は$\Gamma$\kana{関数}{カンスウ}の積として表せるので、その\kana{零点}{レイテン}が\kana{完全}{カンゼン}に
+\kana{決定}{ケッテイ}できるの{が}\kana{応用上}{オウヨウジョウ}\kana{重要}{ジュウヨウ}なポイントとなります。
+しかし、この\kana{特殊}{トクシュ}な\kana{場合}{バアイ}
+でも、いろいろな文献を探したのですが、見つけることができませんでした
+ので、Propositionという\kana{形}{\doubt{カタチ}}で述べさせていただきました。
+もし、何かご\kana{存知}{ゾンジ}でしたら、\kana{後}{アト}で\kana{教えて}{オシエテ}いただけるとありがたいです。
 \kana{今}{イマ}の
 \kana{時点}{ジテン}で、私が\kana{理解}{リカイ}
-している\kana{先行結果}{センコウケッカ}との関係をhierarchyの\kana{図式}{ズシキ}にしてみました。この
-\kana{講演}{コウエン}ではより一般の公式K-Lについてはお話していません。\\
+している\kana{先行結果}{センコウケッカ}との関係をhierarchyの\kana{図式}{ズシキ}にしてみました。
+\kana{青}{アオ}い\kana{数字}{スウジ}は\kana{公式}{コウシキ}に\kana{含}{フク}まれる連続パラメータの\kana{個数}{コスウ}です。
+\\
+\mytime{0:00:49}
 
-\slide{12}
-$ｌ＝ｍ=0$の場合は Warnaar, Varchenko, TarasovなどによるSelberg typeの積分の一般化とも関係しています。
-この積分公式も、ここで求めた対称性破れ作用素の\kana{性質}{セイシツ}を調べるのに用いられます。
+\slide
+この\kana{講演}{コウエン}ではより一般の公式K-Lについてはお話していません。
+$\ell=m=0$の場合は Warnaar, Varchenko, TarasovなどによるSelberg typeの積分の一般化とも関係しています。
+この積分公式も、ここで求めた\kana{新}{アタラ}しい対称性破れ作用素の\kana{性質}{セイシツ}を調べるのに用いられます。
 
 \noindent 以上です。どうも有り難うございます。\\
-\mytime{0:52}
+\mytime{0:00:19}
 
-TOTAL: 9min 57sek
+TOTAL: 0:10:39\\
+\begin{tabular}[]{l|l}
+	$\bullet$&pause\\
+	\underline{one two}&speak continuously\\
+	\dashuline{diffffficult}&speak slowly
+\end{tabular}\\
+NB:\begin{enumerate}
+	\item pronounce ``Bruhat'' without ``r'';
+	\item pronounce ``R'' like アール, not like エル;
+	\item pronounce ``初等'' as ショトウ, not ショウトウ；
+\end{enumerate}
 \end{document}
