@@ -16,9 +16,11 @@
 (set! *random-state* (random-state-from-platform))
 
 ;;global constants
-(define lines (mytokenize "\n" (read-delimited "" (open-file (cadr (command-line)) "r"))))
+(define lines (let*((lines(mytokenize "\n" (read-delimited "" (open-file (cadr (command-line)) "r"))))
+                    (lines(list-head lines(search-list (lambda(line)(regexp-match?(string-match "\\\\appendix" line)))lines)))
+                    )lines))
 (define start-count 9)
-(define preamble(list-head lines(search-list (lambda(line)(regexp-match?(string-match "\\\\begin\\{document\\}" line))) lines)))
+;(define preamble(list-head lines(search-list (lambda(line)(regexp-match?(string-match "\\\\begin\\{document\\}" line))) lines)))
 
 ;;procedures
 (define (verbatim s)(format #t "\\begin{verbatim}~a\\end{verbatim}~%" s))
@@ -67,6 +69,7 @@
       ;;format of section-body: ((("proposition" num-line label (pf-line1 pf-line2 ...)(ref1 ref2 ...)) ... lines) ...) TODO
       (env:get-number (lambda(env)((lambda(num)(format #f "~d.~d"(car num)(cadr num)))(cadar env))))
       (env:get-section-number (lambda(env)((lambda(num)(car num))(cadar env))))
+      (env:get-env-number (lambda(env)((lambda(num)(cadr num))(cadar env))))
       (env:get-name caar)
       (env:get-head car)
       (env:get-body cdr)
@@ -105,10 +108,11 @@
                                    (format #t "\\begin{dot2tex}[scale=~a]~%digraph G{~%node[shape=\"box\"]~%splines=line;~%" scale)
                                    (proc)
                                    (format #t "}~%\\end{dot2tex}~%"))))
-      (dot2tex:print-label (lambda(env)(format #f "~a ~a"
+      (dot2tex:print-label (lambda(env)(format #f "~a~dd~d"(env:get-name env) (env:get-section-number env)(env:get-env-number env))))
+      (dot2tex:print-text (lambda(env)(format #f "~a \\ref{~a}"
                                                (get-value '(("lemma" "Lem.")("proposition" "Prop.")("definition" "Def.")("fact" "Fact"))(env:get-name env) "bad-val" string=?)
-                                               (env:get-number env))))
-      (dot2tex:missed-ref-name "paper 1")
+                                               (env:get-label env))))
+      (dot2tex:missed-ref-name "\"paper 1\"")
       (dot2tex:print-dependents(lambda(env envs)(let*((refs(env:get-refs env))
                                                       (name(dot2tex:print-label env))
                                                       (refs(if(string=? "proposition"(env:get-name env))(cdr refs)refs ))
@@ -116,19 +120,26 @@
                                                  (refs (map(lambda(ref)(if(eq? ref #f)dot2tex:missed-ref-name (dot2tex:print-label ref)))refs))
                                                  ;(refs(filter (lambda(ref)(not(string=? ref name)))refs))
                                                  (refs(delete-duplicates refs string=?))
-                                                 )(map(lambda(item)(format #t "\"~a\" -> \"~a\"~%" item name ))refs))))
+                                                 )(map(lambda(item)(format #t "~a -> ~a;~%" item name ))refs))))
+      (print-env (lambda(env)
+                   (let*((var 'val)
+                     )(begin
+                       'TODO))))
+                   
   ;)(texwrap(lambda()(map verbatim preamble))))
-  )(texwrap(lambda()(dot2tex:wrap "0.2" (lambda()(begin
+  )(dot2tex:wrap "0.49" (lambda()(begin
                                             ;(map(lambda(env)(format #t "\"~a\";~%"(dot2tex:print-label env)))envs)
                                             (map (lambda(secnum)(begin
-                                                                  (format #t "subgraph cluster_~d {~%" (- secnum start-count))
+                                                                  (format #t "subgraph cluster~d {~%" (- secnum start-count))
                                                                   (format #t "label=\"Section ~d\";~%" secnum)
-                                                                  (map (lambda(env)(format #t "\"~a\";~%"(dot2tex:print-label env)))(filter (lambda(env)(eq? (env:get-section-number env) secnum))envs))
+                                                                  (map (lambda(env)(format #t "~a;~%"(dot2tex:print-label env)))(filter (lambda(env)(eq? (env:get-section-number env) secnum))envs))
                                                                   (format #t "}~%")
                                                                   )) (seq start-count (+ start-count (length sections))))
-                                            (format #t "\"~a\";~%" dot2tex:missed-ref-name)
+                                            (format #t "~a;~%" dot2tex:missed-ref-name)
                                             (map (lambda(env)(dot2tex:print-dependents env envs)) envs)
-                                            ))))preamble))
+                                            (map(lambda(env)(format #t "~a [shape=\"box\",label=\"\",texlbl=\"$\\mbox{~a}$\"];~%"(dot2tex:print-label env)(dot2tex:print-text env)))envs)
+                                            ;War10p [shape="box",label="\mbox{\cite{warnaar2010sl3}'}:2"];
+                                            ))))
   ;)(texwrap(lambda()(map(compose env:get-refs  verbatim) envs))))
   ;)(texwrap(lambda()(print-env (query-list(lambda(env)(string=? (env:get-number env) "10.5")) envs)))))
   ;)(texwrap(lambda()(print-env(list-ref envs(random(length envs))))))) ;test

@@ -1,6 +1,8 @@
-\documentclass{article}
+\documentclass[12pt]{article}
+\usepackage{rotating}
+\usepackage{afterpage}
 \usepackage[english]{babel}
-\usepackage{geometry,amsmath,amssymb,graphicx,bbm,hyperref,latexsym,amsthm}
+\usepackage{geometry,amsmath,amssymb,graphicx,bbm,latexsym,amsthm}
 \usepackage{geometry,amsmath,amssymb,graphicx,bbm,latexsym,mathtools}
 \geometry{letterpaper}
 \usepackage[all]{xy}
@@ -9,6 +11,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage{dot2texi}
 \usepackage{tikz}
+\usepackage[colorlinks]{hyperref}
 
 %custom theorems
 %\newtheorem{theorem}{Theorem}[section]
@@ -77,8 +80,11 @@
 %\newcommand{\sol*}[1]{S ol(#1; {\lambda}, {\nu})}
 \newcommand{\sol}{{\sol*{{\R}\tmrsup{p,q}}}}
 \newcommand{\solXi}{{\sol*{{\Xi}}}}
-
+\title{Symmetry breaking operators of indefinite orthogonal groups $O(p,q)$}
+\author{Kobayashi T., Leontiev O.}
 \begin{document}
+\maketitle
+\input{../masterdiags/common.tex}
 
 \setcounter{section}{8}
 \section{$\mathcal{S} \tmop{ol} (U ; \lambda, \nu)$ and related notions (B8)}\label{sec:sol}
@@ -289,15 +295,14 @@
   Suppose now that $(U, V)$ is a pair of open subsets of $\mathbbm{R}^{p, q}$
   and $p' \in P$ such that $\psi (U) = p' \psi (V)$. Then straightforward
   generalization of lemma \ref{KR-normalization-recur:lem-pull-comm-restr}
-  tells us that the following diagram commutes
-  \centerline{\xymatrix{A\ar[r]\ar[d] &B\ar[d]\\C\ar[r] &D} }
+  tells us that the following diagram commutes\\
+  \ExecuteMetaData[../masterdiags/b2.tex]{diagram}
   here $G \times_P \mathbbm{C}_{\lambda} \mid_{\psi (U)}$ denotes portion
   of the bundle above $\psi (U)$ and similarly for $\psi (V)$. The top and
   bottom maps are isomorphisms. Now, pullback by $\psi (\cdot)$ induces the
   isomorphism $\mathcal{D}' (U) \rightarrow \mathcal{D}' (V)$ so that the
-  following map commutes:
-  
-  \centerline{\xymatrix{A\ar[r]\ar[d] &B\ar[d]\\C\ar[r] &D} }
+  following map commutes:\\
+  \ExecuteMetaData[../masterdiags/b3.tex]{diagram}
   
   all maps of it are isomorphisms and we will call the one at the bottom by $c
   (\lambda ; p' ; U, V) : \mathcal{D}' (U) \rightarrow \mathcal{D}' (V)$.
@@ -335,7 +340,7 @@
   (with $\lambda$ replaced by $n - \lambda$, according to definition
   \ref{sol:def-D'n})
   
-  \centerline{\xymatrix{A\ar[r]\ar[d] &B\ar[d]\\C\ar[r] &D} }
+  \ExecuteMetaData[../masterdiags/b4.tex]{diagram}
   
   with an embedding $\psi : \mathbbm{R}^{p, q} \ni w \mapsto n_- (w) \cdot (1,
   0_{p + q}, 1) = (1 - Q (w), 2 w, 1 + Q (w)) \in \Xi$.
@@ -2852,6 +2857,17 @@ In this section we explicitly determine the space $\mathcal{S} \tmop{ol}
   that $F \mid_{\mathbbm{R}^n - \{ 0 \}} = 0$. Since $F$ was arbitrary, we
   are done.
 \end{proof}
+\appendix
+\newpage
+\section{Dependence Diagram}
+\pagenumbering{gobble}
+\begin{sidewaysfigure}
+		\centerline{
+		\input{Bdep.tex}
+		\hspace{2cm}
+		}
+\end{sidewaysfigure}
+\newpage
 \bibliographystyle{alpha}
 \bibliography{todai_master}
 \end{document}
