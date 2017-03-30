@@ -1,0 +1,518 @@
+%platex
+\documentclass[reqno,12pt]{pja00} % use larger type; default would be 10pt
+
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage{enumerate}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,xypic}
+\usepackage[all,cmtip]{xy}
+\usepackage{amsmath,amssymb,float,mystyle}
+\usepackage[normalem]{ulem}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{minibox}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\assign}{:=}
+\newcommand{\comma}{{,}}
+\newcommand{\nin}{\not\in}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\newcommand{\um}{-}
+
+\newtheorem{theorem}{Theorem}[section]
+\newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
+\newcommand{\Hom}{\mbox{\normalfont Hom}}
+\newcommand{\Sol}{\mathcal{S}\!{\it ol}}
+\newcommand{\Ind}{\mbox{\normalfont Ind}}
+\newcommand{\Supp}{\mathcal{S}\!{\it upp}}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{exampstyle} \newtheorem{examp}[theorem]{Theorem}
+
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\dueto}[1]{\textup{\textbf{(#1) }}}
+\newcommand{\tmrsub}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\tmrsup}[1]{\textsuperscript{#1}}
+\newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
+\newcommand{\Op}{\mbox{\normalfont Op}}
+\newcommand{\Res}{\operatorname{Res}\displaylimits}
+\newcommand{\OpR}{\mbox{\it R}}
+\renewcommand{\Q}{Q_{p,q}}
+\newcommand{\IlambdaGprime}{I(\lambda)\kern-0.3em\mid_{G'}}
+\newcommand{\SBO}{\Hom_{G'}\left(\IlambdaGprime,J(\nu) \right)}
+
+\let\oldsetminus\setminus
+\let\setminus-
+
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{2em}
+
+\newcommand{\even}{2\Z}
+\newcommand{\odd}{2\Z+1}
+\newcommand{\teven}{\mbox{\textrm{: even}}}
+\newcommand{\todd}{\mbox{\textrm{: odd}}}
+\newcommand{\tevenText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu#1\end{array}$}
+\newcommand{\toddText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu#1\end{array}$}
+\newcommand{\mm}{\mid\mid}
+\newcommand{\bb}{\backslash\backslash}
+\renewcommand{\ss}{//}
+
+\begin{document}
+
+\title{Symmetry breaking operators for the restriction of representations of indefinite orthogonal groups $O(p,q)$ (part 2)}
+\Author{1}{Toshiyuki}{Kobayashi}
+\Author{2}{Alex}{Leontiev}
+\affiliation{1}{Kavli IPMU and Graduate School of Mathematical Sciences, The University of Tokyo}
+\affiliation{2}{Graduate School of Mathematical Sciences, The University of Tokyo}
+\KeyWords{ {Representation theory}{reductive group}{branching law}{broken symmetry}{conformal geometry}{symmetry breaking operator}{Verma module}}
+\Subject[2010]{22E46; 33C45, 53C35}
+
+  \maketitle
+\begin{abstract}
+This is the the second part of results on the symmetry breaking operators for the pair $(G, G') =(O(p+1, q+1), O(p,q+1))$.
+In the first announcement we have outlined the construction and classification of SBOs together with some more fine results
+(e.g. residue formul\ae, functional equations). In this second announcement we outline the results on complete determination of
+images of SBOs for all parameters. Together with the (partial) knowledge about their kernels, this allowed us to give the complete classification
+of the $G'$-intertwining maps between the certain families of Zuckerman derived modules that occur as submodules (quotients) of degenerate principal serioes.
+The results contribute to Program C of branching problems suggested by the first author [Progr. Math. 2015].
+\end{abstract}
+	Since the representation $J(\nu)$ of $G'=O(p,q+1)$ is multiplicity-free as a $K'$-module, we can describe its $(\mathfrak{g}',K')$-submodules by means of subsets of $\N_{+}^2$
+	for $p>1$, which parametrize the $K'$-structure of $J(\nu)$ by the spherical harmonics $\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$.
+	As in \cite{howe1993homogeneous}, we also indicate the Jordan--H\"older series (socle filtrations) of $J(\nu)$ by using arrows.
+	We then have:
+\begin{theorem}[images of SBOs]
+	The regular SBO $R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$ is surjective,
+	unless $\nu\in\Z$. In the latter case, the images of the underlying $(\mathfrak{g},K)$-module $I(\lambda)_K$ under
+	$R_{\lambda,\nu}^X$ are given as follows (here we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$ for $(\lambda,\nu)\in//$ and $k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)
+	\in\N$ for
+	$(\lambda,\nu)\in\backslash\backslash$; the barriers $A^{\pm\pm}$ are defined as in \cite{howe1993homogeneous}): \\
+	for $p>1$:
+\end{theorem}
+\begin{enumerate}[(1)]
+	\item Suppose $p\in2\N_++1$ and $q\in2\Z$. Then, if $\nu\in2\Z,0<\nu<n-1$, $R_{\lambda,\nu}^X$ is surjective. Otherwise,\newpage
+		\hspace*{-1cm}\begin{figure}[h]
+			\noindent\begin{tabular}{m{1.6cm}rrr}
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
+	      {\vspace{-3cm} $ \begin{array}{l}
+	      \nu\teven\\ \nu\le0
+      \end{array}$}&\input{1.tex}\\[0pt]
+      \vspace{-3cm}$\begin{array}{l}
+	      \nu\todd\\ \nu\le\frac{n-3}{2}
+      \end{array}$&\input{2.tex}\\[0pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
+	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu=\frac{n-1}{2}
+	      \end{array}$&\input{3.tex}\\[0pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
+	      \vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu\ge{n-1}\end{array}$&\input{4.tex}\\[0pt]
+	    \end{tabular}
+	  \end{figure}
+		\begin{figure}[h]
+			\noindent\begin{tabular}{m{1.3cm}rrr}
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
+	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{5.tex}\\[25pt]
+	    \end{tabular}
+	  \end{figure}
+	\item Suppose $p,q\in\odd$ and $p>1$. Then,\clearpage
+		\begin{figure}[h]
+			\noindent\begin{tabular}{m{1.3cm}rrr}
+			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
+			\tevenText{\le0}&\input{6.tex}\\[0pt]
+			\toddText{\le n-3}&\input{7.tex}\\[0pt]
+			\tevenText{>0}&\input{8.tex}\\[0pt]
+			\toddText{>n-3}&\input{9.tex}\\[0pt]
+			  
+		\end{tabular}
+		\end{figure}
+	\item Suppose $p,q\in\even$. Then,\clearpage
+		\begin{figure}[h]
+			\noindent\begin{tabular}{m{1.3cm}rrr}
+			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
+			\tevenText{\le0}&\input{10.tex}\\[0pt]
+			\toddText{\le n-3}&\input{11.tex}\\[0pt]
+			\tevenText{>0}&\input{12.tex}\\[0pt]
+			\toddText{>n-3}&\input{13.tex}\\[0pt]
+		\end{tabular}
+		\end{figure}
+	\item Suppose $p\in\even,q\in\odd$. Then for $\nu\in\odd$, $R_{\lambda,\nu}^X$ is surjective. Otherwise (for $\nu\in\even$) we have,\clearpage
+	  \begin{figure}[h]
+		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
+	      \vspace{-3cm}$\nu\leq0$&\input{14.tex}\\[0pt]
+	      \vspace{-3cm}$
+	      \begin{array}{l}
+		      \nu>0\\\nu\le\frac{n-3}{2}
+	      \end{array}
+	      $&\input{15.tex}\\[0pt]
+              $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
+	      \vspace{-3cm}$
+	      \begin{array}{l}
+		      \nu\todd\\\nu=\frac{n-1}{2}
+	      \end{array}
+	      $&\input{16.tex}\\[0pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
+	      \vspace{-3cm}
+	      $
+	      \begin{array}{l}
+		      \nu\ge\frac{n+1}{2}\\\nu\le n-3
+	      \end{array}
+	      $
+	      &\input{17.tex}\\[0pt]
+	      \vspace{-3cm}$
+	      \nu>n-3$&\input{18.tex}\\[0pt]
+	    \end{tabular}
+	  \end{figure}
+	\end{enumerate}
+	\vspace{-0.9cm}
+	In the diagrams above some of them are filled not with gray, but with colored diagonal lines. This means that the image of the regular
+	SBO $R_{\lambda,\nu}^X$ is zero and the (green/purple)
+	ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{ \left\{ o \right\}}$ and $\tilde{R}_{\lambda,\nu}^X$ respectively.
+
+	For $p=1$ we have:\clearpage
+	\newcommand{\mystack}[2]{$\begin{array}{l}#1\\#2\end{array}$}
+
+	\begin{figure}[h]
+		\begin{tabular}{p{4.1cm}p{2.0cm}p{2.0cm}}
+		$(\lambda,\nu)\in$ & $\kern-1.2cm\mybra{\ss\cup\bb}^c$ & $\kern-1.2cm\ss-\bb$ \\
+		\mystack{\nu\teven}{\nu\le0}&\input{19.tex}\\
+		\vspace{-0.5cm}\mystack{\nu,q\teven}{0<\nu<q}&\input{20.tex}\\
+		\vspace{-0.5cm}\mystack{\nu\teven,q\todd}{0<\nu<q}&\input{21.tex}\\
+		\vspace{-0.7cm}\mystack{\nu,q\teven}{\nu\ge q}&\input{22.tex}\\
+		\vspace{-0.7cm}\mystack{\nu\teven,q\todd}{\nu\ge q}&\input{23.tex}\\
+		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\le0}&\input{24.tex}\\
+		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\le0}&\input{25.tex}\\
+		\vspace{-0.5cm}\mystack{\nu\todd,q\teven}{0<\nu<q}&\input{26.tex}\\
+		\vspace{-0.5cm}\mystack{\nu,q\todd}{0<\nu<q}&\input{27.tex}\\
+		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\ge q}&\input{28.tex}\\
+		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\ge q}&\input{29.tex}\\
+	\end{tabular}\end{figure}
+
+	\begin{figure}[h]
+		\hspace{2cm}
+		\begin{tabular}{p{2.0cm}p{2.3cm}p{2.3cm}}
+		$\kern-1.3cm\bb-\ss$ & $\kern-1.5cm\ss\cap\bb,k<l$ & $\kern-1.3cm\ss\cap\bb,k\geq l$\\
+		\input{30.tex}\\[0.75em]
+		\input{31.tex}\\[0.75em]
+		\input{32.tex}\\[0.75em]
+		\input{33.tex}\\[1.6em]
+		\input{34.tex}\\[1.8em]
+		\input{35.tex}\\[0.75em]
+		\input{36.tex}\\[0.3em]
+		\input{37.tex}\\[0.75em]
+		\input{38.tex}\\[0.85em]
+		\input{39.tex}\\[1.8em]
+		\input{40.tex}\\
+	\end{tabular}\end{figure}
+	In the diagrams above some of them are filled not with gray, but with colored diagonal lines. This means that the image of the regular SBO $R_{\lambda,\nu}^X$ is zero and:
+	\begin{itemize}
+		\item For $(\lambda,\nu)\in\ss$ the (green/purple)
+			ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{ \left\{ o \right\}}$ and $\tilde{R}_{\lambda,\nu}^X$ 
+			respectively.
+		\item For $(\lambda,\nu)\notin\ss$ the (blue/red) ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{Y}$ and ${R}_{\lambda,\nu}^C$ 
+			respectively.
+	\end{itemize}
+\begin{remark}
+	We can also find the images of the other SBOs constructed in previous announcement$^1$\footnotetext{1: should I give the explicit Theorem number? How should I cite the prev. announcement then?} as well.
+	Note that
+	the proof of this theorem is performed \textit{independent of} of \cite{howe1993homogeneous}.
+\end{remark}
+Now, we recall from \cite{KO2} the five equivalent definitions of the
+irreducible unitary representations $\pi_{\pm,\lambda}^{p,q}$ of $O(p,q)$.
+\begin{theorem}[$G'$-invariant maps between Zuckerman modules $\pi_{\pm,\lambda}^{p,q}$]\label{thm:Aq}
+	Let $n=p+q,\;(p,q\ge1)$ and $n':=n-1$.
+	The dimensions of $\Hom_{G'}\left(\pi_{\pm,{n}/{2}-\lambda}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\pm,\nu-{n'}/{2}}^{p,q+1} \right)$
+	are as follows:\newline
+	\hspace*{-1.3cm}\begin{tabular}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+  \hline
+  \mystack{p = 1,}{ q \in 2\mathbb{Z}} & \mystack{\pi^{p, q + 1}_{-, \nu - q / 2}, }{\nu \in q +
+  2\mathbb{N}} &\mystack{\pi^{p, q + 1}_{-, \nu - q / 2},}{\nu \in q + 1 +
+  2\mathbb{N}}\\
+  \hline
+  \mystack{\pi_{+, n / 2 - \lambda}^{p + 1, q + 1},}{ \lambda \in q - 1 - 2\mathbb{N}}
+  & $0$ & $0$\\
+  \hline
+  $\pi_{-, n / 2 - \lambda}^{p + 1, q + 1}, \lambda \in 2\mathbb{N}$ & $0$ &
+  $1 \Leftrightarrow (\lambda, \nu) \nin \backslash\backslash$\\
+  \hline
+\end{tabular}\\
+\hspace*{-1.3cm}$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+  \hline
+  \begin{array}{c}
+    p = 1,\\
+    q \in 2\mathbb{Z}+ 1
+  \end{array} & \begin{array}{c}
+    \pi^{p, q + 1}_{-, \nu - q / 2},\\
+    \nu \in q + 2\mathbb{N}
+  \end{array} & \begin{array}{c}
+    \pi^{p, q + 1}_{-, \nu - q / 2},\\
+    \nu \in q + 1 + 2\mathbb{N}
+  \end{array}\\
+  \hline
+  \begin{array}{c}
+    \pi^{p + 1, q + 1}_{+, n / 2 - \lambda},\\
+    2\mathbb{Z} \ni \lambda \leqslant \frac{q - 1}{2}
+  \end{array} & 0 & 0\\
+  \hline
+  \begin{array}{c}
+    \pi_{-, n / 2 - \lambda}^{p + 1, q + 1},\\
+    2\mathbb{Z} \ni \lambda \leqslant \frac{q - 1}{2}
+  \end{array} & 0 & 1 \Leftrightarrow (\lambda, \nu) \nin
+  \backslash\backslash\\
+  \hline
+\end{array}$\\
+$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+  \hline
+  p, q \in 2\mathbb{Z} & \begin{array}{c}
+    \pi^{p, q + 1}_{+, \nu - n' / 2},\\
+    \nu \in 2\mathbb{N}_+
+  \end{array} & \begin{array}{c}
+    \pi^{p, q + 1}_{-, \nu - n' / 2},\\
+    \nu \in 2\mathbb{Z}+ 1
+  \end{array}\\
+  \hline
+  \begin{array}{c}
+    \pi^{p + 1, q + 1}_{+, n / 2 - \lambda},\\
+    n/2\ge\lambda\todd
+  \end{array} & 1 \Leftrightarrow (\lambda, \nu) \in \backslash\backslash & 1
+  \Leftrightarrow \lambda > \nu \Leftrightarrow (\lambda, \nu) \nin / /\\
+  \hline
+  \begin{array}{c}
+    \pi^{p + 1, q + 1}_{-, n / 2 - \lambda},\\
+    n/2\ge\lambda\todd
+  \end{array} & 0 & 1 \Leftrightarrow (\lambda, \nu), (n - \lambda, \nu) \in /
+  /\\
+  \hline
+\end{array} \newline$
+
+$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+  \hline
+  \begin{array}{c}
+    p \in 2\mathbb{Z},\\
+    q \in 2\mathbb{Z}+ 1
+  \end{array} & \begin{array}{c}
+    \pi^{p, q + 1}_{+, \nu - n' / 2},\\
+    2\mathbb{Z} \ni \nu \geqslant n' / 2
+  \end{array} & \begin{array}{c}
+    \pi^{p, q + 1}_{-, \nu - n' / 2},\\
+    2\mathbb{Z} \ni \nu \geqslant n' / 2
+  \end{array}\\
+  \hline
+  \begin{array}{c}
+    \pi^{p + 1, q + 1}_{+, n / 2 - \lambda},\\
+    \lambda \in 2\mathbb{Z}
+  \end{array} & 0 & 1 \Leftrightarrow (\lambda, \nu) \nin / /\\
+  \hline
+  \begin{array}{c}
+    \pi^{p + 1, q + 1}_{-, n / 2 - \lambda},\\
+    \lambda \in n - 2\mathbb{N}_+
+  \end{array} & 0 & 1 \Leftrightarrow (n - \lambda, \nu) \in / /\\
+  \hline
+\end{array}$
+
+\hspace*{-1.1cm}\begin{tabular}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+  \hline
+  \begin{tabular}{c}
+    $p \in 2\mathbb{Z}+ 1,$\\
+    $q \in 2\mathbb{Z}$
+  \end{tabular} & $\begin{array}{c}
+    \pi^{p, q + 1}_{+, \nu - n' / 2},\\
+    2\mathbb{Z}+ 1 \ni \nu \geqslant n' / 2
+  \end{array}$ & $\begin{array}{c}
+    \pi^{p, q + 1}_{-, \nu - n' / 2},\\
+    2\mathbb{Z}+ 1 \ni \nu \geqslant n' / 2
+  \end{array}$\\
+  \hline
+  $\begin{array}{c}
+    \pi^{p + 1, q + 1}_{+, n / 2 - \lambda},\\
+    \lambda \in n - 2\mathbb{N}_+
+  \end{array}$ & $0$ & $1 \Leftrightarrow (\lambda, \nu) \nin / /
+  \Leftrightarrow \lambda > \nu$\\
+  \hline
+  $\begin{array}{c}
+    \pi^{p + 1, q + 1}_{-, n / 2 - \lambda},\\
+    \lambda \in 2\mathbb{Z}
+  \end{array}$ & $0$ & $1 \Leftrightarrow (n - \lambda, \nu) \in / /$\\
+  \hline
+\end{tabular}
+
+$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+  \hline
+  p, q \in 2\mathbb{Z}+ 1 & \begin{array}{c}
+    \pi^{p, q + 1}_{+, \nu - n' / 2},\\
+    \nu \in 2\mathbb{Z}+ 1
+  \end{array} & \begin{array}{c}
+    \pi^{p, q + 1}_{-, \nu - n' / 2},\\
+    \nu \in 2\mathbb{N}
+  \end{array}\\
+  \hline
+  \begin{array}{c}
+    \pi^{p + 1, q + 1}_{+, n / 2 - \lambda},\\
+    \lambda \in 2\mathbb{Z}, \lambda \leqslant n / 2
+  \end{array} & 1 \Leftrightarrow (\lambda, \nu) \in \backslash\backslash &
+  0\\
+  \hline
+  \begin{array}{c}
+    \pi^{p + 1, q + 1}_{-, n / 2 - \lambda},\\
+    \lambda \in 2\mathbb{Z}, \lambda \leqslant n / 2
+  \end{array} & 0 & 1 \Leftrightarrow (n - \lambda, \nu) \in / /\\
+  \hline
+\end{array}$
+\begin{remark}
+Theorem \ref{thm:Aq} generalizes \cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}.
+\end{remark}
+\end{theorem}
+
+	A detailed proof will appear elsewhere.
+
+	{\bf Acknowledgement.} The first author was partially supported by the Grant-in-Aid for Scientific Research (A) 25247006.
+\nocite{kobayashi1998discrete2}
+\nocite{kobayashi2015program}
+\small
+\begin{thebibliography}{14}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[1]{bernstein2004estimates}
+J.~Bernstein and A.~Reznikov.
+\newblock Estimates of automorphic functions.
+\newblock \emph{{\normalfont Mosc. Math. J}}, \textbf{\textbf{4}}, (2004),
+  pp.~19--37.
+
+  \bibitem[2]{clerc2011generalized}
+J.-L. Clerc, T.~Kobayashi, B.~{\O}rsted and M.~Pevzner.
+\newblock Generalized {B}ernstein--{R}eznikov integrals.
+\newblock \emph{{\normalfont Math.~Ann.}}, \textbf{349}, (2011),.
+\href{http://dx.doi.org/10.1007/s00208-010-0516-4}{pp.~395--431}.
+
+\bibitem[3]{howe1993homogeneous}
+R.~E. Howe and E.-C. Tan.
+\newblock Homogeneous functions on light cones: the infinitesimal structure of
+  some degenerate principal series representations.
+\newblock \emph{{\normalfont Bull.~Amer.~Math.~Soc.}}, \textbf{28},
+  (1993), pp.~1--74.
+
+\bibitem[4]{juhl2009families}
+A.~Juhl.
+\newblock \emph{Families of {C}onformally {C}ovariant {D}ifferential
+  {O}perators, {Q}-curvature and {H}olography}, \emph{{\normalfont Progr.~ Math.},} \textbf{275},
+\newblock Birkh{\"a}user (2009).
+\newblock ISBN 978-3-7643-9900-9.
+
+\bibitem[5]{kobayashi1998discrete2}
+T.~Kobayashi.
+\newblock Discrete decomposability of the restriction of {$A_q(\lambda)$} with
+  respect to reductive subgroups {II}: Micro-local analysis and asymptotic
+  {K}-support.
+  \newblock \emph{{\normalfont Ann. Math. (2)}}, \textbf{147}, (1998),
+\href{http://dx.doi.org/10.2307/120963}{pp.~709--729}.
+
+\bibitem[6]{kobayashi1998discrete3}
+T.~Kobayashi.
+\newblock Discrete decomposability of the restriction of {$A_q(\lambda)$} with
+  respect to reductive subgroups {III}. {R}estriction of {H}arish-{C}handra
+  modules and associated varieties.
+\newblock \emph{{\normalfont Invent. Math.}}, \textbf{131}, (1998), 
+\href{http://dx.doi.org/10.1007/s002220050203}{pp.~229--256}.
+
+\bibitem[7]{Kobayashi2014}
+T.~Kobayashi.
+\newblock {S}hintani functions, real spherical manifolds, and
+  symmetry breaking operators.
+  \newblock \emph{{\normalfont Dev.~Math.}}, \textbf{37}, (2014),
+ \href{http://dx.doi.org/10.4171/OWR/2014/3}{pp.~127--159}.
+
+\bibitem[8]{kobayashi2015program}
+T.~Kobayashi.
+\newblock A program for branching problems in the representation theory of real
+  reductive groups.
+\newblock \emph{{\normalfont Progr.~Math.}}, \textbf{312}, (2015), 
+\href{http://dx.doi.org/10.1007/978-3-319-23443-4_10}{pp.~277--322}.
+\newblock In: \emph{{\normalfont Special issue in honor of Vogan's 60th years
+  birthday}}.
+
+\bibitem[9]{kokupe2016forms}
+T.~Kobayashi, T.~Kubo, and M.~Pevzner,
+\newblock 
+Conformal symmetry breaking operators for anti-de Sitter spaces.
+preprint, 
+\href{https://arxiv.org/abs/1610.09475}{arXiv:1610.09475}.
+
+\bibitem[10]{kobayashi2014classification}
+T.~Kobayashi and T.~Matsuki.
+\newblock Classification of finite-multiplicity symmetric pairs.
+\newblock \emph{{\normalfont Transformation Groups}}, \textbf{19}, (2014),
+\href{http://dx.doi.org/10.1007/s00031-014-9265-x}{pp.~457--493}.
+\newblock In: \emph{{\normalfont Special Issue in honour of Dynkin
+  for his 90th birthday}}.
+
+
+  \bibitem[11]{KO1}
+T.~Kobayashi and B.~{\O}rsted.
+\newblock Analysis on the minimal representation of\/ {${\rm
+  O}(p,q)$}.{\;}{{\rm{I}}. Realization via conformal geometry}.
+\newblock \emph{\normalfont Adv.~Math.}, \textbf{180}, (2003),
+\href{http://dx.doi.org/10.1016/S0001-8708(03)00012-4}{pp.~486--512}.
+
+  \bibitem[11]{KO2}
+T.~Kobayashi and B.~{\O}rsted.
+\newblock Analysis on the minimal representation of\/ {${\rm O}(p,q)$}.{\;}{{\rm{II}}}. {B}ranching laws.
+\newblock \emph{\normalfont Adv.~Math.}, \textbf{180}, (2003),
+\href{http://dx.doi.org/10.1016/S0001-8708(03)00013-6}{pp.~513--550}.
+
+\bibitem[13]{kobayashi2015branching}
+T.~Kobayashi, B.~{\O}rsted, P.~Somberg and V.~Sou{\v{c}}ek.
+\newblock Branching laws for verma modules and applications in parabolic
+  geometry. {I}.
+\newblock \emph{{\normalfont Adv.~Math.}}, \textbf{285}, (2015),
+\href{http://dx.doi.org/10.1016/j.aim.2015.08.020}{pp.~1796--1852}.
+
+\bibitem[14]{kobayashi2013finite}
+T.~Kobayashi and T.~Oshima.
+\newblock Finite multiplicity theorems for induction and restriction.
+\newblock \emph{{\normalfont Adv.~Math.}}, \textbf{248}, (2013), 
+ \href{http://dx.doi.org/10.1016/j.aim.2013.07.015}{pp.~921--944}.
+
+\bibitem[15]{kobayashi2016differential1}
+T.~Kobayashi and M.~Pevzner.
+\newblock Differential symmetry breaking operators: I. {G}eneral theory and
+  {F}-method.
+\newblock \emph{{\normalfont Selecta Math.}}, \textbf{22}, (2016),
+\href{http://dx.doi.org/10.1007/s00029-015-0207-9}{pp.~801--845}.
+
+\bibitem[16]{kobayashi2015symmetry}
+T.~Kobayashi and B.~Speh.
+\newblock \emph{Symmetry {B}reaking for {R}epresentations of {R}ank {O}ne
+  {O}rthogonal {G}roups}, \emph{{\normalfont Memoirs of the Amer.~Math.~Soc},}
+  \textbf{\href{http://dx.doi.org/10.1090/memo/1126}{238}}, (2015).
+\newblock ISBN 978-1-4704-1922-6.
+
+\bibitem[17]{wallach1988real2}
+N.~Wallach.
+\newblock \emph{Real Reductive Groups II}, \emph{{\normalfont Pure and Applied
+  Mathematics},} \textbf{132},
+\newblock Academic {P}ress (1992).
+\newblock ISBN 978-0127329611.
+
+\end{thebibliography}
+\end{document}
