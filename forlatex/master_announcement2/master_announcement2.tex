@@ -1,11 +1,13 @@
 %platex
 \documentclass[reqno,12pt]{pja00} % use larger type; default would be 10pt
 
+\usepackage{mathrsfs}
 \usepackage{hyperref}
 \usepackage[normalem]{ulem}
 \usepackage{enumerate}
 \usepackage{geometry}
 \usepackage{setspace}
+\usepackage{graphicx}
 \usepackage{amsmath,amssymb,xypic}
 \usepackage[all,cmtip]{xy}
 \usepackage{amsmath,amssymb,float,mystyle}
@@ -236,12 +238,75 @@ The results contribute to Program C of branching problems suggested by the first
 %	the proof of this theorem is performed \textit{independent of} of \cite{howe1993homogeneous}.
 %\end{remark}
 Now, we recall from \cite{KO2} the five equivalent definitions of the
-irreducible unitary representations $\pi_{\pm,\lambda}^{p,q}$ of $O(p,q)$.
+irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p+1,q+1)$$^1$\footnotetext{1: should I mention that parametrization in \cite{KO2} and in our case is different?}:
+\begin{enumerate}
+	\item[(i)] A subrepresentation of the degenerate principal series representation $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
+		with $K$-type\begin{equation*}
+			\begin{array}[]{c}
+				\Xi(K:b)\equiv \Xi\left( O(p)\times O(q):b \right)\\:=\displaystyle
+				\bigoplus_{\scalebox{0.5}{$\begin{array}[]{c}
+				m,n\in\N\\m-n\ge b\\m-n\equiv b\mbox{ mod }2
+			\end{array}$}}\mathcal{H}^m\left( \R^p \right)\boxtimes \mathcal{H}^n\left( \R^q \right),\\
+			b\equiv b(\lambda,p,q):=\lambda-\frac{p}{2}+\frac{q}{2}+1\in\Z,\\
+			\varepsilon\equiv\varepsilon(\lambda,p,q):=(-1)^b.
+			\end{array}
+		\end{equation*}
+	\item[(i)$'$] A quotient of $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes \C_{-\lambda} \right)$ with $K$-type $\Xi(K:b)$.
+	\item[(ii)] A subrepresentation of $C^\infty_\lambda\left( X(p,q) \right)_K$ with $K$-type $\Xi(K:b)$.
+	\item[(iii)]
+		The underlying $\left( \mathfrak{g},K \right)$-module of the Doulbeault cohomogoly group $H_{\overline{\partial}}^{p-2}\left( G/L,\mathscr{L}_{\left( \lambda+\frac{p+q-2}{2} \right)} 
+		\right)_K$.
+	\item[(iii)$'$] The Zuckerman-Vogan derived functor module $\mathscr{R}_{\mathfrak{q}}^{p-2}\left( \C_{\lambda f_1} \right)$.
+\end{enumerate}
+Similarly, we can define 
+irreducible unitary representations $\pi_{-,\lambda}^{p,q}$ of $O(p+1,q+1)$ as a 
+	subrepresentation of the degenerate principal series representation $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
+		with $K$-type\begin{equation*}
+			\begin{array}[]{c}
+				\displaystyle
+				\bigoplus_{\scalebox{0.5}{$\begin{array}[]{c}
+					m,n\in\N\\m-n\ge -\lambda+\frac{q}{2}-\frac{p}{2}-1\\m-n\equiv -\lambda+\frac{q}{2}-\frac{p}{2}-1\mbox{ mod }2
+			\end{array}$}}\mathcal{H}^m\left( \R^p \right)\boxtimes \mathcal{H}^n\left( \R^q \right).
+			\end{array}
+		\end{equation*}
+$^2$\footnotetext{2: should I derive the 5 definitions of $\pi_{-,\lambda}^{p,q}$ explicitly (I did not find them in \cite{KO2})}
+We define the following subsets of $\C^2$:
+\begin{equation*}
+	\begin{array}[]{c}
+		//:=\left\{ (\lambda,\nu)\in\C^2\mid \lambda-\nu\in-2\N \right\},\\
+		\backslash\backslash:=\left\{ (\lambda,\nu)\in\C^2\mid\lambda+\nu-n+1\in-2\N \right\}.
+	\end{array}
+\end{equation*}
+Let $G=O(p+1,q+1)$ be the automorphism group of the quadratic form
+on $\R^{p+q+2}$ of signature $(p+1,q+1)$ defined by
+\begin{equation*}
+	Q_{p+1,q+1}(x)
+		=x_0^2+\cdots+x_{p}^2-x_{p+1}^2-\cdots-x_{p+q+1}^2.
+\end{equation*}
+
+%%A degenerate spherical principal series representation $I(\lambda):=\Ind_P^G(\C_{\lambda})$ with parameter $\lambda\in\C$ of $G$ is induced from
+%%a character $\C_\lambda$ of a maximal parabolic subgroup $P=MAN_+$
+%%with Levi part
+%%$M A \simeq O (p, q) \times \{ \pm 1 \} \times \mathbb{R}$.
+%%We realize $I(\lambda)$ on the space of $C^\infty$ sections
+%%of the $G$-equivariant line bundle\[
+%%	\mathcal{L}_\lambda=G\times_{P}\C_\lambda\to G/P
+%%\]
+%%so that $I(\lambda)$ itself is the smooth Fr\'echet globalization of moderate growth.
+%%Our parametrization is chosen in a way that
+%%$I(\lambda)$ contains a finite-dimensional submodule if $-\lambda\in2\N$ and a finite-dimensional quotient if $\lambda-\left( p+q\right)\in2\N$ ({\it cf.} \cite{howe1993homogeneous}).
+
+Let $G'=O(p,q+1)$ be the stabilizer of the basis element $e_p$. 
+%%Similarly to $I(\lambda)$,
+%%we denote by $J(\nu):=\Ind_{P'}^{G'}\left( \C_\nu \right)$ the representation of $G'$
+%%induced from a character $\C_\nu$ of a
+%%maximal parabolic
+%%subgroup $P'$ of $G'$ with Levi part $O(p-1,q)\times\left\{ \pm1 \right\}\times\R$.
 \begin{theorem}[$G'$-invariant maps between Zuckerman modules $\pi_{\pm,\lambda}^{p,q}$]\label{thm:Aq}
 	Let $n=p+q,\;(p,q\ge1)$ and $n':=n-1$.
 	The dimensions of $\Hom_{G'}\left(\pi_{\pm,{n}/{2}-\lambda}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\pm,\nu-{n'}/{2}}^{p,q+1} \right)$
 	are as follows:\newline
-	\hspace*{-1.3cm}\begin{tabular}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+	\begin{tabular}{|@{}c@{}|@{}c@{}|@{}c@{}|}
   \hline
   \mystack{p = 1,}{ q \in 2\mathbb{Z}} & \mystack{\pi^{p, q + 1}_{-, \nu - q / 2}, }{\nu \in q +
   2\mathbb{N}} &\mystack{\pi^{p, q + 1}_{-, \nu - q / 2},}{\nu \in q + 1 +
@@ -254,7 +319,7 @@ irreducible unitary representations $\pi_{\pm,\lambda}^{p,q}$ of $O(p,q)$.
   $1 \Leftrightarrow (\lambda, \nu) \nin \backslash\backslash$\\
   \hline
 \end{tabular}\\
-\hspace*{-1.3cm}$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
   \hline
   \begin{array}{c}
     p = 1,\\
