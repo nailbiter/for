@@ -34,6 +34,7 @@
 \newcommand{\tmtextit}[1]{{\itshape{#1}}}
 \newcommand{\um}{-}
 \newcommand{\mystack}[2]{$\begin{array}{l}#1\\#2\end{array}$}
+\newcommand{\myfootnote}[2]{$^#1$\footnotetext{#1: #2}}
 
 \newtheorem{theorem}{Theorem}[section]
 \newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
@@ -237,8 +238,28 @@ The results contribute to Program C of branching problems suggested by the first
 %	Note that
 %	the proof of this theorem is performed \textit{independent of} of \cite{howe1993homogeneous}.
 %\end{remark}
+Let $G=O(p,q)$ be the automorphism group of the quadratic form
+on $\R^{p+q}$ of signature $(p,q)$ defined by
+\begin{equation*}
+	Q_{p,q}(x)
+		=x_1^2+\cdots+x_{p}^2-x_{p+1}^2-\cdots-x_{p+q}^2.
+\end{equation*}
+
+Let $p,q\in\N$ with $p\ge1$\myfootnote{4}{But in \cite[Fact 5.4]{KO2} the hypothesis ``$p>1$'' is mentioned, that's why I wrote ``$p>1$''\dots}.
+Following the notation \cite[(5.1.1)]{KO2},
+we set\begin{equation*}
+	A_0(p,q):=\left\{
+		\begin{array}[]{ll}
+			\left\{ \lambda\in\Z+\frac{p+q}{2}\mid \lambda>-1 \right\}&(p>1,q\neq0),\\
+			\left\{ \lambda\in\Z+\frac{p+q}{2}\mid\lambda\ge\frac{p}{2}-1 \right\}&(p>1,q=0),\\
+			\emptyset&(p=1,q\neq0)\\
+			&\kern0.55cm\mbox{or }(p=0),\\
+			\left\{ -\frac{1}{2},\frac{1}{2} \right\}&(p=1,q=0).
+		\end{array}
+		\right.
+\end{equation*}
 Now, we recall from \cite{KO2} the five equivalent definitions of the
-irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p+1,q+1)$$^1$\footnotetext{1: should I mention that parametrization in \cite{KO2} and in our case is different?}:
+irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p,q)$$^1$\footnotetext{1: should I mention that parametrization in \cite{KO2} and in our case is different?}:
 \begin{enumerate}
 	\item[(i)] A subrepresentation of the degenerate principal series representation $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
 		with $K$-type\begin{equation*}
@@ -252,24 +273,31 @@ irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p+1,q+1)$$^1$\
 			\end{array}
 		\end{equation*}
 	\item[(i)$'$] A quotient of $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes \C_{-\lambda} \right)$ with $K$-type $\Xi(K:b)$.
-	\item[(ii)] A subrepresentation of $C^\infty_\lambda\left( X(p,q) \right)_K$ with $K$-type $\Xi(K:b)$.
+	\item[(ii)] A subrepresentation of $C^\infty_\lambda\left( X(p,q) \right)_K$ with $K$-type $\Xi(K:b)$,
+		where we define a hyperboloid $X(p,q)$ by\begin{equation*}
+			X(p,q):=\left\{ (x,y)\in\R^{p,q}\mid \myabs{x}^2-\myabs{y}^2=1 \right\}
+		\end{equation*}
+		together with the natural action of $O(p,q)$.
 	\item[(iii)]
 		The underlying $\left( \mathfrak{g},K \right)$-module of the Doulbeault cohomogoly group $H_{\overline{\partial}}^{p-2}\left( G/L,\mathscr{L}_{\left( \lambda+\frac{p+q-2}{2} \right)} 
 		\right)_K$.
 	\item[(iii)$'$] The Zuckerman-Vogan derived functor module $\mathscr{R}_{\mathfrak{q}}^{p-2}\left( \C_{\lambda f_1} \right)$.
 \end{enumerate}
-Similarly, we can define 
-irreducible unitary representations $\pi_{-,\lambda}^{p,q}$ of $O(p+1,q+1)$ as a 
-	subrepresentation of the degenerate principal series representation $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
-		with $K$-type\begin{equation*}
+Similarly, we can also define 
+an
+irreducible unitary representations $\pi_{-,\lambda}^{p,q}$ of $O(p,q)$
+for $\lambda\in A_0(q,p)$, such that the underlying $(\mathfrak{g},K)$-module has the following $K$-type:
+%%as a 
+%%	subrepresentation of the degenerate principal series representation $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
+%%		with $K$-type
+		\begin{equation*}
 			\begin{array}[]{c}
 				\displaystyle
 				\bigoplus_{\scalebox{0.5}{$\begin{array}[]{c}
-					m,n\in\N\\m-n\ge -\lambda+\frac{q}{2}-\frac{p}{2}-1\\m-n\equiv -\lambda+\frac{q}{2}-\frac{p}{2}-1\mbox{ mod }2
+					m,n\in\N\\m-n\le -\lambda+\frac{q}{2}-\frac{p}{2}-1\\m-n\equiv -\lambda+\frac{q}{2}-\frac{p}{2}-1\mbox{ mod }2
 			\end{array}$}}\mathcal{H}^m\left( \R^p \right)\boxtimes \mathcal{H}^n\left( \R^q \right).
 			\end{array}
 		\end{equation*}
-$^2$\footnotetext{2: should I derive the 5 definitions of $\pi_{-,\lambda}^{p,q}$ explicitly (I did not find them in \cite{KO2})}
 We define the following subsets of $\C^2$:
 \begin{equation*}
 	\begin{array}[]{c}
@@ -277,13 +305,6 @@ We define the following subsets of $\C^2$:
 		\backslash\backslash:=\left\{ (\lambda,\nu)\in\C^2\mid\lambda+\nu-n+1\in-2\N \right\}.
 	\end{array}
 \end{equation*}
-Let $G=O(p+1,q+1)$ be the automorphism group of the quadratic form
-on $\R^{p+q+2}$ of signature $(p+1,q+1)$ defined by
-\begin{equation*}
-	Q_{p+1,q+1}(x)
-		=x_0^2+\cdots+x_{p}^2-x_{p+1}^2-\cdots-x_{p+q+1}^2.
-\end{equation*}
-
 %%A degenerate spherical principal series representation $I(\lambda):=\Ind_P^G(\C_{\lambda})$ with parameter $\lambda\in\C$ of $G$ is induced from
 %%a character $\C_\lambda$ of a maximal parabolic subgroup $P=MAN_+$
 %%with Levi part
@@ -296,14 +317,15 @@ on $\R^{p+q+2}$ of signature $(p+1,q+1)$ defined by
 %%Our parametrization is chosen in a way that
 %%$I(\lambda)$ contains a finite-dimensional submodule if $-\lambda\in2\N$ and a finite-dimensional quotient if $\lambda-\left( p+q\right)\in2\N$ ({\it cf.} \cite{howe1993homogeneous}).
 
-Let $G'=O(p,q+1)$ be the stabilizer of the basis element $e_p$. 
 %%Similarly to $I(\lambda)$,
 %%we denote by $J(\nu):=\Ind_{P'}^{G'}\left( \C_\nu \right)$ the representation of $G'$
 %%induced from a character $\C_\nu$ of a
 %%maximal parabolic
 %%subgroup $P'$ of $G'$ with Levi part $O(p-1,q)\times\left\{ \pm1 \right\}\times\R$.
+From now, we set $\left( G,G' \right)=\left( O(p+1,q+1),O(p,q+1) \right)$.
 \begin{theorem}[$G'$-invariant maps between Zuckerman modules $\pi_{\pm,\lambda}^{p,q}$]\label{thm:Aq}
-	Let $n=p+q,\;(p,q\ge1)$ and $n':=n-1$.
+	Let\myfootnote{5}{I will rewrite the tables in terms of $\Hom_{G'}\left( \pi_{\pm,x}^{p+1,q+1}\mid_{G'},\pi_{\pm,y}^{p,q+1} \right)$ in the next version, which I will send in 2 hours
+} $n=p+q,\;(p,q\ge1)$ and $n':=n-1$.
 	The dimensions of $\Hom_{G'}\left(\pi_{\pm,{n}/{2}-\lambda}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\pm,\nu-{n'}/{2}}^{p,q+1} \right)$
 	are as follows:\newline
 	\begin{tabular}{|@{}c@{}|@{}c@{}|@{}c@{}|}
@@ -458,33 +480,33 @@ Theorem \ref{thm:Aq} generalizes \cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
   \urlstyle{rm}\Url}\fi
 
-\bibitem[1]{bernstein2004estimates}
+\bibitem{bernstein2004estimates}
 J.~Bernstein and A.~Reznikov.
 \newblock Estimates of automorphic functions.
 \newblock \emph{{\normalfont Mosc. Math. J}}, \textbf{\textbf{4}}, (2004),
   pp.~19--37.
 
-  \bibitem[2]{clerc2011generalized}
+  \bibitem{clerc2011generalized}
 J.-L. Clerc, T.~Kobayashi, B.~{\O}rsted and M.~Pevzner.
 \newblock Generalized {B}ernstein--{R}eznikov integrals.
 \newblock \emph{{\normalfont Math.~Ann.}}, \textbf{349}, (2011),.
 \href{http://dx.doi.org/10.1007/s00208-010-0516-4}{pp.~395--431}.
 
-\bibitem[3]{howe1993homogeneous}
+\bibitem{howe1993homogeneous}
 R.~E. Howe and E.-C. Tan.
 \newblock Homogeneous functions on light cones: the infinitesimal structure of
   some degenerate principal series representations.
 \newblock \emph{{\normalfont Bull.~Amer.~Math.~Soc.}}, \textbf{28},
   (1993), pp.~1--74.
 
-\bibitem[4]{juhl2009families}
+\bibitem{juhl2009families}
 A.~Juhl.
 \newblock \emph{Families of {C}onformally {C}ovariant {D}ifferential
   {O}perators, {Q}-curvature and {H}olography}, \emph{{\normalfont Progr.~ Math.},} \textbf{275},
 \newblock Birkh{\"a}user (2009).
 \newblock ISBN 978-3-7643-9900-9.
 
-\bibitem[5]{kobayashi1998discrete2}
+\bibitem{kobayashi1998discrete2}
 T.~Kobayashi.
 \newblock Discrete decomposability of the restriction of {$A_q(\lambda)$} with
   respect to reductive subgroups {II}: Micro-local analysis and asymptotic
@@ -492,7 +514,7 @@ T.~Kobayashi.
   \newblock \emph{{\normalfont Ann. Math. (2)}}, \textbf{147}, (1998),
 \href{http://dx.doi.org/10.2307/120963}{pp.~709--729}.
 
-\bibitem[6]{kobayashi1998discrete3}
+\bibitem{kobayashi1998discrete3}
 T.~Kobayashi.
 \newblock Discrete decomposability of the restriction of {$A_q(\lambda)$} with
   respect to reductive subgroups {III}. {R}estriction of {H}arish-{C}handra
@@ -500,14 +522,14 @@ T.~Kobayashi.
 \newblock \emph{{\normalfont Invent. Math.}}, \textbf{131}, (1998), 
 \href{http://dx.doi.org/10.1007/s002220050203}{pp.~229--256}.
 
-\bibitem[7]{Kobayashi2014}
+\bibitem{Kobayashi2014}
 T.~Kobayashi.
 \newblock {S}hintani functions, real spherical manifolds, and
   symmetry breaking operators.
   \newblock \emph{{\normalfont Dev.~Math.}}, \textbf{37}, (2014),
  \href{http://dx.doi.org/10.4171/OWR/2014/3}{pp.~127--159}.
 
-\bibitem[8]{kobayashi2015program}
+\bibitem{kobayashi2015program}
 T.~Kobayashi.
 \newblock A program for branching problems in the representation theory of real
   reductive groups.
@@ -516,14 +538,14 @@ T.~Kobayashi.
 \newblock In: \emph{{\normalfont Special issue in honor of Vogan's 60th years
   birthday}}.
 
-\bibitem[9]{kokupe2016forms}
+\bibitem{kokupe2016forms}
 T.~Kobayashi, T.~Kubo, and M.~Pevzner,
 \newblock 
 Conformal symmetry breaking operators for anti-de Sitter spaces.
 preprint, 
 \href{https://arxiv.org/abs/1610.09475}{arXiv:1610.09475}.
 
-\bibitem[10]{kobayashi2014classification}
+\bibitem{kobayashi2014classification}
 T.~Kobayashi and T.~Matsuki.
 \newblock Classification of finite-multiplicity symmetric pairs.
 \newblock \emph{{\normalfont Transformation Groups}}, \textbf{19}, (2014),
@@ -532,47 +554,47 @@ T.~Kobayashi and T.~Matsuki.
   for his 90th birthday}}.
 
 
-  \bibitem[11]{KO1}
+  \bibitem{KO1}
 T.~Kobayashi and B.~{\O}rsted.
 \newblock Analysis on the minimal representation of\/ {${\rm
   O}(p,q)$}.{\;}{{\rm{I}}. Realization via conformal geometry}.
 \newblock \emph{\normalfont Adv.~Math.}, \textbf{180}, (2003),
 \href{http://dx.doi.org/10.1016/S0001-8708(03)00012-4}{pp.~486--512}.
 
-  \bibitem[11]{KO2}
+  \bibitem{KO2}
 T.~Kobayashi and B.~{\O}rsted.
 \newblock Analysis on the minimal representation of\/ {${\rm O}(p,q)$}.{\;}{{\rm{II}}}. {B}ranching laws.
 \newblock \emph{\normalfont Adv.~Math.}, \textbf{180}, (2003),
 \href{http://dx.doi.org/10.1016/S0001-8708(03)00013-6}{pp.~513--550}.
 
-\bibitem[13]{kobayashi2015branching}
+\bibitem{kobayashi2015branching}
 T.~Kobayashi, B.~{\O}rsted, P.~Somberg and V.~Sou{\v{c}}ek.
 \newblock Branching laws for verma modules and applications in parabolic
   geometry. {I}.
 \newblock \emph{{\normalfont Adv.~Math.}}, \textbf{285}, (2015),
 \href{http://dx.doi.org/10.1016/j.aim.2015.08.020}{pp.~1796--1852}.
 
-\bibitem[14]{kobayashi2013finite}
+\bibitem{kobayashi2013finite}
 T.~Kobayashi and T.~Oshima.
 \newblock Finite multiplicity theorems for induction and restriction.
 \newblock \emph{{\normalfont Adv.~Math.}}, \textbf{248}, (2013), 
  \href{http://dx.doi.org/10.1016/j.aim.2013.07.015}{pp.~921--944}.
 
-\bibitem[15]{kobayashi2016differential1}
+\bibitem{kobayashi2016differential1}
 T.~Kobayashi and M.~Pevzner.
 \newblock Differential symmetry breaking operators: I. {G}eneral theory and
   {F}-method.
 \newblock \emph{{\normalfont Selecta Math.}}, \textbf{22}, (2016),
 \href{http://dx.doi.org/10.1007/s00029-015-0207-9}{pp.~801--845}.
 
-\bibitem[16]{kobayashi2015symmetry}
+\bibitem{kobayashi2015symmetry}
 T.~Kobayashi and B.~Speh.
 \newblock \emph{Symmetry {B}reaking for {R}epresentations of {R}ank {O}ne
   {O}rthogonal {G}roups}, \emph{{\normalfont Memoirs of the Amer.~Math.~Soc},}
   \textbf{\href{http://dx.doi.org/10.1090/memo/1126}{238}}, (2015).
 \newblock ISBN 978-1-4704-1922-6.
 
-\bibitem[17]{wallach1988real2}
+\bibitem{wallach1988real2}
 N.~Wallach.
 \newblock \emph{Real Reductive Groups II}, \emph{{\normalfont Pure and Applied
   Mathematics},} \textbf{132},
