@@ -747,11 +747,8 @@
   Gamma functions. More precisely,
 
   <\theorem>
-    For <math|Re \<lambda\>,Re \<mu\>\<gtr\>-<frac|1|2>> and
-    <math|Re<around*|(|\<nu\>|)>\<gtr\>0> the following holds:<\footnote>
-      Similar result for <math|<around*|\||s-t|\|><rsup|2\<nu\>>sgn<around*|(|s-t|)>>
-      can be proven. I will do this in a next version.
-    </footnote>
+    <label|thm:3>For <math|Re \<lambda\>,Re \<mu\>\<gtr\>-<frac|1|2>> and
+    <math|Re<around*|(|\<nu\>|)>\<gtr\>0> the following holds:
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>sgn<rsup|<frac|1\<pm\>1|2>><around*|(|s+
@@ -769,11 +766,7 @@
   <\theorem>
     <label|thm:4>For <math|Re \<lambda\>,Re \<mu\>\<gtr\>-<frac|1|2>>,
     <math|Re<around*|(|\<nu\>|)>\<gtr\>0> and
-    <math|0\<leqslant\>z\<leqslant\>1> the following holds<\footnote>
-      Similar result for <math|<around*|\||s-t
-      z|\|><rsup|2\<nu\>>sgn<around*|(|s-t z|)>> can be proven. I will do
-      this in a next version.
-    </footnote>:
+    <math|0\<leqslant\>z\<leqslant\>1> the following holds:
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t
@@ -866,11 +859,7 @@
   <\corollary>
     <label|cor:3>For <math|Re \<lambda\>,Re \<mu\>\<gtr\>-<frac|1|2>>,
     <math|Re<around*|(|\<nu\>|)>\<gtr\>0> and <math|z\<geqslant\>0> the
-    following holds<\footnote>
-      Similar result for <math|<around*|\||x- z
-      y|\|><rsup|2\<nu\>>sgn<around*|(|s-t z|)>> can be proven. I will do
-      this in a next version.
-    </footnote>:
+    following holds:
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<around*|\||x+z
@@ -910,8 +899,30 @@
 
   <\question>
     How does the results of Question <reference|q:20> relate to
-    <cite-detail|kobayashi2011schrodinger|>
+    <cite-detail|kobayashi2011schrodinger|(7.4.11)>?
   </question>
+
+  The formula <cite-detail|kobayashi2011schrodinger|(7.4.11)> is equivalent
+  to
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<around*|(|x+y|)><rsub|+><rsup|\<lambda\>>=<big|sum><rsub|k=0><rsup|\<infty\>>a<rsub|k><around*|(|x|)>C<rsup|\<nu\>><rsub|k><around*|(|y|)>,>|<cell|<eq-number>>>|<row|<cell|>|<cell|a<rsub|i><around*|(|x|)>=<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|2\<nu\>+k|)>\<Gamma\><around*|(|\<lambda\>+1|)>|2<rsup|\<nu\>-1/2>k!>\<cdot\><around*|(|1-x<rsup|2>|)><rsup|<frac|\<lambda\>+\<nu\>|2>+<frac|1|4>>P<rsup|-\<lambda\>-\<nu\>-<frac|1|2>><rsub|\<nu\>+k-<frac|1|2>><around*|(|-x|)>\<cdot\><frac|<around*|(|k+\<nu\>|)>\<Gamma\><around*|(|\<nu\>|)>k!|2<rsup|1-2\<nu\>>\<pi\>\<Gamma\><around*|(|k+2\<nu\>|)>>>|<cell|>>|<row|<cell|>|<cell|=<around*|(|1-x<rsup|2>|)><rsup|<frac|\<lambda\>+\<nu\>|2>+<frac|1|4>>P<rsup|-\<lambda\>-\<nu\>-<frac|1|2>><rsub|\<nu\>+k-<frac|1|2>><around*|(|-x|)>\<cdot\><frac|\<Gamma\><around*|(|\<lambda\>+1|)><around*|(|k+\<nu\>|)>\<Gamma\><around*|(|\<nu\>|)>|2<rsup|1/2-\<nu\>><sqrt|\<pi\>>>,>|<cell|>>>>
+  </eqnarray>
+
+  while the Theorem <reference|thm:3> tells us that
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<around*|(|s+t|)><rsub|+><rsup|2\<nu\>>=<big|sum><rsub|l,m=0><rsup|\<infty\>>a<rsub|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m>=<frac|<around*|(|\<lambda\>+l|)><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>|2\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)><around*|(|1+\<nu\>|)><rsub|-<frac|l+m|2>>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>>.>|<cell|>>>>
+  </eqnarray>
+
+  Comparing the coefficients in both expansions, we get an expansion formula:
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|<frac|2\<nu\>+\<mu\>|2>+<frac|1|4>>P<rsup|-2\<nu\>-\<mu\>-<frac|1|2>><rsub|\<mu\>+m-<frac|1|2>><around*|(|-x|)>\<cdot\><frac|\<Gamma\><around*|(|2\<nu\>+1|)><around*|(|m+\<mu\>|)>\<Gamma\><around*|(|\<mu\>|)>|2<rsup|1/2-\<mu\>><sqrt|\<pi\>>>=<around*|(|x+y|)><rsub|+><rsup|2\<nu\>>=<big|sum><rsub|l,m=0><rsup|\<infty\>>a<rsub|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|<frac|2\<nu\>+\<mu\>|2>+<frac|1|4>>P<rsup|-2\<nu\>-\<mu\>-<frac|1|2>><rsub|\<mu\>+m-<frac|1|2>><around*|(|-x|)>=<big|sum><rsub|l=0><rsup|\<infty\>>a<rsub|l>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>>|<cell|>>|<row|<cell|>|<cell|a<rsub|l>=<frac|<sqrt|\<pi\>>2<rsup|1/2-\<mu\>-2\<nu\>><around*|(|\<lambda\>+l|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>|2\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)><around*|(|1+\<nu\>|)><rsub|-<frac|l+m|2>>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>|)>>.>|<cell|>>>>
+  </eqnarray>
+
+  I do not know yet whether the latter formula is known. I'll confirm this
+  till 24PM of today (April 5th).
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
@@ -953,7 +964,7 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|21|22>>
+    <associate|auto-1|<tuple|8|22>>
     <associate|bib-dotsenko1985four|<tuple|DF85|22>>
     <associate|bib-kobayashi2011schrodinger|<tuple|KM11|?>>
     <associate|bib-rainville1960special|<tuple|Rai60|22>>
@@ -982,6 +993,7 @@
     <associate|q:20|<tuple|20|?>>
     <associate|thm-1|<tuple|1|8>>
     <associate|thm-2|<tuple|2|18>>
+    <associate|thm:3|<tuple|3|?>>
     <associate|thm:4|<tuple|4|19>>
   </collection>
 </references>

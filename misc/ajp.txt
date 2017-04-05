@@ -1,0 +1,17 @@
+CharAnimeDataの x (例えば、x＝４２、ナオコ) 行に入っているキャラを登録するため:
+1) char* name 列に載っている名前のフォルダをAssets/Resources/Prefabsで作る(例えば,C016_00)
+2) Assets/Resources/Prefabs/Debug/original
+model/に適当なモデルを見つける（例えば、naoko） -- (これはMayaモデルから切り出したものです)
+3) prefabを作る：
+	a)シーンでempty objectを作る（right-click → Create Empty）、このオブジェクトの名前をchar* prefab 列書いたように変化する（例えば、naoko）
+	b)ステップ２で見つけたモデルを、empty objectにドラッグする
+	c)ステップ１で作られたフォルダにprefabを作る（right-clicks → Create → Prefab）
+	d)作られたprefabの名前をchar* prefab 列書いたようにする（例えば、naoko）
+	e)オブジェクトをシーンから削除
+4)/Public/STONE2/model/Charaで適当なキャラフォルダを見つけて（例えば、ch016）；このフォルダに入っている.tgaファイルを全部ステップ１に作られたフォルダへコーピする
+5)ステップ１に作られたフォルダに入っているファイルを全部testbundleに入れる
+6)bundleをrebuildする (AssetBundles -> Build AssetBundles)
+7) bundleをコーピする：
+	a) ~/stone2/Develop/Projects/Stone/AssetBundles/iOS/testbundle を ~/stone2/Develop/Projects/Stone/Assets/Resources/Prefabs/Debug/iOS/testbundle.bytes にコーピする
+	b) ~/stone2/Develop/Projects/Stone/AssetBundles/Android/testbundle を~/stone2/Develop/Projects/Stone/Assets/Resources/Prefabs/Debug/Android/testbundle.bytes  にコーピする
+	c) ~/stone2/Develop/Projects/Stone/AssetBundles/Windows/testbundle を ~/stone2/Develop/Projects/Stone/Assets/Resources/Prefabs/Debug/Windows/testbundle.byte  にコーピする
