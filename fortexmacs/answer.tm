@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|article|number-europe>>
 
@@ -727,7 +727,7 @@
   <new-page>
 
   <\question>
-    Is it possible to see Theorem <reference|thm-2>, Corollary
+    <label|q:20>Is it possible to see Theorem <reference|thm-2>, Corollary
     <reference|cor> and <reference|cor:2> in another perspective?
   </question>
 
@@ -908,6 +908,11 @@
 
   <new-page>
 
+  <\question>
+    How does the results of Question <reference|q:20> relate to
+    <cite-detail|kobayashi2011schrodinger|>
+  </question>
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
@@ -942,11 +947,11 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|2|21>>
-    <associate|bib-dotsenko1985four|<tuple|DF85|21>>
-    <associate|bib-rainville1960special|<tuple|Rai60|21>>
-    <associate|bib-tarasov2003selberg|<tuple|TV03|21>>
-    <associate|bib-warnaar2010sl3|<tuple|War10|21>>
+    <associate|auto-1|<tuple|21|22>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|22>>
+    <associate|bib-rainville1960special|<tuple|Rai60|22>>
+    <associate|bib-tarasov2003selberg|<tuple|TV03|22>>
+    <associate|bib-warnaar2010sl3|<tuple|War10|22>>
     <associate|cor|<tuple|1|14>>
     <associate|cor:2|<tuple|2|16>>
     <associate|cor:3|<tuple|3|20>>
@@ -967,6 +972,7 @@
     <associate|q14|<tuple|14|14>>
     <associate|q15|<tuple|15|15>>
     <associate|q18|<tuple|18|16>>
+    <associate|q:20|<tuple|20|?>>
     <associate|thm-1|<tuple|1|8>>
     <associate|thm-2|<tuple|2|18>>
     <associate|thm:4|<tuple|4|19>>
@@ -1017,6 +1023,10 @@
       dotsenko1985four
 
       dotsenko1985four
+
+      rainville1960special
+
+      rainville1960special
 
       rainville1960special
     </associate>
