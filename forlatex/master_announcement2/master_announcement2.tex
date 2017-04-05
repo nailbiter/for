@@ -1,4 +1,4 @@
-%platexT
+%platex
 \documentclass[reqno,12pt]{pja00} % use larger type; default would be 10pt
 %testtesttest
 
@@ -35,7 +35,8 @@
 \newcommand{\tmtextit}[1]{{\itshape{#1}}}
 \newcommand{\um}{-}
 \newcommand{\mystack}[2]{$\begin{array}{c}#1\\#2\end{array}$}
-\newcommand{\myfootnote}[2]{$^#1$\footnotetext{#1: #2}}
+\newcounter{myfootnotecounter}
+\newcommand{\myfootnote}[1]{\stepcounter{myfootnotecounter}$^\themyfootnotecounter$\footnotetext{\themyfootnotecounter: #1}}
 \renewcommand{\iff}{\Leftrightarrow}
 
 \newtheorem{theorem}{Theorem}[section]
@@ -102,144 +103,7 @@ images of SBOs for all parameters. Together with the (partial) knowledge about t
 of the $G'$-intertwining maps between the certain families of Zuckerman derived modules that occur as submodules (quotients) of degenerate principal serioes.
 The results contribute to Program C of branching problems suggested by the first author [Progr. Math. 2015].
 \end{abstract}
-%	Since the representation $J(\nu)$ of $G'=O(p,q+1)$ is multiplicity-free as a $K'$-module, we can describe its $(\mathfrak{g}',K')$-submodules by means of subsets of $\N_{+}^2$
-%	for $p>1$, which parametrize the $K'$-structure of $J(\nu)$ by the spherical harmonics $\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$.
-%	As in \cite{howe1993homogeneous}, we also indicate the Jordan--H\"older series (socle filtrations) of $J(\nu)$ by using arrows.
-%	We then have:
-%\begin{theorem}[images of SBOs]
-%	The regular SBO $R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$ is surjective,
-%	unless $\nu\in\Z$. In the latter case, the images of the underlying $(\mathfrak{g},K)$-module $I(\lambda)_K$ under
-%	$R_{\lambda,\nu}^X$ are given as follows (here we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$ for $(\lambda,\nu)\in//$ and $k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)
-%	\in\N$ for
-%	$(\lambda,\nu)\in\backslash\backslash$; the barriers $A^{\pm\pm}$ are defined as in \cite{howe1993homogeneous}): \\
-%	for $p>1$:
-%\end{theorem}
-%\begin{enumerate}[(1)]
-%	\item Suppose $p\in2\N_++1$ and $q\in2\Z$. Then, if $\nu\in2\Z,0<\nu<n-1$, $R_{\lambda,\nu}^X$ is surjective. Otherwise,\newpage
-%		\hspace*{-1cm}\begin{figure}[h]
-%			\noindent\begin{tabular}{m{1.6cm}rrr}
-%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
-%	      {\vspace{-3cm} $ \begin{array}{l}
-%	      \nu\teven\\ \nu\le0
-%      \end{array}$}&\input{1.tex}\\[0pt]
-%      \vspace{-3cm}$\begin{array}{l}
-%	      \nu\todd\\ \nu\le\frac{n-3}{2}
-%      \end{array}$&\input{2.tex}\\[0pt]
-%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
-%	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu=\frac{n-1}{2}
-%	      \end{array}$&\input{3.tex}\\[0pt]
-%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
-%	      \vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu\ge{n-1}\end{array}$&\input{4.tex}\\[0pt]
-%	    \end{tabular}
-%	  \end{figure}
-%		\begin{figure}[h]
-%			\noindent\begin{tabular}{m{1.3cm}rrr}
-%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
-%	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{5.tex}\\[25pt]
-%	    \end{tabular}
-%	  \end{figure}
-%	\item Suppose $p,q\in\odd$ and $p>1$. Then,\clearpage
-%		\begin{figure}[h]
-%			\noindent\begin{tabular}{m{1.3cm}rrr}
-%			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
-%			\tevenText{\le0}&\input{6.tex}\\[0pt]
-%			\toddText{\le n-3}&\input{7.tex}\\[0pt]
-%			\tevenText{>0}&\input{8.tex}\\[0pt]
-%			\toddText{>n-3}&\input{9.tex}\\[0pt]
-%			  
-%		\end{tabular}
-%		\end{figure}
-%	\item Suppose $p,q\in\even$. Then,\clearpage
-%		\begin{figure}[h]
-%			\noindent\begin{tabular}{m{1.3cm}rrr}
-%			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
-%			\tevenText{\le0}&\input{10.tex}\\[0pt]
-%			\toddText{\le n-3}&\input{11.tex}\\[0pt]
-%			\tevenText{>0}&\input{12.tex}\\[0pt]
-%			\toddText{>n-3}&\input{13.tex}\\[0pt]
-%		\end{tabular}
-%		\end{figure}
-%	\item Suppose $p\in\even,q\in\odd$. Then for $\nu\in\odd$, $R_{\lambda,\nu}^X$ is surjective. Otherwise (for $\nu\in\even$) we have,\clearpage
-%	  \begin{figure}[h]
-%		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
-%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
-%	      \vspace{-3cm}$\nu\leq0$&\input{14.tex}\\[0pt]
-%	      \vspace{-3cm}$
-%	      \begin{array}{l}
-%		      \nu>0\\\nu\le\frac{n-3}{2}
-%	      \end{array}
-%	      $&\input{15.tex}\\[0pt]
-%              $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
-%	      \vspace{-3cm}$
-%	      \begin{array}{l}
-%		      \nu\todd\\\nu=\frac{n-1}{2}
-%	      \end{array}
-%	      $&\input{16.tex}\\[0pt]
-%	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
-%	      \vspace{-3cm}
-%	      $
-%	      \begin{array}{l}
-%		      \nu\ge\frac{n+1}{2}\\\nu\le n-3
-%	      \end{array}
-%	      $
-%	      &\input{17.tex}\\[0pt]
-%	      \vspace{-3cm}$
-%	      \nu>n-3$&\input{18.tex}\\[0pt]
-%	    \end{tabular}
-%	  \end{figure}
-%	\end{enumerate}
-%	\vspace{-0.9cm}
-%	In the diagrams above some of them are filled not with gray, but with colored diagonal lines. This means that the image of the regular
-%	SBO $R_{\lambda,\nu}^X$ is zero and the (green/purple)
-%	ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{ \left\{ o \right\}}$ and $\tilde{R}_{\lambda,\nu}^X$ respectively.
-%
-%	For $p=1$ we have:\clearpage
-%
-%	\begin{figure}[h]
-%		\begin{tabular}{p{4.1cm}p{2.0cm}p{2.0cm}}
-%		$(\lambda,\nu)\in$ & $\kern-1.2cm\mybra{\ss\cup\bb}^c$ & $\kern-1.2cm\ss-\bb$ \\
-%		\mystack{\nu\teven}{\nu\le0}&\input{19.tex}\\
-%		\vspace{-0.5cm}\mystack{\nu,q\teven}{0<\nu<q}&\input{20.tex}\\
-%		\vspace{-0.5cm}\mystack{\nu\teven,q\todd}{0<\nu<q}&\input{21.tex}\\
-%		\vspace{-0.7cm}\mystack{\nu,q\teven}{\nu\ge q}&\input{22.tex}\\
-%		\vspace{-0.7cm}\mystack{\nu\teven,q\todd}{\nu\ge q}&\input{23.tex}\\
-%		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\le0}&\input{24.tex}\\
-%		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\le0}&\input{25.tex}\\
-%		\vspace{-0.5cm}\mystack{\nu\todd,q\teven}{0<\nu<q}&\input{26.tex}\\
-%		\vspace{-0.5cm}\mystack{\nu,q\todd}{0<\nu<q}&\input{27.tex}\\
-%		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\ge q}&\input{28.tex}\\
-%		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\ge q}&\input{29.tex}\\
-%	\end{tabular}\end{figure}
-%
-%	\begin{figure}[h]
-%		\hspace{2cm}
-%		\begin{tabular}{p{2.0cm}p{2.3cm}p{2.3cm}}
-%		$\kern-1.3cm\bb-\ss$ & $\kern-1.5cm\ss\cap\bb,k<l$ & $\kern-1.3cm\ss\cap\bb,k\geq l$\\
-%		\input{30.tex}\\[0.75em]
-%		\input{31.tex}\\[0.75em]
-%		\input{32.tex}\\[0.75em]
-%		\input{33.tex}\\[1.6em]
-%		\input{34.tex}\\[1.8em]
-%		\input{35.tex}\\[0.75em]
-%		\input{36.tex}\\[0.3em]
-%		\input{37.tex}\\[0.75em]
-%		\input{38.tex}\\[0.85em]
-%		\input{39.tex}\\[1.8em]
-%		\input{40.tex}\\
-%	\end{tabular}\end{figure}
-%	In the diagrams above some of them are filled not with gray, but with colored diagonal lines. This means that the image of the regular SBO $R_{\lambda,\nu}^X$ is zero and:
-%	\begin{itemize}
-%		\item For $(\lambda,\nu)\in\ss$ the (green/purple)
-%			ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{ \left\{ o \right\}}$ and $\tilde{R}_{\lambda,\nu}^X$ 
-%			respectively.
-%		\item For $(\lambda,\nu)\notin\ss$ the (blue/red) ascending/descending diagonal lines show the images of its residues $R_{\lambda,\nu}^{Y}$ and ${R}_{\lambda,\nu}^C$ 
-%			respectively.
-%	\end{itemize}
-%\begin{remark}
-%	We can also find the images of the other SBOs constructed in previous announcement$^1$\footnotetext{1: should I give the explicit Theorem number? How should I cite the prev. announcement then?} as well.
-%	Note that
-%	the proof of this theorem is performed \textit{independent of} of \cite{howe1993homogeneous}.
-%\end{remark}
+\input{useless.tex}
 Let $G=O(p,q)$ be the automorphism group of the quadratic form
 on $\R^{p+q}$ of signature $(p,q)$ defined by
 \begin{equation*}
@@ -247,7 +111,7 @@ on $\R^{p+q}$ of signature $(p,q)$ defined by
 		=x_1^2+\cdots+x_{p}^2-x_{p+1}^2-\cdots-x_{p+q}^2.
 \end{equation*}
 
-Let $p,q\in\N$ with $p\ge1$\myfootnote{4}{But in \cite[Fact 5.4]{KO2} the hypothesis ``$p>1$'' is mentioned, that's why I wrote ``$p>1$''\dots}.
+Let $p,q\in\N$ with $p\ge1$.
 Following the notation \cite[(5.1.1)]{KO2},
 we set\begin{equation*}
 	A_0(p,q):=\left\{
@@ -260,8 +124,8 @@ we set\begin{equation*}
 		\end{array}
 		\right.
 \end{equation*}
-Now, we recall from \cite{KO2} the five equivalent definitions of the
-irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p,q)$$^1$\footnotetext{1: should I mention that parametrization in \cite{KO2} and in our case is different?}:
+Now, for $p>1$ we recall from \cite{KO2} the five equivalent definitions of the
+irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p,q)$\myfootnote{should I mention that parametrization in \cite{KO2} and in our case are different?}:
 \begin{enumerate}
 	\item[(i)] A subrepresentation of the degenerate principal series representation $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
 		with $K$-type\begin{equation*}
@@ -285,6 +149,18 @@ irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p,q)$$^1$\foot
 		\right)_K$.
 	\item[(iii)$'$] The Zuckerman-Vogan derived functor module $\mathscr{R}_{\mathfrak{q}}^{p-2}\left( \C_{\lambda f_1} \right)$.
 \end{enumerate}
+In turn, for $(p,q)=(1,0)$ it is convenient to define
+\begin{equation*}
+	\pi_{+,\lambda}^{1,0}=\left\{
+		\begin{array}[]{ll}
+			\mbox{\textbf{1}}&\left(\lambda=-\frac{1}{2}  \right)\\
+			\mbox{\normalfont sgn}&\left( \lambda=\frac{1}{2} \right)\\
+			0&\mbox{(otherwise)}
+		\end{array}
+		\right.
+\end{equation*}
+Together with the definition for $p>1$ above this defined the irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ for all $p,q\in\N$.
+
 Similarly, we can also define 
 an
 irreducible unitary representations $\pi_{-,\lambda}^{p,q}$ of $O(p,q)$
@@ -471,3 +347,8 @@ N.~Wallach.
 
 \end{thebibliography}
 \end{document}
+%%y=\nu-n'2 <=> \nu=(n-1)/2+y
+%%x=n/2-\lambda <=> \lambda=n/2-x
+%%(lambda,nu)\in \\ <=> y-x+1/2\in -2N
+%%(lambda,nu)\in //<=> 1/2-x-y\in -2N
+%%(n-lambda,nu)\in //<=> 1/2+x-y\in -2N

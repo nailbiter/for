@@ -1,9 +1,21 @@
+.PHONY: all clean
 all: ../foraux/master_announcement2.pdf master_announcement2.zip
+
+clean:
+	rm -rf *.zip *.pdf
+
+master_announcement2.tex: tables.tex
+	touch master_announcement2.tex
 
 ../foraux/master_announcement2.pdf: master_announcement2.tex
 	latexmk -pdf $< -outdir=../foraux
 
-master_announcement2.zip: ../foraux/master_announcement2.pdf master_announcement2.tex
-	cp ../foraux/master_announcement2.pdf .
-	zip master_announcement2 master_announcement2.pdf master_announcement2.tex
-	rm master_announcement2.pdf
+Z.pdf : ~/for/fortexmacs/Z.pdf
+	cp $< $@
+
+master_announcement2.pdf: ../foraux/master_announcement2.pdf
+	cp $< $@
+
+master_announcement2.zip: master_announcement2.pdf master_announcement2.tex Z.pdf
+	zip master_announcement2 $^
+	unzip -l $@
