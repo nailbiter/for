@@ -921,6 +921,12 @@
       charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
       Physics B>, 251:691\U734, 1985.
 
+      <bibitem*|KM11><label|bib-kobayashi2011schrodinger>Toshiyuki Kobayashi
+      and Gen Mano. <newblock><with|font-shape|italic|The Schrödinger model
+      for the minimal representation of the indefinite orthogonal group
+      <math|O<around|(|p,q|)>>>, volume 213. <newblock>American Mathematical
+      Society, 2011.
+
       <bibitem*|Rai60><label|bib-rainville1960special>Earl<nbsp>David
       Rainville. <newblock><with|font-shape|italic|Special functions>,
       volume<nbsp>8. <newblock>Macmillan New York, 1960.
@@ -949,6 +955,7 @@
   <\collection>
     <associate|auto-1|<tuple|21|22>>
     <associate|bib-dotsenko1985four|<tuple|DF85|22>>
+    <associate|bib-kobayashi2011schrodinger|<tuple|KM11|?>>
     <associate|bib-rainville1960special|<tuple|Rai60|22>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|22>>
     <associate|bib-warnaar2010sl3|<tuple|War10|22>>
@@ -1029,6 +1036,8 @@
       rainville1960special
 
       rainville1960special
+
+      kobayashi2011schrodinger
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
