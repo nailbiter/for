@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|number-europe>>
 
@@ -903,7 +903,7 @@
   </question>
 
   The formula <cite-detail|kobayashi2011schrodinger|(7.4.11)> is equivalent
-  to
+  to the expansion
 
   <\eqnarray>
     <tformat|<table|<row|<cell|>|<cell|<around*|(|x+y|)><rsub|+><rsup|\<lambda\>>=<big|sum><rsub|k=0><rsup|\<infty\>>a<rsub|k><around*|(|x|)>C<rsup|\<nu\>><rsub|k><around*|(|y|)>,>|<cell|<eq-number>>>|<row|<cell|>|<cell|a<rsub|i><around*|(|x|)>=<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|2\<nu\>+k|)>\<Gamma\><around*|(|\<lambda\>+1|)>|2<rsup|\<nu\>-1/2>k!>\<cdot\><around*|(|1-x<rsup|2>|)><rsup|<frac|\<lambda\>+\<nu\>|2>+<frac|1|4>>P<rsup|-\<lambda\>-\<nu\>-<frac|1|2>><rsub|\<nu\>+k-<frac|1|2>><around*|(|-x|)>\<cdot\><frac|<around*|(|k+\<nu\>|)>\<Gamma\><around*|(|\<nu\>|)>k!|2<rsup|1-2\<nu\>>\<pi\>\<Gamma\><around*|(|k+2\<nu\>|)>>>|<cell|>>|<row|<cell|>|<cell|=<around*|(|1-x<rsup|2>|)><rsup|<frac|\<lambda\>+\<nu\>|2>+<frac|1|4>>P<rsup|-\<lambda\>-\<nu\>-<frac|1|2>><rsub|\<nu\>+k-<frac|1|2>><around*|(|-x|)>\<cdot\><frac|\<Gamma\><around*|(|\<lambda\>+1|)><around*|(|k+\<nu\>|)>\<Gamma\><around*|(|\<nu\>|)>|2<rsup|1/2-\<nu\>><sqrt|\<pi\>>>,>|<cell|>>>>
@@ -918,11 +918,12 @@
   Comparing the coefficients in both expansions, we get an expansion formula:
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|<frac|2\<nu\>+\<mu\>|2>+<frac|1|4>>P<rsup|-2\<nu\>-\<mu\>-<frac|1|2>><rsub|\<mu\>+m-<frac|1|2>><around*|(|-x|)>\<cdot\><frac|\<Gamma\><around*|(|2\<nu\>+1|)><around*|(|m+\<mu\>|)>\<Gamma\><around*|(|\<mu\>|)>|2<rsup|1/2-\<mu\>><sqrt|\<pi\>>>=<around*|(|x+y|)><rsub|+><rsup|2\<nu\>>=<big|sum><rsub|l,m=0><rsup|\<infty\>>a<rsub|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|<frac|2\<nu\>+\<mu\>|2>+<frac|1|4>>P<rsup|-2\<nu\>-\<mu\>-<frac|1|2>><rsub|\<mu\>+m-<frac|1|2>><around*|(|-x|)>=<big|sum><rsub|l=0><rsup|\<infty\>>a<rsub|l>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>>|<cell|>>|<row|<cell|>|<cell|a<rsub|l>=<frac|<sqrt|\<pi\>>2<rsup|1/2-\<mu\>-2\<nu\>><around*|(|\<lambda\>+l|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>|2\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)><around*|(|1+\<nu\>|)><rsub|-<frac|l+m|2>>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>|)>>.>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|<frac|2\<nu\>+\<mu\>|2>+<frac|1|4>>P<rsup|-2\<nu\>-\<mu\>-<frac|1|2>><rsub|\<mu\>+m-<frac|1|2>><around*|(|-x|)>\<cdot\><frac|\<Gamma\><around*|(|2\<nu\>+1|)><around*|(|m+\<mu\>|)>\<Gamma\><around*|(|\<mu\>|)>|2<rsup|1/2-\<mu\>><sqrt|\<pi\>>>=<around*|(|x+y|)><rsub|+><rsup|2\<nu\>>=<big|sum><rsub|l,m=0><rsup|\<infty\>>a<rsub|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>>|<cell|>>|<row|<cell|>|<cell|\<Rightarrow\><around*|(|1-x<rsup|2>|)><rsup|<frac|2\<nu\>+\<mu\>|2>+<frac|1|4>>P<rsup|-2\<nu\>-\<mu\>-<frac|1|2>><rsub|\<mu\>+m-<frac|1|2>><around*|(|-x|)>=<big|sum><rsub|l=0><rsup|\<infty\>>a<rsub|l>C<rsub|l><rsup|\<lambda\>><around*|(|x|)>>|<cell|>>|<row|<cell|>|<cell|a<rsub|l>=<frac|<sqrt|\<pi\>>2<rsup|1/2-\<mu\>-2\<nu\>><around*|(|\<lambda\>+l|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>|2\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)><around*|(|1+\<nu\>|)><rsub|-<frac|l+m|2>>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1|)>>>|<cell|>>|<row|<cell|>|<cell|\<Leftrightarrow\><around*|(|1-x<rsup|2>|)><rsup|\<alpha\>/2>P<rsup|-\<alpha\>><rsub|\<beta\>><around*|(|-x|)>=<big|sum><rsub|l=0><rsup|\<infty\>>a<rsub|l>C<rsub|l><rsup|\<lambda\>><around*|(|x|)>>|<cell|>>|<row|<cell|>|<cell|a<rsub|l>=<frac|<sqrt|\<pi\>>2<rsup|-\<alpha\>><around*|(|\<lambda\>+l|)>\<Gamma\><around*|(|\<lambda\>+\<alpha\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|\<lambda\>+<frac|\<beta\>-\<alpha\>|2>+<frac|l|2>+<frac|3|2>|)>\<Gamma\><around*|(|<tfrac|3|2>+<frac|\<beta\>-\<alpha\>|2>-<frac|l|2>|)>\<Gamma\><around*|(|<frac|\<alpha\>+\<beta\>|2>-<frac|l|2>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|\<alpha\>+\<beta\>|2>+<frac|l|2>+1|)>>>|<cell|>>>>
   </eqnarray>
 
-  I do not know yet whether the latter formula is known. I'll confirm this
-  till 24PM of today (April 5th).
+  I do not know yet whether the latter formula is known.
+
+  I'll confirm this till 12PM of today (April 6th).
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
@@ -1048,6 +1049,8 @@
       rainville1960special
 
       rainville1960special
+
+      kobayashi2011schrodinger
 
       kobayashi2011schrodinger
     </associate>
