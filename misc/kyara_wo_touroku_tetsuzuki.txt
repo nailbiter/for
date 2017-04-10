@@ -11,7 +11,7 @@ model/に適当なモデルを見つける（例えば、naoko） -- (これはMayaモデルから切り出し
 4)/Public/STONE2/model/Charaで適当なキャラフォルダを見つけて（例えば、ch016）,このフォルダに入っている.tgaファイルを全部ステップ１に作られたフォルダへコーピする
   	a)コーピされたテクスチャをすべてUnityで選んで、Inspector窓口でTexture TypeをEditor GUI and Legacy GUIにする
 5)ステップ１に作られたフォルダに入っているファイルを全部charabundleに入れる
-6)bundleをrebuildする (AssetBundles -> Build AssetBundles). 環境を切り替えて、全ての環境のAssetBundleを作成する
+6)bundleをrebuildする (AssetBundles -> Build AssetBundles). 環境を切り替えて[3]、全ての環境のAssetBundleを作成する
 7) bundleをコーピする：
 	a) ~/stone2/Develop/Projects/Stone/AssetBundles/iOS/charabundle を~/stone2/Develop/Projects/Stone/Assets/Resources/Prefabs/Chara/iOS/charabundle.bytes にコーピする
 	b) ~/stone2/Develop/Projects/Stone/AssetBundles/Android/charabundleを~/stone2/Develop/Projects/Stone/Assets/Resources/Prefabs/Chara/Android/charabundle.bytes  にコーピする
@@ -20,3 +20,4 @@ model/に適当なモデルを見つける（例えば、naoko） -- (これはMayaモデルから切り出し
 注意:
  [1] 新しいファイルを作る度に、これをSVNにAddするを忘れず;
  [2] Mayaからモデルを切り出すとき、Unityに読み込んだら、モデルのRigをHumanoidにしないといけない。具体的にいうと、fbxモデルをUnityで選んで、Inspector窓でRigを選んで、Animation TypeをHumanoidにして、一番下右にApplyを押す;
+ [3] 環境を切り替えるの意味が以下のようです。UnityでCtrl-Shift-Bを押して、環境リストが出て来きます。他の環境を選ぶと、Switch Platformボタンが押せるようになります。このボタンを押すと、環境が変わります。このように、環境を一個一個で切り替えて、それぞれでAssetBundles->Build AssetBundlesでバンドルを作ります。
