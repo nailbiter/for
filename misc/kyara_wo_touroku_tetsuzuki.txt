@@ -9,7 +9,7 @@ model/に適当なモデルを見つける（例えば、naoko） -- (これはMayaモデルから切り出し
 	d)作られたprefabの名前をchar* prefab 列書いたようにする（例えば、naoko）
 	e)オブジェクトをシーンから削除
 4)/Public/STONE2/model/Charaで適当なキャラフォルダを見つけて（例えば、ch016）,このフォルダに入っている.tgaファイルを全部ステップ１に作られたフォルダへコーピする
-  	a)コーピされたテクスチャをすべてUnityで選んで、Inspector窓口でTexture TypeをEditor GUI and Legacy GUIにする
+  	a)コーピされた顔(顔だけ！)テクスチャをすべてUnityで選んで、Inspector窓口でTexture TypeをEditor GUI and Legacy GUIにする
 5)ステップ１に作られたフォルダに入っているファイルを全部charabundleに入れる
 6)bundleをrebuildする (AssetBundles -> Build AssetBundles). 環境を切り替えて[3]、全ての環境のAssetBundleを作成する
 7) bundleをコーピする：
