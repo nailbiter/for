@@ -1,0 +1,67 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{enumerate}
+\usepackage{xeCJK}
+\usepackage{mystyle}
+\usepackage{ruby}
+
+\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro}
+%\renewcommand\rubysep{-5ex}
+\newcommand{\kana}[2]{\ruby{#1}{#2}}
+\newcommand{\mytabra}[1]{$\myabra{\mbox{#1}}$}
+
+\title{Useful Vocabulary}
+\begin{document}
+	\maketitle
+	\textbf{structures:}\\
+	\begin{tabular}[]{p{0.55\textwidth}|p{0.6\textwidth}}
+		\mytabra{A}の立場からは\mytabra{B}の一般化とみなせます&seeing from the viewpoint of \mytabra{A}, it can be seen as a generalization of \mytabra{B};\\
+		これを\mytabra{A}と書くことにします&we will denote it by \mytabra{A};\\
+		\mytabra{A}よって\mytabra{B}とみなしているのです&using \mytabra{A} we view (this) as \mytabra{B};\\
+		これらの課題は、\mytabra{A}の研究を\kana{深化}{シンカ}させるものです&(solving) these problems is advantageous for the deeper understanding of \mytabra{A};\\
+		この\mytabra{A}は\mytabra{B}の一般論を\kana{今考}{イマカンガ}えようとしている場合に\kana{当}{ア}てはめたものですA&
+		this \mytabra{A} is obtained by applying the general theory of \mytabra{B} to the case under consideration;
+	\end{tabular}
+
+	\vspace{1em}
+	\textbf{``smart'' words:}\\
+	\begin{tabular}[]{l|l|l}
+		非常に&\kana{極めて}{キワメテ}&この問題が極めて難しい\\
+		同じように&\kana{同様}{ドウヨウ}に\\
+		作る&\kana{構成}{コウセイ}する\\
+		at most&\kana{高々}{タカダカ}\\
+		to propose (etc. program, strategy)&\kana{提唱}{テイショウ}する\\
+		so-called&\kana{所謂}{イワユル}&\dots いわゆるKobayashi Program A\\
+		one by one&\kana{順}{ジュン}に&帰納的に順に分類する\\
+	\end{tabular}
+
+	\vspace{1em}
+	\textbf{terms (math):}\\
+	\begin{tabular}[]{l|p{10cm}}
+		product manifold & \kana{直積}{チョクセキ}多様体\\
+		(real) flag manifold&(\kana{実}{ジツ}$\bullet$){\kana{旗}{ハタ}多様体}\\
+		complex (e.g. parameter)&複\kana{素}{ソ}数\\
+		linearly independent&\kana{一次独立}{イチジドクリツ}\\
+		(maxi/mini)mal parabolic subgroup&\kana{極}{キョク}(\kana{大}{ダイ}/\kana{小}{ショウ})\kana{放物型部分群}{ホウブツガタ部分群}\\
+		inductively&\kana{帰納的に}{キノウテキニ}\\
+	\end{tabular}
+
+	\vspace{1em}
+	\textbf{misc snippets:\\}
+	\begin{tabular}[]{l|p{10cm}}
+		standard beginning &
+			初めまして。東京大学、数理科学研究科のレオンチエフ・アレックスと申します。
+			今日は
+			不定値\kana{直交}{チョッコウ}群$O(p,q)$の
+			{対称性破れ作用素}というタイトルでお話ししたいと思います。
+			最初は、設定から始めます。
+	\end{tabular}
+%%\begin{thebibliography}{9}
+%%\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
+%%\end{thebibliography}
+\end{document}
+
+

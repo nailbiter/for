@@ -113,19 +113,25 @@ on $\R^{p+q}$ of signature $(p,q)$ defined by
 
 Let $p,q\in\N$ with $p\ge1$.
 Following the notation \cite[(5.1.1)]{KO2},
-we set\begin{equation*}
+we set\myfootnote{the results in the table below concern $\lambda\in A^+_0(p,q)$ instead of the more general $A_0(p,q)$. The classification can (I guess) by generalized to the latter, but
+	this will require classification of $\Hom_{G'}\left( I(\lambda\otimes\varepsilon,J(\nu)\otimes\varepsilon' \right)$ for $\varepsilon,\varepsilon'\in\left\{ \pm1 \right\}$.
+Should I mention all this?}
+\begin{equation*}
+	\begin{array}[]{c}
 	A_0(p,q):=\left\{
 		\begin{array}[]{ll}
 			\left\{ \lambda\in\Z+\frac{p+q}{2}\mid \lambda>-1 \right\}&(p>1,q\neq0),\\
 			\left\{ \lambda\in\Z+\frac{p+q}{2}\mid\lambda\ge\frac{p}{2}-1 \right\}&(p>1,q=0),\\
 			\emptyset&(p=1,q\neq0)\\
 			&\kern0.55cm\mbox{or }(p=0),\\
-			\left\{ -\frac{1}{2},\frac{1}{2} \right\}&(p=1,q=0).
+			\left\{ -\frac{1}{2},\frac{1}{2} \right\}&(p=1,q=0),
 		\end{array}
-		\right.
+		\right.\\
+		A^+_0(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z\right\}
+	\end{array}
 \end{equation*}
 Now, for $p>1$ we recall from \cite{KO2} the five equivalent definitions of the
-irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p,q)$\myfootnote{should I mention that parametrization in \cite{KO2} and in our case are different?}:
+irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p,q)$:
 \begin{enumerate}
 	\item[(i)] A subrepresentation of the degenerate principal series representation $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
 		with $K$-type\begin{equation*}
@@ -201,9 +207,9 @@ We define the following subsets of $\C^2$:
 %%maximal parabolic
 %%subgroup $P'$ of $G'$ with Levi part $O(p-1,q)\times\left\{ \pm1 \right\}\times\R$.
 From now, we set $\left( G,G' \right)=\left( O(p+1,q+1),O(p,q+1) \right)$.
-\begin{theorem}[$G'$-invariant maps between Zuckerman modules $\pi_{\pm,\lambda}^{p,q}$]\label{thm:Aq}
+\begin{theorem}[$G'$-invariant maps between Zuckerman modules $\pi_{\pm,\lambda}^{p+1,q+1}$]\label{thm:Aq}
 	Let $n=p+q,\;(p,q\ge1)$ and $n':=n-1$.
-	The dimensions of $\Hom_{G'}\left(\pi_{\pm,{n}/{2}-\lambda}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\pm,\nu-{n'}/{2}}^{p,q+1} \right)$
+	The dimensions of $\Hom_{G'}\left(\pi_{\pm,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\pm,y}^{p,q+1} \right)$
 	are then either 0 or 1. More precisely, they are
 	as follows:\newline
 	\input{tables.tex}

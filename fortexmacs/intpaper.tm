@@ -426,7 +426,13 @@
 
   The hierarchy of the integral formulæ in Examples
   <reference|ex:1>-<reference|ex:4> and Theorem <reference|main-thm> is
-  summarized as follows:
+  summarized as follows:<\footnote>
+    Should I include the following in the diagram: Corollary
+    <reference|cor:Hermite> (and its relation with the Mehta integral);
+    relation with the results of <cite|kobayashi2011schrodinger>; relations
+    with the expansion of <math|x<rsup|n>> into Gegenbauer polynomials in
+    <cite|rainville1960special>?
+  </footnote>
 
   \;
 
@@ -434,7 +440,7 @@
   of various integral formulæ<label|table>>
 
   <\bibliography|bib|tm-plain|intdep.bib>
-    <\bib-list|8>
+    <\bib-list|10>
       <bibitem*|1><label|bib-andrews1999special>George<nbsp>E Andrews,
       Richard Askey<localize|, and >Ranjan Roy.<newblock>
       <with|font-shape|italic|Special Functions>,
@@ -458,30 +464,38 @@
 
       <bibitem*|4><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
       and >B.<nbsp>Speh.<newblock> <with|font-shape|italic|Symmetry Breaking
-      for Representations of Rank One Orthogonal Groups>, <localize|volume>
-      <with|font-series|bold|238><localize| of
-      ><with|font-shape|italic|Memoirs of the Amer. Math. Soc>.<newblock>
-      American Mathematical Society, 2015.<newblock> Available at
-      <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
+      for Representations of Rank One Orthogonal Groups>.<newblock> Memoirs
+      of the Amer. Math. Soc. 2015.<newblock>
 
-      <bibitem*|5><label|bib-mehta2004random>Madan<nbsp>Lal Mehta.<newblock>
+      <bibitem*|5><label|bib-kobayashi2011schrodinger>Toshiyuki
+      Kobayashi<localize| and >Gen Mano.<newblock>
+      <with|font-shape|italic|The Schrödinger model for the minimal
+      representation of the indefinite orthogonal group
+      <math|O<around|(|p,q|)>>>, <localize|volume> 213.<newblock> American
+      Mathematical Society, 2011.<newblock>
+
+      <bibitem*|6><label|bib-mehta2004random>Madan<nbsp>Lal Mehta.<newblock>
       <with|font-shape|italic|Random matrices>, <localize|volume>
       142.<newblock> Academic press, 2004.<newblock>
 
-      <bibitem*|6><label|bib-Selberg:411367>A Selberg.<newblock> Remarks on a
+      <bibitem*|7><label|bib-rainville1960special>Earl<nbsp>David
+      Rainville.<newblock> <with|font-shape|italic|Special functions>,
+      <localize|volume><nbsp>8.<newblock> Macmillan New York, 1960.<newblock>
+
+      <bibitem*|8><label|bib-Selberg:411367>A Selberg.<newblock> Remarks on a
       multiple integral.<newblock> <with|font-shape|italic|Norsk Mat.
       Tidsskr.>, 26:71\U78, 1944.<newblock>
 
-      <bibitem*|7><label|bib-tarasov2003selberg>V Tarasov<localize| and
+      <bibitem*|9><label|bib-tarasov2003selberg>V Tarasov<localize| and
       >Alexander Varchenko.<newblock> Selberg-type integrals associated with
       <math|<with|math-font|Euler|s*l><rsub|3>>.<newblock>
       <with|font-shape|italic|Letters in Mathematical Physics>,
       65(3):173\U185, 2003.<newblock>
 
-      <bibitem*|8><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.<newblock> The
-      <math|<with|math-font|Euler|s*l><rsub|3>> Selberg integral.<newblock>
-      <with|font-shape|italic|Advances in Mathematics>, 224(2):499\U524,
-      2010.<newblock>
+      <bibitem*|10><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.<newblock>
+      The <math|<with|math-font|Euler|s*l><rsub|3>> Selberg
+      integral.<newblock> <with|font-shape|italic|Advances in Mathematics>,
+      224(2):499\U524, 2010.<newblock>
     </bib-list>
   </bibliography>
 </body>
@@ -505,14 +519,16 @@
     <associate|auto-4|<tuple|4|6>>
     <associate|auto-5|<tuple|4.1|8>>
     <associate|auto-6|<tuple|4.1|9>>
-    <associate|bib-Selberg:411367|<tuple|6|9>>
+    <associate|bib-Selberg:411367|<tuple|8|9>>
     <associate|bib-andrews1999special|<tuple|1|9>>
     <associate|bib-dotsenko1985four|<tuple|2|9>>
     <associate|bib-forrester2008importance|<tuple|3|9>>
+    <associate|bib-kobayashi2011schrodinger|<tuple|5|?>>
     <associate|bib-kobayashi2015symmetry|<tuple|4|9>>
-    <associate|bib-mehta2004random|<tuple|5|9>>
-    <associate|bib-tarasov2003selberg|<tuple|7|9>>
-    <associate|bib-warnaar2010sl3|<tuple|8|9>>
+    <associate|bib-mehta2004random|<tuple|6|9>>
+    <associate|bib-rainville1960special|<tuple|7|?>>
+    <associate|bib-tarasov2003selberg|<tuple|9|9>>
+    <associate|bib-warnaar2010sl3|<tuple|10|9>>
     <associate|cor:1|<tuple|1.3|2>>
     <associate|cor:Hermite|<tuple|4.1|6>>
     <associate|eqn:Fijsum|<tuple|3.6|5>>
@@ -533,8 +549,12 @@
     <associate|ex:4|<tuple|4.6|8>>
     <associate|footnote-1.1|<tuple|1.1|1>>
     <associate|footnote-1.2|<tuple|1.2|?>>
+    <associate|footnote-4.1|<tuple|4.1|?>>
+    <associate|footnote-4.2|<tuple|4.2|?>>
     <associate|footnr-1.1|<tuple|1.1|1>>
     <associate|footnr-1.2|<tuple|1.2|?>>
+    <associate|footnr-4.1|<tuple|4.1|?>>
+    <associate|footnr-4.2|<tuple|4.2|?>>
     <associate|lem4|<tuple|3.1|3>>
     <associate|lem:Fisum|<tuple|3.2|3>>
     <associate|main-thm|<tuple|1.1|1>>
@@ -570,6 +590,10 @@
       tarasov2003selberg
 
       dotsenko1985four
+
+      kobayashi2011schrodinger
+
+      rainville1960special
     </associate>
     <\associate|table>
       <tuple|normal|Hierarchy of various integral formulæ|<pageref|auto-5>>

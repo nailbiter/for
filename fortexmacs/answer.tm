@@ -918,12 +918,34 @@
   Comparing the coefficients in both expansions, we get an expansion formula:
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|<frac|2\<nu\>+\<mu\>|2>+<frac|1|4>>P<rsup|-2\<nu\>-\<mu\>-<frac|1|2>><rsub|\<mu\>+m-<frac|1|2>><around*|(|-x|)>\<cdot\><frac|\<Gamma\><around*|(|2\<nu\>+1|)><around*|(|m+\<mu\>|)>\<Gamma\><around*|(|\<mu\>|)>|2<rsup|1/2-\<mu\>><sqrt|\<pi\>>>=<around*|(|x+y|)><rsub|+><rsup|2\<nu\>>=<big|sum><rsub|l,m=0><rsup|\<infty\>>a<rsub|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>>|<cell|>>|<row|<cell|>|<cell|\<Rightarrow\><around*|(|1-x<rsup|2>|)><rsup|<frac|2\<nu\>+\<mu\>|2>+<frac|1|4>>P<rsup|-2\<nu\>-\<mu\>-<frac|1|2>><rsub|\<mu\>+m-<frac|1|2>><around*|(|-x|)>=<big|sum><rsub|l=0><rsup|\<infty\>>a<rsub|l>C<rsub|l><rsup|\<lambda\>><around*|(|x|)>>|<cell|>>|<row|<cell|>|<cell|a<rsub|l>=<frac|<sqrt|\<pi\>>2<rsup|1/2-\<mu\>-2\<nu\>><around*|(|\<lambda\>+l|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>|2\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)><around*|(|1+\<nu\>|)><rsub|-<frac|l+m|2>>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1|)>>>|<cell|>>|<row|<cell|>|<cell|\<Leftrightarrow\><around*|(|1-x<rsup|2>|)><rsup|\<alpha\>/2>P<rsup|-\<alpha\>><rsub|\<beta\>><around*|(|-x|)>=<big|sum><rsub|l=0><rsup|\<infty\>>a<rsub|l>C<rsub|l><rsup|\<lambda\>><around*|(|x|)>>|<cell|>>|<row|<cell|>|<cell|a<rsub|l>=<frac|<sqrt|\<pi\>>2<rsup|-\<alpha\>><around*|(|\<lambda\>+l|)>\<Gamma\><around*|(|\<lambda\>+\<alpha\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|\<lambda\>+<frac|\<beta\>-\<alpha\>|2>+<frac|l|2>+<frac|3|2>|)>\<Gamma\><around*|(|<tfrac|3|2>+<frac|\<beta\>-\<alpha\>|2>-<frac|l|2>|)>\<Gamma\><around*|(|<frac|\<alpha\>+\<beta\>|2>-<frac|l|2>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|\<alpha\>+\<beta\>|2>+<frac|l|2>+1|)>>>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|<frac|2\<nu\>+\<mu\>|2>+<frac|1|4>>P<rsup|-2\<nu\>-\<mu\>-<frac|1|2>><rsub|\<mu\>+m-<frac|1|2>><around*|(|-x|)>\<cdot\><frac|\<Gamma\><around*|(|2\<nu\>+1|)><around*|(|m+\<mu\>|)>\<Gamma\><around*|(|\<mu\>|)>|2<rsup|1/2-\<mu\>><sqrt|\<pi\>>>=<around*|(|x+y|)><rsub|+><rsup|2\<nu\>>=<big|sum><rsub|l,m=0><rsup|\<infty\>>a<rsub|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>>|<cell|>>|<row|<cell|>|<cell|\<Rightarrow\><around*|(|1-x<rsup|2>|)><rsup|<frac|2\<nu\>+\<mu\>|2>+<frac|1|4>>P<rsup|-2\<nu\>-\<mu\>-<frac|1|2>><rsub|\<mu\>+m-<frac|1|2>><around*|(|-x|)>=<big|sum><rsub|l=0><rsup|\<infty\>>a<rsub|l>C<rsub|l><rsup|\<lambda\>><around*|(|x|)>>|<cell|>>|<row|<cell|>|<cell|a<rsub|l>=<frac|<sqrt|\<pi\>>2<rsup|-1/2-\<mu\>-2\<nu\>><around*|(|\<lambda\>+l|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|1+\<nu\>-<frac|l+m|2>|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>>>|<cell|>>|<row|<cell|>|<cell|\<Leftrightarrow\><around*|(|1-x<rsup|2>|)><rsup|\<alpha\>/2>P<rsup|-\<alpha\>><rsub|\<beta\>><around*|(|-x|)>=<big|sum><rsub|l=0><rsup|\<infty\>>a<rsub|l>C<rsub|l><rsup|\<lambda\>><around*|(|x|)>>|<cell|>>|<row|<cell|>|<cell|a<rsub|l>=<frac|<sqrt|\<pi\>>2<rsup|-\<alpha\>><around*|(|\<lambda\>+l|)>\<Gamma\><around*|(|\<lambda\>+\<alpha\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>|)>|\<Gamma\><around*|(|\<lambda\>+<frac|\<alpha\>-\<beta\>|2>+<frac|l|2>+<frac|1|2>|)>\<Gamma\><around*|(|<tfrac|1|2>+<frac|\<alpha\>-\<beta\>|2>-<frac|l|2>|)>\<Gamma\><around*|(|<frac|\<alpha\>+\<beta\>|2>-<frac|l|2>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|\<alpha\>+\<beta\>|2>+<frac|l|2>+1|)>><eq-number><label|eq:unknown>>|<cell|>>>>
   </eqnarray>
 
   I do not know yet whether the latter formula is known.
 
-  I'll confirm this till 12PM of today (April 6th).
+  Nevertheless, the simple proof of it can be given as follows:
+
+  <\proof>
+    (of <math|<eqref|eq:unknown>>). First, the application of the equalities
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<frac|d|d
+      x>C<rsub|n><rsup|\<lambda\>><around*|(|x|)>=2\<lambda\>C<rsub|n-1><rsup|\<lambda\>+1><around*|(|x|)>,>|<cell|>>|<row|<cell|>|<cell|<frac|d|d
+      x><around*|(|<around*|(|1-x<rsup|2>|)><rsup|-\<mu\>/2>P<rsup|\<mu\>><rsub|\<nu\>><around*|(|x|)>|)>=-<around*|(|1-x<rsup|2>|)><rsup|-<frac|\<mu\>+1|2>>P<rsup|\<mu\>+1><rsub|\<nu\>><around*|(|x|)><math-ss|<cite-detail|olver2010nist|(14.17.11)>>>|<cell|>>>>
+    </eqnarray>
+
+    implies that if <math|<eqref|eq:unknown>> holds for
+    <math|<around*|(|\<alpha\>,\<beta\>,\<lambda\>,l|)>>, then it holds for
+    <math|<around*|(|\<alpha\>+1,\<beta\>,\<lambda\>+1,l-1|)>>, hence we see
+    that it suffices to prove <math|<eqref|eq:unknown>> for <math|l=0>, which
+    is equvilent to computation of the integral
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-x<rsup|2>|)><rsup|\<gamma\>>P<rsup|\<alpha\>><rsub|\<beta\>><around*|(|x|)>>|<cell|>>>>
+    </eqnarray>
+
+    which is done by the formula <cite-detail|kobayashi2011schrodinger|L1>.
+  </proof>
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
@@ -938,6 +960,11 @@
       for the minimal representation of the indefinite orthogonal group
       <math|O<around|(|p,q|)>>>, volume 213. <newblock>American Mathematical
       Society, 2011.
+
+      <bibitem*|Olv10><label|bib-olver2010nist>Frank<nbsp>WJ Olver.
+      <newblock><with|font-shape|italic|NIST Handbook of Mathematical
+      Functions Hardback and CD-ROM>. <newblock>Cambridge University Press,
+      2010.
 
       <bibitem*|Rai60><label|bib-rainville1960special>Earl<nbsp>David
       Rainville. <newblock><with|font-shape|italic|Special functions>,
@@ -965,9 +992,10 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|8|22>>
+    <associate|auto-1|<tuple|9|22>>
     <associate|bib-dotsenko1985four|<tuple|DF85|22>>
-    <associate|bib-kobayashi2011schrodinger|<tuple|KM11|?>>
+    <associate|bib-kobayashi2011schrodinger|<tuple|KM11|22>>
+    <associate|bib-olver2010nist|<tuple|Olv10|?>>
     <associate|bib-rainville1960special|<tuple|Rai60|22>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|22>>
     <associate|bib-warnaar2010sl3|<tuple|War10|22>>
@@ -976,7 +1004,9 @@
     <associate|cor:3|<tuple|3|20>>
     <associate|eq-1|<tuple|4|7>>
     <associate|eq-2|<tuple|1|5>>
+    <associate|eq:1|<tuple|8|?>>
     <associate|eq:q8-1|<tuple|3|6>>
+    <associate|eq:unknown|<tuple|9|?>>
     <associate|eqn:herm1|<tuple|6|14>>
     <associate|eqn:main|<tuple|7|18>>
     <associate|eqn:thm1|<tuple|5|8>>
@@ -991,10 +1021,10 @@
     <associate|q14|<tuple|14|14>>
     <associate|q15|<tuple|15|15>>
     <associate|q18|<tuple|18|16>>
-    <associate|q:20|<tuple|20|?>>
+    <associate|q:20|<tuple|20|19>>
     <associate|thm-1|<tuple|1|8>>
     <associate|thm-2|<tuple|2|18>>
-    <associate|thm:3|<tuple|3|?>>
+    <associate|thm:3|<tuple|3|19>>
     <associate|thm:4|<tuple|4|19>>
   </collection>
 </references>
@@ -1053,6 +1083,8 @@
       kobayashi2011schrodinger
 
       kobayashi2011schrodinger
+
+      olver2010nist
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>

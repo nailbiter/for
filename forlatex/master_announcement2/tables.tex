@@ -1,43 +1,5 @@
-	\begin{tabular}{|@{}c@{}|@{}c@{}|@{}c@{}|}
-  \hline
-  \mystack{p = 1,}{ q \in 2\mathbb{Z}} & \mystack{\pi^{p, q + 1}_{-, y}, }{y \in q/2 +
-  2\mathbb{N}} &\mystack{\pi^{p, q + 1}_{-, y},}{y \in q/2 + 1 +
-  2\mathbb{N}}\\
-  \hline
-		\mystack{\pi_{+, x}^{p + 1, q + 1},}{ \lambda \in x\in\frac{3-q}{2}+2\N}
-  & $0$ & $0$\\
-  \hline
-		$\pi_{-, x}^{p + 1, q + 1}, \lambda \in \frac{n}{2}-2\mathbb{N}$ & $0$ &
-		$1 \iff y-x\nin -\frac{1}{2}-2\N$\\
-  \hline
-\end{tabular}\\
-$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
-  \hline
-  \begin{array}{c}
-    p = 1,\\
-    q \in 2\mathbb{Z}+ 1
-  \end{array} & \begin{array}{c}
-    \pi^{p, q + 1}_{-, y},\\
-    \nu \in q/2 + 2\mathbb{N}
-  \end{array} & \begin{array}{c}
-    \pi^{p, q + 1}_{-, y},\\
-    \nu \in q/2 + 1 + 2\mathbb{N}
-  \end{array}\\
-  \hline
-  \begin{array}{c}
-    \pi^{p + 1, q + 1}_{+, x},\\
-	  x\in \N_+\cap\left(\frac{n}{2}+2\Z\right)
-  \end{array} & 0 & 0\\
-  \hline
-  \begin{array}{c}
-    \pi_{-,x}^{p + 1, q + 1},\\
-	  x\in \N_+\cap\left(\frac{n}{2}+2\Z\right)
-  \end{array} & 0 & 1 \iff y-x\nin -\frac{1}{2}-2\N
-  \\
-  \hline
-\end{array}$\\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\mystack}[2]{\begin{array}{c}#1\\#2\end{array}}
+\renewcommand{\mystack}[2]{\begin{array}{c}#1,\\#2\end{array}}
 \newcommand{\mytable}[9]{
 $\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
   \hline
@@ -54,20 +16,29 @@ $\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
 \newcommand{\pimx}{\pi^{p+1, q + 1}_{-, x}}
 \newcommand{\pimy}{\pi^{p, q + 1}_{-, y}}
 \newcommand{\tzo}{2\Z+1}
+\newcommand{\tno}{2\N+1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\hspace*{-2.2cm}\mytable
-	{p,q\in2\Z} {\mystack{\pipy,}{y\in-n'/2+2\N}} {\mystack{\pimy}{y\in-n'/2+2\N}}
-	{\mystack{\pipx}{x\in {\N}\cap\mybra{\frac{n}{2}+2\Z+1}}}  {1\iff y-x+\frac{1}{2}\in-2\N} {1\iff \frac{1}{2}-x-y\nin-2\N}
-	{\mystack{\pimx}{x\in {\N}\cap\mybra{\frac{n}{2}+2\Z+1}}}  {0} 				 {\mystack{1\iff \frac{1}{2}\pm x-y\in-2\N}{\iff \frac{1}{2}+x-y\in-2\N}}
-\hspace*{-1.7cm}\mytable
-     {\mystack{p\in2\Z}{q\in2\Z+1}}{\mystack{\pipy}{y\in\N_+\cap\mybra{\frac{n'}{2}+2\Z}}}{\mystack{\pimy}{y\in\N_+\cap\mybra{\frac{n'}{2}+2\Z}}}
+\hspace*{0cm}\mytable		%#1
+{\mystack{p=1}{q\in2\Z}}						{\mystack{\pimy}{y\in A_0(q+1,p)q/2+2\N}}		{\mystack{\pimy}{y\in q/2+\tno}}
+{\mystack{\pipx}{x\in\frac{3-q}{2}+2\N}}				{0}					{0}
+{\mystack{\pimx}{x\in \frac{n}{2}-2\N}}					{0}					{1\iff y-x\nin -\frac{1}{2}-2\N}
+\hspace*{-0.5cm}\mytable	%#2
+{\mystack{p=1}{q\in\tzo}}						{\mystack{\pimy}{y\in q/2+2\N}}		{\mystack{\pimy}{y\in q/2+\tno}}
+{\mystack{\pipx}{x\in A_0^+(p+1,q+1)}}					{0}					{0}
+{\mystack{\pimx}{x\in A_0^+(p+1,q+1)}}					{0}					{1\iff y-x\nin-\frac{1}{2}-2\N}
+\hspace*{-2.2cm}\mytable	%#3
+{p,q\in2\Z} 								{\mystack{\pipy}{y\in-n'/2+2\N}} 	{\mystack{\pimy}{y\in-n'/2+2\N}}
+{\mystack{\pipx}{x\in A_0^+(p+1,q+1)}}					{1\iff y-x+\frac{1}{2}\in-2\N} 		{1\iff \frac{1}{2}-x-y\nin-2\N}
+{\mystack{\pimx}{x\in A_0^+(p+1,q+1)}}			  		{0} 				 	{{1\iff \frac{1}{2}+ x-y\in-2\N}}
+\hspace*{-1.7cm}\mytable	%#4
+     {\mystack{p\in2\Z}{q\in2\Z+1}}{\mystack{\pipy}{y\in A_0^+(p,q+1)}}{\mystack{\pimy}{y\in A_0^+(p,q+1)}}
      {\mystack{\pipx}{x\in n/2-2\Z}} {0} {1\iff \frac{1}{2}-x-y\nin-2\N}
      {\mystack{\pimx}{x\in -n/2+2\N_+}} {0} {1\iff \frac{1}{2}+x-y\in-2\N}
-\hspace*{-1.7cm}\mytable
-     {\mystack{p\in2\Z+1}{q\in2\Z}}{\mystack{\pipy}{y\in\N_+\cap\mybra{\frac{n'}{2}+\tzo}}}{\mystack{\pimy}{y\in\N_+\cap\mybra{\frac{n'}{2}+\tzo}}}
-     {\mystack{\pipx}{x\in -n/2+2\N_+}} {0} {1\iff \frac{1}{2}-x-y\nin-2\N}
+\hspace*{-0.0cm}\mytable	%#5
+     {\mystack{p\in2\Z+1}{q\in2\Z}}					{\mystack{\pipy}{y\in A_0^+(p,q+1)}}	{\mystack{\pimy}{y\in A_0^+(p,q+1)}}
+     {\mystack{\pipx}{x\in -n/2+2\N_+}} 				{0} 					{1\iff \frac{1}{2}-x-y\nin-2\N}
      {\mystack{\pimx}{x\in n/2-2\Z}} {0} {1\iff \frac{1}{2}+x-y\in-2\N}
-\hspace*{-1.7cm}\mytable
+\hspace*{0cm}\mytable		%#6
      {p,q\in2\Z+1}{\mystack{\pipy}{y\in-n'/2+\tzo}}{\mystack{\pimy}{y\in-n'/2+2\N}}
-     {\mystack{\pipx}{x\in \N_+\cap\mybra{n/2+2\Z}}}{1\iff y-x+\frac{1}{2}\in-2\N}{0}
-     {\mystack{\pimx}{x\in \N_+\cap\mybra{n/2+2\Z}}}{0}{1\iff \frac{1}{2}+x-y\in-2\N}
+     {\mystack{\pipx}{x\in A_0^+(p+1,q+1)}}{1\iff y-x+\frac{1}{2}\in-2\N}{0}
+     {\mystack{\pimx}{x\in A_0^+(p+1,q+1)}}{0}{1\iff \frac{1}{2}+x-y\in-2\N}
