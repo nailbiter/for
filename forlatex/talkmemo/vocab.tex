@@ -7,9 +7,10 @@
 \usepackage{xeCJK}
 \usepackage{mystyle}
 \usepackage{ruby}
+\usepackage{longtable}
 
-%\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
-\setCJKmainfont{MS PGothic} %AJP windows
+\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
+%\setCJKmainfont{MS PGothic} %AJP windows
 %\renewcommand\rubysep{-5ex}
 \newcommand{\kana}[2]{\ruby{#1}{#2}}
 \newcommand{\mytabra}[1]{$\myabra{\mbox{#1}}$}
@@ -18,34 +19,51 @@
 \begin{document}
 \def\A{\mytabra{A}}
 \def\B{\mytabra{B}}
+\def\C{\mytabra{C}}
+\def\same{-------- "" --------}
 
 	\maketitle
 	\textbf{structures:}\\
-	\begin{tabular}[]{p{0.55\textwidth}|p{0.6\textwidth}}
+	\begin{longtable}[]{p{0.55\textwidth}|p{0.6\textwidth}}
 		\mytabra{A}の立場からは\mytabra{B}の一般化とみなせます&seeing from the viewpoint of \mytabra{A}, it can be seen as a generalization of \mytabra{B};\\\hline
 		これを\mytabra{A}と書くことにします&we will denote it by \mytabra{A};\\\hline
 		\mytabra{A}よって\mytabra{B}とみなしているのです&using \mytabra{A} we view (this) as \mytabra{B};\\\hline
 		これらの課題は、\mytabra{A}の研究を\kana{深化}{シンカ}させるものです&(solving) these problems is advantageous for the deeper understanding of \mytabra{A};\\\hline
 		この\mytabra{A}は\mytabra{B}の一般論を\kana{今考}{イマカンガ}えようとしている場合に\kana{当}{ア}てはめたものですA&
 		this \mytabra{A} is obtained by applying the general theory of \mytabra{B} to the case under consideration;\\\hline
+		\same&\B で証明された一般理論を今の特別な設 定に\kana{適用}{てきよう}すると、以下の\A　を\kana{得}{エ}ます\\\hline
 		we can study \mytabra{A} instead of \mytabra{B}&\mytabra{B}の代わりに\mytabra{A}を研究に\kana{置き換え}{オキカエ}ることができます\\\hline
+		\same &\B の代わりに\A を研究しても\kana{同値}{ドウチ}であるということがわかります。\\\hline
 		\mytabra{A} is the keypoint&\mytabra{A}が\kana{鍵}{カギ}になります\\\hline
 		\mytabra{A} is important feature in applications&\mytabra{A}が\kana{応用上}{オウヨウジョウ}重要なポイントになります\\\hline
 		this \A is also used in studying \B that we introduced & この\A も、ここで求めた\B の性質を調べるに用いられます\\\hline
 		\A　はという\kana{問}{ト}いに答えるものです&\A answers the question \B\\\hline
 		I would like to start with reviewing the well-known concept of \A&最初は、ここにいらっしゃる皆様が
 		よくご存知\A という\kana{概念}{ガイネン}から復習始めたいと思います\\\hline
-		fundamental (e.g. research etc.)&\kana{キバン}{キバン}的な\\\hline
 		the case \A is much studied starting from a long time ago, so that even \B is known&
-		\A の場合は古くから多くの研究があり、\B さえ知られています。
-		\\\hline
-	\end{tabular}
+		\A の場合は古くから多くの研究があり、\B さえ知られています。\\\hline
+		in slides we use the abbreviation \A to denote \B&
+		スライドでは{\B}の
+		\kana{頭文字}{カシラモジ}を{とって}\A と\kana{略記}{リャクキ}することにします。\\\hline
+		as an a priori estimate based on \A &\A におけるアプリオリ評価として\\\hline
+		\A is uniformly bounded independent of \B&
+		\A が\B よらずに一様に押さえられている\\\hline
+		$B\mapsto A\in C$
+		&\B からその\A を対応させることによって\C への写像が定まった ことになります\\\hline
+		in the language of \A, the \B is the same as \C&
+		\B というのは、\A の言葉では、\C ということと同値になる\\\hline
+		\A is obtained by substituting \B in \C&
+		\A は\C 、そこに\B を代入して得られるものです。\\\hline
+		as a complete opposite to \A, \B&
+		\A と正反対で、\B
+	\end{longtable}
 
 	\vspace{1em}
 	\textbf{``smart'' words:}\\
-	\begin{tabular}[]{p{0.3\textwidth}|l|p{0.3\textwidth}}
+	\begin{longtable}[]{p{0.3\textwidth}|l|p{0.3\textwidth}}
 		非常に&\kana{極めて}{キワメテ}&この問題が極めて難しい\\
 		同じように&\kana{同様}{ドウヨウ}に\\
+		fundamental (e.g. research etc.)&\kana{キバン}{キバン}的な\\
 		作る&\kana{構成}{コウセイ}する\\
 		to determine&\kana{決定}{ケッテイ}する\\
 		at most&\kana{高々}{タカダカ}&
@@ -55,10 +73,11 @@
 		to propose (etc. program, strategy)&\kana{提唱}{テイショウ}する\\
 		so-called&\kana{所謂}{イワユル}&\dots いわゆるKobayashi Program A\\
 		one by one&\kana{順}{ジュン}に&帰納的に順に分類する\\
-		defined/induced by&\dots によって\kana{導}{ミチビ}かれます\\
+		defined/induced by \A&\dots \A によって\kana{導}{ミチビ}かれます\\
+		\same&\A からの\kana{誘導}{ユウドウ}して\kana{得}{エ}られる\\
 		as a first step&\kana{第一歩}{ダイイッポ}として\\
 		ここに書いた&ここに述べた\\
-		-------- "" --------&ここに\kana{記}{シル}した\\
+		\same &ここに\kana{記}{シル}した\\
 		もっと詳しく&より\kana{精密}{セイミツ}に\\
 		方法&\kana{手法}{シュホウ}\\
 		different&\kana{異なる}{コトナル}\\
@@ -66,11 +85,17 @@
 		at this point of time&今の\kana{時点}{ジテン}で
 		in general is not \A&\kana{最早}{もはや}\A になりません\\
 		色々な&\kana{種々}{シュジュ}の\\
-	\end{tabular}
+		higher rank (e.g. group)&\kana{高階}{コウカイ}&\kana{高階}{コウカイ}の群\\
+		information is not lost&情報が\kana{失われない}{うしわれない}\\
+		\A　を持つ&\A を\kana{有します}{ゆうします}\\
+		\A that belongs  to \B&\B に\kana{属する}{ゾクスル}\A&真ん中のベクトル空間に\kana{属する}{ゾクスル}超関数F\\
+	\end{longtable}
 
 	\vspace{1em}
 	\textbf{terms (math):}\\
-	\begin{tabular}[]{l|p{10cm}}
+	\begin{longtable}[]{l|p{10cm}}
+		(mathematical) term&\kana{用語}{カナ}\\
+		$C^\infty$ class&$C$無限\kana{級}{キュウ}\\
 		nilpo radical&\kana{冪零根基}{ベキレイコンキ}\\
 		product manifold & \kana{直積}{チョクセキ}多様体\\
 		indefinite orthogonal group&{不定値\kana{直交}{チョッコウ}群}\\
@@ -91,11 +116,12 @@
 		composition (e.g. of functions)&\kana{合成}{ゴウセイ}\\
 		branching (in representation theorem)&\kana{分岐則}{ブンキソク}\\
 		reductive group&\kana{簡約}{カンヤク}群\\
-	\end{tabular}
+		surjectivity&\kana{全射性}{ゼンシャセイ}\\
+	\end{longtable}
 
 	\vspace{1em}
 	\textbf{misc snippets:\\}
-	\begin{tabular}[]{p{0.3\textwidth}|p{0.7\textwidth}}
+	\begin{longtable}[]{p{0.3\textwidth}|p{0.7\textwidth}}
 		standard beginning &
 			初めまして。東京大学、数理科学研究科のレオンチエフ・アレックスと申します。
 			今日は
@@ -105,9 +131,9 @@
 		when going to details&
 		最後に\kana{手法}{シュホウ}について少し\kana{触}{フ}れましょう。\\\hline
 		although we can prove more general, for simplicity of presentation we present special case&
-		実はもう少し一般の公式も証明できているのですが、ここでの発表では記述を簡単にするため、\kana{少し}{スコシ}
-		\kana{特殊化}{トクシュカ}してで\kana{記述}{キジュツ}しました。\\\hline
-	\end{tabular}
+		実はもう少し一般の公式も証明できているのですが、ここでの発表では記述を簡単にするため、\kana{少し}{スコシ}\\\hline
+		let us list the important questions concerning these&これに関して重要な問題を\kana{挙}{ア}げましょう\\\hline
+	\end{longtable}
 %%\begin{thebibliography}{9}
 %%\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
 %%\end{thebibliography}
