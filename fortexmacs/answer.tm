@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|article|number-europe>>
 
@@ -618,7 +618,7 @@
   I have not found explicit reference yet. \PMathematica\Q software seems to
   not know this equality.\ 
 
-  Nevertheless, I have found references and<new-line><hlink|http://functions.wolfram.com/Polynomials/HermiteH/21/02/01/0008/|http://functions.wolfram.com/Polynomials/HermiteH/21/02/01/0008/>
+  Nevertheless, I have found reference <hlink|http://functions.wolfram.com/Polynomials/HermiteH/21/02/01/0008/|http://functions.wolfram.com/Polynomials/HermiteH/21/02/01/0008/>
   for the equality:
 
   <\eqnarray>
@@ -898,7 +898,7 @@
   <new-page>
 
   <\question>
-    How does the results of Question <reference|q:20> relate to
+    <label|q:21>How does the results of Question <reference|q:20> relate to
     <cite-detail|kobayashi2011schrodinger|(7.4.11)>?
   </question>
 
@@ -947,6 +947,47 @@
     which is done by the formula <cite-detail|kobayashi2011schrodinger|L1>.
   </proof>
 
+  <\question>
+    Summarize four ways to prove Theorem <reference|thm:3>.
+  </question>
+
+  <\enumerate>
+    <item>One way is shown in <verbatim|intpaper.pdf>, where Theorem
+    <reference|thm:3> (more precisely, the equivalent integral equality) is
+    easily obtained as a corollary of Theorem <reference|thm:4> (more
+    precisely, the equivalent integral equality). It uses integral
+    equalities;<\footnote>
+      The previous proofs of Theorem <reference|thm:3> (the long ones) are
+      essentially non-optimized versions of the one in
+      <verbatim|intpaper.pdf> \U the ideas are the same, so I omit them from
+      the list
+    </footnote>
+
+    <item>Prove <math|<eqref|eq:unknown>> as shown in Question
+    <reference|q:21> and then use <cite-detail|kobayashi2011schrodinger|(7.4.11)>.
+    This method is outlined in Question <reference|q:21> and mostly uses
+    <cite|kobayashi2011schrodinger>;
+
+    <item>Theorem <reference|thm:3> can be easily deduced from the closed
+    expression for <math|<big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||x-y|\|><rsup|A><around*|(|1-x<rsup|2>|)><rsup|B><around*|(|1-y<rsup|2>|)><rsup|C>d
+    x d y>. In turn, the latter could be deduced from the (straightforward)
+    <math|A\<in\>2\<bbb-N\>> case, using Carlson's Theorem. This proof is
+    incomplete, as application of Carlson's Theorem requires the proof of
+    analytic estimates, which are nontrivial. However, now I have the text of
+    Selberg's 1944 paper, so I think I can do it, if necessary.<\footnote>
+      Should I do it?
+    </footnote>
+
+    <item><math|<big|int><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||x-y|\|><rsup|A><around*|(|1-x<rsup|2>|)><rsup|B><around*|(|1-y<rsup|2>|)><rsup|C>d
+    x d y> can be proven directly, using the formula ET II 186(9), p.315 from
+    Gradshtein-Ryzhik:
+
+    <\equation*>
+      <big|int><rsub|0><rsup|u>x<rsup|\<nu\>-1><around*|(|x+\<alpha\>|)><rsup|\<lambda\>><around*|(|u-x|)><rsup|\<mu\>-1>d
+      x=\<alpha\><rsup|\<lambda\>>u<rsup|\<mu\>+\<nu\>-1>B<around*|(|\<mu\>,\<nu\>|)><rsub|2>F<rsub|1><around*|(|-\<lambda\>,\<nu\>;\<mu\>+\<nu\>;-<frac|u|\<alpha\>>|)>.
+    </equation*>
+  </enumerate>
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
@@ -992,7 +1033,7 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|9|22>>
+    <associate|auto-1|<tuple|d|22>>
     <associate|bib-dotsenko1985four|<tuple|DF85|22>>
     <associate|bib-kobayashi2011schrodinger|<tuple|KM11|22>>
     <associate|bib-olver2010nist|<tuple|Olv10|?>>
@@ -1004,24 +1045,22 @@
     <associate|cor:3|<tuple|3|20>>
     <associate|eq-1|<tuple|4|7>>
     <associate|eq-2|<tuple|1|5>>
-    <associate|eq:1|<tuple|8|?>>
     <associate|eq:q8-1|<tuple|3|6>>
     <associate|eq:unknown|<tuple|9|?>>
     <associate|eqn:herm1|<tuple|6|14>>
     <associate|eqn:main|<tuple|7|18>>
     <associate|eqn:thm1|<tuple|5|8>>
-    <associate|footnote-1|<tuple|1|19>>
-    <associate|footnote-2|<tuple|2|19>>
-    <associate|footnote-3|<tuple|3|20>>
-    <associate|footnr-1|<tuple|1|19>>
-    <associate|footnr-2|<tuple|2|19>>
-    <associate|footnr-3|<tuple|3|20>>
+    <associate|footnote-1|<tuple|1|?>>
+    <associate|footnote-2|<tuple|2|?>>
+    <associate|footnr-1|<tuple|1|?>>
+    <associate|footnr-2|<tuple|2|?>>
     <associate|q-ode|<tuple|11|8>>
     <associate|q1|<tuple|1|1>>
     <associate|q14|<tuple|14|14>>
     <associate|q15|<tuple|15|15>>
     <associate|q18|<tuple|18|16>>
     <associate|q:20|<tuple|20|19>>
+    <associate|q:21|<tuple|21|?>>
     <associate|thm-1|<tuple|1|8>>
     <associate|thm-2|<tuple|2|18>>
     <associate|thm:3|<tuple|3|19>>
@@ -1085,6 +1124,8 @@
       kobayashi2011schrodinger
 
       olver2010nist
+
+      kobayashi2011schrodinger
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
