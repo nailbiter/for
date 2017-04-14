@@ -30,26 +30,26 @@ $\begin{array}{|@{}c@{}|@{}c@{}|}
 \newcommand{\tno}{2\N+1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hspace*{0cm}\mytableThreeTwo	%#1
-{\mystack{p=1}{q\in2\Z}}						{\mystack{\pimy}{y\in A_0(q+1,p)\mid y\geq q/2}}
+{\mystack{p=1}{q\in2\Z}}					{\mystack{\pimy}{y\in A_0(q+1,p)\mid y\geq q/2}}
 {\mystack{\pipx}{x\in{-n/2}+2\N_+}}				{0}
-{\mystack{\pimx}{x\in A_0^-(q+1,p+1)}}					{{1\iff \frac{1}{2}+ x-y\in-2\N}}
+{\mystack{\pimx}{x\in \frac{q-p}{2}+\tzo}}			{{1\iff \frac{1}{2}+ x-y\in-2\N}}
 \hspace*{0cm}\mytableThreeTwo	%#2
 {\mystack{p=1}{q\in\tzo}}						{\mystack{\pimy}{y\in A_0(q+1,p)\mid y\geq q/2}}
-{\mystack{\pipx}{x\in A_0^+(p+1,q+1)}}					{0}
-{\mystack{\pimx}{x\in A_0^+(p+1,q+1)}}					{{1\iff \frac{1}{2}+ x-y\in-2\N}}
+{\mystack{\pipx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}					{0}
+{\mystack{\pimx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}					{{1\iff \frac{1}{2}+ x-y\in-2\N}}
 \hspace*{-2.2cm}\mytable	%#3
-{p,q\in2\Z} 								{\mystack{\pipy}{y\in-n'/2+2\N_+}} 	{\mystack{\pimy}{y\in A_0^-(q+1,p)}}
-{\mystack{\pipx}{x\in A_0^+(p+1,q+1)}}					{1\iff y-x+\frac{1}{2}\in-2\N} 		{1\iff \frac{1}{2}-x-y\nin-2\N}
-{\mystack{\pimx}{x\in A_0^+(p+1,q+1)}}			  		{0} 				 	{{1\iff \frac{1}{2}+ x-y\in-2\N}}
+{p,q\in2\Z} 								{\mystack{\pipy}{y\in-n'/2+2\N_+}} 	{\mystack{\pimy}{y\in \frac{q+1-p}{2}+\tzo}}
+{\mystack{\pipx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}					{1\iff y-x+\frac{1}{2}\in-2\N} 		{1\iff \frac{1}{2}-x-y\nin-2\N}
+{\mystack{\pimx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}			  		{0} 				 	{{1\iff \frac{1}{2}+ x-y\in-2\N}}
 \hspace*{-1.7cm}\mytable	%#4
-     {\mystack{p\in2\Z}{q\in2\Z+1}}{\mystack{\pipy}{y\in A_0^+(p,q+1)}}{\mystack{\pimy}{y\in A_0^+(p,q+1)}}
-     {\mystack{\pipx}{x\in A_0^-(p+1,q+1)}} {0} {1\iff \frac{1}{2}-x-y\nin-2\N}
+     {\mystack{p\in2\Z}{q\in2\Z+1}}{\mystack{\pipy}{y\in A_0^{\mbox{\normalfont\footnotesize even}}(p,q+1)}}{\mystack{\pimy}{y\in A_0^{\mbox{\normalfont \footnotesize even}}(p,q+1)}}
+     {\mystack{\pipx}{x\in \frac{p-q}{2}+\tzo}} {0} {1\iff \frac{1}{2}-x-y\nin-2\N}
      {\mystack{\pimx}{x\in -n/2+2\N_+}} {0} {1\iff \frac{1}{2}+x-y\in-2\N}
 \hspace*{-0.0cm}\mytable	%#5
-     {\mystack{p\in2\Z+1}{q\in2\Z}}					{\mystack{\pipy}{y\in A_0^+(p,q+1)}}	{\mystack{\pimy}{y\in A_0^+(p,q+1)}}
+     {\mystack{p\in2\Z+1}{q\in2\Z}}					{\mystack{\pipy}{y\in A_0^{\mbox{\normalfont\footnotesize even}}(p,q+1)}}	{\mystack{\pimy}{y\in A_0^{\mbox{\normalfont \footnotesize even}}(p,q+1)}}
      {\mystack{\pipx}{x\in -n/2+2\N_+}} 				{0} 					{1\iff \frac{1}{2}-x-y\nin-2\N}
-     {\mystack{\pimx}{x\in A_0^-(q+1,p+1)}} {0} {1\iff \frac{1}{2}+x-y\in-2\N}
+     {\mystack{\pimx}{x\in \frac{q-p}{2}+\tzo}} {0} {1\iff \frac{1}{2}+x-y\in-2\N}
 \hspace*{0cm}\mytable		%#6
-     {p,q\in2\Z+1}							{\mystack{\pipy}{y\in A_0^-(p,q+1)}}	{\mystack{\pimy}{y\in-n'/2+2\N_+}}
-     {\mystack{\pipx}{x\in A_0^+(p+1,q+1)}}				{1\iff y-x+\frac{1}{2}\in-2\N}		{0}
-     {\mystack{\pimx}{x\in A_0^+(p+1,q+1)}}				{0}					{1\iff \frac{1}{2}+x-y\in-2\N}
+{p,q\in2\Z+1}												{\mystack{\pipy}{y\in \frac{p-q-1}{2}+\tzo}}	{\mystack{\pimy}{y\in-n'/2+2\N_+}}
+{\mystack{\pipx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}				{1\iff y-x+\frac{1}{2}\in-2\N}			{0}
+     {\mystack{\pimx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}				{0}					{1\iff \frac{1}{2}+x-y\in-2\N}
