@@ -1,5 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\mystack}[2]{\begin{array}{c}#1,\\#2\end{array}}
+\newcommand{\mystackiii}[3]{\begin{array}{c}#1,\\#2,\\#3\end{array}}
+\newcommand{\mrv}[5]{#1&#2&#3&#4&#5\\\hline}	
+\newcommand{\mriii}[3]{#1&#2&#3\\\hline}	
+\newcommand{\Azeven}{A_0^{\rm\footnotesize even}}
 \newcommand{\mytable}[9]{
 $\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
   \hline
@@ -8,6 +12,19 @@ $\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
 	#4& #5&#6\\
   \hline
 	#7& #8&#9\\
+  \hline
+\end{array} \newline$
+}
+\newcommand{\mytableFourTwo}[8]{
+$\begin{array}{|@{}c@{}|@{}c@{}|}
+  \hline
+	#1& #2\\
+  \hline
+	#3& #4\\
+  \hline
+	#5& #6\\
+  \hline
+	#7& #8\\
   \hline
 \end{array} \newline$
 }
@@ -22,34 +39,55 @@ $\begin{array}{|@{}c@{}|@{}c@{}|}
   \hline
 \end{array} \newline$
 }
+\newcommand{\yipx}{Y^{p+1, q + 1}_{+, x}}
+\newcommand{\yipy}{Y^{p, q + 1}_{+, y}}
+\newcommand{\yimx}{Y^{p+1, q + 1}_{-, x}}
+\newcommand{\yimy}{Y^{p, q + 1}_{-, y}}
+
 \newcommand{\pipx}{\pi^{p+1, q + 1}_{+, x}}
 \newcommand{\pipy}{\pi^{p, q + 1}_{+, y}}
 \newcommand{\pimx}{\pi^{p+1, q + 1}_{-, x}}
 \newcommand{\pimy}{\pi^{p, q + 1}_{-, y}}
+
 \newcommand{\tzo}{2\Z+1}
+\newcommand{\tz}{2\Z}
 \newcommand{\tno}{2\N+1}
+
+\renewcommand{\d}[1]{\kern-0.1cm #1\kern-0.1cm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\hspace*{0cm}\mytableThreeTwo	%#1
-{\mystack{p=1}{q\in2\Z}}					{\mystack{\pimy}{y\in A_0(q+1,p)\mid y\geq q/2}}
-{\mystack{\pipx}{x\in{-n/2}+2\N_+}}				{0}
-{\mystack{\pimx}{x\in \frac{q-p}{2}+\tzo}}			{{1\iff \frac{1}{2}+ x-y\in-2\N}}
+\hspace*{0cm}\mytableFourTwo	%#1
+{\mystack{p=1}{q\in2\Z}}											{\mystack{\pimy}{y\in A_0(q+1,p)\mid y\geq q/2}}
+{\mystack{\yipx}{x\in\left\{ -\frac{n-4}{2},-\frac{n-8}{2},\cdots,-\frac{3}{2} \right\}}}			{0}
+{\mystack{\pipx}{x\in-\frac{1}{2}+2\N}}										{0}
+{\mystack{\pimx}{x\in \frac{q-p}{2}+\tzo}}									{h\left( \frac{y-x-{1}/{2}}{2} \right)}
 \hspace*{0cm}\mytableThreeTwo	%#2
 {\mystack{p=1}{q\in\tzo}}						{\mystack{\pimy}{y\in A_0(q+1,p)\mid y\geq q/2}}
 {\mystack{\pipx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}					{0}
-{\mystack{\pimx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}					{{1\iff \frac{1}{2}+ x-y\in-2\N}}
-\hspace*{-2.2cm}\mytable	%#3
-{p,q\in2\Z} 								{\mystack{\pipy}{y\in-n'/2+2\N_+}} 	{\mystack{\pimy}{y\in \frac{q+1-p}{2}+\tzo}}
-{\mystack{\pipx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}					{1\iff y-x+\frac{1}{2}\in-2\N} 		{1\iff \frac{1}{2}-x-y\nin-2\N}
-{\mystack{\pimx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}			  		{0} 				 	{{1\iff \frac{1}{2}+ x-y\in-2\N}}
-\hspace*{-1.7cm}\mytable	%#4
-     {\mystack{p\in2\Z}{q\in2\Z+1}}{\mystack{\pipy}{y\in A_0^{\mbox{\normalfont\footnotesize even}}(p,q+1)}}{\mystack{\pimy}{y\in A_0^{\mbox{\normalfont \footnotesize even}}(p,q+1)}}
-     {\mystack{\pipx}{x\in \frac{p-q}{2}+\tzo}} {0} {1\iff \frac{1}{2}-x-y\nin-2\N}
-     {\mystack{\pimx}{x\in -n/2+2\N_+}} {0} {1\iff \frac{1}{2}+x-y\in-2\N}
-\hspace*{-0.0cm}\mytable	%#5
-     {\mystack{p\in2\Z+1}{q\in2\Z}}					{\mystack{\pipy}{y\in A_0^{\mbox{\normalfont\footnotesize even}}(p,q+1)}}	{\mystack{\pimy}{y\in A_0^{\mbox{\normalfont \footnotesize even}}(p,q+1)}}
-     {\mystack{\pipx}{x\in -n/2+2\N_+}} 				{0} 					{1\iff \frac{1}{2}-x-y\nin-2\N}
-     {\mystack{\pimx}{x\in \frac{q-p}{2}+\tzo}} {0} {1\iff \frac{1}{2}+x-y\in-2\N}
-\hspace*{0cm}\mytable		%#6
-{p,q\in2\Z+1}												{\mystack{\pipy}{y\in \frac{p-q-1}{2}+\tzo}}	{\mystack{\pimy}{y\in-n'/2+2\N_+}}
-{\mystack{\pipx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}				{1\iff y-x+\frac{1}{2}\in-2\N}			{0}
-     {\mystack{\pimx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}				{0}					{1\iff \frac{1}{2}+x-y\in-2\N}
+{\mystack{\pimx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(q+1,p+1)}}					{h\left( \frac{y-x-{1}/{2}}{2} \right)}
+\hspace*{-1.4cm}$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|@{}c@{}|@{}c@{}|}\hline	%3
+	\mrv{p,q\d{\in}2\Z} {\mystackiii{\yipy}{y\d{\in}\frac{-n'}{2}\d{+}2\N_+}{y\d{\le}-1}}{\mystackiii{\pipy}{y\d{\in}\frac{-n'}{2}\d{+}2\N_+}{y\d{>}-1}}
+	{\mystackiii{\yimy}{y\d{\in} \frac{q-1-p}{2}\d{+}\tz}{y\le-1}}	{\mystackiii{\pimy}{y\kern-0.1cm\in\kern-0.1cm \frac{q-1-p}{2}\d{+}\tz}{y>-1}}
+\mrv{\mystack{\pipx}{x\d{\in} \Azeven(p\d{+}1,q\d{+}1)}}	{1}	{h\left(\frac{x-y-1/2}{2}\right)} 	{h\left( \frac{-3}{4}-\frac{x+y}{2}\right)}{0}
+\mrv{\mystack{\pimx}{x\d{\in} \Azeven(q\d{+}1,p\d{+}1)}}	{0} 				 	{0}{1} {h\left( \frac{y-x}{2}-\frac{1}{4} \right)}
+\end{array}\newline$
+%%\mytable	%#3
+\hspace*{-0cm}$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}\hline	%4
+\mriii{\mystack{p\in2\Z}{q\in2\Z+1}}		{\mystack{\pipy}{y\in A_0^{\mbox{\normalfont\footnotesize even}}(p,q+1)}}	{\mystack{\pimy}{y\in A_0^{\mbox{\normalfont \footnotesize even}}(q+1,p)}}
+\mriii{\mystackiii{\yipx}{x\in \frac{p-q}{2}+\tzo}{x\le-1}} {0} 										{h\left( \frac{-1/2-x-y}{2} \right)}
+\mriii{\mystackiii{\pipx}{x\in \frac{p-q}{2}+\tzo}{x>-1}} {0} 										{h\left( \frac{-1/2-x-y}{2} \right)}
+\mriii{\mystackiii{\yimx}{x\in -n/2+2\N_+}{x\le-1}} {0} {h\left( \frac{y-x-1/2}{2} \right)}
+\mriii{\mystackiii{\pimx}{x\in -n/2+2\N_+}{x>-1}} {0} {h\left( \frac{y-x-1/2}{2} \right)}
+\end{array}\newline$
+\hspace*{-0cm}$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}\hline	%5
+     \mriii{\mystack{p\in2\Z+1}{q\in2\Z}}	{\mystack{\pipy}{y\in A_0^{\mbox{\normalfont\footnotesize even}}(p,q+1)}}	{\mystack{\pimy}{y\in A_0^{\mbox{\normalfont \footnotesize even}}(q+1,p)}}
+     \mriii{\mystackiii{\yipx}{x\in -\frac{n}{2}+2\N_+}{x\le-1}}		{0} 										{h\left( \frac{-1/2-x-y}{2} \right)}	
+     \mriii{\mystackiii{\pipx}{x\in -\frac{n}{2}+2\N_+}{x>-1}}		{0} 										{h\left( \frac{-1/2-x-y}{2} \right)}	
+     \mriii{\mystackiii{\pimx}{x\in \frac{n}{2}+\tz}{x\le-1}} {0} {h\left( \frac{y-x-1/2}{2} \right)}
+     \mriii{\mystackiii{\pimx}{x\in \frac{n}{2}+\tz}{x>-1}} {0} {h\left( \frac{y-x-1/2}{2} \right)}
+\end{array}\newline$
+\hspace*{-2.3cm}$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|@{}c@{}|@{}c@{}|}\hline	%6
+	\mrv{p,q\d{\in}2\Z\d{+}1}	{\mystackiii{\yipy}{y\d{\in}\frac{p-q{+}1}{2}\d{+}\tz}{y\le-1}}{\mystackiii{\pipy}{y\d{\in} \frac{p-q{+}1}{2}\d{+}\tz}{y>-1}}
+	{\mystackiii{\pimy}{y\d{\in}\frac{-n'}{2}\d{+}2\N_{+}}{y\le-1}}{\mystackiii{\pimy}{y\d{\in}\frac{-n'}{2}\d{+}2\N_{+}}{y>-1}}
+	\mrv{\mystack{\pipx}{x\d{\in} \Azeven(p\d{+}1,q\d{+}1)}}		{h\left( \frac{x-y-1/2}{2} \right)}{h\left( \frac{x-y-1/2}{2} \right)}			{0}{0}
+	\mrv{\mystack{\pimx}{x\d{\in} \Azeven(q\d{+}1,p\d{+}1)}}		{0}{0}	{h\left( \frac{y-x-1/2}{2} \right)}{h\left( \frac{y-x-1/2}{2} \right)}	
+\end{array}\newline$

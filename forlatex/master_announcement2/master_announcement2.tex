@@ -2,6 +2,7 @@
 \documentclass[reqno,12pt]{pja00} % use larger type; default would be 10pt
 
 \usepackage{mathrsfs}
+\usepackage{stringstrings}
 \usepackage{hyperref}
 \usepackage[normalem]{ulem}
 \usepackage{enumerate}
@@ -38,6 +39,7 @@
 \newcommand{\myfootnote}[1]{\stepcounter{myfootnotecounter}$^\themyfootnotecounter$\footnotetext{\themyfootnotecounter: #1}}
 \renewcommand{\iff}{\Leftrightarrow}
 
+\newcommand{\ppqpl}{\pi_{+,\lambda}^{p,q}}
 \newtheorem{theorem}{Theorem}[section]
 \newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
 \newcommand{\Hom}{\mbox{\normalfont Hom}}
@@ -90,17 +92,17 @@
 \Author{2}{Alex}{Leontiev}
 \affiliation{1}{Kavli IPMU and Graduate School of Mathematical Sciences, The University of Tokyo}
 \affiliation{2}{Graduate School of Mathematical Sciences, The University of Tokyo}
-\KeyWords{ {Representation theory}{reductive group}{branching law}{broken symmetry}{conformal geometry}{symmetry breaking operator}{Verma module}}
+\KeyWords{ {Representation theory}{reductive group}{branching law}{broken symmetry}{conformal geometry}{symmetry breaking operator}{Zuckerman modules}}
 \Subject[2010]{22E46; 33C45, 53C35}
 
   \maketitle
 \begin{abstract}
-This is the the second part of results on the symmetry breaking operators for the pair $(G, G') =(O(p+1, q+1), O(p,q+1))$.
-In the first announcement we have outlined the construction and classification of SBOs together with some more fine results
+This is the second part of results on the symmetry breaking operators for the pair $(G, G') =(O(p+1, q+1), O(p,q+1))$.
+In the first announcement we have outlined the construction and classification of SBOs together with some finer results
 (e.g. residue formul\ae, functional equations). In this second announcement we outline the results on complete determination of
 images of SBOs for all parameters. Together with the (partial) knowledge about their kernels, this allowed us to give the complete classification
-of the $G'$-intertwining maps between the certain families of Zuckerman derived modules that occur as submodules (quotients) of degenerate principal serioes.
-The results contribute to Program C of branching problems suggested by the first author [Progr. Math. 2015].
+of the $G'$-intertwining maps between the certain families of Zuckerman derived modules that occur as submodules (quotients) of degenerate principal series.
+%The results contribute to Program C of branching problems suggested by the first author [Progr. Math. 2015].
 \end{abstract}
 \input{useless.tex}
 Let $G=O(p,q)$ be the automorphism group of the quadratic form
@@ -112,8 +114,8 @@ on $\R^{p+q}$ of signature $(p,q)$ defined by
 
 Let $p,q\in\N$ with $p\ge1$.
 Following the notation \cite[(5.1.1)]{KO2},
-we set\myfootnote{the results in the table below concern $\lambda\in A^{\mbox{even}}_0(p,q)$ instead of the more general $A_0(p,q)$. The classification can (I guess) by generalized to the latter, but
-	this will require classification of $\Hom_{G'}\left( I(\lambda\otimes\varepsilon,J(\nu)\otimes\varepsilon' \right)$ for $\varepsilon,\varepsilon'\in\left\{ \pm1 \right\}$.
+we set\myfootnote{the results in the table below concern $\lambda\in A^{\mbox{\normalfont \footnotesize even}}_0(p,q)$ instead of the more general $A_0(p,q)$. The classification can (I guess) by generalized to the latter, but
+	this will require classification of $\Hom_{G'}\left( I(\lambda\otimes\varepsilon),J(\nu\otimes\varepsilon') \right)$ for $\varepsilon,\varepsilon'\in\left\{ \pm1 \right\}$.
 Should I mention all this?}
 \begin{equation*}
 	\begin{array}[]{c}
@@ -126,12 +128,13 @@ Should I mention all this?}
 			\left\{ -\frac{1}{2},\frac{1}{2} \right\}&(p=1,q=0),
 		\end{array}
 		\right.\\
-		A^{\mbox{even}}_0(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z\right\}\subset A_0(p,q)\\
-		A^-_0(p,q):=\left\{ \lambda\in \frac{p+q}{2}+\Z\mid \lambda-\frac{p-q}{2}+1\in2\Z\right\}\supset A^{\mbox{even}}_0(p,q)\\
+		A^{\mbox{\normalfont \footnotesize even}}_0(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z\right\}\subset A_0(p,q)\\
 	\end{array}
 \end{equation*}
-Now, for $p>1$ we recall from \cite{KO2} the five equivalent definitions of the
-irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p,q)$:
+Let $p>1$.
+We recall from \cite{KO2} that
+for any $\lambda\in A_0(p,q)$ each of the following 5 conditions defines uniquely a $(\mathfrak{g},K)$-module, which are mutually isomorphic. We shall denote
+it by $\left( \pi_{+,\lambda}^{p,q} \right)_K$. The $(\mathfrak{g},K)$-module $\left( \pi_{+,\lambda}^{p,q} \right)_K$ is non-zero and irreducible.
 \begin{enumerate}
 	\item[(i)] A subrepresentation of the degenerate principal series representation $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
 		with $K$-type\begin{equation*}
@@ -151,10 +154,14 @@ irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ of $O(p,q)$:
 		\end{equation*}
 		together with the natural action of $O(p,q)$.
 	\item[(iii)]
-		The underlying $\left( \mathfrak{g},K \right)$-module of the Doulbeault cohomogoly group $H_{\overline{\partial}}^{p-2}\left( G/L,\mathscr{L}_{\left( \lambda+\frac{p+q-2}{2} \right)} 
+		The underlying $\left( \mathfrak{g},K \right)$-module of the Dolbeault cohomology group $H_{\overline{\partial}}^{p-2}\left( G/L,\mathscr{L}_{\left( \lambda+\frac{p+q-2}{2} \right)} 
 		\right)_K$.
 	\item[(iii)$'$] The Zuckerman-Vogan derived functor module $\mathscr{R}_{\mathfrak{q}}^{p-2}\left( \C_{\lambda f_1} \right)$.
 \end{enumerate}
+Each of realization (i), (i)$'$, (ii), and (iii) also gives a globalization of $\ppqpl$,
+namely, a continuous representation of $G$ on a topological vector space. Because all of $(\ppqpl)_K\;\left( \lambda\in A_0(p,q) \right)$ are unitarizable we may and do take the globalization 
+$\ppqpl$ to be the unitary representation of G.
+
 In turn, for $(p,q)=(1,0)$ it is convenient to define
 \begin{equation*}
 	\pi_{+,\lambda}^{1,0}=\left\{
@@ -165,7 +172,7 @@ In turn, for $(p,q)=(1,0)$ it is convenient to define
 		\end{array}
 		\right.
 \end{equation*}
-Together with the definition for $p>1$ above this defines the irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ for all $p,q\in\N$.
+Together with the definition for $p>1$ above, this defines the irreducible unitary representations $\pi_{+,\lambda}^{p,q}$ for all $p,q\in\N$ and $\lambda\in A_0(p,q)$.
 
 Similarly, we can also define 
 an
@@ -206,14 +213,26 @@ We define the following subsets of $\C^2$:
 %%induced from a character $\C_\nu$ of a
 %%maximal parabolic
 %%subgroup $P'$ of $G'$ with Levi part $O(p-1,q)\times\left\{ \pm1 \right\}\times\R$.
-From now, we set $\left( G,G' \right)=\left( O(p+1,q+1),O(p,q+1) \right)$.
-\begin{theorem}[$G'$-invariant maps between Zuckerman modules $\pi_{\pm,\lambda}^{p+1,q+1}$]\label{thm:Aq}
+In fact, conditions (i) and (i)$'$ make sense for a bigger parameter set\myfootnote{I will write the definition of $A_0(p,q)'$ in the next version}\begin{equation*}
+	A_0(p,q)\subset A_0(p,q)':=\left\{
+		\right.
+\end{equation*}
+and still remain equivalent. Using these, we can define $(\mathfrak{g},K)$-modules $\left( Y_{\pm,\lambda}^{p,q} \right)_K$ similarly to $\pi_{\pm,\lambda}^{p,q}$,
+defined for $\lambda\in A_0(p,q)'$ (or $\lambda\in A_0(q,p)'$ for $Y_{-,\lambda}^{p,q}$).
+Again, conditions (i) and (i)$'$ in fact allow us to consider the globalization: representation $Y_{\pm,\lambda}^{p,q}$ of $G$. 
+We note that $Y_{+,\lambda}^{p,q}$ (or $Y_{-,\lambda}^{p,q}$) is isomorphic to $\pi_{+,\lambda}^{p,q}$ (or $\pi_{-,\lambda}^{p,q}$) for $\lambda\in A_0(p,q)$ (or $A_0(q,p)$).
+Also note that $Y_{\pm,\lambda}^{p,q}$ are not unitarizable in general.
+
+From now, we set $\left( G,G' \right)=\left( O(p+1,q+1),O(p,q+1) \right)$\myfootnote{we have defined $G$ as $G=O(p,q)$ above. For not very careful
+readers, this might be confusing}.
+\begin{theorem}[$G'$-invariant maps between $Y_{\pm,\lambda}^{p+1,q+1}$]\label{thm:Aq}
 	Let $n=p+q,\;(p,q\ge1)$ and $n':=n-1$.
 	The dimensions of $\Hom_{G'}\left(\pi_{\pm,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\pm,y}^{p,q+1} \right)$
 	are then either 0 or 1. More precisely, they are
 	as follows:\newline
 	\input{tables.tex}
 \end{theorem}
+Here $h(x)$ is defined as $H(x)=1$ for $x\in\N$ and $=0$ otherwise.
 \begin{remark}
 Theorem \ref{thm:Aq} generalizes \cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}.
 \end{remark}
