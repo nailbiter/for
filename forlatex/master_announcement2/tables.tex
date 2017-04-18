@@ -49,7 +49,8 @@ $\begin{array}{|@{}c@{}|@{}c@{}|}
 \newcommand{\pimy}{\pi^{p, q + 1}_{-, y}}
 
 \newcommand{\pipxStack}[1][]{\mystack{\pipx}{x\in \Azeven(p+1,q+1)#1}}
-
+\newcommand{\pimxStack}[1][]{\mystack{\pimx}{x\in \Azeven(q+1,p+1)#1}}
+\newcommand{\pipyStack}[1][]{\mystack{\pipy}{y\in \Azeven(p,q+1)#1}}
 \newcommand{\pimyStack}[1][]{\mystack{\pimy}{y\in \Azeven(q+1,p)#1}}
 
 \newcommand{\tzo}{2\Z+1}
@@ -60,9 +61,8 @@ $\begin{array}{|@{}c@{}|@{}c@{}|}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hspace*{0cm}\mytableThreeTwo	%#1
 {\mystack{p=1}{q\in2\Z}}	{\pimyStack[\mid y\geq q/2]}
-%{\mystack{\yipx}{x\in\left\{ -\frac{n-4}{2},-\frac{n-8}{2},\cdots,-\frac{3}{2} \right\}}}			{0}
-{\mystack{\pipx}{x\in-\frac{1}{2}+2\N}}										{0}
-{\mystack{\pimx}{x\in \frac{q-p}{2}+\tzo}}									{h\left( \frac{y-x-{1}/{2}}{2} \right)}
+{\pipxStack}			{0}
+{\pimxStack}			{h\left( \frac{y-x-{1}/{2}}{2} \right)}
 \hspace*{0cm}\mytableThreeTwo	%#2
 {\mystack{p=1}{q\in\tzo}}						{\mystack{\pimy}{y\in A_0(q+1,p)\mid y\geq q/2}}
 {\mystack{\pipx}{x\in A_0^{\mbox{\normalfont\footnotesize even}}(p+1,q+1)}}					{0}
