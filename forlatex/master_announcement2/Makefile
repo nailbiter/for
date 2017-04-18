@@ -9,7 +9,7 @@ all: $(OUTDIR)/$(ZIPNAME).zip
 clean:
 	rm -rf *.zip *.pdf
 
-master_announcement2.tex: tables.tex
+master_announcement2.tex: tables.tex tablesB.tex
 	touch master_announcement2.tex
 
 $(OUTDIR)/Z.pdf : ~/for/fortexmacs/Z.pdf
