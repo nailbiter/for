@@ -1,7 +1,8 @@
-.PHONY: all clean
+.PHONY: all clean push commit
 
 OUTDIR=../foraux
 ZIPNAME=master_announcement2
+COMMIT_MSG="tex master_announcement2 https://trello.com/c/QK9Y4Gtv"
 
 all: $(OUTDIR)/$(ZIPNAME).zip
 
@@ -22,3 +23,8 @@ master_announcement2.pdf: ../foraux/master_announcement2.pdf
 
 $(OUTDIR)/$(ZIPNAME).zip : $(OUTDIR)/Z.pdf $(OUTDIR)/master_announcement2.pdf
 	cd $(OUTDIR) && zip -9 master_announcement2 Z.pdf master_announcement2.pdf && unzip -l $(ZIPNAME).zip
+	git commit -a -m $(COMMIT_MSG)
+commit:
+	git commit -a -m $(COMMIT_MSG)
+push: all
+	git push
