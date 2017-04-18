@@ -7,7 +7,7 @@ COMMIT_MSG="tex master_announcement2 https://trello.com/c/QK9Y4Gtv"
 all: $(OUTDIR)/$(ZIPNAME).zip
 
 clean:
-	rm -rf *.zip *.pdf
+	rm -rf $(OUTDIR)/$(ZIPNAME).zip $(OUTDIR)/Z.pdf $(OUTDIR)/master_announcement2.pdf
 
 master_announcement2.tex: tables.tex tablesB.tex
 	touch master_announcement2.tex
