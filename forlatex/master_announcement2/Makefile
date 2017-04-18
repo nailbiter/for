@@ -3,6 +3,7 @@
 OUTDIR=../foraux
 ZIPNAME=master_announcement2
 COMMIT_MSG="tex master_announcement2 https://trello.com/c/QK9Y4Gtv"
+LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f
 
 all: $(OUTDIR)/$(ZIPNAME).zip
 
@@ -16,7 +17,7 @@ $(OUTDIR)/Z.pdf : ~/for/fortexmacs/Z.pdf
 	cp $< $@
 
 $(OUTDIR)/%.pdf : %.tex
-	latexmk -pdf  -outdir=$(OUTDIR) $<
+	$(LATEXMK) $<
 
 master_announcement2.pdf: ../foraux/master_announcement2.pdf
 	cp $< $@
