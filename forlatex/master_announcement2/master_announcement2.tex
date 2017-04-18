@@ -212,23 +212,23 @@ We define the following subsets of $\C^2$:
 %%induced from a character $\C_\nu$ of a
 %%maximal parabolic
 %%subgroup $P'$ of $G'$ with Levi part $O(p-1,q)\times\left\{ \pm1 \right\}\times\R$.
-In fact, conditions (i) and (i)$'$ make sense for a bigger parameter sets\begin{equation*}
+In fact, conditions (i) and (i)$'$ make sense for a bigger parameter sets
+\myfootnote{by considering submodules/quotients of $I(\lambda\otimes\varepsilon)$ for $\varepsilon=\pm1$ we can, perhaps, even enlarge $A_0'(p,q)$. Should I mention this?}
+\begin{equation*}
 	\kern-2cm\begin{array}[]{c} 
-	A_0(p,q)\subset A_+'(p,q):=\left\{
+	A_0(p,q)\subset A_0'(p,q):=\left\{
 		\begin{array}[]{ll} 
-			\emptyset,&p=1,q>1\\
-			-\frac{p+q-2}{2}+2\N_+,&p\in2\N_+,q\in2\N_++1\\
+			%\emptyset,			&p=1,q>1,\\
+			%A_0(p,q),			&p\ge q=1,\\
+			-\frac{p+q-2}{2}+2\N_+,		&p\in2\N_+,q\in2\N_++1,\\
+			\frac{p-q}{2}+2\Z+1,		&p\in2\N_++1,q\in2\N_+,\\
+			A_0(p,q),&\mbox{otherwise,}
 		\end{array}
 		\right.\\
-	A_0(p,q)\subset A_-'(p,q):=\left\{
-		\begin{array}[]{ll} 
-			A_0(q,p),&p=1,q>1\\
-		\end{array}
-		\right.
 	\end{array}
 \end{equation*}
 and still remain equivalent. Using these, we can define $(\mathfrak{g},K)$-modules $\left( Y_{\pm,\lambda}^{p,q} \right)_K$ similarly to $\pi_{\pm,\lambda}^{p,q}$,
-defined for $\lambda\in A_+'(p,q)$ (or $\lambda\in A_-'(p,q)$ for $Y_{-,\lambda}^{p,q}$).
+defined for $\lambda\in A_0'(p,q)$ (or $\lambda\in A_0'(q,p)$ for $Y_{-,\lambda}^{p,q}$).
 Again, conditions (i) and (i)$'$ in fact allow us to consider the globalization: representation $Y_{\pm,\lambda}^{p,q}$ of $G$. 
 We note that $Y_{+,\lambda}^{p,q}$ (or $Y_{-,\lambda}^{p,q}$) is isomorphic to $\pi_{+,\lambda}^{p,q}$ (or $\pi_{-,\lambda}^{p,q}$) for $\lambda\in A_0(p,q)$ (or $A_0(q,p)$).
 Also note that $Y_{\pm,\lambda}^{p,q}$ are not unitarizable in general.
