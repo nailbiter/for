@@ -8,6 +8,7 @@ LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f
 all: $(OUTDIR)/$(ZIPNAME).zip
 
 clean:
+	touch *.tex
 	rm -rf $(OUTDIR)/$(ZIPNAME).zip $(OUTDIR)/Z.pdf $(OUTDIR)/master_announcement2.pdf
 
 master_announcement2.tex: tables.tex tablesB.tex
