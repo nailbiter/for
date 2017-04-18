@@ -1,8 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\mystack}[2]{\begin{array}{c}#1,\\#2\end{array}}
-\newcommand{\mystackiii}[3]{\begin{array}{c}#1,\\#2,\\#3\end{array}}
-\newcommand{\mrv}[5]{#1&#2&#3&#4&#5\\\hline}	
-\newcommand{\mriii}[3]{#1&#2&#3\\\hline}	
 \newcommand{\mytable}[9]{
 $\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
   \hline
@@ -38,26 +35,6 @@ $\begin{array}{|@{}c@{}|@{}c@{}|}
   \hline
 \end{array} \newline$
 }
-\newcommand{\yipx}{Y^{p+1, q + 1}_{+, x}}
-\newcommand{\yipy}{Y^{p, q + 1}_{+, y}}
-\newcommand{\yimx}{Y^{p+1, q + 1}_{-, x}}
-\newcommand{\yimy}{Y^{p, q + 1}_{-, y}}
-
-\newcommand{\pipx}{\pi^{p+1, q + 1}_{+, x}}
-\newcommand{\pipy}{\pi^{p, q + 1}_{+, y}}
-\newcommand{\pimx}{\pi^{p+1, q + 1}_{-, x}}
-\newcommand{\pimy}{\pi^{p, q + 1}_{-, y}}
-
-\newcommand{\pipxStack}[1][]{\mystack{\pipx}{x\d{\in} \Azeven(p\d{+}1,q\d{+}1)#1}}
-\newcommand{\pimxStack}[1][]{\mystack{\pimx}{x\d{\in} \Azeven(q\d{+}1,p\d{+}1)#1}}
-\newcommand{\pipyStack}[1][]{\mystack{\pipy}{y\d{\in} \Azeven(p,q\d{+}1)#1}}
-\newcommand{\pimyStack}[1][]{\mystack{\pimy}{y\d{\in} \Azeven(q\d{+}1,p)#1}}
-
-\newcommand{\tzo}{2\Z+1}
-\newcommand{\tz}{2\Z}
-\newcommand{\tno}{2\N+1}
-
-\renewcommand{\d}[1]{\kern-0.1cm #1\kern-0.1cm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \hspace*{0cm}\mytableThreeTwo	%#1
 {\mystack{p=1}{q\in2\Z}}	{\pimyStack[\mid y\geq q/2]}
