@@ -112,7 +112,7 @@
 
 %custom footnote mechanism
 \newif\ifGrammarNoteFtnt
-\GrammarNoteFtnttrue %\GrammarNoteFtntfalse
+\GrammarNoteFtntfalse %\GrammarNoteFtntfalse
 \newcommand{\myGrammarNoteFootnote}[1]{
 \ifGrammarNoteFtnt
 \stepcounter{myfootnotecounter}$^\themyfootnotecounter$\footnotetext{\themyfootnotecounter: #1}
