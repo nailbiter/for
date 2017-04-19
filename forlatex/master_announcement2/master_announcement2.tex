@@ -35,8 +35,6 @@
 \newcommand{\tmtextit}[1]{{\itshape{#1}}}
 \newcommand{\um}{-}
 \newcommand{\mystack}[2]{$\begin{array}{c}#1\\#2\end{array}$}
-\newcounter{myfootnotecounter}
-\newcommand{\myfootnote}[1]{\stepcounter{myfootnotecounter}$^\themyfootnotecounter$\footnotetext{\themyfootnotecounter: #1}}
 \renewcommand{\iff}{\Leftrightarrow}
 \newcommand{\yipx}{Y^{p+1, q + 1}_{+, x}}
 \newcommand{\yipy}{Y^{p, q + 1}_{+, y}}
@@ -112,6 +110,18 @@
 \newcommand{\Bzeven}{B_0^{\rm\footnotesize even}}
 \renewcommand{\ss}{//}
 
+%custom footnote mechanism
+\newif\ifGrammarNoteFtnt
+\GrammarNoteFtnttrue %\GrammarNoteFtntfalse
+\newcommand{\myGrammarNoteFootnote}[1]{
+\ifGrammarNoteFtnt
+\stepcounter{myfootnotecounter}$^\themyfootnotecounter$\footnotetext{\themyfootnotecounter: #1}
+\else
+\fi
+}
+\newcounter{myfootnotecounter}
+\newcommand{\myfootnote}[1]{\stepcounter{myfootnotecounter}$^\themyfootnotecounter$\footnotetext{\themyfootnotecounter: #1}}
+
 \begin{document}
 
 \title{Symmetry breaking operators for the restriction of representations of indefinite orthogonal groups $O(p,q)$ (part 2)}
@@ -162,7 +172,7 @@ Let $p>1$.
 We recall from \cite{KO2} that
 for any $\lambda\in A_0(p,q)$ each of the following 
 \underline{5 conditions defines uniquely a $(\mathfrak{g},K)$-module,} \underline{which are mutually isomorphic}
-\myfootnote{although this is a direct citation of \cite{KO2}, I have some problem understanding its English:
+\myGrammarNoteFootnote{although this is a direct citation of \cite{KO2}, I have some problem understanding its English:
 ``a $(\mathfrak(g),K)$-module'' is in singular form, while ``which are'' is in plural\dots
 }. We shall denote
 it by $\left( \pi_{+,\lambda}^{p,q} \right)_K$. The $(\mathfrak{g},K)$-module $\left( \pi_{+,\lambda}^{p,q} \right)_K$ is non-zero and irreducible.
