@@ -36,6 +36,8 @@
 \newcommand{\um}{-}
 \newcommand{\mystack}[2]{$\begin{array}{c}#1\\#2\end{array}$}
 \renewcommand{\iff}{\Leftrightarrow}
+\newcommand{\gk}{\left( \mathfrak{g},K \right)}
+
 \newcommand{\yipx}{Y^{p+1, q + 1}_{+, x}}
 \newcommand{\yipy}{Y^{p, q + 1}_{+, y}}
 \newcommand{\yimx}{Y^{p+1, q + 1}_{-, x}}
@@ -199,6 +201,23 @@ it by $\left( \pi_{+,\lambda}^{p,q} \right)_K$. The $(\mathfrak{g},K)$-module $\
 		\right)_K$.
 	\item[(iii)$'$] The Zuckerman derived functor module $\mathscr{R}_{\mathfrak{q}}^{p-2}\left( \C_{\lambda f_1} \right)$.
 \end{enumerate}
+Zuckeran's derived fuctor modules $\mathscr{R}_{\mathfrak{q}}^S\left(\mathbb C_\lambda\right)$
+are defined as an algebraic analogue of the geometric
+quantization of elliptic coajoint orbits,
+which gives a vast generalization of Borel-Weil-Bott theorem
+for comacct Lie groups.
+The general theory \cite{vogan1984unitarizability}
+assures their nonvanishing and irreducibility in the
+``good range'' of parameters $\lambda$, and their unitarizability
+in the ``weakly fair range'' of parameters.
+These sufficient conditions are not always necessary.
+In \cite{kobyashi1992singular}, a precise condition
+for $\lambda$ for nonvanishing, irreducibility, and unitarizability
+was determined in certain family of Zuckerman's derived functor modules
+of $O(p,q)$ and some other classical groups, which include $\gk$-modules 
+corresponding to
+minimal elliptic orbits as above.
+
 {Each of realization}\myGrammarNoteFootnote{maybe, "Each of realizations"?}
  (i), (i)$'$, (ii), and (iii) also gives a globalization of $\ppqpl$,
 namely, a continuous representation of $G$ on a topological vector space. Because all of $(\ppqpl)_K\;\left( \lambda\in A_0(p,q) \right)$ are unitarizable we may and do take the globalization 
@@ -351,7 +370,7 @@ Now, the Definition \ref{def:Y} allows us to give the following generalization o
 \nocite{kobayashi1998discrete2}
 \nocite{kobayashi2015program}
 \small
-\begin{thebibliography}{14}
+\begin{thebibliography}{99}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
   \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
@@ -382,6 +401,9 @@ A.~Juhl.
   {O}perators, {Q}-curvature and {H}olography}, \emph{{\normalfont Progr.~ Math.},} \textbf{275},
 \newblock Birkh{\"a}user (2009).
 \newblock ISBN 978-3-7643-9900-9.
+
+\bibitem{kobyashi1992singular}
+Kobayashi, Toshiyuki. Singular unitary representations and discrete series for indefinite Stiefel manifolds U (p, q; F)/U (pm, q; F). No. 462. American Mathematical Soc., 1992.
 
 \bibitem{kobayashi1998discrete2}
 T.~Kobayashi.
@@ -471,6 +493,9 @@ T.~Kobayashi and B.~Speh.
   \textbf{\href{http://dx.doi.org/10.1090/memo/1126}{238}}, (2015).
 \newblock ISBN 978-1-4704-1922-6.
 
+\bibitem{vogan1984unitarizability}
+Vogan, David A. “Unitarizability of Certain Series of Representations.” Annals of Mathematics, vol. 120, no. 1, 1984, pp. 141–187. Second Series, www.jstor.org/stable/2007074.
+
 \bibitem{wallach1988real2}
 N.~Wallach.
 \newblock \emph{Real Reductive Groups II}, \emph{{\normalfont Pure and Applied
@@ -485,3 +510,4 @@ N.~Wallach.
 %%(lambda,nu)\in \\ <=> y-x+1/2\in -2N
 %%(lambda,nu)\in //<=> 1/2-x-y\in -2N
 %%(n-lambda,nu)\in //<=> 1/2+x-y\in -2N
+
