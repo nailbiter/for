@@ -2,7 +2,7 @@
 
 OUTDIR=../foraux
 ZIPNAME=master_announcement2
-COMMIT_MSG="tex master_announcement2 https://trello.com/c/INFtz0eK"
+COMMIT_MSG="tex master_announcement2 https://trello.com/c/yNI38R9f"
 LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f
 
 all: $(OUTDIR)/$(ZIPNAME).zip
