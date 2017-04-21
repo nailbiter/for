@@ -59,10 +59,15 @@
 			\end{enumerate}
 	\end{enumerate}
 \item \fbxname のアニメーションをアニメータに追加する:\begin{enumerate}
-		\item {/ttfamily C:/cygwin/home/AJP/stone2/Develop/Projects/Stone/Assets/Resources/Prefabs/Debug/animator}をUnityで選択する
+		\item {\ttfamily C:/cygwin/home/AJP/stone2/Develop/Projects/Stone/Assets/}\\{\ttfamily Resources/Prefabs/Debug/animator}をUnityで選択する
 		\item \fbxname をAnimator窓へドラッグする
 		\item Animator窓で新しいステートが出てきて、このステートの名前が\name と等しくと確認する
-		\item 
+		\item Animatorで新しい\name というトリガを追加する
+		\item Any Stateから新しい \name ステートへトランジションを追加する
+			\begin{itemize}
+				\item このトランジションのConditionに\name トリガを追加する
+			\end{itemize}
+		\item 新しい \name ステートからidle へトランジションを追加する
 	\end{enumerate}
 \end{enumerate}
 \end{document}
