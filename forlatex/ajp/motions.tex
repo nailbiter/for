@@ -37,18 +37,24 @@
 				C:/cygwin/home/AJP/stone2/Develop/Projects/Stone/}\\{\ttfamily Assets/Resources/Prefabs/Debug/original model/anima
 				}に置く
 		\end{enumerate}
-	\ 読み込まれた \fbxname を Unityで設定する:
+	\item 読み込まれた \fbxname を Unityで設定する:
 	\begin{enumerate}
 		\item 読み込まれた\fbxname をUnityで選択する
 		\item Inspector窓で以下のような設定する:
 			\begin{enumerate}
-				\item Rig: Animation TypeをHumanoidにする
-				\item Animation:
+				\item \underline{Rig}: Animation TypeをHumanoidにする
+				\item \underline{Animation}:
 					\begin{enumerate}
-						\item tesime
+						\item Animationの名前をplantにする
+						\item Root Transform RotationでBake Into Poseをチェックする
+						\item Root Transform Position (Y)で:\begin{itemize}
+								\item Bake Into Poseをチェックする
+								\item Based Upon (at Start)でFeetを選択する
+							\end{itemize}
 					\end{enumerate}
 			\end{enumerate}
 	\end{enumerate}
+	\item tesime
 \end{enumerate}
 \end{document}
 
