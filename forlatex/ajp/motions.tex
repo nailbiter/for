@@ -14,7 +14,8 @@
 
 %\renewcommand\rubysep{-4ex}
 \newcommand{\kana}[2]{\ruby{#1}{#2}}
-\newcommand{\fbxname}{\ttfamily plant.fbx}
+\newcommand{\fbxname}{{\ttfamily plant.fbx}}
+\newcommand{\name}{ {\ttfamily ''plant''}}
 \setCJKmainfont{MS PGothic} %AJP windows
 %\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
 \title{モーションデータの追加ための手続き}
@@ -31,7 +32,10 @@
 	\item {\ttfamily ID=035}
 \end{itemize}
 \begin{enumerate}
-	\item 
+	\item \tname で追加される動作に対応するの行で:\begin{itemize}
+			\item u8 miscDebugを１にする
+			\item u8hideOnEndを０にする
+		\end{itemize}
 	\item Mayaファイルから{\ttfamily plant.fbx}へ書き出す\begin{enumerate}
 			\item \fbxname を {\ttfamily 
 				C:/cygwin/home/AJP/stone2/Develop/Projects/Stone/}\\{\ttfamily Assets/Resources/Prefabs/Debug/original model/anima
@@ -42,7 +46,7 @@
 		\item 読み込まれた\fbxname をUnityで選択する
 		\item Inspector窓で以下のような設定する:
 			\begin{enumerate}
-				\item \underline{Rig}: Animation TypeをHumanoidにする
+				\item \underline{Rig}: Animation TypeをHumanoidにする\footnote{下右のApplyをクリックして忘れず！}
 				\item \underline{Animation}:
 					\begin{enumerate}
 						\item Animationの名前をplantにする
@@ -54,7 +58,12 @@
 					\end{enumerate}
 			\end{enumerate}
 	\end{enumerate}
-	\item tesime
+\item \fbxname のアニメーションをアニメータに追加する:\begin{enumerate}
+		\item {/ttfamily C:/cygwin/home/AJP/stone2/Develop/Projects/Stone/Assets/Resources/Prefabs/Debug/animator}をUnityで選択する
+		\item \fbxname をAnimator窓へドラッグする
+		\item Animator窓で新しいステートが出てきて、このステートの名前が\name と等しくと確認する
+		\item 
+	\end{enumerate}
 \end{enumerate}
 \end{document}
 
