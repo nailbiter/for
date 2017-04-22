@@ -132,6 +132,14 @@
 \newcounter{myfootnotecounter}
 \newcommand{\myfootnote}[1]{\stepcounter{myfootnotecounter}$^\themyfootnotecounter$\footnotetext{\themyfootnotecounter: #1}}
 
+%custom commands to save typing
+\newcommand{\mypit}[1]{\pi^{n+1,1}_{+,\frac{n}{2}+#1}}
+\newcommand{\mypitp}[1]{\pi^{n,1}_{+,\frac{n-1}{2}+#1}}
+\newcommand{\mypif}[1]{\pi^{n+1,1}_{-,-\frac{n}{2}-#1}}
+\newcommand{\mypifp}[1]{\pi^{n,1}_{-,-\frac{n-1}{2}-#1}}
+		
+%m\left( ,\pi^{n,1}_{+,\frac{n-1}{2}+j} \right)=1,\quad m\left(  \right)
+
 \begin{document}
 
 \title{Symmetry breaking operators for the restriction of representations of indefinite orthogonal groups $O(p,q)$ (part 2)}
@@ -327,8 +335,8 @@ Here $h(x)$ is defined as $h(x)=1$ for $x\in\N$ and $=0$ otherwise.
 		\item Suppose that $i\ge j$.\begin{enumerate}
 				\item [(1-a)] Assume $i\equiv j\mbox{ mod 2}$. Then
 					\begin{equation*}
-						m\left( \pi^{n+1,1}_{+,\frac{n}{2}+i},\pi^{n,1}_{+,\frac{n-1}{2}+j} \right)=1,\quad m\left(  \right)
-					\end{equation*}<++>
+						m\left( \mypit{i},\mypitp{j} \right)=1,\quad m\left(  \right)
+					\end{equation*}
 				\item [(1-b)] tesime
 			\end{enumerate}
 	\end{enumerate}
