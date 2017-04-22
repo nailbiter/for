@@ -16,6 +16,8 @@ test=`head -n1 "$1"`
 if [  $test = '%japanese' ]
 then
     latexmk -pdf -pdflatex='xelatex %O %S' -outdir=$tmp_dir $1
+    cd $tmp_dir
+    zip -9 $2 $2.pdf
     echo jap
     exit
 fi

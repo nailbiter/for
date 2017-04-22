@@ -1,4 +1,4 @@
-set makeprg=~/.vim/ftplugin/latex_or_xelatex.sh\ %
+set makeprg=~/.vim/ftplugin/latex_or_xelatex.sh\ %\ %<
 :command! -range Comment <line1>,<line2>s@^@%%@ | noh
 :command! -range UnComment <line1>,<line2>s@^%%@@ | noh
 :command! -range Rpl <line1>,<line2>s@\\"@\"@g | noh
