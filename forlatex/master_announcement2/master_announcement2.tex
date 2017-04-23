@@ -133,10 +133,10 @@
 \newcommand{\myfootnote}[1]{\stepcounter{myfootnotecounter}$^\themyfootnotecounter$\footnotetext{\themyfootnotecounter: #1}}
 
 %custom commands to save typing
-\newcommand{\mypit}[1]{\pi^{n+1,1}_{+,\frac{n}{2}+#1}}
-\newcommand{\mypitp}[1]{\pi^{n,1}_{+,\frac{n-1}{2}+#1}}
-\newcommand{\mypif}[1]{\pi^{n+1,1}_{-,-\frac{n}{2}-#1}}
-\newcommand{\mypifp}[1]{\pi^{n,1}_{-,-\frac{n-1}{2}-#1}}
+\newcommand{\mypit}[1]{\pi^{n+1,1}_{+,#1}}
+\newcommand{\mypitp}[1]{\pi^{n,1}_{+,#1}}
+\newcommand{\mypif}[1]{\pi^{n+1,1}_{-,#1}}
+\newcommand{\mypifp}[1]{\pi^{n,1}_{-,#1}}
 		
 %m\left( ,\pi^{n,1}_{+,\frac{n-1}{2}+j} \right)=1,\quad m\left(  \right)
 
@@ -336,26 +336,26 @@ Here $h(x)$ is defined as $h(x)=1$ for $x\in\N$ and $=0$ otherwise.
 				\item [(1-a)] Assume $x-y-\frac{1}{2}\in2\Z$. Then
 					\begin{equation*}
 						\begin{array}[]{c}
-						\Hom_{G'}\left( \mypit{x-\frac{n}{2}}\mid_{G'},\mypitp{y-\frac{n-1}{2}} \right)=1,\\
-%%						\Hom_{G'}\left( \mypit{x-\frac{n}{2}}\mid_{G'},\mypifp{y-\frac{n-1}{2}} \right)=0,\\
-%%						\Hom_{G'}\left( \mypif{x-\frac{n}{2}}\mid_{G'},\mypifp{y-\frac{n-1}{2}} \right)=1.
+						\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypitp{y} \right)=1,\\
+%%						\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypifp{y} \right)=0,\\
+%%						\Hom_{G'}\left( \mypif{x}\mid_{G'},\mypifp{y} \right)=1.
 						\end{array}
 					\end{equation*}
 				\item [(1-b)] Assume $x-y+\frac{1}{2}\in2\Z$. Then
 					\begin{equation*}
 						\begin{array}[]{c}
-						\Hom_{G'}\left( \mypit{x-\frac{n}{2}}\mid_{G'},\mypitp{y-\frac{n-1}{2}} \right)=0,\\
-%%						\Hom_{G'}\left( \mypit{x-\frac{n}{2}}\mid_{G'},\mypifp{y-\frac{n-1}{2}} \right)=1,\\
-%%						\Hom_{G'}\left( \mypif{x-\frac{n}{2}}\mid_{G'},\mypifp{y-\frac{n-1}{2}} \right)=0.
+						\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypitp{y} \right)=0,\\
+%%						\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypifp{y} \right)=1,\\
+%%						\Hom_{G'}\left( \mypif{x}\mid_{G'},\mypifp{y} \right)=0.
 						\end{array}
 					\end{equation*}
 			\end{enumerate}
 		\item Suppose that $x<y-\frac{1}{2}$. Then
 			\begin{equation*}
 				\begin{array}[]{c}
-				\Hom_{G'}\left( \mypit{x-\frac{n}{2}}\mid_{G'},\mypitp{y-\frac{n-1}{2}} \right)=0,\\
-%%				\Hom_{G'}\left( \mypit{x-\frac{n}{2}}\mid_{G'},\mypifp{y-\frac{n-1}{2}} \right)=1,\\
-%%				\Hom_{G'}\left( \mypif{x-\frac{n}{2}}\mid_{G'},\mypifp{y-\frac{n-1}{2}} \right)=0.
+				\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypitp{y} \right)=0,\\
+%%				\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypifp{y} \right)=1,\\
+%%				\Hom_{G'}\left( \mypif{x}\mid_{G'},\mypifp{y} \right)=0.
 				\end{array}
 			\end{equation*}
 	\end{enumerate}
