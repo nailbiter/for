@@ -2,8 +2,7 @@
 
 OUTDIR=../foraux
 ZIPNAME=master_announcement2
-#WORKON=https://trello.com/c/jUZS9cjM
-WORKON=https://trello.com/c/lruJjZqc
+WORKON=https://trello.com/c/jUZS9cjM
 COMMIT_MSG=tex master_announcement2
 COMMIT_MSG += $(WORKON)
 LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g
