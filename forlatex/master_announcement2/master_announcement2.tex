@@ -10,7 +10,8 @@
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb,xypic}
 \usepackage[all,cmtip]{xy}
-\usepackage{amsmath,amssymb,float,mystyle}
+\usepackage{amsmath,amssymb,float}
+\usepackage{mystyle}
 \usepackage[normalem]{ulem}
 \usepackage{caption}
 \usepackage{setspace}
@@ -24,6 +25,7 @@
 \usepackage{ulem}
 \usetikzlibrary{patterns}
 
+\newcommand{\myrestr}[2]{\left.#1\right|{#2}}
 \catcode`\<=\active \def<{
 \fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
 \catcode`\>=\active \def>{
@@ -336,7 +338,7 @@ Here $h(x)$ is defined as $h(x)=1$ for $x\in\N$ and $=0$ otherwise.
 				\item [(1-a)] Assume $x-y-\frac{1}{2}\in2\Z$. Then
 					\begin{equation*}
 						\begin{array}[]{c}
-						\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypitp{y} \right)=1,\\
+						\Hom_{G'}\left( \myrestr{\mypit{x}}{G'},\mypitp{y} \right)=1,\\
 %%						\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypifp{y} \right)=0,\\
 %%						\Hom_{G'}\left( \mypif{x}\mid_{G'},\mypifp{y} \right)=1.
 						\end{array}
@@ -344,7 +346,7 @@ Here $h(x)$ is defined as $h(x)=1$ for $x\in\N$ and $=0$ otherwise.
 				\item [(1-b)] Assume $x-y+\frac{1}{2}\in2\Z$. Then
 					\begin{equation*}
 						\begin{array}[]{c}
-						\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypitp{y} \right)=0,\\
+						\Hom_{G'}\left( \myrestr{\mypit{x}}{G'},\mypitp{y} \right)=0,\\
 %%						\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypifp{y} \right)=1,\\
 %%						\Hom_{G'}\left( \mypif{x}\mid_{G'},\mypifp{y} \right)=0.
 						\end{array}
@@ -353,7 +355,7 @@ Here $h(x)$ is defined as $h(x)=1$ for $x\in\N$ and $=0$ otherwise.
 		\item Suppose that $x<y+\frac{1}{2}$. Then
 			\begin{equation*}
 				\begin{array}[]{c}
-				\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypitp{y} \right)=0,\\
+				\Hom_{G'}\left( \myrestr{\mypit{x}}{G'},\mypitp{y} \right)=0,\\
 %%				\Hom_{G'}\left( \mypit{x}\mid_{G'},\mypifp{y} \right)=1,\\
 %%				\Hom_{G'}\left( \mypif{x}\mid_{G'},\mypifp{y} \right)=0.
 				\end{array}
