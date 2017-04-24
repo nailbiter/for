@@ -74,7 +74,25 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>><around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|l!m!\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>>.>|<cell|>>>>
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>><around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|l!m!\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>><eq-number><label|eqn:cor:1>.>|<cell|>>>>
+    </eqnarray>
+  </corollary>
+
+  Taking the limit in <math|<eqref|eqn:cor:1>> as both <math|\<lambda\>> and
+  <math|\<nu\>><\footnote>
+    maybe, \Pand <math|\<mu\>>\Q?
+  </footnote> tends<\footnote>
+    maybe, \Ptend\Q?
+  </footnote> to be zero, we obtain
+
+  <\corollary>
+    <label|cor:170599>For <math|\<rho\>\<in\>\<bbb-C\>> with <math|Re
+    \<rho\>\<gtr\>0> and <math|r\<in\><around*|{|0,1|}>>,
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||cos\<varphi\>+cos\<psi\>|\|><rsup|\<rho\>>sgn<rsup|r><around*|(|cos\<varphi\>+cos\<psi\>|)>>|<cell|>>|<row|<cell|>|<cell|=<big|sum><rsub|<stack|<tformat|<table|<row|<cell|l,m=0>>|<row|<cell|l\<equiv\>m+r
+      mod 2>>>>>><rsup|\<infty\>><frac|2<rsup|2-\<rho\>>\<Gamma\><around*|(|\<rho\>+1|)><rsup|2>|<big|prod><rsub|\<delta\>,\<varepsilon\>\<in\><around*|{|\<pm\>1|}>>\<Gamma\><around*|(|1+<frac|1|2><around*|(|\<rho\>+\<delta\>l+\<varepsilon\>m|)>|)>>cos
+      l\<varphi\> cos m\<psi\>.>|<cell|>>>>
     </eqnarray>
   </corollary>
 
@@ -530,9 +548,12 @@
     <associate|bib-tarasov2003selberg|<tuple|9|9>>
     <associate|bib-warnaar2010sl3|<tuple|10|9>>
     <associate|cor:1|<tuple|1.3|2>>
+    <associate|cor:170599|<tuple|1.4|?>>
+    <associate|cor:Chebyshev|<tuple|1.4|?>>
     <associate|cor:Hermite|<tuple|4.1|6>>
     <associate|eqn:Fijsum|<tuple|3.6|5>>
     <associate|eqn:Rod|<tuple|2.2|2>>
+    <associate|eqn:cor:1|<tuple|1.2|?>>
     <associate|eqn:derst|<tuple|2.3|3>>
     <associate|eqn:iF|<tuple|3.1|3>>
     <associate|eqn:lm0|<tuple|4.1|7>>
@@ -549,10 +570,14 @@
     <associate|ex:4|<tuple|4.6|8>>
     <associate|footnote-1.1|<tuple|1.1|1>>
     <associate|footnote-1.2|<tuple|1.2|?>>
+    <associate|footnote-1.3|<tuple|1.3|?>>
+    <associate|footnote-1.4|<tuple|1.4|?>>
     <associate|footnote-4.1|<tuple|4.1|?>>
     <associate|footnote-4.2|<tuple|4.2|?>>
     <associate|footnr-1.1|<tuple|1.1|1>>
     <associate|footnr-1.2|<tuple|1.2|?>>
+    <associate|footnr-1.3|<tuple|1.3|?>>
+    <associate|footnr-1.4|<tuple|1.4|?>>
     <associate|footnr-4.1|<tuple|4.1|?>>
     <associate|footnr-4.2|<tuple|4.2|?>>
     <associate|lem4|<tuple|3.1|3>>
