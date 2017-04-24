@@ -87,13 +87,21 @@
 
   <\corollary>
     <label|cor:170599>For <math|\<rho\>\<in\>\<bbb-C\>> with <math|Re
-    \<rho\>\<gtr\>0> and <math|r\<in\><around*|{|0,1|}>>,
+    \<rho\>\<gtr\>0> and <math|r\<in\><around*|{|0,1|}>><\footnote>
+      Note that using the relation of Gegenbauer polynomials
+    </footnote>,
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<around*|\||cos\<varphi\>+cos\<psi\>|\|><rsup|\<rho\>>sgn<rsup|r><around*|(|cos\<varphi\>+cos\<psi\>|)>>|<cell|>>|<row|<cell|>|<cell|=<big|sum><rsub|<stack|<tformat|<table|<row|<cell|l,m=0>>|<row|<cell|l\<equiv\>m+r
-      mod 2>>>>>><rsup|\<infty\>><frac|2<rsup|2-\<rho\>>\<Gamma\><around*|(|\<rho\>+1|)><rsup|2>|<big|prod><rsub|\<delta\>,\<varepsilon\>\<in\><around*|{|\<pm\>1|}>>\<Gamma\><around*|(|1+<frac|1|2><around*|(|\<rho\>+\<delta\>l+\<varepsilon\>m|)>|)>>cos
+      mod 2>>>>>><rsup|\<infty\>><frac|H<around*|(|l|)>H<around*|(|m|)>2<rsup|2-\<rho\>>\<Gamma\><around*|(|\<rho\>+1|)><rsup|2>|<big|prod><rsub|\<delta\>,\<varepsilon\>\<in\><around*|{|\<pm\>1|}>>\<Gamma\><around*|(|1+<frac|1|2><around*|(|\<rho\>+\<delta\>l+\<varepsilon\>m|)>|)>>cos
       l\<varphi\> cos m\<psi\>.>|<cell|>>>>
     </eqnarray>
+
+    where Heaviside step function <math|H<around*|(|x|)>> is defined as:
+
+    <\equation*>
+      H<around*|(|x|)>\<assign\><choice|<tformat|<table|<row|<cell|0,>|<cell|x\<less\>0,>>|<row|<cell|1/2,>|<cell|x=0,>>|<row|<cell|1,>|<cell|x\<gtr\>0.>>>>>
+    </equation*>
   </corollary>
 
   Selberg-type integrals are related to (finite-dimensional) representation
@@ -572,12 +580,14 @@
     <associate|footnote-1.2|<tuple|1.2|?>>
     <associate|footnote-1.3|<tuple|1.3|?>>
     <associate|footnote-1.4|<tuple|1.4|?>>
+    <associate|footnote-1.5|<tuple|1.5|?>>
     <associate|footnote-4.1|<tuple|4.1|?>>
     <associate|footnote-4.2|<tuple|4.2|?>>
     <associate|footnr-1.1|<tuple|1.1|1>>
     <associate|footnr-1.2|<tuple|1.2|?>>
     <associate|footnr-1.3|<tuple|1.3|?>>
     <associate|footnr-1.4|<tuple|1.4|?>>
+    <associate|footnr-1.5|<tuple|1.5|?>>
     <associate|footnr-4.1|<tuple|4.1|?>>
     <associate|footnr-4.2|<tuple|4.2|?>>
     <associate|lem4|<tuple|3.1|3>>
