@@ -33,7 +33,7 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|T<rsub|n><around*|(|cos\<varphi\>|)>=cos
-      n\<varphi\>,<eq-number><label|eqn:2>>|<cell|>>|<row|<cell|>|<cell|T<rsub|n><around*|(|x|)>=<choice|<tformat|<table|<row|<cell|lim<rsub|\<lambda\>\<rightarrow\>0><around*|(|\<lambda\>+<frac|n|2>|)>\<Gamma\><around*|(|\<lambda\>|)>C<rsub|n><rsup|\<lambda\>><around*|(|x|)>,>|<cell|n\<geqslant\>1,>>|<row|<cell|C<rsub|n>,>|<cell|n=0.>>>>><eq-number><label|eqn:3>>|<cell|>>>>
+      n\<varphi\>,<eq-number><label|eqn:2>>|<cell|>>|<row|<cell|>|<cell|T<rsub|n><around*|(|x|)>=lim<rsub|\<lambda\>\<rightarrow\>0><around*|(|\<lambda\>+<frac|n|2>|)>\<Gamma\><around*|(|\<lambda\>|)>C<rsub|n><rsup|\<lambda\>><around*|(|x|)>.<eq-number><label|eqn:3>>|<cell|>>>>
     </eqnarray>
 
     Taking <math|\<lambda\>,\<mu\>\<rightarrow\>0> in
