@@ -23,8 +23,6 @@
       \<gamma\>\<gtr\>-min<around*|{|<frac|1|n>,<frac|Re
       \<alpha\>|n-1>,<frac|Re \<beta\>|n-1>|}>>, as noted in
       <cite|forrester2008importance>.
-    </footnote>, and for <math|0\<leqslant\>z\<leqslant\>1><\footnote>
-      Check the proof when <math|z=1>
     </footnote>, \ the following expansion holds:
 
     <\eqnarray>
