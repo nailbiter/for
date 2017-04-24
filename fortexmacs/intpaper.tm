@@ -13,6 +13,25 @@
 
   <section|Main results>
 
+  <\theorem>
+    For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with <math|Re
+    \<lambda\>,Re \<mu\>,Re \<nu\>\<gtr\>-1/2><\footnote>
+      I think we need to make the assumption <math|Re \<nu\>\<gtr\>0>. Note
+      that the conditions for convergence of Selberg integral
+      <math|<big|int><rsub|t\<in\><around*|[|0,1|]><rsup|n>>\<Pi\><rsup|\<alpha\>-1,\<beta\>-1><around*|(|t|)>\<Delta\><rsup|2\<gamma\>><around*|(|t|)>d
+      t> are <math|Re \<alpha\>,Re \<beta\>\<gtr\>0> and <math|Re
+      \<gamma\>\<gtr\>-min<around*|{|<frac|1|n>,<frac|Re
+      \<alpha\>|n-1>,<frac|Re \<beta\>|n-1>|}>>, as noted in
+      <cite|forrester2008importance>.
+    </footnote>, and for <math|0\<leqslant\>z\<leqslant\>1><\footnote>
+      Check the proof when <math|z=1>
+    </footnote>, \ the following expansion holds:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=<big|sum><rsub|l,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>=<frac|2<rsup|-2\<nu\>><around*|(|\<lambda\>+l|)><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>|<cell|>>>>
+    </eqnarray>
+  </theorem>
+
   Let <math|C<rsub|l><rsup|\<lambda\>><around*|(|s|)>> be the Gegenbauer
   polynomial of degree <math|l>, and we set
 
@@ -555,8 +574,8 @@
     <associate|bib-rainville1960special|<tuple|7|?>>
     <associate|bib-tarasov2003selberg|<tuple|9|9>>
     <associate|bib-warnaar2010sl3|<tuple|10|9>>
-    <associate|cor:1|<tuple|1.3|2>>
-    <associate|cor:170599|<tuple|1.4|?>>
+    <associate|cor:1|<tuple|1.4|2>>
+    <associate|cor:170599|<tuple|1.5|?>>
     <associate|cor:Chebyshev|<tuple|1.4|?>>
     <associate|cor:Hermite|<tuple|4.1|6>>
     <associate|eqn:Fijsum|<tuple|3.6|5>>
@@ -576,11 +595,15 @@
     <associate|ex:2|<tuple|4.4|7>>
     <associate|ex:3|<tuple|4.5|8>>
     <associate|ex:4|<tuple|4.6|8>>
+    <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-1.1|<tuple|1.1|1>>
     <associate|footnote-1.2|<tuple|1.2|?>>
     <associate|footnote-1.3|<tuple|1.3|?>>
     <associate|footnote-1.4|<tuple|1.4|?>>
     <associate|footnote-1.5|<tuple|1.5|?>>
+    <associate|footnote-1.6|<tuple|1.6|?>>
+    <associate|footnote-1.7|<tuple|1.7|?>>
+    <associate|footnote-2|<tuple|2|?>>
     <associate|footnote-4.1|<tuple|4.1|?>>
     <associate|footnote-4.2|<tuple|4.2|?>>
     <associate|footnr-1.1|<tuple|1.1|1>>
@@ -588,11 +611,13 @@
     <associate|footnr-1.3|<tuple|1.3|?>>
     <associate|footnr-1.4|<tuple|1.4|?>>
     <associate|footnr-1.5|<tuple|1.5|?>>
+    <associate|footnr-1.6|<tuple|1.6|?>>
+    <associate|footnr-1.7|<tuple|1.7|?>>
     <associate|footnr-4.1|<tuple|4.1|?>>
     <associate|footnr-4.2|<tuple|4.2|?>>
     <associate|lem4|<tuple|3.1|3>>
     <associate|lem:Fisum|<tuple|3.2|3>>
-    <associate|main-thm|<tuple|1.1|1>>
+    <associate|main-thm|<tuple|1.2|1>>
     <associate|prop:2|<tuple|2.1|2>>
     <associate|sec:2|<tuple|2|2>>
     <associate|sec:3|<tuple|3|3>>
