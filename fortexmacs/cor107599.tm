@@ -37,7 +37,8 @@
     </eqnarray>
 
     Taking <math|\<lambda\>,\<mu\>\<rightarrow\>0> in
-    <math|<eqref|eqn:cor:1>> and using <math|<eqref|eqn:3>>, we arrive at:
+    <math|<eqref|eqn:cor:1>> and using <math|<eqref|eqn:3>>, we arrive at
+    (note that <math|lim<rsub|\<lambda\>\<rightarrow\>0><frac|\<lambda\>+n|\<lambda\>+n/2>=2H<around*|(|n|)>>):
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>sgn<rsup|r><around*|(|s+
