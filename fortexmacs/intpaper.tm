@@ -28,7 +28,7 @@
     </footnote>, \ the following expansion holds:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=<big|sum><rsub|l,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>=<frac|2<rsup|-2\<nu\>><around*|(|\<lambda\>+l|)><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=<big|sum><rsub|\<ell\>,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|\<ell\>,m>C<rsub|\<ell\>><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>=<frac|2<rsup|-2\<nu\>><around*|(|\<lambda\>+\<ell\>|)><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|\<ell\>+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|\<ell\>+m|2>|)>>>|<cell|>>>>
     </eqnarray>
   </theorem>
 
@@ -559,76 +559,78 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|2|2>>
-    <associate|auto-3|<tuple|3|3>>
+    <associate|auto-2|<tuple|2|3>>
+    <associate|auto-3|<tuple|3|4>>
     <associate|auto-4|<tuple|4|6>>
-    <associate|auto-5|<tuple|4.1|8>>
-    <associate|auto-6|<tuple|4.1|9>>
-    <associate|bib-Selberg:411367|<tuple|8|9>>
-    <associate|bib-andrews1999special|<tuple|1|9>>
-    <associate|bib-dotsenko1985four|<tuple|2|9>>
-    <associate|bib-forrester2008importance|<tuple|3|9>>
-    <associate|bib-kobayashi2011schrodinger|<tuple|5|?>>
-    <associate|bib-kobayashi2015symmetry|<tuple|4|9>>
-    <associate|bib-mehta2004random|<tuple|6|9>>
-    <associate|bib-rainville1960special|<tuple|7|?>>
-    <associate|bib-tarasov2003selberg|<tuple|9|9>>
-    <associate|bib-warnaar2010sl3|<tuple|10|9>>
+    <associate|auto-5|<tuple|4.1|9>>
+    <associate|auto-6|<tuple|4.1|10>>
+    <associate|bib-Selberg:411367|<tuple|8|10>>
+    <associate|bib-andrews1999special|<tuple|1|10>>
+    <associate|bib-dotsenko1985four|<tuple|2|10>>
+    <associate|bib-forrester2008importance|<tuple|3|10>>
+    <associate|bib-kobayashi2011schrodinger|<tuple|5|10>>
+    <associate|bib-kobayashi2015symmetry|<tuple|4|10>>
+    <associate|bib-mehta2004random|<tuple|6|10>>
+    <associate|bib-rainville1960special|<tuple|7|10>>
+    <associate|bib-tarasov2003selberg|<tuple|9|10>>
+    <associate|bib-warnaar2010sl3|<tuple|10|10>>
     <associate|cor:1|<tuple|1.4|2>>
-    <associate|cor:170599|<tuple|1.5|?>>
+    <associate|cor:170599|<tuple|1.5|2>>
     <associate|cor:Chebyshev|<tuple|1.4|?>>
-    <associate|cor:Hermite|<tuple|4.1|6>>
-    <associate|eqn:Fijsum|<tuple|3.6|5>>
-    <associate|eqn:Rod|<tuple|2.2|2>>
-    <associate|eqn:cor:1|<tuple|1.2|?>>
+    <associate|cor:Hermite|<tuple|4.1|7>>
+    <associate|eqn:Fijsum|<tuple|3.6|6>>
+    <associate|eqn:Rod|<tuple|2.2|3>>
+    <associate|eqn:cor:1|<tuple|1.2|2>>
     <associate|eqn:derst|<tuple|2.3|3>>
-    <associate|eqn:iF|<tuple|3.1|3>>
+    <associate|eqn:iF|<tuple|3.1|4>>
     <associate|eqn:lm0|<tuple|4.1|7>>
     <associate|eqn:main|<tuple|1.1|1>>
-    <associate|eqn:p1|<tuple|3.3|5>>
-    <associate|eqn:p2|<tuple|3.4|5>>
-    <associate|eqn:p3|<tuple|3.5|5>>
-    <associate|eqn:quad|<tuple|3.2|4>>
-    <associate|eqn:selberg|<tuple|4.2|7>>
-    <associate|eqn:stz|<tuple|2.1|2>>
-    <associate|ex:1|<tuple|4.3|7>>
-    <associate|ex:2|<tuple|4.4|7>>
+    <associate|eqn:p1|<tuple|3.3|6>>
+    <associate|eqn:p2|<tuple|3.4|6>>
+    <associate|eqn:p3|<tuple|3.5|6>>
+    <associate|eqn:quad|<tuple|3.2|5>>
+    <associate|eqn:selberg|<tuple|4.2|8>>
+    <associate|eqn:stz|<tuple|2.1|3>>
+    <associate|ex:1|<tuple|4.3|8>>
+    <associate|ex:2|<tuple|4.4|8>>
     <associate|ex:3|<tuple|4.5|8>>
-    <associate|ex:4|<tuple|4.6|8>>
+    <associate|ex:4|<tuple|4.6|9>>
     <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-1.1|<tuple|1.1|1>>
-    <associate|footnote-1.2|<tuple|1.2|?>>
-    <associate|footnote-1.3|<tuple|1.3|?>>
-    <associate|footnote-1.4|<tuple|1.4|?>>
-    <associate|footnote-1.5|<tuple|1.5|?>>
-    <associate|footnote-1.6|<tuple|1.6|?>>
-    <associate|footnote-1.7|<tuple|1.7|?>>
+    <associate|footnote-1.2|<tuple|1.2|1>>
+    <associate|footnote-1.3|<tuple|1.3|1>>
+    <associate|footnote-1.4|<tuple|1.4|1>>
+    <associate|footnote-1.5|<tuple|1.5|2>>
+    <associate|footnote-1.6|<tuple|1.6|2>>
+    <associate|footnote-1.7|<tuple|1.7|2>>
     <associate|footnote-2|<tuple|2|?>>
-    <associate|footnote-4.1|<tuple|4.1|?>>
+    <associate|footnote-4.1|<tuple|4.1|9>>
     <associate|footnote-4.2|<tuple|4.2|?>>
     <associate|footnr-1.1|<tuple|1.1|1>>
-    <associate|footnr-1.2|<tuple|1.2|?>>
-    <associate|footnr-1.3|<tuple|1.3|?>>
-    <associate|footnr-1.4|<tuple|1.4|?>>
-    <associate|footnr-1.5|<tuple|1.5|?>>
-    <associate|footnr-1.6|<tuple|1.6|?>>
-    <associate|footnr-1.7|<tuple|1.7|?>>
-    <associate|footnr-4.1|<tuple|4.1|?>>
+    <associate|footnr-1.2|<tuple|1.2|1>>
+    <associate|footnr-1.3|<tuple|1.3|1>>
+    <associate|footnr-1.4|<tuple|1.4|1>>
+    <associate|footnr-1.5|<tuple|1.5|2>>
+    <associate|footnr-1.6|<tuple|1.6|2>>
+    <associate|footnr-1.7|<tuple|1.7|2>>
+    <associate|footnr-4.1|<tuple|4.1|9>>
     <associate|footnr-4.2|<tuple|4.2|?>>
-    <associate|lem4|<tuple|3.1|3>>
-    <associate|lem:Fisum|<tuple|3.2|3>>
+    <associate|lem4|<tuple|3.1|4>>
+    <associate|lem:Fisum|<tuple|3.2|4>>
     <associate|main-thm|<tuple|1.2|1>>
-    <associate|prop:2|<tuple|2.1|2>>
-    <associate|sec:2|<tuple|2|2>>
-    <associate|sec:3|<tuple|3|3>>
+    <associate|prop:2|<tuple|2.1|3>>
+    <associate|sec:2|<tuple|2|3>>
+    <associate|sec:3|<tuple|3|4>>
     <associate|sec:4|<tuple|4|6>>
-    <associate|table|<tuple|4.1|8>>
+    <associate|table|<tuple|4.1|9>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|bib>
+      forrester2008importance
+
       forrester2008importance
 
       forrester2008importance
