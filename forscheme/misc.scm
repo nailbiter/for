@@ -32,6 +32,7 @@
 (define (trial pred maxnum) (define (inner iternum) (if (= iternum maxnum) #f (if (pred) #t (inner (inc iternum))))) (inner 0))
 (define (interleave l obj last-b)(if last-b (concatenate(map list l (dup obj (length l)))) 
                                    (if(null? l)'()(cons(car l)(concatenate(map list(dup obj (dec(length l)))(cdr l) ))))))
+;;
 (define (inc-var varref . incl)(if(null? incl)(variable-set! varref (inc(variable-ref varref)))(variable-set! varref (+ (car incl)(variable-ref varref)))))
 (define(compose . func )(define (iter obj funcs)(if(null? funcs)obj(iter((car funcs)obj)(cdr funcs))))(lambda(x)(iter x func)))
 (define (throw-if res badvalue msg)(if(eq? res badvalue)(throw msg) res))
