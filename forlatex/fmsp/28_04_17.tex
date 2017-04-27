@@ -5,6 +5,7 @@
 \includecomment{versiona}
 \usepackage{xeCJK}
 \usepackage{subfig}
+\usepackage{soul}
 
 %\setbeameroption{hide notes}
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
@@ -178,7 +179,7 @@
 			(\mbox{Mellin transform }\rightarrow)&\mathcal{M} &\left( hr_m\ast hr_n  \right)&=\dots
 		\end{array}
 	\end{equation*}
-	\pause Using inverse Mellin transform (and a bit of magic) we can recover {\it convolution formula for Hermite-Rodriguez functions}!
+	\pause Using inverse Mellin transform \st{and some magic} we can recover {\it convolution formula for Hermite-Rodriguez functions}!
 	\begin{equation*}
 		\left( hr_i\ast hr_j \right)(t)=\sqrt{\frac{(i+j)!}{2^{i+j}i!j!}}hr_{i+j}\left( \frac{t}{\sqrt{2}} \right).
 		\tag{1}
