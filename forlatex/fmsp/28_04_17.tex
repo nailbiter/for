@@ -5,7 +5,7 @@
 \includecomment{versiona}
 \usepackage{xeCJK}
 
-\setbeameroption{hide notes}
+%\setbeameroption{hide notes}
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
 %\setCJKmainfont{MS PGothic} %AJP windows
@@ -56,7 +56,8 @@
 	\begin{itemize}
 		\item Architecture is simple;\pause
 		\item Parameters are few;\pause
-		\item Error estimation is available;
+		\item Can choose particular basis to suit the particular problem domain (i.e. Hermitian for medical imaging);\pause
+		\item Error estimation is readily available ($\implies$ can estimate convergence speed);
 	\end{itemize}
 \end{frame}
 \section{Intro: Hermitian Neural Networks}
