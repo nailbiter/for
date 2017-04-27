@@ -120,7 +120,7 @@
 \begin{frame}{Hermite-Rodriguez functions}
 	We can repeat all of the above using Hermite-Rodriguez functions:
 	\begin{equation*}
-		hr_n(t)=\frac{h_n(t)e^{-t^2/2}}{\pi^{1/4}}=
+		hr_i(t)=\frac{h_i(t)e^{-t^2/2}}{\pi^{1/4}}=
 		\frac{H_i(t)e^{-t^2}}{\sqrt{2^ii!{\pi}}}.
 	\end{equation*}
 	\pause For them we also have an explicit correlation formula
@@ -128,8 +128,21 @@
 		\left( hr_i\ast hr_j \right)(t)=\sqrt{\frac{(i+j)!}{2^{i+j}i!j!}}hr_{i+j}\left( \frac{t}{\sqrt{2}} \right).
 		\label{eqn:HRcorrelation}
 	\end{equation}
+	\pause
+	Hermitian-Rodriguez can be beneficial when analyzing high-frequency signals (e.g. glitches) \cite{mackenzie2003hermite}.
 \end{frame}
 \section{My contribution}
+\begin{frame}{My contribution}
+	The following holds:
+	\begin{equation}
+		  2^{2 - 2 \lambda - 2 \mu} \int_{- 1}^1 \int_{- 1}^1 (1 - s^2)^{\lambda -
+			    \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} | s - t |^{- 2} d s d t
+			      = \frac{- 2 \Gamma \left( \lambda + \frac{1}{2} \right)^2 \Gamma \left( \mu
+			        + \frac{1}{2} \right)^2}{(\lambda + \mu - 1) \Gamma (2 \lambda) \Gamma (2
+					  \mu)} .
+		\label{eqn:2}
+	\end{equation}
+\end{frame}
 \section{Further work}
 \begin{frame}{Further work}
 	\begin{enumerate}
