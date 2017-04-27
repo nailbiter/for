@@ -2,8 +2,11 @@
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 \usepackage{mystyle}
 \includecomment{versiona}
+\usepackage{xeCJK}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
+\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
+%\setCJKmainfont{MS PGothic} %AJP windows
 
 \makeatletter
 \newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
