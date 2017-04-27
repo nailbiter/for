@@ -58,9 +58,9 @@
 	\begin{itemize}
 		\item Architecture is simple;\pause
 		\item Parameters are few;\pause
-		\item Can choose particular OFs to suit the particular problem domain (e.g.  Hermitian for medical imaging);\pause
+		\item Can choose particular OFs to suit the particular problem domain (e.g. Hermite functions for medical imaging);\pause
 		\item Error estimation is readily available ($\implies$ can estimate convergence speed);\pause
-		\item For some OFs we can use recurrence relations to speed up the computation (e.g. Lagrange, Hermitian)
+		\item For some OFs we can use recurrence relations to speed up the computation (e.g. Lagrange, Hermite functions/polynomials)
 	\end{itemize}
 \begin{figure}
   \centering
@@ -71,15 +71,15 @@
 \end{figure}
 \end{frame}
 \section{Intro: Convolution of Hermitian Neural Networks}
-\begin{frame}{Why Hermitian Networks}
+\begin{frame}{Why Hermite Networks}
 	\begin{equation*}
 		\begin{array}[]{c}
-		h_n(t)=\frac{H_n(t)e^{-t^2/2}}{\sqrt{2^nn!\sqrt{\pi}}}\\
+			h_n(t)=\frac{H_n(t)e^{-t^2/2}}{\sqrt{2^nn!\sqrt{\pi}}}\mbox{ (H)<++>}<++>\\
 		H_n(t)=(-1)^n e^{t^2}\frac{d^n}{dx^n}e^{-x^2}
 		\end{array}
 	\end{equation*}
 	\begin{itemize}
-		\item Low order 
+		\item Low order Hermitial 
 	\end{itemize}
 \end{frame}
 \section{Intro: Hermite-Rodriguez Networks}
