@@ -164,7 +164,7 @@
 		\begin{array}{c}
 		\begin{array}{lccl}
 			&\int_{-\infty}^\infty\myabs{w}^{2 \nu} &\int_{-\infty}^\infty c_m^{\mu} (s - w) \;c^{\lambda}_l (s) \mbox{ds}\mbox{dw} &= \ldots,\\
-			(\mbox{Mellin transform }\rightarrow)&\mathcal{M} &\left( hr_m\ast hr_n  \right)&=\dots
+			(\mbox{Mellin transform }\rightarrow)&\mathcal{M} &\left( c_m^\mu \ast c_l^\lambda  \right)&=\dots
 		\end{array}
 		      \end{array}
 		\label{eqn:5}
@@ -179,10 +179,7 @@
 \begin{frame}
 	Taking limit in $\eqref{eqn:5}$ we arrive at
 	\begin{equation*}
-		\begin{array}{lccl}
-			&\int_{-\infty}^\infty\myabs{w}^{2\nu}&\int_{-\infty}^\infty hr_m\left( s-w \right)hr_n(s)\mbox{ds\;dw}&=\dots\\\pause
-			(\mbox{Mellin transform }\rightarrow)&\mathcal{M} &\left( hr_m\ast hr_n  \right)&=\dots
-		\end{array}
+			\mathcal{M} \left( hr_m\ast hr_n  \right)=\dots
 	\end{equation*}
 	\pause Using inverse Mellin transform \st{and some magic} we can recover {\it convolution formula for Hermite-Rodriguez functions}!
 	\begin{equation*}
