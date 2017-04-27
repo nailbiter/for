@@ -12,9 +12,6 @@ clean:
 	touch *.tex
 	rm -rf $(OUTDIR)/$(ZIPNAME).zip $(OUTDIR)/Z.pdf $(OUTDIR)/master_announcement2.pdf
 
-%.tex : %.bib
-	touch $@
-
 $(OUTDIR)/%.pdf : %.tex
 	$(LATEXMK) $<
 
