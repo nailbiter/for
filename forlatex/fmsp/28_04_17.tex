@@ -73,7 +73,7 @@
 \end{figure}
 \end{frame}
 \section{Intro: Convolution of Hermitian Neural Networks}
-\begin{frame}{Why Hermite Networks}
+\begin{frame}{Why Hermite Networks?}
 	\begin{equation*}
 		\begin{array}[]{c}
 			h_n(t)=\frac{H_n(t)e^{-t^2/2}}{\sqrt{2^nn!\sqrt{\pi}}}\mbox{ (Hermite {\it functions})};\\
@@ -97,6 +97,12 @@
 			\vspace{-0.5cm}
 	\end{itemize}
 \end{frame}
+\begin{frame}{Why Convolution?}
+	We often need to convolve two Hermite Neural Networks (e.g. to recover noised signal):
+	\begin{equation*}
+		y_1\ast y_2\approx \hat{y}_1\ast \hat{y}_2=\sum_{i,j=1}^N a^1_i a^2_j h_i\ast h_j
+	\end{equation*}
+\end{frame}<++>
 \section{Intro: Hermite-Rodriguez Networks}
 \section{My contribution}
 \section{Further work}
