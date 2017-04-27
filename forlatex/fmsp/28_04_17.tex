@@ -92,7 +92,7 @@
 		\item Invariant under Fourier transform: $\mathcal{F}(h_n)=\left( -i \right)^n\sqrt{2\pi}h_n$ $\left( \implies
 			\mathcal{F}\left( \hat{y} \right)=\sum_{j=1}^N \hat{\omega}_j (-i)^j \sqrt{2\pi}h_j \right)$;
 			\pause
-		\item $h_0$ is Gaussian filter\vspace{-0.5cm}\begin{equation*}
+		\item $h_0$ is the Gaussian filter\vspace{-0.5cm}\begin{equation*}
 				\implies e^{-t^2/2}\ast y\approx e^{-t^2/2} \ast \hat{y} =\sum_{i=1}^N \hat{\omega}_i \left( h_i\ast h_0 \right)
 			\end{equation*}
 			\vspace{-0.5cm}
@@ -162,9 +162,9 @@
 	\pause
 	\begin{equation}
 		\begin{array}{c}
-		\begin{array}{lccl}
-			&\int_{-\infty}^\infty\myabs{w}^{2 \nu} &\int_{-\infty}^\infty c_m^{\mu} (s - w) \;c^{\lambda}_l (s) \mbox{ds}\mbox{dw} &= \ldots,\\
-			(\mbox{Mellin transform }\rightarrow)&\mathcal{M} &\left( c_m^\mu \ast c_l^\lambda  \right)&=\dots
+		\begin{array}{ccl}
+			\int_{-\infty}^\infty\myabs{w}^{2 \nu} &\int_{-\infty}^\infty c_m^{\mu} (s - w) \;c^{\lambda}_l (s) \mbox{ds}\mbox{dw} &= \ldots,\\
+			\mathcal{M} &\left( c_m^\mu \ast c_l^\lambda  \right)&=\dots
 		\end{array}
 		      \end{array}
 		\label{eqn:5}
