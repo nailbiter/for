@@ -142,7 +142,7 @@
 					  \mu)} .
 		\label{eqn:2}
 	\end{equation}
-	\pause Using integration by parts, we easily come up with\begin{equation}
+	\pause From here, we easily arrive at:\begin{equation}
 		\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
 		(1 - t^2)^{\mu - \frac{1}{2}} C_l^{\lambda} (s) C_m^{\mu} (t) d s d t=\dots
 		\label{eqn:3}
@@ -152,9 +152,18 @@
 	Two more equivalent forms of $\eqref{eqn:3}$:\pause
 	\begin{equation}
 		\myabs{s-t}^{2 \nu} = \sum_{\ell, m = 0 \mid l + m : \mbox{even}}^{\infty}
-		a_{\lambda, \mu, \nu}^{\ell, m} C_{\ell}^{\lambda} (s) C_m^{\mu} (t)
+		a_{\lambda, \mu, \nu}^{\ell, m} C_{\ell}^{\lambda} (s) C_m^{\mu} (t),\quad a^{\ell,m}_{\lambda,\mu,\nu}=\dots,
 		\label{eqn:4}
 	\end{equation}
+	\pause
+	\begin{equation}
+		\begin{array}{l}
+			  \int_{- 1}^1 \int_{- 1 + s}^{1 + s} | w |^{2 \nu} h_m^{\mu} (s - w) d w
+			    h^{\lambda}_l (s) \mbox{ds} = \ldots\\
+			      h^{\lambda}_l (s) = (1 - s^2)^{\lambda - \frac{1}{2}} C^{\lambda}_l (s)
+		      \end{array}
+		\label{eqn:5}
+	\end{equation}<++>
 \end{frame}
 \section{Further work}
 \begin{frame}{Further work}
