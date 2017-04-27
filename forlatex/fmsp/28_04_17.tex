@@ -28,6 +28,8 @@
 \theoremstyle{mystyle}
 \newtheorem{prop}{Proposition}
 
+\renewcommand{\implies}{\Rightarrow}
+
 \title{Hermitian Neural Networks}
 \subtitle{joint with 小林俊行}
 \author{レオンチエフ・アレックス、東大数理}
@@ -86,7 +88,7 @@
 	\end{itemize}
 	Besides, good analytic properties:\pause
 	\begin{itemize}
-		\item $H_0$ is Gaussian filter;\pause
+		\item $H_0$ is Gaussian filter ($\implies$);\pause
 		\item Invariant under Fourier transform: $\mathcal{F}(h_n)=\left( -i \right)^n\sqrt{2\pi}h_n$;
 	\end{itemize}
 \end{frame}
