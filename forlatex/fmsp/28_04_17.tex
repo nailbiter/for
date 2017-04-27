@@ -4,6 +4,7 @@
 \usepackage{mystyle}
 \includecomment{versiona}
 \usepackage{xeCJK}
+\usepackage{subfig}
 
 %\setbeameroption{hide notes}
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
@@ -60,14 +61,37 @@
 		\item Error estimation is readily available ($\implies$ can estimate convergence speed);\pause
 		\item For some OFs we can use recurrence relations to speed up computation (e.g. Lagrange, Hermitian)
 	\end{itemize}
-	\begin{figure}[h]
-		\centering
-		\vspace{-0.3cm}
-		\includegraphics[scale=0.2]{onn2}
-		\caption{(taken from \cite{yang1996orthogonal})}
-		\label{fig:onn}
-		%\note{tesime}
-	\end{figure}
+%%	\begin{figure}[h]
+%%		\centering
+%%		\vspace{-0.3cm}
+%%		\includegraphics[scale=0.2]{onn2}
+%%		\caption{(taken from \cite{yang1996orthogonal})}
+%%		\label{fig:onn}
+%%		%\note{tesime}
+%%	\end{figure}
+%%\begin{figure}
+%%    \centering
+%%    \begin{subfigure}[b]{0.3\textwidth}
+%%        \includegraphics[width=\textwidth]{onn2}
+%%        \caption{A gull}
+%%        \label{fig:gull}
+%%    \end{subfigure}
+%%    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+%%      %(or a blank line to force the subfigure onto a new line)
+%%    \begin{subfigure}[b]{0.3\textwidth}
+%%        \includegraphics[width=\textwidth]{onn3}
+%%        \caption{A tiger}
+%%        \label{fig:tiger}
+%%    \end{subfigure}
+%%\caption{tesime}\label{fig:hi}
+%%\end{figure}
+\begin{figure}
+  \centering
+  \subfloat[First subfigure\label{fig:a}]{\includegraphics[height=2cm,width=3cm]{onn2}}\qquad
+  \subfloat[Second subfigure\label{fig:b}]{\includegraphics[height=2cm,width=3cm]{onn3}}
+\caption{A figure}
+\label{fig:1}
+\end{figure}
 \end{frame}
 \section{Intro: Hermitian Neural Networks}
 \section{Intro: Hermite-Rodriguez Networks}
