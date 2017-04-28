@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|number-europe>>
 
@@ -1007,6 +1007,11 @@
       <math|O<around|(|p,q|)>>>, volume 213. <newblock>American Mathematical
       Society, 2011.
 
+      <bibitem*|MT03><label|bib-mackenzie2003hermite>Mark<nbsp>R Mackenzie
+      and A<nbsp>Kiet Tieu. <newblock>Hermite neural network correlation and
+      application. <newblock><with|font-shape|italic|IEEE transactions on
+      signal processing>, 51(12):3210\U3219, 2003.
+
       <bibitem*|Olv10><label|bib-olver2010nist>Frank<nbsp>WJ Olver.
       <newblock><with|font-shape|italic|NIST Handbook of Mathematical
       Functions Hardback and CD-ROM>. <newblock>Cambridge University Press,
@@ -1041,6 +1046,7 @@
     <associate|auto-1|<tuple|d|22>>
     <associate|bib-dotsenko1985four|<tuple|DF85|22>>
     <associate|bib-kobayashi2011schrodinger|<tuple|KM11|22>>
+    <associate|bib-mackenzie2003hermite|<tuple|MT03|?>>
     <associate|bib-olver2010nist|<tuple|Olv10|?>>
     <associate|bib-rainville1960special|<tuple|Rai60|22>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|22>>
@@ -1117,6 +1123,8 @@
       dotsenko1985four
 
       dotsenko1985four
+
+      mackenzie2003hermite
 
       rainville1960special
 
