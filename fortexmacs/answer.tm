@@ -615,8 +615,13 @@
     other published work?
   </question>
 
-  I have not found explicit reference yet. \PMathematica\Q software seems to
-  not know this equality.\ 
+  I have not found explicit reference yet. Nevertheless,
+
+  <\enumerate-numeric>
+    <item>\PMathematica\Q software seems to not know this equality.\ 
+
+    <item><cite|mackenzie2003hermite>
+  </enumerate-numeric>
 
   Nevertheless, I have found reference <hlink|http://functions.wolfram.com/Polynomials/HermiteH/21/02/01/0008/|http://functions.wolfram.com/Polynomials/HermiteH/21/02/01/0008/>
   for the equality:
@@ -1124,6 +1129,10 @@
       kobayashi2011schrodinger
 
       olver2010nist
+
+      kobayashi2011schrodinger
+
+      kobayashi2011schrodinger
 
       kobayashi2011schrodinger
     </associate>
