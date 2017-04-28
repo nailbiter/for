@@ -23,7 +23,7 @@ $(OUTDIR)/%.pdf : %.tex
 	$(LATEXMK) $<
 
 $(OUTDIR)/$(ZIPNAME).zip : $(OUTDIR)/Z.pdf $(OUTDIR)/master_announcement2.pdf
-	cd $(OUTDIR) && rm master_announcement2.zip && zip -9 master_announcement2 revision.pdf Z.pdf master_announcement2.pdf && unzip -l $(ZIPNAME).zip
+	cd $(OUTDIR) && rm -f master_announcement2.zip && zip -9 master_announcement2 revision.pdf Z.pdf master_announcement2.pdf && unzip -l $(ZIPNAME).zip
 	git commit --allow-empty -a -m "$(COMMIT_MSG)"
 	
 commit:
