@@ -27,15 +27,15 @@ $\begin{array}{|@{}c@{}|@{}c@{}|}
 \begin{enumerate}[(1)]
 	\item $p=1,q\in2\Z$
 		\\
-\hspace*{0cm}\commonShift\mytableThreeTwo	%#1
-{}		{\pimyStack[\mid y\geq q/2]}
-{\pipx}		{0}
-{\pimx}		{g\kern-0.05cm\left( {y-x} \right)}
+\hspace*{0cm}\commonShift\mytable	%#1
+{}		{\pimyStack{y+q/2\in 2\Z}}				{\pimyStack{y+q/2\in 2\Z+1}}
+{\pipx}		{h(y)}							{h(y)g(-x+y-1)}
+{\pimx}		{0}							{g\kern-0.05cm\left( {y-x} \right)}
 	\item $p=1,q\in2\Z+1$\\
-\hspace*{0cm}\commonShift\mytableThreeTwo	%#2
-{}		{\pimyStack[\mid y\geq q/2]}
-{\pipx}		{0}
-{\pimx}		{g\kern-0.05cm\left( {y-x} \right)}
+\hspace*{0cm}\commonShift\mytable	%#2
+{}		{\pimyStack[y+q/2\in2\Z+1]} 		{\pimyStack[y+q/2\in2\Z]}
+{\pipx}		{h(y)}					{h(y)}
+{\pimx}		{g(-y-x)}	{g(y-x)}
 	\item $p,q\in2\Z$\\
 \hspace*{-0cm}\commonShift\mytable	%3
 {}	{\pipy}				{\pimy}
