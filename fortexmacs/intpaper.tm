@@ -597,7 +597,7 @@
     <associate|footnote-1.1|<tuple|1.1|1>>
     <associate|footnote-1.2|<tuple|1.2|1>>
     <associate|footnote-1.3|<tuple|1.3|1>>
-    <associate|footnote-1.4|<tuple|1.4|1>>
+    <associate|footnote-1.4|<tuple|1.4|2>>
     <associate|footnote-1.5|<tuple|1.5|2>>
     <associate|footnote-1.6|<tuple|1.6|2>>
     <associate|footnote-1.7|<tuple|1.7|2>>
@@ -607,7 +607,7 @@
     <associate|footnr-1.1|<tuple|1.1|1>>
     <associate|footnr-1.2|<tuple|1.2|1>>
     <associate|footnr-1.3|<tuple|1.3|1>>
-    <associate|footnr-1.4|<tuple|1.4|1>>
+    <associate|footnr-1.4|<tuple|1.4|2>>
     <associate|footnr-1.5|<tuple|1.5|2>>
     <associate|footnr-1.6|<tuple|1.6|2>>
     <associate|footnr-1.7|<tuple|1.7|2>>
