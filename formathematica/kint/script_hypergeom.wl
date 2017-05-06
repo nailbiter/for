@@ -1,5 +1,5 @@
 RealParamRange:={1.5,1.5}
-IntParamRange:={0,10}
+IntParamRange:={0,5}
 ZParamRange:={0,1}
 iterCount:=1;
 tolList:={6,7,8}
@@ -23,7 +23,8 @@ list := {}
 	\[Mu]=RandomReal[RealParamRange],
 	z=RandomReal[ZParamRange],
 	l=RandomInteger[IntParamRange],
-    m=RandomInteger[IntParamRange]+If[Mod[l+m,2]==1,1,0]
+    	mProto=RandomInteger[IntParamRange],
+	m=mProto+If[Mod[l+mProto,2]==1,1,0]
 },
 Block[{LHS=NIntegrate[integrand,{s,-1,1},{t,-1,1},PrecisionGoal->tol],
     RHS=N[expr,tol]},AppendTo[list,(LHS-RHS)/(10^(-tol))]]
