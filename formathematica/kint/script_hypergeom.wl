@@ -7,24 +7,24 @@ tolList:={6,7,8}
 
 (* generate parameters *)
 paramList={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
-paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[1]]=RandomReal[RealParamRange];(* a>= b>= c*)
 paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
-paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
-paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
-paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
-paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
-paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
-paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
-paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
-paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
-paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
-paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
-paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
-paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
-paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
-paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
-paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[3]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[4]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[5]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[6]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[7]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[8]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[9]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[10]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[11]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[12]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[13]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[14]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[15]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[16]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[17]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[18]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
 
 
 u:=(2^(2 \[Lambda] - 1)*l!*Gamma[\[Lambda]])/
