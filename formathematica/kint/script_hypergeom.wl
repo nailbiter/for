@@ -31,7 +31,7 @@ list := {}
 	m=mProto+If[Mod[l+mProto,2]==1,1,0]
 },
 Block[{LHS=NIntegrate[integrand,{s,-1,1},{t,-1,1},PrecisionGoal->tol],
-    RHS=N[expr,tol]},AppendTo[list,(LHS-RHS)/(10^(-tol))]]
+    RHS=N[expr,tol]},AppendTo[list,Norm[LHS-RHS]/(10^(-tol))]]
 ],{tol,tolList}],{i,1,iterCount}]
 
 Print[ExportString[Max[list],"TeX"]] (*0*)
