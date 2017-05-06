@@ -1,0 +1,59 @@
+%        File: test.tex
+%     Created: 金  5 05 01:00 AM 2017 J
+% Last Change: 金  5 05 01:00 AM 2017 J
+%
+\documentclass[a4paper]{article}
+\usepackage{catchfilebetweentags}
+\usepackage{mystyle}
+\usepackage{amsthm}
+\usepackage{filecontents}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\begin{filecontents}{bibliography.bib}
+@article{teukolsky1992numerical,
+	title={Numerical recipes in {C}},
+author={Teukolsky, Saul A and Flannery, Brian P and Press, WH and Vetterling, WT},
+journal={SMR},
+volume={693},
+pages={1},
+year={1992}
+}
+\end{filecontents}
+
+\begin{document}
+%%hi there
+%%\ExecuteMetaData[script.tex]{tag0}
+We want to check whether the integral
+\ExecuteMetaData[script.tex]{tag1}
+is equal to the expression
+\ExecuteMetaData[script.tex]{tag2}
+For this we have:
+\begin{enumerate}
+	\item 
+Selected 
+\ExecuteMetaData[script.tex]{tag4}
+random tuples of parameters $(\lambda,\mu,\nu)$, each in the range
+\ExecuteMetaData[script.tex]{tag3}
+\item For every parameter tuple we evaluated integral and expression with the tolerance $10^{-i}$ where $i$ is in the list
+\ExecuteMetaData[script.tex]{tag5}
+\item Computed difference between integral and expression for every tolerance and divided it by the corresponding $10^{-i}$
+\item Took the maximal value of the list obtained.
+\end{enumerate}
+As the maximum equals to
+\ExecuteMetaData[script.tex]{tag0}
+we conclude that integral and expression are equal.
+\begin{remark}
+	This criterion for comparing two values was devised completely by me, as I was unable to find anything related after some search on the internet and \cite{teukolsky1992numerical}.
+	I admit that this approach is na\"ive. Any comments would be appreciated.
+\end{remark}
+	\bibliographystyle{plain}
+	\bibliography{bibliography}
+\end{document}
