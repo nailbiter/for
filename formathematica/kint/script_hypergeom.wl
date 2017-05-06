@@ -6,7 +6,7 @@ tolList:={6,7,8}*)
 IntParamRange:={0,1}
 ZParamRange:={0,1}
 iterCount:=1;
-tolList:={6}
+tolList:={6,7,8}
 
 u:=(2^(2 \[Lambda] - 1)*l!*Gamma[\[Lambda]])/
     Gamma[2*\[Lambda] + l]*
