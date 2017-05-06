@@ -1,7 +1,7 @@
 RealParamRange:={1.5,1.5}
-IntParamRange:={0,5}
+IntParamRange:={0,10}
 ZParamRange:={0,1}
-iterCount:=1;
+iterCount:=5;
 tolList:={6,7,8}
 
 u:=(2^(2 \[Lambda] - 1)*l!*Gamma[\[Lambda]])/
