@@ -7,7 +7,7 @@ XELATEX=latexmk -pdf -pdflatex='xelatex %O %S'
 all: report.zip
 
 commit:
-	git commit -a -m "ktasks https://trello.com/c/kJBbVkAA"
+	git commit --allow-empty -a -m "ktasks https://trello.com/c/kJBbVkAA"
 
 %.proto.tex : %.wl
 	time $(MATHEMATICA) $< > $@
