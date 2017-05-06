@@ -1,8 +1,31 @@
 RealParamRange:={1.45,1.55}
+DeltaParamRange:=0.5;
 IntParamRange:={0,10}
 ZParamRange:={0,1}
-iterCount:=5;
+iterCount:=6;
 tolList:={6,7,8}
+
+(* generate parameters *)
+paramList={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[0]]=RandomReal[RealParamRange];(* a>= b>= c*)
+paramList[[1]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+paramList[[2]]=RandomReal[RealParamRange]+RandomReal[{0,DeltaParamRange}];
+
 
 u:=(2^(2 \[Lambda] - 1)*l!*Gamma[\[Lambda]])/
     Gamma[2*\[Lambda] + l]*
@@ -18,9 +41,9 @@ expr := 1/(Gamma[\[Mu] + m + 1]*Gamma[\[Lambda] + \[Nu] + (l - m)/2 + 1])*
 
 list := {}
    Do[Do[Block[{
-   \[Lambda]=RandomReal[RealParamRange],
-	\[Nu]=RandomReal[RealParamRange],
-	\[Mu]=RandomReal[RealParamRange],
+   \[Lambda]=paramList[[(i-1)*3+1]],
+	\[Nu]=paramList[[(i-1)*3+2]],
+	\[Mu]=paramList[[(i-1)*3+3]],
 	z=RandomReal[ZParamRange],
 	l=RandomInteger[IntParamRange],
     	mProto=RandomInteger[IntParamRange],
@@ -38,7 +61,7 @@ Print[ExportString[StringJoin[
     "[",
     ToString[RealParamRange[[1]]],
     ", ",
-    ToString[RealParamRange[[2]]],
+    ToString[RealParamRange[[2]]]+2*DeltaParamRange,
     "]"],"TeX"]] (*3*)
 Print[ExportString[iterCount,"TeX"]] (*4*)
 Print[ExportString[tolList,"TeX"]] (*5*)
