@@ -1,5 +1,5 @@
 RealParamRange:={1.5,1.5}
-IntParamRange:={0,2}
+IntParamRange:={0,10}
 ZParamRange:={0,1}
 iterCount:=5;
 tolList:={6,7,8}
@@ -23,10 +23,11 @@ list := {}
 	\[Mu]=RandomReal[RealParamRange],
 	z=RandomReal[ZParamRange],
 	l=RandomInteger[IntParamRange],
-	m=l},
-	Block[{LHS=NIntegrate[integrand,{s,-1,1},{t,-1,1},PrecisionGoal->tol],
-        RHS=N[expr,tol]},AppendTo[list,(LHS-RHS)/(10^(-tol))]]
-    ],{tol,tolList}],{i,1,iterCount}]
+    m=RandomInteger[IntParamRange]+If[Mod[l+m,2]==1,1,0]
+},
+Block[{LHS=NIntegrate[integrand,{s,-1,1},{t,-1,1},PrecisionGoal->tol],
+    RHS=N[expr,tol]},AppendTo[list,(LHS-RHS)/(10^(-tol))]]
+],{tol,tolList}],{i,1,iterCount}]
 
 Print[ExportString[Max[list],"TeX"]] (*0*)
 Print[ExportString[With[{integrand=integrand},
