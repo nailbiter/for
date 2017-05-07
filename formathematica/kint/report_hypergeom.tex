@@ -46,11 +46,12 @@ random tuples of parameters $(\lambda,\mu,\nu,z,m,l)$, with:\begin{itemize}
 	\item 
 %%		$\lambda,\mu,\nu$ each in the range
 %%		\ExecuteMetaData[script_hypergeom.tex]{tag3}
-		three random variables selected uniformly in respective intervals
+		three random variables $\left\{ X_i \right\}_{i=1}^3$ selected uniformly in respective intervals
 		\ExecuteMetaData[script_hypergeom.tex]{tag8}
 		\ExecuteMetaData[script_hypergeom.tex]{tag9}
 		\ExecuteMetaData[script_hypergeom.tex]{tag10}
-		and assigned to $\lambda,\mu,\nu$
+		and assigned to $\lambda,\mu,\nu$\footnote{in fact, we sample every variable 6 times and assign to $\lambda,\mu,\nu$ in all 6 possible combinations:
+		$(\lambda,\mu,\nu)=\left( X_1,X_2,X_3 \right),\left( \lambda,\mu,\nu \right)=\left( X_1,X_3,X_2 \right)$ etc.}
 	\item
 $z$ in the range
 \ExecuteMetaData[script_hypergeom.tex]{tag6}
