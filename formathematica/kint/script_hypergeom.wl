@@ -119,9 +119,9 @@ Print[ExportString[With[{integrand=integrand},
 Print[ExportString[expr,"TeX"]] (*2*)
 Print[ExportString[StringJoin[
     "[",
-	RealParamMin,
+	ToString[RealParamMin],
     ", ",
-    RealParamMin+2*DeltaParamRange],
+    ToString[RealParamMin+2*DeltaParamRange]],
     "]"],"TeX"]] (*3*)
 Print[ExportString[iterCount,"TeX"]] (*4*)
 Print[ExportString[tolList,"TeX"]] (*5*)
