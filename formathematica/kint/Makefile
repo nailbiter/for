@@ -23,6 +23,7 @@ report.pdf : report.tex script.tex
 	$(XELATEX) $<
 
 report_hypergeom.pdf : report_hypergeom.tex script_hypergeom.tex script_hypergeom.wl
+	head -n 1 script_hypergeom.time.txt > script_hypergeom.time2.txt
 	$(XELATEX) $<
 
 report.zip: report.pdf script.wl report.tex script.tex report_hypergeom.tex report_hypergeom.pdf script_hypergeom.tex script_hypergeom.wl
