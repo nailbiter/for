@@ -10,81 +10,81 @@ paramList={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 base:=0
 paramList[[base+1]]=
 	RandomReal[
-	{RealParamRange+0*DeltaParamRange,
-	RealParamRange+1*DeltaParamRange}];
+	{RealParamMin+0*DeltaParamRange,
+	RealParamMin+1*DeltaParamRange}];
 paramList[[base+2]]=
 	RandomReal[
-	{RealParamRange+1*DeltaParamRange,
-	RealParamRange+2*DeltaParamRange}];
+	{RealParamMin+1*DeltaParamRange,
+	RealParamMin+2*DeltaParamRange}];
 paramList[[base+3]]=
 	RandomReal[
-	{RealParamRange+2*DeltaParamRange,
-	RealParamRange+3*DeltaParamRange}];
+	{RealParamMin+2*DeltaParamRange,
+	RealParamMin+3*DeltaParamRange}];
 base:=base+3;
 paramList[[base+1]]=
 	RandomReal[
-	{RealParamRange+0*DeltaParamRange,
-	RealParamRange+1*DeltaParamRange}];
+	{RealParamMin+0*DeltaParamRange,
+	RealParamMin+1*DeltaParamRange}];
 paramList[[base+3]]=
 	RandomReal[
-	{RealParamRange+1*DeltaParamRange,
-	RealParamRange+2*DeltaParamRange}];
+	{RealParamMin+1*DeltaParamRange,
+	RealParamMin+2*DeltaParamRange}];
 paramList[[base+2]]=
 	RandomReal[
-	{RealParamRange+2*DeltaParamRange,
-	RealParamRange+3*DeltaParamRange}];
+	{RealParamMin+2*DeltaParamRange,
+	RealParamMin+3*DeltaParamRange}];
 base:=base+3;
 paramList[[base+2]]=
 	RandomReal[
-	{RealParamRange+0*DeltaParamRange,
-	RealParamRange+1*DeltaParamRange}];
+	{RealParamMin+0*DeltaParamRange,
+	RealParamMin+1*DeltaParamRange}];
 paramList[[base+1]]=
 	RandomReal[
-	{RealParamRange+1*DeltaParamRange,
-	RealParamRange+2*DeltaParamRange}];
+	{RealParamMin+1*DeltaParamRange,
+	RealParamMin+2*DeltaParamRange}];
 paramList[[base+3]]=
 	RandomReal[
-	{RealParamRange+2*DeltaParamRange,
-	RealParamRange+3*DeltaParamRange}];
+	{RealParamMin+2*DeltaParamRange,
+	RealParamMin+3*DeltaParamRange}];
 base:=base+3;
 paramList[[base+2]]=
 	RandomReal[
-	{RealParamRange+0*DeltaParamRange,
-	RealParamRange+1*DeltaParamRange}];
+	{RealParamMin+0*DeltaParamRange,
+	RealParamMin+1*DeltaParamRange}];
 paramList[[base+3]]=
 	RandomReal[
-	{RealParamRange+1*DeltaParamRange,
-	RealParamRange+2*DeltaParamRange}];
+	{RealParamMin+1*DeltaParamRange,
+	RealParamMin+2*DeltaParamRange}];
 paramList[[base+1]]=
 	RandomReal[
-	{RealParamRange+2*DeltaParamRange,
-	RealParamRange+3*DeltaParamRange}];
+	{RealParamMin+2*DeltaParamRange,
+	RealParamMin+3*DeltaParamRange}];
 base:=base+3;
 paramList[[base+3]]=
 	RandomReal[
-	{RealParamRange+0*DeltaParamRange,
-	RealParamRange+1*DeltaParamRange}];
+	{RealParamMin+0*DeltaParamRange,
+	RealParamMin+1*DeltaParamRange}];
 paramList[[base+1]]=
 	RandomReal[
-	{RealParamRange+1*DeltaParamRange,
-	RealParamRange+2*DeltaParamRange}];
+	{RealParamMin+1*DeltaParamRange,
+	RealParamMin+2*DeltaParamRange}];
 paramList[[base+2]]=
 	RandomReal[
-	{RealParamRange+2*DeltaParamRange,
-	RealParamRange+3*DeltaParamRange}];
+	{RealParamMin+2*DeltaParamRange,
+	RealParamMin+3*DeltaParamRange}];
 base:=base+3;
 paramList[[base+3]]=
 	RandomReal[
-	{RealParamRange+0*DeltaParamRange,
-	RealParamRange+1*DeltaParamRange}];
+	{RealParamMin+0*DeltaParamRange,
+	RealParamMin+1*DeltaParamRange}];
 paramList[[base+2]]=
 	RandomReal[
-	{RealParamRange+1*DeltaParamRange,
-	RealParamRange+2*DeltaParamRange}];
+	{RealParamMin+1*DeltaParamRange,
+	RealParamMin+2*DeltaParamRange}];
 paramList[[base+1]]=
 	RandomReal[
-	{RealParamRange+2*DeltaParamRange,
-	RealParamRange+3*DeltaParamRange}];
+	{RealParamMin+2*DeltaParamRange,
+	RealParamMin+3*DeltaParamRange}];
 
 u:=(2^(2 \[Lambda] - 1)*l!*Gamma[\[Lambda]])/
     Gamma[2*\[Lambda] + l]*
