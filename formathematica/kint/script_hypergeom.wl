@@ -85,6 +85,7 @@ paramList[[base+1]]=
 	RandomReal[
 	{RealParamMin+2*DeltaParamRange,
 	RealParamMin+3*DeltaParamRange}];
+(* generate parameters: end *)
 
 u:=(2^(2 \[Lambda] - 1)*l!*Gamma[\[Lambda]])/
     Gamma[2*\[Lambda] + l]*
@@ -118,7 +119,7 @@ Print[ExportString[With[{integrand=integrand},
 Print[ExportString[expr,"TeX"]] (*2*)
 Print[ExportString[StringJoin[
     "[",
-	RealParamMin
+	RealParamMin,
     ", ",
     RealParamMin+2*DeltaParamRange],
     "]"],"TeX"]] (*3*)
