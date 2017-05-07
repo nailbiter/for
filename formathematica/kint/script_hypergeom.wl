@@ -121,7 +121,7 @@ Print[ExportString[StringJoin[
     "[",
 	ToString[RealParamMin],
     ", ",
-    ToString[RealParamMin+2*DeltaParamRange]],
+    ToString[RealParamMin+2*DeltaParamRange],
     "]"],"TeX"]] (*3*)
 Print[ExportString[iterCount,"TeX"]] (*4*)
 Print[ExportString[tolList,"TeX"]] (*5*)
@@ -135,3 +135,21 @@ Print[ExportString[StringJoin[
     ToString[IntParamRange[[1]]],
     ", ",
     ToString[IntParamRange[[2]]],"]"],"TeX"]] (*7*)
+Print[ExportString[StringJoin[
+    "[",
+    ToString[RealParamMin],
+    ", ",
+    ToString[RealParamMin+DeltaParamRange],
+	"]"],"TeX"]] (*8*)
+Print[ExportString[StringJoin[
+    "[",
+    ToString[RealParamMin+DeltaParamRange],
+    ", ",
+    ToString[RealParamMin+2*DeltaParamRange],
+	"]"],"TeX"]] (*9*)
+Print[ExportString[StringJoin[
+    "[",
+    ToString[RealParamMin+2*DeltaParamRange],
+    ", ",
+    ToString[RealParamMin+3*DeltaParamRange],
+	"]"],"TeX"]] (*10*)
