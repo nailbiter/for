@@ -7,7 +7,7 @@ tolList:={6,7,8}
 
 (* generate parameters *)
 paramList={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-base:=0
+base=0;
 paramList[[base+1]]=
 	RandomReal[
 	{RealParamMin+0*DeltaParamRange,
@@ -20,7 +20,7 @@ paramList[[base+3]]=
 	RandomReal[
 	{RealParamMin+2*DeltaParamRange,
 	RealParamMin+3*DeltaParamRange}];
-base:=base+3;
+base=base+3;
 paramList[[base+1]]=
 	RandomReal[
 	{RealParamMin+0*DeltaParamRange,
@@ -33,7 +33,7 @@ paramList[[base+2]]=
 	RandomReal[
 	{RealParamMin+2*DeltaParamRange,
 	RealParamMin+3*DeltaParamRange}];
-base:=base+3;
+base=base+3;
 paramList[[base+2]]=
 	RandomReal[
 	{RealParamMin+0*DeltaParamRange,
@@ -46,7 +46,7 @@ paramList[[base+3]]=
 	RandomReal[
 	{RealParamMin+2*DeltaParamRange,
 	RealParamMin+3*DeltaParamRange}];
-base:=base+3;
+base=base+3;
 paramList[[base+2]]=
 	RandomReal[
 	{RealParamMin+0*DeltaParamRange,
@@ -59,7 +59,7 @@ paramList[[base+1]]=
 	RandomReal[
 	{RealParamMin+2*DeltaParamRange,
 	RealParamMin+3*DeltaParamRange}];
-base:=base+3;
+base=base+3;
 paramList[[base+3]]=
 	RandomReal[
 	{RealParamMin+0*DeltaParamRange,
@@ -72,7 +72,7 @@ paramList[[base+2]]=
 	RandomReal[
 	{RealParamMin+2*DeltaParamRange,
 	RealParamMin+3*DeltaParamRange}];
-base:=base+3;
+base=base+3;
 paramList[[base+3]]=
 	RandomReal[
 	{RealParamMin+0*DeltaParamRange,
