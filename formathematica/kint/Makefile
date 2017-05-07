@@ -10,7 +10,7 @@ commit:
 	git commit --allow-empty -a -m "ktasks https://trello.com/c/kJBbVkAA"
 
 %.proto.tex : %.wl
-	time $(MATHEMATICA) $< > $@
+	{ time $(MATHEMATICA) $< > $@ ; } 2> $(basename $<).time.txt
 
 %.tex : %.proto.tex
 	cat $< | awk 'BEGIN{count=0}/\\end{document}/{print "%</tag"count">";f=0;count++} f; /\\begin{document}/{print "%<*tag"count">"; f=1}' \
