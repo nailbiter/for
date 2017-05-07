@@ -1,5 +1,5 @@
-RealParamRange:={1.45,1.5}
-DeltaParamRange:=0.025;
+RealParamMin:=1.45
+DeltaParamRange:=0.05;
 IntParamRange:={0,10}
 ZParamRange:={0,1}
 iterCount:=6;
@@ -7,30 +7,84 @@ tolList:={6,7,8}
 
 (* generate parameters *)
 paramList={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-paramList[[1]]=RandomReal[RealParamRange];(* a<= b<= c*)
-paramList[[2]]=paramList[[1]]+RandomReal[{0,DeltaParamRange}];
-paramList[[3]]=paramList[[2]]+RandomReal[{0,DeltaParamRange}];
-
-paramList[[4]]=RandomReal[RealParamRange];(* a<= c<= b*)
-paramList[[6]]=paramList[[4]]+RandomReal[{0,DeltaParamRange}];
-paramList[[5]]=paramList[[6]]+RandomReal[{0,DeltaParamRange}];
-
-paramList[[8]]=RandomReal[RealParamRange];
-paramList[[7]]=paramList[[8]]+RandomReal[{0,DeltaParamRange}];
-paramList[[9]]=paramList[[7]]+RandomReal[{0,DeltaParamRange}];
-
-paramList[[11]]=RandomReal[RealParamRange];
-paramList[[10]]=paramList[[11]]+RandomReal[{0,DeltaParamRange}];
-paramList[[12]]=paramList[[10]]+RandomReal[{0,DeltaParamRange}];
-
-paramList[[15]]=RandomReal[RealParamRange]
-paramList[[13]]=paramList[[15]]+RandomReal[{0,DeltaParamRange}];
-paramList[[14]]=paramList[[13]]+RandomReal[{0,DeltaParamRange}];
-
-paramList[[18]]=RandomReal[RealParamRange]
-paramList[[17]]=paramList[[18]]+RandomReal[{0,DeltaParamRange}];
-paramList[[16]]=paramList[[17]]+RandomReal[{0,DeltaParamRange}];
-
+base:=0
+paramList[[base+1]]=
+	RandomReal[
+	{RealParamRange+0*DeltaParamRange,
+	RealParamRange+1*DeltaParamRange}];
+paramList[[base+2]]=
+	RandomReal[
+	{RealParamRange+1*DeltaParamRange,
+	RealParamRange+2*DeltaParamRange}];
+paramList[[base+3]]=
+	RandomReal[
+	{RealParamRange+2*DeltaParamRange,
+	RealParamRange+3*DeltaParamRange}];
+base:=base+3;
+paramList[[base+1]]=
+	RandomReal[
+	{RealParamRange+0*DeltaParamRange,
+	RealParamRange+1*DeltaParamRange}];
+paramList[[base+3]]=
+	RandomReal[
+	{RealParamRange+1*DeltaParamRange,
+	RealParamRange+2*DeltaParamRange}];
+paramList[[base+2]]=
+	RandomReal[
+	{RealParamRange+2*DeltaParamRange,
+	RealParamRange+3*DeltaParamRange}];
+base:=base+3;
+paramList[[base+2]]=
+	RandomReal[
+	{RealParamRange+0*DeltaParamRange,
+	RealParamRange+1*DeltaParamRange}];
+paramList[[base+1]]=
+	RandomReal[
+	{RealParamRange+1*DeltaParamRange,
+	RealParamRange+2*DeltaParamRange}];
+paramList[[base+3]]=
+	RandomReal[
+	{RealParamRange+2*DeltaParamRange,
+	RealParamRange+3*DeltaParamRange}];
+base:=base+3;
+paramList[[base+2]]=
+	RandomReal[
+	{RealParamRange+0*DeltaParamRange,
+	RealParamRange+1*DeltaParamRange}];
+paramList[[base+3]]=
+	RandomReal[
+	{RealParamRange+1*DeltaParamRange,
+	RealParamRange+2*DeltaParamRange}];
+paramList[[base+1]]=
+	RandomReal[
+	{RealParamRange+2*DeltaParamRange,
+	RealParamRange+3*DeltaParamRange}];
+base:=base+3;
+paramList[[base+3]]=
+	RandomReal[
+	{RealParamRange+0*DeltaParamRange,
+	RealParamRange+1*DeltaParamRange}];
+paramList[[base+1]]=
+	RandomReal[
+	{RealParamRange+1*DeltaParamRange,
+	RealParamRange+2*DeltaParamRange}];
+paramList[[base+2]]=
+	RandomReal[
+	{RealParamRange+2*DeltaParamRange,
+	RealParamRange+3*DeltaParamRange}];
+base:=base+3;
+paramList[[base+3]]=
+	RandomReal[
+	{RealParamRange+0*DeltaParamRange,
+	RealParamRange+1*DeltaParamRange}];
+paramList[[base+2]]=
+	RandomReal[
+	{RealParamRange+1*DeltaParamRange,
+	RealParamRange+2*DeltaParamRange}];
+paramList[[base+1]]=
+	RandomReal[
+	{RealParamRange+2*DeltaParamRange,
+	RealParamRange+3*DeltaParamRange}];
 
 u:=(2^(2 \[Lambda] - 1)*l!*Gamma[\[Lambda]])/
     Gamma[2*\[Lambda] + l]*
@@ -64,9 +118,9 @@ Print[ExportString[With[{integrand=integrand},
 Print[ExportString[expr,"TeX"]] (*2*)
 Print[ExportString[StringJoin[
     "[",
-    ToString[RealParamRange[[1]]],
+	RealParamMin
     ", ",
-    ToString[RealParamRange[[2]]+2*DeltaParamRange],
+    RealParamMin+2*DeltaParamRange],
     "]"],"TeX"]] (*3*)
 Print[ExportString[iterCount,"TeX"]] (*4*)
 Print[ExportString[tolList,"TeX"]] (*5*)
