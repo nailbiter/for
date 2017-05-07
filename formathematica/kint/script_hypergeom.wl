@@ -1,5 +1,5 @@
 RealParamMin:=1.45
-DeltaParamRange:=0.05;
+DeltaParamRange:=0.025;
 IntParamRange:={0,10}
 ZParamRange:={0,1}
 iterCount:=6;
