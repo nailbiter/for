@@ -25,6 +25,9 @@
 {\ttfamily Assets/Resources/Models/Charactor/}と{\ttfamily Assets/Resources/Prefabs/Debug/original model/}に入っている全てのFBXに対する以下のようなことをする:
 \begin{enumerate}
 	\item Inspectorタブ上で、RigでConfigure\dots を押す
-	\item 
+	\item Left Handを押して、{\ttfamily l\_finger}を絵の{\ttfamily Middle Proximal}にドラッグする
+	\item Right Handを押して、{\ttfamily r\_finger}を絵の{\ttfamily Middle Proximal}にドラッグする
+	\item Doneを押す; ポップアップが出てきたら、これにApplyを押す
 \end{enumerate}
+全部終わったらアニメーターを再設定し(MakeAnimator>Build)、とAssetBundleを更新すること(AssetBundles>BuildAssetBundles)。
 \end{document}
