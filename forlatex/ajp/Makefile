@@ -4,7 +4,7 @@ OUTDIR=../foraux
 COMMIT_MSG="ajp"
 LATEXMK=latexmk -g -f -pdf -pdflatex='xelatex %O %S' -outdir=$(OUTDIR)
 
-all: $(OUTDIR)/motions.pdf
+all: $(OUTDIR)/motions.pdf $(OUTDIR)/finger.pdf
 
 clean:
 	touch *.tex
