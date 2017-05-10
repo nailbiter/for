@@ -1,0 +1,48 @@
+%        File: may10.tex
+%     Created: 水  5 10 06:00 PM 2017 J
+% Last Change: 水  5 10 06:00 PM 2017 J
+%
+\documentclass[a4paper,12pt]{article}
+\usepackage{enumerate}
+\usepackage{xeCJK}
+\usepackage{ruby}
+\usepackage[]{amsmath,amsthm,amssymb,mystyle}
+
+\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\title{Report on the Four Year Seminar}
+\date{10 May 2017}
+\begin{document}
+\maketitle
+\begin{definition}[\cite{bergeron2016spectrum}[2.2]]
+	Let $F$ be a field and $a,b\in F$. We define\begin{equation*}
+		D_{a,b}(F)=\left\{ x_0+x_1i+x_2j+x_3k\mid x_i\in F,\begin{array}[]{c}
+		i^2=a,\\ j^2=b,\\ ij=k=-ji
+	\end{array}\right\}
+	\end{equation*}
+	For $x_0+x_1i+x_2j+x_3k\in D_{a,b}(F)$ we let\begin{equation*}
+		N_{\mbox{\scriptsize red}}\left(  x_0+x_1i+x_2j+x_3k\right):=x_0^2-ax_1^2-bx_2^2+abx_3^2\quad\mbox{:reduced norm}
+	\end{equation*}
+\end{definition}
+\begin{remark}
+	When $F=\R$ we have the following:\begin{itemize}
+		\item if at least one of $a,b$ is positive, $D_{a,b}(\R)$ is isomorphic to $M_2(\R)$;
+		\item if $a,b<0$ $D_{a,b}(\R)$ is isomorphic to $\mathbb{H}$: Hamiltonian field.
+	\end{itemize}
+\end{remark}
+\begin{definition}
+
+\end{definition}
+\begin{theorem}[main, \cite{bergeron2016spectrum}[Theorem 2.3, 3.]]
+	
+\end{theorem}
+\bibliographystyle{alpha}
+\bibliography{bibliography}
+\end{document}
