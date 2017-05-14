@@ -8,7 +8,7 @@ COMMIT_MSG += $(WORKON)
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
 LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g
 PDFS=Z answer master_announcement2
-AUX=Ypm1.jpg Ypm2.jpg
+AUX=Ypm.pdf
 
 all: $(OUTDIR)/$(ZIPNAME).zip
 
