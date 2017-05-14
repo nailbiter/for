@@ -993,6 +993,59 @@
     </equation*>
   </enumerate>
 
+  <\question>
+    Explain why I think the following diagrams are OK:
+
+    <big-figure|<image|howetan2d31.png|251px|221px||>|<label|fig:howetan2d31>Howe-Tan,
+    diagram 2.31>
+
+    <big-figure|<image|howetan2d32.png|251px|219px||>|<label|fig:howetan2d32>Howe-Tan,
+    diagram 2.32>
+  </question>
+
+  Let us recall the definitions we have made in
+  <verbatim|master_announcement2.pdf>:
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|\<pm\>,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|\<pm\>\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|\<mp\>\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|\<pm\>,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|\<pm\>,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<leqslant\>b>>|<row|<cell|m-n\<equiv\>b
+    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,>|<cell|>>|<row|<cell|>|<cell|b=\<pm\>\<lambda\>-<frac|p-q|2>\<pm\>1\<in\>\<bbb-Z\>,<space|1em>\<varepsilon\>=<around*|(|-1|)><rsup|b>.<eq-number><label|eqn:20-be>>|<cell|>>>>
+  </eqnarray>
+
+  Keep in mind that we have the following isomorphism of
+  <math|O<around*|(|p,q|)>>-modules:
+
+  <\equation*>
+    \<bbb-C\><rsub|\<lambda\>>=I<around*|(|\<lambda\>+<frac|p+q|2>-1|)>.
+  </equation*>
+
+  \;
+
+  Now, let us first consider Figure <reference|fig:howetan2d31>. We recall
+  that this diagram describes the socle filtration of
+  <math|S<rsup|a<around*|(|-1|)><rsup|a+1>>> for
+  <math|p\<in\>2\<bbb-N\>+1,q\<in\>2\<bbb-N\>,\<bbb-Z\>\<ni\>a\<gtr\>4-<around*|(|p+q|)>>.
+  Recall that the notation of <cite|howe1993homogeneous> and
+  <cite|kobayashi2015symmetry> are connected via
+
+  <\equation*>
+    S<rsup|a\<varepsilon\>>=\<varepsilon\>\<otimes\>I<around*|(|-a|)>,
+  </equation*>
+
+  hence Figure <reference|fig:howetan2d31> describes the socle filtration of
+  <math|Ind<rsub|P<rsub|max>><rsup|G><around*|(|<around*|(|-1|)><rsup|a+1>\<otimes\>\<bbb-C\><rsub|-a-<frac|p+q|2>+1>|)>>.
+  Now, substituting this in <math|<eqref|eqn:20-be>> for <math|+>, we get
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|b=<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>+1=-a-p+2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|-a-p+2>=<around*|(|-1|)><rsup|a+1><rsup|>>|<cell|>>>>
+  </eqnarray>
+
+  hence the boundary <math|m-n\<leqslant\>-a-p+2> crosses the axis <math|m=0>
+  and <math|n=a+p-2>, which is precisely as Figure
+  <reference|fig:howetan2d31>.
+
+  Next, consider the Figure <reference|fig:howetan2d32>. It describls the
+  socle filtration
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
@@ -1001,11 +1054,22 @@
       charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
       Physics B>, 251:691\U734, 1985.
 
+      <bibitem*|HT93><label|bib-howe1993homogeneous>R.<nbsp>E. Howe and E.-C.
+      Tan. <newblock>Homogeneous functions on light cones: the infinitesimal
+      structure of some degenerate principal series representations.
+      <newblock><with|font-shape|italic|Bull. Amer. Math. Soc. (N. S.)>,
+      28(1):1\U74, 1993.
+
       <bibitem*|KM11><label|bib-kobayashi2011schrodinger>Toshiyuki Kobayashi
       and Gen Mano. <newblock><with|font-shape|italic|The Schrödinger model
       for the minimal representation of the indefinite orthogonal group
       <math|O<around|(|p,q|)>>>, volume 213. <newblock>American Mathematical
       Society, 2011.
+
+      <bibitem*|KS15><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi and
+      B.<nbsp>Speh. <newblock><with|font-shape|italic|Symmetry Breaking for
+      Representations of Rank One Orthogonal Groups>. <newblock>Memoirs of
+      the Amer. Math. Soc. 2015.
 
       <bibitem*|MT03><label|bib-mackenzie2003hermite>Mark<nbsp>R Mackenzie
       and A<nbsp>Kiet Tieu. <newblock>Hermite neural network correlation and
@@ -1043,9 +1107,14 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|d|22>>
+    <associate|auto-1|<tuple|1|22>>
+    <associate|auto-2|<tuple|2|?>>
+    <associate|auto-3|<tuple|10|?>>
+    <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|22>>
+    <associate|bib-howe1993homogeneous|<tuple|HT93|?>>
     <associate|bib-kobayashi2011schrodinger|<tuple|KM11|22>>
+    <associate|bib-kobayashi2015symmetry|<tuple|KS15|?>>
     <associate|bib-mackenzie2003hermite|<tuple|MT03|?>>
     <associate|bib-olver2010nist|<tuple|Olv10|?>>
     <associate|bib-rainville1960special|<tuple|Rai60|22>>
@@ -1058,9 +1127,12 @@
     <associate|eq-2|<tuple|1|5>>
     <associate|eq:q8-1|<tuple|3|6>>
     <associate|eq:unknown|<tuple|9|?>>
+    <associate|eqn:20-be|<tuple|10|?>>
     <associate|eqn:herm1|<tuple|6|14>>
     <associate|eqn:main|<tuple|7|18>>
     <associate|eqn:thm1|<tuple|5|8>>
+    <associate|fig:howetan2d31|<tuple|1|?>>
+    <associate|fig:howetan2d32|<tuple|2|?>>
     <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-2|<tuple|2|?>>
     <associate|footnr-1|<tuple|1|?>>
@@ -1143,11 +1215,20 @@
       kobayashi2011schrodinger
 
       kobayashi2011schrodinger
+
+      howe1993homogeneous
+
+      kobayashi2015symmetry
+    </associate>
+    <\associate|figure>
+      <tuple|normal|Howe-Tan, diagram 2.31|<pageref|auto-1>>
+
+      <tuple|normal|Howe-Tan, diagram 2.32|<pageref|auto-2>>
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-1><vspace|0.5fn>
+      <no-break><pageref|auto-3><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

@@ -5,28 +5,31 @@ ZIPNAME=master_announcement2
 WORKON=https://trello.com/c/jUZS9cjM
 COMMIT_MSG=tex master_announcement2
 COMMIT_MSG += $(WORKON)
+TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
 LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g
+PDFS=Z answer master_announcement2
 
 all: $(OUTDIR)/$(ZIPNAME).zip
 
 clean:
 	touch *.tex
-	rm -rf $(OUTDIR)/$(ZIPNAME).zip $(OUTDIR)/Z.pdf $(OUTDIR)/master_announcement2.pdf
+	rm -rf $(OUTDIR)/$(ZIPNAME).zip $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS)))
 
 master_announcement2.tex: tables.tex tablesB.tex
 	touch master_announcement2.tex
 
-$(OUTDIR)/Z.pdf : ~/for/fortexmacs/Z.pdf
-	cp $< $@
+$(OUTDIR)/%.pdf : ~/for/fortexmacs/%.tm
+	$(TEXMACS) --convert $< $@ --quit
 
 $(OUTDIR)/%.pdf : %.tex
 	$(LATEXMK) $<
 
-$(OUTDIR)/$(ZIPNAME).zip : $(OUTDIR)/Z.pdf $(OUTDIR)/master_announcement2.pdf
-	cd $(OUTDIR) && rm -f master_announcement2.zip && zip -9 master_announcement2 revision.pdf Z.pdf master_announcement2.pdf && unzip -l $(ZIPNAME).zip
+$(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS)))
+	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) && unzip -l $(ZIPNAME).zip
 	git commit --allow-empty -a -m "$(COMMIT_MSG)"
 	
 commit:
 	git commit --allow-empty -a -m "$(COMMIT_MSG)"
+
 push: all
 	git push
