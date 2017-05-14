@@ -1013,9 +1013,9 @@
   <verbatim|master_announcement2.pdf>:
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|+,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\><rsub|+>\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\><rsub|+>\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|+,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|+,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<geqslant\>b<rsub|+>>>|<row|<cell|m-n\<equiv\>b<rsub|+>
-    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,>|<cell|>>|<row|<cell|>|<cell|b<rsub|+>=\<lambda\>-<frac|p-q|2>+1\<in\>\<bbb-Z\>,<space|1em>\<varepsilon\><rsub|+>=<around*|(|-1|)><rsup|b<rsub|+>>.<eq-number><label|eqn:20-beplus>>|<cell|>>|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|-,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\><rsub|->\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\><rsub|->\<otimes\>\<bbb-C\><rsub|-\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|-,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|-,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<leqslant\>b<rsub|->>>|<row|<cell|m-n\<equiv\>b<rsub|->
-    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,>|<cell|>>|<row|<cell|>|<cell|b<rsub|->=-\<lambda\>-<frac|p-q|2>-1\<in\>\<bbb-Z\>,<space|1em>\<varepsilon\>=<around*|(|-1|)><rsup|b<rsub|->>.<eq-number><label|eqn:20-beminus>>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|+,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|-\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|+,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|+,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<geqslant\>b>>|<row|<cell|m-n\<equiv\>b
+    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,>|<cell|>>|<row|<cell|>|<cell|b\<equiv\>b<around*|(|\<lambda\>,p,q|)>=\<lambda\>-<frac|p-q|2>+1\<in\>\<bbb-Z\>,<space|1em>\<varepsilon\>\<equiv\>\<varepsilon\><around*|(|\<lambda\>,p,q|)>=<around*|(|-1|)><rsup|b<rsub|+>>.<eq-number><label|eqn:20-beplus>>|<cell|>>|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|-,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|-\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|-,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|-,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<leqslant\>-\<lambda\>-<frac|p-q|2>-1>>|<row|<cell|m-n\<equiv\>-\<lambda\>-<frac|p-q|2>-1
+    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,<eq-number><label|eqn:20-beminus>>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|-\<lambda\>-<frac|p-q|2>-1>.>|<cell|>>>>
   </eqnarray>
 
   Now, let us first consider Figure <reference|fig:howetan2d31>. We recall
@@ -1038,23 +1038,23 @@
   Now, substituting this in <math|<eqref|eqn:20-beplus>>, we get
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|b<rsub|+>=<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>+1=-a-p+2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\><rsub|+>=<around*|(|-1|)><rsup|-a-p+2>=<around*|(|-1|)><rsup|a+1><rsup|>,>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|b=<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>+1=-a-p+2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|-a-p+2>=<around*|(|-1|)><rsup|a+1><rsup|>,>|<cell|>>>>
   </eqnarray>
 
   hence the boundary <math|m-n\<leqslant\>-a-p+2> crosses the axis <math|m=0>
   and <math|n=a+p-2>, which is precisely as Figure
   <reference|fig:howetan2d31>.
 
-  Next, consider the Figure <reference|fig:howetan2d32>. It describls the
+  Next, consider the Figure <reference|fig:howetan2d32>. It describes the
   socle filtration <math|S<rsup|a\<varepsilon\>>,\<varepsilon\>=<around*|(|-1|)><rsup|a>>
   for <math|p\<in\>2\<bbb-N\>+1,q\<in\>2\<bbb-N\>,\<bbb-Z\>\<ni\>a\<gtr\>0>.
   Substituting this in <math|<eqref|eqn:20-beminus>>, we get
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|b<rsub|->=-<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>-1=a+q-2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\><rsub|->=<around*|(|-1|)><rsup|a+p-2>=<around*|(|-1|)><rsup|a>,<rsup|>>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|m-n\<leqslant\>-<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>-1=a+q-2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|a+p-2>=<around*|(|-1|)><rsup|a>,<rsup|>>|<cell|>>>>
   </eqnarray>
 
-  hence the boundary <math|m-n\<leqslant\>a+p-2> crosses the axis <math|n=0>
+  hence the boundary <math|m-n\<leqslant\>a+q-2> crosses the axis <math|n=0>
   and <math|m=a+q-2>, which is precisely as Figure
   <reference|fig:howetan2d32>.
 

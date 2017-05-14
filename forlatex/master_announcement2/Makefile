@@ -26,7 +26,9 @@ $(OUTDIR)/%.pdf : %.tex
 	$(LATEXMK) $<
 
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
-	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX) && unzip -l $(ZIPNAME).zip
+	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
+	unzip -l $@
+	du -hs $@
 	git commit --allow-empty -a -m "$(COMMIT_MSG)"
 	
 commit:
