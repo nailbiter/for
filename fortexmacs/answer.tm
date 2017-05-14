@@ -1003,11 +1003,23 @@
     diagram 2.32>
   </question>
 
-  <\remark>
+  <\note>
     More detailed (and hopefully, correct) versions of Figures
     <reference|fig:howetan2d31>,<reference|fig:howetan2d32> are attached as
-    <verbatim|Ypm.jpg>.
-  </remark>
+    <verbatim|Ypm1.jpg>, <verbatim|Ypm2.jpg>. The text denoted as circled-1
+    is:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|m-n=-a-p+2
+      intersects>|<cell|>>|<row|<cell|>|<cell|m=0<space|1em>at<space|1em><around*|(|0,a+p-2|)>=<around*|(|0,<frac|p+q|2>-1-\<lambda\>|)>>|<cell|>>|<row|<cell|>|<cell|n=0<space|1em>at<space|1em><around*|(|-a-p+2,0|)>=<around*|(|0,\<lambda\>-<frac|p+q|2>+1|)>.>|<cell|>>>>
+    </eqnarray>
+
+    The text denoted as circled-2 is:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|m-n=a+q-2<space|2em>intersects>|<cell|>>|<row|<cell|>|<cell|m=0<space|1em>at<space|1em><around*|(|0,2-a-q|)>=<around*|(|0,\<lambda\>+<frac|p-q|2>+1|)>>|<cell|>>|<row|<cell|>|<cell|n=0<space|1em>at<space|1em><around*|(|a+q-2,0|)>=<around*|(|-\<lambda\>-<frac|p-q|2>-1,0|)>.>|<cell|>>>>
+    </eqnarray>
+  </note>
 
   Let us recall the definitions we have made in
   <verbatim|master_announcement2.pdf>:
@@ -1119,45 +1131,45 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|22>>
-    <associate|auto-2|<tuple|2|?>>
-    <associate|auto-3|<tuple|11|?>>
+    <associate|auto-1|<tuple|1|23>>
+    <associate|auto-2|<tuple|2|23>>
+    <associate|auto-3|<tuple|11|24>>
     <associate|bib-KO2|<tuple|KØ03|?>>
-    <associate|bib-dotsenko1985four|<tuple|DF85|22>>
-    <associate|bib-howe1993homogeneous|<tuple|HT93|?>>
-    <associate|bib-kobayashi2011schrodinger|<tuple|KM11|22>>
-    <associate|bib-kobayashi2015symmetry|<tuple|KS15|?>>
-    <associate|bib-mackenzie2003hermite|<tuple|MT03|?>>
-    <associate|bib-olver2010nist|<tuple|Olv10|?>>
-    <associate|bib-rainville1960special|<tuple|Rai60|22>>
-    <associate|bib-tarasov2003selberg|<tuple|TV03|22>>
-    <associate|bib-warnaar2010sl3|<tuple|War10|22>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|24>>
+    <associate|bib-howe1993homogeneous|<tuple|HT93|25>>
+    <associate|bib-kobayashi2011schrodinger|<tuple|KM11|25>>
+    <associate|bib-kobayashi2015symmetry|<tuple|KS15|25>>
+    <associate|bib-mackenzie2003hermite|<tuple|MT03|25>>
+    <associate|bib-olver2010nist|<tuple|Olv10|25>>
+    <associate|bib-rainville1960special|<tuple|Rai60|25>>
+    <associate|bib-tarasov2003selberg|<tuple|TV03|25>>
+    <associate|bib-warnaar2010sl3|<tuple|War10|25>>
     <associate|cor|<tuple|1|14>>
     <associate|cor:2|<tuple|2|16>>
     <associate|cor:3|<tuple|3|20>>
     <associate|eq-1|<tuple|4|7>>
     <associate|eq-2|<tuple|1|5>>
     <associate|eq:q8-1|<tuple|3|6>>
-    <associate|eq:unknown|<tuple|9|?>>
+    <associate|eq:unknown|<tuple|9|22>>
     <associate|eqn:20-be|<tuple|10|?>>
-    <associate|eqn:20-beminus|<tuple|11|?>>
-    <associate|eqn:20-beplus|<tuple|10|?>>
+    <associate|eqn:20-beminus|<tuple|11|24>>
+    <associate|eqn:20-beplus|<tuple|10|24>>
     <associate|eqn:herm1|<tuple|6|14>>
     <associate|eqn:main|<tuple|7|18>>
     <associate|eqn:thm1|<tuple|5|8>>
-    <associate|fig:howetan2d31|<tuple|1|?>>
-    <associate|fig:howetan2d32|<tuple|2|?>>
-    <associate|footnote-1|<tuple|1|?>>
-    <associate|footnote-2|<tuple|2|?>>
-    <associate|footnr-1|<tuple|1|?>>
-    <associate|footnr-2|<tuple|2|?>>
+    <associate|fig:howetan2d31|<tuple|1|23>>
+    <associate|fig:howetan2d32|<tuple|2|23>>
+    <associate|footnote-1|<tuple|1|23>>
+    <associate|footnote-2|<tuple|2|23>>
+    <associate|footnr-1|<tuple|1|23>>
+    <associate|footnr-2|<tuple|2|23>>
     <associate|q-ode|<tuple|11|8>>
     <associate|q1|<tuple|1|1>>
     <associate|q14|<tuple|14|14>>
     <associate|q15|<tuple|15|15>>
     <associate|q18|<tuple|18|16>>
     <associate|q:20|<tuple|20|19>>
-    <associate|q:21|<tuple|21|?>>
+    <associate|q:21|<tuple|21|22>>
     <associate|thm-1|<tuple|1|8>>
     <associate|thm-2|<tuple|2|18>>
     <associate|thm:3|<tuple|3|19>>
@@ -1232,7 +1244,7 @@
 
       howe1993homogeneous
 
-      kobayashi2015symmetry
+      KO2
     </associate>
     <\associate|figure>
       <tuple|normal|Howe-Tan, diagram 2.31|<pageref|auto-1>>
