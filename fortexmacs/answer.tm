@@ -1011,7 +1011,7 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|m-n=-a-p+2
-      intersects>|<cell|>>|<row|<cell|>|<cell|m=0<space|1em>at<space|1em><around*|(|0,a+p-2|)>=<around*|(|0,<frac|p+q|2>-1-\<lambda\>|)>>|<cell|>>|<row|<cell|>|<cell|n=0<space|1em>at<space|1em><around*|(|-a-p+2,0|)>=<around*|(|0,\<lambda\>-<frac|p+q|2>+1|)>.>|<cell|>>>>
+      intersects>|<cell|>>|<row|<cell|>|<cell|m=0<space|1em>at<space|1em><around*|(|0,a+p-2|)>=<around*|(|0,<frac|p-q|2>-1-\<lambda\>|)>>|<cell|>>|<row|<cell|>|<cell|n=0<space|1em>at<space|1em><around*|(|-a-p+2,0|)>=<around*|(|0,\<lambda\>-<frac|p-q|2>+1|)>.>|<cell|>>>>
     </eqnarray>
 
     The text denoted as circled-2 is:
@@ -1050,7 +1050,7 @@
   Now, substituting this in <math|<eqref|eqn:20-beplus>>, we get
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|b=<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>+1=-a-p+2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|-a-p+2>=<around*|(|-1|)><rsup|a+1><rsup|>,>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|b\<equiv\>b<around*|(|\<lambda\>,p,q|)>=<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>+1=-a-p+2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|-a-p+2>=<around*|(|-1|)><rsup|a+1><rsup|>,>|<cell|>>>>
   </eqnarray>
 
   hence the boundary <math|m-n\<leqslant\>-a-p+2> crosses the axis <math|m=0>
