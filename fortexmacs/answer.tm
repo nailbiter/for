@@ -1036,7 +1036,7 @@
   Now, substituting this in <math|<eqref|eqn:20-be>> for <math|+>, we get
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|b=<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>+1=-a-p+2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|-a-p+2>=<around*|(|-1|)><rsup|a+1><rsup|>>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|b=<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>+1=-a-p+2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|-a-p+2>=<around*|(|-1|)><rsup|a+1><rsup|>,>|<cell|>>>>
   </eqnarray>
 
   hence the boundary <math|m-n\<leqslant\>-a-p+2> crosses the axis <math|m=0>
@@ -1044,7 +1044,17 @@
   <reference|fig:howetan2d31>.
 
   Next, consider the Figure <reference|fig:howetan2d32>. It describls the
-  socle filtration
+  socle filtration <math|S<rsup|a<around*|(|-1|)><rsup|a>>> for
+  <math|p\<in\>2\<bbb-N\>+1,q\<in\>2\<bbb-N\>,\<bbb-Z\>\<ni\>a\<gtr\>0>.
+  Substituting this in <math|<eqref|eqn:20-be>> for <math|->, we get
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|b=-<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>-1=a+q-2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|a+p-2>=<around*|(|-1|)><rsup|a>,<rsup|>>|<cell|>>>>
+  </eqnarray>
+
+  hence the boundary <math|m-n\<leqslant\>a+p-2> crosses the axis <math|n=0>
+  and <math|m=a+q-2>, which is precisely as Figure
+  <reference|fig:howetan2d32>.
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
