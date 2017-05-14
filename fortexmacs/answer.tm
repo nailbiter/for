@@ -1003,40 +1003,42 @@
     diagram 2.32>
   </question>
 
+  <\remark>
+    More detailed (and hopefully, correct) versions of Figures
+    <reference|fig:howetan2d31>,<reference|fig:howetan2d32> are attached as
+    <verbatim|Ypm.jpg>.
+  </remark>
+
   Let us recall the definitions we have made in
   <verbatim|master_announcement2.pdf>:
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|\<pm\>,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|\<pm\>\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|\<mp\>\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|\<pm\>,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|\<pm\>,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<leqslant\>b>>|<row|<cell|m-n\<equiv\>b
-    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,>|<cell|>>|<row|<cell|>|<cell|b=\<pm\>\<lambda\>-<frac|p-q|2>\<pm\>1\<in\>\<bbb-Z\>,<space|1em>\<varepsilon\>=<around*|(|-1|)><rsup|b>.<eq-number><label|eqn:20-be>>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|+,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\><rsub|+>\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\><rsub|+>\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|+,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|+,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<geqslant\>b<rsub|+>>>|<row|<cell|m-n\<equiv\>b<rsub|+>
+    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,>|<cell|>>|<row|<cell|>|<cell|b<rsub|+>=\<lambda\>-<frac|p-q|2>+1\<in\>\<bbb-Z\>,<space|1em>\<varepsilon\><rsub|+>=<around*|(|-1|)><rsup|b<rsub|+>>.<eq-number><label|eqn:20-beplus>>|<cell|>>|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|-,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\><rsub|->\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\><rsub|->\<otimes\>\<bbb-C\><rsub|-\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|-,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|-,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<leqslant\>b<rsub|->>>|<row|<cell|m-n\<equiv\>b<rsub|->
+    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,>|<cell|>>|<row|<cell|>|<cell|b<rsub|->=-\<lambda\>-<frac|p-q|2>-1\<in\>\<bbb-Z\>,<space|1em>\<varepsilon\>=<around*|(|-1|)><rsup|b<rsub|->>.<eq-number><label|eqn:20-beminus>>|<cell|>>>>
   </eqnarray>
-
-  Keep in mind that we have the following isomorphism of
-  <math|O<around*|(|p,q|)>>-modules:
-
-  <\equation*>
-    \<bbb-C\><rsub|\<lambda\>>=I<around*|(|\<lambda\>+<frac|p+q|2>-1|)>.
-  </equation*>
-
-  \;
 
   Now, let us first consider Figure <reference|fig:howetan2d31>. We recall
   that this diagram describes the socle filtration of
-  <math|S<rsup|a<around*|(|-1|)><rsup|a+1>>> for
-  <math|p\<in\>2\<bbb-N\>+1,q\<in\>2\<bbb-N\>,\<bbb-Z\>\<ni\>a\<gtr\>4-<around*|(|p+q|)>>.
-  Recall that the notation of <cite|howe1993homogeneous> and
-  <cite|kobayashi2015symmetry> are connected via
+  <math|S<rsup|a\<varepsilon\>><around*|(|X<rsup|0>|)>> for
 
   <\equation*>
-    S<rsup|a\<varepsilon\>>=\<varepsilon\>\<otimes\>I<around*|(|-a|)>,
+    \<varepsilon\>=<around*|(|-1|)><rsup|a+1>,<space|1em>p\<in\>2\<bbb-N\>+1,<space|1em>q\<in\>2\<bbb-N\>,<space|1em>\<bbb-Z\>\<ni\>a\<gtr\>4-<around*|(|p+q|)>.
   </equation*>
+
+  We note that the notation of <cite|howe1993homogeneous> and <cite|KO2> are
+  connected via
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|-a-<frac|p+q|2>+1>|)>=S<rsup|a\<varepsilon\>><around*|(|X<rsup|0>|)>,>|<cell|>>>>
+  </eqnarray>
 
   hence Figure <reference|fig:howetan2d31> describes the socle filtration of
   <math|Ind<rsub|P<rsub|max>><rsup|G><around*|(|<around*|(|-1|)><rsup|a+1>\<otimes\>\<bbb-C\><rsub|-a-<frac|p+q|2>+1>|)>>.
-  Now, substituting this in <math|<eqref|eqn:20-be>> for <math|+>, we get
+  Now, substituting this in <math|<eqref|eqn:20-beplus>>, we get
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|b=<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>+1=-a-p+2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|-a-p+2>=<around*|(|-1|)><rsup|a+1><rsup|>,>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|b<rsub|+>=<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>+1=-a-p+2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\><rsub|+>=<around*|(|-1|)><rsup|-a-p+2>=<around*|(|-1|)><rsup|a+1><rsup|>,>|<cell|>>>>
   </eqnarray>
 
   hence the boundary <math|m-n\<leqslant\>-a-p+2> crosses the axis <math|m=0>
@@ -1044,12 +1046,12 @@
   <reference|fig:howetan2d31>.
 
   Next, consider the Figure <reference|fig:howetan2d32>. It describls the
-  socle filtration <math|S<rsup|a<around*|(|-1|)><rsup|a>>> for
-  <math|p\<in\>2\<bbb-N\>+1,q\<in\>2\<bbb-N\>,\<bbb-Z\>\<ni\>a\<gtr\>0>.
-  Substituting this in <math|<eqref|eqn:20-be>> for <math|->, we get
+  socle filtration <math|S<rsup|a\<varepsilon\>>,\<varepsilon\>=<around*|(|-1|)><rsup|a>>
+  for <math|p\<in\>2\<bbb-N\>+1,q\<in\>2\<bbb-N\>,\<bbb-Z\>\<ni\>a\<gtr\>0>.
+  Substituting this in <math|<eqref|eqn:20-beminus>>, we get
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|b=-<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>-1=a+q-2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|a+p-2>=<around*|(|-1|)><rsup|a>,<rsup|>>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|b<rsub|->=-<around*|(|-a-<frac|p+q|2>+1|)>-<frac|p-q|2>-1=a+q-2,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\><rsub|->=<around*|(|-1|)><rsup|a+p-2>=<around*|(|-1|)><rsup|a>,<rsup|>>|<cell|>>>>
   </eqnarray>
 
   hence the boundary <math|m-n\<leqslant\>a+p-2> crosses the axis <math|n=0>
@@ -1119,7 +1121,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|22>>
     <associate|auto-2|<tuple|2|?>>
-    <associate|auto-3|<tuple|10|?>>
+    <associate|auto-3|<tuple|11|?>>
     <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|22>>
     <associate|bib-howe1993homogeneous|<tuple|HT93|?>>
@@ -1138,6 +1140,8 @@
     <associate|eq:q8-1|<tuple|3|6>>
     <associate|eq:unknown|<tuple|9|?>>
     <associate|eqn:20-be|<tuple|10|?>>
+    <associate|eqn:20-beminus|<tuple|11|?>>
+    <associate|eqn:20-beplus|<tuple|10|?>>
     <associate|eqn:herm1|<tuple|6|14>>
     <associate|eqn:main|<tuple|7|18>>
     <associate|eqn:thm1|<tuple|5|8>>

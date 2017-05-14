@@ -8,6 +8,7 @@ COMMIT_MSG += $(WORKON)
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
 LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g
 PDFS=Z answer master_announcement2
+AUX=Ypm.jpg
 
 all: $(OUTDIR)/$(ZIPNAME).zip
 
@@ -24,8 +25,8 @@ $(OUTDIR)/%.pdf : ~/for/fortexmacs/%.tm
 $(OUTDIR)/%.pdf : %.tex
 	$(LATEXMK) $<
 
-$(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS)))
-	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) && unzip -l $(ZIPNAME).zip
+$(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
+	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX) && unzip -l $(ZIPNAME).zip
 	git commit --allow-empty -a -m "$(COMMIT_MSG)"
 	
 commit:
