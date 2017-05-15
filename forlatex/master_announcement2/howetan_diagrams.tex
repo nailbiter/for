@@ -71,41 +71,29 @@ We also recall the definitions of {\ttfamily master\_announcement2.pdf}:
 	b \equiv b (\lambda, p, q) \assign \lambda - \frac{p}{2} + \frac{q}{2} +
   1 \in \mathbb{Z},  \label{eqn:20-beplus} 	
 	\end{equation}
+	and define $Y_{+,\lambda}^{p,q}$ as submodule of $\myInd{\lambda},\varepsilon=(-1)^{b(\lambda,p,q)}$ with the $K$-type
 	\begin{equation*}
 		\begin{array}[]{c}
-			
-		\end{array}
-	\end{equation*}
-\end{definition}
-\begin{eqnarray}
-  & \lambda \in B (p, q) \assign \left\{ \begin{array}{ll}
-    \frac{2 - p - q}{2} +\mathbb{N}_+, & p \in 2\mathbb{N}_+, q \in
-    2\mathbb{N}_+ + 1,\\
-    \frac{p - q}{2} +\mathbb{Z}, & p \in 2\mathbb{N}_+ + 1, q \in
-    2\mathbb{N}_+,\\
-    \left\{ \lambda \in \mathbb{Z}+ \frac{p + q}{2} \mid \lambda > - 1
-    \right\} = A_0 (p, q), & \mbox{otherwise}
-  \end{array} \right. &  \nonumber\\
-  & 0 \rightarrow Y_{+, \lambda}^{p, q} \longhookrightarrow
-  \myInd{\lambda}, & 
-  \nonumber\\
-  %& \myInd{-\lambda}\twoheadrightarrow Y_{+, \lambda}^{p, q} \rightarrow 0, &  \nonumber\\
-  & Y_{+, \lambda}^{p, q} \mid_K = \displaystyle\bigoplus_{\tmscript{\begin{array}{c}
+   Y_{+, \lambda}^{p, q} \mid_K = \displaystyle\bigoplus_{\tmscript{\begin{array}{c}
     m - n \geqslant b (\lambda, p, q)\\
     m - n \equiv b (\lambda, p, q) \mbox{mod} 2
   \end{array}}} \mathcal{H}^m (\mathbb{S}^{p - 1}) \otimes \mathcal{H}^n
-  (\mathbb{S}^{q - 1}), &  \nonumber\\
-  & \varepsilon \equiv \varepsilon (\lambda, p, q) = (- 1)^{b (\lambda, p,
-  q)}, &  \nonumber\\
-  & \lambda \in B (q, p) \assign \left\{ \begin{array}{ll}
+  (\mathbb{S}^{q - 1}),\\
+   \varepsilon \equiv \varepsilon (\lambda, p, q) = (- 1)^{b (\lambda, p,
+  q)},\\
+  \lambda \in B (q, p) \assign \left\{ \begin{array}{ll}
     \frac{2 - p - q}{2} +\mathbb{N}_+, & p \in 2\mathbb{N}_+ + 1, q \in
     2\mathbb{N}_+,\\
     \frac{q - p}{2} +\mathbb{Z}, & p \in 2\mathbb{N}_+, q \in 2\mathbb{N}_+
     + 1,\\
     \left\{ \lambda \in \mathbb{Z}+ \frac{p + q}{2} \mid \lambda > - 1
     \right\} = A_0 (q, p), & \mbox{otherwise}
-  \end{array} \right. &  \nonumber\\
-  & 0 \rightarrow Y_{-, \lambda}^{p, q} \longhookrightarrow
+  \end{array} \right.\\
+		\end{array}
+	\end{equation*}
+\end{definition}
+\begin{eqnarray}
+  0 \rightarrow Y_{-, \lambda}^{p, q} \longhookrightarrow
   \myInd{\lambda}, &
   \nonumber\\
   %& \myInd{-\lambda}\twoheadrightarrow Y_{-, \lambda}^{p, q} \rightarrow 0, &  \nonumber\\
