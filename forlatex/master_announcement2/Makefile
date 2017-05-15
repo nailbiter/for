@@ -2,13 +2,13 @@
 
 OUTDIR=../foraux
 ZIPNAME=master_announcement2
-WORKON=https://trello.com/c/jUZS9cjM
 COMMIT_MSG=tex master_announcement2
 COMMIT_MSG += $(WORKON)
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
 LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g
 
-PDFS=Z answer master_announcement2 howetan_diagrams
+WORKON=https://trello.com/c/jUZS9cjM
+PDFS=Z master_announcement2 howetan_diagrams
 AUX=Ypm.pdf AlexHoweTan20170514183749p12.pdf
 
 all: $(OUTDIR)/$(ZIPNAME).zip
