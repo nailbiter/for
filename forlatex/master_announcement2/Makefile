@@ -8,7 +8,7 @@ TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
 LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g
 
 WORKON=https://trello.com/c/jUZS9cjM
-PDFS=Z master_announcement2 howetan_diagrams
+PDFS=Z master_announcement2 howetan_diagrams answer
 AUX=Ypm.pdf AlexHoweTan20170514183749p12.pdf
 
 all: $(OUTDIR)/$(ZIPNAME).zip

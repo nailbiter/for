@@ -1,4 +1,4 @@
-<TeXmacs|1.99.4>
+<TeXmacs|1.99.5>
 
 <style|<tuple|article|number-europe>>
 
@@ -1016,6 +1016,15 @@
   We define as in <cite|KO2><\footnote>
     I will study well-definedness of <math|Y<rsub|\<pm\>,\<lambda\>><rsup|p,q>>
     in the next version
+  </footnote><\footnote>
+    Regarding the well-definedness, you do not observe my instructions.
+
+    Regardless of whether 3 definitions given are equivalent, still even
+    well-definedness is not yet proven.
+
+    Hence, Y+ , Y\<minus\> aren't even defined in strict mathematical sense.
+
+    \;
   </footnote>
 
   <\eqnarray>
@@ -1128,7 +1137,6 @@
     <associate|auto-1|<tuple|1|23>>
     <associate|auto-2|<tuple|2|23>>
     <associate|auto-3|<tuple|11|24>>
-    <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|24>>
     <associate|bib-howe1993homogeneous|<tuple|HT93|25>>
     <associate|bib-kobayashi2011schrodinger|<tuple|KM11|25>>
@@ -1145,7 +1153,6 @@
     <associate|eq-2|<tuple|1|5>>
     <associate|eq:q8-1|<tuple|3|6>>
     <associate|eq:unknown|<tuple|9|22>>
-    <associate|eqn:20-be|<tuple|10|?>>
     <associate|eqn:20-beminus|<tuple|11|24>>
     <associate|eqn:20-beplus|<tuple|10|24>>
     <associate|eqn:herm1|<tuple|6|14>>
@@ -1156,9 +1163,11 @@
     <associate|footnote-1|<tuple|1|23>>
     <associate|footnote-2|<tuple|2|23>>
     <associate|footnote-3|<tuple|3|?>>
+    <associate|footnote-4|<tuple|4|?>>
     <associate|footnr-1|<tuple|1|23>>
     <associate|footnr-2|<tuple|2|23>>
     <associate|footnr-3|<tuple|3|?>>
+    <associate|footnr-4|<tuple|4|?>>
     <associate|q-ode|<tuple|11|8>>
     <associate|q1|<tuple|1|1>>
     <associate|q14|<tuple|14|14>>
@@ -1237,6 +1246,8 @@
       kobayashi2011schrodinger
 
       kobayashi2011schrodinger
+
+      KO2
 
       howe1993homogeneous
 
