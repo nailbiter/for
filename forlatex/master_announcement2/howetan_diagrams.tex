@@ -37,7 +37,7 @@
 \newcommand{\tmscript}[1]{ {\scriptsize #1} }
 \newcommand{\assign}{:=}
 \renewcommand{\iff}{\Leftrightarrow}
-\newcommand{\myInd}[1]{$\mbox{Ind}_{P_{\scriptsize max}}^G\left( \varepsilon\otimes \C_{#1} \right)$}
+\newcommand{\myInd}[1]{\mbox{Ind}_{P_{\scriptsize max}}^G\left( \varepsilon\otimes \C_{#1} \right)}
 
 \begin{document}
 \section{Notation}
@@ -85,9 +85,9 @@ We also recall the definitions of {\ttfamily master\_announcement2.pdf}:
     \right\} = A_0 (q, p), & \mbox{otherwise}
   \end{array} \right. &  \nonumber\\
   & 0 \rightarrow Y_{-, \lambda}^{p, q} \longhookrightarrow
-  \mbox{Ind}_{P_{\max}}^G (\varepsilon \otimes \mathbb{C}_{\lambda}), & 
+  \myInd{\lambda}, &
   \nonumber\\
-  & \mbox{Ind}_{P_{\max}}^G (\varepsilon \otimes \mathbb{C}_{- \lambda})
+  & \myInd{-\lambda}
   \twoheadrightarrow Y_{-, \lambda}^{p, q} \rightarrow 0, &  \nonumber\\
   & Y_{-, \lambda}^{p, q} \mid_K = \displaystyle\bigoplus_{\tmscript{\begin{array}{c}
     n - m \geqslant b (\lambda, q, p)\\
@@ -111,10 +111,10 @@ We also recall the definitions of {\ttfamily master\_announcement2.pdf}:
 {\begin{lpic}[]{howetan2d30(0.5)}
 		\lbl[bl]{70,40;\scriptsize $\bullet$}
 		\lbl[bl]{57,30;\scriptsize $ Y_{+,-\lambda}^{p,q}=\myabra{m-n\ge a+q}$}
-		\lbl[bl]{25,70; \myInd{\lambda}}
+		\lbl[bl]{25,70; $\myInd{\lambda}$}
 	\end{lpic}}&
 	{\begin{lpic}[]{howetan2d31(0.5)}
-		\lbl[bl]{25,85; \myInd{\lambda}}
+		\lbl[bl]{25,85; $\myInd{\lambda}$}
 		\lbl[bl]{36,65;\scriptsize $ \bullet Y_{-,-\lambda}^{p,q}=\myabra{m-n\le -a-p}$}
 		\lbl[bl]{32,30;\scriptsize $ \bullet Y_{+,\lambda}^{p,q}=\myabra{m-n\ge -a-p+2}$}
 	\end{lpic}}\\\hline\\
@@ -122,7 +122,7 @@ We also recall the definitions of {\ttfamily master\_announcement2.pdf}:
 		$m-n=a+q-2$ intersects:\\
 		$\bullet m=0$ (``$y$-axis'') at\\
 		$\left( 0,2-a-q \right)=\left( 0,\lambda+\frac{p-q}{2}+1 \right)$\\
-		$=$
+		$=\left( 0,2-b\left( -\lambda, \right)<++> \right)<++>$
 \end{tabular}}&{\begin{tabular}[]{c}
 	a\\b
 \end{tabular}}
