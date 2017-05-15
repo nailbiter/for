@@ -1,4 +1,4 @@
-<TeXmacs|1.99.5>
+<TeXmacs|1.99.4>
 
 <style|<tuple|article|number-europe>>
 
@@ -1093,10 +1093,12 @@
       <math|O<around|(|p,q|)>>>, volume 213. <newblock>American Mathematical
       Society, 2011.
 
-      <bibitem*|KS15><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi and
-      B.<nbsp>Speh. <newblock><with|font-shape|italic|Symmetry Breaking for
-      Representations of Rank One Orthogonal Groups>. <newblock>Memoirs of
-      the Amer. Math. Soc. 2015.
+      <bibitem*|KØ03><label|bib-KO2>T.<nbsp>Kobayashi and B.<nbsp>Ørsted.
+      <newblock>Analysis on the minimal representation of
+      <with|font-family|rm|O><math|<around|(|p,q|)>>.<space|0.27em><with|font-family|rm|II>.
+      Branching laws. <newblock><with|font-shape|italic|Adv. Math.>,
+      180:513\U550, 2003. <newblock>Available at
+      <slink|http://dx.doi.org/10.1016/S0001-8708(03)00013-6>.
 
       <bibitem*|MT03><label|bib-mackenzie2003hermite>Mark<nbsp>R Mackenzie
       and A<nbsp>Kiet Tieu. <newblock>Hermite neural network correlation and
@@ -1137,6 +1139,7 @@
     <associate|auto-1|<tuple|1|23>>
     <associate|auto-2|<tuple|2|23>>
     <associate|auto-3|<tuple|11|24>>
+    <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|24>>
     <associate|bib-howe1993homogeneous|<tuple|HT93|25>>
     <associate|bib-kobayashi2011schrodinger|<tuple|KM11|25>>
