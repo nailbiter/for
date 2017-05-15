@@ -1005,29 +1005,23 @@
 
   <\note>
     More detailed (and hopefully, correct) versions of Figures
-    <reference|fig:howetan2d31>,<reference|fig:howetan2d32> are attached as
-    <verbatim|Ypm1.jpg>, <verbatim|Ypm2.jpg>. The text denoted as circled-1
-    is:
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|m-n=-a-p+2
-      intersects>|<cell|>>|<row|<cell|>|<cell|m=0<space|1em>at<space|1em><around*|(|0,a+p-2|)>=<around*|(|0,<frac|p-q|2>-1-\<lambda\>|)>>|<cell|>>|<row|<cell|>|<cell|n=0<space|1em>at<space|1em><around*|(|-a-p+2,0|)>=<around*|(|0,\<lambda\>-<frac|p-q|2>+1|)>.>|<cell|>>>>
-    </eqnarray>
-
-    The text denoted as circled-2 is:
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|m-n=a+q-2<space|2em>intersects>|<cell|>>|<row|<cell|>|<cell|m=0<space|1em>at<space|1em><around*|(|0,2-a-q|)>=<around*|(|0,\<lambda\>+<frac|p-q|2>+1|)>>|<cell|>>|<row|<cell|>|<cell|n=0<space|1em>at<space|1em><around*|(|a+q-2,0|)>=<around*|(|-\<lambda\>-<frac|p-q|2>-1,0|)>.>|<cell|>>>>
-    </eqnarray>
+    <reference|fig:howetan2d31>,<reference|fig:howetan2d32> is attached as
+    <verbatim|Ypm.pdf>.
   </note>
 
-  Let us recall the definitions we have made in
+  In subsequent let us assume <math|p\<geqslant\>1,q\<geqslant\>2> for
+  simplicity. Let us recall the definitions we have made in
   <verbatim|master_announcement2.pdf>:
 
+  We define as in <cite|KO2><\footnote>
+    I will study well-definedness of <math|Y<rsub|\<pm\>,\<lambda\>><rsup|p,q>>
+    in the next version
+  </footnote>
+
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|+,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|-\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|+,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|+,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<geqslant\>b>>|<row|<cell|m-n\<equiv\>b
-    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,>|<cell|>>|<row|<cell|>|<cell|b\<equiv\>b<around*|(|\<lambda\>,p,q|)>=\<lambda\>-<frac|p-q|2>+1\<in\>\<bbb-Z\>,<space|1em>\<varepsilon\>\<equiv\>\<varepsilon\><around*|(|\<lambda\>,p,q|)>=<around*|(|-1|)><rsup|b<rsub|+>>.<eq-number><label|eqn:20-beplus>>|<cell|>>|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|-,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|-\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|-,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|-,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<leqslant\>-\<lambda\>-<frac|p-q|2>-1>>|<row|<cell|m-n\<equiv\>-\<lambda\>-<frac|p-q|2>-1
-    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,<eq-number><label|eqn:20-beminus>>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|-\<lambda\>-<frac|p-q|2>-1>.>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|b\<equiv\>b<around*|(|\<lambda\>,p,q|)>\<assign\>\<lambda\>-<frac|p|2>+<frac|q|2>+1\<in\>\<bbb-Z\>,<eq-number><label|eqn:20-beplus>>|<cell|>>|<row|<cell|>|<cell|\<lambda\>\<in\>B<around*|(|p,q|)>\<assign\><choice|<tformat|<table|<row|<cell|<frac|2-p-q|2>+\<bbb-N\><rsub|+>,>|<cell|p\<in\>2\<bbb-N\><rsub|+>,q\<in\>2\<bbb-N\><rsub|+>+1,>>|<row|<cell|<frac|p-q|2>+\<bbb-Z\>,>|<cell|p\<in\>2\<bbb-N\><rsub|+>+1,q\<in\>2\<bbb-N\><rsub|+>,>>|<row|<cell|<around*|{|\<lambda\>\<in\>\<bbb-Z\>+<frac|p+q|2>\<mid\>\<lambda\>\<gtr\>-1|}>=A<rsub|0><around*|(|p,q|)>,>|<cell|otherwise>>>>>>|<cell|>>|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|+,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|-\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|+,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|+,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|m-n\<geqslant\>b<around*|(|\<lambda\>,p,q|)>>>|<row|<cell|m-n\<equiv\>b<around*|(|\<lambda\>,p,q|)>
+    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>\<equiv\>\<varepsilon\><around*|(|\<lambda\>,p,q|)>=<around*|(|-1|)><rsup|b<around*|(|\<lambda\>,p,q|)>>,>|<cell|>>|<row|<cell|>|<cell|\<lambda\>\<in\>B<around*|(|q,p|)>\<assign\><choice|<tformat|<table|<row|<cell|<frac|2-p-q|2>+\<bbb-N\><rsub|+>,>|<cell|p\<in\>2\<bbb-N\><rsub|+>+1,q\<in\>2\<bbb-N\><rsub|+>,>>|<row|<cell|<frac|q-p|2>+\<bbb-Z\>,>|<cell|p\<in\>2\<bbb-N\><rsub|+>,q\<in\>2\<bbb-N\><rsub|+>+1,>>|<row|<cell|<around*|{|\<lambda\>\<in\>\<bbb-Z\>+<frac|p+q|2>\<mid\>\<lambda\>\<gtr\>-1|}>=A<rsub|0><around*|(|q,p|)>,>|<cell|otherwise>>>>>>|<cell|>>|<row|<cell|>|<cell|0\<rightarrow\>Y<rsub|-,\<lambda\>><rsup|p,q>\<longhookrightarrow\>Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|\<lambda\>>|)>,>|<cell|>>|<row|<cell|>|<cell|Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|-\<lambda\>>|)>\<twoheadrightarrow\>Y<rsub|-,\<lambda\>><rsup|p,q>\<rightarrow\>0,>|<cell|>>|<row|<cell|>|<cell|Y<rsub|-,\<lambda\>><rsup|p,q>\<mid\><rsub|K>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|n-m\<geqslant\>b<around*|(|\<lambda\>,q,p|)>>>|<row|<cell|n-m\<equiv\>b<around*|(|\<lambda\>,q,p|)>
+    mod 2>>>>>>\<cal-H\><rsup|m><around*|(|\<bbb-S\><rsup|p-1>|)>\<otimes\>\<cal-H\><rsup|n><around*|(|\<bbb-S\><rsup|q-1>|)>,<eq-number><label|eqn:20-beminus>>|<cell|>>|<row|<cell|>|<cell|\<varepsilon\>=<around*|(|-1|)><rsup|b<around*|(|\<lambda\>,q,p|)>>.>|<cell|>>>>
   </eqnarray>
 
   Now, let us first consider Figure <reference|fig:howetan2d31>. We recall
@@ -1161,8 +1155,10 @@
     <associate|fig:howetan2d32|<tuple|2|23>>
     <associate|footnote-1|<tuple|1|23>>
     <associate|footnote-2|<tuple|2|23>>
+    <associate|footnote-3|<tuple|3|?>>
     <associate|footnr-1|<tuple|1|23>>
     <associate|footnr-2|<tuple|2|23>>
+    <associate|footnr-3|<tuple|3|?>>
     <associate|q-ode|<tuple|11|8>>
     <associate|q1|<tuple|1|1>>
     <associate|q14|<tuple|14|14>>
