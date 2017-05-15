@@ -45,12 +45,56 @@ We will use the following shortcuts in this note:\begin{equation*}
 		\mbox{for $b\in\Z$ we let }\myabra{m-n\le b}:=\displaystyle\bigoplus_{\scriptsize \begin{array}[]{c}
 			m-n\le b\\ m-n\equiv b\mbox{ mod 2}
 		\end{array}}\mathcal{H}^m(\C^{p})\otimes \mathcal{H}^n(\C^q)\\
-		\mbox{similarly for $\mybra{n-m\le b}$, $\myabra{m-n\ge b}$ etc.}
+		\mbox{similarly for $\myabra{n-m\le b}$, $\myabra{m-n\ge b}$ etc.}
 	\end{array}
 \end{equation*}
 \begin{remark}
 	I admit these shortcuts are bad. Any comments are appreciated.
 \end{remark}
+We also recall the definitions of {\ttfamily master\_announcement2.pdf}:
+\begin{eqnarray}
+  & b \equiv b (\lambda, p, q) \assign \lambda - \frac{p}{2} + \frac{q}{2} +
+  1 \in \mathbb{Z},  \label{eqn:20-beplus} & \\
+  & \lambda \in B (p, q) \assign \left\{ \begin{array}{ll}
+    \frac{2 - p - q}{2} +\mathbb{N}_+, & p \in 2\mathbb{N}_+, q \in
+    2\mathbb{N}_+ + 1,\\
+    \frac{p - q}{2} +\mathbb{Z}, & p \in 2\mathbb{N}_+ + 1, q \in
+    2\mathbb{N}_+,\\
+    \left\{ \lambda \in \mathbb{Z}+ \frac{p + q}{2} \mid \lambda > - 1
+    \right\} = A_0 (p, q), & \mbox{otherwise}
+  \end{array} \right. &  \nonumber\\
+  & 0 \rightarrow Y_{+, \lambda}^{p, q} \longhookrightarrow
+  \mbox{Ind}_{P_{\max}}^G (\varepsilon \otimes \mathbb{C}_{\lambda}), & 
+  \nonumber\\
+  & \mbox{Ind}_{P_{\max}}^G (\varepsilon \otimes \mathbb{C}_{- \lambda})
+  \twoheadrightarrow Y_{+, \lambda}^{p, q} \rightarrow 0, &  \nonumber\\
+  & Y_{+, \lambda}^{p, q} \mid_K = \displaystyle\bigoplus_{\tmscript{\begin{array}{c}
+    m - n \geqslant b (\lambda, p, q)\\
+    m - n \equiv b (\lambda, p, q) \mbox{mod} 2
+  \end{array}}} \mathcal{H}^m (\mathbb{S}^{p - 1}) \otimes \mathcal{H}^n
+  (\mathbb{S}^{q - 1}), &  \nonumber\\
+  & \varepsilon \equiv \varepsilon (\lambda, p, q) = (- 1)^{b (\lambda, p,
+  q)}, &  \nonumber\\
+  & \lambda \in B (q, p) \assign \left\{ \begin{array}{ll}
+    \frac{2 - p - q}{2} +\mathbb{N}_+, & p \in 2\mathbb{N}_+ + 1, q \in
+    2\mathbb{N}_+,\\
+    \frac{q - p}{2} +\mathbb{Z}, & p \in 2\mathbb{N}_+, q \in 2\mathbb{N}_+
+    + 1,\\
+    \left\{ \lambda \in \mathbb{Z}+ \frac{p + q}{2} \mid \lambda > - 1
+    \right\} = A_0 (q, p), & \mbox{otherwise}
+  \end{array} \right. &  \nonumber\\
+  & 0 \rightarrow Y_{-, \lambda}^{p, q} \longhookrightarrow
+  \mbox{Ind}_{P_{\max}}^G (\varepsilon \otimes \mathbb{C}_{\lambda}), & 
+  \nonumber\\
+  & \mbox{Ind}_{P_{\max}}^G (\varepsilon \otimes \mathbb{C}_{- \lambda})
+  \twoheadrightarrow Y_{-, \lambda}^{p, q} \rightarrow 0, &  \nonumber\\
+  & Y_{-, \lambda}^{p, q} \mid_K = \displaystyle\bigoplus_{\tmscript{\begin{array}{c}
+    n - m \geqslant b (\lambda, q, p)\\
+    n - m \equiv b (\lambda, q, p) \mbox{mod} 2
+  \end{array}}} \mathcal{H}^m (\mathbb{S}^{p - 1}) \otimes \mathcal{H}^n
+  (\mathbb{S}^{q - 1}),  \label{eqn:20-beminus} & \\
+  & \varepsilon = (- 1)^{b (\lambda, q, p)} . &  \nonumber
+\end{eqnarray}
 \section{$p$ odd, $q$ even}
 \begin{center}
 \begin{tabular}[]{c|c|c}

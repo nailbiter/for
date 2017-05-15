@@ -12,5 +12,6 @@ let b:doneTexCompiler = 1
 :call IMAP('FML', '\mathbb{<++>}<++>', 'tex')
 :call IMAP('FMC', '\mathcal{<++>}<++>', 'tex')
 :call IMAP('||', '\myabs{<++>}<++>', 'tex')
+:call IMAP('<<','\myabra{<++>}<++>', 'tex')
 
 let g:Tex_Env_cases = "\\begin{cases}\<CR><++>,&<++>\\\\\<CR>\\end{cases}<++>"
