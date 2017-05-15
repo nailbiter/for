@@ -29,6 +29,9 @@
 \usepackage{array}
 \usepackage{mystyle}
 
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
 \newcommand{\longhookrightarrow}{{\lhook\joinrel\relbar\joinrel\rightarrow}}
 \newcommand{\tmverbatim}[1]{ {\ttfamily #1} }
 \newcommand{\tmscript}[1]{ {\scriptsize #1} }
@@ -37,7 +40,7 @@
 
 \begin{document}
 \section{Notation}
-We will use the following notation in this note:\begin{equation*}
+We will use the following shortcuts in this note:\begin{equation*}
 	\begin{array}[]{c}
 		\mbox{for $b\in\Z$ we let }\myabra{m-n\le b}:=\displaystyle\bigoplus_{\scriptsize \begin{array}[]{c}
 			m-n\le b\\ m-n\equiv b\mbox{ mod 2}
@@ -45,6 +48,9 @@ We will use the following notation in this note:\begin{equation*}
 		\mbox{similarly for $\mybra{n-m\le b}$}
 	\end{array}
 \end{equation*}
+\begin{remark}
+	I admit these shortcuts are bad. Any comments are appreciated.
+\end{remark}
 \section{$p$ odd, $q$ even}
 \begin{center}
 \begin{tabular}[]{c|c|c}
