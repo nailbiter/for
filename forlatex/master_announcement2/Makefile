@@ -9,7 +9,7 @@ LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g
 
 WORKON=https://trello.com/c/jUZS9cjM
 PDFS=Z master_announcement2 howetan_diagrams answer
-AUX=Ypm.pdf AlexHoweTan20170514183749p12.pdf
+AUX=Ypm.pdf
 
 all: $(OUTDIR)/$(ZIPNAME).zip
 
