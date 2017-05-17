@@ -7,13 +7,13 @@ LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g
 XELATEX=latexmk -pdf -outdir=$(OUTDIR) -pdflatex='xelatex %O %S' -f -g
 OUTDIR=../foraux
 COMMIT_MSG=ktasks $(WORKON)
-MATHEMATICADIR=~/for/formathematica
+MATHEMATICADIR=~/for/formathematica/kint
 TEXMACSDIR=~/for/fortexmacs
 
 ZIPNAME=intpaper
 
 WORKON=https://trello.com/c/jUZS9cjM
-PDFS=intpaper answer
+PDFS=intpaper answer report report_hypergeom
 AUX=
 
 all: $(OUTDIR)/$(ZIPNAME).zip
@@ -37,7 +37,7 @@ $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 $(OUTDIR)/report.pdf : report.tex script.tex
 	$(XELATEX) $<
 
-$(OUTDIR)/report_hypergeom.pdf : report_hypergeom.tex script_hypergeom.tex script_hypergeom.wl
+$(OUTDIR)/report_hypergeom.pdf : report_hypergeom.tex script_hypergeom.tex $(MATHEMATICADIR)/script_hypergeom.wl
 	head -n 2 script_hypergeom.time.txt|tail -n1 > script_hypergeom.time2.txt
 	$(XELATEX) $<
 
@@ -50,4 +50,4 @@ $(OUTDIR)/$(ZIPNAME).zip: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(a
 push:
 	git push
 clean:
-	rm -f *.proto.tex script.tex *.pdf *.zip
+	rm -f *.proto.tex script.tex *.pdf *.zip script_hypergeom.tex

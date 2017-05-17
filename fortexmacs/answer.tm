@@ -736,15 +736,18 @@
     <reference|cor> and <reference|cor:2> in another perspective?
   </question>
 
-  Indeed, as for <math|\<lambda\>\<nin\>-\<bbb-N\>> we have
-  <math|\<forall\>n\<in\>\<bbb-N\>,deg<around*|(|C<rsup|\<lambda\>><rsub|n>|)>=n>
+  Indeed, as for <math|Re<around*|(|\<lambda\>|)>\<gtr\>-<frac|1|2>><\footnote>
+    \;
+  </footnote> we have <math|\<forall\>n\<in\>\<bbb-N\>,deg<around*|(|C<rsup|\<lambda\>><rsub|n>|)>=n>
   (this can be seen from the recurrence relation), the orthogonality of
   Gegenbauer polynomials implies that <math|<around*|{|C<rsub|n><rsup|\<lambda\>>|}><rsub|n\<in\>\<bbb-N\>>>
   form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>d
-  s|)>>. Consequently, if <math|\<lambda\>,\<mu\>\<nin\>-\<bbb-N\>>, we have
-  that <math|<around*|{|C<rsub|l><rsup|\<lambda\>>\<otimes\>C<rsub|m><rsup|\<mu\>>|}><rsub|l,m\<in\>\<bbb-N\>>>
+  s|)>>. Consequently, if <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>,
+  we have that <math|<around*|{|C<rsub|l><rsup|\<lambda\>>\<otimes\>C<rsub|m><rsup|\<mu\>>|}><rsub|l,m\<in\>\<bbb-N\>>>
   form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]><rsup|2>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-  s d t|)>>. Consequently, for <math|Re \<lambda\>,Re
+  s d t|)>><\footnote>
+    Is the statement better now?
+  </footnote>. Consequently, for <math|Re \<lambda\>,Re
   \<mu\>\<gtr\>-<frac|1|2>> and <math|Re<around*|(|\<nu\>|)>\<gtr\>0> we can
   expand <math|<around*|\||s+t|\|><rsup|2\<nu\>>> into
   <math|<around*|{|C<rsub|n><rsup|\<lambda\>>\<otimes\>C<rsub|m><rsup|\<mu\>>|}><rsub|m,n\<in\>\<bbb-N\>>>.
@@ -1167,10 +1170,14 @@
     <associate|footnote-2|<tuple|2|23>>
     <associate|footnote-3|<tuple|3|?>>
     <associate|footnote-4|<tuple|4|?>>
+    <associate|footnote-5|<tuple|5|?>>
+    <associate|footnote-6|<tuple|6|?>>
     <associate|footnr-1|<tuple|1|23>>
     <associate|footnr-2|<tuple|2|23>>
     <associate|footnr-3|<tuple|3|?>>
     <associate|footnr-4|<tuple|4|?>>
+    <associate|footnr-5|<tuple|5|?>>
+    <associate|footnr-6|<tuple|6|?>>
     <associate|q-ode|<tuple|11|8>>
     <associate|q1|<tuple|1|1>>
     <associate|q14|<tuple|14|14>>
