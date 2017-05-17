@@ -2,25 +2,29 @@
 .SECONDARY: script.proto.tex script_hypergeom.proto.tex
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
-XELATEX=latexmk -pdf -pdflatex='xelatex %O %S'
-OUTDIR=../foraux
-ZIPNAME=master_announcement2
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
 LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g
+XELATEX=latexmk -pdf -outdir=$(OUTDIR) -pdflatex='xelatex %O %S' -f -g
+OUTDIR=../foraux
+COMMIT_MSG=ktasks $(WORKON)
+MATHEMATICADIR=~/for/formathematica
+TEXMACSDIR=~/for/fortexmacs
+
+ZIPNAME=intpaper
 
 WORKON=https://trello.com/c/jUZS9cjM
-PDFS=Z master_announcement2 howetan_diagrams answer
-AUX=Ypm.pdf
+PDFS=intpaper
+AUX=
 
-all: report.zip
+all: $(OUTDIR)/$(ZIPNAME).zip
 
 commit:
-	git commit --allow-empty -a -m "ktasks $(WORKON)"
+	git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
-$(OUTDIR)/%.pdf : ~/for/fortexmacs/%.tm
+$(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
 
-%.proto.tex : %.wl
+%.proto.tex : $(MATHEMATICADIR)/%.wl
 	{ time $(MATHEMATICA) $< > $@ ; } 2> $(basename $<).time.txt
 
 %.tex : %.proto.tex
@@ -30,17 +34,18 @@ $(OUTDIR)/%.pdf : ~/for/fortexmacs/%.tm
 		|sed -E 's/\text{Hypergeometric2F1}/\;_2F_1/g' > $@
 #|sed -E 's/\text{Gamma}\[([^]]+)\]/\Gamma \\mybra{\1}/g' > $@
 
-report.pdf : report.tex script.tex
+$(OUTDIR)/report.pdf : report.tex script.tex
 	$(XELATEX) $<
 
-report_hypergeom.pdf : report_hypergeom.tex script_hypergeom.tex script_hypergeom.wl
+$(OUTDIR)/report_hypergeom.pdf : report_hypergeom.tex script_hypergeom.tex script_hypergeom.wl
 	head -n 2 script_hypergeom.time.txt|tail -n1 > script_hypergeom.time2.txt
 	$(XELATEX) $<
 
-report.zip: report.pdf script.wl report.tex script.tex report_hypergeom.tex report_hypergeom.pdf script_hypergeom.tex script_hypergeom.wl
-	zip report $^
-	unzip -l report.zip
-	make commit
+$(OUTDIR)/$(ZIPNAME).zip: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
+	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
+	cd $(OUTDIR) && unzip -l $(ZIPNAME).zip
+	du -hs $@
+	git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 push:
 	git push
