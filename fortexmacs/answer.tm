@@ -743,7 +743,7 @@
   form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>d
   s|)>>. Consequently, if <math|\<lambda\>,\<mu\>\<nin\>-\<bbb-N\>>, we have
   that <math|<around*|{|C<rsub|l><rsup|\<lambda\>>\<otimes\>C<rsub|m><rsup|\<mu\>>|}><rsub|l,m\<in\>\<bbb-N\>>>
-  form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
+  form an orthonormal basis of <math|L<rsup|2><around*|(|<around*|[|-1,1|]><rsup|2>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
   s d t|)>>. Consequently, for <math|Re \<lambda\>,Re
   \<mu\>\<gtr\>-<frac|1|2>> and <math|Re<around*|(|\<nu\>|)>\<gtr\>0> we can
   expand <math|<around*|\||s+t|\|><rsup|2\<nu\>>> into
