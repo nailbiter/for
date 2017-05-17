@@ -737,7 +737,9 @@
   </question>
 
   Indeed, as for <math|Re<around*|(|\<lambda\>|)>\<gtr\>-<frac|1|2>><\footnote>
-    \;
+    I think we need to require <math|Re<around*|(|\<lambda\>|)>\<gtr\>-<frac|1|2>,\<lambda\>\<neq\>0>,
+    not only <math|Re<around*|(|\<lambda\>|)>\<gtr\>-<frac|1|2>>. See
+    <cite-detail|keiner2009computing|Sec. 3>
   </footnote> we have <math|\<forall\>n\<in\>\<bbb-N\>,deg<around*|(|C<rsup|\<lambda\>><rsub|n>|)>=n>
   (this can be seen from the recurrence relation), the orthogonality of
   Gegenbauer polynomials implies that <math|<around*|{|C<rsub|n><rsup|\<lambda\>>|}><rsub|n\<in\>\<bbb-N\>>>
@@ -1090,6 +1092,11 @@
       <newblock><with|font-shape|italic|Bull. Amer. Math. Soc. (N. S.)>,
       28(1):1\U74, 1993.
 
+      <bibitem*|Kei09><label|bib-keiner2009computing>Jens Keiner.
+      <newblock>Computing with expansions in gegenbauer polynomials.
+      <newblock><with|font-shape|italic|SIAM Journal on Scientific
+      Computing>, 31:2151\U2171, 2009.
+
       <bibitem*|KM11><label|bib-kobayashi2011schrodinger>Toshiyuki Kobayashi
       and Gen Mano. <newblock><with|font-shape|italic|The Schrödinger model
       for the minimal representation of the indefinite orthogonal group
@@ -1145,6 +1152,7 @@
     <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|24>>
     <associate|bib-howe1993homogeneous|<tuple|HT93|25>>
+    <associate|bib-keiner2009computing|<tuple|Kei09|?>>
     <associate|bib-kobayashi2011schrodinger|<tuple|KM11|25>>
     <associate|bib-kobayashi2015symmetry|<tuple|KS15|25>>
     <associate|bib-mackenzie2003hermite|<tuple|MT03|25>>
@@ -1240,6 +1248,8 @@
       mackenzie2003hermite
 
       rainville1960special
+
+      keiner2009computing
 
       rainville1960special
 
