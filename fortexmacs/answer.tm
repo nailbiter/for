@@ -1094,6 +1094,10 @@
     (<math|\<varepsilon\>=<around*|(|-1|)><rsup|b<around*|(|\<lambda\>,q,p|)>>>).
   </question>
 
+  Inspecting diagrams in <verbatim|howetan_diagrams.pdf>, we conclude that
+  this holds for all <math|\<lambda\>\<in\>B<around*|(|p,q|)>>
+  (<math|\<lambda\>\<in\>B<around*|(|q,p|)>>).
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
