@@ -999,7 +999,7 @@
   </enumerate>
 
   <\question>
-    Explain why I think the following diagrams are OK:
+    <label|q:23>Explain why I think the following diagrams are OK:
 
     <big-figure|<image|howetan2d31.png|251px|221px||>|<label|fig:howetan2d31>Howe-Tan,
     diagram 2.31>
@@ -1078,6 +1078,22 @@
   and <math|m=a+q-2>, which is precisely as Figure
   <reference|fig:howetan2d32>.
 
+  <\question>
+    With <math|Y<rsub|+,\<lambda\>><rsup|p,q>>
+    (<math|Y<rsub|-,\<lambda\>><rsup|p,q>>) defined as in Question
+    <reference|q:23>, for which <math|\<lambda\>\<in\>B<around*|(|p,q|)>>
+    (<math|\<lambda\>\<in\>B<around*|(|q,p|)>>) can we claim that
+    <math|Y<rsub|+,\<lambda\>><rsup|p,q>>
+    (<math|Y<rsub|-,\<lambda\>><rsup|p,q>>) is isomorphic to the quotient of
+
+    <\equation*>
+      Ind<rsub|P<rsub|max>><rsup|G><around*|(|\<varepsilon\>\<otimes\>\<bbb-C\><rsub|-\<lambda\>>|)>
+    </equation*>
+
+    with <math|\<varepsilon\>=<around*|(|-1|)><rsup|b<around*|(|\<lambda\>,p,q|)>>>
+    (<math|\<varepsilon\>=<around*|(|-1|)><rsup|b<around*|(|\<lambda\>,q,p|)>>>).
+  </question>
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
@@ -1148,7 +1164,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|23>>
     <associate|auto-2|<tuple|2|23>>
-    <associate|auto-3|<tuple|11|24>>
+    <associate|auto-3|<tuple|24|24>>
     <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|24>>
     <associate|bib-howe1993homogeneous|<tuple|HT93|25>>
@@ -1193,6 +1209,7 @@
     <associate|q18|<tuple|18|16>>
     <associate|q:20|<tuple|20|19>>
     <associate|q:21|<tuple|21|22>>
+    <associate|q:23|<tuple|23|?>>
     <associate|thm-1|<tuple|1|8>>
     <associate|thm-2|<tuple|2|18>>
     <associate|thm:3|<tuple|3|19>>
