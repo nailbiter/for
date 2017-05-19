@@ -26,7 +26,7 @@ commit:
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/%.pdf : %.tex
-	$(LATEXMK) $<
+	$(XELATEX) $<
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	unzip -l $@
