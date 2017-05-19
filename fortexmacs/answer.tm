@@ -1004,7 +1004,7 @@
     <big-figure|<image|howetan2d31.png|251px|221px||>|<label|fig:howetan2d31>Howe-Tan,
     diagram 2.31>
 
-    <big-figure|<image|howetan2d32.png|251px|219px||>|<label|fig:howetan2d32>Howe-Tan,
+    <big-figure|<image|../forlatex/master_announcement2/howetan2d32m.eps|251px|219px||>|<label|fig:howetan2d32>Howe-Tan,
     diagram 2.32>
   </question>
 

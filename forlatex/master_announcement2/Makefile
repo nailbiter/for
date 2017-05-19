@@ -24,7 +24,7 @@ master_announcement2.tex: tables.tex tablesB.tex
 	latex $<
 	dvips -E -o $@ $(basename $<).dvi
 
-$(OUTDIR)/answer.pdf : ~/for/fortexmacs/answer.tm howetan2d32m.eps
+$(OUTDIR)/answer.pdf : ~/for/fortexmacs/answer.tm howetan2d32m.eps howetan2d31m.eps
 	$(TEXMACS) --convert $< $@ --quit
 
 $(OUTDIR)/%.pdf : ~/for/fortexmacs/%.tm
