@@ -69,13 +69,18 @@
 \underline{Today} we show that not \ref{itemc} implies not \ref{itema}.
 
 \begin{definition}[{\cite[p.36]{bergeron2016spectrum}}]
-	Two subgroups $\Gamma,\Gamma'$ of $G$ are said to be commensurable in $G$ if
-\end{definition}<++>
+	Two subgroups $\Gamma,\Gamma'$ of $G$ are said to be commensurable in $G$ if $\exists g\in G$ such that for $\Gamma_{g}:=g\Gamma g^{-1}$\begin{equation*}
+		\left[  \Gamma_g:\Gamma_g
+		\cap \Gamma'\right],\quad \left[ \Gamma':\Gamma_g\cap \Gamma' \right]
+	\end{equation*}
+\end{definition}
 
 \underline{Plan}:\begin{enumerate}
 	\item assume the contrary of item \ref{itemc};
-	\item show that $\Gamma_{a,b}$ and $\Gamma_{1,1}$ are commesurable;
-\end{enumerate}<++>
+	\item show that $\Gamma_{a,b}$ and $\Gamma_{1,1}$ are commensurable;
+	\item show that $\Gamma_{1,1}$ and $\mbox{\normalfont SL}_2(\Z)$ are commensurable;
+	\item tesime. 
+\end{enumerate}
 
 \bibliographystyle{alpha}
 \bibliography{bibliography}
