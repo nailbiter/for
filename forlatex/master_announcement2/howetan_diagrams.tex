@@ -40,7 +40,9 @@
 \newcommand{\tmscript}[1]{ {\scriptsize #1} }
 \newcommand{\assign}{:=}
 \renewcommand{\iff}{\Leftrightarrow}
+%<*preamble>
 \newcommand{\myInd}[1]{\mbox{Ind}_{P_{\mbox{\scriptsize\normalfont max}}}^G\left( \varepsilon\otimes \C_{#1} \right)}
+%</preamble>
 
 \begin{document}
 \section{Notation}
@@ -152,16 +154,21 @@ We also recall the definitions of {\ttfamily master\_announcement2.pdf}:
 %%		\lbl[bl]{25,65; \hdashrule[0.5ex]{3cm}{1pt}{3mm}} %dash
 	\end{lpic}}\vspace{2em}
 	&
-	{\begin{lpic}[]{howetan2d31(0.5)}
-		\lbl[bl]{25,85; $\myInd{\lambda}$}
-		\lbl[bl]{36,65;\scriptsize $ \bullet Y_{-,-\lambda}^{p,q}=\myabra{m-n\le -a-p}$}
-		\lbl[bl]{32,30;\scriptsize $ \bullet Y_{+,\lambda}^{p,q}=\myabra{m-n\ge -a-p+2}$}
-		\lbl[bl]{3,21; \makebox[3cm]{\hrulefill}} %solid
-		\lbl[bl]{10,21,45; \makebox[3cm]{\dotfill}}
-		\lbl[bl]{10,20; $\bullet$}
-		\lbl[bl]{10,13; \scriptsize $ 2-a-p = \lambda-\frac{p-q}{2}+1=b\left( \lambda,p,q \right)$}
-		\lbl[bl]{32,37; \scriptsize $=-\lambda+\frac{p-q}{2}-1=-b\left( \lambda,p,q \right)$}
-	\end{lpic}}\\\hline\\
+	{
+%<*howetan2d31>
+		\begin{lpic}[]{howetan2d31(0.5)}
+			\lbl[bl]{25,85; $\myInd{\lambda}$}
+			\lbl[bl]{36,65;\scriptsize $ \bullet Y_{-,-\lambda}^{p,q}=\myabra{m-n\le -a-p}$}
+			\lbl[bl]{32,30;\scriptsize $ \bullet Y_{+,\lambda}^{p,q}=\myabra{m-n\ge -a-p+2}$}
+			\lbl[bl]{3,21; \makebox[3cm]{\hrulefill}} %solid
+			\lbl[bl]{10,21,45; \makebox[3cm]{\dotfill}}
+			\lbl[bl]{10,20; $\bullet$}
+			\lbl[bl]{10,13; \scriptsize $ 2-a-p = \lambda-\frac{p-q}{2}+1=b\left( \lambda,p,q \right)$}
+			\lbl[bl]{32,37; \scriptsize $=-\lambda+\frac{p-q}{2}-1=-b\left( \lambda,p,q \right)$}
+		\end{lpic}
+%</howetan2d31>
+	}
+	\\\hline\\
 structure&
 {
 \begin{tabular}[]{l}
@@ -191,7 +198,9 @@ $Y_{-,-\lambda}^{p,q}$ appears as \textbf{quotient}\\
 	-\N_+\ni a\ge3-(p+q)\iff\\
 	1-\frac{p+q}{2}<\lambda\le\frac{p+q}{2}-2\mid \lambda\in\frac{1}{2}+\Z
 \end{array}$&
-{\begin{lpic}[]{howetan2d32(0.5)}%draft
+{
+%<*howetan2d32>
+	\begin{lpic}[]{howetan2d32(0.5)}%draft
 		\lbl[bl]{70,40;\scriptsize $\bullet$}
 		\lbl[bl]{47,30;\scriptsize $ Y_{+,-\lambda}^{p,q}=\myabra{m-n\ge a+q}$}
 		\lbl[bl]{15,70; $\myInd{\lambda}$}
@@ -203,7 +212,9 @@ $Y_{-,-\lambda}^{p,q}$ appears as \textbf{quotient}\\
 		\lbl[bl]{10,8; \scriptsize$2-a-q =\lambda+\frac{p-q}{2}+1= b\left( \lambda,q,p \right)$}
 			
 		\lbl[bl]{38,19; \scriptsize$ =-\lambda-\frac{p-q}{2}-1=-b\left( \lambda,q,p \right)$}
-	\end{lpic}}&
+	\end{lpic}
+%</howetan2d32>
+}&
 	{\begin{lpic}[]{howetan2d31(0.5)}
 		\lbl[bl]{25,85; $\myInd{\lambda}$}
 		\lbl[bl]{36,65;\scriptsize $ \bullet Y_{-,-\lambda}^{p,q}=\myabra{m-n\le -a-p}$}
