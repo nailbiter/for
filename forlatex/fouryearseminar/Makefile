@@ -5,7 +5,7 @@ ZIPNAME=fouryearseminar
 COMMIT_MSG=tex fouryearseminar
 LATEXMK=latexmk -g -f -pdf -pdflatex='xelatex %O %S' -outdir=$(OUTDIR)
 GIT=git add $(addsuffix .tex, $(PDFS)) *.bib Makefile && git commit --allow-empty -a -m "$(COMMIT_MSG)"
-PDFS=may10
+PDFS=may10 may17
 
 all: $(OUTDIR)/$(ZIPNAME).zip
 
