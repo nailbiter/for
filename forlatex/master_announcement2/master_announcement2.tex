@@ -25,7 +25,7 @@
 \usepackage{ulem}
 \usetikzlibrary{patterns}
 
-\newcommand{\myrestr}[2]{\left.#1\right|_{#2}}
+%%\newcommand{\myrestr}[2]{\left.#1\right|_{#2}}
 
 \catcode`\<=\active \def<{
 \fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
@@ -398,98 +398,98 @@ Here $g(t)$ is defined as $g(t)=1$ for $t\in2\N+\frac{1}{2}$ and $=0$ otherwise.
 	(the one with $\pi_{-,x}^{p+1,q+1}$ in the leftmost cell) of every item's table.
 \end{remark}
 
-\begin{definition}[$Y_{\pm,\lambda}^{p,q}$]\label{def:Y}
-	Let $p,q\in\N_+$. We define the parameter set $B(p,q)$ as
-\begin{equation*}
-	\kern-2cm\begin{array}[]{c} 
-	B(p,q):=\left\{
-		\begin{array}[]{@{}ll@{}} 
-			%\emptyset,			&p=1,q>1,\\
-			%A_0(p,q),			&p\ge q=1,\\
-			\frac{2-p-q}{2}+\N_+,		&p\in2\N_+,q\in2\N_++1,\\
-			\frac{p-q}{2}+\Z,		&p\in2\N_++1,q\in2\N_+,\\
-			A_0(p,q),&\mbox{otherwise,}
-		\end{array}
-		\right.\\
-	\end{array}
-\end{equation*}
-Now, direct check (cf. \cite{howe1993homogeneous}) implies that 
-for any $\lambda\in B(p,q)$ each of the following conditions defines uniquely
-$(\mathfrak{g},K)$-modules,\myfootnote{We talk about $\mathfrak{g}$ here, assuming implicitly that $G=O(p,q)$. Nevertheless, we've set
-$(G,G')=(O(p+1,q+1),O(p,q+1))$. I remember that You said that we will fix this in subsequent -- I just keep this for the record.} which are mutually isomorphic. We shall denote
-it\myGrammarNoteFootnote{``it''->``them''?} by $\left( Y_{+,\lambda}^{p,q} \right)_K$. The $(\mathfrak{g},K)$-module $\left( Y_{+,\lambda}^{p,q} \right)_K$ is non-zero and irreducible.
-\begin{enumerate}
-	\item[(i)] A subrepresentation of
-		the degenerate principal series representation
-		$\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
-		with $K$-type\myfootnote{in one of the previous revisions (see bottom-right of first page of attached {\ttfamily revision.pdf}) you told me I ``cannot
-		use the same letter''. That's why I've replaced $\Xi$ with $\Sigma$. But as far as I understand, there is no difference between them.}\begin{equation*}
-			\begin{array}[]{c}
-				\Sigma(K:b)\equiv \Sigma\left( O(p)\times O(q):b \right)\\:=\displaystyle
-				\bigoplus_{\scalebox{0.5}{$\begin{array}[]{c}
-				m,n\in\N\\m-n\ge b\\m-n\equiv b\mbox{ mod }2
-			\end{array}$}}\mathcal{H}^m\left( \R^p \right)\boxtimes \mathcal{H}^n\left( \R^q \right),\\
-%%			b\equiv b(\lambda,p,q):=\lambda-\frac{p}{2}+\frac{q}{2}+1\in\Z.\\
-%%			\varepsilon\equiv\varepsilon(\lambda,p,q):=(-1)^b.
-			\end{array}
-		\end{equation*}
-		with $b$ being the same as in the definition of $\Xi(K:b)$ above. Note that for $\lambda\in A_0(p,q)$ we have $\Xi(K:b)=\Sigma(K:b)$.
-	\item[(i)$'$] A\myfootnote{I think, there should be no assumptions regarding the parity of $p,q$} quotient of $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\C_{-\lambda} \right)$ with $K$-type $\Sigma(K:b)$.
-\end{enumerate}
-Each of realizations (i) and (i)$'$ also gives a globalization,
-namely, a continuous representation of $G$ on a topological vector space. 
-%Therefore, we may and to take the globalization
-%$Y_{+,\lambda}^{p,q}$ to be the representation of $G$. The case $(p,q)=(1,0)$ is special and we define $Y_{+,\lambda}^{1,0}:=\pi_{+,\lambda}^{1,0}$.
-
-Similarly, we can also define an
-irreducible representations $Y_{-,\lambda}^{p,q}$ of $O(p,q)$
-for $\lambda\in B(q,p)$, such that the underlying $(\mathfrak{g},K)$-module has the following $K$-type:
-%%as a 
-%%	subrepresentation of the degenerate principal series representation $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
-%%		with $K$-type
-		\begin{equation*}
-			\begin{array}[]{c}
-				\displaystyle
-				\bigoplus_{\scalebox{0.5}{$\begin{array}[]{c}
-					m,n\in\N\\m-n\le -\lambda+\frac{q}{2}-\frac{p}{2}-1\\m-n\equiv -\lambda+\frac{q}{2}-\frac{p}{2}-1\mbox{ mod }2
-			\end{array}$}}\mathcal{H}^m\left( \R^p \right)\boxtimes \mathcal{H}^n\left( \R^q \right).
-			\end{array}
-		\end{equation*}
-\end{definition}
-
-%and still remain equivalent. Using these, we can define $(\mathfrak{g},K)$-modules $\left( Y_{\pm,\lambda}^{p,q} \right)_K$ similarly to $\pi_{\pm,\lambda}^{p,q}$,
-%defined for $\lambda\in A_0'(p,q)$ (or $\lambda\in A_0'(q,p)$ for $Y_{-,\lambda}^{p,q}$).
-%Again, conditions (i) and (i)$'$ in fact allow us to consider the globalization: representation $Y_{\pm,\lambda}^{p,q}$ of $G$. 
-\begin{remark}
-We note that $Y_{+,\lambda}^{p,q}$ (or $Y_{-,\lambda}^{p,q}$) is isomorphic to $\pi_{+,\lambda}^{p,q}$ (or $\pi_{-,\lambda}^{p,q}$) for $\lambda\in A_0(p,q)$ (or $A_0(q,p)$).
-Also note that $Y_{\pm,\lambda}^{p,q}$ is not unitarizable in general.
-\end{remark}
-
-
-By analogy with $\Azeven(p,q)$ defined above, we define its superset\begin{equation*}
-	\Bzeven(p,q):=\left\{ \lambda\in B(p,q)\left| \lambda-\frac{p-q}{2}+1\in2\Z \right.\right\}.
-\end{equation*}
-Now, the Definition \ref{def:Y} allows us to give the following generalization of Theorem \ref{thm:Aq}:
-\begin{theorem}[$G'$-invariant maps between $Y_{\pm,x}^{p+1,q+1}$ and $Y_{\pm,y}^{p,q+1}$]\label{thm:Y}
-	The dimensions of $\Hom_{G'}\left(Y_{\pm,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,Y_{\pm,y}^{p,q+1} \right)$
-	are then either 0 or 1. 
-	In what follows, we assume \begin{equation*}
-		\begin{array}[]{c}
-			x\in\left\{\begin{array}[]{ll}
-				\Bzeven(p+1,q+1),&\mbox{for }\delta=+,\\
-				\Bzeven(q+1,p+1),&\mbox{for }\delta=-,\\
-			\end{array}\right.\\
-			y\in\left\{\begin{array}[]{ll}
-				\Bzeven(p,q+1),&\mbox{for }\varepsilon=+,\\
-				\Bzeven(q+1,p),&\mbox{for }\varepsilon=-,\\
-			\end{array}\right.
-		\end{array}
-	\end{equation*}
-	to describe $\gk$-modules $Y_{\delta,x}^{p+1,q+1}$
-	and $\left( \mathfrak{g}',K' \right)$-modules $Y_{\varepsilon,y}^{p,q+1}$.
-	\newline
-	\input{tablesB.tex}
-\end{theorem}
+%%\begin{definition}[$Y_{\pm,\lambda}^{p,q}$]\label{def:Y}
+%%	Let $p,q\in\N_+$. We define the parameter set $B(p,q)$ as
+%%\begin{equation*}
+%%	\kern-2cm\begin{array}[]{c} 
+%%	B(p,q):=\left\{
+%%		\begin{array}[]{@{}ll@{}} 
+%%			%\emptyset,			&p=1,q>1,\\
+%%			%A_0(p,q),			&p\ge q=1,\\
+%%			\frac{2-p-q}{2}+\N_+,		&p\in2\N_+,q\in2\N_++1,\\
+%%			\frac{p-q}{2}+\Z,		&p\in2\N_++1,q\in2\N_+,\\
+%%			A_0(p,q),&\mbox{otherwise,}
+%%		\end{array}
+%%		\right.\\
+%%	\end{array}
+%%\end{equation*}
+%%Now, direct check (cf. \cite{howe1993homogeneous}) implies that 
+%%for any $\lambda\in B(p,q)$ each of the following conditions defines uniquely
+%%$(\mathfrak{g},K)$-modules,\myfootnote{We talk about $\mathfrak{g}$ here, assuming implicitly that $G=O(p,q)$. Nevertheless, we've set
+%%$(G,G')=(O(p+1,q+1),O(p,q+1))$. I remember that You said that we will fix this in subsequent -- I just keep this for the record.} which are mutually isomorphic. We shall denote
+%%it\myGrammarNoteFootnote{``it''->``them''?} by $\left( Y_{+,\lambda}^{p,q} \right)_K$. The $(\mathfrak{g},K)$-module $\left( Y_{+,\lambda}^{p,q} \right)_K$ is non-zero and irreducible.
+%%\begin{enumerate}
+%%	\item[(i)] A subrepresentation of
+%%		the degenerate principal series representation
+%%		$\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
+%%		with $K$-type\myfootnote{in one of the previous revisions (see bottom-right of first page of attached {\ttfamily revision.pdf}) you told me I ``cannot
+%%		use the same letter''. That's why I've replaced $\Xi$ with $\Sigma$. But as far as I understand, there is no difference between them.}\begin{equation*}
+%%			\begin{array}[]{c}
+%%				\Sigma(K:b)\equiv \Sigma\left( O(p)\times O(q):b \right)\\:=\displaystyle
+%%				\bigoplus_{\scalebox{0.5}{$\begin{array}[]{c}
+%%				m,n\in\N\\m-n\ge b\\m-n\equiv b\mbox{ mod }2
+%%			\end{array}$}}\mathcal{H}^m\left( \R^p \right)\boxtimes \mathcal{H}^n\left( \R^q \right),\\
+%%%%			b\equiv b(\lambda,p,q):=\lambda-\frac{p}{2}+\frac{q}{2}+1\in\Z.\\
+%%%%			\varepsilon\equiv\varepsilon(\lambda,p,q):=(-1)^b.
+%%			\end{array}
+%%		\end{equation*}
+%%		with $b$ being the same as in the definition of $\Xi(K:b)$ above. Note that for $\lambda\in A_0(p,q)$ we have $\Xi(K:b)=\Sigma(K:b)$.
+%%	\item[(i)$'$] A\myfootnote{I think, there should be no assumptions regarding the parity of $p,q$} quotient of $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\C_{-\lambda} \right)$ with $K$-type $\Sigma(K:b)$.
+%%\end{enumerate}
+%%Each of realizations (i) and (i)$'$ also gives a globalization,
+%%namely, a continuous representation of $G$ on a topological vector space. 
+%%%Therefore, we may and to take the globalization
+%%%$Y_{+,\lambda}^{p,q}$ to be the representation of $G$. The case $(p,q)=(1,0)$ is special and we define $Y_{+,\lambda}^{1,0}:=\pi_{+,\lambda}^{1,0}$.
+%%
+%%Similarly, we can also define an
+%%irreducible representations $Y_{-,\lambda}^{p,q}$ of $O(p,q)$
+%%for $\lambda\in B(q,p)$, such that the underlying $(\mathfrak{g},K)$-module has the following $K$-type:
+%%%%as a 
+%%%%	subrepresentation of the degenerate principal series representation $\Ind_{P^{\scalebox{0.5}{$\max$}}}^G\left( \varepsilon\otimes\mathbb{C}_{\lambda} \right)$
+%%%%		with $K$-type
+%%		\begin{equation*}
+%%			\begin{array}[]{c}
+%%				\displaystyle
+%%				\bigoplus_{\scalebox{0.5}{$\begin{array}[]{c}
+%%					m,n\in\N\\m-n\le -\lambda+\frac{q}{2}-\frac{p}{2}-1\\m-n\equiv -\lambda+\frac{q}{2}-\frac{p}{2}-1\mbox{ mod }2
+%%			\end{array}$}}\mathcal{H}^m\left( \R^p \right)\boxtimes \mathcal{H}^n\left( \R^q \right).
+%%			\end{array}
+%%		\end{equation*}
+%%\end{definition}
+%%
+%%%and still remain equivalent. Using these, we can define $(\mathfrak{g},K)$-modules $\left( Y_{\pm,\lambda}^{p,q} \right)_K$ similarly to $\pi_{\pm,\lambda}^{p,q}$,
+%%%defined for $\lambda\in A_0'(p,q)$ (or $\lambda\in A_0'(q,p)$ for $Y_{-,\lambda}^{p,q}$).
+%%%Again, conditions (i) and (i)$'$ in fact allow us to consider the globalization: representation $Y_{\pm,\lambda}^{p,q}$ of $G$. 
+%%\begin{remark}
+%%We note that $Y_{+,\lambda}^{p,q}$ (or $Y_{-,\lambda}^{p,q}$) is isomorphic to $\pi_{+,\lambda}^{p,q}$ (or $\pi_{-,\lambda}^{p,q}$) for $\lambda\in A_0(p,q)$ (or $A_0(q,p)$).
+%%Also note that $Y_{\pm,\lambda}^{p,q}$ is not unitarizable in general.
+%%\end{remark}
+%%
+%%
+%%By analogy with $\Azeven(p,q)$ defined above, we define its superset\begin{equation*}
+%%	\Bzeven(p,q):=\left\{ \lambda\in B(p,q)\left| \lambda-\frac{p-q}{2}+1\in2\Z \right.\right\}.
+%%\end{equation*}
+%%Now, the Definition \ref{def:Y} allows us to give the following generalization of Theorem \ref{thm:Aq}:
+%%\begin{theorem}[$G'$-invariant maps between $Y_{\pm,x}^{p+1,q+1}$ and $Y_{\pm,y}^{p,q+1}$]\label{thm:Y}
+%%	The dimensions of $\Hom_{G'}\left(Y_{\pm,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,Y_{\pm,y}^{p,q+1} \right)$
+%%	are then either 0 or 1. 
+%%	In what follows, we assume \begin{equation*}
+%%		\begin{array}[]{c}
+%%			x\in\left\{\begin{array}[]{ll}
+%%				\Bzeven(p+1,q+1),&\mbox{for }\delta=+,\\
+%%				\Bzeven(q+1,p+1),&\mbox{for }\delta=-,\\
+%%			\end{array}\right.\\
+%%			y\in\left\{\begin{array}[]{ll}
+%%				\Bzeven(p,q+1),&\mbox{for }\varepsilon=+,\\
+%%				\Bzeven(q+1,p),&\mbox{for }\varepsilon=-,\\
+%%			\end{array}\right.
+%%		\end{array}
+%%	\end{equation*}
+%%	to describe $\gk$-modules $Y_{\delta,x}^{p+1,q+1}$
+%%	and $\left( \mathfrak{g}',K' \right)$-modules $Y_{\varepsilon,y}^{p,q+1}$.
+%%	\newline
+%%	\input{tablesB.tex}
+%%\end{theorem}
 
 	A detailed proof will appear elsewhere.
 
