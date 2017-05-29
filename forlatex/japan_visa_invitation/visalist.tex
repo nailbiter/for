@@ -1,10 +1,11 @@
 \documentclass[12pt]{article} % use larger type; default would be 10pt
 
-%%\usepackage[T1,T2A]{fontenc}
-%%\usepackage[utf8]{inputenc}
-%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
 \usepackage{enumerate}
-\usepackage{CJKutf8}
+\usepackage{xeCJK}
+\usepackage{mystyle}
+\usepackage{ruby}
+\usepackage{longtable}
+\usepackage{hyperref}
 \usepackage{mystyle}
 \usepackage{enumitem,amssymb}
 \usepackage[]{hyperref}
@@ -17,18 +18,15 @@
 \hspace{-2.5pt}}
 \newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
 
-%%\usepackage{fancyhdr}
-%%\pagestyle{fancy}
-%%\fancyfoot[C]{text me at \href{mailto:leontiev@ms.u-tokyo.ac.jp}{leontiev@ms.u-tokyo.ac.jp} if there are mistakes/obscurities}
-%%\fancyhead{}
+\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
+%\setCJKmainfont{MS PGothic} %AJP windows
+%\renewcommand\rubysep{-5ex}
+\newcommand{\kana}[2]{\ruby{#1}{#2}}
+\newcommand{\mytabra}[1]{$\myabra{\mbox{#1}}$}
 
 \title{Documents included for Visa Application\\Provided from Japan\\For Visiting Relatives/Acquaintances}
 \begin{document}
-
-\begin{CJK}{UTF8}{bsmi}
-	\maketitle
-\end{CJK}
-
+\maketitle
 \begin{todolist}
 	%\item[\done] 
 	\item Letter of reason for invitation
@@ -41,5 +39,3 @@
 	\bibitem{applicantlist}\url{http://www.mofa.go.jp/j_info/visit/visa/pdfs/application5.pdf}
 \end{thebibliography}
 \end{document}
-
-
