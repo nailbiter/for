@@ -7,6 +7,7 @@
 \usepackage{CJKutf8}
 \usepackage{mystyle}
 \usepackage{enumitem,amssymb}
+\usepackage[]{hyperref}
 \newlist{todolist}{itemize}{2}
 \setlist[todolist]{label=$\square$}
 \usepackage{pifont}
@@ -29,13 +30,16 @@
 \end{CJK}
 
 \begin{todolist}
-	\item[\done] Letter of reason for invitation
-	\item Schedule of stay
+	%\item[\done] 
+	\item Letter of reason for invitation
+	\item Schedule of stay (日本語)
+	\item List of visa applications (日本語、見本: \cite{applicantlist})
+	\item Letter of guarantee
 \end{todolist}
 
-%%\begin{thebibliography}{9}
-%%\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
-%%\end{thebibliography}
+\begin{thebibliography}{9}
+	\bibitem{applicantlist}\url{http://www.mofa.go.jp/j_info/visit/visa/pdfs/application5.pdf}
+\end{thebibliography}
 \end{document}
 
 
