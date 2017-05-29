@@ -5,7 +5,7 @@ ZIPNAME=visadlist
 WORKON=
 COMMIT_PREFIX=visalist
 PDFS=visalist
-AUX=
+AUX=reason.pdf list.pdf guarantee.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
