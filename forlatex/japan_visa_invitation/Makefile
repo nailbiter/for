@@ -1,7 +1,7 @@
 .PHONY: all commit push clean
 .SECONDARY: 
 
-ZIPNAME=visadlist
+ZIPNAME=visalist
 WORKON=
 COMMIT_PREFIX=visalist
 PDFS=visalist
