@@ -1,6 +1,7 @@
 \documentclass[pdf,notes]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 
+\usepackage{mathtools}
 \usepackage{xypic}
 \usepackage[all,cmtip]{xy}
 \usepackage{mystyle}
@@ -176,13 +177,13 @@
 %%		\bigcup&&&\\
 %%		G':=O(p,q+1)&\curvearrowright &\tau\mbox{ :infinitely-dimensional rep.}
 %%		\end{array}\]
-	Classify all $G'$-intertwining operators $A:\pi\to\tau$.
+		Classify all $G'$-intertwining operators $A:\pi\xrightarrow{G'}\tau$.
 	\end{block}
 	{\bf Idea:}\begin{itemize}
 		\item Although $\pi$ and $\tau$ are realized on different spaces, we can define ``generalized eigenvalues'';
-		\item it turns out that any $A$ is ``diagonal'';
+		\item it turns out that any $A:\pi\xrightarrow{G'}\tau$ is ``diagonal'';
 		\item $\implies$ it would help to compute eigenvalues explicitly;
-		\item $A:\pi\to\tau$ are given by integral kernels $\implies$ eigenvalues are given by integrals;
+		\item $A:\pi\xrightarrow{G'}\tau$ are given by integral kernels $\implies$ eigenvalues are given by integrals;
 	\end{itemize}
 \end{frame}
 }
