@@ -27,14 +27,14 @@
 
 \newtheorem{prop}{命題}
 \newtheorem{remark}{注}
-\AtBeginEnvironment{prop}{%
-	    \setbeamercolor{block title}{fg=white,bg=orange}
-	        \setbeamercolor{block body}{fg=black,bg=yellow}
-	}
-	\AtBeginEnvironment{remark}{%
-		    \setbeamercolor{block title}{fg=green,bg=red}
-		        \setbeamercolor{block body}{fg=black,bg=purple}
-		}
+%%\AtBeginEnvironment{prop}{%
+%%	    \setbeamercolor{block title}{fg=white,bg=orange}
+%%	        \setbeamercolor{block body}{fg=black,bg=yellow}
+%%	}
+\AtBeginEnvironment{remark}{%
+	    \setbeamercolor{block title}{bg=orange,fg=white}
+		\setbeamercolor{block body}{bg=orange!20,fg=black}
+}
 
 \setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
 
