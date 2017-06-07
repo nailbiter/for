@@ -954,7 +954,7 @@
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-x<rsup|2>|)><rsup|\<gamma\>>P<rsup|\<alpha\>><rsub|\<beta\>><around*|(|x|)>>|<cell|>>>>
     </eqnarray>
 
-    which is done by the formula <cite-detail|kobayashi2011schrodinger|L1>.
+    which is done by the formula <cite-detail|kobayashi2011schrodinger|L2>.
   </proof>
 
   <\question>
