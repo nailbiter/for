@@ -1,6 +1,8 @@
 \documentclass[pdf,notes]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 
+\usepackage{xypic}
+\usepackage[all,cmtip]{xy}
 \usepackage{mystyle}
 \includecomment{versiona}
 \usepackage{xeCJK}
@@ -155,11 +157,17 @@
 	\setbeamercolor{block title}{bg=red!30,fg=black}
 	\hspace{1cm}
 	\begin{block}{Goal:}
-		\[\begin{array}{cccl}
-				G:=O(p+1,q+1)&\curvearrowright &\pi\mbox{ :infinitely-dimensional rep.}\\
-		\bigcup&&&\\
-		G':=O(p,q+1)&\curvearrowright &\tau\mbox{ :infinitely-dimensional rep.}
-		\end{array}\]
+%%		\[\begin{array}{cccl}
+%%				G:=O(p+1,q+1)&\curvearrowright &\pi\mbox{ :infinitely-dimensional rep.}\\
+%%		\bigcup&&&\\
+%%		G':=O(p,q+1)&\curvearrowright &\tau\mbox{ :infinitely-dimensional rep.}
+%%		\end{array}\]
+	\centerline{
+		\xymatrixcolsep{0.5pc}
+		\xymatrixrowsep{1pc}
+		\xymatrix{G\ar@/_1pc/[d]&&\supset&&G'\ar@/^1pc/[d]\\
+			I(\lambda)=\Ind_P^G(\lambda)&\ar[rr]^{A}&&&\Ind_{P'}^{G'}(\nu)=J(\nu)
+	}}
 	\end{block}
 \end{frame}
 }
