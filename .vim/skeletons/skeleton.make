@@ -18,18 +18,25 @@ COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 all: $(OUTDIR)/$(ZIPNAME).zip
-
-commit:
-	$(GITCOMMIT)
-
-$(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
-	        $(TEXMACS) --convert $< $@ --quit
-$(OUTDIR)/%.pdf : %.tex
-	$(LATEXMK) $<
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	unzip -l $@
 	du -hs $@
+	$(GITCOMMIT)
+
+
+#standard rules
+%.eps: %.tex
+	echo 
+	latex $<
+	dvips -E -o $@ $(basename $<).dvi
+$(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
+	        $(TEXMACS) --convert $< $@ --quit
+$(OUTDIR)/%.pdf : %.tex
+	$(LATEXMK) $<
+
+#commands
+commit:
 	$(GITCOMMIT)
 push:
 	git push

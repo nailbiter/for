@@ -138,7 +138,7 @@
     <section|First section|>
   </hide-part>
 
-  <\show-part|3>
+  <\hide-part|3>
     <section|Howe-Tan for differential forms|>
 
     <date|>
@@ -183,13 +183,133 @@
     <\proof>
       Fact <reference|2:fact-irreps-of-on> and Frobenius reciprocity.
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|Howe-Tan for differential forms|>
+  </hide-part>
+
+  <\show-part|4>
+    <section|playground|>
+
+    <subsection|Irreps of <math|SO<around*|(|n|)>,O<around*|(|n|)>>|>
+
+    Note that (see <cite|knapp2013lie>)
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<tabular|<tformat|<table|<row|<cell|HV<around*|(|N|)>\<assign\><choice|<tformat|<table|<row|<cell|\<lambda\><rsub|1>\<geqslant\>\<lambda\><rsub|2>\<geqslant\>\<ldots\>\<geqslant\>\<lambda\><rsub|k-1>\<geqslant\><around*|\||\<lambda\><rsub|k>|\|>\<geqslant\>0,>|<cell|N=2k>>|<row|<cell|\<lambda\><rsub|1>\<geqslant\>\<lambda\><rsub|2>\<geqslant\>\<ldots\>\<geqslant\>\<lambda\><rsub|k>\<geqslant\>0,>|<cell|N=2k+1>>>>>>|<cell|<long-arrow|\<rubber-rightarrow\>|\<sim\>>>|<cell|<wide|SO|^><around*|(|N|)>>>|<row|<cell|\<lambda\>=<around*|(|\<lambda\><rsub|i>|)>>|<cell|\<mapsto\>>|<cell|<around*|[|\<lambda\>|]>>>>>>>|<cell|>>>>
+    </eqnarray>
+
+    <\fact>
+      <cite-detail|goodman2000representations|Sec. 5.5.5> (\Pirreps of
+      <math|O<around*|(|N|)>>\Q)
+
+      <\enumerate>
+        <item>We have
+
+        <\equation*>
+          <wide|O|^><around*|(|2k+1|)>=<around*|{|<around*|(|\<pi\><rsup|\<lambda\>,\<varepsilon\>>,V<rsup|\<lambda\>,\<varepsilon\>><rsup|>|)>|}><rsub|\<lambda\>\<in\>HV<around*|(|2k+1|)>,\<varepsilon\>=\<pm\>1>
+        </equation*>
+
+        where <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>>> is characterized
+        by <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>>\<mid\><rsub|SO<around*|(|2k+1|)>>=<around*|[|\<lambda\>|]>>
+        and <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>><around*|(|-id<rsub|2k+1>|)>=\<varepsilon\>>.
+
+        <item>We have
+
+        <\equation*>
+          <wide|O|^><around*|(|2k|)>=<around*|{|<around*|(|\<pi\><rsup|\<lambda\>,\<varepsilon\>>,V<rsup|\<lambda\>\<comma\>\<varepsilon\>><rsup|>|)>|}><rsub|\<lambda\>\<in\>HV<around*|(|2k|)>\<mid\>\<lambda\><rsub|k>=0,\<varepsilon\>=\<pm\>1>\<sqcup\><around*|{|<around*|(|\<pi\><rsup|\<lambda\>>,V<rsup|\<lambda\>><rsup|>|)>|}><rsub|\<lambda\>\<in\>HV<around*|(|2k|)>\<mid\>\<lambda\><rsub|k>\<gtr\>0>
+        </equation*>
+
+        where <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>>> is characterized
+        by <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>>\<mid\><rsub|SO<around*|(|2k|)>>=<around*|[|\<lambda\>|]>>
+        and <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>><around*|(|g<rsub|0>|)>=\<varepsilon\>>,
+        where
+
+        <\equation*>
+          g<rsub|0>\<assign\>diag<around*|(|1<rsub|k-1>,<around*|[|<tabular|<tformat|<table|<row|<cell|0>|<cell|1>>|<row|<cell|1>|<cell|0>>>>>|]>,1<rsub|k-1>|)>,
+        </equation*>
+
+        and <math|\<pi\><rsup|\<lambda\>>\<assign\>Ind<rsub|SO<around*|(|2k|)>><rsup|O<around*|(|2k|)>><around*|[|\<lambda\>|]>>.
+      </enumerate>
+    </fact>
+
+    <\fact>
+      <cite-detail|goodman2000representations|Sec 10.2.4, 10.2.5> (\Pexplicit
+      construction of irreps of <math|O<around*|(|N|)>>\Q)
+
+      <\footnote>
+        TODO
+      </footnote>
+    </fact>
+
+    <subsection|Characters of irreps of <math|SO<around*|(|N|)>>|>
+
+    <\footnote>
+      TODO: explain how characters are characterized (as functions of
+      <with|font-shape|italic|what>)
+    </footnote>
+
+    <\fact>
+      <cite-detail|boerner1963representations|ŸVII.10> Let
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|s<around*|(|\<alpha\>|)>=2i
+        sin<around*|(|2\<pi\>\<alpha\>|)>=e<rsup|2\<pi\>i\<alpha\>>-e<rsup|-2\<pi\>i\<alpha\>>,>|<cell|>>|<row|<cell|>|<cell|c<around*|(|\<alpha\>|)>=2cos<around*|(|2\<pi\>\<alpha\>|)>=e<rsup|2\<pi\>i\<alpha\>>+e<rsup|-2\<pi\>i\<alpha\>>.>|<cell|>>>>
+      </eqnarray>
+
+      Furthermore, for <math|<around*|{|\<tau\><rsub|j>\<in\>\<bbb-C\>:<around*|\||\<tau\><rsub|j>|\|>=1|}><rsub|j=1><rsup|p>,<around*|{|l<rsub|j>\<in\>\<bbb-Z\>|}><rsub|j=1><rsup|p>>
+      we let
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|S<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|l<rsub|1>,\<ldots\>,l<rsub|p>>>>>>|)>\<assign\><around*|\||<stack|<tformat|<table|<row|<cell|s<around*|(|l<rsub|1>\<tau\><rsub|1>|)>>|<cell|s<around*|(|l<rsub|2>\<tau\><rsub|1>|)>>|<cell|\<ldots\>>|<cell|s<around*|(|l<rsub|p>\<tau\><rsub|1>|)>>>|<row|<cell|s<around*|(|l<rsub|1>\<tau\><rsub|2>|)>>|<cell|s<around*|(|l<rsub|2>\<tau\><rsub|2>|)>>|<cell|\<ldots\>>|<cell|s<around*|(|l<rsub|p>\<tau\><rsub|2>|)>>>|<row|<cell|\<ldots\>>|<cell|\<ldots\>>|<cell|\<ddots\>>|<cell|\<ldots\>>>|<row|<cell|s<around*|(|l<rsub|1>\<tau\><rsub|p>|)>>|<cell|s<around*|(|l<rsub|2>\<tau\><rsub|p>|)>>|<cell|\<ldots\>>|<cell|s<around*|(|l<rsub|p>\<tau\><rsub|p>|)>>>>>>|\|>>|<cell|>>|<row|<cell|>|<cell|C<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|l<rsub|1>,\<ldots\>,l<rsub|p>>>>>>|)>\<assign\><around*|\||<stack|<tformat|<table|<row|<cell|c<around*|(|l<rsub|1>\<tau\><rsub|1>|)>>|<cell|c<around*|(|l<rsub|2>\<tau\><rsub|1>|)>>|<cell|\<ldots\>>|<cell|c<around*|(|l<rsub|p>\<tau\><rsub|1>|)>>>|<row|<cell|c<around*|(|l<rsub|1>\<tau\><rsub|2>|)>>|<cell|c<around*|(|l<rsub|2>\<tau\><rsub|2>|)>>|<cell|\<ldots\>>|<cell|c<around*|(|l<rsub|p>\<tau\><rsub|2>|)>>>|<row|<cell|\<ldots\>>|<cell|\<ldots\>>|<cell|\<ddots\>>|<cell|\<ldots\>>>|<row|<cell|c<around*|(|l<rsub|1>\<tau\><rsub|p>|)>>|<cell|c<around*|(|l<rsub|2>\<tau\><rsub|p>|)>>|<cell|\<ldots\>>|<cell|c<around*|(|l<rsub|p>\<tau\><rsub|p>|)>>>>>>|\|>>|<cell|>>>>
+      </eqnarray>
+
+      <\description>
+        <item*|Case a><math|O<around*|(|n|)>=O<around*|(|2p|)>>. Let
+
+        <\equation*>
+          r<rsub|1>=p-1,r<rsub|2>=p-2,\<ldots\>,r<rsub|p>=0.
+        </equation*>
+
+        Then the character of the corresponding irrep equals to:
+
+        <\equation*>
+          S<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|a<rsub|1>,\<ldots\>,a<rsub|p>>>>>>|)>/S<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|r<rsub|1>,\<ldots\>,r<rsub|p>>>>>>|)>
+        </equation*>
+
+        <item*|Case b><math|O<around*|(|n|)>=O<around*|(|2p+1|)>>. Let
+
+        <\equation*>
+          r<rsub|1>=p-<frac|1|2>,r<rsub|2>=p-<frac|3|2>,\<ldots\>,r<rsub|p>=<frac|1|2>.
+        </equation*>
+
+        Then the character of the corresponding irrep equals to:
+
+        <\equation*>
+          <around*|{|C<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|a<rsub|1>,\<ldots\>,a<rsub|p>>>>>>|)>+S<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|a<rsub|1>,\<ldots\>,a<rsub|p>>>>>>|)>|}>/C<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|r<rsub|1>,\<ldots\>,r<rsub|p>>>>>>|)>
+        </equation*>
+      </description>
+    </fact>
+
+    <subsection|Characters of irreps of <math|O<around*|(|N|)>>|>
+
+    \;
+  <|show-part>
+    <section|playground|>
   </show-part>
 
-  <\hide-part|4>
+  <\hide-part|5>
     <\bibliography|bib|alpha|todai_master.bib>
-      <\bib-list|HTW05>
+      <\bib-list|BMMKC63>
+        <bibitem*|BMMKC63><label|bib-boerner1963representations>Hermann
+        Boerner, PG<nbsp>Murphy, J<nbsp>Mayer-Kalkschmidt, and P<nbsp>Carr.
+        <newblock>Representations of groups: with special consideration for
+        the needs of modern physics. <newblock>1963.
+
+        <bibitem*|GW00><label|bib-goodman2000representations>Roe Goodman and
+        Nolan<nbsp>R Wallach. <newblock><with|font-shape|italic|Representations
+        and invariants of the classical groups>, volume<nbsp>68.
+        <newblock>Cambridge University Press, 2000.
+
         <bibitem*|HTW05><label|bib-howe2005stable>Roger Howe, Eng-Chye Tan,
         and Jeb Willenbring. <newblock>Stable branching rules for classical
         symmetric pairs. <newblock><with|font-shape|italic|Transactions of
@@ -200,11 +320,25 @@
         <newblock>Classification of differential symmetry breaking operators
         for differential forms. <newblock><with|font-shape|italic|Comptes
         Rendus Mathematique>, 354(7):671\U676, 2016.
+
+        <bibitem*|Kna13><label|bib-knapp2013lie>Anthony<nbsp>W Knapp.
+        <newblock><with|font-shape|italic|Lie groups beyond an introduction>,
+        volume 140. <newblock>Springer Science & Business Media, 2013.
       </bib-list>
     </bibliography>
   <|hide-part>
     <\bibliography|bib|alpha|todai_master.bib>
-      <\bib-list|HTW05>
+      <\bib-list|BMMKC63>
+        <bibitem*|BMMKC63><label|bib-boerner1963representations>Hermann
+        Boerner, PG<nbsp>Murphy, J<nbsp>Mayer-Kalkschmidt, and P<nbsp>Carr.
+        <newblock>Representations of groups: with special consideration for
+        the needs of modern physics. <newblock>1963.
+
+        <bibitem*|GW00><label|bib-goodman2000representations>Roe Goodman and
+        Nolan<nbsp>R Wallach. <newblock><with|font-shape|italic|Representations
+        and invariants of the classical groups>, volume<nbsp>68.
+        <newblock>Cambridge University Press, 2000.
+
         <bibitem*|HTW05><label|bib-howe2005stable>Roger Howe, Eng-Chye Tan,
         and Jeb Willenbring. <newblock>Stable branching rules for classical
         symmetric pairs. <newblock><with|font-shape|italic|Transactions of
@@ -215,6 +349,10 @@
         <newblock>Classification of differential symmetry breaking operators
         for differential forms. <newblock><with|font-shape|italic|Comptes
         Rendus Mathematique>, 354(7):671\U676, 2016.
+
+        <bibitem*|Kna13><label|bib-knapp2013lie>Anthony<nbsp>W Knapp.
+        <newblock><with|font-shape|italic|Lie groups beyond an introduction>,
+        volume 140. <newblock>Springer Science & Business Media, 2013.
       </bib-list>
     </bibliography>
   </hide-part>
@@ -234,13 +372,27 @@
     <associate|2:fact-irreps-of-on|<tuple|2.1|?|#3>>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|2|2>>
-    <associate|auto-3|<tuple|2.1|?>>
+    <associate|auto-3|<tuple|3|?>>
+    <associate|auto-4|<tuple|3.1|?>>
+    <associate|auto-5|<tuple|3.2|?>>
+    <associate|auto-6|<tuple|Case b|?>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
-    <associate|auto.4-1|<tuple|2.1|?|#4>>
-    <associate|bib-howe2005stable|<tuple|HTW05|?|#4>>
-    <associate|bib-kobayashi2016classification|<tuple|KKP16|2|#4>>
+    <associate|auto.4-1|<tuple|3|?|#4>>
+    <associate|auto.4-2|<tuple|3.1|?|#4>>
+    <associate|auto.4-3|<tuple|3.2|?|#4>>
+    <associate|auto.4-4|<tuple|3.3|?|#4>>
+    <associate|auto.5-1|<tuple|3.3|?|#5>>
+    <associate|bib-boerner1963representations|<tuple|BMMKC63|?|#5>>
+    <associate|bib-goodman2000representations|<tuple|GW00|?|#5>>
+    <associate|bib-howe2005stable|<tuple|HTW05|?|#5>>
+    <associate|bib-knapp2013lie|<tuple|Kna13|?|#5>>
+    <associate|bib-kobayashi2016classification|<tuple|KKP16|2|#5>>
     <associate|fact-1|<tuple|1.1|?>>
+    <associate|footnote-3.1|<tuple|3.1|?|#4>>
+    <associate|footnote-3.2|<tuple|3.2|?|#4>>
+    <associate|footnr-3.1|<tuple|3.1|?|#4>>
+    <associate|footnr-3.2|<tuple|3.2|?|#4>>
   </collection>
 </references>
 
@@ -255,7 +407,13 @@
 
       howe2005stable
 
-      kobayashi2016classification
+      howe2005stable
+
+      knapp2013lie
+
+      goodman2000representations
+
+      boerner1963representations
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>First
@@ -266,9 +424,23 @@
       for differential forms> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>playground>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|3.1<space|2spc>Irreps of
+      <with|mode|<quote|math>|SO<around*|(|n|)>,O<around*|(|n|)>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4>>
+
+      <with|par-left|<quote|1tab>|3.2<space|2spc>Characters of irreps of
+      <with|mode|<quote|math>|SO<around*|(|N|)>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-5>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-6><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
