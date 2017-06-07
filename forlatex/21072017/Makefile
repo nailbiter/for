@@ -25,6 +25,10 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	du -hs $@
 	$(GITCOMMIT)
 
+$(OUTDIR)/slides.pdf : slides.tex diagram.tex
+	$(XELATEX) $<
+diagram.tex: diagram.scm
+	guile -e symbreakdiag $< > $@
 
 #standard rules
 %.eps: %.tex
