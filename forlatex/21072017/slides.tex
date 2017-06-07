@@ -1,0 +1,70 @@
+\documentclass[pdf,notes]{beamer}
+\mode<presentation>{\usetheme[secheader]{Boadilla}}
+
+\usepackage{mystyle}
+\includecomment{versiona}
+\usepackage{xeCJK}
+
+\newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
+
+\makeatletter
+\newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
+{\usebeamertemplate{proof end}}
+\makeatother
+
+\makeatletter
+\def\th@mystyle{%
+	\normalfont % body font
+	\setbeamercolor{block title example}{bg=orange,fg=white}
+	\setbeamercolor{block body example}{bg=orange!20,fg=black}
+	\def\inserttheoremblockenv{exampleblock}
+}
+\makeatother
+
+\theoremstyle{mystyle}
+\newtheorem{prop}{Proposition}
+
+\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
+
+\title{2つのゲーゲンバウアー多項式に関連する積分公式について\footnote{60 min talk}}
+
+% A subtitle is optional and this may be deleted
+
+\author[レオンチエフ・アレックス]{小林俊行\inst{1} \and \underline{レオンチエフ・アレックス}\inst{2}}
+
+\institute[東大] % (optional, but mostly needed)
+{
+  \inst{1}%
+  大学院数理科学研究科、カブリ数物連携宇宙研究機構\\
+  東京大学
+  \and
+  \inst{2}%
+  大学院数理科学研究科\\
+  東京大学
+  }
+
+  \date[表現論とその周辺分野の広がり]{RIMS共同研究（公開型）\\「表現論とその周辺分野の広がり」\\京都大学数理解析研究所}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{表現論}
+
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+
+\begin{frame}{Outline}
+	\tableofcontents
+\end{frame}
+\section{section}
+\begin{frame}
+	\begin{figure}[h]
+		\centering
+		\includegraphics{wanted.jpg}
+		\caption{wanted}
+		\label{fig:wanted}
+	\end{figure}
+\end{frame}
+\end{document}
+
+
