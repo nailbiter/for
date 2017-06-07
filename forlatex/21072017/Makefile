@@ -29,7 +29,7 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 #	guile --no-auto-compile -e intdepdiag $< > $@
 #slides.tex : 
 #	touch $@
-$(OUTDIR)/slides.pdf : slides.tex diagram.tex intdep.tex
+$(OUTDIR)/slides.pdf : slides.tex diagram.tex $(OUTDIR)/intdep.tex
 	$(XELATEX) $<
 diagram.tex: diagram.scm
 	guile -e symbreakdiag $< > $@
