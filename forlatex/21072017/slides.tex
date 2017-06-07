@@ -145,7 +145,7 @@
 \end{frame}
 \begin{frame}
 	In fact, we can do more:
-	\begin{prop}
+	\begin{prop}\label{prop:exp-stz-gg}
 		  \label{thm:4}For $\tmop{Re} \lambda, \tmop{Re} \mu > - \frac{1}{2}$,
 		    $\tmop{Re} (\nu) > 0$ and $0 \leqslant z \leqslant 1$ the following holds:
 		      \begin{eqnarray}
@@ -231,7 +231,7 @@
 \begin{frame}
 	Furthermore,
 	\begin{cor}
-		Taking $\ell=m=0$ in Proposition \ref{prop:int-st-gg} and taking $\lambda,\mu\to\infty$ we arrive at:
+		Taking $\ell=m=0$ in Proposition \ref{prop:exp-stz-gg} and taking $\lambda,\mu\to\infty$ we arrive at:
 		\begin{equation*}
 			\begin{array}[]{c}
 			\int_{- \infty}^{\infty} \int_{- \infty}^{\infty} | x - z y |^{2 \nu} e^{-
@@ -251,6 +251,9 @@
 \input{intdep.tex}
 \end{tikzpicture}
 \end{frame}
+\begin{frame}
+	Furthermore, making variable change in \eqref{eqn:int-st-gg} we can arrive at
+\end{frame}<++>
 \section{Proof}
 \begin{frame}{Method 1 (simple, direct)}
 	\begin{enumerate}
@@ -283,7 +286,7 @@
 		Suppose $f$ is an entire function defined on the right half-plane $\left\{ z\in\mathbb{C}\mid \Re(z)>0 \right\}$, such that:\begin{enumerate}
 			\item $\exists C,\tau>0$, such that $\myabs{f(z)}\le C e^{\tau\myabs{z}}$ for all $z$ in right half-plane;
 			\item $\exists C>0,c<\pi$, such that $\myabs{f(iy)}\le Ce^{c\myabs{y}}$ for all $y\in\R$;
-			\item $f$ vanishes on positive integers$\N_+$.
+			\item $f$ vanishes on positive integers $\N_+$.
 		\end{enumerate}
 		Then $f\equiv0$.
 	\end{fact}
