@@ -25,8 +25,8 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	du -hs $@
 	$(GITCOMMIT)
 
-intdep.tex: diagram.scm
-	guile --no-auto-compile -e intdepdiag $< > $@
+#intdep.tex: diagram.scm
+#	guile --no-auto-compile -e intdepdiag $< > $@
 slides.tex : diagram.tex intdep.tex
 	touch $@
 $(OUTDIR)/slides.pdf : slides.tex
