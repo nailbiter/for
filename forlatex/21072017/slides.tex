@@ -253,9 +253,12 @@
 \end{frame}
 \begin{frame}{Method 2 (simple, uses heavy machinery)}
 	\begin{fact}[Carlson's Theorem]
-		Suppose $f$ is an entire function defined on the right half-plane $\left\{ z\in\mathbb{C}<++>\mid \Re(z)>0 \right\}$, such that:\begin{enumerate}
-			\item 
-		\end{enumerate}<++>
+		Suppose $f$ is an entire function defined on the right half-plane $\left\{ z\in\mathbb{C}\mid \Re(z)>0 \right\}$, such that:\begin{enumerate}
+			\item $\exists C,\tau>0$, such that $\myabs{f(z)}\le C e^{\tau\myabs{z}}$ for all $z$ in right half-plane;
+			\item $\exists C>0,c<\pi$, such that $\myabs{f(iy)}\le Ce^{c\myabs{y}}$ for all $y\in\R$;
+			\item $f$ vanishes on positive integers$\N_+$.
+		\end{enumerate}
+		Then $f\equiv0$.
 	\end{fact}
 \end{frame}
 \begin{frame}[allowframebreaks]{References}
