@@ -15,7 +15,7 @@
 \setbeamertemplate{theorems}[numbered] 
 
 \usepackage{tikz}
-\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{shapes,arrows,patterns}
 \renewcommand{\implies}{\Rightarrow}
 \newcommand{\Sol}{\mathcal{S}\mbox{ol}}
 \newcommand{\Ind}{\mbox{\normalfont Ind}}
@@ -218,12 +218,60 @@
 	\end{prop}
 \end{frame}
 \section{What does it have to do with?}
-\begin{frame}
+\begin{frame}[fragile]{Hierarchy}
+\begin{tikzpicture}
+\input{intdep.tex}
+\end{tikzpicture}
+%%\begin{dot2tex}[mathmode,dot,scale=0.45]
+%%  digraph G {
+%%	  {rank=same War10 DF85 TV03 KLg}
+%%	  {rank=same KL S}
+%%	  {rank=same KLp}
+%%	  {rank=same TV03p War10pp Spp DF85pp}
+%%	  War10 -> S
+%%	  DF85 -> S
+%%	  S -> Spp 
+%%	  TV03 -> S 
+%%	  War10 -> War10pp 
+%%	  KLp -> Spp  
+%%	  KLp -> War10pp
+%%	  TV03 -> TV03p 
+%%	  KLp -> TV03p 
+%%	  KL -> KLp [label=" ",texlbl="$\mbox{\Huge l=m=0}$"];
+%%	  DF85 -> DF85pp
+%%	  KLp -> DF85pp
+%%	  KLg -> KL 
+%%
+%%    KLp [label="",shape="circle",color="red",style="filled"];
+%%    KLg [shape="box",label="{\mbox{\Huge\color{red}{K-L}}}",color="red"];
+%%    KL [shape="box",label="{\mbox{\Huge \color{red}{Proposition}}}",color="red"];
+%%    S [shape="box",label="\mbox{\Huge[Selberg'44]}"];
+%%    War10 [shape="box",label="\mbox{\Huge[Warnaar]}"];
+%%    DF85 [shape="box",label="\mbox{\Huge Dotsenko-Fateev'85}"];
+%%    TV03 [shape="box",label="\mbox{\Huge Tarasov-Varchenko'03}"];
+%%    Spp [shape="point"];
+%%    War10pp [shape="point"];
+%%    TV03p [shape="point"];
+%%    DF85pp [shape="point"];
+%%    }
+%%\end{dot2tex}
 \end{frame}
 \section{Proof}
 \begin{frame}{Method 1 (simple, direct)}
 
 \end{frame}
+\begin{frame}[allowframebreaks]{References}
+	\bibliographystyle{apalike}
+	\nocite{Selberg:411367}
+	\nocite{warnaar2010sl3}
+	\nocite{dotsenko1985four}
+	\nocite{tarasov2003selberg}
+	\nocite{kobayashi2015symmetry}
+	\nocite{kobayashi2015differential2}
+	\nocite{kobayashi2016differential1}
+	\nocite{kobayashi2014classification}
+	\nocite{kobayashi2013finite}
+	\nocite{kobayashi2015program}
+\bibliography{intdep}
+\end{frame}
 \end{document}
-
-
