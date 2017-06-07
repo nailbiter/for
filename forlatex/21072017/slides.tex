@@ -199,6 +199,7 @@
 \begin{frame}
 	Proposition \ref{prop:exp-st-gg} is equivalent to the integral equality
 	\begin{prop}
+		\label{prop:int-st-gg}
 		\begin{equation*}
 			\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
 			(1 - t^2)^{\mu - \frac{1}{2}} C_l^{\lambda} (s) C_m^{\mu} (t) d s d t
@@ -222,44 +223,20 @@
 \begin{tikzpicture}
 \input{intdep.tex}
 \end{tikzpicture}
-
-%%\begin{dot2tex}[mathmode,dot,scale=0.45]
-%%  digraph G {
-%%	  {rank=same War10 DF85 TV03 KLg}
-%%	  {rank=same KL S}
-%%	  {rank=same KLp}
-%%	  {rank=same TV03p War10pp Spp DF85pp}
-%%	  War10 -> S
-%%	  DF85 -> S
-%%	  S -> Spp 
-%%	  TV03 -> S 
-%%	  War10 -> War10pp 
-%%	  KLp -> Spp  
-%%	  KLp -> War10pp
-%%	  TV03 -> TV03p 
-%%	  KLp -> TV03p 
-%%	  KL -> KLp [label=" ",texlbl="$\mbox{\Huge l=m=0}$"];
-%%	  DF85 -> DF85pp
-%%	  KLp -> DF85pp
-%%	  KLg -> KL 
-%%
-%%    KLp [label="",shape="circle",color="red",style="filled"];
-%%    KLg [shape="box",label="{\mbox{\Huge\color{red}{K-L}}}",color="red"];
-%%    KL [shape="box",label="{\mbox{\Huge \color{red}{Proposition}}}",color="red"];
-%%    S [shape="box",label="\mbox{\Huge[Selberg'44]}"];
-%%    War10 [shape="box",label="\mbox{\Huge[Warnaar]}"];
-%%    DF85 [shape="box",label="\mbox{\Huge Dotsenko-Fateev'85}"];
-%%    TV03 [shape="box",label="\mbox{\Huge Tarasov-Varchenko'03}"];
-%%    Spp [shape="point"];
-%%    War10pp [shape="point"];
-%%    TV03p [shape="point"];
-%%    DF85pp [shape="point"];
-%%    }
-%%\end{dot2tex}
 \end{frame}
 \section{Proof}
 \begin{frame}{Method 1 (simple, direct)}
-
+	\begin{enumerate}
+		\item It suffices to show Proposition \ref{prop:int-st-gg};
+		\item In fact, \eqref{eqn:int-st-gg} follows from the special case $l=m=0$:
+			\begin{equation*}
+				\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
+				(1 - t^2)^{\mu - \frac{1}{2}} d s d t = \frac{\pi^{\frac{1}{2}} \Gamma \left(
+				\lambda + \frac{1}{2} \right) \Gamma \left( \mu + \frac{1}{2} \right) \Gamma
+				\left( \nu + \frac{1}{2} \right) \Gamma (\lambda + \mu + 2 \nu + 1)}{\Gamma
+				(\lambda + \nu + 1) \Gamma (\mu + \nu + 1) \Gamma (\lambda + \mu + \nu + 1)}
+			\end{equation*}
+	\end{enumerate}<++>
 \end{frame}
 \begin{frame}[allowframebreaks]{References}
 	\bibliographystyle{apalike}
