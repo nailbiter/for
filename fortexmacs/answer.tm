@@ -1098,6 +1098,10 @@
   this holds for all <math|\<lambda\>\<in\>B<around*|(|p,q|)>>
   (<math|\<lambda\>\<in\>B<around*|(|q,p|)>>).
 
+  <\question>
+    \;
+  </question>
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
@@ -1168,7 +1172,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|23>>
     <associate|auto-2|<tuple|2|23>>
-    <associate|auto-3|<tuple|24|24>>
+    <associate|auto-3|<tuple|25|24>>
     <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|24>>
     <associate|bib-howe1993homogeneous|<tuple|HT93|25>>
