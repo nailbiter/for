@@ -5,7 +5,7 @@ ZIPNAME=RIMSslides
 WORKON=https://trello.com/c/qQLQN4Rn
 COMMIT_PREFIX=tex RIMStalk
 PDFS=slides speech
-AUX=intdep.tex diagram.tex
+AUX=
 #https://previews.123rf.com/images/aelita2/aelita21008/aelita2100800038/7524873-antique-page-wanted-dead-or-alive-vintage-wanted-poster-Stock-Photo.jpg
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
