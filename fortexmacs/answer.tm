@@ -1111,7 +1111,21 @@
     <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;1|)>=<frac|\<Gamma\><around*|(|c|)>\<Gamma\><around*|(|c-a-b|)>|\<Gamma\><around*|(|c-a|)>\<Gamma\><around*|(|c-b|)>>.
   </equation*>
 
-  Now, assumptions of Proposition 2 are:
+  Now, the hypotheses of Proposition 2 are:
+  <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>,
+  while the hypergeometric function appearing there is
+
+  <\equation*>
+    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;z<rsup|2>|)>,
+  </equation*>
+
+  hence we have
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|Re<around*|(|<around*|(|\<mu\>+m+1|)>-<around*|(|<frac|l+m|2>-\<nu\>|)>-<around*|(|<frac|m-l|2>-\<nu\>-\<lambda\>|)>|)>>|<cell|>>|<row|<cell|>|<cell|=Re<around*|(|\<mu\>+1+2\<nu\>+\<lambda\>|)>\<gtr\>-<frac|1|2>+1+0+<around*|(|-<frac|1|2>|)>=0,>|<cell|>>>>
+  </eqnarray>
+
+  hence everything is ok.
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
