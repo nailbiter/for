@@ -329,8 +329,18 @@
 \end{frame}
 \begin{frame}{Method 3 (harder, direct)}
 	\begin{itemize}
-		\item Prove Proposition \ref{prop:exp-stz-gg}
-	\end{itemize}<++>
+		\item Prove (the integral form of) Proposition \ref{prop:exp-stz-gg}
+			using the equality \begin{equation}
+				\int_{- 1}^1 \int_{- 1}^1 | s - t z |^{2 c - 1} (1 - s^2)^{a - 1} (1 -
+				t^2)^{b - 1} d s d t = \frac{\sqrt{\pi} \Gamma (a) \Gamma (b) \Gamma
+			(c)}{\Gamma (a + c) \Gamma \left( b + \frac{1}{2} \right)} _2 F_1 \left(
+			\begin{array}{c}
+				  - c + \frac{1}{2}, - a - c + 1\\
+				    b + \frac{1}{2}
+			    \end{array} ; z^2 \right) .
+				\label{eqn:prop21}
+			\end{equation}
+	\end{itemize}
 \end{frame}<++>
 \begin{frame}[allowframebreaks]{References}
 	\bibliographystyle{apalike}
