@@ -1099,8 +1099,19 @@
   (<math|\<lambda\>\<in\>B<around*|(|q,p|)>>).
 
   <\question>
-    \;
+    Verify that Proposition 2 in <samp|slides.pdf> is correct when <math|z=1>
+    (i.e. that assumption on parameters implies that
+    <math|<rsub|2>F<rsub|1><around*|(|;1|)>> convervges)
   </question>
+
+  Indeed, we recall that provided <math|Re<around*|(|c|)>\<gtr\>Re<around*|(|a+b|)>>
+  we have
+
+  <\equation*>
+    <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;1|)>=<frac|\<Gamma\><around*|(|c|)>\<Gamma\><around*|(|c-a-b|)>|\<Gamma\><around*|(|c-a|)>\<Gamma\><around*|(|c-b|)>>.
+  </equation*>
+
+  Now, assumptions of Proposition 2 are:
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|War10>
