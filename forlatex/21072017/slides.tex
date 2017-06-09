@@ -385,17 +385,26 @@ TODO (speech):\begin{enumerate}
 	\end{enumerate}
 \end{frame}
 \note{TODO (slides):\begin{enumerate}
-\item are the word ``harder/easy'' appropriate?
+\item are the words ``harder/easy'' appropriate?
 \item elaborate about the transformation formula we used
 \item make this the fourth step;
 \item put the emphasize on the fourth step, do not spend so much space on third step;
 \end{enumerate}}
 \begin{frame}{Method 4 (easy, direct)\footnote{I am starting to think that this method is the same as Method 1}}
-	We prove the Proposition \ref{prop:int-st-gg} directly:
+	We prove the Proposition \ref{prop:int-st-gg} (with $t$ replaced by $-t$) directly:
 	\begin{enumerate}
-		\item We first take the inner integral \cite{kobayashi2011schrodinger}
+		\item We first take the inner integral, using the formula \cite[7.4.11]{kobayashi2011schrodinger}
+			\begin{equation*}
+				\int_{-x}^1(x+y)^\lambda \tilde{C}_k^\nu(y)(1-y^2)^{\nu-\frac{1}{2}}dy=\frac{\sqrt{\pi}\Gamma(2\nu+k)\Gamma(\lambda+1)}{2^{\nu-\frac{1}{2}}k!}
+				(1-x^2)^{\frac{\lambda}{2}+\frac{\nu}{2}+\frac{1}{4}}P_{\nu+k-\frac{1}{2}}^{-\lambda-\nu-\frac{1}{2}}(-x).
+			\end{equation*}
+			where $P_{\nu+k-\frac{1}{2}}^{-\lambda-\nu-\frac{1}{2}}(-x)$ is the associated Legendre function. 
 	\end{enumerate}
 \end{frame}
+\note{TODO (slides):\begin{enumerate}
+	\item change normalization of Gegenbauer polynomial in first step's formula; change parameters and variables' names
+\end{enumerate}
+}
 \begin{frame}[allowframebreaks]{References}
 	\bibliographystyle{apalike}
 	\nocite{Selberg:411367}
