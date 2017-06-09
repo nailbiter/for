@@ -1196,13 +1196,21 @@
 
   <\equation*>
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|<frac|1|2>>U<rsub|l><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|-<frac|1|2>>T<rsub|m><around*|(|t|)>d
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsup|-1><around*|(|1-s<rsup|2>|)><rsup|<frac|1|2>>U<rsub|l><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|-<frac|1|2>>T<rsub|m><around*|(|t|)>d
       s d t>|<cell|>>|<row|<cell|>|<cell|<frac|\<pi\>l<around*|(|-1|)><rsup|<frac|l-m-1|2>>|4<around*|(|<frac|l-m|2>+<frac|1|2>|)>\<Gamma\><around*|(|<frac|1|2>-<frac|l+m|2>|)>\<Gamma\><around*|(|<frac|3|2>+<frac|l+m|2>|)>>.<eq-number><label|eqn:q26-3>>|<cell|>>>>
     </eqnarray>
   </equation*>
 
   On the other hand, the latter can be obtained by using formulae from
-  <cite|gradshteinryzhik>.
+  <cite|gradshteinryzhik>. More precisely, we use
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsup|-1><around*|(|1-s<rsup|2>|)><rsup|<frac|1|2>>U<rsub|l><around*|(|s|)>d
+    s=-\<pi\>T<rsub|l+1><around*|(|t|)>>|<cell|EH II
+    187(48)>>|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-t<rsup|2>|)><rsup|-<frac|1|2>>T<rsub|m><around*|(|t|)>T<rsub|n><around*|(|t|)>d
+    t=<choice|<tformat|<table|<row|<cell|0,>|<cell|m\<neq\>n,>>|<row|<cell|<frac|\<pi\>|2>,>|<cell|m=n\<gtr\>0,>>|<row|<cell|\<pi\>,>|<cell|m=n=0.>>>>>>|<cell|MO
+    104>>>>
+  </eqnarray>
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|GRJ00>
