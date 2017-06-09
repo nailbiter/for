@@ -851,7 +851,7 @@
       s d t>|<cell|>>>>
     </eqnarray>
 
-    for <math|l+m> odd. It is computed similarly to the proof of Theorem 1.1
+    for <math|l+m:> odd. It is computed similarly to the proof of Theorem 1.1
     in <samp|intpaper.pdf> and is essentially Rodrigues formula for
     Gegenbauer polynomials, integration by parts and Proposition 2.1 from
     <samp|intpaper.pdf>.
@@ -1127,13 +1127,100 @@
 
   hence everything is ok.
 
+  <\question>
+    Which special cases of Proposition 3 from <samp|slides.pdf> are known
+    when <math|l,m\<gtr\>0>?
+  </question>
+
+  \;
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>sgn<rsup|<frac|1\<pm\>1|2>><around*|(|s+
+    t|)>=<big|sum><rsub|l,m=0\<mid\>l+m\<equiv\><frac|1\<pm\>1|2>mod
+    2><rsup|\<infty\>>a<rsub|l,m>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|l,m>=<frac|<around*|(|\<lambda\>+l|)><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)><around*|(|1+\<nu\>|)><rsub|-<frac|l+m|2>>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>>.>|<cell|>>>>
+  </eqnarray>
+
+  Indeed, the equivalent form of Proposition 3 (with
+  <math|<around*|\||s-t|\|><rsup|2\<nu\>>> replaced by
+  <math|<around*|\||s-t|\|><rsup|2\<nu\>>sgn<around*|(|s-t|)>=:<around*|(|s-t|)><rsup|2\<nu\>>>)
+  is
+
+  <\equation*>
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsup|\<lambda\>><rsub|l><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|1+\<nu\>|)><around*|(|2\<mu\>|)><rsub|m><around*|(|2\<lambda\>|)><rsub|l>|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|1+\<nu\>-<frac|l+m|2>|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>m!l!><eq-number>.<label|eqn:q26-1>>|<cell|>>>>
+    </eqnarray>
+  </equation*>
+
+  \;
+
+  \;
+
+  \;
+
+  Now, we recall the definitons of Chebyshev polynomials of first and second
+  kind:
+
+  <\equation*>
+    <stack|<tformat|<table|<row|<cell|T<rsub|n><around*|(|x|)>\<assign\><frac|n|2>lim<rsub|q\<rightarrow\>0><frac|1|q>C<rsup|q><rsub|n><around*|(|x|)>,>>|<row|<cell|U<rsub|n><around*|(|x|)>\<assign\>C<rsup|1><rsub|n>.>>>>>
+  </equation*>
+
+  Hence, if we take <math|\<lambda\>=1> in <math|<eqref|eqn:q26-1>>, we get
+
+  <\equation*>
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|<frac|1|2>>U<rsub|l><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+2\<nu\>+2|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|1+\<nu\>|)><around*|(|2\<mu\>|)><rsub|m>l|\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+2|)>\<Gamma\><around*|(|1+\<nu\>-<frac|l+m|2>|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+<frac|l+m|2>+2|)>4m!>>|<cell|>>>>
+    </eqnarray>
+  </equation*>
+
+  Next, dividing by <math|\<mu\>> and taking <math|\<mu\>\<rightarrow\>0> we
+  arrive at
+
+  <\equation*>
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|<frac|1|2>>U<rsub|l><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|-<frac|1|2>>T<rsub|m><around*|(|t|)>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|2\<nu\>+2|)><sqrt|\<pi\>|>\<Gamma\><around*|(|1+\<nu\>|)>l|4\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+2|)>\<Gamma\><around*|(|1+\<nu\>-<frac|l+m|2>|)>\<Gamma\><around*|(|\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<nu\>+<frac|l+m|2>+2|)>>.>|<cell|>>>>
+    </eqnarray>
+  </equation*>
+
+  Next, taking <math|l\<gtr\>m> for definitness (logic goes through with
+  <math|l\<leqslant\>m> as well, with minor modifications) we arrive at
+
+  \ 
+
+  <\equation*>
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|<frac|1|2>>U<rsub|l><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|-<frac|1|2>>T<rsub|m><around*|(|t|)>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|2\<nu\>+2|)><sqrt|\<pi\>|>\<Gamma\><around*|(|1+\<nu\>|)>l|4\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+2|)>\<Gamma\><around*|(|\<nu\>-<frac|l-m-1|2>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<nu\>+<frac|l+m|2>+2|)>>>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|<frac|1|2>-\<nu\>|)><rsub|<frac|l-m-1|2>>\<Gamma\><around*|(|2\<nu\>+2|)><sqrt|\<pi\>|>\<Gamma\><around*|(|1+\<nu\>|)>l<around*|(|-1|)><rsup|<frac|l-m-1|2>>|4\<Gamma\><around*|(|\<nu\>+<frac|l-m|2>+2|)>\<Gamma\><around*|(|1+\<nu\>-<frac|l+m|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|l+m|2>+2|)>>.>|<cell|>>>>
+    </eqnarray>
+  </equation*>
+
+  Taking <math|\<nu\>=-1/2> in the latter equality, we arrive at
+
+  <\equation*>
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t|)><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|<frac|1|2>>U<rsub|l><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|-<frac|1|2>>T<rsub|m><around*|(|t|)>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|<frac|\<pi\>l<around*|(|-1|)><rsup|<frac|l-m-1|2>>|4<around*|(|<frac|l-m|2>+<frac|1|2>|)>\<Gamma\><around*|(|<frac|1|2>-<frac|l+m|2>|)>\<Gamma\><around*|(|<frac|3|2>+<frac|l+m|2>|)>>.<eq-number><label|eqn:q26-3>>|<cell|>>>>
+    </eqnarray>
+  </equation*>
+
+  On the other hand, the latter can be obtained by using formulae from
+  <cite|gradshteinryzhik>.
+
   <\bibliography|bib|alpha|intdep.bib>
-    <\bib-list|War10>
+    <\bib-list|GRJ00>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
       Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions and
       the operator algebra in 2d conformal invariant theories with central
       charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
       Physics B>, 251:691\U734, 1985.
+
+      <bibitem*|GRJ00><label|bib-gradshteinryzhik>I.S.
+      Gradshte<math|<wide|<text|\Y>|\<breve\>>>n, I.M. Ryzhik, and
+      A.<nbsp>Jeffrey. <newblock><with|font-shape|italic|Table of Integrals,
+      Series, and Products, Sixth edition>. <newblock>Academic Press, New
+      York, 2000.
 
       <bibitem*|HT93><label|bib-howe1993homogeneous>R.<nbsp>E. Howe and E.-C.
       Tan. <newblock>Homogeneous functions on light cones: the infinitesimal
@@ -1197,9 +1284,10 @@
   <\collection>
     <associate|auto-1|<tuple|1|23>>
     <associate|auto-2|<tuple|2|23>>
-    <associate|auto-3|<tuple|25|24>>
+    <associate|auto-3|<tuple|13|24>>
     <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|24>>
+    <associate|bib-gradshteinryzhik|<tuple|GRJ00|?>>
     <associate|bib-howe1993homogeneous|<tuple|HT93|25>>
     <associate|bib-keiner2009computing|<tuple|Kei09|?>>
     <associate|bib-kobayashi2011schrodinger|<tuple|KM11|25>>
@@ -1220,6 +1308,9 @@
     <associate|eqn:20-beplus|<tuple|10|24>>
     <associate|eqn:herm1|<tuple|6|14>>
     <associate|eqn:main|<tuple|7|18>>
+    <associate|eqn:q26-1|<tuple|12|?>>
+    <associate|eqn:q26-2|<tuple|13|?>>
+    <associate|eqn:q26-3|<tuple|13|?>>
     <associate|eqn:thm1|<tuple|5|8>>
     <associate|fig:howetan2d31|<tuple|1|23>>
     <associate|fig:howetan2d32|<tuple|2|23>>
@@ -1322,6 +1413,8 @@
       howe1993homogeneous
 
       KO2
+
+      gradshteinryzhik
     </associate>
     <\associate|figure>
       <tuple|normal|Howe-Tan, diagram 2.31|<pageref|auto-1>>
