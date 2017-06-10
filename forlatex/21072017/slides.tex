@@ -396,7 +396,13 @@ TODO (speech):\begin{enumerate}
 				\begin{array}{c}
 					  \frac{1 - d - i}{2}, \frac{2 - d - i}{2}\\
 					    b + \frac{1}{2}
-				    \end{array} ; \zeta \right) = \frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma
+				    \end{array} ; \zeta \right) = 
+				    \sum_{j = 0}^{\infty} \frac{(1 - d)_{2 j} \zeta^j}{2^{2 j} j! \left( b +
+				    \frac{1}{2} \right)_j} _2 F_1 \left( \begin{array}{c}
+					      a, 1 - a\\
+					        d - 2 j
+					\end{array} ; \frac{1}{2} \right) 
+				    =\frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma
 					    \left( \frac{a + d}{2} \right) \Gamma \left( \frac{1 - a + d}{2} \right)} {}_2
 					    F_1 \left( \begin{array}{c}
 						      1 - \frac{a + d}{2}, \frac{1 + a - d}{2}\\
