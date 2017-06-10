@@ -366,7 +366,7 @@ TODO (speech):\begin{enumerate}
 		\item %\label{enum:m4-1}
 			Prove (the integral form of) Proposition \ref{prop:exp-stz-gg}
 			using the equality {\scriptsize \begin{equation}
-				\kern-1.5cm \int_{- 1}^1 \int_{- 1}^1 | s - t z |^{2 c - 1} (1 - s^2)^{a - 1} (1 -
+				\kern-1.5cm 2\int_{- 1}^1 \int_{- 1}^1 \left( s-tz \right)^{2c-1}  (1 - s^2)^{a - 1} (1 -
 				t^2)^{b - 1} d s d t = \frac{\sqrt{\pi} \Gamma (a) \Gamma (b) \Gamma
 			(c)}{\Gamma (a + c) \Gamma \left( b + \frac{1}{2} \right)} _2 F_1 \left(
 			\begin{array}{c}
@@ -375,28 +375,29 @@ TODO (speech):\begin{enumerate}
 			    \end{array} ; z^2 \right) .
 				\label{eqn:prop21}
 			\end{equation}}
-		\item In turn, \eqref{eqn:prop21} is proven via the equality {\scriptsize \begin{equation}
-				\kern-1.5cm \int_{-1}^1(1-t z)^{a-1}(1-t^2)^{b-1}d t=B\left(\frac{1}{2},b  \right)\ {}_2F_1\left( 
-				\begin{array}[]{c}
-					\frac{1-a}{2},\frac{2-a}{2}\\b+\frac{1}{2}
-				\end{array}
-				;z^2 \right),
-				\label{eqn:lem31}
-			\end{equation}}
-			Euler's integral and the transformation formula for $_2F_1$ hypergeometric which we derived.
-		\item \begin{equation}
-				\sum_{i = 0}^{\infty} \frac{(a)_i (1 - a)_i}{2^i i! (d)_i} _2 F_1 \left(
-				\begin{array}{c}
-					  \frac{1 - d - i}{2}, \frac{2 - d - i}{2}\\
-					    b + \frac{1}{2}
-				    \end{array} ; \zeta \right) = \frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma
-					    \left( \frac{a + d}{2} \right) \Gamma \left( \frac{1 - a + d}{2} \right)} _2
-					    F_1 \left( \begin{array}{c}
-						      1 - \frac{a + d}{2}, \frac{1 + a - d}{2}\\
-						        b + \frac{1}{2}
-						\end{array} ; \zeta \right) .
-						\label{eqn:lem32}
-			\end{equation}
+		\item 
+%%		\item In turn, \eqref{eqn:prop21} is proven via the equality {\scriptsize \begin{equation}
+%%				\kern-1.5cm \int_{-1}^1(1-t z)^{a-1}(1-t^2)^{b-1}d t=B\left(\frac{1}{2},b  \right)\ {}_2F_1\left( 
+%%				\begin{array}[]{c}
+%%					\frac{1-a}{2},\frac{2-a}{2}\\b+\frac{1}{2}
+%%				\end{array}
+%%				;z^2 \right),
+%%				\label{eqn:lem31}
+%%			\end{equation}}
+%%			Euler's integral and the transformation formula for $_2F_1$ hypergeometric which we derived.
+%%		\item \begin{equation}
+%%				\sum_{i = 0}^{\infty} \frac{(a)_i (1 - a)_i}{2^i i! (d)_i} _2 F_1 \left(
+%%				\begin{array}{c}
+%%					  \frac{1 - d - i}{2}, \frac{2 - d - i}{2}\\
+%%					    b + \frac{1}{2}
+%%				    \end{array} ; \zeta \right) = \frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma
+%%					    \left( \frac{a + d}{2} \right) \Gamma \left( \frac{1 - a + d}{2} \right)} _2
+%%					    F_1 \left( \begin{array}{c}
+%%						      1 - \frac{a + d}{2}, \frac{1 + a - d}{2}\\
+%%						        b + \frac{1}{2}
+%%						\end{array} ; \zeta \right) .
+%%						\label{eqn:lem32}
+%%			\end{equation}
 	\end{enumerate}
 \end{frame}
 \note{TODO (slides):\begin{enumerate}
