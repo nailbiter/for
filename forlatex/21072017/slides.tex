@@ -245,11 +245,9 @@ TODO (speech):\begin{enumerate}
 \end{enumerate}}
 \section{Proof}
 \begin{frame}{Method 1 (direct)}
+	We show Proposition \ref{prop:int-st-gg} as:
 	\begin{enumerate}
-		\item It suffices to show Proposition \ref{prop:int-st-gg};
 		\item In fact, \eqref{eqn:int-st-gg} follows from the special case $\ell=m=0$:
-			{
-				\scriptsize
 			\begin{equation*}
 				\kern-1cm\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
 				(1 - t^2)^{\mu - \frac{1}{2}} d s d t = \frac{\pi^{\frac{1}{2}} \Gamma \left(
@@ -257,7 +255,6 @@ TODO (speech):\begin{enumerate}
 				\left( \nu + \frac{1}{2} \right) \Gamma (\lambda + \mu + 2 \nu + 1)}{\Gamma
 				(\lambda + \nu + 1) \Gamma (\mu + \nu + 1) \Gamma (\lambda + \mu + \nu + 1)}
 			\end{equation*}
-		}
 		via integration by parts;
 		\item Upon change of variables $w=s-t$, the inner integral (in $w$) can be evaluated via \cite[ET II 186(9)]{gradshteinryzhik}:
 		{\scriptsize
