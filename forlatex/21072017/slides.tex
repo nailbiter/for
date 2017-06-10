@@ -257,6 +257,19 @@ TODO (speech):\begin{enumerate}
 					\kern-0.2cm| s - t |^{2 \nu} \frac{\partial^l}{\partial s^l}(1-s^2)^{\lambda+l-\frac{1}{2}}\frac{\partial^m}{\partial t^m}(1-t^2)^{\mu+m-\frac{1}{2}}
 					\kern-0.1cm=(-1)^m(-2\nu)_{l+m}\kern-0.2cm\iint_{[-1,1]^2}\kern-0.8cm\myabs{s-t}^{2\nu-l-m}(1-s^2)^{\lambda+n-\frac{1}{2}}(1-t^2)^{\mu+m-\frac{1}{2}};
 				\end{equation*}
+		\item Upon change of variables $w=s-t$, the inner integral (in $w$) can be evaluated via Euler's integral representation of hypergeometric function;
+%%			via \cite[ET II 186(9)]{gradshteinryzhik}:
+%%		\begin{equation*}
+%%			\kern-1cm\int_0^u x^{\nu - 1} (x + \alpha)^{\lambda} (u - x)^{\mu - 1} d x =
+%%			\alpha^{\lambda} u^{\mu + \nu - 1} B (\mu, \nu)_2 F_1 \left( - \lambda, \nu ;
+%%			\mu + \nu ; - \frac{u}{\alpha} \right);
+%%		\end{equation*}
+	\item Taking the outer integral, we arrive at hypergeometric $_3F_2(;1)$ function which simplifies via Whipple's sum:\begin{equation*}
+		\kern-1cm{}_{3}F_{2}\left({a,1-a,c\atop d,2c-d+1};1\right)=\frac{\pi\Gamma\left(d%
+				\right)\Gamma\left(2c-d+1\right)2^{1-2c}}{\Gamma\left(c+\frac{1}{2}(a-d+1)%
+				\right)\Gamma\left(c+1-\frac{1}{2}(a+d)\right)\Gamma\left(\frac{1}{2}(a+d)%
+			\right)\Gamma\left(\frac{1}{2}(d-a+1)\right)},
+		\end{equation*}
 	\end{enumerate}
 \end{frame}
 \begin{frame}{Method 1 (direct)}
