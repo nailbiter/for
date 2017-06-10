@@ -254,7 +254,7 @@ TODO (speech):\begin{enumerate}
 \item Fock表現のK-typeの具体的表示に関連して、セミナー中にかなり丁寧に説明しました。
 \end{enumerate}}
 \section{Proof}
-\begin{frame}{Method 1 (direct)}
+\begin{frame}{Method 1 (direct) (1/2)}
 	\scriptsize
 	We show Proposition \ref{prop:int-st-gg} as:
 	\begin{enumerate}
@@ -311,30 +311,19 @@ TODO (speech):\begin{enumerate}
 		\end{equation*}
 	\end{enumerate}
 \end{frame}
-\begin{frame}{Method 1 (direct)}
+\begin{frame}{Method 1 (direct) (2/2)}
 	\scriptsize
-	We show Proposition \ref{prop:int-st-gg} as:
+	$\cdots$
 	\begin{enumerate}
-		\item In fact, \eqref{eqn:int-st-gg} follows from the special case $\ell=m=0$:
+			\setcounter{enumi}{2}
+	\item Expanding the ${}_2 F_1 \left( \kern-0.2cm\begin{array}{c}
+					\frac{1}{2}-l-\lambda, 2\nu-l-m+1\\
+					2 \nu+\lambda-m+\frac{3}{2}
+				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)$ in series and using the beta integral, we see that $\mbox{RHS}\eqref{eqn:m1-2}$
+				is proportional to hypergeometric ${}_3F_2(;1)$;
+			\item Finally, hypergeometric ${}_3F_2(;1)$ is expressed as ratio of Gamma functions via the Whipple's sum
+			\vspace{-0.2cm}
 			\begin{equation*}
-				\kern-1cm\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
-				(1 - t^2)^{\mu - \frac{1}{2}} d s d t = \frac{\pi^{\frac{1}{2}} \Gamma \left(
-				\lambda + \frac{1}{2} \right) \Gamma \left( \mu + \frac{1}{2} \right) \Gamma
-				\left( \nu + \frac{1}{2} \right) \Gamma (\lambda + \mu + 2 \nu + 1)}{\Gamma
-				(\lambda + \nu + 1) \Gamma (\mu + \nu + 1) \Gamma (\lambda + \mu + \nu + 1)}
-			\end{equation*}
-			via integration by parts, due to the property of Gegenbauer polynomials:\begin{equation*}
-				(1-x^2)^{\alpha-\frac{1}{2}}C_n^\alpha(x)=\frac{(-1)^n}{2^nn!}\frac{\Gamma\left( \alpha+\frac{1}{2} \right)\Gamma\left( n+2\alpha \right)}{\Gamma(2\alpha)\Gamma\left(\alpha+n+\frac{1}{2}  \right)}
-				\frac{d^n}{dx^n}\left[ (1-x^2)^{n+\alpha-\frac{1}{2}} \right]
-			\end{equation*}
-		\item Upon change of variables $w=s-t$, the inner integral (in $w$) can be evaluated via Euler's integral representation of ${}_2F_1$;
-%%			via \cite[ET II 186(9)]{gradshteinryzhik}:
-%%		\begin{equation*}
-%%			\kern-1cm\int_0^u x^{\nu - 1} (x + \alpha)^{\lambda} (u - x)^{\mu - 1} d x =
-%%			\alpha^{\lambda} u^{\mu + \nu - 1} B (\mu, \nu)_2 F_1 \left( - \lambda, \nu ;
-%%			\mu + \nu ; - \frac{u}{\alpha} \right);
-%%		\end{equation*}
-	\item Taking the outer integral, we arrive at hypergeometric $_3F_2(;1)$ function which simplifies via Whipple's sum:\begin{equation*}
 		\kern-1cm{}_{3}F_{2}\left({a,1-a,c\atop d,2c-d+1};1\right)=\frac{\pi\Gamma\left(d%
 				\right)\Gamma\left(2c-d+1\right)2^{1-2c}}{\Gamma\left(c+\frac{1}{2}(a-d+1)%
 				\right)\Gamma\left(c+1-\frac{1}{2}(a+d)\right)\Gamma\left(\frac{1}{2}(a+d)%
