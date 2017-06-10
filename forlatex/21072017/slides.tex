@@ -258,16 +258,19 @@ TODO (speech):\begin{enumerate}
 			\end{equation*}
 			via integration by parts, due to the property of Gegenbauer polynomials:\begin{equation*}
 				E=mc^2
-			\end{equation*}<++>
+			\end{equation*}
 		\item Upon change of variables $w=s-t$, the inner integral (in $w$) can be evaluated via \cite[ET II 186(9)]{gradshteinryzhik}:
-		{\scriptsize
 		\begin{equation*}
 			\kern-1cm\int_0^u x^{\nu - 1} (x + \alpha)^{\lambda} (u - x)^{\mu - 1} d x =
 			\alpha^{\lambda} u^{\mu + \nu - 1} B (\mu, \nu)_2 F_1 \left( - \lambda, \nu ;
 			\mu + \nu ; - \frac{u}{\alpha} \right);
 		\end{equation*}
-	}
-\item Taking the outer integral, we arrive at hypergeometric $_3F_2(;1)$ function which simplifies via Whipple's sum.
+	\item Taking the outer integral, we arrive at hypergeometric $_3F_2(;1)$ function which simplifies via Whipple's sum:\begin{equation*}
+		{}_{3}F_{2}\left({a,1-a,c\atop d,2c-d+1};1\right)=\frac{\pi\Gamma\left(d%
+				\right)\Gamma\left(2c-d+1\right)2^{1-2c}}{\Gamma\left(c+\frac{1}{2}(a-d+1)%
+				\right)\Gamma\left(c+1-\frac{1}{2}(a+d)\right)\Gamma\left(\frac{1}{2}(a+d)%
+			\right)\Gamma\left(\frac{1}{2}(d-a+1)\right)},
+		\end{equation*}
 	\end{enumerate}
 \end{frame}
 \note{TODO (slides):\begin{enumerate}
