@@ -1238,10 +1238,10 @@
     <item>Are analytic in <math|Re<around*|(|\<nu\>|)>\<gtr\>0> and
     continuous in <math|Re<around*|(|\<nu\>|)>\<geqslant\>0>;
 
-    <item>They satisfy <math|\<exists\>C,\<tau\>\<gtr\>0:<around*|\||f<rsub|0,1><around*|(|\<nu\>|)>|\|>\<leqslant\>C
+    <item>There They satisfy <math|\<exists\>C,\<tau\>\<gtr\>0:<around*|\||f<rsub|0,1><around*|(|\<nu\>|)>|\|>\<leqslant\>C
     exp<around*|(|\<tau\><around*|\||\<nu\>|\|>|)>>;
 
-    <item>There exists <math|C\<gtr\>0,c\<less\>\<pi\>> such that
+    <item>There exist <math|C\<gtr\>0,c\<less\>\<pi\>> such that
     <math|<around*|\||f<rsub|0,1><around*|(|i y|)>|\|>\<leqslant\>C
     exp<around*|(|c<around*|\||y|\|>|)>>.
   </enumerate>
@@ -1254,6 +1254,22 @@
 
   <\equation*>
     \<Gamma\><around*|(|z+a|)>/\<Gamma\><around*|(|z+b|)>\<sim\>z<rsup|a-b>,<space|1em>z\<rightarrow\>\<infty\>,<around*|\||ph<around*|(|z|)>|\|>\<leqslant\>\<pi\>-\<delta\><around*|(|\<less\>\<pi\>|)>.
+  </equation*>
+
+  Next, <math|f<rsub|1>> satisfies the third item, as
+  <math|<around*|\||<around*|\||s-t|\|><rsup|2i
+  y>|\|>=<around*|\||s-t|\|>\<leqslant\>2<rsup|>>.\ 
+
+  Finally, <math|f<rsub|1>> satisfies the second item because
+
+  <\equation*>
+    <stack|<tformat|<table|<row|<cell|<around*|\||<big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+    |\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsup|\<mu\>><rsub|m><around*|(|t|)>d
+    s d t|\|>>>|<row|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+    |\|><rsup|2<around*|\||\<nu\>|\|>><wide*|<around*|\||<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\|>|\<wide-underbrace\>>d
+    s d t>>|<row|<cell|independent of \<nu\>>>|<row|<cell|\<leqslant\>a<rsub|\<lambda\>,\<mu\>,m,l><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+    |\|><rsup|2<around*|\||\<nu\>|\|>>d s d
+    t=4a<rsub|\<lambda\>,\<mu\>,m,l>4<rsup|<around*|\||\<nu\>|\|>>.>>>>>
   </equation*>
 
   \;
