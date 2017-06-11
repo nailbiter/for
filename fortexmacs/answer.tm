@@ -1212,6 +1212,40 @@
     104>>>>
   </eqnarray>
 
+  <\question>
+    Show that Carlson's theorem can be applied to evaluate the integral
+
+    <\equation*>
+      <big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      |\|><rsup|2\<nu\>><around*|(|1-s|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsup|\<mu\>><rsub|m><around*|(|t|)>d
+      s d t.
+    </equation*>
+  </question>
+
+  More precisely, we need to show that the function
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|f<around*|(|\<nu\>|)>\<assign\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+    |\|><rsup|2\<nu\>><around*|(|1-s|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsup|\<mu\>><rsub|m><around*|(|t|)>d
+    s d t,<space|1em>Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>.>|<cell|>>>>
+  </eqnarray>
+
+  Satisfies the following assumptions:
+
+  <\enumerate>
+    <item>It is analytic in <math|Re<around*|(|\<nu\>|)>\<gtr\>0> and
+    continuous in <math|Re<around*|(|\<nu\>|)>\<geqslant\>0>;
+
+    <item>It satisfies <math|\<exists\>C,\<tau\>\<gtr\>0:<around*|\||f<around*|(|\<nu\>|)>|\|>\<leqslant\>C
+    exp<around*|(|\<tau\><around*|\||\<nu\>|\|>|)>>;
+
+    <item>There exists <math|C\<gtr\>0,c\<less\>\<pi\>> such that
+    <math|<around*|\||f<around*|(|i y|)>|\|>\<leqslant\>C
+    exp<around*|(|c<around*|\||y|\|>|)>>.
+  </enumerate>
+
+  The first item is clear.
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|GRJ00>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
@@ -1288,7 +1322,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|23>>
     <associate|auto-2|<tuple|2|23>>
-    <associate|auto-3|<tuple|13|24>>
+    <associate|auto-3|<tuple|c|24>>
     <associate|bib-KO2|<tuple|KØ03|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|24>>
     <associate|bib-gradshteinryzhik|<tuple|GRJ00|?>>
@@ -1417,6 +1451,8 @@
       howe1993homogeneous
 
       KO2
+
+      gradshteinryzhik
 
       gradshteinryzhik
     </associate>

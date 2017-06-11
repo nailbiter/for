@@ -110,15 +110,13 @@
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<around*|\||cos\<varphi\>+cos\<psi\>|\|><rsup|\<rho\>>sgn<rsup|r><around*|(|cos\<varphi\>+cos\<psi\>|)>>|<cell|>>|<row|<cell|>|<cell|=<big|sum><rsub|<stack|<tformat|<table|<row|<cell|l,m=0>>|<row|<cell|l\<equiv\>m+r
-      mod 2>>>>>><rsup|\<infty\>><frac|H<around*|(|l|)>H<around*|(|m|)>2<rsup|2-\<rho\>>\<Gamma\><around*|(|\<rho\>+1|)><rsup|2>|<big|prod><rsub|\<delta\>,\<varepsilon\>\<in\><around*|{|\<pm\>1|}>>\<Gamma\><around*|(|1+<frac|1|2><around*|(|\<rho\>+\<delta\>l+\<varepsilon\>m|)>|)>>cos
+      mod 2>>>>>><rsup|\<infty\>><frac|2<rsup|2-\<rho\>>\<Gamma\><around*|(|\<rho\>+1|)><rsup|2>|<around*|(|1+\<delta\><rsub|0><rsup|l>|)><around*|(|1+\<delta\><rsub|0><rsup|m>|)><big|prod><rsub|\<delta\>,\<varepsilon\>\<in\><around*|{|\<pm\>1|}>>\<Gamma\><around*|(|1+<frac|1|2><around*|(|\<rho\>+\<delta\>l+\<varepsilon\>m|)>|)>>cos
       l\<varphi\> cos m\<psi\>.>|<cell|>>>>
     </eqnarray>
 
-    where Heaviside step function <math|H<around*|(|x|)>> is defined as:
-
-    <\equation*>
-      H<around*|(|x|)>\<assign\><choice|<tformat|<table|<row|<cell|0,>|<cell|x\<less\>0,>>|<row|<cell|1/2,>|<cell|x=0,>>|<row|<cell|1,>|<cell|x\<gtr\>0.>>>>>
-    </equation*>
+    where <math|\<delta\><rsub|0><rsup|l>\<assign\>1> if <math|l=0> and
+    <math|=0> otherwise and <math|\<delta\><rsub|0><rsup|m>> is defined
+    similarly.
   </corollary>
 
   Selberg-type integrals are related to (finite-dimensional) representation
