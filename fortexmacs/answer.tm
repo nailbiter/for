@@ -1213,38 +1213,48 @@
   </eqnarray>
 
   <\question>
-    Show that Carlson's theorem can be applied to evaluate the integral
+    Show that Carlson's theorem can be applied to prove the equality
 
     <\equation*>
-      <big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
-      |\|><rsup|2\<nu\>><around*|(|1-s|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsup|\<mu\>><rsub|m><around*|(|t|)>d
-      s d t.
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsup|\<lambda\>><rsub|l><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+        s d t=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|1+\<nu\>|)><around*|(|2\<mu\>|)><rsub|m><around*|(|2\<lambda\>|)><rsub|l>|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|1+\<nu\>-<frac|l+m|2>|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>m!l!>.>|<cell|>>>>
+      </eqnarray>
     </equation*>
   </question>
 
-  More precisely, we need to show that the function
+  More precisely, we need to show that the functions
 
   <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|f<around*|(|\<nu\>|)>\<assign\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
-    |\|><rsup|2\<nu\>><around*|(|1-s|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsup|\<mu\>><rsub|m><around*|(|t|)>d
-    s d t,<space|1em>Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>.>|<cell|>>>>
+    <tformat|<table|<row|<cell|>|<cell|f<rsub|1><around*|(|\<nu\>|)>\<assign\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+    |\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsup|\<mu\>><rsub|m><around*|(|t|)>d
+    s d t,>|<cell|>>|<row|<cell|>|<cell|f<rsub|0><around*|(|\<nu\>|)>\<assign\><frac|\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|1+\<nu\>|)><around*|(|2\<mu\>|)><rsub|m><around*|(|2\<lambda\>|)><rsub|l>|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|1+\<nu\>-<frac|l+m|2>|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>m!l!>>|<cell|>>>>
   </eqnarray>
 
-  Satisfies the following assumptions:
+  with <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>
+  satisfy the following assumptions:
 
   <\enumerate>
-    <item>It is analytic in <math|Re<around*|(|\<nu\>|)>\<gtr\>0> and
+    <item>Are analytic in <math|Re<around*|(|\<nu\>|)>\<gtr\>0> and
     continuous in <math|Re<around*|(|\<nu\>|)>\<geqslant\>0>;
 
-    <item>It satisfies <math|\<exists\>C,\<tau\>\<gtr\>0:<around*|\||f<around*|(|\<nu\>|)>|\|>\<leqslant\>C
+    <item>They satisfy <math|\<exists\>C,\<tau\>\<gtr\>0:<around*|\||f<rsub|0,1><around*|(|\<nu\>|)>|\|>\<leqslant\>C
     exp<around*|(|\<tau\><around*|\||\<nu\>|\|>|)>>;
 
     <item>There exists <math|C\<gtr\>0,c\<less\>\<pi\>> such that
-    <math|<around*|\||f<around*|(|i y|)>|\|>\<leqslant\>C
+    <math|<around*|\||f<rsub|0,1><around*|(|i y|)>|\|>\<leqslant\>C
     exp<around*|(|c<around*|\||y|\|>|)>>.
   </enumerate>
 
-  The first item is clear.
+  The first item is clear for both functions. The second and third item are
+  clear for <math|f<rsub|0><around*|(|\<nu\>|)>>, as we can even show that
+  <math|f<rsub|0><around*|(|\<nu\>|)>> is uniformly bounded in
+  <math|Re<around*|(|\<nu\>|)>\<geqslant\>0> in the light of the assymptotic
+  approximation
+
+  <\equation*>
+    \<Gamma\><around*|(|z+a|)>/\<Gamma\><around*|(|z+b|)>\<sim\>z<rsup|a-b>,<space|1em>z\<rightarrow\>\<infty\>,<around*|\||ph<around*|(|z|)>|\|>\<leqslant\>\<pi\>-\<delta\><around*|(|\<less\>\<pi\>|)>.
+  </equation*>
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|GRJ00>
@@ -1320,62 +1330,62 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|23>>
-    <associate|auto-2|<tuple|2|23>>
-    <associate|auto-3|<tuple|c|24>>
-    <associate|bib-KO2|<tuple|KØ03|?>>
-    <associate|bib-dotsenko1985four|<tuple|DF85|24>>
-    <associate|bib-gradshteinryzhik|<tuple|GRJ00|?>>
-    <associate|bib-howe1993homogeneous|<tuple|HT93|25>>
-    <associate|bib-keiner2009computing|<tuple|Kei09|?>>
-    <associate|bib-kobayashi2011schrodinger|<tuple|KM11|25>>
+    <associate|auto-1|<tuple|1|24>>
+    <associate|auto-2|<tuple|2|25>>
+    <associate|auto-3|<tuple|c|29>>
+    <associate|bib-KO2|<tuple|KØ03|29>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|29>>
+    <associate|bib-gradshteinryzhik|<tuple|GRJ00|29>>
+    <associate|bib-howe1993homogeneous|<tuple|HT93|29>>
+    <associate|bib-keiner2009computing|<tuple|Kei09|29>>
+    <associate|bib-kobayashi2011schrodinger|<tuple|KM11|29>>
     <associate|bib-kobayashi2015symmetry|<tuple|KS15|25>>
-    <associate|bib-mackenzie2003hermite|<tuple|MT03|25>>
-    <associate|bib-olver2010nist|<tuple|Olv10|25>>
-    <associate|bib-rainville1960special|<tuple|Rai60|25>>
-    <associate|bib-tarasov2003selberg|<tuple|TV03|25>>
-    <associate|bib-warnaar2010sl3|<tuple|War10|25>>
+    <associate|bib-mackenzie2003hermite|<tuple|MT03|29>>
+    <associate|bib-olver2010nist|<tuple|Olv10|29>>
+    <associate|bib-rainville1960special|<tuple|Rai60|29>>
+    <associate|bib-tarasov2003selberg|<tuple|TV03|29>>
+    <associate|bib-warnaar2010sl3|<tuple|War10|29>>
     <associate|cor|<tuple|1|14>>
-    <associate|cor:2|<tuple|2|16>>
-    <associate|cor:3|<tuple|3|20>>
+    <associate|cor:2|<tuple|2|17>>
+    <associate|cor:3|<tuple|3|21>>
     <associate|eq-1|<tuple|4|7>>
     <associate|eq-2|<tuple|1|5>>
     <associate|eq:q8-1|<tuple|3|6>>
-    <associate|eq:unknown|<tuple|9|22>>
-    <associate|eqn:20-beminus|<tuple|11|24>>
-    <associate|eqn:20-beplus|<tuple|10|24>>
-    <associate|eqn:herm1|<tuple|6|14>>
-    <associate|eqn:main|<tuple|7|18>>
-    <associate|eqn:q26-1|<tuple|12|?>>
+    <associate|eq:unknown|<tuple|9|23>>
+    <associate|eqn:20-beminus|<tuple|11|25>>
+    <associate|eqn:20-beplus|<tuple|10|25>>
+    <associate|eqn:herm1|<tuple|6|15>>
+    <associate|eqn:main|<tuple|7|19>>
+    <associate|eqn:q26-1|<tuple|12|27>>
     <associate|eqn:q26-2|<tuple|13|?>>
-    <associate|eqn:q26-3|<tuple|13|?>>
-    <associate|eqn:thm1|<tuple|5|8>>
-    <associate|fig:howetan2d31|<tuple|1|23>>
-    <associate|fig:howetan2d32|<tuple|2|23>>
-    <associate|footnote-1|<tuple|1|23>>
-    <associate|footnote-2|<tuple|2|23>>
-    <associate|footnote-3|<tuple|3|?>>
-    <associate|footnote-4|<tuple|4|?>>
-    <associate|footnote-5|<tuple|5|?>>
-    <associate|footnote-6|<tuple|6|?>>
-    <associate|footnr-1|<tuple|1|23>>
-    <associate|footnr-2|<tuple|2|23>>
-    <associate|footnr-3|<tuple|3|?>>
-    <associate|footnr-4|<tuple|4|?>>
-    <associate|footnr-5|<tuple|5|?>>
-    <associate|footnr-6|<tuple|6|?>>
-    <associate|q-ode|<tuple|11|8>>
+    <associate|eqn:q26-3|<tuple|13|28>>
+    <associate|eqn:thm1|<tuple|5|9>>
+    <associate|fig:howetan2d31|<tuple|1|24>>
+    <associate|fig:howetan2d32|<tuple|2|25>>
+    <associate|footnote-1|<tuple|1|20>>
+    <associate|footnote-2|<tuple|2|20>>
+    <associate|footnote-3|<tuple|3|24>>
+    <associate|footnote-4|<tuple|4|24>>
+    <associate|footnote-5|<tuple|5|25>>
+    <associate|footnote-6|<tuple|6|25>>
+    <associate|footnr-1|<tuple|1|20>>
+    <associate|footnr-2|<tuple|2|20>>
+    <associate|footnr-3|<tuple|3|24>>
+    <associate|footnr-4|<tuple|4|24>>
+    <associate|footnr-5|<tuple|5|25>>
+    <associate|footnr-6|<tuple|6|25>>
+    <associate|q-ode|<tuple|11|9>>
     <associate|q1|<tuple|1|1>>
-    <associate|q14|<tuple|14|14>>
+    <associate|q14|<tuple|14|15>>
     <associate|q15|<tuple|15|15>>
-    <associate|q18|<tuple|18|16>>
-    <associate|q:20|<tuple|20|19>>
-    <associate|q:21|<tuple|21|22>>
-    <associate|q:23|<tuple|23|?>>
-    <associate|thm-1|<tuple|1|8>>
-    <associate|thm-2|<tuple|2|18>>
-    <associate|thm:3|<tuple|3|19>>
-    <associate|thm:4|<tuple|4|19>>
+    <associate|q18|<tuple|18|17>>
+    <associate|q:20|<tuple|20|20>>
+    <associate|q:21|<tuple|21|23>>
+    <associate|q:23|<tuple|23|24>>
+    <associate|thm-1|<tuple|1|9>>
+    <associate|thm-2|<tuple|2|19>>
+    <associate|thm:3|<tuple|3|20>>
+    <associate|thm:4|<tuple|4|20>>
   </collection>
 </references>
 
