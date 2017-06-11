@@ -1256,6 +1256,8 @@
     \<Gamma\><around*|(|z+a|)>/\<Gamma\><around*|(|z+b|)>\<sim\>z<rsup|a-b>,<space|1em>z\<rightarrow\>\<infty\>,<around*|\||ph<around*|(|z|)>|\|>\<leqslant\>\<pi\>-\<delta\><around*|(|\<less\>\<pi\>|)>.
   </equation*>
 
+  \;
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|GRJ00>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and

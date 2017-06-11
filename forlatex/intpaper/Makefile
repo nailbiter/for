@@ -13,7 +13,7 @@ TEXMACSDIR=~/for/fortexmacs
 ZIPNAME=intpaper
 
 WORKON=https://trello.com/c/jUZS9cjM
-PDFS=intpaper answer report report_hypergeom
+PDFS=intpaper answer #report report_hypergeom
 AUX=
 
 all: $(OUTDIR)/$(ZIPNAME).zip
