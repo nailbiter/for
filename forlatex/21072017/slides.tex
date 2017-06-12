@@ -318,11 +318,39 @@ TODO (speech):\begin{enumerate}
 			The particular case $k_1=k_2,\beta_2=1,\alpha=\beta_1$ with LHS being\begin{equation*}
 				\displaystyle\iint\displaylimits_{\begin{array}[]{c}
 				(s, t) \in [0, 1]^2\\t<s
-			\end{array}} s^{\alpha_2 - 1} (1 - s)^{\alpha_2 - 1} \myabs{s-t}^{- \gamma} d s d t
+			\end{array}} s^{\alpha - 1} (1 - s)^{\alpha - 1} \myabs{s-t}^{- \gamma} d s d t
 			\end{equation*}
 			is generalized by Proposition \ref{prop:int-st-gg}.
 \end{frame}
 \begin{frame}{Hierarchy (Dotsenko-Fateev'85)}
+	\scriptsize
+	\fbox{Dotsenko-Fateev'85} is yet another generalization of Selberg integral shown in \cite[(A35)]{dotsenko1985four}\begin{equation*}
+\begin{array}{c}
+  \frac{1}{n!m!} \int_{(t, \tau) \in [0, 1]^{n + m}} \Pi^{\alpha', \beta'} (t)
+  \Pi^{\alpha, \beta} (\tau) \Delta^{2 \rho'} (t) \Delta^{2 \rho} (\tau)
+  \Delta^{- 2} (t, \tau) d \tmop{td} \tau =\\
+  \rho^{2 n m} \prod_{i, j = 1}^{n, m} \frac{1}{j \rho - i} \prod_{i = 1}^n
+  \frac{\Gamma (i \rho')}{\Gamma (\rho')} \prod_{j = 1}^m \frac{\Gamma (j
+  \rho)}{\Gamma (\rho)} \times\\
+  \prod_{i, j = 0}^{n, m} \frac{1}{(\alpha + j \rho - i) (\beta + j \rho - i)
+  (\alpha + \beta + \rho (m - 1 + j) - (n - 1 + i))} \times\\
+  \prod_{i = 0}^{n - 1} \frac{\Gamma (1 + \alpha' + i \rho') \Gamma (1 +
+  \beta' + i \rho')}{\Gamma (2 - 2 m + \alpha' + \beta' + (n - 1 + i) \rho')}
+  \times\\
+  \prod_{j = 0}^{m - 1} \frac{\Gamma (1 + \alpha + j \rho) \Gamma (1 + \beta +
+  j \rho)}{\Gamma (2 - 2 n + \alpha + \beta + (m - 1 + j) \rho)},\\
+  \alpha' = - \rho' \alpha, \beta' = - \rho' \beta, \rho' \rho = 1,\\
+  \tmop{Re} (\rho) < 0, \quad \tmop{Re} (\alpha), \tmop{Re} (\beta) > (n - 1)
+  + | \tmop{Re} (\rho) | (m - 1)
+\end{array}
+			\end{equation*}
+			and $C^{k_1,k_2}_\gamma[0,1]$ is some another {\it linear sum} of subsets of $[0,1]^{k_1+k_2}$.
+			The particular case $k_1=k_2,\beta_2=1,\alpha=\beta_1$ with LHS being\begin{equation*}
+				\displaystyle\iint\displaylimits_{\begin{array}[]{c}
+				(s, t) \in [0, 1]^2\\t<s
+			\end{array}} s^{\alpha - 1} (1 - s)^{\alpha - 1} \myabs{s-t}^{- \gamma} d s d t
+			\end{equation*}
+			is generalized by Proposition \ref{prop:int-st-gg}.
 \end{frame}
 \begin{frame}
 	Furthermore, making variable change $w=s-t$ in Corollary \ref{cor:int-xzy-hh} and taking $z=1$ we arrive at\footnote[frame]{FIXME: check correctness}:
