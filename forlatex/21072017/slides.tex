@@ -272,8 +272,8 @@ TODO (speech):\begin{enumerate}
 					      \Delta^{2 \gamma} (s) \Delta^{- \gamma} (t, s) d s d t\\
 					        = \displaystyle\prod_{i = 0}^{k_1 - 1} \frac{\Gamma (\alpha_1 + i \gamma) \Gamma (\beta_1
 						+ (i - k_2) \gamma) \Gamma (( i + 1) \gamma)}{\Gamma (\alpha_1 + \beta_1 + (i
-							  + k_1 - k_2 - 1) \gamma) \Gamma (\gamma)} \times\\
-							    \displaystyle\prod_{i = 0}^{k_2 - 1} \frac{\Gamma (\alpha_2 + i \gamma) \Gamma (\beta_2 +
+							  + k_1 - k_2 - 1) \gamma) \Gamma (\gamma)} \\
+						\times\displaystyle\prod_{i = 0}^{k_2 - 1} \frac{\Gamma (\alpha_2 + i \gamma) \Gamma (\beta_2 +
 							    i \gamma) \Gamma (( i + 1) \gamma)}{\Gamma (\alpha_2 + \beta_2 + (i + k_2 -
 								      k_1 - 1) \gamma) \Gamma (\gamma)} \displaystyle\prod_{i = 0}^{k_1 - 1} \frac{\Gamma
 									        (\alpha_1 + \alpha_2 + (i - 1) \gamma)}{\Gamma (\alpha_1 + \alpha_2 + (i +
@@ -286,7 +286,11 @@ TODO (speech):\begin{enumerate}
 			\end{equation*}
 			and $C^{k_1,k_2}_{\beta_1,\gamma}[0,1]$ is some {\it linear sum} of subsets of $[0,1]^{k_1+k_2}$.
 			The particular case $k_1=k_2=1,\alpha_1=\beta_1,\alpha_2=\beta_2$ with LHS being\begin{equation*}
-			E=mc^2	
+				\left(\iint_{\begin{array}[]{c}
+					[0,1]^2\\t<s
+				\end{array}}+\frac{\sin(\pi\alpha_1)}{\sin(\pi\alpha_2)}\iint_{\begin{array}[]{c}
+					[0,1]^2\\t>s
+			\end{array}} \right)(t(1-t))^{\alpha_1 - 1}  (s(1-s))^{\alpha_2 - 1}  | t - s |^{- \gamma} d s d t
 			\end{equation*}
 			is generalized by Proposition \ref{prop:int-st-gg}.
 \end{frame}
