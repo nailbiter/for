@@ -1272,7 +1272,9 @@
     t=4a<rsub|\<lambda\>,\<mu\>,m,l>4<rsup|<around*|\||\<nu\>|\|>>.>>>>>
   </equation*>
 
-  \;
+  <\question>
+    \;
+  </question>
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|GRJ00>
@@ -1350,7 +1352,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|24>>
     <associate|auto-2|<tuple|2|25>>
-    <associate|auto-3|<tuple|c|29>>
+    <associate|auto-3|<tuple|28|29>>
     <associate|bib-KO2|<tuple|KØ03|29>>
     <associate|bib-dotsenko1985four|<tuple|DF85|29>>
     <associate|bib-gradshteinryzhik|<tuple|GRJ00|29>>
