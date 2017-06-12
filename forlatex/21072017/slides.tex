@@ -249,9 +249,13 @@ TODO (speech):\begin{enumerate}
 %%		\item[Warnaar'10] 
 %%		\item[Tarasov-Varchenko'03]
 %%		\item[Dotsenko-Fateev'85]
-	\fbox{Selberg'44} is the famous Selberg integral\begin{equation*}
+	\fbox{Selberg'44} is the famous Selberg integral \cite{Selberg:411367}\begin{equation*}
+		\begin{array}[]{c}
 				\int_{t \in [0, 1]^k} \Pi^{\alpha - 1, \beta - 1} (t) \Delta^{2 \gamma} (t) d
-				t,\quad \Delta(t):=\prod_{i<j}\myabs{t_i-t_j}
+				t,\\
+				\Pi^{\alpha-1,\beta-1}(t):=\prod_{i=1}^k t_i^{\alpha-1}(1-t_i)^{\beta-1},
+				\Delta(t):=\prod_{1\le i<j\le k}\myabs{t_i-t_j}\\
+		\end{array}
 			\end{equation*}
 			and it's particular case $k=2,\alpha=\beta$\begin{equation*}
 				\iint_{[0, 1]^2} \Pi^{\alpha - 1, \alpha - 1} (t) \myabs{s-t}^{2\gamma} dsdt
