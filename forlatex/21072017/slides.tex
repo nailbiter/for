@@ -249,17 +249,11 @@ TODO (speech):\begin{enumerate}
 \end{tikzpicture}
 \end{frame}
 \newcommand{\mypgf}{\myabra{\mbox{\bf product of Gamma functions}}}
-\begin{frame}[fragile]{Hierarchy (Selberg'44)}
-%%	\begin{description}
-%%		\item[Warnaar'10] 
-%%		\item[Tarasov-Varchenko'03]
-%%		\item[Dotsenko-Fateev'85]
+\begin{frame}{Hierarchy (Selberg'44)}
 	\fbox{Selberg'44} is the famous Selberg integral \cite{Selberg:411367}\begin{equation*}
 		\begin{array}[]{c}
-				\int_{t \in [0, 1]^k} \Pi^{\alpha - 1, \beta - 1} (t) \Delta^{2 \gamma} (t) d
-				t=\mypgf,\\
-				\Pi^{\alpha-1,\beta-1}(t):=\displaystyle\prod\displaylimits_{i=1}^k t_i^{\alpha-1}(1-t_i)^{\beta-1},\\
-				\Delta^{2\gamma}(t):=\displaystyle\prod\displaylimits_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma},\\
+				\int_{t \in [0, 1]^k} \displaystyle\prod\displaylimits_{i=1}^k t_i^{\alpha-1}(1-t_i)^{\beta-1} \displaystyle\prod\displaylimits_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma} d
+				t\\=\mypgf,\\
 				\tmop{Re} (\alpha), \tmop{Re} (\beta) > 0, | \gamma | \ll 1
 		\end{array}
 			\end{equation*}
