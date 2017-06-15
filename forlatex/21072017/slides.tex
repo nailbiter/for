@@ -1,6 +1,7 @@
 \documentclass[pdf,notes]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 
+\usepackage{wrapfig}
 \usepackage{mathtools}
 \usepackage{xypic}
 \usepackage[all,cmtip]{xy}
@@ -250,7 +251,15 @@ TODO (speech):\begin{enumerate}
 \end{frame}
 \newcommand{\mypgf}{{\mbox{\bf product of Gamma functions}}}
 \begin{frame}{Selberg'44}
-	\fbox{Selberg'44} is the famous Selberg integral \cite{Selberg:411367}\begin{equation*}
+	\begin{wrapfigure}{r}{0.5\textwidth}
+		  \begin{center}
+				\begin{tikzpicture}
+				\input{intdepS.tex}
+				\end{tikzpicture}
+			        \end{center}
+				  \caption{A gull}
+	  \end{wrapfigure}
+	 \fbox{Selberg'44} is the famous Selberg integral \cite{Selberg:411367}\begin{equation*}
 		\begin{array}[]{c}
 		\displaystyle\int_{t \in [0, 1]^k} \displaystyle\prod\displaylimits_{i=1}^k t_i^{\alpha-1}(1-t_i)^{\beta-1} \displaystyle\prod\displaylimits_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma} d
 				t\\=\mypgf,\\

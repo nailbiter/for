@@ -30,6 +30,8 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 #	guile --no-auto-compile -e intdepdiag $< > $@
 #slides.tex : 
 #	touch $@
+$(OUTDIR)/intdepS.tex : intdepS.tex
+	cp -f $< $@
 $(OUTDIR)/intdep.tex : intdep.tex
 	cp -f $< $@
 $(OUTDIR)/slides.pdf : slides.tex diagram.tex $(OUTDIR)/intdep.tex
