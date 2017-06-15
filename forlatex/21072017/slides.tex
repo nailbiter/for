@@ -1,6 +1,7 @@
 \documentclass[pdf,notes]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 
+\usepackage{color,soul}
 \usepackage{wrapfig}
 \usepackage{mathtools}
 \usepackage{xypic}
@@ -250,8 +251,12 @@ TODO (speech):\begin{enumerate}
 \end{tikzpicture}
 \end{frame}
 \newcommand{\mypgf}{{\mbox{\bf product of Gamma functions}}}
-\begin{frame}[fragile]{Selberg'44}
+\begin{frame}[fragile]
 	\scriptsize
+    \setul{0.5ex}{0.3ex}
+	\definecolor{Blue}{rgb}{0,0.0,1}
+    \setulcolor{Blue}
+	\ul{Selberg'44}
 	\begin{wrapfigure}{r}{0.4\textwidth}
 		  \begin{center}
 			  \begin{tikzpicture}[scale=0.7]
