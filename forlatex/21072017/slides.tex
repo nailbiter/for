@@ -778,14 +778,16 @@ TODO (speech): \begin{enumerate}
 		functions''?}である)、中の積分を計算する；
 		\item そうすると、外の積分が以下のようになる：
 			\begin{equation}\label{eqn:m4-1}
-				\int_{-1}^1(1-s^2)^{\nu+\frac{\mu}{2}+\lambda-\frac{1}{4}}P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)C^{\lambda-\frac{1}{2}}_\ell(s)ds
+				\int_{-1}^1(1-s^2)^{\nu+\frac{\mu}{2}+\lambda-\frac{1}{4}}P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)C^{\lambda-\frac{1}{2}}_\ell(s)ds;
 			\end{equation}
-		\item Use integration by parts together with the formul\ae
+		\item 部分積分と公式
+		%Use integration by parts together with the formul\ae
 			\begin{equation*}
 				\left(C^\lambda_\ell(s)  \right)'=C^{\lambda+1}_{\ell-1}(s),\quad\left((1-s^2)^{-a/2}P^a_b(s) \right)'
 			=-(1-s^2)^{-\frac{a+1}{2}}P_b^{a+1}(s)
 			\end{equation*}
-			to reduce \eqref{eqn:m4-1} to the form
+			を用いて、\eqref{eqn:m4-1}を以下の公式までに削減する\footnote{is ``削減'' correct for ``reduce to''?}:
+%%			to reduce \eqref{eqn:m4-1} to the form
 			\begin{equation}\label{eqn:m4-2}
 				\int_{-1}^1(1-s^2)^aP^b_c(s)ds
 			\end{equation}
