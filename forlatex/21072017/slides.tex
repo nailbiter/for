@@ -52,7 +52,7 @@
 %%\makeatother
 
 \newtheorem{prop}{命題}
-\newtheorem*{taggedpropx}{命題}
+\newtheorem{taggedpropx}{命題}
 \newtheorem{remark}{注}
 \newtheorem{cor}{系}
 \newenvironment{taggedprop}[1]
@@ -202,7 +202,7 @@ TODO (speech):\begin{enumerate}
 \end{enumerate}}
 \begin{frame}
 	Proposition \ref{prop:exp-st-gg} is equivalent to the integral equality
-	\begin{prop}
+	\begin{taggedprop}{1'}
 		\label{prop:int-st-gg}
 		\begin{equation*}
 			\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
@@ -220,7 +220,8 @@ TODO (speech):\begin{enumerate}
 			\tag{1$'$}
 		\end{equation}
 		}
-	\end{prop}
+	\end{taggedprop}
+	Here I refer to \ref{prop:int-st-gg}.
 \end{frame}
 \section{Special cases}
 \begin{frame}
