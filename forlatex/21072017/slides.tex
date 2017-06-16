@@ -607,6 +607,7 @@ TODO (speech):\begin{enumerate}
 		\end{enumerate}
 		$f\equiv0$である.
 	\end{fact*}
+	\only<1>{
 			\vspace{-0.2cm}
 	\begin{remark}
 		Note that function \begin{equation*}
@@ -617,18 +618,8 @@ TODO (speech):\begin{enumerate}
 
 		This shows the the second condition in Carlson's theorem is necessary.
 	\end{remark}
-\end{frame}
-\begin{frame}{メソッド 2 (2/2)}
-			\vspace{-0.2cm}
-	\begin{fact}[Carlson's Theorem]
-		Suppose $f$ is a continuous function defined on the right half-plane $\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$, which
-		is analytic on its interior $\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$ and such that:\begin{enumerate}
-			\item $\exists C,\tau>0$, such that $\myabs{f(z)}\le C e^{\tau\myabs{z}}$ for all $z$ in right half-plane;
-			\item $\exists C>0,\exists c<\pi$, such that $\myabs{f(iy)}\le Ce^{c\myabs{y}}$ for all $y\in\R$;
-			\item $f$ vanishes on positive integers $\N_+$.
-		\end{enumerate}
-		Then $f\equiv0$.
-	\end{fact}
+	}
+	\only<2>{
 	Using this, the formula \eqref{eqn:int-st-gg} 
 			\vspace{-0.2cm}
 			{\scriptsize
@@ -647,6 +638,19 @@ TODO (speech):\begin{enumerate}
 		\end{equation*}
 	}
 can be deduced from the case $\nu\in\N_{+}$, which in turn follows after simple computations (using beta integrals).
+	}
+\end{frame}
+\begin{frame}{メソッド 2 (2/2)}
+			\vspace{-0.2cm}
+	\begin{fact}[Carlson's Theorem]
+		Suppose $f$ is a continuous function defined on the right half-plane $\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$, which
+		is analytic on its interior $\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$ and such that:\begin{enumerate}
+			\item $\exists C,\tau>0$, such that $\myabs{f(z)}\le C e^{\tau\myabs{z}}$ for all $z$ in right half-plane;
+			\item $\exists C>0,\exists c<\pi$, such that $\myabs{f(iy)}\le Ce^{c\myabs{y}}$ for all $y\in\R$;
+			\item $f$ vanishes on positive integers $\N_+$.
+		\end{enumerate}
+		Then $f\equiv0$.
+	\end{fact}
 \end{frame}
 \note{TODO (slides):\begin{enumerate}
 \item 
