@@ -321,9 +321,7 @@ TODO (speech):\begin{enumerate}
 		\underline{Mehtaの積分}
 	\vspace{-0.3cm}
 		\begin{equation*}
-			\frac{1}{(2\pi)^{k/2}}\int_{\mathbb{R}^k}\prod_{\scalebox{0.8}{$\begin{array}[]{c}
-			i,j=1\\i<j
-		\end{array}$}}^{k}\myabs{t_i-t_j}^{2\gamma}\exp\left( -\myabs{\mathbf{t}}^2/2 \right)d\mathbf{t}=\prod_{j=1}^k\frac{\Gamma\left( 
+			\frac{1}{(2\pi)^{k/2}}\int_{\mathbb{R}^k}\prod_{1\le i\le j\le k}\myabs{t_i-t_j}^{2\gamma}\exp\left( -\myabs{\mathbf{t}}^2/2 \right)d\mathbf{t}=\prod_{j=1}^k\frac{\Gamma\left( 
 			1+j\gamma\right)}{\Gamma(1+\gamma)}
 	\vspace{-0.4cm}
 		\end{equation*}
