@@ -52,6 +52,7 @@
 %%{\usebeamertemplate{proof end}}
 %%\makeatother
 
+\newtheorem*{fact*}{Fact}
 \newtheorem{prop}{命題}
 \newtheorem{taggedpropx}{命題}
 \newtheorem{remark}{注}
@@ -380,8 +381,8 @@ TODO (speech):\begin{enumerate}
 			is generalized by Proposition \ref{prop:int-st-gg}.
 \end{frame}
 \begin{frame}
-	Furthermore, making variable change $w=s-t$ in Corollary \ref{cor:int-xzy-hh} and taking $z=1$ we arrive at\footnote[frame]{FIXME: check correctness}:
-	\begin{cor}
+	Furthermore, making variable change $w=s-t$ in Corollary \ref{cor:int-xzy-hh} and taking $z=1$ we arrive at:
+	\begin{fact*}
 		The following holds:
 		\begin{equation}
 			\mathcal{M}(hr_n\ast hr_m)(s)=
@@ -396,7 +397,7 @@ TODO (speech):\begin{enumerate}
 %%			\end{array}
 			\label{eqn:mellin-hh}
 		\end{equation}
-	\end{cor}
+	\end{fact*}
 	where $\mathcal{M}(\cdot)$ is the Mellin transform\begin{equation*}
 		\left\{ \mathcal{M}(f) \right\}(s)=\int_0^\infty x^{s-1}f(x)\;dx,
 	\end{equation*}
