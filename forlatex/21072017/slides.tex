@@ -110,10 +110,10 @@
 	\tableofcontents
 \end{frame}
 \section{主結果}
-\begin{frame}{ゲーゲンバウー多項式}%gegenbauer
-	ゲーゲンバウー多項式$\left\{ C_n^\alpha \right\}_{n=1}^{\infty}$というのは
+\begin{frame}{Gegenbauer 多項式}%gegenbauer
+	Gegenbauer 多項式$\left\{ C_n^\lambda \right\}_{n=1}^{\infty}$というのは
 	、
-	$\Re(\lambda)>-\frac{1}{2}$のとき$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$空間の直規定\footnote{is 直規定 a correct japanese word?}である.
+	$\Re(\lambda)>-\frac{1}{2}$のとき$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$空間の直交多項式\footnote{is 直交多項式 a correct japanese word?}である.
 	\vspace{-0.2cm}
 	\begin{example*}
 		最初のいくつは
@@ -128,7 +128,7 @@
 			&\cdots&\mbox{である.}
 		\end{eqnarray*}
 	\end{example*}
-	ゲーゲンバウー多項式が以下のような微分方程式を満たす:
+	Gegenbauer 多項式が以下のような微分方程式を満たす:
 		\vspace{-0.2cm}
 	\begin{equation*}
 		(1-x^2)y''-(2\lambda+1)xy'+n(n+\lambda)y=0.
@@ -262,7 +262,7 @@ TODO (speech):\begin{enumerate}
 %%		(1-x^2)y''-(2\lambda+1)xy'+n(n+\lambda)y=0.
 %%	\end{equation*}
 エルミート多項式$\left\{ H_n \right\}_{n=1}^\infty$というのは、
-	$L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$空間の直規定である.
+	$L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$空間の直交多項式である.
 	\begin{example*}
 		最初のいくつは
 	\vspace{-0.3cm}
@@ -286,7 +286,7 @@ TODO (speech):\begin{enumerate}
 %%		\end{array}
 %%	\end{equation*}
 	\end{example*}
-	エルミート多項式とゲーゲンバウー多項式が以下のように関連する:
+	エルミート多項式とGegenbauer 多項式が以下のように関連する:
 	%%\vspace{-0.3cm}
 	\begin{equation*}
 			H_n (x) = n! \lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
@@ -311,7 +311,7 @@ TODO (speech):\begin{enumerate}
 	\vspace{-0.2cm}
 	\begin{remark}
 		系\ref{cor:int-xzy-hh}の$w=1,\ell=m=0$の特殊化が
-		\underline{メータの積分}
+		\underline{Mehtaの積分}
 	\vspace{-0.3cm}
 		\begin{equation*}
 			\frac{1}{(2\pi)^{k/2}}\int_{\mathbb{R}^k}\prod_{\scalebox{0.8}{$\begin{array}[]{c}
@@ -479,7 +479,7 @@ TODO (speech):\begin{enumerate}
 	\end{lemma*}
 	\vspace{-0.2cm}
 	\begin{proof}\renewcommand{\qedsymbol}{}
-		ゲーゲンバウー多項式のロドリゲスの公式という公式
+		Gegenbauer 多項式のロドリゲスの公式という公式
 		{\scriptsize\vspace{-0.2cm}\begin{equation*}
 				(1-x^2)^{\alpha-\frac{1}{2}}C_n^\alpha(x)=a(\alpha,n)
 				\frac{d^n}{dx^n} (1-x^2)^{n+\alpha-\frac{1}{2}}, a(\alpha,n):=\frac{(-1)^n}{2^nn!}\frac{\Gamma\left( \alpha+\frac{1}{2} \right)\Gamma\left( n+2\alpha \right)}{\Gamma(2\alpha)\Gamma\left(\alpha+n+\frac{1}{2}  \right)}
@@ -504,7 +504,7 @@ TODO (speech):\begin{enumerate}
 	命題\ref{prop:int-st-gg}を示すため：
 	\begin{enumerate}
 		\item $\ell=m=0$ 場合に削減する;
-		\item $s=(1-t)(1-w)+t$積分変換とオイラー積分表現\footnote{is オイラー積分表現 a correct term?}によって、
+		\item $s=(1-t)(1-w)+t$積分変換とオイラー積分表現\footnote{is オイラー積分表現 a correct term?}
 					\vspace{-0.2cm}
 				\begin{equation*}
 					B(b,c-b){}_2F_1(\begin{array}[]{c}
@@ -513,7 +513,8 @@ TODO (speech):\begin{enumerate}
 					\vspace{-0.2cm}
 				\end{equation*}
 				of ${}_2F_1$
-			we have ${\mbox{RHS(Lemma)}}/{(-1)^m/(-2\nu)_{l+m}}/2^{\lambda+l-\frac{1}{2}} =$
+			によって、
+			we have ${\mbox{右辺(Lemma)}}/{(-1)^m/(-2\nu)_{l+m}}/2^{\lambda+l-\frac{1}{2}} =$
 			\vspace{-0.2cm}
 			\begin{equation}
 				\kern-1.2cm
