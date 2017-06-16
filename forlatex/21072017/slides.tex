@@ -559,7 +559,7 @@ TODO (speech):\begin{enumerate}
 				${}_3F_2(;1)$をガンマ関数を用いる積公式で表せる.
 	\end{enumerate}
 \end{frame}
-%%\begin{frame}{Method 1 (direct) (2/2)}
+%%\begin{frame}{メソッド 1 (direct) (2/2)}
 %%	\scriptsize
 %%	$\cdots$
 %%	\begin{enumerate}
@@ -594,16 +594,18 @@ TODO (speech):\begin{enumerate}
 TODO (speech):\begin{enumerate}
 \item elaborate that Whipple's sum works only when there are special constraints on arguments and not true in general;
 \end{enumerate}}
-\begin{frame}{Method 2 (1/2)}
+\begin{frame}{メソッド 2 (1/2)}
 			\vspace{-0.2cm}
-	\begin{fact}[Carlson's Theorem]
-		Suppose $f$ is a continuous function defined on the right half-plane $\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$, which
-		is analytic on its interior $\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$ and such that:\begin{enumerate}
+	\begin{fact}[Carlsonの定理]
+		$f$が$\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$半平面上に連続で、
+		$\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$正則であるとする.
+		そうすると、
+		\begin{enumerate}
 			\item $\exists C,\tau>0$, such that $\myabs{f(z)}\le C e^{\tau\myabs{z}}$ for all $z$ in right half-plane;
 			\item $\exists C>0,\exists c<\pi$, such that $\myabs{f(iy)}\le Ce^{c\myabs{y}}$ for all $y\in\R$;
-			\item $f$ vanishes on positive integers $\N_+$.
+			\item $f$ vanishes on positive integers $\N_+$. でならば
 		\end{enumerate}
-		Then $f\equiv0$.
+		$f\equiv0$である.
 	\end{fact}
 			\vspace{-0.2cm}
 	\begin{remark}
@@ -616,7 +618,7 @@ TODO (speech):\begin{enumerate}
 		This shows the the second condition in Carlson's theorem is necessary.
 	\end{remark}
 \end{frame}
-\begin{frame}{Method 2 (2/2)}
+\begin{frame}{メソッド 2 (2/2)}
 			\vspace{-0.2cm}
 	\begin{fact}[Carlson's Theorem]
 		Suppose $f$ is a continuous function defined on the right half-plane $\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$, which
@@ -649,7 +651,7 @@ can be deduced from the case $\nu\in\N_{+}$, which in turn follows after simple 
 \note{TODO (slides):\begin{enumerate}
 \item 
 \end{enumerate}}
-\begin{frame}{Method 3 (proving Prop. \ref{prop:exp-stz-gg})}
+\begin{frame}{メソッド 3 (proving Prop. \ref{prop:exp-stz-gg})}
 	\scriptsize
 		First, reducing to $\ell=m=0$ case we see that we need to prove the equality
 			{\scriptsize \begin{equation}
@@ -768,7 +770,7 @@ TODO (speech): \begin{enumerate}
 	\item Mention that \eqref{eqn:prop21} is just case $m=\ell=0$ of integral form of Prop. \ref{prop:exp-stz-gg}
 	\item explain that formula in step \ref{enum:m4-1} is the Euler's integral representation of ${}_2F_1$ plus quadratic transformation
 \end{enumerate}}
-\begin{frame}{Method 4 (using non-trivial integral formul\ae\;and Legendre functions)}
+\begin{frame}{メソッド 4 (using non-trivial integral formul\ae\;and Legendre functions)}
 	\scriptsize
 	We prove the Proposition \ref{prop:int-st-gg} (with $\myabs{s-t}$ replaced with $(s+t)_+$) directly:
 	\begin{enumerate}
@@ -798,7 +800,7 @@ TODO (speech): \begin{enumerate}
 	\end{enumerate}
 \end{frame}
 \note{TODO (slides):\begin{enumerate}
-	\item check that this Methods 1 and 4 are {\it really} different;
+	\item check that this メソッドs 1 and 4 are {\it really} different;
 \end{enumerate}
 }
 \section{Relation to Representation Theory}
