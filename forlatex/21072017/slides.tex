@@ -22,7 +22,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,patterns}
 \newcommand*\mytextcircled[1]{\tikz[baseline=(char.base)]{
-	\node[shape=circle,draw,inner sep=1.8pt] (char) {\scalebox{0.8}{#1}};}}
+	\node[shape=circle,draw,inner sep=1.8pt] (char) {\scalebox{0.8}{\kern-0.05cm #1}};}}
 \newcommand{\mybigplus}{\scalebox{2.0}{$+$}}
 \renewcommand{\implies}{\Rightarrow}
 \newcommand{\mypgf}{{\mbox{\bf ガンマ関数の積}}}
