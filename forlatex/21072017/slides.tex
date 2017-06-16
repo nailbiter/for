@@ -110,13 +110,16 @@
 \end{frame}
 \section{The Main Result}
 \begin{frame}{Gegenbauer polynomials}
-	Family of polynomials $\left\{ C_n^\alpha \right\}_{n=1}^{\infty}$ that form an orthogonal basis of $L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$.\begin{equation*}
+	Family of polynomials $\left\{ C_n^\alpha \right\}_{n=1}^{\infty}$ that form an orthogonal basis of $L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$.
+	The first few of them are:
+	\begin{equation*}
 		\begin{array}[]{c}
 			C_0^\lambda(x)=1;\\
 			C_1^\lambda(x)=2\lambda x;\\
 			C_2^\lambda(x)=-\lambda+2\lambda(1+\lambda)x^2;\\
 			C_3^\lambda(x)=-2\lambda(1+\lambda)x+\frac{4}{3}\lambda(1+\lambda)(2+\lambda)x^3;\\
-			C_4^\lambda(x)=\left(\frac{4+\lambda^3}{3}+4\lambda^2+\frac{8\lambda}{3}  \right)x^3+(-2\lambda^2-2\lambda)x.
+			C_4^\lambda(x)=\left(\frac{4+\lambda^3}{3}+4\lambda^2+\frac{8\lambda}{3}  \right)x^3+(-2\lambda^2-2\lambda)x;\\
+			\cdots
 		\end{array}
 	\end{equation*}
 	They also satisfy the second-order differential equation\begin{equation*}
@@ -234,17 +237,15 @@ TODO (speech):\begin{enumerate}
 \end{frame}
 \section{Special cases}
 \begin{frame}{Hermite polynomials}
-	
+	Hermite polynomials $\left\{ H_n \right\}_{n=1}^\infty$ form an orthogonal basis of $L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$
+	\begin{equation*}
+			H_n (x) = n! \lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
+			C_n^{\lambda} \left( \frac{x}{\sqrt{\lambda}} \right)
+	\end{equation*}
 \end{frame}
 \begin{frame}
 	Furthermore,
 	Letting $\lambda,\mu\to\infty$ (while keeping $\mu/\lambda=w\in\mathbb{R}$) and using
-	\vspace{-0.3cm}
-	\begin{equation*}
-			H_n (x) = n! \lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
-			C_n^{\lambda} \left( \frac{x}{\sqrt{\lambda}} \right)
-	\vspace{-0.4cm}
-	\end{equation*}
 	in Proposition \ref{prop:exp-st-gg}, we arrive at:
 	\begin{cor}\label{cor:int-xzy-hh}
 		For $\nu\in\mathbb{C}$, $w\in\R$ the following holds:
