@@ -102,6 +102,20 @@
 	\tableofcontents
 \end{frame}
 \section{The Main Result}
+\begin{frame}{Gegenbauer polynomials}
+	Family of polynomials $\left\{ C_n^\alpha \right\}_{n=1}^{\infty}$ that form an orthogonal basis of $L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$.\begin{equation*}
+		\begin{array}[]{c}
+			C_0^\lambda(x)=1;\\
+			C_1^\lambda(x)=2\lambda x;\\
+			C_2^\lambda(x)=-\lambda+2\lambda(1+\lambda)x^2;\\
+			C_3^\lambda(x)=-2\lambda(1+\lambda)x+\frac{4}{3}\lambda(1+\lambda)(2+\lambda)x^3;\\
+			C_4^\lambda(x)=\left(\frac{4+\lambda^3}{3}+4\lambda^2+\frac{8\lambda}{3}  \right)x^3+(-2\lambda^2-2\lambda)x.
+		\end{array}
+	\end{equation*}
+	They also satisfy the second-order differential equation\begin{equation*}
+		(1-x^2)y''-(2\lambda+1)xy'+n(n+\lambda)y=0.
+	\end{equation*}
+\end{frame}
 \begin{frame}
 	\begin{prop}\label{prop:exp-st-gg}
 		\begin{equation}
@@ -122,9 +136,9 @@
 	}
 	\end{prop}
 	Here, $C_{\ell}^\lambda(t)$ ($\lambda\in\mathbb{C},\ell\in\N$) is the Gegenbauer polynomial.
-	\begin{remark}
-		We could not find this formula in the literature.
-	\end{remark}
+%%	\begin{remark}
+%%		We could not find this formula in the literature.
+%%	\end{remark}
 \end{frame}
 \note{TODO (speech):\begin{enumerate}
 \item Do not use numbers like ``proposition 1'', ``proposition 3'' during the speech -- no one will remember them.
