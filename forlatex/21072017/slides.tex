@@ -689,7 +689,7 @@ TODO (speech):\begin{enumerate}
 \end{enumerate}}
 \begin{frame}{メソッド 3 (命題\ref{prop:exp-stz-gg}によって)}
 	\scriptsize
-	命題\ref{prop:exp-stz-gg}を示すため、まず、$\ell=m=0$場合に削減する
+	命題\ref{prop:exp-stz-gg}を示すため、まず、$\ell=m=0$場合に帰着する
 			{\scriptsize \begin{equation}
 				\kern-0.2cm 2\kern-0.2cm\iint\displaylimits_{[-1,1]^2} \left( s-tz \right)_+^{2c-1}  (1 - s^2)^{a - 1} (1 -
 				t^2)^{b - 1} d s d t = \frac{\sqrt{\pi} \Gamma (a) \Gamma (b) \Gamma
@@ -818,9 +818,8 @@ TODO (speech): \begin{enumerate}
 				(1-s^2)^{\nu+\frac{\mu}{2}+\frac{1}{4}}P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s).
 			\end{equation*}
 		}
-		を用いて(ここで、$P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)$がルジャンドル関連関数\footnote{is ``ルジャンドル関連関数'' correct for ``Legendre associated
-		functions''?}である)、中の積分を計算する；
-		\item そうすると、外の積分が以下のようになる：
+		を用いる(ここで、$P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)$がルジャンドル陪関数である);
+		\item 次の段階は以下の積分に帰着できる
 			\begin{equation}\label{eqn:m4-1}
 				\int_{-1}^1(1-s^2)^{\nu+\frac{\mu}{2}+\lambda-\frac{1}{4}}P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)C^{\lambda-\frac{1}{2}}_\ell(s)ds;
 			\end{equation}
@@ -831,7 +830,7 @@ TODO (speech): \begin{enumerate}
 				\left(C^\lambda_\ell(s)  \right)'=C^{\lambda+1}_{\ell-1}(s),\quad\left((1-s^2)^{-a/2}P^a_b(s) \right)'
 			=-(1-s^2)^{-\frac{a+1}{2}}P_b^{a+1}(s)
 			\end{equation*}
-			を用いて、\eqref{eqn:m4-1}を以下の公式までに削減する:
+			を用いて、\eqref{eqn:m4-1}を以下の公式までに簡易化する.
 %%			to reduce \eqref{eqn:m4-1} to the form
 			\begin{equation}\label{eqn:m4-2}
 				\int_{-1}^1(1-s^2)^aP^b_c(s)ds;
