@@ -113,10 +113,9 @@
 	\tableofcontents
 \end{frame}
 \section{主結果}
-\begin{frame}{Gegenbauer 多項式}%gegenbauer
-	Gegenbauer 多項式$\left\{ C_n^\lambda \right\}_{n=1}^{\infty}$というのは
-	、
-	$\Re(\lambda)>-\frac{1}{2}$のとき$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$空間の直交多項式である.
+\begin{frame}{Gegenbauer多項式}%gegenbauer
+	Gegenbauer多項式$\left\{ C_n^\lambda \right\}_{n=1}^{\infty}$は、
+	$\Re(\lambda)>-\frac{1}{2}$のとき$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$の直交多項式である.
 	\vspace{-0.2cm}
 	\begin{example*}
 		最初のいくつは
@@ -127,11 +126,10 @@
 			C_1^\lambda(x)&=&2\lambda x;\\
 			C_2^\lambda(x)&=&-\lambda+2\lambda(1+\lambda)x^2;\\
 			C_3^\lambda(x)&=&-2\lambda(1+\lambda)x+\frac{4}{3}\lambda(1+\lambda)(2+\lambda)x^3;\\
-			C_4^\lambda(x)&=&\left(\frac{4+\lambda^3}{3}+4\lambda^2+\frac{8\lambda}{3}  \right)x^3+(-2\lambda^2-2\lambda)x;\\
-			&\cdots&\mbox{である.}
+			C_4^\lambda(x)&=&\left(\frac{4+\lambda^3}{3}+4\lambda^2+\frac{8\lambda}{3}  \right)x^3+(-2\lambda^2-2\lambda)x;
 		\end{eqnarray*}
 	\end{example*}
-	Gegenbauer 多項式が以下のような微分方程式を満たす:
+	Gegenbauer多項式は以下のような微分方程式を満たす:
 		\vspace{-0.2cm}
 	\begin{equation*}
 		(1-x^2)y''-(2\lambda+1)xy'+n(n+\lambda)y=0.
@@ -289,7 +287,7 @@ TODO (speech):\begin{enumerate}
 %%		\end{array}
 %%	\end{equation*}
 	\end{example*}
-	エルミート多項式とGegenbauer 多項式が以下のように関連する:
+	エルミート多項式とGegenbauer多項式が以下のように関連する:
 	%%\vspace{-0.3cm}
 	\begin{equation*}
 			H_n (x) = n! \lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
@@ -499,7 +497,7 @@ TODO (speech):\begin{enumerate}
 	\end{lemma*}
 	\vspace{-0.2cm}
 	\begin{proof}\renewcommand{\qedsymbol}{}
-		Gegenbauer 多項式のロドリゲスの公式という公式
+		Gegenbauer多項式のロドリゲスの公式という公式
 		{\scriptsize\vspace{-0.2cm}\begin{equation*}
 				(1-x^2)^{\alpha-\frac{1}{2}}C_n^\alpha(x)=a(\alpha,n)
 				\frac{d^n}{dx^n} (1-x^2)^{n+\alpha-\frac{1}{2}}, a(\alpha,n):=\frac{(-1)^n}{2^nn!}\frac{\Gamma\left( \alpha+\frac{1}{2} \right)\Gamma\left( n+2\alpha \right)}{\Gamma(2\alpha)\Gamma\left(\alpha+n+\frac{1}{2}  \right)}
