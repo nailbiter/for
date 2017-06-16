@@ -763,9 +763,9 @@ TODO (speech): \begin{enumerate}
 \end{enumerate}}
 \begin{frame}{メソッド 4 (積分公式とルジャンドル関数$P^\alpha_\beta$を用いる}
 	\scriptsize
-	直接命題\ref{prop:exp-st-gg}を示す:
+	直接命題\ref{prop:int-st-gg}を示す:
 	\begin{enumerate}
-		\item We first take the inner integral, using the formula \cite[7.4.11]{kobayashi2011schrodinger}
+		\item まず、\cite[7.4.11]{kobayashi2011schrodinger}の公式
 			{
 				\scriptsize
 			\begin{equation*}
@@ -774,7 +774,9 @@ TODO (speech): \begin{enumerate}
 				(1-s^2)^{\nu+\frac{\mu}{2}+\frac{1}{4}}P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s).
 			\end{equation*}
 		}
-			where $P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)$ is the associated Legendre function. 
+		を用いて(ここで、$P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)$がルジャンドル関連関数\footnote{is ``ルジャンドル関連関数'' correct for ``Legendre associated
+		functions''?}である)、中の積分を計算する；
+			where  is the associated Legendre function. 
 		\item The remaining integral then is of the form\begin{equation}\label{eqn:m4-1}
 				\int_{-1}^1(1-s^2)^{\nu+\frac{\mu}{2}+\lambda-\frac{1}{4}}P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)C^{\lambda-\frac{1}{2}}_\ell(s)ds
 			\end{equation}
