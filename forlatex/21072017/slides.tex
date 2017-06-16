@@ -9,11 +9,12 @@
 \usepackage{xypic}
 \usepackage[all,cmtip]{xy}
 \usepackage{mystyle}
-\includecomment{versiona}
+\excludecomment{versiona}
 \usepackage{xeCJK}
 \usepackage{lpic}
 \usefonttheme{professionalfonts}
 \usepackage{etoolbox}
+\usepackage{comment}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \setbeamertemplate{theorems}[numbered] 
@@ -351,6 +352,7 @@ TODO (speech):\begin{enumerate}
 \end{tikzpicture}
 ここで{\color{blue}{青い数字}}が連続パラメータの個数を表す.
 \end{frame}
+\begin{versiona}
 \begin{frame}[fragile]
 	\scriptsize
     \setul{0.5ex}{0.3ex}
@@ -459,6 +461,7 @@ TODO (speech):\begin{enumerate}
 			\end{equation*}
 			is generalized by Proposition \ref{prop:int-st-gg}.
 \end{frame}
+\end{versiona}
 \begin{frame}
 	更に、系\ref{cor:int-xzy-hh}の積分にに$w=s-t$変数変化し、$z=1$をとれば、
 	1994から知られている公式
