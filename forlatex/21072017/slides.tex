@@ -237,7 +237,18 @@ TODO (speech):\begin{enumerate}
 \end{frame}
 \section{Special cases}
 \begin{frame}{Hermite polynomials}
-	Hermite polynomials $\left\{ H_n \right\}_{n=1}^\infty$ form an orthogonal basis of $L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$
+	Hermite polynomials $\left\{ H_n \right\}_{n=1}^\infty$ form an orthogonal basis of $L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$.
+	The first few of them are:\begin{equation*}
+		\begin{array}[]{c}
+		H_0(x)=1;\\
+		H_1(x)=2x;\\
+		H_2(x)=4x^2-2;\\
+		H_3(x)=8x^3-12x;\\
+		H_4(x)=16x^4-48x^2+12;\\
+		\cdots
+		\end{array}
+	\end{equation*}
+	Hermite polynomials are related to Gegenbauer polynomials mentioned above via the limit formula
 	\begin{equation*}
 			H_n (x) = n! \lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
 			C_n^{\lambda} \left( \frac{x}{\sqrt{\lambda}} \right)
