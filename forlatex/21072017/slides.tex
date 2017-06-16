@@ -21,6 +21,7 @@
 
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,patterns}
+\newcommand{\mybigplus}{\scalebox{2.0}{$+$}}
 \renewcommand{\implies}{\Rightarrow}
 \newcommand{\mypgf}{{\mbox{\bf ガンマ関数を用いる積公式 }}}
 \newcommand{\Sol}{\mathcal{S}\mbox{ol}}
@@ -530,17 +531,35 @@ TODO (speech):\begin{enumerate}
 \end{enumerate}}
 \begin{frame}{メソッド 1 (直接) (1/2)}
 	\scriptsize
-	命題\ref{prop:int-st-gg}を示すため：
 	\begin{enumerate}
-		\item $\ell=m=0$ 場合に削減する;
-		\item $s=(1-t)(1-w)+t$積分変換と${}_2F_1$超幾何関数のオイラー積分表示
-					\vspace{-0.2cm}
-				\begin{equation*}
-					B(b,c-b){}_2F_1(\begin{array}[]{c}
+		\item $\ell=m=0$ 場合を扱えばよい;
+		\item 
+			\begin{equation*}
+				\begin{array}[]{c}
+					\mbox{超幾何関数のオイラー積分表示}\\
+					{}_2F_1(\begin{array}[]{c}
 						a,b\\c
-					\end{array};z)=\textstyle\int_0^1x^{b-1}(1-x)^{c-b-1}(1-zx)^{-a}dx,\quad\Re(c)>\Re(b)>0
-					\vspace{-0.2cm}
-				\end{equation*}
+					\end{array};z)=\frac{\Gamma(c)}{\Gamma(b)\Gamma(c-b)}\textstyle\int_0^1x^{b-1}(1-x)^{c-b-1}(1-zx)^{-a}dx,\quad\Re(c)>\Re(b)>0\\[0.2cm]
+					\mybigplus\\[0.2cm]
+				\end{array}
+			\end{equation*}
+			%%
+%%			\begin{equation*}
+%%				\begin{array}[]{c}
+%%					\mbox{オイラー積分表示}\\[0.2cm]
+%%					\mybigplus\\[0.2cm]
+%%					\mbox{二次変換:\footnote{is 二次変換 correct for "quadratic transformation"?}}\quad {}_2 F_1 \left( \begin{array}{c}
+%%						  1 - a, b\\
+%%						    2 b
+%%					    \end{array} ; u \right) = \left( 1 - \frac{z}{2} \right)^{a - 1} {}_2 F_1 \left(
+%%					    \begin{array}{c}
+%%						      \frac{1 - a}{2}, \frac{2 - a}{2}\\
+%%						        b + \frac{1}{2}
+%%						\end{array} ; \left( \frac{u}{2 - u} \right)^2 \right)\\[0.2cm]
+%%				\mybigplus\\
+%%				\end{array}
+%%			\end{equation*}
+			%%
 			によって、
 			{\tiny
 			\begin{equation*}
@@ -622,7 +641,7 @@ TODO (speech):\begin{enumerate}
 \item 
 \end{enumerate}
 TODO (speech):\begin{enumerate}
-\item elaborate that Whipple's sum works only when there are special constraints on arguments and not true in general;
+\item 
 \end{enumerate}}
 \begin{frame}{メソッド 2 (\only<1>{1}\only<2>{2}/2)}
 			\vspace{-0.2cm}
@@ -690,7 +709,6 @@ TODO (speech):\begin{enumerate}
 			この公式が以下のものから従う:
 			\vspace{-0.4cm}
 			\begin{equation*}
-				\newcommand{\mybigplus}{\scalebox{2.0}{$+$}}
 				\begin{array}[]{c}
 					\mbox{オイラー積分表示}\\[0.2cm]
 					\mybigplus\\[0.2cm]
