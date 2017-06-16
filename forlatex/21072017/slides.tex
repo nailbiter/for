@@ -423,17 +423,7 @@ TODO (speech):\begin{enumerate}
 		\end{equation*}
 	\end{lemma*}
 	\begin{proof}
-		tesimej
-	\end{proof}
-	\begin{remark}
-		This Lemma also holds for the integral analogue of Proposition \ref{prop:exp-stz-gg}.
-	\end{remark}
-\end{frame}
-\begin{frame}{Method 1 (direct) (1/2)}
-	\scriptsize
-	We show Proposition \ref{prop:int-st-gg} as:
-	\begin{enumerate}
-		\item Using the property $
+Using the property $
 				(1-x^2)^{\alpha-\frac{1}{2}}C_n^\alpha(x)=a(\alpha,n)
 				\frac{d^n}{dx^n} (1-x^2)^{n+\alpha-\frac{1}{2}}, a(\alpha,n):=\frac{(-1)^n}{2^nn!}\frac{\Gamma\left( \alpha+\frac{1}{2} \right)\Gamma\left( n+2\alpha \right)}{\Gamma(2\alpha)\Gamma\left(\alpha+n+\frac{1}{2}  \right)}$
 				of Gegenbauer polynomials and integration by parts we have ${\mbox{LHS}\eqref{eqn:int-st-gg}}/{a(\lambda,l)/a(\mu,m)}=$\begin{equation}
@@ -443,7 +433,17 @@ TODO (speech):\begin{enumerate}
 					\kern-0.1cm=(-1)^m(-2\nu)_{l+m}\kern-0.2cm\iint\displaylimits_{[-1,1]^2}\kern-0.2cm\myabs{s-t}^{2\nu-l-m}(1-s^2)^{\lambda+l-\frac{1}{2}}(1-t^2)^{\mu+m-\frac{1}{2}};
 					\label{eqn:m1-1}
 				\end{equation}
-			\item Upon change of variables $s=(1-t)(1-w)+t$ and using Euler's integral representation 
+
+	\end{proof}
+	\begin{remark}
+		This Lemma also holds for the integral analogue of Proposition \ref{prop:exp-stz-gg}.
+	\end{remark}
+\end{frame}
+\begin{frame}{Method 1 (direct) (1/2)}
+	\scriptsize
+	We show Proposition \ref{prop:int-st-gg} as:
+	\begin{enumerate}
+		\item 			\item Upon change of variables $s=(1-t)(1-w)+t$ and using Euler's integral representation 
 					\vspace{-0.2cm}
 				\begin{equation*}
 					B(b,c-b){}_2F_1(\begin{array}[]{c}
