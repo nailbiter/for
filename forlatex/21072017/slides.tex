@@ -52,9 +52,12 @@
 %%\makeatother
 
 \newtheorem{prop}{命題}
-\newtheorem*{prop*}{命題}
+\newtheorem*{taggedpropx}{命題}
 \newtheorem{remark}{注}
 \newtheorem{cor}{系}
+\newenvironment{taggedprop}[1]
+ {\renewcommand\thetaggedpropx{#1}\taggedpropx}
+  {\endtaggedpropx}
 
 \AtBeginEnvironment{remark}{%
 	    \setbeamercolor{block title}{bg=orange,fg=white}
@@ -219,7 +222,7 @@ TODO (speech):\begin{enumerate}
 		}
 	\end{prop}
 \end{frame}
-\section{Related Results}
+\section{Special cases}
 \begin{frame}
 	Furthermore,
 	Letting $\lambda,\mu\to\infty$ (while keeping $\mu/\lambda=w\in\mathbb{R}$) and using
