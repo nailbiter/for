@@ -539,8 +539,7 @@ TODO (speech):\begin{enumerate}
 					\mbox{超幾何関数のオイラー積分表示}\\
 					{}_2F_1(\begin{array}[]{c}
 						a,b\\c
-					\end{array};z)=\frac{\Gamma(c)}{\Gamma(b)\Gamma(c-b)}\textstyle\int_0^1x^{b-1}(1-x)^{c-b-1}(1-zx)^{-a}dx,\quad\Re(c)>\Re(b)>0\\[0.2cm]
-					\mybigplus\\[0.2cm]
+					\end{array};z)=\frac{\Gamma(c)}{\Gamma(b)\Gamma(c-b)}\textstyle\int_0^1x^{b-1}(1-x)^{c-b-1}(1-zx)^{-a}dx,\quad\Re(c)>\Re(b)>0
 				\end{array}
 			\end{equation*}
 			%%
@@ -560,38 +559,39 @@ TODO (speech):\begin{enumerate}
 %%				\end{array}
 %%			\end{equation*}
 			%%
-			によって、
-			{\tiny
-			\begin{equation*}
-			\vspace{-0.2cm}
-				{\mbox{右辺(補題)}}/{(-1)^m/(-2\nu)_{l+m}}/2^{\lambda+l-\frac{1}{2}}
-			\end{equation*}
-			\vspace{-0.2cm}
-			\begin{equation}
-				\kern-1.2cm
-				 =B \left( 2\nu-l-m+1, \lambda+l-\frac{1}{2} \right)
-				\kern-0.2cm\int_{-1}^1 (1 - t)^{2 \nu+\lambda-m+\frac{3}{2}} {}_2 F_1 \left( \kern-0.2cm\begin{array}{c}
-					\frac{1}{2}-l-\lambda, 2\nu-l-m+1\\
-					2 \nu+\lambda-m+\frac{3}{2}
-				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)(1-t^2)^{\mu+m-\frac{1}{2}}dt
-				\label{eqn:m1-2}
-			\end{equation}
-		}
-
-%%			via \cite[ET II 186(9)]{gradshteinryzhik}:
-%%		\begin{equation*}
-%%			\kern-1cm\int_0^u x^{\nu - 1} (x + \alpha)^{\lambda} (u - x)^{\mu - 1} d x =
-%%			\alpha^{\lambda} u^{\mu + \nu - 1} B (\mu, \nu)_2 F_1 \left( - \lambda, \nu ;
-%%			\mu + \nu ; - \frac{u}{\alpha} \right);
-%%		\end{equation*}
-			\vspace{-0.5cm}
-	\item  ${}_2 F_1 \left( \kern-0.2cm\begin{array}{c}
-					\frac{1}{2}-l-\lambda, 2\nu-l-m+1\\
-					2 \nu+\lambda-m+\frac{3}{2}
-				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)$ 
-				の展開とベータ積分$\int_0^1t^{x-1}(1-t)^{y-1}dt=\Gamma(x)\Gamma(y)/\Gamma(x+y)$によって、
-				$\mbox{右辺}\eqref{eqn:m1-2}$と
-				${}_3F_2(;1)$超幾何関数比例であるということが分かる;
+%%			によって、
+%%			{\tiny
+%%			\begin{equation*}
+%%			\vspace{-0.2cm}
+%%				{\mbox{右辺(補題)}}/{(-1)^m/(-2\nu)_{l+m}}/2^{\lambda+l-\frac{1}{2}}
+%%			\end{equation*}
+%%			\vspace{-0.2cm}
+%%			\begin{equation}
+%%				\kern-1.2cm
+%%				 =B \left( 2\nu-l-m+1, \lambda+l-\frac{1}{2} \right)
+%%				\kern-0.2cm\int_{-1}^1 (1 - t)^{2 \nu+\lambda-m+\frac{3}{2}} {}_2 F_1 \left( \kern-0.2cm\begin{array}{c}
+%%					\frac{1}{2}-l-\lambda, 2\nu-l-m+1\\
+%%					2 \nu+\lambda-m+\frac{3}{2}
+%%				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)(1-t^2)^{\mu+m-\frac{1}{2}}dt
+%%				\label{eqn:m1-2}
+%%			\end{equation}
+%%		}
+%%
+%%%%			via \cite[ET II 186(9)]{gradshteinryzhik}:
+%%%%		\begin{equation*}
+%%%%			\kern-1cm\int_0^u x^{\nu - 1} (x + \alpha)^{\lambda} (u - x)^{\mu - 1} d x =
+%%%%			\alpha^{\lambda} u^{\mu + \nu - 1} B (\mu, \nu)_2 F_1 \left( - \lambda, \nu ;
+%%%%			\mu + \nu ; - \frac{u}{\alpha} \right);
+%%%%		\end{equation*}
+%%			\vspace{-0.5cm}
+%%	\item  ${}_2 F_1 \left( \kern-0.2cm\begin{array}{c}
+%%					\frac{1}{2}-l-\lambda, 2\nu-l-m+1\\
+%%					2 \nu+\lambda-m+\frac{3}{2}
+%%				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)$ 
+%%				の展開とベータ積分$\int_0^1t^{x-1}(1-t)^{y-1}dt=\Gamma(x)\Gamma(y)/\Gamma(x+y)$によって、
+%%				$\mbox{右辺}\eqref{eqn:m1-2}$と
+			を用い、次に級数展開を用いて、求める積分公式を${}_3F_2$で表す
+%%				${}_3F_2(;1)$超幾何関数比例であるということが分かる;
 			\item Whipple sum
 			\begin{equation*}
 			\begin{array}[]{c}
