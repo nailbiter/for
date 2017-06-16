@@ -126,19 +126,22 @@
 \begin{frame}
 	\begin{prop}\label{prop:exp-st-gg}
 		\begin{equation}
-			| s + t |^{2 \nu} = \sum_{\mbox{\scriptsize $\begin{array}[]{c}
+			| s + t |^{2 \nu} =b(\lambda,\mu,\nu) \sum_{\mbox{\scriptsize $\begin{array}[]{c}
 			\ell, m = 0 \\ \ell + m : \tmop{even}
 		\end{array}$}}^{\infty} a_{\lambda,\mu,\nu}^{\ell,m} C_\ell^{\lambda} (s) C_m^{\mu} (t),
 			\label{eqn:exp-st-gg}
 		\end{equation}
 		{\scriptsize
 		\begin{equation*}
-	a_{\lambda,\mu,\nu}^{\ell,m}= \frac{ 2^{-2\nu}(\lambda + \ell) (\mu + m)  \Gamma (\lambda + \mu + 2 \nu + 1) \Gamma (\lambda)
+			\begin{array}[]{c}
+	a_{\lambda,\mu,\nu}^{\ell,m}:= \frac{ 2^{-2\nu}(\lambda + \ell) (\mu + m)  \Gamma (\lambda + \mu + 2 \nu + 1) \Gamma (\lambda)
   \Gamma (\mu)\Gamma \left( 2\nu +
 1 \right)}{\Gamma \left( \lambda + \nu + \frac{\ell -
   m}{2} + 1 \right)  \Gamma \left( \mu + \nu -
   \frac{\ell - m}{2} + 1 \right) \Gamma \left( \lambda + \mu + \nu + \frac{\ell +
-  m}{2} + 1 \right)\Gamma\left(  \nu+1-\frac{\ell+m}{2}\right)}
+  m}{2} + 1 \right)\Gamma\left(  \nu+1-\frac{\ell+m}{2}\right)}\\
+  b(\lambda,\mu,\nu):=
+			\end{array}
 		\end{equation*}
 	}
 	\end{prop}
@@ -178,8 +181,11 @@
 		  \label{thm:4}For $\tmop{Re} \lambda, \tmop{Re} \mu > - \frac{1}{2}$,
 		    $\tmop{Re} (\nu) > 0$ and $-1 \leqslant z \leqslant 1$ the following holds:
 		      \begin{eqnarray}
-			          & | s + t z |^{2 \nu}  = \sum_{l,
-					  m = 0 \mid l + m\mbox{\scriptsize :even}}^{\infty} a_{l, m}
+			          & | s + t z |^{2 \nu}  = \sum_{
+					  \begin{array}[]{c}
+						  \ell,m=0\\l + m\mbox{\scriptsize :even}
+					  \end{array}
+					  }^{\infty} a_{l, m}
 					          (z) C_l^{\lambda} (s) C_m^{\mu} (t), &  \nonumber\\
 						      & a_{l, m} (z) = \frac{\Gamma \left( \nu + \frac{1}{2} \right) \Gamma
 						      (\lambda) \Gamma (\mu) (\lambda + l) z^m }{(1 + \nu)_{- \frac{l + m}{2}} \sqrt{\pi} \Gamma
