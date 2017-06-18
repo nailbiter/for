@@ -662,7 +662,7 @@
 				\kern-0.6cm
 				\begin{array}{c}
 				\displaystyle\iint\displaylimits_{(t, \tau) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} \tau^{\alpha} (1
-				- \tau)^{\alpha} | t - \tau |^{- 2} d \tmop{td} \tau\\
+				- \tau)^{\alpha} | t - \tau |^{- 2} dtd\tau\\
 			=\mypgf
 				\end{array}
 				\vspace{-0.3cm}
@@ -678,26 +678,12 @@
 		\begin{equation*}
 			\kern-0.25cm
 			\begin{array}{c}
-%%\begin{array}{c}
-%%  \frac{1}{n!m!} \int_{(t, \tau) \in [0, 1]^{n + m}} \Pi^{\alpha', \beta'} (t)
-%%  \Pi^{\alpha, \beta} (\tau) \Delta^{2 \rho'} (t) \Delta^{2 \rho} (\tau)
-%%  \Delta^{- 2} (t, \tau) d \tmop{td} \tau \\
-%%  =\mypgf,\\
-%%  \alpha' = - \rho' \alpha, \beta' = - \rho' \beta, \rho' \rho = 1,\\
-%%  \tmop{Re} (\rho) < 0, \quad \tmop{Re} (\alpha), \tmop{Re} (\beta) > (n - 1)
-%%  + | \tmop{Re} (\rho) | (m - 1)
-%%\end{array}
-
 				\frac{1}{n!m!}
 				\kern-1.45cm
 				\displaystyle\bigintssss_{\mbox{\tiny$\kern1.0cm(t,\tau)\kern-0.1cm\in\kern-0.1cm [0, 1]^{k_1+k_2}$}} \kern-1.35cm
    \Pi^{\alpha', \beta'} (t)
   \Pi^{\alpha, \beta} (\tau) \Delta^{2 \rho'}(t) \Delta^{2 \rho}(\tau)
   \Delta^{- 2} (t, \tau) dtd\tau \\
-%%				\textstyle\prod^{\alpha - 1,
-%%				\beta_1 - 1}\kern-0.05cm (t) \kern-0.09cm\textstyle\prod^{0, \beta_2 - 1}\kern-0.05cm (s)
-%%					    \Delta^{2 \gamma}\kern-0.05cm(t)
-%%					     \Delta^{2 \gamma}\kern-0.05cm (s) \Delta^{- \gamma}\kern-0.05cm (t, s)\\
 				      \end{array}\end{equation*}
 			\vspace{-0.5cm}
 		\begin{equation*}
@@ -739,25 +725,6 @@
 	\end{block}
 	\end{textblock*}
 	}
-\end{frame}
-\begin{frame}{Hierarchy (Dotsenko-Fateev'85)}
-	\scriptsize
-	\fbox{Dotsenko-Fateev'85} is yet another generalization of Selberg integral shown in \cite[(A35)]{dotsenko1985four}\begin{equation*}
-\begin{array}{c}
-  \frac{1}{n!m!} \int_{(t, \tau) \in [0, 1]^{n + m}} \Pi^{\alpha', \beta'} (t)
-  \Pi^{\alpha, \beta} (\tau) \Delta^{2 \rho'} (t) \Delta^{2 \rho} (\tau)
-  \Delta^{- 2} (t, \tau) d \tmop{td} \tau \\
-  =\mypgf,\\
-  \alpha' = - \rho' \alpha, \beta' = - \rho' \beta, \rho' \rho = 1,\\
-  \tmop{Re} (\rho) < 0, \quad \tmop{Re} (\alpha), \tmop{Re} (\beta) > (n - 1)
-  + | \tmop{Re} (\rho) | (m - 1)
-\end{array}
-			\end{equation*}
-			Its particular case $m=n=1,\alpha'=\beta',\alpha=\beta$ with LHS being\begin{equation*}
-				\displaystyle\iint\displaylimits_{(t, \tau) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} \tau^{\alpha} (1
-				- \tau)^{\alpha} | t - \tau |^{- 2} d \tmop{td} \tau
-			\end{equation*}
-			is generalized by Proposition \ref{prop:int-st-gg}.
 \end{frame}
 \begin{frame}
 	更に、系\ref{cor:int-xzy-hh}の積分に$w=s-t$変数変化し、$z=1$をとれば、
