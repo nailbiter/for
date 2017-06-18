@@ -337,7 +337,7 @@
 			{\tiny
 		\begin{equation*}
 			\begin{array}[]{c}
-			{(2\pi)^{-\frac{k}{2}}}\displaystyle\int_{\mathbb{R}^k}\prod_{1\le i\le j\le k}\myabs{t_i-t_j}^{2\gamma}\exp\left( -\myabs{\mathbf{t}}^2/2 \right)d\mathbf{t}\\
+			{(2\pi)^{-\frac{k}{2}}}\displaystyle\int_{\mathbb{R}^k}\prod_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma}\exp\left( -\myabs{\mathbf{t}}^2/2 \right)d\mathbf{t}\\
 			=\displaystyle\prod_{j=1}^k\frac{\Gamma\left( 
 			1+j\gamma\right)}{\Gamma(1+\gamma)}
 			\end{array}
@@ -473,7 +473,8 @@
 					        = \mypgf,\\
 					  \mbox{where }\textstyle\prod^{\alpha_1 - 1,
 					  \beta_1 - 1} (t):=\displaystyle\prod_{i=1}^{k_1}t_i^{\alpha_1-1}(1-t_i)^{\beta_1-1},\\
-					  \Delta^{2\gamma}(t)=\displaystyle\prod_{i=1}^{k_1}\myabs{t_i}^{2\gamma},\quad E=mc^2,\\
+					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\myabs{t_i}^{2\gamma},\quad \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=}^{k_1,k_2}
+					  \myabs{t_i-s_j}^{\gamma},\\
 					  \\
 					  \beta_1 + \beta_2 = \gamma + 1,\\
 					    \tmop{Re} (\alpha_i), \tmop{Re} (\beta_i) > 0,  \myabs{\gamma} \ll 1 ,\\ \quad 1
