@@ -171,12 +171,6 @@
 %%		We could not find this formula in the literature.
 %%	\end{remark}
 \end{frame}
-\note{TODO (speech):\begin{enumerate}
-\item Do not use numbers like ``proposition 1'', ``proposition 3'' during the speech -- no one will remember them.
-	Come up with some ``aliases'' (maybe, ``general proposition'', ``special case'' etc.).
-	Or maybe, make one proposition to be theorem, another to be observation etc;
-\end{enumerate}
-}
 %%\begin{frame}
 %%	\begin{figure}[h]
 %%		\centering
@@ -220,17 +214,6 @@
     \end{prop}
     命題\ref{prop:exp-st-gg}は命題\ref{prop:exp-stz-gg}において$z=1$としたとその結果である.\footnote{I am not sure in this sentence}
 \end{frame}
-\note{TODO (slides):\begin{enumerate}
-	\item investigate why LHS in Prop. \ref{prop:exp-stz-gg} is non-analytic, while RHS is seemingly analytic
-\end{enumerate}
-TODO (speech):\begin{enumerate}
-	\item keep in mind the formula\begin{equation*}
-			{}_2F_1\left( \begin{array}[]{c}
-				a,b\\c
-			\end{array};1\right)=\frac{\Gamma(c-a-b)\Gamma(c)}{\Gamma(c-a)\Gamma(c-b)},\quad \Re(c-a-b)>0
-		\end{equation*}
-		during the talk;
-\end{enumerate}}
 \begin{frame}
 	命題\ref{prop:exp-st-gg}は次の
 	積分公式と同値である.
@@ -391,14 +374,6 @@ TODO (speech):\begin{enumerate}
 %%		の$k=2$の特別な場合になる.
 %%	\end{remark}
 \end{frame}
-\note{
-	TODO (slides):\begin{enumerate}
-		\item investigate why LHS in Cor. \ref{cor:int-xzy-hh} is non-analytic, while RHS is seemingly analytic
-	\end{enumerate}
-	TODO (speech):\begin{enumerate}
-	\item 
-\end{enumerate}
-}
 \begin{frame}[fragile]{ハイアラーキー}
 \begin{tikzpicture}
 \input{intdep.tex}
@@ -553,9 +528,6 @@ TODO (speech):\begin{enumerate}
 	を表す.
 	%%Applying inverse Mellin transform, we arrive at the well-known formula for convolution of Hermite-Rodriguez functions.
 \end{frame}
-\note{TODO (slides):\begin{enumerate}
-\item 
-\end{enumerate}}
 \section{証明}
 \begin{frame}
 	以下の述べられているメソッド１とメソッド３は最初のステップとして以下のような補題を使う:
@@ -593,12 +565,6 @@ TODO (speech):\begin{enumerate}
 	命題\ref{prop:exp-stz-gg}の証明においても同じアイディアが適用できる.
 %%	命題\ref{prop:exp-stz-gg}の積分公式の形に対して、このよう補題も成り立つ.
 \end{frame}
-\note{TODO (speech):\begin{enumerate}
-\item keep in mind
-	\begin{equation*}
-				a(\alpha,n)=\frac{d^n}{dx^n} (1-x^2)^{n+\alpha-\frac{1}{2}}, a(\alpha,n):=\frac{(-1)^n}{2^nn!}\frac{\Gamma\left( \alpha+\frac{1}{2} \right)\Gamma\left( n+2\alpha \right)}{\Gamma(2\alpha)\Gamma\left(\alpha+n+\frac{1}{2}  \right)}
-	\end{equation*}
-\end{enumerate}}
 \begin{frame}{メソッド 1 (直接)}
 	\scriptsize
 	\begin{enumerate}
@@ -708,12 +674,6 @@ TODO (speech):\begin{enumerate}
 %%		with 5 free parameters {\bf cannot} be expressed by Gamma functions \cite{ebisu2016three}.
 %%	\end{remark}
 %%\end{frame}
-\note{TODO (slides):\begin{enumerate}
-\item 
-\end{enumerate}
-TODO (speech):\begin{enumerate}
-\item 
-\end{enumerate}}
 \begin{frame}{メソッド 2 (\only<1>{1}\only<2>{2}/2) cf. セルバーグ積分の証明}
 			\vspace{-0.2cm}
 	\begin{fact*}[Carlsonの定理]
@@ -755,9 +715,6 @@ TODO (speech):\begin{enumerate}
 	は計算可能.
 	}
 \end{frame}
-\note{TODO (slides):\begin{enumerate}
-\item 
-\end{enumerate}}
 \begin{frame}{メソッド 3 (命題\ref{prop:exp-stz-gg}によって)}
 	\scriptsize
 	命題\ref{prop:exp-stz-gg}を示すため、まず、$\ell=m=0$場合に帰着する
@@ -866,16 +823,6 @@ TODO (speech):\begin{enumerate}
 				\end{equation*}
 			\end{lemma*}
 \end{frame}
-\note{TODO (slides):\begin{enumerate}
-\item 
-%%\item elaborate about the transformation formula we used
-%%\item make this the fourth step;
-%%\item put the emphasize on the fourth step, do not spend so much space on third step;
-\end{enumerate}
-TODO (speech): \begin{enumerate}
-	\item Mention that \eqref{eqn:prop21} is just case $m=\ell=0$ of integral form of Prop. \ref{prop:exp-stz-gg}
-	\item explain that formula in step \ref{enum:m4-1} is the Euler's integral representation of ${}_2F_1$ plus quadratic transformation
-\end{enumerate}}
 \begin{frame}{メソッド 4 (積分公式とルジャンドル関数$\kern-0.1cm P^\alpha_\beta\kern-0.1cm$を用いる}
 	\scriptsize
 	直接命題\ref{prop:int-st-gg}を示す:
@@ -910,10 +857,6 @@ TODO (speech): \begin{enumerate}
 		\item \eqref{eqn:m4-2} が \cite[L2]{kobayashi2011schrodinger}積分公式から従う.
 	\end{enumerate}
 \end{frame}
-\note{TODO (slides):\begin{enumerate}
-	\item check that this メソッドs 1 and 4 are {\it really} different;
-\end{enumerate}
-}
 \section{表現論の対称性破れ作用素に対して応用}
 \newcommand{\mysbo}{A:\pi\kern-0.1cm\mid_{G'}\xrightarrow{G'}\tau}
 {
