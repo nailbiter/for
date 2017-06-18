@@ -449,19 +449,23 @@
 \begin{frame}[fragile]
 	\scriptsize
 	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
-    			\setulcolor{Red}
-		\begin{taggedprop}{ {\ul{$\;1'$}}}
-		{\tiny
+    			\setulcolor{Blue}
+			\begin{fact*}[Warnaar'10 (1.4)]
+				{\tiny
 		\begin{equation*}
-			\kern-0.4cm
-			\begin{array}[]{c}
-				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_l^{\lambda} (s) C_m^{\mu} (t) d s d t\\
-			=\mypgf
+			\begin{array}{c}
+				  \displaystyle\int_{(s, t) \in C_{\beta_1, \gamma}^{k_1, k_2} [0, 1]} \Pi^{\alpha_1 - 1,
+					    \beta_1 - 1} (t) \Pi^{\alpha_2 - 1, \beta_2 - 1} (s) \Delta^{2 \gamma} (t)
+					      \Delta^{2 \gamma} (s) \Delta^{- \gamma} (t, s) d s d t\\
+					        = \mypgf,\\
+					  \mbox{where }\beta_1 + \beta_2 = \gamma + 1,\\
+					    \tmop{Re} (\alpha_i), \tmop{Re} (\beta_i) > 0,  \myabs{\gamma} \ll 1 ; \quad 1
+						\le \forall i \le \displaystyle\min_i \{ k_i \} : \beta_1 + (i - k_2 - 1)
+						  \gamma \nin \mathbb{Z}
 			\end{array}
-		\end{equation*}
-	}
-	\end{taggedprop}
+			\end{equation*}
+				}
+			\end{fact*}
 	\end{textblock*}
 	\begin{textblock*}{\textwidth}(3.99cm,1.7cm)
 	  	\begin{tikzpicture}
