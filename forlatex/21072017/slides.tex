@@ -636,24 +636,96 @@
 	\end{textblock*}
 	}
 \end{frame}
-\begin{frame}{Hierarchy (Tarasov-Varchenko'03)}
+\begin{frame}[fragile]%frame DF
 	\scriptsize
-	\fbox{Tarasov-Varchenko'03} is another generalization of Selberg integral shown in \cite[(3.4)]{tarasov2003selberg}\begin{equation*}
-\begin{array}{c}
-  \displaystyle\int_{(s, t) \in C_{\gamma}^{k_1, k_2}} \Pi^{\alpha - 1, \beta_1 - 1} (t)
-  \Pi^{0, \beta_2 - 1} (s) \Delta^{2 \gamma} (t) \Delta^{2 \gamma} (s)
-  \Delta^{- \gamma} (t, s) d s d t \\
-  =\mypgf,\\
-  \mbox{where }\tmop{Re} (\alpha_i), \tmop{Re} (\beta_2) > 0, | \tmop{Re} \gamma | \ll 1
-\end{array}
-			\end{equation*}
-			and $C^{k_1,k_2}_\gamma[0,1]$ is some another {\it linear sum} of subsets of $[0,1]^{k_1+k_2}$.
-			Its particular case $k_1=k_2,\beta_2=1,\alpha=\beta_1$ with LHS being\begin{equation*}
+	\begin{textblock*}{\textwidth}(1cm,0.8cm)
+	  	\begin{tikzpicture}
+			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,1.95);
+			\node at (2.8,3.4) {\color{red}{\textnormal{ \tiny$\begin{array}[]{c}\ell=m=0,\\ \mu=\frac{1}{2} \end{array}$}}};
+		\end{tikzpicture}
+	\end{textblock*}
+	\begin{textblock*}{\textwidth}(3.89cm,1.7cm)
+	  	\begin{tikzpicture}
+			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.5,-1.0);
+			\node at (-0.45,0.0) {\color{blue}{\normalfont{\tiny$\begin{array}[]{c}
+				k=2,\\
+				\beta_2=1,\\
+				\alpha=\beta_1
+		\end{array}$}}};
+		\end{tikzpicture}
+	\end{textblock*}
+	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.7cm)
+		 {\tiny
+			\begin{tcolorbox}[colback=green!10!white,colframe=green]
+				\vspace{-0.5cm}
+			\begin{equation*}
+				\kern-0.6cm
+				\begin{array}[]{c}
+					
 				\displaystyle\iint\displaylimits_{\begin{array}[]{c}
 				(s, t) \in [0, 1]^2\\t<s
-			\end{array}} s^{\alpha - 1} (1 - s)^{\alpha - 1} \myabs{s-t}^{- \gamma} d s d t
+			\end{array}} s^{\lambda - \frac{1}{2}} (1 - s)^{\lambda-\frac{1}{2}} \myabs{s-t}^{2\nu} d s d t\\
+			=\mypgf
+				\end{array}
+				\vspace{-0.3cm}
 			\end{equation*}
-			is generalized by Proposition \ref{prop:int-st-gg}.
+
+			     \end{tcolorbox}
+		}
+	\end{textblock*}
+	\begin{textblock*}{0.5\textwidth}(0.515\textwidth,0.06cm)
+    			\setulcolor{Blue}
+		\begin{fact*}[{\ul{Dotsenko-Fateev'85}}]
+			{\tiny
+		\begin{equation*}
+			\kern-1.45cm
+			\begin{array}{c}
+				\displaystyle\bigintssss_{ \mbox{\tiny$\kern1.4cm (t,s)\kern-0.1cm\in\kern-0.1cm C_{\gamma}^{k_1, k_2} [0, 1]$}} \kern-1.65cm\textstyle\prod^{\alpha - 1,
+				\beta_1 - 1}\kern-0.05cm (t) \kern-0.09cm\textstyle\prod^{0, \beta_2 - 1}\kern-0.05cm (s)
+%%					    \\ \times
+					    \Delta^{2 \gamma}\kern-0.05cm(t)
+					      \Delta^{2 \gamma}\kern-0.05cm (s) \Delta^{- \gamma}\kern-0.05cm (t, s)\\
+				      \end{array}\end{equation*}
+			\vspace{-0.5cm}
+		\begin{equation*}
+			\kern-0.29cm
+			\begin{array}{c}
+					        = \mypgf,\\
+					  \mbox{where }\textstyle\prod^{\alpha - 1,
+					  \beta_1 - 1} (t):=\displaystyle\prod_{i=1}^{k_1}t_i^{\alpha-1}(1-t_i)^{\beta_1-1},\\
+					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\kern-0.2cm\myabs{t_i}^{2\gamma}, \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=1}^{k_1,k_2}
+					  \myabs{t_i-s_j}^{\gamma}\kern-0.1cm,\\
+					  \\
+					\tmop{Re} (\alpha_i), \tmop{Re} (\beta_2) > 0, | \tmop{Re} \gamma | \ll 1.
+			\end{array}
+			\end{equation*}
+			\vspace{-0.29cm}
+				}
+		\end{fact*}
+	\end{textblock*}
+	\begin{textblock*}{0.5\textwidth}(0.635\textwidth,-2.8cm)
+			  \begin{tikzpicture}[scale=0.4]
+				\input{intdepDF.tex}
+				\end{tikzpicture}
+				%\caption{A gull}
+	\end{textblock*}
+	{
+	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
+    			\setulcolor{Red}
+			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
+		{\tiny
+		\begin{equation*}
+			\kern-0.4cm
+			\begin{array}[]{c}
+				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
+			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_l^{\lambda} (s) C_m^{\mu} (t) d s d t\\
+			=\mypgf
+			\end{array}
+		\end{equation*}
+		}
+	\end{block}
+	\end{textblock*}
+	}
 \end{frame}
 \begin{frame}{Hierarchy (Dotsenko-Fateev'85)}
 	\scriptsize

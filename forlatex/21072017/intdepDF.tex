@@ -1,20 +1,17 @@
 \draw[color=black] (-0.2,0.0) rectangle (2.2,-0.5);
-\node at (1.0,-0.25) {\color{black}{\tiny Warnaar'10: \color{blue}{4}}};
+\node at (1.0,-0.25) {\color{black}{\tiny W'10:\color{blue}{4}}};
 
-\draw[color=red] (2.4,0.0) rectangle (4.0,-0.5);
-\node at (3.2,-0.25) {\color{red}{\tiny 命題 2: \color{blue}{4}}};
+\draw[color=red] (2.4,0.0) rectangle (4.4,-0.5);
+\node at (3.45,-0.25) {\color{red}{\tiny 命題 2:\color{blue}{4}}};
 
-\draw[color=black] (4.2,0.0) rectangle (8.0,-0.5);
-\node at (6.1,-0.25) {\color{black}{\tiny Tarasov-Varchenko'03:\color{blue}{3}}};
+\draw[color=black] (4.6,0.0) rectangle (7.6,-0.5);
+\node at (6.1,-0.25) {\color{black}{\tiny T-V'03:\color{black}{3}}};
 
-\draw[color=black] (8.1,0.0) rectangle (11.65,-0.5);
-\node at (9.85,-0.25) {\color{black}{\tiny Dotsenko-Fateev'85:\color{blue}{4}}};
+\draw[color=blue] (8.5,0.0) rectangle (11.25,-0.5);
+\node at (9.85,-0.25) {\color{blue}{\tiny D-F'85:\color{blue}{4}}};
 
-\draw[color=red] (2.35,-2.0) rectangle (4.05,-2.5);
-\node at (3.2,-2.25) {\color{red}{\tiny 命題 1$'$: \color{blue}{3}}};
-
-\draw[color=blue] (4.8,-2.0) rectangle (6.9,-2.5);
-\node at (5.85,-2.25) {\color{blue}{\tiny Selberg'44: \color{blue}{3}}};
+\draw[color=red] (2.1,-2.0) rectangle (4.3,-2.5);
+\node at (3.2,-2.25) {\color{red}{\tiny 命題 1$'$:\color{blue}{3}}};
 
 \filldraw[color=red,pattern color=red,pattern=north east lines] (3.2,-4.0) circle(0.3);
 \node at (3.85,-4.0) {\color{blue}{3}};
@@ -25,7 +22,7 @@
 \fill[color=black] (3.2,-6.0) circle(0.1);
 \node at (3.6500000000000004,-6.0) {\color{blue}{2}};
 
-\fill[color=black] (5.85,-6.0) circle(0.1);
+\fill[color=green] (5.85,-6.0) circle(0.3);
 \node at (6.3,-6.0) {\color{blue}{2}};
 
 \fill[color=black] (8.9,-6.0) circle(0.1);
@@ -39,9 +36,12 @@
 \draw[->,>=angle 90,style=very thick,color=red] (3.2,-2.5) -- node {} (3.2000000000000006,-3.7) ; % P3 -> P3'
 \draw[->,>=angle 90,color=black] (1.0,-0.5) -- node {} (1.490946425395748,-5.90041067935323) ; %W -> W'
 \draw[->,>=angle 90,color=black] (3.0057054739713385,-4.2285817953278375) -- node {} (1.5573628100792203,-5.93251434108327) ;%P3' -> W'
-\draw[->,>=angle 90,style=very thick,color=red] (3.2,-4.3) -- node {} (3.2,-5.914999999999999) ;%P3' -> S'
-\draw[->,>=angle 90,color=black] (3.4394567450999696,-4.180722071773562) -- node {} (5.777393604812446,-5.9452027206131675) ;%P3' -> DF'
-\draw[->,>=angle 90,color=black] (3.4830799946398643,-4.099326313908724) -- node {} (8.810326217188193,-5.968535514802874) ;%P3' -> TV'
-\draw[->,>=angle 90,style=very thick,color=blue] (5.34,-2.5) -- node {} (3.252164719493017,-5.914683869988056) ;%S -> S'
-\draw[->,>=angle 90,color=black] (9.6,-0.5) -- node {} (5.912899489957162,-5.922259057356316) ;%DF -> DF'
-\draw[->,>=angle 90,color=black] (6.5,-0.5) -- node {} (8.877333022939228,-5.902602832941987) ;%TV -> TV'
+\draw[->,>=angle 90,color=black] (3.2,-4.3) -- node {} (3.2,-5.714999999999999) ;%P3' -> S'
+\draw[->,>=angle 90,color=red,style=very thick] (3.44,-4.18) -- node {} (5.6174,-5.82446) ;%P3' -> TV'
+\draw[->,>=angle 90,color=black,color=black] (3.48,-4.099) -- node {} (8.81,-5.9685) ;%P3' -> DF'
+\draw[->,>=angle 90,color=black] (5.34,-2.5) -- node {} (3.35649415847905,-5.74405160996417) ;%S -> S'
+\draw[->,>=angle 90,color=black] (9.6,-0.5) -- node {}  (8.92466,-5.90309);%DF -> DF'
+\draw[->,>=angle 90,color=blue,style=very thick] (6.5,-0.5) -- node {} (5.90279,-5.70610) ;%TV -> TV'
+
+\draw[color=black,fill=white] (4.8,-2.0) rectangle (6.9,-2.5);
+\node at (5.85,-2.25) {\color{black}{\tiny S'44:\color{black}{3}}};
