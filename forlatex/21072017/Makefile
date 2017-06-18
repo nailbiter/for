@@ -40,7 +40,7 @@ $(OUTDIR)/intdepS.tex : intdepS.tex
 	cp -f $< $@
 $(OUTDIR)/intdep.tex : intdep.tex
 	cp -f $< $@
-$(OUTDIR)/slides.pdf : slides.tex diagram.tex $(OUTDIR)/intdep.tex $(OUTDIR)/intdepS.tex
+$(OUTDIR)/slides.pdf : slides.tex diagram.tex $(OUTDIR)/intdep.tex $(OUTDIR)/intdepS.tex $(OUTDIR)/intdepW.tex $(OUTDIR)/intdepTV.tex $(OUTDIR)/intdepDF.tex
 	$(XELATEX) $<
 diagram.tex: diagram.scm
 	guile -e symbreakdiag $< > $@
