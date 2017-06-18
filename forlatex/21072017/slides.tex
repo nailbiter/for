@@ -16,6 +16,11 @@
 \usepackage{etoolbox}
 \usepackage{comment}
 
+    \setul{0.5ex}{0.3ex}
+	\definecolor{Blue}{rgb}{0,0.0,1}
+	\definecolor{Red}{rgb}{1,0.0,0}
+    \setulcolor{Blue}
+
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \setbeamertemplate{theorems}[numbered] 
 
@@ -402,13 +407,9 @@ TODO (speech):\begin{enumerate}
 \end{frame}
 \begin{frame}[fragile]
 	\scriptsize
-%%    \setul{0.5ex}{0.3ex}
-%%	\definecolor{Blue}{rgb}{0,0.0,1}
-%%	\definecolor{Red}{rgb}{1,0.0,0}
-%%    \setulcolor{Blue}
 %%	\ul{Selberg'44}
 	\begin{textblock*}{0.5\textwidth}(0.5\textwidth,1.9cm)
-		\begin{fact*}[Selberg'44]
+		\begin{fact*}[{\ul{Selberg'44}}]
 	 \begin{equation*}
 		 \kern-0.3cm
 		\begin{array}[]{c}
