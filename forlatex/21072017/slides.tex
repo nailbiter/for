@@ -567,14 +567,12 @@
 		 {\tiny
 			\begin{tcolorbox}[colback=green!10!white,colframe=green]
 				\vspace{-0.5cm}
-		\begin{equation*}
-			\kern-0.4cm
-			\begin{array}[]{c}
-				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-			\kern-0.05cm(1 - t^2)^{\lambda - \frac{1}{2}}d s d t\\
-			=\mypgf
-			\end{array}
-		\end{equation*}
+			\begin{equation*}
+				\displaystyle\iint\displaylimits_{\begin{array}[]{c}
+				(s, t) \in [0, 1]^2\\t<s
+			\end{array}} s^{\alpha - 1} (1 - s)^{\alpha - 1} \myabs{s-t}^{- \gamma} d s d t
+			\end{equation*}
+
 			     \end{tcolorbox}
 		}
 	\end{textblock*}
