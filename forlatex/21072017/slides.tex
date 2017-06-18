@@ -69,7 +69,6 @@
 \newtheorem*{fact*}{Fact}
 \newtheorem{prop}{命題}
 \newtheorem{taggedpropx}{命題}
-\newtheorem{taggedredpropx}{\ul{fuck}}
 \newtheorem{remark}{注}
 \newtheorem{cor}{系}
 %%\newtheorem*{proof}{証明}
@@ -78,9 +77,6 @@
 \newenvironment{taggedprop}[1]
  {\renewcommand\thetaggedpropx{#1}\taggedpropx}
   {\endtaggedpropx}
-\newenvironment{taggedredprop}[1]
- {\renewcommand\thetaggedredpropx{#1}\taggedredpropx}
-  {\endtaggedredpropx}
 
 \AtBeginEnvironment{remark}{%
 	    \setbeamercolor{block title}{bg=orange,fg=white}
@@ -390,7 +386,7 @@
 	\scriptsize
 	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
     			\setulcolor{Red}
-		\begin{taggedredprop}{ {\ul{$\;1'$}}}
+			\begin{block}{\ul{{Prop} $1'$}}
 		{\tiny
 		\begin{equation*}
 			\kern-0.4cm
@@ -400,8 +396,8 @@
 			=\mypgf
 			\end{array}
 		\end{equation*}
-	}
-	\end{taggedredprop}
+		}
+	\end{block}
 	\end{textblock*}
 	\begin{textblock*}{\textwidth}(3.99cm,1.7cm)
 	  	\begin{tikzpicture}
