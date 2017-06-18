@@ -1,6 +1,8 @@
 \documentclass[pdf,notes]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
 \usepackage{bigints}
 %\usepackage[showboxes]{textpos}
 \usepackage{textpos}
@@ -358,9 +360,7 @@
 	\end{textblock*}
 	\begin{textblock*}{0.5\textwidth}(0.26\textwidth,2.4cm)
 		\begin{equation*}
-		\boxed{
 			\int_{-\infty}^\infty\int_{-\infty}^\infty\myabs{x-y}^{2\nu}e^{-x^2-y^2}dxdy=\mypgf
-		}
 		\end{equation*}
 	\end{textblock*}
 %%	\vspace{-0.2cm}
@@ -416,14 +416,19 @@
 	\end{textblock*}
 	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.7cm)
 		 {\tiny
-		\begin{equation*}
-			\kern-0.4cm
-			\begin{array}[]{c}
-				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-			\kern-0.05cm(1 - t^2)^{\lambda - \frac{1}{2}}d s d t\\
-			=\mypgf
-			\end{array}
-		\end{equation*}
+			\definecolor{yourcolor}{RGB}{128, 0, 0}
+			\begin{tcolorbox}[ams align,colback=yellow!10!white,colframe=yourcolor]
+				f(x) & = {} g(x) \\
+				     & = h(x) 
+			     \end{tcolorbox}
+%%		\begin{equation*}
+%%			\kern-0.4cm
+%%			\begin{array}[]{c}
+%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			\kern-0.05cm(1 - t^2)^{\lambda - \frac{1}{2}}d s d t\\
+%%			=\mypgf
+%%			\end{array}
+%%		\end{equation*}
 		}
 	\end{textblock*}
 	\begin{textblock*}{0.5\textwidth}(0.5\textwidth,1.3cm)
