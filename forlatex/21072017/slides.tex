@@ -397,7 +397,6 @@
 	}
 	\end{taggedprop}
 	\end{textblock*}
-
 	\begin{textblock*}{\textwidth}(3.99cm,1.7cm)
 	  	\begin{tikzpicture}
 			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.5,-1.0);
@@ -413,7 +412,6 @@
 			\node at (2.8,3.4) {\color{red}{\tiny$\begin{array}[]{c}\ell=m=0,\\ \lambda=\mu \end{array}$}};
 		\end{tikzpicture}
 	\end{textblock*}
-
 	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.7cm)
 		 {\tiny
 		\begin{equation*}
@@ -441,41 +439,79 @@
 		}
 		\end{fact*}
 	\end{textblock*}
-%%	\begin{textblock*}{0.5\textwidth}(0.26\textwidth,2.4cm)
-%%		\tiny
-%%		\begin{equation*}
-%%			\int_{-\infty}^\infty\int_{-\infty}^\infty\myabs{x-y}^{2\nu}e^{-x^2-y^2}dxdy=\mypgf
-%%		\end{equation*}
-%%	\end{textblock*}
 	\begin{textblock*}{0.5\textwidth}(0.435\textwidth,-2.8cm)
 			  \begin{tikzpicture}[scale=0.6]
 				\input{intdepS.tex}
 				\end{tikzpicture}
 				%\caption{A gull}
 	\end{textblock*}
-%%			\xymatrix{\ar[dddr]^{\begin{array}[]{c}
-%%			k=2,\\ \alpha=\beta
-%%		\end{array}}\\\\\\\;&}
-%%		\vspace{-60pt}
-%%		\begin{flushright}
-%%%%    			\setulcolor{Red}
-%%			\ul{Proposition 3}
-%%		\end{flushright}
-%%		\begin{flushright}
-%%			\hspace{0.5\textwidth}\xymatrix{&\ar[ld]^{\begin{array}[]{c}
-%%				\ell=m=0,\\ \lambda=\mu
-%%		\end{array}}\\\\&}
-%%		\end{flushright}
-%%		\vspace{-40pt}
-%%			\begin{equation*}
-%%				\begin{array}[]{c}
-%%				\displaystyle\iint_{[0, 1]^2} s^{\alpha-1}t^{\alpha-1}(1-t)^{\alpha-1}(1-s)^{\alpha-1} \myabs{s-t}^{2\gamma} dsdt
-%%				\\=\mypgf
-%%				\end{array}
-%%			\end{equation*}
-%%%%	\end{description}
 \end{frame}
-\begin{versiona}
+\begin{frame}[fragile]
+	\scriptsize
+	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
+    			\setulcolor{Red}
+		\begin{taggedprop}{ {\ul{$\;1'$}}}
+		{\tiny
+		\begin{equation*}
+			\kern-0.4cm
+			\begin{array}[]{c}
+				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
+			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_l^{\lambda} (s) C_m^{\mu} (t) d s d t\\
+			=\mypgf
+			\end{array}
+		\end{equation*}
+	}
+	\end{taggedprop}
+	\end{textblock*}
+	\begin{textblock*}{\textwidth}(3.99cm,1.7cm)
+	  	\begin{tikzpicture}
+			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.5,-1.0);
+			\node at (-0.25,0.0) {\color{blue}{\tiny$\begin{array}[]{c}
+				k=2,\\
+			\alpha=\beta
+		\end{array}$}};
+		\end{tikzpicture}
+	\end{textblock*}
+	\begin{textblock*}{\textwidth}(1cm,0.7cm)
+	  	\begin{tikzpicture}
+			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,2.0);
+			\node at (2.8,3.4) {\color{red}{\tiny$\begin{array}[]{c}\ell=m=0,\\ \lambda=\mu \end{array}$}};
+		\end{tikzpicture}
+	\end{textblock*}
+	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.7cm)
+		 {\tiny
+		\begin{equation*}
+			\kern-0.4cm
+			\begin{array}[]{c}
+				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
+			\kern-0.05cm(1 - t^2)^{\lambda - \frac{1}{2}}d s d t\\
+			=\mypgf
+			\end{array}
+		\end{equation*}
+		}
+	\end{textblock*}
+	\begin{textblock*}{0.5\textwidth}(0.5\textwidth,1.3cm)
+    			\setulcolor{Blue}
+		\begin{fact*}[{\ul{Selberg'44}}]
+			{\tiny
+	 \begin{equation*}
+		\begin{array}[]{c}
+		\displaystyle\int_{t \in [0, 1]^k} \displaystyle\prod\displaylimits_{i=1}^k t_i^{\alpha-1}(1-t_i)^{\beta-1} 
+		\kern-0.1cm\displaystyle\prod\displaylimits_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma} d
+				t\\=\mypgf,\\
+				\tmop{Re} (\alpha), \tmop{Re} (\beta) > 0, | \gamma | \ll 1.
+		\end{array}
+			\end{equation*}
+		}
+		\end{fact*}
+	\end{textblock*}
+	\begin{textblock*}{0.5\textwidth}(0.435\textwidth,-2.8cm)
+			  \begin{tikzpicture}[scale=0.6]
+				\input{intdepS.tex}
+				\end{tikzpicture}
+				%\caption{A gull}
+	\end{textblock*}
+\end{frame}
 \begin{frame}{Hierarchy (Warnaar'10)}
 	\scriptsize
 	\fbox{Warnaar'10} is the generalization of Selberg integral shown in \cite[(1.4)]{warnaar2010sl3}\begin{equation*}
@@ -500,6 +536,7 @@
 			\end{equation*}
 			is generalized by Proposition \ref{prop:int-st-gg}.
 \end{frame}
+\begin{versiona}
 \begin{frame}{Hierarchy (Tarasov-Varchenko'03)}
 	\scriptsize
 	\fbox{Tarasov-Varchenko'03} is another generalization of Selberg integral shown in \cite[(3.4)]{tarasov2003selberg}\begin{equation*}
