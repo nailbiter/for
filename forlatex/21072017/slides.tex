@@ -649,7 +649,7 @@
 			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.5,-1.0);
 			\node at (-0.45,0.0) {\color{blue}{\normalfont{\tiny$\begin{array}[]{c}
 				m=n=1,\\
-				\alpha'=\beta'\\,
+				\alpha'=\beta',\\
 				\alpha=\beta
 		\end{array}$}}};
 		\end{tikzpicture}
@@ -660,10 +660,9 @@
 				\vspace{-0.5cm}
 			\begin{equation*}
 				\kern-0.6cm
-				\begin{array}[]{c}
-				\displaystyle\iint\displaylimits_{\begin{array}[]{c}
-				(s, t) \in [0, 1]^2\\t<s
-			\end{array}} s^{\lambda - \frac{1}{2}} (1 - s)^{\lambda-\frac{1}{2}} \myabs{s-t}^{2\nu} d s d t\\
+				\begin{array}{c}
+				\displaystyle\iint\displaylimits_{(t, \tau) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} \tau^{\alpha} (1
+				- \tau)^{\alpha} | t - \tau |^{- 2} d \tmop{td} \tau\\
 			=\mypgf
 				\end{array}
 				\vspace{-0.3cm}
