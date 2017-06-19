@@ -27,7 +27,7 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	$(GITCOMMIT)
 
 #diagrams
-DIAGRAMS=big W S DF TV
+DIAGRAMS=big W S DF TV Sfull
 $(OUTDIR)/%.intdep.tex : %.intdep.tex
 	cp -f $< $@
 
