@@ -2,7 +2,7 @@
 .SECONDARY: 
 
 ZIPNAME=RIMSslides
-WORKON=https://trello.com/c/qQLQN4Rn
+WORKON=https://trello.com/c/qQLQN4Rn method1ShowWhy3F2SatisfiesWhipple
 COMMIT_PREFIX=tex RIMStalk
 PDFS=slides speech answer
 AUX=
