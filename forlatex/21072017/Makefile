@@ -26,21 +26,12 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	du -hs $@
 	$(GITCOMMIT)
 
-#intdep.tex: diagram.scm
-#	guile --no-auto-compile -e intdepdiag $< > $@
-#slides.tex : 
-#	touch $@
-$(OUTDIR)/intdepDF.tex : intdepDF.tex
+#diagrams
+DIAGRAMS=big W S DF TV
+$(OUTDIR)/%.intdep.tex : %.intdep.tex
 	cp -f $< $@
-$(OUTDIR)/intdepTV.tex : intdepTV.tex
-	cp -f $< $@
-$(OUTDIR)/intdepW.tex : intdepW.tex
-	cp -f $< $@
-$(OUTDIR)/intdepS.tex : intdepS.tex
-	cp -f $< $@
-$(OUTDIR)/intdep.tex : intdep.tex
-	cp -f $< $@
-$(OUTDIR)/slides.pdf : slides.tex diagram.tex $(OUTDIR)/intdep.tex $(OUTDIR)/intdepS.tex $(OUTDIR)/intdepW.tex $(OUTDIR)/intdepTV.tex $(OUTDIR)/intdepDF.tex
+
+$(OUTDIR)/slides.pdf : slides.tex diagram.tex $(addprefix $(OUTDIR)/,$(addsuffix .intdep.tex,$(DIAGRAMS)))
 	$(XELATEX) $<
 
 #standard rules
