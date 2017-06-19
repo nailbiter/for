@@ -613,8 +613,12 @@
 		\begin{equation*}
 %%			\kern-1.45cm
 			\begin{array}{c}
-%%				\displaystyle\int_{(s,t)}
-				E=mc^2
+				\displaystyle\int_{(s,t)\in C_\gamma^{k_1,k_2}}
+				\displaystyle\prod\displaylimits_{i=1}^{k_1}t_i^{\alpha_1-1}(1-t_i)^{\beta_1-1}\\
+				\times\displaystyle\prod\displaylimits_{j=1}^{k_2}s_j^{\alpha_2-1}(1-s_j)^{\beta_2-1}
+				\displaystyle\prod_{1\le i<j\le k_1}\myabs{t_i-t_j}^{2\gamma}\\
+				\times\displaystyle\prod_{1\le i<j\le k_2}\myabs{s_i-s_j}^{2\gamma}
+				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}dsdt
 %%				\displaystyle\bigintssss_{ \mbox{\tiny$\kern1.4cm (t,s)\kern-0.1cm\in\kern-0.1cm C_{\gamma}^{k_1, k_2} [0, 1]$}} \kern-1.65cm\textstyle\prod^{\alpha - 1,
 %%				\beta_1 - 1}\kern-0.05cm (t) \kern-0.09cm\textstyle\prod^{0, \beta_2 - 1}\kern-0.05cm (s)
 %%%%					    \\ \times
@@ -626,7 +630,7 @@
 			      \begin{equation*}
 			\begin{array}{c}
 					        = \mypgf\\
-					  \mbox{ここで、　 }	C^{k_1,k_2}_{\beta_1,\gamma}\mbox{: ある特異チェイン}.\\
+					  \mbox{ここで、　 }	C^{k_1,k_2}_{\gamma}\mbox{: ある特異チェイン}.\\
 %%					  \textstyle\prod^{\alpha - 1,
 %%					  \beta_1 - 1} (t):=\displaystyle\prod_{i=1}^{k_1}t_i^{\alpha-1}(1-t_i)^{\beta_1-1},\\
 %%					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\kern-0.2cm\myabs{t_i}^{2\gamma}, \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=1}^{k_1,k_2}
