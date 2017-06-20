@@ -19,7 +19,8 @@
 \usepackage{comment}
 
 %includecomment
-\excludecomment{versiona} % include = debug on (footnotes, etc.)
+\newif\ifmydebug
+\mydebugtrue
 
     \setul{0.5ex}{0.3ex}
 	\definecolor{Blue}{rgb}{0,0.0,1}
@@ -986,7 +987,10 @@
 	\begin{fact*}[Carlsonの定理]
 		$f$が$\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$右半平面上で連続で、
 		内部$\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$上に
+		\ifmydebug
 		\footnote{should I change に to でhere as well?}
+		\else
+		\fi
 		正則であるとする.
 		更に、
 		\begin{enumerate}
