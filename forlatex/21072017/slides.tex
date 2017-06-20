@@ -12,12 +12,14 @@
 \usepackage{xypic}
 \usepackage[all,cmtip]{xy}
 \usepackage{mystyle}
-\excludecomment{versiona}
 \usepackage{xeCJK}
 \usepackage{lpic}
 \usefonttheme{professionalfonts}
 \usepackage{etoolbox}
 \usepackage{comment}
+
+%includecomment
+\excludecomment{versiona} % include = debug on (footnotes, etc.)
 
     \setul{0.5ex}{0.3ex}
 	\definecolor{Blue}{rgb}{0,0.0,1}
@@ -983,7 +985,9 @@
 			\vspace{-0.2cm}
 	\begin{fact*}[Carlsonの定理]
 		$f$が$\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$右半平面上で連続で、
-		内部$\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$上に\footnote{should I change に to でhere as well?}正則であるとする.
+		内部$\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$上に
+		\footnote{should I change に to でhere as well?}
+		正則であるとする.
 		更に、
 		\begin{enumerate}
 			\item ある$C,\tau>0$に対して、右半平面上に$\myabs{f(z)}\le C e^{\tau\myabs{z}}$が成り立つ;
