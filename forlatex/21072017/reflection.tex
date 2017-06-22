@@ -96,22 +96,40 @@
 %\huge
 \maketitle
 \section{聞かれたご質問}
-\begin{question}
+\begin{question}[\textbf{??}先生]
 	命題１、１’と２にどうしてGegenbauer多項式が出て来ましたか？
 	これの表現論的な意味は何ですか？
 \end{question}
 \begin{answer}
-
-\end{answer}
-\begin{question}[\textbf{??}先生]
-Regarding integral formula of Proposition 1', did we know in advance that the integral can be represented with Gamma-functions? Was it possible to show it by simpler means? 
-\end{question}
-\begin{answer}[\textbf{??$'$}先生]
+私は前に言っていましたように、コンパクト群$O(n)$のbranching rulesを具体的に書く時、
+Kobayashi-Spehの２０１５年の論文に書いているように、Gegenbauer 多項式が出て来ます{\small （スライドのページ３２を見せました）}。
+元々の表現論プロジェクトで$(G,G')=(O(p+1,q+1),O(p,q+1))$でしたので、これの極大コンパクト群が
+$(K,K')=(O(p+1)\times O(q+1),O(p)\times O(q+1))$なので、$O(n)$のブランチングに関する多項式（つまり、Gegenbauer多項式）も
+出て来ます。
 \end{answer}
 \begin{question}[九大の落合先生]
-When working on the symmetry breaking operators, how did we know that all operators are represented by integral kernels?
+	命題$1'$の積分公式を示す時、この積分は予めガンマ関数の積で表せると言うことが知っていましたか？
+	もしかして、
+	こんな積分はガンマ関数で表せるのは何か一般論から従いますか？
 \end{question}
 \begin{answer}
+いいえ、これは予め知りませんでした。
+一番最初はこの積分公式を色々な数学ソフト(Maple, Mathematicaなで)を計算してみて、失敗だって、
+多分簡単な関数でかけないかと思っていましたが、特別な場合で計算した時($\lambda\in2\mathbb{L}$)綺麗な公式
+になると言うことを見て、一般のConjectureをして、示しました。
+
+実際には、Carlson定理によって、一般な場合は$\lambda\in 2\mathbb{Z}$から従いましたが、あの時Carlsonの定理
+を知りませんでした、直接メソッド１に一般結果を示しました。
+\end{answer}
+\begin{question}[\textbf{??$'$}先生]
+	対称性破れ作用素\footnote{この質問の意味を間違えた可能性が高いと思います。自分の返事もあまり良くなかったと
+	思います}を分類した時、この対称性破れ作用素をどうして積分核で現わされているものしか出てこないですか？
+\end{question}
+\begin{answer}
+	まず、自分の表現論プロジェクトの場合で、$G$と$G'$の表現$\pi$と$\tau$は球腿化主系列表現で、
+	これは$G$と$G'$上$C^\infty$関数空間で表されている表現なので、田内さんの話見たい、
+	対称性破れ作用素は積分核で表されています。
+	これはKobayashi-Spehに示された一般論から従います。
 \end{answer}
 \section{発表の日の流れ}
 特に悪いと思うポイントが\textbf{ボールド体}でマークされています：
