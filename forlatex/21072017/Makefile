@@ -4,7 +4,7 @@
 ZIPNAME=RIMSslides
 WORKON=https://trello.com/c/qQLQN4Rn method1ShowWhy3F2SatisfiesWhipple
 COMMIT_PREFIX=tex RIMStalk
-PDFS=slides speech answer trials
+PDFS=slides speech answer trials rims-questions
 AUX=
 #https://previews.123rf.com/images/aelita2/aelita21008/aelita2100800038/7524873-antique-page-wanted-dead-or-alive-vintage-wanted-poster-Stock-Photo.jpg
 
