@@ -35,7 +35,6 @@
 \usepackage{color,soul}
 \usepackage{wrapfig}
 \usepackage{mathtools}
-\usepackage{xypic}
 \usepackage[all,cmtip]{xy}
 \usepackage{mystyle}
 \usepackage{xeCJK}
@@ -308,17 +307,15 @@ the University of Tokyo
 		\end{fact*}
 %%		\xymatrixcolsep{5pc}
 %%		\xymatrixrowsep{3pc}
-%%		{\centerline
-%%			\xymatrix{A&B\\C&D}
-%%%%		\xymatrix{
-%%%%			\ar@{=>}[rd]_{\begin{array}[]{c}
-%%%%			w=-1,\\\ell=m=0
-%%%%		\end{array}}&&\ar@{=>}[ld]^{\begin{array}[]{c}
-%%%%		k=2
-%%%%	\end{array}}
-%%%%			&&
-%%%%		}
-%%		}
+			\xymatrix{A&B\\C&D}
+		\xymatrix{
+			\ar@{=>}[rd]_{\begin{array}[]{c}
+			w=-1,\\\ell=m=0
+		\end{array}}&&\ar@{=>}[ld]^{\begin{array}[]{c}
+		k=2
+	\end{array}}\\
+			&&
+		}
 		\begin{equation*}
 			\int_{-\infty}^\infty\int_{-\infty}^\infty\myabs{x-y}^{2\nu}e^{-x^2-y^2}dxdy=\mypgf
 		\end{equation*}
