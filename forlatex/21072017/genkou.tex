@@ -141,7 +141,7 @@
 
 %%%my commands
 \newcommand{\mytime}[1]{\noindent #1\\}
-%\newcommand{\kana}[2]{#1{\scriptsize (#2)}}
+%\newcommand{\kana}[2]{#1{ (#2)}}
 \newcommand{\J}{$J(\nu)$}
 \newcommand{\I}{$I(\lambda)$}
 \newcommand{\doubt}[1]{\fbox{#1}}
@@ -194,7 +194,7 @@ the University of Tokyo
 	\begin{prop}\label{prop:exp-st-gg}
 		$\Re\lambda,\Re\mu>-\frac{1}{2},\Re\nu>0$のとき、
 		\begin{equation}
-			| s + t |^{2 \nu} =b(\lambda,\mu,\nu) \sum_{\mbox{\scriptsize $\begin{array}[]{c}
+			| s + t |^{2 \nu} =b(\lambda,\mu,\nu) \sum_{\mbox{ $\begin{array}[]{c}
 			\ell, m = 0 \\ \ell + m : \tmop{even}
 		\end{array}$}}^{\infty} a_{\lambda,\mu,\nu}^{\ell,m} C_\ell^{\lambda} (s) C_m^{\mu} (t),
 			\label{eqn:exp-st-gg}
@@ -244,7 +244,7 @@ the University of Tokyo
 			\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
 			(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t
 		\end{equation*}
-		{\scriptsize
+		{
 		\begin{equation}
 			=\frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell - m}{2}} \pi^{\frac{1}{2}} (2
 			\lambda)_\ell (2 \mu)_m \Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left(
@@ -348,7 +348,7 @@ the University of Tokyo
 				\displaystyle\prod_{1\le i<j\le k_1}\myabs{t_i-t_j}^{2\gamma}\\
 				\times\displaystyle\prod_{1\le i<j\le k_2}\myabs{s_i-s_j}^{2\gamma}
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}dsdt
-%%				\displaystyle\bigintssss_{ \mbox{\tiny$\kern1.9cm (t,s)\kern-0.1cm\in\kern-0.1cm C_{\beta_1, \gamma}^{k_1, k_2} [0, 1]$}} \kern-1.95cm\textstyle\prod^{\alpha_1 - 1,
+%%				\displaystyle\bigintssss_{ \mbox{$\kern1.9cm (t,s)\kern-0.1cm\in\kern-0.1cm C_{\beta_1, \gamma}^{k_1, k_2} [0, 1]$}} \kern-1.95cm\textstyle\prod^{\alpha_1 - 1,
 %%				\beta_1 - 1}\kern-0.05cm (t) \kern-0.09cm\textstyle\prod^{\alpha_2 - 1, \beta_2 - 1}\kern-0.05cm (s)
 %%%%					    \\ \times
 %%					    \Delta^{2 \gamma}\kern-0.05cm(t)
@@ -373,7 +373,7 @@ the University of Tokyo
 				}
 			\end{fact*}
 		\begin{fact*}[{\ul{Tarasov-Varchenko'03}}]
-			{\tiny
+			{
 		\begin{equation*}
 %%			\kern-1.45cm
 			\begin{array}{c}
@@ -383,7 +383,7 @@ the University of Tokyo
 				\displaystyle\prod_{1\le i<j\le k_1}\myabs{t_i-t_j}^{2\gamma}\\
 				\times\displaystyle\prod_{1\le i<j\le k_2}\myabs{s_i-s_j}^{2\gamma}
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}dsdt
-%%				\displaystyle\bigintssss_{ \mbox{\tiny$\kern1.4cm (t,s)\kern-0.1cm\in\kern-0.1cm C_{\gamma}^{k_1, k_2} [0, 1]$}} \kern-1.65cm\textstyle\prod^{\alpha - 1,
+%%				\displaystyle\bigintssss_{ \mbox{$\kern1.4cm (t,s)\kern-0.1cm\in\kern-0.1cm C_{\gamma}^{k_1, k_2} [0, 1]$}} \kern-1.65cm\textstyle\prod^{\alpha - 1,
 %%				\beta_1 - 1}\kern-0.05cm (t) \kern-0.09cm\textstyle\prod^{0, \beta_2 - 1}\kern-0.05cm (s)
 %%%%					    \\ \times
 %%					    \Delta^{2 \gamma}\kern-0.05cm(t)
@@ -426,24 +426,24 @@ the University of Tokyo
 ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
 \end{frame}
 \begin{frame}[fragile]%frame Selberg
-	\scriptsize
+	
 	\begin{textblock*}{\textwidth}(1cm,0.8cm)
 	  	\begin{tikzpicture}
 			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,2.55);
-			\node at (2.8,3.4) {\color{red}{\textnormal{ \tiny$\begin{array}[]{c}\ell=m=0,\\ \lambda=\mu \end{array}$}}};
+			\node at (2.8,3.4) {\color{red}{\textnormal{ $\begin{array}[]{c}\ell=m=0,\\ \lambda=\mu \end{array}$}}};
 		\end{tikzpicture}
 	\end{textblock*}
 	\begin{textblock*}{\textwidth}(3.99cm,1.7cm)
 	  	\begin{tikzpicture}
 			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.2,-0.4);
-			\node at (-0.45,0.1) {\color{blue}{\normalfont{\tiny$\begin{array}[]{c}
+			\node at (-0.45,0.1) {\color{blue}{\normalfont{$\begin{array}[]{c}
 				k=2,\\
 			\alpha=\beta
 		\end{array}$}}};
 		\end{tikzpicture}
 	\end{textblock*}
 	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.14cm)
-		 {\tiny
+		 {
 			\begin{tcolorbox}[colback=green!10!white,colframe=green]
 				\vspace{-0.5cm}
 		\begin{equation*}
@@ -470,7 +470,7 @@ the University of Tokyo
 	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
     			\setulcolor{Red}
 			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
-		{\tiny
+		{
 		\begin{equation*}
 			\kern-0.4cm
 			\begin{array}[]{c}
@@ -491,14 +491,14 @@ the University of Tokyo
 ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
 \end{frame}
 \begin{frame}[fragile]%frame Warnaar
-	\scriptsize
+	
 	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.65cm)
     			\setulcolor{Blue}
 	\end{textblock*}
 	\begin{textblock*}{\textwidth}(7.99cm,2.75cm)
 	  	\begin{tikzpicture}
 			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-2.0,-1.0);
-			\node at (0.5,-0.3) {\color{blue}{\tiny$
+			\node at (0.5,-0.3) {\color{blue}{$
 				\begin{array}[]{c}
 					\ell=m=0,\\
 				\lambda+\mu+2\nu=-1
@@ -507,7 +507,7 @@ the University of Tokyo
 		\end{tikzpicture}
 	\end{textblock*}
 	\begin{textblock*}{0.7\textwidth}(-0.4cm,3.7cm)
-		 {\tiny
+		 {
 			\begin{tcolorbox}[colback=green!10!white,colframe=green]
 				\vspace{-0.7cm}
 		\begin{equation*}
@@ -528,7 +528,7 @@ the University of Tokyo
 	\begin{textblock*}{\textwidth}(0.7cm,3.1cm)
 	  	\begin{tikzpicture}
 			\draw[->,>=angle 90,color=red,style=very thick] (2.0,2.8) -- node{} (2.0,2.0);
-			\node at (4.0,2.3) {\color{red}{\tiny$k_1=k_2=1,\alpha_1=\beta_1,\alpha_2=\beta_2$}};
+			\node at (4.0,2.3) {\color{red}{$k_1=k_2=1,\alpha_1=\beta_1,\alpha_2=\beta_2$}};
 		\end{tikzpicture}
 	\end{textblock*}
 	\begin{textblock*}{0.5\textwidth}(0.635\textwidth,-2.8cm)
@@ -539,7 +539,7 @@ the University of Tokyo
 	\begin{textblock*}{0.5\textwidth}(0.52\textwidth,0.75cm)
     			\setulcolor{Red}
 			\begin{block}{\ul{{\mbox{命題}} $1'$}}
-		{\tiny
+		{
 		\begin{equation*}
 			\kern-1.1cm
 			\begin{array}[]{c}
@@ -559,17 +559,17 @@ the University of Tokyo
 ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
 \end{frame}
 \begin{frame}[fragile]%frame TV
-	\scriptsize
+	
 	\begin{textblock*}{\textwidth}(1cm,0.8cm)
 	  	\begin{tikzpicture}
 			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,1.95);
-			\node at (2.8,3.4) {\color{red}{\textnormal{ \tiny$\begin{array}[]{c}\ell=m=0,\\ \mu=\frac{1}{2} \end{array}$}}};
+			\node at (2.8,3.4) {\color{red}{\textnormal{ $\begin{array}[]{c}\ell=m=0,\\ \mu=\frac{1}{2} \end{array}$}}};
 		\end{tikzpicture}
 	\end{textblock*}
 	\begin{textblock*}{\textwidth}(3.89cm,1.7cm)
 	  	\begin{tikzpicture}
 			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.5,-1.0);
-			\node at (-0.45,0.0) {\color{blue}{\normalfont{\tiny$\begin{array}[]{c}
+			\node at (-0.45,0.0) {\color{blue}{\normalfont{$\begin{array}[]{c}
 				k=2,\\
 				\beta_2=1,\\
 				\alpha=\beta_1
@@ -577,7 +577,7 @@ the University of Tokyo
 		\end{tikzpicture}
 	\end{textblock*}
 	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.7cm)
-		 {\tiny
+		 {
 			\begin{tcolorbox}[colback=green!10!white,colframe=green]
 				\vspace{-0.5cm}
 			\begin{equation*}
@@ -608,7 +608,7 @@ the University of Tokyo
 	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
     			\setulcolor{Red}
 			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
-		{\tiny
+		{
 		\begin{equation*}
 			\kern-0.4cm
 			\begin{array}[]{c}
@@ -629,17 +629,17 @@ the University of Tokyo
 ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
 \end{frame}
 \begin{frame}[fragile]%frame DF
-	\scriptsize
+	
 	\begin{textblock*}{\textwidth}(1cm,0.8cm)
 	  	\begin{tikzpicture}
 			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,1.75);
-			\node at (2.8,3.4) {\color{red}{\textnormal{ \tiny$\begin{array}[]{c}\ell=m=0,\\ \nu=-1\end{array}$}}};
+			\node at (2.8,3.4) {\color{red}{\textnormal{ $\begin{array}[]{c}\ell=m=0,\\ \nu=-1\end{array}$}}};
 		\end{tikzpicture}
 	\end{textblock*}
 	\begin{textblock*}{\textwidth}(3.89cm,1.9cm)
 	  	\begin{tikzpicture}
 			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.5,-1.0);
-			\node at (-0.45,0.0) {\color{blue}{\normalfont{\tiny$\begin{array}[]{c}
+			\node at (-0.45,0.0) {\color{blue}{\normalfont{$\begin{array}[]{c}
 				m=n=1,\\
 				\alpha'=\beta',\\
 				\alpha=\beta
@@ -647,7 +647,7 @@ the University of Tokyo
 		\end{tikzpicture}
 	\end{textblock*}
 	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.9cm)
-		 {\tiny
+		 {
 			\begin{tcolorbox}[colback=green!10!white,colframe=green]
 				\vspace{-0.5cm}
 			\begin{equation*}
@@ -666,13 +666,13 @@ the University of Tokyo
 	\begin{textblock*}{0.5\textwidth}(0.515\textwidth,-0.2cm)
     			\setulcolor{Blue}
 		\begin{fact*}[{\ul{Dotsenko-Fateev'85}}]
-			{\tiny
+			{
 		\begin{equation*}
 			\kern-0.25cm
 			\begin{array}{c}
 				\frac{1}{n!m!}
 				\kern-1.45cm
-				\displaystyle\bigintssss_{\mbox{\tiny$\kern1.0cm(t,\tau)\kern-0.1cm\in\kern-0.1cm [0, 1]^{k_1+k_2}$}} \kern-1.35cm
+				\displaystyle\bigintssss_{\mbox{$\kern1.0cm(t,\tau)\kern-0.1cm\in\kern-0.1cm [0, 1]^{k_1+k_2}$}} \kern-1.35cm
    \Pi^{\alpha', \beta'} (t)
   \Pi^{\alpha, \beta} (\tau) \Delta^{2 \rho'}(t) \Delta^{2 \rho}(\tau)
   \Delta^{- 2} (t, \tau) dtd\tau \\
@@ -706,7 +706,7 @@ the University of Tokyo
 	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
     			\setulcolor{Red}
 			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
-		{\tiny
+		{
 		\begin{equation*}
 			\kern-0.4cm
 			\begin{array}[]{c}
@@ -753,13 +753,13 @@ the University of Tokyo
 	\vspace{-0.2cm}
 	\begin{proof}\renewcommand{\qedsymbol}{}
 		Gegenbauer多項式のロドリゲスの公式
-		{\scriptsize\vspace{-0.2cm}\begin{equation*}
+		{\vspace{-0.2cm}\begin{equation*}
 				(1-x^2)^{\alpha-\frac{1}{2}}C_n^\alpha(x)=a(\alpha,n)
 				\frac{d^n}{dx^n} (1-x^2)^{n+\alpha-\frac{1}{2}},\quad a(\alpha,n)\mbox{は定数}
 			\vspace{-0.2cm}\end{equation*}}
 		と部分積分(integration by parts)
 %%		によって、
-%%				{\scriptsize\begin{equation}
+%%				{\begin{equation}
 %%			\vspace{-0.2cm}
 %%					\begin{array}[]{c}
 %%						\mbox{左辺}\eqref{eqn:int-st-gg}/a(\lambda,l)/a(\mu,m)\\
@@ -776,7 +776,7 @@ the University of Tokyo
 %%	命題\ref{prop:exp-stz-gg}の積分公式の形に対して、このよう補題も成り立つ.
 \end{frame}
 \begin{frame}{メソッド 1 (直接)}
-	\scriptsize
+	
 	\begin{enumerate}
 		\item<2-> $\ell=m=0$ 場合を扱えばよい;
 		\item<3-> 
@@ -813,7 +813,7 @@ the University of Tokyo
 %%			\end{equation*}
 			%%
 %%			によって、
-%%			{\tiny
+%%			{
 %%			\begin{equation*}
 %%			\vspace{-0.2cm}
 %%				{\mbox{右辺(補題)}}/{(-1)^m/(-2\nu)_{l+m}}/2^{\lambda+l-\frac{1}{2}}
@@ -866,7 +866,7 @@ the University of Tokyo
 	\end{enumerate}
 	\only<2->{
 	\begin{textblock*}{0.6\textwidth}(0.4\textwidth,-7.8cm)
-		\tiny
+		
 		\begin{tcolorbox}[colback=green!10!white,colframe=green]
 			\vspace{-0.4cm}
 		\begin{equation*}
@@ -879,7 +879,7 @@ the University of Tokyo
 	}
 	\only<3->{
 	\begin{textblock*}{0.55\textwidth}(0.51\textwidth,-5.6cm)
-		\tiny
+		
 		\begin{tcolorbox}[colback=green!10!white,colframe=green]
 			\vspace{-0.7cm}
 		\begin{equation*}
@@ -895,7 +895,7 @@ the University of Tokyo
 }
 	\only<4->{
 	\begin{textblock*}{0.58\textwidth}(0.45\textwidth,-3.6cm)
-		\tiny
+		
 		\begin{tcolorbox}[colback=green!10!white,colframe=green]
 			\vspace{-0.7cm}
 		\begin{equation*}
@@ -911,7 +911,7 @@ the University of Tokyo
 }
 \end{frame}
 %%\begin{frame}{メソッド 1 (direct) (2/2)}
-%%	\scriptsize
+%%	
 %%	$\cdots$
 %%	\begin{enumerate}
 %%			\setcounter{enumi}{2}
@@ -981,7 +981,7 @@ the University of Tokyo
 	\end{fact*}
 	これを用いて、公式\eqref{eqn:int-st-gg} 
 			\vspace{-0.2cm}
-			{\scriptsize
+			{
 		\begin{equation*}
 			\vspace{-0.2cm}
 			\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
@@ -993,9 +993,9 @@ the University of Tokyo
 	は計算可能.
 \end{frame}
 \begin{frame}{メソッド 3 (命題\ref{prop:exp-stz-gg}によって)}
-	\scriptsize
+	
 	命題\ref{prop:exp-stz-gg}を示すため、まず、$\ell=m=0$場合に帰着する
-			{\scriptsize \begin{equation}
+			{ \begin{equation}
 				\kern-0.2cm 2\kern-0.2cm\iint\displaylimits_{[-1,1]^2} \left( s-tz \right)_+^{2c-1}  (1 - s^2)^{a - 1} (1 -
 				t^2)^{b - 1} d s d t = \frac{\sqrt{\pi} \Gamma (a) \Gamma (b) \Gamma
 			(c)}{\Gamma (a + c) \Gamma \left( b + \frac{1}{2} \right)} {}_2 F_1 \left(
@@ -1070,7 +1070,7 @@ the University of Tokyo
 %%				    \frac{1}{2} \right)_j}}^{\kern-0.2cm\scalebox{1}{$={}_2F_1(;\zeta)$}} \overbrace{{}_2 F_1 \left( \begin{array}{c}
 %%					      a, 1 - a\\
 %%					        d - 2 j
-%%					\end{array} ; \frac{1}{2} \right) }^{\mbox{\scriptsize expressed as ratio of $\Gamma$-functions}}
+%%					\end{array} ; \frac{1}{2} \right) }^{\mbox{ expressed as ratio of $\Gamma$-functions}}
 %%%%				    =\frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma
 %%%%					    \left( \frac{a + d}{2} \right) \Gamma \left( \frac{1 - a + d}{2} \right)} {}_2
 %%%%					    F_1 \left( \begin{array}{c}
@@ -1078,7 +1078,7 @@ the University of Tokyo
 %%%%						        b + \frac{1}{2}
 %%%%						\end{array} ; \zeta \right) .
 %%			\end{equation*}
-%%%%		\item In turn, \eqref{eqn:prop21} is proven via the equality {\scriptsize \begin{equation}
+%%%%		\item In turn, \eqref{eqn:prop21} is proven via the equality { \begin{equation}
 %%%%				\kern-1.5cm \int_{-1}^1(1-t z)^{a-1}(1-t^2)^{b-1}d t=B\left(\frac{1}{2},b  \right)\ {}_2F_1\left( 
 %%%%				\begin{array}[]{c}
 %%%%					\frac{1-a}{2},\frac{2-a}{2}\\b+\frac{1}{2}
@@ -1115,7 +1115,7 @@ the University of Tokyo
 				    \frac{1}{2} \right)_j}}^{\kern-0.2cm\scalebox{1}{$={}_2F_1(;\zeta)$}} \overbrace{{}_2 F_1 \left( \begin{array}{c}
 					      a, 1 - a\\
 					        d - 2 j
-					\end{array} ; \frac{1}{2} \right) }^{\mbox{\scriptsize \begin{tabular}[]{c}
+					\end{array} ; \frac{1}{2} \right) }^{\mbox{ \begin{tabular}[]{c}
 					ガンマ関数の\\積公式で表せる
 				\end{tabular}}}
 				\end{equation*}
@@ -1123,12 +1123,12 @@ the University of Tokyo
 		}
 \end{frame}
 \begin{frame}{メソッド 4 (積分公式とルジャンドル関数$\kern-0.1cm P^\alpha_\beta\kern-0.1cm$を用いる}
-	\scriptsize
+	
 	直接命題\ref{prop:int-st-gg}を示す:
 	\begin{enumerate}[<+(1)->]
 		\item まず、\cite[7.4.11]{kobayashi2011schrodinger}の公式
 			{
-				\scriptsize
+				
 			\begin{equation*}
 				\kern-1cm\int_{-s}^1(s+t)^{2\nu} {C}_m^\mu(t)(1-t^2)^{\mu-\frac{1}{2}}dt=
 				\frac{\sqrt{\pi}\Gamma(2\mu+m)\Gamma(2\nu+1)}{\Gamma(\mu)2^{\mu-\frac{1}{2}}m!}
