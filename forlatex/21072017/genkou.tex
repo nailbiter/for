@@ -97,6 +97,19 @@
 			&
 		}}
 	}
+\newcommand{\myrelationdiagramBig}[5]{
+		\centerline{
+		\xymatrix{
+			\frame{\mbox{#1}}\ar@{=>}[rd]^{\begin{array}[]{c}
+				#2
+			\end{array}}&&\frame{\mbox{#4}}\ar@{=>}[ld]_{\begin{array}[]{c}
+			#3
+	\end{array}}\\
+			&
+			&
+		}}
+		\frame{\mbox{#5}}
+	}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 	\definecolor{Blue}{rgb}{0,0.0,1}
@@ -351,12 +364,14 @@ the University of Tokyo
 		\end{array}
 			\end{equation*}
 		\end{fact*}
-		\myrelationdiagram{命題$1'$}{\ell=m=0,\\ \lambda=\mu}{k=2,\\
+		\myrelationdiagramBig{命題$1'$}{\ell=m=0,\\ \lambda=\mu}{k=2,\\
 			\alpha=\beta}{{\cite{Selberg:411367}}}
 		{$
 				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
 			\kern-0.05cm(1 - t^2)^{\lambda - \frac{1}{2}}d s d t
-			=\mypgf
+			=\prod_{i = 0}^{k - 1} \frac{\Gamma (\alpha + i \gamma) \Gamma (\beta + i
+			\gamma) \Gamma (1 + (i + 1) \gamma)}{\Gamma (\alpha + \beta + (i + k - 1)
+			\gamma) \Gamma (\gamma + 1)}
 		$}
 		\begin{fact*}[{\cite[(1.4)]{warnaar2010sl3}}]
 				{
@@ -394,7 +409,7 @@ the University of Tokyo
 				}
 			\end{fact*}
 			\xymatrixcolsep{5cm}
-		\myrelationdiagram{命題$1'$}{\ell=m=0,\\
+		\myrelationdiagramBig{命題$1'$}{\ell=m=0,\\
 		\lambda+\mu+2\nu=-1}{k_1=k_2=1,\\\alpha_1=\beta_1,\\\alpha_2=\beta_2}{{\cite{warnaar2010sl3}}}{}
 		\begin{equation*}
 				\left(\displaystyle\iint\displaylimits_{\scalebox{0.7}{$\begin{array}[]{c}
@@ -443,7 +458,7 @@ the University of Tokyo
 %%			=\mypgf
 		\end{fact*}
 		{
-		\myrelationdiagram{命題$1'$}{\ell=m=0,\\
+		\myrelationdiagramBig{命題$1'$}{\ell=m=0,\\
 			\mu=\frac{1}{2}}
 			{
 				k=2,\\
@@ -487,7 +502,7 @@ the University of Tokyo
 				}
 		\end{fact*}
 
-		\myrelationdiagram{命題$1'$}{\ell=m=0,\\
+		\myrelationdiagramBig{命題$1'$}{\ell=m=0,\\
 		\nu=-1}
 			{
 				m=n=1,\\
