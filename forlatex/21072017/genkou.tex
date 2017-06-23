@@ -501,7 +501,6 @@ the University of Tokyo
 				      \end{array}\end{equation*}
 			\vspace{-0.5cm}
 		\begin{equation*}
-			\kern-0.29cm
 			\begin{array}{c}
   =\rho^{2 n m} \displaystyle\prod_{i, j = 1}^{n, m} \frac{1}{j \rho - i} \displaystyle\prod_{i = 1}^n
   \frac{\Gamma (i \rho')}{\Gamma (\rho')} \displaystyle\prod_{j = 1}^m \frac{\Gamma (j
@@ -515,8 +514,8 @@ the University of Tokyo
   j \rho)}{\Gamma (2 - 2 n + \alpha + \beta + (m - 1 + j) \rho)},\\
 					  \mbox{ここで　 }\textstyle\prod^{\alpha - 1,
 					  \beta_1 - 1} (t):=\displaystyle\prod_{i=1}^{k_1}t_i^{\alpha-1}(1-t_i)^{\beta_1-1},\\
-					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\kern-0.2cm\myabs{t_i}^{2\gamma}, \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=1}^{k_1,k_2}
-					  \myabs{t_i-s_j}^{\gamma}\kern-0.1cm,\\
+					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\myabs{t_i}^{2\gamma}, \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=1}^{k_1,k_2}
+					  \myabs{t_i-s_j}^{\gamma},\\
 					  \\
   \alpha' = - \rho' \alpha, \beta' = - \rho' \beta, \rho' \rho = 1,\\
   \tmop{Re} (\rho) < 0, \quad \tmop{Re} (\alpha), \tmop{Re} (\beta) > (n - 1)
@@ -597,7 +596,6 @@ the University of Tokyo
 	\begin{enumerate}
 		\item $\ell=m=0$ 場合を扱えばよい;
 		\begin{equation*}
-			\kern-0.4cm
 			\displaystyle\iint_{[-1,1]^2}\myabs{s-t}^{2\nu}(1-s^2)^{\lambda-\frac{1}{2}}(1-t^2)^{\mu-\frac{1}{2}}=\mypgf
 		\end{equation*}
 		\item
@@ -612,17 +610,16 @@ the University of Tokyo
 					{}_2F_1\left(\begin{array}[]{c}
 						a,b\\c
 					\end{array};z  \right)=\frac{\Gamma(c)}{\Gamma(b)\Gamma(c-b)}\textstyle\int_0^1x^{b-1}(1-x)^{c-b-1}(1-zx)^{-a}dx,\quad\Re(c)>\Re(b)>0\\[0.2cm]
-			\textstyle\int_{-1}^1 (1 + t)^{\mu-\frac{1}{2}} {}_2 F_1 \kern-0.1cm\left( \kern-0.2cm\begin{array}{c}
+			\textstyle\int_{-1}^1 (1 + t)^{\mu-\frac{1}{2}} {}_2 F_1 \left( \begin{array}{c}
 				\frac{1}{2}-\lambda, \lambda+\frac{1}{2}\\
 					2 \nu+\lambda+\frac{3}{2}
-				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)(1-t)^{2\nu+\lambda+\mu}={\mypgf}\\
+				\end{array} ; \frac{1 - t}{2} \right)(1-t)^{2\nu+\lambda+\mu}={\mypgf}\\
 					\mybigplus\\[0.2cm]
 					\mbox{超幾何関数${}_2F_1$の係数展開}\\[0.2cm]
 					\scalebox{2.0}{$=$}\quad\mbox{求める積分を ${}_3F_2$ で表す}
 				\end{array}
 			\end{equation*}
 		\begin{equation*}
-			\kern-0.4cm
 			{}_3F_2\left( \begin{array}[]{c}
 				\frac{1}{2}-\lambda, \lambda+\frac{1}{2},2\nu+\lambda+\mu+1\\
 				2 \nu+\lambda+\frac{3}{2},2\nu+\lambda+2\mu+\frac{1}{2}
@@ -701,7 +698,7 @@ the University of Tokyo
 	
 	命題\ref{prop:exp-stz-gg}を示すため、まず、$\ell=m=0$場合に帰着する
 			{ \begin{equation}
-				\kern-0.2cm 2\kern-0.2cm\iint\displaylimits_{[-1,1]^2} \left( s-tz \right)_+^{2c-1}  (1 - s^2)^{a - 1} (1 -
+				 2\iint\displaylimits_{[-1,1]^2} \left( s-tz \right)_+^{2c-1}  (1 - s^2)^{a - 1} (1 -
 				t^2)^{b - 1} d s d t = \frac{\sqrt{\pi} \Gamma (a) \Gamma (b) \Gamma
 			(c)}{\Gamma (a + c) \Gamma \left( b + \frac{1}{2} \right)} {}_2 F_1 \left(
 			\begin{array}{c}
@@ -757,7 +754,7 @@ the University of Tokyo
 %%					    b + \frac{1}{2}
 %%				    \end{array} ; \zeta \right) = 
 %%				    \overbrace{\sum_{j = 0}^{\infty} \frac{(1 - d)_{2 j} \zeta^j}{2^{2 j} j! \left( b +
-%%				    \frac{1}{2} \right)_j}}^{\kern-0.2cm\scalebox{1}{$={}_2F_1(;\zeta)$}} \overbrace{{}_2 F_1 \left( \begin{array}{c}
+%%				    \frac{1}{2} \right)_j}}^{\scalebox{1}{$={}_2F_1(;\zeta)$}} \overbrace{{}_2 F_1 \left( \begin{array}{c}
 %%					      a, 1 - a\\
 %%					        d - 2 j
 %%					\end{array} ; \frac{1}{2} \right) }^{\mbox{ expressed as ratio of $\Gamma$-functions}}
@@ -769,7 +766,7 @@ the University of Tokyo
 %%%%						\end{array} ; \zeta \right) .
 %%			\end{equation*}
 %%%%		\item In turn, \eqref{eqn:prop21} is proven via the equality { \begin{equation}
-%%%%				\kern-1.5cm \int_{-1}^1(1-t z)^{a-1}(1-t^2)^{b-1}d t=B\left(\frac{1}{2},b  \right)\ {}_2F_1\left( 
+%%%%				 \int_{-1}^1(1-t z)^{a-1}(1-t^2)^{b-1}d t=B\left(\frac{1}{2},b  \right)\ {}_2F_1\left( 
 %%%%				\begin{array}[]{c}
 %%%%					\frac{1-a}{2},\frac{2-a}{2}\\b+\frac{1}{2}
 %%%%				\end{array}
@@ -801,7 +798,7 @@ the University of Tokyo
 					    b + \frac{1}{2}
 				    \end{array} ; \zeta \right) = 
 				    \overbrace{\sum_{j = 0}^{\infty} \frac{(1 - d)_{2 j} \zeta^j}{2^{2 j} j! \left( b +
-				    \frac{1}{2} \right)_j}}^{\kern-0.2cm\scalebox{1}{$={}_2F_1(;\zeta)$}} \overbrace{{}_2 F_1 \left( \begin{array}{c}
+				    \frac{1}{2} \right)_j}}^{\scalebox{1}{$={}_2F_1(;\zeta)$}} \overbrace{{}_2 F_1 \left( \begin{array}{c}
 					      a, 1 - a\\
 					        d - 2 j
 					\end{array} ; \frac{1}{2} \right) }^{\mbox{ \begin{tabular}[]{c}
@@ -810,7 +807,7 @@ the University of Tokyo
 				\end{equation*}
 			\end{lemma*}
 \end{method}
-\begin{method}{メソッド 4 (積分公式とルジャンドル関数$\kern-0.1cm P^\alpha_\beta\kern-0.1cm$を用いる}
+\begin{method}{メソッド 4 (積分公式とルジャンドル関数$ P^\alpha_\beta$を用いる}
 	
 	直接命題\ref{prop:int-st-gg}を示す:
 	\begin{enumerate}
@@ -845,7 +842,7 @@ the University of Tokyo
 	\end{enumerate}
 \end{method}
 \section{表現論の対称性破れ作用素に対して応用}
-\newcommand{\mysbo}{A:\pi\kern-0.1cm\mid_{G'}\xrightarrow{G'}\tau}
+\newcommand{\mysbo}{A:\pi\mid_{G'}\xrightarrow{G'}\tau}
 {
 	\begin{setting*}
 	\centerline{
@@ -930,10 +927,10 @@ the University of Tokyo
 %%			\begin{tcolorbox}[colback=green!10!white,colframe=green]
 %%				\vspace{-0.5cm}
 %%		\begin{equation*}
-%%			\kern-0.4cm
+%%			
 %%			\begin{array}[]{c}
-%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-%%			\kern-0.05cm(1 - t^2)^{\lambda - \frac{1}{2}}d s d t\\
+%%				\displaystyle\iint\displaylimits_{ [-1,1]^2} | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			(1 - t^2)^{\lambda - \frac{1}{2}}d s d t\\
 %%			=\mypgf
 %%			\end{array}
 %%		\end{equation*}
@@ -955,10 +952,10 @@ the University of Tokyo
 %%			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
 %%		{
 %%		\begin{equation*}
-%%			\kern-0.4cm
+%%			
 %%			\begin{array}[]{c}
-%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-%%			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
+%%				\displaystyle\iint\displaylimits_{ [-1,1]^2} | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
 %%			=\mypgf
 %%			\end{array}
 %%		\end{equation*}
@@ -994,7 +991,7 @@ the University of Tokyo
 %%			\begin{tcolorbox}[colback=green!10!white,colframe=green]
 %%				\vspace{-0.7cm}
 %%		\begin{equation*}
-%%			\kern-0.4cm
+%%			
 %%			\begin{array}[]{c}
 %%				\left(\displaystyle\iint\displaylimits_{\scalebox{0.7}{$\begin{array}[]{c}
 %%					[0,1]^2\\t<s
@@ -1024,10 +1021,10 @@ the University of Tokyo
 %%			\begin{block}{\ul{{\mbox{命題}} $1'$}}
 %%		{
 %%		\begin{equation*}
-%%			\kern-1.1cm
+%%			
 %%			\begin{array}[]{c}
-%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-%%			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\kern-1cm\\
+%%				\displaystyle\iint\displaylimits_{ [-1,1]^2} | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\kern-1cm\\
 %%			=\mypgf
 %%			\end{array}
 %%		\end{equation*}
@@ -1064,7 +1061,7 @@ the University of Tokyo
 %%			\begin{tcolorbox}[colback=green!10!white,colframe=green]
 %%				\vspace{-0.5cm}
 %%			\begin{equation*}
-%%				\kern-0.6cm
+%%				
 %%				\begin{array}[]{c}
 %%					
 %%				\displaystyle\iint\displaylimits_{\begin{array}[]{c}
@@ -1093,10 +1090,10 @@ the University of Tokyo
 %%			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
 %%		{
 %%		\begin{equation*}
-%%			\kern-0.4cm
+%%			
 %%			\begin{array}[]{c}
-%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-%%			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
+%%				\displaystyle\iint\displaylimits_{ [-1,1]^2} | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
 %%			=\mypgf
 %%			\end{array}
 %%		\end{equation*}
@@ -1134,7 +1131,7 @@ the University of Tokyo
 %%			\begin{tcolorbox}[colback=green!10!white,colframe=green]
 %%				\vspace{-0.5cm}
 %%			\begin{equation*}
-%%				\kern-0.6cm
+%%				
 %%				\begin{array}{c}
 %%				\displaystyle\iint\displaylimits_{(t, \tau) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} \tau^{\alpha} (1
 %%				- \tau)^{\alpha} | t - \tau |^{- 2} dtd\tau\\
@@ -1161,10 +1158,10 @@ the University of Tokyo
 %%			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
 %%		{
 %%		\begin{equation*}
-%%			\kern-0.4cm
+%%			
 %%			\begin{array}[]{c}
-%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-%%			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
+%%				\displaystyle\iint\displaylimits_{ [-1,1]^2} | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
 %%			=\mypgf
 %%			\end{array}
 %%		\end{equation*}
