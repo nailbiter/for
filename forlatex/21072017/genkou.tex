@@ -99,15 +99,14 @@
 	}
 \newcommand{\myrelationdiagramBig}[5]{
 		\centerline{
-		\xymatrixcolsep{5cm}
+		\xymatrixcolsep{2.5cm}
 		\xymatrix{
 			\frame{\mbox{#1}}\ar@{=>}[rd]^{\begin{array}[]{c}
 				#2
-			\end{array}}&&\frame{\mbox{#4}}\ar@{=>}[ld]_{\begin{array}[]{c}
+			\end{array}}&&&&\frame{\mbox{#4}}\ar@{=>}[ld]_{\begin{array}[]{c}
 			#3
 	\end{array}}\\
-			&
-			&
+			&&&&
 		}}
 		\frame{\mbox{#5}}
 	}
