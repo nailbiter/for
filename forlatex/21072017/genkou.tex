@@ -746,8 +746,50 @@ the University of Tokyo
 		\item \eqref{eqn:m4-2} が \cite[L2]{kobayashi2011schrodinger}積分公式から従う.
 	\end{enumerate}
 \end{method}
-
-
+\section{表現論の対称性破れ作用素に対して応用}
+\newcommand{\mysbo}{A:\pi\kern-0.1cm\mid_{G'}\xrightarrow{G'}\tau}
+{
+	\begin{setting*}
+	\centerline{
+		\xymatrixcolsep{0.5pc}
+		\xymatrixrowsep{1pc}
+		\xymatrix{G\ar@/_1pc/[d]&&\supset&&G'\ar@/^1pc/[d]&\\
+			\pi&\ar[rr]^{A}&&\tau&&{\begin{array}[]{l}
+				\\
+		\mbox{ \underline{ノンコンパクト}群$G,G'$の}\\
+		\mbox{ :\underline{無限次元}表現.}\\
+		\end{array}}%
+	}}
+	\end{setting*}
+	\hspace{1cm}
+	\vspace{-0.5cm}
+	\begin{goal*}
+%%		\[\begin{array}{cccl}
+%%				G:=O(p+1,q+1)&\curvearrowright &\pi\mbox{ :infinitely-dimensional rep.}\\
+%%		\bigcup&&&\\
+%%		G':=O(p,q+1)&\curvearrowright &\tau\mbox{ :infinitely-dimensional rep.}
+%%		\end{array}\]
+		$G'$-intertwining作用素$\mysbo$を全て構成し、分類し、さらにその性質を詳しく調べる.
+	\end{goal*}
+	\begin{itemize}
+		\item $\pi$と$\tau$は異なる表現であるが、例えば$(K,K')$-重複度が１の場合に一般化した意味での固有値を定義することができる；
+		%\item Although $\pi$ and $\tau$ are realized on different spaces, we can define ``generalized eigenvalues'';
+		\item $\mysbo$ はある意味で``対角化''できる(Schurの補題の考え方);
+		\item $\implies(K,K')$固有値がゼロになるかどうかを判定したい;
+		\item $\mysbo$の積分核が別の手法で決定されたとする;
+		\item $\implies(K,K')$固有値を積分の形で表示できる;
+		\item $\implies$ 命題\ref{prop:int-st-gg}はガンマ関数の積公式として与えられるので
+			ゼロかどうかが完全に決定できる.
+	\end{itemize}
+}
+\begin{equation*}
+(G,G')=\left( O(p,q),O(p-1,q) \right)\quad\mbox{であるとする}
+\end{equation*}
+\begin{center}
+	\begin{tikzpicture}[rotate=-90]
+	\input{diagram.tex}
+	\end{tikzpicture}
+\end{center}
 
 	\bibliographystyle{apalike}
 	\nocite{Selberg:411367}
@@ -1033,62 +1075,6 @@ the University of Tokyo
 %%	\end{textblock*}
 %%	}
 %%\end{frame}
-\section{表現論の対称性破れ作用素に対して応用}
-\newcommand{\mysbo}{A:\pi\kern-0.1cm\mid_{G'}\xrightarrow{G'}\tau}
-{
-    \begin{frame}{表現論の対称性破れ作用素に対して応用}
-	\begin{block}{設定}
-		
-	\centerline{
-		\xymatrixcolsep{0.5pc}
-		\xymatrixrowsep{1pc}
-		\xymatrix{G\ar@/_1pc/[d]&&\supset&&G'\ar@/^1pc/[d]&\\
-			\pi&\ar[rr]^{A}&&\tau&&{\begin{array}[]{l}
-				\\
-		\mbox{ \underline{ノンコンパクト}群$G,G'$の}\\
-		\mbox{ :\underline{無限次元}表現.}\\
-		\end{array}}%
-	}}
-	\end{block}
-	\pause
-	\setbeamercolor{block title}{bg=red!30,fg=black}
-	\hspace{1cm}
-	\vspace{-0.5cm}
-	\begin{block}{目標}
-%%		\[\begin{array}{cccl}
-%%				G:=O(p+1,q+1)&\curvearrowright &\pi\mbox{ :infinitely-dimensional rep.}\\
-%%		\bigcup&&&\\
-%%		G':=O(p,q+1)&\curvearrowright &\tau\mbox{ :infinitely-dimensional rep.}
-%%		\end{array}\]
-		$G'$-intertwining作用素$\mysbo$を全て構成し、分類し、さらにその性質を詳しく調べる.
-	\end{block}
-\end{frame}
-\begin{frame}{アイディア}
-	\begin{itemize}[<+(1)->]
-		\item $\pi$と$\tau$は異なる表現であるが、例えば$(K,K')$-重複度が１の場合に一般化した意味での固有値を定義することができる；
-		%\item Although $\pi$ and $\tau$ are realized on different spaces, we can define ``generalized eigenvalues'';
-		\item $\mysbo$ はある意味で``対角化''できる(Schurの補題の考え方);
-		\item $\implies$ 固有値を具体的に計算したい.
-	\end{itemize}
-\end{frame}
-}
-\begin{frame}{$(G,G')=\left( O(p,q),O(p-1,q) \right)$であるとする}
-\begin{center}
-	\begin{tikzpicture}[rotate=-90]
-	\input{diagram.tex}
-	\end{tikzpicture}
-\end{center}
-\end{frame}
-\begin{frame}{アイディア}
-	\begin{itemize}
-		\item \ldots
-		\item $\implies(K,K')$固有値がゼロになるかどうかを判定したい;
-		\item<2-> $\mysbo$の積分核が別の手法で決定されたとする;
-		\item<3-> $\implies(K,K')$固有値を積分の形で表示できる;
-		\item<4-> $\implies$ 命題\ref{prop:int-st-gg}はガンマ関数の積公式として与えられるので
-			ゼロかどうかが完全に決定できる.
-	\end{itemize}
-\end{frame}
 \appendix
 \begin{frame}[allowframebreaks]{References}
 \end{frame}
