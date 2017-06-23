@@ -498,6 +498,17 @@ the University of Tokyo
 		\vspace{-1em}
 	\begin{enumerate}
 		\item $\ell=m=0$ 場合を扱えばよい;
+		\begin{equation*}
+			\kern-0.4cm
+			\displaystyle\iint_{[-1,1]^2}\myabs{s-t}^{2\nu}(1-s^2)^{\lambda-\frac{1}{2}}(1-t^2)^{\mu-\frac{1}{2}}=\mypgf
+		\end{equation*}
+		\begin{equation*}
+			\kern-0.45cm
+			\textstyle\int_{-1}^1 (1 + t)^{\mu-\frac{1}{2}} {}_2 F_1 \kern-0.1cm\left( \kern-0.2cm\begin{array}{c}
+				\frac{1}{2}-\lambda, \lambda+\frac{1}{2}\\
+					2 \nu+\lambda+\frac{3}{2}
+				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)(1-t)^{2\nu+\lambda+\mu}
+		\end{equation*}
 		\item
 			\begin{equation*}
 				\kern-1cm
@@ -515,6 +526,13 @@ the University of Tokyo
 					\scalebox{2.0}{$=$}\quad\mbox{求める積分を ${}_3F_2$ で表す}
 				\end{array}
 			\end{equation*}
+		\begin{equation*}
+			\kern-0.4cm
+			{}_3F_2\left( \begin{array}[]{c}
+				\frac{1}{2}-\lambda, \lambda+\frac{1}{2},2\nu+\lambda+\mu+1\\
+				2 \nu+\lambda+\frac{3}{2},2\nu+\lambda+2\mu+\frac{1}{2}
+			\end{array};1\right)=\mypgf
+		\end{equation*}
 				\begin{fact*}[Whipple sum]
 			\begin{equation*}
 			\begin{array}[]{c}
@@ -532,24 +550,6 @@ the University of Tokyo
 		Whipple Sumによって、超幾何関数
 				${}_3F_2(;1)$をガンマ関数の積で表せる.
 	\end{enumerate}
-		\begin{equation*}
-			\kern-0.4cm
-			\displaystyle\iint_{[-1,1]^2}\myabs{s-t}^{2\nu}(1-s^2)^{\lambda-\frac{1}{2}}(1-t^2)^{\mu-\frac{1}{2}}=\mypgf
-		\end{equation*}
-		\begin{equation*}
-			\kern-0.45cm
-			\textstyle\int_{-1}^1 (1 + t)^{\mu-\frac{1}{2}} {}_2 F_1 \kern-0.1cm\left( \kern-0.2cm\begin{array}{c}
-				\frac{1}{2}-\lambda, \lambda+\frac{1}{2}\\
-					2 \nu+\lambda+\frac{3}{2}
-				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)(1-t)^{2\nu+\lambda+\mu}
-		\end{equation*}
-		\begin{equation*}
-			\kern-0.4cm
-			{}_3F_2\left( \begin{array}[]{c}
-				\frac{1}{2}-\lambda, \lambda+\frac{1}{2},2\nu+\lambda+\mu+1\\
-				2 \nu+\lambda+\frac{3}{2},2\nu+\lambda+2\mu+\frac{1}{2}
-			\end{array};1\right)=\mypgf
-		\end{equation*}
 \end{method}
 %%\begin{frame}{メソッド 1 (direct) (2/2)}
 %%	
