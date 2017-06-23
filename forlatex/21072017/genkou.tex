@@ -359,7 +359,7 @@ the University of Tokyo
 		 \normalfont
 		\begin{array}[]{c}
 		\displaystyle\int_{t \in [0, 1]^k} \displaystyle\prod\displaylimits_{i=1}^k t_i^{\alpha-1}(1-t_i)^{\beta-1} 
-		\kern-0.1cm\displaystyle\prod\displaylimits_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma} d
+		\displaystyle\prod\displaylimits_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma} d
 				t=
 				\displaystyle\prod_{i = 0}^{k - 1} \frac{\Gamma (\alpha + i \gamma) \Gamma (\beta + i
 				\gamma) \Gamma (1 + (i + 1) \gamma)}{\Gamma (\alpha + \beta + (i + k - 1)
@@ -371,8 +371,8 @@ the University of Tokyo
 		\myrelationdiagramBig{命題$1'$}{\ell=m=0,\\ \lambda=\mu}{k=2,\\
 			\alpha=\beta}{{\cite{Selberg:411367}}}
 		{$
-				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-			\kern-0.05cm(1 - t^2)^{\lambda - \frac{1}{2}}d s d t
+				\displaystyle\iint\displaylimits_{ [-1,1]^2} | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
+			(1 - t^2)^{\lambda - \frac{1}{2}}d s d t
 			=\prod_{i = 0}^{k - 1} \frac{\Gamma (\alpha + i \gamma) \Gamma (\beta + i
 			\gamma) \Gamma (1 + (i + 1) \gamma)}{\Gamma (\alpha + \beta + (i + k - 1)
 			\gamma) \Gamma (\gamma + 1)}
@@ -380,7 +380,7 @@ the University of Tokyo
 		\begin{fact*}[{\cite[(1.4)]{warnaar2010sl3}}]
 				{
 		\begin{equation*}
-%%			\kern-2.15cm
+%%			
 			\begin{array}{c}
 				\displaystyle\int\displaylimits_{(t,s)\in C_{\beta_1,\gamma}^{k_1,k_2}}
 				\displaystyle\prod\displaylimits_{i=1}^{k_1}t_i^{\alpha_1-1}(1-t_i)^{\beta_1-1}\\
@@ -388,11 +388,11 @@ the University of Tokyo
 				\displaystyle\prod_{1\le i<j\le k_1}\myabs{t_i-t_j}^{2\gamma}\\
 				\times\displaystyle\prod_{1\le i<j\le k_2}\myabs{s_i-s_j}^{2\gamma}
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}dsdt
-%%				\displaystyle\bigintssss_{ \mbox{$\kern1.9cm (t,s)\kern-0.1cm\in\kern-0.1cm C_{\beta_1, \gamma}^{k_1, k_2} [0, 1]$}} \kern-1.95cm\textstyle\prod^{\alpha_1 - 1,
-%%				\beta_1 - 1}\kern-0.05cm (t) \kern-0.09cm\textstyle\prod^{\alpha_2 - 1, \beta_2 - 1}\kern-0.05cm (s)
+%%				\displaystyle\bigintssss_{ \mbox{$ (t,s)\in C_{\beta_1, \gamma}^{k_1, k_2} [0, 1]$}} \textstyle\prod^{\alpha_1 - 1,
+%%				\beta_1 - 1} (t) \textstyle\prod^{\alpha_2 - 1, \beta_2 - 1} (s)
 %%%%					    \\ \times
-%%					    \Delta^{2 \gamma}\kern-0.05cm(t)
-%%					      \Delta^{2 \gamma}\kern-0.05cm (s) \Delta^{- \gamma}\kern-0.05cm (t, s)\\
+%%					    \Delta^{2 \gamma}(t)
+%%					      \Delta^{2 \gamma} (s) \Delta^{- \gamma} (t, s)\\
 				      \end{array}\end{equation*}
 %%			\vspace{-0.5cm}
 		\begin{equation*}
@@ -407,8 +407,8 @@ the University of Tokyo
   k_2 - 1) \gamma)},\\
 %%					  \textstyle\prod^{\alpha_1 - 1,
 %%					  \beta_1 - 1} (t):=\displaystyle\prod_{i=1}^{k_1}t_i^{\alpha_1-1}(1-t_i)^{\beta_1-1},\\
-%%					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\kern-0.2cm\myabs{t_i}^{2\gamma}, \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=1}^{k_1,k_2}
-%%					  \myabs{t_i-s_j}^{\gamma}\kern-0.1cm,\\
+%%					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\myabs{t_i}^{2\gamma}, \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=1}^{k_1,k_2}
+%%					  \myabs{t_i-s_j}^{\gamma},\\
 %%					  \\
 					  \mbox{ここで　 }C^{k_1,k_2}_{\beta_1,\gamma}\mbox{: ある特異チェイン, }
 					  \beta_1 + \beta_2 = \gamma + 1,\\
@@ -434,7 +434,7 @@ the University of Tokyo
 			\begin{fact*}[{\cite[(3.4)]{tarasov2003selberg}}]
 			{
 		\begin{equation*}
-%%			\kern-1.45cm
+%%			
 			\begin{array}{c}
 				\displaystyle\int_{(t,s)\in C_\gamma^{k_1,k_2}}
 				\displaystyle\prod\displaylimits_{i=1}^{k_1}t_i^{\alpha-1}(1-t_i)^{\beta_1-1}\\
@@ -442,14 +442,14 @@ the University of Tokyo
 				\displaystyle\prod_{1\le i<j\le k_1}\myabs{t_i-t_j}^{2\gamma}\\
 				\times\displaystyle\prod_{1\le i<j\le k_2}\myabs{s_i-s_j}^{2\gamma}
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}dsdt
-%%				\displaystyle\bigintssss_{ \mbox{$\kern1.4cm (t,s)\kern-0.1cm\in\kern-0.1cm C_{\gamma}^{k_1, k_2} [0, 1]$}} \kern-1.65cm\textstyle\prod^{\alpha - 1,
-%%				\beta_1 - 1}\kern-0.05cm (t) \kern-0.09cm\textstyle\prod^{0, \beta_2 - 1}\kern-0.05cm (s)
+%%				\displaystyle\bigintssss_{ \mbox{$ (t,s)\in C_{\gamma}^{k_1, k_2} [0, 1]$}} \textstyle\prod^{\alpha - 1,
+%%				\beta_1 - 1} (t) \textstyle\prod^{0, \beta_2 - 1} (s)
 %%%%					    \\ \times
-%%					    \Delta^{2 \gamma}\kern-0.05cm(t)
-%%					      \Delta^{2 \gamma}\kern-0.05cm (s) \Delta^{- \gamma}\kern-0.05cm (t, s)\\
+%%					    \Delta^{2 \gamma}(t)
+%%					      \Delta^{2 \gamma} (s) \Delta^{- \gamma} (t, s)\\
 				      \end{array}\end{equation*}
 %%			\vspace{-0.5cm}
-%%			\kern-0.29cm
+%%			
 			      \begin{equation*}
 			\begin{array}{c}
   \displaystyle\prod_{j = 0}^{k_1 - 1} \frac{\Gamma (\alpha + j \gamma) \Gamma (\gamma + j
@@ -464,16 +464,16 @@ the University of Tokyo
 					  \mbox{ここで、　 }	C^{k_1,k_2}_{\gamma}\mbox{: ある特異チェイン}.\\
 %%					  \textstyle\prod^{\alpha - 1,
 %%					  \beta_1 - 1} (t):=\displaystyle\prod_{i=1}^{k_1}t_i^{\alpha-1}(1-t_i)^{\beta_1-1},\\
-%%					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\kern-0.2cm\myabs{t_i}^{2\gamma}, \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=1}^{k_1,k_2}
-%%					  \myabs{t_i-s_j}^{\gamma}\kern-0.1cm.\\
+%%					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\myabs{t_i}^{2\gamma}, \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=1}^{k_1,k_2}
+%%					  \myabs{t_i-s_j}^{\gamma}.\\
 %%					  \\
 %%					\tmop{Re} (\alpha_i), \tmop{Re} (\beta_2) > 0, | \tmop{Re} \gamma | \ll 1.
 			\end{array}
 			\end{equation*}
 			\vspace{-0.29cm}
 				}
-%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-%%			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\kern-1cm\\
+%%				\displaystyle\iint\displaylimits_{ [-1,1]^2} | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\kern-1cm\\
 %%			=\mypgf
 		\end{fact*}
 		{
@@ -496,8 +496,7 @@ the University of Tokyo
 		\begin{equation*}
 			\begin{array}{c}
 				\frac{1}{n!m!}
-				\kern-1.45cm
-				\displaystyle\bigintssss_{\mbox{$\kern1.0cm(t,\tau)\kern-0.1cm\in\kern-0.1cm [0, 1]^{k_1+k_2}$}} \kern-1.35cm
+				\displaystyle\bigintssss_{\mbox{$(t,\tau)\in [0, 1]^{k_1+k_2}$}} 
    \Pi^{\alpha', \beta'} (t)
   \Pi^{\alpha, \beta} (\tau) \Delta^{2 \rho'}(t) \Delta^{2 \rho}(\tau)
   \Delta^{- 2} (t, \tau) dtd\tau \\
