@@ -548,49 +548,7 @@ the University of Tokyo
 				${}_3F_2(;1)$をガンマ関数の積で表せる.
 	\end{enumerate}
 \end{method}
-%%\begin{frame}{メソッド 1 (direct) (2/2)}
-%%	
-%%	$\cdots$
-%%	\begin{enumerate}
-%%			\setcounter{enumi}{2}
-%%	\item Expanding the ${}_2 F_1 \left( \kern-0.2cm\begin{array}{c}
-%%					\frac{1}{2}-l-\lambda, 2\nu-l-m+1\\
-%%					2 \nu+\lambda-m+\frac{3}{2}
-%%				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)$ in series and using the beta integral, we see that $\mbox{RHS}\eqref{eqn:m1-2}$
-%%				is proportional to hypergeometric ${}_3F_2(;1)$;
-%%			\item Finally, hypergeometric ${}_3F_2(;1)$ is expressed as ratio of Gamma functions via the Whipple's sum
-%%			\vspace{-0.2cm}
-%%			\begin{equation*}
-%%		\kern-1cm{}_{3}F_{2}\left({a,1-a,c\atop d,2c-d+1};1\right)=\frac{\pi\Gamma\left(d%
-%%				\right)\Gamma\left(2c-d+1\right)2^{1-2c}}{\Gamma\left(c+\frac{1}{2}(a-d+1)%
-%%				\right)\Gamma\left(c+1-\frac{1}{2}(a+d)\right)\Gamma\left(\frac{1}{2}(a+d)%
-%%			\right)\Gamma\left(\frac{1}{2}(d-a+1)\right)},
-%%		\end{equation*}
-%%	\end{enumerate}
-%%	\begin{remark}
-%%		Note that Whipple's sum requires the parameters of hypergeometric ${}_3F_2(;1)$ to satisfy certain relations (in fact, out of 5 parameters only 3 are {\bf free}).
-%%		The general expression \begin{equation*}
-%%			{}_3F_2\left( \begin{array}[]{c}
-%%				a,b,c\\d,e
-%%			\end{array};1 \right)
-%%		\end{equation*}
-%%		with 5 free parameters {\bf cannot} be expressed by Gamma functions \cite{ebisu2016three}.
-%%	\end{remark}
-%%\end{frame}
-		\bibliographystyle{apalike}
-		\nocite{Selberg:411367}
-		\nocite{warnaar2010sl3}
-		\nocite{dotsenko1985four}
-		\nocite{tarasov2003selberg}
-	%%	\nocite{kobayashi2015symmetry}
-	%%	\nocite{kobayashi2015differential2}
-	%%	\nocite{kobayashi2016differential1}
-	%%	\nocite{kobayashi2014classification}
-	%%	\nocite{kobayashi2013finite}
-	%%	\nocite{kobayashi2015program}
-	\bibliography{intdep}
-	\end{document}
-\begin{frame}{メソッド 2 (1/2) cf. セルバーグ積分の証明}
+\begin{method}[メソッド 2 (1/2) cf. セルバーグ積分の証明]
 			\vspace{-0.2cm}
 	\begin{fact*}[Carlsonの定理]
 		$f$が$\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$右半平面上で連続で、
@@ -605,7 +563,7 @@ the University of Tokyo
 		$f\equiv0$である.
 	\end{fact*}
 			\vspace{-0.2cm}
-	\begin{remark}
+	\begin{remark*}
 		\begin{equation*}
 			\vspace{-0.2cm}
 			f(z)=\sin(\pi z)
@@ -614,9 +572,7 @@ the University of Tokyo
 		$f\big|_{\Z}=0$が成り立つ.しかし、 $f(z)$が恒等的に0ならない。
 
 		よって、Carlsonの定理の条件\mytextcircled{2}が必要である.
-	\end{remark}
-\end{frame}
-\begin{frame}{メソッド 2 (2/2) cf. セルバーグ積分の証明}
+	\end{remark*}
 			\vspace{-0.2cm}
 	\begin{fact*}[Carlsonの定理]
 		$f$が$\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$右半平面上で連続で、
@@ -642,7 +598,20 @@ the University of Tokyo
 	で$\nu\in\N_{+}$
 	のときは$\myabs{s-t}^{2\nu}$が多項式になるので、命題\ref{prop:int-st-gg}
 	は計算可能.
-\end{frame}
+\end{method}
+		\bibliographystyle{apalike}
+		\nocite{Selberg:411367}
+		\nocite{warnaar2010sl3}
+		\nocite{dotsenko1985four}
+		\nocite{tarasov2003selberg}
+	%%	\nocite{kobayashi2015symmetry}
+	%%	\nocite{kobayashi2015differential2}
+	%%	\nocite{kobayashi2016differential1}
+	%%	\nocite{kobayashi2014classification}
+	%%	\nocite{kobayashi2013finite}
+	%%	\nocite{kobayashi2015program}
+	\bibliography{intdep}
+	\end{document}
 \begin{frame}{メソッド 3 (命題\ref{prop:exp-stz-gg}によって)}
 	
 	命題\ref{prop:exp-stz-gg}を示すため、まず、$\ell=m=0$場合に帰着する
