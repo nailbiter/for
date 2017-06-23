@@ -360,7 +360,10 @@ the University of Tokyo
 		\begin{array}[]{c}
 		\displaystyle\int_{t \in [0, 1]^k} \displaystyle\prod\displaylimits_{i=1}^k t_i^{\alpha-1}(1-t_i)^{\beta-1} 
 		\kern-0.1cm\displaystyle\prod\displaylimits_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma} d
-				t\\=\mypgf,\\
+				t\\=
+				\prod_{i = 0}^{k - 1} \frac{\Gamma (\alpha + i \gamma) \Gamma (\beta + i
+				\gamma) \Gamma (1 + (i + 1) \gamma)}{\Gamma (\alpha + \beta + (i + k - 1)
+				\gamma) \Gamma (\gamma + 1)},\\
 				\tmop{Re} (\alpha), \tmop{Re} (\beta) > 0, | \gamma | \ll 1.
 		\end{array}
 			\end{equation*}
