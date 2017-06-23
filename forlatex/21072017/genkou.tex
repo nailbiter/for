@@ -81,6 +81,7 @@
 \newtheorem*{setting*}{\textbf{設定}}
 \newtheorem*{goal*}{\textbf{目標}}
 \newtheorem*{remark*}{\textbf{注}}
+\newtheorem{method}{\textbf{メソッド}}
 \newtheorem*{example*}{\textbf{例}}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
@@ -441,291 +442,6 @@ the University of Tokyo
 			\vspace{-0.29cm}
 				}
 		\end{fact*}
-	\bibliographystyle{apalike}
-	\nocite{Selberg:411367}
-	\nocite{warnaar2010sl3}
-	\nocite{dotsenko1985four}
-	\nocite{tarasov2003selberg}
-%%	\nocite{kobayashi2015symmetry}
-%%	\nocite{kobayashi2015differential2}
-%%	\nocite{kobayashi2016differential1}
-%%	\nocite{kobayashi2014classification}
-%%	\nocite{kobayashi2013finite}
-%%	\nocite{kobayashi2015program}
-\bibliography{intdep}
-\end{document}
-\begin{frame}[fragile]
-\begin{tikzpicture}
-\input{Sfull.intdep.tex}
-\end{tikzpicture}
-ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
-\end{frame}
-\begin{frame}[fragile]%frame Selberg
-	
-	\begin{textblock*}{\textwidth}(1cm,0.8cm)
-	  	\begin{tikzpicture}
-			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,2.55);
-			\node at (2.8,3.4) {\color{red}{\textnormal{ $\begin{array}[]{c}\ell=m=0,\\ \lambda=\mu \end{array}$}}};
-		\end{tikzpicture}
-	\end{textblock*}
-	\begin{textblock*}{\textwidth}(3.99cm,1.7cm)
-	  	\begin{tikzpicture}
-			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.2,-0.4);
-			\node at (-0.45,0.1) {\color{blue}{\normalfont{$\begin{array}[]{c}
-				k=2,\\
-			\alpha=\beta
-		\end{array}$}}};
-		\end{tikzpicture}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.14cm)
-		 {
-			\begin{tcolorbox}[colback=green!10!white,colframe=green]
-				\vspace{-0.5cm}
-		\begin{equation*}
-			\kern-0.4cm
-			\begin{array}[]{c}
-				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-			\kern-0.05cm(1 - t^2)^{\lambda - \frac{1}{2}}d s d t\\
-			=\mypgf
-			\end{array}
-		\end{equation*}
-			     \end{tcolorbox}
-		}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(0.5\textwidth,1.35cm)
-    			\setulcolor{Blue}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(0.635\textwidth,-2.8cm)
-			  \begin{tikzpicture}[scale=0.4]
-				\input{S.intdep.tex}
-				\end{tikzpicture}
-				%\caption{A gull}
-	\end{textblock*}
-	{
-	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
-    			\setulcolor{Red}
-			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
-		{
-		\begin{equation*}
-			\kern-0.4cm
-			\begin{array}[]{c}
-				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
-			=\mypgf
-			\end{array}
-		\end{equation*}
-		}
-	\end{block}
-	\end{textblock*}
-	}
-\end{frame}
-\begin{frame}[fragile]
-\begin{tikzpicture}
-\input{Wfull.intdep.tex}
-\end{tikzpicture}
-ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
-\end{frame}
-\begin{frame}[fragile]%frame Warnaar
-	
-	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.65cm)
-    			\setulcolor{Blue}
-	\end{textblock*}
-	\begin{textblock*}{\textwidth}(7.99cm,2.75cm)
-	  	\begin{tikzpicture}
-			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-2.0,-1.0);
-			\node at (0.5,-0.3) {\color{blue}{$
-				\begin{array}[]{c}
-					\ell=m=0,\\
-				\lambda+\mu+2\nu=-1
-				\end{array}
-		$}};
-		\end{tikzpicture}
-	\end{textblock*}
-	\begin{textblock*}{0.7\textwidth}(-0.4cm,3.7cm)
-		 {
-			\begin{tcolorbox}[colback=green!10!white,colframe=green]
-				\vspace{-0.7cm}
-		\begin{equation*}
-			\kern-0.4cm
-			\begin{array}[]{c}
-				\left(\displaystyle\iint\displaylimits_{\scalebox{0.7}{$\begin{array}[]{c}
-					[0,1]^2\\t<s
-				\end{array}$}}+\frac{\sin(\pi\alpha_1)}{\sin(\pi\alpha_2)}\displaystyle\iint\displaylimits_{\scalebox{0.7}{$\begin{array}[]{c}
-					[0,1]^2\\t>s
-				\end{array}$}} \right)(t(1-t))^{\mu - \frac{1}{2}}  (s(1-s))^{\lambda - \frac{1}{2}}  | t - s |^{2\nu} d s d t
-			\\=\mypgf
-			\end{array}
-		\end{equation*}
-				\vspace{-0.7cm}
-			     \end{tcolorbox}
-		}
-	\end{textblock*}
-	\begin{textblock*}{\textwidth}(0.7cm,3.1cm)
-	  	\begin{tikzpicture}
-			\draw[->,>=angle 90,color=red,style=very thick] (2.0,2.8) -- node{} (2.0,2.0);
-			\node at (4.0,2.3) {\color{red}{$k_1=k_2=1,\alpha_1=\beta_1,\alpha_2=\beta_2$}};
-		\end{tikzpicture}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(0.635\textwidth,-2.8cm)
-			  \begin{tikzpicture}[scale=0.4]
-				\input{W.intdep.tex}
-				\end{tikzpicture}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(0.52\textwidth,0.75cm)
-    			\setulcolor{Red}
-			\begin{block}{\ul{{\mbox{命題}} $1'$}}
-		{
-		\begin{equation*}
-			\kern-1.1cm
-			\begin{array}[]{c}
-				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\kern-1cm\\
-			=\mypgf
-			\end{array}
-		\end{equation*}
-		}
-	\end{block}
-	\end{textblock*}
-\end{frame}
-\begin{frame}[fragile]
-\begin{tikzpicture}
-\input{TVfull.intdep.tex}
-\end{tikzpicture}
-ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
-\end{frame}
-\begin{frame}[fragile]%frame TV
-	
-	\begin{textblock*}{\textwidth}(1cm,0.8cm)
-	  	\begin{tikzpicture}
-			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,1.95);
-			\node at (2.8,3.4) {\color{red}{\textnormal{ $\begin{array}[]{c}\ell=m=0,\\ \mu=\frac{1}{2} \end{array}$}}};
-		\end{tikzpicture}
-	\end{textblock*}
-	\begin{textblock*}{\textwidth}(3.89cm,1.7cm)
-	  	\begin{tikzpicture}
-			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.5,-1.0);
-			\node at (-0.45,0.0) {\color{blue}{\normalfont{$\begin{array}[]{c}
-				k=2,\\
-				\beta_2=1,\\
-				\alpha=\beta_1
-		\end{array}$}}};
-		\end{tikzpicture}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.7cm)
-		 {
-			\begin{tcolorbox}[colback=green!10!white,colframe=green]
-				\vspace{-0.5cm}
-			\begin{equation*}
-				\kern-0.6cm
-				\begin{array}[]{c}
-					
-				\displaystyle\iint\displaylimits_{\begin{array}[]{c}
-				(s, t) \in [0, 1]^2\\t<s
-			\end{array}} s^{\lambda - \frac{1}{2}} (1 - s)^{\lambda-\frac{1}{2}} \myabs{s-t}^{2\nu} d s d t\\
-			=\mypgf
-				\end{array}
-				\vspace{-0.3cm}
-			\end{equation*}
-
-			     \end{tcolorbox}
-		}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(0.515\textwidth,0.1cm)
-    			\setulcolor{Blue}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(0.635\textwidth,-2.8cm)
-			  \begin{tikzpicture}[scale=0.4]
-				\input{TV.intdep.tex}
-				\end{tikzpicture}
-				%\caption{A gull}
-	\end{textblock*}
-	{
-	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
-    			\setulcolor{Red}
-			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
-		{
-		\begin{equation*}
-			\kern-0.4cm
-			\begin{array}[]{c}
-				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
-			=\mypgf
-			\end{array}
-		\end{equation*}
-		}
-	\end{block}
-	\end{textblock*}
-	}
-\end{frame}
-\begin{frame}[fragile]
-\begin{tikzpicture}
-\input{DFfull.intdep.tex}
-\end{tikzpicture}
-ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
-\end{frame}
-\begin{frame}[fragile]%frame DF
-	
-	\begin{textblock*}{\textwidth}(1cm,0.8cm)
-	  	\begin{tikzpicture}
-			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,1.75);
-			\node at (2.8,3.4) {\color{red}{\textnormal{ $\begin{array}[]{c}\ell=m=0,\\ \nu=-1\end{array}$}}};
-		\end{tikzpicture}
-	\end{textblock*}
-	\begin{textblock*}{\textwidth}(3.89cm,1.9cm)
-	  	\begin{tikzpicture}
-			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.5,-1.0);
-			\node at (-0.45,0.0) {\color{blue}{\normalfont{$\begin{array}[]{c}
-				m=n=1,\\
-				\alpha'=\beta',\\
-				\alpha=\beta
-		\end{array}$}}};
-		\end{tikzpicture}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.9cm)
-		 {
-			\begin{tcolorbox}[colback=green!10!white,colframe=green]
-				\vspace{-0.5cm}
-			\begin{equation*}
-				\kern-0.6cm
-				\begin{array}{c}
-				\displaystyle\iint\displaylimits_{(t, \tau) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} \tau^{\alpha} (1
-				- \tau)^{\alpha} | t - \tau |^{- 2} dtd\tau\\
-			=\mypgf
-				\end{array}
-				\vspace{-0.3cm}
-			\end{equation*}
-
-			     \end{tcolorbox}
-		}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(0.515\textwidth,-0.2cm)
-    			\setulcolor{Blue}
-	\end{textblock*}
-	\begin{textblock*}{0.5\textwidth}(0.635\textwidth,-2.8cm)
-			  \begin{tikzpicture}[scale=0.4]
-				\input{DF.intdep.tex}
-				\end{tikzpicture}
-				%\caption{A gull}
-	\end{textblock*}
-	{
-	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
-    			\setulcolor{Red}
-			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
-		{
-		\begin{equation*}
-			\kern-0.4cm
-			\begin{array}[]{c}
-				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
-			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
-			=\mypgf
-			\end{array}
-		\end{equation*}
-		}
-	\end{block}
-	\end{textblock*}
-	}
-\end{frame}
-\begin{frame}
 	更に、系\ref{cor:int-xzy-hh}の積分に$w=s-t$変数変化し、$z=1$をとれば、
 	次の公式と同等な公式（正確には、そのMellin変換）が得られる.
 	\begin{fact*}[{\cite[(18)]{conte1994hermite}}]
@@ -742,9 +458,7 @@ the University of Tokyo
 	\end{equation*}
 	を表す.
 	%%Applying inverse Mellin transform, we arrive at the well-known formula for convolution of Hermite-Rodriguez functions.
-\end{frame}
 \section{証明}
-\begin{frame}
 	以下の述べられているメソッド１とメソッド３は最初のステップとして以下のような補題を使う:
 	\begin{lemma*}[$\ell=m=0$場合に帰着]
 		\begin{equation*}
@@ -779,12 +493,11 @@ the University of Tokyo
 	\end{proof}
 	命題\ref{prop:exp-stz-gg}の証明においても同じアイディアが適用できる.
 %%	命題\ref{prop:exp-stz-gg}の積分公式の形に対して、このよう補題も成り立つ.
-\end{frame}
-\begin{frame}{メソッド 1 (直接)}
+	\begin{method}[直接]
 	
 	\begin{enumerate}
-		\item<2-> $\ell=m=0$ 場合を扱えばよい;
-		\item<3-> 
+		\item $\ell=m=0$ 場合を扱えばよい;
+		\item
 			\begin{equation*}
 				\kern-1cm
 				\begin{array}[]{c}
@@ -801,57 +514,6 @@ the University of Tokyo
 					\scalebox{2.0}{$=$}\quad\mbox{求める積分を ${}_3F_2$ で表す}
 				\end{array}
 			\end{equation*}
-%%			\begin{equation*}
-%%				\begin{array}[]{c}
-%%					\mbox{オイラー積分表示}\\[0.2cm]
-%%					\mybigplus\\[0.2cm]
-%%					\mbox{二次変換:\footnote{is 二次変換 correct for "quadratic transformation"?}}\quad {}_2 F_1 \left( \begin{array}{c}
-%%						  1 - a, b\\
-%%						    2 b
-%%					    \end{array} ; u \right) = \left( 1 - \frac{z}{2} \right)^{a - 1} {}_2 F_1 \left(
-%%					    \begin{array}{c}
-%%						      \frac{1 - a}{2}, \frac{2 - a}{2}\\
-%%						        b + \frac{1}{2}
-%%						\end{array} ; \left( \frac{u}{2 - u} \right)^2 \right)\\[0.2cm]
-%%				\mybigplus\\
-%%				\end{array}
-%%			\end{equation*}
-			%%
-%%			によって、
-%%			{
-%%			\begin{equation*}
-%%			\vspace{-0.2cm}
-%%				{\mbox{右辺(補題)}}/{(-1)^m/(-2\nu)_{l+m}}/2^{\lambda+l-\frac{1}{2}}
-%%			\end{equation*}
-%%			\vspace{-0.2cm}
-%%			\begin{equation}
-%%				\kern-1.2cm
-%%				 =B \left( 2\nu-l-m+1, \lambda+l-\frac{1}{2} \right)
-%%				\kern-0.2cm\int_{-1}^1 (1 - t)^{2 \nu+\lambda-m+\frac{3}{2}} {}_2 F_1 \left( \kern-0.2cm\begin{array}{c}
-%%					\frac{1}{2}-l-\lambda, 2\nu-l-m+1\\
-%%					2 \nu+\lambda-m+\frac{3}{2}
-%%				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)(1-t^2)^{\mu+m-\frac{1}{2}}dt
-%%				\label{eqn:m1-2}
-%%			\end{equation}
-%%		}
-%%
-%%%%			via \cite[ET II 186(9)]{gradshteinryzhik}:
-%%%%		\begin{equation*}
-%%%%			\kern-1cm\int_0^u x^{\nu - 1} (x + \alpha)^{\lambda} (u - x)^{\mu - 1} d x =
-%%%%			\alpha^{\lambda} u^{\mu + \nu - 1} B (\mu, \nu)_2 F_1 \left( - \lambda, \nu ;
-%%%%			\mu + \nu ; - \frac{u}{\alpha} \right);
-%%%%		\end{equation*}
-%%			\vspace{-0.5cm}
-%%	\item  ${}_2 F_1 \left( \kern-0.2cm\begin{array}{c}
-%%					\frac{1}{2}-l-\lambda, 2\nu-l-m+1\\
-%%					2 \nu+\lambda-m+\frac{3}{2}
-%%				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)$ 
-%%				の展開とベータ積分$\int_0^1t^{x-1}(1-t)^{y-1}dt=\Gamma(x)\Gamma(y)/\Gamma(x+y)$によって、
-%%				$\mbox{右辺}\eqref{eqn:m1-2}$と
-%%			を用い、次に級数展開を用いて、求める積分を${}_3F_2$で表す;
-%%				${}_3F_2(;1)$超幾何関数比例であるということが分かる;
-		\item<4->
-{
 				\begin{fact*}[Whipple sum]
 			\begin{equation*}
 			\begin{array}[]{c}
@@ -865,27 +527,14 @@ the University of Tokyo
 			\end{array}
 		\end{equation*}
 				\end{fact*}
-			}
 		Whipple Sumによって、超幾何関数
 				${}_3F_2(;1)$をガンマ関数の積で表せる.
 	\end{enumerate}
-	\only<2->{
-	\begin{textblock*}{0.6\textwidth}(0.4\textwidth,-7.8cm)
-		
-		\begin{tcolorbox}[colback=green!10!white,colframe=green]
-			\vspace{-0.4cm}
 		\begin{equation*}
 			\kern-0.4cm
 			\displaystyle\iint_{[-1,1]^2}\myabs{s-t}^{2\nu}(1-s^2)^{\lambda-\frac{1}{2}}(1-t^2)^{\mu-\frac{1}{2}}=\mypgf
 			\vspace{-0.2cm}
 		\end{equation*}
-		\end{tcolorbox}
-	\end{textblock*}
-	}
-	\only<3->{
-	\begin{textblock*}{0.55\textwidth}(0.51\textwidth,-5.6cm)
-		
-		\begin{tcolorbox}[colback=green!10!white,colframe=green]
 			\vspace{-0.7cm}
 		\begin{equation*}
 			\kern-0.45cm
@@ -895,14 +544,6 @@ the University of Tokyo
 				\end{array}\kern-0.2cm ; \frac{1 - t}{2} \right)(1-t)^{2\nu+\lambda+\mu}
 			\vspace{-0.35cm}
 		\end{equation*}
-		\end{tcolorbox}
-	\end{textblock*}
-}
-	\only<4->{
-	\begin{textblock*}{0.58\textwidth}(0.45\textwidth,-3.6cm)
-		
-		\begin{tcolorbox}[colback=green!10!white,colframe=green]
-			\vspace{-0.7cm}
 		\begin{equation*}
 			\kern-0.4cm
 			{}_3F_2\left( \begin{array}[]{c}
@@ -911,10 +552,7 @@ the University of Tokyo
 			\end{array};1\right)=\mypgf
 			\vspace{-0.2cm}
 		\end{equation*}
-		\end{tcolorbox}
-	\end{textblock*}
-}
-\end{frame}
+\end{method}
 %%\begin{frame}{メソッド 1 (direct) (2/2)}
 %%	
 %%	$\cdots$
@@ -944,6 +582,7 @@ the University of Tokyo
 %%		with 5 free parameters {\bf cannot} be expressed by Gamma functions \cite{ebisu2016three}.
 %%	\end{remark}
 %%\end{frame}
+\end{document}
 \begin{frame}{メソッド 2 (1/2) cf. セルバーグ積分の証明}
 			\vspace{-0.2cm}
 	\begin{fact*}[Carlsonの定理]
@@ -1161,6 +800,293 @@ the University of Tokyo
 		\item \eqref{eqn:m4-2} が \cite[L2]{kobayashi2011schrodinger}積分公式から従う.
 	\end{enumerate}
 \end{frame}
+
+
+
+	\bibliographystyle{apalike}
+	\nocite{Selberg:411367}
+	\nocite{warnaar2010sl3}
+	\nocite{dotsenko1985four}
+	\nocite{tarasov2003selberg}
+%%	\nocite{kobayashi2015symmetry}
+%%	\nocite{kobayashi2015differential2}
+%%	\nocite{kobayashi2016differential1}
+%%	\nocite{kobayashi2014classification}
+%%	\nocite{kobayashi2013finite}
+%%	\nocite{kobayashi2015program}
+\bibliography{intdep}
+\end{document}
+%%\begin{frame}[fragile]
+%%\begin{tikzpicture}
+%%\input{Sfull.intdep.tex}
+%%\end{tikzpicture}
+%%ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
+%%\end{frame}
+%%\begin{frame}[fragile]%frame Selberg
+%%	
+%%	\begin{textblock*}{\textwidth}(1cm,0.8cm)
+%%	  	\begin{tikzpicture}
+%%			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,2.55);
+%%			\node at (2.8,3.4) {\color{red}{\textnormal{ $\begin{array}[]{c}\ell=m=0,\\ \lambda=\mu \end{array}$}}};
+%%		\end{tikzpicture}
+%%	\end{textblock*}
+%%	\begin{textblock*}{\textwidth}(3.99cm,1.7cm)
+%%	  	\begin{tikzpicture}
+%%			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.2,-0.4);
+%%			\node at (-0.45,0.1) {\color{blue}{\normalfont{$\begin{array}[]{c}
+%%				k=2,\\
+%%			\alpha=\beta
+%%		\end{array}$}}};
+%%		\end{tikzpicture}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.14cm)
+%%		 {
+%%			\begin{tcolorbox}[colback=green!10!white,colframe=green]
+%%				\vspace{-0.5cm}
+%%		\begin{equation*}
+%%			\kern-0.4cm
+%%			\begin{array}[]{c}
+%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			\kern-0.05cm(1 - t^2)^{\lambda - \frac{1}{2}}d s d t\\
+%%			=\mypgf
+%%			\end{array}
+%%		\end{equation*}
+%%			     \end{tcolorbox}
+%%		}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(0.5\textwidth,1.35cm)
+%%    			\setulcolor{Blue}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(0.635\textwidth,-2.8cm)
+%%			  \begin{tikzpicture}[scale=0.4]
+%%				\input{S.intdep.tex}
+%%				\end{tikzpicture}
+%%				%\caption{A gull}
+%%	\end{textblock*}
+%%	{
+%%	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
+%%    			\setulcolor{Red}
+%%			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
+%%		{
+%%		\begin{equation*}
+%%			\kern-0.4cm
+%%			\begin{array}[]{c}
+%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
+%%			=\mypgf
+%%			\end{array}
+%%		\end{equation*}
+%%		}
+%%	\end{block}
+%%	\end{textblock*}
+%%	}
+%%\end{frame}
+%%\begin{frame}[fragile]
+%%\begin{tikzpicture}
+%%\input{Wfull.intdep.tex}
+%%\end{tikzpicture}
+%%ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
+%%\end{frame}
+%%\begin{frame}[fragile]%frame Warnaar
+%%	
+%%	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.65cm)
+%%    			\setulcolor{Blue}
+%%	\end{textblock*}
+%%	\begin{textblock*}{\textwidth}(7.99cm,2.75cm)
+%%	  	\begin{tikzpicture}
+%%			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-2.0,-1.0);
+%%			\node at (0.5,-0.3) {\color{blue}{$
+%%				\begin{array}[]{c}
+%%					\ell=m=0,\\
+%%				\lambda+\mu+2\nu=-1
+%%				\end{array}
+%%		$}};
+%%		\end{tikzpicture}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.7\textwidth}(-0.4cm,3.7cm)
+%%		 {
+%%			\begin{tcolorbox}[colback=green!10!white,colframe=green]
+%%				\vspace{-0.7cm}
+%%		\begin{equation*}
+%%			\kern-0.4cm
+%%			\begin{array}[]{c}
+%%				\left(\displaystyle\iint\displaylimits_{\scalebox{0.7}{$\begin{array}[]{c}
+%%					[0,1]^2\\t<s
+%%				\end{array}$}}+\frac{\sin(\pi\alpha_1)}{\sin(\pi\alpha_2)}\displaystyle\iint\displaylimits_{\scalebox{0.7}{$\begin{array}[]{c}
+%%					[0,1]^2\\t>s
+%%				\end{array}$}} \right)(t(1-t))^{\mu - \frac{1}{2}}  (s(1-s))^{\lambda - \frac{1}{2}}  | t - s |^{2\nu} d s d t
+%%			\\=\mypgf
+%%			\end{array}
+%%		\end{equation*}
+%%				\vspace{-0.7cm}
+%%			     \end{tcolorbox}
+%%		}
+%%	\end{textblock*}
+%%	\begin{textblock*}{\textwidth}(0.7cm,3.1cm)
+%%	  	\begin{tikzpicture}
+%%			\draw[->,>=angle 90,color=red,style=very thick] (2.0,2.8) -- node{} (2.0,2.0);
+%%			\node at (4.0,2.3) {\color{red}{$k_1=k_2=1,\alpha_1=\beta_1,\alpha_2=\beta_2$}};
+%%		\end{tikzpicture}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(0.635\textwidth,-2.8cm)
+%%			  \begin{tikzpicture}[scale=0.4]
+%%				\input{W.intdep.tex}
+%%				\end{tikzpicture}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(0.52\textwidth,0.75cm)
+%%    			\setulcolor{Red}
+%%			\begin{block}{\ul{{\mbox{命題}} $1'$}}
+%%		{
+%%		\begin{equation*}
+%%			\kern-1.1cm
+%%			\begin{array}[]{c}
+%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\kern-1cm\\
+%%			=\mypgf
+%%			\end{array}
+%%		\end{equation*}
+%%		}
+%%	\end{block}
+%%	\end{textblock*}
+%%\end{frame}
+%%\begin{frame}[fragile]
+%%\begin{tikzpicture}
+%%\input{TVfull.intdep.tex}
+%%\end{tikzpicture}
+%%ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
+%%\end{frame}
+%%\begin{frame}[fragile]%frame TV
+%%	
+%%	\begin{textblock*}{\textwidth}(1cm,0.8cm)
+%%	  	\begin{tikzpicture}
+%%			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,1.95);
+%%			\node at (2.8,3.4) {\color{red}{\textnormal{ $\begin{array}[]{c}\ell=m=0,\\ \mu=\frac{1}{2} \end{array}$}}};
+%%		\end{tikzpicture}
+%%	\end{textblock*}
+%%	\begin{textblock*}{\textwidth}(3.89cm,1.7cm)
+%%	  	\begin{tikzpicture}
+%%			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.5,-1.0);
+%%			\node at (-0.45,0.0) {\color{blue}{\normalfont{$\begin{array}[]{c}
+%%				k=2,\\
+%%				\beta_2=1,\\
+%%				\alpha=\beta_1
+%%		\end{array}$}}};
+%%		\end{tikzpicture}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.7cm)
+%%		 {
+%%			\begin{tcolorbox}[colback=green!10!white,colframe=green]
+%%				\vspace{-0.5cm}
+%%			\begin{equation*}
+%%				\kern-0.6cm
+%%				\begin{array}[]{c}
+%%					
+%%				\displaystyle\iint\displaylimits_{\begin{array}[]{c}
+%%				(s, t) \in [0, 1]^2\\t<s
+%%			\end{array}} s^{\lambda - \frac{1}{2}} (1 - s)^{\lambda-\frac{1}{2}} \myabs{s-t}^{2\nu} d s d t\\
+%%			=\mypgf
+%%				\end{array}
+%%				\vspace{-0.3cm}
+%%			\end{equation*}
+%%
+%%			     \end{tcolorbox}
+%%		}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(0.515\textwidth,0.1cm)
+%%    			\setulcolor{Blue}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(0.635\textwidth,-2.8cm)
+%%			  \begin{tikzpicture}[scale=0.4]
+%%				\input{TV.intdep.tex}
+%%				\end{tikzpicture}
+%%				%\caption{A gull}
+%%	\end{textblock*}
+%%	{
+%%	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
+%%    			\setulcolor{Red}
+%%			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
+%%		{
+%%		\begin{equation*}
+%%			\kern-0.4cm
+%%			\begin{array}[]{c}
+%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
+%%			=\mypgf
+%%			\end{array}
+%%		\end{equation*}
+%%		}
+%%	\end{block}
+%%	\end{textblock*}
+%%	}
+%%\end{frame}
+%%\begin{frame}[fragile]
+%%\begin{tikzpicture}
+%%\input{DFfull.intdep.tex}
+%%\end{tikzpicture}
+%%ここで{\color{blue}{青い数字}}は連続パラメータの個数を表す.
+%%\end{frame}
+%%\begin{frame}[fragile]%frame DF
+%%	
+%%	\begin{textblock*}{\textwidth}(1cm,0.8cm)
+%%	  	\begin{tikzpicture}
+%%			\draw[->,>=angle 90,color=red,style=very thick] (2.0,4.8) -- node{} (2.0,1.75);
+%%			\node at (2.8,3.4) {\color{red}{\textnormal{ $\begin{array}[]{c}\ell=m=0,\\ \nu=-1\end{array}$}}};
+%%		\end{tikzpicture}
+%%	\end{textblock*}
+%%	\begin{textblock*}{\textwidth}(3.89cm,1.9cm)
+%%	  	\begin{tikzpicture}
+%%			\draw[->,>=angle 90,color=blue,style=very thick] (1.0,1.0) -- node{} (-0.5,-1.0);
+%%			\node at (-0.45,0.0) {\color{blue}{\normalfont{$\begin{array}[]{c}
+%%				m=n=1,\\
+%%				\alpha'=\beta',\\
+%%				\alpha=\beta
+%%		\end{array}$}}};
+%%		\end{tikzpicture}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(-0.4cm,3.9cm)
+%%		 {
+%%			\begin{tcolorbox}[colback=green!10!white,colframe=green]
+%%				\vspace{-0.5cm}
+%%			\begin{equation*}
+%%				\kern-0.6cm
+%%				\begin{array}{c}
+%%				\displaystyle\iint\displaylimits_{(t, \tau) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} \tau^{\alpha} (1
+%%				- \tau)^{\alpha} | t - \tau |^{- 2} dtd\tau\\
+%%			=\mypgf
+%%				\end{array}
+%%				\vspace{-0.3cm}
+%%			\end{equation*}
+%%
+%%			     \end{tcolorbox}
+%%		}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(0.515\textwidth,-0.2cm)
+%%    			\setulcolor{Blue}
+%%	\end{textblock*}
+%%	\begin{textblock*}{0.5\textwidth}(0.635\textwidth,-2.8cm)
+%%			  \begin{tikzpicture}[scale=0.4]
+%%				\input{DF.intdep.tex}
+%%				\end{tikzpicture}
+%%				%\caption{A gull}
+%%	\end{textblock*}
+%%	{
+%%	\begin{textblock*}{0.5\textwidth}(-0.2cm,-2.4cm)
+%%    			\setulcolor{Red}
+%%			\begin{block}{{\ul{{\mbox{命題}} $1'$}}}
+%%		{
+%%		\begin{equation*}
+%%			\kern-0.4cm
+%%			\begin{array}[]{c}
+%%				\displaystyle\iint\displaylimits_{\kern0.2cm [-1,1]^2}\kern-0.3cm | s - t |^{2 \nu}\kern-0.05cm (1 - s^2)^{\lambda - \frac{1}{2}}
+%%			\kern-0.05cm(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
+%%			=\mypgf
+%%			\end{array}
+%%		\end{equation*}
+%%		}
+%%	\end{block}
+%%	\end{textblock*}
+%%	}
+%%\end{frame}
 \section{表現論の対称性破れ作用素に対して応用}
 \newcommand{\mysbo}{A:\pi\kern-0.1cm\mid_{G'}\xrightarrow{G'}\tau}
 {
