@@ -84,6 +84,20 @@
 \theoremstyle{remark}
 \newtheorem*{example*}{\textbf{例}}
 
+\newcommand{\myrelationdiagram}[5]{
+		\centerline{
+		\xymatrix{
+			\frame{\mbox{#1}}\ar@{=>}[rd]^{\begin{array}[]{c}
+				#2
+			\end{array}}&&\frame{\mbox{#4}}\ar@{=>}[ld]_{\begin{array}[]{c}
+			#3
+	\end{array}}\\
+			&
+			\frame{\mbox{#5}}
+			&
+		}}
+	}
+
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 	\definecolor{Blue}{rgb}{0,0.0,1}
 	\definecolor{Red}{rgb}{1,0.0,0}
