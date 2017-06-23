@@ -70,7 +70,13 @@
 %thm environments
 \newtheorem{question}{質問}
 \newtheorem{answer}{私の答え}
+\newtheorem*{fact*}{Fact}
+\newtheorem{taggedpropx}{\textbf{命題}}
+\newtheorem{cor}{系}
+%%\newtheorem*{proof}{証明}
+\newtheorem*{lemma*}{補題}
 \newtheorem{prop}{命題}
+
 \theoremstyle{remark}
 \newtheorem*{setting*}{\textbf{設定}}
 \newtheorem*{goal*}{\textbf{目標}}
@@ -115,12 +121,6 @@
 \newcommand{\Res}{\operatorname{Res}\displaylimits}
 \newcommand{\OpR}{\mbox{\it R}}
 
-\newtheorem*{fact*}{Fact}
-\newtheorem{taggedpropx}{\textbf{命題}}
-\newtheorem{remark}{注}
-\newtheorem{cor}{系}
-%%\newtheorem*{proof}{証明}
-\newtheorem*{lemma*}{補題}
 \newenvironment{taggedprop}[1]
  {\renewcommand\thetaggedpropx{#1}\taggedpropx}
   {\endtaggedpropx}
