@@ -54,6 +54,8 @@
 
 \newtheorem{question}{質問}
 \newtheorem{answer}{私の答え}
+\theoremstyle{remark}
+\newtheorem*{remark*}{注}
 
 %%% SECTION TITLE APPEARANCE
 \usepackage{sectsty}
@@ -93,13 +95,14 @@
 %\huge
 \maketitle
 \section{聞かれたご質問}
-\begin{question}[\textbf{??}先生]
+\begin{question}[阪大学の有木先生]
 	命題$1,'1$と2でどうしてGegenbauer多項式が出て来ましたか？
 	これの表現論的な意味は何ですか？
 \end{question}
 \begin{answer}
 私は前に言っていましたように、コンパクト群$O(n)$のbranching rulesを具体的に書く時、
-Kobayashi-Spehの２０１５年の論文に書いているように、Gegenbauer 多項式が出て来ます{\footnotesize （スライドのページ３２を見せました）}。
+Kobayashi-Spehの２０１５年の論文に書いているように、Gegenbauer 多項式が出て来ます
+{\footnotesize （スライドのページ３２を見せました）}。
 
 元々の表現論プロジェクトで$(G,G')=(O(p+1,q+1),O(p,q+1))$でしたので、これの極大コンパクト群が
 $(K,K')=(O(p+1)\times O(q+1),O(p)\times O(q+1))$なので、$O(n)$のブランチングに関する多項式（つまり、Gegenbauer多項式）も
@@ -121,10 +124,13 @@ $(K,K')=(O(p+1)\times O(q+1),O(p)\times O(q+1))$なので、$O(n)$のブラン�
 
 更に、私の知識によって、こんな積分がガンマ関数で表せると言う一般論はないです。
 \end{answer}
-\begin{question}[\textbf{??$'$}先生]
+\begin{question}[X先生と大阪大学の有木先生]
 	対称性破れ作用素\footnote{この質問の意味を間違えた可能性が高いと思います。自分の返事もあまり良くなかったと
 	思います}を分類した時、この対称性破れ作用素はどうして積分核で現せるものしか出てこないですか？
 \end{question}
+\begin{remark*}
+	X先生と言うのは
+\end{remark*}
 \begin{answer}
 	まず、自分の表現論プロジェクトの場合で、$G$と$G'$の表現$\pi$と$\tau$は球腿化主系列表現で、
 	これは$G$と$G'$上$C^\infty$関数空間で表されている表現なので、田内さんの話見たい、
