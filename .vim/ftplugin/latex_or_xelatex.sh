@@ -4,10 +4,11 @@ tmp_dir=~/for/forlatex/foraux
 
 if [ -e Makefile ]
 then
-	#echo "Makefile"
+	echo "Makefile"
     echo $1
-	shift
-	make $*
+    make -C `dirname $1`
+	#shift
+	#make $*
     exit
 fi
 
