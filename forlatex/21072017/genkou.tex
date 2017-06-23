@@ -14,6 +14,7 @@
 % See the LaTeX Companion or other references for full information.
 
 %%% PAGE DIMENSIONS
+\usepackage{hyperref}
 \usepackage{geometry} % to change the page dimensions
 \geometry{a4paper} % or letterpaper (US) or a5paper or....
 \geometry{left=2.5cm}
@@ -405,6 +406,18 @@ the University of Tokyo
 			\vspace{-0.29cm}
 				}
 		\end{fact*}
+	\bibliographystyle{apalike}
+	\nocite{Selberg:411367}
+	\nocite{warnaar2010sl3}
+	\nocite{dotsenko1985four}
+	\nocite{tarasov2003selberg}
+%%	\nocite{kobayashi2015symmetry}
+%%	\nocite{kobayashi2015differential2}
+%%	\nocite{kobayashi2016differential1}
+%%	\nocite{kobayashi2014classification}
+%%	\nocite{kobayashi2013finite}
+%%	\nocite{kobayashi2015program}
+\bibliography{intdep}
 \end{document}
 \begin{frame}[fragile]
 \begin{tikzpicture}
@@ -1201,51 +1214,39 @@ the University of Tokyo
 \end{frame}
 \appendix
 \begin{frame}[allowframebreaks]{References}
-	\bibliographystyle{apalike}
-	\nocite{Selberg:411367}
-	\nocite{warnaar2010sl3}
-	\nocite{dotsenko1985four}
-	\nocite{tarasov2003selberg}
-%%	\nocite{kobayashi2015symmetry}
-%%	\nocite{kobayashi2015differential2}
-%%	\nocite{kobayashi2016differential1}
-%%	\nocite{kobayashi2014classification}
-%%	\nocite{kobayashi2013finite}
-%%	\nocite{kobayashi2015program}
-\bibliography{intdep}
 \end{frame}
-\addtocounter{framenumber}{-3}
-\begin{frame}[noframenumbering]{Gegenbauer多項式のロドリゲスの公式}
-			\begin{equation*}
-				(1-x^2)^{\alpha-\frac{1}{2}}C_n^\alpha(x)=a(\alpha,n)
-				\frac{d^n}{dx^n} (1-x^2)^{n+\alpha-\frac{1}{2}},
-			\end{equation*}
-			\begin{equation*}
-				a(\alpha,n)=\frac{(-1)^n}{2^nn!}\frac{\Gamma\left( \alpha+\frac{1}{2} \right)\Gamma\left( n+2\alpha \right)}{\Gamma(2\alpha)\Gamma\left(\alpha+n+\frac{1}{2}  \right)}
-			\end{equation*}
-\end{frame}
-\begin{frame}[noframenumbering]{ンパクト群 O(n) の分規則 ルール}
-	\begin{equation*}
-		\mathcal{H}^L(\mathbb{S}^n)=\bigoplus_{N=0}^L \mathcal{H}^N(\mathbb{S}^{n-1}),
-	\end{equation*}
-	\begin{equation*}
-		I_{N\to L}:\mathcal{H}^N(\mathbb{S}^{n-1})\to \mathcal{H}^L(\mathbb{S}^n),
-	\end{equation*}
-	\begin{equation*}
-		\left(I_{N\to L}\varphi  \right)(\eta_0,\eta)=\myabs{\eta}^N\varphi\left( \frac{\eta}{\myabs{\eta}} \right)\tilde{\tilde{C}}^{\frac{n-1}{2}+N}_{L-N}(\eta_0).
-	\end{equation*}
-\end{frame}
-\begin{frame}[noframenumbering]{命題\ref{prop:exp-stz-gg}$\implies$命題\ref{prop:exp-st-gg}}
-\begin{equation*}
-		{}_2F_1\left( \begin{array}[]{c}
-			a,b\\c
-		\end{array};1\right)=\frac{\Gamma(c-a-b)\Gamma(c)}{\Gamma(c-a)\Gamma(c-b)},\quad \Re(c-a-b)>0
-	\end{equation*}
-\end{frame}
-\begin{frame}[noframenumbering]{超幾何関数に関数る等式}
-	\[F\left(\begin{array}[]{c}
-		a,1-a\\b
-	\end{array}\tfrac{1}{2}\right)=\frac{2^{1-b}\sqrt{\pi}\Gamma\left(b\right)%
-}{\Gamma\left(\tfrac{1}{2}a+\tfrac{1}{2}b\right)\Gamma\left(\tfrac{1}{2}b-%
-\tfrac{1}{2}a+\tfrac{1}{2}\right)}.\]
-\end{frame}
+%%\addtocounter{framenumber}{-3}
+%%\begin{frame}[noframenumbering]{Gegenbauer多項式のロドリゲスの公式}
+%%			\begin{equation*}
+%%				(1-x^2)^{\alpha-\frac{1}{2}}C_n^\alpha(x)=a(\alpha,n)
+%%				\frac{d^n}{dx^n} (1-x^2)^{n+\alpha-\frac{1}{2}},
+%%			\end{equation*}
+%%			\begin{equation*}
+%%				a(\alpha,n)=\frac{(-1)^n}{2^nn!}\frac{\Gamma\left( \alpha+\frac{1}{2} \right)\Gamma\left( n+2\alpha \right)}{\Gamma(2\alpha)\Gamma\left(\alpha+n+\frac{1}{2}  \right)}
+%%			\end{equation*}
+%%\end{frame}
+%%\begin{frame}[noframenumbering]{ンパクト群 O(n) の分規則 ルール}
+%%	\begin{equation*}
+%%		\mathcal{H}^L(\mathbb{S}^n)=\bigoplus_{N=0}^L \mathcal{H}^N(\mathbb{S}^{n-1}),
+%%	\end{equation*}
+%%	\begin{equation*}
+%%		I_{N\to L}:\mathcal{H}^N(\mathbb{S}^{n-1})\to \mathcal{H}^L(\mathbb{S}^n),
+%%	\end{equation*}
+%%	\begin{equation*}
+%%		\left(I_{N\to L}\varphi  \right)(\eta_0,\eta)=\myabs{\eta}^N\varphi\left( \frac{\eta}{\myabs{\eta}} \right)\tilde{\tilde{C}}^{\frac{n-1}{2}+N}_{L-N}(\eta_0).
+%%	\end{equation*}
+%%\end{frame}
+%%\begin{frame}[noframenumbering]{命題\ref{prop:exp-stz-gg}$\implies$命題\ref{prop:exp-st-gg}}
+%%\begin{equation*}
+%%		{}_2F_1\left( \begin{array}[]{c}
+%%			a,b\\c
+%%		\end{array};1\right)=\frac{\Gamma(c-a-b)\Gamma(c)}{\Gamma(c-a)\Gamma(c-b)},\quad \Re(c-a-b)>0
+%%	\end{equation*}
+%%\end{frame}
+%%\begin{frame}[noframenumbering]{超幾何関数に関数る等式}
+%%	\[F\left(\begin{array}[]{c}
+%%		a,1-a\\b
+%%	\end{array}\tfrac{1}{2}\right)=\frac{2^{1-b}\sqrt{\pi}\Gamma\left(b\right)%
+%%}{\Gamma\left(\tfrac{1}{2}a+\tfrac{1}{2}b\right)\Gamma\left(\tfrac{1}{2}b-%
+%%\tfrac{1}{2}a+\tfrac{1}{2}\right)}.\]
+%%\end{frame}
