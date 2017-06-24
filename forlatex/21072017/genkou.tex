@@ -706,8 +706,7 @@ the University of Tokyo
 アトル・セルバークの元々のセルバーグ積分の証明はこのようなメソッドを使っていました。
 \end{remark*}
 \begin{method}[命題\ref{prop:exp-stz-gg}によって]
-	命題\ref{prop:exp-stz-gg}を示すため、\begin{enumerate}
-		\item 
+	命題\ref{prop:exp-stz-gg}を示すため、
 まず、$\ell=m=0$場合に帰着する:
 			\begin{equation*}
 				 2\iint\displaylimits_{[-1,1]^2} \left( s-tz \right)_+^{2c-1}  (1 - s^2)^{a - 1} (1 -
@@ -723,24 +722,28 @@ the University of Tokyo
 				\label{eqn:prop21}
 			\end{equation}
 			を示せばよい；
-	\end{enumerate}			この公式が以下のものから従う:
-			
+	この公式が以下のものから従う:
+	\begin{enumerate}
+		\item オイラー積分表示
+		\item 
+			\begin{equation*}
+			\mbox{二次変換:}\quad {}_2 F_1 \left( \begin{array}{c}
+				  1 - a, b\\
+				    2 b
+			    \end{array} ; u \right) = \left( 1 - \frac{z}{2} \right)^{a - 1} {}_2 F_1 \left(
+			    \begin{array}{c}
+				      \frac{1 - a}{2}, \frac{2 - a}{2}\\
+					b + \frac{1}{2}
+				\end{array} ; \left( \frac{u}{2 - u} \right)^2 \right)
+			\end{equation*}
+	\end{enumerate}
 			\begin{equation*}
 				\begin{array}[]{c}
 					\mbox{
 						
-							オイラー積分表示
 						
 				}\\
 					\mybigplus\\
-					\mbox{二次変換:}\quad {}_2 F_1 \left( \begin{array}{c}
-						  1 - a, b\\
-						    2 b
-					    \end{array} ; u \right) = \left( 1 - \frac{z}{2} \right)^{a - 1} {}_2 F_1 \left(
-					    \begin{array}{c}
-						      \frac{1 - a}{2}, \frac{2 - a}{2}\\
-						        b + \frac{1}{2}
-						\end{array} ; \left( \frac{u}{2 - u} \right)^2 \right)\\
 				\mybigplus\\
 				\end{array}
 			\end{equation*}
