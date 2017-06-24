@@ -10,11 +10,11 @@ COMMIT_MSG=ktasks $(WORKON)
 MATHEMATICADIR=~/for/formathematica/kint
 TEXMACSDIR=~/for/fortexmacs
 
+PDFS=intpaper answer #report report_hypergeom
 ZIPNAME=intpaper
+AUX=
 
 WORKON=https://trello.com/c/jUZS9cjM
-PDFS=intpaper answer #report report_hypergeom
-AUX=
 
 all: $(OUTDIR)/$(ZIPNAME).zip
 
