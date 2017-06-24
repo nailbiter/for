@@ -34,6 +34,9 @@ $(OUTDIR)/%.intdep.tex : %.intdep.tex
 $(OUTDIR)/slides.pdf : slides.tex diagram.tex $(addprefix $(OUTDIR)/,$(addsuffix .intdep.tex,$(DIAGRAMS)))
 	$(XELATEX) $<
 
+$(OUTDIR)/RIMS17-Alex-int.pdf : RIMS17-Alex-int.tex diagram.tex big.intdep.tex
+	$(XELATEX) $<
+
 $(OUTDIR)/trials.pdf : trials.pdf
 	cp -f $< $@
 
