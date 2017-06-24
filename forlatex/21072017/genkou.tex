@@ -620,7 +620,7 @@ the University of Tokyo
 		\quad\\
 		
 	\begin{enumerate}
-		\item $\ell=m=0$ 場合を扱えばよい.つまり、以下の公式を示せばよい：
+		\item $\ell=m=0$ 場合を扱えばよい.つまり、以下の等式を示せばよい：
 		\begin{equation*}
 			\displaystyle\iint_{[-1,1]^2}
 			\myabs{s-t}^{2\nu}(1-s^2)^{\lambda-\frac{1}{2}}(1-t^2)^{\mu-\frac{1}{2}}=\mypgf;
@@ -640,19 +640,18 @@ the University of Tokyo
 				\end{array} ; \frac{1 - t}{2} \right)(1-t)^{2\nu+\lambda+\mu}={\mypgf};
 			\end{equation*}
 		\item
-			\begin{equation*}
-				\begin{array}[]{c}
-					\mybigplus\\[0.2cm]
-					\mbox{超幾何関数${}_2F_1$の係数展開}\\[0.2cm]
-					\scalebox{2.0}{$=$}\quad\mbox{求める積分を ${}_3F_2$ で表す}
-				\end{array}
-			\end{equation*}
+			{超幾何関数${}_2F_1$の係数展開}を用いると、\mbox{求める積分を ${}_3F_2$ で表す}.
+			よって、以下の等式を示せばよい：
 		\begin{equation*}
 			{}_3F_2\left( \begin{array}[]{c}
 				\frac{1}{2}-\lambda, \lambda+\frac{1}{2},2\nu+\lambda+\mu+1\\
 				2 \nu+\lambda+\frac{3}{2},2\nu+\lambda+2\mu+\frac{1}{2}
-			\end{array};1\right)=\mypgf
+			\end{array};1\right)=\mypgf;
 		\end{equation*}
+			\item 
+		Whipple Sumによって、超幾何関数
+				${}_3F_2(;1)$をガンマ関数の積で表せる.
+	\end{enumerate}
 				\begin{fact*}[Whipple sum]
 			\begin{equation*}
 			\begin{array}[]{c}
@@ -666,10 +665,6 @@ the University of Tokyo
 			\end{array}
 		\end{equation*}
 				\end{fact*}
-			\item 
-		Whipple Sumによって、超幾何関数
-				${}_3F_2(;1)$をガンマ関数の積で表せる.
-	\end{enumerate}
 \end{method}
 \begin{method}[cf. セルバーグ積分の証明]
 			
