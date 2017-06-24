@@ -652,6 +652,7 @@ the University of Tokyo
 		Whipple Sum（下に記載されているFact）によって、超幾何関数
 				${}_3F_2(;1)$をガンマ関数の積で表せる.
 	\end{enumerate}
+\end{method}
 				\begin{fact*}[Whipple sum]
 			\begin{equation*}
 			\begin{array}[]{c}
@@ -665,10 +666,33 @@ the University of Tokyo
 			\end{array}
 		\end{equation*}
 				\end{fact*}
-\end{method}
+				次のアプローチを示す前、Carlsonの定理を復習する：
+
+\begin{fact*}[Carlsonの定理]
+	$f$が$\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$右半平面上で連続で、
+	内部$\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$上で
+	正則であるとする.
+	更に、
+	\begin{enumerate}
+		\item ある$C,\tau>0$に対して、右半平面上に$\myabs{f(z)}\le C e^{\tau\myabs{z}}$が成り立つ;
+		\item ある$ C>0,\exists c<\pi$と全ての$y\in\R$に対して、$\myabs{f(iy)}\le Ce^{c\myabs{y}}$が成り立つ；
+		\item $f$が正の整数上で、ゼロ ($f\mid_{\N_+}=0$)にならば、
+	\end{enumerate}
+	$f\equiv0$である.
+\end{fact*}
+		
+\begin{remark*}
+	\begin{equation*}
+		f(z)=\sin(\pi z)
+	\end{equation*}
+	という関数が条件2.を除いで、Carlsonの定理の全ての条件を満たす.特に、
+	$f\big|_{\Z}=0$が成り立つ.しかし、 $f(z)$が恒等的に0ならない。
+
+	よって、Carlsonの定理の条件2.が必要である.
+\end{remark*}
 \begin{method}[cf. セルバーグ積分の証明]
 %%	下に記載したCarlsonの定理
-	下に記載したCarlsonの定理を認めれば、
+	上に記載したCarlsonの定理を認めれば、
 命題$1'$の積分等式の$\nu$は整数であるの特別な場合を示せば良いということが分かります。
 この場合で、$s+t$のベキ乗が多項式になって、左辺の積分がBeta積分の有限和になって、簡単に計算できます。
 %%
@@ -680,28 +704,6 @@ the University of Tokyo
 \begin{remark*}
 アトル・セルバークの元々のセルバーグ積分の証明はこのようなメソッドを使っていました。
 \end{remark*}
-	\begin{fact*}[Carlsonの定理]
-		$f$が$\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$右半平面上で連続で、
-		内部$\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$上で
-		正則であるとする.
-		更に、
-		\begin{enumerate}
-			\item ある$C,\tau>0$に対して、右半平面上に$\myabs{f(z)}\le C e^{\tau\myabs{z}}$が成り立つ;
-			\item ある$ C>0,\exists c<\pi$と全ての$y\in\R$に対して、$\myabs{f(iy)}\le Ce^{c\myabs{y}}$が成り立つ；
-			\item $f$が正の整数上で、ゼロ ($f\mid_{\N_+}=0$)にならば、
-		\end{enumerate}
-		$f\equiv0$である.
-	\end{fact*}
-			
-	\begin{remark*}
-		\begin{equation*}
-			f(z)=\sin(\pi z)
-		\end{equation*}
-		という関数が条件2.を除いで、Carlsonの定理の全ての条件を満たす.特に、
-		$f\big|_{\Z}=0$が成り立つ.しかし、 $f(z)$が恒等的に0ならない。
-
-		よって、Carlsonの定理の条件2.が必要である.
-	\end{remark*}
 \begin{method}{メソッド 3 (命題\ref{prop:exp-stz-gg}によって)}
 	
 	命題\ref{prop:exp-stz-gg}を示すため、まず、$\ell=m=0$場合に帰着する
