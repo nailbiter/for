@@ -59,7 +59,7 @@
 \usepackage{xeCJK}
 \usepackage{ruby}
 %\renewcommand\rubysep{-5ex}
-\newcommand{\kana}[2]{\ruby{#1}{#2}}
+\newcommand{\kana}[2]{#1}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsmath,amsthm}
@@ -815,7 +815,6 @@ $G'$は$G$の部分群なので、$\pi$を$G'$の表現としてみなせる.
 	\end{goal*}
 	\begin{itemize}
 		\item $\pi$と$\tau$は異なる表現であるが、例えば$(K,K')$-重複度が１の場合に一般化した意味での固有値を定義することができる；
-		%\item Although $\pi$ and $\tau$ are realized on different spaces, we can define ``generalized eigenvalues'';
 		\item $\mysbo$ はある意味で``対角化''できる(Schurの補題の考え方);
 \begin{figure}[h]
 	\centering
@@ -831,6 +830,16 @@ $G'$は$G$の部分群なので、$\pi$を$G'$の表現としてみなせる.
 		\item $\implies$ 命題\ref{prop:int-st-gg}はガンマ関数の積公式として与えられるので
 			ゼロかどうかが完全に決定できる.
 	\end{itemize}
+%%それぞれの表現を極大コンパクト群に制限したときに
+%%multiplicity-freeであり、
+%%$K$から$K'$への制限も multiplicity-freeという仮定のもとでは、
+%%シューアの補題を用いることで、
+%%対称性破れ作用素の\kana{対角化}{タイカクカ}を行うことができます。
+%%この図は、上の段では、それぞれの$K$-typeがK'の表現として
+%%multiplicity-freeに分解されている様子を表し、
+%%対称性破れ作用素によって、同じ色の間に写像が誘導される
+%%という様子を\kana{図示}{ずし}しています。
+%%ここで、別様色が別様な$K'$-タイプを表します。
 
 	\bibliographystyle{apalike}
 	\nocite{Selberg:411367}
