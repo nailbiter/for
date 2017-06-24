@@ -626,20 +626,21 @@ the University of Tokyo
 			\myabs{s-t}^{2\nu}(1-s^2)^{\lambda-\frac{1}{2}}(1-t^2)^{\mu-\frac{1}{2}}=\mypgf.
 		\end{equation*}
 		\item
+
+			超幾何関数のオイラー積分表示
 			\begin{equation*}
-				\begin{array}[]{c}
-					\mbox{
-%%						\begin{tcolorbox}[colback=green!10!white,colframe=green]
-							超幾何関数のオイラー積分表示
-%%						\end{tcolorbox}
-					}\\
 					{}_2F_1\left(\begin{array}[]{c}
 						a,b\\c
-					\end{array};z  \right)=\frac{\Gamma(c)}{\Gamma(b)\Gamma(c-b)}\textstyle\int_0^1x^{b-1}(1-x)^{c-b-1}(1-zx)^{-a}dx,\quad\Re(c)>\Re(b)>0\\[0.2cm]
-			\textstyle\int_{-1}^1 (1 + t)^{\mu-\frac{1}{2}} {}_2 F_1 \left( \begin{array}{c}
+					\end{array};z  \right)=\frac{\Gamma(c)}{\Gamma(b)\Gamma(c-b)}\textstyle\int_0^1x^{b-1}(1-x)^{c-b-1}(1-zx)^{-a}dx,\quad\Re(c)>\Re(b)>0
+			\end{equation*}
+			を用い、次の公式に帰着する：\begin{equation*}
+			\displaystyle\int_{-1}^1 (1 + t)^{\mu-\frac{1}{2}} {}_2 F_1 \left( \begin{array}{c}
 				\frac{1}{2}-\lambda, \lambda+\frac{1}{2}\\
 					2 \nu+\lambda+\frac{3}{2}
-				\end{array} ; \frac{1 - t}{2} \right)(1-t)^{2\nu+\lambda+\mu}={\mypgf}\\
+				\end{array} ; \frac{1 - t}{2} \right)(1-t)^{2\nu+\lambda+\mu}={\mypgf}
+			\end{equation*}
+			\begin{equation*}
+				\begin{array}[]{c}
 					\mybigplus\\[0.2cm]
 					\mbox{超幾何関数${}_2F_1$の係数展開}\\[0.2cm]
 					\scalebox{2.0}{$=$}\quad\mbox{求める積分を ${}_3F_2$ で表す}
