@@ -243,6 +243,13 @@
 
     <subsection|Characters of irreps of <math|SO<around*|(|N|)>>|>
 
+    <\definition>
+      Let <math|G=SO<around*|(|N|)>> and <math|\<tau\>> be irrep of <math|G>.
+      We then let <math|D<rsub|\<tau\>><around*|(|g|)>\<assign\>tr<around*|(|\<tau\><around*|(|g|)>|)>>
+      and <math|D<rsub|\<tau\>>> is then continuous function on <math|G>,
+      which is invariant under <math|Ad<around*|(|G|)>>.
+    </definition>
+
     <\footnote>
       TODO: explain how characters are characterized (as functions of
       <with|font-shape|italic|what>)
@@ -270,7 +277,9 @@
           r<rsub|1>=p-1,r<rsub|2>=p-2,\<ldots\>,r<rsub|p>=0.
         </equation*>
 
-        Then the character of the corresponding irrep equals to:
+        Then the character of the irrep corresponding to
+        <math|<around*|(|a<rsub|i>|)><rsub|i=1><rsup|p>\<in\>HV<around*|(|2p|)>>
+        equals to:
 
         <\equation*>
           S<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|a<rsub|1>,\<ldots\>,a<rsub|p>>>>>>|)>/S<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|r<rsub|1>,\<ldots\>,r<rsub|p>>>>>>|)>
@@ -282,7 +291,9 @@
           r<rsub|1>=p-<frac|1|2>,r<rsub|2>=p-<frac|3|2>,\<ldots\>,r<rsub|p>=<frac|1|2>.
         </equation*>
 
-        Then the character of the corresponding irrep equals to:
+        Then the character of the irrep corresponding to
+        <math|<around*|(|a<rsub|i>|)><rsub|i=1><rsup|p>\<in\>HV<around*|(|2p+1|)>>
+        equals to:
 
         <\equation*>
           <around*|{|C<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|a<rsub|1>,\<ldots\>,a<rsub|p>>>>>>|)>+S<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|a<rsub|1>,\<ldots\>,a<rsub|p>>>>>>|)>|}>/C<around*|(|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|1>,\<ldots\>,\<tau\><rsub|p>>>|<row|<cell|r<rsub|1>,\<ldots\>,r<rsub|p>>>>>>|)>
