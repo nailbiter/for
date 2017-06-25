@@ -35,7 +35,7 @@ $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 $(OUTDIR)/%.pdf : %.tex
 	$(LATEXMK) $<
 $(OUTDIR)/%.pdf : %-jap.tex
-	$(XELATEX) -jobname=$(basename $@) $<
+	$(XELATEX) -jobname=$(basename $(notdir $@)) $<
 
 #commands
 commit:
@@ -43,6 +43,6 @@ commit:
 push:
 	git push
 clean:
-	rm -f *.proto.tex script.tex *.pdf *.zip script_hypergeom.tex
+	rm -f *.proto.tex script.tex *.pdf *.zip script_hypergeom.tex $(OUTDIR)/$(ZIPNAME).zip
 	touch *.tex
 

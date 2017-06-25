@@ -43,5 +43,5 @@ commit:
 push:
 	git push
 clean:
-	rm -f *.proto.tex script.tex *.pdf *.zip script_hypergeom.tex
+	rm -f *.proto.tex script.tex *.pdf *.zip script_hypergeom.tex $(OUTDIR)/$(ZIPNAME).zip
 	touch *.tex
