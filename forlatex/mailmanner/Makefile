@@ -32,8 +32,10 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	dvips -E -o $@ $(basename $<).dvi
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
+$(OUTDIR)/%.pdf : %.tex
+	$(LATEXMK) $<
 $(OUTDIR)/%.pdf : %-jap.tex
-	$(XELATEX) $<
+	$(XELATEX) -jobname=$(basename $@) $<
 
 #commands
 commit:

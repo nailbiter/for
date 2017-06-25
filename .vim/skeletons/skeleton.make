@@ -34,6 +34,8 @@ $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/%.pdf : %.tex
 	$(LATEXMK) $<
+$(OUTDIR)/%.pdf : %-jap.tex
+	$(XELATEX) $<
 
 #commands
 commit:
