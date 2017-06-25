@@ -16,8 +16,13 @@
   <\theorem>
     For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with <math|Re
     \<lambda\>,Re \<mu\>,Re \<nu\>\<gtr\>-1/2><\footnote>
-      I think we need to make the assumption <math|Re \<nu\>\<gtr\>0>. Note
-      that the conditions for convergence of Selberg integral
+      I think the statement of the Theorem 1.1 has to be changed. One
+      possible way is to require <math|Re \<nu\>\<gtr\>0> instead of
+      <math|Re\<nu\>\<gtr\>-1/2>. Other modification are possible, but I
+      think this is the most \Pclean\Q one (it will make the statement simple
+      to understand), thought not the \Pstrongest\Q.
+
+      Note that the conditions for convergence of Selberg integral
       <math|<big|int><rsub|t\<in\><around*|[|0,1|]><rsup|n>>\<Pi\><rsup|\<alpha\>-1,\<beta\>-1><around*|(|t|)>\<Delta\><rsup|2\<gamma\>><around*|(|t|)>d
       t> are <math|Re \<alpha\>,Re \<beta\>\<gtr\>0> and <math|Re
       \<gamma\>\<gtr\>-min<around*|{|<frac|1|n>,<frac|Re
@@ -41,13 +46,7 @@
     <label|main-thm>Suppose <math|l,m\<in\>\<bbb-N\>> such that <math|l+m> is
     even. For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with <math|Re
     \<lambda\>,Re \<mu\>,Re \<nu\>\<gtr\>-1/2><\footnote>
-      I think we need to make the assumption <math|Re \<nu\>\<gtr\>0>. Note
-      that the conditions for convergence of Selberg integral
-      <math|<big|int><rsub|t\<in\><around*|[|0,1|]><rsup|n>>\<Pi\><rsup|\<alpha\>-1,\<beta\>-1><around*|(|t|)>\<Delta\><rsup|2\<gamma\>><around*|(|t|)>d
-      t> are <math|Re \<alpha\>,Re \<beta\>\<gtr\>0> and <math|Re
-      \<gamma\>\<gtr\>-min<around*|{|<frac|1|n>,<frac|Re
-      \<alpha\>|n-1>,<frac|Re \<beta\>|n-1>|}>>, as noted in
-      <cite|forrester2008importance>.
+      (same as footnote 1.1)
     </footnote>, and for <math|0\<leqslant\>z\<leqslant\>1><\footnote>
       Check the proof when <math|z=1>
     </footnote>, \ the following integral converges:
