@@ -1277,26 +1277,47 @@
     need to make the assumption <math|Re \<nu\>\<gtr\>0>.
   </question>
 
-  More precisely, I will show that both sides of the equality
+  More precisely, I will show that for every
+
+  <\equation*>
+    <around*|(|\<lambda\>,\<mu\>|)>\<in\>\<bbb-C\><rsup|2>\<mid\>0\<gtr\>Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,
+  </equation*>
+
+  we can choose
+
+  <\equation*>
+    \<nu\>\<in\>\<bbb-C\>\<mid\>0\<gtr\>Re<around*|(|\<nu\>|)>\<gtr\>-<frac|1|2>,
+  </equation*>
+
+  so that both sides of equality
 
   <\eqnarray>
     <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
     s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>><eq-number><label|eq:14>>|<cell|>>>>
   </eqnarray>
 
-  blow up at some points of <math|<around*|{|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>\<mid\>Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>,Re<around*|(|\<nu\>|)>\<gtr\>-<frac|1|2>|}>>,
-  hence the expansion of Theorem 1.1 does not make sense at some points of
-  this domain.
+  blow up.
 
-  Indeed, if we take <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<rightarrow\><around*|(|-<frac|1|3>,-<frac|1|3>,-<frac|1|6>|)>>
-  we have
+  Indeed, suppose <math|<around*|(|\<lambda\>,\<mu\>|)>> as above are given
+  and we are to choose <math|\<nu\>>. As we have
 
-  <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>,\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<rightarrow\>\<Gamma\><around*|(|<frac|1|6>|)>,>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<rightarrow\>\<Gamma\><around*|(|<frac|1|3>|)>,>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>+\<nu\>+1|)>,\<Gamma\><around*|(|\<mu\>+\<nu\>+1|)>\<rightarrow\>\<Gamma\><around*|(|<frac|1|2>|)>,>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>\<rightarrow\>\<Gamma\><around*|(|<frac|1|6>|)>,>|<cell|>>>>
-  </eqnarray>
+  <\equation*>
+    Re<around*|(|\<lambda\>+<frac|1|2>|)>,Re<around*|(|\<mu\>+<frac|1|2>|)>,Re<around*|(|\<nu\>+<frac|1|2>|)>,Re<around*|(|\<lambda\>+\<nu\>+1|)>,Re<around*|(|\<mu\>+\<nu\>+1|)>\<gtr\>0,
+  </equation*>
 
-  while <math|\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<rightarrow\>\<Gamma\><around*|(|0|)>=\<infty\>>,
-  hence the conclusion.
+  the Gamma-functions of these arguments cannot blow up, hence
+  <math|RHS<eqref|eq:14>> blows up if and only if
+  <math|\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>/\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>>
+  does.
+
+  Now, we have <math|-1\<less\>Re<around*|(|\<lambda\>+\<mu\>|)>\<less\>0>,
+  so that if we take <math|\<nu\>=<around*|(|-1-\<lambda\>-\<mu\>|)>/2>, we
+  have <math|-1/2\<less\>Re<around*|(|\<nu\>|)>\<less\>0> and
+  <math|\<lambda\>+\<mu\>+2\<nu\>+1=0>, so that
+  <math|\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>> blows up. On the
+  other hand, we have <math|Re<around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>=Re<around*|(|<frac|\<lambda\>+\<mu\>+1|2>|)>\<gtr\>0>,
+  hence <math|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>> does not
+  blow up, so the RHS of <math|<eqref|eq:14>> does. Hence the conclusion.
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|GRJ00>
