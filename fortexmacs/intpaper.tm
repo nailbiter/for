@@ -113,8 +113,8 @@
     </eqnarray>
 
     where <math|\<delta\><rsub|0><rsup|l>\<assign\>1> if <math|l=0> and
-    <math|=0> otherwise and <math|\<delta\><rsub|0><rsup|m>> is defined
-    similarly.
+    <math|\<assign\>0> otherwise and <math|\<delta\><rsub|0><rsup|m>> is
+    defined similarly.
   </corollary>
 
   Selberg-type integrals are related to (finite-dimensional) representation

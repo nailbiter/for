@@ -1273,8 +1273,30 @@
   </equation*>
 
   <\question>
-    \;
+    Explain why I think that in Theorem 1.1 of <verbatim|intpaper.pdf> we
+    need to make the assumption <math|Re \<nu\>\<gtr\>0>.
   </question>
+
+  More precisely, I will show that both sides of the equality
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
+    s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>><eq-number><label|eq:14>>|<cell|>>>>
+  </eqnarray>
+
+  blow up at some points of <math|<around*|{|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|2>\<mid\>Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>,Re<around*|(|\<nu\>|)>\<gtr\>-<frac|1|2>|}>>,
+  hence the expansion of Theorem 1.1 does not make sense at some points of
+  this domain.
+
+  Indeed, if we take <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<rightarrow\><around*|(|-<frac|1|3>,-<frac|1|3>,-<frac|1|6>|)>>
+  we have
+
+  <\eqnarray>
+    <tformat|<table|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>,\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<rightarrow\>\<Gamma\><around*|(|<frac|1|6>|)>,>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<rightarrow\>\<Gamma\><around*|(|<frac|1|3>|)>,>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>+\<nu\>+1|)>,\<Gamma\><around*|(|\<mu\>+\<nu\>+1|)>\<rightarrow\>\<Gamma\><around*|(|<frac|1|2>|)>,>|<cell|>>|<row|<cell|>|<cell|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>\<rightarrow\>\<Gamma\><around*|(|<frac|1|6>|)>,>|<cell|>>>>
+  </eqnarray>
+
+  while <math|\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<rightarrow\>\<Gamma\><around*|(|0|)>=\<infty\>>,
+  hence the conclusion.
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|GRJ00>
@@ -1352,7 +1374,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|24>>
     <associate|auto-2|<tuple|2|25>>
-    <associate|auto-3|<tuple|28|29>>
+    <associate|auto-3|<tuple|14|29>>
     <associate|bib-KO2|<tuple|KØ03|29>>
     <associate|bib-dotsenko1985four|<tuple|DF85|29>>
     <associate|bib-gradshteinryzhik|<tuple|GRJ00|29>>
@@ -1366,14 +1388,17 @@
     <associate|bib-tarasov2003selberg|<tuple|TV03|29>>
     <associate|bib-warnaar2010sl3|<tuple|War10|29>>
     <associate|cor|<tuple|1|14>>
+    <associate|cor:1|<tuple|28|?>>
     <associate|cor:2|<tuple|2|17>>
     <associate|cor:3|<tuple|3|21>>
     <associate|eq-1|<tuple|4|7>>
     <associate|eq-2|<tuple|1|5>>
+    <associate|eq:14|<tuple|14|?>>
     <associate|eq:q8-1|<tuple|3|6>>
     <associate|eq:unknown|<tuple|9|23>>
     <associate|eqn:20-beminus|<tuple|11|25>>
     <associate|eqn:20-beplus|<tuple|10|25>>
+    <associate|eqn:cor:1|<tuple|14|?>>
     <associate|eqn:herm1|<tuple|6|15>>
     <associate|eqn:main|<tuple|7|19>>
     <associate|eqn:q26-1|<tuple|12|27>>
