@@ -104,9 +104,7 @@
 
   <\corollary>
     <label|cor:170599>For <math|\<rho\>\<in\>\<bbb-C\>> with <math|Re
-    \<rho\>\<gtr\>0> and <math|r\<in\><around*|{|0,1|}>><\footnote>
-      Note that using the relation of Gegenbauer polynomials
-    </footnote>,
+    \<rho\>\<gtr\>0> and <math|r\<in\><around*|{|0,1|}>>,
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<around*|\||cos\<varphi\>+cos\<psi\>|\|><rsup|\<rho\>>sgn<rsup|r><around*|(|cos\<varphi\>+cos\<psi\>|)>>|<cell|>>|<row|<cell|>|<cell|=<big|sum><rsub|<stack|<tformat|<table|<row|<cell|l,m=0>>|<row|<cell|l\<equiv\>m+r
