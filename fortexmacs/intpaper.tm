@@ -14,21 +14,10 @@
   <section|Main results>
 
   <\theorem>
-    For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with <math|Re
-    \<lambda\>,Re \<mu\>,Re \<nu\>\<gtr\>-1/2><\footnote>
-      I think the statement of the Theorem 1.1 has to be changed. One
-      possible way is to require <math|Re \<nu\>\<gtr\>0> instead of
-      <math|Re\<nu\>\<gtr\>-1/2>. Other modification are possible, but I
-      think this is the most \Pclean\Q one (it will make the statement simple
-      to understand), thought not the \Pstrongest\Q.
-
-      Note that the conditions for convergence of Selberg integral
-      <math|<big|int><rsub|t\<in\><around*|[|0,1|]><rsup|n>>\<Pi\><rsup|\<alpha\>-1,\<beta\>-1><around*|(|t|)>\<Delta\><rsup|2\<gamma\>><around*|(|t|)>d
-      t> are <math|Re \<alpha\>,Re \<beta\>\<gtr\>0> and <math|Re
-      \<gamma\>\<gtr\>-min<around*|{|<frac|1|n>,<frac|Re
-      \<alpha\>|n-1>,<frac|Re \<beta\>|n-1>|}>>, as noted in
-      <cite|forrester2008importance>.
-    </footnote>, \ the following expansion holds:
+    For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with
+    <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>
+    and <math|Re<around*|(|\<nu\>|)>\<gtr\>0>, \ the following expansion
+    holds:
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=<big|sum><rsub|\<ell\>,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|\<ell\>,m>C<rsub|\<ell\>><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|\<ell\>,m>=<frac|2<rsup|-2\<nu\>><around*|(|\<lambda\>+\<ell\>|)><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|\<ell\>+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|\<ell\>+m|2>|)>>>|<cell|>>>>
@@ -44,10 +33,10 @@
 
   <\theorem>
     <label|main-thm>Suppose <math|l,m\<in\>\<bbb-N\>> such that <math|l+m> is
-    even. For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with <math|Re
-    \<lambda\>,Re \<mu\>,Re \<nu\>\<gtr\>-1/2><\footnote>
-      (same as footnote 1.1)
-    </footnote>, and for <math|0\<leqslant\>z\<leqslant\>1><\footnote>
+    even. For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with
+    <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>,
+    <math|Re<around*|(|\<nu\>|)>\<gtr\>0>, and for
+    <math|0\<leqslant\>z\<leqslant\>1><\footnote>
       Check the proof when <math|z=1>
     </footnote>, \ the following integral converges:
 
