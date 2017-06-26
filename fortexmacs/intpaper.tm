@@ -36,9 +36,7 @@
     even. For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with
     <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>,
     <math|Re<around*|(|\<nu\>|)>\<gtr\>0>, and for
-    <math|0\<leqslant\>z\<leqslant\>1><\footnote>
-      Check the proof when <math|z=1>
-    </footnote>, \ the following integral converges:
+    <math|0\<leqslant\>z\<leqslant\>1>, \ the following integral converges:
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
