@@ -190,7 +190,8 @@
   <\show-part|4>
     <section|playground|>
 
-    <subsection|Irreps of <math|SO<around*|(|n|)>,O<around*|(|n|)>>|>
+    <subsection|Irreps of <math|SO<around*|(|n|)>> and
+    <math|O<around*|(|n|)>>|>
 
     Note that (see <cite|knapp2013lie>)
 
@@ -236,9 +237,7 @@
       <cite-detail|goodman2000representations|Sec 10.2.4, 10.2.5> (\Pexplicit
       construction of irreps of <math|O<around*|(|N|)>>\Q)
 
-      <\footnote>
-        TODO
-      </footnote>
+      TODO
     </fact>
 
     <subsection|Characters of irreps of <math|SO<around*|(|N|)>>|>
@@ -248,6 +247,20 @@
       We then let <math|D<rsub|\<tau\>><around*|(|g|)>\<assign\>tr<around*|(|\<tau\><around*|(|g|)>|)>>
       and <math|D<rsub|\<tau\>>> is then continuous function on <math|G>,
       which is invariant under <math|Ad<around*|(|G|)>>.
+
+      <math|S T<rsub|N>> defined as below is the Cartan subgroup of <math|G>.
+      In particular, <math|G=Ad<around*|(|G|)>S T<rsub|N>>.
+
+      Hence, <math|D<rsub|\<tau\>><around*|(|g|)>> is determind by its values
+      on
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|S
+        T<rsub|N>\<assign\><choice|<tformat|<table|<row|<cell|<around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|1>>|<cell|sin\<theta\><rsub|1>>>|<row|<cell|-sin\<theta\><rsub|1>>|<cell|cos\<theta\><rsub|1>>>>>>|]>\<oplus\><around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|1>>|<cell|sin\<theta\><rsub|1>>>|<row|<cell|-sin\<theta\><rsub|1>>|<cell|cos\<theta\><rsub|1>>>>>>|]>\<oplus\>\<ldots\>\<oplus\><around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|k>>|<cell|sin\<theta\><rsub|k>>>|<row|<cell|-sin\<theta\><rsub|k>>|<cell|cos\<theta\><rsub|k>>>>>>|]>,>|<cell|N=2k>>|<row|<cell|<around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|1>>|<cell|sin\<theta\><rsub|1>>>|<row|<cell|-sin\<theta\><rsub|1>>|<cell|cos\<theta\><rsub|1>>>>>>|]>\<oplus\><around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|1>>|<cell|sin\<theta\><rsub|1>>>|<row|<cell|-sin\<theta\><rsub|1>>|<cell|cos\<theta\><rsub|1>>>>>>|]>\<oplus\>\<ldots\>\<oplus\><around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|k>>|<cell|sin\<theta\><rsub|k>>>|<row|<cell|-sin\<theta\><rsub|k>>|<cell|cos\<theta\><rsub|k>>>>>>|]>\<oplus\>1,>|<cell|N=2k+1>>>>>>|<cell|>>>>
+      </eqnarray>
+
+      Schur orthogonality relations imply that <math|D<rsub|\<tau\>>>
+      characterizes <math|\<tau\>> up to equivalence class.
     </definition>
 
     <\footnote>
@@ -301,9 +314,35 @@
       </description>
     </fact>
 
-    <subsection|Characters of irreps of <math|O<around*|(|N|)>>|>
+    <subsection|Branching in <math|SO<around*|(|N|)>>|>
 
     \;
+
+    <subsection|Characters of irreps of <math|O<around*|(|N|)>>|>
+
+    <\definition>
+      For <math|G=O<around*|(|N|)>> we let
+      <math|T\<assign\>T<rsub|N>\<assign\>>
+
+      <\eqnarray>
+        <tformat|<table|<row|<cell|>|<cell|<choice|<tformat|<table|<row|<cell|<around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|1>>|<cell|sin\<theta\><rsub|1>>>|<row|<cell|-sin\<theta\><rsub|1>>|<cell|\<varepsilon\><rsub|1>cos\<theta\><rsub|1>>>>>>|]>\<oplus\><around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|2>>|<cell|sin\<theta\><rsub|2>>>|<row|<cell|-sin\<theta\><rsub|2>>|<cell|\<varepsilon\><rsub|2>cos\<theta\><rsub|2>>>>>>|]>\<oplus\>\<ldots\>\<oplus\><around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|k>>|<cell|sin\<theta\><rsub|k>>>|<row|<cell|-sin\<theta\><rsub|k>>|<cell|\<varepsilon\><rsub|k>cos\<theta\><rsub|k>>>>>>|]>,>|<cell|N=2k>>|<row|<cell|<around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|1>>|<cell|sin\<theta\><rsub|1>>>|<row|<cell|-sin\<theta\><rsub|1>>|<cell|\<varepsilon\><rsub|1>cos\<theta\><rsub|1>>>>>>|]>\<oplus\><around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|2>>|<cell|sin\<theta\><rsub|2>>>|<row|<cell|-sin\<theta\><rsub|2>>|<cell|\<varepsilon\><rsub|2>cos\<theta\><rsub|2>>>>>>|]>\<oplus\>\<ldots\>\<oplus\><around*|[|<tabular|<tformat|<table|<row|<cell|cos\<theta\><rsub|k>>|<cell|sin\<theta\><rsub|k>>>|<row|<cell|-sin\<theta\><rsub|k>>|<cell|\<varepsilon\><rsub|k>cos\<theta\><rsub|k>>>>>>|]>\<oplus\>\<varepsilon\><rsub|k+1>,>|<cell|N=2k+1>>>>>>|<cell|>>>>
+      </eqnarray>
+
+      where <math|\<varepsilon\><rsub|i>=\<pm\>1>.
+    </definition>
+
+    <\proposition>
+      We have <math|G=Ad<around*|(|G|)>T>.
+    </proposition>
+
+    <\proof>
+      This is clear for <math|N> odd, as then given
+      <math|g\<in\>O<around*|(|N|)>\\SO<around*|(|N|)>> we have
+      <math|g\<cdot\><around*|(|-1<rsub|N>|)>\<in\>SO<around*|(|N|)>>, hence
+      <math|g\<cdot\><around*|(|-1<rsub|N>|)>=Ad<around*|(|<rsup|\<exists\>>g<rprime|'>|)><around*|(|<rsup|\<exists\>>k|)>\<Rightarrow\>g=Ad<around*|(|g<rprime|'>|)><around*|(|*-1<rsub|N>\<cdot\>k|)>>.
+
+      \;
+    </proof>
   <|show-part>
     <section|playground|>
   </show-part>
@@ -393,7 +432,8 @@
     <associate|auto.4-2|<tuple|3.1|?|#4>>
     <associate|auto.4-3|<tuple|3.2|?|#4>>
     <associate|auto.4-4|<tuple|3.3|?|#4>>
-    <associate|auto.5-1|<tuple|3.3|?|#5>>
+    <associate|auto.4-5|<tuple|3.4|?|#4>>
+    <associate|auto.5-1|<tuple|3.1|?|#5>>
     <associate|bib-boerner1963representations|<tuple|BMMKC63|?|#5>>
     <associate|bib-goodman2000representations|<tuple|GW00|?|#5>>
     <associate|bib-howe2005stable|<tuple|HTW05|?|#5>>
