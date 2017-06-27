@@ -1327,11 +1327,31 @@
   In short,
 
   <\enumerate>
-    <item><with|font-series|bold|Theorem 1.1,1.2:>
-    <math|Re<around*|(|\<nu\>|)>\<gtr\>-<frac|1|2>\<rightarrow\>Re<around*|(|\<nu\>|)>\<gtr\>0>;
+    <item>In <with|font-series|bold|Theorem 1.1,1.2:> integral
 
-    <item><with|font-series|bold|Proposition 2.1:>
-    <math|Re<around*|(|c|)>\<gtr\>0\<rightarrow\>Re<around*|(|c|)>\<gtr\><frac|1|2>>.
+    <\equation*>
+      <big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
+      z|\|><rsup|2\<nu\>>C<rsup|\<lambda\>><rsub|l><around*|(|s|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsup|\<mu\>><rsub|m><around*|(|t|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
+      s d t
+    </equation*>
+
+    converges if <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.
+    This is because <math|C<rsub|l><rsup|\<lambda\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>\<in\>L<rsup|1><around*|(|<around*|[|-1,1|]>|)>>,
+    hence <math|C<rsup|\<lambda\>><rsub|l><around*|(|s|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsup|\<mu\>><rsub|m><around*|(|t|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>\<in\>L<rsup|1><around*|(|<around*|[|-1,1|]><rsup|2>|)>>
+    and <math|<around*|\||s-t z|\|><rsup|2\<nu\>>\<in\>C<around*|(|<around*|[|-1,1|]><rsup|2>|)>>
+    and product of integrable and continuous is integrable;
+
+    <item><with|font-series|bold|Proposition 2.1:> integral
+
+    <\equation*>
+      <big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
+      z|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      s d t
+    </equation*>
+
+    converges if <math|Re<around*|(|a|)>,Re<around*|(|b|)>\<gtr\>0,Re<around*|(|c|)>\<gtr\><frac|1|2>>.
+    Indeed, we have <math|<around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>\<in\>L<rsup|1>>
+    and <math|<around*|\||s-t z|\|><rsup|2c-1>>: continuous.
   </enumerate>
 
   In this case all the integrals converge.
