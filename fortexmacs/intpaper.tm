@@ -14,13 +14,12 @@
   <section|Main results>
 
   <\theorem>
-    For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with
-    <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>
-    and <math|Re<around*|(|\<nu\>|)>\<gtr\>0>, \ the following expansion
+    For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with <math|Re
+    \<lambda\>,Re \<mu\>,Re \<nu\>\<gtr\>-1/2>, \ the following expansion
     holds:
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=<big|sum><rsub|\<ell\>,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|\<ell\>,m>C<rsub|\<ell\>><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|\<ell\>,m>=<frac|2<rsup|-2\<nu\>><around*|(|\<lambda\>+\<ell\>|)><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|\<ell\>+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|\<ell\>+m|2>|)>>>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=<big|sum><rsub|\<ell\>,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|\<ell\>,m>C<rsub|\<ell\>><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|\<ell\>,m>=<frac|2<rsup|-2\<nu\>><around*|(|\<lambda\>+\<ell\>|)><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|\<ell\>+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|\<ell\>+m|2>|)>>.>|<cell|>>>>
     </eqnarray>
   </theorem>
 
@@ -33,9 +32,8 @@
 
   <\theorem>
     <label|main-thm>Suppose <math|l,m\<in\>\<bbb-N\>> such that <math|l+m> is
-    even. For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with
-    <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>,
-    <math|Re<around*|(|\<nu\>|)>\<gtr\>0>, and for
+    even. For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>> with <math|Re
+    \<lambda\>,Re \<mu\>,Re \<nu\>\<gtr\>-1/2>, and for
     <math|0\<leqslant\>z\<leqslant\>1>, \ the following integral converges:
 
     <\eqnarray>
@@ -99,8 +97,8 @@
     </eqnarray>
 
     where <math|\<delta\><rsub|0><rsup|l>\<assign\>1> if <math|l=0> and
-    <math|\<assign\>0> otherwise and <math|\<delta\><rsub|0><rsup|m>> is
-    defined similarly.
+    <math|=0> otherwise and <math|\<delta\><rsub|0><rsup|m>> is defined
+    similarly.
   </corollary>
 
   Selberg-type integrals are related to (finite-dimensional) representation
@@ -121,9 +119,8 @@
   Section <reference|sec:3>.
 
   <\proposition>
-    <label|prop:2>For <math|a,b,c\<in\>\<bbb-C\>> such that <math|Re
-    <around*|(|a|)>,Re <around*|(|b|)>\<gtr\>0,Re c\<gtr\><frac|1|2>> and
-    <math|0\<leqslant\>z\<leqslant\>1> we have
+    <label|prop:2>For <math|a,b,c\<in\>\<bbb-C\>> such that <math|Re a,Re
+    b,Re c\<gtr\>0> and <math|0\<leqslant\>z\<leqslant\>1> we have
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
@@ -144,7 +141,7 @@
     the left-hand side of <math|<eqref|eqn:main>> amounts to
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<frac|2<rsup|-l-m>\<pi\>|\<Gamma\><around*|(|\<lambda\>+l+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+m+<frac|1|2>|)>><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      <tformat|<table|<row|<cell|>|<cell|<frac|2<rsup|-l-m>\<pi\>|\<Gamma\><around*|(|\<lambda\>+l+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+m+<frac|1|2>|)>><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
       z|\|><rsup|2\<nu\>><frac|\<partial\><rsup|l>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\><rsup|m>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
       s d t.>|<cell|>>>>
     </eqnarray>
@@ -170,79 +167,13 @@
     hence <math|<eqref|eqn:derst>> equals
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|(|-2\<nu\>|)><rsub|l+m><around*|(|-z|)><rsup|m><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      <tformat|<table|<row|<cell|>|<cell|<around*|(|-2\<nu\>|)><rsub|l+m><around*|(|-z|)><rsup|m><big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
       z|\|><rsup|2\<nu\>-l-m><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
       s d t.>|<cell|>>>>
     </eqnarray>
 
-    At this point, it follows then by Proposition <reference|prop:2> that the
-    equality of Theorem <reference|main-thm> holds if
-    <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\><frac|l+m|2>>.
-    Now, to apply analytic continuation and prove the result in full
-    generality, we should show that both LHS and RHS are analytic.
-
-    For RHS it suffices to observe that
-
-    <\equation*>
-      <wide|F|~><around*|(|a,b,c|)>\<assign\><space|0.6spc><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;z|)>/\<Gamma\><around*|(|c|)>
-    </equation*>
-
-    is analytic in <math|<around*|(|a,b,c|)>> if <math|z\<neq\>0,1>.
-    Ambiguity for <math|z=0> is resolved by direct observation that
-    <math|<eqref|eqn:main>> holds for <math|z=0>. Ambiguity for <math|z=1> is
-    resolved by observing that
-
-    <\equation*>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;1|)>=<frac|\<Gamma\><around*|(|c|)>\<Gamma\><around*|(|c-a-b|)>|\<Gamma\><around*|(|c-a|)>\<Gamma\><around*|(|c-b|)>>,<space|1em>Re<around*|(|c-a-b|)>\<gtr\>0,
-    </equation*>
-
-    (note that <math|Re<around*|(|\<mu\>+m+1-<around*|(|<frac|l+m|2>-\<nu\>+<frac|m-l|2>-\<nu\>-\<lambda\>|)>|)>=Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<gtr\>0>,
-    if <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>).
-
-    We finally show that the integral LHS of <math|<eqref|eqn:main>> is
-    analytic in <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\><around*|{|\<bbb-C\><rsup|3>\<mid\>Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0|}>>.
-    In the light of Hartogs' Theorem, it suffices to show the
-    differentiability in every one of <math|\<lambda\>,\<mu\>,\<nu\>>
-    separately. In turn, for this we use dominated convergence and so it
-    suffices to show that for <math|\<alpha\>\<in\><around*|{|\<lambda\>,\<mu\>,\<nu\>|}>>
-    we have family of functions\ 
-
-    <\equation*>
-      <frac|\<partial\><rsup|2>|\<partial\>\<alpha\><rsup|2>><around*|\||s-t
-      z|\|><rsup|2\<nu\>>C<rsub|\<ell\>><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>
-    </equation*>
-
-    indexed by <math|\<alpha\>> being locally dominated by Lebesgue
-    integrable on <math|<around*|[|-1,1|]><rsup|2>>. Now, in the light of the
-    inequalities
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|\||<big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
-      z|\|><rsup|2\<nu\>>s<rsup|i>t<rsup|j><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-      s d t|\|>>|<cell|>>|<row|<cell|>|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
-      z|\|><rsup|2Re<around*|(|\<nu\>|)>><around*|\||s<rsup|i>t<rsup|j>|\|><around*|\||1-s<rsup|2>|\|><rsup|Re<around*|(|\<lambda\>|)>-<frac|1|2>><around*|\||1-t<rsup|2>|\|><rsup|Re<around*|(|\<mu\>|)>-<frac|1|2>>d
-      s d t>|<cell|>>|<row|<cell|>|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
-      z|\|><rsup|2Re<around*|(|\<nu\>|)>><around*|\||1-s<rsup|2>|\|><rsup|Re<around*|(|\<lambda\>|)>-<frac|1|2>><around*|\||1-t<rsup|2>|\|><rsup|Re<around*|(|\<mu\>|)>-<frac|1|2>>d
-      s d t>|<cell|>>|<row|<cell|>|<cell|<big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
-      z|\|><rsup|2Re<around*|(|\<nu\>|)>><around*|(|1-s<rsup|2>|)><rsup|Re<around*|(|\<lambda\>|)>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|Re<around*|(|\<mu\>|)>-<frac|1|2>>d
-      s d t,>|<cell|>>>>
-    </eqnarray>
-
-    it suffices to show that for <math|\<alpha\>\<in\><around*|{|\<lambda\>,\<nu\>|}>>
-    (we drop <math|\<mu\>>, as it is symmetric to <math|\<lambda\>>)
-
-    <\equation*>
-      <frac|\<partial\><rsup|2>|\<partial\>\<alpha\><rsup|2>><around*|\||s-t
-      z|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>
-    </equation*>
-
-    is integrable on <math|<around*|[|-1,1|]><rsup|2>>. Now, if
-    <math|\<alpha\>=\<lambda\>>, we note that
-    <math|ln<rsup|2><around*|(|1-s<rsup|2>|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>>
-    is still integrable and if <math|\<alpha\>=\<nu\>>, we note that
-    <math|<around*|\||s-t z|\|><rsup|2\<nu\>>ln<rsup|2><around*|\||s-t z|\|>>
-    is still continuous, hence in both cases we get product of
-    <math|L<rsup|1>> and continuous, which is still <math|L<rsup|1>>.
+    Then Theorem <reference|main-thm> follows from Proposition
+    <reference|prop:2>.
   </render-proof>
 
   <section|Proof of Proposition <reference|prop:2>><label|sec:3>
@@ -275,38 +206,7 @@
   <reference|lem:Fisum>, we first show Proposition <reference|prop:2>.
 
   <\render-proof|Proof of Proposition <reference|prop:2>>
-    We note that statement is symmetric in <math|z>, so we can assume
-    <math|0\<less\>z\<leqslant\>1> (<math|z=0> is obvious). As a first step,
-    we assume that we have shown the statement for <math|0\<less\>z\<less\>1>
-    (we will really do so below) and will deduce it for <math|z=1>.
-
-    It suffices to show that LHS has limit for <math|z\<uparrow\>1>, as for
-    RHS we can use the equality
-
-    <\equation*>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;1|)>=<frac|\<Gamma\><around*|(|c|)>\<Gamma\><around*|(|c-a-b|)>|\<Gamma\><around*|(|c-a|)>\<Gamma\><around*|(|c-b|)>>,<space|1em>Re<around*|(|c-a-b|)>\<gtr\>0,
-    </equation*>
-
-    (note that <math|<stack|<tformat|<table|<row|<cell|-c+<frac|1|2>,-a-c+1>>|<row|<cell|b+<frac|1|2>>>>>>Re<around*|(|b+<frac|1|2>-<around*|(|-c+<frac|1|2>|)>-<around*|(|-a-c+1|)>|)>=Re<around*|(|a+b+2c-1|)>\<gtr\>0>).
-    We intend to use the Lebesgue dominated convergence theorem, so we need
-    to establish dominance. For this we proceed as follows:
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|\||<big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
-      z|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
-      s d t|\|>>|<cell|>>|<row|<cell|>|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||<around*|\||s-t
-      z|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>|\|>d
-      s d t>|<cell|>>|<row|<cell|>|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
-      z|\|><rsup|2Re<around*|(|c|)>-1><around*|(|1-s<rsup|2>|)><rsup|Re<around*|(|a|)>-1><around*|(|1-t<rsup|2>|)><rsup|Re<around*|(|b|)>-1>d
-      s d t>|<cell|>>|<row|<cell|>|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|(|<around*|\||s|\|><rsup|2Re<around*|(|c|)>-1>+<around*|\||s-t|\|><rsup|2Re<around*|(|c|)>-1>|)><around*|(|1-s<rsup|2>|)><rsup|Re<around*|(|a|)>-1><around*|(|1-t<rsup|2>|)><rsup|Re<around*|(|b|)>-1>d
-      s d t>|<cell|>>>>
-    </eqnarray>
-
-    and as the latter is integrable (as tho product of <math|L<rsup|1>> and
-    continuous), we are done.
-
-    We now can assume that <math|0\<less\>z\<less\>1> till the end of the
-    proof. By the change of variables <math|s=<around*|(|1-z|)><around*|(|1-t|)>+z>,
+    By the change of variables <math|s=<around*|(|1-z|)><around*|(|1-t|)>+z>,
     we have
 
     <\eqnarray>
@@ -366,7 +266,7 @@
     3.13>):
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<space|0.6spc><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,b>>|<row|<cell|2b>>>>>;u|)>=<around*|(|1-<frac|u|2>|)><rsup|a-1>
+      <tformat|<table|<row|<cell|>|<cell|<space|0.6spc><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,b>>|<row|<cell|2b>>>>>;u|)>=<around*|(|1-<frac|z|2>|)><rsup|a-1>
       <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-a|2>,<frac|2-a|2>>>|<row|<cell|b+<frac|1|2>>>>>>;<around*|(|<frac|u|2-u>|)><rsup|2>|)>,>|<cell|>>>>
     </eqnarray>
 
@@ -638,46 +538,46 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|2|2>>
-    <associate|auto-3|<tuple|3|3>>
+    <associate|auto-2|<tuple|2|3>>
+    <associate|auto-3|<tuple|3|4>>
     <associate|auto-4|<tuple|4|6>>
     <associate|auto-5|<tuple|4.1|9>>
-    <associate|auto-6|<tuple|4.1|9>>
-    <associate|bib-Selberg:411367|<tuple|8|9>>
-    <associate|bib-andrews1999special|<tuple|1|9>>
-    <associate|bib-dotsenko1985four|<tuple|2|9>>
-    <associate|bib-forrester2008importance|<tuple|3|9>>
-    <associate|bib-kobayashi2011schrodinger|<tuple|5|9>>
-    <associate|bib-kobayashi2015symmetry|<tuple|4|9>>
-    <associate|bib-mehta2004random|<tuple|6|9>>
-    <associate|bib-rainville1960special|<tuple|7|9>>
-    <associate|bib-tarasov2003selberg|<tuple|9|9>>
-    <associate|bib-warnaar2010sl3|<tuple|10|9>>
+    <associate|auto-6|<tuple|4.1|10>>
+    <associate|bib-Selberg:411367|<tuple|8|10>>
+    <associate|bib-andrews1999special|<tuple|1|10>>
+    <associate|bib-dotsenko1985four|<tuple|2|10>>
+    <associate|bib-forrester2008importance|<tuple|3|10>>
+    <associate|bib-kobayashi2011schrodinger|<tuple|5|10>>
+    <associate|bib-kobayashi2015symmetry|<tuple|4|10>>
+    <associate|bib-mehta2004random|<tuple|6|10>>
+    <associate|bib-rainville1960special|<tuple|7|10>>
+    <associate|bib-tarasov2003selberg|<tuple|9|10>>
+    <associate|bib-warnaar2010sl3|<tuple|10|10>>
     <associate|cor:1|<tuple|1.4|2>>
     <associate|cor:170599|<tuple|1.5|2>>
     <associate|cor:Chebyshev|<tuple|1.4|?>>
-    <associate|cor:Hermite|<tuple|4.1|6>>
-    <associate|eqn:Fijsum|<tuple|3.6|5>>
+    <associate|cor:Hermite|<tuple|4.1|7>>
+    <associate|eqn:Fijsum|<tuple|3.6|6>>
     <associate|eqn:Rod|<tuple|2.2|3>>
     <associate|eqn:cor:1|<tuple|1.2|2>>
     <associate|eqn:derst|<tuple|2.3|3>>
     <associate|eqn:iF|<tuple|3.1|4>>
     <associate|eqn:lm0|<tuple|4.1|7>>
     <associate|eqn:main|<tuple|1.1|1>>
-    <associate|eqn:p1|<tuple|3.3|5>>
-    <associate|eqn:p2|<tuple|3.4|5>>
-    <associate|eqn:p3|<tuple|3.5|5>>
+    <associate|eqn:p1|<tuple|3.3|6>>
+    <associate|eqn:p2|<tuple|3.4|6>>
+    <associate|eqn:p3|<tuple|3.5|6>>
     <associate|eqn:quad|<tuple|3.2|5>>
-    <associate|eqn:selberg|<tuple|4.2|7>>
+    <associate|eqn:selberg|<tuple|4.2|8>>
     <associate|eqn:stz|<tuple|2.1|3>>
-    <associate|ex:1|<tuple|4.3|7>>
+    <associate|ex:1|<tuple|4.3|8>>
     <associate|ex:2|<tuple|4.4|8>>
     <associate|ex:3|<tuple|4.5|8>>
-    <associate|ex:4|<tuple|4.6|8>>
+    <associate|ex:4|<tuple|4.6|9>>
     <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-1.1|<tuple|1.1|1>>
-    <associate|footnote-1.2|<tuple|1.2|2>>
-    <associate|footnote-1.3|<tuple|1.3|2>>
+    <associate|footnote-1.2|<tuple|1.2|1>>
+    <associate|footnote-1.3|<tuple|1.3|1>>
     <associate|footnote-1.4|<tuple|1.4|2>>
     <associate|footnote-1.5|<tuple|1.5|2>>
     <associate|footnote-1.6|<tuple|1.6|2>>
@@ -686,20 +586,20 @@
     <associate|footnote-4.1|<tuple|4.1|9>>
     <associate|footnote-4.2|<tuple|4.2|?>>
     <associate|footnr-1.1|<tuple|1.1|1>>
-    <associate|footnr-1.2|<tuple|1.2|2>>
-    <associate|footnr-1.3|<tuple|1.3|2>>
+    <associate|footnr-1.2|<tuple|1.2|1>>
+    <associate|footnr-1.3|<tuple|1.3|1>>
     <associate|footnr-1.4|<tuple|1.4|2>>
     <associate|footnr-1.5|<tuple|1.5|2>>
     <associate|footnr-1.6|<tuple|1.6|2>>
     <associate|footnr-1.7|<tuple|1.7|2>>
-    <associate|footnr-4.1|<tuple|4.1|8>>
+    <associate|footnr-4.1|<tuple|4.1|9>>
     <associate|footnr-4.2|<tuple|4.2|?>>
     <associate|lem4|<tuple|3.1|4>>
     <associate|lem:Fisum|<tuple|3.2|4>>
     <associate|main-thm|<tuple|1.2|1>>
     <associate|prop:2|<tuple|2.1|3>>
-    <associate|sec:2|<tuple|2|2>>
-    <associate|sec:3|<tuple|3|3>>
+    <associate|sec:2|<tuple|2|3>>
+    <associate|sec:3|<tuple|3|4>>
     <associate|sec:4|<tuple|4|6>>
     <associate|table|<tuple|4.1|9>>
   </collection>
@@ -708,6 +608,10 @@
 <\auxiliary>
   <\collection>
     <\associate|bib>
+      forrester2008importance
+
+      forrester2008importance
+
       forrester2008importance
 
       tarasov2003selberg

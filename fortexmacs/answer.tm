@@ -1319,6 +1319,244 @@
   hence <math|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>> does not
   blow up, so the RHS of <math|<eqref|eq:14>> does. Hence the conclusion.
 
+  <\question>
+    Explain what parts of <verbatim|intpaper.pdf> should be changed in order
+    to take care of the convergence issues.
+  </question>
+
+  The following parts should be changed:
+
+  <\theorem*>
+    <with|font-series|bold|1.1.> For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>>
+    with <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>
+    and <math|Re<around*|(|\<nu\>|)>\<gtr\>0>, \ the following expansion
+    holds:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=<big|sum><rsub|\<ell\>,m=0\<mid\>l+m:even><rsup|\<infty\>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|\<ell\>,m>C<rsub|\<ell\>><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>,>|<cell|>>|<row|<cell|>|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|\<ell\>,m>=<frac|2<rsup|-2\<nu\>><around*|(|\<lambda\>+\<ell\>|)><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|\<ell\>+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|\<ell\>+m|2>|)>>.>|<cell|>>>>
+    </eqnarray>
+  </theorem*>
+
+  <\theorem*>
+    <with|font-series|bold|1.2.> Suppose <math|l,m\<in\>\<bbb-N\>> such that
+    <math|l+m> is even. For <math|\<lambda\>,\<mu\>,\<nu\>\<in\>\<bbb-C\>>
+    with <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>,
+    <math|Re<around*|(|\<nu\>|)>\<gtr\>0>, and for
+    <math|0\<leqslant\>z\<leqslant\>1>, \ the following integral converges:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
+      z|\|><rsup|2\<nu\>>u<rsub|l><rsup|\<lambda\>><around*|(|s|)>u<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|3|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>z<rsup|m>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;z<rsup|2>|)>|\<Gamma\><around*|(|\<mu\>+m+1|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>>,<eq-number><label|eqn:main>>|<cell|>>>>
+    </eqnarray>
+
+    where <math|<around*|(|y|)><rsub|j>\<assign\>y<around*|(|y+1|)><around*|(|y+2|)>\<cdots\><around*|(|y+j-1|)>>
+    for <math|j\<in\>\<bbb-N\>>.
+  </theorem*>
+
+  <\proposition*>
+    <with|font-series|bold|2.1.> For <math|a,b,c\<in\>\<bbb-C\>> such that
+    <math|Re <around*|(|a|)>,Re <around*|(|b|)>\<gtr\>0,Re
+    c\<gtr\><frac|1|2>> and <math|0\<leqslant\>z\<leqslant\>1> we have
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
+      z|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      s d t=<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|a|)>\<Gamma\><around*|(|b|)>\<Gamma\><around*|(|c|)>|\<Gamma\><around*|(|a+c|)>\<Gamma\><around*|(|b+<frac|1|2>|)>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|-c+<frac|1|2>,-a-c+1>>|<row|<cell|b+<frac|1|2>>>>>>;z<rsup|2>|)>.<eq-number><label|eqn:stz>>|<cell|>>|<row|<cell|>|<cell|>|<cell|>>>>
+    </eqnarray>
+  </proposition*>
+
+  <\render-proof|Proof of Theorem 1.2>
+    By the Rodrigues formula for the Gegenbauer polynomial:
+
+    <\equation*>
+      u<rsub|l><rsup|\<lambda\>><around*|(|t|)>=<frac|<around*|(|-1|)><rsup|l>2<rsup|-l><sqrt|\<pi\>>|\<Gamma\><around*|(|\<lambda\>+l+<frac|1|2>|)>>\<cdot\><frac|d<rsup|l>|d
+      t<rsup|l>><around*|(|1-t<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>>,<eq-number><label|eqn:Rod>
+    </equation*>
+
+    the left-hand side of <math|<eqref|eqn:main>> amounts to
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<frac|2<rsup|-l-m>\<pi\>|\<Gamma\><around*|(|\<lambda\>+l+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+m+<frac|1|2>|)>><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      z|\|><rsup|2\<nu\>><frac|\<partial\><rsup|l>|\<partial\>s<rsup|l>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><frac|\<partial\><rsup|m>|\<partial\>t<rsup|m>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      s d t.>|<cell|>>>>
+    </eqnarray>
+
+    Suppose that <math|Re \<nu\>\<gtr\><frac|l+m|2>>, <math|Re
+    \<lambda\>\<gtr\><frac|1|2>> and <math|Re \<mu\>\<gtr\><frac|1|2>>. Then
+    <math|<around*|\||s-t z|\|><rsup|2\<nu\>>> is of <math|C<rsup|l+m>> class
+    and the above integral is equal to
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>><frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|\||s-t
+      z|\|><rsup|2\<nu\>>d s d t<eq-number><label|eqn:derst>>|<cell|>>>>
+    </eqnarray>
+
+    by integration by parts. Since <math|l+m\<in\>2\<bbb-N\>> we have
+
+    <\equation*>
+      <frac|\<partial\><rsup|l+m>|\<partial\>s<rsup|l>\<partial\>t<rsup|m>><around*|\||s-t
+      z|\|><rsup|2\<nu\>>=<around*|(|-2\<nu\>|)><rsub|l+m><around*|(|-z|)><rsup|m><around*|\||s-t
+      z|\|><rsup|2\<nu\>-l-m>,
+    </equation*>
+
+    hence <math|<eqref|eqn:derst>> equals
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|(|-2\<nu\>|)><rsub|l+m><around*|(|-z|)><rsup|m><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      z|\|><rsup|2\<nu\>-l-m><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>+l-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>+m-<frac|1|2>>d
+      s d t.>|<cell|>>>>
+    </eqnarray>
+
+    At this point, it follows then by Proposition <reference|prop:2> that the
+    equality of Theorem <reference|main-thm> holds if
+    <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\><frac|l+m|2>>.
+    Now, to apply analytic continuation and prove the result in full
+    generality, we should show that both LHS and RHS are analytic.
+
+    For RHS it suffices to observe that
+
+    <\equation*>
+      <wide|F|~><around*|(|a,b,c|)>\<assign\><space|0.6spc><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;z|)>/\<Gamma\><around*|(|c|)>
+    </equation*>
+
+    is analytic in <math|<around*|(|a,b,c|)>> if <math|z\<neq\>0,1>.
+    Ambiguity for <math|z=0> is resolved by direct observation that
+    <math|<eqref|eqn:main>> holds for <math|z=0>. Ambiguity for <math|z=1> is
+    resolved by observing that
+
+    <\equation*>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;1|)>=<frac|\<Gamma\><around*|(|c|)>\<Gamma\><around*|(|c-a-b|)>|\<Gamma\><around*|(|c-a|)>\<Gamma\><around*|(|c-b|)>>,<space|1em>Re<around*|(|c-a-b|)>\<gtr\>0,
+    </equation*>
+
+    (note that <math|Re<around*|(|\<mu\>+m+1-<around*|(|<frac|l+m|2>-\<nu\>+<frac|m-l|2>-\<nu\>-\<lambda\>|)>|)>=Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<gtr\>0>,
+    if <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>).
+
+    We finally show that the integral LHS of <math|<eqref|eqn:main>> is
+    analytic in <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\><around*|{|\<bbb-C\><rsup|3>\<mid\>Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0|}>>.
+    In the light of Hartogs' Theorem, it suffices to show the
+    differentiability in every one of <math|\<lambda\>,\<mu\>,\<nu\>>
+    separately. In turn, for this we use dominated convergence and so it
+    suffices to show that for <math|\<alpha\>\<in\><around*|{|\<lambda\>,\<mu\>,\<nu\>|}>>
+    we have family of functions\ 
+
+    <\equation*>
+      <frac|\<partial\><rsup|2>|\<partial\>\<alpha\><rsup|2>><around*|\||s-t
+      z|\|><rsup|2\<nu\>>C<rsub|\<ell\>><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>
+    </equation*>
+
+    indexed by <math|\<alpha\>> being locally dominated by Lebesgue
+    integrable on <math|<around*|[|-1,1|]><rsup|2>>. Now, in the light of the
+    inequalities
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||<big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      z|\|><rsup|2\<nu\>>s<rsup|i>t<rsup|j><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
+      s d t|\|>>|<cell|>>|<row|<cell|>|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      z|\|><rsup|2Re<around*|(|\<nu\>|)>><around*|\||s<rsup|i>t<rsup|j>|\|><around*|\||1-s<rsup|2>|\|><rsup|Re<around*|(|\<lambda\>|)>-<frac|1|2>><around*|\||1-t<rsup|2>|\|><rsup|Re<around*|(|\<mu\>|)>-<frac|1|2>>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      z|\|><rsup|2Re<around*|(|\<nu\>|)>><around*|\||1-s<rsup|2>|\|><rsup|Re<around*|(|\<lambda\>|)>-<frac|1|2>><around*|\||1-t<rsup|2>|\|><rsup|Re<around*|(|\<mu\>|)>-<frac|1|2>>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|<big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      z|\|><rsup|2Re<around*|(|\<nu\>|)>><around*|(|1-s<rsup|2>|)><rsup|Re<around*|(|\<lambda\>|)>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|Re<around*|(|\<mu\>|)>-<frac|1|2>>d
+      s d t,>|<cell|>>>>
+    </eqnarray>
+
+    it suffices to show that for <math|\<alpha\>\<in\><around*|{|\<lambda\>,\<nu\>|}>>
+    (we drop <math|\<mu\>>, as it is symmetric to <math|\<lambda\>>)
+
+    <\equation*>
+      <frac|\<partial\><rsup|2>|\<partial\>\<alpha\><rsup|2>><around*|\||s-t
+      z|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>
+    </equation*>
+
+    is integrable on <math|<around*|[|-1,1|]><rsup|2>>. Now, if
+    <math|\<alpha\>=\<lambda\>>, we note that
+    <math|ln<rsup|2><around*|(|1-s<rsup|2>|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>>
+    is still integrable and if <math|\<alpha\>=\<nu\>>, we note that
+    <math|<around*|\||s-t z|\|><rsup|2\<nu\>>ln<rsup|2><around*|\||s-t z|\|>>
+    is still continuous, hence in both cases we get product of
+    <math|L<rsup|1>> and continuous, which is still <math|L<rsup|1>>.
+  </render-proof>
+
+  <\render-proof|Proof of Proposition 2.1>
+    We note that statement is symmetric in <math|z>, so we can assume
+    <math|0\<less\>z\<leqslant\>1> (<math|z=0> is obvious). As a first step,
+    we assume that we have shown the statement for <math|0\<less\>z\<less\>1>
+    (we will really do so below) and will deduce it for <math|z=1>.
+
+    It suffices to show that LHS has limit for <math|z\<uparrow\>1>, as for
+    RHS we can use the equality
+
+    <\equation*>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;1|)>=<frac|\<Gamma\><around*|(|c|)>\<Gamma\><around*|(|c-a-b|)>|\<Gamma\><around*|(|c-a|)>\<Gamma\><around*|(|c-b|)>>,<space|1em>Re<around*|(|c-a-b|)>\<gtr\>0,
+    </equation*>
+
+    (note that <math|<stack|<tformat|<table|<row|<cell|-c+<frac|1|2>,-a-c+1>>|<row|<cell|b+<frac|1|2>>>>>>Re<around*|(|b+<frac|1|2>-<around*|(|-c+<frac|1|2>|)>-<around*|(|-a-c+1|)>|)>=Re<around*|(|a+b+2c-1|)>\<gtr\>0>).
+    We intend to use the Lebesgue dominated convergence theorem, so we need
+    to establish dominance. For this we proceed as follows:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||<big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      z|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      s d t|\|>>|<cell|>>|<row|<cell|>|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||<around*|\||s-t
+      z|\|><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>|\|>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|\||s-t
+      z|\|><rsup|2Re<around*|(|c|)>-1><around*|(|1-s<rsup|2>|)><rsup|Re<around*|(|a|)>-1><around*|(|1-t<rsup|2>|)><rsup|Re<around*|(|b|)>-1>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|\<leqslant\><big|iint><rsub|<around*|[|-1,1|]><rsup|2>><around*|(|<around*|\||s|\|><rsup|2Re<around*|(|c|)>-1>+<around*|\||s-t|\|><rsup|2Re<around*|(|c|)>-1>|)><around*|(|1-s<rsup|2>|)><rsup|Re<around*|(|a|)>-1><around*|(|1-t<rsup|2>|)><rsup|Re<around*|(|b|)>-1>d
+      s d t>|<cell|>>>>
+    </eqnarray>
+
+    and as the latter is integrable (as tho product of <math|L<rsup|1>> and
+    continuous), we are done.
+
+    We now can assume that <math|0\<less\>z\<less\>1> till the end of the
+    proof. By the change of variables <math|s=<around*|(|1-z|)><around*|(|1-t|)>+z>,
+    we have
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|s-z|)><rsub|+><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1>d
+      s=2<rsup|a-1>B<around*|(|2c,a|)><around*|(|1-z|)><rsup|2c+a>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,2c>>|<row|<cell|2c+a>>>>>;<frac|1-z|2>|)>>|<cell|>>>>
+    </eqnarray>
+
+    from Euler's integral representation of the hypergeometric function
+    <math|<rsub|2>F<rsub|1>>, because <math|-1\<leqslant\>s\<leqslant\>1> and
+    <math|s-z\<geqslant\>0> if and only if
+    <math|0\<leqslant\>t\<leqslant\>1>. Therefore the left-hand side of
+    <math|<eqref|eqn:stz>> equals:
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|2<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|(|s-t
+      z|)><rsub|+><rsup|2c-1><around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|=2<rsup|a>B<around*|(|2c,a|)><big|int><rsub|-1><rsup|1><around*|(|1-t
+      z|)><rsup|2c+a-1> <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|1-a,a>>|<row|<cell|2c+a>>>>>;<frac|1-t
+      z|2>|)><around*|(|1-t<rsup|2>|)><rsup|b-1>d t.>|<cell|>>>>
+    </eqnarray>
+
+    Fix <math|\<varepsilon\>\<gtr\>0>. Assume
+    <math|<around*|\||z|\|>\<leqslant\>1-2\<varepsilon\>>. Then
+    <math|<around*|\||<frac|1-t z|2>|\|>\<leqslant\>1-\<varepsilon\>>.
+    Expanding the hypergeometric function as a uniformly convergent power
+    series, we can rewrite the integral in the right-hand side as
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|i><around*|(|a|)><rsub|i>|2<rsup|i>i!<around*|(|2c+a|)><rsub|i>><big|int><rsub|-1><rsup|1><around*|(|1-t
+      z|)><rsup|2c+a-1+i><around*|(|1-t<rsup|2>|)><rsup|b-1>d t.>|<cell|>>>>
+    </eqnarray>
+
+    Owing to Lemma 3.1, this is equal to
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|B<around*|(|<frac|1|2>,b|)><big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|1-a|)><rsub|i><around*|(|a|)><rsub|i>|2<rsup|i>i!<around*|(|2c+a|)><rsub|i>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-2c-a-i|2>,<frac|2-2c-a-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;z<rsup|2>|)>.>|<cell|>>>>
+    </eqnarray>
+
+    Now <math|><eqref|eqn:stz> follows from Lemma 3.2 with
+    <math|\<zeta\>=z<rsup|2>>.
+  </render-proof>
+
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|GRJ00>
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
@@ -1395,7 +1633,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|24>>
     <associate|auto-2|<tuple|2|25>>
-    <associate|auto-3|<tuple|14|29>>
+    <associate|auto-3|<tuple|18|29>>
     <associate|bib-KO2|<tuple|KØ03|29>>
     <associate|bib-dotsenko1985four|<tuple|DF85|29>>
     <associate|bib-gradshteinryzhik|<tuple|GRJ00|29>>
@@ -1419,12 +1657,15 @@
     <associate|eq:unknown|<tuple|9|23>>
     <associate|eqn:20-beminus|<tuple|11|25>>
     <associate|eqn:20-beplus|<tuple|10|25>>
+    <associate|eqn:Rod|<tuple|17|?>>
     <associate|eqn:cor:1|<tuple|14|?>>
+    <associate|eqn:derst|<tuple|18|?>>
     <associate|eqn:herm1|<tuple|6|15>>
-    <associate|eqn:main|<tuple|7|19>>
+    <associate|eqn:main|<tuple|15|19>>
     <associate|eqn:q26-1|<tuple|12|27>>
     <associate|eqn:q26-2|<tuple|13|?>>
     <associate|eqn:q26-3|<tuple|13|28>>
+    <associate|eqn:stz|<tuple|16|?>>
     <associate|eqn:thm1|<tuple|5|9>>
     <associate|fig:howetan2d31|<tuple|1|24>>
     <associate|fig:howetan2d32|<tuple|2|25>>
@@ -1440,6 +1681,8 @@
     <associate|footnr-4|<tuple|4|24>>
     <associate|footnr-5|<tuple|5|25>>
     <associate|footnr-6|<tuple|6|25>>
+    <associate|main-thm|<tuple|5|?>>
+    <associate|prop:2|<tuple|15|?>>
     <associate|q-ode|<tuple|11|9>>
     <associate|q1|<tuple|1|1>>
     <associate|q14|<tuple|14|15>>

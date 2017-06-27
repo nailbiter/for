@@ -190,6 +190,10 @@
   <\show-part|4>
     <section|playground|>
 
+    <subsection|General stuff|>
+
+    \;
+
     <subsection|Irreps of <math|SO<around*|(|n|)>> and
     <math|O<around*|(|n|)>>|>
 
@@ -347,7 +351,7 @@
     <section|playground|>
   </show-part>
 
-  <\hide-part|5>
+  <\show-part|5>
     <\bibliography|bib|alpha|todai_master.bib>
       <\bib-list|BMMKC63>
         <bibitem*|BMMKC63><label|bib-boerner1963representations>Hermann
@@ -376,7 +380,7 @@
         volume 140. <newblock>Springer Science & Business Media, 2013.
       </bib-list>
     </bibliography>
-  <|hide-part>
+  <|show-part>
     <\bibliography|bib|alpha|todai_master.bib>
       <\bib-list|BMMKC63>
         <bibitem*|BMMKC63><label|bib-boerner1963representations>Hermann
@@ -405,7 +409,7 @@
         volume 140. <newblock>Springer Science & Business Media, 2013.
       </bib-list>
     </bibliography>
-  </hide-part>
+  </show-part>
 </body>
 
 <\initial>
@@ -433,6 +437,7 @@
     <associate|auto.4-3|<tuple|3.2|?|#4>>
     <associate|auto.4-4|<tuple|3.3|?|#4>>
     <associate|auto.4-5|<tuple|3.4|?|#4>>
+    <associate|auto.4-6|<tuple|3.5|?|#4>>
     <associate|auto.5-1|<tuple|3.1|?|#5>>
     <associate|bib-boerner1963representations|<tuple|BMMKC63|?|#5>>
     <associate|bib-goodman2000representations|<tuple|GW00|?|#5>>
@@ -442,8 +447,10 @@
     <associate|fact-1|<tuple|1.1|?>>
     <associate|footnote-3.1|<tuple|3.1|?|#4>>
     <associate|footnote-3.2|<tuple|3.2|?|#4>>
+    <associate|footnote-4.1|<tuple|4.1|?|#4>>
     <associate|footnr-3.1|<tuple|3.1|?|#4>>
     <associate|footnr-3.2|<tuple|3.2|?|#4>>
+    <associate|footnr-4.1|<tuple|4.1|?|#4>>
   </collection>
 </references>
 
