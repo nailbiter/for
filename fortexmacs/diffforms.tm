@@ -192,7 +192,35 @@
 
     <subsection|General stuff|>
 
-    \;
+    <\proposition>
+      <label|prop:cpt-maxtorus>Suppose <math|G> is compact group (not
+      necessarily connected) and <math|T> is its subgroup such that:
+
+      <\enumerate>
+        <item><math|T\<cap\>G<rsub|0>> is the maximal torus of connected
+        compact group <math|G<rsub|0>> (here <math|G<rsub|0>> is the identity
+        component);
+
+        <item><math|T> crosses every connected component of <math|G>.
+      </enumerate>
+    </proposition>
+
+    <\remark>
+      This proposition and its proof are inspired by
+      <cite-detail|knapp2013lie|Thm. 4.36>.
+    </remark>
+
+    <\proof>
+      (of Proposition <reference|prop:cpt-maxtorus>). We use the following
+      notation:
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|y<rsup|x>\<assign\>x y
+        x<rsup|-1>,<space|1em>T<rsup|g>\<assign\><around*|{|t<rsup|g>\<mid\>t\<in\>T|}>,<space|1em>>>>>>T<rsup|G>\<assign\>\<cup\><rsub|g\<in\>G>T<rsup|g>.
+      </equation*>
+
+      We will proceed by induction on <math|dim G>.
+    </proof>
 
     <subsection|Irreps of <math|SO<around*|(|n|)>> and
     <math|O<around*|(|n|)>>|>
@@ -438,7 +466,7 @@
     <associate|auto.4-4|<tuple|3.3|?|#4>>
     <associate|auto.4-5|<tuple|3.4|?|#4>>
     <associate|auto.4-6|<tuple|3.5|?|#4>>
-    <associate|auto.5-1|<tuple|3.1|?|#5>>
+    <associate|auto.5-1|<tuple|3.2|?|#5>>
     <associate|bib-boerner1963representations|<tuple|BMMKC63|?|#5>>
     <associate|bib-goodman2000representations|<tuple|GW00|?|#5>>
     <associate|bib-howe2005stable|<tuple|HTW05|?|#5>>
@@ -451,6 +479,7 @@
     <associate|footnr-3.1|<tuple|3.1|?|#4>>
     <associate|footnr-3.2|<tuple|3.2|?|#4>>
     <associate|footnr-4.1|<tuple|4.1|?|#4>>
+    <associate|prop:cpt-maxtorus|<tuple|3.1|?|#4>>
   </collection>
 </references>
 

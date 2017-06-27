@@ -1324,6 +1324,18 @@
     to take care of the convergence issues.
   </question>
 
+  In short,
+
+  <\enumerate>
+    <item><with|font-series|bold|Theorem 1.1,1.2:>
+    <math|Re<around*|(|\<nu\>|)>\<gtr\>-<frac|1|2>\<rightarrow\>Re<around*|(|\<nu\>|)>\<gtr\>0>;
+
+    <item><with|font-series|bold|Proposition 2.1:>
+    <math|Re<around*|(|c|)>\<gtr\>0\<rightarrow\>Re<around*|(|c|)>\<gtr\><frac|1|2>>.
+  </enumerate>
+
+  In this case all the integrals converge.
+
   The following parts should be changed:
 
   <\theorem*>
