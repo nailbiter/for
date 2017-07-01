@@ -1320,14 +1320,12 @@
   blow up, so the RHS of <math|<eqref|eq:14>> does. Hence the conclusion.
 
   <\question>
-    Explain what conditions of <verbatim|intpaper.pdf> should be changed in
-    order to take care of the convergence issues.
+    Give a sufficient condition for the convergence for each statement in
+    <verbatim|intpaper.pdf>,and gives a proof.
   </question>
 
-  In short,
-
-  <\enumerate>
-    <item>In <with|font-series|bold|Theorem 1.1,1.2:> integral
+  <\render-theorem|Claim>
+    The integral\ 
 
     <\equation*>
       <big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
@@ -1335,13 +1333,23 @@
       s d t
     </equation*>
 
-    converges if <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.
+    in Theorem 1.2 converges if <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0,-1\<leqslant\>z\<leqslant\>1>.
+  </render-theorem>
+
+  <\proof>
     This is because <math|C<rsub|l><rsup|\<lambda\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>\<in\>L<rsup|1><around*|(|<around*|[|-1,1|]>|)>>,
     hence <math|C<rsup|\<lambda\>><rsub|l><around*|(|s|)><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>>C<rsup|\<mu\>><rsub|m><around*|(|t|)><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>\<in\>L<rsup|1><around*|(|<around*|[|-1,1|]><rsup|2>|)>>
     and <math|<around*|\||s-t z|\|><rsup|2\<nu\>>\<in\>C<around*|(|<around*|[|-1,1|]><rsup|2>|)>>
-    and product of integrable and continuous is integrable;
+    and the product of integrable and continuous is integrable.
+  </proof>
 
-    <item><with|font-series|bold|Proposition 2.1:> integral
+  <\corollary*>
+    The integral in Theorem 1.1 converges if
+    <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.
+  </corollary*>
+
+  <\render-theorem|Claim>
+    The integral\ 
 
     <\equation*>
       <big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
@@ -1349,12 +1357,61 @@
       s d t
     </equation*>
 
-    converges if <math|Re<around*|(|a|)>,Re<around*|(|b|)>\<gtr\>0,Re<around*|(|c|)>\<gtr\><frac|1|2>>.
-    Indeed, we have <math|<around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>\<in\>L<rsup|1>>
-    and <math|<around*|\||s-t z|\|><rsup|2c-1>>: continuous.
-  </enumerate>
+    in Proposition 2.1 converges if <math|Re<around*|(|a|)>,Re<around*|(|b|)>\<gtr\>0,Re<around*|(|c|)>\<gtr\><frac|1|2>,-1\<leqslant\>z\<leqslant\>1>.
+  </render-theorem>
 
-  In this case all the integrals converge.
+  <\proof>
+    Indeed, as before we have <math|<around*|(|1-s<rsup|2>|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>\<in\>L<rsup|1><around*|(|<around*|[|-1,1|]><rsup|2>|)>>
+    and <math|<around*|\||s-t z|\|><rsup|2c-1>>: continuous. And the product
+    of <math|L<rsup|1>> and continuous is still continuous.
+  </proof>
+
+  <\render-theorem|Claim>
+    The integral\ 
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-t
+      z|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d t.>|<cell|>>>>
+    </eqnarray>
+
+    of Lemma 3.1 converges for with <math|Re a,Re b\<gtr\>0> and
+    <math|<around*|\||z|\|>\<less\>1>.
+  </render-theorem>
+
+  <\proof>
+    The variable change <math|s=<frac|t+1|2>> turns this integral into (up to
+    nonzero finite multiple)
+
+    <\equation*>
+      <big|int><rsub|0><rsup|1>s<rsup|b-1><around*|(|1-s|)><rsup|b-1><around*|(|1-<frac|2z|z+1>s|)><rsup|a-1>d
+      s
+    </equation*>
+
+    and then the answer follows from Euler's integral
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|B<around*|(|b,c-b|)>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|a,b>>|<row|<cell|c>>>>>;z|)>=<big|int><rsub|0><rsup|1>x<rsup|b-1><around*|(|1-x|)><rsup|c-b-1><around*|(|1-z
+      x|)><rsup|-a>,>>|<row|<cell|Re<around*|(|c|)>\<gtr\>Re<around*|(|b|)>\<gtr\>0,z\<nin\><around*|[|1,\<infty\>|]>.>>>>>
+    </equation*>
+
+    Note that <math|2z/<around*|(|z+1|)>\<geqslant\>1> cannot happen.
+  </proof>
+
+  <\theorem*>
+    The series\ 
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-d-i|2>,<frac|2-d-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;\<zeta\>|)>>|<cell|>>>>
+    </eqnarray>
+
+    in Lemma 3.2 converges for <math|<around*|\||\<zeta\>|\|>\<less\>1>.
+  </theorem*>
+
+  <\proof>
+    TODO
+  </proof>
 
   <\bibliography|bib|alpha|intdep.bib>
     <\bib-list|GRJ00>
@@ -1432,7 +1489,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|24>>
     <associate|auto-2|<tuple|2|25>>
-    <associate|auto-3|<tuple|b|29>>
+    <associate|auto-3|<tuple|29|29>>
     <associate|bib-KO2|<tuple|KØ03|29>>
     <associate|bib-dotsenko1985four|<tuple|DF85|29>>
     <associate|bib-gradshteinryzhik|<tuple|GRJ00|29>>
@@ -1460,6 +1517,7 @@
     <associate|eqn:cor:1|<tuple|14|?>>
     <associate|eqn:derst|<tuple|18|?>>
     <associate|eqn:herm1|<tuple|6|15>>
+    <associate|eqn:iF|<tuple|15|?>>
     <associate|eqn:main|<tuple|15|19>>
     <associate|eqn:q26-1|<tuple|12|27>>
     <associate|eqn:q26-2|<tuple|13|?>>
