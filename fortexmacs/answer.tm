@@ -1409,29 +1409,7 @@
   </render-theorem>
 
   <\proof>
-    We prove the convergence by expanding the <math|<rsub|2>F<rsub|1>> in
-    power series and proving the absolute convergence of double-indexed
-    series
-
-    <\equation*>
-      <stack|<tformat|<table|<row|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|<frac|1-d-i|2>|)><rsub|j><around*|(|<frac|2-d-i|2>|)><rsub|j>|2<rsup|i>i!j!<around*|(|d|)><rsub|i><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|1-d-i|)><rsub|2j>|2<rsup|i+2j>i!j!<around*|(|d|)><rsub|i><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|1-d|)><rsub|2j>|2<rsup|i+2j>i!j!<around*|(|b+<frac|1|2>|)><rsub|j><around*|(|d-2j|)><rsub|i>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d-2j|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d|2>|)><rsub|j><around*|(|<frac|2-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>.>>|<row|<cell|<around*|(|d-2j|)><rsub|i>=<frac|\<Gamma\><around*|(|d-2j+i|)>|\<Gamma\><around*|(|d-2j|)>>=<frac|<around*|(|d|)><rsub|i-2j>|<around*|(|d|)><rsub|-2j>>>>|<row|<cell|<around*|(|1-d-i|)><rsub|2j>=<frac|<around*|(|1-d|)><rsub|2j-i>|<around*|(|1-d|)><rsub|-i>>=<frac|<around*|(|d|)><rsub|i>|<around*|(|d|)><rsub|i-2j>>>>|<row|<cell|<around*|(|d|)><rsub|i-2j>\<leqslant\><around*|(|d|)><rsub|i>>>>>>
-    </equation*>
-
-    Indeed, for arbitrary <math|\<varepsilon\>\<gtr\>0> we see that there
-    exists <math|N=N<rsub|\<varepsilon\>>\<in\>\<bbb-N\>> such that
-
-    <\equation*>
-      <stack|<tformat|<table|<row|<cell|i\<geqslant\>N\<Rightarrow\><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>|\|>\<leqslant\><rsup|\<exists\>>A<rsub|\<varepsilon\>><around*|(|<frac|1|2>+\<varepsilon\>|)><rsup|i>,>>|<row|<cell|j\<geqslant\>N\<Rightarrow\><around*|\||<frac|<around*|(|<frac|1-d-i|2>|)><rsub|j><around*|(|<frac|2-d-i|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>\<leqslant\><rsup|\<exists\>>B<rsub|\<varepsilon\>><around*|(|<around*|\||\<zeta\>|\|>+\<varepsilon\>|)><rsup|j>.>>>>>
-    </equation*>
-
-    Hence,
-
-    <\equation*>
-      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d-i|2>|)><rsub|j><around*|(|<frac|2-d-i|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>>>|<row|<cell|\<leqslant\><big|sum><rsub|i,j=1><rsup|N<rsub|\<varepsilon\>>>+A<rsub|\<varepsilon\>>B<rsub|\<varepsilon\>><big|sum><rsub|i=N><rsup|\<infty\>><around*|(|<frac|1|2>+\<varepsilon\>|)><rsup|i><big|sum><rsub|j=N><rsup|\<infty\>><around*|(|<around*|\||\<zeta\>|\|>+\<varepsilon\>|)><rsup|j>>>|<row|<cell|+<big|sum><rsub|j=N><rsup|\<infty\>>
-      <around*|\||<frac|<around*|(|<frac|1-d|2>|)><rsub|j><around*|(|<frac|2-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|><big|sum><rsub|i=0><rsup|N-1><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d-2j|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>|\|>>>|<row|<cell|+<big|sum><rsub|i=N><rsup|\<infty\>><big|sum><rsub|j=0><rsup|N-1><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d-2j|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d|2>|)><rsub|j><around*|(|<frac|2-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>>>>>>>>>>>
-    </equation*>
-
-    <math|<tabular|<tformat|<table|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|1-d-i|)><rsub|2j>|2<rsup|i+2j>i!j!<around*|(|d|)><rsub|i><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|1-d|)><rsub|2j>|2<rsup|i+2j>i!j!<around*|(|b+<frac|1|2>|)><rsub|j><around*|(|d-2j|)><rsub|i>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d-2j|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d|2>|)><rsub|j><around*|(|<frac|2-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i=0><rsup|N-1><big|sum><rsub|j=N><rsup|\<infty\>>+<big|sum><rsub|i=N><rsup|\<infty\>><big|sum><rsub|j=0><rsup|N-1>>>>>>>
+    TODO.
   </proof>
 
   <\bibliography|bib|alpha|intdep.bib>
