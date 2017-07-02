@@ -248,7 +248,7 @@
     </eqnarray>
 
     Now <math|><eqref|eqn:stz> follows from Lemma <reference|lem:Fisum> with
-    <math|\<zeta\>=z<rsup|2>>.
+    <math|\<zeta\>=z<rsup|2>> and <math|d=2c+a>.
   </render-proof>
 
   <\render-proof|Proof of Lemma <reference|lem4>>

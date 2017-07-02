@@ -1273,30 +1273,27 @@
   </equation*>
 
   <\question>
-    Explain why I think that in Theorem 1.1 of <verbatim|intpaper.pdf> we
-    cannot allow <math|Re \<nu\>\<gtr\>-<frac|1|2>>.
+    Show that for every
+
+    <\equation*>
+      <around*|(|\<lambda\>,\<mu\>|)>\<in\>\<bbb-C\><rsup|2>\<mid\>0\<gtr\>Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>
+    </equation*>
+
+    we can choose
+
+    <\equation*>
+      \<nu\>\<in\>\<bbb-C\>\<mid\>0\<gtr\>Re<around*|(|\<nu\>|)>\<gtr\>-<frac|1|2>,
+    </equation*>
+
+    so that both sides of equality
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>><eq-number><label|eq:14>>|<cell|>>>>
+    </eqnarray>
+
+    blow up.
   </question>
-
-  More precisely, I will show that for every
-
-  <\equation*>
-    <around*|(|\<lambda\>,\<mu\>|)>\<in\>\<bbb-C\><rsup|2>\<mid\>0\<gtr\>Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,
-  </equation*>
-
-  we can choose
-
-  <\equation*>
-    \<nu\>\<in\>\<bbb-C\>\<mid\>0\<gtr\>Re<around*|(|\<nu\>|)>\<gtr\>-<frac|1|2>,
-  </equation*>
-
-  so that both sides of equality
-
-  <\eqnarray>
-    <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
-    s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>><eq-number><label|eq:14>>|<cell|>>>>
-  </eqnarray>
-
-  blow up.
 
   Indeed, suppose <math|<around*|(|\<lambda\>,\<mu\>|)>> as above are given
   and we are to choose <math|\<nu\>>. As we have
@@ -1400,7 +1397,8 @@
   </proof>
 
   <\render-theorem|Claim>
-    If <math|<around*|\||\<zeta\>|\|>\<less\>1>, the series\ 
+    If <math|<around*|\||\<zeta\>|\|>\<less\>1> and
+    <math|Re<around*|(|d|)>\<less\>0>, the series\ 
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>
@@ -1411,7 +1409,29 @@
   </render-theorem>
 
   <\proof>
-    TODO.
+    We prove the convergence by expanding the <math|<rsub|2>F<rsub|1>> in
+    power series and proving the absolute convergence of double-indexed
+    series
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|<frac|1-d-i|2>|)><rsub|j><around*|(|<frac|2-d-i|2>|)><rsub|j>|2<rsup|i>i!j!<around*|(|d|)><rsub|i><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|1-d-i|)><rsub|2j>|2<rsup|i+2j>i!j!<around*|(|d|)><rsub|i><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|1-d|)><rsub|2j>|2<rsup|i+2j>i!j!<around*|(|b+<frac|1|2>|)><rsub|j><around*|(|d-2j|)><rsub|i>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d-2j|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d|2>|)><rsub|j><around*|(|<frac|2-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>.>>|<row|<cell|<around*|(|d-2j|)><rsub|i>=<frac|\<Gamma\><around*|(|d-2j+i|)>|\<Gamma\><around*|(|d-2j|)>>=<frac|<around*|(|d|)><rsub|i-2j>|<around*|(|d|)><rsub|-2j>>>>|<row|<cell|<around*|(|1-d-i|)><rsub|2j>=<frac|<around*|(|1-d|)><rsub|2j-i>|<around*|(|1-d|)><rsub|-i>>=<frac|<around*|(|d|)><rsub|i>|<around*|(|d|)><rsub|i-2j>>>>|<row|<cell|<around*|(|d|)><rsub|i-2j>\<leqslant\><around*|(|d|)><rsub|i>>>>>>
+    </equation*>
+
+    Indeed, for arbitrary <math|\<varepsilon\>\<gtr\>0> we see that there
+    exists <math|N=N<rsub|\<varepsilon\>>\<in\>\<bbb-N\>> such that
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|i\<geqslant\>N\<Rightarrow\><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>|\|>\<leqslant\><rsup|\<exists\>>A<rsub|\<varepsilon\>><around*|(|<frac|1|2>+\<varepsilon\>|)><rsup|i>,>>|<row|<cell|j\<geqslant\>N\<Rightarrow\><around*|\||<frac|<around*|(|<frac|1-d-i|2>|)><rsub|j><around*|(|<frac|2-d-i|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>\<leqslant\><rsup|\<exists\>>B<rsub|\<varepsilon\>><around*|(|<around*|\||\<zeta\>|\|>+\<varepsilon\>|)><rsup|j>.>>>>>
+    </equation*>
+
+    Hence,
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d-i|2>|)><rsub|j><around*|(|<frac|2-d-i|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>>>|<row|<cell|\<leqslant\><big|sum><rsub|i,j=1><rsup|N<rsub|\<varepsilon\>>>+A<rsub|\<varepsilon\>>B<rsub|\<varepsilon\>><big|sum><rsub|i=N><rsup|\<infty\>><around*|(|<frac|1|2>+\<varepsilon\>|)><rsup|i><big|sum><rsub|j=N><rsup|\<infty\>><around*|(|<around*|\||\<zeta\>|\|>+\<varepsilon\>|)><rsup|j>>>|<row|<cell|+<big|sum><rsub|j=N><rsup|\<infty\>>
+      <around*|\||<frac|<around*|(|<frac|1-d|2>|)><rsub|j><around*|(|<frac|2-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|><big|sum><rsub|i=0><rsup|N-1><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d-2j|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>|\|>>>|<row|<cell|+<big|sum><rsub|i=N><rsup|\<infty\>><big|sum><rsub|j=0><rsup|N-1><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d-2j|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d|2>|)><rsub|j><around*|(|<frac|2-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>>>>>>>>>>>
+    </equation*>
+
+    <math|<tabular|<tformat|<table|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|1-d-i|)><rsub|2j>|2<rsup|i+2j>i!j!<around*|(|d|)><rsub|i><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|1-d|)><rsub|2j>|2<rsup|i+2j>i!j!<around*|(|b+<frac|1|2>|)><rsub|j><around*|(|d-2j|)><rsub|i>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d-2j|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d|2>|)><rsub|j><around*|(|<frac|2-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>>>|<row|<cell|=<big|sum><rsub|i=0><rsup|N-1><big|sum><rsub|j=N><rsup|\<infty\>>+<big|sum><rsub|i=N><rsup|\<infty\>><big|sum><rsub|j=0><rsup|N-1>>>>>>>
   </proof>
 
   <\bibliography|bib|alpha|intdep.bib>
