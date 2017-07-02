@@ -1,4 +1,4 @@
-.PHONY: all commit push clean
+.PHONY: all commit push clean publish
 .SECONDARY: 
 
 ZIPNAME=RIMSslides
@@ -17,8 +17,9 @@ TEXMACSDIR=~/for/fortexmacs
 COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
-all: $(OUTDIR)/$(ZIPNAME).zip
-#all: $(OUTDIR)/slides.pdf $(OUTDIR)/speech.pdf
+all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS)))
+publish: $(OUTDIR)/$(ZIPNAME).zip
+
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	unzip -l $@
@@ -59,4 +60,3 @@ push:
 clean:
 	rm -f *.proto.tex script.tex *.pdf $(OUTDIR)/$(ZIPNAME).zip $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	touch *.tex
-
