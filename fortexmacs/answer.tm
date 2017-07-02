@@ -1274,7 +1274,7 @@
 
   <\question>
     Explain why I think that in Theorem 1.1 of <verbatim|intpaper.pdf> we
-    need to make the assumption <math|Re \<nu\>\<gtr\>0>.
+    cannot allow <math|Re \<nu\>\<gtr\>-<frac|1|2>>.
   </question>
 
   More precisely, I will show that for every
@@ -1321,11 +1321,12 @@
 
   <\question>
     Give a sufficient condition for the convergence for each statement in
-    <verbatim|intpaper.pdf>,and gives a proof.
+    <verbatim|intpaper.pdf> together with a proof.
   </question>
 
   <\render-theorem|Claim>
-    The integral\ 
+    If <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0,-1\<leqslant\>z\<leqslant\>1>,
+    the integral\ 
 
     <\equation*>
       <big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t
@@ -1333,7 +1334,7 @@
       s d t
     </equation*>
 
-    in Theorem 1.2 converges if <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0,-1\<leqslant\>z\<leqslant\>1>.
+    in Theorem 1.2 converges.
   </render-theorem>
 
   <\proof>
@@ -1344,8 +1345,8 @@
   </proof>
 
   <\corollary*>
-    The integral in Theorem 1.1 converges if
-    <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.
+    If <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>,
+    the integral in Theorem 1.1 converges.
   </corollary*>
 
   <\render-theorem|Claim>
@@ -1367,15 +1368,15 @@
   </proof>
 
   <\render-theorem|Claim>
-    The integral\ 
+    If <math|Re a,Re b\<gtr\>0> and <math|<around*|\||z|\|>\<less\>1>, the
+    integral\ 
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><around*|(|1-t
       z|)><rsup|a-1><around*|(|1-t<rsup|2>|)><rsup|b-1>d t.>|<cell|>>>>
     </eqnarray>
 
-    of Lemma 3.1 converges for with <math|Re a,Re b\<gtr\>0> and
-    <math|<around*|\||z|\|>\<less\>1>.
+    in Lemma 3.1 converges.
   </render-theorem>
 
   <\proof>
@@ -1398,19 +1399,19 @@
     Note that <math|2z/<around*|(|z+1|)>\<geqslant\>1> cannot happen.
   </proof>
 
-  <\theorem*>
-    The series\ 
+  <\render-theorem|Claim>
+    If <math|<around*|\||\<zeta\>|\|>\<less\>1>, the series\ 
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>
       <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-d-i|2>,<frac|2-d-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;\<zeta\>|)>>|<cell|>>>>
     </eqnarray>
 
-    in Lemma 3.2 converges for <math|<around*|\||\<zeta\>|\|>\<less\>1>.
-  </theorem*>
+    in Lemma 3.2 converges.
+  </render-theorem>
 
   <\proof>
-    TODO
+    TODO.
   </proof>
 
   <\bibliography|bib|alpha|intdep.bib>
