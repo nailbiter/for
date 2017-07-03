@@ -1398,18 +1398,39 @@
   </proof>
 
   <\render-theorem|Claim>
-    If <math|<around*|\||\<zeta\>|\|>\<less\>1> and
-    <math|Re<around*|(|d|)>\<less\>0>, the series\ 
+    (not yet) If <math|<around*|\||\<zeta\>|\|>\<less\>1> and
+    <math|Re<around*|(|d|)>\<gtr\>0> (we do not know yet conditions on
+    <math|a,b>), the double series in RHS of
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i>i!<around*|(|d|)><rsub|i>>
-      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-d-i|2>,<frac|2-d-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;\<zeta\>|)>>|<cell|>>>>
+      <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|1-d-i|2>,<frac|2-d-i|2>>>|<row|<cell|b+<frac|1|2>>>>>>;\<zeta\>|)>=<big|sum><rsub|i,j=0><rsup|\<infty\>><frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|<frac|1-d-i|2>|)><rsub|j><around*|(|<frac|2-d-i|2>|)><rsub|j>|2<rsup|i>i!j!<around*|(|d|)><rsub|i><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>>|<cell|>>>>
     </eqnarray>
 
-    in Lemma 3.2 converges.
+    (here LHS is taken from Lemma 3.2) <with|font-series|bold|does not>
+    converge absolutely.
   </render-theorem>
 
+  <\remark*>
+    This implies that the current proof of Lemma 3.2 is not justified (which
+    means that the Lemma can still be correct, but proof needs to be changed)
+    as it used interchange of summation order in double series above.
+
+    I still believe that at least Proposition 2.2 holds (with assumptions on
+    <math|<around*|(|a,b,c,z|)>> as in Claim above). I will try to patch its
+    proof in 2 hours starting from now.
+  </remark*>
+
   <\proof>
+    Indeed, we proceed as (here <math|\<cong\>> means that LHS is absolutely
+    convergent if and only if RHS does)
+
+    <\eqnarray>
+      <tformat|<table|<row|<cell|>|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i><around*|(|<frac|1-d-i|2>|)><rsub|j><around*|(|<frac|2-d-i|2>|)><rsub|j>|2<rsup|i>i!j!<around*|(|d|)><rsub|i><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>>|<cell|>>|<row|<cell|>|<cell|\<cong\><big|sum><rsub|i,j=0><rsup|\<infty\>><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i+2j>i!j!<around*|(|d|)><rsub|i-2j><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>\<cong\><big|sum><rsub|<stack|<tformat|<table|<row|<cell|i,j=0>>|<row|<cell|Re<around*|(|d+i-2j|)>\<less\>0>>>>>><rsup|\<infty\>><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i+2j>i!j!\<Gamma\><around*|(|d+i-2j|)><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>>|<cell|>>|<row|<cell|>|<cell|+<big|sum><rsub|<stack|<tformat|<table|<row|<cell|i,j=0>>|<row|<cell|Re<around*|(|d+i-2j|)>\<gtr\>0>>>>>><rsup|\<infty\>><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i+2j>i!j!\<Gamma\><around*|(|d+i-2j|)><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>\<lesssim\><rsup|\<ast\>>>|<cell|>>|<row|<cell|>|<cell|<big|sum><rsub|<stack|<tformat|<table|<row|<cell|i,j=0>>|<row|<cell|2j-i=m\<geqslant\>1>>>>>><rsup|\<infty\>><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i+2j>i!j!\<Gamma\><around*|(|d-m|)><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>+<big|sum><rsub|<stack|<tformat|<table|<row|<cell|i,j=0>>|<row|<cell|2j-i=-m\<leqslant\>0>>>>>><rsup|\<infty\>><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|2<rsup|i+2j>i!j!\<Gamma\><around*|(|d+m|)><around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>\<lesssim\>>|<cell|>>>>
+    </eqnarray>
+
+    and as
+
     We prove the convergence by expanding the <math|<rsub|2>F<rsub|1>> in
     power series and proving the absolute convergence of double-indexed
     series
@@ -1428,7 +1449,7 @@
     Hence,
 
     <\equation*>
-      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d-i|2>|)><rsub|j><around*|(|<frac|2-d-i|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>>>|<row|<cell|\<leqslant\><big|sum><rsub|i,j=1><rsup|N<rsub|\<varepsilon\>>>+A<rsub|\<varepsilon\>>B<rsub|\<varepsilon\>><big|sum><rsub|i=N><rsup|\<infty\>><around*|(|<frac|1|2>+\<varepsilon\>|)><rsup|i><big|sum><rsub|j=N><rsup|\<infty\>><around*|(|<around*|\||\<zeta\>|\|>+\<varepsilon\>|)><rsup|j>>>|<row|<cell|+<big|sum><rsub|j=N><rsup|\<infty\>>
+      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|i,j=0><rsup|\<infty\>><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d-i|2>|)><rsub|j><around*|(|<frac|2-d-i|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>>>|<row|<cell|\<leqslant\><big|sum><rsub|i,j=1><rsup|N<rsub|\<varepsilon\>>>+A<rsub|\<varepsilon\>>B<rsub|\<varepsilon\>><big|sum><rsub|i=N><rsup|\<infty\>><around*|(|<frac|1|2>+\<varepsilon\>|)><rsup|i><big|sum><rsub|j=N><rsup|\<infty\>><around*|(|<around*|\||\<zeta\>|\|>+\<varepsilon\>|)><rsup|j>>>|<row|<cell|>>|<row|<cell|+<big|sum><rsub|j=N><rsup|\<infty\>>
       <around*|\||<frac|<around*|(|<frac|1-d|2>|)><rsub|j><around*|(|<frac|2-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|><big|sum><rsub|i=0><rsup|N-1><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d-2j|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>|\|>>>|<row|<cell|+<big|sum><rsub|i=N><rsup|\<infty\>><big|sum><rsub|j=0><rsup|N-1><around*|\||<frac|<around*|(|a|)><rsub|i><around*|(|1-a|)><rsub|i>|i!<around*|(|d-2j|)><rsub|i>><around*|(|<frac|1|2>|)><rsup|i>\<cdot\><frac|<around*|(|<frac|1-d|2>|)><rsub|j><around*|(|<frac|2-d|2>|)><rsub|j>|j!<around*|(|b+<frac|1|2>|)><rsub|j>>\<zeta\><rsup|j>|\|>>>>>>>>>>>
     </equation*>
 
