@@ -23,6 +23,8 @@
 \newif\ifmydebug
 %%\mydebugtrue
 \mydebugtrue
+
+\newcommand{\taggedpropsymb}{$\;1'$}
 \newcommand{\myifdebug}[1]{
 		\ifmydebug
 		#1
@@ -85,6 +87,7 @@
 %%\newtheorem*{proof}{証明}
 \newtheorem*{example*}{例}
 \newtheorem*{lemma*}{補題}
+\newtheorem*{remark*}{注}
 \newenvironment{taggedprop}[1]
  {\renewcommand\thetaggedpropx{#1}\taggedpropx}
   {\endtaggedpropx}
@@ -229,7 +232,7 @@
 \begin{frame}
 	命題\ref{prop:exp-st-gg}は次の
 	積分公式と同値である.
-	\begin{taggedprop}{$\;1'$}
+	\begin{taggedprop}{\taggedpropsymb}
 		\label{prop:int-st-gg}
 		\begin{equation*}
 			\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}

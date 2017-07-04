@@ -2,7 +2,7 @@
 
 ZIPNAME=fouryearseminar
 COMMIT_MSG=tex fouryearseminar
-PDFS=jun7
+PDFS=jun28
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -42,7 +42,7 @@ $(TEXMACSDIR)/%.eps: %.tex
 	latex $<
 	dvips -E -o $@ $(basename $<).dvi
 
-$(OUTDIR)/%.pdf : $(TEXMACSDIR)/4yearseminar/%.tm
+$(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	$(TEXMACS) --convert $< $@ --quit
 
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/,$(addsuffix .pdf, $(PDFS)))	

@@ -1,4 +1,4 @@
-.PHONY: all commit push clean publish
+.PHONY: all commit push clean publish ja
 .SECONDARY: 
 
 ZIPNAME=RIMSslides
@@ -20,6 +20,12 @@ GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS)))
 publish: $(OUTDIR)/$(ZIPNAME).zip
 
+$(OUTDIR)/RIMS17-Alex-int.dvi: RIMS17-Alex-int.tex diagram.tex big.intdep.tex
+	latexmk -outdir=$(OUTDIR) -latex='platex %O %S' -f -g $<
+
+$(OUTDIR)/RIMS17-Alex-int.pdf: $(OUTDIR)/RIMS17-Alex-int.dvi
+	cd $(OUTDIR) && dvipdfmx $(basename $<).dvi
+
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	unzip -l $@
@@ -32,9 +38,6 @@ $(OUTDIR)/%.intdep.tex : %.intdep.tex
 	cp -f $< $@
 
 $(OUTDIR)/slides.pdf : slides.tex diagram.tex $(addprefix $(OUTDIR)/,$(addsuffix .intdep.tex,$(DIAGRAMS)))
-	$(XELATEX) $<
-
-$(OUTDIR)/RIMS17-Alex-int.pdf : RIMS17-Alex-int.tex diagram.tex big.intdep.tex
 	$(XELATEX) $<
 
 $(OUTDIR)/trials.pdf : trials.pdf

@@ -1,30 +1,5 @@
 %make
-% !TEX TS-program = pdflatex
-% !TEX encoding = UTF-8 Unicode
-
-% This is a simple template for a LaTeX document using the "article" class.
-% See "book", "report", "letter" for other types of document.
-
-\documentclass[12pt]{article} % use larger type; default would be 10pt
-
-\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
-
-%%% Examples of Article customizations
-% These packages are optional, depending whether you want the features they provide.
-% See the LaTeX Companion or other references for full information.
-
-%%% PAGE DIMENSIONS
-\usepackage{hyperref}
-\usepackage{geometry} % to change the page dimensions
-\geometry{a4paper} % or letterpaper (US) or a5paper or....
-\geometry{left=2.5cm}
-\geometry{right=3cm}
-\geometry{top=3cm}
-\geometry{bottom=3cm}
-% \geometry{margin=2in} % for example, change the margins to 2 inches all round
-% \geometry{landscape} % set up the page for landscape
-%   read geometry.pdf for detailed page layout information
-
+\documentclass[12pt,a4paper,dvipdfmx]{jsarticle}
 \usepackage{graphicx} % support the \includegraphics command and options
 
 \usepackage{framed}
@@ -34,6 +9,7 @@
 % \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
 
 %%% PACKAGES
+\usepackage{ruby}
 \usepackage{bigints}
 %\usepackage[showboxes]{textpos}
 \usepackage{textpos}
@@ -42,7 +18,6 @@
 \usepackage{mathtools}
 \usepackage[all,cmtip]{xy}
 \usepackage{mystyle}
-\usepackage{xeCJK}
 \usepackage{lpic}
 \usepackage{etoolbox}
 \usepackage{comment}
@@ -56,41 +31,17 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsmath}
-\usepackage{xeCJK}
 \usepackage{ruby}
 %\renewcommand\rubysep{-5ex}
 \newcommand{\kana}[2]{#1}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsmath,amsthm}
-\renewcommand*{\proofname}{証明}
-\usepackage{xeCJK}
-\usepackage{ruby}
+\usepackage{amssymb,amssymb,amsthm,lmodern}
+\usepackage[driver=dvipdfm,truedimen,top=3truecm,bottom=3truecm,left=2.5truecm,right=2.5truecm]{geometry}
+\usepackage{hyperref}
 
 \newcommand{\mysbo}{A:\pi\kern-0.1cm\mid_{G'}\xrightarrow{G'}\tau}
-\renewcommand{\figurename}{図}
-%CJK font
-%\setCJKmainfont[AutoFakeBold=true]{MS PGothic}
-\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro}
-% These packages are all incorporated in the memoir class to one degree or another...
-
-%thm environments
-\newtheorem{question}{質問}
-\newtheorem{answer}{私の答え}
-\newtheorem{taggedpropx}{\textbf{命題}}
-\newtheorem{cor}{系}
-%%\newtheorem*{proof}{証明}
-\newtheorem*{lemma*}{補題}
-\newtheorem{prop}{命題}
-\newtheorem*{fact*}{Fact}
-\newtheorem*{setting*}{\textbf{設定}}
-\newtheorem*{goal*}{\textbf{目標}}
-\newtheorem*{remark*}{\textbf{注}}
-\newtheorem{method}{\textbf{メソッド}}
-
-\theoremstyle{remark}
-\newtheorem*{example*}{\textbf{例}}
-
 \newcommand{\myrelationdiagram}[5]{
 		\centerline{
 		\xymatrix{
@@ -159,48 +110,82 @@
 \newcommand{\Res}{\operatorname{Res}\displaylimits}
 \newcommand{\OpR}{\mbox{\it R}}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\def\@author@list{}
+\renewcommand{\author}[4]{%
+  \ifx\@author@list\@empty\else\g@addto@macro\@author@list{\medskip}\fi
+  \g@addto@macro\@author@list{\noindent #2\quad#1\par\noindent #3\par\noindent #4\par}%
+}
+\def\@maketitle{%
+  \begin{center}
+  {\LARGE \@title}\par
+  \vskip 1.5em
+  {\large\@author@list}%
+  \end{center}
+  \par\vskip 1.5em
+}
+\let\original@proof=\proof
+\let\original@endproof=\endproof
+\def\proof{\@ifnextchar[{\proof@}{\proof@[\proofname]}}
+\def\proof@[#1]{%
+  \labelsep=1zw
+  \original@proof[{\headfont #1\inhibitglue}\nopunct]
+}
+\makeatother
+\newtheoremstyle{jplain}{}{}{\normalfont}{}{\headfont}{}{1zw}{\thmname{#1}\thmnumber{\ #2}\thmnote{（#3）}}
+\theoremstyle{jplain}
+\renewcommand{\proofname}{証明}
+% 概要の見出しを英語に
+\renewcommand{\abstractname}{Abstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 定理環境の定義
+\newcommand{\taggedpropsymb}{$\;1'$}
+\newtheorem{thm}{定理}[section]
+\newtheorem{lem}[thm]{補題}
+% その他ご自由に……
+\newtheorem{prop}[thm]{命題}
+\newtheorem{example}[thm]{例}
+\newtheorem{cor}[thm]{系}
+\newtheorem{method}{メソッド}
+
+\newtheorem*{lemma*}{放題}
+\newtheorem*{fact*}{Fact}
+\newtheorem*{example*}{例}
+\newtheorem*{remark*}{注}
+\newtheorem*{goal*}{目標}
+\newtheorem*{setting*}{設定}
+
+\newtheorem{taggedpropx}{命題}
 \newenvironment{taggedprop}[1]
  {\renewcommand\thetaggedpropx{#1}\taggedpropx}
   {\endtaggedpropx}
-%%% HEADERS & FOOTERS
-\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
-\pagestyle{fancy} % options: empty , plain , fancy
-\renewcommand{\headrulewidth}{0pt} % customise the layout...
-\lhead{}\chead{}\rhead{}
-\lfoot{}\cfoot{\thepage}\rfoot{}
 
-%%% SECTION TITLE APPEARANCE
+% 命令定義とか
+% \newcommand{***}{***}
 
-%%% ToC (table of contents) APPEARANCE
-\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
-\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
-\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
-\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+% 文書情報
+\title{２つのゲーゲンバウアー多項式に関連する積分公式について}
+\author{小林 俊行}{東京大学 大学院数理科学研究科、カブリ数物連携宇宙研究機構}{Toshiyuki Kobayashi}{
+Graduate School of Mathematical Sciences, the University of Tokyo,\\
+Kavli Institute for the Physics and Mathematics of the Universe}
+\author{レオンチエフ アレックス}{東京大学 大学院数理科学研究科}{Alex Leontiev}{Graduate School of Mathematical Sciences,
+The University of Tokyo}
+%%\author{阿部 紀行}{北海道大学 理学研究院}{Noriyuki Abe}{Department of Mathematics, Hokkaido University}
 
-%%%my commands
-
-%%% END Article customizations
-
-%%% The "real" document content comes below...
-
-\title{2 つのゲーゲンバウアー多項式に関連する積分公 式について}
-\author{東京大学・大学院数理科学研究科、カブリ数物連携宇宙研究機構\quad 小林\quad 俊行\footnote{
-the right margin should be 2.5cm, so this line probably should be split in half; or is it better to omit Kavli IPMU?}\\
-Toshiyuki Kobayashi\\
-Graduate School of Mathematical Sciences,\\
-the University of Tokyo,\\
-Kavli Institute for the Physics and Mathematics of the Universe,\\\\
-東京大学・大学院数理科学研究科\quad レオンチエフ\quad アレックス\\
-Alex Leontiev\\
-Graduate School of Mathematical Sciences,\\
-the University of Tokyo
-}
-\date{} % Activate to display a given date or no date (if empty),
-         % otherwise the current date is printed 嘘頼める
-
+%%\quad 
+%%Alex Leontiev\\
+%%Graduate School of Mathematical Sciences,\\
+%%the University of Tokyo
+%%}
 \begin{document}
 \maketitle
-
+\begin{abstract}
+	This is an abstract.
+	\footnote{I will do send the first draft in a next version. Should I write it in Japanese or in English?}
+\end{abstract}
 \section{主結果}
 	最初は、Gegenbauer多項式という多項式のファミリの定義と性質を復習する.
 	Gegenbauer多項式$\left\{ C_n^\lambda \right\}_{n=1}^{\infty}$は、
@@ -280,7 +265,7 @@ the University of Tokyo
 
 	命題\ref{prop:exp-st-gg}は次の
 	積分公式と同値である.
-	\begin{taggedprop}{$\;\mathbf{1'}$}
+	\begin{taggedprop}{\taggedpropsymb}
 		\label{prop:int-st-gg}
 		\begin{equation*}
 			\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
@@ -873,6 +858,50 @@ multiplicity-freeに分解されている様子を表し、
 %%	\nocite{kobayashi2015program}
 \bibliography{intdep}
 \end{document}
+
+\section{はじめに}
+この論文では，どっかの論文で証明されているかもしれない次の定理を紹介する．
+\begin{thm}[主定理]
+すんげーことが成り立つかもしれない．
+\end{thm}
+\section{証明}
+まず次の補題に注意しよう．
+\begin{lem}
+主定理の証明に超役立つ補題．
+\end{lem}
+\begin{proof}
+だんだん考えてくると自明に成り立つような気がするようなそうでもないような．
+\end{proof}
+
+
+\end{document}
+
+%%\renewcommand*{\proofname}{証明}
+%%\renewcommand{\figurename}{図}
+
+%thm environments
+%%\newtheorem{question}{質問}
+%%\newtheorem{answer}{私の答え}
+%%\newtheorem{taggedpropx}{\textbf{命題}}
+%%\newtheorem{cor}{系}
+%%%%\newtheorem*{proof}{証明}
+%%\newtheorem*{lemma*}{補題}
+%%\newtheorem{prop}{命題}
+%%\newtheorem*{fact*}{Fact}
+%%\newtheorem*{setting*}{\textbf{設定}}
+%%\newtheorem*{goal*}{\textbf{目標}}
+%%\newtheorem*{remark*}{\textbf{注}}
+%%\newtheorem{method}{\textbf{メソッド}}
+%%
+%%\theoremstyle{remark}
+%%\newtheorem*{example*}{\textbf{例}}
+
+\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 嘘頼める
+
+\begin{document}
+\maketitle
+
 %%\begin{frame}[fragile]
 %%\begin{tikzpicture}
 %%\input{Sfull.intdep.tex}
