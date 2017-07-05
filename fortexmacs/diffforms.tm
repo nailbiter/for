@@ -3,9 +3,9 @@
 <style|<tuple|article|mystyle|structured-section|number-europe|number-long-article>>
 
 <\body>
-  <\hide-part|1>
+  <\show-part|1>
     <date|>
-  </hide-part|>
+  </show-part|>
 
   <\hide-part|2>
     <section|First section|>
@@ -188,44 +188,13 @@
   </hide-part>
 
   <\show-part|4>
-    <section|playground|>
-
-    <subsection|General stuff|>
-
-    <\proposition>
-      <label|prop:cpt-maxtorus>Suppose <math|G> is compact group (not
-      necessarily connected) and <math|T> is its subgroup such that:
-
-      <\enumerate>
-        <item><math|T\<cap\>G<rsub|0>> is the maximal torus of connected
-        compact group <math|G<rsub|0>> (here <math|G<rsub|0>> is the identity
-        component);
-
-        <item><math|T> crosses every connected component of <math|G>.
-      </enumerate>
-    </proposition>
-
-    <\remark>
-      This proposition and its proof are inspired by
-      <cite-detail|knapp2013lie|Thm. 4.36>.
-    </remark>
-
-    <\proof>
-      (of Proposition <reference|prop:cpt-maxtorus>). We use the following
-      notation:
-
-      <\equation*>
-        <stack|<tformat|<table|<row|<cell|y<rsup|x>\<assign\>x y
-        x<rsup|-1>,<space|1em>T<rsup|g>\<assign\><around*|{|t<rsup|g>\<mid\>t\<in\>T|}>,<space|1em>>>>>>T<rsup|G>\<assign\>\<cup\><rsub|g\<in\>G>T<rsup|g>.
-      </equation*>
-
-      We will proceed by induction on <math|dim G>.
-    </proof>
+    <section|Symmetry breaking for full orthogonal groups
+    <math|O<around*|(|N|)>>|>
 
     <subsection|Irreps of <math|SO<around*|(|n|)>> and
     <math|O<around*|(|n|)>>|>
 
-    Note that (see <cite|knapp2013lie>)
+    Recall that (see <cite|knapp2013lie>)
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<tabular|<tformat|<table|<row|<cell|HV<around*|(|N|)>\<assign\><choice|<tformat|<table|<row|<cell|\<lambda\><rsub|1>\<geqslant\>\<lambda\><rsub|2>\<geqslant\>\<ldots\>\<geqslant\>\<lambda\><rsub|k-1>\<geqslant\><around*|\||\<lambda\><rsub|k>|\|>\<geqslant\>0,>|<cell|N=2k>>|<row|<cell|\<lambda\><rsub|1>\<geqslant\>\<lambda\><rsub|2>\<geqslant\>\<ldots\>\<geqslant\>\<lambda\><rsub|k>\<geqslant\>0,>|<cell|N=2k+1>>>>>>|<cell|<long-arrow|\<rubber-rightarrow\>|\<sim\>>>|<cell|<wide|SO|^><around*|(|N|)>>>|<row|<cell|\<lambda\>=<around*|(|\<lambda\><rsub|i>|)>>|<cell|\<mapsto\>>|<cell|<around*|[|\<lambda\>|]>>>>>>>|<cell|>>>>
@@ -266,10 +235,65 @@
     </fact>
 
     <\fact>
-      <cite-detail|goodman2000representations|Sec 10.2.4, 10.2.5> (\Pexplicit
-      construction of irreps of <math|O<around*|(|N|)>>\Q)
+      <cite-detail|fulton2013representation|Ÿ19.5, Thm. 19.22> (\Pexplicit
+      model for irreps of <math|O<around*|(|N|)>>\Q) Let
+      <math|\<lambda\>\<in\>HV<around*|(|N|)>> such that if
+      <math|\<lambda\>=2k>, then <math|\<lambda\><rsub|k>\<geqslant\>0>, and
+      <math|d\<assign\><around*|\||\<lambda\>|\|>\<assign\><big|sum><rsub|i\<geqslant\>1>\<lambda\><rsub|i>>
+      Make the following definitions:
 
-      TODO
+      <\enumerate>
+        <item>For <math|Q<around*|(|x,y|)>=<around*|\<langle\>|x,y|\<rangle\>>>
+        being the canonical quadratic form on
+        <math|V\<assign\>\<bbb-C\><rsup|N>> and pair
+        <math|p,q\<mid\>1\<leqslant\>p\<less\>q\<leqslant\>d> we define a
+        contraction
+
+        <\equation*>
+          <stack|<tformat|<table|<row|<cell|\<Phi\><rsub|d><rsup|p,q>:V<rsup|\<otimes\>d>\<rightarrow\>V<rsup|\<otimes\>d-2>>>|<row|<cell|v<rsub|1>\<otimes\>\<ldots\>\<otimes\>v<rsub|d>\<mapsto\>Q<around*|(|v<rsub|p>,v<rsub|q>|)>\<otimes\>v<rsub|1>\<otimes\>\<ldots\>\<otimes\><wide|v<rsub|p>|^>\<otimes\>\<ldots\>\<otimes\><wide|v<rsub|q>|^>\<otimes\>\<ldots\>\<otimes\>v<rsub|d>>>>>>
+        </equation*>
+
+        (here <math|<wide|v<rsub|p>|^>> means, for example, that
+        <math|v<rsub|p>> is omitted). We let
+        <math|V<rsup|<around*|[|d|]>>\<subset\>V<rsup|\<otimes\>d>> to be the
+        intersection of kernel of all <math|\<Phi\><rsub|d><rsup|p,q>> for
+        all possible <math|1\<leqslant\>p\<less\>q\<leqslant\>d>.
+
+        <item><cite-detail|fulton2013representation|Ÿ4.1> To
+        <math|\<lambda\>> we associate filled Young diagram. For example, to
+        <math|<around*|(|3,3,2,1,1|)>> we associate\ 
+
+        <center|<block|<tformat|<cwith|3|3|3|3|cell-tborder|1ln>|<cwith|2|2|3|3|cell-bborder|1ln>|<cwith|3|3|3|3|cell-lborder|1ln>|<cwith|3|3|2|2|cell-rborder|1ln>|<cwith|3|3|3|3|cell-rborder|0ln>|<cwith|4|4|3|3|cell-tborder|0ln>|<cwith|3|3|3|3|cell-bborder|0ln>|<cwith|4|4|3|3|cell-rborder|0ln>|<cwith|5|5|3|3|cell-tborder|0ln>|<cwith|4|4|3|3|cell-bborder|0ln>|<cwith|5|5|3|3|cell-bborder|0ln>|<cwith|5|5|3|3|cell-rborder|0ln>|<cwith|5|5|2|2|cell-bborder|0ln>|<cwith|5|5|2|2|cell-lborder|1ln>|<cwith|5|5|1|1|cell-rborder|1ln>|<cwith|5|5|2|2|cell-rborder|0ln>|<cwith|5|5|3|3|cell-lborder|0ln>|<cwith|4|4|2|2|cell-tborder|1ln>|<cwith|3|3|2|2|cell-bborder|1ln>|<cwith|4|4|2|2|cell-bborder|0ln>|<cwith|5|5|2|2|cell-tborder|0ln>|<cwith|4|4|2|2|cell-lborder|1ln>|<cwith|4|4|1|1|cell-rborder|1ln>|<cwith|4|4|2|2|cell-rborder|0ln>|<cwith|4|4|3|3|cell-lborder|0ln>|<table|<row|<cell|1>|<cell|2>|<cell|3>>|<row|<cell|4>|<cell|5>|<cell|6>>|<row|<cell|7>|<cell|8>|<cell|>>|<row|<cell|9>|<cell|>|<cell|>>|<row|<cell|10>|<cell|>|<cell|>>>>>>
+
+        We also associate
+
+        <\equation*>
+          <stack|<tformat|<table|<row|<cell|P<rsub|\<lambda\>>=<around*|{|g\<in\>\<frak-S\><rsub|d>\<mid\>g
+          <math-up| preserves every row of
+          diagram>|}>,>>|<row|<cell|Q<rsub|\<lambda\>>=<around*|{|g\<in\>\<frak-S\><rsub|d>\<mid\>g
+          <math-up| preserves every column of diagram>|}>.>>>>>
+        </equation*>
+
+        <item><cite-detail|fulton2013representation|(4.2)> \ we introduce\ 
+
+        <\equation*>
+          <stack|<tformat|<table|<row|<cell|e<rsub|g>:V<rsup|d>\<rightarrow\>V<rsup|d>:<math-up|permutes
+          components according to <math|g\<in\>\<frak-S\><rsub|d>>
+          >>>|<row|<cell|a<rsub|\<lambda\>>\<assign\><big|sum><rsub|g\<in\>P>e<rsub|p>>>|<row|<cell|Im<around*|(|a<rsub|\<lambda\>>|)>=Sym<rsup|\<lambda\><rsub|1>>V\<otimes\>Sym<rsup|\<lambda\><rsub|2>>V\<otimes\>\<ldots\>\<otimes\>Sym<rsup|\<lambda\><rsub|k>>V\<subset\>V<rsup|\<otimes\>d>>>|<row|<cell|b<rsub|\<lambda\>>\<assign\><big|sum><rsub|g\<in\>Q>sgn<around*|(|g|)>e<rsub|g>>>|<row|<cell|Im<around*|(|b<rsub|\<lambda\>>|)>=<big|wedge><rsup|\<mu\><rsub|1>>V\<otimes\><big|wedge><rsup|\<mu\><rsub|2>>V\<otimes\>\<ldots\>\<otimes\><big|wedge><rsup|\<mu\><rsub|t>>\<subset\>V<rsup|\<otimes\>d>:<math-up|here
+          <math|\<mu\>> is conjugate to <math|\<lambda\>>>>>|<row|<cell|c<rsub|\<lambda\>>\<assign\>a<rsub|\<lambda\>>\<circ\>b<rsub|\<lambda\>>>>>>>
+        </equation*>
+      </enumerate>
+
+      Then,\ 
+
+      <\equation*>
+        S<rsub|<around*|[|\<lambda\>|]>>V:=Im<around*|(|c<rsub|\<lambda\>>:V<rsup|<around*|[|d|]>>\<rightarrow\>V<rsup|<around*|[|d-2|]>>|)>
+      </equation*>
+
+      is irrep of <math|SO<around*|(|N|)>> corresponding to <math|\<lambda\>>
+      if <math|N>: odd or <math|N=2k,\<lambda\><rsub|k>=0> and splits into
+      sum of irreps corresponding to <math|<around*|(|\<lambda\><rsub|1>,\<ldots\>,+\<lambda\><rsub|k>|)>,<around*|(|\<lambda\><rsub|1>,\<ldots\>,-\<lambda\><rsub|k>|)>>
+      otherwise.
     </fact>
 
     <subsection|Characters of irreps of <math|SO<around*|(|N|)>>|>
@@ -345,12 +369,90 @@
         </equation*>
       </description>
     </fact>
+  <|show-part>
+    <section|Symmetry breaking for full orthogonal groups
+    <math|O<around*|(|N|)>>|>
+  </show-part>
+
+  <\hide-part|5>
+    <section|Playground|>
 
     <subsection|Branching in <math|SO<around*|(|N|)>>|>
 
     \;
 
     <subsection|Characters of irreps of <math|O<around*|(|N|)>>|>
+
+    <subsection|General stuff|>
+
+    <\proposition>
+      <label|prop:cpt-maxtorus>Suppose <math|G> is compact group with
+      semisimple Lie algebra<\footnote>
+        it should be possible to remove this assumption at the cost of
+        introducing induction argument, as in Thm. 4.36 of Knapp
+      </footnote> (not necessarily connected) and <math|T> is its commutative
+      subgroup such that:
+
+      <\enumerate>
+        <item><math|T\<cap\>G<rsub|0>> is the maximal torus of connected
+        compact group <math|G<rsub|0>> (here <math|G<rsub|0>> is the identity
+        component);
+
+        <item><math|T> crosses every connected component of <math|G>.
+      </enumerate>
+
+      Then, <math|G=Ad<around*|(|G|)>T>.
+    </proposition>
+
+    <\remark>
+      This proposition and its proof are inspired by
+      <cite-detail|knapp2013lie|Thm. 4.36>.
+    </remark>
+
+    <\proof>
+      (of Proposition <reference|prop:cpt-maxtorus>). We use the following
+      notation:
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|y<rsup|x>\<assign\>x y
+        x<rsup|-1>,<space|1em>T<rsup|g>\<assign\><around*|{|t<rsup|g>\<mid\>t\<in\>T|}>,<space|1em>>>>>>T<rsup|G>\<assign\>\<cup\><rsub|g\<in\>G>T<rsup|g>.
+      </equation*>
+
+      Let <math|Z<rsub|G>> be the center of <math|G>,
+      <math|T<rsup|\<times\>>\<assign\>T-<around*|(|T\<cap\>Z<rsub|G>|)>,G<rsup|\<times\>>\<assign\>G-Z<rsub|G>>.
+      We can show that <math|Z<rsub|G>> is finite by induction on number of
+      components (<math|G>:compact <math|\<Rightarrow\>> has finitely many
+      components): if <math|G=G<rsub|0>>, we are done by
+      <cite-detail|knapp2013lie|Thm. 4.29>; otherwise if
+      <math|Z<rsub|G>\<subset\>G<rsub|0>> we are also done, as
+      <math|Z<rsub|G>\<cap\>G<rsub|0>\<subset\>Z<around*|(|G<rsub|0>|)>> and
+      the latter is finite by <cite-detail|knapp2013lie|Thm. 4.29>; finally
+      if <math|z\<in\>Z<rsub|G>-G<rsub|0>>, we can apply the inductive
+      assumption to <math|G/Z> (here <math|Z\<subset\>Z<rsub|G>> is the
+      finite subgroup generated by <math|z>) and note that <math|Z<rsub|G>>
+      is mapped into <math|Z<around*|(|G/Z|)>> by the projecton map
+      <math|G\<twoheadrightarrow\>G/Z>, which has finite kernel.
+
+      Hence, <math|<around*|\||Z<rsub|G>|\|>\<less\>\<infty\>>. Moreover,
+      semisimplicity of <math|Lie<around*|(|G|)>> implies that
+      <math|dim<around*|(|G|)>\<geqslant\>3>, hence
+      <math|G<rsup|\<times\>>\<subset\>G>: open dense. Also,
+      <math|<around*|(|T<rsup|\<times\>>|)><rsup|G>> is easily seen to be
+      nonempty. Also we note that <math|T<rsup|\<times\>>> still crosses
+      every connected component of <math|G<rsup|\<times\>>> (which are the
+      same as those of <math|G>). This follows, as
+      <math|dim<around*|(|T|)>\<geqslant\>1>.
+
+      It will then suffice to show that <math|<around*|(|T<rsup|*\<times\>>|)><rsup|G>\<subset\>G<rsup|\<times\>>>
+      is open and closed. As <math|T<rsup|\<times\>>> crosses every component
+      of <math|G>, it will imply that\ 
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|<around*|[|<tabular|<tformat|<table|<row|<cell|1>|<cell|>>|<row|<cell|>|<cell|-1>>>>>|]><around*|[|<tabular|<tformat|<table|<row|<cell|cos>|<cell|sin>>|<row|<cell|-sin>|<cell|cos>>>>>|]>=<around*|[|<tabular|<tformat|<table|<row|<cell|cos>|<cell|sin>>|<row|<cell|sin>|<cell|-cos>>>>>|]>>>|<row|<cell|<around*|[|<tabular|<tformat|<table|<row|<cell|cos>|<cell|sin>>|<row|<cell|-sin>|<cell|cos>>>>>|]><around*|[|<tabular|<tformat|<table|<row|<cell|1>|<cell|>>|<row|<cell|>|<cell|-1>>>>>|]>=<around*|[|<tabular|<tformat|<table|<row|<cell|cos>|<cell|-sin>>|<row|<cell|-sin>|<cell|-cos>>>>>|]>>>>>>
+      </equation*>
+
+      \;
+    </proof>
 
     <\definition>
       For <math|G=O<around*|(|N|)>> we let
@@ -375,66 +477,88 @@
 
       \;
     </proof>
-  <|show-part>
-    <section|playground|>
-  </show-part>
+  <|hide-part>
+    <section|Playground|>
+  </hide-part>
 
-  <\show-part|5>
-    <\bibliography|bib|alpha|todai_master.bib>
-      <\bib-list|BMMKC63>
-        <bibitem*|BMMKC63><label|bib-boerner1963representations>Hermann
-        Boerner, PG<nbsp>Murphy, J<nbsp>Mayer-Kalkschmidt, and P<nbsp>Carr.
-        <newblock>Representations of groups: with special consideration for
-        the needs of modern physics. <newblock>1963.
+  <\show-part|6>
+    <\bibliography|bib|tm-alpha|todai_master.bib>
+      <\bib-list|6>
+        <bibitem*|BMMC63><label|bib-boerner1963representations>Hermann
+        Boerner, PG Murphy, J Mayer-Kalkschmidt<localize|, and >P
+        Carr.<newblock> <with|font-shape|italic|Representations of groups:
+        with special consideration for the needs of modern
+        physics>.<newblock> North-Holland/Elsevier, 1963.<newblock>
 
-        <bibitem*|GW00><label|bib-goodman2000representations>Roe Goodman and
-        Nolan<nbsp>R Wallach. <newblock><with|font-shape|italic|Representations
-        and invariants of the classical groups>, volume<nbsp>68.
-        <newblock>Cambridge University Press, 2000.
+        <bibitem*|FH13><label|bib-fulton2013representation>William
+        Fulton<localize| and >Joe Harris.<newblock>
+        <with|font-shape|italic|Representation theory: a first course>,
+        <localize|volume> 129.<newblock> Springer Science & Business Media,
+        2013.<newblock>
 
-        <bibitem*|HTW05><label|bib-howe2005stable>Roger Howe, Eng-Chye Tan,
-        and Jeb Willenbring. <newblock>Stable branching rules for classical
-        symmetric pairs. <newblock><with|font-shape|italic|Transactions of
-        the American mathematical society>, 357(4):1601\U1626, 2005.
+        <bibitem*|GW00><label|bib-goodman2000representations>Roe
+        Goodman<localize| and >Nolan<nbsp>R Wallach.<newblock>
+        <with|font-shape|italic|Representations and invariants of the
+        classical groups>, <localize|volume><nbsp>68.<newblock> Cambridge
+        University Press, 2000.<newblock>
+
+        <bibitem*|HTW05><label|bib-howe2005stable>Roger Howe, Eng-Chye
+        Tan<localize|, and >Jeb Willenbring.<newblock> Stable branching rules
+        for classical symmetric pairs.<newblock>
+        <with|font-shape|italic|Transactions of the American mathematical
+        society>, 357(4):1601\U1626, 2005.<newblock>
 
         <bibitem*|KKP16><label|bib-kobayashi2016classification>Toshiyuki
-        Kobayashi, Toshihisa Kubo, and Michael Pevzner.
-        <newblock>Classification of differential symmetry breaking operators
-        for differential forms. <newblock><with|font-shape|italic|Comptes
-        Rendus Mathematique>, 354(7):671\U676, 2016.
+        Kobayashi, Toshihisa Kubo<localize|, and >Michael Pevzner.<newblock>
+        Classification of differential symmetry breaking operators for
+        differential forms.<newblock> <with|font-shape|italic|Comptes Rendus
+        Mathematique>, 354(7):671\U676, 2016.<newblock>
 
-        <bibitem*|Kna13><label|bib-knapp2013lie>Anthony<nbsp>W Knapp.
-        <newblock><with|font-shape|italic|Lie groups beyond an introduction>,
-        volume 140. <newblock>Springer Science & Business Media, 2013.
+        <bibitem*|Kna13><label|bib-knapp2013lie>Anthony<nbsp>W
+        Knapp.<newblock> <with|font-shape|italic|Lie groups beyond an
+        introduction>, <localize|volume> 140.<newblock> Springer Science &
+        Business Media, 2013.<newblock>
       </bib-list>
     </bibliography>
+
+    \;
   <|show-part>
-    <\bibliography|bib|alpha|todai_master.bib>
-      <\bib-list|BMMKC63>
-        <bibitem*|BMMKC63><label|bib-boerner1963representations>Hermann
-        Boerner, PG<nbsp>Murphy, J<nbsp>Mayer-Kalkschmidt, and P<nbsp>Carr.
-        <newblock>Representations of groups: with special consideration for
-        the needs of modern physics. <newblock>1963.
+    <\bibliography|bib|tm-plain|todai_master.bib>
+      <\bib-list|6>
+        <bibitem*|1><label|bib-boerner1963representations>Hermann Boerner, PG
+        Murphy, J Mayer-Kalkschmidt<localize|, and >P Carr.<newblock>
+        <with|font-shape|italic|Representations of groups: with special
+        consideration for the needs of modern physics>.<newblock>
+        North-Holland/Elsevier, 1963.<newblock>
 
-        <bibitem*|GW00><label|bib-goodman2000representations>Roe Goodman and
-        Nolan<nbsp>R Wallach. <newblock><with|font-shape|italic|Representations
-        and invariants of the classical groups>, volume<nbsp>68.
-        <newblock>Cambridge University Press, 2000.
+        <bibitem*|2><label|bib-fulton2013representation>William
+        Fulton<localize| and >Joe Harris.<newblock>
+        <with|font-shape|italic|Representation theory: a first course>,
+        <localize|volume> 129.<newblock> Springer Science & Business Media,
+        2013.<newblock>
 
-        <bibitem*|HTW05><label|bib-howe2005stable>Roger Howe, Eng-Chye Tan,
-        and Jeb Willenbring. <newblock>Stable branching rules for classical
-        symmetric pairs. <newblock><with|font-shape|italic|Transactions of
-        the American mathematical society>, 357(4):1601\U1626, 2005.
+        <bibitem*|3><label|bib-goodman2000representations>Roe
+        Goodman<localize| and >Nolan<nbsp>R Wallach.<newblock>
+        <with|font-shape|italic|Representations and invariants of the
+        classical groups>, <localize|volume><nbsp>68.<newblock> Cambridge
+        University Press, 2000.<newblock>
 
-        <bibitem*|KKP16><label|bib-kobayashi2016classification>Toshiyuki
-        Kobayashi, Toshihisa Kubo, and Michael Pevzner.
-        <newblock>Classification of differential symmetry breaking operators
-        for differential forms. <newblock><with|font-shape|italic|Comptes
-        Rendus Mathematique>, 354(7):671\U676, 2016.
+        <bibitem*|4><label|bib-howe2005stable>Roger Howe, Eng-Chye
+        Tan<localize|, and >Jeb Willenbring.<newblock> Stable branching rules
+        for classical symmetric pairs.<newblock>
+        <with|font-shape|italic|Transactions of the American mathematical
+        society>, 357(4):1601\U1626, 2005.<newblock>
 
-        <bibitem*|Kna13><label|bib-knapp2013lie>Anthony<nbsp>W Knapp.
-        <newblock><with|font-shape|italic|Lie groups beyond an introduction>,
-        volume 140. <newblock>Springer Science & Business Media, 2013.
+        <bibitem*|5><label|bib-kobayashi2016classification>Toshiyuki
+        Kobayashi, Toshihisa Kubo<localize|, and >Michael Pevzner.<newblock>
+        Classification of differential symmetry breaking operators for
+        differential forms.<newblock> <with|font-shape|italic|Comptes Rendus
+        Mathematique>, 354(7):671\U676, 2016.<newblock>
+
+        <bibitem*|6><label|bib-knapp2013lie>Anthony<nbsp>W Knapp.<newblock>
+        <with|font-shape|italic|Lie groups beyond an introduction>,
+        <localize|volume> 140.<newblock> Springer Science & Business Media,
+        2013.<newblock>
       </bib-list>
     </bibliography>
   </show-part>
@@ -453,33 +577,55 @@
     <associate|1:prop-qb1|<tuple|1.4|2|#2>>
     <associate|2:fact-irreps-of-on|<tuple|2.1|?|#3>>
     <associate|auto-1|<tuple|1|1>>
+    <associate|auto-10|<tuple|4.2|?>>
     <associate|auto-2|<tuple|2|2>>
     <associate|auto-3|<tuple|3|?>>
     <associate|auto-4|<tuple|3.1|?>>
     <associate|auto-5|<tuple|3.2|?>>
-    <associate|auto-6|<tuple|Case b|?>>
+    <associate|auto-6|<tuple|4|?>>
+    <associate|auto-7|<tuple|4.1|?>>
+    <associate|auto-8|<tuple|4.2|?>>
+    <associate|auto-9|<tuple|4.3|?>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.4-2|<tuple|3.1|?|#4>>
     <associate|auto.4-3|<tuple|3.2|?|#4>>
-    <associate|auto.4-4|<tuple|3.3|?|#4>>
-    <associate|auto.4-5|<tuple|3.4|?|#4>>
-    <associate|auto.4-6|<tuple|3.5|?|#4>>
-    <associate|auto.5-1|<tuple|3.2|?|#5>>
-    <associate|bib-boerner1963representations|<tuple|BMMKC63|?|#5>>
-    <associate|bib-goodman2000representations|<tuple|GW00|?|#5>>
-    <associate|bib-howe2005stable|<tuple|HTW05|?|#5>>
-    <associate|bib-knapp2013lie|<tuple|Kna13|?|#5>>
-    <associate|bib-kobayashi2016classification|<tuple|KKP16|2|#5>>
+    <associate|auto.4-4|<tuple|4|?|#4>>
+    <associate|auto.4-5|<tuple|4.1|?|#4>>
+    <associate|auto.4-6|<tuple|4.2|?|#4>>
+    <associate|auto.4-7|<tuple|4.3|?|#4>>
+    <associate|auto.5-1|<tuple|4|?|#5>>
+    <associate|auto.5-2|<tuple|4.1|?|#5>>
+    <associate|auto.5-3|<tuple|4.2|?|#5>>
+    <associate|auto.5-4|<tuple|4.3|?|#5>>
+    <associate|auto.6-1|<tuple|4.2|?|#6>>
+    <associate|bib-KO2|<tuple|KØ03|?|#6>>
+    <associate|bib-boerner1963representations|<tuple|BMMC63|?|#6>>
+    <associate|bib-dotsenko1985four|<tuple|DF85|?|#6>>
+    <associate|bib-fulton2013representation|<tuple|FH13|?|#6>>
+    <associate|bib-goodman2000representations|<tuple|GW00|?|#6>>
+    <associate|bib-gradshteinryzhik|<tuple|GRJ00|?|#6>>
+    <associate|bib-howe1993homogeneous|<tuple|HT93|?|#6>>
+    <associate|bib-howe2005stable|<tuple|HTW05|?|#6>>
+    <associate|bib-keiner2009computing|<tuple|Kei09|?|#6>>
+    <associate|bib-knapp2013lie|<tuple|Kna13|?|#6>>
+    <associate|bib-kobayashi2011schrodinger|<tuple|KM11|?|#6>>
+    <associate|bib-kobayashi2016classification|<tuple|KKP16|2|#6>>
+    <associate|bib-mackenzie2003hermite|<tuple|MT03|?|#6>>
+    <associate|bib-olver2010nist|<tuple|Olv10|?|#6>>
+    <associate|bib-rainville1960special|<tuple|Rai60|?|#6>>
+    <associate|bib-tarasov2003selberg|<tuple|TV03|?|#6>>
+    <associate|bib-warnaar2010sl3|<tuple|War10|?|#6>>
     <associate|fact-1|<tuple|1.1|?>>
+    <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-3.1|<tuple|3.1|?|#4>>
     <associate|footnote-3.2|<tuple|3.2|?|#4>>
-    <associate|footnote-4.1|<tuple|4.1|?|#4>>
+    <associate|footnote-4.1|<tuple|4.1|?|#5>>
     <associate|footnr-3.1|<tuple|3.1|?|#4>>
     <associate|footnr-3.2|<tuple|3.2|?|#4>>
-    <associate|footnr-4.1|<tuple|4.1|?|#4>>
-    <associate|prop:cpt-maxtorus|<tuple|3.1|?|#4>>
+    <associate|footnr-4.1|<tuple|4.1|?|#5>>
+    <associate|prop:cpt-maxtorus|<tuple|4.1|?|#5>>
   </collection>
 </references>
 
@@ -500,7 +646,17 @@
 
       goodman2000representations
 
+      fulton2013representation
+
+      goodman2000representations
+
       boerner1963representations
+
+      knapp2013lie
+
+      knapp2013lie
+
+      knapp2013lie
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>First
@@ -511,12 +667,15 @@
       for differential forms> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>playground>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Symmetry
+      breaking for full orthogonal groups
+      <with|mode|<quote|math>|O<around*|(|N|)>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3><vspace|0.5fn>
 
       <with|par-left|<quote|1tab>|3.1<space|2spc>Irreps of
-      <with|mode|<quote|math>|SO<around*|(|n|)>,O<around*|(|n|)>>
+      <with|mode|<quote|math>|SO<around*|(|n|)>> and
+      <with|mode|<quote|math>|O<around*|(|n|)>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4>>
 
@@ -525,9 +684,27 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Playground>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|4.1<space|2spc>Branching in
+      <with|mode|<quote|math>|SO<around*|(|N|)>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7>>
+
+      <with|par-left|<quote|1tab>|4.2<space|2spc>Characters of irreps of
+      <with|mode|<quote|math>|O<around*|(|N|)>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-8>>
+
+      <with|par-left|<quote|1tab>|4.3<space|2spc>General stuff
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-9>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-10><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
