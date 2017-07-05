@@ -1,8 +1,8 @@
-.PHONY: all clean push commit
+.PHONY: all clean push commit publish
 
 ZIPNAME=fouryearseminar
 COMMIT_MSG=tex fouryearseminar
-PDFS=jun28
+PDFS=jul5
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -11,10 +11,10 @@ XELATEX=latexmk -pdf -outdir=$(OUTDIR) -pdflatex='xelatex %O %S' -f -g
 OUTDIR=../foraux
 MATHEMATICADIR=~/for/formathematica/kint
 TEXMACSDIR=~/for/fortexmacs/4yearseminar
-GIT=git add $(addsuffix .tex, $(PDFS)) *.bib Makefile && git commit --allow-empty -a -m "$(COMMIT_MSG)"
+GIT=git add *.bib Makefile && git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
-all: $(OUTDIR)/$(ZIPNAME).zip
-#all: $(TEXMACSDIR)/jun7d1.eps
+publish: $(OUTDIR)/$(ZIPNAME).zip
+all: $(addprefix $(OUTDIR)/,$(addsuffix .pdf, $(PDFS)))
 
 clean:
 	touch *.tex
@@ -22,7 +22,6 @@ clean:
 
 $(OUTDIR)/%.pdf : %.tex
 	$(LATEXMK) $<
-	$(GIT)
 
 $(OUTDIR)/jun7.pdf : $(TEXMACSDIR)/jun7.tm $(TEXMACSDIR)/jul7d1.png
 	$(TEXMACS) --convert $< $@ --quit
@@ -46,6 +45,7 @@ $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	$(TEXMACS) --convert $< $@ --quit
 
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/,$(addsuffix .pdf, $(PDFS)))	
+	$(GIT)
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf, $(PDFS)) && unzip -l $(ZIPNAME).zip
 
 commit:

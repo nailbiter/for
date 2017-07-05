@@ -3,7 +3,7 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 71>
+  <section|report 72>
 
   <date|>
 
@@ -15,7 +15,9 @@
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     Prove the multiplicity-freeness of <math|<big|wedge><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
     as representation of <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>
-  </cell>|<cell|<with|font-series|bold|not done>>>>>>
+  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
+    estimate remaining time needed to finish Lang's SL2
+  </cell>|<cell|>>>>>
 
   \;
 
@@ -37,7 +39,7 @@
     <item>Reading:
 
     <\enumerate>
-      <item>Lang's \PSL2\Q;
+      <item>Lang's \PSL2\Q ();
 
       <item>Read <cite|kobayashi2017symmetry>
     </enumerate>

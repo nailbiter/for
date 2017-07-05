@@ -1,8 +1,8 @@
 .PHONY: all commit push clean publish
 .SECONDARY: 
 
-ZIPNAME=report71
-WORKON=$(ZIPNAME) feb14-jul5
+ZIPNAME=report72
+WORKON=$(ZIPNAME) jul5-
 COMMIT_PREFIX=...
 PDFS=report diffforms
 AUX=
