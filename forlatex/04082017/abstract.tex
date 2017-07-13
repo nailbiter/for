@@ -1,0 +1,461 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+%%\usepackage[T1,T2A]{fontenc}
+%%\usepackage[utf8]{inputenc}
+%%\usepackage[english,ukrainian]{babel} % може бути декілька мов; остання з переліку діє по замовчуванню. 
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage{enumerate}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb,xypic}
+\usepackage[all,cmtip]{xy}
+\usepackage{amsmath,amssymb,float,mystyle}
+\usepackage[normalem]{ulem}
+\usepackage{caption}
+\usepackage{setspace}
+%\usepackage{catchfilebetweentags}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{minibox}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{float}
+
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\assign}{:=}
+\newcommand{\comma}{{,}}
+\newcommand{\nin}{\not\in}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\newcommand{\um}{-}
+\newcommand{\dueto}[1]{\textup{\textbf{(#1) }}}
+\newcommand{\tmrsub}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\tmrsup}[1]{\textsuperscript{#1}}
+\newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
+\newcommand{\Op}{\mbox{\normalfont Op}}
+\newcommand{\Res}{\operatorname{Res}\displaylimits}
+\newcommand{\OpR}{\mbox{\it R}}
+\renewcommand{\Q}{Q_{p,q}}
+\newcommand{\IlambdaGprime}{I(\lambda)\kern-0.3em\mid_{G'}}
+%%\newcommand{\Hom}{\mbox{\normalfont Hom}}
+\newcommand{\SBO}{\Hom_{G'}\left(\IlambdaGprime,J(\nu) \right)}
+\newcommand{\even}{2\Z}
+\newcommand{\odd}{2\Z+1}
+\newcommand{\teven}{\mbox{\textrm{: even}}}
+\newcommand{\todd}{\mbox{\textrm{: odd}}}
+\newcommand{\tevenText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu#1\end{array}$}
+\newcommand{\toddText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu#1\end{array}$}
+\newcommand{\mm}{\mid\mid}
+\newcommand{\bb}{\backslash\backslash}
+\renewcommand{\ss}{//}
+\newcommand{\sniptK}{となる。定数$q_X^{TX}(\lambda,\nu)$,$q_X^{XT}(\lambda,\nu)$明示式が決定される。}
+\newcommand{\sniptL}{さらに、$I(\lambda)$や$J(\nu)$のsubqutientとして現わるZuckermanの導来関手加群$A_{\mathfrak{q}}(\lambda)$に関する対称性破れ作用素の存在条件が得られるが、これは別の機会に述べたい。}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{question}{Question}
+\newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
+\newcommand{\Hom}{\mbox{\normalfont Hom}}
+\newcommand{\Sol}{\mathcal{S}\!{\it ol}}
+\newcommand{\Ind}{\mbox{\normalfont Ind}}
+\newcommand{\Supp}{\mathcal{S}\!{\it upp}}
+\newtheorem{remark}{Remark}
+\newtheorem{fact}{Fact}
+\newtheorem{proposition}{Proposition}
+%\newtheorem{definition}{Definition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+%%\usepackage{fancyhdr}
+%%\pagestyle{fancy}
+%%\fancyfoot[C]{text me at \href{mailto:leontiev@ms.u-tokyo.ac.jp}{leontiev@ms.u-tokyo.ac.jp} if there are mistakes/obscurities}
+%%\fancyhead{}
+
+\title{Symmetry breaking operators of indefinite orthogonal groups $O(p,q)$}
+\author{Alex Leontiev\\Graduate School of Mathematical Sciences, the University of Tokyo}
+\date{August 04, 2017}
+\begin{document}
+
+	\maketitle
+
+	This is the joint work with Toshiyuki Kobayashi of the University of Tokyo.
+\section{Branching problem}
+
+Suppose $G \supset G'$ are reductive groups and $\pi$ is an irreducible
+representation of $G$. 
+%%If we restrict $\pi$ to $G'$, in general it is no
+%%longer irreducible.\\
+%%\begin{figure}[h]
+%%	\xymatrixrowsep{0.2pt}
+%%	\xymatrixcolsep{0.5cm}
+%%	\centering
+%%	\hspace{2.8cm}\xymatrix{
+%%		\pi:&G\ar[r]&GL_{\C}(V)&(\dim V=\infty)\\
+%%		&\bigcup&&\\
+%%		&G'\ar@{-->}[uur]_{\pi\big|_{G'}}&&\\
+%%	}
+%%\end{figure}
+%%\begin{center}
+%%    \minibox[frame]{{\textbf{Branching problem}}\\
+%%        (in a wider sense) = Understand $\pi\!\mid_{G'}.$}
+%%\end{center}
+%%These are well-studied (e.g. combinatorial algorithm) for $\pi$:
+%%finitely-dimensional and $G$: compact. In this setting, $\pi$ always splits
+The restriction of $\pi$ to the subgroup $G'$ is no more irreducible in general as a representation
+of $G'$. If $G$ is compact, then any irreducible $\pi$ is finite-dimensional and splits
+into a finite direct sum
+\[ \pi\!\mid_{G'} = \bigoplus_{\pi' \in \widehat{G'}} m (\pi, \pi') \pi' \]
+of irreducibles $\pi'$ of $G'$ with multiplicities $m(\pi,\pi')$. These multiplicities have been studied
+by various techniques including combinatorial algorithms.
+
+However, 
+for noncompact $G'$ and for infinite-dimensional $\pi$,
+the restriction $\pi\kern-0.1cm\mid_{G'}$
+is not always a direct sum of irreducible representations, see \cite{kobayashi1998discrete3} for details.
+%%and the ``multiplicity'' (see (**) below)
+%%\begin{equation*}
+%%	m(\pi,\pi')=\dim\,\Hom_{G'}\left( \pi\!\mid_{G'},\pi' \right)
+%%\end{equation*}
+%%is not always finite for irreducible representations $\pi$ and $\pi'$ of $G$ and $G'$ respectively
+In order to define the ``multiplicity'' in this generality, we recall that, associated to a continuous representation $\pi$ of a Lie group on a Banach space $\mathcal{H}$, 
+a continuous representation $\pi^\infty$ is defined on the Fr\'echet space $\mathcal{H}^\infty$ of $C^\infty$-vectors of $\mathcal{H}$.
+Given another representation $\pi'$ of a subgroup $G'$, we consider the space of continuous $G'$-intertwining operators ({\it symmetry breaking operators})
+\begin{equation}\label{eq:1}
+	\Hom_{G'}\left( \pi^\infty\!\mid_{G'}, \left( \pi' \right)^\infty\right).\tag{1.1}
+\end{equation}
+If both $\pi$ and $\pi'$ are admissible representations of finite length of reductive Lie groups $G$ and $G'$, respectively, then the dimension of the space \eqref{eq:1} is determined by the underlying
+$(\mathfrak{g},K)$-module $\pi_K$ of $\pi$ and the $(\mathfrak{g}',K')$-module $\pi'_{K'}$ of $\pi'$, and is independent of the choice of Banach globalizations by the 
+Casselman--Wallach theory
+\cite[Chap.\ 11]{wallach1988real2}. We denote by $m(\pi,\pi')$ the dimension of \eqref{eq:1}, and call it the {\it multiplicity} of $\pi'$ in the restriction $\pi\!\mid_{G'}$.
+
+The above definition of the multiplicity $m(\pi,\pi')$ makes sense for nonunitary representations $\pi$ and $\pi'$, too. 
+
+In general, $m(\pi,\pi')$ may be infinite, even when $G'$ is a 
+maximal reductive subgroup of $G$
+({\it e.g.}\;symmetric pairs), see \cite{Kobayashi2014}.
+By the theory of real spherical spaces \cite{kobayashi2013finite}, the geometric criterion for finite multiplicities was established in \cite{Kobayashi2014} and \cite{kobayashi2013finite} with classification in \cite{kobayashi2014classification}.
+\begin{fact}\label{fact:1} Let $(G,G')$ be a pair of real reductive Lie groups with complexification $(G_{\C},G'_{\C})$.
+	\begin{enumerate}[(1)]
+		\item The multiplicity $m(\pi,\pi')$ is finite for all irreducible representations $\pi$ of $G$ and all irreducible representations $\pi'$ of $G'$ if and only if
+			a minimal parabolic subgroup of $G'$ has an open orbit on the real flag variety of $G$.
+		\item The multiplicity $m(\pi,\pi')$ is uniformly bounded if and only if a Borel subgroup of $G_{\C}'$ has an open orbit on the complex flag variety of $G_{\C}$.
+	\end{enumerate}
+\end{fact}
+
+On the other hand, switching the order in \eqref{eq:1}, we may also consider another space
+\begin{equation*}
+	\Hom_{G'}\left( \left( \pi' \right)^\infty,\pi^\infty\kern-0.1cm\mid_{G'} \right)\mbox{ or }\Hom_{\mathfrak{g}',K'}\left( \pi_{K'}',\pi_{K}\kern-0.1cm\mid_{\mathfrak{g}',K'} \right).
+\end{equation*}
+The study of these objects is closely related to the theory of discretely decomposable restrictions \cite{kobayashi1998discrete2,kobayashi1998discrete3}
+
+\section{$\mathcal{A}\mathcal{B}\mathcal{C}$ program for branching}
+
+In {\cite{kobayashi2015program}} the first author suggested a program
+for studying branching of representations of reductive groups, which may be summarized
+as follows:
+\begin{description}
+  \item[$(\mathcal{A})$] $\mathcal{A}$bstract features of the restriction;
+%%  (i.e. we want to find triples $(G, G', \pi)$, so that $\pi\!\mid_{G'}$ is
+%%  manageable);
+  
+  \item[$(\mathcal{B})$] $\mathcal{B}$ranching law of $\pi\!\mid_{G'}$;
+  
+  \item[$(\mathcal{C})$] $\mathcal{C}$onstruction of symmetry breaking operators.
+\end{description}
+Program $\mathcal{A}$ aims for establishing the general theory of the restrictions $\pi\!\mid_{G'}$
+({\it e.g.} spectrum, multiplicity), which would single out the {\it good} triples $\left( G,G',\pi \right)$. In turn, we could expect concrete and detailed study of those restrictions
+$\pi\!\mid_{G'}$ through Programs $\mathcal{B}$ and $\mathcal{C}$.
+
+The main theme of this work is Program ${\mathcal{C}}$ for certain standard
+representations with focus on symmetry breaking operators (SBO for short) as follows:
+\begin{description}
+  \item[$(\mathcal{C}1)$] Construct SBOs;
+  \item[$(\mathcal{C}2)$] Classify all SBOs;
+  \item[$(\mathcal{C}3)$] Find residue \uwave{formul\ae} for SBOs;
+  \item[$(\mathcal{C}4)$] Study functional equations among SBOs;
+  \item[$(\mathcal{C}5)$] Determine the images of subquotients by SBOs.
+\end{description}
+The subprogram $(\mathcal{C}1) - (\mathcal{C}5)$ was proposed by
+Kobayashi--Speh in their book {\cite{kobayashi2015symmetry}} with
+a complete answer to $(\mathcal{C}1) - (\mathcal{C}5)$ for the
+pair $(G, G') = (O (n + 1, 1), O (n, 1))$ of real rank one groups.
+
+%%\tmtextbf{Goal}: extend this to higher rank case $(G, G') = (O (p + 1, q + 1),
+%%O (p, q + 1))$. The class of the ``standard'' representations we are working
+%%with are \tmtextbf{degenerate spherical principal series representations}:
+
+In this talk we describe the multiplicities for degenerate spherical principal series representations $\pi=I(\lambda)$ of $G$ and $\pi'=J(\nu)$ of $G'$ for the pair
+of higher real rank groups\begin{equation}\tag{2.1}\label{eq:2}
+	(G,G')=\left( O(p+1,q+1),O(p,q+1) \right)\kern-0.1cm,
+\end{equation}
+and give an answer to $\left( \mathcal{C}1)-(\mathcal{C}4 \right)$. The subprogram $\left( \mathcal{C}5 \right)$ will be discussed
+%%in a subsequent paper together with an application to the restriction problem of Zuckerman derived functor modules.
+
+Concerning Program $\mathcal{A}$, we note that Fact \ref{fact:1} assures the following {\it a priori} estimate:\begin{equation*}
+	m(\pi,\pi')\mbox{ is uniformly bounded}
+\end{equation*}
+if the Lie algebras $(\mathfrak{g},\mathfrak{g}')$ are real forms of $(\mathfrak{sl}(n+1,\C),\mathfrak{gl}(n,\C))$
+or $(\mathfrak{o}(n+1,\C),\mathfrak{o}(n,\C))$, in particular, if $(G,G')$ is of the form \eqref{eq:2}.
+\section{Main results}
+We consider the product manifold $\Sp^p\times\Sp^q$ with the first component given the usual Riemannian metric, the second is given the negative of the usual metric
+and the opposite points identified. The resulting semi-Riemannian manifold endowed with metric of signature $(p,q)$ will be denoted as\begin{equation*}
+	X\equiv X^{p,q}\equiv \left( \Sp^p\times\Sp^q \right)/\Z_2.
+\end{equation*}
+If $q=0$ we have $X^{p,q}\simeq \Sp^p$ and generalizing the inverse of the usual stereographic projection map, we see that $X^{p,q}$ can be seen as a conformal
+compactification of the flat semi-Riemannian manifold $\R^{p,q}$. We will denote the indefinite metric of sign $(p+1,q+1)$ defined on $\R^{\left( p+1 \right)+\left( q+1 \right)}$
+as $Q_{p+1,q+1}$. The group of transformations preserving $Q_{p+1,q+1}$ is then $G=O(p+1,q+1)$. $G$ acts on $X$ as the group of conformal transformations.
+By the general theory of conformal geometry (Kobayashi-Orsted, Part I, Adv. Math., 2003), we can define a family of $G$-representations $I(\lambda)$ indexed by a complex
+parameter $\lambda\in\C$ and realized on a space $C^\infty(X)$. In the language of reductive groups, $X$ is the (generalized) real flag variety of $G$ and $I(\lambda)$ is the
+degenerate spherical principal series induced from maximal parabolic group $P=MAN$. Consider the subgroup $G'\simeq O(p,q+1)$ of $G$ fixing the $p$-th coordinate. Similarly to
+$I(\lambda)$ above, we can defined the family of $G'$-representations $J(\nu)$ indexed by a complex parameter $\nu\in\C$ and realized on $C^\times(X^{p-1,q})$.
+\begin{definition}
+	The continuous operator $T:C^\infty(X^{p,q})\to C^\infty(X^{p-1,q})$ such that $J(\nu)(g)\circ T=T\circ I(\lambda)(g),\forall g\in G'$ is called
+	symmetry breaking operator (SBO, for short).
+\end{definition}
+\begin{question}[{\cite{kobayashi2015symmetry}}]
+	For all $\lambda,\nu\in\C$, construct and classify all of the SBOs.
+\end{question}
+For $q=0$ this was completely answered in \cite{kobayashi2015symmetry}. In subsequent we assume $p,q>0$ and will try to answer this question.
+Although we chiefly use the techniques introduced in \cite{kobayashi2015symmetry}, in this more general setting the construction of SBOs becomes a bit more complicated.
+We let $X
+=X^{p,q}\simeq G/P,Y:=X^{p-1,q}\simeq G'/P'$, together with their open dense subsets $\R^{p,q}\subset \R^{p-1,q}$ (in representation theory language this is an ``$N$-picture'').
+Let $C$ denote the closed subset of $X$ corresponding to the cone $Q_{p,q}$ inside $\R^{p,q}$, $o$ will denote the image in $X$ of the origin of $\R^{p,q}$.
+Then, the structure of the double coset space $P'\backslash G/P$ is as follows:
+\begin{theorem}
+	$X$, $C$, $Y$, $C\cap Y$, ${o}$ are the only closed subsets of the double coset space $P'\backslash G/P$.
+	\label{thm:1}
+\end{theorem}
+By using the general theory of \cite{kobayashi2015symmetry}, we defined $\Op$ and $\mathcal{S}$ by the following diagram:
+\begin{figure}[H]
+	  \vspace{-0.2cm}
+	\centerline{\xymatrixcolsep{7pc}\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^1.5pc/[rr]_(0.8){\mathcal{S}}
+	&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda})\otimes\mathbb{C}_\nu \right)^{P'}
+	\ar[r]_{F\mapsto \supp(F)}\ar[d]^{\simeq}_{\mbox{rest}}
+	&2^{P'\backslash G/P}\\
+	&\sol\subset\mathcal{D}'(\R^{p+q})\ar[lu]^{\mbox{Op}}_{\simeq}&
+	}}
+	  \vspace{-3.5ex}
+\end{figure}
+{\bf
+	I plan to put here the remaining part of {\ttfamily spring\_conference.pdf} (attached) starting from Theorem 2, once I will
+	finish translating it from japanese. I will send the complete version till 1pm of Friday. I am extremely sorry for the delay.
+}
+
+%%\begin{theorem}[対称性破れ作用素の構成]
+%%	次のような対称性破れ作用素が構成される（well-definednessも定理の一部である）。\vspace{-0.3cm}
+%%\setlist[description]{leftmargin=0.2cm}
+%%\begin{description}
+%%		\vspace{-0.2cm}
+%%		\item[regular SBO:]$(\lambda,\nu)\in \mathbb{C}^2$に正則に依存する対称性破れ作用素$\OpR^{X}_{\lambda,\nu}:I(\lambda)\to J(\nu)$。
+%%
+%%				$R_{\lambda,\nu}^X$ はまず、$\Re(\lambda+\nu)>n$かつ$\Re\nu<0$のとき
+%%				局所可積分関数$\myabs{x_p}^{\lambda+\nu-n}\myabs{Q_{p,q}}^{-\nu}$の定数倍を核関数とし、
+%%				$(\lambda,\nu)\in\C^2$に関する以下のような解析接続として定義される。
+%%				\[\Op^{-1}(\OpR^{X}_{\lambda,\nu})={N(\lambda,\nu)}{\myabs{x_p}^{\lambda+\nu-n}\myabs{Q_{p,q}}^{-\nu}},\quad N^{-1}(\lambda,\nu):=
+%%					{\Gamma\left( \scalebox{0.8}{$\frac{\lambda-\nu}{2}$} \right)
+%%					\Gamma\left( \scalebox{0.8}{$\frac{1-\nu}{2}$} \right)
+%%				\Gamma\left( \scalebox{0.8}{$\frac{\lambda+\nu-n+1}{2}$} \right)};\]
+%%
+%%				なお、genericな$(\lambda,\nu)\in\C^2$に対しては$\mathcal{S}(R_{\lambda,\nu}^X)=X$となる。さらに
+%%				$\mysetn{(\lambda,\nu)\in\mathbb{C}^2}{\OpR^{X}_{\lambda,\nu}=0}$は$\mathbb{C}^2$における可算無限集合であって、
+%%				具体的に決定できる。
+%%				\newcommand{\sniptA}{$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$のとき}
+%%				\newcommand{\sniptB}{核超関数は}
+%%				\newcommand{\sniptE}{\sniptB}
+%%				\newcommand{\sniptC}{ここで$N_Y(\lambda,\nu)$は$\Gamma$関数で表示される}
+%%				\newcommand{\sniptD}{genericな$\lambda$に対して$\mathcal{S}\left( R_{\lambda,\nu}^Y \right)=Y$}
+%%				\newcommand{\sniptG}{$k:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$のとき}
+%%				\newcommand{\sniptH}{R_{\lambda,\nu}^{ \left\{ o \right\}}=\tilde{C}_{\nu-\lambda}^{\lambda-\frac{n-1}{2}}\mybra{-\Delta_{\R^{p-1,q}},\frac{\partial}{\partial x_p}}}
+%%			\item[$Y$に付随する特異積分:]
+%%				\sniptA
+%%				$\nu\in\mathbb{C}$に
+%%				正則に依存する対称性破れ作用素$\OpR^{Y}_{\lambda,\nu}\neq0$。\sniptB
+%%						\[\Op^{-1}(\OpR^{Y}_{\lambda,\nu})={N_Y(\lambda,\nu)}{\delta^{(2k)}(x_p)\times\myabs{Q_{p,q}}
+%%						^{-\nu}}.\]
+%%			\item[$C$に付随する特異積分:]
+%%				$\nu\in-1-2\N$とする。
+%%				$\lambda\in \mathbb{C}$に正則に依存する対称性破れ作用素$\OpR^{C}_{\lambda,\nu}\neq0$。\sniptE
+%%				 
+%%					 \[\Op^{-1}(\OpR^{C}_{\lambda,\nu})={N_C
+%%					 (\lambda,\nu)}{\myabs{x_p}^{\lambda+\nu-n+1}\times\delta^{(-1-\nu)}(Q_{p,q}) }.\]
+%%			\item[微分対称性破れ作用素:] 
+%%				\sniptG$\lambda\in\mathbb{C}$
+%%				に正則に依存する対称性破れ作用素$\OpR^{ \left\{ 0 \right\} }_{\lambda,\nu}\neq0$。
+%%				\[\sniptH\]
+%%				ここで$\tilde{C}(s,t)$は{\normalfont [KS15,(16.3)]}\footnote{\label{note1}T.~Kobayashi and B.~Speh.
+%%  {\newblock}Symmetry breaking for representations of rank one orthogonal
+%%  groups. {\newblock}\tmtextit{Memoirs of the American Mathematical Society},
+%%  vol.{\bf 238}, 2015.
+%%}で与えられた二変数多項式。
+%%	\end{description}
+%%
+%%\end{theorem}
+%%				\newcommand{\sniptF}{genericな$\lambda$に対して$\mathcal{S}\left( R_{\lambda,\nu}^S \right)=S$}
+%%				\noindent{$S=Y,C$に対して、$N_S(\lambda,\nu)$は$\Gamma$関数で表示される}。\sniptF。
+%%				\newcommand{\sniptI}[1]{\begin{corollary}
+%%					$\dim\Hom_{G'}\left( I(\lambda),J(\nu) \right)\in\left\{ 1,2 \right\}\quad\left( \forall\lambda,\forall\nu\in\C \right)$.
+%%					等号成立#1
+%%			\end{corollary}}
+%%			\newcommand{\sniptJ}{$(\lambda,\nu)$が特殊値のとき$R_{\lambda,\nu}^X$は$R_{\lambda,\nu}^Y$,$R_{\lambda,\nu}^C$,$R^{ \left\{ o \right\}}_{\lambda,\nu}$の定数倍となる。
+%%		定数倍の係数はすべて明示的に決定される。}
+%%		\newcommand{\sniptK}{となる。定数$q_X^{TX}(\lambda,\nu)$,$q_X^{XT}(\lambda,\nu)$明示式が決定される。}
+%%		\newcommand{\sniptL}{さらに、$I(\lambda)$や$J(\nu)$のsubqutientとして現わるZuckermanの導来関手加群$A_{\mathfrak{q}}(\lambda)$に関する対称性破れ作用素の存在条件が得られるが、これは別の機会に述べたい。}
+%%\begin{theorem}[対称性破れ作用素の分類]
+%%  $p > 1$に対して
+%%  \begin{eqnarray}
+%%	  & \Hom_{G'}(I(\lambda),J(\nu))= \left\{
+%%    \begin{array}{ll}
+%%      \mathbbm{C} {\OpR}_{\lambda, \nu}^{X} \oplus \mathbbm{C}
+%%      {\OpR}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in / /\cap 
+%%      L\\
+%%      \mathbbm{C} \OpR^X_{\lambda, \nu}, &
+%%      \mbox{\normalfont otherwise.}
+%%    \end{array} \right. &  \nonumber
+%%  \end{eqnarray}
+%%\end{theorem}
+%%  \sniptI{$\iff(\lambda,\nu)\in//\cap \mid\mid\mid$。
+%%  ここで、$//\assign \{ (\lambda, \nu) \in \mathbbm{C}^2 |
+%%  \lambda - \nu = - 2 k \in - 2\N \}$。$\mid\mid\mid\subset\mathbb{C}^2$は
+%%  複数余次元$1$の部分集合（具体形は省略する）。}
+%%\begin{theorem}[$K$不変ベクトルにおける``固有値'']
+%%	正規化された$K$不変ベクトル$\mathbbm{1}_{\lambda} \in I (\lambda)$と$K'$不変ベクトル$\mathbbm{1}_{\nu} \in I (\nu)$に対して
+%%	\[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} = 2^{1 -
+%%     \lambda} \frac{\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
+%%     \Gamma \left( - \frac{q}{2} + \frac{\lambda + 1}{2} \right) \Gamma \left(
+%%     \frac{q - \nu + 1}{2} \right)} \mathbbm{1}_{\nu} \quad\mbox{が成り立つ。}\]
+%%\end{theorem}
+%%\begin{theorem}[留数定理]
+%%	\sniptJ
+%%\end{theorem}
+%%\begin{theorem}[factorization identities]
+%%  $\tilde{\mathbbm{T}}_{\lambda} : I (\lambda) \rightarrow I (n -
+%%  \lambda)$ をKnapp-Stein作用素とする。$(\lambda, \nu) \in \mathbbm{C}^2$に対して
+%%  $\tilde{\mathbbm{T}}_{n - 1 - \nu} \circ \OpR_{\lambda,
+%%    n - 1 - \nu}^{X} = q^{T X}_{X}
+%%    (\lambda, \nu) \OpR_{\lambda, \nu}^{X}$と$ \OpR_{n - \lambda, \nu}^X \circ
+%%    \tilde{\mathbbm{T}}_{\lambda} = q^{X T}_{X}
+%%    (\lambda, \nu) \OpR_{\lambda, \nu}^{X}$\sniptK
+%%\end{theorem}
+%%\sniptL
+\nocite{kobayashi1998discrete2}
+\nocite{kobayashi2015program}
+\small
+\begin{thebibliography}{14}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[1]{bernstein2004estimates}
+J.~Bernstein and A.~Reznikov.
+\newblock Estimates of automorphic functions.
+\newblock \emph{{\normalfont Mosc. Math. J}}, \textbf{\textbf{4}}, (2004),
+  pp. 19--37.
+
+  \bibitem[2]{clerc2011generalized}
+J.-L. Clerc, T.~Kobayashi, B.~{\O}rsted and M.~Pevzner.
+\newblock Generalized {B}ernstein--{R}eznikov integrals.
+\newblock \emph{{\normalfont Math. Ann.}}, \textbf{349}, (2011), pp.
+\href{http://dx.doi.org/10.1007/s00208-010-0516-4}{395--431}.
+
+\bibitem[3]{howe1993homogeneous}
+R.~E. Howe and E.-C. Tan.
+\newblock Homogeneous functions on light cones: the infinitesimal structure of
+  some degenerate principal series representations.
+\newblock \emph{{\normalfont Bull. Amer. Math. Soc. (N. S.)}}, \textbf{28},
+  (1993), pp. 1--74.
+
+\bibitem[4]{juhl2009families}
+A.~Juhl.
+\newblock \emph{Families of {C}onformally {C}ovariant {D}ifferential
+  {O}perators, {Q}-curvature and {H}olography}, \emph{{\normalfont Progr.
+  Math},} \textbf{275},
+\newblock Birkh{\"a}user (2009).
+\newblock ISBN 978-3-7643-9900-9.
+
+\bibitem[5]{kobayashi1998discrete2}
+T.~Kobayashi.
+\newblock Discrete decomposability of the restriction of {$A_q(\lambda)$} with
+  respect to reductive subgroups {II}: Micro-local analysis and asymptotic
+  {K}-support.
+  \newblock \emph{{\normalfont Ann. Math. (2)}}, \textbf{147}, (1998), pp. \href{http://dx.doi.org/10.2307/120963}{709--729}.
+
+\bibitem[6]{kobayashi1998discrete3}
+T.~Kobayashi.
+\newblock Discrete decomposability of the restriction of {$A_q(\lambda)$} with
+  respect to reductive subgroups {III}. {R}estriction of {H}arish-{C}handra
+  modules and associated varieties.
+\newblock \emph{{\normalfont Invent. Math.}}, \textbf{131}, (1998), pp.
+\href{http://dx.doi.org/10.1007/s002220050203}{229--256}.
+
+\bibitem[7]{Kobayashi2014}
+T.~Kobayashi.
+\newblock {S}hintani functions, real spherical manifolds, and
+  symmetry breaking operators.
+  \newblock \emph{{\normalfont Dev. Math.}}, \textbf{37}, (2014), pp. \href{http://dx.doi.org/10.4171/OWR/2014/3}{127--159}.
+
+\bibitem[8]{kobayashi2015program}
+T.~Kobayashi.
+\newblock A program for branching problems in the representation theory of real
+  reductive groups.
+\newblock \emph{{\normalfont Progr. Math.}}, \textbf{312}, (2015), pp.
+\href{http://dx.doi.org/10.1007/978-3-319-23443-4_10}{277--322}.
+\newblock In: \emph{{\normalfont Special issue in honor of Vogan's 60th years
+  birthday}}.
+
+\bibitem[9]{kobayashi2014classification}
+T.~Kobayashi and T.~Matsuki.
+\newblock Classification of finite-multiplicity symmetric pairs.
+\newblock \emph{{\normalfont Transformation Groups}}, \textbf{19}, (2014),
+pp. \href{http://dx.doi.org/10.1007/s00031-014-9265-x}{457--493}.
+\newblock In: \emph{{\normalfont Special Issue in honour of Dynkin
+  for his 90th birthday}}.
+
+
+  \bibitem[10]{KO1}
+T.~Kobayashi and B.~{\O}rsted.
+\newblock Analysis on the minimal representation of\/ {${\rm
+  O}(p,q)$}.{\;}{{\rm{I}}. Realization via conformal geometry}.
+\newblock \emph{\normalfont Adv. Math.}, \textbf{180}, (2003), pp. 486--512.
+
+\bibitem[11]{kobayashi2015branching}
+T.~Kobayashi, B.~{\O}rsted, P.~Somberg and V.~Sou{\v{c}}ek.
+\newblock Branching laws for verma modules and applications in parabolic
+  geometry. {I}.
+\newblock \emph{{\normalfont Adv. Math.}}, \textbf{285}, (2015), pp.
+\href{http://dx.doi.org/10.1016/j.aim.2015.08.020}{1796--1852}.
+
+\bibitem[12]{kobayashi2013finite}
+T.~Kobayashi and T.~Oshima.
+\newblock Finite multiplicity theorems for induction and restriction.
+\newblock \emph{{\normalfont Adv. Math.}}, \textbf{248}, (2013), pp. \href{http://dx.doi.org/10.1016/j.aim.2013.07.015}{921--944}.
+
+\bibitem[13]{kobayashi2016differential1}
+T.~Kobayashi and M.~Pevzner.
+\newblock Differential symmetry breaking operators: I. {G}eneral theory and
+  {F}-method.
+\newblock \emph{{\normalfont Selecta Math. (N. S.)}}, \textbf{22}, (2016),
+  pp. 801--845.
+
+\bibitem[14]{kobayashi2015symmetry}
+T.~Kobayashi and B.~Speh.
+\newblock \emph{Symmetry {B}reaking for {R}epresentations of {R}ank {O}ne
+  {O}rthogonal {G}roups}, \emph{{\normalfont Memoirs of the Amer. Math. Soc},}
+  \textbf{\href{http://dx.doi.org/10.1090/memo/1126}{238}}, (2015).
+\newblock ISBN 978-1-4704-1922-6.
+
+\bibitem[15]{wallach1988real2}
+N.~Wallach.
+\newblock \emph{Real Reductive Groups II}, \emph{{\normalfont Pure and Applied
+  Mathematics},} \textbf{132},
+\newblock Academic {P}ress (1992).
+\newblock ISBN 978-0127329611.
+
+\end{thebibliography}
+\end{document}
+
+

@@ -1,10 +1,10 @@
 .PHONY: all commit push clean publish
 .SECONDARY: 
 
-ZIPNAME=...
-WORKON=...
+ZIPNAME=report_on_reading
+WORKON=$(ZIPNAME)
 COMMIT_PREFIX=...
-PDFS=
+PDFS=report_on_reading_kobayashi_speh17
 AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
@@ -18,8 +18,7 @@ COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
-publish:  $(OUTDIR)/$(ZIPNAME).zip
-
+publish: $(OUTDIR)/$(ZIPNAME).zip
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	unzip -l $@
@@ -47,3 +46,4 @@ push:
 clean:
 	rm -f *.proto.tex script.tex *.pdf *.zip script_hypergeom.tex $(OUTDIR)/$(ZIPNAME).zip
 	touch *.tex
+
