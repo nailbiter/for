@@ -13,8 +13,8 @@ MATHEMATICADIR=~/for/formathematica/kint
 TEXMACSDIR=~/for/fortexmacs/4yearseminar
 GIT=git add *.bib Makefile && git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
-publish: $(OUTDIR)/$(ZIPNAME).zip
 all: $(addprefix $(OUTDIR)/,$(addsuffix .pdf, $(PDFS)))
+publish: $(OUTDIR)/$(ZIPNAME).zip
 
 clean:
 	touch *.tex

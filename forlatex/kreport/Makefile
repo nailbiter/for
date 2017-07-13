@@ -1,10 +1,10 @@
 .PHONY: all commit push clean publish
 .SECONDARY: 
 
-ZIPNAME=report72
-WORKON=$(ZIPNAME) jul5-
+ZIPNAME=report73
+WORKON=$(ZIPNAME) jul5-jul12
 COMMIT_PREFIX=...
-PDFS=report diffforms
+PDFS=report report_on_reading_kobayashi_speh17
 AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script

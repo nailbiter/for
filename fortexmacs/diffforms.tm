@@ -296,6 +296,21 @@
       otherwise.
     </fact>
 
+    <\remark>
+      Note the following:
+
+      <\enumerate>
+        <item>As in <cite-detail|fulton2013representation|>, here we treat
+        <math|Sym<rsup|d>V,<big|wedge><rsup|d>V> as subspaces of
+        <math|V<rsup|\<otimes\>d>> (recall that originally they were defined
+        as quotients) via the embeddings
+
+        <\equation*>
+          <stack|<tformat|<table|<row|<cell|<big|wedge><rsup|d>V>|<cell|\<hookrightarrow\>>|<cell|V<rsup|\<otimes\>d>,>>|<row|<cell|v<rsub|1>\<wedge\>\<ldots\>\<wedge\>v<rsub|d>>|<cell|\<mapsto\>>|<cell|<big|sum><rsub|\<sigma\>\<in\>\<frak-S\><rsub|d>>sgn<around*|(|\<sigma\>|)>v<rsub|\<sigma\><around*|(|1|)>>\<otimes\>\<ldots\>\<otimes\>v<rsub|\<sigma\><around*|(|d|)>>,>>|<row|<cell|Sym<rsup|d>V>|<cell|\<hookrightarrow\>>|<cell|V<rsup|\<otimes\>d>,>>|<row|<cell|v<rsub|1>\<cdot\>\<ldots\>\<cdot\>v<rsub|d>>|<cell|\<mapsto\>>|<cell|<big|sum><rsub|\<sigma\>\<in\>\<frak-S\><rsub|d>>v<rsub|\<sigma\><around*|(|1|)>>\<otimes\>\<ldots\>\<otimes\>v<rsub|\<sigma\><around*|(|d|)>>.>>>>>
+        </equation*>
+      </enumerate>
+    </remark>
+
     <subsection|Characters of irreps of <math|SO<around*|(|N|)>>|>
 
     <\definition>

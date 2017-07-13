@@ -3,7 +3,7 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 72>
+  <section|report 73>
 
   <date|>
 
@@ -17,16 +17,18 @@
     as representation of <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     estimate remaining time needed to finish Lang's SL2
-  </cell>|<cell|>>>>>
+  </cell>|<cell|<with|font-series|bold|done> (I plan finish the reading on
+  Sunday)>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>Compiled some facts about irreps of
-    <math|O<around*|(|n|)>,SO<around*|(|n|)>> (see <verbatim|diffforms.pdf>
-    attached)
+    <item>Attended Takagi lecture;
+
+    <item>Read the paper \PSymmetry breaking for orthogonal groups and a
+    conjecture by B. Gross and D. Prasad\Q (see the report attached);
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
@@ -34,14 +36,17 @@
   <\enumerate>
     <item>Prove the multiplicity-freeness of
     <math|<big|wedge><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
-    as representation of <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>
+    as representation of <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>;
+
+    <item>Prepare the abstract for my talk for the Functional Analysis
+    Symposium at the end of August (abstract should be ready by July 17);
+
+    <item>Prepare the abstract for talk in Taiwan on August 4;
 
     <item>Reading:
 
     <\enumerate>
-      <item>Lang's \PSL2\Q ();
-
-      <item>Read <cite|kobayashi2017symmetry>
+      <item>Finish Lang's \PSL2\Q;
     </enumerate>
   </enumerate>
 
@@ -53,17 +58,20 @@
 
   <paragraph|Comments>
 
-  I extremely apologize for not sending reports for over 4 months. Starting
-  from now on, I will send them weekly on Monday.
+  I extremely apologize for missing Professor Braverman's Takagi lecture on
+  Sunday's morning. I would also like to thank You for:
+
+  <\itemize>
+    <item>Allowing us to talk to Roger Howe over the lunch. For me it
+    concluded into the fruitful conversation about Howe-Tan paper and the
+    theory of dual pairs;
+
+    <item>Allowing me to participate in Tokyo-Lyon conference.
+  </itemize>
 
   <\bibliography|bib|tm-alpha|todai_master>
-    <\bib-list|1>
-      <bibitem*|KS17><label|bib-kobayashi2017symmetry>Toshiyuki
-      Kobayashi<localize| and >Birgit Speh.<newblock> Symmetry breaking for
-      orthogonal groups and a conjecture by B. Gross and D. Prasad.<newblock>
-      <with|font-shape|italic|ArXiv preprint arXiv:1702.00263>,
-      2017.<newblock>
-    </bib-list>
+    <\bib-list|0>
+      </bib-list>
   </bibliography>
 </body>
 
@@ -78,7 +86,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|1|1>>
+    <associate|auto-3|<tuple|<with|mode|<quote|math>|\<bullet\>>|1>>
     <associate|bib-kobayashi2016classification|<tuple|KKP16|?>>
     <associate|bib-kobayashi2017symmetry|<tuple|KS17|?>>
   </collection>
@@ -86,12 +94,9 @@
 
 <\auxiliary>
   <\collection>
-    <\associate|bib>
-      kobayashi2017symmetry
-    </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      71> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      73> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
