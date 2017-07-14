@@ -57,6 +57,9 @@
   <\enumerate>
     <item>For the Tambara, should I rather prepare the article survey (I
     might use the following articles:...) or present my own results?
+
+    <item>how can I return myself the level so I can become professor
+    immediately after the graduation...
   </enumerate>
 
   <paragraph|Comments>
