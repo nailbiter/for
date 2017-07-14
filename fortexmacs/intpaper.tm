@@ -610,10 +610,6 @@
     <\associate|bib>
       forrester2008importance
 
-      forrester2008importance
-
-      forrester2008importance
-
       tarasov2003selberg
 
       kobayashi2015symmetry
