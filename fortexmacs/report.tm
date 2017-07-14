@@ -3,7 +3,7 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 73>
+  <section|report 74>
 
   <date|>
 
@@ -54,7 +54,10 @@
     Questions
   </with>
 
-  (empty)
+  <\enumerate>
+    <item>For the Tambara, should I rather prepare the article survey (I
+    might use the following articles:...) or present my own results?
+  </enumerate>
 
   <paragraph|Comments>
 
@@ -70,8 +73,7 @@
   </itemize>
 
   <\bibliography|bib|tm-alpha|todai_master>
-    <\bib-list|0>
-      </bib-list>
+    <bib-list|0|>
   </bibliography>
 </body>
 
