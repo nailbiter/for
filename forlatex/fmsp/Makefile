@@ -6,7 +6,8 @@ WORKON=https://trello.com/c/BcqE7ImU
 COMMIT_MSG="tex fmsp $(WORKON)"
 LATEXMK=latexmk -pdflatex='xelatex %O %S' -pdf  -outdir=$(OUTDIR) -f -g
 
-all: $(OUTDIR)/$(ZIPNAME).zip
+all: $(OUTDIR)/14_07_17.pdf $(OUTDIR)/28_04_17.pdf
+publish: $(OUTDIR)/$(ZIPNAME).zip
 
 clean:
 	touch *.tex
@@ -15,7 +16,7 @@ clean:
 $(OUTDIR)/%.pdf : %.tex
 	$(LATEXMK) $<
 
-$(OUTDIR)/$(ZIPNAME).zip : $(OUTDIR)/28_04_17.pdf
+$(OUTDIR)/$(ZIPNAME).zip : $(OUTDIR)/14_07_17.pdf
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME).zip 28_04_17.pdf
 	unzip -l $(OUTDIR)/$(ZIPNAME).zip
 	git commit --allow-empty -a -m $(COMMIT_MSG)
