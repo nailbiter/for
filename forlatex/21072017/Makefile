@@ -5,7 +5,6 @@ ZIPNAME=RIMSslides
 WORKON=https://trello.com/c/qQLQN4Rn method1ShowWhy3F2SatisfiesWhipple
 COMMIT_PREFIX=tex RIMStalk
 PDFS=intpaper answer RIMS17-Alex-int
-PDFS=reflection
 AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script

@@ -1,0 +1,22 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{xeCJK}
+\usepackage{mystyle}
+\usepackage{ruby}
+\usepackage{longtable}
+\usepackage{hyperref}
+
+\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
+%\setCJKmainfont{MS PGothic} %AJP windows
+%\renewcommand\rubysep{-5ex}
+\newcommand{\kana}[2]{\ruby{#1}{#2}}
+\newcommand{\mytabra}[1]{$\myabra{\mbox{#1}}$}
+
+\title{Title}
+\begin{document}
+\maketitle
+body
+\end{document}
+
+
