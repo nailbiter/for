@@ -38,18 +38,18 @@
 \newcommand{\tmtextit}[1]{{\itshape{#1}}}
 \newcommand{\um}{-}
 
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{定理}
 \newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
 \newcommand{\Hom}{\mbox{\normalfont Hom}}
 \newcommand{\Sol}{\mathcal{S}\!{\it ol}}
 \newcommand{\Ind}{\mbox{\normalfont Ind}}
 \newcommand{\Supp}{\mathcal{S}\!{\it upp}}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}[theorem]{注}
+\newtheorem{corollary}[theorem]{系}
 \newtheorem{fact}{Fact}
 %\newtheorem{definition}{Definition}
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}
+\newtheorem{definition}{定義}
 
 \makeatletter
 \newtheoremstyle{exampstyle}
@@ -160,34 +160,38 @@ $G$の簡約部分群として第$p$座標の固定部分群を$G':=G_{e_{p+1}}:
 \end{fact}
 以下の定理\ref{thm:classif}で、$\SBO$空間の規定を具体的に述べる。
 
-In order to analyze the space $\SBO$ of symmetry breaking operators, we begin with:
+$\SBO$を理解するため、まず以下のような定義する：
 \begin{definition} \label{def1}
-	Let $h(b,x):=1-2\,^t\!bI_{p,q}x+\Q(b)\Q(x)$ for $b,x\in\R^{n}\;(n=p+q)$. A distribution
-	$F \in \mathcal{D}' (\R^{p,q})$ is said to be
-  \tmtextit{$N_+'$-invariant} if 
-  for any $b\in\R^n$ with $b_p=0$
+	$h(b,x):=1-2\,^t\!bI_{p,q}x+\Q(b)\Q(x)$とする (ここで、$b,x\in\R^{n}\;(n=p+q)$). 超関数
+	$F \in \mathcal{D}' (\R^{p,q})$は、
+	全て$b_p=0$を満たす$b\in\R^n$と開集合$\mysetn{x\in\R^{p,q}}{h(b,x)\neq0}$に入っている$x$に対して、
   \begin{equation*}
     \label{eq-Nequiv} | h(b,x) |^{\lambda - n} F \left(
-    \frac{x - \Q (x) b}{h(b,x)} \right) = F (x)
+    \frac{x - \Q (x) b}{h(b,x)} \right) = F (x)\mbox{ が成り立つと、}
   \end{equation*}
-  holds in the open set of $x\in\R^{p,q}$ satisfying $h(b,x)\neq0$.
-  
+  \tmtextit{$N_+'$不変}と呼ばれる。
 \end{definition}
 
-\begin{definition}\label{def2}We let $O(p-1,q)$ act on $\R^n$ $(n=p+q)$ by leaving $x_p$ invariant. Let $\sol$ 
-	denote the space of distributions $F\in\mathcal{D}'(\R^n)$ satisfying the following four conditions:
+%%	そうすると、$G$は$P$と適合する（つまり、$A\subset G'$のため、$P':=P\cap G'$は$G'$のラングランズ分解$P'=(G'\cap M)A(G'\cap N_+)$を持つ極大放物型部分群である）
+%%	同じいように、複素数パラメータ$\nu\in\C$に依存する$G'$の退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$を定める。
+%%	$G$の簡約部分群として第$p$座標の固定部分群を$G':=G_{e_{p+1}}:=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}$とする。
+\begin{definition}\label{def2}
+	$O(p-1,q)$を$\R^n$ $(n=p+q)$に$p$座標を固定するような作用を考える。
+	以下のような条件を満たす超関数$F\in\mathcal{D}'(\R^n)$空間を$\sol$として表せる：
 \begin{enumerate}[(1)]
     \item $F (x) = F (- x)$;
-    \item $F$ is $O(p-1,q)$-invariant;
-    \item $F$ is homogeneous of degree $\lambda-\nu-n$;
-    \item $F$ is $N_+'$-invariant on $\R^{p,q}$.
+    \item $F$は$O(p-1,q)$不変である;
+    \item $F$は$\lambda-\nu-n$-次の斉次性を持つ;
+    \item $F$は$\R^{p,q}$上に$N_+'$不変である；
   \end{enumerate}
 \end{definition}
 \end{versiona}
 
-Applying the very general result proven in \cite[Chap.\ 3]{kobayashi2015symmetry} to our particular setting, we get the following:
+\cite[Chap.\ 3]{kobayashi2015symmetry}で証明された一般理論を今の特別な設定に適
+用すると、以下のFact\footnote{is there any good translation of ``fact'' to japanese?}式を得ます。
 \begin{fact}[{\cite[Thm. 3.16]{kobayashi2015symmetry}}]\label{fact1}
-Let $n:=p+q$. The following diagram commutes:
+$n:=p+q$とする。
+以下の図式が可換である：
 \begin{figure}[H]
 \centerline{
 	\xymatrixcolsep{5pc}
@@ -201,42 +205,49 @@ Let $n:=p+q$. The following diagram commutes:
 \end{figure}
 \end{fact}
 
-In particular, for $T\in\SBO$, $\Supp(T)$ is a closed subset of $P'\backslash G/P$.
-Thus one sees that closed subsets of the finite double coset space $P'\backslash G/P$ provide an important invariant of the symmetry breaking operators. Therefore,
-the first step to classify SBOs is to describe explicitly the double coset space $P'\backslash G/P$ together with its closure relations.
+特に、$T\in\SBO$に対して, $\Supp(T)$は$P'\backslash G/P$の閉部分集合である。
+なので、有限両側剰余空間$P'\backslash G/P$の
+閉部分集合が対称性破れ作用素の大切な
+invariantになるということがわかる。
+従って、対称性破れ作用素を分類するため、最初のステップとして、両側剰余空間$P'\backslash G/P$とその閉包関係を決定する。
 
-The natural action of $G=O(p+1,q+1)$ on $\R^{p+1,q+1}$ leaves
-$\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}$ invariant, and thus $G$ acts naturally on its quotient space
-$X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}$. 
-Geometrically, $X^{p,q}$ is identified with the direct product manifold $\Sp^p\times\Sp^q$ equipped with the pseudo-Riemannian metric $g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$,
-modulo the direct product of antipodal maps, and $G$ is the group of conformal transformations of $X^{p,q}$.
-We set
+$G=O(p+1,q+1)$の$\R^{p+1,q+1}$にの自然作用は
+$\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}$を不変にするので\footnote{I am not sure in this japanese},
+商空間
+$X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}$にも自然に作用する。
+幾何的に、$X^{p,q}$は
+$G$は共形変換群として作用する
+不定値計量$g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$を持つ
+関多様体直積多様体$\Sp^p\times\Sp^q$から
+対跡点を同ー視することによって得られる商多様体
+と同値である。
+
 \[
 	X:=G/P\simeq X^{p,q},\quad Y:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\]
-	\[C:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\quad\left\{ [o] \right\}:=\left\{ [1:0_{p+q}:1] \right\}.\]
-\begin{theorem}[classification of closed $P'$-invariant subsets of $G/P$]
-	Suppose $p,q\ge1$.
-	The left $P'$-invariant closed subsets of $G/P$ are described in the following Hasse diagram. Here 
+	\[C:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\quad\left\{ [o] \right\}:=\left\{ [1:0_{p+q}:1] \right\}\mbox{とする.}\]
+\begin{theorem}[$G/P$の$P'$不変閉部分集合の分類]
+	$p,q\ge1$とする。
+	$G/P$の$P'$不変閉部分集合が以下のHasse図式で記述される。ここで
 	$
 	\begin{array}{l}
 	        \xymatrixrowsep{0.5pc}
 		\xymatrix{A\ar@{-}[d]^m\\B}
 	\end{array}
 	$
-	means that $A\supset B$ and that the generic part of $B$ is of codimension $m$ in $A$.\\
+	は$A\supset B$と$B$のジェネリック部分が$A$の中余次元$m$を持つということが表している。\\
   \begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.3\textwidth}
 	    \xymatrixrowsep{0.5pc}
 	    \xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rd]_1&&C\ar@{-}[ld]^1\\&C\cap Y\ar@{-}[dd]^{p+q-2}&\\&&\\&\{[o]\}&}
-	\caption{when $p>1$}
+	\caption{$p>1$のとき}
     \end{subfigure}
     ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
       %(or a blank line to force the subfigure onto a new line)
     \begin{subfigure}[t]{0.3\textwidth}
 	    \xymatrixrowsep{0.5pc}
 	    {\xymatrix{&X\ar@{-}[ld]_1\ar@{-}[rd]^1&\\Y\ar@{-}[rddd]_{p+q-2}&&C\ar@{-}[lddd]^{p+q-2}\\&&\\&&\\&\{[o]\}&}}
-	\caption{when $p=1$}
+	\caption{$p=1$のとき}
     \end{subfigure}
 \end{figure}
 \end{theorem}
