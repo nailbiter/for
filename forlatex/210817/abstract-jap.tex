@@ -90,8 +90,8 @@
 
 \newcommand{\even}{2\Z}
 \newcommand{\odd}{2\Z+1}
-\newcommand{\teven}{\mbox{\textrm{: even}}}
-\newcommand{\todd}{\mbox{\textrm{: odd}}}
+\newcommand{\teven}{\mbox{\textrm{: 具数}}}
+\newcommand{\todd}{\mbox{\textrm{: 奇数}}}
 \newcommand{\tevenText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu#1\end{array}$}
 \newcommand{\toddText}[1]{\vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu#1\end{array}$}
 \newcommand{\bb}{\backslash\backslash}
@@ -251,100 +251,107 @@ $G$は共形変換群として作用する
     \end{subfigure}
 \end{figure}
 \end{theorem}
-Now, for each closed subset $S$ of $P'\backslash G/P$, we construct a family of SBOs, to be denote\footnote{I think, ``to be denoted'' is better} by $R^S_{\lambda,\nu}$, such that:
+$P'\backslash G/P$のそれぞれの閉集合$S$に対して、対称性破れ作用素のファミーリ$R^S_{\lambda,\nu}$を構成する。更に、
 \begin{itemize}
-	\item $R_{\lambda,\nu}^S$ is defined for $(\lambda,\nu)\in D_S$, where $D_S$ is the subset of $\C^2$ (more precisely, it is either the whole $\C^2$, or is a countable
-		union of one-dimensional complex affine spaces);
-	\item $R_{\lambda,\nu}^S$ depends holomorphically on $(\lambda,\nu)\in D_S$;
-	\item for every $(\lambda,\nu)\in D_S$ we have $\Supp(R_{\lambda,\nu}^S)\subset S$ and the equality holds for generic $(\lambda,\nu)$.
+	\item $R_{\lambda,\nu}^S$は$(\lambda,\nu)\in D_S$に対して定義されている。ここで、$D_S$は$\C^2$の部分集合である(もっと詳しくいうと、
+		$\C^2$全体或いは１次元アフィン空間の加算和である);
+	\item $R_{\lambda,\nu}^S$は$(\lambda,\nu)\in D_S$に正則に依存する;
+	\item 全て$(\lambda,\nu)\in D_S$に対して、$\Supp(R_{\lambda,\nu}^S)\subset S$である（更に、ジェネリック$(\lambda,\nu)$的に、等式が成り立つ).
 \end{itemize}
-These operators may vanish at special values of $(\lambda,\nu)$ (see Remark \ref{rmk:thm:construction}). Correspondingly, we shall also define
-a family of SBOs as a renormalization, to be denoted by $\tilde{R}^X_{\lambda,\nu}$. On the other hand, we shall omit the case when $S=C\cap Y$ for $p=1$;
-$S=C$ or $Y$ for $p>1$, as those are not used for the classification below (see Theorem \ref{thm:classif}).
+この作用素はある点でゼロになることがあり得る(注意\ref{rmk:thm:construction}のよう)。
+従って、$\tilde{R}^X_{\lambda,\nu}$という対称性破れ作用素のファミリを再規準化として定義する。
+しかし、$p=1$のとき、$S=C-cap Y$の場合と$p>1$のとき、$S=C$又は$Y$の場合は以下に出てくる分類(定理\ref{thm:classif})に出てこないので、
+省略する。
 \newpage
-\begin{theorem}[construction of SBO]\label{thm:construction}
-	For $S=X,Y,C,$ and $\left\{ o \right\}$, the following operators $R_{\lambda,\nu}^S$ and $\tilde{R}_{\lambda,\nu}^X$ are symmetry breaking operators from $\IlambdaGprime$ to $J(\nu)$, which depend holomorphically on $(\lambda,\nu)\in D_S$. Moreover, $\Supp(R_{\lambda,\nu}^S)\subset S$, and are given explicitly as follows.\\
+\begin{theorem}[対称性破れ作用素の構成]\label{thm:construction}
+	$S=X,Y,C,$と$\left\{ o \right\}$に対して、以下の$R_{\lambda,\nu}^S$と$\tilde{R}_{\lambda,\nu}^X$作用素は$(\lambda,\nu)\in D_S$に正則に依存する
+	$\IlambdaGprime$から$J(\nu)$への対称性破れ作用素である。\\
 \ExecuteMetaData[.master_extract.tex]{table}\vspace{\baselineskip}
-Let us explain the notation in the table.
+表の記号を説明する：
 \begin{itemize}
 	\item $\mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in
 	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \},\quad \backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\N}$;
 \item $/ / \assign
 \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
 -2\N \},\quad \mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N}$;
-\item $\tilde{C}(s,t)$ is a polynomial of two-variable's, which obtained by inflation of the renormalized Gegenbauer polynomial, defined as in \cite[(16.3)]{kobayashi2015symmetry}.
+\item $\tilde{C}(s,t)$は\cite[(16.3)]{kobayashi2015symmetry}のように定義される、
+	renormalized Gegenbauer多項式から導入される２変数多項式である。
 \end{itemize}
 \end{theorem}
-We set $m:=\frac{1}{2}\left( \nu-1 \right)\in\N$ for $(\lambda,\nu)\in$ and $k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$ for $(\lambda,\nu)\in\bb$.
-For $p=1$ we define $q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$ by
+$(\lambda,\nu)\in\mid\mid$に対して、$m:=\frac{1}{2}\left( \nu-1 \right)\in\N$とし、$(\lambda,\nu)\in\bb$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$とする。
+$p=1$に対して、$q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$を以下のように定義する：
 \ExecuteMetaData[.master_extract.tex]{residue}
 \begin{remark}
-	$R_{\lambda,\nu}^S$ is a differential operator if $S=\left\{ o \right\}$ owing to the general theory of differential SBOs established in \cite[Chap.\ 2]{kobayashi2016differential1}.
-	By definition, $R_{\lambda,\nu}^{ \left\{ o \right\}}$ in Theorem \ref{thm:construction} amounts to
+	\cite[Chap.\ 2]{kobayashi2016differential1}の微分対称性破れ作用素の一般論によって、
+	$S=\left\{ o \right\}$ならば、$R_{\lambda,\nu}^S$は微分作用素である。
+	定義によって、定理\ref{thm:construction}の$R_{\lambda,\nu}^{ \left\{ o \right\}}$を以下のように述べる：
 	\begin{equation*}
 		R_{\lambda,\nu}^{ \left\{ o \right\}}=
 		\sum_{j=0}^{\frac{\nu-\lambda}{2}}\frac{(-1)^j2^{\nu-\lambda-2j}}{j!(\nu-\lambda-2j)!}\prod_{i=1}^{\frac{\nu-\lambda}{2}-j}\left( \frac{n
 		+1}{2}+\frac{\nu+\lambda}{2}
 		+i \right)\left(- \Delta_{\mathbbm{R}^{p-1,q}} \right)^j\left( \frac{\partial}{\partial x_p} \right)^{\nu-\lambda-2j}.
 	\end{equation*}
-	This formula was previously found in \cite[Thms. 5.1.1 and 5.2.1]{juhl2009families}, \cite[(10.1)]{kobayashi2015symmetry} for $q=0$ and in \cite[Thm.\ 4.3]{kobayashi2015branching}
-	for general $p,q$.
+	上の公式の$q=0$の特別な場合が\cite[Thms. 5.1.1 and 5.2.1]{juhl2009families}と\cite[(10.1)]{kobayashi2015symmetry}に出てきて、
+	一般の$p,q$の場合は
+	\cite[Thm.\ 4.3]{kobayashi2015branching}に出てきた。
 \end{remark}
 \begin{remark}\label{rmk:thm:construction}
-	The rightmost column in Theorem \ref{thm:construction} implies $R_{\lambda,\nu}^{ \left\{ o \right\}},R_{\lambda,\nu}^Y,R_{\lambda,\nu}^C\neq0$
-	for every $(\lambda,\nu)\in\C^2$, while
-	$R^X_{\lambda,\nu}=0$ iff $(\lambda,\nu)$ belongs to the following discrete set
+	定理\ref{thm:construction}の表の一番右の列からわかるのは、全ての$(\lambda,\nu)\in\C^2$に$R_{\lambda,\nu}^{ \left\{ o \right\}},R_{\lambda,\nu}^Y,R_{\lambda,\nu}^C\neq0$、
+	$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)$が以下の離散集合に入っている：
 	\[\begin{cases}
 			//\cap\mid\mid\mid,&p>1,\\
 			\mybra{//\cap\mid\mid\mid} \cup \mybra{\backslash\backslash\cap\mid\mid},&p=1,
 		\end{cases}
 	\]
-	and $\tilde{R}_{\lambda,\nu}^X=0$ iff $p=1$ and $(\lambda,\nu)$ is in the discrete set $\backslash\backslash\cap \mid\mid$.
+	and $\tilde{R}_{\lambda,\nu}^X=0\iff p=1$、$(\lambda,\nu)$は離散集合$\backslash\backslash\cap \mid\mid$に入っている.
 \end{remark}
-The SBOs in Theorem \ref{thm:construction} are not always linearly independent, but exhaust all SBOs. We provide explicit
-basis for $\SBO$ for every $(\lambda,\nu)\in \mathbb{C}^2$ as follows:
-\begin{theorem}[classification of SBOs]\label{thm:classif}
-	Suppose $p,q\ge1$.
+定理\ref{thm:construction}で構成される対称性破れ作用素はいつも線型独立になるとは限らないが、全ての対称性破れ作用素を生成する。
+全ての$(\lambda,\nu)\in\C^2$に対して、$\SBO$の基底を以下のように具体的に述べる：
+\begin{theorem}[対称性破れ作用素の分類]\label{thm:classif}
+	$p,q\ge1$とする.
 		\ExecuteMetaData[.master_extract.tex]{classification}
 \end{theorem}
 \begin{corollary}\label{cor:classif}
-	We have $\dim_{\C}\SBO\in\left\{ 1,2 \right\}$ for all $(\lambda,\nu)\in\C^2$.
+	$(\lambda,\nu)\in\C^2$に、
+	$\dim_{\C}\SBO\in\left\{ 1,2 \right\}$が成り立つ。
 \end{corollary}
-The degenerate principal series representation $I(\lambda)$ of $G$ contains the one-dimensional subspace of spherical vectors (i.e. $K$-fixed vectors), and likewise $J(\nu)$ of $G'$.
-Let $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$ be the spherical vectors normalized so that $\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$. With this normalization, we have:
-\begin{theorem}[spectrum for spherical vectors]\label{thm:spherical}
-	Let $n:=p+q\;(p,q\ge1)$ as before.
+$G$の球退化主系列表現$I(\lambda)$は球ベクトル(或いは、$K$不変ベクトル)の１次元部分空間を持つ。$G'$表現$J(\nu)$も同じようである。
+$\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$を$\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$
+のように正則化された球ベクトルとする。そのように正則化をすると、以下のことが成り立つ：
+\begin{theorem}[球ベクトルのスペクトラム]\label{thm:spherical}
+	前のように、$n:=p+q\;(p,q\ge1)$とする。そうすると、
 \[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} =  \frac{2^{1 -
 \lambda}\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
 \Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
-\frac{q - \nu + 1}{2} \right)} \mathbbm{1}_{\nu}. \]
+\frac{q - \nu + 1}{2} \right)} \mathbbm{1}_{\nu}\mbox{ が成り立つ。}\]
 \end{theorem}
 \begin{remark}
-	Theorem \ref{thm:spherical} was known in \cite[Lem. A.5]{bernstein2004estimates} for $p=q=1$, which was extended in \cite[Thm. 1.1]{clerc2011generalized} for higher dimensional cases.
-	See also \cite[Prop.\ 7.4]{kobayashi2015symmetry} for $q=0$ case.
+	定理\ref{thm:spherical}の$p=q=1$の特別な場合が\cite[Lem. A.5]{bernstein2004estimates} に知られている。
+	これの高階設定に一般化が\cite[Thm. 1.1]{clerc2011generalized}である。
+	$q=0$の場合が\cite[Prop.\ 7.4]{kobayashi2015symmetry}に述べられている。
 \end{remark}
-For $(\lambda,\nu)\in\C^2\setminus//$, we set 
+$(\lambda,\nu)\in\C^2\setminus//$に対して、
 \[K_{\lambda,\nu}^{\mathbb{R}^{p,q}}:=\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
-\frac{\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\sol.\]
-Then $R_{\lambda,\nu}^X=\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( K_{\lambda,\nu}^X \right)$. We recall that the left-hand side extends to a family of SBOs with holomorphic
-parameter $(\lambda,\nu)\in\C^2$.
-\begin{theorem}[residue formula]
-	Let $n:=p+q\;(p,q\ge1)$ as before.
-	For $(\lambda,\nu)\in//$, we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$. Then we have
+\frac{\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\sol\mbox{を定義する。}\]
+そうすると、$R_{\lambda,\nu}^X=\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( K_{\lambda,\nu}^X \right)$.
+これの左辺は$(\lambda,\nu)\in\C^2$に正則に依存する対称性破れ作用素のファミリに拡張できる。
+\begin{theorem}[留数公式]
+	前のように、$n:=p+q\;(p,q\ge1)$とする。
+	$(\lambda,\nu)\in//$に対して、$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とする。そうすると、
   \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^l l!\pi^{(n - 2) / 2} 
 		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
      \OpR_{\lambda,\nu}^{ \left\{ o \right\} },\quad(\lambda,\nu)\in// . \]
 	\end{theorem}
 	\begin{remark}
-		The residue formula in the case $q=0$ was given in \cite[Thm. 12.2]{kobayashi2015symmetry}.
+		留数公式の$q=0$の場合は\cite[Thm. 12.2]{kobayashi2015symmetry}に示された。
 	\end{remark}
 	\begin{definition}
-		Similarly to the construction of Fact \ref{fact1}, for $G=O(p+1,q+1)$ we have $\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$
-		where $\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$ is defined to be the space of generalized functions on $\R^{p+q}$ that satisfy
-		the four items in Definition \ref{def2}, except that in second item $O(p,q)_{e_p}$ is replaced by $O(p,q)$ and the fourth item is replaced by $N_+$-invariance
-		on $\R^{p,q}$, which in turn is defined as in Definition \ref{def1}, with the only difference that we do not assume $b_p=0$ anymore.
+		\ref{fact1}の建設のように、$G=O(p+1,q+1)$に$\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$である。
+		ここで、$\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$は定義\ref{def2}の４つ科目を満たす$\R^{p+q}$上の超関数空間(しかし、
+		３つ目の科目で$O(p,q)_{e_p}$不変性の代わりに、$O(p,q)$を求め、
+		４つ目の科目で$N_+'$不変性の代わりに、$N_+$不変性を求める；$N_+$不変性の定義が$N_+'$不変性と全く同じが、定義で$b_p$をもとめられない)。
 
-		Now, the generalized function defined as
+		以下のように定義された超関数は
 		\begin{equation*}
 			\myabs{\Q}^{\lambda-n}\times\begin{cases}
 				\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}=0,\\
@@ -355,35 +362,39 @@ parameter $(\lambda,\nu)\in\C^2$.
   \right), & \min\left\{ p,q \right\}>0,n / 2 + p \in 2\mathbbm{Z}
 			\end{cases}
 		\end{equation*}
-		belongs to $\Sol_G(\R^{p,q};\lambda,n-\lambda)$ and we can use it to
-		define an intertwining operator of $G=O(p+1,q+1)$,
+		$\Sol_G(\R^{p,q};\lambda,n-\lambda)$に入っている。
+		これを積分核として用い、$G=O(p+1,q+1)$intertwining作用素
 		$\tilde{\mathbb{T}}^{G}_{\lambda}:I(\lambda)\to
 		I(n-\lambda)$
-		(\textit{Knapp--Stein operator}).
-		The result of this construction repeated with $G'=O(p,q+1)$ in place of $G$ will be denoted by $\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$.
+		を定められる
+		(\textit{Knapp--Stein 作用素})。
+		$G$の代わりに$G'=O(p,q+1)$を代入して、に対して全く同じように建設すれば、$\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$作用素をえる。
 	\end{definition}
-	\begin{theorem}[functional identities]
-		Let $n:=p+q\;(p,q\ge1)$ as before.
-		We have:
+	\begin{theorem}[函数等式]
+	前のように、$n:=p+q\;(p,q\ge1)$とする。
+	そうすると、
 \ExecuteMetaData[.master_extract.tex]{functional}
 	\end{theorem}
 	\begin{remark}
-		The functional identities in the case $q=0$ were proven in \cite[Thm. 12.6]{kobayashi2015program}.
+		函数等式の特別の$q=0$の場合は\cite[Thm. 12.6]{kobayashi2015program}に示された。
 	\end{remark}
-	Since the representation $J(\nu)$ of $G'=O(p,q+1)$ is multiplicity-free as a $K'$-module, we can describe its $(\mathfrak{g}',K')$-submodules by means of subsets of $\N_{+}$
-	for $p>1$, which parametrize the $K'$-structure of $J(\nu)$ by the spherical harmonics $\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$.
-	As in \cite{howe1993homogeneous}, we also indicate the Jordan--H\"older series (socle filtrations) of $J(\nu)$ by using arrows.
-	We then have:
-\begin{theorem}[images of SBOs]
+	$G'=O(p,q+1)$表現$J(\nu)$ of $G'=O(p,q+1)$は $K'$表現として multiplicity-freeであるので、$p>1$のとき、これの $(\mathfrak{g}',K')$部分加群を $\N_{+}^2$の部分集合で表すことができる。
+	ここで$J(\nu)$の$K'$表現の構造は球面調和関数
+	$\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$で表せる。
+ 	\cite{howe1993homogeneous}のように、$J(\nu)$のJordan--H\"older 列 (或いは、socle filtrations) を矢印で表す。
+	そうすると：
+\begin{theorem}[対称性破れ作用素の像]
 	The regular SBO $R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$ is surjective,
-	unless $\nu\in\Z$. In the latter case, the images of the underlying $(\mathfrak{g},K)$-module $I(\lambda)_K$ under
-	$R_{\lambda,\nu}^X$ are given as follows (here we set $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$ for $(\lambda,\nu)\in//$ and $k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)
-	\in\N$ for
-	$(\lambda,\nu)\in\backslash\backslash$; the barriers $A^{\pm\pm}$ are defined as in \cite{howe1993homogeneous}): \\
+	$\nu\in\Z$ではなかったら、regular対称性破れ作用素$R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$は射影関数である。
+	$\nu\in\Z$ならば、$(\mathfrak{g},K)$加群 $I(\lambda)_K$の
+	$R_{\lambda,\nu}^X$における像は以下のようになる(ここで$(\lambda,\nu)\in//$に対して、
+	$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$、$(\lambda,\nu)\in\backslash\backslash$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)
+	\in\N$ である; 障壁 $A^{\pm\pm}$
+	が\cite{howe1993homogeneous}のように定義する): \\
 	for $p>1$:
 \end{theorem}
 \begin{enumerate}[(1)]
-	\item Suppose $p\in2\N_++1$ and $q\in2\Z$. Then, if $\nu\in2\Z,0<\nu<n-1$, $R_{\lambda,\nu}^X$ is surjective. Otherwise,
+	\item $p\in2\N_++1$ と $q\in2\Z$とする. そうすると、$\nu\in2\Z,0<\nu<n-1$ならば、$R_{\lambda,\nu}^X$ は射影函数である。そうではなかったら、
 		\hspace*{-1cm}\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
@@ -406,7 +417,7 @@ parameter $(\lambda,\nu)\in\C^2$.
 	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{f5}\\[25pt]
 	    \end{tabular}
 	  \end{figure}
-	\item Suppose $p,q\in\odd$ and $p>1$. Then,
+	\item $p,q\in\odd$と $p>1$とする。そうすると、
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
@@ -417,7 +428,7 @@ parameter $(\lambda,\nu)\in\C^2$.
 			  
 		\end{tabular}
 		\end{figure}
-	\item Suppose $p,q\in\even$. Then,
+	\item $p,q\in\even$とする。 そうすると、
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
@@ -427,7 +438,7 @@ parameter $(\lambda,\nu)\in\C^2$.
 			\toddText{>n-3}&\input{f13}\\[0pt]
 		\end{tabular}
 		\end{figure}
-	\item Suppose $p\in\even,q\in\odd$. Then for $\nu\in\odd$, $R_{\lambda,\nu}^X$ is surjective. Otherwise (for $\nu\in\even$) we have,
+	\item $p\in\even,q\in\odd$とする。そうすると、$\nu\in\odd$ならば、 $R_{\lambda,\nu}^X$は射影函数である。そうではなかったら、(つまり、$\nu\in\even$ならば)、
 	  \begin{figure}[H]
 		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
