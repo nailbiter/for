@@ -4,8 +4,8 @@
 ZIPNAME=august21talk
 WORKON=$(ZIPNAME)
 COMMIT_PREFIX=$()
-PDFS=abstract
-AUX=master_skeleton.pdf
+PDFS=abstract abstract-jap
+AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -25,6 +25,11 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	unzip -l $@
 	du -hs $@
 	$(GITCOMMIT)
+
+$(OUTDIR)/abstract.pdf : abstract.tex f*.tex
+	        $(LATEXMK) $<
+$(OUTDIR)/abstract-jap.pdf : abstract-jap.tex f*.tex
+	        $(XELATEX) $<
 
 
 #standard rules

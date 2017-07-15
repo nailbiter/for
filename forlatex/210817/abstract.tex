@@ -2,10 +2,8 @@
 %texmacs ~/for/fortexmacs/master_extract.tm
 \documentclass[12pt]{article} % use larger type; default would be 10pt
 
-\usepackage{xeCJK}
 \usepackage{enumerate}
 \usepackage{geometry}
-%%\usepackage[japanese]{babel}
 \usepackage{setspace}
 \usepackage{amsmath,amssymb,bbm,xypic}
 \usepackage[all,cmtip]{xy}
@@ -23,8 +21,6 @@
 \usepackage{bashful}
 \usetikzlibrary{patterns}
 \usepackage{bbm}
-
-\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
 
 %%%%%%%%%% Start TeXmacs macros
 \catcode`\<=\active \def<{
@@ -99,14 +95,13 @@
 %%%%%%%%%% End TeXmacs macros
 
 \begin{document}
-\renewcommand{\abstractname}{概要}
 
-\title{不定値直交群$O(p,q)$の対称性破れ作用素}
+\title{Symmetry breaking operators for representations of indefinite orthogonal groups $O(p,q)$}
 
   %%%% 講演者1
-\author{小林　俊行\thanks{Partially supported by Grant-in-Aid for Scientific
-	Research (A) (25247006), Japan Society for the Promotion of Science.} (東京大学、カブリ数物連携宇宙研究機構)\\
-  レオンチエフ　アレックス (東京大学)}
+\author{Toshiyuki Kobayashi\thanks{Partially supported by Grant-in-Aid for Scientific
+	Research (A) (25247006), Japan Society for the Promotion of Science.} (The University of Tokyo, Kavli IPMU)\\
+  Alex Leontiev (The University of Tokyo)}
 
   %%%% 講演者2
 
@@ -117,48 +112,54 @@
 
   \maketitle
 \begin{abstract}
-	ペア$(G, G') =(O(p+1, q+1), O(p,q+1))$に対して、$G$の球退化主系列表現から、$G'$の球退化主系列表現への
-	全て対称性破れ作用素を構成し、分類する。$q=0$の特別な場合が小林俊行氏とB. Speh氏によって[Memoirs of Amer. Math. Soc. 2015]
-	解決された。
-	函数等式、留数公式と対称性破れ作用素の像も具体的に述べる。
-	この結果は小林氏に提唱された分岐則問題を深く研究するためABCプログラム[Progr. Math. 2015]のＣの特別な場合になる。
+For the pair $(G, G') =(O(p+1, q+1), O(p,q+1))$, we construct and classify
+all symmetry breaking operators from spherical, most degenerate 
+principal series representations of 
+$G$ to those of the subgroup $G'$, extending the results of Kobayashi--Speh in the $q=0$ 
+case [Memoirs of Amer. Math. Soc. 2015].
+Functional identities, residue formul\ae, and the images of the regular symmetry breaking operators are also provided 
+explicitly.
+The results contribute to ``stage C'' of the branching program suggested by the first author [Progr. Math. 2015].
 \end{abstract}
 
   \begin{versiona}
-	  $\R^n$ ($n:=p+q$)上の符号$(p,q)$をもつ標準二次形式を$\Q$と表し、
+	  Let us set up some notation. We define the standard quadratic form
+	  $\Q$ on $\R^n$ ($n:=p+q$) of signature $(p,q)$ by
 	  \begin{equation*}
   \Q (x) \assign \,^t \! x I_{p, q} x, \; (x \in
   \mathbbm{R}^{p + q}),
 	  \end{equation*}
-	  ここで、
+	  where
 \begin{equation*}
    I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
   1, \ldots, - 1}_q).
 \end{equation*}
-$G$を$G \assign O (p +
-1, q + 1)=\left\{ g\in GL\left( p+q+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}$とすると、
-極大放物型部分群
-$P=MAN_{+}$をとる.ここで、
+We set $G \assign O (p +
+1, q + 1)=\left\{ g\in GL\left( p+q+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}$, and define
+a maximal parabolic subgroup $P=MAN_{+}$ with
 \ExecuteMetaData[.master_extract.tex]{tagsetting}
-複素数パラメータ
-$\lambda\in\C$に依存する$G$の退化主系列表現を定める
+For complex parameter $\lambda\in\C$ we define (unnormalized) spherical degenerate principal series representations of $G$ as
 \begin{align*}
 I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
 &\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}.
 \end{align*}
 
-$G$の簡約部分群として第$p$座標の固定部分群を$G':=G_{e_{p+1}}:=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}$とする。
-そうすると、$G$は$P$と適合する（つまり、$A\subset G'$のため、$P':=P\cap G'$は$G'$のラングランズ分解$P'=(G'\cap M)A(G'\cap N_+)$を持つ極大放物型部分群である）
-同じいように、複素数パラメータ$\nu\in\C$に依存する$G'$の退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$を定める。
+We realize $G':=O(p,q+1)$ as the subgroup $G_{e_{p+1}}:=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}$ of $G$. 
+Then $G'$ is {\it compatible} with $P$ in the sense that 
+$P':=P\cap G'$ is also a maximal parabolic subgroup
+with Langlands decomposition $P'=(G'\cap M)A (G'\cap N_+)$,
+because $A\subset G'$.
+Similarly, we define (unnormalized) spherical degenerate principal series representations $J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$ of $G'$ for $\nu\in\C$.
 
-その設定の上で、本研究は主に$G$-表現$I(\lambda)$から、$G'$-表現$J(\nu)$への$G'$-intertwining作用素（つまり、対称性破れ作用素、或いはSBO）に関する。
-対称性破れ作用素の空間を$\SBO$として表す。
+The objects of this study are then \textit{symmetry breaking operators} (\textit{SBOs} for short),
+that is, $G'$-intertwining operators between the $G$-module $I(\lambda)$ regarded as a $G'$-module by restriction and the $G'$-module $J(\nu)$. We denote by $\SBO$ the totality
+of such operators.
 
-\cite{kobayashi2013finite,kobayashi2014classification}の一般論における以下のようなアプリオリ評価がある：
+The general theory \cite{kobayashi2013finite,kobayashi2014classification} implies the following {\it a priory} estimate of its dimension in our particular setting.
 \begin{fact}
-	対称性破れ作用素空間の次元が表現のパラーメタ$(\lambda,\nu)$よらずに一様に押さえられている。
+	The dimension of $\SBO$ is uniformly bounded in $(\lambda,\nu)\in\C^2$.
 \end{fact}
-以下の定理\ref{thm:classif}で、$\SBO$空間の規定を具体的に述べる。
+We shall find an explicit basis of $\SBO$ in our setting in Theorem \ref{thm:classif}, and in particular, its dimension in Corollary \ref{cor:classif}.
 
 In order to analyze the space $\SBO$ of symmetry breaking operators, we begin with:
 \begin{definition} \label{def1}
