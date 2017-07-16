@@ -136,7 +136,7 @@ Please excuse me in advance.}
 	  $n=p+q$と\doubt{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式を
 	  \begin{equation*}
   \Q (x) \assign \,^t \! x I_{p, q} x, \; (x \in
-  \mathbbm{R}^{p + q}),
+  \mathbbm{R}^{p + q}),\footnote{I think this comma should be taken away}
 	  \end{equation*}
 	  と定める。ここで
 \begin{equation*}
@@ -245,7 +245,8 @@ $G$は共形変換群として作用する
 
 \[
 X:=G/P\simeq X^{p,q},\]\[Y:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\]
-\[C:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\]\[\left\{ [o] \right\}:=\left\{ [1:0_{p+q}:1] \right\}\mbox{とおく.}\]
+\[C:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\]\[\left\{ [o] \right\}:=\left\{ [1:0_{p+q}:1] \right\}\]
+{とおく.}
 \begin{theorem}[$G/P$の$P'$不変な閉部分集合の分類]
 	$p,q\ge1$とする。
 	$G/P$の$P'$不変閉部分集合
@@ -276,7 +277,7 @@ X:=G/P\simeq X^{p,q},\]\[Y:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\
 \end{theorem}
 両側剰余類$P'\backslash G/P$のそれぞれの閉集合$S$に対して、対称性破れ作用素の族$R^S_{\lambda,\nu}$を構成する。更に、
 \begin{itemize}
-	\item $R_{\lambda,\nu}^S$は$(\lambda,\nu)\in D_S$に対して定義されている作用素である。ここで、$D_S$は$\C^2$の部分集合である(より詳しくいうと、
+	\item $R_{\lambda,\nu}^S$はパラメータ$(\lambda,\nu)\in D_S$に対して定義されている作用素である。ここで、$D_S$は$\C^2$の部分集合である(より詳しくいうと、
 		$\C^2$全体或いは１次元アフィン空間の加算和である);
 	\item $R_{\lambda,\nu}^S$は$(\lambda,\nu)\in D_S$に正則(holomorphic)に依存する;
 	\item 全て$(\lambda,\nu)\in D_S$に対して、$\Supp(R_{\lambda,\nu}^S)\subset S$である（更に、一般の位置に\doubt{ある}$(\lambda,\nu)$に対しては\doubt{等号}が成り立つ).
@@ -339,7 +340,7 @@ $p=1$に対して、$q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$を以下のよ
 	と$\tilde{R}_{\lambda,\nu}^X=0\iff p=1$、$(\lambda,\nu)$は離散集合$\backslash\backslash\cap \mid\mid$に属している。
 \end{remark}
 定理\ref{thm:construction}で構成された対称性破れ作用素はいつも線型独立になるとは限らないが、全ての対称性破れ作用素はその線形和で表せることがわかる、任意の
-$(\lambda,\nu)\in\C^2$に対して、$\SBO$の基底を以下のように具体的に述べる：
+$(\lambda,\nu)\in\C^2$に対して、$\SBO$の基底を以下のように具体的に決定した：
 \begin{theorem}[対称性破れ作用素の分類]\label{thm:classif}
 	$p,q\ge1$とする.
 		\ExecuteMetaData[.master_extract.tex]{classification}
@@ -368,7 +369,7 @@ $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$と表す。
 $(\lambda,\nu)\in\C^2\setminus//$に対して、
 \[K_{\lambda,\nu}^{\mathbb{R}^{p,q}}:=\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
 \frac{\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\sol\mbox{を定義する。}\]
-そうすると、$R_{\lambda,\nu}^X=\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( K_{\lambda,\nu}^X \right)$.
+、$R_{\lambda,\nu}^X=\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( K_{\lambda,\nu}^X \right)$.
 これの左辺は$(\lambda,\nu)\in\C^2$に正則(holomorphic)に依存する対称性破れ作用素の族に拡張できる。
 \begin{theorem}[留数公式]
 	前のように、$n:=p+q\;(p,q\ge1)$とする。
@@ -386,7 +387,7 @@ $(\lambda,\nu)\in\C^2\setminus//$に対して、
 		ように、$G=O(p+1,q+1)$に$\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$である。
 		ここで、$\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$は定義\ref{def2}の４つ\doubt{日}の条件を満たす$\R^{p+q}$上の超関数空間(しかし、
 		３つ目の条件で$O(p,q)_{e_p}$不変性の代わりに、$O(p,q)$を求め、
-		４つ目の科目\footnote{should it be 条件, not 科目?}で$N_+'$不変性の代わりに、$N_+$不変性を求める；$N_+$不変性の定義が$N_+'$不変性と全く同じが、定義で$b_p=0$をもとめられない)。
+		４つ目の条件で$N_+'$不変性の代わりに、$N_+$不変性を求める；$N_+$不変性の定義が$N_+'$不変性と全く同じが、定義で$b_p=0$をもとめられない)。
 
 		以下のように定義された超関数は
 		\begin{equation*}
@@ -409,7 +410,7 @@ $(\lambda,\nu)\in\C^2\setminus//$に対して、
 	\end{definition}
 	\begin{theorem}[函数等式]
 	前のように、$n:=p+q\;(p,q\ge1)$とする。
-	そうすると、
+	このとき、
 \ExecuteMetaData[.master_extract.tex]{functional}
 	\end{theorem}
 	\begin{remark}
@@ -419,7 +420,7 @@ $(\lambda,\nu)\in\C^2\setminus//$に対して、
 	ここで$J(\nu)$の$K'$表現の構造は球面調和関数
 	$\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$で表せる。
  	\cite{howe1993homogeneous}のように、$J(\nu)$のJordan--H\"older 列 (或いは、socle filtrations) を矢印で表す。
-	そうすると：
+	このとき、以下の定理が成り立つ：
 \begin{theorem}[対称性破れ作用素の像]
 	The regular SBO $R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$ is surjective,
 	$\nu\in\Z$ではなかったら、regular対称性破れ作用素$R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$は射影関数である。
@@ -431,7 +432,7 @@ $(\lambda,\nu)\in\C^2\setminus//$に対して、
 	for $p>1$:
 \end{theorem}
 \begin{enumerate}[(1)]
-	\item $p\in2\N_++1$ と $q\in2\Z$とする. そうすると、$\nu\in2\Z,0<\nu<n-1$ならば、$R_{\lambda,\nu}^X$ は射影函数である。そうではなかったら、
+	\item $p\in2\N_++1$ と $q\in2\Z$とする. このとき、$\nu\in2\Z,0<\nu<n-1$ならば、$R_{\lambda,\nu}^X$ は射影函数である。そうではなかったら、
 		\hspace*{-1cm}\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
@@ -454,7 +455,7 @@ $(\lambda,\nu)\in\C^2\setminus//$に対して、
 	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{f5}\\[25pt]
 	    \end{tabular}
 	  \end{figure}
-	\item $p,q\in\odd$と $p>1$とする。そうすると、
+	\item $p,q\in\odd$と $p>1$とする。このとき、
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
@@ -465,7 +466,7 @@ $(\lambda,\nu)\in\C^2\setminus//$に対して、
 			  
 		\end{tabular}
 		\end{figure}
-	\item $p,q\in\even$とする。 そうすると、
+	\item $p,q\in\even$とする。 このとき、
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
@@ -475,7 +476,7 @@ $(\lambda,\nu)\in\C^2\setminus//$に対して、
 			\toddText{>n-3}&\input{f13}\\[0pt]
 		\end{tabular}
 		\end{figure}
-	\item $p\in\even,q\in\odd$とする。そうすると、$\nu\in\odd$ならば、 $R_{\lambda,\nu}^X$は射影函数である。そうではなかったら、(つまり、$\nu\in\even$ならば)、
+	\item $p\in\even,q\in\odd$とする。このとき、$\nu\in\odd$ならば、 $R_{\lambda,\nu}^X$は射影函数である。そうではなかったら、(つまり、$\nu\in\even$ならば)、
 	  \begin{figure}[H]
 		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
