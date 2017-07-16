@@ -45,6 +45,24 @@
   </remark*>
 
   <\proof>
+    Note that for the modular function we have
+
+    <\equation*>
+      1=\<Delta\><around*|(|\<tau\><rsup|2>|)>=\<Delta\><around*|(|\<tau\>|)><rsup|2>\<Rightarrow\>\<Delta\><around*|(|\<tau\>|)>=1.
+    </equation*>
+
+    Then, we proceed as
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|<around*|(|f\<ast\>g|)><around*|(|x|)>=<big|int><rsub|G>f<around*|(|x
+      y<rsup|-1>|)>g<around*|(|y|)>d y>>|<row|<cell|<around*|(|<text|<math|\<Delta\><around*|(|\<tau\>|)>=1>>|)>>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y<rsup|-\<tau\>>x<rsup|\<tau\>>|)>g<around*|(|y<rsup|\<tau\>>|)>d
+      y>>|<row|<cell|<around*|(|y\<rightarrow\>y
+      x|)>>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y<rsup|-\<tau\>>|)>g<around*|(|x<rsup|\<tau\>>y<rsup|\<tau\>>|)>d
+      y>>|<row|<cell|<around*|(|\<forall\>f\<in\>C<rsub|c><around*|(|G//K|)>\<forall\>x\<in\>G,f<around*|(|x<rsup|\<tau\>>|)>=f<around*|(|x|)>|)>>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y<rsup|-1>|)>g<around*|(|y
+      x|)>d y=<big|int><rsub|G>f<around*|(|y<rsup|>|)>g<around*|(|y<rsup|-1>
+      x|)>d y>>>>>
+    </equation*>
+
     \;
   </proof>
 </body>
@@ -54,7 +72,7 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|?|?|../../../.TeXmacs/texts/scratch/no_name_32.tm>>
+    <associate|auto-1|<tuple|?|?>>
     <associate|auto-2|<tuple|1|?|../../../.TeXmacs/texts/scratch/no_name_32.tm>>
   </collection>
 </references>

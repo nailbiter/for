@@ -103,15 +103,22 @@
 %%\newcommand{\doubt}[1]{\fbox{#1}}
 \newcommand{\doubt}[1]{\uwave{#1}}
 
+%custom thanks
+\makeatletter
+\renewcommand*{\@fnsymbol}[1]{\ensuremath{\ifcase#1\or \dagger\or *\or \ddagger\or
+	    \mathsection\or \mathparagraph\or \|\or **\or \dagger\dagger
+	        \or \ddagger\ddagger \else\@ctrerr\fi}}
+		\makeatother
+
 \begin{document}
 \renewcommand{\abstractname}{概要}
 
-\title{不定値直交群$O(p,q)$の対称性破れ作用素}
+\title{不定値直交群$O(p,q)$の対称性破れ作用素\thanks{hi these}}
 
   %%%% 講演者1
 \author{小林　俊行\thanks{Partially supported by Grant-in-Aid for Scientific
-	Research (A) (25247006), Japan Society for the Promotion of Science.} (東京大学、カブリ数物連携宇宙研究機構)\\
-  レオンチエフ　アレックス (東京大学)}
+Research (A) (25247006), Japan Society for the Promotion of Science.} (東京大学\;大学院数理科学研究科\doubt{・}カブリ数物連携宇宙研究機構)\\
+  レオンチエフ　アレックス (東京大学\;大学院数理科学研究科)}
 
   %%%% 講演者2
 
@@ -124,8 +131,7 @@
 \begin{abstract}
 	不定値直交群の組$(G, G') =(O(p+1, q+1), O(p,q+1))$に対して、$G$の球退化主系列表現から、$G'$の球退化主系列表現への
 	全て対称性破れ作用素を構成し、分類
-	を完成させた。対称性破れ作用素の構成と分類問題\doubt{は}\footnote{here and below \doubt{wavy underline} indicates words which I am not sure in because I might have misread Your handwriting.
-Please excuse me in advance.}
+	を完成させた。対称性破れ作用素の構成と分類問題\doubt{は}
 	小林俊行氏とB. Speh氏によって[Memoirs of Amer. Math. Soc. 2015]
 	で初めて提起され、ローレンツ群に対して完全な分類が得られた。ここでのnotationでは$q=0$の場合に対応\doubt{する}。更に、
 	函数等式、留数公式と対称性破れ作用素の像も具体的に述べる。
@@ -133,16 +139,14 @@ Please excuse me in advance.}
 \end{abstract}
 
   \begin{versiona}
-	  $n=p+q$と\doubt{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式を
+	  $n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式を
 	  \begin{equation*}
   \Q (x) \assign \,^t \! x I_{p, q} x, \; (x \in
-  \mathbbm{R}^{p + q}),\footnote{I think this comma should be taken away}
+  \mathbbm{R}^{p + q})
 	  \end{equation*}
-	  と定める。ここで
-\begin{equation*}
-   I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
-  1, \ldots, - 1}_q)\in GL(p+q,\R).
-\end{equation*}
+	  と定める。ここで$I_{p,q}$は対角行列
+   $I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
+  1, \ldots, - 1}_q)\in GL(p+q,\R)$.
 この二次形式に\doubt{関する}不定値直交群を
 \begin{equation*}
 	G \assign O (p +

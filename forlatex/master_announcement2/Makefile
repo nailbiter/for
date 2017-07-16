@@ -11,7 +11,8 @@ WORKON=https://trello.com/c/jUZS9cjM
 PDFS=Z master_announcement2 howetan_diagrams answer
 AUX=
 
-all: $(OUTDIR)/$(ZIPNAME).zip
+all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
+pub: $(OUTDIR)/$(ZIPNAME).zip
 
 clean:
 	touch *.tex
