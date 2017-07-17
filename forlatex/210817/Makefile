@@ -18,7 +18,7 @@ COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
-publish:  $(OUTDIR)/$(ZIPNAME).zip
+p:  $(OUTDIR)/$(ZIPNAME).zip
 
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
@@ -26,9 +26,9 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	du -hs $@
 	$(GITCOMMIT)
 
-$(OUTDIR)/abstract.pdf : abstract.tex f*.tex
+$(OUTDIR)/abstract.pdf : abstract.tex f*.tex .master_extract.tex
 	        $(LATEXMK) $<
-$(OUTDIR)/abstract-jap.pdf : abstract-jap.tex f*.tex
+$(OUTDIR)/abstract-jap.pdf : abstract-jap.tex f*.tex .master_extract.tex
 	        $(XELATEX) $<
 
 

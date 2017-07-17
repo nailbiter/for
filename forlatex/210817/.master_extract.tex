@@ -182,7 +182,7 @@ $\left. \begin{array}{ll}
   $R_{\lambda, \nu}^Y =$ & $\frac{(-1)^k k! q_Y^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
   \right) }{\tmop{Op} \left( \delta^{(2k)}(x_p)
   | \Q |^{- \nu}  \right)}$ & $
-  \backslash\backslash$ & $Y$ {\rm(generically, and always $\neq \varnothing$)}.\\
+  \backslash\backslash$ & {\rm{genericには$Y$決して空にならない。}}\\
   \hline
   $R_{\lambda, \nu}^C =$ & $\frac{(-1)^m m! q_C^X (\lambda, \nu)}{\Gamma \left( \frac{\lambda - \nu}{2}
   \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right) }{\tmop{Op} \left( | x_p |^{\lambda + \nu - n}\delta^{(2m)}\left( \Q \right)
@@ -209,31 +209,34 @@ $\left. \begin{array}{ll}
 
 
 %<*residue>
-
+\newcommand{\tisevenjap}{\mbox{は偶数}}
+\newcommand{\tisoddjap}{\mbox{は奇数}}
 \begin{align*}
  q_C^X (\lambda, \nu) &:= \left\{ \begin{array}{ll}
-     \Gamma^{} \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
-     2\mathbbm{Z}, \nu \leqslant q - \nu,\\
-     \Gamma^{} \left( \frac{\lambda - \nu}{2} \right), & q \in 2\mathbbm{Z},
+     \Gamma^{} \left( \frac{\lambda + \nu - n + 1}{2} \right), & q\tisevenjap
+     , \nu \leqslant q - \nu,\\
+     \Gamma^{} \left( \frac{\lambda - \nu}{2} \right), & q\tisevenjap,
      \nu > q - \nu,\\
-     \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right), & q \in
-     2\mathbbm{Z}+ 1.
+     \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right), & q\tisoddjap
+     .
    \end{array} \right.\\
 q_Y^X (\lambda, \nu) &:= \left\{ \begin{array}{ll}
      1, & 
-      q \in 2\mathbbm{Z}+ 1,\\
+      q \tisoddjap,\\
       \Gamma \left( \frac{\lambda -
      \nu}{2} \right) / \Gamma \left( \max \left\{ \frac{\lambda + \nu}{2}, 0
      \right\} - \nu \right), & q
-     \in 2\mathbbm{Z}.
+     \tisevenjap.
    \end{array} \right.
 \end{align*}
 %</residue>
 
 
 %<*classification>
-
-\[ (1)\;\mbox{$p=1$のとき、} \SBO = \left\{
+\begin{enumerate}[(1)]
+	\item $p=1$のとき、
+		\begin{equation*}
+			\SBO = \left\{
    \begin{array}{ll}
      \mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \in \mathbbm{C}^2 - (/ /
      \cap \mid \mid \mid) - (\mid \mid \cap \backslash\backslash),\\
@@ -244,14 +247,19 @@ q_Y^X (\lambda, \nu) &:= \left\{ \begin{array}{ll}
      (\lambda, \nu) \in (\mid \mid \cap \backslash\backslash) - / /,\\
      \mathbbm{C}R^{\{ o \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid
      \cap \backslash\backslash \cap / /.
-   \end{array} \right. \]
-\[ (2)\;\mbox{$p>1$のとき、}\SBO = \left\{
+   \end{array} \right.
+		\end{equation*}
+	\item $p>1$のとき、
+		\begin{equation*}
+\SBO = \left\{
    \begin{array}{ll}
      \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
      \}}_{\lambda, \nu \lambda, \nu}, & (\lambda, \nu) \in / / \cap \mid \mid
      \mid,\\
-     \mathbbm{C}R^X_{\lambda, \nu}, & \tmop{otherwise.}
-   \end{array} \right. \]
+     \mathbbm{C}R^X_{\lambda, \nu}, & \mbox{それ以外の場合。}
+   \end{array} \right.
+		\end{equation*}
+\end{enumerate}
 %</classification>
 
 

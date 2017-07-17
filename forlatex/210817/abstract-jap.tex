@@ -302,21 +302,24 @@ C&:=&\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\
 	\item $R_{\lambda,\nu}^S$はパラメータ$(\lambda,\nu)\in D_S$に対して定義されている作用素である。ここで、$D_S$は$\C^2$の部分集合である(より詳しくいうと、
 		$\C^2$全体或いは１次元アフィン空間の加算和である);
 	\item $R_{\lambda,\nu}^S$は$(\lambda,\nu)\in D_S$に正則(holomorphic)に依存する;
-	\item 全て$(\lambda,\nu)\in D_S$に対して、$\Supp(R_{\lambda,\nu}^S)\subset S$である（更に、一般の位置に\doubt{ある}$(\lambda,\nu)$に対しては\doubt{等号}が成り立つ).
+	\item 全て$(\lambda,\nu)\in D_S$に対して、$\Supp(R_{\lambda,\nu}^S)\subset S$である（更に、一般の位置に{ある}$(\lambda,\nu)$に対しては{等号}が成り立つ).
 \end{itemize}
 作用素
-$R_{\lambda,\nu}^S$は特定の$(\lambda,\nu)$に対して、零
-になることがあり得る(注意\ref{rmk:thm:construction}を参照)。
-従って、$\tilde{R}^X_{\lambda,\nu}$という対称性破れ作用素のファミリを再正規化として定義する。
-しかし、$p=1$のとき、$S=C\cap Y$の場合と$p>1$のとき、$S=C$又は$Y$の場合は以下に出てくる分類(定理\ref{thm:classif})に使わなくてもよいので、
-省略する。
+$R_{\lambda,\nu}^S$は$\C^2$の離散集合上で
+零になる(注意\ref{rmk:thm:construction}を参照)。
+\doubt{そこで($\C^2$全体ではなく、次元が低いパラメータ集合$\mid\mid\mid$上で)}
+	対称性破れ作用素の族$R_{\lambda,\nu}^X$を再正規化に定義したのが$\tilde{R}_{\lambda,\nu}^X$である。ただし、
+	$p=1$のとき、あるいは$S=C\cap Y$の場合と$p>1$のとき、あるいは$S=C$\doubt{X}
+$Y$の場合は分類(定理\ref{thm:classif})に用いなくてもよいので、
+ここでは省略する。
 \newpage
 \begin{theorem}[対称性破れ作用素の構成]\label{thm:construction}
-	$P'$不変な$G/P$の閉集合
+	\doubt{$P'$不変な$G/P$の閉集合
 	$S=X,Y,C,$ $\left\{ o \right\}$に対して、
-	$\IlambdaGprime$から$J(\nu)$への対称性破れ作用素であり、
 	パラメータ集合$D_S$を以下の表のように定めると、作用素
-	$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$は$(\lambda,\nu)\in D_S$に正則に依存する。
+	$R_u{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$は
+	$\IlambdaGprime$から$J(\nu)$への対称性破れ作用素であり、
+$(\lambda,\nu)\in D_S$に正則に依存する}\footnote{I am extremely sorry if I have messed up the order. It was not intentional.}。
 	\\
 \ExecuteMetaData[.master_extract.tex]{table}\vspace{\baselineskip}
 上記の表中の記号を説明する：
@@ -326,16 +329,18 @@ $R_{\lambda,\nu}^S$は特定の$(\lambda,\nu)$に対して、零
 \item $/ / \assign
 \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
 -2\N \},\quad \mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N}$;
-\item $\tilde{C}(s,t)$は\cite[(16.3)]{kobayashi2015symmetry}で定義された２変数多項式であり、正規化された
+\item $\tilde{C}(s,t)$は\cite[(16.3)]{kobayashi2015symmetry}\footnote{in reply to Your question ``これはKP Selecta, Part IIの方が適切でしょうか？'':
+	yes, this polynomial also appears in KP, but I have chosen Kobayashi-Speh, because: it is older than KP and it is more close to spirit to this work. Should I change
+to KP Selecta, Part II?}で定義された２変数多項式であり、正規化された
 	Gegenbauer多項式から導かれるものである。
 \end{itemize}
 \end{theorem}
-$(\lambda,\nu)\in\mid\mid$に対して、$m:=\frac{1}{2}\left( \nu-1 \right)\in\N$とし、$(\lambda,\nu)\in\bb$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$とする。
+$(\lambda,\nu)\in\mid\mid$に対して、$m:=\frac{1}{2}\left( \nu-1 \right)\in\N$と定め、$(\lambda,\nu)\in\bb$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$と定める。
 $p=1$に対して、$q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$を以下のように定義する：
 \ExecuteMetaData[.master_extract.tex]{residue}
 \begin{remark}
 	小林--Pevznerによる微分対称性破れ作用素の一般理論(\cite[Chap.\ 2]{kobayashi2016differential1})
-	の微分対称性破れ作用素の一般論によって、
+	よって、
 	$S=\left\{ o \right\}$ならば、$R_{\lambda,\nu}^S$は微分作用素である。
 	$\tilde{C}(s,t)$の定義に基づいて計算すると、
 	定理\ref{thm:construction}\,の微分作用素$R_{\lambda,\nu}^{ \left\{ o \right\}}$は以下の形で与えられる。
@@ -345,63 +350,66 @@ $p=1$に対して、$q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$を以下のよ
 		+1}{2}+\frac{\nu+\lambda}{2}
 		+i \right)\left(- \Delta_{\mathbbm{R}^{p-1,q}} \right)^j\left( \frac{\partial}{\partial x_p} \right)^{\nu-\lambda-2j}.
 	\end{equation*}
-	上の公式の$q=0$の特別な場合は\cite[Thms. 5.1.1 and 5.2.1]{juhl2009families}と\cite[(10.1)]{kobayashi2015symmetry}
-	で現れたものであり、
+	上の公式の$q=0$の特別な場合は\cite[Thms. 5.1.1 and 5.2.1]{juhl2009families}や\cite[(10.1)]{kobayashi2015symmetry}
+	で現れた微分作用素であり、
 	一般の$p,q$の場合は
 	\cite[Thm.\ 4.3]{kobayashi2015branching}で既に得られているものと同一である。
 \end{remark}
 \begin{remark}\label{rmk:thm:construction}
-	定理\ref{thm:construction}の表の一番右の列から、どんな$(\lambda,\nu)\in\C^2$に対しても$R_{\lambda,\nu}^{ \left\{ o \right\}},R_{\lambda,\nu}^Y,R_{\lambda,\nu}^C\neq0$である
-	ことがわかる、さらに
-	$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)$が以下の離散集合に属していろこともわかる。
+	定理\ref{thm:construction}\;の表の一番右の列から、定義域に\doubt{属}する任意の
+	$(\lambda,\nu)$に対して$R_{\lambda,\nu}^{ \left\{ o \right\}},R_{\lambda,\nu}^Y,R_{\lambda,\nu}^C\neq0$である
+	ことがわかる。一方、正則(regular)対称性破れ作用素$R_{\lambda,\nu}^X$に対しては、
+	$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)$が以下の離散集合に属していることもわかる。
 	\[\begin{cases}
 			//\cap\mid\mid\mid,&p>1,\\
-			\mybra{//\cap\mid\mid\mid} \cup \mybra{\backslash\backslash\cap\mid\mid},&p=1,
+			\mybra{//\cap\mid\mid\mid} \cup \mybra{\backslash\backslash\cap\mid\mid},&p=1.
 		\end{cases}
 	\]
-	と$\tilde{R}_{\lambda,\nu}^X=0\iff p=1$、$(\lambda,\nu)$は離散集合$\backslash\backslash\cap \mid\mid$に属している。
+	再正則化した作用素$\tilde{R}_{\lambda,\nu}^X$に対しては\doubt{、}以下が同値となる。
+	$\tilde{R}_{\lambda,\nu}^X=0\iff p=1$、$(\lambda,\nu)$は離散集合$\backslash\backslash\cap \mid\mid$に属している。
 \end{remark}
-定理\ref{thm:construction}で構成された対称性破れ作用素はいつも線型独立になるとは限らないが、全ての対称性破れ作用素はその線形和で表せることがわかる、任意の
-$(\lambda,\nu)\in\C^2$に対して、$\SBO$の基底を以下のように具体的に決定した：
+定理\ref{thm:construction}で構成された対称性破れ作用素はいつも線型独立になるとは限らないが、全ての対称性破れ作用素はその線形和で表せることがわかる。
+任意の$(\lambda,\nu)\in\C^2$に対して、線形空間$\SBO$の基底を以下のように具体的に決定した：
 \begin{theorem}[対称性破れ作用素の分類]\label{thm:classif}
-	$p,q\ge1$とする.
+	$p,q\ge1$とする。
 		\ExecuteMetaData[.master_extract.tex]{classification}
 \end{theorem}
-\begin{corollary}\label{cor:classif}
+\begin{corollary}[対称性破れ作用素の{\doubt{存在}}定理]\label{cor:classif}
 	どんな$(\lambda,\nu)\in\C^2$に対しても
 	$$\dim_{\C}\SBO\in\left\{ 1,2 \right\}$$が成り立つ。
 \end{corollary}
 $G$の球退化主系列表現$I(\lambda)$は$K$不変ベクトルを含む。部分群$G'$の表現$J(\nu)$も同様である。
-$K$不変ベクトルのなす空間は１次元であり、$\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$と
+いずれの場合も$K$不変ベクトルのなす空間は１次元であるので、$\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$と正規化した元を
 $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$と表す。
 このとき以下のことが成り立つ：
 \begin{theorem}[$K$不変ベクトルのスペクトラム]\label{thm:spherical}
-	前のように、$n:=p+q\;(p,q\ge1)$とする。
+	$n=p+q\;(p,q\ge1)$という記法は前述の通りとする。この\doubt{とき、}
 \[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} =  \frac{2^{1 -
 \lambda}\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
 \Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
 \frac{q - \nu + 1}{2} \right)} \mathbbm{1}_{\nu}\mbox{ が成り立つ。}\]
 \end{theorem}
 \begin{remark}
-	$SL(2,\R)$の場合、すなわち、
-	定理\ref{thm:spherical}の$p=q=1$の特別な場合はBernstein-Reznikov\cite[Lem. A.5]{bernstein2004estimates} によって得られた。
-	群のランクが高い場合の一般化は\cite[Thm. 1.1]{clerc2011generalized}で\doubt{記明}されている。
-	また$q=0$の場合が\cite[Prop.\ 7.4]{kobayashi2015symmetry}で得られる。
+	$SL(2,\R)$の表現のテンソル積の場合、すなわち、
+	定理\ref{thm:spherical}\;の$p=q=1$の特別な場合はBernstein-Reznikov\cite[Lem. A.5]{bernstein2004estimates} によって得られた。
+	さらに群のランクが高い場合の一般化は\cite[Thm. 1.1]{clerc2011generalized}で{証明}されている。
+	また$q=0$の場合は\cite[Prop.\ 7.4]{kobayashi2015symmetry}で得られている。
 \end{remark}
 $(\lambda,\nu)\in\C^2\setminus//$に対して、
-\[K_{\lambda,\nu}^{\mathbb{R}^{p,q}}:=\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
-\frac{\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\sol\mbox{を定義する。}\]
-、$R_{\lambda,\nu}^X=\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( K_{\lambda,\nu}^X \right)$.
-これの左辺は$(\lambda,\nu)\in\C^2$に正則(holomorphic)に依存する対称性破れ作用素の族に拡張できる。
+\begin{align*}
+K_{\lambda,\nu}^{\mathbb{R}^{p,q}}&:=&\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
+\frac{\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\sol\\
+R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( K_{\lambda,\nu}^X \right)
+\end{align*}
+と定義する。このとき、$R_{\lambda,\nu}^X$は$(\lambda,\nu)\in\C^2$に正則(holomorphic)に依存する対称性破れ作用素の族に拡張できる。
 \begin{theorem}[留数公式]
-	前のように、$n:=p+q\;(p,q\ge1)$とする。
-	$(\lambda,\nu)\in//$に対して、$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とする。このとき
+	$(\lambda,\nu)\in//$に対して、$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とおく。このとき
   \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^l l!\pi^{(n - 2) / 2} 
 		}{2^{ \nu + 2 l-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
      \OpR_{\lambda,\nu}^{ \left\{ o \right\} },\quad(\lambda,\nu)\in// . \]
 	\end{theorem}
 	\begin{remark}
-		留数公式の原型となる場合として$q=0$の場合は\cite[Thm. 12.2]{kobayashi2015symmetry}で記明されている。
+		留数公式の原型となる場合として$q=0$の場合は\cite{KOBAYASHI2014272}\cite[Thm. 12.2]{kobayashi2015symmetry}で証明されている。
 	\end{remark}
 	\begin{definition}
 		Fact \ref{fact1}
