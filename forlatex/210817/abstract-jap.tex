@@ -585,21 +585,27 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\ge q}&\input{f29}\\
 	\end{tabular}\end{figure}
 	上の図式で、ある図式は灰色出なく、色つける対角線が出てくる。これはregular対称性破れ作用素$R_{\lambda,\nu}^X$はゼロであるの場合を表す。
-	この場合で、
+	この場合、
 	\begin{itemize}
 		\item $(\lambda,\nu)\in\ss$ならば、
-	(緑色/紫の)左下から右上へと左上から右下への線はregular対称性破れ作用素の留数
+	(緑色/紫の)左下から右上へと左上から右下への線は正則な(regular)対称性破れ作用素の留数
 	$R_{\lambda,\nu}^{ \left\{ o \right\}}$と$\tilde{R}_{\lambda,\nu}^X$の像を表す。
 		\item $(\lambda,\nu)\in\ss$ならば、
-	(青い/赤い)左下から右上へと左上から右下への線はregular対称性破れ作用素の留数
+	(青い/赤い)左下から右上へと左上から右下への線は正則な(regular)対称性破れ作用素の留数
 	$R_{\lambda,\nu}^{Y}$ と ${R}_{\lambda,\nu}^C$ の像を表す。
 	\end{itemize}
 \begin{remark}
 	定理\ref{thm:construction}で構成した他の対称性破れ作用素の像も決定できる。
-	これの証明は\cite{howe1993homogeneous}結果から独立している。
+	なお、これらの証明は\cite{howe1993homogeneous}の結果を用いない。
 \end{remark}
 
-\cite{KO2}で$O(p,q)$の既約ユニタリー表現$\pi_{\pm,\lambda}^{p,q}$の５つ同値な定義が述べられた。
+\cite{KO2}で
+%16-b
+示したように、$\lambda\in A_0(p,q)$に対して
+$O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
+%%16-c
+が定まる。(\cite{KO2}では$\pi_{\pm,\lambda}^{p,q}$を定義するにあたって5種類の条件が同値で)<++>
+%%16-a
 \begin{theorem}[Zuckerman加群 $\pi_{\pm,\lambda}^{p,q}$間の$G'$-invariant写像]\label{thm:Aq}
 	$n=p+q,\;(p,q\ge1)$ と $n':=n-1$とする。
 	$\Hom_{G'}\left(\pi_{\pm,{n}/{2}-\lambda}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\pm,\nu-{n'}/{2}}^{p,q+1} \right)$の次元が以下のようになる：
@@ -610,6 +616,8 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 \end{remark}
 \end{theorem}
 \nocite{kobayashi2015program}
+\nocite{kobayashi1993}
+\nocite{10.2307/120963}
 \small
 \bibliography{todai_master}
 \bibliographystyle{mystyle}
