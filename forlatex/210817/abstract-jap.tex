@@ -623,7 +623,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 			が成り立つ。
 	\end{itemize}
 
-\cite[(5.1.1)]{KO2}に做って$p>1$\doubt{かつ}$q\ge1$のときに\begin{equation*}
+\cite[(5.1.1)]{KO2}に做って$p>1${かつ}$q\ge1$のときに\begin{equation*}
 	A_0(p,q):=\left\{ \lambda\in\Z+\frac{p+q}{2}\;:\;\lambda>-1 \right\}
 \end{equation*}とおくと、
 \cite{KO2}で
@@ -633,27 +633,37 @@ $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
 %%16-c
 が定まる。(\cite{KO2}では$\pi_{\pm,\lambda}^{p,q}$を定義するにあたって5種類の
 特徴づけが与えら\doubt{れ}、それらは互いに
-同値であることが示されている。1つはZuckerman導来函手加群で記載される。)
+同値であることが示されている。その特徴づけの1つは
+Zuckerman導来函手加群で記載される。)
 以下では、この加群の間に対称性破れ作用素がある\doubt{か}について論じる。簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
 %%16-a
-\begin{theorem}[Zuckerman導来加群函手$\pi_{\pm,\lambda}^{p,q}$間の対称性破れ作用素の存在問題{\doubt{写像}\footnote{should I remove this 写像?}}]\label{thm:Aq}
-	$n=p+q,\;(p,q\ge1)$ と $n':=n-1$とする。
+以下では\begin{equation*}
+	g(t):=\left\{ \begin{array}[]{ll}
+		1&t\in2\N+\frac{1}{2}\\[10pt]
+		0&t\nin 2\N+\frac{1}{2}
+	\end{array}\right.,h(t):=\left\{ \begin{array}[]{ll}
+		1&t<\frac{q}{2}\\[10pt]
+		0&t\ge\frac{q}{2}
+\end{array}\right.
+\end{equation*}とおく。
+\begin{theorem}[Zuckerman導来加群函手$\pi_{\pm,\lambda}^{p,q}$間の対称性破れ作用素の存在問題]\label{thm:Aq}
+	$n=p+q\;(p,q\ge1),\;n':=n-1$とする。
 	以下では
 	%16-d
 \begin{equation*}
                 \begin{array}[]{c}
                         x\in\left\{\begin{array}[]{ll}
-                                \Azeven(p+1,q+1),&\mbox{for }\delta=+,\\
-                                \Azeven(q+1,p+1),&\mbox{for }\delta=-,\\
+                                \Azeven(p+1,q+1),&\delta=+\mbox{ のとき}\\
+                                \Azeven(q+1,p+1),&\delta=-\mbox{ のとき}\\
                         \end{array}\right.\\
                         y\in\left\{\begin{array}[]{ll}
-                                \Azeven(p,q+1),&\mbox{for }\varepsilon=+,\\
-                                \Azeven(q+1,p),&\mbox{for }\varepsilon=-,\\
+                                \Azeven(p,q+1),&\varepsilon=+\mbox{ のとき}\\
+                                \Azeven(q+1,p),&\varepsilon=-\mbox{ のとき}\\
                         \end{array}\right.
                 \end{array}
         \end{equation*}
 	%end
-	と仮定する。このとき\doubt{、}
+	と仮定する。このとき{、}
 	$\Hom_{G'}\left(\pi_{\pm,{n}/{2}-\lambda}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\pm,\nu-{n'}/{2}}^{p,q+1} \right)$の次元は以下のようになる。
 	\newline
 \newcommand{\yipx}{Y^{p+1, q + 1}_{+, x}}
@@ -688,11 +698,10 @@ $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
 \newcommand{\tz}{2\Z}
 \newcommand{\tno}{2\N+1}
 	\input{tables.tex}
-Here $g(t)$ is defined as $g(t)=1$ for $t\in2\N+\frac{1}{2}$ and $=0$ otherwise. Similarly, $h(t)$ is defined as $h(t)=1$ if $t<q/2$ and $=0$ otherwise.
 \begin{remark}
 	\begin{enumerate}[(1)]
+		\item 分岐則が離散分解する場合(一般論は\cite{10.2307/120963})、上記の分岐則は\cite[Thm. 3.3]{kobayashi1993}によって得られた公式と一致する。
 		\item $q=0$の場合の類似の結果は\cite[Thm. 1.2]{kobayashi2015symmetry}で得られている。
-		\item 分岐則が離散分解する場合(一般論は\cite{10.2307/120963})その分岐則は\cite[Thm. 3.3]{kobayashi1993}によって得られている。
 	\end{enumerate}
 \end{remark}
 \begin{remark}
