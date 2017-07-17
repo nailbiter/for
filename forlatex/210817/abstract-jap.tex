@@ -39,18 +39,18 @@
 \newcommand{\tmtextit}[1]{{\itshape{#1}}}
 \newcommand{\um}{-}
 
-\newtheorem{theorem}{定理}
 \newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
 \newcommand{\Hom}{\mbox{\normalfont Hom}}
 \newcommand{\Sol}{\mathcal{S}\!{\it ol}}
 \newcommand{\Ind}{\mbox{\normalfont Ind}}
 \newcommand{\Supp}{\mathcal{S}\!{\it upp}}
+\newtheorem{theorem}{定理}
 \newtheorem{remark}[theorem]{注}
 \newtheorem{corollary}[theorem]{系}
-\newtheorem{fact}{Fact}
+\newtheorem{fact}[theorem]{Fact}
 %\newtheorem{definition}{Definition}
 \theoremstyle{definition}
-\newtheorem{definition}{定義}
+\newtheorem{definition}[theorem]{定義}
 
 \makeatletter
 \newtheoremstyle{exampstyle}
@@ -113,7 +113,8 @@
 \begin{document}
 \renewcommand{\abstractname}{概要}
 
-\title{不定値直交群$O(p,q)$の対称性破れ作用素\thanks{hi these}}
+\title{不定値直交群$O(p,q)$の対称性破れ作用素\thanks{第５６　回実函数論・函数解析学 合同シンポジウム講\doubt{算}、2017年8月21日--8月23日、
+於\;お茶の水大学}}
 
   %%%% 講演者1
 \author{小林　俊行\thanks{Partially supported by Grant-in-Aid for Scientific
@@ -147,7 +148,7 @@ Research (A) (25247006), Japan Society for the Promotion of Science.} (東京大
 	  と定める。ここで$I_{p,q}$は対角行列
    $I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
   1, \ldots, - 1}_q)\in GL(p+q,\R)$.
-この二次形式に\doubt{関する}不定値直交群を
+この二次形式に{関する}不定値直交群を
 \begin{equation*}
 	G \assign O (p +
 1, q + 1)=\left\{ g\in GL\left( p+q+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}
@@ -156,42 +157,50 @@ Research (A) (25247006), Japan Society for the Promotion of Science.} (東京大
 極大放物型部分群
 $P=MAN_{+}$を以下のように定める、
 \ExecuteMetaData[.master_extract.tex]{tagsetting}
+放物型部分群$P$からの誘導表現として、以下のように
+$G$の球退化主系列表現を定める。
 複素数パラメータ
-$\lambda\in\C$に依存する$G$の球退化主系列表現を定める
+$\lambda\in\C$に対して
 \begin{align*}
 I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
 &\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}.
 \end{align*}
 
-$G$の簡約部分群として第$p$座標の固定部分群を
+第$p$座標の固定部分群を
 \begin{equation*}
-	G':=G_{e_{p+1}}:=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}
+	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}
 \end{equation*}
-とする。
-$P$を定めたsplit可換群$A$が$G'$に含まれているため、
-$G'$は$P=MAN$と適合する（すなわち、$P':=P\cap G'$は$G'$の極大放物型部分群であり、そのラングランズ分解は
-$P'=(G'\cap M)A(G'\cap N_+)$で与えられ\doubt{る}）
-同じように、複素数パラメータ$\nu\in\C$に依存する$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$を定める。
+とすると、$G'$は$G$の簡約部分群となる。
+$G$の放物型部分群$P$を定めたsplitな可換群$A$が$G'$に含まれているため、
+$G'$は$P=MAN$と適合する。すなわち、$P':=P\cap G'$は$G'$の極大放物型部分群であり、そのラングランズ分解は
+$P'=(G'\cap M)A(G'\cap N_+)$で与えられ{る}。
+$I(\lambda)$と同様
+に、複素数パラメータ$\nu\in\C$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$を定める。
 
-群$G$の表現$I(\lambda)$から、部分群$G'$の表現$J(\nu)$への$G'$-intertwining作用素（対称性破れ作用素、symmetry breaking operator）が、この講演での主テーマである。
-対称性破れ作用素全体のなす空間を$\SBO$と表記す\doubt{る}。
+この講演での主テーマは\doubt{、}
+群$G$の表現$I(\lambda)$から、部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、symmetry breaking operator）である。
+対称性破れ作用素全体のなす空間を$\SBO$と表記す{る}。
 
-\cite{kobayashi2013finite,kobayashi2014classification}の一般理論によって以下のようなアプリオリ評価が得られる：
+$(G,G')$の複素化は強Gelfand対$(O(n+2,\C),O(n+1,\C))$となるので、小林--大島
+\cite{kobayashi2013finite}の一般理論によって以下のようなアプリオリ評価が得られる：
 \begin{fact}
-	対称性破れ作用素空間の次元が表現のパラーメタ$(\lambda,\nu)$よらずに一様に押さえられている。
+	対称性破れ作用素のなす空間の次元は表現のパラーメタ$(\lambda,\nu)$よらずに一様に押さえられている。
 \end{fact}
-以下の定理\ref{thm:classif}で、$\SBO$空間の基底を具体的に述べる。
+対称性破れ作用素のなす線形空間
+$\SBO$の基底は以下の定理\ref{thm:classif}で具体的に与えられる。
 
-$\SBO$を分析するために、まず以下のような定義する：
+この空間を分析するために、まず以下のような定義する：
 \begin{definition} \label{def1}
-	$h(b,x):=1-2\,^t\!bI_{p,q}x+\Q(b)\Q(x)$とする (ここで、$b,x\in\R^{n}\;(n=p+q)$). 超関数
-	$F \in \mathcal{D}' (\R^{p,q})$は、
-	全て$b_p=0$を満たす$b\in\R^n$と開集合$\mysetn{x\in\R^{p,q}}{h(b,x)\neq0}$に入っている$x$に対して、
+	$\R^n\times\R^n$上の関数$h(\cdot,\cdot)$を
+	$h(b,x):=1-2\,^t\!bI_{p,q}x+\Q(b)\Q(x)$と定める (ここで、$n=p+q$)。 
+	$b_p=0$を満たすよう\doubt{な}$b\in\R^n$と開集合$\mysetn{x\in\R^{p,q}}{h(b,x)\neq0}$に入っている$x$に対して、
   \begin{equation*}
     \label{eq-Nequiv} | h(b,x) |^{\lambda - n} F \left(
     \frac{x - \Q (x) b}{h(b,x)} \right) = F (x)
   \end{equation*}
-  をみたすとき{$N_+'$不変}と呼ぶ。(ここで、$N_+'$は$\R^{p,q}$に作用していないことに注意する)
+  をみたすとき、
+	超関数$F \in \mathcal{D}' (\R^{p,q})$を
+  {$N_+'$不変}と呼ぶ。(ここで、$N_+'$は$\R^{p,q}$に作用していないことに注意する)
 \end{definition}
 
 %%	そうすると、$G$は$P$と適合する（つまり、$A\subset G'$のため、$P':=P\cap G'$は$G'$のラングランズ分解$P'=(G'\cap M)A(G'\cap N_+)$を持つ極大放物型部分群である）
@@ -199,21 +208,26 @@ $\SBO$を分析するために、まず以下のような定義する：
 %%	$G$の簡約部分群として第$p$座標の固定部分群を$G':=G_{e_{p+1}}:=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}$とする。
 \begin{definition}\label{def2}
 	群$O(p-1,q)$を$\R^n$ $(n=p+q)$に第$p$座標を固定する形で作用させる。
-	以下のような条件を満たす超関数$F\in\mathcal{D}'(\R^n)$\doubt{のなす}空間を$\sol$と表記する。
+	以下のような条件を満たす超関数$F\in\mathcal{D}'(\R^n)${のなす}空間を$\sol$と表記する。
 \begin{enumerate}[(1)]
     \item $F (x) = F (- x)$;
     \item $F$は$O(p-1,q)$不変である;
-    \item $F$は$\lambda-\nu-n$-次の斉次性を持つ;
-    \item $F$は$\R^{p,q}$上に$N_+'$不変である；
+    \item $F$は$(\lambda-\nu-n)$次の斉次性を持つ;
+    \item $F$は$\R^{p,q}$上に$N_+'$不変である。
   \end{enumerate}
 \end{definition}
 \end{versiona}
 
-\cite[Chap.\ 3]{kobayashi2015symmetry}を今の特別な設定に適
-用すると、以下の小林--Spehによって証明された一般理論し、Fact \ref{fact1}が得られる
+\doubt{小林--Spehによって証明された一般理論
+(\cite[Chap.\ 3]{kobayashi2015symmetry})を
+今の特別な設定に適
+用すると、以下の
+Fact \ref{fact1}が得られる}\footnote{I am really not sure that I have interpreted the directions here correctly. Let me apologize in
+advance if I have messed up the order once again. It was by no means intentional.}
 \begin{fact}[{\cite[Thm. 3.16]{kobayashi2015symmetry}}]\label{fact1}
 $n:=p+q$とする。
-以下の図式が可換である：
+対称性破れ作用素の核超関数を考えることに\doubt{よって}
+以下の可換図式が得られる。
 \begin{figure}[H]
 \centerline{
 	\xymatrixcolsep{5pc}
@@ -231,30 +245,34 @@ $n:=p+q$とする。
 両側剰余空間$P'\backslash G/P$は有限集合であり、その
 閉部分集合が対称性破れ作用素の大切な
 不変量となるということがわかる。
+\cite{kobayashi2015symmetry}の方針に
 従って、対称性破れ作用素を分類するため、最初のステップとして、両側剰余空間$P'\backslash G/P$とその閉包関係を決定する。
 
-$G=O(p+1,q+1)$の$\R^{p+1,q+1}$への自然な線形作用は部分集合である錐
+$G=O(p+1,q+1)$の$\R^{p+1,q+1}$への自然な線形作用は部分集合である以下の錐
 $$\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}$$
 を保つので、
-商空間
+その商空間
 $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}$への作用を導く。
 幾何の言葉で言うと、
-%%$X^{p,q}$は
-不定値計量$g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$をを与えた%持つ
-積多様体直積多様体$\Sp^p\times\Sp^q$に\doubt{おいして}、その
-対跡点を同ー視することによって得られる商多様体
+$X^{p,q}$は\doubt{直積多様体$\Sp^p\times\Sp^q$に{おいて}、
+不定値計量$g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$をを与えると、
+その対跡点を同ー視することによって得られる商多様体
 と同型であり、そこに
-$G$は共形変換群として作用する
+群$G$は共形変換群として作用する}\footnote{I am really not sure that I have interpreted the directions here correctly. Let me apologize in
+advance if I have messed up the order once again. It was by no means intentional.}
 。
 
-\[
-X:=G/P\simeq X^{p,q},\]\[Y:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\]
-\[C:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\]\[\left\{ [o] \right\}:=\left\{ [1:0_{p+q}:1] \right\}\]
+\[\begin{array}{@{}l@{}l@{}l@{}}
+X&:=&G/P\simeq X^{p,q},\\
+Y&:=&\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\simeq X^{p-1,q}\\
+C&:=&\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\cup\Xi^{p,q},\\
+\left\{ [o] \right\}&:=&\left\{ [1:0_{p+q}:1] \right\}
+\end{array}\]
 {とおく.}
 \begin{theorem}[$G/P$の$P'$不変な閉部分集合の分類]
 	$p,q\ge1$とする。
 	$G/P$の$P'$不変閉部分集合
-は５つ($p>1$)\doubt{または}４つ($p=1$)であり、それらは
+は５つ($p>1$){または}４つ($p=1$)であり、それらは
 以下のHasse図式で記述される。ここで
 	$
 	\begin{array}{l}
@@ -262,7 +280,7 @@ X:=G/P\simeq X^{p,q},\]\[Y:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\
 		\xymatrix{A\ar@{-}[d]^m\\B}
 	\end{array}
 	$
-	は$A\supset B$であり、$B$のgenericな点のなす$B$多様体が$A$において余次元$m$であるとを表している。\\
+	は$B$のgenericな点のなす多様体が$A$において余次元$m$の部分多様体であることを表している。\\
   \begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.3\textwidth}
@@ -279,7 +297,7 @@ X:=G/P\simeq X^{p,q},\]\[Y:=\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{p}=0}\
     \end{subfigure}
 \end{figure}
 \end{theorem}
-両側剰余類$P'\backslash G/P$のそれぞれの閉集合$S$に対して、対称性破れ作用素の族$R^S_{\lambda,\nu}$を構成する。更に、
+次に両側剰余類$P'\backslash G/P$のそれぞれの閉集合$S$に対して、対称性破れ作用素の族$R^S_{\lambda,\nu}$を構成する。更に、
 \begin{itemize}
 	\item $R_{\lambda,\nu}^S$はパラメータ$(\lambda,\nu)\in D_S$に対して定義されている作用素である。ここで、$D_S$は$\C^2$の部分集合である(より詳しくいうと、
 		$\C^2$全体或いは１次元アフィン空間の加算和である);
