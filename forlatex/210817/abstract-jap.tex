@@ -117,12 +117,12 @@
 \begin{document}
 \renewcommand{\abstractname}{概要}
 
-\title{不定値直交群$O(p,q)$の対称性破れ作用素\thanks{第５６　回実函数論・函数解析学 合同シンポジウム講\doubt{算}、2017年8月21日--8月23日、
+\title{不定値直交群$O(p,q)$の対称性破れ作用素\thanks{第５６　回実函数論・函数解析学 合同シンポジウム講演集、2017年8月21日--8月23日、
 於\;お茶の水大学}}
 
   %%%% 講演者1
 \author{小林　俊行\thanks{Partially supported by Grant-in-Aid for Scientific
-Research (A) (25247006), Japan Society for the Promotion of Science.} (東京大学\;大学院数理科学研究科\doubt{・}カブリ数物連携宇宙研究機構)\\
+Research (A) (25247006), Japan Society for the Promotion of Science.} (東京大学\;大学院数理科学研究科{・}カブリ数物連携宇宙研究機構)\\
   レオンチエフ　アレックス (東京大学\;大学院数理科学研究科)}
 
   %%%% 講演者2
@@ -136,11 +136,12 @@ Research (A) (25247006), Japan Society for the Promotion of Science.} (東京大
 \begin{abstract}
 	不定値直交群の組$(G, G') =(O(p+1, q+1), O(p,q+1))$に対して、$G$の球退化主系列表現から、$G'$の球退化主系列表現への
 	全て対称性破れ作用素を構成し、分類
-	を完成させた。対称性破れ作用素の構成と分類問題\doubt{は}
+	を完成させた。対称性破れ作用素の構成と分類問題{は}
 	小林俊行氏とB. Speh氏によって[Memoirs of Amer. Math. Soc. 2015]
-	で初めて提起され、ローレンツ群に対して完全な分類が得られた。ここでのnotationでは$q=0$の場合に対応\doubt{する}。更に、
-	函数等式、留数公式と対称性破れ作用素の像も具体的に述べる。
-	この結果は分岐則問題を深く研究するための構想として小林氏に提唱されたABCプログラム[Progr. Math. 2015]のステージＣの特別な場合に対応する。
+	で初めて提起され、ローレンツ群に対して完全な分類が得られた。
+	ここでは実階数が高い場合に、その結果を一般化する。
+	更に、函数等式、留数公式と対称性破れ作用素の像も具体的に述べる。
+	この結果は分岐則の問題を深く研究するための構想として小林氏に提唱されたABCプログラム[Progr. Math. 2015]のステージＣの特別な場合に対応する。
 \end{abstract}
 
   \begin{versiona}
@@ -170,34 +171,34 @@ I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
 &\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}.
 \end{align*}
 
-第$p$座標の固定部分群を
+次に第$p$座標の固定部分群を
 \begin{equation*}
 	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}
 \end{equation*}
 とすると、$G'$は$G$の簡約部分群となる。
 $G$の放物型部分群$P$を定めたsplitな可換群$A$が$G'$に含まれているため、
-$G'$は$P=MAN$と適合する。すなわち、$P':=P\cap G'$は$G'$の極大放物型部分群であり、そのラングランズ分解は
+$P=MAN$は$G'$と適合する。すなわち、$P':=P\cap G'$は$G'$の極大放物型部分群であり、そのラングランズ分解は
 $P'=(G'\cap M)A(G'\cap N_+)$で与えられ{る}。
 $I(\lambda)$と同様
 に、複素数パラメータ$\nu\in\C$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\C_{\nu})$を定める。
 
-この講演での主テーマは\doubt{、}
-群$G$の表現$I(\lambda)$から、部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、symmetry breaking operator）である。
+この講演での主テーマは{、}
+群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、symmetry breaking operator）である。
 対称性破れ作用素全体のなす空間を$\SBO$と表記す{る}。
 
-$(G,G')$の複素化は強Gelfand対$(O(n+2,\C),O(n+1,\C))$となるので、小林--大島
-\cite{kobayashi2013finite}の一般理論によって以下のようなアプリオリ評価が得られる：
+$(G,G')$の複素化は$(O(n+2,\C),O(n+1,\C))$であり、これは強Gelfand対となるので、小林--大島
+\cite{kobayashi2013finite}の一般理論によって以下のようなアプリオリ評価が得られる。
 \begin{fact}
 	対称性破れ作用素のなす空間の次元は表現のパラーメタ$(\lambda,\nu)$よらずに一様に押さえられている。
 \end{fact}
 対称性破れ作用素のなす線形空間
-$\SBO$の基底は以下の定理\ref{thm:classif}で具体的に与えられる。
+$\SBO$の基底を具体的に決定しよう。
 
 この空間を分析するために、まず以下のような定義する：
 \begin{definition} \label{def1}
 	$\R^n\times\R^n$上の関数$h(\cdot,\cdot)$を
 	$h(b,x):=1-2\,^t\!bI_{p,q}x+\Q(b)\Q(x)$と定める (ここで、$n=p+q$)。 
-	$b_p=0$を満たすよう\doubt{な}$b\in\R^n$と開集合$\mysetn{x\in\R^{p,q}}{h(b,x)\neq0}$に入っている$x$に対して、
+	$b_p=0$を満たすよう{な}$b\in\R^n$と開集合$\mysetn{x\in\R^{p,q}}{h(b,x)\neq0}$に入っている$x$に対して、
   \begin{equation*}
     \label{eq-Nequiv} | h(b,x) |^{\lambda - n} F \left(
     \frac{x - \Q (x) b}{h(b,x)} \right) = F (x)
@@ -222,15 +223,14 @@ $\SBO$の基底は以下の定理\ref{thm:classif}で具体的に与えられる
 \end{definition}
 \end{versiona}
 
-\doubt{小林--Spehによって証明された一般理論
+{小林--Spehによって証明された一般理論
 (\cite[Chap.\ 3]{kobayashi2015symmetry})を
 今の特別な設定に適
 用すると、以下の
-Fact \ref{fact1}が得られる}\footnote{I am really not sure that I have interpreted the directions here correctly. Let me apologize in
-advance if I have messed up the order once again. It was by no means intentional.}
+Fact \ref{fact1}が得られる}
 \begin{fact}[{\cite[Thm. 3.16]{kobayashi2015symmetry}}]\label{fact1}
-$n:=p+q$とする。
-対称性破れ作用素の核超関数を考えることに\doubt{よって}
+$n=p+q$とする。
+対称性破れ作用素の核超関数を考えることに{よって}
 以下の可換図式が得られる。
 \begin{figure}[H]
 \centerline{
@@ -249,8 +249,9 @@ $n:=p+q$とする。
 両側剰余空間$P'\backslash G/P$は有限集合であり、その
 閉部分集合が対称性破れ作用素の大切な
 不変量となるということがわかる。
-\cite{kobayashi2015symmetry}の方針に
-従って、対称性破れ作用素を分類するため、最初のステップとして、両側剰余空間$P'\backslash G/P$とその閉包関係を決定する。
+\cite{kobayashi2015symmetry}の方針
+は$\mathcal{S}upp(T)$に関する帰納法で
+\doubt{、}対称性破れ作用素を分類するというものであった。この方針に沿い、最初のステップとして、両側剰余空間$P'\backslash G/P$とその閉包関係を決定する。
 
 $G=O(p+1,q+1)$の$\R^{p+1,q+1}$への自然な線形作用は部分集合である以下の錐
 $$\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}$$
@@ -259,11 +260,11 @@ $$\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs
 $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}$への作用を導く。
 幾何の言葉で言うと、
 $X^{p,q}$は\doubt{直積多様体$\Sp^p\times\Sp^q$に{おいて}、
-不定値計量$g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$をを与えると、
 その対跡点を同ー視することによって得られる商多様体
-と同型であり、そこに
-群$G$は共形変換群として作用する}\footnote{I am really not sure that I have interpreted the directions here correctly. Let me apologize in
-advance if I have messed up the order once again. It was by no means intentional.}
+と同型であり、
+不定値計量$g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$をを与えると、
+そこに
+群$G$は共形変換群として作用する}
 。
 
 \[\begin{array}{@{}l@{}l@{}l@{}}
@@ -301,7 +302,7 @@ C&:=&\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\
     \end{subfigure}
 \end{figure}
 \end{theorem}
-次に両側剰余類$P'\backslash G/P$のそれぞれの閉集合$S$に対して、対称性破れ作用素の族$R^S_{\lambda,\nu}$を構成する。更に、
+次に両側剰余類$P'\backslash G/P$のそれぞれの閉集合$S$に対して、対称性破れ作用素の族$R^S_{\lambda,\nu}$を構成する。
 \begin{itemize}
 	\item $R_{\lambda,\nu}^S$はパラメータ$(\lambda,\nu)\in D_S$に対して定義されている作用素である。ここで、$D_S$は$\C^2$の部分集合である(より詳しくいうと、
 		$\C^2$全体或いは１次元アフィン空間の加算和である);
@@ -311,9 +312,9 @@ C&:=&\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\
 作用素
 $R_{\lambda,\nu}^S$は$\C^2$の離散集合上で
 零になる(注意\ref{rmk:thm:construction}を参照)。
-\doubt{そこで($\C^2$全体ではなく、次元が低いパラメータ集合$\mid\mid\mid$上で)}
-	対称性破れ作用素の族$R_{\lambda,\nu}^X$を再正規化に定義したのが$\tilde{R}_{\lambda,\nu}^X$である。ただし、
-	$p=1$のとき、あるいは$S=C\cap Y$の場合と$p>1$のとき、あるいは$S=C$\doubt{X}
+{そこで($\C^2$全体ではなく、次元が低いパラメータ集合$\mid\mid\mid$上で)}
+	対称性破れ作用素の族$R_{\lambda,\nu}^X$を再正規化したのが$\tilde{R}_{\lambda,\nu}^X$である。ただし、
+	$p=1$のとき、あるいは$S=C\cap Y$の場合と$p>1$のとき、あるいは$S=C$または
 $Y$の場合は分類(定理\ref{thm:classif})に用いなくてもよいので、
 ここでは省略する。
 \newpage
@@ -321,10 +322,9 @@ $Y$の場合は分類(定理\ref{thm:classif})に用いなくてもよいので�
 	\doubt{$P'$不変な$G/P$の閉集合
 	$S=X,Y,C,$ $\left\{ o \right\}$に対して、
 	パラメータ集合$D_S$を以下の表のように定めると、作用素
-	$R_u{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$は
-	$\IlambdaGprime$から$J(\nu)$への対称性破れ作用素であり、
-$(\lambda,\nu)\in D_S$に正則に依存する}\footnote{I am extremely sorry if I have messed up the order. It was not intentional.}。
-	\\
+	$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$は
+	$I(\lambda)$から$J(\nu)$への対称性破れ作用素であり、
+$(\lambda,\nu)\in D_S$に正則に依存する}。\\
 \ExecuteMetaData[.master_extract.tex]{table}\vspace{\baselineskip}
 上記の表中の記号を説明する：
 \begin{itemize}
@@ -333,9 +333,9 @@ $(\lambda,\nu)\in D_S$に正則に依存する}\footnote{I am extremely sorry if
 \item $/ / \assign
 \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
 -2\N \},\quad \mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N}$;
-\item $\tilde{C}(s,t)$は\cite[(16.3)]{kobayashi2015symmetry}\footnote{in reply to Your question ``これはKP Selecta, Part IIの方が適切でしょうか？'':
-	yes, this polynomial also appears in KP, but I have chosen Kobayashi-Speh, because: it is older than KP and it is more close to spirit to this work. Should I change
-to KP Selecta, Part II?}で定義された２変数多項式であり、正規化された
+\item $\tilde{C}(s,t)$は\cite[(11.6)]{Kobayashi2016}\footnote{note that \cite{Kobayashi2016} defines only the {\it one-variable}
+	polynomial $\tilde{C}_n^\lambda(\cdot)$ but it {\it does not} define the two-variable inflation}\doubt{\cite[(16.3)]{kobayashi2015symmetry}}\footnote{
+	should I remove this citation?}で定義された２変数多項式であり、正規化された
 	Gegenbauer多項式から導かれるものである。
 \end{itemize}
 \end{theorem}
@@ -377,25 +377,25 @@ q_Y^X (\lambda, \nu) &:= \left\{ \begin{array}{ll}
 	\cite[Thm.\ 4.3]{kobayashi2015branching}で既に得られているものと同一である。
 \end{remark}
 \begin{remark}\label{rmk:thm:construction}
-	定理\ref{thm:construction}\;の表の一番右の列から、定義域に\doubt{属}する任意の
+	定理\ref{thm:construction}\;の表の一番右の列から、定義域に{属}する任意の
 	$(\lambda,\nu)$に対して$R_{\lambda,\nu}^{ \left\{ o \right\}},R_{\lambda,\nu}^Y,R_{\lambda,\nu}^C\neq0$である
 	ことがわかる。一方、正則(regular)対称性破れ作用素$R_{\lambda,\nu}^X$に対しては、
-	$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)$が以下の離散集合に属していることもわかる。
+	$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)$が以下の離散集合に属していることが証明できる。
 	\[\begin{cases}
 			//\cap\mid\mid\mid,&p>1,\\
 			\mybra{//\cap\mid\mid\mid} \cup \mybra{\backslash\backslash\cap\mid\mid},&p=1.
 		\end{cases}
 	\]
-	再正則化した作用素$\tilde{R}_{\lambda,\nu}^X$に対しては\doubt{、}以下が同値となる。
-	$\tilde{R}_{\lambda,\nu}^X=0\iff p=1$、$(\lambda,\nu)$は離散集合$\backslash\backslash\cap \mid\mid$に属している。
+	再正規化した作用素$\tilde{R}_{\lambda,\nu}^X$に対しては{、}以下が同値となる。
+	$\tilde{R}_{\lambda,\nu}^X=0\iff p=1$かつ$(\lambda,\nu)$は離散集合$\backslash\backslash\cap \mid\mid$に属している。
 \end{remark}
 定理\ref{thm:construction}で構成された対称性破れ作用素はいつも線型独立になるとは限らないが、全ての対称性破れ作用素はその線形和で表せることがわかる。
-任意の$(\lambda,\nu)\in\C^2$に対して、線形空間$\SBO$の基底を以下のように具体的に決定した：
+任意の$(\lambda,\nu)\in\C^2$に対して、線形空間$\SBO$の基底を以下のように具体的に決定した。
 \begin{theorem}[対称性破れ作用素の分類]\label{thm:classif}
 	$p,q\ge1$とする。
 		\ExecuteMetaData[.master_extract.tex]{classification}
 \end{theorem}
-\begin{corollary}[対称性破れ作用素の{\doubt{存在}}定理]\label{cor:classif}
+\begin{corollary}[対称性破れ作用素の{{存在}}定理と次元の上限]\label{cor:classif}
 	どんな$(\lambda,\nu)\in\C^2$に対しても
 	$$\dim_{\C}\SBO\in\left\{ 1,2 \right\}$$が成り立つ。
 \end{corollary}
@@ -404,7 +404,7 @@ $G$の球退化主系列表現$I(\lambda)$は$K$不変ベクトルを含む。�
 $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$と表す。
 このとき以下のことが成り立つ：
 \begin{theorem}[$K$不変ベクトルのスペクトラム]\label{thm:spherical}
-	$n=p+q\;(p,q\ge1)$という記法は前述の通りとする。この\doubt{とき、}
+	$n=p+q\;(p,q\ge1)$という記法は前述の通りとする。この{とき、}
 \[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} =  \frac{2^{1 -
 \lambda}\pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
 \Gamma \left(  \frac{\lambda + 1-q}{2} \right) \Gamma \left(
@@ -412,16 +412,18 @@ $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$と表す。
 \end{theorem}
 \begin{remark}
 	$SL(2,\R)$の表現のテンソル積の場合、すなわち、
-	定理\ref{thm:spherical}\;の$p=q=1$の特別な場合はBernstein-Reznikov\cite[Lem. A.5]{bernstein2004estimates} によって得られた。
+	定理\ref{thm:spherical}\;の$p=q=1$の特別な場合はBernstein--Reznikov\cite[Lem. A.5]{bernstein2004estimates} によって得られた。
 	さらに群のランクが高い場合の一般化は\cite[Thm. 1.1]{clerc2011generalized}で{証明}されている。
 	また$q=0$の場合は\cite[Prop.\ 7.4]{kobayashi2015symmetry}で得られている。
 \end{remark}
 $(\lambda,\nu)\in\C^2\setminus//$に対して、
-\begin{align*}
+\[
+\begin{array}{@{}l@{}l@{}l@{}}
 K_{\lambda,\nu}^{\mathbb{R}^{p,q}}&:=&\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
-\frac{\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\sol\\
+\frac{\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\sol\\[10pt]
 R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( K_{\lambda,\nu}^X \right)
-\end{align*}
+\end{array}
+\]
 と定義する。このとき、$R_{\lambda,\nu}^X$は$(\lambda,\nu)\in\C^2$に正則(holomorphic)に依存する対称性破れ作用素の族に拡張できる。
 \begin{theorem}[留数公式]
 	$(\lambda,\nu)\in//$に対して、$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とおく。このとき
@@ -430,17 +432,22 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
      \OpR_{\lambda,\nu}^{ \left\{ o \right\} },\quad(\lambda,\nu)\in// . \]
 	\end{theorem}
 	\begin{remark}
-		留数公式の原型となる場合として$q=0$の場合は\cite{KOBAYASHI2014272}\cite[Thm. 12.2]{kobayashi2015symmetry}で証明されている。
+		正則(regular)な対称性破れ作用素の
+		留数公式の原型は$q=0$の場合で、このときは\cite{KOBAYASHI2014272}、\cite[Thm. 12.2]{kobayashi2015symmetry}で証明されている。
 	\end{remark}
 	\begin{definition}
 		Fact \ref{fact1}
 		の構成からわかる
-		ように、$G=G'$の場合に類似物を考えると\footnote{I think we need comma here}$\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$という全単射が成り立つ。
+		ように、$G=G'$の場合に類似物を考えると
+		\begin{equation*}
+		\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)
+		\end{equation*}
+		という全単射が成り立つ。
 		ここで、\;$\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$は定義\ref{def2}の４つ目の条件を満たす$\R^{p+q}$上の超関数空間(ただ、
-		３つ目の条件で$O(p,q)_{e_p}\simeq O(p-1,q)$\doubt{にする}不変性の代わりに、$O(p,q)$の不変性を課たし、
-		４つ目の条件では$N_+'$不変性の代わりに、$N_+$不変性を課たす)。
+		３つ目の条件で$O(p,q)_{e_p}\simeq O(p-1,q)${に関する}不変性の代わりに、$O(p,q)$の不変性を課し、
+		４つ目の条件では$N_+'$不変性の代わりに、$N_+$不変性を課す)。
 
-		$G=G'$の場合は、古くから多く研究(たとえば\footnote{maybe, need a comma here?}Knapp-Stein作用素)があり、
+		$G=G'$の場合は、古くから多く研究(たとえば、Knapp-Stein作用素)があり、
 		この場合は$\mathcal{S}ol_G(\R^{p,q};\lambda,n-\lambda)$は容易に求めることができる。実際、
 		以下のように定義された超関数は
 		\begin{equation*}
@@ -453,7 +460,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
   \right), & \min\left\{ p,q \right\}>0,\frac{n}{2} + p \in 2\mathbbm{Z}
 			\end{cases}
 		\end{equation*}
-		$\Sol_G(\R^{p,q};\lambda,n-\lambda)$に入っている。
+		いずれも$\Sol_G(\R^{p,q};\lambda,n-\lambda)$に入っている。
 		これを積分核として用い、$G=O(p+1,q+1)$絡作用素
 		$\tilde{\mathbb{T}}^{G}_{\lambda}:I(\lambda)\to
 		I(n-\lambda)$
@@ -462,7 +469,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 		$G$の代わりに$G'=O(p,q+1)$を代入して、全く同じように構成すれば、作用素$\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$を得る。
 	\end{definition}
 	\begin{theorem}[函数等式]
-		$n=p+q\;(p,q\ge1)$で\doubt{あった}ことを思い出そう。
+		$n=p+q\;(p,q\ge1)$で{あった}ことを思い出そう。
 	このとき、
 \ExecuteMetaData[.master_extract.tex]{functional}
 	\end{theorem}
@@ -473,22 +480,25 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	$G'=O(p,q+1)$表現$J(\nu)$は $K'$表現として無重複であり、$p>1$のとき、その$K'$タイプは $\N^2$の部分集合で表すことができる。
 	実際$J(\nu)$の$K'$構造は$K'\simeq O(p)\times O(q+1)$の球面調和関数
 	$\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$
-	空間への作用(既約表現)の直和となるので、$(a,b)\in\N^2$でパラメトライズすることができる。群$G'$の表現既約であり、$\nu\in\Z$ならば、長さ有限のJordan--H\"older列をもつ。これらの既約部分商は\doubt{、}
+	空間への作用(既約表現)の直和となるので、$(a,b)\in\N^2$でパラメトライズすることができる。
+	($p=1$の場合は$a$は不要であり、1個の自然数$b\in\N$でパラメートライズすることができる。)
+	$\nu\in\Z$\footnote{maybe, $\nu\notin\Z$?}ならば群$G'$の表現$J(\nu)$は既約である。一方、
+	$\nu\in\Z$ならば、長さ有限のJordan--H\"older列をもつ。これらの既約部分商は{、}
 	その$K$タイプを$\N^2$の部分集合として図示し、
-	\cite{howe1993homogeneous}のように、$J(\nu)$のJordan--H\"older 列 (或いは、socle filtrations) \doubt{の構造}\footnote{I was not sure where to place this ``の構造''}\footnote{maybe, we need を before
-	the 矢印 here?}矢印で表す。
+	\cite{howe1993homogeneous}のように、$J(\nu)$のJordan--H\"older 列 (或いは、socle filtrations) {の構造}を矢印で表す。
 	このとき、以下の定理が成り立つ：
 \begin{theorem}[対称性破れ作用素の像]
 	$\nu\in\Z$でなければ、正則な(regular)対称性破れ作用素 $R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$は全射である。
 	$\nu\in\Z$ならば、$(\mathfrak{g},K)$加群 $I(\lambda)_K$の
 	$R_{\lambda,\nu}^X$における像は以下のようになる(ここで$(\lambda,\nu)\in//$に対して、
 	$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$、$(\lambda,\nu)\in\backslash\backslash$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)
-	\in\N$ とおく\doubt{。} 障壁 $A^{\pm\pm}$
+	\in\N$ とおく{。} 障壁 $A^{\pm\pm}$
 	は\cite{howe1993homogeneous}のように定義する): \\
-	for $p>1$:
+	$p>1$の場合:
 \end{theorem}
 \begin{enumerate}[(1)]
-	\item $p\tisoddjap,q\tisevenjap$とする。 このとき、$\nu\in2\Z,0<\nu<n-1$ならば、$R_{\lambda,\nu}^X$ は全射である。そうではなかったら、
+	\item $p\tisoddjap,q\tisevenjap$とする。 このとき、$\nu\in2\Z,0<\nu<n-1$ならば、$R_{\lambda,\nu}^X$ は全射である。
+		それ以外の場合下図のようになる\doubt{。}
 		\hspace*{-1cm}\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
@@ -511,7 +521,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{f5}\\[25pt]
 	    \end{tabular}
 	  \end{figure}
-	\item $p,q$は共に奇数とし、さらに $p>1$の場合。このとき、
+  \item $p,q$は共に奇数とし、さらに $p>1$の場合。このとき、対称性破れ作用素の像は下図で現される\doubt{。}
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
@@ -532,10 +542,8 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 			\toddText{>n-3}&\input{f13}\\[0pt]
 		\end{tabular}
 		\end{figure}
-	\item $p\tisevenjap,q\tisoddjap$の場合。パラメータ$\nu$が奇数ならば、すべての$\lambda\in\C$に対して\footnote{In response to Your question ``Alex君、$R_{\lambda,\nu}^X=0$となる
-		ことはありませんか？'': yes, when $p$ is even, $q$ odd and $\nu$ odd, regular SBO does not vanish. Indeed, it can vanish if and only if $(\lambda,\nu)\in//\cap \mid\mid\mid$,
-	but since $q$ is odd we have $(\lambda,\nu)\in\mid\mid\mid\iff \nu\in2\Z$, while we have assumed that $\nu$ is odd.}
-		$R_{\lambda,\nu}^X$は全射である。そうではなかったら、(つまり、$\nu\in\even$ならば)、
+	\item $p\tisevenjap,q\tisoddjap$の場合。パラメータ$\nu$が奇数ならば、すべての$\lambda\in\C$に対して
+		$R_{\lambda,\nu}^X$は全射である。それ以外の場合、(すなわち、$\nu\in\even$ならば)、
 	  \begin{figure}[H]
 		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
@@ -565,9 +573,19 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	  \end{figure}
 	\end{enumerate}
 	\vspace{-0.9cm}
-	上の図式で、ある図式は灰色出なく、色つける対角線が出てくる。これはregular対称性破れ作用素$R_{\lambda,\nu}^X$はゼロであるの場合を表す。
-	この場合で、(緑色/紫の)左下から右上へと左上から右下への線はregular対称性破れ作用素の留数
-	$R_{\lambda,\nu}^{ \left\{ o \right\}}$と$\tilde{R}_{\lambda,\nu}^X$の像を表す。
+	上の図式の説明をする。
+	\begin{itemize}
+		\item 灰色と白色のみで描れている図は
+			$\SBO=\C R^X_{\lambda,\nu}$の場合に相当し、灰色部分は$G$加群$I(\lambda)$の$R_{\lambda,\nu}^X$に\doubt{よる}像が$G'$加群$J(\nu)$のとのような部分加群になっている
+			かを与える
+		\item 灰色の代わりに緑色(右上がり斜線)と茶色網かけ$=$緑色(右上がり斜線)$+$オレンジ色(右下がり斜線)(と白色)で描かれている図は
+			\begin{equation*}
+				R_{\lambda,\nu}^X=0\mbox{ かつ }\SBO=\C R_{\lambda,\nu}^{ \left\{ o \right\}}\oplus \C \tilde{R}_{\lambda,\nu}^X
+			\end{equation*}の場合に相当する。この場合は$R_{\lambda,\nu}^X$の像は$\left\{ o \right\}$なので
+			図示せず。その代わりに微分対称性破れ作用素$R^{ \left\{ o \right\}}_{\lambda,\nu}$と再正規化した対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X$の像
+			をそれぞれ緑色(右上がり斜線)とオレンジ色(右下がり斜線)で表した。
+		\item 
+	\end{itemize}
 
 	$p=1$に対して:\\
 	\newcommand{\mystack}[2]{$\begin{array}{l}#1\\#2\end{array}$}
@@ -586,15 +604,24 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\ge q}&\input{f28}\\
 		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\ge q}&\input{f29}\\
 	\end{tabular}\end{figure}
-	上の図式で、ある図式は灰色出なく、色つける対角線が出てくる。これはregular対称性破れ作用素$R_{\lambda,\nu}^X$はゼロであるの場合を表す。
-	この場合、
+	上の図式の説明する
 	\begin{itemize}
-		\item $(\lambda,\nu)\in\ss$ならば、
-	(緑色/紫の)左下から右上へと左上から右下への線は正則な(regular)対称性破れ作用素の留数
-	$R_{\lambda,\nu}^{ \left\{ o \right\}}$と$\tilde{R}_{\lambda,\nu}^X$の像を表す。
-		\item $(\lambda,\nu)\in\ss$ならば、
-	(青い/赤い)左下から右上へと左上から右下への線は正則な(regular)対称性破れ作用素の留数
-	$R_{\lambda,\nu}^{Y}$ と ${R}_{\lambda,\nu}^C$ の像を表す。
+		\item 灰色と白色のみで描れている図は
+			$\SBO=\C R^X_{\lambda,\nu}$の場合に相当し、灰色部分は$G$加群$I(\lambda)$の$R_{\lambda,\nu}^X$に\doubt{よる}像が$G'$加群$J(\nu)$のとのような部分加群になっている
+			かを記述している。
+		\item それ以外の図では緑色(右下がり\doubt{斜}線)茶色網かけオレンジ色(右下がり斜線)$+$緑色(右上がり斜線)赤色(右下がり斜線)紫色網かけ$=$赤色(右下がり斜線)$+$
+			青色(右上がり斜線)いずれの場合も$R_{\lambda,\nu}^X=0$である。
+		\item 微分作用素$R_{\lambda,\nu}^{ \left\{ o \right\}}$の像は緑色(右上がり斜線)と茶色網かけの合併。
+		\item 際正規化した対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X$の像は茶色網かけ。
+		\item $R_{\lambda,\nu}^C$の像は赤色(右下がり斜線)と紫色網かけの合併。
+		\item $R_{\lambda,\nu}^Y$の像は紫色網かけ。
+			特に\begin{equation*}
+				\begin{array}[]{@{}l@{}l@{}l@{}}
+					\mbox{Image }\tilde{R}_{\lambda,\nu}^X&\subset&\mbox{Image }R_{\lambda,\nu}^{ \left\{ o \right\}}\\
+					\mbox{Image }R_{\lambda,\nu}^Y&\subset&\mbox{Image }R_{\lambda,\nu}^C
+				\end{array}
+			\end{equation*}
+			が成り立つ。
 	\end{itemize}
 \begin{remark}
 	定理\ref{thm:construction}で構成した他の対称性破れ作用素の像も決定できる。
