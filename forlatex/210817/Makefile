@@ -1,4 +1,4 @@
-.PHONY: all commit push clean publish
+.PHONY: all commit push clean p
 .SECONDARY: 
 
 ZIPNAME=august21talk

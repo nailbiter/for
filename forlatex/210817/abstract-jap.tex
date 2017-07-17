@@ -32,6 +32,8 @@
 \fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
 \catcode`\>=\active \def>{
 \fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\newcommand{\tisevenjap}{\mbox{は偶数}}
+\newcommand{\tisoddjap}{\mbox{は奇数}}
 \newcommand{\assign}{:=}
 \newcommand{\comma}{{,}}
 \newcommand{\nin}{\not\in}
@@ -337,7 +339,24 @@ to KP Selecta, Part II?}で定義された２変数多項式であり、正規�
 \end{theorem}
 $(\lambda,\nu)\in\mid\mid$に対して、$m:=\frac{1}{2}\left( \nu-1 \right)\in\N$と定め、$(\lambda,\nu)\in\bb$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$と定める。
 $p=1$に対して、$q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$を以下のように定義する：
-\ExecuteMetaData[.master_extract.tex]{residue}
+\begin{align*}
+ q_C^X (\lambda, \nu) &:= \left\{ \begin{array}{ll}
+     \Gamma^{} \left( \frac{\lambda + \nu - n + 1}{2} \right), & q\tisevenjap
+     , \nu \leqslant q - \nu,\\
+     \Gamma^{} \left( \frac{\lambda - \nu}{2} \right), & q\tisevenjap,
+     \nu > q - \nu,\\
+     \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right), & q\tisoddjap
+     .
+   \end{array} \right.\\
+q_Y^X (\lambda, \nu) &:= \left\{ \begin{array}{ll}
+     1, & 
+      q \tisoddjap,\\
+      \Gamma \left( \frac{\lambda -
+     \nu}{2} \right) / \Gamma \left( \max \left\{ \frac{\lambda + \nu}{2}, 0
+     \right\} - \nu \right), & q
+     \tisevenjap.
+   \end{array} \right.
+\end{align*}
 \begin{remark}
 	小林--Pevznerによる微分対称性破れ作用素の一般理論(\cite[Chap.\ 2]{kobayashi2016differential1})
 	よって、
@@ -413,56 +432,61 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	\end{remark}
 	\begin{definition}
 		Fact \ref{fact1}
-		の構成からされる
-		ように、$G=O(p+1,q+1)$に$\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$である。
-		ここで、$\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$は定義\ref{def2}の４つ\doubt{日}の条件を満たす$\R^{p+q}$上の超関数空間(しかし、
-		３つ目の条件で$O(p,q)_{e_p}$不変性の代わりに、$O(p,q)$を求め、
-		４つ目の条件で$N_+'$不変性の代わりに、$N_+$不変性を求める；$N_+$不変性の定義が$N_+'$不変性と全く同じが、定義で$b_p=0$をもとめられない)。
+		の構成からわかる
+		ように、$G=G'$の場合に類似物を考えると\footnote{I think we need comma here}$\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)$という全単射が成り立つ。
+		ここで、\;$\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$は定義\ref{def2}の４つ目の条件を満たす$\R^{p+q}$上の超関数空間(ただ、
+		３つ目の条件で$O(p,q)_{e_p}\simeq O(p-1,q)$\doubt{にする}不変性の代わりに、$O(p,q)$の不変性を課たし、
+		４つ目の条件では$N_+'$不変性の代わりに、$N_+$不変性を課たす)。
 
+		$G=G'$の場合は、古くから多く研究(たとえば\footnote{maybe, need a comma here?}Knapp-Stein作用素)があり、
+		この場合は$\mathcal{S}ol_G(\R^{p,q};\lambda,n-\lambda)$は容易に求めることができる。実際、
 		以下のように定義された超関数は
 		\begin{equation*}
 			\myabs{\Q}^{\lambda-n}\times\begin{cases}
 				\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}=0,\\
 				\Gamma^{-1}\left( \frac{\lambda-n+1}{2} \right)\Gamma^{-1}\left( \lambda-n/2 \right),&\min\left\{ p,q \right\}>0,n\in2\Z+1,\\
   \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2+
-  1}{2} \right), &\min\left\{ p,q \right\}>0, n / 2 + p \in 2\mathbbm{Z}+ 1,\\
+  1}{2} \right), &\min\left\{ p,q \right\}>0, \frac{n}{2} + p \in 2\mathbbm{Z}+ 1,\\[10pt]
   \Gamma^{-1} \left( \frac{\lambda-n + 1}{2} \right) \Gamma ^{-1}\left( \frac{\lambda-n/2}{2}
-  \right), & \min\left\{ p,q \right\}>0,n / 2 + p \in 2\mathbbm{Z}
+  \right), & \min\left\{ p,q \right\}>0,\frac{n}{2} + p \in 2\mathbbm{Z}
 			\end{cases}
 		\end{equation*}
 		$\Sol_G(\R^{p,q};\lambda,n-\lambda)$に入っている。
-		これを積分核として用い、$G=O(p+1,q+1)$intertwining作用素
+		これを積分核として用い、$G=O(p+1,q+1)$絡作用素
 		$\tilde{\mathbb{T}}^{G}_{\lambda}:I(\lambda)\to
 		I(n-\lambda)$
-		を定められる
+		が定まる
 		(\textit{Knapp--Stein 作用素})。
-		$G$の代わりに$G'=O(p,q+1)$を代入して、に対して全く同じように建設すれば、$\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$作用素をえる。
+		$G$の代わりに$G'=O(p,q+1)$を代入して、全く同じように構成すれば、作用素$\tilde{\mathbb{T}}^{G'}_\nu:J(\nu)\to J(n-1-\nu)$を得る。
 	\end{definition}
 	\begin{theorem}[函数等式]
-	前のように、$n:=p+q\;(p,q\ge1)$とする。
+		$n=p+q\;(p,q\ge1)$で\doubt{あった}ことを思い出そう。
 	このとき、
 \ExecuteMetaData[.master_extract.tex]{functional}
 	\end{theorem}
 	\begin{remark}
-		函数等式の特別の$q=0$の場合は\cite[Thm. 12.6]{kobayashi2015program}に示された。
+		函数等式の原型
+		として\footnote{maybe, we need a comma here?}$q=0$の場合は\cite[Thm. 12.6]{kobayashi2015program}で得られている。
 	\end{remark}
-	$G'=O(p,q+1)$表現$J(\nu)$ of $G'=O(p,q+1)$は $K'$表現として multiplicity-freeであるので、$p>1$のとき、これの $(\mathfrak{g}',K')$部分加群を $\N_{+}^2$の部分集合で表すことができる。
-	ここで$J(\nu)$の$K'$表現の構造は球面調和関数
-	$\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$で表せる。
- 	\cite{howe1993homogeneous}のように、$J(\nu)$のJordan--H\"older 列 (或いは、socle filtrations) を矢印で表す。
+	$G'=O(p,q+1)$表現$J(\nu)$は $K'$表現として無重複であり、$p>1$のとき、その$K'$タイプは $\N^2$の部分集合で表すことができる。
+	実際$J(\nu)$の$K'$構造は$K'\simeq O(p)\times O(q+1)$の球面調和関数
+	$\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$
+	空間への作用(既約表現)の直和となるので、$(a,b)\in\N^2$でパラメトライズすることができる。群$G'$の表現既約であり、$\nu\in\Z$ならば、長さ有限のJordan--H\"older列をもつ。これらの既約部分商は\doubt{、}
+	その$K$タイプを$\N^2$の部分集合として図示し、
+	\cite{howe1993homogeneous}のように、$J(\nu)$のJordan--H\"older 列 (或いは、socle filtrations) \doubt{の構造}\footnote{I was not sure where to place this ``の構造''}\footnote{maybe, we need を before
+	the 矢印 here?}矢印で表す。
 	このとき、以下の定理が成り立つ：
 \begin{theorem}[対称性破れ作用素の像]
-	The regular SBO $R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$ is surjective,
-	$\nu\in\Z$ではなかったら、regular対称性破れ作用素$R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$は射影関数である。
+	$\nu\in\Z$でなければ、正則な(regular)対称性破れ作用素 $R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$は全射である。
 	$\nu\in\Z$ならば、$(\mathfrak{g},K)$加群 $I(\lambda)_K$の
 	$R_{\lambda,\nu}^X$における像は以下のようになる(ここで$(\lambda,\nu)\in//$に対して、
 	$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$、$(\lambda,\nu)\in\backslash\backslash$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)
-	\in\N$ である; 障壁 $A^{\pm\pm}$
-	が\cite{howe1993homogeneous}のように定義する): \\
+	\in\N$ とおく\doubt{。} 障壁 $A^{\pm\pm}$
+	は\cite{howe1993homogeneous}のように定義する): \\
 	for $p>1$:
 \end{theorem}
 \begin{enumerate}[(1)]
-	\item $p\in2\N_++1$ と $q\in2\Z$とする. このとき、$\nu\in2\Z,0<\nu<n-1$ならば、$R_{\lambda,\nu}^X$ は射影函数である。そうではなかったら、
+	\item $p\tisoddjap,q\tisevenjap$とする。 このとき、$\nu\in2\Z,0<\nu<n-1$ならば、$R_{\lambda,\nu}^X$ は全射である。そうではなかったら、
 		\hspace*{-1cm}\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
@@ -485,7 +509,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{f5}\\[25pt]
 	    \end{tabular}
 	  \end{figure}
-	\item $p,q\in\odd$と $p>1$とする。このとき、
+	\item $p,q$は共に奇数とし、さらに $p>1$の場合。このとき、
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
@@ -496,7 +520,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 			  
 		\end{tabular}
 		\end{figure}
-	\item $p,q\in\even$とする。 このとき、
+	\item $p,q$は共に偶数の場合。 このとき、
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
@@ -506,7 +530,10 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 			\toddText{>n-3}&\input{f13}\\[0pt]
 		\end{tabular}
 		\end{figure}
-	\item $p\in\even,q\in\odd$とする。このとき、$\nu\in\odd$ならば、 $R_{\lambda,\nu}^X$は射影函数である。そうではなかったら、(つまり、$\nu\in\even$ならば)、
+	\item $p\tisevenjap,q\tisoddjap$の場合。パラメータ$\nu$が奇数ならば、すべての$\lambda\in\C$に対して\footnote{In response to Your question ``Alex君、$R_{\lambda,\nu}^X=0$となる
+		ことはありませんか？'': yes, when $p$ is even, $q$ odd and $\nu$ odd, regular SBO does not vanish. Indeed, it can vanish if and only if $(\lambda,\nu)\in//\cap \mid\mid\mid$,
+	but since $q$ is odd we have $(\lambda,\nu)\in\mid\mid\mid\iff \nu\in2\Z$, while we have assumed that $\nu$ is odd.}
+		$R_{\lambda,\nu}^X$は全射である。そうではなかったら、(つまり、$\nu\in\even$ならば)、
 	  \begin{figure}[H]
 		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
