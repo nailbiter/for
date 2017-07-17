@@ -481,24 +481,23 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	実際$J(\nu)$の$K'$構造は$K'\simeq O(p)\times O(q+1)$の球面調和関数
 	$\mathcal{H}^a(\Sp^{p-1})\boxtimes\mathcal{H}^b(\Sp^q)$
 	空間への作用(既約表現)の直和となるので、$(a,b)\in\N^2$でパラメトライズすることができる。
-	($p=1$の場合は$a$は不要であり、1個の自然数$b\in\N$でパラメートライズすることができる。)
-	$\nu\in\Z$\footnote{maybe, $\nu\notin\Z$?}ならば群$G'$の表現$J(\nu)$は既約である。一方、
+	($p=1$の場合は$a$は不要であり、1個の自然数$b\in\N$でパラメトライズできる。)
+
+	$\nu\nin\Z$ならば群$G'$の表現$J(\nu)$は既約である。一方、
 	$\nu\in\Z$ならば、長さ有限のJordan--H\"older列をもつ。これらの既約部分商は{、}
 	その$K$タイプを$\N^2$の部分集合として図示し、
-	\cite{howe1993homogeneous}のように、$J(\nu)$のJordan--H\"older 列 (或いは、socle filtrations) {の構造}を矢印で表す。
-	このとき、以下の定理が成り立つ：
+	\cite{howe1993homogeneous}のように、$J(\nu)$のJordan--H\"older 列{の構造}を障壁$A^{\pm\pm}$と矢印で表す。
+	このとき、以下の定理が成り立つ。
 \begin{theorem}[対称性破れ作用素の像]
-	$\nu\in\Z$でなければ、正則な(regular)対称性破れ作用素 $R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$は全射である。
+	$\nu\notin\Z$ならば、正則な(regular)対称性破れ作用素 $R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$は全射である。
 	$\nu\in\Z$ならば、$(\mathfrak{g},K)$加群 $I(\lambda)_K$の
-	$R_{\lambda,\nu}^X$における像は以下のようになる(ここで$(\lambda,\nu)\in//$に対して、
-	$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$、$(\lambda,\nu)\in\backslash\backslash$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)
-	\in\N$ とおく{。} 障壁 $A^{\pm\pm}$
-	は\cite{howe1993homogeneous}のように定義する): \\
+	$R_{\lambda,\nu}^X$における像は以下のようになる。
+	なお、$R_{\lambda,\nu}^X$が零写像のときは$R_{\lambda,\nu}^X$の代わりに$\tilde{R}_{\lambda,\nu}^X$および$R_{\lambda,\nu}^{ \left\{ o \right\}}$の像を図示する。\\
 	$p>1$の場合:
 \end{theorem}
 \begin{enumerate}[(1)]
 	\item $p\tisoddjap,q\tisevenjap$とする。 このとき、$\nu\in2\Z,0<\nu<n-1$ならば、$R_{\lambda,\nu}^X$ は全射である。
-		それ以外の場合下図のようになる\doubt{。}
+		それ以外の場合の対称性破れ作用素$R^X_{\lambda,\nu},\tilde{R}_{\lambda,\nu}^X,R^{ \left\{ o \right\}}_{\lambda,\nu}$の像は下図のようになる{。}
 		\hspace*{-1cm}\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
@@ -521,7 +520,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{f5}\\[25pt]
 	    \end{tabular}
 	  \end{figure}
-  \item $p,q$は共に奇数とし、さらに $p>1$の場合。このとき、対称性破れ作用素の像は下図で現される\doubt{。}
+  \item $p,q$は共に奇数とし、さらに $p>1$の場合。このとき、対称性破れ作用素$R_{\lambda,\nu}^X,\tilde{R}_{\lambda,\nu}^{X},R^{ \left\{ o \right\}}_{\lambda,\nu}$の像は下図で現される{。}
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
@@ -533,6 +532,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 		\end{tabular}
 		\end{figure}
 	\item $p,q$は共に偶数の場合。 このとき、
+		対称性破れ作用素$R^X_{\lambda,\nu},\tilde{R}_{\lambda,\nu}^X,R_{\lambda,\nu}^{ \left\{ o \right\}}$の像は下図で現される。
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 			$(\lambda,\nu)\in$&$\mybra{\ss\cup\bb}^c$ & $\bb-\ss$  & $\ss-\bb$\\[0pt]
@@ -543,7 +543,8 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 		\end{tabular}
 		\end{figure}
 	\item $p\tisevenjap,q\tisoddjap$の場合。パラメータ$\nu$が奇数ならば、すべての$\lambda\in\C$に対して
-		$R_{\lambda,\nu}^X$は全射である。それ以外の場合、(すなわち、$\nu\in\even$ならば)、
+		$R_{\lambda,\nu}^X$は全射である。それ以外の場合、すなわち、$\nu\in\even$ならば、
+		対称性破れ作用素$R^X_{\lambda,\nu},\tilde{R}^X_{\lambda,\nu},R_{\lambda,\nu}^{ \left\{ o \right\}}$の像は以下のように図示される。
 	  \begin{figure}[H]
 		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
@@ -573,20 +574,36 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	  \end{figure}
 	\end{enumerate}
 	\vspace{-0.9cm}
-	上の図式の説明をする。
+	上の図の説明をする。
 	\begin{itemize}
+		\item %page10
+$(\lambda,\nu)\in//$に対して、
+	$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$、$(\lambda,\nu)\in\backslash\backslash$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)
+	\in\N$ とおく{。}
 		\item 灰色と白色のみで描れている図は
-			$\SBO=\C R^X_{\lambda,\nu}$の場合に相当し、灰色部分は$G$加群$I(\lambda)$の$R_{\lambda,\nu}^X$に\doubt{よる}像が$G'$加群$J(\nu)$のとのような部分加群になっている
+			$\SBO=\C R^X_{\lambda,\nu}$の場合に相当し、灰色部分は$G$加群$I(\lambda)$の$R_{\lambda,\nu}^X$に{よる}像が$G'$加群$J(\nu)$のとのような部分加群になっている
 			かを与える。
-		\item 灰色の代わりに緑色(右上がり斜線)と茶色網かけ$=$緑色(右上がり斜線)$+$オレンジ色(右下がり斜線)(と白色)で描かれている図は
+		\item 灰色の代わりに\begin{center}
+				緑色(右上がり斜線)
+			\end{center}
+			\begin{center}
+				茶色網かけ$=$緑色(右上がり斜線)$+$オレンジ色(右下がり斜線)
+			\end{center}
+			で描かれている図は
 			\begin{equation*}
 				R_{\lambda,\nu}^X=0\quad\mbox{かつ}\quad\SBO=\C R_{\lambda,\nu}^{ \left\{ o \right\}}\oplus \C \tilde{R}_{\lambda,\nu}^X
-			\end{equation*}の場合に相当する。この場合は$R_{\lambda,\nu}^X$の像は$\left\{ o \right\}$なので
-			図示せず。その代わりに微分対称性破れ作用素$R^{ \left\{ o \right\}}_{\lambda,\nu}$と再正規化した対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X$の像
+			\end{equation*}の場合に相当する(定理\ref{thm:classif}を参照)。この場合は$R_{\lambda,\nu}^X$の像は$\left\{ o \right\}$なので
+			図示せず、その代わりに微分対称性破れ作用素$R^{ \left\{ o \right\}}_{\lambda,\nu}$と再正規化した対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X$の像
 			をそれぞれ緑色(右上がり斜線)とオレンジ色(右下がり斜線)で表した。
 	\end{itemize}
+	言い換えると次のように像が読み取れる。
+	\begin{itemize}
+		\item $R_{\lambda,\nu}^{ \left\{ o \right\}}$の像は緑色(右上がり斜線)
+			と茶色網かけの合併。
+		\item $\tilde{R}_{\lambda,\nu}^X$の像は茶色網かけ。
+	\end{itemize}
 
-	$p=1$に対して:\\
+	$p=1$の場合。\\
 	\newcommand{\mystack}[2]{$\begin{array}{l}#1\\#2\end{array}$}
 	\begin{figure}[H]
 		\begin{tabular}{p{3.2cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.3cm}p{2.3cm}}
@@ -603,24 +620,37 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\ge q}&\input{f28}\\
 		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\ge q}&\input{f29}\\
 	\end{tabular}\end{figure}
-	上の図式の説明する
+	上の図式を説明する。
 	\begin{itemize}
-		\item 灰色と白色のみで描れている図は
-			$\SBO=\C R^X_{\lambda,\nu}$の場合に相当し、灰色部分は$G$加群$I(\lambda)$の$R_{\lambda,\nu}^X$に\doubt{よる}像が$G'$加群$J(\nu)$のとのような部分加群になっている
+		\item 灰色と白色のみで描か
+			れている図は
+			$\SBO=\C R^X_{\lambda,\nu}$の場合に相当し、灰色部分は$G$加群$I(\lambda)$の$R_{\lambda,\nu}^X$に{よる}像が$G'$加群$J(\nu)$のどのような部分加群になっている
 			かを記述している。
-		\item それ以外の図では緑色(右下がり\doubt{斜}線)茶色網かけオレンジ色(右下がり斜線)$+$緑色(右上がり斜線)赤色(右下がり斜線)紫色網かけ$=$赤色(右下がり斜線)$+$
-			青色(右上がり斜線)いずれの場合も$R_{\lambda,\nu}^X=0$である。
+		\item それ以外の図では\begin{center}
+				緑色(右下がり{斜}線)
+			\end{center}\begin{center}
+				茶色網かけオレンジ色(右下がり斜線)$+$緑色(右上がり斜線)
+			\end{center}\begin{center}
+				赤色(右下がり斜線)
+			\end{center}\begin{center}
+				紫色網かけ$=$赤色(右下がり斜線)$+$
+			青色(右上がり斜線)
+			\end{center}
+			の色のいくつかが現れる。これらの
+			いずれの場合も$R_{\lambda,\nu}^X=0$である。
 		\item 微分作用素$R_{\lambda,\nu}^{ \left\{ o \right\}}$の像は緑色(右上がり斜線)と茶色網かけの合併。
-		\item 際正規化した対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X$の像は茶色網かけ。
+		\item 再正規化した対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X$の像は茶色網かけ。
 		\item $R_{\lambda,\nu}^C$の像は赤色(右下がり斜線)と紫色網かけの合併。
 		\item $R_{\lambda,\nu}^Y$の像は紫色網かけ。
-			特に\begin{equation*}
-				\begin{array}[]{@{}l@{}l@{}l@{}}
-					\mbox{Image }\tilde{R}_{\lambda,\nu}^X&\subset&\mbox{Image }R_{\lambda,\nu}^{ \left\{ o \right\}}\\
-					\mbox{Image }R_{\lambda,\nu}^Y&\subset&\mbox{Image }R_{\lambda,\nu}^C
+			\begin{corollary}
+				上記で論じたそれぞれのパラメータ$(\lambda,\nu)$に対して(特に$R_{\lambda,\nu}^X=0$)、以下の関係が成り立つ。
+			\begin{equation*}
+				\begin{array}[]{@{}l@{}l@{}ll@{}}
+					\mbox{Image }\tilde{R}_{\lambda,\nu}^X&\subset&\mbox{Image }R_{\lambda,\nu}^{ \left\{ o \right\}}&(p\ge1)\\
+					\mbox{Image }R_{\lambda,\nu}^Y&\subset&\mbox{Image }R_{\lambda,\nu}^C&(p=1)
 				\end{array}
 			\end{equation*}
-			が成り立つ。
+			\end{corollary}
 	\end{itemize}
 
 \cite[(5.1.1)]{KO2}に做って$p>1${かつ}$q\ge1$のときに\begin{equation*}
