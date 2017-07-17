@@ -28,7 +28,7 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 
 $(OUTDIR)/abstract.pdf : abstract.tex f*.tex .master_extract.tex
 	        $(LATEXMK) $<
-$(OUTDIR)/abstract-jap.pdf : abstract-jap.tex f*.tex .master_extract.tex
+$(OUTDIR)/abstract-jap.pdf : abstract-jap.tex f*.tex .master_extract.tex tables.tex
 	        $(XELATEX) $<
 
 
