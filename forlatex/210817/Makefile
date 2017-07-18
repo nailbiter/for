@@ -1,12 +1,14 @@
 .PHONY: all commit push clean p src
 .SECONDARY: 
 
+Fs=f1.tex f10.tex f11.tex f12.tex f13.tex f14.tex f15.tex f16.tex f17.tex f18.tex f19.tex f2.tex f20.tex f21.tex f22.tex f23.tex f24.tex f25.tex f26.tex f27.tex f28.tex f29.tex f3.tex f4.tex f5.tex f6.tex f7.tex f8.tex f9.tex 
+
 ZIPNAME=august21talk
 WORKON=$(ZIPNAME)
 COMMIT_PREFIX=$()
 PDFS=abstract-jap
 AUX=
-SRCS=abstract-jap.tex f*.tex master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex
+SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
