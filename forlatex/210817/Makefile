@@ -8,7 +8,7 @@ WORKON=$(ZIPNAME)
 COMMIT_PREFIX=$()
 PDFS=abstract-jap
 AUX=
-SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex
+SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex mystyle.sty
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -46,6 +46,8 @@ $(OUTDIR)/abstract-jap.pdf : $(SRCS)
 	dvips -E -o $@ $(basename $<).dvi
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
+$(OUTDIR)/%.sty : %.sty
+	cp $< $@
 $(OUTDIR)/%.tex : %.tex
 	cp $< $@
 $(OUTDIR)/%.pdf : %.tex
