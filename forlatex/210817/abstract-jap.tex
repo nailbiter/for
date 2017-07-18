@@ -23,6 +23,7 @@
 \usepackage{bashful}
 \usetikzlibrary{patterns}
 \usepackage{bbm}
+\usepackage[]{hyperref}
 
 \setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro} %my Mac
 %\setCJKmainfont[AutoFakeBold=true]{Noto Sans CJK JP} %421 linux
@@ -116,6 +117,7 @@
 		\makeatother
 
 \begin{document}
+\pagenumbering{gobble}
 \renewcommand{\abstractname}{概要}
 
 \title{不定値直交群$O(p,q)$の対称性破れ作用素\thanks{第５６回実函数論・函数解析学 合同シンポジウム講演集、2017年8月21日--8月23日、
@@ -166,6 +168,7 @@ $P=MAN_{+}$を以下のように定める、
 放物型部分群$P$からの誘導表現として、以下のように
 $G$の球退化主系列表現を定める。
 複素数パラメータ
+\renewcommand{\C}{\mathbb{C}}
 $\lambda\in\C$に対して
 \begin{align*}
 I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
@@ -405,7 +408,7 @@ $(\lambda,\nu)\in D_S$に正則に依存する}。\\
 $G$の球退化主系列表現$I(\lambda)$は$K$不変ベクトルを含む。部分群$G'$の表現$J(\nu)$も同様である。
 いずれの場合も$K$不変ベクトルのなす空間は１次元であるので、$\mathbbm{1}_\lambda(e)=\mathbbm{1}_\nu(e)=1$と正規化した元を
 $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$と表す。
-このとき以下のことが成り立つ：
+このとき以下のことが成り立つ。
 \begin{theorem}[$K$不変ベクトルのスペクトラム]\label{thm:spherical}
 	$n=p+q\;(p,q\ge1)$という記法は前述の通りとする。この{とき、}
 \[ \OpR^X_{\lambda, \nu} \mathbbm{1}_{\lambda} =  \frac{2^{1 -
@@ -498,9 +501,11 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	$\nu\in\Z$ならば、$(\mathfrak{g},K)$加群 $I(\lambda)_K$の
 	$R_{\lambda,\nu}^X$における像は以下のようになる。
 	なお、$R_{\lambda,\nu}^X$が零写像のときは$R_{\lambda,\nu}^X$の代わりに$\tilde{R}_{\lambda,\nu}^X$および$R_{\lambda,\nu}^{ \left\{ o \right\}}$の像を図示する。\\
-	$p>1$の場合:
-\end{theorem}
-\begin{enumerate}[(1)]
+	\begin{enumerate}[{\rm (1)}]
+		\item 
+	$p>1$の場合:\\
+	\input{p_bigger_than_one_image_diagram_explanation}
+	\begin{enumerate}[{\rm (a)}]
 	\item $p\tisoddjap,q\tisevenjap$とする。 このとき、$\nu\in2\Z,0<\nu<n-1$ならば、$R_{\lambda,\nu}^X$ は全射である。
 		それ以外の場合の対称性破れ作用素$R^X_{\lambda,\nu},\tilde{R}_{\lambda,\nu}^X,R^{ \left\{ o \right\}}_{\lambda,\nu}$の像は下図のようになる{。}
 		\hspace*{-1cm}\begin{figure}[H]
@@ -579,37 +584,12 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	  \end{figure}
 	\end{enumerate}
 	\vspace{-0.9cm}
-	上の図の説明をする。
-	\begin{itemize}
-		\item %page10
-$(\lambda,\nu)\in//$に対して、
-	$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$、$(\lambda,\nu)\in\backslash\backslash$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)
-	\in\N$ とおく{。}
-		\item 灰色と白色のみで描れている図は
-			$\SBO=\C R^X_{\lambda,\nu}$の場合に相当し、灰色部分は$G$加群$I(\lambda)$の$R_{\lambda,\nu}^X$に{よる}像が$G'$加群$J(\nu)$のとのような部分加群になっている
-			かを与える。
-		\item 灰色の代わりに
-			\begin{equation*}
-				\begin{array}[]{l}
-					\mbox{緑色(右上がり斜線)}\\
-					\mbox{茶色網かけ$=$緑色(右上がり斜線)$+$オレンジ色(右下がり斜線)}
-				\end{array}
-			\end{equation*}
-			で描かれている図は
-			\begin{equation*}
-				R_{\lambda,\nu}^X=0\quad\mbox{かつ}\quad\SBO=\C R_{\lambda,\nu}^{ \left\{ o \right\}}\oplus \C \tilde{R}_{\lambda,\nu}^X
-			\end{equation*}の場合に相当する(定理\ref{thm:classif}を参照)。この場合は$R_{\lambda,\nu}^X$の像は$\left\{ 0 \right\}$なので
-			図示せず、その代わりに微分対称性破れ作用素$R^{ \left\{ o \right\}}_{\lambda,\nu}$と再正規化した対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X$の像
-			をそれぞれ緑色(右上がり斜線)とオレンジ色(右下がり斜線)で表した。
-	\end{itemize}
-	言い換えると次のように像が読み取れる。
-	\begin{itemize}
-		\item $R_{\lambda,\nu}^{ \left\{ o \right\}}$の像は緑色(右上がり斜線)
-			と茶色網かけの合併。
-		\item $\tilde{R}_{\lambda,\nu}^X$の像は茶色網かけ。
-	\end{itemize}
-
+	\newpage
+\item
 	$p=1$の場合。\\
+	\input{p_equal_to_one_image_diagram_explanation}\footnote{I think we can split the diagram below in half in order to eliminate the large empty space at this page}
+	\end{enumerate}
+\end{theorem}
 	\newcommand{\mystack}[2]{$\begin{array}{l}#1\\#2\end{array}$}
 	\begin{figure}[H]
 		\begin{tabular}{p{3.2cm}p{2.0cm}p{2.0cm}p{2.0cm}p{2.3cm}p{2.3cm}}
@@ -626,27 +606,6 @@ $(\lambda,\nu)\in//$に対して、
 		\vspace{-0.7cm}\mystack{\nu\todd,q\teven}{\nu\ge q}&\input{f28}\\
 		\vspace{-0.7cm}\mystack{\nu,q\todd}{\nu\ge q}&\input{f29}\\
 	\end{tabular}\end{figure}
-	上の図式を説明する。
-	\begin{itemize}
-		\item 灰色と白色のみで描か
-			れている図は
-			$\SBO=\C R^X_{\lambda,\nu}$の場合に相当し、灰色部分は$G$加群$I(\lambda)$の$R_{\lambda,\nu}^X$に{よる}像が$G'$加群$J(\nu)$のどのような部分加群になっている
-			かを記述している。
-		\item それ以外の図では
-			\begin{equation*}
-				\begin{array}[]{l}
-					\mbox{緑色(右下がり{斜}線)}\\
-					\mbox{茶色網かけオレンジ色(右下がり斜線)$+$緑色(右上がり斜線)}\\
-					\mbox{赤色(右下がり斜線)}\\
-					\mbox{紫色網かけ$=$赤色(右下がり斜線)$+$青色(右上がり斜線)}
-				\end{array}
-			\end{equation*}
-			の色のいくつかが現れる。これらの
-			いずれの場合も$R_{\lambda,\nu}^X=0$である。
-		\item 微分作用素$R_{\lambda,\nu}^{ \left\{ o \right\}}$の像は緑色(右上がり斜線)と茶色網かけの合併。
-		\item 再正規化した対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X$の像は茶色網かけ。
-		\item $R_{\lambda,\nu}^C$の像は赤色(右下がり斜線)と紫色網かけの合併。
-		\item $R_{\lambda,\nu}^Y$の像は紫色網かけ。
 			\begin{corollary}
 				上記で論じたそれぞれのパラメータ$(\lambda,\nu)$に対して(特に$R_{\lambda,\nu}^X=0$)、以下の関係が成り立つ。
 			\begin{equation*}
@@ -656,7 +615,6 @@ $(\lambda,\nu)\in//$に対して、
 				\end{array}
 			\end{equation*}
 			\end{corollary}
-	\end{itemize}
 
 	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じる。
 \cite[(5.1.1)]{KO2}に\doubt{倣}って$p>1${かつ}$q\ge1$のときに\begin{equation*}
@@ -737,7 +695,7 @@ Zuckerman導来函手加群で記載される。)
 \end{theorem}
 \begin{remark}
 	\begin{enumerate}[(1)]
-		\item 定理\ref{thm:Aq}\;では分岐則が離散分解する場合(一般論は\cite{10.2307/120963})とそれでない場合の両方が含まれている。
+		\item 定理\ref{thm:Aq}\;では分岐則が離散分解する場合(一般論は\cite{10.2307/120963})とそうでない場合の両方が含まれている。
 			分岐則が離散分解する場合、上記の分岐則は\cite[Thm. 3.3]{kobayashi1993}によって得られた公式と一致する。
 		\item $q=0$の場合の類似の結果は\cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}で得られている。
 	\end{enumerate}
@@ -747,6 +705,5 @@ Zuckerman導来函手加群で記載される。)
 \nocite{kobayashi1993}
 \nocite{10.2307/120963}
 \small
-\bibliography{todai_master}
-\bibliographystyle{mystyle}
+\input{bibliography}
 \end{document}

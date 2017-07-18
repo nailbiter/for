@@ -4,7 +4,7 @@
 ZIPNAME=august21talk
 WORKON=$(ZIPNAME)
 COMMIT_PREFIX=$()
-PDFS=abstract abstract-jap
+PDFS=abstract-jap
 AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
@@ -26,11 +26,8 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	du -hs $@
 	$(GITCOMMIT)
 
-$(OUTDIR)/abstract.pdf : abstract.tex f*.tex .master_extract.tex
-	        $(LATEXMK) $<
-$(OUTDIR)/abstract-jap.pdf : abstract-jap.tex f*.tex .master_extract.tex tables.tex todai_master.bib
+$(OUTDIR)/abstract-jap.pdf : abstract-jap.tex f*.tex .master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex
 	        $(XELATEX) $<
-
 
 #standard rules
 %.eps: %.tex
