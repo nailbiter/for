@@ -32,7 +32,8 @@ $(OUTDIR)/$(ZIPNAME)_s.zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) 
 	$(GITCOMMIT)
 
 $(OUTDIR)/abstract.tex: $(SRCS)
-	latexpand $< > $@
+	latexpand --expand-usepackage $< > $@
+	cd $(OUTDIR) && xelatex abstract.tex
 
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
@@ -41,9 +42,7 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	$(GITCOMMIT)
 
 $(OUTDIR)/abstract-jap.pdf : $(SRCS)
-	platex -output-directory=$(OUTDIR) abstract-jap.tex
-	cd $(OUTDIR) && dvipdfmx abstract-jap.dvi
-	#xelatex --output-directory=$(OUTDIR) abstract-jap.tex
+	xelatex --output-directory=$(OUTDIR) abstract-jap.tex
 	#$(XELATEX) abstract-jap.tex
 
 #standard rules
