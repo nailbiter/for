@@ -105,7 +105,8 @@
 
 
 %%\newcommand{\doubt}[1]{\fbox{#1}}
-\newcommand{\doubt}[1]{\uwave{#1}}
+%%\newcommand{\doubt}[1]{\uwave{#1}}
+\newcommand{\doubt}[1]{{#1}}
 
 %custom thanks
 \makeatletter
@@ -117,7 +118,7 @@
 \begin{document}
 \renewcommand{\abstractname}{概要}
 
-\title{不定値直交群$O(p,q)$の対称性破れ作用素\thanks{第５６　回実函数論・函数解析学 合同シンポジウム講演集、2017年8月21日--8月23日、
+\title{不定値直交群$O(p,q)$の対称性破れ作用素\thanks{第５６回実函数論・函数解析学 合同シンポジウム講演集、2017年8月21日--8月23日、
 於\;お茶の水大学}}
 
   %%%% 講演者1
@@ -198,14 +199,14 @@ $\SBO$の基底を具体的に決定しよう。
 \begin{definition} \label{def1}
 	$\R^n\times\R^n$上の関数$h(\cdot,\cdot)$を
 	$h(b,x):=1-2\,^t\!bI_{p,q}x+\Q(b)\Q(x)$と定める (ここで、$n=p+q$)。 
-	$b_p=0$を満たすよう{な}$b\in\R^n$と開集合$\mysetn{x\in\R^{p,q}}{h(b,x)\neq0}$に入っている$x$に対して、
+	$b_p=0$を満たすよう{な}各$b\in\R^n$に対し、開集合$\mysetn{x\in\R^{p,q}}{h(b,x)\neq0}$上で
   \begin{equation*}
     \label{eq-Nequiv} | h(b,x) |^{\lambda - n} F \left(
     \frac{x - \Q (x) b}{h(b,x)} \right) = F (x)
   \end{equation*}
-  をみたすとき、
+  が成り立つとき、
 	超関数$F \in \mathcal{D}' (\R^{p,q})$を
-  {$N_+'$不変}と呼ぶ。(ここで、$N_+'$は$\R^{p,q}$に作用していないことに注意する)
+	{$N_+'$不変}と呼ぶ。(ここで、$N_+'$は$\R^{p,q}$の共形コンパクト化には作用するが、$\R^{p,q}$には作用していないことに注意する)
 \end{definition}
 
 %%	そうすると、$G$は$P$と適合する（つまり、$A\subset G'$のため、$P':=P\cap G'$は$G'$のラングランズ分解$P'=(G'\cap M)A(G'\cap N_+)$を持つ極大放物型部分群である）
@@ -251,7 +252,7 @@ $n=p+q$とする。
 不変量となるということがわかる。
 \cite{kobayashi2015symmetry}の方針
 は$\mathcal{S}upp(T)$に関する帰納法で
-\doubt{、}対称性破れ作用素を分類するというものであった。この方針に沿い、最初のステップとして、両側剰余空間$P'\backslash G/P$とその閉包関係を決定する。
+対称性破れ作用素を分類するというものであった。この方針に沿い、最初のステップとして、両側剰余空間$P'\backslash G/P$とその閉包関係を決定する。
 
 $G=O(p+1,q+1)$の$\R^{p+1,q+1}$への自然な線形作用は部分集合である以下の錐
 $$\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}$$
@@ -259,10 +260,10 @@ $$\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs
 その商空間
 $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}$への作用を導く。
 幾何の言葉で言うと、
-$X^{p,q}$は\doubt{直積多様体$\Sp^p\times\Sp^q$に{おいて}、
+$X^{p,q}$は{直積多様体$\Sp^p\times\Sp^q$に{おいて}、
 その対跡点を同ー視することによって得られる商多様体
 と同型であり、
-不定値計量$g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$をを与えると、
+不定値計量$g_{\Sp^p}\oplus \left( -g_{\Sp^q} \right)$を与えて擬リーマン多様体の構造を入れると、
 そこに
 群$G$は共形変換群として作用する}
 。
@@ -312,35 +313,26 @@ C&:=&\mysetn{[\xi:\eta]\in G/P\simeq X^{p,q}}{\xi_{0}=\eta_q}\simeq X^{p-1,q-1}\
 作用素
 $R_{\lambda,\nu}^S$は$\C^2$の離散集合上で
 零になる(注意\ref{rmk:thm:construction}を参照)。
-{そこで($\C^2$全体ではなく、次元が低いパラメータ集合$\mid\mid\mid$上で)}
+{そこで($\C^2$全体ではなく)次元が低いパラメータ集合$\mid\mid\mid$上で}
 	対称性破れ作用素の族$R_{\lambda,\nu}^X$を再正規化したのが$\tilde{R}_{\lambda,\nu}^X$である。ただし、
 	$p=1$のとき、あるいは$S=C\cap Y$の場合と$p>1$のとき、あるいは$S=C$または
 $Y$の場合は分類(定理\ref{thm:classif})に用いなくてもよいので、
 ここでは省略する。
-\newpage
-\begin{theorem}[対称性破れ作用素の構成]\label{thm:construction}
-	\doubt{$P'$不変な$G/P$の閉集合
-	$S=X,Y,C,$ $\left\{ o \right\}$に対して、
-	パラメータ集合$D_S$を以下の表のように定めると、作用素
-	$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$は
-	$I(\lambda)$から$J(\nu)$への対称性破れ作用素であり、
-$(\lambda,\nu)\in D_S$に正則に依存する}。\\
-\ExecuteMetaData[.master_extract.tex]{table}\vspace{\baselineskip}
-上記の表中の記号を説明する：
+% 6 star
+以下の定理に用いられるの記号を説明する：
 \begin{itemize}
 	\item $\mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in
-	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \},\quad \backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\N}$;
-\item $/ / \assign
+	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \},\quad \backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\N}$;\\
+$/ / \assign
 \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
 -2\N \},\quad \mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N}$;
-\item $\tilde{C}(s,t)$は\cite[(11.6)]{Kobayashi2016}\footnote{note that \cite{Kobayashi2016} defines only the {\it one-variable}
-	polynomial $\tilde{C}_n^\lambda(\cdot)$ but it {\it does not} define the two-variable inflation}\doubt{\cite[(16.3)]{kobayashi2015symmetry}}\footnote{
-	should I remove this citation?}で定義された２変数多項式であり、正規化された
+\item $\tilde{C}(s,t)$は\cite[(6.5)]{Kobayashi2016}で定義された２変数多項式であり、正規化された
 	Gegenbauer多項式から導かれるものである。
-\end{itemize}
-\end{theorem}
+% 7 star
+\item 
 $(\lambda,\nu)\in\mid\mid$に対して、$m:=\frac{1}{2}\left( \nu-1 \right)\in\N$と定め、$(\lambda,\nu)\in\bb$に対して、$k:=\frac{1}{2}\left( n-1-\lambda-\nu \right)\in\N$と定める。
-$p=1$に対して、$q_C^X(\lambda,\nu)$ and $q_Y^X(\lambda,\nu)$を以下のように定義する：
+\item 
+$p=1$に対して、$q_C^X(\lambda,\nu)$ および $q_Y^X(\lambda,\nu)$を以下のように定義する：
 \begin{align*}
  q_C^X (\lambda, \nu) &:= \left\{ \begin{array}{ll}
      \Gamma^{} \left( \frac{\lambda + \nu - n + 1}{2} \right), & q\tisevenjap
@@ -359,6 +351,17 @@ q_Y^X (\lambda, \nu) &:= \left\{ \begin{array}{ll}
      \tisevenjap.
    \end{array} \right.
 \end{align*}
+\end{itemize}
+\newpage
+\begin{theorem}[対称性破れ作用素の構成]\label{thm:construction}
+	{$P'$不変な$G/P$の閉集合
+	$S=X,Y,C,$ $\left\{ o \right\}$に対して、
+	パラメータ集合$D_S$を以下の表のように定めると、作用素
+	$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$は
+	$I(\lambda)$から$J(\nu)$への対称性破れ作用素であり、
+$(\lambda,\nu)\in D_S$に正則に依存する}。\\
+\ExecuteMetaData[.master_extract.tex]{table}\vspace{\baselineskip}
+\end{theorem}
 \begin{remark}
 	小林--Pevznerによる微分対称性破れ作用素の一般理論(\cite[Chap.\ 2]{kobayashi2016differential1})
 	よって、
@@ -371,7 +374,7 @@ q_Y^X (\lambda, \nu) &:= \left\{ \begin{array}{ll}
 		+1}{2}+\frac{\nu+\lambda}{2}
 		+i \right)\left(- \Delta_{\mathbbm{R}^{p-1,q}} \right)^j\left( \frac{\partial}{\partial x_p} \right)^{\nu-\lambda-2j}.
 	\end{equation*}
-	上の公式の$q=0$の特別な場合は\cite[Thms. 5.1.1 and 5.2.1]{juhl2009families}や\cite[(10.1)]{kobayashi2015symmetry}
+	上の公式の$q=0$の特別な場合は\cite[Thms. 5.1.1\doubt{および}5.2.1]{juhl2009families}や\cite[(10.1)]{kobayashi2015symmetry}や\cite[Thm. 6.3]{Kobayashi2016}
 	で現れた微分作用素であり、
 	一般の$p,q$の場合は
 	\cite[Thm.\ 4.3]{kobayashi2015branching}で既に得られているものと同一である。
@@ -412,19 +415,21 @@ $\mathbbm{1}_\lambda\in I(\lambda)^K,\mathbbm{1}_\nu\in J(\nu)^{K'}$と表す。
 \end{theorem}
 \begin{remark}
 	$SL(2,\R)$の表現のテンソル積の場合、すなわち、
-	定理\ref{thm:spherical}\;の$p=q=1$の特別な場合はBernstein--Reznikov\cite[Lem. A.5]{bernstein2004estimates} によって得られた。
+	定理\ref{thm:spherical}\;の$p=q=1$の特別な場合はBernstein--Reznikov\cite[Lem. A.5]{bernstein2004estimates} によって得られ、
 	さらに群のランクが高い場合の一般化は\cite[Thm. 1.1]{clerc2011generalized}で{証明}されている。
 	また$q=0$の場合は\cite[Prop.\ 7.4]{kobayashi2015symmetry}で得られている。
 \end{remark}
+定理\ref{thm:construction}\;の1段目の主張を次の形で復習しておこう。
 $(\lambda,\nu)\in\C^2\setminus//$に対して、
 \[
 \begin{array}{@{}l@{}l@{}l@{}}
-K_{\lambda,\nu}^{\mathbb{R}^{p,q}}&:=&\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
+\tilde{K}_{\lambda,\nu}^{\mathbb{R}^{p,q}}&:=&\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
 \frac{\myabs{\Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\in\sol\\[10pt]
-R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( K_{\lambda,\nu}^X \right)
+R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\left( \tilde{K}_{\lambda,\nu}^{\R^{p,q}} \right)
 \end{array}
 \]
-と定義する。このとき、$R_{\lambda,\nu}^X$は$(\lambda,\nu)\in\C^2$に正則(holomorphic)に依存する対称性破れ作用素の族に拡張できる。
+と定義する。このとき、$R_{\lambda,\nu}^X$は$(\lambda,\nu)\in\C^2$に正則(holomorphic)に依存する対称性破れ作用素の族に拡張できる{、}というのが
+定理\ref{thm:construction}の主張であった。以下では作用素$\Op\left( \tilde{K}^{\R^{p,q}}_{\lambda,\nu} \right)$の留数を求める。
 \begin{theorem}[留数公式]
 	$(\lambda,\nu)\in//$に対して、$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とおく。このとき
   \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^l l!\pi^{(n - 2) / 2} 
@@ -436,14 +441,14 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 		留数公式の原型は$q=0$の場合で、このときは\cite{KOBAYASHI2014272}、\cite[Thm. 12.2]{kobayashi2015symmetry}で証明されている。
 	\end{remark}
 	\begin{definition}
-		Fact \ref{fact1}
-		の構成からわかる
-		ように、$G=G'$の場合に類似物を考えると
+		\cite[Thm. 3.16]{kobayashi2015symmetry}を$G=G'$の場合に適用すると\doubt{、}
+		Fact \ref{fact1}と同様に、
+		セル上の$I(\lambda)$から$J(\nu)$への(通常の)$G$絡作用素をBruhat核超関数で記述することができ、
 		\begin{equation*}
 		\Hom_G(I(\lambda),I(\nu))\simeq\Sol_G(\R^{p,q};\lambda,\nu)
 		\end{equation*}
 		という全単射が成り立つ。
-		ここで、\;$\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$は定義\ref{def2}の４つ目の条件を満たす$\R^{p+q}$上の超関数空間(ただ、
+		ここで、\;$\Sol_G(\R^{p,q};\lambda,\nu)\subset\mathcal{D}'(\R^{p+q})$は定義\ref{def2}の４つ目の条件を満たす$\R^{p+q}$上の超関数空間(ただし、
 		３つ目の条件で$O(p,q)_{e_p}\simeq O(p-1,q)${に関する}不変性の代わりに、$O(p,q)$の不変性を課し、
 		４つ目の条件では$N_+'$不変性の代わりに、$N_+$不変性を課す)。
 
@@ -475,7 +480,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	\end{theorem}
 	\begin{remark}
 		函数等式の原型
-		として\footnote{maybe, we need a comma here?}$q=0$の場合は\cite[Thm. 12.6]{kobayashi2015program}で得られている。
+		として$q=0$の場合は\cite[Thm. 12.6]{kobayashi2015program}で得られている。
 	\end{remark}
 	$G'=O(p,q+1)$表現$J(\nu)$は $K'$表現として無重複であり、$p>1$のとき、その$K'$タイプは $\N^2$の部分集合で表すことができる。
 	実際$J(\nu)$の$K'$構造は$K'\simeq O(p)\times O(q+1)$の球面調和関数
@@ -485,7 +490,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 
 	$\nu\nin\Z$ならば群$G'$の表現$J(\nu)$は既約である。一方、
 	$\nu\in\Z$ならば、長さ有限のJordan--H\"older列をもつ。これらの既約部分商は{、}
-	その$K$タイプを$\N^2$の部分集合として図示し、
+	その$K$タイプを$\N^2$の($p=1$のときは$\N$の)部分集合として図示しできる。
 	\cite{howe1993homogeneous}のように、$J(\nu)$のJordan--H\"older 列{の構造}を障壁$A^{\pm\pm}$と矢印で表す。
 	このとき、以下の定理が成り立つ。
 \begin{theorem}[対称性破れ作用素の像]
@@ -583,16 +588,17 @@ $(\lambda,\nu)\in//$に対して、
 		\item 灰色と白色のみで描れている図は
 			$\SBO=\C R^X_{\lambda,\nu}$の場合に相当し、灰色部分は$G$加群$I(\lambda)$の$R_{\lambda,\nu}^X$に{よる}像が$G'$加群$J(\nu)$のとのような部分加群になっている
 			かを与える。
-		\item 灰色の代わりに\begin{center}
-				緑色(右上がり斜線)
-			\end{center}
-			\begin{center}
-				茶色網かけ$=$緑色(右上がり斜線)$+$オレンジ色(右下がり斜線)
-			\end{center}
+		\item 灰色の代わりに
+			\begin{equation*}
+				\begin{array}[]{l}
+					\mbox{緑色(右上がり斜線)}\\
+					\mbox{茶色網かけ$=$緑色(右上がり斜線)$+$オレンジ色(右下がり斜線)}
+				\end{array}
+			\end{equation*}
 			で描かれている図は
 			\begin{equation*}
 				R_{\lambda,\nu}^X=0\quad\mbox{かつ}\quad\SBO=\C R_{\lambda,\nu}^{ \left\{ o \right\}}\oplus \C \tilde{R}_{\lambda,\nu}^X
-			\end{equation*}の場合に相当する(定理\ref{thm:classif}を参照)。この場合は$R_{\lambda,\nu}^X$の像は$\left\{ o \right\}$なので
+			\end{equation*}の場合に相当する(定理\ref{thm:classif}を参照)。この場合は$R_{\lambda,\nu}^X$の像は$\left\{ 0 \right\}$なので
 			図示せず、その代わりに微分対称性破れ作用素$R^{ \left\{ o \right\}}_{\lambda,\nu}$と再正規化した対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X$の像
 			をそれぞれ緑色(右上がり斜線)とオレンジ色(右下がり斜線)で表した。
 	\end{itemize}
@@ -626,16 +632,15 @@ $(\lambda,\nu)\in//$に対して、
 			れている図は
 			$\SBO=\C R^X_{\lambda,\nu}$の場合に相当し、灰色部分は$G$加群$I(\lambda)$の$R_{\lambda,\nu}^X$に{よる}像が$G'$加群$J(\nu)$のどのような部分加群になっている
 			かを記述している。
-		\item それ以外の図では\begin{center}
-				緑色(右下がり{斜}線)
-			\end{center}\begin{center}
-				茶色網かけオレンジ色(右下がり斜線)$+$緑色(右上がり斜線)
-			\end{center}\begin{center}
-				赤色(右下がり斜線)
-			\end{center}\begin{center}
-				紫色網かけ$=$赤色(右下がり斜線)$+$
-			青色(右上がり斜線)
-			\end{center}
+		\item それ以外の図では
+			\begin{equation*}
+				\begin{array}[]{l}
+					\mbox{緑色(右下がり{斜}線)}\\
+					\mbox{茶色網かけオレンジ色(右下がり斜線)$+$緑色(右上がり斜線)}\\
+					\mbox{赤色(右下がり斜線)}\\
+					\mbox{紫色網かけ$=$赤色(右下がり斜線)$+$青色(右上がり斜線)}
+				\end{array}
+			\end{equation*}
 			の色のいくつかが現れる。これらの
 			いずれの場合も$R_{\lambda,\nu}^X=0$である。
 		\item 微分作用素$R_{\lambda,\nu}^{ \left\{ o \right\}}$の像は緑色(右上がり斜線)と茶色網かけの合併。
@@ -646,14 +651,15 @@ $(\lambda,\nu)\in//$に対して、
 				上記で論じたそれぞれのパラメータ$(\lambda,\nu)$に対して(特に$R_{\lambda,\nu}^X=0$)、以下の関係が成り立つ。
 			\begin{equation*}
 				\begin{array}[]{@{}l@{}l@{}ll@{}}
-					\mbox{Image }\tilde{R}_{\lambda,\nu}^X&\subset&\mbox{Image }R_{\lambda,\nu}^{ \left\{ o \right\}}&(p\ge1)\\
-					\mbox{Image }R_{\lambda,\nu}^Y&\subset&\mbox{Image }R_{\lambda,\nu}^C&(p=1)
+					\operatorname{Image}\tilde{R}_{\lambda,\nu}^X&\subset&\operatorname{Image}R_{\lambda,\nu}^{ \left\{ o \right\}}&(p\ge1)\\
+					\operatorname{Image}R_{\lambda,\nu}^Y&\subset&\operatorname{Image}R_{\lambda,\nu}^C&(p=1)
 				\end{array}
 			\end{equation*}
 			\end{corollary}
 	\end{itemize}
 
-\cite[(5.1.1)]{KO2}に做って$p>1${かつ}$q\ge1$のときに\begin{equation*}
+	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じる。
+\cite[(5.1.1)]{KO2}に\doubt{倣}って$p>1${かつ}$q\ge1$のときに\begin{equation*}
 	A_0(p,q):=\left\{ \lambda\in\Z+\frac{p+q}{2}\;:\;\lambda>-1 \right\}
 \end{equation*}とおくと、
 \cite{KO2}で
@@ -662,16 +668,16 @@ $(\lambda,\nu)\in//$に対して、
 $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
 %%16-c
 が定まる。(\cite{KO2}では$\pi_{\pm,\lambda}^{p,q}$を定義するにあたって5種類の
-特徴づけが与えら\doubt{れ}、それらは互いに
+特徴づけが与えら{れ}、それらは互いに
 同値であることが示されている。その特徴づけの1つは
 Zuckerman導来函手加群で記載される。)
-以下では、この加群の間に対称性破れ作用素がある\doubt{か}について論じる。簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
+以下では、この加群の間に対称性破れ作用素がある{か}について論じる。簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
 %%16-a
 以下では\begin{equation*}
 	g(t):=\left\{ \begin{array}[]{ll}
 		1&t\in2\N+\frac{1}{2}\\[10pt]
 		0&t\nin 2\N+\frac{1}{2}
-	\end{array}\right.,h(t):=\left\{ \begin{array}[]{ll}
+	\end{array}\right.,\quad h(t):=\left\{ \begin{array}[]{ll}
 		1&t<\frac{q}{2}\\[10pt]
 		0&t\ge\frac{q}{2}
 \end{array}\right.
@@ -728,16 +734,15 @@ Zuckerman導来函手加群で記載される。)
 \newcommand{\tz}{2\Z}
 \newcommand{\tno}{2\N+1}
 	\input{tables.tex}
+\end{theorem}
 \begin{remark}
 	\begin{enumerate}[(1)]
-		\item 分岐則が離散分解する場合(一般論は\cite{10.2307/120963})、上記の分岐則は\cite[Thm. 3.3]{kobayashi1993}によって得られた公式と一致する。
-		\item $q=0$の場合の類似の結果は\cite[Thm. 1.2]{kobayashi2015symmetry}で得られている。
+		\item 定理\ref{thm:Aq}\;では分岐則が離散分解する場合(一般論は\cite{10.2307/120963})とそれでない場合の両方が含まれている。
+			分岐則が離散分解する場合、上記の分岐則は\cite[Thm. 3.3]{kobayashi1993}によって得られた公式と一致する。
+		\item $q=0$の場合の類似の結果は\cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}で得られている。
 	\end{enumerate}
 \end{remark}
-\begin{remark}
-定理 \ref{thm:Aq}を\cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}の一般化としてみなせる。
-\end{remark}
-\end{theorem}
+\nocite{kobayashi16birth}
 \nocite{kobayashi2015program}
 \nocite{kobayashi1993}
 \nocite{10.2307/120963}
