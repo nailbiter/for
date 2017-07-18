@@ -26,7 +26,7 @@ p:  $(OUTDIR)/$(ZIPNAME).zip
 src:  $(OUTDIR)/$(ZIPNAME)_s.zip
 
 $(OUTDIR)/$(ZIPNAME)_s.zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(OUTDIR)/abstract.tex
-	cd $(OUTDIR) && rm -f $(ZIPNAME)_s.zip && zip -9 $(ZIPNAME)_s $(addsuffix .pdf,$(PDFS)) $(AUX) $(OUTDIR)/abstract.tex
+	cd $(OUTDIR) && rm -f $(ZIPNAME)_s.zip && zip -9 $(ZIPNAME)_s $(addsuffix .pdf,$(PDFS)) $(AUX) abstract.tex
 	unzip -l $@
 	du -hs $@
 	$(GITCOMMIT)
