@@ -15,7 +15,6 @@
 \usepackage{subcaption}
 \usepackage{setspace}
 \usepackage{comment}
-\usepackage{catchfilebetweentags}
 \usepackage{multirow}
 \usepackage[table]{xcolor}
 \includecomment{versiona}
@@ -372,7 +371,9 @@ q_Y^X (\lambda, \nu) &:= \left\{ \begin{array}{ll}
 	$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$は
 	$I(\lambda)$から$J(\nu)$への対称性破れ作用素であり、
 $(\lambda,\nu)\in D_S$に正則に依存する}。\\
-\ExecuteMetaData[master_extract.tex]{table}\vspace{\baselineskip}
+\input{master_extract_table}
+%%\ExecuteMetaData[master_extract.tex]{table}
+\vspace{\baselineskip}
 \end{theorem}
 \begin{remark}
 	小林--Pevznerによる微分対称性破れ作用素の一般理論(\cite[Chap.\ 2]{kobayashi2016differential1})
@@ -704,7 +705,7 @@ Zuckerman導来函手加群で記載される。)
 \newcommand{\tzo}{2\Z+1}
 \newcommand{\tz}{2\Z}
 \newcommand{\tno}{2\N+1}
-	\input{tables.tex}
+	\input{tables}
 \end{theorem}
 \begin{remark}
 	\begin{enumerate}[(1)]
