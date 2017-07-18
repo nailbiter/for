@@ -164,7 +164,8 @@ Research (A) (25247006), Japan Society for the Promotion of Science.} (東京大
 と定義し、その
 極大放物型部分群
 $P=MAN_{+}$を以下のように定める、
-\ExecuteMetaData[master_extract.tex]{tagsetting}
+\input{master_extract_tagsetting}
+%%\ExecuteMetaData[master_extract.tex]{tagsetting}
 放物型部分群$P$からの誘導表現として、以下のように
 $G$の球退化主系列表現を定める。
 複素数パラメータ
@@ -195,7 +196,7 @@ $(G,G')$の複素化は$(O(n+2,\C),O(n+1,\C))$であり、これは強Gelfand対
 \begin{fact}
 	対称性破れ作用素のなす空間の次元は表現のパラーメタ$(\lambda,\nu)$よらずに一様に押さえられている。
 \end{fact}
-対称性破れ作用素のなす線形空間
+対称性破れ作用素のなす線型空間
 $\SBO$の基底を具体的に決定しよう。
 
 この空間を分析するために、まず以下のような定義する：
@@ -257,7 +258,7 @@ $n=p+q$とする。
 は$\mathcal{S}upp(T)$に関する帰納法で
 対称性破れ作用素を分類するというものであった。この方針に沿い、最初のステップとして、両側剰余空間$P'\backslash G/P$とその閉包関係を決定する。
 
-$G=O(p+1,q+1)$の$\R^{p+1,q+1}$への自然な線形作用は部分集合である以下の錐
+$G=O(p+1,q+1)$の$\R^{p+1,q+1}$への自然な線型作用は部分集合である以下の錐
 $$\Xi^{p+1,q+1}:=\mysetn{(x,y)\in\R^{p+1,q+1}\setminus\left\{ 0 \right\}}{\myabs{x}^2=\myabs{y}^2}$$
 を保つので、
 その商空間
@@ -325,11 +326,18 @@ $Y$の場合は分類(定理\ref{thm:classif})に用いなくてもよいので�
 % 6 star
 以下の定理に用いられるの記号を説明する：
 \begin{itemize}
-	\item $\mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in
-	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \},\quad \backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\N}$;\\
-$/ / \assign
+	\item 
+		\begin{equation*}
+			\begin{array}[]{l}
+			\mid \mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in
+	- 2\mathbbm{N} \cup (q + 1 + 2\mathbbm{Z}) \},\\
+\backslash\backslash:=\mysetn{(\lambda,\nu)\in\C^2}{\lambda+\nu-n+1\in-2\N},\\
+/ / \assign
 \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
--2\N \},\quad \mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N}$;
+-2\N \},\\
+\mid\mid:=\mysetn{(\lambda,\nu)\in\C^2}{\nu\in1+2\N};
+			\end{array}
+		\end{equation*}
 \item $\tilde{C}(s,t)$は\cite[(6.5)]{Kobayashi2016}で定義された２変数多項式であり、正規化された
 	Gegenbauer多項式から導かれるものである。
 % 7 star
@@ -396,11 +404,11 @@ $(\lambda,\nu)\in D_S$に正則に依存する}。\\
 	再正規化した作用素$\tilde{R}_{\lambda,\nu}^X$に対しては{、}以下が同値となる。
 	$\tilde{R}_{\lambda,\nu}^X=0\iff p=1$かつ$(\lambda,\nu)$は離散集合$\backslash\backslash\cap \mid\mid$に属している。
 \end{remark}
-定理\ref{thm:construction}で構成された対称性破れ作用素はいつも線型独立になるとは限らないが、全ての対称性破れ作用素はその線形和で表せることがわかる。
-任意の$(\lambda,\nu)\in\C^2$に対して、線形空間$\SBO$の基底を以下のように具体的に決定した。
+定理\ref{thm:construction}で構成された対称性破れ作用素はいつも線型独立になるとは限らないが、全ての対称性破れ作用素はその線型和で表せることがわかる。
+任意の$(\lambda,\nu)\in\C^2$に対して、線型空間$\SBO$の基底を以下のように具体的に決定した。
 \begin{theorem}[対称性破れ作用素の分類]\label{thm:classif}
 	$p,q\ge1$とする。
-		\ExecuteMetaData[master_extract.tex]{classification}
+	\input{master_extract_classification}
 \end{theorem}
 \begin{corollary}[対称性破れ作用素の{{存在}}定理と次元の上限]\label{cor:classif}
 	どんな$(\lambda,\nu)\in\C^2$に対しても
@@ -456,7 +464,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 		３つ目の条件で$O(p,q)_{e_p}\simeq O(p-1,q)${に関する}不変性の代わりに、$O(p,q)$の不変性を課し、
 		４つ目の条件では$N_+'$不変性の代わりに、$N_+$不変性を課す)。
 
-		$G=G'$の場合は、古くから多く研究(たとえば、Knapp-Stein作用素)があり、
+		$G=G'$の場合は、古くから多く研究(たとえば、Knapp--Stein作用素)があり、
 		この場合は$\mathcal{S}ol_G(\R^{p,q};\lambda,n-\lambda)$は容易に求めることができる。実際、
 		以下のように定義された超関数は
 		\begin{equation*}
@@ -480,7 +488,8 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	\begin{theorem}[函数等式]
 		$n=p+q\;(p,q\ge1)$で{あった}ことを思い出そう。
 	このとき、
-\ExecuteMetaData[master_extract.tex]{functional}
+	\input{master_extract_functional}
+%%\ExecuteMetaData[master_extract.tex]{functional}
 	\end{theorem}
 	\begin{remark}
 		函数等式の原型
@@ -507,6 +516,7 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	$p>1$の場合:\\
 	\input{p_bigger_than_one_image_diagram_explanation}
 	\begin{enumerate}[{\rm (a)}]
+			\newpage
 	\item $p\tisoddjap,q\tisevenjap$とする。 このとき、$\nu\in2\Z,0<\nu<n-1$ならば、$R_{\lambda,\nu}^X$ は全射である。
 		それ以外の場合の対称性破れ作用素$R^X_{\lambda,\nu},\tilde{R}_{\lambda,\nu}^X,R^{ \left\{ o \right\}}_{\lambda,\nu}$の像は下図のようになる{。}
 		\hspace*{-1cm}\begin{figure}[H]
@@ -514,23 +524,24 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
 	      {\vspace{-3cm} $ \begin{array}{l}
 	      \nu\teven\\ \nu\le0
-      \end{array}$}&\input{f1}\\[0pt]
+      \end{array}$}&\input{f1}\\[-15pt]
       \vspace{-3cm}$\begin{array}{l}
 	      \nu\todd\\ \nu\le\frac{n-3}{2}
       \end{array}$&\input{f2}\\[0pt]
-	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[0pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ && $//\cap\backslash\backslash,k=l$\\[-5pt]
 	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu=\frac{n-1}{2}
 	      \end{array}$&\input{f3}\\[0pt]
-	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[-5pt]
 	      \vspace{-3cm}$\begin{array}{l}\nu\teven\\\nu\ge{n-1}\end{array}$&\input{f4}\\[0pt]
 	    \end{tabular}
 	  \end{figure}
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
 	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $//-\backslash\backslash$  & $//\cap\backslash\backslash,k< l$\\[0pt]
-	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{f5}\\[25pt]
+	      \vspace{-3cm}$\begin{array}{l}\nu\todd\\\nu\ge\frac{n+1}{2}\end{array}$&\input{f5}\\
 	    \end{tabular}
 	  \end{figure}
+			\newpage
   \item $p,q$は共に奇数とし、さらに $p>1$の場合。このとき、対称性破れ作用素$R_{\lambda,\nu}^X,\tilde{R}_{\lambda,\nu}^{X},R^{ \left\{ o \right\}}_{\lambda,\nu}$の像は下図で現される{。}
 		\begin{figure}[H]
 			\noindent\begin{tabular}{m{1.3cm}rrr}
@@ -539,9 +550,9 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 			\toddText{\le n-3}&\input{f7}\\[0pt]
 			\tevenText{>0}&\input{f8}\\[0pt]
 			\toddText{>n-3}&\input{f9}\\[0pt]
-			  
 		\end{tabular}
 		\end{figure}
+			\newpage
 	\item $p,q$は共に偶数の場合。 このとき、
 		対称性破れ作用素$R^X_{\lambda,\nu},\tilde{R}_{\lambda,\nu}^X,R_{\lambda,\nu}^{ \left\{ o \right\}}$の像は下図で現される。
 		\begin{figure}[H]
@@ -553,13 +564,14 @@ R_{\lambda,\nu}^X&:=&\frac{1}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}\Op\lef
 			\toddText{>n-3}&\input{f13}\\[0pt]
 		\end{tabular}
 		\end{figure}
+			\newpage
 	\item $p\tisevenjap,q\tisoddjap$の場合。パラメータ$\nu$が奇数ならば、すべての$\lambda\in\C$に対して
 		$R_{\lambda,\nu}^X$は全射である。それ以外の場合、すなわち、$\nu\in\even$ならば、
 		対称性破れ作用素$R^X_{\lambda,\nu},\tilde{R}^X_{\lambda,\nu},R_{\lambda,\nu}^{ \left\{ o \right\}}$の像は以下のように図示される。
 	  \begin{figure}[H]
 		  \noindent\begin{tabular}{@{}m{1.6cm}@{}ccc}
-	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[0pt]
-	      \vspace{-3cm}$\nu\leq0$&\input{f14}\\[0pt]
+	      $(\lambda,\nu)\in$&$\mybra{//\cup\backslash\backslash}^c$ & $\backslash\backslash-//$  & $//\cap\backslash\backslash,k> l$\\[-5pt]
+	      \vspace{-3cm}$\nu\leq0$&\input{f14}\\[-10pt]
 	      \vspace{-3cm}$
 	      \begin{array}{l}
 		      \nu>0\\\nu\le\frac{n-3}{2}

@@ -10,11 +10,11 @@ PDFS=abstract-jap
 AUX=
 SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex mystyle.sty
 
+OUTDIR=../foraux
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
 LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g
 XELATEX=latexmk -pdf -outdir=$(OUTDIR) -pdflatex='xelatex %O %S' -f -g
-OUTDIR=../foraux
 MATHEMATICADIR=~/for/formathematica/kint
 TEXMACSDIR=~/for/fortexmacs
 COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
@@ -24,7 +24,7 @@ all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, 
 p:  $(OUTDIR)/$(ZIPNAME).zip
 src:  $(OUTDIR)/$(ZIPNAME)_s.zip
 
-$(OUTDIR)/$(ZIPNAME)_s.zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX)) $(addprefix $(OUTDIR)/, $(SRCS))
+$(OUTDIR)/$(ZIPNAME)_s.zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME)_s.zip && zip -9 $(ZIPNAME)_s $(addsuffix .pdf,$(PDFS)) $(AUX) $(SRCS)
 	unzip -l $@
 	du -hs $@
@@ -37,7 +37,8 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	$(GITCOMMIT)
 
 $(OUTDIR)/abstract-jap.pdf : $(SRCS)
-	        $(XELATEX) $<
+	xelatex --output-directory=$(OUTDIR) abstract-jap.tex
+	#$(XELATEX) abstract-jap.tex
 
 #standard rules
 %.eps: %.tex
@@ -50,8 +51,6 @@ $(OUTDIR)/%.sty : %.sty
 	cp $< $@
 $(OUTDIR)/%.tex : %.tex
 	cp $< $@
-$(OUTDIR)/%.pdf : %.tex
-	$(LATEXMK) $<
 $(OUTDIR)/%.pdf : %-jap.tex
 	$(XELATEX) $<
 
