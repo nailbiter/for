@@ -41,7 +41,9 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	$(GITCOMMIT)
 
 $(OUTDIR)/abstract-jap.pdf : $(SRCS)
-	xelatex --output-directory=$(OUTDIR) abstract-jap.tex
+	platex -output-directory=$(OUTDIR) abstract-jap.tex
+	cd $(OUTDIR) && dvipdfmx abstract-jap.dvi
+	#xelatex --output-directory=$(OUTDIR) abstract-jap.tex
 	#$(XELATEX) abstract-jap.tex
 
 #standard rules
