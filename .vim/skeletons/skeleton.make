@@ -1,4 +1,4 @@
-.PHONY: all commit push clean publish
+.PHONY: all commit push clean p
 .SECONDARY: 
 
 ZIPNAME=...
@@ -18,7 +18,7 @@ COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
-publish:  $(OUTDIR)/$(ZIPNAME).zip
+p:  $(OUTDIR)/$(ZIPNAME).zip
 
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)

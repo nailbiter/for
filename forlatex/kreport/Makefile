@@ -1,11 +1,11 @@
-.PHONY: all commit push clean publish
+.PHONY: all commit push clean p
 .SECONDARY: 
 
 ZIPNAME=report74
-WORKON=$(ZIPNAME) jul12-jul
+WORKON=$(ZIPNAME) jul12-jul19
 COMMIT_PREFIX=...
-PDFS=report report_on_reading_kobayashi_speh17
-AUX=
+PDFS=report
+AUX=checklist.pdf reflection.pdf vocab_written.pdf vocab_oral.pdf bibliography.pdf lecture.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -18,7 +18,7 @@ COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
-publish: $(OUTDIR)/$(ZIPNAME).zip
+p: $(OUTDIR)/$(ZIPNAME).zip
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	unzip -l $@
@@ -31,6 +31,8 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	echo 
 	latex $<
 	dvips -E -o $@ $(basename $<).dvi
+$(OUTDIR)/report.pdf : $(TEXMACSDIR)/report.tm bibliography.bib
+	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/%.pdf : %.tex

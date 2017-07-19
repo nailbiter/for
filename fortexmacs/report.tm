@@ -15,20 +15,33 @@
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     Prove the multiplicity-freeness of <math|<big|wedge><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
     as representation of <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>
-  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
-    estimate remaining time needed to finish Lang's SL2
-  </cell>|<cell|<with|font-series|bold|done> (I plan finish the reading on
-  Sunday)>>>>>
+  </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
   \;
 
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>Attended Takagi lecture;
+    <item>With a lot of help from You prepared the abstract for the
+    Functional Analysis Symposium on August 21;\ 
 
-    <item>Read the paper \PSymmetry breaking for orthogonal groups and a
-    conjecture by B. Gross and D. Prasad\Q (see the report attached);
+    <item>For most of the items in the bibliography list of the Symposium's
+    abstract I was able to find corresponding hyperlinks. I have attached
+    these as <verbatim|bibliography.pdf>. Please check it if You have time.
+
+    <item>By reading the resulting abstract and by reading Your emails to
+    Prof. Nagisa I have learned several useful words and expressions: these
+    are reflected in <verbatim|vocab_oral.pdf> and
+    <verbatim|vocab_written.pdf>;
+
+    <item>Based on the experience of my last two talks I have modified the
+    <verbatim|reflection.pdf> (reflection on my last RIMS talk on integral
+    formula) and <verbatim|checklist.pdf> (list of items to check when
+    preparing for a speech)
+
+    <item>I have attended Your lecture on July 19th for undergraduate
+    students. It was very enlightening. My lecture notes are attached as
+    <verbatim|lecture.pdf>.
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
@@ -38,16 +51,19 @@
     <math|<big|wedge><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
     as representation of <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>;
 
-    <item>Prepare the abstract for my talk for the Functional Analysis
-    Symposium at the end of August (abstract should be ready by July 17);
-
-    <item>Prepare the abstract for talk in Taiwan on August 4;
-
     <item>Reading:
 
     <\enumerate>
-      <item>Finish Lang's \PSL2\Q;
+      <item>Finish reading <cite|lang2012sl2>;
+
+      <item>Start reading <cite|vogan1987unitary> or
+      <cite|vogan1981representations> (see the Question <reference|q:vogan>
+      below)
     </enumerate>
+
+    <item>Practice the speeches from the Mathematical Society meeting on
+    March and Representation Theory Symposium in Okinawa, so to be able to
+    recite them from \ memory;
   </enumerate>
 
   <\with|font-series|bold>
@@ -55,28 +71,75 @@
   </with>
 
   <\enumerate>
-    <item>For the Tambara, should I rather prepare the article survey (I
-    might use the following articles:...) or present my own results?
+    <item>I still have to decide the topic of my report for Tambara. I see
+    the following possibilities:
 
-    <item>how can I return myself the level so I can become professor
-    immediately after the graduation...
+    <\enumerate>
+      <item>I could make a talk about my own results. If I try hard enough, I
+      may to be able to get some interesting results regarding the
+      multiplicity-freeness of the space of differential forms
+      <math|\<Omega\><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/\<pm\>,\<bbb-C\>|)>>
+      as <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>-module.
+
+      <item>I could make a survey of a paper(s). Perhaps, it would be
+      interesting to prepare some material about Gross-Prasad conjecture and
+      how it relates to Your recent results with Professor Speh. For the
+      latter I plan to use Your article <cite|kobayashi2017symmetry>. For
+      more background on the conjecture itself, I plan to talk to Atobe-san
+      in Kurashiki next week, so he will recommend me some books.
+    </enumerate>
+
+    Which one would You prefer?
+
+    <item>When You talked to me last Friday You told me that I might have
+    lost my chances of finding a job immediately after PhD's graduation. This
+    perspective (of not being able to find a job) really worries me. I would
+    be extremey grateful if You would outline steps I need to carry out in
+    order to bring my chances back (points about <with|font-series|bold|not>
+    carrying friends to my talks and <with|font-series|bold|not> being late
+    to lectures together with other points in <verbatim|checklist.pdf> and
+    <verbatim|reflection.pdf> are noted).
+
+    <item><label|q:vogan>When You talked to me in Your office on Friday, I
+    remember that You told me to read Vogan's book on \Prepresentations of
+    Lie groups\Q in order to deepen my understanding of
+    <math|A<rsub|\<frak-q\>><around*|(|\<lambda\>|)>>-modules. More
+    precisely, did You meant <cite|vogan1987unitary> or
+    <cite|vogan1981representations>?
+
+    <item>Thank You once again for allowing me to listen to Your Wednesday's
+    lecture. It was very enlightening, but I have a few questions regarding
+    to it. Please see <verbatim|lecture.pdf>.
   </enumerate>
 
   <paragraph|Comments>
 
-  I extremely apologize for missing Professor Braverman's Takagi lecture on
-  Sunday's morning. I would also like to thank You for:
+  Let me again express my gratitude for You spending so much time, energy and
+  effort in helping me preparing the abstract for Functional Analysis
+  Symposium. I am extremely sorry for my sloppiness and slowness. I will put
+  effort to improve myself.
 
-  <\itemize>
-    <item>Allowing us to talk to Roger Howe over the lunch. For me it
-    concluded into the fruitful conversation about Howe-Tan paper and the
-    theory of dual pairs;
+  <\bibliography|bib|tm-alpha|/Users/nailbiter/for/forlatex/kreport/bibliography>
+    <\bib-list|4>
+      <bibitem*|KS17><label|bib-kobayashi2017symmetry>Toshiyuki
+      Kobayashi<localize| and >Birgit Speh.<newblock> Symmetry breaking for
+      orthogonal groups and a conjecture by B. Gross and D. Prasad.<newblock>
+      <with|font-shape|italic|ArXiv preprint arXiv:1702.00263>,
+      2017.<newblock>
 
-    <item>Allowing me to participate in Tokyo-Lyon conference.
-  </itemize>
+      <bibitem*|Lan12><label|bib-lang2012sl2>Serge Lang.<newblock>
+      <with|font-shape|italic|Sl2 (r)>, <localize|volume> 105.<newblock>
+      Springer Science & Business Media, 2012.<newblock>
 
-  <\bibliography|bib|tm-alpha|todai_master>
-    <bib-list|0|>
+      <bibitem*|Vog81><label|bib-vogan1981representations>David<nbsp>A Vogan
+      Jr.<newblock> Representations of real reductive lie groups.<newblock>
+      <with|font-shape|italic|Progress in Math.>, 15, 1981.<newblock>
+
+      <bibitem*|Vog87><label|bib-vogan1987unitary>David<nbsp>A
+      Vogan.<newblock> <with|font-shape|italic|Unitary representations of
+      reductive Lie groups>.<newblock> <localize|Number> 118. Princeton
+      University Press, 1987.<newblock>
+    </bib-list>
   </bibliography>
 </body>
 
@@ -91,17 +154,34 @@
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|<with|mode|<quote|math>|\<bullet\>>|1>>
+    <associate|auto-3|<tuple|1|1>>
     <associate|bib-kobayashi2016classification|<tuple|KKP16|?>>
     <associate|bib-kobayashi2017symmetry|<tuple|KS17|?>>
+    <associate|bib-lang2012sl2|<tuple|Lan12|?>>
+    <associate|bib-vogan1981representations|<tuple|Vog81|?>>
+    <associate|bib-vogan1987unitary|<tuple|Vog87|?>>
+    <associate|q:vogan|<tuple|3|?>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
+    <\associate|bib>
+      lang2012sl2
+
+      vogan1987unitary
+
+      vogan1981representations
+
+      kobayashi2017symmetry
+
+      vogan1987unitary
+
+      vogan1981representations
+    </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      73> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      74> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
