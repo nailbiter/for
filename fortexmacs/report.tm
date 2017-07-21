@@ -34,8 +34,11 @@
     abstract I was able to find corresponding hyperlinks. I have attached
     these as <verbatim|bibliography.pdf>. Please check it if You have
     time;<\footnote>
-      Items 3..6 of this list are not done yet. I will send them before the
-      end of Saturday. I am extremely sorry.
+      Items 3..6 of this list are not done yet (hence, please ignore the file
+      <verbatim|vocab_written.pdf>, <verbatim|vocab_oral.pdf>,
+      <verbatim|bibliography.pdf>, <verbatim|lecture.pdf> and
+      <verbatim|manner-jap.pdf> for now). I will send them before the end of
+      Saturday. I am extremely sorry.
     </footnote>
 
     <item>By reading the resulting abstract and by reading Your emails to
