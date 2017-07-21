@@ -21,10 +21,14 @@ TEXMACSDIR=~/for/fortexmacs
 COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
-all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
+#all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
+all:$(OUTDIR)/bibliography.pdf $(OUTDIR)/abstract-jap.pdf
 p:  $(OUTDIR)/$(ZIPNAME).zip
 src:  $(OUTDIR)/$(ZIPNAME)_s.zip
 
+$(OUTDIR)/bibliography.pdf : bibliography_wrap.tex bibliography.tex 
+	$(XELATEX) $<
+	cp $(OUTDIR)/bibliography_wrap.pdf $(OUTDIR)/bibliography.pdf
 $(OUTDIR)/$(ZIPNAME)_s.zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(OUTDIR)/abstract.tex
 	cd $(OUTDIR) && rm -f $(ZIPNAME)_s.zip && zip -9 $(ZIPNAME)_s $(addsuffix .pdf,$(PDFS)) $(AUX) abstract.tex
 	unzip -l $@

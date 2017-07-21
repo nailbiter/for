@@ -23,11 +23,20 @@
 
   <\enumerate>
     <item>With a lot of help from You prepared the abstract for the
-    Functional Analysis Symposium on August 21;\ 
+    Functional Analysis Symposium on August 21;
+
+    <item>Based on the experience of my last two talks I have modified the
+    <verbatim|reflection.pdf> (reflection on my last RIMS talk on integral
+    formula) and <verbatim|checklist.pdf> (list of items to check when
+    preparing for a speech);
 
     <item>For most of the items in the bibliography list of the Symposium's
     abstract I was able to find corresponding hyperlinks. I have attached
-    these as <verbatim|bibliography.pdf>. Please check it if You have time.
+    these as <verbatim|bibliography.pdf>. Please check it if You have
+    time;<\footnote>
+      Items 3..6 of this list are not done yet. I will send them before the
+      end of Saturday. I am extremely sorry.
+    </footnote>
 
     <item>By reading the resulting abstract and by reading Your emails to
     Prof. Nagisa I have learned several useful words and expressions: these
@@ -36,12 +45,7 @@
 
     <item>By reading Your emails to Prof. Nagisa I have learned something
     about writing emails. The things I have learned are described in
-    <verbatim|manner-jap.pdf>.
-
-    <item>Based on the experience of my last two talks I have modified the
-    <verbatim|reflection.pdf> (reflection on my last RIMS talk on integral
-    formula) and <verbatim|checklist.pdf> (list of items to check when
-    preparing for a speech)
+    <verbatim|manner-jap.pdf>;
 
     <item>I have attended Your lecture on July 19th for undergraduate
     students. It was very enlightening. My lecture notes are attached as
@@ -164,6 +168,8 @@
     <associate|bib-lang2012sl2|<tuple|Lan12|?>>
     <associate|bib-vogan1981representations|<tuple|Vog81|?>>
     <associate|bib-vogan1987unitary|<tuple|Vog87|?>>
+    <associate|footnote-1|<tuple|1|?>>
+    <associate|footnr-1|<tuple|1|?>>
     <associate|q:vogan|<tuple|3|?>>
   </collection>
 </references>

@@ -33,6 +33,8 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	dvips -E -o $@ $(basename $<).dvi
 $(OUTDIR)/report.pdf : $(TEXMACSDIR)/report.tm bibliography.bib
 	        $(TEXMACS) --convert $< $@ --quit
+$(OUTDIR)/lecture.pdf : ../../../fortexmacs/seminars/kobayashi_19-07-17/lecture.tm
+	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/%.pdf : %.tex
@@ -48,4 +50,5 @@ push:
 clean:
 	rm -f *.proto.tex script.tex *.pdf *.zip script_hypergeom.tex $(OUTDIR)/$(ZIPNAME).zip
 	touch *.tex
+
 
