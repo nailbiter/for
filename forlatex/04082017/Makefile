@@ -1,4 +1,4 @@
-.PHONY: all commit push clean publish
+.PHONY: all commit push clean publish s
 .SECONDARY: 
 
 ZIPNAME=taiwantalk
@@ -19,7 +19,13 @@ GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 publish: $(OUTDIR)/$(ZIPNAME).zip
+s: $(OUTDIR)/$(ZIPNAME)_s.zip
 	
+$(OUTDIR)/$(ZIPNAME)_s.zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX)) mystyle.sty abstract.tex
+	cd $(OUTDIR) && rm -f $(notdir $@) && zip -9 $(basename $(notdir $@)) $(notdir $^) && rm -f abstract.tex mystyle.sty
+	unzip -l $@
+	du -hs $@
+	$(GITCOMMIT)
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	unzip -l $@
@@ -28,6 +34,10 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 
 
 #standard rules
+$(OUTDIR)/%.tex : %.tex
+	cp -f $< $@
+$(OUTDIR)/%.sty : %.sty
+	cp -f $< $@
 %.eps: %.tex
 	echo 
 	latex $<
