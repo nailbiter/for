@@ -34,6 +34,10 @@
     are reflected in <verbatim|vocab_oral.pdf> and
     <verbatim|vocab_written.pdf>;
 
+    <item>By reading Your emails to Prof. Nagisa I have learned something
+    about writing emails. The things I have learned are described in
+    <verbatim|manner-jap.pdf>.
+
     <item>Based on the experience of my last two talks I have modified the
     <verbatim|reflection.pdf> (reflection on my last RIMS talk on integral
     formula) and <verbatim|checklist.pdf> (list of items to check when
