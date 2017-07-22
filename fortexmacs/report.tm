@@ -34,17 +34,19 @@
     abstract I was able to find corresponding hyperlinks. I have attached
     these as <verbatim|bibliography.pdf>. Please check it if You have
     time;<\footnote>
-      Items 3..6 of this list are not done yet (hence, please ignore the file
-      <verbatim|vocab_written.pdf>, <verbatim|vocab_oral.pdf>,
-      <verbatim|bibliography.pdf>, <verbatim|lecture.pdf> and
-      <verbatim|manner-jap.pdf> for now). I will send them before the end of
-      Saturday. I am extremely sorry.
+      Should I rather provide a link to article's \Pofficial webpage\Q, or
+      the place where one can see the actual content?
     </footnote>
 
     <item>By reading the resulting abstract and by reading Your emails to
     Prof. Nagisa I have learned several useful words and expressions: these
     are reflected in <verbatim|vocab_oral.pdf> and
-    <verbatim|vocab_written.pdf>;
+    <verbatim|vocab_written.pdf>;<\footnote>
+      Items 4, 5, 6 of this list are not done yet (hence, please ignore the
+      files <verbatim|vocab_written.pdf>, <verbatim|vocab_oral.pdf>,
+      <verbatim|lecture.pdf> and <verbatim|manner-jap.pdf> for now). I will
+      send them before the end of Saturday. I am extremely sorry.
+    </footnote>
 
     <item>By reading Your emails to Prof. Nagisa I have learned something
     about writing emails. The things I have learned are described in
@@ -172,7 +174,9 @@
     <associate|bib-vogan1981representations|<tuple|Vog81|?>>
     <associate|bib-vogan1987unitary|<tuple|Vog87|?>>
     <associate|footnote-1|<tuple|1|?>>
+    <associate|footnote-2|<tuple|2|?>>
     <associate|footnr-1|<tuple|1|?>>
+    <associate|footnr-2|<tuple|2|?>>
     <associate|q:vogan|<tuple|3|?>>
   </collection>
 </references>

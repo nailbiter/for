@@ -21,8 +21,8 @@ TEXMACSDIR=~/for/fortexmacs
 COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
-#all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 all:$(OUTDIR)/bibliography.pdf $(OUTDIR)/abstract-jap.pdf
+#all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 p:  $(OUTDIR)/$(ZIPNAME).zip
 src:  $(OUTDIR)/$(ZIPNAME)_s.zip
 
