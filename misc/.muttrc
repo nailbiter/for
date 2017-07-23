@@ -1,0 +1,49 @@
+# Change the following line to a different editor you prefer.
+set editor = "vim"
+set ssl_verify_host = no
+set ssl_verify_dates = no
+set postpone = yes
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+set move = no
+set copy = yes
+set include
+
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes# Gmail-style keyboard shortcuts#macro index,pager y "<enter-command>un
+set trash\n <delete-message>" "Gmail archive message"#macro index,pager d "<enter-command>
+set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
+
+#macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+#macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+#macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+#macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+# A basic .muttrc for use with Gmail#
+# Change the following six lines to match your Gmail account details
+set imap_user = "oleontiev"
+set imap_pass = "MM87ghss"
+set smtp_url = "smtps://mailserv.cuhk.edu.hk"
+set from = "oleontiev@math.cuhk.edu.hk"
+set realname = "Alex Leontiev"
+#macros
+#macro pager \cb <pipe-entry>'w3m'<enter> 'Follow links in w3m' 
+# Basic config, you can leave this as is
+set folder = "imaps://mail.math.cuhk.edu.hk:993"
+set spoolfile = "+INBOX"
+set imap_check_subscribed
+set mail_check = 120
+set timeout = 300
+set imap_keepalive = 300
+set postponed = "+Drafts"
+set record = "+Sent"
+set index_format="%4C %Z %d %-15.15L (%4l) %s"
+set date_format="!%a, %b %d, %Y at %I:%M:%S%p"
+
+#ALIASES
+alias Yuk_Fai_Li Yuk Fai Li <yfli@ims.cuhk.edu.hk>
+alias Liu_Bei_Bei Liu Bei Bei <bbliu@math.cuhk.edu.hk>
+alias Lee_Yi_Jen Lee Yi Jen <yjlee@math.cuhk.edu.hk>
+alias Min_Jie Min Jie <jmin@math.cuhk.edu.hk>
+alias pauline Pauline Chan <pauline@math.cuhk.edu.hk>

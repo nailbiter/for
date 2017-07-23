@@ -7,8 +7,8 @@ ME=master_extract.tex master_extract_Aq.tex master_extract_classification.tex ma
 ZIPNAME=august21talk
 WORKON=$(ZIPNAME)
 COMMIT_PREFIX=$()
-PDFS=abstract-jap
-AUX=
+PDFS=slides
+AUX=okinawa_practice.pdf
 SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex mystyle.sty $(ME)
 
 OUTDIR=../foraux
@@ -21,8 +21,8 @@ TEXMACSDIR=~/for/fortexmacs
 COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
-all:$(OUTDIR)/bibliography.pdf $(OUTDIR)/abstract-jap.pdf
 #all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
+all:$(OUTDIR)/bibliography.pdf $(OUTDIR)/abstract-jap.pdf
 p:  $(OUTDIR)/$(ZIPNAME).zip
 src:  $(OUTDIR)/$(ZIPNAME)_s.zip
 
