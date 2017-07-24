@@ -119,6 +119,26 @@
 %custom formatting settings
 \setlength{\parskip}{1em}
 
+%%\newcommand{\yipx}{Y^{p+1, q + 1}_{+, x}}
+%%\newcommand{\yipy}{Y^{p, q + 1}_{+, y}}
+%%\newcommand{\yimx}{Y^{p+1, q + 1}_{-, x}}
+%%\newcommand{\yimy}{Y^{p, q + 1}_{-, y}}
+%%\newcommand{\pipx}{\pi^{p+1, q + 1}_{+, x}}
+%%\newcommand{\pipy}{\pi^{p, q + 1}_{+, y}}
+%%\newcommand{\pimx}{\pi^{p+1, q + 1}_{-, x}}
+%%\newcommand{\pimy}{\pi^{p, q + 1}_{-, y}}
+%%\newcommand{\tisevenjapb}{\mbox{は偶数の場合}}
+%%\newcommand{\tisoddjapb}{\mbox{は奇数の場合}}
+%%\newcommand{\mystack}[2]{\begin{array}{c}#1,\\#2\end{array}}
+%%%%\newcommand{\pipxStack}[1][]{\mystack{\pipx}{x\d{\in} \Azeven(p\d{+}1,q\d{+}1)#1}}
+%%%%\newcommand{\pimxStack}[1][]{\mystack{\pimx}{x\d{\in} \Azeven(q\d{+}1,p\d{+}1)#1}}
+%%%%\newcommand{\pipyStack}[1][]{\mystack{\pipy}{y\d{\in} \Azeven(p,q\d{+}1)#1}}
+%%%%\newcommand{\pimyStack}[1][]{\mystack{\pimy}{y\d{\in} \Azeven(q\d{+}1,p)#1}}
+%%\newcommand{\tzo}{2\Z+1}
+%%\newcommand{\tz}{2\Z}
+%%\newcommand{\tno}{2\N+1}
+\newcommand{\Azeven}{A_0^{\rm\footnotesize even}}
+
 \title{不定値直交群$O(p,q)$の対称性破れ作用素}
 
 % A subtitle is optional and this may be deleted
@@ -596,16 +616,82 @@ q_X^{T X} (\lambda, \nu) = \frac{\pi^{\frac{n -
 		of every SBOs constructed above for every $(\lambda, \nu) \in \mathbbm{C}^2$.
 	\end{theorem}
 \end{frame}
-%%}{\noindent}\tmtextbf{Remark.} 
+\begin{frame}{}
+	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じる。
+\cite[(5.1.1)]{KO2}にg{倣}って$p>1${かつ}$q\ge1$のときに\begin{equation*}
+	A_0(p,q):=\left\{ \lambda\in\Z+\frac{p+q}{2}\;:\;\lambda>-1 \right\}
+\end{equation*}とおくと、
+\cite{KO2}で
+%16-b
+示したように、$\lambda\in A_0(p,q)$に対して
+$O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
+%%16-c
+が定まる。(\cite{KO2}では$\pi_{\pm,\lambda}^{p,q}$を定義するにあたって5種類の
+特徴づけが与えら{れ}、それらは互いに
+同値であることが示されている。その特徴づけの1つは
+Zuckerman導来函手加群で記載される。)
+以下では、この加群の間に対称性破れ作用素がある{か}について論じる。簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
+%%16-a
+以下では\begin{equation*}
+	g(t):=\left\{ \begin{array}[]{ll}
+		1&\left(t\in2\N+\frac{1}{2}  \right)\\[10pt]
+		0&t\nin \left(2\N+\frac{1}{2}  \right)
+	\end{array}\right.,\quad h(t):=\left\{ \begin{array}[]{ll}
+		1&\left(  t<\frac{q}{2}\right)
+		\\[10pt]
+		0&\left( t\ge\frac{q}{2} \right)
+\end{array}\right.
+\end{equation*}とおく。
+\end{frame}
+\begin{frame}
+\begin{theorem}[Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素の存在問題]
+	$n=p+q\;(p,q\ge1),\;n':=n-1$とする。
+	以下では
+	\vspace{-1em}
+\begin{equation*}
+                \begin{array}[]{c}
+                        x\in\left\{\begin{array}[]{ll}
+                                \Azeven(p+1,q+1),&\delta=+\mbox{ のとき}\\
+                                \Azeven(q+1,p+1),&\delta=-\mbox{ のとき}\\
+                        \end{array}\right.\\
+                        y\in\left\{\begin{array}[]{ll}
+                                \Azeven(p,q+1),&\varepsilon=+\mbox{ のとき}\\
+                                \Azeven(q+1,p),&\varepsilon=-\mbox{ のとき}\\
+                        \end{array}\right.
+		\end{array}
+	\vspace{-1em}
+	\end{equation*}
+	と仮定する。このとき{、}
+	$\Hom_{G'}\left(\pi_{\delta,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\varepsilon,y}^{p,q+1} \right)$の次元と基底を具体的に決定出来る。
 %%
-%%
-%%}{
-%%
-%%}{\noindent}\tmtextbf{Theorem 10.}\quad (images of SBOs) 
+%%%%	\input{tables}
+%%	$p=1,q\tisevenjapb$
+%%		\\
+%%\hspace*{0cm}\commonShift\mytableThreeTwo	%#1
+%%{}		{\pimy}
+%%{\pipx}		{h(y)(1-g(x-y))}
+%%{\pimx}		{g\kern-0.05cm\left( {y-x} \right)}
+\end{theorem}
+\begin{remark}
+	\begin{enumerate}[(1)]
+		\item この定理では分岐則が離散分解する場合(一般論は\cite{10.2307/120963})とそうでない場合の両方が含まれている。
+			分岐則が離散分解する場合、上記の分岐則は\cite[Thm. 3.3]{kobayashi1993}によって得られた公式と一致する。
+		\item $q=0$の場合の類似の結果は\cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}で得られている。
+	\end{enumerate}
+	\vspace{-0.8em}
+\end{remark}
+\end{frame}
 
 \begin{frame}[allowframebreaks]{References}
 	
 \begin{thebibliography}{KØSS15}
+\bibitem[K93]{kobayashi1993}
+T.~Kobayashi.
+\newblock The restriction of ${A}_q \left( \lambda \right)$ to reductive
+  subgroups.
+\newblock \emph{Proc. Japan Acad. Ser. A Math. Sci.}, \textbf{69}(7), (1993),
+  pp. 262--267.
+Available at \url{http://dx.doi.org/10.3792/pjaa.69.262}.
   \bibitem[KM14]{kobayashi2014classification}T.~Kobayashi  and 
   T.~Matsuki.{\newblock} Classification of finite-multiplicity symmetric
   pairs.{\newblock} In \tmtextit{\tmtextrm{\tmtextup{\tmtextmd{Special Issue
@@ -635,6 +721,12 @@ q_X^{T X} (\lambda, \nu) = \frac{\pi^{\frac{n -
   P.~Somberg, and  V.~Sou{\v c}ek.{\newblock} Branching laws for verma
   modules and applications in parabolic geometry. I.{\newblock}
   \tmtextit{Advances in Mathematics}, 285:1796--1852, 2015.{\newblock}
+
+\bibitem[K{\O}03]{KO2}
+T.~Kobayashi and B.~{\O}rsted.
+\newblock Analysis on the minimal representation of\/ {$\mbox{\rm O}(p,q)$}.{$\;$}{{\rm{II}}}. {B}ranching laws.
+\newblock \emph{Adv. Math.}, \textbf{180}(2), (2003), pp. 513--550.
+Available at \url{https://doi.org/10.1016/S0001-8708(03)00013-6}.
 \end{thebibliography}
 \end{frame}
 
