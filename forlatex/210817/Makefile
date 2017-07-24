@@ -26,7 +26,7 @@ p:  $(OUTDIR)/$(ZIPNAME).zip
 src:  $(OUTDIR)/$(ZIPNAME)_s.zip
 
 $(OUTDIR)/slides.pdf : slides.tex
-	xelatex --output-directory=$(OUTDIR) $<
+	$(XELATEX) $<
 
 $(OUTDIR)/bibliography.pdf : bibliography_wrap.tex bibliography.tex 
 	$(XELATEX) $<
