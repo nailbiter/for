@@ -5,7 +5,7 @@ ZIPNAME=report74
 WORKON=$(ZIPNAME) jul12-jul19
 COMMIT_PREFIX=...
 PDFS=report
-AUX=checklist.pdf reflection.pdf vocab_written.pdf vocab_oral.pdf bibliography.pdf lecture.pdf manner-jap.pdf
+AUX=checklist.pdf reflection.pdf vocab_written.pdf vocab_oral.pdf bibliography.pdf lecture.pdf manner-jap.pdf kurashiki_reflection.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -31,6 +31,9 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	echo 
 	latex $<
 	dvips -E -o $@ $(basename $<).dvi
+$(OUTDIR)/kurashiki_reflection.pdf : /Users/nailbiter/fortexmacs/seminars/kurashiki_24-07-17/reflection.tm
+	        $(TEXMACS) --convert $< $@ --quit
+
 $(OUTDIR)/report.pdf : $(TEXMACSDIR)/report.tm bibliography.bib
 	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/lecture.pdf : ../../../fortexmacs/seminars/kobayashi_19-07-17/lecture.tm

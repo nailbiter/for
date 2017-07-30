@@ -124,9 +124,6 @@
     lecture. It was very enlightening, but I have a few questions regarding
     to it. Please see <verbatim|lecture.pdf>.
 
-    <item>In one of the letters I have read, written by You, there were a
-    following passage:<math|>
-
     <item><math|\<#95A2\>\<#6570\>> vs <math|\<#51FD\>\<#6570\>>.
 
     <item>when should I write in kanji/katakana
