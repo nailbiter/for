@@ -2,6 +2,7 @@ docs/
 *.aux
 *.log
 *.out
+forlatex/foraux/
 forlatex/*.pdf
 forlatex/*.log
 forlatex/*.aux

@@ -3,7 +3,7 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 74>
+  <section|report 75>
 
   <date|>
 
@@ -22,27 +22,15 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>With a lot of help from You prepared the abstract for the
-    Functional Analysis Symposium on August 21;
-
-    <item>Based on the experience of my last two talks I have modified the
-    <verbatim|reflection.pdf> (reflection on my last RIMS talk on integral
-    formula) and <verbatim|checklist.pdf> (list of items to check when
-    preparing for a speech);
-
-    <item>For most of the items in the bibliography list of the Symposium's
-    abstract I was able to find corresponding hyperlinks. I have attached
-    these as <verbatim|bibliography.pdf>. Please check it if You have
-    time;<\footnote>
-      Should I rather provide a link to article's \Pofficial webpage\Q, or
-      the place where one can see the actual content?
-    </footnote>
+    <item>I have attended the study group dedicated to Gan-Gross-Prasad
+    hypothesis in Kurashiki. The reflection on the event is attached as
+    <verbatim|kurashiki_reflection.pdf>;
 
     <item>By reading the resulting abstract and by reading Your emails to
     Prof. Nagisa I have learned several useful words and expressions: these
     are reflected in <verbatim|vocab_oral.pdf> and
     <verbatim|vocab_written.pdf>;<\footnote>
-      Items 4, 5, 6 of this list are not done yet (hence, please ignore the
+      Items 2, 3, 4 of this list are not done yet (hence, please ignore the
       files <verbatim|vocab_written.pdf>, <verbatim|vocab_oral.pdf>,
       <verbatim|lecture.pdf> and <verbatim|manner-jap.pdf> for now). I will
       send them before the end of Saturday. I am extremely sorry.
@@ -58,6 +46,57 @@
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
+
+  <\description>
+    <item*|Tue>
+
+    <\enumerate>
+      <item>prepare the schedule for August and send it to You (see item
+      <reference|items:comments-schedule> of Comments section);
+
+      <item> work on slides for the Taiwan talk; send You the first version;
+
+      <item>deliver items 2, 3, 4 of the \PWhat has been done (additional)\Q
+      section;
+    </enumerate>
+
+    <item*|Wed>
+
+    <\enumerate>
+      <item> work on slides for the Taiwan talk;
+
+      <item>read the article <cite|braverman1998minimal> and improve my notes
+      on Tamori-kun's talk. As Tamori himself, if necessary;
+    </enumerate>
+
+    <item*|Thu>
+
+    <\enumerate>
+      <item> work on slides for the Taiwan talk;
+
+      <item>Prepare reading schedule for August and send it to You;
+    </enumerate>
+
+    <item*|Fri>
+
+    <\enumerate>
+      <item>Deliver speech at National Taiwan University;
+
+      <item>Start preparing for the Tambara talk;
+    </enumerate>
+
+    <item*|Sat>Continue preparing for the Tambara talk;
+
+    <item*|Sun>
+
+    <\enumerate>
+      <item>Prepare the report for this week;
+
+      <item>Continue preparing for the Tambara talk.
+    </enumerate>
+  </description>
+
+  On top of that,
 
   <\enumerate>
     <item>Prove the multiplicity-freeness of
@@ -84,28 +123,8 @@
   </with>
 
   <\enumerate>
-    <item>I still have to decide the topic of my report for Tambara. I see
-    the following possibilities:
-
-    <\enumerate>
-      <item>I could make a talk about my own results. If I try hard enough, I
-      may to be able to get some interesting results regarding the
-      multiplicity-freeness of the space of differential forms
-      <math|\<Omega\><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>/\<pm\>,\<bbb-C\>|)>>
-      as <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>-module.
-
-      <item>I could make a survey of a paper(s). Perhaps, it would be
-      interesting to prepare some material about Gross-Prasad conjecture and
-      how it relates to Your recent results with Professor Speh. For the
-      latter I plan to use Your article <cite|kobayashi2017symmetry>. For
-      more background on the conjecture itself, I plan to talk to Atobe-san
-      in Kurashiki next week, so he will recommend me some books.
-    </enumerate>
-
-    Which one would You prefer?
-
     <item>When You talked to me last Friday You told me that I might have
-    lost my chances of finding a job immediately after PhD's graduation. This
+    lost my chance of finding a job immediately after PhD's graduation. This
     perspective (of not being able to find a job) really worries me. I would
     be extremey grateful if You would outline steps I need to carry out in
     order to bring my chances back (points about <with|font-series|bold|not>
@@ -121,28 +140,60 @@
     <cite|vogan1981representations>?
 
     <item>Thank You once again for allowing me to listen to Your Wednesday's
-    lecture. It was very enlightening, but I have a few questions regarding
-    to it. Please see <verbatim|lecture.pdf>.
+    lecture. It was very enlightening, but I have a few questions about the
+    topics discussed in it. Please see <verbatim|lecture.pdf>.
 
-    <item><math|\<#95A2\>\<#6570\>> vs <math|\<#51FD\>\<#6570\>>.
+    <item>Thank You very much for introducing me to tho
+    <math|\<#5831\>\<bullet\>\<#9023\>\<bullet\>\<#76F8\>> philosophy. I
+    would like to ask a question regarding it. Suppose I have to reply to
+    email and there is a deadline. If I understand correctly,
+    <math|\<#5831\>\<bullet\>\<#9023\>\<bullet\>\<#76F8\>> implies that I
+    cannot reply without first consulting with You. Suppose that You are busy
+    and cannot reply to my mail. What should I do?
 
-    <item>when should I write in kanji/katakana
+    <item>Are there any other study meetings similar to Kurashiki? (but
+    perhaps, dedicated to a different area)
+  </enumerate>
+
+  I also have few questions about japanese. Please, ignore them, if You are
+  very busy:
+
+  <\enumerate>
+    <item>As far as I understand, <math|\<#95A2\>\<#6570\>> and
+    <math|\<#51FD\>\<#6570\>> are the synonyms denoting precisely the same
+    thing (i.e. \Pfunction\Q), but <math|\<#95A2\>\<#6570\>> is somehow more
+    \Pstandard\Q. Do You have any arguments/comments on favoring one against
+    another?
+
+    <item>While studying the Japanese texts You produce, I have noticed that
+    sometims You write in hiragana the words which have kanji (e.g. You write
+    <overline|arigatou><\footnote>
+      I am extremely sorry, but I cannot write hiragana or katakana in this
+      software, so I will use overlined romaji to denote hiragana/katakana,
+      like <overline|konnichiha>.
+    </footnote> when \<#6709\>\<#96E3\><overline|u> can be used, or
+    <overline|notoki> when <overline|no>\<#6642\> can be used). Is there any
+    general rule on when one should favor kanji to hiragana? Because I had an
+    (apparently, wrong) impression that kanji make the text seem to be more
+    \Pintelligent\Q and \Pformal\Q.
   </enumerate>
 
   <paragraph|Comments>
 
-  Let me again express my gratitude for You spending so much time, energy and
-  effort in helping me preparing the abstract for Functional Analysis
-  Symposium. I am extremely sorry for my sloppiness and slowness. I will put
-  effort to improve myself.
+  <\enumerate>
+    <item><label|items:comments-schedule>Starting from this August I promise
+    to send You my schedule and reading schedule for every month before the
+    end of the first day of that month. I think, this will improve my
+    concentration.
+  </enumerate>
 
   <\bibliography|bib|tm-alpha|/Users/nailbiter/for/forlatex/kreport/bibliography>
     <\bib-list|4>
-      <bibitem*|KS17><label|bib-kobayashi2017symmetry>Toshiyuki
-      Kobayashi<localize| and >Birgit Speh.<newblock> Symmetry breaking for
-      orthogonal groups and a conjecture by B. Gross and D. Prasad.<newblock>
-      <with|font-shape|italic|ArXiv preprint arXiv:1702.00263>,
-      2017.<newblock>
+      <bibitem*|BJ98><label|bib-braverman1998minimal>Alexander
+      Braverman<localize| and >Anthony Joseph.<newblock> The minimal
+      realization from deformation theory.<newblock>
+      <with|font-shape|italic|Journal of Algebra>, 205(1):13\U36,
+      1998.<newblock>
 
       <bibitem*|Lan12><label|bib-lang2012sl2>Serge Lang.<newblock>
       <with|font-shape|italic|Sl2 (r)>, <localize|volume> 105.<newblock>
@@ -162,6 +213,7 @@
 
 <\initial>
   <\collection>
+    <associate|info-flag|minimal>
     <associate|magnification|1.2>
     <associate|page-type|letter>
   </collection>
@@ -172,29 +224,33 @@
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|1>>
     <associate|auto-3|<tuple|1|1>>
+    <associate|auto-4|<tuple|1|?>>
+    <associate|bib-braverman1998minimal|<tuple|BJ98|?>>
     <associate|bib-kobayashi2016classification|<tuple|KKP16|?>>
     <associate|bib-kobayashi2017symmetry|<tuple|KS17|?>>
     <associate|bib-lang2012sl2|<tuple|Lan12|?>>
     <associate|bib-vogan1981representations|<tuple|Vog81|?>>
     <associate|bib-vogan1987unitary|<tuple|Vog87|?>>
+    <associate|firstHeading|<tuple|4|?>>
     <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-2|<tuple|2|?>>
     <associate|footnr-1|<tuple|1|?>>
     <associate|footnr-2|<tuple|2|?>>
-    <associate|q:vogan|<tuple|3|?>>
+    <associate|items:comments-schedule|<tuple|1|?>>
+    <associate|q:vogan|<tuple|2|?>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|bib>
+      braverman1998minimal
+
       lang2012sl2
 
       vogan1987unitary
 
       vogan1981representations
-
-      kobayashi2017symmetry
 
       vogan1987unitary
 
@@ -202,7 +258,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      74> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      75> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
