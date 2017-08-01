@@ -29,16 +29,16 @@
     <item>By reading the resulting abstract and by reading Your emails to
     Prof. Nagisa I have learned several useful words and expressions: these
     are reflected in <verbatim|vocab_oral.pdf> and
-    <verbatim|vocab_written.pdf>;<\footnote>
-      Items 2, 3, 4 of this list are not done yet (hence, please ignore the
-      files <verbatim|vocab_written.pdf>, <verbatim|vocab_oral.pdf>,
-      <verbatim|lecture.pdf> and <verbatim|manner-jap.pdf> for now). I will
-      send them before the end of Saturday. I am extremely sorry.
-    </footnote>
+    <verbatim|vocab_written.pdf>;
 
     <item>By reading Your emails to Prof. Nagisa I have learned something
     about writing emails. The things I have learned are described in
-    <verbatim|manner-jap.pdf>;
+    <verbatim|manner-jap.pdf>;<\footnote>
+      Items<space|1em>3, 4 of this list are not done yet (hence, please
+      ignore the files <verbatim|lecture.pdf> and <verbatim|manner-jap.pdf>
+      for now). I will send them before the end of Saturday. I am extremely
+      sorry.
+    </footnote>
 
     <item>I have attended Your lecture on July 19th for undergraduate
     students. It was very enlightening. My lecture notes are attached as
@@ -85,14 +85,23 @@
       <item>Start preparing for the Tambara talk;
     </enumerate>
 
-    <item*|Sat>Continue preparing for the Tambara talk;
+    <item*|Sat>
+
+    <\enumerate>
+      <item>Continue preparing for the Tambara talk;
+
+      <item>Start preparing the speech for the Functional Analysis Symposium;
+    </enumerate>
 
     <item*|Sun>
 
     <\enumerate>
       <item>Prepare the report for this week;
 
-      <item>Continue preparing for the Tambara talk.
+      <item>Continue preparing for the Tambara talk;
+
+      <item>Continue preparing the speech for the Functional Analysis
+      Symposium.
     </enumerate>
   </description>
 
