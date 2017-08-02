@@ -35,7 +35,7 @@ $(OUTDIR)/speech.pdf: $(OUTDIR)/speech.tex $(OUTDIR)/mystyle.sty $(OUTDIR)/table
 	cd $(OUTDIR) && $(LATEXMK) $<
 $(OUTDIR)/speech.tex: slides.tex
 	cat $<|sed 's/%\\setbeameroption{show only notes}/\\setbeameroption{show only notes}/g' > $@
-$(OUTDIR)/slides.pdf : slides.tex geomdiagram.tex todai_master.bib table1.tex
+$(OUTDIR)/slides.pdf : slides.tex todai_master.bib table1.tex $(OUTDIR)/geomdiagram.tex
 	$(LATEXMK) $<
 
 #standard rules
