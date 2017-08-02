@@ -1,0 +1,149 @@
+\documentclass[pdf]{beamer}
+\mode<presentation>{\usetheme[secheader]{Boadilla}}
+\usepackage{mystyle}
+\usepackage{amsthm,amssymb}
+\usepackage{mathtools}
+\usepackage{framed}
+\includecomment{versiona}
+
+\newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
+%\setbeameroption{show only notes}
+
+\makeatletter
+\newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
+{\usebeamertemplate{proof end}}
+\makeatother
+
+\makeatletter
+\def\th@mystyle{%
+	\normalfont % body font
+	\setbeamercolor{block title example}{bg=orange,fg=white}
+	\setbeamercolor{block body example}{bg=orange!20,fg=black}
+	\def\inserttheoremblockenv{exampleblock}
+}
+\makeatother
+
+\theoremstyle{mystyle}
+\newtheorem{prop}{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\title[Symmetry breaking operators of $O(p,q)$]{Symmetry breaking operators of indefinite orthogonal groups $O(p,q)$}
+\author[T. Kobayashi, A. Leontiev]{Toshiyuki Kobayashi, \underline{Alex Leontiev}}
+\institute[Tokyo U]{
+\inst{1}The University of Tokyo\\
+Kavli Institute for the Physics and Mathematics of the Universe
+           \and
+           \inst{2}The University of Tokyo
+}
+\date[Inst. of Math., Academia Sinica]{Number Theory Seminar, Institute of Mathematics, Academia Sinica}
+
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+%%\begin{frame}{Outline}
+%%	\tableofcontents
+%%\end{frame}
+\section{Prime factorization}
+\begin{frame}{Prime factorization}
+	Given any integer number $n$, \textbf{Prime Decomposition Theorem} tells us that it can be {\it uniquely factored} in \textbf{prime numbers}, say 
+		\begin{equation*}
+			23446456=2^3\cdot 11^1 \cdot 19^1\cdot 37^1\cdot 379^1.
+		\end{equation*}
+	\begin{problem}[Prime factorization]
+		Given number $n$, determine it's {\bf prime factorization}.
+	\end{problem}
+	This problem is believed to be {\it difficult}. More precisely, its solution time believed to be {\it impossible} to bound by any polynomial. 
+
+	\note{To begin with, I would like to talk about the problem that, I believe, is familiar to all the Number Theory people. That is, I would
+	like to talk about the problem of prime factorization}.
+\end{frame}
+\begin{frame}{Multiplicities}
+	We can, therefore, try to replace it with a (much simpler) ``relative'' version:
+	\begin{problem}[Multiplicities]
+		Given $n$ and prime $p$, determine the {\bf multiplicity} of $p$ in $n$. For example,
+		\begin{equation*}
+			23446456=2^{\fbox{3}}\cdot 11^{\fbox{1}} \cdot 19^{\fbox{1}}\cdot 37^{\fbox{1}}\cdot 379^{\fbox{1}}.
+		\end{equation*}
+	\end{problem}
+\end{frame}
+\section{Representation Theory}
+\begin{frame}{Representation Theory}
+	For compact groups, the situation is pretty much the same:
+	\begin{center}
+		\begin{tabular}[c]{llp{0.7\textwidth}}
+			{``integers''}&$\leadsto$& {\it representations} \\&&(i.e. homomorphisms $\pi:G\to GL(V)$ for some vector space $V$)\\
+			{``$m$ divides $n$''}&$\leadsto$&$\tau$ is a {\it subrepresentation} of $\pi$ \\&&(i.e. we have $G$-intertwining 1-1 map $A:\tau\xhookrightarrow{}\pi$)\\
+			{``prime number''}&$\leadsto$&{\it irreducible} representations \\&&(e.g. representations with no proper nontrivial subrep's)
+		\end{tabular}
+	\end{center}
+	\begin{remark}
+		For compact groups, all irreducible representations are finitely-dimensional.
+	\end{remark}
+\end{frame}
+\begin{frame}{Decomposition in irrep's}
+	\begin{tabular}[c]{p{0.5\textwidth}lp{0.7\textwidth}}
+			{``Prime decomposition theorem''}&$\leadsto$&
+		\end{tabular}
+		\begin{theorem}
+			Given any finitely-dimensional representation $\pi$ of a compact group $G$, it has a unique decomposition:\begin{equation*}
+				\begin{array}[]{c}
+					\pi=\sum_{\tau\in\hat{G}}\tau^{\oplus m_{\pi}(\tau)},\\
+					\hat{G}:=\left\{ \mbox{all (finitely-dimensional) irrep's of $G$} \right\},\\
+					m_\pi(\tau)=\dim\Hom_{G}(\pi,\tau)=\dim\Hom_G(\tau,\pi).
+				\end{array}
+			\end{equation*}
+		\end{theorem}
+		\begin{tabular}[c]{p{0.5\textwidth}lp{0.7\textwidth}}
+			{``multiplicity''}&$\leadsto$&$m_\pi(\tau)$
+		\end{tabular}
+\end{frame}
+\begin{frame}{Branching Problem}
+	Let $G$: compact group and $G'\subset G$ its subgroup. Note that if $\pi$ is an irreducible representation of $G$, its
+	restriction to $G'$ $\pi\kern-0.1cm\mid_{G'}$ is {\it not necessarily} irreducible.
+	\begin{problem}[Branching problem]
+		Find {\bf branching rule}, which for every irrep $\pi$ of $G$ describes the decomposition
+		\begin{equation*}
+			\begin{array}[]{c}
+			\pi\kern-0.1cm\mid_{G'}=\sum_{\tau\in\hat{G'}}\tau^{\oplus m_\pi(\tau)},\\
+			m_\pi(\tau)=\dim\Hom_{G'}(\pi\kern-0.1cm\mid_{G'},\tau)=\dim\Hom_{G'}(\tau,\pi\kern-0.1cm\mid_{G'}).
+			\end{array}
+		\end{equation*}
+	\end{problem}
+\end{frame}
+\begin{frame}{Kostant's Branching Theorem}
+	For compact groups, recall that
+	\begin{center}
+	\begin{tabular}[]{lll}
+		$\hat{G}$=&$\left\{ \mbox{irrep's of $G$} \right\}\simeq$&$\underbrace{\Lambda}_{\mbox{discrete set}}\subset \underbrace{\mathfrak{t}}_{\mbox{vect. sp., $\dim(\mathfrak{t})<\infty$}}$
+		\kern-0.8cm:highest weights\\
+		$\hat{G'}$=&$\left\{ \mbox{irrep's of $G'$} \right\}\simeq$&$\Lambda'\subset\mathfrak{s}$
+	\end{tabular}
+	\end{center}
+	Now, the branching problem for compact groups is {\it completely solved} by:
+	\begin{theorem}[Kostant's Theorem]
+		Assume that $G$ and $G'$ are connected (+ some minor geometric assumption).
+		Let $\pi$ be the irrep of $G$ with highest weight $\lambda$ and $\tau$ be the irrep of $G'$ with highest weight $\mu$. Then,
+		\vspace{-0.3cm}
+		\begin{equation*}
+			\kern-0.2cm
+			\begin{array}[]{c}
+				m_\pi(\tau)=\sum_{w\in W_G}\varepsilon(w)\mathcal{P}\left( \sigma\left( w(\lambda+\delta_G) -\delta_G\right) -\mu\right),\\
+				W_G: \mbox{Weyl group (finite group acting on $\mathfrak{t}$ and determined by $G$)},\\
+				\delta_G\in \mathfrak{t},\quad \sigma:\mathfrak{t}\twoheadrightarrow\mathfrak{s},\quad \varepsilon:W\to\left\{ \pm1 \right\},\\
+				\mathcal{P}:\Lambda'\to\N,\mbox{$\mathcal{P}(x)=$number of ways to write $x\in \mathfrak{s}$ as sum of elements of $\Lambda'$}
+			\end{array}
+		\end{equation*}
+	\end{theorem}
+\end{frame}
+\begin{frame}{Noncompact groups}
+	When $G$ and $G'$ are non-compact, the situation is much more difficult. In particular:\begin{enumerate}
+		\item there are important infinitely-dimensional irreducible representations of $G,G'$ (cf. principal series rep's);
+		\item it is no longer true in general that any irrep of $G$ decomposes into direct sum (integral) of those of $G'$;
+		\item multiplicities $m_\pi(\tau)$ can be infinite for many $\tau$;
+		\item {\it multiplicities $m_\pi(\tau)$ are no longer well-defined. In particular, in general $\dim\Hom_{G'}(\pi\kern-0.1cm\mid_{G'},\tau)\neq
+			\dim\Hom_{G'}(\tau,\pi\kern-0.1cm\mid_{G'},)$}.
+	\end{enumerate}
+\end{frame}
+\begin{frame}
+\end{frame}<++>
+\end{document}

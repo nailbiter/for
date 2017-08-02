@@ -17,7 +17,7 @@ TEXMACSDIR=~/for/fortexmacs
 COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
-all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
+all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX)) $(OUTDIR)/speech.pdf
 publish: $(OUTDIR)/$(ZIPNAME).zip
 s: $(OUTDIR)/$(ZIPNAME)_s.zip
 	
@@ -31,12 +31,17 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	unzip -l $@
 	du -hs $@
 	$(GITCOMMIT)
-
+$(OUTDIR)/speech.pdf: $(OUTDIR)/speech.tex $(OUTDIR)/mystyle.sty
+	cd $(OUTDIR) && $(LATEXMK) $<
+$(OUTDIR)/speech.tex: slides.tex
+	cat $<|sed 's/%\\setbeameroption{show only notes}/\\setbeameroption{show only notes}/g' > $@
 
 #standard rules
 $(OUTDIR)/%.tex : %.tex
 	cp -f $< $@
 $(OUTDIR)/%.sty : %.sty
+	cp -f $< $@
+$(OUTDIR)/%.bib : %.bib
 	cp -f $< $@
 %.eps: %.tex
 	echo 
