@@ -1,4 +1,4 @@
-.PHONY: all commit push clean publish s
+.PHONY: all commit push clean p s
 .SECONDARY: 
 
 ZIPNAME=taiwantalk
@@ -18,7 +18,7 @@ COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX)) $(OUTDIR)/speech.pdf
-publish: $(OUTDIR)/$(ZIPNAME).zip
+p: $(OUTDIR)/$(ZIPNAME).zip
 s: $(OUTDIR)/$(ZIPNAME)_s.zip
 	
 $(OUTDIR)/$(ZIPNAME)_s.zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX)) mystyle.sty abstract.tex
@@ -31,10 +31,12 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	unzip -l $@
 	du -hs $@
 	$(GITCOMMIT)
-$(OUTDIR)/speech.pdf: $(OUTDIR)/speech.tex $(OUTDIR)/mystyle.sty
+$(OUTDIR)/speech.pdf: $(OUTDIR)/speech.tex $(OUTDIR)/mystyle.sty $(OUTDIR)/table1.tex $(OUTDIR)/todai_master.bib  $(OUTDIR)/geomdiagram.tex
 	cd $(OUTDIR) && $(LATEXMK) $<
 $(OUTDIR)/speech.tex: slides.tex
 	cat $<|sed 's/%\\setbeameroption{show only notes}/\\setbeameroption{show only notes}/g' > $@
+$(OUTDIR)/slides.pdf : slides.tex geomdiagram.tex todai_master.bib table1.tex
+	$(LATEXMK) $<
 
 #standard rules
 $(OUTDIR)/%.tex : %.tex
