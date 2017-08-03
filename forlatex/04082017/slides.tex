@@ -48,6 +48,7 @@
 \usepackage{amsmath,amssymb,bbm,xypic}
 \usepackage[all,cmtip]{xy}
 \usepackage{amsmath,amssymb,bbm,float,mystyle}
+\usepackage{stmaryrd}
 
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 %\setbeameroption{show only notes}
@@ -115,7 +116,15 @@ Kavli Institute for the Physics and Mathematics of the Universe
 \date[Inst. of Math., Acad. Sinica]{Number Theory Seminar, Institute of Mathematics, Academia Sinica}
 
 \begin{document}
-\begin{frame}\titlepage\end{frame}
+\begin{frame}\titlepage
+	\note{
+		Good morning, everyone. My name is Alex Leontiev, I am from The University of Tokyo.
+		Thank you for letting me talk at today's Number Theory Seminar at Academia Sinica. This is a big honour for me.
+
+		The topic of my today's talk is ``Symmetry breaking operators of indefinite orthogonal groups $O(p,q)$''.
+		This is the result of the joint research with my advisor prof. Toshiyuki Kobayashi from The University of Tokyo.
+	}
+\end{frame}
 %%\begin{frame}{Outline}
 %%	\tableofcontents
 %%\end{frame}
@@ -123,6 +132,12 @@ Kavli Institute for the Physics and Mathematics of the Universe
 	\begin{center}
 		\huge Part I: Introduction
 	\end{center}
+	\note{There will be three parts in this talk: Part I, where I will try to explain why one is interested in studying symmetry breaking operators.
+	Part II, where I will outline the results we have at this moment. And finally, Part III, where I will very briefly explain
+	where one can go from here and what we plan to do now.
+	If I am not mistaken, the talk's duration is one hour, which gives me plenty of time, so please do not hesitate to ask questions
+	during the lecture.
+}
 \end{frame}
 \section{Prime factorization}
 \begin{frame}{Prime factorization}
@@ -135,8 +150,19 @@ Kavli Institute for the Physics and Mathematics of the Universe
 	\end{problem}
 	This problem is believed to be {\it difficult}. More precisely, its solution time believed to be {\it impossible} to bound by any polynomial. 
 
-	\note{To begin with, I would like to talk about the problem that, I believe, is familiar to all the Number Theory people. That is, I would
-	like to talk about the problem of prime factorization}.
+	\note{To begin with, I would like to talk about the problem that, I believe, is familiar to all the Number Theory people. 
+		That is, I would
+		like to talk about the problem of prime factorization. First of all, Prime Number Theorem tells us that every number can be
+		decomposed uniquely (neglecting order and sign of terms) into the product of so-called prime numbers. The latter, in turn
+		are characterized by the property that they cannot be decomposed further.
+
+		Now, despite being so easily accessible, the problem is believed to be difficult when number $n$ gets big. In particular,
+		it is believed to require super-polynomial time in number of digits. In other words, the time complexity of prime factorization
+		cannot be uniformly bounded by any polynomial in the number of digits.
+
+		As a side note, this fact has wide applications in cryptography. Most of the asymmetric encryption schemes in use now are build
+		on top of this idea.
+	}
 \end{frame}
 \begin{frame}{Multiplicities}
 	We can, therefore, try to replace it with a (much simpler) ``relative'' version:
@@ -146,6 +172,11 @@ Kavli Institute for the Physics and Mathematics of the Universe
 			23446456=2^{\fbox{3}}\cdot 11^{\fbox{1}} \cdot 19^{\fbox{1}}\cdot 37^{\fbox{1}}\cdot 379^{\fbox{1}}.
 		\end{equation*}
 	\end{problem}
+	\note{
+		On the other hand, the problem of finding multiplicity of a given prime in a given number is considerably simple: it can
+		be easily solved by consecutive division, and runs in polynomial time. Finding multiplicities is much simpler than computing
+		the whole decomposition.
+	}
 \end{frame}
 \section{Representation Theory}
 \begin{frame}{Representation Theory}
@@ -160,10 +191,23 @@ Kavli Institute for the Physics and Mathematics of the Universe
 	\begin{remark}
 		For compact groups, all irreducible representations are finitely-dimensional.
 	\end{remark}
+	\note{Going now to the representation theory, let us first about the representation theory of compact groups, where things
+	are pretty much similar.
+
+	Namely, fixing a particular compact group $G$ for now, integers may be seen as corresponding to its representations,
+	namely to the actions of $G$ on a vector space $V$ by linear transformations.
+	The notion of divisibility
+	corresponds to that of being a subrepresentation, that is when one representation may be seen as an invariant subspace of another.
+	Prime numbers, that is numbers that cannot be decomposed further, correspond to an irreducible representations, that is representations
+	with no nontrivial subrepresentations.
+
+	It is important to note at this point, that for compact groups all irreducible representations are necessarily finitely-dimensional,
+	which is a particularly nice feature, not shared by non-compact groups.
+}
 \end{frame}
-\begin{frame}{Decomposition in irrep's}
+\begin{frame}{Decomposition in irreducibles}
 	\begin{tabular}[c]{p{0.5\textwidth}lp{0.7\textwidth}}
-			{``Prime decomposition theorem''}&$\leadsto$&
+			{``Prime Decomposition Theorem''}&$\leadsto$&
 		\end{tabular}
 		\begin{theorem}
 			Given any finitely-dimensional representation $\pi$ of a compact group $G$, it has a unique decomposition:\begin{equation*}
@@ -177,6 +221,13 @@ Kavli Institute for the Physics and Mathematics of the Universe
 		\begin{tabular}[c]{p{0.5\textwidth}lp{0.7\textwidth}}
 			{``multiplicity''}&$\leadsto$&$m_\pi(\tau)$
 		\end{tabular}
+		\note{For compact groups, we have the analogue of Prime Decomposition Theorem, which
+		tells us that every finitely-dimensional representation of $G$ splits into a direct sum of the irreducibles.
+		Similarly to the prime decomposition, we have a notion of multiplicity, that is how many times given irreducible appears in the
+		decomposition.
+
+		Note that multiplicities are equal to the dimension of $G$-intertwining operators from $\pi$ to $\tau$ or from $\tau$ to $\pi$.
+		}
 \end{frame}
 \begin{frame}{Branching Problem}
 	Let $G$: compact group and $G'\subset G$ its subgroup. Note that if $\pi$ is an irreducible representation of $G$, its
@@ -190,6 +241,17 @@ Kavli Institute for the Physics and Mathematics of the Universe
 			\end{array}
 		\end{equation*}
 	\end{problem}
+	\note{
+		Now it is the time to recall that we are talking about the groups, so we can do something we cannot quite do with integers:
+		we can switch the group and this will change the notion of irreducibility. Namely, if we take an irreducible representation of compact
+		group $G$ and then consider it as a representation of its subgroup $G'$, it may well be no longer irreducible. Hence, the previous
+		theorem implies that it decomposes into the direct sum of irreducibles of $G'$ and people since long ago were interested
+		in how exactly it decomposes. The exact rule that explains the decomposition pattern is called ``branching rule'' and they have
+		important applications. Quantum mechanics and chemistry, to name a few.
+
+		Note that in this case multiplicities are equal to the dimension of $G'$-intertwining operators. Again, we can
+		take either operators from big representation to a small one, or the other way around.
+	}
 \end{frame}
 \begin{frame}{Kostant's Branching Theorem}
 	For compact groups, recall that
@@ -215,6 +277,14 @@ Kavli Institute for the Physics and Mathematics of the Universe
 			\end{array}
 		\end{equation*}
 	\end{theorem}
+	\note{
+		Luckily, for compact groups we have a general rule, named Kostant's Branching Theorem, which tells us how multiplicities can
+		be computed in a combinatorial way. 
+		
+		As a side note, for particular pairs of groups, say $O(n)$ to $O(n-1)$ restriction of orthogonal groups
+		, $U(n)$ to $U(n-1)$ restriction of unitary groups and $Sp(n)$ to $Sp(n-1)$ restriction of symplectic groups much simpler
+		combinatorial rules are known respectively as Weyl rule, Murnaghan rule and Zhelobenko rule.
+	}
 \end{frame}
 \begin{frame}{Noncompact groups}
 	When $G$ and $G'$ are non-compact, the situation is much more difficult. In particular:\begin{enumerate}
@@ -225,6 +295,17 @@ Kavli Institute for the Physics and Mathematics of the Universe
 			\dim\Hom_{G'}(\tau,\pi\kern-0.1cm\mid_{G'},)$}.
 	\end{enumerate}
 	Therefore, we settle with much more modest goal:
+	\note{
+		As much as everything is nice and clean with compact groups, it gets much worse when groups are noncompact.
+		First of all, now we have important families of irreducible representations which are infinitely-dimensional.
+		Second, in some situations the representation of $G$ may not split as a direct sum or integral of irreducibles of $G'$.
+		Third, even if they do split, the multiplicities can get infinite for considerably many of irreducibles of $G'$.
+		Finally, the multiplicities itself become ill-defined. Even in situations when splitting does not occur, following
+		the hints from the previous slides, one might hope to define the multiplicities as the dimensions of intertwining operators.
+		Nevertheless, in this general setting the operators from big to small representation and from small to big no longer correspond to each
+		other. It is thought that the dimension of $G'$ intertwining operators from the irreducible of $G$ to the irreducible of $G'$
+		is somehow a better definition, so we will pursue it.
+	}
 \end{frame}
 \begin{frame}{Goal (1)}
 	Therefore, we settle with much more modest goal:
@@ -238,6 +319,14 @@ Kavli Institute for the Physics and Mathematics of the Universe
 		\left( G,G' \right)=(O(p+1,q+1),O(p,q+1)).
 	\end{equation*}
 	But even with a concrete pair chosen, it is too much work to classify SBOs for {\it all} $(\pi,\tau)$.
+	\note{
+		Therefore, as an attainable Goal, one might try to classify all the intertwining operators between the irreducible of $G$
+		and that of its subgroup $G'$, or, as we call them, symmetry breaking operators, or SBOs for brevity.
+		The pair $(O(p+1,q+1),O(p,q+1))$ provides a good first choice, as it has the same complexification as perhaps the simplest
+		pair of compact groups: the pair of orthogonal groups.
+
+		But even with this specialization, we still need to take some particular class of irreducibles to work with.
+	}
 \end{frame}
 \begin{frame}{Principal series}
 	But even with a concrete pair chosen, it is too much work to classify SBOs for {\it all} $(\pi,\tau)$. Therefore, we restrict ourselves
@@ -255,8 +344,18 @@ Kavli Institute for the Physics and Mathematics of the Universe
 			\end{array}
 		\end{equation*}
 	\end{definition}
-	\note{Principal series are good: on the one hand, they are big enough (Harish-Chandra subquotient theorem tells us that every irrep of $G$
-	can be represented as a subquotient of some principal series). On the other hand, they are intimately related to the geometry of $G$.}
+	\note{
+		We may wish to restrict ourselves to principal series, which are important families of representations, defined
+		as an induction from minimal parabolic subgroup (if you think of $G$ as the group $GL_n$ of all invertible matrices,
+		you can think of minimal parabolic as of upper-triangular matrices).
+		Given $P=MAN$ the Langlands decomposition of parabolic, (you can think of it as decomposing upper triangular matrix
+		in diagonal and the upper-triangular with ones on a diagonal), principal series are indexed by irreducible representations of $M$
+		and the vector in $k$-dimensional complex, where $k$ is the dimension of $A$, known also as a real rank of $G$.
+
+		Principal series are a good choice. 
+		On the one hand, they are big enough (Harish-Chandra subquotient theorem tells us that every irrep of $G$
+		can be represented as a subquotient of some principal series). On the other hand, they are intimately related to the geometry of $G$.
+}
 \end{frame}
 \begin{frame}
 	But even principal series representations are too big, so we use the {\bf spherical degenerate principal series}, where $\sigma$: irrep of $M$ is taken to be trivial
@@ -276,7 +375,19 @@ Kavli Institute for the Physics and Mathematics of the Universe
 	\begin{remark}
 		In \cite{kobayashi2015symmetry} (published in Memoirs of AMS) the complete answer for these questions was obtained in the case $q=0$ (that is, $(G,G')=(O(n+1,1),O(n,1))$).
 	\end{remark}
-	\note{informal logic is that ``$P$ is bigger, hence induced rep'n is smaller''}
+	\note{But even principal series turn out to have too complicated structure, so we switch to their ``little brothers'' spherical degenerate
+		principal series. Those are defined built in a similar fashion, but now we take maximal parabolic and trivial representation of $M$
+		to begin with.
+
+		In case of indefinite orthogonal groups we are dealing with now, spherical degenerate principal series of $G$ and $G'$ are indexed
+		each by one complex parameter.
+
+		It is in this setting that the first complete classification of SBOs in non-compact case was achieved by Toshiyuki Kobayashi and Birgit Speh
+		in their book, published in Memoirs of AMS in 2015. It might be interested to notice that in their case
+		maximal and minimal parabolic coincide, so that technically they obtain results for non-degenerated spherical principal series.
+
+		Our original motivation was to extend their results to the more general $O(p,q)$ setting.
+	}
 \end{frame}
 \begin{frame}
 	In my opinion, there are two main reasons why Kobayashi--Speh succeeded in giving the complete classification:\vspace{1em}
@@ -285,6 +396,11 @@ Kavli Institute for the Physics and Mathematics of the Universe
 		Hom_{G'}(I(\lambda)\kern-0.1cm\mid_{G'},J(\nu))\simeq\underbrace{\sol}_{\mbox{solutions of some PDEs}}\subset\mathcal{D}'(\R^{p,q}).
 	\end{equation*}
 	But more on this later\ldots
+	\note{
+		Before going into the details, let me briefly explain why I think Kobayashi and Speh succeeded in the first place.
+		First, they developed a general theory that allows one to see symmetry breaking operators as solutions to some system of PDEs
+		on the Euclidean space, thus bringing the analysis into the game.
+	}
 \end{frame}
 \begin{frame}
 	Second, we have a very concrete geometric model for the degenerate principal series $I(\lambda),J(\nu)$:
@@ -299,14 +415,26 @@ Kavli Institute for the Physics and Mathematics of the Universe
 %%		G':=O(p,q+1)&\curvearrowright &J(\nu):=C^\infty(G'/P',\mathcal{L}_\nu)
 %%		\end{array}\]
 %%	\end{setting}
+	\note{
+		Second, for this setting we have a very satisfying and concrete geometric model. Group $O(p,q)$ naturally acting on the $p+q$-dimensional
+		space, leaves the light cone invariant. In turn, as the action is linear, we also have $O(p,q)$ acting on a quotient space of light cone
+		by dilations, which in turn is diffeomorphic to the product of spheres with their opposite points identified.
+
+		It then turns out that degenerate spherical principal series $I(\lambda)$ are realized as a space of homogeneous functions on the light
+		cone. Consequently, restricting these functions to the product of spheres, $\Sp^p\times\Sp^q$, we see that $I(\lambda)$ can
+		also be realized as a space of continuous functions on a product of spheres. Note that in this case, while the representation space
+		stays the same, action does depend on $\lambda$.
+	}
 \end{frame}
 %%%%%%%%%%%	PART 2
 \begin{frame}{}
 	\begin{center}
 		\huge Part 2: Main Results
+		\note{I will describe our main results now.}
 	\end{center}
 \end{frame}
 \begin{frame}
+	The general theory of Kobayashi--Speh allows us to bring on the power of analysis:
 	\begin{fact}[\cite{kobayashi2015symmetry}]
     Let $n:=p+q$. The following diagram commutes:
 \begin{figure}[H]
@@ -320,6 +448,23 @@ Kavli Institute for the Physics and Mathematics of the Universe
 	}
 }
 \end{figure}
+\note{
+%%	下のSol(Rpq)という空間がある(lambda,nu)に依存する偏微分方程式を満たす超関数空間です。ここで、左から真ん中への矢印が単純なSchwarz kernel定理で、真ん中から下へのrestという写像がEuclid 空間と同型なopen Bruhat cellに対して制限を表します。この２つの写像がベクトル空間の同型写像になります。なので、抽象的な対称性破れ作用素空間の代わりに具体的なEuclid空間上の偏微分方程式の解空間を研究してもいいということです。ポイントがもう１つあります。真ん中の空間がG/P上のP’普遍超関数空間なので、それぞれの元のサーポトがP’普遍G/P閉部分集合になります。つまり、真ん中のベクトル空間からGの両側剰余空間への写像できたということです。この両側剰余空間が有限なので、P’普遍G/P閉部分集合が大切なinvariantになります。
+	As was briefly mentioned above, the general theory of Kobayashi--Speh implies that under some geometric conditions (which are satisfied
+	in our case), the space of SBOs is isomorphic to the solution space of some PDE.
+
+	More precisely, the following diagram commutes. $\sol$ below is the finitely-dimensional vector space of generalized function solution
+	to some partial differential equation depending on $(\lambda,\nu)$. The map from left to the center is induced by Schwarz kernel theorem.
+	It maps every symmetry breaking operator to its integral kernel. The map from center to the bottom, which we call rest, is the restriction of this
+	integral kernel to open Bruhat cell, which is diffeomorphic to the Euclidean space. Both of these maps are isomorphisms of finitely-dimensional
+	vector spaces and altogether this tells us that complicated and abstract space of SBOs can be replaced with more concrete space of solutions
+	of partial differential equation.
+
+	But there is one more point to be made here.
+	The middle vector space is the space of $P'$-invariant functions on $G/P$, hence the support of such a function should be a $P'$-invariant
+	closed subset of $G/P$. The establishes the map from the middle vector space to the double coset space of $G$. In turn, as this double coset space
+	is finite, the $P'$-invariant closed subsets of $G/P$ form an important invariant of symmetry breaking operators.
+}
 \end{fact}
 \end{frame}
 \begin{frame}
@@ -348,6 +493,15 @@ $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
     \end{subfigure}
 \end{figure}
 \end{theorem}
+\note{
+%%	最初の結果によって、こんな集合が分類されています。閉包(へいほう)関係[clo rel]を含めて、軌道分解を決定しました。つまり、pは1以上だったらP’普遍G/P閉部分集合が５があって、pは１と等しかったら、４つになります。CとYのX部分集合として余次元[codimension]がgeneric的に1になります。pが1以上だったら、C共通YのC又はYの中のcodimensionがgeneric的に1になって、generic的にp+q-2次元の集合になります。p=1だったら、C共通Yが原点と等しくなります。
+	As a first result, we classify all such sets. We have explicitly determined the orbit decomposition of flag variety $G/P$ under the left $P'$
+	-action,
+	together with its closure relations. More precisely, when $p$ is bigger than one, there are five $P'$-invariant closed subsets of $G/P$
+	and when $p=1$ there are four of them. The subsets $C$ and $Y$ have generic codimension being equal to one. When $p$ is bigger than one,
+	the intersection of $C$ and $Y$ has generic codimension one inside $C$ or $Y$ and is of generic dimension $p+q-2$. In turn, when $p$ equals one,
+	the intersection of $C$ and $Y$ is just the origin point.
+}
 \end{frame}
 \begin{frame}
 	\begin{theorem}
@@ -355,6 +509,16 @@ $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
 		\vspace{-0.9em}
 		\input{table1.tex}
 	\end{theorem}
+	\note{
+%%		次の結果に複数パラメーターに正則に依存する対称性破れ作用素のファミリーを３つ作ります。ここでR^X_lambda,nuのサーポトがほとんどいつもXと等しくなので、regular対称性破れ作用素と呼ばれています。Rtilda^X_lambda,nuがregular対称性破れ作用素のrenormalizationです。最後、R^{0}_lambda,nuのサーポトがいつも原点と等しくので、微分対称性破れ作用素と呼ばれています。//（ナナメのニじょうせん）と\myabs{（たての３分線）とういうのはC^2の部分多様体です。CtildeがGegenbauer多項式と関係がある２変数多項式です。
+		Next result is the construction of three families of SBOs depending holomorphically on parameters. Here $R^X_{\lambda,\nu}$
+		has its support being equal to the whole $X$ for generic parameters, hence we call it regular symmetry breaking operator.
+		In turn, $\tilde{R}_{\lambda,\nu}^X$ is the renormalization of the regular SBO. Finally, $R^{ \left\{ o \right\}}_{\lambda,\nu}$ is
+		supported at origin point only, hence it is called differential SBO.
+
+		The set slash-slash is the countable union of linear affine spaces. $\tilde{C}$ is the two-variable polynomial, induced by a renormalization
+		of Gegenbauer polynomial.
+	}
 \end{frame}
 \begin{frame}{Classification of SBO}
 	\begin{theorem}
@@ -383,6 +547,11 @@ $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
     \end{array} \right. &  \nonumber
   \end{eqnarray}
 	\end{corollary}
+	\note{
+%%次の定理に、対称性破れ作用素が分類することができました。特に対称性破れ作用素の空間が可算無限離散集合を除いて、１次元になりますが、この集合上で２次元になります。
+		Next result is the classification of symmetry breaking operators. In particular, aside from the countable discrete set
+		of parameters, the dimension is 1, while at the parameters in this set, the dimension of SBO space is 2.
+	}
 \end{frame}
 \begin{frame}{Spherical multiple}
 	\begin{theorem}
@@ -395,6 +564,15 @@ $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
 	\begin{remark}
 		This result was previously obtained for $p=q=1$ case in \cite{bernstein2004estimates}.
 	\end{remark}
+	\note{
+%%		次の結果によると、I(lambda)のK-finiteベクトルのイメージがJ(nu)のK’-finiteベクトルと比例になります。比例定数も計算できて、極点とレイテンを分けるように積公式で表せます。ちなみに、
+%%		Bernstein-Reznikovの2004年の論文にp=q=1の場合に同じい結果が得ました。
+		Next result shows that the image of $K$-invariant vector in $I(\lambda)$ is proportional to the $K'$-invariant vector of $J(\nu)$.
+		With appropriate normalization chosen, the proportionality constant is also computed and given as a product of Gamma functions,
+		which allows one to easily determine poles and zeros.
+
+		The case $p=q=1$ was obtained by Bernstein--Reznikov in 2004.
+	}
 \end{frame}
 \begin{frame}{Residue theorem}
 	\begin{theorem}
@@ -416,6 +594,12 @@ $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
 		}{2^{ \nu + 2 k-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
      \OpR_{\lambda,\nu}^{ \left\{ 0 \right\} },\quad(\lambda,\nu)\in// . \]
 	\end{theorem}
+	\note{
+%%		次の結果はregular対称性破れ作用素のkernelがナナメのニじょうせん集合上に多重度たかだか1のpoleがあって、このpoleのresidueが微分対称性破れ作用素のkernelと比例になるとういうことを表しています。先のように、比例点数を極点とレイテンを分けるように積公式で表せます
+		Next result shows that the kernel of regular SBO has pole of multiplicity at most one, when restricted to the aforementioned
+		slash-slash subset. The residue of this pole is proportional to the kernel of differential SBO. Again, proportionality
+		constant is explicitly computed and given as a product of Gamma functions, allowing one to easily see zeros and poles.
+	}
 \end{frame}
 \begin{frame}{Functional identities}
 	\begin{fact}[Knapp-Stein operator]
@@ -448,56 +632,82 @@ Here, for example
   \end{array} \right.
 \end{equation*}
 	\end{theorem}
+	\note<1>{
+%%		最後の結果が、古典（こてん）Knapp-Stein作用素と新しいregular対称性破れ作用素の組み合わせがどのようになるかという質問に答えます。以下なような関数等式を得ました。regular対称性破れ作用素とKnapp-Stein作用素の組み合わせがregular対称性破れ作用素と比例になります。
+%%		ここでqRnTRnが以下のようになります。
+		As a final result, we answer the question of what becomes when classical Knapp-Stein intertwining operator gets composed with 
+		newly introduced
+		regular
+		symmetry breaking operator. Here the proportionality constants are given by\ldots
+	}
 \end{frame}
 \begin{frame}
 	{\footnotesize\bibliographystyle{apalike}
 \bibliography{todai_master}}
 \end{frame}
-%%\begin{frame}
-%%	\begin{setting}
-%%		\begin{enumerate}
-%%			\item 
-%%				Let $p,q\ge1$, $G:=O(p+1,q+1)$ and $G':=O(p+1,q+1)_{e_{p+1}}\simeq O(p,q+1)$. 
-%%			\item
-%%				Let $P:=MAN$ and $P':=G'\cap P=M'AN'$ :max parabolic, where\\
-%%\newcommand{\longminus}{\textemdash\textemdash}
-%%\hspace{-1.05cm}  \begin{tabular}{l@{}}
-%%    $N \assign \left\{ \left[ \begin{array}{lll}
-%%      1 - Q & -^t w' & Q\\
-%%      w & I_{p + q} & - w\\
-%%      - Q & -^t w' & 1 + Q
-%%    \end{array} \right] \middle| \begin{array}{c}
-%%      (x, y) \in \mathbbm{R}^{p, q}\\
-%%      w \assign (x, y)\\
-%%      w' \assign (x, - y)\\
-%%      Q \assign \frac{| x |^2 - | y |^2}{2}
-%%    \end{array} \right\}$, $M \assign \left\{ \left[ \begin{array}{ccc}
-%%      \epsilon & 0 & 0\\
-%%      0 & A & 0\\
-%%      0 & 0 & \epsilon
-%%    \end{array} \right] \middle| \begin{array}{c}
-%%      A \in O (p, q)\\
-%%      \epsilon = \pm 1
-%%    \end{array} \right\}$\\
-%%    $N' \assign \left\{ \longminus \longminus \longminus'' \longminus
-%%    \longminus \longminus \middle| \begin{array}{c}
-%%      \longminus'' \longminus\\
-%%      x_p = 0
-%%    \end{array} \right\}$, $M' \assign \left\{ \longminus'' \longminus
-%%    \middle| \begin{array}{c}
-%%      \longminus'' \longminus\\
-%%      A e_p = e_p
-%%    \end{array} \right\}$\\
-%%    $A \assign a (\mathbbm{R})$, \quad$a (t) \assign \left[ \begin{array}{ccc}
-%%      \cosh (t) & 0 & \sinh (t)\\
-%%      0 & I_{p + q} & 0\\
-%%      \sinh (t) & 0 & \cosh (t)
-%%    \end{array} \right]$
-%%  \end{tabular}
-%%			\item For $(\lambda,\nu)\in\mathbb{C}^2$ we let $I(\lambda),J(\nu)$ to be the degenerate principal series of $G,G'$ respectively, i.e.
-%%$I(\lambda):=\{f\in C^\infty(G)\mid \forall h\in P,\;f(\cdot h)=\lambda(h) f(\cdot)\}$, where $\lambda:P\ni m\cdot a(t)\cdot n\mapsto e^{-\lambda t}$ is a $P$-representation and
-%%with $G$-action by left multiplication, and similarly for $J(\nu)$.
-%%		\end{enumerate}
-%%	\end{setting}
-%%\end{frame}
+\begin{frame}{}
+	\begin{center}
+		\huge Part III: Future Work
+	\end{center}
+	\note{Finally, I would like to talk very briefly about where one can go from here.}
+\end{frame}
+\begin{frame}{Future Work}
+	\begin{enumerate}
+		\item Branching between Zuckerman derived functors $A_{\mathfrak{q}}(\lambda)$ (cf. \cite{KO1,kobayashi1998discrete3});
+		\item Branching between differential forms on spheres (cf. \cite{kobayashi2016classification,kobayashi2017symmetry});
+		\item Confirming {\bf Gan-Gross-Prasad hypothesis} for $O(N+1)\shortdownarrow O(N)$ branching (cf. \cite{kobayashi2017symmetry}).
+	\end{enumerate}
+\end{frame}
+\begin{frame}{}
+	\begin{center}
+		\huge Thank You for Your attention!
+	\end{center}
+\end{frame}
+\begin{frame}
+	\begin{setting}
+		\begin{enumerate}
+			\item 
+				Let $p,q\ge1$, $G:=O(p+1,q+1)$ and $G':=O(p+1,q+1)_{e_{p+1}}\simeq O(p,q+1)$. 
+			\item
+				Let $P:=MAN$ and $P':=G'\cap P=M'AN'$ :max parabolic, where\\
+\newcommand{\longminus}{\textemdash\textemdash}
+\hspace{-1.05cm}  \begin{tabular}{l@{}}
+    $N \assign \left\{ \left[ \begin{array}{lll}
+      1 - Q & -^t w' & Q\\
+      w & I_{p + q} & - w\\
+      - Q & -^t w' & 1 + Q
+    \end{array} \right] \middle| \begin{array}{c}
+      (x, y) \in \mathbbm{R}^{p, q}\\
+      w \assign (x, y)\\
+      w' \assign (x, - y)\\
+      Q \assign \frac{| x |^2 - | y |^2}{2}
+    \end{array} \right\}$, $M \assign \left\{ \left[ \begin{array}{ccc}
+      \epsilon & 0 & 0\\
+      0 & A & 0\\
+      0 & 0 & \epsilon
+    \end{array} \right] \middle| \begin{array}{c}
+      A \in O (p, q)\\
+      \epsilon = \pm 1
+    \end{array} \right\}$\\
+    $N' \assign \left\{ \longminus \longminus \longminus'' \longminus
+    \longminus \longminus \middle| \begin{array}{c}
+      \longminus'' \longminus\\
+      x_p = 0
+    \end{array} \right\}$, $M' \assign \left\{ \longminus'' \longminus
+    \middle| \begin{array}{c}
+      \longminus'' \longminus\\
+      A e_p = e_p
+    \end{array} \right\}$\\
+    $A \assign a (\mathbbm{R})$, \quad$a (t) \assign \left[ \begin{array}{ccc}
+      \cosh (t) & 0 & \sinh (t)\\
+      0 & I_{p + q} & 0\\
+      \sinh (t) & 0 & \cosh (t)
+    \end{array} \right]$
+  \end{tabular}
+			\item For $(\lambda,\nu)\in\mathbb{C}^2$ we let $I(\lambda),J(\nu)$ to be the degenerate principal series of $G,G'$ respectively, i.e.
+$I(\lambda):=\{f\in C^\infty(G)\mid \forall h\in P,\;f(\cdot h)=\lambda(h) f(\cdot)\}$, where $\lambda:P\ni m\cdot a(t)\cdot n\mapsto e^{-\lambda t}$ is a $P$-representation and
+with $G$-action by left multiplication, and similarly for $J(\nu)$.
+		\end{enumerate}
+	\end{setting}
+\end{frame}
 \end{document}

@@ -5,7 +5,7 @@ ZIPNAME=taiwantalk
 WORKON=NTU August 04 2017
 COMMIT_PREFIX=talks
 PDFS=slides
-AUX=#spring_conference.pdf
+AUX=speech.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
