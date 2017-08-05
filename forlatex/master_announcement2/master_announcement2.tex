@@ -25,7 +25,7 @@
 \usepackage{ulem}
 \usetikzlibrary{patterns}
 
-%%\newcommand{\myrestr}[2]{\left.#1\right|_{#2}}
+\newcommand{\myrestr}[2]{\left.#1\right|_{#2}}
 
 \catcode`\<=\active \def<{
 \fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
@@ -78,9 +78,20 @@
 \newcommand{\ppqpl}{\pi_{+,\lambda}^{p,q}}
 \newtheorem{theorem}{Theorem}[section]
 \newcommand{\sol}{\mathcal{S}\!{\it ol}(\R^{p,q};\lambda,\nu)}
-\newcommand{\Hom}{\mbox{\normalfont Hom}}
 \newcommand{\Sol}{\mathcal{S}\!{\it ol}}
+%%\newcommand{\tisevenjapb}{\mbox{は偶数の場合}}
+%%\newcommand{\tisoddjapb}{\mbox{は奇数の場合}}
 \newcommand{\Ind}{\mbox{\normalfont Ind}}
+%%\newcommand{\tisevenjapb}{\mbox{は偶数の場合}}
+%%\newcommand{\tisoddjapb}{\mbox{は奇数の場合}}
+%%\newcommand{\mystack}[2]{\begin{array}{c}#1,\\#2\end{array}}
+%%\newcommand{\pipxStack}[1][]{\mystack{\pipx}{x\d{\in} \Azeven(p\d{+}1,q\d{+}1)#1}}
+%%\newcommand{\pimxStack}[1][]{\mystack{\pimx}{x\d{\in} \Azeven(q\d{+}1,p\d{+}1)#1}}
+%%\newcommand{\pipyStack}[1][]{\mystack{\pipy}{y\d{\in} \Azeven(p,q\d{+}1)#1}}
+%%\newcommand{\pimyStack}[1][]{\mystack{\pimy}{y\d{\in} \Azeven(q\d{+}1,p)#1}}
+%%\newcommand{\tzo}{2\Z+1}
+%%\newcommand{\tz}{2\Z}
+%%\newcommand{\tno}{2\N+1}
 \newcommand{\Supp}{\mathcal{S}\!{\it upp}}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{fact}[theorem]{Fact}

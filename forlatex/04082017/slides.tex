@@ -80,6 +80,10 @@
 \newcommand{\Res}{\operatorname{Res}\displaylimits}
 \newcommand{\OpR}{\mbox{\it R}}
 
+\newcommand{\tmtextmd}[1]{{\mdseries{#1}}}
+\newcommand{\tmtextrm}[1]{{\rmfamily{#1}}}
+\newcommand{\tmtextup}[1]{{\upshape{#1}}}
+
 \newenvironment{setting}{\begin{exampleblock}{Setting.}\it}{\end{exampleblock}}
 \newenvironment{question}{\begin{block}{Problem.}\it}{\end{block}}
 %%\makeatletter
@@ -128,6 +132,7 @@ Kavli Institute for the Physics and Mathematics of the Universe
 %%\begin{frame}{Outline}
 %%	\tableofcontents
 %%\end{frame}
+\section{Representation Theory of Compact groups}
 \begin{frame}{}
 	\begin{center}
 		\huge Part I: Introduction
@@ -139,9 +144,8 @@ Kavli Institute for the Physics and Mathematics of the Universe
 	during the lecture.
 }
 \end{frame}
-\section{Prime factorization}
 \begin{frame}{Prime factorization}
-	Given any integer number $n$, \textbf{Prime Decomposition Theorem} tells us that it can be {\it uniquely factored} in \textbf{prime numbers}, say 
+	Given any integer number $n$, \textbf{unique factorization theorem} tells us that it can be {\it uniquely factored} in \textbf{prime numbers}, say 
 		\begin{equation*}
 			23446456=2^3\cdot 11^1 \cdot 19^1\cdot 37^1\cdot 379^1.
 		\end{equation*}
@@ -178,7 +182,6 @@ Kavli Institute for the Physics and Mathematics of the Universe
 		the whole decomposition.
 	}
 \end{frame}
-\section{Representation Theory}
 \begin{frame}{Representation Theory}
 	For compact groups, the situation is pretty much the same:
 	\begin{center}
@@ -207,7 +210,7 @@ Kavli Institute for the Physics and Mathematics of the Universe
 \end{frame}
 \begin{frame}{Decomposition in irreducibles}
 	\begin{tabular}[c]{p{0.5\textwidth}lp{0.7\textwidth}}
-			{``Prime Decomposition Theorem''}&$\leadsto$&
+			{``unique factorization theorem''}&$\leadsto$&
 		\end{tabular}
 		\begin{theorem}
 			Given any finitely-dimensional representation $\pi$ of a compact group $G$, it has a unique decomposition:\begin{equation*}
@@ -221,12 +224,13 @@ Kavli Institute for the Physics and Mathematics of the Universe
 		\begin{tabular}[c]{p{0.5\textwidth}lp{0.7\textwidth}}
 			{``multiplicity''}&$\leadsto$&$m_\pi(\tau)$
 		\end{tabular}
-		\note{For compact groups, we have the analogue of Prime Decomposition Theorem, which
+		\note{For compact groups, we have the analogue of unique factorization theorem, which
 		tells us that every finitely-dimensional representation of $G$ splits into a direct sum of the irreducibles.
 		Similarly to the prime decomposition, we have a notion of multiplicity, that is how many times given irreducible appears in the
 		decomposition.
 
-		Note that multiplicities are equal to the dimension of $G$-intertwining operators from $\pi$ to $\tau$ or from $\tau$ to $\pi$.
+		Note that Schur lemma tells us that
+		multiplicities are equal to the dimension of $G$-intertwining operators from $\pi$ to $\tau$ or from $\tau$ to $\pi$.
 		}
 \end{frame}
 \begin{frame}{Branching Problem}
@@ -255,6 +259,7 @@ Kavli Institute for the Physics and Mathematics of the Universe
 \end{frame}
 \begin{frame}{Kostant's Branching Theorem}
 	For compact groups, recall that
+	\vspace{-1em}
 	\begin{center}
 	\begin{tabular}[]{lll}
 		$\hat{G}$=&$\left\{ \mbox{irrep's of $G$} \right\}\simeq$&$\underbrace{\Lambda}_{\mbox{discrete set}}\subset \underbrace{\mathfrak{t}}_{\mbox{vect. sp., $\dim(\mathfrak{t})<\infty$}}$
@@ -286,11 +291,12 @@ Kavli Institute for the Physics and Mathematics of the Universe
 		combinatorial rules are known respectively as Weyl rule, Murnaghan rule and Zhelobenko rule.
 	}
 \end{frame}
+\section{Representation theory of non-compact groups}
 \begin{frame}{Noncompact groups}
 	When $G$ and $G'$ are non-compact, the situation is much more difficult. In particular:\begin{enumerate}
-		\item there are important infinitely-dimensional irreducible representations of $G,G'$ (cf. principal series rep's);
-		\item it is no longer true in general that any irrep of $G$ decomposes into direct sum (integral) of those of $G'$;
-		\item multiplicities $m_\pi(\tau)$ can be infinite for many $\tau$;
+		\item there are important infinitely-dimensional irreducible representations of $G,G'$ (cf. principal series representations);
+		\item it is no longer true in general that any irreducible of $G$ decomposes into the direct sum (integral) of those of $G'$;
+		\item multiplicities $m_\pi(\tau)$ can be infinite for many $\tau$, even when $G'$ is maximal in $G$;
 		\item {\it multiplicities $m_\pi(\tau)$ are no longer well-defined. In particular, in general $\dim\Hom_{G'}(\pi\kern-0.1cm\mid_{G'},\tau)\neq
 			\dim\Hom_{G'}(\tau,\pi\kern-0.1cm\mid_{G'},)$}.
 	\end{enumerate}
@@ -320,7 +326,7 @@ Kavli Institute for the Physics and Mathematics of the Universe
 	\end{equation*}
 	But even with a concrete pair chosen, it is too much work to classify SBOs for {\it all} $(\pi,\tau)$.
 	\note{
-		Therefore, as an attainable Goal, one might try to classify all the intertwining operators between the irreducible of $G$
+		Therefore, as a reasonable Goal, one might try to classify all the intertwining operators between the irreducible of $G$
 		and that of its subgroup $G'$, or, as we call them, symmetry breaking operators, or SBOs for brevity.
 		The pair $(O(p+1,q+1),O(p,q+1))$ provides a good first choice, as it has the same complexification as perhaps the simplest
 		pair of compact groups: the pair of orthogonal groups.
@@ -339,27 +345,32 @@ Kavli Institute for the Physics and Mathematics of the Universe
 		\end{equation*}
 		The {\bf principal series representation} $H^{\sigma,\lambda}$ of $G$ is defined as an induced representation\begin{equation*}
 			\begin{array}[]{c}
-				H^{\sigma,\lambda}=\Ind_P^G(\sigma_\lambda)\left( :={f\in C^\infty(G)\mid \forall(g,p)\in G\times P,f(p g)=\sigma_\lambda(p)^{-1}f(g)} \right),\\
+				\kern-0.3cm H^{\sigma,\lambda}=\kern-0.1cm\Ind_P^G(\sigma_\lambda)\kern-0.1cm\left( :=\kern-0.1cm\left\{f\in C^\infty(G)\mid \forall(g,p)\in G\times P,f(p g)=\sigma_\lambda(p)^{-1}f(g)\right\} \right)\\
 			(g\cdot f)(\cdot)=f(\cdot g).
 			\end{array}
 		\end{equation*}
 	\end{definition}
 	\note{
 		We may wish to restrict ourselves to principal series, which are important families of representations, defined
-		as an induction from minimal parabolic subgroup (if you think of $G$ as the group $GL_n$ of all invertible matrices,
-		you can think of minimal parabolic as of upper-triangular matrices).
-		Given $P=MAN$ the Langlands decomposition of parabolic, (you can think of it as decomposing upper triangular matrix
-		in diagonal and the upper-triangular with ones on a diagonal), principal series are indexed by irreducible representations of $M$
-		and the vector in $k$-dimensional complex, where $k$ is the dimension of $A$, known also as a real rank of $G$.
+		as an induction from minimal parabolic subgroup (for those who do not know
+		what minimal parabolics are,
+		you can think of $G$ as the group $GL_n$ of all invertible matrices,
+		and then  minimal parabolic is the group of upper-triangular matrices).
+		Given $P=MAN$ the Langlands decomposition of parabolic, (you can think of it as decomposing upper triangular matrix in the product of
+		of diagonal and the upper-triangular with ones on a diagonal), principal series are indexed by irreducible representations of $M$
+		and the vector in $k$-dimensional complex vector space, where $k$ is the dimension of $A$, known also as a real rank of $G$.
 
 		Principal series are a good choice. 
 		On the one hand, they are big enough (Harish-Chandra subquotient theorem tells us that every irrep of $G$
 		can be represented as a subquotient of some principal series). On the other hand, they are intimately related to the geometry of $G$.
 }
 \end{frame}
+
+\section{Motivation for the Goal}
 \begin{frame}
-	But even principal series representations are too big, so we use the {\bf spherical degenerate principal series}, where $\sigma$: irrep of $M$ is taken to be trivial
-	and $P$ is take to be {\it maximal} parabolic, instead of {\it minimal}.
+	But even principal series representations are too big, so we switch to the
+	{\bf spherical degenerate principal series}, where $\sigma$: irrep of $M$ is taken to be trivial
+	and $P$ is taken to be {\it maximal} parabolic, instead of {\it minimal}.
 	\begin{goal}[2, final]
 		For $(G,G')=(O(p+1,q+1),O(p,q+1))$ and all $(\lambda,\mu)\in\C^2$, we want to classify the vector space
 		\vspace{-0.4cm}
@@ -367,6 +378,7 @@ Kavli Institute for the Physics and Mathematics of the Universe
 			\Hom_{G'}(I(\lambda)\kern-0.1cm\mid_{G'},J(\nu)),\quad \left( I(\lambda):=\Ind_P^G(1_\lambda),J(\nu):=\Ind_{P'}^{G'}(1_\nu) \right).
 		\end{equation*}
 	\end{goal}
+	\vspace{-0.1cm}
 	\begin{remark}
 		Previous works \cite{kobayashi2014classification}, \cite{kobayashi2013finite} imply that $\dim\Hom_{G'}(I(\lambda)\kern-0.1cm\mid_{G'},J(\nu))$ is
 		bounded uniformly in $(\lambda,\mu)\in\C^2$.
@@ -376,7 +388,9 @@ Kavli Institute for the Physics and Mathematics of the Universe
 		In \cite{kobayashi2015symmetry} (published in Memoirs of AMS) the complete answer for these questions was obtained in the case $q=0$ (that is, $(G,G')=(O(n+1,1),O(n,1))$).
 	\end{remark}
 	\note{But even principal series turn out to have too complicated structure, so we switch to their ``little brothers'' spherical degenerate
-		principal series. Those are defined built in a similar fashion, but now we take maximal parabolic and trivial representation of $M$
+		principal series. Those are defined in a similar fashion, but now we take a maximal parabolic instead
+		of minimal
+		and trivial representation of $M$
 		to begin with.
 
 		In case of indefinite orthogonal groups we are dealing with now, spherical degenerate principal series of $G$ and $G'$ are indexed
@@ -390,7 +404,9 @@ Kavli Institute for the Physics and Mathematics of the Universe
 	}
 \end{frame}
 \begin{frame}
-	In my opinion, there are two main reasons why Kobayashi--Speh succeeded in giving the complete classification:\vspace{1em}
+	$\mathcal{ABC}$ program introduced by T. Kobayashi predicted that it should be possible to classify SBOs for the pair of indefinite orthogonal groups.
+
+	Beside that, there are two main reasons why Kobayashi--Speh succeeded in giving the complete classification:\vspace{1em}
 
 	First, they developed a general theory, that implies that under the geometric condition $P'N_-P=G$ we have\begin{equation*}
 		Hom_{G'}(I(\lambda)\kern-0.1cm\mid_{G'},J(\nu))\simeq\underbrace{\sol}_{\mbox{solutions of some PDEs}}\subset\mathcal{D}'(\R^{p,q}).
@@ -416,8 +432,9 @@ Kavli Institute for the Physics and Mathematics of the Universe
 %%		\end{array}\]
 %%	\end{setting}
 	\note{
-		Second, for this setting we have a very satisfying and concrete geometric model. Group $O(p,q)$ naturally acting on the $p+q$-dimensional
-		space, leaves the light cone invariant. In turn, as the action is linear, we also have $O(p,q)$ acting on a quotient space of light cone
+		Second, for this setting we have a very satisfying and concrete geometric model. Group $O(p+1,q+1)$ naturally acting on the $p+q+2$
+		-dimensional
+		space, leaves the light cone invariant. In turn, as the action is linear, we also have $O(p+1,q+1)$ acting on a quotient space of light cone
 		by dilations, which in turn is diffeomorphic to the product of spheres with their opposite points identified.
 
 		It then turns out that degenerate spherical principal series $I(\lambda)$ are realized as a space of homogeneous functions on the light
@@ -433,6 +450,7 @@ Kavli Institute for the Physics and Mathematics of the Universe
 		\note{I will describe our main results now.}
 	\end{center}
 \end{frame}
+\section{Main results (I)}
 \begin{frame}
 	The general theory of Kobayashi--Speh allows us to bring on the power of analysis:
 	\begin{fact}[\cite{kobayashi2015symmetry}]
@@ -442,7 +460,7 @@ Kavli Institute for the Physics and Mathematics of the Universe
 		\xymatrixcolsep{3pc}
 		\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\mathcal{S}}
 		&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda}) \otimes\mathbb{C}_\nu \right)^{P'}
-	\ar[r]_-{F\mapsto \supp(F)}\ar[d]^{\simeq}_{\mbox{rest}}
+		\ar[r]_-{F\mapsto \supp(F)}\ar[d]^{\rotatebox{270}{$\simeq$}}_{\mbox{rest}}
 	&2^{P'\backslash G/P}\\
 	&\sol\subset\mathcal{D}'(\R^{p,q})\ar[lu]^{\mbox{Op}}_{\simeq}&
 	}
@@ -450,6 +468,7 @@ Kavli Institute for the Physics and Mathematics of the Universe
 \end{figure}
 \note{
 %%	下のSol(Rpq)という空間がある(lambda,nu)に依存する偏微分方程式を満たす超関数空間です。ここで、左から真ん中への矢印が単純なSchwarz kernel定理で、真ん中から下へのrestという写像がEuclid 空間と同型なopen Bruhat cellに対して制限を表します。この２つの写像がベクトル空間の同型写像になります。なので、抽象的な対称性破れ作用素空間の代わりに具体的なEuclid空間上の偏微分方程式の解空間を研究してもいいということです。ポイントがもう１つあります。真ん中の空間がG/P上のP’普遍超関数空間なので、それぞれの元のサーポトがP’普遍G/P閉部分集合になります。つまり、真ん中のベクトル空間からGの両側剰余空間への写像できたということです。この両側剰余空間が有限なので、P’普遍G/P閉部分集合が大切なinvariantになります。
+	\scriptsize
 	As was briefly mentioned above, the general theory of Kobayashi--Speh implies that under some geometric conditions (which are satisfied
 	in our case), the space of SBOs is isomorphic to the solution space of some PDE.
 
@@ -458,11 +477,11 @@ Kavli Institute for the Physics and Mathematics of the Universe
 	It maps every symmetry breaking operator to its integral kernel. The map from center to the bottom, which we call rest, is the restriction of this
 	integral kernel to open Bruhat cell, which is diffeomorphic to the Euclidean space. Both of these maps are isomorphisms of finitely-dimensional
 	vector spaces and altogether this tells us that complicated and abstract space of SBOs can be replaced with more concrete space of solutions
-	of partial differential equation.
+	of a partial differential equation.
 
 	But there is one more point to be made here.
 	The middle vector space is the space of $P'$-invariant functions on $G/P$, hence the support of such a function should be a $P'$-invariant
-	closed subset of $G/P$. The establishes the map from the middle vector space to the double coset space of $G$. In turn, as this double coset space
+	closed subset of $G/P$. This establishes the map from the middle vector space to the double coset space of $G$. In turn, as this double coset space
 	is finite, the $P'$-invariant closed subsets of $G/P$ form an important invariant of symmetry breaking operators.
 }
 \end{fact}
@@ -498,61 +517,178 @@ $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
 	As a first result, we classify all such sets. We have explicitly determined the orbit decomposition of flag variety $G/P$ under the left $P'$
 	-action,
 	together with its closure relations. More precisely, when $p$ is bigger than one, there are five $P'$-invariant closed subsets of $G/P$
-	and when $p=1$ there are four of them. The subsets $C$ and $Y$ have generic codimension being equal to one. When $p$ is bigger than one,
+	and when $p=1$ there are four of them. The subsets $C$ and $Y$ have their generic codimension being equal to one. When $p$ is bigger than one,
 	the intersection of $C$ and $Y$ has generic codimension one inside $C$ or $Y$ and is of generic dimension $p+q-2$. In turn, when $p$ equals one,
 	the intersection of $C$ and $Y$ is just the origin point.
 }
 \end{frame}
-\begin{frame}
-	\begin{theorem}
-		We can construct the following families of SBOs which holomorphically depend on parameters:
-		\vspace{-0.9em}
-		\input{table1.tex}
-	\end{theorem}
+%%\begin{frame}
+%%	\begin{theorem}
+%%		We can construct the following families of SBOs which holomorphically depend on parameters:
+%%		\vspace{-0.9em}
+%%		\input{table1.tex}
+%%	\end{theorem}
+%%	\note{
+%%%%		次の結果に複数パラメーターに正則に依存する対称性破れ作用素のファミリーを３つ作ります。ここでR^X_lambda,nuのサーポトがほとんどいつもXと等しくなので、regular対称性破れ作用素と呼ばれています。Rtilda^X_lambda,nuがregular対称性破れ作用素のrenormalizationです。最後、R^{0}_lambda,nuのサーポトがいつも原点と等しくので、微分対称性破れ作用素と呼ばれています。//（ナナメのニじょうせん）と\myabs{（たての３分線）とういうのはC^2の部分多様体です。CtildeがGegenbauer多項式と関係がある２変数多項式です。
+%%		Next result is the construction of three families of SBOs depending holomorphically on parameters. Here $R^X_{\lambda,\nu}$
+%%		has its support being equal to the whole $X$ for generic values of parameters, hence we call it regular symmetry breaking operator.
+%%		In turn, $\tilde{R}_{\lambda,\nu}^X$ is the renormalization of the regular SBO. Finally, $R^{ \left\{ o \right\}}_{\lambda,\nu}$ is
+%%		supported at origin point only, hence it is called differential SBO.
+%%
+%%		The set double slash is the countable union of linear affine spaces. $\tilde{C}$ is the two-variable polynomial, induced by a renormalization
+%%		of Gegenbauer polynomial.
+%%	}
+%%\end{frame}
+\begin{frame}{Differential SBO}
+	\begin{fact}[The classification of differential SBOs (\cite{kobayashi2015branching})]
+		For
+$(\lambda, \nu) \in / / \assign \{
+(\lambda, \nu) \in \mathbbm{C}^2 \mid \nu - \lambda \in 2\mathbbm{N} \}$, we let
+\begin{equation*}
+	{R}_{\lambda, \nu}^{\{ o \}} =
+\tmop{Rest}_{x_p = 0} \circ \tilde{C}_{\nu - \lambda}^{\lambda - \frac{n -
+1}{2}} \left( - \Delta_{\mathbbm{R}^{p - 1, q}}, \frac{\partial}{\partial x_p}
+\right)を定める。
+\end{equation*}
+Here $\tilde{C}(s,t)$ is a two-variable polynomial defined as in \cite[(6.5)]{Kobayashi2016}. It is the two-variable inflation
+of a renormalized Gegenbauer polynomial. Then,
+	$R^{ \left\{ o \right\}}_{\lambda,\nu}$ becomes the differential SBO (namely, $\mathcal{S}\mbox{upp} ({R}_{\lambda,
+	\nu}^{\{ o \}}) = \{ 0 \}$), and all the differential SBOs are proportional to $R^{ \left\{ o \right\}}_{\lambda,\nu}$.
+	\end{fact}
 	\note{
-%%		次の結果に複数パラメーターに正則に依存する対称性破れ作用素のファミリーを３つ作ります。ここでR^X_lambda,nuのサーポトがほとんどいつもXと等しくなので、regular対称性破れ作用素と呼ばれています。Rtilda^X_lambda,nuがregular対称性破れ作用素のrenormalizationです。最後、R^{0}_lambda,nuのサーポトがいつも原点と等しくので、微分対称性破れ作用素と呼ばれています。//（ナナメのニじょうせん）と\myabs{（たての３分線）とういうのはC^2の部分多様体です。CtildeがGegenbauer多項式と関係がある２変数多項式です。
-		Next result is the construction of three families of SBOs depending holomorphically on parameters. Here $R^X_{\lambda,\nu}$
-		has its support being equal to the whole $X$ for generic parameters, hence we call it regular symmetry breaking operator.
-		In turn, $\tilde{R}_{\lambda,\nu}^X$ is the renormalization of the regular SBO. Finally, $R^{ \left\{ o \right\}}_{\lambda,\nu}$ is
+Finally, $R^{ \left\{ o \right\}}_{\lambda,\nu}$ is
 		supported at origin point only, hence it is called differential SBO.
-
-		The set slash-slash is the countable union of linear affine spaces. $\tilde{C}$ is the two-variable polynomial, induced by a renormalization
-		of Gegenbauer polynomial.
 	}
 \end{frame}
-\begin{frame}{Classification of SBO}
-	\begin{theorem}
-		We can find basis for $\Hom_{G'}(I(\lambda),J(\nu))$ for every $(\lambda,\nu)\in \mathbb{C}^2$. In particular, for $p>1$ we have
-  \begin{eqnarray}
-	  & \Hom_{G'}(I(\lambda),J(\nu))= \left\{
+\begin{frame}
+	\begin{theorem}[Construction of regular SBO]
+For
+$(\lambda, \nu) \in \mathbbm{C}^2$, satisfying
+$\tmop{Re} (\nu) < 0$ and $\tmop{Re}
+(\lambda + \nu - n) > 0$, we consider the continuous function
+\vspace{-0.6em}
+\begin{equation*}
+	| x_p |^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}.
+\end{equation*}
+It becomes an element of $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$.
+\vspace{-0.5em}
+Let
+\begin{equation*}
+	\tilde{R}_{\lambda, \nu}^X \assign \tmop{Op} (| x_p
+	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}).
+\end{equation*}
+	\end{theorem}
+\vspace{-0.4em}
+\begin{theorem}[Normalization of regular SBO]
+		$\tilde{R}_{\lambda, \nu}^X$ can be extended to meromorphic in $(\lambda, \nu) \in
+\mathbbm{C}^2$ family of SBOs. Moreover, if we normalize it as
+\vspace{-1.1em}
+\begin{equation*}
+	{R}_{\lambda, \nu}^X \assign \frac{1}{\Gamma
+\left( \frac{\lambda - \nu}{2} \right) \Gamma \left( \frac{\lambda - \nu}{2}
+\right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} \tilde{R}_{\lambda,
+\nu}^X
+\vspace{-0.6em}
+\end{equation*}
+$R_{\lambda,\nu}^X$ is then the family of SBOs, depending holomorphically on $(\lambda,\nu)\in\mathbb{C}^2$.
+We also have $R^X_{\lambda,\nu}=0\iff(\lambda,\nu)$ belongs to some discrete countable subset of $\mathbb{C}^2$.
+	\end{theorem}
+	\note{
+Here $R^X_{\lambda,\nu}$
+		has its support being equal to the whole $X$ for generic values of parameters, hence we call it regular symmetry breaking operator.
+	}
+\end{frame}
+\begin{frame}
+\newcommand{\Supp}{\mathcal{S}{upp}}
+	\begin{theorem}[Construction of singular SBOs]
+	For $S=X,Y,C,$ $\left\{ o \right\}$, we define the parameter spaces
+	$D_S$ as below. We also define symmetry breaking operators
+	$R_{\lambda,\nu}^S$ or $\tilde{R}_{\lambda,\nu}^X$ from
+	$I(\lambda)$ to $J(\nu)$, that are holomorphic in
+$(\lambda,\nu)\in D_S$.
+Each $R_{\lambda,\nu}^S$ or $\tilde{R}_{\lambda,\nu}^X$ is the renormalization of the regular SBO $\tilde{R}_{\lambda,\nu}^X$.
+	For all $(\lambda,\nu)\in D_S$, we have $\Supp(R_{\lambda,\nu}^S)\subset S$ (moreover, for generic $(\lambda,\nu)$ the equality holds).
+	We can explicitly determine the support of every $R_{\lambda,\nu}^S$ or $\tilde{R}_{\lambda,\nu}^X$ for every $(\lambda,\nu)$.\\
+\centerline{\begin{tabular}{|l|l|}
+  \hline
+  ${R}_{\lambda, \nu}^S$ & $D_S$\\
+  \hline
+  ${\tilde{R}}_{\lambda, \nu}^X$ & $\mid \mid \mid$\\
+  \hline
+  ${R}_{\lambda, \nu}^Y$ & \textbackslash\textbackslash\\
+  \hline
+  ${R}_{\lambda, \nu}^C$ & $\mid \mid \mid$\\
+  \hline
+\end{tabular}}
+	\end{theorem}
+We now explain the notation:
+\vspace{-0.5em}
+	\begin{equation*}
+		\begin{array}[]{l}
+		\mid \mid \mid \assign \left\{ (\lambda, \nu) \in \mathbbm{C}^2 \mid
+\nu \in - 2\mathbbm{N} \; \tmop{or} \; \nu \equiv q + 1 \; \tmop{mod} \; 2
+\right\},\\
+\backslash\backslash \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid
+\lambda + \nu - n + 1 \in - 2\mathbbm{N} \},\\
+\mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in 1 +
+2\mathbbm{N} \} . 
+		\end{array}
+	\end{equation*}
+	\note{
+		singular SBOs
+	}
+\end{frame}
+\begin{frame}
+	\begin{theorem}[Classification of SBO]
+		We can find basis for $\Hom_{G'}(I(\lambda),J(\nu))$ for every $(\lambda,\nu)\in \mathbb{C}^2$. In particular, we have
+		\vspace{-1.4em}
+		\newcommand{\SBO}{\Hom_{G'}(I(\lambda),J(\nu))}
+		\begin{equation*}
+	  p
+	  >1\implies\SBO= \left\{
     \begin{array}{ll}
 	    \mathbbm{C} {\tilde{\OpR}}_{\lambda, \nu}^{X} \oplus \mathbbm{C}
       {\OpR}^{\{ 0 \}}_{\lambda, \nu}, & (\lambda, \nu) \in / /\cap 
       \mid\mid\mid \\
       \mathbbm{C} \OpR^X_{\lambda, \nu}, &
       \mbox{\normalfont otherwise.}
-    \end{array} \right. &  \nonumber
-  \end{eqnarray}
-  Note that $//\cap\mid\mid\mid\subset\mathbb{C}^2$ is a countable discrete subset.
+    \end{array} \right. 
+    \vspace{-0.9em}
+  \end{equation*}
+		\begin{equation*}
+p=1\implies 
+			\SBO = \left\{
+	\begin{array}{@{}ll@{}}
+		\mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \in \mathbbm{C}^2 - \mathcal{A} - \mathcal{X},\\
+     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
+     \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mathcal{A} -
+     \mathcal{X},\\
+     \mathbbm{C}R^P_{\lambda, \nu} \oplus \mathbbm{C}R^C_{\lambda, \nu}, &
+     (\lambda, \nu) \in \mathcal{X} - / /,\\
+     \mathbbm{C}R^{\{ o \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mathcal{X} \cap / /.
+   \end{array} \right.
+   \end{equation*}
+   Note that here $\mathcal{A}:=//\cap \mid\mid\mid$ and $\mathcal{X}:=\backslash\backslash\cap\mid\mid$ are discrete countable subsets of $\mathbb{C}^2$.
 		\label{}
 	\end{theorem}
 	\begin{corollary}
-  \begin{eqnarray}
-	  & \dim\Hom_{G'}(I(\lambda),J(\nu))= \left\{
+		\begin{equation*}
+	  \dim\Hom_{G'}(I(\lambda),J(\nu))= \left\{
     \begin{array}{ll}
 	    2, & (\lambda, \nu) \in / /\cap 
       \mid\mid\mid \\
       1, &
       \mbox{\normalfont otherwise.}
-    \end{array} \right. &  \nonumber
-  \end{eqnarray}
+    \end{array} \right. 
+  \end{equation*}
 	\end{corollary}
 	\note{
 %%次の定理に、対称性破れ作用素が分類することができました。特に対称性破れ作用素の空間が可算無限離散集合を除いて、１次元になりますが、この集合上で２次元になります。
 		Next result is the classification of symmetry breaking operators. In particular, aside from the countable discrete set
-		of parameters, the dimension is 1, while at the parameters in this set, the dimension of SBO space is 2.
+		of parameters, the dimension is 1, while at the parameters in this discrete countable set, the dimension of SBO space is 2.
 	}
 \end{frame}
+\section{Main results (II)}
 \begin{frame}{Spherical multiple}
 	\begin{theorem}
 		Let $1_\lambda\in C^\infty(G/P,\mathcal{L}_\lambda)^K,1_\nu\in C^\infty(G'/P',\mathcal{L}_\nu)^{K'}$ be the spherical vectors. We then have
@@ -562,7 +698,10 @@ $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
      \frac{q - \nu + 1}{2} \right)} 1_{\nu}. \]
 	\end{theorem}
 	\begin{remark}
-		This result was previously obtained for $p=q=1$ case in \cite{bernstein2004estimates}.
+		The case corresponding to the tensor product of representations of $SL_2$ (that is, $p=q=1$ case)
+		was previously shown in \cite[Lem. A.5]{bernstein2004estimates}.
+		The higher rank generalization was obtained in \cite{clerc2011generalized}.
+		The $q=0$ case was shown in \cite[Prop. 7.4]{kobayashi2015symmetry}.
 	\end{remark}
 	\note{
 %%		次の結果によると、I(lambda)のK-finiteベクトルのイメージがJ(nu)のK’-finiteベクトルと比例になります。比例定数も計算できて、極点とレイテンを分けるように積公式で表せます。ちなみに、
@@ -571,79 +710,154 @@ $X^{p,q}:=\Xi^{p+1,q+1}/\R^{\times}\simeq G/P$. Let
 		With appropriate normalization chosen, the proportionality constant is also computed and given as a product of Gamma functions,
 		which allows one to easily determine poles and zeros.
 
-		The case $p=q=1$ was obtained by Bernstein--Reznikov in 2004.
+		The case $p=q=1$ was obtained by Bernstein--Reznikov in 2004. 
 	}
 \end{frame}
+%%\begin{frame}{Residue theorem}
+%%	\begin{theorem}
+%%		The distribution
+%%		\[K_{\lambda,\nu}^{\mathbb{R}^{p,q}}:=\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
+%%		\frac{\myabs{Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\]
+%%		has the pole at $(\lambda,\nu)\in//$ with the residue given by
+%%		{\footnotesize
+%%		\[\Res_{(\lambda,\nu)\in//}K_{\lambda,\nu}^{\mathbb{R}^{p,q}}=\frac{K_{\lambda,\nu}^{\mathbb{R}^{p,q}}}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}
+%%			=\frac{ (- 1)^k k!\pi^{(n - 2) / 2} 
+%%		}{2^{ \nu + 2 k-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
+%%	\tilde{C}_{\nu - \lambda}^{\lambda - \frac{n
+%%  	- 1}{2}} ({\Delta}_{\mathbb{R}^{p-1,q}} {\delta}_{\mathbb{R}^{p+q-1}}, \delta (x_p))
+%%		\]
+%%		}
+%%		where $k:=\frac{\nu-\lambda}{2}$.
+%%		Hence, taking $\Op(\cdot)$ on both sides we get
+%%  \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^k k!\pi^{(n - 2) / 2} 
+%%		}{2^{ \nu + 2 k-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
+%%     \OpR_{\lambda,\nu}^{ \left\{ 0 \right\} },\quad(\lambda,\nu)\in// . \]
+%%	\end{theorem}
+%%	\note{
+%%%%		次の結果はregular対称性破れ作用素のkernelがナナメのニじょうせん集合上に多重度たかだか1のpoleがあって、このpoleのresidueが微分対称性破れ作用素のkernelと比例になるとういうことを表しています。先のように、比例点数を極点とレイテンを分けるように積公式で表せます
+%%		Next result shows that the kernel of regular SBO has pole of multiplicity at most one, when parameters lie in the aforementioned
+%%		double slash subset. The residue of this pole is proportional to the kernel of differential SBO. Again, proportionality
+%%		constant is explicitly computed and given as a product of Gamma functions, allowing one to easily see zeros and poles.
+%%	}
+%%\end{frame}
 \begin{frame}{Residue theorem}
-	\begin{theorem}
-		The distribution
-		\[K_{\lambda,\nu}^{\mathbb{R}^{p,q}}:=\frac{\myabs{x_p}^{\lambda+\nu-n}}{\Gamma\left( \frac{\lambda+\nu-n+1}{2} \right)}\times
-		\frac{\myabs{Q}^{-\nu}}{\Gamma\left( \frac{1-\nu}{2} \right)}\]
-		has the pole at $(\lambda,\nu)\in//$ with the residue given by
-		{\footnotesize
-		\[\Res_{(\lambda,\nu)\in//}K_{\lambda,\nu}^{\mathbb{R}^{p,q}}=\frac{K_{\lambda,\nu}^{\mathbb{R}^{p,q}}}{\Gamma\left( \frac{\lambda-\nu}{2} \right)}
-			=\frac{ (- 1)^k k!\pi^{(n - 2) / 2} 
-		}{2^{ \nu + 2 k-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
-	\tilde{C}_{\nu - \lambda}^{\lambda - \frac{n
-  	- 1}{2}} ({\Delta}_{\mathbb{R}^{p-1,q}} {\delta}_{\mathbb{R}^{p+q-1}}, \delta (x_p))
-		\]
-		}
-		where $k:=\frac{\nu-\lambda}{2}$.
-		Hence taking $\Op(\cdot)$ on both sides we get
-  \[\OpR_{\lambda,\nu}^X  = \frac{ (- 1)^k k!\pi^{(n - 2) / 2} 
-		}{2^{ \nu + 2 k-1}}\cdot  \frac{\sin\left( \frac{1+q-\nu}{2}\pi \right)}{\Gamma\left( \frac{\nu}{2} \right)}
-     \OpR_{\lambda,\nu}^{ \left\{ 0 \right\} },\quad(\lambda,\nu)\in// . \]
-	\end{theorem}
+	For $(\lambda,\nu)\in\mathbb{C}^2\setminus//$, we let
+\begin{equation*}
+K_{\lambda, \nu}^X \assign \frac{| x_p |^{\lambda +
+\nu - n}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} \cdot \frac{|
+Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
+\mbox{ol} (\mathbbm{R}^n ; \lambda, \nu).
+\end{equation*}
+Then, $\tilde{R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
+\nu}{2} \right)} \tmop{Op} (K_{\lambda, \nu})$ can be extended to the family of SBOs holomorphic in $(\lambda,\nu)\in\mathbb{C}^2$.
+\begin{theorem}[Residue theorem]
+	For $(\lambda,\nu)\in//$, we let $l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$. Then,
+	\vspace{-1em}
+\begin{equation*}
+	\tilde{R}_{\lambda, \nu}^X = \frac{(- 1)^l l!
+\pi^{(n - 2) / 2}}{2^{\nu + 2 l - 1}} \cdot \frac{\sin \left( \frac{1 + q -
+\nu}{2} \pi \right)}{\Gamma \left( \frac{\nu}{2} \right)} \tilde{R}_{\lambda,
+\nu}^{\{ o \}}, \quad \mbox{for }(\lambda, \nu) \in //.
+\end{equation*}
+\end{theorem}
+\begin{remark}
+%%		留数公式の原型
+%%		として$q=0$の場合は\cite[Thm. 12.2]{kobayashi2015symmetry}で得られた。
+		The prototype of this theorem (namely, the $q=0$ case), was obtained in
+		\cite[Thm. 12.2]{kobayashi2015symmetry}.
+\end{remark}
 	\note{
-%%		次の結果はregular対称性破れ作用素のkernelがナナメのニじょうせん集合上に多重度たかだか1のpoleがあって、このpoleのresidueが微分対称性破れ作用素のkernelと比例になるとういうことを表しています。先のように、比例点数を極点とレイテンを分けるように積公式で表せます
-		Next result shows that the kernel of regular SBO has pole of multiplicity at most one, when restricted to the aforementioned
-		slash-slash subset. The residue of this pole is proportional to the kernel of differential SBO. Again, proportionality
+		Next result shows that the distribution $K_{\lambda,\nu}^X$ defined as on the slide,
+		has pole of multiplicity at most one, when parameters lie in the aforementioned
+		double slash subset. 
+		After we normalize it, we see that the residue of this pole is proportional to the kernel of differential SBO. Again, proportionality
 		constant is explicitly computed and given as a product of Gamma functions, allowing one to easily see zeros and poles.
 	}
 \end{frame}
-\begin{frame}{Functional identities}
-	\begin{fact}[Knapp-Stein operator]
-		There is a nontrivial $G$-invariant operator $\tilde{\mathbb{T}}_{\lambda}:I(\lambda)\to I(n-\lambda)$ which holomorphically depends on $\lambda\in \mathbb{C}$.
-	\end{fact}
-	\begin{theorem}
-		Let $n':=n-1$. Then the following holds:
-\begin{eqnarray}
-	& \tilde{\mathbbm{T}}_{n' - \nu} \circ \OpR^X_{\lambda,n'-\nu}= q^{T\mathbbm{R}^n}_{\mathbbm{R}^n} (\lambda,
-  \nu) \OpR^X_{\lambda,\nu} &  \nonumber\\
-  & \OpR^X_{n-\lambda,\nu} \circ
-  \tilde{\mathbbm{T}}_{\lambda} = q^{\mathbbm{R}^n T}_{\mathbbm{R}^n}
-  (\lambda, \nu) \OpR^X_{\lambda,\nu} & \nonumber
-\end{eqnarray}
-
-\setbeamercovered{transparent}
-\pause
-Here, for example
-\begin{equation*}
-	\kern-0.1cm
-  q^{\mathbbm{R}^n T}_{\mathbbm{R}^n} (\lambda, \nu) \assign \frac{2^{2
-  \lambda - n} \pi^{- n / 2}}{\Gamma \left( \frac{n - \lambda}{2} \right)}
-  \cdot \frac{\sin \left[ \pi \frac{p - \lambda + 1}{2} \right]}{\pi} \cdot
-  \left\{ \begin{array}{l@{}l@{}}
-    2^{1 - \lambda} \sqrt{\pi}, & n \in 2\mathbbm{Z}+ 1\\
-    \Gamma \left( \frac{\lambda - n / 2 + 1}{2} \right), & n / 2 + p \in
-    2\mathbbm{Z}\\
-    \Gamma \left( \frac{\lambda - n / 2}{2} \right), & n / 2 + p \in
-    2\mathbbm{Z}+ 1.
-  \end{array} \right.
-\end{equation*}
-	\end{theorem}
-	\note<1>{
-%%		最後の結果が、古典（こてん）Knapp-Stein作用素と新しいregular対称性破れ作用素の組み合わせがどのようになるかという質問に答えます。以下なような関数等式を得ました。regular対称性破れ作用素とKnapp-Stein作用素の組み合わせがregular対称性破れ作用素と比例になります。
-%%		ここでqRnTRnが以下のようになります。
-		As a final result, we answer the question of what becomes when classical Knapp-Stein intertwining operator gets composed with 
-		newly introduced
-		regular
-		symmetry breaking operator. Here the proportionality constants are given by\ldots
+\begin{frame}{Knapp--Stein operator}
+	\begin{definition}
+		\underline{Knapp--Stein operator} is the $G$-intertwining operator defined in the following way:\begin{equation*}
+			\begin{array}[]{l}
+				\tilde{\mathbb{T}}_\lambda^G:I(\lambda)\to I(n-\lambda)\\
+				f\mapsto q_T(\lambda)\left(\myabs{Q_{p,q}}^{\lambda-n}\ast f  \right)
+			\end{array}
+		\end{equation*}
+		Here
+		$q_T (\lambda)$ can be explicitly described as the product of $\Gamma$ functions.
+	\end{definition}
+	Both
+		$\tilde{R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$ and
+		$\tilde{R}_{\lambda, \nu}^X$ are SBOs. Let us compare them.
+		\note{Before introducing the next result, the functional identity, we recall the definition of a classical
+		Knapp-Stein operator. The setting $G=G'$ of branching was well-studied before and led to the introduction of the Knapp-Stein operator.
+		It is the $G$-intertwining operator from $I(\lambda)$ to $I(n-\lambda)$,
+		characterized by its holomorphic dependence on its single parameter, the fact that it is nonvanishing.
+		It's exact form is given as the convolution with indefinite quadratic form, but we omit the normalization constant for simplicity.
 	}
 \end{frame}
+\begin{frame}{}
+	Both
+		$\tilde{R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$ and $\tilde{R}_{\lambda, \nu}^X$ are SBOs. Let us compare them.
+		\centerline{\xymatrix{I(\lambda)\ar[d]^{\tilde{\mathbb{T}}_{\lambda}^G}\ar@{-->}[rd]^{R_{\lambda,\nu}^X}&\\
+		I(n-\lambda)\ar[r]^{R^X_{n-\lambda,\nu}}&J(\nu)}}
+		For $G' = O (p, q + 1)$, we similarly define $\tilde{\mathbbm{T}}_{\nu}^{G'}$:
+		\centerline{
+			\xymatrix{
+				I(\lambda)\ar@{-->}[rd]^{R_{\lambda,\nu}^X}\ar[r]^{R_{\lambda,n-1-\nu}^X}&J(n-1-\nu)\ar[d]^{\tilde{\mathbb{T}}_{n-1-\nu}^{G'}}\\
+				&J(\nu)
+			}}
+			\note{Now, the next two commutative diagrams convince us that Knapp-Stein operator composed with the regular SBO
+			from the left or from the right should still be symmetry breaking operators and as the dimension of SBO space is
+		generically equal to one, we conclude that they should be proportional. }
+\end{frame}
 \begin{frame}
-	{\footnotesize\bibliographystyle{apalike}
-\bibliography{todai_master}}
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+\xymatrix{I(\lambda)\ar[d]^{\tilde{\mathbb{T}}_{\lambda}^G}\ar@{-->}[rd]^{R_{\lambda,\nu}^X}&\\I(n-\lambda)\ar[r]^{R^X_{n-\lambda,\nu}}&J(\nu)}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+      %(or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[t]{0.3\textwidth}
+			\xymatrix{I(\lambda)\ar@{-->}[rd]^{R_{\lambda,\nu}^X}\ar[r]^{R_{\lambda,n-1-\nu}^X}&J(n-1-\nu)\ar[d]^{\tilde{\mathbb{T}}_{n-1-\nu}^{G'}}\\&J(\nu)}
+    \end{subfigure}
+    \end{figure}
+    \vspace{-1em}
+    \begin{theorem}[Functional identities]
+	    Let
+	$n=p+q\;(p,q\ge1)$ be as above. Then,
+	\vspace{-1em}
+	\begin{equation*}
+		\begin{array}[]{c}
+\tilde{R}_{n - \lambda, \nu}^X \circ
+\tilde{\mathbbm{T}}_{\lambda}^G = q_X^{X T} (\lambda, \nu)
+\tilde{R}^X_{\lambda, \nu} \\
+\tilde{\mathbbm{T}}_{n - 1 - \nu}^{G'} \circ
+\tilde{R}_{\lambda, n - 1 - \nu}^X = q_X^{T X} (\lambda, \nu)
+\tilde{R}_{\lambda, \nu}^X,\mbox{ where}\\
+q_X^{X T} (\lambda, \nu) = \ldots,\quad
+q_X^{T X} (\lambda, \nu) = \frac{\pi^{\frac{n -
+2}{2}} \sin \left( \frac{p - \nu}{2} \pi \right) 2^{1 - n - \nu}}{\Gamma
+\left( \frac{n - 1 - \nu}{2} \right)} \left\{ \begin{array}{ll}
+  \Gamma \left( \frac{1 - \nu}{2} \right), & p = 1\\
+  1, & n \in 2\mathbbm{Z}\\
+  \ldots, & \ldots
+\end{array} \right.
+		\end{array}
+	\end{equation*}
+	\end{theorem}
+\vspace{-0.5em}
+	\begin{remark}
+		The prototype of this theorem (namely, the $q=0$ case), was obtained in
+		\cite[Thm. 12.6]{kobayashi2015symmetry}.
+	\end{remark}
+	\note{Proportionality constant can be explicitly determined.}
+\end{frame}
+\begin{frame}{Image of SBOs}
+	\begin{theorem}
+		We can compute image of every SBOs constructed above for every $(\lambda,\nu)$.
+	\end{theorem}
+	\note{The last result\dots}
 \end{frame}
 \begin{frame}{}
 	\begin{center}
@@ -663,6 +877,96 @@ Here, for example
 		\huge Thank You for Your attention!
 	\end{center}
 \end{frame}
+\begin{frame}[allowframebreaks]{References}
+	
+\begin{thebibliography}{KØSS15}
+
+\bibitem[KKP16]{kobayashi2016classification}
+Toshiyuki Kobayashi, Toshihisa Kubo, and Michael Pevzner.
+\newblock Classification of differential symmetry breaking operators for
+  differential forms.
+\newblock {\em Comptes Rendus Mathematique}, 354(7):671--676, 2016.
+
+\bibitem[KS17]{kobayashi2017symmetry}
+Toshiyuki Kobayashi and Birgit Speh.
+\newblock Symmetry breaking for orthogonal groups and a conjecture by {B}.
+  {G}ross and {D}. {P}rasad.
+\newblock {\em arXiv preprint arXiv:1702.00263}, 2017.
+
+  \bibitem[Kob98b]{kobayashi1998discrete3}T.~Kobayashi. {\newblock}Discrete
+  decomposability of the restriction of $A_q (\lambda)$ with respect to
+  reductive subgroups III. restriction of Harish-Chandra modules and
+  associated varieties. {\newblock}\tmtextit{Inventiones mathematicae},
+  131(2):229--256, 1998.
+
+  \bibitem[K{\O}03]{KO1}T.~Kobayashi and B.~{\O}rsted. {\newblock}Analysis on
+  the minimal representation of \tmtextrm{O}$(p, q)$.\tmtextrm{I}. Realization
+  via conformal geometry. {\newblock}\tmtextit{Adv. Math.}, 180:486--512,
+  2003.
+
+  \bibitem[CK{\O}P11]{clerc2011generalized}J.-L.~Clerc, T.~Kobayashi,
+  B.~{\O}rsted , and  M.~Pevzner.{\newblock} Generalized Bernstein--Reznikov
+  integrals.{\newblock} \tmtextit{Mathematische Annalen}, 349(2):395--431,
+  2011.{\newblock}
+
+\bibitem[KP16b]{Kobayashi2016}
+T.~Kobayashi and M.~Pevzner.
+\newblock Differential symmetry breaking operators: {I}{I}. {R}ankin--{C}ohen
+  operators for symmetric pairs.
+\newblock \emph{Selecta Mathematica}, \textbf{22}(2), (2016), pp. 847--911.
+Available at \url{http://dx.doi.org/10.1007/s00029-015-0208-8}.
+
+\bibitem[K93]{kobayashi1993}
+T.~Kobayashi.
+\newblock The restriction of ${A}_q \left( \lambda \right)$ to reductive
+  subgroups.
+\newblock \emph{Proc. Japan Acad. Ser. A Math. Sci.}, \textbf{69}(7), (1993),
+  pp. 262--267.
+Available at \url{http://dx.doi.org/10.3792/pjaa.69.262}.
+  \bibitem[KM14]{kobayashi2014classification}T.~Kobayashi  and 
+  T.~Matsuki.{\newblock} Classification of finite-multiplicity symmetric
+  pairs.{\newblock} In \tmtextit{\tmtextrm{\tmtextup{\tmtextmd{Special Issue
+  in honour of Professor Dynkin for his 90th birthday}}}},  volume~19,  pages 
+  457--493. Springer, 2014.{\newblock}
+  
+  \bibitem[KO13]{kobayashi2013finite}T.~Kobayashi  and  T.~Oshima.{\newblock}
+  Finite multiplicity theorems for induction and restriction.{\newblock}
+  \tmtextit{Advances in Mathematics}, 248:921--944, 2013.{\newblock}
+  
+  \bibitem[Kob05]{Kobayashi2005}Toshiyuki Kobayashi.{\newblock}
+  \tmtextit{Restrictions of Unitary Representations of Real Reductive Groups},
+  pages  139--207.{\newblock} Birkh{\"a}user, 2005.{\newblock}
+  
+  \bibitem[Kob15]{kobayashi2015program}T.~Kobayashi.{\newblock} A program for
+  branching problems in the representation theory of real reductive
+  groups.{\newblock} In \tmtextit{\tmtextrm{\tmtextup{\tmtextmd{Special issue
+  in honor of Vogan's 60th years birthday}}}},  volume  312,  pages  277--322.
+  Birkh{\"a}user, 2015.{\newblock}
+  
+  \bibitem[KS15]{kobayashi2015symmetry}T.~Kobayashi  and  B.~Speh.{\newblock}
+  \tmtextit{Symmetry Breaking for Representations of Rank One Orthogonal
+  Groups},  volume \tmtextbf{238} of \tmtextit{Memoirs of the Amer. Math.
+  Soc}.{\newblock} 2015.{\newblock}
+  
+  \bibitem[K{\O}SS15]{kobayashi2015branching}T.~Kobayashi, B.~{\O}rsted,
+  P.~Somberg, and  V.~Sou{\v c}ek.{\newblock} Branching laws for verma
+  modules and applications in parabolic geometry. I.{\newblock}
+  \tmtextit{Advances in Mathematics}, 285:1796--1852, 2015.{\newblock}
+
+\bibitem[K{\O}03]{KO2}
+T.~Kobayashi and B.~{\O}rsted.
+\newblock Analysis on the minimal representation of\/ {$\mbox{\rm O}(p,q)$}.{$\;$}{{\rm{II}}}. {B}ranching laws.
+\newblock \emph{Adv. Math.}, \textbf{180}(2), (2003), pp. 513--550.
+Available at \url{https://doi.org/10.1016/S0001-8708(03)00013-6}.
+
+\bibitem[BR04]{bernstein2004estimates}
+J.~Bernstein and A.~Reznikov.
+\newblock Estimates of automorphic functions.
+\newblock \emph{Mosc. Math. J}, \textbf{\textbf{4}}(1), (2004), pp. 19--37.
+Available at \url{http://mi.mathnet.ru/eng/mmj141}.
+\end{thebibliography}
+\end{frame}
+
 \begin{frame}
 	\begin{setting}
 		\begin{enumerate}
@@ -711,3 +1015,5 @@ with $G$-action by left multiplication, and similarly for $J(\nu)$.
 	\end{setting}
 \end{frame}
 \end{document}
+%TODO:
+%	more checkpoints (<=10min)
