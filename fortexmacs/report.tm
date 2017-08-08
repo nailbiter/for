@@ -15,6 +15,16 @@
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     Prove the multiplicity-freeness of <math|<big|wedge><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
     as representation of <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>
+  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
+    read Lang's SL2
+  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
+    read Vogan's book
+  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
+    prepare and deliver the speech at Taiwan
+  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
+    prepare the schedule for August
+  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
+    prepared better notes on Tamori-kun's talk
   </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
   \;
@@ -22,14 +32,14 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>
+    <item>Prepared and delivered speech at Taiwan.
 
     <item>By reading Your emails to Prof. Nagisa I have learned something
     about writing emails. The things I have learned are described in
     <verbatim|manner-jap.pdf>;<\footnote>
       Items<space|1em>3, 4 of this list are not done yet (hence, please
       ignore the files <verbatim|lecture.pdf> and <verbatim|manner-jap.pdf>
-      for now). I will send them before the end of Saturday. I am extremely
+      for now). I will send them before the end of today. I am extremely
       sorry.
     </footnote>
 
@@ -44,52 +54,18 @@
     <item*|Tue>
 
     <\enumerate>
+      <item>deliver items 2, 3 of the \PWhat has been done (additional)\Q
+      section;
+
       <item>prepare the schedule for August and send it to You (see item
       <reference|items:comments-schedule> of Comments section);
-
-      <item> work on slides for the Taiwan talk; send You the first version;
-
-      <item>deliver items 2, 3, 4 of the \PWhat has been done (additional)\Q
-      section;
     </enumerate>
 
-    <item*|Wed>
+    <item*|Wed and later>
 
     <\enumerate>
-      <item> work on slides for the Taiwan talk;
-
       <item>read the article <cite|braverman1998minimal> and improve my notes
       on Tamori-kun's talk. As Tamori himself, if necessary;
-    </enumerate>
-
-    <item*|Thu>
-
-    <\enumerate>
-      <item> work on slides for the Taiwan talk;
-
-      <item>Prepare reading schedule for August and send it to You;
-    </enumerate>
-
-    <item*|Fri>
-
-    <\enumerate>
-      <item>Deliver speech at National Taiwan University;
-
-      <item>Start preparing for the Tambara talk;
-    </enumerate>
-
-    <item*|Sat>
-
-    <\enumerate>
-      <item>Continue preparing for the Tambara talk;
-
-      <item>Start preparing the speech for the Functional Analysis Symposium;
-    </enumerate>
-
-    <item*|Sun>
-
-    <\enumerate>
-      <item>Prepare the report for this week;
 
       <item>Continue preparing for the Tambara talk;
 
