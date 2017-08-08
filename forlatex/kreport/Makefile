@@ -1,8 +1,8 @@
 .PHONY: all commit push clean p
 .SECONDARY: 
 
-ZIPNAME=report75
-WORKON=$(ZIPNAME) jul19-jul31
+ZIPNAME=report76
+WORKON=$(ZIPNAME) jul31--aug8
 COMMIT_PREFIX=...
 PDFS=report
 AUX=vocab_written.pdf vocab_oral.pdf lecture.pdf manner-jap.pdf kurashiki_reflection.pdf

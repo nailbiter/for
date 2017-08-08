@@ -3,7 +3,7 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 75>
+  <section|report 76>
 
   <date|>
 
@@ -22,14 +22,7 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>I have attended the study group dedicated to Gan-Gross-Prasad
-    hypothesis in Kurashiki. The reflection on the event is attached as
-    <verbatim|kurashiki_reflection.pdf>;
-
-    <item>By reading the resulting abstract and by reading Your emails to
-    Prof. Nagisa I have learned several useful words and expressions: these
-    are reflected in <verbatim|vocab_oral.pdf> and
-    <verbatim|vocab_written.pdf>;
+    <item>
 
     <item>By reading Your emails to Prof. Nagisa I have learned something
     about writing emails. The things I have learned are described in
