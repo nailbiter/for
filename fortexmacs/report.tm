@@ -36,12 +36,7 @@
 
     <item>By reading Your emails to Prof. Nagisa I have learned something
     about writing emails. The things I have learned are described in
-    <verbatim|manner-jap.pdf>;<\footnote>
-      Items<space|1em>3, 4 of this list are not done yet (hence, please
-      ignore the files <verbatim|lecture.pdf> and <verbatim|manner-jap.pdf>
-      for now). I will send them before the end of today. I am extremely
-      sorry.
-    </footnote>
+    <verbatim|manner-jap.pdf>;
 
     <item>I have attended Your lecture on July 19th for undergraduate
     students. It was very enlightening. My lecture notes are attached as
@@ -117,10 +112,6 @@
     precisely, did You meant <cite|vogan1987unitary> or
     <cite|vogan1981representations>?
 
-    <item>Thank You once again for allowing me to listen to Your Wednesday's
-    lecture. It was very enlightening, but I have a few questions about the
-    topics discussed in it. Please see <verbatim|lecture.pdf>.
-
     <item>Thank You very much for introducing me to tho
     <math|\<#5831\>\<bullet\>\<#9023\>\<bullet\>\<#76F8\>> philosophy. I
     would like to ask a question regarding it. Suppose I have to reply to
@@ -130,7 +121,13 @@
     and cannot reply to my mail. What should I do?
 
     <item>Are there any other study meetings similar to Kurashiki? (but
-    perhaps, dedicated to a different area)
+    perhaps, dedicated to a different area).
+
+    <item>In the lecture You delivered on \ July 19th for undergraduate
+    students (see <verbatim|lecture.pdf> for notes), I believe You mentioned
+    the list of important modern mathematical problems compiled by a hundred
+    of famous mathematicians as a modern analogue of Hilbert's problems.
+    Where can I find this list?
   </enumerate>
 
   I also have few questions about japanese. Please, ignore them, if You are
@@ -236,7 +233,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      75> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      76> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
