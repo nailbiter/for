@@ -112,7 +112,7 @@
     precisely, did You meant <cite|vogan1987unitary> or
     <cite|vogan1981representations>?
 
-    <item>Thank You very much for introducing me to tho
+    <item>Thank You very much for introducing me to the
     <math|\<#5831\>\<bullet\>\<#9023\>\<bullet\>\<#76F8\>> philosophy. I
     would like to ask a question regarding it. Suppose I have to reply to
     email and there is a deadline. If I understand correctly,
@@ -122,12 +122,6 @@
 
     <item>Are there any other study meetings similar to Kurashiki? (but
     perhaps, dedicated to a different area).
-
-    <item>In the lecture You delivered on \ July 19th for undergraduate
-    students (see <verbatim|lecture.pdf> for notes), I believe You mentioned
-    the list of important modern mathematical problems compiled by a hundred
-    of famous mathematicians as a modern analogue of Hilbert's problems.
-    Where can I find this list?
   </enumerate>
 
   I also have few questions about japanese. Please, ignore them, if You are

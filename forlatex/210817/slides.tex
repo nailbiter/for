@@ -1,5 +1,5 @@
 %make suugakkai_16_aux/Makefile
-\documentclass[notes,notheorems]{beamer}
+\documentclass[notheorems]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 \usepackage{mystyle}
 \usepackage{geometry}
@@ -18,6 +18,7 @@
 \usepackage{catchfilebetweentags}
 
 \def\same{\;''\;}
+\newcommand{\sbo}{\tmop{Hom}_{G'} (I(\lambda)\kern-0.1cm\mid_{G'}, J(\nu))}
 \newcommand{\Supp}{\mathcal{S}\!{\it upp}}
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \newcommand{\Sol}{\mathcal{S}\mbox{ol}}
@@ -61,6 +62,8 @@
 \newtheorem{example}{{例}}
 \theoremstyle{remark}
 \newtheorem*{remark}{注意}
+
+%\setbeameroption{show only notes}
 
 \setCJKmainfont{Hiragino Mincho Pro}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
@@ -168,7 +171,7 @@ $\pi$が有限次元表現、$G$がコンパクトの場合は古くから多く
 %%finitely-dimensional and $G$:compact. In this setting, $\pi$ always splits
 %%into a direct sum
 \begin{equation*}
-	\pi\kern-0.1cm\mid_{G'} =  \bigoplus_{\tau \in\widehat{G'}} m (\pi, \tau) \tau
+	\pi\kern-0.1cm\mid_{G'} =  \bigoplus_{\tau \in\widehat{G'}} m (\pi, \tau) \tau.
 \end{equation*}
 of irreducibles $\tau$ of $G'$.
 \end{frame}
@@ -182,7 +185,7 @@ of irreducibles $\tau$ of $G'$.
 \end{equation*}
 この問題は極めて難しくなり、
 1990年代から
-ようやく本格的な研究が始まりました。
+ようやく本格的な研究が始まった。
 
 %%In particular, several examples that show
 %%that behaviour is very wild in general were constructed
@@ -230,21 +233,19 @@ of irreducibles $\tau$ of $G'$.
 	\vspace{-0.6em}
 }\qquad$(\mathcal{C}5)$\quad 対称性破れ作用素の像を決定する。{
 
-}\vspace{-1em}\quad $(\mathcal{C}1) - (\mathcal{C}5)$の五つの問題はKobayashi先生とSpeh先生がrank 1の場合に提唱し、
+}\vspace{-1em}\quad $(\mathcal{C}1) - (\mathcal{C}5)$の五つの問題はKobayashi先生とSpeh先生がrank 1の場合
 \vspace{-0.6em}
 \begin{equation*}
 	(G, G') = (O (n + 1, 1), O (n, 1)). \quad\mbox{\cite{kobayashi2015symmetry}}
-\vspace{-0.6em}
+\vspace{-0.2em}
 \end{equation*}
-\vspace{-1.5em}
+\mbox{に提唱し、\kern-0.1cm その最初の完全な分類結果は実階数１の組に対て証明された。}
 \begin{block}{\underline{目標}:}
 	\cite{kobayashi2015symmetry}の結果を高階場合
 \vspace{-1em}
 	\begin{equation*}
-		(G, G') = (O (p + 1, q + 1), O (p, q + 1)).
-\vspace{-1em}
+		(G, G') = (O (p + 1, q + 1), O (p, q + 1))\;\mbox{に拡張する。}
 	\end{equation*}
-	に拡張する
 \end{block}
 \end{frame}
 \begin{frame}{}
@@ -285,11 +286,10 @@ of irreducibles $\tau$ of $G'$.
 }}
 	\end{block}
 \begin{remark}
-プロガラム Aにおけるアプリオリ評価として(\cite{kobayashi2013finite}、\cite{kobayashi2014classification})、対称性破れ作用素空間の次元
+	プロガラムAにおけるアプリオリ評価として(\cite{kobayashi2013finite}、\cite{kobayashi2014classification})、対称性破れ作用素空間の次元
 \vspace{-1.2em}
 \begin{equation*}
-\dim \tmop{Hom}_{G'} (I (\lambda) \mid_{G'}, J
-\nobracket (\nu)
+\dim \tmop{Hom}_{G'} (I (\lambda)\kern-0.1cm \mid_{G'}, J (\nu))
 \vspace{-0.8em}
 \end{equation*}
 が表現のパラーメタ$(\lambda,\nu)\in\mathbb{C}^2$よらずに一様に押さえられている。
@@ -312,7 +312,7 @@ of irreducibles $\tau$ of $G'$.
 		\xymatrixcolsep{5pc}
 		\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\mathcal{S}}
 		&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda}) \otimes\mathbb{C}_\nu \right)^{P'}
-	\ar[r]_-{F\mapsto \supp(F)}\ar[d]^{\simeq}_{\mbox{rest}}
+		\ar[r]_-{F\mapsto \supp(F)}\ar[d]^{\rotatebox{90}{$\simeq$}}_{\operatorname{rest}}
 	&2^{P'\backslash G/P}\\
 	&\sol\subset\mathcal{D}'(\R^{p,q})\ar[lu]^{\mbox{Op}}_{\simeq}&
 	}
@@ -362,7 +362,7 @@ $(\lambda, \nu) \in / / \assign \{
 	{R}_{\lambda, \nu}^{\{ o \}} =
 \tmop{Rest}_{x_p = 0} \circ \tilde{C}_{\nu - \lambda}^{\lambda - \frac{n -
 1}{2}} \left( - \Delta_{\mathbbm{R}^{p - 1, q}}, \frac{\partial}{\partial x_p}
-\right)を定める。
+\right)\mbox{を定める}。
 \end{equation*}
 ここで$\tilde{C}(s,t)$は\cite[(6.5)]{Kobayashi2016}で定義された２変数多項式であり、正規化された
 	Gegenbauer多項式から導かれるものである。
@@ -380,24 +380,24 @@ $\tmop{Re} (\nu) < 0$ and $\tmop{Re}
 \begin{equation*}
 	| x_p |^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}
 \end{equation*}
-は連続であるし、
+は連続であり、
 $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$の元になる。
 \vspace{-0.5em}
 \begin{equation*}
-	\tilde{R}_{\lambda, \nu}^X \assign \tmop{Op} (| x_p
+	\tilde{R}_{\lambda, \nu}^{\R^{p,q}} \assign \tmop{Op} (| x_p
 	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}) \mbox{とする}.
 \end{equation*}
 	\end{theorem}
 \vspace{-0.4em}
 	\begin{theorem}[regular 対称性破れ作用素の正規化]
-		$\tilde{R}_{\lambda, \nu}^X$ は $(\lambda, \nu) \in
+		$\tilde{R}_{\lambda, \nu}^{\R^{p,q}}$ は $(\lambda, \nu) \in
 \mathbbm{C}^2$に有理型に依存する対称性破れ作用素の族に拡張できる。更に、
 \vspace{-1.1em}
 \begin{equation*}
 	{R}_{\lambda, \nu}^X \assign \frac{1}{\Gamma
 \left( \frac{\lambda - \nu}{2} \right) \Gamma \left( \frac{\lambda - \nu}{2}
 \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} \tilde{R}_{\lambda,
-\nu}^X
+\nu}^{\R^{p,q}}
 \vspace{-0.6em}
 \end{equation*}
 のように正規化すると、$R_{\lambda,\nu}^X$は$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する
@@ -405,10 +405,11 @@ $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$の元になる。
 また、$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)$
 がある離散集合に属する。
 	\end{theorem}
+	\note{tesime}
 \end{frame}
 \begin{frame}
 	\begin{theorem}[singular 対称性破れ作用素の構成]
-	$S=X,Y,C,$ $\left\{ o \right\}$に対して、
+	$S=X,Y,C$に対して、
 	パラメータ集合$D_S$を以下の表のように定めると、作用素
 	$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$は
 	$I(\lambda)$から$J(\nu)$への対称性破れ作用素であり、
@@ -447,8 +448,8 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 	\begin{theorem}[対称性破れ作用素の空間の次元]
 $(\lambda, \nu) \in \mathbbm{C}^2$に対し、
 \begin{equation*}
-\dim \tmop{Hom}_{G'} (I (\lambda) \mid_{G'}, J
-(\nu)) \in \{ 1, 2 \}.
+\dim \sbo
+\in \{ 1, 2 \}.
 \end{equation*}
 	\end{theorem}
 	\begin{theorem}[対称性破れ作用素の分類]
@@ -485,12 +486,13 @@ $(\lambda, \nu) \in \mathbbm{C}^2$に対し、
 \section{$(\mathcal{C}3) - (\mathcal{C}5)$にの答え}
 \begin{frame}
 	\begin{theorem}[$K$不変ベクトルのスペクトラム]
+		\label{thm:spherical}
 	$n=p+q\;(p,q\ge1)$という記法は前述の通りとする。この{とき、}
 	\begin{equation*}
 		\tilde{R}_{\lambda, \nu}^X 1_{\lambda} =
 \frac{2^{1 - \lambda} \pi^{n / 2}}{\Gamma \left( \frac{\lambda}{2} \right)
 \Gamma \left( \frac{\lambda + 1 - q}{2} \right) \Gamma \left( \frac{q - \nu +
-1}{2} \right)} 1_{\nu}
+1}{2} \right)} 1_{\nu}.
 	\end{equation*}
 	\end{theorem}
 	\begin{remark}
@@ -499,7 +501,7 @@ $(\lambda, \nu) \in \mathbbm{C}^2$に対し、
 %%\mathbbm{R})$) and in \cite{kobayashi2015symmetry} for $q = 0$.
 	$SL(2,\R)$の表現のテンソル積の場合、すなわち、
 	定理\ref{thm:spherical}\;の$p=q=1$の特別な場合はBernstein--Reznikov\cite[Lem. A.5]{bernstein2004estimates} によって得られ、
-	また$q=0$の場合は\cite[Prop.\ 7.4]{kobayashi2015symmetry}で得られている。
+	また\footnote{should we have a comma here?}$q=0$の場合は\cite[Prop.\ 7.4]{kobayashi2015symmetry}で得られている。
 	\end{remark}
 \end{frame}
 \begin{frame}{留数公式}
@@ -508,14 +510,15 @@ $(\lambda, \nu) \in \mathbbm{C}^2$に対し、
 K_{\lambda, \nu}^X \assign \frac{| x_p |^{\lambda +
 \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} \cdot \frac{|
 Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
-\mbox{ol} (\mathbbm{R}^n ; \lambda, \nu)\mbox{ を定める}.
+\mbox{ol} (\mathbbm{R}^n ; \lambda, \nu)\mbox{ を定める。
+}
 \end{equation*}
-このとき、$\tilde{R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
-\nu}{2} \right)} \tmop{Op} (K_{\lambda, \nu})$は$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する対称性破れ作用素の族に拡張できる
+このとき、${R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
+\nu}{2} \right)} \tmop{Op} (K_{\lambda, \nu})$は$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する対称性破れ作用素の族に拡張できる。
 \begin{theorem}[留数公式]
-	$(\lambda,\nu)\in//$に対して、$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とおく。このとき
+	$(\lambda,\nu)\in//$に対して、$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とおく。このとき\footnote{should we have a comma here?}
 \begin{equation*}
-	\tilde{R}_{\lambda, \nu}^X = \frac{(- 1)^l l!
+	{R}_{\lambda, \nu}^X = \frac{(- 1)^l l!
 \pi^{(n - 2) / 2}}{2^{\nu + 2 l - 1}} \cdot \frac{\sin \left( \frac{1 + q -
 \nu}{2} \pi \right)}{\Gamma \left( \frac{\nu}{2} \right)} \tilde{R}_{\lambda,
 \nu}^{\{ o \}}, \quad \mbox{for }(\lambda, \nu) \in //.
@@ -523,15 +526,15 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 \end{theorem}
 \begin{remark}
 		留数公式の原型
-		として$q=0$の場合は\cite[Thm. 12.2]{kobayashi2015symmetry}で得られた。
+		として\footnote{should we have a comma here?}$q=0$の場合は\cite[Thm. 12.2]{kobayashi2015symmetry}で得られた。
 \end{remark}
 \end{frame}
 \begin{frame}{Knapp--Stein 作用素}
 	\begin{definition}
 		\underline{Knapp--Stein 作用素}は以下のように定義された $G$絡作用素である\begin{equation*}
 			\begin{array}[]{l}
-				\tilde{\mathbb{T}}_\lambda^G:I(\lambda)\to I(n-\lambda)\\
-				f\mapsto q_T(\lambda)\left(\myabs{Q_{p,q}}^{\lambda-n}\star f  \right)
+				\tilde{\mathbb{T}}_\lambda^G:I(\lambda)\to I(n-\lambda),\\
+				f\mapsto q_T(\lambda)\left(\myabs{Q_{p,q}}^{\lambda-n}\star f  \right).
 			\end{array}
 		\end{equation*}
 		ここで
@@ -566,7 +569,7 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
     \vspace{-1em}
     \begin{theorem}[函数等式]
 	$n=p+q\;(p,q\ge1)$で{あった}ことを思い出そう。
-	このとき、
+	このとき、\footnote{maybe, it makes sense to give a full formula for $q^{XT}_X(\lambda,\nu)$, without ``\dots''?}
 	\begin{equation*}
 		\begin{array}[]{l}
 \tilde{R}_{n - \lambda, \nu}^X \circ
@@ -590,7 +593,7 @@ q_X^{T X} (\lambda, \nu) = \frac{\pi^{\frac{n -
 \vspace{-0.5em}
 	\begin{remark}
 		函数等式の原型
-		として$q=0$の場合は\cite[Thm. 12.6]{kobayashi2015program}で得られた。
+		として\footnote{should we have a comma here?}$q=0$の場合は\cite[Thm. 12.6]{kobayashi2015program}で得られた。
 	\end{remark}
 \end{frame}
 \begin{frame}{対称性破れ作用素の像}
@@ -600,13 +603,13 @@ q_X^{T X} (\lambda, \nu) = \frac{\pi^{\frac{n -
 	\end{theorem}
 \end{frame}
 \begin{frame}{}
-	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じる。
-\cite[(5.1.1)]{KO2}にg{倣}って$p>1${かつ}$q\ge1$のときに\begin{equation*}
+	最後に、上記の結果の応用として\footnote{comma here?}Zuckerman導来函手加群の間の対称性破れ作用素の問題を論じる。
+	\cite[(5.1.1)]{KO2}に{倣}って$p>1${かつ}$q\ge1$のときに\footnote{comma here?}\begin{equation*}
 	A_0(p,q):=\left\{ \lambda\in\Z+\frac{p+q}{2}\;:\;\lambda>-1 \right\}
 \end{equation*}とおくと、
 \cite{KO2}で
 %16-b
-示したように、$\lambda\in A_0(p,q)$に対して
+示したように、$\lambda\in A_0(p,q)$に対して\footnote{comma here?}
 $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
 %%16-c
 が定まる。(\cite{KO2}では$\pi_{\pm,\lambda}^{p,q}$を定義するにあたって5種類の
@@ -615,7 +618,7 @@ $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
 Zuckerman導来函手加群で記載される。)
 以下では、この加群の間に対称性破れ作用素がある{か}について論じる。簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
 %%16-a
-以下では\begin{equation*}
+以下では\footnote{comma here?}\begin{equation*}
 	g(t):=\left\{ \begin{array}[]{ll}
 		1&\left(t\in2\N+\frac{1}{2}  \right)\\[10pt]
 		0&t\nin \left(2\N+\frac{1}{2}  \right)
@@ -629,7 +632,7 @@ Zuckerman導来函手加群で記載される。)
 \begin{frame}
 \begin{theorem}[Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素の存在問題]
 	$n=p+q\;(p,q\ge1),\;n':=n-1$とする。
-	以下では
+	以下では\footnote{comma here?}
 	\vspace{-1em}
 \begin{equation*}
                 \begin{array}[]{c}
@@ -665,66 +668,8 @@ Zuckerman導来函手加群で記載される。)
 \end{remark}
 \end{frame}
 
-\begin{frame}[allowframebreaks]{References}
-	
-\begin{thebibliography}{KØSS15}
-
-\bibitem[KP16b]{Kobayashi2016}
-T.~Kobayashi and M.~Pevzner.
-\newblock Differential symmetry breaking operators: {I}{I}. {R}ankin--{C}ohen
-  operators for symmetric pairs.
-\newblock \emph{Selecta Mathematica}, \textbf{22}(2), (2016), pp. 847--911.
-Available at \url{http://dx.doi.org/10.1007/s00029-015-0208-8}.
-
-\bibitem[K93]{kobayashi1993}
-T.~Kobayashi.
-\newblock The restriction of ${A}_q \left( \lambda \right)$ to reductive
-  subgroups.
-\newblock \emph{Proc. Japan Acad. Ser. A Math. Sci.}, \textbf{69}(7), (1993),
-  pp. 262--267.
-Available at \url{http://dx.doi.org/10.3792/pjaa.69.262}.
-  \bibitem[KM14]{kobayashi2014classification}T.~Kobayashi  and 
-  T.~Matsuki.{\newblock} Classification of finite-multiplicity symmetric
-  pairs.{\newblock} In \tmtextit{\tmtextrm{\tmtextup{\tmtextmd{Special Issue
-  in honour of Professor Dynkin for his 90th birthday}}}},  volume~19,  pages 
-  457--493. Springer, 2014.{\newblock}
-  
-  \bibitem[KO13]{kobayashi2013finite}T.~Kobayashi  and  T.~Oshima.{\newblock}
-  Finite multiplicity theorems for induction and restriction.{\newblock}
-  \tmtextit{Advances in Mathematics}, 248:921--944, 2013.{\newblock}
-  
-  \bibitem[Kob05]{Kobayashi2005}Toshiyuki Kobayashi.{\newblock}
-  \tmtextit{Restrictions of Unitary Representations of Real Reductive Groups},
-  pages  139--207.{\newblock} Birkh{\"a}user, 2005.{\newblock}
-  
-  \bibitem[Kob15]{kobayashi2015program}T.~Kobayashi.{\newblock} A program for
-  branching problems in the representation theory of real reductive
-  groups.{\newblock} In \tmtextit{\tmtextrm{\tmtextup{\tmtextmd{Special issue
-  in honor of Vogan's 60th years birthday}}}},  volume  312,  pages  277--322.
-  Birkh{\"a}user, 2015.{\newblock}
-  
-  \bibitem[KS15]{kobayashi2015symmetry}T.~Kobayashi  and  B.~Speh.{\newblock}
-  \tmtextit{Symmetry Breaking for Representations of Rank One Orthogonal
-  Groups},  volume \tmtextbf{238} of \tmtextit{Memoirs of the Amer. Math.
-  Soc}.{\newblock} 2015.{\newblock}
-  
-  \bibitem[K{\O}SS15]{kobayashi2015branching}T.~Kobayashi, B.~{\O}rsted,
-  P.~Somberg, and  V.~Sou{\v c}ek.{\newblock} Branching laws for verma
-  modules and applications in parabolic geometry. I.{\newblock}
-  \tmtextit{Advances in Mathematics}, 285:1796--1852, 2015.{\newblock}
-
-\bibitem[K{\O}03]{KO2}
-T.~Kobayashi and B.~{\O}rsted.
-\newblock Analysis on the minimal representation of\/ {$\mbox{\rm O}(p,q)$}.{$\;$}{{\rm{II}}}. {B}ranching laws.
-\newblock \emph{Adv. Math.}, \textbf{180}(2), (2003), pp. 513--550.
-Available at \url{https://doi.org/10.1016/S0001-8708(03)00013-6}.
-
-\bibitem[BR04]{bernstein2004estimates}
-J.~Bernstein and A.~Reznikov.
-\newblock Estimates of automorphic functions.
-\newblock \emph{Mosc. Math. J}, \textbf{\textbf{4}}(1), (2004), pp. 19--37.
-Available at \url{http://mi.mathnet.ru/eng/mmj141}.
-\end{thebibliography}
+\begin{frame}[allowframebreaks]{参考文献}
+	\input{bibliography.tex}
 \end{frame}
 
 \end{document}

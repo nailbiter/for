@@ -8,7 +8,7 @@ ZIPNAME=august21talk
 WORKON=$(ZIPNAME)
 COMMIT_PREFIX=$()
 PDFS=slides
-AUX=master_announcement2.pdf
+AUX=speech.pdf
 SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex mystyle.sty $(ME)
 
 OUTDIR=../foraux
@@ -25,8 +25,14 @@ all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, 
 p:  $(OUTDIR)/$(ZIPNAME).zip
 src:  $(OUTDIR)/$(ZIPNAME)_s.zip
 
-$(OUTDIR)/slides.pdf : slides.tex
+$(OUTDIR)/stub.pdf : stub.tex bibliography.bib
+	$(LATEXMK) $<
+$(OUTDIR)/slides.pdf : slides.tex bibliography.tex
 	$(XELATEX) $<
+$(OUTDIR)/speech.tex: slides.tex
+	cat $<|sed 's/%\\setbeameroption{show only notes}/\\setbeameroption{show only notes}/g' > $@
+$(OUTDIR)/speech.pdf: $(OUTDIR)/speech.tex $(OUTDIR)/mystyle.sty $(OUTDIR)/geomdiagram.tex $(OUTDIR)/bibliography.tex
+	cd $(OUTDIR) && $(XELATEX) $<
 
 $(OUTDIR)/bibliography.pdf : bibliography_wrap.tex bibliography.tex 
 	$(XELATEX) $<
