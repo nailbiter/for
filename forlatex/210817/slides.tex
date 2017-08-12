@@ -168,12 +168,14 @@
 \begin{frame}
 	  $n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式を
 	  \begin{equation*}
-		  Q_{p,q} (x) \assign \,^t \! x I_{p, q} x, \; (x \in
-  \mathbbm{R}^{p + q})
+		  \begin{array}[]{c}
+		  Q_{p,q} (x) \assign \,^t \! x I_{p, q} x, \; (x \in\mathbbm{R}^{p + q})\\
+		I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
+		  1, \ldots, - 1}_q)\in GL(p+q,\R)
+		  \end{array}{}
 	  \end{equation*}
-	  と定める。ここで$I_{p,q}$は対角行列
-   $I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
-  1, \ldots, - 1}_q)\in GL(p+q,\R)$.
+	  と定める。
+
 この二次形式に{関する}不定値直交群を
 \begin{equation*}
 	G \assign O (p +
@@ -183,6 +185,14 @@
 その
 極大放物型部分群
 $P=MAN_{+}$を以下のように定める、
+\note{
+	$n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式$Q_{p,q}$を
+	  と定めます。この二次形式に{関する}不定値直交群$O(p+1,q+1)$を
+	$G$と定義し、
+その
+極大放物型部分群
+$P=MAN_{+}$を以下のように定めます。
+}
 \end{frame}
 \begin{frame}
 極大放物型部分群
@@ -197,23 +207,28 @@ $P=MAN_{+}$を以下のように定める、
   \end{array} \right) \middle| 
     A \in O (p, q),\;
     \epsilon = \pm 1
-  \right\}}&\simeq O(p,q)\times \Z/{2\Z},  \\
-  A &\assign \left\{\left( \begin{array}{ccc}
+  \right\}}\simeq O(p,q)\times \Z/{2\Z},  &\\
+  A &\assign \left\{a(t)\assign\left( \begin{array}{ccc}
     \cosh (t) & 0 & \sinh (t)\\
     0 & I_{p + q} & 0\\
     \sinh (t) & 0 & \cosh (t)
   \end{array} \right)\middle| t \in \mathbbm{R}\right\} &\simeq \mathbbm{R},\\
    N_+ &\assign\kern-0.1cm\left\{  I_{n + 2}\kern-0.05cm+\kern-0.15cm\left( \begin{array}{ccc}
-    - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)\\
+    - \frac{1}{2} Q_{p,q} (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} Q_{p,q} (b)\\
     b & 0 & - b\\
-    - \frac{1}{2} \Q (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} \Q (b)
+    - \frac{1}{2} Q_{p,q} (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} Q_{p,q} (b)
   \end{array} \right) \kern-0.1cm\middle| b \in \mathbbm{R}^{p + q} \right\} &\simeq
   \mathbbm{R}^{p + q}.\\
   \end{array}
   \end{equation*}
-%%\ExecuteMetaData[master_extract.tex]{tagsetting}
 放物型部分群$P$からの誘導表現として、以下のように
 $G$の球退化主系列表現を定める。
+\note{
+	ここでの$M,A$と$N_+$は$P$のラングランズ分解です。
+	$A$は1次元可換群である、$N_+$は$p+q$次元の可換群です。
+放物型部分群$P$からの誘導表現として、以下のように
+$G$の球退化主系列表現を定めます。
+}
 \end{frame}
 \begin{frame}
 複素数パラメータ
@@ -233,6 +248,21 @@ $P=MAN$は$G'$と適合する。すなわち、$P':=P\cap G'$は$G'$の極大放
 $P'=(G'\cap M)A(G'\cap N_+)$で与えられ{る}。
 $I(\lambda)$と同様
 に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定める。
+\note{
+複素数パラメータ
+$\lambda\in\C$に対して
+$I(\lambda)$という$G$の球退化主系列表現を定義します。
+次に第$p$座標の固定部分群を
+\begin{equation*}
+	G'
+\end{equation*}
+とすると、$G'$は$G$の簡約部分群となる。
+$G$の放物型部分群$P$を定めたsplitな可換群$A$が$G'$に含まれているため、
+$P=MAN$は$G'$と適合します。すなわち、$P':=P\cap G'$は$G'$の極大放物型部分群であり、そのラングランズ分解は
+$P'=(G'\cap M)A(G'\cap N_+)$で与えられます。
+$I(\lambda)$と同様
+に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定めます。
+}
 \end{frame}
 \begin{frame}
 この講演での主テーマは{、}
@@ -247,6 +277,18 @@ $(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Ge
 対称性破れ作用素のなす線型空間
 $\sbo$の基底を具体的に決定しよう。
 \end{frame}
+\note{
+この講演での主テーマは{、}
+群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、{symmetry breaking operator}です。
+\slowly{symmetry breaking operator}の
+\kana{頭文字}{カシラモジ}を{とって}SBOと\kana{略記}{リャクキ}することにします。
+%%対称性破れ作用素全体のなす空間を$\sbo$と表記す{る}。
+
+$(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Gelfand対となるので、小林--大島
+の一般理論によって以下のようなアプリオリ評価が得られます。
+対称性破れ作用素のなす線型空間
+$\sbo$の基底を具体的に決定しましょう。
+}
 \begin{frame}
 %%この空間を分析するために、まず以下のような定義する：
 \begin{definition} \label{def1}
