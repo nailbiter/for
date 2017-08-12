@@ -24,6 +24,7 @@
 \newcommand{\pause}{$\bullet$}
 \newcommand{\slowly}[1]{\dashuline{#1}}
 \newcommand{\continuously}[1]{\underline{#1}}
+\newcommand{\badword}[1]{\uwave{#1}}
 
 \def\same{\;''\;}
 \newcommand{\sbo}{\tmop{Hom}_{G'} (I(\lambda)\kern-0.1cm\mid_{G'}, J(\nu))}
@@ -157,6 +158,7 @@
 
 \section{分岐則の問題}
 
+\subsection{分岐則の問題}
 \begin{frame}{}
 	$G$と$G'$を簡約群とする。
 一般には、$G$の既約表現$\pi$を部分群に制限すると、最早既約にならない\\
@@ -174,7 +176,7 @@
 \end{block}
 
 $\pi$が有限次元表現、$G$がコンパクトの場合は古くから多くの研究があり、組合せ論的なアルゴリズムさえ知られている。
-この設定の上で、$\pi$は$G'$の既約表現の直和へに分解する
+この設定の上で、$\pi$は$G'$の既約表現の直和へに分解するу
 %%These are well-studied (i.e. combinatorial algorithm) for $\pi$
 %%finitely-dimensional and $G$:compact. In this setting, $\pi$ always splits
 %%into a direct sum
@@ -245,10 +247,11 @@ of irreducibles $\tau$ of $G'$.
 	小林俊行先生がご自身の20数年間の研究を整理されて、\kana{提唱}{ていしょう}されたプログラムです。
 	このプログラムは大きく三つのステップに分かれます。
 	$\mathcal{A}$はabstract feature,分岐則の抽象的な\kana{様相}{ようそう}
-	を研究するというもので、分岐則が離散的か連続スペクトラムを持つか、重複度が１か、あるいは有限か、あるいは無限かなどの理論で\kana{基盤}{キバン}的な研究となります。
+	を研究するというもので、\badword{分岐則が離散的か連続スペクトラム}を持つか、\badword{重複度}
+	が１か、あるいは有限か、あるいは無限かなどの理論で\kana{基盤}{キバン}的な研究となります。
 	プログラムＡで悪い現象を予め見抜き、プログラムＢに進みます。
-	次のプログラムＢはbranching law, すなわち、分岐則を具体的に決定する問題です。
-	さらに進んでプログラムＣは単に分岐則を求めるだけではなく、その間のintertwining operator,これを対称性破れ作用素と言いますが、それを決定するというものです。
+	次のプログラムＢは\badword{branching law}, すなわち、分岐則を具体的に決定する問題です。
+	さらに進んでプログラムＣは単に分岐則を求めるだけではなく、その間の\badword{intertwining operator},これを対称性破れ作用素と言いますが、それを決定するというものです。
 	この講演ではプログラムＣの特別な場合を扱います。
 	}
 \end{frame}
@@ -441,6 +444,7 @@ C \assign \{ [\xi, \eta] \in G / P \mid \xi_1 =
 ることが証明されます。図式では、$X$が\slowly{\kana{全体}{ゼンタイ}}、すなわち実旗多様体を表し、edgeのとなりの数字がgenericなcodimensionを表します。\\
 	}
 \end{frame}
+\subsection{微分対称性破れ作用素}
 \begin{frame}{微分対称性破れ作用素}
 	\begin{fact}[微分対称性破れ作用素の分類 ({\cite[Thm. 4.3]{kobayashi2015branching}})]
 $(\lambda, \nu) \in / / \assign \{
@@ -473,6 +477,7 @@ Gegenbauer多項式を２変数化して、そこにラプラシアンと法微�
 parameter $(\lambda,\nu)$がこの//（ナナメのニ\kana{重線}{ジュウセン}集合に入っていると、微分対称性破れ作用素空間が一次元になり、そうでないと微分対称性破れ作用素は存在しません。
 	}
 \end{frame}
+\subsection{regular 対称性破れ作用素の構成}
 \begin{frame}
 	\begin{theorem}[regular 対称性破れ作用素の構成]
 For
@@ -523,6 +528,7 @@ $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$の元になる。
 		決定することができます。
 	}
 \end{frame}
+\subsection{singular 対称性破れ作用素の構成}
 \begin{frame}
 	\begin{theorem}[singular 対称性破れ作用素の構成]
 	$S=X,Y,C$に対して、
@@ -567,6 +573,7 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 		全てのパラメータに対してではなくて、$\mathbb{C}^2$のaffne subspace の可算和で\doubt{定義することができ、それは正確に決定することができます}。
 	}
 \end{frame}
+\subsection{対称性破れ作用素の分類}
 \begin{frame}{}
 	\begin{theorem}[対称性破れ作用素の分類]
 \begin{enumerate}[(1)]
@@ -613,6 +620,7 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 \end{frame}
 
 \section{$(\mathcal{C}3) - (\mathcal{C}5)$にの答え}
+\subsection{$K$不変ベクトルのスペクトラム}
 \begin{frame}
 	\begin{theorem}[$K$不変ベクトルのスペクトラム]
 		\label{thm:spherical}
@@ -642,7 +650,8 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 		して含みます。
 	}
 \end{frame}
-\begin{frame}%{留数公式}
+\subsection{留数公式}
+\begin{frame}%
 	$(\lambda,\nu)\in\mathbb{C}^2\setminus//$に対して、
 \begin{equation*}
 	\tilde{K}_{\lambda, \nu}^{\R^{p,q}} \assign \frac{| x_p |^{\lambda +
@@ -688,6 +697,7 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 	\slowly{\kana{初等}{ショトウ}}\kana{関数}{カンスウ}の{\kana{積}{セキ}}として具体的に\kana{表}{アラワ}すことができました。
 }
 \end{frame}
+\subsection{Knapp--Stein 作用素}
 \begin{frame}{Knapp--Stein 作用素}
 	\begin{definition}
 		\underline{Knapp--Stein 作用素}は以下のように定義された $G$絡作用素である\begin{equation*}
@@ -778,6 +788,7 @@ q_X^{T X} (\lambda, \nu) = \frac{\pi^{\frac{n -
 		前のように、函数等式の原型として $q = 0$ の場合はKobayashi--Spehの論文で得られている。
 	}
 \end{frame}
+\subsection{対称性破れ作用素の像}
 \begin{frame}{対称性破れ作用素の像}
 	\begin{theorem}
 %%		We can compute images of every SBOs constructed above for every 
@@ -834,6 +845,7 @@ Zuckerman導来函手加群で記載されます。
 %%\end{equation*}とおく。
 }
 \end{frame}
+\subsection{Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素の存在問題}
 \begin{frame}
 \begin{theorem}[Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素の存在問題]
 	$n=p+q\;(p,q\ge1),\;n':=n-1$とする。
