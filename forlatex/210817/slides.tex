@@ -198,7 +198,7 @@ of irreducibles $\tau$ of $G'$.
 
 つまり、対称性破れ作用素(SBO)の空間
 \begin{equation*}
-	\tmop{Hom}_{G'} (\pi \mid_{G'}, \tau)\quad\mbox{を理解する。}
+	\tmop{Hom}_{G'} (\pi\kern-0.1cm \mid_{G'}, \tau)\quad\mbox{を理解する。}
 \end{equation*}
 \end{frame}
 
@@ -300,11 +300,10 @@ of irreducibles $\tau$ of $G'$.
 %%	Use the strategy developed in \cite{kobayashi2015symmetry}. 
 	基本的に、\cite{kobayashi2015symmetry}の作戦を使う。
 %%	The geometry is a little more complicated.
-	しかし、高階の設定で幾何が少し複雑になる。
-	\begin{fact}[対称性破れ作用素の積分核]
-		\cite{kobayashi2015symmetry}の一般論を
-今の特別な設定に適
-用すると、以下の図式を得る：
+%%	しかし、高階の設定で幾何が少し複雑になる。
+	$n = p + q$ とする。対称性破れ作用素の核超関数を 考えることによって 以下の可換図式が得られる。
+	\begin{fact}[対称性破れ作用素の積分核,{\cite[Thm. 3.16]{kobayashi2015symmetry}}]
+%%		\cite{kobayashi2015symmetry}の一般論を今の特別な設定に適用すると、以下の図式を得る：
 %%Applying the general statement of
 %%\cite{kobayashi2015symmetry} to our concrete setting we get:
 	\centerline{
@@ -329,12 +328,12 @@ Y \assign \{ [\xi, \eta] \in G / P \mid \xi_{p +
 1} = 0 \} \simeq (\mathbbm{S}^{p - 1} \times \mathbbm{S}^q) / \{ \pm I \}, \\
 C \assign \{ [\xi, \eta] \in G / P \mid \xi_1 =
 \eta_{q + 1} \},\\
-\left\{ o \right\}:=\left\{ \left[ 1,0_{p+q}1 \right] \right\}\mbox{とする}.
+\left\{ o \right\}:=\left\{ \left[ 1,0_{p+q}1 \right] \right\}\mbox{とおく。}
 		\end{array}
 	\end{equation*}
-	\begin{theorem}[両側剰余空間$P'
-\backslash G / P$の分類]
-$P' \backslash G / P$は以下のようになる:
+	\begin{theorem}[$G/P$の$P'$不変な閉部分集合の分類]
+%%$P' \backslash G / P$は以下のようになる:
+		$G/P$ の $P'$ 不変 閉部分集合は以下のようになる：
   \begin{figure}[H]
     \centering
     \begin{subfigure}[t]{0.3\textwidth}
@@ -355,14 +354,14 @@ $P' \backslash G / P$は以下のようになる:
 	\end{theorem}
 \end{frame}
 \begin{frame}{微分対称性破れ作用素}
-	\begin{fact}[微分対称性破れ作用素の分類 (\cite{kobayashi2015branching})]
+	\begin{fact}[微分対称性破れ作用素の分類 ({\cite[Thm. 4.3]{kobayashi2015branching}})]
 $(\lambda, \nu) \in / / \assign \{
 (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu - \lambda \in 2\mathbbm{N} \}$に対し、
 \begin{equation*}
 	{R}_{\lambda, \nu}^{\{ o \}} =
 \tmop{Rest}_{x_p = 0} \circ \tilde{C}_{\nu - \lambda}^{\lambda - \frac{n -
 1}{2}} \left( - \Delta_{\mathbbm{R}^{p - 1, q}}, \frac{\partial}{\partial x_p}
-\right)\mbox{を定める}。
+\right)\mbox{を定める。}
 \end{equation*}
 ここで$\tilde{C}(s,t)$は\cite[(6.5)]{Kobayashi2016}で定義された２変数多項式であり、正規化された
 	Gegenbauer多項式から導かれるものである。
@@ -414,7 +413,7 @@ $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$の元になる。
 	$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$は
 	$I(\lambda)$から$J(\nu)$への対称性破れ作用素であり、
 $(\lambda,\nu)\in D_S$に正則に依存する。
-それぞれ$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$はregular対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X$の再正規化である。
+それぞれ$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$はregular対称性破れ作用素${R}_{\lambda,\nu}^X$の再正規化である。
 	全て$(\lambda,\nu)\in D_S$に対して、$\Supp(R_{\lambda,\nu}^S)\subset S$である（更に、一般の位置に{ある}$(\lambda,\nu)$に対しては{等号}が成り立つ)。
 	全て$(\lambda,\nu)$とそれぞれ$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$に対し、
 	台を具体的に決定することが出来る。\\
@@ -445,42 +444,41 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 	\end{theorem}
 \end{frame}
 \begin{frame}{}
-	\begin{theorem}[対称性破れ作用素の空間の次元]
-$(\lambda, \nu) \in \mathbbm{C}^2$に対し、
-\begin{equation*}
-\dim \sbo
-\in \{ 1, 2 \}.
-\end{equation*}
-	\end{theorem}
 	\begin{theorem}[対称性破れ作用素の分類]
+\begin{enumerate}[(1)]
+	\item $p=1$のとき、
 		\begin{equation*}
-			\begin{array}[]{l}
-				p=1\Rightarrow \Hom_{G'}\left( I(\lambda)\kern-0.1cm\mid_{G'},J(\nu) \right)=\\
-				\left\{  \begin{array}[]{ll}
-  \mathbbm{C} \tilde{R}_{\lambda, \nu}^X, & (\lambda, \nu) \nin (/ / \cap \mid
-  \mid \mid) \cup (\mid \mid \cap \backslash\backslash),\\
-  \mathbbm{C} \widetilde{\tilde{R}}_{\lambda, \nu}^X \oplus \mathbbm{C}
-  \tilde{R}_{\lambda, \nu}^{\{ o \}}, & (\lambda, \nu) \in (/ / \cap \mid \mid
-  \mid) - (\mid \mid \cap \backslash\backslash),\\
-  \mathbbm{C} \tilde{R}_{\lambda, \nu}^C \oplus \mathbbm{C}
-  \tilde{R}^Y_{\lambda, \nu}, & (\lambda, \nu) \in (\mid \mid \cap
-  \backslash\backslash) - / /,\\
-  \mathbbm{C} \widetilde{\tilde{R}}_{\lambda, \nu}^X, & (\lambda, \nu) \in
-  \mid \mid \cap \backslash\backslash \cap / /,
-				\end{array}
-					\right.\\
-				p>1\Rightarrow \Hom_{G'}\left( I(\lambda)\kern-0.1cm\mid_{G'},J(\nu) \right)=\\
-				\left\{  \begin{array}[]{ll}
-  \mathbbm{C} \tilde{R}_{\lambda, \nu}^X, & (\lambda, \nu) \nin / / \cap \mid
-  \mid \mid,\\
-  \mathbbm{C} \widetilde{\tilde{R}}_{\lambda, \nu}^X \oplus \mathbbm{C}
-  \tilde{R}_{\lambda, \nu}^{\{ o \}}, & (\lambda, \nu) \in / / \cap \mid \mid
-  \mid.
-				\end{array}
-					\right.\\
-			\end{array}
+			\vspace{-2em}
+			\kern-0.8cm\sbo = \left\{
+				\begin{array}{@{}l@{}l@{}}
+     \mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \in \mathbbm{C}^2 - (/ /
+     \cap \mid \mid \mid) - (\mid \mid \cap \backslash\backslash),\\
+     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
+     \}}_{\lambda, \nu}, & (\lambda, \nu) \in (/ / \cap \mid \mid \mid) -
+     (\mid \mid \cap \backslash\backslash),\\
+     \mathbbm{C}R^P_{\lambda, \nu} \oplus \mathbbm{C}R^C_{\lambda, \nu}, &
+     (\lambda, \nu) \in (\mid \mid \cap \backslash\backslash) - / /,\\
+     \mathbbm{C}R^{\{ o \}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid
+     \cap \backslash\backslash \cap / /.
+   \end{array} \right.
 		\end{equation*}
+	\item $p>1$のとき、
+		\begin{equation*}
+			\vspace{-1em}
+\kern-1.9cm\sbo = \left\{
+   \begin{array}{ll}
+     \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
+     \}}_{\lambda, \nu \lambda, \nu}, & (\lambda, \nu) \in / / \cap \mid \mid
+     \mid,\\
+     \mathbbm{C}R^X_{\lambda, \nu}, & \mbox{それ以外の場合。}
+   \end{array} \right.
+		\end{equation*}
+\end{enumerate}
 	\end{theorem}
+	\begin{corollary}[対称性破れ作用素の{{存在}}定理と次元の上限]
+		どんな$(\lambda,\nu)\in\mathbb{C}^2$に対しても
+		$$\dim_{\mathbb{C}}\sbo\in\left\{ 1,2 \right\}\mbox{が成り立つ。}$$
+	\end{corollary}
 \end{frame}
 
 \section{$(\mathcal{C}3) - (\mathcal{C}5)$にの答え}
@@ -501,32 +499,36 @@ $(\lambda, \nu) \in \mathbbm{C}^2$に対し、
 %%\mathbbm{R})$) and in \cite{kobayashi2015symmetry} for $q = 0$.
 	$SL(2,\R)$の表現のテンソル積の場合、すなわち、
 	定理\ref{thm:spherical}\;の$p=q=1$の特別な場合はBernstein--Reznikov\cite[Lem. A.5]{bernstein2004estimates} によって得られ、
-	また\footnote{should we have a comma here?}$q=0$の場合は\cite[Prop.\ 7.4]{kobayashi2015symmetry}で得られている。
+	また$q=0$の場合は\cite[Prop.\ 7.4]{kobayashi2015symmetry}で得られている。
 	\end{remark}
 \end{frame}
-\begin{frame}{留数公式}
+\begin{frame}%{留数公式}
 	$(\lambda,\nu)\in\mathbb{C}^2\setminus//$に対して、
 \begin{equation*}
-K_{\lambda, \nu}^X \assign \frac{| x_p |^{\lambda +
+	\tilde{K}_{\lambda, \nu}^{\R^{p,q}} \assign \frac{| x_p |^{\lambda +
 \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} \cdot \frac{|
 Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 \mbox{ol} (\mathbbm{R}^n ; \lambda, \nu)\mbox{ を定める。
 }
 \end{equation*}
 このとき、${R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
-\nu}{2} \right)} \tmop{Op} (K_{\lambda, \nu})$は$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する対称性破れ作用素の族に拡張できる。
+\nu}{2} \right)} \tmop{Op} \left( \tilde{K}_{\lambda, \nu}^{\R^{p,q}} \right)$は$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する対称性破れ作用素の族に拡張できる。
+以下では作用素$\Op\left( \tilde{K}^{\R^{p,q}}_{\lambda,\nu} \right)$の留数を求める。
+\vspace{-0.5em}
 \begin{theorem}[留数公式]
-	$(\lambda,\nu)\in//$に対して、$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とおく。このとき\footnote{should we have a comma here?}
+	$(\lambda,\nu)\in//$に対して、$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とおく。このとき
+	\vspace{-1em}
 \begin{equation*}
 	{R}_{\lambda, \nu}^X = \frac{(- 1)^l l!
 \pi^{(n - 2) / 2}}{2^{\nu + 2 l - 1}} \cdot \frac{\sin \left( \frac{1 + q -
 \nu}{2} \pi \right)}{\Gamma \left( \frac{\nu}{2} \right)} \tilde{R}_{\lambda,
-\nu}^{\{ o \}}, \quad \mbox{for }(\lambda, \nu) \in //.
+\nu}^{\{ o \}}, \quad (\lambda, \nu) \in //.
 \end{equation*}
 \end{theorem}
+\vspace{-0.5em}
 \begin{remark}
-		留数公式の原型
-		として\footnote{should we have a comma here?}$q=0$の場合は\cite[Thm. 12.2]{kobayashi2015symmetry}で得られた。
+		正則な対称性破れ作用素の
+		留数公式の原型は$q=0$の場合で、このときは\cite{KOBAYASHI2014272}、\cite[Thm. 12.2]{kobayashi2015symmetry}で証明されている。
 \end{remark}
 \end{frame}
 \begin{frame}{Knapp--Stein 作用素}
@@ -534,7 +536,7 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 		\underline{Knapp--Stein 作用素}は以下のように定義された $G$絡作用素である\begin{equation*}
 			\begin{array}[]{l}
 				\tilde{\mathbb{T}}_\lambda^G:I(\lambda)\to I(n-\lambda),\\
-				f\mapsto q_T(\lambda)\left(\myabs{Q_{p,q}}^{\lambda-n}\star f  \right).
+				f\mapsto q_T(\lambda)\left(\myabs{Q_{p,q}}^{\lambda-n}\ast f  \right).
 			\end{array}
 		\end{equation*}
 		ここで
@@ -603,13 +605,13 @@ q_X^{T X} (\lambda, \nu) = \frac{\pi^{\frac{n -
 	\end{theorem}
 \end{frame}
 \begin{frame}{}
-	最後に、上記の結果の応用として\footnote{comma here?}Zuckerman導来函手加群の間の対称性破れ作用素の問題を論じる。
-	\cite[(5.1.1)]{KO2}に{倣}って$p>1${かつ}$q\ge1$のときに\footnote{comma here?}\begin{equation*}
+	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じる。
+	\cite[(5.1.1)]{KO2}に{倣}って$p>1${かつ}$q\ge1$のときに\begin{equation*}
 	A_0(p,q):=\left\{ \lambda\in\Z+\frac{p+q}{2}\;:\;\lambda>-1 \right\}
 \end{equation*}とおくと、
 \cite{KO2}で
 %16-b
-示したように、$\lambda\in A_0(p,q)$に対して\footnote{comma here?}
+示したように、$\lambda\in A_0(p,q)$に対して
 $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
 %%16-c
 が定まる。(\cite{KO2}では$\pi_{\pm,\lambda}^{p,q}$を定義するにあたって5種類の
@@ -618,7 +620,7 @@ $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
 Zuckerman導来函手加群で記載される。)
 以下では、この加群の間に対称性破れ作用素がある{か}について論じる。簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
 %%16-a
-以下では\footnote{comma here?}\begin{equation*}
+以下では\begin{equation*}
 	g(t):=\left\{ \begin{array}[]{ll}
 		1&\left(t\in2\N+\frac{1}{2}  \right)\\[10pt]
 		0&t\nin \left(2\N+\frac{1}{2}  \right)
@@ -632,7 +634,7 @@ Zuckerman導来函手加群で記載される。)
 \begin{frame}
 \begin{theorem}[Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素の存在問題]
 	$n=p+q\;(p,q\ge1),\;n':=n-1$とする。
-	以下では\footnote{comma here?}
+	以下では
 	\vspace{-1em}
 \begin{equation*}
                 \begin{array}[]{c}
@@ -658,6 +660,7 @@ Zuckerman導来函手加群で記載される。)
 %%{\pipx}		{h(y)(1-g(x-y))}
 %%{\pimx}		{g\kern-0.05cm\left( {y-x} \right)}
 \end{theorem}
+\vspace{-0.5em}
 \begin{remark}
 	\begin{enumerate}[(1)]
 		\item この定理では分岐則が離散分解する場合(一般論は\cite{10.2307/120963})とそうでない場合の両方が含まれている。
