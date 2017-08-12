@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{xeCJK}
 \usepackage{ruby}
+\usepackage{ruby}
 \usepackage{enumerate}
 \usepackage{setspace}
 \usepackage{xypic}
@@ -16,6 +17,13 @@
 \usepackage{setspace}
 \usepackage{tikz-cd,array}
 \usepackage{catchfilebetweentags}
+
+\newcommand{\kana}[2]{\ruby{#1}{#2}}
+\newcommand{\doubt}[1]{\fbox{#1}}
+\newcommand{\mynum}{}
+\newcommand{\pause}{$\bullet$}
+\newcommand{\slowly}[1]{\dashuline{#1}}
+\newcommand{\continuously}[1]{\underline{#1}}
 
 \def\same{\;''\;}
 \newcommand{\sbo}{\tmop{Hom}_{G'} (I(\lambda)\kern-0.1cm\mid_{G'}, J(\nu))}
@@ -174,6 +182,19 @@ $\pi$が有限次元表現、$G$がコンパクトの場合は古くから多く
 	\pi\kern-0.1cm\mid_{G'} =  \bigoplus_{\tau \in\widehat{G'}} m (\pi, \tau) \tau.
 \end{equation*}
 of irreducibles $\tau$ of $G'$.
+\note{
+	初めまして。東京大学博士１年生レオンチエフ・アレックスと申します。
+	今回の第５６回実函数論・函数解析学 合同シンポジウムで発表させて頂き、誠にありがとうございます。
+	今日は{不定値直交群$O(p,q)$の対称性破れ作用素}をテーマにお話ししたいと思います。
+この研究は小林俊行先生との\kana{共同}{キョウドウ}研究です。
+
+	最初は、ここにいらっしゃる皆様が良くご存じの分岐則の問題という概念から復習したいと思います。
+	$G$と$G'$を簡約群とします。
+
+	一般には、$G$の既約表現$\pi$を部分群に制限すると、\kana{最早}{モハヤ}既約になりません。
+	この制限を理解したいというのが、「広い意味での」分岐則の問題です。
+	$pi$が有限次元表現、$G$がコンパクトの場合は古くから多くの研究があり、組合せ論的なアルゴリズムさえ知られています。
+}
 \end{frame}
 \begin{frame}{}
 	ただ、
@@ -200,6 +221,11 @@ of irreducibles $\tau$ of $G'$.
 \begin{equation*}
 	\tmop{Hom}_{G'} (\pi\kern-0.1cm \mid_{G'}, \tau)\quad\mbox{を理解する。}
 \end{equation*}
+\note{
+ところが、$pi$の次元が無限で、$G$と$G'$はノンコンパクトならば、この問題は\kana{極めて}{きわめて}難しくなります。
+無限次元表現の制限が離散的でない場合に制限の問題を理解する１つ考え方として、別の既約表現と比較するというものがあります。
+大きな表現を部分群に制限した空間から、部分群の既約表現へのintertwining operatorを対称性破れ作用素 symmetry breaking operator\kana{略して}{リャクシテ}SBOと呼びます。
+}
 \end{frame}
 
 \section{$\mathcal{A}\mathcal{B}\mathcal{C}$プログラム}
@@ -214,6 +240,17 @@ of irreducibles $\tau$ of $G'$.
 }\qquad$(\mathcal{B})$\quad$\mathcal{B}$ranching law: 分岐則を具体的に決定する; {
 
 }\qquad$(\mathcal{C})$\quad$\mathcal{C}${onstruction}: 対称性破れ作用素を具体的に構成する。
+	\note{
+	ノンコンパクト群の分岐則問題を深く研究するためABC programというのは、
+	小林俊行先生がご自身の20数年間の研究を整理されて、\kana{提唱}{ていしょう}されたプログラムです。
+	このプログラムは大きく三つのステップに分かれます。
+	$\mathcal{A}$はabstract feature,分岐則の抽象的な\kana{様相}{ようそう}
+	を研究するというもので、分岐則が離散的か連続スペクトラムを持つか、重複度が１か、あるいは有限か、あるいは無限かなどの理論で\kana{基盤}{キバン}的な研究となります。
+	プログラムＡで悪い現象を予め見抜き、プログラムＢに進みます。
+	次のプログラムＢはbranching law, すなわち、分岐則を具体的に決定する問題です。
+	さらに進んでプログラムＣは単に分岐則を求めるだけではなく、その間のintertwining operator,これを対称性破れ作用素と言いますが、それを決定するというものです。
+	この講演ではプログラムＣの特別な場合を扱います。
+	}
 \end{frame}
 \begin{frame}{}
 	今回の主テーマは``標準表現''に対するプログラム$\mathcal{C}$である。特に、以下の問題を考る：
@@ -247,6 +284,19 @@ of irreducibles $\tau$ of $G'$.
 		(G, G') = (O (p + 1, q + 1), O (p, q + 1))\;\mbox{に拡張する。}
 	\end{equation*}
 \end{block}
+\note{
+	アメリカ数学会から昨年に出版されたKobayashi-Spehの本では、プログラムＣの部分問題として次の５つ、
+	すなわち、標準的な表現、例えば主系列表現あるいは退化主系列表現、に対して、
+	Ｃ１．対称性破れ作用素を具体的に構成する問題、
+	Ｃ２、対称性破れ作用素を分類する問題、
+	更に、C３からC５として、
+	順に対称性破れ作用素と普通のintertwining operatorの間の函数等式を決定する問題、
+	\kana{種々}{しゅじゅ}の対称性破れ作用素の間の\kana{相互}{ソウゴ}関係をoperator valueのmeromorphic な関数の留数の形で整理する問題、
+	更に、対称性破れ作用素の像を決定する問題の５つからなる、というものです。
+	この五つの問題はKobayashi先生とSpeh先生が提唱し（テイショウ）、
+	その最初の完全な分類結果はreal rank 1の組に対て証明されました。
+	今回の講演では、この結果を高階の群に対して一般化します。
+}
 \end{frame}
 \begin{frame}{}
 ``標準表現''として \underline{球退化主系列表現
@@ -263,6 +313,10 @@ of irreducibles $\tau$ of $G'$.
 \end{equation*}
 を持つ極大放物型部分群である。
 そうすると、$P' = P \cap G'$ は $G'$の極大放物型部分群になる。
+\note{
+もう少し正確に言うと、\kana{冪零根基}{ベキレイコンキ}が可換であるような極大放物型部分群からの誘
+導して得られる球退化系列表現を対象とします。
+}
 \end{frame}
 \begin{frame}{}
 	\begin{block}{共形幾何の見方}
@@ -294,6 +348,13 @@ of irreducibles $\tau$ of $G'$.
 \end{equation*}
 が表現のパラーメタ$(\lambda,\nu)\in\mathbb{C}^2$よらずに一様に押さえられている。
 \end{remark}
+\note{
+	この表現は共形幾何学の立場から見ると、
+	朝の小林先生の講演に現れたようにconformal equivariant bundleのC無限\kana{級}{キュウ}のsectionの空間として非常に自然に得られます。
+	また、この群の組$(G,G')$を選んだ理由としては、
+	Program Aにおけるアプリオリ評価として、対称性破れ作用素空間の次元が表現のパラーメタよらずに一様に押さえられているというアプリオリ評価があることに基づきます。
+	これは、小林-大島\kana{利雄}{トシオ}先生の結果です。
+}
 \end{frame}
 \section{対称性破れ作用素の分類}
 \begin{frame}{}
@@ -318,6 +379,26 @@ of irreducibles $\tau$ of $G'$.
 	}
 }
 	\end{fact}
+	\note{\tiny
+		今回の結果の手法は、小林先生および、Kobayashi-Spehによって開発された手法を主に使います。
+		一方、\kana{高階}{コウカイ}の群では、幾何的な状況や解析的な部分がもう少し複雑になります。
+		最初に、対称性破れ作用素を、シュワルツの\kana{核}{かく}定理によって、
+		超関数核で表せることを紹介したいと思います。
+		Kobayashi-Spehの本で証明された一般理論を今の特別な設定に\kana{適
+		用}{てきよう}すると、
+		以下の図式を得ます。
+
+%%この\kana{図}{ズ}はKobayashi-Spehの\kana{一般論}{イッパンロン}を\kana{今}{イマ}\kana{考}{カンガ}{え}ようとしている\kana{場合}{バアイ}に\kana{当}{ア}てはめたものです。
+下の$S\mbox{ol}\left(
+\mathbb{R}^{p,q}
+\right)$という空間はある$(\lambda,\nu)$に依存する偏微分方程式を満たす超関数空間です。ここで、左から真ん中への同型写像はSchwartzの\kana{核}{カク}
+定理を\kana{用}{モチ}います、真ん中から下へのrestという写像は、open Bruhat cellに\kana{積分核}{セキブンカク}
+を制限することによって\kana{導}{ミチビ}かれます。この２つの写像は線形空間の同型写像になります。
+なので、抽象的な対称性破れ作用素空間の代わりに具体的なEuclid空間上の\kana{連立}{レンリツ}偏微分方程式の解空間を研究に\kana{置}{オ}き\kana{換}{カ}えることができます。
+ポイントはもう１つあります。真ん中の空間は$G/P$上の$P'$不変超関数空間なので、それぞれの元のサーポトが$P'$不変$G/P$閉部分集合になります。
+つまり、真ん中のベクトル空間から$G$の\kana{両側剰余}{リョウガワジョウヨ}空間へのが\kana{定}{サダ}{まった}ということです。Target spaceであるこの\kana{両側剰余}
+{リョウガワジョウヨ}空間は有限なので、$P'$不変$G/P$閉部分集合が大切なinvariantになります。
+	}
 \end{frame}
 \begin{frame}{}
 	\begin{equation*}
@@ -352,6 +433,13 @@ C \assign \{ [\xi, \eta] \in G / P \mid \xi_1 =
 \vspace{-0.8em}
 \end{figure}
 	\end{theorem}
+	\note{
+小林--Spehに述べられたストラテジー
+を$G$が不定値直交群の\kana{場合}{バアイ}に\kana{用}{モチ}いる
+\kana{第一歩}{ダイイッポ}として、両側\kana{剰余類}{ジョウヨルイ}とその\slowly{closure relations}、\kana{閉包}{ヘイホウ}関係の\kana{記述}{キジュツ}を述べます。
+今の設定では、両側\kana{剰余類}{ジョウヨルイ}の\kana{個数}{コスウ}は、$p$は1以上ならば５つあり、$p$が１に等しいならば、４つにな
+ることが証明されます。図式では、$X$が\slowly{\kana{全体}{ゼンタイ}}、すなわち実旗多様体を表し、edgeのとなりの数字がgenericなcodimensionを表します。\\
+	}
 \end{frame}
 \begin{frame}{微分対称性破れ作用素}
 	\begin{fact}[微分対称性破れ作用素の分類 ({\cite[Thm. 4.3]{kobayashi2015branching}})]
@@ -368,6 +456,22 @@ $(\lambda, \nu) \in / / \assign \{
 	$R^{ \left\{ o \right\}}_{\lambda,\nu}$は微分対称性破れ作用素になり（つまり、$\mathcal{S}\mbox{upp} ({R}_{\lambda,
 	\nu}^{\{ o \}}) = \{ 0 \}$）、全て微分対称性破れ作用素は$R^{ \left\{ o \right\}}_{\lambda,\nu}$に比例である。
 	\end{fact}
+	\note{\tiny
+		\doubt{第二歩}は\kana{実}{ジツ}旗多様体$G/P$における$P'$-invariantなclosed subsetそれぞれに対し、
+対称性破れ作用素のfamilyを構成し、更に、そのmeromorphic continuationを証明するというステップです。\slowly{構成をした\kana{後}{アト}}は分類になります。
+これが３つ目のステップです。Closed setが小さいものから\kana{帰納的}{キノウテキ}に\kana{順}{ジュン}に\kana{分類}{ブンルイ}します。
+そのstarting pointは、closed setが1点の\kana{場合}{バアイ}{で}、
+このときは対称性破れ作用素は微分作用素で表せ\doubt{ます}。
+このときは新しい手法であるF-methodが使えます。
+
+次の定理は、微分対称性破れ作用素についてです。
+微分対称性破れ作用素というのは、積分核となる超関数の言葉では、その台が原点に集中し
+ているということと同値
+になることが小林ーPevznerによって証明されています。不定値直交群の微分対称性破れ作用素は２０１５
+年の結果によって、分類されています。具体的な形はrenormalized 
+Gegenbauer多項式を２変数化して、そこにラプラシアンと法微分を代入して得られるものです。
+parameter $(\lambda,\nu)$がこの//（ナナメのニ\kana{重線}{ジュウセン}集合に入っていると、微分対称性破れ作用素空間が一次元になり、そうでないと微分対称性破れ作用素は存在しません。
+	}
 \end{frame}
 \begin{frame}
 	\begin{theorem}[regular 対称性破れ作用素の構成]
@@ -404,7 +508,20 @@ $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$の元になる。
 また、$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)$
 がある離散集合に属する。
 	\end{theorem}
-	\note{tesime}
+	\note{
+		その次に、regular対称性破れ作用素を作ります。微分対称性破れ作用と正反対で、
+		超函数の台が全体になるものを、Kobayashi-Spehの用語で regular な対称性破れ作用素と言います。
+		まずパラメータが十分良いときは、連続函数を積分核として対称性作用素を構成
+		できます。
+		パラメータが全空間で有理型になるような形で、この連続関数を超函数として拡
+		張出来ます。
+		更に、このようにnormalizationすると、パラメータにholomorphic(正則)に依存
+		する作用素が得られます。
+		この作用素は零点はcodimension 1ではなく、codimension 2、すなわち離散集合
+		となります。
+		genericには積分核の台は全体になりますが、パラメータが特異のときも、積分核の超函数としての台を正確に
+		決定することができます。
+	}
 \end{frame}
 \begin{frame}
 	\begin{theorem}[singular 対称性破れ作用素の構成]
@@ -442,6 +559,13 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 		\end{array}
 	\end{equation*}
 	\end{theorem}
+	\note{
+		regular作用素が消えてしまう離散集合に対しては、renormalizeという手続きに
+		よって
+		新しい対称性破れ作用素ファミリ三つを構成することができます。
+		それぞれのファミリが自分
+		全てのパラメータに対してではなくて、$\mathbb{C}^2$のaffne subspace の可算和で\doubt{定義することができ、それは正確に決定することができます}。
+	}
 \end{frame}
 \begin{frame}{}
 	\begin{theorem}[対称性破れ作用素の分類]
@@ -479,6 +603,13 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 		どんな$(\lambda,\nu)\in\mathbb{C}^2$に対しても
 		$$\dim_{\mathbb{C}}\sbo\in\left\{ 1,2 \right\}\mbox{が成り立つ。}$$
 	\end{corollary}
+	\note{
+		このように構成した対称性破れ作用素は全ての対称性破れ作用素を生成することが証明できます。
+		ここまでの結果をまとめると、次元公式、
+		より\kana{精密}{セイミツ}にはそれぞれ具体的な基底がスライドに述べたようにわかります。
+
+		次に、問題（C３）から（C５）までについての結果をご紹介します。
+	}
 \end{frame}
 
 \section{$(\mathcal{C}3) - (\mathcal{C}5)$にの答え}
@@ -501,6 +632,15 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 	定理\ref{thm:spherical}\;の$p=q=1$の特別な場合はBernstein--Reznikov\cite[Lem. A.5]{bernstein2004estimates} によって得られ、
 	また$q=0$の場合は\cite[Prop.\ 7.4]{kobayashi2015symmetry}で得られている。
 	\end{remark}
+	\note{
+		$G$ の球退化主系列表現 $I(\lambda)$ は $K$ 不変ベクトルを含む。部分群 $G'$ の表現 $J(\nu)$ も同様である。いずれの場合も $K$ 不変ベクトルのなす空間は1次元である。
+		次の結果によると、I(lambda)のK-finiteベクトルの像がJ(nu)の$K'$-
+		finiteベクトルと定数の倍になります。これらのベクトルを具体的に正規化した時の
+		比例定数も計算できて、極点と霊点を分
+		けるように積公式で表せます。
+		これは、Bernstein-Reznikovが$SL(2,\R)$に対しての計算した結果を$p=q=1$の場合と
+		して含みます。
+	}
 \end{frame}
 \begin{frame}%{留数公式}
 	$(\lambda,\nu)\in\mathbb{C}^2\setminus//$に対して、
@@ -516,11 +656,11 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 以下では作用素$\Op\left( \tilde{K}^{\R^{p,q}}_{\lambda,\nu} \right)$の留数を求める。
 \vspace{-0.5em}
 \begin{theorem}[留数公式]
-	$(\lambda,\nu)\in//$に対して、$l:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とおく。このとき
+	$(\lambda,\nu)\in//$に対して、$\ell:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とおく。このとき
 	\vspace{-1em}
 \begin{equation*}
-	{R}_{\lambda, \nu}^X = \frac{(- 1)^l l!
-\pi^{(n - 2) / 2}}{2^{\nu + 2 l - 1}} \cdot \frac{\sin \left( \frac{1 + q -
+	{R}_{\lambda, \nu}^X = \frac{(- 1)^\ell \ell!
+\pi^{(n - 2) / 2}}{2^{\nu + 2 \ell - 1}} \cdot \frac{\sin \left( \frac{1 + q -
 \nu}{2} \pi \right)}{\Gamma \left( \frac{\nu}{2} \right)} \tilde{R}_{\lambda,
 \nu}^{\{ o \}}, \quad (\lambda, \nu) \in //.
 \end{equation*}
@@ -530,6 +670,23 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 		正則な対称性破れ作用素の
 		留数公式の原型は$q=0$の場合で、このときは\cite{KOBAYASHI2014272}、\cite[Thm. 12.2]{kobayashi2015symmetry}で証明されている。
 \end{remark}
+\note{
+%%	次の定理はregular対称性破れ作用素の積分核がナナメのニ重線集合上に多
+%%	重度たかだか1のpoleがあって、このpoleのresidueが微分対称性破れ作用素の
+%%	kernelと比例になるとういうことを表しています。
+%%
+%%	$(lambda,nu)$が特殊値のとき、regularな対称性破れ作用素$\tilde{R}_{lambda,nu}^X$は
+%%	退化し、その積分核の台が小さくなります。
+%%
+%%	
+	次の定理はregular対称性破れ作用素の
+	\slowly{\kana{留数}{リュウスウ}定理}です。ここに\kana{記}{シル}した２つの超関数はそれぞれ正則パラメータをもつ超関数ですが、そのwavefront setが重なりをもつので、
+	\kana{超関数}{チョウカンスウ}の
+	\slowly{\kana{積}{セキ}}はwell-defined
+	とは限りません。well-definedでない\kana{場所}{トコロ}にまた新しいpoleが\kana{生}{ショウ}じます。このpoleのresidueは微分対称性破れ作用素
+	になります。より\kana{精密}{セイミツ}に、比例\kana{定数}{テイスウ}を
+	\slowly{\kana{初等}{ショトウ}}\kana{関数}{カンスウ}の{\kana{積}{セキ}}として具体的に\kana{表}{アラワ}すことができました。
+}
 \end{frame}
 \begin{frame}{Knapp--Stein 作用素}
 	\begin{definition}
@@ -543,6 +700,14 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 		$q_T (\lambda)$ は具体的に$\Gamma$関数の積に述べられた。
 	\end{definition}
 		$\tilde{R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$ と対称性破れ作用素 $\tilde{R}_{\lambda, \nu}^X$を比較する。両方は比例になる。　
+	\note{
+次の結果を紹介する前に、古典的なKnapp-Stein作用素の定義を復習したいと思い
+ます。
+$G = G'$ の場合は、古くから多く研究があり、この場合は$G$の球退化主系列表現の間の対称性破れ作用素は\kana{容易}{ヨウイ}に求めることができます。
+
+Knapp-Stein作用素というのは、パーラメータに正則に依存する、
+$I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
+	}
 \end{frame}
 \begin{frame}{}
 	合成
@@ -555,6 +720,15 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 				I(\lambda)\ar@{-->}[rd]^{R_{\lambda,\nu}^X}\ar[r]^{R_{\lambda,n-1-\nu}^X}&J(n-1-\nu)\ar[d]^{\tilde{\mathbb{T}}_{n-1-\nu}^{G'}}\\
 				&J(\nu)
 			}}
+	\note{
+		以下のdiagramのように、$R_{n-\lambda,\nu}^X$ regular対称性破れ作用素と$\mathbb{T}_
+	\lambda^G$　Knapp-Stein作用素の組み合わせと$R_{\lambda,\nu}^X$対称性破れ作用素が
+両方は$I(lambda)$から$J(nu)$へ$G'$作用を絡み合う作用素
+で、対称性破れ作用素の次元がgenericにはであることを既に証明してあるので、これらは互いに
+比例していることがわかります。
+その比例乗数を決定することもできました。
+ＧとＧ’の役割を入れ替えたものが下の公式になります。
+			}
 \end{frame}
 \begin{frame}
   \begin{figure}[H]
@@ -597,12 +771,23 @@ q_X^{T X} (\lambda, \nu) = \frac{\pi^{\frac{n -
 		函数等式の原型
 		として\footnote{should we have a comma here?}$q=0$の場合は\cite[Thm. 12.6]{kobayashi2015program}で得られた。
 	\end{remark}
+	\note{
+		比例定数も計算できて、極点と霊点を分
+		けるように$\Gamma$関数の積で表せます。
+
+		前のように、函数等式の原型として $q = 0$ の場合はKobayashi--Spehの論文で得られている。
+	}
 \end{frame}
 \begin{frame}{対称性破れ作用素の像}
 	\begin{theorem}
 %%		We can compute images of every SBOs constructed above for every 
 		全て$(\lambda, \nu) \in \mathbbm{C}^2$に対し、上記で構成されたそれぞれの対称性破れ作用素の像を具体的に決定出来る。
 	\end{theorem}
+	\note{
+		最後は、これらの\kana{緒}{しょ}結果をプラスアルファの結果から
+		上に構成された対称性破れ作用素の像がパラメータによって、どのように変わるかについてもの全て決定することが
+		できます。
+	}
 \end{frame}
 \begin{frame}{}
 	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じる。
