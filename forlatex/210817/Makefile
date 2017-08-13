@@ -31,7 +31,7 @@ $(OUTDIR)/slides.pdf : slides.tex bibliography.tex
 	$(XELATEX) $<
 $(OUTDIR)/speech.tex: slides.tex
 	cat $<|sed 's/%\\setbeameroption{show only notes}/\\setbeameroption{show only notes}/g' > $@
-$(OUTDIR)/speech.pdf: $(OUTDIR)/speech.tex $(OUTDIR)/mystyle.sty $(OUTDIR)/geomdiagram.tex $(OUTDIR)/bibliography.tex
+$(OUTDIR)/speech.pdf: $(OUTDIR)/speech.tex $(OUTDIR)/mystyle.sty $(OUTDIR)/geomdiagram.tex $(OUTDIR)/bibliography.tex $(OUTDIR)/tables.tex
 	cd $(OUTDIR) && $(XELATEX) $<
 
 $(OUTDIR)/bibliography.pdf : bibliography_wrap.tex bibliography.tex 

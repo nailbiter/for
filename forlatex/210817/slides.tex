@@ -105,14 +105,17 @@
 %custom formatting settings
 \setlength{\parskip}{1em}
 
+\newcommand{\mystack}[2]{$\begin{array}{l}#1\\#2\end{array}$}
 %%\newcommand{\yipx}{Y^{p+1, q + 1}_{+, x}}
 %%\newcommand{\yipy}{Y^{p, q + 1}_{+, y}}
 %%\newcommand{\yimx}{Y^{p+1, q + 1}_{-, x}}
 %%\newcommand{\yimy}{Y^{p, q + 1}_{-, y}}
-%%\newcommand{\pipx}{\pi^{p+1, q + 1}_{+, x}}
-%%\newcommand{\pipy}{\pi^{p, q + 1}_{+, y}}
-%%\newcommand{\pimx}{\pi^{p+1, q + 1}_{-, x}}
-%%\newcommand{\pimy}{\pi^{p, q + 1}_{-, y}}
+\newcommand{\pipx}{\pi^{p+1, q + 1}_{+, x}}
+\newcommand{\pipy}{\pi^{p, q + 1}_{+, y}}
+\newcommand{\pimx}{\pi^{p+1, q + 1}_{-, x}}
+\newcommand{\pimy}{\pi^{p, q + 1}_{-, y}}
+\newcommand{\tisevenjap}{\mbox{は偶数}}
+\newcommand{\tisoddjap}{\mbox{は奇数}}
 %%\newcommand{\tisevenjapb}{\mbox{は偶数の場合}}
 %%\newcommand{\tisoddjapb}{\mbox{は奇数の場合}}
 %%\newcommand{\mystack}[2]{\begin{array}{c}#1,\\#2\end{array}}
@@ -799,7 +802,7 @@ Zuckerman導来函手加群で記載される。)
 以下では\begin{equation*}
 	g(t):=\left\{ \begin{array}[]{ll}
 		1&\left(t\in2\N+\frac{1}{2}  \right)\\[10pt]
-		0&t\nin \left(2\N+\frac{1}{2}  \right)
+		0&\left(t\nin \left(2\N+\frac{1}{2}  \right)  \right)
 	\end{array}\right.,\quad h(t):=\left\{ \begin{array}[]{ll}
 		1&\left(  t<\frac{q}{2}\right)
 		\\[10pt]
@@ -829,7 +832,7 @@ Zuckerman導来函手加群で記載されます。
 }
 \end{frame}
 \subsection{Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素の存在問題}
-\begin{frame}
+\begin{frame}[allowframebreaks]{}
 \begin{theorem}[Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素の存在問題]
 	$n=p+q\;(p,q\ge1),\;n':=n-1$とする。
 	以下では
@@ -848,17 +851,10 @@ Zuckerman導来函手加群で記載されます。
 	\vspace{-1em}
 	\end{equation*}
 	と仮定する。このとき{、}
-	$\Hom_{G'}\left(\pi_{\delta,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\varepsilon,y}^{p,q+1} \right)$の次元と基底を具体的に決定出来る。
+	$\Hom_{G'}\left(\pi_{\delta,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\varepsilon,y}^{p,q+1} \right)$の次元は以下のようになる。
 %%
-%%%%	\input{tables}
-%%	$p=1,q\tisevenjapb$
-%%		\\
-%%\hspace*{0cm}\commonShift\mytableThreeTwo	%#1
-%%{}		{\pimy}
-%%{\pipx}		{h(y)(1-g(x-y))}
-%%{\pimx}		{g\kern-0.05cm\left( {y-x} \right)}
 \end{theorem}
-\vspace{-0.5em}
+	\input{tables}
 \begin{remark}
 	\begin{enumerate}[(1)]
 		\item この定理では分岐則が離散分解する場合(一般論は\cite{10.2307/120963})とそうでない場合の両方が含まれている。
