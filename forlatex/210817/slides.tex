@@ -153,13 +153,59 @@
 
 \begin{document}
 \section{}
+
 \begin{frame}\titlepage
 	\note{
 	初めまして。東京大学博士１年生レオンチエフ・アレックスと申します。
 	今回の第５６回実函数論・函数解析学 合同シンポジウムで発表させて頂き、誠にありがとうございます。
 	今日は{不定値直交群$O(p,q)$の対称性破れ作用素}をテーマにお話ししたいと思います。
 	}\end{frame}
+\begin{frame}
+	\begin{center}
+		\huge この研究は\textbf{小林俊行}先生（東京大学）との共同研究である
+	\end{center}
+	\note{この研究は小林俊行先生との\kana{共同}{キョウドウ}研究です。}
+\end{frame}
+\section{目標}
+\begin{frame}
+この講演での主テーマは{、}
+群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、symmetry breaking operator）である。
+\begin{block}{\underline{目標}:}
+対称性破れ作用素全体のなす空間を$$\sbo\mbox{と表記す{る}。}$$
+\end{block}
+\note{
+この講演での主テーマは{、}
+群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、{symmetry breaking operator}です。
+\slowly{symmetry breaking operator}の
+\kana{頭文字}{カシラモジ}を{とって}SBOと\kana{略記}{リャクキ}することにします。
+}
+\end{frame}
 \section{設定}
+\begin{frame}
+	  $n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式を
+	  \begin{equation*}
+		  \begin{array}[]{c}
+		  Q_{p,q} (x) \assign \,^t \! x I_{p, q} x, \; (x \in\mathbbm{R}^{p + q}),\\
+		I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
+		1, \ldots, - 1}_q)\in GL(p+q,\R)\mbox{と定める。}
+		  \end{array}{}
+	  \end{equation*}
+
+この二次形式に{関する}不定値直交群を
+\begin{equation*}
+	G \assign O (p +
+1, q + 1)=\left\{ g\in GL\left( p+q+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}
+\end{equation*}
+と定義する。
+\note{
+	$n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式$Q_{p,q}$を
+	  と定めます。この二次形式に{関する}不定値直交群$O(p+1,q+1)$を
+	$G$と定義し、
+その
+極大放物型部分群
+$P=MAN_{+}$を以下のように定めます。
+}
+\end{frame}
 \begin{frame}
 極大放物型部分群
 $P=MAN_{+}$を以下のように定める、
@@ -236,51 +282,6 @@ $P=MAN$は$G'$と適合します。すなわち、$P':=P\cap G'$は$G'$の極大
 $P'=(G'\cap M)A(G'\cap N_+)$で与えられます。
 $I(\lambda)$と同様
 に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定めます。
-}
-\end{frame}
-
-\begin{frame}
-	\begin{center}
-		\huge この研究は\textbf{小林俊行}先生（東京大学）との共同研究である
-	\end{center}
-	\note{この研究は小林俊行先生との\kana{共同}{キョウドウ}研究です。}
-\end{frame}
-\begin{frame}
-この講演での主テーマは{、}
-群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、symmetry breaking operator）である。
-\begin{block}{\underline{目標}:}
-対称性破れ作用素全体のなす空間を$$\sbo\mbox{と表記す{る}。}$$
-\end{block}
-\note{
-この講演での主テーマは{、}
-群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、{symmetry breaking operator}です。
-\slowly{symmetry breaking operator}の
-\kana{頭文字}{カシラモジ}を{とって}SBOと\kana{略記}{リャクキ}することにします。
-}
-\end{frame}
-\begin{frame}
-	  $n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式を
-	  \begin{equation*}
-		  \begin{array}[]{c}
-		  Q_{p,q} (x) \assign \,^t \! x I_{p, q} x, \; (x \in\mathbbm{R}^{p + q}),\\
-		I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
-		1, \ldots, - 1}_q)\in GL(p+q,\R)\mbox{と定める。}
-		  \end{array}{}
-	  \end{equation*}
-
-この二次形式に{関する}不定値直交群を
-\begin{equation*}
-	G \assign O (p +
-1, q + 1)=\left\{ g\in GL\left( p+q+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}
-\end{equation*}
-と定義する。
-\note{
-	$n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式$Q_{p,q}$を
-	  と定めます。この二次形式に{関する}不定値直交群$O(p+1,q+1)$を
-	$G$と定義し、
-その
-極大放物型部分群
-$P=MAN_{+}$を以下のように定めます。
 }
 \end{frame}
 \begin{frame}
@@ -568,7 +569,6 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 \begin{enumerate}[(1)]
 	\item $p=1$のとき、
 		\begin{equation*}
-			\vspace{-2em}
 			\kern-0.8cm\sbo = \left\{
 				\begin{array}{@{}l@{}l@{}}
      \mathbbm{C}R^X_{\lambda, \nu}, & (\lambda, \nu) \in \mathbbm{C}^2 - (/ /
@@ -584,7 +584,6 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 		\end{equation*}
 	\item $p>1$のとき、
 		\begin{equation*}
-			\vspace{-1em}
 \kern-1.9cm\sbo = \left\{
    \begin{array}{ll}
      \mathbbm{C} \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}R^{\{ o
@@ -595,6 +594,8 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 		\end{equation*}
 \end{enumerate}
 	\end{theorem}
+\end{frame}
+\begin{frame}
 	\begin{corollary}[対称性破れ作用素の{{存在}}定理と次元の上限]
 		どんな$(\lambda,\nu)\in\mathbb{C}^2$に対しても
 		$$\dim_{\mathbb{C}}\sbo\in\left\{ 1,2 \right\}\mbox{が成り立つ。}$$
@@ -802,16 +803,6 @@ $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
 同値であることが示されている。その特徴づけの1つは
 Zuckerman導来函手加群で記載される。)
 以下では、この加群の間に対称性破れ作用素がある{か}について論じる。簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
-以下では\begin{equation*}
-	g(t):=\left\{ \begin{array}[]{ll}
-		1&\left(t\in2\N+\frac{1}{2}  \right)\\[10pt]
-		0&\left(t\nin \left(2\N+\frac{1}{2}  \right)  \right)
-	\end{array}\right.,\quad h(t):=\left\{ \begin{array}[]{ll}
-		1&\left(  t<\frac{q}{2}\right)
-		\\[10pt]
-		0&\left( t\ge\frac{q}{2} \right)
-\end{array}\right.
-\end{equation*}とおく。
 \note{
 	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じましょう。
 	KobayashiとOrstedの２００３年の論文
