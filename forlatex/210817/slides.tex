@@ -169,22 +169,18 @@
 	  $n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式を
 	  \begin{equation*}
 		  \begin{array}[]{c}
-		  Q_{p,q} (x) \assign \,^t \! x I_{p, q} x, \; (x \in\mathbbm{R}^{p + q})\\
+		  Q_{p,q} (x) \assign \,^t \! x I_{p, q} x, \; (x \in\mathbbm{R}^{p + q}),\\
 		I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
-		  1, \ldots, - 1}_q)\in GL(p+q,\R)
+		1, \ldots, - 1}_q)\in GL(p+q,\R)\mbox{と定める。}
 		  \end{array}{}
 	  \end{equation*}
-	  と定める。
 
 この二次形式に{関する}不定値直交群を
 \begin{equation*}
 	G \assign O (p +
 1, q + 1)=\left\{ g\in GL\left( p+q+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}
 \end{equation*}
-と定義し、
-その
-極大放物型部分群
-$P=MAN_{+}$を以下のように定める、
+と定義する。
 \note{
 	$n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式$Q_{p,q}$を
 	  と定めます。この二次形式に{関する}不定値直交群$O(p+1,q+1)$を
@@ -232,20 +228,28 @@ $G$の球退化主系列表現を定めます。
 \end{frame}
 \begin{frame}
 複素数パラメータ
-$\lambda\in\C$に対して
+$\lambda\in\C$に対して、$G$の球退化主系列表現
 \begin{align*}
 I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
-&\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}.
+&\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}
 \end{align*}
+{を定める。}
 
 次に第$p$座標の固定部分群を
 \begin{equation*}
-	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}
+	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}\subset G\quad\mbox{とする。}
 \end{equation*}
-とすると、$G'$は$G$の簡約部分群となる。
-$G$の放物型部分群$P$を定めたsplitな可換群$A$が$G'$に含まれているため、
-$P=MAN$は$G'$と適合する。すなわち、$P':=P\cap G'$は$G'$の極大放物型部分群であり、そのラングランズ分解は
-$P'=(G'\cap M)A(G'\cap N_+)$で与えられ{る}。
+\begin{equation*}
+	\underbrace{A}_{\mbox{$P$を定めたsplitな可換群}}\subset G'\Longrightarrow\mbox{$P=MAN$は$G'$と適合する。}
+\end{equation*}
+%%$G$の放物型部分群$A$が$G'$に含まれているため、
+%%$P=MAN$は$G'$と適合する。
+すなわち、
+\vspace{-1em}
+\begin{enumerate}
+	\item $P':=P\cap G'$は$G'$の極大放物型部分群であり、
+	{\item {$P'$のラングランズ分解は$P'=(G'\cap M)A(G'\cap N_+)$で与えられる。}}
+\end{enumerate}
 $I(\lambda)$と同様
 に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定める。
 \note{
@@ -267,8 +271,17 @@ $I(\lambda)$と同様
 \begin{frame}
 この講演での主テーマは{、}
 群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、symmetry breaking operator）である。
-対称性破れ作用素全体のなす空間を$\sbo$と表記す{る}。
-
+\begin{block}{\underline{目標}:}
+対称性破れ作用素全体のなす空間を$$\sbo\mbox{と表記す{る}。}$$
+\end{block}
+\note{
+この講演での主テーマは{、}
+群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、{symmetry breaking operator}です。
+\slowly{symmetry breaking operator}の
+\kana{頭文字}{カシラモジ}を{とって}SBOと\kana{略記}{リャクキ}することにします。
+}
+\end{frame}
+\begin{frame}
 $(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Gelfand対となるので、小林--大島
 \cite{kobayashi2013finite}の一般理論によって以下のようなアプリオリ評価が得られる。
 \begin{fact}
@@ -278,10 +291,6 @@ $(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Ge
 $\sbo$の基底を具体的に決定しよう。
 \end{frame}
 \note{
-この講演での主テーマは{、}
-群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、{symmetry breaking operator}です。
-\slowly{symmetry breaking operator}の
-\kana{頭文字}{カシラモジ}を{とって}SBOと\kana{略記}{リャクキ}することにします。
 %%対称性破れ作用素全体のなす空間を$\sbo$と表記す{る}。
 
 $(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Gelfand対となるので、小林--大島
