@@ -10,6 +10,7 @@ COMMIT_PREFIX=$()
 PDFS=slides
 AUX=speech.pdf abstract-jap.pdf
 SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex mystyle.sty $(ME)
+AUX_SRC=mystyle.sty bibliography.tex tables_slide.tex
 
 OUTDIR=../foraux
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
@@ -27,11 +28,11 @@ src:  $(OUTDIR)/$(ZIPNAME)_s.zip
 
 $(OUTDIR)/stub.pdf : stub.tex bibliography.bib
 	$(LATEXMK) $<
-$(OUTDIR)/slides.pdf : slides.tex bibliography.tex
+$(OUTDIR)/slides.pdf : slides.tex $(AUX_SRC)
 	$(XELATEX) $<
 $(OUTDIR)/speech.tex: slides.tex
 	cat $<|sed 's/%\\setbeameroption{show only notes}/\\setbeameroption{show only notes}/g' > $@
-$(OUTDIR)/speech.pdf: $(OUTDIR)/speech.tex $(OUTDIR)/mystyle.sty $(OUTDIR)/geomdiagram.tex $(OUTDIR)/bibliography.tex $(OUTDIR)/tables.tex
+$(OUTDIR)/speech.pdf: $(OUTDIR)/speech.tex $(addprefix $(OUTDIR)/, $(AUX_SRC))
 	cd $(OUTDIR) && $(XELATEX) $<
 
 $(OUTDIR)/bibliography.pdf : bibliography_wrap.tex bibliography.tex 
