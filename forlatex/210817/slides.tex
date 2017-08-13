@@ -170,9 +170,7 @@
 \begin{frame}
 この講演での主テーマは{、}
 群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、symmetry breaking operator）である。
-\begin{block}{\underline{目標}:}
 対称性破れ作用素全体のなす空間を$$\sbo\mbox{と表記す{る}。}$$
-\end{block}
 \note{
 この講演での主テーマは{、}
 群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、{symmetry breaking operator}です。
@@ -290,8 +288,10 @@ $(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Ge
 \begin{fact}
 	対称性破れ作用素のなす空間の次元は表現のパラーメタ$(\lambda,\nu)$よらずに一様に押さえられている。
 \end{fact}
+\begin{block}{\underline{目標}:}
 対称性破れ作用素のなす線型空間
 $\sbo$の基底を具体的に決定しよう。
+\end{block}
 \end{frame}
 \note{
 %%対称性破れ作用素全体のなす空間を$\sbo$と表記す{る}。
@@ -730,55 +730,8 @@ $I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
 ＧとＧ’の役割を入れ替えたものが下の公式になります。
 			}
 \end{frame}
-\begin{frame}
-  \begin{figure}[H]
-    \centering
-    \begin{subfigure}[t]{0.3\textwidth}
-\xymatrix{I(\lambda)\ar[d]^{\tilde{\mathbb{T}}_{\lambda}^G}\ar@{-->}[rd]^{R_{\lambda,\nu}^X}&\\I(n-\lambda)\ar[r]^{R^X_{n-\lambda,\nu}}&J(\nu)}
-    \end{subfigure}
-    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
-      %(or a blank line to force the subfigure onto a new line)
-    \begin{subfigure}[t]{0.3\textwidth}
-			\xymatrix{I(\lambda)\ar@{-->}[rd]^{R_{\lambda,\nu}^X}\ar[r]^{R_{\lambda,n-1-\nu}^X}&J(n-1-\nu)\ar[d]^{\tilde{\mathbb{T}}_{n-1-\nu}^{G'}}\\&J(\nu)}
-    \end{subfigure}
-    \end{figure}
-    \vspace{-1em}
-    \begin{theorem}[函数等式]
-	$n=p+q\;(p,q\ge1)$で{あった}ことを思い出そう。
-	このとき、\footnote{maybe, it makes sense to give a full formula for $q^{XT}_X(\lambda,\nu)$, without ``\dots''?}
-	\begin{equation*}
-		\begin{array}[]{l}
-\tilde{R}_{n - \lambda, \nu}^X \circ
-\tilde{\mathbbm{T}}_{\lambda}^G = q_X^{X T} (\lambda, \nu)
-\tilde{R}^X_{\lambda, \nu} \\
-\tilde{\mathbbm{T}}_{n - 1 - \nu}^{G'} \circ
-\tilde{R}_{\lambda, n - 1 - \nu}^X = q_X^{T X} (\lambda, \nu)
-\tilde{R}_{\lambda, \nu}^X,\\
-	\mbox{ここで}\\
-q_X^{X T} (\lambda, \nu) = \ldots
-q_X^{T X} (\lambda, \nu) = \frac{\pi^{\frac{n -
-2}{2}} \sin \left( \frac{p - \nu}{2} \pi \right) 2^{1 - n - \nu}}{\Gamma
-\left( \frac{n - 1 - \nu}{2} \right)} \left\{ \begin{array}{ll}
-  \Gamma \left( \frac{1 - \nu}{2} \right), & p = 1\\
-  1, & n \in 2\mathbbm{Z}\\
-  \ldots, & \ldots
-\end{array} \right.
-		\end{array}
-	\end{equation*}
-	\end{theorem}
-\vspace{-0.5em}
-	\begin{remark}
-		函数等式の原型
-		として\footnote{should we have a comma here?}$q=0$の場合は\cite[Thm. 12.6]{kobayashi2015program}で得られた。
-	\end{remark}
-	\note{
-		比例定数も計算できて、極点と霊点を分
-		けるように$\Gamma$関数の積で表せます。
-
-		前のように、函数等式の原型として $q = 0$ の場合はKobayashi--Spehの論文で得られている。
-	}
-\end{frame}
 \subsection{対称性破れ作用素の像}
+\input{slides_functional}
 \begin{frame}{対称性破れ作用素の像}
 	\begin{theorem}
 %%		We can compute images of every SBOs constructed above for every 
