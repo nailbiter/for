@@ -32,7 +32,6 @@
 \newcommand{\Supp}{\mathcal{S}\!{\it upp}}
 \newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
 \newcommand{\Sol}{\mathcal{S}\mbox{ol}}
-%%\newcommand{\Hom}{\mbox{\normalfont Hom}}
 \newcommand{\D}{\mathcal{D}}
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\Co}{\mathbb{C}}
@@ -130,15 +129,10 @@
 
 % A subtitle is optional and this may be deleted
 
-\author[小林、\underline{レオンチエフ}]{小林俊行\inst{1} \and \underline{レオンチエフ　アレックス}\inst{2}}
+\author[{レオンチエフ}]{{レオンチエフ　アレックス}}
 
 \institute[東大数理] % (optional, but mostly needed)
 {
-  \inst{1}%
-  東京大学\\
-  大学院数理科学研究科{・}\\カブリ数物連携宇宙研究機構
-  \and
-  \inst{2}%
   東京大学\\
   大学院数理科学研究科
   }
@@ -160,11 +154,16 @@
 	初めまして。東京大学博士１年生レオンチエフ・アレックスと申します。
 	今回の第５６回実函数論・函数解析学 合同シンポジウムで発表させて頂き、誠にありがとうございます。
 	今日は{不定値直交群$O(p,q)$の対称性破れ作用素}をテーマにお話ししたいと思います。
-この研究は小林俊行先生との\kana{共同}{キョウドウ}研究です。
 	}\end{frame}
 \section{設定}
 
 \newcommand{\Ind}{\mbox{\normalfont Ind}}
+\begin{frame}
+	\begin{center}
+		\huge この研究は\textbf{小林俊行}先生（東京大学）との共同研究である
+	\end{center}
+	\note{この研究は小林俊行先生との\kana{共同}{キョウドウ}研究です。}
+\end{frame}
 \begin{frame}
 	  $n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式を
 	  \begin{equation*}
@@ -190,89 +189,91 @@
 $P=MAN_{+}$を以下のように定めます。
 }
 \end{frame}
-\begin{frame}
-極大放物型部分群
-$P=MAN_{+}$を以下のように定める、
-  \begin{equation*}
-	  \kern-0.2cm
-	  \begin{array}{@{}l@{}l@{}l@{}}
-   M &\assign {\left\{ \left( \begin{array}{ccc}
-    \epsilon & 0 & 0\\
-    0 & A & 0\\
-    0 & 0 & \epsilon
-  \end{array} \right) \middle| 
-    A \in O (p, q),\;
-    \epsilon = \pm 1
-  \right\}}\simeq O(p,q)\times \Z/{2\Z},  &\\
-  A &\assign \left\{a(t)\assign\left( \begin{array}{ccc}
-    \cosh (t) & 0 & \sinh (t)\\
-    0 & I_{p + q} & 0\\
-    \sinh (t) & 0 & \cosh (t)
-  \end{array} \right)\middle| t \in \mathbbm{R}\right\} &\simeq \mathbbm{R},\\
-   N_+ &\assign\kern-0.1cm\left\{  I_{n + 2}\kern-0.05cm+\kern-0.15cm\left( \begin{array}{ccc}
-    - \frac{1}{2} Q_{p,q} (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} Q_{p,q} (b)\\
-    b & 0 & - b\\
-    - \frac{1}{2} Q_{p,q} (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} Q_{p,q} (b)
-  \end{array} \right) \kern-0.1cm\middle| b \in \mathbbm{R}^{p + q} \right\} &\simeq
-  \mathbbm{R}^{p + q}.\\
-  \end{array}
-  \end{equation*}
-放物型部分群$P$からの誘導表現として、以下のように
-$G$の球退化主系列表現を定める。
-\note{
-	ここでの$M,A$と$N_+$は$P$のラングランズ分解です。
-	$A$は1次元可換群である、$N_+$は$p+q$次元の可換群です。
-放物型部分群$P$からの誘導表現として、以下のように
-$G$の球退化主系列表現を定めます。
-}
-\end{frame}
-\begin{frame}
-複素数パラメータ
-$\lambda\in\C$に対して、$G$の球退化主系列表現
-\begin{align*}
-I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
-&\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}
-\end{align*}
-{を定める。}
-
-次に第$p$座標の固定部分群を
-\begin{equation*}
-	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}\subset G\quad\mbox{とする。}
-\end{equation*}
-\begin{equation*}
-	\underbrace{A}_{\mbox{$P$を定めたsplitな可換群}}\subset G'\Longrightarrow\mbox{$P=MAN$は$G'$と適合する。}
-\end{equation*}
-%%$G$の放物型部分群$A$が$G'$に含まれているため、
-%%$P=MAN$は$G'$と適合する。
-すなわち、
-\vspace{-1em}
-\begin{enumerate}
-	\item $P':=P\cap G'$は$G'$の極大放物型部分群であり、
-	{\item {$P'$のラングランズ分解は$P'=(G'\cap M)A(G'\cap N_+)$で与えられる。}}
-\end{enumerate}
-$I(\lambda)$と同様
-に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定める。
-\note{
-複素数パラメータ
-$\lambda\in\C$に対して
-$I(\lambda)$という$G$の球退化主系列表現を定義します。
-次に第$p$座標の固定部分群を
-\begin{equation*}
-	G'
-\end{equation*}
-とすると、$G'$は$G$の簡約部分群となる。
-$G$の放物型部分群$P$を定めたsplitな可換群$A$が$G'$に含まれているため、
-$P=MAN$は$G'$と適合します。すなわち、$P':=P\cap G'$は$G'$の極大放物型部分群であり、そのラングランズ分解は
-$P'=(G'\cap M)A(G'\cap N_+)$で与えられます。
-$I(\lambda)$と同様
-に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定めます。
-}
-\end{frame}
+%%\begin{frame}
+%%極大放物型部分群
+%%$P=MAN_{+}$を以下のように定める、
+%%  \begin{equation*}
+%%	  \kern-0.2cm
+%%	  \begin{array}{@{}l@{}l@{}l@{}}
+%%   M &\assign {\left\{ \left( \begin{array}{ccc}
+%%    \epsilon & 0 & 0\\
+%%    0 & A & 0\\
+%%    0 & 0 & \epsilon
+%%  \end{array} \right) \middle| 
+%%    A \in O (p, q),\;
+%%    \epsilon = \pm 1
+%%  \right\}}\simeq O(p,q)\times \Z/{2\Z},  &\\
+%%  A &\assign \left\{a(t)\assign\left( \begin{array}{ccc}
+%%    \cosh (t) & 0 & \sinh (t)\\
+%%    0 & I_{p + q} & 0\\
+%%    \sinh (t) & 0 & \cosh (t)
+%%  \end{array} \right)\middle| t \in \mathbbm{R}\right\} &\simeq \mathbbm{R},\\
+%%   N_+ &\assign\kern-0.1cm\left\{  I_{n + 2}\kern-0.05cm+\kern-0.15cm\left( \begin{array}{ccc}
+%%    - \frac{1}{2} Q_{p,q} (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} Q_{p,q} (b)\\
+%%    b & 0 & - b\\
+%%    - \frac{1}{2} Q_{p,q} (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} Q_{p,q} (b)
+%%  \end{array} \right) \kern-0.1cm\middle| b \in \mathbbm{R}^{p + q} \right\} &\simeq
+%%  \mathbbm{R}^{p + q}.\\
+%%  \end{array}
+%%  \end{equation*}
+%%放物型部分群$P$からの誘導表現として、以下のように
+%%$G$の球退化主系列表現を定める。
+%%\note{
+%%	ここでの$M,A$と$N_+$は$P$のラングランズ分解です。
+%%	$A$は1次元可換群である、$N_+$は$p+q$次元の可換群です。
+%%放物型部分群$P$からの誘導表現として、以下のように
+%%$G$の球退化主系列表現を定めます。
+%%}
+%%\end{frame}
+%%\begin{frame}
+%%複素数パラメータ
+%%$\lambda\in\C$に対して、$G$の球退化主系列表現
+%%\begin{align*}
+%%I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
+%%&\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}
+%%\end{align*}
+%%{を定める。}
+%%
+%%次に第$p$座標の固定部分群を
+%%\begin{equation*}
+%%	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}\subset G\quad\mbox{とする。}
+%%\end{equation*}
+%%\begin{equation*}
+%%	\underbrace{A}_{\mbox{$P$を定めたsplitな可換群}}\subset G'\Longrightarrow\mbox{$P=MAN$は$G'$と適合する。}
+%%\end{equation*}
+%%%%$G$の放物型部分群$A$が$G'$に含まれているため、
+%%%%$P=MAN$は$G'$と適合する。
+%%すなわち、
+%%\vspace{-1em}
+%%\begin{enumerate}
+%%	\item $P':=P\cap G'$は$G'$の極大放物型部分群であり、
+%%	{\item {$P'$のラングランズ分解は$P'=(G'\cap M)A(G'\cap N_+)$で与えられる。}}
+%%\end{enumerate}
+%%$I(\lambda)$と同様
+%%に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定める。
+%%\note{
+%%複素数パラメータ
+%%$\lambda\in\C$に対して
+%%$I(\lambda)$という$G$の球退化主系列表現を定義します。
+%%次に第$p$座標の固定部分群を
+%%\begin{equation*}
+%%	G'
+%%\end{equation*}
+%%とすると、$G'$は$G$の簡約部分群となる。
+%%$G$の放物型部分群$P$を定めたsplitな可換群$A$が$G'$に含まれているため、
+%%$P=MAN$は$G'$と適合します。すなわち、$P':=P\cap G'$は$G'$の極大放物型部分群であり、そのラングランズ分解は
+%%$P'=(G'\cap M)A(G'\cap N_+)$で与えられます。
+%%$I(\lambda)$と同様
+%%に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定めます。
+%%}
+%%\end{frame}
 \begin{frame}
 この講演での主テーマは{、}
 群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、symmetry breaking operator）である。
 \begin{block}{\underline{目標}:}
-対称性破れ作用素全体のなす空間を$$\sbo\mbox{と表記す{る}。}$$
+対称性破れ作用素全体のなす空間\footnote{
+I understood Your instruction ``その次に現在のpage 5と６を最初のスライドとする。'' in the sense that I should
+remove slides 3 and 4, and so I did. Please, note that this removes the definition of $I(\lambda)$.}を$$\sbo\mbox{と表記す{る}。}$$
 \end{block}
 \note{
 この講演での主テーマは{、}
@@ -454,38 +455,46 @@ parameter $(\lambda,\nu)$がこの//（ナナメのニ\kana{重線}{ジュウセ
 \subsection{regular 対称性破れ作用素の構成}
 \begin{frame}
 	\begin{theorem}[regular 対称性破れ作用素の構成]
-For
-$(\lambda, \nu) \in \mathbbm{C}^2$ および 
-$\tmop{Re} (\nu) < 0$ and $\tmop{Re}
-(\lambda + \nu - n) > 0$ を満たす$(\lambda,\nu)\in\mathbb{C}^2$に対し、関数
-\vspace{-0.6em}
+%%For
+%%$(\lambda, \nu) \in \mathbbm{C}^2$ および 
+%%$\tmop{Re} (\nu) < 0$ and $\tmop{Re}
+%%(\lambda + \nu - n) > 0$ を満たす$(\lambda,\nu)\in\mathbb{C}^2$に対し、
+		\begin{equation*}
+			(\lambda,\nu)\in\left\{ (\lambda,\nu)\in\C^2\left|\begin{array}[]{l}
+			\Re(\nu)<0\\
+			\Re(\lambda+\nu-n)>0
+		\end{array}\right. \right\}\mbox{に対し、}
+		\end{equation*}
 \begin{equation*}
-	| x_p |^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}
-\end{equation*}
+	\quad| x_p |^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}\mbox{
 は連続であり、
 $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$の元になる。
-\vspace{-0.5em}
+	}
+\end{equation*}
+\vspace{-0.3em}
+	\end{theorem}
+	\vspace{-2em}
 \begin{equation*}
+	\vspace{-0.5em}
 	\tilde{R}_{\lambda, \nu}^{\R^{p,q}} \assign \tmop{Op} (| x_p
 	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}) \mbox{とする}.
 \end{equation*}
-	\end{theorem}
-\vspace{-0.4em}
-	\begin{theorem}[regular 対称性破れ作用素の正規化]
 		$\tilde{R}_{\lambda, \nu}^{\R^{p,q}}$ は $(\lambda, \nu) \in
 \mathbbm{C}^2$に有理型に依存する対称性破れ作用素の族に拡張できる。更に、
-\vspace{-1.1em}
+\vspace{-0.4em}
+	\begin{theorem}[regular 対称性破れ作用素の正規化]
 \begin{equation*}
 	{R}_{\lambda, \nu}^X \assign \frac{1}{\Gamma
 \left( \frac{\lambda - \nu}{2} \right) \Gamma \left( \frac{\lambda - \nu}{2}
 \right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} \tilde{R}_{\lambda,
-\nu}^{\R^{p,q}}
+\nu}^{\R^{p,q}}\mbox{のように正規化すると、}
 \vspace{-0.6em}
 \end{equation*}
-のように正規化すると、$R_{\lambda,\nu}^X$は$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する
+$R_{\lambda,\nu}^X$は$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する
 対称性破れ作用素になる。
-また、$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)$
-がある離散集合に属する。
+また、
+\vspace{-1em}
+$$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)\mbox{がある離散集合に属する。}$$
 	\end{theorem}
 	\note{
 		その次に、regular対称性破れ作用素を作ります。微分対称性破れ作用と正反対で、
@@ -644,8 +653,8 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 \begin{equation*}
 	{R}_{\lambda, \nu}^X = \frac{(- 1)^\ell \ell!
 \pi^{(n - 2) / 2}}{2^{\nu + 2 \ell - 1}} \cdot \frac{\sin \left( \frac{1 + q -
-\nu}{2} \pi \right)}{\Gamma \left( \frac{\nu}{2} \right)} \tilde{R}_{\lambda,
-\nu}^{\{ o \}}, \quad (\lambda, \nu) \in //.
+\nu}{2} \pi \right)}{\Gamma \left( \frac{\nu}{2} \right)}\cdot \underbrace{{R}_{\lambda,
+\nu}^{\{ o \}}}_{\mbox{微分対称性破れ作用素}}, (\lambda, \nu) \in //.
 \end{equation*}
 \end{theorem}
 \vspace{-0.5em}

@@ -8,7 +8,7 @@ ZIPNAME=august21talk
 WORKON=$(ZIPNAME)
 COMMIT_PREFIX=$()
 PDFS=slides
-AUX=speech.pdf
+AUX=speech.pdf abstract-jap.pdf
 SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex mystyle.sty $(ME)
 
 OUTDIR=../foraux
@@ -47,15 +47,18 @@ $(OUTDIR)/abstract.tex: $(SRCS)
 	latexpand --expand-usepackage $< > $@
 	cd $(OUTDIR) && xelatex abstract.tex
 
-$(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
-	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
+$(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX)) $(OUTDIR)/ProcJapanAcad.pdf
+	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX) ProcJapanAcad.pdf
 	unzip -l $@
 	du -hs $@
 	$(GITCOMMIT)
 
-$(OUTDIR)/abstract-jap.pdf : $(SRCS)
-	xelatex --output-directory=$(OUTDIR) abstract-jap.tex
-	#$(XELATEX) abstract-jap.tex
+$(OUTDIR)/ProcJapanAcad.pdf: $(OUTDIR)/master_announcement2.pdf
+	ln -s /Users/nailbiter/for/forlatex/foraux/master_announcement2.pdf $@
+
+#$(OUTDIR)/abstract-jap.pdf : $(SRCS)
+#	xelatex --output-directory=$(OUTDIR) abstract-jap.tex
+#	#$(XELATEX) abstract-jap.tex
 
 #standard rules
 %.eps: %.tex
