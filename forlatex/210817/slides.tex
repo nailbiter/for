@@ -167,10 +167,21 @@
 	\note{この研究は小林俊行先生との\kana{共同}{キョウドウ}研究です。}
 \end{frame}
 \section{目標}
-\begin{frame}
+\subsection{主テーマ}
+\begin{frame}{主テーマ}
 この講演での主テーマは{、}
 群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、symmetry breaking operator）である。
-対称性破れ作用素全体のなす空間を$$\sbo\mbox{と表記す{る}。}$$
+%%対称性破れ作用素全体のなす空間を$$\sbo\mbox{と表記す{る}。}$$
+\centerline{
+	\xymatrixcolsep{1.8cm}
+	\xymatrixrowsep{1.8cm}
+	\xymatrix{
+		I(\lambda)\ar[rr]_{\mbox{対称性破れ作用素}}&&J(\nu)\\
+	G\ar@/^1pc/[u]&\subset&G'\ar@/_1pc/[u]}
+}
+\begin{equation*}
+	\lambda,\nu\mbox{: 表現のパラメータ}
+\end{equation*}
 \note{
 この講演での主テーマは{、}
 群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、{symmetry breaking operator}です。
@@ -179,7 +190,7 @@
 }
 \end{frame}
 \section{設定}
-\begin{frame}
+\begin{frame}{扱う群の設定}
 	  $n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式を
 	  \begin{equation*}
 		  \begin{array}[]{c}
@@ -204,12 +215,12 @@
 $P=MAN_{+}$を以下のように定めます。
 }
 \end{frame}
-\begin{frame}
+\begin{frame}{扱う表現の設定}
 極大放物型部分群
 $P=MAN_{+}$を以下のように定める、
   \begin{equation*}
 	  \kern-0.2cm
-	  \begin{array}{@{}l@{}l@{}l@{}}
+	  \begin{array}{lll}
    M &\assign {\left\{ \left( \begin{array}{ccc}
     \epsilon & 0 & 0\\
     0 & A & 0\\
@@ -217,22 +228,30 @@ $P=MAN_{+}$を以下のように定める、
   \end{array} \right) \middle| 
     A \in O (p, q),\;
     \epsilon = \pm 1
-  \right\}}\simeq O(p,q)\times \Z/{2\Z},  &\\
-  A &\assign \left\{a(t)\assign\left( \begin{array}{ccc}
-    \cosh (t) & 0 & \sinh (t)\\
-    0 & I_{p + q} & 0\\
-    \sinh (t) & 0 & \cosh (t)
-  \end{array} \right)\middle| t \in \mathbbm{R}\right\} &\simeq \mathbbm{R},\\
-   N_+ &\assign\kern-0.1cm\left\{  I_{n + 2}\kern-0.05cm+\kern-0.15cm\left( \begin{array}{ccc}
-    - \frac{1}{2} Q_{p,q} (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} Q_{p,q} (b)\\
-    b & 0 & - b\\
-    - \frac{1}{2} Q_{p,q} (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} Q_{p,q} (b)
-  \end{array} \right) \kern-0.1cm\middle| b \in \mathbbm{R}^{p + q} \right\} &\simeq
-  \mathbbm{R}^{p + q}.\\
+  \right\}}&\simeq O(p,q)\times \Z/{2\Z},  \\
+  A&&\simeq \R,\\
+  N_+&&:\mbox{可換な冪零部分群}
+%%  A &\assign \left\{a(t)\assign\left( \begin{array}{ccc}
+%%    \cosh (t) & 0 & \sinh (t)\\
+%%    0 & I_{p + q} & 0\\
+%%    \sinh (t) & 0 & \cosh (t)
+%%  \end{array} \right)\middle| t \in \mathbbm{R}\right\} &\simeq \mathbbm{R},\\
+%%   N_+ &\assign\kern-0.1cm\left\{  I_{n + 2}\kern-0.05cm+\kern-0.15cm\left( \begin{array}{ccc}
+%%    - \frac{1}{2} Q_{p,q} (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} Q_{p,q} (b)\\
+%%    b & 0 & - b\\
+%%    - \frac{1}{2} Q_{p,q} (b) & - \,^t \! (I_{p, q} b) & \frac{1}{2} Q_{p,q} (b)
+%%  \end{array} \right) \kern-0.1cm\middle| b \in \mathbbm{R}^{p + q} \right\} &\simeq
+%%  \mathbbm{R}^{p + q}.\\
   \end{array}
   \end{equation*}
-放物型部分群$P$からの誘導表現として、以下のように
+放物型部分群$P$からの誘導表現として、
+複素数パラメータ$\lambda\in\C$に対して、
+以下のように
 $G$の球退化主系列表現を定める。
+\begin{align*}
+I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
+&\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}
+\end{align*}
 \note{
 	ここでの$M,A$と$N_+$は$P$のラングランズ分解です。
 	$A$は1次元可換群である、$N_+$は$p+q$次元の可換群です。
@@ -240,15 +259,9 @@ $G$の球退化主系列表現を定める。
 $G$の球退化主系列表現を定めます。
 }
 \end{frame}
-\begin{frame}
-複素数パラメータ
-$\lambda\in\C$に対して、$G$の球退化主系列表現
-\begin{align*}
-I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
-&\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}
-\end{align*}
-{を定める。}
-
+\begin{frame}{}
+%%$G$の球退化主系列表現
+%%{を定める。}
 次に第$p$座標の固定部分群を
 \begin{equation*}
 	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}\subset G\quad\mbox{とする。}
@@ -282,25 +295,30 @@ $I(\lambda)$と同様
 に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定めます。
 }
 \end{frame}
-\begin{frame}
-$(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Gelfand対となるので、小林--大島
+\begin{frame}{一般理論（小林--大島{利雄}）によるアプリオリ評価}
+$(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Gelfand対となるので、小林--大島{利雄}
 \cite{kobayashi2013finite}の一般理論によって以下のようなアプリオリ評価が得られる。
 \begin{fact}
 	対称性破れ作用素のなす空間の次元は表現のパラーメタ$(\lambda,\nu)$よらずに一様に押さえられている。
 \end{fact}
-\begin{block}{\underline{目標}:}
-対称性破れ作用素のなす線型空間
-$\sbo$の基底を具体的に決定しよう。
-\end{block}
-\end{frame}
 \note{
 %%対称性破れ作用素全体のなす空間を$\sbo$と表記す{る}。
 
 $(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Gelfand対となるので、小林--大島
 の一般理論によって以下のようなアプリオリ評価が得られます。
+}
+\end{frame}
+\begin{frame}
+\begin{block}{\underline{目標}:}
+対称性破れ作用素のなす線型空間
+$\sbo$の基底を具体的に決定しよう。
+\end{block}
+Kobayashi--Speh, Memoirs of AMS 2015.
+\note{
 対称性破れ作用素のなす線型空間
 $\sbo$の基底を具体的に決定しましょう。
 }
+\end{frame}
 \begin{frame}
 %%この空間を分析するために、まず以下のような定義する：
 \begin{definition} \label{def1}
