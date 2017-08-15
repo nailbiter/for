@@ -893,9 +893,16 @@ $I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
 	を用いた関数等式も同様に決定できる。
 \end{frame}
 \begin{frame}{対称性破れ作用素の像}
+	\begin{block}{問題}
+		全て$(\lambda, \nu) \in \mathbbm{C}^2$に対し、上記で構成されたそれぞれの対称性破れ作用素の像を具体的に決定せよ。
+	\end{block}
+	\vspace{1em}
+	\centerline{
+		\xymatrix{\;\ar@{=>}^{\mbox{函数等式\footnote[frame]{in fact, as far as I remember, we \textbf{did not} use functional identities to derive images of SBOs}}}[d]\\\;}
+	}
+	\vspace{1em}
 	\begin{theorem}
-%%		We can compute images of every SBOs constructed above for every 
-		全て$(\lambda, \nu) \in \mathbbm{C}^2$に対し、上記で構成されたそれぞれの対称性破れ作用素の像を具体的に決定出来る。
+		それぞれの対称性破れ作用素の像が決定できる。
 	\end{theorem}
 	\note{
 		最後は、これらの\kana{緒}{しょ}結果をプラスアルファの結果から
@@ -939,7 +946,7 @@ Zuckerman導来函手加群で記載されます。
 }
 \end{frame}
 \begin{frame}[allowframebreaks]{}
-\begin{theorem}[Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素の存在問題]
+	\begin{theorem}[Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素]
 	$n=p+q\;(p,q\ge1),\;n':=n-1$とする。
 	以下では
 	\vspace{-1em}
@@ -960,7 +967,48 @@ Zuckerman導来函手加群で記載されます。
 	$\Hom_{G'}\left(\pi_{\delta,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\varepsilon,y}^{p,q+1} \right)$の次元は以下のようになる。
 %%
 \end{theorem}
-	\input{tables_slide.tex}
+%%\newcommand{\mytable}[9]{\begin{center}
+%%$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+%%  \hline
+%%	#1& #2&#3\\
+%%  \hline
+%%	#4& #5&#6\\
+%%  \hline
+%%	#7& #8&#9\\
+%%  \hline
+%%\end{array} \newline$
+%%\end{center}}
+	$p,q{\mbox{は奇数の場合}}$
+%%\hspace*{-0cm}\commonShift\mytable	%3
+%%{}	{\pipy}				{\pimy}
+%%{\pipx}	{\begin{cases}
+%%	1,&x-y\in2\N+\frac{1}{2}\\
+%%	0,&\mbox{それ以外の場合}
+%%\end{cases}} 	{0}
+%%{\pimx}	{0} 				{\begin{cases}
+%%	1,&y-x\in2\N+\frac{1}{2}\\
+%%	0,&\mbox{それ以外の場合}
+%%\end{cases}}
+\begin{center}
+$\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
+  \hline
+	& \pipy&\pimy\\
+  \hline
+	\pipx& {\begin{cases}
+	1,&x-y\in2\N+\frac{1}{2}\\
+	0,&\mbox{それ以外の場合}
+\end{cases}}&0\\
+  \hline
+	\pimx& 0&{\begin{cases}
+	1,&y-x\in2\N+\frac{1}{2}\\
+	0,&\mbox{それ以外の場合}
+\end{cases}}\\
+  \hline
+\end{array} \newline$
+\end{center}
+\begin{remark}
+	$p,q$が奇数出ない場合も、同様に。
+\end{remark}
 \begin{remark}
 	\begin{enumerate}[(1)]
 		\item この定理では分岐則が
@@ -968,7 +1016,7 @@ Zuckerman導来函手加群で記載されます。
 			離散分解する場合(一般論は\cite{10.2307/120963})とそうでない場合の両方が含まれている。
 		\item 分岐則が離散分解する場合、上記の分岐則は\cite[Thm. 3.3]{kobayashi1993}によって得られた公式と一致する。
 		\item 
-			離散的に分解\doubt{しない}場合の最初の結果はKobayashi--Speh
+			離散的に分解{しない}場合の最初の結果はKobayashi--Speh
 			\cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}
 			が証明した ($q=0$の場合)
 			ている。
