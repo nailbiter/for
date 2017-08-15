@@ -279,11 +279,8 @@ $G$の球退化主系列表現を定めます。
 	（$\nu$は
 	複素数）を定める。
 \end{frame}
-\begin{frame}{}
-%%$G$の球退化主系列表現
-%%{を定める。}
-%%次に第$p$座標の固定部分群を
-	座標で計算するために$G'$を部分群とその表現の具体的な設定
+\begin{frame}{部分群とその表現の具体的な設定}
+	座標で計算するために$G'$を
 \begin{equation*}
 	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}\subset G\quad\mbox{と実現する。}
 \end{equation*}
@@ -387,7 +384,7 @@ $\sbo$の基底を具体的に決定しましょう。
 	\vspace{-1em}
 	\begin{enumerate}[1.]
 		\item 対称性破れ作用素の超函数
-		\item その台になるフィルトレーション特徴あげる
+		\item その台によるフィルトレーション特徴あげる
 	\end{enumerate}
 	$n = p + q$ とする。対称性破れ作用素の核超関数を 考えることによって 以下の可換図式が得られる。
 	\begin{fact}[対称性破れ作用素の積分核,{\cite[Thm. 3.16]{kobayashi2015symmetry}}]
@@ -409,8 +406,8 @@ $\sbo$の基底を具体的に決定しましょう。
 		\vspace{-2em}
 	\begin{equation*}
 		\begin{array}[]{ll}
-			\operatorname{Op}:&\mbox{超関数核}\rightsquigarrow\mbox{対称性破れ作用素}\\
-			\mathcal{S}:&\mbox{超関数核の台(support)}
+			\operatorname{Op}:&\mbox{超函数核}\rightsquigarrow\mbox{対称性破れ作用素}\\
+			\mathcal{S}:&\mbox{超函数核の台(support)}
 		\end{array}
 	\end{equation*}
 	\note{\tiny
@@ -456,7 +453,7 @@ $\sbo$の基底を具体的に決定しましょう。
 	\begin{theorem}
 		$X\supset Y$を$C^\infty$多様体とする。線形写像$T:C^\infty(X)\to C^\infty(Y)$は\begin{equation*}
 			T=\operatorname{Rest}_{Y}\circ X\mbox{上の微分作用素}
-		\end{equation*}と表せるとき、$Y$ \underline{微分対称性破れ作用素}という（広い意味で）。
+		\end{equation*}と表せるとき、$Y$ \underline{微分作用素}という（広い意味で）。
 	\end{theorem}
 \end{frame}
 \begin{frame}{微分対称性破れ作用素の分類}
@@ -701,7 +698,6 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} 
 \vspace{-1em}
 \end{equation*}
-\vspace{-0.6em}
 を積分核\doubt{とする}。対称性破れ作用素
 ${R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
 \nu}{2} \right)} \tmop{Op} \left( \tilde{K}_{\lambda, \nu}^{\R^{p,q}} \right)$は$(\lambda,\nu)\in\mathbb{C}^2$全体に正則(holomorphic)に拡張できる。
@@ -709,6 +705,7 @@ ${R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
 \vspace{-0.5em}
 \begin{theorem}[留数公式]
 	$\ell:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$となるとき、
+	そのときに限り$R_{\lambda,\nu}^X$は微分対称性となり、
 	\vspace{-1em}
 \begin{equation*}
 	{R}_{\lambda, \nu}^X = \frac{(- 1)^\ell \ell!
