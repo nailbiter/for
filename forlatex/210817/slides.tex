@@ -11,7 +11,7 @@
 \usepackage{enumerate}
 \usepackage{setspace}
 \usepackage{xypic}
-\usepackage[all,cmtip]{xy}
+\usepackage[pdftex,color,all,cmtip]{xy}
 \usepackage{bbm,ulem,float,mystyle}
 \usepackage{caption}
 \usepackage{subcaption}
@@ -692,21 +692,23 @@ $(\lambda,\nu)\in D_S$に正則に依存する。
 		して含みます。
 	}
 \end{frame}
-\begin{frame}%
+\begin{frame}
 	$(\lambda,\nu)\in\mathbb{C}^2\setminus//$に対して、
+\vspace{-1em}
 \begin{equation*}
 	\tilde{K}_{\lambda, \nu}^{\R^{p,q}} \assign \frac{| x_p |^{\lambda +
 \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} \cdot \frac{|
-Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
-\mbox{ol} (\mathbbm{R}^n ; \lambda, \nu)\mbox{ を定める。
-}
+Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} 
+\vspace{-1em}
 \end{equation*}
-このとき、${R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
-\nu}{2} \right)} \tmop{Op} \left( \tilde{K}_{\lambda, \nu}^{\R^{p,q}} \right)$は$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する対称性破れ作用素の族に拡張できる。
+\vspace{-0.6em}
+を積分核\doubt{とする}。対称性破れ作用素
+${R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
+\nu}{2} \right)} \tmop{Op} \left( \tilde{K}_{\lambda, \nu}^{\R^{p,q}} \right)$は$(\lambda,\nu)\in\mathbb{C}^2$全体に正則(holomorphic)に拡張できる。
 以下では作用素$\Op\left( \tilde{K}^{\R^{p,q}}_{\lambda,\nu} \right)$の留数を求める。
 \vspace{-0.5em}
 \begin{theorem}[留数公式]
-	$(\lambda,\nu)\in//$に対して、$\ell:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$とおく。このとき
+	$\ell:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$となるとき、
 	\vspace{-1em}
 \begin{equation*}
 	{R}_{\lambda, \nu}^X = \frac{(- 1)^\ell \ell!
@@ -717,8 +719,8 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 \end{theorem}
 \vspace{-0.5em}
 \begin{remark}
-		正則な対称性破れ作用素の
-		留数公式の原型は$q=0$の場合で、このときは\cite{KOBAYASHI2014272}、\cite[Thm. 12.2]{kobayashi2015symmetry}で証明されている。
+		対称性破れ作用素の
+		留数公式の原型は$q=0$の場合で、このときは小林 \cite{KOBAYASHI2014272}、小林--Speh \cite[Thm. 12.2]{kobayashi2015symmetry}で証明されている。
 \end{remark}
 \note{
 %%	次の定理はregular対称性破れ作用素の積分核がナナメのニ重線集合上に多
@@ -743,13 +745,13 @@ Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
 		\underline{Knapp--Stein 作用素}は以下のように定義された $G$絡作用素である\begin{equation*}
 			\begin{array}[]{l}
 				\tilde{\mathbb{T}}_\lambda^G:I(\lambda)\to I(n-\lambda),\\
-				f\mapsto q_T(\lambda)\left(\myabs{Q_{p,q}}^{\lambda-n}\ast f  \right).
+				f\mapsto q(\lambda)\left(\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2}^{\lambda-n}\ast f  \right).
 			\end{array}
 		\end{equation*}
 		ここで
-		$q_T (\lambda)$ は具体的に$\Gamma$関数の積に述べられた。
+		$q (\lambda)$ は$\Gamma$関数の積に\doubt{よる}正規化のための関数
 	\end{definition}
-		$\tilde{R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$ と対称性破れ作用素 $\tilde{R}_{\lambda, \nu}^X$を比較する。両方は比例になる。　
+%%		$\tilde{R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$ と対称性破れ作用素 $\tilde{R}_{\lambda, \nu}^X$を比較する。両方は比例になる。　
 	\note{
 次の結果を紹介する前に、古典的なKnapp-Stein作用素の定義を復習したいと思い
 ます。
@@ -758,6 +760,30 @@ $G = G'$ の場合は、古くから多く研究があり、この場合は$G
 Knapp-Stein作用素というのは、パーラメータに正則に依存する、
 $I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
 	}
+\end{frame}
+\begin{frame}{函数等式の考え方}
+	\centerline{
+	\xymatrixcolsep{1.0cm}
+	\xymatrixrowsep{0.8cm}
+		\xymatrix{
+		G\ar@/_1pc/[d]&\supset&G'\ar@/^1pc/[d]\\
+		I(\lambda)\ar@<-3pt>@[red][d]\ar[rr]\ar[drr]&&J(\nu)\ar@<-3pt>@[red][d]\\
+		I(n-\lambda)\ar@<-3pt>@[red][u]\ar[rr]\ar[urr]&&J(n-1-\nu)\ar@<-3pt>@[red][u]
+		}
+	}
+	\vspace{-1em}
+	\begin{tabular}[]{ll}
+	$\rightarrow$ $\searrow$ $\nwarrow$ $\rightarrow$& はいずれも対称性破れ作用素である\\
+	$\color{red}{\downarrow\uparrow}$&は古典的な絡作用素(Knapp--Stein)である
+	\end{tabular}
+	\begin{block}{Observation}
+		合成$\color{red}{\uparrow}\color{black}{\searrow}$や$\searrow\color{red}{\uparrow}$なども対称性破れ作用素となる。
+	\end{block}
+	\vspace{-1em}
+	これらは既存の対称性破れ作用素の定数倍となる。（関数等式）
+	\begin{block}{{ポイント}}
+		この定数が特別な$\lambda,\nu$で零となる$\implies$これを決定したい
+	\end{block}
 \end{frame}
 \begin{frame}{}
 	合成
@@ -792,7 +818,7 @@ $I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
 		できます。
 	}
 \end{frame}
-\begin{frame}{}
+\begin{frame}{Zuckerman導来函手加群}
 	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じる。
 	\cite[(5.1.1)]{KO2}に{倣}って$p>1${かつ}$q\ge1$のときに\begin{equation*}
 	A_0(p,q):=\left\{ \lambda\in\Z+\frac{p+q}{2}\;:\;\lambda>-1 \right\}
@@ -852,9 +878,15 @@ Zuckerman導来函手加群で記載されます。
 	\input{tables_slide.tex}
 \begin{remark}
 	\begin{enumerate}[(1)]
-		\item この定理では分岐則が離散分解する場合(一般論は\cite{10.2307/120963})とそうでない場合の両方が含まれている。
-			分岐則が離散分解する場合、上記の分岐則は\cite[Thm. 3.3]{kobayashi1993}によって得られた公式と一致する。
-		\item $q=0$の場合の類似の結果は\cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}で得られている。
+		\item この定理では分岐則が
+			連続スペクトルムを持たない場合、すなわち、
+			離散分解する場合(一般論は\cite{10.2307/120963})とそうでない場合の両方が含まれている。
+		\item 分岐則が離散分解する場合、上記の分岐則は\cite[Thm. 3.3]{kobayashi1993}によって得られた公式と一致する。
+		\item 
+			離散的に分解\doubt{しない}場合の最初の結果はKobayashi--Speh
+			\cite[Thms. 12.1 and 1.3]{kobayashi2015symmetry}
+			が証明した ($q=0$の場合)
+			ている。
 	\end{enumerate}
 	\vspace{-0.8em}
 \end{remark}
