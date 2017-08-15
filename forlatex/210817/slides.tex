@@ -77,6 +77,7 @@
 \newtheorem{definition}{{定義}}
 \theoremstyle{example}
 \newtheorem{example}{{例}}
+\newtheorem*{example*}{{例}}
 \theoremstyle{remark}
 \newtheorem*{remark}{注意}
 
@@ -457,7 +458,7 @@ $\sbo$の基底を具体的に決定しましょう。
 \section{対称性破れ作用素の分類}
 \begin{frame}{実旗多様体の軌道分解$P'\backslash G/P$}
 	\input{frame_setinv_text}
-	\begin{theorem}[$G/P$の$P'$不変な閉部分集合の分類]
+	\begin{theorem}[\setinvThmName]
 		\input{frame_setinv_thm}
 	\end{theorem}
 	\note{
@@ -470,41 +471,46 @@ $\sbo$の基底を具体的に決定しましょう。
 \end{frame}
 \begin{frame}{微分対称性破れ作用素}
 	\begin{tabular}[]{cl}
-		\underline{ポイント}&対称性破れ作用素のあるものは積分で、\\
-		&あるものは特異積分で、また、あるものは\\
-		&微分で表すことができる。
+		\underline{ポイント}&対称性破れ作用素の内\\
+		&あるものは積分で、\\
+		&あるものは特異積分で、\\
+		&また、あるものは微分で\\
+		&表すことができる。
 	\end{tabular}
 	\begin{theorem}
 		$X\supset Y$を$C^\infty$多様体とする。線形写像$T:C^\infty(X)\to C^\infty(Y)$は\begin{equation*}
 			T=\operatorname{Rest}_{Y}\circ X\mbox{上の微分作用素}
-		\end{equation*}と表せるとき、$Y$ \underline{微分作用素}という（広い意味で）。
+		\end{equation*}と表せるとき、$T$を（広い意味で）\underline{微分作用素}という。
 	\end{theorem}
 \end{frame}
-\begin{frame}{微分対称性破れ作用素の分類}
+\begin{frame}{微分対称性破れ作用素$T:I(\lambda)\to J(\nu)$の分類}
 	\begin{fact}[微分対称性破れ作用素の分類 ({\cite[Thm. 4.3]{kobayashi2015branching}})]
-$(\lambda, \nu) \in / / \assign \{
-(\lambda, \nu) \in \mathbbm{C}^2 \mid \nu - \lambda \in 2\mathbbm{N} \}$に対し、
+%%$(\lambda, \nu) \in / / \assign \{
+%%(\lambda, \nu) \in \mathbbm{C}^2 \mid \nu - \lambda \in 2\mathbbm{N} \}$に対し、
+		\begin{enumerate}[(1)]
+			\item 零でない微分対称性破れ作用素が存在する$\iff\nu-\lambda\in2\N$。
+			\item $\ell:=\frac{1}{2}(\nu-\lambda)\in\N$のとき、
+		\end{enumerate}
 \begin{equation*}
 	\kern-0.2cm\begin{array}[]{@{}r@{}l}
-	{R}_{\lambda, \nu}^{\{ o \}} &=
-\tmop{Rest}_{x_p = 0} \circ \tilde{C}_{\nu - \lambda}^{\lambda - \frac{n -
-1}{2}} \left( - \Delta_{\mathbbm{R}^{p - 1, q}}, \frac{\partial}{\partial x_p}
-\right)\mbox{を定める。}\\
-	&=\kern-0.2cm
+	{R}_{\lambda, \nu}^{\{ o \}} &
+	=\kern-0.2cm
 		\sum_{j=0}^{\frac{\nu-\lambda}{2}}\frac{(-1)^j2^{\nu-\lambda-2j}}{j!(\nu-\lambda-2j)!}\kern-0.0cm\prod_{i=1}^{\frac{\nu-\lambda}{2}-j}\kern-0.2cm\left( \frac{n
 		+1}{2}+\frac{\nu+\lambda}{2}
 		+i \right)\kern-0.1cm\left(- \Delta_{\mathbbm{R}^{p-1,q}} \right)^j\kern-0.1cm\left( \frac{\partial}{\partial x_p} \right)^{\kern-0.1cm\nu-\lambda-2j}
+\\
+	&
+	=
+\tmop{Rest}_{x_p = 0} \circ \tilde{C}_{\nu - \lambda}^{\lambda - \frac{n -
+1}{2}} \left( - \Delta_{\mathbbm{R}^{p - 1, q}}, \frac{\partial}{\partial x_p}
+\right)
 	\end{array}
 \end{equation*}
-ここで$\tilde{C}(s,t)$
-%%は\cite[(6.5)]{Kobayashi2016}で定義された２変数多項式であり、正規化された
+ここで$\tilde{C}(s,t)$は\footnote{I did not understand the instructions for this paragraph very clearly. The order can be mixed up. I am sorry.}
+	微分対称性破れ作用素になる。
 	Gegenbauer多項式
-	を２変数化した多項式である。[Kobayashi--Pevzner (2016) (65)]
-%%	から導かれるものである
-	$R^{ \left\{ o \right\}}_{\lambda,\nu}$は微分対称性破れ作用素になり
-%%	（つまり、$\mathcal{S}\mbox{upp} ({R}_{\lambda,
-%%	\nu}^{\{ o \}}) = \{ 0 \}$）
-	、逆に全ての微分対称性破れ作用素は$R^{ \left\{ o \right\}}_{\lambda,\nu}$の定数倍である。
+	を２変数化した多項式である。[Kobayashi--Pevzner (2016)]
+	逆に全ての微分対称性破れ作用素は$R^{ \left\{ o \right\}}_{\lambda,\nu}$の定数倍である。
 	\end{fact}
 	\note{\tiny
 		\doubt{第二歩}は\kana{実}{ジツ}旗多様体$G/P$における$P'$-invariantなclosed subsetそれぞれに対し、
@@ -523,40 +529,57 @@ Gegenbauer多項式を２変数化して、そこにラプラシアンと法微�
 parameter $(\lambda,\nu)$がこの//（ナナメのニ\kana{重線}{ジュウセン}集合に入っていると、微分対称性破れ作用素空間が一次元になり、そうでないと微分対称性破れ作用素は存在しません。
 	}
 \end{frame}
-\begin{frame}{正則(regular)対称性破れ作用素の{{構成}}}
-	\begin{theorem}[regular 対称性破れ作用素の構成]
+\begin{frame}{}
+	{超函数}$\myabs{x_p}^{a}$と$\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2}^b$の積
+	\begin{itemize}
+		\item $\frac{1}{\Gamma\left( \frac{a+1}{2} \right)}\myabs{x_p}^a$
+		\item $\frac{1}{\Gamma(*)}\myabs{Q_{p,q}(x)}^b=\frac{1}{\Gamma(*)}\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x^2_{p+q}}^b$
+	\end{itemize}
+	はそれぞれ個別に$a,b\in\C$に正則 (holomorphic)に依存する$\R^{p+q}$上の超函数である。
+
+	しかし、これらの積は well-defined ではない
+	\begin{example*}
+		$\delta(x_p)\times\delta(x_1,\cdots,x_{p+q})$は well-defined ではない\footnote{What do we formally mean by being ``not well-defined''?
+			We perfectly can \textit{define} this product to be zero.}
+	\end{example*}
+	$\implies$ $\myabs{x_p}^a\myabs{Q_{p,q}(x)}^b$の正規化には注意が必要である。
+\end{frame}
+\begin{frame}{正則な(regular)対称性破れ作用素の{{構成}}}
 %%For
 %%$(\lambda, \nu) \in \mathbbm{C}^2$ および 
 %%$\tmop{Re} (\nu) < 0$ and $\tmop{Re}
 %%(\lambda + \nu - n) > 0$ を満たす$(\lambda,\nu)\in\mathbb{C}^2$に対し、
 		\begin{equation*}
-			(\lambda,\nu)\in\left\{ (\lambda,\nu)\in\C^2\left|\begin{array}[]{l}
-			\Re(\nu)<0\\
+			(\lambda,\nu)\in\C^2\mbox{　が　}\begin{array}[]{l}
+			\Re(\nu)<0\mbox{、および}\\
 			\Re(\lambda+\nu-n)>0
-		\end{array}\right. \right\}\mbox{に対し、}
+		\end{array}\mbox{を決定するとき、}
 		\end{equation*}
 \begin{equation*}
 	\quad| x_p |^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}\mbox{
-は連続であり、
+		は$L^1_{\operatorname{loc}}\left( \R^{p+q} \right)$\footnote[frame]{I think it is continuous, not only $L^1_{\operatorname{loc}}$}であり、
 $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$の元になる。
 	}
 \end{equation*}
-\vspace{-0.3em}
-	\end{theorem}
+これを核超函数\doubt{とする}。対称性破れ作用素を
 \begin{equation*}
 	\tilde{R}_{\lambda, \nu}^{\R^{p,q}} \assign \tmop{Op} (| x_p
-	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}) \mbox{とする}.
+	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}) \mbox{とする。}
 \end{equation*}
+\vspace{-1em}
+	\begin{theorem}[regular 対称性破れ作用素の構成]
 		$\tilde{R}_{\lambda, \nu}^{\R^{p,q}}$ は $(\lambda, \nu) \in
-\mathbbm{C}^2$に有理型に依存する対称性破れ作用素の族に拡張できる。更に、
+\mathbbm{C}^2$に有理型に依存する対称性破れ作用素の族に拡張できる。
+	\end{theorem}
+\vspace{-1em}
 \end{frame}
 \begin{frame}{正規化}
+		 $(\lambda, \nu) \in
+\mathbbm{C}^2$に有理型に依存する対称性破れ作用素の族
 \begin{equation*}
 	\tilde{R}_{\lambda, \nu}^{\R^{p,q}} \assign \tmop{Op} (| x_p
-	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}) \mbox{とする}.
+	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu})
 \end{equation*}
-		$\tilde{R}_{\lambda, \nu}^{\R^{p,q}}$ は $(\lambda, \nu) \in
-\mathbbm{C}^2$に有理型に依存する対称性破れ作用素の族に拡張できる。更に、
 	\begin{theorem}[regular 対称性破れ作用素の正規化]
 \begin{equation*}
 	{R}_{\lambda, \nu}^X \assign \frac{1}{\Gamma
@@ -587,9 +610,20 @@ $$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)\mbox{がある離散集合に属する
 	}
 \end{frame}
 \section{設定}
-\begin{frame}{実旗多様体の軌道分解$P'\backslash G/P$}
-	\input{frame_setinv_text}
-	\begin{block}{定理 1 ($G/P$の不変な閉部分集合)}
+\begin{frame}{実旗多様体の軌道分解$P'\backslash G/P$ (再揚)}
+\newcommand{\setinvThmName}{$G/P$の$P'$軌道の分類とその閉包関係}
+	\begin{equation*}
+		\begin{array}[]{l}
+X \assign G / P \simeq (\mathbbm{S}^p \times
+\mathbbm{S}^q) / \{ \pm I \}, \\
+%%Y \assign \{ [\xi, \eta] \in G / P \mid \xi_{p +
+%%1} = 0 \} \simeq \mbox{実旗多様体}G'/P'\simeq(\mathbbm{S}^{p - 1} \times \mathbbm{S}^q) / \{ \pm I \}, \\
+%%C \assign \{ [\xi, \eta] \in G / P \mid \xi_1 =
+%%\eta_{q + 1} \},\\
+%%\left\{ o \right\}:=\left\{ \left[ 1,0_{p+q}1 \right] \right\}\mbox{とおく。}
+		\end{array}
+	\end{equation*}
+	\begin{block}{定理 1 (\setinvThmName)}
 		\input{frame_setinv_thm}
 	\end{block}
 \end{frame}
