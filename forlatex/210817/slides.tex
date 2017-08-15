@@ -32,6 +32,7 @@
 \newcommand{\badword}[1]{\uwave{#1}}
 \renewcommand{\C}{\mathbb{C}}
 
+\renewcommand{\Q}{Q_{p,q}}
 \newcommand{\Ind}{\mbox{\normalfont Ind}}
 \def\same{\;''\;}
 \newcommand{\sbo}{\tmop{Hom}_{G'} (I(\lambda)\kern-0.1cm\mid_{G'}, J(\nu))}
@@ -68,6 +69,7 @@
 \newtheorem{theorem}{定理}
 \newtheorem{corollary}{{系}}
 \newtheorem{fact}{{Fact}}
+\newtheorem*{fact*}{{Fact}}
 \newtheorem{lemma}{{命題}}
 \newtheorem{problem}{{問題}}
 \newtheorem{solution}{{Solution}}
@@ -172,9 +174,9 @@
 	\note{この研究は小林俊行先生との\kana{共同}{キョウドウ}研究です。}
 \end{frame}
 \section{目標}
-\begin{frame}{主テーマ}
+\begin{frame}{主テーマ -- 対称性破れ作用素}
 この講演での主テーマは{、}
-群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、symmetry breaking operator）である。
+群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（\textbf{対称性破れ作用素}、symmetry breaking operator）である。
 %%対称性破れ作用素全体のなす空間を$$\sbo\mbox{と表記す{る}。}$$
 \centerline{
 	\xymatrixcolsep{1.8cm}
@@ -195,17 +197,19 @@
 }
 \end{frame}
 \section{設定}
-\begin{frame}{扱う群の設定 -- 不定値直行群}
+\begin{frame}{扱う群の設定 -- 不定値直交群}
 	  $n=p+q$と{し}、$x\in\R^n$上の符号$(p,q)$をもつ標準二次形式を
 	  \begin{equation*}
 		  \begin{array}[]{c}
-			  Q_{p,q} (x) \assign \,^t \! x I_{p, q} x=x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2,\\
-		I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
-		1, \ldots, - 1}_q)\in GL(p+q,\R)\mbox{と定める。}
+			  Q_{p,q} (x) \assign \,^t \! x I_{p, q} x=x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2\mbox{と定める。}\\
 		  \end{array}
 	  \end{equation*}
 
-この二次形式を保つ不定値直交群を
+	  ここで$
+		I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
+		1, \ldots, - 1}_q)\in GL(p+q,\R)
+	  $。
+	  この二次形式$Q_{p,q}(x)$を保つ不定値直交群を
 \begin{equation*}
 	G \assign O (p +
 1, q + 1)=\left\{ g\in GL\left( p+q+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}
@@ -256,7 +260,9 @@ $G$の球退化主系列表現$I(\lambda)$Яを定義する。
 I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
 &\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}
 \end{align*}
+\begin{fact*}
 $\lambda\notin\Z$(整数)ならば$I(\lambda)$は$G$の既約表現である。
+\end{fact*}
 \note{
 	ここでの$M,A$と$N_+$は$P$のラングランズ分解です。
 	$A$は1次元可換群である、$N_+$は$p+q$次元の可換群です。
@@ -280,7 +286,7 @@ $G$の球退化主系列表現を定めます。
 	複素数）を定める。
 \end{frame}
 \begin{frame}{部分群とその表現の具体的な設定}
-	座標で計算するために$G'$を
+	座標で計算するために$G=O(p+1,q+1)$の部分群$G'$を
 \begin{equation*}
 	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}\subset G\quad\mbox{と実現する。}
 \end{equation*}
@@ -296,8 +302,8 @@ $G\supset P$極大放物型部分群を以下のようにとっておく
 	\item $P':=P\cap G'$は$G'$の極大放物型部分群であり、
 	{\item {$P'$のLanglands分解は$P'=(G'\cap M)A(G'\cap N_+)$で与えられる。}}
 \end{enumerate}
-$I(\lambda)$と同様
-に、複素数パラメータ$\nu\in\mathbb{C}$に対して\\
+$P'$から誘導表現として
+、複素数パラメータ$\nu\in\mathbb{C}$に対して\\
 $G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定める。
 \note{
 複素数パラメータ
@@ -315,8 +321,24 @@ $I(\lambda)$と同様
 に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定めます。
 }
 \end{frame}
+\begin{frame}{ここまでの記号のまとめ}
+	\centerline{
+		\xymatrixcolsep{0.01cm}
+		\xymatrix{
+			P&\subset&G=O(p+1,q+1)&\curvearrowright&I(\lambda)=\Ind_P^G(\C_\lambda)\\
+			&\mbox{極大放物型部分群}&&&\mbox{球退化主系列表現}\ar@[red]@{.>}[dd]\\
+			\cup&&\cup&&\\
+			P'&\subset&G'=O(p,q+1)&\curvearrowright&J(\nu)=\Ind_{P'}^{G'}(\C_\nu)\\
+			&\mbox{極大放物型部分群}&&&\mbox{球退化主系列表現}\\
+%%		G\ar@/_1pc/[d]&\supset&G'\ar@/^1pc/[d]\\
+		}}
+	\note{NB: talk at least 1min:\\
+	}
+\end{frame}
 \begin{frame}{一般理論（小林--大島{利雄}）によるアプリオリ評価}
-$(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Gelfand対となるので、小林--大島{利雄}
+	$(G,G')=\left( O(p+1,q+1),O(p,q+1) \right)$の複素化は$$(G_\C,G'_\C)=(O(n+2,\mathbb{C}),O(n+1,\C))\mbox{である。}$$
+ここで$n=p+q$。$\left( G_\C,G'_\C \right)$は
+強Gelfand対となるので、小林--大島{利雄}
 \cite{kobayashi2013finite}の一般理論によって以下のようなアプリオリ評価が得られる。
 \begin{fact}
 	対称性破れ作用素のなす空間$\sbo$の次元は表現のパラーメタ$(\lambda,\nu)$よらずに一様に押さえられている。
@@ -328,16 +350,74 @@ $(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Ge
 の一般理論によって以下のようなアプリオリ評価が得られます。
 }
 \end{frame}
-\begin{frame}{目標}
+\begin{frame}{目標 -- 対称性破れ作用素の構成と分類}
 \begin{block}{\underline{目標}:}
 対称性破れ作用素のなす線型空間
-$\sbo$を分類し、しかもその基底を具体的に構成しよう。
+$\sbo$について、
+\begin{enumerate}[1.]
+	\item 次元を決定する。
+	\item その基底を具体的に構成する。
+	\item 関数等式を決定する。
+\end{enumerate}
+
 \end{block}
-最初の結果Kobayashi--Speh, Memoirs of AMS 2015.
+この方向での最初の結果\ldots Kobayashi--Speh, Memoirs of AMS 2015.
 \note{
 対称性破れ作用素のなす線型空間
 $\sbo$の基底を具体的に決定しましょう。
 }
+\end{frame}
+\begin{frame}{対称性破れ作用素の超函数核}
+	Kobayashi--Speh (2015) の戦略（一般理論）
+	\vspace{-1em}
+	\begin{enumerate}[1.]
+		\item 対称性破れ作用素の超函数核を特徴\doubt{づける}
+		\item その台によるフィルトレーション($P'\backslash G/P$の幾何)による帰納法
+	\end{enumerate}
+	$n = p + q$ とする。対称性破れ作用素の核超関数を 考えることによって 以下の可換図式が得られる。
+	\begin{fact}[対称性破れ作用素の積分核,{\cite[Thm. 3.16]{kobayashi2015symmetry}}]
+%%		\cite{kobayashi2015symmetry}の一般論を今の特別な設定に適用すると、以下の図式を得る：
+%%Applying the general statement of
+%%\cite{kobayashi2015symmetry} to our concrete setting we get:
+	\centerline{
+		\scalebox{0.9}{
+		\xymatrixcolsep{5pc}
+		\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\mathcal{S}}
+		&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda}) \otimes\mathbb{C}_\nu \right)^{P'}
+		\ar[r]_-{F\mapsto \supp(F)}\ar[d]^{\rotatebox{90}{$\simeq$}}_{\operatorname{rest}}
+	&2^{P'\backslash G/P}\\
+	&*+[r]{\kern0.0cm\sol\subset\mathcal{D}'(\R^{p,q})}\ar[lu]^{\operatorname{Op}}_{\simeq}&
+	}
+	}
+}
+	\end{fact}
+		\vspace{-2em}
+	\begin{equation*}
+		\begin{array}[]{ll}
+			\operatorname{Op}:&\mbox{超函数核}\rightsquigarrow\mbox{対称性破れ作用素}\\
+			\mathcal{S}:&\mbox{超函数核の台(support)}
+		\end{array}
+	\end{equation*}
+	\note{\tiny
+		今回の結果の手法は、小林先生および、Kobayashi-Spehによって開発された手法を主に使います。
+		一方、\kana{高階}{コウカイ}の群では、幾何的な状況や解析的な部分がもう少し複雑になります。
+		最初に、対称性破れ作用素を、シュワルツの\kana{核}{かく}定理によって、
+		超関数核で表せることを紹介したいと思います。
+		Kobayashi-Spehの本で証明された一般理論を今の特別な設定に\kana{適
+		用}{てきよう}すると、
+		以下の図式を得ます。
+
+%%この\kana{図}{ズ}はKobayashi-Spehの\kana{一般論}{イッパンロン}を\kana{今}{イマ}\kana{考}{カンガ}{え}ようとしている\kana{場合}{バアイ}に\kana{当}{ア}てはめたものです。
+下の$S\mbox{ol}\left(
+\mathbb{R}^{p,q}
+\right)$という空間はある$(\lambda,\nu)$に依存する偏微分方程式を満たす超関数空間です。ここで、左から真ん中への同型写像はSchwartzの\kana{核}{カク}
+定理を\kana{用}{モチ}います、真ん中から下へのrestという写像は、open Bruhat cellに\kana{積分核}{セキブンカク}
+を制限することによって\kana{導}{ミチビ}かれます。この２つの写像は線形空間の同型写像になります。
+なので、抽象的な対称性破れ作用素空間の代わりに具体的なEuclid空間上の\kana{連立}{レンリツ}偏微分方程式の解空間を研究に\kana{置}{オ}き\kana{換}{カ}えることができます。
+ポイントはもう１つあります。真ん中の空間は$G/P$上の$P'$不変超関数空間なので、それぞれの元のサーポトが$P'$不変$G/P$閉部分集合になります。
+つまり、真ん中のベクトル空間から$G$の\kana{両側剰余}{リョウガワジョウヨ}空間へのが\kana{定}{サダ}{まった}ということです。Target spaceであるこの\kana{両側剰余}
+{リョウガワジョウヨ}空間は有限なので、$P'$不変$G/P$閉部分集合が大切なinvariantになります。
+	}
 \end{frame}
 \begin{frame}
 %%この空間を分析するために、まず以下のような定義する：
@@ -375,62 +455,6 @@ $\sbo$の基底を具体的に決定しましょう。
 }
 \end{frame}
 \section{対称性破れ作用素の分類}
-\begin{frame}{対称性破れ作用素の超函数核}
-%%	Use the strategy developed in \cite{kobayashi2015symmetry}. 
-%%	基本的に、\cite{kobayashi2015symmetry}の作戦を使う。
-%%	The geometry is a little more complicated.
-%%	しかし、高階の設定で幾何が少し複雑になる。
-	Kobayashi--Speh (2015) の戦略（一般理論）
-	\vspace{-1em}
-	\begin{enumerate}[1.]
-		\item 対称性破れ作用素の超函数
-		\item その台によるフィルトレーション特徴あげる
-	\end{enumerate}
-	$n = p + q$ とする。対称性破れ作用素の核超関数を 考えることによって 以下の可換図式が得られる。
-	\begin{fact}[対称性破れ作用素の積分核,{\cite[Thm. 3.16]{kobayashi2015symmetry}}]
-%%		\cite{kobayashi2015symmetry}の一般論を今の特別な設定に適用すると、以下の図式を得る：
-%%Applying the general statement of
-%%\cite{kobayashi2015symmetry} to our concrete setting we get:
-	\centerline{
-		\scalebox{0.9}{
-		\xymatrixcolsep{5pc}
-		\xymatrix{\Hom_{G'}(I(\lambda),J(\nu))\ar[r]^{\simeq} \ar@/^2pc/[rr]^{\mathcal{S}}
-		&\left( \mathcal{D}'(G/P,\mathcal{L}_{n-\lambda}) \otimes\mathbb{C}_\nu \right)^{P'}
-		\ar[r]_-{F\mapsto \supp(F)}\ar[d]^{\rotatebox{90}{$\simeq$}}_{\operatorname{rest}}
-	&2^{P'\backslash G/P}\\
-	&\sol\subset\mathcal{D}'(\R^{p,q})\ar[lu]^{\operatorname{Op}}_{\simeq}&
-	}
-	}
-}
-	\end{fact}
-		\vspace{-2em}
-	\begin{equation*}
-		\begin{array}[]{ll}
-			\operatorname{Op}:&\mbox{超函数核}\rightsquigarrow\mbox{対称性破れ作用素}\\
-			\mathcal{S}:&\mbox{超函数核の台(support)}
-		\end{array}
-	\end{equation*}
-	\note{\tiny
-		今回の結果の手法は、小林先生および、Kobayashi-Spehによって開発された手法を主に使います。
-		一方、\kana{高階}{コウカイ}の群では、幾何的な状況や解析的な部分がもう少し複雑になります。
-		最初に、対称性破れ作用素を、シュワルツの\kana{核}{かく}定理によって、
-		超関数核で表せることを紹介したいと思います。
-		Kobayashi-Spehの本で証明された一般理論を今の特別な設定に\kana{適
-		用}{てきよう}すると、
-		以下の図式を得ます。
-
-%%この\kana{図}{ズ}はKobayashi-Spehの\kana{一般論}{イッパンロン}を\kana{今}{イマ}\kana{考}{カンガ}{え}ようとしている\kana{場合}{バアイ}に\kana{当}{ア}てはめたものです。
-下の$S\mbox{ol}\left(
-\mathbb{R}^{p,q}
-\right)$という空間はある$(\lambda,\nu)$に依存する偏微分方程式を満たす超関数空間です。ここで、左から真ん中への同型写像はSchwartzの\kana{核}{カク}
-定理を\kana{用}{モチ}います、真ん中から下へのrestという写像は、open Bruhat cellに\kana{積分核}{セキブンカク}
-を制限することによって\kana{導}{ミチビ}かれます。この２つの写像は線形空間の同型写像になります。
-なので、抽象的な対称性破れ作用素空間の代わりに具体的なEuclid空間上の\kana{連立}{レンリツ}偏微分方程式の解空間を研究に\kana{置}{オ}き\kana{換}{カ}えることができます。
-ポイントはもう１つあります。真ん中の空間は$G/P$上の$P'$不変超関数空間なので、それぞれの元のサーポトが$P'$不変$G/P$閉部分集合になります。
-つまり、真ん中のベクトル空間から$G$の\kana{両側剰余}{リョウガワジョウヨ}空間へのが\kana{定}{サダ}{まった}ということです。Target spaceであるこの\kana{両側剰余}
-{リョウガワジョウヨ}空間は有限なので、$P'$不変$G/P$閉部分集合が大切なinvariantになります。
-	}
-\end{frame}
 \begin{frame}{実旗多様体の軌道分解$P'\backslash G/P$}
 	\input{frame_setinv_text}
 	\begin{theorem}[$G/P$の$P'$不変な閉部分集合の分類]
