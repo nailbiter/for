@@ -2,6 +2,7 @@
 \documentclass[notheorems]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
 \usepackage{mystyle}
+\usepackage{xcolor}
 \usepackage{geometry}
 \usepackage{amsmath}
 \usepackage{xeCJK}
@@ -17,6 +18,10 @@
 \usepackage{setspace}
 \usepackage{tikz-cd,array}
 \usepackage{catchfilebetweentags}
+\usepackage{color,soul}
+
+\definecolor{red}{rgb}{1,0,0}
+\setulcolor{red}
 
 \newcommand{\kana}[2]{\ruby{#1}{#2}}
 \newcommand{\doubt}[1]{\fbox{#1}}
@@ -259,6 +264,21 @@ $\lambda\notin\Z$(整数)ならば$I(\lambda)$は$G$の既約表現である。
 $G$の球退化主系列表現を定めます。
 }
 \end{frame}
+\begin{frame}{部分群$G'$とその表現$J(\nu)$の定義}
+	群$G$の部分群$G'$を以下のように定める
+	\begin{equation*}
+		\begin{array}[]{l}
+			G=O(p+1,q+1)\\
+			\cup\\
+			\mbox{\ul{$G':=O(p,q+1)$}}
+		\end{array}
+	\end{equation*}
+	\newcommand{\snip}{$G'$の球退化主系列表現 $J(\nu)$}
+	$G$の球退化主系列表現$I(\lambda)$と同様に、
+	$\color{red}\underline{{\color{black}\mbox{\snip}}}$
+	（$\nu$は
+	複素数）を定める。
+\end{frame}
 \begin{frame}{}
 %%$G$の球退化主系列表現
 %%{を定める。}
@@ -274,7 +294,7 @@ $G$の球退化主系列表現を定めます。
 %%$P=MAN$は$G'$と適合する。
 %%すなわち、
 %%\vspace{-1em}
-$G\subset P$極大放物型部分群を以下のようにとっておく
+$G\supset P$極大放物型部分群を以下のようにとっておく
 \begin{enumerate}
 	\item $P':=P\cap G'$は$G'$の極大放物型部分群であり、
 	{\item {$P'$のLanglands分解は$P'=(G'\cap M)A(G'\cap N_+)$で与えられる。}}
@@ -426,6 +446,18 @@ $\sbo$の基底を具体的に決定しましょう。
 今の設定では、両側\kana{剰余類}{ジョウヨルイ}の\kana{個数}{コスウ}は、$p$は1以上ならば５つあり、$p$が１に等しいならば、４つにな
 ることが証明されます。図式では、$X$が\slowly{\kana{全体}{ゼンタイ}}、すなわち実旗多様体を表し、edgeのとなりの数字がgenericなcodimensionを表します。\\
 	}
+\end{frame}
+\begin{frame}{微分対称性破れ作用素}
+	\begin{tabular}[]{cl}
+		\underline{ポイント}&対称性破れ作用素のあるものは積分で、\\
+		&あるものは特異積分で、また、あるものは\\
+		&微分で表すことができる。
+	\end{tabular}
+	\begin{theorem}
+		$X\supset Y$を$C^\infty$多様体とする。線形写像$T:C^\infty(X)\to C^\infty(Y)$は\begin{equation*}
+			T=\operatorname{Rest}_{Y}\circ X\mbox{上の微分作用素}
+		\end{equation*}と表せるとき、$Y$ \underline{微分対称性破れ作用素}という（広い意味で）。
+	\end{theorem}
 \end{frame}
 \begin{frame}{微分対称性破れ作用素の分類}
 	\begin{fact}[微分対称性破れ作用素の分類 ({\cite[Thm. 4.3]{kobayashi2015branching}})]
