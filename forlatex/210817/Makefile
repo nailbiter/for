@@ -8,7 +8,7 @@ ZIPNAME=august21talk
 WORKON=$(ZIPNAME)
 COMMIT_PREFIX=$()
 PDFS=slides
-AUX=speech.pdf abstract-jap.pdf Z.pdf
+AUX=speech.pdf abstract-jap.pdf Z.pdf gammas.pdf
 SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex mystyle.sty $(ME)
 AUX_SRC=mystyle.sty bibliography.tex tables_slide.tex slides_functional.tex
 
@@ -56,6 +56,8 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 
 $(OUTDIR)/ProcJapanAcad.pdf: $(OUTDIR)/master_announcement2.pdf
 	ln -s /Users/nailbiter/for/forlatex/foraux/master_announcement2.pdf $@
+$(OUTDIR)/gammas.pdf : /Users/nailbiter/fortexmacs/misc/gammas.tm
+	        $(TEXMACS) --convert $< $@ --quit
 
 #$(OUTDIR)/abstract-jap.pdf : $(SRCS)
 #	xelatex --output-directory=$(OUTDIR) abstract-jap.tex
