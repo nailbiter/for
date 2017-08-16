@@ -631,46 +631,29 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 \section{対称性破れ作用素の分類}
 \begin{frame}
 	微分--、積分作用素以外の対称性破れ作用素
-	\begin{theorem}[特徴な対称性破れ作用素の構成]
+	\begin{theorem}[特異な対称性破れ作用素の構成]
 		実旗多様体$X=G/P$の$P'$不変な閉集合
 	$S=X,Y,C$に対して、
-%%	パラメータ集合$D_S$を以下の表のように定めると、作用素
-%%	$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$は
 	$I(\lambda)$から$J(\nu)$への対称性破れ作用素
-	$R_{\lambda,\nu}^S$(あるいは$\tilde{R}_{\lambda,\nu}^S$)であり、今までに述べた微分対称性破れ作用素でも積分で表される正則な対称性破れ作用素
-	もないものが定義できる。
-%%	であり、
-%%$(\lambda,\nu)\in D_S$に正則に依存する。
-%%それぞれ$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$はregular対称性破れ作用素${R}_{\lambda,\nu}^X$の再正規化である。
-%%	全て$(\lambda,\nu)\in D_S$に対して、
-	その超函数積分核の台は
-	$\Supp(R_{\lambda,\nu}^S)\subset S$
-	をみたす
-%%	である
-	（更に、一般の位置に{ある}$(\lambda,\nu)$に対しては{等号}が成り立つ)。
-%%	全て$(\lambda,\nu)$とそれぞれ$R_{\lambda,\nu}^S$および$\tilde{R}_{\lambda,\nu}^X$に対し、
-%%	台を具体的に決定することが出来る。\\
-%%\centerline{\begin{tabular}{|l|l|}
-%%  \hline
-%%  ${R}_{\lambda, \nu}^S$ & $D_S$\\
-%%  \hline
-%%   & $\mid \mid \mid$\\
-%%  \hline
-%%  ${R}_{\lambda, \nu}^Y$ & \textbackslash\textbackslash\\
-%%  \hline
-%%  ${R}_{\lambda, \nu}^C$ & $\mid \mid \mid$\\
-%%  \hline
-%%\end{tabular}}
-%%\vspace{-1.2em}
-%%表の記号を説明する：\vspace{-0.5em}
+	であり、
+	以下の性質をみたすものが存在する。
+
+	今までに述べた微分対称性破れ作用素でも正則な対称性破れ作用素で
+	もない。
+	その積分核は台が$S$に含まれる超
+	函数である。
+%%	$\Supp(R_{\lambda,\nu}^S)\subset S$
+%%	をみたす
+%%	（更に、一般の位置に{ある}$(\lambda,\nu)$に対しては{等号}が成り立つ)。
 	\begin{equation*}
-		\begin{array}[]{l}
-			{\tilde{R}}_{\lambda, \nu}^X\mbox{ on }\mid \mid \mid \assign \left\{ (\lambda, \nu) \in \mathbbm{C}^2 \mid
+		\begin{array}[]{@{}l@{}l@{}l}
+			\mbox{対称性破れ作用素}&&\mbox{定義域}\\
+			{\tilde{R}}_{\lambda, \nu}^X&\mbox{ on }&\mid \mid \mid \assign \left\{ (\lambda, \nu) \in \mathbbm{C}^2 \mid
 \nu \in - 2\mathbbm{N} \; \tmop{or} \; \nu \equiv q + 1 \; \tmop{mod} \; 2
 \right\},\\
-{R}_{\lambda, \nu}^Y\mbox{ on }\backslash\backslash \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid
+{R}_{\lambda, \nu}^Y&\mbox{ on }&\backslash\backslash \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid
 \lambda + \nu - n + 1 \in - 2\mathbbm{N} \},\\
-{R}_{\lambda, \nu}^C\mbox{ on }\mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in 1 +
+{R}_{\lambda, \nu}^C&\mbox{ on }&\mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 \mid \nu \in 1 +
 2\mathbbm{N} \} . 
 		\end{array}
 	\end{equation*}
@@ -682,6 +665,22 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 		それぞれのファミリが自分
 		全てのパラメータに対してではなくて、$\mathbb{C}^2$のaffne subspace の可算和で\doubt{定義することができ、それは正確に決定することができます}。
 	}
+\end{frame}
+\begin{frame}{今までに構成した対称性破れ作用素$I(\lambda)\to J(\nu)$のまとめ}
+	\begin{equation*}
+		\begin{array}[]{l}
+			R_{\lambda,\nu}^{ \left\{ o \right\}}\mbox{ on $//$}:\mbox{微分対称性破れ作用素}\\
+			\left.
+			\begin{array}[]{l}
+				\tilde{R}_{\lambda,\nu}^X\mbox{ on $\mid\mid\mid$}\\
+				R^Y_{\lambda,\nu}\mbox{ on $\backslash\backslash$}\\
+				R^C_{\lambda,\nu}\mbox{on $\mid\mid$}
+			\end{array}
+			\right\}
+			\mbox{特異対称性破れ作用素}\\
+			R^X_{\lambda,\nu}\mbox{ on $\C^2$: 正則 (regular)な対称性破れ作用素}
+		\end{array}
+	\end{equation*}
 \end{frame}
 \begin{frame}{}
 	\begin{theorem}[対称性破れ作用素の分類]
@@ -714,9 +713,10 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 \end{enumerate}
 	\end{theorem}
 \end{frame}
-\begin{frame}{対称性破れ作用素の次元}
-	一般論（小林--大島{利雄}）$(G_\C,G'_\C)=\left( O(n+2,\C),O(n+1,\C) \right)$の\doubt{ときとする}。\\
-$\implies$ある定数$C>0$が存在\doubt{して}\begin{equation*}
+\begin{frame}{対称性破れ作用素の次元（再揚）}
+	一般論（小林--大島{利雄}）$(G_\C,G'_\C)=\left( O(n+2,\C),O(n+1,\C) \right)$
+	の任意の実形$(G,G')$に対して、\\
+$\implies$ある定数$C>0$が存在{して}\begin{equation*}
 	\dim_{\C}\sbo\le C
 \end{equation*}
 	\begin{corollary}[対称性破れ作用素の{{存在}}定理と次元の上限]
@@ -737,12 +737,11 @@ $\implies$ある定数$C>0$が存在\doubt{して}\begin{equation*}
 	\begin{theorem}[$K$不変ベクトルのスペクトラム]
 		\label{thm:spherical}
 %%	$n=p+q\;(p,q\ge1)$という記法は前述の通りとする。この{とき、}
-		正則な(regular)対称性破れ作用素$\tilde{R}_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$\footnote{I think, we should use $R_{\lambda,\nu}^X$, not $\tilde{R}_{\lambda,\nu}^X$ here, to
-	keep the same notation as in abstract. Recall that $R_{\lambda,\nu}^X$ denotes the regular SBO, $\tilde{R}^X_{\lambda,\nu}$ is renormalized.}は
-		$K$不変ベクトル$1_\lambda$\footnote{should I perhaps change to $\mathbbm{1}_\lambda$ and $\mathbbm{1}_\nu$, as in the abstract?}
+		正則な(regular)対称性破れ作用素${R}_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$は
+		$K$不変ベクトル$1_\lambda$%\footnote{should I perhaps change to $\mathbbm{1}_\lambda$ and $\mathbbm{1}_\nu$, as in the abstract?}
 		を$1_\nu$の定数倍に移す。
 	\begin{equation*}
-		\tilde{R}_{\lambda, \nu}^X 1_{\lambda} =
+		{R}_{\lambda, \nu}^X 1_{\lambda} =
 		\frac{2^{1 - \lambda} \pi^{\frac{p+q}{2}}}{\Gamma \left( \frac{\lambda}{2} \right)
 \Gamma \left( \frac{\lambda + 1 - q}{2} \right) \Gamma \left( \frac{q - \nu +
 1}{2} \right)} 1_{\nu}.
@@ -770,23 +769,21 @@ $\implies$ある定数$C>0$が存在\doubt{して}\begin{equation*}
 %%	$(\lambda,\nu)\in\mathbb{C}^2\setminus//$に対して、
 %%\vspace{-1em}
 \begin{equation*}
-	\tilde{K}_{\lambda, \nu}^{\R^{p,q}} \assign \frac{| x_p |^{\lambda +
+	 \frac{| x_p |^{\lambda +
 \nu - n}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} \cdot \frac{|
-Q |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} 
+	Q_{p,q} |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} 
 \end{equation*}
 を積分核{とする}対称性破れ作用素
-${R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
-\nu}{2} \right)} \tmop{Op} \left( \tilde{K}_{\lambda, \nu}^{\R^{p,q}} \right)$は
+${R}_{\lambda, \nu}^X$は
 %%$(\lambda,\nu)\in\mathbb{C}^2$全体に正則(holomorphic)に拡張できる。
 %%以下では作用素$\Op\left( \tilde{K}^{\R^{p,q}}_{\lambda,\nu} \right)$の留数を求める。
 %%\vspace{-0.5em}
 	$\ell:=\frac{1}{2}\left( \nu-\lambda \right)\in\N$となるとき、
-	そのときに限り$\tilde{R}_{\lambda,\nu}^X$\footnote[frame]{I think, we should use $R_{\lambda,\nu}^X$, not $\tilde{R}_{\lambda,\nu}^X$ here, to
-	keep the same notation as in abstract. Recall that $R_{\lambda,\nu}^X$ denotes the regular SBO, $\tilde{R}^X_{\lambda,\nu}$ is renormalized.}は微分対称性破れ作用素となり、
+	そのときに限り$\tilde{R}_{\lambda,\nu}^X$は微分対称性破れ作用素となり、
 \begin{theorem}[留数公式]
 	\vspace{-1em}
 \begin{equation*}
-	\tilde{R}_{\lambda, \nu}^X = \frac{(- 1)^\ell \ell!
+	{R}_{\lambda, \nu}^X = \frac{(- 1)^\ell \ell!
 \pi^{(n - 2) / 2}}{2^{\nu + 2 \ell - 1}} \cdot \frac{\sin \left( \frac{1 + q -
 \nu}{2} \pi \right)}{\Gamma \left( \frac{\nu}{2} \right)}\cdot \underbrace{{R}_{\lambda,
 \nu}^{\{ o \}}}_{\mbox{微分対称性破れ作用素}}, (\lambda, \nu) \in //.
@@ -798,14 +795,6 @@ ${R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
 		留数公式の原型は$q=0$の場合で、このときは小林 \cite{KOBAYASHI2014272}、小林--Speh \cite[Thm. 12.2]{kobayashi2015symmetry}で証明されている。
 \end{remark}
 \note{
-%%	次の定理はregular対称性破れ作用素の積分核がナナメのニ重線集合上に多
-%%	重度たかだか1のpoleがあって、このpoleのresidueが微分対称性破れ作用素の
-%%	kernelと比例になるとういうことを表しています。
-%%
-%%	$(lambda,nu)$が特殊値のとき、regularな対称性破れ作用素$\tilde{R}_{lambda,nu}^X$は
-%%	退化し、その積分核の台が小さくなります。
-%%
-%%	
 	次の定理はregular対称性破れ作用素の
 	\slowly{\kana{留数}{リュウスウ}定理}です。ここに\kana{記}{シル}した２つの超関数はそれぞれ正則パラメータをもつ超関数ですが、そのwavefront setが重なりをもつので、
 	\kana{超関数}{チョウカンスウ}の
@@ -816,15 +805,19 @@ ${R}_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda -
 }
 \end{frame}
 \begin{frame}{Knapp--Stein 作用素（古典理論）}
-	\begin{definition}
-		\underline{Knapp--Stein 作用素}は以下のように定義された $G$絡作用素である\begin{equation*}
+	$G=O(p+1,q+1),n=p+q$とする。
+	\begin{definition}[$\tilde{\mathbb{T}}_\lambda^G:I(\lambda)\to I(n-\lambda)$]
+		\underline{Knapp--Stein 作用素}は以下の定義
+		を拡張に得られる
+		\doubt{さ} $G$絡作用素である\begin{equation*}
 			\begin{array}[]{l}
-				\tilde{\mathbb{T}}_\lambda^G:I(\lambda)\to I(n-\lambda),\\
-				f\mapsto q(\lambda)\left(\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2}^{\lambda-n}\ast f  \right).
+				f\mapsto q(\lambda)\left(\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2}^{\lambda-n}\ast f  \right).\\
+				C^\infty_c(\R^n)\to C^\infty(\R^n),
 			\end{array}
 		\end{equation*}
 		ここで
-		$q (\lambda)$ は$\Gamma$関数の積に{よる}正規化のための関数
+		$q (\lambda)$は
+		正規化のための関数で$\Gamma$関数の積で表される。
 	\end{definition}
 %%		$\tilde{R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$ と対称性破れ作用素 $\tilde{R}_{\lambda, \nu}^X$を比較する。両方は比例になる。　
 	\note{
@@ -860,22 +853,16 @@ $I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
 		この定数が特別な$\lambda,\nu$で零となる$\implies$これを決定したい
 	\end{block}
 \end{frame}
-\begin{frame}{}
+\begin{frame}{函数公式と比例定数}
 	合成
-		$\tilde{R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$ と対称性破れ作用素 $\tilde{R}_{\lambda, \nu}^X$を比較する。
-		\doubt{$\tilde{R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$は$\tilde{R}_{\lambda, \nu}^X$の定数倍である。}
+		${R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$ と対称性破れ作用素 ${R}_{\lambda, \nu}^X$を比較する。
+		\doubt{${R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$は${R}_{\lambda, \nu}^X$の定数倍である。}
 	\centerline{\xymatrix{I(\lambda)\ar[d]^{\tilde{\mathbb{T}}_{\lambda}^G}\ar@{-->}[rd]^{R_{\lambda,\nu}^X}&\\I(n-\lambda)\ar[r]^{R^X_{n-\lambda,\nu}}&J(\nu)}}
-%%		\centerline{\xymatrix{I(\lambda)\ar[d]^{\tilde{\mathbb{T}}_{\lambda}^G}\ar@{-->}[rd]^{R_{\lambda,\nu}^X}&\\
-%%		I(n-\lambda)\ar[r]^{R^X_{n-\lambda,\nu}}&J(\nu)}}
-%%		$G' = O (p, q + 1)$に対し、同様に$\tilde{\mathbbm{T}}_{\nu}^{G'}$を定める:
-%%		\centerline{
-%%			\xymatrix{
-%%				I(\lambda)\ar@{-->}[rd]^{R_{\lambda,\nu}^X}\ar[r]^{R_{\lambda,n-1-\nu}^X}&J(n-1-\nu)\ar[d]^{\tilde{\mathbb{T}}_{n-1-\nu}^{G'}}\\
-%%				&J(\nu)
-%%			}}
 		\begin{equation*}
 			\boxed{R^X_{n-\lambda,\nu}\circ\tilde{\mathbb{T}}_\lambda^G=c(\lambda,\nu)R_\lambda^X}
 		\end{equation*}定数$c(\lambda,\nu)$を決定したい。
+
+		特に、いつ$c(\lambda,\nu)=0$となるかを知りたい。
 	\note{
 		以下のdiagramのように、$R_{n-\lambda,\nu}^X$ regular対称性破れ作用素と$\mathbb{T}_
 	\lambda^G$　Knapp-Stein作用素の組み合わせと$R_{\lambda,\nu}^X$対称性破れ作用素が
