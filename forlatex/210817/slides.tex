@@ -137,6 +137,18 @@
 %%\newcommand{\tno}{2\N+1}
 \newcommand{\Azeven}{A_0^{\rm\footnotesize even}}
 
+\newcommand\Myref[1]{%
+  \begingroup
+  \usebeamerfont*{item projected}%
+  \usebeamercolor[bg]{item projected}%
+  \begin{pgfpicture}{-1ex}{0ex}{1ex}{2ex}
+    \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.2ex}
+    \pgfusepath{fill}
+    \pgftext[base]{\color{fg}\ref{#1}}
+  \end{pgfpicture}%
+  \endgroup
+}
+
 \title{不定値直交群$O(p,q)$の対称性破れ作用素}
 
 % A subtitle is optional and this may be deleted
@@ -210,12 +222,14 @@
 		I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
 		1, \ldots, - 1}_q)\in GL(p+q,\R)
 	  $。
-	  この二次形式$Q_{p,q}(x)$を保つ\footnote[frame]{I think, we should write 二次形式$Q_{p+1,q+1}(x)$を保つ, as $O(p+1,q+1)$ preserves $Q_{p+1,q+1}$, not $Q_{p,q}$.}不定値直交群を
+	  この二次形式$Q_{p,q}(x)$を保つ不定値直交群を
 \begin{equation*}
-	G \assign O (p +
-1, q + 1)=\left\{ g\in GL\left( p+q+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}
+	 O (p
+, q)=\left\{ g\in GL\left( p+q,\R \right):\;^t\!gI_{p,q}g=I_{p,q} \right\}
 \end{equation*}
 と定義する。
+
+以下では$G=O(p+1,q+1)$とおく。
 \note{
 	$n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式$Q_{p,q}$を定めます。
 	標準座標でこの二次形式は\kana{対角行列}{タイカギョウレツ}$I_{p,q}$で表されます。
@@ -227,7 +241,7 @@
 $P=MAN_{+}$を以下のように定める、
   \begin{equation*}
 	  \kern-0.2cm
-	  \begin{array}{lll}
+	  \begin{array}{@{}l@{}ll}
    M &\assign {\left\{ \left( \begin{array}{ccc}
     \epsilon & 0 & 0\\
     0 & A & 0\\
@@ -236,7 +250,8 @@ $P=MAN_{+}$を以下のように定める、
     A \in O (p, q),\;
     \epsilon = \pm 1
   \right\}}&\simeq O(p,q)\times \Z/{2\Z},  \\
-  A&&\simeq \R,\\
+  A&=\left\{ a(t)=\exp\left( t\left( E_{1,p+q+2}+E_{p+q+2,1}:\footnote[frame]{I think we should replace the colon $:$ with bar $\mid$ here,
+  in order to maintain consistency in set notation.}t\in\R \right) \right) \right\}&\simeq \R,\\
   N_+&&:\mbox{可換な冪零部分群}
 %%  A &\assign \left\{a(t)\assign\left( \begin{array}{ccc}
 %%    \cosh (t) & 0 & \sinh (t)\\
@@ -270,7 +285,7 @@ $G$の極大放物型部分群$P=MAN_{+}$を以下のように定めます。
 	$A$はPを定めた
 	1次元可換群であり、$N_+$は$p+q$次元\kana{冪零}{ベキレイ}部分群です。今の場合で$N_+$も可換です。
 放物型部分群$P$からの誘導表現として、以下のように
-$G$の球退化主系列表現を定めます。
+$G$の球退化主系列表現を定めます。この表現を$I(\lambda)$と表記します。
 }
 \end{frame}
 \begin{frame}{部分群$G'$とその表現$J(\nu)$の定義}
@@ -289,7 +304,7 @@ $G$の球退化主系列表現を定めます。
 	複素数）を定める。
 \end{frame}
 \begin{frame}{部分群とその表現の具体的な設定}
-	座標で計算するために$G=O(p+1,q+1)$の部分群$G'$を
+	座標で計算する場合は$G=O(p+1,q+1)$の部分群$G'$を
 \begin{equation*}
 	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}\subset G\quad\mbox{と実現する。}
 \end{equation*}
@@ -300,12 +315,13 @@ $G$の球退化主系列表現を定めます。
 %%$P=MAN$は$G'$と適合する。
 %%すなわち、
 %%\vspace{-1em}
-$G\supset P$極大放物型部分群を以下のようにとっておく
+$G$の
+極大放物型部分群$P=MAN_+$を以下のようにとっておく
 \begin{enumerate}
 	\item $P':=P\cap G'$は$G'$の極大放物型部分群であり、
 	{\item {$P'$のLanglands分解は$P'=(G'\cap M)A(G'\cap N_+)$で与えられる。}}
 \end{enumerate}
-$P'$から誘導表現として
+部分群$P'$から誘導表現として
 、複素数パラメータ$\nu\in\mathbb{C}$に対して\\
 $G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定める。
 \note{
@@ -327,6 +343,7 @@ $I(\lambda)$と同様
 \begin{frame}{ここまでの記号のまとめ}
 	\centerline{
 		\xymatrixcolsep{0.01cm}
+		\xymatrixrowsep{0.5cm}
 		\xymatrix{
 			P&\subset&G=O(p+1,q+1)&\curvearrowright&I(\lambda)=\Ind_P^G(\C_\lambda)\\
 			&\mbox{極大放物型部分群}&&&\mbox{球退化主系列表現}\ar@[red]@{.>}[dd]\\
@@ -338,7 +355,7 @@ $I(\lambda)$と同様
 	\note{NB: talk at least 1min:\\
 	}
 \end{frame}
-\begin{frame}{一般理論（小林--大島{利雄}）によるアプリオリ評価}
+\begin{frame}{小林--大島{利雄}による一般理論(アプリオリ評価)}
 	$(G,G')=\left( O(p+1,q+1),O(p,q+1) \right)$の複素化は$$(G_\C,G'_\C)=(O(n+2,\mathbb{C}),O(n+1,\C))\mbox{である。}$$
 ここで$n=p+q$。$\left( G_\C,G'_\C \right)$は
 強Gelfand対となるので、小林--大島{利雄}
@@ -364,7 +381,7 @@ $\sbo$について、
 \end{enumerate}
 
 \end{block}
-この方向での最初の結果\ldots Kobayashi--Speh, Memoirs of AMS 2015.
+この方向での最初の結果$\cdots$ Kobayashi--Speh, Memoirs of AMS 2015.
 \note{
 対称性破れ作用素のなす線型空間
 $\sbo$の基底を具体的に決定しましょう。
@@ -374,10 +391,10 @@ $\sbo$の基底を具体的に決定しましょう。
 	Kobayashi--Speh (2015) の戦略（一般理論）
 	\vspace{-1em}
 	\begin{enumerate}[1.]
-		\item 対称性破れ作用素の超函数核を特徴\doubt{づける}
+		\item 対称性破れ作用素をその超函数核で特徴{づける}
 		\item その台によるフィルトレーション($P'\backslash G/P$の幾何)による帰納法
 	\end{enumerate}
-	$n = p + q$ とする。対称性破れ作用素の核超関数を 考えることによって 以下の可換図式が得られる。
+	対称性破れ作用素の超関数核に注目し、 以下の可換図式を得る
 	\begin{fact}[対称性破れ作用素の積分核,{\cite[Thm. 3.16]{kobayashi2015symmetry}}]
 %%		\cite{kobayashi2015symmetry}の一般論を今の特別な設定に適用すると、以下の図式を得る：
 %%Applying the general statement of
@@ -422,27 +439,7 @@ $\sbo$の基底を具体的に決定しましょう。
 {リョウガワジョウヨ}空間は有限なので、$P'$不変$G/P$閉部分集合が大切なinvariantになります。
 	}
 \end{frame}
-\begin{frame}
-%%この空間を分析するために、まず以下のような定義する：
-\begin{definition} \label{def1}
-	$\R^n\times\R^n$上の関数$h(\cdot,\cdot)$を
-	$h(b,x):=1-2\,^t\!bI_{p,q}x+\Q(b)\Q(x)$と定める (ここで、$n=p+q$)。 
-	$b_p=0$を満たすよう{な}各$b\in\R^n$に対し、開集合$\mysetn{x\in\R^{p,q}}{h(b,x)\neq0}$上で
-	\vspace{-1em}
-  \begin{equation*}
-    \label{eq-Nequiv} | h(b,x) |^{\lambda - n} F \left(
-    \frac{x - \Q (x) b}{h(b,x)} \right) = F (x)
-	\vspace{-1em}
-  \end{equation*}
-  が成り立つとき、
-	超関数$F \in \mathcal{D}' (\R^{p,q})$を
-	{$N_+'$不変}と呼ぶ。(ここで、$N_+'$は$\R^{p,q}$の共形コンパクト化には作用するが、$\R^{p,q}$には作用していないことに注意する)。
-\end{definition}
-\note{
-	TODO
-}
-\end{frame}
-\begin{frame}
+\begin{frame}{Fact 2の記号$\sol$の定義}
 \begin{definition}\label{def2}
 	群$O(p-1,q)$を$\R^n$ $(n=p+q)$に第$p$座標を固定する形で作用させる。
 	以下のような条件を満たす超関数$F\in\mathcal{D}'(\R^n)${のなす}空間を$\sol$と表記する。
@@ -450,9 +447,13 @@ $\sbo$の基底を具体的に決定しましょう。
 		\item $F (x) = F (- x)$;
 		\item $F$は$O(p-1,q)$不変である;
 		\item $F$は$(\lambda-\nu-n)$次の斉次性を持つ; 
-		\item $F$は$\R^{p,q}$上に$N_+'$不変である。
+		\item \label{item:4} $F$は$\R^{p,q}$上に$N_+'$不変である。
 	\end{enumerate}
 \end{definition}
+\begin{remark}
+	$N_+'$は$\R^{p,q}$の共形コンパクト化にしか作用しないので、
+	\scalebox{1.6}{\Myref{item:4}}の定義には注意を要\doubt{する}。
+\end{remark}
 \note{
 	TODO
 }
@@ -474,16 +475,16 @@ $\sbo$の基底を具体的に決定しましょう。
 \begin{frame}{微分対称性破れ作用素}
 	\begin{tabular}[]{cl}
 		\underline{ポイント}&対称性破れ作用素の内\\
-		&あるものは積分で、\\
-		&あるものは特異積分で、\\
-		&また、あるものは微分で\\
+		&　あるものは積分で、\\
+		&　あるものは特異積分で、\\
+		&　また、あるものは微分で\\
 		&表すことができる。
 	\end{tabular}
-	\begin{theorem}
+	\begin{definition}
 		$X\supset Y$を$C^\infty$多様体とする。線形写像$T:C^\infty(X)\to C^\infty(Y)$は\begin{equation*}
 			T=\operatorname{Rest}_{Y}\circ X\mbox{上の微分作用素}
 		\end{equation*}と表せるとき、$T$を（広い意味で）\underline{微分作用素}という。
-	\end{theorem}
+	\end{definition}
 \end{frame}
 \begin{frame}{微分対称性破れ作用素$T:I(\lambda)\to J(\nu)$の分類}
 	\begin{fact}[微分対称性破れ作用素の分類 ({\cite[Thm. 4.3]{kobayashi2015branching}})]
@@ -492,27 +493,26 @@ $\sbo$の基底を具体的に決定しましょう。
 		\begin{enumerate}[(1)]
 			\item 零でない微分対称性破れ作用素が存在する$\iff\nu-\lambda\in2\N$。
 			\item $\ell:=\frac{1}{2}(\nu-\lambda)\in\N$のとき、
-		\end{enumerate}
 \begin{equation*}
 	\kern-0.2cm\begin{array}[]{@{}r@{}l}
 	{R}_{\lambda, \nu}^{\{ o \}} &
 	=\kern-0.2cm
-		\sum_{j=0}^{\frac{\nu-\lambda}{2}}\frac{(-1)^j2^{\nu-\lambda-2j}}{j!(\nu-\lambda-2j)!}\kern-0.0cm\prod_{i=1}^{\frac{\nu-\lambda}{2}-j}\kern-0.2cm\left( \frac{n
+		\sum_{j=0}^\ell\frac{(-1)^j2^{2\ell-2j}}{j!(2\ell-2j)!}\kern-0.0cm\prod_{i=1}^{\ell-j}\kern-0.2cm\left( \frac{n
 		+1}{2}+\frac{\nu+\lambda}{2}
-		+i \right)\kern-0.1cm\left(- \Delta_{\mathbbm{R}^{p-1,q}} \right)^j\kern-0.1cm\left( \frac{\partial}{\partial x_p} \right)^{\kern-0.1cm\nu-\lambda-2j}
+		+i \right)\kern-0.1cm\left(- \Delta_{\mathbbm{R}^{p-1,q}} \right)^j\kern-0.1cm\left( \frac{\partial}{\partial x_p} \right)^{\kern-0.1cm 2\ell-2j}
 \\
 	&
 	=
-\tmop{Rest}_{x_p = 0} \circ \tilde{C}_{\nu - \lambda}^{\lambda - \frac{n -
+\tmop{Rest}_{x_p = 0} \circ \tilde{C}_{2\ell}^{\lambda - \frac{n -
 1}{2}} \left( - \Delta_{\mathbbm{R}^{p - 1, q}}, \frac{\partial}{\partial x_p}
 \right)
 	\end{array}
 \end{equation*}
-ここで$\tilde{C}(s,t)$は\footnote{I did not understand the instructions for this paragraph very clearly. The order can be mixed up. I am sorry.}
 	微分対称性破れ作用素になる。
-	Gegenbauer多項式
-	を２変数化した多項式である。[Kobayashi--Pevzner (2016)]
-	逆に全ての微分対称性破れ作用素は$R^{ \left\{ o \right\}}_{\lambda,\nu}$の定数倍である。
+	ここで$\tilde{C}^\alpha_{m}(s,t)$はGegenbauer多項式
+	を２変数化した多項式である。[Kobayashi--Pevzner (2016)]。
+\item 逆に全ての微分対称性破れ作用素は$R^{ \left\{ o \right\}}_{\lambda,\nu}$の定数倍である。
+		\end{enumerate}
 	\end{fact}
 	\note{\tiny
 		\doubt{第二歩}は\kana{実}{ジツ}旗多様体$G/P$における$P'$-invariantなclosed subsetそれぞれに対し、
@@ -1040,5 +1040,25 @@ $\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
 	\input{bibliography.tex}
 \end{frame}
 
+\begin{frame}{Fact 2の記号$\sol$の説明(準備)}
+%%この空間を分析するために、まず以下のような定義する：
+\begin{definition} \label{def1}
+	$\R^n\times\R^n$上の関数$h(\cdot,\cdot)$を
+	$h(b,x):=1-2\,^t\!bI_{p,q}x+\Q(b)\Q(x)$と定める (ここで、$n=p+q$)。 
+	$b_p=0$を満たすよう{な}各$b\in\R^n$に対し、開集合$\mysetn{x\in\R^{p,q}}{h(b,x)\neq0}$上で
+	\vspace{-1em}
+  \begin{equation*}
+    \label{eq-Nequiv} | h(b,x) |^{\lambda - n} F \left(
+    \frac{x - \Q (x) b}{h(b,x)} \right) = F (x)
+	\vspace{-1em}
+  \end{equation*}
+  が成り立つとき、
+	超関数$F \in \mathcal{D}' (\R^{p,q})$を
+	{$N_+'$不変}と呼ぶ。(ここで、$N_+'$は$\R^{p,q}$の共形コンパクト化には作用するが、$\R^{p,q}$には作用していないことに注意する)。
+\end{definition}
+\note{
+	TODO
+}
+\end{frame}
 \end{document}
 %talk is 15 minutes long
