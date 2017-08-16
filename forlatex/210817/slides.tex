@@ -172,7 +172,7 @@
 	\begin{center}
 		\huge この研究は\textbf{小林俊行}先生（東京大学）との共同研究である
 	\end{center}
-	\note{この研究は小林俊行先生との\kana{共同}{キョウドウ}研究です。}
+	\note{この研究は東京大学の小林俊行先生との\kana{共同}{キョウドウ}研究です。}
 \end{frame}
 \section{目標}
 \begin{frame}{主テーマ -- 対称性破れ作用素}
@@ -184,7 +184,7 @@
 	\xymatrixrowsep{1.8cm}
 	\xymatrix{
 		I(\lambda)\ar[rr]_{\mbox{対称性破れ作用素}}&&J(\nu)\\
-	G\ar@/^1pc/[u]&\subset&G'\ar@/_1pc/[u]}
+	G\ar@/^1pc/[u]&\supset&G'\ar@/_1pc/[u]}
 }
 \vspace{2em}
 \begin{equation*}
@@ -192,7 +192,7 @@
 \end{equation*}
 \note{
 この講演での主テーマは{、}
-群$G$の表現$I(\lambda)$から部分群$G'$の表現$J(\nu)$への$G'$絡作用素（対称性破れ作用素、{symmetry breaking operator}です。
+群$G$の球退化主表現$I(\lambda)$から部分群$G'$の球退化主表現$J(\nu)$への連続な$G'$絡作用素（対称性破れ作用素、{symmetry breaking operator}）です。
 \slowly{symmetry breaking operator}の
 \kana{頭文字}{カシラモジ}を{とって}SBOと\kana{略記}{リャクキ}することにします。
 }
@@ -210,19 +210,16 @@
 		I_{p, q} \assign \tmop{diag} (\underbrace{1, \ldots, 1}_p, \underbrace{-
 		1, \ldots, - 1}_q)\in GL(p+q,\R)
 	  $。
-	  この二次形式$Q_{p,q}(x)$を保つ不定値直交群を
+	  この二次形式$Q_{p,q}(x)$を保つ\footnote[frame]{I think, we should write 二次形式$Q_{p+1,q+1}(x)$を保つ, as $O(p+1,q+1)$ preserves $Q_{p+1,q+1}$, not $Q_{p,q}$.}不定値直交群を
 \begin{equation*}
 	G \assign O (p +
 1, q + 1)=\left\{ g\in GL\left( p+q+2,\R \right):\;^t\!gI_{p+1,q+1}g=I_{p+1,q+1} \right\}
 \end{equation*}
 と定義する。
 \note{
-	$n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式$Q_{p,q}$を
-	  と定めます。この二次形式に{関する}不定値直交群$O(p+1,q+1)$を
-	$G$と定義し、
-その
-極大放物型部分群
-$P=MAN_{+}$を以下のように定めます。
+	$n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式$Q_{p,q}$を定めます。
+	標準座標でこの二次形式は\kana{対角行列}{タイカギョウレツ}$I_{p,q}$で表されます。
+	二次形式$Q_{p+1,q+1}(x)$を保つ不定値直交群$O(p+1,q+1)$を$G$と\kana{表記}{ヒョウキ}します。
 }
 \end{frame}
 \begin{frame}{扱う表現の設定 -- 球退化主系列表現}
@@ -256,7 +253,9 @@ $P=MAN_{+}$を以下のように定める、
   \end{equation*}
 放物型部分群$P$からの誘導表現として、
 複素数パラメータ$\lambda\in\C$に対して、
-$G$の球退化主系列表現$I(\lambda)$Яを定義する。
+$G$の球退化主系列表現$I(\lambda)$Яを定義する。\footnote[frame]{I think this slides violates somehow the "1 slide 1 topic" policy:
+	it introduces both $P$'s Langlands decomposition, and $I(\lambda)$.
+}
 \begin{align*}
 I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
 &\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}
@@ -265,8 +264,11 @@ I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
 $\lambda\notin\Z$(整数)ならば$I(\lambda)$は$G$の既約表現である。
 \end{fact*}
 \note{
+$G$の極大放物型部分群$P=MAN_{+}$を以下のように定めます。
+
 	ここでの$M,A$と$N_+$は$P$のラングランズ分解です。
-	$A$は1次元可換群である、$N_+$は$p+q$次元の可換群です。
+	$A$はPを定めた
+	1次元可換群であり、$N_+$は$p+q$次元\kana{冪零}{ベキレイ}部分群です。今の場合で$N_+$も可換です。
 放物型部分群$P$からの誘導表現として、以下のように
 $G$の球退化主系列表現を定めます。
 }
@@ -539,8 +541,7 @@ parameter $(\lambda,\nu)$がこの//（ナナメのニ\kana{重線}{ジュウセ
 
 	しかし、これらの積は well-defined ではない
 	\begin{example*}
-		$\delta(x_p)\times\delta(x_1,\cdots,x_{p+q})$は well-defined ではない\footnote{What do we formally mean by being ``not well-defined''?
-			We perfectly can \textit{define} this product to be zero.}
+		$\delta(x_p)\times\delta(x_1,\cdots,x_{p+q})$は well-defined ではない
 	\end{example*}
 	$\implies$ $\myabs{x_p}^a\myabs{Q_{p,q}(x)}^b$の正規化には注意が必要である。
 \end{frame}
