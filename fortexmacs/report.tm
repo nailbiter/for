@@ -145,6 +145,9 @@
     general rule on when one should favor kanji to hiragana? Because I had an
     (apparently, wrong) impression that kanji make the text seem to be more
     \Pintelligent\Q and \Pformal\Q.
+
+    <item>when I insert an English word in a string of Japanese text, should
+    I surround it by spaces?
   </enumerate>
 
   <paragraph|Comments>
