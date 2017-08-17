@@ -3,7 +3,7 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 76>
+  <section|report 77>
 
   <date|>
 
@@ -20,8 +20,6 @@
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     read Vogan's book
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
-    prepare and deliver the speech at Taiwan
-  </cell>|<cell|<with|font-series|bold|done>>>|<row|<\cell>
     prepare the schedule for August
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     prepared better notes on Tamori-kun's talk
@@ -32,42 +30,16 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>Prepared and delivered speech at Taiwan.
-
-    <item>By reading Your emails to Prof. Nagisa I have learned something
-    about writing emails. The things I have learned are described in
-    <verbatim|manner-jap.pdf>;
-
-    <item>I have attended Your lecture on July 19th for undergraduate
-    students. It was very enlightening. My lecture notes are attached as
-    <verbatim|lecture.pdf>.
+    <item>With a lot of Your help, made some progress in preparing slides and
+    speech for this coming Functional Analysis and Real Analysis Symposium.
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
 
-  <\description>
-    <item*|Tue>
-
-    <\enumerate>
-      <item>deliver items 2, 3 of the \PWhat has been done (additional)\Q
-      section;
-
-      <item>prepare the schedule for August and send it to You (see item
-      <reference|items:comments-schedule> of Comments section);
-    </enumerate>
-
-    <item*|Wed and later>
-
-    <\enumerate>
-      <item>read the article <cite|braverman1998minimal> and improve my notes
-      on Tamori-kun's talk. As Tamori himself, if necessary;
-
-      <item>Continue preparing for the Tambara talk;
-
-      <item>Continue preparing the speech for the Functional Analysis
-      Symposium.
-    </enumerate>
-  </description>
+  <\enumerate>
+    <item>Prepare for the talk at Functional Analysis and Real Analysis
+    Symposium
+  </enumerate>
 
   On top of that,
 
@@ -104,13 +76,6 @@
     carrying friends to my talks and <with|font-series|bold|not> being late
     to lectures together with other points in <verbatim|checklist.pdf> and
     <verbatim|reflection.pdf> are noted).
-
-    <item><label|q:vogan>When You talked to me in Your office on Friday, I
-    remember that You told me to read Vogan's book on \Prepresentations of
-    Lie groups\Q in order to deepen my understanding of
-    <math|A<rsub|\<frak-q\>><around*|(|\<lambda\>|)>>-modules. More
-    precisely, did You meant <cite|vogan1987unitary> or
-    <cite|vogan1981representations>?
 
     <item>Thank You very much for introducing me to the
     <math|\<#5831\>\<bullet\>\<#9023\>\<bullet\>\<#76F8\>> philosophy. I
@@ -153,10 +118,9 @@
   <paragraph|Comments>
 
   <\enumerate>
-    <item><label|items:comments-schedule>Starting from this August I promise
-    to send You my schedule and reading schedule for every month before the
-    end of the first day of that month. I think, this will improve my
-    concentration.
+    <item>I extremely sorry for being unable to deliver the talk at Tambara.
+    I am really sorry. I would be very happy, if You would allow me to
+    present Kobayashi\UKubo\UPevzner on the next meeting of our lab.
   </enumerate>
 
   <\bibliography|bib|tm-alpha|/Users/nailbiter/for/forlatex/kreport/bibliography>

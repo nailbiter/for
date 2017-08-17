@@ -25,7 +25,6 @@ set auto_tag = yes# Gmail-style keyboard shortcuts#macro index,pager y "<enter-c
 set ssl_use_sslv3 = yes
 set imap_user = "leontiev"
 #set smtp_url = "smtps://leontiev@mail.ms.u-tokyo.ac.jp:587" # the port is correct
-#set smtp_pass="..."
 set from = "leontiev@ms.u-tokyo.ac.jp"
 set use_from=yes
 #set realname = "Alex Leontiev"
