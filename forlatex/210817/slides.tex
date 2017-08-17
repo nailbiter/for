@@ -1,6 +1,7 @@
 %make suugakkai_16_aux/Makefile
 \documentclass[notheorems]{beamer}
 \mode<presentation>{\usetheme[secheader]{Boadilla}}
+\usepackage{textpos}
 \usepackage{mystyle}
 \usepackage{xcolor}
 \usepackage{geometry}
@@ -19,6 +20,23 @@
 \usepackage{tikz-cd,array}
 \usepackage{catchfilebetweentags}
 \usepackage{color,soul}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems}
+\usepackage{bigints}
+%\usepackage[showboxes]{textpos}
+\usepackage{textpos}
+\usepackage{color,soul}
+\usepackage{wrapfig}
+\usepackage{mathtools}
+\usepackage{xypic}
+\usepackage[all,cmtip]{xy}
+\usepackage{mystyle}
+\usepackage{xeCJK}
+\usepackage{lpic}
+\usefonttheme{professionalfonts}
+\usepackage{etoolbox}
+\usepackage{comment}
+\usetikzlibrary{shapes,arrows,patterns}
 
 \definecolor{red}{rgb}{1,0,0}
 \setulcolor{red}
@@ -250,9 +268,8 @@ $P=MAN_{+}$を以下のように定める、
     A \in O (p, q),\;
     \epsilon = \pm 1
   \right\}}&\simeq O(p,q)\times \Z/{2\Z},  \\
-  A&=\left\{ a(t)=\exp\left( t\left( E_{1,p+q+2}+E_{p+q+2,1}:\footnote[frame]{I think we should replace the colon $:$ with bar $\mid$ here,
-  in order to maintain consistency in set notation.}t\in\R \right) \right) \right\}&\simeq \R,\\
-  N_+&&:\mbox{可換な冪零部分群}
+  A&=\left\{ a(t)=\exp\left( t\left( E_{1,p+q+2}+E_{p+q+2,1}:t\in\R \right) \right) \right\}&\simeq \R,\\
+%%  N_+&&:\mbox{可換な冪零部分群}
 %%  A &\assign \left\{a(t)\assign\left( \begin{array}{ccc}
 %%    \cosh (t) & 0 & \sinh (t)\\
 %%    0 & I_{p + q} & 0\\
@@ -344,7 +361,7 @@ $I(\lambda)$と同様
 \begin{frame}{ここまでの記号のまとめ}
 	\centerline{
 		\xymatrixcolsep{0.01cm}
-		\xymatrixrowsep{0.5cm}
+		\xymatrixrowsep{0.1cm}
 		\xymatrix{
 			P&\subset&G=O(p+1,q+1)&\curvearrowright&I(\lambda)=\Ind_P^G(\C_\lambda)\\
 			&\mbox{極大放物型部分群}&&&\mbox{球退化主系列表現}\ar@[red]@{.>}[dd]\\
@@ -453,7 +470,7 @@ $\sbo$の基底を具体的に決定しましょう。
 \end{definition}
 \begin{remark}
 	$N_+'$は$\R^{p,q}$の共形コンパクト化にしか作用しないので、
-	\scalebox{1.6}{\Myref{item:4}}の定義には注意を要\doubt{する}。
+	\scalebox{1.6}{\Myref{item:4}}の定義には注意を要{する}。
 \end{remark}
 \note{
 	TODO
@@ -510,9 +527,9 @@ $\sbo$の基底を具体的に決定しましょう。
 \right)
 	\end{array}
 \end{equation*}
-	微分対称性破れ作用素になる。
+	は微分対称性破れ作用素になる。
 	ここで$\tilde{C}^\alpha_{m}(s,t)$はGegenbauer多項式
-	を２変数化した多項式である。[Kobayashi--Pevzner (2016)]。
+	を２変数化した多項式である([Kobayashi--Pevzner (2016)])。
 \item 逆に全ての微分対称性破れ作用素は$R^{ \left\{ o \right\}}_{\lambda,\nu}$の定数倍である。
 		\end{enumerate}
 	\end{fact}
@@ -533,26 +550,7 @@ Gegenbauer多項式を２変数化して、そこにラプラシアンと法微�
 parameter $(\lambda,\nu)$がこの//（ナナメのニ\kana{重線}{ジュウセン}集合に入っていると、微分対称性破れ作用素空間が一次元になり、そうでないと微分対称性破れ作用素は存在しません。
 	}
 \end{frame}
-\begin{frame}{}
-	{超函数}$\myabs{x_p}^{a}$と$\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2}^b$の積
-	\begin{itemize}
-		\item $\frac{1}{\Gamma\left( \frac{a+1}{2} \right)}\myabs{x_p}^a$
-		\item $\frac{1}{\Gamma(*)}\myabs{Q_{p,q}(x)}^b=\frac{1}{\Gamma(*)}\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x^2_{p+q}}^b$
-	\end{itemize}
-	はそれぞれ個別に$a,b\in\C$に正則 (holomorphic)に依存する$\R^{p+q}$上の超函数である。
-
-	しかし、これらの積は well-defined ではない
-	\begin{example*}
-		$\delta(x_p)\times\delta(x_1,\cdots,x_{p+q})$は well-defined ではない
-	\end{example*}
-	$\implies$ $\myabs{x_p}^a\myabs{Q_{p,q}(x)}^b$の正規化には注意が必要である。
-	\note{TODO}
-\end{frame}
-\begin{frame}{正則な(regular)対称性破れ作用素の{{構成}}}
-%%For
-%%$(\lambda, \nu) \in \mathbbm{C}^2$ および 
-%%$\tmop{Re} (\nu) < 0$ and $\tmop{Re}
-%%(\lambda + \nu - n) > 0$ を満たす$(\lambda,\nu)\in\mathbb{C}^2$に対し、
+\begin{frame}{正則な(regular)対称性破れ作用素の{核関数}}
 		\begin{equation*}
 			(\lambda,\nu)\in\C^2\mbox{　が　}\begin{array}[]{l}
 			\Re(\nu)<0\mbox{、および}\\
@@ -565,40 +563,54 @@ parameter $(\lambda,\nu)$がこの//（ナナメのニ\kana{重線}{ジュウセ
 $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$の元になる。
 	}
 \end{equation*}
-これを核超函数\doubt{とする}。対称性破れ作用素を
-\begin{equation*}
-	\tilde{R}_{\lambda, \nu}^{\R^{p,q}} \assign \tmop{Op} (| x_p
-	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}) \mbox{とする。}
-\end{equation*}
-\vspace{-1em}
-	\begin{theorem}[regular 対称性破れ作用素の構成]
-		$\tilde{R}_{\lambda, \nu}^{\R^{p,q}}$ は $(\lambda, \nu) \in
-\mathbbm{C}^2$に有理型に依存する対称性破れ作用素の族に拡張できる。
+%%これを核超函数\doubt{とする}。対称性破れ作用素を
+%%\begin{equation*}
+%%	\tilde{R}_{\lambda, \nu}^{\R^{p,q}} \assign \tmop{Op} (| x_p
+%%	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}) \mbox{とする。}
+%%\end{equation*}
+%%\vspace{-1em}
+	\begin{theorem}[regular 対称性破れ作用素の有理型拡張]
+		$\myabs{x_p}^{\lambda+\nu-n}\myabs{Q_{p,q}(x)}^{-\nu}$
+		は $(\lambda, \nu) \in
+\mathbbm{C}^2$に有理型に依存する超函数の族に拡張できる。
 	\end{theorem}
 \vspace{-1em}
 \note{TODO}
 \end{frame}
+\begin{frame}{}
+	{超函数}$\myabs{x_p}^{a}$と$\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2}^b$の積
+	\begin{itemize}
+		\item $\frac{1}{\Gamma\left( \frac{a+1}{2} \right)}\myabs{x_p}^a$
+		\item $\frac{1}{\Gamma(*)\Gamma(*)}\myabs{Q_{p,q}(x)}^b=\frac{1}{\Gamma(*)\Gamma(*)}\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x^2_{p+q}}^b$
+	\end{itemize}
+	はそれぞれ個別に$a,b\in\C$に正則 (holomorphic)に依存する$\R^{p+q}$上の超函数である。
+
+	しかし、これらの積は well-defined ではない
+	\begin{example*}[$a=-1,b=-\frac{n}{2},p-q\notin 4\Z+2$]
+		$\delta(x_p)\times\delta(x_1,\cdots,x_{p+q})$は well-defined ではない
+	\end{example*}
+	$\implies$ $\myabs{x_p}^a\myabs{Q_{p,q}(x)}^b$の正規化には注意が必要である。
+	\note{TODO}
+\end{frame}
 \begin{frame}{正規化}
-		 $(\lambda, \nu) \in
-\mathbbm{C}^2$に有理型に依存する対称性破れ作用素の族
-\begin{equation*}
-	\tilde{R}_{\lambda, \nu}^{\R^{p,q}} \assign \tmop{Op} (| x_p
-	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu})
-\end{equation*}
+%%		 $(\lambda, \nu) \in
+%%\mathbbm{C}^2$に有理型に依存する対称性破れ作用素の族
+%%\begin{equation*}
+%%	\tilde{R}_{\lambda, \nu}^{\R^{p,q}} \assign \tmop{Op} 
+%%\end{equation*}
 	\begin{theorem}[regular 対称性破れ作用素の正規化]
-\begin{equation*}
-	{R}_{\lambda, \nu}^X \assign \frac{1}{\Gamma
+		${R}_{\lambda, \nu}^X \assign \frac{1}{\Gamma
 \left( \frac{\lambda - \nu}{2} \right) \Gamma \left( \frac{\lambda - \nu}{2}
-\right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} \tilde{R}_{\lambda,
-\nu}^{\R^{p,q}}\mbox{のように正規化すると、}
-\vspace{-0.6em}
-\end{equation*}
-$R_{\lambda,\nu}^X$は$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する
-対称性破れ作用素になる。
-また、
-\vspace{-1em}
-$$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)\mbox{がある離散集合に属する。}$$
+\right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} | x_p
+	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}$は
+$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する
+$\R^{p+q}$上の超函数であり、$\sol$の元になる。従って、これを超函数核とする
+対称性破れ作用素
+$R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$が構成できる。
 	\end{theorem}
+	\begin{remark}
+		$$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)\mbox{がある離散集合に属する。}$$
+	\end{remark}
 	\note{
 		その次に、regular対称性破れ作用素を作ります。微分対称性破れ作用と正反対で、
 		超函数の台が全体になるものを、Kobayashi-Spehの用語で regular な対称性破れ作用素と言います。
@@ -615,12 +627,13 @@ $$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)\mbox{がある離散集合に属する
 	}
 \end{frame}
 \section{設定}
-\begin{frame}{実旗多様体の軌道分解$P'\backslash G/P$ (再揚)}
+\begin{frame}{実旗多様体の軌道分解$P'\backslash G/P$ (再掲)}
 \newcommand{\setinvThmName}{$G/P$の$P'$軌道の分類とその閉包関係}
+%%	\input{frame_setinv_text}
 	\begin{equation*}
 		\begin{array}[]{l}
 X \assign G / P \simeq (\mathbbm{S}^p \times
-\mathbbm{S}^q) / \{ \pm I \}, \\
+\mathbbm{S}^q) / \{ \pm I \} \mbox{:実旗多様体}\\
 %%Y \assign \{ [\xi, \eta] \in G / P \mid \xi_{p +
 %%1} = 0 \} \simeq \mbox{実旗多様体}G'/P'\simeq(\mathbbm{S}^{p - 1} \times \mathbbm{S}^q) / \{ \pm I \}, \\
 %%C \assign \{ [\xi, \eta] \in G / P \mid \xi_1 =
@@ -631,6 +644,26 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 	\begin{block}{定理 1 (\setinvThmName)}
 		\input{frame_setinv_thm}
 	\end{block}
+	\begin{textblock*}{\textwidth}(3.4cm,-1.55cm)
+	  	\begin{tikzpicture}
+			\node[shape=circle,style=thick,draw,inner sep=0.3cm] (char) {};
+		\end{tikzpicture}
+	\end{textblock*}
+	\begin{textblock*}{\textwidth}(3.4cm,-4cm)
+	  	\begin{tikzpicture}
+			\node[shape=circle,style=thick,draw,inner sep=0.3cm] (char) {};
+		\end{tikzpicture}
+	\end{textblock*}
+	\begin{textblock*}{\textwidth}(7.7cm,-1.75cm)
+	  	\begin{tikzpicture}
+			\node[shape=circle,style=thick,draw,inner sep=0.3cm] (char) {};
+		\end{tikzpicture}
+	\end{textblock*}
+	\begin{textblock*}{\textwidth}(7.7cm,-4cm)
+	  	\begin{tikzpicture}
+			\node[shape=circle,style=thick,draw,inner sep=0.3cm] (char) {};
+		\end{tikzpicture}
+	\end{textblock*}
 	\note{TODO}
 \end{frame}
 \section{対称性破れ作用素の分類}
@@ -897,11 +930,6 @@ $I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
 	\begin{block}{問題}
 		全て$(\lambda, \nu) \in \mathbbm{C}^2$に対し、上記で構成されたそれぞれの対称性破れ作用素の像を具体的に決定せよ。
 	\end{block}
-	\vspace{1em}
-	\centerline{
-		\kern2cm\xymatrix{\;\ar@{=>}^{\mbox{函数等式\footnote[frame]{in fact, as far as I remember, we \textbf{did not} use functional identities to derive the images of SBOs}}}[d]\\\;}
-	}
-	\vspace{1em}
 	\begin{theorem}
 		それぞれの対称性破れ作用素の像が決定できる。
 	\end{theorem}
