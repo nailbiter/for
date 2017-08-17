@@ -53,9 +53,7 @@
     <\enumerate>
       <item>Finish reading <cite|lang2012sl2>;
 
-      <item>Start reading <cite|vogan1987unitary> or
-      <cite|vogan1981representations> (see the Question <reference|q:vogan>
-      below)
+      <item>Start reading <cite|vogan1981representations>
     </enumerate>
 
     <item>Practice the speeches from the Mathematical Society meeting on
