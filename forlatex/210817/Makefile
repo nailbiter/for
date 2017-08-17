@@ -57,6 +57,7 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 $(OUTDIR)/ProcJapanAcad.pdf: $(OUTDIR)/master_announcement2.pdf
 	ln -s /Users/nailbiter/for/forlatex/foraux/master_announcement2.pdf $@
 $(OUTDIR)/normalizations.pdf : /Users/nailbiter/fortexmacs/misc/normalizations.tm
+	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/gammas.pdf : /Users/nailbiter/fortexmacs/misc/gammas.tm
 	        $(TEXMACS) --convert $< $@ --quit
 
