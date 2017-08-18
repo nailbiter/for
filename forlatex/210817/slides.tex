@@ -37,6 +37,11 @@
 \usepackage{etoolbox}
 \usepackage{comment}
 \usetikzlibrary{shapes,arrows,patterns}
+\usepackage{comment}
+
+\setbeamercovered{transparent}
+
+\newcommand{\mytiming}[1]{\textbf{#1}\newline}
 
 \definecolor{red}{rgb}{1,0,0}
 \setulcolor{red}
@@ -193,7 +198,8 @@
 \section{}
 
 \begin{frame}\titlepage
-	\note{
+	\note{\mytiming{title}
+
 	初めまして。東京大学博士１年生レオンチエフ・アレックスと申します。
 	今回の第５６回実函数論・函数解析学 合同シンポジウムで発表させて頂き、誠にありがとうございます。
 	今日は{不定値直交群$O(p,q)$の対称性破れ作用素}をテーマにお話ししたいと思います。
@@ -202,7 +208,8 @@
 	\begin{center}
 		\huge この研究は\textbf{小林俊行}先生（東京大学）との共同研究である
 	\end{center}
-	\note{この研究は東京大学の小林俊行先生との\kana{共同}{キョウドウ}研究です。}
+	\note{\mytiming{joint}
+この研究は東京大学の小林俊行先生との\kana{共同}{キョウドウ}研究です。}
 \end{frame}
 \section{目標}
 \begin{frame}{主テーマ -- 対称性破れ作用素}
@@ -220,7 +227,8 @@
 \begin{equation*}
 	\lambda,\nu\mbox{: 表現のパラメータ}
 \end{equation*}
-\note{
+\note{\mytiming{maintheme}
+
 この講演での主テーマは{、}
 群$G$の球退化主表現$I(\lambda)$から部分群$G'$の球退化主表現$J(\nu)$への連続な$G'$絡作用素（対称性破れ作用素、{symmetry breaking operator}）です。
 \slowly{symmetry breaking operator}の
@@ -248,7 +256,8 @@
 と定義する。
 
 以下では$G=O(p+1,q+1)$とおく。
-\note{
+\note{\mytiming{qform}
+
 	$n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式$Q_{p,q}$を定めます。
 	標準座標でこの二次形式は\kana{対角行列}{タイカギョウレツ}$I_{p,q}$で表されます。
 	二次形式$Q_{p+1,q+1}(x)$を保つ不定値直交群$O(p+1,q+1)$を$G$と\kana{表記}{ヒョウキ}します。
@@ -283,11 +292,10 @@ $P=MAN_{+}$を以下のように定める、
 %%  \mathbbm{R}^{p + q}.\\
   \end{array}
   \end{equation*}
+  \pause
 放物型部分群$P$からの誘導表現として、
 複素数パラメータ$\lambda\in\C$に対して、
-$G$の球退化主系列表現$I(\lambda)$Яを定義する。\footnote[frame]{I think this slide somehow violates the "1 slide 1 topic" policy:
-	it introduces both $P$'s Langlands decomposition, and $I(\lambda)$.
-}
+$G$の球退化主系列表現$I(\lambda)$Яを定義する。
 \begin{align*}
 I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
 &\simeq \left\{ f\in C^{\infty}(G)\mid f(gma(t)n)=e^{-\lambda t}f(g),\;\forall(g,ma(t)n)\in G\times P \right\}
@@ -295,18 +303,25 @@ I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
 \begin{fact*}
 $\lambda\notin\Z$(整数)ならば$I(\lambda)$は$G$の既約表現である。
 \end{fact*}
-\note{
+\note<1>{\mytiming{spherdeg}
+
 $G$の極大放物型部分群$P=MAN_{+}$を以下のように定めます。
 
 	ここでの$M,A$と$N_+$は$P$のラングランズ分解です。
 	$A$はPを定めた
-	1次元可換群であり、$N_+$は$p+q$次元\kana{冪零}{ベキレイ}部分群です。今の場合で$N_+$も可換です。
+	1次元可換群であり、$N_+$は$p+q$次元\kana{冪零}{ベキレイ}部分群です。今の場合で$N_+$も可換になります。
 放物型部分群$P$からの誘導表現として、以下のように
 $G$の球退化主系列表現を定めます。この表現を$I(\lambda)$と表記します。
+
+一個だけのご注意として、
+$I(\lambda)$は一般の位置にあ
+る$\lambda$に対して既約になりますが、いつもそうではありませんということを気をつけて下さい。
+}
+\note<2>{\mytiming{spherdeg2}
 }
 \end{frame}
 \begin{frame}{部分群$G'$とその表現$J(\nu)$の定義}
-	群$G$の部分群$G'$を以下のように定める
+	群$G$の部分群$G'$を以下のように定める\footnote[frame]{Maybe, we should remove this slide?}
 	\begin{equation*}
 		\begin{array}[]{l}
 			G=O(p+1,q+1)\\
@@ -319,30 +334,27 @@ $G$の球退化主系列表現を定めます。この表現を$I(\lambda)$と�
 	$\color{red}\underline{{\color{black}\mbox{\snip}}}$
 	（$\nu$は
 	複素数）を定める。
-	\note{TODO}
+	%\note{\mytiming{subgroup}
+%	
+%TODO}
 \end{frame}
 \begin{frame}{部分群とその表現の具体的な設定}
 	座標で計算する場合は$G=O(p+1,q+1)$の部分群$G'$を
 \begin{equation*}
 	G':=\mysetn{g \in G}{g \cdot e_{p + 1} = e_{p + 1}}\subset G\quad\mbox{と実現する。}
 \end{equation*}
-%%\begin{equation*}
-%%	\underbrace{A}_{\mbox{$P$を定めたsplitな可換群}}\subset G'\Longrightarrow\mbox{$P=MAN$は$G'$と適合する。}
-%%\end{equation*}
-%%$G$の放物型部分群$A$が$G'$に含まれているため、
-%%$P=MAN$は$G'$と適合する。
-%%すなわち、
-%%\vspace{-1em}
 $G$の
 極大放物型部分群$P=MAN_+$を以下のようにとっておく
 \begin{enumerate}
 	\item $P':=P\cap G'$は$G'$の極大放物型部分群であり、
 	{\item {$P'$のLanglands分解は$P'=(G'\cap M)A(G'\cap N_+)$で与えられる。}}
 \end{enumerate}
+\pause
 部分群$P'$から誘導表現として
 、複素数パラメータ$\nu\in\mathbb{C}$に対して\\
 $G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定める。
-\note{
+\note<1>{\mytiming{explicitsetup}
+
 複素数パラメータ
 $\lambda\in\C$に対して
 $I(\lambda)$という$G$の球退化主系列表現を定義します。
@@ -357,6 +369,9 @@ $P'=(G'\cap M)A(G'\cap N_+)$で与えられます。
 $I(\lambda)$と同様
 に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定めます。
 }
+\note<2>{\mytiming{explicitsetup2}
+	TODO
+}
 \end{frame}
 \begin{frame}{ここまでの記号のまとめ}
 	\centerline{
@@ -370,7 +385,10 @@ $I(\lambda)$と同様
 			&\mbox{極大放物型部分群}&&&\mbox{球退化主系列表現}\\
 %%		G\ar@/_1pc/[d]&\supset&G'\ar@/^1pc/[d]\\
 		}}
-	\note{NB: talk at least 1min:\\
+	\note{\mytiming{kigoumatome}
+NB: talk at least 1min:\\
+念のため、次に進む前に、上記で定義した記号をとその関係を
+もう一度求めます。
 	}
 \end{frame}
 \begin{frame}{小林--大島{利雄}による一般理論(アプリオリ評価)}
@@ -381,7 +399,8 @@ $I(\lambda)$と同様
 \begin{fact}
 	対称性破れ作用素のなす空間$\sbo$の次元は表現のパラーメタ$(\lambda,\nu)$よらずに一様に押さえられている。
 \end{fact}
-\note{
+\note{\mytiming{apriori}
+
 %%対称性破れ作用素全体のなす空間を$\sbo$と表記す{る}。
 
 $(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Gelfand対となるので、小林--大島
@@ -391,16 +410,18 @@ $(G,G')$の複素化は$(O(n+2,\mathbb{C}),O(n+1,\C))$であり、これは強Ge
 \begin{frame}{目標 -- 対称性破れ作用素の構成と分類}
 \begin{block}{\underline{目標}:}
 対称性破れ作用素のなす線型空間
-$\sbo$について、
+$\sbo$について\footnote{Maybe, we better change the second and the first item? After all, we \textit{first} 
+construct SBOs, and \textit{after that} classify them (hence, get the dimensional formula).}、
 \begin{enumerate}[1.]
 	\item 次元を決定する。
-	\item その基底を具体的に構成する。
+	\item その基底となる対称性破れ作用素を具体的に構成する。
 	\item 関数等式を決定する。
 \end{enumerate}
 
 \end{block}
 この方向での最初の結果$\cdots$ Kobayashi--Speh, Memoirs of AMS 2015.
-\note{
+\note{\mytiming{goal}
+
 対称性破れ作用素のなす線型空間
 $\sbo$の基底を具体的に決定しましょう。
 }
@@ -410,8 +431,9 @@ $\sbo$の基底を具体的に決定しましょう。
 	\vspace{-1em}
 	\begin{enumerate}[1.]
 		\item 対称性破れ作用素をその超函数核で特徴{づける}
-		\item その台によるフィルトレーション($P'\backslash G/P$の幾何)による帰納法
+		\item 超函数核の台($P'\backslash G/P$の幾何)による帰納法
 	\end{enumerate}
+	\pause
 	対称性破れ作用素の超関数核に注目し、 以下の可換図式を得る
 	\begin{fact}[対称性破れ作用素の積分核,{\cite[Thm. 3.16]{kobayashi2015symmetry}}]
 %%		\cite{kobayashi2015symmetry}の一般論を今の特別な設定に適用すると、以下の図式を得る：
@@ -436,7 +458,8 @@ $\sbo$の基底を具体的に決定しましょう。
 			\mathcal{S}:&\mbox{超函数核の台(support)}
 		\end{array}
 	\end{equation*}
-	\note{\tiny
+	\note<1>{\mytiming{fact}
+\tiny
 		今回の結果の手法は、小林先生および、Kobayashi-Spehによって開発された手法を主に使います。
 		一方、\kana{高階}{コウカイ}の群では、幾何的な状況や解析的な部分がもう少し複雑になります。
 		最初に、対称性破れ作用素を、シュワルツの\kana{核}{かく}定理によって、
@@ -456,6 +479,8 @@ $\sbo$の基底を具体的に決定しましょう。
 つまり、真ん中のベクトル空間から$G$の\kana{両側剰余}{リョウガワジョウヨ}空間へのが\kana{定}{サダ}{まった}ということです。Target spaceであるこの\kana{両側剰余}
 {リョウガワジョウヨ}空間は有限なので、$P'$不変$G/P$閉部分集合が大切なinvariantになります。
 	}
+	\note<2>{\mytiming{fact2}
+	}
 \end{frame}
 \begin{frame}{Fact 2の記号$\sol$の定義}
 \begin{definition}\label{def2}
@@ -465,14 +490,15 @@ $\sbo$の基底を具体的に決定しましょう。
 		\item $F (x) = F (- x)$;
 		\item $F$は$O(p-1,q)$不変である;
 		\item $F$は$(\lambda-\nu-n)$次の斉次性を持つ; 
-		\item \label{item:4} $F$は$\R^{p,q}$上に$N_+'$不変である。
+		\item \label{item:4} $F$はべき零リー群$N_+'$に関する不変性をもつ。
 	\end{enumerate}
 \end{definition}
 \begin{remark}
 	$N_+'$は$\R^{p,q}$の共形コンパクト化にしか作用しないので、
 	\scalebox{1.6}{\Myref{item:4}}の定義には注意を要{する}。
 \end{remark}
-\note{
+\note{\mytiming{fact2def}
+
 	TODO
 }
 \end{frame}
@@ -482,7 +508,8 @@ $\sbo$の基底を具体的に決定しましょう。
 	\begin{theorem}[\setinvThmName]
 		\input{frame_setinv_thm}
 	\end{theorem}
-	\note{
+	\note{\mytiming{setinv}
+
 小林--Spehに述べられたストラテジー
 を$G$が不定値直交群の\kana{場合}{バアイ}に\kana{用}{モチ}いる
 \kana{第一歩}{ダイイッポ}として、両側\kana{剰余類}{ジョウヨルイ}とその\slowly{closure relations}、\kana{閉包}{ヘイホウ}関係の\kana{記述}{キジュツ}を述べます。
@@ -503,7 +530,8 @@ $\sbo$の基底を具体的に決定しましょう。
 			T=\operatorname{Rest}_{Y}\circ X\mbox{上の微分作用素}
 		\end{equation*}と表せるとき、$T$を（広い意味で）\underline{微分作用素}という。
 	\end{definition}
-	\note{TODO}
+	\note{\mytiming{diffop}
+TODO}
 \end{frame}
 \begin{frame}{微分対称性破れ作用素$T:I(\lambda)\to J(\nu)$の分類}
 	\begin{fact}[微分対称性破れ作用素の分類 ({\cite[Thm. 4.3]{kobayashi2015branching}})]
@@ -533,7 +561,8 @@ $\sbo$の基底を具体的に決定しましょう。
 \item 逆に全ての微分対称性破れ作用素は$R^{ \left\{ o \right\}}_{\lambda,\nu}$の定数倍である。
 		\end{enumerate}
 	\end{fact}
-	\note{\tiny
+	\note{\mytiming{diffopformula}
+\tiny
 		\doubt{第二歩}は\kana{実}{ジツ}旗多様体$G/P$における$P'$-invariantなclosed subsetそれぞれに対し、
 対称性破れ作用素のfamilyを構成し、更に、そのmeromorphic continuationを証明するというステップです。\slowly{構成をした\kana{後}{アト}}は分類になります。
 これが３つ目のステップです。Closed setが小さいものから\kana{帰納的}{キノウテキ}に\kana{順}{ジュン}に\kana{分類}{ブンルイ}します。
@@ -552,10 +581,10 @@ parameter $(\lambda,\nu)$がこの//（ナナメのニ\kana{重線}{ジュウセ
 \end{frame}
 \begin{frame}{正則な(regular)対称性破れ作用素の{核関数}}
 		\begin{equation*}
-			(\lambda,\nu)\in\C^2\mbox{　が　}\begin{array}[]{l}
-			\Re(\nu)<0\mbox{、および}\\
+			(\lambda,\nu)\in\C^2\mbox{　が　}
+			\Re(\nu)<0\mbox{、および}
 			\Re(\lambda+\nu-n)>0
-		\end{array}\mbox{を決定するとき、}
+		\mbox{を満たすとき、}
 		\end{equation*}
 \begin{equation*}
 	\quad| x_p |^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}\mbox{
@@ -563,55 +592,56 @@ parameter $(\lambda,\nu)$がこの//（ナナメのニ\kana{重線}{ジュウセ
 $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$の元になる。
 	}
 \end{equation*}
-%%これを核超函数\doubt{とする}。対称性破れ作用素を
-%%\begin{equation*}
-%%	\tilde{R}_{\lambda, \nu}^{\R^{p,q}} \assign \tmop{Op} (| x_p
-%%	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}) \mbox{とする。}
-%%\end{equation*}
-%%\vspace{-1em}
+\pause
 	\begin{theorem}[regular 対称性破れ作用素の有理型拡張]
 		$\myabs{x_p}^{\lambda+\nu-n}\myabs{Q_{p,q}(x)}^{-\nu}$
 		は $(\lambda, \nu) \in
 \mathbbm{C}^2$に有理型に依存する超函数の族に拡張できる。
 	\end{theorem}
 \vspace{-1em}
-\note{TODO}
+\note<1>{\mytiming{regconstruction}
+TODO}
+\note<2>{\mytiming{regconstruction2}
+TODO}
 \end{frame}
-\begin{frame}{}
-	{超函数}$\myabs{x_p}^{a}$と$\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2}^b$の積
+\begin{frame}{気をつけるべきこと}
+	$\myabs{x_p}^{a}$と$\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2}^b$の積
 	\begin{itemize}
 		\item $\frac{1}{\Gamma\left( \frac{a+1}{2} \right)}\myabs{x_p}^a$
 		\item $\frac{1}{\Gamma(*)\Gamma(*)}\myabs{Q_{p,q}(x)}^b=\frac{1}{\Gamma(*)\Gamma(*)}\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x^2_{p+q}}^b$
 	\end{itemize}
 	はそれぞれ個別に$a,b\in\C$に正則 (holomorphic)に依存する$\R^{p+q}$上の超函数である。
 
-	しかし、これらの積は well-defined ではない
+	しかし、これらの積は 正則に依存する$\R^{p+q}$上の超函数とはならない
 	\begin{example*}[$a=-1,b=-\frac{n}{2},p-q\notin 4\Z+2$]
 		$\delta(x_p)\times\delta(x_1,\cdots,x_{p+q})$は well-defined ではない
 	\end{example*}
 	$\implies$ $\myabs{x_p}^a\myabs{Q_{p,q}(x)}^b$の正規化には注意が必要である。
-	\note{TODO}
+	\note{\mytiming{neednormalization}
+TODO}
 \end{frame}
 \begin{frame}{正規化}
-%%		 $(\lambda, \nu) \in
-%%\mathbbm{C}^2$に有理型に依存する対称性破れ作用素の族
-%%\begin{equation*}
-%%	\tilde{R}_{\lambda, \nu}^{\R^{p,q}} \assign \tmop{Op} 
-%%\end{equation*}
 	\begin{theorem}[regular 対称性破れ作用素の正規化]
-		${R}_{\lambda, \nu}^X \assign \frac{1}{\Gamma
-\left( \frac{\lambda - \nu}{2} \right) \Gamma \left( \frac{\lambda - \nu}{2}
-\right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} | x_p
-	|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}$は
-$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する
-$\R^{p+q}$上の超函数であり、$\sol$の元になる。従って、これを超函数核とする
-対称性破れ作用素
-$R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$が構成できる。
+		\begin{enumerate}[(1)]
+			\item 
+				$ \frac{1}{\Gamma
+				\left( \frac{\lambda - \nu}{2} \right) \Gamma \left( \frac{\lambda - \nu}{2}
+				\right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} | x_p
+					|^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}$は
+				$(\lambda,\nu)\in\mathbb{C}^2$に正則に依存する
+				$\R^{p+q}$上の超函数であり、$\sol$の元になる。
+			\item
+				上の超函数を積分核と
+				する
+				対称性破れ作用素
+				$R_{\lambda,\nu}^X:I(\lambda)\to J(\nu)$が構成できる。
+		\end{enumerate}
 	\end{theorem}
 	\begin{remark}
 		$$R^X_{\lambda,\nu}=0\iff(\lambda,\nu)\mbox{がある離散集合に属する。}$$
 	\end{remark}
-	\note{
+	\note{\mytiming{regnormalization}
+
 		その次に、regular対称性破れ作用素を作ります。微分対称性破れ作用と正反対で、
 		超函数の台が全体になるものを、Kobayashi-Spehの用語で regular な対称性破れ作用素と言います。
 		まずパラメータが十分良いときは、連続函数を積分核として対称性作用素を構成
@@ -664,7 +694,8 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 			\node[shape=circle,style=thick,draw,inner sep=0.3cm] (char) {};
 		\end{tikzpicture}
 	\end{textblock*}
-	\note{TODO}
+	\note{\mytiming{setinvrecall}
+TODO}
 \end{frame}
 \section{対称性破れ作用素の分類}
 \begin{frame}
@@ -676,10 +707,14 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 	であり、
 	以下の性質をみたすものが存在する。
 
-	今までに述べた微分対称性破れ作用素でも正則な対称性破れ作用素で
-	もない。
-	その積分核は台が$S$に含まれる超
-	函数である。
+	\begin{itemize}
+	\item 
+		微分対称性破れ作用素でも正則な対称性破れ作用素で
+		もない。
+	\item
+		その積分核は台が$S$に含まれる超
+		函数である。
+	\end{itemize}
 %%	$\Supp(R_{\lambda,\nu}^S)\subset S$
 %%	をみたす
 %%	（更に、一般の位置に{ある}$(\lambda,\nu)$に対しては{等号}が成り立つ)。
@@ -696,7 +731,8 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 		\end{array}
 	\end{equation*}
 	\end{theorem}
-	\note{
+	\note{\mytiming{singops}
+
 		regular作用素が消えてしまう離散集合に対しては、renormalizeという手続きに
 		よって
 		新しい対称性破れ作用素ファミリ三つを構成することができます。
@@ -704,11 +740,12 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 		全てのパラメータに対してではなくて、$\mathbb{C}^2$のaffne subspace の可算和で\doubt{定義することができ、それは正確に決定することができます}。
 	}
 \end{frame}
-\begin{frame}{今までに構成した対称性破れ作用素$I(\lambda)\to J(\nu)$のまとめ}
+\begin{frame}{構成した対称性破れ作用素$I(\lambda)\to J(\nu)$のまとめ}
 	\vspace{-2em}
 	\begin{equation*}
 		\begin{array}[]{l}
 			R_{\lambda,\nu}^{ \left\{ o \right\}}\mbox{ on $//$}:\mbox{微分対称性破れ作用素}\\
+			\\
 			\left.
 			\begin{array}[]{l}
 				\tilde{R}_{\lambda,\nu}^X\mbox{ on $\mid\mid\mid$}\\
@@ -717,12 +754,18 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 			\end{array}
 			\right\}
 			\mbox{特異対称性破れ作用素}\\
+			\\
 			R^X_{\lambda,\nu}\mbox{ on $\C^2$: 正則 (regular)な対称性破れ作用素}
 		\end{array}
 	\end{equation*}
-	\note{TODO}
+	\note{\mytiming{opmatome}
+TODO}
 \end{frame}
-\begin{frame}
+\begin{frame}{対称性破れ作用素の分類}
+	\centerline{\xymatrix{
+		G\ar@/_1pc/[d]&\supset&G'\ar@/^1pc/[d]\\
+		I(\lambda)\ar@{-->}[rr]&&J(\nu)
+	}}
 	\begin{theorem}[対称性破れ作用素の分類]
 \begin{enumerate}[(1)]
 	\item $p=1$のとき、
@@ -755,7 +798,8 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 		\end{equation*}
 \end{enumerate}
 	\end{theorem}
-	\note{TODO}
+	\note{\mytiming{classification}
+TODO}
 \end{frame}
 \begin{frame}{対称性破れ作用素の次元（再揚）}
 	一般論（小林--大島{利雄}）$(G_\C,G'_\C)=\left( O(n+2,\C),O(n+1,\C) \right)$
@@ -767,7 +811,8 @@ $\implies$ある定数$C>0$が存在{して}\begin{equation*}
 		どんな$(\lambda,\nu)\in\mathbb{C}^2$に対しても
 		$$\dim_{\mathbb{C}}\sbo\in\left\{ 1,2 \right\}\mbox{が成り立つ。}$$
 	\end{corollary}
-	\note{
+	\note{\mytiming{dimension}
+
 		このように構成した対称性破れ作用素は全ての対称性破れ作用素を生成することが証明できます。
 		ここまでの結果をまとめると、次元公式、
 		より\kana{精密}{セイミツ}にはそれぞれ具体的な基底がスライドに述べたようにわかります。
@@ -799,7 +844,8 @@ $\implies$ある定数$C>0$が存在{して}\begin{equation*}
 	定理\ref{thm:spherical}\;の$p=q=1$の特別な場合はBernstein--Reznikov\cite[Lem. A.5]{bernstein2004estimates} によって得られ、
 	また$q=0$の場合は\cite[Prop.\ 7.4]{kobayashi2015symmetry}で得られている。
 	\end{remark}
-	\note{
+	\note{\mytiming{spherical}
+
 		$G$ の球退化主系列表現 $I(\lambda)$ は $K$ 不変ベクトルを含む。部分群 $G'$ の表現 $J(\nu)$ も同様である。いずれの場合も $K$ 不変ベクトルのなす空間は1次元である。
 		次の結果によると、I(lambda)のK-finiteベクトルの像がJ(nu)の$K'$-
 		finiteベクトルと定数の倍になります。これらのベクトルを具体的に正規化した時の
@@ -809,7 +855,7 @@ $\implies$ある定数$C>0$が存在{して}\begin{equation*}
 		して含みます。
 	}
 \end{frame}
-\begin{frame}
+\begin{frame}{留数公式}
 %%	$(\lambda,\nu)\in\mathbb{C}^2\setminus//$に対して、
 %%\vspace{-1em}
 \begin{equation*}
@@ -838,7 +884,8 @@ ${R}_{\lambda, \nu}^X$は
 		対称性破れ作用素の
 		留数公式の原型は$q=0$の場合で、このときは小林 \cite{KOBAYASHI2014272}、小林--Speh \cite[Thm. 12.2]{kobayashi2015symmetry}で証明されている。
 \end{remark}
-\note{
+\note{\mytiming{residue}
+
 	次の定理はregular対称性破れ作用素の
 	\slowly{\kana{留数}{リュウスウ}定理}です。ここに\kana{記}{シル}した２つの超関数はそれぞれ正則パラメータをもつ超関数ですが、そのwavefront setが重なりをもつので、
 	\kana{超関数}{チョウカンスウ}の
@@ -848,7 +895,7 @@ ${R}_{\lambda, \nu}^X$は
 	\slowly{\kana{初等}{ショトウ}}\kana{関数}{カンスウ}の{\kana{積}{セキ}}として具体的に\kana{表}{アラワ}すことができました。
 }
 \end{frame}
-\begin{frame}{Knapp--Stein 作用素（古典理論）}
+\begin{frame}{Knapp--Stein 作用素（古典理論）の復習}
 	$G=O(p+1,q+1),n=p+q$とする。
 	\begin{definition}[$\tilde{\mathbb{T}}_\lambda^G:I(\lambda)\to I(n-\lambda)$]
 		\underline{Knapp--Stein 作用素}は以下の定義
@@ -864,7 +911,8 @@ ${R}_{\lambda, \nu}^X$は
 		正規化のための関数で$\Gamma$関数の積で表される。
 	\end{definition}
 %%		$\tilde{R}_{n - \lambda, \nu}^X \circ\tilde{\mathbbm{T}}_{\lambda}^G$ と対称性破れ作用素 $\tilde{R}_{\lambda, \nu}^X$を比較する。両方は比例になる。　
-	\note{
+	\note{\mytiming{knappstein}
+
 次の結果を紹介する前に、古典的なKnapp-Stein作用素の定義を復習したいと思い
 ます。
 $G = G'$ の場合は、古くから多く研究があり、この場合は$G$の球退化主系列表現の間の対称性破れ作用素は\kana{容易}{ヨウイ}に求めることができます。
@@ -896,7 +944,8 @@ $I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
 	\begin{block}{{ポイント}}
 		この定数が特別な$\lambda,\nu$で零となる$\implies$これを決定したい
 	\end{block}
-	\note{TODO}
+	\note{\mytiming{functionalthinking}
+TODO}
 \end{frame}
 \begin{frame}{函数公式と比例定数}
 	合成
@@ -908,7 +957,8 @@ $I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
 		\end{equation*}定数$c(\lambda,\nu)$を決定したい。
 
 		特に、いつ$c(\lambda,\nu)=0$となるかを知りたい。
-	\note{
+	\note{\mytiming{funceq}
+
 		以下のdiagramのように、$R_{n-\lambda,\nu}^X$ regular対称性破れ作用素と$\mathbb{T}_
 	\lambda^G$　Knapp-Stein作用素の組み合わせと$R_{\lambda,\nu}^X$対称性破れ作用素が
 両方は$I(lambda)$から$J(nu)$へ$G'$作用を絡み合う作用素
@@ -919,12 +969,13 @@ $I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
 			}
 \end{frame}
 \input{slides_functional}
-\begin{frame}
+\begin{frame}{函数等式その２}
 	\centerline{\xymatrix{I(\lambda)\ar[d]_{\tilde{\mathbb{T}}_{\lambda}^G}\ar@{-->}[rd]^{R_{\lambda,\nu}^X}&\\I(n-\lambda)\ar[r]_{R^X_{n-\lambda,\nu}}&J(\nu)}}
 	の代わりに
 	\centerline{\xymatrix{I(\lambda)\ar@{-->}[rd]_{R_{\lambda,\nu}^X}\ar[r]^{R_{\lambda,n-1-\nu}^X}&J(n-1-\nu)\ar[d]^{\tilde{\mathbb{T}}_{n-1-\nu}^{G'}}\\&J(\nu)}}
 	を用いた関数等式も同様に決定できる。
-	\note{TODO}
+	\note{\mytiming{replace}
+TODO}
 \end{frame}
 \begin{frame}{対称性破れ作用素の像}
 	\begin{block}{問題}
@@ -933,7 +984,8 @@ $I(\lambda)$から$I(n-\lambda)$へのintertwining operatorです。
 	\begin{theorem}
 		それぞれの対称性破れ作用素の像が決定できる。
 	\end{theorem}
-	\note{
+	\note{\mytiming{images}
+
 		最後は、これらの\kana{緒}{しょ}結果をプラスアルファの結果から
 		上に構成された対称性破れ作用素の像がパラメータによって、どのように変わるかについてもの全て決定することが
 		できます。
@@ -952,7 +1004,8 @@ $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
 同値であることが示されている。その特徴づけの1つは
 Zuckerman導来函手加群で記載される。)
 以下では、この加群の間に対称性破れ作用素がある{か}について論じる。簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
-\note{
+\note{\mytiming{zuckermandef}
+
 	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じましょう。
 	KobayashiとOrstedの２００３年の論文
 $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
@@ -996,7 +1049,8 @@ Zuckerman導来函手加群で記載されます。
 	$\Hom_{G'}\left(\pi_{\delta,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\varepsilon,y}^{p,q+1} \right)$の次元は以下のようになる。
 %%
 \end{theorem}
-\note{TODO}
+\note{\mytiming{zuckthm}
+TODO}
 \end{frame}
 \begin{frame}{$p,q{\mbox{は奇数の場合}}$}
 \begin{center}
@@ -1019,7 +1073,8 @@ $\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
 \begin{remark}
 	$p,q$が奇数出ない場合も、同様に。
 \end{remark}
-\note{TODO}
+\note{\mytiming{zuckrem}
+TODO}
 \end{frame}
 \begin{frame}
 \begin{remark}
@@ -1036,7 +1091,8 @@ $\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
 	\end{enumerate}
 	\vspace{-0.8em}
 \end{remark}
-\note{
+\note{\mytiming{zuckrem2}
+
 	上記に得られた対称性破れ作用素の分類を用い、
 	Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素も決定できます。
 
@@ -1046,7 +1102,6 @@ $\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
 		分岐則が離散分解する場合、上記の分岐則は小林先生の１９９３年の論文によって得られた公式と一致します。
 	 前のように、$q=0$の場合の類似の結果はKobayashi--Spehで得られています。
 }
-\note{TODO}
 \end{frame}
 
 \begin{frame}[allowframebreaks]{参考文献}
