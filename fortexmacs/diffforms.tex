@@ -1,0 +1,206 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,bbm}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\assign}{:=}
+\newcommand{\comma}{{,}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\newcommand{\tmtextup}[1]{{\upshape{#1}}}
+\newtheorem{definition}{Definition}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\
+
+\
+
+\
+
+\section{Symmetry breaking for full orthogonal groups $O (N)$}{}
+
+\subsection{Irreps of $\tmop{SO} (n)$ and $O (n)$}{}
+
+Recall that (see {\cite{knapp2013lie}})
+\begin{eqnarray}
+  & \begin{array}{lll}
+    \tmop{HV} (N) \assign \left\{ \begin{array}{ll}
+      \lambda_1 \geqslant \lambda_2 \geqslant \ldots \geqslant \lambda_{k - 1}
+      \geqslant | \lambda_k | \geqslant 0, & N = 2 k\\
+      \lambda_1 \geqslant \lambda_2 \geqslant \ldots \geqslant \lambda_k
+      \geqslant 0, & N = 2 k + 1
+    \end{array} \right. & \xrightarrow{\sim} & \widehat{\tmop{SO}} (N)\\
+    \lambda = (\lambda_i) & \mapsto & [\lambda]
+  \end{array} &  \nonumber
+\end{eqnarray}
+{\noindent}\tmtextbf{Fact \tmtextup{3}. }\tmtextit{{\cite[Sec.
+5.5.5]{goodman2000representations}} (``irreps of $O (N)$'')
+\begin{enumerate}
+  \item We have
+  \[ \hat{O} (2 k + 1) = \{ (\pi^{\lambda, \varepsilon}, V^{\lambda,
+     \varepsilon}) \}_{\lambda \in \tmop{HV} (2 k + 1), \varepsilon = \pm 1}
+  \]
+  where $\pi^{\lambda, \varepsilon}$ is characterized by $\pi^{\lambda,
+  \varepsilon} \mid_{\tmop{SO} (2 k + 1)} = [\lambda]$ and $\pi^{\lambda,
+  \varepsilon} (- \tmop{id}_{2 k + 1}) = \varepsilon$.
+  
+  \item We have
+  \[ \hat{O} (2 k) = \{ (\pi^{\lambda, \varepsilon}, V^{\lambda \comma
+     \varepsilon}) \}_{\lambda \in \tmop{HV} (2 k) \mid \lambda_k = 0,
+     \varepsilon = \pm 1} \sqcup \{ (\pi^{\lambda}, V^{\lambda}) \}_{\lambda
+     \in \tmop{HV} (2 k) \mid \lambda_k > 0} \]
+  where $\pi^{\lambda, \varepsilon}$ is characterized by $\pi^{\lambda,
+  \varepsilon} \mid_{\tmop{SO} (2 k)} = [\lambda]$ and $\pi^{\lambda,
+  \varepsilon} (g_0) = \varepsilon$, where
+  \[ g_0 \assign \tmop{diag} \left( 1_{k - 1}, \left[ \begin{array}{ll}
+       0 & 1\\
+       1 & 0
+     \end{array} \right], 1_{k - 1} \right), \]
+  and $\pi^{\lambda} \assign \tmop{Ind}_{\tmop{SO} (2 k)}^{O (2 k)}
+  [\lambda]$.
+\end{enumerate}}{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Fact \tmtextup{4}.
+}\tmtextit{{\cite{fulton2013representation}}}{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Fact \tmtextup{5}. }\tmtextit{{\cite[Sec 10.2.4,
+10.2.5]{goodman2000representations}} (``explicit construction of irreps of $O
+(N)$'')
+
+TODO}{\hspace*{\fill}}{\medskip}
+
+\subsection{Characters of irreps of $\tmop{SO} (N)$}{}
+
+\begin{definition}
+  Let $G = \tmop{SO} (N)$ and $\tau$ be irrep of $G$. We then let $D_{\tau}
+  (g) \assign \tmop{tr} (\tau (g))$ and $D_{\tau}$ is then continuous function
+  on $G$, which is invariant under $\tmop{Ad} (G)$.
+  
+  $S T_N$ defined as below is the Cartan subgroup of $G$. In particular, $G =
+  \tmop{Ad} (G) S T_N$.
+  
+  Hence, $D_{\tau} (g)$ is determind by its values on
+  \begin{eqnarray}
+    & S T_N \assign \left\{ \begin{array}{ll}
+      \left[ \begin{array}{ll}
+        \cos \theta_1 & \sin \theta_1\\
+        - \sin \theta_1 & \cos \theta_1
+      \end{array} \right] \oplus \left[ \begin{array}{ll}
+        \cos \theta_1 & \sin \theta_1\\
+        - \sin \theta_1 & \cos \theta_1
+      \end{array} \right] \oplus \ldots \oplus \left[ \begin{array}{ll}
+        \cos \theta_k & \sin \theta_k\\
+        - \sin \theta_k & \cos \theta_k
+      \end{array} \right], & N = 2 k\\
+      \left[ \begin{array}{ll}
+        \cos \theta_1 & \sin \theta_1\\
+        - \sin \theta_1 & \cos \theta_1
+      \end{array} \right] \oplus \left[ \begin{array}{ll}
+        \cos \theta_1 & \sin \theta_1\\
+        - \sin \theta_1 & \cos \theta_1
+      \end{array} \right] \oplus \ldots \oplus \left[ \begin{array}{ll}
+        \cos \theta_k & \sin \theta_k\\
+        - \sin \theta_k & \cos \theta_k
+      \end{array} \right] \oplus 1, & N = 2 k + 1
+    \end{array} \right. &  \nonumber
+  \end{eqnarray}
+  Schur orthogonality relations imply that $D_{\tau}$ characterizes $\tau$ up
+  to equivalence class.
+\end{definition}
+
+\footnote{TODO: explain how characters are characterized (as functions of
+\tmtextit{what})}
+
+{\noindent}\tmtextbf{Fact \tmtextup{6}.
+}\tmtextit{{\cite[{\textsection}VII.10]{boerner1963representations}} Let
+\begin{eqnarray}
+  & s (\alpha) = 2 i \sin (2 \pi \alpha) = e^{2 \pi i \alpha} - e^{- 2 \pi i
+  \alpha}, &  \nonumber\\
+  & c (\alpha) = 2 \cos (2 \pi \alpha) = e^{2 \pi i \alpha} + e^{- 2 \pi i
+  \alpha} . &  \nonumber
+\end{eqnarray}
+Furthermore, for $\{ \tau_j \in \mathbbm{C}: | \tau_j | = 1 \}_{j = 1}^p, \{
+l_j \in \mathbbm{Z} \}_{j = 1}^p$ we let
+\begin{eqnarray}
+  & S \left( \begin{array}{c}
+    \tau_1, \ldots, \tau_p\\
+    l_1, \ldots, l_p
+  \end{array} \right) \assign \left| \begin{array}{cccc}
+    s (l_1 \tau_1) & s (l_2 \tau_1) & \ldots & s (l_p \tau_1)\\
+    s (l_1 \tau_2) & s (l_2 \tau_2) & \ldots & s (l_p \tau_2)\\
+    \ldots & \ldots & \ddots & \ldots\\
+    s (l_1 \tau_p) & s (l_2 \tau_p) & \ldots & s (l_p \tau_p)
+  \end{array} \right| &  \nonumber\\
+  & C \left( \begin{array}{c}
+    \tau_1, \ldots, \tau_p\\
+    l_1, \ldots, l_p
+  \end{array} \right) \assign \left| \begin{array}{cccc}
+    c (l_1 \tau_1) & c (l_2 \tau_1) & \ldots & c (l_p \tau_1)\\
+    c (l_1 \tau_2) & c (l_2 \tau_2) & \ldots & c (l_p \tau_2)\\
+    \ldots & \ldots & \ddots & \ldots\\
+    c (l_1 \tau_p) & c (l_2 \tau_p) & \ldots & c (l_p \tau_p)
+  \end{array} \right| &  \nonumber
+\end{eqnarray}
+\begin{description}
+  \item[Case a] $O (n) = O (2 p)$. Let
+  \[ r_1 = p - 1, r_2 = p - 2, \ldots, r_p = 0. \]
+  Then the character of the irrep corresponding to $(a_i)_{i = 1}^p \in
+  \tmop{HV} (2 p)$ equals to:
+  \[ S \left( \begin{array}{c}
+       \tau_1, \ldots, \tau_p\\
+       a_1, \ldots, a_p
+     \end{array} \right) / S \left( \begin{array}{c}
+       \tau_1, \ldots, \tau_p\\
+       r_1, \ldots, r_p
+     \end{array} \right) \]
+  \item[Case b] $O (n) = O (2 p + 1)$. Let
+  \[ r_1 = p - \frac{1}{2}, r_2 = p - \frac{3}{2}, \ldots, r_p = \frac{1}{2} .
+  \]
+  Then the character of the irrep corresponding to $(a_i)_{i = 1}^p \in
+  \tmop{HV} (2 p + 1)$ equals to:
+  \[ \left\{ C \left( \begin{array}{c}
+       \tau_1, \ldots, \tau_p\\
+       a_1, \ldots, a_p
+     \end{array} \right) + S \left( \begin{array}{c}
+       \tau_1, \ldots, \tau_p\\
+       a_1, \ldots, a_p
+     \end{array} \right) \right\} / C \left( \begin{array}{c}
+       \tau_1, \ldots, \tau_p\\
+       r_1, \ldots, r_p
+     \end{array} \right) \]
+\end{description}}{\hspace*{\fill}}{\medskip}
+
+\
+
+\begin{thebibliography}{1}
+  \bibitem[1]{boerner1963representations}Hermann Boerner, PG Murphy, J
+  Mayer-Kalkschmidt , and  P Carr.{\newblock} Representations of groups: with
+  special consideration for the needs of modern physics.{\newblock}
+  1963.{\newblock}
+  
+  \bibitem[2]{goodman2000representations}Roe Goodman  and  Nolan~R
+  Wallach.{\newblock} \tmtextit{Representations and invariants of the
+  classical groups},  volume~68.{\newblock} Cambridge University Press,
+  2000.{\newblock}
+  
+  \bibitem[3]{howe2005stable}Roger Howe, Eng-Chye Tan , and  Jeb
+  Willenbring.{\newblock} Stable branching rules for classical symmetric
+  pairs.{\newblock} \tmtextit{Transactions of the American mathematical
+  society}, 357(4):1601--1626, 2005.{\newblock}
+  
+  \bibitem[4]{kobayashi2016classification}Toshiyuki Kobayashi, Toshihisa Kubo
+  , and  Michael Pevzner.{\newblock} Classification of differential symmetry
+  breaking operators for differential forms.{\newblock} \tmtextit{Comptes
+  Rendus Mathematique}, 354(7):671--676, 2016.{\newblock}
+  
+  \bibitem[5]{knapp2013lie}Anthony~W Knapp.{\newblock} \tmtextit{Lie groups
+  beyond an introduction},  volume  140.{\newblock} Springer Science \&
+  Business Media, 2013.{\newblock}
+\end{thebibliography}
+
+\
+
+\end{document}

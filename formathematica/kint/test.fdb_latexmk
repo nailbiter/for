@@ -1,0 +1,22 @@
+# Fdb version 3
+["pdflatex"] 1493916540 "test.tex" "test.pdf" "test" 1493916540
+  "/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/catchfile.sty" 1463608860 8493 e586100f117d095256a1a5c630c3fa25 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1463608860 7612 729a8cc22a1ee0029997c7f74717ae05 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty" 1463608860 7324 2310d1247db0114eb4726807c8837a0e ""
+  "/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty" 1463608860 8253 473e0e41f9adadb1977e8631b8f72ea6 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty" 1463608860 18425 5b3c0c59d76fac78978b5558e83c1f36 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls" 1459635588 19821 310da678527a7dfe2a02c88af38079b7 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/base/size10.clo" 1459635588 8292 e897c12e1e886ce77fe26afc5d470886 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/catchfilebetweentags/catchfilebetweentags.sty" 1298161678 4009 968a7e301e17ccce007bdb929aca155d ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/etex-pkg/etex.sty" 1452550431 18118 a8beec638fbedd21cebf2f16ba45756f ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1438639395 41547 7860e623236f5f726a4099bbb7dd89fb ""
+  "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
+  "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1473236878 3520374 619bf2581472cc39e32ddcffc7492956 ""
+  "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
+  "script.tex" 1493916540 468 02301f0650f0e14aa3ebd67843a40a7b ""
+  "test.aux" 1493916540 8 a94a2480d3289e625eea47cd1b285758 ""
+  "test.tex" 1493916540 282 39379bf1ec84c7ea2d3990bfbee417d6 ""
+  (generated)
+  "test.log"
+  "test.aux"
+  "test.pdf"

@@ -1,0 +1,1 @@
+(display (program-arguments))

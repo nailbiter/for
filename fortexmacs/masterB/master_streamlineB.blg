@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: master_streamlineB.aux
+The style file: alpha.bst
+Database file #1: todai_master.bib
+Warning--I'm ignoring kobayashi2015symmetry's extra "year" field
+--line 106 of file todai_master.bib
+Warning--can't use both volume and number fields in kobayashi2015symmetry
+Warning--empty publisher in kobayashi2015symmetry
+You've used 4 entries,
+            2543 wiz_defined-function locations,
+            582 strings with 5198 characters,
+and the built_in function-call counts, 1423 in all, are:
+= -- 130
+> -- 65
+< -- 3
++ -- 21
+- -- 20
+* -- 92
+:= -- 246
+add.period$ -- 13
+call.type$ -- 4
+change.case$ -- 20
+chr.to.int$ -- 4
+cite$ -- 6
+duplicate$ -- 66
+empty$ -- 107
+format.name$ -- 25
+if$ -- 287
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 7
+newline$ -- 24
+num.names$ -- 12
+pop$ -- 30
+preamble$ -- 1
+purify$ -- 27
+quote$ -- 0
+skip$ -- 52
+stack$ -- 0
+substring$ -- 48
+swap$ -- 12
+text.length$ -- 3
+text.prefix$ -- 1
+top$ -- 0
+type$ -- 20
+warning$ -- 2
+while$ -- 14
+width$ -- 7
+write$ -- 53
+(There were 3 warnings)

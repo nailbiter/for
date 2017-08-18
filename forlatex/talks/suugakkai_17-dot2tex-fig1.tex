@@ -1,0 +1,60 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,scale=0.45,transform shape]
+%%
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+\end{scope}
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+\end{scope}
+  \node (DF85) at (728.02bp,217.6bp) [draw,rectangle] {$\mbox{\Huge Dotsenko-Fateev'85}$};
+  \node (Spp) at (296.02bp,1.8bp) [draw,circle, fill] {};
+  \node (KL) at (505.02bp,144.6bp) [draw=red,rectangle] {${\mbox{\Huge \color{red}{Proposition}}}$};
+  \node (S) at (246.02bp,144.6bp) [draw,rectangle] {$\mbox{\Huge[Selberg'44]}$};
+  \node (KLg) at (505.02bp,217.6bp) [draw=red,rectangle] {${\mbox{\Huge\color{red}{K-L}}}$};
+  \node (War10) at (74.021bp,217.6bp) [draw,rectangle] {$\mbox{\Huge[Warnaar]}$};
+  \node (War10pp) at (231.02bp,1.8bp) [draw,circle, fill] {};
+  \node (DF85pp) at (611.02bp,1.8bp) [draw,circle, fill] {};
+  \node (KLp) at (404.02bp,58.6bp) [draw=red,fill=red,ellipse] {$$};
+  \node (TV03) at (276.02bp,217.6bp) [draw,rectangle] {$\mbox{\Huge Tarasov-Varchenko'03}$};
+  \node (TV03p) at (379.02bp,1.8bp) [draw,circle, fill] {};
+  \draw [->] (KLg) ..controls (505.02bp,191.48bp) and (505.02bp,181.78bp)  .. (KL);
+  \draw [->] (DF85) ..controls (694.77bp,156.27bp) and (635.74bp,47.399bp)  .. (DF85pp);
+  \draw [->] (TV03) ..controls (265.22bp,191.31bp) and (261.13bp,181.35bp)  .. (S);
+  \draw [->] (TV03) ..controls (313.04bp,189.75bp) and (326.4bp,176.86bp)  .. (335.02bp,162.6bp) .. controls (365.13bp,112.79bp) and (375.09bp,42.014bp)  .. (TV03p);
+  \draw [->] (KLp) ..controls (365.84bp,38.519bp) and (326.06bp,17.596bp)  .. (Spp);
+  \draw [->] (War10) ..controls (118.92bp,155.89bp) and (199.24bp,45.484bp)  .. (War10pp);
+  \draw [->] (KLp) ..controls (395.79bp,35.119bp) and (392.97bp,27.955bp)  .. (390.02bp,21.6bp) .. controls (388.63bp,18.604bp) and (386.97bp,15.442bp)  .. (TV03p);
+  \draw [->] (KL) ..controls (466.58bp,111.87bp) and (442.88bp,91.687bp)  .. (KLp);
+  \definecolor{strokecol}{rgb}{0.0,0.0,0.0};
+  \pgfsetstrokecolor{strokecol}
+  \draw (462.77bp,101.6bp) node {$\mbox{\Huge l=m=0}$};
+  \draw [->] (DF85) ..controls (621.15bp,200.55bp) and (618.06bp,200.07bp)  .. (615.02bp,199.6bp) .. controls (520.1bp,184.97bp) and (411.35bp,168.83bp)  .. (S);
+  \draw [->] (KLp) ..controls (351.66bp,41.409bp) and (272.5bp,15.419bp)  .. (War10pp);
+  \draw [->] (S) ..controls (262.78bp,96.742bp) and (283.26bp,38.235bp)  .. (Spp);
+  \draw [->] (War10) ..controls (140.0bp,189.6bp) and (169.33bp,177.15bp)  .. (S);
+  \draw [->] (KLp) ..controls (462.94bp,42.434bp) and (564.85bp,14.47bp)  .. (DF85pp);
+%
+\end{tikzpicture}

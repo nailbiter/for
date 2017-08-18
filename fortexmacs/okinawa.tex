@@ -1,0 +1,377 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,graphicx,bbm}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\assign}{:=}
+\newcommand{\cdummy}{\cdot}
+\newcommand{\nin}{\not\in}
+\newcommand{\nobracket}{}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{{\bfseries{#1}}}
+\newcommand{\tmtextit}[1]{{\itshape{#1}}}
+\newcommand{\tmtextmd}[1]{{\mdseries{#1}}}
+\newcommand{\tmtextrm}[1]{{\rmfamily{#1}}}
+\newcommand{\tmtextup}[1]{{\upshape{#1}}}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\title{Symmetry breaking of indefinite orthogonal groups $O (p, q)$}
+
+\maketitle
+
+\section{Branching problem}
+
+Suppose $G \supset G'$ are reductive groups and $\pi$ is irreducible
+representation of $G$. If we restrict $\pi$ to $G'$, in general it is no
+longer irreducible.
+
+\begin{center}
+  \resizebox{502px}{132px}{\includegraphics{okinawa-1.eps}}
+\end{center}
+
+\
+
+{\underline{Branching problem}} (in a wider sense) =
+
+= Understand $\pi \mid_{G'} .$
+
+These are well-studied (e.g. combinatorial algorithm) for $\pi$
+finitely-dimensional and $G$: compact. In this setting, $\pi$ always splits
+into a direct sum
+\[ \pi \mid_{G'} = \bigoplus_{\tau \in \widehat{G'}} m (\pi, \tau) \tau \]
+of irreducibles $\tau$ of $G'$.
+
+However, when $\dim (\pi) = \infty$ and $G, G'$ are non-compact, the situation
+becomes much more involved and was not studied seriously before Kobayashi's
+theory appeared in 90s. In particular, several examples that show that
+behaviour is very wild in general were constructed {\cite{Kobayashi2008}}.
+
+{\underline{SBOs:}} an idea to understand ``indecomposable'' restriction $\pi
+\mid_{G'}$ is to compare it with irreducible representations $\tau$ of the
+small group $G'$, i.e. to study the space
+\[ \tmop{Hom}_{G'} (\pi \mid_{G'}, \tau) \]
+of {\underline{symmetry breaking operators}} (SBOs, for short).
+
+\section{$\mathcal{A}\mathcal{B}\mathcal{C}$ program for branching}
+
+In {\cite{kobayashi2015program}} T. Kobayashi introduced the far-reaching
+program for studying branching of noncompact groups, which can be summarized
+as follows:
+\begin{description}
+  \item[($\mathcal{A}$)] $\mathcal{A}$bstract features of the representation
+  (i.e. we want to find triples $(G, G', \pi)$, so that $\pi \mid_{G'}$ is
+  manageable);
+  
+  \item[$(\mathcal{B})$] $\mathcal{B}$ranching law of $\pi \mid_{G'}$;
+  
+  \item[$(\mathcal{C})$] $\mathcal{C}$onstruction of SBOs.
+\end{description}
+The main theme of this work is part $\mathcal{C}$ for ``standard
+representations'' with focus on:
+\begin{description}
+  \item[$(\mathcal{C}1)$] Construct SBOs;
+  
+  \item[$(\mathcal{C}2)$] Classify all SBOs;
+  
+  \item[$(\mathcal{C}3)$] Study functional equations among SBOs;
+  
+  \item[$(\mathcal{C}4)$] Find residue formulae for SBOs;
+  
+  \item[$(\mathcal{C}5)$] Find images of SBOs.
+\end{description}
+The subprogram $(\mathcal{C}1) - (\mathcal{C}5)$ was proposed by
+Kobayashi-Speh in their book {\cite{kobayashi2015symmetry}}. Further, they
+gave a complete answer to $(\mathcal{C}1) - (\mathcal{C}5)$ for real rank 1
+pair $(G, G') = (O (n + 1, 1), O (n, 1))$.
+
+\tmtextbf{Goal}: extend this to higher rank case $(G, G') = (O (p + 1, q + 1),
+O (p, q + 1))$. The class of the ``standard'' representations we are working
+with are \tmtextbf{degenerate spherical principal series representations}:
+\begin{eqnarray}
+  & I (\lambda) \assign \tmop{Ind}_P^G (\mathbbm{C}_{\lambda}), \quad \lambda
+  \in \mathbbm{C}, &  \nonumber\\
+  & J (\nu) \assign \tmop{Ind}_{P'}^{G'} (\mathbbm{C}_{\nu}), \quad \nu \in
+  \mathbbm{C}. &  \nonumber
+\end{eqnarray}
+where $P \subset G$ is the maximal parabolic subgroup with the Levi part
+\[ M A \simeq O (p, q) \times \{ \pm 1 \} \times \mathbbm{R}, \]
+$P' = P \cap G'$ is a maximal parabolic of $G'$.
+
+\fbox{Conformal viewpoint:} Geometrically $I (\lambda)$ arise from conformal
+geometry:
+\begin{eqnarray}
+  & X \assign \mathbbm{S}^p \times \mathbbm{S}^q / \pm &  \nonumber\\
+  & \rightsquigarrow \tmop{Conf} (X) = O (p + 1, q + 1) = G \curvearrowright
+  &  \nonumber\\
+  & \curvearrowright \mathcal{L}_{\lambda} \rightarrow X = G / P :
+  \tmop{conformally} \tmop{equivariant} \tmop{line} \tmop{bundle} & 
+  \nonumber\\
+  & \rightsquigarrow G \curvearrowright I (\lambda) = C^{\infty} (X,
+  \mathcal{L}_{\lambda}) . &  \nonumber
+\end{eqnarray}
+{\noindent}\tmtextbf{Remark . }Works {\cite{kobayashi2013finite}},
+{\cite{kobayashi2014classification}} regarding the part $\mathcal{A}$ (a
+priori estimate) for this setting, imply that $\dim (\tmop{Hom}_{G'} (I
+(\lambda), J (\nu)))$ is uniformly bounded in $(\lambda, \nu) \in
+\mathbbm{C}^2$.{\hspace*{\fill}}{\medskip}
+
+\section{Towards classification of SBOs}
+
+Distribution kernel for SBO:
+
+{\noindent}\tmtextbf{Fact \tmtextup{1}. }\tmtextit{Applying the general
+statement of {\cite{kobayashi2015symmetry}} to our concrete setting we get:
+
+\begin{center}
+  \resizebox{0.7\columnwidth}{!}{\includegraphics{okinawa-2.eps}}
+\end{center}
+
+\ }{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Theorem . }\tmtextit{(description of double coset $P'
+\backslash G / P$) We set
+\begin{eqnarray}
+  & X \assign G / P \simeq \mathbbm{S}^p \times \mathbbm{S}^q / \pm, \quad & 
+  \nonumber\\
+  & Y \assign \{ [\xi : \eta] \in G / P \simeq \mathbbm{S}^p \times
+  \mathbbm{S}^q / \pm \mid \xi_p = 0 \} \simeq \mathbbm{S}^{p - 1} \times
+  \mathbbm{S}^q / \pm, &  \nonumber\\
+  & C \assign \{ [\xi : \eta] \in G / P \simeq \mathbbm{S}^p \times
+  \mathbbm{S}^q / \pm \mid \xi_0 = \eta_q \}, &  \nonumber\\
+  & \{ [o] \} \assign \{ [1 : 0_{p + q} : 1] \} . &  \nonumber
+\end{eqnarray}
+We then have
+
+\begin{center}
+  \resizebox{502px}{240px}{\includegraphics{okinawa-3.eps}}
+\end{center}
+
+\ }{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Theorem . }\tmtextit{(construction of SBOs) For $S = X,
+Y, C$, and $\{ [o] \}$, the following operators $R_{\lambda, \nu}^S$ and
+$\tilde{R}_{\lambda, \nu}^X$ are symmetry breaking operators from $I (\lambda)
+\mid_{G'}$ to $J (\nu)$, which depend holomorphically on $(\lambda, \nu) \in
+D_S$. Moreover, $\mathcal{S} \tmop{upp} (R_{\lambda, \nu}^S) \subseteq S$ with
+``='' holding generically and are determined explicitly.
+\begin{center}
+  \begin{tabular}{|l|l|l|l|}
+    \hline
+    $R_{\lambda, \nu}^S$ & $\tmop{Op} : \mathcal{S} \tmop{ol} (\mathbbm{R}^{p,
+    q} ; \lambda, \nu) \rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu))$ &
+    $D_S \hspace{0.17em}$ & $\hspace{0.17em} \mathcal{S} \tmop{upp}
+    (\cdummy)$\\
+    \hline
+    $R_{\lambda, \nu}^X =$ & $q_X (\lambda, \nu) \tmop{Op} (|x_p |^{\lambda +
+    \nu - n} |Q_{p, q} |^{- \nu})$ & $\mathbbm{C}^2$ & $\nobracket \ldots
+    \nobracket$\\
+    \hline
+    $\tilde{R}^X_{\lambda, \nu} =$ & $\Gamma \left( \frac{\lambda - \nu}{2}
+    \right) q_X (\lambda, \nu) \tmop{Op} (|x_p |^{\lambda + \nu - n} |Q_{p, q}
+    |^{- \nu})$ & $\mid \mid \mid$ & $\nobracket \ldots \nobracket$\\
+    \hline
+    $R_{\lambda, \nu}^Y =$ & $(- 1)^k k!q_Y (\lambda, \nu) \tmop{Op}
+    (\delta^{(2 k)} (x_p) |Q_{p, q} |^{- \nu})$ & $\backslash\backslash$ &
+    ...\\
+    \hline
+    $R_{\lambda, \nu}^C =$ & $(- 1)^m m!q_C (\lambda, \nu) \tmop{Op} (|x_p
+    |^{\lambda + \nu - n} \delta^{(2 m)} (Q_{p, q}))$ & $\mid \mid$ &
+    $\nobracket \ldots \nobracket$\\
+    \hline
+    $R_{\lambda, \nu}^{\{ [o] \}} =$ & $\tmop{Op} \left( \tilde{C}_{\nu -
+    \lambda}^{\lambda - \frac{n - 1}{2}}  (- \Delta_{\mathbbm{R}^{p - 1, q}}
+    \delta_{\mathbbm{R}^{p + q - 1}}, \delta (x_p)) \right)$ & $/ /$ & $\{ [o]
+    \}$\\
+    \hline
+  \end{tabular}
+  
+  \ 
+\end{center}
+Let us explain the notation in the table.
+\begin{itemize}
+  \item for $(\lambda, \nu) \in \backslash\backslash$, $k \assign
+  \frac{\lambda + \nu - n + 1}{2}$;
+  
+  \item for $(\lambda, \nu) \in \mid \mid,$ $m \assign \frac{\nu - 1}{2}$;
+  
+  \item $\mid \mid \mid \assign \{(\lambda, \nu) \in \mathbbm{C}^2 \mid \nu
+  \in - 2 \mathbbm{N} \cup (q + 1 + 2 \mathbbm{Z})\}$;
+  
+  \item $\backslash \backslash \assign \{ (\lambda, \nu) \in \mathbbm{C}|
+  \lambda + \nu - n + 1 \in - 2\mathbbm{C}\}$;
+  
+  \item $/ / \assign \{(\lambda, \nu) \in \mathbbm{C}^2 \mid \lambda - \nu \in
+  - 2\mathbbm{N}\}$;
+  
+  \item $\mid \mid \assign \{ (\lambda, \nu) \in \mathbbm{C}^2 | \nu \in 1 +
+  2\mathbbm{N}\}$;
+  
+  \item $\tilde{C} (s, t)$ is a polynomial of two-variable's, which obtained
+  by inflation of the renormalized Gegenbauer polynomial, defined as in
+  {\cite[(16.3)]{kobayashi2015symmetry}}.
+  \[ q_Y (\lambda, \nu) \assign \left\{ \begin{array}{ll}
+       \Gamma^{- 1} \left( \frac{\lambda - \nu}{2} \right), & q \in 2
+       \mathbbm{Z} + 1 \; \tmop{or} \; \lambda + \nu \geqslant 0\\
+       \Gamma^{- 1}  (- \nu), & \tmop{otherwise} .
+     \end{array} \right. \]
+  \[ q_C (\lambda, \nu) \assign \ldots, \quad q_X (\lambda, \nu) \assign
+     \ldots \]
+\end{itemize}}{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Theorem . }\tmtextit{(dimension of SBO space) For all
+$(\lambda, \nu) \in \mathbbm{C}^2$,
+\[ \dim (\tmop{Hom}_{G'} (I (\lambda), J (\nu))) \in \{ 1, 2 \} .
+\]}{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Theorem . }\tmtextit{(classification of SBOs)
+\[ p = 1 \Rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu)) = \left\{
+   \begin{array}{ll}
+     \mathbbm{C} R^X_{\lambda, \nu}, & (\lambda, \nu) \in \mathbbm{C}^2 - (/ /
+     \cap \mid \mid \mid) - (\mid \mid \cap \backslash \backslash),\\
+     \mathbbm{C}  \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}
+     R^{\{o\}}_{\lambda, \nu}, & (\lambda, \nu) \in (/ / \cap \mid \mid \mid)
+     - (\mid \mid \cap \backslash \backslash),\\
+     \mathbbm{C} R^P_{\lambda, \nu} \oplus \mathbbm{C} R^C_{\lambda, \nu}, &
+     (\lambda, \nu) \in (\mid \mid \cap \backslash \backslash) - / /,\\
+     \mathbbm{C} R^{\{o\}}_{\lambda, \nu}, & (\lambda, \nu) \in \mid \mid \cap
+     \backslash \backslash \cap / / .
+   \end{array} \right. \]
+\[ p > 1 \Rightarrow \tmop{Hom}_{G'} (I (\lambda), J (\nu)) = \left\{
+   \begin{array}{ll}
+     \mathbbm{C}  \tilde{R}^X_{\lambda, \nu} \oplus \mathbbm{C}
+     R^{\{o\}}_{\lambda, \nu \lambda, \nu}, & (\lambda, \nu) \in / / \cap \mid
+     \mid \mid,\\
+     \mathbbm{C} R^X_{\lambda, \nu}, & \tmop{otherwise} .
+   \end{array} \right. \]}{\hspace*{\fill}}{\medskip}
+
+\section{Answers to $(\mathcal{C}3) - (\mathcal{C}5)$}
+
+{\noindent}\tmtextbf{Theorem . }\tmtextit{(spectrum for spherical vectors) Let
+$n \assign p + q \hspace{0.27em} (p, q \ge 1)$ as before.
+\[ R_{\lambda, \nu}^X \mathbbm{1}_{\lambda} = \frac{2^{1 - \lambda} \pi^{n /
+   2}}{\Gamma \left( \frac{\lambda}{2} \right) \Gamma \left( \frac{\lambda + 1
+   - q}{2} \right) \Gamma \left( \frac{q - \nu + 1}{2} \right)} 
+   \mathbbm{1}_{\nu} . \]}{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Remark . }Theorem \ref{thm:spherical} was known in
+Bernstein-Reznikov 2004 for $p = q = 1$ (i.e. $G' \simeq \tmop{SL} (2,
+\mathbbm{R})$), which was extended in {\cite[Thm. 1.1]{clerc2011generalized}}
+for higher dimensional cases. The case $q = 0$ was proven in {\cite[Prop.
+7.4]{kobayashi2015symmetry}}.{\hspace*{\fill}}{\medskip}
+
+For $(\lambda, \nu) \nin / /$, we set
+\begin{eqnarray}
+  & K_{\lambda, \nu}^{\mathbb{R}^{p, q}} \assign \frac{| x_p |^{\lambda + \nu
+  - n}}{\Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} \times \frac{|
+  Q_{p, q} |^{- \nu}}{\Gamma \left( \frac{1 - \nu}{2} \right)} \in \mathcal{S}
+  \tmop{ol} (\mathbbm{R}^n ; \lambda, \nu) . &  \nonumber\\
+  & \tmop{where} \; Q_{p, q} (x) = \sum_{i = 1}^p x_i^2 - \sum_{i = p + 1}^{p
+  + q} x_i^2 &  \nonumber
+\end{eqnarray}
+Then $R_{\lambda, \nu}^X = \frac{1}{\Gamma \left( \frac{\lambda - \nu}{2}
+\right)} \tmop{Op} (K_{\lambda, \nu}^X)$. We recall that the left-hand side
+extends to a family of SBOs with holomorphic parameter $(\lambda, \nu) \in
+\mathbbm{C}^2$.
+
+{\noindent}\tmtextbf{Theorem . }\tmtextit{(residue formula) Let $n \assign p +
+q \hspace{0.27em} (p, q \ge 1)$ as before. For $(\lambda, \nu) \in / /$, we
+set $l \assign \frac{1}{2}  (\nu - \lambda) \in \mathbbm{N}$. Then we have
+\[ R_{\lambda, \nu}^X = \frac{(- 1)^l l! \pi^{(n - 2) / 2}}{2^{\nu + 2 l - 1}}
+   \cdot \frac{\sin \left( \frac{1 + q - \nu}{2} \pi \right)}{\Gamma \left(
+   \frac{\nu}{2} \right)} R_{\lambda, \nu}^{\{ [o] \}}, \quad (\lambda, \nu)
+   \in / / . \]}{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Remark . }The residue formula in the case $q = 0$ was
+given in {\cite[Thm. 12.2]{kobayashi2015symmetry}}.{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Definition . }\tmtextit{The {\underline{Knapp-Stein
+operator}} is a $G$-intertwining operator defined as
+\begin{eqnarray}
+  & \tilde{\mathbbm{T}}_{\lambda}^G : I (\lambda) \rightarrow I (n - \lambda)
+  &  \nonumber\\
+  & f \mapsto q_T (\lambda) (| Q_{p, q} |^{n - \lambda} \ast f) &  \nonumber
+\end{eqnarray}
+where $q_T (\lambda, \nu)$ is explicitly given by Gamma factors, so that we
+have
+
+\begin{center}
+  \resizebox{0.3\columnwidth}{!}{\includegraphics{okinawa-4.eps}}
+\end{center}
+
+For $G' = O (p, q + 1)$ we similarly define $\tilde{\mathbbm{T}}_{\nu}^{G'} :
+J (\nu) \rightarrow J (n - 1 - \nu)$, so that we have
+
+\begin{center}
+  \resizebox{0.3\columnwidth}{!}{\includegraphics{okinawa-5.eps}}
+\end{center}
+
+\ }{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Theorem . }\tmtextit{(functional identities) Let $n
+\assign p + q$ as before. We have: \begin{eqnarray}
+  & \widetilde{\mathbbm{T}}^{G'}_{n - 1 - \nu} \circ R^X_{\lambda, n' - \nu}
+  = q^{TX}_X (\lambda, \nu) R^X_{\lambda, \nu}, &  \nonumber\\
+  & R_{n - \lambda, \nu}^X \circ \widetilde{\mathbbm{T}}^G_{\lambda} =
+  q^{XT}_X (\lambda, \nu) R_{\lambda, \nu}^X, &  \nonumber
+\end{eqnarray}
+
+where
+\begin{eqnarray}
+  & q^{TX}_X (\lambda, \nu) \assign \frac{\pi^{\frac{n - 2}{2}} \sin \left(
+  \frac{p - \nu}{2} \pi \right) 2^{1 - n + \nu}}{\Gamma \left( \frac{n - 1 -
+  \nu}{2} \right)} \left\{ \begin{array}{ll}
+    \Gamma \left( \frac{1 - \nu}{2} \right), & p = 1,\\
+    1, & n \in 2 \mathbbm{Z},\\
+    \ldots, & \ldots
+  \end{array} \right. &  \nonumber\\
+  & q^{XT}_X (\lambda, \nu) \assign \ldots &  \nonumber
+\end{eqnarray}}{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Remark . }The functional identities in the case $q = 0$
+were proven in {\cite[Thm.
+12.6]{kobayashi2015program}}.{\hspace*{\fill}}{\medskip}
+
+{\noindent}\tmtextbf{Theorem . }\tmtextit{(images of SBOs) We can compute
+images of every SBOs constructed above for every $(\lambda, \nu) \in
+\mathbbm{C}^2$.}{\hspace*{\fill}}{\medskip}
+
+\begin{thebibliography}{CKØP11}
+  \bibitem[BR04]{bernstein2004estimates}J.~Bernstein  and 
+  A.~Reznikov.{\newblock} Estimates of automorphic functions.{\newblock}
+  \tmtextit{Mosc. Math. J}, \tmtextbf{4}(1):19--37, 2004.{\newblock}
+  
+  \bibitem[CK{\O}P11]{clerc2011generalized}J.-L.~Clerc, T.~Kobayashi,
+  B.~{\O}rsted , and  M.~Pevzner.{\newblock} Generalized Bernstein--Reznikov
+  integrals.{\newblock} \tmtextit{Mathematische Annalen}, 349(2):395--431,
+  2011.{\newblock}
+  
+  \bibitem[KM14]{kobayashi2014classification}T.~Kobayashi  and 
+  T.~Matsuki.{\newblock} Classification of finite-multiplicity symmetric
+  pairs.{\newblock} In \tmtextit{\tmtextrm{\tmtextup{\tmtextmd{Special Issue
+  in honour of Professor Dynkin for his 90th birthday}}}},  volume~19,  pages 
+  457--493. Springer, 2014.{\newblock}
+  
+  \bibitem[KO13]{kobayashi2013finite}T.~Kobayashi  and  T.~Oshima.{\newblock}
+  Finite multiplicity theorems for induction and restriction.{\newblock}
+  \tmtextit{Advances in Mathematics}, 248:921--944, 2013.{\newblock}
+  
+  \bibitem[Kob08]{Kobayashi2008}Toshiyuki Kobayashi.{\newblock}
+  \tmtextit{Multiplicity-free Theorems of the Restrictions of Unitary Highest
+  Weight Modules with respect to Reductive Symmetric Pairs},  pages 
+  45--109.{\newblock} Birkh{\"a}user Boston, Boston, MA, 2008.{\newblock}
+  
+  \bibitem[Kob15]{kobayashi2015program}T.~Kobayashi.{\newblock} A program for
+  branching problems in the representation theory of real reductive
+  groups.{\newblock} In \tmtextit{\tmtextrm{\tmtextup{\tmtextmd{Special issue
+  in honor of Vogan's 60th years birthday}}}},  volume  312,  pages  277--322.
+  Birkh{\"a}user, 2015.{\newblock}
+  
+  \bibitem[KS15]{kobayashi2015symmetry}T.~Kobayashi  and  B.~Speh.{\newblock}
+  \tmtextit{Symmetry Breaking for Representations of Rank One Orthogonal
+  Groups},  volume \tmtextbf{238} of \tmtextit{Memoirs of the Amer. Math.
+  Soc}.{\newblock} American Mathematical Society, 2015.{\newblock}
+\end{thebibliography}
+
+\end{document}

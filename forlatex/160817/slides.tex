@@ -1,0 +1,40 @@
+\documentclass[pdf,notes]{beamer}
+\mode<presentation>{\usetheme[secheader]{Boadilla}}
+\usepackage{mystyle}
+\includecomment{versiona}
+
+\newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
+
+\makeatletter
+\newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
+{\usebeamertemplate{proof end}}
+\makeatother
+
+\makeatletter
+\def\th@mystyle{%
+	\normalfont % body font
+	\setbeamercolor{block title example}{bg=orange,fg=white}
+	\setbeamercolor{block body example}{bg=orange!20,fg=black}
+	\def\inserttheoremblockenv{exampleblock}
+}
+\makeatother
+
+\theoremstyle{mystyle}
+\newtheorem{prop}{Proposition}
+
+\title{}
+\subtitle{<+subtitle+>}
+\author{Alex Leontiev}
+
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+\begin{frame}{Outline}
+	\tableofcontents
+\end{frame}
+\section{<+section name+>}
+\begin{frame}
+	<++>
+\end{frame}
+\end{document}
+
+

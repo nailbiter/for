@@ -1,0 +1,55 @@
+{\begin{tikzpicture}[scale=0.6]
+\draw [<->,thick] (0.0,3.0) node (yaxis) [above] {}
+	|- (3.0,0.0) node (xaxis) [right] {};
+\draw (0,1.5)  -- (1.5,0) ;
+\draw [thick,->] (0.375,1.125) -- (0.125,0.875);
+\draw [thick,->] (0.75,0.75) -- (0.5,0.5);
+\draw [thick,->] (1.125,0.375) -- (0.875,0.125);
+\node at (1.4,1.4) {\small $A^{++}$};
+\node at (0.3999999999999999,-0.3) {\small $-\nu$};
+\node at (-0.6,1.2) {\small $-\nu$};
+\draw [fill=gray,opacity=0.2,gray] (1.5,0.0) -- (0.0,1.5) -- (0.0,0.0) ;
+\draw (0.0,1.8) -- (1.2,3.0) ;
+\draw [thick,->] (0.3,2.1) -- (0.49,1.9100000000000001);
+\draw [thick,->] (0.6,2.4) -- (0.79,2.21);
+\draw [thick,->] (0.8999999999999999,2.7) -- (1.0899999999999999,2.5100000000000002);
+\node at (1.6,3.4) {\small $A^{-+}$};
+\node at (-1.7,1.9000000000000001) {\small $-\nu+p-2$};
+\end{tikzpicture}}
+&{\begin{tikzpicture}[scale=0.6]
+\draw [<->,thick] (0.0,3.0) node (yaxis) [above] {}
+	|- (3.0,0.0) node (xaxis) [right] {};
+\draw (0,1.5)  -- (1.5,0) ;
+\draw [thick,->] (0.375,1.125) -- (0.125,0.875);
+\draw [thick,->] (0.75,0.75) -- (0.5,0.5);
+\draw [thick,->] (1.125,0.375) -- (0.875,0.125);
+\node at (1.4,1.4) {\small $A^{++}$};
+\node at (0.3999999999999999,-0.3) {\small $-\nu$};
+\node at (-0.6,1.2) {\small $-\nu$};
+\draw [fill=gray,opacity=0.2,gray] (1.5,0.0) -- (0.0,1.5) -- (0.0,0.0) ;
+\draw (0.0,1.8) -- (1.2,3.0) ;
+\draw [thick,->] (0.3,2.1) -- (0.49,1.9100000000000001);
+\draw [thick,->] (0.6,2.4) -- (0.79,2.21);
+\draw [thick,->] (0.8999999999999999,2.7) -- (1.0899999999999999,2.5100000000000002);
+\node at (1.6,3.4) {\small $A^{-+}$};
+\node at (-1.7,1.9000000000000001) {\small $-\nu+p-2$};
+\end{tikzpicture}}
+&{\begin{tikzpicture}[scale=0.6]
+\draw [<->,thick] (0.0,3.0) node (yaxis) [above] {}
+	|- (3.0,0.0) node (xaxis) [right] {};
+\draw (0,1.5)  -- (1.5,0) ;
+\draw [thick,->] (0.375,1.125) -- (0.125,0.875);
+\draw [thick,->] (0.75,0.75) -- (0.5,0.5);
+\draw [thick,->] (1.125,0.375) -- (0.875,0.125);
+\node at (1.4,1.4) {\small $A^{++}$};
+\node at (0.3999999999999999,-0.3) {\small $-\nu$};
+\node at (-0.6,1.2) {\small $-\nu$};
+\draw [pattern=north west lines, pattern color=yellow] (1.5,0.0) -- (0.0,1.5) -- (0.0,0.0) ;
+\draw (0.0,1.8) -- (1.2,3.0) ;
+\draw [thick,->] (0.3,2.1) -- (0.49,1.9100000000000001);
+\draw [thick,->] (0.6,2.4) -- (0.79,2.21);
+\draw [thick,->] (0.8999999999999999,2.7) -- (1.0899999999999999,2.5100000000000002);
+\node at (1.6,3.4) {\small $A^{-+}$};
+\node at (-1.7,1.9000000000000001) {\small $-\nu+p-2$};
+\draw [pattern=north east lines, pattern color=green!50!black] (3.0,0.0) -- (3.0,3.0) -- (0.0,3.0) -- (0.0,0.0) ;
+\end{tikzpicture}}

@@ -1,0 +1,111 @@
+\begin{thebibliography}{14}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[1]{bernstein2004estimates}
+J.~Bernstein and A.~Reznikov.
+\newblock Estimates of automorphic functions.
+\newblock \emph{{\normalfont Mosc. Math. J}}, \textbf{\textbf{4}}, (2004),
+  pp. 19--37.
+
+  \bibitem[2]{clerc2011generalized}
+J.-L. Clerc, T.~Kobayashi, B.~{\O}rsted and M.~Pevzner.
+\newblock Generalized {B}ernstein--{R}eznikov integrals.
+\newblock \emph{{\normalfont Math. Ann.}}, \textbf{349}, (2011), pp.
+\href{http://dx.doi.org/10.1007/s00208-010-0516-4}{395--431}.
+
+\bibitem[3]{howe1993homogeneous}
+R.~E. Howe and E.-C. Tan.
+\newblock Homogeneous functions on light cones: the infinitesimal structure of
+  some degenerate principal series representations.
+\newblock \emph{{\normalfont Bull. Amer. Math. Soc. (N. S.)}}, \textbf{28},
+  (1993), pp. 1--74.
+
+\bibitem[4]{juhl2009families}
+A.~Juhl.
+\newblock \emph{Families of {C}onformally {C}ovariant {D}ifferential
+  {O}perators, {Q}-curvature and {H}olography}, \emph{{\normalfont Progr.
+  Math},} \textbf{275},
+\newblock Birkh{\"a}user (2009).
+\newblock ISBN 978-3-7643-9900-9.
+
+\bibitem[5]{kobayashi1998discrete2}
+T.~Kobayashi.
+\newblock Discrete decomposability of the restriction of {$A_q(\lambda)$} with
+  respect to reductive subgroups {II}: Micro-local analysis and asymptotic
+  {K}-support.
+  \newblock \emph{{\normalfont Ann. Math. (2)}}, \textbf{147}, (1998), pp. \href{http://dx.doi.org/10.2307/120963}{709--729}.
+
+\bibitem[6]{kobayashi1998discrete3}
+T.~Kobayashi.
+\newblock Discrete decomposability of the restriction of {$A_q(\lambda)$} with
+  respect to reductive subgroups {III}. {R}estriction of {H}arish-{C}handra
+  modules and associated varieties.
+\newblock \emph{{\normalfont Invent. Math.}}, \textbf{131}, (1998), pp.
+\href{http://dx.doi.org/10.1007/s002220050203}{229--256}.
+
+\bibitem[7]{Kobayashi2014}
+T.~Kobayashi.
+\newblock {S}hintani functions, real spherical manifolds, and
+  symmetry breaking operators.
+  \newblock \emph{{\normalfont Dev. Math.}}, \textbf{37}, (2014), pp. \href{http://dx.doi.org/10.4171/OWR/2014/3}{127--159}.
+
+\bibitem[8]{kobayashi2014classification}
+T.~Kobayashi and T.~Matsuki.
+\newblock Classification of finite-multiplicity symmetric pairs.
+\newblock \emph{{\normalfont Transformation Groups}}, \textbf{19}, (2014),
+pp. \href{http://dx.doi.org/10.1007/s00031-014-9265-x}{457--493}.
+\newblock In: \emph{{\normalfont Special Issue in honour of Dynkin
+  for his 90th birthday}}.
+
+\bibitem[9]{kobayashi2015program}
+T.~Kobayashi.
+\newblock A program for branching problems in the representation theory of real
+  reductive groups.
+\newblock \emph{{\normalfont Progr. Math.}}, \textbf{312}, (2015), pp.
+\href{http://dx.doi.org/10.1007/978-3-319-23443-4_10}{277--322}.
+\newblock In: \emph{{\normalfont Special issue in honor of Vogan's 60th years
+  birthday}}.
+
+  \bibitem[10]{KO1}
+T.~Kobayashi and B.~{\O}rsted.
+\newblock Analysis on the minimal representation of\/ {${\rm
+  O}(p,q)$}.{\;}{{\rm{I}}. Realization via conformal geometry}.
+\newblock \emph{\normalfont Adv. Math.}, \textbf{180}, (2003), pp. 486--512.
+
+\bibitem[11]{kobayashi2015branching}
+T.~Kobayashi, B.~{\O}rsted, P.~Somberg and V.~Sou{\v{c}}ek.
+\newblock Branching laws for verma modules and applications in parabolic
+  geometry. {I}.
+\newblock \emph{{\normalfont Adv. Math.}}, \textbf{285}, (2015), pp.
+\href{http://dx.doi.org/10.1016/j.aim.2015.08.020}{1796--1852}.
+
+\bibitem[12]{kobayashi2013finite}
+T.~Kobayashi and T.~Oshima.
+\newblock Finite multiplicity theorems for induction and restriction.
+\newblock \emph{{\normalfont Adv. Math.}}, \textbf{248}, (2013), pp. \href{http://dx.doi.org/10.1016/j.aim.2013.07.015}{921--944}.
+
+\bibitem[13]{kobayashi2016differential1}
+T.~Kobayashi and M.~Pevzner.
+\newblock Differential symmetry breaking operators: I. {G}eneral theory and
+  {F}-method.
+\newblock \emph{{\normalfont Selecta Math. (N. S.)}}, \textbf{22}, (2016),
+  pp. 801--845.
+
+\bibitem[14]{kobayashi2015symmetry}
+T.~Kobayashi and B.~Speh.
+\newblock \emph{Symmetry {B}reaking for {R}epresentations of {R}ank {O}ne
+  {O}rthogonal {G}roups}, \emph{{\normalfont Memoirs of the Amer. Math. Soc},}
+  \textbf{\href{http://dx.doi.org/10.1090/memo/1126}{238}}, (2015).
+\newblock ISBN 978-1-4704-1922-6.
+
+\bibitem[15]{wallach1988real2}
+N.~Wallach.
+\newblock \emph{Real Reductive Groups II}, \emph{{\normalfont Pure and Applied
+  Mathematics},} \textbf{132},
+\newblock Academic {P}ress (1992).
+\newblock ISBN 978-0127329611.
+
+\end{thebibliography}

@@ -1,0 +1,16 @@
+%% AMS-LaTeX Created with the Wolfram Language : www.wolfram.com
+
+\documentclass{article}
+\usepackage{amsmath, amssymb, graphics, setspace}
+
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+\newcounter{mathematicapage}
+test1
+
+\[\frac{\sqrt{\pi } \text{Gamma}\left[\frac{1}{2}+\lambda \right] \text{Gamma}\left[\frac{1}{2}+\mu \right] \text{Gamma}\left[\frac{1}{2}+\nu \right]
+\text{Gamma}[1+\lambda +\mu +2 \nu ]}{\text{Gamma}[1+\lambda +\nu ] \text{Gamma}[1+\mu +\nu ] \text{Gamma}[1+\lambda +\mu +\nu ]}\]
+
+test2
+

@@ -1,0 +1,198 @@
+\section{分岐則の問題}
+
+\subsection{分岐則の問題}
+\begin{frame}{}
+	$G$と$G'$を簡約群とする。
+一般には、$G$の既約表現$\pi$を部分群に制限すると、最早既約にならない\\
+	\[
+	\xymatrixrowsep{10pt}
+	\xymatrixcolsep{50pt}
+	\xymatrix{
+		\pi:&G\ar[r]&GL_{\mathbb{C}}(V)&\left( \dim V=\infty \right)\\
+	&\bigcup&&\\
+	&G'\ar@{-->}[uur]_{\pi\mid_{G'}}
+	}
+\]
+\begin{block}{（広い意味での）\underline{分岐則の問題}}
+	\centerline{\large $\pi\kern-0.1cm\mid_{G'}$を理解する。}
+\end{block}
+
+$\pi$が有限次元表現、$G$がコンパクトの場合は古くから多くの研究があり、組合せ論的なアルゴリズムさえ知られている。
+この設定の上で、$\pi$は$G'$の既約表現の直和へに分解するу
+%%These are well-studied (i.e. combinatorial algorithm) for $\pi$
+%%finitely-dimensional and $G$:compact. In this setting, $\pi$ always splits
+%%into a direct sum
+\begin{equation*}
+	\pi\kern-0.1cm\mid_{G'} =  \bigoplus_{\tau \in\widehat{G'}} m (\pi, \tau) \tau.
+\end{equation*}
+of irreducibles $\tau$ of $G'$.
+\note{
+	最初は、ここにいらっしゃる皆様が良くご存じの分岐則の問題という概念から復習したいと思います。
+	$G$と$G'$を簡約群とします。
+
+	一般には、$G$の既約表現$\pi$を部分群に制限すると、\kana{最早}{モハヤ}既約になりません。
+	この制限を理解したいというのが、「広い意味での」分岐則の問題です。
+	$pi$が有限次元表現、$G$がコンパクトの場合は古くから多くの研究があり、組合せ論的なアルゴリズムさえ知られています。
+}
+\end{frame}
+\begin{frame}{}
+	ただ、
+\begin{equation*}
+	\begin{array}[]{c}
+		\dim\pi=\infty,\mbox{ および}\\
+		G,G'\mbox{: nonコンパクトならば,}
+	\end{array}
+\end{equation*}
+この問題は極めて難しくなり、
+1990年代から
+ようやく本格的な研究が始まった。
+
+%%In particular, several examples that show
+%%that behaviour is very wild in general were constructed
+特にwildな行動を出展する具体的な例も作られた(\cite{Kobayashi2005}).
+
+%% An idea to understand restriction $\pi\kern-0.1cm \mid_{G'}$ that is not
+%%discretely decomposable: compare it with irreducible representations $\tau$ of
+%%the subgroup $G'$, i.e. to study the space{
+無限次元表現の制限が離散的でない場合に制限の問題を理解する１つ考え方として、$G'$の既約表現$\tau$と比較するというものがある。
+
+つまり、対称性破れ作用素(SBO)の空間
+\begin{equation*}
+	\tmop{Hom}_{G'} (\pi\kern-0.1cm \mid_{G'}, \tau)\quad\mbox{を理解する。}
+\end{equation*}
+\note{
+ところが、$pi$の次元が無限で、$G$と$G'$はノンコンパクトならば、この問題は\kana{極めて}{きわめて}難しくなります。
+無限次元表現の制限が離散的でない場合に制限の問題を理解する１つ考え方として、別の既約表現と比較するというものがあります。
+大きな表現を部分群に制限した空間から、部分群の既約表現へのintertwining operatorを対称性破れ作用素 symmetry breaking operator\kana{略して}{リャクシテ}SBOと呼びます。
+}
+\end{frame}
+
+\section{$\mathcal{A}\mathcal{B}\mathcal{C}$プログラム}
+
+\begin{frame}{}
+	\quad \cite{kobayashi2015program}で小林俊行先生は岐則問題を深く研究するため$\mathcal{ABC}$プログラムを提唱した。
+	このプログラムは以下のステップを含む：{
+		
+}\qquad$(\mathcal{A})$\quad$\mathcal{A}$bstract features: 分岐則の抽象的な様相(ようそう)を研究する
+;{
+
+}\qquad$(\mathcal{B})$\quad$\mathcal{B}$ranching law: 分岐則を具体的に決定する; {
+
+}\qquad$(\mathcal{C})$\quad$\mathcal{C}${onstruction}: 対称性破れ作用素を具体的に構成する。
+	\note{
+	ノンコンパクト群の分岐則問題を深く研究するためABC programというのは、
+	小林俊行先生がご自身の20数年間の研究を整理されて、\kana{提唱}{ていしょう}されたプログラムです。
+	このプログラムは大きく三つのステップに分かれます。
+	$\mathcal{A}$はabstract feature,分岐則の抽象的な\kana{様相}{ようそう}
+	を研究するというもので、\badword{分岐則が離散的か連続スペクトラム}を持つか、\badword{重複度}
+	が１か、あるいは有限か、あるいは無限かなどの理論で\kana{基盤}{キバン}的な研究となります。
+	プログラムＡで悪い現象を予め見抜き、プログラムＢに進みます。
+	次のプログラムＢは\badword{branching law}, すなわち、分岐則を具体的に決定する問題です。
+	さらに進んでプログラムＣは単に分岐則を求めるだけではなく、その間の\badword{intertwining operator},これを対称性破れ作用素と言いますが、それを決定するというものです。
+	この講演ではプログラムＣの特別な場合を扱います。
+	}
+\end{frame}
+\begin{frame}{}
+	今回の主テーマは``標準表現''に対するプログラム$\mathcal{C}$である。特に、以下の問題を考る：
+\vspace{-1em}{
+
+}\qquad$(\mathcal{C}1)$\quad 対称性破れ作用素を構成する;{
+
+	\vspace{-0.4em}
+}\qquad$(\mathcal{C}2)$\quad 対称性破れ作用素を分類する;{
+
+	\vspace{-0.4em}
+}\qquad$(\mathcal{C}3)$\quad 対称性破れ作用素と普通のintertwining operatorの間の函数等式を決定する;{
+
+	\vspace{-0.6em}
+}\qquad$(\mathcal{C}4) \quad$対称性破れ作用素の間の相互関係をoperator valueの有理型な関数の留数の形で整理する;{
+
+	\vspace{-0.6em}
+}\qquad$(\mathcal{C}5)$\quad 対称性破れ作用素の像を決定する。{
+
+}\vspace{-1em}\quad $(\mathcal{C}1) - (\mathcal{C}5)$の五つの問題はKobayashi先生とSpeh先生がrank 1の場合
+\vspace{-0.6em}
+\begin{equation*}
+	(G, G') = (O (n + 1, 1), O (n, 1)). \quad\mbox{\cite{kobayashi2015symmetry}}
+\vspace{-0.2em}
+\end{equation*}
+\mbox{に提唱し、\kern-0.1cm その最初の完全な分類結果は実階数１の組に対て証明された。}
+\begin{block}{\underline{目標}:}
+	\cite{kobayashi2015symmetry}の結果を高階場合
+\vspace{-1em}
+	\begin{equation*}
+		(G, G') = (O (p + 1, q + 1), O (p, q + 1))\;\mbox{に拡張する。}
+	\end{equation*}
+\end{block}
+\note{
+	アメリカ数学会から昨年に出版されたKobayashi-Spehの本では、プログラムＣの部分問題として次の５つ、
+	すなわち、標準的な表現、例えば主系列表現あるいは退化主系列表現、に対して、
+	Ｃ１．対称性破れ作用素を具体的に構成する問題、
+	Ｃ２、対称性破れ作用素を分類する問題、
+	更に、C３からC５として、
+	順に対称性破れ作用素と普通のintertwining operatorの間の函数等式を決定する問題、
+	\kana{種々}{しゅじゅ}の対称性破れ作用素の間の\kana{相互}{ソウゴ}関係をoperator valueのmeromorphic な関数の留数の形で整理する問題、
+	更に、対称性破れ作用素の像を決定する問題の５つからなる、というものです。
+	この五つの問題はKobayashi先生とSpeh先生が提唱し（テイショウ）、
+	その最初の完全な分類結果はreal rank 1の組に対て証明されました。
+	今回の講演では、この結果を高階の群に対して一般化します。
+}
+\end{frame}
+\begin{frame}{}
+``標準表現''として \underline{球退化主系列表現
+}を扱う:\begin{equation*}
+	\begin{array}[]{c}
+		I(\lambda)=\tmop{Ind}_P^G(\mathbb{C}_{\lambda}),\quad \lambda\in\mathbb{C},\\
+		I(\nu)=\tmop{Ind}_{P'}^{G'}(\mathbb{C}_{\nu}),\quad \nu\in\mathbb{C},
+	\end{array}
+\end{equation*}
+ここで $P \subset G$は Levi部分
+\begin{equation*}
+{MA} \simeq O (p, q) \times \{ \pm 1 \}
+\times \mathbbm{R},
+\end{equation*}
+を持つ極大放物型部分群である。
+そうすると、$P' = P \cap G'$ は $G'$の極大放物型部分群になる。
+\note{
+もう少し正確に言うと、\kana{冪零根基}{ベキレイコンキ}が可換であるような極大放物型部分群からの誘
+導して得られる球退化系列表現を対象とします。
+}
+\end{frame}
+\begin{frame}{}
+	\begin{block}{共形幾何の見方}
+		幾何の言葉で言うと、$I(\lambda)=C^\infty(X,\mathcal{L}_{\lambda})$は共形幾何から出て来る：
+		\centerline{\scalebox{0.8}{
+		\newdir{:=}{{}}
+		\xymatrix{
+			& \mathcal{L}_\lambda\mbox{ :共形等質ライン束},\lambda\in\mathbb{C}
+			\ar[d]\\
+  		G=O(p+1,q+1)
+		\ar@/^2pc/[r] &G/P\simeq (\Sp^p\times\Sp^q)/\left\{ \pm I \right\}\\
+		P=MAN\ar@{:=}[u]_{\hspace{-0.25cm}\bigcup}
+		\ar@/^2pc/[rd]^{{\begin{array}{c}\; \\\mbox{共形変換}\end{array}}}
+		%\mbox\newline oeueou}\vspace{0.8cm}}
+		&\\
+	M_+N=O(p,q)\ltimes \mathbb{R}^{p,q}
+	\ar@{:=}[u]_{\hspace{-0.25cm}\bigcup}
+	\ar@/^2pc/[r]^{\mbox{等長}}&
+	\mathbb{R}^{p,q}=\left( \mathbb{R}^{p+q},ds^2=dx_1^2+\ldots+dx_p^2-dx_{p+1}^2-\ldots-dx_{p+q}^2 \right)\ar@{^{(}->}[uu]
+	_{\mbox{共形コンパクト化}}}
+}}
+	\end{block}
+\begin{remark}
+	プロガラムAにおけるアプリオリ評価として(\cite{kobayashi2013finite}、\cite{kobayashi2014classification})、対称性破れ作用素空間の次元
+\vspace{-1.2em}
+\begin{equation*}
+\dim \tmop{Hom}_{G'} (I (\lambda)\kern-0.1cm \mid_{G'}, J (\nu))
+\vspace{-0.8em}
+\end{equation*}
+が表現のパラーメタ$(\lambda,\nu)\in\mathbb{C}^2$よらずに一様に押さえられている。
+\end{remark}
+\note{
+	この表現は共形幾何学の立場から見ると、
+	朝の小林先生の講演に現れたようにconformal equivariant bundleのC無限\kana{級}{キュウ}のsectionの空間として非常に自然に得られます。
+	また、この群の組$(G,G')$を選んだ理由としては、
+	Program Aにおけるアプリオリ評価として、対称性破れ作用素空間の次元が表現のパラーメタよらずに一様に押さえられているというアプリオリ評価があることに基づきます。
+	これは、小林-大島\kana{利雄}{トシオ}先生の結果です。
+}
+\end{frame}
