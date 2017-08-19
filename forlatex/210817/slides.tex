@@ -257,7 +257,6 @@
 
 以下では$G=O(p+1,q+1)$とおく。
 \note{\mytiming{qform}
-
 	$n=p+q$と{し}、$\R^n$上の符号$(p,q)$をもつ標準二次形式$Q_{p,q}$を定めます。
 	標準座標でこの二次形式は\kana{対角行列}{タイカギョウレツ}$I_{p,q}$で表されます。
 	二次形式$Q_{p+1,q+1}(x)$を保つ不定値直交群$O(p+1,q+1)$を$G$と\kana{表記}{ヒョウキ}します。
@@ -304,24 +303,24 @@ I(\lambda)&:=\Ind_P^G(\C_\lambda)\\
 $\lambda\notin\Z$(整数)ならば$I(\lambda)$は$G$の既約表現である。
 \end{fact*}
 \note<1>{\mytiming{spherdeg}
-
 $G$の極大放物型部分群$P=MAN_{+}$を以下のように定めます。
 
 	ここでの$M,A$と$N_+$は$P$のラングランズ分解です。
 	$A$はPを定めた
 	1次元可換群であり、$N_+$は$p+q$次元\kana{冪零}{ベキレイ}部分群です。今の場合で$N_+$も可換になります。
 放物型部分群$P$からの誘導表現として、以下のように
-$G$の球退化主系列表現を定めます。この表現を$I(\lambda)$と表記します。
+}
+\note<2>{\mytiming{spherdeg2}
+$G$の球退化主系列表現を定めます。
+この表現を$I(\lambda)$と表記します。
 
 一個だけのご注意として、
 $I(\lambda)$は一般の位置にあ
 る$\lambda$に対して既約になりますが、いつもそうではありませんということを気をつけて下さい。
 }
-\note<2>{\mytiming{spherdeg2}
-}
 \end{frame}
 \begin{frame}{部分群$G'$とその表現$J(\nu)$の定義}
-	群$G$の部分群$G'$を以下のように定める\footnote[frame]{Maybe, we should remove this slide?}
+	群$G$の部分群$G'$を以下のように定める
 	\begin{equation*}
 		\begin{array}[]{l}
 			G=O(p+1,q+1)\\
@@ -334,9 +333,12 @@ $I(\lambda)$は一般の位置にあ
 	$\color{red}\underline{{\color{black}\mbox{\snip}}}$
 	（$\nu$は
 	複素数）を定める。
-	%\note{\mytiming{subgroup}
-%	
-%TODO}
+	\note{\mytiming{subgroup}
+	$G$の中に
+	不定値直交群$O(p,q+1)$と同型な部分群$G'$を取れば、
+	$I(\lambda)$と同様に、複素数パラメータ$\nu\in\C$
+	に対して$G'$の球退化主系列表現 $J(\nu)$を定める。
+	}
 \end{frame}
 \begin{frame}{部分群とその表現の具体的な設定}
 	座標で計算する場合は$G=O(p+1,q+1)$の部分群$G'$を
@@ -354,23 +356,18 @@ $G$の
 、複素数パラメータ$\nu\in\mathbb{C}$に対して\\
 $G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定める。
 \note<1>{\mytiming{explicitsetup}
-
-複素数パラメータ
-$\lambda\in\C$に対して
-$I(\lambda)$という$G$の球退化主系列表現を定義します。
-次に第$p$座標の固定部分群を
-\begin{equation*}
-	G'
-\end{equation*}
+%%複素数パラメータ
+%%$\lambda\in\C$に対して
+%%$I(\lambda)$という$G$の球退化主系列表現を定義します。
+具体的に言うと、第$p$座標の固定部分群を$G'$
 とすると、$G'$は$G$の簡約部分群となる。
 $G$の放物型部分群$P$を定めたsplitな可換群$A$が$G'$に含まれているため、
 $P=MAN$は$G'$と適合します。すなわち、$P':=P\cap G'$は$G'$の極大放物型部分群であり、そのラングランズ分解は
 $P'=(G'\cap M)A(G'\cap N_+)$で与えられます。
-$I(\lambda)$と同様
-に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定めます。
 }
 \note<2>{\mytiming{explicitsetup2}
-	TODO
+$I(\lambda)$と同様
+に、複素数パラメータ$\nu\in\mathbb{C}$に対して$G'$の球退化主系列表現$J(\nu):=\Ind_{P'}^{G'}(\mathbb{C}_{\nu})$を定めます。
 }
 \end{frame}
 \begin{frame}{ここまでの記号のまとめ}
@@ -387,8 +384,14 @@ $I(\lambda)$と同様
 		}}
 	\note{\mytiming{kigoumatome}
 NB: talk at least 1min:\\
-念のため、次に進む前に、上記で定義した記号をとその関係を
-もう一度求めます。
+次に進む前、上記で定義した記号をとその関係を
+もう一度求めたいと思います。
+
+まず、不定値直交群$O(p+1,q+1)$と同型な群$G$とそれの$O(p,q+1)$と同型な部分群$G'$を定義しました。
+$P$と$P'$はこれの\kana{適合}{テキゴウ}する極大放物型部分群です。
+それぞれの群と複素数パラメータ$\lambda,\nu$に対して、
+極大放物型部分群から誘導された
+球退化主系列表現を$I(\lambda)$と$J(\nu)$を定めました。
 	}
 \end{frame}
 \begin{frame}{小林--大島{利雄}による一般理論(アプリオリ評価)}
@@ -421,9 +424,16 @@ construct SBOs, and \textit{after that} classify them (hence, get the dimensiona
 \end{block}
 この方向での最初の結果$\cdots$ Kobayashi--Speh, Memoirs of AMS 2015.
 \note{\mytiming{goal}
-
 対称性破れ作用素のなす線型空間
 $\sbo$の基底を具体的に決定しましょう。
+
+具体的に言うと、重要な問題
+を挙げましょう:まずすべての複素数パラメーター $(\lambda,\nu)$に対して、対称性破れ作用素の空間の次元を
+決定したいです。これを出来れば、もっと詳しくて、規定を具体的に作りたいです。
+最後は、規定を具体的にわかれば、対称性破れ作用素の函数等式などの性質を具体的に求めたいです。
+
+私の知識として、ノンコンパクト群の設定の上で、この質問の完全な答えを得た最初の例は、小林先生とSpeh先生の２０１５年に出版された本です。
+今の言葉で言うと、あの本で$q=0$の場合を扱いました。従って、今の結果ははKobayashi--Spehの一般化として見なせます。
 }
 \end{frame}
 \begin{frame}{対称性破れ作用素の超函数核}
@@ -459,6 +469,11 @@ $\sbo$の基底を具体的に決定しましょう。
 		\end{array}
 	\end{equation*}
 	\note<1>{\mytiming{fact}
+	Kobayashi--Spehの戦略に\kana{倣って}{ナラッテ}、
+	対称性破れ作用素の積分核の台から誘導されたフィルトレーションを用い、
+	対称性破れ作用素を帰納的に構成していきます。
+	}
+	\note<2>{\mytiming{fact2}
 \tiny
 		今回の結果の手法は、小林先生および、Kobayashi-Spehによって開発された手法を主に使います。
 		一方、\kana{高階}{コウカイ}の群では、幾何的な状況や解析的な部分がもう少し複雑になります。
@@ -479,8 +494,6 @@ $\sbo$の基底を具体的に決定しましょう。
 つまり、真ん中のベクトル空間から$G$の\kana{両側剰余}{リョウガワジョウヨ}空間へのが\kana{定}{サダ}{まった}ということです。Target spaceであるこの\kana{両側剰余}
 {リョウガワジョウヨ}空間は有限なので、$P'$不変$G/P$閉部分集合が大切なinvariantになります。
 	}
-	\note<2>{\mytiming{fact2}
-	}
 \end{frame}
 \begin{frame}{Fact 2の記号$\sol$の定義}
 \begin{definition}\label{def2}
@@ -498,8 +511,12 @@ $\sbo$の基底を具体的に決定しましょう。
 	\scalebox{1.6}{\Myref{item:4}}の定義には注意を要{する}。
 \end{remark}
 \note{\mytiming{fact2def}
-
-	TODO
+最近のFactに出てくる$sol$の記号を説明したいと思います。
+$\sol$と言うのは、以下の４つ条件を満たす超関数のなす空間でございます。
+それぞれの条件は実際には偏微分方程式の形で述べられま。
+最後のべき零リー群不変性についてちょっとだけご注意したいですが、
+$N_+'$は$\R^{p,q}$の共形コンパクト化にしか作用しないので、
+この定義は少しだけテクニカルになるので、簡単のためここで省略します。
 }
 \end{frame}
 \section{対称性破れ作用素の分類}
@@ -531,7 +548,13 @@ $\sbo$の基底を具体的に決定しましょう。
 		\end{equation*}と表せるとき、$T$を（広い意味で）\underline{微分作用素}という。
 	\end{definition}
 	\note{\mytiming{diffop}
-TODO}
+	今から対称性破れ作用素を構成していきます。
+	今から出てくる対称性破れ作用素をおおざっぱに三つファミリに分けられます。
+	まず、後でご紹介するregular対称性破れ作用素のように、積分作用素で表せるものがあります。
+	次は、後で出てくるsingular対称性破れ作用素のように、普通の積分でなく、特異積分で表すものがあります。
+	最後は、微分で表せる微分対称性もあります。
+	普通の微分作用素よりちょっと一般な設定を扱うので、この簡単な一般化を広い意味での微分作用素と呼びます。
+}
 \end{frame}
 \begin{frame}{微分対称性破れ作用素$T:I(\lambda)\to J(\nu)$の分類}
 	\begin{fact}[微分対称性破れ作用素の分類 ({\cite[Thm. 4.3]{kobayashi2015branching}})]
@@ -600,9 +623,15 @@ $\mathcal{S} \mbox{ol} (\mathbbm{R}^{p, q} ; \lambda, \nu)$の元になる。
 	\end{theorem}
 \vspace{-1em}
 \note<1>{\mytiming{regconstruction}
-TODO}
+次は、積分作用素であるregular対称性破れ作用素を定義しましょう。まず、十分良いパラメータ$(\lambda,\nu)$に対し、
+スライドに述べたような$L^1_{\operatorname{loc}}$関数を定めます。この関数は$\sol$元になるので、
+これを積分核として用い、対称性破れ作用素を定義します。
+}
 \note<2>{\mytiming{regconstruction2}
-TODO}
+このままに定義された
+対称性破れ作用素を有理型拡張できて、適当にnoramlizationを取れば、複素数パラメータ$(\lambda,\nu)$に正則に依存する対称性破れ作用素
+のファミリになります。
+}
 \end{frame}
 \begin{frame}{気をつけるべきこと}
 	$\myabs{x_p}^{a}$と$\myabs{x_1^2+\cdots+x_p^2-x_{p+1}^2-\cdots-x_{p+q}^2}^b$の積
@@ -618,7 +647,12 @@ TODO}
 	\end{example*}
 	$\implies$ $\myabs{x_p}^a\myabs{Q_{p,q}(x)}^b$の正規化には注意が必要である。
 	\note{\mytiming{neednormalization}
-TODO}
+	正規化がどうして必要かと言うことを分かるため、具体的な例を考えるのは一番分かりやすいと思います。
+	スライドに述べたように、２つのパラメータに正則依存する超関数
+	の積はwell-defined
+	とは限りません。従って、２つ超関数積を用い定義されたregular対称性破れ作用素を正規するため、
+	もうちょっと考えないといけませんと言うことが分かります。結局、それなりにオプチマルの正規化が以下のようになります。
+}
 \end{frame}
 \begin{frame}{正規化}
 	\begin{theorem}[regular 対称性破れ作用素の正規化]
@@ -695,7 +729,12 @@ X \assign G / P \simeq (\mathbbm{S}^p \times
 		\end{tikzpicture}
 	\end{textblock*}
 	\note{\mytiming{setinvrecall}
-TODO}
+	今から定義する普通の積分でなく、特異積分で表すsingular対称性破れ作用素は
+	それぞれ、$X$と原点の間の$G/P$の$P'$不変集合に対応するので、
+	次に進む前、
+	$G/P$の$P'$不変作用素の分類を復習したいと思います。
+
+}
 \end{frame}
 \section{対称性破れ作用素の分類}
 \begin{frame}
@@ -993,17 +1032,27 @@ TODO}
 \end{frame}
 \begin{frame}{Zuckerman導来函手加群}
 	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じる。
-	\cite[(5.1.1)]{KO2}に{倣}って$p>1${かつ}$q\ge1$のときに\begin{equation*}
-	A_0(p,q):=\left\{ \lambda\in\Z+\frac{p+q}{2}\;:\;\lambda>-1 \right\}
-\end{equation*}とおくと、
-\cite{KO2}で
-示したように、$\lambda\in A_0(p,q)$に対して
-$O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
-が定まる。(\cite{KO2}では$\pi_{\pm,\lambda}^{p,q}$を定義するにあたって5種類の
-特徴づけが与えら{れ}、それらは互いに
-同値であることが示されている。その特徴づけの1つは
-Zuckerman導来函手加群で記載される。)
-以下では、この加群の間に対称性破れ作用素がある{か}について論じる。簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
+
+	$G=O(p+1,q+1)$は$\R^{p+q+2}$の超曲面\begin{equation*}
+		X_{p,q}^\pm=\left\{ (x,y)\in\R^{(p+1)+(q+1)}:\sum_{i=1}^{p+1}x_i^2-\sum_{j=1}^{q+1}y_j^2=\pm1 \right\}
+	\end{equation*}
+	に作用し、さらにヒルベルト空間$L^2(X_{p,q}^\pm)$にユニたり表現を定める。$p,q>0$のとき、このユニタリ表現は
+	加算無限個の既約ユニタリ
+	表現($X_{p,q}^\pm$の\textbf{離散系列表現})を含む、これを$\Pi_{\pm,a}$と書く。パラメータ$a$は\begin{equation*}
+		a\in\Z,a>\pm\frac{q-p}{2}+1
+	\end{equation*}を動く、既約ユニタリ表現$\Pi_{\pm,a}$はZuckerman導来函手加群を用いて代数的に\doubt{も}構成できる。
+%%	\cite[(5.1.1)]{KO2}に{倣}って$p>1${かつ}$q\ge1$のときに\begin{equation*}
+%%	A_0(p,q):=\left\{ \lambda\in\Z+\frac{p+q}{2}\;:\;\lambda>-1 \right\}
+%%\end{equation*}とおくと、
+%%\cite{KO2}で
+%%示したように、$\lambda\in A_0(p,q)$に対して
+%%$O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
+%%が定まる。(\cite{KO2}では$\pi_{\pm,\lambda}^{p,q}$を定義するにあたって5種類の
+%%特徴づけが与えら{れ}、それらは互いに
+%%同値であることが示されている。その特徴づけの1つは
+%%Zuckerman導来函手加群で記載される。)
+以下では、この加群の間に対称性破れ作用素がある{か}について論じる。
+%%簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
 \note{\mytiming{zuckermandef}
 
 	最後に、上記の結果の応用としてZuckerman導来函手加群の間の対称性破れ作用素の問題を論じましょう。
@@ -1014,64 +1063,71 @@ $O(p,q)$の既約ユニタリ表現$\pi_{\pm,\lambda}^{p,q}$
 特徴づけが与えら{れ}、それらは互いに
 同値であることが示されています。その特徴づけの1つは
 Zuckerman導来函手加群で記載されます。
-%%以下では、この加群の間に対称性破れ作用素がある{か}について論じる。簡単のため、$A_0^{\mbox{\scriptsize even}}(p,q):=\left\{ \lambda\in A_0(p,q)\mid \lambda-\frac{p-q}{2}+1\in2\Z \right\}$とおく。
-%%以下では\begin{equation*}
-%%	g(t):=\left\{ \begin{array}[]{ll}
-%%		1&\left(t\in2\N+\frac{1}{2}  \right)\\[10pt]
-%%		0&t\nin \left(2\N+\frac{1}{2}  \right)
-%%	\end{array}\right.,\quad h(t):=\left\{ \begin{array}[]{ll}
-%%		1&\left(  t<\frac{q}{2}\right)
-%%		\\[10pt]
-%%		0&\left( t\ge\frac{q}{2} \right)
-%%\end{array}\right.
-%%\end{equation*}とおく。
 }
 \end{frame}
-\begin{frame}{}
-	\begin{theorem}[Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素]
-	$n=p+q\;(p,q\ge1),\;n':=n-1$とする。
-	以下では
-	\vspace{-1em}
-\begin{equation*}
-                \begin{array}[]{c}
-                        x\in\left\{\begin{array}[]{ll}
-                                \Azeven(p+1,q+1),&\delta=+\mbox{ のとき}\\
-                                \Azeven(q+1,p+1),&\delta=-\mbox{ のとき}\\
-                        \end{array}\right.\\
-                        y\in\left\{\begin{array}[]{ll}
-                                \Azeven(p,q+1),&\varepsilon=+\mbox{ のとき}\\
-                                \Azeven(q+1,p),&\varepsilon=-\mbox{ のとき}\\
-                        \end{array}\right.
+\begin{frame}{Zuckerman導来加群函手記号のまとめ}
+	\begin{equation*}
+		\begin{array}[]{c}
+			\Pi_{\pm,a}:\mbox{$G=O(p+1,q+1)$の既約ユニたり表現}\\
+			\R^{p+q+2}\mbox{の$X_{p,q}^\pm$の上の$L^2$関数の空間に実現できる表現}\\
+			\mbox{パラメータ$a\in\Z,a>\pm\frac{q-p}{2}+1$}
 		\end{array}
-	\vspace{-1em}
 	\end{equation*}
-	と仮定する。このとき{、}
-	$\Hom_{G'}\left(\pi_{\delta,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\varepsilon,y}^{p,q+1} \right)$の次元は以下のようになる。
-%%
-\end{theorem}
-\note{\mytiming{zuckthm}
-TODO}
+	\pause
+	\begin{equation*}
+		\begin{array}[]{c}
+			\pi_{\pm,b}:\mbox{$G'=O(p,q+1)$の既約ユニたり表現}\\
+			\R^{p+q+1}\mbox{の$X_{p-1,q}^\pm$の上の$L^2$関数の空間に実現できる表現}\\
+			\mbox{パラメータ$b\in\Z,b>\pm\frac{q-p+1}{2}+1$}
+		\end{array}
+	\end{equation*}
+	\note<1>{\mytiming{zkigou}
+	TODO}
+	\note<2>{\mytiming{zkigou}
+	TODO}
 \end{frame}
-\begin{frame}{$p,q{\mbox{は奇数の場合}}$}
+\begin{frame}{Zuckerman導来加群函手{$\pi_{\pm,\lambda}^{p,q}$}間の対称性破れ作用素}
+	\begin{theorem}
+		$p,q{\mbox{は奇数の場合}}$\footnote{TODO: check}
 \begin{center}
 $\begin{array}{|@{}c@{}|@{}c@{}|@{}c@{}|}
   \hline
 	& \pipy&\pimy\\
   \hline
 	\pipx& {\begin{cases}
-	1,&x-y\in2\N+\frac{1}{2}\\
+	1,&a-b\in2\N\\
 	0,&\mbox{それ以外の場合}
 \end{cases}}&0\\
   \hline
 	\pimx& 0&{\begin{cases}
-	1,&y-x\in2\N+\frac{1}{2}\\
+	1,&b-a\in2\N\\
 	0,&\mbox{それ以外の場合}
 \end{cases}}\\
   \hline
 \end{array} \newline$
 \end{center}
+\end{theorem}
+%%	$n=p+q\;(p,q\ge1),\;n':=n-1$とする。
+%%	以下では
+%%	\vspace{-1em}
+%%\begin{equation*}
+%%                \begin{array}[]{c}
+%%                        x\in\left\{\begin{array}[]{ll}
+%%                                \Azeven(p+1,q+1),&\delta=+\mbox{ のとき}\\
+%%                                \Azeven(q+1,p+1),&\delta=-\mbox{ のとき}\\
+%%                        \end{array}\right.\\
+%%                        y\in\left\{\begin{array}[]{ll}
+%%                                \Azeven(p,q+1),&\varepsilon=+\mbox{ のとき}\\
+%%                                \Azeven(q+1,p),&\varepsilon=-\mbox{ のとき}\\
+%%                        \end{array}\right.
+%%		\end{array}
+%%	\vspace{-1em}
+%%	\end{equation*}
+%%	と仮定する。このとき{、}
+%%	$\Hom_{G'}\left(\pi_{\delta,x}^{p+1,q+1}\kern-0.3em\mid_{G'} ,\pi_{\varepsilon,y}^{p,q+1} \right)$の次元は以下のようになる。
+%%%%
 \begin{remark}
-	$p,q$が奇数出ない場合も、同様に。
+	$p,q$が奇数でない場合も、同様\doubt{な}結果を得る。
 \end{remark}
 \note{\mytiming{zuckrem}
 TODO}

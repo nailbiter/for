@@ -5,7 +5,7 @@ ZIPNAME=report77
 WORKON=$(ZIPNAME) aug8--aug17
 COMMIT_PREFIX=reports
 PDFS=report
-AUX=
+AUX=normalizations.pdf reading_list.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -25,6 +25,8 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	du -hs $@
 	$(GITCOMMIT)
 
+$(OUTDIR)/reading_list.pdf : $(TEXMACSDIR)/misc/toread/reading_list.tm
+        $(TEXMACS) --convert $< $@ --quit
 
 #standard rules
 %.eps: %.tex
@@ -32,7 +34,7 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	latex $<
 	dvips -E -o $@ $(basename $<).dvi
 $(OUTDIR)/kurashiki_reflection.pdf : /Users/nailbiter/fortexmacs/seminars/kurashiki_24-07-17/reflection.tm
-	        $(TEXMACS) --convert $< $@ --quit
+        $(TEXMACS) --convert $< $@ --quit
 
 $(OUTDIR)/report.pdf : $(TEXMACSDIR)/report.tm bibliography.bib
 	        $(TEXMACS) --convert $< $@ --quit
