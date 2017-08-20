@@ -8,7 +8,7 @@
 (load "misc.scm")
 
 ;;global parameters
-(define startrow 0)
+(define startrow 1)
 
 ;;start
 (define labellist (map (lambda(m)(match:substring m 1)) (list-matches "\\\\mytiming\\{([a-z0-9]+)\\}" (read-delimited "" (open-file (list-ref (program-arguments) 1) "r")))))
@@ -24,7 +24,16 @@
 (define (gettimingdata key)((lambda(arg)(if(eq? arg #f)(throw 'eqc)(car(cdr arg))))(find (lambda(item)(string=? key (car item)))timingdata)))
 
 ;;output
-;;(display labellist)
+
+;;;debug
+(if #t 
+  (begin
+    (display labellist)
+    (newline)
+    (display (length labellist))
+    (newline)
+    (display (gettimingdata "title"))
+    ))
+;;(display (gettimingdata "title"))
 ;;(newline)
-;;(display (length labellist))
-(display (gettimingdata "title"))
+;;(display "hi")
