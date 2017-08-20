@@ -10,7 +10,7 @@ COMMIT_PREFIX=$()
 PDFS=slides
 AUX=speech.pdf abstract-jap.pdf Z.pdf gammas.pdf normalizations.pdf
 SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex mystyle.sty $(ME)
-AUX_SRC=mystyle.sty bibliography.tex tables_slide.tex slides_functional.tex
+AUX_SRC=mystyle.sty bibliography.tex tables_slide.tex slides_functional.tex zuk.tex
 
 OUTDIR=../foraux
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
