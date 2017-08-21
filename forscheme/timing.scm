@@ -26,7 +26,7 @@
 ;;output
 
 ;;;debug
-(if #t 
+(if #t
   (begin
     (display labellist)
     (newline)

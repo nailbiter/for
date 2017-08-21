@@ -8,7 +8,7 @@ ZIPNAME=august21talk
 WORKON=$(ZIPNAME)
 COMMIT_PREFIX=$()
 PDFS=slides
-AUX=speech.pdf abstract-jap.pdf Z.pdf gammas.pdf normalizations.pdf
+AUX=speech.pdf abstract-jap.pdf Z.pdf gammas.pdf normalizations.pdf timing.pdf
 SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex mystyle.sty $(ME)
 AUX_SRC=mystyle.sty bibliography.tex tables_slide.tex slides_functional.tex zuk.tex
 
@@ -22,7 +22,7 @@ TEXMACSDIR=~/for/fortexmacs
 COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
-all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))  timing
+all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))  #timing
 timing: ../../forscheme/timing.scm $(OUTDIR)/slides_full.tex $(OUTDIR)/timing.csv 
 	guile -s $^
 $(OUTDIR)/slides_full.tex: slides.tex
