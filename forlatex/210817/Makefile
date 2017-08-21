@@ -7,7 +7,7 @@ ME=master_extract.tex master_extract_Aq.tex master_extract_classification.tex ma
 ZIPNAME=august21talk
 WORKON=$(ZIPNAME)
 COMMIT_PREFIX=$()
-PDFS=slides
+PDFS=slides reflection
 AUX=speech.pdf abstract-jap.pdf Z.pdf gammas.pdf normalizations.pdf timing.pdf
 SRCS=abstract-jap.tex $(Fs) master_extract.tex tables.tex p_bigger_than_one_image_diagram_explanation.tex p_equal_to_one_image_diagram_explanation.tex bibliography.tex mystyle.sty $(ME)
 AUX_SRC=mystyle.sty bibliography.tex tables_slide.tex slides_functional.tex zuk.tex
@@ -34,6 +34,8 @@ $(OUTDIR)/timing.csv: timing.numbers
 	$(error rebuild timing.csv)
 $(OUTDIR)/stub.pdf : stub.tex bibliography.bib
 	$(LATEXMK) $<
+$(OUTDIR)/reflection.pdf : reflection.tex
+	$(XELATEX) $<
 $(OUTDIR)/slides.pdf : slides.tex $(AUX_SRC)
 	$(XELATEX) $<
 $(OUTDIR)/speech.tex: slides.tex

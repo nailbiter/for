@@ -1,0 +1,120 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{mystyle}
+\usepackage{amsthm}
+\usepackage{xeCJK}
+
+%%\usepackage{fancyhdr}
+%%\pagestyle{fancy}
+%%\fancyfoot[C]{text me at \href{mailto:leontiev@ms.u-tokyo.ac.jp}{leontiev@ms.u-tokyo.ac.jp} if there are mistakes/obscurities}
+%%\fancyhead{}
+
+\theoremstyle{theorem}
+\newtheorem{problem}{Problem}
+\newtheorem{question}{Question}
+\theoremstyle{definition}
+\newtheorem{answer}{My Answer}
+\newtheorem{reason}{Reasons}
+\theoremstyle{remark}
+\newtheorem{countermeasure}{Counter-measures}
+\newtheorem{remark}{Remark}
+\newtheorem*{remark*}{Remark}
+
+\setCJKmainfont{Hiragino Mincho Pro}
+
+\title{Reflection}
+\begin{document}
+
+	\maketitle
+
+\section{Trivia}
+\begin{center}
+	\begin{tabular}[]{l|l}
+		Date:&August 21, 2017\\
+		Conference/Seminar's name:& 第56回実函数論・函数解析学合同シンポジウム\\
+		Place:& お茶の水女子大学\\
+		Title:&{不定値直交群$O(p,q)$の対称性破れ作用素}\\
+		Expected Duration:&60 min\\
+		Real Duration:& \textasciitilde 57 min\\
+		Self-evaluation:& 8 out of 10\\
+	\end{tabular}
+\end{center}
+\section{Questions asked during the talk and my answers}
+\begin{question}[Professor Kogiso]
+    The results are symmetric for interchanging $p$ and $q$. Was that easy to see from the start?
+\end{question}
+\begin{answer}
+    This was rather a coincidence, we did not predict it from the start.
+\end{answer}
+\begin{remark}
+    I think this answer is terrible. First of all, results are \textit{not} symmetric
+    with respect to $p\leftrightarrow q$ interchanging: case $p=1$ is special.
+
+    Moreover, I said that this was easy to see when I started answering, and then changed my answer to an opposite.
+\end{remark}
+\begin{question}
+    Can differential SBO be defined from the beginning as a residue of regular SBO?
+\end{question}
+\begin{answer}
+    It depends on a viewpoint. We could define it directly, or see it as a residue of the regular SBO.
+\end{answer}
+\begin{remark}
+    I talked to this person after the end of the talk to convey my answer better.
+\end{remark}
+\section{Problems, their reasons and counter-measures}
+\begin{problem}
+    I finished reached the last slide of the presentation in 50 minutes.
+    After that, I incoherently jumped to various slides of the talk and talked about:\begin{enumerate}
+        \item 5 equivalent definitions of Zuckerman derived functors appearing in Kobayashi--Orsted;
+        \item how only 3 families of constructed five appear in classification of SBOs for $p>1$ case;
+        \item how method of proof in our case is different from Kobayashi--Speh:\begin{itemize}
+                \item geometry becomes more difficult: $C$
+            appears;
+                \item  how distribution product and wavefront considerations did not appear in Kobayashi--Speh;
+                \item how normalizing regular SBO becomes more difficult;
+                \item how normalization was computed via expressing ``generalized eigenvalues'' via an integral
+                    and expressing the latter in Gamma functions;
+                \item how current optimization of regular and singular SBOs is optimal;
+            \end{itemize}
+    \end{enumerate}
+\end{problem}
+\begin{reason}
+
+\end{reason}
+\begin{countermeasure}
+
+\end{countermeasure}
+\section{Miscellaneous comments}
+\begin{enumerate}
+    \item Before my talk, I was lucky to be suggested to change 
+於お茶の水大学 in my slide to 
+於お茶の水女子大学. I was said that it is important to get the name of the school which hosts the meeting correctly.
+I should be more careful next time. Nevertheless, this time I was lucky enough to fix it before the talk.
+\item As was noted by one of the participants, there is a typo in normalization of regular SBO on slide 18:\begin{equation*}
+        \begin{array}[]{c}
+				\frac{1}{
+                    \boxed{\Gamma
+                        \left( \frac{\lambda - \nu}{2} \right)} \Gamma \left( \frac{\lambda - \nu}{2}
+				\right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} | x_p
+                |^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}\mbox{ should be }\\
+				\frac{1}{\boxed{\Gamma
+                    \left( \frac{1 - \nu}{2} \right)} \Gamma \left( \frac{\lambda - \nu}{2}
+				\right) \Gamma \left( \frac{\lambda + \nu - n + 1}{2} \right)} | x_p
+                |^{\lambda + \nu - n} | Q_{p, q} |^{- \nu}
+        \end{array}
+    \end{equation*}
+\item I overheard the talk between two participants, who claimed that Kubo--san's talk made 3 years ago on this symposium
+    was extremely easy to understand, as in particular he did not use representation theory concepts at all.
+    This made me think that it might be better to define $I(\lambda),J(\nu)$ not as spherical degenerate principal
+    series representations, but rather as homogeneous functions on the cone to make the picture more concrete and accessible
+    for non-specialists. Therefore, before my talk I wrote this fact on the whiteboard and mentioned it during the talk.
+\item At least one of the participants mentioned the talk as ``difficult'' when talking to me after the talk. He is a young
+    student working in PDE.
+\end{enumerate}
+%%\begin{thebibliography}{9}
+%%\bibitem{gelbaum}Gelbaum, B.R. and Olmsted, J.M.H.. Counterexamples in Analysis. Dover Publications. 2003
+%%\end{thebibliography}
+\end{document}
+
+
