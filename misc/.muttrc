@@ -44,3 +44,4 @@ set postponed = "+Drafts"
 set record = "+Sent"
 set index_format="%4C %Z %d %-15.15L (%4l) %s"
 set date_format="!%a, %b %d, %Y at %I:%M:%S%p"
+alias toshi Toshiyuki Kobayashi <toshi@ms.u-tokyo.ac.jp>

@@ -15,6 +15,7 @@
 (define timingdata
   (let*
     ((lines(mytokenize "\n" (read-delimited "" (open-file (list-ref (program-arguments) 2) "r"))))
+    ((lines(mytokenize "\n" (read-delimited "" (open-file (list-ref (program-arguments) 2) "r"))))
      (lines(list-tail lines 1))
     (lines(map(lambda(l)(mytokenize "," l))lines))
     (lines(filter (lambda(i)(> (length i)0))lines))
