@@ -1,11 +1,11 @@
 .PHONY: all commit push clean p
 .SECONDARY: 
 
-ZIPNAME=report77
-WORKON=$(ZIPNAME) aug8--aug17
+ZIPNAME=report78
+WORKON=$(ZIPNAME) aug17--aug22
 COMMIT_PREFIX=reports
 PDFS=report
-AUX=normalizations.pdf reading_list.pdf
+AUX=normalizations.pdf reading_list.pdf notes.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -14,6 +14,7 @@ XELATEX=latexmk -pdf -outdir=$(OUTDIR) -pdflatex='xelatex %O %S' -f -g
 OUTDIR=../foraux
 MATHEMATICADIR=~/for/formathematica/kint
 TEXMACSDIR=~/for/fortexmacs
+LOCAL_TEXMACSDIR=~/fortexmacs
 COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
@@ -25,20 +26,21 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	du -hs $@
 	$(GITCOMMIT)
 
+#texmacs targets
+$(OUTDIR)/notes.pdf : $(LOCAL_TEXMACSDIR)/seminars/tambara_16-08-17/notes.tm
+	$(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/reading_list.pdf : $(TEXMACSDIR)/misc/toread/reading_list.tm
-        $(TEXMACS) --convert $< $@ --quit
+	$(TEXMACS) --convert $< $@ --quit
+$(OUTDIR)/normalizations.pdf : $(LOCAL_TEXMACSDIR)/misc/normalizations.tm
+	$(TEXMACS) --convert $< $@ --quit
 
 #standard rules
 %.eps: %.tex
 	echo 
 	latex $<
 	dvips -E -o $@ $(basename $<).dvi
-$(OUTDIR)/kurashiki_reflection.pdf : /Users/nailbiter/fortexmacs/seminars/kurashiki_24-07-17/reflection.tm
-        $(TEXMACS) --convert $< $@ --quit
 
 $(OUTDIR)/report.pdf : $(TEXMACSDIR)/report.tm bibliography.bib
-	        $(TEXMACS) --convert $< $@ --quit
-$(OUTDIR)/lecture.pdf : ../../../fortexmacs/seminars/kobayashi_19-07-17/lecture.tm
 	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
@@ -55,5 +57,3 @@ push:
 clean:
 	rm -f *.proto.tex script.tex *.pdf *.zip script_hypergeom.tex $(OUTDIR)/$(ZIPNAME).zip
 	touch *.tex
-
-

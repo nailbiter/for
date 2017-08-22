@@ -3,7 +3,7 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 77>
+  <section|report 78>
 
   <date|>
 
@@ -20,8 +20,9 @@
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     read Vogan's book
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
-    prepare the schedule for August
-  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
+    prepare the reading list and schedule for August (September)
+  </cell>|<cell|<with|font-series|bold|done> (see <verbatim|reading_list.pdf>
+  attached)>>|<row|<\cell>
     prepared better notes on Tamori-kun's talk
   </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
@@ -30,35 +31,33 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>With a lot of Your help, made some progress in preparing slides and
-    speech for this coming Functional Analysis and Real Analysis Symposium.
+    <item>With a lot of Your help, delivered a speech at Functional Analysis
+    and Real Analysis Symposium.
+
+    <item>Made some progress in understanding of product of generalized
+    functions (see <verbatim|normalizations.pdf> attached).
+
+    <item>Attended Tambara (see <verbatim|notes.pdf> attached, also the voice
+    record of Atobe\Usan's is available at
+    <hlink|https://drive.google.com/file/d/0Bx9ORoAf44_QdFRFUmZNQTBIUk0/view?usp=sharing|https://drive.google.com/file/d/0Bx9ORoAf44_QdFRFUmZNQTBIUk0/view?usp=sharing>).
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
-
-  <\enumerate>
-    <item>Prepare for the talk at Functional Analysis and Real Analysis
-    Symposium
-  </enumerate>
-
-  On top of that,
 
   <\enumerate>
     <item>Prove the multiplicity-freeness of
     <math|<big|wedge><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
     as representation of <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>;
 
+    <item>Prepare better notes for Tamori\Ukun's talk;
+
     <item>Reading:
 
     <\enumerate>
       <item>Finish reading <cite|lang2012sl2>;
 
-      <item>Start reading <cite|vogan1981representations>
+      <item>Start reading <cite|vogan1981representations>.
     </enumerate>
-
-    <item>Practice the speeches from the Mathematical Society meeting on
-    March and Representation Theory Symposium in Okinawa, so to be able to
-    recite them from \ memory;
   </enumerate>
 
   <\with|font-series|bold>
@@ -91,24 +90,6 @@
   very busy:
 
   <\enumerate>
-    <item>As far as I understand, <math|\<#95A2\>\<#6570\>> and
-    <math|\<#51FD\>\<#6570\>> are the synonyms denoting precisely the same
-    thing (i.e. \Pfunction\Q), but <math|\<#95A2\>\<#6570\>> is somehow more
-    \Pstandard\Q. Do You have any arguments/comments on favoring one against
-    another?
-
-    <item>While studying the Japanese texts You produce, I have noticed that
-    sometims You write in hiragana the words which have kanji (e.g. You write
-    <overline|arigatou><\footnote>
-      I am extremely sorry, but I cannot write hiragana or katakana in this
-      software, so I will use overlined romaji to denote hiragana/katakana,
-      like <overline|konnichiha>.
-    </footnote> when \<#6709\>\<#96E3\><overline|u> can be used, or
-    <overline|notoki> when <overline|no>\<#6642\> can be used). Is there any
-    general rule on when one should favor kanji to hiragana? Because I had an
-    (apparently, wrong) impression that kanji make the text seem to be more
-    \Pintelligent\Q and \Pformal\Q.
-
     <item>when I insert an English word in a string of Japanese text, should
     I surround it by spaces?
   </enumerate>
@@ -119,6 +100,10 @@
     <item>I extremely sorry for being unable to deliver the talk at Tambara.
     I am really sorry. I would be very happy, if You would allow me to
     present Kobayashi\UKubo\UPevzner on the next meeting of our lab.
+
+    <item>I would like to <with|font-series|bold|extremely> thank You for
+    helping me so much with preparing slides and speech for this report at
+    Functional and Real Analysis Symposium.
   </enumerate>
 
   <\bibliography|bib|tm-alpha|/Users/nailbiter/for/forlatex/kreport/bibliography>
@@ -157,7 +142,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|1|1>>
+    <associate|auto-3|<tuple|2|1>>
     <associate|auto-4|<tuple|1|?>>
     <associate|bib-braverman1998minimal|<tuple|BJ98|?>>
     <associate|bib-kobayashi2016classification|<tuple|KKP16|?>>
@@ -178,21 +163,13 @@
 <\auxiliary>
   <\collection>
     <\associate|bib>
-      braverman1998minimal
-
       lang2012sl2
-
-      vogan1987unitary
-
-      vogan1981representations
-
-      vogan1987unitary
 
       vogan1981representations
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      76> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      78> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
