@@ -107,13 +107,7 @@
   </enumerate>
 
   <\bibliography|bib|tm-alpha|/Users/nailbiter/for/forlatex/kreport/bibliography>
-    <\bib-list|4>
-      <bibitem*|BJ98><label|bib-braverman1998minimal>Alexander
-      Braverman<localize| and >Anthony Joseph.<newblock> The minimal
-      realization from deformation theory.<newblock>
-      <with|font-shape|italic|Journal of Algebra>, 205(1):13\U36,
-      1998.<newblock>
-
+    <\bib-list|2>
       <bibitem*|Lan12><label|bib-lang2012sl2>Serge Lang.<newblock>
       <with|font-shape|italic|Sl2 (r)>, <localize|volume> 105.<newblock>
       Springer Science & Business Media, 2012.<newblock>
@@ -121,11 +115,6 @@
       <bibitem*|Vog81><label|bib-vogan1981representations>David<nbsp>A Vogan
       Jr.<newblock> Representations of real reductive lie groups.<newblock>
       <with|font-shape|italic|Progress in Math.>, 15, 1981.<newblock>
-
-      <bibitem*|Vog87><label|bib-vogan1987unitary>David<nbsp>A
-      Vogan.<newblock> <with|font-shape|italic|Unitary representations of
-      reductive Lie groups>.<newblock> <localize|Number> 118. Princeton
-      University Press, 1987.<newblock>
     </bib-list>
   </bibliography>
 </body>
