@@ -44,8 +44,6 @@ $(OUTDIR)/pja-opq-sbo.pdf : $(OUTDIR)/pja-opq-sbo.dvi
 	cd $(OUTDIR) && dvipdfmx pja-opq-sbo
 $(OUTDIR)/%.tex : %.tex
 	cp $< $@
-$(OUTDIR)/%.cls : %.cls
-	cp $< $@
 
 #commands
 commit:
