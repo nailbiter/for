@@ -5,7 +5,7 @@ ZIPNAME=RIMSslides
 WORKON=https://trello.com/c/qQLQN4Rn method1ShowWhy3F2SatisfiesWhipple
 COMMIT_PREFIX=tex RIMStalk
 PDFS=intpaper answer RIMS17-Alex-int slides speech
-AUX=
+AUX=abe_form.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
