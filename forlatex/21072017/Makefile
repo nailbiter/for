@@ -1,4 +1,4 @@
-.PHONY: all commit push clean publish ja
+.PHONY: all commit push clean p ja
 .SECONDARY: 
 
 ZIPNAME=RIMSslides
@@ -7,7 +7,7 @@ COMMIT_PREFIX=tex RIMStalk
 PDFS=intpaper answer RIMS17-Alex-int
 AUX=
 PDFS=reflection
-AUX=checklist.pdf
+AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -20,7 +20,7 @@ COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS)))
-publish: $(OUTDIR)/$(ZIPNAME).zip
+p: $(OUTDIR)/$(ZIPNAME).zip
 
 $(OUTDIR)/RIMS17-Alex-int.dvi: RIMS17-Alex-int.tex diagram.tex big.intdep.tex
 	latexmk -outdir=$(OUTDIR) -latex='platex %O %S' -f -g $<
@@ -63,5 +63,5 @@ commit:
 push:
 	git push
 clean:
-	rm -f *.proto.tex script.tex *.pdf $(OUTDIR)/$(ZIPNAME).zip $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
+	rm -f *.proto.tex script.tex *.pdf  $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX)) #$(OUTDIR)/$(ZIPNAME).zip
 	touch *.tex

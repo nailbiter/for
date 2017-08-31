@@ -1,11 +1,11 @@
 .PHONY: all commit push clean p
 .SECONDARY: 
 
-ZIPNAME=report78
-WORKON=$(ZIPNAME) aug17--aug22
+ZIPNAME=report79
+WORKON=$(ZIPNAME) aug22--sep1
 COMMIT_PREFIX=reports
 PDFS=report
-AUX=normalizations.pdf reading_list.pdf notes.pdf
+AUX=reading_list.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs

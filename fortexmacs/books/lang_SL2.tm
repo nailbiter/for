@@ -1,6 +1,6 @@
 <TeXmacs|1.99.4>
 
-<style|book>
+<style|seminar>
 
 <\body>
   <chapter*|Chapter 4: Spherical functions>
@@ -55,6 +55,11 @@
 
     <\equation*>
       <stack|<tformat|<table|<row|<cell|<around*|(|f\<ast\>g|)><around*|(|x|)>=<big|int><rsub|G>f<around*|(|x
+      y<rsup|-1>|)>g<around*|(|y|)>d y>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y|)>g*<around*|(|y*x|)>\<mathd\>y=<big|int><rsub|G>g<around*|(|x<rsup|\<tau\>>y<rsup|\<tau\>>|)><wide*|f<around*|(|y<rsup|\<tau\>>|)>|\<wide-underbrace\>><rsub|=f<around*|(|y|)>>\<mathd\>y>>|<row|<cell|=>>|<row|<cell|>>|<row|<cell|=<big|int><rsub|G>g<around*|(|x*y<rsup|-1>|)>f<around*|(|y|)>\<mathd\>x=<around*|(|g\<ast\>f|)><around*|(|x|)>>>>>>
+    </equation*>
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|<around*|(|f\<ast\>g|)><around*|(|x|)>=<big|int><rsub|G>f<around*|(|x
       y<rsup|-1>|)>g<around*|(|y|)>d y>>|<row|<cell|<around*|(|<text|<math|\<Delta\><around*|(|\<tau\>|)>=1>>|)>>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y<rsup|-\<tau\>>x<rsup|\<tau\>>|)>g<around*|(|y<rsup|\<tau\>>|)>d
       y>>|<row|<cell|<around*|(|y\<rightarrow\>y
       x|)>>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y<rsup|-\<tau\>>|)>g<around*|(|x<rsup|\<tau\>>y<rsup|\<tau\>>|)>d
@@ -80,9 +85,9 @@
 <\auxiliary>
   <\collection>
     <\associate|toc>
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Chapter
+      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|Chapter
       4: Spherical functions> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-1><vspace|0.5fn>
+      <no-break><pageref|auto-1><vspace|1fn>
     </associate>
   </collection>
 </auxiliary>
