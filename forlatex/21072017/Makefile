@@ -20,7 +20,7 @@ GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS)))
 p: $(OUTDIR)/$(ZIPNAME).zip
 
-$(OUTDIR)/RIMS17-Alex-int.dvi: RIMS17-Alex-int.tex diagram.tex big.intdep.tex
+$(OUTDIR)/RIMS17-Alex-int.dvi: RIMS17-Alex-int.tex diagram.tex big.intdep.tex intdep.bib
 	latexmk -outdir=$(OUTDIR) -latex='platex %O %S' -f -g $<
 
 $(OUTDIR)/RIMS17-Alex-int.pdf: $(OUTDIR)/RIMS17-Alex-int.dvi

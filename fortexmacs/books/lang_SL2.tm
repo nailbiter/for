@@ -27,7 +27,7 @@
       such that\ 
 
       <\equation*>
-        \<forall\>x\<in\>G\<exists\>k<rsub|1,2>\<in\>K,<space|1em>x<rsup|\<tau\>>=k<rsub|1>x
+        \<forall\>x\<in\>G<space|1em>\<exists\>k<rsub|1,2>\<in\>K,<space|1em>x<rsup|\<tau\>>=k<rsub|1>x
         k<rsub|2>.
       </equation*>
     </enumerate>
@@ -55,7 +55,7 @@
 
     <\equation*>
       <stack|<tformat|<table|<row|<cell|<around*|(|f\<ast\>g|)><around*|(|x|)>=<big|int><rsub|G>f<around*|(|x
-      y<rsup|-1>|)>g<around*|(|y|)>d y>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y|)>g*<around*|(|y*x|)>\<mathd\>y=<big|int><rsub|G>g<around*|(|x<rsup|\<tau\>>y<rsup|\<tau\>>|)><wide*|f<around*|(|y<rsup|\<tau\>>|)>|\<wide-underbrace\>><rsub|=f<around*|(|y|)>>\<mathd\>y>>|<row|<cell|=>>|<row|<cell|>>|<row|<cell|=<big|int><rsub|G>g<around*|(|x*y<rsup|-1>|)>f<around*|(|y|)>\<mathd\>x=<around*|(|g\<ast\>f|)><around*|(|x|)>>>>>>
+      y<rsup|-1>|)>g<around*|(|y|)>\<mathd\>y>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y|)>g<around*|(|y*x|)>\<mathd\>y=<big|int><rsub|G>g<around*|(|x<rsup|\<tau\>>y<rsup|\<tau\>>|)>f<around*|(|y<rsup|\<tau\>>|)>\<mathd\>y>>|<row|<cell|=>>|<row|<cell|>>|<row|<cell|=<big|int><rsub|G>g<around*|(|x*y<rsup|-1>|)>f<around*|(|y|)>\<mathd\>x=<around*|(|g\<ast\>f|)><around*|(|x|)>>>>>>
     </equation*>
 
     <\equation*>

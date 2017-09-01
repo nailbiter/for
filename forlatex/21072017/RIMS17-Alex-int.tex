@@ -1,4 +1,3 @@
-%make
 \documentclass[12pt,a4paper,dvipdfmx]{jsarticle}
 \usepackage{graphicx} % support the \includegraphics command and options
 
@@ -32,8 +31,6 @@
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{ruby}
-%\renewcommand\rubysep{-5ex}
-\newcommand{\kana}[2]{#1}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsmath,amsthm}
@@ -145,18 +142,27 @@
 \newcommand{\taggedpropsymb}{$\;1'$}
 \newtheorem{thm}{定理}[section]
 \newtheorem{lem}[thm]{補題}
+\newtheorem*{lemma*}{補題}
 % その他ご自由に……
 \newtheorem{prop}[thm]{命題}
+\newtheorem*{prop*}{命題}
 \newtheorem{example}[thm]{例}
 \newtheorem{cor}[thm]{系}
-\newtheorem{method}{メソッド}
+\newtheorem{method}{記明法}
 
-\newtheorem*{lemma*}{放題}
 \newtheorem*{fact*}{Fact}
 \newtheorem*{example*}{例}
 \newtheorem*{remark*}{注}
 \newtheorem*{goal*}{目標}
 \newtheorem*{setting*}{設定}
+
+\newcommand{\kana}[2]{\ruby{#1}{#2}}
+\newcommand{\mykana}[2]{#1}
+\newcommand{\doubt}[1]{\fbox{#1}}
+\newcommand{\pause}{$\bullet$}
+\newcommand{\slowly}[1]{\dashuline{#1}}
+\newcommand{\continuously}[1]{\underline{#1}}
+\newcommand{\badword}[1]{\uwave{#1}}
 
 \newtheorem{taggedpropx}{命題}
 \newenvironment{taggedprop}[1]
@@ -182,18 +188,17 @@ The University of Tokyo}
 %%}
 \begin{document}
 \maketitle
-\begin{abstract}
+\begin{abstract}%TODO: write in japanese
 	This is an abstract.
-	\footnote{I will do send the first draft in a next version. Should I write it in Japanese or in English?}
 \end{abstract}
 \section{主結果}
 	最初は、Gegenbauer多項式という多項式のファミリの定義と性質を復習する.
 	Gegenbauer多項式$\left\{ C_n^\lambda \right\}_{n=1}^{\infty}$は、
-	$\Re(\lambda)>-\frac{1}{2}$のとき$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$の直交多項式である.
+	$\lambda$が定数で$\lambda>-\frac{1}{2}$をみたすとき\doubt{は}
+	$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$の直交多項式である.
 	
 	\begin{example*}
-		最初のいくつは
-	
+%%		最初のいくつは
 		\begin{eqnarray*}
 			C_0^\lambda(x)&=&1,\\
 			C_1^\lambda(x)&=&2\lambda x,\\
@@ -209,51 +214,56 @@ The University of Tokyo}
 		(1-x^2)y''-(2\lambda+1)xy'+n(n+\lambda)y=0.
 	\end{equation*}
 	主結果は以下のようになる：
-	\begin{prop}\label{prop:exp-st-gg}
-		$\Re\lambda,\Re\mu>-\frac{1}{2},\Re\nu>0$のとき、
+	\begin{thm}\label{prop:exp-st-gg}
+		\begin{equation*}
+		\begin{array}{rcl}
+			a_{\lambda,\mu,\nu}^{\ell,m}&:=&\frac{ (\lambda + \ell) (\mu + m)}{\Gamma \left( \lambda + \nu + \frac{\ell -
+			  m}{2} + 1 \right)  \Gamma \left( \mu + \nu -
+			  \frac{\ell - m}{2} + 1 \right)\Gamma \left( \lambda + \mu + \nu + \frac{\ell +
+			  m}{2} + 1 \right)\Gamma\left(  \nu+1-\frac{\ell+m}{2}\right)},\\[0.4cm]
+			  b(\lambda,\mu,\nu)&:=&2^{-2\nu}\Gamma (\lambda + \mu + 2 \nu + 1){\Gamma (\lambda)
+			  \Gamma (\mu)\Gamma \left( 2\nu +
+			1 \right)}.
+		\end{array}
+		\end{equation*}
+		とおく。
+
+		$\Re\lambda,\Re\mu>-\frac{1}{2},\Re\nu>0$ならば、
 		\begin{equation}
 			| s + t |^{2 \nu} =b(\lambda,\mu,\nu) \displaystyle\sum_{\scalebox{0.6}{ $\begin{array}[]{c}
 			\ell, m = 0 \\ \ell + m : \tmop{even}
-		\end{array}$}}^{\infty} a_{\lambda,\mu,\nu}^{\ell,m} C_\ell^{\lambda} (s) C_m^{\mu} (t),
+		\end{array}$}}^{\infty} a_{\lambda,\mu,\nu}^{\ell,m} C_\ell^{\lambda} (s) C_m^{\mu} (t)
 			\label{eqn:exp-st-gg}
 		\end{equation}
-		{
-			\begin{equation*}
-				\begin{array}{rcl}
-	a_{\lambda,\mu,\nu}^{\ell,m}&:=&\frac{ (\lambda + \ell) (\mu + m)}{\Gamma \left( \lambda + \nu + \frac{\ell -
-	  m}{2} + 1 \right)  \Gamma \left( \mu + \nu -
-	  \frac{\ell - m}{2} + 1 \right)\Gamma \left( \lambda + \mu + \nu + \frac{\ell +
-	  m}{2} + 1 \right)\Gamma\left(  \nu+1-\frac{\ell+m}{2}\right)},\\[0.4cm]
-	  b(\lambda,\mu,\nu)&:=&2^{-2\nu}\Gamma (\lambda + \mu + 2 \nu + 1){\Gamma (\lambda)
-	  \Gamma (\mu)\Gamma \left( 2\nu +
-	1 \right)}.
-			\end{array}
-			\end{equation*}
-	}
-	\end{prop}
-	セクション\footnote{is ``セクション'' a good japanese word?}\ref{sec:proof}で、これの４通りの証明をあげる.
+		が成り立つ。
+	\end{thm}
+	第\ref{sec:proof}節
+	で、これの４通りの証明を紹介する。
 
-	実は、もっと一般的な主張が成り立つ:
+	少しだけ一般的な結果も述べておこう。
 	\begin{prop}\label{prop:exp-stz-gg}
 		  \label{thm:4}$\tmop{Re} \lambda, \tmop{Re} \mu > - \frac{1}{2}$,
-		    $\tmop{Re} \nu > 0$ と $-1 \leqslant z \leqslant 1$ のとき、
-		      \begin{eqnarray}
-			      & | s + t z |^{2 \nu}  = \sum_{\scalebox{0.6}{
-				      $\begin{array}[]{c}
-						  \ell,m=0\\\ell+ m\mbox{ :even}
-					  \end{array}
-				  $}}^{\infty} a_{\ell, m}
-					          (z) C_\ell^{\lambda} (s) C_m^{\mu} (t), &  \nonumber\\
-						      & a_{\ell, m} (z) = \frac{\Gamma \left( \nu + \frac{1}{2} \right) \Gamma
-						      (\lambda) \Gamma (\mu) (\lambda + l) z^m }{(1 + \nu)_{- \frac{\ell + m}{2}} \sqrt{\pi} \Gamma
-										      (\mu + m) \Gamma \left( \lambda + \nu + \frac{\ell - m}{2} + 1 \right)}
-										    {}_2 F_1 \left( \begin{array}{c}
-								        \frac{\ell + m}{2} - \nu, \frac{m - \ell}{2} - \nu - \lambda\\
-									      \mu + m + 1
-									          \end{array} ; z^2 \right). & 
-										          \nonumber
-											    \end{eqnarray}
+		    $\tmop{Re} \nu > 0$ かつ $-1 \leqslant z \leqslant 1$ のとき、
+		    \begin{equation*}
+			    \begin{array}{c}
+				  a_{\ell, m} (z) = \frac{\Gamma \left( \nu + \frac{1}{2} \right) \Gamma
+				  (\lambda) \Gamma (\mu) (\lambda + l) z^m }{(1 + \nu)_{- \frac{\ell + m}{2}} \sqrt{\pi} \Gamma
+				      (\mu + m) \Gamma \left( \lambda + \nu + \frac{\ell - m}{2} + 1 \right)}
+				    {}_2 F_1 \left( \begin{array}{c}
+				\frac{\ell + m}{2} - \nu, \frac{m - \ell}{2} - \nu - \lambda\\
+				\mu + m + 1
+			\end{array} ; z^2 \right)\mbox{とおくと}\\
+			       | s + t z |^{2 \nu}  = \sum_{\scalebox{0.6}{
+			      $\begin{array}[]{c}
+				  \ell,m=0\\\ell+ m\mbox{ :even}
+				\end{array}
+				$}}^{\infty} a_{\ell, m}
+				 (z) C_\ell^{\lambda} (s) C_m^{\mu} (t)
+			    \end{array}
+		    \end{equation*}
+		    が成り立つ。
     \end{prop}
+    ガウスの超幾何定理
     公式
 \begin{equation*}
 		{}_2F_1\left( \begin{array}[]{c}
@@ -284,7 +294,7 @@ The University of Tokyo}
 		\end{equation}
 		}
 	\end{taggedprop}
-	ここでポッホハマー記号$(x)_n$は以下のように定義される：\begin{equation*}
+	ここでPochhammer記号$(x)_n$は以下のように定義される：\begin{equation*}
 		(x)_n:=\frac{\Gamma(x+n)}{\Gamma(x)}=x(x+1)\cdots(x+n-1).
 	\end{equation*}
 	\begin{remark*}
@@ -296,8 +306,6 @@ The University of Tokyo}
 エルミート多項式$\left\{ H_n \right\}_{n=1}^\infty$は、
 	$L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$の直交多項式である.
 	\begin{example*}
-		最初のいくつは
-	
 		\begin{eqnarray*}
 		H_0(x)&=& 1,\\
 		H_1(x)&=& 2x,\\
@@ -346,9 +354,8 @@ The University of Tokyo}
 
 		図\ref{fig:intdep}に述べてるように、
 		命題\ref{prop:int-st-gg}の$\ell = m = 0$ の
-		特別の場合は Warnaar, Varchenko, Tarasov などによる セルバーグ type\footnote{should
-		I change type to タイプ or use some other word (e.g. 形)here?} の積分の一般化 とも関係する.
-\kana{青}{アオ}い\kana{数字}{スウジ}は\kana{公式}{コウシキ}に\kana{含}{フク}まれる連続パラメータの\kana{個数}{コスウ}である.
+		特別の場合は Warnaar, Varchenko, Tarasov などによる セルバーグ形の積分の一般化 とも関係する.
+\mykana{青}{アオ}い\mykana{数字}{スウジ}は\mykana{公式}{コウシキ}に\mykana{含}{フク}まれる連続パラメータの\mykana{個数}{コスウ}である.
 			\begin{figure*}[h]
 				\centering
 				\begin{tikzpicture}
@@ -356,7 +363,7 @@ The University of Tokyo}
 				\end{tikzpicture}
 				\caption{
 					命題\ref{prop:int-st-gg}の$\ell=m=0$の特別の場合とその関連結果;
-\kana{青}{アオ}い\kana{数字}{スウジ}は\kana{公式}{コウシキ}に\kana{含}{フク}まれる連続パラメータの\kana{個数}{コスウ}である.
+\mykana{青}{アオ}い\mykana{数字}{スウジ}は\mykana{公式}{コウシキ}に\mykana{含}{フク}まれる連続パラメータの\mykana{個数}{コスウ}である.
 				}
 				\label{fig:intdep}
 			\end{figure*}
@@ -436,6 +443,7 @@ The University of Tokyo}
 	  should I write the definition $C^{k_1,k_2}_{\beta_1,\gamma}$ (and $C^{k_1,k_2}_{\gamma}$ below) explicitly?
   }
 の $k_1=k_2 = 2,\alpha_1=\beta_1,\alpha_2=\beta_2$ の特別な場合になる：\\
+\hspace{1em}
 		\myrelationdiagramBig{命題$1'$}{\ell=m=0,\\
 		\lambda+\mu+2\nu=-1}{k_1=k_2=1,\\\alpha_1=\beta_1,\\\alpha_2=\beta_2}{{\cite{warnaar2010sl3}}}{
 		$
@@ -448,6 +456,7 @@ The University of Tokyo}
 			=\mypgf
 			$
 		}
+\hspace{1em}
 			\begin{fact*}[{\cite[(3.4)]{tarasov2003selberg}}]
 			{
 		\begin{equation*}
@@ -584,7 +593,7 @@ The University of Tokyo}
 	\section{証明}\label{sec:proof}
 	本セクションで、命題\ref{prop:exp-st-gg}の４通りの証明をあげる.
 	下に述べられているメソッド１とメソッド３は最初のステップとして以下のような補題を使う:
-	\begin{lemma*}[$\ell=m=0$場合に帰着]
+	\begin{prop*}[$\ell=m=0$場合に帰着]\footnote{Note that this statement appeared as 補題 (Lemma) in slides, not as 命題 (Proposition).}
 		\begin{equation*}
 			\begin{array}[]{c}
 				\mbox{$\ell=m=0$特殊な場合に命題\ref{prop:int-st-gg}が成り立つ}\\[0.4cm]
@@ -592,7 +601,7 @@ The University of Tokyo}
 				\mbox{命題\ref{prop:int-st-gg}の一般な場合が成り立つ.}
 			\end{array}
 		\end{equation*}
-	\end{lemma*}
+	\end{prop*}
 	
 	\begin{proof}\renewcommand{\qedsymbol}{}
 		Gegenbauer多項式のロドリゲスの公式
@@ -600,7 +609,7 @@ The University of Tokyo}
 				(1-x^2)^{\alpha-\frac{1}{2}}C_n^\alpha(x)=\frac{(-1)^n}{2^nn!}\frac{\Gamma\left( \alpha+\frac{1}{2} \right)\Gamma\left( n+2\alpha \right)}{\Gamma(2\alpha)\Gamma\left(\alpha+n+\frac{1}{2}  \right)}
 				\frac{d^n}{dx^n} (1-x^2)^{n+\alpha-\frac{1}{2}}
 			\end{equation*}}
-			と部分積分(integration by parts)\footnote{should I elaborate here?}
+			と部分積分
 %%		によって、
 %%				{\begin{equation}
 %%			
@@ -666,7 +675,7 @@ The University of Tokyo}
 			\end{array}
 		\end{equation*}
 				\end{fact*}
-				次のアプローチを示す前、Carlsonの定理を復習する：
+				次のアプローチを示す前、Carlsonの定理\cite{carlson1960classe}を復習する：
 
 \begin{fact*}[Carlsonの定理]
 	$f$が$\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$右半平面上で連続で、
@@ -691,7 +700,6 @@ The University of Tokyo}
 	よって、Carlsonの定理の条件2.が必要である.
 \end{remark*}
 \begin{method}[cf. セルバーグ積分の証明]
-%%	下に記載したCarlsonの定理
 	上に記載したCarlsonの定理を認めれば、
 命題$1'$の積分等式の$\nu$は整数であるの特別な場合を示せば良いということが分かる.
 この場合で、$s+t$のベキ乗が多項式になって、左辺の積分がBeta積分の有限和になるので、
@@ -703,7 +711,7 @@ The University of Tokyo}
 %%	は計算可能.
 \end{method}
 \begin{remark*}
-アトル・セルバークの元々のセルバーグ積分の証明\cite{Selberg:411367}はこのようなメソッドを使った.
+	Atle Selbergの元々のセルバーグ積分の証明\cite{Selberg:411367}はこのような手法が用いられ\doubt{た}。
 \end{remark*}
 \begin{method}[命題\ref{prop:exp-stz-gg}によって]
 	命題\ref{prop:exp-stz-gg}を示すため、
@@ -738,7 +746,6 @@ The University of Tokyo}
 		\item 次の放題：
 	\end{enumerate}
 			\begin{lemma*}
-				
 			\begin{equation*}
 				\sum_{i = 0}^{\infty} \frac{(a)_i (1 - a)_i}{2^i i! (d)_i} {}_2 F_1 \left(
 				\begin{array}{c}
@@ -820,12 +827,12 @@ $G'$は$G$の部分群なので、$\pi$を$G'$の表現としてみなせる.
 multiplicity-freeであり、
 $K$から$K'$への制限も multiplicity-freeという仮定のもとでは、
 シューアの補題を用いることで、
-対称性破れ作用素の\kana{対角化}{タイカクカ}を行うことができる.
+対称性破れ作用素の\mykana{対角化}{タイカクカ}を行うことができる.
 
 図\ref{fig:1}は、上の段では、それぞれの$K$-typeが$K'$の表現として
 multiplicity-freeに分解されている様子を表し、
 対称性破れ作用素によって、同じ色の間に写像が誘導される
-という様子を\kana{図示}{ずし}している.
+という様子を\mykana{図示}{ずし}している.
 ここで、別様色が別様な$K'$-タイプを表す;
 \begin{figure}[h]
 	\centering
@@ -845,7 +852,7 @@ multiplicity-freeに分解されている様子を表し、
 			ゼロかどうかが完全に決定できる.
 	\end{enumerate}
 
-	\bibliographystyle{apalike}
+	\bibliographystyle{alpha}
 	\nocite{Selberg:411367}
 	\nocite{warnaar2010sl3}
 	\nocite{dotsenko1985four}
