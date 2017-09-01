@@ -1455,68 +1455,71 @@
     (see <cite-detail|andrews1999special|Thm. 5.4>), we are done.
   </proof>
 
+  <\question>
+    Explain, under which conditions and in which sense the series
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=b<around*|(|\<lambda\>,\<mu\>,\<nu\>|)><big|sum><rsub|<stack|<tformat|<table|<row|<cell|l,m=0>>|<row|<cell|l+m:even>>>>>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>,<eq-number><label|eqn:q30-1>>>|<row|<cell|b<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<assign\>2<rsup|-2\<nu\>>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>,>>|<row|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>\<assign\><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>
+    </equation*>
+
+    converges?
+  </question>
+
+  <\answer>
+    \;
+
+    <render-theorem|Claim|The series <math|<eqref|eqn:q30-1>> converges in
+    <math|L<rsup|2>> sense, as long as <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.>
+
+    <\proof>
+      We note that <math|<around*|{|C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|}><rsub|l,m=0><rsup|\<infty\>>>
+      form an orthogonal basis in space <math|L<rsup|2><around*|(|<around*|[|-1,1|]><rsup|2>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>|)>>,
+      as long as <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>.
+      Therefore, the series <math|<eqref|eqn:q30-1>> converges in
+      <math|L<rsup|2>> sense, as long as we can show that its LHS belongs to
+      <math|L<rsup|2><around*|(|<around*|[|-1,1|]><rsup|2>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>|)>>
+      space. However, the latter is easily seen to be true, as long as
+      <math|Re<around*|(|\<nu\>|)>\<gtr\>0>.
+    </proof>
+  </answer>
+
   <\bibliography|bib|alpha|intdep.bib>
-    <\bib-list|GRJ00>
-      <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
-      Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions and
-      the operator algebra in 2d conformal invariant theories with central
-      charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
-      Physics B>, 251:691\U734, 1985.
+    <\bib-list|Kna16>
+      <bibitem*|BW13><label|bib-borel2013continuous>Armand Borel and
+      Nolan<nbsp>R Wallach. <newblock><with|font-shape|italic|Continuous
+      cohomology, discrete subgroups, and representations of reductive
+      groups>, volume<nbsp>67. <newblock>American Mathematical Soc., 2013.
 
-      <bibitem*|GRJ00><label|bib-gradshteinryzhik>I.S.
-      Gradshte<math|<wide|<text|\Y>|\<breve\>>>n, I.M. Ryzhik, and
-      A.<nbsp>Jeffrey. <newblock><with|font-shape|italic|Table of Integrals,
-      Series, and Products, Sixth edition>. <newblock>Academic Press, New
-      York, 2000.
+      <bibitem*|HT12><label|bib-howe2012non>Roger<nbsp>E Howe and
+      Eng<nbsp>Chye Tan. <newblock><with|font-shape|italic|Non-Abelian
+      Harmonic Analysis: Applications of SL (2,R)>. <newblock>Springer
+      Science & Business Media, 2012.
 
-      <bibitem*|HT93><label|bib-howe1993homogeneous>R.<nbsp>E. Howe and E.-C.
-      Tan. <newblock>Homogeneous functions on light cones: the infinitesimal
-      structure of some degenerate principal series representations.
-      <newblock><with|font-shape|italic|Bull. Amer. Math. Soc. (N. S.)>,
-      28(1):1\U74, 1993.
+      <bibitem*|Kna16><label|bib-knapp2016representation>Anthony<nbsp>W
+      Knapp. <newblock><with|font-shape|italic|Representation Theory of
+      Semisimple Groups: An Overview Based on Examples (PMS-36)>.
+      <newblock>Princeton university press, 2016.
 
-      <bibitem*|Kei09><label|bib-keiner2009computing>Jens Keiner.
-      <newblock>Computing with expansions in gegenbauer polynomials.
-      <newblock><with|font-shape|italic|SIAM Journal on Scientific
-      Computing>, 31:2151\U2171, 2009.
+      <bibitem*|KO05><label|bib-kobayashi1999lie>T<nbsp>Kobayashi and
+      T<nbsp>Oshima. <newblock><with|font-shape|italic|Lie groups and
+      representations>. <newblock>Iwanami, 2005. <newblock>In Japanese.
 
-      <bibitem*|KM11><label|bib-kobayashi2011schrodinger>Toshiyuki Kobayashi
-      and Gen Mano. <newblock><with|font-shape|italic|The Schrödinger model
-      for the minimal representation of the indefinite orthogonal group
-      <math|O<around|(|p,q|)>>>, volume 213. <newblock>American Mathematical
-      Society, 2011.
+      <bibitem*|Lan12><label|bib-lang2012sl2>Serge Lang.
+      <newblock><with|font-shape|italic|SL<rsub|2>(R)>, volume 105.
+      <newblock>Springer Science & Business Media, 2012.
 
-      <bibitem*|KØ03><label|bib-KO2>T.<nbsp>Kobayashi and B.<nbsp>Ørsted.
-      <newblock>Analysis on the minimal representation of
-      <with|font-family|rm|O><math|<around|(|p,q|)>>.<space|0.27em><with|font-family|rm|II>.
-      Branching laws. <newblock><with|font-shape|italic|Adv. Math.>,
-      180:513\U550, 2003. <newblock>Available at
-      <slink|http://dx.doi.org/10.1016/S0001-8708(03)00013-6>.
+      <bibitem*|VJ81><label|bib-vogan1981representations>David<nbsp>A
+      Vogan<nbsp>Jr. <newblock>Representations of real reductive Lie groups.
+      <newblock><with|font-shape|italic|Progress in Math.>, 15, 1981.
 
-      <bibitem*|MT03><label|bib-mackenzie2003hermite>Mark<nbsp>R Mackenzie
-      and A<nbsp>Kiet Tieu. <newblock>Hermite neural network correlation and
-      application. <newblock><with|font-shape|italic|IEEE transactions on
-      signal processing>, 51(12):3210\U3219, 2003.
+      <bibitem*|Wal88><label|bib-wallach1988real>N.<nbsp>Wallach.
+      <newblock><with|font-shape|italic|Real Reductive Groups I>, volume 132
+      of <with|font-shape|italic|Pure and Applied Mathematics>.
+      <newblock>Academic Press, 1988.
 
-      <bibitem*|Olv10><label|bib-olver2010nist>Frank<nbsp>WJ Olver.
-      <newblock><with|font-shape|italic|NIST Handbook of Mathematical
-      Functions Hardback and CD-ROM>. <newblock>Cambridge University Press,
-      2010.
-
-      <bibitem*|Rai60><label|bib-rainville1960special>Earl<nbsp>David
-      Rainville. <newblock><with|font-shape|italic|Special functions>,
-      volume<nbsp>8. <newblock>Macmillan New York, 1960.
-
-      <bibitem*|TV03><label|bib-tarasov2003selberg>V<nbsp>Tarasov and
-      Alexander Varchenko. <newblock>Selberg-type integrals associated with
-      <math|<with|math-font|Euler|s*l><rsub|3>>.
-      <newblock><with|font-shape|italic|Letters in Mathematical Physics>,
-      65(3):173\U185, 2003.
-
-      <bibitem*|War10><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.
-      <newblock>The <math|<with|math-font|Euler|s*l><rsub|3>> Selberg
-      integral. <newblock><with|font-shape|italic|Advances in Mathematics>,
-      224(2):499\U524, 2010.
+      <bibitem*|Wal92><label|bib-wallach1988real2>N.<nbsp>Wallach.
+      <newblock><with|font-shape|italic|Real Reductive Groups II>, volume
+      <with|font-series|bold|132> of
     </bib-list>
   </bibliography>
 </body>
@@ -1531,18 +1534,26 @@
   <\collection>
     <associate|auto-1|<tuple|1|24>>
     <associate|auto-2|<tuple|2|25>>
-    <associate|auto-3|<tuple|29|29>>
+    <associate|auto-3|<tuple|15|29>>
     <associate|bib-KO2|<tuple|KØ03|29>>
+    <associate|bib-borel2013continuous|<tuple|BW13|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|29>>
     <associate|bib-gradshteinryzhik|<tuple|GRJ00|29>>
     <associate|bib-howe1993homogeneous|<tuple|HT93|29>>
+    <associate|bib-howe2012non|<tuple|HT12|?>>
     <associate|bib-keiner2009computing|<tuple|Kei09|29>>
+    <associate|bib-knapp2016representation|<tuple|Kna16|?>>
+    <associate|bib-kobayashi1999lie|<tuple|KO05|?>>
     <associate|bib-kobayashi2011schrodinger|<tuple|KM11|29>>
     <associate|bib-kobayashi2015symmetry|<tuple|KS15|25>>
+    <associate|bib-lang2012sl2|<tuple|Lan12|?>>
     <associate|bib-mackenzie2003hermite|<tuple|MT03|29>>
     <associate|bib-olver2010nist|<tuple|Olv10|29>>
     <associate|bib-rainville1960special|<tuple|Rai60|29>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|29>>
+    <associate|bib-vogan1981representations|<tuple|VJ81|?>>
+    <associate|bib-wallach1988real|<tuple|Wal88|?>>
+    <associate|bib-wallach1988real2|<tuple|Wal92|?>>
     <associate|bib-warnaar2010sl3|<tuple|War10|29>>
     <associate|cor|<tuple|1|14>>
     <associate|cor:1|<tuple|28|?>>
@@ -1565,6 +1576,7 @@
     <associate|eqn:q26-1|<tuple|12|27>>
     <associate|eqn:q26-2|<tuple|13|?>>
     <associate|eqn:q26-3|<tuple|13|28>>
+    <associate|eqn:q30-1|<tuple|15|?>>
     <associate|eqn:stz|<tuple|16|?>>
     <associate|eqn:thm1|<tuple|5|9>>
     <associate|fig:howetan2d31|<tuple|1|24>>
