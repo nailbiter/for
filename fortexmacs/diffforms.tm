@@ -138,10 +138,109 @@
     <section|First section|>
   </hide-part>
 
-  <\hide-part|3>
+  <\show-part|3>
     <section|Howe-Tan for differential forms|>
 
-    <date|>
+    For simplicity we use the following notation:
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|O<around*|(|p;q|)>\<assign\>O<around*|(|p|)>\<times\>O<around*|(|q|)>,>>|<row|<cell|SO<rsub|0><around*|(|p;q|)>\<assign\>SO<rsub|0><around*|(|p|)>\<times\>SO<rsub|0><around*|(|q|)>>>|<row|<cell|\<bbb-S\><rsup|p;q>\<assign\>\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>>>>>>
+    </equation*>
+
+    <subsection|Main results|>
+
+    <\proposition>
+      <label|prop:so>Suppose <math|p,q\<in\>\<bbb-N\><rsub|+>>. Then, the
+      following irreps occur in <math|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>;\<bbb-C\>|)>\<mid\><rsub|SO<rsub|0><around*|(|p+1;q+1|)>>>
+      together with corresponding multiplicities (see Fact
+      <reference|fact:irreps-n-branch-so> for notation):
+
+      <\equation*>
+        <tabular|<tformat|<table|<row|<cell|>>>>>
+      </equation*>
+    </proposition>
+
+    <subsection|Auxiliary Lemmas (General theorems)|>
+
+    <\lemma>
+      <label|prop:restr-connected>Suppose <math|G\<supset\>H>: pair of Lie
+      groups, such that\ 
+
+      <\enumerate>
+        <item><math|G<rsub|0>H=G>,
+
+        <item><math|G<rsub|0>\<cap\>H=H<rsub|0>>,
+      </enumerate>
+
+      and <math|<around*|(|\<pi\>,V|)>> is the finitely-dimensional
+      representation of <math|H>. Then, the map
+
+      <\equation*>
+        <tabular|<tformat|<table|<row|<cell|<around*|{|f\<in\>C<rsup|\<infty\>><around*|(|G,V|)>\<mid\>\<ldots\>|}>=:>|<cell|Ind<rsub|H><rsup|G><around*|(|V|)>>|<cell|\<rightarrow\>>|<cell|Ind<rsub|H<rsub|0>><rsup|G<rsub|0>><around*|(|V\<mid\><rsub|H<rsub|0>>|)>>|<cell|\<assign\><around*|{|f\<in\>C<rsup|\<infty\>><around*|(|G<rsub|0>,V|)>\<mid\>\<ldots\>|}>>>|<row|<cell|>|<cell|f>|<cell|\<mapsto\>>|<cell|f\<mid\><rsub|G<rsub|0>>>|<cell|>>>>>
+      </equation*>
+
+      is an isomorphism of <math|G<rsub|0>>-modules.
+    </lemma>
+
+    <\remark*>
+      Note that this setting is satisfied by the pair
+
+      <\equation*>
+        <around*|(|G,H|)>=<around*|(|O<around*|(|p+1;q+1|)>,O<around*|(|p;q|)>|)>.
+      </equation*>
+    </remark*>
+
+    <\proof>
+      The assumption <math|G<rsub|0>H=G> ensures injectivity, while the
+      <math|G<rsub|0>\<cap\>H=H<rsub|0>> ensures surjectivity.
+    </proof>
+
+    <subsection|Proofs|>
+
+    <\fact>
+      <label|fact:irreps-n-branch-so><dueto|<cite|knapp2013lie>,Chap. IX>The
+      following holds:
+
+      <\enumerate>
+        <item>
+
+        <\eqnarray>
+          <tformat|<table|<row|<cell|>|<cell|<tabular|<tformat|<table|<row|<cell|HV<around*|(|N|)>\<assign\><choice|<tformat|<table|<row|<cell|\<lambda\><rsub|1>\<geqslant\>\<lambda\><rsub|2>\<geqslant\>\<ldots\>\<geqslant\>\<lambda\><rsub|k-1>\<geqslant\><around*|\||\<lambda\><rsub|k>|\|>\<geqslant\>0,>|<cell|N=2k>>|<row|<cell|\<lambda\><rsub|1>\<geqslant\>\<lambda\><rsub|2>\<geqslant\>\<ldots\>\<geqslant\>\<lambda\><rsub|k>\<geqslant\>0,>|<cell|N=2k+1>>>>>>|<cell|<long-arrow|\<rubber-rightarrow\>|\<sim\>|\<tau\><rsub|N>>>|<cell|<wide|SO|^><around*|(|N|)>>>|<row|<cell|\<lambda\>=<around*|(|\<lambda\><rsub|i>|)>>|<cell|\<mapsto\>>|<cell|<around*|[|\<lambda\>|]>=\<tau\><rsub|N><around*|(|\<lambda\>|)>>>>>>>|<cell|>>>>
+        </eqnarray>
+
+        In particular,
+
+        <\equation*>
+          <stack|<tformat|<table|<row|<cell|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|N>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1<rsup|i>|]>>|<cell|<around*|(|i\<less\>N/2|)>>>|<row|<cell|<around*|[|1<rsup|N-i>|]>>|<cell|<around*|(|i\<gtr\>N/2|)>>>|<row|<cell|<around*|[|1<rsup|i-1>,1|]>\<oplus\><around*|[|1<rsup|i-1>,-1|]>>|<cell|<around*|(|i=N/2\<in\>\<bbb-N\><rsub|+>|)>>>>>>>>|<row|<cell|<around*|(|<text|\<because\><cite-detail|knapp2013lie|Chap.
+          V, Prob. 8\U10>>|)>>>>>>
+        </equation*>
+
+        <item>We have
+
+        <\equation*>
+          <around*|[|<stack|<tformat|<table|<row|<cell|\<tau\><rsub|N+1><around*|(|a|)>>>>>>:\<tau\><rsub|N><around*|(|c|)>|]>=<choice|<tformat|<table|<row|<cell|1>|<cell|<around*|(|N=2n|)>>>|<row|<cell|>|<cell|<around*|(|a<rsub|1>\<geqslant\>c<rsub|1>\<geqslant\>a<rsub|2>\<geqslant\>c<rsub|2>\<geqslant\>\<ldots\>\<geqslant\>a<rsub|n-1>\<geqslant\>c<rsub|n-1>\<geqslant\>a<rsub|n>\<geqslant\><around*|\||c<rsub|n>|\|>|)>>>|<row|<cell|1>|<cell|<around*|(|N=2n-1|)>>>|<row|<cell|>|<cell|<around*|(|a<rsub|1>\<geqslant\>c<rsub|1>\<geqslant\>a<rsub|2>\<geqslant\>c<rsub|2>\<geqslant\>\<ldots\>\<geqslant\>a<rsub|n-1>\<geqslant\>c<rsub|n-1>\<geqslant\><around*|\||a<rsub|n>|\|>|)>>>|<row|<cell|0>|<cell|<around*|(|<text|otherwise>|)>>>>>>
+        </equation*>
+      </enumerate>
+    </fact>
+
+    <\proof>
+      (of Proposition <reference|prop:so>) Note that the Remark after Lemma
+      <reference|prop:restr-connected> implies that we can consider the
+      representation
+
+      <\equation*>
+        Ind<rsub|SO<rsub|0><around*|(|p;q|)>><rsup|SO<rsub|0><around*|(|p+1;q+1|)>><around*|(|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p+q>|)>|)>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|i+j=k>>|<row|<cell|i,j\<geqslant\>0>>>>>>Ind<rsub|SO<around*|(|p|)>><rsup|SO<around*|(|p+1|)>><around*|(|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|p>|)>|)>\<otimes\>Ind<rsub|SO<around*|(|q|)>><rsup|SO<around*|(|q+1|)>><around*|(|\<Lambda\><rsup|j><around*|(|\<bbb-C\><rsup|q>|)>|)>.
+      </equation*>
+
+      Now, Frobenious reciprocity implies that
+    </proof>
+  <|show-part>
+    <section|Howe-Tan for differential forms|>
+  </show-part>
+
+  <\hide-part|4>
+    <section|Symmetry breaking for full orthogonal groups
+    <math|O<around*|(|N|)>>|>
 
     <\fact>
       <label|2:fact-irreps-of-on>The following holds:
@@ -184,12 +283,12 @@
       Fact <reference|2:fact-irreps-of-on> and Frobenius reciprocity.
     </proof>
   <|hide-part>
-    <section|Howe-Tan for differential forms|>
-  </hide-part>
-
-  <\show-part|4>
     <section|Symmetry breaking for full orthogonal groups
     <math|O<around*|(|N|)>>|>
+  </hide-part>
+
+  <\hide-part|5>
+    <section|Playground|>
 
     <subsection|Irreps of <math|SO<around*|(|n|)>> and
     <math|O<around*|(|n|)>>|>
@@ -384,13 +483,6 @@
         </equation*>
       </description>
     </fact>
-  <|show-part>
-    <section|Symmetry breaking for full orthogonal groups
-    <math|O<around*|(|N|)>>|>
-  </show-part>
-
-  <\hide-part|5>
-    <section|Playground|>
 
     <subsection|Branching in <math|SO<around*|(|N|)>>|>
 
@@ -590,7 +682,7 @@
     <associate|1:fact-1|<tuple|1.1|1|#2>>
     <associate|1:prop-q0|<tuple|1.3|1|#2>>
     <associate|1:prop-qb1|<tuple|1.4|2|#2>>
-    <associate|2:fact-irreps-of-on|<tuple|2.1|?|#3>>
+    <associate|2:fact-irreps-of-on|<tuple|3.1|?|#4>>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-10|<tuple|4.2|?>>
     <associate|auto-2|<tuple|2|2>>
@@ -603,10 +695,15 @@
     <associate|auto-9|<tuple|4.3|?>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
+    <associate|auto.3-2|<tuple|2.1|?|#3>>
+    <associate|auto.3-3|<tuple|2.2|?|#3>>
+    <associate|auto.3-4|<tuple|2.3|?|#3>>
+    <associate|auto.3-5|<tuple|2.4|?|#3>>
+    <associate|auto.3-6|<tuple|2.5|?|#3>>
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.4-2|<tuple|3.1|?|#4>>
     <associate|auto.4-3|<tuple|3.2|?|#4>>
-    <associate|auto.4-4|<tuple|4|?|#4>>
+    <associate|auto.4-4|<tuple|3.3|?|#4>>
     <associate|auto.4-5|<tuple|4.1|?|#4>>
     <associate|auto.4-6|<tuple|4.2|?|#4>>
     <associate|auto.4-7|<tuple|4.3|?|#4>>
@@ -614,6 +711,8 @@
     <associate|auto.5-2|<tuple|4.1|?|#5>>
     <associate|auto.5-3|<tuple|4.2|?|#5>>
     <associate|auto.5-4|<tuple|4.3|?|#5>>
+    <associate|auto.5-5|<tuple|4.4|?|#5>>
+    <associate|auto.5-6|<tuple|4.5|?|#5>>
     <associate|auto.6-1|<tuple|4.2|?|#6>>
     <associate|bib-KO2|<tuple|KØ03|?|#6>>
     <associate|bib-boerner1963representations|<tuple|BMMC63|?|#6>>
@@ -633,14 +732,19 @@
     <associate|bib-tarasov2003selberg|<tuple|TV03|?|#6>>
     <associate|bib-warnaar2010sl3|<tuple|War10|?|#6>>
     <associate|fact-1|<tuple|1.1|?>>
+    <associate|fact:irreps-n-branch-so|<tuple|2.1|?|#3>>
     <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-3.1|<tuple|3.1|?|#4>>
     <associate|footnote-3.2|<tuple|3.2|?|#4>>
     <associate|footnote-4.1|<tuple|4.1|?|#5>>
+    <associate|footnote-4.2|<tuple|4.2|?|#5>>
     <associate|footnr-3.1|<tuple|3.1|?|#4>>
     <associate|footnr-3.2|<tuple|3.2|?|#4>>
     <associate|footnr-4.1|<tuple|4.1|?|#5>>
+    <associate|footnr-4.2|<tuple|4.2|?|#5>>
     <associate|prop:cpt-maxtorus|<tuple|4.1|?|#5>>
+    <associate|prop:restr-connected|<tuple|2.1|?|#3>>
+    <associate|prop:so|<tuple|2.1|?|#3>>
   </collection>
 </references>
 

@@ -4,8 +4,8 @@
 ZIPNAME=report79
 WORKON=$(ZIPNAME) aug22--sep1
 COMMIT_PREFIX=reports
-PDFS=report
-AUX=reading_list.pdf
+PDFS=report reading_list diffforms
+AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -27,6 +27,8 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	$(GITCOMMIT)
 
 #texmacs targets
+$(OUTDIR)/diffforms.pdf : $(TEXMACSDIR)/diffforms.tm
+	$(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/notes.pdf : $(LOCAL_TEXMACSDIR)/seminars/tambara_16-08-17/notes.tm
 	$(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/reading_list.pdf : $(TEXMACSDIR)/misc/toread/reading_list.tm

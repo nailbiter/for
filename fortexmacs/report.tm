@@ -13,8 +13,8 @@
     Estimate the work that should be done for the analogue of Howe-Tan's
     results for the case of differential forms;
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
-    Prove the multiplicity-freeness of <math|<big|wedge><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
-    as representation of <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>
+    Prove the multiplicity-freeness of <math|\<Omega\><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
+    as representation of <math|O<around*|(|p+1;q+1|)>>;
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     read Lang's SL2
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
@@ -31,22 +31,20 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>With a lot of Your help, delivered a speech at Functional Analysis
-    and Real Analysis Symposium.
-
-    <item>Made some progress in understanding of product of generalized
-    functions (see <verbatim|normalizations.pdf> attached).
-
-    <item>Attended Tambara (see <verbatim|notes.pdf> attached, also the voice
-    record of Atobe\Usan's is available at
-    <hlink|https://drive.google.com/file/d/0Bx9ORoAf44_QdFRFUmZNQTBIUk0/view?usp=sharing|https://drive.google.com/file/d/0Bx9ORoAf44_QdFRFUmZNQTBIUk0/view?usp=sharing>).
+    <item>Some work in proving the multiplicity-freeness of
+    <math|\<Omega\><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
+    as <math|O<around*|(|p+1;q+1|)>>-rep was done (see Prop. 2.1 of attached
+    <verbatim|diffforms.pdf>)<\footnote>
+      I will send the complete version of this Proposition before the end of
+      Saturday. Please ignore <verbatim|diffforms.pdf> for the moment
+    </footnote>.
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
 
   <\enumerate>
     <item>Prove the multiplicity-freeness of
-    <math|<big|wedge><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
+    <math|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
     as representation of <math|O<around*|(|p+1|)>\<times\>O<around*|(|q+1|)>>;
 
     <item>Prepare better notes for Tamori\Ukun's talk;
@@ -158,7 +156,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      78> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      79> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments
