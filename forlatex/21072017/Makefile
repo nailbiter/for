@@ -4,7 +4,7 @@
 ZIPNAME=RIMSslides
 WORKON=https://trello.com/c/qQLQN4Rn method1ShowWhy3F2SatisfiesWhipple
 COMMIT_PREFIX=tex RIMStalk
-PDFS=intpaper answer RIMS17-Alex-int slides speech
+PDFS=intpaper answer RIMS17-Alex-int slides speech ja
 AUX=abe_form.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
@@ -17,9 +17,13 @@ TEXMACSDIR=~/for/fortexmacs
 COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
-all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS)))
+all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) #$(OUTDIR)/ja.pdf
 p: $(OUTDIR)/$(ZIPNAME).zip
 
+$(OUTDIR)/ja.pdf : $(OUTDIR)/ja.dvi
+	cd $(OUTDIR) && dvipdfmx $(basename $<).dvi
+$(OUTDIR)/ja.dvi: ja.tex
+	latexmk -outdir=$(OUTDIR) -latex='platex %O %S' -f -g $<
 $(OUTDIR)/RIMS17-Alex-int.dvi: RIMS17-Alex-int.tex diagram.tex big.intdep.tex intdep.bib
 	latexmk -outdir=$(OUTDIR) -latex='platex %O %S' -f -g $<
 

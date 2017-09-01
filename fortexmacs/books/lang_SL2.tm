@@ -55,17 +55,7 @@
 
     <\equation*>
       <stack|<tformat|<table|<row|<cell|<around*|(|f\<ast\>g|)><around*|(|x|)>=<big|int><rsub|G>f<around*|(|x
-      y<rsup|-1>|)>g<around*|(|y|)>\<mathd\>y>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y|)>g<around*|(|y*x|)>\<mathd\>y=<big|int><rsub|G>g<around*|(|x<rsup|\<tau\>>y<rsup|\<tau\>>|)>f<around*|(|y<rsup|\<tau\>>|)>\<mathd\>y>>|<row|<cell|=>>|<row|<cell|>>|<row|<cell|=<big|int><rsub|G>g<around*|(|x*y<rsup|-1>|)>f<around*|(|y|)>\<mathd\>x=<around*|(|g\<ast\>f|)><around*|(|x|)>>>>>>
-    </equation*>
-
-    <\equation*>
-      <stack|<tformat|<table|<row|<cell|<around*|(|f\<ast\>g|)><around*|(|x|)>=<big|int><rsub|G>f<around*|(|x
-      y<rsup|-1>|)>g<around*|(|y|)>d y>>|<row|<cell|<around*|(|<text|<math|\<Delta\><around*|(|\<tau\>|)>=1>>|)>>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y<rsup|-\<tau\>>x<rsup|\<tau\>>|)>g<around*|(|y<rsup|\<tau\>>|)>d
-      y>>|<row|<cell|<around*|(|y\<rightarrow\>y
-      x|)>>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y<rsup|-\<tau\>>|)>g<around*|(|x<rsup|\<tau\>>y<rsup|\<tau\>>|)>d
-      y>>|<row|<cell|<around*|(|\<forall\>f\<in\>C<rsub|c><around*|(|G//K|)>\<forall\>x\<in\>G,f<around*|(|x<rsup|\<tau\>>|)>=f<around*|(|x|)>|)>>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y<rsup|-1>|)>g<around*|(|y
-      x|)>d y=<big|int><rsub|G>f<around*|(|y<rsup|>|)>g<around*|(|y<rsup|-1>
-      x|)>d y>>>>>
+      y<rsup|-1>|)>g<around*|(|y|)>\<mathd\>y>>|<row|<cell|=<big|int><rsub|G>f<around*|(|y<rsup|-1>|)>g<around*|(|y*x|)>\<mathd\>y=<big|int><rsub|G>g<around*|(|x<rsup|\<tau\>>y<rsup|\<tau\>>|)>f<around*|(|y<rsup|-\<tau\>>|)>\<mathd\>y>>|<row|<cell|=<big|int><rsub|G>g<around*|(|x<rsup|\<tau\>>y<rsup|-1>|)>f<around*|(|y|)>\<mathd\>y=<around*|(|g\<ast\>f|)><around*|(|x<rsup|\<tau\>>|)>=<around*|(|g\<ast\>f|)><around*|(|x|)>.>>>>>
     </equation*>
 
     \;
