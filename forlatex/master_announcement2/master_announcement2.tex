@@ -1,7 +1,7 @@
-%platex
-\documentclass[reqno,12pt]{pja00} % use larger type; default would be 10pt
+\documentclass[12pt]{article} % use larger type; default would be 10pt
 
 \usepackage{mathrsfs}
+\usepackage{amsthm}
 \usepackage{hyperref}
 \usepackage[normalem]{ulem}
 \usepackage{enumerate}
@@ -11,7 +11,6 @@
 \usepackage{amsmath,amssymb,xypic}
 \usepackage[all,cmtip]{xy}
 \usepackage{amsmath,amssymb,float}
-\usepackage{mystyle}
 \usepackage[normalem]{ulem}
 \usepackage{caption}
 \usepackage{setspace}
@@ -24,6 +23,9 @@
 \usepackage{tikz}
 \usepackage{ulem}
 \usetikzlibrary{patterns}
+\usepackage{authblk}
+
+\input{mystyle.tex}
 
 \newcommand{\myrestr}[2]{\left.#1\right|_{#2}}
 
@@ -157,12 +159,10 @@
 \begin{document}
 
 \title{Symmetry breaking operators for the restriction of representations of indefinite orthogonal groups $O(p,q)$ (part 2)}
-\Author{1}{Toshiyuki}{Kobayashi}
-\Author{2}{Alex}{Leontiev}
-\affiliation{1}{Kavli IPMU and Graduate School of Mathematical Sciences, The University of Tokyo}
-\affiliation{2}{Graduate School of Mathematical Sciences, The University of Tokyo}
-\KeyWords{ {Representation theory}{reductive group}{branching law}{broken symmetry}{conformal geometry}{symmetry breaking operator}{Zuckerman modules}}
-\Subject[2010]{22E46; 33C45, 53C35}
+\author[1]{Toshiyuki Kobayashi}
+\author[2]{Alex Leontiev}
+\affil[1]{Kavli IPMU and Graduate School of Mathematical Sciences, The University of Tokyo}
+\affil[2]{Graduate School of Mathematical Sciences, The University of Tokyo}
 
   \maketitle
 \begin{abstract}
@@ -170,8 +170,10 @@ This is the second part of results on the symmetry breaking operators for the pa
 In the first announcement we have outlined the construction and classification of SBOs together with some finer results
 (e.g. residue formul\ae, functional equations). In this second announcement we outline the results on complete determination of
 images of SBOs for all parameters. Together with the (partial) knowledge about their kernels, this allowed us to give the complete classification
-of the $G'$-intertwining maps between the certain families of Zuckerman derived modules that occur as submodules/quotients of degenerate principal series.
+of the $G'$-intertwining maps between the certain families of Zuckerman derived modules that occur as submodules/quotients of degenerate principal series.\\
 %The results contribute to Program C of branching problems suggested by the first author [Progr. Math. 2015].
+\textbf{Keywords:} {Representation theory}, {reductive group}, {branching law}, {broken symmetry}, {conformal geometry}, {symmetry breaking operator}, {Zuckerman modules}\\
+\textbf{Subject}: 2010, {22E46; 33C45, 53C35}
 \end{abstract}
 \input{useless.tex}
 Let $G=O(p,q)$ be the automorphism group of the quadratic form

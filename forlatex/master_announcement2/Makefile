@@ -23,6 +23,7 @@ master_announcement2.tex: tables.tex tablesB.tex
 
 $(OUTDIR)/master_announcement2_plain.tex : master_announcement2.tex tables.tex useless.tex
 	latexpand $< --output $@
+	cd $(OUTDIR) && pdflatex master_announcement2_plain.tex
 
 %.eps: %.tex howetan_diagrams.tex
 	latex $<
