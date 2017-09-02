@@ -151,16 +151,16 @@
 
     <\proposition>
       <label|prop:so>Suppose <math|p,q\<in\>\<bbb-N\><rsub|+>>. Then, the
-      following irreps occur in <math|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>;\<bbb-C\>|)>\<mid\><rsub|SO<rsub|0><around*|(|p+1;q+1|)>>>
+      following irrep's occur in <math|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>;\<bbb-C\>|)>\<mid\><rsub|SO<rsub|0><around*|(|p+1;q+1|)>>>
       together with corresponding multiplicities (see Fact
       <reference|fact:irreps-n-branch-so> for notation):
 
       <\equation*>
-        <tabular|<tformat|<table|<row|<cell|>>>>>
+        <block|<tformat|<cwith|1|1|1|1|cell-tborder|1ln>|<cwith|1|1|1|1|cell-bborder|1ln>|<cwith|1|1|1|1|cell-lborder|1ln>|<cwith|1|1|1|1|cell-rborder|1ln>|<table|<row|<cell|>|<cell|>>|<row|<cell|>|<cell|>>>>>
       </equation*>
     </proposition>
 
-    <subsection|Auxiliary Lemmas (General theorems)|>
+    <subsection|Auxiliary Lemmas|>
 
     <\lemma>
       <label|prop:restr-connected>Suppose <math|G\<supset\>H>: pair of Lie
@@ -195,8 +195,6 @@
       <math|G<rsub|0>\<cap\>H=H<rsub|0>> ensures surjectivity.
     </proof>
 
-    <subsection|Proofs|>
-
     <\fact>
       <label|fact:irreps-n-branch-so><dueto|<cite|knapp2013lie>,Chap. IX>The
       following holds:
@@ -211,8 +209,8 @@
         In particular,
 
         <\equation*>
-          <stack|<tformat|<table|<row|<cell|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|N>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1<rsup|i>|]>>|<cell|<around*|(|i\<less\>N/2|)>>>|<row|<cell|<around*|[|1<rsup|N-i>|]>>|<cell|<around*|(|i\<gtr\>N/2|)>>>|<row|<cell|<around*|[|1<rsup|i-1>,1|]>\<oplus\><around*|[|1<rsup|i-1>,-1|]>>|<cell|<around*|(|i=N/2\<in\>\<bbb-N\><rsub|+>|)>>>>>>>>|<row|<cell|<around*|(|<text|\<because\><cite-detail|knapp2013lie|Chap.
-          V, Prob. 8\U10>>|)>>>>>>
+          <stack|<tformat|<table|<row|<cell|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|N>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1<rsup|i>|]>>|<cell|<around*|(|i\<less\>N/2|)>>>|<row|<cell|<around*|[|1<rsup|N-i>|]>>|<cell|<around*|(|i\<gtr\>N/2|)>>>|<row|<cell|<around*|[|1<rsup|i-1>,1|]>\<oplus\><around*|[|1<rsup|i-1>,-1|]>>|<cell|<around*|(|i=N/2\<in\>\<bbb-N\><rsub|+>|)>>>>>><text|<cite-detail|knapp2013lie|Chap.
+          V, Prob. 8\U10>>>>>>>
         </equation*>
 
         <item>We have
@@ -223,8 +221,40 @@
       </enumerate>
     </fact>
 
+    <\lemma>
+      Only the following irrep's of <math|SO<around*|(|N|)>> appear in
+      <math|Ind<rsub|SO<around*|(|N|)>><rsup|SO<around*|(|N+1|)>>\<Lambda\><rsup|i><rsub|\<varepsilon\>><around*|(|\<bbb-C\><rsup|N>|)>>
+      (all with multiplicity one):
+
+      <\equation*>
+        <choice|<tformat|<table|<row|<cell|<around*|{|<around*|[|a|]>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|i\<in\><around*|{|0,2n|}>|)>>|<cell|<around*|(|N=2n|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|i=n|)>>|<cell|>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
+        <math|j\<assign\>min<around*|{|i,N-i|}>>>|)>>|<cell|>>|<row|<cell|<around*|{|<around*|[|a|]>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|i\<in\><around*|{|0,2n-1|}>|)>>|<cell|<around*|(|N=2n-1|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-2>:\<varepsilon\><rprime|'>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>,\<varepsilon\><rprime|'>\<in\><around*|{|\<pm\>1|}>>>|<cell|<around*|(|i\<in\><around*|{|n-1,n|}>\\<around*|{|0,2n-1|}>|)>,>|<cell|>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
+        <math|j\<assign\>min<around*|{|i,N-i|}>>>|)>>|<cell|>>>>>
+      </equation*>
+
+      where <math|\<varepsilon\>\<in\><around*|{|\<pm\>1|}>=<around*|{|\<pm\>|}>>
+      and
+
+      <\equation*>
+        \<Lambda\><rsup|i><rsub|\<varepsilon\>><around*|(|\<bbb-C\><rsup|N>|)>\<assign\><choice|<tformat|<table|<row|<cell|<around*|[|1<rsup|i-1>,\<varepsilon\>|]>>|<cell|<around*|(|i=N/2\<in\>\<bbb-N\><rsub|+>|)>>>|<row|<cell|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|N>|)>>|<cell|<around*|(|<text|otherwise>|)>.>>>>>
+      </equation*>
+    </lemma>
+
     <\proof>
-      (of Proposition <reference|prop:so>) Note that the Remark after Lemma
+      Fact <reference|fact:irreps-n-branch-so> and Frobenious reciprocity.
+    </proof>
+
+    <subsection|Proofs|>
+
+    <\proof>
+      (of Proposition <reference|prop:so>) As it is clear that as
+      <math|O<around*|(|p+1;q+1|)>>-module
+
+      <\equation*>
+        \<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>;\<bbb-C\>|)>=Ind<rsub|O<around*|(|p;q|)>><rsup|O<around*|(|p+1;q+1|)>><around*|(|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p+q>|)>|)>,
+      </equation*>
+
+      we note that the Remark after the Lemma
       <reference|prop:restr-connected> implies that we can consider the
       representation
 
