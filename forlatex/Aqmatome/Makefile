@@ -5,7 +5,7 @@ ZIPNAME=Aqmatome
 WORKON=Aqmatome
 COMMIT_PREFIX=tex
 PDFS=
-AUX=slides.pdf kankan.pdf master_announcement.pdf master_skeleton.pdf
+AUX=slides.pdf kankan.pdf master_announcement2.pdf master_skeleton.pdf master_announcement2_plain.tex
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs

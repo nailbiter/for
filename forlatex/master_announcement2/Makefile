@@ -11,7 +11,7 @@ WORKON=https://trello.com/c/jUZS9cjM
 PDFS=Z master_announcement2 howetan_diagrams answer
 AUX=
 
-all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
+all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX)) $(OUTDIR)/master_announcement2_plain.tex
 pub: $(OUTDIR)/$(ZIPNAME).zip
 
 clean:
@@ -20,6 +20,9 @@ clean:
 
 master_announcement2.tex: tables.tex tablesB.tex
 	touch master_announcement2.tex
+
+$(OUTDIR)/master_announcement2_plain.tex : master_announcement2.tex tables.tex useless.tex
+	latexpand $< --output $@
 
 %.eps: %.tex howetan_diagrams.tex
 	latex $<
