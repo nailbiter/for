@@ -139,7 +139,7 @@
   </hide-part>
 
   <\show-part|3>
-    <section|Howe-Tan for differential forms|>
+    <section|Howe-Tan for differential forms|<label|sec:howetan>>
 
     For simplicity we use the following notation:
 
@@ -150,21 +150,53 @@
     <subsection|Main results|>
 
     <\proposition>
-      <label|prop:so>Suppose <math|p,q\<in\>\<bbb-N\><rsub|+>>. Then, the
-      following irrep's occur in <math|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>;\<bbb-C\>|)>\<mid\><rsub|SO<rsub|0><around*|(|p+1;q+1|)>>>
-      together with corresponding multiplicities (see Fact
-      <reference|fact:irreps-n-branch-so> for notation):
+      <label|prop:so>Suppose <math|p,q\<in\>\<bbb-N\>> and assume that
+      <math|p\<geqslant\>q> for definiteness.
 
-      <\equation*>
-        <block|<tformat|<cwith|1|1|1|1|cell-tborder|1ln>|<cwith|1|1|1|1|cell-bborder|1ln>|<cwith|1|1|1|1|cell-lborder|1ln>|<cwith|1|1|1|1|cell-rborder|1ln>|<table|<row|<cell|>|<cell|>>|<row|<cell|>|<cell|>>>>>
-      </equation*>
+      <\description>
+        <item*|<math|p\<gtr\>q=0> case>Then,
+        <math|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>> is
+        multiplicity-free as <math|O<around*|(|p+1;q+1|)>>-module. The only
+        irrep's that occur are <math|\<tau\>\<otimes\><around*|(|\<pm\>|)>>,
+        where <math|\<tau\>\<in\><wide|O|^><around*|(|p+1|)>> runs through
+        the list in Lemma <reference|lem:howetan:ind-o> and
+        <math|<around*|{|+,-|}>\<assign\><wide|O|^><around*|(|q|)>=<wide|O|^><around*|(|1|)>>.
+      </description>
+
+      <\folded>
+        \;
+      <|folded>
+        In subsequent cases, we assume that <math|p\<geqslant\>q\<gtr\>0>.
+        Then,\ 
+
+        <\equation*>
+          \<forall\>\<tau\>\<in\><wide|O|^><around*|(|p+1;q+1|)>,<space|1em><around*|[|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>:\<tau\>|]>\<leqslant\>2.
+        </equation*>
+
+        Moreover, the following irrep's occur in
+        <math|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>;\<bbb-C\>|)>\<mid\><rsub|SO<rsub|0><around*|(|p+1;q+1|)>>>
+        together with corresponding multiplicities (see Fact
+        <reference|fact:irreps-n-branch-so> for notation):
+
+        <\equation*>
+          <text|TODO>
+        </equation*>
+      </folded>
     </proposition>
+
+    <\folded|>
+      <\remark*>
+        TODO
+      </remark*>
+    </folded>
 
     <subsection|Auxiliary Lemmas|>
 
     <\lemma>
-      <label|prop:restr-connected>Suppose <math|G\<supset\>H>: pair of Lie
-      groups, such that\ 
+      <label|prop:restr-connected>Suppose
+      <math|G\<supset\>H,G<rprime|'>\<supset\>H<rprime|'>>: pairs of Lie
+      groups, such that <math|G\<supset\>G<rprime|'>,H\<supset\>H<rprime|'>>
+      and
 
       <\enumerate>
         <item><math|G<rsub|0>H=G>,
@@ -186,7 +218,7 @@
       Note that this setting is satisfied by the pair
 
       <\equation*>
-        <around*|(|G,H|)>=<around*|(|O<around*|(|p+1;q+1|)>,O<around*|(|p;q|)>|)>.
+        <stack|<tformat|<table|<row|<cell|<around*|(|G,H|)>=<around*|(|O<around*|(|p+1;q+1|)>,O<around*|(|p;q|)>|)>,>>|<row|<cell|<around*|(|G<rsub|0>,H<rsub|0>|)>=<around*|(|SO<rsub|0><around*|(|p+1;q+1|)>,SO<rsub|0><around*|(|p;q|)>|)>.>>>>>
       </equation*>
     </remark*>
 
@@ -206,7 +238,7 @@
           <tformat|<table|<row|<cell|>|<cell|<tabular|<tformat|<table|<row|<cell|HV<around*|(|N|)>\<assign\><choice|<tformat|<table|<row|<cell|\<lambda\><rsub|1>\<geqslant\>\<lambda\><rsub|2>\<geqslant\>\<ldots\>\<geqslant\>\<lambda\><rsub|k-1>\<geqslant\><around*|\||\<lambda\><rsub|k>|\|>\<geqslant\>0,>|<cell|N=2k>>|<row|<cell|\<lambda\><rsub|1>\<geqslant\>\<lambda\><rsub|2>\<geqslant\>\<ldots\>\<geqslant\>\<lambda\><rsub|k>\<geqslant\>0,>|<cell|N=2k+1>>>>>>|<cell|<long-arrow|\<rubber-rightarrow\>|\<sim\>|\<tau\><rsub|N>>>|<cell|<wide|SO|^><around*|(|N|)>>>|<row|<cell|\<lambda\>=<around*|(|\<lambda\><rsub|i>|)>>|<cell|\<mapsto\>>|<cell|<around*|[|\<lambda\>|]>=\<tau\><rsub|N><around*|(|\<lambda\>|)>>>>>>>|<cell|>>>>
         </eqnarray>
 
-        In particular,
+        In particular, <math|<around*|[|a|]>=\<cal-H\><rsup|a>> and
 
         <\equation*>
           <stack|<tformat|<table|<row|<cell|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|N>|)>=<choice|<tformat|<table|<row|<cell|<around*|[|1<rsup|i>|]>>|<cell|<around*|(|i\<less\>N/2|)>>>|<row|<cell|<around*|[|1<rsup|N-i>|]>>|<cell|<around*|(|i\<gtr\>N/2|)>>>|<row|<cell|<around*|[|1<rsup|i-1>,1|]>\<oplus\><around*|[|1<rsup|i-1>,-1|]>>|<cell|<around*|(|i=N/2\<in\>\<bbb-N\><rsub|+>|)>>>>>><text|<cite-detail|knapp2013lie|Chap.
@@ -222,13 +254,13 @@
     </fact>
 
     <\lemma>
-      Only the following irrep's of <math|SO<around*|(|N|)>> appear in
-      <math|Ind<rsub|SO<around*|(|N|)>><rsup|SO<around*|(|N+1|)>>\<Lambda\><rsup|i><rsub|\<varepsilon\>><around*|(|\<bbb-C\><rsup|N>|)>>
+      <label|lem:howetan:so>Only the following irrep's of
+      <math|SO<around*|(|N|)>> appear in <math|Ind<rsub|SO<around*|(|N|)>><rsup|SO<around*|(|N+1|)>>\<Lambda\><rsup|i><rsub|\<varepsilon\>><around*|(|\<bbb-C\><rsup|N>|)>>
       (all with multiplicity one):
 
       <\equation*>
-        <choice|<tformat|<table|<row|<cell|<around*|{|<around*|[|a|]>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|i\<in\><around*|{|0,2n|}>|)>>|<cell|<around*|(|N=2n|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|i=n|)>>|<cell|>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
-        <math|j\<assign\>min<around*|{|i,N-i|}>>>|)>>|<cell|>>|<row|<cell|<around*|{|<around*|[|a|]>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|i\<in\><around*|{|0,2n-1|}>|)>>|<cell|<around*|(|N=2n-1|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-2>:\<varepsilon\><rprime|'>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>,\<varepsilon\><rprime|'>\<in\><around*|{|\<pm\>1|}>>>|<cell|<around*|(|i\<in\><around*|{|n-1,n|}>\\<around*|{|0,2n-1|}>|)>,>|<cell|>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
+        <choice|<tformat|<table|<row|<cell|<around*|{|<around*|[|a|]>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|i\<in\><around*|{|0,N|}>|)>>|<cell|>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|i=n|)>>|<cell|<around*|(|N=2n|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
+        <math|j\<assign\>min<around*|{|i,N-i|}>>>|)>>|<cell|>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-2>:\<varepsilon\><rprime|'>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>,\<varepsilon\><rprime|'>\<in\><around*|{|\<pm\>1|}>>>|<cell|<around*|(|i\<in\><around*|{|n-1,n|}>\\<around*|{|0,2n-1|}>|)>,>|<cell|<around*|(|N=2n-1|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
         <math|j\<assign\>min<around*|{|i,N-i|}>>>|)>>|<cell|>>>>>
       </equation*>
 
@@ -236,7 +268,7 @@
       and
 
       <\equation*>
-        \<Lambda\><rsup|i><rsub|\<varepsilon\>><around*|(|\<bbb-C\><rsup|N>|)>\<assign\><choice|<tformat|<table|<row|<cell|<around*|[|1<rsup|i-1>,\<varepsilon\>|]>>|<cell|<around*|(|i=N/2\<in\>\<bbb-N\><rsub|+>|)>>>|<row|<cell|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|N>|)>>|<cell|<around*|(|<text|otherwise>|)>.>>>>>
+        \<Lambda\><rsup|i><rsub|\<varepsilon\>><around*|(|\<bbb-C\><rsup|N>|)>\<assign\><choice|<tformat|<table|<row|<cell|<around*|[|1<rsup|i-1>,\<varepsilon\>|]>>|<cell|<around*|(|i=n,N=2n\<in\>2\<bbb-N\><rsub|+>|)>>>|<row|<cell|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|N>|)>>|<cell|<around*|(|<text|otherwise>|)>.>>>>>
       </equation*>
     </lemma>
 
@@ -244,28 +276,155 @@
       Fact <reference|fact:irreps-n-branch-so> and Frobenious reciprocity.
     </proof>
 
+    <\lemma>
+      <label|lem:howetan:case1>First case of proposition <reference|prop:so>
+      holds.
+    </lemma>
+
+    <\proof>
+      As it is clear that as <math|O<around*|(|p+1;q+1|)>>-modules
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>;\<bbb-C\>|)>=Ind<rsub|O<around*|(|p;q|)>><rsup|O<around*|(|p+1;q+1|)>><around*|(|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p+q>|)>|)>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|i+j=k>>|<row|<cell|i,j\<geqslant\>0>>>>>>Ind<rsub|O<around*|(|p|)>><rsup|O<around*|(|p+1|)>><around*|(|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|p>|)>|)>\<otimes\>Ind<rsub|O<around*|(|q|)>><rsup|O<around*|(|q+1|)>><around*|(|\<Lambda\><rsup|j><around*|(|\<bbb-C\><rsup|q>|)>|)>>>|<row|<cell|<around*|(|<tabular|<tformat|<table|<row|<cell|\<tau\>:>|<cell|O<around*|(|1|)>>|<cell|\<curvearrowright\>>|<cell|\<bbb-C\><rsup|2>>>|<row|<cell|>|<cell|-1>|<cell|\<mapsto\>>|<cell|<around*|(|<around*|(|x,y|)>\<mapsto\><around*|(|y,x|)>|)>>>>>>|)>>>|<row|<cell|=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|i+j=k>>|<row|<cell|i\<geqslant\>0;j=0>>>>>>Ind<rsub|O<around*|(|p|)>><rsup|O<around*|(|p+1|)>><around*|(|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|p>|)>|)>\<otimes\><wide*|Ind<rsub|O<around*|(|q|)>><rsup|O<around*|(|q+1|)>><around*|(|1|)>|\<wide-underbrace\>><rsub|=\<tau\>>=Ind<rsub|O<around*|(|p|)>><rsup|O<around*|(|p+1|)>><around*|(|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p>|)>|)>\<otimes\>\<tau\>.>>>>>
+      </equation*>
+
+      Now, Lemma <reference|lem:howetan:ind-o> together with the observation
+      that <math|\<tau\>\<mid\><rsub|O<around*|(|1|)>>=<around*|(|+|)>\<oplus\><around*|(|-|)>>
+      imply the result.
+    </proof>
+
+    <\fact>
+      <label|fact:howetan:oreps><cite-detail|goodman2000representations|Sec.
+      5.5.5> (\Pirreps of <math|O<around*|(|N|)>>\Q)
+
+      <\enumerate>
+        <item>We have
+
+        <\equation*>
+          <wide|O|^><around*|(|2k+1|)>=<around*|{|<around*|(|<around*|[|\<lambda\>|]><rsup|\<varepsilon\>>,V<rsup|\<lambda\>,\<varepsilon\>><rsup|>|)>|}><rsub|\<lambda\>\<in\>HV<around*|(|2k+1|)>,\<varepsilon\>=\<pm\>1>
+        </equation*>
+
+        where <math|<around*|[|\<lambda\>|]><rsup|\<varepsilon\>>> is
+        characterized by <math|<around*|[|\<lambda\>|]><rsup|\<varepsilon\>>\<mid\><rsub|SO<around*|(|2k+1|)>>=<around*|[|\<lambda\>|]>>
+        and <math|<around*|[|\<lambda\>|]><rsup|\<varepsilon\>><around*|(|-id<rsub|2k+1>|)>=\<varepsilon\>>.
+
+        <item>We have
+
+        <\equation*>
+          <wide|O|^><around*|(|2k|)>=<around*|{|<around*|(|<around*|[|\<lambda\>|]><rsup|\<varepsilon\>>,V<rsup|\<lambda\>\<comma\>\<varepsilon\>><rsup|>|)>|}><rsub|\<lambda\>\<in\>HV<around*|(|2k|)>\<mid\>\<lambda\><rsub|k>=0,\<varepsilon\>=\<pm\>1>\<sqcup\><around*|{|<around*|(|<around*|[|\<lambda\>|]>,V<rsup|\<lambda\>><rsup|>|)>|}><rsub|\<lambda\>\<in\>HV<around*|(|2k|)>\<mid\>\<lambda\><rsub|k>\<gtr\>0>
+        </equation*>
+
+        where <math|<around*|[|\<lambda\>|]><rsup|\<varepsilon\>>> is
+        characterized by <math|<around*|[|\<lambda\>|]><rsup|\<varepsilon\>>\<mid\><rsub|SO<around*|(|2k|)>>=<around*|[|\<lambda\>|]>>
+        and <math|<around*|[|\<lambda\>|]><rsup|\<varepsilon\>><around*|(|g<rsub|0>|)>=\<varepsilon\>>,
+        where
+
+        <\equation*>
+          g<rsub|0>\<assign\>diag<around*|(|1<rsub|k-1>,<around*|[|<tabular|<tformat|<table|<row|<cell|0>|<cell|1>>|<row|<cell|1>|<cell|0>>>>>|]>,1<rsub|k-1>|)>,
+        </equation*>
+
+        and <math|<around*|[|\<lambda\>|]>\<assign\>Ind<rsub|SO<around*|(|2k|)>><rsup|O<around*|(|2k|)>><around*|[|\<lambda\>|]>>
+        (and <math|<around*|[|\<lambda\>|]>\<mid\><rsub|SO<around*|(|2k|)>>=<around*|[|\<lambda\>|]>+<around*|[|\<lambda\><rsub|1>,\<ldots\>,\<lambda\><rsub|k-1>,-\<lambda\><rsub|k>|]>>).
+      </enumerate>
+    </fact>
+
+    <\lemma>
+      <label|lem:howetan:ind-o>Suppose <math|p\<gtr\>0>. Then, as
+      <math|O<around*|(|p+1|)>> module, the representation
+      <math|Ind<rsub|O<around*|(|p|)>><rsup|O<around*|(|p+1|)>><around*|(|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p>|)>|)>>
+      is multiplicity-free and contains the following irrep's (see Fact
+      <reference|fact:howetan:oreps> for notation)<\footnote>
+        TODO: eliminate ? marks
+      </footnote>
+
+      <\equation*>
+        <choice|<tformat|<table|<row|<cell|<around*|{|<around*|[|a|]><rsup|<around*|(|-1|)><rsup|a>>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|k=0|)>>|<cell|>|<cell|o>>|<row|<cell|<around*|{|<around*|[|a|]><rsup|<around*|(|-1|)><rsup|a+1>>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|k=p|)>>|<cell|>|<cell|o>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-1>|]><rsup|\<varepsilon\>>|}><rsub|a\<in\>\<bbb-N\><rsub|+>,\<varepsilon\>\<in\><around*|{|\<pm\>|}>>>|<cell|<around*|(|k=n|)>>|<cell|<around*|(|p=2n|)>>|<cell|o>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
+        <math|j\<assign\>min<around*|{|k,p-k|}>>>|)>>|<cell|>|<cell|?>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-2>:1|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|k\<in\><around*|{|n-1,n|}>\\<around*|{|0,2n-1|}>|)>,>|<cell|<around*|(|p=2n-1|)>>|<cell|o>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
+        <math|j\<assign\>min<around*|{|k,p-k|}>>>|)>.>|<cell|>|<cell|?>>>>>
+      </equation*>
+    </lemma>
+
+    <\proof>
+      First of all, Facts <reference|fact:irreps-n-branch-so> and
+      <reference|fact:howetan:oreps> imply together that
+      <math|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p>|)>> is irreducible
+      as <math|O<around*|(|p|)>>-module for all <math|k>. Then, Frobenious
+      multiplicity and <cite-detail|zbMATH02248506|Fact 31> imply the
+      multiplicity-freeness part. Now, in order to determine the
+      decomposition in irrep's, we use Fact <reference|fact:howetan:oreps>
+      and consider the restriction of <math|Ind<rsub|O<around*|(|p|)>><rsup|O<around*|(|p+1|)>><around*|(|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p>|)>|)>>
+      to <math|SO<around*|(|p|)>>. Then, Lemmas
+      <reference|prop:restr-connected> and <reference|lem:howetan:ind-o>
+      together with some manual inspection, imply the result.
+
+      Let us give some more details:
+
+      <\itemize>
+        <item>The item <math|p=2n-1,k\<in\><around*|{|n-1,n|}>\\<around*|{|0,2n-1|}>>
+        follows by Fact <reference|fact:howetan:oreps>;
+
+        <item>The item <math|k=n,p=2n> follows:
+
+        <\equation*>
+          <stack|<tformat|<twith|table-halign|l>|<cwith|1|-1|2|2|cell-halign|l>|<table|<row|<cell|Ind<rsub|O<around*|(|p|)>><rsup|O<around*|(|p+1|)>><around*|(|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p>|)>|)>\<mid\><rsub|SO<around*|(|p+1|)>>>|<cell|<around*|(|<text|Lemma
+          <reference|prop:restr-connected>>|)>>>|<row|<cell|=Ind<rsub|SO<around*|(|2n|)>><rsup|SO<around*|(|2n+1|)>><around*|(|\<Lambda\><rsup|n><around*|(|\<bbb-C\><rsup|2n>|)>\<mid\><rsub|SO<around*|(|2n+1|)>>|)>>|<cell|<around*|(|<text|Fact
+          <reference|fact:irreps-n-branch-so>>|)>>>|<row|<cell|=Ind<rsub|SO<around*|(|2n|)>><rsup|SO<around*|(|2n+1|)>><around*|(|<around*|[|1<rsup|n-1>,1|]>|)>\<oplus\>Ind<rsub|SO<around*|(|2n|)>><rsup|SO<around*|(|2n+1|)>><around*|(|<around*|[|1<rsup|n-1>,-1|]>|)>>|<cell|<around*|(|<text|Lemma
+          <reference|lem:howetan:ind-o>>|)>>>|<row|<cell|<around*|(|<big|oplus><rsub|a\<in\>\<bbb-N\><rsub|+>><around*|[|a:1<rsup|n-1>|]>|)><rsup|\<oplus\>2>>|<cell|>>>>>
+        </equation*>
+
+        whereas answer follows by multiplicity-freeness of
+        <math|Ind<rsub|O<around*|(|p|)>><rsup|O<around*|(|p+1|)>><around*|(|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p>|)>|)>>
+        shown above and Fact <reference|fact:howetan:oreps>.
+
+        <item>Items <math|k=0> and <math|k=p> follows by the explicit
+        decomposition formula for harmonic polynomials (see
+        <cite|kobayashi2015symmetry>, for example).
+      </itemize>
+
+      \;
+    </proof>
+
+    <\folded|>
+      <\lemma>
+        <label|lem:howetan:mult2>Suppose the setting as in Proposition
+        <reference|prop:so> and <math|p\<geqslant\>q\<gtr\>0>. Then
+
+        <\equation*>
+          \<forall\>\<tau\>\<in\><wide|O|^><around*|(|p+1;q+1|)>,<space|1em><around*|[|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>:\<tau\>|]>\<leqslant\>2.
+        </equation*>
+      </lemma>
+
+      <\proof>
+        TODO
+      </proof>
+    </folded>
+
     <subsection|Proofs|>
 
     <\proof>
-      (of Proposition <reference|prop:so>) As it is clear that as
-      <math|O<around*|(|p+1;q+1|)>>-module
+      (of Proposition <reference|prop:so>) As the first case holds by Lemma
+      <reference|lem:howetan:case1>, so in subsequent, we assume that
+      <math|p\<geqslant\>q\<gtr\>0>.
+
+      As it is clear that as <math|O<around*|(|p+1;q+1|)>>-module
 
       <\equation*>
         \<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>;\<bbb-C\>|)>=Ind<rsub|O<around*|(|p;q|)>><rsup|O<around*|(|p+1;q+1|)>><around*|(|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p+q>|)>|)>,
       </equation*>
 
       we note that the Remark after the Lemma
-      <reference|prop:restr-connected> implies that we can consider the
-      representation
+      <reference|prop:restr-connected> implies that we can consider instead
+      the representation
 
       <\equation*>
         Ind<rsub|SO<rsub|0><around*|(|p;q|)>><rsup|SO<rsub|0><around*|(|p+1;q+1|)>><around*|(|\<Lambda\><rsup|k><around*|(|\<bbb-C\><rsup|p+q>|)>|)>=<big|oplus><rsub|<stack|<tformat|<table|<row|<cell|i+j=k>>|<row|<cell|i,j\<geqslant\>0>>>>>>Ind<rsub|SO<around*|(|p|)>><rsup|SO<around*|(|p+1|)>><around*|(|\<Lambda\><rsup|i><around*|(|\<bbb-C\><rsup|p>|)>|)>\<otimes\>Ind<rsub|SO<around*|(|q|)>><rsup|SO<around*|(|q+1|)>><around*|(|\<Lambda\><rsup|j><around*|(|\<bbb-C\><rsup|q>|)>|)>.
       </equation*>
 
-      Now, Frobenious reciprocity implies that
+      The fact that \ <math|\<forall\>\<tau\>\<in\><wide|O|^><around*|(|p+1;q+1|)>,<space|1em><around*|[|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>:\<tau\>|]>\<leqslant\>2>
+      follows from Lemma <reference|lem:howetan:mult2>.
     </proof>
   <|show-part>
-    <section|Howe-Tan for differential forms|>
+    <section|Howe-Tan for differential forms|<label|sec:howetan>>
   </show-part>
 
   <\hide-part|4>
@@ -322,46 +481,6 @@
 
     <subsection|Irreps of <math|SO<around*|(|n|)>> and
     <math|O<around*|(|n|)>>|>
-
-    Recall that (see <cite|knapp2013lie>)
-
-    <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<tabular|<tformat|<table|<row|<cell|HV<around*|(|N|)>\<assign\><choice|<tformat|<table|<row|<cell|\<lambda\><rsub|1>\<geqslant\>\<lambda\><rsub|2>\<geqslant\>\<ldots\>\<geqslant\>\<lambda\><rsub|k-1>\<geqslant\><around*|\||\<lambda\><rsub|k>|\|>\<geqslant\>0,>|<cell|N=2k>>|<row|<cell|\<lambda\><rsub|1>\<geqslant\>\<lambda\><rsub|2>\<geqslant\>\<ldots\>\<geqslant\>\<lambda\><rsub|k>\<geqslant\>0,>|<cell|N=2k+1>>>>>>|<cell|<long-arrow|\<rubber-rightarrow\>|\<sim\>>>|<cell|<wide|SO|^><around*|(|N|)>>>|<row|<cell|\<lambda\>=<around*|(|\<lambda\><rsub|i>|)>>|<cell|\<mapsto\>>|<cell|<around*|[|\<lambda\>|]>>>>>>>|<cell|>>>>
-    </eqnarray>
-
-    <\fact>
-      <cite-detail|goodman2000representations|Sec. 5.5.5> (\Pirreps of
-      <math|O<around*|(|N|)>>\Q)
-
-      <\enumerate>
-        <item>We have
-
-        <\equation*>
-          <wide|O|^><around*|(|2k+1|)>=<around*|{|<around*|(|\<pi\><rsup|\<lambda\>,\<varepsilon\>>,V<rsup|\<lambda\>,\<varepsilon\>><rsup|>|)>|}><rsub|\<lambda\>\<in\>HV<around*|(|2k+1|)>,\<varepsilon\>=\<pm\>1>
-        </equation*>
-
-        where <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>>> is characterized
-        by <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>>\<mid\><rsub|SO<around*|(|2k+1|)>>=<around*|[|\<lambda\>|]>>
-        and <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>><around*|(|-id<rsub|2k+1>|)>=\<varepsilon\>>.
-
-        <item>We have
-
-        <\equation*>
-          <wide|O|^><around*|(|2k|)>=<around*|{|<around*|(|\<pi\><rsup|\<lambda\>,\<varepsilon\>>,V<rsup|\<lambda\>\<comma\>\<varepsilon\>><rsup|>|)>|}><rsub|\<lambda\>\<in\>HV<around*|(|2k|)>\<mid\>\<lambda\><rsub|k>=0,\<varepsilon\>=\<pm\>1>\<sqcup\><around*|{|<around*|(|\<pi\><rsup|\<lambda\>>,V<rsup|\<lambda\>><rsup|>|)>|}><rsub|\<lambda\>\<in\>HV<around*|(|2k|)>\<mid\>\<lambda\><rsub|k>\<gtr\>0>
-        </equation*>
-
-        where <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>>> is characterized
-        by <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>>\<mid\><rsub|SO<around*|(|2k|)>>=<around*|[|\<lambda\>|]>>
-        and <math|\<pi\><rsup|\<lambda\>,\<varepsilon\>><around*|(|g<rsub|0>|)>=\<varepsilon\>>,
-        where
-
-        <\equation*>
-          g<rsub|0>\<assign\>diag<around*|(|1<rsub|k-1>,<around*|[|<tabular|<tformat|<table|<row|<cell|0>|<cell|1>>|<row|<cell|1>|<cell|0>>>>>|]>,1<rsub|k-1>|)>,
-        </equation*>
-
-        and <math|\<pi\><rsup|\<lambda\>>\<assign\>Ind<rsub|SO<around*|(|2k|)>><rsup|O<around*|(|2k|)>><around*|[|\<lambda\>|]>>.
-      </enumerate>
-    </fact>
 
     <\fact>
       <cite-detail|fulton2013representation|Ÿ19.5, Thm. 19.22> (\Pexplicit
@@ -620,7 +739,12 @@
 
   <\show-part|6>
     <\bibliography|bib|tm-alpha|todai_master.bib>
-      <\bib-list|6>
+      <\bib-list|8>
+        <bibitem*|05><label|bib-zbMATH02248506>Toshiyuki Kobayashi.<newblock>
+        Multiplicity-free representations and visible actions on complex
+        manifolds.<newblock> <with|font-shape|italic|Publ. Res. Inst. Math.
+        Sci.>, 41(3):497\U549, 2005.<newblock>
+
         <bibitem*|BMMC63><label|bib-boerner1963representations>Hermann
         Boerner, PG Murphy, J Mayer-Kalkschmidt<localize|, and >P
         Carr.<newblock> <with|font-shape|italic|Representations of groups:
@@ -655,47 +779,68 @@
         Knapp.<newblock> <with|font-shape|italic|Lie groups beyond an
         introduction>, <localize|volume> 140.<newblock> Springer Science &
         Business Media, 2013.<newblock>
+
+        <bibitem*|KS15><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
+        and >B.<nbsp>Speh.<newblock> <with|font-shape|italic|Symmetry
+        Breaking for Representations of Rank One Orthogonal Groups>,
+        <localize|volume> <with|font-series|bold|238>.<newblock>
+        <with|font-family|rm|font-shape|right|font-series|medium|Memoirs of
+        the Amer. Math. Soc>, 2015.<newblock> Available at
+        <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
       </bib-list>
     </bibliography>
 
     \;
   <|show-part>
-    <\bibliography|bib|tm-plain|todai_master.bib>
-      <\bib-list|6>
-        <bibitem*|1><label|bib-boerner1963representations>Hermann Boerner, PG
-        Murphy, J Mayer-Kalkschmidt<localize|, and >P Carr.<newblock>
-        <with|font-shape|italic|Representations of groups: with special
-        consideration for the needs of modern physics>.<newblock>
-        North-Holland/Elsevier, 1963.<newblock>
+    <\bibliography|bib|tm-alpha|todai_master.bib>
+      <\bib-list|8>
+        <bibitem*|05><label|bib-zbMATH02248506>Toshiyuki Kobayashi.<newblock>
+        Multiplicity-free representations and visible actions on complex
+        manifolds.<newblock> <with|font-shape|italic|Publ. Res. Inst. Math.
+        Sci.>, 41(3):497\U549, 2005.<newblock>
 
-        <bibitem*|2><label|bib-fulton2013representation>William
+        <bibitem*|BMMC63><label|bib-boerner1963representations>Hermann
+        Boerner, PG Murphy, J Mayer-Kalkschmidt<localize|, and >P
+        Carr.<newblock> <with|font-shape|italic|Representations of groups:
+        with special consideration for the needs of modern
+        physics>.<newblock> North-Holland/Elsevier, 1963.<newblock>
+
+        <bibitem*|FH13><label|bib-fulton2013representation>William
         Fulton<localize| and >Joe Harris.<newblock>
         <with|font-shape|italic|Representation theory: a first course>,
         <localize|volume> 129.<newblock> Springer Science & Business Media,
         2013.<newblock>
 
-        <bibitem*|3><label|bib-goodman2000representations>Roe
+        <bibitem*|GW00><label|bib-goodman2000representations>Roe
         Goodman<localize| and >Nolan<nbsp>R Wallach.<newblock>
         <with|font-shape|italic|Representations and invariants of the
         classical groups>, <localize|volume><nbsp>68.<newblock> Cambridge
         University Press, 2000.<newblock>
 
-        <bibitem*|4><label|bib-howe2005stable>Roger Howe, Eng-Chye
+        <bibitem*|HTW05><label|bib-howe2005stable>Roger Howe, Eng-Chye
         Tan<localize|, and >Jeb Willenbring.<newblock> Stable branching rules
         for classical symmetric pairs.<newblock>
         <with|font-shape|italic|Transactions of the American mathematical
         society>, 357(4):1601\U1626, 2005.<newblock>
 
-        <bibitem*|5><label|bib-kobayashi2016classification>Toshiyuki
+        <bibitem*|KKP16><label|bib-kobayashi2016classification>Toshiyuki
         Kobayashi, Toshihisa Kubo<localize|, and >Michael Pevzner.<newblock>
         Classification of differential symmetry breaking operators for
         differential forms.<newblock> <with|font-shape|italic|Comptes Rendus
         Mathematique>, 354(7):671\U676, 2016.<newblock>
 
-        <bibitem*|6><label|bib-knapp2013lie>Anthony<nbsp>W Knapp.<newblock>
-        <with|font-shape|italic|Lie groups beyond an introduction>,
-        <localize|volume> 140.<newblock> Springer Science & Business Media,
-        2013.<newblock>
+        <bibitem*|Kna13><label|bib-knapp2013lie>Anthony<nbsp>W
+        Knapp.<newblock> <with|font-shape|italic|Lie groups beyond an
+        introduction>, <localize|volume> 140.<newblock> Springer Science &
+        Business Media, 2013.<newblock>
+
+        <bibitem*|KS15><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
+        and >B.<nbsp>Speh.<newblock> <with|font-shape|italic|Symmetry
+        Breaking for Representations of Rank One Orthogonal Groups>,
+        <localize|volume> <with|font-series|bold|238>.<newblock>
+        <with|font-family|rm|font-shape|right|font-series|medium|Memoirs of
+        the Amer. Math. Soc>, 2015.<newblock> Available at
+        <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
       </bib-list>
     </bibliography>
   </show-part>
@@ -714,15 +859,18 @@
     <associate|1:prop-qb1|<tuple|1.4|2|#2>>
     <associate|2:fact-irreps-of-on|<tuple|3.1|?|#4>>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|4.2|?>>
+    <associate|auto-10|<tuple|4.3|?>>
+    <associate|auto-11|<tuple|4.4|?>>
+    <associate|auto-12|<tuple|4.5|?>>
+    <associate|auto-13|<tuple|4.2|?>>
     <associate|auto-2|<tuple|2|2>>
-    <associate|auto-3|<tuple|3|?>>
-    <associate|auto-4|<tuple|3.1|?>>
-    <associate|auto-5|<tuple|3.2|?>>
-    <associate|auto-6|<tuple|4|?>>
-    <associate|auto-7|<tuple|4.1|?>>
-    <associate|auto-8|<tuple|4.2|?>>
-    <associate|auto-9|<tuple|4.3|?>>
+    <associate|auto-3|<tuple|2.1|?>>
+    <associate|auto-4|<tuple|2.2|?>>
+    <associate|auto-5|<tuple|2.3|?>>
+    <associate|auto-6|<tuple|3|?>>
+    <associate|auto-7|<tuple|4|?>>
+    <associate|auto-8|<tuple|4.1|?>>
+    <associate|auto-9|<tuple|4.2|?>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
     <associate|auto.3-2|<tuple|2.1|?|#3>>
@@ -745,6 +893,7 @@
     <associate|auto.5-6|<tuple|4.5|?|#5>>
     <associate|auto.6-1|<tuple|4.2|?|#6>>
     <associate|bib-KO2|<tuple|KØ03|?|#6>>
+    <associate|bib-KOBAYASHI2013921|<tuple|KO13|?>>
     <associate|bib-boerner1963representations|<tuple|BMMC63|?|#6>>
     <associate|bib-dotsenko1985four|<tuple|DF85|?|#6>>
     <associate|bib-fulton2013representation|<tuple|FH13|?|#6>>
@@ -755,26 +904,36 @@
     <associate|bib-keiner2009computing|<tuple|Kei09|?|#6>>
     <associate|bib-knapp2013lie|<tuple|Kna13|?|#6>>
     <associate|bib-kobayashi2011schrodinger|<tuple|KM11|?|#6>>
+    <associate|bib-kobayashi2015symmetry|<tuple|KS15|?|#6>>
     <associate|bib-kobayashi2016classification|<tuple|KKP16|2|#6>>
     <associate|bib-mackenzie2003hermite|<tuple|MT03|?|#6>>
     <associate|bib-olver2010nist|<tuple|Olv10|?|#6>>
     <associate|bib-rainville1960special|<tuple|Rai60|?|#6>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|?|#6>>
     <associate|bib-warnaar2010sl3|<tuple|War10|?|#6>>
+    <associate|bib-zbMATH02248506|<tuple|05|?|#6>>
     <associate|fact-1|<tuple|1.1|?>>
+    <associate|fact:howetan:oreps|<tuple|2.2|?|#3>>
     <associate|fact:irreps-n-branch-so|<tuple|2.1|?|#3>>
     <associate|footnote-1|<tuple|1|?>>
+    <associate|footnote-2.1|<tuple|2.1|?|#3>>
     <associate|footnote-3.1|<tuple|3.1|?|#4>>
     <associate|footnote-3.2|<tuple|3.2|?|#4>>
     <associate|footnote-4.1|<tuple|4.1|?|#5>>
     <associate|footnote-4.2|<tuple|4.2|?|#5>>
+    <associate|footnr-2.1|<tuple|2.1|?|#3>>
     <associate|footnr-3.1|<tuple|3.1|?|#4>>
     <associate|footnr-3.2|<tuple|3.2|?|#4>>
     <associate|footnr-4.1|<tuple|4.1|?|#5>>
     <associate|footnr-4.2|<tuple|4.2|?|#5>>
+    <associate|lem:howetan:case1|<tuple|2.3|?|#3>>
+    <associate|lem:howetan:ind-o|<tuple|2.4|?|#3>>
+    <associate|lem:howetan:mult2|<tuple|2.5|?|#3>>
+    <associate|lem:howetan:so|<tuple|2.2|?|#3>>
     <associate|prop:cpt-maxtorus|<tuple|4.1|?|#5>>
     <associate|prop:restr-connected|<tuple|2.1|?|#3>>
     <associate|prop:so|<tuple|2.1|?|#3>>
+    <associate|sec:howetan|<tuple|2|?|#3>>
   </collection>
 </references>
 
@@ -787,17 +946,27 @@
 
       kobayashi2016classification
 
-      howe2005stable
-
-      howe2005stable
+      knapp2013lie
 
       knapp2013lie
 
       goodman2000representations
 
+      zbMATH02248506
+
+      kobayashi2015symmetry
+
+      howe2005stable
+
+      howe2005stable
+
       fulton2013representation
 
-      goodman2000representations
+      fulton2013representation
+
+      fulton2013representation
+
+      fulton2013representation
 
       boerner1963representations
 
@@ -816,44 +985,56 @@
       for differential forms> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
+      <with|par-left|<quote|1tab>|2.1<space|2spc>Main results
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3>>
+
+      <with|par-left|<quote|1tab>|2.2<space|2spc>Auxiliary Lemmas
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4>>
+
+      <with|par-left|<quote|1tab>|2.3<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-5>>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Symmetry
       breaking for full orthogonal groups
       <with|mode|<quote|math>|O<around*|(|N|)>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-3><vspace|0.5fn>
-
-      <with|par-left|<quote|1tab>|3.1<space|2spc>Irreps of
-      <with|mode|<quote|math>|SO<around*|(|n|)>> and
-      <with|mode|<quote|math>|O<around*|(|n|)>>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4>>
-
-      <with|par-left|<quote|1tab>|3.2<space|2spc>Characters of irreps of
-      <with|mode|<quote|math>|SO<around*|(|N|)>>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5>>
+      <no-break><pageref|auto-6><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Playground>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6><vspace|0.5fn>
+      <no-break><pageref|auto-7><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|4.1<space|2spc>Branching in
-      <with|mode|<quote|math>|SO<around*|(|N|)>>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7>>
-
-      <with|par-left|<quote|1tab>|4.2<space|2spc>Characters of irreps of
-      <with|mode|<quote|math>|O<around*|(|N|)>>
+      <with|par-left|<quote|1tab>|4.1<space|2spc>Irreps of
+      <with|mode|<quote|math>|SO<around*|(|n|)>> and
+      <with|mode|<quote|math>|O<around*|(|n|)>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-8>>
 
-      <with|par-left|<quote|1tab>|4.3<space|2spc>General stuff
+      <with|par-left|<quote|1tab>|4.2<space|2spc>Characters of irreps of
+      <with|mode|<quote|math>|SO<around*|(|N|)>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-9>>
 
+      <with|par-left|<quote|1tab>|4.3<space|2spc>Branching in
+      <with|mode|<quote|math>|SO<around*|(|N|)>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-10>>
+
+      <with|par-left|<quote|1tab>|4.4<space|2spc>Characters of irreps of
+      <with|mode|<quote|math>|O<around*|(|N|)>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-11>>
+
+      <with|par-left|<quote|1tab>|4.5<space|2spc>General stuff
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-12>>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10><vspace|0.5fn>
+      <no-break><pageref|auto-13><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>

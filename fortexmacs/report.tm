@@ -34,10 +34,7 @@
     <item>Some work in proving the multiplicity-freeness of
     <math|\<Omega\><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
     as <math|O<around*|(|p+1;q+1|)>>-rep was done (see Prop. 2.1 of attached
-    <verbatim|diffforms.pdf>)<\footnote>
-      I will send the complete version of this Proposition before the end of
-      Saturday. Please ignore <verbatim|diffforms.pdf> for the moment
-    </footnote>.
+    <verbatim|diffforms.pdf>).
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:

@@ -1,11 +1,66 @@
 <TeXmacs|1.99.4>
 
-<style|seminar>
+<style|<tuple|seminar|number-long-article>>
 
 <\body>
-  <chapter*|Chapter 3: >
+  <section|General results>
 
-  <chapter*|Chapter 4: Spherical functions>
+  <subsection|Representations of an algebra <math|C<rsub|c><around*|(|G|)>>>
+
+  <subsection|Criterion for complete irreducibility>
+
+  <\theorem>
+    Let <math|H>: Hilbert, <math|\<cal-A\>\<subset\>GL<around*|(|H|)>>:
+    <math|\<ast\>>-algebra of compact operators. Then, <math|H>: is
+    completely <math|\<cal-A\>>-reducible and every <math|\<cal-A\>>-irrep
+    occurs with finite multiplicity.
+  </theorem>
+
+  <\folded|proof>
+    Let <math|<wide|H|^>>: maximal sum of orthogonal <math|\<cal-A\>>-irreps.
+    WLOG <math|<wide|H|^>=0>, so we just need to obtain contradiction. Take
+    <math|A<rsup|\<neq\>0>\<in\>\<cal-A\>>: compact, Hermitian
+    (\<because\><math|\<cal-A\>>: <math|\<ast\>>-closed), <math|\<lambda\>>:
+    e-value of <math|A> and <math|M\<subset\>H>: <math|\<cal-A\>>-invariant,
+    such that
+
+    <\equation*>
+      dim <wide*|<around*|(|M<rsub|\<lambda\>>|)>|\<wide-underbrace\>><rsub|=:<around*|{|v\<in\>M\<mid\>A*v=\<lambda\>v|}>>
+    </equation*>
+
+    is positive and smallest possible. Take
+    <math|v<rsup|\<neq\>0>\<in\>M<rsub|\<lambda\>>> and let's show that
+    <math|<wide|\<cal-A\>v|\<bar\>>>: irreducible. Indeed, assume
+    <math|E\<subset\><wide|\<cal-A\>v|\<bar\>>>: <math|\<cal-A\>>-invariant.
+    Then,
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|v=<wide*|v<rsub|E>|\<wide-underbrace\>><rsub|\<in\>E>+<wide*|v<rsub|E><rsup|\<perp\>>|\<wide-underbrace\>><rsub|\<in\>E<rsup|\<perp\>>>>>|<row|<cell|\<lambda\>v<rsub|E>+\<lambda\>v<rsub|E><rsup|\<perp\>>=\<lambda\>v=A*v=<wide*|A*v<rsub|E>|\<wide-underbrace\>><rsub|\<in\>E>+<wide*|A*v<rsub|E><rsup|\<perp\>>|\<wide-underbrace\>><rsub|\<in\>E<rsup|\<perp\>>>>>|<row|<cell|\<Rightarrow\>A*v<rsub|E>=\<lambda\>v<rsub|E>,A*v<rsub|E><rsup|\<perp\>>=\<lambda\>v<rsub|E><rsup|\<perp\>>;<space|1em>v<rsub|E>,v<rsub|E><rsup|\<perp\>>\<neq\>0.>>|<row|<cell|\<Rightarrow\>0<stack|<tformat|<table|<row|<cell|\<subset\>>>|<row|<cell|<neg|->>>>>>E<rsub|\<lambda\>><stack|<tformat|<table|<row|<cell|\<subset\>>>|<row|<cell|<neg|->>>>>>M<rsub|\<lambda\>>.>>>>>
+    </equation*>
+
+    \;
+  </folded>
+
+  <subsection|<math|L<rsup|2>>-kernels and Hilbert\USchmidt operators>
+
+  <\theorem>
+    Let <math|<around*|(|X,\<mathd\>x|)>,<around*|(|Y,\<mathd\>y|)>>: measure
+    spaces and <math|q\<in\>L<rsup|2><around*|(|X\<times\>Y,\<mathd\>x\<mathd\>y|)>>.
+    Then, the operator
+
+    <\equation*>
+      <tabular|<tformat|<table|<row|<cell|L<rsup|2><around*|(|X,\<mathd\>x|)>>|<cell|<long-arrow|\<rubber-rightarrow\>|Q>>|<cell|L<rsup|2><around*|(|Y,\<mathd\>y|)>>>|<row|<cell|f>|<cell|\<mapsto\>>|<cell|<big|int><rsub|X>Q<around*|(|x,\<cdot\>|)>f<around*|(|x|)>\<mathd\>x>>>>>
+    </equation*>
+
+    is bounded compact and <math|<around*|\||Q|\|>\<leqslant\><around*|\<\|\|\>|q|\<\|\|\>><rsub|2>>.
+  </theorem>
+
+  <unfolded|proof|Estimate is clear, compactness follows by approximating
+  <math|q> with finite sums of ONB of <math|L<rsup|2><around*|(|X\<times\>Y|)>>.>
+
+  <section|Compact groups>
+
+  <section|Spherical functions>
 
   We let\ 
 
@@ -69,21 +124,42 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|?|?>>
-    <associate|auto-2|<tuple|?|?>>
+    <associate|auto-1|<tuple|1|?>>
+    <associate|auto-2|<tuple|1.1|?>>
+    <associate|auto-3|<tuple|1.2|?>>
+    <associate|auto-4|<tuple|1.3|?>>
+    <associate|auto-5|<tuple|2|?>>
+    <associate|auto-6|<tuple|3|?>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|toc>
-      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|Chapter
-      3: > <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|1<space|2spc>General
+      results> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|1fn>
 
-      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|Chapter
-      4: Spherical functions> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-2><vspace|1fn>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Representations
+      of an algebra <with|mode|<quote|math>|C<rsub|c><around*|(|G|)>>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Criterion
+      for complete irreducibility> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc><with|mode|<quote|math>|L<rsup|2>>-kernels
+      and Hilbert\USchmidt operators> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4><vspace|0.5fn>
+
+      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|2<space|2spc>>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-5><vspace|1fn>
+
+      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|3<space|2spc>Spherical
+      functions> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-6><vspace|1fn>
     </associate>
   </collection>
 </auxiliary>
