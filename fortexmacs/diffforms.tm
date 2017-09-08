@@ -163,16 +163,16 @@
         <math|<around*|{|+,-|}>\<assign\><wide|O|^><around*|(|q|)>=<wide|O|^><around*|(|1|)>>.
       </description>
 
+      In subsequent cases, we assume that <math|p\<geqslant\>q\<gtr\>0>.
+      Then,\ 
+
+      <\equation*>
+        \<forall\>\<tau\>\<in\><wide|O|^><around*|(|p+1;q+1|)>,<space|1em><around*|[|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>:\<tau\>|]>\<leqslant\>2.
+      </equation*>
+
       <\folded>
         \;
       <|folded>
-        In subsequent cases, we assume that <math|p\<geqslant\>q\<gtr\>0>.
-        Then,\ 
-
-        <\equation*>
-          \<forall\>\<tau\>\<in\><wide|O|^><around*|(|p+1;q+1|)>,<space|1em><around*|[|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>:\<tau\>|]>\<leqslant\>2.
-        </equation*>
-
         Moreover, the following irrep's occur in
         <math|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>;\<bbb-C\>|)>\<mid\><rsub|SO<rsub|0><around*|(|p+1;q+1|)>>>
         together with corresponding multiplicities (see Fact
@@ -259,7 +259,7 @@
       (all with multiplicity one):
 
       <\equation*>
-        <choice|<tformat|<table|<row|<cell|<around*|{|<around*|[|a|]>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|i\<in\><around*|{|0,N|}>|)>>|<cell|>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|i=n|)>>|<cell|<around*|(|N=2n|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
+        <choice|<tformat|<table|<row|<cell|<around*|{|<around*|[|a|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|0|]>|}>>|<cell|<around*|(|i\<in\><around*|{|0,N|}>|)>>|<cell|>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|i=n|)>>|<cell|<around*|(|N=2n|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
         <math|j\<assign\>min<around*|{|i,N-i|}>>>|)>>|<cell|>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-2>:\<varepsilon\><rprime|'>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>,\<varepsilon\><rprime|'>\<in\><around*|{|\<pm\>1|}>>>|<cell|<around*|(|i\<in\><around*|{|n-1,n|}>\\<around*|{|0,2n-1|}>|)>,>|<cell|<around*|(|N=2n-1|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
         <math|j\<assign\>min<around*|{|i,N-i|}>>>|)>>|<cell|>>>>>
       </equation*>
@@ -324,7 +324,7 @@
         </equation*>
 
         and <math|<around*|[|\<lambda\>|]>\<assign\>Ind<rsub|SO<around*|(|2k|)>><rsup|O<around*|(|2k|)>><around*|[|\<lambda\>|]>>
-        (and <math|<around*|[|\<lambda\>|]>\<mid\><rsub|SO<around*|(|2k|)>>=<around*|[|\<lambda\>|]>+<around*|[|\<lambda\><rsub|1>,\<ldots\>,\<lambda\><rsub|k-1>,-\<lambda\><rsub|k>|]>>).
+        (and <math|<around*|[|\<lambda\>|]>\<mid\><rsub|SO<around*|(|2k|)>>=<around*|[|\<lambda\>|]>\<oplus\><around*|[|\<lambda\><rsub|1>,\<ldots\>,\<lambda\><rsub|k-1>,-\<lambda\><rsub|k>|]>>).
       </enumerate>
     </fact>
 
@@ -338,9 +338,9 @@
       </footnote>
 
       <\equation*>
-        <choice|<tformat|<table|<row|<cell|<around*|{|<around*|[|a|]><rsup|<around*|(|-1|)><rsup|a>>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|k=0|)>>|<cell|>|<cell|o>>|<row|<cell|<around*|{|<around*|[|a|]><rsup|<around*|(|-1|)><rsup|a+1>>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|k=p|)>>|<cell|>|<cell|o>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-1>|]><rsup|\<varepsilon\>>|}><rsub|a\<in\>\<bbb-N\><rsub|+>,\<varepsilon\>\<in\><around*|{|\<pm\>|}>>>|<cell|<around*|(|k=n|)>>|<cell|<around*|(|p=2n|)>>|<cell|o>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
-        <math|j\<assign\>min<around*|{|k,p-k|}>>>|)>>|<cell|>|<cell|?>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-2>:1|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|k\<in\><around*|{|n-1,n|}>\\<around*|{|0,2n-1|}>|)>,>|<cell|<around*|(|p=2n-1|)>>|<cell|o>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
-        <math|j\<assign\>min<around*|{|k,p-k|}>>>|)>.>|<cell|>|<cell|?>>>>>
+        <choice|<tformat|<table|<row|<cell|<around*|{|<around*|[|a|]><rsup|<around*|(|-1|)><rsup|a>>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|k=0|)>>|<cell|>|<cell|o>|<cell|<around*|(|0|)>>>|<row|<cell|<around*|{|<around*|[|a|]><rsup|<around*|(|-1|)><rsup|a+1>>|}><rsub|a\<in\>\<bbb-N\>>>|<cell|<around*|(|k=p|)>>|<cell|>|<cell|o>|<cell|<around*|(|0|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-1>|]><rsup|\<varepsilon\>>|}><rsub|a\<in\>\<bbb-N\><rsub|+>,\<varepsilon\>\<in\><around*|{|\<pm\>|}>>>|<cell|<around*|(|k=n|)>>|<cell|<around*|(|p=2n|)>>|<cell|o>|<cell|<around*|(|n-1|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
+        <math|j\<assign\>min<around*|{|k,p-k|}>>>|)>>|<cell|>|<cell|?>|<cell|<around*|(|j-1|)>\<sqcup\><around*|(|j|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|n-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|k\<in\><around*|{|n-1,n|}>\\<around*|{|0,2n-1|}>|)>,>|<cell|<around*|(|p=2n-1|)>>|<cell|o>|<cell|<around*|(|n-1|)>>>|<row|<cell|<around*|{|<around*|[|a:1<rsup|j-1>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>\<sqcup\><around*|{|<around*|[|a:1<rsup|j>|]>|}><rsub|a\<in\>\<bbb-N\><rsub|+>>>|<cell|<around*|(|<text|otherwise,
+        <math|j\<assign\>min<around*|{|k,p-k|}>>>|)>.>|<cell|>|<cell|?>|<cell|<around*|(|j-1|)>\<sqcup\><around*|(|j|)>>>>>>
       </equation*>
     </lemma>
 
@@ -384,20 +384,18 @@
       \;
     </proof>
 
-    <\folded|>
-      <\lemma>
-        <label|lem:howetan:mult2>Suppose the setting as in Proposition
-        <reference|prop:so> and <math|p\<geqslant\>q\<gtr\>0>. Then
+    <\lemma>
+      <label|lem:howetan:mult2>Suppose the setting as in Proposition
+      <reference|prop:so> and <math|p\<geqslant\>q\<gtr\>0>. Then
 
-        <\equation*>
-          \<forall\>\<tau\>\<in\><wide|O|^><around*|(|p+1;q+1|)>,<space|1em><around*|[|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>:\<tau\>|]>\<leqslant\>2.
-        </equation*>
-      </lemma>
+      <\equation*>
+        \<forall\>\<tau\>\<in\><wide|O|^><around*|(|p+1;q+1|)>,<space|1em><around*|[|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>:\<tau\>|]>\<leqslant\>2.
+      </equation*>
+    </lemma>
 
-      <\proof>
-        TODO
-      </proof>
-    </folded>
+    <\proof>
+      TODO
+    </proof>
 
     <subsection|Proofs|>
 
