@@ -10,7 +10,7 @@ TEXMACSDIR=~/for/fortexmacs
 
 WORKON=https://trello.com/c/jUZS9cjM
 PDFS=Z master_announcement2 #howetan_diagrams answer
-AUX=
+AUX=master_announcement2_plain.tex
 
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX)) $(OUTDIR)/master_announcement2_plain.tex
 p: $(OUTDIR)/$(ZIPNAME).zip
