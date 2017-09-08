@@ -5,7 +5,7 @@ ZIPNAME=kohnoseminar
 WORKON=talks
 COMMIT_PREFIX=
 PDFS=abstract
-AUX=
+AUX=abstract.tex
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -41,6 +41,8 @@ $(OUTDIR)/%.pdf : %.tex
 	$(LATEXMK) $<
 $(OUTDIR)/%.pdf : %-jap.tex
 	$(XELATEX) $<
+$(OUTDIR)/%.tex : %.tex
+	cp -f $< $@
 
 #commands
 commit:
@@ -50,4 +52,3 @@ push:
 clean:
 	rm -f *.proto.tex script.tex *.pdf *.zip script_hypergeom.tex $(OUTDIR)/$(ZIPNAME).zip
 	touch *.tex
-
