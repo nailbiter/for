@@ -7,6 +7,30 @@
 
   <subsection|Representations of an algebra <math|C<rsub|c><around*|(|G|)>>>
 
+  <\definition*>
+    For sequence of functions <math|<around*|{|f<rsub|n>\<in\>C<rsub|c><around*|(|G|)>|}><rsub|n\<in\>\<bbb-N\>>>
+    we say that they form a <underline|Dirac sequence>, if
+
+    <\description>
+      <item*|DIR 1><math|\<forall\>n\<in\>\<bbb-N\>,\<varphi\><rsub|n>\<geqslant\>0>;
+
+      <item*|DIR 2><math|\<forall\>n\<in\>\<bbb-N\>,<big|int><rsub|G>\<varphi\><rsub|n><around*|(|x|)>\<mathd\>x=1>;
+
+      <item*|DIR 3>For any open <math|O\<ni\>1>,
+      <math|supp<around*|(|f<rsub|n>|)>\<subset\>O> for <math|n> big enough.
+    </description>
+
+    Sometimes, we replace
+
+    <\description>
+      <item*|DIR 3<math|<rprime|'>>>For any open <math|O\<ni\>1>
+
+      <\equation*>
+        lim<rsub|n\<rightarrow\>\<infty\>><big|int><rsub|G\\O>\<varphi\><rsub|n><around*|(|x|)>\<mathd\>x.
+      </equation*>
+    </description>
+  </definition*>
+
   <subsection|Criterion for complete irreducibility>
 
   <\theorem>
@@ -55,10 +79,71 @@
     is bounded compact and <math|<around*|\||Q|\|>\<leqslant\><around*|\<\|\|\>|q|\<\|\|\>><rsub|2>>.
   </theorem>
 
-  <unfolded|proof|Estimate is clear, compactness follows by approximating
+  <folded|proof|Estimate is clear, compactness follows by approximating
   <math|q> with finite sums of ONB of <math|L<rsup|2><around*|(|X\<times\>Y|)>>.>
 
+  <\remark*>
+    Formal computations imply that for <math|q\<in\>L<rsup|2><around*|(|X\<times\>X|)>\<cap\>C<around*|(|X\<times\>X|)>>,
+    we can define
+
+    <\equation*>
+      tr<around*|(|Q|)>=<big|int><rsub|X>q<around*|(|x,x|)>\<mathd\>x.
+    </equation*>
+  </remark*>
+
   <section|Compact groups>
+
+  <subsection|Restrictions of rep's of <math|SL<rsub|2><around*|(|\<bbb-R\>|)>>
+  to its maximal compact subgroup>
+
+  <\definition*>
+    \;
+
+    <\enumerate>
+      <item>For <math|\<theta\>\<in\>\<bbb-R\>,r<around*|(|\<theta\>|)>\<assign\><around*|(|<tabular|<tformat|<table|<row|<cell|cos
+      \<theta\>>|<cell|sin \<theta\>>>|<row|<cell|-sin \<theta\>>|<cell|cos
+      \<theta\>>>>>>|)>>;
+
+      <item><math|G\<supset\>K\<assign\><around*|{|r<around*|(|\<theta\>|)>\<mid\>\<theta\>\<in\>\<bbb-R\>|}>>;
+
+      <item>For <math|n\<in\>\<bbb-Z\>,\<chi\><rsub|n>:K\<ni\>r<around*|(|\<theta\>|)>\<mapsto\>e<rsup|i*n*\<theta\>>>;
+
+      <item>For <math|f\<in\>C<rsub|c><around*|(|G|)>,y\<in\>G>
+
+      <\equation*>
+        f<rsup|y><around*|(|\<theta\>,\<theta\><rprime|'>|)>\<assign\>f<around*|(|r<around*|(|\<theta\>|)>y*r<around*|(|\<theta\><rprime|'>|)>|)>
+      </equation*>
+
+      <item>For <math|m,n\<in\>\<bbb-Z\>>,
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|S<rsub|n,m>\<assign\><around*|{|f\<in\>C<rsub|c><around*|(|G|)><around*|\||<stack|<tformat|<cwith|1|1|1|1|cell-halign|l>|<table|<row|<cell|\<forall\><around*|(|\<theta\>,\<theta\><rprime|'>|)>\<in\>\<bbb-R\><rsup|2>,>>|<row|<cell|f<rsup|y><around*|(|\<theta\>,\<theta\><rprime|'>|)>=e<rsup|-i<around*|(|n\<theta\>+m\<theta\><rprime|'>|)>>f<around*|(|y|)>>>>>>|\<nobracket\>>|}>>>>>>
+      </equation*>
+    </enumerate>
+  </definition*>
+
+  <\lemma>
+    For any <math|\<varepsilon\>\<gtr\>0,f\<in\>C<rsub|c><around*|(|G|)>>,
+    there exists <math|g\<in\><big|sum><rsub|n,m\<in\>\<bbb-Z\>>S<rsub|n,m>>,
+    such that <math|supp<around*|(|g|)>\<subset\>K*supp<around*|(|f|)>*K,<around*|\<\|\|\>|f-g|\<\|\|\>><rsub|\<infty\>>\<less\>\<varepsilon\>.>
+  </lemma>
+
+  <\unfolded|proof>
+    Note that for
+
+    <\equation*>
+      f<rsub|n,m><around*|(|y|)>\<assign\><big|int><rsub|-\<pi\>><rsup|\<pi\>><big|int><rsub|-\<pi\>><rsup|\<pi\>>f<rsup|y><around*|(|\<theta\>,\<theta\><rprime|'>|)>e<rsup|i<around*|(|n\<theta\>+m\<theta\><rprime|'>|)>>\<mathd\>\<theta\>\<mathd\>\<theta\><rprime|'>
+    </equation*>
+
+    we have <math|supp<around*|(|f<rsub|n,m>|)>\<subset\>K*supp<around*|(|f|)>*K>.
+    Moreover,\ 
+
+    <\equation*>
+      <around*|{|<frac|1|M><big|sum><rsub|N=0><rsup|M><big|sum><rsub|<around*|\||n|\|>\<leqslant\>M>e<rsup|i*n\<theta\>>|}><rsub|M\<in\>\<bbb-N\>>
+    </equation*>
+
+    forms a Dirac sequence (in an extended sense).
+  </unfolded>
 
   <section|Spherical functions>
 
@@ -129,37 +214,38 @@
     <associate|auto-3|<tuple|1.2|?>>
     <associate|auto-4|<tuple|1.3|?>>
     <associate|auto-5|<tuple|2|?>>
-    <associate|auto-6|<tuple|3|?>>
+    <associate|auto-6|<tuple|2.1|?>>
+    <associate|auto-7|<tuple|3|?>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|toc>
-      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|1<space|2spc>General
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>General
       results> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-1><vspace|1fn>
+      <no-break><pageref|auto-1><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Representations
-      of an algebra <with|mode|<quote|math>|C<rsub|c><around*|(|G|)>>>
+      <with|par-left|<quote|1tab>|1.1<space|2spc>Representations of an
+      algebra <with|mode|<quote|math>|C<rsub|c><around*|(|G|)>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-2><vspace|0.5fn>
+      <no-break><pageref|auto-2>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Criterion
-      for complete irreducibility> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-3><vspace|0.5fn>
+      <with|par-left|<quote|1tab>|1.2<space|2spc>Criterion for complete
+      irreducibility <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc><with|mode|<quote|math>|L<rsup|2>>-kernels
-      and Hilbert\USchmidt operators> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4><vspace|0.5fn>
+      <with|par-left|<quote|1tab>|1.3<space|2spc><with|mode|<quote|math>|L<rsup|2>>-kernels
+      and Hilbert\USchmidt operators <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4>>
 
-      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|2<space|2spc>>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5><vspace|1fn>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Compact
+      groups> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-5><vspace|0.5fn>
 
-      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|3<space|2spc>Spherical
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Spherical
       functions> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6><vspace|1fn>
+      <no-break><pageref|auto-6><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
