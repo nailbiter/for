@@ -3,7 +3,7 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 79>
+  <section|report 80>
 
   <date|>
 
@@ -17,12 +17,10 @@
     as representation of <math|O<around*|(|p+1;q+1|)>>;
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
     read Lang's SL2
-  </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
+  </cell>|<cell|<with|font-series|bold|not done> (but some progress, see
+  <verbatim|lang_SL2.pdf>)>>|<row|<\cell>
     read Vogan's book
   </cell>|<cell|<with|font-series|bold|not done>>>|<row|<\cell>
-    prepare the reading list and schedule for August (September)
-  </cell>|<cell|<with|font-series|bold|done> (see <verbatim|reading_list.pdf>
-  attached)>>|<row|<\cell>
     prepared better notes on Tamori-kun's talk
   </cell>|<cell|<with|font-series|bold|not done>>>>>>
 
@@ -69,14 +67,6 @@
     to lectures together with other points in <verbatim|checklist.pdf> and
     <verbatim|reflection.pdf> are noted).
 
-    <item>Thank You very much for introducing me to the
-    <math|\<#5831\>\<bullet\>\<#9023\>\<bullet\>\<#76F8\>> philosophy. I
-    would like to ask a question regarding it. Suppose I have to reply to
-    email and there is a deadline. If I understand correctly,
-    <math|\<#5831\>\<bullet\>\<#9023\>\<bullet\>\<#76F8\>> implies that I
-    cannot reply without first consulting with You. Suppose that You are busy
-    and cannot reply to my mail. What should I do?
-
     <item>Are there any other study meetings similar to Kurashiki? (but
     perhaps, dedicated to a different area).
   </enumerate>
@@ -92,13 +82,9 @@
   <paragraph|Comments>
 
   <\enumerate>
-    <item>I extremely sorry for being unable to deliver the talk at Tambara.
-    I am really sorry. I would be very happy, if You would allow me to
-    present Kobayashi\UKubo\UPevzner on the next meeting of our lab.
-
-    <item>I would like to <with|font-series|bold|extremely> thank You for
-    helping me so much with preparing slides and speech for this report at
-    Functional and Real Analysis Symposium.
+    <item>I extremely sorry for what not maintaining communication yesterday
+    and the day before yesterday. I am really sorry. I will maintain the
+    communication. I promise.
   </enumerate>
 
   <\bibliography|bib|tm-alpha|/Users/nailbiter/for/forlatex/kreport/bibliography>
@@ -126,7 +112,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|2|1>>
+    <associate|auto-3|<tuple|1|1>>
     <associate|auto-4|<tuple|1|?>>
     <associate|bib-braverman1998minimal|<tuple|BJ98|?>>
     <associate|bib-kobayashi2016classification|<tuple|KKP16|?>>

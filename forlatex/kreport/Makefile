@@ -1,10 +1,10 @@
 .PHONY: all commit push clean p
 .SECONDARY: 
 
-ZIPNAME=report79
-WORKON=$(ZIPNAME) aug22--sep1
+ZIPNAME=report80
+WORKON=$(ZIPNAME) sep1--sep14
 COMMIT_PREFIX=reports
-PDFS=report reading_list diffforms
+PDFS=report reading_list diffforms lang_SL2
 AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
@@ -27,6 +27,8 @@ $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(
 	$(GITCOMMIT)
 
 #texmacs targets
+$(OUTDIR)/lang_SL2.pdf : $(TEXMACSDIR)/books/lang_SL2.tm
+	$(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/diffforms.pdf : $(TEXMACSDIR)/diffforms.tm
 	$(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/notes.pdf : $(LOCAL_TEXMACSDIR)/seminars/tambara_16-08-17/notes.tm
