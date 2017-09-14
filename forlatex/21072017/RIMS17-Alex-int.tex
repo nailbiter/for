@@ -177,16 +177,21 @@ The University of Tokyo}
 \maketitle
 \begin{abstract}%TODO: write in japanese
 ２つのGegenbauer多項式に関連する積分公式を与える。
-得られた公式の特殊値や極限値と、既知の古典的な結果およびWarnaar、Varchenko，Tarasovなどによる種々のSelberg型積分の特殊値との関連について説明したい．主結果の複数の証明方法を挙げる。
+得られた公式の特殊値や極限値と、古典的な積分公式やWarnaar、Varchenko，Tarasov積分などによる種々のSelberg型積分の特殊値との関連について説明したい．主結果の複数の証明方法を挙げる。
 
-時間が許せば，対称性破れ作用とこの積分公式について触れる． この研究は小林俊行先生との共同研究である。
+最後に、対称性破れ作用への応用について触れる。%． この研究は小林俊行先生との共同研究である。
 \end{abstract}
 \section{主結果}
-	最初は、Gegenbauer多項式という多項式のファミリの定義と性質を復習する.
-	Gegenbauer多項式$\left\{ C_n^\lambda \right\}_{n=1}^{\infty}$は、
-	$\lambda$が定数で$\lambda>-\frac{1}{2}$をみたすとき\doubt{は}
-	$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$の直交多項式である.
-	
+	最初に、Gegenbauer多項式の定義と性質を復習する。
+	Gegenbauer多項式$y=C^\lambda_n(x)$は以下の微分方程式
+	\begin{equation*}
+		(1-x^2)y''-(2\lambda+1)xy'+n(n+\lambda)y=0
+	\end{equation*}
+	を満たす多項式である。さらに、
+	$\lambda$が実数数で$\lambda>-\frac{1}{2}$をみたすとき、
+	Gegenbauer多項式$\left\{ C_n^\lambda \right\}_{n=1}^{\infty}$は
+	$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$の直交多項式とな\doubt{る}。
+	最初の数項を挙げよう。
 	\begin{example*}
 %%		最初のいくつは
 		\begin{eqnarray*}
@@ -198,12 +203,9 @@ The University of Tokyo}
 			+\lambda)x^2+\frac{2}{3}\lambda(1+\lambda)(2+\lambda)(3+\lambda)x^4.
 		\end{eqnarray*}
 	\end{example*}
-	Gegenbauer多項式は以下のような微分方程式を満たす:
-		
-	\begin{equation*}
-		(1-x^2)y''-(2\lambda+1)xy'+n(n+\lambda)y=0.
-	\end{equation*}
-	主結果は以下のようになる：
+	まず、原稿の
+	主結果を述べる。
+	%は以下のようになる：
 	\begin{thm}\label{prop:exp-st-gg}
 		\begin{equation*}
 		\begin{array}{rcl}

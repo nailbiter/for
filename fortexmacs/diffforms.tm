@@ -3,9 +3,9 @@
 <style|<tuple|article|mystyle|structured-section|number-europe|number-long-article>>
 
 <\body>
-  <\show-part|1>
+  <\hide-part|1>
     <date|>
-  </show-part|>
+  </hide-part|>
 
   <\hide-part|2>
     <section|First section|>
@@ -138,7 +138,7 @@
     <section|First section|>
   </hide-part>
 
-  <\show-part|3>
+  <\hide-part|3>
     <section|Howe-Tan for differential forms|<label|sec:howetan>>
 
     For simplicity we use the following notation:
@@ -421,13 +421,18 @@
       The fact that \ <math|\<forall\>\<tau\>\<in\><wide|O|^><around*|(|p+1;q+1|)>,<space|1em><around*|[|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>:\<tau\>|]>\<leqslant\>2>
       follows from Lemma <reference|lem:howetan:mult2>.
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|Howe-Tan for differential forms|<label|sec:howetan>>
-  </show-part>
+  </hide-part>
 
-  <\hide-part|4>
+  <\show-part|4>
     <section|Symmetry breaking for full orthogonal groups
     <math|O<around*|(|N|)>>|>
+
+    <subsection|Parametrization and explicit construction of irrep's of
+    <math|O<around*|(|N|)>>|>
+
+    <subsection|Characters of irrep's of <math|O<around*|(|N|)>>|>
 
     <\fact>
       <label|2:fact-irreps-of-on>The following holds:
@@ -437,7 +442,7 @@
         of <math|O<around*|(|n|)>> are parametrized by the partitions
         <math|<around*|(|a<rsub|1>\<geq\>a<rsub|2>\<geq\>\<ldots\>\<geq\>a<rsub|n>\<geq\>0|)>>
         of the following two types (here <math|a<rsub|i>\<gtr\>0> and
-        <math|k\<in\>\<bbb-N\>\<mid\>2k\<leqslant\>n>):
+        <math|k\<assign\>max<around*|{|k\<in\>\<bbb-N\>\<mid\>2k\<leqslant\>n|}>>):
 
         <\eqnarray>
           <tformat|<table|<row|<cell|>|<cell|<math-up|Type
@@ -469,13 +474,10 @@
     <\proof>
       Fact <reference|2:fact-irreps-of-on> and Frobenius reciprocity.
     </proof>
-  <|hide-part>
-    <section|Symmetry breaking for full orthogonal groups
-    <math|O<around*|(|N|)>>|>
-  </hide-part>
 
-  <\hide-part|5>
-    <section|Playground|>
+    <cite|weyl2016classical>
+
+    <subsection|Playground|>
 
     <subsection|Irreps of <math|SO<around*|(|n|)>> and
     <math|O<around*|(|n|)>>|>
@@ -731,13 +733,20 @@
 
       \;
     </proof>
+  <|show-part>
+    <section|Symmetry breaking for full orthogonal groups
+    <math|O<around*|(|N|)>>|>
+  </show-part>
+
+  <\hide-part|5>
+    <section|Playground|>
   <|hide-part>
     <section|Playground|>
   </hide-part>
 
-  <\show-part|6>
+  <\hide-part|6>
     <\bibliography|bib|tm-alpha|todai_master.bib>
-      <\bib-list|8>
+      <\bib-list|9>
         <bibitem*|05><label|bib-zbMATH02248506>Toshiyuki Kobayashi.<newblock>
         Multiplicity-free representations and visible actions on complex
         manifolds.<newblock> <with|font-shape|italic|Publ. Res. Inst. Math.
@@ -785,13 +794,18 @@
         <with|font-family|rm|font-shape|right|font-series|medium|Memoirs of
         the Amer. Math. Soc>, 2015.<newblock> Available at
         <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
+
+        <bibitem*|Wey16><label|bib-weyl2016classical>Hermann Weyl.<newblock>
+        <with|font-shape|italic|The classical groups: their invariants and
+        representations>.<newblock> Princeton university press,
+        2016.<newblock>
       </bib-list>
     </bibliography>
 
     \;
-  <|show-part>
+  <|hide-part>
     <\bibliography|bib|tm-alpha|todai_master.bib>
-      <\bib-list|8>
+      <\bib-list|9>
         <bibitem*|05><label|bib-zbMATH02248506>Toshiyuki Kobayashi.<newblock>
         Multiplicity-free representations and visible actions on complex
         manifolds.<newblock> <with|font-shape|italic|Publ. Res. Inst. Math.
@@ -839,9 +853,14 @@
         <with|font-family|rm|font-shape|right|font-series|medium|Memoirs of
         the Amer. Math. Soc>, 2015.<newblock> Available at
         <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
+
+        <bibitem*|Wey16><label|bib-weyl2016classical>Hermann Weyl.<newblock>
+        <with|font-shape|italic|The classical groups: their invariants and
+        representations>.<newblock> Princeton university press,
+        2016.<newblock>
       </bib-list>
     </bibliography>
-  </show-part>
+  </hide-part>
 </body>
 
 <\initial>
@@ -857,18 +876,19 @@
     <associate|1:prop-qb1|<tuple|1.4|2|#2>>
     <associate|2:fact-irreps-of-on|<tuple|3.1|?|#4>>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|4.3|?>>
-    <associate|auto-11|<tuple|4.4|?>>
-    <associate|auto-12|<tuple|4.5|?>>
-    <associate|auto-13|<tuple|4.2|?>>
+    <associate|auto-10|<tuple|4.2|?>>
+    <associate|auto-11|<tuple|4.3|?>>
+    <associate|auto-12|<tuple|4.4|?>>
+    <associate|auto-13|<tuple|4.5|?>>
+    <associate|auto-14|<tuple|4.2|?>>
     <associate|auto-2|<tuple|2|2>>
     <associate|auto-3|<tuple|2.1|?>>
     <associate|auto-4|<tuple|2.2|?>>
     <associate|auto-5|<tuple|2.3|?>>
     <associate|auto-6|<tuple|3|?>>
-    <associate|auto-7|<tuple|4|?>>
-    <associate|auto-8|<tuple|4.1|?>>
-    <associate|auto-9|<tuple|4.2|?>>
+    <associate|auto-7|<tuple|3.1|?>>
+    <associate|auto-8|<tuple|4|?>>
+    <associate|auto-9|<tuple|4.1|?>>
     <associate|auto.2-1|<tuple|1|?|#2>>
     <associate|auto.3-1|<tuple|2|?|#3>>
     <associate|auto.3-2|<tuple|2.1|?|#3>>
@@ -880,16 +900,18 @@
     <associate|auto.4-2|<tuple|3.1|?|#4>>
     <associate|auto.4-3|<tuple|3.2|?|#4>>
     <associate|auto.4-4|<tuple|3.3|?|#4>>
-    <associate|auto.4-5|<tuple|4.1|?|#4>>
-    <associate|auto.4-6|<tuple|4.2|?|#4>>
-    <associate|auto.4-7|<tuple|4.3|?|#4>>
+    <associate|auto.4-5|<tuple|3.4|?|#4>>
+    <associate|auto.4-6|<tuple|3.5|?|#4>>
+    <associate|auto.4-7|<tuple|3.6|?|#4>>
+    <associate|auto.4-8|<tuple|3.7|?|#4>>
+    <associate|auto.4-9|<tuple|3.8|?|#4>>
     <associate|auto.5-1|<tuple|4|?|#5>>
     <associate|auto.5-2|<tuple|4.1|?|#5>>
     <associate|auto.5-3|<tuple|4.2|?|#5>>
     <associate|auto.5-4|<tuple|4.3|?|#5>>
     <associate|auto.5-5|<tuple|4.4|?|#5>>
     <associate|auto.5-6|<tuple|4.5|?|#5>>
-    <associate|auto.6-1|<tuple|4.2|?|#6>>
+    <associate|auto.6-1|<tuple|4|?|#6>>
     <associate|bib-KO2|<tuple|KØ03|?|#6>>
     <associate|bib-KOBAYASHI2013921|<tuple|KO13|?>>
     <associate|bib-boerner1963representations|<tuple|BMMC63|?|#6>>
@@ -909,11 +931,13 @@
     <associate|bib-rainville1960special|<tuple|Rai60|?|#6>>
     <associate|bib-tarasov2003selberg|<tuple|TV03|?|#6>>
     <associate|bib-warnaar2010sl3|<tuple|War10|?|#6>>
+    <associate|bib-weyl2016classical|<tuple|Wey16|?|#6>>
     <associate|bib-zbMATH02248506|<tuple|05|?|#6>>
     <associate|fact-1|<tuple|1.1|?>>
     <associate|fact:howetan:oreps|<tuple|2.2|?|#3>>
     <associate|fact:irreps-n-branch-so|<tuple|2.1|?|#3>>
     <associate|footnote-1|<tuple|1|?>>
+    <associate|footnote-2|<tuple|2|?>>
     <associate|footnote-2.1|<tuple|2.1|?|#3>>
     <associate|footnote-3.1|<tuple|3.1|?|#4>>
     <associate|footnote-3.2|<tuple|3.2|?|#4>>
@@ -928,7 +952,7 @@
     <associate|lem:howetan:ind-o|<tuple|2.4|?|#3>>
     <associate|lem:howetan:mult2|<tuple|2.5|?|#3>>
     <associate|lem:howetan:so|<tuple|2.2|?|#3>>
-    <associate|prop:cpt-maxtorus|<tuple|4.1|?|#5>>
+    <associate|prop:cpt-maxtorus|<tuple|3.2|?|#4>>
     <associate|prop:restr-connected|<tuple|2.1|?|#3>>
     <associate|prop:so|<tuple|2.1|?|#3>>
     <associate|sec:howetan|<tuple|2|?|#3>>
@@ -957,6 +981,8 @@
       howe2005stable
 
       howe2005stable
+
+      weyl2016classical
 
       fulton2013representation
 
@@ -1001,38 +1027,42 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6><vspace|0.5fn>
 
+      <with|par-left|<quote|1tab>|3.1<space|2spc>Playground
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7>>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Playground>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7><vspace|0.5fn>
+      <no-break><pageref|auto-8><vspace|0.5fn>
 
       <with|par-left|<quote|1tab>|4.1<space|2spc>Irreps of
       <with|mode|<quote|math>|SO<around*|(|n|)>> and
       <with|mode|<quote|math>|O<around*|(|n|)>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8>>
+      <no-break><pageref|auto-9>>
 
       <with|par-left|<quote|1tab>|4.2<space|2spc>Characters of irreps of
       <with|mode|<quote|math>|SO<around*|(|N|)>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9>>
+      <no-break><pageref|auto-10>>
 
       <with|par-left|<quote|1tab>|4.3<space|2spc>Branching in
       <with|mode|<quote|math>|SO<around*|(|N|)>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10>>
+      <no-break><pageref|auto-11>>
 
       <with|par-left|<quote|1tab>|4.4<space|2spc>Characters of irreps of
       <with|mode|<quote|math>|O<around*|(|N|)>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11>>
+      <no-break><pageref|auto-12>>
 
       <with|par-left|<quote|1tab>|4.5<space|2spc>General stuff
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-12>>
+      <no-break><pageref|auto-13>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13><vspace|0.5fn>
+      <no-break><pageref|auto-14><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
