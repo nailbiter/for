@@ -5,7 +5,7 @@ ZIPNAME=RIMSslides
 WORKON=https://trello.com/c/qQLQN4Rn method1ShowWhy3F2SatisfiesWhipple
 COMMIT_PREFIX=tex RIMStalk
 PDFS=intpaper answer RIMS17-Alex-int slides speech ja
-AUX=abe_form.pdf
+AUX=abe_form.pdf carlson.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -24,7 +24,7 @@ $(OUTDIR)/ja.pdf : $(OUTDIR)/ja.dvi
 	cd $(OUTDIR) && dvipdfmx $(basename $<).dvi
 $(OUTDIR)/ja.dvi: ja.tex
 	latexmk -outdir=$(OUTDIR) -latex='platex %O %S' -f -g $<
-$(OUTDIR)/RIMS17-Alex-int.dvi: RIMS17-Alex-int.tex diagram.tex big.intdep.tex intdep.bib
+$(OUTDIR)/RIMS17-Alex-int.dvi: RIMS17-Alex-int.tex diagram.tex big.intdep.tex intdep.bib bib.tex
 	latexmk -outdir=$(OUTDIR) -latex='platex %O %S' -f -g $<
 
 $(OUTDIR)/RIMS17-Alex-int.pdf: $(OUTDIR)/RIMS17-Alex-int.dvi
