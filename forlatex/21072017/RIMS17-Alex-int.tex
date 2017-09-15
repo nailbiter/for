@@ -33,6 +33,8 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,patterns}
 
+\numberwithin{equation}{section}
+
 \newcommand{\mysbo}{A:\pi\kern-0.1cm\mid_{G'}\xrightarrow{G'}\tau}
 \newcommand{\myrelationdiagram}[5]{
 	\vspace{1em}
@@ -176,9 +178,11 @@ The University of Tokyo}
 \begin{document}
 \maketitle
 \begin{abstract}%TODO: write in japanese
-２つのGegenbauer多項式に関連する積分公式を与える。
-得られた公式の特殊値や極限値と、古典的な積分公式やWarnaar、Varchenko，Tarasov積分などによる種々のSelberg型積分の特殊値との関連について説明したい．主結果の複数の証明方法を挙げる。
-
+Gegenbauer多項式
+を2つ含んだある種の積分の具体的
+公式を与える。
+得られた公式の特殊値や極限値と、古典的な積分公式やWarnaar、Varchenko，Tarasov積分などによる種々のSelberg型積分の特殊値との関連について説明したい。
+主結果の複数の証明方法を挙げる。
 最後に、対称性破れ作用への応用について触れる。%． この研究は小林俊行先生との共同研究である。
 \end{abstract}
 \section{主結果}
@@ -190,9 +194,8 @@ The University of Tokyo}
 	を満たす多項式である。さらに、
 	$\lambda$が実数で$\lambda>-\frac{1}{2}$をみたすとき、
 	Gegenbauer多項式$\left\{ C_n^\lambda \right\}_{n=1}^{\infty}$は
-	$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$の直交多項式とな\doubt{る}。
+	$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$の直交多項式とな{る}。
 	最初の数項を挙げよう。
-	\begin{example*}
 %%		最初のいくつは
 		\begin{eqnarray*}
 			C_0^\lambda(x)&=&1,\\
@@ -202,11 +205,13 @@ The University of Tokyo}
 			C_4^\lambda(x)&=&\frac{1}{2}\lambda(1+\lambda)-2\lambda(1+\lambda)(2
 			+\lambda)x^2+\frac{2}{3}\lambda(1+\lambda)(2+\lambda)(3+\lambda)x^4.
 		\end{eqnarray*}
-	\end{example*}
-	まず、原稿の
+	まず、本稿の
 	主結果を述べる。
 	%は以下のようになる：
 	\begin{thm}\label{prop:exp-st-gg}
+		$\ell,m\in\N$に対して$\lambda,\mu,\nu$
+		の有理式\footnote{I might be very wrong, but I thought that $a^{\ell,m}_{\lambda,\mu,\nu}$ and $b(\lambda,\mu,\nu)$ are \textit{not} a 
+	rational expressions in $\lambda,\mu,\nu$, because they contain $\Gamma$ as well.}を以下のように定義する。
 		\begin{equation*}
 		\begin{array}{rcl}
 			a_{\lambda,\mu,\nu}^{\ell,m}&:=&\frac{ (\lambda + \ell) (\mu + m)}{\Gamma \left( \lambda + \nu + \frac{\ell -
@@ -215,11 +220,12 @@ The University of Tokyo}
 			  m}{2} + 1 \right)\Gamma\left(  \nu+1-\frac{\ell+m}{2}\right)},\\[0.4cm]
 			  b(\lambda,\mu,\nu)&:=&2^{-2\nu}\Gamma (\lambda + \mu + 2 \nu + 1){\Gamma (\lambda)
 			  \Gamma (\mu)\Gamma \left( 2\nu +
-			1 \right)}.
+			1 \right)}
 		\end{array}
 		\end{equation*}
-		とおく。
-
+		このとき\footnote{Is there a particular reason we use subscript to indicate dependence on $\lambda,\mu,\nu$ in $a^{\ell,m}_{\lambda,\mu,\nu}$,
+		but use brackets to indicate dependence on $\lambda,\mu,\nu$ in $b(\lambda,\mu,\nu)$? Maybe, it is better to write $a^{\ell,m}(\lambda,\mu,\nu)$?
+		}\footnote{このとき seems to indicate the beginning of a sentence. But I do not see the dot ending the previous sentence. Is that OK?}、
 		$\Re\lambda,\Re\mu>-\frac{1}{2},\Re\nu>0$ならば、
 		\begin{equation}
 			| s + t |^{2 \nu} =b(\lambda,\mu,\nu) \displaystyle\sum_{\scalebox{0.6}{ $\begin{array}[]{c}
@@ -230,44 +236,47 @@ The University of Tokyo}
 		が成り立つ。
 	\end{thm}
 	第\ref{sec:proof}節
-	で、これの４通りの証明を紹介する。
+	で、定理\ref{prop:exp-st-gg}の４通りの証明を紹介する。
 
 	少しだけ一般的な結果も述べておこう。
-	\begin{prop}\label{prop:exp-stz-gg}
-		  \label{thm:4}$\tmop{Re} \lambda, \tmop{Re} \mu > - \frac{1}{2}$,
-		    $\tmop{Re} \nu > 0$ かつ $-1 \leqslant z \leqslant 1$ のとき、
+	\begin{prop}\label{prop:exp-stz-gg}\label{thm:4}
+		$\ell,m\in\N$に対して
 		    \begin{equation*}
-			    \begin{array}{c}
-				  a_{\ell, m} (z) = \frac{\Gamma \left( \nu + \frac{1}{2} \right) \Gamma
+				  a_{\ell, m} (x) = \frac{\Gamma \left( \nu + \frac{1}{2} \right) \Gamma
 				  (\lambda) \Gamma (\mu) (\lambda + l) z^m }{(1 + \nu)_{- \frac{\ell + m}{2}} \sqrt{\pi} \Gamma
 				      (\mu + m) \Gamma \left( \lambda + \nu + \frac{\ell - m}{2} + 1 \right)}
 				    {}_2 F_1 \left( \begin{array}{c}
 				\frac{\ell + m}{2} - \nu, \frac{m - \ell}{2} - \nu - \lambda\\
 				\mu + m + 1
-			\end{array} ; z^2 \right)\mbox{とおくと}\\
-			       | s + t z |^{2 \nu}  = \sum_{\scalebox{0.6}{
+			\end{array} ; x^2 \right)
+		\end{equation*}
+		とおくと、
+		  $\tmop{Re} \lambda, \tmop{Re} \mu > - \frac{1}{2}$,
+		    $\tmop{Re} \nu > 0$ かつ $-1 \leqslant x \leqslant 1$ のとき、
+		\begin{equation*}
+			       | s + t x |^{2 \nu}  = \sum_{\scalebox{0.6}{
 			      $\begin{array}[]{c}
 				  \ell,m=0\\\ell+ m\mbox{ :even}
 				\end{array}
 				$}}^{\infty} a_{\ell, m}
-				 (z) C_\ell^{\lambda} (s) C_m^{\mu} (t)
-			    \end{array}
+				 (x) C_\ell^{\lambda} (s) C_m^{\mu} (t)
 		    \end{equation*}
 		    が成り立つ。
     \end{prop}
-    ガウスの超幾何定理
-    公式
+    ガウスの超幾何関数$_2F_1\left(\begin{array}[]{c}
+	    a,b\\c
+    \end{array};x\right)$の$x=1$における値
 \begin{equation*}
 		{}_2F_1\left( \begin{array}[]{c}
 			a,b\\c
 		\end{array};1\right)=\frac{\Gamma(c-a-b)\Gamma(c)}{\Gamma(c-a)\Gamma(c-b)},\quad \Re(c-a-b)>0
 	\end{equation*}
-    を用い、
-    命題\ref{prop:exp-st-gg}は命題\ref{prop:exp-stz-gg}において$z=1$を代入したときの結果であるということが分かる.
+    を用いると、
+    命題\ref{prop:exp-st-gg}は命題\ref{prop:exp-stz-gg}において$x=1$を代入したときの結果であるということが分かる.
 
 	命題\ref{prop:exp-st-gg}は次の
 	積分公式と同値である.
-	\begin{taggedprop}{\taggedpropsymb}
+	\begin{prop}
 		\label{prop:int-st-gg}
 		\begin{equation*}
 			\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
@@ -282,10 +291,9 @@ The University of Tokyo}
 		m}{2} + 1 \right) \Gamma \left( \mu + \nu - \frac{\ell - m}{2} + 1 \right) \Gamma
 		\left( \lambda + \mu + \nu + \frac{\ell + m}{2} + 1 \right)}
 			\label{eqn:int-st-gg}
-			\tag{1$'$}
 		\end{equation}
 		}
-	\end{taggedprop}
+	\end{prop}
 	ここでPochhammer記号$(x)_n$は以下のように定義される：\begin{equation*}
 		(x)_n:=\frac{\Gamma(x+n)}{\Gamma(x)}=x(x+1)\cdots(x+n-1).
 	\end{equation*}
