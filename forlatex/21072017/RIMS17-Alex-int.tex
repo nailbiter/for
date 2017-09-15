@@ -239,7 +239,7 @@ Gegenbauer多項式
 	で、定理\ref{prop:exp-st-gg}の４通りの証明を紹介する。
 
 	少しだけ一般的な結果も述べておこう。
-	\begin{prop}\label{prop:exp-stz-gg}\label{thm:4}
+	\begin{prop}\label{prop:exp-stz-gg}
 		$\ell,m\in\N$に対して
 		    \begin{equation*}
 				  a_{\ell, m} (x) = \frac{\Gamma \left( \nu + \frac{1}{2} \right) \Gamma
@@ -294,17 +294,19 @@ Gegenbauer多項式
 		\end{equation}
 		}
 	\end{prop}
-	ここでPochhammer記号$(x)_n$は以下のように定義される：\begin{equation*}
+	ここでPochhammer記号$(x)_n$は以下のように定義される。\begin{equation*}
 		(x)_n:=\frac{\Gamma(x+n)}{\Gamma(x)}=x(x+1)\cdots(x+n-1).
 	\end{equation*}
-	\begin{remark*}
-		上記で記述された命題\ref{prop:exp-stz-gg}に対応する積分公式もあるが、
-		ここで記述を簡単にするため、省略する。
-	\end{remark*}
+%%	\begin{remark*}
+%%		上記で記述された命題\ref{prop:exp-stz-gg}に対応する積分公式もあるが、
+%%		ここで記述を簡単にするため、省略する。
+%%	\end{remark*}
 \section{主結果の様々な特殊化}
-最初の特殊化とその関連結果のご紹介のため、エルミート多項式を復習する.
-エルミート多項式$\left\{ H_n \right\}_{n=1}^\infty$は、
-	$L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$の直交多項式である.
+最初の特殊化とその関連結果のご紹介のため、エルミート多項式を復習する。
+エルミート多項式$\left\{ H_n(x) \right\}_{n=1}^\infty$は\footnote{note that when introducing Gegenbauer polynomials in the first
+	section, we wrote $\left\{ C^\lambda_n \right\}_{n=1}^{\infty}$, not $\left\{ C^{\lambda}_n(x) \right\}_{n=1}^\infty$}、
+	$L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$の直交多項式である。
+	最初の数項を挙げよう。\footnote{should I remove the 例 in the next line?}
 	\begin{example*}
 		\begin{eqnarray*}
 		H_0(x)&=& 1,\\
@@ -350,7 +352,7 @@ Gegenbauer多項式
 		系\ref{cor:int-xzy-hh}の $w = 1, \ell = m = 0$ の特殊化がMehta積分
 の $k = 2$ の特別な場合になる：
 \vspace{1em}
-		\myrelationdiagram{系1}{w=-1\\\ell=m=0}{k=2}{Mehta積分}
+		\myrelationdiagram{系\ref{cor:int-xzy-hh}}{w=1\\\ell=m=0}{k=2}{Mehta積分}
 		{$\int_{-\infty}^\infty\int_{-\infty}^\infty\myabs{x-y}^{2\nu}e^{-x^2-y^2}dxdy=\mypgf$}
 
 		図\ref{fig:intdep}に述べてるように、
@@ -360,7 +362,7 @@ Gegenbauer多項式
 			\begin{figure*}[h]
 				\centering
 				\begin{tikzpicture}
-				\input{big.intdep.tex}
+				\input{big.intdep.genkou.tex}
 				\end{tikzpicture}
 				\caption{
 					命題\ref{prop:int-st-gg}の$\ell=m=0$の特別の場合とその関連結果;
@@ -802,7 +804,7 @@ Gegenbauer多項式
 		\xymatrixcolsep{0.5pc}
 		\xymatrixrowsep{1pc}
 		\xymatrix{G\ar@/_1pc/[d]&&\supset&&G'\ar@/^1pc/[d]&\\
-			\pi&\ar[rr]^{A}&&\tau&&{\begin{array}[]{l}
+			\pi&\ar[rr]^{A}&&\tau\kern-1cm&&{\begin{array}[]{l}
 		\end{array}}%
 	}}
 	\end{setting*}
