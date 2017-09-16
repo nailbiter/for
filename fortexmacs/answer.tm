@@ -1542,7 +1542,7 @@
     such that
 
     <\equation*>
-      Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1,\<lambda\>=\<mu\>,Re<around*|(|\<lambda\>+\<mu\>-\<nu\>|)>\<leqslant\>-1.
+      Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1,Re<around*|(|\<lambda\>+\<mu\>-\<nu\>|)>\<leqslant\>-1.
     </equation*>
   </proposition>
 
@@ -1638,7 +1638,7 @@
     latter series is dominated by
 
     <\equation*>
-      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)><around*|(|l-1|)><rsup|2\<lambda\>-1><around*|(|m-1|)><rsup|2\<mu\>-1>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|<frac|l+m|2>-\<nu\>|)>>>>>>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2\<lambda\>>m<rsup|2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|\<lambda\>l+\<mu\>m|\<lambda\>+\<mu\>>|)><rsup|2\<lambda\>+2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|=<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2\<lambda\>+2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>><frac|i<rsup|2\<lambda\>+2\<mu\>+1>|i<rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|\<lambda\>+\<mu\>-\<nu\>>.>>>>>
+      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)><around*|(|l-1|)><rsup|2\<lambda\>-1><around*|(|m-1|)><rsup|2\<mu\>-1>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|<frac|l+m|2>-\<nu\>|)>>>>>>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2\<lambda\>>m<rsup|2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|\<lambda\>l+\<mu\>m|\<lambda\>+\<mu\>>|)><rsup|2\<lambda\>+2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2\<lambda\>+2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<sim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2\<lambda\>+2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<sim\><big|sum><rsub|i=0><rsup|\<infty\>><frac|i<rsup|2\<lambda\>+2\<mu\>+1>|i<rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|\<lambda\>+\<mu\>-\<nu\>>.>>>>>
     </equation*>
   </proof>
 
