@@ -7,7 +7,7 @@ COMMIT_PREFIX=tex RIMStalk
 PDFS=intpaper answer RIMS17-Alex-int slides speech ja
 AUX=abe_form.pdf carlson.pdf
 
-PDFS=answer RIMS17-Alex-int slides
+PDFS=answer RIMS17-Alex-int
 AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
