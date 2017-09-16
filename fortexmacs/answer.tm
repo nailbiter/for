@@ -1538,11 +1538,11 @@
 
   <\proposition>
     <label|prop:Vk7ZjF-2>The series on RHS of <math|<eqref|eqn:q30-1>>
-    converges absolutely for generic <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-R\><rsup|2><rsub|\<gtr\>0>\<times\>\<bbb-C\>>,
+    converges absolutely for generic <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|3>>,
     such that
 
     <\equation*>
-      Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1,Re<around*|(|\<lambda\>+\<mu\>-\<nu\>|)>\<leqslant\>-1.
+      Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1;Re<around*|(|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>|)>\<leqslant\>-1;Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>0
     </equation*>
   </proposition>
 
@@ -1596,6 +1596,38 @@
     <math|lim<rsub|n\<rightarrow\>\<infty\>><around*|(|a<rsub|n>/b<rsub|n>|)>=1>.
   </fact>
 
+  <\lemma>
+    <label|lem:Vk7ZjF-2>For <math|\<lambda\>\<in\><around*|{|\<bbb-C\>\<mid\>Re<around*|(|\<lambda\>|)>\<gtr\>0|}>>
+    we have
+
+    <\equation*>
+      max<rsub|<around*|\||x|\|>\<leqslant\>1><around*|\||C<rsup|\<lambda\>><rsub|n><around*|(|x|)>|\|>\<leqslant\>C<rsub|n><rsup|<around*|\||\<lambda\>|\|>><around*|(|1|)>\<sim\><frac|<around*|(|n-1|)><rsup|2<around*|\||\<lambda\>|\|>-1>|\<Gamma\><around*|(|2<around*|\||\<lambda\>|\|>|)>>
+    </equation*>
+
+    where <math|a<rsub|n>\<sim\>b<rsub|n>> denotes the fact that
+    <math|lim<rsub|n\<rightarrow\>\<infty\>><around*|(|a<rsub|n>/b<rsub|n>|)>=1>.
+  </lemma>
+
+  <\proof>
+    Note the equality
+
+    <\equation*>
+      C<rsub|n><rsup|\<lambda\>><around*|(|cos*\<theta\>|)>=<big|sum><rsub|k=0><rsup|n><frac|<around*|(|\<lambda\>|)><rsub|k><around*|(|\<lambda\>|)><rsub|n-k>|k!<around*|(|n-k|)>!>cos<around*|(|n-2k|)>\<theta\>.<space|1em><text|<cite-detail|andrews2000special|(6.4.11)>>
+    </equation*>
+
+    Hence,
+
+    <\equation*>
+      <around*|\||C<rsub|n><rsup|\<lambda\>><around*|(|cos*\<theta\>|)>|\|>\<leqslant\><big|sum><rsub|k=0><rsup|n><around*|\||<frac|<around*|(|\<lambda\>|)><rsub|k><around*|(|\<lambda\>|)><rsub|n-k>|k!<around*|(|n-k|)>!>cos<around*|(|n-2k|)>\<theta\>|\|>\<leqslant\><big|sum><rsub|k=0><rsup|n><frac|<around*|(|<around*|\||\<lambda\>|\|>|)><rsub|k><around*|(|<around*|\||\<lambda\>|\|>|)><rsub|n-k>|k!<around*|(|n-k|)>!>=C<rsup|\<lambda\>><rsub|n><around*|(|1|)>
+    </equation*>
+
+    <\equation*>
+      C<rsup|<around*|(|\<alpha\>|)>><rsub|n><around*|(|x|)>=<big|sum><rsub|k=0><rsup|<around*|\<lfloor\>|n/2|\<rfloor\>>><around*|(|-1|)><rsup|k><frac|<around*|(|\<alpha\>|)><rsub|n-k>|k!<around*|(|n-2k|)>!><around*|(|2z|)><rsup|n-2k>,
+    </equation*>
+
+    hence the conclusion follows.
+  </proof>
+
   <subsection|Proofs>
 
   <\proof>
@@ -1627,18 +1659,18 @@
       <big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>.
     </equation*>
 
-    Now, Fact <reference|fact:Vk7ZjF-1> implies that the latter series is
+    Now, Lemma <reference|lem:Vk7ZjF-2> implies that the latter series is
     dominated by
 
     <\equation*>
-      <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)><around*|(|l-1|)><rsup|2\<lambda\>-1><around*|(|m-1|)><rsup|2\<mu\>-1>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>.
+      <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>.
     </equation*>
 
     Proceeding as in proof of Lemma <reference|lem:Vk7ZjF-1>, we see that the
     latter series is dominated by
 
     <\equation*>
-      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)><around*|(|l-1|)><rsup|2\<lambda\>-1><around*|(|m-1|)><rsup|2\<mu\>-1>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|<frac|l+m|2>-\<nu\>|)>>>>>>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2\<lambda\>>m<rsup|2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|\<lambda\>l+\<mu\>m|\<lambda\>+\<mu\>>|)><rsup|2\<lambda\>+2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2\<lambda\>+2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<sim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2\<lambda\>+2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<sim\><big|sum><rsub|i=0><rsup|\<infty\>><frac|i<rsup|2\<lambda\>+2\<mu\>+1>|i<rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|\<lambda\>+\<mu\>-\<nu\>>.>>>>>
+      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<sim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<sim\><big|sum><rsub|i=0><rsup|\<infty\>><frac|i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+1>|i<rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>>.>>>>>
     </equation*>
   </proof>
 
@@ -1649,6 +1681,11 @@
       Functions>, volume <with|font-series|bold|71> of
       <with|font-shape|italic|Encyclopedia of Mathematics and its
       Applications>. <newblock>Cambridge University Press, Cambridge, 1999.
+
+      <bibitem*|AAR00><label|bib-andrews2000special>George<nbsp>E Andrews,
+      Richard Askey, and Ranjan Roy. <newblock><with|font-shape|italic|Special
+      functions>. <newblock><with|font|roman|\<#6E05\>\<#534E\>\<#5927\>\<#5B66\>\<#51FA\>\<#7248\>\<#793E\>\<#6709\>\<#9650\>\<#516C\>\<#53F8\>>,
+      2000.
 
       <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
       Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions and
@@ -1758,6 +1795,7 @@
     <associate|auto-34|<tuple|30.2|?>>
     <associate|auto-35|<tuple|30.3|?>>
     <associate|auto-36|<tuple|30.3|?>>
+    <associate|auto-37|<tuple|1|?>>
     <associate|auto-4|<tuple|4|?>>
     <associate|auto-5|<tuple|5|?>>
     <associate|auto-6|<tuple|6|?>>
@@ -1803,6 +1841,7 @@
     <associate|bib-KO2|<tuple|KØ03|29>>
     <associate|bib-MR3008847|<tuple|XWZ13|?>>
     <associate|bib-andrews1999special|<tuple|AAR99|?>>
+    <associate|bib-andrews2000special|<tuple|AAR00|?>>
     <associate|bib-borel2013continuous|<tuple|BW13|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|29>>
     <associate|bib-gradshteinryzhik|<tuple|GRJ00|29>>
@@ -1894,6 +1933,7 @@
     <associate|footnr-5|<tuple|5|25>>
     <associate|footnr-6|<tuple|6|25>>
     <associate|lem:Vk7ZjF-1|<tuple|30.1|?>>
+    <associate|lem:Vk7ZjF-2|<tuple|30.2|?>>
     <associate|main-thm|<tuple|5|?>>
     <associate|prop:2|<tuple|15|?>>
     <associate|prop:Vk7ZjF-1|<tuple|30.1|?>>
@@ -1995,6 +2035,8 @@
       olver2010nist
 
       MR3008847
+
+      andrews2000special
     </associate>
     <\associate|figure>
       <tuple|normal|Howe-Tan, diagram 2.31|<pageref|auto-24>>
