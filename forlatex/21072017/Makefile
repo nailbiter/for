@@ -7,6 +7,9 @@ COMMIT_PREFIX=tex RIMStalk
 PDFS=intpaper answer RIMS17-Alex-int slides speech ja
 AUX=abe_form.pdf carlson.pdf
 
+PDFS=answer RIMS17-Alex-int slides
+AUX=
+
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
 LATEXMK=latexmk -pdf  -outdir=$(OUTDIR) -f -g

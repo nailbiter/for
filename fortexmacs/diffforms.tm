@@ -138,7 +138,7 @@
     <section|First section|>
   </hide-part>
 
-  <\hide-part|3>
+  <\show-part|3>
     <section|Howe-Tan for differential forms|<label|sec:howetan>>
 
     For simplicity we use the following notation:
@@ -421,16 +421,18 @@
       The fact that \ <math|\<forall\>\<tau\>\<in\><wide|O|^><around*|(|p+1;q+1|)>,<space|1em><around*|[|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>:\<tau\>|]>\<leqslant\>2>
       follows from Lemma <reference|lem:howetan:mult2>.
     </proof>
-  <|hide-part>
+  <|show-part>
     <section|Howe-Tan for differential forms|<label|sec:howetan>>
-  </hide-part>
+  </show-part>
 
-  <\show-part|4>
+  <\hide-part|4>
     <section|Symmetry breaking for full orthogonal groups
     <math|O<around*|(|N|)>>|>
 
     <subsection|Parametrization and explicit construction of irrep's of
     <math|O<around*|(|N|)>>|>
+
+    \;
 
     <subsection|Characters of irrep's of <math|O<around*|(|N|)>>|>
 
@@ -733,10 +735,10 @@
 
       \;
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|Symmetry breaking for full orthogonal groups
     <math|O<around*|(|N|)>>|>
-  </show-part>
+  </hide-part>
 
   <\hide-part|5>
     <section|Playground|>

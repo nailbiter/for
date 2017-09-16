@@ -1,6 +1,6 @@
 <TeXmacs|1.99.4>
 
-<style|<tuple|article|number-europe>>
+<style|<tuple|article|number-europe|number-long-article|mystyle>>
 
 <\body>
   <\hide-preamble>
@@ -16,6 +16,8 @@
   </hide-preamble>
 
   <date|>
+
+  <section|section <code|HEGL84>>
 
   <\question>
     <label|q1>How does the statement of Proposition 6.4
@@ -48,6 +50,8 @@
   only on <math|<around*|(|p,q,a<rprime|'>,a,b|)>>, the one mentioned in
   Proposition 6.4.
 
+  <section|section <code|MRZoR8>>
+
   <\question>
     How does the equality of Question 1 changes if we use unnormalized
     Gegenbauer polynomials?
@@ -73,6 +77,8 @@
     <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|D><around*|(|1-u<rsup|2>|)><rsup|<frac|q-2|2>><around*|(|z<rsup|2>-v<rsup|2>|)><rsup|<frac|p-3|2>><around*|(|1-z<rsup|2>|)><rsup|<frac|\<lambda\>+\<nu\>-n-1|2>><around*|\||u-v|\|><rsup|-\<nu\>>C<rsup|<frac|p|2>-1><rsub|a<rprime|'>><around*|(|<frac|v|z>|)>z<rsup|a<rprime|'>+1>C<rsup|<frac|q-1|2>><rsub|b><around*|(|u|)>C<rsup|<frac|p-1|2>+a<rprime|'>><rsub|a-a<rprime|'>><around*|(|<sqrt|1-z<rsup|2>>|)>=>|<cell|>>|<row|<cell|>|<cell|=<frac|\<Gamma\><around*|(|<frac|a<rprime|'>+b+\<nu\>|2>|)>\<Gamma\><around*|(|<frac|1-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|\<lambda\>-\<nu\>|2>|)>\<Gamma\><around*|(|<frac|1+\<lambda\>+\<nu\>-n|2>|)>|\<Gamma\><around*|(|<frac|\<nu\>|2>|)>\<Gamma\><around*|(|<frac|1-a<rprime|'>+b-\<nu\>+q|2>|)>\<Gamma\><around*|(|<frac|a<rprime|'>+b+\<lambda\>|2>|)>*<space|0.17em>\<Gamma\><around*|(|<frac|1+a<rprime|'>-b+\<lambda\>-q|2>|)>>\<times\><frac|\<Gamma\><around*|(|<frac|p-2|2>|)>\<Gamma\><around*|(|<frac|q-1|2>|)><around*|(|<frac|q-1+b|2>|)>\<Gamma\><around*|(|<frac|p-1|2>+a<rprime|'>|)><around*|(|<frac|p-1|2>+<frac|a+a<rprime|'>|2>|)>|\<Gamma\><around*|(|<frac|p-2|2>+<around*|[|<frac|a<rprime|'>|2>|]>|)>>\<times\><wide|c|~><rsub|p,q,a<rprime|'>,a,b>>|<cell|>>|<row|<cell|>|<cell|<space|0.6spc><rsub|4>F<rsub|3><around*|(|<stack|<tformat|<table|<row|<cell|<frac|\<lambda\>-\<nu\>|2>,<frac|a<rprime|'>-a|2>,<frac|\<lambda\>+\<nu\>-n+1|2>,<frac|p-1+a<rprime|'>+a|2>>>|<row|<cell|<frac|a<rprime|'>+b+\<lambda\>|2>,<frac|1|2>,<frac|1+a<rprime|'>-b+\<lambda\>-q|2>>>>>>;1|)>>|<cell|>>>>
   </eqnarray>
 
+  <section|section <code|XAsFsU>>
+
   <\question>
     In the statement of Proposition 6.4, is it essential that
     <math|<around*|(|p,q|)>\<in\>\<bbb-N\><rsub|+>>?
@@ -82,6 +88,8 @@
     No, we can assume barely <math|p,q\<in\>\<bbb-C\>> (note that the
     domain-of-convergence part of Proposition 6.4 will change accordingly).
   </answer>
+
+  <section|section <code|GbW86M>>
 
   <\question>
     What does the integral in Question <reference|q1> becomes if we do
@@ -110,6 +118,8 @@
     We let <math|<wide|\<Gamma\>|~><around*|(|x|)>\<assign\>\<Gamma\><around*|(|x|)>>
     if <math|x\<nin\>-\<bbb-N\>> and <math|\<assign\>1> otherwise.
   </definition>
+
+  <section|section <code|CBYWzL>>
 
   <\question>
     What becomes to previous question when we introduce the following
@@ -146,6 +156,8 @@
     <math|p=1> similar manipulations can be introduced).
   </remark>
 
+  <section|section <code|ihDxFM>>
+
   <\question>
     Are any particular cases of the
 
@@ -173,6 +185,8 @@
       t.>|<cell|>>>>
     </eqnarray>
   </definition>
+
+  <section|section <code|h1uGiK>>
 
   <\question>
     How does the first equality in Question 8 changes if we do variable
@@ -250,6 +264,8 @@
       b!><around*|\<nobracket\>||\<nobracket\>>\<times\>>|<cell|>>|<row|<cell|>|<cell|<frac|B<around*|(|<frac|m+l+b|2>,<frac|a-2b+2\<mu\>+2\<lambda\>+3|2>|)>\<Gamma\><around*|(|<frac|a+1|2>|)>\<Gamma\><around*|(|<frac|1-b|2>|)>|\<Gamma\><around*|(|<frac|b|2>|)>\<Gamma\><around*|(|<frac|2-m+l-b+2\<lambda\>|2>|)>*\<Gamma\><around*|(|<frac|m-l+a-b+2\<mu\>+3|2>|)>>.>|<cell|>>|<row|<cell|>|<cell|\<lambda\>,\<mu\>,a,b\<in\>\<bbb-C\>;<space|1em>l,m\<in\>\<bbb-N\>\<mid\>l+m\<in\>2\<bbb-N\>>|<cell|>>>>
     </eqnarray>
   </answer>
+
+  <section|section <code|oZgJin>>
 
   <\question>
     Which specializations of integral in Question 7 are previously known?
@@ -376,6 +392,8 @@
     </enumerate-numeric>
   </answer>
 
+  <section|section <code|1cltWd>>
+
   <\question>
     How does the formula
 
@@ -416,6 +434,10 @@
     </eqnarray>
   </theorem>
 
+  \;
+
+  <section|section <code|mR99JZ>>
+
   <\question>
     Is the RHS of the Theorem <reference|thm-1> invariant under the
     <math|<around*|(|\<lambda\>,l,b|)>\<leftrightarrow\><around*|(|\<mu\>,m,b|)>>
@@ -423,6 +445,8 @@
   </question>
 
   I do not have alternative proof at the moment.
+
+  <section|section <code|1jKfH6>>
 
   <\question>
     <label|q-ode>Which ODE of the second order does
@@ -455,6 +479,8 @@
     x<rsup|2>><around*|(|<around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f|)>-<around*|(|2\<lambda\>+1|)>x<frac|d|d
     x><around*|(|<around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f|)>+l<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f=0\<Leftrightarrow\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|3/2-\<lambda\>>f<rprime|''>+<around*|(|1-2\<lambda\>|)><around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f<rprime|'>+2<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>x<around*|(|1-x<rsup|2>|)><rsup|-1/2-\<lambda\>>f-<around*|(|2\<lambda\>+1|)>x<around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f<rprime|'>+l<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>>f+<around*|(|1-x<rsup|2>|)><rsup|-1/2-\<lambda\>><around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>f=0\<Leftrightarrow\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|3/2-\<lambda\>>f<rprime|''>+>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|1/2-\<lambda\>><around*|[|<around*|(|1-2\<lambda\>|)>-<around*|(|2\<lambda\>+1|)>x|]>f<rprime|'>+>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|-1/2-\<lambda\>><around*|(|<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>+l<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)>+2<around*|(|\<lambda\><rsup|2>-<frac|1|4>|)>x|)>f=0\<Leftrightarrow\>>|<cell|>>|<row|<cell|>|<cell|<around*|(|1-x<rsup|2>|)><rsup|2>f<rprime|''>+<around*|(|1-x<rsup|2>|)><around*|(|<around*|(|1-2\<lambda\>|)>-<around*|(|2\<lambda\>+1|)>x|)>f<rprime|'>+<around*|(|<around*|(|2x+1|)><around*|(|\<lambda\><rsup|2>-1/4|)>+l<around*|(|l+2\<lambda\>|)><around*|(|1-x<rsup|2>|)>|)>f=0.>|<cell|>>>>
   </eqnarray>
+
+  <section|section <code|l4vw7A>>
 
   <\question>
     Prove the arrows of the diagram:
@@ -505,6 +531,8 @@
     td\<tau\>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|t\<rightarrow\><frac|1+u|2>,s\<rightarrow\><frac|1+v|2>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><big|int><rsub|<around*|(|u,v|)>\<in\><around*|[|-1,1|]><rsup|2>><around*|(|1-u<rsup|2>|)><rsup|\<alpha\><rprime|'>><around*|(|1-v|)><rsup|\<alpha\>><around*|\||u-v|\|><rsup|-2>d
     u d v=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|[KL]>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><frac|\<Gamma\><around*|(|-1/2|)><sqrt|\<pi\>>\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1|)>|\<Gamma\><around*|(|\<alpha\>+1/2|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)><around*|(|\<alpha\><rprime|'>+\<alpha\>|)>>=<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><frac|-2\<pi\>\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1|)>|\<Gamma\><around*|(|\<alpha\>+1/2|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)><around*|(|\<alpha\><rprime|'>+\<alpha\>|)>>>|<cell|>>|<row|<cell|>|<cell|<frac|-\<pi\>/2|\<alpha\>+\<alpha\><rprime|'>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\><rprime|'>|)>|2<rsup|2\<alpha\><rprime|'>-1>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\>|)>|2<rsup|2\<alpha\>-1>\<Gamma\><around*|(|\<alpha\>+1/2|)>>=RHS<around*|(|<math-up|<cite|dotsenko1985four>><rprime|'>|)>.>|<cell|>>>>
   </eqnarray>
+
+  <section|section <code|tKwSn7>>
 
   <\question>
     What are the singular points of the ODE in Question <reference|q-ode>?
@@ -557,6 +585,8 @@
     </eqnarray>
   </corollary>
 
+  <section|section <code|0eKuB3>>
+
   <\question>
     <label|q14>Use the Corollary <reference|cor> to evaluate the integral
 
@@ -591,6 +621,8 @@
     </eqnarray>
   </remark>
 
+  <section|section <code|bjirR9>>
+
   <\question>
     <label|q15>Check the correctness of the computations in Question
     <reference|q14>.
@@ -609,6 +641,8 @@
     integral:><big|int><rsub|t\<in\>\<bbb-R\><rsup|n>>\<Delta\><rsup|2\<gamma\>><around*|(|t|)>e<rsup|-<around*|\||t|\|><rsup|2>/2>d
     t=<around*|(|2\<pi\>|)><rsup|n/2><big|prod><rsub|j=1><rsup|n><frac|\<Gamma\><around*|(|1+j\<gamma\>|)>|\<Gamma\><around*|(|1+\<gamma\>|)>>|)>>|<cell|>>|<row|<cell|>|<cell|<around*|(|-1|)><rsup|m><around*|(|-2\<nu\>|)><rsub|n+m>2<rsup|<frac|n+m|2>-\<nu\>>\<pi\><frac|\<Gamma\><around*|(|1+2\<nu\>-n-m|)>|\<Gamma\><around*|(|1+\<nu\>-<frac|n+m|2>|)>>=<frac|<around*|(|-1|)><rsup|m>2<rsup|<frac|n+m|2>-\<nu\>>\<pi\>\<Gamma\><around*|(|n+m-2\<nu\>|)>\<Gamma\><around*|(|1+2\<nu\>-n-m|)>|\<Gamma\><around*|(|-2\<nu\>|)>\<Gamma\><around*|(|1+\<nu\>-<frac|n+m|2>|)>>=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|-1|)><rsup|m>2<rsup|<frac|n+m|2>-\<nu\>>\<pi\>\<Gamma\><around*|(|1+2\<nu\>|)>|\<Gamma\><around*|(|1+\<nu\>-<frac|n+m|2>|)>>=<frac|<around*|(|-1|)><rsup|m><sqrt|\<pi\>>2<rsup|<frac|n+m|2>+\<nu\>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+1|)>|\<Gamma\><around*|(|1+\<nu\>-<frac|n+m|2>|)>>=>|<cell|>>|<row|<cell|>|<cell|<frac|<around*|(|-1|)><rsup|<frac|n-m|2>><sqrt|\<pi\>>2<rsup|\<nu\>+<frac|n+m|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>\<Gamma\><around*|(|<frac|n+m|2>-\<nu\>|)>|\<Gamma\><around*|(|-\<nu\>|)>>=<around*|(|-\<nu\>|)><rsub|<frac|n+m|2>><around*|(|-1|)><rsup|<frac|n-m|2>>\<pi\><rsup|<frac|1|2>>2<rsup|\<nu\>+<frac|n+m|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)>.>|<cell|>>|<row|<cell|>|<cell|>|<cell|>>>>
   </eqnarray>
+
+  <section|section <code|mNhbiQ>>
 
   <\question>
     Is the equality of the Question <reference|q14> can be found in some
@@ -636,6 +670,8 @@
   <reference|q14> essentially follows by integration by parts from the
   well-known Mehta integral.
 
+  <section|section <code|vm5x55>>
+
   <\question>
     Compute special case <math|\<nu\>=0> of the equality
     <math|<eqref|eqn:thm1>> using beta-integrals.
@@ -651,6 +687,8 @@
     x=2<rsup|2\<alpha\>-1>B<around*|(|\<alpha\>,\<alpha\>|)>=<frac|<sqrt|\<pi\>>\<Gamma\><around*|(|\<alpha\>|)>|\<Gamma\><around*|(|\<alpha\>+<frac|1|2>|)>>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|l!m!\<pi\><rsup|2>\<delta\><rsub|l><rsup|0>\<delta\><rsub|m><rsup|0>|<around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1|)>>=<frac|\<pi\><rsup|2>\<delta\><rsub|l><rsup|0>\<delta\><rsub|m><rsup|0>|\<Gamma\><around*|(|\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1|)>>;>|<cell|>>|<row|<cell|>|<cell|RHS<eqref|eqn:thm1>=>|<cell|>>|<row|<cell|>|<cell|<frame|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>>>\<times\>\<ldots\>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|\<nu\>=0|)>>|<cell|>>|<row|<cell|>|<cell|\<delta\><rsup|0><rsub|l+m>RHS<eqref|eqn:thm1>=\<delta\><rsub|l><rsup|0>\<delta\><rsub|m><rsup|0>\<pi\><rsup|2><choice|<tformat|<table|<row|<cell|<frac|<rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|0,-\<lambda\>>>|<row|<cell|\<mu\>+1>>>>>;<frac|b<rsup|2>|a<rsup|2>>|)>|\<Gamma\><around*|(|\<mu\>+1|)>\<Gamma\><around*|(|\<lambda\>+1|)>>,>|<cell|<around*|\||b|\|>\<leqslant\><around*|\||a|\|>,>>|<row|<cell|<frac|
     <rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|0,-\<mu\>>>|<row|<cell|\<lambda\>+1>>>>>;<frac|a<rsup|2>|b<rsup|2>>|)>|\<Gamma\><around*|(|\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1|)>>,>|<cell|<around*|\||a|\|>\<leqslant\><around*|\||b|\|>,>>>>>=<frac|\<pi\><rsup|2>\<delta\><rsub|l><rsup|0>\<delta\><rsub|m><rsup|0>|\<Gamma\><around*|(|\<lambda\>+1|)>\<Gamma\><around*|(|\<mu\>+1|)>>.>|<cell|>>>>
   </eqnarray>
+
+  <section|section <code|6lT7s5>>
 
   <\question>
     <label|q18>Can we use prove more general equality than that of
@@ -680,6 +718,8 @@
   </eqnarray>
 
   and the latter is equivalent to the formula in Corollary <reference|cor:2>.
+
+  <section|section <code|EYpmgz>>
 
   <\question>
     Is there any relation of the equality in Question <reference|q18> to some
@@ -730,6 +770,8 @@
   </theorem>
 
   <new-page>
+
+  <section|section <code|ytphG1>>
 
   <\question>
     <label|q:20>Is it possible to see Theorem <reference|thm-2>, Corollary
@@ -907,6 +949,8 @@
 
   <new-page>
 
+  <section|section <code|ZhyKBC>>
+
   <\question>
     <label|q:21>How does the results of Question <reference|q:20> relate to
     <cite-detail|kobayashi2011schrodinger|(7.4.11)>?
@@ -957,6 +1001,8 @@
     which is done by the formula <cite-detail|kobayashi2011schrodinger|L2>.
   </proof>
 
+  <section|section <code|nmVYJJ>>
+
   <\question>
     Summarize four ways to prove Theorem <reference|thm:3>.
   </question>
@@ -997,6 +1043,8 @@
       x=\<alpha\><rsup|\<lambda\>>u<rsup|\<mu\>+\<nu\>-1>B<around*|(|\<mu\>,\<nu\>|)><rsub|2>F<rsub|1><around*|(|-\<lambda\>,\<nu\>;\<mu\>+\<nu\>;-<frac|u|\<alpha\>>|)>.
     </equation*>
   </enumerate>
+
+  <section|section <code|dAwnmw>>
 
   <\question>
     <label|q:23>Explain why I think the following diagrams are OK:
@@ -1078,6 +1126,8 @@
   and <math|m=a+q-2>, which is precisely as Figure
   <reference|fig:howetan2d32>.
 
+  <section|section <code|dZZYM3>>
+
   <\question>
     With <math|Y<rsub|+,\<lambda\>><rsup|p,q>>
     (<math|Y<rsub|-,\<lambda\>><rsup|p,q>>) defined as in Question
@@ -1097,6 +1147,8 @@
   Inspecting diagrams in <verbatim|howetan_diagrams.pdf>, we conclude that
   this holds for all <math|\<lambda\>\<in\>B<around*|(|p,q|)>>
   (<math|\<lambda\>\<in\>B<around*|(|q,p|)>>).
+
+  <section|section <code|3Rnupa>>
 
   <\question>
     Verify that Proposition 2 in <samp|slides.pdf> is correct when <math|z=1>
@@ -1126,6 +1178,8 @@
   </eqnarray>
 
   hence everything is ok.
+
+  <section|section <code|xChzVK>>
 
   <\question>
     Which special cases of Proposition 3 from <samp|slides.pdf> are known
@@ -1212,6 +1266,8 @@
     104>>>>
   </eqnarray>
 
+  <section|section <code|gZ5ICQ>>
+
   <\question>
     Show that Carlson's theorem can be applied to prove the equality
 
@@ -1272,6 +1328,8 @@
     t=4a<rsub|\<lambda\>,\<mu\>,m,l>4<rsup|<around*|\||\<nu\>|\|>>.>>>>>
   </equation*>
 
+  <section|section <code|GCsVoB>>
+
   <\question>
     Show that for every
 
@@ -1315,6 +1373,8 @@
   other hand, we have <math|Re<around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>=Re<around*|(|<frac|\<lambda\>+\<mu\>+1|2>|)>\<gtr\>0>,
   hence <math|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+1|)>> does not
   blow up, so the RHS of <math|<eqref|eq:14>> does. Hence the conclusion.
+
+  <section|section <code|uWdrjC>>
 
   <\question>
     Give a sufficient condition for the convergence for each statement in
@@ -1455,71 +1515,207 @@
     (see <cite-detail|andrews1999special|Thm. 5.4>), we are done.
   </proof>
 
+  <section|section <code|Vk7ZjF>>
+
   <\question>
     Explain, under which conditions and in which sense the series
 
     <\equation*>
-      <stack|<tformat|<table|<row|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=b<around*|(|\<lambda\>,\<mu\>,\<nu\>|)><big|sum><rsub|<stack|<tformat|<table|<row|<cell|l,m=0>>|<row|<cell|l+m:even>>>>>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>,<eq-number><label|eqn:q30-1>>>|<row|<cell|b<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<assign\>2<rsup|-2\<nu\>>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>,>>|<row|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>\<assign\><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>
+      <stack|<tformat|<table|<row|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=b<around*|(|\<lambda\>,\<mu\>,\<nu\>|)><big|sum><rsub|<stack|<tformat|<table|<row|<cell|l,m=0>>|<row|<cell|l+m:even>>>>>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>,<eq-number><label|eqn:q30-1>>>|<row|<cell|b<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<assign\>2<rsup|-2\<nu\>>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>,>>|<row|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>\<assign\><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>
     </equation*>
 
     converges?
   </question>
 
-  <\answer>
+  The following can be said:
+
+  <subsection|Main statements>
+
+  <\proposition>
+    <label|prop:Vk7ZjF-1>The series <math|<eqref|eqn:q30-1>> converges in
+    <math|L<rsup|2>> sense, as long as <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.
+  </proposition>
+
+  <\proposition>
+    <label|prop:Vk7ZjF-2>The series on RHS of <math|<eqref|eqn:q30-1>>
+    converges absolutely for generic <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-R\><rsup|2><rsub|\<gtr\>0>\<times\>\<bbb-C\>>,
+    such that
+
+    <\equation*>
+      Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1,\<lambda\>=\<mu\>,Re<around*|(|\<lambda\>+\<mu\>-\<nu\>|)>\<leqslant\>-1.
+    </equation*>
+  </proposition>
+
+  <subsection|Auxiliary lemmas>
+
+  <\lemma>
+    <label|lem:Vk7ZjF-1>Let <math|k\<in\>\<bbb-N\><rsub|+>>. Suppose that
+    <math|x,y\<in\>\<bbb-C\>\\<frac|1|k>\<bbb-Z\>> are
+    <math|Re<around*|(|x+y|)>\<geqslant\>1>. Then
+    <math|\<exists\>c=c<rsub|k,x>\<gtr\>0>, such that
+
+    <\equation*>
+      \<forall\>\<alpha\>\<in\><frac|1|k>\<bbb-Z\>,<space|1em><around*|\||\<Gamma\><around*|(|x+\<alpha\>|)>\<Gamma\><around*|(|y-\<alpha\>|)>|\|>\<geqslant\>c.
+    </equation*>
+  </lemma>
+
+  <\proof>
+    WLOG we assume that <math|k=1>. WLOG we assume that
+    <math|\<alpha\>\<in\>\<bbb-N\><rsub|+>>. We have
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|\<Gamma\><around*|(|x+\<alpha\>|)>\<Gamma\><around*|(|y-\<alpha\>|)>=<frac|\<Gamma\><around*|(|x+\<alpha\>|)>|\<Gamma\><around*|(|1-y+\<alpha\>|)>>\<cdot\>\<Gamma\><around*|(|1-y+\<alpha\>|)>\<Gamma\><around*|(|y-\<alpha\>|)>=<frac|\<Gamma\><around*|(|x+\<alpha\>|)>|\<Gamma\><around*|(|1-y+\<alpha\>|)>>\<cdot\><frac|\<pi\>|sin<around*|(|\<pi\><around*|(|y-\<alpha\>|)>|)>>>>|<row|<cell|=<frac|\<Gamma\><around*|(|x+\<alpha\>|)>|\<Gamma\><around*|(|1-y+\<alpha\>|)>>\<cdot\><frac|\<pi\>|sin<around*|(|\<pi\>y|)>>>>>>>
+    </equation*>
+
+    Hence, it suffices to show that <math|inf<rsub|i\<in\>\<bbb-N\><rsub|+>><around*|\||<frac|\<Gamma\><around*|(|x+i|)>|\<Gamma\><around*|(|1-y+i|)>>|\|>\<gtr\>0>.
+    Now, the formula
+
+    <\equation*>
+      z\<rightarrow\>\<infty\>,<around*|\||ph
+      z|\|>\<leqslant\>\<pi\>-\<delta\>\<less\>\<pi\>,<frac|\<Gamma\><around*|(|z+a|)>|\<Gamma\><around*|(|z+b|)>>\<sim\>z<rsup|a-b><space|1em><text|<cite-detail|olver2010nist|5.11.12>>
+    </equation*>
+
+    implies that\ 
+
+    <\equation*>
+      <around*|\||<frac|\<Gamma\><around*|(|x+i|)>|\<Gamma\><around*|(|1-y+i|)>>|\|>\<sim\><around*|\||i<rsup|x-1+y>|\|>\<rightarrow\><choice|<tformat|<table|<row|<cell|\<infty\>>|<cell|<around*|(|Re<around*|(|x+y|)>\<gtr\>1|)>>>|<row|<cell|1>|<cell|<around*|(|Re<around*|(|x+y|)>=1|)>>>>>>\<gtr\>0.
+    </equation*>
+
     \;
+  </proof>
 
-    <render-theorem|Claim|The series <math|<eqref|eqn:q30-1>> converges in
-    <math|L<rsup|2>> sense, as long as <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.>
+  <\fact>
+    <label|fact:Vk7ZjF-1><dueto|<cite-detail|MR3008847|(4.7)>>For
+    <math|\<lambda\>\<gtr\>0> we have
 
-    <\proof>
-      We note that <math|<around*|{|C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|}><rsub|l,m=0><rsup|\<infty\>>>
-      form an orthogonal basis in space <math|L<rsup|2><around*|(|<around*|[|-1,1|]><rsup|2>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>|)>>,
-      as long as <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>.
-      Therefore, the series <math|<eqref|eqn:q30-1>> converges in
-      <math|L<rsup|2>> sense, as long as we can show that its LHS belongs to
-      <math|L<rsup|2><around*|(|<around*|[|-1,1|]><rsup|2>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>|)>>
-      space. However, the latter is easily seen to be true, as long as
-      <math|Re<around*|(|\<nu\>|)>\<gtr\>0>.
-    </proof>
-  </answer>
+    <\equation*>
+      max<rsub|<around*|\||x|\|>\<leqslant\>1><around*|\||C<rsub|n><rsup|\<lambda\>><around*|(|x|)>|\|>=C<rsub|n><rsup|\<lambda\>><around*|(|1|)>\<sim\><frac|<around*|(|n-1|)><rsup|2\<lambda\>-1>|\<Gamma\><around*|(|2\<lambda\>|)>>,
+    </equation*>
 
-  <\bibliography|bib|alpha|intdep.bib>
-    <\bib-list|Kna16>
-      <bibitem*|BW13><label|bib-borel2013continuous>Armand Borel and
-      Nolan<nbsp>R Wallach. <newblock><with|font-shape|italic|Continuous
-      cohomology, discrete subgroups, and representations of reductive
-      groups>, volume<nbsp>67. <newblock>American Mathematical Soc., 2013.
+    where <math|a<rsub|n>\<sim\>b<rsub|n>> denotes the fact that
+    <math|lim<rsub|n\<rightarrow\>\<infty\>><around*|(|a<rsub|n>/b<rsub|n>|)>=1>.
+  </fact>
 
-      <bibitem*|HT12><label|bib-howe2012non>Roger<nbsp>E Howe and
-      Eng<nbsp>Chye Tan. <newblock><with|font-shape|italic|Non-Abelian
-      Harmonic Analysis: Applications of SL (2,R)>. <newblock>Springer
-      Science & Business Media, 2012.
+  <subsection|Proofs>
 
-      <bibitem*|Kna16><label|bib-knapp2016representation>Anthony<nbsp>W
-      Knapp. <newblock><with|font-shape|italic|Representation Theory of
-      Semisimple Groups: An Overview Based on Examples (PMS-36)>.
-      <newblock>Princeton university press, 2016.
+  <\proof>
+    <dueto|Proposition <reference|prop:Vk7ZjF-1>>We note that
+    <math|<around*|{|C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|}><rsub|l,m=0><rsup|\<infty\>>>
+    form an orthogonal basis in space <math|L<rsup|2><around*|(|<around*|[|-1,1|]><rsup|2>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>|)>>,
+    as long as <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>.
+    Therefore, the series <math|<eqref|eqn:q30-1>> converges in
+    <math|L<rsup|2>> sense, as long as we can show that its LHS belongs to
+    <math|L<rsup|2><around*|(|<around*|[|-1,1|]><rsup|2>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>|)>>
+    space. However, the latter is easily seen to be true, as long as
+    <math|Re<around*|(|\<nu\>|)>\<gtr\>0>.
+  </proof>
 
-      <bibitem*|KO05><label|bib-kobayashi1999lie>T<nbsp>Kobayashi and
-      T<nbsp>Oshima. <newblock><with|font-shape|italic|Lie groups and
-      representations>. <newblock>Iwanami, 2005. <newblock>In Japanese.
+  <\proof>
+    <dueto|Proposition <reference|prop:Vk7ZjF-2>>It suffices to show the
+    absolute convergence of
 
-      <bibitem*|Lan12><label|bib-lang2012sl2>Serge Lang.
-      <newblock><with|font-shape|italic|SL<rsub|2>(R)>, volume 105.
-      <newblock>Springer Science & Business Media, 2012.
+    <\equation*>
+      <big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>.
+    </equation*>
 
-      <bibitem*|VJ81><label|bib-vogan1981representations>David<nbsp>A
-      Vogan<nbsp>Jr. <newblock>Representations of real reductive Lie groups.
-      <newblock><with|font-shape|italic|Progress in Math.>, 15, 1981.
+    The Lemma <reference|lem:Vk7ZjF-1> implies that for generic
+    <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>> such that
+    <math|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1>, it
+    suffices to show the absolute convergence of
 
-      <bibitem*|Wal88><label|bib-wallach1988real>N.<nbsp>Wallach.
-      <newblock><with|font-shape|italic|Real Reductive Groups I>, volume 132
-      of <with|font-shape|italic|Pure and Applied Mathematics>.
-      <newblock>Academic Press, 1988.
+    <\equation*>
+      <big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>.
+    </equation*>
 
-      <bibitem*|Wal92><label|bib-wallach1988real2>N.<nbsp>Wallach.
-      <newblock><with|font-shape|italic|Real Reductive Groups II>, volume
-      <with|font-series|bold|132> of
+    Now, Fact <reference|fact:Vk7ZjF-1> implies that the latter series is
+    dominated by
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)><around*|(|l-1|)><rsup|2\<lambda\>-1><around*|(|m-1|)><rsup|2\<mu\>-1>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>.
+    </equation*>
+
+    Proceeding as in proof of Lemma <reference|lem:Vk7ZjF-1>, we see that the
+    latter series is dominated by
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)><around*|(|l-1|)><rsup|2\<lambda\>-1><around*|(|m-1|)><rsup|2\<mu\>-1>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|<frac|l+m|2>-\<nu\>|)>>>>>>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2\<lambda\>>m<rsup|2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|\<lambda\>l+\<mu\>m|\<lambda\>+\<mu\>>|)><rsup|2\<lambda\>+2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|=<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2\<lambda\>+2\<mu\>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>><frac|i<rsup|2\<lambda\>+2\<mu\>+1>|i<rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|\<lambda\>+\<mu\>-\<nu\>>.>>>>>
+    </equation*>
+  </proof>
+
+  <\bibliography|bib|alpha|answer.bib>
+    <\bib-list|XWZ13>
+      <bibitem*|AAR99><label|bib-andrews1999special>George<nbsp>E Andrews,
+      Richard Askey, and Ranjan Roy. <newblock><with|font-shape|italic|Special
+      Functions>, volume <with|font-series|bold|71> of
+      <with|font-shape|italic|Encyclopedia of Mathematics and its
+      Applications>. <newblock>Cambridge University Press, Cambridge, 1999.
+
+      <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
+      Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions and
+      the operator algebra in 2d conformal invariant theories with central
+      charge <math|c\<leq\>1>. <newblock><with|font-shape|italic|Nuclear
+      Physics B>, 251:691\U734, 1985.
+
+      <bibitem*|GRJ00><label|bib-gradshteinryzhik>I.S.
+      Gradshte<math|<wide|<text|\Y>|\<breve\>>>n, I.M. Ryzhik, and
+      A.<nbsp>Jeffrey. <newblock><with|font-shape|italic|Table of Integrals,
+      Series, and Products, Sixth edition>. <newblock>Academic Press, New
+      York, 2000.
+
+      <bibitem*|HT93><label|bib-howe1993homogeneous>R.<nbsp>E. Howe and E.-C.
+      Tan. <newblock>Homogeneous functions on light cones: the infinitesimal
+      structure of some degenerate principal series representations.
+      <newblock><with|font-shape|italic|Bull. Amer. Math. Soc. (N. S.)>,
+      28(1):1\U74, 1993.
+
+      <bibitem*|Kei09><label|bib-keiner2009computing>Jens Keiner.
+      <newblock>Computing with expansions in gegenbauer polynomials.
+      <newblock><with|font-shape|italic|SIAM Journal on Scientific
+      Computing>, 31:2151\U2171, 2009.
+
+      <bibitem*|KM11><label|bib-kobayashi2011schrodinger>Toshiyuki Kobayashi
+      and Gen Mano. <newblock><with|font-shape|italic|The Schrödinger model
+      for the minimal representation of the indefinite orthogonal group
+      <math|O<around|(|p,q|)>>>, volume 213. <newblock>American Mathematical
+      Society, 2011.
+
+      <bibitem*|KØ03><label|bib-KO2>T.<nbsp>Kobayashi and B.<nbsp>Ørsted.
+      <newblock>Analysis on the minimal representation of
+      <with|font-family|rm|O><math|<around|(|p,q|)>>.<space|0.27em><with|font-family|rm|II>.
+      Branching laws. <newblock><with|font-shape|italic|Adv. Math.>,
+      180:513\U550, 2003. <newblock>Available at
+      <slink|http://dx.doi.org/10.1016/S0001-8708(03)00013-6>.
+
+      <bibitem*|MT03><label|bib-mackenzie2003hermite>Mark<nbsp>R Mackenzie
+      and A<nbsp>Kiet Tieu. <newblock>Hermite neural network correlation and
+      application. <newblock><with|font-shape|italic|IEEE transactions on
+      signal processing>, 51(12):3210\U3219, 2003.
+
+      <bibitem*|Olv10><label|bib-olver2010nist>Frank<nbsp>WJ Olver.
+      <newblock><with|font-shape|italic|NIST Handbook of Mathematical
+      Functions Hardback and CD-ROM>. <newblock>Cambridge University Press,
+      2010.
+
+      <bibitem*|Rai60><label|bib-rainville1960special>Earl<nbsp>David
+      Rainville. <newblock><with|font-shape|italic|Special functions>,
+      volume<nbsp>8. <newblock>Macmillan New York, 1960.
+
+      <bibitem*|TV03><label|bib-tarasov2003selberg>V<nbsp>Tarasov and
+      Alexander Varchenko. <newblock>Selberg-type integrals associated with
+      <math|<with|math-font|Euler|s*l><rsub|3>>.
+      <newblock><with|font-shape|italic|Letters in Mathematical Physics>,
+      65(3):173\U185, 2003.
+
+      <bibitem*|War10><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.
+      <newblock>The <math|<with|math-font|Euler|s*l><rsub|3>> Selberg
+      integral. <newblock><with|font-shape|italic|Advances in Mathematics>,
+      224(2):499\U524, 2010.
+
+      <bibitem*|XWZ13><label|bib-MR3008847>Ziqing Xie, Li-Lian Wang, and
+      Xiaodan Zhao. <newblock>On exponential convergence of Gegenbauer
+      interpolation and spectral differentiation.
+      <newblock><with|font-shape|italic|Math. Comp.>, 82(282):1017\U1036,
+      2013.
     </bib-list>
   </bibliography>
 </body>
@@ -1533,9 +1729,80 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|24>>
+    <associate|auto-10|<tuple|10|?>>
+    <associate|auto-11|<tuple|11|?>>
+    <associate|auto-12|<tuple|12|?>>
+    <associate|auto-13|<tuple|13|?>>
+    <associate|auto-14|<tuple|14|?>>
+    <associate|auto-15|<tuple|15|?>>
+    <associate|auto-16|<tuple|16|?>>
+    <associate|auto-17|<tuple|17|?>>
+    <associate|auto-18|<tuple|18|?>>
+    <associate|auto-19|<tuple|19|?>>
     <associate|auto-2|<tuple|2|25>>
-    <associate|auto-3|<tuple|15|29>>
+    <associate|auto-20|<tuple|20|?>>
+    <associate|auto-21|<tuple|21|?>>
+    <associate|auto-22|<tuple|22|?>>
+    <associate|auto-23|<tuple|23|?>>
+    <associate|auto-24|<tuple|23.1|?>>
+    <associate|auto-25|<tuple|23.2|?>>
+    <associate|auto-26|<tuple|24|?>>
+    <associate|auto-27|<tuple|25|?>>
+    <associate|auto-28|<tuple|26|?>>
+    <associate|auto-29|<tuple|27|?>>
+    <associate|auto-3|<tuple|3|29>>
+    <associate|auto-30|<tuple|28|?>>
+    <associate|auto-31|<tuple|29|?>>
+    <associate|auto-32|<tuple|30|?>>
+    <associate|auto-33|<tuple|30.1|?>>
+    <associate|auto-34|<tuple|30.2|?>>
+    <associate|auto-35|<tuple|30.3|?>>
+    <associate|auto-36|<tuple|30.3|?>>
+    <associate|auto-4|<tuple|4|?>>
+    <associate|auto-5|<tuple|5|?>>
+    <associate|auto-6|<tuple|6|?>>
+    <associate|auto-7|<tuple|7|?>>
+    <associate|auto-8|<tuple|8|?>>
+    <associate|auto-9|<tuple|9|?>>
+    <associate|auto.10-1|<tuple|9|?|#10>>
+    <associate|auto.11-1|<tuple|10|?|#11>>
+    <associate|auto.12-1|<tuple|11|?|#12>>
+    <associate|auto.13-1|<tuple|12|?|#13>>
+    <associate|auto.14-1|<tuple|13|?|#14>>
+    <associate|auto.15-1|<tuple|14|?|#15>>
+    <associate|auto.16-1|<tuple|15|?|#16>>
+    <associate|auto.17-1|<tuple|16|?|#17>>
+    <associate|auto.18-1|<tuple|17|?|#18>>
+    <associate|auto.19-1|<tuple|18|?|#19>>
+    <associate|auto.2-1|<tuple|1|?|#2>>
+    <associate|auto.20-1|<tuple|19|?|#20>>
+    <associate|auto.21-1|<tuple|20|?|#21>>
+    <associate|auto.22-1|<tuple|21|?|#22>>
+    <associate|auto.23-1|<tuple|22|?|#23>>
+    <associate|auto.24-1|<tuple|23|?|#24>>
+    <associate|auto.24-2|<tuple|23.1|?|#24>>
+    <associate|auto.24-3|<tuple|23.2|?|#24>>
+    <associate|auto.25-1|<tuple|24|?|#25>>
+    <associate|auto.26-1|<tuple|25|?|#26>>
+    <associate|auto.27-1|<tuple|26|?|#27>>
+    <associate|auto.28-1|<tuple|27|?|#28>>
+    <associate|auto.29-1|<tuple|28|?|#29>>
+    <associate|auto.3-1|<tuple|2|?|#3>>
+    <associate|auto.30-1|<tuple|29|?|#30>>
+    <associate|auto.31-1|<tuple|30|?|#31>>
+    <associate|auto.31-2|<tuple|30.1|?|#31>>
+    <associate|auto.31-3|<tuple|30.2|?|#31>>
+    <associate|auto.31-4|<tuple|30.3|?|#31>>
+    <associate|auto.32-1|<tuple|30.3|?|#32>>
+    <associate|auto.4-1|<tuple|3|?|#4>>
+    <associate|auto.5-1|<tuple|4|?|#5>>
+    <associate|auto.6-1|<tuple|5|?|#6>>
+    <associate|auto.7-1|<tuple|6|?|#7>>
+    <associate|auto.8-1|<tuple|7|?|#8>>
+    <associate|auto.9-1|<tuple|8|?|#9>>
     <associate|bib-KO2|<tuple|KØ03|29>>
+    <associate|bib-MR3008847|<tuple|XWZ13|?>>
+    <associate|bib-andrews1999special|<tuple|AAR99|?>>
     <associate|bib-borel2013continuous|<tuple|BW13|?>>
     <associate|bib-dotsenko1985four|<tuple|DF85|29>>
     <associate|bib-gradshteinryzhik|<tuple|GRJ00|29>>
@@ -1555,58 +1822,94 @@
     <associate|bib-wallach1988real|<tuple|Wal88|?>>
     <associate|bib-wallach1988real2|<tuple|Wal92|?>>
     <associate|bib-warnaar2010sl3|<tuple|War10|29>>
-    <associate|cor|<tuple|1|14>>
+    <associate|cor|<tuple|13.1|14>>
     <associate|cor:1|<tuple|28|?>>
-    <associate|cor:2|<tuple|2|17>>
-    <associate|cor:3|<tuple|3|21>>
-    <associate|eq-1|<tuple|4|7>>
-    <associate|eq-2|<tuple|1|5>>
-    <associate|eq:14|<tuple|14|?>>
-    <associate|eq:q8-1|<tuple|3|6>>
-    <associate|eq:unknown|<tuple|9|23>>
-    <associate|eqn:20-beminus|<tuple|11|25>>
-    <associate|eqn:20-beplus|<tuple|10|25>>
+    <associate|cor:2|<tuple|18.1|17>>
+    <associate|cor:3|<tuple|20.1|21>>
+    <associate|eq-1|<tuple|8.3|7>>
+    <associate|eq-2|<tuple|7.1|5>>
+    <associate|eq:14|<tuple|28.1|?>>
+    <associate|eq:q8-1|<tuple|8.1|6>>
+    <associate|eq:unknown|<tuple|21.2|23>>
+    <associate|eqn:20-beminus|<tuple|23.2|25>>
+    <associate|eqn:20-beplus|<tuple|23.1|25>>
     <associate|eqn:Rod|<tuple|17|?>>
     <associate|eqn:cor:1|<tuple|14|?>>
     <associate|eqn:derst|<tuple|18|?>>
-    <associate|eqn:herm1|<tuple|6|15>>
+    <associate|eqn:herm1|<tuple|14.1|15>>
     <associate|eqn:iF|<tuple|15|?>>
     <associate|eqn:lem3.2|<tuple|15|?>>
-    <associate|eqn:main|<tuple|7|19>>
-    <associate|eqn:q26-1|<tuple|12|27>>
+    <associate|eqn:main|<tuple|19.1|19>>
+    <associate|eqn:q26-1|<tuple|26.1|27>>
     <associate|eqn:q26-2|<tuple|13|?>>
-    <associate|eqn:q26-3|<tuple|13|28>>
-    <associate|eqn:q30-1|<tuple|15|?>>
+    <associate|eqn:q26-3|<tuple|26.2|28>>
+    <associate|eqn:q30-1|<tuple|30.1|?>>
     <associate|eqn:stz|<tuple|16|?>>
-    <associate|eqn:thm1|<tuple|5|9>>
-    <associate|fig:howetan2d31|<tuple|1|24>>
-    <associate|fig:howetan2d32|<tuple|2|25>>
+    <associate|eqn:thm1|<tuple|9.1|9>>
+    <associate|fact:Vk7ZjF-1|<tuple|30.1|?>>
+    <associate|fig:howetan2d31|<tuple|23.1|24>>
+    <associate|fig:howetan2d32|<tuple|23.2|25>>
     <associate|footnote-1|<tuple|1|20>>
     <associate|footnote-2|<tuple|2|20>>
+    <associate|footnote-20.1|<tuple|20.1|?>>
+    <associate|footnote-20.2|<tuple|20.2|?>>
+    <associate|footnote-20.3|<tuple|20.3|?>>
+    <associate|footnote-20.4|<tuple|20.4|?>>
+    <associate|footnote-20.5|<tuple|20.5|?>>
+    <associate|footnote-20.6|<tuple|20.6|?>>
+    <associate|footnote-21.1|<tuple|21.1|?>>
+    <associate|footnote-21.2|<tuple|21.2|?>>
+    <associate|footnote-21.3|<tuple|21.3|?>>
+    <associate|footnote-21.4|<tuple|21.4|?>>
+    <associate|footnote-22.1|<tuple|22.1|?>>
+    <associate|footnote-22.2|<tuple|22.2|?>>
+    <associate|footnote-22.3|<tuple|22.3|?>>
+    <associate|footnote-22.4|<tuple|22.4|?>>
+    <associate|footnote-23.1|<tuple|23.1|?>>
+    <associate|footnote-23.2|<tuple|23.2|?>>
     <associate|footnote-3|<tuple|3|24>>
     <associate|footnote-4|<tuple|4|24>>
     <associate|footnote-5|<tuple|5|25>>
     <associate|footnote-6|<tuple|6|25>>
     <associate|footnr-1|<tuple|1|20>>
     <associate|footnr-2|<tuple|2|20>>
+    <associate|footnr-20.1|<tuple|20.1|?>>
+    <associate|footnr-20.2|<tuple|20.2|?>>
+    <associate|footnr-20.3|<tuple|20.3|?>>
+    <associate|footnr-20.4|<tuple|20.4|?>>
+    <associate|footnr-20.5|<tuple|20.5|?>>
+    <associate|footnr-20.6|<tuple|20.6|?>>
+    <associate|footnr-21.1|<tuple|21.1|?>>
+    <associate|footnr-21.2|<tuple|21.2|?>>
+    <associate|footnr-21.3|<tuple|21.3|?>>
+    <associate|footnr-21.4|<tuple|21.4|?>>
+    <associate|footnr-22.1|<tuple|22.1|?>>
+    <associate|footnr-22.2|<tuple|22.2|?>>
+    <associate|footnr-22.3|<tuple|22.3|?>>
+    <associate|footnr-22.4|<tuple|22.4|?>>
+    <associate|footnr-23.1|<tuple|23.1|?>>
+    <associate|footnr-23.2|<tuple|23.2|?>>
     <associate|footnr-3|<tuple|3|24>>
     <associate|footnr-4|<tuple|4|24>>
     <associate|footnr-5|<tuple|5|25>>
     <associate|footnr-6|<tuple|6|25>>
+    <associate|lem:Vk7ZjF-1|<tuple|30.1|?>>
     <associate|main-thm|<tuple|5|?>>
     <associate|prop:2|<tuple|15|?>>
-    <associate|q-ode|<tuple|11|9>>
-    <associate|q1|<tuple|1|1>>
-    <associate|q14|<tuple|14|15>>
-    <associate|q15|<tuple|15|15>>
-    <associate|q18|<tuple|18|17>>
-    <associate|q:20|<tuple|20|20>>
-    <associate|q:21|<tuple|21|23>>
-    <associate|q:23|<tuple|23|24>>
-    <associate|thm-1|<tuple|1|9>>
-    <associate|thm-2|<tuple|2|19>>
-    <associate|thm:3|<tuple|3|20>>
-    <associate|thm:4|<tuple|4|20>>
+    <associate|prop:Vk7ZjF-1|<tuple|30.1|?>>
+    <associate|prop:Vk7ZjF-2|<tuple|30.2|?>>
+    <associate|q-ode|<tuple|11.1|9>>
+    <associate|q1|<tuple|1.1|1>>
+    <associate|q14|<tuple|14.1|15>>
+    <associate|q15|<tuple|15.1|15>>
+    <associate|q18|<tuple|18.1|17>>
+    <associate|q:20|<tuple|20.1|20>>
+    <associate|q:21|<tuple|21.1|23>>
+    <associate|q:23|<tuple|23.1|24>>
+    <associate|thm-1|<tuple|9.1|9>>
+    <associate|thm-2|<tuple|19.1|19>>
+    <associate|thm:3|<tuple|20.1|20>>
+    <associate|thm:4|<tuple|20.2|20>>
   </collection>
 </references>
 
@@ -1688,16 +1991,212 @@
       gradshteinryzhik
 
       andrews1999special
+
+      olver2010nist
+
+      MR3008847
     </associate>
     <\associate|figure>
-      <tuple|normal|Howe-Tan, diagram 2.31|<pageref|auto-1>>
+      <tuple|normal|Howe-Tan, diagram 2.31|<pageref|auto-24>>
 
-      <tuple|normal|Howe-Tan, diagram 2.32|<pageref|auto-2>>
+      <tuple|normal|Howe-Tan, diagram 2.32|<pageref|auto-25>>
     </associate>
     <\associate|toc>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|HEGL84>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-1><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|MRZoR8>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|XAsFsU>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|GbW86M>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|CBYWzL>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-5><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|ihDxFM>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-6><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|h1uGiK>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|oZgJin>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-8><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|1cltWd>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-9><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|mR99JZ>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-10><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|1jKfH6>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-11><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|12<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|l4vw7A>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-12><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|13<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|tKwSn7>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-13><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|14<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|0eKuB3>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-14><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|15<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|bjirR9>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-15><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|16<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|mNhbiQ>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-16><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|17<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|vm5x55>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-17><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|18<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|6lT7s5>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-18><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|19<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|EYpmgz>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-19><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|20<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|ytphG1>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-20><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|21<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|ZhyKBC>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-21><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|22<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|nmVYJJ>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-22><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|23<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|dAwnmw>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-23><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|24<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|dZZYM3>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-26><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|25<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|3Rnupa>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-27><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|26<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|xChzVK>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-28><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|27<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|gZ5ICQ>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-29><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|28<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|GCsVoB>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-30><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|29<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|uWdrjC>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-31><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|30<space|2spc>section
+      <\surround|<vspace*|1fn><no-indent>|<htab|0fn|first><vspace|1fn>>
+        <surround||<htab|5mm>|<with|font-family|<quote|tt>|language|<quote|verbatim>|par-first|<quote|0fn>|par-par-sep|<quote|0fn>|Vk7ZjF>>
+      </surround>> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-32><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|30.1<space|2spc>Main statements
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-33>>
+
+      <with|par-left|<quote|1tab>|30.2<space|2spc>Auxiliary lemmas
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-34>>
+
+      <with|par-left|<quote|1tab>|30.3<space|2spc>Proofs
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-35>>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Bibliography>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-3><vspace|0.5fn>
+      <no-break><pageref|auto-36><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
