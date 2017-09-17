@@ -262,7 +262,7 @@
     </eqnarray>
 
     Applying the following quadratic transformation of
-    <math|<rsub|2>F<rsub|1>> (cf. <cite-detail|andrews1999special|Thm.
+    <math|<rsub|2>F<rsub|1>> (cf. <cite-detail|andrews2000special|Thm.
     3.13>):
 
     <\eqnarray>
@@ -464,31 +464,42 @@
   of various integral formulæ<label|table>>
 
   <\bibliography|bib|tm-plain|intpaper.bib>
-    <\bib-list|9>
+    <\bib-list|10>
       <bibitem*|1><label|bib-andrews1999special>G.<nbsp>E.<nbsp>Andrews,
-      R.<nbsp>Askey<localize|, and >R.<nbsp>Roy.<newblock> Special functions,
-      volume 71 of encyclopedia of mathematics and its
-      applications.<newblock> 1999.<newblock>
+      R.<nbsp>Askey<localize|, and >R.<nbsp>Roy.<newblock>
+      <with|font-shape|italic|Special Functions>,
+      <localize|volume><nbsp>71<localize| of
+      ><with|font-shape|italic|Encyclopedia of Mathematics and its
+      Applications>.<newblock> Cambridge University Press, Cambridge,
+      1999.<newblock>
 
-      <bibitem*|2><label|bib-dotsenko1985four>V.<nbsp>S.<nbsp>Dotsenko<localize|
+      <bibitem*|2><label|bib-andrews2000special>G.<nbsp>E.<nbsp>Andrews,
+      R.<nbsp>Askey<localize|, and >R.<nbsp>Roy.<newblock>
+      <with|font-shape|italic|Special Functions>,
+      <localize|volume><nbsp>71<localize| of
+      ><with|font-shape|italic|Encyclopedia of Mathematics and its
+      Applications>.<newblock> Cambridge University Press, Cambridge,
+      2000.<newblock>
+
+      <bibitem*|3><label|bib-dotsenko1985four>V.<nbsp>S.<nbsp>Dotsenko<localize|
       and >V.<nbsp>A.<nbsp>Fateev.<newblock> Four-point correlation functions
       and the operator algebra in 2D conformal invariant theories with
       central charge <math|c\<leq\>1>.<newblock>
       <with|font-shape|italic|Nuclear Phys. B>, 251:691\U734, 1985.<newblock>
 
-      <bibitem*|3><label|bib-forrester2008importance>P.<nbsp>Forrester<localize|
+      <bibitem*|4><label|bib-forrester2008importance>P.<nbsp>Forrester<localize|
       and >S.<nbsp>O.<nbsp>Warnaar.<newblock> The importance of the Selberg
       integral.<newblock> <with|font-shape|italic|Bull. Amer. Math. Soc.>,
       45(4):489\U534, 2008.<newblock> Available online at
       <slink|https://doi.org/10.1090/S0273-0979-08-01221-4>.<newblock>
 
-      <bibitem*|4><label|bib-kobayashi2011schrodinger>T.<nbsp>Kobayashi<localize|
+      <bibitem*|5><label|bib-kobayashi2011schrodinger>T.<nbsp>Kobayashi<localize|
       and >G.<nbsp>Mano.<newblock> <with|font-shape|italic|The Schrödinger
       model for the minimal representation of the indefinite orthogonal group
       <math|O<around|(|p,q|)>>>.<newblock> Amer. Math. Soc., 2011.<newblock>
       Available online at <slink|http://dx.doi.org/10.1090/S0065-9266-2011-00592-7>.<newblock>
 
-      <bibitem*|5><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
+      <bibitem*|6><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
       and >B.<nbsp>Speh.<newblock> <with|font-shape|italic|Symmetry Breaking
       for Representations of Rank One Orthogonal Groups>, <localize|volume>
       <with|font-series|bold|238>.<newblock>
@@ -496,24 +507,24 @@
       Amer. Math. Soc>, 2015.<newblock> Available online at
       <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
 
-      <bibitem*|6><label|bib-mehta2004random>M.<nbsp>L.<nbsp>Mehta.<newblock>
+      <bibitem*|7><label|bib-mehta2004random>M.<nbsp>L.<nbsp>Mehta.<newblock>
       <with|font-shape|italic|Random matrices>, <localize|volume>
       142<localize| of ><with|font-shape|italic|<with|font-family|rm|font-shape|right|font-series|medium|Pure
       Appl. Math. (Amsterdam)>>.<newblock> Elsevier/Academic Press,
       Amsterdam, 2004.<newblock>
 
-      <bibitem*|7><label|bib-Selberg:411367>A.<nbsp>Selberg.<newblock>
+      <bibitem*|8><label|bib-Selberg:411367>A.<nbsp>Selberg.<newblock>
       Remarks on a multiple integral.<newblock> <with|font-shape|italic|Norsk
       Mat. Tidsskr.>, 26:71\U78, 1944.<newblock>
 
-      <bibitem*|8><label|bib-tarasov2003selberg>V.<nbsp>Tarasov<localize| and
+      <bibitem*|9><label|bib-tarasov2003selberg>V.<nbsp>Tarasov<localize| and
       >A.<nbsp>Varchenko.<newblock> Selberg-type integrals associated with
       <math|<with|math-font|Euler|s*l><rsub|3>>.<newblock>
       <with|font-shape|italic|Lett. Math. Phys.>, 65(3):173\U185,
       2003.<newblock> Available online at
       <slink|http://dx.doi.org/10.1023/B:MATH.0000010712.67685.9d>.<newblock>
 
-      <bibitem*|9><label|bib-warnaar2010sl3>S.<nbsp>O.<nbsp>Warnaar.<newblock>
+      <bibitem*|10><label|bib-warnaar2010sl3>S.<nbsp>O.<nbsp>Warnaar.<newblock>
       The <math|<with|math-font|Euler|s*l><rsub|3>> Selberg
       integral.<newblock> <with|font-shape|italic|Adv. Math.>,
       224(2):499\U524, 2010.<newblock> Available online at
@@ -536,45 +547,46 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-2|<tuple|2|3>>
-    <associate|auto-3|<tuple|3|4>>
+    <associate|auto-2|<tuple|2|2>>
+    <associate|auto-3|<tuple|3|3>>
     <associate|auto-4|<tuple|4|6>>
     <associate|auto-5|<tuple|4.1|9>>
-    <associate|auto-6|<tuple|4.1|10>>
-    <associate|bib-Selberg:411367|<tuple|7|10>>
-    <associate|bib-andrews1999special|<tuple|1|10>>
-    <associate|bib-dotsenko1985four|<tuple|2|10>>
-    <associate|bib-forrester2008importance|<tuple|3|10>>
-    <associate|bib-kobayashi2011schrodinger|<tuple|4|10>>
-    <associate|bib-kobayashi2015symmetry|<tuple|5|10>>
-    <associate|bib-mehta2004random|<tuple|6|10>>
+    <associate|auto-6|<tuple|4.1|9>>
+    <associate|bib-Selberg:411367|<tuple|8|9>>
+    <associate|bib-andrews1999special|<tuple|1|9>>
+    <associate|bib-andrews2000special|<tuple|2|9>>
+    <associate|bib-dotsenko1985four|<tuple|3|9>>
+    <associate|bib-forrester2008importance|<tuple|4|9>>
+    <associate|bib-kobayashi2011schrodinger|<tuple|5|9>>
+    <associate|bib-kobayashi2015symmetry|<tuple|6|9>>
+    <associate|bib-mehta2004random|<tuple|7|9>>
     <associate|bib-rainville1960special|<tuple|7|10>>
-    <associate|bib-tarasov2003selberg|<tuple|8|10>>
-    <associate|bib-warnaar2010sl3|<tuple|9|10>>
+    <associate|bib-tarasov2003selberg|<tuple|9|10>>
+    <associate|bib-warnaar2010sl3|<tuple|10|10>>
     <associate|cor:1|<tuple|1.4|2>>
     <associate|cor:170599|<tuple|1.5|2>>
     <associate|cor:Chebyshev|<tuple|1.4|?>>
-    <associate|cor:Hermite|<tuple|4.1|7>>
-    <associate|eqn:Fijsum|<tuple|3.6|6>>
+    <associate|cor:Hermite|<tuple|4.1|6>>
+    <associate|eqn:Fijsum|<tuple|3.6|5>>
     <associate|eqn:Rod|<tuple|2.2|3>>
     <associate|eqn:cor:1|<tuple|1.2|2>>
     <associate|eqn:derst|<tuple|2.3|3>>
     <associate|eqn:iF|<tuple|3.1|4>>
     <associate|eqn:lm0|<tuple|4.1|7>>
     <associate|eqn:main|<tuple|1.1|1>>
-    <associate|eqn:p1|<tuple|3.3|6>>
-    <associate|eqn:p2|<tuple|3.4|6>>
-    <associate|eqn:p3|<tuple|3.5|6>>
+    <associate|eqn:p1|<tuple|3.3|5>>
+    <associate|eqn:p2|<tuple|3.4|5>>
+    <associate|eqn:p3|<tuple|3.5|5>>
     <associate|eqn:quad|<tuple|3.2|5>>
-    <associate|eqn:selberg|<tuple|4.2|8>>
+    <associate|eqn:selberg|<tuple|4.2|7>>
     <associate|eqn:stz|<tuple|2.1|3>>
-    <associate|ex:1|<tuple|4.3|8>>
+    <associate|ex:1|<tuple|4.3|7>>
     <associate|ex:2|<tuple|4.4|8>>
     <associate|ex:3|<tuple|4.5|8>>
-    <associate|ex:4|<tuple|4.6|9>>
+    <associate|ex:4|<tuple|4.6|8>>
     <associate|footnote-1|<tuple|1|?>>
-    <associate|footnote-1.1|<tuple|1.1|1>>
-    <associate|footnote-1.2|<tuple|1.2|1>>
+    <associate|footnote-1.1|<tuple|1.1|2>>
+    <associate|footnote-1.2|<tuple|1.2|2>>
     <associate|footnote-1.3|<tuple|1.3|1>>
     <associate|footnote-1.4|<tuple|1.4|2>>
     <associate|footnote-1.5|<tuple|1.5|2>>
@@ -583,21 +595,21 @@
     <associate|footnote-2|<tuple|2|?>>
     <associate|footnote-4.1|<tuple|4.1|9>>
     <associate|footnote-4.2|<tuple|4.2|?>>
-    <associate|footnr-1.1|<tuple|1.1|1>>
-    <associate|footnr-1.2|<tuple|1.2|1>>
+    <associate|footnr-1.1|<tuple|1.1|2>>
+    <associate|footnr-1.2|<tuple|1.2|2>>
     <associate|footnr-1.3|<tuple|1.3|1>>
     <associate|footnr-1.4|<tuple|1.4|2>>
     <associate|footnr-1.5|<tuple|1.5|2>>
     <associate|footnr-1.6|<tuple|1.6|2>>
     <associate|footnr-1.7|<tuple|1.7|2>>
-    <associate|footnr-4.1|<tuple|4.1|9>>
+    <associate|footnr-4.1|<tuple|4.1|8>>
     <associate|footnr-4.2|<tuple|4.2|?>>
     <associate|lem4|<tuple|3.1|4>>
     <associate|lem:Fisum|<tuple|3.2|4>>
     <associate|main-thm|<tuple|1.2|1>>
     <associate|prop:2|<tuple|2.1|3>>
-    <associate|sec:2|<tuple|2|3>>
-    <associate|sec:3|<tuple|3|4>>
+    <associate|sec:2|<tuple|2|2>>
+    <associate|sec:3|<tuple|3|3>>
     <associate|sec:4|<tuple|4|6>>
     <associate|table|<tuple|4.1|9>>
   </collection>
@@ -612,7 +624,7 @@
 
       kobayashi2015symmetry
 
-      andrews1999special
+      andrews2000special
 
       andrews1999special
 
