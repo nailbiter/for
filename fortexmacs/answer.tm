@@ -1659,7 +1659,8 @@
 
     <\proposition>
       <label|prop:Vk7ZjF-1>The series <math|<eqref|eqn:q30-1>> converges in
-      <math|L<rsup|2>> sense, as long as <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.
+      <math|L<rsup|2>> sense for <math|<around*|(|\<lambda\>,\<nu\>,\<mu\>|)>\<in\>\<bbb-C\><rsup|2>>,
+      as long as <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.
     </proposition>
 
     <\proposition>
@@ -1668,7 +1669,7 @@
       such that
 
       <\equation*>
-        <stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1;Re<around*|(|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>|)>\<leqslant\>-1;Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>0.>>>>>
+        <stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1;>>|<row|<cell|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-<around*|(|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>|)>\<leqslant\>-1;>>|<row|<cell|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>0.>>>>>
       </equation*>
     </proposition>
 
@@ -1686,8 +1687,24 @@
     </lemma>
 
     <\proof>
-      WLOG we can assume that <math|k=1>. WLOG we can assume that
-      <math|\<alpha\>\<in\>\<bbb-N\><rsub|+>>. We have
+      First, we show that the statement for general <math|k> would follow
+      from the special case <math|k=1>. Indeed, assuming that the latter
+      holds, let <math|x,y\<in\>\<bbb-C\>> be given as in the statement.
+      Then, let <math|<around*|{|x<rsub|i>\<assign\>x+<frac|i|k>|}><rsub|i=0><rsup|k-1>,<around*|{|y<rsub|i>\<assign\>y-<frac|i|k>|}><rsub|i=0><rsup|k-1>>
+      we then have that <math|\<exists\>C\<geqslant\>0> such that
+
+      <\equation*>
+        \<forall\>n\<in\>\<bbb-Z\>,\<forall\>i\<in\><around*|{|0,\<ldots\>,k-1|}>,<space|1em><around*|\||\<Gamma\><around*|(|x<rsub|i>+n|)><rsup|-1>\<Gamma\><around*|(|y<rsub|i>-n|)><rsup|-1>|\|>\<leqslant\>C.<eq-number><label|eqn:Vk7ZjF-1>
+      </equation*>
+
+      Now, for any <math|\<alpha\>\<in\><frac|1|k>\<bbb-Z\>> we can write
+      <math|\<alpha\>=n+<frac|i|k>> for some
+      <math|n\<in\>\<bbb-Z\>,i\<in\><around*|{|0,\<ldots\>,k-1|}>> and
+      <math|x+\<alpha\>=x<rsub|i>+n,y-\<alpha\>=y<rsub|i>-n>, hence the
+      required result follows at once from <math|<eqref|eqn:Vk7ZjF-1>>.
+
+      Hence, in subsequent we can assume that <math|k=1>. WLOG we can assume
+      that <math|\<alpha\>\<in\>\<bbb-N\><rsub|+>>. We have
 
       <\equation*>
         <stack|<tformat|<table|<row|<cell|\<Gamma\><around*|(|x+\<alpha\>|)><rsup|-1>\<Gamma\><around*|(|y-\<alpha\>|)><rsup|-1>=<frac|\<Gamma\><around*|(|x+\<alpha\>|)><rsup|-1>|\<Gamma\><around*|(|1-y+\<alpha\>|)><rsup|-1>>\<cdot\>\<Gamma\><around*|(|1-y+\<alpha\>|)><rsup|-1>\<Gamma\><around*|(|y-\<alpha\>|)><rsup|-1>=<frac|\<Gamma\><around*|(|x+\<alpha\>|)><rsup|-1>|\<Gamma\><around*|(|1-y+\<alpha\>|)><rsup|-1>>\<cdot\><frac|sin<around*|(|\<pi\><around*|(|y-\<alpha\>|)>|)>|\<pi\>>>>|<row|<cell|=<frac|\<Gamma\><around*|(|x+\<alpha\>|)><rsup|-1>|\<Gamma\><around*|(|1-y+\<alpha\>|)><rsup|-1>>\<cdot\><frac|sin<around*|(|\<pi\>y|)>|\<pi\>>.>>>>>
@@ -1695,7 +1712,11 @@
 
       Note that if <math|y\<in\>\<bbb-Z\>>, then the later expression is zero
       and we are done. Hence, in subsequent we may assume that
-      <math|y\<nin\>\<bbb-Z\>>.
+      <math|y\<nin\>\<bbb-Z\>>.<\footnote>
+        I do this remark here, because formula
+        <cite-detail|olver2010nist|5.11.12> used below does not make sense if
+        <math|z+a\<in\>-\<bbb-N\>>.
+      </footnote>
 
       Hence, it suffices to show that <math|sup<rsub|i\<in\>\<bbb-N\><rsub|+>><around*|\||<frac|\<Gamma\><around*|(|x+i|)><rsup|-1>|\<Gamma\><around*|(|1-y+i|)><rsup|-1>>|\|>\<less\>\<infty\>>.
       Now, the formula
@@ -1772,6 +1793,34 @@
       <math|Re<around*|(|\<nu\>|)>\<gtr\>0>.
     </proof>
 
+    <\definition>
+      In the proof below we use the following notations for pairs of series
+      <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>,<big|sum><rsub|i\<in\>I>b<rsub|i>>
+      indexed both by the same countable set <math|\<Iota\>>.
+
+      <\enumerate>
+        <item>We write <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>\<lesssim\><big|sum><rsub|i\<in\>I>b<rsub|i>>
+        and say that <math|<big|sum><rsub|i\<in\>I>b<rsub|i>>
+        <underline|dominates> <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>
+        if <math|\<exists\>\<Iota\><rprime|'>\<subset\>\<Iota\>>: finite,
+        <math|\<exists\>C\<gtr\>0> such that
+
+        <\equation*>
+          \<forall\>i\<in\>\<Iota\>\\\<Iota\><rprime|'>,<around*|\||a<rsub|i>|\|>\<leqslant\>C<around*|\||b<rsub|i>|\|>.
+        </equation*>
+
+        <item>We write <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>\<lessapprox\><big|sum><rsub|i\<in\>I>b<rsub|i>>
+        if <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>\<lesssim\><big|sum><rsub|i\<in\>I>b<rsub|i>>
+        and one can take <math|\<Iota\><rprime|'>=\<varnothing\>>.
+      </enumerate>
+    </definition>
+
+    <\remark*>
+      Note that if <math|<big|sum><rsub|i\<in\>I>b<rsub|i>\<gtrsim\>><math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>
+      and <math|<big|sum><rsub|i\<in\>I>b<rsub|i>> absolutely converges, then
+      so does <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>.
+    </remark*>
+
     <\proof>
       <dueto|Proposition <reference|prop:Vk7ZjF-2>>It suffices to show the
       absolute convergence of
@@ -1800,7 +1849,9 @@
       the latter series is dominated by
 
       <\equation*>
-        <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|-\<nu\>+<frac|l+m|2>|)>>>>>>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<sim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<sim\><big|sum><rsub|i=0><rsup|\<infty\>><frac|i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+1>|i<rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>>.>>>>>
+        <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|-\<nu\>+<frac|l+m|2>|)>>>>>>>>>|<row|<cell|<around*|(|<text|note
+        that for <math|x\<geqslant\>0,\<alpha\>\<in\>\<bbb-C\>>
+        <math|<around*|\||x<rsup|\<alpha\>>|\|>=x<rsup|Re<around*|(|\<alpha\>|)>><rsup|>>>|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>|<row|<cell|>>|<row|<cell|=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|i+1|)>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|i<rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-<around*|(|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>|)>>.>>>>>
       </equation*>
     </proof>
   <|show-part>
@@ -2048,7 +2099,7 @@
     <associate|auto.31-2|<tuple|30.1|?|#31>>
     <associate|auto.31-3|<tuple|30.2|?|#31>>
     <associate|auto.31-4|<tuple|30.3|?|#31>>
-    <associate|auto.32-1|<tuple|30.3|?|#32>>
+    <associate|auto.32-1|<tuple|b|?|#32>>
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.5-1|<tuple|4|?|#5>>
     <associate|auto.6-1|<tuple|5|?|#6>>
@@ -2090,6 +2141,7 @@
     <associate|eqn:20-beminus|<tuple|23.2|25|#24>>
     <associate|eqn:20-beplus|<tuple|23.1|25|#24>>
     <associate|eqn:Rod|<tuple|17|?>>
+    <associate|eqn:Vk7ZjF-1|<tuple|30.2|?|#31>>
     <associate|eqn:cor:1|<tuple|14|?>>
     <associate|eqn:derst|<tuple|18|?>>
     <associate|eqn:herm1|<tuple|14.1|15|#15>>
@@ -2124,6 +2176,7 @@
     <associate|footnote-23.1|<tuple|23.1|25|#24>>
     <associate|footnote-23.2|<tuple|23.2|25|#24>>
     <associate|footnote-3|<tuple|3|24>>
+    <associate|footnote-30.1|<tuple|30.1|?|#31>>
     <associate|footnote-4|<tuple|4|24>>
     <associate|footnote-5|<tuple|5|25>>
     <associate|footnote-6|<tuple|6|25>>
@@ -2146,6 +2199,7 @@
     <associate|footnr-23.1|<tuple|23.1|25|#24>>
     <associate|footnr-23.2|<tuple|23.2|25|#24>>
     <associate|footnr-3|<tuple|3|24>>
+    <associate|footnr-30.1|<tuple|30.1|?|#31>>
     <associate|footnr-4|<tuple|4|24>>
     <associate|footnr-5|<tuple|5|25>>
     <associate|footnr-6|<tuple|6|25>>
