@@ -7,7 +7,7 @@ COMMIT_PREFIX=tex RIMStalk
 PDFS=intpaper answer RIMS17-Alex-int slides speech ja
 AUX=abe_form.pdf carlson.pdf
 
-PDFS=answer RIMS17-Alex-int
+PDFS=answer RIMS17-Alex-int intpaper
 AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
@@ -22,7 +22,9 @@ GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) #$(OUTDIR)/ja.pdf
 p: $(OUTDIR)/$(ZIPNAME).zip
-
+	
+$(OUTDIR)/intpaper.pdf : $(TEXMACSDIR)/intpaper.tm $(TEXMACSDIR)/intpaper.bib
+	$(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/ja.pdf : $(OUTDIR)/ja.dvi
 	cd $(OUTDIR) && dvipdfmx $(basename $<).dvi
 $(OUTDIR)/ja.dvi: ja.tex
@@ -58,7 +60,7 @@ trials.pdf : trials.numbers
 	latex $<
 	dvips -E -o $@ $(basename $<).dvi
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
-	        $(TEXMACS) --convert $< $@ --quit
+	$(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/%.pdf : %.tex
 	$(XELATEX) $<
 

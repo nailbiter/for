@@ -463,63 +463,61 @@
   <big-table|<tabular|<tformat|<table|<row|<cell|<image|intdep.png|788px|264px||>>>>>>|Hierarchy
   of various integral formulæ<label|table>>
 
-  <\bibliography|bib|tm-plain|intdep.bib>
-    <\bib-list|10>
-      <bibitem*|1><label|bib-andrews1999special>George<nbsp>E Andrews,
-      Richard Askey<localize|, and >Ranjan Roy.<newblock>
-      <with|font-shape|italic|Special Functions>,
-      <localize|volume><nbsp><with|font-series|bold|71><localize| of
-      ><with|font-shape|italic|Encyclopedia of Mathematics and its
-      Applications>.<newblock> Cambridge University Press, Cambridge,
-      1999.<newblock>
+  <\bibliography|bib|tm-plain|intpaper.bib>
+    <\bib-list|9>
+      <bibitem*|1><label|bib-andrews1999special>G.<nbsp>E.<nbsp>Andrews,
+      R.<nbsp>Askey<localize|, and >R.<nbsp>Roy.<newblock> Special functions,
+      volume 71 of encyclopedia of mathematics and its
+      applications.<newblock> 1999.<newblock>
 
-      <bibitem*|2><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko<localize|
-      and >Vladimir<nbsp>A Fateev.<newblock> Four-point correlation functions
-      and the operator algebra in 2d conformal invariant theories with
+      <bibitem*|2><label|bib-dotsenko1985four>V.<nbsp>S.<nbsp>Dotsenko<localize|
+      and >V.<nbsp>A.<nbsp>Fateev.<newblock> Four-point correlation functions
+      and the operator algebra in 2D conformal invariant theories with
       central charge <math|c\<leq\>1>.<newblock>
-      <with|font-shape|italic|Nuclear Physics B>, 251:691\U734,
-      1985.<newblock>
+      <with|font-shape|italic|Nuclear Phys. B>, 251:691\U734, 1985.<newblock>
 
-      <bibitem*|3><label|bib-forrester2008importance>Peter
-      Forrester<localize| and >SVEN Warnaar.<newblock> The importance of the
-      selberg integral.<newblock> <with|font-shape|italic|Bulletin of the
-      American Mathematical Society>, 45(4):489\U534, 2008.<newblock>
-      <with|font-series|bold|I've read this paper completely>.<newblock>
+      <bibitem*|3><label|bib-forrester2008importance>P.<nbsp>Forrester<localize|
+      and >S.<nbsp>O.<nbsp>Warnaar.<newblock> The importance of the Selberg
+      integral.<newblock> <with|font-shape|italic|Bull. Amer. Math. Soc.>,
+      45(4):489\U534, 2008.<newblock> Available online at
+      <slink|https://doi.org/10.1090/S0273-0979-08-01221-4>.<newblock>
 
-      <bibitem*|4><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
+      <bibitem*|4><label|bib-kobayashi2011schrodinger>T.<nbsp>Kobayashi<localize|
+      and >G.<nbsp>Mano.<newblock> <with|font-shape|italic|The Schrödinger
+      model for the minimal representation of the indefinite orthogonal group
+      <math|O<around|(|p,q|)>>>.<newblock> Amer. Math. Soc., 2011.<newblock>
+      Available online at <slink|http://dx.doi.org/10.1090/S0065-9266-2011-00592-7>.<newblock>
+
+      <bibitem*|5><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
       and >B.<nbsp>Speh.<newblock> <with|font-shape|italic|Symmetry Breaking
-      for Representations of Rank One Orthogonal Groups>.<newblock> Memoirs
-      of the Amer. Math. Soc. 2015.<newblock>
+      for Representations of Rank One Orthogonal Groups>, <localize|volume>
+      <with|font-series|bold|238>.<newblock>
+      <with|font-family|rm|font-shape|right|font-series|medium|Memoirs of the
+      Amer. Math. Soc>, 2015.<newblock> Available online at
+      <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
 
-      <bibitem*|5><label|bib-kobayashi2011schrodinger>Toshiyuki
-      Kobayashi<localize| and >Gen Mano.<newblock>
-      <with|font-shape|italic|The Schrödinger model for the minimal
-      representation of the indefinite orthogonal group
-      <math|O<around|(|p,q|)>>>, <localize|volume> 213.<newblock> American
-      Mathematical Society, 2011.<newblock>
-
-      <bibitem*|6><label|bib-mehta2004random>Madan<nbsp>Lal Mehta.<newblock>
+      <bibitem*|6><label|bib-mehta2004random>M.<nbsp>L.<nbsp>Mehta.<newblock>
       <with|font-shape|italic|Random matrices>, <localize|volume>
-      142.<newblock> Academic press, 2004.<newblock>
+      142<localize| of ><with|font-shape|italic|<with|font-family|rm|font-shape|right|font-series|medium|Pure
+      Appl. Math. (Amsterdam)>>.<newblock> Elsevier/Academic Press,
+      Amsterdam, 2004.<newblock>
 
-      <bibitem*|7><label|bib-rainville1960special>Earl<nbsp>David
-      Rainville.<newblock> <with|font-shape|italic|Special functions>,
-      <localize|volume><nbsp>8.<newblock> Macmillan New York, 1960.<newblock>
+      <bibitem*|7><label|bib-Selberg:411367>A.<nbsp>Selberg.<newblock>
+      Remarks on a multiple integral.<newblock> <with|font-shape|italic|Norsk
+      Mat. Tidsskr.>, 26:71\U78, 1944.<newblock>
 
-      <bibitem*|8><label|bib-Selberg:411367>A Selberg.<newblock> Remarks on a
-      multiple integral.<newblock> <with|font-shape|italic|Norsk Mat.
-      Tidsskr.>, 26:71\U78, 1944.<newblock>
-
-      <bibitem*|9><label|bib-tarasov2003selberg>V Tarasov<localize| and
-      >Alexander Varchenko.<newblock> Selberg-type integrals associated with
+      <bibitem*|8><label|bib-tarasov2003selberg>V.<nbsp>Tarasov<localize| and
+      >A.<nbsp>Varchenko.<newblock> Selberg-type integrals associated with
       <math|<with|math-font|Euler|s*l><rsub|3>>.<newblock>
-      <with|font-shape|italic|Letters in Mathematical Physics>,
-      65(3):173\U185, 2003.<newblock>
+      <with|font-shape|italic|Lett. Math. Phys.>, 65(3):173\U185,
+      2003.<newblock> Available online at
+      <slink|http://dx.doi.org/10.1023/B:MATH.0000010712.67685.9d>.<newblock>
 
-      <bibitem*|10><label|bib-warnaar2010sl3>S<nbsp>Ole Warnaar.<newblock>
+      <bibitem*|9><label|bib-warnaar2010sl3>S.<nbsp>O.<nbsp>Warnaar.<newblock>
       The <math|<with|math-font|Euler|s*l><rsub|3>> Selberg
-      integral.<newblock> <with|font-shape|italic|Advances in Mathematics>,
-      224(2):499\U524, 2010.<newblock>
+      integral.<newblock> <with|font-shape|italic|Adv. Math.>,
+      224(2):499\U524, 2010.<newblock> Available online at
+      <slink|http://dx.doi.org/10.1016/j.aim.2009.11.011>.<newblock>
     </bib-list>
   </bibliography>
 </body>
@@ -543,16 +541,16 @@
     <associate|auto-4|<tuple|4|6>>
     <associate|auto-5|<tuple|4.1|9>>
     <associate|auto-6|<tuple|4.1|10>>
-    <associate|bib-Selberg:411367|<tuple|8|10>>
+    <associate|bib-Selberg:411367|<tuple|7|10>>
     <associate|bib-andrews1999special|<tuple|1|10>>
     <associate|bib-dotsenko1985four|<tuple|2|10>>
     <associate|bib-forrester2008importance|<tuple|3|10>>
-    <associate|bib-kobayashi2011schrodinger|<tuple|5|10>>
-    <associate|bib-kobayashi2015symmetry|<tuple|4|10>>
+    <associate|bib-kobayashi2011schrodinger|<tuple|4|10>>
+    <associate|bib-kobayashi2015symmetry|<tuple|5|10>>
     <associate|bib-mehta2004random|<tuple|6|10>>
     <associate|bib-rainville1960special|<tuple|7|10>>
-    <associate|bib-tarasov2003selberg|<tuple|9|10>>
-    <associate|bib-warnaar2010sl3|<tuple|10|10>>
+    <associate|bib-tarasov2003selberg|<tuple|8|10>>
+    <associate|bib-warnaar2010sl3|<tuple|9|10>>
     <associate|cor:1|<tuple|1.4|2>>
     <associate|cor:170599|<tuple|1.5|2>>
     <associate|cor:Chebyshev|<tuple|1.4|?>>
