@@ -460,7 +460,7 @@
 
   \;
 
-  <big-table|<tabular|<tformat|<table|<row|<cell|<image|intdep.png|788px|264px||>>>>>>|Hierarchy
+  <big-table|<tabular|<tformat|<table|<row|<cell|<image|./intdep.jpg|788px|264px||>>>>>>|Hierarchy
   of various integral formulæ<label|table>>
 
   <\bibliography|bib|tm-plain|intpaper.bib>
