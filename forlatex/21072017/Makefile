@@ -36,7 +36,7 @@ $(OUTDIR)/RIMS17-Alex-int.pdf: $(OUTDIR)/RIMS17-Alex-int.dvi
 	cd $(OUTDIR) && dvipdfmx $(basename $<).dvi
 
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
-	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
+	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -u -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	unzip -l $@
 	du -hs $@
 	$(GITCOMMIT)

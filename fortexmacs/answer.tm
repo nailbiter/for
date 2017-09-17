@@ -1659,8 +1659,20 @@
 
     <\proposition>
       <label|prop:Vk7ZjF-1>The series <math|<eqref|eqn:q30-1>> converges in
-      <math|L<rsup|2>> sense for <math|<around*|(|\<lambda\>,\<nu\>,\<mu\>|)>\<in\>\<bbb-C\><rsup|2>>,
-      as long as <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.
+      <math|L<rsup|2>> sense for <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-R\><rsup|2>\<times\>\<bbb-C\>>,
+      as long as <math|\<lambda\>,\<mu\>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.<\footnote>
+        I am extremely embarassed for making this
+        <with|font-series|bold|STUPID> mistake of not noticing that the
+        condition <math|\<lambda\>,\<mu\>\<in\>\<bbb-R\>> should be met in
+        order to talk about weight functions and <math|L<rsup|2>>-spaces.
+        This is intolerable for PhD student (even for undergraduate) and I
+        was unable to spot it for about 6-7 months. Intolerable. I am so
+        sorry.
+      </footnote><\footnote>
+        Many statements in <verbatim|RIMS17-Alex-int.pdf> and
+        <verbatim|intpaper.pdf> will need to be corrected. Should I proceed
+        with their correction myself first?
+      </footnote>
     </proposition>
 
     <\proposition>
@@ -1785,9 +1797,9 @@
       <dueto|Proposition <reference|prop:Vk7ZjF-1>>We note that
       <math|<around*|{|C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|}><rsub|l,m=0><rsup|\<infty\>>>
       form an orthogonal basis in space <math|L<rsup|2><around*|(|<around*|[|-1,1|]><rsup|2>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>|)>>,
-      as long as <math|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>-<frac|1|2>>.
-      Therefore, the series <math|<eqref|eqn:q30-1>> converges in
-      <math|L<rsup|2>> sense, as long as we can show that its LHS belongs to
+      as long as <math|\<lambda\>,\<mu\>\<gtr\>-<frac|1|2>>. Therefore, the
+      series <math|<eqref|eqn:q30-1>> converges in <math|L<rsup|2>> sense, as
+      long as we can show that its LHS belongs to
       <math|L<rsup|2><around*|(|<around*|[|-1,1|]><rsup|2>,<around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>|)>>
       space. However, the latter is easily seen to be true, as long as
       <math|Re<around*|(|\<nu\>|)>\<gtr\>0>.
@@ -1795,11 +1807,11 @@
 
     <\definition>
       In the proof below we use the following notations for pairs of series
-      <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>,<big|sum><rsub|i\<in\>I>b<rsub|i>>
+      <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>,<big|sum><rsub|i\<in\>\<Iota\>>b<rsub|i>>
       indexed both by the same countable set <math|\<Iota\>>.
 
       <\enumerate>
-        <item>We write <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>\<lesssim\><big|sum><rsub|i\<in\>I>b<rsub|i>>
+        <item>We write <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>\<lesssim\><big|sum><rsub|i\<in\>\<Iota\>>b<rsub|i>>
         and say that <math|<big|sum><rsub|i\<in\>I>b<rsub|i>>
         <underline|dominates> <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>
         if <math|\<exists\>\<Iota\><rprime|'>\<subset\>\<Iota\>>: finite,
@@ -1812,9 +1824,9 @@
     </definition>
 
     <\remark*>
-      Note that if <math|<big|sum><rsub|i\<in\>I>b<rsub|i>\<gtrsim\>><math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>
-      and <math|<big|sum><rsub|i\<in\>I>b<rsub|i>> is absolutely convergent,
-      then so is <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>.
+      Note that if <math|<big|sum><rsub|i\<in\>\<Iota\>>b<rsub|i>\<gtrsim\>><math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>
+      and <math|<big|sum><rsub|i\<in\>\<Iota\>>b<rsub|i>> is absolutely
+      convergent, then so is <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>.
     </remark*>
 
     <\proof>
@@ -1831,21 +1843,13 @@
       suffices to show the absolute convergence of
 
       <\equation*>
-        <big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>.
+        <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>|<row|<cell|<around*|(|<text|Lemma
+        <reference|lem:Vk7ZjF-2>>|)>>>|<row|<cell|\<lesssim\><stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>>>|<row|<cell|<around*|(|<text|cf.
+        proof of Lemma <reference|lem:Vk7ZjF-1>>|)>>>>>>
       </equation*>
 
-      Now, Lemma <reference|lem:Vk7ZjF-2> implies that the latter series is
-      dominated by
-
       <\equation*>
-        <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>.
-      </equation*>
-
-      Proceeding as in proof of Lemma <reference|lem:Vk7ZjF-1>, we see that
-      the latter series is dominated by
-
-      <\equation*>
-        <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|-\<nu\>+<frac|l+m|2>|)>>>>>>>>>|<row|<cell|<around*|(|<text|note
+        <stack|<tformat|<table|<row|<cell|\<lesssim\><stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|-\<nu\>+<frac|l+m|2>|)>>>>>>>>>|<row|<cell|<around*|(|<text|note
         that for <math|x\<geqslant\>0,\<alpha\>\<in\>\<bbb-C\>>
         <math|<around*|\||x<rsup|\<alpha\>>|\|>=x<rsup|Re<around*|(|\<alpha\>|)>><rsup|>>>|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>|<row|<cell|>>|<row|<cell|=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|i+1|)>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|i<rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-<around*|(|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>|)>>.>>>>>
       </equation*>
@@ -2171,6 +2175,8 @@
     <associate|footnote-23.2|<tuple|23.2|25|#24>>
     <associate|footnote-3|<tuple|3|24>>
     <associate|footnote-30.1|<tuple|30.1|?|#31>>
+    <associate|footnote-30.2|<tuple|30.2|?|#31>>
+    <associate|footnote-30.3|<tuple|30.3|?|#31>>
     <associate|footnote-4|<tuple|4|24>>
     <associate|footnote-5|<tuple|5|25>>
     <associate|footnote-6|<tuple|6|25>>
@@ -2194,6 +2200,8 @@
     <associate|footnr-23.2|<tuple|23.2|25|#24>>
     <associate|footnr-3|<tuple|3|24>>
     <associate|footnr-30.1|<tuple|30.1|?|#31>>
+    <associate|footnr-30.2|<tuple|30.2|?|#31>>
+    <associate|footnr-30.3|<tuple|30.3|?|#31>>
     <associate|footnr-4|<tuple|4|24>>
     <associate|footnr-5|<tuple|5|25>>
     <associate|footnr-6|<tuple|6|25>>
