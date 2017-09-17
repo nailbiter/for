@@ -1668,7 +1668,7 @@
       such that
 
       <\equation*>
-        <stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1;Re<around*|(|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>|)>\<leqslant\>-1;Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>0>>|<row|<cell|\<lambda\>+\<mu\>+\<nu\>,\<nu\>,\<lambda\>+\<nu\>,\<mu\>+\<nu\>\<nin\>\<bbb-Z\>>>>>>
+        <stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1;Re<around*|(|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>|)>\<leqslant\>-1;Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>0.>>>>>
       </equation*>
     </proposition>
 
@@ -1676,24 +1676,28 @@
 
     <\lemma>
       <label|lem:Vk7ZjF-1>Let <math|k\<in\>\<bbb-N\><rsub|+>>. Suppose that
-      <math|x,y\<in\>\<bbb-C\>\\<frac|1|k>\<bbb-Z\>> are
+      <math|x,y\<in\>\<bbb-C\>> are such that
       <math|Re<around*|(|x+y|)>\<geqslant\>1>. Then
-      <math|\<exists\>c=c<rsub|k,x>\<gtr\>0>, such that
+      <math|\<exists\>C=C<rsub|k,x>\<geqslant\>0>, such that
 
       <\equation*>
-        \<forall\>\<alpha\>\<in\><frac|1|k>\<bbb-Z\>,<space|1em><around*|\||\<Gamma\><around*|(|x+\<alpha\>|)>\<Gamma\><around*|(|y-\<alpha\>|)>|\|>\<geqslant\>c.
+        \<forall\>\<alpha\>\<in\><frac|1|k>\<bbb-Z\>,<space|1em><around*|\||\<Gamma\><around*|(|x+\<alpha\>|)><rsup|-1>\<Gamma\><around*|(|y-\<alpha\>|)><rsup|-1>|\|>\<leqslant\>C.
       </equation*>
     </lemma>
 
     <\proof>
-      WLOG we assume that <math|k=1>. WLOG we assume that
+      WLOG we can assume that <math|k=1>. WLOG we can assume that
       <math|\<alpha\>\<in\>\<bbb-N\><rsub|+>>. We have
 
       <\equation*>
-        <stack|<tformat|<table|<row|<cell|\<Gamma\><around*|(|x+\<alpha\>|)>\<Gamma\><around*|(|y-\<alpha\>|)>=<frac|\<Gamma\><around*|(|x+\<alpha\>|)>|\<Gamma\><around*|(|1-y+\<alpha\>|)>>\<cdot\>\<Gamma\><around*|(|1-y+\<alpha\>|)>\<Gamma\><around*|(|y-\<alpha\>|)>=<frac|\<Gamma\><around*|(|x+\<alpha\>|)>|\<Gamma\><around*|(|1-y+\<alpha\>|)>>\<cdot\><frac|\<pi\>|sin<around*|(|\<pi\><around*|(|y-\<alpha\>|)>|)>>>>|<row|<cell|=<frac|\<Gamma\><around*|(|x+\<alpha\>|)>|\<Gamma\><around*|(|1-y+\<alpha\>|)>>\<cdot\><frac|\<pi\>|sin<around*|(|\<pi\>y|)>>>>>>>
+        <stack|<tformat|<table|<row|<cell|\<Gamma\><around*|(|x+\<alpha\>|)><rsup|-1>\<Gamma\><around*|(|y-\<alpha\>|)><rsup|-1>=<frac|\<Gamma\><around*|(|x+\<alpha\>|)><rsup|-1>|\<Gamma\><around*|(|1-y+\<alpha\>|)><rsup|-1>>\<cdot\>\<Gamma\><around*|(|1-y+\<alpha\>|)><rsup|-1>\<Gamma\><around*|(|y-\<alpha\>|)><rsup|-1>=<frac|\<Gamma\><around*|(|x+\<alpha\>|)><rsup|-1>|\<Gamma\><around*|(|1-y+\<alpha\>|)><rsup|-1>>\<cdot\><frac|sin<around*|(|\<pi\><around*|(|y-\<alpha\>|)>|)>|\<pi\>>>>|<row|<cell|=<frac|\<Gamma\><around*|(|x+\<alpha\>|)><rsup|-1>|\<Gamma\><around*|(|1-y+\<alpha\>|)><rsup|-1>>\<cdot\><frac|sin<around*|(|\<pi\>y|)>|\<pi\>>.>>>>>
       </equation*>
 
-      Hence, it suffices to show that <math|inf<rsub|i\<in\>\<bbb-N\><rsub|+>><around*|\||<frac|\<Gamma\><around*|(|x+i|)>|\<Gamma\><around*|(|1-y+i|)>>|\|>\<gtr\>0>.
+      Note that if <math|y\<in\>\<bbb-Z\>>, then the later expression is zero
+      and we are done. Hence, in subsequent we may assume that
+      <math|y\<nin\>\<bbb-Z\>>.
+
+      Hence, it suffices to show that <math|sup<rsub|i\<in\>\<bbb-N\><rsub|+>><around*|\||<frac|\<Gamma\><around*|(|x+i|)><rsup|-1>|\<Gamma\><around*|(|1-y+i|)><rsup|-1>>|\|>\<less\>\<infty\>>.
       Now, the formula
 
       <\equation*>
@@ -1704,10 +1708,10 @@
       implies that\ 
 
       <\equation*>
-        <around*|\||<frac|\<Gamma\><around*|(|x+i|)>|\<Gamma\><around*|(|1-y+i|)>>|\|>\<sim\><around*|\||i<rsup|x-1+y>|\|>\<rightarrow\><choice|<tformat|<table|<row|<cell|\<infty\>>|<cell|<around*|(|Re<around*|(|x+y|)>\<gtr\>1|)>>>|<row|<cell|1>|<cell|<around*|(|Re<around*|(|x+y|)>=1|)>>>>>>\<gtr\>0.
+        <around*|\||<frac|\<Gamma\><around*|(|x+i|)><rsup|-1>|\<Gamma\><around*|(|1-y+i|)><rsup|-1>>|\|>\<sim\><around*|\||i<rsup|-<around*|(|x-1+y|)>>|\|>\<rightarrow\><choice|<tformat|<table|<row|<cell|0>|<cell|<around*|(|Re<around*|(|x+y|)>\<gtr\>1|)>>>|<row|<cell|1>|<cell|<around*|(|Re<around*|(|x+y|)>=1|)>>>>>>\<less\>\<infty\>,
       </equation*>
 
-      \;
+      hence the conclusion.
     </proof>
 
     <\fact>
@@ -1778,9 +1782,8 @@
 
       The Lemma <reference|lem:Vk7ZjF-1> implies that for
       <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>> such that
-      <math|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1> and
-      <math|\<lambda\>+\<nu\>,\<mu\>+\<nu\>\<nin\>\<bbb-Z\>>, it suffices to
-      show the absolute convergence of
+      <math|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1>, it
+      suffices to show the absolute convergence of
 
       <\equation*>
         <big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>.
@@ -1794,8 +1797,7 @@
       </equation*>
 
       Proceeding as in proof of Lemma <reference|lem:Vk7ZjF-1>, we see that
-      if <math|\<lambda\>+\<mu\>+\<nu\>,\<nu\>\<nin\>\<bbb-Z\>> the latter
-      series is dominated by
+      the latter series is dominated by
 
       <\equation*>
         <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|-\<nu\>+<frac|l+m|2>|)>>>>>>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<sim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<sim\><big|sum><rsub|i=0><rsup|\<infty\>><frac|i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+1>|i<rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>>.>>>>>
