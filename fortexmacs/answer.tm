@@ -1538,11 +1538,11 @@
 
   <\proposition>
     <label|prop:Vk7ZjF-2>The series on RHS of <math|<eqref|eqn:q30-1>>
-    converges absolutely for generic <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|3>>,
+    converges absolutely for <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|3>>,
     such that
 
     <\equation*>
-      Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1;Re<around*|(|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>|)>\<leqslant\>-1;Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>0
+      <stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1;Re<around*|(|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>|)>\<leqslant\>-1;Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>0>>|<row|<cell|\<lambda\>+\<mu\>+\<nu\>,\<nu\>,\<lambda\>+\<nu\>,\<mu\>+\<nu\>\<nin\>\<bbb-Z\>>>>>>
     </equation*>
   </proposition>
 
@@ -1650,10 +1650,11 @@
       <big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>.
     </equation*>
 
-    The Lemma <reference|lem:Vk7ZjF-1> implies that for generic
+    The Lemma <reference|lem:Vk7ZjF-1> implies that for
     <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>> such that
-    <math|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1>, it
-    suffices to show the absolute convergence of
+    <math|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1> and
+    <math|\<lambda\>+\<nu\>,\<mu\>+\<nu\>\<nin\>\<bbb-Z\>>, it suffices to
+    show the absolute convergence of
 
     <\equation*>
       <big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>.
@@ -1666,11 +1667,12 @@
       <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>.
     </equation*>
 
-    Proceeding as in proof of Lemma <reference|lem:Vk7ZjF-1>, we see that the
-    latter series is dominated by
+    Proceeding as in proof of Lemma <reference|lem:Vk7ZjF-1>, we see that if
+    <math|\<lambda\>+\<mu\>+\<nu\>,\<nu\>\<nin\>\<bbb-Z\>> the latter series
+    is dominated by
 
     <\equation*>
-      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<sim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<sim\><big|sum><rsub|i=0><rsup|\<infty\>><frac|i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+1>|i<rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>>.>>>>>
+      <stack|<tformat|<table|<row|<cell|<stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|-\<nu\>+<frac|l+m|2>|)>>>>>>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>\<sim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>>>|<row|<cell|\<sim\><big|sum><rsub|i=0><rsup|\<infty\>><frac|i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+1>|i<rsup|\<lambda\>+\<mu\>+2\<nu\>+1>>=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-\<lambda\>-\<mu\>-\<nu\>>.>>>>>
     </equation*>
   </proof>
 

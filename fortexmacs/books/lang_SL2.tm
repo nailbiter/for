@@ -139,10 +139,24 @@
     Moreover,\ 
 
     <\equation*>
-      <around*|{|<frac|1|M><big|sum><rsub|N=0><rsup|M><big|sum><rsub|<around*|\||n|\|>\<leqslant\>M>e<rsup|i*n\<theta\>>|}><rsub|M\<in\>\<bbb-N\>>
+      <around*|{|<frac|1|M><big|sum><rsub|N=0><rsup|M><big|sum><rsub|<around*|\||n|\|>\<leqslant\>N>e<rsup|i*n\<theta\>>|}><rsub|M\<in\>\<bbb-N\>>
     </equation*>
 
-    forms a Dirac sequence (in an extended sense).
+    satisfies DIR1, DIR 2 and DIR <math|3<rprime|'>>:
+
+    <\unfolded|\<because\>>
+      <\description>
+        <item*|DIR 1>obvious;
+
+        <item*|DIR 2>
+
+        <math|<stack|<tformat|<table|<row|<cell|<frac|1|M><big|sum><rsub|N=0><rsup|M><big|sum><rsub|<around*|\||n|\|>\<leqslant\>N>e<rsup|\<mathi\>n\<theta\>>=<frac|1|M><big|sum><rsub|N=0><rsup|M>e<rsup|-\<mathi\>N\<theta\>><frac|1-e<rsup|\<mathi\><around*|(|2N+1|)>\<theta\>>|1-e<rsup|\<mathi\>\<theta\>>>>>|<row|<cell|=<frac|1|M><big|sum><rsub|N=0><rsup|M><frac|e<rsup|-\<mathi\><around*|(|N+<frac|1|2>|)>\<theta\>>-e<rsup|\<mathi\><around*|(|N+<frac|1|2>|)>\<theta\>>|e<rsup|\<mathi\>\<theta\>/2>-e<rsup|\<mathi\>\<theta\>/2>>=<frac|1|M><big|sum><rsub|N=0><rsup|M><frac|sin<around*|(|<around*|(|N+<frac|1|2>|)>\<theta\>|)>|sin<around*|(|<frac|\<theta\>|2>|)>>>>|<row|<cell|=<frac|1|M*sin<around*|(|<frac|\<theta\>|2>|)>>Im<around*|(|<big|sum><rsub|N=0><rsup|M>e<rsup|\<mathi\><around*|(|N+<frac|1|2>|)>\<theta\>>|)>>>|<row|<cell|=<frac|1|M*sin<around*|(|<frac|\<theta\>|2>|)>>Im<around*|(|<frac|1-e<rsup|\<mathi\><around*|(|N+1|)>\<theta\>>|-2\<mathi\>sin<around*|(|\<theta\>/2|)>>|)>>>|<row|<cell|=<frac|1|M*sin<around*|(|\<theta\>/2|)>>\<cdot\><frac|1-cos<around*|(|<around*|(|N+1|)>\<theta\>|)>|2sin<around*|(|\<theta\>/2|)>>=<frac|1-cos<around*|(|<around*|(|N+1|)>\<theta\>|)>|2M*sin<rsup|2><around*|(|\<theta\>/2|)>>\<geqslant\>0;>>>>>>
+
+        <item*|DIR <math|3<rprime|'>>>TODO
+      </description>
+    </unfolded>
+
+    \;
   </unfolded>
 
   <section|Spherical functions>
@@ -209,13 +223,13 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|?>>
-    <associate|auto-2|<tuple|1.1|?>>
-    <associate|auto-3|<tuple|1.2|?>>
-    <associate|auto-4|<tuple|1.3|?>>
-    <associate|auto-5|<tuple|2|?>>
-    <associate|auto-6|<tuple|2.1|?>>
-    <associate|auto-7|<tuple|3|?>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-2|<tuple|1.1|1>>
+    <associate|auto-3|<tuple|1.2|1>>
+    <associate|auto-4|<tuple|1.3|2>>
+    <associate|auto-5|<tuple|2|2>>
+    <associate|auto-6|<tuple|2.1|2>>
+    <associate|auto-7|<tuple|3|4>>
   </collection>
 </references>
 
@@ -243,9 +257,14 @@
       groups> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5><vspace|0.5fn>
 
+      <with|par-left|<quote|1tab>|2.1<space|2spc>Restrictions of rep's of
+      <with|mode|<quote|math>|SL<rsub|2><around*|(|\<bbb-R\>|)>> to its
+      maximal compact subgroup <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-6>>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Spherical
       functions> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6><vspace|0.5fn>
+      <no-break><pageref|auto-7><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
