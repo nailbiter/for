@@ -1808,17 +1808,13 @@
         <\equation*>
           \<forall\>i\<in\>\<Iota\>\\\<Iota\><rprime|'>,<around*|\||a<rsub|i>|\|>\<leqslant\>C<around*|\||b<rsub|i>|\|>.
         </equation*>
-
-        <item>We write <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>\<lessapprox\><big|sum><rsub|i\<in\>I>b<rsub|i>>
-        if <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>\<lesssim\><big|sum><rsub|i\<in\>I>b<rsub|i>>
-        and one can take <math|\<Iota\><rprime|'>=\<varnothing\>>.
       </enumerate>
     </definition>
 
     <\remark*>
       Note that if <math|<big|sum><rsub|i\<in\>I>b<rsub|i>\<gtrsim\>><math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>
-      and <math|<big|sum><rsub|i\<in\>I>b<rsub|i>> absolutely converges, then
-      so does <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>.
+      and <math|<big|sum><rsub|i\<in\>I>b<rsub|i>> is absolutely convergent,
+      then so is <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>.
     </remark*>
 
     <\proof>
@@ -1869,8 +1865,7 @@
 
         <bibitem*|AAR00><label|bib-andrews2000special>George<nbsp>E Andrews,
         Richard Askey, and Ranjan Roy. <newblock><with|font-shape|italic|Special
-        functions>. <newblock><with|font|roman|\<#6E05\>\<#534E\>\<#5927\>\<#5B66\>\<#51FA\>\<#7248\>\<#793E\>\<#6709\>\<#9650\>\<#516C\>\<#53F8\>>,
-        2000.
+        functions>. <newblock>Cambridge University Press, Cambridge, 2000.
 
         <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
         Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions
@@ -1951,8 +1946,7 @@
 
         <bibitem*|AAR00><label|bib-andrews2000special>George<nbsp>E Andrews,
         Richard Askey, and Ranjan Roy. <newblock><with|font-shape|italic|Special
-        functions>. <newblock><with|font|roman|\<#6E05\>\<#534E\>\<#5927\>\<#5B66\>\<#51FA\>\<#7248\>\<#793E\>\<#6709\>\<#9650\>\<#516C\>\<#53F8\>>,
-        2000.
+        functions>. <newblock>Cambridge University Press, Cambridge, 2000.
 
         <bibitem*|DF85><label|bib-dotsenko1985four>Vl<nbsp>S Dotsenko and
         Vladimir<nbsp>A Fateev. <newblock>Four-point correlation functions
@@ -2099,7 +2093,7 @@
     <associate|auto.31-2|<tuple|30.1|?|#31>>
     <associate|auto.31-3|<tuple|30.2|?|#31>>
     <associate|auto.31-4|<tuple|30.3|?|#31>>
-    <associate|auto.32-1|<tuple|b|?|#32>>
+    <associate|auto.32-1|<tuple|a|?|#32>>
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.5-1|<tuple|4|?|#5>>
     <associate|auto.6-1|<tuple|5|?|#6>>
