@@ -53,6 +53,43 @@
 	\vspace{1em}
 	}
 \newenvironment{proof*}[1]{\noindent\textbf{#1\ }}{\hspace*{\fill}\medskip}
+\newcommand{\myrelationdiagramBigSix}[6]{
+			\begin{samepage}
+				\vspace{1em}
+		\centerline{
+		\xymatrixcolsep{#6cm}
+		\xymatrix{
+			\framebox{\mbox{#1}}\ar@{=>}[rd]^{\begin{array}[]{c}
+				#2
+			\end{array}}&&&&\framebox{\mbox{#4}}\ar@{=>}[ld]_{\kern-1.5cm\begin{array}[]{c}
+			#3
+	\end{array}}\\
+			&&&&
+		}}
+		\nopagebreak
+		\framebox{\mbox{#5}}
+				\vspace{1em}
+			\end{samepage}
+	}
+\newcommand{\myrelationdiagramBigCenter}[5]{
+			\begin{samepage}
+				\vspace{1em}
+		\centerline{
+		\xymatrixcolsep{2.5cm}
+		\xymatrix{
+			\framebox{\mbox{#1}}\ar@{=>}[rd]^{\begin{array}[]{c}
+				#2
+			\end{array}}&&&&\framebox{\mbox{#4}}\ar@{=>}[ld]_{\kern-1.5cm\begin{array}[]{c}
+			#3
+	\end{array}}\\
+			&&&&
+		}}
+		\nopagebreak
+		\centerline{
+			\framebox{\mbox{#5}}}
+				\vspace{1em}
+			\end{samepage}
+	}
 \newcommand{\myrelationdiagramBig}[5]{
 			\begin{samepage}
 				\vspace{1em}
@@ -154,8 +191,8 @@
 \newtheorem*{example*}{例}
 \newtheorem*{goal*}{目標}
 \theoremstyle{remark}
-\newtheorem*{remark*}{注}
-\newtheorem{remark}[thm]{注}
+\newtheorem*{remark*}{注意}
+\newtheorem{remark}[thm]{注意}
 \newtheorem*{setting*}{設定}
 \newtheorem{setting}[thm]{設定}
 \theoremstyle{definition}
@@ -175,7 +212,7 @@
   {\endtaggedpropx}
 
 % 文書情報
-\title{２つのGegenbauer多項式に関連する積分公式について}
+\title{２つのGegenbauer多項式を含むある積分公式}
 \author{小林 俊行}{東京大学 大学院数理科学研究科、カブリ数物連携宇宙研究機構}{Toshiyuki Kobayashi}{
 Graduate School of Mathematical Sciences, the University of Tokyo,\\
 Kavli Institute for the Physics and Mathematics of the Universe}
@@ -230,9 +267,9 @@ Gegenbauer多項式
 			  m}{2} + 1 \right)\Gamma\left(  \nu+1-\frac{\ell+m}{2}\right)},\\[0.4cm]
 			  b(\lambda,\mu,\nu)&:=&2^{-2\nu}\Gamma (\lambda + \mu + 2 \nu + 1){\Gamma (\lambda)
 			  \Gamma (\mu)\Gamma \left( 2\nu +
-		  1 \right)}\text{\footnotemark}
+		  1 \right)}.
 		\end{array}
-		\end{equation*}\footnotetext{maybe, dot here to indicate the end of a sentence?}
+		\end{equation*}
 	\begin{thm}\label{prop:exp-st-gg}
 		$\Re\lambda,\Re\mu>-\frac{1}{2},\Re\nu>0$ならば、
 		\begin{equation}
@@ -283,10 +320,9 @@ Gegenbauer多項式
 	を用いると、\begin{equation*}
 		A^{\ell,m}_{\lambda,\mu,\nu}(1)=b(\lambda,\mu,\nu)a^{
 		\ell,m}_{\lambda,\mu,\nu}
-	\end{equation*}が成り立つ。従って\footnote{maybe, comma here?}
-	定理\ref{prop:exp-st-gg}は命題\ref{prop:exp-stz-gg}において$x=1$を代入した特\doubt{殊}
-	値\doubt{と}
-    であるということが分かる。
+	\end{equation*}が成り立つ。従って、
+	定理\ref{prop:exp-st-gg}は命題\ref{prop:exp-stz-gg}において$x=1$を代入した特{殊}
+	値であるということが分かる。
 
 	定理\ref{prop:exp-st-gg}は次の
 	積分公式と同値である。
@@ -318,9 +354,7 @@ Gegenbauer多項式
 \section{主結果の様々な特殊化}
 以下では定理\ref{prop:exp-st-gg}（あるいは同値なことであるが命題\ref{prop:int-st-gg}）の
 特殊値や極限値が、{既知}の積分公式とどのように関連しているかを説明する。
-\subsection{Selberg積分の特殊値との比較}\footnote{when I write an English word in Japanese
-text, should I surround it by English spaces, like この Selberg 積分; surround it by 
-Japanese spaces, like この　Selberg　積分; or put no spaces, like このSelberg積分?}
+\subsection{Selberg積分の特殊値との比較}
 \newcommand{\boldt}{\mathbf{t}}
 $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begin{equation*}
 	\Psi_k(\alpha,\beta,\gamma;\mathbf{t})\assign
@@ -329,35 +363,54 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 \end{equation*}とおく。
 		\normalfont
 		\begin{fact}[{\cite[セルバーグ積分]{Selberg:411367}}]
+				$\tmop{Re} (\alpha), \tmop{Re} (\beta) > 0, | \gamma | \ll 1$
+				とすると\footnote{maybe, comma here?}
 	 \begin{equation*}
 		 \normalfont
 		\begin{array}[]{c}
 		\displaystyle\int_{t \in [0, 1]^k}  \Psi_k(\alpha,\beta,\gamma;\boldt)d\boldt=
 		\displaystyle\prod_{i = 0}^{k - 1} \frac{\Gamma (\alpha + i \gamma) \Gamma (\beta + i
 				\gamma) \Gamma (1 + (i + 1) \gamma)}{\Gamma (\alpha + \beta + (i + k - 1)
-				\gamma) \Gamma (\gamma + 1)},\\
-				\mbox{ここで、}\tmop{Re} (\alpha), \tmop{Re} (\beta) > 0, | \gamma | \ll 1.
+				\gamma) \Gamma (\gamma + 1)},
 		\end{array}
 			\end{equation*}
 		\end{fact}
 		命題\ref{prop:int-st-gg}の $\ell = m = 0,\lambda=\mu$ の特殊化は
-		セルバーグ\footnote{we wrote セルバーグ in English (like, Selberg) before.
-		Should we still keep the katakana here?}積分
+		Selberg 積分
 の $k = 2,\alpha=\beta$ の場合
 と同じ結果を与える。
 \\
-\myrelationdiagramBig{命題\ref{prop:int-st-gg}}{\ell=m=0,\\ \lambda=\mu}{k=2,\\
-			\alpha=\beta}{{\cite{Selberg:411367}}}
-		{$
+			\begin{samepage}
+				\vspace{1em}
+		\centerline{
+		\xymatrixcolsep{1.9cm}
+		\xymatrix{
+			\framebox{命題\ref{prop:int-st-gg}}
+			\ar@{=>}[rd]^{\begin{array}[]{c}
+				\ell=m=0,\\ \lambda=\mu
+			\end{array}}&&&&\framebox{\mbox{\cite{Selberg:411367}}}
+			\ar@{=>}[ld]_{\kern-1.5cm\begin{array}[]{c}
+			k=2,\\
+			\alpha=\beta
+	\end{array}}\\
+			&&&&
+		}}
+		\nopagebreak
+		\framebox{\mbox{$
 				\displaystyle\iint\displaylimits_{ [-1,1]^2} | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
 			(1 - t^2)^{\lambda - \frac{1}{2}}d s d t
 			=\prod_{i = 0}^{k - 1} \frac{\Gamma (\alpha + i \gamma) \Gamma (\beta + i
 			\gamma) \Gamma (1 + (i + 1) \gamma)}{\Gamma (\alpha + \beta + (i + k - 1)
 			\gamma) \Gamma (\gamma + 1)}.
-		$}
+		$}}
+				\vspace{1em}
+			\end{samepage}
 		\subsection{Warnaarによる$\mathfrak{sl}_3$ Selberg積分の特殊値との比較}
 		Selberg積分の１つの一般化であるWarnaarの$\mathfrak{sl}_3$ Selberg積分
 		\cite{warnaar2010sl3}を復習しよう。
+		これは５つのパラメータ$\alpha_1,\alpha_2,\beta_1,\beta_2,\gamma$を含むが、
+		制\doubt{約}条件$\beta_1+\beta_2=\gamma+1$を課すので\footnote{maybe, comma here?}
+		４つの自由パラメータを含む多重積分である。
 
 		\begin{fact}[{\cite[(1.4)]{warnaar2010sl3}}]
 				{
@@ -398,7 +451,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 \cite[(1.4)]{warnaar2010sl3}\footnote{
 	  should I write the definition $C^{k_1,k_2}_{\beta_1,\gamma}$ (and $C^{k_1,k_2}_{\gamma}$ below) explicitly?
   }
-  の $k_1=k_2 = 2,\alpha_1=\beta_1,\alpha_2=\beta_2$ の特別な場合と同じ結\doubt{果}を与える。\\
+  の $k_1=k_2 = 2,\alpha_1=\beta_1,\alpha_2=\beta_2$ の特別な場合と同じ結{果}を与える。\\
   \myrelationdiagramBig{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
 		\lambda+\mu+2\nu=-1}{k_1=k_2=1,\\\alpha_1=\beta_1,\\\alpha_2=\beta_2}{{\cite{warnaar2010sl3}}}{
 		$
@@ -414,7 +467,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		\subsection{TarasovとVarchenkoによるSelberg積分の一般化と定理\ref{prop:exp-st-gg}
 	の比較}
 	次にTarasovとVarchenkoによる$\mathfrak{sl}_3$に付随したSelberg積分の一般化との比較を行う。
-	これは３つの自由パラメータ\footnote{should not it be ４つの自由パラメータ？}
+	これは４つの自由パラメータ
 	$\alpha,\beta_1,\beta_2,\gamma$を含む多重積分の公式である。
 	\newcommand{\bolds}{\mathbf{s}}
 			\begin{fact}[{\cite[(3.4)]{tarasov2003selberg}}]
@@ -448,7 +501,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		\cite[(3.4)]{tarasov2003selberg}
 の $k = 2,\beta_2=1,\alpha=\beta_1$ の特別な場合になる：\\
 		{
-			\myrelationdiagramBig{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
+			\myrelationdiagramBigSix{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
 			\mu=\frac{1}{2}}
 			{
 				k=2,\\
@@ -461,9 +514,9 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 				(s, t) \in [0, 1]^2\\t<s
 			\end{array}$}} s^{\lambda - \frac{1}{2}} (1 - s)^{\lambda-\frac{1}{2}} \myabs{s-t}^{2\nu} d s d t
 			=\mypgf
-		$\kern2cm}
+		$\kern2cm}{1.9}
 		\subsection{DotsenkoとFateevによる積分公式と定理\ref{prop:exp-st-gg}との比較}
-		DotsenkoとFateev\cite{dotsenko1985four}は
+		DotsenkoとFateev \cite{dotsenko1985four}は
 		３つの関係式\eqref{eqn:DF3}を満たす
 		６つのパラメータ$\alpha,\alpha',\beta,
 			\beta',\rho,\rho'$を含む以下の多重積分の具体的表示を与えた\footnote{
@@ -473,15 +526,13 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		\begin{equation*}
 			\begin{array}{c}
 				\displaystyle\displaystyle\int_{(t,\tau)\in [0, 1]^{k_1+k_2}} 
-				\Psi_{k_1}(\alpha',\beta',\rho';\boldt)\Psi_{k_2}(\alpha,\beta
+				\Psi_{k_1}(\alpha'+1,\beta'+1,\rho';\boldt)\Psi_{k_2}(\alpha+1,\beta+1
 				,\rho;\bolds)
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-\tau_j}^{-2}
 				dtd\tau\mbox{\footnotemark} \\
 				      \end{array}\end{equation*}
 			
-			      \begin{equation*}\footnotetext{maybe, it should be $\Psi_{k_1}(
-				      \alpha'+1,\beta'+1,\rho';\boldt)$,$\Psi_{k_2}(
-			      \alpha+1,\beta+1,\rho+1;\bolds)$?; also which variables should
+			      \begin{equation*}\footnotetext{which variables should
 		      we use in the integral: $(\boldt,\bolds)$ or $(t,\tau)$?}
 			\begin{array}{c}
   =n!m!\rho^{2 n m} \displaystyle\prod_{i, j = 1}^{n, m} \frac{1}{j \rho - i} \displaystyle\prod_{i = 1}^n
@@ -507,7 +558,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 命題\ref{prop:int-st-gg}の $\ell = m = 0,\nu=-1$ の特殊化が
 \cite[(A.35)]{dotsenko1985four}
 の $m=n=1,\alpha'=\beta',\alpha=\beta$ の特別な場合になる：\\
-\myrelationdiagramBig{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
+\myrelationdiagramBigCenter{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
 		\nu=-1}
 			{
 				m=n=1,\\
@@ -515,11 +566,9 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 				\alpha=\beta
 			}
 		{{\cite{dotsenko1985four}}}{
-			\kern2cm
 				$\displaystyle\iint\displaylimits_{(t, \tau) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} \tau^{\alpha} (1
 				- \tau)^{\alpha} | t - \tau |^{- 2} dtd\tau
 			=\mypgf$
-			\kern2cm
 		}
 
 		\input{4starstar}
@@ -528,7 +577,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 	更に、系\ref{cor:int-xzy-hh}の積分に$w=s-t$変数変化し、$z=1$をとれば、
 	次の公式と同等な公式（正確には、そのMellin変換）が得られる.
 	\begin{fact}[{\cite[(18)]{conte1994hermite}}]
-		以下のような公式が成り立つ：
+		以下のような公式が成り立つ。
 		\begin{equation}
 			w_{\lambda,n}\ast w_{\lambda,k}(t)=\sqrt{\frac{(n+k)!}{2^{n+k}n!k!}}w_{\sqrt{2}\lambda,n+k}(t).
 			\label{eqn:mellin-hh}
@@ -541,9 +590,9 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 	\begin{equation*}
 		w_{\lambda,n}:=\frac{1}{\sqrt{2^nn!}}H_n\left( \frac{t}{\lambda} \right)\frac{1}{\sqrt{\pi}\lambda}e^{-t^2/\lambda^2},\quad \lambda>0
 	\end{equation*}
-	を表す.
+	を表す。
 	\section{定理\ref{prop:exp-st-gg}の証明について}\label{sec:proof}
-	本セクションで、定理\ref{prop:exp-st-gg}の４通りの証明をあげる.
+	第\ref{sec:proof}節では、定理\ref{prop:exp-st-gg}の４通りの証明をあげる.
 	下に述べられている証明法１と証明法３は最初のステップとして以下の補題を
 	共通に用いる。
 	\begin{lemma}[$\ell=m=0$場合に帰着]
@@ -567,9 +616,9 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 
 	\begin{proof*}{注意}
 	定理\ref{prop:exp-st-gg}の一般化である
-	命題\ref{prop:exp-stz-gg}の証明においても同じアイディアが適用
+	命題\ref{prop:exp-stz-gg}の証明においても同じアイディアを適用
 	することができ
-	\doubt{、}$\ell=m=0$の場合にその証明を帰着することができる。
+	{、}$\ell=m=0$の場合にその証明を帰着することができる。
 	\end{proof*}
 	\begin{method}[直接]
 		\quad\\
@@ -659,7 +708,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 \end{remark*}
 \begin{method}[命題\ref{prop:exp-stz-gg}によって]
 	命題\ref{prop:exp-stz-gg}を示すため、
-	まず、$\ell=m=0$場合に帰着する。すなわち\footnote{maybe, we need a comma here?}
+	まず、$\ell=m=0$場合に帰着する。すなわち、
 			\begin{equation}
 				2\iint\displaylimits_{[-1,1]^2} \left( s-tz \right)_+^{2c-1}  (1 - s^2)^{a - 1} (1 -
 				t^2)^{b - 1} d s d t
@@ -737,7 +786,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 				\int_{-1}^1(1-s^2)^aP^b_c(s)ds;
 			\end{equation}
 			
-		\item \eqref{eqn:m4-2} が \cite[L2]{kobayashi2011schrodinger}積分公式から従う.
+		\item \eqref{eqn:m4-2} は \cite[L2]{kobayashi2011schrodinger}の積分公式から従う。
 	\end{enumerate}
 \end{method}
 \section{表現論における対称性破れ作用素への応用}
@@ -793,8 +842,8 @@ Schurの補題を用いることで、
 図では異なる色は互{い}に同型でない
 $K'$-タイプを表す。
 対称性破れ作用素
-は$G'$準同型なので\footnote{should we put a comma here?}特に$K'$準
-同型であり\doubt{、}従って
+は$G'$準同型なので、特に$K'$準
+同型であり{、}従って
 、
 上段と下段の
 同じ色の間に写像が誘導される；
@@ -812,7 +861,7 @@ $K'$-タイプを表す。
 	\end{enumerate}
 	群$(G,G')=(O(p+1,q),O(p,q))$に対する対称性破れ作用素の研究
 	で命題\ref{prop:int-st-gg}
-	の積分が\doubt{現}れた。命題\ref{prop:int-st-gg}では積分値
+	の積分が{現}れた。命題\ref{prop:int-st-gg}では積分値
 	がガンマ関数の積公式として与えられるのでゼロかどうかが完全に決定できる。
 
 	\nocite{Selberg:411367}
