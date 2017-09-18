@@ -526,13 +526,13 @@
     <section|section <code|1jKfH6>>
   </hide-part>
 
-  <\hide-part|13>
+  <\show-part|13>
     <section|section <code|l4vw7A>>
 
     <\question>
       Prove the arrows of the diagram:
 
-      <image|intdep.png|1004px|332px||>\ 
+      <image|intdep.jpg|1004px|332px||>\ 
     </question>
 
     We list the formulæ:
@@ -578,9 +578,9 @@
       td\<tau\>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|t\<rightarrow\><frac|1+u|2>,s\<rightarrow\><frac|1+v|2>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><big|int><rsub|<around*|(|u,v|)>\<in\><around*|[|-1,1|]><rsup|2>><around*|(|1-u<rsup|2>|)><rsup|\<alpha\><rprime|'>><around*|(|1-v|)><rsup|\<alpha\>><around*|\||u-v|\|><rsup|-2>d
       u d v=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|[KL]>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><frac|\<Gamma\><around*|(|-1/2|)><sqrt|\<pi\>>\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1|)>|\<Gamma\><around*|(|\<alpha\>+1/2|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)><around*|(|\<alpha\><rprime|'>+\<alpha\>|)>>=<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><frac|-2\<pi\>\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1|)>|\<Gamma\><around*|(|\<alpha\>+1/2|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)><around*|(|\<alpha\><rprime|'>+\<alpha\>|)>>>|<cell|>>|<row|<cell|>|<cell|<frac|-\<pi\>/2|\<alpha\>+\<alpha\><rprime|'>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\><rprime|'>|)>|2<rsup|2\<alpha\><rprime|'>-1>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\>|)>|2<rsup|2\<alpha\>-1>\<Gamma\><around*|(|\<alpha\>+1/2|)>>=RHS<around*|(|<math-up|<cite|dotsenko1985four>><rprime|'>|)>.>|<cell|>>>>
     </eqnarray>
-  <|hide-part>
+  <|show-part>
     <section|section <code|l4vw7A>>
-  </hide-part>
+  </show-part>
 
   <\hide-part|14>
     <section|section <code|tKwSn7>>

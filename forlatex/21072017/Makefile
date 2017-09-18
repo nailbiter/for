@@ -29,7 +29,7 @@ $(OUTDIR)/ja.pdf : $(OUTDIR)/ja.dvi
 	cd $(OUTDIR) && dvipdfmx $(basename $<).dvi
 $(OUTDIR)/ja.dvi: ja.tex
 	latexmk -outdir=$(OUTDIR) -latex='platex %O %S' -f -g $<
-$(OUTDIR)/RIMS17-Alex-int.dvi: RIMS17-Alex-int.tex diagram.tex big.intdep.genkou.tex intdep.bib bib.tex
+$(OUTDIR)/RIMS17-Alex-int.dvi: RIMS17-Alex-int.tex diagram.tex big.intdep.genkou.tex intdep.bib bib.tex 4star.tex 3star.tex 4starstar.tex
 	latexmk -outdir=$(OUTDIR) -latex='platex %O %S' -f -g $<
 
 $(OUTDIR)/RIMS17-Alex-int.pdf: $(OUTDIR)/RIMS17-Alex-int.dvi

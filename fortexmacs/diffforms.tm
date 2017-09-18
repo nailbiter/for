@@ -138,7 +138,7 @@
     <section|First section|>
   </hide-part>
 
-  <\show-part|3>
+  <\hide-part|3>
     <section|Howe-Tan for differential forms|<label|sec:howetan>>
 
     For simplicity we use the following notation:
@@ -421,11 +421,11 @@
       The fact that \ <math|\<forall\>\<tau\>\<in\><wide|O|^><around*|(|p+1;q+1|)>,<space|1em><around*|[|\<Omega\><rsup|k><around*|(|\<bbb-S\><rsup|p;q>|)>:\<tau\>|]>\<leqslant\>2>
       follows from Lemma <reference|lem:howetan:mult2>.
     </proof>
-  <|show-part>
+  <|hide-part>
     <section|Howe-Tan for differential forms|<label|sec:howetan>>
-  </show-part>
+  </hide-part>
 
-  <\hide-part|4>
+  <\show-part|4>
     <section|Symmetry breaking for full orthogonal groups
     <math|O<around*|(|N|)>>|>
 
@@ -735,10 +735,10 @@
 
       \;
     </proof>
-  <|hide-part>
+  <|show-part>
     <section|Symmetry breaking for full orthogonal groups
     <math|O<around*|(|N|)>>|>
-  </hide-part>
+  </show-part>
 
   <\hide-part|5>
     <section|Playground|>

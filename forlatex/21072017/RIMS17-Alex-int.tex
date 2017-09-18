@@ -35,6 +35,7 @@
 
 \numberwithin{equation}{section}
 
+\newcommand{\myre}[1]{\tmop{Re} #1}
 \newcommand{\mysbo}{A:\pi\kern-0.1cm\mid_{G'}\xrightarrow{G'}\tau}
 \newcommand{\myrelationdiagram}[5]{
 	\vspace{1em}
@@ -51,6 +52,7 @@
 		}}
 	\vspace{1em}
 	}
+\newenvironment{proof*}[1]{\noindent\textbf{#1\ }}{\hspace*{\fill}\medskip}
 \newcommand{\myrelationdiagramBig}[5]{
 			\begin{samepage}
 				\vspace{1em}
@@ -140,6 +142,7 @@
 \newtheorem{thm}{定理}[section]
 \newtheorem{lem}[thm]{補題}
 \newtheorem*{lemma*}{補題}
+\newtheorem{lemma}[thm]{補題}
 % その他ご自由に……
 \newtheorem{prop}[thm]{命題}
 \newtheorem*{prop*}{命題}
@@ -172,7 +175,7 @@
   {\endtaggedpropx}
 
 % 文書情報
-\title{２つのゲーゲンバウアー多項式に関連する積分公式について}
+\title{２つのGegenbauer多項式に関連する積分公式について}
 \author{小林 俊行}{東京大学 大学院数理科学研究科、カブリ数物連携宇宙研究機構}{Toshiyuki Kobayashi}{
 Graduate School of Mathematical Sciences, the University of Tokyo,\\
 Kavli Institute for the Physics and Mathematics of the Universe}
@@ -198,7 +201,7 @@ Gegenbauer多項式
 	\end{equation*}
 	を満たす多項式である。さらに、
 	$\lambda$が実数で$\lambda>-\frac{1}{2}$をみたすとき、
-	Gegenbauer多項式$\left\{ C_n^\lambda \right\}_{n=1}^{\infty}$は
+	Gegenbauer多項式$\left\{ C_n^\lambda(x)\right\}_{n=1}^{\infty}$は
 	$L^2\left( [-1,1],(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$の直交多項式とな{る}。
 	最初の数項を挙げよう。
 %%		最初のいくつは
@@ -213,10 +216,12 @@ Gegenbauer多項式
 	まず、本稿の
 	主結果を述べる。
 	%は以下のようになる：
-	\begin{thm}\label{prop:exp-st-gg}
+	$\lambda,\mu,\nu$の有理型関数$b(\lambda,\mu,\nu)$と、
 		$\ell,m\in\N$に対して$\lambda,\mu,\nu$
-		の有理式\footnote{I might be very wrong, but I thought that $a^{\ell,m}_{\lambda,\mu,\nu}$ and $b(\lambda,\mu,\nu)$ are \textit{not} a 
-	rational expressions in $\lambda,\mu,\nu$, because they contain $\Gamma$ as well.}を以下のように定義する。
+		の正則関数$a^{\ell,m}_{\lambda,\mu,\nu}$
+		を以下のように定義する。\footnote{Is there a particular reason we use subscript to indicate dependence on $\lambda,\mu,\nu$ in $a^{\ell,m}_{\lambda,\mu,\nu}$,
+		but use brackets to indicate dependence on $\lambda,\mu,\nu$ in $b(\lambda,\mu,\nu)$? Maybe, it is better to write $a^{\ell,m}(\lambda,\mu,\nu)$?
+		}
 		\begin{equation*}
 		\begin{array}{rcl}
 			a_{\lambda,\mu,\nu}^{\ell,m}&:=&\frac{ (\lambda + \ell) (\mu + m)}{\Gamma \left( \lambda + \nu + \frac{\ell -
@@ -225,12 +230,10 @@ Gegenbauer多項式
 			  m}{2} + 1 \right)\Gamma\left(  \nu+1-\frac{\ell+m}{2}\right)},\\[0.4cm]
 			  b(\lambda,\mu,\nu)&:=&2^{-2\nu}\Gamma (\lambda + \mu + 2 \nu + 1){\Gamma (\lambda)
 			  \Gamma (\mu)\Gamma \left( 2\nu +
-			1 \right)}
+		  1 \right)}\text{\footnotemark}
 		\end{array}
-		\end{equation*}
-		このとき\footnote{Is there a particular reason we use subscript to indicate dependence on $\lambda,\mu,\nu$ in $a^{\ell,m}_{\lambda,\mu,\nu}$,
-		but use brackets to indicate dependence on $\lambda,\mu,\nu$ in $b(\lambda,\mu,\nu)$? Maybe, it is better to write $a^{\ell,m}(\lambda,\mu,\nu)$?
-		}\footnote{このとき seems to indicate the beginning of a sentence. But I do not see the dot ending the previous sentence. Is that OK?}、
+		\end{equation*}\footnotetext{maybe, dot here to indicate the end of a sentence?}
+	\begin{thm}\label{prop:exp-st-gg}
 		$\Re\lambda,\Re\mu>-\frac{1}{2},\Re\nu>0$ならば、
 		\begin{equation}
 			| s + t |^{2 \nu} =b(\lambda,\mu,\nu) \displaystyle\sum_{\scalebox{0.6}{ $\begin{array}[]{c}
@@ -247,8 +250,9 @@ Gegenbauer多項式
 	\begin{prop}\label{prop:exp-stz-gg}
 		$\ell,m\in\N$に対して
 		    \begin{equation*}
-				  a_{\ell, m} (x) = \frac{\Gamma \left( \nu + \frac{1}{2} \right) \Gamma
-				  (\lambda) \Gamma (\mu) (\lambda + l) z^m }{(1 + \nu)_{- \frac{\ell + m}{2}} \sqrt{\pi} \Gamma
+			    A^{\ell,m}_{\lambda,\mu,\nu} (x) \assign
+			    \frac{\Gamma \left( \nu + \frac{1}{2} \right) \Gamma
+				  (\lambda) \Gamma (\mu) (\lambda + l) x^m }{(1 + \nu)_{- \frac{\ell + m}{2}} \sqrt{\pi} \Gamma
 				      (\mu + m) \Gamma \left( \lambda + \nu + \frac{\ell - m}{2} + 1 \right)}
 				    {}_2 F_1 \left( \begin{array}{c}
 				\frac{\ell + m}{2} - \nu, \frac{m - \ell}{2} - \nu - \lambda\\
@@ -263,7 +267,7 @@ Gegenbauer多項式
 			      $\begin{array}[]{c}
 				  \ell,m=0\\\ell+ m\mbox{ :even}
 				\end{array}
-				$}}^{\infty} a_{\ell, m}
+			$}}^{\infty} A^{\ell,m}_{\lambda,\mu,\nu}
 				 (x) C_\ell^{\lambda} (s) C_m^{\mu} (t)
 		    \end{equation*}
 		    が成り立つ。
@@ -276,11 +280,16 @@ Gegenbauer多項式
 			a,b\\c
 		\end{array};1\right)=\frac{\Gamma(c-a-b)\Gamma(c)}{\Gamma(c-a)\Gamma(c-b)},\quad \Re(c-a-b)>0
 	\end{equation*}
-    を用いると、
-    命題\ref{prop:exp-st-gg}は命題\ref{prop:exp-stz-gg}において$x=1$を代入したときの結果であるということが分かる.
+	を用いると、\begin{equation*}
+		A^{\ell,m}_{\lambda,\mu,\nu}(1)=b(\lambda,\mu,\nu)a^{
+		\ell,m}_{\lambda,\mu,\nu}
+	\end{equation*}が成り立つ。従って\footnote{maybe, comma here?}
+	定理\ref{prop:exp-st-gg}は命題\ref{prop:exp-stz-gg}において$x=1$を代入した特\doubt{殊}
+	値\doubt{と}
+    であるということが分かる。
 
-	命題\ref{prop:exp-st-gg}は次の
-	積分公式と同値である.
+	定理\ref{prop:exp-st-gg}は次の
+	積分公式と同値である。
 	\begin{prop}
 		\label{prop:int-st-gg}
 		\begin{equation*}
@@ -307,93 +316,37 @@ Gegenbauer多項式
 %%		ここで記述を簡単にするため、省略する。
 %%	\end{remark*}
 \section{主結果の様々な特殊化}
-最初の特殊化とその関連結果のご紹介のため、エルミート多項式を復習する。
-エルミート多項式$\left\{ H_n(x) \right\}_{n=1}^\infty$は\footnote{note that when introducing Gegenbauer polynomials in the first
-	section, we wrote $\left\{ C^\lambda_n \right\}_{n=1}^{\infty}$, not $\left\{ C^{\lambda}_n(x) \right\}_{n=1}^\infty$}、
-	$L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$の直交多項式である。
-	最初の数項を挙げよう。\footnote{should I remove the 例 in the next line?}
-	\begin{example*}
-		\begin{eqnarray*}
-		H_0(x)&=& 1,\\
-		H_1(x)&=& 2x,\\
-		H_2(x)&=& 
-		4x^2-2,\\
-		H_3(x)&=& 8x^3-12x,\\
-		H_4(x)&=& 16x^4-48x^2+12.\\
-		\end{eqnarray*}
-	\end{example*}
-	エルミート多項式はGegenbauer多項式の極限として再現できる:
-	%%
-	\begin{equation*}
-			H_n (x) = n! \lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
-			C_n^{\lambda} \left( \frac{x}{\sqrt{\lambda}} \right).
-	\end{equation*}
-	命題 \ref{prop:int-st-gg}で $\lambda,\mu\to\infty$ 
-	という極限をとれば(ただし、$\mu/\lambda=w\in\mathbb{R}$を一定にして極限をとる)、Gegenbauer多項式に関する積分公式(命題\ref{prop:int-st-gg})から
-	エルミート多項式に関する積分公式を得る.
-	\begin{cor}\label{cor:int-xzy-hh}
-		$\nu\in\mathbb{C}$と$w\in\R$に対して、以下の公式が成り立つ:
-		\begin{equation*}
-			\begin{array}[]{c}
-			\int_{- \infty}^{\infty} \int_{- \infty}^{\infty} | x - w y |^{2 \nu} e^{-
-			x^2 - y^2} H_\ell (x) H_m (y) d x d y \\= (- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell
-			- m}{2}} 2^{\ell + m} \pi^{\frac{1}{2}} \Gamma \left( \frac{1}{2} + \nu \right)
-			(w^2 + 1)^{\nu - \frac{\ell + m}{2}} w^m .
-			\end{array}
-		\end{equation*}
-	\end{cor}
-	\begin{fact}[Mehta積分, {\cite{mehta2004random}}]
-			{
-		\begin{equation*}
-			\begin{array}[]{c}
-			{(2\pi)^{-\frac{k}{2}}}\displaystyle\int_{\mathbb{R}^k}\prod_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma}\exp\left( -\myabs{\mathbf{t}}^2/2 \right)d\mathbf{t}
-			=\displaystyle\prod_{j=1}^k\frac{\Gamma\left( 
-			1+j\gamma\right)}{\Gamma(1+\gamma)}.
-			\end{array}
-		\end{equation*}
-	}
-		\end{fact}
-
-		系\ref{cor:int-xzy-hh}の $w = 1, \ell = m = 0$ の特殊化がMehta積分
-の $k = 2$ の特別な場合になる：
-\vspace{1em}
-		\myrelationdiagram{系\ref{cor:int-xzy-hh}}{w=1\\\ell=m=0}{k=2}{Mehta積分}
-		{$\int_{-\infty}^\infty\int_{-\infty}^\infty\myabs{x-y}^{2\nu}e^{-x^2-y^2}dxdy=\mypgf$}
-
-		図\ref{fig:intdep}に述べてるように、
-		命題\ref{prop:int-st-gg}の$\ell = m = 0$ の
-		特別の場合は Warnaar, Varchenko, Tarasov などによる セルバーグ形の積分の一般化 とも関係する.
-\mykana{青}{アオ}い\mykana{数字}{スウジ}は\mykana{公式}{コウシキ}に\mykana{含}{フク}まれる連続パラメータの\mykana{個数}{コスウ}である.
-			\begin{figure*}[h]
-				\centering
-				\begin{tikzpicture}
-				\input{big.intdep.genkou.tex}
-				\end{tikzpicture}
-				\caption{
-					命題\ref{prop:int-st-gg}の$\ell=m=0$の特別の場合とその関連結果;
-\mykana{青}{アオ}い\mykana{数字}{スウジ}は\mykana{公式}{コウシキ}に\mykana{含}{フク}まれる連続パラメータの\mykana{個数}{コスウ}である.
-				}
-				\label{fig:intdep}
-			\end{figure*}
+以下では定理\ref{prop:exp-st-gg}（あるいは同値なことであるが命題\ref{prop:int-st-gg}）の
+特殊値や極限値が、{既知}の積分公式とどのように関連しているかを説明する。
+\subsection{Selberg積分の特殊値との比較}\footnote{when I write an English word in Japanese
+text, should I surround it by English spaces, like この Selberg 積分; surround it by 
+Japanese spaces, like この　Selberg　積分; or put no spaces, like このSelberg積分?}
+\newcommand{\boldt}{\mathbf{t}}
+$\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begin{equation*}
+	\Psi_k(\alpha,\beta,\gamma;\mathbf{t})\assign
+\displaystyle\prod\displaylimits_{i=1}^k t_i^{\alpha-1}(1-t_i)^{\beta-1} 
+		\displaystyle\prod\displaylimits_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma}
+\end{equation*}とおく。
 		\normalfont
 		\begin{fact}[{\cite[セルバーグ積分]{Selberg:411367}}]
 	 \begin{equation*}
 		 \normalfont
 		\begin{array}[]{c}
-		\displaystyle\int_{t \in [0, 1]^k} \displaystyle\prod\displaylimits_{i=1}^k t_i^{\alpha-1}(1-t_i)^{\beta-1} 
-		\displaystyle\prod\displaylimits_{1\le i<j\le k}\myabs{t_i-t_j}^{2\gamma} d
-				t=
-				\displaystyle\prod_{i = 0}^{k - 1} \frac{\Gamma (\alpha + i \gamma) \Gamma (\beta + i
+		\displaystyle\int_{t \in [0, 1]^k}  \Psi_k(\alpha,\beta,\gamma;\boldt)d\boldt=
+		\displaystyle\prod_{i = 0}^{k - 1} \frac{\Gamma (\alpha + i \gamma) \Gamma (\beta + i
 				\gamma) \Gamma (1 + (i + 1) \gamma)}{\Gamma (\alpha + \beta + (i + k - 1)
 				\gamma) \Gamma (\gamma + 1)},\\
 				\mbox{ここで、}\tmop{Re} (\alpha), \tmop{Re} (\beta) > 0, | \gamma | \ll 1.
 		\end{array}
 			\end{equation*}
 		\end{fact}
-		命題\ref{prop:int-st-gg}の $\ell = m = 0,\lambda=\mu$ の特殊化が
-セルバーグ積分
-の $k = 2,\alpha=\beta$ の特別な場合になる:\\
-		\myrelationdiagramBig{命題$1'$}{\ell=m=0,\\ \lambda=\mu}{k=2,\\
+		命題\ref{prop:int-st-gg}の $\ell = m = 0,\lambda=\mu$ の特殊化は
+		セルバーグ\footnote{we wrote セルバーグ in English (like, Selberg) before.
+		Should we still keep the katakana here?}積分
+の $k = 2,\alpha=\beta$ の場合
+と同じ結果を与える。
+\\
+\myrelationdiagramBig{命題\ref{prop:int-st-gg}}{\ell=m=0,\\ \lambda=\mu}{k=2,\\
 			\alpha=\beta}{{\cite{Selberg:411367}}}
 		{$
 				\displaystyle\iint\displaylimits_{ [-1,1]^2} | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
@@ -402,25 +355,23 @@ Gegenbauer多項式
 			\gamma) \Gamma (1 + (i + 1) \gamma)}{\Gamma (\alpha + \beta + (i + k - 1)
 			\gamma) \Gamma (\gamma + 1)}.
 		$}
+		\subsection{Warnaarによる$\mathfrak{sl}_3$ Selberg積分の特殊値との比較}
+		Selberg積分の１つの一般化であるWarnaarの$\mathfrak{sl}_3$ Selberg積分
+		\cite{warnaar2010sl3}を復習しよう。
+
 		\begin{fact}[{\cite[(1.4)]{warnaar2010sl3}}]
 				{
 		\begin{equation*}
 %%			
 			\begin{array}{c}
-				\displaystyle\int\displaylimits_{(t,s)\in C_{\beta_1,\gamma}^{k_1,k_2}}
-				\displaystyle\prod\displaylimits_{i=1}^{k_1}t_i^{\alpha_1-1}(1-t_i)^{\beta_1-1}
-				\displaystyle\prod\displaylimits_{j=1}^{k_2}s_j^{\alpha_2-1}(1-s_j)^{\beta_2-1}
-				\displaystyle\prod_{1\le i<j\le k_1}\myabs{t_i-t_j}^{2\gamma}
-				\\\times
-				\displaystyle\prod_{1\le i<j\le k_2}\myabs{s_i-s_j}^{2\gamma}
-				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}dsdt
-%%				\displaystyle\bigintssss_{ \mbox{$ (t,s)\in C_{\beta_1, \gamma}^{k_1, k_2} [0, 1]$}} \textstyle\prod^{\alpha_1 - 1,
-%%				\beta_1 - 1} (t) \textstyle\prod^{\alpha_2 - 1, \beta_2 - 1} (s)
-%%%%					    \\ \times
-%%					    \Delta^{2 \gamma}(t)
-%%					      \Delta^{2 \gamma} (s) \Delta^{- \gamma} (t, s)\\
+				\displaystyle\int
+				\displaylimits_{(t,s)\in C_{\beta_1,\gamma}^{k_1,k_2}}
+				\Psi_{k_1}(\alpha_1,\beta_1,\gamma;\boldt)
+				\Psi_{k_2}(\alpha_2,\beta_2,\gamma;\mathbf{s})
+				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}
+				d\boldt
+				d\mathbf{s}
 				      \end{array}\end{equation*}
-%%			
 		\begin{equation*}
 			\begin{array}{c}
   = \displaystyle\prod_{i = 0}^{k_1 - 1} \frac{\Gamma (\alpha_1 + i \gamma) \Gamma (\beta_1
@@ -431,27 +382,24 @@ Gegenbauer多項式
   k_1 - 1) \gamma) \Gamma (\gamma)} \displaystyle\prod_{i = 0}^{k_1 - 1} \frac{\Gamma
   (\alpha_1 + \alpha_2 + (i - 1) \gamma)}{\Gamma (\alpha_1 + \alpha_2 + (i +
   k_2 - 1) \gamma)},\\
-%%					  \textstyle\prod^{\alpha_1 - 1,
-%%					  \beta_1 - 1} (t):=\displaystyle\prod_{i=1}^{k_1}t_i^{\alpha_1-1}(1-t_i)^{\beta_1-1},\\
-%%					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\myabs{t_i}^{2\gamma}, \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=1}^{k_1,k_2}
-%%					  \myabs{t_i-s_j}^{\gamma},\\
-%%					  \\
-  \mbox{ここで　 }C^{k_1,k_2}_{\beta_1,\gamma}\mbox{: ある特異チェイン, }
+  \mbox{ここで　 }
+  C^{k_1,k_2}_{\beta_1,\gamma}\mbox{: ある特異チェイン, }
 					  \beta_1 + \beta_2 = \gamma + 1,\\
 					    \forall i:
-					    \tmop{Re} (\alpha_i), \tmop{Re} (\beta_i) > 0,  \myabs{\gamma} \ll 1 ,\\ \quad 1
+					    \myre{\alpha_i}, \myre{\beta_i} > 0,
+					    \myabs{\gamma} \ll 1 ,\\ \quad 1
 						\le \forall i \le \displaystyle\min_j \{ k_j \} : \beta_1 + (i - k_2 - 1)
 						  \gamma \nin \mathbb{Z}.
 			\end{array}
 			\end{equation*}
 				}
 			\end{fact}
-命題\ref{prop:int-st-gg}の $\ell = m = 0,\lambda+\mu+2\nu=-1$ の特殊化が
+命題\ref{prop:int-st-gg}の $\ell = m = 0,\lambda+\mu+2\nu=-1$ の特殊化は
 \cite[(1.4)]{warnaar2010sl3}\footnote{
 	  should I write the definition $C^{k_1,k_2}_{\beta_1,\gamma}$ (and $C^{k_1,k_2}_{\gamma}$ below) explicitly?
   }
-の $k_1=k_2 = 2,\alpha_1=\beta_1,\alpha_2=\beta_2$ の特別な場合になる：\\
-		\myrelationdiagramBig{命題$1'$}{\ell=m=0,\\
+  の $k_1=k_2 = 2,\alpha_1=\beta_1,\alpha_2=\beta_2$ の特別な場合と同じ結\doubt{果}を与える。\\
+  \myrelationdiagramBig{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
 		\lambda+\mu+2\nu=-1}{k_1=k_2=1,\\\alpha_1=\beta_1,\\\alpha_2=\beta_2}{{\cite{warnaar2010sl3}}}{
 		$
 				\left(\displaystyle\iint\displaylimits_{\scalebox{0.7}{$\begin{array}[]{c}
@@ -463,25 +411,22 @@ Gegenbauer多項式
 			=\mypgf
 			$
 		}
+		\subsection{TarasovとVarchenkoによるSelberg積分の一般化と定理\ref{prop:exp-st-gg}
+	の比較}
+	次にTarasovとVarchenkoによる$\mathfrak{sl}_3$に付随したSelberg積分の一般化との比較を行う。
+	これは３つの自由パラメータ\footnote{should not it be ４つの自由パラメータ？}
+	$\alpha,\beta_1,\beta_2,\gamma$を含む多重積分の公式である。
+	\newcommand{\bolds}{\mathbf{s}}
 			\begin{fact}[{\cite[(3.4)]{tarasov2003selberg}}]
 			{
 		\begin{equation*}
-%%			
 			\begin{array}{c}
 				\displaystyle\int_{(t,s)\in C_\gamma^{k_1,k_2}}
-				\displaystyle\prod\displaylimits_{i=1}^{k_1}t_i^{\alpha-1}(1-t_i)^{\beta_1-1}
-				\displaystyle\prod\displaylimits_{j=1}^{k_2}(1-s_j)^{\beta_2-1}
-				\displaystyle\prod_{1\le i<j\le k_1}\myabs{t_i-t_j}^{2\gamma}\\
-				\times\displaystyle\prod_{1\le i<j\le k_2}\myabs{s_i-s_j}^{2\gamma}
-				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}dsdt
-%%				\displaystyle\bigintssss_{ \mbox{$ (t,s)\in C_{\gamma}^{k_1, k_2} [0, 1]$}} \textstyle\prod^{\alpha - 1,
-%%				\beta_1 - 1} (t) \textstyle\prod^{0, \beta_2 - 1} (s)
-%%%%					    \\ \times
-%%					    \Delta^{2 \gamma}(t)
-%%					      \Delta^{2 \gamma} (s) \Delta^{- \gamma} (t, s)\\
+				\Psi_{k_1}(\alpha,\beta_1,\gamma;\boldt)\Psi_{k_2}(1,\beta_2,\gamma
+				;\bolds)
+				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}
+				d\boldt d\bolds
 				      \end{array}\end{equation*}
-%%			
-%%			
 			      \begin{equation*}
 			\begin{array}{c}
   =\displaystyle\prod_{j = 0}^{k_1 - 1} \frac{\Gamma (\alpha + j \gamma) \Gamma (\gamma + j
@@ -493,26 +438,17 @@ Gegenbauer多項式
   (\gamma + j \gamma)}{\Gamma (\beta_2 + 1 + (2 k_2 - k_1 - 2 - j) \gamma)
   \Gamma (\alpha + \beta_1 + \beta_2 + (k_1 + k_2 - 3 - j) \gamma) \Gamma
   (\gamma)},\\
-					  \mbox{ここで、　 }	C^{k_1,k_2}_{\gamma}\mbox{: ある特異チェイン},\\
-					  \tmop{Re} (\alpha_i), \tmop{Re} (\beta_2) > 0, | \tmop{Re} \gamma | \ll 1.
-%%					  \textstyle\prod^{\alpha - 1,
-%%					  \beta_1 - 1} (t):=\displaystyle\prod_{i=1}^{k_1}t_i^{\alpha-1}(1-t_i)^{\beta_1-1},\\
-%%					  \Delta^{2\gamma}(t):=\displaystyle\prod_{1\le i<j\le k_1 }\myabs{t_i}^{2\gamma}, \Delta^\gamma(t,s):=\displaystyle\prod\displaylimits_{i,j=1}^{k_1,k_2}
-%%					  \myabs{t_i-s_j}^{\gamma}.\\
-%%					  \\
-%%					\tmop{Re} (\alpha_i), \tmop{Re} (\beta_2) > 0, | \tmop{Re} \gamma | \ll 1.
+			  \mbox{ここで、　 }	C^{k_1,k_2}_{\gamma}\mbox{: ある特異チェイン},\\
+			  \myre{\alpha_i}, \myre{\beta_2} > 0, | \tmop{Re} \gamma | \ll 1.
 			\end{array}
 			\end{equation*}
 				}
-%%				\displaystyle\iint\displaylimits_{ [-1,1]^2} | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
-%%			(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\kern-1cm\\
-%%			=\mypgf
 		\end{fact}
 		命題\ref{prop:int-st-gg}の $\ell = m = 0,\mu=\frac{1}{2}$ の特殊化が
 		\cite[(3.4)]{tarasov2003selberg}
 の $k = 2,\beta_2=1,\alpha=\beta_1$ の特別な場合になる：\\
 		{
-		\myrelationdiagramBig{命題$1'$}{\ell=m=0,\\
+			\myrelationdiagramBig{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
 			\mu=\frac{1}{2}}
 			{
 				k=2,\\
@@ -520,31 +456,35 @@ Gegenbauer多項式
 				\alpha=\beta_1
 			}
 		{{\cite{tarasov2003selberg}}}
-		{$
-				\displaystyle\iint\displaylimits_{\begin{array}[]{c}
+		{\kern2cm$
+			\displaystyle\iint\displaylimits_{\scalebox{0.7}{$\begin{array}[]{c}
 				(s, t) \in [0, 1]^2\\t<s
-			\end{array}} s^{\lambda - \frac{1}{2}} (1 - s)^{\lambda-\frac{1}{2}} \myabs{s-t}^{2\nu} d s d t
+			\end{array}$}} s^{\lambda - \frac{1}{2}} (1 - s)^{\lambda-\frac{1}{2}} \myabs{s-t}^{2\nu} d s d t
 			=\mypgf
-		$}
+		$\kern2cm}
+		\subsection{DotsenkoとFateevによる積分公式と定理\ref{prop:exp-st-gg}との比較}
+		DotsenkoとFateev\cite{dotsenko1985four}は
+		３つの関係式\eqref{eqn:DF3}を満たす
+		６つのパラメータ$\alpha,\alpha',\beta,
+			\beta',\rho,\rho'$を含む以下の多重積分の具体的表示を与えた\footnote{
+			maybe, we should put 。 here to indicate end of a sentence?}
 		\begin{fact}[{\cite[(A.35)]{dotsenko1985four}}]
 			{
 		\begin{equation*}
 			\begin{array}{c}
-				\frac{1}{n!m!}
 				\displaystyle\displaystyle\int_{(t,\tau)\in [0, 1]^{k_1+k_2}} 
-				\displaystyle\prod_{i=1}^{k_1}t_i^{\alpha'}(1-t_i)^{\beta'}
-				\displaystyle\prod_{j=1}^{k_2}\tau_j^{\alpha}(1-\tau_j)^{\beta}
-%%  \Delta^{2 \rho'}(t) 
-				\displaystyle\prod_{1\le i<j\le k_1}\myabs{t_i-t_j}^{2\rho'}
-				\\\times
-				\displaystyle\prod_{1\le i<j\le k_2}\myabs{\tau_i-\tau_j}^{2\rho}
+				\Psi_{k_1}(\alpha',\beta',\rho';\boldt)\Psi_{k_2}(\alpha,\beta
+				,\rho;\bolds)
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-\tau_j}^{-2}
-  dtd\tau \\
+				dtd\tau\mbox{\footnotemark} \\
 				      \end{array}\end{equation*}
 			
-		\begin{equation*}
+			      \begin{equation*}\footnotetext{maybe, it should be $\Psi_{k_1}(
+				      \alpha'+1,\beta'+1,\rho';\boldt)$,$\Psi_{k_2}(
+			      \alpha+1,\beta+1,\rho+1;\bolds)$?; also which variables should
+		      we use in the integral: $(\boldt,\bolds)$ or $(t,\tau)$?}
 			\begin{array}{c}
-  =\rho^{2 n m} \displaystyle\prod_{i, j = 1}^{n, m} \frac{1}{j \rho - i} \displaystyle\prod_{i = 1}^n
+  =n!m!\rho^{2 n m} \displaystyle\prod_{i, j = 1}^{n, m} \frac{1}{j \rho - i} \displaystyle\prod_{i = 1}^n
   \frac{\Gamma (i \rho')}{\Gamma (\rho')} \displaystyle\prod_{j = 1}^m \frac{\Gamma (j
   \rho)}{\Gamma (\rho)} \times\\
   \displaystyle\prod_{i, j = 0}^{n, m} \frac{1}{(\alpha + j \rho - i) (\beta + j \rho - i)
@@ -552,20 +492,22 @@ Gegenbauer多項式
   \displaystyle\prod_{i = 0}^{n - 1} \frac{\Gamma (1 + \alpha' + i \rho') \Gamma (1 +
   \beta' + i \rho')}{\Gamma (2 - 2 m + \alpha' + \beta' + (n - 1 + i) \rho')}
   \displaystyle\prod_{j = 0}^{m - 1} \frac{\Gamma (1 + \alpha + j \rho) \Gamma (1 + \beta +
-  j \rho)}{\Gamma (2 - 2 n + \alpha + \beta + (m - 1 + j) \rho)},\\
-					  \mbox{ここで、　 }  \alpha' = - \rho' \alpha, \beta' = - \rho' \beta, \rho' \rho = 1,\\
-  \tmop{Re} (\rho) < 0, \quad \tmop{Re} (\alpha), \tmop{Re} (\beta) > (n - 1)
-  + | \tmop{Re} (\rho) | (m - 1).
-			\end{array}
-			\end{equation*}
-			
+  j \rho)}{\Gamma (2 - 2 n + \alpha + \beta + (m - 1 + j) \rho)}\end{array}\end{equation*}
+					  ここで、
+					  \begin{equation}
+	 \alpha' = - \rho' \alpha, \beta' = - \rho' \beta, \rho' \rho = 1,
+						  \label{eqn:DF3}
+					  \end{equation}\begin{equation*}
+  \myre{\rho} < 0, \quad \myre{\alpha}, \myre{\beta} > (n - 1)
+  + | \myre{\rho} | (m - 1).
+					  \end{equation*}
 				}
 		\end{fact}
 
 命題\ref{prop:int-st-gg}の $\ell = m = 0,\nu=-1$ の特殊化が
 \cite[(A.35)]{dotsenko1985four}
 の $m=n=1,\alpha'=\beta',\alpha=\beta$ の特別な場合になる：\\
-		\myrelationdiagramBig{命題$1'$}{\ell=m=0,\\
+\myrelationdiagramBig{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
 		\nu=-1}
 			{
 				m=n=1,\\
@@ -573,11 +515,16 @@ Gegenbauer多項式
 				\alpha=\beta
 			}
 		{{\cite{dotsenko1985four}}}{
+			\kern2cm
 				$\displaystyle\iint\displaylimits_{(t, \tau) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} \tau^{\alpha} (1
 				- \tau)^{\alpha} | t - \tau |^{- 2} dtd\tau
 			=\mypgf$
+			\kern2cm
 		}
 
+		\input{4starstar}
+		\input{3star}
+		\input{4star}
 	更に、系\ref{cor:int-xzy-hh}の積分に$w=s-t$変数変化し、$z=1$をとれば、
 	次の公式と同等な公式（正確には、そのMellin変換）が得られる.
 	\begin{fact}[{\cite[(18)]{conte1994hermite}}]
@@ -595,11 +542,11 @@ Gegenbauer多項式
 		w_{\lambda,n}:=\frac{1}{\sqrt{2^nn!}}H_n\left( \frac{t}{\lambda} \right)\frac{1}{\sqrt{\pi}\lambda}e^{-t^2/\lambda^2},\quad \lambda>0
 	\end{equation*}
 	を表す.
-	%%Applying inverse Mellin transform, we arrive at the well-known formula for convolution of Hermite-Rodriguez functions.
-	\section{証明}\label{sec:proof}
-	本セクションで、命題\ref{prop:exp-st-gg}の４通りの証明をあげる.
-	下に述べられているメソッド１とメソッド３は最初のステップとして以下のような補題を使う:
-	\begin{prop*}[$\ell=m=0$場合に帰着]\footnote{Note that this statement appeared as 補題 (Lemma) in slides, not as 命題 (Proposition).}
+	\section{定理\ref{prop:exp-st-gg}の証明について}\label{sec:proof}
+	本セクションで、定理\ref{prop:exp-st-gg}の４通りの証明をあげる.
+	下に述べられている証明法１と証明法３は最初のステップとして以下の補題を
+	共通に用いる。
+	\begin{lemma}[$\ell=m=0$場合に帰着]
 		\begin{equation*}
 			\begin{array}[]{c}
 				\mbox{$\ell=m=0$特殊な場合に命題\ref{prop:int-st-gg}が成り立つ}\\[0.4cm]
@@ -607,31 +554,23 @@ Gegenbauer多項式
 				\mbox{命題\ref{prop:int-st-gg}の一般な場合が成り立つ.}
 			\end{array}
 		\end{equation*}
-	\end{prop*}
+	\end{lemma}
 	
-	\begin{proof}\renewcommand{\qedsymbol}{}
+	\begin{proof*}{証明のスケッチ}
 		Gegenbauer多項式のロドリゲスの公式
 		{\begin{equation*}
 				(1-x^2)^{\alpha-\frac{1}{2}}C_n^\alpha(x)=\frac{(-1)^n}{2^nn!}\frac{\Gamma\left( \alpha+\frac{1}{2} \right)\Gamma\left( n+2\alpha \right)}{\Gamma(2\alpha)\Gamma\left(\alpha+n+\frac{1}{2}  \right)}
 				\frac{d^n}{dx^n} (1-x^2)^{n+\alpha-\frac{1}{2}}
 			\end{equation*}}
-			と部分積分
-%%		によって、
-%%				{\begin{equation}
-%%			
-%%					\begin{array}[]{c}
-%%						\mbox{左辺}\eqref{eqn:int-st-gg}/a(\lambda,l)/a(\mu,m)\\
-%%					=\iint\displaylimits_{[-1,1]^2}
-%%					| s - t |^{2 \nu} \frac{\partial^l}{\partial s^l}(1-s^2)^{\lambda+l-\frac{1}{2}}\frac{\partial^m}{\partial t^m}(1-t^2)^{\mu+m-\frac{1}{2}}
-%%					\\=(-1)^m(-2\nu)_{l+m}\iint\displaylimits_{[-1,1]^2}\myabs{s-t}^{2\nu-l-m}(1-s^2)^{\lambda+l-\frac{1}{2}}(1-t^2)^{\mu+m-\frac{1}{2}}.
-%%					\end{array}
-%%					\label{eqn:m1-1}
-%%				\end{equation}}
-%%				
-		を用いる.
-	\end{proof}
-	命題\ref{prop:exp-stz-gg}の証明においても同じアイディアが適用できる.
-%%	命題\ref{prop:exp-stz-gg}の積分公式の形に対して、このよう補題も成り立つ.
+	と部分積分を用いる。
+	\end{proof*}
+
+	\begin{proof*}{注意}
+	定理\ref{prop:exp-st-gg}の一般化である
+	命題\ref{prop:exp-stz-gg}の証明においても同じアイディアが適用
+	することができ
+	\doubt{、}$\ell=m=0$の場合にその証明を帰着することができる。
+	\end{proof*}
 	\begin{method}[直接]
 		\quad\\
 	\begin{enumerate}
@@ -644,9 +583,11 @@ Gegenbauer多項式
 
 			超幾何関数のオイラー積分表示
 			\begin{equation*}
-					{}_2F_1\left(\begin{array}[]{c}
-						a,b\\c
-					\end{array};z  \right)=\frac{\Gamma(c)}{\Gamma(b)\Gamma(c-b)}\displaystyle\int_0^1x^{b-1}(1-x)^{c-b-1}(1-zx)^{-a}dx,\quad\Re(c)>\Re(b)>0
+				{}_2F_1\left(\begin{array}[]{c}
+					a,b\\c
+				\end{array};z  \right)=\frac{\Gamma(c)}{\Gamma(b)\Gamma(c-b)}
+				\displaystyle\int_0^1x^{b-1}(1-x)^{c-b-1}(1-zx)^{-a}dx,
+				\quad\myre{c}>\myre{b}>0
 			\end{equation*}
 			を用い、次の公式に帰着する：\begin{equation*}
 			\displaystyle\int_{-1}^1 (1 + t)^{\mu-\frac{1}{2}} {}_2 F_1 \left( \begin{array}{c}
@@ -655,7 +596,8 @@ Gegenbauer多項式
 				\end{array} ; \frac{1 - t}{2} \right)(1-t)^{2\nu+\lambda+\mu}={\mypgf};
 			\end{equation*}
 		\item
-			{超幾何関数${}_2F_1$の係数展開}を用いると、\mbox{求める積分を ${}_3F_2$ で表す}.
+			{超幾何関数${}_2F_1$の級数展開}
+			を用いて、\mbox{求める積分を ${}_3F_2$ で表す}.
 			よって、以下の等式を示せばよい：
 		\begin{equation*}
 			{}_3F_2\left( \begin{array}[]{c}
@@ -664,11 +606,12 @@ Gegenbauer多項式
 			\end{array};1\right)=\mypgf;
 		\end{equation*}
 			\item 
-		Whipple Sum（下に記載されているFact）によって、超幾何関数
+				Whipple Sum（下に記載されているFact $\ref{fact:whipple}$）
+				によって、超幾何関数
 				${}_3F_2(;1)$をガンマ関数の積で表せる.
 	\end{enumerate}
 \end{method}
-				\begin{fact}[Whipple sum]
+		\begin{fact}[Whipple sum]\label{fact:whipple}
 			\begin{equation*}
 			\begin{array}[]{c}
 			\left\{  \begin{array}[]{l}
@@ -687,55 +630,50 @@ Gegenbauer多項式
 	$f$が$\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$右半平面上で連続で、
 	内部$\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$上で
 	正則であるとする.
-	更に、
+	更に、$f$が以下の３条件をみたすならば、$f\equiv0$となる。
 	\begin{enumerate}
 		\item ある$C,\tau>0$に対して、右半平面上に$\myabs{f(z)}\le C e^{\tau\myabs{z}}$が成り立つ;
-		\item ある$ C>0,\exists c<\pi$と全ての$y\in\R$に対して、$\myabs{f(iy)}\le Ce^{c\myabs{y}}$が成り立つ；
-		\item $f$が正の整数上で、ゼロ ($f\mid_{\N_+}=0$)にならば、
+		\item ある$ C>0,c<\pi$が存在し、
+			全ての$y\in\R$に対して、$\myabs{f(iy)}\le Ce^{c\myabs{y}}$が成り立つ；
+		\item $f(n)=0$が任意の$n\in\N_+$に対して成り立つ。
 	\end{enumerate}
-	$f\equiv0$である.
 \end{fact}
-		
-\begin{remark*}
-	\begin{equation*}
-		f(z)=\sin(\pi z)
-	\end{equation*}
-	という関数が条件2.を除いで、Carlsonの定理の全ての条件を満たす.特に、
-	$f\big|_{\Z}=0$が成り立つ.しかし、 $f(z)$が恒等的に0ならない.
-
-	よって、Carlsonの定理の条件2.が必要である.
-\end{remark*}
+%%\begin{remark*}
+%%	\begin{equation*}
+%%		f(z)=\sin(\pi z)
+%%	\end{equation*}
+%%	という関数が条件2.を除いで、Carlsonの定理の全ての条件を満たす.特に、
+%%	$f\big|_{\Z}=0$が成り立つ.しかし、 $f(z)$が恒等的に0ならない.
+%%
+%%	よって、Carlsonの定理の条件2.が必要である.
+%%\end{remark*}
 \begin{method}[cf. セルバーグ積分の証明]
 	上に記載したCarlsonの定理を認めれば、
-命題$1'$の積分等式の$\nu$は整数であるの特別な場合を示せば良いということが分かる.
-この場合で、$s+t$のベキ乗が多項式になって、左辺の積分がBeta積分の有限和になるので、
-計算可能である.
-%%
-%%	を用いて、公式\eqref{eqn:int-st-gg} 
-%%	で$\nu\in\N_{+}$
-%%	のときは$\myabs{s-t}^{2\nu}$が多項式になるので、命題\ref{prop:int-st-gg}
-%%	は計算可能.
+	命題\ref{prop:int-st-gg}
+	の積分等式は$\nu$が整数である特別な場合を示せば良いということが分かる。
+この場合は、$s+t$のベキ乗が多項式になって、左辺の積分がBeta積分の有限和になるので、
+計算可能である。
 \end{method}
 \begin{remark*}
-	Atle Selbergの元々のセルバーグ積分の証明\cite{Selberg:411367}はこのような手法が用いられ\doubt{た}。
+	Atle Selbergの元々のセルバーグ積分の証明\cite{Selberg:411367}はこのような手法が用いられ{た}。
 \end{remark*}
 \begin{method}[命題\ref{prop:exp-stz-gg}によって]
 	命題\ref{prop:exp-stz-gg}を示すため、
-まず、$\ell=m=0$場合に帰着する:
-			\begin{equation*}
-				\mbox{つまり、　}2\iint\displaylimits_{[-1,1]^2} \left( s-tz \right)_+^{2c-1}  (1 - s^2)^{a - 1} (1 -
+	まず、$\ell=m=0$場合に帰着する。すなわち\footnote{maybe, we need a comma here?}
+			\begin{equation}
+				2\iint\displaylimits_{[-1,1]^2} \left( s-tz \right)_+^{2c-1}  (1 - s^2)^{a - 1} (1 -
 				t^2)^{b - 1} d s d t
-			\end{equation*}
-			\begin{equation} =
+				=
 				\frac{\sqrt{\pi} \Gamma (a) \Gamma (b) \Gamma
 			(c)}{\Gamma (a + c) \Gamma \left( b + \frac{1}{2} \right)} {}_2 F_1 \left(
 			\begin{array}{c}
 				  - c + \frac{1}{2}, - a - c + 1\\
 				    b + \frac{1}{2}
-			    \end{array} ; z^2 \right)\mbox{　を示せば良い.}
+			    \end{array} ; z^2 \right)
 				\label{eqn:prop21}
 			\end{equation}
-	この公式が以下の主張から従う:
+を示せば良い。
+	この公式は以下の主張から従う:
 	\begin{enumerate}
 		\item オイラー積分表示;
 		\item 二次変換:
@@ -749,9 +687,9 @@ Gegenbauer多項式
 					b + \frac{1}{2}
 				\end{array} ; \left( \frac{z}{2 - z} \right)^2 \right);
 			\end{equation*}
-		\item 次の放題：
+		\item 次の補題：
 	\end{enumerate}
-			\begin{lemma*}
+			\begin{lemma}
 			\begin{equation*}
 				\sum_{i = 0}^{\infty} \frac{(a)_i (1 - a)_i}{2^i i! (d)_i} {}_2 F_1 \left(
 				\begin{array}{c}
@@ -766,7 +704,7 @@ Gegenbauer多項式
 					ガンマ関数の\\積で表せる
 				\end{tabular}}}.
 				\end{equation*}
-			\end{lemma*}
+			\end{lemma}
 \end{method}
 \begin{method}[積分公式とルジャンドル関数$ P^\alpha_\beta$を用いる]
 	直接命題\ref{prop:int-st-gg}を示す:
@@ -780,7 +718,8 @@ Gegenbauer多項式
 				(1-s^2)^{\nu+\frac{\mu}{2}+\frac{1}{4}}P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s).
 			\end{equation*}
 		}
-		を用いる(ここで、$P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)$がルジャンドル陪関数である);
+		を用いる(ここで、$P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)$
+		はルジャンドルの陪関数である);
 		\item 次の段階は以下の積分に帰着できる
 			\begin{equation}\label{eqn:m4-1}
 				\int_{-1}^1(1-s^2)^{\nu+\frac{\mu}{2}+\lambda-\frac{1}{4}}P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)C^{\lambda-\frac{1}{2}}_\ell(s)ds;
@@ -810,16 +749,10 @@ Gegenbauer多項式
 		$G$を群、$G'$をその部分群とし、$\pi$、$\tau$をそれぞれ群$G$および$G'$
 		の（連続な）表現とする。
 	\end{setting}
-	\begin{remark}
-		以下では$\pi$、$\tau$はそれぞれ群$G$、$G'$の既約表現、あるいは
-		やや\doubt{緩}めて長さが有限の表現とする。また$G$および$G'$は
-		（非コンパクトな）簡約リー群、$\pi$および$\tau$は無限次元の表現で
-		あることを想定している。また、表現とその表現空間は同じ記号で表すことにする。
-	\end{remark}
 	設定\ref{set:1}の下で
 	$G'$は$G$の部分群なので、$\pi$を$G'$の表現としてみなせる。
 	\begin{definition}
-		連続な線形写像$A:\pi\to\tau$が$G'$絡作用素であるとき$A$を
+		連続な線型写像$A:\pi\to\tau$が$G'$絡作用素であるとき$A$を
 		対称性破れ作用素（symmetry breaking operator）と呼ぶ。
 	\end{definition}
 	\centerline{
@@ -829,20 +762,24 @@ Gegenbauer多項式
 			\pi&\ar[rr]^{A}&&\tau\kern-1cm&&{\begin{array}[]{l}
 		\end{array}}%
 	}}
-$\pi$から$\tau$への対称性破れ作用素を全て構成し、分類し、
-性質を詳しく調べようという問題を考えよう.
-\begin{goal*}\cite{kobayashi2015program}
+	\begin{remark}
+		以下では$\pi$、$\tau$はそれぞれ群$G$、$G'$の既約表現、あるいは
+		やや{緩}めて長さが有限の表現とする。また$G$および$G'$は
+		（非コンパクトな）簡約リー群、$\pi$および$\tau$は無限次元の表現で
+		あることを想定している。また、表現とその表現空間は同じ記号で表すことにする。
+	\end{remark}
+$\pi$から$\tau$への対称性破れ作用素に関して以下の問題を考えよう。
+\begin{goal*}（\cite{kobayashi2015program}）
 		対称性破れ作用素${A:\pi\kern-0.1cm\mid_{G'}\to\tau}$
 		を全て構成し、分類し、さらにその性質を詳しく調べる.
 	\end{goal*}
 	この問題は$(G,G')=(O(n+1,1),O(n,1))$で$\pi$、$\tau$がそれぞれ群$G$、$G'$
 	の球主系列表現のとき、Kobayashi--Speh \cite{kobayashi2015symmetry}によって
-	完全に解決された。その時に用いられた手法を分\doubt{木してする}。
+	完全に解決された。その時に用いられた手法を分析する。
 	\begin{enumerate}
 		\item $\pi$と$\tau$は異なる
 			空間に定義された
-			表現であるが、例えば$(K,K')$-重複度が１の場合に（一般化した意味で）の\footnote
-			{should we put の inside the bracket as well?}
+			表現であるが、例えば$(K,K')$-重複度が１の場合に（一般化した意味での）
 			固有値を定義することができる；
 		\item
 それぞれの表現を極大コンパクト群に制限したときに
@@ -852,42 +789,39 @@ Schurの補題を用いることで、
 対称性破れ作用素の\mykana{対角化}{タイカクカ}を行うことができる.
 
 図\ref{fig:1}は、上の段では、それぞれの$K$-typeが$K'$の表現として
-無重複に分解されている様子を表し、
-対称性破れ作用素によって、同じ色の間に写像が誘導される
-という様子を\mykana{図示}{ずし}している。
-図では異なる色は互\doubt{い}に同型でない
-$K'$-タイプを表す;
+無重複に分解されている様子を表している。
+図では異なる色は互{い}に同型でない
+$K'$-タイプを表す。
+対称性破れ作用素
+は$G'$準同型なので\footnote{should we put a comma here?}特に$K'$準
+同型であり\doubt{、}従って
+、
+上段と下段の
+同じ色の間に写像が誘導される；
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[rotate=-90,scale=2]
 	\input{diagram.tex}
-	\end{tikzpicture}%TODO: add \pi,\tau
-	\caption{
-	それぞれの表現を極大コンパクト群に制限したときに multiplicity-free であ り、$K$ から $K'$ への制限も multiplicity-free
-	である条件;別様色が別様な$K'$-タイプを表す.}
-
+	\end{tikzpicture}
+	\caption{対称性破れ作用素と$(K,K')$タイプ}
 	\label{fig:1}
 \end{figure}
 		\item $(K,K')$固有値がゼロになるかどうかを判定したい;
 		\item $\mysbo$の積分核が別の手法で決定されたとする;
-		\item 従って、$(K,K')$固有値を積分の形で表示できる;
-		\item 命題\ref{prop:int-st-gg}はガンマ関数の積公式として与えられるので
-			ゼロかどうかが完全に決定できる.
+		\item 積分核を用いて、$(K,K')$固有値を積分の形で表示できる;
 	\end{enumerate}
+	群$(G,G')=(O(p+1,q),O(p,q))$に対する対称性破れ作用素の研究
+	で命題\ref{prop:int-st-gg}
+	の積分が\doubt{現}れた。命題\ref{prop:int-st-gg}では積分値
+	がガンマ関数の積公式として与えられるのでゼロかどうかが完全に決定できる。
 
-	\bibliographystyle{alpha}
 	\nocite{Selberg:411367}
 	\nocite{warnaar2010sl3}
 	\nocite{dotsenko1985four}
 	\nocite{tarasov2003selberg}
-%%	\nocite{kobayashi2015symmetry}
-%%	\nocite{kobayashi2015differential2}
-%%	\nocite{kobayashi2016differential1}
-%%	\nocite{kobayashi2014classification}
-%%	\nocite{kobayashi2013finite}
-%%	\nocite{kobayashi2015program}
-	\bibliography{intdep}
 
-%%	\input{bib}
+%%	\bibliographystyle{alpha}
+%%	\bibliography{intdep}
+	\input{bib}
 
 \end{document}
