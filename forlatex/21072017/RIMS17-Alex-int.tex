@@ -149,9 +149,14 @@
 \newtheorem{fact}[thm]{Fact}
 \newtheorem*{fact*}{Fact}
 \newtheorem*{example*}{例}
-\newtheorem*{remark*}{注}
 \newtheorem*{goal*}{目標}
+\theoremstyle{remark}
+\newtheorem*{remark*}{注}
+\newtheorem{remark}[thm]{注}
 \newtheorem*{setting*}{設定}
+\newtheorem{setting}[thm]{設定}
+\theoremstyle{definition}
+\newtheorem{definition}[thm]{定義}
 
 %proofreading symbols
 \newcommand{\mykana}[2]{#1}
@@ -796,10 +801,27 @@ Gegenbauer多項式
 		\item \eqref{eqn:m4-2} が \cite[L2]{kobayashi2011schrodinger}積分公式から従う.
 	\end{enumerate}
 \end{method}
-\section{表現論の対称性破れ作用素に対して応用}
-	\begin{setting*}
-ノンコンパクト群$G$とその無限次元表現$\pi$と
-ノンコンパクト部分群$G'$とその無限次元表現$\tau$を定める:\\
+\section{表現論における対称性破れ作用素への応用}
+前述の積分公式の動機を手短に触れよう。詳しくは\cite{kobayashi2015program,kobayashi2015symmetry}
+を参照されたい。
+	\begin{setting}\label{set:1}
+%%ノンコンパクト群$G$とその無限次元表現$\pi$と
+%%ノンコンパクト部分群$G'$とその無限次元表現$\tau$を定める:\\
+		$G$を群、$G'$をその部分群とし、$\pi$、$\tau$をそれぞれ群$G$および$G'$
+		の（連続な）表現とする。
+	\end{setting}
+	\begin{remark}
+		以下では$\pi$、$\tau$はそれぞれ群$G$、$G'$の既約表現、あるいは
+		やや\doubt{緩}めて長さが有限の表現とする。また$G$および$G'$は
+		（非コンパクトな）簡約リー群、$\pi$および$\tau$は無限次元の表現で
+		あることを想定している。また、表現とその表現空間は同じ記号で表すことにする。
+	\end{remark}
+	設定\ref{set:1}の下で
+	$G'$は$G$の部分群なので、$\pi$を$G'$の表現としてみなせる。
+	\begin{definition}
+		連続な線形写像$A:\pi\to\tau$が$G'$絡作用素であるとき$A$を
+		対称性破れ作用素（symmetry breaking operator）と呼ぶ。
+	\end{definition}
 	\centerline{
 		\xymatrixcolsep{0.5pc}
 		\xymatrixrowsep{1pc}
@@ -807,34 +829,34 @@ Gegenbauer多項式
 			\pi&\ar[rr]^{A}&&\tau\kern-1cm&&{\begin{array}[]{l}
 		\end{array}}%
 	}}
-	\end{setting*}
-$G'$は$G$の部分群なので、$\pi$を$G'$の表現としてみなせる.
-そうすると、$\pi$から$\tau$への$G'$-intertwining作用素を全て構成し、分類し、
+$\pi$から$\tau$への対称性破れ作用素を全て構成し、分類し、
 性質を詳しく調べようという問題を考えよう.
-	\begin{goal*}
-%%		\[\begin{array}{cccl}
-%%				G:=O(p+1,q+1)&\curvearrowright &\pi\mbox{ :infinitely-dimensional rep.}\\
-%%		\bigcup&&&\\
-%%		G':=O(p,q+1)&\curvearrowright &\tau\mbox{ :infinitely-dimensional rep.}
-%%		\end{array}\]
-		$G'$-intertwining作用素$\mysbo$を全て構成し、分類し、さらにその性質を詳しく調べる.
+\begin{goal*}\cite{kobayashi2015program}
+		対称性破れ作用素${A:\pi\kern-0.1cm\mid_{G'}\to\tau}$
+		を全て構成し、分類し、さらにその性質を詳しく調べる.
 	\end{goal*}
-	目標に到達するため、以下のように考える：
+	この問題は$(G,G')=(O(n+1,1),O(n,1))$で$\pi$、$\tau$がそれぞれ群$G$、$G'$
+	の球主系列表現のとき、Kobayashi--Speh \cite{kobayashi2015symmetry}によって
+	完全に解決された。その時に用いられた手法を分\doubt{木してする}。
 	\begin{enumerate}
-		\item $\pi$と$\tau$は異なる表現であるが、例えば$(K,K')$-重複度が１の場合に一般化した意味での固有値を定義することができる；
-%%		\item $\mysbo$ はある意味で``対角化''できる(Schurの補題の考え方);
+		\item $\pi$と$\tau$は異なる
+			空間に定義された
+			表現であるが、例えば$(K,K')$-重複度が１の場合に（一般化した意味で）の\footnote
+			{should we put の inside the bracket as well?}
+			固有値を定義することができる；
 		\item
 それぞれの表現を極大コンパクト群に制限したときに
-multiplicity-freeであり、
-$K$から$K'$への制限も multiplicity-freeという仮定のもとでは、
-シューアの補題を用いることで、
+無重複であり、
+$K$から$K'$への制限も無重複であるという仮定のもとでは、
+Schurの補題を用いることで、
 対称性破れ作用素の\mykana{対角化}{タイカクカ}を行うことができる.
 
 図\ref{fig:1}は、上の段では、それぞれの$K$-typeが$K'$の表現として
-multiplicity-freeに分解されている様子を表し、
+無重複に分解されている様子を表し、
 対称性破れ作用素によって、同じ色の間に写像が誘導される
-という様子を\mykana{図示}{ずし}している.
-ここで、別様色が別様な$K'$-タイプを表す;
+という様子を\mykana{図示}{ずし}している。
+図では異なる色は互\doubt{い}に同型でない
+$K'$-タイプを表す;
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[rotate=-90,scale=2]
@@ -846,10 +868,10 @@ multiplicity-freeに分解されている様子を表し、
 
 	\label{fig:1}
 \end{figure}
-		\item なので、$(K,K')$固有値がゼロになるかどうかを判定したい;
+		\item $(K,K')$固有値がゼロになるかどうかを判定したい;
 		\item $\mysbo$の積分核が別の手法で決定されたとする;
 		\item 従って、$(K,K')$固有値を積分の形で表示できる;
-		\item なので、命題\ref{prop:int-st-gg}はガンマ関数の積公式として与えられるので
+		\item 命題\ref{prop:int-st-gg}はガンマ関数の積公式として与えられるので
 			ゼロかどうかが完全に決定できる.
 	\end{enumerate}
 
