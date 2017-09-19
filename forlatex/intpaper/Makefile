@@ -27,7 +27,7 @@ $(OUTDIR)/intpaper.pdf : $(TEXMACSDIR)/intpaper.tm $(TEXMACSDIR)/intpaper.bib $(
 	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/intdep.png : $(OUTDIR)/intdep.pdf
 $(OUTDIR)/intdep.pdf : intdep.tex
-	$(LATEXMK) $<
+	latexmk -g -pdf -pdflatex='pdflatex -shell-escape -enable-pipes %O %S' -outdir=$(OUTDIR) $<
 
 %.proto.tex : $(MATHEMATICADIR)/%.wl
 	{ time $(MATHEMATICA) $< > $@ ; } 2> $(basename $<).time.txt
