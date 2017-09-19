@@ -23,11 +23,12 @@ commit:
 
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
-$(OUTDIR)/intpaper.pdf : $(TEXMACSDIR)/intpaper.tm $(TEXMACSDIR)/intpaper.bib $(OUTDIR)/intdep.png
+$(OUTDIR)/intpaper.pdf : $(TEXMACSDIR)/intpaper.tm $(TEXMACSDIR)/intpaper.bib $(TEXMACSDIR)/intdep.jpg
 	        $(TEXMACS) --convert $< $@ --quit
-$(OUTDIR)/intdep.png : $(OUTDIR)/intdep.pdf
 $(OUTDIR)/intdep.pdf : intdep.tex
 	latexmk -g -pdf -pdflatex='pdflatex -shell-escape -enable-pipes %O %S' -outdir=$(OUTDIR) $<
+$(TEXMACSDIR)/intdep.jpg : $(OUTDIR)/intdep.pdf
+	$(error rebuild $@ from $^)
 
 %.proto.tex : $(MATHEMATICADIR)/%.wl
 	{ time $(MATHEMATICA) $< > $@ ; } 2> $(basename $<).time.txt

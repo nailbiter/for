@@ -84,7 +84,7 @@
     <math|0\<leqslant\>x\<leqslant\>1>.
   </remark>
 
-  The substitution of <math|z=1> in Theorem <reference|main-thm> yields:
+  The substitution of <math|x=1> in Theorem <reference|main-thm> yields:
 
   <\corollary>
     <label|cor:1>
