@@ -3,7 +3,7 @@
 <style|<tuple|old-generic|american|mystyle>>
 
 <\body>
-  <section|report 80>
+  <section|report 81>
 
   <date|>
 
@@ -29,10 +29,12 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>Some work in proving the multiplicity-freeness of
-    <math|\<Omega\><rsup|i><around*|(|\<bbb-S\><rsup|p>\<times\>\<bbb-S\><rsup|q>;\<bbb-C\>|)>>
-    as <math|O<around*|(|p+1;q+1|)>>-rep was done (see Prop. 2.1 of attached
-    <verbatim|diffforms.pdf>).
+    <item>Attended 2 talks out of 4 for Kohno sensei's seminar (see
+    <verbatim|notes.pdf> and <verbatim|abstracts.pdf> for notes and abstract
+    list respectively; also voice files are avaiable at
+    <hlink|https://www.dropbox.com/s/srkyolm6uidydmq/voice.zip?dl=0|>);
+
+    <item>read <cite|lang2012sl2> (see <verbatim|lang_SL2.pdf> for notes).
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
@@ -82,9 +84,7 @@
   <paragraph|Comments>
 
   <\enumerate>
-    <item>I extremely sorry for what not maintaining communication yesterday
-    and the day before yesterday. I am really sorry. I will maintain the
-    communication. I promise.
+    <item>
   </enumerate>
 
   <\bibliography|bib|tm-alpha|/Users/nailbiter/for/forlatex/kreport/bibliography>
@@ -139,7 +139,7 @@
     </associate>
     <\associate|toc>
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|report
-      79> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      80> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|4tab>|Comments

@@ -1,11 +1,11 @@
 .PHONY: all commit push clean p
 .SECONDARY: 
 
-ZIPNAME=report80
-WORKON=$(ZIPNAME) sep1--sep14
+ZIPNAME=report81
+WORKON=$(ZIPNAME) sep14--sep19
 COMMIT_PREFIX=reports
-PDFS=report reading_list diffforms lang_SL2
-AUX=
+PDFS=report reading_list diffforms lang_SL2 notes
+AUX=abstracts.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -31,8 +31,10 @@ $(OUTDIR)/lang_SL2.pdf : $(TEXMACSDIR)/books/lang_SL2.tm
 	$(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/diffforms.pdf : $(TEXMACSDIR)/diffforms.tm
 	$(TEXMACS) --convert $< $@ --quit
-$(OUTDIR)/notes.pdf : $(LOCAL_TEXMACSDIR)/seminars/tambara_16-08-17/notes.tm
+$(OUTDIR)/notes.pdf : $(LOCAL_TEXMACSDIR)/seminars/kohno_19-09-17/notes.tm
 	$(TEXMACS) --convert $< $@ --quit
+$(OUTDIR)/abstracts.pdf : $(LOCAL_TEXMACSDIR)/seminars/kohno_19-09-17/abstracts.pdf
+	ln -sf $< $@
 $(OUTDIR)/reading_list.pdf : $(TEXMACSDIR)/misc/toread/reading_list.tm
 	$(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/normalizations.pdf : $(LOCAL_TEXMACSDIR)/misc/normalizations.tm
