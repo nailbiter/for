@@ -23,6 +23,11 @@ commit:
 
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
+$(OUTDIR)/intpaper.pdf : $(TEXMACSDIR)/intpaper.tm $(TEXMACSDIR)/intpaper.bib $(OUTDIR)/intdep.png
+	        $(TEXMACS) --convert $< $@ --quit
+$(OUTDIR)/intdep.png : $(OUTDIR)/intdep.pdf
+$(OUTDIR)/intdep.pdf : intdep.tex
+	$(LATEXMK) $<
 
 %.proto.tex : $(MATHEMATICADIR)/%.wl
 	{ time $(MATHEMATICA) $< > $@ ; } 2> $(basename $<).time.txt

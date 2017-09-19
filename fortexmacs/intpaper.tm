@@ -90,8 +90,8 @@
     <label|cor:1>
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|l><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
-      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>\<pi\><rsup|<frac|1|2>><around*|(|2\<lambda\>|)><rsub|l><around*|(|2\<mu\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|l!m!\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>><eq-number><label|eqn:cor:1>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>C<rsub|\<ell\>><rsup|\<lambda\>><around*|(|s|)>C<rsub|m><rsup|\<mu\>><around*|(|t|)>d
+      s d t>|<cell|>>|<row|<cell|>|<cell|=<frac|<around*|(|-\<nu\>|)><rsub|<frac|\<ell\>+m|2>><around*|(|-1|)><rsup|<frac|\<ell\>-m|2>>\<pi\><rsup|<frac|1|2>><around*|(|2\<lambda\>|)><rsub|\<ell\>><around*|(|2\<mu\>|)><rsub|m>\<Gamma\><around*|(|\<lambda\>+<frac|1|2>|)>\<Gamma\><around*|(|\<mu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>|\<ell\>!m!\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|\<ell\>-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|\<ell\>+m|2>+1|)>><eq-number><label|eqn:cor:1>.>|<cell|>>>>
     </eqnarray>
   </corollary>
 
@@ -107,14 +107,14 @@
     \<rho\>\<gtr\>0> and <math|r\<in\><around*|{|0,1|}>>,
 
     <\eqnarray>
-      <tformat|<table|<row|<cell|>|<cell|<around*|\||cos\<varphi\>+cos\<psi\>|\|><rsup|\<rho\>>sgn<rsup|r><around*|(|cos\<varphi\>+cos\<psi\>|)>>|<cell|>>|<row|<cell|>|<cell|=<big|sum><rsub|<stack|<tformat|<table|<row|<cell|l,m=0>>|<row|<cell|l\<equiv\>m+r
-      mod 2>>>>>><rsup|\<infty\>><frac|2<rsup|2-\<rho\>>\<Gamma\><around*|(|\<rho\>+1|)><rsup|2>|<around*|(|1+\<delta\><rsub|0><rsup|l>|)><around*|(|1+\<delta\><rsub|0><rsup|m>|)><big|prod><rsub|\<delta\>,\<varepsilon\>\<in\><around*|{|\<pm\>1|}>>\<Gamma\><around*|(|1+<frac|1|2><around*|(|\<rho\>+\<delta\>l+\<varepsilon\>m|)>|)>>cos
-      l\<varphi\> cos m\<psi\>.>|<cell|>>>>
+      <tformat|<table|<row|<cell|>|<cell|<around*|\||cos\<varphi\>+cos\<psi\>|\|><rsup|\<rho\>>sgn<rsup|r><around*|(|cos\<varphi\>+cos\<psi\>|)>>|<cell|>>|<row|<cell|>|<cell|=<big|sum><rsub|<stack|<tformat|<table|<row|<cell|\<ell\>,m=0>>|<row|<cell|\<ell\>\<equiv\>m+r
+      mod 2>>>>>><rsup|\<infty\>><frac|2<rsup|2-\<rho\>>\<Gamma\><around*|(|\<rho\>+1|)><rsup|2>|<around*|(|1+\<delta\><rsub|0><rsup|\<ell\>>|)><around*|(|1+\<delta\><rsub|0><rsup|m>|)><big|prod><rsub|\<delta\>,\<varepsilon\>\<in\><around*|{|\<pm\>1|}>>\<Gamma\><around*|(|1+<frac|1|2><around*|(|\<rho\>+\<delta\>\<ell\>+\<varepsilon\>m|)>|)>>cos
+      \<ell\>\<varphi\> cos m\<psi\>.>|<cell|>>>>
     </eqnarray>
 
-    where <math|\<delta\><rsub|0><rsup|l>\<assign\>1> if <math|l=0> and
-    <math|=0> otherwise and <math|\<delta\><rsub|0><rsup|m>> is defined
-    similarly.
+    where <math|\<delta\><rsub|0><rsup|\<ell\>>\<assign\>1> if
+    <math|\<ell\>=0> and <math|=0> otherwise and
+    <math|\<delta\><rsub|0><rsup|m>> is defined similarly.
   </corollary>
 
   Selberg-type integrals are related to (finite-dimensional) representation
@@ -371,13 +371,15 @@
   Corollaly <reference|cor:1>:
 
   <\corollary>
-    <label|cor:Hermite>Suppose <math|l,m\<in\>\<bbb-N\>> with <math|l+m>
-    even.
+    <label|cor:Hermite>Suppose <math|\<ell\>,m\<in\>\<bbb-N\>> with
+    <math|\<ell\>+m> even.<\footnote>
+      should we change <math|x-z*y> to <math|x+z*y> here?
+    </footnote>
 
     <\eqnarray>
       <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-\<infty\>><rsup|\<infty\>><big|int><rsub|-\<infty\>><rsup|\<infty\>><around*|\||x-z
-      y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|l><around*|(|x|)>H<rsub|m><around*|(|y|)>d
-      x d y=<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|-1|)><rsup|<frac|l-m|2>>2<rsup|l+m>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)><around*|(|z<rsup|2>+1|)><rsup|\<nu\>-<frac|l+m|2>>z<rsup|m>.>|<cell|>>>>
+      y|\|><rsup|2\<nu\>>e<rsup|-x<rsup|2>-y<rsup|2>>H<rsub|\<ell\>><around*|(|x|)>H<rsub|m><around*|(|y|)>d
+      x d y=<around*|(|-\<nu\>|)><rsub|<frac|\<ell\>+m|2>><around*|(|-1|)><rsup|<frac|\<ell\>-m|2>>2<rsup|\<ell\>+m>\<pi\><rsup|<frac|1|2>>\<Gamma\><around*|(|<frac|1|2>+\<nu\>|)><around*|(|z<rsup|2>+1|)><rsup|\<nu\>-<frac|\<ell\>+m|2>>z<rsup|m>.>|<cell|>>>>
     </eqnarray>
   </corollary>
 
@@ -397,7 +399,7 @@
     </eqnarray>
 
     This coincides with the special case of Corollary <reference|cor:Hermite>
-    with <math|<around*|(|l,m,z|)>=<around*|(|0,0,1|)>>.
+    with <math|<around*|(|\<ell\>,m,z|)>=<around*|(|0,0,1|)>>.
   </example>
 
   In what follows, we shall examine the relationship between Theorem
@@ -407,9 +409,9 @@
   Table <reference|table>.
 
   For this, we limit ourselves to the special case of Theorem
-  <reference|main-thm> with <math|<around*|(|l,m,z|)>=<around*|(|0,0,1|)>>,
+  <reference|main-thm> with <math|<around*|(|\<ell\>,m,z|)>=<around*|(|0,0,1|)>>,
   or equivalently, of Corollary <reference|cor:1> with
-  <math|<around*|(|l,m|)>=<around*|(|0,0|)>>:
+  <math|<around*|(|\<ell\>,m|)>=<around*|(|0,0|)>>:
 
   <\eqnarray>
     <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|-1><rsup|1><big|int><rsub|-1><rsup|1><around*|\||s-t|\|><rsup|2\<nu\>><around*|(|1-s<rsup|2>|)><rsup|\<lambda\>-<frac|1|2>><around*|(|1-t<rsup|2>|)><rsup|\<mu\>-<frac|1|2>>d
@@ -437,7 +439,7 @@
 
     after a change of variables <math|<around*|(|t<rsub|1>,t<rsub|2>|)>=<around*|(|<frac|1+s|2>,<frac|1+t|2>|)>>.
     This coincides with the special case of Theorem <reference|main-thm> with
-    <math|l=m=0>, <math|z=1> and <math|\<lambda\>=\<mu\>>.\ 
+    <math|\<ell\>=m=0>, <math|z=1> and <math|\<lambda\>=\<mu\>>.\ 
   </example>
 
   <\example>
@@ -452,7 +454,7 @@
     </eqnarray>
 
     This coincides with the special case of Theorem <reference|main-thm> with
-    <math|<around*|(|l,m,z,\<nu\>|)>=<around*|(|0,0,1,-<frac|\<lambda\>+\<mu\>|2>|)>>.
+    <math|<around*|(|\<ell\>,m,z,\<nu\>|)>=<around*|(|0,0,1,-<frac|\<lambda\>+\<mu\>|2>|)>>.
   </example>
 
   <\example>
@@ -468,7 +470,7 @@
     </eqnarray>
 
     This coincides with the special case of Theorem <reference|main-thm> with
-    <math|<around*|(|l,m,z,\<mu\>|)>=<around*|(|0,0,1,<frac|1|2>|)>>.
+    <math|<around*|(|\<ell\>,m,z,\<mu\>|)>=<around*|(|0,0,1,<frac|1|2>|)>>.
   </example>
 
   <\example>
@@ -483,7 +485,7 @@
     </eqnarray>
 
     This coincides with the special case of Theorem <reference|main-thm> with
-    <math|<around*|(|l,m,z,\<nu\>|)>=<around*|(|0,0,1,-1|)>>.
+    <math|<around*|(|\<ell\>,m,z,\<nu\>|)>=<around*|(|0,0,1,-1|)>>.
   </example>
 
   The hierarchy of the integral formulæ in Examples

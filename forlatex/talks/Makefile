@@ -25,4 +25,3 @@ diagram.tex: diagram.scm
 suugakkai_16_aux/table1.tex : suugakkai_16_aux/table1.tm
 	$(TEXMACS) --convert $< $@ --quit
 	cat $@| grep -A100000 begin{document|tail -n +2|ghead -n -1 > $@
-
