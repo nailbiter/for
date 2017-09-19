@@ -1658,8 +1658,8 @@
     <subsection|Main statements>
 
     <\proposition>
-      <label|prop:Vk7ZjF-1>The series <math|<eqref|eqn:q30-1>> converges in
-      <math|L<rsup|2>> sense for <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-R\><rsup|2>\<times\>\<bbb-C\>>,
+      <label|prop:Vk7ZjF-1>The series <math|<eqref|eqn:q30-1>> converges to
+      LHS in <math|L<rsup|2>> sense for <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-R\><rsup|2>\<times\>\<bbb-C\>>,
       as long as <math|\<lambda\>,\<mu\>\<gtr\>-<frac|1|2>,Re<around*|(|\<nu\>|)>\<gtr\>0>.<\footnote>
         I am extremely embarassed for making this
         <with|font-series|bold|STUPID> mistake of not noticing that the

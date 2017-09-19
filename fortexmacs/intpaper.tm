@@ -467,59 +467,58 @@
     <\bib-list|9>
       <bibitem*|1><label|bib-andrews2000special>G.<nbsp>E.<nbsp>Andrews,
       R.<nbsp>Askey<localize|, and >R.<nbsp>Roy.<newblock>
-      <with|font-shape|italic|Special Functions>,
-      <localize|volume><nbsp>71<localize| of
+      <with|font-shape|italic|Special Functions>,<localize| of
       ><with|font-shape|italic|Encyclopedia of Mathematics and its
-      Applications>.<newblock> Cambridge University Press, Cambridge,
-      2000.<newblock>
+      Applications>, vol. 71.<newblock> Cambridge University Press,
+      Cambridge, 2000.<newblock>
 
       <bibitem*|2><label|bib-dotsenko1985four>V.<nbsp>S.<nbsp>Dotsenko<localize|
       and >V.<nbsp>A.<nbsp>Fateev.<newblock> Four-point correlation functions
       and the operator algebra in 2D conformal invariant theories with
-      central charge <math|c\<leq\>1>.<newblock>
-      <with|font-shape|italic|Nuclear Phys. B>, 251:691\U734, 1985.<newblock>
+      central charge <math|c\<leq\>1>, <with|font-shape|italic|Nuclear Phys.
+      B>, vol. 251, pages 691\U734, 1985.<newblock>
 
       <bibitem*|3><label|bib-forrester2008importance>P.<nbsp>Forrester<localize|
       and >S.<nbsp>O.<nbsp>Warnaar.<newblock> The importance of the Selberg
       integral.<newblock> <with|font-shape|italic|Bull. Amer. Math. Soc.>,
-      45(4):489\U534, 2008.<newblock> Available online at
+      vol. 45, no. 4, pages 489\U534, 2008.<newblock> Available online at
       <slink|https://doi.org/10.1090/S0273-0979-08-01221-4>.<newblock>
 
       <bibitem*|4><label|bib-kobayashi2011schrodinger>T.<nbsp>Kobayashi<localize|
       and >G.<nbsp>Mano.<newblock> <with|font-shape|italic|The Schrödinger
-      model for the minimal representation of the indefinite orthogonal group
-      <math|O<around|(|p,q|)>>>.<newblock> Amer. Math. Soc., 2011.<newblock>
-      Available online at <slink|http://dx.doi.org/10.1090/S0065-9266-2011-00592-7>.<newblock>
+      Model for the Minimal Representation of the Indefinite Orthogonal Group
+      <math|O<around|(|p,q|)>>>.<newblock> Amer. Math. Soc., vol. 213, no.
+      1000, 2011.<newblock> Available online at
+      <slink|http://dx.doi.org/10.1090/S0065-9266-2011-00592-7>.<newblock>
 
       <bibitem*|5><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
       and >B.<nbsp>Speh.<newblock> <with|font-shape|italic|Symmetry Breaking
-      for Representations of Rank One Orthogonal Groups>, <localize|volume>
-      <with|font-series|bold|238>.<newblock>
+      for Representations of Rank One Orthogonal Groups>,<newblock>
       <with|font-family|rm|font-shape|right|font-series|medium|Memoirs of the
-      Amer. Math. Soc>, 2015.<newblock> Available online at
-      <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
+      Amer. Math. Soc.>, vol. <with|font-series|bold|238>. 2015.<newblock>
+      Available online at <slink|http://dx.doi.org/10.1090/memo/1126>.<newblock>
 
       <bibitem*|6><label|bib-mehta2004random>M.<nbsp>L.<nbsp>Mehta.<newblock>
-      <with|font-shape|italic|Random matrices>, <localize|volume>
-      142<localize| of ><with|font-shape|italic|<with|font-family|rm|font-shape|right|font-series|medium|Pure
-      Appl. Math. (Amsterdam)>>.<newblock> Elsevier/Academic Press,
-      Amsterdam, 2004.<newblock>
+      <with|font-shape|italic|Random matrices>,
+      <with|font-shape|italic|<with|font-family|rm|font-shape|right|font-series|medium|Pure
+      Appl. Math., vol. 142>>.<newblock> Elsevier/Academic Press, Amsterdam,
+      2004.<newblock>
 
       <bibitem*|7><label|bib-Selberg:411367>A.<nbsp>Selberg.<newblock>
       Remarks on a multiple integral.<newblock> <with|font-shape|italic|Norsk
-      Mat. Tidsskr.>, 26:71\U78, 1944.<newblock>
+      Mat. Tidsskr.>, vol. 26, pages 71\U78, 1944.<newblock>
 
       <bibitem*|8><label|bib-tarasov2003selberg>V.<nbsp>Tarasov<localize| and
       >A.<nbsp>Varchenko.<newblock> Selberg-type integrals associated with
       <math|<with|math-font|Euler|s*l><rsub|3>>.<newblock>
-      <with|font-shape|italic|Lett. Math. Phys.>, 65(3):173\U185,
-      2003.<newblock> Available online at
+      <with|font-shape|italic|Lett. Math. Phys.>, vol. 65, no. 3, pages
+      173\U185, 2003.<newblock> Available online at
       <slink|http://dx.doi.org/10.1023/B:MATH.0000010712.67685.9d>.<newblock>
 
       <bibitem*|9><label|bib-warnaar2010sl3>S.<nbsp>O.<nbsp>Warnaar.<newblock>
       The <math|<with|math-font|Euler|s*l><rsub|3>> Selberg
-      integral.<newblock> <with|font-shape|italic|Adv. Math.>,
-      224(2):499\U524, 2010.<newblock> Available online at
+      integral.<newblock> <with|font-shape|italic|Adv. Math.>, vol. 224, no.
+      2, pages 499\U524, 2010.<newblock> Available online at
       <slink|http://dx.doi.org/10.1016/j.aim.2009.11.011>.<newblock>
     </bib-list>
   </bibliography>
