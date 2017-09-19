@@ -23,8 +23,10 @@ commit:
 
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
-$(OUTDIR)/intpaper.pdf : $(TEXMACSDIR)/intpaper.tm $(TEXMACSDIR)/intpaper.bib $(TEXMACSDIR)/intdep.jpg
-	        $(TEXMACS) --convert $< $@ --quit
+$(OUTDIR)/intpaper.pdf : intpaper.tex $(TEXMACSDIR)/intdep.jpg
+	$(LATEXMK) $<
+#$(OUTDIR)/intpaper.pdf : $(TEXMACSDIR)/intpaper.tm $(TEXMACSDIR)/intpaper.bib $(TEXMACSDIR)/intdep.jpg
+#	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/intdep.pdf : intdep.tex
 	latexmk -g -pdf -pdflatex='pdflatex -shell-escape -enable-pipes %O %S' -outdir=$(OUTDIR) $<
 $(TEXMACSDIR)/intdep.jpg : $(OUTDIR)/intdep.pdf
