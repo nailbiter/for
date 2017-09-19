@@ -53,7 +53,7 @@ $(OUTDIR)/$(ZIPNAME).zip: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(a
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	cd $(OUTDIR) && unzip -l $(ZIPNAME).zip
 	du -hs $@
-	git commit --allow-empty -a -m "$(COMMIT_MSG)"
+	#git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 push:
 	git push
