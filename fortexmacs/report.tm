@@ -73,18 +73,14 @@
     perhaps, dedicated to a different area).
   </enumerate>
 
-  I also have few questions about japanese. Please, ignore them, if You are
-  very busy:
-
-  <\enumerate>
-    <item>when I insert an English word in a string of Japanese text, should
-    I surround it by spaces?
-  </enumerate>
-
   <paragraph|Comments>
 
   <\enumerate>
-    <item>
+    <item>I am extremely sorry for doing my research not fast enough. I know
+    I need to speed up and I will;
+
+    <item>I am sorry for not being able to read enough books. I will fix
+    that.
   </enumerate>
 
   <\bibliography|bib|tm-alpha|/Users/nailbiter/for/forlatex/kreport/bibliography>
@@ -112,7 +108,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|1|1>>
+    <associate|auto-3|<tuple|2|1>>
     <associate|auto-4|<tuple|1|?>>
     <associate|bib-braverman1998minimal|<tuple|BJ98|?>>
     <associate|bib-kobayashi2016classification|<tuple|KKP16|?>>
