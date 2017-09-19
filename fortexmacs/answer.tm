@@ -526,7 +526,7 @@
     <section|section <code|1jKfH6>>
   </hide-part>
 
-  <\show-part|13>
+  <\hide-part|13>
     <section|section <code|l4vw7A>>
 
     <\question>
@@ -578,9 +578,9 @@
       td\<tau\>=>|<cell|>>|<row|<cell|>|<cell|<around*|(|t\<rightarrow\><frac|1+u|2>,s\<rightarrow\><frac|1+v|2>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><big|int><rsub|<around*|(|u,v|)>\<in\><around*|[|-1,1|]><rsup|2>><around*|(|1-u<rsup|2>|)><rsup|\<alpha\><rprime|'>><around*|(|1-v|)><rsup|\<alpha\>><around*|\||u-v|\|><rsup|-2>d
       u d v=>|<cell|>>|<row|<cell|>|<cell|<around*|(|<math-up|[KL]>|)>>|<cell|>>|<row|<cell|>|<cell|<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><frac|\<Gamma\><around*|(|-1/2|)><sqrt|\<pi\>>\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1|)>|\<Gamma\><around*|(|\<alpha\>+1/2|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)><around*|(|\<alpha\><rprime|'>+\<alpha\>|)>>=<frac|1|2<rsup|2\<alpha\><rprime|'>+2\<alpha\>>><frac|-2\<pi\>\<Gamma\><around*|(|\<alpha\>+1|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1|)>|\<Gamma\><around*|(|\<alpha\>+1/2|)>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)><around*|(|\<alpha\><rprime|'>+\<alpha\>|)>>>|<cell|>>|<row|<cell|>|<cell|<frac|-\<pi\>/2|\<alpha\>+\<alpha\><rprime|'>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\><rprime|'>|)>|2<rsup|2\<alpha\><rprime|'>-1>\<Gamma\><around*|(|\<alpha\><rprime|'>+1/2|)>>\<times\><frac|\<Gamma\><around*|(|1+\<alpha\>|)>|2<rsup|2\<alpha\>-1>\<Gamma\><around*|(|\<alpha\>+1/2|)>>=RHS<around*|(|<math-up|<cite|dotsenko1985four>><rprime|'>|)>.>|<cell|>>>>
     </eqnarray>
-  <|show-part>
+  <|hide-part>
     <section|section <code|l4vw7A>>
-  </show-part>
+  </hide-part>
 
   <\hide-part|14>
     <section|section <code|tKwSn7>>
@@ -1692,7 +1692,7 @@
       <label|lem:Vk7ZjF-1>Let <math|k\<in\>\<bbb-N\><rsub|+>>. Suppose that
       <math|x,y\<in\>\<bbb-C\>> are such that
       <math|Re<around*|(|x+y|)>\<geqslant\>1>. Then
-      <math|\<exists\>C=C<rsub|k,x>\<geqslant\>0>, such that
+      <math|\<exists\>C=C<rsub|k,x,y>\<geqslant\>0>, such that
 
       <\equation*>
         \<forall\>\<alpha\>\<in\><frac|1|k>\<bbb-Z\>,<space|1em><around*|\||\<Gamma\><around*|(|x+\<alpha\>|)><rsup|-1>\<Gamma\><around*|(|y-\<alpha\>|)><rsup|-1>|\|>\<leqslant\>C.
@@ -1782,14 +1782,10 @@
       Hence,
 
       <\equation*>
-        <around*|\||C<rsub|n><rsup|\<lambda\>><around*|(|cos*\<theta\>|)>|\|>\<leqslant\><big|sum><rsub|k=0><rsup|n><around*|\||<frac|<around*|(|\<lambda\>|)><rsub|k><around*|(|\<lambda\>|)><rsub|n-k>|k!<around*|(|n-k|)>!>cos<around*|(|n-2k|)>\<theta\>|\|>\<leqslant\><big|sum><rsub|k=0><rsup|n><frac|<around*|(|<around*|\||\<lambda\>|\|>|)><rsub|k><around*|(|<around*|\||\<lambda\>|\|>|)><rsub|n-k>|k!<around*|(|n-k|)>!>=C<rsup|\<lambda\>><rsub|n><around*|(|1|)>
+        <around*|\||C<rsub|n><rsup|\<lambda\>><around*|(|cos*\<theta\>|)>|\|>\<leqslant\><big|sum><rsub|k=0><rsup|n><around*|\||<frac|<around*|(|\<lambda\>|)><rsub|k><around*|(|\<lambda\>|)><rsub|n-k>|k!<around*|(|n-k|)>!>cos<around*|(|n-2k|)>\<theta\>|\|>\<leqslant\><big|sum><rsub|k=0><rsup|n><frac|<around*|(|<around*|\||\<lambda\>|\|>|)><rsub|k><around*|(|<around*|\||\<lambda\>|\|>|)><rsub|n-k>|k!<around*|(|n-k|)>!>=C<rsup|<around*|\||\<lambda\>|\|>><rsub|n><around*|(|1|)>
       </equation*>
 
-      <\equation*>
-        C<rsup|<around*|(|\<alpha\>|)>><rsub|n><around*|(|x|)>=<big|sum><rsub|k=0><rsup|<around*|\<lfloor\>|n/2|\<rfloor\>>><around*|(|-1|)><rsup|k><frac|<around*|(|\<alpha\>|)><rsub|n-k>|k!<around*|(|n-2k|)>!><around*|(|2z|)><rsup|n-2k>,
-      </equation*>
-
-      hence the conclusion follows.
+      and the conclusion follows.
     </proof>
 
     <subsection|Proofs>
