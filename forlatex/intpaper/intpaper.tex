@@ -2,6 +2,8 @@
 \usepackage[english]{babel}
 \usepackage{amsmath,amssymb,graphicx,bbm,hyperref,latexsym,theorem}
 
+\numberwithin{equation}{section}
+
 %%%%%%%%%% Start TeXmacs macros
 \catcode`\<=\active \def<{
 \fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
@@ -17,13 +19,21 @@
 \newcommand{\tmtextrm}[1]{{\rmfamily{#1}}}
 \newcommand{\tmtextup}[1]{{\upshape{#1}}}
 \newenvironment{proof*}[1]{\noindent\textbf{#1\ }}{\hspace*{\fill}$\Box$\medskip}
-\newtheorem{corollary}{Corollary}
-{\theorembodyfont{\rmfamily}\newtheorem{example}{Example}}
-\newtheorem{lemma}{Lemma}
-\newtheorem{proposition}{Proposition}
-{\theorembodyfont{\rmfamily}\newtheorem{remark}{Remark}}
-\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[section]
+{\theorembodyfont{\rmfamily}\newtheorem{example}[corollary]{Example}}
+\newtheorem{lemma}[corollary]{Lemma}
+\newtheorem{proposition}[corollary]{Proposition}
+{\theorembodyfont{\rmfamily}\newtheorem{remark}[corollary]{Remark}}
+\newtheorem{theorem}[corollary]{Theorem}
 %%%%%%%%%% End TeXmacs macros
+
+%proofreading symbols
+\newcommand{\mykana}[2]{#1}
+\newcommand{\doubt}[1]{\fbox{#1}}
+\newcommand{\pause}{$\bullet$}
+\newcommand{\slowly}[1]{\dashuline{#1}}
+\newcommand{\continuously}[1]{\underline{#1}}
+\newcommand{\badword}[1]{\uwave{#1}}
 
 %my commants
 \newcommand{\mygrammarfootnote}[1]{}
@@ -113,10 +123,10 @@ The substitution of $x = 1$ in Theorem \ref{main-thm} yields:
   \label{cor:1}{\tmdummy}
   
   \begin{eqnarray}
-    & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda -
+    & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t |^{2 \nu} (1 - s^2)^{\lambda -
     \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} C_{\ell}^{\lambda} (s)
     C_m^{\mu} (t) d s d t &  \nonumber\\
-    & = \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell - m}{2}}
+    & = \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
     \pi^{\frac{1}{2}} (2 \lambda)_{\ell} (2 \mu)_m \Gamma \left( \lambda +
     \frac{1}{2} \right) \Gamma \left( \mu + \frac{1}{2} \right) \Gamma \left(
     \nu + \frac{1}{2} \right) \Gamma (\lambda + \mu + 2 \nu + 1)}{\ell !m!
@@ -127,7 +137,7 @@ The substitution of $x = 1$ in Theorem \ref{main-thm} yields:
 \end{corollary}
 
 Taking the limit in $(\ref{eqn:cor:1})$ as both $\lambda$ and
-$\nu$\footnote{maybe, ``and $\mu$''?} tends\mygrammarfootnote{maybe, ``tend''?} to be
+$\mu$ tend to be
 zero, we obtain
 
 \begin{corollary}
@@ -144,8 +154,9 @@ zero, we obtain
     \}} \Gamma \left( 1 + \frac{1}{2} (\rho + \delta \ell + \varepsilon m)
     \right)} \cos \ell \varphi \cos m \psi . &  \nonumber
   \end{eqnarray}
-  where $\delta_0^{\ell} \assign 1$ if $\ell = 0$ and $= 0$ otherwise and
-  $\delta_0^m$ is defined similarly.
+  where
+  $\delta_0^\ell$ denotes the Kronecker delta, i.e.,
+  $\delta_0^{\ell} \assign 1$ if $\ell = 0$ and $= 0$ otherwise.
 \end{corollary}
 
 Selberg-type integrals are related to (finite-dimensional) representation
@@ -182,7 +193,7 @@ integral formula $(\ref{eqn:stz})$, which will be proved in Section
 
 \begin{proof*}{Proof of Theorem \ref{main-thm}}
   The Rodrigues formula for the Gegenbauer polynomial (see
-  {\cite[(6.4.14)]{andrews2000special}} for instance) shows:
+  {\cite[(6.4.14)]{andrews2000special}} for instance) shows
   \begin{equation} u_{\ell}^{\lambda} (t) = \frac{(- 1)^{\ell} 2^{- \ell} \sqrt{\pi}}{\Gamma
      \left( \lambda + \ell + \frac{1}{2} \right)} \cdot \frac{d^{\ell}}{d
      t^{\ell}} (1 - t^2)^{\lambda + \ell - \frac{1}{2}} . 
@@ -271,7 +282,7 @@ show Proposition \ref{prop:2}.
       2 c + a
     \end{array} ; \frac{1 + x}{2} \right), &  \nonumber
   \end{eqnarray}
-  where $y_+^{\lambda} \assign | y |^{\lambda}$ for $y > 0$, $= 0$ for $y
+  where $y_+^{\lambda} \assign | y |^{\lambda}$ for $y > 0$; $= 0$ for $y
   \leqslant 0$.
   
   Therefore the left-hand side of $(\ref{eqn:stz})$ equals:
@@ -405,11 +416,11 @@ Corollaly \ref{cor:1}:
 
 \begin{corollary}
   \label{cor:Hermite}Suppose $\ell, m \in \mathbbm{N}$ with $\ell + m$
-  even.\footnote{should we change $x - zy$ to $x + zy$ here?}
+  even.
   \begin{eqnarray}
-    & \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} | x - z y |^{2 \nu}
+    & \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} | x + z y |^{2 \nu}
     e^{- x^2 - y^2} H_{\ell} (x) H_m (y) d x d y = (- \nu)_{\frac{\ell +
-    m}{2}} (- 1)^{\frac{\ell - m}{2}} 2^{\ell + m} \pi^{\frac{1}{2}} \Gamma
+    m}{2}} (- 1)^{\frac{\ell + m}{2}} 2^{\ell + m} \pi^{\frac{1}{2}} \Gamma
     \left( \frac{1}{2} + \nu \right) (z^2 + 1)^{\nu - \frac{\ell + m}{2}} z^m
     . &  \nonumber
   \end{eqnarray}
@@ -417,13 +428,12 @@ Corollaly \ref{cor:1}:
 
 \begin{example}
   (Mehta integral {\cite{mehta2004random}}) The Mehta integral
-  \begin{eqnarray}
-    & \frac{1}{(2 \pi)^{n / 2}} \displaystyle\int_{\mathbbm{R}^n} \prod_{i = 1}^n e^{-
+  \begin{equation*}
+     \frac{1}{(2 \pi)^{n / 2}} \displaystyle\int_{\mathbbm{R}^n} \prod_{i = 1}^n e^{-
     t_i^2 / 2}_{} \prod_{1 \leqslant i < j \leqslant n} | t_i - t_j |^{2 \nu}
-    d t_1 \cdots d t_n &  \nonumber\\
-    & = \prod_{j = 1}^n \frac{\Gamma (1 + j \nu)}{\Gamma (1 + \nu)} & 
-    \nonumber
-  \end{eqnarray}
+    d t_1 \cdots d t_n
+     = \prod_{j = 1}^n \frac{\Gamma (1 + j \nu)}{\Gamma (1 + \nu)}
+  \end{equation*}
   in special case $n = 2$ implies the following equation
   \begin{eqnarray}
     & \frac{1}{2 \pi} \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} e^{-
@@ -444,16 +454,16 @@ Table \ref{table}.
 For this, we limit ourselves to the special case of Theorem \ref{main-thm}
 with $(\ell, m, z) = (0, 0, 1)$, or equivalently, of Corollary \ref{cor:1}
 with $(\ell, m) = (0, 0)$:
-\begin{eqnarray}
-  & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda -
-  \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} d s d t = \frac{\pi^{\frac{1}{2}}
+\begin{equation*}
+   \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda -
+  \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} d s d t 
+\end{equation*}\begin{equation}
+  = \frac{\pi^{\frac{1}{2}}
   \Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left( \mu + \frac{1}{2}
   \right) \Gamma \left( \nu + \frac{1}{2} \right) \Gamma (\lambda + \mu + 2
   \nu + 1)}{\Gamma (\lambda + \nu + 1) \Gamma (\mu + \nu + 1) \Gamma (\lambda
-  + \mu + \nu + 1)} .  \label{eqn:lm0} & 
-\end{eqnarray}
-
-
+  + \mu + \nu + 1)} .  \label{eqn:lm0}
+\end{equation}
 \begin{example}
   \label{ex:1}(Selberg integral {\cite{Selberg:411367}}) The Selberg integral
   \begin{eqnarray}
@@ -467,18 +477,22 @@ with $(\ell, m) = (0, 0)$:
   is a generalization of the Euler beta integral. A special case of
   $(\ref{eqn:selberg})$ with $(n, \alpha, \beta) = \left( 2, \lambda +
   \frac{1}{2}, \lambda + \frac{1}{2} \right)$ says
-  \begin{eqnarray}
-    & \frac{1}{2^{4 \lambda + 2 \nu}} \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (1 -
+  \begin{equation*}
+      \begin{array}[]{c}
+     \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (1 -
     s^2)^{\lambda - \frac{1}{2}} (1 - t^2)^{\lambda - \frac{1}{2}} | s - t
-    |^{2 \nu} d s d t = &  \nonumber\\
-    & = \frac{\Gamma \left( \lambda + \frac{1}{2} \right)^2}{\Gamma (2
+    |^{2 \nu} d s d t =  \\
+    = \frac{2^{4\lambda+2\nu}\Gamma \left( \lambda + \frac{1}{2} \right)^2}{\Gamma (2
     \lambda + 1 + \nu)} \cdot \frac{\Gamma \left( \lambda + \nu + \frac{1}{2}
     \right)^2 \Gamma (1 + 2 \nu)}{\Gamma (2 \lambda + 2 \nu + 1) \Gamma (1 +
-    \nu)}, &  \nonumber
-  \end{eqnarray}
+    \nu)},
+      \end{array}
+  \end{equation*}
   after a change of variables $(t_1, t_2) = \left( \frac{1 + s}{2}, \frac{1 +
   t}{2} \right)$. This coincides with the special case of Theorem
-  \ref{main-thm} with $\ell = m = 0$, $z = 1$ and $\lambda = \mu$. 
+  \ref{main-thm} with $(\ell,m,z,\mu)=(0,0,1,\lambda)$, namely, $\lambda=\mu$ in 
+  \eqref{eqn:lm0}\footnote{should it 
+      be \eqref{eqn:stz}? There are no $\ell,m,z$ in \eqref{eqn:lm0}. Also, should not it be $x$ in place of $z$?}.
 \end{example}
 
 \begin{example}
@@ -487,19 +501,24 @@ with $(\ell, m) = (0, 0)$:
   \alpha_2 \comma \beta_2, \gamma) = \left( 1, 1, \lambda + \frac{1}{2},
   \lambda + \frac{1}{2}, \mu + \frac{1}{2}, \mu + \frac{1}{2} \comma \lambda +
   \mu \right)$ implies the following equation
-  \begin{eqnarray}
-    & \frac{1}{2^{\lambda + \mu}} \left( \displaystyle\int \displaystyle\int_{0 \leqslant s < t
+  \begin{equation*}
+      \begin{array}[]{c}
+     \left( \displaystyle\int \displaystyle\int_{0 \leqslant s < t
     \leqslant 1} + \frac{\cos (\pi \lambda)}{\cos (\pi \mu)} \displaystyle\int \displaystyle\int_{0
     \leqslant t < s \leqslant 1} \right) (1 - s^2)^{\lambda - \frac{1}{2}} (1
-    - t^2)^{\mu - \frac{1}{2}} | s - t |^{- \lambda - \mu} d s d t & 
-    \nonumber\\
-    & = \frac{\Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left(
+    - t^2)^{\mu - \frac{1}{2}} | s - t |^{- \lambda - \mu} d s d t
+    \\
+    = \frac{{2^{\lambda + \mu}}\Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left(
     \frac{1}{2} - \mu \right) \Gamma \left( \mu + \frac{1}{2}
     \right)^2}{\Gamma (\lambda + 1 - \mu) \Gamma (\mu + 1 - \lambda) \Gamma
-    (\lambda + \mu + 1)} . &  \nonumber
-  \end{eqnarray}
+    (\lambda + \mu + 1)}.
+      \end{array}
+  \end{equation*}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
-  m, z, \nu) = \left( 0, 0, 1, - \frac{\lambda + \mu}{2} \right)$.
+  m, z, \nu) = \left( 0, 0, 1, - \frac{\lambda + \mu}{2} \right)$, namely,
+  $\lambda+\mu+2\nu=0$ in
+  \eqref{eqn:lm0}\footnote{should it 
+      be \eqref{eqn:stz}? There are no $\ell,m,z$ in \eqref{eqn:lm0}. Also, should not it be $x$ in place of $z$?}.
 \end{example}
 
 \begin{example}
@@ -508,14 +527,15 @@ with $(\ell, m) = (0, 0)$:
   special case $(k_1, k_2, \alpha, \beta_1, \beta_2, \gamma) = \left( 1, 1,
   \lambda + \frac{1}{2}, \lambda + \frac{1}{2}, 1, - 2 \nu \right)$ reduces to
   the following equation
-  \begin{eqnarray}
-    & \frac{1}{2^{2 \lambda + 2 \nu + 1}} \displaystyle\displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (1 -
-    s^2)^{\lambda - \frac{1}{2}} (t - s)_+^{2 \nu} d s d t = \frac{\Gamma
+  \begin{equation*}
+    \frac{1}{2^{2 \lambda + 2 \nu + 1}} \displaystyle\displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (1 -
+    s^2)^{\lambda - \frac{1}{2}} (t - s)_+^{2 \nu} d s d t = \frac{2^{2\lambda+2\nu+1}\Gamma
     \left( \lambda + \frac{1}{2} \right) \Gamma \left( \frac{3}{2} + \lambda +
-    2 \nu \right)}{(1 + 2 \nu) \Gamma (2 + 2 \lambda + 2 \nu)} . &  \nonumber
-  \end{eqnarray}
+2 \nu \right)}{(1 + 2 \nu) \Gamma (2 + 2 \lambda + 2 \nu)} \mbox{.\footnotemark}
+  \end{equation*}\footnotetext{should we remove $\frac{1}{2^{2\lambda+2\nu+1}}$ on the left-hand side of this formula?}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
-  m, z, \mu) = \left( 0, 0, 1, \frac{1}{2} \right)$.
+  m, z, \mu) = \left( 0, 0, 1, \frac{1}{2} \right)$, namely, $\mu=\frac{1}{2}$ in \eqref{eqn:lm0}\footnote{should it 
+      be \eqref{eqn:stz}? There are no $\ell,m,z$ in \eqref{eqn:lm0}. Also, should not it be $x$ in place of $z$?}.
 \end{example}
 
 \begin{example}
@@ -524,16 +544,16 @@ with $(\ell, m) = (0, 0)$:
   \left( 1, 1, \mu - \frac{1}{2}, \mu - \frac{1}{2}, - \frac{\mu -
   \frac{1}{2}}{\lambda - \frac{1}{2}} \right)$ reduces to the following
   equation
-  \begin{eqnarray}
-    & 2^{2 - 2 \lambda - 2 \mu} \displaystyle\int_{- 1}^1 \displaystyle\displaystyle\int_{- 1}^1 (1 - s^2)^{\lambda
-    - \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} | s - t |^{- 2} d s d t & 
-    \nonumber\\
-    & = \frac{- 2 \Gamma \left( \lambda + \frac{1}{2} \right)^2 \Gamma \left(
-    \mu + \frac{1}{2} \right)^2}{(\lambda + \mu - 1) \Gamma (2 \lambda) \Gamma
-    (2 \mu)} . &  \nonumber
-  \end{eqnarray}
+  \begin{equation*}
+     \displaystyle\int_{- 1}^1 \displaystyle\displaystyle\int_{- 1}^1 (1 - s^2)^{\lambda
+    - \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} | s - t |^{- 2} d s d t
+    = \frac{ 2^{2\lambda+2\mu-1} \Gamma \left( \lambda + \frac{1}{2} \right)^2 \Gamma \left(
+    \mu + \frac{1}{2} \right)^2}{(1-\lambda - \mu ) \Gamma (2 \lambda) \Gamma
+    (2 \mu)} .
+  \end{equation*}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
-  m, z, \nu) = (0, 0, 1, - 1)$.
+  m, z, \nu) = (0, 0, 1, - 1)$, namely, $\nu=-1$ in \eqref{eqn:lm0}\footnote{should it 
+      be \eqref{eqn:stz}? There are no $\ell,m,z$ in \eqref{eqn:lm0}. Also, should not it be $x$ in place of $z$?}.
 \end{example}
 
 The hierarchy of the integral formul{\ae} in Examples \ref{ex:1}-\ref{ex:4}
@@ -586,11 +606,11 @@ with the Mehta integral); relation with the results of
   142}}}}.{\newblock} Elsevier/Academic Press, Amsterdam, 2004.{\newblock}
   
   \bibitem[7]{Selberg:411367}A.~Selberg.{\newblock} Remarks on a multiple
-  integral.{\newblock} \tmtextit{Norsk Mat. Tidsskr.}, vol. 26, pages 71--78,
+  integral.{\newblock} \tmtextit{Norsk Mat. \doubt{1$\sim$} Tidsskr.}, vol. 26, pages 71--78,
   1944.{\newblock}
   
   \bibitem[8]{tarasov2003selberg}V.~Tarasov  and  A.~Varchenko.{\newblock}
-  Selberg-type integrals associated with $\mathfrak{sl}_3$.{\newblock}
+  Selberg-type integrals associated with $\mathfrak{s}\mathfrak{l}_3$.{\newblock}
   \tmtextit{Lett. Math. Phys.}, vol. 65, no. 3, pages 173--185,
   2003.{\newblock} Available online at
   \url{http://dx.doi.org/10.1023/B:MATH.0000010712.67685.9d}.{\newblock}
