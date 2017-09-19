@@ -1677,7 +1677,8 @@
 
     <\proposition>
       <label|prop:Vk7ZjF-2>The series on RHS of <math|<eqref|eqn:q30-1>>
-      converges absolutely for <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|3>>,
+      converges absolutely and uniformly on <math|<around*|[|-1,1|]><rsup|2>>
+      for <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|3>>,
       such that
 
       <\equation*>
@@ -1853,6 +1854,10 @@
         that for <math|x\<geqslant\>0,\<alpha\>\<in\>\<bbb-C\>>
         <math|<around*|\||x<rsup|\<alpha\>>|\|>=x<rsup|Re<around*|(|\<alpha\>|)>><rsup|>>>|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>|<row|<cell|=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|i+1|)>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|i<rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-<around*|(|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>|)>>.>>>>>
       </equation*>
+
+      Note that as the estimate was done independently of
+      <math|<around*|(|s,t|)>>, the convergence is seen to be uniform on
+      <math|<around*|(|s,t|)>\<in\><around*|[|-1,1|]><rsup|2>>.
     </proof>
   <|show-part>
     <section|section <code|Vk7ZjF>>

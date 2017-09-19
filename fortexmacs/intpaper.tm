@@ -487,8 +487,8 @@
       <bibitem*|4><label|bib-kobayashi2011schrodinger>T.<nbsp>Kobayashi<localize|
       and >G.<nbsp>Mano.<newblock> <with|font-shape|italic|The Schrödinger
       Model for the Minimal Representation of the Indefinite Orthogonal Group
-      <math|O<around|(|p,q|)>>>.<newblock> Amer. Math. Soc., vol. 213, no.
-      1000, 2011.<newblock> Available online at
+      <math|O<around|(|p,q|)>>>.<newblock> Memoirs of Amer. Math. Soc., vol.
+      213, no. 1000, 2011.<newblock> Available online at
       <slink|http://dx.doi.org/10.1090/S0065-9266-2011-00592-7>.<newblock>
 
       <bibitem*|5><label|bib-kobayashi2015symmetry>T.<nbsp>Kobayashi<localize|
