@@ -175,7 +175,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % 定理環境の定義
-\newcommand{\taggedpropsymb}{$\;1'$}
 \newtheorem{thm}{定理}[section]
 \newtheorem{lem}[thm]{補題}
 \newtheorem*{lemma*}{補題}
@@ -329,12 +328,12 @@ Gegenbauer多項式
 	\begin{prop}
 		\label{prop:int-st-gg}
 		\begin{equation*}
-			\int_{- 1}^1 \int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
+			\int_{- 1}^1 \int_{- 1}^1 | s + t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
 			(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t
 		\end{equation*}
 		{
 		\begin{equation}
-			=\frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell - m}{2}} \pi^{\frac{1}{2}} (2
+			=\frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}} \pi^{\frac{1}{2}} (2
 			\lambda)_\ell (2 \mu)_m \Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left(
 			\mu + \frac{1}{2} \right) \Gamma \left( \nu + \frac{1}{2} \right) \Gamma
 		(\lambda + \mu + 2 \nu + 1)}{\ell!m! \Gamma \left( \lambda + \nu + \frac{\ell -
@@ -364,7 +363,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		\normalfont
 		\begin{fact}[{\cite[セルバーグ積分]{Selberg:411367}}]
 				$\tmop{Re} (\alpha), \tmop{Re} (\beta) > 0, | \gamma | \ll 1$
-				とすると\footnote{maybe, comma here?}
+				とすると
 	 \begin{equation*}
 		 \normalfont
 		\begin{array}[]{c}
@@ -409,7 +408,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		Selberg積分の１つの一般化であるWarnaarの$\mathfrak{sl}_3$ Selberg積分
 		\cite{warnaar2010sl3}を復習しよう。
 		これは５つのパラメータ$\alpha_1,\alpha_2,\beta_1,\beta_2,\gamma$を含むが、
-		制\doubt{約}条件$\beta_1+\beta_2=\gamma+1$を課すので\footnote{maybe, comma here?}
+		制{約}条件$\beta_1+\beta_2=\gamma+1$を課すので、
 		４つの自由パラメータを含む多重積分である。
 
 		\begin{fact}[{\cite[(1.4)]{warnaar2010sl3}}]
@@ -519,8 +518,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		DotsenkoとFateev \cite{dotsenko1985four}は
 		３つの関係式\eqref{eqn:DF3}を満たす
 		６つのパラメータ$\alpha,\alpha',\beta,
-			\beta',\rho,\rho'$を含む以下の多重積分の具体的表示を与えた\footnote{
-			maybe, we should put 。 here to indicate end of a sentence?}
+			\beta',\rho,\rho'$を含む以下の多重積分の具体的表示を与えた。
 		\begin{fact}[{\cite[(A.35)]{dotsenko1985four}}]
 			{
 		\begin{equation*}
@@ -555,7 +553,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 				}
 		\end{fact}
 
-命題\ref{prop:int-st-gg}の $\ell = m = 0,\nu=-1$ の特殊化が
+命題\ref{prop:int-st-gg}の $\ell = m = 0,\nu=-1$ の特殊化は
 \cite[(A.35)]{dotsenko1985four}
 の $m=n=1,\alpha'=\beta',\alpha=\beta$ の特別な場合になる：\\
 \myrelationdiagramBigCenter{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
