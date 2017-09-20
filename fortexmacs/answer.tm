@@ -15,9 +15,9 @@
     \;
   </hide-preamble>
 
-  <\show-part|1>
+  <\hide-part|1>
     <date|>
-  </show-part|>
+  </hide-part|>
 
   <\hide-part|2>
     <section|section <code|HEGL84>>
@@ -1682,7 +1682,7 @@
       such that
 
       <\equation*>
-        <stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1;>>|<row|<cell|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-<around*|(|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>|)>\<leqslant\>-1;>>|<row|<cell|Re<around*|(|\<lambda\>|)>,Re<around*|(|\<mu\>|)>\<gtr\>0.>>>>>
+        <stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1;>>|<row|<cell|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-<around*|(|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>|)>\<leqslant\>-1.>>>>>
       </equation*>
     </proposition>
 
@@ -1761,8 +1761,7 @@
     </fact>
 
     <\lemma>
-      <label|lem:Vk7ZjF-2>For <math|\<lambda\>\<in\><around*|{|\<bbb-C\>\<mid\>Re<around*|(|\<lambda\>|)>\<gtr\>0|}>>
-      we have
+      <label|lem:Vk7ZjF-2>For <math|\<lambda\>\<in\>\<bbb-C\>> we have
 
       <\equation*>
         max<rsub|<around*|\||x|\|>\<leqslant\>1><around*|\||C<rsup|\<lambda\>><rsub|n><around*|(|x|)>|\|>\<leqslant\>C<rsub|n><rsup|<around*|\||\<lambda\>|\|>><around*|(|1|)>\<sim\><frac|<around*|(|n-1|)><rsup|2<around*|\||\<lambda\>|\|>-1>|\<Gamma\><around*|(|2<around*|\||\<lambda\>|\|>|)>>
@@ -1773,7 +1772,9 @@
     </lemma>
 
     <\proof>
-      Note the equality
+      Note that for <math|\<lambda\>\<in\>\<bbb-C\>> and
+      <math|k\<in\>\<bbb-N\>>, <math|<around*|\||<around*|(|\<lambda\>|)><rsub|k>|\|>\<leqslant\><around*|(|<around*|\||\<lambda\>|\|>|)><rsub|k>>
+      and recall the equality
 
       <\equation*>
         C<rsub|n><rsup|\<lambda\>><around*|(|cos*\<theta\>|)>=<big|sum><rsub|k=0><rsup|n><frac|<around*|(|\<lambda\>|)><rsub|k><around*|(|\<lambda\>|)><rsub|n-k>|k!<around*|(|n-k|)>!>cos<around*|(|n-2k|)>\<theta\>.<space|1em><text|<cite-detail|andrews2000special|(6.4.11)>>
@@ -1817,6 +1818,10 @@
         <\equation*>
           \<forall\>i\<in\>\<Iota\>\\\<Iota\><rprime|'>,<around*|\||a<rsub|i>|\|>\<leqslant\>C<around*|\||b<rsub|i>|\|>.
         </equation*>
+
+        <item>We write <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>\<approx\><big|sum><rsub|i\<in\>\<Iota\>>b<rsub|i>>
+        if <math|<big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>\<lesssim\><big|sum><rsub|i\<in\>\<Iota\>>b<rsub|i>>
+        and <math|<big|sum><rsub|i\<in\>\<Iota\>>b<rsub|i>\<lesssim\><big|sum><rsub|i\<in\>\<Iota\>>a<rsub|i>>
       </enumerate>
     </definition>
 
@@ -1848,7 +1853,7 @@
       <\equation*>
         <stack|<tformat|<table|<row|<cell|\<lesssim\><stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|-\<nu\>+<frac|l+m|2>|)>>>>>>>>>|<row|<cell|<around*|(|<text|note
         that for <math|x\<geqslant\>0,\<alpha\>\<in\>\<bbb-C\>>
-        <math|<around*|\||x<rsup|\<alpha\>>|\|>=x<rsup|Re<around*|(|\<alpha\>|)>><rsup|>>>|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|<around*|\||\<lambda\>|\|>l+<around*|\||\<mu\>|\|>m|<around*|\||\<lambda\>|\|>+<around*|\||\<mu\>|\|>>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>|<row|<cell|=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|i+1|)>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|i<rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-<around*|(|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>|)>>.>>>>>
+        <math|<around*|\||x<rsup|\<alpha\>>|\|>=x<rsup|Re<around*|(|\<alpha\>|)>><rsup|>>>|)>>>|<row|<cell|\<approx\><stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>>>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>|<row|<cell|=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|i+1|)>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|i<rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-<around*|(|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>|)>>.>>>>>
       </equation*>
 
       Note that as the estimate was done independently of
@@ -1859,7 +1864,7 @@
     <section|section <code|Vk7ZjF>>
   </show-part>
 
-  <\show-part|32>
+  <\hide-part|32>
     <\bibliography|bib|alpha|answer.bib>
       <\bib-list|XWZ13>
         <bibitem*|AAR99><label|bib-andrews1999special>George<nbsp>E Andrews,
@@ -1940,7 +1945,7 @@
         2013.
       </bib-list>
     </bibliography>
-  <|show-part>
+  <|hide-part>
     <\bibliography|bib|alpha|answer.bib>
       <\bib-list|XWZ13>
         <bibitem*|AAR99><label|bib-andrews1999special>George<nbsp>E Andrews,
@@ -2021,7 +2026,7 @@
         2013.
       </bib-list>
     </bibliography>
-  </show-part>
+  </hide-part>
 </body>
 
 <\initial>
@@ -2098,7 +2103,7 @@
     <associate|auto.31-2|<tuple|30.1|?|#31>>
     <associate|auto.31-3|<tuple|30.2|?|#31>>
     <associate|auto.31-4|<tuple|30.3|?|#31>>
-    <associate|auto.32-1|<tuple|a|?|#32>>
+    <associate|auto.32-1|<tuple|b|?|#32>>
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.5-1|<tuple|4|?|#5>>
     <associate|auto.6-1|<tuple|5|?|#6>>

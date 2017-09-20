@@ -2,6 +2,8 @@
 \usepackage[english]{babel}
 \usepackage{amsmath,amssymb,graphicx,bbm,hyperref,latexsym,theorem}
 \usepackage{mathtools}
+\usepackage{dot2texi}
+\usepackage{tikz}
 
 \numberwithin{equation}{section}
 
@@ -41,9 +43,10 @@
 
 \newcommand{\sectionsep}{{\sectionalsep}}
 
-\begin{document}
+\title{On certain integral formulae concerning two Gegenbauer polynomials}
 
-September 19, 2017
+\begin{document}
+\maketitle
 
 \begin{abstract}
   Motivated by the study of symmetry breaking operators for indefinite
@@ -467,9 +470,6 @@ with $(\ell, m) = (0, 0)$:
   \nu + 1)}{\Gamma (\lambda + \nu + 1) \Gamma (\mu + \nu + 1) \Gamma (\lambda
   + \mu + \nu + 1)} .
 \end{multline}
-%%\begin{equation*}
-%%\end{equation*}\begin{equation}
-%%\end{equation}
 \begin{example}
   \label{ex:1}(Selberg integral {\cite{Selberg:411367}}) The Selberg integral
   \begin{eqnarray}
@@ -483,8 +483,7 @@ with $(\ell, m) = (0, 0)$:
   is a generalization of the Euler beta integral. A special case of
   $(\ref{eqn:selberg})$ with $(n, \alpha, \beta) = \left( 2, \lambda +
   \frac{1}{2}, \lambda + \frac{1}{2} \right)$ says
-  \begin{equation*}
-      \begin{array}[]{c}
+  \begin{equation}
      \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (1 -
     s^2)^{\lambda - \frac{1}{2}} (1 - t^2)^{\lambda - \frac{1}{2}} | s - t
     |^{2 \nu} d s d t 
@@ -492,8 +491,8 @@ with $(\ell, m) = (0, 0)$:
     \lambda + 1 + \nu)} \cdot \frac{\Gamma \left( \lambda + \nu + \frac{1}{2}
     \right)^2 \Gamma (1 + 2 \nu)}{\Gamma (2 \lambda + 2 \nu + 1) \Gamma (1 +
     \nu)},
-      \end{array}
-  \end{equation*}
+    \label{eqn:spec_selberg}
+  \end{equation}
   after a change of variables $(t_1, t_2) = \left( \frac{1 + s}{2}, \frac{1 +
   t}{2} \right)$. This coincides with the special case of Theorem
   \ref{main-thm} with $(\ell,m,x,\mu)=(0,0,1,\lambda)$, namely, $\lambda=\mu$ in 
@@ -506,19 +505,18 @@ with $(\ell, m) = (0, 0)$:
   \alpha_2 \comma \beta_2, \gamma) = \left( 1, 1, \lambda + \frac{1}{2},
   \lambda + \frac{1}{2}, \mu + \frac{1}{2}, \mu + \frac{1}{2} \comma \lambda +
   \mu \right)$ implies the following equation
-  \begin{equation*}
-      \begin{array}[]{c}
+  \begin{gather}
      \left( \displaystyle\int \displaystyle\int_{0 \leqslant s < t
     \leqslant 1} + \frac{\cos (\pi \lambda)}{\cos (\pi \mu)} \displaystyle\int \displaystyle\int_{0
     \leqslant t < s \leqslant 1} \right) (1 - s^2)^{\lambda - \frac{1}{2}} (1
-    - t^2)^{\mu - \frac{1}{2}} | s - t |^{- \lambda - \mu} d s d t
+    - t^2)^{\mu - \frac{1}{2}} | s - t |^{- \lambda - \mu} d s d t\nonumber
     \\
     \displaystyle= \frac{{2^{\lambda + \mu}}\Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left(
     \frac{1}{2} - \mu \right) \Gamma \left( \mu + \frac{1}{2}
     \right)^2}{\Gamma (\lambda + 1 - \mu) \Gamma (\mu + 1 - \lambda) \Gamma
     (\lambda + \mu + 1)}.
-      \end{array}
-  \end{equation*}
+      \label{eqn:spec_warnaar}
+  \end{gather}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
   m, x, \nu) = \left( 0, 0, 1, - \frac{\lambda + \mu}{2} \right)$, namely,
   $\lambda+\mu+2\nu=0$ in
@@ -531,12 +529,13 @@ with $(\ell, m) = (0, 0)$:
   special case $(k_1, k_2, \alpha, \beta_1, \beta_2, \gamma) = \left( 1, 1,
   \lambda + \frac{1}{2}, \lambda + \frac{1}{2}, 1, - 2 \nu \right)$ reduces to
   the following equation
-  \begin{equation*}
+  \begin{equation}
     \frac{1}{2^{2 \lambda + 2 \nu + 1}} \displaystyle\displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (1 -
     s^2)^{\lambda - \frac{1}{2}} (t - s)_+^{2 \nu} d s d t = \frac{2^{2\lambda+2\nu+1}\Gamma
     \left( \lambda + \frac{1}{2} \right) \Gamma \left( \frac{3}{2} + \lambda +
 2 \nu \right)}{(1 + 2 \nu) \Gamma (2 + 2 \lambda + 2 \nu)} \mbox{.\footnotemark}
-  \end{equation*}\footnotetext{should we remove $\frac{1}{2^{2\lambda+2\nu+1}}$ on the left-hand side of this formula?}
+\label{eqn:spec_tv}
+  \end{equation}\footnotetext{should we remove $\frac{1}{2^{2\lambda+2\nu+1}}$ on the left-hand side of this formula?}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
   m, x, \mu) = \left( 0, 0, 1, \frac{1}{2} \right)$, namely, $\mu=\frac{1}{2}$ in \eqref{eqn:lm0}.
 \end{example}
@@ -547,13 +546,14 @@ with $(\ell, m) = (0, 0)$:
   \left( 1, 1, \mu - \frac{1}{2}, \mu - \frac{1}{2}, - \frac{\mu -
   \frac{1}{2}}{\lambda - \frac{1}{2}} \right)$ reduces to the following
   equation
-  \begin{equation*}
+  \begin{equation}
      \displaystyle\int_{- 1}^1 \displaystyle\displaystyle\int_{- 1}^1 (1 - s^2)^{\lambda
     - \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} | s - t |^{- 2} d s d t
     = \frac{ 2^{2\lambda+2\mu-1} \Gamma \left( \lambda + \frac{1}{2} \right)^2 \Gamma \left(
     \mu + \frac{1}{2} \right)^2}{(1-\lambda - \mu ) \Gamma (2 \lambda) \Gamma
     (2 \mu)} .
-  \end{equation*}
+    \label{eqn:spec_df}
+  \end{equation}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
   m, x, \nu) = (0, 0, 1, - 1)$, namely, $\nu=-1$ in \eqref{eqn:lm0}.
 \end{example}
@@ -566,61 +566,18 @@ with the Mehta integral); relation with the results of
 
 \
 
-\begin{table}[h]
-  \begin{tabular}{l}
-%%    \resizebox{788px}{264px}{\includegraphics{../../fortexmacs/intdep.jpg}}
-      \scalebox{0.2}{\includegraphics{../../fortexmacs/intdep.jpg}}
-  \end{tabular}
-  \caption{Hierarchy of various integral formul{\ae}\label{table}}
-\end{table}
-
-\begin{thebibliography}{1}
-  \bibitem[1]{andrews2000special}G.~E.~Andrews, R.~Askey , and 
-  R.~Roy.{\newblock} \tmtextit{Special Functions},  of \tmtextit{Encyclopedia
-  of Mathematics and its Applications}, vol. 71.{\newblock} Cambridge
-  University Press, Cambridge, 2000.{\newblock}
-  
-  \bibitem[2]{dotsenko1985four}V.~S.~Dotsenko  and  V.~A.~Fateev.{\newblock}
-  Four-point correlation functions and the operator algebra in 2D conformal
-  invariant theories with central charge $c \leq 1$, \tmtextit{Nuclear Phys.
-  B}, vol. 251, pages 691--734, 1985.{\newblock}
-  
-  \bibitem[3]{forrester2008importance}P.~Forrester  and 
-  S.~O.~Warnaar.{\newblock} The importance of the Selberg integral.{\newblock}
-  \tmtextit{Bull. Amer. Math. Soc.}, vol. 45, no. 4, pages 489--534,
-  2008.{\newblock} Available online at
-  \url{https://doi.org/10.1090/S0273-0979-08-01221-4}.{\newblock}
-  
-  \bibitem[4]{kobayashi2011schrodinger}T.~Kobayashi  and  G.~Mano.{\newblock}
-  \tmtextit{The Schr{\"o}dinger Model for the Minimal Representation of the
-  Indefinite Orthogonal Group $O (p, q)$}.{\newblock} Memoirs of Amer. Math.
-  Soc., vol. 213, no. 1000, 2011.{\newblock} Available online at
-  \url{http://dx.doi.org/10.1090/S0065-9266-2011-00592-7}.{\newblock}
-  
-  \bibitem[5]{kobayashi2015symmetry}T.~Kobayashi  and  B.~Speh.{\newblock}
-  \tmtextit{Symmetry Breaking for Representations of Rank One Orthogonal
-  Groups}, {\newblock} \tmtextrm{\tmtextup{\tmtextmd{Memoirs of the Amer.
-  Math. Soc.}}}, vol. \tmtextbf{238}. 2015.{\newblock} Available online at
-  \url{http://dx.doi.org/10.1090/memo/1126}.{\newblock}
-  
-  \bibitem[6]{mehta2004random}M.~L.~Mehta.{\newblock} \tmtextit{Random
-  matrices}, \tmtextit{\tmtextrm{\tmtextup{\tmtextmd{Pure Appl. Math., vol.
-  142}}}}.{\newblock} Elsevier/Academic Press, Amsterdam, 2004.{\newblock}
-  
-  \bibitem[7]{Selberg:411367}A.~Selberg.{\newblock} Remarks on a multiple
-  integral.{\newblock} \tmtextit{Norsk Mat. \doubt{1$\sim$} Tidsskr.}, vol. 26, pages 71--78,
-  1944.{\newblock}
-  
-  \bibitem[8]{tarasov2003selberg}V.~Tarasov  and  A.~Varchenko.{\newblock}
-  Selberg-type integrals associated with $\mathfrak{s}\mathfrak{l}_3$.{\newblock}
-  \tmtextit{Lett. Math. Phys.}, vol. 65, no. 3, pages 173--185,
-  2003.{\newblock} Available online at
-  \url{http://dx.doi.org/10.1023/B:MATH.0000010712.67685.9d}.{\newblock}
-  
-  \bibitem[9]{warnaar2010sl3}S.~O.~Warnaar.{\newblock} The $\mathfrak{sl}_3$
-  Selberg integral.{\newblock} \tmtextit{Adv. Math.}, vol. 224, no. 2, pages
-  499--524, 2010.{\newblock} Available online at
-  \url{http://dx.doi.org/10.1016/j.aim.2009.11.011}.{\newblock}
-\end{thebibliography}
+%%\begin{table}[h]
+%%  \begin{tabular}{l}
+%%%%    \resizebox{788px}{264px}{\includegraphics{../../fortexmacs/intdep.jpg}}
+%%      \scalebox{0.2}{\includegraphics{../../fortexmacs/intdep.jpg}}
+%%  \end{tabular}
+%%  \caption{Hierarchy of various integral formul{\ae}\label{table}}
+%%\end{table}
+\begin{figure}[h]
+	\centering
+	\input{intpaperdep}
+\caption{Hierarchy of various integral formul{\ae}\label{table}}
+\end{figure}
+\input{bibliography}
 
 \end{document}
