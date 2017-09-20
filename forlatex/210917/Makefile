@@ -6,6 +6,8 @@ WORKON=talks
 COMMIT_PREFIX=
 PDFS=abstract
 AUX=abstract.tex
+PDFS=mytalk
+AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
 TEXMACS=/Applications/TeXmacs-1.99.4.app/Contents/MacOS/TeXmacs
@@ -19,11 +21,13 @@ GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
 MYTALK=../../../fortexmacs/seminars/kohno_19-09-17/mytalk.tm
 
-test:
-	grep '\\unfolded' $(MYTALK)|awk -F'<|\\||>' '{print $$5;}'
+#test:
+#	grep '\\unfolded' $(MYTALK)|awk -F'<|\\||>' '{print $$5;}'
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 p:  $(OUTDIR)/$(ZIPNAME).zip
 
+$(OUTDIR)/mytalk.pdf : $(OUTDIR)/mytalk.ps
+	cd $(OUTDIR) && ps2pdf mytalk.ps
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	unzip -l $@
