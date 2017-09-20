@@ -64,7 +64,7 @@ September 19, 2017
   For $\lambda, \mu, \nu \in \mathbbm{C}$ with $\tmop{Re} \lambda, \tmop{Re}
   \mu, \tmop{Re} \nu > - 1 / 2$, \ the following expansion holds:
   \begin{eqnarray}
-    & | s + t |^{2 \nu} = \sum_{\ell, m = 0 \mid \ell + m :
+    & | s + t |^{2 \nu} = \displaystyle\sum_{\ell, m = 0 \mid \ell + m :
     \tmop{even}}^{\infty} a_{\lambda, \mu, \nu}^{\ell, m} C_{\ell}^{\lambda}
     (s) C_m^{\mu} (t), &  \nonumber\\
     & a_{\lambda, \mu, \nu}^{\ell, m} = \frac{2^{- 2 \nu} (\lambda + \ell)
@@ -147,7 +147,7 @@ zero, we obtain
   \begin{eqnarray}
     & | \cos \varphi + \cos \psi |^{\rho} \tmop{sgn}^r (\cos \varphi + \cos
     \psi) &  \nonumber\\
-    & = \sum_{\tmscript{\begin{array}{c}
+    & = \displaystyle\sum_{\tmscript{\begin{array}{c}
       \ell, m = 0\\
       \ell \equiv m + r \tmop{mod} 2
     \end{array}}}^{\infty} \frac{2^{2 - \rho} \Gamma (\rho + 1)^2}{(1 +
@@ -254,7 +254,7 @@ of Theorem \ref{main-thm}. We use the following two lemmas.
 \begin{lemma}
   \label{lem:Fisum}Let $a, b, c \in \mathbbm{C}$ with $b + \frac{1}{2} \nin
   -\mathbbm{N}$. Then\mygrammarfootnote{maybe, we need a comma here?}
-  \[ G (a, b, c ; \zeta) \assign \sum_{i = 0}^{\infty} \frac{(a)_i (1 -
+  \[ G (a, b, c ; \zeta) \assign \displaystyle\sum_{i = 0}^{\infty} \frac{(a)_i (1 -
      a)_i}{2^i i! (d)_i} _2 F_1 \left( \begin{array}{c}
        \frac{1 - d - i}{2}, \frac{2 - d - i}{2}\\
        b + \frac{1}{2}
@@ -302,13 +302,13 @@ show Proposition \ref{prop:2}.
   $\frac{1}{2} (1 + tx)$, we can rewrite the integral in the right-hand side
   as
   \begin{eqnarray}
-    & \sum_{i = 0}^{\infty} \frac{(1 - a)_i (a)_i}{2^i i! (2 c + a)_i}
+    & \displaystyle\sum_{i = 0}^{\infty} \frac{(1 - a)_i (a)_i}{2^i i! (2 c + a)_i}
     \displaystyle\int_{- 1}^1 (1 + t x)^{2 c + a - 1 + i} (1 - t^2)^{b - 1} d t. & 
     \nonumber
   \end{eqnarray}
   Owing to Lemma \ref{lem4}, this is equal to
   \begin{eqnarray}
-    & B \left( \frac{1}{2}, b \right) \sum_{i = 0}^{\infty} \frac{(1 - a)_i
+    & B \left( \frac{1}{2}, b \right) \displaystyle\sum_{i = 0}^{\infty} \frac{(1 - a)_i
     (a)_i}{2^i i! (2 c + a)_i} _2 F_1 \left( \begin{array}{c}
       \frac{1 - 2 c - a - i}{2}, \frac{2 - 2 c - a - i}{2}\\
       b + \frac{1}{2}
@@ -357,7 +357,7 @@ show Proposition \ref{prop:2}.
   \end{eqnarray}
   We claim that the left-hand side of $(\ref{eqn:iF})$ equals
   \begin{eqnarray}
-    & G (a, b, d ; \zeta) = \sum_{j = 0}^{\infty} \frac{(1 - d)_{2 j}
+    & G (a, b, d ; \zeta) = \displaystyle\sum_{j = 0}^{\infty} \frac{(1 - d)_{2 j}
     \zeta^j}{2^{2 j} j! \left( b + \frac{1}{2} \right)_j} _2 F_1 \left(
     \begin{array}{c}
       a, 1 - a\\
@@ -367,7 +367,7 @@ show Proposition \ref{prop:2}.
   Indeed, by expanding the hypergeometric function as a power series and by
   using $(\ref{eqn:p2})$ with $y = 1 - d - i$, we have
   \begin{eqnarray}
-    & G (a, b, d ; \zeta) = \sum_{i = 0}^{\infty} \sum_{j = 0}^{\infty}
+    & G (a, b, d ; \zeta) = \displaystyle\sum_{i = 0}^{\infty} \displaystyle\sum_{j = 0}^{\infty}
     \frac{(a)_i (1 - a)_i}{2^{i + 2 j} i!j! (d)_i}  \frac{(1 - d - i)_{2
     j}}{\left( b + \frac{1}{2} \right)_j} \zeta^j, &  \nonumber
   \end{eqnarray}
@@ -384,12 +384,12 @@ show Proposition \ref{prop:2}.
   continue as
   \begin{eqnarray}
     & \begin{array}{ll}
-      (\ref{eqn:Fijsum}) & = \sum_{j = 0}^{\infty} \frac{(1 - d)_{2 j}
+      (\ref{eqn:Fijsum}) & = \displaystyle\sum_{j = 0}^{\infty} \frac{(1 - d)_{2 j}
       \zeta^j}{2^{2 j} j! \left( b + \frac{1}{2} \right)_j} \cdot \frac{2^{1 -
       d + 2 j} \sqrt{\pi} \Gamma (d - 2 j)}{\Gamma \left( \frac{a + d}{2} - j
       \right) \Gamma \left( \frac{1 - a + d}{2} - j \right)}\\
       & = \frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma \left( \frac{a +
-      d}{2} \right) \Gamma \left( \frac{1 - a + d}{2} \right)} \sum_{j =
+      d}{2} \right) \Gamma \left( \frac{1 - a + d}{2} \right)} \displaystyle\sum_{j =
       0}^{\infty} \frac{\left( 1 - \frac{a + d}{2} \right)_j \left( \frac{1 +
       a - d}{2} \right)_j}{j! \left( b + \frac{1}{2} \right)_j} \zeta^j
     \end{array} &  \nonumber
@@ -417,7 +417,8 @@ Corollaly \ref{cor:1}:
 
 \begin{corollary}
   \label{cor:Hermite}Suppose $\ell, m \in \mathbbm{N}$ with $\ell + m$
-  even.
+  even.\footnote{should we change here $z$ to $x$ as well?}\footnote{maybe, it would make sense to change the 
+  integration variables from $(x,y)$ to $(s,t)$?}
   \begin{eqnarray}
     & \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} | x + z y |^{2 \nu}
     e^{- x^2 - y^2} H_{\ell} (x) H_m (y) d x d y = (- \nu)_{\frac{\ell +
@@ -443,7 +444,7 @@ Corollaly \ref{cor:1}:
     &  &  \nonumber
   \end{eqnarray}
   This coincides with the special case of Corollary \ref{cor:Hermite} with
-  $(\ell, m, z) = (0, 0, 1)$.
+  $(\ell, m, x) = (0, 0, 1)$.
 \end{example}
 
 In what follows, we shall examine the relationship between Theorem
@@ -453,7 +454,7 @@ special values. The hierarchy of the formul{\ae} treated here is summarized in
 Table \ref{table}.
 
 For this, we limit ourselves to the special case of Theorem \ref{main-thm}
-with $(\ell, m, z) = (0, 0, 1)$, or equivalently, of Corollary \ref{cor:1}
+with $(\ell, m, x) = (0, 0, 1)$, or equivalently, of Corollary \ref{cor:1}
 with $(\ell, m) = (0, 0)$:
 \begin{multline}  \label{eqn:lm0}
    \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda -
@@ -493,9 +494,8 @@ with $(\ell, m) = (0, 0)$:
   \end{equation*}
   after a change of variables $(t_1, t_2) = \left( \frac{1 + s}{2}, \frac{1 +
   t}{2} \right)$. This coincides with the special case of Theorem
-  \ref{main-thm} with $(\ell,m,z,\mu)=(0,0,1,\lambda)$, namely, $\lambda=\mu$ in 
-  \eqref{eqn:lm0}\footnote{should it 
-      be \eqref{eqn:stz}? There are no $\ell,m,z$ in \eqref{eqn:lm0}. Also, should not it be $x$ in place of $z$?}.
+  \ref{main-thm} with $(\ell,m,x,\mu)=(0,0,1,\lambda)$, namely, $\lambda=\mu$ in 
+  \eqref{eqn:lm0}.
 \end{example}
 
 \begin{example}
@@ -518,10 +518,9 @@ with $(\ell, m) = (0, 0)$:
       \end{array}
   \end{equation*}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
-  m, z, \nu) = \left( 0, 0, 1, - \frac{\lambda + \mu}{2} \right)$, namely,
+  m, x, \nu) = \left( 0, 0, 1, - \frac{\lambda + \mu}{2} \right)$, namely,
   $\lambda+\mu+2\nu=0$ in
-  \eqref{eqn:lm0}\footnote{should it 
-      be \eqref{eqn:stz}? There are no $\ell,m,z$ in \eqref{eqn:lm0}. Also, should not it be $x$ in place of $z$?}.
+  \eqref{eqn:lm0}.
 \end{example}
 
 \begin{example}
@@ -537,8 +536,7 @@ with $(\ell, m) = (0, 0)$:
 2 \nu \right)}{(1 + 2 \nu) \Gamma (2 + 2 \lambda + 2 \nu)} \mbox{.\footnotemark}
   \end{equation*}\footnotetext{should we remove $\frac{1}{2^{2\lambda+2\nu+1}}$ on the left-hand side of this formula?}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
-  m, z, \mu) = \left( 0, 0, 1, \frac{1}{2} \right)$, namely, $\mu=\frac{1}{2}$ in \eqref{eqn:lm0}\footnote{should it 
-      be \eqref{eqn:stz}? There are no $\ell,m,z$ in \eqref{eqn:lm0}. Also, should not it be $x$ in place of $z$?}.
+  m, x, \mu) = \left( 0, 0, 1, \frac{1}{2} \right)$, namely, $\mu=\frac{1}{2}$ in \eqref{eqn:lm0}.
 \end{example}
 
 \begin{example}
@@ -555,8 +553,7 @@ with $(\ell, m) = (0, 0)$:
     (2 \mu)} .
   \end{equation*}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
-  m, z, \nu) = (0, 0, 1, - 1)$, namely, $\nu=-1$ in \eqref{eqn:lm0}\footnote{should it 
-      be \eqref{eqn:stz}? There are no $\ell,m,z$ in \eqref{eqn:lm0}. Also, should not it be $x$ in place of $z$?}.
+  m, x, \nu) = (0, 0, 1, - 1)$, namely, $\nu=-1$ in \eqref{eqn:lm0}.
 \end{example}
 
 The hierarchy of the integral formul{\ae} in Examples \ref{ex:1}-\ref{ex:4}
