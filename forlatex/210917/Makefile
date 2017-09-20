@@ -1,4 +1,4 @@
-.PHONY: all commit push clean p
+.PHONY: all commit push clean p test
 .SECONDARY: 
 
 ZIPNAME=kohnoseminar
@@ -17,6 +17,10 @@ TEXMACSDIR=~/for/fortexmacs
 COMMIT_MSG=$(COMMIT_PREFIX) $(WORKON)
 GITCOMMIT=git commit --allow-empty -a -m "$(COMMIT_MSG)"
 
+MYTALK=../../../fortexmacs/seminars/kohno_19-09-17/mytalk.tm
+
+test:
+	grep '\\unfolded' $(MYTALK)|awk -F'<|\\||>' '{print $$5;}'
 all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 p:  $(OUTDIR)/$(ZIPNAME).zip
 
