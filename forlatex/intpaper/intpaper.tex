@@ -63,17 +63,19 @@ September 19, 2017
 \begin{theorem}
   For $\lambda, \mu, \nu \in \mathbbm{C}$ with $\tmop{Re} \lambda, \tmop{Re}
   \mu, \tmop{Re} \nu > - 1 / 2$, \ the following expansion holds:
-  \begin{eqnarray}
-    & | s + t |^{2 \nu} = \displaystyle\sum_{\ell, m = 0 \mid \ell + m :
+  \begin{equation*}
+	  \begin{array}[]{c}
+     | s + t |^{2 \nu} = \displaystyle\sum_{\ell, m = 0 \mid \ell + m :
     \tmop{even}}^{\infty} a_{\lambda, \mu, \nu}^{\ell, m} C_{\ell}^{\lambda}
-    (s) C_m^{\mu} (t), &  \nonumber\\
-    & a_{\lambda, \mu, \nu}^{\ell, m} = \frac{2^{- 2 \nu} (\lambda + \ell)
+    (s) C_m^{\mu} (t), \\
+     \displaystyle a_{\lambda, \mu, \nu}^{\ell, m} = \frac{2^{- 2 \nu} (\lambda + \ell)
     (\mu + m) \Gamma (\lambda + \mu + 2 \nu + 1) \Gamma (\lambda) \Gamma (\mu)
     \Gamma (2 \nu + 1)}{\Gamma \left( \lambda + \nu + \frac{\ell - m}{2} + 1
     \right) \Gamma \left( \mu + \nu - \frac{\ell - m}{2} + 1 \right) \Gamma
     \left( \lambda + \mu + \nu + \frac{\ell + m}{2} + 1 \right) \Gamma \left(
-    \nu + 1 - \frac{\ell + m}{2} \right)} . &  \nonumber
-  \end{eqnarray}
+    \nu + 1 - \frac{\ell + m}{2} \right)} .
+	  \end{array}
+  \end{equation*}
 \end{theorem}
 
 Let $C_{\ell}^{\lambda} (s)$ be the Gegenbauer polynomial of degree $\ell$,
@@ -89,8 +91,8 @@ and we set
   \begin{eqnarray}
     & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t x |^{2 \nu} u_{\ell}^{\lambda} (s)
     u_m^{\mu} (t) d s d t &  \nonumber\\
-    & = \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
-    \pi^{\frac{3}{2}} \Gamma \left( \nu + \frac{1}{2} \right) x^m _2 F_1
+    & \displaystyle= \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
+    \pi^{\frac{3}{2}} \Gamma \left( \nu + \frac{1}{2} \right) x^m{}_2 F_1
     \left( \begin{array}{c}
       \frac{\ell + m}{2} - \nu, \frac{m - \ell}{2} - \nu - \lambda\\
       \mu + m + 1
@@ -127,7 +129,7 @@ The substitution of $x = 1$ in Theorem \ref{main-thm} yields:
     & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t |^{2 \nu} (1 - s^2)^{\lambda -
     \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} C_{\ell}^{\lambda} (s)
     C_m^{\mu} (t) d s d t &  \nonumber\\
-    & = \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
+    &\displaystyle = \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
     \pi^{\frac{1}{2}} (2 \lambda)_{\ell} (2 \mu)_m \Gamma \left( \lambda +
     \frac{1}{2} \right) \Gamma \left( \mu + \frac{1}{2} \right) \Gamma \left(
     \nu + \frac{1}{2} \right) \Gamma (\lambda + \mu + 2 \nu + 1)}{\ell !m!
@@ -151,7 +153,7 @@ zero, we obtain
       \ell, m = 0\\
       \ell \equiv m + r \tmop{mod} 2
     \end{array}}}^{\infty} \frac{2^{2 - \rho} \Gamma (\rho + 1)^2}{(1 +
-    \delta_0^{\ell}) (1 + \delta_0^m) \prod_{\delta, \varepsilon \in \{ \pm 1
+    \delta_0^{\ell}) (1 + \delta_0^m) \displaystyle\prod_{\delta, \varepsilon \in \{ \pm 1
     \}} \Gamma \left( 1 + \frac{1}{2} (\rho + \delta \ell + \varepsilon m)
     \right)} \cos \ell \varphi \cos m \psi . &  \nonumber
   \end{eqnarray}
@@ -183,7 +185,7 @@ integral formula $(\ref{eqn:stz})$, which will be proved in Section
   \begin{eqnarray}
     & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t x |^{2 c - 1} (1 - s^2)^{a - 1} (1 -
     t^2)^{b - 1} d s d t = \frac{\sqrt{\pi} \Gamma (a) \Gamma (b) \Gamma
-    (c)}{\Gamma (a + c) \Gamma \left( b + \frac{1}{2} \right)} _2 F_1 \left(
+    (c)}{\Gamma (a + c) \Gamma \left( b + \frac{1}{2} \right)}{}_2 F_1 \left(
     \begin{array}{c}
       - c + \frac{1}{2}, - a - c + 1\\
       b + \frac{1}{2}
@@ -202,7 +204,7 @@ integral formula $(\ref{eqn:stz})$, which will be proved in Section
   Then\mygrammarfootnote{maybe, we need a comma here?} the left-hand side of
   $(\ref{eqn:main})$ amounts to
   \begin{eqnarray}
-    & \frac{2^{- \ell - m} \pi}{\Gamma \left( \lambda + \ell + \frac{1}{2}
+    & \displaystyle\frac{2^{- \ell - m} \pi}{\Gamma \left( \lambda + \ell + \frac{1}{2}
     \right) \Gamma \left( \mu + m + \frac{1}{2} \right)} I_{\ell, m} (x), & 
     \nonumber
   \end{eqnarray}
@@ -244,7 +246,7 @@ of Theorem \ref{main-thm}. We use the following two lemmas.
   0$ and for $- 1 \leqslant x \leqslant 1$ we have
   \begin{eqnarray}
     & \displaystyle\int_{- 1}^1 (1 + tx)^{a - 1} (1 - t^2)^{b - 1} d t = B \left(
-    \frac{1}{2}, b \right) _2 F_1 \left( \begin{array}{c}
+    \frac{1}{2}, b \right){}_2 F_1 \left( \begin{array}{c}
       \frac{1 - a}{2}, \frac{2 - a}{2}\\
       b + \frac{1}{2}
     \end{array} ; x^2 \right) . &  \nonumber
@@ -255,14 +257,14 @@ of Theorem \ref{main-thm}. We use the following two lemmas.
   \label{lem:Fisum}Let $a, b, c \in \mathbbm{C}$ with $b + \frac{1}{2} \nin
   -\mathbbm{N}$. Then\mygrammarfootnote{maybe, we need a comma here?}
   \[ G (a, b, c ; \zeta) \assign \displaystyle\sum_{i = 0}^{\infty} \frac{(a)_i (1 -
-     a)_i}{2^i i! (d)_i} _2 F_1 \left( \begin{array}{c}
+     a)_i}{2^i i! (d)_i}{}_2 F_1 \left( \begin{array}{c}
        \frac{1 - d - i}{2}, \frac{2 - d - i}{2}\\
        b + \frac{1}{2}
      \end{array} ; \zeta \right) \]
   converges when $| \zeta | < 1$, and we have
   \begin{equation} G (a, b, c ; \zeta) = \frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma
      \left( \frac{a + d}{2} \right) \Gamma \left( \frac{1 - a + d}{2} \right)}
-     _2 F_1 \left( \begin{array}{c}
+    {}_2 F_1 \left( \begin{array}{c}
        1 - \frac{a + d}{2}, \frac{1 + a - d}{2}\\
        b + \frac{1}{2}
    \end{array} ; \zeta \right) .  \label{eqn:iF}\end{equation}
@@ -278,7 +280,7 @@ show Proposition \ref{prop:2}.
   $_2 F_1$ shows
   \begin{eqnarray}
     & \displaystyle\int_{- 1}^1 (s + x)_+^{2 c - 1} (1 - s^2)^{a - 1} d s = 2^{a - 1} B (2
-    c, a) (1 + x)^{2 c + a} _2 F_1 \left( \begin{array}{c}
+    c, a) (1 + x)^{2 c + a}{}_2 F_1 \left( \begin{array}{c}
       1 - a, 2 c\\
       2 c + a
     \end{array} ; \frac{1 + x}{2} \right), &  \nonumber
@@ -290,7 +292,7 @@ show Proposition \ref{prop:2}.
   \begin{eqnarray}
     & 2 \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (s + tx)_+^{2 c - 1} (1 - s^2)^{a - 1} (1 -
     t^2)^{b - 1} d s d t &  \nonumber\\
-    & = 2^a B (2 c, a) \displaystyle\int_{- 1}^1 (1 + tx)^{2 c + a - 1} _2 F_1 \left(
+    & = 2^a B (2 c, a) \displaystyle\int_{- 1}^1 (1 + tx)^{2 c + a - 1}{}_2 F_1 \left(
     \begin{array}{c}
       1 - a, a\\
       2 c + a
@@ -309,8 +311,8 @@ show Proposition \ref{prop:2}.
   Owing to Lemma \ref{lem4}, this is equal to
   \begin{eqnarray}
     & B \left( \frac{1}{2}, b \right) \displaystyle\sum_{i = 0}^{\infty} \frac{(1 - a)_i
-    (a)_i}{2^i i! (2 c + a)_i} _2 F_1 \left( \begin{array}{c}
-      \frac{1 - 2 c - a - i}{2}, \frac{2 - 2 c - a - i}{2}\\
+    (a)_i}{2^i i! (2 c + a)_i}{}_2 F_1 \left( \begin{array}{c}
+      \displaystyle\frac{1 - 2 c - a - i}{2}, \frac{2 - 2 c - a - i}{2}\\
       b + \frac{1}{2}
     \end{array} ; x^2 \right) . &  \nonumber
   \end{eqnarray}
@@ -333,13 +335,13 @@ show Proposition \ref{prop:2}.
   3.13]{andrews2000special}}):
   \begin{eqnarray}
     & \;_2 F_1 \left( \begin{array}{c}
-      1 - a, b\\
+      \displaystyle1 - a, b\\
       2 b
-    \end{array} ; u \right) = \left( 1 - \frac{z}{2} \right)^{a - 1} _2 F_1
+    \end{array} ; u \right) = \left( 1 - \frac{z}{2} \right)^{a - 1}{}_2 F_1
     \left( \begin{array}{c}
-      \frac{1 - a}{2}, \frac{2 - a}{2}\\
+      \displaystyle\frac{1 - a}{2}, \frac{2 - a}{2}\\
       b + \frac{1}{2}
-    \end{array} ; \left( \frac{u}{2 - u} \right)^2 \right), &  \nonumber
+    \end{array} ; \displaystyle\left( \frac{u}{2 - u} \right)^2 \right), &  \nonumber
   \end{eqnarray}
   with $u = \frac{2 z}{1 + z}$, we get the desired result after a small
   computation using the duplication formula of the $\Gamma$-function.
@@ -358,7 +360,7 @@ show Proposition \ref{prop:2}.
   We claim that the left-hand side of $(\ref{eqn:iF})$ equals
   \begin{eqnarray}
     & G (a, b, d ; \zeta) = \displaystyle\sum_{j = 0}^{\infty} \frac{(1 - d)_{2 j}
-    \zeta^j}{2^{2 j} j! \left( b + \frac{1}{2} \right)_j} _2 F_1 \left(
+    \zeta^j}{2^{2 j} j! \left( b + \frac{1}{2} \right)_j}{}_2 F_1 \left(
     \begin{array}{c}
       a, 1 - a\\
       d - 2 j
@@ -378,7 +380,7 @@ show Proposition \ref{prop:2}.
   As $\;_2 F_1 \left( \begin{array}{c}
     a, 1 - a\\
     c
-  \end{array} ; \frac{1}{2} \right) = \frac{2^{1 - c} \sqrt{\pi} \Gamma
+  \end{array} ; \displaystyle\frac{1}{2} \right) =\displaystyle \frac{2^{1 - c} \sqrt{\pi} \Gamma
   (c)}{\Gamma \left( \frac{a + c}{2} \right) \Gamma \left( \frac{c - a + 1}{2}
   \right)}$ (see {\cite[Thm. 5.4]{andrews2000special}} for instance), we can
   continue as
@@ -388,7 +390,7 @@ show Proposition \ref{prop:2}.
       \zeta^j}{2^{2 j} j! \left( b + \frac{1}{2} \right)_j} \cdot \frac{2^{1 -
       d + 2 j} \sqrt{\pi} \Gamma (d - 2 j)}{\Gamma \left( \frac{a + d}{2} - j
       \right) \Gamma \left( \frac{1 - a + d}{2} - j \right)}\\
-      & = \frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma \left( \frac{a +
+      &\displaystyle = \frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma \left( \frac{a +
       d}{2} \right) \Gamma \left( \frac{1 - a + d}{2} \right)} \displaystyle\sum_{j =
       0}^{\infty} \frac{\left( 1 - \frac{a + d}{2} \right)_j \left( \frac{1 +
       a - d}{2} \right)_j}{j! \left( b + \frac{1}{2} \right)_j} \zeta^j
@@ -410,7 +412,7 @@ Since the Hermite polynomial $H_n (x)$ is obtained as a limit of the
 Gegenbauer polynomial:
 \begin{eqnarray}
   & H_n (x) = n! \lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
-  C_n^{\lambda} \left( \frac{x}{\sqrt[]{\lambda}} \right), &  \nonumber
+  C_n^{\lambda} \left( \displaystyle\frac{x}{\sqrt[]{\lambda}} \right), &  \nonumber
 \end{eqnarray}
 we can deduce the following integral formula of the Hermite polynomial from
 Corollaly \ref{cor:1}:
@@ -431,14 +433,14 @@ Corollaly \ref{cor:1}:
 \begin{example}
   (Mehta integral {\cite{mehta2004random}}) The Mehta integral
   \begin{equation*}
-     \frac{1}{(2 \pi)^{n / 2}} \displaystyle\int_{\mathbbm{R}^n} \prod_{i = 1}^n e^{-
-    t_i^2 / 2}_{} \prod_{1 \leqslant i < j \leqslant n} | t_i - t_j |^{2 \nu}
+     \frac{1}{(2 \pi)^{n / 2}} \displaystyle\int_{\mathbbm{R}^n} \displaystyle\prod_{i = 1}^n e^{-
+    t_i^2 / 2}_{} \displaystyle\prod_{1 \leqslant i < j \leqslant n} | t_i - t_j |^{2 \nu}
     d t_1 \cdots d t_n
-     = \prod_{j = 1}^n \frac{\Gamma (1 + j \nu)}{\Gamma (1 + \nu)}
+     = \displaystyle\prod_{j = 1}^n \frac{\Gamma (1 + j \nu)}{\Gamma (1 + \nu)}
   \end{equation*}
   in special case $n = 2$ implies the following equation
   \begin{eqnarray}
-    & \frac{1}{2 \pi} \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} e^{-
+    & \displaystyle\frac{1}{2 \pi} \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} e^{-
     \frac{x^2 + y^2}{2}} | x - y |^{2 \nu} d x d y = \frac{\Gamma (1 + 2
     \nu)}{\Gamma (1 + \nu)} . &  \nonumber\\
     &  &  \nonumber
@@ -471,10 +473,10 @@ with $(\ell, m) = (0, 0)$:
 \begin{example}
   \label{ex:1}(Selberg integral {\cite{Selberg:411367}}) The Selberg integral
   \begin{eqnarray}
-    & \displaystyle\int_0^1 \ldots \displaystyle\int_0^1 \prod_{i = 1}^n t_i^{\alpha - 1} (1 -
-    t_i)^{\beta - 1} \left| \prod_{1 \leqslant i < j \leqslant n} (t_i - t_j)
+    & \displaystyle\int_0^1 \ldots \displaystyle\int_0^1 \displaystyle\prod_{i = 1}^n t_i^{\alpha - 1} (1 -
+    t_i)^{\beta - 1} \left| \displaystyle\prod_{1 \leqslant i < j \leqslant n} (t_i - t_j)
     \right|^{2 \nu} d t_1 \cdots d t_n  \label{eqn:selberg} & \\
-    & = \prod_{j = 1}^n \frac{\Gamma (\alpha + (j - 1) \nu) \Gamma (\beta +
+    & = \displaystyle\prod_{j = 1}^n \frac{\Gamma (\alpha + (j - 1) \nu) \Gamma (\beta +
     (j - 1) \nu) \Gamma (1 + j \nu)}{\Gamma (\alpha + \beta + (n + j - 2) \nu)
     \Gamma (1 + \nu)} &  \nonumber
   \end{eqnarray}
@@ -485,8 +487,8 @@ with $(\ell, m) = (0, 0)$:
       \begin{array}[]{c}
      \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (1 -
     s^2)^{\lambda - \frac{1}{2}} (1 - t^2)^{\lambda - \frac{1}{2}} | s - t
-    |^{2 \nu} d s d t =  \\
-    = \frac{2^{4\lambda+2\nu}\Gamma \left( \lambda + \frac{1}{2} \right)^2}{\Gamma (2
+    |^{2 \nu} d s d t 
+    = \displaystyle\frac{2^{4\lambda+2\nu}\Gamma \left( \lambda + \frac{1}{2} \right)^2}{\Gamma (2
     \lambda + 1 + \nu)} \cdot \frac{\Gamma \left( \lambda + \nu + \frac{1}{2}
     \right)^2 \Gamma (1 + 2 \nu)}{\Gamma (2 \lambda + 2 \nu + 1) \Gamma (1 +
     \nu)},
@@ -511,7 +513,7 @@ with $(\ell, m) = (0, 0)$:
     \leqslant t < s \leqslant 1} \right) (1 - s^2)^{\lambda - \frac{1}{2}} (1
     - t^2)^{\mu - \frac{1}{2}} | s - t |^{- \lambda - \mu} d s d t
     \\
-    = \frac{{2^{\lambda + \mu}}\Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left(
+    \displaystyle= \frac{{2^{\lambda + \mu}}\Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left(
     \frac{1}{2} - \mu \right) \Gamma \left( \mu + \frac{1}{2}
     \right)^2}{\Gamma (\lambda + 1 - \mu) \Gamma (\mu + 1 - \lambda) \Gamma
     (\lambda + \mu + 1)}.
