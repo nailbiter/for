@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage[english]{babel}
 \usepackage{amsmath,amssymb,graphicx,bbm,hyperref,latexsym,theorem}
+\usepackage{mathtools}
 
 \numberwithin{equation}{section}
 
@@ -454,16 +455,18 @@ Table \ref{table}.
 For this, we limit ourselves to the special case of Theorem \ref{main-thm}
 with $(\ell, m, z) = (0, 0, 1)$, or equivalently, of Corollary \ref{cor:1}
 with $(\ell, m) = (0, 0)$:
-\begin{equation*}
+\begin{multline}  \label{eqn:lm0}
    \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda -
-  \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} d s d t 
-\end{equation*}\begin{equation}
+  \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} d s d t \\
   = \frac{\pi^{\frac{1}{2}}
   \Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left( \mu + \frac{1}{2}
   \right) \Gamma \left( \nu + \frac{1}{2} \right) \Gamma (\lambda + \mu + 2
   \nu + 1)}{\Gamma (\lambda + \nu + 1) \Gamma (\mu + \nu + 1) \Gamma (\lambda
-  + \mu + \nu + 1)} .  \label{eqn:lm0}
-\end{equation}
+  + \mu + \nu + 1)} .
+\end{multline}
+%%\begin{equation*}
+%%\end{equation*}\begin{equation}
+%%\end{equation}
 \begin{example}
   \label{ex:1}(Selberg integral {\cite{Selberg:411367}}) The Selberg integral
   \begin{eqnarray}
