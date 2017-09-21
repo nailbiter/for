@@ -1,4 +1,4 @@
-.PHONY: all commit push clean p test
+.PHONY: all commit push clean p test timing
 .SECONDARY: 
 
 ZIPNAME=kohnoseminar
@@ -6,7 +6,7 @@ WORKON=talks
 COMMIT_PREFIX=
 PDFS=abstract
 AUX=abstract.tex
-PDFS=mytalk
+PDFS=mytalk speech
 AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
@@ -23,11 +23,17 @@ MYTALK=../../../fortexmacs/seminars/kohno_19-09-17/mytalk.tm
 
 #test:
 #	grep '\\unfolded' $(MYTALK)|awk -F'<|\\||>' '{print $$5;}'
-all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
+all: $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX)) timing
+timing: ../../forscheme/timing.scm $(MYTALK) $(OUTDIR)/timing.csv 
+	guile -s $^
 p:  $(OUTDIR)/$(ZIPNAME).zip
 
+$(OUTDIR)/speech.pdf : speech.tex
+	$(XELATEX) $<
 $(OUTDIR)/mytalk.pdf : $(OUTDIR)/mytalk.ps
 	cd $(OUTDIR) && ps2pdf mytalk.ps
+$(OUTDIR)/mytalk.ps : $(MYTALK)
+	$(error rebuild $@ from $^)
 $(OUTDIR)/$(ZIPNAME).zip : $(addprefix $(OUTDIR)/, $(addsuffix .pdf,$(PDFS))) $(addprefix $(OUTDIR)/, $(AUX))
 	cd $(OUTDIR) && rm -f $(ZIPNAME).zip && zip -9 $(ZIPNAME) $(addsuffix .pdf,$(PDFS)) $(AUX)
 	unzip -l $@

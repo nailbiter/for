@@ -1,0 +1,403 @@
+\documentclass[pdf]{beamer}
+\mode<presentation>{\usetheme[secheader]{Boadilla}}
+\usepackage{mystyle}
+\usepackage{xeCJK}
+\usepackage{ruby}
+\includecomment{versiona}
+
+\newcommand{\red}[1]{{\color[rgb]{0.6,0,0}#1}}
+
+\newcommand{\kana}[2]{\ruby{#1}{#2}}
+\newcommand{\doubt}[1]{\fbox{#1}}
+\newcommand{\mynum}{}
+\newcommand{\pause}{$\bullet$}
+\newcommand{\slowly}[1]{\dashuline{#1}}
+\newcommand{\continuously}[1]{\underline{#1}}
+\newcommand{\badword}[1]{\uwave{#1}}
+\renewcommand{\C}{\mathbb{C}}
+
+\makeatletter
+\newenvironment<>{proofs}[1][\proofname]{\par\def\insertproofname{#1\@addpunct{.}}\usebeamertemplate{proof begin}#2}
+{\usebeamertemplate{proof end}}
+\makeatother
+
+\makeatletter
+\def\th@mystyle{%
+    \normalfont % body font
+    \setbeamercolor{block title example}{bg=orange,fg=white}
+    \setbeamercolor{block body example}{bg=orange!20,fg=black}
+    \def\inserttheoremblockenv{exampleblock}
+}
+\makeatother
+
+\setCJKmainfont{Hiragino Mincho Pro}
+
+\setbeameroption{show only notes}
+
+\theoremstyle{mystyle}
+\newtheorem{prop}{Proposition}
+
+\begin{document}
+\begin{frame}{title}
+\note{
+    始めまして。小林研博士２年生、レオンチエフ・アレックス
+    と申します。今回の集中セミナー発表を招き、誠にありがとうございます。
+    今日は
+    {２つのゲーゲンバウアー多項式に関連する積分公式について}
+    というタイトルでお話します。
+}
+\end{frame}
+\begin{frame}{sec1}
+\note{
+    まず、backgroundから、背景から始めたいと思います。
+    私の専門は表現論の対称性破れ作用素でございます。
+
+    ノンコンパクトリー群の無限次元表現を部分群に制限すると、
+    まはや既約になりません。この制限を構造分かるというのは、
+    一般的な意味での分岐即問題(generalized branching problem)と
+    呼ばれています。分岐即を理解するため、群の無限次元既約表現から、
+    部分群の既約表現への$G'$-intertwining作用素を考えます。この作用素は
+    対称性破れ作用素と呼ばれています。
+}
+\end{frame}
+\begin{frame}{prop1}
+\note{
+    去年はこのゼミで対称性破れ作用素の研究に関するプレグレスを発表したとき、
+    以下のような積分公式を示したと報告しました。
+
+    この積分公式の左辺は非常に簡単ですが（基本的にべきじょしか、power functionしか入っていません）、
+    この公式は色々な文献を探し、見つけられませんでしたので、Propositionとして述べさせて頂きました。
+}
+\end{frame}
+\begin{frame}{kohnoobs}
+\note{
+    これを去年報告したとき、河野先生にこの積分公式は表現論でよく知られているSelberg積分と
+    WarnaarやTarasovなどによってのSelberg積分の一般化を
+    似ていると\kana{指摘}{シテキ}して頂きました。
+}
+\end{frame}
+\begin{frame}{question}
+\note{
+    さて、去年にこれに対して気になって、以下の質問を考えておきました。
+    まず、この積分公式を知られているかどうか、気になりました。
+    また、これの一般化を示すことができるかどうか、さらに、
+    これは他の知られている結果とどういう関係があるかと考えました。
+}
+\end{frame}
+\begin{frame}{answer}
+\note{
+    一年ぐらい研究し、今日は簡単にご発表させて頂きたいです。
+    まず、この一年で日本数学会
+    2017年度年会と2017年度の実函数論・函数解析学合同シンポジウムで
+    発表をさせて頂き、この公式は結局知られていないと思うようになりました。
+    また、いくつ一般化を示して、Selberg積分の一般化などの色々な結果と関係を
+    調べておきました。これは今からご紹介したいと思います。
+}
+\end{frame}
+\begin{frame}{sec2}
+\note{
+    まず、示した一般化をご紹介したいと思います。
+}
+\end{frame}
+\begin{frame}{intform}
+\note{
+    得られた公式はそれぞれいくつ同値な形があるのですので、
+    今からこの積分形（integral form）、展開形（series expansion form）
+    と\kana{畳み込み}{たたみこみ}形(convolution form)をご紹介します。
+    まず、積分形から始めます。
+}
+\end{frame}
+\begin{frame}{prop2}
+\note{
+    まず、最初は出てきた積分公式に部分積分（integration by parts）を
+    適応すると、以下の簡単な一般化を得ます。ここで出てくる$C^\lambda_\ell$が
+    Gegenbauer多項式でございます。
+    前の結果と同じように、左辺の積分はガンマ関数の席で表すことができます。
+}
+\end{frame}
+\begin{frame}{defu}
+\note{
+    実際にはもっと一般な公式を示すことができますが、これをご紹介する前、
+    以下のGegenbauer多項式の再正規化（Gegenbauer多項式のrenormalization）を定めます。
+}
+\end{frame}
+\begin{frame}{prop3}
+\note{
+    その再正規化を定めると、次の一般化をご紹介します。
+    前の結果と同じですが、左辺に新しい実数パラメータ$x$が出てきます。
+    しかし、左辺はもっと複雑になるので、右辺ももっと複雑になります。
+    もう、単純なガンマ関数の席でなく、Hypergeometric$_2F_1$関数が出てきます。
+
+}
+\end{frame}
+\begin{frame}{expform}
+\note{
+    次は、得られた結果の展開形（series expansion form）
+    をご紹介します。
+}
+\end{frame}
+\begin{frame}{prop4}
+\note{
+    まず、前にご紹介した公式３を用い、$s+t$のべき場をGegenbauer多項式の
+    double seriesで展開することができます。
+}
+\end{frame}
+\begin{frame}{prop2p2}
+\note{
+    展開の係数は（coefficients）は前のように、ガンマ関数の積をで表せます。
+}
+\end{frame}
+\begin{frame}{rem1}
+\note{
+    複素数パラメータが十分よかったら、この命題で出てくるseriesの
+    absolute uniform convergenceを示しました。
+}
+\end{frame}
+\begin{frame}{rem2}
+\note{
+    この展開はどうして前にご紹介した積分公式とどうして同値かということを分かるため、
+}
+\end{frame}
+\begin{frame}{rem2p2}
+\note{
+    実部が十分大き実素数$\lambda$をパラメータとすると、
+    $[-1,1]$空間上で\kana{重み}{オモミ}関数 $(1-x^2)^{\alpha-1/2}$の直交規定（orthogonal basis）になるという
+    ことをご注意下さい。
+}
+\end{frame}
+\begin{frame}{prop5}
+\note{
+    hypergeometric$_2F_1$超幾何関数が出てきた一番一般な積分公式に対応する展開公式を
+    述べましょう。
+}
+\end{frame}
+\begin{frame}{prop5p2}
+\note{
+    あの積分公式と同じように、展開係数で単純なガンマ関数の積でなく、超幾何関数も出てきます。
+}
+\end{frame}
+\begin{frame}{convform}
+\note{
+    最後は、述べた結果のconvolution form(畳み込み形)を述べます。
+}
+\end{frame}
+\begin{frame}{defgfunc}
+\note{
+    まず、Gegenbauer多項式とべき場の積であれ$c^\lambda_\ell$という関数を定義します。
+}
+\end{frame}
+\begin{frame}{defmeltrans}
+\note{
+    その次は、image processing、応用数学と解析でよく出てくるMellin変換という積分変換を
+    ご紹介します。
+}
+\end{frame}
+\begin{frame}{propconvform}
+\note{
+    この設定の上で、次の結果をご紹介します。前に述べた積分公式を用い、
+    異なるパラメータの２つ$c^\lambda_\ell$と$c^\mu_m$の関数の畳み込みのMellin変換を
+    ガンマ関数で表すことができます。
+}
+\end{frame}
+\begin{frame}{sec3}
+\note{
+    その次は、与えられて結果と知られている積分公式の関係についてちょっと話したいと思います。
+}
+\end{frame}
+\begin{frame}{defpsi}
+\note{
+    次の結果を簡単に述べるため、$\Psi(\lambda,\mu,\nu)$という記号を定めましょう。
+}
+\end{frame}
+\begin{frame}{exselberg}
+\note{
+    まず、前に出てきた表現論と深い関係を持つSelberg積分との関係を述べましょう。
+}
+\end{frame}
+\begin{frame}{exselberg2}
+\note{
+}
+\end{frame}
+\begin{frame}{exselberg3}
+\note{
+}
+\end{frame}
+\begin{frame}{exwarnaar}
+\note{
+}
+\end{frame}
+\begin{frame}{exwarnaar2}
+\note{
+}
+\end{frame}
+\begin{frame}{exwarnaar3}
+\note{
+}
+\end{frame}
+\begin{frame}{extv}
+\note{
+}
+\end{frame}
+\begin{frame}{extv2}
+\note{
+}
+\end{frame}
+\begin{frame}{extv3}
+\note{
+}
+\end{frame}
+\begin{frame}{exdf}
+\note{
+}
+\end{frame}
+\begin{frame}{exdf2}
+\note{
+}
+\end{frame}
+\begin{frame}{exdf3}
+\note{
+}
+\end{frame}
+\begin{frame}{intdep}
+\note{
+}
+\end{frame}
+\begin{frame}{limits}
+\note{
+}
+\end{frame}
+\begin{frame}{defhermite}
+\note{
+}
+\end{frame}
+\begin{frame}{cor11}
+\note{
+}
+\end{frame}
+\begin{frame}{exmehta}
+\note{
+}
+\end{frame}
+\begin{frame}{exmehta2}
+\note{
+}
+\end{frame}
+\begin{frame}{exmehta3}
+\note{
+}
+\end{frame}
+\begin{frame}{sec4}
+\note{
+}
+\end{frame}
+\begin{frame}{lemred}
+\note{
+}
+\end{frame}
+\begin{frame}{lemredpf}
+\note{
+}
+\end{frame}
+\begin{frame}{met1}
+\note{
+}
+\end{frame}
+\begin{frame}{m1s1}
+\note{
+}
+\end{frame}
+\begin{frame}{m1s2}
+\note{
+}
+\end{frame}
+\begin{frame}{m1s3}
+\note{
+}
+\end{frame}
+\begin{frame}{m1s4}
+\note{
+}
+\end{frame}
+\begin{frame}{m1f}
+\note{
+}
+\end{frame}
+\begin{frame}{carlson}
+\note{
+}
+\end{frame}
+\begin{frame}{carlson2}
+\note{
+}
+\end{frame}
+\begin{frame}{carlson3}
+\note{
+}
+\end{frame}
+\begin{frame}{carlsonr2}
+\note{
+}
+\end{frame}
+\begin{frame}{carlsonr1}
+\note{
+}
+\end{frame}
+\begin{frame}{m2}
+\note{
+}
+\end{frame}
+\begin{frame}{m2s2}
+\note{
+}
+\end{frame}
+\begin{frame}{m3}
+\note{
+}
+\end{frame}
+\begin{frame}{m3s1}
+\note{
+}
+\end{frame}
+\begin{frame}{m3s2}
+\note{
+}
+\end{frame}
+\begin{frame}{m3s3}
+\note{
+}
+\end{frame}
+\begin{frame}{m3s4}
+\note{
+}
+\end{frame}
+\begin{frame}{m4}
+\note{
+}
+\end{frame}
+\begin{frame}{m4s1}
+\note{
+}
+\end{frame}
+\begin{frame}{m4s2}
+\note{
+}
+\end{frame}
+\begin{frame}{m4s3}
+\note{
+}
+\end{frame}
+\begin{frame}{m4s4}
+\note{
+}
+\end{frame}
+\begin{frame}{m4s5}
+\note{
+}
+\end{frame}
+\begin{frame}{bib}
+\note{
+    最後は、ご気にしていらっしゃるかたがいるかもしれないですが、
+    この話で出てきた参考文献をリストで求めます。
+}
+\end{frame}
+\end{document}
