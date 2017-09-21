@@ -1,4 +1,4 @@
-\begin{dot2tex}[mathmode,dot,scale=0.50]//fdp
+\begin{dot2tex}[mathmode,dot,scale=0.55]//fdp
   digraph G {
 	  {rank=same War10 DF85 TV03 KLg}
 	  {rank=same KL S}
@@ -7,18 +7,18 @@
 	  DF85 -> S [label=" ",texlbl="$\begin{array}[]{c}p=n,\\m=0\end{array}$"];
 	  S -> Spp [label=" ", texlbl="$\begin{array}[]{c}k=2,\\\alpha=\beta\end{array}$"]
 	  TV03 -> S [label=" ",texlbl="$k_1=0$"]
-	  War10 -> War10pp [label=" ",texlbl="$\begin{array}[]{c}k_1=k_2=1,\\\alpha_1=\beta_1,\\\alpha_2=\beta_2\end{array}$"];
+	  War10 -> War10pp [label=" ",texlbl="$\begin{array}[]{c}k_1=k_2=1,\\\alpha_1=\beta_1,\\\alpha_2=\beta_2\end{array}\kern2cm$"];
 	  KL -> Spp  [label=" ", texlbl="$\begin{array}[]{c}\\\\A=B\end{array}$"]
 	  KL -> War10pp[label=" ",texlbl="$\kern5emA+B=\nu+1$"];
-	  TV03 -> TV03p [label=" ",texlbl="$\begin{array}[]{c}k_1=k_2,\\ \alpha_1=1,\\\alpha_2=\beta_2\end{array}$"];
+	  TV03 -> TV03p [label=" ",texlbl="$\kern2cm\begin{array}[]{c}k_1=k_2,\\ \alpha_1=1,\\\alpha_2=\beta_2\end{array}$"];
 	  KL -> TV03p [label=" ",texlbl="$\kern-1.5cm A=0$"];
-	  DF85 -> DF85pp [label=" ",texlbl="$\begin{array}[]{c}m=n=1,\\ \alpha'=\beta',\\\alpha=\beta\end{array}$"];
+	  DF85 -> DF85pp [label=" ",texlbl="\kern2cm$\begin{array}[]{c}m=n=1,\\ \alpha'=\beta',\\\alpha=\beta\end{array}$"];
 	  KL -> DF85pp [label=" ",texlbl="$\nu=2$"];
 	  KLg -> KL [label=" ",texlbl="$\begin{array}[]{c}x=1,\\\ell=m=0\end{array}$"];
 
     KLg [shape="box",label="{\mbox{Thm.~\ref{main-thm}}}:3"];
     KL [shape="box",label="{\mbox{Cor.~\ref{cor:1}}}:3"];
-    S [shape="box",label="\mbox{[S]}:3"];
+    S [shape="box",label="\mbox{\cite{Selberg:411367}}:3"];
     Spp [shape="box",label="\mbox{\eqref{eqn:spec_selberg}}:2"]
     War10 [shape="box",label="\mbox{\cite{warnaar2010sl3}}:4"];
     DF85 [shape="box",label="\mbox{\cite{dotsenko1985four}}:3"];

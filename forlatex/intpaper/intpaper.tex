@@ -43,7 +43,7 @@
 
 \newcommand{\sectionsep}{{\sectionalsep}}
 
-\title{On certain integral formulae concerning two Gegenbauer polynomials}
+\title{Gegenbauer polynomials}
 
 \begin{document}
 \maketitle
@@ -63,6 +63,7 @@
 
 \section{Main results}
 
+Let $C_{\ell}^{\lambda} (s)$ be the Gegenbauer polynomial of degree $\ell$,\footnote{maybe, dot here instead of comma?}
 \begin{theorem}
   For $\lambda, \mu, \nu \in \mathbbm{C}$ with $\tmop{Re} \lambda, \tmop{Re}
   \mu, \tmop{Re} \nu > - 1 / 2$, \ the following expansion holds:
@@ -80,9 +81,7 @@
 	  \end{array}
   \end{equation*}
 \end{theorem}
-
-Let $C_{\ell}^{\lambda} (s)$ be the Gegenbauer polynomial of degree $\ell$,
-and we set
+We set
 \[ u_{\ell}^{\lambda} (s) \assign \frac{2^{2 \lambda - 1} \ell ! \Gamma
    (\lambda)}{\Gamma (2 \lambda + \ell)} (1 - s^2)^{\lambda - \frac{1}{2}}
    C_{\ell}^{\lambda} (s) . \]
@@ -128,6 +127,18 @@ The substitution of $x = 1$ in Theorem \ref{main-thm} yields:
 \begin{corollary}
   \label{cor:1}{\tmdummy}
   
+  \begin{eqnarray}
+    & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t |^{2 c-1} (1 - s^2)^{a-1
+	    } (1 - t^2)^{b-1} C_{\ell}^{a-\frac{1}{2}} (s)
+	    C_m^{b-\frac{1}{2}} (t) d s d t &  \nonumber\\
+	    &\displaystyle = \frac{(\frac{1}{2}- c)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
+    \pi^{\frac{1}{2}} (2a-1)_{\ell} (2 b-1)_m \Gamma \left( 
+    a \right) \Gamma \left( b \right) \Gamma \left(
+    c \right) \Gamma (a+b+2c-1)}{\ell !m!
+    \Gamma \left( a+c + \frac{\ell - m}{2}  \right) \Gamma \left(
+    b+c - \frac{\ell - m}{2}  \right) \Gamma \left( a+b +
+    c + \frac{\ell + m}{2} -\frac{1}{2} \right)} . & 
+  \end{eqnarray}
   \begin{eqnarray}
     & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t |^{2 \nu} (1 - s^2)^{\lambda -
     \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} C_{\ell}^{\lambda} (s)
@@ -414,7 +425,7 @@ the Selberg-type integrals.
 Since the Hermite polynomial $H_n (x)$ is obtained as a limit of the
 Gegenbauer polynomial:
 \begin{eqnarray}
-  & H_n (x) = n! \lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
+  & H_n (x) = n! \displaystyle\lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
   C_n^{\lambda} \left( \displaystyle\frac{x}{\sqrt[]{\lambda}} \right), &  \nonumber
 \end{eqnarray}
 we can deduce the following integral formula of the Hermite polynomial from
@@ -422,13 +433,13 @@ Corollaly \ref{cor:1}:
 
 \begin{corollary}
   \label{cor:Hermite}Suppose $\ell, m \in \mathbbm{N}$ with $\ell + m$
-  even.\footnote{should we change here $z$ to $x$ as well?}\footnote{maybe, it would make sense to change the 
-  integration variables from $(x,y)$ to $(s,t)$?}
+  even.\footnote{does it have any particular meaning that that it is ``$s+xt$'' in the next expression, while we have ``$s+tx$''
+	  in \eqref{eqn:main}?}
   \begin{eqnarray}
-    & \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} | x + z y |^{2 \nu}
-    e^{- x^2 - y^2} H_{\ell} (x) H_m (y) d x d y = (- \nu)_{\frac{\ell +
+    & \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} | s+xt |^{2 \nu}
+    e^{- s^2 - t^2} H_{\ell} (s) H_m (t) d s d t = (- \nu)_{\frac{\ell +
     m}{2}} (- 1)^{\frac{\ell + m}{2}} 2^{\ell + m} \pi^{\frac{1}{2}} \Gamma
-    \left( \frac{1}{2} + \nu \right) (z^2 + 1)^{\nu - \frac{\ell + m}{2}} z^m
+    \left( \frac{1}{2} + \nu \right) (x^2 + 1)^{\nu - \frac{\ell + m}{2}} x^m
     . &  \nonumber
   \end{eqnarray}
 \end{corollary}
@@ -472,14 +483,15 @@ with $(\ell, m) = (0, 0)$:
 \end{multline}
 \begin{example}
   \label{ex:1}(Selberg integral {\cite{Selberg:411367}}) The Selberg integral
-  \begin{eqnarray}
-    & \displaystyle\int_0^1 \ldots \displaystyle\int_0^1 \displaystyle\prod_{i = 1}^n t_i^{\alpha - 1} (1 -
+  \begin{multline}
+     \displaystyle\int_0^1 \ldots \displaystyle\int_0^1 \displaystyle\prod_{i = 1}^n t_i^{\alpha - 1} (1 -
     t_i)^{\beta - 1} \left| \displaystyle\prod_{1 \leqslant i < j \leqslant n} (t_i - t_j)
-    \right|^{2 \nu} d t_1 \cdots d t_n  \label{eqn:selberg} & \\
-    & = \displaystyle\prod_{j = 1}^n \frac{\Gamma (\alpha + (j - 1) \nu) \Gamma (\beta +
+    \right|^{2 \nu} d t_1 \cdots d t_n    \\
+     = \displaystyle\prod_{j = 1}^n \frac{\Gamma (\alpha + (j - 1) \nu) \Gamma (\beta +
     (j - 1) \nu) \Gamma (1 + j \nu)}{\Gamma (\alpha + \beta + (n + j - 2) \nu)
-    \Gamma (1 + \nu)} &  \nonumber
-  \end{eqnarray}
+    \Gamma (1 + \nu)}   
+	 \label{eqn:selberg} 
+  \end{multline}
   is a generalization of the Euler beta integral. A special case of
   $(\ref{eqn:selberg})$ with $(n, \alpha, \beta) = \left( 2, \lambda +
   \frac{1}{2}, \lambda + \frac{1}{2} \right)$ says
@@ -506,18 +518,18 @@ with $(\ell, m) = (0, 0)$:
   \alpha_2 \comma \beta_2, \gamma) = \left( 1, 1, \lambda + \frac{1}{2},
   \lambda + \frac{1}{2}, \mu + \frac{1}{2}, \mu + \frac{1}{2} \comma \lambda +
   \mu \right)$ implies the following equation
-  \begin{gather}
+  \begin{multline}
      \left( \displaystyle\int \displaystyle\int_{0 \leqslant s < t
     \leqslant 1} + \frac{\cos (\pi \lambda)}{\cos (\pi \mu)} \displaystyle\int \displaystyle\int_{0
     \leqslant t < s \leqslant 1} \right) (1 - s^2)^{\lambda - \frac{1}{2}} (1
-    - t^2)^{\mu - \frac{1}{2}} | s - t |^{- \lambda - \mu} d s d t\nonumber
+    - t^2)^{\mu - \frac{1}{2}} | s - t |^{- \lambda - \mu} d s d t
     \\
     \displaystyle= \frac{{2^{\lambda + \mu}}\Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left(
     \frac{1}{2} - \mu \right) \Gamma \left( \mu + \frac{1}{2}
     \right)^2}{\Gamma (\lambda + 1 - \mu) \Gamma (\mu + 1 - \lambda) \Gamma
     (\lambda + \mu + 1)}.
       \label{eqn:spec_warnaar}
-  \end{gather}
+  \end{multline}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
   m, x, \nu) = \left( 0, 0, 1, - \frac{\lambda + \mu}{2} \right)$, namely,
   $\lambda+\mu+2\nu=0$ in
@@ -531,12 +543,12 @@ with $(\ell, m) = (0, 0)$:
   \lambda + \frac{1}{2}, \lambda + \frac{1}{2}, 1, - 2 \nu \right)$ reduces to
   the following equation
   \begin{equation}
-    \frac{1}{2^{2 \lambda + 2 \nu + 1}} \displaystyle\displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (1 -
+    \displaystyle\displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (1 -
     s^2)^{\lambda - \frac{1}{2}} (t - s)_+^{2 \nu} d s d t = \frac{2^{2\lambda+2\nu+1}\Gamma
     \left( \lambda + \frac{1}{2} \right) \Gamma \left( \frac{3}{2} + \lambda +
 2 \nu \right)}{(1 + 2 \nu) \Gamma (2 + 2 \lambda + 2 \nu)} \mbox{.\footnotemark}
 \label{eqn:spec_tv}
-  \end{equation}\footnotetext{should we remove $\frac{1}{2^{2\lambda+2\nu+1}}$ on the left-hand side of this formula?}
+  \end{equation}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
   m, x, \mu) = \left( 0, 0, 1, \frac{1}{2} \right)$, namely, $\mu=\frac{1}{2}$ in \eqref{eqn:lm0}.
 \end{example}
@@ -563,8 +575,7 @@ The hierarchy of the integral formul{\ae} in Examples \ref{ex:1}-\ref{ex:4}
 and Theorem \ref{main-thm} is summarized as follows:\footnote{should I include
 the following in the diagram: Corollary \ref{cor:Hermite} (and its relation
 with the Mehta integral); relation with the results of
-{\cite{kobayashi2011schrodinger}}?}\footnote{maybe, we should switch to the {\ttfamily alpha} style
-for bibliography labels (i.e., not [1], [2], [3], but [TV03], [KM11], [M04] etc.)?}
+{\cite{kobayashi2011schrodinger}}?}
 
 \
 

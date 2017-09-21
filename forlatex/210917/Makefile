@@ -6,7 +6,7 @@ WORKON=talks
 COMMIT_PREFIX=
 PDFS=abstract
 AUX=abstract.tex
-PDFS=mytalk speech
+PDFS=mytalk speech reflection
 AUX=
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
@@ -52,7 +52,7 @@ $(OUTDIR)/abstract.dvi : abstract.tex
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
 $(OUTDIR)/%.pdf : %.tex
-	$(LATEXMK) $<
+	$(XELATEX) $<
 $(OUTDIR)/%.pdf : %-jap.tex
 	$(XELATEX) $<
 $(OUTDIR)/%.tex : %.tex

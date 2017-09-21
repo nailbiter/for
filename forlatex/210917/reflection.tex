@@ -1,0 +1,123 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{mystyle}
+\usepackage{amsthm}
+\usepackage{xeCJK}
+
+%%\usepackage{fancyhdr}
+%%\pagestyle{fancy}
+%%\fancyfoot[C]{text me at \href{mailto:leontiev@ms.u-tokyo.ac.jp}{leontiev@ms.u-tokyo.ac.jp} if there are mistakes/obscurities}
+%%\fancyhead{}
+
+\theoremstyle{theorem}
+\newtheorem{problem}{Problem}
+\newtheorem{question}{Question}
+\theoremstyle{definition}
+\newtheorem{answer}{My Answer}
+\newtheorem{reason}{Reasons}
+\theoremstyle{remark}
+\newtheorem{countermeasure}{Counter-measures}
+\newtheorem{remark}{Remark}
+\newtheorem*{remark*}{Remark}
+
+\setCJKmainfont{Hiragino Mincho Pro}
+
+\title{Reflection}
+\begin{document}
+
+	\maketitle
+
+\section{Trivia}
+\begin{center}
+	\begin{tabular}[]{l|l}
+		Date:&September 21, 2017\\
+		Conference/Seminar's name:& 2017 年 9 月河野研集中セミナー\\
+		Place:& 東大駒場、数理棟、１２８教室\\
+		Title:&{２つのゲーゲンバウアー多項式に関連する積分公式について}\\
+		Expected Duration:&90 min\\
+        Real Duration:& \textasciitilde 65/75 min\footnotemark\\
+		Self-evaluation:& 6 out of 10\\
+        Voice record:&{\ttfamily alex.mp3} in \url{<++>}
+	\end{tabular}
+\end{center}\footnotetext{
+        before questions and discussion/after all questions and discussion}
+\section{Timing}
+\begin{center}
+	\begin{tabular}[]{l|l|l}
+        checkpoint name (see {\ttfamily mytalk.pdf})&expected time&real time\\\hline
+        prop3&15 min&15 min\\
+        propconvform&30 min&30 min\\
+        exdf&45 min&\\
+        lemredpf&60 min&\\
+        m2&75 min&\\
+        bib&90 min&\\
+	\end{tabular}
+\end{center}
+
+\section{Questions asked during the talk and my answers}
+\begin{question}[Tamori--kun]
+    It was mentioned that the integral expressions presented have original appeared
+    in computations of (generalized) eigenvalues of SBO's. Could you explain precisely, which one occured?
+\end{question}
+\begin{answer}
+    In fact, both the very first one (the very special one)
+    \begin{equation}
+        \int_{-1}^1\int_{-1}^1\myabs{s-t}^{2\nu}(1-s^2)^{\lambda-\frac{1}{2}}(1-t^2)^{\beta-\frac{1}{2}}dsdt
+        \label{eqn:special}
+    \end{equation}
+    and the very general one\begin{equation}
+        \label{eqn:general}
+        \int_{-1}^1\int_{-1}^1\myabs{s-tx}^{2\nu}(1-s^2)^{\lambda-\frac{1}{2}}(1-t^2)^{\beta-\frac{1}{2}}
+        C^\lambda_{\ell}(s)C^\mu_m(t)dsdt
+    \end{equation}
+    appeared. The latter one appeared somehow indirectly:
+    more precisely, the eigenvalues of SBO in our setting can be given as follows
+    \begin{equation}
+        \frac{\Gamma\Gamma\cdots\Gamma}{\Gamma\Gamma\cdots\Gamma}\int_{-1}^1(1-x^2)^\alpha\cdot
+        \eqref{eqn:general}ds
+    \end{equation}
+    Now, I have said before that being able to compute eigenvalues is important for studying SBO's (for the simplest example,
+    we can say that SBO is zero if and only if all of its eigenvalues are). I have also said
+    that the integral expressions we have derived appeared in these eigenvalues, so you might have had
+    impression that we can completely compute eigenvalues of SBO's. Unfortunately, this is not so. Indeed,
+    using the beta integral, the latter expression can be rewritten as
+    \begin{equation*}
+        \frac{\Gamma\Gamma\cdots\Gamma}{\Gamma\Gamma\cdots\Gamma}{}_3F_2(;1).
+    \end{equation*}
+    Now, as I have mentioned before, if all five complex parameters of ${}_3F_2(;1)$ are 
+    independent, it can be shown that it cannot be represented as the product of Gamma functions.
+    Unfortunately, it turns out that precisely all 5 parameters are independent in the latter formula,
+    hence we cannot express eigenvalues of SBOs as product of Gamma functions in general.
+    
+    Nevertheless, we still might be able to determine when ${}_3F_2(;1)$ gets zero, but this is 
+    a bit more involved and we are working on this now.
+\end{answer}
+\begin{question}[Professor Kohno]
+    Can we further generalize the results (perhaps, by using integral formulae with more complex
+    parameters, cf. Aomoto--Gelfand integral etc.)
+\end{question}
+\begin{answer}
+    Actually, we might be able to. I have said before that one of the questions that
+    motivated us was ``Can we generalize \eqref{eqn:special}?'' However, it was a bit of a lie,
+    because as I just said to Tamori--san, even the most general of our integral expressions appeared
+    in the study of SBOs and this (rather than the mere generalization) was our original motivation.
+    Hence, it may well be that further generalization is possible.
+\end{answer}
+\section{Problems, their reasons and counter-measures}
+\begin{problem}
+\end{problem}
+\begin{reason}[]
+\end{reason}
+\begin{countermeasure}
+\end{countermeasure}
+\section{Miscellaneous comments}
+\begin{enumerate}
+    \item I would like to extremely thank Tamori--kun. His questions gave additional ten minutes to
+        my talk, so it was a bit less embarrassing.
+    \item This was my second time to use TeXmacs for the talk (the first one was Representation Theory
+        Symposium in Okinawa in November). I consider this attempt to be the first successful one.
+        Although overall talk went bad, the main reason is the time management, not technical restraints
+        (somehow opposite to what happened in Okinawa).
+\end{enumerate}
+\end{document}
