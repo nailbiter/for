@@ -1679,11 +1679,16 @@
       <label|prop:Vk7ZjF-2>The series on RHS of <math|<eqref|eqn:q30-1>>
       converges absolutely and uniformly on <math|<around*|[|-1,1|]><rsup|2>>
       for <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|3>>,
-      such that
+      such that <math|<stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<gtr\>2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>>>>>>.
+
+      Moreover, the latter condition is necessary in the sense that for
+      generic
 
       <\equation*>
-        <stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1;>>|<row|<cell|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-<around*|(|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>|)>\<leqslant\>-1.>>>>>
+        <around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\><around*|{|\<bbb-R\><rsub|\<geqslant\>0><rsup|2>\<times\>\<bbb-C\>\<mid\>Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<leqslant\>2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>|}>
       </equation*>
+
+      the series does not converge absolutely at least for <math|s=t=1>.
     </proposition>
 
     <subsection|Auxiliary lemmas>
@@ -1789,6 +1794,53 @@
       and the conclusion follows.
     </proof>
 
+    <\lemma>
+      <label|lem:Vk7ZjF-3>Let <math|a,b\<in\>\<bbb-C\>>. Then
+
+      <\equation*>
+        <frac|1|\<Gamma\><around*|(|a-n|)>\<Gamma\><around*|(|b+n|)>>=<choice|<tformat|<table|<row|<cell|\<Theta\><around*|(|<around*|\||n|\|><rsup|Re<around*|(|1-a-b|)>>|)>>|<cell|<around*|(|a,b\<nin\>\<bbb-Z\>|)>>>|<row|<cell|O<around*|(|<around*|\||n|\|><rsup|Re<around*|(|1-a-b|)>>|)>>|<cell|<around*|(|otherwise|)>>>>>>
+      </equation*>
+
+      where for <math|f,g> being functions of <math|n\<in\>\<bbb-Z\>> we
+      write <math|f=\<Theta\><around*|(|g|)>> to denote that for some
+      <math|c,C\<gtr\>0> we have <math|\<forall\>n\<in\>\<bbb-Z\>\\<around*|{|0|}>,c*<around*|\||g<around*|(|n|)>|\|>\<leqslant\><around*|\||f<around*|(|n|)>|\|>\<leqslant\>C<around*|\||g<around*|(|n|)>|\|>>;
+      and we write <math|f=O<around*|(|g|)>> to denote the fact that for some
+      <math|C\<geqslant\>0> we have <math|\<forall\>n\<in\>\<bbb-Z\>,<around*|\||f<around*|(|n|)>|\|>\<leqslant\>C<around*|\||g<around*|(|n|)>|\|>>.
+    </lemma>
+
+    <\proof>
+      We first assume <math|a,b\<nin\>\<bbb-Z\>>. Then, we can writeVk7ZjF
+
+      <\equation*>
+        <stack|<tformat|<cwith|2|2|1|1|cell-halign|r>|<cwith|1|1|1|1|cell-halign|l>|<table|<row|<cell|<frac|1|\<Gamma\><around*|(|a-n|)>\<Gamma\><around*|(|b+n|)>>=<frac|sin<around*|(|\<pi\>a|)>|\<pi\>>\<cdot\><frac|\<Gamma\><around*|(|1-a+n|)>|\<Gamma\><around*|(|b+n|)>><eq-number><label|eqn:Vk7Zjf-3>>>|<row|<cell|=<frac|sin<around*|(|\<pi\>b|)>|\<pi\>>\<cdot\><frac|\<Gamma\><around*|(|1-b-n|)>|\<Gamma\><around*|(|a-n|)>><eq-number><label|eqn:Vk7Zjf-4>>>>>>
+      </equation*>
+
+      Now, the formula\ 
+
+      <\equation*>
+        z\<rightarrow\>\<infty\>,<around*|\||ph
+        z|\|>\<leqslant\>\<pi\>-\<delta\>\<less\>\<pi\>,<frac|\<Gamma\><around*|(|z+a|)>|\<Gamma\><around*|(|z+b|)>>\<sim\>z<rsup|a-b><space|1em><text|<cite-detail|olver2010nist|5.11.12>>
+      </equation*>
+
+      and <math|<eqref|eqn:Vk7Zjf-3>,<eqref|eqn:Vk7Zjf-4>> above imply that
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|\<exists\>N\<in\>\<bbb-N\>;\<exists\>c,C\<gtr\>0>|<cell|\<forall\>n\<in\>\<bbb-Z\>>|<cell|<choice|<tformat|<table|<row|<cell|n\<gtr\>N>|<cell|\<Rightarrow\>>|<cell|c*n<rsup|1-a-b>\<leqslant\><around*|\||<frac|1|\<Gamma\><around*|(|a-n|)>\<Gamma\><around*|(|b+n|)>>|\|>\<leqslant\>C*n<rsup|1-a-b>>>|<row|<cell|-n\<less\>-N>|<cell|\<Rightarrow\>>|<cell|c*<around*|(|-n|)><rsup|1-a-b>\<leqslant\><around*|\||<frac|1|\<Gamma\><around*|(|a-n|)>\<Gamma\><around*|(|b+n|)>>|\|>\<leqslant\>C*<around*|(|-n|)><rsup|1-a-b>>>>>>>>>>>
+      </equation*>
+
+      and hence the conclusion follows for the <math|a,b\<nin\>\<bbb-Z\>>
+      case.
+
+      Now, suppose that <math|a\<in\>\<bbb-Z\>> hold. Then, for <math|n> big
+      enough <math|<frac|1|\<Gamma\><around*|(|a-n|)>\<Gamma\><around*|(|b+n|)>>>
+      vanishes, while the equality <math|<eqref|eqn:Vk7Zjf-4>> still holds,
+      so for very small <math|n>, we have
+      <math|<around*|\||<frac|1|\<Gamma\><around*|(|a-n|)>\<Gamma\><around*|(|b+n|)>>|\|>\<leqslant\>C*<around*|(|-n|)><rsup|1-a-b>>
+      holding. This implies the conclusion for
+      <math|a\<in\>\<bbb-Z\>,b\<nin\>\<bbb-Z\>> case. The case
+      <math|b\<in\>\<bbb-Z\>> is handled similarly.
+    </proof>
+
     <subsection|Proofs>
 
     <\proof>
@@ -1832,33 +1884,37 @@
     </remark*>
 
     <\proof>
-      <dueto|Proposition <reference|prop:Vk7ZjF-2>>It suffices to show the
-      absolute convergence of
+      <dueto|Proposition <reference|prop:Vk7ZjF-2>>We proceed as follows
 
       <\equation*>
-        <big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>.
-      </equation*>
-
-      The Lemma <reference|lem:Vk7ZjF-1> implies that for
-      <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>> such that
-      <math|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<geqslant\>-1>, it
-      suffices to show the absolute convergence of
-
-      <\equation*>
-        <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>|<row|<cell|<around*|(|<text|Lemma
-        <reference|lem:Vk7ZjF-2>>|)>>>|<row|<cell|\<lesssim\><stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>>>|<row|<cell|<around*|(|<text|cf.
-        proof of Lemma <reference|lem:Vk7ZjF-1>>|)>>>>>>
-      </equation*>
-
-      <\equation*>
-        <stack|<tformat|<table|<row|<cell|\<lesssim\><stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>/\<Gamma\><around*|(|-\<nu\>+<frac|l+m|2>|)>>>>>>>>>|<row|<cell|<around*|(|<text|note
-        that for <math|x\<geqslant\>0,\<alpha\>\<in\>\<bbb-C\>>
-        <math|<around*|\||x<rsup|\<alpha\>>|\|>=x<rsup|Re<around*|(|\<alpha\>|)>><rsup|>>>|)>>>|<row|<cell|\<approx\><stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>>>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><frac|<around*|(|<frac|l+m|2>|)><rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|<around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>>>|<row|<cell|=<big|sum><rsub|i=0><rsup|\<infty\>><frac|<around*|(|i+1|)>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>|i<rsup|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>+1>>\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>-<around*|(|Re<around*|(|\<lambda\>|)>+Re<around*|(|\<mu\>|)>+2Re<around*|(|\<nu\>|)>|)>>.>>>>>
+        <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><around*|\||<frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>|\|>>>|<row|<cell|=<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l=m><rsup|\<infty\>><around*|\||\<cdots\>|\|>+<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l\<neq\>m><rsup|\<infty\>><around*|\||\<cdots\>|\|>>>|<row|<cell|<around*|(|<text|Lemma
+        <reference|lem:Vk7ZjF-3>, <reference|lem:Vk7ZjF-2>>|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|+<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l\<neq\>m>l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>><around*|\||<frac|l-m|2>|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>><around*|\||<frac|l+m|2>|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>+<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l\<neq\>m><around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2\<mu\>+Re<around*|(|-1-\<mu\>-\<lambda\>-2\<nu\>|)>><around*|\||l-m|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|<around*|(|\<because\><stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<gtr\>2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>>>>>|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l\<neq\>m><around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2\<mu\>+Re<around*|(|-1-\<mu\>-\<lambda\>-2\<nu\>|)>><around*|\||l-m|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|<around*|(|\<because\>\<forall\>\<alpha\>\<in\>\<bbb-R\>\\<around*|{|-1|}>,lim<rsub|N\<rightarrow\>\<infty\>><frac|<big|sum><rsub|i=1><rsup|N>i<rsup|\<alpha\>>|N<rsup|max<around*|{|0,\<alpha\>+1|}>>>\<rightarrow\><space|0.2spc><rsup|\<exists\>>c<rsub|\<alpha\>>\<gtr\>0|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2\<mu\>+Re<around*|(|-1-\<mu\>-\<lambda\>-2\<nu\>|)>>i<rsup|max<around*|{|0,Re<around*|(|-\<lambda\>-\<mu\>-2\<nu\>|)>|}>>>>|<row|<cell|<around*|(|\<because\><stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<gtr\>2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>>>>>\<Rightarrow\>Re<around*|(|-\<lambda\>-\<mu\>-2\<nu\>|)>\<less\>0|)>>>|<row|<cell|=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2\<mu\>+Re<around*|(|-1-\<mu\>-\<lambda\>-2\<nu\>|)>>\<less\>\<infty\>.>>>>>
       </equation*>
 
       Note that as the estimate was done independently of
       <math|<around*|(|s,t|)>>, the convergence is seen to be uniform on
       <math|<around*|(|s,t|)>\<in\><around*|[|-1,1|]><rsup|2>>.
+
+      We now do the \PMoreover...\Q part. Indeed, let the triple
+
+      <\equation*>
+        <around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\><around*|{|\<bbb-R\><rsub|\<geqslant\>0><rsup|2>\<times\>\<bbb-C\>\<mid\>Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<leqslant\>2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>|}>
+      </equation*>
+
+      be given. We can perturb it a little (here we use genericity), so to
+      ensure that
+
+      <\equation*>
+        \<lambda\>+\<nu\>+1,\<mu\>+\<nu\>+1,\<lambda\>+\<mu\>+\<nu\>+1,\<nu\>+1\<nin\>\<bbb-Z\>;2\<lambda\>,2\<mu\>\<in\>-\<bbb-Z\>
+      </equation*>
+
+      We observe that
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><around*|\||<frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|1|)>C<rsup|\<mu\>><rsub|m><around*|(|1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>|\|>>>|<row|<cell|<around*|(|<text|take
+        only the <math|l=m> part; apply Lemma
+        <reference|lem:Vk7ZjF-3>>|)>>>|<row|<cell|\<gtrsim\><big|sum><rsub|l=0><rsup|\<infty\>><around*|\||<around*|(|l+\<lambda\>|)><around*|(|l+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|1|)>C<rsup|\<mu\>><rsub|l><around*|(|1|)>|\|>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|<around*|(|<text|<math|\<because\><around*|\||C<rsub|l><rsup|\<lambda\>><around*|(|1|)>|\|>=<around*|\||<binom|n+2\<alpha\>-1|n>|\|>\<sim\><frac|n<rsup|2Re<around*|(|\<lambda\>|)>-1>|<around*|\||\<Gamma\><around*|(|2\<lambda\>|)>|\|>>>>|)>>>|<row|<cell|\<gtrsim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>=<big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>=\<infty\>.>>>>>
+      </equation*>
     </proof>
   <|show-part>
     <section|section <code|Vk7ZjF>>
@@ -2103,6 +2159,7 @@
     <associate|auto.31-2|<tuple|30.1|?|#31>>
     <associate|auto.31-3|<tuple|30.2|?|#31>>
     <associate|auto.31-4|<tuple|30.3|?|#31>>
+    <associate|auto.31-5|<tuple|30.3.1|?|#31>>
     <associate|auto.32-1|<tuple|b|?|#32>>
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.5-1|<tuple|4|?|#5>>
@@ -2146,6 +2203,9 @@
     <associate|eqn:20-beplus|<tuple|23.1|25|#24>>
     <associate|eqn:Rod|<tuple|17|?>>
     <associate|eqn:Vk7ZjF-1|<tuple|30.2|?|#31>>
+    <associate|eqn:Vk7Zjf-1|<tuple|30.4|?|#31>>
+    <associate|eqn:Vk7Zjf-3|<tuple|30.3|?|#31>>
+    <associate|eqn:Vk7Zjf-4|<tuple|30.4|?|#31>>
     <associate|eqn:cor:1|<tuple|14|?>>
     <associate|eqn:derst|<tuple|18|?>>
     <associate|eqn:herm1|<tuple|14.1|15|#15>>
@@ -2158,6 +2218,8 @@
     <associate|eqn:q30-1|<tuple|30.1|32|#31>>
     <associate|eqn:stz|<tuple|16|?>>
     <associate|eqn:thm1|<tuple|9.1|9|#10>>
+    <associate|eqn\<of\>Vk7Zjf-1|<tuple|30.3|?|#31>>
+    <associate|eqn\<of\>Vk7Zjf-3|<tuple|30.3|?|#31>>
     <associate|fact:Vk7ZjF-1|<tuple|30.1|33|#31>>
     <associate|fig:howetan2d31|<tuple|23.1|24|#24>>
     <associate|fig:howetan2d32|<tuple|23.2|25|#24>>
@@ -2213,6 +2275,7 @@
     <associate|footnr-6|<tuple|6|25>>
     <associate|lem:Vk7ZjF-1|<tuple|30.1|33|#31>>
     <associate|lem:Vk7ZjF-2|<tuple|30.2|33|#31>>
+    <associate|lem:Vk7ZjF-3|<tuple|30.3|?|#31>>
     <associate|main-thm|<tuple|5|?>>
     <associate|prop:2|<tuple|15|?>>
     <associate|prop:Vk7ZjF-1|<tuple|30.1|32|#31>>
