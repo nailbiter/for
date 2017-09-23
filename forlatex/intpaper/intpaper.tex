@@ -4,10 +4,15 @@
 \usepackage{mathtools}
 \usepackage{dot2texi}
 \usepackage{tikz}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
 
 \numberwithin{equation}{section}
 
 %%%%%%%%%% Start TeXmacs macros
+\newcommand{\mynorm}[1]{\left\|#1\right\|}
 \catcode`\<=\active \def<{
 \fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
 \newcommand{\assign}{:=}
@@ -43,7 +48,7 @@
 
 \newcommand{\sectionsep}{{\sectionalsep}}
 
-\title{Gegenbauer polynomials}
+\title{Double Gegenbauer expansion of the power $\myabs{s+t}^\alpha$}
 
 \begin{document}
 \maketitle
@@ -63,24 +68,33 @@
 
 \section{Main results}
 
-Let $C_{\ell}^{\lambda} (s)$ be the Gegenbauer polynomial of degree $\ell$,\mygrammarfootnote{maybe, dot here instead of comma?}
-\begin{theorem}
-  For $\lambda, \mu, \nu \in \mathbbm{C}$ with $\tmop{Re} \lambda, \tmop{Re}
-  \mu, \tmop{Re} \nu > - 1 / 2$, \ the following expansion holds:
-  \begin{equation*}
-	  \begin{array}[]{c}
-     | s + t |^{2 \nu} = \displaystyle\sum_{\ell, m = 0 \mid \ell + m :
-    \tmop{even}}^{\infty} a_{\lambda, \mu, \nu}^{\ell, m} C_{\ell}^{\lambda}
-    (s) C_m^{\mu} (t), \\
-     \displaystyle a_{\lambda, \mu, \nu}^{\ell, m} = \frac{2^{- 2 \nu} (\lambda + \ell)
+Let $C_{\ell}^{\lambda} (s)$ be the Gegenbauer polynomial of degree $\ell$. For $\ell,m\in\N$, we define
+\begin{equation*}
+     \displaystyle a_{\lambda, \mu, \nu}^{\ell, m} \assign \frac{2^{- 2 \nu} (\lambda + \ell)
     (\mu + m) \Gamma (\lambda + \mu + 2 \nu + 1) \Gamma (\lambda) \Gamma (\mu)
     \Gamma (2 \nu + 1)}{\Gamma \left( \lambda + \nu + \frac{\ell - m}{2} + 1
     \right) \Gamma \left( \mu + \nu - \frac{\ell - m}{2} + 1 \right) \Gamma
     \left( \lambda + \mu + \nu + \frac{\ell + m}{2} + 1 \right) \Gamma \left(
     \nu + 1 - \frac{\ell + m}{2} \right)} .
+\end{equation*}
+\begin{theorem}
+	\label{thm:1-1}
+%%  For $\lambda, \mu, \nu \in \mathbbm{C}$ with $\tmop{Re} \lambda, \tmop{Re}
+%%  \mu, \tmop{Re} \nu > - 1 / 2$, \ the following expansion holds:
+	Let $\lambda,\mu$ be positive numbers and $\nu\in\C$ satisfying $2\Re \nu>\lambda+\mu+2$. Then
+  \begin{equation*}
+	  \begin{array}[]{c}
+     | s + t |^{2 \nu} = \displaystyle\sum_{\ell, m = 0 \mid \ell + m :
+    \tmop{even}}^{\infty} a_{\lambda, \mu, \nu}^{\ell, m} C_{\ell}^{\lambda}
+    (s) C_m^{\mu} (t), \\
 	  \end{array}
   \end{equation*}
+  where the right-hand side converges absolutely and uniformly in $(s,t)\in[-1,1]^2$.
 \end{theorem}
+By the Sobolev-type estimate for the Gegenbauer expansion given in Proposition \ref{prop:1718105},
+Theorem \ref{thm:1-1} is deduced from the integral formula (Proposition \ref{cor:1}),
+which is a special case at $x=1$ of the following integral formula.
+
 We set
 \[ u_{\ell}^{\lambda} (s) \assign \frac{2^{2 \lambda - 1} \ell ! \Gamma
    (\lambda)}{\Gamma (2 \lambda + \ell)} (1 - s^2)^{\lambda - \frac{1}{2}}
@@ -124,34 +138,34 @@ $f (s) \assign u_{\ell}^{\lambda} (s)$ satisfies
 
 The substitution of $x = 1$ in Theorem \ref{main-thm} yields:
 
-\begin{corollary}
+\begin{proposition}
   \label{cor:1}{\tmdummy}
   
-  \begin{eqnarray}
-    & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t |^{2 c-1} (1 - s^2)^{a-1
+  \begin{multline}
+    \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t |^{2 c-1} (1 - s^2)^{a-1
 	    } (1 - t^2)^{b-1} C_{\ell}^{a-\frac{1}{2}} (s)
-	    C_m^{b-\frac{1}{2}} (t) d s d t &  \nonumber\\
-	    &\displaystyle = \frac{(\frac{1}{2}- c)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
+	    C_m^{b-\frac{1}{2}} (t) d s d t   \\
+	    \displaystyle = \frac{(\frac{1}{2}- c)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
     \pi^{\frac{1}{2}} (2a-1)_{\ell} (2 b-1)_m \Gamma \left( 
     a \right) \Gamma \left( b \right) \Gamma \left(
     c \right) \Gamma (a+b+2c-1)}{\ell !m!
     \Gamma \left( a+c + \frac{\ell - m}{2}  \right) \Gamma \left(
     b+c - \frac{\ell - m}{2}  \right) \Gamma \left( a+b +
-    c + \frac{\ell + m}{2} -\frac{1}{2} \right)} . & 
-  \end{eqnarray}
-  \begin{eqnarray}
-    & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t |^{2 \nu} (1 - s^2)^{\lambda -
+    c + \frac{\ell + m}{2} -\frac{1}{2} \right)} . 
+    \end{multline}
+    \begin{multline}
+    \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t |^{2 \nu} (1 - s^2)^{\lambda -
     \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} C_{\ell}^{\lambda} (s)
-    C_m^{\mu} (t) d s d t &  \nonumber\\
-    &\displaystyle = \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
+    C_m^{\mu} (t) d s d t   \\
+    \displaystyle = \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
     \pi^{\frac{1}{2}} (2 \lambda)_{\ell} (2 \mu)_m \Gamma \left( \lambda +
     \frac{1}{2} \right) \Gamma \left( \mu + \frac{1}{2} \right) \Gamma \left(
     \nu + \frac{1}{2} \right) \Gamma (\lambda + \mu + 2 \nu + 1)}{\ell !m!
     \Gamma \left( \lambda + \nu + \frac{\ell - m}{2} + 1 \right) \Gamma \left(
     \mu + \nu - \frac{\ell - m}{2} + 1 \right) \Gamma \left( \lambda + \mu +
-    \nu + \frac{\ell + m}{2} + 1 \right)}  \label{eqn:cor:1} . & 
-  \end{eqnarray}
-\end{corollary}
+    \nu + \frac{\ell + m}{2} + 1 \right)}  \label{eqn:cor:1} .
+  \end{multline}
+\end{proposition}
 
 Taking the limit in $(\ref{eqn:cor:1})$ as both $\lambda$ and
 $\mu$ tend to be
@@ -415,6 +429,74 @@ show Proposition \ref{prop:2}.
   \ref{lem:Fisum} is proven.
 \end{proof*}
 
+\section{Sobolev-type estimates for Gegenbauer expansion}\label{sec:Sobolev}
+In this section we formulate a Sobolev-type estimate for Gegenbauer expansion, by which
+Theorem \ref{thm:1-1} follows from the integral formula (Proposition \ref{cor:1}).
+
+We begin with a basic \doubt{set-up}.
+If $\lambda>-\frac{1}{2}$ and $\lambda\neq0$, the Gegenbauer polynomials $\left\{ C_n^\lambda(x) \right\}_{n\in\N}$
+form an orthogonal basis in the Hilbert space $L_\lambda^2:=L^2\left( (-1,1),(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$
+with the norm\begin{equation}
+	\label{eqn:vnlmd}
+	v_n^\lambda=\left\|C_n^\lambda(x)\right\|^2_{L^2_\lambda}=\frac{\pi2^{1-2\lambda}\Gamma(n+2\lambda)}{n!(n+\lambda)\Gamma(\lambda)^2}
+\end{equation}Therefore, for any $f\in L_\lambda^2$, we have an expansion\begin{equation}
+	\label{eqn:aGegen}
+	f(x)=\displaystyle\sum_{n=0}^\infty a_n(f)C_n^\lambda(x)
+\end{equation}where $a_n(f)\in\C$ is\mygrammarfootnote{are?} given by
+\begin{equation*}
+	a_n(f)=\frac{1}{v_n^\lambda}\displaystyle\int_{-1}^1f(x)C_n^\lambda(x)(1-x^2)^{\lambda-\frac{1}{2}}dx.
+\end{equation*}
+\begin{proposition}
+	\label{prop:1718105}(Sobolev-type inequality for Gegenbauer expansion)
+	Suppose $\lambda>-\frac{1}{2}$ and $\lambda\neq0$. Then there exists $D_\lambda>0$ with the following property:
+	let $N\equiv N(\lambda)$ be the smallest integer satisfying $N>\lambda+1$. Then
+	\begin{equation*}
+		\mynorm{f(x)}_{L^\infty(-1,1)}\le D_\lambda\left( \mynorm{f(x)}_{L^2_\lambda}+\mynorm{f^{(N)}}_{L^2_{\lambda+N}} \right)	
+	\end{equation*}
+	for any $f(x)\in L_\lambda^2$ such that the $N$th derivative $f^{(N)}(x)$ belongs to $L^2_{\lambda+N}$. Moreover, the Gegenbauer expansion
+	\eqref{eqn:aGegen} converges absolutely and uniformly in $[-1,1]$ for any such $f(x)$.
+\end{proposition}
+Owing to Proposition \ref{prop:1718105}, we can deduce from Proposition \ref{cor:1}
+the proof of Theorem \ref{thm:1-1} under a slightly weaker assumption that $\lambda,\mu\in\R$ and $\nu\in\C$ satisfy\begin{equation*}
+	\lambda,\mu>-\frac{1}{2};\quad\lambda,\mu\neq0;\quad2\Re \nu>\lambda+\mu,
+\end{equation*}because for any $m,n\in\N$ with $m\le\lambda+2$ and $n\le\mu+2$, we have\begin{equation*}
+	\frac{\partial^{m+n}}{\partial s^m\partial t^n}\myabs{s+t}^{2\nu}\in L^2\left( (-1,1)^2,(1-s^2)^{\lambda+m}(1-t^2)^{\mu+n}dsdt \right).
+\end{equation*}The rest of this section is devoted to the proof of Proposition \ref{prop:1718105}. We begin with the following.
+\begin{lemma}
+	Suppose $\lambda\neq0$ and $\lambda>-\frac{1}{2}$. Let $N\in\N$. Then there is $d_{\lambda,N}$ such that \begin{equation*}
+		\mynorm{C_n^\lambda(x)}_{L^\infty(-1,1)}\le d_{\lambda,N}\mynorm{C^{\lambda+N}_{n-N}(x)}_{L^2_{\lambda+N}}\mbox{ for all $n\ge N$.}
+	\end{equation*}
+	\label{lem:1718109}
+\end{lemma}
+\begin{proof*}{Proof.}
+	In view that\begin{equation*}
+		\myabs{C_n^\lambda(x)}\le C_n^\lambda(1)=\frac{\Gamma(n+2\lambda)}{n!\Gamma(2\lambda)}\mbox{ for all $-1\le x\le 1$,}
+	\end{equation*}we see Lemma \ref{lem:1718109} from \eqref{eqn:vnlmd} and from the asymptotic behaviour of the $\Gamma$ function:\begin{equation*}
+		\Gamma(n+a)/\Gamma(n)\sim n^a.
+	\end{equation*}
+\end{proof*}
+
+We are ready to complete the proof of Proposition \ref{prop:1718105}.
+
+\begin{proof*}{Proof of Proposition \ref{prop:1718105}.}
+	Iterating the differential formula\begin{equation*}
+		\frac{d}{dx}C_n^\lambda(x)=2\lambda C^{\lambda+1}_{n-1}(x),
+	\end{equation*}we \doubt{get} the following $L^2$-expansion:\begin{equation*}
+		f^{(N)}(x)=2^N(\lambda)_N\displaystyle\sum_{n=0}^\infty a_n(f)C_{n-N}^{\lambda+N}(x).
+	\end{equation*}Thus, for all $n\ge N$, we have\begin{equation*}
+		\myabs{a_n(f)}\le\frac{1}{2^N(l)_N}\frac{\mynorm{f^{(N)}(x)}_{L^2_{\lambda+N}}}{C^{\lambda+N}_{n-N}(x)}_{L^2_{\lambda+N}}.
+	\end{equation*}By Lemme \ref{lem:1718109}\begin{equation*}
+		\myabs{a_n(f)}\mynorm{C^\lambda_n(x)}_{L^\infty(-1,1)}\le\frac{d_\lambda}{2^N(\lambda)_N}\mynorm{f^{(N)}(x)}_{L^2_{\lambda+N}}n^{\lambda-N}.
+	\end{equation*}Therefore, the right-hand side of \eqref{eqn:aGegen} converges uniformly in $[-1,1]$ because $\lambda-N<-1$.
+
+	For $0\le n<N$, we use\begin{equation*}
+		\myabs{a_n(f)}\sqrt{v_n^\lambda}\le\mynorm{f}_{L_\lambda^2}
+	\end{equation*}to conclude\begin{equation*}
+		\displaystyle\sum_{n=0}^\infty a_n(f)\mynorm{C_n^\lambda(x)}_{L^\infty(-1,1)}\le D_\lambda\left( \mynorm{f}_{L^2_\lambda}+\mynorm{f^{(N)}}_{L^2_{\lambda+N}} \right).
+	\end{equation*}where we set\begin{equation*}
+		D_\lambda:=\max\left\{ \frac{d_\lambda}{2^N(\lambda)_N}\displaystyle\sum_{n=N}^{\infty}n^{\lambda-N},\left\{ \frac{\mynorm{C_n^\lambda(x)}_{L^\infty(-1,1)}}{\sqrt{v_n^\lambda}} \right\}_{n=0,\cdots,N-1} \right\}.
+	\end{equation*}Hence Proposition \ref{prop:1718105} is proved.
+\end{proof*}
 \section{Limit case and special values}\label{sec:4}
 
 In this section we examine our main result (Theorem \ref{main-thm}) by taking
@@ -435,13 +517,12 @@ Corollaly \ref{cor:1}:
   \label{cor:Hermite}Suppose $\ell, m \in \mathbbm{N}$ with $\ell + m$
   even.\footnote{does it have any particular meaning that that it is ``$s+xt$'' in the next expression, while we have ``$s+tx$''
 	  in \eqref{eqn:main}?}
-  \begin{eqnarray}
-    & \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} | s+xt |^{2 \nu}
-    e^{- s^2 - t^2} H_{\ell} (s) H_m (t) d s d t = (- \nu)_{\frac{\ell +
+  \begin{multline}
+     \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} | s+xt |^{2 \nu}
+    e^{- s^2 - t^2} H_{\ell} (s) H_m (t) d s d t \\= (- \nu)_{\frac{\ell +
     m}{2}} (- 1)^{\frac{\ell + m}{2}} 2^{\ell + m} \pi^{\frac{1}{2}} \Gamma
-    \left( \frac{1}{2} + \nu \right) (x^2 + 1)^{\nu - \frac{\ell + m}{2}} x^m
-    . &  \nonumber
-  \end{eqnarray}
+    \left( \frac{1}{2} + \nu \right) (x^2 + 1)^{\nu - \frac{\ell + m}{2}} x^m.
+    \end{multline}
 \end{corollary}
 
 \begin{example}

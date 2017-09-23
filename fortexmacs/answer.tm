@@ -1,6 +1,6 @@
 <TeXmacs|1.99.4>
 
-<style|<tuple|article|number-europe|number-long-article|mystyle>>
+<style|<tuple|article|number-long-article|mystyle>>
 
 <\body>
   <\hide-preamble>
@@ -1944,11 +1944,15 @@
 
     <\proof>
       We recall that <math|C<rsub|n><rsup|\<alpha\>><around*|(|0|)>=<choice|<tformat|<table|<row|<cell|0>|<cell|<around*|(|n:odd|)>>>|<row|<cell|<around*|(|-1|)><rsup|n/2><frac|\<Gamma\><around*|(|\<alpha\>+<frac|n|2>|)>|\<Gamma\><around*|(|\<alpha\>|)>\<Gamma\><around*|(|<frac|n|2>+1|)>>>|<cell|<around*|(|n:even|)>>>>>>>
-      and proceed as follows:
+      and proceed as follows: (here we use <math|\<approx\><rprime|'>> to
+      denote the fact that <math|\<lesssim\>> holds and moreover that
+      <math|\<approx\>> holds for generic
+      <math|<around*|(|\<lambda\>\<comma\>\<mu\>,\<nu\>|)>>)
 
       <\equation*>
-        <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><around*|\||<frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|0|)>C<rsup|\<mu\>><rsub|m><around*|(|0|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>|\|>>>|<row|<cell|=<big|sum><rsub|l,m=0><rsup|\<infty\>><around*|\||<frac|<around*|(|2l+\<lambda\>|)><around*|(|2m+\<mu\>|)><frac|\<Gamma\><around*|(|\<lambda\>+l|)>|\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|l+1|)>><frac|\<Gamma\><around*|(|\<mu\>+m|)>|\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|m+1|)>>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<around*|(|l+m|)>+1|)>\<Gamma\><around*|(|\<nu\>+1-<around*|(|l+m|)>|)>>|\|>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0><rsup|\<infty\>><around*|\||<frac|<around*|(|l+m|)><rsup|2>l<rsup|Re<around*|(|\<lambda\>-1|)>>m<rsup|Re<around*|(|\<mu\>-1|)>>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<around*|(|l+m|)>+1|)>\<Gamma\><around*|(|\<nu\>+1-<around*|(|l+m|)>|)>>|\|>>>|<row|<cell|=<big|sum><rsub|l,m=0,l=m><rsup|\<infty\>><around*|\||\<ldots\>|\|>+<big|sum><rsub|l,m=0,l\<neq\>m><rsup|\<infty\>><around*|\||\<ldots\>|\|>>>|<row|<cell|<around*|(|<text|Lemma
-        <reference|lem:Vk7ZjF-3>>|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|Re<around*|(|\<lambda\>+\<mu\>|)>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>+<big|sum><rsub|l,m=0,l\<neq\>m><rsup|\<infty\>><around*|(|l+m|)><rsup|2>l<rsup|Re<around*|(|\<lambda\>-1|)>>m<rsup|Re<around*|(|\<mu\>-1|)>><around*|\||l-m|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>><around*|(|l+m|)><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|>>|<row|<cell|>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><around*|\||<frac|l-m|2>|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>><around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>l<rsup|2\<lambda\>>m<rsup|2\<mu\>>>>|<row|<cell|\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>><choice|<tformat|<table|<row|<cell|ln<around*|(|i|)>>|<cell|<around*|(|Re<around*|(|\<lambda\>-\<mu\>-2\<nu\>|)>=0|)>>>|<row|<cell|i<rsup|max<around*|{|0,Re<around*|(|-\<lambda\>-\<mu\>-2\<nu\>|)>|}>>>|<cell|<around*|(|<text|otherwise>|)>>>>>>\<cdot\>i<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>>>>
+        <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><around*|\||<frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|0|)>C<rsup|\<mu\>><rsub|m><around*|(|0|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>|\|>>>|<row|<cell|=<big|sum><rsub|l,m=0><rsup|\<infty\>><around*|\||<frac|<frac|\<Gamma\><around*|(|\<lambda\>+l+1|)>|\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|l+1|)>><frac|\<Gamma\><around*|(|\<mu\>+m+1|)>|\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|m+1|)>>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<around*|(|l+m|)>+1|)>\<Gamma\><around*|(|\<nu\>+1-<around*|(|l+m|)>|)>>|\|>>>|<row|<cell|\<approx\><rprime|'><big|sum><rsub|l,m=0><rsup|\<infty\>><around*|\||<frac|l<rsup|Re<around*|(|\<lambda\>|)>>m<rsup|Re<around*|(|\<mu\>|)>>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<around*|(|l+m|)>+1|)>\<Gamma\><around*|(|\<nu\>+1-<around*|(|l+m|)>|)>>|\|>>>|<row|<cell|=<big|sum><rsub|l,m=0,l=m><rsup|\<infty\>><around*|\||\<ldots\>|\|>+<big|sum><rsub|l,m=0,l\<neq\>m><rsup|\<infty\>><around*|\||\<ldots\>|\|>>>|<row|<cell|<around*|(|<text|Lemma
+        <reference|lem:Vk7ZjF-3>>|)>>>|<row|<cell|\<approx\><rprime|'><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|Re<around*|(|\<lambda\>+\<mu\>|)>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>+<big|sum><rsub|l,m=0,l\<neq\>m><rsup|\<infty\>>l<rsup|Re<around*|(|\<lambda\>|)>>m<rsup|Re<around*|(|\<mu\>|)>><around*|(|l+m|)><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>><around*|(|l-m|)><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|-1-2Re<around*|(|\<nu\>|)>>+<big|sum><rsub|l,m=0,l\<neq\>m><rsup|\<infty\>><around*|(|l+m|)><rsup|Re<around*|(|\<lambda\>|)><rsub|+>+Re<around*|(|\<mu\>|)><rsub|+>><around*|(|l+m|)><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>><around*|(|l-m|)><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|-1-2Re<around*|(|\<nu\>|)>>+<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|Re<around*|(|\<lambda\>|)><rsub|+>+Re<around*|(|\<mu\>|)><rsub|+>+Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>i<rsup|max<around*|{|0,Re<around*|(|-\<lambda\>-\<mu\>-2\<nu\>|)>|}>>>>|<row|<cell|\<lesssim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|-1-2Re<around*|(|\<nu\>|)>>+<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|Re<around*|(|\<lambda\>|)><rsub|+>+Re<around*|(|\<mu\>|)><rsub|+>-1-Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)><rsub|+>>>>|<row|<cell|Re<around*|(|\<lambda\>|)><rsub|+>+Re<around*|(|\<mu\>|)><rsub|+>+2Re<around*|(|\<nu\>|)><rsub|+>\<geqslant\>Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)><rsub|+>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><around*|\||<frac|l-m|2>|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>><around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>l<rsup|2\<lambda\>>m<rsup|2\<mu\>>
+        >>|<row|<cell|\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>><choice|<tformat|<table|<row|<cell|ln<around*|(|i|)>>|<cell|<around*|(|Re<around*|(|\<lambda\>-\<mu\>-2\<nu\>|)>=0|)>>>|<row|<cell|i<rsup|max<around*|{|0,Re<around*|(|-\<lambda\>-\<mu\>-2\<nu\>|)>|}>>>|<cell|<around*|(|<text|otherwise>|)>>>>>>\<cdot\>i<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>>>>
       </equation*>
 
       \;
@@ -2197,7 +2201,7 @@
     <associate|auto.31-3|<tuple|30.2|?|#31>>
     <associate|auto.31-4|<tuple|30.3|?|#31>>
     <associate|auto.31-5|<tuple|31|?|#31>>
-    <associate|auto.32-1|<tuple|31.1|?|#32>>
+    <associate|auto.32-1|<tuple|31.2|?|#32>>
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.5-1|<tuple|4|?|#5>>
     <associate|auto.6-1|<tuple|5|?|#6>>
@@ -2227,14 +2231,14 @@
     <associate|bib-wallach1988real|<tuple|Wal88|?>>
     <associate|bib-wallach1988real2|<tuple|Wal92|?>>
     <associate|bib-warnaar2010sl3|<tuple|War10|35|#32>>
-    <associate|cor|<tuple|13.1|14|#14>>
+    <associate|cor|<tuple|13.2|14|#14>>
     <associate|cor:1|<tuple|28|?>>
-    <associate|cor:2|<tuple|18.1|17|#19>>
-    <associate|cor:3|<tuple|20.1|22|#21>>
+    <associate|cor:2|<tuple|18.2|17|#19>>
+    <associate|cor:3|<tuple|20.6|22|#21>>
     <associate|eq-1|<tuple|8.3|8|#9>>
     <associate|eq-2|<tuple|7.1|5|#8>>
     <associate|eq:14|<tuple|28.1|29|#29>>
-    <associate|eq:q8-1|<tuple|8.1|6|#9>>
+    <associate|eq:q8-1|<tuple|8.2|6|#9>>
     <associate|eq:unknown|<tuple|21.2|23|#22>>
     <associate|eqn:20-beminus|<tuple|23.2|25|#24>>
     <associate|eqn:20-beplus|<tuple|23.1|25|#24>>
@@ -2252,12 +2256,12 @@
     <associate|eqn:q26-1|<tuple|26.1|27|#27>>
     <associate|eqn:q26-2|<tuple|13|?>>
     <associate|eqn:q26-3|<tuple|26.2|28|#27>>
-    <associate|eqn:q30-1|<tuple|31.1|32|#31>>
+    <associate|eqn:q30-1|<tuple|30.1|32|#31>>
     <associate|eqn:stz|<tuple|16|?>>
     <associate|eqn:thm1|<tuple|9.1|9|#10>>
     <associate|eqn\<of\>Vk7Zjf-1|<tuple|30.3|?|#31>>
     <associate|eqn\<of\>Vk7Zjf-3|<tuple|30.3|?|#31>>
-    <associate|fact:Vk7ZjF-1|<tuple|30.1|33|#31>>
+    <associate|fact:Vk7ZjF-1|<tuple|30.6|33|#31>>
     <associate|fig:howetan2d31|<tuple|23.1|24|#24>>
     <associate|fig:howetan2d32|<tuple|23.2|25|#24>>
     <associate|footnote-1|<tuple|1|20>>
@@ -2310,13 +2314,13 @@
     <associate|footnr-4|<tuple|4|24>>
     <associate|footnr-5|<tuple|5|25>>
     <associate|footnr-6|<tuple|6|25>>
-    <associate|lem:Vk7ZjF-1|<tuple|30.1|33|#31>>
-    <associate|lem:Vk7ZjF-2|<tuple|30.2|33|#31>>
-    <associate|lem:Vk7ZjF-3|<tuple|30.3|?|#31>>
+    <associate|lem:Vk7ZjF-1|<tuple|30.5|33|#31>>
+    <associate|lem:Vk7ZjF-2|<tuple|30.7|33|#31>>
+    <associate|lem:Vk7ZjF-3|<tuple|30.8|?|#31>>
     <associate|main-thm|<tuple|5|?>>
     <associate|prop:2|<tuple|15|?>>
-    <associate|prop:Vk7ZjF-1|<tuple|30.1|32|#31>>
-    <associate|prop:Vk7ZjF-2|<tuple|30.2|32|#31>>
+    <associate|prop:Vk7ZjF-1|<tuple|30.2|32|#31>>
+    <associate|prop:Vk7ZjF-2|<tuple|30.3|32|#31>>
     <associate|q-ode|<tuple|11.1|9|#12>>
     <associate|q1|<tuple|1.1|1|#2>>
     <associate|q14|<tuple|14.1|15|#15>>
@@ -2325,10 +2329,10 @@
     <associate|q:20|<tuple|20.1|20|#21>>
     <associate|q:21|<tuple|21.1|23|#22>>
     <associate|q:23|<tuple|23.1|24|#24>>
-    <associate|thm-1|<tuple|9.1|9|#10>>
-    <associate|thm-2|<tuple|19.1|19|#20>>
-    <associate|thm:3|<tuple|20.1|20|#21>>
-    <associate|thm:4|<tuple|20.2|20|#21>>
+    <associate|thm-1|<tuple|9.2|9|#10>>
+    <associate|thm-2|<tuple|19.2|19|#20>>
+    <associate|thm:3|<tuple|20.2|20|#21>>
+    <associate|thm:4|<tuple|20.3|20|#21>>
   </collection>
 </references>
 
