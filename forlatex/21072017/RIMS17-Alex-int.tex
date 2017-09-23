@@ -71,6 +71,25 @@
 				\vspace{1em}
 			\end{samepage}
 	}
+\newcommand{\myrelationdiagramBigCenterSix}[6]{
+			\begin{samepage}
+				\vspace{1em}
+		\centerline{
+		\xymatrixcolsep{#6cm}
+		\xymatrix{
+			\framebox{\mbox{#1}}\ar@{=>}[rd]^{\begin{array}[]{c}
+				#2
+			\end{array}}&&&&\framebox{\mbox{#4}}\ar@{=>}[ld]_{\kern-1.5cm\begin{array}[]{c}
+			#3
+	\end{array}}\\
+			&&&&
+		}}
+		\nopagebreak
+		\centerline{
+			\framebox{\mbox{#5}}}
+				\vspace{1em}
+			\end{samepage}
+	}
 \newcommand{\myrelationdiagramBigCenter}[5]{
 			\begin{samepage}
 				\vspace{1em}
@@ -251,7 +270,6 @@ Gegenbauer多項式
 		\end{eqnarray*}
 	まず、本稿の
 	主結果を述べる。
-	%は以下のようになる：
 	$\lambda,\mu,\nu$の有理型関数$b(\lambda,\mu,\nu)$と、
 		$\ell,m\in\N$に対して$\lambda,\mu,\nu$
 		の正則関数$a^{\ell,m}_{\lambda,\mu,\nu}$
@@ -260,7 +278,8 @@ Gegenbauer多項式
 		}
 		\begin{equation*}
 		\begin{array}{rcl}
-			a_{\lambda,\mu,\nu}^{\ell,m}&:=&\frac{ (\lambda + \ell) (\mu + m)}{\Gamma \left( \lambda + \nu + \frac{\ell -
+			a_{\lambda,\mu,\nu}^{\ell,m}&:=&\displaystyle
+			\frac{ (\lambda + \ell) (\mu + m)}{\Gamma \left( \lambda + \nu + \frac{\ell -
 			  m}{2} + 1 \right)  \Gamma \left( \mu + \nu -
 			  \frac{\ell - m}{2} + 1 \right)\Gamma \left( \lambda + \mu + \nu + \frac{\ell +
 			  m}{2} + 1 \right)\Gamma\left(  \nu+1-\frac{\ell+m}{2}\right)},\\[0.4cm]
@@ -270,14 +289,17 @@ Gegenbauer多項式
 		\end{array}
 		\end{equation*}
 	\begin{thm}\label{prop:exp-st-gg}
-		$\Re\lambda,\Re\mu>-\frac{1}{2},\Re\nu>0$ならば、
+%%		$\Re\lambda,\Re\mu>-\frac{1}{2},\Re\nu>0$ならば、
+		$\lambda,\mu,\nu\in\C$が\begin{equation*}
+			\myre{\nu}>\myabs{\lambda}+\myabs{\mu}+1,\myre{\lambda}>0,\myre{\mu}>0
+		\end{equation*}を満たすならば、次の等式が成り立つ。
 		\begin{equation}
 			| s + t |^{2 \nu} =b(\lambda,\mu,\nu) \displaystyle\sum_{\scalebox{0.6}{ $\begin{array}[]{c}
 			\ell, m = 0 \\ \ell + m : \tmop{even}
-		\end{array}$}}^{\infty} a_{\lambda,\mu,\nu}^{\ell,m} C_\ell^{\lambda} (s) C_m^{\mu} (t)
+		\end{array}$}}^{\infty} a_{\lambda,\mu,\nu}^{\ell,m} C_\ell^{\lambda} (s) C_m^{\mu} (t).
 			\label{eqn:exp-st-gg}
 		\end{equation}
-		が成り立つ。
+		ここで右辺は$(s,t)\in[-1,1]^2$で絶対一\doubt{様}収束する。
 	\end{thm}
 	第\ref{sec:proof}節
 	で、定理\ref{prop:exp-st-gg}の４通りの証明を紹介する。
@@ -287,8 +309,8 @@ Gegenbauer多項式
 		$\ell,m\in\N$に対して
 		    \begin{equation*}
 			    A^{\ell,m}_{\lambda,\mu,\nu} (x) \assign
-			    \frac{\Gamma \left( \nu + \frac{1}{2} \right) \Gamma
-				  (\lambda) \Gamma (\mu) (\lambda + l) x^m }{(1 + \nu)_{- \frac{\ell + m}{2}} \sqrt{\pi} \Gamma
+			    \frac{(-1)^{\frac{\ell+m}{2}}(-\nu)_{\frac{\ell+m}{2}}\Gamma \left( \nu + \frac{1}{2} \right) \Gamma
+				  (\lambda) \Gamma (\mu) (\lambda + l) x^m }{\sqrt{\pi} \Gamma
 				      (\mu + m) \Gamma \left( \lambda + \nu + \frac{\ell - m}{2} + 1 \right)}
 				    {}_2 F_1 \left( \begin{array}{c}
 				\frac{\ell + m}{2} - \nu, \frac{m - \ell}{2} - \nu - \lambda\\
@@ -324,15 +346,13 @@ Gegenbauer多項式
 	値であるということが分かる。
 
 	定理\ref{prop:exp-st-gg}は次の
-	積分公式と同値である。
+	積分公式
+	から導かれる。
 	\begin{prop}
 		\label{prop:int-st-gg}
-		\begin{equation*}
+		\begin{multline}
 			\int_{- 1}^1 \int_{- 1}^1 | s + t |^{2 \nu} (1 - s^2)^{\lambda - \frac{1}{2}}
-			(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t
-		\end{equation*}
-		{
-		\begin{equation}
+			(1 - t^2)^{\mu - \frac{1}{2}} C_\ell^{\lambda} (s) C_m^{\mu} (t) d s d t\\
 			=\frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}} \pi^{\frac{1}{2}} (2
 			\lambda)_\ell (2 \mu)_m \Gamma \left( \lambda + \frac{1}{2} \right) \Gamma \left(
 			\mu + \frac{1}{2} \right) \Gamma \left( \nu + \frac{1}{2} \right) \Gamma
@@ -340,8 +360,7 @@ Gegenbauer多項式
 		m}{2} + 1 \right) \Gamma \left( \mu + \nu - \frac{\ell - m}{2} + 1 \right) \Gamma
 		\left( \lambda + \mu + \nu + \frac{\ell + m}{2} + 1 \right)}
 			\label{eqn:int-st-gg}
-		\end{equation}
-		}
+		\end{multline}
 	\end{prop}
 	ここでPochhammer記号$(x)_n$は以下のように定義される。\begin{equation*}
 		(x)_n:=\frac{\Gamma(x+n)}{\Gamma(x)}=x(x+1)\cdots(x+n-1).
@@ -412,20 +431,14 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		４つの自由パラメータを含む多重積分である。
 
 		\begin{fact}[{\cite[(1.4)]{warnaar2010sl3}}]
-				{
-		\begin{equation*}
-%%			
-			\begin{array}{c}
+			\begin{multline}
 				\displaystyle\int
 				\displaylimits_{(t,s)\in C_{\beta_1,\gamma}^{k_1,k_2}}
 				\Psi_{k_1}(\alpha_1,\beta_1,\gamma;\boldt)
 				\Psi_{k_2}(\alpha_2,\beta_2,\gamma;\mathbf{s})
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}
 				d\boldt
-				d\mathbf{s}
-				      \end{array}\end{equation*}
-		\begin{equation*}
-			\begin{array}{c}
+				d\mathbf{s}\\
   = \displaystyle\prod_{i = 0}^{k_1 - 1} \frac{\Gamma (\alpha_1 + i \gamma) \Gamma (\beta_1
   + (i - k_2) \gamma) \Gamma ((i + 1) \gamma)}{\Gamma (\alpha_1 + \beta_1 + (i
   + k_1 - k_2 - 1) \gamma) \Gamma (\gamma)} \times\\
@@ -433,25 +446,27 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
   i \gamma) \Gamma ((i + 1) \gamma)}{\Gamma (\alpha_2 + \beta_2 + (i + k_2 -
   k_1 - 1) \gamma) \Gamma (\gamma)} \displaystyle\prod_{i = 0}^{k_1 - 1} \frac{\Gamma
   (\alpha_1 + \alpha_2 + (i - 1) \gamma)}{\Gamma (\alpha_1 + \alpha_2 + (i +
-  k_2 - 1) \gamma)},\\
+  k_2 - 1) \gamma)},
+  \end{multline}
+		\begin{equation*}
+			\begin{array}{c}
   \mbox{ここで　 }
   C^{k_1,k_2}_{\beta_1,\gamma}\mbox{: ある特異チェイン, }
 					  \beta_1 + \beta_2 = \gamma + 1,\\
 					    \forall i:
 					    \myre{\alpha_i}, \myre{\beta_i} > 0,
 					    \myabs{\gamma} \ll 1 ,\\ \quad 1
-						\le \forall i \le \displaystyle\min_j \{ k_j \} : \beta_1 + (i - k_2 - 1)
+						\le \forall i \le \displaystyle\min\left( k_1,k_2 \right) : \beta_1 + (i - k_2 - 1)
 						  \gamma \nin \mathbb{Z}.
 			\end{array}
 			\end{equation*}
-				}
 			\end{fact}
 命題\ref{prop:int-st-gg}の $\ell = m = 0,\lambda+\mu+2\nu=-1$ の特殊化は
 \cite[(1.4)]{warnaar2010sl3}\footnote{
 	  should I write the definition $C^{k_1,k_2}_{\beta_1,\gamma}$ (and $C^{k_1,k_2}_{\gamma}$ below) explicitly?
   }
   の $k_1=k_2 = 2,\alpha_1=\beta_1,\alpha_2=\beta_2$ の特別な場合と同じ結{果}を与える。\\
-  \myrelationdiagramBig{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
+  \myrelationdiagramBigSix{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
 		\lambda+\mu+2\nu=-1}{k_1=k_2=1,\\\alpha_1=\beta_1,\\\alpha_2=\beta_2}{{\cite{warnaar2010sl3}}}{
 		$
 				\left(\displaystyle\iint\displaylimits_{\scalebox{0.7}{$\begin{array}[]{c}
@@ -462,7 +477,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 			(t(1-t))^{\mu - \frac{1}{2}}  (s(1-s))^{\lambda - \frac{1}{2}}  | t - s |^{2\nu} d s d t
 			=\mypgf
 			$
-		}
+		}{1.9}
 		\subsection{TarasovとVarchenkoによるSelberg積分の一般化と定理\ref{prop:exp-st-gg}
 	の比較}
 	次にTarasovとVarchenkoによる$\mathfrak{sl}_3$に付随したSelberg積分の一般化との比較を行う。
@@ -471,16 +486,12 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 	\newcommand{\bolds}{\mathbf{s}}
 			\begin{fact}[{\cite[(3.4)]{tarasov2003selberg}}]
 			{
-		\begin{equation*}
-			\begin{array}{c}
+				\begin{multline}
 				\displaystyle\int_{(t,s)\in C_\gamma^{k_1,k_2}}
 				\Psi_{k_1}(\alpha,\beta_1,\gamma;\boldt)\Psi_{k_2}(1,\beta_2,\gamma
 				;\bolds)
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}
-				d\boldt d\bolds
-				      \end{array}\end{equation*}
-			      \begin{equation*}
-			\begin{array}{c}
+				d\boldt d\bolds\\
   =\displaystyle\prod_{j = 0}^{k_1 - 1} \frac{\Gamma (\alpha + j \gamma) \Gamma (\gamma + j
   \gamma)}{\Gamma (\gamma)} \displaystyle\prod_{j = 0}^{k_1 - k_2 - 1} \frac{\Gamma
   (\beta_1 + j \gamma)}{\Gamma (\alpha + \beta_1 + (2 k_1 - k_2 - 2 - j)
@@ -490,10 +501,13 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
   (\gamma + j \gamma)}{\Gamma (\beta_2 + 1 + (2 k_2 - k_1 - 2 - j) \gamma)
   \Gamma (\alpha + \beta_1 + \beta_2 + (k_1 + k_2 - 3 - j) \gamma) \Gamma
   (\gamma)},\\
+				\end{multline}
+				\begin{equation*}
+					\begin{array}[]{c}
 			  \mbox{ここで、　 }	C^{k_1,k_2}_{\gamma}\mbox{: ある特異チェイン},\\
 			  \myre{\alpha_i}, \myre{\beta_2} > 0, | \tmop{Re} \gamma | \ll 1.
-			\end{array}
-			\end{equation*}
+					\end{array}
+				\end{equation*}
 				}
 		\end{fact}
 		命題\ref{prop:int-st-gg}の $\ell = m = 0,\mu=\frac{1}{2}$ の特殊化が
@@ -521,18 +535,12 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 			\beta',\rho,\rho'$を含む以下の多重積分の具体的表示を与えた。
 		\begin{fact}[{\cite[(A.35)]{dotsenko1985four}}]
 			{
-		\begin{equation*}
-			\begin{array}{c}
+				\begin{multline}
 				\displaystyle\displaystyle\int_{(t,\tau)\in [0, 1]^{k_1+k_2}} 
 				\Psi_{k_1}(\alpha'+1,\beta'+1,\rho';\boldt)\Psi_{k_2}(\alpha+1,\beta+1
 				,\rho;\bolds)
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-\tau_j}^{-2}
 				dtd\tau\mbox{\footnotemark} \\
-				      \end{array}\end{equation*}
-			
-			      \begin{equation*}\footnotetext{which variables should
-		      we use in the integral: $(\boldt,\bolds)$ or $(t,\tau)$?}
-			\begin{array}{c}
   =n!m!\rho^{2 n m} \displaystyle\prod_{i, j = 1}^{n, m} \frac{1}{j \rho - i} \displaystyle\prod_{i = 1}^n
   \frac{\Gamma (i \rho')}{\Gamma (\rho')} \displaystyle\prod_{j = 1}^m \frac{\Gamma (j
   \rho)}{\Gamma (\rho)} \times\\
@@ -541,12 +549,15 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
   \displaystyle\prod_{i = 0}^{n - 1} \frac{\Gamma (1 + \alpha' + i \rho') \Gamma (1 +
   \beta' + i \rho')}{\Gamma (2 - 2 m + \alpha' + \beta' + (n - 1 + i) \rho')}
   \displaystyle\prod_{j = 0}^{m - 1} \frac{\Gamma (1 + \alpha + j \rho) \Gamma (1 + \beta +
-  j \rho)}{\Gamma (2 - 2 n + \alpha + \beta + (m - 1 + j) \rho)}\end{array}\end{equation*}
+  j \rho)}{\Gamma (2 - 2 n + \alpha + \beta + (m - 1 + j) \rho)}
+				\end{multline}
+\footnotetext{which variables should
+		      we use in the integral: $(\boldt,\bolds)$ or $(t,\tau)$?}
 					  ここで、
-					  \begin{equation}
+					  \begin{equation*}
 	 \alpha' = - \rho' \alpha, \beta' = - \rho' \beta, \rho' \rho = 1,
 						  \label{eqn:DF3}
-					  \end{equation}\begin{equation*}
+					  \end{equation*}\begin{equation*}
   \myre{\rho} < 0, \quad \myre{\alpha}, \myre{\beta} > (n - 1)
   + | \myre{\rho} | (m - 1).
 					  \end{equation*}
@@ -556,7 +567,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 命題\ref{prop:int-st-gg}の $\ell = m = 0,\nu=-1$ の特殊化は
 \cite[(A.35)]{dotsenko1985four}
 の $m=n=1,\alpha'=\beta',\alpha=\beta$ の特別な場合になる：\\
-\myrelationdiagramBigCenter{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
+\myrelationdiagramBigCenterSix{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
 		\nu=-1}
 			{
 				m=n=1,\\
@@ -567,7 +578,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 				$\displaystyle\iint\displaylimits_{(t, \tau) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} \tau^{\alpha} (1
 				- \tau)^{\alpha} | t - \tau |^{- 2} dtd\tau
 			=\mypgf$
-		}
+		}{1.5}
 
 		\input{4starstar}
 		\input{3star}
@@ -653,12 +664,12 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 			\end{array};1\right)=\mypgf;
 		\end{equation*}
 			\item 
-				Whipple Sum（下に記載されているFact $\ref{fact:whipple}$）
+				Whipple 和（下に記載されているFact $\ref{fact:whipple}$）
 				によって、超幾何関数
 				${}_3F_2(;1)$をガンマ関数の積で表せる.
 	\end{enumerate}
 \end{method}
-		\begin{fact}[Whipple sum]\label{fact:whipple}
+		\begin{fact}[Whipple 和]\label{fact:whipple}
 			\begin{equation*}
 			\begin{array}[]{c}
 			\left\{  \begin{array}[]{l}
@@ -707,7 +718,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 \begin{method}[命題\ref{prop:exp-stz-gg}によって]
 	命題\ref{prop:exp-stz-gg}を示すため、
 	まず、$\ell=m=0$場合に帰着する。すなわち、
-			\begin{equation}
+	\begin{multline}
 				2\iint\displaylimits_{[-1,1]^2} \left( s-tz \right)_+^{2c-1}  (1 - s^2)^{a - 1} (1 -
 				t^2)^{b - 1} d s d t
 				=
@@ -718,7 +729,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 				    b + \frac{1}{2}
 			    \end{array} ; z^2 \right)
 				\label{eqn:prop21}
-			\end{equation}
+	\end{multline}
 を示せば良い。
 	この公式は以下の主張から従う:
 	\begin{enumerate}
@@ -753,10 +764,10 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 				\end{equation*}
 			\end{lemma}
 \end{method}
-\begin{method}[積分公式とルジャンドル関数$ P^\alpha_\beta$を用いる]
+\begin{method}[積分公式とルジャンドル関数$ P^\alpha_\beta(x)$を用いる]
 	直接命題\ref{prop:int-st-gg}を示す:
 	\begin{enumerate}
-		\item まず、\cite[7.4.11]{kobayashi2011schrodinger}の公式
+		\item まず、\cite[(7.4.11)]{kobayashi2011schrodinger}の公式
 			{
 				
 			\begin{equation*}
@@ -765,7 +776,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 				(1-s^2)^{\nu+\frac{\mu}{2}+\frac{1}{4}}P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s).
 			\end{equation*}
 		}
-		を用いる(ここで、$P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-s)$
+		を用いる(ここで、$P_{\mu+m-\frac{1}{2}}^{-2\nu-\mu-\frac{1}{2}}(-x)$
 		はルジャンドルの陪関数である);
 		\item 次の段階は以下の積分に帰着できる
 			\begin{equation}\label{eqn:m4-1}
@@ -818,7 +829,8 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 $\pi$から$\tau$への対称性破れ作用素に関して以下の問題を考えよう。
 \begin{goal*}（\cite{kobayashi2015program}）
 		対称性破れ作用素${A:\pi\kern-0.1cm\mid_{G'}\to\tau}$
-		を全て構成し、分類し、さらにその性質を詳しく調べる.
+		を全て構成し、分類し、さらに
+		関数等式や像を決定する。
 	\end{goal*}
 	この問題は$(G,G')=(O(n+1,1),O(n,1))$で$\pi$、$\tau$がそれぞれ群$G$、$G'$
 	の球主系列表現のとき、Kobayashi--Speh \cite{kobayashi2015symmetry}によって
