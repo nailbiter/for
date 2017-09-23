@@ -1911,7 +1911,7 @@
       ensure that
 
       <\equation*>
-        \<lambda\>+\<nu\>+1,\<mu\>+\<nu\>+1,\<lambda\>+\<mu\>+\<nu\>+1,\<nu\>+1\<nin\>\<bbb-Z\>;2\<lambda\>,2\<mu\>\<in\>-\<bbb-Z\>
+        \<lambda\>+\<nu\>+1,\<mu\>+\<nu\>+1,\<lambda\>+\<mu\>+\<nu\>+1,\<nu\>+1\<nin\>\<bbb-Z\>;2\<lambda\>,2\<mu\>\<nin\>-\<bbb-Z\>
       </equation*>
 
       We then observe that

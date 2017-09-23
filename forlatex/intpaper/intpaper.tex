@@ -436,12 +436,12 @@ show Proposition \ref{prop:2}.
 In this section we formulate a Sobolev-type estimate for Gegenbauer expansion, by which
 Theorem \ref{thm:1-1} follows from the integral formula (Proposition \ref{cor:1}).
 
-We begin with a basic \doubt{set-up}.
+We begin with a basic {set-up}.
 If $\lambda>-\frac{1}{2}$ and $\lambda\neq0$, the Gegenbauer polynomials $\left\{ C_n^\lambda(x) \right\}_{n\in\N}$
 form an orthogonal basis in the Hilbert space $L_\lambda^2:=L^2\left( (-1,1),(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$
 with the norm\begin{equation}
 	\label{eqn:vnlmd}
-	v_n^\lambda=\left\|C_n^\lambda(x)\right\|^2_{L^2_\lambda}=\frac{\pi2^{1-2\lambda}\Gamma(n+2\lambda)}{n!(n+\lambda)\Gamma(\lambda)^2}
+	v_n^\lambda\assign\left\|C_n^\lambda(x)\right\|^2_{L^2_\lambda}=\frac{\pi2^{1-2\lambda}\Gamma(n+2\lambda)}{n!(n+\lambda)\Gamma(\lambda)^2}
 \end{equation}Therefore, for any $f\in L_\lambda^2$, we have an expansion\begin{equation}
 	\label{eqn:aGegen}
 	f(x)=\displaystyle\sum_{n=0}^\infty a_n(f)C_n^\lambda(x)
@@ -454,19 +454,19 @@ with the norm\begin{equation}
 	Suppose $\lambda>-\frac{1}{2}$ and $\lambda\neq0$. Then there exists $D_\lambda>0$ with the following property:
 	let $N\equiv N(\lambda)$ be the smallest integer satisfying $N>\lambda+1$. Then
 	\begin{equation*}
-		\mynorm{f(x)}_{L^\infty(-1,1)}\le D_\lambda\left( \mynorm{f(x)}_{L^2_\lambda}+\mynorm{f^{(N)}}_{L^2_{\lambda+N}} \right)	
+		\mynorm{f(x)}_{L^\infty(-1,1)}\le D_\lambda\left( \mynorm{f(x)}_{L^2_\lambda}+\mynorm{f^{(N)}(x)}_{L^2_{\lambda+N}} \right)	
 	\end{equation*}
 	for any $f(x)\in L_\lambda^2$ such that the $N$th derivative $f^{(N)}(x)$ belongs to $L^2_{\lambda+N}$. Moreover, the Gegenbauer expansion
 	\eqref{eqn:aGegen} converges absolutely and uniformly in $[-1,1]$ for any such $f(x)$.
 \end{proposition}
 Owing to Proposition \ref{prop:1718105}, we can deduce from Proposition \ref{cor:1}
 the proof of Theorem \ref{thm:1-1} under a slightly weaker assumption that $\lambda,\mu\in\R$ and $\nu\in\C$ satisfy\begin{equation*}
-	\lambda,\mu>-\frac{1}{2};\quad\lambda,\mu\neq0;\quad2\Re \nu>\lambda+\mu,
+	\lambda,\mu>-\frac{1}{2};\quad\lambda,\mu\neq0;\quad2\Re \nu>\lambda+\mu+2,
 \end{equation*}because for any $m,n\in\N$ with $m\le\lambda+2$ and $n\le\mu+2$, we have\begin{equation*}
 	\frac{\partial^{m+n}}{\partial s^m\partial t^n}\myabs{s+t}^{2\nu}\in L^2\left( (-1,1)^2,(1-s^2)^{\lambda+m}(1-t^2)^{\mu+n}dsdt \right).
 \end{equation*}The rest of this section is devoted to the proof of Proposition \ref{prop:1718105}. We begin with the following.
 \begin{lemma}
-	Suppose $\lambda\neq0$ and $\lambda>-\frac{1}{2}$. Let $N\in\N$. Then there is $d_{\lambda,N}>0$ such that \begin{equation*}
+	Suppose $\lambda\neq0$ and $\lambda>-\frac{1}{2}$. Let $N\in\N$. Then there is a constant $d_{\lambda,N}>0$ such that \begin{equation*}
 		\mynorm{C_n^\lambda(x)}_{L^\infty(-1,1)}\le d_{\lambda,N}\mynorm{C^{\lambda+N}_{n-N}(x)}_{L^2_{\lambda+N}}\mbox{ for all $n\ge N$.}
 	\end{equation*}
 	\label{lem:1718109}
@@ -484,10 +484,10 @@ We are ready to complete the proof of Proposition \ref{prop:1718105}.
 \begin{proof*}{Proof of Proposition \ref{prop:1718105}.}
 	Iterating the differential formula\begin{equation*}
 		\frac{d}{dx}C_n^\lambda(x)=2\lambda C^{\lambda+1}_{n-1}(x),
-	\end{equation*}we \doubt{get} the following $L^2$-expansion:\begin{equation*}
+	\end{equation*}we {get} the following $L^2$-expansion:\begin{equation*}
 		f^{(N)}(x)=2^N(\lambda)_N\displaystyle\sum_{n=0}^\infty a_n(f)C_{n-N}^{\lambda+N}(x).
 	\end{equation*}Thus, for all $n\ge N$, we have\begin{equation*}
-		\myabs{a_n(f)}\le\frac{1}{2^N(l)_N}\frac{\mynorm{f^{(N)}(x)}_{L^2_{\lambda+N}}}{\mynorm{C^{\lambda+N}_{n-N}(x)}_{L^2_{\lambda+N}}}.
+		\myabs{a_n(f)}\le\frac{1}{2^N(\lambda)_N}\frac{\mynorm{f^{(N)}(x)}_{L^2_{\lambda+N}}}{\mynorm{C^{\lambda+N}_{n-N}(x)}_{L^2_{\lambda+N}}}.
 	\end{equation*}By Lemma \ref{lem:1718109}\begin{equation*}
 		\myabs{a_n(f)}\mynorm{C^\lambda_n(x)}_{L^\infty(-1,1)}\le\frac{d_\lambda}{2^N(\lambda)_N}\mynorm{f^{(N)}(x)}_{L^2_{\lambda+N}}n^{\lambda-N}.
 	\end{equation*}Therefore\mygrammarfootnote{comma here?} the right-hand side of \eqref{eqn:aGegen} converges uniformly in $[-1,1]$ because $\lambda-N<-1$.
