@@ -1921,6 +1921,49 @@
         only the <math|l=m> part; apply Lemma
         <reference|lem:Vk7ZjF-3>>|)>>>|<row|<cell|\<gtrsim\><big|sum><rsub|l=0><rsup|\<infty\>><around*|\||<around*|(|l+\<lambda\>|)><around*|(|l+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|1|)>C<rsup|\<mu\>><rsub|l><around*|(|1|)>|\|>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|<around*|(|<text|<math|\<because\><around*|\||C<rsub|n><rsup|\<alpha\>><around*|(|1|)>|\|>=<around*|\||<binom|n+2\<alpha\>-1|n>|\|>\<sim\><frac|n<rsup|2Re<around*|(|\<alpha\>|)>-1>|<around*|\||\<Gamma\><around*|(|2\<alpha\>|)>|\|>>>>|)>>>|<row|<cell|\<gtrsim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>=<big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>=\<infty\>.>>>>>
       </equation*>
+
+      Let us especially prove the last <math|\<gtrsim\>> sign.
+    </proof>
+
+    <\lemma>
+      The last <math|\<gtrsim\>> sign holds true.
+    </lemma>
+
+    <\proof>
+      We need to show that\ 
+
+      <\equation*>
+        <big|sum><rsub|l=0><rsup|\<infty\>><around*|\||<around*|(|l+\<lambda\>|)><around*|(|l+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|1|)>C<rsup|\<mu\>><rsub|l><around*|(|1|)>|\|>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>\<gtrsim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>.
+      </equation*>
+
+      We have assumed that <math|\<lambda\>,\<mu\>\<in\>\<bbb-R\><rsub|\<geqslant\>0>>,
+      so that\ 
+
+      <\equation*>
+        <around*|\||<around*|(|l+\<lambda\>|)>|\|>=l+\<lambda\>\<geqslant\>l,<space|1em><around*|\||l+\<mu\>|\|>=l+\<mu\>\<geqslant\>l.
+      </equation*>
+
+      Moreover,
+
+      <\equation*>
+        lim<rsub|l\<rightarrow\>\<infty\>><frac|<around*|\||C<rsub|l><rsup|\<lambda\>><around*|(|1|)>|\|>|n<rsup|2Re<around*|(|\<lambda\>|)>-1>>\<rightarrow\><space|0.2spc><rsup|\<exists\>>c<rsub|\<lambda\>>\<gtr\>0
+      </equation*>
+
+      and similarly for <math|C<rsub|l><rsup|\<mu\>><around*|(|1|)>>, here
+      <math|\<exists\>N>, such that (note that
+      <math|Re<around*|(|\<lambda\>|)>=\<lambda\>,Re<around*|(|\<mu\>|)>=\<mu\>>)
+
+      <\equation*>
+        \<forall\>l\<gtr\>N,<space|1em><around*|\||C<rsub|l><rsup|\<lambda\>><around*|(|1|)>|\|>\<gtr\><frac|c<rsub|\<lambda\>>|2>l<rsup|2\<lambda\>-1>,<space|1em><around*|\||C<rsub|l><rsup|\<mu\>><around*|(|1|)>|\|>\<gtr\><frac|c<rsub|\<mu\>>|2>l<rsup|2\<mu\>-1>.
+      </equation*>
+
+      Hence,
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|\<forall\>l\<gtr\>N,<around*|\||<around*|(|l+\<lambda\>|)><around*|(|l+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|1|)>C<rsup|\<mu\>><rsub|l><around*|(|1|)>|\|>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|\<geqslant\><frac|c<rsub|\<mu\>>c<rsub|\<lambda\>>|4><around*|(|l<rsup|2\<lambda\>+2\<mu\>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>|)>=<frac|c<rsub|\<mu\>>c<rsub|\<lambda\>>|4><around*|(|l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>|)>,>>>>>
+      </equation*>
+
+      hence the conclusion follows.
     </proof>
 
     <section|section <verbatim|<code|A000Md>>>
