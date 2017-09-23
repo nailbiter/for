@@ -1691,6 +1691,12 @@
       the series does not converge absolutely at least for <math|s=t=1>.
     </proposition>
 
+    <\remark>
+      Note that for <math|\<lambda\>=0> Gegenbauer polynomials
+      <math|<around*|{|C<rsub|l><rsup|\<lambda\>><around*|(|x|)>|}><rsub|l=0><rsup|\<infty\>>>
+      do not form an orthogonal basis.
+    </remark>
+
     <subsection|Auxiliary lemmas>
 
     <\lemma>
@@ -1887,7 +1893,7 @@
       <dueto|Proposition <reference|prop:Vk7ZjF-2>>We proceed as follows
 
       <\equation*>
-        <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><around*|\||<frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>|\|>>>|<row|<cell|=<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l=m><rsup|\<infty\>><around*|\||\<cdots\>|\|>+<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l\<neq\>m><rsup|\<infty\>><around*|\||\<cdots\>|\|>>>|<row|<cell|<around*|(|<text|Lemma
+        <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><around*|\||<frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>|\|>>>|<row|<cell|=<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l=m><rsup|\<infty\>><around*|\||\<cdots\>|\|>+<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l\<neq\>m><rsup|\<infty\>><around*|\||\<cdots\>|\|>>>|<row|<cell|<around*|(|<text|Lemmas
         <reference|lem:Vk7ZjF-3>, <reference|lem:Vk7ZjF-2>>|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|+<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l\<neq\>m>l<rsup|2<around*|\||\<lambda\>|\|>>m<rsup|2<around*|\||\<mu\>|\|>><around*|\||<frac|l-m|2>|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>><around*|\||<frac|l+m|2>|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|\<leqslant\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>+<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l\<neq\>m><around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2\<mu\>+Re<around*|(|-1-\<mu\>-\<lambda\>-2\<nu\>|)>><around*|\||l-m|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|<around*|(|\<because\><stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<gtr\>2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>>>>>|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>,l\<neq\>m><around*|(|l+m|)><rsup|2<around*|\||\<lambda\>|\|>+2\<mu\>+Re<around*|(|-1-\<mu\>-\<lambda\>-2\<nu\>|)>><around*|\||l-m|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|<around*|(|\<because\>\<forall\>\<alpha\>\<in\>\<bbb-R\>\\<around*|{|-1|}>,lim<rsub|N\<rightarrow\>\<infty\>><frac|<big|sum><rsub|i=1><rsup|N>i<rsup|\<alpha\>>|N<rsup|max<around*|{|0,\<alpha\>+1|}>>>\<rightarrow\><space|0.2spc><rsup|\<exists\>>c<rsub|\<alpha\>>\<gtr\>0|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2\<mu\>+Re<around*|(|-1-\<mu\>-\<lambda\>-2\<nu\>|)>>i<rsup|max<around*|{|0,Re<around*|(|-\<lambda\>-\<mu\>-2\<nu\>|)>|}>>>>|<row|<cell|<around*|(|\<because\><stack|<tformat|<table|<row|<cell|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<gtr\>2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>>>>>\<Rightarrow\>Re<around*|(|-\<lambda\>-\<mu\>-2\<nu\>|)>\<less\>0|)>>>|<row|<cell|=<big|sum><rsub|i=0><rsup|\<infty\>>i<rsup|2<around*|\||\<lambda\>|\|>+2\<mu\>+Re<around*|(|-1-\<mu\>-\<lambda\>-2\<nu\>|)>>\<less\>\<infty\>.>>>>>
       </equation*>
 
@@ -1908,13 +1914,44 @@
         \<lambda\>+\<nu\>+1,\<mu\>+\<nu\>+1,\<lambda\>+\<mu\>+\<nu\>+1,\<nu\>+1\<nin\>\<bbb-Z\>;2\<lambda\>,2\<mu\>\<in\>-\<bbb-Z\>
       </equation*>
 
-      We observe that
+      We then observe that
 
       <\equation*>
         <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><around*|\||<frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|1|)>C<rsup|\<mu\>><rsub|m><around*|(|1|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>|\|>>>|<row|<cell|<around*|(|<text|take
         only the <math|l=m> part; apply Lemma
-        <reference|lem:Vk7ZjF-3>>|)>>>|<row|<cell|\<gtrsim\><big|sum><rsub|l=0><rsup|\<infty\>><around*|\||<around*|(|l+\<lambda\>|)><around*|(|l+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|1|)>C<rsup|\<mu\>><rsub|l><around*|(|1|)>|\|>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|<around*|(|<text|<math|\<because\><around*|\||C<rsub|l><rsup|\<lambda\>><around*|(|1|)>|\|>=<around*|\||<binom|n+2\<alpha\>-1|n>|\|>\<sim\><frac|n<rsup|2Re<around*|(|\<lambda\>|)>-1>|<around*|\||\<Gamma\><around*|(|2\<lambda\>|)>|\|>>>>|)>>>|<row|<cell|\<gtrsim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>=<big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>=\<infty\>.>>>>>
+        <reference|lem:Vk7ZjF-3>>|)>>>|<row|<cell|\<gtrsim\><big|sum><rsub|l=0><rsup|\<infty\>><around*|\||<around*|(|l+\<lambda\>|)><around*|(|l+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|1|)>C<rsup|\<mu\>><rsub|l><around*|(|1|)>|\|>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|<around*|(|<text|<math|\<because\><around*|\||C<rsub|n><rsup|\<alpha\>><around*|(|1|)>|\|>=<around*|\||<binom|n+2\<alpha\>-1|n>|\|>\<sim\><frac|n<rsup|2Re<around*|(|\<alpha\>|)>-1>|<around*|\||\<Gamma\><around*|(|2\<alpha\>|)>|\|>>>>|)>>>|<row|<cell|\<gtrsim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>=<big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|2<around*|\||\<lambda\>|\|>+2<around*|\||\<mu\>|\|>+Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>=\<infty\>.>>>>>
       </equation*>
+    </proof>
+
+    <section|section <verbatim|<code|A000Md>>>
+
+    <\question>
+      Investigate the convergence of the series
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|<around*|\||s+t|\|><rsup|2\<nu\>>=b<around*|(|\<lambda\>,\<mu\>,\<nu\>|)><big|sum><rsub|<stack|<tformat|<table|<row|<cell|l,m=0>>|<row|<cell|l+m:even>>>>>>a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>C<rsup|\<lambda\>><rsub|l><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>,>>|<row|<cell|b<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<assign\>2<rsup|-2\<nu\>>\<Gamma\><around*|(|\<lambda\>+\<mu\>+2\<nu\>+1|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|2\<nu\>+1|)>,>>|<row|<cell|a<rsub|\<lambda\>,\<mu\>,\<nu\>><rsup|l,m>\<assign\><frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>>>>>>
+      </equation*>
+
+      at <math|s=t=0>.
+    </question>
+
+    The following can be said:
+
+    <\proposition>
+      The series converges absolutely iff
+      <math|Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)>\<gtr\>0>.\ 
+    </proposition>
+
+    <\proof>
+      We recall that <math|C<rsub|n><rsup|\<alpha\>><around*|(|0|)>=<choice|<tformat|<table|<row|<cell|0>|<cell|<around*|(|n:odd|)>>>|<row|<cell|<around*|(|-1|)><rsup|n/2><frac|\<Gamma\><around*|(|\<alpha\>+<frac|n|2>|)>|\<Gamma\><around*|(|\<alpha\>|)>\<Gamma\><around*|(|<frac|n|2>+1|)>>>|<cell|<around*|(|n:even|)>>>>>>>
+      and proceed as follows:
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><rsup|\<infty\>><around*|\||<frac|<around*|(|l+\<lambda\>|)><around*|(|m+\<mu\>|)>C<rsup|\<lambda\>><rsub|l><around*|(|0|)>C<rsup|\<mu\>><rsub|m><around*|(|0|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<frac|l-m|2>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<frac|l+m|2>+1|)>\<Gamma\><around*|(|\<nu\>+1-<frac|l+m|2>|)>>|\|>>>|<row|<cell|=<big|sum><rsub|l,m=0><rsup|\<infty\>><around*|\||<frac|<around*|(|2l+\<lambda\>|)><around*|(|2m+\<mu\>|)><frac|\<Gamma\><around*|(|\<lambda\>+l|)>|\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|l+1|)>><frac|\<Gamma\><around*|(|\<mu\>+m|)>|\<Gamma\><around*|(|\<mu\>|)>\<Gamma\><around*|(|m+1|)>>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<around*|(|l+m|)>+1|)>\<Gamma\><around*|(|\<nu\>+1-<around*|(|l+m|)>|)>>|\|>>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0><rsup|\<infty\>><around*|\||<frac|<around*|(|l+m|)><rsup|2>l<rsup|Re<around*|(|\<lambda\>-1|)>>m<rsup|Re<around*|(|\<mu\>-1|)>>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<mu\>+\<nu\>-<around*|(|l-m|)>+1|)>\<Gamma\><around*|(|\<lambda\>+\<mu\>+\<nu\>+<around*|(|l+m|)>+1|)>\<Gamma\><around*|(|\<nu\>+1-<around*|(|l+m|)>|)>>|\|>>>|<row|<cell|=<big|sum><rsub|l,m=0,l=m><rsup|\<infty\>><around*|\||\<ldots\>|\|>+<big|sum><rsub|l,m=0,l\<neq\>m><rsup|\<infty\>><around*|\||\<ldots\>|\|>>>|<row|<cell|<around*|(|<text|Lemma
+        <reference|lem:Vk7ZjF-3>>|)>>>|<row|<cell|\<lesssim\><big|sum><rsub|l=0><rsup|\<infty\>>l<rsup|Re<around*|(|\<lambda\>+\<mu\>|)>>l<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>+<big|sum><rsub|l,m=0,l\<neq\>m><rsup|\<infty\>><around*|(|l+m|)><rsup|2>l<rsup|Re<around*|(|\<lambda\>-1|)>>m<rsup|Re<around*|(|\<mu\>-1|)>><around*|\||l-m|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>><around*|(|l+m|)><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>|<row|<cell|>>|<row|<cell|>>|<row|<cell|\<lesssim\><big|sum><rsub|l,m=0\<mid\>l+m\<in\>2\<bbb-Z\>><around*|\||<frac|l-m|2>|\|><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>><around*|(|<frac|l+m|2>|)><rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>l<rsup|2\<lambda\>>m<rsup|2\<mu\>>>>|<row|<cell|\<lesssim\><big|sum><rsub|i=0><rsup|\<infty\>><choice|<tformat|<table|<row|<cell|ln<around*|(|i|)>>|<cell|<around*|(|Re<around*|(|\<lambda\>-\<mu\>-2\<nu\>|)>=0|)>>>|<row|<cell|i<rsup|max<around*|{|0,Re<around*|(|-\<lambda\>-\<mu\>-2\<nu\>|)>|}>>>|<cell|<around*|(|<text|otherwise>|)>>>>>>\<cdot\>i<rsup|Re<around*|(|-1-\<lambda\>-\<mu\>-2\<nu\>|)>>>>>>>
+      </equation*>
+
+      \;
     </proof>
   <|show-part>
     <section|section <code|Vk7ZjF>>
@@ -2159,8 +2196,8 @@
     <associate|auto.31-2|<tuple|30.1|?|#31>>
     <associate|auto.31-3|<tuple|30.2|?|#31>>
     <associate|auto.31-4|<tuple|30.3|?|#31>>
-    <associate|auto.31-5|<tuple|30.3.1|?|#31>>
-    <associate|auto.32-1|<tuple|b|?|#32>>
+    <associate|auto.31-5|<tuple|31|?|#31>>
+    <associate|auto.32-1|<tuple|31.1|?|#32>>
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.5-1|<tuple|4|?|#5>>
     <associate|auto.6-1|<tuple|5|?|#6>>
@@ -2215,7 +2252,7 @@
     <associate|eqn:q26-1|<tuple|26.1|27|#27>>
     <associate|eqn:q26-2|<tuple|13|?>>
     <associate|eqn:q26-3|<tuple|26.2|28|#27>>
-    <associate|eqn:q30-1|<tuple|30.1|32|#31>>
+    <associate|eqn:q30-1|<tuple|31.1|32|#31>>
     <associate|eqn:stz|<tuple|16|?>>
     <associate|eqn:thm1|<tuple|9.1|9|#10>>
     <associate|eqn\<of\>Vk7Zjf-1|<tuple|30.3|?|#31>>
