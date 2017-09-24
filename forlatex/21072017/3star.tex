@@ -2,7 +2,12 @@
 最後に、命題\ref{prop:int-st-gg}のある種の極限値と比較しよう。このために、
 エルミート多項式を復習する。
 エルミート多項式$\left\{ H_n(x) \right\}_{n=1}^\infty$は、
-	$L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$の直交多項式である。
+	$L^2\left( \mathbb{R},e^{-\frac{x^2}{2}}dx \right)$の直交多項式であり、
+	Gegenbauer多項式の極限として再現できる:
+	\begin{equation*}
+			H_n (x) = n! \lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
+			C_n^{\lambda} \left( \frac{x}{\sqrt{\lambda}} \right).
+	\end{equation*}
 	最初の数項を挙げよう。
 		\begin{eqnarray*}
 		H_0(x)&=& 1,\\
@@ -12,12 +17,6 @@
 		H_3(x)&=& 8x^3-12x,\\
 		H_4(x)&=& 16x^4-48x^2+12.\\
 		\end{eqnarray*}
-	エルミート多項式はGegenbauer多項式の極限として再現できる:
-	%%
-	\begin{equation*}
-			H_n (x) = n! \lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
-			C_n^{\lambda} \left( \frac{x}{\sqrt{\lambda}} \right).
-	\end{equation*}
 	命題 \ref{prop:int-st-gg}で$\mu/\lambda$を一定にした上で$\lambda,\mu\to\infty$ 
 	という極限をとれば、Gegenbauer多項式に関する積分公式(命題\ref{prop:int-st-gg})から
 	エルミート多項式に関する以下の積分公式を得る。

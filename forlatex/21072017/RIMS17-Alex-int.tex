@@ -29,13 +29,15 @@
 \usepackage{amsmath,amsthm}
 \usepackage{amssymb,amssymb,amsthm,lmodern}
 \usepackage[driver=dvipdfm,truedimen,top=3truecm,bottom=3truecm,left=2.5truecm,right=2.5truecm]{geometry}
-\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue]{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,patterns}
 
 \numberwithin{equation}{section}
 
 \newcommand{\myre}[1]{\tmop{Re} #1}
+	\newcommand{\bolds}{\mathbf{s}}
 \newcommand{\mysbo}{A:\pi\kern-0.1cm\mid_{G'}\xrightarrow{G'}\tau}
 \newcommand{\myrelationdiagram}[5]{
 	\vspace{1em}
@@ -186,7 +188,7 @@
   \original@proof[{\headfont #1\inhibitglue}\nopunct]
 }
 \makeatother
-\newtheoremstyle{jplain}{}{}{\normalfont}{}{\headfont}{}{1zw}{\thmname{#1}\thmnumber{\ #2}\thmnote{（#3）}}
+\newtheoremstyle{jplain}{}{}{\normalfont}{}{\headfont}{}{1zw}{\thmname{#1}\thmnumber{\ #2}.\thmnote{（#3）}}
 \theoremstyle{jplain}
 \renewcommand{\proofname}{証明}
 % 概要の見出しを英語に
@@ -249,7 +251,7 @@ Gegenbauer多項式
 最後に、対称性破れ作用への応用について触れる。%． この研究は小林俊行先生との共同研究である。
 \end{abstract}
 \section{主結果}
-	最初に、Gegenbauer多項式の定義と性質を復習する。
+\footnote{Should the name of section be like ``1 主結果'', or like ``1. 主結果''?}最初に、Gegenbauer多項式の定義と性質を復習する。
 	Gegenbauer多項式$y=C^\lambda_n(x)$は以下の微分方程式
 	\begin{equation*}
 		(1-x^2)y''-(2\lambda+1)xy'+n(n+\lambda)y=0
@@ -299,12 +301,13 @@ Gegenbauer多項式
 		\end{array}$}}^{\infty} a_{\lambda,\mu,\nu}^{\ell,m} C_\ell^{\lambda} (s) C_m^{\mu} (t).
 			\label{eqn:exp-st-gg}
 		\end{equation}
-		ここで右辺は$(s,t)\in[-1,1]^2$で絶対一\doubt{様}収束する。
+		ここで右辺は$(s,t)\in[-1,1]^2$で絶対一{様}収束する。
 	\end{thm}
 	第\ref{sec:proof}節
 	で、定理\ref{prop:exp-st-gg}の４通りの証明を紹介する。
 
-	少しだけ一般的な結果も述べておこう。
+	より一般に、定理\ref{prop:exp-st-gg}における$\myabs{s+t}^{2\nu}$にパラメータ$x$を追加した$\myabs{s+xt}^{2\nu}$の展開式は以下の形
+	\doubt{で}与えられる。
 	\begin{prop}\label{prop:exp-stz-gg}
 		$\ell,m\in\N$に対して
 		    \begin{equation*}
@@ -318,8 +321,9 @@ Gegenbauer多項式
 			\end{array} ; x^2 \right)
 		\end{equation*}
 		とおくと、
-		  $\tmop{Re} \lambda, \tmop{Re} \mu > - \frac{1}{2}$,
-		    $\tmop{Re} \nu > 0$ かつ $-1 \leqslant x \leqslant 1$ のとき、
+%%		  $\tmop{Re} \lambda, \tmop{Re} \mu > - \frac{1}{2}$,
+%%		    $\tmop{Re} \nu > 0$ かつ 
+		    $-1 \leqslant x \leqslant 1$ のとき、
 		\begin{equation*}
 			       | s + t x |^{2 \nu}  = \sum_{\scalebox{0.6}{
 			      $\begin{array}[]{c}
@@ -329,6 +333,9 @@ Gegenbauer多項式
 				 (x) C_\ell^{\lambda} (s) C_m^{\mu} (t)
 		    \end{equation*}
 		    が成り立つ。
+		    ここで$(y)_n$はPochhammer記号を表し\footnote{maybe, we need a comma here?}以下のように定義される。\begin{equation*}
+		(y)_n:=\frac{\Gamma(y+n)}{\Gamma(y)}=y(y+1)\cdots(y+n-1).
+	\end{equation*}
     \end{prop}
     ガウスの超幾何関数$_2F_1\left(\begin{array}[]{c}
 	    a,b\\c
@@ -362,9 +369,6 @@ Gegenbauer多項式
 			\label{eqn:int-st-gg}
 		\end{multline}
 	\end{prop}
-	ここでPochhammer記号$(x)_n$は以下のように定義される。\begin{equation*}
-		(x)_n:=\frac{\Gamma(x+n)}{\Gamma(x)}=x(x+1)\cdots(x+n-1).
-	\end{equation*}
 %%	\begin{remark*}
 %%		上記で記述された命題\ref{prop:exp-stz-gg}に対応する積分公式もあるが、
 %%		ここで記述を簡単にするため、省略する。
@@ -386,7 +390,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 	 \begin{equation*}
 		 \normalfont
 		\begin{array}[]{c}
-		\displaystyle\int_{t \in [0, 1]^k}  \Psi_k(\alpha,\beta,\gamma;\boldt)d\boldt=
+		\displaystyle\int_{\boldt \in [0, 1]^k}  \Psi_k(\alpha,\beta,\gamma;\boldt)d\boldt=
 		\displaystyle\prod_{i = 0}^{k - 1} \frac{\Gamma (\alpha + i \gamma) \Gamma (\beta + i
 				\gamma) \Gamma (1 + (i + 1) \gamma)}{\Gamma (\alpha + \beta + (i + k - 1)
 				\gamma) \Gamma (\gamma + 1)},
@@ -428,12 +432,11 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		\cite{warnaar2010sl3}を復習しよう。
 		これは５つのパラメータ$\alpha_1,\alpha_2,\beta_1,\beta_2,\gamma$を含むが、
 		制{約}条件$\beta_1+\beta_2=\gamma+1$を課すので、
-		４つの自由パラメータを含む多重積分である。
-
+		実質上は４つの自由パラメータを含む多重積分である。
 		\begin{fact}[{\cite[(1.4)]{warnaar2010sl3}}]
 			\begin{multline}
 				\displaystyle\int
-				\displaylimits_{(t,s)\in C_{\beta_1,\gamma}^{k_1,k_2}}
+				\displaylimits_{(\boldt,\bolds)\in C_{\beta_1,\gamma}^{k_1,k_2}}
 				\Psi_{k_1}(\alpha_1,\beta_1,\gamma;\boldt)
 				\Psi_{k_2}(\alpha_2,\beta_2,\gamma;\mathbf{s})
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}
@@ -446,12 +449,13 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
   i \gamma) \Gamma ((i + 1) \gamma)}{\Gamma (\alpha_2 + \beta_2 + (i + k_2 -
   k_1 - 1) \gamma) \Gamma (\gamma)} \displaystyle\prod_{i = 0}^{k_1 - 1} \frac{\Gamma
   (\alpha_1 + \alpha_2 + (i - 1) \gamma)}{\Gamma (\alpha_1 + \alpha_2 + (i +
-  k_2 - 1) \gamma)},
+  k_2 - 1) \gamma)}.
   \end{multline}
 		\begin{equation*}
 			\begin{array}{c}
   \mbox{ここで　 }
-  C^{k_1,k_2}_{\beta_1,\gamma}\mbox{: ある特異チェイン, }
+  C^{k_1,k_2}_{\beta_1,\gamma}=\sum_{i}\alpha_iS_i,\alpha_i\in\C,S_i\subset[0,1]^{k_1+k_2}\mbox{は}\\
+  \mbox{$k_1+k_2$次元の単体のある有限和, }
 					  \beta_1 + \beta_2 = \gamma + 1,\\
 					    \forall i:
 					    \myre{\alpha_i}, \myre{\beta_i} > 0,
@@ -462,12 +466,10 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 			\end{equation*}
 			\end{fact}
 命題\ref{prop:int-st-gg}の $\ell = m = 0,\lambda+\mu+2\nu=-1$ の特殊化は
-\cite[(1.4)]{warnaar2010sl3}\footnote{
-	  should I write the definition $C^{k_1,k_2}_{\beta_1,\gamma}$ (and $C^{k_1,k_2}_{\gamma}$ below) explicitly?
-  }
+\cite[(1.4)]{warnaar2010sl3}
   の $k_1=k_2 = 2,\alpha_1=\beta_1,\alpha_2=\beta_2$ の特別な場合と同じ結{果}を与える。\\
   \myrelationdiagramBigSix{命題\ref{prop:int-st-gg}}{\ell=m=0,\\
-		\lambda+\mu+2\nu=-1}{k_1=k_2=1,\\\alpha_1=\beta_1,\\\alpha_2=\beta_2}{{\cite{warnaar2010sl3}}}{
+		\lambda+\mu+2\nu=-1}{k_1=k_2=1,\\\alpha_1=\beta_1,\alpha_2=\beta_2}{{\cite{warnaar2010sl3}}}{
 		$
 				\left(\displaystyle\iint\displaylimits_{\scalebox{0.7}{$\begin{array}[]{c}
 					[0,1]^2\\t<s
@@ -483,11 +485,10 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 	次にTarasovとVarchenkoによる$\mathfrak{sl}_3$に付随したSelberg積分の一般化との比較を行う。
 	これは４つの自由パラメータ
 	$\alpha,\beta_1,\beta_2,\gamma$を含む多重積分の公式である。
-	\newcommand{\bolds}{\mathbf{s}}
 			\begin{fact}[{\cite[(3.4)]{tarasov2003selberg}}]
 			{
 				\begin{multline}
-				\displaystyle\int_{(t,s)\in C_\gamma^{k_1,k_2}}
+				\displaystyle\int_{(\boldt,\bolds)\in C_\gamma^{k_1,k_2}}
 				\Psi_{k_1}(\alpha,\beta_1,\gamma;\boldt)\Psi_{k_2}(1,\beta_2,\gamma
 				;\bolds)
 				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-\gamma}
@@ -504,11 +505,14 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 				\end{multline}
 				\begin{equation*}
 					\begin{array}[]{c}
-			  \mbox{ここで、　 }	C^{k_1,k_2}_{\gamma}\mbox{: ある特異チェイン},\\
-			  \myre{\alpha_i}, \myre{\beta_2} > 0, | \tmop{Re} \gamma | \ll 1.
+			  \mbox{ここで、}	C^{k_1,k_2}_{\gamma}\mbox{: ある特異チェイン\footnotemark},\\
+			  \myre{\alpha} > 0,\forall i:\myre{\beta_i}>0, | \tmop{Re} \gamma | \ll 1.
 					\end{array}
 				\end{equation*}
 				}
+				\footnotetext{{
+	  should I write the definition of $C^{k_1,k_2}_{\gamma}$ explicitly as well?
+  }}
 		\end{fact}
 		命題\ref{prop:int-st-gg}の $\ell = m = 0,\mu=\frac{1}{2}$ の特殊化が
 		\cite[(3.4)]{tarasov2003selberg}
@@ -518,8 +522,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 			\mu=\frac{1}{2}}
 			{
 				k=2,\\
-				\beta_2=1,\\
-				\alpha=\beta_1
+				\alpha=\beta_1,\beta_2=1
 			}
 		{{\cite{tarasov2003selberg}}}
 		{\kern2cm$
@@ -536,11 +539,12 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		\begin{fact}[{\cite[(A.35)]{dotsenko1985four}}]
 			{
 				\begin{multline}
-				\displaystyle\displaystyle\int_{(t,\tau)\in [0, 1]^{k_1+k_2}} 
+				\displaystyle\displaystyle\int_{(\boldt,\bolds)\in [0, 1]^{k_1+k_2}} 
 				\Psi_{k_1}(\alpha'+1,\beta'+1,\rho';\boldt)\Psi_{k_2}(\alpha+1,\beta+1
 				,\rho;\bolds)
-				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-\tau_j}^{-2}
-				dtd\tau\mbox{\footnotemark} \\
+				\displaystyle\prod_{i,j=1}^{k_1,k_2}\myabs{t_i-s_j}^{-2}
+				d\boldt d\bolds
+				\\
   =n!m!\rho^{2 n m} \displaystyle\prod_{i, j = 1}^{n, m} \frac{1}{j \rho - i} \displaystyle\prod_{i = 1}^n
   \frac{\Gamma (i \rho')}{\Gamma (\rho')} \displaystyle\prod_{j = 1}^m \frac{\Gamma (j
   \rho)}{\Gamma (\rho)} \times\\
@@ -549,15 +553,13 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
   \displaystyle\prod_{i = 0}^{n - 1} \frac{\Gamma (1 + \alpha' + i \rho') \Gamma (1 +
   \beta' + i \rho')}{\Gamma (2 - 2 m + \alpha' + \beta' + (n - 1 + i) \rho')}
   \displaystyle\prod_{j = 0}^{m - 1} \frac{\Gamma (1 + \alpha + j \rho) \Gamma (1 + \beta +
-  j \rho)}{\Gamma (2 - 2 n + \alpha + \beta + (m - 1 + j) \rho)}
+  j \rho)}{\Gamma (2 - 2 n + \alpha + \beta + (m - 1 + j) \rho)}.
 				\end{multline}
-\footnotetext{which variables should
-		      we use in the integral: $(\boldt,\bolds)$ or $(t,\tau)$?}
 					  ここで、
-					  \begin{equation*}
+					  \begin{equation}
 	 \alpha' = - \rho' \alpha, \beta' = - \rho' \beta, \rho' \rho = 1,
 						  \label{eqn:DF3}
-					  \end{equation*}\begin{equation*}
+					  \end{equation}\begin{equation*}
   \myre{\rho} < 0, \quad \myre{\alpha}, \myre{\beta} > (n - 1)
   + | \myre{\rho} | (m - 1).
 					  \end{equation*}
@@ -571,40 +573,40 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		\nu=-1}
 			{
 				m=n=1,\\
-				\alpha'=\beta',\\
-				\alpha=\beta
+				\alpha=\beta,
+				\alpha'=\beta'
 			}
 		{{\cite{dotsenko1985four}}}{
-				$\displaystyle\iint\displaylimits_{(t, \tau) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} \tau^{\alpha} (1
-				- \tau)^{\alpha} | t - \tau |^{- 2} dtd\tau
+				$\displaystyle\iint\displaylimits_{(t, s) \in [0, 1]^2} t^{\alpha'} (1 - t)^{\alpha'} s^{\alpha} (1
+				- s)^{\alpha} | t - s |^{- 2} dtds
 			=\mypgf$
 		}{1.5}
 
 		\input{4starstar}
 		\input{3star}
 		\input{4star}
-	更に、系\ref{cor:int-xzy-hh}の積分に$w=s-t$変数変化し、$z=1$をとれば、
-	次の公式と同等な公式（正確には、そのMellin変換）が得られる.
+	更に、系\ref{cor:int-xzy-hh}の積分に$s=x-y$変数変換し、$w=1$をとれば、
+	次の公式（正確には、そのMellin変換）が得られる.
 	\begin{fact}[{\cite[(18)]{conte1994hermite}}]
-		以下のような公式が成り立つ。
+	{Hermite-Rodriguez} 関数 \cite{yusoff2007application}
+	\begin{equation*}
+		w_{\lambda,n}(t):=\frac{1}{\sqrt{2^nn!}}\frac{1}{\sqrt{\pi}\lambda}
+		H_n\left( \frac{t}{\lambda} \right)e^{-t^2/\lambda^2},\quad \lambda>0
+	\end{equation*}
+	に関して、次の畳み込みの
+		公式が成り立つ。
 		\begin{equation}
 			w_{\lambda,n}\ast w_{\lambda,k}(t)=\sqrt{\frac{(n+k)!}{2^{n+k}n!k!}}w_{\sqrt{2}\lambda,n+k}(t).
 			\label{eqn:mellin-hh}
 		\end{equation}
 	\end{fact}
 	ここで、
-	記号$w_{\lambda,n}$は\underline{Hermite-Rodriguez}\footnote{
-		should I use \underline{underline} here, is is \textbf{boldface} better
-	(I personally prefer the boldface)?} 関数 \cite{yusoff2007application}
-	\begin{equation*}
-		w_{\lambda,n}:=\frac{1}{\sqrt{2^nn!}}H_n\left( \frac{t}{\lambda} \right)\frac{1}{\sqrt{\pi}\lambda}e^{-t^2/\lambda^2},\quad \lambda>0
-	\end{equation*}
-	を表す。
 	\section{定理\ref{prop:exp-st-gg}の証明について}\label{sec:proof}
 	第\ref{sec:proof}節では、定理\ref{prop:exp-st-gg}の４通りの証明をあげる.
 	下に述べられている証明法１と証明法３は最初のステップとして以下の補題を
 	共通に用いる。
 	\begin{lemma}[$\ell=m=0$場合に帰着]
+		\label{lem:reduction}
 		\begin{equation*}
 			\begin{array}[]{c}
 				\mbox{$\ell=m=0$特殊な場合に命題\ref{prop:int-st-gg}が成り立つ}\\[0.4cm]
@@ -632,11 +634,13 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 	\begin{method}[直接]
 		\quad\\
 	\begin{enumerate}
-		\item $\ell=m=0$ 場合を扱えばよい.つまり、以下の等式を示せばよい：
-		\begin{equation*}
+		\item 補題\ref{lem:reduction}より\footnote{maybe, we need a comma here?}
+			$\ell=m=0$ 場合、すなわち、以下の等式を示せばよい：
+		\begin{equation}
 			\displaystyle\iint_{[-1,1]^2}
 			\myabs{s-t}^{2\nu}(1-s^2)^{\lambda-\frac{1}{2}}(1-t^2)^{\mu-\frac{1}{2}}=\mypgf;
-		\end{equation*}
+			\label{eqn:lmzero}
+		\end{equation}
 		\item
 
 			超幾何関数のオイラー積分表示
@@ -655,8 +659,8 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 			\end{equation*}
 		\item
 			{超幾何関数${}_2F_1$の級数展開}
-			を用いて、\mbox{求める積分を ${}_3F_2$ で表す}.
-			よって、以下の等式を示せばよい：
+			を用いて、
+			以下の等式に帰着させる。
 		\begin{equation*}
 			{}_3F_2\left( \begin{array}[]{c}
 				\frac{1}{2}-\lambda, \lambda+\frac{1}{2},2\nu+\lambda+\mu+1\\
@@ -682,11 +686,13 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 			\end{array}
 		\end{equation*}
 				\end{fact}
-				次のアプローチを示す前、Carlsonの定理\cite{carlson1960classe}を復習する：
+				\vspace{1em}
+				次のアプローチを示す前に、Carlsonの定理\cite{carlson1960classe}を復習する：
 
 \begin{fact}[Carlsonの定理]
+	\label{fact:carlson}
 	$f$が$\left\{ z\in\mathbb{C}\mid \Re(z)\ge0 \right\}$右半平面上で連続で、
-	内部$\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$上で
+	内部$\left\{ z\in\mathbb{C}\mid\Re(z)>0 \right\}$で
 	正則であるとする.
 	更に、$f$が以下の３条件をみたすならば、$f\equiv0$となる。
 	\begin{enumerate}
@@ -696,15 +702,6 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 		\item $f(n)=0$が任意の$n\in\N_+$に対して成り立つ。
 	\end{enumerate}
 \end{fact}
-%%\begin{remark*}
-%%	\begin{equation*}
-%%		f(z)=\sin(\pi z)
-%%	\end{equation*}
-%%	という関数が条件2.を除いで、Carlsonの定理の全ての条件を満たす.特に、
-%%	$f\big|_{\Z}=0$が成り立つ.しかし、 $f(z)$が恒等的に0ならない.
-%%
-%%	よって、Carlsonの定理の条件2.が必要である.
-%%\end{remark*}
 \begin{method}[cf. セルバーグ積分の証明]
 	上に記載したCarlsonの定理を認めれば、
 	命題\ref{prop:int-st-gg}
@@ -713,7 +710,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 計算可能である。
 \end{method}
 \begin{remark*}
-	Atle Selbergの元々のセルバーグ積分の証明\cite{Selberg:411367}はこのような手法が用いられ{た}。
+	Atle Selbergの元々のセルバーグ積分の証明\cite{Selberg:411367}は Fact \ref{fact:carlson} が用いられ{た}。
 \end{remark*}
 \begin{method}[命題\ref{prop:exp-stz-gg}によって]
 	命題\ref{prop:exp-stz-gg}を示すため、
@@ -767,7 +764,7 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 \begin{method}[積分公式とルジャンドル関数$ P^\alpha_\beta(x)$を用いる]
 	直接命題\ref{prop:int-st-gg}を示す:
 	\begin{enumerate}
-		\item まず、\cite[(7.4.11)]{kobayashi2011schrodinger}の公式
+		\item まず、\cite[(7.4.11)]{kobayashi2011schrodinger}の積分公式
 			{
 				
 			\begin{equation*}
@@ -795,7 +792,8 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 				\int_{-1}^1(1-s^2)^aP^b_c(s)ds;
 			\end{equation}
 			
-		\item \eqref{eqn:m4-2} は \cite[L2]{kobayashi2011schrodinger}の積分公式から従う。
+		\item \eqref{eqn:m4-2} は既知の積分公式 (\cite[(7.3.4)]{kobayashi2011schrodinger}) によって$\Gamma$関数の積として
+			表される。
 	\end{enumerate}
 \end{method}
 \section{表現論における対称性破れ作用素への応用}
@@ -859,7 +857,7 @@ $K'$-タイプを表す。
 同じ色の間に写像が誘導される；
 \begin{figure}[h]
 	\centering
-	\begin{tikzpicture}[rotate=-90,scale=2]
+	\begin{tikzpicture}[rotate=-90,scale=1.8]
 	\input{diagram.tex}
 	\end{tikzpicture}
 	\caption{対称性破れ作用素と$(K,K')$タイプ}
