@@ -1,0 +1,63 @@
+\section{Limiting case}
+In this section we discuss the limiting case of our integral formula.
+%3 star star
+Taking the limit in $(\ref{eqn:cor:1})$ as both $\lambda$ and
+$\mu$ tend to be
+zero, we obtain
+\begin{corollary}
+  \label{cor:170599}For $\rho \in \mathbbm{C}$ with $\tmop{Re} \rho > 0$ and
+  $r \in \{ 0, 1 \}$,
+  \begin{multline}
+     | \cos \varphi + \cos \psi |^{\rho} \tmop{sgn}^r (\cos \varphi + \cos
+    \psi)   \\
+     = \displaystyle\sum_{\tmscript{\begin{array}{c}
+      \ell, m = 0\\
+      \ell \equiv m + r \tmop{mod} 2
+    \end{array}}}^{\infty} \frac{2^{2 - \rho} \Gamma (\rho + 1)^2}{(1 +
+    \delta_0^{\ell}) (1 + \delta_0^m) \displaystyle\prod_{\delta, \varepsilon \in \{ \pm 1
+    \}} \Gamma \left( 1 + \frac{1}{2} (\rho + \delta \ell + \varepsilon m)
+    \right)} \cos \ell \varphi \cos m \psi . 
+  \end{multline}
+  where
+  $\delta_0^\ell$ denotes the Kronecker delta, i.e.,
+  $\delta_0^{\ell} \assign 1$ if $\ell = 0$ and $= 0$ otherwise.
+\end{corollary}
+%10 star
+Since the Hermite polynomial $H_n (x)$ is obtained as a limit of the
+Gegenbauer polynomial:
+\begin{eqnarray}
+  & H_n (x) = n! \displaystyle\lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
+  C_n^{\lambda} \left( \displaystyle\frac{x}{\sqrt[]{\lambda}} \right), &  \nonumber
+\end{eqnarray}
+we can deduce the following integral formula of the Hermite polynomial from
+Proposition \ref{cor:1}:
+
+\begin{corollary}
+  \label{cor:Hermite}Suppose $\ell, m \in \mathbbm{N}$ with $\ell + m$
+  even.
+  \begin{multline}
+     \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} | s+xt |^{2 \nu}
+    e^{- s^2 - t^2} H_{\ell} (s) H_m (t) d s d t \\= (- \nu)_{\frac{\ell +
+    m}{2}} (- 1)^{\frac{\ell + m}{2}} 2^{\ell + m} \pi^{\frac{1}{2}} \Gamma
+    \left( \frac{1}{2} + \nu \right) (x^2 + 1)^{\nu - \frac{\ell + m}{2}} x^m.
+    \end{multline}
+\end{corollary}
+
+\begin{example}
+  (Mehta integral {\cite{mehta2004random}}) The Mehta integral
+  \begin{equation*}
+     \frac{1}{(2 \pi)^{n / 2}} \displaystyle\int_{\mathbbm{R}^n} \displaystyle\prod_{i = 1}^n e^{-
+    t_i^2 / 2}_{} \displaystyle\prod_{1 \leqslant i < j \leqslant n} | t_i - t_j |^{2 \nu}
+    d t_1 \cdots d t_n
+     = \displaystyle\prod_{j = 1}^n \frac{\Gamma (1 + j \nu)}{\Gamma (1 + \nu)}
+  \end{equation*}
+  in special case $n = 2$ implies the following equation
+  \begin{eqnarray}
+    & \displaystyle\frac{1}{2 \pi} \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} e^{-
+    \frac{x^2 + y^2}{2}} | x - y |^{2 \nu} d x d y = \frac{\Gamma (1 + 2
+    \nu)}{\Gamma (1 + \nu)} . &  \nonumber\\
+    &  &  \nonumber
+  \end{eqnarray}
+  This coincides with the special case of Corollary \ref{cor:Hermite} with
+  $(\ell, m, x) = (0, 0, -1)$.
+\end{example}

@@ -4,6 +4,8 @@
 \usepackage{mathtools}
 \usepackage{dot2texi}
 \usepackage{tikz}
+\usepackage{blindtext,titlefoot}
+\usepackage[inline]{showlabels}
 
 \newcommand{\myabs}[1]{\left|#1\right|}
 \newcommand{\N}{\mathbb{N}}
@@ -29,7 +31,7 @@
 \newcommand{\tmtextmd}[1]{{\mdseries{#1}}}
 \newcommand{\tmtextrm}[1]{{\rmfamily{#1}}}
 \newcommand{\tmtextup}[1]{{\upshape{#1}}}
-\newenvironment{proof*}[1]{\noindent\textbf{#1\ }}{\hspace*{\fill}$\Box$\medskip}
+\newenvironment{proof*}[1]{\noindent\textbf{\textit{#1\ }}}{\hspace*{\fill}$\Box$\medskip}
 \newtheorem{corollary}{Corollary}[section]
 {\theorembodyfont{\rmfamily}\newtheorem{example}[corollary]{Example}}
 \newtheorem{lemma}[corollary]{Lemma}
@@ -50,13 +52,38 @@
 \newcommand{\mygrammarfootnote}[1]{}
 
 \newcommand{\sectionsep}{{\sectionalsep}}
+\newcommand\blfootnote[1]{%
+	  \begingroup
+	  \renewcommand\thefootnote{\footnote{#1}%
+    \addtocounter{footnote}{-1}%
+      \endgroup
+      }}
 
-\title{Double Gegenbauer expansion of the power $\myabs{s+t}^\alpha$}
+\title{\bf Double Gegenbauer expansion of $\myabs{s+t}^\alpha$}
+\author{Toshiyuki Kobayashi \and Alex Leontiev}
 
 \begin{document}
-\maketitle
+\unmarkedfntext{2010 Mathematics Subject Classification. Primary 22E46; Secondary 33C45, 53C35.\\
+(or should it be 42C05, 33C45, 33C05?)}
+\makeatletter
+\renewcommand{\thefootnote}{\ifcase\value{footnote}\or*)\or
+**)\or(***)\or(****)\or(\#)\or(\#\#)\or(\#\#\#)\or(\#\#\#\#)\or($\infty$)\fi}
+\makeatother
 
-\begin{abstract}
+    \begin{center}
+        {\large\bf Double Gegenbauer expansion of $\myabs{s+t}^\alpha$\par}
+\vspace{1em}
+{\small By Toshiyuki \textsc{Kobayashi}\footnote{Kavli IPMU and Graduate School of Mathematical Sciences, The University of Tokyo}\footnotemark and Alex \textsc{Leontiev}\footnotemark[\value{footnote}]}
+\footnotetext{Graduate School of Mathematical Sciences, The University of Tokyo}
+\end{center}
+\vspace{2\baselineskip}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+%%\begin{abstract}
+%%\end{abstract}
+{
+{
+	\hspace{1.5cm}\begin{minipage}[]{0.8\textwidth}
+  \quad\textbf{Abstract:}\quad
   Motivated by the study of symmetry breaking operators for indefinite
   orthogonal groups, we give a Gegenbauer expansion of the two variable
   function $| s + t |^{\alpha}$ in terms of the ultraspherical polynomials
@@ -67,11 +94,18 @@
   generalization\mygrammarfootnote{maybe, ``generalization'' should be in plural (i.e.
   ``generalizations'')?} by Dotsenko, Fateev, Tarasov, Varchenko, and Warnaar
   among others.
-\end{abstract}
 
+\quad\textbf{Key words:}\quad
+Gegenbauer polynomial, Sobolev inequality, Hermite polynomial, Selberg integral\mygrammarfootnote{maybe, dot here?}
+\end{minipage}
+}}
+
+\vspace{2em}
+In this article, we give an expansion of the power $\myabs{s+t}^\alpha$ by two Gegenbauer polynomials $C^\lambda_\ell(s)$ and $C^\mu_m(t)$ with independent parameters $\lambda$ and $\mu$.
+\unmarkedfntext{The instruction ``\underline{Remark} estimate'' was written on the last correction. I am not sure I understand what it means. Could You explain it to me once again?
+I am extremely sorry.}
 \section{Main results}
-
-Let $C_{\ell}^{\lambda} (s)$ be the Gegenbauer polynomial of degree $\ell$. For $\ell,m\in\N$, we define
+Let $C_{\ell}^{\lambda} (s)$ be the Gegenbauer polynomial of degree $\ell$. For $\ell,m\in\N$, we set
 \begin{equation*}
      \displaystyle a_{\lambda, \mu, \nu}^{\ell, m} \assign\displaystyle \frac{2^{- 2 \nu} (\lambda + \ell)
     (\mu + m) \Gamma (\lambda + \mu + 2 \nu + 1) \Gamma (\lambda) \Gamma (\mu)
@@ -82,13 +116,13 @@ Let $C_{\ell}^{\lambda} (s)$ be the Gegenbauer polynomial of degree $\ell$. For 
 \end{equation*}
 \begin{theorem}
 	\label{thm:1-1}
-%%  For $\lambda, \mu, \nu \in \mathbbm{C}$ with $\tmop{Re} \lambda, \tmop{Re}
-%%  \mu, \tmop{Re} \nu > - 1 / 2$, \ the following expansion holds:
 	Let $\lambda,\mu$ be positive numbers and $\nu\in\C$ satisfying $2\Re \nu>\lambda+\mu+2$. Then
   \begin{equation*}
 	  \begin{array}[]{c}
-     | s + t |^{2 \nu} = \displaystyle\sum_{\ell, m = 0 \mid \ell + m :
-    \tmop{even}}^{\infty} a_{\lambda, \mu, \nu}^{\ell, m} C_{\ell}^{\lambda}
+		  | s + t |^{2 \nu} = \displaystyle\sum_{\scalebox{0.6}{$\begin{array}[]{l}
+			  \ell,m=0\\
+			  l+m:\tmop{even}
+		  \end{array}$}}^{\infty} a_{\lambda, \mu, \nu}^{\ell, m} C_{\ell}^{\lambda}
     (s) C_m^{\mu} (t), \\
 	  \end{array}
   \end{equation*}
@@ -96,31 +130,49 @@ Let $C_{\ell}^{\lambda} (s)$ be the Gegenbauer polynomial of degree $\ell$. For 
 \end{theorem}
 By the Sobolev-type estimate for the Gegenbauer expansion given in Proposition \ref{prop:1718105},
 Theorem \ref{thm:1-1} is deduced from the integral formula (Proposition \ref{cor:1}),
-which is a special case at $x=1$ of the following integral formula.
-
-We set
-\[ u_{\ell}^{\lambda} (s) \assign \frac{2^{2 \lambda - 1} \ell ! \Gamma
-   (\lambda)}{\Gamma (2 \lambda + \ell)} (1 - s^2)^{\lambda - \frac{1}{2}}
-   C_{\ell}^{\lambda} (s) . \]
+which is a special case at $x=1$ of the following.
 \begin{theorem}
   \label{main-thm}Suppose $\ell, m \in \mathbbm{N}$ such that $\ell + m$ is
   even. For $\lambda, \mu, \nu \in \mathbbm{C}$ with $\tmop{Re} \lambda,
   \tmop{Re} \mu, \tmop{Re} \nu > - 1 / 2$, and for $- 1 \leqslant x \leqslant
-  1$, \ the following integral converges:
-  \begin{eqnarray}
-    & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t x |^{2 \nu} u_{\ell}^{\lambda} (s)
-    u_m^{\mu} (t) d s d t &  \nonumber\\
-    & \displaystyle= \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
+  1$, we have
+  \begin{multline}
+     \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + xt |^{2 \nu} u_{\ell}^{\lambda} (s)
+    u_m^{\mu} (t) d s d t   \\
+     \displaystyle= \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
     \pi^{\frac{3}{2}} \Gamma \left( \nu + \frac{1}{2} \right) x^m{}_2 F_1
     \left( \begin{array}{c}
       \frac{\ell + m}{2} - \nu, \frac{m - \ell}{2} - \nu - \lambda\\
       \mu + m + 1
     \end{array} ; x^2 \right)}{\Gamma (\mu + m + 1) \Gamma \left( \lambda +
-    \nu + \frac{\ell - m}{2} + 1 \right)},  \label{eqn:main} & 
-  \end{eqnarray}
-  where $(y)_j \assign y (y + 1) (y + 2) \cdots (y + j - 1)$ for $j \in
-  \mathbbm{N}$.
+    \nu + \frac{\ell - m}{2} + 1 \right)},  \label{eqn:main}  
+  \end{multline}
+  where $(y)_j \assign y (y + 1) (y + 2) \cdots (y + j - 1)$ is the Pochhammer 
+  symbol, and we set
+\[ u_{\ell}^{\lambda} (s) \assign \frac{2^{2 \lambda - 1} \ell ! \Gamma
+   (\lambda)}{\Gamma (2 \lambda + \ell)} (1 - s^2)^{\lambda - \frac{1}{2}}
+   C_{\ell}^{\lambda} (s) . \]
 \end{theorem}
+\begin{remark}
+	Note that even slightly more general formula
+	\begin{multline}
+		\displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + xt |^{2 \nu}\operatorname{sgn}^{\frac{1\pm1}{2}}\left( s+xt \right) u_{\ell}^{\lambda} (s)
+    u_m^{\mu} (t) d s d t
+     \\
+     =\begin{cases}
+      \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
+    \pi^{\frac{3}{2}} \Gamma \left( \nu + \frac{1}{2} \right) x^m{}_2 F_1
+    \left( \begin{array}{c}
+      \frac{\ell + m}{2} - \nu, \frac{m - \ell}{2} - \nu - \lambda\\
+      \mu + m + 1
+    \end{array} ; x^2 \right)}{\Gamma (\mu + m + 1) \Gamma \left( \lambda +
+    \nu + \frac{\ell - m}{2} + 1 \right)},&\left(\ell+m\equiv\frac{1\pm1}{2}\operatorname{mod}2  \right)\\
+    0,&\left( \operatorname{otherwise} \right)
+     \end{cases}
+		\nonumber
+	\end{multline}
+	can be shown.
+\end{remark}
 
 Note that as the Gegenbauer polynomial $g (s) \assign C_{\ell}^{\lambda} (s)$
 satisfies the second-order differential equation
@@ -139,60 +191,6 @@ $f (s) \assign u_{\ell}^{\lambda} (s)$ satisfies
   reduced to the case $0 \leqslant x \leqslant 1$.
 \end{remark}
 
-The substitution of $x = 1$ in Theorem \ref{main-thm} yields:
-
-\begin{proposition}
-  \label{cor:1}{\tmdummy}
-  
-  \begin{multline}
-    \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t |^{2 c-1} (1 - s^2)^{a-1
-	    } (1 - t^2)^{b-1} C_{\ell}^{a-\frac{1}{2}} (s)
-	    C_m^{b-\frac{1}{2}} (t) d s d t   \\
-	    \displaystyle = \frac{(\frac{1}{2}- c)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
-    \pi^{\frac{1}{2}} (2a-1)_{\ell} (2 b-1)_m \Gamma \left( 
-    a \right) \Gamma \left( b \right) \Gamma \left(
-    c \right) \Gamma (a+b+2c-1)}{\ell !m!
-    \Gamma \left( a+c + \frac{\ell - m}{2}  \right) \Gamma \left(
-    b+c - \frac{\ell - m}{2}  \right) \Gamma \left( a+b +
-    c + \frac{\ell + m}{2} -\frac{1}{2} \right)} . 
-    \end{multline}
-    \begin{multline}
-    \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t |^{2 \nu} (1 - s^2)^{\lambda -
-    \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} C_{\ell}^{\lambda} (s)
-    C_m^{\mu} (t) d s d t   \\
-    \displaystyle = \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
-    \pi^{\frac{1}{2}} (2 \lambda)_{\ell} (2 \mu)_m \Gamma \left( \lambda +
-    \frac{1}{2} \right) \Gamma \left( \mu + \frac{1}{2} \right) \Gamma \left(
-    \nu + \frac{1}{2} \right) \Gamma (\lambda + \mu + 2 \nu + 1)}{\ell !m!
-    \Gamma \left( \lambda + \nu + \frac{\ell - m}{2} + 1 \right) \Gamma \left(
-    \mu + \nu - \frac{\ell - m}{2} + 1 \right) \Gamma \left( \lambda + \mu +
-    \nu + \frac{\ell + m}{2} + 1 \right)}  \label{eqn:cor:1} .
-  \end{multline}
-\end{proposition}
-
-Taking the limit in $(\ref{eqn:cor:1})$ as both $\lambda$ and
-$\mu$ tend to be
-zero, we obtain
-
-\begin{corollary}
-  \label{cor:170599}For $\rho \in \mathbbm{C}$ with $\tmop{Re} \rho > 0$ and
-  $r \in \{ 0, 1 \}$,
-  \begin{eqnarray}
-    & | \cos \varphi + \cos \psi |^{\rho} \tmop{sgn}^r (\cos \varphi + \cos
-    \psi) &  \nonumber\\
-    & = \displaystyle\sum_{\tmscript{\begin{array}{c}
-      \ell, m = 0\\
-      \ell \equiv m + r \tmop{mod} 2
-    \end{array}}}^{\infty} \frac{2^{2 - \rho} \Gamma (\rho + 1)^2}{(1 +
-    \delta_0^{\ell}) (1 + \delta_0^m) \displaystyle\prod_{\delta, \varepsilon \in \{ \pm 1
-    \}} \Gamma \left( 1 + \frac{1}{2} (\rho + \delta \ell + \varepsilon m)
-    \right)} \cos \ell \varphi \cos m \psi . &  \nonumber
-  \end{eqnarray}
-  where
-  $\delta_0^\ell$ denotes the Kronecker delta, i.e.,
-  $\delta_0^{\ell} \assign 1$ if $\ell = 0$ and $= 0$ otherwise.
-\end{corollary}
-
 Selberg-type integrals are related to (finite-dimensional) representation
 theory of semisimple Lie algebras, see {\cite{forrester2008importance}},
 {\cite{tarasov2003selberg}} and references therein. On the other hand, Theorem
@@ -202,27 +200,30 @@ work {\cite{kobayashi2015symmetry}} to indefinite orthogonal groups $O (p,
 q)$. This will be done in a separate paper.
 
 Special cases and the limit case of Theorem \ref{main-thm} will be discussed
-in Section \ref{sec:4}.
+in Section \ref{sec:4} \doubt{and $\bullet$}.
 
-\section{Proof of main theorem}\label{sec:2}
+\section{Proof of the main theorem}\label{sec:2}
 
-In this section we prove Theorem \ref{main-thm} by assuming the following
-integral formula $(\ref{eqn:stz})$, which will be proved in Section
+In this section we prove that Theorem \ref{main-thm}
+is deduced from the special case $\ell=m=0$, namely, from
+the following
+integral formula $(\ref{eqn:stz})$.
+Proposition \ref{prop:2}
+will be proved in Section
 \ref{sec:3}.
 
 \begin{proposition}
   \label{prop:2}For $a, b, c \in \mathbbm{C}$ such that $\tmop{Re} a,
   \tmop{Re} b, \tmop{Re} c > 0$ and for $- 1 \leqslant x \leqslant 1$, we have
-  \begin{eqnarray}
-    & \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t x |^{2 c - 1} (1 - s^2)^{a - 1} (1 -
+  \begin{multline}
+     \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t x |^{2 c - 1} (1 - s^2)^{a - 1} (1 -
     t^2)^{b - 1} d s d t = \frac{\sqrt{\pi} \Gamma (a) \Gamma (b) \Gamma
     (c)}{\Gamma (a + c) \Gamma \left( b + \frac{1}{2} \right)}{}_2 F_1 \left(
     \begin{array}{c}
       - c + \frac{1}{2}, - a - c + 1\\
       b + \frac{1}{2}
-    \end{array} ; x^2 \right) .  \label{eqn:stz} & \\
-    &  &  \nonumber
-  \end{eqnarray}
+    \end{array} ; x^2 \right) .  \label{eqn:stz}
+  \end{multline}
 \end{proposition}
 
 \begin{proof*}{Proof of Theorem \ref{main-thm}}
@@ -244,9 +245,9 @@ integral formula $(\ref{eqn:stz})$, which will be proved in Section
      \frac{\partial^{\ell}}{\partial s^{\ell}} (1 - s^2)^{\lambda + \ell -
      \frac{1}{2}} \frac{\partial^m}{\partial t^m} (1 - t^2)^{\mu + m -
      \frac{1}{2}} d s d t. \]
-  Suppose that $\tmop{Re} \nu > \frac{\ell + m}{2}$, $\tmop{Re} \lambda >
-  \frac{1}{2}$ and $\tmop{Re} \mu > \frac{1}{2}$. Then $| s + tx |^{2 \nu}$ is
-  of $C^{\ell + m}$ class, and integration by parts gives
+  Suppose $\tmop{Re} \nu > \frac{\ell + m}{2}$, $\tmop{Re} \lambda >
+  \frac{1}{2}$ and $\tmop{Re} \mu > \frac{1}{2}$. Then
+  integration by parts gives
   \begin{eqnarray}
     & I_{\ell, m} (x) = \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (1 - s^2)^{\lambda + \ell -
     \frac{1}{2}} (1 - t^2)^{\mu + m - \frac{1}{2}} \frac{\partial^{\ell +
@@ -262,37 +263,37 @@ integral formula $(\ref{eqn:stz})$, which will be proved in Section
     \ell - m} (1 - s^2)^{\lambda + \ell - \frac{1}{2}} (1 - t^2)^{\mu + m -
     \frac{1}{2}} d s d t. &  \nonumber
   \end{eqnarray}
-  Then Theorem \ref{main-thm} follows from Proposition \ref{prop:2} with $(a,
+  Applying Proposition \ref{prop:2} with $(a,
   b, c) = \left( \lambda + \ell + \frac{1}{2}, \mu + m + \frac{1}{2}, \nu +
-  \frac{1}{2} (1 - \ell - m) \right)$.
+  \frac{1}{2} (1 - \ell - m) \right)$, we see\mygrammarfootnote{``that''?}
+  the equation \eqref{eqn:main} holds in the domain of $(\lambda,\mu,\nu)$ that we treated. Now Theorem \ref{main-thm} follows
+  by analytic continuation.
 \end{proof*}
 
 \section{Proof of Proposition \ref{prop:2}}\label{sec:3}
-
-In this section we show Proposition \ref{prop:2}, and thus complete the proof
-of Theorem \ref{main-thm}. We use the following two lemmas.
-
+In this section we show Proposition \ref{prop:2}.
+We use the following two lemmas.
 \begin{lemma}
   \label{lem4}For $a, b, z \in \mathbbm{C}$ with $\tmop{Re} a, \tmop{Re} b >
   0$ and for $- 1 \leqslant x \leqslant 1$ we have
-  \begin{eqnarray}
-    & \displaystyle\int_{- 1}^1 (1 + tx)^{a - 1} (1 - t^2)^{b - 1} d t = B \left(
+  \begin{equation}
+     \displaystyle\int_{- 1}^1 (1 + tx)^{a - 1} (1 - t^2)^{b - 1} d t = B \left(
     \frac{1}{2}, b \right){}_2 F_1 \left( \begin{array}{c}
       \displaystyle\frac{1 - a}{2}, \frac{2 - a}{2}\\
       b + \frac{1}{2}
-    \end{array} ; x^2 \right) . &  \nonumber
-  \end{eqnarray}
+    \end{array} ; x^2 \right).
+    \label{eqn:lem31}
+  \end{equation}
 \end{lemma}
-
 \begin{lemma}
   \label{lem:Fisum}Let $a, b, c \in \mathbbm{C}$ with $b + \frac{1}{2} \nin
-  -\mathbbm{N}$. Then\mygrammarfootnote{maybe, we need a comma here?}
+  -\mathbbm{N}$. Then the series\mygrammarfootnote{maybe, we need a comma here?}
   \[ G (a, b, c ; \zeta) \assign \displaystyle\sum_{i = 0}^{\infty} \frac{(a)_i (1 -
      a)_i}{2^i i! (d)_i}{}_2 F_1 \left( \begin{array}{c}
        \displaystyle\frac{1 - d - i}{2}, \frac{2 - d - i}{2}\\
        b + \frac{1}{2}
      \end{array} ; \zeta \right) \]
-  converges when $| \zeta | < 1$, and we have
+  converges when $| \zeta | < 1$, and we have the following closed formula:
   \begin{equation} G (a, b, c ; \zeta) = \frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma
      \left( \frac{a + d}{2} \right) \Gamma \left( \frac{1 - a + d}{2} \right)}
     {}_2 F_1 \left( \begin{array}{c}
@@ -320,15 +321,16 @@ show Proposition \ref{prop:2}.
   \leqslant 0$.
   
   Therefore the left-hand side of $(\ref{eqn:stz})$ equals:
-  \begin{eqnarray}
-    & 2 \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (s + tx)_+^{2 c - 1} (1 - s^2)^{a - 1} (1 -
-    t^2)^{b - 1} d s d t &  \nonumber\\
-    & = 2^a B (2 c, a) \displaystyle\int_{- 1}^1 (1 + tx)^{2 c + a - 1}{}_2 F_1 \left(
+  \begin{multline}
+     2 \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 (s + tx)_+^{2 c - 1} (1 - s^2)^{a - 1} (1 -
+    t^2)^{b - 1} d s d t   \\
+     = 2^a B (2 c, a) \displaystyle\int_{- 1}^1 (1 + tx)^{2 c + a - 1}{}_2 F_1 \left(
     \begin{array}{c}
       1 - a, a\\
       2 c + a
-    \end{array} ; \frac{1 + tx}{2} \right) (1 - t^2)^{b - 1} d t. &  \nonumber
-  \end{eqnarray}
+    \end{array} ; \frac{1 + tx}{2} \right) (1 - t^2)^{b - 1} d t.   
+	  \nonumber
+  \end{multline}
   Fix $\varepsilon > 0$. Assume $| x | \leqslant 1 - 2 \varepsilon$. Then
   $\left| \frac{1 + tx}{2} \right| \leqslant 1 - \varepsilon$. Expanding the
   hypergeometric function as a uniformly convergent power series of
@@ -347,22 +349,23 @@ show Proposition \ref{prop:2}.
       b + \frac{1}{2}
     \end{array} ; x^2 \right) . &  \nonumber
   \end{eqnarray}
-  Now (\ref{eqn:stz}) follows from Lemma \ref{lem:Fisum} with $\zeta = z^2$
+  Now (\ref{eqn:stz}) follows from Lemma \ref{lem:Fisum} with $\zeta = x^2$
   and $d = 2 c + a$\mygrammarfootnote{maybe, we need a comma here?} and from the
   duplication formula of the Gamma function $\Gamma (2 c) = \pi^{-
   \frac{1}{2}} 2^{2 c - 1} \Gamma (c) \Gamma \left( c + \frac{1}{2} \right)$.
 \end{proof*}
 
 \begin{proof*}{Proof of Lemma \ref{lem4}}
-  By Euler's integral representation of $_2 F_1$ again, we have
+  By Euler's integral representation of $_2 F_1$ again,
+  the left-hand side of \eqref{eqn:lem31} amounts to
   \begin{eqnarray}
-    & \displaystyle\int_{- 1}^1 (1 - t z)^{a - 1} (1 - t^2)^{b - 1} d t = 2^{2 b - 1} (1 +
-    z)^{a - 1} B (b, b)_2 F_1 \left( \begin{array}{c}
+    & \displaystyle2^{2 b - 1} (1 +
+    x)^{a - 1} B (b, b)_2 F_1 \left( \begin{array}{c}
       1 - a, b\\
       2 b
-    \end{array} ; \frac{2 z}{1 + z} \right) .  \label{eqn:quad} & 
+    \end{array} ; \frac{2 x}{1 + x} \right) .  \label{eqn:quad} & 
   \end{eqnarray}
-  Applying the following quadratic transformation of $_2 F_1$ (cf. {\cite[Thm.
+  Applying the quadratic transformation of $_2 F_1$ (cf. {\cite[Thm.
   3.13]{andrews2000special}}):
   \begin{eqnarray}
     & \;_2 F_1 \left( \begin{array}{c}
@@ -375,12 +378,12 @@ show Proposition \ref{prop:2}.
     \end{array} ; \displaystyle\left( \frac{u}{2 - u} \right)^2 \right), &  \nonumber
   \end{eqnarray}
   with $u = \frac{2 z}{1 + z}$, we get the desired result after a small
-  computation using the duplication formula of the $\Gamma$-function.
+  computation using the duplication formula of the Gamma function.
 \end{proof*}
 
 \begin{proof*}{Proof of Lemma \ref{lem:Fisum}}
-  We list some elementary identities for the Pochammer symbol $(y)_j =
-  \frac{\Gamma (y + j)}{\Gamma (y)}$ satisfies
+  We list some elementary identities for the Pochhammer symbol $(y)_j =
+  \frac{\Gamma (y + j)}{\Gamma (y)}$:
   \begin{eqnarray}
     & y_j (1 - y)_{- j} & = \; (- 1)^j,  \label{eqn:p1}\\
     & \left( \frac{y}{2} \right)_j \left( \frac{1 + y}{2} \right)_j & = \;
@@ -388,7 +391,7 @@ show Proposition \ref{prop:2}.
     & (y)_i (1 - y)_{2 j} & = \; (1 - y - i)_{2 j} (y - 2 j)_i . 
     \label{eqn:p3}
   \end{eqnarray}
-  We claim that the left-hand side of $(\ref{eqn:iF})$ equals
+  To prove the equation \eqref{eqn:iF}, we first show the following.
   \begin{eqnarray}
     & G (a, b, d ; \zeta) = \displaystyle\sum_{j = 0}^{\infty} \frac{(1 - d)_{2 j}
     \zeta^j}{2^{2 j} j! \left( b + \frac{1}{2} \right)_j}{}_2 F_1 \left(
@@ -405,8 +408,7 @@ show Proposition \ref{prop:2}.
     j}}{\left( b + \frac{1}{2} \right)_j} \zeta^j, &  \nonumber
   \end{eqnarray}
   which is equal to the right-hand side of $(\ref{eqn:Fijsum})$ by
-  $(\ref{eqn:p3})$ with $y = d$. Hence we have verified the equality
-  $(\ref{eqn:Fijsum})$.
+  $(\ref{eqn:p3})$ with $y = d$.
   
   As $\;_2 F_1 \left( \begin{array}{c}
     a, 1 - a\\
@@ -424,7 +426,7 @@ show Proposition \ref{prop:2}.
       &\displaystyle = \frac{2^{1 - d} \sqrt{\pi} \Gamma (d)}{\Gamma \left( \frac{a +
       d}{2} \right) \Gamma \left( \frac{1 - a + d}{2} \right)} \displaystyle\sum_{j =
       0}^{\infty} \frac{\left( 1 - \frac{a + d}{2} \right)_j \left( \frac{1 +
-      a - d}{2} \right)_j}{j! \left( b + \frac{1}{2} \right)_j} \zeta^j
+      a - d}{2} \right)_j}{j! \left( b + \frac{1}{2} \right)_j} \zeta^j,
     \end{array} &  \nonumber
   \end{eqnarray}
   where we have used $(\ref{eqn:p1})$ with $y = 1 - d, 1 - \frac{1}{2} (a +
@@ -434,15 +436,16 @@ show Proposition \ref{prop:2}.
 
 \section{Sobolev-type estimate for Gegenbauer expansion}\label{sec:Sobolev}
 In this section we formulate a Sobolev-type estimate for Gegenbauer expansion, by which
-Theorem \ref{thm:1-1} follows from the integral formula (Proposition \ref{cor:1}).
+Theorem \ref{thm:1-1} follows ready\mygrammarfootnote{readily?} from the special value of the integral formula (Theorem \ref{main-thm}),
+as we shall see in Section \ref{sec:pfThm}.
 
 We begin with a basic {set-up}.
 If $\lambda>-\frac{1}{2}$ and $\lambda\neq0$, the Gegenbauer polynomials $\left\{ C_n^\lambda(x) \right\}_{n\in\N}$
 form an orthogonal basis in the Hilbert space $L_\lambda^2:=L^2\left( (-1,1),(1-x^2)^{\lambda-\frac{1}{2}}dx \right)$
 with the norm\begin{equation}
 	\label{eqn:vnlmd}
-	v_n^\lambda\assign\left\|C_n^\lambda(x)\right\|^2_{L^2_\lambda}=\frac{\pi2^{1-2\lambda}\Gamma(n+2\lambda)}{n!(n+\lambda)\Gamma(\lambda)^2}
-\end{equation}Therefore, for any $f\in L_\lambda^2$, we have an expansion\begin{equation}
+	v_n^\lambda\assign\left\|C_n^\lambda(x)\right\|^2_{L^2_\lambda}=\frac{\pi2^{1-2\lambda}\Gamma(n+2\lambda)}{n!(n+\lambda)\Gamma(\lambda)^2}.
+\end{equation}Therefore, for any $f\in L_\lambda^2$, we have an $L^2$-expansion\begin{equation}
 	\label{eqn:aGegen}
 	f(x)=\displaystyle\sum_{n=0}^\infty a_n(f)C_n^\lambda(x)
 \end{equation}where $a_n(f)\in\C$ is\mygrammarfootnote{are?} given by
@@ -459,12 +462,7 @@ with the norm\begin{equation}
 	for any $f(x)\in L_\lambda^2$ such that the $N$th derivative $f^{(N)}(x)$ belongs to $L^2_{\lambda+N}$. Moreover, the Gegenbauer expansion
 	\eqref{eqn:aGegen} converges absolutely and uniformly in $[-1,1]$ for any such $f(x)$.
 \end{proposition}
-Owing to Proposition \ref{prop:1718105}, we can deduce from Proposition \ref{cor:1}
-the proof of Theorem \ref{thm:1-1} under a slightly weaker assumption that $\lambda,\mu\in\R$ and $\nu\in\C$ satisfy\begin{equation*}
-	\lambda,\mu>-\frac{1}{2};\quad\lambda,\mu\neq0;\quad2\Re \nu>\lambda+\mu+2,
-\end{equation*}because for any $m,n\in\N$ with $m\le\lambda+2$ and $n\le\mu+2$, we have\begin{equation*}
-	\frac{\partial^{m+n}}{\partial s^m\partial t^n}\myabs{s+t}^{2\nu}\in L^2\left( (-1,1)^2,(1-s^2)^{\lambda+m}(1-t^2)^{\mu+n}dsdt \right).
-\end{equation*}The rest of this section is devoted to the proof of Proposition \ref{prop:1718105}. We begin with the following.
+The rest of this section is devoted to the proof of Proposition \ref{prop:1718105}. We begin with the following.
 \begin{lemma}
 	Suppose $\lambda\neq0$ and $\lambda>-\frac{1}{2}$. Let $N\in\N$. Then there is a constant $d_{\lambda,N}>0$ such that \begin{equation*}
 		\mynorm{C_n^\lambda(x)}_{L^\infty(-1,1)}\le d_{\lambda,N}\mynorm{C^{\lambda+N}_{n-N}(x)}_{L^2_{\lambda+N}}\mbox{ for all $n\ge N$.}
@@ -495,66 +493,21 @@ We are ready to complete the proof of Proposition \ref{prop:1718105}.
 	For $0\le n<N$, we use\begin{equation*}
 		\myabs{a_n(f)}\sqrt{v_n^\lambda}\le\mynorm{f}_{L_\lambda^2}
 	\end{equation*}to conclude\begin{equation*}
-		\displaystyle\sum_{n=0}^\infty a_n(f)\mynorm{C_n^\lambda(x)}_{L^\infty(-1,1)}\le D_\lambda\left( \mynorm{f}_{L^2_\lambda}+\mynorm{f^{(N)}}_{L^2_{\lambda+N}} \right).
+		\left(\sum_{n=0}^{N-1}+\sum_{n=N}^\infty  \right) a_n(f)\mynorm{C_n^\lambda(x)}_{L^\infty(-1,1)}\le D_\lambda\left( \mynorm{f}_{L^2_\lambda}+\mynorm{f^{(N)}}_{L^2_{\lambda+N}} \right),
 	\end{equation*}where we set\begin{equation*}
-		D_\lambda:=\max\left\{ \frac{d_\lambda}{2^N(\lambda)_N}\displaystyle\sum_{n=N}^{\infty}n^{\lambda-N},\left\{ \frac{\mynorm{C_n^\lambda(x)}_{L^\infty(-1,1)}}{\sqrt{v_n^\lambda}} \right\}_{n=0,\cdots,N-1} \right\}.
+		D_\lambda:=\max\left( \frac{d_\lambda}{2^N(\lambda)_N}\displaystyle\sum_{n=N}^{\infty}n^{\lambda-N},\left\{ \frac{\mynorm{C_n^\lambda(x)}_{L^\infty(-1,1)}}{\sqrt{v_n^\lambda}} \right\}_{n=0,\cdots,N-1} \right).
 	\end{equation*}Hence Proposition \ref{prop:1718105} is proved.
 \end{proof*}
+\input{sec10}
 \section{Limit case and special values}\label{sec:4}
-
-In this section we examine our main result (Theorem \ref{main-thm}) by taking
-the ``limit'' or by evaluating at special values of parameters. We also
-compare them with special values of the existing integral formul{\ae} such as
-the Selberg-type integrals.
-
-Since the Hermite polynomial $H_n (x)$ is obtained as a limit of the
-Gegenbauer polynomial:
-\begin{eqnarray}
-  & H_n (x) = n! \displaystyle\lim_{\lambda \rightarrow \infty} \lambda^{- \frac{n}{2}}
-  C_n^{\lambda} \left( \displaystyle\frac{x}{\sqrt[]{\lambda}} \right), &  \nonumber
-\end{eqnarray}
-we can deduce the following integral formula of the Hermite polynomial from
-Corollaly \ref{cor:1}:
-
-\begin{corollary}
-  \label{cor:Hermite}Suppose $\ell, m \in \mathbbm{N}$ with $\ell + m$
-  even.\footnote{does it have any particular meaning that that it is ``$s+xt$'' in the next expression, while we have ``$s+tx$''
-	  in \eqref{eqn:main}?}
-  \begin{multline}
-     \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} | s+xt |^{2 \nu}
-    e^{- s^2 - t^2} H_{\ell} (s) H_m (t) d s d t \\= (- \nu)_{\frac{\ell +
-    m}{2}} (- 1)^{\frac{\ell + m}{2}} 2^{\ell + m} \pi^{\frac{1}{2}} \Gamma
-    \left( \frac{1}{2} + \nu \right) (x^2 + 1)^{\nu - \frac{\ell + m}{2}} x^m.
-    \end{multline}
-\end{corollary}
-
-\begin{example}
-  (Mehta integral {\cite{mehta2004random}}) The Mehta integral
-  \begin{equation*}
-     \frac{1}{(2 \pi)^{n / 2}} \displaystyle\int_{\mathbbm{R}^n} \displaystyle\prod_{i = 1}^n e^{-
-    t_i^2 / 2}_{} \displaystyle\prod_{1 \leqslant i < j \leqslant n} | t_i - t_j |^{2 \nu}
-    d t_1 \cdots d t_n
-     = \displaystyle\prod_{j = 1}^n \frac{\Gamma (1 + j \nu)}{\Gamma (1 + \nu)}
-  \end{equation*}
-  in special case $n = 2$ implies the following equation
-  \begin{eqnarray}
-    & \displaystyle\frac{1}{2 \pi} \displaystyle\int_{- \infty}^{\infty} \displaystyle\int_{- \infty}^{\infty} e^{-
-    \frac{x^2 + y^2}{2}} | x - y |^{2 \nu} d x d y = \frac{\Gamma (1 + 2
-    \nu)}{\Gamma (1 + \nu)} . &  \nonumber\\
-    &  &  \nonumber
-  \end{eqnarray}
-  This coincides with the special case of Corollary \ref{cor:Hermite} with
-  $(\ell, m, x) = (0, 0, 1)$.
-\end{example}
-
-In what follows, we shall examine the relationship between Theorem
+In this section, we examine the relationship between Theorem
 \ref{main-thm} and some known integral formul{\ae} by Selberg, Dotsenko,
 Fateev, Tarasov Varchenko, Warnaar among others when the parameters take
 special values. The hierarchy of the formul{\ae} treated here is summarized in
-Table \ref{table}.
+Figure \ref{table}.
 
 For this, we limit ourselves to the special case of Theorem \ref{main-thm}
-with $(\ell, m, x) = (0, 0, 1)$, or equivalently, of Corollary \ref{cor:1}
+with $(\ell, m, x) = (0, 0, -1)$, or equivalently, of Proposition \ref{cor:1}
 with $(\ell, m) = (0, 0)$:
 \begin{multline}  \label{eqn:lm0}
    \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s - t |^{2 \nu} (1 - s^2)^{\lambda -
@@ -591,8 +544,7 @@ with $(\ell, m) = (0, 0)$:
   \end{equation}
   after a change of variables $(t_1, t_2) = \left( \frac{1 + s}{2}, \frac{1 +
   t}{2} \right)$. This coincides with the special case of Theorem
-  \ref{main-thm} with\footnote{I think that here and in subsequent examples it should be $x
-  =-1$, not $x=1$} $(\ell,m,x,\mu)=(0,0,1,\lambda)$, namely, $\lambda=\mu$ in 
+  \ref{main-thm} with $(\ell,m,x,\mu)=(0,0,-1,\lambda)$, namely, $\lambda=\mu$ in 
   \eqref{eqn:lm0}.
 \end{example}
 
@@ -660,21 +612,13 @@ and Theorem \ref{main-thm} is summarized as follows:\footnote{should I include
 the following in the diagram: Corollary \ref{cor:Hermite} (and its relation
 with the Mehta integral); relation with the results of
 {\cite{kobayashi2011schrodinger}}?}
-
-\
-
-%%\begin{table}[h]
-%%  \begin{tabular}{l}
-%%%%    \resizebox{788px}{264px}{\includegraphics{../../fortexmacs/intdep.jpg}}
-%%      \scalebox{0.2}{\includegraphics{../../fortexmacs/intdep.jpg}}
-%%  \end{tabular}
-%%  \caption{Hierarchy of various integral formul{\ae}\label{table}}
-%%\end{table}
 \begin{figure}[h]
-	\centering
 	\input{intpaperdep}
 \caption{Hierarchy of various integral formul{\ae}\label{table}}
 \end{figure}
+\input{sec12}
+
+{\bf Acknowledgement.} The first author was partially supported by the Grant-in-Aid for Scientific Research (A) 25247006.
 \input{bibliography}
 
 \end{document}

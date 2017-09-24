@@ -16,6 +16,8 @@ AUX=
 
 WORKON=https://trello.com/c/jUZS9cjM
 
+INTPAPER_SOURCES=$(addsuffix .tex, intpaper bibliography intpaperdep sec10 sec12 )
+
 all: $(OUTDIR)/$(ZIPNAME).zip
 
 commit:
@@ -23,7 +25,7 @@ commit:
 
 $(OUTDIR)/%.pdf : $(TEXMACSDIR)/%.tm
 	        $(TEXMACS) --convert $< $@ --quit
-$(OUTDIR)/intpaper.pdf : intpaper.tex  bibliography.tex intpaperdep.tex #$(TEXMACSDIR)/intdep.jpg
+$(OUTDIR)/intpaper.pdf : $(INTPAPER_SOURCES) #$(TEXMACSDIR)/intdep.jpg
 	latexmk -g -pdf -pdflatex='pdflatex -shell-escape -enable-pipes %O %S' -outdir=$(OUTDIR) $<
 #$(OUTDIR)/intpaper.pdf : $(TEXMACSDIR)/intpaper.tm $(TEXMACSDIR)/intpaper.bib $(TEXMACSDIR)/intdep.jpg
 #	        $(TEXMACS) --convert $< $@ --quit
