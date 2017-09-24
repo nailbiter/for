@@ -251,7 +251,7 @@ Gegenbauer多項式
 最後に、対称性破れ作用への応用について触れる。%． この研究は小林俊行先生との共同研究である。
 \end{abstract}
 \section{主結果}
-\footnote{Should the name of section be like ``1 主結果'', or like ``1. 主結果''?}最初に、Gegenbauer多項式の定義と性質を復習する。
+最初に、Gegenbauer多項式の定義と性質を復習する。
 	Gegenbauer多項式$y=C^\lambda_n(x)$は以下の微分方程式
 	\begin{equation*}
 		(1-x^2)y''-(2\lambda+1)xy'+n(n+\lambda)y=0
@@ -307,7 +307,7 @@ Gegenbauer多項式
 	で、定理\ref{prop:exp-st-gg}の４通りの証明を紹介する。
 
 	より一般に、定理\ref{prop:exp-st-gg}における$\myabs{s+t}^{2\nu}$にパラメータ$x$を追加した$\myabs{s+xt}^{2\nu}$の展開式は以下の形
-	\doubt{で}与えられる。
+	{で}与えられる。
 	\begin{prop}\label{prop:exp-stz-gg}
 		$\ell,m\in\N$に対して
 		    \begin{equation*}
@@ -333,7 +333,7 @@ Gegenbauer多項式
 				 (x) C_\ell^{\lambda} (s) C_m^{\mu} (t)
 		    \end{equation*}
 		    が成り立つ。
-		    ここで$(y)_n$はPochhammer記号を表し\footnote{maybe, we need a comma here?}以下のように定義される。\begin{equation*}
+		    ここで$(y)_n$はPochhammer記号を表し、以下のように定義される。\begin{equation*}
 		(y)_n:=\frac{\Gamma(y+n)}{\Gamma(y)}=y(y+1)\cdots(y+n-1).
 	\end{equation*}
     \end{prop}
@@ -451,11 +451,12 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
   (\alpha_1 + \alpha_2 + (i - 1) \gamma)}{\Gamma (\alpha_1 + \alpha_2 + (i +
   k_2 - 1) \gamma)}.
   \end{multline}
+  ここで\footnote{maybe, comma here}特異チェイン$C^{k_1,k_2}_{\beta_1,\gamma}$は$(k_1+k_2)$次元の単体のある有限和と\doubt{して}定義されている。
 		\begin{equation*}
 			\begin{array}{c}
-  \mbox{ここで　 }
-  C^{k_1,k_2}_{\beta_1,\gamma}=\sum_{i}\alpha_iS_i,\alpha_i\in\C,S_i\subset[0,1]^{k_1+k_2}\mbox{は}\\
-  \mbox{$k_1+k_2$次元の単体のある有限和, }
+%%  \mbox{ここで　 }
+%%  C^{k_1,k_2}_{\beta_1,\gamma}=\sum_{i}\alpha_iS_i,\alpha_i\in\C,S_i\subset[0,1]^{k_1+k_2}\mbox{は}\\
+%%  \mbox{$k_1+k_2$次元の単体のある有限和, }
 					  \beta_1 + \beta_2 = \gamma + 1,\\
 					    \forall i:
 					    \myre{\alpha_i}, \myre{\beta_i} > 0,
@@ -503,16 +504,14 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
   \Gamma (\alpha + \beta_1 + \beta_2 + (k_1 + k_2 - 3 - j) \gamma) \Gamma
   (\gamma)},\\
 				\end{multline}
+  ここで\footnote{maybe, comma here}特異チェイン$C^{k_1,k_2}_{\gamma}$は$(k_1+k_2)$次元の単体のある有限和と\doubt{して}定義されている。
 				\begin{equation*}
 					\begin{array}[]{c}
-			  \mbox{ここで、}	C^{k_1,k_2}_{\gamma}\mbox{: ある特異チェイン\footnotemark},\\
+%%			  \mbox{ここで、}	C^{k_1,k_2}_{\gamma}\mbox{: あるここで\footnote{maybe, comma here}特異チェイン},\\
 			  \myre{\alpha} > 0,\forall i:\myre{\beta_i}>0, | \tmop{Re} \gamma | \ll 1.
 					\end{array}
 				\end{equation*}
 				}
-				\footnotetext{{
-	  should I write the definition of $C^{k_1,k_2}_{\gamma}$ explicitly as well?
-  }}
 		\end{fact}
 		命題\ref{prop:int-st-gg}の $\ell = m = 0,\mu=\frac{1}{2}$ の特殊化が
 		\cite[(3.4)]{tarasov2003selberg}
@@ -600,7 +599,6 @@ $\boldt=\left( t_1,\cdots,t_k \right),\alpha,\beta,\gamma\in\C$に対して\begi
 			\label{eqn:mellin-hh}
 		\end{equation}
 	\end{fact}
-	ここで、
 	\section{定理\ref{prop:exp-st-gg}の証明について}\label{sec:proof}
 	第\ref{sec:proof}節では、定理\ref{prop:exp-st-gg}の４通りの証明をあげる.
 	下に述べられている証明法１と証明法３は最初のステップとして以下の補題を
