@@ -31,7 +31,7 @@
 \newcommand{\tmtextmd}[1]{{\mdseries{#1}}}
 \newcommand{\tmtextrm}[1]{{\rmfamily{#1}}}
 \newcommand{\tmtextup}[1]{{\upshape{#1}}}
-\newenvironment{proof*}[1]{\noindent\textbf{\textit{#1\ }}}{\hspace*{\fill}$\Box$\medskip}
+\newenvironment{proof*}[1]{\noindent{\textit{#1.\ }}}{\hspace*{\fill}$\Box$\medskip}
 \newtheorem{corollary}{Corollary}[section]
 {\theorembodyfont{\rmfamily}\newtheorem{example}[corollary]{Example}}
 \newtheorem{lemma}[corollary]{Lemma}
@@ -63,8 +63,8 @@
 \author{Toshiyuki Kobayashi \and Alex Leontiev}
 
 \begin{document}
-\unmarkedfntext{2010 Mathematics Subject Classification. Primary 22E46; Secondary 33C45, 53C35.\\
-(or should it be 42C05, 33C45, 33C05?)}
+\unmarkedfntext{2010 Mathematics Subject Classification. Primary 42C05; Secondary 33C45, 33C05, 53C35, 22E46.
+}
 \makeatletter
 \renewcommand{\thefootnote}{\ifcase\value{footnote}\or*)\or
 **)\or(***)\or(****)\or(\#)\or(\#\#)\or(\#\#\#)\or(\#\#\#\#)\or($\infty$)\fi}
@@ -101,7 +101,6 @@ Gegenbauer polynomial, Sobolev inequality, Hermite polynomial, Selberg integral\
 }}
 
 \vspace{2em}
-In this article, we give an expansion of the power $\myabs{s+t}^\alpha$ by two Gegenbauer polynomials $C^\lambda_\ell(s)$ and $C^\mu_m(t)$ with independent parameters $\lambda$ and $\mu$.
 \unmarkedfntext{The instruction ``\underline{Remark} estimate'' was written on the last correction. I am not sure I understand what it means. Could You explain it to me once again?
 I am extremely sorry.}
 \section{Main results}
@@ -114,19 +113,20 @@ Let $C_{\ell}^{\lambda} (s)$ be the Gegenbauer polynomial of degree $\ell$. For 
     \left( \lambda + \mu + \nu + \frac{\ell + m}{2} + 1 \right) \Gamma \left(
     \nu + 1 - \frac{\ell + m}{2} \right)} .
 \end{equation*}
+In this article, we give an expansion of the power $\myabs{s+t}^\alpha$ by two Gegenbauer polynomials $C^\lambda_\ell(s)$ and $C^\mu_m(t)$ with independent parameters $\lambda$ and $\mu$.
 \begin{theorem}
 	\label{thm:1-1}
 	Let $\lambda,\mu$ be positive numbers and $\nu\in\C$ satisfying $2\Re \nu>\lambda+\mu+2$. Then
   \begin{equation*}
 	  \begin{array}[]{c}
-		  | s + t |^{2 \nu} = \displaystyle\sum_{\scalebox{0.6}{$\begin{array}[]{l}
+		  | s + t |^{2 \nu} = \displaystyle\sum_{\scalebox{0.6}{$\begin{array}[]{c}
 			  \ell,m=0\\
 			  l+m:\tmop{even}
 		  \end{array}$}}^{\infty} a_{\lambda, \mu, \nu}^{\ell, m} C_{\ell}^{\lambda}
     (s) C_m^{\mu} (t), \\
 	  \end{array}
   \end{equation*}
-  where the right-hand side converges absolutely and uniformly in $(s,t)\in[-1,1]^2$.
+  where the right-hand side converges absolutely and uniformly in $[-1,1]^2$.
 \end{theorem}
 By the Sobolev-type estimate for the Gegenbauer expansion given in Proposition \ref{prop:1718105},
 Theorem \ref{thm:1-1} is deduced from the integral formula (Proposition \ref{cor:1}),
@@ -154,24 +154,11 @@ which is a special case at $x=1$ of the following.
    C_{\ell}^{\lambda} (s) . \]
 \end{theorem}
 \begin{remark}
-	Note that even slightly more general formula
-	\begin{multline}
-		\displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + xt |^{2 \nu}\operatorname{sgn}^{\frac{1\pm1}{2}}\left( s+xt \right) u_{\ell}^{\lambda} (s)
-    u_m^{\mu} (t) d s d t
-     \\
-     =\begin{cases}
-      \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
-    \pi^{\frac{3}{2}} \Gamma \left( \nu + \frac{1}{2} \right) x^m{}_2 F_1
-    \left( \begin{array}{c}
-      \frac{\ell + m}{2} - \nu, \frac{m - \ell}{2} - \nu - \lambda\\
-      \mu + m + 1
-    \end{array} ; x^2 \right)}{\Gamma (\mu + m + 1) \Gamma \left( \lambda +
-    \nu + \frac{\ell - m}{2} + 1 \right)},&\left(\ell+m\equiv\frac{1\pm1}{2}\operatorname{mod}2  \right)\\
-    0,&\left( \operatorname{otherwise} \right)
-     \end{cases}
-		\nonumber
-	\end{multline}
-	can be shown.
+	Similarly, we can prove for $\ell+m$ odd
+	\begin{equation*}
+		\displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + xt |^{2 \nu}\operatorname{sgn}\left( s+xt \right) u_{\ell}^{\lambda} (s)
+		u_m^{\mu} (t) d s d t=A^{\ell,m}_{\lambda,\mu,\nu}(x).
+	\end{equation*}
 \end{remark}
 
 Note that as the Gegenbauer polynomial $g (s) \assign C_{\ell}^{\lambda} (s)$
@@ -200,7 +187,7 @@ work {\cite{kobayashi2015symmetry}} to indefinite orthogonal groups $O (p,
 q)$. This will be done in a separate paper.
 
 Special cases and the limit case of Theorem \ref{main-thm} will be discussed
-in Section \ref{sec:4} \doubt{and $\bullet$}.
+in Sections \ref{sec:4} and \ref{sec:limit}.
 
 \section{Proof of the main theorem}\label{sec:2}
 
@@ -214,7 +201,8 @@ will be proved in Section
 
 \begin{proposition}
   \label{prop:2}For $a, b, c \in \mathbbm{C}$ such that $\tmop{Re} a,
-  \tmop{Re} b, \tmop{Re} c > 0$ and for $- 1 \leqslant x \leqslant 1$, we have
+  \tmop{Re} b, \tmop{Re} c > 0$ and for $- 1 \leqslant x \leqslant 1$, we have\footnote{in the last correction you told me to use {\ttfamily multline} as the next
+  environment. However, as it was {\ttfamily multline} in previous version already, please let me skip this instruction. Could do something more?}
   \begin{multline}
      \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + t x |^{2 c - 1} (1 - s^2)^{a - 1} (1 -
     t^2)^{b - 1} d s d t = \frac{\sqrt{\pi} \Gamma (a) \Gamma (b) \Gamma
@@ -469,7 +457,7 @@ The rest of this section is devoted to the proof of Proposition \ref{prop:171810
 	\end{equation*}
 	\label{lem:1718109}
 \end{lemma}
-\begin{proof*}{Proof.}
+\begin{proof*}{Proof}
 	In view that\begin{equation*}
 		\myabs{C_n^\lambda(x)}\le C_n^\lambda(1)=\frac{\Gamma(n+2\lambda)}{n!\Gamma(2\lambda)}\mbox{ for all $-1\le x\le 1$,}
 	\end{equation*}we see Lemma \ref{lem:1718109} from \eqref{eqn:vnlmd} and from the asymptotic behaviour of the $\Gamma$ function:\begin{equation*}
@@ -479,7 +467,7 @@ The rest of this section is devoted to the proof of Proposition \ref{prop:171810
 
 We are ready to complete the proof of Proposition \ref{prop:1718105}.
 
-\begin{proof*}{Proof of Proposition \ref{prop:1718105}.}
+\begin{proof*}{Proof of Proposition \ref{prop:1718105}}
 	Iterating the differential formula\begin{equation*}
 		\frac{d}{dx}C_n^\lambda(x)=2\lambda C^{\lambda+1}_{n-1}(x),
 	\end{equation*}we {get} the following $L^2$-expansion:\begin{equation*}
@@ -499,8 +487,8 @@ We are ready to complete the proof of Proposition \ref{prop:1718105}.
 	\end{equation*}Hence Proposition \ref{prop:1718105} is proved.
 \end{proof*}
 \input{sec10}
-\section{Limit case and special values}\label{sec:4}
-In this section, we examine the relationship between Theorem
+\section{{{Special values and Selberg-type integrals}}}\label{sec:4}
+\footnote{Should it be with hyphen, like ``Selberg-type'' integral, or with an en-dash, like ``Selberg--type''?}In this section, we examine the relationship between Theorem
 \ref{main-thm} and some known integral formul{\ae} by Selberg, Dotsenko,
 Fateev, Tarasov Varchenko, Warnaar among others when the parameters take
 special values. The hierarchy of the formul{\ae} treated here is summarized in
@@ -567,7 +555,7 @@ with $(\ell, m) = (0, 0)$:
       \label{eqn:spec_warnaar}
   \end{multline}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
-  m, x, \nu) = \left( 0, 0, 1, - \frac{\lambda + \mu}{2} \right)$, namely,
+  m, x, \nu) = \left( 0, 0, -1, - \frac{\lambda + \mu}{2} \right)$, namely,
   $\lambda+\mu+2\nu=0$ in
   \eqref{eqn:lm0}.
 \end{example}
@@ -586,11 +574,12 @@ with $(\ell, m) = (0, 0)$:
 \label{eqn:spec_tv}
   \end{equation}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
-  m, x, \mu) = \left( 0, 0, 1, \frac{1}{2} \right)$, namely, $\mu=\frac{1}{2}$ in \eqref{eqn:lm0}.
+  m, x, \mu) = \left( 0, 0, 1, \frac{1}{2} \right)$\footnote{should it be perhaps $(\ell,
+  m, x, \mu) = \left( 0, 0, -1, \frac{1}{2} \right)$?}, namely, $\mu=\frac{1}{2}$ in \eqref{eqn:lm0}.
 \end{example}
 
 \begin{example}
-  \label{ex:4}(Dotsenko-Fateev integral) The integral formula (A1)$=$(A35) in
+  \label{ex:4}(Dotsenko--Fateev integral) The integral formula (A1)$=$(A35) in
   {\cite{dotsenko1985four}} in the special case $(n, m, \alpha, \beta, \rho) =
   \left( 1, 1, \mu - \frac{1}{2}, \mu - \frac{1}{2}, - \frac{\mu -
   \frac{1}{2}}{\lambda - \frac{1}{2}} \right)$ reduces to the following
@@ -604,7 +593,7 @@ with $(\ell, m) = (0, 0)$:
     \label{eqn:spec_df}
   \end{equation}
   This coincides with the special case of Theorem \ref{main-thm} with $(\ell,
-  m, x, \nu) = (0, 0, 1, - 1)$, namely, $\nu=-1$ in \eqref{eqn:lm0}.
+  m, x, \nu) = (0, 0, -1, - 1)$, namely, $\nu=-1$ in \eqref{eqn:lm0}.
 \end{example}
 
 The hierarchy of the integral formul{\ae} in Examples \ref{ex:1}-\ref{ex:4}

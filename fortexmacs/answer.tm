@@ -1988,7 +1988,7 @@
       </equation*>
 
       This condition is also necessary in a sence that if we are given the
-      triple <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-C\><rsup|3>>
+      triple <math|<around*|(|\<lambda\>,\<mu\>,\<nu\>|)>\<in\>\<bbb-R\><rsub|\<geqslant\>0><rsup|3>\<times\>\<bbb-C\>>
       that does not satisfy this condition, we can perturb it a little, so
       that the series does not converge absolutely.
     </proposition>
