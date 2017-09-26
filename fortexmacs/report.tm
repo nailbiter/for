@@ -29,12 +29,12 @@
   <with|font-series|bold|What has been done (additional)>
 
   <\enumerate>
-    <item>Attended 2 talks out of 4 for Kohno sensei's seminar (see
+    <item>Attended 9 talks out of 17 for Kohno\Usensei's seminar (see
     <verbatim|notes.pdf> and <verbatim|abstracts.pdf> for notes and abstract
     list respectively; also voice files are avaiable at
     <hlink|https://www.dropbox.com/s/srkyolm6uidydmq/voice.zip?dl=0|>);
 
-    <item>read <cite|lang2012sl2> (see <verbatim|lang_SL2.pdf> for notes).
+    <item>read <cite|lang2012sl2> (see <verbatim|lang_SL2.pdf> for notes)
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
@@ -60,8 +60,8 @@
   </with>
 
   <\enumerate>
-    <item>When You talked to me last Friday You told me that I might have
-    lost my chance of finding a job immediately after PhD's graduation. This
+    <item>When You talked to me before, You told me that I might have lost my
+    chance of finding a job immediately after PhD's graduation. This
     perspective (of not being able to find a job) really worries me. I would
     be extremey grateful if You would outline steps I need to carry out in
     order to bring my chances back (points about <with|font-series|bold|not>
@@ -76,6 +76,10 @@
   <paragraph|Comments>
 
   <\enumerate>
+    <item>I am extremely embarassed for not coming to Your class today. This
+    is intolerable and I should pull myself together. This will not be
+    happening again;
+
     <item>I am extremely sorry for doing my research not fast enough. I know
     I need to speed up and I will;
 
@@ -108,7 +112,7 @@
   <\collection>
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-2|<tuple|1|1>>
-    <associate|auto-3|<tuple|2|1>>
+    <associate|auto-3|<tuple|3|1>>
     <associate|auto-4|<tuple|1|?>>
     <associate|bib-braverman1998minimal|<tuple|BJ98|?>>
     <associate|bib-kobayashi2016classification|<tuple|KKP16|?>>

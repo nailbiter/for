@@ -1981,7 +1981,7 @@
     The following can be said:
 
     <\proposition>
-      The series converges absolutely if
+      The series converges absolutely for <math|s=t=0>, if
 
       <\equation*>
         Re<around*|(|\<lambda\>|)><rsub|+>+Re<around*|(|\<mu\>|)><rsub|+>-Re<around*|(|\<lambda\>+\<mu\>+2\<nu\>|)><rsub|+>\<less\>0.
@@ -1992,6 +1992,14 @@
       that does not satisfy this condition, we can perturb it a little, so
       that the series does not converge absolutely.
     </proposition>
+
+    <\remark*>
+      Here, for example, <math|Re<around*|(|\<lambda\>|)><rsub|+>> denotes
+      the positive part of <math|Re<around*|(|\<lambda\>|)>>. More generally,
+      <with|font-series|bold|positive part> <math|x<rsub|+>> of
+      <math|x\<in\>\<bbb-R\>> is defined as
+      <math|x<rsub|+>\<assign\>max<around*|{|x,0|}>>.
+    </remark*>
 
     <\proof>
       We recall that <math|C<rsub|n><rsup|\<alpha\>><around*|(|0|)>=<choice|<tformat|<table|<row|<cell|0>|<cell|<around*|(|n:odd|)>>>|<row|<cell|<around*|(|-1|)><rsup|n/2><frac|\<Gamma\><around*|(|\<alpha\>+<frac|n|2>|)>|\<Gamma\><around*|(|\<alpha\>|)>\<Gamma\><around*|(|<frac|n|2>+1|)>>>|<cell|<around*|(|n:even|)>>>>>>>
