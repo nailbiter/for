@@ -34,7 +34,10 @@
     list respectively; also voice files are avaiable at
     <hlink|https://www.dropbox.com/s/srkyolm6uidydmq/voice.zip?dl=0|>);
 
-    <item>read <cite|lang2012sl2> (see <verbatim|lang_SL2.pdf> for notes)
+    <item>read <cite|lang2012sl2> (see <verbatim|lang_SL2.pdf> for notes);
+
+    <item>Attended the lecture by Prof. Sekiguchi (see <verbatim|notes2.pdf>
+    for notes).
   </enumerate>
 
   <with|font-series|bold|What I plan to do during this week>:
