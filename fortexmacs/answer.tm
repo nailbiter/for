@@ -2015,6 +2015,24 @@
 
       The part about necessity also follows at once.
     </proof>
+
+    <section|section <verbatim|<code|raqmSm>>>
+
+    <\question>
+      Investigate the absolute uniform convergence of the series
+
+      <\equation*>
+        <stack|<tformat|<table|<row|<cell|<around*|\||s+t*x|\|><rsup|2\<nu\>>=<big|sum><rsub|l,m=0:even><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|<frac|l+m|2>><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)><around*|(|\<lambda\>+l|)>x<rsup|m><space|0.2spc><rsub|2>F<rsub|1><around*|(|<stack|<tformat|<table|<row|<cell|<frac|l+m|2>-\<nu\>,<frac|m-l|2>-\<nu\>-\<lambda\>>>|<row|<cell|\<mu\>+m+1>>>>>;x<rsup|2>|)>|<sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)>>C<rsup|\<lambda\>><rsub|s><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>>>>>>
+      </equation*>
+    </question>
+
+    We will expand hypergeometric <math|<rsub|2>F<rsub|1>> in power series in
+    <math|x> and investigate the (stronger) absolute convergence of the
+    triple series
+
+    <\equation*>
+      <stack|<tformat|<table|<row|<cell|<big|sum><rsub|l,m=0:even,n=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|<frac|l+m|2>><around*|(|-\<nu\>|)><rsub|<frac|l+m|2>>\<Gamma\><around*|(|\<nu\>+<frac|1|2>|)>\<Gamma\><around*|(|\<lambda\>|)>\<Gamma\><around*|(|\<mu\>|)><around*|(|\<lambda\>+l|)>x<rsup|m+2n><around*|(|<frac|l+m|2>-\<nu\>|)><rsub|n><around*|(|<frac|m-l|2>-\<nu\>-\<lambda\>|)><rsub|n>|<sqrt|\<pi\>>\<Gamma\><around*|(|\<mu\>+m|)>\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)><around*|(|\<mu\>+m+1|)><rsub|n>n!>C<rsup|\<lambda\>><rsub|s><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>>>|<row|<cell|\<approx\><big|sum><rsub|l,m=0:even,n=0><rsup|\<infty\>><frac|<around*|(|-\<nu\>|)><rsub|<frac|l+m|2>><around*|(|\<lambda\>+l|)>x<rsup|m+2n><around*|(|<frac|l+m|2>-\<nu\>|)><rsub|n><around*|(|<frac|m-l|2>-\<nu\>-\<lambda\>|)><rsub|n><around*|(|\<mu\>+m|)>|\<Gamma\><around*|(|\<lambda\>+\<nu\>+<frac|l-m|2>+1|)><around*|(|\<mu\>|)><rsub|n+m+1>n!>C<rsup|\<lambda\>><rsub|s><around*|(|s|)>C<rsup|\<mu\>><rsub|m><around*|(|t|)>>>>>>
+    </equation*>
   <|show-part>
     <section|section <code|Vk7ZjF>>
   </show-part>
@@ -2259,7 +2277,8 @@
     <associate|auto.31-3|<tuple|30.2|?|#31>>
     <associate|auto.31-4|<tuple|30.3|?|#31>>
     <associate|auto.31-5|<tuple|31|?|#31>>
-    <associate|auto.32-1|<tuple|31.2|?|#32>>
+    <associate|auto.31-6|<tuple|32|?|#31>>
+    <associate|auto.32-1|<tuple|32.1|?|#32>>
     <associate|auto.4-1|<tuple|3|?|#4>>
     <associate|auto.5-1|<tuple|4|?|#5>>
     <associate|auto.6-1|<tuple|5|?|#6>>

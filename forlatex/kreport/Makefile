@@ -4,7 +4,7 @@
 ZIPNAME=report82
 WORKON=$(ZIPNAME) sep19--sep26
 COMMIT_PREFIX=reports
-PDFS=report reading_list diffforms lang_SL2 notes
+PDFS=report reading_list diffforms lang_SL2 notes notes2
 AUX=abstracts.pdf
 
 MATHEMATICA=/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
