@@ -139,12 +139,12 @@ which is a special case at $x=1$ of the following.
   \begin{multline}
      \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + xt |^{2 \nu} u_{\ell}^{\lambda} (s)
     u_m^{\mu} (t) d s d t   \\
-     \displaystyle= \frac{(- \nu)_{\frac{\ell + m}{2}} (- 1)^{\frac{\ell + m}{2}}
+     \displaystyle= \frac{
     \pi^{\frac{3}{2}} \Gamma \left( \nu + \frac{1}{2} \right) x^m{}_2 F_1
     \left( \begin{array}{c}
       \frac{\ell + m}{2} - \nu, \frac{m - \ell}{2} - \nu - \lambda\\
       \mu + m + 1
-    \end{array} ; x^2 \right)}{\Gamma (\mu + m + 1) \Gamma \left( \lambda +
+    \end{array} ; x^2 \right)}{(1+\nu)_{-\frac{\ell+m}{2}}\Gamma (\mu + m + 1) \Gamma \left( \lambda +
     \nu + \frac{\ell - m}{2} + 1 \right)},  \label{eqn:main}  
   \end{multline}
   where $(y)_j \assign y (y + 1) (y + 2) \cdots (y + j - 1)$ is the Pochhammer 
@@ -154,7 +154,7 @@ which is a special case at $x=1$ of the following.
    C_{\ell}^{\lambda} (s) . \]
 \end{theorem}
 \begin{remark}
-	Similarly, we can prove for $\ell+m$ odd
+	Similarly, we can prove for $\ell+m$ odd\footnote{I have fixed the equality. Thank You for the reminder.}
 	\begin{equation*}
 		\displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s + xt |^{2 \nu}\operatorname{sgn}\left( s+xt \right) u_{\ell}^{\lambda} (s)
 		u_m^{\mu} (t) d s d t=A^{\ell,m}_{\lambda,\mu,\nu}(x).
