@@ -1,1 +1,0 @@
-/Users/nailbiter/for/formathematica/kint/script.wl

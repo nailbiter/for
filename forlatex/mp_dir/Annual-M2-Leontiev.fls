@@ -1,8 +1,0 @@
-PWD /Users/nailbiter/for/forlatex
-INPUT /usr/local/texlive/2016/texmf.cnf
-INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
-INPUT /usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT Annual-M2-Leontiev.tex
-OUTPUT mp_dir/Annual-M2-Leontiev.log
-INPUT /usr/local/texlive/2016/texmf-dist/tex/platex/base/jarticle.cls
-INPUT /usr/local/texlive/2016/texmf-dist/tex/platex/base/jarticle.cls

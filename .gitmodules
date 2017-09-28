@@ -1,0 +1,3 @@
+[submodule "forlatex"]
+	path = forlatex
+	url = git@157.82.19.249:/home/git/forlatex/.git
