@@ -1,3 +1,6 @@
+[submodule "fortexmacs"]
+	path = fortexmacs
+	url = git@157.82.19.249:/home/git/fortexmacs/.git
 [submodule "forlatex"]
 	path = forlatex
-	url = git@157.82.19.249:/home/git/forlatex/.git
+	url = git@157.82.19.249:/home/git/forlatex/
