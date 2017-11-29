@@ -2,15 +2,13 @@ import java.util.Hashtable;
 
 import org.json.JSONObject;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
-import org.telegram.telegrambots.bots.TelegramWebhookBot;
+import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 import org.telegram.telegrambots.logging.BotLogger;
-import org.telegram.telegrambots.api.objects.Message;
 
 public abstract class MyBasicBot extends TelegramLongPollingBot {
-	@Override
 	public void onUpdateReceived(Update update) {
 		// We check if the update has a message and the message has text
 		if (update.hasMessage()) {
@@ -62,7 +60,7 @@ public abstract class MyBasicBot extends TelegramLongPollingBot {
 				;
 	}
 
-	public abstract String getLogString();
+	public String getLogString() {return getBotUsername();}
 	public abstract String getBotUsername();
 	public abstract String getBotToken();
 }

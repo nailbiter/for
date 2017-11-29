@@ -2,15 +2,8 @@ docs/
 *.aux
 *.log
 *.out
-forlatex/foraux/
-forlatex/*.pdf
-forlatex/*.log
-forlatex/*.aux
-forlatex/*.synctex.gz
-forscheme/*.txt
-forplots/*.png
-forplots/*.jpg
-forplots/*.ps
+forlatex/
+fortexmacs/
 harpoon.sty
 forjava/*.class
 forjava/*.txt
