@@ -11,7 +11,6 @@ public class Main {
         TelegramBotsApi botsApi = new TelegramBotsApi();
 
         try {
-        		System.out.println("tesime main");
             botsApi.registerBot(new MyAssistantBot());
         } catch (TelegramApiException e) {
             e.printStackTrace();

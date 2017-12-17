@@ -12,10 +12,10 @@ public abstract class MyBasicBot extends TelegramLongPollingBot {
 	public void onUpdateReceived(Update update) {
 		// We check if the update has a message and the message has text
 		if (update.hasMessage()) {
-			SendMessage message = new SendMessage() // Create a SendMessage object with mandatory fields
-					.setChatId(update.getMessage().getChatId())
-							.setText(reply(update.getMessage()));
 			try {
+				SendMessage message = new SendMessage() // Create a SendMessage object with mandatory fields
+						.setChatId(update.getMessage().getChatId())
+								.setText(reply(update.getMessage()));
 				sendMessage(message); // Call method to send the message
 			} catch (TelegramApiException e) {
 				e.printStackTrace();
@@ -26,11 +26,6 @@ public abstract class MyBasicBot extends TelegramLongPollingBot {
 	abstract JSONObject parse(Message msg,UserData ud) throws Exception;
 	abstract UserData createUserData(Long chatId); 
 	java.util.Hashtable<Long, UserData> userData = new Hashtable<Long,UserData>();
-	/*
-	 * if /list sent 			-- send the list of currency
-	 * if [.0-9]+ USD UAH	 	-- send the conversion
-	 * otherwise 				-- list help
-	 */
 	protected String reply(Message msg){
 		try{
 			if(true)
