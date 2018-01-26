@@ -2,7 +2,7 @@
 echo "I'm alive!"
 tmp_dir=~/for/forlatex/foraux
 
-if [ -e Makefile ]
+if [ -e `dirname $1`/Makefile ]
 then
 	echo "Makefile"
     echo $1

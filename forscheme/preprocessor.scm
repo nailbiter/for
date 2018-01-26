@@ -11,7 +11,10 @@
 (define res (mytokenize "\n"
                          (read-delimited "" (open-file (list-ref (program-arguments) 1) "r"))))
 
-(display "(define(myflush)(map (lambda(line)(format #t \"~a~%\"line))mydata))")(newline)
+(display "(setlocale LC_ALL \"\")\n")
+(display "(define(myflush)(map (lambda(line)(format #t \"~a~%\"line))mydata))")
+(newline)
+
 ((lambda(arg name)
    (if(null? arg)
      (format #t "(define ~a '())~%"name)
