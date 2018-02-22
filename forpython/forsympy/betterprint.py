@@ -47,11 +47,11 @@ def myparse(myvalargs):
             continue
         r = myvalargs[i] * coefflist[i]
         if(onlyfunctionin(r,[a])):
-            alist.append(r)
+            alist.append(r.subs(a,0))
         elif(onlyfunctionin(r,[q,a])):
-            qlist.append(r)
+            qlist.append(r.subs(q,0).subs(a,0))
         elif(onlyfunctionin(r,[q,p,a])):
-            pqlist.append(r)
+            pqlist.append(r.subs(q,0).subs(p,0).subs(a,0))
         else:
             raise
     return const,alist,qlist,pqlist

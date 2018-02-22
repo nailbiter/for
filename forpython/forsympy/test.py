@@ -28,12 +28,17 @@ def myprint(coeffs):
             key=lambda exp:(exp[0].subs(a,0),exp[1])):
         if(coeffs[exp]==0):
             continue
+
         if(True):
             expstring = '({0},{1})'.format(exp[0],exp[1])
         else:
             expstring = 'U^{{ {0} }}u^{{ {1} }}'.format(exp[0],exp[1])
-        print('{0}&\\to&{1}\\\\'
-                .format(expstring,latex(factor(coeffs[exp]))))
+
+        res = betterprint.myparse(factor(coeffs[exp]).args)
+        #print('{0}&\\to&{1}\\\\'
+        print('{0}&\\to&{1}&{2}&{3}\\\\'
+                .format(expstring,res[0],res[1],res[2],res[3]))
+                    #latex(factor(coeffs[exp]))))
 
 #variable declarations
 if (true):
@@ -46,26 +51,3 @@ num = int(sys.argv[1])
 for i in range(num):
     coeffs = myiter(coeffs)
 myprint(coeffs)
-
-filtered={}
-if(num==4):
-    for exp in (coeffs.keys()):
-        if(coeffs[exp]!=0):
-            filtered[exp]=coeffs[exp]
-    mykey = list(filtered.keys())[1]
-    myval = simplify(filtered[mykey])
-    myvalargs = myval.args
-    res = betterprint.myparse(myvalargs)
-
-    sys.stderr.write('{0}\n'.format(mykey))
-    sys.stderr.write('{0}\n{1}\n{2}\n{3}\n'
-            .format(res[0],res[1],res[2],res[3]))
-    #sys.stderr.write('{0}\n'.format(myval.func))
-    #sys.stderr.write('{0}\n'.format(coefflist))
-    #sys.stderr.write('{0}\n'.format(myvalargs))
-    #sys.stderr.write('{0}\n'
-    #        .format(
-    #            list(
-    #                map(
-    #                    lambda m:betterprint.onlyfunctionin(m,[]),
-    #                    myvalargs))))
