@@ -50,11 +50,11 @@
      (lines(list-tail lines 1))
      (lines(map(lambda(l)(mytokenize "," l))lines))
      (lines(filter (lambda(i)(> (length i)0))lines))
-     (dum(display (length lines)))
-     (dum(newline))
-     (dum(display (list-ref lines 0)))
-     (dum(newline))
-     (dum(exit))
+;;     (dum(display (length lines)))
+;;     (dum(newline))
+;;     (dum(display (list-ref lines 0)))
+;;     (dum(newline))
+;;     (dum(exit))
      (lines
       (map(lambda(l)(cons(car l)(list-tail(cdr l)startrow)))lines)))
     lines))
@@ -65,7 +65,7 @@
 ;;output
 
 ;;;debug
-(if #t
+(if #f
   (begin
     (display labellist)
     (newline)
@@ -74,8 +74,11 @@
     (display (gettimingdata "title"))
     )
   (begin
-    (display (length labellist))
-    (newline)
-    (display labellist)
+;;    (display (length labellist))
+;;    (newline)
+    (map
+      (lambda(l)(format #t "~a~%" l))
+      labellist)
+;;    (display labellist)
     )
   )

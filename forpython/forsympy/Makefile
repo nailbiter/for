@@ -1,7 +1,13 @@
-PYTHON=/Users/nailbiter/anaconda2/bin/python2.7
-.PHONY: out.pdf
+PYTHON=~/anaconda3/bin/python3
+.PHONY: all
 
-out.pdf : out.tex content.tex
-	latexmk -pdf $<
-content.tex: test.py
-	$(PYTHON) $< 9 > $@
+all : out.pdf
+SOURCES=out content5 content4 content6
+out.pdf: $(addsuffix .tex, $(SOURCES))
+	latexmk -pdf out.tex
+content4.tex: test.py betterprint.py
+	$(PYTHON) $< 4 > $@
+content6.tex: test.py
+	$(PYTHON) $< 6 > $@
+content5.tex: test.py
+	$(PYTHON) $< 5 > $@
