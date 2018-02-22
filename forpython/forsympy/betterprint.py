@@ -55,3 +55,9 @@ def myparse(myvalargs):
         else:
             raise
     return const,alist,qlist,pqlist
+def myprintnumfactorization(n):
+    res = ''
+    dict = factorint(abs(n))
+    for key in sorted(dict.keys()):
+        res = res+'{0}^{{ {1} }}'.format(key,dict[key])
+    return res

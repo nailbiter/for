@@ -1,6 +1,7 @@
 from sympy import *
 import sys
 import betterprint
+import math
 
 u, U, a, b,p,q = symbols('u U a b P Q')
 init_printing(use_unicode=True)
@@ -24,11 +25,16 @@ def myiter(coeffs):
                 coeff*(exp[0]+exp[1])*(2*exp[0]-p-q)) #ok
     return res
 def myprint(coeffs):
+    oldkey = 0
+    flag = False
     for exp in sorted(coeffs.keys(),
             key=lambda exp:(exp[0].subs(a,0),exp[1])):
         if(coeffs[exp]==0):
             continue
 
+        if((oldkey != exp[0]) and flag):
+            print('\\hline')
+        flag = True
         if(True):
             expstring = '({0},{1})'.format(exp[0],exp[1])
         else:
@@ -36,9 +42,18 @@ def myprint(coeffs):
 
         res = betterprint.myparse(factor(coeffs[exp]).args)
         #print('{0}&\\to&{1}\\\\'
-        print('{0}&\\to&{1}&{2}&{3}\\\\'
-                .format(expstring,res[0],res[1],res[2],res[3]))
-                    #latex(factor(coeffs[exp]))))
+        print('{0}&\\to&{1}&{6}&{2}&{3}&{4}&...{5}\\\\'
+                .format(expstring,
+                    abs(
+                        #int(math.pow(2,len(res[1])+len(res[2]))+
+                        res[0]),
+                    len(res[1]),
+                    len(res[2]),
+                    len(res[3]),
+                    '?' if len(res[3])==0 else res[3][len(res[3])-1],
+                    betterprint.myprintnumfactorization(res[0])
+                    ))
+        oldkey = exp[0]
 
 #variable declarations
 if (true):
