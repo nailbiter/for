@@ -129,17 +129,18 @@ def myassertpoly(coeffs,k):
     if(True):
         assert expand(computedpoly-poly)==0, "myassertpoly"
 def generatecomputedpoly(coeffs,k):
-    res = 0
     computedset = set()
     for i in range(k,2*k + 1):
         for j in range(0,2*k-i + 1):
             if((i-j)%2 != 0):
                 continue
             computedset.add((a+i,j))
+    res = 0
     for exp in computedset:
         i = exp[0].subs(a,0)
         j = exp[1]
-        res = res + rf((2*a-p-q-2*k)/2,2*k)*((pow(-1,i)*pow(2,i+j)*rf(-k,(i+j)/2))/
+        res = res + rf((2*a-p-q-2*k)/2,2*k)*\
+                ((pow(-1,i)*pow(2,i+j)*rf(-k,(i+j)/2))/
                 (factorial(i-k)*factorial(j)))*\
                 rf(a/2,(i+j)/2)*rf((-q+a)/2,i-k)/\
                 rf((2*a-p-q-2*k)/2,i)*(U ** (a+i))
