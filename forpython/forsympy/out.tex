@@ -21,32 +21,32 @@
 \usetikzlibrary{shapes,arrows,patterns}
 \usepackage[capitalize,nameinlink]{cleveref}
 
-\newcommand{\myput}[1]{
-\begin{equation*}
-	\begin{array}[]{lll|lllll}
-		#1
-	\end{array}
-\end{equation*}
-}
+%%\newcommand{\myput}[1]{
+%%\begin{equation*}
+%%	\begin{array}[]{lll|llll|l}
+%%		#1
+%%	\end{array}
+%%\end{equation*}
+%%}
 
 \begin{document}
 %\tiny
 \scriptsize
 case $k=2$:
-\myput{\input{content2.tex}}
+{\input{content2.tex}}
 
 case $k=3$:
-\myput{\input{content3.tex}}
+{\input{content3.tex}}
 
 case $k=4$:
-\myput{\input{content4.tex}}
+{\input{content4.tex}}
 
 case $k=5$:
-\myput{\input{content5.tex}}
+{\input{content5.tex}}
 
-case $k=6$:
-\myput{\input{content6.tex}}
-
-case $k=7$:
-\myput{\input{content7.tex}}
+%%case $k=6$:
+%%{\input{content6.tex}}
+%%
+%%case $k=7$:
+%%{\input{content7.tex}}
 \end{document}

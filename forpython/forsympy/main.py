@@ -1,6 +1,8 @@
 from sympy import *
+from mpmath import *
 import sys
-import betterprint
+from betterprint import *
+from myprintutils import *
 import math
 
 u, U, a, b,p,q = symbols('u U a b P Q')
@@ -27,6 +29,7 @@ def myiter(coeffs):
 def myprint(coeffs):
     oldkey = 0
     flag = False
+    printarraybeginning()
     for exp in sorted(coeffs.keys(),
             key=lambda exp:(exp[0].subs(a,0),exp[1])):
         if(coeffs[exp]==0):
@@ -40,20 +43,20 @@ def myprint(coeffs):
         else:
             expstring = 'U^{{ {0} }}u^{{ {1} }}'.format(exp[0],exp[1])
 
-        res = betterprint.myparse(factor(coeffs[exp]).args)
-        #print('{0}&\\to&{1}\\\\'
-        print('{0}&\\to&{1}&{6}&{2}&{3}&{4}&...{5}\\\\'
-                .format(expstring,
-                    abs(
-                        #int(math.pow(2,len(res[1])+len(res[2]))+
-                        res[0]),
-                    len(res[1]),
-                    len(res[2]),
-                    len(res[3]),
-                    '?' if len(res[3])==0 else res[3][len(res[3])-1],
-                    betterprint.myprintnumfactorization(res[0])
-                    ))
+        i,j,k = generateijk(exp,num)
+        numbers = generaterealnumbers(exp,coeffs[exp])
+        othernumbers = generatenumbers(i,j,k)
+                        
+        myassert(numbers,othernumbers,\
+                ['qjPusL','nIBCZa','GJQbfs','hGfCJm','UuMvNs'])
+
+        printarrayrow([expstring,numbers['qjPusL'],\
+                numbers['UuMvNs'],numbers['hGfCJm'],\
+                numbers['GJQbfs'],numbers['MZiRoL'],\
+                simplify(othernumbers['nIBCZa']-numbers['nIBCZa'])==0
+                ])
         oldkey = exp[0]
+    printarrayending()
 
 #variable declarations
 if (true):
@@ -66,3 +69,4 @@ num = int(sys.argv[1])
 for i in range(num):
     coeffs = myiter(coeffs)
 myprint(coeffs)
+myassertpoly(coeffs,num)
