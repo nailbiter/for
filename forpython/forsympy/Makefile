@@ -1,8 +1,8 @@
 PYTHON=~/anaconda3/bin/python3
-.PHONY: all
+.PHONY: all commit
 
 all : out.pdf
-SOURCES=out content2 content3 content4 content5 #content6 content7
+SOURCES=out content2 content3 #content4 content5 #content6 content7
 PYSOURCES=main betterprint myprintutils
 out.pdf: $(addsuffix .tex, $(SOURCES))
 	latexmk -pdf out.tex
@@ -18,3 +18,5 @@ content6.tex: $(addsuffix .py, $(PYSOURCES))
 	$(PYTHON) $< 6 > $@
 content7.tex: $(addsuffix .py, $(PYSOURCES))
 	$(PYTHON) $< 7 > $@
+commit:
+	git commit -a -m "python"

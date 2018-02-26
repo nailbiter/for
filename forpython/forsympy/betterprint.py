@@ -109,7 +109,7 @@ def myassert(numbers,othernumbers,checkwhat):
 def myassertpoly(coeffs,k):
     poly = expand(generaterealpoly(coeffs)).subs(u,1)
     computedpoly = expand(generatecomputedpoly(coeffs,k))
-    if(not(True)):
+    if(not(False)):
         printexpression(poly)
         printexpression(computedpoly)
         printexpression(computedpoly - poly)
@@ -125,11 +125,9 @@ def myassertpoly(coeffs,k):
                 if((i-j)%2 != 0):
                     continue
                 computedset.add((a+i,j))
-##        printexpression(realset)
-##        printexpression((computedset))
         printexpression(realset.symmetric_difference(computedset))
     if(True):
-        assert (computedpoly-poly)==0, "myassertpoly"
+        assert expand(computedpoly-poly)==0, "myassertpoly"
 def generatecomputedpoly(coeffs,k):
     res = 0
     computedset = set()
@@ -141,11 +139,8 @@ def generatecomputedpoly(coeffs,k):
     for exp in computedset:
         i = exp[0].subs(a,0)
         j = exp[1]
-##        res = res + generatenumbers(i,j,k)['nIBCZa'].subs(u,1)
-        res = res + rf((2*a-p-q-2*k)/2,2*k)*\
-                ((pow(-1,i)*pow(2,i+j)*rf(-k,(i+j)/2))/
+        res = res + rf((2*a-p-q-2*k)/2,2*k)*((pow(-1,i)*pow(2,i+j)*rf(-k,(i+j)/2))/
                 (factorial(i-k)*factorial(j)))*\
                 rf(a/2,(i+j)/2)*rf((-q+a)/2,i-k)/\
-                rf((2*a-p-q-2*k)/2,i)*\
-                (U ** (a+i))
+                rf((2*a-p-q-2*k)/2,i)*(U ** (a+i))
     return res
