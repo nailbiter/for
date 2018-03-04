@@ -15,3 +15,11 @@ def printarrayrow(r):
                 .format(r[0],r[1],r[2],r[3],r[4],r[5],r[6]))
 def printexpression(expr):
     print("$${0}$$".format(latex(expr)))
+def parsepoly(poly,var,a,b):
+    l = []
+    for i in range(a,b + 1):
+        coeff = factor(poly.coeff(var,i))
+        if(coeff == 0):
+            continue
+        l.append((i,coeff))
+    return l

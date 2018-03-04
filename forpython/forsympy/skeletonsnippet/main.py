@@ -70,3 +70,11 @@ for i in range(num):
     coeffs = myiter(coeffs)
 myprint(coeffs)
 myassertpoly(coeffs,num)
+
+if(not(True)):
+    expr = (a ** 2)*(u**(a+1)) + a*u + (a ** 2) + a
+    expr = collect(expr,u)
+##    sys.stderr.write('{0}\n'.format(expr.as_coefficients_dict()))
+##    for term in expr.args:
+##        term = factor(term)
+    sys.stderr.write('{0}\n'.format(expr.coeff(u,a+u)))

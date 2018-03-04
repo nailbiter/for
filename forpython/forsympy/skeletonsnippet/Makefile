@@ -2,7 +2,7 @@ PYTHON=~/anaconda3/bin/python3
 .PHONY: all commit
 
 all : out.pdf
-SOURCES=out content2 content3 #content4 content5 #content6 content7
+SOURCES=out content2 content3 content4 content5 #content6 content7
 PYSOURCES=main betterprint myprintutils
 out.pdf: $(addsuffix .tex, $(SOURCES))
 	latexmk -pdf out.tex

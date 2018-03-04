@@ -107,12 +107,20 @@ def myassert(numbers,othernumbers,checkwhat):
         assert simplify(numbers[key]-othernumbers[key])==0, \
                 "key=%r" % key
 def myassertpoly(coeffs,k):
-    poly = expand(generaterealpoly(coeffs)).subs(u,1)
-    computedpoly = expand(generatecomputedpoly(coeffs,k))
+    poly = collect(expand((generaterealpoly(coeffs)).subs(u,1)/(U**a)),U)
+    computedpoly = collect(generatecomputedpolyBeta(k),U)
     if(not(False)):
-        printexpression(poly)
-        printexpression(computedpoly)
-        printexpression(computedpoly - poly)
+##        printexpression(poly)
+##        printexpression(computedpoly/(U**a))
+##        printexpression(collect(computedpoly - poly,U))
+        printexpression(parsepoly(poly,U,k,2*k))
+        printexpression(parsepoly(computedpoly,U,k,2*k))
+        printexpression(parsepoly(computedpoly - poly,U,k,2*k))
+##        diff = computedpoly - poly
+##        l = []
+##        for i in range(k,2*k + 1):
+##            l.append(factor(diff.coeff(U,i)))
+##        printexpression(l)
     if(not(True)):
         realset = set()
         for exp in coeffs.keys():
@@ -126,9 +134,9 @@ def myassertpoly(coeffs,k):
                     continue
                 computedset.add((a+i,j))
         printexpression(realset.symmetric_difference(computedset))
-    if(True):
+    if(False):
         assert expand(computedpoly-poly)==0, "myassertpoly"
-def generatecomputedpoly(coeffs,k):
+def generatecomputedpoly(k):
     computedset = set()
     for i in range(k,2*k + 1):
         for j in range(0,2*k-i + 1):
@@ -144,4 +152,16 @@ def generatecomputedpoly(coeffs,k):
                 (factorial(i-k)*factorial(j)))*\
                 rf(a/2,(i+j)/2)*rf((-q+a)/2,i-k)/\
                 rf((2*a-p-q-2*k)/2,i)*(U ** (a+i))
+    return res
+def generatecomputedpolyBeta(k):
+    computedset = set()
+    for i in range(0,k + 1):
+        computedset.add(i)
+    res = 0
+    for i in computedset:
+        monomial = (U**(i+k))/pow(2,i)
+        res = res + rf((2*a-p-q)/2,k)*pow(2,k)*\
+                (rf(-k,i)*rf(a,i+k)*rf((a-q)/2,i))/\
+                (rf((a+1)/2,i)*factorial(i)*rf((2*a-p-q)/2,i))*\
+                monomial
     return res
