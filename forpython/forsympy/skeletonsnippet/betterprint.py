@@ -11,7 +11,6 @@ def onlyfunctionin(f,symbols):
     for s in symbols:
         res = res.subs(s,0)
     return isinstance(res,Integer)
-
 def mycoeffextraction(coeff):
     if(onlyfunctionin(coeff,[])):
         return coeff
@@ -164,4 +163,22 @@ def generatecomputedpolyBeta(k):
                 (rf(-k,i)*rf(a,i+k)*rf((a-q)/2,i))/\
                 (rf((a+1)/2,i)*factorial(i)*rf((2*a-p-q)/2,i))*\
                 monomial
+    return res
+def myadd(res,exp,coeff):
+    if(not(exp in res)):
+        res[exp] = 0
+    res[exp] = res[exp] + coeff
+def myiter(coeffs):
+    res = {}
+    for exp,coeff in coeffs.items():
+        if(coeff==0):
+            continue
+        myadd(res,(exp[0] + 2,exp[1] - 2),
+                coeff*(exp[1]*(1-exp[1]))) #ok
+        myadd(res,(exp[0] + 2,exp[1]),
+                -coeff*(exp[0]+exp[1])*(exp[0]-exp[1]-q)) #ok
+        myadd(res,(exp[0] + 1,exp[1] - 1),
+                -coeff*(2*exp[0]-p-q)*exp[1]) #ok
+        myadd(res,(exp[0] + 1,exp[1] + 1),
+                coeff*(exp[0]+exp[1])*(2*exp[0]-p-q)) #ok
     return res
