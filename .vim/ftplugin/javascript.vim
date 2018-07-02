@@ -1,13 +1,17 @@
 "set tabstop=20
 "set noexpandtab
 set nospell
-set si
-set syntax=javascript
+"set syntax=javascript
 
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
+"set tabstop=2
+"set shiftwidth=2
+"set softtabstop=2
+"set noexpandtab
 
-setlocal foldmethod=syntax
-setlocal foldlevel=99
+setlocal foldmethod=indent
+"setlocal foldlevel=99
+
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
