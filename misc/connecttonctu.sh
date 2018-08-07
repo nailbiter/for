@@ -1,5 +1,5 @@
 #!/bin/sh
 
-ssh inp9822058@bsd1.cs.nctu.edu.tw
+ssh inp9822058@alumni.cs.nctu.edu.tw
 
 
