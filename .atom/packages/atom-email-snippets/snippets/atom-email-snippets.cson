@@ -1,0 +1,232 @@
+'.text.html':
+	'HTML5':
+		'prefix': 'es-html5'
+		'body': '<!doctype html>'
+
+	'XHTML':
+		'prefix': 'es-xhtml'
+		'body': '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
+
+	'META':
+		'prefix': 'es-meta'
+		'body': """
+			<meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		"""
+
+	'TEMPLATE':
+		'prefix': 'es-template'
+		'body': """
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+			<html>
+				<head>
+					<meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
+					<meta name="viewport" content="width=device-width, initial-scale=1">
+					<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+					<title>${1:title}</title>
+					  <style type="text/css">
+							$2
+						</style>
+				</head>
+				<body>
+					${3:content}
+				</body>
+			</html>
+		"""
+
+	'TABLE':
+		'prefix': 'es-table'
+		'body': """
+			<table width="${1:width}" align="${2:align}" style="${3:style}" cellspacing="0" cellpadding="0" border="0">
+				<tr>
+					<td align="${4:align}" style="${5:style}">${6:content}</td>
+				</tr>
+			</table>
+		"""
+
+	'BUTTON VML':
+		'prefix': 'es-button-vml'
+		'body': """
+			<div>
+				<!--[if mso]>
+				  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${1:link}" style="height:${2:height}px;v-text-anchor:middle;width:${3:width}px;" arcsize="${4:arcsize}%" strokecolor="${5:strokecolor}" fillcolor="${6:fillcolor}">
+				    <w:anchorlock/>
+				    <center style="color:${7:color};font-family:${8:font};font-size:${9:font-size}px;">${10:button text}</center>
+				  </v:roundrect>
+				<![endif]-->
+				<a href="${11:link}" style="background-color:${12:bgcolor};border:${13:border};border-radius:${14:border-radius};color:${15:color};display:${16:display};font-family:${17:font};font-size:${18:font-size}px;line-height:${19:line-height}px;text-align:${20:align};text-decoration:${21:decoration};width:${22:width}px;-webkit-text-size-adjust:none;mso-hide:all;">${23:button text}</a>
+			</div>
+		"""
+
+	'BUTTON PADDING':
+		'prefix': 'es-button-padding'
+		'body': """
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td bgcolor="${1:bgcolor}" style="padding: ${2:padding}; -webkit-border-radius: ${3:webkit-border-radius}; border-radius:${4:border-radius};" align="${5:align}">
+						<a href="${6:link}" target="_blank" style="font-size: ${7:font-size}px; font-family: ${8:font}; color: ${9:color}; text-decoration: ${10:decoration}; display: ${11:display};">${12:button text}</a>
+					</td>
+				</tr>
+			</table>
+		"""
+
+	'BUTTON BORDER':
+		'prefix': 'es-button-border'
+		'body': """
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+						<a href="${1:link}" target="_blank" style="font-size: ${2:font-size}px; font-family: ${3:font}; color: ${4:color}; text-decoration: ${5:decoration}; border-radius: ${6:border-radius}px; -webkit-border-radius: ${7:webkit-border-radius}px; background-color: ${8:bgcolor}; border-top: ${9:border-top}; border-bottom: ${10:border-bottom}; border-right: ${11:border-right}; border-left: ${12:border-left}; display: inline-block;">${13:button text}</a>
+					</td>
+				</tr>
+			</table>
+		"""
+
+	'BUTTON PADDING-BORDER':
+		'prefix': 'es-button-padding-border'
+		'body': """
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td align="${1:align}" style="border-radius: ${2:border-radius}px;" bgcolor="${3:bgcolor}">
+						<a href="${4:link}" target="_blank" style="font-size: ${5:font-size}px; font-family: ${6:font}; color: ${7:color}; text-decoration: ${8:decoration}; border-radius: ${9:border-radius}px; padding: ${10:padding}; border: ${11:border}; display: inline-block;">${12:button text}</a>
+					</td>
+				</tr>
+			</table>
+		"""
+
+	'IMAGE':
+		'prefix': 'es-image'
+		'body': '<img src="${1:src}" width="${2:width}" height="${3:height}" border="0" style="${4:style}; display: block; border: 0px;" alt="${5:alt}" />'
+
+	'LINK':
+		'prefix': 'es-link'
+		'body': '<a href="${1:link}" style="${2:style}">${3:link text}</a>'
+
+	'HIDDEN PREHEADER TEXT':
+		'prefix': 'es-hidden-preheader-text'
+		'body': """
+			<div style="display: none; font-size:1px; color: ${1:color}; line-height: 1px; font-family: ${2:font}; max-height: 0px; max-width: 0px; opacity:0; overflow:hidden; mso-hide:all;">
+				${3:preheader text}
+			</div>
+		"""
+
+	'MEDIA QUERY - IPAD 1-2':
+		'prefix': 'es-media-ipad-1-2'
+		'body': """
+			@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+    		${1:style}
+			}
+		"""
+
+	'MEDIA QUERY - IPAD 3-4':
+			'prefix': 'es-media-ipad-3-4'
+			'body': """
+				@media screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+			    ${1:style}
+				}
+			"""
+
+	'MEDIA QUERY - IPHONE 2-3':
+			'prefix': 'es-media-iphone-2-3'
+			'body': """
+				@media screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 1) {
+				    ${1:style}
+				}
+			"""
+
+	'MEDIA QUERY - IPHONE 4-6 ZOOM':
+			'prefix': 'es-media-iphone-4-6-zoom'
+			'body': """
+				@media screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+				    ${1:style}
+				}
+			"""
+
+	'MEDIA QUERY - IPHONE 6 STD - 6 PLUS ZOOM':
+			'prefix': 'es-media-iphone-6-std-6-plus-zoom'
+			'body': """
+				@media screen and (max-device-width: 375px) and (max-device-height: 667px) {
+					${1:style}
+				}
+			"""
+
+	'MEDIA QUERY - IPHONE 6 STD':
+			'prefix': 'es-media-iphone-6-std'
+			'body': """
+				@media screen and (max-device-width: 414px) and (max-device-height: 776px) {
+					${1:style}
+				}
+			"""
+
+	'MEDIA QUERY - GALAXY 4-5':
+			'prefix': 'es-media-galaxy-4-5'
+			'body': """
+				@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+				    ${1:style}
+				}
+			"""
+
+	'MEDIA QUERY - WEBKIT':
+			'prefix': 'es-media-webkit'
+			'body': """
+				@media screen and (-webkit-min-device-pixel-ratio: ${1:value}) {
+					${2:style}
+				}
+			"""
+
+	'MEDIA QUERY - YAHOO':
+			'prefix': 'es-media-yahoo'
+			'body': """
+				@media yahoo {
+				    ${1:style}
+				}
+			"""
+
+	'CONDITIONAL - MICROSOFT WORD':
+			'prefix': 'es-if-word'
+			'body': """
+				<!--[if mso]>
+				  ${1:content}
+				<![endif]-->
+			"""
+
+	'CONDITIONAL - OUTLOOK 2000-2013':
+			'prefix': 'es-if-outlook'
+			'body': """
+				<!--[if (gte mso 9)|(IE)]>
+				  ${1:content}
+				<![endif]-->
+			"""
+
+	'HACK - ANDROID CENTER':
+			'prefix': 'es-hack-android-center'
+			'body': """
+				body {
+					margin:0 !important;
+				}
+				div[style*="margin: 16px 0"] {
+					margin:0 !important;
+				}
+			"""
+
+	'HACK - IOS REMOVE BLUE LINK':
+		'prefix': 'es-hack-ios-remove-blue-link'
+		'body': """
+			a[x-apple-data-detectors] {
+					color: inherit !important;
+					text-decoration: none !important;
+					font-size: inherit !important;
+					font-family: inherit !important;
+					font-weight: inherit !important;
+					line-height: inherit !important;
+			}
+		"""
+
+	'HACK - GMAIL SELECTOR':
+			'prefix': 'es-hack-gmail-selector'
+			'body': """
+				* [lang~="${1:name}"]{
+					${2:style}
+				}
+			"""
