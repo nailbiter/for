@@ -1,0 +1,62 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+'.source.email':
+  'Pevzner Basic':
+    'prefix': 'певзнер'
+    'body': """
+    Уважаемый Михаил Леонидович!
+
+    ${1:body}
+
+    С Уважением,
+    Алексей
+    """
+  'Kobayashi Basic':
+    'prefix':'小林'
+    'body':"""
+    先生
+
+    ご指導どうもありがとうございます！
+    お忙しい中、貴重なお時間を取っていただき、まことに有難うございます。
+
+    ${1:body}
+
+
+    宜しく願い申し上げます
+    アレックス
+    """
+  'Seminar Room Report':
+    'prefix':'ゼミ室'
+    'body':"""
+    D3のアレックス:数理のセミナー室についてご報告${1:num}
+    小林先生
+    (cc:田中先輩)
+
+    ${2:month}月${3:date}日の${4:time}時ぐらい数理${5:roomlist}セミナー室に学生は1人ずつがいまして、
+    その方は登録せずにセミナー室を利用しました。
+    部屋${6:lockedroom}のドアが中から閉められました。
+    それを報告します。
+
+    証明として、部屋の外の写真を添付します。
+
+    よろしくお願い申し上げます。
+    レオンチエフ・アレックス
+    """
