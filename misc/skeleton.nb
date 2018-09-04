@@ -1,0 +1,283 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9833,        274]
+NotebookOptionsPosition[      9421,        255]
+NotebookOutlinePosition[      9778,        271]
+CellTagsIndexPosition[      9735,        268]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"c1", ":=", 
+     RowBox[{
+      SuperscriptBox["2", 
+       RowBox[{"a", "-", "q"}]], "*", "Pi", "*", 
+      RowBox[{"Gamma", "[", 
+       RowBox[{
+        RowBox[{"IntegerPart", "[", 
+         FractionBox[
+          RowBox[{"b", "+", "1"}], "2"], "]"}], "+", 
+        FractionBox[
+         RowBox[{"q", "-", "1"}], "2"]}], "]"}], "*", 
+      RowBox[{"(", 
+       RowBox[{"b", "+", "q", "-", "1"}], ")"}], "*", 
+      RowBox[{"Gamma", "[", 
+       RowBox[{"q", "+", "b"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"c2", ":=", 
+     RowBox[{
+      SuperscriptBox["2", 
+       RowBox[{"1", "-", "a", "-", "b"}]], "*", 
+      RowBox[{"Sqrt", "[", "Pi", "]"}], "*", 
+      RowBox[{"Gamma", "[", 
+       RowBox[{
+        FractionBox["q", "2"], "+", 
+        RowBox[{"IntegerPart", "[", 
+         FractionBox["b", "2"], "]"}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"A", ":=", 
+     RowBox[{
+      FractionBox[
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"-", "1"}], ")"}], 
+        FractionBox[
+         RowBox[{"a", "-", "b"}], "2"]], 
+       RowBox[{
+        RowBox[{"a", "!"}], 
+        RowBox[{"b", "!"}]}]], "*", "c2", "*", 
+      RowBox[{"Gamma", "[", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"p", "-", "1"}], "2"], "+", 
+        RowBox[{"IntegerPart", "[", 
+         FractionBox["a", "2"], "]"}]}], "]"}]}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"B", ":=", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"Gamma", "[", 
+        FractionBox[
+         RowBox[{"\[Lambda]", "-", "\[Nu]"}], "2"], "]"}], "*", 
+       RowBox[{"Gamma", "[", 
+        FractionBox[
+         RowBox[{"\[Lambda]", "+", "\[Nu]", "-", "p", "-", "q", "+", "1"}], 
+         "2"], "]"}], "*", 
+       RowBox[{"Gamma", "[", 
+        FractionBox[
+         RowBox[{"1", "-", "\[Nu]"}], "2"], "]"}], "*", 
+       RowBox[{"Pochhammer", "[", 
+        RowBox[{
+         FractionBox["\[Nu]", "2"], ",", 
+         FractionBox[
+          RowBox[{"a", "+", "b"}], "2"]}], "]"}]}], 
+      RowBox[{
+       RowBox[{"Gamma", "[", 
+        FractionBox[
+         RowBox[{
+          RowBox[{"-", "a"}], "+", "b", "-", "\[Nu]", "+", "q", "+", "1"}], 
+         "2"], "]"}], "*", 
+       RowBox[{"Gamma", "[", 
+        FractionBox[
+         RowBox[{"a", "+", "b", "+", "\[Lambda]"}], "2"], "]"}], "*", 
+       RowBox[{"Gamma", "[", 
+        FractionBox[
+         RowBox[{"a", "-", "b", "+", "\[Lambda]", "-", "q", "+", "1"}], "2"], 
+        "]"}]}]]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"RenormalizedGegenbauerC", "[", 
+      RowBox[{"n_", ",", "m_", ",", "x_"}], "]"}], ":=", 
+     RowBox[{
+      RowBox[{"GegenbauerC", "[", 
+       RowBox[{"n", ",", "m", ",", "x"}], "]"}], "*", 
+      FractionBox[
+       RowBox[{"Gamma", "[", "m", "]"}], 
+       RowBox[{"Gamma", "[", 
+        RowBox[{"m", "+", 
+         RowBox[{"IntegerPart", "[", 
+          FractionBox[
+           RowBox[{"n", "+", "1"}], "2"], "]"}]}], "]"}]]}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"Block", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"a", "=", "1"}], ",", 
+       RowBox[{"b", "=", "1"}], ",", 
+       RowBox[{"p", "=", "3"}], ",", 
+       RowBox[{"q", "=", "2"}], ",", 
+       RowBox[{"\[Lambda]", "=", "5.1"}], ",", 
+       RowBox[{"\[Nu]", "=", 
+        RowBox[{"-", "4.2"}]}]}], "}"}], ",", 
+     RowBox[{"Abs", "[", 
+      RowBox[{
+       RowBox[{"A", "*", "B"}], "-", 
+       RowBox[{"NIntegrate", "[", 
+        RowBox[{
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             SuperscriptBox["u", "2"]}], ")"}], 
+           FractionBox[
+            RowBox[{"q", "-", "2"}], "2"]], "*", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             SuperscriptBox["v", "2"]}], ")"}], 
+           RowBox[{
+            FractionBox[
+             RowBox[{"\[Lambda]", "+", "\[Nu]", "-", "q"}], "2"], "-", "1"}]],
+           "*", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             SuperscriptBox["w", "2"]}], ")"}], 
+           FractionBox[
+            RowBox[{"p", "-", "3"}], "2"]], "*", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", "w", "]"}], 
+           RowBox[{"\[Lambda]", "+", "\[Nu]", "-", "p", "-", "q"}]], "*", 
+          SuperscriptBox[
+           RowBox[{"Abs", "[", 
+            RowBox[{"u", "-", "v"}], "]"}], 
+           RowBox[{"-", "\[Nu]"}]], "*", 
+          RowBox[{"RenormalizedGegenbauerC", "[", 
+           RowBox[{"a", ",", 
+            RowBox[{
+             FractionBox["p", "2"], "-", "1"}], ",", 
+            FractionBox["v", 
+             SqrtBox[
+              RowBox[{"1", "-", 
+               RowBox[{
+                SuperscriptBox["w", "2"], "*", 
+                RowBox[{"(", 
+                 RowBox[{"1", "-", 
+                  SuperscriptBox["v", "2"]}], ")"}]}]}]]]}], "]"}], "*", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             RowBox[{
+              SuperscriptBox["w", "2"], "*", 
+              RowBox[{"(", 
+               RowBox[{"1", "-", 
+                SuperscriptBox["v", "2"]}], ")"}]}]}], ")"}], 
+           FractionBox["a", "2"]], "*", 
+          RowBox[{"RenormalizedGegenbauerC", "[", 
+           RowBox[{"b", ",", 
+            FractionBox[
+             RowBox[{"q", "-", "1"}], "2"], ",", "u"}], "]"}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"u", ",", 
+           RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"v", ",", 
+           RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"w", ",", 
+           RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}]}], "]"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7253032585233593`*^9, 3.725303415954131*^9}, {
+   3.72530486496243*^9, 3.725304923281652*^9}, {3.7253049621082563`*^9, 
+   3.725305002922206*^9}, {3.725305036797736*^9, 3.725305241099218*^9}, {
+   3.7253054134060907`*^9, 3.725305544906487*^9}, {3.725305678573275*^9, 
+   3.7253056806075773`*^9}, 3.725306408897492*^9, {3.725307175919263*^9, 
+   3.725307176773108*^9}, {3.7253072814807777`*^9, 3.725307371626046*^9}, {
+   3.725307511692975*^9, 3.725307515729557*^9}, {3.7253076987941732`*^9, 
+   3.7253077011655693`*^9}, {3.7253078864130077`*^9, 
+   3.7253079282736197`*^9}, {3.725307959795465*^9, 3.725307973080377*^9}, {
+   3.725308269142313*^9, 3.725308476728207*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "slwcon"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Numerical integration converging too slowly; suspect one \
+of the following: singularity, value of the integration is 0, highly \
+oscillatory integrand, or WorkingPrecision too small. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/slwcon\\\", ButtonNote -> \
+\\\"NIntegrate::slwcon\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7253073724055033`*^9, 3.725307516534891*^9, 
+  3.7253077015637913`*^9, 3.725307929992487*^9, 3.725307973584464*^9, 
+  3.725308390579135*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"NIntegrate", "::", "ncvb"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"NIntegrate failed to converge to prescribed accuracy after \
+\[NoBreak]\\!\\(27\\)\[NoBreak] recursive bisections in \[NoBreak]\\!\\(w\\)\
+\[NoBreak] near \[NoBreak]\\!\\({u, v, w}\\)\[NoBreak] = \
+\[NoBreak]\\!\\({0.4220618004029213`, 0.8441236008058426`, \
+6.09131656115887948178037754774488139516654770949247225272974381719`65.\
+954589770191*^-690538902}\\)\[NoBreak]. NIntegrate obtained \
+\[NoBreak]\\!\\(-1.\
+07288826997183515190711347927052429490461496650541558823937893117`65.\
+954589770191*^70425047184\\)\[NoBreak] and \
+\[NoBreak]\\!\\(2.\
+54374038161892184918559116563580127568408977692249329262920043145`65.\
+954589770191*^70425047184\\)\[NoBreak] for the integral and error estimates. \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/NIntegrate/ncvb\\\", \
+ButtonNote -> \\\"NIntegrate::ncvb\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.7253073724055033`*^9, 3.725307516534891*^9, 
+  3.7253077015637913`*^9, 3.725307929992487*^9, 3.725307973584464*^9, 
+  3.725308390736987*^9}],
+
+Cell[BoxData["1.07288826997183515190711347927052429490461496650542`15.\
+954589770191005*^70425047184"], "Output",
+ CellChangeTimes->{3.725307372573181*^9, 3.725307516709029*^9, 
+  3.725307701727261*^9, 3.7253079301637373`*^9, 3.7253079737440033`*^9, 
+  3.725308390740575*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 751},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+11, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 6636, 185, 466, "Input"],
+Cell[7219, 209, 698, 13, 60, "Message"],
+Cell[7920, 224, 1207, 22, 104, "Message"],
+Cell[9130, 248, 275, 4, 32, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

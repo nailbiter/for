@@ -1,0 +1,128 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3364,        119]
+NotebookOptionsPosition[      2964,        100]
+NotebookOutlinePosition[      3321,        116]
+CellTagsIndexPosition[      3278,        113]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"u", "[", 
+     RowBox[{"\[Lambda]_", ",", "l_", ",", "s_"}], "]"}], ":=", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       SuperscriptBox["2", 
+        RowBox[{
+         RowBox[{"2", "\[Lambda]"}], "-", "1"}]], "*", 
+       RowBox[{"l", "!"}], "*", 
+       RowBox[{"Gamma", "[", "\[Lambda]", "]"}]}], 
+      RowBox[{"Gamma", "[", 
+       RowBox[{
+        RowBox[{"2", "*", "\[Lambda]"}], "+", "1"}], "]"}]], "*", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SuperscriptBox["s", "2"]}], ")"}], 
+      RowBox[{"\[Lambda]", "-", 
+       FractionBox["1", "2"]}]], "*", 
+     RowBox[{"GegenbauerC", "[", 
+      RowBox[{"\[Lambda]", ",", "l", ",", "s"}], "]"}]}]}], ";"}]}]], "Input",\
+
+ CellChangeTimes->{{3.715511698765214*^9, 3.7155118258966103`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Block", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"tol", "=", "6"}], ",", 
+    RowBox[{"x", "=", "0.5"}], ","}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.71556673054307*^9, 3.715566735286909*^9}, {
+  3.715567863846579*^9, 3.715567897695931*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NIntegrate", "[", 
+   RowBox[{
+    RowBox[{
+     SuperscriptBox[
+      RowBox[{"Abs", "[", 
+       RowBox[{"s", "+", 
+        RowBox[{"x", "*", "t"}]}], "]"}], 
+      RowBox[{"2", "*", "n"}]], "*", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SuperscriptBox["s", "2"]}], ")"}], 
+      RowBox[{"l", "-", 
+       FractionBox["1", "2"]}]], "*", 
+     SuperscriptBox[
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SuperscriptBox["t", "2"]}], ")"}], 
+      RowBox[{"m", "-", 
+       FractionBox["1", "2"]}]]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"s", ",", 
+      RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", 
+      RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+    RowBox[{"PrecisionGoal", "\[Rule]", "tol"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.715511827108532*^9, 3.71551183462582*^9}, 
+   3.715566699621375*^9, 3.715566741909712*^9, {3.715567905604576*^9, 
+   3.715567906033084*^9}, {3.715567946581422*^9, 3.715567946826172*^9}}],
+
+Cell[BoxData[
+ RowBox[{"2", " ", "s", " ", 
+  SqrtBox[
+   RowBox[{"1", "-", 
+    SuperscriptBox["s", "2"]}]]}]], "Output",
+ CellChangeTimes->{3.715511831733156*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 751},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+11, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 867, 26, 71, "Input"],
+Cell[1428, 48, 273, 7, 28, "Input"],
+Cell[CellGroupData[{
+Cell[1726, 59, 1055, 31, 74, "Input"],
+Cell[2784, 92, 164, 5, 40, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
