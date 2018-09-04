@@ -1,4 +1,4 @@
-# Your snippets
+  # Your snippets
 #
 # Atom snippets allow you to enter a simple prefix in the editor and hit tab to
 # expand the prefix into a larger code block with templated values.
@@ -59,4 +59,24 @@
 
     よろしくお願い申し上げます。
     レオンチエフ・アレックス
+    """
+  'English.Polite':
+    'prefix':'engpolite'
+    'body':"""
+    Dear ${1:name}
+
+    ${2:body}
+
+    Sincerely Yours,
+    Alex
+    """
+  'German.Basic':
+    'prefix':'Liebe'
+    'body':"""
+    Liebe ${1:name},
+    danke für Ihre E-Mail.
+    ${2:body}
+
+    Mit freundlichen Grüßen
+    Alex Leontiev
     """
