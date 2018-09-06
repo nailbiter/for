@@ -3,7 +3,7 @@
 all: CV.xhtml
 
 TEMPLATEDIR=templates
-TEMPLATES=CV snip1
+TEMPLATES=CV snip1 snip2
 TEMPLATEEXT=template.xhtml
 
 CV.xhtml: generate.pl \

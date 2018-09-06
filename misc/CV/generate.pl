@@ -4,6 +4,30 @@ use warnings;
 use File::Basename qw();
 use Template;
 
+#global const's
+my @months = (
+  '',"Jan","Feb",
+  "Mar","Apr","May",
+  "Jun","Jul","Aug",
+  "Sep","Oct","Nov",
+  "Dec",
+);
+my @education = (
+  [heisei(21), $months[6], 'Graduated from <i>Kyiv Natural Science Lyceum No. 145</i>'],
+  #'ウクライナ・キエフ自然科学ライシーアム第145号'
+  [heisei(21), $months[9], 'Enrolled into <i>National Taiwan Chiao Tung University</i> (Department of Applied Mathematics)'],
+  #台湾国立交通大学応用数学学科入学
+  [heisei(25),$months[2],'6 month Student Exchange at <i>Hong Kong University</i>'],
+  #香港大学数学学科交換留学生(6ヶ月間)
+  [heisei(25),$months[6],'Graduated from <i>National Taiwan Chiao Tung University</i>, Double Degree in Applied Math and Computer Science'],
+  #台湾国立交通大学応用数学及びコンピュータサイエンス学科(ダブルディグリー)
+);
+my @progLangs = (
+  ['C/C++        7 years of experience'],
+  ['OpenCV, OpenGL, openSSL, Network Programming, Apache Hadoop'],
+  ['Java, Android Application Development'],
+  ['Lisp, Scheme'],
+);
 #global var's
 my $tt = Template->new({
     INCLUDE_PATH => 'templates',
@@ -17,25 +41,27 @@ sub thickLine{
 sub thinLine{
   return sprintf("border-%s-style:solid; border-%s-width:%fcm;border-%s-color:#000000;",$_[0],$_[0],0.0176,$_[0]);
 }
-sub generateEducation{
-  my @education = (
-    [1988 + 21, 'June', 'ウクライナ・キエフ自然科学ライシーアム第145号'],
-  );
+sub heisei{
+  return 1988+$_[0]
+}
+sub generateContent{
   my @res = ();
-  for my $aref (@education) {
+  my $templateName = $_[1];
+  my @edu = @{$_[0]};
+  for my $aref (@edu) {
     my @arr = @$aref;
     my $vars = {
-      YEAR => $arr[0],
-      MONTH => $arr[1],
-      CONTENT => $arr[2],
+      # YEAR => $arr[0],
+      # MONTH => $arr[1],
+      CONTENT => $aref,
     };
     # my $res;
     my $output = '';
-    $tt->process('snip1.template.xhtml', $vars, \$output)
+    $tt->process($templateName, $vars, \$output)
     || die $tt->error(), "\n";
     push(@res,$output);
   }
-  return join('\n',@res);
+  return join("\n",@res);
 }
 my $vars = {
   PHONEPREFIX => "050",
@@ -57,7 +83,11 @@ my $vars = {
   MONTH => 'Month',
   EDUCATIONEMPLOYMENT => 'Education and Employment History', #学歴･職歴（各項目ごとにまとめて書く）
   EDUCATION => 'Education', #学歴
-  EDUCATIONCONTENT => generateEducation(),
-
+  EDUCATIONCONTENT => generateContent(\@education,'snip1.template.xhtml'),
+  WORK => 'Work Experience',#職歴
+  LANGSKILLS => 'Language Skills',#言語能力
+  THEEND => 'End',#以上
+  PROGLANGUAGES => 'Programming Languages/Framework Skills',#プログラミング言語
+  PROGLANGUAGESCONTENT => generateContent(\@progLangs,'snip2.template.xhtml'),
 };
 $tt->process('CV.template.xhtml', $vars)|| die $tt->error(), "\n";
