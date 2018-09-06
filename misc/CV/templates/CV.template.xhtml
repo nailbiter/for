@@ -33,7 +33,7 @@
       <div class="P1">
         <span class="T2">
           <!-- 28 年  08 月  20 日現在 -->
-          Last Update: Sep 5, 2018
+          Last Update: [%LASTUPDATE%]
         </span>
         <!-- <span class="T3"> </span>
         <span class="T2">年  08</span>
@@ -58,18 +58,16 @@
             <col width="167" />
           </colgroup>
       <tr class="Table12">
-        <td style="text-align:left;" class="Table1_A2">
+        <td style="text-align:left;[%TTB%]" class="Table1_A2">
           <p class="P44"><span class="T11">[% NAME %]</span></p>
         </td>
-        <td colspan="5" style="text-align:left;width:0.8431in; " class="Table1_B2">
+        <td colspan="5" style="text-align:left;width:0.8431in;[%TTB%]" class="Table1_B2">
           <p class="P26"> </p>
           <p class="P34">
-            <span class="T35">Oleksii</span>
-            <span class="T36">        </span>
-            <span class="T37">Leontiev</span>
+            <span class="T35">Oleksii        Leontiev</span>
           </p>
         </td>
-        <td rowspan="4" style="text-align:center;width:1.5in; " class="Table1_K1">
+        <td rowspan="4" style="text-align:center;width:1.5in;" class="Table1_K1">
           <img style="height:3.8049cm;width:2.8491cm;" alt="" src="CV_files/avatar.PNG" />
         </td>
       </tr>
@@ -88,7 +86,9 @@
           <p class="P44"><span class="T11">[% PHONENUMBER %]</span></p>
         </td>
         <!-- <td></td> -->
-        <td colspan="2" style="text-align:left;width:0.8431in; " class="Table1_C5"><p class="P52"><span class="T24">[% PHONEPREFIX %] [% PHONESUFFIX %]</span></p></td>
+        <td colspan="2" style="text-align:left;width:0.8431in; " class="Table1_C5">
+          <p class="P52"><span class="T24">[% PHONEPREFIX %] [% PHONESUFFIX %]</span></p>
+        </td>
         <td style="text-align:left;width:0.5104in; " class="Table1_C5"><p class="P40"><span class="T10">E-MAIL</span></p></td>
         <td colspan="2" style="text-align:left;width:1.6215in; " class="Table1_F5"><p class="P80"><a href="mailto:alozz1991@gmail.com" class="ListLabel_20_1"><span class="Internet_20_link"><span class="T56">alozz1991@gmail.com</span></span></a></p></td>
       </tr>
@@ -97,7 +97,7 @@
         <td style="text-align:left;width:0.8431in; " class="Table1_B2">
           <!-- <p class="P81"><span class="T19">とうきょうと</span></p> -->
         </td>
-        <td colspan="3" style="text-align:left;width:0.5264in; " class="Table1_D6">
+        <td colspan="3" style="text-align:left;width:0.5264in;[%tTB%]" class="Table1_D6">
           <span style="font-family:ＭＳ 明朝; font-size:7.5pt; letter-spacing:0.0016in;">とうきょうとこうとくあおみ</span>
         </td>
         <td style="text-align:left;width:0.2451in; " class="Table1_B2"></td>
@@ -121,7 +121,7 @@
           </p>
         </td>
         <td colspan="4" style="text-align:left;width:0.8431in;[%TBB%]" class="Table1_B8">
-          東京都江東区青海2-2-A-1306
+          <span style="font-family:ＭＳ 明朝; font-size:8.5pt;">東京都江東区青海2-2-A-1306</span>
         </td>
         <td style="text-align:left;width:1.5in;[%TBB%][%TRB%]" class="Table1_K8">
           <p class="P54"><span class="T6">FAX:</span></p>
@@ -137,17 +137,18 @@
       <col width="643" />
     </colgroup>
     <tr class="Table21">
-      <td style="text-align:left;width:0.6333in; " class="Table2_A1"><p class="P89"><span class="T9">年</span></p></td>
-      <td style="text-align:left;width:0.5201in; " class="Table2_B1"><p class="P90"><span class="T9">月</span></p></td>
-      <td style="text-align:left;width:5.7958in; " class="Table2_C1"><p class="P98"><span class="T11">学歴･職歴（各項目ごとにまとめて書く）</span></p></td>
+      <td style="text-align:left;width:0.6333in; " class="Table2_A1"><p class="P89"><span class="T9">[%YEAR%]</span></p></td>
+      <td style="text-align:left;width:0.5201in; " class="Table2_B1"><p class="P90"><span class="T9">[%MONTH%]</span></p></td>
+      <td style="text-align:left;width:5.7958in; " class="Table2_C1"><p class="P98"><span class="T11">[%EDUCATIONEMPLOYMENT%]</span></p></td>
     </tr>
     <tr class="Table22">
       <td style="text-align:left;width:0.6333in; " class="Table2_A2"><p class="P9"> </p></td>
       <td style="text-align:left;width:0.5201in; " class="Table2_B2"><p class="P9"> </p></td>
-      <td style="text-align:left;width:5.7958in; " class="Table2_C2"><p class="P28"><span class="T27">学歴</span></p></td>
+      <td style="text-align:left;width:5.7958in; " class="Table2_C2"><p class="P28"><span class="T27">[%EDUCATION%]</span></p></td>
     </tr>
+    [%EDUCATIONCONTENT%]
     <tr class="Table22">
-      <td style="text-align:left;width:0.6333in; " class="Table2_A2"><p class="P91"><span class="T27">平成</span><span class="T30"> </span><span class="T39">21</span></p></td>
+      <td style="text-align:left;width:0.6333in; " class="Table2_A2"><p class="P91"><span class="T27">平成 21</span></p></td>
       <td style="text-align:left;width:0.5201in; " class="Table2_B2"><p class="P58"><span class="T41">06</span></p></td>
       <td style="text-align:left;width:5.7958in; " class="Table2_C2"><p class="P64"><span class="T29">ウクライナ・キエフ自然科学ライシーアム第145号</span></p></td>
     </tr>
@@ -228,10 +229,17 @@
       <td style="text-align:left;width:0.5201in; " class="Table2_B2"><p class="P9"> </p></td>
       <td style="text-align:left;width:5.7958in; " class="Table2_C18"><p class="P28"><span class="T27">職歴</span></p></td>
     </tr>
-  </table>
+  <!-- </table>
+
   <p class="P15"> </p>
+
   <table class="Table3" cellspacing="0" cellpadding="0" border="0">
-    <colgroup><col width="80" /><col width="48" /><col width="643" /></colgroup>
+    <colgroup><col width="80" /><col width="48" /><col width="643" /></colgroup> -->
+    <!-- <tr class="Table31">
+      <td style="text-align:left;width:0.7229in; " class="Table3_A1"><p class="P97"><span class="T27">平成</span><span class="T30"> </span><span class="T39">24-25</span></p></td>
+      <td style="text-align:left;width:0.4306in; " class="Table3_B1"><p class="P78"><span class="T41">6-5</span></p></td>
+      <td style="text-align:left;width:5.7958in; " class="Table3_C1"><p class="P77"><span class="T28">大学院マルチメディア工学研究科にてインターンシップ（担当：莊榮宏教授）</span></p></td>
+    </tr> -->
     <tr class="Table31">
       <td style="text-align:left;width:0.7229in; " class="Table3_A1"><p class="P97"><span class="T27">平成</span><span class="T30"> </span><span class="T39">24-25</span></p></td>
       <td style="text-align:left;width:0.4306in; " class="Table3_B1"><p class="P78"><span class="T41">6-5</span></p></td>
@@ -339,12 +347,12 @@
     <tr class="Table52"><td style="text-align:left;width:6.9493in; " class="Table5_A2"><p class="P30"><span class="T38">Lisp, Scheme</span><span class="T26">言語</span></p></td></tr>
     <tr class="Table56"><td style="text-align:left;width:6.9493in; " class="Table5_A6"><p class="P7"> </p></td></tr>
   </table>
-  <p class="P11"> </p>
+  <!-- <p class="P11"> </p>
   <p class="P11"> </p>
   <p class="P14"> </p>
   <table class="Table6" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="771" /></colgroup><tr class="Table61"><td style="text-align:left;width:6.9493in; " class="Table6_A1"><p class="P102"><span class="T6">採用形態</span></p></td></tr><tr class="Table62"><td style="text-align:left;width:6.9493in; " class="Table6_A2"><p class="P51"><span class="T29">在学中のため、採用形態はアルバイトあるいは業務委託が希望。</span></p></td></tr><tr class="Table63"><td style="text-align:left;width:6.9493in; " class="Table6_A3"><p class="P9"> </p></td></tr></table>
   <p class="P12"> </p>
-  <p class="P18"> </p>
+  <p class="P18"> </p> -->
   <!-- <table class="Table7" cellspacing="0" cellpadding="0" border="0"><colgroup><col width="285" /><col width="194" /><col width="139" /><col width="153" /></colgroup><tr class="Table71"><td style="text-align:left;width:2.5701in; " class="Table7_A1"><p class="P45"><span class="T7">通勤時間        約        </span><span class="T6">時間        分</span></p></td><td rowspan="2" style="text-align:left;width:1.7507in; " class="Table7_B1"><p class="P56"><span class="T11">扶養家族数</span></p><p class="P31"> </p><p class="P79"><span class="T43">(</span><span class="T11">配偶者を除く</span><span class="T43">)        0  </span><span class="T44"> </span><span class="T11">人</span></p></td><td rowspan="2" style="text-align:left;width:1.2507in; " class="Table7_B1"><p class="P56"><span class="T6">配偶者</span></p><p class="P103"><span class="T51">有  ・</span><span class="T52"> </span><span class="T47">○</span><span class="T54">;</span><span class="T51">無</span></p></td><td rowspan="2" style="text-align:left;width:1.3771in; " class="Table7_D1"><p class="P104"><span class="T11">配偶者の扶養義務</span><span class="T14"> </span><span class="T50">有  ・</span><span class="T53"> </span><span class="T46">○</span><span class="T55">;</span><span class="T50">無</span></p></td></tr><tr class="Table72"><td style="text-align:left;width:2.5701in; " class="Table7_A2"><p class="P46"><span class="T11">最寄り  京王井の頭</span><span class="T20"> </span><span class="T23"> </span><span class="T11">線        </span><span class="T12">東松原        </span><span class="T11">駅</span></p></td></tr></table> -->
   <p class="P5"> </p>
   </body>

@@ -79,6 +79,7 @@
 
     Mit freundlichen Grüßen
     Alex Leontiev
+    """
   'Kobayashi Standard reply':
     'prefix':'承知'
     'body':"""
@@ -93,4 +94,4 @@
 
       宜しく願い申し上げます
       アレックス
-    """
+      """
