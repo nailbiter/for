@@ -1,48 +1,25 @@
 use strict;
 use warnings;
-# use Cwd qw(abs_path);
-use File::Basename qw();
 use Template;
 
-#global const's
-my @months = (
-  '',"Jan","Feb",
-  "Mar","Apr","May",
-  "Jun","Jul","Aug",
-  "Sep","Oct","Nov",
-  "Dec",
-);
-my @education = (
-  [heisei(21), $months[6], 'Graduated from <i>Kyiv Natural Science Lyceum No. 145</i>'],
-  #'ウクライナ・キエフ自然科学ライシーアム第145号'
-  [heisei(21), $months[9], 'Enrolled into <i>National Taiwan Chiao Tung University</i> (Department of Applied Mathematics)'],
-  #台湾国立交通大学応用数学学科入学
-  [heisei(25),$months[2],'6 month Student Exchange at <i>Hong Kong University</i>'],
-  #香港大学数学学科交換留学生(6ヶ月間)
-  [heisei(25),$months[6],'Graduated from <i>National Taiwan Chiao Tung University</i>, Double Degree in Applied Math and Computer Science'],
-  #台湾国立交通大学応用数学及びコンピュータサイエンス学科(ダブルディグリー)
-);
-my @progLangs = (
-  ['C/C++        7 years of experience'],
-  ['OpenCV, OpenGL, openSSL, Network Programming, Apache Hadoop'],
-  ['Java, Android Application Development'],
-  ['Lisp, Scheme'],
-);
+require 'generateAux.pl';
+our @months;
+our @education;
+our @langs;
+our @langExams;
+our @progLangs;
+our @work;
+
 #global var's
 my $tt = Template->new({
     INCLUDE_PATH => 'templates',
-    #INTERPOLATE  => 1,
     }) || die "$Template::ERROR\n";
-
 
 sub thickLine{
   return sprintf("border-%s-style:solid; border-%s-width:0.0529cm;border-%s-color:#000000;",$_[0],$_[0],$_[0]);
 }
 sub thinLine{
   return sprintf("border-%s-style:solid; border-%s-width:%fcm;border-%s-color:#000000;",$_[0],$_[0],0.0176,$_[0]);
-}
-sub heisei{
-  return 1988+$_[0]
 }
 sub generateContent{
   my @res = ();
@@ -51,8 +28,6 @@ sub generateContent{
   for my $aref (@edu) {
     my @arr = @$aref;
     my $vars = {
-      # YEAR => $arr[0],
-      # MONTH => $arr[1],
       CONTENT => $aref,
     };
     # my $res;
@@ -85,9 +60,13 @@ my $vars = {
   EDUCATION => 'Education', #学歴
   EDUCATIONCONTENT => generateContent(\@education,'snip1.template.xhtml'),
   WORK => 'Work Experience',#職歴
-  LANGSKILLS => 'Language Skills',#言語能力
+  LANGSKILLS => 'Language Qualifications',#言語能力
   THEEND => 'End',#以上
   PROGLANGUAGES => 'Programming Languages/Framework Skills',#プログラミング言語
   PROGLANGUAGESCONTENT => generateContent(\@progLangs,'snip2.template.xhtml'),
+  LANGUAGESKILLS => 'Language Skills',#習得した言語
+  LANGUAGESKILLSCONTENT => generateContent(\@langs,'snip2.template.xhtml'),
+  WORKCONTENT => generateContent(\@work,'snip1.template.xhtml'),
+  LANGSKILLSCONTENT => generateContent(\@langExams,'snip1.template.xhtml'),
 };
 $tt->process('CV.template.xhtml', $vars)|| die $tt->error(), "\n";
