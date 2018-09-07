@@ -29,7 +29,28 @@ our @education = (
   ["&nbsp;"," "," "],['&nbsp;','',''],['&nbsp;','',''],['&nbsp;','',''],['&nbsp;','',''],['&nbsp;','',''],['&nbsp;','',''],['&nbsp;','',''],
 );
 our @work = (
+  #TODO
   [heisei(24).'-'.heisei(25), $months[6].'-'.$months[5], 'Graduated from <i>Kyiv Natural Science Lyceum No. 145</i>'],
+  # 大学院マルチメディア工学研究科にてインターンシップ（担当：莊榮宏教授）
+  #TODO
+  [heisei(25), $months[8].'-'.$months[12], 'Graduated from <i>Kyiv Natural Science Lyceum No. 145</i>'],
+  # A Practical Smart Metering System Supporting Privacyという林孝盈の研究に基づいたプライバシーの面を考慮した公共料金自動検針システムの開発と実装
+#
+# 平成 25
+#
+#
+# 5-9
+#
+#
+# Google Summer of Code 2014参加者 ( OpenCV ライブラリ )
+#
+# 平成 26
+#
+#
+# 5-9
+#
+#
+# Google Summer of Code 2015参加者 ( OpenCV ライブラリ )
 );
 our @langExams = (
   [heisei(21), $months[6], 'Graduated from <i>Kyiv Natural Science Lyceum No. 145</i>'],
