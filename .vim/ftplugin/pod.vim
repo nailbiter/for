@@ -8,10 +8,10 @@
 "
 " Only do this when not done yet for this buffer
 "
-if exists("b:did_PERL_ftplugin")
+if exists("b:did_POD_ftplugin")
   finish
 endif
-let b:did_PERL_ftplugin = 1
+let b:did_POD_ftplugin = 1
 "
 " ---------- tabulator / shiftwidth ------------------------------------------
 "  Set tabulator and shift width to 4 conforming to the Perl Style Guide.
@@ -26,11 +26,6 @@ setlocal  shiftwidth=4
 "            one keyword
 "
 setlocal iskeyword+=:
-"
-" ---------- additional mapping : {<CR> always opens a block -----------------
-"
-inoremap    <buffer>  {<CR>  {<CR>}<Esc>O
-vnoremap    <buffer>  {<CR> s{<CR>}<Esc>kp=iB
 "
 " ---------- Set "maplocalleader" as configured using "g:Perl_MapLeader" -----
 "

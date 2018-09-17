@@ -1,0 +1,31 @@
+"scopeName": "source.email"
+"name": "email"
+"fileTypes": ["eml", "email"]
+
+"patterns": [
+    {
+        "match": "\\b\\d+\\b"
+        "name": "constant.numeric.email"
+    }
+    {
+        "match": "^(>\\s*){4}.*"
+        "name": "variable.language.email"
+    }
+    {
+        "match": "^(>\\s*){3}.*"
+        "name": "storage.type.email"
+    }
+    {
+        "match": "^(>\\s*){2}.*"
+        "name": "string.other.email"
+    }
+    {
+        "match": "^>.*"
+        "name": "markup.quote.email"
+    }
+    {
+        "begin": "^-- +"
+        "end": "\\z"
+        "name": "comment.block.email"
+    }
+]

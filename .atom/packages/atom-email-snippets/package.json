@@ -1,0 +1,61 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/pr/xjtr1gvd053c038m63f1hxt80000gn/T/d-118713-10385-176he28.rsyv56ogvi/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/pr/xjtr1gvd053c038m63f1hxt80000gn/T/d-118713-10385-176he28.rsyv56ogvi/package.tgz",
+        "spec": "/private/var/folders/pr/xjtr1gvd053c038m63f1hxt80000gn/T/d-118713-10385-176he28.rsyv56ogvi/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/pr/xjtr1gvd053c038m63f1hxt80000gn/T/apm-install-dir-118713-10385-11beivf.vss4k4vx6r"
+    ]
+  ],
+  "_from": "../d-118713-10385-176he28.rsyv56ogvi/package.tgz",
+  "_id": "atom-email-snippets@0.1.0",
+  "_inCache": true,
+  "_location": "/atom-email-snippets",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/pr/xjtr1gvd053c038m63f1hxt80000gn/T/d-118713-10385-176he28.rsyv56ogvi/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/pr/xjtr1gvd053c038m63f1hxt80000gn/T/d-118713-10385-176he28.rsyv56ogvi/package.tgz",
+    "spec": "/private/var/folders/pr/xjtr1gvd053c038m63f1hxt80000gn/T/d-118713-10385-176he28.rsyv56ogvi/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-118713-10385-176he28.rsyv56ogvi/package.tgz",
+  "_shasum": "114569d72745836f2cee28e4e68441f34dffd006",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/pr/xjtr1gvd053c038m63f1hxt80000gn/T/d-118713-10385-176he28.rsyv56ogvi/package.tgz",
+  "_where": "/private/var/folders/pr/xjtr1gvd053c038m63f1hxt80000gn/T/apm-install-dir-118713-10385-11beivf.vss4k4vx6r",
+  "activationCommands": {
+    "atom-workspace": "atom-email-snippets:toggle"
+  },
+  "bugs": {
+    "url": "https://github.com/gecugamo/atom-email-snippets/issues"
+  },
+  "dependencies": {},
+  "description": "HTML snippets for creating responsive emails.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=0.50.0"
+  },
+  "homepage": "https://github.com/gecugamo/atom-email-snippets",
+  "license": "MIT",
+  "name": "atom-email-snippets",
+  "optionalDependencies": {},
+  "readme": "HTML snippets for creating responsive emails.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gecugamo/atom-email-snippets.git"
+  },
+  "version": "0.1.0"
+}

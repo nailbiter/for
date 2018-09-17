@@ -1,0 +1,313 @@
+html,body{
+  height:297mm;
+  width:210mm;
+}
+@page {  }
+table { border-collapse:collapse; border-spacing:0; empty-cells:show }
+td, th { vertical-align:top; font-size:12pt;}
+h1, h2, h3, h4, h5, h6 { clear:both;}
+ol, ul { margin:0; padding:0;}
+li { list-style: none; margin:0; padding:0;}
+/* "li span.odfLiEnd" - IE 7 issue*/
+li span. { clear: both; line-height:0; width:0; height:0; margin:0; padding:0; }
+span.footnodeNumber { padding-right:1em; }
+span.annotation_style_by_filter { font-size:95%; font-family:Arial; background-color:#fff000;  margin:0; border:0; padding:0;  }
+span.heading_numbering { margin-right: 0.8rem; }* { margin:0;}
+.gr1 { font-size:12pt; font-family:Liberation Serif; margin-left:0.1256in; margin-right:0.1256in; margin-top:0in; margin-bottom:0in; vertical-align:top; }
+.gr2 { font-size:12pt; font-family:Liberation Serif; vertical-align:top; }
+.gr3 { font-size:12pt; font-family:Liberation Serif; min-height:0in;min-width:0in;}
+.P1 { font-size:8pt; margin-bottom:0in; margin-left:4.2693in; margin-right:0in; margin-top:0.0339in; text-align:left ! important; text-indent:0in; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; }
+.P10 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P100 { font-size:11pt; text-align:right ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0618in; margin-top:0.0134in; margin-bottom:0in; text-indent:0in; }
+.P101 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0008in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P102 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.002in; margin-top:0.0366in; margin-bottom:0in; text-indent:0in; }
+.P103 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.2429in; margin-right:0in; margin-top:0.0626in; margin-bottom:0in; text-indent:0in; }
+.P104 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.3035in; margin-right:0.3098in; margin-top:0.0335in; margin-bottom:0in; line-height:142%; text-indent:-0.2402in; }
+.P105 { font-size:12pt; font-family:Liberation Serif; writing-mode:page; text-align:center ! important; }
+.P106 { font-size:12pt; font-family:Liberation Serif; writing-mode:page; }
+.P11 { font-size:10pt; text-align:left ! important; font-family:Times New Roman; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P12 { font-size:10pt; text-align:left ! important; font-family:Times New Roman; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P13 { font-size:13.5pt; text-align:left ! important; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0047in; margin-bottom:0in; text-indent:0in; }
+.P14 { font-size:11pt; text-align:left ! important; font-family:Times New Roman; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0047in; margin-bottom:0in; text-indent:0in; }
+.P15 { font-size:3pt; text-align:left ! important; font-family:Times New Roman; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.002in; margin-bottom:0in; text-indent:0in; }
+.P16 { font-size:5.5pt; text-align:left ! important; font-family:Times New Roman; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0028in; margin-bottom:0in; text-indent:0in; }
+.P17 { font-size:5.5pt; text-align:left ! important; font-family:Times New Roman; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0028in; margin-bottom:0in; text-indent:0in; }
+.P18 { font-size:9pt; text-align:left ! important; font-family:Times New Roman; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0063in; margin-bottom:0in; text-indent:0in; }
+.P19 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0154in; margin-top:0.0366in; margin-bottom:0in; text-indent:0in; }
+.P2 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.1543in; margin-right:0in; line-height:0.328in; text-indent:0in; }
+.P20 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0154in; margin-top:0.0465in; margin-bottom:0in; text-indent:0in; }
+.P21 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0154in; margin-bottom:0in; text-indent:0in; }
+.P22 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P23 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P24 { font-size:11pt; text-align:right ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P25 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P26 { font-size:14pt; text-align:left ! important; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0043in; margin-bottom:0in; text-indent:0in; }
+.P27 { font-size:5.5pt; text-align:left ! important; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0047in; margin-bottom:0in; text-indent:0in; }
+.P28 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P29 { font-size:10.5pt; text-align:center ! important; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P3 { font-size:6pt; text-align:left ! important; font-family:ＭＳ ゴシック; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0016in; margin-bottom:0in; text-indent:0in; }
+.P30 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0126in; margin-bottom:0in; text-indent:0in; }
+.P31 { font-size:6.5pt; text-align:left ! important; font-family:Times New Roman; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0008in; margin-bottom:0in; text-indent:0in; }
+.P32 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:1.4701in; margin-right:0in; margin-top:0.0366in; margin-bottom:0in; text-indent:0in; }
+.P33 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0161in; margin-top:0.0339in; margin-bottom:0in; text-indent:0in; }
+.P34 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.8799in; margin-right:0in; text-indent:0in; }
+.P35 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0118in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P36 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.2902in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P37 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0472in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P38 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0472in; margin-right:0in; margin-top:0.0055in; margin-bottom:0in; text-indent:0in; }
+.P39 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0661in; margin-right:0in; margin-top:0.0472in; margin-bottom:0in; text-indent:0in; }
+.P4 { font-size:3.5pt; text-align:left ! important; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0075in; margin-bottom:0in; text-indent:0in; }
+.P40 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0661in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P41 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.1098in; margin-right:0in; margin-top:0.0472in; margin-bottom:0in; text-indent:0in; }
+.P42 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0516in; margin-right:0in; margin-top:0.0571in; margin-bottom:0in; text-indent:0in; }
+.P43 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0528in; margin-right:0in; margin-top:0.0571in; margin-bottom:0in; text-indent:0in; }
+.P44 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0598in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P45 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0598in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P46 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0598in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P47 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0598in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P48 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0598in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P49 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0598in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P5 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P50 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0598in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P51 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0598in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P52 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0146in; margin-bottom:0in; text-indent:0in; }
+.P53 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0402in; margin-bottom:0in; text-indent:0in; }
+.P54 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P55 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P56 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P57 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.05in; margin-bottom:0in; text-indent:0in; }
+.P59 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0398in; margin-bottom:0in; text-indent:0in; }
+.P6 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P60 { font-size:10.5pt; text-align:left ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0398in; margin-bottom:0in; text-indent:0in; }
+.P61 { font-size:10.5pt; text-align:left ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0398in; margin-bottom:0in; text-indent:0in; }
+.P62 { font-size:10.5pt; text-align:left ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0398in; margin-bottom:0in; text-indent:0in; }
+.P63 { font-size:10.5pt; text-align:left ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0398in; margin-bottom:0in; text-indent:0in; }
+.P64 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P65 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P66 { font-size:10.5pt; text-align:left ! important; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P67 { font-size:10.5pt; text-align:left ! important; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P68 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P69 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P7 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P70 { font-size:10.5pt; text-align:left ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P71 { font-size:10.5pt; text-align:left ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P72 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P73 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0591in; margin-bottom:0in; text-indent:0in; }
+.P74 { font-size:10.5pt; text-align:left ! important; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0591in; margin-bottom:0in; text-indent:0in; }
+.P75 { font-size:10.5pt; text-align:left ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0425in; margin-bottom:0in; text-indent:0in; }
+.P76 { font-size:10.5pt; text-align:left ! important; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0126in; margin-bottom:0in; text-indent:0in; }
+.P77 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0126in; margin-bottom:0in; text-indent:0in; }
+.P78 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; margin-top:0.0492in; margin-bottom:0in; text-indent:0in; }
+.P79 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0in; text-indent:0in; }
+.P8 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P80 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; margin-top:0.0256in; margin-bottom:0in; text-indent:0.0764in; }
+.P81 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.1362in; margin-right:0in; margin-top:0.0465in; margin-bottom:0in; text-indent:0in; }
+.P82 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0728in; margin-right:0in; margin-top:0.0429in; margin-bottom:0in; text-indent:0in; }
+.P83 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0299in; margin-right:0in; margin-top:0.0465in; margin-bottom:0in; text-indent:0in; }
+.P84 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0028in; margin-right:0in; margin-top:0.0299in; margin-bottom:0in; text-indent:0in; }
+.P85 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0028in; margin-right:0in; text-indent:0in; }
+.P86 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.9228in; margin-right:0in; line-height:0.2071in; text-indent:0in; }
+.P87 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0.0571in; margin-right:0in; line-height:0.2083in; text-indent:0in; }
+.P88 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:1.3563in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P89 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0083in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P9 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0in; text-indent:0in; }
+.P90 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0016in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P92 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0016in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P93 { font-size:10.5pt; text-align:center ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0016in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P94 { font-size:10.5pt; text-align:center ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0016in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P95 { font-size:10.5pt; text-align:center ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0016in; margin-top:0.0098in; margin-bottom:0in; text-indent:0in; }
+.P96 { font-size:10.5pt; text-align:center ! important; font-family:Century; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0016in; margin-top:0.0126in; margin-bottom:0in; text-indent:0in; }
+.P97 { font-size:11pt; text-align:center ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:0in; margin-right:0.0016in; margin-top:0.0193in; margin-bottom:0in; text-indent:0in; }
+.P98 { font-size:11pt; text-align:left ! important; font-family:Calibri; vertical-align:top; writing-mode:lr-tb; margin-left:1.8602in; margin-right:0in; margin-top:0.0335in; margin-bottom:0in; text-indent:0in; }
+.P99 { font-size:10.5pt; text-align:left ! important; font-family:ＭＳ 明朝; vertical-align:top; writing-mode:lr-tb; margin-left:0.0634in; margin-right:0.1508in; margin-top:0.0098in; margin-bottom:0in; line-height:130%; text-indent:0in; }
+.Table1 { width:6.9507in; margin-left:0.0639in; margin-top:0in; margin-bottom:0in; margin-right:auto;writing-mode:lr-tb; }
+.Table2 { width:6.9493in; margin-left:0.0639in; margin-top:0in; margin-bottom:0in; margin-right:auto;writing-mode:lr-tb; }
+.Table3 { width:6.9493in; margin-left:0.0639in; margin-top:0in; margin-bottom:0in; margin-right:auto;writing-mode:lr-tb; }
+.Table4 { width:6.9493in; margin-left:0.0639in; margin-top:0in; margin-bottom:0in; margin-right:auto;writing-mode:lr-tb; }
+.Table5 { width:6.9493in; margin-left:0.0639in; margin-top:0in; margin-bottom:0in; margin-right:auto;writing-mode:lr-tb; }
+.Table6 { width:6.9493in; margin-left:0.0639in; margin-top:0in; margin-bottom:0in; margin-right:auto;writing-mode:lr-tb; }
+.Table7 { width:6.9493in; margin-left:0.0639in; margin-top:0in; margin-bottom:0in; margin-right:auto;writing-mode:lr-tb; }
+.Table1_A1 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-style:none; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_A2 { vertical-align:top; padding-right:0.075in; padding-top:0in; padding-bottom:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-style:none; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_A3 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_A4 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-style:none; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_A5 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_A6 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-style:none; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_A7 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-style:none; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_A9 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-style:none; border-top-style:none; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_B1 { vertical-align:top; padding-left:0.075in; padding-right:0.075in; padding-top:0in; padding-bottom:0in; border-left-style:none; border-right-style:none; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_B2 { vertical-align:top; padding:0in; border-left-style:none; border-right-style:none; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_B3 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_B4 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-style:none; border-top-style:none; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_B8 { vertical-align:top; padding:0in; border-style:none; writing-mode:lr-tb; }
+.Table1_C4 { vertical-align:top; padding:0in; border-left-style:none; border-right-style:none; border-top-style:none; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_C5 { vertical-align:top; padding:0in; border-width:0.0176cm; border-style:solid; border-color:#000000; writing-mode:lr-tb; }
+.Table1_D4 { vertical-align:top; padding:0in; border-left-style:none; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-style:none; border-bottom-width:0.0353cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_D6 { vertical-align:top; padding:0in; border-left-style:none; border-right-style:none; border-top-width:0.0353cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_F5 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_G3 { vertical-align:top; padding:0in; border-left-style:none; border-right-style:none; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_H3 { vertical-align:top; padding:0in; border-left-style:none; border-right-style:none; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_J1 { vertical-align:top; padding-left:0.075in; padding-right:0.075in; padding-top:0in; padding-bottom:0in; border-left-style:none; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_J2 { vertical-align:top; padding:0in; border-left-style:none; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_J3 { vertical-align:top; padding:0in; border-left-style:none; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_J4 { vertical-align:top; padding:0in; border-left-style:none; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-style:none; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_J6 { vertical-align:top; padding:0in; border-left-style:none; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_J7 { vertical-align:top; padding:0in; border-left-style:none; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_K1 { vertical-align:top; padding-left:0.075in; padding-right:0.075in; padding-top:0in; padding-bottom:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-style:none; border-top-style:none; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_K12 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0529cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_K2 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-style:none; border-top-style:none; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_K22 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-color:#000000; border-right-style:none; border-top-style:none; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_K6 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_K7 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-style:none; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table1_K8 { border-bottom-color:#000000; vertical-align:top; padding:0in; border-left-width:0.0176cm; border-bottom-width:0.0176cm; border-left-style:solid; border-bottom-style:solid; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; writing-mode:lr-tb; }
+.Table2_A1 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table2_A2 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table2_B1 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table2_B2 { vertical-align:top; padding:0in; border-width:0.0176cm; border-style:solid; border-color:#000000; writing-mode:lr-tb; }
+.Table2_C1 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table2_C18 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0529cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table2_C2 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table3_A1 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table3_A14 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0529cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table3_B1 { vertical-align:top; padding:0in; border-width:0.0176cm; border-style:solid; border-color:#000000; writing-mode:lr-tb; }
+.Table3_B14 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0529cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table3_C1 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table3_C14 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0529cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table3_C2 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table4_A1 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table4_A2 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table4_A4 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0529cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table5_A1 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table5_A2 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table5_A6 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0529cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table6_A1 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table6_A2 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table6_A3 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0529cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table7_A1 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0176cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table7_A2 { vertical-align:top; padding:0in; border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0176cm; border-top-style:solid; border-top-color:#000000; border-bottom-width:0.0529cm; border-bottom-style:solid; border-bottom-color:#000000; writing-mode:lr-tb; }
+.Table7_B1 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-style:none; writing-mode:lr-tb; }
+.Table7_D1 { vertical-align:top; padding:0in; border-left-width:0.0176cm; border-left-style:solid; border-left-color:#000000; border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000; border-top-width:0.0529cm; border-top-style:solid; border-top-color:#000000; border-bottom-style:none; writing-mode:lr-tb; }
+.Table1_A { width:0.5896in; }
+.Table1_B { width:0.2313in; }
+.Table1_C { width:0.8431in; }
+.Table1_D { width:0.5264in; }
+.Table1_E { width:0.5104in; }
+.Table1_F { width:1.6215in; }
+.Table1_G { width:0.2451in; }
+.Table1_H { width:0.4333in; }
+.Table1_I { width:0.2153in; }
+.Table1_J { width:0.234in; }
+.Table1_K { width:1.5in; }
+.Table2_A { width:0.6333in; }
+.Table2_B { width:0.5201in; }
+.Table2_C { width:5.7958in; }
+.Table3_A { width:0.7229in; }
+.Table3_B { width:0.4306in; }
+.Table3_C { width:5.7958in; }
+.Table4_A { width:6.9493in; }
+.Table5_A { width:6.9493in; }
+.Table6_A { width:6.9493in; }
+.Table7_A { width:2.5701in; }
+.Table7_B { width:1.7507in; }
+.Table7_C { width:1.2507in; }
+.Table7_D { width:1.3771in; }
+.Table1_1 { height:0.2667in; }
+.Table1_12 { height:0.55in; }
+.Table1_2 { height:0.5972in; }
+.Table1_3 { height:0.2396in; }
+.Table1_4 { height:0.2674in; }
+.Table1_5 { height:0.2569in; }
+.Table1_6 { height:0.2701in; }
+.Table1_8 { height:0.2486in; }
+.Table1_9 { height:0.5021in; }
+.Table2_1 { height:0.2632in; }
+.Table2_13 { height:0.2799in; }
+.Table2_14 { height:0.284in; }
+.Table2_18 { height:0.2903in; }
+.Table2_2 { height:0.2833in; }
+.Table2_5 { height:0.341in; }
+.Table2_7 { height:0.2806in; }
+.Table2_9 { height:0.5069in; }
+.Table3_1 { height:0.2903in; }
+.Table3_10 { height:0.5069in; }
+.Table3_14 { height:0.2938in; }
+.Table3_2 { height:0.4514in; }
+.Table3_3 { height:0.2833in; }
+.Table3_6 { height:0.284in; }
+.Table3_7 { height:0.2799in; }
+.Table4_1 { height:0.2632in; }
+.Table4_2 { height:0.2833in; }
+.Table4_3 { height:0.2806in; }
+.Table4_4 { height:0.3097in; }
+.Table5_1 { height:0.2632in; }
+.Table5_2 { height:0.2833in; }
+.Table5_4 { height:0.2799in; }
+.Table5_6 { height:0.3069in; }
+.Table6_1 { height:0.2667in; }
+.Table6_2 { height:0.2799in; }
+.Table6_3 { height:0.3069in; }
+.Table7_1 { height:0.2632in; }
+.Table7_2 { height:0.2639in; }
+.Internet_20_link { color:#0000ff; text-decoration:underline; }
+.ListLabel_20_1 { color:#0000ff; font-family:Century; font-size:12pt; text-decoration:underline; }
+.ListLabel_20_2 { color:#0b0080; font-family:Arial; font-size:11.5pt; text-decoration:underline; background-color:#ffffff; }
+.T1 { font-family:ＭＳ ゴシック; font-size:20pt; }
+.T10 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T11 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T12 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T13 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T14 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T15 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:-0.0291in; }
+.T16 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:-0.0299in; }
+.T17 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:0.0535in; }
+.T18 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:0.0016in; }
+.T19 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:0.0016in; }
+.T2 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T20 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T21 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:0.0516in; }
+.T22 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:0.0555in; }
+.T23 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:0.0543in; }
+.T24 { font-family:ＭＳ 明朝; font-size:10pt; }
+.T25 { font-family:ＭＳ 明朝; font-size:12pt; }
+.T26 { font-family:ＭＳ 明朝; font-size:10.5pt; font-weight:bold; }
+.T28 { font-family:ＭＳ 明朝; font-size:10.5pt; font-weight:bold; }
+.T3 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:-0.0283in; }
+.T30 { font-family:ＭＳ 明朝; font-size:10.5pt; letter-spacing:-0.0339in; font-weight:bold; }
+.T31 { font-family:ＭＳ 明朝; font-size:10.5pt; letter-spacing:-0.0008in; font-weight:bold; }
+.T32 { font-family:ＭＳ 明朝; font-size:10.5pt; letter-spacing:-0.0008in; font-weight:bold; }
+.T33 { font-family:ＭＳ 明朝; font-size:10.5pt; font-weight:bold; }
+.T34 { font-family:ＭＳ 明朝; font-size:10.5pt; font-weight:bold; }
+.T35 { font-family:Century; font-size:14pt; letter-spacing:-0.0008in; }
+.T36 { font-family:Century; font-size:14pt; letter-spacing:-0.0008in; }
+.T37 { font-family:Century; font-size:14pt; }
+.T38 { font-family:Century; font-size:10.5pt; font-weight:bold; }
+.T39 { font-family:Century; font-size:10.5pt; font-weight:bold; }
+.T4 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:-0.0311in; }
+.T40 { font-family:Century; font-size:10.5pt; font-weight:bold; }
+.T41 { font-family:Century; font-size:10.5pt; font-weight:bold; }
+.T42 { font-family:Century; font-size:10.5pt; letter-spacing:-0.0047in; font-weight:bold; }
+.T43 { font-family:Century; font-size:8pt; }
+.T44 { font-family:Century; font-size:8pt; letter-spacing:0.0165in; }
+.T45 { font-family:MS Mincho Western; font-size:8pt; }
+.T46 { font-family:MS Mincho Western; font-size:12pt; background-color:#00ff00; }
+.T47 { font-family:MS Mincho Western; font-size:12pt; background-color:#00ff00; }
+.T48 { font-family:MS Mincho Western; font-size:12pt; }
+.T49 { font-family:Times New Roman; font-size:12pt; letter-spacing:-0.0417in; background-color:#00ff00; }
+.T5 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:-0.028in; }
+.T50 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T51 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T52 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:0.052in; }
+.T53 { font-family:ＭＳ 明朝; font-size:8pt; letter-spacing:0.0516in; }
+.T54 { font-family:Century; font-size:8pt; }
+.T55 { font-family:Century; font-size:8pt; }
+.T56 { color:#0000ff; font-family:Century; font-size:12pt; text-decoration:underline; }
+.T57 { font-family:MS Mincho Greek; font-size:8pt; }
+.T58 { font-family:MS Mincho Greek; font-size:8pt; }
+.T6 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T60 { color:#252525; font-family:Arial; font-size:11.5pt; background-color:#ffffff; }
+.T61 { color:#0b0080; font-family:Arial; font-size:11.5pt; text-decoration:underline; background-color:#ffffff; }
+.T7 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T8 { font-family:ＭＳ 明朝; font-size:8pt; }
+.T9 { font-family:ＭＳ 明朝; font-size:8pt; }
+/* ODF styles with no properties representable as CSS */
+.Sect1 .T59  { }

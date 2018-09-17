@@ -12,3 +12,6 @@ alex.vim
 .vim/.netrwhist
 formaxima/.texput.tex
 forscheme/sec.scm
+*.swp
+*.swo
+.DS_Store
