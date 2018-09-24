@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-all: CV.xhtml
+all: CV.xhtml CV_files/css/mystyle2.css
 clean:
 	rm -f CV.xhtml
 
@@ -13,4 +13,6 @@ PERL=perl $(PERLKEYS)
 
 CV.xhtml: generate.pl generateAux.pl\
 	$(addprefix $(TEMPLATEDIR)/,$(addsuffix .$(TEMPLATEEXT),$(TEMPLATES)))
+	$(PERL) $< > $@
+CV_files/css/mystyle2.css: generateCSS.pl
 	$(PERL) $< > $@

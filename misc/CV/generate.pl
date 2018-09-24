@@ -14,13 +14,6 @@ our @work;
 my $tt = Template->new({
     INCLUDE_PATH => 'templates',
     }) || die "$Template::ERROR\n";
-
-sub thickLine{
-  return sprintf("border-%s-style:solid; border-%s-width:0.0529cm;border-%s-color:#000000;",$_[0],$_[0],$_[0]);
-}
-sub thinLine{
-  return sprintf("border-%s-style:solid; border-%s-width:%fcm;border-%s-color:#000000;",$_[0],$_[0],0.0176,$_[0]);
-}
 sub generateContent{
   my @res = ();
   my $templateName = $_[1];
@@ -43,13 +36,6 @@ my $vars = {
   PHONESUFFIX => "5532 0335",
   DATEOFBIRTH => "Date of Birth",#生年月日
   PHONENUMBER => "Phone Number",#携帯電話番号
-  TLB => "border-left-width:0.0529cm; border-left-style:solid; border-left-color:#000000;",#thick left black
-  TRB => "border-right-width:0.0529cm; border-right-style:solid; border-right-color:#000000;",#thick left black
-  tRB => "border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000;",#thin right black
-  tBB => "border-bottom-style:solid; border-right-width:0.0176cm;border-bottom-color:#000000;",#thin bottom black
-  TBB => "border-bottom-style:solid; border-bottom-width:0.0529cm;border-bottom-color:#000000;",#thick bottom black
-  TTB => thickLine('top'),#thick top black
-  tTB => thinLine('top'),#thin top black
   BIRTHDATE => 'December 24, 2018',
   CURRENTADDRESS => 'Address',#現住所
   NAME => 'Name',

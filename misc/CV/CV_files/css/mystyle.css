@@ -1,0 +1,32 @@
+/* thick left black*/
+.TLB{
+  border-left-width:0.0529cm;
+  border-left-style:solid;
+  border-left-color:#000000;
+}
+/* thick left black */
+.TRB{
+  border-right-width:0.0529cm;
+  border-right-style:solid;
+  border-right-color:#000000;
+}
+/* thin right black */
+.tRB{
+  border-right-width:0.0176cm; border-right-style:solid; border-right-color:#000000;
+}
+/* thin bottom black */
+.tBB{
+  border-bottom-style:solid; border-right-width:0.0176cm;border-bottom-color:#000000;
+}
+/* thick bottom black */
+.TBB{
+  border-bottom-style:solid; border-bottom-width:0.0529cm;border-bottom-color:#000000;
+}
+/* none top */
+.NT{
+  border-top-style:none;
+}
+/* none bottom */
+.NB{
+  border-bottom-style:none;
+}
