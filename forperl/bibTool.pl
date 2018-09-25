@@ -1,9 +1,9 @@
 #!/usr/bin/env perl 
 #===============================================================================
 #
-#         FILE: upload.pl
+#         FILE: bibTool.pl
 #
-#        USAGE: ./upload.pl  
+#        USAGE: ./bibTool.pl [-u file.bib]
 #
 #  DESCRIPTION: 
 #
@@ -23,24 +23,32 @@ use warnings;
 use utf8;
 use JSON;
 use MongoDB;
+use Getopt::Long;
+
+#global const's
+my @NUMFIELDNAME = ('calibreNum','year');
 
 #global var's
 my $client = MongoDB->connect();
 my $bib = $client->ns("admin.bib");
 
 #main
-my $filename = $ARGV[0];
-printf("name: %s\n",$filename);
-my $json_text = do {
-	open(my $json_fh, "<:encoding(UTF-8)", $filename)
-	or die("Can't open \$filename\": $!\n");
-	local $/;
-	<$json_fh>
-};
-my $json = JSON->new;
-my $data = $json->decode($json_text);
-
-for(@$data){
-	print join(', ',keys(%$_))."\n";
-	$bib->insert_one($_);
+my $upload = '';
+GetOptions ('upload=s' => \$upload);
+open(my $fh, '<:encoding(UTF-8)', $upload)
+  or die "Could not open file '$upload' $!";
+my $body = '';
+while(<$fh>) {
+	chomp;
+	$body .= $_;
 }
+for($body){
+	s/@([0-9a-zA-Z]*){([0-9a-zA-Z]*)/{"type":"$1","bibitem":"$2"/;
+	s/([a-zA-Z]*)=/\"$1\":/g;
+}
+my $json = JSON->new;
+my $data = $json->decode($body);
+for(@NUMFIELDNAME){
+	$data->{$_} += 0.0;
+}
+$bib->insert_one($data);
