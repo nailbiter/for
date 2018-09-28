@@ -55,11 +55,12 @@ sub writeRecord{
 	printf("writeRecord\n");
 	my $id = $records->insert_one({
 			login=>'leontiev',
-			OS=>'MacOS+X',
+			OS=>'MacOS X',
 			MAC=>'8C:85:90:B5:42:B8',
+			key=>'alex4571246',
 			#yyyy-MM-dd
 			date=>'2018-09-30',
-			emergency=>'Alex+Leontiev',
+			emergency=>'Alex Leontiev',
 			room=>421,
 			dueDate=>'2018-10-14',
 	});
