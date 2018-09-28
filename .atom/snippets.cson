@@ -46,7 +46,9 @@
   'Seminar Room Report':
     'prefix':'ゼミ室'
     'body':"""
-    D3のアレックス:数理のセミナー室についてご報告${1:num}
+    #TO toshi@ms.u-tokyo.ac.jp
+    #CC yuichiro@ms.u-tokyo.ac.jp
+    #TOPIC D3のアレックス:数理のセミナー室についてご報告${1:num}
     小林先生
     (cc:田中先輩)
 
@@ -59,6 +61,7 @@
 
     よろしくお願い申し上げます。
     レオンチエフ・アレックス
+    #ATTACHMENT /Users/oleksiileontiev/Downloads/rooms.zip
     """
   'English.Polite':
     'prefix':'engpolite'
