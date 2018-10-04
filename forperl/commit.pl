@@ -10,7 +10,7 @@ use MongoDB;
 use Data::Dumper;
 
 #global var's
-my $TESTMODE = 1;
+my $TESTMODE = 0;
 my $filesChanged =`git status -s --untracked-files=no`;
 my $trelloMsg="";
 my $client = MongoDB->connect();
