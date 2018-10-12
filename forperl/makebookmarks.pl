@@ -113,7 +113,7 @@ sub parseLine{
 		%res = (engNameShort=>$1,zachalo=>($2+0),
 			chapters=>[
 				{
-					chapterRoman=>$3,chapterStart=>($4+0),chapterEnd=>($5+0)
+					chapterRomanStart=>$3,chapterRomanEnd=>$3,chapterStart=>($4+0),chapterEnd=>($5+0)
 				},
 			]);
 		$res{engNameShort} =~ s/ //g;
@@ -123,10 +123,36 @@ sub parseLine{
 		my @startends = $parseChapters->($4);
 		for(@startends){
 			push(@{$res{chapters}},{
-					chapterRoman=>$3,
+					chapterRomanStart=>$3,
+					chapterRomanEnd=>$3,
 					chapterStart=>$_->{start}+0,
 					chapterEnd=>$_->{end}+0,
 				});
+		}
+	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([-\s0-9XVI,;]+)$/) {
+		#parseLine with Lk., 54 zach., X, 38-42; XI, 27-28
+#   		Evr., 330 zach., XI, 33 - XII, 2
+		%res = (engNameShort=>$1,zachalo=>($2+0));
+		$res{chapters} = [];
+		my $line = $3;
+		for(split(";",$line)){
+			if(/\s*([IVX]+),\s*([0-9]+)\s*-\s*([0-9]+)\s*/){
+				push(@{$res{chapters}},{
+						chapterRomanStart=>$1,
+						chapterRomanEnd=>$1,
+						chapterStart=>($2+0),
+						chapterEnd=>($3+0),
+					});
+			}elsif(/\s*([IVX]+),\s*([0-9]+)\s*-\s*([IVX]+),\s*([0-9]+)\s*/){
+				push(@{$res{chapters}},{
+						chapterRomanStart=>$1,
+						chapterRomanEnd=>$3,
+						chapterStart=>($2+0),
+						chapterEnd=>($4+0),
+					});
+			}else{
+				die $_;
+			}
 		}
 	} else {
 		die $_[0];
@@ -139,23 +165,64 @@ sub makeRussian{
 #	Лк., 83 зач.,\n XVI, 19–31.
 	my %hash = @_;
 	my @chapters = @{$hash{chapters}};
-	if(@chapters == grep { $_->{chapterRoman} eq $chapters[0]->{chapterRoman} } @chapters){
-		my $chapterRoman = $chapters[0]->{chapterRoman};
-		@chapters = map {
-				 sprintf("%d-%d",$_->{chapterStart},$_->{chapterEnd});
-			} @chapters ;
-		my $res = 
-			sprintf("%s., %d зач.,\n%s, %s.\n",
-				$DICT{$hash{engNameShort}}->[0],
-				$hash{zachalo},$chapterRoman,
-				join(",\n",@chapters)
-		);
-		printf(STDERR "makeRussian returns \"%s\"",$res);
-		return $res;
-	} else {
-		#FIXME
-		die Dumper(\%hash);
+	my $res;
+	my @chaptersProcessed;
+	for(@chapters){
+		my $item;
+		if($_->{chapterRomanStart} eq $_->{chapterRomanEnd}){
+			$item = sprintf("%s, %d-%d",
+				$_->{chapterRomanStart},
+				$_->{chapterStart},$_->{chapterEnd}
+			);
+		} else {
+			$item = sprintf("%s, %d - %s, %d",
+				$_->{chapterRomanStart},
+				$_->{chapterStart},
+				$_->{chapterRomanEnd},
+				$_->{chapterEnd}
+			);
+		}
+		push(@chaptersProcessed,$item);
 	}
+	$res = sprintf("%s., %d зач.,\n%s.\n",
+		$DICT{$hash{engNameShort}}->[0],
+		$hash{zachalo},
+		join(",\n",@chaptersProcessed)
+	);
+	#FIXME: this is potentially buggy
+#	if(@chapters == grep { $_->{chapterRoman} eq $chapters[0]->{chapterRoman} } @chapters){
+#		if($chapters[0]->{chapterRomanStart} eq $chapters[0]->{chapterRomanEnd}){
+#			my $chapterRoman = $chapters[0]->{chapterRomanStart};
+#			@chapters = map {
+#					 sprintf("%d-%d",$_->{chapterStart},$_->{chapterEnd});
+#				} @chapters ;
+#			$res = 
+#				sprintf("%s., %d зач.,\n%s, %s.\n",
+#					$DICT{$hash{engNameShort}}->[0],
+#					$hash{zachalo},$chapterRoman,
+#					join(",\n",@chapters)
+#			);
+#		} else {
+#
+#		}
+#	} else {
+#		@chapters = map {
+#				if($_->{chapterRomanStart} eq $_->{chapterRomanEnd}){
+#					sprintf("%s, %d-%d",$_->{chapterRomanStart},$_->{chapterStart},$_->{chapterEnd});
+#				} else {
+#					sprintf("%s, %d - %s, %d",$_->{chapterRomanStart},$_->{chapterStart},
+#						$_->{chapterRomanEnd},$_->{chapterEnd});
+#				}
+#			} @chapters ;
+#		$res = 
+#			sprintf("%s., %d зач.,\n%s.\n",
+#				$DICT{$hash{engNameShort}}->[0],
+#				$hash{zachalo},
+#				join(",\n",@chapters)
+#		);
+#	}
+	printf(STDERR "makeRussian returns \"%s\"",$res);
+	return $res;
 }
 sub makeEnglish{
 	my %hash = @_;
@@ -163,8 +230,8 @@ sub makeEnglish{
 	my $res  =sprintf("%s,\n%s.",$DICT{$hash{engNameShort}}->[1],
 		join(",\n",map {
 				sprintf("%d:%d--%d:%d",
-					arabic($_->{chapterRoman}),$_->{chapterStart},
-					arabic($_->{chapterRoman}),$_->{chapterEnd});
+					arabic($_->{chapterRomanStart}),$_->{chapterStart},
+					arabic($_->{chapterRomanEnd}),$_->{chapterEnd});
 			} @chapters)
 	);
 	printf(STDERR "makeEnglish returns \"%s\"",$res);
@@ -176,8 +243,8 @@ sub makeChinese{
 	my $res  =sprintf("%s,\n%s.",$DICT{$hash{engNameShort}}->[2],
 		join(",\n",map {
 				sprintf("%d:%d--%d:%d",
-					arabic($_->{chapterRoman}),$_->{chapterStart},
-					arabic($_->{chapterRoman}),$_->{chapterEnd});
+					arabic($_->{chapterRomanStart}),$_->{chapterStart},
+					arabic($_->{chapterRomanEnd}),$_->{chapterEnd});
 			} @chapters)
 	);
 	printf(STDERR "makeChinese returns \"%s\"",$res);
@@ -221,10 +288,10 @@ sub pasteRect{
 		$pdfName,$pdfName));
 }
 sub processFile{
-	(my $originalPdfName,my $year,my $month,my $day,my $actsRef, my $evangelieRef) = @_;
+	(my $originalPdfName,my $key,my $actsRef, my $evangelieRef) = @_;
 	my $path = dirname($originalPdfName);
 	print($originalPdfName."\n");
-	my $newPdfName = sprintf("%s/bookmark_%02d%02d%04d.pdf",$path,$day+0,$month+0,$year);
+	my $newPdfName = sprintf("%s/bookmark_%s.pdf",$path,$key);
 	print($newPdfName."\n");
 	myExec(sprintf("cp \"%s\" \"%s\"",$originalPdfName,$newPdfName));
 
@@ -268,9 +335,6 @@ sub processFile{
 						$_->[1]+$displacementY);
 				}
 			}
-#			$pasteTexts->("evangelie",0+$displacementX,70+$displacementY);
-#			$pasteTexts->("acts",0+$displacementX,140+$displacementY);
-#			$pasteTexts->("acts",0+$displacementX,210+$displacementY);
 		}
 	};
 
@@ -332,21 +396,25 @@ sub decoratedKey{
 }
 
 #main
-my $CoordsFile;
+my $coordsFile;
+my $originalFile;
 GetOptions(
 	"date=s" => \$DateString,
-	"coords=s" => \$CoordsFile,
+	"coords=s" => \$coordsFile,
+	"original=s" => \$originalFile,
 );
-my $cr = loadJsonFromFile($CoordsFile);
+$originalFile //= "/Users/oleksiileontiev/Downloads/test.pdf";
+my @fileparse = fileparse($originalFile,qr/\.[^.]*/);
+my $cr = loadJsonFromFile($coordsFile);
 $CoordsRef = $cr->{$DateString};
-$RectCoordsRef = $cr->{rectcoords};
+$RectCoordsRef = $cr->{"rectcoords.".$fileparse[0]};
 if(!(exists($$JsonStore{decoratedKey("acts")}) and exists($$JsonStore{decoratedKey("evangelie")}))) {
 	@{$JsonStore}{decoratedKey("acts","evangelie")} = getActsEvangelieLines($DateString);
 }
 my %refs;
 for(("acts","evangelie")){
-	$refs{$_} = parseLine($JsonStore->{decoratedKey("acts")});
+	$refs{$_} = parseLine($JsonStore->{decoratedKey($_)});
 	print STDERR Dumper($refs{$_});
 }
-processFile("/Users/oleksiileontiev/Downloads/test.pdf",
-	split("-",$DateString),$refs{acts},$refs{evangelie});
+processFile($originalFile,
+	$DateString,$refs{acts},$refs{evangelie});
