@@ -28,24 +28,31 @@ opendir (DIR, $directory) or die $!;
 my @bildlist;
 while (my $file = readdir(DIR)) {
 	next unless $file =~ /\ABildschirmfoto/;
-#	print "$file\n";
 	push(@bildlist,$file)
 }
 @bildlist = sort(@bildlist);
-#for(@bildlist){
-#	printf("%s\n",$_);
-#}
 closedir(DIR);
 
-my $fn = $bildlist[$#bildlist];
-my $raw = `tesseract '/Users/oleksiileontiev/Desktop/$fn' stdout`;
-my @list = split(/\n/,$raw);
+#my $fn = $bildlist[$#bildlist];
+my @list;
+for(@bildlist[-23..-1]){
+#	printf("%s\n",$_);
+	my $raw = `tesseract '/Users/oleksiileontiev/Desktop/$_' stdout`;
+#	printf("%s\n",$raw);
+	my @temp = split("\n",$raw);
+	push(@list,@temp);
+}
 for(@list){
 	chomp;
 	s/^\s+|\s+$//g;
 	next unless (length($_)>0);
-	next if ($_ eq "Exercise");
-	next if ($_ eq "Exercises");
-	next if ($_ eq "Answers and Explanations");
+	next if ($_ ~~ ["Answers Explained","Summary","-"]);
 	printf("%s\n",$_);
 }
+#for(@list){
+#	chomp;
+#	next if ($_ eq "Exercise");
+#	next if ($_ eq "Exercises");
+#	next if ($_ eq "Answers and Explanations");
+#	printf("%s\n",$_);
+#}

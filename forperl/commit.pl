@@ -8,18 +8,59 @@ use HTTP::Request;
 use LWP::UserAgent;
 use MongoDB;
 use Data::Dumper;
+use Text::TabularDisplay;
+
+#global const's
+my $TESTMODE = 0;
+my $TRELLOFILENAME = "trello.txt";
+my %METHODS = (
+	branch=>{
+		description=>"get branch name",
+	},
+	help=>{
+		description=>"display this message",
+	},
+);
 
 #global var's
-my $TESTMODE = 0;
 my $filesChanged =`git status -s --untracked-files=no`;
-my $trelloMsg="";
 my $client = MongoDB->connect();
-my $trelloKey;
-my $trelloToken;
 
 #procedures
+$METHODS{branch}->{func} = sub{
+	my $trelloMsg = getTrelloMsgFromFile();
+	printf("trelloMsg: %s",$trelloMsg) if $TESTMODE;
+	(my $trelloKey,my $trelloToken) = getTrelloPasswords();
+	print getBranchName($trelloMsg,$trelloKey,$trelloToken)."\n";
+};
+$METHODS{help}->{func} = sub{
+	my $t = Text::TabularDisplay->new(qw(method description));
+	for(keys(%METHODS)){
+		$t->add($_,$METHODS{$_}->{description});
+	}
+	print $t->render;
+};
+sub getBranchName{
+	(my $URL,my $trelloKey,my $trelloToken) = @_;
+	$URL =~ /([0-9a-zA-Z]*)$/;
+	my $code = $1;
+	my $url = sprintf("https://api.trello.com/1/cards/%s?key=%s&token=%s",$code,$trelloKey,$trelloToken);
+	printf("url: %s\n",$url) if $TESTMODE;
+	my $req = HTTP::Request->new( GET=> $url );
+	my $lwp = LWP::UserAgent->new;
+	my $res = $lwp->request( $req );
+	$res = parse_json($lwp->request( $req )->{_content});
+	my $desc = $res->{desc};
+	for(split("\n",$desc)){
+		if(/^%BRANCH\s*(\w+)/){
+			return $1;
+		}
+	}
+#	return $res->{name};
+}
 sub getTitle{
-	$_[0] =~ /([0-9a-zA-Z]*)$/;
+	(my $URL,my $trelloKey,my $trelloToken) = @_;
+	$URL =~ /([0-9a-zA-Z]*)$/;
 	my $code = $1;
 	printf("code: %s\n",$code);
 	my $url = sprintf("https://api.trello.com/1/cards/%s?key=%s&token=%s",$code,$trelloKey,$trelloToken);
@@ -27,42 +68,47 @@ sub getTitle{
 	my $req = HTTP::Request->new( GET=> $url );
 	my $lwp = LWP::UserAgent->new;
 	my $res = $lwp->request( $req );
-#	print Dumper($res->{_content}->{name});
-	my $res = parse_json($lwp->request( $req )->{_content});
-#	print Dumper($res);
+	$res = parse_json($lwp->request( $req )->{_content});
 	return $res->{name};
 }
 sub getTrelloPasswords{
 	my $secret = $client->ns("admin.passwords");
 	my $key = $secret->find_one({key=>'TRELLOKEY'})->{'value'};
-	printf("key: %s\n",$key);
+	printf("key: %s\n",$key) if $TESTMODE;
 	my $token = $secret->find_one({key=>'TRELLOTOKEN'})->{'value'};
-	printf("token: %s\n",$token);
+	printf("token: %s\n",$token) if $TESTMODE;
 	return ($key,$token);
+}
+sub getTrelloMsgFromFile{
+	open my $fh, '<', $TRELLOFILENAME or die "error opening $TRELLOFILENAME: $!";
+	my $data = do { local $/; <$fh> };
+	return sprintf("https://trello.com/c/%s",$data);
 }
 
 #main
+my $trelloMsg;
 if(!$ARGV[0]){
 	print "dYvTXBzVpz\n" if $TESTMODE;
-	my $filename = "trello.txt";
-	open my $fh, '<', $filename or die "error opening $filename: $!";
-	my $data = do { local $/; <$fh> };
-	$trelloMsg = sprintf("https://trello.com/c/%s",$data);
+	$trelloMsg = getTrelloMsgFromFile();
 }elsif($ARGV[0]=~m/^https:/){
 	print "RSauQpiWVA\n" if $TESTMODE;
 	$trelloMsg = $ARGV[0];
-}else{
+}elsif(grep( /^$ARGV[0]$/, keys(%METHODS) )){
+	printf("got method %s\n",$ARGV[0]) if $TESTMODE;
+	$METHODS{$ARGV[0]}->{func}->();
+	exit();
+} else {
 	print "kgDMdUyaIJ\n" if $TESTMODE;
 	printf("argv[0]=\"%s\"\n",$ARGV[0]);
 	$trelloMsg = sprintf("https://trello.com/c/%s",$ARGV[0]);
 }
 
+(my $trelloKey,my $trelloToken) = getTrelloPasswords();
 printf("trello card url: %s",$trelloMsg);
-($trelloKey,$trelloToken) = getTrelloPasswords();
-my $trelloTitle=getTitle($trelloMsg);
+my $trelloTitle=getTitle($trelloMsg,$trelloKey,$trelloToken);
 
 my $command = sprintf("git commit -a -m \"%s\"",
-    sprintf("%s \ntrello card: %s\nfiles changed:\n%s",$trelloTitle,$trelloMsg,$filesChanged));
+    sprintf("%s\nfiles changed:\n%s\ntrello card: %s",$trelloTitle,$filesChanged,$trelloMsg));
 if($TESTMODE){
 	print $command;
 	exit;

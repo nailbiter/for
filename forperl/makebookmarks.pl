@@ -1,0 +1,352 @@
+#!/usr/bin/env perl 
+#===============================================================================
+#
+#         FILE: makebookmarks.pl
+#
+#        USAGE: ./makebookmarks.pl 11-30
+#
+#  DESCRIPTION: pull bookmarks
+#
+#      OPTIONS: ---
+# REQUIREMENTS: ---
+#         BUGS: ---
+#        NOTES: ---
+#       AUTHOR: YOUR NAME (), 
+# ORGANIZATION: 
+#      VERSION: 1.0
+#      CREATED: 10/10/18 14:09:21
+#     REVISION: ---
+#===============================================================================
+
+use strict;
+use warnings;
+use utf8;
+use LWP::UserAgent;
+use Data::Dumper;
+use Roman;
+use File::Basename;
+use Template;
+use String::Random qw(random_regex random_string);
+use JSON;
+use Getopt::Long;
+
+binmode(STDOUT, ":utf8");
+binmode(STDIN, ":utf8");
+binmode(STDERR, ":utf8");
+
+#global const's
+use constant JSONSTOREFILENAME => sprintf("/tmp/%s.json","IbPuSbZRToIMghbZNoRk");
+my $RECTCOLOR = "white";
+my $TESTFLAG = 0;
+my %DICT = (
+	Lk=>["Лк","Luke","路加福音"],
+	Ef=>["Еф","Ephesians","以 弗 所 書"],
+	Kol=>["Кол","Colossians","歌羅西書"],
+	"1Tim"=>["1 Тим","1 Timothy","提摩太前書"],
+	Gal=>["Гал","Galatians","加拉太書"],
+	Mf=>["Мф","Matthew","馬太福音"],
+	Evr=>["Евр","Hebrews","希伯來書"],
+);
+my $TEXTEMPLATETEXT = <<'END_BLURB';
+\documentclass[varwidth,convert,12pt]{standalone}
+\usepackage{fontspec}
+\usepackage{inputenc}
+\usepackage{xeCJK}
+\setmainfont{Helvetica}
+\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro}
+\begin{document}
+[%text%]
+\end{document}
+END_BLURB
+#global var's
+my $TT = Template->new();
+my $JsonStore;
+my $DateString;
+my $CoordsRef;
+my $RectCoordsRef;
+#procedurus
+sub loadJsonFromFile{
+	my $fn = shift;
+	printf(STDERR "opening file %s\n",$fn);
+	my $document;
+	my $fh;
+	if(open($fh, $fn)){
+#		$document = <$fh>; 
+		$document = do { local $/; <$fh> };
+	} else {
+		$document ="{}";
+	}
+#	for($document){
+#		s/\n\t//;
+#	}
+	printf(STDERR "doc: %s\n",$document);
+	close($fh);
+	return from_json($document);
+}
+BEGIN{
+	$JsonStore = loadJsonFromFile(JSONSTOREFILENAME);
+	printf(STDERR "initial store:%s\n", Dumper($JsonStore));
+}
+END{
+	printf(STDERR "final store:%s\n", Dumper($JsonStore));
+	my $data = to_json($JsonStore,{pretty=>1});
+	open my $fh, ">", JSONSTOREFILENAME;
+	print $fh $data;
+	close $fh;
+}
+sub parseLine{
+	printf(STDERR "parseLine with %s\n",$_[0]);
+	my %res;
+	my $parseChapters = sub {
+		my @startends;
+		for(split(",",$_[0])){
+			s/ //g;
+			my @nums = split("-",$_);
+			push(@startends,{
+					start=>$nums[0]+0,
+					end=>$nums[1]+0,
+				});
+		}
+		return @startends;
+	};
+	if($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*(\d+)-(\d+)$/){
+		%res = (engNameShort=>$1,zachalo=>($2+0),
+			chapters=>[
+				{
+					chapterRoman=>$3,chapterStart=>($4+0),chapterEnd=>($5+0)
+				},
+			]);
+		$res{engNameShort} =~ s/ //g;
+	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*([-\s0-9,]+)$/) {
+		%res = (engNameShort=>$1,zachalo=>($2+0));
+		$res{chapters} = [];
+		my @startends = $parseChapters->($4);
+		for(@startends){
+			push(@{$res{chapters}},{
+					chapterRoman=>$3,
+					chapterStart=>$_->{start}+0,
+					chapterEnd=>$_->{end}+0,
+				});
+		}
+	} else {
+		die $_[0];
+	}
+
+	$res{engNameShort} =~ s/ //g;
+	return \%res;
+}
+sub makeRussian{
+#	Лк., 83 зач.,\n XVI, 19–31.
+	my %hash = @_;
+	my @chapters = @{$hash{chapters}};
+	if(@chapters == grep { $_->{chapterRoman} eq $chapters[0]->{chapterRoman} } @chapters){
+		my $chapterRoman = $chapters[0]->{chapterRoman};
+		@chapters = map {
+				 sprintf("%d-%d",$_->{chapterStart},$_->{chapterEnd});
+			} @chapters ;
+		my $res = 
+			sprintf("%s., %d зач.,\n%s, %s.\n",
+				$DICT{$hash{engNameShort}}->[0],
+				$hash{zachalo},$chapterRoman,
+				join(",\n",@chapters)
+		);
+		printf(STDERR "makeRussian returns \"%s\"",$res);
+		return $res;
+	} else {
+		#FIXME
+		die Dumper(\%hash);
+	}
+}
+sub makeEnglish{
+	my %hash = @_;
+	my @chapters = @{$hash{chapters}};
+	my $res  =sprintf("%s,\n%s.",$DICT{$hash{engNameShort}}->[1],
+		join(",\n",map {
+				sprintf("%d:%d--%d:%d",
+					arabic($_->{chapterRoman}),$_->{chapterStart},
+					arabic($_->{chapterRoman}),$_->{chapterEnd});
+			} @chapters)
+	);
+	printf(STDERR "makeEnglish returns \"%s\"",$res);
+	return $res;
+}
+sub makeChinese{
+	my %hash = @_;
+	my @chapters = @{$hash{chapters}};
+	my $res  =sprintf("%s,\n%s.",$DICT{$hash{engNameShort}}->[2],
+		join(",\n",map {
+				sprintf("%d:%d--%d:%d",
+					arabic($_->{chapterRoman}),$_->{chapterStart},
+					arabic($_->{chapterRoman}),$_->{chapterEnd});
+			} @chapters)
+	);
+	printf(STDERR "makeChinese returns \"%s\"",$res);
+	return $res;
+}
+sub pasteText{
+	(my $pdfName, my $y, my $x, my $text) = @_;
+	chomp($text);
+	$text =~ s/\n/\\n/g;
+	myExec(sprintf("cpdf -prerotate -utf8 -add-text \"%s\" -pos-left \"%d %d\" \"%s\" -o \"%s\"",
+		$text,
+		$x, $y,
+		$pdfName,$pdfName));
+}
+sub pastePdf{
+	(my $pdfName,my $logoName, my $x, my $y) = @_;
+	myExec(sprintf("cpdf -prerotate -stamp-on %s -pos-left \"%d %d\" \"%s\" -o \"%s\"",
+		$logoName,
+		$x,$y,
+		$pdfName,$pdfName));
+}
+sub textToPdf{
+	(my $text) = @_;
+	chomp($text);
+	$text =~ s/\n/\\\\\n/g;
+	my %pdfName = (base=>sprintf("/tmp/%s",random_regex('\w' x 10)));
+	$pdfName{tex} = $pdfName{base}.".tex";
+	my $output;
+	open(my $fh, '>', $pdfName{tex}) or die "Could not open file '$pdfName{tex}' $!";
+	$TT->process(\$TEXTEMPLATETEXT,{text=>$text},\$output);
+	printf($fh "%s\n",$output);
+	myExec(sprintf("xelatex -output-directory /tmp %s",$pdfName{tex}));
+	return $pdfName{base}.".pdf";
+}
+sub pasteRect{
+	(my $pdfName, my $x, my $y, my $height, my $width) = @_;
+	myExec(sprintf("cpdf -prerotate -add-rectangle \"%d %d\" -pos-left \"%d %d\" -color %s \"%s\" -o \"%s\"",
+			$height,$width,
+			$x,$y,
+			$RECTCOLOR,
+		$pdfName,$pdfName));
+}
+sub processFile{
+	(my $originalPdfName,my $year,my $month,my $day,my $actsRef, my $evangelieRef) = @_;
+	my $path = dirname($originalPdfName);
+	print($originalPdfName."\n");
+	my $newPdfName = sprintf("%s/bookmark_%02d%02d%04d.pdf",$path,$day+0,$month+0,$year);
+	print($newPdfName."\n");
+	myExec(sprintf("cp \"%s\" \"%s\"",$originalPdfName,$newPdfName));
+
+	for(@{$RectCoordsRef}){
+		pasteRect($newPdfName,@$_);
+	}
+
+	my %funcs = (rus=>\&makeRussian, eng=>\&makeEnglish, chi=>\&makeChinese,);
+	for(("rus","chi","eng")){
+		my $rotation = "-90";
+		if(!(exists $JsonStore->{decoratedKey($_."_evangelie")})){
+			$JsonStore->{decoratedKey($_."_evangelie")} //= textToPdf($funcs{$_}->(%$evangelieRef));
+			prerotatePdf($JsonStore->{decoratedKey($_."_evangelie")},$rotation);
+		}
+		if(!(exists $JsonStore->{decoratedKey($_."_acts")})){
+			$JsonStore->{decoratedKey($_."_acts")} //= textToPdf($funcs{$_}->(%$actsRef));
+			prerotatePdf($JsonStore->{decoratedKey($_."_acts")},$rotation);
+		}
+	}
+
+	my $pasteTexts = sub{
+		(my $suff,my $displacementX, my $displacementY) = @_;
+		if(scalar(@$CoordsRef)>0){
+			my $pdfPositions = $CoordsRef->[0];
+			for(("rus","chi","eng")){
+				pastePdf($newPdfName,$JsonStore->{decoratedKey($_."_".$suff)},
+					$pdfPositions->{$suff}->{$_}->[1]+$displacementY,
+					$pdfPositions->{$suff}->{$_}->[0]+$displacementX);
+			}
+		}
+	};
+	my $pasteTextsGroup = sub {
+		(my $displacementX,my $displacementY) = @_;
+		if(scalar(@$CoordsRef)>1){
+			my $coords = $CoordsRef->[1];
+			for(keys(%$coords)){
+				my $key = $_;
+				for(@{$coords->{$key}}){
+					$pasteTexts->($key,
+						$_->[0]+$displacementX,
+						$_->[1]+$displacementY);
+				}
+			}
+#			$pasteTexts->("evangelie",0+$displacementX,70+$displacementY);
+#			$pasteTexts->("acts",0+$displacementX,140+$displacementY);
+#			$pasteTexts->("acts",0+$displacementX,210+$displacementY);
+		}
+	};
+
+	for(@{$CoordsRef->[2]}){
+		$pasteTextsGroup->($_->[0],$_->[1]);
+	}
+	printf(STDERR "created %s\n",$newPdfName);
+}
+sub prerotatePdf{
+	(my $pdfName, my $rotation) = @_;
+#	my $pdfName = shift;
+#	my $rotation shift;
+	myExec(sprintf("cpdf -rotate-contents %s %s -o %s",$rotation, $pdfName, $pdfName));
+}
+sub myExec{
+	(my $cmd) = @_;
+	printf("exec: _%s\n",$cmd);
+	if(not $TESTFLAG){
+		system($cmd);
+	}
+}
+sub getActsEvangelieLines{
+	my $acts; my $evangelie;
+	my $date = $_[0];
+	my $url = sprintf("http://www.patriarchia.ru/bu/%s/",$date);
+	my $sPage;
+	$sPage = `links -dump $url`;
+	printf(STDERR "%s\n\n-----------------------------\n---------------------------\n",$sPage);
+
+	for($sPage){
+		s/\([^)]+\)//g;
+		s/\. +,/\.,/g;
+	}
+	printf(STDERR "%s\n\n-----------------------------\n---------------------------\n",$sPage);
+	for($sPage){
+		s/\n//g;
+		if(/Lit\. - (.*?)\.[^,](.*?)\.[^,]/){
+			$acts = $1;
+			$evangelie = $2;
+		}
+		else{
+			die $date;
+		}
+	}
+	printf(STDERR "evangelie: %s\n",$evangelie);
+	printf(STDERR "acts: %s\n",$acts);
+	return ($acts,$evangelie);
+}
+sub decoratedKey{
+	my @res;
+	for(@_){
+		push(@res,sprintf("%s.%s",$DateString,$_));
+	}
+	if($#res==0){
+		return $res[0];
+	} else {
+		return @res;
+	}
+}
+
+#main
+my $CoordsFile;
+GetOptions(
+	"date=s" => \$DateString,
+	"coords=s" => \$CoordsFile,
+);
+my $cr = loadJsonFromFile($CoordsFile);
+$CoordsRef = $cr->{$DateString};
+$RectCoordsRef = $cr->{rectcoords};
+if(!(exists($$JsonStore{decoratedKey("acts")}) and exists($$JsonStore{decoratedKey("evangelie")}))) {
+	@{$JsonStore}{decoratedKey("acts","evangelie")} = getActsEvangelieLines($DateString);
+}
+my %refs;
+for(("acts","evangelie")){
+	$refs{$_} = parseLine($JsonStore->{decoratedKey("acts")});
+	print STDERR Dumper($refs{$_});
+}
+processFile("/Users/oleksiileontiev/Downloads/test.pdf",
+	split("-",$DateString),$refs{acts},$refs{evangelie});
