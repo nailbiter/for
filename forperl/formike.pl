@@ -55,14 +55,22 @@ close ($FILE);
 $xml = new XML::Simple;
 my $data = $xml->XMLin($filename);
 my $total = 0;
+my $index = 0;
+my $index1 = 0;
 for(@{$data->{Queue}->{Server}->{File}}){
-	my @localPath = split('\\\\',$_->{LocalFile});
-	@localPath = @localPath[3..$#localPath];
-	my $cmd = sprintf("du -hm \"/home/mike/Movies/%s\"",join("/",@localPath));
-	my $res = `$cmd`;
-	my @split = split(" ",$res);
-	$total += $split[0];
-#	myExec(sprintf("mkdir -p \"%s%s\"",$copyTo,join("/",@localPath[0..$#localPath-1])));
-#	myExec(sprintf("cp \"/home/mike/Movies/%s\" \"%s%s\"",join("/",@localPath),$copyTo,join("/",@localPath[0..$#localPath-1])));
-	myExec(sprintf("zip -9 %smike.zip \"/home/mike/Movies/%s\"",$copyTo,join("/",@localPath)));
+	if ($index >= 422){
+		my @localPath = split('\\\\',$_->{LocalFile});
+		@localPath = @localPath[3..$#localPath];
+		my $realPath = sprintf("/home/mike/Movies/%s",join("/",@localPath));
+		my $cmd = sprintf("du -hm \"/home/mike/Movies/%s\"",join("/",@localPath));
+		my $res = `$cmd`;
+		my @split = split(" ",$res);
+		$total += $split[0];
+		$index1++;
+	#	myExec(sprintf("zip -9 %smike.zip \"/home/mike/Movies/%s\"",$copyTo,join("/",@localPath)));
+		myExec(sprintf("cp \"%s\" /home/mike/public_html/data",$realPath));
+	}
+	$index++;
 }
+printf("%sM\n",commify($total));
+printf("index1=%d\n",$index1);
