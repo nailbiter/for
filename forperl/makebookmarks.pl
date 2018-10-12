@@ -345,8 +345,6 @@ sub processFile{
 }
 sub prerotatePdf{
 	(my $pdfName, my $rotation) = @_;
-#	my $pdfName = shift;
-#	my $rotation shift;
 	myExec(sprintf("cpdf -rotate-contents %s %s -o %s",$rotation, $pdfName, $pdfName));
 }
 sub myExec{
