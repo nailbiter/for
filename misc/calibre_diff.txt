@@ -1,20 +1,3 @@
-> ./Bruce Donaldson
-> ./Bruce Donaldson/German_ An Essential Grammar (164776)
-> ./Bruce Donaldson/German_ An Essential Grammar (164776)/cover.jpg
-> ./Bruce Donaldson/German_ An Essential Grammar (164776)/German_ An Essential Grammar - Bruce Donaldson.pdf
-> ./Howard S. Cohl
-> ./Howard S. Cohl/On a generalization of the generating function for Gegenbauer polynomials (164816)
-> ./Howard S. Cohl/On a generalization of the generating function for Gegenbauer polynomials (164816)/cover.jpg
-> ./Howard S. Cohl/On a generalization of the generating function for Gegenbauer polynomials (164816)/On a generalization of the generating func - Howard S. Cohl.pdf
-> ./Radoslaw Szmytkowski
-> ./Radoslaw Szmytkowski/Some integrals and series involving the Gegenbauer polynomials and the Legendre functions on t (164817)
-> ./Radoslaw Szmytkowski/Some integrals and series involving the Gegenbauer polynomials and the Legendre functions on t (164817)/Some integrals and series involving the Ge - Radoslaw Szmytkowski.pdf
-> ./Radoslaw Szmytkowski/Some integrals and series involving the Gegenbauer polynomials and the Legendre functions on t (164817)/cover.jpg
-> ./David Gillespie
-> ./David Gillespie/Taming Toxic People (164838)
-> ./David Gillespie/Taming Toxic People (164838)/Taming Toxic People - David Gillespie.pdf
-> ./David Gillespie/Taming Toxic People (164838)/cover.jpg
-> ./David Gillespie/Taming Toxic People (164838)/Taming Toxic People - David Gillespie.epub
 > ./Koblitz/A course in number theory and cryptography (2ed) (7892)/A course in number theory and cryptography - Koblitz.pdf
 > ./()/MAXIMALLY STRETCHED LAMINATIONS ON GEOMETRICALLY FINITE HYPERBOLIC MANIFOLDS (164738)
 > ./()/MAXIMALLY STRETCHED LAMINATIONS ON GEOMETRICALLY FINITE HYPERBOLIC MANIFOLDS (164738)/cover.jpg
