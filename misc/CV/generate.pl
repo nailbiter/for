@@ -3,6 +3,7 @@ use warnings;
 use Template;
 
 require 'generateAux.pl';
+
 our @months;
 our @education;
 our @langs;
@@ -14,6 +15,8 @@ our @work;
 my $tt = Template->new({
     INCLUDE_PATH => 'templates',
     }) || die "$Template::ERROR\n";
+
+#procedures
 sub generateContent{
   my @res = ();
   my $templateName = $_[1];
@@ -31,6 +34,8 @@ sub generateContent{
   }
   return join("\n",@res);
 }
+
+#main
 my $vars = {
   PHONEPREFIX => "050",
   PHONESUFFIX => "5532 0335",
