@@ -35,10 +35,10 @@ GetOptions(
 open(my $fh, $fileName);
 while(<$fh>){
 	chomp;
-	$_ = substr $_, 2;
+	$_ = substr $_, 4;
 	(my $name,my $path,my $suffix) = fileparse($_,qr/\.[^.]*/);
 	next if ($suffix eq "");
 #	next unless (grep(/$suffix/,qw( .pdf .dvi .djvu)));
-	printf("line: %s\n",$_);
+	system(sprintf("cp \"%s%s\" %s\n",$calibreFolder,$_,$copyFolder));
 #	printf("suff: %s\n",$suffix);
 }
