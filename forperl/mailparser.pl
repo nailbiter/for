@@ -44,8 +44,9 @@ my @MONTHNAMES = (
 	"Sep","Oct","Nov",
 	"Dec",
 );
-my %FOLDERDATA = (
-	"INBOX" => {
+my @FOLDERDATA = (
+	{
+		name=>"INBOX",
 		filter=> sub {
 			(my $data,my $hash) = @_;
 			my $kmail = $data->{kmail};
@@ -59,7 +60,8 @@ my %FOLDERDATA = (
 			$mailinfo->{labels} = ["fromK"];
 		},
 	},
-	"1/Sent Messages" => {
+	{
+		name => "1.Sent Messages",
 		filter => sub {
 			(my $data,my $hash) = @_;
 			my $kmail = $data->{kmail};
@@ -136,10 +138,11 @@ my %filterData = (kmail=>$kEmail);
 @filterData{"year","month"} = map {$_+0} split("-",$month);
 $filterData{month}--;
 printf(STDERR "year: %d, month: %d\n",@filterData{"year","month"});
-for(keys(%FOLDERDATA)){
-	my $folderDataItem = $FOLDERDATA{$_};
-	printf(STDERR "folder: %s",$_);
-	$imap->select($_);
+
+for(@FOLDERDATA){
+	my $folderDataItem = $_;
+	printf(STDERR "folder: %s",$folderDataItem->{name});
+	$imap->select($folderDataItem->{name});
 	for( $imap->since(filterDataToDateLine(\%filterData)) ) {
 		my $id = $_;
 		my %data = getEmailInfo($imap,$id);

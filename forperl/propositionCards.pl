@@ -30,15 +30,24 @@ binmode(STDIN, ":utf8");
 binmode(STDERR, ":utf8");
 
 #global const's
-my %SETTINGS = (
-	"http://germanforenglishspeakers.com/prepositions/accusative-prepositions/"=>{
+my @SETTINGS = (
+	{
+		url=>"http://germanforenglishspeakers.com/prepositions/accusative-prepositions/",
 		type=>"ACC",
 	},
-	"http://germanforenglishspeakers.com/prepositions/dative-prepositions/"=>{
+	{
+		url=>"http://germanforenglishspeakers.com/prepositions/dative-prepositions/",
 		type=>"DAT",
 	},
-	"http://germanforenglishspeakers.com/prepositions/genitive-prepositions/" =>{
+	{
+		url=>"http://germanforenglishspeakers.com/prepositions/genitive-prepositions/",
 		type=>"GEN",
+	},
+	{
+		url=>"http://germanforenglishspeakers.com/prepositions/two-way-prepositions/",
+		type=>"ACCDAT",
+		searchattribs=>{ depth=>1, count=>0 },
+#		rowprocess=>\&twoWayRowProcess,
 	},
 );
 #global var's
@@ -65,40 +74,75 @@ sub processString{
 	}
 	return $_[0];
 }
-#main
-my @particles;
-for(keys(%SETTINGS)){
-	my $te = HTML::TableExtract->new( depth => 0, count => 0 );
-	my $sett = $SETTINGS{$_};
-	$te->parse(getHtml($_));
-	my $cache;
-	my $ts = $te->tables;
-	foreach my $ts ($te->tables) {
-		my $index = -1;
-		foreach my $row ($ts->rows) {
-			$index++;
-			next if($index eq 0);
+sub standardRowProcess{
+	(my $row,my $records,my $sett) = @_;
+	map {processString($_)} @$row;
 
-			if(defined $row->[0]){
-				$cache = $row->[0];
-			} else {
-				$row->[0] = $cache;
+	my %hash = (
+		particle=>$row->[0],
+		type=>($sett->{type}),
+		examples=>$row->[2],
+		english=>$row->[1],
+	);
+	printf(STDERR "%s\n",Dumper(\%hash));
+	push(@$records,\%hash);
+}
+sub twoWayRowProcess{
+	(my $row,my $records,my $sett) = @_;
+	map {processString($_)} @$row;
+
+	my %hash = (
+		particle=>$row->[0],
+		type=>'fuck you',
+		examples=>$row->[2],
+		english=>$row->[1],
+	);
+	printf(STDERR "%s\n",Dumper(\%hash));
+	push(@$records,\%hash);
+}
+sub getParticles{
+	my @particles;
+	for(@SETTINGS){
+		my %sett = %{$_};
+		$sett{searchattribs} //= {
+			depth=>0, count=>0,
+		};
+		$sett{rowprocess} //= \&standardRowProcess;
+
+		my $te = HTML::TableExtract->new( %{$sett{searchattribs}} );
+		$te->parse(getHtml($sett{url}));
+		my $cache;
+		my $ts = $te->tables;
+		foreach my $ts ($te->tables) {
+			printf(STDERR "\t%s\n","table");
+			my $index = -1;
+			foreach my $row ($ts->rows) {
+				printf(STDERR "\t%s\n",sprintf("row: %s",join(",",@$row)));
+				$index++;
+				next if($index eq 0);
+
+				if(defined $row->[0]){
+					$cache = $row->[0];
+				} else {
+					$row->[0] = $cache;
+				}
+
+				$sett{rowprocess}->($row,\@particles,\%sett);
 			}
-
-			map {processString($_)} @$row;
-
-			my %hash = (
-				particle=>$row->[0],
-				type=>($sett->{type}),
-				examples=>$row->[2],
-				english=>$row->[1],
-			);
-			printf(STDERR "%s\n",Dumper(\%hash));
-			push(@particles,\%hash);
 		}
 	}
+	return @particles;
 }
+
+#main
+my @particles = getParticles();
+my @res;
 for(@particles){
-	printf("%s\t%s\n",$_->{particle},$_->{type});
+	push(@res,sprintf("%s\t%s",$_->{particle},$_->{type}));
+}
+my %hash   = map { $_, 1 } @res;
+my @unique = keys %hash;
+for(@unique){
+	printf("%s\n",$_);
 }
 #XJdPEZPN
