@@ -31,12 +31,19 @@ use MIME::Base64;
 use Data::Dumper;
 use MIME::Words qw/decode_mimewords/;
 use Date::Parse;
+use DateTime::Tiny;
+use List::MoreUtils qw(first_index);
+use DateTime;
+use DateTime::TimeZone;
 
 binmode(STDOUT, ":utf8");
 binmode(STDIN, ":utf8");
 binmode(STDERR, ":utf8");
 
 #global const's
+my $False = 0;
+my $True = 1;
+my $TESTFLAG = $False;
 my @MONTHNAMES = (
 	"Jan","Feb",
 	"Mar","Apr","May",
@@ -79,6 +86,13 @@ my @FOLDERDATA = (
 #global var's
 
 #procedures
+sub myExec{
+	(my $cmd) = @_;
+	printf("exec: _%s\n",$cmd);
+	if(not $TESTFLAG){
+		system($cmd);
+	}
+}
 sub connectToMailBox{
 	(my $login, my $host,my $password) = @_;
 	my $ssl=new IO::Socket::SSL("$host:imaps");
@@ -119,14 +133,68 @@ sub filterDataToDateLine{
 	printf(STDERR "filterDataToDateLine: %s\n",$res);
 	return $res;
 }
+sub saveEmailToFile{
+	(my $dataRef,my $indexRef,my $folderName, my $jarPath, my $id,my $imap) = @_;
+	my %fileNames;
+	for(("eml","pdf")){
+		$fileNames{$_} = sprintf("%s%06d.%s",$folderName,$$indexRef,$_);
+	}
+	$imap->message_to_file($fileNames{eml},$id) 
+		or die "Could not message_to_file: $@\n";
+	myExec(sprintf("java -jar \"%s\" \"%s\"",$jarPath,$fileNames{eml}));
+	unlink($fileNames{eml});
+	$dataRef->{pdfpath} = $fileNames{pdf};
+	${$indexRef}++;
+}
+sub parseDate{
+	my $dateString = $_[0];
+#			year   => 2006,
+#			month  => 12,
+#			day    => 25,
+#			hour   => 10,
+#			minute => 45,
+#			second => 0,
+	
+	#FIXME: this only works if we execute the script in Japanese time
+#          'date' => 'Sun, 01 Jul 2018 11:48:41 +0900',
+	if($dateString =~ /\w\w\w, (\d+) (\w\w\w) (\d\d\d\d) (\d\d):(\d\d):(\d\d) (\+\d+)/){
+		my $dt = DateTime->new(
+			day => ($1+0),
+			month => ((first_index { $_ eq $2 } @MONTHNAMES )+1),
+			year=>($3+0),
+			hour => ($4+0),
+			minute => ($5+0),
+			second => ($6+0),
+			time_zone=>$7,
+		);
+		$dt->set_time_zone('UTC');
+		return (
+			day => $dt->day,
+			month => $dt->month,
+			year => $dt->year,
+			hour=> $dt->hour,
+			minute=>$dt->minute,
+			second=>$dt->second,
+		);
+	} else {
+		die $dateString;
+	}
+}
+sub processDate{
+	(my $mailData) = @_;
+	my $dateString = $mailData->{date};
+	printf(STDERR "real date was %s\n",$dateString);
+	$mailData->{date} = DateTime::Tiny->new(parseDate($dateString));
+}
 
 #main
-my $myEmail, my $kEmail, my $month, my $folderName;
+my $myEmail, my $kEmail, my $month, my $folderName, my $jarPath;
 GetOptions(
-	"myemail=s" => \$myEmail,
-	"kemail=s" => \$kEmail,
+	"myemail=s" => \$myEmail, #my login name
+	"kemail=s" => \$kEmail, #K's login name
 	"dateFilter=s" => \$month, #e.g. 2018-07 means Jul 2018
-	"folder=s" => \$folderName,
+	"folder=s" => \$folderName, #folder to save .pdfs (with / at the end)
+	"jar=s" => \$jarPath, #path to emlconverter jar (see https://github.com/nickrussler/eml-to-pdf-converter)
 );
 $kEmail = $kEmail."\@ms.u-tokyo.ac.jp";
 my $mongoClient = MongoDB->connect();
@@ -138,23 +206,27 @@ my %filterData = (kmail=>$kEmail);
 @filterData{"year","month"} = map {$_+0} split("-",$month);
 $filterData{month}--;
 printf(STDERR "year: %d, month: %d\n",@filterData{"year","month"});
+$folderName = $folderName.$month."/";
+myExec(sprintf("mkdir -p \"%s\"",$folderName));
 
+my $i = 0;
 for(@FOLDERDATA){
-	my $folderDataItem = $_;
-	printf(STDERR "folder: %s",$folderDataItem->{name});
-	$imap->select($folderDataItem->{name});
+	my %folderDataItem = %$_;
+	printf(STDERR "folder: %s\n",$folderDataItem{name});
+	$imap->select($folderDataItem{name});
 	for( $imap->since(filterDataToDateLine(\%filterData)) ) {
 		my $id = $_;
 		my %data = getEmailInfo($imap,$id);
 		processEmailInfo(\%data);
-		if($folderDataItem->{filter}->(\%filterData,\%data))
+		if($folderDataItem{filter}->(\%filterData,\%data))
 		{
-			$folderDataItem->{label}->(\%data);
-			print "\t".$data{subject}."\n";
-			print Dumper(\%data);
+			processDate(\%data);
+			$folderDataItem{label}->(\%data);
+			printf(STDERR "\t%s\n",$data{subject});
+			printf(STDERR "%s\n",Dumper(\%data));
+#			my $mongoid = (unpack("H*",($res->{inserted_id}->{oid})));
+			saveEmailToFile(\%data,\$i,$folderName,$jarPath,$id,$imap);
 			$mongoCollection->insert_one(\%data);
-#			$imap->message_to_file("/Users/oleksiileontiev/Downloads/emails/test.txt",$id) 
-#				or die "Could not message_to_file: $@\n";
 		}
 	}
 }
