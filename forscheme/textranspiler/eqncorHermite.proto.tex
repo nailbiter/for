@@ -1,0 +1,25 @@
+\myfootnote{this was checked numerically}
+  \begin{multline}
+%%%(load "wolfmacro.scm")
+      \myiint{-\infty}{\infty}
+          {\myabsval{s-x\jx{t}}{2\jx\nu}\jx
+          \myexp{-s^2-t^2}\jx
+          \myHerm{s}{\ell}\jx
+          \myHerm{t}{m}
+      }
+      {s}{-\infty}{\infty}{t}
+%%%(myassign "left")    
+    \\=
+%%%
+    \myPoch{-\nu}{\frac{\ell+m}{2}}\jx
+    \mydeg{-1}{\frac{\ell-m}{2}}\jx
+    \mydegw{2}{\ell+m}\jx
+    \mydegw{\pi}{\frac{1}{2}}\jx
+    \myGamma{\frac{1}{2}+\nu}\jx
+    \mydeg{x^2+1}{\nu-\frac{\ell+m}{2}}\jx
+    {x^m}
+%%%(myassign "right")
+    .
+    \label{eqn:corHermite}
+\end{multline}
+%%%

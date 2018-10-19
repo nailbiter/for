@@ -1,0 +1,15 @@
+\myfootnote{this was checked numerically}
+  \begin{equation}
+%%%(load "wolfmacro.scm")
+      \frac{1}{2\jx\pi}\myiint{-\infty}{\infty}
+      {\myexp{\frac{-s^2-t^2}{2}}\jx\myabsval{s-t}{2\jx\nu}}
+      {s}{-\infty}{\infty}{t}
+%%%(myassign "left")    
+    =
+%%%
+    \frac{\myGamma{1+2\jx\nu}}{\myGamma{1+\nu}} 
+%%%(myassign "right")    
+	  .\label{eqn:mehSpec}
+  \end{equation}
+%%%
+

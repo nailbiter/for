@@ -1,0 +1,12 @@
+\myfootnote{this was checked numerically}
+%%%(load "wolfmacro.scm")
+\mymultline{
+\myiint{-1}{1}
+{\mypospart{s-x{\jx} t}{2{\jx} c-1}\mydeg{1-s^2}{a-1}\mydeg{1-t^2}{b-1}}
+{s}{-1}{1}{t}}
+{\frac
+{\sqrt{\pi}{\jx} \myGamma{a}{\jx}\myGamma{b}{\jx}\myGamma{c}}
+{2{\jx} \myGamma{a + c}{\jx}\myGamma{b + \frac{1}{2} }}{\jx}
+\mytFo{-c+\frac{1}{2}}{-a-c+1}{b+\frac{1}{2}}{x^2}.
+}{eqn:stz}
+%%%(display(printwolf ""(mytex->wolf mydata)))

@@ -1,0 +1,15 @@
+\myfootnote{this was checked numerically}
+  \begin{equation}
+%%%(load "wolfmacro.scm")
+      \myiint{-1}{1}{\mydeg{1-s^2}{\lambda-\frac{1}{2}}\jx
+      \mypospart{t-s}{2\nu}}{s}{-1}{1}{t}
+%%%(myassign "left")
+    =
+%%%
+    \frac{\mydegw{2}{2\jx\lambda+2\jx\nu+1}\jx
+    \myGamma{\lambda+\frac{1}{2}}\jx\myGamma{\frac{3}{2}+\lambda+2\jx\nu}}
+    {(1 + 2\jx\nu)\jx \myGamma{2+2\jx\lambda+2\jx\nu}}
+%%%(myassign "right")
+.\label{eqn:spec_tv}
+  \end{equation}
+%%%

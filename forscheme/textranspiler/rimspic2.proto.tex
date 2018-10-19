@@ -1,0 +1,89 @@
+%%%(load "macro.scm")
+\begin{figure*}[h]
+	\centering
+	\begin{tikzpicture}
+	\draw[color=black] (0.0,0.0) rectangle (2.0,-0.5);
+\node at (1.0,-0.25) {\color{black}{\scriptsize Warnaar}};
+\node at (1.0,0.25) {\color{blue}{4}};
+\draw[color=black] (2.3,0.0) rectangle (4.5,-0.5);
+\node at (3.4,-0.25) {\color{black}{\scriptsize \cref{main-thm}}};
+\draw[color=black] (5.7,0.0) rectangle (8.9,-0.5);
+\node at (7.3,-0.25) {\color{black}{\scriptsize Tarasov-Varchenko}};
+\draw[color=black] (9.1,0.0) rectangle (12.1,-0.5);
+\node at (10.6,-0.25) {\color{black}{\scriptsize Dotsenko-Fateev}};
+\draw[color=black] (2.3,-2.0) rectangle (4.5,-2.5);
+%%%(myflush)
+%%%(myput "cor:1" '(4.5 -2.5))
+\node at (3.4,-2.25) {\color{black}{\scriptsize \cref{cor:1}}};
+\draw[color=black] (5.0,-2.0) rectangle (6.7,-2.5);
+\node at (5.85,-2.25) {\color{black}{\scriptsize Selberg}};
+%%%(myflush)
+\draw[color=black] (~1,2f,~1,2f) rectangle (~1,2f,~1,2f);
+\node at (~1,2f,~1,2f) {\color{black}{\scriptsize Mehta}};
+\node at ~a {\color{blue}{1}};
+%%%((lambda(x)(begin
+%%%    (format #t(string-join (cons "%mehta"mydata) "\n") (- x 1.7)
+%%%     -2.0 x -2.5 (- x 0.75) -2.25 (p2s(map + (list(+ x 0.25)-2.25))))
+%%%     ))12.05)
+%%% ((lambda(x)(myput "mehta"(list (- x 1.5) -2.5)))12.7)
+\draw[->,>=angle 90,color=black] (3.4,-2.5) -- node {\color{black}{\scriptsize $\kern-1.5cm\ell=m=0$}} (3.4,-3.55);
+\draw[->,>=angle 90,color=black] ~a -- node {} ~a ;
+\node at ~a {\color{black}{\scriptsize $\kern-1.0cm ~a$}};
+\draw[->,>=angle 90,color=black] (2.0,-0.5) -- node {} (5.0,-2.0) ;
+\draw[->,>=angle 90,color=black] (6.18,-0.5) -- node {} (5.85,-2.0) ;
+\draw[->,>=angle 90,color=black] (9.1,-0.5) -- node {} (6.615,-2.0) ;
+%%%((lambda(p1 p2)(format #t(string-join mydata "\n")(p2s p1)(p2s p2)
+%%%(p2s (waverage p2 p1 0.64)) "x=1"))'(3.4 -0.5)'(3.4 -2.0))
+\node[draw,black,fill=white,circle,minimum size=0.3cm,inner sep=0pt] at ~a{\eqref{eqn:lm0}};
+\node at ~a {\color{blue}{3}};
+%%%((lambda(p)(begin(format #t(string-join mydata "\n")(p2s p)(p2s(map + p '(-0.67 0))))
+%%%(myput"eqn:lm0"p)))'(3.4 -4.0))
+\draw[color=black] (~1,2f,~1,2f) rectangle (~1,2f,~1,2f);
+\node at (~1,2f,~1,2f) {\color{black}{\scriptsize ~a}};
+\node at (~1,2f,~1,2f) {\color{blue}{~a}};
+%%%(myrect-with-title "\\cref{ex:2}" 1.0 -6.0 1.7 2)
+%%%(myrect-with-title "\\cref{ex:1}" 3.4 -6.0 1.7 2)
+%%%(myrect-with-title "\\cref{ex:3}" 5.85 -6.0 1.7 2)
+%%%(myrect-with-title "\\cref{ex:4}" 8.9 -6.0 1.7 2)
+%%%(myrect-with-title "\\cref{ex:5}" 11.2 -6.0 1.7 1)
+%%%(myarrow "mehta" "\\cref{ex:5}" 0 0.9 "")
+%%%(myput "warnaar" '(1.0 -0.5))
+%%%(myput "selberg" '(5.34 -2.5))
+%%%(myput "df" '(10.3 -0.5))
+%%%(myput "tv" '(7.62 -0.5))
+%%%(myarrow "warnaar" "\\cref{ex:2}" 0 0.94 "")
+%%%(myarrow "eqn:lm0" "\\cref{ex:2}" 0.16 0.82 "")
+%%%(myarrow "selberg" "\\cref{ex:1}" 0 0.9 "")
+%%%(myarrow "eqn:lm0" "\\cref{ex:1}" 0.23 0.82 "")
+%%%(myarrow "eqn:lm0" "\\cref{ex:3}" 0.15 0.81 "")
+%%%(myarrow "eqn:lm0" "\\cref{ex:4}" 0.08 0.84 "")
+%%%(myarrow "eqn:lm0" "\\cref{ex:3}" 0.15 0.81 "")
+%%%(myarrow "df" "\\cref{ex:4}" 0 0.93 "")
+%%%(myarrow "tv" "\\cref{ex:3}" 0 0.93 "")
+\node[draw,black,fill=white,circle,minimum size=0.3cm,inner sep=0pt] at ~a {\eqref{eqn:mehSpec}};
+\node at ~a {\color{blue}{1}};
+\node at ~a {\color{black}{\scriptsize~a}};
+%%%    (format #t(string-join (cons "%eqn:mehSpec"mydata) "\n")
+%%%     (p2s(waverage(myget "\\cref{ex:5}")(myget "cor:1")0.6))
+%%%     (p2s(map + '(-0.7 0)(waverage(myget "\\cref{ex:5}")(myget "cor:1")0.6)))
+%%%     (p2s(map +(waverage
+%%%                 (myget"\\cref{ex:5}")(myget"cor:1")0.4)'(0.6 0.2)))"$\\lambda,\\mu\\to\\infty$"
+%%%     )
+%%%(myarrow "cor:1" "\\cref{ex:5}" 0 0.54 "")
+%%%(myarrow "cor:1" "\\cref{ex:5}" 0.665 0.9 "")
+\node at (7.3,0.25) {\color{black}{\color{blue}{4}}};
+\node at (10.6,0.25) {\color{black}{\color{blue}{3}}};
+\node at (1.9,-2.25) {\color{black}{\color{blue}{3}}};
+\node at (6.9,-2.25) {\color{black}{\color{blue}{3}}};
+%%%(myflush)
+\node at (3.4,0.25) {\color{blue}{4}};
+ 				\end{tikzpicture}
+				\caption{
+					Specialization of \cref{main-thm}
+					and of related results.
+                    Blue numbers outside boxes denote the number
+					of independent continuous parameters.
+				}
+				\label{fig:intdep}
+			\end{figure*}
+%%%(myflush)

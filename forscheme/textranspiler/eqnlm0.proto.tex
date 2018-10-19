@@ -1,0 +1,21 @@
+\myfootnote{this was checked numerically}
+%%%(load "wolfmacro.scm")
+	\begin{multline}  
+%%%
+        \myiint{-1}{1}{\myabsval{s-t}{2\jx\nu}\jx
+        \mydeg{1-s^2}{\lambda-\frac{1}{2}}\jx
+        \mydeg{1-t^2}{\mu-\frac{1}{2}}}{s}{-1}{1}{t}
+%%%(myassign "left")
+	  \\=
+%%%
+      \frac{\mydegw{\pi}{\frac{1}{2}}
+      \jx\myGamma{\lambda + \frac{1}{2}}
+      \jx\myGamma{\mu+\frac{1}{2}}
+      \jx\myGamma{\nu+\frac{1}{2}}
+      \jx\myGamma{\lambda+\mu+2\jx\nu+1}}
+      {\myGamma{\lambda+\nu+1}\jx\myGamma{\mu+\nu+1}\jx\myGamma{\lambda+\mu+\nu+1}}
+%%%(format #t "right:=~a;~%" (printwolf ""(mytex->wolf mydata)))
+      .
+\label{eqn:lm0}
+	\end{multline}
+%%%

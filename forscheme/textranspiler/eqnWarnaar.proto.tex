@@ -1,0 +1,21 @@
+\myfootnote{this was numerically checked}
+  \begin{multline}
+%%%(load "wolfmacro.scm")
+      \myintform{\invisibleone}{\frac{\mycos{\pi\jx\lambda}}{\mycos{\pi\jx\mu}}}
+      {0}{1}{s}{t}{-\lambda-\mu}
+      {\mydegw{t}{\lambda-\frac{1}{2}}\jx
+        \mydeg{1-t}{\lambda-\frac{1}{2}}\jx
+      \mydegw{s}{\mu-\frac{1}{2}}\jx
+        \mydeg{1-s}{\mu-\frac{1}{2}}}
+      {\invisibleone}
+%%%(myassign "left")
+    \\
+    \displaystyle=
+%%%
+    \frac{\myGamma{\lambda + \frac{1}{2}}\jx
+    \myGamma{\frac{1}{2}-\mu}\jx\mydegw{\myGamma{\mu+\frac{1}{2}}}{2}}
+    {\myGamma{\lambda+1-\mu}\jx\myGamma{\mu+1-\lambda}\jx\myGamma{\lambda+\mu+1}}
+%%%(myassign "right")
+      .\label{eqn:spec_warnaar}
+  \end{multline}
+%%%

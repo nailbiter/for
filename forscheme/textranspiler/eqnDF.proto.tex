@@ -1,0 +1,20 @@
+\myfootnote{this is difficult to check numerically, because of $\myabs{s-t}^{-2}$
+factor in the integral. Nevertheless, the more general \ref{eqn:lm0}
+was numerically checked.}
+\begin{equation}
+%%%(load "wolfmacro.scm")
+    \myiint{-1}{1}
+    {\mydeg{1-s^2}{\lambda-\frac{1}{2}}\jx\mydeg{1-t^2}{\mu-\frac{1}{2}}\jx
+        \myabsval{s-t}{-2}}{s}{-1}{1}{t}
+%%%(myassign "left")    
+    =
+%%%
+    \frac{ \mydegw{2}{2\lambda+2\mu-1} \jx
+    \mydegw{\myGamma{\lambda+\frac{1}{2}}}{2}\jx
+    \mydegw{\myGamma{\mu+\frac{1}{2}}}{2}}
+    {(1-\lambda - \mu )\jx \myGamma{2\jx\lambda}\jx\myGamma{2\jx\mu}} 
+%%%(myassign "right")    
+    .
+    \label{eqn:spec_df}
+  \end{equation}
+%%%

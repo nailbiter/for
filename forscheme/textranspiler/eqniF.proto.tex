@@ -1,0 +1,22 @@
+%%%(load "wolfmacro.scm")
+\myuasgn{G (a, b, d ; \zeta)}
+{\mysum{0}{\infty}{
+    \frac
+    {\myPoch{a}{i}\jx\myPoch{1-a}{i}}
+    {\mydegw{2}{i}\jx\myfactw{i}\jx\myPoch{d}{i}}
+    \jx
+   \mytFo{\frac{1-d-i}{2}}{\frac{2-d-i}{2}}{b+\frac{1}{2}}{\zeta}}{i}}{G}
+%%%(display(printwolf ""(mytex->wolf mydata)))
+converges when $| \zeta | < 1$, and we have the following closed formula:
+\myfootnote{this was checked numerically}
+\begin{equation}
+    G (a, b, d ; \zeta)=
+%%%
+    \frac{\mydegw{2}{1 - d}\jx\sqrt{\pi}\jx\myGamma{d}}
+    {\myGamma{\frac{a+d}{2}}\jx\myGamma{\frac{1-a+d}{2}}}\jx
+         \mytFo{1-\frac{a+d}{2}}{\frac{1+a-d}{2}}{b+\frac{1}{2}}{\zeta}.
+%%%(display(printwolf ""(mytex->wolf mydata)))
+%%%(display ";")
+    \label{eqn:iF}
+\end{equation}
+%%%

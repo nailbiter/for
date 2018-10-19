@@ -1,0 +1,25 @@
+\myfootnote{this was checked numerically}
+%%%(load "wolfmacro.scm")
+  \begin{equation}
+%%%(display "left:=")
+      \myiint{-1}{1}{
+          \mydeg{1-s^2}{\lambda-\frac{1}{2}}\jx
+          \mydeg{1-t^2}{\lambda-\frac{1}{2}}\jx
+          \myabsval{s-t}{2\nu}}{s}{-1}{1}{t}
+%%%(display(printwolf ""(mytex->wolf mydata)))
+%%%(display ";")(newline)
+    = 
+%%%(display "right:=")
+    \frac{\mydegw{2}{4\jx\lambda+2\jx\nu}\jx
+    \mydegw{\myGamma{\lambda + \frac{1}{2}}}{2}}
+    {\myGamma{2\jx\lambda + 1 + \nu}}
+     \cdot
+     \frac{\mydegw{\myGamma{\lambda + \nu + \frac{1}{2}}}{2}
+     \myGamma{1 + 2 \nu}}
+     {\myGamma{2\jx \lambda + 2\jx \nu + 1}\jx\myGamma{1 +\nu}}
+%%%(display(printwolf ""(mytex->wolf mydata)))
+%%%(display ";")(newline)
+    ,
+    \label{eqn:spec_selberg}
+  \end{equation}
+%%%

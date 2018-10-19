@@ -1,0 +1,15 @@
+\myfootnote{this was checked numerically}
+\begin{equation*}
+%%%(load "wolfmacro.scm")
+    \myint{-1}{1}{\mypospart{s-x}{2c-1}\jx\mydeg{1-s^2}{a-1}}{s}
+%%%(myassign "left")
+    =
+%%%
+    \mydegw{2}{a-1}\jx
+    \myBeta{2c}{a}\jx
+    \mydeg{1-x^2}{2c+a}\jx
+    \mytFo{1-a}{2c}{2c+a}{\frac{1-x}{2}}
+%%%(myassign "right")
+        .
+\end{equation*}
+%%%

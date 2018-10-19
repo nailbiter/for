@@ -1,0 +1,16 @@
+\myfootnote{this was checked numerically}
+  \begin{multline}
+%%%(load "wolfmacro.scm")
+      \mysignedabsval{\myucos{\varphi}+\myucos{\psi}}{\rho}{r}
+%%%(myassign "left")
+\\=
+%%%
+\mydegw{2}{-\rho}\jx
+\mydegw{\myGamma{\rho+1}}{2}\jx
+\myinfdoublesumform{\ell}{m}{r}
+{\frac{\myucos{\ell\jx\varphi}\jx\myucos{m\jx\psi}}
+{\mydoubleprodform{\delta}{\varepsilon}{\mypmset}
+{\myGamma{1+\frac{1}{2}\jx(\rho+\delta\jx\ell+\varepsilon\jx{m})}}}}
+%%%(myassign "right")
+.\end{multline}
+%%%
