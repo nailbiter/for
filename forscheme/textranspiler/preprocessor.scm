@@ -2,7 +2,7 @@
 (use-modules (ice-9 format))
 (use-modules (ice-9 eval-string))
 (use-modules (srfi srfi-1))
-(load "misc.scm")
+(load "../misc.scm")
 
 (define (myfootnote str)(format #f "(display \"\\\\footnote{~a}\")~%" str))
 (define (mydefine name val)(format #f "(define ~a \"~a\")" name val))

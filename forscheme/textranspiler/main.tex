@@ -3,8 +3,34 @@
 % Last Change: Fri Oct 19 07:00 PM 2018 J
 %
 \documentclass[a4paper]{article}
+\input{preamble.tex}
+\input{texmathcmds.tex}
+\input{cond.tex}
+\input{conditions.tex}
+
 \begin{document}
-tesime
+\begin{theorem}
+  \label{main-thm}
+  \begin{equation*}
+	\Almlmn{x}\assign
+     \displaystyle
+     \int_{- 1}^1 \displaystyle\int_{- 1}^1 \mybra{ s\mypm xt }_+^{2 \nu} u_{\ell}^{\lambda} (s)
+     u_m^{\mu} (t) d s d t.
+  \end{equation*}
+\end{theorem}
+
+\input{eqnDF.proto.tex}
+\input{eqnEulerRep.proto.tex}
+\input{eqnRod.proto.tex}
+\input{eqnSelberg.proto.tex}
+\input{eqnTarasov.proto.tex}
+\input{eqnWarnaar.proto.tex}
+\input{eqncor170599.proto.tex}
+\input{eqncorHermite.proto.tex}
+\input{eqniF.proto.tex}
+\input{eqnlm0.proto.tex}
+\input{eqnmehSpec.proto.tex}
+\input{eqnpfProp.proto.tex}
+\input{eqnstz.proto.tex}
+\input{rimspic2.tex}
 \end{document}
-
-
