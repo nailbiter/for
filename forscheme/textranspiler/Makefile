@@ -4,7 +4,7 @@
 ##commands
 PREPROC=guile -s preprocessor.scm
 LATEXMK=latexmk -pdf -f -g
-MARKDOWN=markdown_py #-f +definitionlist
+MARKDOWN=markdown_py
 ##variables
 EQUATIONS=$(addprefix eqn,\
 		DF EulerRep Rod Selberg Tarasov Warnaar cor170599 corHermite iF lm0 mehSpec pfProp stz)
