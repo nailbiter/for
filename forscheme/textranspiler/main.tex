@@ -6,7 +6,6 @@
 \input{preamble.tex}
 \input{texmathcmds.tex}
 \input{cond.tex}
-\input{conditions.tex}
 
 \begin{document}
 \begin{theorem}
@@ -18,6 +17,15 @@
      u_m^{\mu} (t) d s d t.
   \end{equation*}
 \end{theorem}
+\begin{proposition}
+  \label{cor:1}
+  \begin{multline}
+    \displaystyle\int_{- 1}^1 \displaystyle\int_{- 1}^1 | s \mypm t |^{2 \nu}\sgn^\varepsilon(s\mypm t) (1 - s^2)^{\lambda -
+    \frac{1}{2}} (1 - t^2)^{\mu - \frac{1}{2}} C_{\ell}^{\lambda} (s)
+    C_m^{\mu} (t) d s d t   \\=\frac{1}{2}\left( 1+(-1)^{\ell+m+\varepsilon} \right)\almlmn v_\ell^\lambda v^\mu_m.
+	\label{eqn:cor:1}
+  \end{multline}
+\end{proposition}
 
 \input{eqnDF.proto.tex}
 \input{eqnEulerRep.proto.tex}

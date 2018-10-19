@@ -1,12 +1,9 @@
 \usepackage{amsmath,amssymb,mathtools,tikz,amsthm}
 \usepackage[capitalize,nameinlink]{cleveref}
-
-\newtheorem{corollary}{Corollary}
-\newtheorem{lemma}{Lemma}
-\newtheorem{proposition}{Proposition}
-\newtheorem{example}{Example}
-\newtheorem{theorem}{Theorem}
 \usetikzlibrary{shapes,arrows,patterns}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
 
 \newcommand{\myabs}[1]{\left|#1\right|}
 \newcommand{\sgn}{\operatorname{sgn}}
@@ -14,3 +11,14 @@
 \newcommand{\mymod}[1]{\,\operatorname{mod}\,#1}
 \newcommand{\assign}{:=}
 \newcommand{\mybra}[1]{\left( #1 \right)}
+\newcommand{\comma}{,}
+\newcommand{\changed}[1]{#1}
+\newcommand{\mypm}{\changed{-}}
+\newcommand{\mypmnone}{\changed{-}}
+\newcommand{\mymp}{\changed{}}
+\newcommand{\almlmn}{\changed{b^{\lambda,\mu,\nu}_{\ell,m}}}
+\newcommand{\Almlmn}[1]{\changed{B^{\lambda,\mu,\nu}_{\ell,m}\left( #1 \right)}}
+\newcommand{\multone}{\changed{(-1)^{m}}}
+\newcommand{\multtwo}{\changed{(-1)^{\ell+2m}}}
+\newcommand{\multthree}{\changed{(-1)^{\frac{\ell-m}{2}}}}
+\newcommand{\mynone}[1]{#1}

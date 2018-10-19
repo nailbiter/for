@@ -1,30 +1,18 @@
-.PHONY: all
+.PHONY: all docs
 
 #var's
 ##commands
 PREPROC=guile -s preprocessor.scm
 LATEXMK=latexmk -pdf -f -g
-MARKDOWN=markdown
+MARKDOWN=markdown_py #-f +definitionlist
 ##variables
-EQUATIONS=\
-	eqnDF\
-	eqnEulerRep\
-	eqnRod\
-	eqnSelberg\
-	eqnTarasov\
-	eqnWarnaar\
-	eqncor170599\
-	eqncorHermite\
-	eqniF\
-	eqnlm0\
-	eqnmehSpec\
-	eqnpfProp\
-	eqnstz\
-	script
-SOURCES=main texmathcmds $(addsuffix .proto, $(EQUATIONS)) cond preamble rimspic2 conditions
+EQUATIONS=$(addprefix eqn,\
+		DF EulerRep Rod Selberg Tarasov Warnaar cor170599 corHermite iF lm0 mehSpec pfProp stz)
+SOURCES=main texmathcmds $(addsuffix .proto, $(EQUATIONS)) cond preamble rimspic2
 
 #rules
-all: main.pdf README.html
+all: main.pdf $(addsuffix .m,$(EQUATIONS))
+docs: README.html
 main.pdf: $(addsuffix .tex,$(SOURCES))
 	$(LATEXMK) $<
 texmathcmds.tex : wolfmacro.scm wolftable.scm
@@ -33,7 +21,7 @@ texmathcmds.tex : wolfmacro.scm wolftable.scm
 	$(PREPROC) $< > $@
 %.tex: %.scm macro.scm
 	guile -s $< > $@
-conditions.tex: conditions.scm
-	guile -s $< Bversion > $@
 README.html: README.md
 	$(MARKDOWN) $< > $@
+%.m : %.scm wolfmacro.scm wolftable.scm
+	guile -s $< > $@
