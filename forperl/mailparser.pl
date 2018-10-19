@@ -3,7 +3,7 @@
 #
 #         FILE: mailparser.pl
 #
-#        USAGE: ./mailparser.pl  
+#        USAGE: ./mailparser.pl -m <my> -k <Ks> -d 2018-09 -f /Users/oleksiileontiev/Documents/emails/ -j ~/bin/emailconverter.jar
 #
 #  DESCRIPTION: mail parser
 #
@@ -224,9 +224,9 @@ for(@FOLDERDATA){
 			$folderDataItem{label}->(\%data);
 			printf(STDERR "\t%s\n",$data{subject});
 			printf(STDERR "%s\n",Dumper(\%data));
-#			my $mongoid = (unpack("H*",($res->{inserted_id}->{oid})));
 			saveEmailToFile(\%data,\$i,$folderName,$jarPath,$id,$imap);
 			$mongoCollection->insert_one(\%data);
 		}
 	}
 }
+
