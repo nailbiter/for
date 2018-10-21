@@ -4,7 +4,7 @@
 (load "aux.scm")
 
 (define wolftable-extended
-  (commands '("commands.txt" "commands2.txt")))
+  (commands '("commands/commands.txt" "commands/commands2.txt")))
 (define (mytex->wolf lines)
   (let*
     ((mlines(filter (lambda(l)(eq?(string-match "^%%"l)#f))lines))

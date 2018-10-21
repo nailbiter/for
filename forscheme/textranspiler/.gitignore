@@ -2,6 +2,8 @@ README.html
 conditions.tex
 trello.txt
 main.pdf
+*.aux
+*.log
 *.fls
 *.fdb_latexmk
 texmathcmds.tex
