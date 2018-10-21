@@ -1,16 +1,10 @@
-;;(load "statemachines.scm")
-(load "wolftable.scm")
 (use-modules (ice-9 regex))
 (use-modules (srfi srfi-1))
 (use-modules (ice-9 format))
-(define (mynewcmd sym argnum text)
-  (format #t "\\newcommand{\\~a}~a{~a}~%"
-          (symbol->string sym)
-          (if(zero? argnum)""(format #f "[~d]"argnum))
-          text))
-(define(maketexmathcmds args)
- (map(lambda(l)(mynewcmd(list-ref l 0)(list-ref l 1)(list-ref l 2)))wolftable))
+(load "aux.scm")
 
+(define wolftable-extended
+  (commands '("commands.txt" "commands2.txt")))
 (define (mytex->wolf lines)
   (let*
     ((mlines(filter (lambda(l)(eq?(string-match "^%%"l)#f))lines))
@@ -22,8 +16,6 @@
        (letrec
          ((parse
            (lambda(toks tail)
-;             (begin(format #t "parse with ~a and ~s=~a~%"toks tail
-;;                           (string-null? tail))
              (cond
                ((string-null? tail)toks)
                ((not(eq? #f (string-match token-pattern tail)))

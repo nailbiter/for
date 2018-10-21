@@ -3,7 +3,7 @@ TeX to Mathematica transpiler written in Scheme
 
 On a top level, this a transpiler from **LaTeX** to **Mathematica**.
 It is extendable, in the sense that it is easy to "teach" the transpiler to understand new functions
-(take a look at `wolftable.scm`).
+(take a look at `comments.txt`).
 
 One of the few problems with this type of software, is that TeX is more of a markup language, than 
 a programming language, hence it is not very semantic. Therefore, there are many incompatible ways
@@ -31,15 +31,15 @@ $F\left[a,b,c,x\right]$.
 Ideally, the transpiler would have to understand *any* version, but here we simplified the task
 by doing the following:
 
-1. File `wolftable.scm` contains the names of "non-basic" functions (i.e. the ones that
+1. File `command.txt` contains the names of "non-basic" functions (i.e. the ones that
 would have more than one way obvious to be written in TeX), e.g. hypergeometric 2F1 together
 with the corresponding Mathematica code and the user's TeX code (e.g. `${}_2F_1\left( \begin{array}[]{c}\displaystyle a,b\\c\end{array};x\right)$` in my case). The user than may customize the TeX code to achieve 
 match any of the versions above;
-2. `wolfmacro.scm` generates TeX-file `texmathcmds.tex` based on `wolftable.scm`. The latter
+2. `generateTex.scm` generates TeX-file `texmathcmds.tex` based on `commands.txt`. The latter
 can be included in user's TeX-file, so now instead of using his or her custom code,
 to render, say, hypergeometric 2F1, he or she will use the high-level command `\mytFo` from `texmathcmds.tex`,
 the latter command generating user's TeX, as explained in previous item;
-3. When transpiler sees `\mytFo` it knows what to expect (again, based on description in `wolftable.scm`),
+3. When transpiler sees `\mytFo` it knows what to expect (again, based on description in `commands.txt`),
 and generates the appropriate Mathematica code.
 
 preprocessor.scm

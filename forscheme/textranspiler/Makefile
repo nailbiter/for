@@ -5,6 +5,7 @@
 PREPROC=guile -s preprocessor.scm
 LATEXMK=latexmk -pdf -f -g
 MARKDOWN=markdown_py
+GUILE=guile -s
 ##variables
 EQUATIONS=$(addprefix eqn,\
 		DF EulerRep Rod Selberg Tarasov Warnaar cor170599 corHermite iF lm0 mehSpec pfProp stz)
@@ -15,13 +16,13 @@ all: main.pdf $(addsuffix .m,$(EQUATIONS))
 docs: README.html
 main.pdf: $(addsuffix .tex,$(SOURCES))
 	$(LATEXMK) $<
-texmathcmds.tex : wolfmacro.scm wolftable.scm
-	guile -e maketexmathcmds $< > $@
+texmathcmds.tex: generateTex.scm commands.txt
+	$(GUILE) $^ > $@
 %.scm : %.proto.tex
 	$(PREPROC) $< > $@
 %.tex: %.scm macro.scm
-	guile -s $< > $@
+	$(GUILE) $< > $@
 README.html: README.md
 	$(MARKDOWN) $< > $@
-%.m : %.scm wolfmacro.scm wolftable.scm
+%.m : %.scm wolfmacro.scm commands.txt commands2.txt aux.scm
 	guile -s $< > $@

@@ -71,14 +71,10 @@ sub loadJsonFromFile{
 	my $document;
 	my $fh;
 	if(open($fh, $fn)){
-#		$document = <$fh>; 
 		$document = do { local $/; <$fh> };
 	} else {
 		$document ="{}";
 	}
-#	for($document){
-#		s/\n\t//;
-#	}
 	printf(STDERR "doc: %s\n",$document);
 	close($fh);
 	return from_json($document);
