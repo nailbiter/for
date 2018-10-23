@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use Data::Dumper;
 
-#const's
+#global const's
 my @MONTHS = (
   '',"Jan","Feb",
   "Mar","Apr","May",
@@ -22,24 +22,45 @@ sub processData{
   my @list = map {processDataSimple($_)} @$listRef;
   return \@list;
 }
+sub printLine{
+  my $printline = shift;
+  my @stack;
+  while(scalar(@_)>0){
+    my $var1 = shift;
+    my $var2 = shift;
+    push(@stack,makeHref($var1,$var2));
+  }
+  return sprintf($printline,@stack);
+}
 sub processDataSimple{
   if(defined $_[0]){
-    my @list = @{$_[0]};
-    my @res;
-    push @res, join("-",map {heisei($_)} @{shift(@list)});
-    push @res, join("-",map {$MONTHS[$_]} @{shift(@list)});
-    my $printline = shift(@list);
-    my @stack;
-    while(scalar(@list)>0){
-      my $var1 = shift(@list);
-      my $var2 = shift(@list);
-      push(@stack,makeHref($var1,$var2));
-    }
-    push @res, sprintf($printline,@stack);
-    return \@res;
+    my %list = %{$_[0]};
+    my %res = %list;
+    $res{year} = join("-",map {heisei($_)} @{$list{year}});
+    $res{month} = join("-",map {$MONTHS[$_]} @{$list{month}});
+    $res{description} = printLine(@{$list{description}});
+    return \%res;
   } else {
-    return ["&nbsp;"," "," "];
+    return {
+      year=>"&nbsp;",
+      month=>"",
+      description=>"",
+    };
   }
+}
+sub loadJsonFromFile{
+	my $fn = shift;
+	printf(STDERR "opening file %s\n",$fn);
+	my $document;
+	my $fh;
+	if(open($fh, $fn)){
+		$document = do { local $/; <$fh> };
+	} else {
+		$document ="{}";
+	}
+	printf(STDERR "doc: %s\n",$document);
+	close($fh);
+	return from_json($document);
 }
 
 1;

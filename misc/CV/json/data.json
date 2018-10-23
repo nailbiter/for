@@ -4,6 +4,18 @@
     ["English (fluent), German (basic)"],
     ["Russian (native), Ukrainian (native)"]
   ],
+  "honors":
+  [
+  	["Leading Graduate Course for Frontiers of Mathematical Sciences and Physics (FMSP) (2016--2019)"],
+  	["Tokyo U. Graduate School of Mathematical Sciences Director's Prize (2016)"],
+  	["Successful participant in Google Summer of Code 2015 (2015)"],
+  	["Awarded with Monbukagakusho Scholarship by MEXT (2014--2019)"],
+  	["Successful participant in Google Summer of Code 2013 (2013)"],
+  	["Nominated as an Exchange Student to Hong Kong University (2013)"],
+  	["Diamond Project Scholarship, NCTU (2011--2012)"],
+  	["Best Student in Class Award, NCTU (2010--2012)"],
+  	["Golden Bamboo Scholarship Award, NCTU (2009--2013)"]
+  ],
   "progLangs":[
     ["C/C++        7 years of experience"],
     ["OpenCV, OpenGL, openSSL, Network Programming, Apache Hadoop"],
@@ -13,65 +25,173 @@
     ["C#, Unity Game Engine"]
   ],
   "langExams":[
-    [[25],[8],"TOEFL iBT, score: 112/120"],
-    [[25],[11],"Test of Chinese as a Foreign Language Level 3/5,  score: 94/100"]
+    {
+      "year":[25],"month":[8],"description":["TOEFL iBT, score: 112/120"]
+    },
+    {
+      "year":[25],"month":[11],"description":["Test of Chinese as a Foreign Language Level 3/5,  score: 94/100"]
+    }
   ],
   "education":[
-    [[21], [6], "Graduated from <i>Kyiv Natural Science Lyceum No. 145</i>"],
-    [[21], [9], "Enrolled into <i>National Taiwan Chiao Tung University</i> (Department of Applied Mathematics, Undergraduate Program)"],
-    [[25],[2],"6 month Student Exchange at <i>Hong Kong University</i>"],
-    [[25],[6],"Graduated from <i>National Taiwan Chiao Tung University</i>, Double Degree in Applied Math and Computer Science"],
-    [[26],[4],"Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, Master Degree Program)"],
-    [[28],[2],"Obtained Master Degree from <i>The University of Tokyo</i>"],
-    [[28],[4],"Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, PhD Program)"],
+    {
+      "year":[21],"month":[6],
+      "description":["Graduated from <i>Kyiv Natural Science Lyceum No. 145</i>"]
+    },
+    {
+      "year":[21],"month":[9],
+      "description":["Enrolled into <i>National Taiwan Chiao Tung University</i> (Department of Applied Mathematics, Undergraduate Program)"]
+    },
+    {
+      "year":[25],"month":[2],
+      "description":["6 month Student Exchange at <i>Hong Kong University</i>"]
+    },
+    {
+      "year":[25],"month":[6],
+      "description":["Graduated from <i>National Taiwan Chiao Tung University</i>, Double Degree in Applied Math and Computer Science"],
+      "type":"GRADUATION"
+    },
+    {
+      "year":[26],"month":[4],
+      "description":["Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, Master Degree Program)"]
+    },
+    {
+      "year":[28],"month":[2],
+      "type":"GRADUATION",
+      "description":["Obtained Master Degree from <i>The University of Tokyo</i>"]
+    },
+    {
+      "year":[28],"month":[4],
+      "description":["Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, PhD Program)"]
+    },
     null,null,null,null,
     null,null,null,null
   ],
   "work":[
-    [
-      [24,25],[6,5],
-      "Internship at Computer Graphics and Geometry Modeling Lab (under Prof. %s)",
-      "https://www.cs.nctu.edu.tw/cswebsite/members/detail/jhchuang","Jung-Hong Chuang"
-    ],
-    [
-      [25],[8,12],
-      "Desing and Implementation of a prototype  %s by %s et al. (implementation requested and financed by %s)",
-      "https://link.springer.com/chapter/10.1007/978-3-642-31284-7_32",
-      "A Practical Smart Metering System Supporting Privacy",
-      "https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/",
-      "H.-Y. Lin",
-      "https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/",
-      "H.-Y. Lin"
-    ],
-    [
-      [25],[5,9],
-      "Succesfully completed %s 2014 program (for %s)",
-      "https://summerofcode.withgoogle.com/?csw=1","Google Summer of Code",
-      "https://opencv.org","OpenCV library"
-    ],
-    [
-      [26],[5,9],
-      "Succesfully completed %s 2015 program (for %s)",
-      "https://summerofcode.withgoogle.com/?csw=1","Google Summer of Code",
-      "https://opencv.org","OpenCV library"
-    ],
-    [
-      [28],[10,11],"Unity Developer at %s",
-      "http://www.app-studio.jp","株式会社アプリ工房"
-    ],
-    [
-      [28,29],[11,5],"Unity Developer at %s","https://www.facebook.com/AjpGames/","AJP Games"
-    ],
-    [
-      [29],[6,7],"Unity Developer at %s (also doing research in machine learning, e.g. using %s)",
-      "http://www.pocket-queries.co.jp/","Pocket Queries",
-      "https://www.tensorflow.org/?hl=ja","TensorFlow"
-    ],
-    [
-      [30],[7,10],"System Engineer at %s (Client-Side development with React JS)",
-      "https://www.dreampirates.jp","Dream Pirates"
-    ],
-    null,
-    null
+     {
+        "description" : [
+           "Internship at Computer Graphics and Geometry Modeling Lab (under Prof. %s)",
+           "https://www.cs.nctu.edu.tw/cswebsite/members/detail/jhchuang",
+           "Jung-Hong Chuang"
+        ],
+        "month" : [
+           6,
+           5
+        ],
+        "year" : [
+           24,
+           25
+        ]
+     },
+     {
+        "month" : [
+           8,
+           12
+        ],
+        "year" : [
+           25
+        ],
+        "description" : [
+           "Desing and Implementation of a prototype  %s by %s et al. (implementation requested and financed by %s)",
+           "https://link.springer.com/chapter/10.1007/978-3-642-31284-7_32",
+           "A Practical Smart Metering System Supporting Privacy",
+           "https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/",
+           "H.-Y. Lin",
+           "https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/",
+           "H.-Y. Lin"
+        ]
+     },
+     {
+        "month" : [
+           5,
+           9
+        ],
+        "year" : [
+           25
+        ],
+        "description" : [
+           "Succesfully completed %s 2014 program (for %s)",
+           "https://summerofcode.withgoogle.com/?csw=1",
+           "Google Summer of Code",
+           "https://opencv.org",
+           "OpenCV library"
+        ]
+     },
+     {
+        "year" : [
+           26
+        ],
+        "month" : [
+           5,
+           9
+        ],
+        "description" : [
+           "Succesfully completed %s 2015 program (for %s)",
+           "https://summerofcode.withgoogle.com/?csw=1",
+           "Google Summer of Code",
+           "https://opencv.org",
+           "OpenCV library"
+        ]
+     },
+     {
+        "description" : [
+           "Unity Developer at %s",
+           "http://www.app-studio.jp",
+           "株式会社アプリ工房"
+        ],
+        "year" : [
+           28
+        ],
+        "month" : [
+           10,
+           11
+        ]
+     },
+     {
+        "description" : [
+           "Unity Developer at %s",
+           "https://www.facebook.com/AjpGames/",
+           "AJP Games"
+        ],
+        "month" : [
+           11,
+           5
+        ],
+        "year" : [
+           28,
+           29
+        ]
+     },
+     {
+        "description" : [
+           "Unity Developer at %s (also doing research in machine learning, e.g. using %s)",
+           "http://www.pocket-queries.co.jp/",
+           "Pocket Queries",
+           "https://www.tensorflow.org/?hl=ja",
+           "TensorFlow"
+        ],
+        "month" : [
+           6,
+           7
+        ],
+        "year" : [
+           29
+        ]
+     },
+     {
+        "year" : [
+           30
+        ],
+        "month" : [
+           7,
+           10
+        ],
+        "description" : [
+           "System Engineer at %s (Client-Side development with React JS)",
+           "https://www.dreampirates.jp",
+           "Dream Pirates"
+        ]
+     },
+     null,
+     null
   ]
 }

@@ -1,0 +1,10 @@
+{
+  "TEMPLATENAME":"CV_engstyle.template.html",
+  "VARS":{
+  },
+  "DATA":[
+    {"key":"langs","mode":"SIMPLESPLIT","template":"snipli.template.html","varname":"LANGUAGES"},
+    {"key":"progLangs","mode":"NONE","template":"snipli.template.html","varname":"TECHSKILLS"},
+    {"key":"honors","mode":"NONE","template":"snipli.template.html","varname":"HONORS"}
+  ]
+}

@@ -3,44 +3,42 @@ use warnings;
 use Template;
 use JSON;
 use Getopt::Long;
+use Data::Dumper;
 require 'generateAux.pl';
 
 
 #global const's
+my %DISPATCH = (
+  NONE => sub {
+    return $_[0];
+  },
+  SIMPLE => sub {
+    return processData(@_);
+  },
+  SIMPLESPLIT => sub {
+    my $listRef = $_[0];
+    my @newData;
+    for(@{$listRef}){
+      my @split = map {[$_]} split(", *",$_->[0]);
+      push(@newData,@split);
+    }
+    return \@newData;
+  }
+);
 #global var's
 my $tt = Template->new({
     INCLUDE_PATH => 'templates',
     }) || die "$Template::ERROR\n";
-our @education;
-our @work;
 #procedures
-sub loadJsonFromFile{
-	my $fn = shift;
-	printf(STDERR "opening file %s\n",$fn);
-	my $document;
-	my $fh;
-	if(open($fh, $fn)){
-		$document = do { local $/; <$fh> };
-	} else {
-		$document ="{}";
-	}
-	printf(STDERR "doc: %s\n",$document);
-	close($fh);
-	return from_json($document);
-}
 sub generateContent{
   my @res = ();
   my $templateName = $_[1];
-  my @edu = @{$_[0]};
-  for my $aref (@edu) {
-    my @arr = @$aref;
+  for my $aref (@{$_[0]}) {
     my $vars = {
       CONTENT => $aref,
     };
-    # my $res;
     my $output = '';
-    $tt->process($templateName, $vars, \$output)
-    || die $tt->error(), "\n";
+    $tt->process($templateName, $vars, \$output) || die $tt->error(), "\n";
     push(@res,$output);
   }
   return join("\n",@res);
@@ -56,12 +54,7 @@ my $dataJson = loadJsonFromFile($jsonFileName);
 my $configJson = loadJsonFromFile($configName);
 my $vars = $configJson->{VARS};
 for(@{$configJson->{DATA}}){
-  my $res;
-  if($_->{mode} eq "NONE"){
-    $res = generateContent($dataJson->{$_->{key}},$_->{template});
-  } elsif($_->{mode} eq "SIMPLE"){
-    $res = generateContent(processData($dataJson->{$_->{key}}),$_->{template});
-  }
-  $vars->{$_->{varname}} = $res;
+  $vars->{$_->{varname}} =
+    generateContent($DISPATCH{$_->{mode}}->($dataJson->{$_->{key}}),$_->{template});
 }
 $tt->process($configJson->{TEMPLATENAME}, $vars)|| die $tt->error(), "\n";
