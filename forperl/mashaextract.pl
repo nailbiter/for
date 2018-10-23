@@ -3,7 +3,7 @@
 #
 #         FILE: mashaextract.pl
 #
-#        USAGE: ./mashaextract.pl > out.txt
+#        USAGE: ./mashaextract.pl [--count COUNT] [--lang LANG]
 #
 #  DESCRIPTION: 
 #
@@ -21,10 +21,19 @@
 use strict;
 use warnings;
 use utf8;
+use Getopt::Long;
 
 
-my $directory = '/Users/oleksiileontiev/Desktop';
-opendir (DIR, $directory) or die $!;
+#global const's
+my $DIRECTORY = '/Users/oleksiileontiev/Desktop';
+
+#main
+my $count = 1, my $lang = "eng";
+GetOptions(
+	"count=i" => \$count,
+	"lang=s" => \$lang,
+);
+opendir (DIR, $DIRECTORY) or die $!;
 my @bildlist;
 while (my $file = readdir(DIR)) {
 	next unless $file =~ /\ABildschirmfoto/;
@@ -33,12 +42,9 @@ while (my $file = readdir(DIR)) {
 @bildlist = sort(@bildlist);
 closedir(DIR);
 
-#my $fn = $bildlist[$#bildlist];
 my @list;
-for(@bildlist[-23..-1]){
-#	printf("%s\n",$_);
-	my $raw = `tesseract '/Users/oleksiileontiev/Desktop/$_' stdout`;
-#	printf("%s\n",$raw);
+for(@bildlist[-$count..-1]){
+	my $raw = `tesseract -l $lang '/Users/oleksiileontiev/Desktop/$_' stdout`;
 	my @temp = split("\n",$raw);
 	push(@list,@temp);
 }
@@ -49,10 +55,3 @@ for(@list){
 	next if ($_ ~~ ["Answers Explained","Summary","-"]);
 	printf("%s\n",$_);
 }
-#for(@list){
-#	chomp;
-#	next if ($_ eq "Exercise");
-#	next if ($_ eq "Exercises");
-#	next if ($_ eq "Answers and Explanations");
-#	printf("%s\n",$_);
-#}

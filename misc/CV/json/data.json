@@ -1,0 +1,77 @@
+{
+  "langs":[
+    ["Chinese (fluent), Japanese (fluent)"],
+    ["English (fluent), German (basic)"],
+    ["Russian (native), Ukrainian (native)"]
+  ],
+  "progLangs":[
+    ["C/C++        7 years of experience"],
+    ["OpenCV, OpenGL, openSSL, Network Programming, Apache Hadoop"],
+    ["Java, Android Application Development"],
+    ["Lisp, Scheme"],
+    ["JavaScript, React JS"],
+    ["C#, Unity Game Engine"]
+  ],
+  "langExams":[
+    [[25],[8],"TOEFL iBT, score: 112/120"],
+    [[25],[11],"Test of Chinese as a Foreign Language Level 3/5,  score: 94/100"]
+  ],
+  "education":[
+    [[21], [6], "Graduated from <i>Kyiv Natural Science Lyceum No. 145</i>"],
+    [[21], [9], "Enrolled into <i>National Taiwan Chiao Tung University</i> (Department of Applied Mathematics, Undergraduate Program)"],
+    [[25],[2],"6 month Student Exchange at <i>Hong Kong University</i>"],
+    [[25],[6],"Graduated from <i>National Taiwan Chiao Tung University</i>, Double Degree in Applied Math and Computer Science"],
+    [[26],[4],"Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, Master Degree Program)"],
+    [[28],[2],"Obtained Master Degree from <i>The University of Tokyo</i>"],
+    [[28],[4],"Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, PhD Program)"],
+    null,null,null,null,
+    null,null,null,null
+  ],
+  "work":[
+    [
+      [24,25],[6,5],
+      "Internship at Computer Graphics and Geometry Modeling Lab (under Prof. %s)",
+      "https://www.cs.nctu.edu.tw/cswebsite/members/detail/jhchuang","Jung-Hong Chuang"
+    ],
+    [
+      [25],[8,12],
+      "Desing and Implementation of a prototype  %s by %s et al. (implementation requested and financed by %s)",
+      "https://link.springer.com/chapter/10.1007/978-3-642-31284-7_32",
+      "A Practical Smart Metering System Supporting Privacy",
+      "https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/",
+      "H.-Y. Lin",
+      "https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/",
+      "H.-Y. Lin"
+    ],
+    [
+      [25],[5,9],
+      "Succesfully completed %s 2014 program (for %s)",
+      "https://summerofcode.withgoogle.com/?csw=1","Google Summer of Code",
+      "https://opencv.org","OpenCV library"
+    ],
+    [
+      [26],[5,9],
+      "Succesfully completed %s 2015 program (for %s)",
+      "https://summerofcode.withgoogle.com/?csw=1","Google Summer of Code",
+      "https://opencv.org","OpenCV library"
+    ],
+    [
+      [28],[10,11],"Unity Developer at %s",
+      "http://www.app-studio.jp","株式会社アプリ工房"
+    ],
+    [
+      [28,29],[11,5],"Unity Developer at %s","https://www.facebook.com/AjpGames/","AJP Games"
+    ],
+    [
+      [29],[6,7],"Unity Developer at %s (also doing research in machine learning, e.g. using %s)",
+      "http://www.pocket-queries.co.jp/","Pocket Queries",
+      "https://www.tensorflow.org/?hl=ja","TensorFlow"
+    ],
+    [
+      [30],[7,10],"System Engineer at %s (Client-Side development with React JS)",
+      "https://www.dreampirates.jp","Dream Pirates"
+    ],
+    null,
+    null
+  ]
+}

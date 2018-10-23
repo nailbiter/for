@@ -11,8 +11,8 @@ TEMPLATEEXT=template.xhtml
 PERLKEYS=-I .
 PERL=perl $(PERLKEYS)
 
-CV.xhtml: generate.pl generateAux.pl\
+CV.xhtml: generate.pl generateAux.pl json/data.json json/config_def.json\
 	$(addprefix $(TEMPLATEDIR)/,$(addsuffix .$(TEMPLATEEXT),$(TEMPLATES)))
-	$(PERL) $< > $@
+	$(PERL) $< --jsonfilename json/data.json --config json/config_def.json > $@
 CV_files/css/mystyle2.css: generateCSS.pl
 	$(PERL) $< > $@

@@ -1,0 +1,29 @@
+{
+  "TEMPLATENAME":"CV.template.xhtml",
+  "VARS":{
+    "PHONEPREFIX" : "050",
+    "PHONESUFFIX" : "5532 0335",
+    "DATEOFBIRTH" : "Date of Birth",
+    "PHONENUMBER" : "Phone Number",
+    "BIRTHDATE" : "December 24, 2018",
+    "CURRENTADDRESS" : "Address",
+    "NAME" : "Name",
+    "LASTUPDATE" : "Sep 6, 2018",
+    "YEAR" : "Year",
+    "MONTH" : "Month",
+    "EDUCATIONEMPLOYMENT" : "Education and Employment History",
+    "EDUCATION" : "Education",
+    "WORK" : "Work Experience",
+    "LANGSKILLS" : "Language Qualifications",
+    "THEEND" : "End",
+    "PROGLANGUAGES" : "Programming Languages/Framework Skills",
+    "LANGUAGESKILLS" : "Language Skills"
+  },
+  "DATA":[
+    {"key":"education","mode":"SIMPLE","template":"snip1.template.xhtml","varname":"EDUCATIONCONTENT"},
+    {"key":"langs","mode":"NONE","template":"snip2.template.xhtml","varname":"LANGUAGESKILLSCONTENT"},
+    {"key":"progLangs","varname":"PROGLANGUAGESCONTENT","mode":"NONE","template":"snip2.template.xhtml"},
+    {"key":"work","varname":"WORKCONTENT","mode":"SIMPLE","template":"snip1.template.xhtml"},
+    {"key":"langExams","varname":"LANGSKILLSCONTENT","mode":"SIMPLE","template":"snip1.template.xhtml"}
+  ]
+}
