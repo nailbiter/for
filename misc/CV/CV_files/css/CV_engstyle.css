@@ -49,11 +49,20 @@ address{
   padding:1em 0;
   color:red;
 }
+.subsection{
+
+}
+.subsection > .uniname{
+  /* color:yellow; */
+  font-weight: bold;
+  font-family: Times;
+}
+.subsection > .degreename{
+  /* color:blue; */
+  font-style: italic;
+  font-family:Times;
+}
 .sectionheader{
-  /* font-size:1em;
-  font-variant: small-caps;
-  margin-bottom:0;
-  width:14em; */
   font-variant: small-caps;
   font-family: Times;
   font-size:1.3em;
@@ -78,4 +87,7 @@ h2 {
   font-variant: small-caps;
   letter-spacing: .06em;
   border-bottom:1px solid #000;
+}
+li > span {
+  margin-left:1.1em;
 }

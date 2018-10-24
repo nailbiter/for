@@ -1,0 +1,13 @@
+<div class="subsection">
+  <div class="uniname">
+    [%CONTENT.uniname%]
+  </div>
+  <div class="degreename">
+    [%CONTENT.degreename%], [%CONTENT.dateline%]
+  </div>
+  <ul>
+    [%  FOREACH honor IN CONTENT.honors %]
+     <li><span>[%honor%]</span></li>
+    [%  END %]
+  </ul>
+</div>

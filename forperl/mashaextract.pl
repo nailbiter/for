@@ -44,7 +44,9 @@ closedir(DIR);
 
 my @list;
 for(@bildlist[-$count..-1]){
-	my $raw = `tesseract -l $lang '/Users/oleksiileontiev/Desktop/$_' stdout`;
+	my $bild = "/Users/oleksiileontiev/Desktop/$_";
+	printf(STDERR "bild: %s\n",$bild);
+	my $raw = `tesseract -l $lang '$bild' stdout`;
 	my @temp = split("\n",$raw);
 	push(@list,@temp);
 }

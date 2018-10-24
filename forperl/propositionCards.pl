@@ -47,7 +47,6 @@ my @SETTINGS = (
 		url=>"http://germanforenglishspeakers.com/prepositions/two-way-prepositions/",
 		type=>"ACCDAT",
 		searchattribs=>{ depth=>1, count=>0 },
-#		rowprocess=>\&twoWayRowProcess,
 	},
 );
 #global var's
@@ -87,19 +86,19 @@ sub standardRowProcess{
 	printf(STDERR "%s\n",Dumper(\%hash));
 	push(@$records,\%hash);
 }
-sub twoWayRowProcess{
-	(my $row,my $records,my $sett) = @_;
-	map {processString($_)} @$row;
-
-	my %hash = (
-		particle=>$row->[0],
-		type=>'fuck you',
-		examples=>$row->[2],
-		english=>$row->[1],
-	);
-	printf(STDERR "%s\n",Dumper(\%hash));
-	push(@$records,\%hash);
-}
+#sub twoWayRowProcess{
+#	(my $row,my $records,my $sett) = @_;
+#	map {processString($_)} @$row;
+#
+#	my %hash = (
+#		particle=>$row->[0],
+#		type=>'fuck you',
+#		examples=>$row->[2],
+#		english=>$row->[1],
+#	);
+#	printf(STDERR "%s\n",Dumper(\%hash));
+#	push(@$records,\%hash);
+#}
 sub getParticles{
 	my @particles;
 	for(@SETTINGS){
@@ -138,10 +137,16 @@ sub getParticles{
 my @particles = getParticles();
 my @res;
 for(@particles){
-	push(@res,sprintf("%s\t%s",$_->{particle},$_->{type}));
+	for($_->{english}){
+		s/[\n\t]//g;
+		s/ +/ /g;
+	}
+#	chomp($_->{english}) =~ s/,/, /g;
+	push(@res,sprintf("%s (%s)\t%s",$_->{particle},$_->{english},$_->{type}));
 }
 my %hash   = map { $_, 1 } @res;
 my @unique = keys %hash;
+@unique = grep {$_ !~ /vs\./} @unique;
 for(@unique){
 	printf("%s\n",$_);
 }

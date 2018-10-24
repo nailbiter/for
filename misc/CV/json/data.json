@@ -48,6 +48,14 @@
     {
       "year":[25],"month":[6],
       "description":["Graduated from <i>National Taiwan Chiao Tung University</i>, Double Degree in Applied Math and Computer Science"],
+      "uniname":"National Taiwan Chiao Tung University, Hsinchu, Taiwan",
+      "degreename":"BSc, Double Degree in Applied Math and Computer Science",
+      "honors": [
+        "Nominated as an Exchange Student to Hong Kong University (2013)",
+      	"Diamond Project Scholarship, NCTU (2011--2012)",
+      	"Best Student in Class Award, NCTU (2010--2012)",
+      	"Golden Bamboo Scholarship Award, NCTU (2009--2013)"
+      ],
       "type":"GRADUATION"
     },
     {
@@ -57,6 +65,9 @@
     {
       "year":[28],"month":[2],
       "type":"GRADUATION",
+      "uniname":"The University of Tokyo, Tokyo, Japan",
+      "degreename":"MPhil (Mathematical Sciences)",
+      "honors":["Tokyo U. Graduate School of Mathematical Sciences Director's Prize (2016)"],
       "description":["Obtained Master Degree from <i>The University of Tokyo</i>"]
     },
     {
@@ -73,6 +84,12 @@
            "https://www.cs.nctu.edu.tw/cswebsite/members/detail/jhchuang",
            "Jung-Hong Chuang"
         ],
+        "honors":[
+          "Prepared several paper surveys on Surface Recognition",
+          "Implemented several small programs using <a href=\"http://pointclouds.org\">PCL Library</a>",
+          "Implemented <i>Stochastic optimization for rigid point set registration</i> by Papazov and Chavdar (in C++, using <a href=\"http://pointclouds.org\">PCL Library</a>)"
+        ],
+        "degreename":"Intern",
         "month" : [
            6,
            5
@@ -89,6 +106,10 @@
         ],
         "year" : [
            25
+        ],
+        "degreename":"Contract Programmer",
+        "honors":[
+          "Designed and implemented the prototype of a Smart Meter, designed by H.-Y. Lin (in C, using <a href=\"https://www.openssl.org\">OpenSSL</a>)"
         ],
         "description" : [
            "Desing and Implementation of a prototype  %s by %s et al. (implementation requested and financed by %s)",
@@ -108,6 +129,11 @@
         "year" : [
            25
         ],
+        "degreename":"Contract Programmer",
+        "honors":[
+          "Implemented several well-known numerical optimization algorithms (in C++) and collected them into a module",
+          "Module was included in <a href=\"https://opencv.org\">OpenCV library</a>"
+        ],
         "description" : [
            "Succesfully completed %s 2014 program (for %s)",
            "https://summerofcode.withgoogle.com/?csw=1",
@@ -124,6 +150,11 @@
            5,
            9
         ],
+        "degreename":"Contract Programmer",
+        "honors":[
+          "Implemented the paper <i>Tracking-Learning-Detection</i> by Z. Kalal et. al. (in C++, using <a href=\"https://opencv.org\">OpenCV library</a>)",
+          "The implementation was included in <a href=\"https://opencv.org\">OpenCV library</a>"
+        ],
         "description" : [
            "Succesfully completed %s 2015 program (for %s)",
            "https://summerofcode.withgoogle.com/?csw=1",
@@ -137,6 +168,10 @@
            "Unity Developer at %s",
            "http://www.app-studio.jp",
            "株式会社アプリ工房"
+        ],
+        "honors":[
+          "Added multi-player support to existing Unity game, using <a href=\"https://www.photonengine.com/ja/PUN\">Photon Networking Framework</a>",
+          "Also implemented the same functionality using <a href=\"http://www.monobitengine.com/mun/\">Monobit Networking Framework</a>"
         ],
         "year" : [
            28
@@ -159,15 +194,16 @@
         "year" : [
            28,
            29
+        ],
+        "honors":[
+          "TODO2"
         ]
      },
      {
         "description" : [
-           "Unity Developer at %s (also doing research in machine learning, e.g. using %s)",
+           "Unity Developer at %s ()",
            "http://www.pocket-queries.co.jp/",
-           "Pocket Queries",
-           "https://www.tensorflow.org/?hl=ja",
-           "TensorFlow"
+           "Pocket Queries"
         ],
         "month" : [
            6,
@@ -175,6 +211,9 @@
         ],
         "year" : [
            29
+        ],
+        "honors":[
+          "Prepared several paper and software surveys (e.g. on <a href=\"https://www.tensorflow.org/?hl=ja\">TensorFlow</a>, )"
         ]
      },
      {
@@ -185,6 +224,9 @@
            7,
            10
         ],
+        "honors":[
+          "As a part of a three-people team, created the web-page <a href=\"https://tokyo-komachi.jp\">https://tokyo-komachi.jp</a>"
+        ],
         "description" : [
            "System Engineer at %s (Client-Side development with React JS)",
            "https://www.dreampirates.jp",
@@ -193,5 +235,38 @@
      },
      null,
      null
+  ],
+  "papers":[
+    {
+      "Date": "2015年1月26日",
+      "Title": "A NEW CRITERION FOR THE ROUGHNESS OF EXPONENTIAL DICHOTOMY ON R",
+      "Link": "http://mat76.mat.uni-miskolc.hu/mnotes/contents/16/2",
+      "Journal": "Miskolc Mathematical Notes",
+      "Co-author(s)": "Petro Feketa"
+    },
+    {
+      "Date": "2016年9月18日",
+      "Title": "Symmetry breaking operators for the indefinite orthogonal groups O(p,q)",
+      "Link": "https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxhbGV4bGVvbnRpZXZ0b2RhaXxneDo0ZjI3MjNlMTdmNDdjYjY3",
+      "Journal": "Abstract of the Geometry Session at the MSJ 2016 Autumn Meeting",
+      "Co-author(s)": "Toshiyuki Kobayashi"
+    },
+    {
+      "Date": "2017年3月26日",
+      "Title": "Symmetry breaking operators for conformal transformation groups O(p,q)",
+      "Link": "https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxhbGV4bGVvbnRpZXZ0b2RhaXxneDoyMGNhYTE4YmYzMTdmN2Nj",
+      "Journal": "Abstract Book of MSJ Spring Meeting 2017 at Tokyo Metropolitan University",
+      "Co-author(s)": "Toshiyuki Kobayashi"
+    },
+    {
+      "Date": "2017年9月12日",
+      "Title": "Symmetry breaking operators for the restriction of representations of indefinite orthogonal groups O(p,q)",
+      "Link": "https://projecteuclid.org/euclid.pja/1506996023",
+      "Journal": "Proceedings of the Japan Academy, Series A, Mathematical Sciences",
+      "Co-author(s)": "Toshiyuki Kobayashi"
+    }
+  ],
+  "profProfile":[
+    "TODO3"
   ]
 }

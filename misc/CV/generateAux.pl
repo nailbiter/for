@@ -11,11 +11,17 @@ my @MONTHS = (
   "Dec",
 );
 #procedures
+sub months{
+  # printf(STDERR "months got %s\n",$_[0]);
+  return $MONTHS[$_[0]];
+}
 sub heisei{
   return 1988+$_[0];
 }
 sub makeHref{
-  return sprintf('<a href="%s">%s</a>',$_[0],$_[1]);
+  (my $target,my $text) = @_;
+  $text //= $target;
+  return sprintf('<a href="%s">%s</a>',$target,$text);
 }
 sub processData{
   (my $listRef) = @_;

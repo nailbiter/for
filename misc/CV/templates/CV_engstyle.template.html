@@ -21,17 +21,12 @@
 			2-2-A Aomi, Koto-ku, Tokyo Japan, 135-0064, *(050) 5532-0335* <a href="mailto:alozz1991@gmail.com">alozz1991@gmail.com</a>
 		</div>
 	</center>
-	<!-- <h1>First Last</h1> -->
-	<!-- <div id="contact">3A, Your Major, <abbr title="University of Waterloo">UW</abbr>, 1-519-500-8252, <a href="mailto:YOUREMAILADDRESS@uwaterloo.ca">emailaddress@uwaterloo.ca</a></div> -->
-
 	<div class="section">
 		<div class="sectionheader">PROFESSIONAL PROFILE</div>
 			<ul>
-				<li>Bullet one Bullet one</li>
-				<li>Bullet two Bullet two</li>
-				<li>Bullet three Bullet three</li>
-				<li>Bullet four Bullet four</li>
-				<li>Bullet five Bullet Five</li>
+				[% FOREACH item IN PROFESSIONALPROFILE%]
+   			<li><span>[%item%]</span></li>
+	 			[% END %]
 			</ul>
 	</div>
 	<div class="section">
@@ -42,32 +37,16 @@
 	</div>
 	<div class="section">
 		<div class="sectionheader">PROFESSIONAL EXPERIENCE</div>
-			<ul>
-				<li>Bullet one Bullet one</li>
-				<li>Bullet two Bullet two</li>
-				<li>Bullet three Bullet three</li>
-				<li>Bullet four Bullet four</li>
-				<li>Bullet five Bullet Five</li>
-			</ul>
+			[%WORK%]
 	</div>
 	<div class="section">
 		<div class="sectionheader">EDUCATION</div>
-			<ul>
-				<li>Bullet one Bullet one</li>
-				<li>Bullet two Bullet two</li>
-				<li>Bullet three Bullet three</li>
-				<li>Bullet four Bullet four</li>
-				<li>Bullet five Bullet Five</li>
-			</ul>
+		[%EDUCATION%]
 	</div>
 	<div class="section">
 		<div class="sectionheader">PUBLICATIONS</div>
 			<ul>
-				<li>Bullet one Bullet one</li>
-				<li>Bullet two Bullet two</li>
-				<li>Bullet three Bullet three</li>
-				<li>Bullet four Bullet four</li>
-				<li>Bullet five Bullet Five</li>
+				[%PUBLICATIONS%]
 			</ul>
 	</div>
 	<div class="section">
