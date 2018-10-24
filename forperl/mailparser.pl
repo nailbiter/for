@@ -155,7 +155,6 @@ sub parseDate{
 #			minute => 45,
 #			second => 0,
 	
-	#FIXME: this only works if we execute the script in Japanese time
 #          'date' => 'Sun, 01 Jul 2018 11:48:41 +0900',
 	if($dateString =~ /\w\w\w, (\d+) (\w\w\w) (\d\d\d\d) (\d\d):(\d\d):(\d\d) (\+\d+)/){
 		my $dt = DateTime->new(
