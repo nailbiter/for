@@ -18,7 +18,7 @@
   ],
   "progLangs":[
     ["C/C++        7 years of experience"],
-    ["OpenCV, OpenGL, openSSL, Network Programming, Apache Hadoop"],
+    ["OpenCV, OpenGL, OpenSSL, Network Programming, Apache Hadoop"],
     ["Java, Android Application Development"],
     ["Lisp, Scheme"],
     ["JavaScript, React JS"],
@@ -87,7 +87,8 @@
         "honors":[
           "Prepared several paper surveys on Surface Recognition",
           "Implemented several small programs using <a href=\"http://pointclouds.org\">PCL Library</a>",
-          "Implemented <i>Stochastic optimization for rigid point set registration</i> by Papazov and Chavdar (in C++, using <a href=\"http://pointclouds.org\">PCL Library</a>)"
+          "Implemented <i>Stochastic optimization for rigid point set registration</i> by Papazov and Chavdar (in C++, using <a href=\"http://pointclouds.org\">PCL Library</a>)",
+          "Acquired basic proficiency with <a href=\"http://pointclouds.org\">PCL Library</a>"
         ],
         "degreename":"Intern",
         "month" : [
@@ -196,12 +197,12 @@
            29
         ],
         "honors":[
-          "TODO2"
+          "Participated in the creation of a new installation of <a href=\"https://en.wikipedia.org/wiki/Harvest_Moon:_The_Lost_Valley\">Harvest Moon</a> series (C#, Unity)"
         ]
      },
      {
         "description" : [
-           "Unity Developer at %s ()",
+           "Unity Developer at %s",
            "http://www.pocket-queries.co.jp/",
            "Pocket Queries"
         ],
@@ -213,7 +214,8 @@
            29
         ],
         "honors":[
-          "Prepared several paper and software surveys (e.g. on <a href=\"https://www.tensorflow.org/?hl=ja\">TensorFlow</a>, )"
+          "Prepared several paper and software surveys related to Computer Vision and Machine Learning (including <a href=\"https://www.tensorflow.org/?hl=ja\">TensorFlow</a>, <a href=\"https://github.com/liuziwei7/fashion-detection\">Fashion Detection in the Wild</a> and <a href=\"http://vision.is.tohoku.ac.jp/~kyamagu/research/paperdoll/\">PaperDoll</a>)",
+          "Acquired basic proficiency with <a href=\"https://www.tensorflow.org/?hl=ja\">TensorFlow</a>"
         ]
      },
      {
@@ -267,6 +269,9 @@
     }
   ],
   "profProfile":[
-    "TODO3"
+    "PhD in Mathematics from The University of Tokyo, Japan",
+    "BSci in Computer Science and Applied Mathematics from NCTU, Taiwan (Double Degree)",
+    "Deeply interested in learning and targeting various programming languages and platforms",
+    "Broad interests in various fields of Mathematics (both pure and applied) and Computer Science"
   ]
 }

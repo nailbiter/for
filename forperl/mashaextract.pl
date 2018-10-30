@@ -47,13 +47,14 @@ for(@bildlist[-$count..-1]){
 	my $bild = "/Users/oleksiileontiev/Desktop/$_";
 	printf(STDERR "bild: %s\n",$bild);
 	my $raw = `tesseract -l $lang '$bild' stdout`;
-	my @temp = split("\n",$raw);
-	push(@list,@temp);
+#	my @temp = split("\n",$raw);
+#	push(@list,@temp);
+	printf("%s\n",$raw);
 }
-for(@list){
-	chomp;
-	s/^\s+|\s+$//g;
-	next unless (length($_)>0);
-	next if ($_ ~~ ["Answers Explained","Summary","-"]);
-	printf("%s\n",$_);
-}
+#for(@list){
+#	chomp;
+#	s/^\s+|\s+$//g;
+#	next unless (length($_)>0);
+#	next if ($_ ~~ ["Answers Explained","Summary","-"]);
+#	printf("%s\n",$_);
+#}
