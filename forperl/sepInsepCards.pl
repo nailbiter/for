@@ -60,6 +60,11 @@ sub getHtml{
 	my $sPage;
 	if ($sResponse->is_success) {
 		$sPage = $sResponse->content;
+	} else {
+		printf("response was %s!\n",$sResponse->is_success);
+	}
+	if(1){
+		printf("raw: %s\n",$sPage);
 	}
 	return $sPage;
 }
@@ -120,23 +125,52 @@ sub getParticles{
 	return @particles;
 }
 sub main{
-	printf("hi\n");
+	my $fn="/Users/oleksiileontiev/Downloads/german_verbs03.htm";
+	my @data = (
+		{
+			sett=>{depth=>1,count=>6, },
+			type=>'insep',
+		},
+		{
+			sett=>{depth=>1,count=>7, },
+			type=>'sep',
+		},
+		{
+			sett=>{depth=>1,count=>8, },
+			type=>'mixed',
+		},
+	);
+	my @res;
+	for(@data){
+		my $te = HTML::TableExtract->new( %{$_->{sett}}  );
+		$te->parse_file($fn);
+		my $cache;
+		my $ts = $te->tables;
+		if(scalar($te->tables)!=1){
+			die "too many tables for ".Dumper($_);
+		}
+		foreach my $ts ($te->tables) {
+			printf(STDERR "\t%s\n","table");
+			my $cache;
+			my @rows = $ts->rows;
+			shift(@rows);
+			foreach my $row (@rows) {
+#				if(!(defined $row->[0])){
+#					$row->[0] = $cache;
+#				} elsif(($row->[0]) =~ /\s+/ ) {
+#					$row->[0] = $cache;
+#				} else {
+#					$cache = $row->[0];
+#				}
+				if(defined $row->[0] && (length($row->[0])>0) && ($row->[0] !~ /^\h+$/)){
+					printf("%s\t%s\n",$row->[0],$_->{type});
+				}
+				printf(STDERR "row: %s\n",Dumper($row));
+			}
+			printf(STDERR "%s\n","="x10);
+		}
+	}
 }
 
 #main
 main();
-#my @particles = getParticles();
-#my @res;
-#for(@particles){
-#	for($_->{english}){
-#		s/[\n\t]//g;
-#		s/ +/ /g;
-#	}
-#	push(@res,sprintf("%s (%s)\t%s",$_->{particle},$_->{english},$_->{type}));
-#}
-#my %hash   = map { $_, 1 } @res;
-#my @unique = keys %hash;
-#@unique = grep {$_ !~ /vs\./} @unique;
-#for(@unique){
-#	printf("%s\n",$_);
-#}
