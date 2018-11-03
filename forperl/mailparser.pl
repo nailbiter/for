@@ -195,6 +195,9 @@ GetOptions(
 	"folder=s" => \$folderName, #folder to save .pdfs (with / at the end)
 	"jar=s" => \$jarPath, #path to emlconverter jar (see https://github.com/nickrussler/eml-to-pdf-converter)
 );
+$folderName //= "/Users/oleksiileontiev/Documents/emails/";
+$jarPath //= "/Users/oleksiileontiev/bin/emailconverter.jar";
+
 $kEmail = $kEmail."\@ms.u-tokyo.ac.jp";
 my $mongoClient = MongoDB->connect();
 my $mailPassword = $mongoClient->ns("admin.passwords")->find_one({key=>"MATHEMAIL"})->{value};
