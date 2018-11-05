@@ -29,10 +29,10 @@ use LWP::UserAgent;
 use MongoDB;
 use Data::Dumper;
 use Text::TabularDisplay;
+use Getopt::Long;
 
 #global const's
 my $TESTMODE = 0;
-my $TRELLOFILENAME = "trello.txt";
 my %METHODS = (
 	branch=>{
 		description=>"get branch name",
@@ -60,6 +60,13 @@ $METHODS{help}->{func} = sub{
 	}
 	print $t->render;
 };
+sub myExec{
+	(my $cmd) = @_;
+	printf("exec: _%s\n",$cmd);
+	if(not $TESTMODE){
+		system($cmd);
+	}
+}
 sub getBranchName{
 	(my $URL,my $trelloKey,my $trelloToken) = @_;
 	$URL =~ /([0-9a-zA-Z]*)$/;
@@ -99,38 +106,50 @@ sub getTrelloPasswords{
 	return ($key,$token);
 }
 sub getTrelloMsgFromFile{
-	open my $fh, '<', $TRELLOFILENAME or die "error opening $TRELLOFILENAME: $!";
+	open my $fh, '<', $_[0] or die "error opening $_[0] $!";
 	my $data = do { local $/; <$fh> };
 	return sprintf("https://trello.com/c/%s",$data);
 }
 
+
 #main
-my $trelloMsg;
-if(!$ARGV[0]){
-	print "dYvTXBzVpz\n" if $TESTMODE;
-	$trelloMsg = getTrelloMsgFromFile();
-}elsif($ARGV[0]=~m/^https:/){
-	print "RSauQpiWVA\n" if $TESTMODE;
-	$trelloMsg = $ARGV[0];
-}elsif(grep( /^$ARGV[0]$/, keys(%METHODS) )){
+my %cmdline;
+GetOptions(
+	"url=s" =>\$cmdline{url},
+	"method=s" =>\$cmdline{method},
+);
+
+if(defined $cmdline{method}){
+	unless(grep( /^$cmdline{method}$/, keys(%METHODS) )){
+		die sprintf("uknown method %s\n",$cmdline{method});
+	}
 	printf("got method %s\n",$ARGV[0]) if $TESTMODE;
 	$METHODS{$ARGV[0]}->{func}->();
 	exit();
+}
+
+my $trelloMsg;
+if(defined $cmdline{url}){
+	$trelloMsg = $cmdline{url};
+} elsif ( -f "trello.txt") {
+	printf(STDERR "found file %s\n","trello.txt");
+	$trelloMsg = getTrelloMsgFromFile("trello.txt");
+} elsif ( -f "trello.json") {
+	printf(STDERR "found file %s\n","trello.json");
+	open my $fh, '<', "trello.json" or die "error opening trello.json $!";
+	my $data = do { local $/; <$fh> };
+	my $json = parse_json($data);
+	printf(STDERR "got json: %s\n",Dumper($json));
+	$trelloMsg = $$json{cardurl}
 } else {
-	print "kgDMdUyaIJ\n" if $TESTMODE;
-	printf("argv[0]=\"%s\"\n",$ARGV[0]);
-	$trelloMsg = sprintf("https://trello.com/c/%s",$ARGV[0]);
+	printf(STDERR "%s\n","kgDMdUyaIJ") if($TESTMODE);
+	die sprintf("cannot parse cmdline\n");
 }
 
 (my $trelloKey,my $trelloToken) = getTrelloPasswords();
-printf("trello card url: %s",$trelloMsg);
+printf(STDERR "trello card url: %s",$trelloMsg);
 my $trelloTitle=getTitle($trelloMsg,$trelloKey,$trelloToken);
 
 my $command = sprintf("git commit -a -m \"%s\"",
     sprintf("%s\nfiles changed:\n%s\ntrello card: %s",$trelloTitle,$filesChanged,$trelloMsg));
-if($TESTMODE){
-	print $command;
-	exit;
-}else{
-	system($command);
-}
+myExec($command);
