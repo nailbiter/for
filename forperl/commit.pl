@@ -30,6 +30,8 @@ use MongoDB;
 use Data::Dumper;
 use Text::TabularDisplay;
 use Getopt::Long;
+use File::Basename;
+
 
 #global const's
 my $TESTMODE = 0;
@@ -44,11 +46,7 @@ my %METHODS = (
 		description=>"make a commit",
 	}
 );
-
 #global var's
-my $filesChanged =`git status -s --untracked-files=no`;
-my $client = MongoDB->connect();
-
 #procedures
 $METHODS{branch}->{func} = sub{
 	my $trelloMsg = getTrelloMsgFromFile();
@@ -63,33 +61,6 @@ $METHODS{help}->{func} = sub{
 	}
 	print $t->render;
 };
-$METHODS{commit}->{func} = sub{
-	my %cmdline = @_;
-	my $trelloMsg;
-	if(defined $cmdline{url}){
-		$trelloMsg = $cmdline{url};
-	} elsif ( -f "trello.txt") {
-		printf(STDERR "found file %s\n","trello.txt");
-		$trelloMsg = getTrelloMsgFromFile("trello.txt");
-	} elsif ( -f "trello.json") {
-		printf(STDERR "found file %s\n","trello.json");
-		open my $fh, '<', "trello.json" or die "error opening trello.json $!";
-		my $data = do { local $/; <$fh> };
-		my $json = parse_json($data);
-		printf(STDERR "got json: %s\n",Dumper($json));
-		$trelloMsg = $$json{cardurl}
-	} else {
-		die sprintf("cannot parse cmdline\n");
-	}
-
-	(my $trelloKey,my $trelloToken) = getTrelloPasswords();
-	printf(STDERR "trello card url: %s",$trelloMsg);
-	my $trelloTitle=getTitle($trelloMsg,$trelloKey,$trelloToken);
-
-	my $command = sprintf("git commit -a -m \"%s\"",
-		sprintf("%s\nfiles changed:\n%s\ntrello card: %s",$trelloTitle,$filesChanged,$trelloMsg));
-	myExec($command);
-}
 sub myExec{
 	(my $cmd) = @_;
 	printf("exec: _%s\n",$cmd);
@@ -97,6 +68,38 @@ sub myExec{
 		system($cmd);
 	}
 }
+$METHODS{commit}->{func} = sub {
+	my %cmdline = @_;
+	my $trelloMsg;
+	if(defined($cmdline{url})){
+		printf(STDERR "url branch with url=%s\n",$cmdline{url});
+		$trelloMsg = $cmdline{url};
+	} else {
+		printf(STDERR "configfile branch with configfile=%s\n",$cmdline{configfile});
+		(my $basename, my $dir, my $ext) = fileparse($cmdline{configfile}, qr/\.[^.]*/);
+		printf(STDERR "ext: %s\n",$ext);
+		if($ext eq ".txt"){
+			$trelloMsg = getTrelloMsgFromFile($cmdline{configfile});
+		} elsif($ext eq ".json") {
+			open my $fh, '<', $cmdline{configfile} or 
+				die sprintf("error opening %s\nerror=%s\n",$cmdline{configfile},$!);
+			my $data = do { local $/; <$fh> };
+			my $json = parse_json($data);
+			printf(STDERR "got json: %s\n",Dumper($json));
+			$trelloMsg = $$json{cardurl}
+		} else {
+			die sprintf("unknown extension %s in config file %s\n",$ext,$cmdline{configfile});
+		}
+	}
+	(my $trelloKey,my $trelloToken) = getTrelloPasswords();
+	printf(STDERR "trello card url: %s",$trelloMsg);
+	my $trelloTitle=getTitle($trelloMsg,$trelloKey,$trelloToken);
+
+	my $filesChanged =`git status -s --untracked-files=no`;
+	my $commitMsg = sprintf("%s\nfiles changed:\n%s\ntrello card: %s",$trelloTitle,$filesChanged,$trelloMsg);
+	my $command = sprintf("git commit -a -m \"%s\"",$commitMsg);
+	myExec($command);
+};
 sub getBranchName{
 	(my $URL,my $trelloKey,my $trelloToken) = @_;
 	$URL =~ /([0-9a-zA-Z]*)$/;
@@ -128,6 +131,7 @@ sub getTitle{
 	return $res->{name};
 }
 sub getTrelloPasswords{
+	my $client = MongoDB->connect();
 	my $secret = $client->ns("admin.passwords");
 	my $key = $secret->find_one({key=>'TRELLOKEY'})->{'value'};
 	printf("key: %s\n",$key) if $TESTMODE;
@@ -158,4 +162,12 @@ GetOptions(
 	"configfile=s" => \$cmdline{configfile},
 );
 $cmdline{method} //= "commit";
+unless(defined($cmdline{configfile}) || defined($cmdline{url})){
+	for(("trello.txt","trello.json")){
+		if(-e $_){
+			$cmdline{configfile} = $_;
+		}
+	}
+	die "no config file found!" unless defined($cmdline{configfile});
+}
 main(%cmdline);
