@@ -1,4 +1,24 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl 
+#===============================================================================
+#
+#         FILE: commit.pl
+#
+#        USAGE: ./commit.pl [https://trello.com/c/]dzZ54M87
+#        		-- make commit with card
+#             : ./commit.pl
+#
+#  DESCRIPTION: script for git commits automatization
+#
+#      OPTIONS: ---
+# REQUIREMENTS: ---
+#         BUGS: ---
+#        NOTES: ---
+#       AUTHOR: YOUR NAME (), 
+# ORGANIZATION: 
+#      VERSION: 1.0
+#      CREATED: 10/12/18 19:25:54
+#     REVISION: ---
+#===============================================================================
 
 use strict;
 use warnings;
@@ -56,7 +76,6 @@ sub getBranchName{
 			return $1;
 		}
 	}
-#	return $res->{name};
 }
 sub getTitle{
 	(my $URL,my $trelloKey,my $trelloToken) = @_;
