@@ -40,6 +40,9 @@ my %METHODS = (
 	help=>{
 		description=>"display this message",
 	},
+	commit=>{
+		description=>"make a commit",
+	}
 );
 
 #global var's
@@ -60,6 +63,33 @@ $METHODS{help}->{func} = sub{
 	}
 	print $t->render;
 };
+$METHODS{commit}->{func} = sub{
+	my %cmdline = @_;
+	my $trelloMsg;
+	if(defined $cmdline{url}){
+		$trelloMsg = $cmdline{url};
+	} elsif ( -f "trello.txt") {
+		printf(STDERR "found file %s\n","trello.txt");
+		$trelloMsg = getTrelloMsgFromFile("trello.txt");
+	} elsif ( -f "trello.json") {
+		printf(STDERR "found file %s\n","trello.json");
+		open my $fh, '<', "trello.json" or die "error opening trello.json $!";
+		my $data = do { local $/; <$fh> };
+		my $json = parse_json($data);
+		printf(STDERR "got json: %s\n",Dumper($json));
+		$trelloMsg = $$json{cardurl}
+	} else {
+		die sprintf("cannot parse cmdline\n");
+	}
+
+	(my $trelloKey,my $trelloToken) = getTrelloPasswords();
+	printf(STDERR "trello card url: %s",$trelloMsg);
+	my $trelloTitle=getTitle($trelloMsg,$trelloKey,$trelloToken);
+
+	my $command = sprintf("git commit -a -m \"%s\"",
+		sprintf("%s\nfiles changed:\n%s\ntrello card: %s",$trelloTitle,$filesChanged,$trelloMsg));
+	myExec($command);
+}
 sub myExec{
 	(my $cmd) = @_;
 	printf("exec: _%s\n",$cmd);
@@ -110,6 +140,14 @@ sub getTrelloMsgFromFile{
 	my $data = do { local $/; <$fh> };
 	return sprintf("https://trello.com/c/%s",$data);
 }
+sub main{
+	my %cmdline = @_;
+	unless(exists($METHODS{$cmdline{method}})){
+		die sprintf("uknown method %s\n",$cmdline{method});
+	}
+	printf("got method %s\n",$cmdline{method}) if($TESTMODE);
+	$METHODS{$cmdline{method}}->{func}->(%cmdline);
+}
 
 
 #main
@@ -117,39 +155,7 @@ my %cmdline;
 GetOptions(
 	"url=s" =>\$cmdline{url},
 	"method=s" =>\$cmdline{method},
+	"configfile=s" => \$cmdline{configfile},
 );
-
-if(defined $cmdline{method}){
-	unless(grep( /^$cmdline{method}$/, keys(%METHODS) )){
-		die sprintf("uknown method %s\n",$cmdline{method});
-	}
-	printf("got method %s\n",$ARGV[0]) if $TESTMODE;
-	$METHODS{$ARGV[0]}->{func}->();
-	exit();
-}
-
-my $trelloMsg;
-if(defined $cmdline{url}){
-	$trelloMsg = $cmdline{url};
-} elsif ( -f "trello.txt") {
-	printf(STDERR "found file %s\n","trello.txt");
-	$trelloMsg = getTrelloMsgFromFile("trello.txt");
-} elsif ( -f "trello.json") {
-	printf(STDERR "found file %s\n","trello.json");
-	open my $fh, '<', "trello.json" or die "error opening trello.json $!";
-	my $data = do { local $/; <$fh> };
-	my $json = parse_json($data);
-	printf(STDERR "got json: %s\n",Dumper($json));
-	$trelloMsg = $$json{cardurl}
-} else {
-	printf(STDERR "%s\n","kgDMdUyaIJ") if($TESTMODE);
-	die sprintf("cannot parse cmdline\n");
-}
-
-(my $trelloKey,my $trelloToken) = getTrelloPasswords();
-printf(STDERR "trello card url: %s",$trelloMsg);
-my $trelloTitle=getTitle($trelloMsg,$trelloKey,$trelloToken);
-
-my $command = sprintf("git commit -a -m \"%s\"",
-    sprintf("%s\nfiles changed:\n%s\ntrello card: %s",$trelloTitle,$filesChanged,$trelloMsg));
-myExec($command);
+$cmdline{method} //= "commit";
+main(%cmdline);
