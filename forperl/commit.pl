@@ -166,6 +166,7 @@ unless(defined($cmdline{configfile}) || defined($cmdline{url})){
 	for(("trello.txt","trello.json")){
 		if(-e $_){
 			$cmdline{configfile} = $_;
+			last;
 		}
 	}
 	die "no config file found!" unless defined($cmdline{configfile});
