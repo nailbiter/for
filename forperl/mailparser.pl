@@ -3,7 +3,7 @@
 #
 #         FILE: mailparser.pl
 #
-#        USAGE: ./mailparser.pl -m <my> -k <Ks> -d 2018-09 -f /Users/oleksiileontiev/Documents/emails/ -j ~/bin/emailconverter.jar
+#        USAGE: ./mailparser.pl -m <my> -k <Ks> -d 2018-09 [-f /Users/oleksiileontiev/Documents/emails/ -j ~/bin/emailconverter.jar]
 #
 #  DESCRIPTION: mail parser
 #
@@ -84,7 +84,6 @@ my @FOLDERDATA = (
 	},
 );
 #global var's
-
 #procedures
 sub myExec{
 	(my $cmd) = @_;
@@ -116,8 +115,11 @@ sub getEmailInfo{
 	my %data;
 	$data{date} = $imap->date( $_ );
 	$data{subject} = decode('MIME-Header',$imap->subject($_));
-	my $hashref = $imap->parse_headers($_,"From","To");
-	@data{"From","To"} = @{$hashref}{"From","To"};
+
+	my @headerKeys = ("From","To","Message-id");
+	my $hashref = $imap->parse_headers($_,@headerKeys);
+	@data{@headerKeys} = @{$hashref}{@headerKeys};
+
 	return %data;
 }
 sub processEmailInfo{

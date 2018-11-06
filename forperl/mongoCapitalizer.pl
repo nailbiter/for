@@ -3,9 +3,9 @@
 #
 #         FILE: mongoCapitalizer.pl
 #
-#        USAGE: ./mongoCapitalizer.pl  
+#        USAGE: ./mongoCapitalizer.pl --collection COLLECTIONANME --database DATABASENAME
 #
-#  DESCRIPTION: 
+#  DESCRIPTION: capitalize all fields in given mongo collection on local db
 #
 #      OPTIONS: ---
 # REQUIREMENTS: ---
@@ -21,5 +21,33 @@
 use strict;
 use warnings;
 use utf8;
+use Getopt::Long;
+use Data::Dumper;
+use MongoDB;
 
 
+#global const's
+{package Safe::Hash;
+        require Tie::Hash;
+        our @ISA = 'Tie::StdHash';
+        use Carp;
+
+        sub FETCH { 
+                exists $_[0]{$_[1]} or croak "no key $_[1]";
+                $_[0]{$_[1]}
+        }
+}
+
+#main
+tie my %cmdline => 'Safe::Hash';
+GetOptions(
+	"collection=s" =>\$cmdline{collection},
+	"database=s" =>\$cmdline{database},
+);
+printf(STDERR "%s.%s\n",$cmdline{database},$cmdline{collection});
+my $coll = MongoDB->connect()->ns(sprintf("%s.%s",$cmdline{database},$cmdline{collection}))->find();
+while(my $next = $coll->next){
+	printf(STDERR "id: %s\n",$$next{_id});
+	my @keys = keys($next);
+	printf(STDERR "\tkeys: %s\n",join(", ",@keys));
+}

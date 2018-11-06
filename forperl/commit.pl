@@ -34,7 +34,7 @@ use File::Basename;
 
 
 #global const's
-my $TESTMODE = 0;
+my $DEFAULTCONFIGFILE = "trello.json";
 my %METHODS = (
 	branch=>{
 		description=>"get branch name",
@@ -44,13 +44,17 @@ my %METHODS = (
 	},
 	commit=>{
 		description=>"make a commit",
+	},
+	push=>{
+		description=>"git push",
 	}
 );
 #global var's
+my $Testmode = 0;
 #procedures
 $METHODS{branch}->{func} = sub{
 	my $trelloMsg = getTrelloMsgFromFile();
-	printf("trelloMsg: %s",$trelloMsg) if $TESTMODE;
+	printf(STDERR "trelloMsg: %s",$trelloMsg) if $Testmode;
 	(my $trelloKey,my $trelloToken) = getTrelloPasswords();
 	print getBranchName($trelloMsg,$trelloKey,$trelloToken)."\n";
 };
@@ -62,50 +66,83 @@ $METHODS{help}->{func} = sub{
 	print $t->render;
 };
 sub myExec{
-	(my $cmd) = @_;
-	printf("exec: _%s\n",$cmd);
-	if(not $TESTMODE){
+	(my $cmd, my %aux) = @_;
+	if(defined $aux{dir}){
+		$cmd = sprintf("cd %s && %s",$aux{dir},$cmd);
+	}
+	printf(STDERR "exec: _%s\n",$cmd);
+	if(not $Testmode){
 		system($cmd);
 	}
 }
 $METHODS{commit}->{func} = sub {
 	my %cmdline = @_;
-	my $trelloMsg;
+	my %params;
+	($params{trelloKey},$params{trelloToken}) = getTrelloPasswords();
+
 	if(defined($cmdline{url})){
 		printf(STDERR "url branch with url=%s\n",$cmdline{url});
-		$trelloMsg = $cmdline{url};
+		$params{url} = $cmdline{url};
+		$params{trelloTitle} = getTitle(%params);
+		doCommit(%params);
 	} else {
 		printf(STDERR "configfile branch with configfile=%s\n",$cmdline{configfile});
-		(my $basename, my $dir, my $ext) = fileparse($cmdline{configfile}, qr/\.[^.]*/);
-		printf(STDERR "ext: %s\n",$ext);
-		if($ext eq ".txt"){
-			$trelloMsg = getTrelloMsgFromFile($cmdline{configfile});
-		} elsif($ext eq ".json") {
-			open my $fh, '<', $cmdline{configfile} or 
-				die sprintf("error opening %s\nerror=%s\n",$cmdline{configfile},$!);
-			my $data = do { local $/; <$fh> };
-			my $json = parse_json($data);
-			printf(STDERR "got json: %s\n",Dumper($json));
-			$trelloMsg = $$json{cardurl}
-		} else {
-			die sprintf("unknown extension %s in config file %s\n",$ext,$cmdline{configfile});
+		open my $fh, '<', $cmdline{configfile} or 
+			die sprintf("error opening %s\nerror=%s\n",$cmdline{configfile},$!);
+		my $data = do { local $/; <$fh> };
+		my $json = parse_json($data);
+		printf(STDERR "got json: %s\n",Dumper($json));
+		$params{url} = $$json{cardurl};
+		$params{trelloTitle} = getTitle(%params);
+		doCommit(%params);
+		if(exists $$json{dependencies}){
+			for(@{$$json{dependencies}}){
+				printf(STDERR "\tdependency: %s\n",$_);
+				doCommit(%params, dir=>$_);
+			}
 		}
 	}
-	(my $trelloKey,my $trelloToken) = getTrelloPasswords();
+};
+$METHODS{push}->{func} = sub {
+	my %cmdline = @_;
+	unless(defined($cmdline{configfile})){
+		myExec("git push");
+	} else {
+		printf(STDERR "configfile branch with configfile=%s\n",$cmdline{configfile});
+		open my $fh, '<', $cmdline{configfile} or 
+			die sprintf("error opening %s\nerror=%s\n",$cmdline{configfile},$!);
+		my $data = do { local $/; <$fh> };
+		my $json = parse_json($data);
+		printf(STDERR "got json: %s\n",Dumper($json));
+		myExec("git push");
+		if(exists $$json{dependencies}){
+			for(@{$$json{dependencies}}){
+				printf(STDERR "\tdependency: %s\n",$_);
+				myExec("git push",dir=>$_);
+			}
+		}
+	}
+};
+sub doCommit{
+	my %args = @_;
+	(my $trelloMsg, my $trelloTitle) = @args{'url','trelloTitle'};
 	printf(STDERR "trello card url: %s",$trelloMsg);
-	my $trelloTitle=getTitle($trelloMsg,$trelloKey,$trelloToken);
+	my $pref = '';
+	if(exists($args{dir})){
+		$pref = sprintf("cd %s &&",$args{dir});
+	}
 
-	my $filesChanged =`git status -s --untracked-files=no`;
+	my $filesChanged =`$pref git status -s --untracked-files=no`;
 	my $commitMsg = sprintf("%s\nfiles changed:\n%s\ntrello card: %s",$trelloTitle,$filesChanged,$trelloMsg);
 	my $command = sprintf("git commit -a -m \"%s\"",$commitMsg);
-	myExec($command);
-};
+	myExec($command,dir=>$args{dir});
+}
 sub getBranchName{
 	(my $URL,my $trelloKey,my $trelloToken) = @_;
 	$URL =~ /([0-9a-zA-Z]*)$/;
 	my $code = $1;
 	my $url = sprintf("https://api.trello.com/1/cards/%s?key=%s&token=%s",$code,$trelloKey,$trelloToken);
-	printf("url: %s\n",$url) if $TESTMODE;
+	printf("url: %s\n",$url) if $Testmode;
 	my $req = HTTP::Request->new( GET=> $url );
 	my $lwp = LWP::UserAgent->new;
 	my $res = $lwp->request( $req );
@@ -118,7 +155,8 @@ sub getBranchName{
 	}
 }
 sub getTitle{
-	(my $URL,my $trelloKey,my $trelloToken) = @_;
+	my %args = @_;
+	(my $URL,my $trelloKey,my $trelloToken) = @args{"url","trelloKey","trelloToken"};
 	$URL =~ /([0-9a-zA-Z]*)$/;
 	my $code = $1;
 	printf("code: %s\n",$code);
@@ -134,9 +172,9 @@ sub getTrelloPasswords{
 	my $client = MongoDB->connect();
 	my $secret = $client->ns("admin.passwords");
 	my $key = $secret->find_one({key=>'TRELLOKEY'})->{'value'};
-	printf("key: %s\n",$key) if $TESTMODE;
+	printf(STDERR "key: %s\n",$key) if $Testmode;
 	my $token = $secret->find_one({key=>'TRELLOTOKEN'})->{'value'};
-	printf("token: %s\n",$token) if $TESTMODE;
+	printf(STDERR "token: %s\n",$token) if $Testmode;
 	return ($key,$token);
 }
 sub getTrelloMsgFromFile{
@@ -149,10 +187,9 @@ sub main{
 	unless(exists($METHODS{$cmdline{method}})){
 		die sprintf("uknown method %s\n",$cmdline{method});
 	}
-	printf("got method %s\n",$cmdline{method}) if($TESTMODE);
+	printf(STDERR "got method %s\n",$cmdline{method}) if($Testmode);
 	$METHODS{$cmdline{method}}->{func}->(%cmdline);
 }
-
 
 #main
 my %cmdline;
@@ -160,15 +197,15 @@ GetOptions(
 	"url=s" =>\$cmdline{url},
 	"method=s" =>\$cmdline{method},
 	"configfile=s" => \$cmdline{configfile},
+	"testmode=i" => \$Testmode,
 );
 $cmdline{method} //= "commit";
 unless(defined($cmdline{configfile}) || defined($cmdline{url})){
-	for(("trello.txt","trello.json")){
-		if(-e $_){
-			$cmdline{configfile} = $_;
-			last;
-		}
+	if(-e $DEFAULTCONFIGFILE){
+		$cmdline{configfile} = $DEFAULTCONFIGFILE;
+	} else {
+		die "no config file found!";
 	}
-	die "no config file found!" unless defined($cmdline{configfile});
 }
+printf(STDERR "cmdline=%s\n",Dumper(\%cmdline));
 main(%cmdline);
