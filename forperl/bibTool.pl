@@ -28,7 +28,7 @@ use Data::Dumper;
 use BibTeX::Parser;
 
 #global const's
-my @NUMFIELDNAME = ('calibreNum','year');
+my @NUMFIELDNAME = ('CALIBRENUM','YEAR','VOLUME','NUMBER');
 #global var's
 my $Testmode = 0;
 my $client = MongoDB->connect();
@@ -79,18 +79,30 @@ sub extractTex{
 	return @records;
 }
 sub extractBib{
-	#TODO
 	(my $fh) = @_;
 	my $parser = BibTeX::Parser->new($fh);
+	my @records;
 	while (my $entry = $parser->next ) {
 		if ($entry->parse_ok) {
-			printf(STDERR "%s\n",join(",",$entry->fieldlist()));
+			my %record;
 			printf(STDERR "type=%s\n",$entry->type);
+			$record{TYPE} = $entry->type;
+			printf(STDERR "%s\n",join(",",$entry->fieldlist()));
 			for($entry->fieldlist()){
-				printf(STDERR "\t%s:\t%s\n",$_,$entry->field($_));
+				(my $key, my $value) = ($_,$entry->field($_));
+				$key = uc($key);
+				printf(STDERR "\t%s:\t%s\n",$key,$value);
+				$record{$key} = $value;
 			}
+			for(@NUMFIELDNAME){
+				if(defined $record{$_}){
+					$record{$_} += 0.0;
+				}
+			}
+			push(@records,\%record);
 		}
 	}
+	return @records;
 }
 
 #main
@@ -113,29 +125,3 @@ for(@records){
 	printf(STDERR "going to upload %s\n",Dumper($_));
 	$bib->insert_one($_) unless($Testmode);
 }
-#exit();
-#
-#my $body = '';
-#while(<$fh>) {
-#	chomp;
-#	$body .= $_;
-#}
-#printf(STDERR "body: %s\n\n",$body);
-#for($body){
-#	s/@([0-9a-zA-Z]*) *{([0-9a-zA-Z]*)/{"TYPE":"$1","BIBITEM":"$2"/;
-#	s/([a-zA-Z]*) *= */\"\U$1\":/g;
-#	s/:{/:"/g;
-#	s/},/",/g;
-#	s/, *}/}/;
-#	s/\\/\\\\/g;
-#}
-#printf(STDERR "json: %s\n\n",$body);
-#
-#my $data = (JSON->new)->decode($body);
-#for(@NUMFIELDNAME){
-#	$data->{$_} += 0.0;
-#}
-#printf(STDERR "final: %s\n\n",Dumper($data));
-#if($Testmode){
-#	exit();
-#}
