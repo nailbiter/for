@@ -45,9 +45,16 @@ GetOptions(
 	"database=s" =>\$cmdline{database},
 );
 printf(STDERR "%s.%s\n",$cmdline{database},$cmdline{collection});
-my $coll = MongoDB->connect()->ns(sprintf("%s.%s",$cmdline{database},$cmdline{collection}))->find();
-while(my $next = $coll->next){
-	printf(STDERR "id: %s\n",$$next{_id});
+my $coll = MongoDB->connect()->ns(sprintf("%s.%s",$cmdline{database},$cmdline{collection}));
+my $allrecords = $coll->find();
+while(my $next = $allrecords->next){
+	my $id = $$next{_id};
+	printf(STDERR "id: %s\n",$id);
 	my @keys = keys($next);
-	printf(STDERR "\tkeys: %s\n",join(", ",@keys));
+	for(@keys){
+		next if ($_ eq "_id");
+		printf(STDERR "\t%s=>%s\n",$_,uc($_));
+		$coll->update_one({"_id"=>$id},{'$set'=>{uc($_)=>$$next{$_}}});
+		$coll->update_one({"_id"=>$id},{'$unset'=>{$_=>""}});
+	}
 }
