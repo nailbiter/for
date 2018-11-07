@@ -41,6 +41,10 @@ my %METHODS = (
 		description => "renames field, required keys: --from [OLDFIELDNAME] --to [NEWFIELDNAME]",
 		function => \&renameField,
 	},
+	removeField => {
+		description => "removes field, required keys: --name [FIELDNAME]",
+		function => \&removeField,
+	},
 );
 {package Safe::Hash;
         require Tie::Hash;
@@ -55,6 +59,19 @@ my %METHODS = (
 #global var's
 my $coll;
 #procedures
+sub removeField{
+	tie my %cmdline => 'Safe::Hash';
+ 	%cmdline = @_;
+#	printf(STDERR "from=%s, to=%s\n",$cmdline{from},$cmdline{to});
+	my $allrecords = $coll->find();
+	while(my $next = $allrecords->next){
+		next unless(defined $$next{$cmdline{name}});
+		my $id = $$next{_id};
+		printf(STDERR "id: %s\n",$id);
+#		$coll->update_one({"_id"=>$id},{'$set'=>{$cmdline{to}=>$$next{$cmdline{from}}}});
+		$coll->update_one({"_id"=>$id},{'$unset'=>{$cmdline{name}=>""}});
+	}
+}
 sub help{
 	my $tb = Text::Table->new(
 		"method",\' | ',"description",
@@ -75,14 +92,8 @@ sub renameField{
 		next unless(defined $$next{$cmdline{from}});
 		my $id = $$next{_id};
 		printf(STDERR "id: %s\n",$id);
-#		my @keys = keys($next);
-#		for(@keys){
-#			next if ($_ eq "_id");
-#			printf(STDERR "\t%s=>%s\n",$_,uc($_));
 		$coll->update_one({"_id"=>$id},{'$set'=>{$cmdline{to}=>$$next{$cmdline{from}}}});
 		$coll->update_one({"_id"=>$id},{'$unset'=>{$cmdline{from}=>""}});
-#		}
-
 	}
 }
 sub capitalize(){
@@ -103,12 +114,18 @@ sub capitalize(){
 
 #main
 tie my %cmdline => 'Safe::Hash';
+my %spec;
+for(qw( collection database method from to name )){
+	$spec{sprintf("%s=s",$_)} = \$cmdline{$_};
+}
 GetOptions(
-	"collection=s" =>\$cmdline{collection},
-	"database=s" =>\$cmdline{database},
-	"method=s" => \$cmdline{method},
-	"from=s" => \$cmdline{from},
-	"to=s" => \$cmdline{to},
+	%spec,
+#	"collection=s" =>\$cmdline{collection},
+#	"database=s" =>\$cmdline{database},
+#	"method=s" => \$cmdline{method},
+#	"from=s" => \$cmdline{from},
+#	"to=s" => \$cmdline{to},
+#	"name=s" => \$cmdline{name},
 );
 printf(STDERR "%s.%s\n",$cmdline{database},$cmdline{collection});
 $coll = MongoDB->connect()->ns(sprintf("%s.%s",$cmdline{database},$cmdline{collection}));
