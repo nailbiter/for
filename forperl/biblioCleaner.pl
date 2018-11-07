@@ -68,6 +68,7 @@ sub tidyUpAuthor{
 	my $allrecords = $globalDataRef->{coll}->find();
 	while(my $next = $allrecords->next){
 		next unless(defined $$next{$AUTHORKEY});
+		next if(ref($$next{$AUTHORKEY}));
 		my @authors = split(' and ',$$next{$AUTHORKEY});
 		printf(STDERR "%s\n",Dumper(\@authors));
 		@authors = map {processAuthor($_)} @authors;
