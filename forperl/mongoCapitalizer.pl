@@ -36,7 +36,11 @@ my %METHODS = (
 	help => {
 		description=>"show this message",
 		function=>\&help,
-	}
+	},
+	renameField=>{
+		description => "renames field, required keys: --from [OLDFIELDNAME] --to [NEWFIELDNAME]",
+		function => \&renameField,
+	},
 );
 {package Safe::Hash;
         require Tie::Hash;
@@ -44,10 +48,12 @@ my %METHODS = (
         use Carp;
 
         sub FETCH { 
-                exists $_[0]{$_[1]} or croak "no key $_[1]";
+                exists $_[0]{$_[1]} or croak sprintf("no key \"%s\"",$_[1]);
                 $_[0]{$_[1]}
         }
 }
+#global var's
+my $coll;
 #procedures
 sub help{
 	my $tb = Text::Table->new(
@@ -60,9 +66,27 @@ sub help{
 #	$tb->add('-----','-------');
 	print $tb;
 }
+sub renameField{
+	tie my %cmdline => 'Safe::Hash';
+ 	%cmdline = @_;
+	printf(STDERR "from=%s, to=%s\n",$cmdline{from},$cmdline{to});
+	my $allrecords = $coll->find();
+	while(my $next = $allrecords->next){
+		next unless(defined $$next{$cmdline{from}});
+		my $id = $$next{_id};
+		printf(STDERR "id: %s\n",$id);
+#		my @keys = keys($next);
+#		for(@keys){
+#			next if ($_ eq "_id");
+#			printf(STDERR "\t%s=>%s\n",$_,uc($_));
+		$coll->update_one({"_id"=>$id},{'$set'=>{$cmdline{to}=>$$next{$cmdline{from}}}});
+		$coll->update_one({"_id"=>$id},{'$unset'=>{$cmdline{from}=>""}});
+#		}
+
+	}
+}
 sub capitalize(){
 	my %cmdline = @_;
-	my $coll = MongoDB->connect()->ns(sprintf("%s.%s",$cmdline{database},$cmdline{collection}));
 	my $allrecords = $coll->find();
 	while(my $next = $allrecords->next){
 		my $id = $$next{_id};
@@ -83,6 +107,9 @@ GetOptions(
 	"collection=s" =>\$cmdline{collection},
 	"database=s" =>\$cmdline{database},
 	"method=s" => \$cmdline{method},
+	"from=s" => \$cmdline{from},
+	"to=s" => \$cmdline{to},
 );
 printf(STDERR "%s.%s\n",$cmdline{database},$cmdline{collection});
+$coll = MongoDB->connect()->ns(sprintf("%s.%s",$cmdline{database},$cmdline{collection}));
 $METHODS{$cmdline{method}}->{function}->(%cmdline);
