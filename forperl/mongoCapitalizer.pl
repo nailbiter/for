@@ -68,7 +68,6 @@ sub removeField{
 		next unless(defined $$next{$cmdline{name}});
 		my $id = $$next{_id};
 		printf(STDERR "id: %s\n",$id);
-#		$coll->update_one({"_id"=>$id},{'$set'=>{$cmdline{to}=>$$next{$cmdline{from}}}});
 		$coll->update_one({"_id"=>$id},{'$unset'=>{$cmdline{name}=>""}});
 	}
 }
