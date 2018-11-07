@@ -62,7 +62,6 @@ my $coll;
 sub removeField{
 	tie my %cmdline => 'Safe::Hash';
  	%cmdline = @_;
-#	printf(STDERR "from=%s, to=%s\n",$cmdline{from},$cmdline{to});
 	my $allrecords = $coll->find();
 	while(my $next = $allrecords->next){
 		next unless(defined $$next{$cmdline{name}});

@@ -87,6 +87,8 @@ sub extractBib{
 			my %record;
 			printf(STDERR "type=%s\n",$entry->type);
 			$record{TYPE} = $entry->type;
+			printf(STDERR "key=%s\n",$entry->key);
+			$record{BIBITEM} = $entry->key;
 			printf(STDERR "%s\n",join(",",$entry->fieldlist()));
 			for($entry->fieldlist()){
 				(my $key, my $value) = ($_,$entry->field($_));
