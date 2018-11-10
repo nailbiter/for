@@ -109,7 +109,7 @@ $METHODS{commit}->{func} = sub {
 sub writeData{
 	(my $json,my $filename) = @_;
 	open my $fh, '>', $filename;
-	my $data = to_json($json,{pretty=>1});
+	my $data = encode_json($json,{pretty=>1});
 	print $fh, $data;
 	close($fh);
 }
