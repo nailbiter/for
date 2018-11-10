@@ -111,7 +111,7 @@ sub writeData{
 	(my $json,my $filename) = @_;
 	open my $fh, '>', $filename;
 	my $data = to_json($json,{pretty=>1});
-	print $fh, $data;
+	print $fh $data;
 	close($fh);
 }
 $METHODS{push}->{func} = sub {
