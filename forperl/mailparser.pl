@@ -54,7 +54,7 @@ my @FOLDERDATA = (
 		filter=> sub {
 			(my $data,my $hash) = @_;
 			my $kmail = $data->{kmail};
-			my $res1 = grep(/$kmail/,@{$hash->{From}});
+			my $res1 = grep(/$kmail/,@{$hash->{flags}->{From}});
 			(my $ss,my $mm,my $hh,my $day,my $month,my $year,my $zone) = strptime($hash->{date});
 			$year += 1900;
 			return $res1 && ($month==$data->{month}) && ($year==$data->{year});
@@ -69,7 +69,7 @@ my @FOLDERDATA = (
 		filter => sub {
 			(my $data,my $hash) = @_;
 			my $kmail = $data->{kmail};
-			my $res1 = grep(/$kmail/,@{$hash->{To}});
+			my $res1 = grep(/$kmail/,@{$hash->{flags}->{To}});
 			(my $ss,my $mm,my $hh,my $day,my $month,my $year,my $zone) = strptime($hash->{date});
 			$year += 1900;
 			return $res1 && ($month==$data->{month}) && ($year==$data->{year});
@@ -89,7 +89,7 @@ my $Testflag = 0;
 #procedures
 sub myExec{
 	(my $cmd) = @_;
-	printf("exec: _%s\n",$cmd);
+	printf(STDERR "exec: _%s\n",$cmd);
 	if(not $Testflag){
 		system($cmd);
 	}
@@ -116,19 +116,16 @@ sub getEmailInfo{
 	(my $imap,my $id) = @_;
 	my %data;
 	$data{date} = $imap->date( $id );
-	$data{subject} = decode('MIME-Header',$imap->subject($id));
-#	my @headerKeys = ("From","To","Message-id");
-#	my $hashref = $imap->parse_headers($_,@headerKeys);
 	my $hashref = $imap->parse_headers($id,'ALL');
-#	@data{@headerKeys} = @{$hashref}{@headerKeys};
 	$data{flags} = $hashref;
-	return %data;
-}
-sub processEmailInfo{
-	(my $dataRef) = @_;
-	for(("From","To")){
-		@{$dataRef->{flags}->{$_}} = map {decode('MIME-Header',$_);} @{$dataRef->{flags}->{$_}};
+	for(qw( From To Subject )){
+		if(ref($data{flags}->{$_})){
+			@{$data{flags}->{$_}} = map {decode('MIME-Header',$_);} @{$data{flags}->{$_}};
+		} else {
+			$data{flags}->{$_} = decode('MIME-Header',$data{flags}->{$_});
+		}
 	}
+	return %data;
 }
 sub filterDataToDateLine{
 	(my $filterDataRef) = @_;
@@ -198,34 +195,42 @@ sub getMailBox{
 }
 sub main{
 	my %cmdLine = @_;
+	my @months = split(' ',$cmdLine{month});
+#	printf(STDERR "%s\n",Dumper(\@months));
 	my $mongoClient = MongoDB->connect();
 	my $imap = getMailBox($cmdLine{myEmail},$mongoClient);
 	printf(STDERR "cmdLine{myEmail}: %s\ncmdLine{kEmail}: %s\n",$cmdLine{myEmail},$cmdLine{kEmail});
 	my $mongoCollection = $mongoClient->ns("admin.kmails");
-	my %filterData = (kmail=>$cmdLine{kEmail});
-	@filterData{"year","month"} = map {$_+0} split("-",$cmdLine{month});
-	$filterData{month}--;
-	printf(STDERR "year: %d, month: %d\n",@filterData{"year","month"});
-	$cmdLine{folderName} = $cmdLine{folderName}.$cmdLine{month}."/";
-	myExec(sprintf("mkdir -p \"%s\"",$cmdLine{folderName}));
+	for(@months){
+		my $month = $_;
+		my %filterData = (kmail=>$cmdLine{kEmail});
+		@filterData{"year","month"} = map {$_+0} split("-",$month);
+		$filterData{month}--;
+		printf(STDERR "year: %d, month: %d\n",@filterData{"year","month"});
+		$cmdLine{folderName} = $cmdLine{folderName}.$month."/";
+		myExec(sprintf("mkdir -p \"%s\"",$cmdLine{folderName}));
 
-	my $i = 0;
-	for(@FOLDERDATA){
-		my %folderDataItem = %$_;
-		printf(STDERR "folder: %s\n",$folderDataItem{name});
-		$imap->select($folderDataItem{name});
-		for( $imap->since(filterDataToDateLine(\%filterData)) ) {
-			my $id = $_;
-			my %data = getEmailInfo($imap,$id);
-			processEmailInfo(\%data);
-			if($folderDataItem{filter}->(\%filterData,\%data))
-			{
-				processDate(\%data);
-				$folderDataItem{label}->(\%data);
-				printf(STDERR "\t%s\n",$data{subject});
-				printf(STDERR "%s\n",Dumper(\%data));
-				saveEmailToFile(\%data,\$i,$cmdLine{folderName},$cmdLine{jarPath},$id,$imap);
-				$mongoCollection->insert_one(\%data);
+		my $i = 0;
+		for(@FOLDERDATA){
+			my %folderDataItem = %$_;
+			printf("folder: %s\n",$folderDataItem{name});
+			$imap->select($folderDataItem{name});
+			my @mails = $imap->since(filterDataToDateLine(\%filterData));
+			my $i = 1;
+			for( @mails ) {
+				printf( "progress:\t%06d/%06d\n",$i++,scalar(@mails));
+				my $id = $_;
+				my %data = getEmailInfo($imap,$id);
+				if($folderDataItem{filter}->(\%filterData,\%data))
+				{
+					processDate(\%data);
+					$folderDataItem{label}->(\%data);
+					printf(STDERR "\t%s\n",$data{flags}->{Subject});
+					printf(STDERR "%s\n",Dumper(\%data));
+					saveEmailToFile(\%data,\$i,$cmdLine{folderName},$cmdLine{jarPath},$id,$imap);
+					printf(STDERR "going to insert %s\n",Dumper(\%data));
+					$mongoCollection->insert_one(\%data) unless($Testflag);
+				}
 			}
 		}
 	}
@@ -253,6 +258,8 @@ sub test{
 			my $hashref = $imap->parse_headers($id,@headerKeys);
 			@data{@headerKeys} = @{$hashref}{@headerKeys};
 			printf(STDERR "data: %s\n",Dumper(\%data));
+			printf(STDERR "headerRef: %s\n",Dumper($headerRef));
+			last;
 		}
 	}
 }
