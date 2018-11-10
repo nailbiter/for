@@ -83,6 +83,7 @@ my @FOLDERDATA = (
 my %METHODS = (
 	main=>\&main,
 	test=>\&test,
+	tohtml=>\&tohtml,
 );
 #global var's
 my $Testflag = 0;
@@ -266,6 +267,25 @@ sub test{
 			printf(STDERR "headerRef: %s\n",Dumper($headerRef));
 			last;
 		}
+	}
+}
+sub tohtml{
+	my %cmdLine = @_;
+	my $folderName = $cmdLine{folderName}.'html/';
+	my $idToFileName = sub {
+		(my $id) = @_;
+		return ($id =~ s/^<([^\@]+)\@ms\.u-tokyo\.ac\.jp>/$1/r ).'.html';
+	};
+
+	myExec(sprintf("mkdir -p %s",$folderName));
+	printf(STDERR "%s\n",Dumper(\%cmdLine));
+	my $mongoClient = MongoDB->connect();
+	my $allMails = $mongoClient->ns("admin.kmails")->find();
+	while(my $email = $allMails->next){
+		printf(STDERR "%s\n",Dumper($email));
+		my $fileName = $idToFileName->($email->{flags}->{'Message-Id'}->[0]);
+		printf(STDERR "\nname: %s\n\n",$fileName);
+		open(my $fh, '>', $folderName.$fileName);
 	}
 }
 
