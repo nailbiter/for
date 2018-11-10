@@ -97,6 +97,7 @@ $METHODS{commit}->{func} = sub {
 		printf(STDERR "got json: %s\n",Dumper($json));
 		$params{url} = $$json{cardurl};
 		$json->{pulledData}->{trelloTitle} = $params{trelloTitle} = getTitle(%params);
+		writeData($json,$cmdline{configfile});
 		doCommit(%params);
 		if(exists $$json{dependencies}){
 			for(@{$$json{dependencies}}){
@@ -104,7 +105,6 @@ $METHODS{commit}->{func} = sub {
 				doCommit(%params, dir=>$_);
 			}
 		}
-		writeData($json,$cmdline{configfile});
 	}
 };
 sub writeData{
