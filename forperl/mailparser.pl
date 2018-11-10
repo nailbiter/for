@@ -41,9 +41,6 @@ binmode(STDIN, ":utf8");
 binmode(STDERR, ":utf8");
 
 #global const's
-my $False = 0;
-my $True = 1;
-my $TESTFLAG = $False;
 my @MONTHNAMES = (
 	"Jan","Feb",
 	"Mar","Apr","May",
@@ -83,12 +80,17 @@ my @FOLDERDATA = (
 		},
 	},
 );
+my %METHODS = (
+	main=>\&main,
+	test=>\&test,
+);
 #global var's
+my $Testflag = 0;
 #procedures
 sub myExec{
 	(my $cmd) = @_;
 	printf("exec: _%s\n",$cmd);
-	if(not $TESTFLAG){
+	if(not $Testflag){
 		system($cmd);
 	}
 }
@@ -113,19 +115,19 @@ sub connectToMailBox{
 sub getEmailInfo{
 	(my $imap,my $id) = @_;
 	my %data;
-	$data{date} = $imap->date( $_ );
-	$data{subject} = decode('MIME-Header',$imap->subject($_));
-
-	my @headerKeys = ("From","To","Message-id");
-	my $hashref = $imap->parse_headers($_,@headerKeys);
-	@data{@headerKeys} = @{$hashref}{@headerKeys};
-
+	$data{date} = $imap->date( $id );
+	$data{subject} = decode('MIME-Header',$imap->subject($id));
+#	my @headerKeys = ("From","To","Message-id");
+#	my $hashref = $imap->parse_headers($_,@headerKeys);
+	my $hashref = $imap->parse_headers($id,'ALL');
+#	@data{@headerKeys} = @{$hashref}{@headerKeys};
+	$data{flags} = $hashref;
 	return %data;
 }
 sub processEmailInfo{
-	my $dataRef = $_[0];
+	(my $dataRef) = @_;
 	for(("From","To")){
-		@{$dataRef->{$_}} = map {decode('MIME-Header',$_);} @{$dataRef->{$_}};
+		@{$dataRef->{flags}->{$_}} = map {decode('MIME-Header',$_);} @{$dataRef->{flags}->{$_}};
 	}
 }
 sub filterDataToDateLine{
@@ -149,7 +151,7 @@ sub saveEmailToFile{
 	${$indexRef}++;
 }
 sub parseDate{
-	my $dateString = $_[0];
+	(my $dateString) = @_;
 #			year   => 2006,
 #			month  => 12,
 #			day    => 25,
@@ -187,50 +189,88 @@ sub processDate{
 	printf(STDERR "real date was %s\n",$dateString);
 	$mailData->{date} = DateTime::Tiny->new(parseDate($dateString));
 }
+sub getMailBox{
+	(my $myEmail, my $mongoClient) = @_;
+	$mongoClient //= MongoDB->connect();
+	my $mailPassword = $mongoClient->ns("admin.passwords")->find_one({key=>"MATHEMAIL"})->{value};
+	my $imap = connectToMailBox($myEmail,"mail.ms.u-tokyo.ac.jp",$mailPassword);
+	return $imap;
+}
+sub main{
+	my %cmdLine = @_;
+	my $mongoClient = MongoDB->connect();
+	my $imap = getMailBox($cmdLine{myEmail},$mongoClient);
+	printf(STDERR "cmdLine{myEmail}: %s\ncmdLine{kEmail}: %s\n",$cmdLine{myEmail},$cmdLine{kEmail});
+	my $mongoCollection = $mongoClient->ns("admin.kmails");
+	my %filterData = (kmail=>$cmdLine{kEmail});
+	@filterData{"year","month"} = map {$_+0} split("-",$cmdLine{month});
+	$filterData{month}--;
+	printf(STDERR "year: %d, month: %d\n",@filterData{"year","month"});
+	$cmdLine{folderName} = $cmdLine{folderName}.$cmdLine{month}."/";
+	myExec(sprintf("mkdir -p \"%s\"",$cmdLine{folderName}));
 
-#main
-my $myEmail, my $kEmail, my $month, my $folderName, my $jarPath;
-GetOptions(
-	"myemail=s" => \$myEmail, #my login name
-	"kemail=s" => \$kEmail, #K's login name
-	"dateFilter=s" => \$month, #e.g. 2018-07 means Jul 2018
-	"folder=s" => \$folderName, #folder to save .pdfs (with / at the end)
-	"jar=s" => \$jarPath, #path to emlconverter jar (see https://github.com/nickrussler/eml-to-pdf-converter)
-);
-$folderName //= "/Users/oleksiileontiev/Documents/emails/";
-$jarPath //= "/Users/oleksiileontiev/bin/emailconverter.jar";
+	my $i = 0;
+	for(@FOLDERDATA){
+		my %folderDataItem = %$_;
+		printf(STDERR "folder: %s\n",$folderDataItem{name});
+		$imap->select($folderDataItem{name});
+		for( $imap->since(filterDataToDateLine(\%filterData)) ) {
+			my $id = $_;
+			my %data = getEmailInfo($imap,$id);
+			processEmailInfo(\%data);
+			if($folderDataItem{filter}->(\%filterData,\%data))
+			{
+				processDate(\%data);
+				$folderDataItem{label}->(\%data);
+				printf(STDERR "\t%s\n",$data{subject});
+				printf(STDERR "%s\n",Dumper(\%data));
+				saveEmailToFile(\%data,\$i,$cmdLine{folderName},$cmdLine{jarPath},$id,$imap);
+				$mongoCollection->insert_one(\%data);
+			}
+		}
+	}
+}
+sub test{
+	my %cmdLine = @_;
+	my $imap = getMailBox($cmdLine{myEmail});
+	printf(STDERR "test\n");
+	for(@FOLDERDATA){
+		my %folderDataItem = %$_;
+		printf(STDERR "folder: %s\n",$folderDataItem{name});
+		$imap->select($folderDataItem{name});
+		for($imap->search('ALL')){
+			my $id = $_;
+			printf("id=%s\n",$id);
+			my %data;
+			$data{date} = $imap->date( $id );
+			$data{subject} = decode('MIME-Header',$imap->subject($id));
+			my $headerRef = $imap->parse_headers($id,'ALL');
 
-$kEmail = $kEmail."\@ms.u-tokyo.ac.jp";
-my $mongoClient = MongoDB->connect();
-my $mailPassword = $mongoClient->ns("admin.passwords")->find_one({key=>"MATHEMAIL"})->{value};
-my $mongoCollection = $mongoClient->ns("admin.kmails");
-printf(STDERR "myEmail: %s\nkEmail: %s\npassword: %s\n",$myEmail,$kEmail,$mailPassword);
-my $imap = connectToMailBox($myEmail,"mail.ms.u-tokyo.ac.jp",$mailPassword);
-my %filterData = (kmail=>$kEmail);
-@filterData{"year","month"} = map {$_+0} split("-",$month);
-$filterData{month}--;
-printf(STDERR "year: %d, month: %d\n",@filterData{"year","month"});
-$folderName = $folderName.$month."/";
-myExec(sprintf("mkdir -p \"%s\"",$folderName));
-
-my $i = 0;
-for(@FOLDERDATA){
-	my %folderDataItem = %$_;
-	printf(STDERR "folder: %s\n",$folderDataItem{name});
-	$imap->select($folderDataItem{name});
-	for( $imap->since(filterDataToDateLine(\%filterData)) ) {
-		my $id = $_;
-		my %data = getEmailInfo($imap,$id);
-		processEmailInfo(\%data);
-		if($folderDataItem{filter}->(\%filterData,\%data))
-		{
-			processDate(\%data);
-			$folderDataItem{label}->(\%data);
-			printf(STDERR "\t%s\n",$data{subject});
-			printf(STDERR "%s\n",Dumper(\%data));
-			saveEmailToFile(\%data,\$i,$folderName,$jarPath,$id,$imap);
-			$mongoCollection->insert_one(\%data);
+			my @headerKeys = ("From","To",
+				"Message-id",'In-Reply-To','X-Universally-Unique-Identifier',
+				'References',
+			);
+			my $hashref = $imap->parse_headers($id,@headerKeys);
+			@data{@headerKeys} = @{$hashref}{@headerKeys};
+			printf(STDERR "data: %s\n",Dumper(\%data));
 		}
 	}
 }
 
+#main
+my %cmdLine;
+my $method;
+GetOptions(
+	"myemail=s" => \$cmdLine{myEmail}, #my login name
+	"kemail=s" => \$cmdLine{kEmail}, #K's login name
+	"dateFilter=s" => \$cmdLine{month}, #e.g. 2018-07 means Jul 2018
+	"folder=s" => \$cmdLine{folderName}, #folder to save .pdfs (with / at the end)
+	"jar=s" => \$cmdLine{jarPath}, #path to emlconverter jar (see https://github.com/nickrussler/eml-to-pdf-converter)
+	"testflag=i" => \$Testflag,
+	"method=s" => \$method,
+);
+$cmdLine{folderName} //= "/Users/oleksiileontiev/Documents/emails/";
+$cmdLine{jarPath} //= "/Users/oleksiileontiev/bin/emailconverter.jar";
+$cmdLine{kEmail} .= "\@ms.u-tokyo.ac.jp";
+$method //= 'main';
+$METHODS{$method}->(%cmdLine);

@@ -31,6 +31,7 @@ use Data::Dumper;
 use Text::TabularDisplay;
 use Getopt::Long;
 use File::Basename;
+use autodie;
 
 
 #global const's
@@ -91,9 +92,10 @@ $METHODS{commit}->{func} = sub {
 			die sprintf("error opening %s\nerror=%s\n",$cmdline{configfile},$!);
 		my $data = do { local $/; <$fh> };
 		my $json = parse_json($data);
+		close($fh);
 		printf(STDERR "got json: %s\n",Dumper($json));
 		$params{url} = $$json{cardurl};
-		$params{trelloTitle} = getTitle(%params);
+		$json->{pulledData}->{trelloTitle} = $params{trelloTitle} = getTitle(%params);
 		doCommit(%params);
 		if(exists $$json{dependencies}){
 			for(@{$$json{dependencies}}){
@@ -101,8 +103,16 @@ $METHODS{commit}->{func} = sub {
 				doCommit(%params, dir=>$_);
 			}
 		}
+		writeData($json,$cmdline{configfile});
 	}
 };
+sub writeData{
+	(my $json,my $filename) = @_;
+	open my $fh, '>', $filename;
+	my $data = to_json($json,{pretty=>1});
+	print $fh, $data;
+	close($fh);
+}
 $METHODS{push}->{func} = sub {
 	my %cmdline = @_;
 	unless(defined($cmdline{configfile})){
@@ -182,14 +192,6 @@ sub getTrelloMsgFromFile{
 	my $data = do { local $/; <$fh> };
 	return sprintf("https://trello.com/c/%s",$data);
 }
-sub main{
-	my %cmdline = @_;
-	unless(exists($METHODS{$cmdline{method}})){
-		die sprintf("uknown method %s\n",$cmdline{method});
-	}
-	printf(STDERR "got method %s\n",$cmdline{method}) if($Testmode);
-	$METHODS{$cmdline{method}}->{func}->(%cmdline);
-}
 
 #main
 my %cmdline;
@@ -208,4 +210,4 @@ unless(defined($cmdline{configfile}) || defined($cmdline{url})){
 	}
 }
 printf(STDERR "cmdline=%s\n",Dumper(\%cmdline));
-main(%cmdline);
+$METHODS{$cmdline{method}}->{func}->(%cmdline);

@@ -29,6 +29,7 @@ use BibTeX::Parser;
 
 #global const's
 my @NUMFIELDNAME = ('CALIBRENUM','YEAR','VOLUME','NUMBER');
+my $UNIQUEFIELDNAME = 'BIBITEM';
 #global var's
 my $Testmode = 0;
 my $client = MongoDB->connect();
@@ -53,8 +54,9 @@ sub extractTex{
 		} elsif(/^\s*\\bibitem/){
 			$flag = 1;
 			%record = ();
-			if(/\\bibitem\[\w+\]{([[:ascii:]]+?)}/){
-				$record{BIBITEM} = $1;
+			if(/\\bibitem\[([[:ascii:]]+?)\]{([[:ascii:]]+?)}/){
+				$record{COMPARISONKEY} = $1;
+				$record{BIBITEM} = $2;
 			} elsif(/\\bibitem{([[:ascii:]]+?)}/){
 				$record{BIBITEM} = $1;
 			} else {
@@ -124,6 +126,11 @@ if($upload =~ /\.tex$/){
 	die sprintf("unknown extension in %s!",$upload);
 }
 for(@records){
-	printf(STDERR "going to upload %s\n",Dumper($_));
-	$bib->insert_one($_) unless($Testmode);
+	if($bib->find_one({$UNIQUEFIELDNAME => $$_{$UNIQUEFIELDNAME}})){
+		printf(STDERR "going to update %s\n",Dumper($_));
+		$bib->update_one({$UNIQUEFIELDNAME => $$_{$UNIQUEFIELDNAME}},{'$set'=>$_}) unless($Testmode);
+	} else {
+		printf(STDERR "going to upload %s\n",Dumper($_));
+		$bib->insert_one($_) unless($Testmode);
+	}
 }
