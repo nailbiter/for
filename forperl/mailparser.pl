@@ -35,12 +35,50 @@ use DateTime::Tiny;
 use List::MoreUtils qw(first_index);
 use DateTime;
 use DateTime::TimeZone;
+use Template;
 
 binmode(STDOUT, ":utf8");
 binmode(STDIN, ":utf8");
 binmode(STDERR, ":utf8");
 
 #global const's
+my $HTMLNODETEMPLATE = <<'END_BLURB';
+<html>
+	<head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>
+						subject
+					</th>
+					<td>
+						[%flags.Subject.0%]
+					</td>
+				</tr>
+				<tr>
+					<th>
+						pdf
+					</th>
+					<td>
+						<a href="[%pdfpath%]">[%pdfpath%]</a>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						in reply to
+					</th>
+					<td>
+						<a href="[%reply%]">[%reply%]</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
+END_BLURB
 my @MONTHNAMES = (
 	"Jan","Feb",
 	"Mar","Apr","May",
@@ -87,6 +125,7 @@ my %METHODS = (
 );
 #global var's
 my $Testflag = 0;
+my $TT = Template->new();
 #procedures
 sub myExec{
 	(my $cmd) = @_;
@@ -274,7 +313,7 @@ sub tohtml{
 	my $folderName = $cmdLine{folderName}.'html/';
 	my $idToFileName = sub {
 		(my $id) = @_;
-		return ($id =~ s/^<([^\@]+)\@ms\.u-tokyo\.ac\.jp>/$1/r ).'.html';
+		return $folderName.($id =~ s/^<([^\@]+)\@ms\.u-tokyo\.ac\.jp>/$1/r ).'.html';
 	};
 
 	myExec(sprintf("mkdir -p %s",$folderName));
@@ -285,7 +324,8 @@ sub tohtml{
 		printf(STDERR "%s\n",Dumper($email));
 		my $fileName = $idToFileName->($email->{flags}->{'Message-Id'}->[0]);
 		printf(STDERR "\nname: %s\n\n",$fileName);
-		open(my $fh, '>', $folderName.$fileName);
+		$email->{reply} = $idToFileName->($email->{flags}->{'In-Reply-To'}->[0]);
+		$TT->process(\$HTMLNODETEMPLATE,$email,$fileName);
 	}
 }
 
