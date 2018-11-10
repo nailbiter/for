@@ -136,6 +136,7 @@ sub filterDataToDateLine{
 }
 sub saveEmailToFile{
 	(my $dataRef,my $indexRef,my $folderName, my $jarPath, my $id,my $imap) = @_;
+	myExec(sprintf("mkdir -p \"%s\"",$folderName));
 	my %fileNames;
 	for(("eml","pdf")){
 		$fileNames{$_} = sprintf("%s%06d.%s",$folderName,$$indexRef,$_);
@@ -196,7 +197,6 @@ sub getMailBox{
 sub main{
 	my %cmdLine = @_;
 	my @months = split(' ',$cmdLine{month});
-#	printf(STDERR "%s\n",Dumper(\@months));
 	my $mongoClient = MongoDB->connect();
 	my $imap = getMailBox($cmdLine{myEmail},$mongoClient);
 	printf(STDERR "cmdLine{myEmail}: %s\ncmdLine{kEmail}: %s\n",$cmdLine{myEmail},$cmdLine{kEmail});
@@ -207,8 +207,7 @@ sub main{
 		@filterData{"year","month"} = map {$_+0} split("-",$month);
 		$filterData{month}--;
 		printf(STDERR "year: %d, month: %d\n",@filterData{"year","month"});
-		$cmdLine{folderName} = $cmdLine{folderName}.$month."/";
-		myExec(sprintf("mkdir -p \"%s\"",$cmdLine{folderName}));
+		my $folderName = $cmdLine{folderName}.$month."/";
 
 		my $i = 0;
 		for(@FOLDERDATA){
@@ -218,7 +217,13 @@ sub main{
 			my @mails = $imap->since(filterDataToDateLine(\%filterData));
 			my $i = 1;
 			for( @mails ) {
-				printf( "progress:\t%06d/%06d\n",$i++,scalar(@mails));
+				printf( "%sprogress: %8s\t%12s\t%06d/%06d%s\n",
+					'=' x 15,
+					$month,
+					$folderDataItem{name},
+					$i++, scalar(@mails),
+					'=' x 15,
+				);
 				my $id = $_;
 				my %data = getEmailInfo($imap,$id);
 				if($folderDataItem{filter}->(\%filterData,\%data))
@@ -227,7 +232,7 @@ sub main{
 					$folderDataItem{label}->(\%data);
 					printf(STDERR "\t%s\n",$data{flags}->{Subject});
 					printf(STDERR "%s\n",Dumper(\%data));
-					saveEmailToFile(\%data,\$i,$cmdLine{folderName},$cmdLine{jarPath},$id,$imap);
+					saveEmailToFile(\%data,\$i,$folderName.$folderDataItem{name}.'/',$cmdLine{jarPath},$id,$imap);
 					printf(STDERR "going to insert %s\n",Dumper(\%data));
 					$mongoCollection->insert_one(\%data) unless($Testflag);
 				}
