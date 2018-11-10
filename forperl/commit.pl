@@ -23,6 +23,7 @@
 use strict;
 use warnings;
 use utf8;
+use JSON;
 use JSON::Parse 'parse_json';
 use HTTP::Request;
 use LWP::UserAgent;
@@ -109,7 +110,7 @@ $METHODS{commit}->{func} = sub {
 sub writeData{
 	(my $json,my $filename) = @_;
 	open my $fh, '>', $filename;
-	my $data = encode_json($json,{pretty=>1});
+	my $data = to_json($json,{pretty=>1});
 	print $fh, $data;
 	close($fh);
 }
