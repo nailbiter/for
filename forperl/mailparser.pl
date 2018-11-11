@@ -36,6 +36,7 @@ use List::MoreUtils qw(first_index);
 use DateTime;
 use DateTime::TimeZone;
 use Template;
+use Text::Table;
 
 binmode(STDOUT, ":utf8");
 binmode(STDIN, ":utf8");
@@ -72,6 +73,14 @@ my $HTMLNODETEMPLATE = <<'END_BLURB';
 					</th>
 					<td>
 						<a href="[%reply%]">[%reply%]</a>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						date
+					</th>
+					<td>
+						[%flags.Date.0%]
 					</td>
 				</tr>
 			</tbody>
@@ -119,9 +128,27 @@ my @FOLDERDATA = (
 	},
 );
 my %METHODS = (
-	main=>\&main,
-	test=>\&test,
-	tohtml=>\&tohtml,
+	main => {
+		callback => \&main,
+		description => '',
+	},
+	findEmail => {
+		description => 'find email by id',
+		callback => \&findEmail,
+		requiredArgs => ['id'],
+	},
+	help => {
+		description=>"show this message",
+		callback=>\&help,
+	},
+	test => {
+		callback => \&test,
+		description => "test (can change)",
+	},
+	tohtml => {
+		callback => \&tohtml,
+		description => "mails to html",
+	}
 );
 #global var's
 my $Testflag = 0;
@@ -328,9 +355,28 @@ sub tohtml{
 		$TT->process(\$HTMLNODETEMPLATE,$email,$fileName);
 	}
 }
+sub help{
+	my $tb = Text::Table->new(
+		"method",\' | ',"description",\' | ','args'
+	);
+	$tb->add('-----','-------','--------');
+	for(keys(%METHODS)){
+		$METHODS{$_}->{requiredArgs} //= [];
+		$tb->add($_,$METHODS{$_}->{description},join(', ',map {'--'.$_} @{$METHODS{$_}->{requiredArgs}}));
+	}
+	print $tb;
+}
+sub findEmail{
+	my %cmdLine = @_;
+	print "findEmail\n";
+}
 
 #main
 my %cmdLine;
+my %args;
+for(qw( id )){
+	$args{$_.'=s'} = \$cmdLine{$_};
+}
 my $method;
 GetOptions(
 	"myemail=s" => \$cmdLine{myEmail}, #my login name
@@ -340,9 +386,10 @@ GetOptions(
 	"jar=s" => \$cmdLine{jarPath}, #path to emlconverter jar (see https://github.com/nickrussler/eml-to-pdf-converter)
 	"testflag=i" => \$Testflag,
 	"method=s" => \$method,
+	%args,
 );
 $cmdLine{folderName} //= "/Users/oleksiileontiev/Documents/emails/";
 $cmdLine{jarPath} //= "/Users/oleksiileontiev/bin/emailconverter.jar";
 $cmdLine{kEmail} .= "\@ms.u-tokyo.ac.jp";
 $method //= 'main';
-$METHODS{$method}->(%cmdLine);
+$METHODS{$method}->{callback}->(%cmdLine);
