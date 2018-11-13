@@ -372,21 +372,24 @@ sub findEmail{
 	my $imap = getMailBox($cmdLine{myEmail});
 	for(@FOLDERDATA){
 		my %folderDataItem = %$_;
+#		my $KEY = ($folderDataItem{name} eq 'INBOX') ? 'Message-ID' : 'Message-Id';
 		printf(STDERR "folder: %s\n",$folderDataItem{name});
 		$imap->select($folderDataItem{name});
 		my @mails = $imap->search('ALL');
 		for(@mails){
 			my $id = $_;
-			printf(STDERR "%sid=%4d/%d%s\n",'=' x 10,$id,scalar(@mails),'=' x 10);
+			printf(STDERR "%sid=%4d/%d%s%20s\n",'=' x 10,$id,scalar(@mails),'=' x 10,$folderDataItem{name});
 #			my %data;
 			my $id = $_;
 			my %data = getEmailInfo($imap,$id);
-#			printf("\t1: %s\n\t2: %s\n",
-#				sprintf("<%s\@ms.u-tokyo.ac.jp>",$cmdLine{id}),
-#				$data{flags}->{'Message-ID'}->[0],
-#			);
-			if(sprintf("<%s\@ms.u-tokyo.ac.jp>",$cmdLine{id}) eq $data{flags}->{'Message-ID'}->[0]){
+			my @ids = (
+				sprintf("<%s\@ms.u-tokyo.ac.jp>",$cmdLine{id}),
 #				<20180701053934.000008B9.0338@ms.u-tokyo.ac.jp>
+				(exists $data{flags}->{'Message-ID'}) ? $data{flags}->{'Message-ID'}->[0] : 
+				$data{flags}->{'Message-Id'}->[0]
+			);
+			printf(STDERR "\t1: %s\n\t2: %s\n", @ids);
+			if($ids[0] eq $ids[1]){
 				printf("got it!:\n%s\n",Dumper(\%data));
 				last;
 			}
