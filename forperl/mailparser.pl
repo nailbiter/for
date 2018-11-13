@@ -368,7 +368,43 @@ sub help{
 }
 sub findEmail{
 	my %cmdLine = @_;
-	print "findEmail\n";
+	printf(STDERR "%s with %s!\n",'findEmail',$cmdLine{id});
+	my $imap = getMailBox($cmdLine{myEmail});
+	for(@FOLDERDATA){
+		my %folderDataItem = %$_;
+		printf(STDERR "folder: %s\n",$folderDataItem{name});
+		$imap->select($folderDataItem{name});
+		my @mails = $imap->search('ALL');
+		for(@mails){
+			my $id = $_;
+			printf(STDERR "%sid=%4d/%d%s\n",'=' x 10,$id,scalar(@mails),'=' x 10);
+#			my %data;
+			my $id = $_;
+			my %data = getEmailInfo($imap,$id);
+#			printf("\t1: %s\n\t2: %s\n",
+#				sprintf("<%s\@ms.u-tokyo.ac.jp>",$cmdLine{id}),
+#				$data{flags}->{'Message-ID'}->[0],
+#			);
+			if(sprintf("<%s\@ms.u-tokyo.ac.jp>",$cmdLine{id}) eq $data{flags}->{'Message-ID'}->[0]){
+#				<20180701053934.000008B9.0338@ms.u-tokyo.ac.jp>
+				printf("got it!:\n%s\n",Dumper(\%data));
+				last;
+			}
+#			$data{date} = $imap->date( $id );
+#			$data{subject} = decode('MIME-Header',$imap->subject($id));
+#			my $headerRef = $imap->parse_headers($id,'ALL');
+#
+#			my @headerKeys = ("From","To",
+#				"Message-id",'In-Reply-To','X-Universally-Unique-Identifier',
+#				'References',
+#			);
+#			my $hashref = $imap->parse_headers($id,@headerKeys);
+#			@data{@headerKeys} = @{$hashref}{@headerKeys};
+#			printf(STDERR "data: %s\n",Dumper(\%data));
+#			printf(STDERR "headerRef: %s\n",Dumper($headerRef));
+#			last;
+		}
+	}
 }
 
 #main
