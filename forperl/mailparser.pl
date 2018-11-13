@@ -349,7 +349,11 @@ sub tohtml{
 	my $allMails = $mongoClient->ns("admin.kmails")->find();
 	while(my $email = $allMails->next){
 		printf(STDERR "%s\n",Dumper($email));
-		my $fileName = $idToFileName->($email->{flags}->{'Message-Id'}->[0]);
+		my $fileName = $idToFileName->(
+			(exists $email->{flags}->{'Message-Id'}) ? 
+				$email->{flags}->{'Message-Id'}->[0] : 
+				$email->{flags}->{'Message-ID'}->[0] 
+		);
 		printf(STDERR "\nname: %s\n\n",$fileName);
 		$email->{reply} = $idToFileName->($email->{flags}->{'In-Reply-To'}->[0]);
 		$TT->process(\$HTMLNODETEMPLATE,$email,$fileName);
