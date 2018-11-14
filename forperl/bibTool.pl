@@ -26,6 +26,7 @@ use MongoDB;
 use Getopt::Long;
 use Data::Dumper;
 use BibTeX::Parser;
+require 'bibAux.pl';
 
 #global const's
 my @NUMFIELDNAME = ('CALIBRENUM','YEAR','VOLUME','NUMBER');
@@ -103,6 +104,8 @@ sub extractBib{
 					$record{$_} += 0.0;
 				}
 			}
+			my $authorkey = getAuthorKey();
+			$record{$authorkey} = parseAuthor($record{$authorkey});
 			push(@records,\%record);
 		}
 	}

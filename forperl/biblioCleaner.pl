@@ -25,6 +25,7 @@ use Getopt::Long;
 use Data::Dumper;
 use MongoDB;
 use Text::Table;
+require 'bibAux.pl';
 
 
 #global const's
@@ -50,7 +51,6 @@ my %METHODS = (
 }
 #global var's
 my $Testmode = 0;
-my $AUTHORKEY = 'AUTHOR';
 #procedures
 sub help{
 	my $tb = Text::Table->new(
@@ -65,45 +65,21 @@ sub help{
 }
 sub tidyUpAuthor{
 	(my $cmdlineRef, my $globalDataRef) = @_;
+	my $authorkey = getAuthorKey();
 	my $allrecords = $globalDataRef->{coll}->find();
 	while(my $next = $allrecords->next){
-		next unless(defined $$next{$AUTHORKEY});
-		next if(ref($$next{$AUTHORKEY}));
-		my @authors = split(' and ',$$next{$AUTHORKEY});
-		printf(STDERR "%s\n",Dumper(\@authors));
-		@authors = map {processAuthor($_)} @authors;
+		next unless(defined $$next{$authorkey});
+		next if(ref($$next{$authorkey}));
 
-		my $subsKey = {'$set'=>{$AUTHORKEY => \@authors}};
+#		my @authors = split(' and ',$$next{$authorkey});
+#		printf(STDERR "%s\n",Dumper(\@authors));
+#		@authors = map {processAuthor($_)} @authors;
+#		my $subsKey = {'$set'=>{$authorkey => \@authors}};
+		my $subsKey = {'$set'=>{$authorkey => parseAuthor($$next{$authorkey})}};
+
 		printf(STDERR "subskey=%s\n",Dumper($subsKey));
 		unless($Testmode){
 			$globalDataRef->{coll}->update_one({'_id'=>$$next{'_id'}},$subsKey);
-		}
-	}
-}
-sub processAuthor{
-	for($_[0]){
-		if(/~/){
-			my @split = split('~',$_);
-			if(scalar(@split)!=2){
-				die $_;
-			}
-			(my $FIRSTNAME,my $LASTNAME) = @split;
-			if($FIRSTNAME =~ /^(.*)\.$/){
-				$FIRSTNAME = $1;
-			}
-			return {FIRSTNAME=>$FIRSTNAME,LASTNAME=>$LASTNAME};
-		} elsif(/,/) {
-			my @split = split(', ',$_);
-			if(scalar(@split)!=2){
-				die $_;
-			}
-			(my $LASTNAME,my $FIRSTNAME) = @split;
-			if($FIRSTNAME =~ /^(.*)\.$/){
-				$FIRSTNAME = $1;
-			}
-			return {FIRSTNAME=>$FIRSTNAME,LASTNAME=>$LASTNAME};
-		} else {
-			die $_;
 		}
 	}
 }
