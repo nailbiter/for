@@ -96,7 +96,7 @@ $METHODS{commit}->{func} = sub {
 		close($fh);
 		printf(STDERR "got json: %s\n",Dumper($json));
 		$params{url} = $$json{cardurl};
-		$json->{pulledData}->{trelloTitle} = $params{trelloTitle} = getTitle(%params);
+		$json->{pulledData}->{trelloTitle} = $params{trelloTitle} = getTitle(%params,local=>$json);
 		writeData($json,$cmdline{configfile});
 		doCommit(%params);
 		if(exists $$json{dependencies}){
@@ -176,8 +176,16 @@ sub getTitle{
 	my $req = HTTP::Request->new( GET=> $url );
 	my $lwp = LWP::UserAgent->new;
 	my $res = $lwp->request( $req );
-	$res = parse_json($lwp->request( $req )->{_content});
-	return $res->{name};
+	if($res->is_success){
+		$res = parse_json($lwp->request( $req )->{_content});
+		return $res->{name};
+	} elsif(defined($args{local}) && defined($args{local}->{pulledData}->{trelloTitle})) {
+#		printf(STDERR "%s\n",Dumper($args{local}));
+#		die "here";
+		return $args{local}->{pulledData}->{trelloTitle};
+	} else {
+		die "hard";
+	}
 }
 sub getTrelloPasswords{
 	my $client = MongoDB->connect();

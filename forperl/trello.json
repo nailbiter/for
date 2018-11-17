@@ -1,6 +1,10 @@
 {
    "pulledData" : {
-      "trelloTitle" : "kohno plan"
+      "trelloTitle" : "write review residue paper"
    },
-   "cardurl" : "https://trello.com/c/GsJmHDy6"
+   "cardurl" : "https://trello.com/c/V2tCLW7K",
+   "cardurlOld" : {
+      "kohno" : "https://trello.com/c/GsJmHDy6",
+      "sendmail" : "https://trello.com/c/pIvSZKfZ"
+   }
 }

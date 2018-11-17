@@ -29,12 +29,15 @@ use Email::Sender::Simple qw(sendmail);
 
 #global const's
 my $MAILSUFFIX = "\@ms.u-tokyo.ac.jp";
+#global var's
+my $Testflag = 0;
 
 #main
 my %cmdline;
 GetOptions(
 	"myemail=s" => \$cmdline{myemail}, #my login name
 	"to=s" => \$cmdline{to},
+	"testflag=i" => \$Testflag,
 );
 $cmdline{to} //= ($cmdline{myemail}.$MAILSUFFIX);
 if($cmdline{to} !~ /\@/){
