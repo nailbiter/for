@@ -4,6 +4,7 @@
 ALPH=A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
 PYTHON=/Users/oleksiileontiev/anaconda3/bin/python3
 
+#rules
 all: ohne_plural.txt
 
 Makefile.generated: downloader.pl
