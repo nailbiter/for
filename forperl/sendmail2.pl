@@ -55,24 +55,24 @@ sub parseMailFile{
 	}
 	return $res;
 }
-sub mysendmail{
-	(my %mail) = @_;
-	printf("going to send: %s\n",Dumper(\%mail));
-	return if($Testflag);
-	my $message = Email::MIME->create(
-	  header_str => [
-		From    => $mail{FROM},
-		To      => $mail{TO},
-		Subject => $mail{TOPIC},
-	  ],
-	  attributes => {
-		encoding => 'quoted-printable',
-		charset  => 'UTF-8',
-	  },
-	  body_str => $mail{BODY},
-	);
-	sendmail($message);
-}
+#sub mysendmail{
+#	(my %mail) = @_;
+#	printf("going to send: %s\n",Dumper(\%mail));
+#	return if($Testflag);
+#	my $message = Email::MIME->create(
+#	  header_str => [
+#		From    => $mail{FROM},
+#		To      => $mail{TO},
+#		Subject => $mail{TOPIC},
+#	  ],
+#	  attributes => {
+#		encoding => 'quoted-printable',
+#		charset  => 'UTF-8',
+#	  },
+#	  body_str => $mail{BODY},
+#	);
+#	sendmail($message);
+#}
 sub connectToMailBox{
 	(my $login, my $host,my $password) = @_;
 	my $ssl=new IO::Socket::SSL("$host:imaps");
