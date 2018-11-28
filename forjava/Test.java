@@ -23,5 +23,8 @@ public class Test
     }
     public static void main(String[] args)
     {
+        String[] split = "ueouoeu ".split(" +",2);
+        for(String s:split)
+            System.out.format("split: \"%s\"\n",s);
     }
 }
