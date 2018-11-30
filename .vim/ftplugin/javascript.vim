@@ -3,10 +3,10 @@
 set nospell
 "set syntax=javascript
 
-"set tabstop=2
-"set shiftwidth=2
-"set softtabstop=2
-"set noexpandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set noexpandtab
 
 setlocal foldmethod=indent
 "setlocal foldlevel=99

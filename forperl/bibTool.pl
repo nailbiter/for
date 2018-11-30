@@ -33,8 +33,7 @@ my @NUMFIELDNAME = ('CALIBRENUM','YEAR','VOLUME','NUMBER');
 my $UNIQUEFIELDNAME = 'BIBITEM';
 #global var's
 my $Testmode = 0;
-my $client = MongoDB->connect();
-my $bib = $client->ns("admin.bib");
+my $bib = MongoDB->connect()->ns("admin.bib");
 #procedures
 sub extractTex{
 	(my $fh) = @_;

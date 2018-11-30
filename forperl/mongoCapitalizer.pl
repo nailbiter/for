@@ -28,6 +28,7 @@ use Text::Table;
 
 
 #global const's
+my @BADFIELDS = ('COMPARISONKEY','BODY');
 my %METHODS = (
 	capitalize=> {
 		function=>\&capitalize,
@@ -44,6 +45,10 @@ my %METHODS = (
 	removeField => {
 		description => "removes field, required keys: --name [FIELDNAME]",
 		function => \&removeField,
+	},
+	showBadFields => {
+		description => sprintf("show bad fields: fields with %s attributes",join(', ',@BADFIELDS)),
+		function => \&showBadFields,
 	},
 );
 {package Safe::Hash;
@@ -94,7 +99,7 @@ sub renameField{
 		$coll->update_one({"_id"=>$id},{'$unset'=>{$cmdline{from}=>""}});
 	}
 }
-sub capitalize(){
+sub capitalize{
 	my %cmdline = @_;
 	my $allrecords = $coll->find();
 	while(my $next = $allrecords->next){
@@ -109,22 +114,39 @@ sub capitalize(){
 		}
 	}
 }
+sub showBadFields{
+	my %cmdline = @_;
+	my %query;
+	for(@BADFIELDS){
+		$query{$_} = {'$exists'=>1};
+	}
+	my $allrecords = $coll->find(\%query);
+	my $tb = Text::Table->new(
+		'COUNT',"BIBITEM",\' | ',@BADFIELDS
+	);
+	$tb->add('-----','-----',map {'-------'} @BADFIELDS);
+	my $i = 1;
+	while(my $next = $allrecords->next){
+#		printf(STDERR "%s\n",Dumper($next) );
+#	for(keys(%METHODS)){
+		$tb->add($i++,$next->{BIBITEM},map {$next->{$_}} @BADFIELDS);
+#	}
+	}
+#	$tb->add('-----','-------');
+	print $tb;
+}
 
 #main
-tie my %cmdline => 'Safe::Hash';
+my %cmdline;
 my %spec;
 for(qw( collection database method from to name )){
 	$spec{sprintf("%s=s",$_)} = \$cmdline{$_};
 }
 GetOptions(
 	%spec,
-#	"collection=s" =>\$cmdline{collection},
-#	"database=s" =>\$cmdline{database},
-#	"method=s" => \$cmdline{method},
-#	"from=s" => \$cmdline{from},
-#	"to=s" => \$cmdline{to},
-#	"name=s" => \$cmdline{name},
 );
+$cmdline{database} //= 'admin';
+$cmdline{collection} //= 'bib';
 printf(STDERR "%s.%s\n",$cmdline{database},$cmdline{collection});
 $coll = MongoDB->connect()->ns(sprintf("%s.%s",$cmdline{database},$cmdline{collection}));
 $METHODS{$cmdline{method}}->{function}->(%cmdline);
