@@ -1,11 +1,11 @@
 #!/usr/bin/env perl 
 #===============================================================================
 #
-#         FILE: sendMail.pl
+#         FILE: sendmail.pl
 #
-#        USAGE: ./sendMail.pl [-p PASSWORD] [-m MAILFILE.mail]
+#        USAGE: ./sendmail.pl  
 #
-#  DESCRIPTION: send mail
+#  DESCRIPTION: 
 #
 #      OPTIONS: ---
 # REQUIREMENTS: ---
@@ -13,75 +13,129 @@
 #        NOTES: ---
 #       AUTHOR: YOUR NAME (), 
 # ORGANIZATION: 
-# 		STATUS:	not working (at the moment)
 #      VERSION: 1.0
-#      CREATED: 09/25/18 22:23:00
+#      CREATED: 11/04/18 14:40:47
 #     REVISION: ---
+#  LIMITATIONS: *) cannot send outside ms.u-tokyo.ac.jp (resolved?)
+#  				*) cannot send attachments
 #===============================================================================
 
 use strict;
 use warnings;
 use utf8;
+use MongoDB;
+use IO::Socket::SSL;
+use Data::Dumper;
 use Getopt::Long;
 use Email::MIME;
 use Email::Sender::Simple qw(sendmail);
-use Email::Sender::Transport::SMTPS;
-use Try::Tiny;
-use Email::Simple::Creator; # or other Email::
-use Email::Sender::Simple qw(sendmail);
+use Mail::IMAPClient;
+
+
+#global const's
+my $MAILSUFFIX = "\@ms.u-tokyo.ac.jp";
+my $SENTFOLDER = '1.Sent Messages';
+my $IMAPSERVER = 'mail.ms.u-tokyo.ac.jp';
+#global var's
+my $Testflag = 0;
+my $MailPass;
+#procedures
+sub parseMailFile{
+	(my $filename) = @_;
+	my $res = {BODY => ""};
+	open(my $fh, '< :encoding(UTF-8)', $filename);
+	while(<$fh>){
+		chomp;
+		printf(STDERR "line: %s\n",$_);
+		if(/^#([A-Z]+) (.*)/){
+			$res->{$1} = $2;
+		} else {
+			$res->{BODY} = $res->{BODY} . $_ . "\n";
+		}
+	}
+	return $res;
+}
+#sub mysendmail{
+#	(my %mail) = @_;
+#	printf("going to send: %s\n",Dumper(\%mail));
+#	return if($Testflag);
+#	my $message = Email::MIME->create(
+#	  header_str => [
+#		From    => $mail{FROM},
+#		To      => $mail{TO},
+#		Subject => $mail{TOPIC},
+#	  ],
+#	  attributes => {
+#		encoding => 'quoted-printable',
+#		charset  => 'UTF-8',
+#	  },
+#	  body_str => $mail{BODY},
+#	);
+#	sendmail($message);
+#}
+sub connectToMailBox{
+	(my $login, my $host,my $password) = @_;
+	my $ssl=new IO::Socket::SSL("$host:imaps");
+	die ("Error connecting - $@") unless defined $ssl;
+	$ssl->autoflush(1);
+	my $imap = Mail::IMAPClient->new(  
+					Socket=>$ssl,
+	#				Debug=>1,
+					Server => $host,
+					User    => $login,
+					Password=> $password,
+					Clear   => 5,   # Unnecessary since '5' is the default
+	#               ...             # Other key=>value pairs go here
+	)       or die "Cannot connect to $host as $login $@";
+	printf(STDERR "connected: %s\n",$imap->Connected());
+	printf(STDERR "authenticated %s\n",$imap->Authenticated());
+	return $imap;
+}
+sub mySaveToSentMail{
+	(my $login, my $mime) = @_;
+#	printf("going to save %s\n",Dumper(\%mail));
+#	my $MailPass = $mongoClient->ns("admin.passwords")->find_one({key=>"MATHEMAIL"})->{value};
+#	my $login = $mail{FROM} =~ s/\@.*//r;
+	my $imap = connectToMailBox($login,$IMAPSERVER,$MailPass);
+#	$imap->select($SENTFOLDER);
+#	$imap->message_to_file('/Users/oleksiileontiev/Downloads/test.eml',5006);
+	printf("%s: %s\n",'mailToMime',Dumper($mime->as_string));
+	$imap->append($SENTFOLDER,$mime->as_string) unless($Testflag);
+#	return $imap;
+#	printf("%s\n",join(' ',@INC));
+}
+sub mailToMime{
+	(my %mail) = @_;
+	my $email = Email::MIME->create(
+	  header_str => [
+		From    => $mail{FROM},
+		To      => $mail{TO},
+		Subject => $mail{TOPIC},
+	  ],
+	  attributes => {
+		encoding => 'quoted-printable',
+		charset  => 'UTF-8',
+	  },
+	  body_str => $mail{BODY},
+	); 
+	return $email;
+}
 
 #main
-my $password = '', my $mailfile = '';
-GetOptions ('password=s' => \$password, 'mailfile=s'=>\$mailfile);
-printf("p=%s\nm=%s\n",$password,$mailfile);
-my $transport = Email::Sender::Transport::SMTPS->new(
-		host => 'mail.ms.u-tokyo.ac.jp',
-		ssl  => 'starttls',
-		sasl_username => 'leontiev',
-		sasl_password => $password,
-		debug => 1, # or 1
+my $mongoClient = MongoDB->connect();
+my %cmdline;
+GetOptions(
+	"myemail=s" => \$cmdline{myemail}, #my login name
+	"testflag=i" => \$Testflag,
+	"mail=s" => \$cmdline{filename}
 );
-open(my $fh, '<:encoding(UTF-8)', $mailfile)
-  or die "Could not open file '$mailfile' $!";
-my $body = "";
-#my %mailHeader = (From => 'leontiev@ms.u-tokyo.ac.jp');
-my $mailstring = "";
-my $email = Email::Simple->new(\$mailstring);
-$email->header_set("From", 'leontiev@ms.u-tokyo.ac.jp');
-$email->header_set( 'Content-Type' => 'text/html' );
-$email->header_set( 'charset' => 'UTF-8' );
-$email->header_set( 'Content-Transfer-Encoding' => '8bit');
-while(<$fh>){
-	if(/^#TOPIC *(.*)$/){
-		printf("topic: \"%s\"\n",$1);
-		$email->header_set("Subject", $1);
-		next;
-	}
-	if(/^#TO *(.*)$/){
-		printf("to: \"%s\"\n",$1);
-		$email->header_set("To", $1);
-		next;
-	}
-	if(/^#CC *(.*)$/){
-		printf("cc: \"%s\"\n",$1);
-		$email->header_set("Cc", $1);
-		next;
-	}
-	$body .= $_;
-}
-printf("%s\n",$body);
-#FIXME
-#$email->body_set($body);
-$email->body_set("body");
-#print join(", ",keys(%mailHeader))."\n";
-#my $mr = \@%mailHeader;
-#my $message = Email::Simple->create(
-#		header => $mr,
-#		body => $body,
-#);
 
-try {
-		sendmail($email, { transport => $transport });
-} catch {
-		die "Error sending email: $_";
-};
+$cmdline{filename} //= '/Users/oleksiileontiev/Downloads/mail.mail';
+$cmdline{myemail} //= $mongoClient->ns("admin.passwords")->find_one({key=>"MYMATHMAILLOGIN"})->{value};
+
+$MailPass = $mongoClient->ns("admin.passwords")->find_one({key=>"MATHEMAIL"})->{value};
+my $mail = parseMailFile($cmdline{filename});
+$mail->{FROM} = $cmdline{myemail}.$MAILSUFFIX;
+my $mime = mailToMime(%$mail);
+sendmail($mime) unless($Testflag);
+mySaveToSentMail($mail->{FROM} =~ s/\@.*//r,$mime);

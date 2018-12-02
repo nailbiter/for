@@ -29,6 +29,23 @@
     С Уважением,
     Алексей
     """
+  'idei':
+    'prefix':'idei'
+    'body':"""
+    #TO idei@ms.u-tokyo.ac.jp
+    #CC tanma@ms.u-tokyo.ac.jp
+    #TOPIC D3のアレックス：${1:topic}
+    出射様
+    (cc:對間様)
+
+    お世話になっております。
+    D3のレオンチエフ・アレックスです。
+
+    ${2:body}
+
+    よろしくお願い申し上げます。
+    レオンチエフ・アレックス
+    """
   'Kobayashi Basic':
     'prefix':'小林'
     'body':"""
