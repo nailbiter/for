@@ -93,25 +93,25 @@ sub connectToMailBox{
 }
 sub mySaveToSentMail{
 	(my $login, my $mime) = @_;
-#	printf("going to save %s\n",Dumper(\%mail));
-#	my $MailPass = $mongoClient->ns("admin.passwords")->find_one({key=>"MATHEMAIL"})->{value};
-#	my $login = $mail{FROM} =~ s/\@.*//r;
 	my $imap = connectToMailBox($login,$IMAPSERVER,$MailPass);
-#	$imap->select($SENTFOLDER);
-#	$imap->message_to_file('/Users/oleksiileontiev/Downloads/test.eml',5006);
 	printf("%s: %s\n",'mailToMime',Dumper($mime->as_string));
 	$imap->append($SENTFOLDER,$mime->as_string) unless($Testflag);
-#	return $imap;
-#	printf("%s\n",join(' ',@INC));
 }
 sub mailToMime{
 	(my %mail) = @_;
-	my $email = Email::MIME->create(
-	  header_str => [
+
+	my @header_str = (
 		From    => $mail{FROM},
 		To      => $mail{TO},
 		Subject => $mail{TOPIC},
-	  ],
+	);
+	if( exists($mail{CC}) ){
+		push(@header_str,'Cc');
+		push(@header_str,$mail{CC});
+	}
+
+	my $email = Email::MIME->create(
+	  header_str => \@header_str,
 	  attributes => {
 		encoding => 'quoted-printable',
 		charset  => 'UTF-8',
