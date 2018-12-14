@@ -1,11 +1,14 @@
 {
-   "cardurl" : "https://trello.com/c/oqMSzCSM",
+   "urlnames" : {
+      "gitcommitsDescriptiveNames" : "https://trello.com/c/nLL7iBzO"
+   },
    "cardurlOld" : {
-      "writereviewrespaper" : "https://trello.com/c/V2tCLW7K",
       "kohno" : "https://trello.com/c/GsJmHDy6",
-      "sendmail" : "https://trello.com/c/pIvSZKfZ"
+      "sendmail" : "https://trello.com/c/pIvSZKfZ",
+      "writereviewrespaper" : "https://trello.com/c/V2tCLW7K"
    },
    "pulledData" : {
-      "trelloTitle" : "Idei report"
-   }
+      "trelloTitle" : "gitcommit descriptive names for urls"
+   },
+   "cardurl" : "gitcommitsDescriptiveNames"
 }

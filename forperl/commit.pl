@@ -95,7 +95,7 @@ $METHODS{commit}->{func} = sub {
 		my $json = parse_json($data);
 		close($fh);
 		printf(STDERR "got json: %s\n",Dumper($json));
-		$params{url} = $$json{cardurl};
+		$params{url} = getUrlFromConfigfile($json);
 		$json->{pulledData}->{trelloTitle} = $params{trelloTitle} = getTitle(%params,local=>$json);
 		writeData($json,$cmdline{configfile});
 		doCommit(%params);
@@ -107,6 +107,16 @@ $METHODS{commit}->{func} = sub {
 		}
 	}
 };
+sub getUrlFromConfigfile{
+	(my $json) = @_;
+	if($$json{cardurl} =~ /https:\/\/trello\.com\/c\/[a-zA-Z0-9]{8}/){
+		return $$json{cardurl};
+	} elsif( defined $$json{urlnames} ){
+		return $json->{urlnames}->{$$json{cardurl}};
+	} else {
+		die sprintf("cannot get %s",$$json{cardurl});
+	}
+}
 sub writeData{
 	(my $json,my $filename) = @_;
 	open my $fh, '>', $filename;
@@ -180,8 +190,6 @@ sub getTitle{
 		$res = parse_json($lwp->request( $req )->{_content});
 		return $res->{name};
 	} elsif(defined($args{local}) && defined($args{local}->{pulledData}->{trelloTitle})) {
-#		printf(STDERR "%s\n",Dumper($args{local}));
-#		die "here";
 		return $args{local}->{pulledData}->{trelloTitle};
 	} else {
 		die "hard";
