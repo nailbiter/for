@@ -1,0 +1,9 @@
+{
+   "cardurl" : "https://trello.com/c/E4Ei2Mbz",
+   "dependencies" : [
+      "fsbirthdayapp/"
+   ],
+   "pulledData" : {
+      "trelloTitle" : "birthday reminder bot"
+   }
+}
