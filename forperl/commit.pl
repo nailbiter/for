@@ -85,7 +85,7 @@ $METHODS{commit}->{func} = sub {
 	if(defined($cmdline{url})){
 		printf(STDERR "url branch with url=%s\n",$cmdline{url});
 		$params{url} = $cmdline{url};
-		$params{trelloTitle} = getTitle(%params);
+		$params{trelloTitle} = getTitle(params=>\%params);
 		doCommit(%params);
 	} else {
 		printf(STDERR "configfile branch with configfile=%s\n",$cmdline{configfile});
@@ -96,7 +96,7 @@ $METHODS{commit}->{func} = sub {
 		close($fh);
 		printf(STDERR "got json: %s\n",Dumper($json));
 		$params{url} = getUrlFromConfigfile($json);
-		$json->{pulledData}->{trelloTitle} = $params{trelloTitle} = getTitle({%params,local=>$json,cmdline=>\%cmdline});
+		$json->{pulledData}->{trelloTitle} = $params{trelloTitle} = getTitle(params=>\%params,local=>$json,cmdline=>\%cmdline);
 		writeData($json,$cmdline{configfile});
 		doCommit(%params);
 		if(exists $$json{dependencies}){
@@ -187,19 +187,20 @@ sub getTrelloCard{
 	return ($req,$lwp,$res);
 }
 sub getTitle{
-	(my $argref) = @_;
+	my %in = @_;
+	(my $argref,my $local, my $cmdline) = @in{'params','local','cmdline'};
 	my %args = %$argref;
-	if(defined($args{cmdline}->{title})){
-		printf(STDERR "here, set title: %s\n",$args{cmdline}->{title});
+	if(defined($cmdline->{title})){
+		printf(STDERR "here, set title: %s\n",$cmdline->{title});
 		$argref->{url} = '';
-		return $args{cmdline}->{title};
+		return $cmdline->{title};
 	} else {
 	    (my $req, my $lwp, my $res) = getTrelloCard(@args{"url","trelloKey","trelloToken"});
 		if($res->is_success){
 			$res = parse_json($lwp->request( $req )->{_content});
 			return $res->{name};
-		} elsif(defined($args{local}) && defined($args{local}->{pulledData}->{trelloTitle})) {
-			return $args{local}->{pulledData}->{trelloTitle};
+		} elsif(defined($local) && defined($local->{pulledData}->{trelloTitle})) {
+			return $local->{pulledData}->{trelloTitle};
 		} else {
 			die 'hard';
 		}
