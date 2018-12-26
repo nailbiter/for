@@ -96,7 +96,7 @@ $METHODS{commit}->{func} = sub {
 		close($fh);
 		printf(STDERR "got json: %s\n",Dumper($json));
 		$params{url} = getUrlFromConfigfile($json);
-		$json->{pulledData}->{trelloTitle} = $params{trelloTitle} = getTitle(%params,local=>$json);
+		$json->{pulledData}->{trelloTitle} = $params{trelloTitle} = getTitle({%params,local=>$json,cmdline=>\%cmdline});
 		writeData($json,$cmdline{configfile});
 		doCommit(%params);
 		if(exists $$json{dependencies}){
@@ -175,24 +175,34 @@ sub getBranchName{
 		}
 	}
 }
-sub getTitle{
-	my %args = @_;
-	(my $URL,my $trelloKey,my $trelloToken) = @args{"url","trelloKey","trelloToken"};
+sub getTrelloCard{
+	(my $URL,my $trelloKey,my $trelloToken) = @_;
 	$URL =~ /([0-9a-zA-Z]*)$/;
 	my $code = $1;
-	printf("code: %s\n",$code);
 	my $url = sprintf("https://api.trello.com/1/cards/%s?key=%s&token=%s",$code,$trelloKey,$trelloToken);
-	printf("url: %s\n",$url);
+	printf("code: %s\nurl: %s\n",$code,$url);
 	my $req = HTTP::Request->new( GET=> $url );
 	my $lwp = LWP::UserAgent->new;
 	my $res = $lwp->request( $req );
-	if($res->is_success){
-		$res = parse_json($lwp->request( $req )->{_content});
-		return $res->{name};
-	} elsif(defined($args{local}) && defined($args{local}->{pulledData}->{trelloTitle})) {
-		return $args{local}->{pulledData}->{trelloTitle};
+	return ($req,$lwp,$res);
+}
+sub getTitle{
+	(my $argref) = @_;
+	my %args = %$argref;
+	if(defined($args{cmdline}->{title})){
+		printf(STDERR "here, set title: %s\n",$args{cmdline}->{title});
+		$argref->{url} = '';
+		return $args{cmdline}->{title};
 	} else {
-		die "hard";
+	    (my $req, my $lwp, my $res) = getTrelloCard(@args{"url","trelloKey","trelloToken"});
+		if($res->is_success){
+			$res = parse_json($lwp->request( $req )->{_content});
+			return $res->{name};
+		} elsif(defined($args{local}) && defined($args{local}->{pulledData}->{trelloTitle})) {
+			return $args{local}->{pulledData}->{trelloTitle};
+		} else {
+			die 'hard';
+		}
 	}
 }
 sub getTrelloPasswords{
@@ -212,10 +222,15 @@ sub getTrelloMsgFromFile{
 
 #main
 my %cmdline;
+my %args;
+for(qw( url method configfile title )){
+	$args{$_.'=s'} = \$cmdline{$_};
+}
 GetOptions(
-	"url=s" =>\$cmdline{url},
-	"method=s" =>\$cmdline{method},
-	"configfile=s" => \$cmdline{configfile},
+#	"url=s" =>\$cmdline{url},
+#	"method=s" =>\$cmdline{method},
+#	"configfile=s" => \$cmdline{configfile},
+	%args,
 	"testmode=i" => \$Testmode,
 );
 $cmdline{method} //= "commit";
