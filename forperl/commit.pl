@@ -224,17 +224,14 @@ sub getTrelloMsgFromFile{
 #main
 my %cmdline;
 my %args;
-for(qw( url method configfile title )){
+for(qw( url configfile title )){
 	$args{$_.'=s'} = \$cmdline{$_};
 }
 GetOptions(
-#	"url=s" =>\$cmdline{url},
-#	"method=s" =>\$cmdline{method},
-#	"configfile=s" => \$cmdline{configfile},
 	%args,
 	"testmode=i" => \$Testmode,
 );
-$cmdline{method} //= "commit";
+
 unless(defined($cmdline{configfile}) || defined($cmdline{url})){
 	if(-e $DEFAULTCONFIGFILE){
 		$cmdline{configfile} = $DEFAULTCONFIGFILE;
@@ -243,4 +240,9 @@ unless(defined($cmdline{configfile}) || defined($cmdline{url})){
 	}
 }
 printf(STDERR "cmdline=%s\n",Dumper(\%cmdline));
-$METHODS{$cmdline{method}}->{func}->(%cmdline);
+
+my @leftover = (scalar(@ARGV) > 0) ? @ARGV : ("commit");
+for(@leftover){
+	my $method = $_;
+	$METHODS{$method}->{func}->(%cmdline);
+}
