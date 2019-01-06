@@ -82,6 +82,7 @@ sub extractTex{
 }
 sub extractBib{
 	(my $fh) = @_;
+	printf(STDERR "going to upload BIB!!\n");
 	my $parser = BibTeX::Parser->new($fh);
 	my @records;
 	while (my $entry = $parser->next ) {

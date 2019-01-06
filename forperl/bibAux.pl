@@ -58,6 +58,16 @@ sub processAuthor{
 				$FIRSTNAME = $1;
 			}
 			return {FIRSTNAME=>$FIRSTNAME,LASTNAME=>$LASTNAME};
+		} elsif(/[\.~]*/) {
+			my @split = split(' ',$_);
+			if(scalar(@split)!=2){
+				die $_;
+			}
+			(my $FIRSTNAME,my $LASTNAME) = @split;
+#			if($FIRSTNAME =~ /^(.*)\.$/){
+#				$FIRSTNAME = $1;
+#			}
+			return {FIRSTNAME=>$FIRSTNAME,LASTNAME=>$LASTNAME};
 		} else {
 			die $_;
 		}
