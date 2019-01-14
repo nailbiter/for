@@ -16,8 +16,11 @@
 #      VERSION: 1.0
 #      CREATED: 11/04/18 14:40:47
 #     REVISION: ---
-#  LIMITATIONS: *) cannot send outside ms.u-tokyo.ac.jp (resolved?)
+#        FIXME: *) cannot send outside ms.u-tokyo.ac.jp (resolved?)
 #  				*) cannot send attachments
+#      PRAGMAS: TO
+#      			FROM
+#      			TOPIC
 #===============================================================================
 
 use strict;
@@ -30,6 +33,10 @@ use Getopt::Long;
 use Email::MIME;
 use Email::Sender::Simple qw(sendmail);
 use Mail::IMAPClient;
+
+binmode(STDOUT, ":utf8");
+binmode(STDIN, ":utf8");
+binmode(STDERR, ":utf8");
 
 
 #global const's
@@ -46,33 +53,18 @@ sub parseMailFile{
 	open(my $fh, '< :encoding(UTF-8)', $filename);
 	while(<$fh>){
 		chomp;
-		printf(STDERR "line: %s\n",$_);
 		if(/^#([A-Z]+) (.*)/){
+			printf(STDERR "line(p): %s\n",$_);
 			$res->{$1} = $2;
 		} else {
+			printf(STDERR "line(b): %s\n",$_);
 			$res->{BODY} = $res->{BODY} . $_ . "\n";
 		}
 	}
+
+	printf(STDERR "res: %s\n",Dumper($res));
 	return $res;
 }
-#sub mysendmail{
-#	(my %mail) = @_;
-#	printf("going to send: %s\n",Dumper(\%mail));
-#	return if($Testflag);
-#	my $message = Email::MIME->create(
-#	  header_str => [
-#		From    => $mail{FROM},
-#		To      => $mail{TO},
-#		Subject => $mail{TOPIC},
-#	  ],
-#	  attributes => {
-#		encoding => 'quoted-printable',
-#		charset  => 'UTF-8',
-#	  },
-#	  body_str => $mail{BODY},
-#	);
-#	sendmail($message);
-#}
 sub connectToMailBox{
 	(my $login, my $host,my $password) = @_;
 	my $ssl=new IO::Socket::SSL("$host:imaps");
