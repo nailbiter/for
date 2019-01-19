@@ -1,9 +1,9 @@
 {
-   "urlnames" : {
-      "elix_book" : "https://trello.com/c/R64qzGjI"
-   },
    "cardurl" : "elix_book",
    "pulledData" : {
       "trelloTitle" : "read Elix book"
+   },
+   "urlnames" : {
+      "elix_book" : "https://trello.com/c/R64qzGjI"
    }
 }
