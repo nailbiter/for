@@ -64,7 +64,7 @@ my $JsonStore;
 my $DateString;
 my $CoordsRef;
 my $RectCoordsRef;
-#procedurus
+#procedures
 sub loadJsonFromFile{
 	my $fn = shift;
 	printf(STDERR "opening file %s\n",$fn);
