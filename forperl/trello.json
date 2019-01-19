@@ -2,11 +2,11 @@
    "urlnames" : {
       "sendmail" : "https://trello.com/c/pIvSZKfZ",
       "kohno" : "https://trello.com/c/GsJmHDy6",
-      "writereviewrespaper" : "https://trello.com/c/V2tCLW7K",
-      "gitcommitsDescriptiveNames" : "https://trello.com/c/nLL7iBzO"
+      "gitcommitsDescriptiveNames" : "https://trello.com/c/nLL7iBzO",
+      "writereviewrespaper" : "https://trello.com/c/V2tCLW7K"
    },
    "pulledData" : {
-      "trelloTitle" : "mailsender"
+      "trelloTitle" : "fix test.pl"
    },
-   "cardurl" : "sendmail"
+   "cardurl" : "https://trello.com/c/WCBNCymB"
 }

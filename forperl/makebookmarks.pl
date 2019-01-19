@@ -352,7 +352,7 @@ sub myExec{
 }
 sub getActsEvangelieLines{
 	my $acts; my $evangelie;
-	my $date = $_[0];
+	(my $date) = @_;
 	my $url = sprintf("http://www.patriarchia.ru/bu/%s/",$date);
 	my $sPage;
 	$sPage = `links -dump $url`;
@@ -398,6 +398,7 @@ GetOptions(
 	"original=s" => \$originalFile,
 );
 $originalFile //= "/Users/oleksiileontiev/Downloads/test.pdf";
+$coordsFile //= "makebookmarksCoords.json";
 my @fileparse = fileparse($originalFile,qr/\.[^.]*/);
 my $cr = loadJsonFromFile($coordsFile);
 $CoordsRef = $cr->{$DateString};
