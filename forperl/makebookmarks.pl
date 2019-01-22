@@ -40,9 +40,15 @@ my $RECTCOLOR = "white";
 my $TESTFLAG = 0;
 my %DICT = (
 	Lk=>["Лк","Luke","路加福音"],
+	In=>["Ин","John","約翰福音"],
+	Mk=>["Мк","Mark","馬可福音"],
 	Ef=>["Еф","Ephesians","以 弗 所 書"],
 	Kol=>["Кол","Colossians","歌羅西書"],
+	Rim=>["Рим","Romans","羅馬書"],
+	"1Kor"=>["1 Кор","1 Corinthians","哥林多前書"],
+	"2Kor"=>["2 Кор","2 Corinthians","哥林多後書"],
 	"1Tim"=>["1 Тим","1 Timothy","提摩太前書"],
+	"2Tim"=>["2 Тим","2 Timothy","提摩太後書"],
 	Gal=>["Гал","Galatians","加拉太書"],
 	Mf=>["Мф","Matthew","馬太福音"],
 	Evr=>["Евр","Hebrews","希伯來書"],
@@ -390,15 +396,13 @@ sub decoratedKey{
 }
 
 #main
-my $coordsFile;
-my $originalFile;
+my $coordsFile= "makebookmarksCoords.json";
+my $originalFile = "/Users/oleksiileontiev/Downloads/test.pdf";
 GetOptions(
 	"date=s" => \$DateString,
 	"coords=s" => \$coordsFile,
 	"original=s" => \$originalFile,
 );
-$originalFile //= "/Users/oleksiileontiev/Downloads/test.pdf";
-$coordsFile //= "makebookmarksCoords.json";
 my @fileparse = fileparse($originalFile,qr/\.[^.]*/);
 my $cr = loadJsonFromFile($coordsFile);
 $CoordsRef = $cr->{$DateString};
