@@ -5,8 +5,8 @@ all: images.zip
 	unzip -l $<
 	du -hs $<
 
-images.zip:forappaz.py settings.json
-	mkdir -p images
-	rm -rf images/*
+images.zip: forappaz.py settings.json
+	mkdir -p $(basename $@)
+	rm -rf $(basename $@)/*
 	$(PYTHON) $^
-	zip -r images images
+	zip -r $(basename $@) $(basename $@)
