@@ -14,7 +14,7 @@ with open(sys.argv[1],'r') as f:
 print(data);
 
 for i in range(data['count']):
-    img = np.zeros((data['image']['height'],data['image']['width'],3), np.uint8);
+    img = np.zeros((data['image']['height'],data['image']['width'],4), np.uint8);
     angle = radians(((data['count']-i)*data['startangle'])/data['count']);
     pt =( 
             (data['image']['width']+data['rect']['width'])//2,
