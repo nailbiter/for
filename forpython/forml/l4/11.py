@@ -10,12 +10,19 @@ import numpy
 import theano
 import theano.tensor as T
 import sklearn.metrics
-def l2(x):
-    return T.sum(x**2)
-def squared_error(x,y):
-    return (x - y) ** 2
+
+
+#global const's
 examples = 1000
 features = 100
+
+#procedures
+def l2(v):
+    return T.sum(v**2);
+def squared_error(xx, yy):
+    return (xx - yy) ** 2;
+
+#main
 D = (numpy.random.randn(examples, features), numpy.random.randn(examples))
 training_steps = 1000
 x = T.dmatrix("x")

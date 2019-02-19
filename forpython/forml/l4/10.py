@@ -12,11 +12,12 @@ import theano;
 import numpy as np;
 import sklearn.metrics;
 
+
 # global const's
 examples = 1000;
 features = 100;
 training_steps = 1000;
-
+penalty = 0.01;
 
 # procedures
 def l2(v):
@@ -31,7 +32,7 @@ w = theano.shared(r.randn(features), name="w");
 b = theano.shared(0., name="b");
 p = 1 / (1 + theano.tensor.exp(-theano.tensor.dot(x, w) - b))
 error = theano.tensor.nnet.binary_crossentropy(p, y)
-loss = error.mean() + 0.01 * l2(w)
+loss = error.mean() + penalty * l2(w)
 prediction = (p > 0.5);
 gw, gb = theano.tensor.grad(loss, [w, b]);
 train = theano.function(inputs=[x, y], outputs=[p, error], updates=((w, w - 0.1 * gw),
