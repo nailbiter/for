@@ -1,0 +1,7 @@
+SOURCES=$(addsuffix .java,$(addprefix src/main/java/com/mycompany/app/,\
+	BuildingFactory \
+	p/BuildingType \
+	)) \
+	src/main/java/App.java \
+	src/main/java/com/mycompany/app/Building.py
+

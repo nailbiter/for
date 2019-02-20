@@ -1,0 +1,5 @@
+.project
+.pydevproject
+cp.txt
+target/
+flags/

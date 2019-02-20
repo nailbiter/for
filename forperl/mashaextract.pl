@@ -49,7 +49,7 @@ for(@bildlist[-$count..-1]){
 	my $raw = `tesseract -l $lang '$bild' stdout`;
 #	my @temp = split("\n",$raw);
 #	push(@list,@temp);
-	printf("%s\n",$raw);
+	printf( "%s\n", $raw );
 }
 #for(@list){
 #	chomp;

@@ -49,7 +49,7 @@ my %METHODS = (
 	},
 	push=>{
 		description=>"git push",
-	}
+	},
 );
 #global var's
 my $Testmode = 0;
