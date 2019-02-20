@@ -97,9 +97,6 @@ sub parseCommandLine{
 }
 
 #main
-#GetOptions(
-#	"testflag=i" => \$Testflag,
-#);
 my %cmdline;
 parseCommandLine(\%cmdline,
 	'testflag=n',

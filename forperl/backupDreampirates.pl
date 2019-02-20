@@ -26,7 +26,7 @@ use MongoDB;
 
 
 #global const's
-my $SAVETODIR = "/Users/oleksiileontiev/dreampiratesBackup";
+my $SAVETODIR = "~/dreampiratesBackup";
 my $SUFF = "dup";
 #procedures
 sub myExec{
@@ -43,7 +43,7 @@ sub getLP{
 }
 sub getCurrentDateString{
 	(my $sec,my $min,my $hour,my $mday,my $mon,my $year,my $wday,my $yday,my $isdst) = localtime();
-	return sprintf("%04d%02d%02d",1900+$year,$mon+1,$mday);
+	return sprintf("%04d%02d%02d_%02d00",1900+$year,$mon+1,$mday,$hour);
 }
 sub populateDP{
 	my $piratesdata = shift;
