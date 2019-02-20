@@ -73,6 +73,7 @@ $METHODS{DOWN}->{func} = sub {
 	my $dirname = sprintf("%s/mongodump%s",'/tmp',getCurrentDateString());
 	myExec(sprintf("mongodump -d admin --gzip --out %s",$dirname));
 	printf("saved to %s/\n",$dirname);
+	myExec(sprintf("du -hs %s",$dirname));
 };
 sub myExec{
 	my $cmd = shift;
