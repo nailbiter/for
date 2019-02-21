@@ -52,8 +52,12 @@ sub GetUrlFromConfigfile{
 }
 sub WriteData{
 	(my $json,my $filename) = @_;
+	my %jsonToWrite = %$json;
+	for(qw( TITLE TESTFLAG )) {
+		undef $jsonToWrite{$_};
+	}
 	open my $fh, '>', $filename;
-	my $data = to_json($json,{pretty=>1});
+	my $data = to_json(\%jsonToWrite,{pretty=>1});
 	print $fh $data;
 	close($fh);
 	printf(STDERR "written to %s\n",$filename);
