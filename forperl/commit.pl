@@ -148,9 +148,8 @@ $METHODS{COMMIT}->{func} = sub {
 			);
 		}
 		$Environment{PULLEDDATA}->{TRELLOTITLE} = $title;
-		#$Environment{TITLE} //= GetTrelloCardTitle($Environment{CARDURL},@params{'trelloKey','trelloToken'});
-		#$params{TRELLOTITLE} = getTitle(params=>\%params,local=>$json,cmdline=>\%cmdline);
 
+		WriteData(\%Environment,(length($SaveConfigToFilename)>0)?$SaveConfigToFilename:$DEFAULTCONFIGFILE);
 		DoCommit($url,$title);
 		my $json = \%Environment;
 		if(exists $$json{dependencies}){
@@ -223,4 +222,3 @@ for my $lo (@leftover) {
 		printf("unknown leftover: \"%s\"\n",$lo);
 	}
 }
-WriteData(\%Environment,(length($SaveConfigToFilename)>0)?$SaveConfigToFilename:$DEFAULTCONFIGFILE);
