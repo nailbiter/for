@@ -98,18 +98,20 @@ sub GetTrelloCardTitle {
 		return $callback->();
 	}
 }
-sub DoCommit{
+sub doCommit{
 	(my $trelloUrl, my $trelloTitle, my $dir) = @_;
-	printf(STDERR "trello card url: %s",$trelloUrl);
+	printf(STDERR "trello card url: %s\n",$trelloUrl);
 	my $pref = '';
 	if( defined $dir ){
 		$pref = sprintf("cd %s &&",$dir);
 	}
 
 	my $filesChanged =`$pref git status -s --untracked-files=no`;
-	my $commitMsg = sprintf("%s\nfiles changed:\n%s\ntrello card: %s",$trelloTitle,$filesChanged,$trelloUrl);
-	my $command = sprintf("git commit -a -m \"%s\"",$commitMsg);
-	myExec($command,(dir=>$dir));
+	if( length($filesChanged) ) {
+		my $commitMsg = sprintf("%s\nfiles changed:\n%s\ntrello card: %s",$trelloTitle,$filesChanged,$trelloUrl);
+		my $command = sprintf("git commit -a -m \"%s\"",$commitMsg);
+		myExec($command,(dir=>$dir));
+	}
 }
 
 #main

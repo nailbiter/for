@@ -149,17 +149,32 @@ $METHODS{COMMIT}->{func} = sub {
 		}
 		$Environment{PULLEDDATA}->{TRELLOTITLE} = $title;
 
-		WriteData(\%Environment,(length($SaveConfigToFilename)>0)?$SaveConfigToFilename:$DEFAULTCONFIGFILE);
-		DoCommit($url,$title);
+		WriteData(\%Environment,(length($SaveConfigToFilename)>0)?$SaveConfigToFilename:$DEFAULTCONFIGFILE) unless($Environment{TESTFLAG});
+		doCommit($url,$title);
 		my $json = \%Environment;
-		if(exists $$json{dependencies}){
-			for(@{$$json{dependencies}}){
-				printf(STDERR "\tdependency: %s\n",$_);
-				#FIXME
-				#doCommit(%params, dir=>$_);
+		if(exists $$json{DEPENDENCIES}){
+			for(@{$$json{DEPENDENCIES}}){
+				my $dir = $$_{DIR};
+				printf(STDERR "\tdependency: %s\n",$dir);
+				doCommit($url,$title,$dir);
 			}
 		}
-	#}
+};
+$METHODS{PULL}->{func} = sub {
+	myExec('git pull');
+	if(exists $Environment{DEPENDENCIES}){
+		for(@{$Environment{DEPENDENCIES}}){
+			my $dir = $$_{DIR};
+			my $depUrl = $$_{URL};
+			printf(STDERR "\tdependency: %s\n",$dir);
+			my $dirToCheck = sprintf("%s/.git",$dir);
+			if( -e $dirToCheck and -d $dirToCheck ) {
+				myExec('git pull',(dir=>$dir));
+			} else {
+				myExec(sprintf("cd %s/.. && git clone %s",$dir,$depUrl));
+			}
+		}
+	}
 };
 $METHODS{PUSH}->{func} = sub {
 	my %cmdline = @_;
