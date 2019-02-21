@@ -54,7 +54,7 @@ sub WriteData{
 	(my $json,my $filename) = @_;
 	my %jsonToWrite = %$json;
 	for(qw( TITLE TESTFLAG )) {
-		undef $jsonToWrite{$_};
+		delete $jsonToWrite{$_};
 	}
 	open my $fh, '>', $filename;
 	my $data = to_json(\%jsonToWrite,{pretty=>1});

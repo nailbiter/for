@@ -1,15 +1,13 @@
 {
    "CARDURL" : "https://trello.com/c/RsH6Pax4",
-   "TESTFLAG" : null,
-   "TITLE" : null,
    "URLNAMES" : {
-      "kohno" : "https://trello.com/c/GsJmHDy6",
-      "writereviewrespaper" : "https://trello.com/c/V2tCLW7K",
       "gitcommitsDescriptiveNames" : "https://trello.com/c/nLL7iBzO",
-      "sendmail" : "https://trello.com/c/pIvSZKfZ"
+      "writereviewrespaper" : "https://trello.com/c/V2tCLW7K",
+      "sendmail" : "https://trello.com/c/pIvSZKfZ",
+      "kohno" : "https://trello.com/c/GsJmHDy6"
    },
    "PULLEDDATA" : {
-      "trelloTitle" : "read XD",
-      "TRELLOTITLE" : "read XD"
+      "TRELLOTITLE" : "read XD",
+      "trelloTitle" : "read XD"
    }
 }
