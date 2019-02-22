@@ -111,54 +111,40 @@ $METHODS{BRANCH}->{func} = sub{
 	print getBranchName($trelloMsg,$trelloKey,$trelloToken)."\n";
 };
 $METHODS{COMMIT}->{func} = sub {
-	#my %cmdline = @_;
-	#my %params;
-	#@params{'trelloKey','trelloToken'} = getTrelloPasswords();
-
-	#if(defined($cmdline{url})){
-	#	printf(STDERR "url branch with url=%s\n",$cmdline{url});
-	#	$params{url} = $cmdline{url};
-	#	$params{trelloTitle} = getTitle(params=>\%params);
-	#	doCommit(%params);
-	#} else {
-		#printf(STDERR "configfile branch with configfile=%s\n",$cmdline{configfile});
-		#open my $fh, '<', $cmdline{configfile} or 
-		#	die sprintf("error opening %s\nerror=%s\n",$cmdline{configfile},$!);
-		#my $data = do { local $/; <$fh> };
-		#my $json = parse_json($data);
-		#close($fh);
-		#printf(STDERR "got json: %s\n",Dumper($json));
-		#$params{url} = GetUrlFromConfigfile(\%Environment);
-		#$params{URL} = $Environment{CARDURL};
-		my $title = '';
-		my $url = $Environment{CARDURL};
-		if( defined $Environment{TITLE} ) {
-			$title = $Environment{TITLE};
-		} else {
-			$title = GetTrelloCardTitle($Environment{CARDURL},
-				getTrelloPasswords(),
-				sub {
-					if( defined $Environment{PULLEDDATA} ) {
-						$url = '';
-						return $Environment{PULLEDDATA}->{TRELLOTITLE};
-					} else {
-						die "hard";
-					}
+	my %card = (
+		title => '',
+		url => $Environment{CARDURL},
+	);
+	if( defined $Environment{TITLE} ) {
+		$card{title} = $Environment{TITLE};
+	} else {
+		%card = (%card,GetTrelloCardTitle($Environment{CARDURL},
+			getTrelloPasswords(),
+			sub {
+				if( defined $Environment{PULLEDDATA} ) {
+					return (
+						#url => '',
+						title => $Environment{PULLEDDATA}->{TRELLOTITLE},
+						checklist => [],
+					);
+				} else {
+					die "hard";
 				}
-			);
-		}
-		$Environment{PULLEDDATA}->{TRELLOTITLE} = $title;
-
-		WriteData(\%Environment,(length($SaveConfigToFilename)>0)?$SaveConfigToFilename:$DEFAULTCONFIGFILE) unless($Environment{TESTFLAG});
-		doCommit($url,$title);
-		my $json = \%Environment;
-		if(exists $$json{DEPENDENCIES}){
-			for(@{$$json{DEPENDENCIES}}){
-				my $dir = $$_{DIR};
-				printf(STDERR "\tdependency: %s\n",$dir);
-				doCommit($url,$title,$dir);
 			}
+		));
+	}
+	$Environment{PULLEDDATA}->{TRELLOTITLE} = $card{title};
+
+	WriteData(\%Environment,(length($SaveConfigToFilename)>0)?$SaveConfigToFilename:$DEFAULTCONFIGFILE) unless($Environment{TESTFLAG});
+	my @args = @card{'url','title','checklist'};
+	doCommit(@args);
+	if(exists $Environment{DEPENDENCIES}){
+		for(@{$Environment{DEPENDENCIES}}){
+			my $dir = $$_{DIR};
+			printf(STDERR "\tdependency: %s\n",$dir);
+			doCommit(@args,$dir);
 		}
+	}
 };
 $METHODS{PULL}->{func} = sub {
 	myExec('git pull');

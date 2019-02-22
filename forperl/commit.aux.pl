@@ -75,7 +75,7 @@ sub ParseCommandLine{
 		%args,
 	);
 }
-sub GetTrelloCard{
+sub GetTrelloCard {
 	(my $URL,my $trelloKey,my $trelloToken) = @_;
 	$URL =~ /([0-9a-zA-Z]*)$/;
 	my $code = $1;
@@ -86,32 +86,78 @@ sub GetTrelloCard{
 	my $res = $lwp->request( $req );
 	return ($req,$lwp,$res);
 }
+sub GetTrelloChecklist {
+	(my $code,my $trelloKey,my $trelloToken) = @_;
+	my $url = sprintf("https://api.trello.com/1/checklist/%s?key=%s&token=%s",$code,$trelloKey,$trelloToken);
+	printf("code: %s\nurl: %s\n",$code,$url);
+	my $req = HTTP::Request->new( GET=> $url );
+	my $lwp = LWP::UserAgent->new;
+	my $res = $lwp->request( $req );
+	return ($req,$lwp,$res);
+}
 sub GetTrelloCardTitle {
 	(my $URL,my $trelloKey,my $trelloToken,my $callback) = @_;
 	my %args;
-	@args{"url","trelloKey","trelloToken"} = ($URL, $trelloKey, $trelloToken);
-	(my $req, my $lwp, my $res) = GetTrelloCard(@args{"url","trelloKey","trelloToken"});
+	(my $req, my $lwp, my $res) = GetTrelloCard($URL, $trelloKey, $trelloToken);
 	if($res->is_success){
 		$res = parse_json($lwp->request( $req )->{_content});
-		return $res->{name};
+		printf(STDERR "got card: %s\n",Dumper($res));
+		my @checklists;
+		for my $id ( @{$$res{idChecklists}} ) {
+			(my $req, my $lwp, my $res) = GetTrelloChecklist($id, $trelloKey, $trelloToken);
+			#if($res->is_success){
+			$res = parse_json($lwp->request( $req )->{_content});#->{checkItems};
+			printf(STDERR "got checklist %s\n",Dumper($res));
+			push(@checklists,{
+					ITEMS=>$$res{checkItems},
+					NAME=>$$res{name},
+				});
+		}
+		return (
+			title=>$res->{name},
+			checklist=>\@checklists,
+		);
 	} else {
 		return $callback->();
 	}
 }
 sub doCommit{
-	(my $trelloUrl, my $trelloTitle, my $dir) = @_;
+	(my $trelloUrl, my $trelloTitle, my $checklist, my $dir) = @_;
 	printf(STDERR "trello card url: %s\n",$trelloUrl);
+
+	my $filesChanged = GetFilesChanged($trelloUrl,$trelloTitle,$dir);
+	if( length($filesChanged) ) {
+		my $commitMsg = join("\n",
+			$trelloTitle,
+			scalar(@$checklist)>0 ? sprintf("checklists:\n%s",PrintChecklists(@$checklist)) : undef,
+			sprintf("files changed:\n%s",$filesChanged),
+			sprintf("trello card: %s",$trelloUrl),
+		);
+		my $command = sprintf("git commit -a -m \"%s\"",$commitMsg);
+		myExec($command,(dir=>$dir));
+	}
+}
+sub PrintChecklists{
+	my @checklists = @_;
+	my $res = "";
+	for my $checklist (@checklists) {
+		$res = $res . sprintf("%s\n",$$checklist{NAME});
+		for my $item (@{$$checklist{ITEMS}}) {
+			$res = $res . sprintf("\t%s %s\n",
+				($$item{state} eq "complete") ? "v" : "o",
+				$$item{name},
+			);
+		}
+	}
+	return $res;
+}
+sub GetFilesChanged {
+	(my $trelloUrl, my $trelloTitle, my $dir) = @_;
 	my $pref = '';
 	if( defined $dir ){
 		$pref = sprintf("cd %s &&",$dir);
 	}
-
-	my $filesChanged =`$pref git status -s --untracked-files=no`;
-	if( length($filesChanged) ) {
-		my $commitMsg = sprintf("%s\nfiles changed:\n%s\ntrello card: %s",$trelloTitle,$filesChanged,$trelloUrl);
-		my $command = sprintf("git commit -a -m \"%s\"",$commitMsg);
-		myExec($command,(dir=>$dir));
-	}
+	return `$pref git status -s --untracked-files=no`;
 }
 
 #main
