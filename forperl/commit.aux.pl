@@ -142,7 +142,9 @@ sub PrintChecklists{
 	my $res = "";
 	for my $checklist (@checklists) {
 		$res = $res . sprintf("%s\n",$$checklist{NAME});
-		for my $item (@{$$checklist{ITEMS}}) {
+		my @cl = @{$$checklist{ITEMS}};
+		@cl = sort {$$a{pos} <=> $$b{pos}} @cl ;
+		for my $item (@cl) {
 			$res = $res . sprintf("\t%s %s\n",
 				($$item{state} eq "complete") ? "v" : "o",
 				$$item{name},
