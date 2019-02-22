@@ -1,0 +1,19 @@
+{
+	"UPLOADTO":"alumni",
+	"PROFILES":{
+		"UPLOADTO": {
+			"alumni":{
+				"PASS":"ALUMNIPASS",
+				"IP":"alumni.cs.nctu.edu.tw",
+				"LOGIN":"inp9822058",
+				"DIR":"~/public_html/CVmath/"
+			}
+		},
+		"DB": {
+			"mac":{
+				"IP":"192.168.1.207"
+			}
+		}
+	},
+	"DB":"mac"
+}
