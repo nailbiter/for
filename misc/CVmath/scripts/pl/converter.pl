@@ -23,12 +23,18 @@ use warnings;
 use utf8;
 use Data::Dumper;
 use String::Util qw(trim);
+use Template;
+use FindBin;
 
 
-#main
-(my $from, my $to) = @ARGV;
-if( ($from =~ /\.csv$/) && ($to =~ /\.html$/) ) {
-	(my $configfile) = ($from);
+#global const's
+#global var's
+my $tt = Template->new({
+    INCLUDE_PATH => "$FindBin::Bin/templates",
+    }) || die "$Template::ERROR\n";
+#procedures
+sub loadSimpleCsv {
+	(my $configfile) = @_;
 	my @tsv;
 	if ( open my $fh, '<', $configfile ) {
 		my $data = do { local $/; <$fh> };
@@ -49,7 +55,58 @@ if( ($from =~ /\.csv$/) && ($to =~ /\.html$/) ) {
 		}
 		push(@res,\%hash);
 	}
-	printf("%s\n",Dumper(\@res));
+	return (
+		HEADER => $headers,
+		RECORDS => \@res,
+	);
+}
+sub printTableRow {
+	my %hash = @_;
+	my @row = @{$hash{ROW}};
+	$hash{TAG} //= 'td';
+	my @res;
+	for my $item (@row) {
+		push (@res, sprintf("<%s>%s</%s>",
+				$hash{TAG},
+				printItem($item),
+				$hash{TAG},
+			));
+	}
+	return sprintf("<%s>%s</%s>",
+		'tr',
+		join(" ",@res),
+		'tr',
+	);
+}
+sub printItem {
+	(my $item) = @_;
+	if( $item =~ /^https?:\/\// ) {
+		return sprintf("<a href=\"%s\">%s</a>",$item,$item);
+	} else {
+		return $item;
+	}
+}
+sub printTable {
+	(my $header, my $records) = @_;
+	my @res = (printTableRow(ROW=>$header,TAG=>'th'));
+
+	for my $record (@$records) {
+		my %hash = %$record;
+		my @row = @hash{@$header};
+		push(@res,printTableRow(ROW=>\@row));
+	}
+
+	return sprintf("<table border=\"1\">%s</table>",join("\n",@res));
+}
+
+#main
+(my $from, my $to) = @ARGV;
+if( ($from =~ /\.csv$/) && ($to =~ /\.html$/) ) {
+	my %res = loadSimpleCsv($from);
+	open my $fh, '>', $to or die 'hard';
+    $tt->process('csv2html.html', {BODY => printTable(@res{'HEADER','RECORDS'})}, $fh) 
+		|| die $tt->error(), "\n";
+	close ($fh);
 } else {
 	printf("don't know how to convert \"%s\"->\"%s\"\n",$from,$to);
 }
