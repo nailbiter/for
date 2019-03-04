@@ -35,6 +35,7 @@ require "$FindBin::Bin/commit.aux.pl";
 
 
 #global const's
+my $BRANCHPREFIX = "alex_";
 my $DEFAULTCONFIGFILE = "trello.json";
 my $DEFAULTMETHOD = "commit";
 our %METHODS = (
@@ -76,7 +77,7 @@ my $SaveConfigToFilename = '';
 #procedures
 sub processConfigFile {
 	(my $configfile) = @_;
-	printf("config file: %s\n",$configfile);
+	printf(STDERR "config file: %s\n",$configfile);
 
 	#FIXME $configfile -> basename($configfile)
 	if( ( $configfile ne $DEFAULTCONFIGFILE ) and ( length($SaveConfigToFilename) == 0 ) ) {
@@ -93,7 +94,7 @@ sub processConfigFile {
 	for( keys %$json ) {
 		$Environment{uc($_)} = $json->{$_};
 	}
-	printf("env: %s\n",Dumper(\%Environment));
+	printf(STDERR "env: %s\n",Dumper(\%Environment));
 }
 sub processMethod {
 	(my $method) = @_;
@@ -101,14 +102,20 @@ sub processMethod {
 	if( not defined $METHODS{$method} ) {
 		$method = 'HELP';
 	}
-	printf("_method: %s\n",$method);
+	printf(STDERR "_method: %s\n",$method);
 	$METHODS{$method}->{func}->(%Environment);
 }
 $METHODS{BRANCH}->{func} = sub{
-	my $trelloMsg = getTrelloMsgFromFile();
-	printf(STDERR "trelloMsg: %s",$trelloMsg) if $Environment{TESTFLAG};
-	(my $trelloKey,my $trelloToken) = getTrelloPasswords();
-	print getBranchName($trelloMsg,$trelloKey,$trelloToken)."\n";
+#	my $trelloMsg = getTrelloMsgFromFile();
+#	printf(STDERR "trelloMsg: %s",$trelloMsg) if $Environment{TESTFLAG};
+#	(my $trelloKey,my $trelloToken) = getTrelloPasswords();
+#	print getBranchName($trelloMsg,$trelloKey,$trelloToken)."\n";
+	my $url = $Environment{CARDURL};
+	if($url =~ /https:\/\/trello.com\/c\/([a-zA-Z]{8})/) {
+		printf("%s%s\n",$BRANCHPREFIX,$1);
+	} else {
+		die sprintf("cannot parse url %s\n",$url);
+	}
 };
 $METHODS{COMMIT}->{func} = sub {
 	my %card = (
