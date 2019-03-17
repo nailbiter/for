@@ -1,10 +1,15 @@
+#!/usr/bin/env perl 
+
 use strict;
 use warnings;
+use utf8;
 use Template;
 use JSON;
 use Getopt::Long;
 use Data::Dumper;
-require 'generateAux.pl';
+use FindBin;
+require "$FindBin::Bin/generateAux.pl";
+binmode STDOUT, ':utf8';
 
 
 #global const's
@@ -84,6 +89,7 @@ my %DISPATCH = (
 #global var's
 my $tt = Template->new({
     INCLUDE_PATH => 'templates',
+	ENCODING     => 'utf8',
     }) || die "$Template::ERROR\n";
 #procedures
 sub generateContent{
@@ -102,10 +108,16 @@ sub generateContent{
 
 #main
 my $jsonFileName; my $configName;
+my @plugins;
 GetOptions(
 	"jsonfilename=s" => \$jsonFileName,
   "config=s" => \$configName,
+  "plugin=s@" => \@plugins,
 );
+for(@plugins) {
+	printf(STDERR "plugin: %s\n",$_);
+	require "$_";
+}
 my $dataJson = loadJsonFromFile($jsonFileName);
 my $configJson = loadJsonFromFile($configName);
 my $vars = $configJson->{VARS};
