@@ -5,4 +5,4 @@ export PATH=$PATH:~/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/s
 export EDITOR=vim
 export SHELL=/bin/zsh
 alias rm="rm-p -i"
-
+alias mygit="~/for/forperl/commit.pl"
