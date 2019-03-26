@@ -121,6 +121,14 @@ sub GetTrelloCardTitle {
 		return $callback->();
 	}
 }
+sub ComputeCardUrl{
+	my %env = @_;
+	if( $env{CARDURL} =~ /https:\/\/trello\.com\/c\/[0-9a-zA-Z]{8}/ ) {
+		return $env{CARDURL};
+	} else {
+		return $env{URLNAMES}->{$env{CARDURL}};
+	}
+}
 sub doCommit{
 	(my $trelloUrl, my $trelloTitle, my $checklist, my $dir) = @_;
 	printf(STDERR "trello card url: %s\n",$trelloUrl);

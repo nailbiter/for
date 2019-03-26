@@ -120,12 +120,13 @@ $METHODS{BRANCH}->{func} = sub{
 $METHODS{COMMIT}->{func} = sub {
 	my %card = (
 		title => '',
-		url => $Environment{CARDURL},
+#		url => $Environment{CARDURL},
+		url => ComputeCardUrl(%Environment),
 	);
 	if( defined $Environment{TITLE} ) {
 		$card{title} = $Environment{TITLE};
 	} else {
-		%card = (%card,GetTrelloCardTitle($Environment{CARDURL},
+		%card = (%card,GetTrelloCardTitle($card{url},
 			getTrelloPasswords(),
 			sub {
 				if( defined $Environment{PULLEDDATA} ) {
