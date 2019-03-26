@@ -148,7 +148,7 @@ $METHODS{COMMIT}->{func} = sub {
 	doCommit(@args);
 	if(exists $Environment{DEPENDENCIES}){
 		for(@{$Environment{DEPENDENCIES}}){
-			my $dir = $$_{DIR};
+			my $dir = $_->{DIR};
 			printf(STDERR "\tdependency: %s\n",$dir);
 			doCommit(@args,$dir);
 		}

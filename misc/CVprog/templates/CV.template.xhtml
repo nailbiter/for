@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title xml:lang="en-US">
       <!-- 履歴書 -->
-      Curriculum Vitae
+      [%TITLE%]
     </title>
     <meta name="DCTERMS.title" content="履歴書" xml:lang="en-US" />
     <meta name="DCTERMS.language" content="en-US" scheme="DCTERMS.RFC4646" />
@@ -29,14 +29,13 @@
       <p class="P2">
         <span class="T1">
           <!-- 履歴書 -->
-          Curriculum Vitae
+	  [% TITLE %]
         </span>
       </p>
       <p class="P3"> </p>
       <div class="P1">
         <span class="T2">
-          <!-- 28 年  08 月  20 日現在 -->
-          Last Update: [%LASTUPDATE%]
+          [% LASTUPDATETEXT %]: [%LASTUPDATE%]
         </span>
       </div>
       <p class="P4"> </p>
@@ -56,12 +55,12 @@
           </colgroup>
       <tr class="Table12">
         <td style="text-align:left;" class="TTB Table1_A2">
-          <p class="P44"><span class="T11">[% NAME %]</span></p>
+          <p class="P44"><span class="T11">[% NAMETEXT %]</span></p>
         </td>
         <td colspan="5" style="text-align:left;width:0.8431in;" class="TTB Table1_B2">
           <p class="P26"> </p>
-          <p class="P34">
-            <span class="T35">Oleksii        Leontiev</span>
+          <p class="P34" [% P34CSS %]>
+            <span class="T35">[% NAME %]</span>
           </p>
         </td>
         <td rowspan="4" style="text-align:center;width:1.5in;" class="Table1_K1">
@@ -71,11 +70,11 @@
       <tr class="Table13">
         <td class="TLB tRB"><p class="P44"><span class="T11">[% DATEOFBIRTH %]</span></p></td>
         <td colspan="3" class="tRB"><p class="P44"><span class="T11">[% BIRTHDATE %]</span></p></td>
-        <td colspan="2"><p class="P44"><span class="T11">Gender: Male</span></p></td>
+        <td colspan="2"><p class="P44"><span class="T11">[%GENDERMALE%]</span></p></td>
       </tr>
       <tr class="Table13">
         <td class="TLB tRB"></td>
-        <td colspan="3" class="tRB"><p class="P44"><span class="T11">(26 years old)</span></p></td>
+        <td colspan="3" class="tRB"><p class="P44"><span class="T11">[%HOWOLD%]</span></p></td>
         <td colspan="2"></td>
       </tr>
       <tr class="Table15">

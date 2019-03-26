@@ -3,21 +3,7 @@ use warnings;
 use Data::Dumper;
 
 #global const's
-my @MONTHS = (
-  '',"Jan","Feb",
-  "Mar","Apr","May",
-  "Jun","Jul","Aug",
-  "Sep","Oct","Nov",
-  "Dec",
-);
 #procedures
-sub months{
-  # printf(STDERR "months got %s\n",$_[0]);
-  return $MONTHS[$_[0]];
-}
-sub heisei{
-  return 1988+$_[0];
-}
 sub makeHref{
   (my $target,my $text) = @_;
   $text //= $target;
@@ -38,28 +24,12 @@ sub printLine{
   }
   return sprintf($printline,@stack);
 }
-sub processDataSimple{
-  if(defined $_[0]){
-    my %list = %{$_[0]};
-    my %res = %list;
-    $res{year} = join("-",map {heisei($_)} @{$list{year}});
-    $res{month} = join("-",map {$MONTHS[$_]} @{$list{month}});
-    $res{description} = printLine(@{$list{description}});
-    return \%res;
-  } else {
-    return {
-      year=>"&nbsp;",
-      month=>"",
-      description=>"",
-    };
-  }
-}
 sub loadJsonFromFile{
 	my $fn = shift;
 	printf(STDERR "opening file %s\n",$fn);
 	my $document;
 	my $fh;
-	if(open($fh, $fn)){
+	if(open($fh,'<:encoding(UTF-8)', $fn)){
 		$document = do { local $/; <$fh> };
 	} else {
 		$document ="{}";
