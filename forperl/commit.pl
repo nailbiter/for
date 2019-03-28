@@ -137,7 +137,7 @@ $METHODS{COMMIT}->{callback} = sub {
 	}
 	$Environment{PULLEDDATA}->{TRELLOTITLE} = $card{title};
 
-	WriteData(\%Environment,$LOCALSTORE) unless($Environment{TESTFLAG});
+	WriteData({PULLEDDATA=>$Environment{PULLEDDATA}},$LOCALSTORE) unless($Environment{TESTFLAG});
 	my @args = @card{'url','title','checklist'};
 	doCommit(@args);
 	if(exists $Environment{DEPENDENCIES}){
