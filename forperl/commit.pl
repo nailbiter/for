@@ -104,10 +104,6 @@ sub processMethod {
 	$METHODS{$method}->{func}->(%Environment);
 }
 $METHODS{BRANCH}->{func} = sub{
-#	my $trelloMsg = getTrelloMsgFromFile();
-#	printf(STDERR "trelloMsg: %s",$trelloMsg) if $Environment{TESTFLAG};
-#	(my $trelloKey,my $trelloToken) = getTrelloPasswords();
-#	print getBranchName($trelloMsg,$trelloKey,$trelloToken)."\n";
 	my $url = $Environment{CARDURL};
 	if($url =~ /https:\/\/trello.com\/c\/([a-zA-Z]{8})/) {
 		printf("%s%s\n",$BRANCHPREFIX,$1);
@@ -141,7 +137,7 @@ $METHODS{COMMIT}->{callback} = sub {
 	}
 	$Environment{PULLEDDATA}->{TRELLOTITLE} = $card{title};
 
-	WriteData(\%Environment,(length($SaveConfigToFilename)>0)?$SaveConfigToFilename:$DEFAULTCONFIGFILE) unless($Environment{TESTFLAG});
+	WriteData(\%Environment,$LOCALSTORE) unless($Environment{TESTFLAG});
 	my @args = @card{'url','title','checklist'};
 	doCommit(@args);
 	if(exists $Environment{DEPENDENCIES}){
@@ -169,9 +165,10 @@ $METHODS{PULL}->{func} = sub {
 	}
 };
 $METHODS{PUSH}->{func} = sub {
+	my %Environment = %{$_[0]};
 	my %cmdline = @_;
 	unless(defined($cmdline{configfile})){
-		myExec("git push");
+		MyExec("git push",$Environment{TESTFLAG});
 	} else {
 		printf(STDERR "configfile branch with configfile=%s\n",$cmdline{configfile});
 		open my $fh, '<', $cmdline{configfile} or 
@@ -179,11 +176,11 @@ $METHODS{PUSH}->{func} = sub {
 		my $data = do { local $/; <$fh> };
 		my $json = parse_json($data);
 		printf(STDERR "got json: %s\n",Dumper($json));
-		myExec("git push");
+		MyExec("git push",$Environment{TESTFLAG});
 		if(exists $$json{dependencies}){
 			for(@{$$json{dependencies}}){
 				printf(STDERR "\tdependency: %s\n",$_);
-				myExec("git push",dir=>$_);
+				MyExec("git push",$Environment{TESTFLAG},dir=>$_);
 			}
 		}
 	}
