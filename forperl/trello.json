@@ -1,8 +1,5 @@
 {
    "CARDURL" : "split_trello_json",
-   "PULLEDDATA" : {
-      "TRELLOTITLE" : "commit.pl"
-   },
    "URLNAMES" : {
       "writereviewrespaper" : "https://trello.com/c/V2tCLW7K",
       "split_trello_json" : "https://trello.com/c/KMwsFFKX",
