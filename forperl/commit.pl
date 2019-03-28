@@ -32,22 +32,20 @@ use Data::Dumper;
 use File::Basename;
 use FindBin;
 require "$FindBin::Bin/commit.aux.pl";
+require "$FindBin::Bin/util.pl";
 
 
 #global const's
 my $BRANCHPREFIX = "alex_";
 my $DEFAULTCONFIGFILE = "trello.json";
-my $DEFAULTMETHOD = "commit";
+my $LOCALSTORE = ".pulled_data.json";
 our %METHODS = (
 	BRANCH=>{
 		description=>"get branch name",
 	},
-	HELP=>{
-		description=>"display this message",
-		func => \&printHelp,
-	},
 	COMMIT=>{
 		description=>"make a commit",
+		isDefault => 1,
 	},
 	PUSH=>{
 		description=>"git push",
@@ -117,10 +115,10 @@ $METHODS{BRANCH}->{func} = sub{
 		die sprintf("cannot parse url %s\n",$url);
 	}
 };
-$METHODS{COMMIT}->{func} = sub {
+$METHODS{COMMIT}->{callback} = sub {
+	my %Environment = %{$_[0]};
 	my %card = (
 		title => '',
-#		url => $Environment{CARDURL},
 		url => ComputeCardUrl(%Environment),
 	);
 	if( defined $Environment{TITLE} ) {
@@ -209,25 +207,14 @@ sub getBranchName{
 }
 
 #main
-processConfigFile($DEFAULTCONFIGFILE);
-ParseCommandLine(\%Environment,
-	'testflag=n',
-	'title=n',
-);
-$Environment{TESTFLAG} //= 0;
-
-my @leftover = (scalar(@ARGV) > 0) ? @ARGV : ($DEFAULTMETHOD);
-#@leftover = ($DEFAULTCONFIGFILE, @leftover);
-for my $lo (@leftover) {
-	my $wasProcessed = 0;
-	foreach my $processor (@LEFTOVERPROCESSORS) {
-		if( $processor->{PREDICATE}->($lo) ) {
-			$processor->{CALLBACK}->($lo);
-			$wasProcessed = 1;
-			last;
-		}
-	}
-	if( not $wasProcessed ) {
-		printf("unknown leftover: \"%s\"\n",$lo);
-	}
+my @args;
+for(qw( testflag title )) {
+	push(@args, sprintf("%s=n",$_));
 }
+ParseCommandLine(\%Environment,@args);
+Process(
+	env=>\%Environment,
+	methods=>\%METHODS,
+	argv=>\@ARGV,
+	parseJsons=>[$DEFAULTCONFIGFILE,$LOCALSTORE],
+);

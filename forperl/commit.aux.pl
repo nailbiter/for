@@ -20,16 +20,6 @@ sub getTrelloPasswords{
 	printf(STDERR "token: %s\n",$token) if $Environment{TESTFLAG};
 	return ($key,$token);
 }
-sub printHelp {
-	my %cmdline = @_;
-	my $t = Text::TabularDisplay->new(qw(method description));
-	for(keys(%METHODS)){
-		my $description = $METHODS{$_}->{description};
-		$description //= lc($_);
-		$t->add($_,$description);
-	}
-	printf("%s\n",$t->render);
-}
 sub myExec{
 	(my $cmd, my %aux) = @_;
 	if(defined $aux{dir}){
