@@ -4,6 +4,25 @@
 	<title>TITLE</title>
 </head>
 <body>
-[% BODY %]
+	<table border="1">
+		<tr>
+		[% FOREACH item = SPEECHES.HEADERS %]
+			<th>[%item%]</th>
+		[% END %]
+		</tr>
+		[% FOREACH item = SPEECHES.RECORDS %]
+			<tr>
+				[% FOREACH hn = SPEECHES.HEADERS %]
+				<td>
+					[% IF hn=='Web-page'%]
+						<a href="[% item.$hn %]">[% item.$hn %]</a>
+					[% ELSE %]
+						[% item.$hn %]
+					[% END %]
+				[% END %]
+				</td>
+			</tr>
+		[% END %]
+	</table>
 </body>
 </html>
