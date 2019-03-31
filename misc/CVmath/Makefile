@@ -11,7 +11,8 @@ CSVDIR=csv
 #procedures
 
 #main
-all: $(addprefix $(FLAGDIR)/,$(addsuffix .txt,speeches publications_rev publications_unrev))
+all: $(addprefix $(FLAGDIR)/,$(addsuffix .txt,speeches publications_rev publications_unrev)) \
+	$(addprefix $(HTMLDIR)/,$(addsuffix .html,speeches publications_rev publications_unrev)) \
 
 $(FLAGDIR)/%.txt : $(HTMLDIR)/%.html $(PERLDIR)/upload.pl settings.json 
 	./$(PERLDIR)/upload.pl settings.json $<

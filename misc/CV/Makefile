@@ -10,7 +10,7 @@ MAKEDIR=make
 JSONDIR=json
 #global var's
 #procedures
-all: $(addprefix $(HTMLDIR)/,$(CVS))
+all: $(addprefix $(HTMLDIR)/,$(CVS)) $(addprefix $(HTMLDIR)/math/,$(addsuffix .html,speeches publications_rev publications_unrev))
 clean:
 	rm -f CV.xhtml
 upload: $(addprefix $(HTMLDIR)/,$(CVS))
@@ -20,3 +20,4 @@ upload: $(addprefix $(HTMLDIR)/,$(CVS))
 
 #main
 include $(MAKEDIR)/main.makefile
+include $(MAKEDIR)/cvmath.makefile
