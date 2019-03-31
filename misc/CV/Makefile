@@ -3,14 +3,17 @@
 
 #global const's
 CVS=CV.xhtml CV_engstyle.html CV_jap.xhtml
+EXECPL=../../forlatex/bin/exec.pl
 TEMPLATEDIR=templates
 HTMLDIR=html
 PERLDIR=scripts/pl
 MAKEDIR=make
 JSONDIR=json
+CSVDIR=csv
+MATHHTMLDIR=$(HTMLDIR)/math
 #global var's
 #procedures
-all: $(addprefix $(HTMLDIR)/,$(CVS)) $(addprefix $(HTMLDIR)/math/,$(addsuffix .html,speeches publications_rev publications_unrev))
+all: $(addprefix $(HTMLDIR)/,$(CVS)) $(addprefix $(MATHHTMLDIR)/,$(addsuffix .html,speeches publications_rev publications_unrev))
 clean:
 	rm -f CV.xhtml
 upload: $(addprefix $(HTMLDIR)/,$(CVS))
