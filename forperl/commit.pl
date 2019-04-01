@@ -164,7 +164,7 @@ $METHODS{PULL}->{func} = sub {
 		}
 	}
 };
-$METHODS{PUSH}->{func} = sub {
+$METHODS{PUSH}->{callback} = sub {
 	my %Environment = %{$_[0]};
 	my %cmdline = @_;
 	unless(defined($cmdline{configfile})){
