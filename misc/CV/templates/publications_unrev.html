@@ -1,20 +1,20 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>TITLE</title>
+	<title>publications non-reviewed</title>
 </head>
 <body>
 	<table border="1">
 		<tr>
-		[% FOREACH item = SPEECHES.HEADERS %]
+		[% FOREACH item = PUBLICATIONS_UNREV.HEADERS %]
 			<th>[%item%]</th>
 		[% END %]
 		</tr>
-		[% FOREACH item = SPEECHES.RECORDS %]
+		[% FOREACH item = PUBLICATIONS_UNREV.RECORDS %]
 			<tr>
-				[% FOREACH hn = SPEECHES.HEADERS %]
+				[% FOREACH hn = PUBLICATIONS_UNREV.HEADERS %]
 				<td>
-					[% IF hn=='Web-page'%]
+					[% IF hn=='Link'%]
 						<a href="[% item.$hn %]">[% item.$hn %]</a>
 					[% ELSE %]
 						[% item.$hn %]
