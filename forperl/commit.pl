@@ -148,7 +148,8 @@ $METHODS{COMMIT}->{callback} = sub {
 		}
 	}
 };
-$METHODS{PULL}->{func} = sub {
+$METHODS{PULL}->{callback} = sub {
+	my %Environment = %{$_[0]};
 	myExec('git pull');
 	if(exists $Environment{DEPENDENCIES}){
 		for(@{$Environment{DEPENDENCIES}}){
