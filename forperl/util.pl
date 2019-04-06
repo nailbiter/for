@@ -24,6 +24,7 @@ use utf8;
 use Getopt::Long;
 use Data::Dumper;
 use Text::TabularDisplay;
+use JSON;
 
 
 #global const's
@@ -53,15 +54,21 @@ sub FindDefaultMethod {
 	return '';
 }
 sub Process {
-	(my $env, my $methods, my @args) = @_;
+    my %in = @_;
+	(my $env, my $methods) = @in{'env','methods'};
+    my @args = @{$in{argv}};
 	my $defmet = FindDefaultMethod($methods);
 	$methods->{HELP} = {
 		callback=>sub {
-			my $t = Text::TabularDisplay->new(qw(method description));
+			my $t = Text::TabularDisplay->new(qw(method description keys));
 			for(keys(%$methods)){
 				my $description = $methods->{$_}->{description};
 				$description //= lc($_);
-				$t->add($_,$description);
+				my @keys = ('from','to');
+				if(defined $methods->{$_}->{keys}) {
+					push @keys,@{$methods->{$_}->{keys}};
+				}
+				$t->add($_,$description,join(", ",@keys));
 			}
 			printf("%s\n",$t->render);
 		},
@@ -71,17 +78,24 @@ sub Process {
 		$defmet = 'HELP';
 		$methods->{HELP}->{isDefault} = 1;
 	}
+
+    if(defined $in{parseJsons}) {
+        for my $fn (@{$in{parseJsons}}) {
+            printf(STDERR "parse: %s\n",$fn);
+            inflateJson($env,$fn);
+        }
+    }
 	printf(STDERR "env: %s\t",Dumper($env));
 	if( scalar(@args) == 0 ) {
 		printf(STDERR "def method \"%s\"\n",$defmet);
 		$methods->{$defmet}->{callback}->($env);
 	} else {
 		for(@args) {
-			$_ = uc($_);
 			printf(STDERR "arg: %s\n",$_);
 			if( /\.json$/) {
-				...
+                inflateJson($env,$_);
 			} else {
+				$_ = uc($_);
 				printf(STDERR "method \"%s\"\n",$_);
 				if(defined $methods->{$_}){
 					$methods->{$_}->{callback}->($env);
@@ -91,6 +105,27 @@ sub Process {
 			}
 		}
 	}
+}
+sub inflateJson{
+    (my $env,my $fn) = @_;
+    my $json = LoadJsonFromFile($fn);
+    for(keys %$json) {
+        $env->{uc($_)} = $json->{$_};
+    }
+}
+sub LoadJsonFromFile{
+	(my $fn) = @_;
+	printf(STDERR "opening file %s\n",$fn);
+	my $document;
+	my $fh;
+	if(open($fh, $fn)){
+		$document = do { local $/; <$fh> };
+	} else {
+		$document ="{}";
+	}
+	printf(STDERR "doc: %s\n",$document);
+	close($fh);
+	return from_json($document);
 }
 sub MyExec {
 	(my $cmd,my $testflag, my %aux) = @_;

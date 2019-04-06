@@ -20,16 +20,6 @@ sub getTrelloPasswords{
 	printf(STDERR "token: %s\n",$token) if $Environment{TESTFLAG};
 	return ($key,$token);
 }
-sub printHelp {
-	my %cmdline = @_;
-	my $t = Text::TabularDisplay->new(qw(method description));
-	for(keys(%METHODS)){
-		my $description = $METHODS{$_}->{description};
-		$description //= lc($_);
-		$t->add($_,$description);
-	}
-	printf("%s\n",$t->render);
-}
 sub myExec{
 	(my $cmd, my %aux) = @_;
 	if(defined $aux{dir}){
@@ -119,6 +109,14 @@ sub GetTrelloCardTitle {
 		);
 	} else {
 		return $callback->();
+	}
+}
+sub ComputeCardUrl{
+	my %env = @_;
+	if( $env{CARDURL} =~ /https:\/\/trello\.com\/c\/[0-9a-zA-Z]{8}/ ) {
+		return $env{CARDURL};
+	} else {
+		return $env{URLNAMES}->{$env{CARDURL}};
 	}
 }
 sub doCommit{

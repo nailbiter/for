@@ -1,12 +1,10 @@
 {
+   "CARDURL" : "split_trello_json",
    "URLNAMES" : {
-      "sendmail" : "https://trello.com/c/pIvSZKfZ",
       "writereviewrespaper" : "https://trello.com/c/V2tCLW7K",
+      "split_trello_json" : "https://trello.com/c/KMwsFFKX",
       "kohno" : "https://trello.com/c/GsJmHDy6",
-      "gitcommitsDescriptiveNames" : "https://trello.com/c/nLL7iBzO"
-   },
-   "PULLEDDATA" : {
-      "TRELLOTITLE" : "read XD"
-   },
-   "CARDURL" : "https://trello.com/c/RsH6Pax4"
+      "gitcommitsDescriptiveNames" : "https://trello.com/c/nLL7iBzO",
+      "sendmail" : "https://trello.com/c/pIvSZKfZ"
+   }
 }
