@@ -150,7 +150,8 @@ $METHODS{COMMIT}->{callback} = sub {
 };
 $METHODS{PULL}->{callback} = sub {
 	my %Environment = %{$_[0]};
-	myExec('git pull');
+	my $COMMAND = 'git pull';
+	myExec($COMMAND);
 	if(exists $Environment{DEPENDENCIES}){
 		for(@{$Environment{DEPENDENCIES}}){
 			my $dir = $$_{DIR};
@@ -158,7 +159,7 @@ $METHODS{PULL}->{callback} = sub {
 			printf(STDERR "\tdependency: %s\n",$dir);
 			my $dirToCheck = sprintf("%s/.git",$dir);
 			if( -e $dirToCheck and -d $dirToCheck ) {
-				myExec('git pull',(dir=>$dir));
+				myExec($COMMAND,(dir=>$dir));
 			} else {
 				myExec(sprintf("cd %s/.. && git clone %s",$dir,$depUrl));
 			}
@@ -167,24 +168,39 @@ $METHODS{PULL}->{callback} = sub {
 };
 $METHODS{PUSH}->{callback} = sub {
 	my %Environment = %{$_[0]};
-	my %cmdline = @_;
-	unless(defined($cmdline{configfile})){
-		MyExec("git push",$Environment{TESTFLAG});
-	} else {
-		printf(STDERR "configfile branch with configfile=%s\n",$cmdline{configfile});
-		open my $fh, '<', $cmdline{configfile} or 
-			die sprintf("error opening %s\nerror=%s\n",$cmdline{configfile},$!);
-		my $data = do { local $/; <$fh> };
-		my $json = parse_json($data);
-		printf(STDERR "got json: %s\n",Dumper($json));
-		MyExec("git push",$Environment{TESTFLAG});
-		if(exists $$json{dependencies}){
-			for(@{$$json{dependencies}}){
-				printf(STDERR "\tdependency: %s\n",$_);
-				MyExec("git push",$Environment{TESTFLAG},dir=>$_);
+	my $COMMAND = 'git push';
+	myExec($COMMAND,$Environment{TESTFLAG});
+	if(exists $Environment{DEPENDENCIES}){
+		for(@{$Environment{DEPENDENCIES}}){
+			my $dir = $$_{DIR};
+			my $depUrl = $$_{URL};
+			printf(STDERR "\tdependency: %s\n",$dir);
+			my $dirToCheck = sprintf("%s/.git",$dir);
+			if( -e $dirToCheck and -d $dirToCheck ) {
+				myExec($COMMAND,(dir=>$dir));
+			} else {
+				myExec(sprintf("cd %s/.. && git clone %s",$dir,$depUrl));
 			}
 		}
 	}
+#	my %cmdline = @_;
+#	unless(defined($cmdline{configfile})){
+#		MyExec("git push",$Environment{TESTFLAG});
+#	} else {
+#		printf(STDERR "configfile branch with configfile=%s\n",$cmdline{configfile});
+#		open my $fh, '<', $cmdline{configfile} or 
+#			die sprintf("error opening %s\nerror=%s\n",$cmdline{configfile},$!);
+#		my $data = do { local $/; <$fh> };
+#		my $json = parse_json($data);
+#		printf(STDERR "got json: %s\n",Dumper($json));
+#		MyExec("git push",$Environment{TESTFLAG});
+#		if(exists $$json{dependencies}){
+#			for(@{$$json{dependencies}}){
+#				printf(STDERR "\tdependency: %s\n",$_);
+#				MyExec("git push",$Environment{TESTFLAG},dir=>$_);
+#			}
+#		}
+#	}
 };
 sub getBranchName{
 	(my $URL,my $trelloKey,my $trelloToken) = @_;
