@@ -397,7 +397,7 @@ sub decoratedKey{
 
 #main
 my $coordsFile= "makebookmarksCoords.json";
-my $originalFile = "/Users/oleksiileontiev/Downloads/test.pdf";
+my $originalFile = "test.pdf";
 GetOptions(
 	"date=s" => \$DateString,
 	"coords=s" => \$coordsFile,
