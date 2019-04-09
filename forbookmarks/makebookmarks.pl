@@ -3,7 +3,7 @@
 #
 #         FILE: makebookmarks.pl
 #
-#        USAGE: ./makebookmarks.pl 11-30
+#        USAGE: ./makebookmarks.pl --date 11-30
 #
 #  DESCRIPTION: pull bookmarks
 #
@@ -30,6 +30,7 @@ use String::Random qw(random_regex random_string);
 use JSON;
 use Getopt::Long;
 use FindBin;
+use Path::Tiny qw( path );
 
 binmode(STDOUT, ":utf8");
 binmode(STDIN, ":utf8");
@@ -71,6 +72,7 @@ my $JsonStore;
 my $DateString;
 my $CoordsRef;
 my $RectCoordsRef;
+my %Environment;
 #procedures
 BEGIN{
 	require "$FindBin::Bin/../forperl/util.pl";
@@ -80,7 +82,7 @@ BEGIN{
 END{
 	printf(STDERR "final store:%s\n", Dumper($JsonStore));
 	my $data = to_json($JsonStore,{pretty=>1});
-	open my $fh, ">", JSONSTOREFILENAME;
+	open my $fh, ">:utf8", JSONSTOREFILENAME;
 	print $fh $data;
 	close $fh;
 }
@@ -99,7 +101,22 @@ sub parseLine{
 		}
 		return @startends;
 	};
-	if($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*(\d+)-(\d+)$/){
+	{
+		my $ll = $_[0];
+		my $lll = substr($ll, 3);
+		printf(STDERR "ll: \"%s\",\nlll: \"%s\"\n",$ll,$lll);
+		if($lll cmp 'Евр'){
+			printf(STDERR "true!\n");
+		} else {
+			printf(STDERR "false!\n");
+		}
+		if($lll =~ /[\p{Cyrillic}]+/){
+			printf(STDERR "true!\n");
+		} else {
+			printf(STDERR "false!\n");
+		}
+	}
+	if($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*зач\.,\s*([IVX]+),\s*(\d+)–(\d+)$/){
 		%res = (engNameShort=>$1,zachalo=>($2+0),
 			chapters=>[
 				{
@@ -107,7 +124,7 @@ sub parseLine{
 				},
 			]);
 		$res{engNameShort} =~ s/ //g;
-	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*([-\s0-9,]+)$/) {
+	} elsif($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*зач\.,\s*([IVX]+),\s*([–\s0-9,]+)$/) {
 		%res = (engNameShort=>$1,zachalo=>($2+0));
 		$res{chapters} = [];
 		my @startends = $parseChapters->($4);
@@ -119,7 +136,7 @@ sub parseLine{
 					chapterEnd=>$_->{end}+0,
 				});
 		}
-	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([-\s0-9XVI,;]+)$/) {
+	} elsif($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*зач\.,\s*([–\s0-9XVI,;]+)$/) {
 		#parseLine with Lk., 54 zach., X, 38-42; XI, 27-28
 #   		Evr., 330 zach., XI, 33 - XII, 2
 		%res = (engNameShort=>$1,zachalo=>($2+0));
@@ -341,8 +358,12 @@ sub getActsEvangelieLines{
 	my $acts; my $evangelie;
 	(my $date) = @_;
 	my $url = sprintf("http://www.patriarchia.ru/bu/%s/",$date);
-	my $sPage;
-	$sPage = `links -dump $url`;
+
+	printf(STDERR "dateline: %s\n",$date);
+	my $outfile = sprintf("%s/bu.html",$Environment{TMPDIR});
+	MyExec(sprintf("links -dump %s > %s",$url,$outfile),$Environment{TESTFLAG});
+	my $sPage = path($outfile)->slurp_utf8;
+
 	printf(STDERR "%s\n\n-----------------------------\n---------------------------\n",$sPage);
 
 	for($sPage){
@@ -352,7 +373,7 @@ sub getActsEvangelieLines{
 	printf(STDERR "%s\n\n-----------------------------\n---------------------------\n",$sPage);
 	for($sPage){
 		s/\n//g;
-		if(/Lit\. - (.*?)\.[^,](.*?)\.[^,]/){
+		if(/Лит\. – (.*?)\.[^,](.*?)\.[^,]/){
 			$acts = $1;
 			$evangelie = $2;
 		}
@@ -379,10 +400,12 @@ sub decoratedKey{
 #main
 my $coordsFile= "makebookmarksCoords.json";
 my $originalFile = "test.pdf";
+$Environment{TMPDIR} = 'tmp';
 GetOptions(
 	"date=s" => \$DateString,
 	"coords=s" => \$coordsFile,
 	"original=s" => \$originalFile,
+	"tmpdir=s" => \$Environment{TMPDIR},
 );
 my @fileparse = fileparse($originalFile,qr/\.[^.]*/);
 my $cr = LoadJsonFromFile($coordsFile);

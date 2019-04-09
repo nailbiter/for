@@ -25,6 +25,7 @@ use Getopt::Long;
 use Data::Dumper;
 use Text::TabularDisplay;
 use JSON;
+use Path::Tiny qw( path );
 
 
 #global const's
@@ -116,15 +117,15 @@ sub inflateJson{
 sub LoadJsonFromFile{
 	(my $fn) = @_;
 	printf(STDERR "opening file %s\n",$fn);
-	my $document;
-	my $fh;
-	if(open($fh, $fn)){
-		$document = do { local $/; <$fh> };
-	} else {
-		$document ="{}";
-	}
+	my $document = path($fn)->slurp_utf8;
+#	my $fh;
+#	if(open($fh, $fn)){
+#		$document = do { local $/; <$fh> };
+#	} else {
+#		$document ="{}";
+#	}
 	printf(STDERR "doc: %s\n",$document);
-	close($fh);
+#	close($fh);
 	return from_json($document);
 }
 sub MyExec {

@@ -1,12 +1,19 @@
-.PHONY: all
+.PHONY: all bookmarks clean
 
 #global const's
-MONTH=04
-DATE=14
-PERLDIR=.
+MAKEFILEDIR=makefiles
+EXECPL=../forlatex/bin/exec.pl
+TEMPLATEDIR=templates
+JSONDIR=json
 #global var's
+DATELINE=$(YEAR)-$(MONTH)-$(DATE)
 #procedures
-all:
-	./$(PERLDIR)/makebookmarks.pl $(MONTH)-$(DATE) 2> log/$(MONTH)-$(DATE).log.txt
+all: $(MAKEFILEDIR)/generated.makefile
+clean:
+	rm -rf pdfs/*.pdf
+bookmarks: $(MAKEFILEDIR)/generated.makefile
+	make -f $<
 
 #main
+$(MAKEFILEDIR)/generated.makefile: $(TEMPLATEDIR)/generated.template.makefile $(JSONDIR)/dates.json $(JSONDIR)/consts.json
+	./$(EXECPL) converter --from $< --to $@ --data $(JSONDIR)/dates.json --data $(JSONDIR)/consts.json TEMPLATE 2>log/$(notdir $@).log.txt
