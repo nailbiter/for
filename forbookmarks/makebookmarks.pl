@@ -41,19 +41,32 @@ use constant JSONSTOREFILENAME => sprintf("/tmp/%s.json","IbPuSbZRToIMghbZNoRk")
 my $RECTCOLOR = "white";
 my $TESTFLAG = 0;
 my %DICT = (
-	"Лк"=>["Лк","Luke","路加福音"],
-	"Ин"=>["Ин","John","約翰福音"],
-	"Мк"=>["Мк","Mark","馬可福音"],
-	"Еф"=>["Еф","Ephesians","以 弗 所 書"],
-	"Кол"=>["Кол","Colossians","歌羅西書"],
-	"Рим"=>["Рим","Romans","羅馬書"],
-	"1 Кор"=>["1 Кор","1 Corinthians","哥林多前書"],
-	"2 Кор"=>["2 Кор","2 Corinthians","哥林多後書"],
-	"1 Тим"=>["1 Тим","1 Timothy","提摩太前書"],
-	"2 Тим"=>["2 Тим","2 Timothy","提摩太後書"],
-	"Гал"=>["Гал","Galatians","加拉太書"],
-	"Мф"=>["Мф","Matthew","馬太福音"],
-	"Евр"=>["Евр","Hebrews","希伯來書"],
+#	"Лк"=>["Лк","Luke","路加福音"],
+#	"Ин"=>["Ин","John","約翰福音"],
+#	"Мк"=>["Мк","Mark","馬可福音"],
+#	"Еф"=>["Еф","Ephesians","以 弗 所 書"],
+#	"Кол"=>["Кол","Colossians","歌羅西書"],
+#	"Рим"=>["Рим","Romans","羅馬書"],
+#	"1 Кор"=>["1 Кор","1 Corinthians","哥林多前書"],
+#	"2 Кор"=>["2 Кор","2 Corinthians","哥林多後書"],
+#	"1 Тим"=>["1 Тим","1 Timothy","提摩太前書"],
+#	"2 Тим"=>["2 Тим","2 Timothy","提摩太後書"],
+#	"Гал"=>["Гал","Galatians","加拉太書"],
+#	"Мф"=>["Мф","Matthew","馬太福音"],
+#	"Евр"=>["Евр","Hebrews","希伯來書"],
+Lk=>["Лк","Luke","路加福音"],
+	In=>["Ин","John","約翰福音"],
+	Mk=>["Мк","Mark","馬可福音"],
+	Ef=>["Еф","Ephesians","以 弗 所 書"],
+	Kol=>["Кол","Colossians","歌羅西書"],
+	Rim=>["Рим","Romans","羅馬書"],
+	"1Kor"=>["1 Кор","1 Corinthians","哥林多前書"],
+	"2Kor"=>["2 Кор","2 Corinthians","哥林多後書"],
+	"1Tim"=>["1 Тим","1 Timothy","提摩太前書"],
+	"2Tim"=>["2 Тим","2 Timothy","提摩太後書"],
+	Gal=>["Гал","Galatians","加拉太書"],
+	Mf=>["Мф","Matthew","馬太福音"],
+	Evr=>["Евр","Hebrews","希伯來書"],
 );
 #global var's
 my $JsonStore;
@@ -104,7 +117,7 @@ sub parseLine{
 			printf(STDERR "false!\n");
 		}
 	}
-	if($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*зач\.,\s*([IVX]+),\s*(\d+)–(\d+)$/){
+	if($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*(\d+)-(\d+)$/){
 		%res = (engNameShort=>$1,zachalo=>($2+0),
 			chapters=>[
 				{
@@ -112,7 +125,7 @@ sub parseLine{
 				},
 			]);
 		$res{engNameShort} =~ s/ //g;
-	} elsif($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*зач\.,\s*([IVX]+),\s*([–\s0-9,]+)$/) {
+	} elsif($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*([-\s0-9,]+)$/) {
 		%res = (engNameShort=>$1,zachalo=>($2+0));
 		$res{chapters} = [];
 		my @startends = $parseChapters->($4);
@@ -124,7 +137,7 @@ sub parseLine{
 					chapterEnd=>$_->{end}+0,
 				});
 		}
-	} elsif($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*зач\.,\s*([–\s0-9XVI,;]+)$/) {
+	} elsif($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*zach\.,\s*([-\s0-9XVI,;]+)$/) {
 		#parseLine with Lk., 54 zach., X, 38-42; XI, 27-28
 #   		Evr., 330 zach., XI, 33 - XII, 2
 		%res = (engNameShort=>$1,zachalo=>($2+0));
@@ -182,7 +195,7 @@ sub makeRussian{
 	if( not defined $DICT{$hash{engNameShort}}) {
 		die sprintf("no value for %s in DICT",$hash{engNameShort});
 	}
-	$res = sprintf("%s., %d зач.,\n%s.\n",
+	$res = sprintf("%s., %d zach.,\n%s.\n",
 		$DICT{$hash{engNameShort}}->[0],
 		$hash{zachalo},
 		join(",\n",@chaptersProcessed)
