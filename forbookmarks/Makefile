@@ -1,4 +1,4 @@
-.PHONY: all pdf clean
+.PHONY: all mf clean
 
 #global const's
 MAKEFILEDIR=makefiles
@@ -9,10 +9,10 @@ JSONDIR=json
 DATELINE=$(YEAR)-$(MONTH)-$(DATE)
 #procedures
 all: $(MAKEFILEDIR)/generated.makefile
+	make -f $<
+mf: $(MAKEFILEDIR)/generated.makefile
 clean:
 	rm -rf pdfs/*.pdf
-pdf: $(MAKEFILEDIR)/generated.makefile
-	make -f $<
 
 #main
 $(MAKEFILEDIR)/generated.makefile: $(TEMPLATEDIR)/generated.template.makefile $(JSONDIR)/dates.json $(JSONDIR)/consts.json

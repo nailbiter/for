@@ -66,8 +66,10 @@ Lk=>["Лк","Luke","路加福音"],
 	"1Tim"=>["1 Тим","1 Timothy","提摩太前書"],
 	"2Tim"=>["2 Тим","2 Timothy","提摩太後書"],
 	Gal=>["Гал","Galatians","加拉太書"],
+	Flp=>["Флп","Philippians","腓立比書"],
 	Mf=>["Мф","Matthew","馬太福音"],
 	Evr=>["Евр","Hebrews","希伯來書"],
+	Deyan=>["Деян","Acts","使徒行傳"],
 );
 #global var's
 my $JsonStore;
@@ -416,7 +418,7 @@ sub decoratedKey{
 
 #main
 my $coordsFile= "makebookmarksCoords.json";
-my $originalFile = "test.pdf";
+my $originalFile = "pdfs/test.pdf";
 $Environment{TMPDIR} = 'tmp';
 GetOptions(
 	"date=s" => \$DateString,
