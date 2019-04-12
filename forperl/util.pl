@@ -117,15 +117,13 @@ sub inflateJson{
 sub LoadJsonFromFile{
 	(my $fn) = @_;
 	printf(STDERR "opening file %s\n",$fn);
-	my $document = path($fn)->slurp_utf8;
-#	my $fh;
-#	if(open($fh, $fn)){
-#		$document = do { local $/; <$fh> };
-#	} else {
-#		$document ="{}";
-#	}
+	my $document;
+	if( -e $fn ) {
+	  $document = path($fn)->slurp_utf8;
+	} else {
+		$document = "{}";
+	}
 	printf(STDERR "doc: %s\n",$document);
-#	close($fh);
 	return from_json($document);
 }
 sub MyExec {

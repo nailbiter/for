@@ -1,3 +1,5 @@
+#!/usr/bin/env perl 
+
 sub thickLine{
   return sprintf("border-%s-style:solid; border-%s-width:0.0529cm;border-%s-color:#000000;",$_[0],$_[0],$_[0]);
 }
