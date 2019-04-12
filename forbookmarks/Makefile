@@ -1,4 +1,4 @@
-.PHONY: all bookmarks clean
+.PHONY: all pdf clean
 
 #global const's
 MAKEFILEDIR=makefiles
@@ -11,7 +11,7 @@ DATELINE=$(YEAR)-$(MONTH)-$(DATE)
 all: $(MAKEFILEDIR)/generated.makefile
 clean:
 	rm -rf pdfs/*.pdf
-bookmarks: $(MAKEFILEDIR)/generated.makefile
+pdf: $(MAKEFILEDIR)/generated.makefile
 	make -f $<
 
 #main

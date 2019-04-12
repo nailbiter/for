@@ -41,33 +41,21 @@ use constant JSONSTOREFILENAME => sprintf("/tmp/%s.json","IbPuSbZRToIMghbZNoRk")
 my $RECTCOLOR = "white";
 my $TESTFLAG = 0;
 my %DICT = (
-	Lk=>["Лк","Luke","路加福音"],
-	In=>["Ин","John","約翰福音"],
-	Mk=>["Мк","Mark","馬可福音"],
-	Ef=>["Еф","Ephesians","以 弗 所 書"],
-	Kol=>["Кол","Colossians","歌羅西書"],
-	Rim=>["Рим","Romans","羅馬書"],
-	"1Kor"=>["1 Кор","1 Corinthians","哥林多前書"],
-	"2Kor"=>["2 Кор","2 Corinthians","哥林多後書"],
-	"1Tim"=>["1 Тим","1 Timothy","提摩太前書"],
-	"2Tim"=>["2 Тим","2 Timothy","提摩太後書"],
-	Gal=>["Гал","Galatians","加拉太書"],
-	Mf=>["Мф","Matthew","馬太福音"],
-	Evr=>["Евр","Hebrews","希伯來書"],
+	"Лк"=>["Лк","Luke","路加福音"],
+	"Ин"=>["Ин","John","約翰福音"],
+	"Мк"=>["Мк","Mark","馬可福音"],
+	"Еф"=>["Еф","Ephesians","以 弗 所 書"],
+	"Кол"=>["Кол","Colossians","歌羅西書"],
+	"Рим"=>["Рим","Romans","羅馬書"],
+	"1 Кор"=>["1 Кор","1 Corinthians","哥林多前書"],
+	"2 Кор"=>["2 Кор","2 Corinthians","哥林多後書"],
+	"1 Тим"=>["1 Тим","1 Timothy","提摩太前書"],
+	"2 Тим"=>["2 Тим","2 Timothy","提摩太後書"],
+	"Гал"=>["Гал","Galatians","加拉太書"],
+	"Мф"=>["Мф","Matthew","馬太福音"],
+	"Евр"=>["Евр","Hebrews","希伯來書"],
 );
-my $TEXTEMPLATETEXT = <<'END_BLURB';
-\documentclass[varwidth,convert,12pt]{standalone}
-\usepackage{fontspec}
-\usepackage{inputenc}
-\usepackage{xeCJK}
-\setmainfont{Helvetica}
-\setCJKmainfont[AutoFakeBold=true]{Hiragino Mincho Pro}
-\begin{document}
-[%text%]
-\end{document}
-END_BLURB
 #global var's
-my $TT = Template->new();
 my $JsonStore;
 my $DateString;
 my $CoordsRef;
@@ -191,6 +179,9 @@ sub makeRussian{
 		}
 		push(@chaptersProcessed,$item);
 	}
+	if( not defined $DICT{$hash{engNameShort}}) {
+		die sprintf("no value for %s in DICT",$hash{engNameShort});
+	}
 	$res = sprintf("%s., %d зач.,\n%s.\n",
 		$DICT{$hash{engNameShort}}->[0],
 		$hash{zachalo},
@@ -234,6 +225,9 @@ sub makeRussian{
 sub makeEnglish{
 	my %hash = @_;
 	my @chapters = @{$hash{chapters}};
+	if( not defined $DICT{$hash{engNameShort}}) {
+		die sprintf("no value for %s in DICT",$hash{engNameShort});
+	}
 	my $res  =sprintf("%s,\n%s.",$DICT{$hash{engNameShort}}->[1],
 		join(",\n",map {
 				sprintf("%d:%d--%d:%d",
@@ -247,6 +241,9 @@ sub makeEnglish{
 sub makeChinese{
 	my %hash = @_;
 	my @chapters = @{$hash{chapters}};
+	if( not defined $DICT{$hash{engNameShort}}) {
+		die sprintf("no value for %s in DICT",$hash{engNameShort});
+	}
 	my $res  =sprintf("%s,\n%s.",$DICT{$hash{engNameShort}}->[2],
 		join(",\n",map {
 				sprintf("%d:%d--%d:%d",
@@ -274,6 +271,7 @@ sub pastePdf{
 		$pdfName,$pdfName));
 }
 sub textToPdf{
+	my $TT = Template->new(INCLUDE_PATH=>'templates');
 	(my $text) = @_;
 	chomp($text);
 	$text =~ s/\n/\\\\\n/g;
@@ -281,7 +279,7 @@ sub textToPdf{
 	$pdfName{tex} = $pdfName{base}.".tex";
 	my $output;
 	open(my $fh, '>', $pdfName{tex}) or die "Could not open file '$pdfName{tex}' $!";
-	$TT->process(\$TEXTEMPLATETEXT,{text=>$text},\$output);
+	$TT->process("bookmark.template.tex",{text=>$text},\$output);
 	printf($fh "%s\n",$output);
 	MyExec(sprintf("xelatex -output-directory /tmp %s",$pdfName{tex}));
 	return $pdfName{base}.".pdf";
@@ -301,13 +299,14 @@ sub processFile{
 	my $newPdfName = sprintf("%s/bookmark_%s.pdf",$path,$key);
 	print($newPdfName."\n");
 	MyExec(sprintf("cp \"%s\" \"%s\"",$originalPdfName,$newPdfName));
+	printf(STDERR "acts: %s\nevan: %s\n",Dumper($actsRef),Dumper($evangelieRef));
 
 	for(@{$RectCoordsRef}){
 		pasteRect($newPdfName,@$_);
 	}
 
 	my %funcs = (rus=>\&makeRussian, eng=>\&makeEnglish, chi=>\&makeChinese,);
-	for(("rus","chi","eng")){
+	for(qw( rus chi eng )){
 		my $rotation = "-90";
 		if(!(exists $JsonStore->{decoratedKey($_."_evangelie")})){
 			$JsonStore->{decoratedKey($_."_evangelie")} //= textToPdf($funcs{$_}->(%$evangelieRef));
@@ -319,14 +318,17 @@ sub processFile{
 		}
 	}
 
+	printf(STDERR "CoordsRef: %s",Dumper($CoordsRef));
 	my $pasteTexts = sub{
 		(my $suff,my $displacementX, my $displacementY) = @_;
 		if(scalar(@$CoordsRef)>0){
 			my $pdfPositions = $CoordsRef->[0];
 			for(("rus","chi","eng")){
-				pastePdf($newPdfName,$JsonStore->{decoratedKey($_."_".$suff)},
+				my @args = ($newPdfName,$JsonStore->{decoratedKey($_."_".$suff)},
 					$pdfPositions->{$suff}->{$_}->[1]+$displacementY,
 					$pdfPositions->{$suff}->{$_}->[0]+$displacementX);
+				printf(STDERR "pastePdf(%s)\n",Dumper(\@args));
+				pastePdf(@args);
 			}
 		}
 	};
