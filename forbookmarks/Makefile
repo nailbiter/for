@@ -12,7 +12,7 @@ all: $(MAKEFILEDIR)/generated.makefile
 	make -f $<
 mf: $(MAKEFILEDIR)/generated.makefile
 clean:
-	rm -rf pdfs/*.pdf
+	rm -rf pdfs/bookmark_*.pdf
 
 #main
 $(MAKEFILEDIR)/generated.makefile: $(TEMPLATEDIR)/generated.template.makefile $(JSONDIR)/dates.json $(JSONDIR)/consts.json
