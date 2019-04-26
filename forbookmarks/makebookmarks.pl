@@ -11,8 +11,8 @@
 # REQUIREMENTS: ---
 #         BUGS: ---
 #        NOTES: ---
-#       AUTHOR: YOUR NAME (), 
-# ORGANIZATION: 
+#       AUTHOR: YOUR NAME (),
+# ORGANIZATION:
 #      VERSION: 1.0
 #      CREATED: 10/10/18 14:09:21
 #     REVISION: ---
@@ -31,6 +31,7 @@ use JSON;
 use Getopt::Long;
 use FindBin;
 use Path::Tiny qw( path );
+use File::Slurp;
 
 binmode(STDOUT, ":utf8");
 binmode(STDIN, ":utf8");
@@ -65,8 +66,10 @@ Lk=>["Лк","Luke","路加福音"],
 	"1Tim"=>["1 Тим","1 Timothy","提摩太前書"],
 	"2Tim"=>["2 Тим","2 Timothy","提摩太後書"],
 	Gal=>["Гал","Galatians","加拉太書"],
+	Flp=>["Флп","Philippians","腓立比書"],
 	Mf=>["Мф","Matthew","馬太福音"],
 	Evr=>["Евр","Hebrews","希伯來書"],
+	Deyan=>["Деян","Acts","使徒行傳"],
 );
 #global var's
 my $JsonStore;
@@ -102,22 +105,22 @@ sub parseLine{
 		}
 		return @startends;
 	};
-	{
-		my $ll = $_[0];
-		my $lll = substr($ll, 3);
-		printf(STDERR "ll: \"%s\",\nlll: \"%s\"\n",$ll,$lll);
-		if($lll cmp 'Евр'){
-			printf(STDERR "true!\n");
-		} else {
-			printf(STDERR "false!\n");
-		}
-		if($lll =~ /[\p{Cyrillic}]+/){
-			printf(STDERR "true!\n");
-		} else {
-			printf(STDERR "false!\n");
-		}
-	}
-	if($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*(\d+)-(\d+)$/){
+#	{
+#		my $ll = $_[0];
+#		my $lll = substr($ll, 3);
+#		printf(STDERR "ll: \"%s\",\nlll: \"%s\"\n",$ll,$lll);
+#		if($lll cmp 'Евр'){
+#			printf(STDERR "true!\n");
+#		} else {
+#			printf(STDERR "false!\n");
+#		}
+#		if($lll =~ /[\p{Cyrillic}]+/){
+#			printf(STDERR "true!\n");
+#		} else {
+#			printf(STDERR "false!\n");
+#		}
+#	}
+	if($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*(\d+)-(\d+)$/){
 		%res = (engNameShort=>$1,zachalo=>($2+0),
 			chapters=>[
 				{
@@ -125,7 +128,7 @@ sub parseLine{
 				},
 			]);
 		$res{engNameShort} =~ s/ //g;
-	} elsif($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*([-\s0-9,]+)$/) {
+	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*([-\s0-9,]+)$/) {
 		%res = (engNameShort=>$1,zachalo=>($2+0));
 		$res{chapters} = [];
 		my @startends = $parseChapters->($4);
@@ -137,7 +140,7 @@ sub parseLine{
 					chapterEnd=>$_->{end}+0,
 				});
 		}
-	} elsif($_[0] =~ /([12 а-яА-Я]+)\.,\s+(\d+)\s*zach\.,\s*([-\s0-9XVI,;]+)$/) {
+	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([-\s0-9XVI,;]+)$/) {
 		#parseLine with Lk., 54 zach., X, 38-42; XI, 27-28
 #   		Evr., 330 zach., XI, 33 - XII, 2
 		%res = (engNameShort=>$1,zachalo=>($2+0));
@@ -195,7 +198,7 @@ sub makeRussian{
 	if( not defined $DICT{$hash{engNameShort}}) {
 		die sprintf("no value for %s in DICT",$hash{engNameShort});
 	}
-	$res = sprintf("%s., %d zach.,\n%s.\n",
+	$res = sprintf("%s., %d зач.,\n%s.\n",
 		$DICT{$hash{engNameShort}}->[0],
 		$hash{zachalo},
 		join(",\n",@chaptersProcessed)
@@ -207,7 +210,7 @@ sub makeRussian{
 #			@chapters = map {
 #					 sprintf("%d-%d",$_->{chapterStart},$_->{chapterEnd});
 #				} @chapters ;
-#			$res = 
+#			$res =
 #				sprintf("%s., %d зач.,\n%s, %s.\n",
 #					$DICT{$hash{engNameShort}}->[0],
 #					$hash{zachalo},$chapterRoman,
@@ -225,7 +228,7 @@ sub makeRussian{
 #						$_->{chapterRomanEnd},$_->{chapterEnd});
 #				}
 #			} @chapters ;
-#		$res = 
+#		$res =
 #			sprintf("%s., %d зач.,\n%s.\n",
 #				$DICT{$hash{engNameShort}}->[0],
 #				$hash{zachalo},
@@ -377,7 +380,8 @@ sub getActsEvangelieLines{
 	printf(STDERR "dateline: %s\n",$date);
 	my $outfile = sprintf("%s/bu.html",$Environment{TMPDIR});
 	MyExec(sprintf("links -dump %s > %s",$url,$outfile),$Environment{TESTFLAG});
-	my $sPage = path($outfile)->slurp_utf8;
+#	my $sPage = path($outfile)->slurp_utf8;
+	my $sPage = read_file($outfile);
 
 	printf(STDERR "%s\n\n-----------------------------\n---------------------------\n",$sPage);
 
@@ -388,7 +392,7 @@ sub getActsEvangelieLines{
 	printf(STDERR "%s\n\n-----------------------------\n---------------------------\n",$sPage);
 	for($sPage){
 		s/\n//g;
-		if(/Лит\. – (.*?)\.[^,](.*?)\.[^,]/){
+		if(/Lit\. - (.*?)\.[^,](.*?)\.[^,]/){
 			$acts = $1;
 			$evangelie = $2;
 		}
@@ -414,7 +418,7 @@ sub decoratedKey{
 
 #main
 my $coordsFile= "makebookmarksCoords.json";
-my $originalFile = "test.pdf";
+my $originalFile = "pdfs/test.pdf";
 $Environment{TMPDIR} = 'tmp';
 GetOptions(
 	"date=s" => \$DateString,
