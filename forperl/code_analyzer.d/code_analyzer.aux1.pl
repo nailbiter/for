@@ -33,16 +33,61 @@ use Git::Repository::Plugin::Blame::Line;
 use Tree::Trie;
 use JSON;
 use Path::Tiny qw( path );
+use Net::Address::IP::Local;
 
 
 #global const's
 my $CSSSTYLE =<<END;
 .mainContainer {
+	padding-top:2em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 90vw;
 	margin: auto;
+}
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
 .bar {
 	width: 100%;
@@ -54,6 +99,7 @@ my $CSSSTYLE =<<END;
 	display:flex;
 	flex-direction: row;
 	justify-content: space-between;
+	padding-top: 2em;
 }
 END
 my $BARCSSSTYLE =<<END;
@@ -93,10 +139,45 @@ my @CATEGORIES = (
 #global var's
 my $Tt = Template->new({}) || die "$Template::ERROR\n";
 my $CurrentDir;
+my $GitStat;
 #procedures
 sub setCurrentDir {
 	(my $self,my $val) = @_;
 	$CurrentDir = $val;
+}
+sub setGitStat {
+	(my $self,my $val) = @_;
+	$GitStat = $val;
+}
+sub TrieLs{
+	(my $stat,my $mhash, my @path) = @_;
+	my %end = (''=>undef);
+	for(@path) {
+		$mhash = $mhash->{$_};
+	}
+	my %res;
+	for(keys %{$mhash}) {
+		my %val = %{$mhash->{$_}};
+		$res{$_} = {
+			IS_DIR => not (Dumper(\%end) eq Dumper(\%val)),
+			STAT => ComputeStat($stat,join("/",@path,$_)),
+		};
+	}
+	return %res;
+}
+sub ComputeStat {
+	(my $stat, my $pref) = @_;
+	my %res;
+	for(@{$stat}) {
+		if( $_->{LABEL} =~ /^$pref/ ) {
+			my %s = %{$_->{STAT}};
+			for my $key (keys %s) {
+				$res{$key} //= 0;
+				$res{$key} += $s{$key};
+			}
+		}
+	}
+	return \%res;
 }
 sub LoadJsonFromFile{
 	(my $fn) = @_;
@@ -110,9 +191,12 @@ sub LoadJsonFromFile{
 }
 sub CodeAnalyzer{
 	(my $cgi) = @_;
-	my %ls = %{LoadJsonFromFile(".gitstat.json")};
+	my $doc = MongoDB->connect()->ns("admin.code_analyzer")->find_one({repo_name=>$CurrentDir});
+	my @path = @{$cgi->param_fetch("path")};
+	my %ls = TrieLs($doc->{data},$doc->{trie},@path);
 	my @stat;
-	for my $key (keys %ls) {
+
+	for my $key (sort(keys %ls)) {
 		my @statArray;
 		for(@CATEGORIES) {
 			$ls{$key}->{STAT}->{$_->{GIT_NAME}} //= 0;
@@ -131,6 +215,7 @@ sub CodeAnalyzer{
 				  -code => $CSSSTYLE,
 			  },
 		  ),
+#		  $cgi->p($cgi->code(eval {Net::Address::IP::Local->public_ipv4})),
 		  $cgi->div({-class=>"mainContainer"},
 			  PrintDiagrams($cgi,\@stat),
 			  $cgi->div({-class=>"legendContainer"},
@@ -142,6 +227,8 @@ sub CodeAnalyzer{
 sub PrintDiagrams {
 	(my $cgi,my $data) = @_;
 	my @res;
+	my @path = @{$cgi->param_fetch("path")};
+
 	for my $item (@$data) {
 		my @content;
 		my $sum = sum(@{$item->{STAT}});
@@ -154,14 +241,26 @@ sub PrintDiagrams {
 				},
 				\$containerStyle,
 			);
-			push @content, $cgi->div({-style=>$containerStyle},
+			push @content, $cgi->div({-style=>$containerStyle, -class=>"tooltip"},
 #				$CATEGORIES[$i]->{LABEL},
-				"",
+#				"",
+				$cgi->span({-class=>"tooltiptext"},
+					sprintf("%s: %0.2f\%",$CATEGORIES[$i]->{LABEL},100*($item->{STAT}->[$i])/$sum),
+				),
+#				<span class="tooltiptext">Tooltip text</span>
 			);
 		}
 		push @res, $cgi->div({-class=>"bar"},
 			$cgi->div({-style=>sprintf("width: %d%%;text-overflow: hidden;text-align: left;",$TEXTPART_IN_PERCENTS)},
-				$item->{IS_DIR} ? $item->{LABEL}.":" : $cgi->a({href=>CGI->new({'friends'=>[qw/Jessica George Nancy/],})->self_url},$item->{LABEL}),
+				(not $item->{IS_DIR}) ? $item->{LABEL}.":" : $cgi->a({
+#						href=>CGI->new({'path'=>[@path, $item->{LABEL}],})->self_url
+						href=>sprintf("http://%s:%d?%s",
+#							$cgi->server_name,
+							eval {Net::Address::IP::Local->public_ipv4},
+							$cgi->server_port,
+							CGI->new({'path'=>[@path, $item->{LABEL}],})->query_string,
+						),
+					},$item->{LABEL}),
 			),
 			@content,
 		);
