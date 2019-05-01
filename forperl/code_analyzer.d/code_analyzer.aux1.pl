@@ -243,11 +243,9 @@ sub PrintDiagrams {
 			);
 			push @content, $cgi->div({-style=>$containerStyle, -class=>"tooltip"},
 #				$CATEGORIES[$i]->{LABEL},
-#				"",
 				$cgi->span({-class=>"tooltiptext"},
 					sprintf("%s: %0.2f\%",$CATEGORIES[$i]->{LABEL},100*($item->{STAT}->[$i])/$sum),
 				),
-#				<span class="tooltiptext">Tooltip text</span>
 			);
 		}
 		push @res, $cgi->div({-class=>"bar"},
@@ -255,7 +253,6 @@ sub PrintDiagrams {
 				(not $item->{IS_DIR}) ? $item->{LABEL}.":" : $cgi->a({
 #						href=>CGI->new({'path'=>[@path, $item->{LABEL}],})->self_url
 						href=>sprintf("http://%s:%d?%s",
-#							$cgi->server_name,
 							eval {Net::Address::IP::Local->public_ipv4},
 							$cgi->server_port,
 							CGI->new({'path'=>[@path, $item->{LABEL}],})->query_string,
