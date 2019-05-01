@@ -26,7 +26,8 @@ use MongoDB;
 use Getopt::Long;
 use Data::Dumper;
 use BibTeX::Parser;
-require 'bibAux.pl';
+use FindBin;
+require "$FindBin::Bin/bibAux.pl";
 
 #global const's
 my @NUMFIELDNAME = ('CALIBRENUM','YEAR','VOLUME','NUMBER');
@@ -54,10 +55,10 @@ sub extractTex{
 		} elsif(/^\s*\\bibitem/){
 			$flag = 1;
 			%record = ();
-			if(/\\bibitem\[([[:ascii:]]+?)\]{([[:ascii:]]+?)}/){
+			if(/\\bibitem\[([[:ascii:]]+?)\]\{([[:ascii:]]+?)\}/){
 				$record{COMPARISONKEY} = $1;
 				$record{BIBITEM} = $2;
-			} elsif(/\\bibitem{([[:ascii:]]+?)}/){
+			} elsif(/\\bibitem\{([[:ascii:]]+?)\}/){
 				$record{BIBITEM} = $1;
 			} else {
 				die sprintf("line: %s",$_);
