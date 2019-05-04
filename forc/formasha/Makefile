@@ -1,7 +1,8 @@
 .PHONY: all
 
-all: a.out
+all: test
 	./$<
 
-a.out: test.cpp
-	g++ -o $@ $<
+test: test.cpp
+	#g++ $< -lglut -o $@
+	gcc -o $@ $< -L/System/Library/Frameworks -framework GLUT -framework OpenGL
