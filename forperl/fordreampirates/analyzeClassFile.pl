@@ -35,12 +35,17 @@ my $regex =
 	qr/^\s*(?<ACCESS_MODIFIER>private|public)?\s*(async)?\s*(?<FUNC_NAME>[a-zA-Z]+)\s*(=)?\s*(async)?\s*\((?<ARGLIST>\s*($argTypePairRegex)?(,\s*$argTypePairRegex)*\s*)\)/;
 for my $fn (@ARGV) {
 	my $ft = path($fn)->slurp_utf8;
+	my @res;
 	for my $line (split("\n",$ft,)) {
 		chomp $line;
 		if($line =~ /$regex/) {
-			printf("%s\n",$line);
+#			printf("%s\n",$line);
 			my @list = $line =~ /$regex/;
-#			printf("res: %s\n%s\n",Dumper(\@list),Dumper(\%+));
+			my %parsed = %+;
+			push(@res,\%parsed);
 		}
 	}
+
+	@res = grep {$_->{ACCESS_MODIFIER} eq "public"} @res;
+	printf("%s: %s\n", $fn, Dumper(\@res));
 }
