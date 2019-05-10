@@ -30,7 +30,7 @@ use Data::Dumper;
 #procedures
 
 #main
-my $argTypePairRegex = '[_a-zA-Z]+:\s*[a-z\.A-Z]+';
+my $argTypePairRegex = '[_a-zA-Z]+(:\s*[a-z\.A-Z]+)';
 my $regex = 
 	qr/^\s*(?<ACCESS_MODIFIER>private|public)?\s*(async)?\s*(?<FUNC_NAME>[a-zA-Z]+)\s*(=)?\s*(async)?\s*\((?<ARGLIST>\s*($argTypePairRegex)?(,\s*$argTypePairRegex)*\s*)\)/;
 for my $fn (@ARGV) {
