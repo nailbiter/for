@@ -13,6 +13,7 @@ all: $(MAKEFILEDIR)/generated.makefile
 mf: $(MAKEFILEDIR)/generated.makefile
 clean:
 	rm -rf pdfs/bookmark_*.pdf
+	echo "{}" > /private/tmp/IbPuSbZRToIMghbZNoRk.json
 
 #main
 $(MAKEFILEDIR)/generated.makefile: $(TEMPLATEDIR)/generated.template.makefile $(JSONDIR)/dates.json $(JSONDIR)/consts.json

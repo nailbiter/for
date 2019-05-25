@@ -154,7 +154,14 @@ sub parseLine{
 						chapterStart=>($2+0),
 						chapterEnd=>($3+0),
 					});
-			}elsif(/\s*([IVX]+),\s*([0-9]+)\s*-\s*([IVX]+),\s*([0-9]+)\s*/){
+			} elsif(/\s*([IVX]+),\s*([0-9]+)\s*/){
+				push(@{$res{chapters}},{
+						chapterRomanStart=>$1,
+						chapterRomanEnd=>$1,
+						chapterStart=>($2+0),
+						chapterEnd=>($2+0),
+					});
+			} elsif(/\s*([IVX]+),\s*([0-9]+)\s*-\s*([IVX]+),\s*([0-9]+)\s*/) {
 				push(@{$res{chapters}},{
 						chapterRomanStart=>$1,
 						chapterRomanEnd=>$3,
@@ -162,7 +169,7 @@ sub parseLine{
 						chapterEnd=>($4+0),
 					});
 			}else{
-				die $_;
+				die sprintf("\"%s\"\n",$_);
 			}
 		}
 	} else {
@@ -274,14 +281,16 @@ sub pasteText{
 	(my $pdfName, my $y, my $x, my $text) = @_;
 	chomp($text);
 	$text =~ s/\n/\\n/g;
-	MyExec(sprintf("cpdf -prerotate -utf8 -add-text \"%s\" -pos-left \"%d %d\" \"%s\" -o \"%s\"",
+	MyExec(sprintf("%s -prerotate -utf8 -add-text \"%s\" -pos-left \"%d %d\" \"%s\" -o \"%s\"",
+		$Environment{CPDF},
 		$text,
 		$x, $y,
 		$pdfName,$pdfName));
 }
 sub pastePdf{
 	(my $pdfName,my $logoName, my $x, my $y) = @_;
-	MyExec(sprintf("cpdf -prerotate -stamp-on %s -pos-left \"%d %d\" \"%s\" -o \"%s\"",
+	MyExec(sprintf("%s -prerotate -stamp-on %s -pos-left \"%d %d\" \"%s\" -o \"%s\"",
+		$Environment{CPDF},
 		$logoName,
 		$x,$y,
 		$pdfName,$pdfName));
@@ -302,7 +311,8 @@ sub textToPdf{
 }
 sub pasteRect{
 	(my $pdfName, my $x, my $y, my $height, my $width) = @_;
-	MyExec(sprintf("cpdf -prerotate -add-rectangle \"%d %d\" -pos-left \"%d %d\" -color %s \"%s\" -o \"%s\"",
+	MyExec(sprintf("%s -prerotate -add-rectangle \"%d %d\" -pos-left \"%d %d\" -color %s \"%s\" -o \"%s\"",
+			$Environment{CPDF},
 			$height,$width,
 			$x,$y,
 			$RECTCOLOR,
@@ -370,7 +380,10 @@ sub processFile{
 }
 sub prerotatePdf{
 	(my $pdfName, my $rotation) = @_;
-	MyExec(sprintf("cpdf -rotate-contents %s %s -o %s",$rotation, $pdfName, $pdfName));
+	MyExec(sprintf("%s -rotate-contents %s %s -o %s",
+			$Environment{CPDF},
+			$rotation, $pdfName, $pdfName
+		));
 }
 sub getActsEvangelieLines{
 	my $acts; my $evangelie;
@@ -425,6 +438,7 @@ GetOptions(
 	"coords=s" => \$coordsFile,
 	"original=s" => \$originalFile,
 	"tmpdir=s" => \$Environment{TMPDIR},
+	"cpdf=s" => \$Environment{CPDF},
 );
 my @fileparse = fileparse($originalFile,qr/\.[^.]*/);
 my $cr = LoadJsonFromFile($coordsFile);
