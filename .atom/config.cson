@@ -1,4 +1,15 @@
 "*":
+  "atom-shell-commands":
+    commands: [
+      {
+        arguments: []
+        command: "/usr/bin/make"
+        name: "compile"
+        options:
+          cwd: "{FileDir}"
+          keymap: "ctrl-2"
+      }
+    ]
   core:
     telemetryConsent: "limited"
   editor:
