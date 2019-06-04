@@ -23,7 +23,7 @@
 use strict;
 use warnings;
 use utf8;
-#use autodie;
+#use Acme::Magic::Pony;
 use JSON;
 use JSON::Parse 'parse_json';
 use HTTP::Request;
@@ -32,22 +32,20 @@ use Data::Dumper;
 use File::Basename;
 use FindBin;
 require "$FindBin::Bin/commit.aux.pl";
+require "$FindBin::Bin/util.pl";
 
 
 #global const's
 my $BRANCHPREFIX = "alex_";
 my $DEFAULTCONFIGFILE = "trello.json";
-my $DEFAULTMETHOD = "commit";
+my $LOCALSTORE = ".pulled_data.json";
 our %METHODS = (
 	BRANCH=>{
 		description=>"get branch name",
 	},
-	HELP=>{
-		description=>"display this message",
-		func => \&printHelp,
-	},
 	COMMIT=>{
 		description=>"make a commit",
+		isDefault => 1,
 	},
 	PUSH=>{
 		description=>"git push",
@@ -106,10 +104,6 @@ sub processMethod {
 	$METHODS{$method}->{func}->(%Environment);
 }
 $METHODS{BRANCH}->{func} = sub{
-#	my $trelloMsg = getTrelloMsgFromFile();
-#	printf(STDERR "trelloMsg: %s",$trelloMsg) if $Environment{TESTFLAG};
-#	(my $trelloKey,my $trelloToken) = getTrelloPasswords();
-#	print getBranchName($trelloMsg,$trelloKey,$trelloToken)."\n";
 	my $url = $Environment{CARDURL};
 	if($url =~ /https:\/\/trello.com\/c\/([a-zA-Z]{8})/) {
 		printf("%s%s\n",$BRANCHPREFIX,$1);
@@ -117,15 +111,16 @@ $METHODS{BRANCH}->{func} = sub{
 		die sprintf("cannot parse url %s\n",$url);
 	}
 };
-$METHODS{COMMIT}->{func} = sub {
+$METHODS{COMMIT}->{callback} = sub {
+	my %Environment = %{$_[0]};
 	my %card = (
 		title => '',
-		url => $Environment{CARDURL},
+		url => ComputeCardUrl(%Environment),
 	);
 	if( defined $Environment{TITLE} ) {
 		$card{title} = $Environment{TITLE};
 	} else {
-		%card = (%card,GetTrelloCardTitle($Environment{CARDURL},
+		%card = (%card,GetTrelloCardTitle($card{url},
 			getTrelloPasswords(),
 			sub {
 				if( defined $Environment{PULLEDDATA} ) {
@@ -142,7 +137,7 @@ $METHODS{COMMIT}->{func} = sub {
 	}
 	$Environment{PULLEDDATA}->{TRELLOTITLE} = $card{title};
 
-	WriteData(\%Environment,(length($SaveConfigToFilename)>0)?$SaveConfigToFilename:$DEFAULTCONFIGFILE) unless($Environment{TESTFLAG});
+	WriteData({PULLEDDATA=>$Environment{PULLEDDATA}},$LOCALSTORE) unless($Environment{TESTFLAG});
 	my @args = @card{'url','title','checklist'};
 	doCommit(@args);
 	if(exists $Environment{DEPENDENCIES}){
@@ -153,8 +148,10 @@ $METHODS{COMMIT}->{func} = sub {
 		}
 	}
 };
-$METHODS{PULL}->{func} = sub {
-	myExec('git pull');
+$METHODS{PULL}->{callback} = sub {
+	my %Environment = %{$_[0]};
+	my $COMMAND = 'git pull';
+	myExec($COMMAND);
 	if(exists $Environment{DEPENDENCIES}){
 		for(@{$Environment{DEPENDENCIES}}){
 			my $dir = $$_{DIR};
@@ -162,32 +159,48 @@ $METHODS{PULL}->{func} = sub {
 			printf(STDERR "\tdependency: %s\n",$dir);
 			my $dirToCheck = sprintf("%s/.git",$dir);
 			if( -e $dirToCheck and -d $dirToCheck ) {
-				myExec('git pull',(dir=>$dir));
+				myExec($COMMAND,(dir=>$dir));
 			} else {
 				myExec(sprintf("cd %s/.. && git clone %s",$dir,$depUrl));
 			}
 		}
 	}
 };
-$METHODS{PUSH}->{func} = sub {
-	my %cmdline = @_;
-	unless(defined($cmdline{configfile})){
-		myExec("git push");
-	} else {
-		printf(STDERR "configfile branch with configfile=%s\n",$cmdline{configfile});
-		open my $fh, '<', $cmdline{configfile} or 
-			die sprintf("error opening %s\nerror=%s\n",$cmdline{configfile},$!);
-		my $data = do { local $/; <$fh> };
-		my $json = parse_json($data);
-		printf(STDERR "got json: %s\n",Dumper($json));
-		myExec("git push");
-		if(exists $$json{dependencies}){
-			for(@{$$json{dependencies}}){
-				printf(STDERR "\tdependency: %s\n",$_);
-				myExec("git push",dir=>$_);
+$METHODS{PUSH}->{callback} = sub {
+	my %Environment = %{$_[0]};
+	my $COMMAND = 'git push';
+	myExec($COMMAND,$Environment{TESTFLAG});
+	if(exists $Environment{DEPENDENCIES}){
+		for(@{$Environment{DEPENDENCIES}}){
+			my $dir = $$_{DIR};
+			my $depUrl = $$_{URL};
+			printf(STDERR "\tdependency: %s\n",$dir);
+			my $dirToCheck = sprintf("%s/.git",$dir);
+			if( -e $dirToCheck and -d $dirToCheck ) {
+				myExec($COMMAND,(dir=>$dir));
+			} else {
+				myExec(sprintf("cd %s/.. && git clone %s",$dir,$depUrl));
 			}
 		}
 	}
+#	my %cmdline = @_;
+#	unless(defined($cmdline{configfile})){
+#		MyExec("git push",$Environment{TESTFLAG});
+#	} else {
+#		printf(STDERR "configfile branch with configfile=%s\n",$cmdline{configfile});
+#		open my $fh, '<', $cmdline{configfile} or 
+#			die sprintf("error opening %s\nerror=%s\n",$cmdline{configfile},$!);
+#		my $data = do { local $/; <$fh> };
+#		my $json = parse_json($data);
+#		printf(STDERR "got json: %s\n",Dumper($json));
+#		MyExec("git push",$Environment{TESTFLAG});
+#		if(exists $$json{dependencies}){
+#			for(@{$$json{dependencies}}){
+#				printf(STDERR "\tdependency: %s\n",$_);
+#				MyExec("git push",$Environment{TESTFLAG},dir=>$_);
+#			}
+#		}
+#	}
 };
 sub getBranchName{
 	(my $URL,my $trelloKey,my $trelloToken) = @_;
@@ -208,25 +221,14 @@ sub getBranchName{
 }
 
 #main
-processConfigFile($DEFAULTCONFIGFILE);
-ParseCommandLine(\%Environment,
-	'testflag=n',
-	'title=n',
-);
-$Environment{TESTFLAG} //= 0;
-
-my @leftover = (scalar(@ARGV) > 0) ? @ARGV : ($DEFAULTMETHOD);
-#@leftover = ($DEFAULTCONFIGFILE, @leftover);
-for my $lo (@leftover) {
-	my $wasProcessed = 0;
-	foreach my $processor (@LEFTOVERPROCESSORS) {
-		if( $processor->{PREDICATE}->($lo) ) {
-			$processor->{CALLBACK}->($lo);
-			$wasProcessed = 1;
-			last;
-		}
-	}
-	if( not $wasProcessed ) {
-		printf("unknown leftover: \"%s\"\n",$lo);
-	}
+my @args;
+for(qw( testflag title )) {
+	push(@args, sprintf("%s=n",$_));
 }
+ParseCommandLine(\%Environment,@args);
+Process(
+	env=>\%Environment,
+	methods=>\%METHODS,
+	argv=>\@ARGV,
+	parseJsons=>[$DEFAULTCONFIGFILE,$LOCALSTORE],
+);

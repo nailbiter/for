@@ -7,7 +7,7 @@ fortexmacs/
 harpoon.sty
 forjava/*.class
 forjava/*.txt
-*.pdf
+#*.pdf
 alex.vim
 .vim/.netrwhist
 formaxima/.texput.tex
