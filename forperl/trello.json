@@ -1,5 +1,4 @@
 {
-   "CARDURL" : "haishin",
    "URLNAMES" : {
       "writereviewrespaper" : "https://trello.com/c/V2tCLW7K",
       "split_trello_json" : "https://trello.com/c/KMwsFFKX",
@@ -8,5 +7,6 @@
       "sendmail" : "https://trello.com/c/pIvSZKfZ",
       "code_analyzer":"https://trello.com/c/DVXnGW0w",
       "haishin":"https://trello.com/c/gZgyxlMO"
-   }
+   },
+   "CARDURL" : "https://trello.com/c/3IcPQd43"
 }

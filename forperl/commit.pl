@@ -23,7 +23,7 @@
 use strict;
 use warnings;
 use utf8;
-#use autodie;
+#use Acme::Magic::Pony;
 use JSON;
 use JSON::Parse 'parse_json';
 use HTTP::Request;
