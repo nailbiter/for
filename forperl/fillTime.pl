@@ -32,35 +32,6 @@ require "$FindBin::Bin/util.pl";
 my $TIMEINTERVALMINS = 30;
 my $SECRETFILENAME = "secret.txt";
 my %METHODS = (
-	HABITS => {
-		keys=>["start","end","habitfile"],
-		description=>"start/end=mmddHHMM",
-		callback => sub {
-			(my $envref) = @_;
-			my %environment = %$envref;
-#			(my $start, my $end, my $category) = @environment{"START","END","CATEGORY"};
-			my $coll = getMongoClient()->get_database("logistics")->get_collection("alex.time");
-			my @parsedTime;
-			for my $pt ($start, $end){
-				if($pt =~ /(\d\d)(\d\d)(\d\d)(\d\d)/) {
-					my $date = DateTime->new(
-						month=>$1, day=> $2, hour=> $3, minute=> $4, year=>2019,
-					);
-					push (@parsedTime, $date);
-					printf("%s\n",$date->datetime)
-				} else {
-					die sprintf("invalid format for date: %s\n",$pt);
-				}
-			}
-
-			($start,$end) = @parsedTime;
-			my $date = CeilDate($start);
-			while(DateTime->compare($date,$end) == -1){
-				printf("\tinsert: date: %s, cat: %s\n",$date->datetime,$category);
-				$date->add(minutes=>30);
-			}
-		},
-	},
 	TIME => {
 		keys=>["start","end","category"],
 		description=>"start/end=mmddHHMM",
