@@ -23,6 +23,8 @@ use warnings;
 use utf8;
 use FindBin;
 use MongoDB;
+use Data::Dumper;
+use DateTime;
 require "$FindBin::Bin/util.pl";
 
 
@@ -38,8 +40,27 @@ my %METHODS = (
 			my %Environment = %$envref;
 			(my $start, my $end, my $category) = @Environment{"START","END","CATEGORY"};
 			my $coll = getMongoClient()->get_database("logistics")->get_collection("alex.time");
+			my @parsedTime;
+			for my $pt ($start, $end){
+#				printf("pt: %s\n",$pt);
+				if($pt =~ /(\d\d)(\d\d)(\d\d)(\d\d)/) {
+					my $date = DateTime->new(
+						month=>$1, day=> $2, hour=> $3, minute=> $4, year=>2019,
+					);
+					push (@parsedTime, $date);
+					printf("%s\n",$date->datetime)
+				} else {
+					die sprintf("invalid format for date: %s\n",$pt);
+				}
+			}
 
-			printf("start: %s\nend: %s\ncat: %s\ntest: %d",$start,$end,$category,$envref->{TESTFLAG});
+#			printf("parsedTime: %s\n",Dumper(\@parsedTime));
+#			printf("start: %s\nend: %s\ncat: %s\ntest: %d",$start,$end,$category,$envref->{TESTFLAG});
+			($start,$end) = @parsedTime;
+			my $date = $start
+#			while(...){
+#				$start
+#			}
 		},
 	}
 );
