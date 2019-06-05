@@ -1,6 +1,14 @@
 html,body{
   height:297mm;
-  width:210mm;
+  /*width:210mm;*/
+}
+body {
+	max-width:8.2681in;
+	/*margin-top:0.639in; 
+	margin-bottom:0.1945in; 
+	margin-left:0.5555in; 
+	margin-right:0.5835in;*/
+	margin:auto;
 }
 @page {  }
 table { border-collapse:collapse; border-spacing:0; empty-cells:show }

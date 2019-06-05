@@ -74,7 +74,13 @@
       "year":[28],"month":[4],
       "description":["東京大学・大学院数理科学研究科入学（博士課程）"]
     },
-    null,null,null,null,
+    {
+      "year":[28],"month":[9],
+      "type":"GRADUATION",
+      "uniname":"The University of Tokyo, Tokyo, Japan",
+      "degreename":"PhD (Mathematical Sciences)",
+      "description":["東京大学・大学院数理科学研究科 卒業 （見込）"]
+    },
     null,null,null,null
   ],
   "work":[
@@ -220,7 +226,7 @@
         ],
         "month" : [
            7,
-           3
+           5
         ],
         "honors":[
           "As a part of a three-people team, created the web-page <a href=\"https://tokyo-komachi.jp\">https://tokyo-komachi.jp</a>"
