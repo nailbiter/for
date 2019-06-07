@@ -53,25 +53,33 @@
 	<div class="section">
 		<div class="sectionheader">Publications</div>
 			<ul>
-				[%PUBLICATIONS%]
+				[% FOREACH item = PAPERS %]
+					<li>[%item.0%]</li>
+				[% END %]
 			</ul>
 	</div>
 	<div class="section">
 		<div class="sectionheader">Honors & Awards</div>
 			<ul>
-				[%HONORS%]
+				[% FOREACH item = HONORS %]
+					<li>[%item.0%]</li>
+				[% END %]
 			</ul>
 	</div>
 	<div class="section">
 		<div class="sectionheader">Certifications</div>
 			<ul>
-				[%LANGSKILLSCONTENT%]
+				[% FOREACH item = LANGEXAMS %]
+					<li>[%item.description.0%] (taken in [%1988 + item.year.0%])</li>
+				[% END %]
 			</ul>
 	</div>
 	<div class="section">
 		<div class="sectionheader">Languages</div>
 			<ul>
-				[%LANGUAGES%]
+				[% FOREACH item = LANGS %]
+					<li>[%item.0%]</li>
+				[% END %]
 			</ul>
 	</div>
 </body>
