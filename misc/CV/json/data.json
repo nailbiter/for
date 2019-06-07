@@ -21,7 +21,7 @@
     ["OpenCV, OpenGL, OpenSSL, Network Programming, Apache Hadoop"],
     ["Java, Android Application Development"],
     ["Lisp, Scheme"],
-    ["JavaScript, React JS"],
+    ["JavaScript/TypeScript, React JS, Express.js, Node.js"],
     ["C#, Unity Game Engine"]
   ],
   "langExams":[
@@ -233,7 +233,7 @@
            5
         ],
         "honors":[
-          "As a part of a three-people team, created the web-page <a href=\"https://tokyo-komachi.jp\">https://tokyo-komachi.jp</a>"
+          "As a part of a three-people team, created the web-page <a href=\"https://tokyo-romance.jp\">https://tokyo-romance.jp</a>"
         ],
         "description" : [
            "System Engineer at %s (Client-Side development with React JS)",

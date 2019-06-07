@@ -16,6 +16,6 @@ $(HTMLDIR)/CV_engstyle.html: $(PERLDIR)/generate.pl\
 	$(HTMLDIR)/CV_files/css/mystyle2.css \
 	json/data.json json/config_engstyle.json \
 	$(addsuffix .template.html,$(addprefix $(TEMPLATEDIR)/,snipli snipsec CV_engstyle))
-	./$< --jsonfilename json/data.json --config json/config_engstyle.json > $@
+	./$< --jsonfilename json/data.json --plugin $(PERLDIR)/generateAux_eng.pl --config json/config_engstyle.json > $@
 $(HTMLDIR)/CV_files/css/mystyle2.css: $(PERLDIR)/generateCSS.pl
 	./$< > $@

@@ -17,12 +17,19 @@
 <body>
 	<center>
 		<div id="name">Alex Leontiev</div>
-		<div id="address">
-			2-2-A Aomi, Koto-ku, Tokyo Japan, 135-0064, *(050) 5532-0335* <a href="mailto:alozz1991@gmail.com">alozz1991@gmail.com</a>
-		</div>
 	</center>
 	<div class="section">
-		<div class="sectionheader">PROFESSIONAL PROFILE</div>
+	<div class="sectionheader">Contact Details</div>
+		<ul>
+			<li>Phone: (050) 5532-0335</li>
+			<li>Email: <a href="mailto:alozz1991@gmail.com">alozz1991@gmail.com</a></li>
+			<li>Address: 2-2-A Aomi, Koto-ku, Tokyo Japan, 135-0064</li>
+			<li>GitHub: <a href="https://github.com/nailbiter">https://github.com/nailbiter</a></li>
+		</ul>
+	</div>
+	</div>
+	<div class="section">
+		<div class="sectionheader">Professional Profile</div>
 			<ul>
 				[% FOREACH item IN PROFESSIONALPROFILE%]
    			<li><span>[%item%]</span></li>
@@ -30,33 +37,39 @@
 			</ul>
 	</div>
 	<div class="section">
-		<div class="sectionheader">TECHNICAL SKILLS</div>
+		<div class="sectionheader">Technical Skills</div>
 			<ul>
 				[%TECHSKILLS%]
 			</ul>
 	</div>
 	<div class="section">
-		<div class="sectionheader">PROFESSIONAL EXPERIENCE</div>
+		<div class="sectionheader">Work Experience</div>
 			[%WORK%]
 	</div>
 	<div class="section">
-		<div class="sectionheader">EDUCATION</div>
+		<div class="sectionheader">Education</div>
 		[%EDUCATION%]
 	</div>
 	<div class="section">
-		<div class="sectionheader">PUBLICATIONS</div>
+		<div class="sectionheader">Publications</div>
 			<ul>
 				[%PUBLICATIONS%]
 			</ul>
 	</div>
 	<div class="section">
-		<div class="sectionheader">HONORS & AWARDS</div>
+		<div class="sectionheader">Honors & Awards</div>
 			<ul>
 				[%HONORS%]
 			</ul>
 	</div>
 	<div class="section">
-		<div class="sectionheader">LANGUAGES</div>
+		<div class="sectionheader">Certifications</div>
+			<ul>
+				[%LANGSKILLSCONTENT%]
+			</ul>
+	</div>
+	<div class="section">
+		<div class="sectionheader">Languages</div>
 			<ul>
 				[%LANGUAGES%]
 			</ul>

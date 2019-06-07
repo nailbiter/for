@@ -115,8 +115,9 @@ GetOptions(
   "plugin=s@" => \@plugins,
 );
 for(@plugins) {
-	printf(STDERR "plugin: %s\n",$_);
-	require "$_";
+	my $pn = $_;
+	printf(STDERR "plugin: \"%s\"\n",$pn);
+	require "$pn";
 }
 my $dataJson = loadJsonFromFile($jsonFileName);
 my $configJson = loadJsonFromFile($configName);

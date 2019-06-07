@@ -7,8 +7,8 @@
     {"key":"progLangs","mode":"NONE","template":"snipli.template.html","varname":"TECHSKILLS"},
     {"key":"papers","mode":"NONE","modeext":"publications","template":"snipli.template.html","varname":"PUBLICATIONS"},
     {"key":"honors","mode":"NONE","template":"snipli.template.html","varname":"HONORS"},
-
     {"key":"education","mode":"EDUCATION","modeext":"FILTER","template":"snipsec.template.html","varname":"EDUCATION"},
-    {"key":"work","mode":"EDUCATION","template":"snipsec.template.html","varname":"WORK"}
+    {"key":"work","mode":"EDUCATION","template":"snipsec.template.html","varname":"WORK"},
+    {"key":"langExams","varname":"LANGSKILLSCONTENT","mode":"SIMPLE","template":"snipli.template.html"}
   ]
 }
