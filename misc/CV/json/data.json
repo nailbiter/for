@@ -4,6 +4,13 @@
     ["English (fluent), German (basic)"],
     ["Russian (native), Ukrainian (native)"]
   ],
+  "months":[
+	  "Jan","Feb",
+	  "Mar","Apr","May",
+	  "Jun","Jul","Aug",
+	  "Sep","Oct","Nov",
+	  "Dec"
+  ],
   "honors":
   [
   	["Leading Graduate Course for Frontiers of Mathematical Sciences and Physics (FMSP) (2016--2019)"],
@@ -75,7 +82,7 @@
       "description":["Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, PhD Program)"]
     },
     {
-      "year":[28],"month":[9],
+      "year":[31],"month":[9],
       "type":"GRADUATION",
       "uniname":"The University of Tokyo, Tokyo, Japan",
       "degreename":"PhD (Mathematical Sciences)",
@@ -86,9 +93,7 @@
   "work":[
      {
         "description" : [
-           "Internship at Computer Graphics and Geometry Modeling Lab (under Prof. %s)",
-           "https://www.cs.nctu.edu.tw/cswebsite/members/detail/jhchuang",
-           "Jung-Hong Chuang"
+           "Internship at Computer Graphics and Geometry Modeling Lab (under Prof. <a href=\"https://www.cs.nctu.edu.tw/cswebsite/members/detail/jhchuang\">Jung-Hong Chuang</a>)"
         ],
         "honors":[
           "Prepared several paper surveys on Surface Recognition",
@@ -112,20 +117,14 @@
            12
         ],
         "year" : [
-           25
+           25,25
         ],
         "degreename":"Contract Programmer",
         "honors":[
           "Designed and implemented the prototype of a Smart Meter, designed by H.-Y. Lin (in C, using <a href=\"https://www.openssl.org\">OpenSSL</a>)"
         ],
         "description" : [
-           "Desing and Implementation of a prototype  %s by %s et al. (implementation requested and financed by %s)",
-           "https://link.springer.com/chapter/10.1007/978-3-642-31284-7_32",
-           "A Practical Smart Metering System Supporting Privacy",
-           "https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/",
-           "H.-Y. Lin",
-           "https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/",
-           "H.-Y. Lin"
+           "Desing and Implementation of a prototype  <a href=\"https://link.springer.com/chapter/10.1007/978-3-642-31284-7_32\">A Practical Smart Metering System Supporting Privacy</a> by <a href=\"https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/\">H.-Y. Lin</a> et al. (implementation requested and financed by <a href=\"https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/\">H.-Y. Lin</a>)"
         ]
      },
      {
@@ -134,7 +133,7 @@
            9
         ],
         "year" : [
-           25
+           25,25
         ],
         "degreename":"Contract Programmer",
         "honors":[
@@ -142,16 +141,12 @@
           "Module was included in <a href=\"https://opencv.org\">OpenCV library</a>"
         ],
         "description" : [
-           "Succesfully completed %s 2014 program (for %s)",
-           "https://summerofcode.withgoogle.com/?csw=1",
-           "Google Summer of Code",
-           "https://opencv.org",
-           "OpenCV library"
+           "Succesfully completed <a href=\"https://summerofcode.withgoogle.com/?csw=1\">Google Summer of Code</a> 2014 program (for <a href=\"https://opencv.org\">OpenCV library</a>)"
         ]
      },
      {
         "year" : [
-           26
+           26,26
         ],
         "month" : [
            5,
@@ -163,25 +158,20 @@
           "The implementation was included in <a href=\"https://opencv.org\">OpenCV library</a>"
         ],
         "description" : [
-           "Succesfully completed %s 2015 program (for %s)",
-           "https://summerofcode.withgoogle.com/?csw=1",
-           "Google Summer of Code",
-           "https://opencv.org",
-           "OpenCV library"
+           "Succesfully completed <a href=\"https://summerofcode.withgoogle.com/?csw=1\">Google Summer of Code</a> 2015 program (for <a href=\"https://opencv.org\">OpenCV library</a>)"
         ]
      },
      {
+	    "degreename":"Unity Developer",
         "description" : [
-           "Unity Developer at %s",
-           "http://www.app-studio.jp",
-           "株式会社アプリ工房"
+           "Unity Developer at <a href=\"http://www.app-studio.jp\">株式会社アプリ工房</a>"
         ],
         "honors":[
           "Added multi-player support to existing Unity game, using <a href=\"https://www.photonengine.com/ja/PUN\">Photon Networking Framework</a>",
           "Also implemented the same functionality using <a href=\"http://www.monobitengine.com/mun/\">Monobit Networking Framework</a>"
         ],
         "year" : [
-           28
+           28,28
         ],
         "month" : [
            10,
@@ -189,10 +179,9 @@
         ]
      },
      {
+	    "degreename":"Unity Developer",
         "description" : [
-           "Unity Developer at %s",
-           "https://www.facebook.com/AjpGames/",
-           "AJP Games"
+           "Unity Developer at <a href=\"https://www.facebook.com/AjpGames/\">AJP Games</a>"
         ],
         "month" : [
            11,
@@ -207,17 +196,16 @@
         ]
      },
      {
+	    "degreename":"Unity Developer",
         "description" : [
-           "Unity Developer at %s",
-           "http://www.pocket-queries.co.jp/",
-           "Pocket Queries"
+           "Unity Developer at <a href=\"http://www.pocket-queries.co.jp/\">Pocket Queries</a>"
         ],
         "month" : [
            6,
            7
         ],
         "year" : [
-           29
+           29,29
         ],
         "honors":[
           "Prepared several paper and software surveys related to Computer Vision and Machine Learning (including <a href=\"https://www.tensorflow.org/?hl=ja\">TensorFlow</a>, <a href=\"https://github.com/liuziwei7/fashion-detection\">Fashion Detection in the Wild</a> and <a href=\"http://vision.is.tohoku.ac.jp/~kyamagu/research/paperdoll/\">PaperDoll</a>)",
@@ -226,7 +214,7 @@
      },
      {
         "year" : [
-           30
+           30,30
         ],
         "month" : [
            7,
@@ -236,42 +224,41 @@
           "As a part of a three-people team, created the web-page <a href=\"https://tokyo-romance.jp\">https://tokyo-romance.jp</a>"
         ],
         "description" : [
-           "System Engineer at %s (Client-Side development with React JS)",
-           "https://www.dreampirates.jp",
-           "Dream Pirates"
-        ]
+           "System Engineer at <a href=\"https://www.dreampirates.jp\">Dream Pirates</a> (Client-Side development with React JS)"
+        ],
+	"degreename":"System Engineer"
      },
      null,
      null
   ],
   "papers":[
     {
-      "Date": "2015年1月26日",
-      "Title": "A NEW CRITERION FOR THE ROUGHNESS OF EXPONENTIAL DICHOTOMY ON R",
+      "Date": {"year":2015,"month":"01","date":"26"},
+      "Title": "A New Criterion For the Roughness of Exponential Dichotomy on R",
       "Link": "http://mat76.mat.uni-miskolc.hu/mnotes/contents/16/2",
       "Journal": "Miskolc Mathematical Notes",
-      "Co-author(s)": "Petro Feketa"
+      "COAUTHORS": "Petro Feketa"
     },
     {
-      "Date": "2016年9月18日",
+      "Date": {"year":2016,"month":"09","date":"18"},
       "Title": "Symmetry breaking operators for the indefinite orthogonal groups O(p,q)",
       "Link": "https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxhbGV4bGVvbnRpZXZ0b2RhaXxneDo0ZjI3MjNlMTdmNDdjYjY3",
       "Journal": "Abstract of the Geometry Session at the MSJ 2016 Autumn Meeting",
-      "Co-author(s)": "Toshiyuki Kobayashi"
+      "COAUTHORS": "Toshiyuki Kobayashi"
     },
     {
-      "Date": "2017年3月26日",
+      "Date": {"year":2017,"month":"03","date":"26"},
       "Title": "Symmetry breaking operators for conformal transformation groups O(p,q)",
       "Link": "https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxhbGV4bGVvbnRpZXZ0b2RhaXxneDoyMGNhYTE4YmYzMTdmN2Nj",
       "Journal": "Abstract Book of MSJ Spring Meeting 2017 at Tokyo Metropolitan University",
-      "Co-author(s)": "Toshiyuki Kobayashi"
+      "COAUTHORS": "Toshiyuki Kobayashi"
     },
     {
-      "Date": "2017年9月12日",
+      "Date": {"year":2017,"month":"09","date":"12"},
       "Title": "Symmetry breaking operators for the restriction of representations of indefinite orthogonal groups O(p,q)",
       "Link": "https://projecteuclid.org/euclid.pja/1506996023",
       "Journal": "Proceedings of the Japan Academy, Series A, Mathematical Sciences",
-      "Co-author(s)": "Toshiyuki Kobayashi"
+      "COAUTHORS": "Toshiyuki Kobayashi"
     }
   ],
   "profProfile":[

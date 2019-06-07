@@ -21,17 +21,17 @@
 	<div class="section">
 	<div class="sectionheader">Contact Details</div>
 		<ul>
-			<li>Phone: (050) 5532-0335</li>
-			<li>Email: <a href="mailto:alozz1991@gmail.com">alozz1991@gmail.com</a></li>
-			<li>Address: 2-2-A Aomi, Koto-ku, Tokyo Japan, 135-0064</li>
-			<li>GitHub: <a href="https://github.com/nailbiter">https://github.com/nailbiter</a></li>
+			<li><span>Phone: (050) 5532-0335</span></li>
+			<li><span>Email: <a href="mailto:alozz1991@gmail.com">alozz1991@gmail.com</a></span></li>
+			<li><span>Address: 2-2-A Aomi, Koto-ku, Tokyo Japan, 135-0064</span></li>
+			<li><span>GitHub: <a href="https://github.com/nailbiter">https://github.com/nailbiter</a></span></li>
 		</ul>
 	</div>
 	</div>
 	<div class="section">
 		<div class="sectionheader">Professional Profile</div>
 			<ul>
-				[% FOREACH item IN PROFESSIONALPROFILE%]
+				[% FOREACH item IN PROFPROFILE%]
    			<li><span>[%item%]</span></li>
 	 			[% END %]
 			</ul>
@@ -39,22 +39,45 @@
 	<div class="section">
 		<div class="sectionheader">Technical Skills</div>
 			<ul>
-				[%TECHSKILLS%]
+				[% FOREACH item IN PROGLANGS%]
+   			<li><span>[%item.0%]</span></li>
+	 			[% END %]
 			</ul>
 	</div>
 	<div class="section">
 		<div class="sectionheader">Work Experience</div>
-			[%WORK%]
+				[% FOREACH item IN WORK.reverse%]
+					[% IF item.year != null %]
+						[%INCLUDE snipsec.template.html 
+							uniname=item.description.0 
+							degreename= item.degreename
+							dateline=MONTHS.${item.month.0}_" "_ (1988+item.year.0)_"-" _ MONTHS.${item.month.1}_" "_ (1988+item.year.1)
+							honors=item.honors
+						%]
+					[%END%]
+	 			[% END %]
 	</div>
 	<div class="section">
 		<div class="sectionheader">Education</div>
-		[%EDUCATION%]
+				[% FOREACH item IN EDUCATION.reverse%]
+					[% IF item.type == "GRADUATION" %]
+						[%INCLUDE snipsec.template.html 
+							uniname=item.uniname 
+							degreename=item.degreename
+							dateline="0${item.month.0}" _"/"_ (1988+item.year.0)
+							honors=item.honors
+						%]
+					[% END %]
+	 			[% END %]
 	</div>
 	<div class="section">
 		<div class="sectionheader">Publications</div>
 			<ul>
 				[% FOREACH item = PAPERS %]
-					<li>[%item.0%]</li>
+					<li>[%item.Title%], Alex Leontiev and [%item.COAUTHORS%], 
+						[%item.Date.date%]/[%item.Date.month%]/[%item.Date.year%],
+						[%item.Journal%],
+						available online at <a href="[%item.Link%]">[%item.Link%]</a></li>
 				[% END %]
 			</ul>
 	</div>
