@@ -118,9 +118,7 @@
   "work":[
      {
         "description" : [
-           "大学院マルチメディア工学研究科にてインターンシップ（担当：%s教授）",
-           "https://www.cs.nctu.edu.tw/cswebsite/members/detail/jhchuang",
-           "莊榮宏"
+           "大学院マルチメディア工学研究科にてインターンシップ（担当：<a href=\"https://www.cs.nctu.edu.tw/cswebsite/members/detail/jhchuang\">Jung-Hong Chuang</a>教授）"
         ],
         "honors":[
           "Prepared several paper surveys on Surface Recognition",
@@ -151,9 +149,7 @@
           "Designed and implemented the prototype of a Smart Meter, designed by H.-Y. Lin (in C, using <a href=\"https://www.openssl.org\">OpenSSL</a>)"
         ],
         "description" : [
-		"%sという林孝盈の研究に基づいたプライバシーの面を考慮した公共料金自動検針システムの開発と実装",
-           "https://link.springer.com/chapter/10.1007/978-3-642-31284-7_32",
-           "A Practical Smart Metering System Supporting Privacy"
+		"<a href=\"https://link.springer.com/chapter/10.1007/978-3-642-31284-7_32\">A Practical Smart Metering System Supporting Privacy</a>という林孝盈の研究に基づいたプライバシーの面を考慮した公共料金自動検針システムの開発と実装"
         ]
      },
      {
@@ -170,11 +166,7 @@
           "Module was included in <a href=\"https://opencv.org\">OpenCV library</a>"
         ],
         "description" : [
-		"%s 2014参加者(%s)",
-           "https://summerofcode.withgoogle.com/?csw=1",
-           "Google Summer of Code",
-           "https://opencv.org",
-           "OpenCV ライブラリ"
+		"<a href=\"https://summerofcode.withgoogle.com/?csw=1\">Google Summer of Code</a> 2014参加者(<a href=\"https://opencv.org\">OpenCV ライブラリ</a>)"
         ]
      },
      {
@@ -191,18 +183,12 @@
           "The implementation was included in <a href=\"https://opencv.org\">OpenCV library</a>"
         ],
         "description" : [
-		"%s 2015参加者(%s)",
-           "https://summerofcode.withgoogle.com/?csw=1",
-           "Google Summer of Code",
-           "https://opencv.org",
-           "OpenCV library"
+		"<a href=\"https://summerofcode.withgoogle.com/?csw=1\">Google Summer of Code</a> 2015参加者(<a href=\"https://opencv.org\">OpenCV library</a>)"
         ]
      },
      {
         "description" : [
-           "%s でUnity ゲーム開発",
-           "http://www.app-studio.jp",
-           "株式会社アプリ工房"
+           "<a href=\"http://www.app-studio.jp\">株式会社アプリ工房</a> でUnity ゲーム開発"
         ],
         "honors":[
           "Added multi-player support to existing Unity game, using <a href=\"https://www.photonengine.com/ja/PUN\">Photon Networking Framework</a>",
@@ -218,9 +204,7 @@
      },
      {
         "description" : [
-           "%s でUnityゲーム開発",
-           "https://www.facebook.com/AjpGames/",
-           "AJP Games"
+           "<a href=\"https://www.facebook.com/AjpGames/\">AJP Games</a> でUnityゲーム開発"
         ],
         "month" : [
            11,
@@ -236,9 +220,7 @@
      },
      {
         "description" : [
-           "%s でUnityゲーム開発",
-           "http://www.pocket-queries.co.jp/",
-           "Pocket Queries"
+           "<a href=\"http://www.pocket-queries.co.jp/\">Pocket Queries</a> でUnityゲーム開発"
         ],
         "month" : [
            6,
@@ -264,9 +246,7 @@
           "As a part of a three-people team, created the web-page <a href=\"https://tokyo-komachi.jp\">https://tokyo-komachi.jp</a>"
         ],
         "description" : [
-           "%s でシステムエンジニア(React JS)",
-           "https://www.dreampirates.jp",
-           "Dream Pirates"
+           "<a href=\"https://www.dreampirates.jp\">Dream Pirates</a> でシステムエンジニア(React JS)"
         ]
      },
      null,
