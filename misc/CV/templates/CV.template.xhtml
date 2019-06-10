@@ -4,8 +4,7 @@
   <head profile="http://dublincore.org/documents/dcmi-terms/">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title xml:lang="en-US">
-      <!-- 履歴書 -->
-      [%TITLE%]
+      [%VARS.TITLE%]
     </title>
     <meta name="DCTERMS.title" content="履歴書" xml:lang="en-US" />
     <meta name="DCTERMS.language" content="en-US" scheme="DCTERMS.RFC4646" />
@@ -28,14 +27,13 @@
     <div class="Sect1" id="TextSection">
       <p class="P2">
         <span class="T1">
-          <!-- 履歴書 -->
-	  [% TITLE %]
+      		[%VARS.TITLE%]
         </span>
       </p>
       <p class="P3"> </p>
       <div class="P1">
         <span class="T2">
-          [% LASTUPDATETEXT %]: [%LASTUPDATE%]
+          [% VARS.LASTUPDATETEXT %]: [%VARS.LASTUPDATE%]
         </span>
       </div>
       <p class="P4"> </p>
@@ -55,12 +53,12 @@
           </colgroup>
       <tr class="Table12">
         <td style="text-align:left;" class="TTB Table1_A2">
-          <p class="P44"><span class="T11">[% NAMETEXT %]</span></p>
+          <p class="P44"><span class="T11">[% VARS.NAMETEXT %]</span></p>
         </td>
         <td colspan="5" style="text-align:left;width:0.8431in;" class="TTB Table1_B2">
           <p class="P26"> </p>
           <p class="P34" [% P34CSS %]>
-            <span class="T35">[% NAME %]</span>
+            <span class="T35">[% VARS.NAME %]</span>
           </p>
         </td>
         <td rowspan="4" style="text-align:center;width:1.5in;" class="Table1_K1">
@@ -68,22 +66,21 @@
         </td>
       </tr>
       <tr class="Table13">
-        <td class="TLB tRB"><p class="P44"><span class="T11">[% DATEOFBIRTH %]</span></p></td>
-        <td colspan="3" class="tRB"><p class="P44"><span class="T11">[% BIRTHDATE %]</span></p></td>
-        <td colspan="2"><p class="P44"><span class="T11">[%GENDERMALE%]</span></p></td>
+        <td class="TLB tRB"><p class="P44"><span class="T11">[% VARS.DATEOFBIRTH %]</span></p></td>
+        <td colspan="3" class="tRB"><p class="P44"><span class="T11">[% VARS.BIRTHDATE %]</span></p></td>
+        <td colspan="2"><p class="P44"><span class="T11">[%VARS.GENDERMALE%]</span></p></td>
       </tr>
       <tr class="Table13">
         <td class="TLB tRB"></td>
-        <td colspan="3" class="tRB"><p class="P44"><span class="T11">[%HOWOLD%]</span></p></td>
+        <td colspan="3" class="tRB"><p class="P44"><span class="T11">[%VARS.HOWOLD%]</span></p></td>
         <td colspan="2"></td>
       </tr>
       <tr class="Table15">
         <td class="Table1_A5" style="text-align:left;">
-          <p class="P44"><span class="T11">[% PHONENUMBER %]</span></p>
+          <p class="P44"><span class="T11">[% VARS.PHONENUMBER %]</span></p>
         </td>
-        <!-- <td></td> -->
         <td colspan="2" style="text-align:left;width:0.8431in; " class="Table1_C5">
-          <p class="P52"><span class="T24">[% PHONEPREFIX %] [% PHONESUFFIX %]</span></p>
+          <p class="P52"><span class="T24">[% VARS.PHONEPREFIX %] [% VARS.PHONESUFFIX %]</span></p>
         </td>
         <td style="text-align:left;width:0.5104in; " class="Table1_C5"><p class="P40"><span class="T10">E-MAIL</span></p></td>
         <td colspan="2" style="text-align:left;width:1.6215in; " class="Table1_F5"><p class="P80"><a href="mailto:alozz1991@gmail.com" class="ListLabel_20_1"><span class="Internet_20_link"><span class="T56">alozz1991@gmail.com</span></span></a></p></td>
@@ -91,14 +88,13 @@
       <tr class="Table16">
         <td style="text-align:left;width:0.8896in;" class="tRB Table1_A6"><p class="P44"><span class="T11">ふりがな</span></p></td>
         <td style="text-align:left;width:0.8431in; " class="Table1_B2">
-          <!-- <p class="P81"><span class="T19">とうきょうと</span></p> -->
         </td>
         <td colspan="3" style="text-align:left;width:0.5264in;" class="tTB Table1_D6">
           <span style="font-family:ＭＳ 明朝; font-size:7.5pt; letter-spacing:0.0016in;">とうきょうとこうとくあおみ</span>
         </td>
         <td style="text-align:left;width:0.2451in; " class="Table1_B2"></td>
         <td style="text-align:left;width:1.5in; " class="Table1_K6">
-          <p class="P53"><span class="T7">Tel.: ([% PHONEPREFIX %]) [% PHONESUFFIX %]</span></p>
+          <p class="P53"><span class="T7">Tel.: ([% VARS.PHONEPREFIX %]) [% VARS.PHONESUFFIX %]</span></p>
         </td>
       </tr>
       <tr class="Table15">
@@ -109,7 +105,7 @@
       </tr>
       <tr>
         <td style="text-align:left;width:0.5896in;" class="Table1_K2 TBB tRB">
-            <p class="P44"><span class="T11">[%CURRENTADDRESS%]</span></p>
+            <p class="P44"><span class="T11">[%VARS.CURRENTADDRESS%]</span></p>
         </td>
         <td style="text-align:left;width:0.5896in;" class="TBB Table1_K22">
           <p class="P21">
@@ -135,37 +131,71 @@
     </colgroup>
     <tr class="Table21">
       <td style="text-align:left;width:0.6333in;" class="NB Table2_A1">
-        <p class="P89"><span class="T9">[%YEAR%]</span></p>
+        <p class="P89"><span class="T9">[%VARS.YEAR%]</span></p>
       </td>
       <td style="text-align:left;width:0.5201in;" class="NB Table2_B1">
-        <p class="P90"><span class="T9">[%MONTH%]</span></p>
+        <p class="P90"><span class="T9">[%VARS.MONTH%]</span></p>
       </td>
       <td style="text-align:left;width:5.7958in; " class="Table2_C1">
-        <p class="P98"><span class="T11">[%EDUCATIONEMPLOYMENT%]</span></p>
+        <p class="P98"><span class="T11">[%VARS.EDUCATIONEMPLOYMENT%]</span></p>
       </td>
     </tr>
     <tr class="Table22">
       <td style="text-align:left;width:0.6333in;" class="Table2_A2 TBB NT"><p class="P9"> </p></td>
       <td style="text-align:left;width:0.5201in;" class="TBB NT Table2_B2"><p class="P9"> </p></td>
-      <td style="text-align:left;width:5.7958in;" class="TBB Table2_C2"><p class="P28"><span class="T27">[%EDUCATION%]</span></p></td>
+      <td style="text-align:left;width:5.7958in;" class="TBB Table2_C2"><p class="P28"><span class="T27">[%VARS.EDUCATION%]</span></p></td>
     </tr>
-    [%EDUCATIONCONTENT%]
+				[% FOREACH item IN EDUCATION %]
+					[% IF item != null %]
+						[%INCLUDE snip1.template.xhtml 
+							year=heisei(item.year)
+							month=MONTHS.${item.month.0}
+							description=item.description.0
+						%]
+					[%ELSE%]
+						[%INCLUDE snip1.template.xhtml 
+							year="&nbsp;"
+							month=""
+							description=""
+						%]
+					[%END%]
+				[%END%]
     <tr class="Table218">
       <td style="text-align:left;width:0.6333in;" class="TTB TBB Table2_A2"><p class="P9"> </p></td>
       <td style="text-align:left;width:0.5201in;" class="TTB TBB Table2_B2"><p class="P9"> </p></td>
-      <td style="text-align:left;width:5.7958in;" class="TTB TBB Table2_C18"><p class="P28"><span class="T27">[%WORK%]</span></p></td>
+      <td style="text-align:left;width:5.7958in;" class="TTB TBB Table2_C18"><p class="P28"><span class="T27">[%VARS.WORK%]</span></p></td>
     </tr>
-    [%WORKCONTENT%]
+				[% FOREACH item IN WORK %]
+					[% IF item != null %]
+						[%INCLUDE snip1.template.xhtml 
+							year=heisei(item.year)
+							month=MONTHS.${item.month.0} _ "-" _ MONTHS.${item.month.1}
+							description=item.description.0
+						%]
+					[%ELSE%]
+						[%INCLUDE snip1.template.xhtml 
+							year="&nbsp;"
+							month=""
+							description=""
+						%]
+					[%END%]
+				[%END%]
     <tr class="Table33">
       <td style="text-align:left;width:0.7229in;" class="TTB TBB Table3_A1"><p class="P95"> </p></td>
       <td style="text-align:left;width:0.4306in;" class="TTB TBB Table3_B1"><p class="P63"> </p></td>
-      <td style="text-align:left;width:5.7958in;" class="TTB TBB Table3_C2"><p class="P72"><span class="T28">[%LANGSKILLS%]</span></p></td>
+      <td style="text-align:left;width:5.7958in;" class="TTB TBB Table3_C2"><p class="P72"><span class="T28">[%VARS.LANGSKILLS%]</span></p></td>
     </tr>
-    [%LANGSKILLSCONTENT%]
+		[% FOREACH item IN LANGEXAMS %]
+			[%INCLUDE snip1.template.xhtml 
+				year=heisei(item.year)
+				month=MONTHS.${item.month.0}
+				description=item.description.0
+			%]
+		[%END%]
     <tr class="Table314">
       <td style="text-align:left;width:0.7229in; " class="Table3_A14"><p class="P9"> </p></td>
       <td style="text-align:left;width:0.4306in; " class="Table3_B14"><p class="P9"> </p></td>
-      <td style="text-align:left;width:5.7958in; " class="Table3_C14"><p class="P100"><span class="T27">[%THEEND%]</span></p></td>
+      <td style="text-align:left;width:5.7958in; " class="Table3_C14"><p class="P100"><span class="T27">[%VARS.THEEND%]</span></p></td>
     </tr>
   </table>
   <p class="P11"> </p>
@@ -174,18 +204,26 @@
     <colgroup><col width="771" /></colgroup>
     <tr class="Table41">
       <td style="text-align:left;width:6.9493in; " class="Table4_A1">
-        <p class="P101"><span class="T6">[%LANGUAGESKILLS%]</span></p>
+        <p class="P101"><span class="T28">[%VARS.LANGUAGESKILLS%]</span></p>
       </td>
     </tr>
-    [% LANGUAGESKILLSCONTENT %]
+	[% FOREACH item IN LANGS %]
+		[%INCLUDE snip2.template.xhtml 
+			CONTENT=item
+		%]
+	[%END%]
     <tr class="Table56"><td style="text-align:left;width:6.9493in; " class="Table5_A6"></td></tr>
   </table>
   <p class="P12"> </p>
   <p class="P17"> </p>
   <table class="Table5" cellspacing="0" cellpadding="0" border="0">
     <colgroup><col width="771" /></colgroup>
-    <tr class="Table51"><td style="text-align:left;width:6.9493in; " class="Table5_A1"><p class="P101"><span class="T6">[%PROGLANGUAGES%]</span></p></td></tr>
-    [%PROGLANGUAGESCONTENT%]
+    <tr class="Table51"><td style="text-align:left;width:6.9493in; " class="Table5_A1"><p class="P101"><span class="T28">[%VARS.PROGLANGUAGES%]</span></p></td></tr>
+	[% FOREACH item IN PROGLANGS %]
+		[%INCLUDE snip2.template.xhtml 
+			CONTENT=item
+		%]
+	[%END%]
     <!-- <tr class="Table52">
       <td style="text-align:left;width:6.9493in; " class="Table5_A2">
         <p class="P49"><span class="T40">OpenCV, OpenGL, openSSL, </span><span class="T29">ネットワーク</span><span class="T40">プログラミング,Hadoop</span></p>

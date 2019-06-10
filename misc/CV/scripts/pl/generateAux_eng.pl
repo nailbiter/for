@@ -24,37 +24,17 @@ use utf8;
 
 
 #global const's
-my @MONTHS = (
-  '',"Jan","Feb",
-  "Mar","Apr","May",
-  "Jun","Jul","Aug",
-  "Sep","Oct","Nov",
-  "Dec",
-);
 #global var's
 #procedures
 sub heisei{
-  return 1988+$_[0];
+	(my $arg) = @_;
+  	return join("-",map {1988+$_} @$arg);
 }
-sub months{
-  # printf(STDERR "months got %s\n",$_[0]);
-  return $MONTHS[$_[0]];
-}
-sub processDataSimple{
-  if(defined $_[0]){
-    my %list = %{$_[0]};
-    my %res = %list;
-    $res{year} = join("-",map {heisei($_)} @{$list{year}});
-    $res{month} = join("-",map {$MONTHS[$_]} @{$list{month}});
-    $res{description} = printLine(@{$list{description}});
-    return \%res;
-  } else {
-    return {
-      year=>"&nbsp;",
-      month=>"",
-      description=>"",
-    };
-  }
+sub export {
+	return {
+#		months=>\&months,
+		heisei=>\&heisei,
+	};
 }
 
 #main

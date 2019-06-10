@@ -4,7 +4,7 @@
     ["English (fluent), German (basic)"],
     ["Russian (native), Ukrainian (native)"]
   ],
-  "months":[
+  "months":["",
 	  "Jan","Feb",
 	  "Mar","Apr","May",
 	  "Jun","Jul","Aug",
@@ -261,6 +261,28 @@
       "COAUTHORS": "Toshiyuki Kobayashi"
     }
   ],
+  "VARS":{
+    "PHONEPREFIX" : "050",
+    "PHONESUFFIX" : "5532 0335",
+    "DATEOFBIRTH" : "Date of Birth",
+    "PHONENUMBER" : "Phone Number",
+    "BIRTHDATE" : "December 24, 2018",
+    "CURRENTADDRESS" : "Address",
+    "NAME" : "Oleksii        Leontiev",
+    "NAMETEXT" : "Name",
+    "TITLE":"Curriculum Vitae",
+    "LASTUPDATE" : "Jun 10, 2019",
+    "LASTUPDATETEXT":"Last Update",
+    "YEAR" : "Year",
+    "MONTH" : "Month",
+    "EDUCATIONEMPLOYMENT" : "Education and Employment History",
+    "EDUCATION" : "Education",
+    "WORK" : "Work Experience",
+    "LANGSKILLS" : "Language Qualifications",
+    "THEEND" : "End",
+    "PROGLANGUAGES" : "Programming Languages/Framework Skills",
+    "LANGUAGESKILLS" : "Language Skills"
+  },
   "profProfile":[
     "PhD in Mathematics from The University of Tokyo, Japan",
     "BSci in Computer Science and Applied Mathematics from NCTU, Taiwan (Double Degree)",

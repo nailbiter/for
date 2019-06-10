@@ -20,43 +20,24 @@
 
 use strict;
 use warnings;
-use utf8;
+#use utf8;
+#binmode STDOUT, ':utf8';
 
 
 #global const's
-my @MONTHS = (
-  '',"Jan","Feb",
-  "Mar","Apr","May",
-  "Jun","Jul","Aug",
-  "Sep","Oct","Nov",
-  "Dec",
-);
 #global var's
 #procedures
 sub heisei{
-#  return 1988+$_[0];
-#	return sprintf("平成%s年",$_[0]);
-	return $_[0];
+	(my $arr) = @_;
+	return sprintf("平成 %s",
+		join("-",@$arr),
+	);
 }
-sub months{
-  # printf(STDERR "months got %s\n",$_[0]);
-  return $_[0];
-}
-sub processDataSimple{
-  if(defined $_[0]){
-    my %list = %{$_[0]};
-    my %res = %list;
-    $res{year} = sprintf("平成 %s",join("-",map {heisei($_)} @{$list{year}}));
-    $res{month} = join("-",map {months($_)} @{$list{month}});
-    $res{description} = printLine(@{$list{description}});
-    return \%res;
-  } else {
-    return {
-      year=>"&nbsp;",
-      month=>"",
-      description=>"",
-    };
-  }
+sub export {
+	return {
+#		months=>\&months,
+		heisei=>\&heisei,
+	};
 }
 
 #main
