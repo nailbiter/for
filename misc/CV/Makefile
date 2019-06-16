@@ -2,7 +2,7 @@
 
 
 #global const's
-CVS=CV.xhtml CV_engstyle.html CV_jap.xhtml
+CVS=$(addsuffix .html,$(addprefix long/,eng jap) $(addprefix short/,eng jap))
 EXECPL=../../forlatex/bin/exec.pl
 TEMPLATEDIR=templates
 HTMLDIR=html

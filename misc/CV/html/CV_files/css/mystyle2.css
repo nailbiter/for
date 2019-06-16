@@ -1,0 +1,7 @@
+/*thick top black*/
+.TTB{
+	border-top-style:solid; border-top-width:0.0529cm;border-top-color:#000000;
+}/*thin top black*/
+.tTB{
+	border-top-style:solid; border-top-width:0.017600cm;border-top-color:#000000;
+}

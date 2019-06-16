@@ -13,6 +13,6 @@
   core:
     telemetryConsent: "limited"
   editor:
-    fontSize: 16
+    fontSize: 15
   "exception-reporting":
     userId: "60c32fc7-3493-4324-8f64-dd14308fc69e"

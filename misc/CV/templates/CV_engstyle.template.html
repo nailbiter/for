@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Resume</title>
 	<meta name="robots" content="noindex, nofollow" />
-	<link rel="stylesheet" href="./CV_files/css/CV_engstyle.css" media="all"></link>
+	<link rel="stylesheet" href="../CV_files/css/CV_engstyle.css" media="all"></link>
 	<style type="text/css" media="print">
 		body {
 			background-color:#FFF;
@@ -47,7 +47,7 @@
 	<div class="section">
 		<div class="sectionheader">Work Experience</div>
 				[% FOREACH item IN WORK.reverse%]
-					[% IF item.year != null %]
+					[% IF item != null && item.degreename!="Unity Developer" %]
 						[%INCLUDE snipsec.template.html 
 							uniname=item.description.0 
 							degreename= item.degreename
