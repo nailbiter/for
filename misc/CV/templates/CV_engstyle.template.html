@@ -1,8 +1,9 @@
+[%MACRO url(link) <a href="link">link</a>%]
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Resume</title>
+	<title>[%VARS.TITLE%]</title>
 	<meta name="robots" content="noindex, nofollow" />
 	<link rel="stylesheet" href="../CV_files/css/CV_engstyle.css" media="all"></link>
 	<style type="text/css" media="print">
@@ -21,10 +22,11 @@
 	<div class="section">
 	<div class="sectionheader">Contact Details</div>
 		<ul>
-			<li><span>Phone: (050) 5532-0335</span></li>
+			<li><span>[%VARS.PHONE%]: (050) 5532-0335</span></li>
 			<li><span>Email: <a href="mailto:alozz1991@gmail.com">alozz1991@gmail.com</a></span></li>
-			<li><span>Address: 2-2-A Aomi, Koto-ku, Tokyo Japan, 135-0064</span></li>
-			<li><span>GitHub: <a href="https://github.com/nailbiter">https://github.com/nailbiter</a></span></li>
+			<li><span>[%VARS.CURRENTADDRESS%]: [%VARS.ADDRESS%]</span></li>
+			<li><span>GitHub: [%url(https://github.com/nailbiter)%]</span></li>
+			<li><span>LinkedIn: [%url(https://www.linkedin.com/in/oleksii-leontiev-8a010952/)%]</span></li>
 		</ul>
 	</div>
 	</div>

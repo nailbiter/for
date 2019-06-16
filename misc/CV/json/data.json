@@ -263,10 +263,12 @@
   ],
   "VARS":{
     "PHONEPREFIX" : "050",
+    "PHONE":"Phone",
     "PHONESUFFIX" : "5532 0335",
     "DATEOFBIRTH" : "Date of Birth",
     "PHONENUMBER" : "Phone Number",
     "BIRTHDATE" : "December 24, 2018",
+    "ADDRESS":"2-2-A Aomi, Koto-ku, Tokyo Japan, 135-0064",
     "CURRENTADDRESS" : "Address",
     "NAME" : "Oleksii        Leontiev",
     "NAMETEXT" : "Name",
