@@ -1,0 +1,20 @@
+経験：
+  担当領域:
+  [%FOR key IN TECHEXPERIENCE.responsibility.keys%]	[%key%]: [%SWITCH TECHEXPERIENCE.responsibility.item(key)%]
+		[%CASE 'MORETHANONEYEAR' %]業務経験1年以上[%END%][%END%]
+  OS:
+  [%FOR key IN TECHEXPERIENCE.OS.keys%]	[%key%]: [%SWITCH TECHEXPERIENCE.OS.item(key)%]
+		[%CASE 'MORETHANONEYEAR' %]業務経験1年以上[%CASE 'MORETHANTHREEYEARS' %]業務経験3年以上[%CASE 'MORETHANFIVEYEARS' %]業務経験5年以上[%CASE 'HAVEKNOWLEDGE'%]知識あり[%END%]
+[%END%]  言語:
+  [%FOR key IN TECHEXPERIENCE.languages.keys%]	[%key%]: [%SWITCH TECHEXPERIENCE.languages.item(key)%]
+		[%CASE 'MORETHANONEYEAR' %]業務経験1年以上[%CASE 'MORETHANTHREEYEARS' %]業務経験3年以上[%CASE 'MORETHANFIVEYEARS' %]業務経験5年以上[%CASE 'HAVEKNOWLEDGE'%]知識あり[%CASE 'HAVESOMEEXPERIENCE'%]業務経験あり[%END%]
+[%END%] フレームワーク
+  [%FOR key IN TECHEXPERIENCE.frameworks.keys%]	[%key%]: [%SWITCH TECHEXPERIENCE.frameworks.item(key)%]
+		[%CASE 'MORETHANONEYEAR' %]業務経験1年以上[%CASE 'MORETHANTHREEYEARS' %]業務経験3年以上[%CASE 'MORETHANFIVEYEARS' %]業務経験5年以上[%CASE 'HAVEKNOWLEDGE'%]知識あり[%CASE 'HAVESOMEEXPERIENCE'%]業務経験あり[%END%]
+[%END%]データベース
+  [%FOR key IN TECHEXPERIENCE.databases.keys%]	[%key%]: [%SWITCH TECHEXPERIENCE.databases.item(key)%]
+		[%CASE 'MORETHANONEYEAR' %]業務経験1年以上[%CASE 'MORETHANTHREEYEARS' %]業務経験3年以上[%CASE 'MORETHANFIVEYEARS' %]業務経験5年以上[%CASE 'HAVEKNOWLEDGE'%]知識あり[%CASE 'HAVESOMEEXPERIENCE'%]業務経験あり[%END%]
+[%END%]その他
+  [%FOR key IN TECHEXPERIENCE.misc.keys%]	[%key%]: [%SWITCH TECHEXPERIENCE.misc.item(key)%]
+		[%CASE 'MORETHANONEYEAR' %]業務経験1年以上[%CASE 'MORETHANTHREEYEARS' %]業務経験3年以上[%CASE 'MORETHANFIVEYEARS' %]業務経験5年以上[%CASE 'HAVEKNOWLEDGE'%]知識あり[%CASE 'HAVESOMEEXPERIENCE'%]業務経験あり[%END%]
+[%END%]

@@ -221,10 +221,19 @@
            5
         ],
         "honors":[
-          "As a part of a three-people team, created the web-page <a href=\"https://tokyo-komachi.jp\">https://tokyo-romance.jp</a>"
+		"Dream Pirates is a small software development company, specializing in a wide range of technologies, including AR, VR, mobile development and web development.",
+		"As a part of five people team I was tasked with developing the video-blogging platform <a href=\"tokyo-komachi.jp\">tokyo-komachi.jp</a>.",
+		"The purpose of the platform was on the one hand, to enable video-bloggers (both employed by the company and independent ones) to stream their content, while end-users could watch it and communicate with cast (sending stickers, virtual gifts and text messages), using virtual currency.",
+		"Back-end was implemented using <code>node.js</code> and <code>express.js</code> (using <code>MongoDB</code> as a database). Front-end was using <code>ReactJS</code> and <code>WebPack</code>. For styling we have used <code>SemanticUI</code> (initially) and gradually switched to <code>Google Material UI</code>. The main development language was JavaScript (initially), but we gradually switched to TypeScript.",
+		"My personal responsibilities were: to support the infra-structure (i.e. keep the Nginx server running on our Amazon AWS instances and insure that new version of code is delivered on time);",
+		"developing and maintaining the interface between our code and <a href=\"https://flashphoner.com/wcs5/\">Web Call Server</a> (whichi we used for video streaming);",
+		"developing and maintaining the email sending system (for our email-magazine);",
+		"developing some miscellaneous parts of front- and back-end;",
+		"explaining the tasks to two junior programmers and assuring the quality of their work results.",
+		"In addition, I have transferred several big parts of our code to TypeScript and carried out several refactoring sub-projects. I also implemented system to automatically submit the health status of the server to our Slack channel."
         ],
         "description" : [
-           "System Engineer at <a href=\"https://www.dreampirates.jp\">Dream Pirates</a> (Client-Side development with React JS)"
+           "System Engineer at <a href=\"https://www.dreampirates.jp\">Dream Pirates</a>"
         ],
 	"degreename":"System Engineer"
      },

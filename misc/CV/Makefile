@@ -2,7 +2,7 @@
 
 
 #global const's
-CVS=$(addsuffix .html,$(addprefix long/,eng jap) $(addprefix short/,eng jap))
+CVS=$(addsuffix .html,$(addprefix long/,eng jap) $(addprefix short/,eng jap)) short.txt
 EXECPL=../../forlatex/bin/exec.pl
 TEMPLATEDIR=templates
 HTMLDIR=html

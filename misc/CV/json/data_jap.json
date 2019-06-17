@@ -58,6 +58,41 @@
     ["JavaScript, React JS"],
     ["C#, Unity Game Engine"]
   ],
+  "techExperience":{
+	  "responsibility":{
+		  "SE":"MORETHANONEYEAR"
+	  },
+	  "OS":{
+		  "Linux":"MORETHANFIVEYEARS",
+		  "Windows":"MORETHANONEYEAR",
+		  "iOS":"MORETHANTHREEYEARS",
+		  "Android":"MORETHANTHREEYEARS",
+		  "AWS":"HAVEKNOWLEDGE"
+	  },
+	  "languages":{
+		  "Java":"MORETHANTHREEYEARS",
+		  "JavaScript":"MORETHANTHREEYEARS",
+		  "HTML/CSS":"MORETHANONEYEAR",
+		  "C/C++":"MORETHANFIVEYEARS",
+		  "Shellscript":"HAVESOMEEXPERIENCE",
+		  "awk":"HAVESOMEEXPERIENCE",
+		  "Perl":"MORETHANONEYEAR",
+		  "Python":"HAVESOMEEXPERIENCE"
+	  },
+	  "frameworks":{
+		  "React.js":"MORETHANONEYEAR",
+		  "Node.js":"MORETHANONEYEAR",
+		  "express.js":"MORETHANONEYEAR"
+	  },
+	  "databases":{
+		  "MongoDB":"MORETHANONEYEAR"
+	  },
+	  "misc":{
+		  "Apache":"MORETHANONEYEAR",
+		  "nginx":"HAVEKNOWLEDGE",
+		  "Unity":"MORETHANONEYEAR"
+	  }
+  },
   "langExams":[
     {
       "year":[25],"month":[8],"description":["TOEFL英語能力試験 点数:112/120"]

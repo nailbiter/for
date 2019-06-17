@@ -19,3 +19,8 @@ $(HTMLDIR)/long/jap.html: $(HTMLDIR)/CV_files/css/mystyle2.css $(JSONDIR)/data_j
 	$(addsuffix .template.html,$(addprefix $(TEMPLATEDIR)/,snipli snipsec CV_engstyle))
 	./$(EXECPL) converter --from $(TEMPLATEDIR)/CV_engstyle.template.html --to $@ --data $(JSONDIR)/data_jap.json TEMPLATE \
 		2>log/$(notdir $@).log.txt
+
+#misc
+$(HTMLDIR)/short.txt: $(TEMPLATEDIR)/short.template.txt $(JSONDIR)/data_jap.json
+	./$(EXECPL) converter --from $< --to $@ --data $(JSONDIR)/data_jap.json TEMPLATE \
+		2>log/$(notdir $@).log.txt
