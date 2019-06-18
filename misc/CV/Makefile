@@ -19,6 +19,7 @@ all: $(addprefix $(HTMLDIR)/,$(CVS)) $(addprefix $(MATHHTMLDIR)/,$(addsuffix .ht
 clean:
 	rm -f CV.xhtml
 upload: $(addprefix $(HTMLDIR)/,$(CVS))
+	#rm -rf $(CVGITHUBDIR)/*
 	cp -r html/* $(CVGITHUBDIR)
 	cd $(CVGITHUBDIR) && git commit -a -m "$(DATE)" && git push
 	#scp -r html/ inp9822058@alumni.cs.nctu.edu.tw:~/public_html/
