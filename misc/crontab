@@ -23,3 +23,8 @@
 
 @reboot /home/nailbiter/bin/ngrok tcp 22 --config=/home/nailbiter/.ngrok2/ngrok.yml --log=stdout > /home/nailbiter/ngrok.log &
 */5 * * * * /home/nailbiter/assistantbot/scripts/pl/makereport.pl
+
+#mac os
+*/20 * * * mon,tue,wed,thu,fri osascript -e 'display notification "look away for 20sec" with title "look away for 20sec"'
+*/30 * * * mon,tue,wed,thu,fri  osascript -e 'display notification "standup" with title "standup"'
+0 */2 * * mon,tue,wed,thu,fri osascript -e 'display notification "walk for 15min" with title "walk for 15min"'
