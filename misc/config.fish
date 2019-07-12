@@ -2,6 +2,12 @@ set -x PATH $PATH ~/bin /usr/local/bin /usr/local/bin /usr/bin /bin /usr/sbin /s
 set -x EDITOR vim
 set -x SHELL /usr/local/bin/fish
 
+# The next line updates PATH for the Google Cloud SDK.
+#source '/Users/oleksiileontiev/google-cloud-sdk/path.fish.inc'
+
+# The next line enables shell command completion for gcloud.
+#source '/Users/oleksiileontiev/google-cloud-sdk/completion.fish.inc'
+
 #alias rm="rm-p -i"
 alias npmr="npm run"
 alias npmb="npm run build"
