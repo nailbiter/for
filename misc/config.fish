@@ -21,3 +21,7 @@ alias npmsv="npm run serve"
 function mygit
     ~/for/forperl/commit.pl
 end
+function md2html
+   pandoc -s --css=$HOME/Downloads/formarkdown.css  -V lang=en -V highlighting-css= -f markdown --to=html5 (basename $argv .md).md  -o (basename $argv .md).html 
+end
+
