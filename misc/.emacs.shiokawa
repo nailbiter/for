@@ -1,0 +1,1492 @@
+(set-language-environment "japanese")
+
+
+(if (eq system-type 'gnu/linux)
+  (progn
+    (custom-set-faces
+      '(show-paren-match ((t (:foreground "black" :background "gray85"))))
+      )
+    )
+  )
+
+(if (version< emacs-version "26.1")
+  ()
+  (progn
+    (setq mouse-drag-and-drop-region 'meta)
+    )
+  )
+
+(if (eq system-type 'windows-nt)
+  (progn
+    (set-file-name-coding-system 'shift_jis)
+    ;; (setq default-process-coding-system '(shift_jis . shift_jis))
+    (custom-set-faces
+      '(show-paren-match-face ((t (:foreground "black" :background "grey"))))
+      )
+    (setq shell-file-name "bash")
+    )
+  )
+
+(when window-system
+  (setq default-frame-alist
+    (append '(
+               ;; (top                  . 50       ) ;; 配置上位置
+               ;; (left                 . 600     ) ;; 配置左位置
+               (width                . 120     ) ;; フレーム幅
+               (height               . 75     ) ;; フレーム高
+               (line-spacing         . 0      ) ;; 文字間隔
+               (internal-border-width . 0     ) ;; 余白
+               (left-fringe          . 4      ) ;; 左フリンジ幅
+               (right-fringe         . 4      ) ;; 右フリンジ幅
+               (menu-bar-lines       . nil    ) ;; メニューバー
+               (tool-bar-lines       . nil    ) ;; ツールバー
+               (vertical-scroll-bars . nil    ) ;; スクロールバー
+               (cursor-type          . box    ) ;; カーソル種別
+               ;;(foreground-color     . "white") ;; 文字色
+               ;;(background-color     . "#393939") ;; 背景色
+               ;;(background-color     . "black") ;; 背景色
+               ;;(cursor-color         . "red"  ) ;; カーソル色
+               ) default-frame-alist) )
+  (setq initial-frame-alist default-frame-alist)
+  ;; (set-frame-parameter nil 'alpha 90)
+  ;; (set-face-attribute 'default nil :family "Inconsolata" :height 110)
+  ;; (set-face-attribute 'default nil :family "MeiryoKe_Console" :height 90)
+  ;; (set-fontset-font nil 'japanese-jisx0213.2004-1 (font-spec :family "MeiryoKe_Console"))
+  ;; (set-face-attribute 'default nil :family "MeiryoKe_Console")
+  ;; (set-face-attribute 'default nil :family "Migu 1M" :height 90)
+  ;; (set-fontset-font nil 'japanese-jisx0213.2004-1 (font-spec :family "Migu 1M"))
+  ;; (set-fontset-font nil 'japanese-jisx0213.2004-1 (font-spec :family "Migu 1M"))
+  ;;(set-fontset-font nil 'japanese-jisx0213.2004-1 (font-spec :family "IWA-UD明朝R"))
+  ;; (set-fontset-font nil 'japanese-jisx0213.2004-1 (font-spec :family "Takao Pゴシック"))
+  ;; (set-face-attribute 'org-level-1 nil :family "IWA-UD明朝R" :height 120)
+  ;;(set-default-font "MeiryoKe_Console-9")
+  ;;(set-default-font "MSGothic-9")
+  ;; (set-default-font "MeiryoKe_Console-10")
+  ;; (set-default-font "Migu 1M-10")
+  ;; (set-default-font "DejaVu Sans Mono-9")
+  ;; (set-face-attribute 'default nil :family "" :height 100)
+  ;; (set-fontset-font nil 'japanese-jisx0213.2004-1 (font-spec :family "MSGothic"))
+  ;; (set-default-font "Migu 1M-12:antialias=natural")
+  ;; (set-face-attribute 'default nil :family "Myrica M" :height 90)
+
+  ;; デフォルト フォント
+  (set-face-attribute 'default nil :family "MeiryoKe_Console" :height 90)
+  ;; プロポーショナル フォント
+  (set-face-attribute 'variable-pitch nil :family "MeiryoKe_UIGothic" :height 90)
+  ;; 等幅フォント
+  (set-face-attribute 'fixed-pitch nil :family "MeiryoKe_Console" :height 90)
+
+
+  ;; (setenv "TERM" "eterm-color")
+  ;; (setenv "TERM" "xterm-256color")
+  ;; (shell-command-to-string "setxkbmap -layout jp")
+
+  )
+
+(prefer-coding-system 'utf-8-unix)
+
+;; (set-default-coding-systems 'utf-8)
+;; (set-terminal-coding-system 'utf-8)
+;; (set-buffer-file-coding-system 'utf-8)
+;; (setq default-file-name-coding-system 'utf-8)
+;; (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
+
+;; for bash on Windows
+;;(setq visible-cursor t)
+(menu-bar-mode 0)
+(setenv "LANG" "C")
+
+(setq frame-background-mode 'light)
+
+(setq system-time-locale "C")
+(line-number-mode t)
+(column-number-mode t)
+(blink-cursor-mode 0)
+(temp-buffer-resize-mode 0)
+;;(setq resize-mini-windows 'grow-only)
+(delete-selection-mode t)
+(setq display-time-day-and-date t)
+(setq display-time-format "%Y-%m-%d (%a) W%V %R")
+(setq calendar-week-start-day 1
+      calendar-intermonth-text
+        '(propertize
+          (format "%02d"
+                  (car
+                   (calendar-iso-from-absolute
+                    (calendar-absolute-from-gregorian (list month day year)))))
+          'font-lock-face 'font-lock-function-name-face))
+(add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+
+(setq mark-holidays-in-calendar t)
+(display-time-mode t)
+(setq inhibit-startup-message t)
+(setq make-backup-files nil)
+(setq create-lockfiles nil)
+(setq auto-save-default nil)
+(setq read-file-name-completion-ignore-case t)
+(setq read-buffer-completion-ignore-case t)
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)
+(setq next-line-add-newlines nil)
+(setq indent-line-function 'indent-to-left-margin)
+(setq kill-whole-line t)
+(setq-default dabbrev-case-fold-search t)
+(setq-default case-fold-search t)
+(setq case-fold-search t)
+(setq case-replace-search t)
+(setq diff-switches "-u")
+;; ediffで別ウィンドウにしない
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(global-font-lock-mode t)
+(global-subword-mode 1)
+(setq-default indent-tabs-mode nil)
+(setq default-tab-width 2)
+(setq tab-width 2)
+(auto-compression-mode)
+(set-default 'truncate-lines nil)
+(show-paren-mode 1)
+(setq show-paren-style 'mixed)
+(fset 'yes-or-no-p 'y-or-n-p)
+(setq default-file-modes 'text-mode)
+(setq line-move-visual nil)
+(setq page-delimiter "-----")
+;;(setq debug-on-error nil)
+(setq set-mark-command-repeat-pop t)
+(setq ffap-pass-wildcards-to-dired t)
+(setq split-width-threshold 300)
+(global-set-key "\C-x\C-f" 'find-file-at-point)
+
+(defun next-word (&optional n)
+  (interactive "p")
+  (and (forward-word (1+ n)) (backward-word 1)))
+(global-set-key "\M-f" 'next-word)
+
+(setq shell-command-dont-erase-buffer t)
+
+;; (global-hl-line-mode)
+;; (set-face-background 'hl-line "oldlace")
+
+(require 'whitespace)
+;; 空白
+(set-face-foreground 'whitespace-space nil)
+(set-face-background 'whitespace-space "gray90")
+;; ファイル先頭と末尾の空行
+(set-face-background 'whitespace-empty "gray90")
+;; タブ
+(set-face-foreground 'whitespace-tab nil)
+(set-face-background 'whitespace-tab "gray90")
+;; ???
+(set-face-background 'whitespace-trailing "gray90")
+(set-face-background 'whitespace-hspace "gray90")
+(setq whitespace-style '(face           ; faceで可視化
+                         trailing       ; 行末
+                         tabs           ; タブ
+                         empty          ; 先頭/末尾の空行
+                         spaces         ; 空白
+                         ;; space-mark     ; 表示のマッピング
+                         tab-mark))
+
+(setq whitespace-space-regexp "\\(\u3000+\\)") ;; スペースは全角のみを可視化
+(setq whitespace-display-mappings '((space-mark ?\x3000 [?\□])))
+(global-whitespace-mode 1)
+
+;; bs-showのあとcで表示を変える
+(autoload 'bs-show "bs")
+(global-set-key "\C-x\C-b" 'bs-show)
+
+(setq bs-configurations
+  '(
+    ("all" nil nil nil nil nil)
+    ("dired" nil nil nil
+      (lambda (buf)
+        (with-current-buffer buf
+          (not
+            (eq major-mode 'dired-mode)
+            )))
+      bs-sort-buffer-interns-are-last)
+    ("shell" nil nil nil
+      (lambda (buf)
+        (with-current-buffer buf
+          (not (eq major-mode 'shell-mode))))
+      bs-sort-buffer-interns-are-last)
+    ))
+(setq bs-default-configuration "all")
+
+;;("files" nil nil nil bs-visits-non-file )
+;;("files-and-scratch" "^\\*scratch\\*$" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)
+;;("all-intern-last" nil nil nil nil bs-sort-buffer-interns-are-last)
+
+
+;;(global-set-key "\C-xl" 'goto-line)
+(global-set-key "\C-x\C-o" 'other-window)
+(global-set-key "\C-h" 'delete-backward-char)
+(global-set-key "\M-h" 'backward-kill-word)
+(global-set-key "\M-?" 'help-for-help)
+(global-set-key "\M-%" 'query-replace-regexp)
+(global-set-key "\M-." 'find-tag-other-window)
+(global-set-key "\M- " 'dabbrev-expand)
+(global-set-key "\C-m" 'newline-and-indent)
+(global-set-key "\M-n" 'indent-and-next-line)
+(global-set-key "\M-c" 'calculator)
+(global-set-key "\M-C" 'calendar)
+(global-set-key "\M-e" 'eval-region-with-message)
+(global-set-key "\C-\\" 'advertised-undo)
+(global-set-key "\M-F" 'windmove-right)
+(global-set-key "\M-B" 'windmove-left)
+(global-set-key "\M-P" 'windmove-up)
+(global-set-key "\M-N" 'windmove-down)
+(global-unset-key "\M-q")
+(global-set-key "\M-qq" 'fill-paragraph)
+(global-set-key "\M-qo" 'occur)
+(global-set-key "\C-x\"" 'clone-indirect-buffer)
+
+(defun lessen-window () (interactive) (enlarge-window -5))
+(defun lessen-window-horizontally () (interactive) (enlarge-window-horizontally -5))
+(defun enlarge-window-more () (interactive) (enlarge-window 5))
+(defun enlarge-window-horizontally-more () (interactive) (enlarge-window-horizontally 5))
+(global-set-key (kbd "C-M--") 'enlarge-window-more)
+(global-set-key (kbd "C-M-;") 'lessen-window)
+;;(global-set-key (kbd "C-M-9") 'enlarge-window-horizontally-more)
+;;(global-set-key (kbd "C-M-8") 'lessen-window-horizontally)
+
+(add-hook 'isearch-mode-hook
+          '(lambda ()
+             (define-key isearch-mode-map (kbd "C-h") 'isearch-del-char)))
+(add-hook 'calculator-mode-hook
+          '(lambda ()
+             (define-key calculator-mode-map (kbd "C-h") 'calculator-backspace)))
+
+(defun indent-and-next-line () (interactive) (indent-according-to-mode) (next-line 1))
+(defun eval-region-with-message () (interactive) (let ()
+  (eval-region (region-beginning) (region-end))
+  (deactivate-mark)
+  (message "eval-region...end")
+  ))
+(defun insert-time ()
+  "insert date string"
+  (interactive)
+  ;;(call-process "/c/cygwin/bin/date.exe" nil t nil "+%Y/%m/%d %H:%M")
+  ;; (call-process "date" nil t nil "+%y%m%d")
+  ;; (delete-char -1)
+  (insert (format-time-string "%y%m%d"))
+  )
+(define-key global-map "\C-^" 'insert-time)
+(defun insert-todo ()
+  "insert todo string"
+  (interactive)
+  (insert "- [ ] ")
+  )
+(define-key global-map (kbd "C-\-") 'insert-todo)
+(defun dired-template-dir ()
+  "open template directory"
+  (interactive)
+  (dired "~/.ghq/github.fork.co.jp/junji/dotfiles/templates/")
+  )
+(global-set-key "\M-qi" 'dired-template-dir)
+
+
+(add-hook 'text-mode-hook
+          '(lambda ()
+             (setq fill-column 90)
+             ;; (auto-fill-mode t)
+             (setq indent-tabs-mode nil)
+             (delete-selection-mode 1)
+             ))
+
+(setq bookmark-file "~/.ghq/github.fork.co.jp/junji/dotfiles/.emacs.bmk")
+
+;; for win performance?
+;; (setq redisplay-dont-pause nil)
+
+;;--------------------------------------------------
+(setq load-path (cons (expand-file-name "~/.ghq/github.fork.co.jp/junji/dotfiles/lisp") load-path))
+
+(defconst *dmacro-key* "\C-t" "繰返し指定キー")
+(global-set-key *dmacro-key* 'dmacro-exec)
+(autoload 'dmacro-exec "dmacro" nil t)
+
+;; https://github.com/hamano/locale-eaw
+;(require 'eaw)
+;(eaw-set-width 1)
+
+;; zonuexe https://github.com/zonuexe/emacs-presentation-mode
+;(require 'presentation)
+
+;; tree from Emacs https://qiita.com/s-fubuki/items/87ae322ba99879452427
+;(require 'tree)
+;(setq tree-ignore-directory "^\\(\\.+\\|\\.git\\|node_modules\\)$")
+
+;;--------------------------------------------------
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa"."http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
+(unless (file-directory-p "~/.emacs.d/elpa")
+  (progn
+    (package-refresh-contents)
+    ;; 一回でとってこれないことがあるので、念の為もう一度実行
+    (package-refresh-contents))
+  )
+(package-initialize)
+
+;; (package-install 'session)
+;; (setq session-set-file-name-exclude-regexp
+;;   "[/\\]\\.overview\\|[/\\]\\.session\\|News[/\\]\\|[/\\]COMMIT_EDITMSG")
+;; (session-initialize)
+
+;; not ask viperize
+(setq viper-mode 'nil)
+(package-install 'ddskk)
+(global-set-key "\C-xj" 'skk-mode)
+(setq skk-echo t)
+;; memo 再変換(Q)
+
+(setq skk-face-proportional-p nil)
+(setq skk-indicator-use-cursor-color nil)
+(setq skk-cursor-hiragana-color "firebrick")
+(setq skk-cursor-katakana-color "LimeGreen")
+(setq skk-cursor-latin-color "SteelBlue")
+(setq skk-status-indicator 'left)
+(setq skk-latin-mode-string "[aA]")
+(setq skk-hiragana-mode-string "[あ]")
+(setq skk-katakana-mode-string "[ア]")
+(setq skk-jisx0208-latin-mode-string "[Ａ]")
+
+(setq skk-jisyo-code 'utf-8)
+(setq skk-large-jisyo "~/.ghq/github.fork.co.jp/junji/dotfiles/skk/SKK-JISYO.L.utf8")
+(setq skk-initial-search-jisyo "~/.ghq/github.fork.co.jp/junji/dotfiles/skk/SKK-JISYO.my.utf8")
+(setq skk-extra-jisyo-file-list
+      (list "~/.ghq/github.fork.co.jp/junji/dotfiles/skk/SKK-JISYO.emoji.utf8"
+            "~/.ghq/github.fork.co.jp/junji/dotfiles/skk/SKK-JISYO.kao.utf8"))
+
+;; プログラム用(まだ使ってないけど)
+(package-install 's)
+(package-install 'dash)
+
+(autoload 'wdired-change-to-wdired-mode "wdired")
+(package-install 'dired-single)
+;; sort toggle [s] [C-us]
+;; -t time
+;; -S size
+;; -F * / indicator
+;; (setq dired-listing-switches "-lahGt")
+;; i ... open subdir , $ ... hide subdir
+;; ls *""
+;; cat ? | grep 'Super user authentication token:' | tail -n 1 | cut -d' ' -f 15
+;; --full-time
+(setq dired-listing-switches "-lah")
+(add-hook 'dired-mode-hook
+          '(lambda ()
+             ;;(require 'sorter)
+             (define-key dired-mode-map "\C-m" 'dired-single-buffer)
+             (define-key dired-mode-map "E" 'my-ex-open-linux)
+             (define-key dired-mode-map "J" 'dired-open-file)
+             (define-key dired-mode-map "\C-j" 'dired-open-file)
+             (define-key dired-mode-map "j" 'next-line)
+             (define-key dired-mode-map "k" 'previous-line)
+             (define-key dired-mode-map "z" 'my-gzip-size)
+             ;; (define-key dired-mode-map "t" 'my-copy-template)
+             (define-key dired-mode-map "t" 'my-tree)
+             (define-key dired-mode-map (kbd "C-c !") 'do-shell-and-copy-to-kill-ring)
+             (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+             (local-unset-key (kbd "M-n"))
+             (local-unset-key (kbd "M-p"))
+             (local-unset-key (kbd "C-M-n"))
+             (local-unset-key (kbd "C-M-p"))
+             (setq truncate-lines t)
+             (define-key dired-mode-map "^"
+               (function
+                (lambda nil (interactive) (dired-single-buffer ".."))))
+             )
+          )
+
+(defun dired-open-file ()
+  "In dired, open the file named on this line."
+  (interactive)
+  (let* ((file (dired-get-filename nil t)))
+    (message "Opening %s..." file)
+    (call-process "xdg-open" nil 0 nil file)
+    (message "Opening %s done" file)))
+
+(package-install 'wgrep)
+(require 'wgrep)
+(add-hook 'grep-mode-hook
+          '(lambda ()
+             (define-key grep-mode-map "r" 'wgrep-change-to-wgrep-mode)
+             ))
+
+(defun do-shell-and-copy-to-kill-ring (command &optional arg file-list)
+  (interactive
+   (let ((files (dired-get-marked-files t current-prefix-arg)))
+     (list
+      (dired-read-shell-command "! on %s: " current-prefix-arg files)
+      current-prefix-arg
+      files)))
+  (dired-do-shell-command command arg file-list)
+  (with-current-buffer "*Shell Command Output*"
+    (copy-region-as-kill (point-min) (point-max))))
+
+;; TIPS
+;; TODO: unixtime to date
+;; (format-time-string "<%Y-%m-%d %a %H:%M:%S>" (seconds-to-time 1548639069))
+
+(defun my-tree ()
+  (interactive)
+  (tree (expand-file-name dired-directory))
+  (goto-char 1)
+)
+
+(defun my-gzip-size ()
+  (interactive)
+  (shell-command (concat "gzip -c " (dired-get-filename) " | wc -c | numfmt --to=iec-i"))
+)
+
+(defun my-copy-template ()
+  (interactive)
+  (shell-command (concat "rsync -a " (read-file-name "Enter file name:" "~/.ghq/github.fork.co.jp/junji/dotfiles/templates/") " ./ --exclude node_modules --exclude .git"))
+)
+
+(defun my-ex-open-linux ()
+  (interactive)
+  ;; (start-process " *filer*" nil "nautilus" (expand-file-name dired-directory))
+  (start-process " *filer*" nil "thunar" (expand-file-name dired-directory))
+  )
+
+(defun my-ex-open-by-windows ()
+  (interactive)
+  (let ((dname dired-directory))
+    (call-process "cmd.exe" nil 0 nil "/c" "start" (replace-regexp-in-string "/" "\\\\" (replace-regexp-in-string "/mnt/c/" "c:/" (replace-regexp-in-string "~" "c:/Users/junji" dname))))
+    )
+)
+
+;; (package-install 'org)
+;; (setq org-hide-leading-stars t)
+;; (setq org-startup-indented t)
+;; (setq org-indent-indentation-per-level 1)
+;; (setq org-pretty-entities t)
+;; (setq org-hide-emphasis-markers t)
+;; (setq org-export-with-sub-superscripts nil)
+
+;; (define-minor-mode hidden-mode-line-mode
+;;   "Minor mode to hide the mode-line in the current buffer."
+;;   :init-value nil
+;;   :global t
+;;   :variable hidden-mode-line-mode
+;;   :group 'editing-basics
+;;   (if hidden-mode-line-mode
+;;       (setq hide-mode-line mode-line-format
+;;             mode-line-format nil)
+;;     (setq mode-line-format hide-mode-line
+;;           hide-mode-line nil))
+;;   (force-mode-line-update)
+;;   ;; Apparently force-mode-line-update is not always enough to
+;;   ;; redisplay the mode-line
+;;   (redraw-display)
+;;   (when (and (called-interactively-p 'interactive)
+;;              hidden-mode-line-mode)
+;;     (run-with-idle-timer
+;;      0 nil 'message
+;;      (concat "Hidden Mode Line Mode enabled.  "
+;;              "Use M-x hidden-mode-line-mode to make the mode-line appear."))))
+;; (defvar-local hidden-mode-line-mode nil)
+
+;; (package-install 'org-present)
+;; (autoload 'org-present "org-present" nil t)
+;; (eval-after-load "org-present"
+;;   '(progn
+;;      (setq org-present-text-scale 1)
+;;      (global-set-key (kbd "<f8>") 'org-present)
+;;      (define-key org-present-mode-keymap (kbd "C-M-n") 'org-present-next)
+;;      (define-key org-present-mode-keymap (kbd "C-M-p") 'org-present-prev)
+;;      (define-key org-present-mode-keymap (kbd "C-M-o") 'org-present-beginning)
+;;      (define-key org-present-mode-keymap (kbd "C-M-q") 'org-present-quit)
+;;      (add-hook 'org-present-mode-hook
+;;                (lambda ()
+;;                  (org-present-big)
+;;                  (org-display-inline-images)
+;;                  ;; (emojify-mode)
+;;                  ;; (hidden-mode-line-mode)
+;;                  ))
+;;      (add-hook 'org-present-mode-quit-hook
+;;                (lambda ()
+;;                  (org-present-small)
+;;                  (org-remove-inline-images)
+;;                  ))
+;;      ))
+;; ;; (setq org-present-mode-hook nil)
+;; ;; (setq org-present-mode-quit-hook nil)
+
+(package-install 'elscreen)
+(setq elscreen-prefix-key (kbd "C-z"))
+(setq elscreen-display-tab nil)             ;; タブを消す
+(elscreen-start)
+
+;;(setq elscreen-tab-display-kill-screen nil) ;; タブ全消しをしない
+;;(setq elscreen-tab-display-control nil)
+
+(global-set-key (kbd "C-M-0") '(lambda () (interactive) (elscreen-goto 0)))
+(global-set-key (kbd "C-M-1") '(lambda () (interactive) (elscreen-goto 1)))
+(global-set-key (kbd "C-M-2") '(lambda () (interactive) (elscreen-goto 2)))
+(global-set-key (kbd "C-M-3") '(lambda () (interactive) (elscreen-goto 3)))
+(global-set-key (kbd "C-M-n") '(lambda () (interactive) (elscreen-next)))
+(global-set-key (kbd "C-M-p") '(lambda () (interactive) (elscreen-previous)))
+
+
+(package-install 'web-mode)
+;; C-c C-n：対応した閉じタグ/開始タグにジャンプ
+;; C-c C-f：選択されているタグを折りたたむ
+;; (add-hook 'web-mode-hook
+;;          '(lambda ()
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-style-padding 2)
+(setq web-mode-script-padding 2)
+(setq web-mode-block-padding 0)
+(setq web-mode-enable-auto-closing t)
+(setq web-mode-enable-auto-pairing t)
+(setq web-mode-enable-auto-closingpairing t)
+(setq web-mode-enable-control-block-indentation nil)
+(setq web-mode-enable-auto-indentation nil)
+;; (setq web-mode-enable-css-colorization nil)
+;;             )
+;;          )
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . fundamental-mode))
+
+(package-install 'json-mode)
+(setq json-reformat:indent-width 2)
+;; (setq js-indent-level 4) ;; こちらを設定しなくちゃいけない場合もある
+(add-to-list 'auto-mode-alist '("\\.json?\\'" . json-mode))
+
+(package-install 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
+
+(package-install 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (flycheck-mode t)
+            (setq js2-basic-offset 2)
+            (setq js-switch-indent-offset 2)
+            (setq js2-strict-missing-semi-warning nil)
+            ))
+
+(package-install 'company)
+(setq company-idle-delay 0.1)
+(setq company-tooltip-align-annotations t)
+;;; 一時設定
+(add-hook 'company-mode-hook
+          (lambda ()
+            (define-key company-active-map (kbd "M-n") nil)
+            (define-key company-active-map (kbd "M-p") nil)
+            (define-key company-active-map (kbd "C-n") 'company-select-next)
+            (define-key company-active-map (kbd "C-p") 'company-select-previous)
+            ;; C-hがデフォルトでドキュメント表示にmapされているので、文字を消せるようにmapを外す
+            (define-key company-active-map (kbd "C-h") nil)
+            ;; 1つしか候補がなかったらtabで補完、複数候補があればtabで次の候補へ行くように
+            (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
+            (define-key company-active-map (kbd "M-d") 'company-show-doc-buffer)
+            ;; 色の設定。出来るだけ奇抜にならないように
+            (set-face-attribute 'company-tooltip nil
+                                :foreground "black"
+                                :background "lightgray")
+            (set-face-attribute 'company-preview-common nil
+                                :foreground "dark grey"
+                                :background "white"
+                                :underline t)
+            (set-face-attribute 'company-tooltip-selection nil
+                                :background "steelblue"
+                                :foreground "white")
+            (set-face-attribute 'company-tooltip-common nil
+                                :foreground "black"
+                                :underline t)
+            (set-face-attribute 'company-tooltip-common-selection nil
+                                :foreground "white"
+                                :background "steelblue"
+                                :underline t)
+            (set-face-attribute 'company-tooltip-annotation nil
+                                :foreground "red")
+            ))
+(setq company-minimum-prefix-length 1) ;; 1文字入力で補完されるように
+(setq company-selection-wrap-around t)
+
+(package-install 'flycheck)
+(when window-system
+  (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
+    (vector #b00000000
+            #b00000000
+            #b00000000
+            #b00000000
+            #b00000000
+            #b10000000
+            #b11000000
+            #b01100000
+            #b00110000
+            #b01100000
+            #b11000000
+            #b10000000
+            #b00000000
+            #b00000000
+            #b00000000
+            #b00000000
+            #b00000000))
+  )
+
+(package-install 'typescript-mode)
+(package-install 'tide)
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(setq typescript-indent-level 2)
+(add-hook 'typescript-mode-hook
+          (lambda ()
+            (tide-setup)
+            (flycheck-mode +1)
+            (eldoc-mode t)
+            (company-mode +1)))
+(setq tide-format-options '(:insertSpaceAfterFunctionKeywordForAnonymousFunctions t :placeOpenBraceOnNewLineForFunctions nil))
+;; (add-hook 'before-save-hook 'tide-format-before-save)
+(font-lock-add-keywords 'typescript-mode
+                        '(
+                          ("\\(@\\w+\\)" . 'font-lock-preprocessor-face)
+                          )
+                        )
+
+
+(package-install 'mmm-mode)
+(require 'mmm-mode)
+;; (setq mmm-global-mode 'maybe)
+(set-face-background 'mmm-default-submode-face nil)
+(setq mmm-submode-decoration-level 0)
+(global-set-key "\M-qm" 'mmm-mode)
+
+(mmm-add-classes
+ '(
+   (mmm-md-typescript-mode
+    :submode typescript-mode
+    :face mmm-code-submode-face
+    :front "^```\\(ts\\|typescript\\):?.*$"
+    :back "^```$"
+    )
+   (mmm-md-js2-mode
+    :submode js2-mode
+    :face mmm-code-submode-face
+    :front "^```\(js\|javascript\):?.*$"
+    :back "^```$"
+    )
+   (mmm-md-web-mode
+    :submode web-mode
+    :face mmm-code-submode-face
+    :front "^```\\(html\\|css\\):?.*$"
+    :back "^```$"
+    )
+   (mmm-md-sh-mode
+    :submode sh-mode
+    :face mmm-code-submode-face
+    :front "^```\\(sh\\|bash\\):?.*$"
+    :back "^```$"
+    )
+   (mmm-md-diff-mode
+    :submode diff-mode
+    :face mmm-code-submode-face
+    :front "^```diff:?.*$"
+    :back "^```$"
+    )
+   (mmm-md-json-mode
+    :submode json-mode
+    :face mmm-code-submode-face
+    :front "^```json:?.*$"
+    :front "^```json$"
+    :back "^```$"
+    )
+   (mmm-md-yaml-mode
+    :submode yaml-mode
+    :face mmm-code-submode-face
+    :front "^```\\(yaml\\|yml\\):?.*$"
+    :back "^```$"
+    )
+   (mmm-md-py-mode
+    :submode python-mode
+    :face mmm-code-submode-face
+    :front "^```\\(python\\|py\\):?.*$"
+    :back "^```$"
+    )
+   (mmm-ts-lit-html-mode
+    :submode web-mode
+    :face mmm-code-submode-face
+    :front "html`$"
+    :back "[^\\]`;?$"
+    )
+     ))
+(mmm-add-mode-ext-class 'gfm-mode nil 'mmm-md-typescript-mode)
+(mmm-add-mode-ext-class 'gfm-mode nil 'mmm-md-js2-mode)
+(mmm-add-mode-ext-class 'gfm-mode nil 'mmm-md-web-mode)
+(mmm-add-mode-ext-class 'gfm-mode nil 'mmm-md-sh-mode)
+(mmm-add-mode-ext-class 'gfm-mode nil 'mmm-md-diff-mode)
+(mmm-add-mode-ext-class 'gfm-mode nil 'mmm-md-json-mode)
+(mmm-add-mode-ext-class 'gfm-mode nil 'mmm-md-yaml-mode)
+(mmm-add-mode-ext-class 'gfm-mode nil 'mmm-md-py-mode)
+(mmm-add-mode-ext-class 'typescript-mode nil 'mmm-ts-lit-html-mode)
+;; for test code
+;; (setq mmm-classes-alist (cdr mmm-classes-alist))
+;; (mmm-add-classes
+;;  '(
+;;    (mmm-ts-lit-html-mode
+;;     :submode web-mode
+;;     :face mmm-code-submode-face
+;;     :front "html`$"
+;;     :back "[^\\]`;?$"
+;;     )
+;;    ))
+
+(package-install 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x G") 'magit-blame)
+(global-set-key (kbd "C-x v M") 'magit-dispatch-popup)
+(setq vc-follow-symlinks t)
+(setq magit-clone-set-remote.pushDefault t)
+(add-hook 'git-commit-mode-hook '(lambda () (interactive) (beginning-of-buffer)))
+;;(setq magit-git-executable "~/.ghq/github.fork.co.jp/junji/dotfiles/mygit.cmd")
+;;(setq magit-cygwin-mount-points '(("/mnt/c" . "c:")))
+;;(magit-define-popup-switch 'magit-push-popup ?w "with annotated tags" "--follow-tags")
+;;(setq-default magit-auto-revert-immediately nil)
+;;C-M-i magit-dired-jump
+;;C-c C-e vc-git-log-edit-toggle-amend
+;;C-x v ~ master ;; 指定のブランチのファイルをみる もしくは (magit-find-file-other-window REV FILE)
+
+(package-install 'magit-todos)
+(magit-todos-mode 1)
+
+;; (require 'git-complete)
+;; ;;(global-set-key (kbd "C-c C-c") 'git-complete)
+;; (global-set-key (kbd "M-/") 'git-complete)
+;; (add-to-list 'load-path "~/.emacs.d/git-complete") ;; お好きなように
+;; (setq git-complete-enable-autopair t)
+
+;; iedit // C-; 同時カーソル編集
+;; (package-install 'iedit)
+;; (require 'iedit)
+;; (define-key iedit-mode-keymap (kbd "C-h") 'delete-backward-char)
+;; (define-key iedit-mode-keymap (kbd "C-m") 'iedit-toggle-selection)
+;; (define-key iedit-mode-keymap (kbd "M-p") 'iedit-expand-up-a-line)
+;; (define-key iedit-mode-keymap (kbd "M-n") 'iedit-expand-down-a-line)
+;; (define-key iedit-mode-keymap (kbd "M-h") 'iedit-restrict-function)
+;; (define-key iedit-mode-keymap (kbd "M-i") 'iedit-restrict-current-line)
+
+;; (package-install 'dumb-jump)
+;; (require 'dumb-jump)
+;; (setq dumb-jump-mode t)
+;; (define-key global-map "\M-qd" 'dumb-jump-go) ;; go-to-definition!
+;; (define-key global-map "\M-qD" 'dumb-jump-back)
+
+(package-install 'multiple-cursors)
+(package-install 'smartrep)
+(require 'smartrep)
+(declare-function smartrep-define-key "smartrep")
+(global-unset-key "\C-xm")
+(smartrep-define-key global-map "\C-xm"
+  '(("C-p"      . 'mc/mark-previous-like-this)
+    ("C-n"      . 'mc/mark-next-like-this)
+    ("*"        . 'mc/mark-all-like-this)))
+
+(global-unset-key "\C-xl")
+(smartrep-define-key global-map "\C-xl"
+  '(
+     ("n"     . '(scroll-other-window 5))
+     ("p"     . '(scroll-other-window-down 5))
+     ("g"     . 'goto-line)
+     ))
+
+;; (package-install 'yasnippet)
+;; (yas-global-mode 1)
+;; (setq yas-prompt-functions '(yas-no-prompt))
+;; (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand)
+;; (setq yas-snippet-dirs '("~/.ghq/github.fork.co.jp/junji/dotfiles/yas"))
+
+(package-install 'editorconfig)
+(editorconfig-mode 1)
+
+(package-install 'markdown-mode)
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+(setq markdown-asymmetric-header t)
+(setq markdown-header-scaling t)
+(setq markdown-unordered-list-item-prefix " - ")
+
+(eval-after-load "markdown-mode"
+  '(progn
+     (define-key markdown-mode-map (kbd "<M-S-return>") 'markdown-insert-header-dwim)
+     (define-key markdown-mode-map (kbd "C-c f") 'markdown-demote)
+     (define-key markdown-mode-map (kbd "C-c b") 'markdown-promote)
+     ))
+
+;; C-c C-x ENTER ... 装飾を消す
+(setq markdown-gfm-use-electric-backquote nil)
+;;(setq markdown-command "marked")
+(setq markdown-command "jq --slurp --raw-input '{\"text\": \"\\(.)\", \"mode\": \"gfm\"}' | curl -sS --data @- https://api.github.com/markdown")
+;; (if (eq system-type 'windows-nt)
+;;     (setq markdown-command "jq --slurp --raw-input \"{\\\"text\\\": \\\"\\(.)\\\", \\\"mode\\\": \\\"gfm\\\"}\" | curl -sS --cacert c:/Users/junji/Downloads/cacert.pem --data @- https://api.github.com/markdown"))
+
+(eval-after-load "markdown-mode"
+  '(defalias 'markdown-add-xhtml-header-and-footer 'my/dw/markdown-add-html5-header-and-footer))
+
+(defun my/markdown-add-html5-header-and-footer (title)
+    "Wrap XHTML header and footer with given TITLE around current buffer."
+    (goto-char (point-min))
+    (insert "<!doctype html>\n"
+           "<html lang=\"ja\">\n"
+           "<head>\n  <title>")
+    (insert title)
+    (insert "</title>\n")
+    (insert "  <meta charset=\"utf-8\">\n")
+    (insert "  <link href=\"https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.8.0/github-markdown.min.css\" rel=\"stylesheet\">\n")
+    (insert "  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css\">\n")
+    (insert "  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js\"></script>\n")
+    (insert "  <script>hljs.initHighlightingOnLoad();</script>\n")
+    (insert "  <style>body { zoom: 150%; } body > h1:not(:first-child) { border: 0; page-break-before: always; } h2{ page-break-before: always; }</style>\n")
+    (insert "  <style>\n")
+    (insert "  @media screen { div.footer { display: none; } }\n")
+    (insert "  @media print { @page { size: legal landscape; margin-top: 0; margin-bottom: 6mm; } h1 { padding-top: 50mm; } h2 { padding-top: 0 } div.footer { position: fixed; right: 0; bottom: 0; } }\n")
+    (insert "  </style>\n")
+    (insert "</head>\n"
+            "<body class=\"markdown-body\">\n")
+    (goto-char (point-max))
+    (insert "\n"
+            "<div class=\"footer\"><img src=\"https://user-images.githubusercontent.com/13231263/31114194-d9656554-a857-11e7-8a87-245bf60475be.png\" style=\"width: 80px\"></div>"
+            "</body>\n"
+            "</html>\n"))
+
+(defun my/dw/markdown-add-html5-header-and-footer (title)
+    "Wrap XHTML header and footer with given TITLE around current buffer."
+    (goto-char (point-min))
+    (insert "<!doctype html>\n"
+           "<html lang=\"ja\">\n"
+           "<head>\n  <title>")
+    (insert title)
+    (insert "</title>\n")
+    (insert "  <meta charset=\"utf-8\">\n")
+    (insert "  <link href=\"https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css\" rel=\"stylesheet\">\n")
+    (insert "  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css\">\n")
+    (insert "  <script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js\"></script>\n")
+    (insert "  <script>hljs.initHighlightingOnLoad();</script>\n")
+    (insert "  <style> body { margin: 0; zoom: 150%; background-color: white; } body > h1:not(:first-child) { border: 0; page-break-before: always; } body > h2:not(:first-child) { page-break-before: always; } div.footer { font-size: 0.8em; font-family: monospace; position: fixed; right: 0; bottom: 0; }</style>\n")
+    (insert "  <style>\n")
+    (insert "    @media screen { div.footer { display: none; } }\n")
+    (insert "    @media print { @page { size: legal landscape; margin: 5mm 10mm 10mm 10mm; } }\n")
+    (insert "  </style>\n")
+    (insert "</head>\n"
+            "<body class=\"markdown-body\">\n")
+    (goto-char (point-max))
+    (insert "\n"
+            "<div class=\"footer\">confidential © datawise,inc.</div>"
+            "</body>\n"
+            "</html>\n"))
+
+(package-install 'emojify)
+;; (add-hook 'after-init-hook #'global-emojify-mode)
+
+(package-install 'imenu-list)
+(setq imenu-list-focus-after-activation t
+      imenu-list-auto-resize nil
+      imenu-list-position 'left)
+(add-hook 'markdown-mode-hook
+          '(lambda ()
+             (define-key markdown-mode-map (kbd "C-c i") 'imenu-list-smart-toggle)
+             ))
+
+;; M-x set-page-delimiter
+;; C-c C-x RET markdown-toggle-markup-hiding
+;; C-c C-x TAB markdown-toggle-inline-images
+(require 'page-ext)
+(add-hook 'markdown-mode-hook
+  '(lambda ()
+     (setq page-delimiter "^## ")
+     ;;(define-key markdown-mode-map (kbd "C-M-p") 'previous-page)
+     ;;(define-key markdown-mode-map (kbd "C-M-n") 'next-page)
+     ))
+
+;; https://www.emacswiki.org/emacs/hide-comnt.el
+;; (require 'hide-comnt)
+;; (add-hook 'markdown-mode-hook
+;;   '(lambda ()
+;;      (define-key markdown-mode-map (kbd "C-c h") 'hide/show-comments-toggle)
+;;      ))
+
+
+;; (package-install 'shell-pop)
+;; (global-set-key "\M-qs" 'shell-pop)
+
+;; shell-modeでプロンプトをread onlyに
+;; termモードではC-cC-jでコマンド入力できるようになる
+(setq comint-prompt-read-only t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+(add-to-list 'comint-output-filter-functions 'ansi-color-process-output)
+
+(setq explicit-shell-file-name shell-file-name)
+
+;; (package-install 'multi-term)
+;; (add-to-list 'term-bind-key-alist '("C-h" . term-send-backspace))
+;; (add-to-list 'term-bind-key-alist '("M-h" . term-send-backward-kill-word))
+
+(add-hook 'term-mode-hook
+          '(lambda ()
+             ;; C-y を term 内ペーストにする
+             (define-key term-raw-map (kbd "C-y") 'term-paste)
+             (define-key term-raw-map "\C-z" (lookup-key (current-global-map) "\C-z"))
+             ))
+
+;; C-c s で shell を起動する
+;; C-u C-c s で shell を追加起動する
+(global-set-key (kbd "C-c s")
+                (lambda ()
+                  (interactive)
+                  (if current-prefix-arg
+                      (shell (generate-new-buffer-name "*shell*"))
+                    (shell))))
+(global-set-key (kbd "C-c 2") (lambda () (interactive) (if (get-buffer "*shell*<2>") (switch-to-buffer "*shell*<2>") (shell (generate-new-buffer "*shell*<2>")))))
+(global-set-key (kbd "C-c 3") (lambda () (interactive) (if (get-buffer "*shell*<3>") (switch-to-buffer "*shell*<3>") (shell (generate-new-buffer "*shell*<3>")))))
+(global-set-key (kbd "C-c 4") (lambda () (interactive) (if (get-buffer "*shell*<4>") (switch-to-buffer "*shell*<4>") (shell (generate-new-buffer "*shell*<4>")))))
+(global-set-key (kbd "C-c 5") (lambda () (interactive) (if (get-buffer "*shell*<5>") (switch-to-buffer "*shell*<5>") (shell (generate-new-buffer "*shell*<5>")))))
+
+;; -----
+(package-install 'google-translate)
+(require 'google-translate-default-ui)
+
+(defvar google-translate-english-chars "[:ascii:]’“”–"
+  "これらの文字が含まれているときは英語とみなす")
+(defun google-translate-enja-or-jaen (&optional string)
+  "regionか、現在のセンテンスを言語自動判別でGoogle翻訳する。"
+  (interactive)
+  (setq string
+        (cond ((stringp string) string)
+              (current-prefix-arg
+               (read-string "Google Translate: "))
+              ((use-region-p)
+               (prog1
+                   (buffer-substring (region-beginning) (region-end))
+                 ;; ↓置き換えたいので翻訳元は削除する (念のためキルリングに入れておく)
+                 (kill-region (region-beginning) (region-end))))
+               (t
+                (save-excursion
+                  (let (s)
+                    (forward-char 1)
+                    (backward-sentence)
+                    (setq s (point))
+                    (forward-sentence)
+                    (buffer-substring s (point)))))))
+        (let* ((asciip (string-match
+                        (format "\\`[%s]+\\'" google-translate-english-chars)
+                        string)))
+          (run-at-time 0.1 nil 'deactivate-mark)
+          (google-translate-translate
+           (if asciip "en" "ja")
+           (if asciip "ja" "en")
+           ;; escape markdown link
+           ;; string
+           (replace-regexp-in-string "\\[\\(\[^]\]+\\)\\]\(\[^)\]+\)" "'\\1'" (replace-regexp-in-string "[ ]*\n" " " string))
+           'current-buffer))) ; ← カーソル位置にペーストする
+
+(global-set-key (kbd "C-x C-.") 'google-translate-enja-or-jaen)
+
+(defun google-translate--get-b-d1 ()
+    ;; TKK='427110.1469889687'
+  (list 427110 1469889687))
+
+;; M-s M-w search word
+(setq eww-search-prefix "http://www.google.co.jp/search?q=")
+
+;; (package-install 'migemo)
+;; (require 'migemo)
+;; (setq migemo-command "cmigemo")
+;; (setq migemo-options '("-q" "--emacs"))
+;; (setq migemo-dictionary "/usr/share/cmigemo/utf-8/migemo-dict")
+;; (setq migemo-user-dictionary nil)
+;; (setq migemo-regex-dictionary nil)
+;; (setq migemo-coding-system 'utf-8-unix)
+;; (migemo-init)
+
+(package-install 'emmet-mode)
+(add-hook 'web-mode-hook 'emmet-mode)
+(setq emmet-self-closing-tag-style "")
+(eval-after-load "emmet-mode"
+  '(lambda ()
+    ;; (define-key emmet-mode-keymap (kbd "C-j") nil) ;; C-j は newline のままにしておく
+    ;; (define-key emmet-mode-keymap (kbd "C-c i") 'emmet-expand-line) ;; C-i で展開
+    ))
+
+;; (package-install 'hideshow)
+;; (add-hook 'web-mode-hook 'hs-minor-mode)
+;; (global-set-key (kbd "C-x @ t") 'hs-toggle-hiding)
+;; (global-set-key (kbd "C-x @ H") 'hs-hide-all)
+;; (global-set-key (kbd "C-x @ A") 'hs-show-all)
+;; (global-set-key (kbd "C-x @ s") 'hs-show-block)
+;; (global-set-key (kbd "C-x @ h") 'hs-hide-block)
+;; (global-set-key (kbd "C-x @ l") 'hs-hide-level)
+
+;; (add-hook 'after-init-hook #'global-emojify-mode)
+
+;; auto-complete // 補完
+;; (package-install 'auto-complete)
+;; (ac-config-default)
+;; (global-auto-complete-mode t)
+;; (ac-set-trigger-key "TAB")
+;; (setq ac-use-menu-map t)
+
+;; ;; git-gutter // gitで編集した場所を行頭で表示
+(package-install 'git-gutter)
+(when window-system
+  (package-install 'git-gutter-fringe)
+  (require 'git-gutter-fringe)
+  (set-face-foreground 'git-gutter-fr:modified "LemonChiffon3")
+  (set-face-foreground 'git-gutter-fr:added    "SkyBlue1")
+  (set-face-foreground 'git-gutter-fr:deleted  "firebrick1")
+  (set-face-background 'git-gutter-fr:modified "LemonChiffon3")
+  (set-face-background 'git-gutter-fr:added    "SkyBlue1")
+  (set-face-background 'git-gutter-fr:deleted  "firebrick1")
+  (global-git-gutter-mode t)
+  )
+(global-set-key (kbd "C-x v j") 'git-gutter-mode)
+(global-set-key (kbd "C-x v p") 'git-gutter:previous-hunk)
+(global-set-key (kbd "C-x v n") 'git-gutter:next-hunk)
+(global-set-key (kbd "C-x v s") 'git-gutter:stage-hunk)
+(global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
+
+;; ;; goto-chg // 編集した場所を遡る
+;; (package-install 'goto-chg)
+;; (global-set-key [(control ?.)] 'goto-last-change)
+;; (global-set-key [(control ?,)] 'goto-last-change-reverse)
+
+;; ;; expand-region // 単語や領域選択
+;; いまいち使いずらい、、C-M-U C-M-SPCで代用できそうな気もする
+;; (package-install 'expand-region)
+;;(global-set-key "\M- " 'er/expand-region)
+;;(global-set-key "\M-/" 'er/expand-region)
+;; (global-set-key (kbd "M-SPC") 'er/expand-region)
+;; (global-set-key (kbd "C-M-@") 'er/expand-region)
+;; (global-set-key (kbd "C-@") 'er/expand-region)
+;; (global-set-key (kbd "C-M-@") 'er/contract-region)
+
+(package-install 'js-comint)
+(require 'js-comint)
+
+;; (setenv "PATH" "/home/junjishiokawa/google-cloud-sdk/bin:/home/junjishiokawa/gems/bin:/home/junjishiokawa/.nvm/versions/node/v10.14.2/bin:/usr/local/sbin:/usr/local/bin:/usr/local/games:/usr/sbin:/usr/bin:/usr/games:/sbin:/bin")
+;; (setq exec-path (parse-colon-path (getenv "PATH")))
+
+(package-install 'bash-completion)
+(bash-completion-setup)
+
+;; (setq sh-basic-offset 2 sh-indentation 2)
+
+(package-install 'neotree)
+(require 'neotree)
+(setq neo-show-updir-line nil)
+(setq neo-theme 'ascii)
+(setq neo-show-updir-line nil)
+(setq neo-window-width 36)
+(setq neo-persist-show t)
+(setq neo-smart-open t)
+(setq neo-vc-integration '(face char))
+(setq neo-show-hidden-files t)
+(global-set-key (kbd "C-x t") 'neotree-toggle)
+
+;; (package-install 'sr-speedbar)
+;; (require 'speedbar)
+;; (speedbar-add-supported-extension ".md")
+
+;; apt-get install silversearcher-ag
+(package-install 'ag)
+(package-install 'wgrep-ag)
+(setq ag-group-matches nil)
+
+;; (package-install 'electric-spacing)
+;; (add-hook 'web-mode-hook 'electric-spacing-mode)
+;; (package-install 'electric-operator)
+;; (add-hook 'web-mode-hook 'electric-operator-mode)
+;; (electric-operator-add-rules-for-mode
+;;  'web-mode
+;;  (cons "." ".")   ; string concat
+;;  (cons "%=" " %= ")
+;;  (cons "++" "++ ")
+;;  (cons "--" "-- ")
+;;  (cons "===" " === ")
+;;  (cons "!==" " !== ")
+;;  (cons "<<" " << ")
+;;  (cons ">>" " >> ")
+;;  (cons ":" #'js-mode-:)
+;;  (cons "?" " ? ")
+;;  (cons "/" #'js-mode-/)
+;;  (cons "//" "// ")
+;;  (cons "/*" "/* ")
+;;  (cons "=>" " => ") ; ES6 arrow functions
+;;  )
+
+
+(package-install 'anzu)
+(global-anzu-mode +1)
+
+(package-install 'plantuml-mode)
+(require 'plantuml-mode)
+(setq plantuml-jar-path "~/.emacs.d/plantuml.jar")
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+
+;; (setq-local after-save-hook 'my-plantuml-export)
+(defun my-plantuml-export ()
+  (interactive)
+  (let ((f (substring (buffer-name) 0 -5)))
+    (async-shell-command (concat "FILE=" f " && URL=`java -Dfile.encoding=UTF-8 -jar ~/.emacs.d/plantuml.jar -encodeurl ${FILE}.puml` && wget -qO- \"http://www.plantuml.com/plantuml/svg/${URL}\" > ${FILE}.svg && cp ${FILE}.svg ~/Downloads/") "*Plant UML Output*")
+    )
+  )
+(add-to-list 'display-buffer-alist (cons "\\*Plant UML Output\\*.*" (cons #'display-buffer-no-window nil)))
+
+
+;;(setq custom-file "~/.ghq/github.fork.co.jp/junji/dotfiles/.emacs-custom.el")
+;;(load custom-file)
+
+(setq epg-gpg-program "gpg2")
+
+;; for browse-url
+;; (setq
+;;  cmd-exe-bin"/mnt/c/Windows/System32/cmd.exe"
+;;  cmd-exe-args '("/c" "start" "") )
+;; (setq
+;;  browse-url-generic-program  cmd-exe-bin
+;;  browse-url-generic-args     cmd-exe-args
+;;  browse-url-browser-function 'browse-url-generic)
+(setq browse-url-browser-function 'eww-browse-url)
+;; (setq browse-url-browser-function 'eww-browse-url)
+(setq browse-url-browser-function 'browse-url-default-browser)
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome-stable")
+
+
+
+;; (package-install 'company)
+;; (require 'company)
+;; (global-company-mode) ; 全バッファで有効にする
+;; (setq company-transformers '(company-sort-by-backend-importance)) ;; ソート順
+;; (setq company-idle-delay 0) ; デフォルトは0.5
+;; (setq company-minimum-prefix-length 3) ; デフォルトは4
+;; (setq company-selection-wrap-around t) ; 候補の一番下でさらに下に行こうとすると一番上に戻る
+;; (setq completion-ignore-case t)
+;; (setq company-dabbrev-downcase nil)
+;; (define-key company-active-map (kbd "C-n") 'company-select-next) ;; C-n, C-pで補完候補を次/前の候補を選択
+;; (define-key company-active-map (kbd "C-p") 'company-select-previous)
+;; (define-key company-search-map (kbd "C-n") 'company-select-next)
+;; (define-key company-active-map (kbd "C-h") 'delete-backward-char) ;; C-hでヘルプがでるのはいずれ設定する
+;; (define-key company-search-map (kbd "C-p") 'company-select-previous)
+;; (define-key company-active-map (kbd "C-s") 'company-filter-candidates) ;; C-sで絞り込む
+;; (define-key company-active-map (kbd "C-i") 'company-complete-selection) ;; TABで候補を設定
+;; (define-key company-active-map [tab] 'company-complete-selection) ;; TABで候補を設定
+;; (define-key company-active-map (kbd "C-f") 'company-complete-selection) ;; C-fで候補を設定
+;; (define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete) ;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
+
+(package-install 'auto-complete)
+(require 'auto-complete-config)
+(ac-config-default)
+
+
+;; (package-install 'atomic-chrome)
+;; (atomic-chrome-start-server)
+;; (setq atomic-chrome-default-major-mode 'markdown-mode)
+
+(package-install 'rainbow-mode)
+(setq rainbow-html-colors t)
+(add-hook 'typescript-mode-hook 'rainbow-mode)
+
+;;(load "~/.ghq/github.fork.co.jp/junji/dotfiles/lisp/my-polymer-translate.el")
+
+;; ;; ウィンドウの透過
+;; (require 'cycle-frame-transparency)
+;; (cycle-transparency)
+;; (setq cft--trasparent 95)
+
+(package-install 'hl-todo)
+(setq hl-todo-keyword-faces
+  '(("HOLD" . "#d0b3ff")
+    ("NOTE" . "#7cb8bb")
+    ("TODO" . "#cc9393")
+    ("KLUDGE" . "#dca3a3")
+    ("HACK"   . "#d0bf8f")
+    ("TEMP"   . "#d0bf8f")
+    ("FIXME" . "#cc9393")
+    ))
+;;; global-hl-todo-modeで有効にするメジャーモード(derived-mode)
+(setq hl-todo-activate-in-modes
+      '(typescript-mode gfm-mode web-mode))
+(global-hl-todo-mode t)
+
+(package-install 'ein)
+
+(package-install 'terraform-mode)
+
+(package-install 'docker)
+(package-install 'dockerfile-mode)
+(package-install 'docker-compose-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+(package-install 'docker-tramp)
+(set-variable 'docker-tramp-use-names t)
+(global-set-key (kbd "C-x y") 'docker)
+
+;; M-x load ; tramp
+(package-install 'tramp-theme)
+(load-theme 'tramp t)
+
+(package-install 'japanese-holidays)
+(eval-after-load "holidays"
+  '(progn
+     (require 'japanese-holidays)
+     (setq calendar-holidays ; 他の国の祝日も表示させたい場合は適当に調整
+       (append japanese-holidays holiday-local-holidays holiday-other-holidays))
+     (setq mark-holidays-in-calendar t) ; 祝日をカレンダーに表示
+     ;; 土曜日・日曜日を祝日として表示する場合、以下の設定を追加します。
+     ;; デフォルトで設定済み
+     (setq japanese-holiday-weekend '(0 6)     ; 土日を祝日として表示
+       japanese-holiday-weekend-marker     ; 土曜日を水色で表示
+       '(holiday nil nil nil nil nil japanese-holiday-saturday))
+     (add-hook 'calendar-today-visible-hook 'japanese-holiday-mark-weekend)
+     (add-hook 'calendar-today-invisible-hook 'japanese-holiday-mark-weekend)))
+
+(add-hook 'calendar-today-visible-hook 'calendar-mark-today)
+
+;; (package-install 'beacon)
+;; (setq beacon-color "SteelBlue1")
+;; (setq beacon-size 120)
+;; (setq beacon-blink-when-focused t)
+;; (setq beacon-push-mark nil)
+;; (setq beacon-blink-duration 0.1)
+;; (beacon-mode 1)
+
+(package-install 'python-mode)
+(add-to-list 'auto-mode-alist '("\\\.py\\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+;;(require 'csvq)
+;;(global-set-key (kbd "C-x q") 'csvq)
+
+(setq vc-handled-backends '(Git))
+
+(package-install 'ace-jump-mode)
+(define-key global-map (kbd "C-;") 'ace-jump-line-mode)
+
+
+;; (package-install 'helm)
+;; (require 'helm-config)
+;; (helm-mode nil)
+;; (global-set-key (kbd "M-x") 'helm-M-x)
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
+;; (global-set-key (kbd "C-x C-r") 'helm-recentf)
+;; (define-key helm-map (kbd "C-h") 'delete-backward-char)
+
+
+(package-install 'ivy)
+;;(package-install 'swiper)
+(package-install 'counsel)
+(global-set-key (kbd "C-x b") 'ivy-switch-buffer)
+;; (package-install 'counsel-tramp)
+;; (ivy-mode nil)
+;;(setq ivy-use-virtual-buffers t)
+;;(setq enable-recursive-minibuffers t)
+;;(defvar counsel-find-file-ignore-regexp (regexp-opt '("./" "../")))
+(setq ivy-height 20) ;; minibufferのサイズを拡大！（重要）
+;;(setq ivy-extra-directories t)
+;; (setq ivy-re-builders-alist
+;;       '((t . ivy--regex-plus)))
+
+;; (defvar swiper-include-line-number-in-search t) ;; line-numberでも検索可能
+
+;; ;; enable this if you want `swiper' to use it
+;; ;; (setq search-default-mode #'char-fold-to-regexp)
+;; (global-set-key "\C-s" 'swiper)
+;; (global-set-key (kbd "C-c C-r") 'ivy-resume)
+;; (global-set-key (kbd "<f6>") 'ivy-resume)
+;; (global-set-key (kbd "M-x") 'counsel-M-x)
+;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+;; (global-set-key (kbd "C-c g") 'counsel-git)
+(global-set-key (kbd "C-c j") 'counsel-git-grep)
+(global-set-key (kbd "C-c k") 'counsel-ag)
+;; (global-set-key (kbd "C-c t") 'counsel-tramp)
+;; (global-set-key (kbd "C-x l") 'counsel-locate)
+;; (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+;; (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+
+;; ;; 余分なメッセージを削除しておきましょう
+;; (defmacro with-suppressed-message (&rest body)
+;;   "Suppress new messages temporarily in the echo area and the `*Messages*' buffer while BODY is evaluated."
+;;   (declare (indent 0))
+;;   (let ((message-log-max nil))
+;;     `(with-temp-message (or (current-message) "") ,@body)))
+
+;; (require 'ivy-ghq)
+;; (setq ivy-ghq-short-list t)
+;; (defun ivy-ghq-open-and-magit ()
+;;       (interactive)
+;;       (ivy-ghq-open)
+;;       (magit-status))
+;; (global-set-key (kbd "C-c g") 'ivy-ghq-open-and-magit)
+
+(require 'recentf)
+(setq recentf-save-file "~/.emacs.d/.recentf")
+(setq recentf-max-menu-items 25)
+(setq recentf-max-saved-items 500)             ;; recentf に保存するファイルの数
+(setq recentf-exclude '(".recentf"))           ;; .recentf自体は含まない
+(setq recentf-auto-cleanup 'never)             ;; 保存する内容を整理
+(setq recentf-auto-save-timer
+      (run-with-idle-timer 60 t 'recentf-save-list))
+(recentf-mode 1)
+
+;; recentf の メッセージをエコーエリア(ミニバッファ)に表示しない
+;; (*Messages* バッファには出力される)
+(defun recentf-save-list-inhibit-message:around (orig-func &rest args)
+  (setq inhibit-message t)
+  (apply orig-func args)
+  (setq inhibit-message nil)
+  'around)
+(advice-add 'recentf-cleanup   :around 'recentf-save-list-inhibit-message:around)
+(advice-add 'recentf-save-list :around 'recentf-save-list-inhibit-message:around)
+
+(package-install 'recentf-ext) ;; ちょっとした拡張
+(recentf-mode 1)
+
+(define-key global-map (kbd "C-x f") 'counsel-recentf) ;; counselにおまかせ！
+
+(defun recentd-track-opened-file ()
+  "Insert the name of the directory just opened into the recent list."
+  (and (derived-mode-p 'dired-mode) default-directory
+       (recentf-add-file default-directory))
+  ;; Must return nil because it is run from `write-file-functions'.
+  nil)
+
+(defun recentd-track-closed-file ()
+  "Update the recent list when a dired buffer is killed.
+That is, remove a non kept dired from the recent list."
+  (and (derived-mode-p 'dired-mode) default-directory
+       (recentf-remove-if-non-kept default-directory)))
+
+(add-hook 'dired-after-readin-hook 'recentd-track-opened-file)
+(add-hook 'kill-buffer-hook 'recentd-track-closed-file)
+
+;; (package-install 'dumb-jump)
+;; (setq dumb-jump-mode t)
+;; (setq dumb-jump-selector 'ivy) ;; 候補選択をivyに任せます
+;; (setq dumb-jump-use-visible-window nil)
+;; (define-key global-map (kbd "M-.") 'dumb-jump-go) ;; go-to-definition!
+;; (define-key global-map (kbd "M-,") 'dumb-jump-back)
+
+;; (package-install 'symbol-overlay)
+;; (add-hook 'prog-mode-hook #'symbol-overlay-mode)
+;; (add-hook 'markdown-mode-hook #'symbol-overlay-mode)
+;; (global-set-key (kbd "M-i") 'symbol-overlay-put)
+;; (define-key symbol-overlay-map (kbd "p") 'symbol-overlay-jump-prev) ;; 次のシンボルへ
+;; (define-key symbol-overlay-map (kbd "n") 'symbol-overlay-jump-next) ;; 前のシンボルへ
+;; (define-key symbol-overlay-map (kbd "C-g") 'symbol-overlay-remove-all) ;; ハイライトキャンセル
+
+(package-install 'markdown-toc)
+(require 'dash)
+(setq
+  markdown-toc-user-toc-structure-manipulation-fn
+  (lambda (toc-structure)
+    (-filter (lambda (l) (let ((index (car l)))
+                           (<= 1 index)))
+      toc-structure))
+  markdown-toc-list-item-marker "1."
+  markdown-toc-header-toc-start "<!-- MD TOC START -->"
+  markdown-toc-header-toc-title ""
+  markdown-toc-header-toc-end "\n<!-- MD TOC END -->")
+
+
+
+(package-install 'shell-pop)
+(global-set-key (kbd "C-c s") 'shell-pop)
+
+
+
+(require 'cl-lib)
+(require 'shell)
+(require 'tramp)
+
+(setq shell-file-name "/bin/bash") ; Mingw版 emacs から Cygwin の bash を使う場合は、"bash" とすること
+(setq shell-command-switch "-c")
+(setq explicit-shell-file-name shell-file-name)
+
+;; other-window がなければ開き、その window に移動する
+;; http://d.hatena.ne.jp/rubikitch/20100210/emacs
+(defun other-window-or-split ()
+  (interactive)
+  (when (one-window-p)
+    (split-window-sensibly))
+  (other-window 1))
+
+;; ロケーションが同じ shellバッファ を other-window に表示する
+(defun shell-popup ()
+  (interactive)
+  (cl-labels ((shell-quote-argument-2 (arg)
+                                      (replace-regexp-in-string
+                                       "[\x00-\x09\x0b-\x2c\x3b-\x40\x5b-\x5e\x60\x7b-\x7d\x7f]"
+                                       "\\\\\\&"
+                                       arg))
+              (shell-other-window (buffer-name)
+                                  (let ((current-directory default-directory))
+                                    (cond ((>= emacs-major-version 25)
+                                           (switch-to-buffer-other-window buffer-name)
+                                           (shell buffer-name))
+                                          (t
+                                           (other-window-or-split)
+                                           (let ((default-directory current-directory))
+                                             (switch-to-buffer buffer-name)
+                                             (shell buffer-name))))
+                                    (comint-goto-process-mark)
+                                    (unless (string= (expand-file-name default-directory)
+                                                     (expand-file-name current-directory))
+                                      (comint-delete-input)
+                                      (insert (concat "cd " (shell-quote-argument-2 (file-local-name current-directory))))
+                                      (comint-send-input)
+                                      (sit-for 0))))
+              ;; process-mark のある行に comint-prompt-regexp にマッチする文字列があるかだけの簡易な判定をしている
+              (shell-prompt-p (buffer-name)
+                              (save-excursion
+                                (set-buffer buffer-name)
+                                (comint-goto-process-mark)
+                                (forward-line 0)
+                                (looking-at comint-prompt-regexp))))
+    (if current-prefix-arg
+        (shell-other-window (generate-new-buffer-name "*shell*"))
+      (if (and (string-match "^\\*shell\\*" (buffer-name))
+               (not (one-window-p)))
+          (delete-window)
+        (cl-loop for buffer in (buffer-list)
+                 if (and (string-match "^\\*shell\\*" (buffer-name buffer))
+                         (let ((current-directory (buffer-local-value 'default-directory buffer)))
+                           (or (and (not (tramp-tramp-file-p default-directory))
+                                    (not (tramp-tramp-file-p current-directory)))
+                               (tramp-equal-remote default-directory current-directory)))
+                         (or (not (get-buffer-process buffer))
+                             (shell-prompt-p (buffer-name buffer))))
+                 return (shell-other-window (buffer-name buffer))
+                 finally return (shell-other-window (generate-new-buffer-name "*shell*")))))))
+
+;; キーバインドを設定する
+(global-set-key (kbd "C-c s") 'shell-popup)
+
+;; 以下は、必要であれば設定してください
+(global-set-key (kbd "C-x o") 'other-window-or-split)
+
+(package-install 'open-junk-file)
+(setq open-junk-file-format "~/.ghq/github.fork.co.jp/junji/works/junk/%Y/W%V-%m%d.md")
+(global-set-key (kbd "C-x x") 'open-junk-file)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (open-junk-file shell-pop markdown-toc recentf-ext ivy docker-tramp hl-todo auto-complete markdown-mode magit typescript-mode flycheck js2-mode yaml-mode json-mode wgrep dash s wgrep-ag web-mode tramp-theme tide terraform-mode smartrep rainbow-mode python-mode plantuml-mode neotree multiple-cursors mmm-mode magit-todos js-comint japanese-holidays imenu-list google-translate git-gutter emojify emmet-mode elscreen ein editorconfig dockerfile-mode docker-compose-mode docker dired-single ddskk counsel company bash-completion anzu ag ace-jump-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

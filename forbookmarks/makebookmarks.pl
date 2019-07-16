@@ -105,21 +105,6 @@ sub parseLine{
 		}
 		return @startends;
 	};
-#	{
-#		my $ll = $_[0];
-#		my $lll = substr($ll, 3);
-#		printf(STDERR "ll: \"%s\",\nlll: \"%s\"\n",$ll,$lll);
-#		if($lll cmp 'Евр'){
-#			printf(STDERR "true!\n");
-#		} else {
-#			printf(STDERR "false!\n");
-#		}
-#		if($lll =~ /[\p{Cyrillic}]+/){
-#			printf(STDERR "true!\n");
-#		} else {
-#			printf(STDERR "false!\n");
-#		}
-#	}
 	if($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*(\d+)-(\d+)$/){
 		%res = (engNameShort=>$1,zachalo=>($2+0),
 			chapters=>[
