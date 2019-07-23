@@ -4,3 +4,7 @@ table, th, td {
 pre {
   border: 1px solid black;
 }
+img {
+  padding: 1em;
+  border: 1px solid black;
+}
