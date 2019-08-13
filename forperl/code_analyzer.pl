@@ -21,7 +21,6 @@
 use strict;
 use warnings;
 use utf8;
-use FindBin;
 use Path::Tiny qw( path );
 use Git::Repository 'Blame';
 use Data::Dumper;
@@ -29,6 +28,7 @@ use Git::Repository::Plugin::Blame::Line;
 use Tree::Trie;
 use JSON;
 use MongoDB;
+use FindBin;
 require "$FindBin::Bin/code_analyzer.d/code_analyzer.aux1.pl";
 require "$FindBin::Bin/code_analyzer.d/code_analyzer.aux2.pl";
 

@@ -28,9 +28,6 @@ use base qw(HTTP::Server::Simple::CGI);
  
 
 #global const's
-#	my %dispatch = (
-#		'/hello' => \&resp_hello,
-#	);
 #global var's
 #procedures
 sub handle_request {
@@ -43,15 +40,6 @@ sub handle_request {
  
 	print "HTTP/1.0 200 OK\r\n";
 	CodeAnalyzer($cgi);
-#		if (ref($handler) eq "CODE") {
-##			$handler->($cgi);
-#		} else {
-##			print "HTTP/1.0 404 Not found\r\n";
-##			print $cgi->header,
-##				  $cgi->start_html('Not found'),
-##				  $cgi->h1('Not found at the moment'),
-##				  $cgi->end_html;
-#		}
 }
 sub resp_hello {
 	my $cgi  = shift;   # CGI.pm object

@@ -11,6 +11,7 @@ au BufNewFile,BufRead *.wl set filetype=mma
 au BufNewFile,BufRead *.gplot set filetype=gnuplot
 au BufNewFile,BufRead *.cs set filetype=cs
 au BufNewFile,BufRead *.ts set filetype=javascript
+au BufNewFile,BufRead *.tsx set filetype=javascript
 
 function! SKEL_spec()
 	0r /usr/share/vim/current/skeletons/skeleton.spec
