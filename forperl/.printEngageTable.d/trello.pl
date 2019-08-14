@@ -57,20 +57,18 @@ sub _fetch{
 	my $req = HTTP::Request->new( %url );
 	my $lwp = LWP::UserAgent->new;
 	my $res = $lwp->request( $req );
-#	$res = parse_json( $res->as_string );
-    $res = $res->as_string;
+	my $res = $res->{_content};
+	printf(STDERR "res: %s\n",$res);
+	$res = parse_json( $res );
     return $res;
 }
 sub getBoards {
     (my $self) = @_;
-	my $uri = sprintf(
-        "https://api.trello.com/1/members/%s/boards?filter=all&fields=all&lists=none&memberships=none&organization=false&organization_fields=name%2CdisplayName&%s",
+	return $self->_fetch(GET=>sprintf(
+        "https://api.trello.com/1/members/%s/boards?filter=all&fields=all&lists=none&memberships=none&organization=false&organization_fields=name%%2CdisplayName&%s",
         $USERNAME,
         JsonToUrl(key=>$self->{key}, token=>$self->{token}),
-    );
-	my $cmd = sprintf("curl --request GET --url \"%s\"",$uri);
-	my $contents = `$cmd`;
-	return $contents;
+    ));
 }
 
 sub getMemberInfo {

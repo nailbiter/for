@@ -28,7 +28,6 @@ use Data::Dumper;
 use Path::Tiny qw( path );
 use JSON::Parse 'parse_json';
 use FindBin;
-require "$FindBin::Bin/.printEngageTable.d/webserver.pl";
 require "$FindBin::Bin/.printEngageTable.d/trello.pl";
 
 
@@ -37,30 +36,20 @@ my $CARD_ID = "5d1976494f4f482fd84c3e9c";
 my $PID_FILE_NAME = "$FindBin::Bin/.printEngageTable.d/printEngageTable.pid.txt";
 my $PORT_NUMBER = 3030;
 #global var's
+my $MongoClient;
 #procedures
 
 #main
-system(sprintf("kill %d",path($PID_FILE_NAME)->slurp_utf8));
-if ($ARGV[0] ne "kill") {
-#	my $obj = MyWebServer->new($PORT_NUMBER);
-#	my $pid = $obj->background();
-#	print "Use 'kill $pid' to stop server.\n";
-#	open(my $fh, '>', $PID_FILE_NAME) or die $!;
-#	print $fh $pid;
-#	close($fh);
-}
-
 my $client = MongoDB->connect();
-my $trelloKey = $client->ns("admin.passwords")->find_one({key=>"TRELLOKEY"})->{value};
-my $trelloToken = $client->ns("admin.passwords")->find_one({key=>"TRELLOTOKEN"})->{value};
+#	my $mongoPassword = $MongoClient->ns("admin.passwords")->find_one({key=>"MONGOMLAB"})->{value};
+#	$MongoClient = MongoDB->connect(sprintf("mongodb://%s:%s\@ds149672.mlab.com:49672/logistics",
+#			"nailbiter",$mongoPassword));
 my $TrelloClient //= Trello->new({
-		key=> $trelloKey,
-		token=> $trelloToken,
+		key=> $client->ns("admin.passwords")->find_one({key=>"TRELLOKEY"})->{value},
+		token=> $client->ns("admin.passwords")->find_one({key=>"TRELLOTOKEN"})->{value},
 	});
 my $res = $TrelloClient->getBoards;
-my $rres = parse_json( $res );
-printf("%s\n%d\n",
-#	Dumper($res),
-	$res,
-	scalar(@$rres),
-);
+#printf("%d\n",
+#	scalar(@$res),
+#);
+
