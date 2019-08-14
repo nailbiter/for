@@ -26,8 +26,10 @@ use MongoDB;
 use Text::TabularDisplay;
 use Data::Dumper;
 use Path::Tiny qw( path );
+use JSON;
 use JSON::Parse 'parse_json';
 use FindBin;
+use CGI;
 require "$FindBin::Bin/.printEngageTable.d/trello.pl";
 
 
@@ -48,8 +50,37 @@ my $TrelloClient //= Trello->new({
 		key=> $client->ns("admin.passwords")->find_one({key=>"TRELLOKEY"})->{value},
 		token=> $client->ns("admin.passwords")->find_one({key=>"TRELLOTOKEN"})->{value},
 	});
-my $res = $TrelloClient->getBoards;
-#printf("%d\n",
-#	scalar(@$res),
-#);
-
+my $tableRef = $TrelloClient->getCards("5a83f3449c950b04c540ba66");
+my $cgi = CGI->new;
+print 
+#	$cgi->header,
+	$cgi->start_html(-title => sprintf("printEngageTable"),
+	  -style => {
+	#	  -code => $CSSSTYLE,
+	  },
+	),
+	#		  $cgi->div({-class=>"mainContainer"},
+	#			  PrintDiagrams($cgi,\@stat),
+	#			  $cgi->div({-class=>"legendContainer"},
+	#				  map {$cgi->div({-style=>sprintf("background-color: %s;",$_->{COLOR})},$_->{LABEL})} @CATEGORIES
+	#			  ),
+	#		  ),
+#	$cgi->p($cgi->code(to_json($tableRef))),
+#	$cgi->p($cgi->code(scalar(@$tableRef))),
+	#          $cgi->p($cgi->code(to_json($tableRef,{pretty=>1}))),
+	#		,HABITS("kDCITi9O")
+	$cgi->table({-border=>1},
+	  map {
+		  $cgi->Tr(
+			  $cgi->td($$_{id}),
+			  $cgi->td($$_{name}),
+			  $cgi->td( join(",",map {$_->{name}} @{$$_{labels}})),
+		  )
+	  } 
+	  grep {
+		  grep /^parttime$/, map {$_->{name}} @{$$_{labels}}
+	  }
+	  @$tableRef
+	),
+	#          $cgi->p($cgi->code($FindBin::Bin)),
+	$cgi->end_html;
