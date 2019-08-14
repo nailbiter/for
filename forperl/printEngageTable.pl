@@ -30,6 +30,7 @@ use JSON;
 use JSON::Parse 'parse_json';
 use FindBin;
 use CGI;
+use DateTime;
 require "$FindBin::Bin/.printEngageTable.d/trello.pl";
 
 
@@ -43,14 +44,34 @@ my $MongoClient;
 
 #main
 my $client = MongoDB->connect();
-#	my $mongoPassword = $MongoClient->ns("admin.passwords")->find_one({key=>"MONGOMLAB"})->{value};
-#	$MongoClient = MongoDB->connect(sprintf("mongodb://%s:%s\@ds149672.mlab.com:49672/logistics",
-#			"nailbiter",$mongoPassword));
-my $TrelloClient //= Trello->new({
+my $trelloClient //= Trello->new({
 		key=> $client->ns("admin.passwords")->find_one({key=>"TRELLOKEY"})->{value},
 		token=> $client->ns("admin.passwords")->find_one({key=>"TRELLOTOKEN"})->{value},
 	});
-my $tableRef = $TrelloClient->getCards("5a83f3449c950b04c540ba66");
+my $mongoPassword = $client->ns("admin.passwords")->find_one({key=>"MONGOMLAB"})->{value};
+$client = MongoDB->connect(sprintf("mongodb://%s:%s\@ds149672.mlab.com:49672/logistics",
+		"nailbiter",$mongoPassword));
+my $cursor = $client->get_database("logistics")->get_collection("alex.taskLog")->find(
+	{message=>"add engage"},
+	{sort=>{date=>-1}},
+);
+
+#my $tableRef = $trelloClient->getCards("5a83f3449c950b04c540ba66");
+
+my @arr;
+while(my $doc = $cursor->next) {
+	printf(STDERR "%s\n",Dumper($doc));
+	my $datetime = $doc->{date}->as_datetime;
+	$datetime->set_time_zone( 'Asia/Tokyo' );
+	my $date = $datetime->stringify;
+	push(@arr, {
+		id=>$doc->{obj}->{id},
+		name=>$doc->{obj}->{name},
+		date=>$date,
+	});
+}
+my $tableRef = \@arr;
+
 my $cgi = CGI->new;
 print 
 #	$cgi->header,
@@ -72,15 +93,14 @@ print
 	$cgi->table({-border=>1},
 	  map {
 		  $cgi->Tr(
-			  $cgi->td($$_{id}),
+			  $cgi->td($$_{date}),
+#			  $cgi->td($$_{id}),
 			  $cgi->td($$_{name}),
-			  $cgi->td( join(",",map {$_->{name}} @{$$_{labels}})),
 		  )
-	  } 
-	  grep {
-		  grep /^parttime$/, map {$_->{name}} @{$$_{labels}}
 	  }
+#	  grep {
+#		  grep /^parttime$/, map {$_->{name}} @{$$_{labels}}
+#	  }
 	  @$tableRef
 	),
-	#          $cgi->p($cgi->code($FindBin::Bin)),
 	$cgi->end_html;
