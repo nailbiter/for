@@ -28,21 +28,27 @@ use Data::Dumper;
 use Path::Tiny qw( path );
 use JSON;
 use JSON::Parse 'parse_json';
-use FindBin;
 use CGI;
 use DateTime;
+use Getopt::Long;
+use FindBin;
 require "$FindBin::Bin/.printEngageTable.d/trello.pl";
 
 
 #global const's
-my $CARD_ID = "5d1976494f4f482fd84c3e9c";
-my $PID_FILE_NAME = "$FindBin::Bin/.printEngageTable.d/printEngageTable.pid.txt";
-my $PORT_NUMBER = 3030;
 #global var's
 my $MongoClient;
 #procedures
 
 #main
+my %args
+GetOptions(
+	"start=s"=>\$args{start},
+	"end=s"=>\$args{end},
+);
+$args{start} //= "10:00";
+$args{end} //= "10:00";
+
 my $client = MongoDB->connect();
 my $trelloClient //= Trello->new({
 		key=> $client->ns("admin.passwords")->find_one({key=>"TRELLOKEY"})->{value},
