@@ -41,7 +41,6 @@ my $CSSSTYLE = <<'END_BLURB';
 }
 END_BLURB
 #global var's
-my $MongoClient;
 #procedures
 sub PrintTable {
 	(my $cgi, my @table) = @_;
