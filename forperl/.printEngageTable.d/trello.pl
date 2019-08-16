@@ -27,7 +27,6 @@ use LWP::UserAgent;
 use LWP::Simple;
 use JSON::Parse 'parse_json';
 use JSON;
-#use WWW::Curl;
 
 #global const's
 my $USERNAME = "nailbiter";
@@ -85,6 +84,15 @@ sub getCards {
 	return $self->_fetch( GET => sprintf(
         "https://api.trello.com/1/lists/%s/cards?%s",
         $listId,
+        JsonToUrl(key=>$self->{key}, token=>$self->{token}),
+    ));
+}
+
+sub getCard {
+    (my $self, my $cardId) = @_;
+	return $self->_fetch( GET => sprintf(
+        "https://api.trello.com/1/cards/%s?%s",
+        $cardId,
         JsonToUrl(key=>$self->{key}, token=>$self->{token}),
     ));
 }
