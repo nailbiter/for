@@ -26,7 +26,7 @@ use Data::Dumper;
 use Path::Tiny qw( path );
 use JSON;
 use JSON::Parse 'parse_json';
-use CGI;
+use CGI qw(-utf8);
 use DateTime;
 use Getopt::Long;
 use FindBin;
@@ -46,7 +46,11 @@ my $MongoClient;
 sub PrintTable {
 	(my $cgi, my @table) = @_;
 	print 
-		$cgi->start_html(-title => sprintf("printEngageTable"),
+		$cgi->header(-charset=>"utf-8"),
+		$cgi->start_html(
+		  -title => sprintf("printEngageTable"),
+		  -charset => {
+		  },
 		  -style => {
 			  -code => $CSSSTYLE,
 		  },
@@ -119,6 +123,7 @@ my $cgi = CGI->new;
 PrintTable($cgi, 
 	  map {
 		  $cgi->Tr(
+			  $cgi->td($cgi->code("keplerdev")),
 			  $cgi->td(sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
 			  $cgi->td(sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
 			  $cgi->td($res{$_}->{name}),
