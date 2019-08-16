@@ -92,6 +92,10 @@ sub minutesAfter {
 	}
 	return 60*($$self{hour}-$$other{hour}) + ($$self{min}-$$other{min});
 }
+sub toString {
+	(my $self) = @_;
+	return sprintf("%02d:%02d",$self->{hour},$self->{min});
+}
 
 #main
 1;

@@ -39,24 +39,27 @@ my $CSSSTYLE = <<'END_BLURB';
 .descriptionContainer {
 	width: 15cm;
 }
+.stackContainer {
+	display: flex;
+	margin-top: 2em;
+	flex-direction: column;
+	width: 100 vw;
+	justify-content: flex-start;
+	align-items: center;
+}
+.stackItem {
+	width: 80%;
+	border: 2px solid;
+	margin-bottom: 2px;
+	border-radius: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+}
 END_BLURB
 #global var's
 #procedures
-sub PrintTable {
-	(my $cgi, my @table) = @_;
-	print 
-		$cgi->header(-charset=>"utf-8"),
-		$cgi->start_html(
-		  -title => sprintf("printEngageTable"),
-		  -charset => {
-		  },
-		  -style => {
-			  -code => $CSSSTYLE,
-		  },
-		),
-		$cgi->table({-border=>1},@table),
-		$cgi->end_html;
-}
 
 #main
 my %args;
@@ -89,9 +92,8 @@ printf(STDERR "endHourMin: %s\n",Dumper($endHourMin));
 my $flag = 0;
 my $anchor = $endHourMin;
 my %res;
+my @resArray;
 while( !$flag && ( my $doc = $cursor->next ) ) {
-	printf(STDERR "%s\n",Dumper($doc));
-
 	my $hourMin = HourMin->new(DATETIME=>$doc->{date});
 	my $datetime = $doc->{date}->as_datetime;
 	$datetime->set_time_zone( 'Asia/Tokyo' );
@@ -111,15 +113,29 @@ while( !$flag && ( my $doc = $cursor->next ) ) {
 			duration_min => 0,
 		};
 	}
-	$res{ $doc->{obj}->{id} }->{duration_min} += $anchor->minutesAfter(
-		$flag ?
-		$startHourMin :
-		$hourMin
-	);
+	my $nextAnchor = $flag ? $startHourMin : $hourMin;
+	my $minutesInc = $anchor->minutesAfter( $nextAnchor );
+	$res{ $doc->{obj}->{id} }->{duration_min} += $minutesInc;
+
+	push @resArray, {
+		id=>$doc->{obj}->{id},
+		inc => $minutesInc,
+		anchor => $nextAnchor,
+	};
+
+	$anchor = $nextAnchor;
 }
 
 my $cgi = CGI->new;
-PrintTable($cgi, 
+print 
+	$cgi->header(-charset=>"utf-8"),
+	$cgi->start_html(
+	  -title => sprintf("printEngageTable"),
+	  -style => {
+		  -code => $CSSSTYLE,
+	  },
+	),
+	$cgi->table({-border=>1},
 	  map {
 		  $cgi->Tr(
 			  $cgi->td($cgi->code("keplerdev")),
@@ -130,4 +146,13 @@ PrintTable($cgi,
 		  )
 	  }
 	  keys %res,
-);
+	),
+	$cgi->div({-class=>"stackContainer"},
+		map {
+			$cgi->div(
+				{-class=>"stackItem", -style=>sprintf("height:%dem",2),},
+				sprintf("<div><code>%s</code>: <i>%s</i></div>",$_->{anchor}->toString(), $res{$_->{id}}->{name}),
+			)
+		} @resArray
+	),
+	$cgi->end_html;
