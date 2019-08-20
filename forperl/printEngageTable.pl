@@ -57,6 +57,9 @@ my $CSSSTYLE = <<'END_BLURB';
 	align-items: center;
 	justify-content: flex-end;
 }
+.archived {
+	font-weight: bold;
+}
 END_BLURB
 #global var's
 #procedures
@@ -111,6 +114,7 @@ while( !$flag && ( my $doc = $cursor->next ) ) {
 			desc => ( length($card->{desc}) > 0 ) ? $card->{desc} : "empty",
 			name=>$doc->{obj}->{name},
 			duration_min => 0,
+			card => $card,
 		};
 	}
 	my $nextAnchor = $flag ? $startHourMin : $hourMin;
@@ -141,11 +145,12 @@ print
 			  $cgi->td($cgi->code("keplerdev")),
 			  $cgi->td(sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
 			  $cgi->td(sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
-			  $cgi->td($res{$_}->{name}),
+			  $cgi->td($cgi->span($res{$_}->{card}->{closed} ? {-class=>"archived"}:{},
+			  $res{$_}->{name})),
 			  $cgi->td($cgi->div({-class=>"descriptionContainer"},$res{$_}->{desc})),
 		  )
 	  }
-	  keys %res,
+	  sort keys %res,
 	),
 	$cgi->div({-class=>"stackContainer"},
 		map {
