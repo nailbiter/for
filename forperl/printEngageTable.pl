@@ -58,7 +58,7 @@ my $CSSSTYLE = <<'END_BLURB';
 	justify-content: flex-end;
 }
 .archived {
-	font-weight: bold;
+	font-style: italic;
 }
 END_BLURB
 #global var's
