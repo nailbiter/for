@@ -16,3 +16,7 @@ function! Cpp_CommentToggle () range
 endfunction    " ----------  end of function Cpp_CommentToggle ----------
 nnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle()<CR>j
 vnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle()<CR>j
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
