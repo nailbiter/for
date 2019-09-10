@@ -142,14 +142,17 @@ print
 	$cgi->table({-border=>1},
 	  map {
 		  $cgi->Tr(
-			  $cgi->td($cgi->code("keplerdev")),
-			  $cgi->td(sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
-			  $cgi->td(sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
-			  $cgi->td($cgi->span($res{$_}->{card}->{closed} ? {-class=>"archived"}:{},
-			  $res{$_}->{name})),
-			  $cgi->td($cgi->div({-class=>"descriptionContainer"},$res{$_}->{desc})),
+		  	map {$cgi->td($_)} (
+			  ($cgi->code("keplerdev")),
+			  (sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
+			  (sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
+			  ($cgi->span($res{$_}->{card}->{closed} ? {-class=>"archived"}:{},$res{$_}->{name})),
+			  ($cgi->div({-class=>"descriptionContainer"},$res{$_}->{desc})),
+			  ($cgi->a({-href=>$res{$_}->{card}->{shortUrl}},$res{$_}->{card}->{shortUrl})),
+			)
 		  )
 	  }
+	  grep { $res{$_}->{duration_min}>0 }
 	  sort keys %res,
 	),
 	$cgi->div({-class=>"stackContainer"},
