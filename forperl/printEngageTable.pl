@@ -153,7 +153,7 @@ print
 		  )
 	  }
 	  grep { $res{$_}->{duration_min}>0 }
-	  sort keys %res,
+	  sort {$res{$a}->{duration_min} cmp $res{$b}->{duration_min}} keys %res,
 	),
 	$cgi->div({-class=>"stackContainer"},
 		map {
