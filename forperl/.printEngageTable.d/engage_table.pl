@@ -162,7 +162,17 @@ sub print_to_html {
                   (sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
                   ($cgi->span($res{$_}->{card}->{closed} ? {-class=>"archived"}:{},$res{$_}->{name})),
                   ($cgi->div({-class=>"descriptionContainer"},$res{$_}->{desc})),
-                  ($cgi->a({-href=>$res{$_}->{card}->{shortUrl}},$res{$_}->{card}->{shortUrl})),
+                )
+              )
+          }
+          grep { $res{$_}->{duration_min}>0 }
+          sort {$res{$a}->{duration_min} cmp $res{$b}->{duration_min}} keys %res,
+        ),
+        $cgi->table({-border=>1},
+          map {
+              $cgi->Tr(
+                map {$cgi->td($_)} (
+                  ($cgi->a({-href=>$res{$_}->{card}->{shortUrl}},$res{$_}->{card}->{name})),
                 )
               )
           }
