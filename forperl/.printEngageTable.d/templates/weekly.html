@@ -1,0 +1,6 @@
+[%-USE format-%]
+[%- pretty = format('%02.2f') -%]
+レオン
+[%FOREACH card IN cards%]
+ - [%card.card.name%] ([% pretty( card.duration_min / 60.0 ) %]h)
+[%-END-%]

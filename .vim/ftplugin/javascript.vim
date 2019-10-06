@@ -42,3 +42,5 @@ function! Cpp_CommentToggle () range
 endfunction    " ----------  end of function Cpp_CommentToggle ----------
 nnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle()<CR>j
 vnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle()<CR>j
+
+command Prettify execute "!prettier --write %"
