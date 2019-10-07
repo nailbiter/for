@@ -281,7 +281,7 @@ sub pastePdf{
 		$pdfName,$pdfName));
 }
 sub textToPdf{
-	my $TT = Template->new(INCLUDE_PATH=>'templates');
+	my $TT = Template->new(INCLUDE_PATH=>"$FindBin::Bin/templates");
 	(my $text) = @_;
 	chomp($text);
 	$text =~ s/\n/\\\\\n/g;
@@ -417,7 +417,7 @@ sub decoratedKey{
 #main
 my $coordsFile= "makebookmarksCoords.json";
 my $originalFile = "pdfs/test.pdf";
-$Environment{TMPDIR} = 'tmp';
+$Environment{TMPDIR} = "$FindBin::Bin/tmp";
 GetOptions(
 	"date=s" => \$DateString,
 	"coords=s" => \$coordsFile,
