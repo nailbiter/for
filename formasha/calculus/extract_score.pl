@@ -27,9 +27,9 @@ use utf8;
 my $real = 0;
 my $max = 0;
 while(<>) {
-    if(/score: (?<real>\d+(\.\d+)?)\/(?<max>\d+(\.\d+)?)/) {
+    if(/\\score{(?<real>\d+(\.\d+)?)}{(?<max>\d+(\.\d+)?)}/) {
         $real += $+{real};
         $max += $+{max};
     }
 }
-printf("%.2f/%.2f\n",$real,$max);
+printf("%.2f/%.2f (%.2f\\%%)\n",$real,$max,$real/$max*100);
