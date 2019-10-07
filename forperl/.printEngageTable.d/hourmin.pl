@@ -30,12 +30,14 @@ use Data::Dumper;
 sub new {
     (my $class, my %args ) = @_;
 	if( exists $args{STRING} ) {
-		if( $args{STRING} =~ /((?<mday>\d+) )?(?<hour>\d{2}):(?<min>\d{2})/ ) {
+		if( $args{STRING} =~ /(((?<month>\d+)\/)?(?<mday>\d+) )?(?<hour>\d{2}):(?<min>\d{2})/ ) {
 			my @lt = localtime();
+#			($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
 			my $self = bless {
 				hour => $+{hour}+0,
 				min => $+{min}+0,
 				mday => ( (exists $+{mday}) ? $+{mday} : $lt[3] ),
+#                month => ( (exists $+{month}) ? $+{month} : $lt[4] ),
 			}, $class;
 		} else {
 			die "hard";
