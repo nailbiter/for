@@ -9,6 +9,7 @@ filetype on
 
 au BufNewFile,BufRead *.wl set filetype=mma
 au BufNewFile,BufRead *.gplot set filetype=gnuplot
+au BufNewFile,BufRead *.gv set filetype=dot
 au BufNewFile,BufRead *.cs set filetype=cs
 au BufNewFile,BufRead *.ts set filetype=javascript
 au BufNewFile,BufRead *.tsx set filetype=javascript
