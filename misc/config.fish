@@ -9,7 +9,7 @@ set -x SHELL /usr/local/bin/fish
 #source '/Users/oleksiileontiev/google-cloud-sdk/completion.fish.inc'
 
 #alias rm="rm-p -i"
-alias git="env LC_ALL=en_US git"
+alias egit="env LC_ALL=en_US git"
 alias npmr="npm run"
 alias npmb="npm run build"
 alias npmi="npm install"
