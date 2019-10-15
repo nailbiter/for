@@ -99,7 +99,7 @@ sub inflate {
         if( not exists $self->{res}->{$id} ) {
             my $card = $self->{trelloClient}->getCard($id);
             $self->{res}->{$id} = {
-                desc => ( length($card->{desc}) > 0 ) ? $card->{desc} : "empty",
+                desc => ( length($card->{desc}) > 0 ) ? $card->{desc} : "&nbsp;",
                 name=>$card->{name},
                 duration_min => 0,
                 card => $card,
