@@ -22,6 +22,7 @@ use strict;
 use warnings;
 use utf8;
 use LWP::Simple;
+use Getopt::Long;
 
 
 #global const's
@@ -76,6 +77,12 @@ my $CONF = {
 };
 
 #main
+my %opts;
+GetOptions(
+	"pretty" => \$opts{pretty},
+);
+$opts{pretty} //= 0;
+
 if( not @ARGV ) {
 	for( sort keys %$CONF ) {
 		printf("%s\n",$_);
@@ -93,8 +100,13 @@ if( not @ARGV ) {
 	my $str = get($ARGV[0]);
 	while( $str =~ /<li class="entry inproceedings".*?>(.*?)<\/article>/g ) {
 		if( $1 =~ /.*?<b>view<\/b>.*?href="(?<href>.*?)".*<span class="title" itemprop="name">(?<name>.*?)<\/span>/) {
-			printf("%s, %s\n\n",@+{qw(name href)});
-#			print $+{name},",",$+{href},"\n\n";
+			if( $opts{pretty} ) {
+				printf("%s, %s\n\n",@+{qw(name href)});
+			} else {
+				printf("%s\n",@+{qw(name)});
+			}
 		}
 	}
+} else {
+	die join(" ",@ARGV);
 }
