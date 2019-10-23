@@ -1,4 +1,4 @@
-set -x PATH ~/anaconda3/bin $PATH ~/bin /usr/local/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /opt/X11/bin /Library/TeX/texbin ~/anaconda2/bin /Users/oleksiileontiev/google-cloud-sdk/bin
+set -x PATH $PATH ~/bin /usr/local/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /opt/X11/bin /Library/TeX/texbin ~/anaconda2/bin /Users/oleksiileontiev/google-cloud-sdk/bin
 set -x EDITOR vim
 set -x SHELL /usr/local/bin/fish
 

@@ -1,0 +1,78 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{mathtools}
+\input{.common.tex}
+
+\title{Homework 5,
+63.00/110.00 (57.27\%)
+}
+\begin{document}
+
+\maketitle
+
+\section*{Problem 3 \score{10}{10}}
+ok
+\section*{Problem 11 \score{0}{10}\footnote{similar problems: 12,17}}
+NOT ok
+\begin{equation*}
+	\begin{array}[]{c}
+	\displaystyle y \cos x=x^2+y^2\\
+	\displaystyle\frac{{dy}}{{dx}}\cos x+y\cdot(-\sin x)=2x+2y\cdot\frac{dy}{dx}\\
+	\mbox{\sout{$\displaystyle\frac{dy}{dx}-2y\frac{dy}{dx}
+		=2x+y\sin x$}}
+	\end{array}
+\end{equation*}
+Where did $\cos x$ disappear?
+\section*{Problem 15 \score{10}{10}}
+OK
+\section*{Problem 22 \score{0}{10}\footnote{similar problems: 21}}
+\begin{equation*}
+	\begin{array}[]{c}
+		\displaystyle\frac{d}{dx}g(x)+\frac{d}{dx}\left( x\sin g(x) \right)=\frac{d}{dx}\left( x^2 \right)\\
+		\displaystyle\frac{d}{dx}g(x)+\mbox{\sout{$
+			\displaystyle\left( x\cos g(x)+\sin g(x) \right)\frac{d}{dx}g(x)
+		$}}
+		=\frac{d}{dx}\left( x^2 \right)
+		\\
+		\displaystyle\frac{d}{dx}\left( x\sin g(x) \right)=\sin g(x)+x\cos g(x)\frac{d}{dx}g(x).
+	\end{array}
+\end{equation*}
+\section*{Problem 30 \score{0}{10}\footnote{similar problems: 31,32}}
+\begin{equation*}
+	\begin{array}[]{c}
+		\displaystyle\frac{dy}{dx}\cdot\frac{2}{3}\cdot\frac{1}{\sqrt[3]{y}}=-\frac{2}{3}
+		\frac{1}{\sqrt[3]{x}}\\
+		\mbox{\sout{$\displaystyle
+		\frac{dy}{dx}=\sqrt[3]{\frac{y}{x}}
+		$}}
+	\end{array}
+	where did minus go?
+\end{equation*}
+\section*{Problem 39 \score{0}{10}\footnote{similar problems: 40}}
+\begin{equation*}
+	y''=\left( y'(x) \right)'=\left( -\frac{y}{x+e^y} \right)'=\frac{-\frac{dy}{dx}\cdot\left( x+e^y \right)
+	+y\left( 1+e^y\frac{dy}{dx} \right)}{\left( x+e^y \right)^2}\neq
+	\frac{\left( ye^y-x \right)\frac{dy}{dx}+y}{\left( x+e^y \right)^2}.
+\end{equation*}
+where did $-e^y\frac{dy}{dx}$ in the denominator go?
+\section*{Problem 44 \score{10}{10}}
+ok
+\section*{Problem 49 \score{10}{10}}
+ok
+\section*{Problem 57 \score{10}{10}}
+ok
+\section*{Problem 67 \score{8}{10}\footnote{similar problems: 68}}
+ok, but
+\begin{enumerate}
+	\item what about $c<0$ case?
+	\item what about $k<0$ case?
+	\item what about $k=0$ case?
+	\item when you did implicit differentiation of $x^2+2y^2=k$, did you consider
+		points where $x=0$ or $y=0$? (-2 points for this)
+\end{enumerate}
+\section*{Problem 77 \score{5}{10}\footnote{similar problems: 71}}
+where is b)?
+\end{document}
