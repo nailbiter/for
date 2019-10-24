@@ -26,6 +26,7 @@ use Getopt::Long;
 use HTML::PullParser;
 use JSON;
 use Path::Tiny qw(path);
+binmode STDOUT, ":utf8";
 
 
 #global const's
@@ -83,9 +84,9 @@ my $CONF = {
 #main
 my %opts;
 GetOptions(
-	"pretty" => \$opts{pretty},
+	"mode=s" => \$opts{mode},
 );
-$opts{pretty} //= 0;
+$opts{mode} //= "wc";
 
 if( not @ARGV ) {
 	for( sort keys %$CONF ) {
@@ -101,10 +102,26 @@ if( not @ARGV ) {
 		print("\n");
 	}
 } else {
+	my %gres;
 	for(@ARGV) {
 		my @res;
-		if( /a\d+\.html$/ ) {
-			#Applied Geograghy
+		if( /d\d+\.\w+\.htm$/) {
+			# d = Geophysical Journal International
+			my $str = path($_)->slurp_utf8;
+#			print $str,"\n";
+#			while( $str =~ /<a href="(<?href>\/gij\/article.*?)">(<?name>.*?)<\/a>/g ) {
+			while( $str =~ /<a href="(?<href>https:\/\/academic.oup.com\/gji\/article.*?)">(?<name>.*?)<\/a>/g ) {
+				my %h = %+;
+				if( $h{name} eq "View article" || $h{name} eq "Supplementary data" ) {
+					next;
+				}
+				$h{name} //= "test";
+				$h{href} //= "test";
+				push @res,\%h;
+			}
+		} elsif( /a\d+\.html$/ || /c\d+\.html$/ ) {
+			# a = Applied Geograghy
+			# c = Computers, Environment and Urban Systems
 			my $p = HTML::PullParser->new(file => $_,
 									   start => 'event, tagname, @attr',
 									   end   => 'event, tagname, skipped_text',
@@ -139,6 +156,10 @@ if( not @ARGV ) {
 				}
 			}
 			shift @res;
+		} elsif( /b\d+\.\d+\.htm$/ ) {
+			print get($_);
+			#ACM Transactions on the Web (TWEB))
+			#} elsif( /c\d+\.html$/ ) {
 		} else {
 			my $str = get($_);
 			while( $str =~ /<li class="entry inproceedings".*?>(.*?)<\/article>/g ) {
@@ -151,13 +172,35 @@ if( not @ARGV ) {
 			}
 		}
 
-		for( @res ) {
-			my %article = %$_;
-			if( $opts{pretty} ) {
-				printf("*%s*, %s\n\n",@article{qw(name href)});
-			} else {
+		$gres{$_} = \@res;
+	}
+	if( $opts{mode} eq "wc" ) {
+		for( keys %gres ) {
+			for(@{$gres{$_}}) {
+				my %article = %$_;
 				printf("%s\n",@article{qw(name)});
 			}
 		}
+	} elsif( $opts{mode} eq "pretty" ) {
+		for( keys %gres ) {
+			printf("# %s\n\n",$_);
+			for(@{$gres{$_}}) {
+				my %article = %$_;
+				printf("*%s*, %s\n\n",@article{qw(name href)});
+			}
+		}
+	} elsif ($opts{mode} eq "stat") {
+		my $count = 0;
+		my $sum = 0;
+		for( keys %gres ) {
+			$count++;
+			for(@{$gres{$_}}) {
+				$sum++;
+			}
+		}
+		printf("%10s: %.02f\n","sum",$sum);
+		printf("%10s: %.02f\n","API",$sum/$count);
+	} else {
+		die sprintf("uknown mode %s\n",$opts{mode});
 	}
 }
