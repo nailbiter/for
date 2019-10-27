@@ -1,0 +1,35 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{hyperref}
+\usepackage{circuitikz}
+\input{.common.tex}
+
+\title{Homework 5;
+23.33/50.00 (46.66\%)
+}
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1 \score{3.33}{10}}
+\begin{enumerate}[(a)]
+	\item NOT ok (SOP is wrong, POS is correct)
+	\item NOT ok (what are essential minterms for $A'C$, $A'CD$ or $A'B'C$?)
+	\item OK
+\end{enumerate}
+\section*{Problem 2 \score{10}{10}}
+OK
+\section*{Problem 3 \score{10}{10}}
+OK, but why did you draw Carnaugh diagram two times?
+\section*{Problem 4 \score{0}{10}}
+\begin{enumerate}[(a)]
+	\item NOT ok ($ACD'$ is not prime as it is included in $ad'$; not that don't-cares are
+		treated as 1s, see p.~140);
+	\item NOT ok ($b c'd$ is prime, but not mentioned);
+\end{enumerate}
+\section*{Problem 5 \score{0}{10}}
+NOT ok (why $(a,b,c,d)=(0,1,0,0)$ yields 0? doesn't it correspond to number 2, which is prime?)
+\end{document}
