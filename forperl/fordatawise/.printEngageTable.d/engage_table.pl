@@ -72,7 +72,7 @@ sub new {
     }, $class;
 }
 sub inflate {
-    (my $self, my $start, my $end, my $cursor) = @_;
+    (my $self, my $start, my $end, my $cursor,my %other) = @_;
 
     my $startHourMin = HourMin->new(STRING => $start),
         my $endHourMin = HourMin->new(STRING => $end);
@@ -179,11 +179,26 @@ sub print_to_html {
           grep { $res{$_}->{duration_min}>0 }
           sort {$res{$a}->{duration_min} cmp $res{$b}->{duration_min}} keys %res,
         ),
+        $cgi->table({-border=>1},
+            map {
+                $cgi->Tr(
+					$cgi->td($resArray[$_+1]->{anchor}->toString),
+					$cgi->td($resArray[$_]->{anchor}->toString),
+					$cgi->td($res{$resArray[$_+1]->{id}}->{name}),
+                )
+            } grep {
+				$res{$resArray[$_+1]->{id}}->{name} ne "lunch"
+			}
+			reverse (0..($#resArray-2))
+        ),
         $cgi->div({-class=>"stackContainer"},
             map {
                 $cgi->div(
                     {-class=>"stackItem", -style=>sprintf("height:%dem",2),},
-                    sprintf("<div><code>%s</code>: <i>%s</i></div>",$_->{anchor}->toString(), $res{$_->{id}}->{name}),
+                    sprintf("<div><code>%s</code>: <i>%s</i></div>",
+						$_->{anchor}->toString, 
+						$res{$_->{id}}->{name}
+					),
                 )
             } @resArray
         ),

@@ -66,11 +66,17 @@ GetOptions(
 	"start=s"=>\$args{start},
 	"end=s"=>\$args{end},
 	"config=s"=>\$args{config},
+	"day=n"=>\$args{day},
+	"month=n"=>\$args{month},
 );
 
 $args{start} //= "10:00";
+my %lt;
+@lt{qw(sec min hour mday mon year wday yday isdst)} = localtime();
 my @lt = localtime();
 $args{end} //= sprintf("%02d:%02d",$lt[2],$lt[1]);
+$args{month} //= $lt{mon};
+$args{day} //= $lt{mday};
 
 (my $coll,my $trelloClient) = GetCollAndTrelloClient();
 my $engageTable = EngageTable->new($trelloClient);
@@ -82,7 +88,11 @@ if( defined $args{config} ) {
 	}
 	$engageTable->print_to_html_weekly;
 } else {
-	$engageTable->inflate($args{start},$args{end},GetCursorFromCollection($coll));
+	$engageTable->inflate(
+		$args{start},
+		$args{end},
+		GetCursorFromCollection($coll),
+		map {$_=>$args{$_}} qw(month day),
+	);
 	$engageTable->print_to_html;
 }
-
