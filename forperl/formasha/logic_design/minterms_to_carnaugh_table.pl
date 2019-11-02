@@ -42,6 +42,7 @@ GetOptions(
     "dontcares=s" => \$opts{d},
     "inputvarnum=n" => \$opts{inputvarnum},
     "candidate=s" => \$opts{candidate},
+    "alphabet=s" => \$opts{alphabet},
 	"random" => \$opts{random},
 );
 if( $opts{random} ) {
@@ -96,10 +97,15 @@ if( $opts{m} ) {
     @minterms = (Set::Scalar->new((0..(2**($opts{inputvarnum})-1))) - Set::Scalar->new(split(" ",$opts{M})))
       ->elements;
 } elsif( $opts{expr} ) {
-    my @res = map {Implicant->newFromString($_,$opts{inputvarnum})} split(/\+/,$opts{expr});
+	my @expressions = split(/\+/,$opts{expr});
+    my @res = map {Implicant->newFromString($_,$opts{inputvarnum},split(/,/,$opts{alphabet}))} @expressions;
     my $set = Set::Scalar->new();
+	my $i = 0;
     for(@res) {
-        $set = $set + Set::Scalar->new($_->getSupport);
+		my $supp = Set::Scalar->new($_->getSupport);
+		printf("support of %s is %s\n",$expressions[$i],$supp);
+        $set = $set + $supp;
+		$i++;
     }
     @minterms = $set->elements;
 } else {
