@@ -25,6 +25,7 @@ use Getopt::Long;
 use JSON;
 use FindBin;
 use Set::Scalar;
+use String::Random qw(random_regex);
 require "$FindBin::Bin/.minterms_to_carnaugh_table.d/implicant.pl";
 require "$FindBin::Bin/.minterms_to_carnaugh_table.d/carnaugh_map.pl";
 
@@ -41,7 +42,50 @@ GetOptions(
     "dontcares=s" => \$opts{d},
     "inputvarnum=n" => \$opts{inputvarnum},
     "candidate=s" => \$opts{candidate},
+	"random" => \$opts{random},
 );
+if( $opts{random} ) {
+	if( not defined $opts{inputvarnum} ) {
+		die "inputvarnum has to be defined";
+	}
+	my @vars;
+	for(0..(2**$opts{inputvarnum}-1)) {
+		if( rand()<2/3 ) {
+			if( rand()<3/8 ) {
+				push @vars, "dontcare";
+			} else {
+				push @vars, "m";
+			}
+		} else {
+			push @vars, "none";
+		}
+	}
+
+	my $str = <<"PROBLEM";
+Find the minimum sum-of-products expression for function below. 
+Underline the essential prime implicants in your answer and tell 
+which minterm makes each one essential. 
+Also find product-of-sums.
+PROBLEM
+
+	my $pref = (rand()<0.5);
+	printf("# %s\n%s\n```\nf(%s)=%s(%s)%s\n```\n\n",
+		random_regex("[0-9a-z]{12}"),
+		$str,
+		join(",",("a".."z")[0..($opts{inputvarnum}-1)]),
+   		$pref ? "Sm" : "PM",
+		join(",",grep {$vars[$_] eq "m"} (0..$#vars)),
+		(grep /^dontcare$/,@vars)
+			? sprintf("%s%s(%s)",
+				$pref ? "+" : "*",
+				$pref ? "Sd" : "Pd",
+				join(",",grep {$vars[$_] eq "dontcare"} (0..$#vars)),
+			)
+			: ""
+	);
+
+	exit(0);
+}
 if( grep { exists $opts{$_} } @opts{qw(m mm expr)} != 1) {
     die "either one of M or m should be given";
 }
