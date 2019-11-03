@@ -30,7 +30,7 @@ if( $0 =~ /(\d+)\.t$/ ) {
 }
 system(sprintf("cat t/in%d.txt | ./507 > t/.out%d.txt",$index,$index));
 my @outs_fn = (sprintf("t/.out%d.txt",$index), sprintf("t/out%d.txt",$index));
-system(sprintf("diff -sy %s",join(" ",@outs_fn)));
+my $ecode = system(sprintf("diff -swy %s",join(" ",@outs_fn)));
+printf(STDERR "ecode: %d\n",$ecode);
 my @outs = map {path($_)->slurp_utf8} @outs_fn;
-#printf(STDERR "res: %d\n",$res);
-ok($outs[0] eq $outs[1],sprintf("test #%d",$index));
+ok($ecode == 0 ,sprintf("test #%d",$index));
