@@ -1,7 +1,7 @@
 #
 #===============================================================================
 #
-#         FILE: 1.t
+#         FILE: 0.t
 #
 #  DESCRIPTION: 
 #
@@ -11,14 +11,15 @@
 #       AUTHOR: YOUR NAME (), 
 # ORGANIZATION: 
 #      VERSION: 1.0
-#      CREATED: 03.11.2019 15:46:53
+#      CREATED: 03.11.2019 15:43:03
 #     REVISION: ---
 #===============================================================================
 
 use strict;
 use warnings;
-use Path::Tiny qw(path);
+#use utf8;
 use Test::More tests => 1;                      # last test to print
+use Path::Tiny qw(path);
 
 
 #main
@@ -28,9 +29,7 @@ if( $0 =~ /(\d+)\.t$/ ) {
 } else {
     die "invalid filename!";
 }
-system(sprintf("cat t/in%d.txt | ./507 > t/.out%d.txt",$index,$index));
+system(sprintf("cat t/in%d.txt | ./506 > t/.out%d.txt",$index,$index));
 my @outs_fn = (sprintf("t/.out%d.txt",$index), sprintf("t/out%d.txt",$index));
-my $ecode = system(sprintf("diff -swy %s",join(" ",@outs_fn)));
-printf(STDERR "ecode: %d\n",$ecode);
-my @outs = map {path($_)->slurp_utf8} @outs_fn;
-ok($ecode == 0 ,sprintf("test #%d",$index));
+my $ecode = system(sprintf("diff -wsy %s",join(" ",@outs_fn)));
+ok($ecode == 0,sprintf("test #%d",$index));
