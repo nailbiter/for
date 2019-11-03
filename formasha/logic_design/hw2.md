@@ -16,24 +16,32 @@ Multiply out to obtain a sum of products. Simplify where possible.
 
 # ammj0g
 
+Factor to obtain a product of sums. Simplify where possible.
+
+```
+b'c'd+abcd+a+ab'c+acd'+ab'cd'
+```
+
 # 49kkvy
+
+Factor to obtain a product of sums. Simplify where possible.
+
+```
+a'bc'd+b'c'd+ac'd+ab'd'+b'cd'
+```
 
 # seqrl5
 
+Simplify the following function:
+
+```
+(a+b+c+d)(a'+b+c+d)(a+b+c+d)
+```
+
 # 3h4lf5
 
-# 34ne47
+Simplify the following function:
 
-# it4y0l
-
-# ex3axe
-
-# zh7r1s
-
-# 3pgrfe
-
-# kwpps0
-
-# mg8s5k
-
-# 99kx91
+```
+ac'd'+a'c'+c'+bc'd'+ab
+```
