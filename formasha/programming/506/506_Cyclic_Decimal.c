@@ -7,15 +7,16 @@ bool is_cyclic(int number){
     return number!=1;
 }
 void repeating(int number) {
-    int record[MAX_N];
-    for(int i=0,n=10;;i++,n=(n%number)*10) {
+    int record[2*MAX_N];
+    for(int i=0,n=10;;i+=2,n=(n%number)*10) {
         record[i] = n/number;
-        for( int j = 0; j<i;j++ ) {
-            if(record[j]==record[i]) {
-                for( int k=j;k<i;k++ ) {
+        record[i+1]=n%number;
+        for( int j = 0; j<i;j+=2 ) {
+            if(record[j]==record[i] && record[j+1]==record[i+1]) {
+                for( int k=j;k<i;k+=2 ) {
                     printf("%d",record[k]);
                 }
-                printf("\nThe repeating length is %d.",i-j);
+                printf("\nThe repeating length is %d.\n",(i-j)/2);
                 return;
             }
         }
@@ -28,15 +29,9 @@ void prime_factor(int number) {
     printf("Not cyclic decimal.\n");
     for(;number%2==0;number/=2){
         printf("2 ");
-//        if((number/2)%2==0||(number/2)%5==0) {
-//            printf(" ");
-//        }
     }
     for(;number%5==0;number/=5){
         printf("5 ");
-//        if((number/5)%2==0||(number/5)%5==0) {
-//            printf(" ");
-//        }
     }
     printf("\n");
 }
