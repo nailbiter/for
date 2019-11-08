@@ -1,0 +1,2 @@
+571428
+The repeating length is 6.
