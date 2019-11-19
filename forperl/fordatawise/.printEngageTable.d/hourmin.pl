@@ -37,13 +37,12 @@ sub new {
 				hour => $+{hour}+0,
 				min => $+{min}+0,
 				mday => ( (exists $+{mday}) ? $+{mday} : $lt[3] ),
-#                month => ( (exists $+{month}) ? $+{month} : $lt[4] ),
 			}, $class;
 		} else {
 			die "hard";
 		}
 	} elsif(exists $args{DATETIME}) {
-		my $datetime = $args{DATETIME}->as_datetime;
+		my $datetime = $args{DATETIME};
 		$datetime->set_time_zone( 'Asia/Tokyo' );
 		my $date = $datetime->stringify;
 		if( $date =~ /(\d{4})-(\d{2})-(?<mday>\d{2})T(?<hour>\d{2}):(?<min>\d{2}):(\d{2})/ ) {
@@ -89,10 +88,21 @@ sub isMeIsEarlier {
 }
 sub minutesAfter {
 	(my $self, my $other) = @_;
-	if( $self->{mday} != $other->{mday} ) {
-		die "hard";
-	}
-	return 60*($$self{hour}-$$other{hour}) + ($$self{min}-$$other{min});
+#	return 60*($$self{hour}-$$other{hour}) + ($$self{min}-$$other{min});
+    return $self->toDateTime->delta_ms($other->toDateTime)->in_units("minutes");
+}
+sub toDateTime {
+    (my $self) = @_;
+    my %lt;
+    @lt{qw(sec min hour mday mon year wday yday isdst)} = localtime();
+    return DateTime->new (
+        hour=>$self->{hour},
+        minute=>$self->{min},
+        time_zone=>'Asia/Tokyo',
+        day=>$self->{mday},
+        month=>$lt{mon}+1,
+        year=>$lt{year}+1900,
+    );
 }
 sub toString {
 	(my $self) = @_;

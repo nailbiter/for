@@ -74,27 +74,30 @@ sub new {
 sub inflate {
     (my $self, my $start, my $end, my $cursor,my %other) = @_;
 
-    my $startHourMin = HourMin->new(STRING => $start),
-        my $endHourMin = HourMin->new(STRING => $end);
+    my $startHourMin = HourMin->new(STRING => $start)->toDateTime,
+        my $endHourMin = HourMin->new(STRING => $end)->toDateTime;
     printf(STDERR "startHourMin: %s\n",Dumper($startHourMin));
     printf(STDERR "endHourMin: %s\n",Dumper($endHourMin));
 
-#    my $cursor = $self->{cursor};
-
     my $flag = 0;
     my $anchor = $endHourMin;
-    while( !$flag && ( my $doc = $cursor->next ) ) {
-        my $hourMin = HourMin->new(DATETIME=>$doc->{date});
+    while( my $doc = $cursor->next ) {
         my $datetime = $doc->{date}->as_datetime;
         $datetime->set_time_zone( 'Asia/Tokyo' );
-        my $date = $datetime->stringify;
-        if( $endHourMin->isMeIsEarlier( $hourMin ) ) {
-            next;
-        }
-        if( $hourMin->isMeIsEarlier( $startHourMin ) ) {
-            $flag = 1;
-        }
+		if( $datetime->epoch<$startHourMin->epoch || $datetime->epoch > $endHourMin->epoch  ) {
+			printf(STDERR "before next\n");
+			my @dates = ($startHourMin,$datetime,$endHourMin);
+			printf(STDERR "! %s <= %s <= %s\n",map {$_->ymd."T".$_->hms} @dates);
+			printf(STDERR "! %010d <= %010d <= %010d\n",map {$_->epoch} @dates);
+			next;
+		}
+		if( $doc->{obj}->{name} eq "lunch" || $doc->{obj}->{name} eq "off-work" ) {
+			$anchor = $datetime;
+			next;
+		}
 
+        my $minutesInc = $anchor->delta_ms($datetime)->in_units("minutes");
+		printf(STDERR "WQRLOvZAZx %s (%d)\n",$doc->{obj}->{name},$minutesInc);
         my $id = $doc->{obj}->{id};
         if( not exists $self->{res}->{$id} ) {
             my $card = $self->{trelloClient}->getCard($id);
@@ -105,8 +108,7 @@ sub inflate {
                 card => $card,
             };
         }
-        my $nextAnchor = $flag ? $startHourMin : $hourMin;
-        my $minutesInc = $anchor->minutesAfter( $nextAnchor );
+        my $nextAnchor = $datetime;
         $self->{res}->{ $id }->{duration_min} += $minutesInc;
 
         $self->{resArray} = [
@@ -114,18 +116,15 @@ sub inflate {
             {
                 id=>$id,
                 inc => $minutesInc,
-                anchor => $nextAnchor,
+                anchor => HourMin->new(DATETIME=>$nextAnchor),
             },
         ];
-
-        $anchor = $nextAnchor;
+		$anchor = $datetime;
     }
 }
 
 sub print_to_html_weekly {
     (my $self) = @_;
-#    my %res = %{$self->{res}};
-#    my @resArray = @{$self->{resArray}};
     my $tt = Template->new(
         INCLUDE_PATH=>"$FindBin::Bin/.printEngageTable.d/templates",
         INTERPOLATE=>1,
@@ -133,7 +132,7 @@ sub print_to_html_weekly {
     my @cards =
         map  {$self->{res}->{$_}}
         grep { $self->{res}->{$_}->{duration_min}>0 }
-        sort {$self->{res}->{$a}->{duration_min} cmp $self->{res}->{$b}->{duration_min}} keys %{$self->{res}};
+        sort {$self->{res}->{$a}->{duration_min} <=> $self->{res}->{$b}->{duration_min}} keys %{$self->{res}};
     printf(STDERR "%s\n",Dumper(\@cards));
     $tt->process("weekly.html",{
             cards=>\@cards,

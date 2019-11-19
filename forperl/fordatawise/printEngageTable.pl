@@ -65,7 +65,8 @@ my %args;
 GetOptions(
 	"start=s"=>\$args{start},
 	"end=s"=>\$args{end},
-	"config=s"=>\$args{config},
+#	"config=s"=>\$args{config},
+	"weekly"=>\$args{weekly},
 	"day=n"=>\$args{day},
 	"month=n"=>\$args{month},
 );
@@ -81,18 +82,14 @@ $args{day} //= $lt{mday};
 (my $coll,my $trelloClient) = GetCollAndTrelloClient();
 my $engageTable = EngageTable->new($trelloClient);
 
-if( defined $args{config} ) {
-	my $settings = from_json(path($args{config})->slurp_utf8);
-	for(@$settings) {
-		$engageTable->inflate($_->{start},$_->{end},GetCursorFromCollection($coll));
-	}
+$engageTable->inflate(
+	$args{start},
+	$args{end},
+	GetCursorFromCollection($coll),
+	map {$_=>$args{$_}} qw(month day),
+);
+if( defined $args{weekly} ) {
 	$engageTable->print_to_html_weekly;
 } else {
-	$engageTable->inflate(
-		$args{start},
-		$args{end},
-		GetCursorFromCollection($coll),
-		map {$_=>$args{$_}} qw(month day),
-	);
 	$engageTable->print_to_html;
 }
