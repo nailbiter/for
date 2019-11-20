@@ -91,10 +91,6 @@ sub inflate {
 			printf(STDERR "! %010d <= %010d <= %010d\n",map {$_->epoch} @dates);
 			next;
 		}
-		if( $doc->{obj}->{name} eq "lunch" || $doc->{obj}->{name} eq "off-work" ) {
-			$anchor = $datetime;
-			next;
-		}
 
         my $minutesInc = $anchor->delta_ms($datetime)->in_units("minutes");
 		printf(STDERR "WQRLOvZAZx %s (%d)\n",$doc->{obj}->{name},$minutesInc);
@@ -188,7 +184,7 @@ sub print_to_html {
             } grep {
 				$res{$resArray[$_+1]->{id}}->{name} ne "lunch"
 			}
-			reverse (0..($#resArray-2))
+			reverse (0..($#resArray-1))
         ),
         $cgi->div({-class=>"stackContainer"},
             map {
