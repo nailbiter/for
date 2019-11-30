@@ -6,6 +6,6 @@ test: out0.txt .out0.txt
 
 #main
 806_Grade_Calculator: 806_main.c 806_Grade_Calculator.c 806_Grade_Calculator.h
-	gcc $(filter %.c,$^) -std=c99 -o $@ -lm
+	gcc -Werror $(filter %.c,$^) -std=c99 -o $@ -lm
 .out%.txt: in%.txt 806_Grade_Calculator
 	cat $< | ./806_Grade_Calculator > $@
