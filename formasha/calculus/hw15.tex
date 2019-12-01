@@ -8,40 +8,30 @@
 \usepackage{centernot}
 \input{.common.tex}
 
-\title{Homework 14 (Chap.~5.1),
-40.50/50.00 (81.00\%)
+\title{Homework 16 (Chap.~6.3),
 }
 \begin{document}
 \maketitle
-\secscoreFootnote{4}{5}{10}{5,6}
-\begin{enumerate}[(a)]
-  \item OK
-  \item NOT ok -- my answer is different: 0.790766;
-\end{enumerate}
-\secscoreFootnote{20}{7.5}{10}{21,22}
-\begin{enumerate}[(a)]
-  \item right endpoints' answer is OK, but for left endpoints I have different answer:
-    \begin{equation*}
-      24.284400
-    \end{equation*}
-  \item OK
-\end{enumerate}
-\secscore{25}{10}{10}
+\secscore{7}{}{10}
+\secscore{14}{}{10}
+%TILL HERE
+\secscoreFootnote{18}{0}{10}{19,20}
+numerical answer is wrong, see
+\url{https://www.wolframalpha.com/input/?i=integrate+2*pi*\%285-x\%29*\%28sqrt\%28x\%29-x\%2F2\%29+from+0+to+4}
+\secscore{30}{10}{10}
 OK
-\secscore{27}{10}{10}
-\begin{enumerate}[(a)]
-	\item OK
-	\item OK
-	\item OK
-\end{enumerate}
-\secscore{32}{8}{10}{30,31}
-\begin{enumerate}[(a)]
-	\item OK, but strictly speaking, ``$r$ are'' not ``two adjacent sides'',
-		but rather ``\textit{lengths} of two adjacent sides'';
-	\item NOT ok, why
-		\begin{equation*}
-			\lim_{n\to\infty}\frac{nr^2}{2}\sin\left( \frac{2\pi}{n} \right)
-			=\lim_{a\to0}\frac{\pi r^2}{2a\pi}\sin\left( 2\pi a \right)?
-		\end{equation*}
-\end{enumerate}
+\secscoreFootnote{38}{0}{10}{39,40}
+\begin{equation*}
+	\frac{52}{3}x^3\mid^4_2\neq 970 \left( =970+\frac{2}{3} \right)
+\end{equation*}
+\secscore{43}{10}{10}
+OK
+\secscore{44}{10}{10}
+OK, but it would be more correct to write
+\begin{equation*}
+	\mbox{height}=y=\begin{cases}
+		2x,&0\le x\le1\\
+		0,&\mbox{otherwise}
+	\end{cases}<++>
+\end{equation*}<++>
 \end{document}
