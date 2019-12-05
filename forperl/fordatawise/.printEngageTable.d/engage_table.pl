@@ -93,6 +93,9 @@ sub inflate {
 		}
 
         my $minutesInc = $anchor->delta_ms($datetime)->in_units("minutes");
+		if( !$minutesInc ) {
+			next;
+		}
 		printf(STDERR "WQRLOvZAZx %s (%d)\n",$doc->{obj}->{name},$minutesInc);
         my $id = $doc->{obj}->{id};
         if( not exists $self->{res}->{$id} ) {
@@ -160,6 +163,7 @@ sub print_to_html {
                 )
               )
           }
+          grep { $res{$_}->{card}->{name} ne "off-work" && $res{$_}->{card}->{name} ne "lunch" }
           grep { $res{$_}->{duration_min}>0 }
           sort {$res{$a}->{duration_min} cmp $res{$b}->{duration_min}} keys %res,
         ),

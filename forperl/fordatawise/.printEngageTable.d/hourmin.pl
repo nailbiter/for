@@ -37,6 +37,7 @@ sub new {
 				hour => $+{hour}+0,
 				min => $+{min}+0,
 				mday => ( (exists $+{mday}) ? $+{mday} : $lt[3] ),
+				month => ( (exists $+{month}) ? $+{month} : $lt[4]+1 ),
 			}, $class;
 		} else {
 			die "hard";
@@ -88,19 +89,19 @@ sub isMeIsEarlier {
 }
 sub minutesAfter {
 	(my $self, my $other) = @_;
-#	return 60*($$self{hour}-$$other{hour}) + ($$self{min}-$$other{min});
     return $self->toDateTime->delta_ms($other->toDateTime)->in_units("minutes");
 }
 sub toDateTime {
     (my $self) = @_;
     my %lt;
     @lt{qw(sec min hour mday mon year wday yday isdst)} = localtime();
+	printf(STDERR "%s\n",Dumper($self));
     return DateTime->new (
         hour=>$self->{hour},
         minute=>$self->{min},
         time_zone=>'Asia/Tokyo',
         day=>$self->{mday},
-        month=>$lt{mon}+1,
+        month=>$self->{month},
         year=>$lt{year}+1900,
     );
 }
