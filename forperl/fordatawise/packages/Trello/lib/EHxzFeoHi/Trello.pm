@@ -33,7 +33,7 @@ checklists:
 [%FOREACH c IN checklists-%]
   ${c.NAME}:
     [% FOREACH i IN c.ITEMS -%]
-      [%IF i.state == "complete"%]v[%ELSE%]x[%END%] ${i.name}
+      [%IF i.state == "complete"%]v[%ELSE%]o[%END%] ${i.name}
     [%END%]
 [%END-%]
 END_BLURB
