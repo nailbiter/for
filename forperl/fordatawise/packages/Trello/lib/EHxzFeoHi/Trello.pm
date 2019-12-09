@@ -22,8 +22,21 @@ use JSON;
 use HTTP::Request;
 use LWP::UserAgent;
 use MongoDB;
+use Template;
 
 
+#global const's
+my $_TO_STRING_TEMPLATE = <<'END_BLURB';
+$title
+
+checklists:
+[%FOREACH c IN checklists-%]
+  ${c.NAME}:
+    [% FOREACH i IN c.ITEMS -%]
+      [%IF i.state == "complete"%]v[%ELSE%]x[%END%] ${i.name}
+    [%END%]
+[%END-%]
+END_BLURB
 #procedures
 sub _GetTrelloPasswords{
 	my $client = MongoDB->connect();
@@ -56,29 +69,33 @@ sub load {
 	}
 	return $self;
 }
-#sub GetTrelloChecklist {
-#	(my $code,my $trelloKey,my $trelloToken) = @_;
-#	my $url = sprintf("https://api.trello.com/1/checklist/%s?key=%s&token=%s",$code,$trelloKey,$trelloToken);
-#	printf("code: %s\nurl: %s\n",$code,$url);
-#	my $req = HTTP::Request->new( GET=> $url );
-#	my $lwp = LWP::UserAgent->new;
-#	my $res = $lwp->request( $req );
-#	return ($req,$lwp,$res);
-#}
+sub GetTrelloChecklist {
+	(my $code,my $trelloKey,my $trelloToken) = @_;
+	my $url = sprintf("https://api.trello.com/1/checklist/%s?key=%s&token=%s",$code,$trelloKey,$trelloToken);
+	printf(STDERR "code: %s\nurl: %s\n",$code,$url);
+	my $req = HTTP::Request->new( GET=> $url );
+	my $lwp = LWP::UserAgent->new;
+	my $res = $lwp->request( $req );
+	return ($req,$lwp,$res);
+}
+sub get_checklists {
+	(my $self) = @_;
+	my @checklists;
+	for my $id ( @{$self->{res}->{idChecklists}} ) {
+		(my $req, my $lwp, my $res) = GetTrelloChecklist($id, $self->{KEY}, $self->{TOKEN});
+		$res = from_json($lwp->request( $req )->{_content});
+		printf(STDERR "got checklist %s\n",to_json($res,{canonical=>1,pretty=>1}));
+		my @items = sort {$$a{pos} <=> $$b{pos}} @{$$res{checkItems}};
+		push(@checklists,{
+				ITEMS=>\@items,
+				NAME=>$$res{name},
+			});
+	}
+	return \@checklists,
+}
 sub get_title {
 	(my $self) = @_;
 	return $self->load->{res}->{name};
-#		my @checklists;
-#		for my $id ( @{$$res{idChecklists}} ) {
-#			(my $req, my $lwp, my $res) = GetTrelloChecklist($id, $trelloKey, $trelloToken);
-#			$res = parse_json($lwp->request( $req )->{_content});#->{checkItems};
-#			printf(STDERR "got checklist %s\n",Dumper($res));
-#			push(@checklists,{
-#					ITEMS=>$$res{checkItems},
-#					NAME=>$$res{name},
-#				});
-#		}
-#			checklist=>\@checklists,
 }
 sub new {
 	(my $class,my %args) = @_;
@@ -103,7 +120,16 @@ sub new {
 }
 sub toString {
 	(my $self) = @_;
-	return sprintf("title: %s\n",$self->get_title);
+	my $res;
+    my $tt = Template->new(
+        INCLUDE_PATH=>"$FindBin::Bin/.printEngageTable.d/templates",
+        INTERPOLATE=>1,
+    );
+    $tt->process(\$_TO_STRING_TEMPLATE,{
+			title=>$self->get_title,
+			checklists=>$self->get_checklists,
+        });
+	return $res;
 }
 
 #main
