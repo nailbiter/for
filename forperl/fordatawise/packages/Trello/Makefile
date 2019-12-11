@@ -184,7 +184,8 @@ PERL_ARCHIVEDEP    =
 PERL_ARCHIVE_AFTER = 
 
 
-TO_INST_PM = lib/EHxzFeoHi/Trello.pm
+TO_INST_PM = lib/EHxzFeoHi/Trello.pm \
+	lib/EHxzFeoHi/to_string.template.txt
 
 
 # --- MakeMaker platform_constants section:
@@ -852,7 +853,8 @@ ppd :
 
 pm_to_blib : $(FIRST_MAKEFILE) $(TO_INST_PM)
 	$(NOECHO) $(ABSPERLRUN) -MExtUtils::Install -e 'pm_to_blib({@ARGV}, '\''$(INST_LIB)/auto'\'', q[$(PM_FILTER)], '\''$(PERM_DIR)'\'')' -- \
-	  'lib/EHxzFeoHi/Trello.pm' 'blib/lib/EHxzFeoHi/Trello.pm' 
+	  'lib/EHxzFeoHi/Trello.pm' 'blib/lib/EHxzFeoHi/Trello.pm' \
+	  'lib/EHxzFeoHi/to_string.template.txt' 'blib/lib/EHxzFeoHi/to_string.template.txt' 
 	$(NOECHO) $(TOUCH) pm_to_blib
 
 

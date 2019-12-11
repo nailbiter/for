@@ -23,20 +23,10 @@ use HTTP::Request;
 use LWP::UserAgent;
 use MongoDB;
 use Template;
+use File::Basename;
 
 
 #global const's
-my $_TO_STRING_TEMPLATE = <<'END_BLURB';
-$title
-
-checklists:
-[%FOREACH c IN checklists-%]
-  ${c.NAME}:
-    [% FOREACH i IN c.ITEMS -%]
-      [%IF i.state == "complete"%]v[%ELSE%]o[%END%] ${i.name}
-    [%END%]
-[%END-%]
-END_BLURB
 #procedures
 sub _GetTrelloPasswords{
 	my $client = MongoDB->connect();
@@ -47,9 +37,9 @@ sub _GetTrelloPasswords{
 	printf(STDERR "token: %s\n",$token);
 	return ($key,$token);
 }
-sub load {
+sub _load {
 	(my $self) = @_;
-	if( not $self->{is_loaded} ) {
+	if( not $self->{is__loaded} ) {
 		(my $URL,my $trelloKey,my $trelloToken) = @$self{qw(URL KEY TOKEN)};
 		$URL =~ /([0-9a-zA-Z]*)$/;
 		my $code = $1;
@@ -65,7 +55,7 @@ sub load {
 			$self->{res} = from_json($res->{_content});
 			printf(STDERR "got card: %s\n",to_json($self->{res},{canonical=>1,pretty=>1,}));
 		}
-		$self->{is_loaded} = 1;
+		$self->{is__loaded} = 1;
 	}
 	return $self;
 }
@@ -78,24 +68,32 @@ sub GetTrelloChecklist {
 	my $res = $lwp->request( $req );
 	return ($req,$lwp,$res);
 }
-sub get_checklists {
-	(my $self) = @_;
-	my @checklists;
-	for my $id ( @{$self->{res}->{idChecklists}} ) {
+sub _get_checklist {
+	(my $self,my $id) = @_;
+	$self->{cache_}->{checklists} //= {};
+	unless( $self->{cache}->{checklists}->{$id} ) {
 		(my $req, my $lwp, my $res) = GetTrelloChecklist($id, $self->{KEY}, $self->{TOKEN});
 		$res = from_json($lwp->request( $req )->{_content});
 		printf(STDERR "got checklist %s\n",to_json($res,{canonical=>1,pretty=>1}));
 		my @items = sort {$$a{pos} <=> $$b{pos}} @{$$res{checkItems}};
-		push(@checklists,{
-				ITEMS=>\@items,
-				NAME=>$$res{name},
-			});
+		$self->{cache}->{checklists}->{$id} = {
+			ITEMS=>\@items,
+			NAME=>$$res{name},
+		}
+	}
+	return $self->{cache}->{checklists}->{$id};
+}
+sub get_checklists {
+	(my $self) = @_;
+	my @checklists;
+	for my $id ( @{$self->_load->{res}->{idChecklists}} ) {
+		push(@checklists,$self->_get_checklist($id));
 	}
 	return \@checklists,
 }
 sub get_title {
 	(my $self) = @_;
-	return $self->load->{res}->{name};
+	return $self->_load->{res}->{name};
 }
 sub new {
 	(my $class,my %args) = @_;
@@ -118,16 +116,39 @@ sub new {
 		die to_json(\%args,{pretty=>1,canonical=>1});
 	}
 }
+sub getNumChecklistItems {
+	(my $self) = @_;
+	my $res = 0;
+	for my $id ( @{$self->_load->{res}->{idChecklists}} ) {
+		for(@{$self->_get_checklist($id)->{ITEMS}}) {
+			$res++;
+		}
+	}
+	return $res;
+}
+sub getNumCheckedChecklistItems {
+	(my $self) = @_;
+	my $res = 0;
+	for my $id ( @{$self->_load->{res}->{idChecklists}} ) {
+		for(@{$self->_get_checklist($id)->{ITEMS}}) {
+			if($_->{state} eq "complete") {
+				$res++;
+			}
+		}
+	}
+	return $res;
+}
 sub toString {
 	(my $self) = @_;
 	my $res;
+	(undef,my $dir,undef) = fileparse(__FILE__, qr/\Q.txt\E/);
+	printf("%s\n",$dir);
     my $tt = Template->new(
-        INCLUDE_PATH=>"$FindBin::Bin/.printEngageTable.d/templates",
+        INCLUDE_PATH=>$dir,
         INTERPOLATE=>1,
     );
-    $tt->process(\$_TO_STRING_TEMPLATE,{
-			title=>$self->get_title,
-			checklists=>$self->get_checklists,
+    $tt->process("to_string.template.txt",{
+			card=>$self,
         });
 	return $res;
 }
