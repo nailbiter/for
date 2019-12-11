@@ -17,6 +17,8 @@ alias npmig="npm install -g"
 alias npmci="npm ci"
 alias npmst="npm start"
 alias npmsv="npm run serve"
+alias print_trello="perl -e 'use EHxzFeoHi::Trello; print EHxzFeoHi::Trello->new(URL=>\$ARGV[0])->toString;'"
+
 
 function mygit
     ~/for/forperl/commit.pl
