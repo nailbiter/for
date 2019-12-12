@@ -8,3 +8,5 @@ checklists:
       [%IF i.state == "complete"%]v[%ELSE%]o[%END%] ${i.name}
     [%END%]
 [%END-%]
+
+URL: ${card.getUrl}

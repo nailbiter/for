@@ -138,6 +138,10 @@ sub getNumCheckedChecklistItems {
 	}
 	return $res;
 }
+sub getUrl{
+	(my $self) = @_;
+	return $self->{URL};
+}
 sub toString {
 	(my $self) = @_;
 	my $res;
