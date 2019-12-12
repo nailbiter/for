@@ -142,7 +142,6 @@ sub toString {
 	(my $self) = @_;
 	my $res;
 	(undef,my $dir,undef) = fileparse(__FILE__, qr/\Q.txt\E/);
-	printf("%s\n",$dir);
     my $tt = Template->new(
         INCLUDE_PATH=>$dir,
         INTERPOLATE=>1,
