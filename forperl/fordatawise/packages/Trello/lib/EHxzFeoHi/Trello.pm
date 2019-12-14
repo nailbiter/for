@@ -146,13 +146,18 @@ sub toString {
 	(my $self) = @_;
 	my $res;
 	(undef,my $dir,undef) = fileparse(__FILE__, qr/\Q.txt\E/);
+	print STDERR __FILE__,"\n";
+	print STDERR $dir,"\n";
     my $tt = Template->new(
         INCLUDE_PATH=>$dir,
         INTERPOLATE=>1,
     );
     $tt->process("to_string.template.txt",{
 			card=>$self,
-        });
+        },
+		\$res,
+	);
+	print STDERR "res",$res,"\n";
 	return $res;
 }
 
