@@ -17,7 +17,10 @@ alias npmig="npm install -g"
 alias npmci="npm ci"
 alias npmst="npm start"
 alias npmsv="npm run serve"
-alias print_trello="perl -e 'use EHxzFeoHi::Trello; print EHxzFeoHi::Trello->new(URL=>\$ARGV[0])->toString;'"
+
+function print_trello
+  perl -e 'use EHxzFeoHi::Trello; my $pi; if($ARGV[0] =~ /^dtws:(.*)/){$ARGV[0] = $1; $pi="dtws";} print EHxzFeoHi::Trello->new(URL=>$ARGV[0],PASS_ID=>$pi)->toString;' $argv
+end
 
 function random_name
   perl -e 'use String::Random qw( random_regex ); print random_regex("[A-Za-z][_A-Za-z0-9]{9}");'

@@ -29,13 +29,21 @@ use File::Basename;
 #global const's
 #procedures
 sub _GetTrelloPasswords{
+	(my $pass_id) = @_;
 	my $client = MongoDB->connect();
 	my $secret = $client->ns("admin.passwords");
-	my $key = $secret->find_one({key=>'TRELLOKEY'})->{'value'};
-	printf(STDERR "key: %s\n",$key);
-	my $token = $secret->find_one({key=>'TRELLOTOKEN'})->{'value'};
-	printf(STDERR "token: %s\n",$token);
-	return ($key,$token);
+	if( not $pass_id ) {
+		my $key = $secret->find_one({key=>'TRELLOKEY'})->{'value'};
+		printf(STDERR "key: %s\n",$key);
+		my $token = $secret->find_one({key=>'TRELLOTOKEN'})->{'value'};
+		printf(STDERR "token: %s\n",$token);
+		return ($key,$token);
+	} else {
+		my $obj = $secret->find_one({name=>sprintf("%s-trello",$pass_id)});
+		(my $key,my $token) = ($obj->{key},$obj->{token});
+		printf(STDERR "keys: %s",to_json({key=>$key,token=>$token},{pretty=>1,canonical=>1}));
+		return ($key,$token);
+	}
 }
 sub _load {
 	(my $self) = @_;
@@ -98,11 +106,13 @@ sub get_title {
 sub new {
 	(my $class,my %args) = @_;
 
+	printf("url: %s\n",$args{URL});
 	if( $args{KEY} && $args{TOKEN} ) {
 		printf(STDERR "def: %s\n",join(", ",@args{qw(KEY TOKEN)}));
 	} else {
 		printf(STDERR "not def\n");
-		@args{qw(KEY TOKEN)} = _GetTrelloPasswords();
+		print $args{PASS_ID},"\n";
+		@args{qw(KEY TOKEN)} = _GetTrelloPasswords($args{PASS_ID});
 	}
 
 	if( defined $args{URL} ) {
