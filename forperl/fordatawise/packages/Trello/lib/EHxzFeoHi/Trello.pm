@@ -111,7 +111,6 @@ sub new {
 		printf(STDERR "def: %s\n",join(", ",@args{qw(KEY TOKEN)}));
 	} else {
 		printf(STDERR "not def\n");
-		print $args{PASS_ID},"\n";
 		@args{qw(KEY TOKEN)} = _GetTrelloPasswords($args{PASS_ID});
 	}
 
@@ -167,7 +166,7 @@ sub toString {
         },
 		\$res,
 	);
-	print STDERR "res",$res,"\n";
+	print STDERR "res: ",$res,"\n";
 	return $res;
 }
 
