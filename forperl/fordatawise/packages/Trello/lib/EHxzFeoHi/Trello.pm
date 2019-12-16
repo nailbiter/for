@@ -106,7 +106,6 @@ sub get_title {
 sub new {
 	(my $class,my %args) = @_;
 
-	printf("url: %s\n",$args{URL});
 	if( $args{KEY} && $args{TOKEN} ) {
 		printf(STDERR "def: %s\n",join(", ",@args{qw(KEY TOKEN)}));
 	} else {
