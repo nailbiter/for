@@ -19,6 +19,9 @@ alias npmst="npm start"
 alias npmsv="npm run serve"
 alias print_trello="perl -e 'use EHxzFeoHi::Trello; print EHxzFeoHi::Trello->new(URL=>\$ARGV[0])->toString;'"
 
+function random_name
+  perl -e 'use String::Random qw( random_regex ); print random_regex("[A-Za-z][_A-Za-z0-9]{9}");'
+end
 
 function mygit
     ~/for/forperl/commit.pl
