@@ -1,4 +1,4 @@
-#!/usr/bin/env perl 
+#!/usr/bin/env perl -s
 #===============================================================================
 #
 #         FILE: Omj7Yi8o_X.pl
@@ -18,7 +18,6 @@
 #     REVISION: ---
 #===============================================================================
 
-use strict;
 use warnings;
 use utf8;
 #use JSON;
@@ -69,22 +68,30 @@ for(@rest) {
 		for(0..($stateBitsNum-1)) {
 			my @curArr = @{$res[$_]};
 			if($bits[$_]) {
-				my @minterm;
-				for(sort keys %inputs) {
-					push @minterm, sprintf($inputs{$_}?"%s":"!%s",$_);
-				}
+				my %minterm = %inputs;
+#				for(sort keys %inputs) {
+##					push @minterm, sprintf($inputs{$_}?"%s":"!%s",$_);
+#					$minterm{$_} = $inputs{$_};
+#				}
 
 				my @stateCode = split(//,$stateCodes[$i]);
 				for my $j (0..($stateBitsNum-1)) {
-					push @minterm, sprintf($stateCode[$j]?"s%d":"!s%d",$j);
+#					push @minterm, sprintf($stateCode[$j]?"s%d":"!s%d",$j);
+					$minterm{sprintf("s%d",$j)} = $stateCode[$j];
 				}
 
-				push @curArr,sprintf("(%s)",join(" & ",@minterm));
+				push @curArr,\%minterm;
+#				sprintf("(%s)",join(" & ",@minterm));
 			}
 			$res[$_] = \@curArr;
 		}
 	}
 }
-for(@res) {
-	print join(" || \n\t",@$_),"\n\n";
+
+if($dot) {
+	print "dot";
+} else {
+	for(@res) {
+		print join(" || \n\t",map {my %h=%$_;"( ".join(" & ",map {sprintf($h{$_}?"!%s":"%s",$_)} sort keys %h)." )"} @$_),"\n\n";
+	}
 }
