@@ -21,7 +21,7 @@
 use strict;
 use warnings;
 use utf8;
-use JSON;
+#use JSON;
 
 #main
 my @lines = <>;
@@ -41,8 +41,8 @@ for my $i (-scalar(@stateCodes)..-1) {
 	}
 }
 @inputNames = @inputNames[0..(scalar(@inputNames)-scalar(@stateCodes)-1)];
-print STDERR to_json(\%stateNameCodeCorr),"\n";
-print STDERR to_json(\@inputNames),"\n";
+#print STDERR to_json(\%stateNameCodeCorr),"\n";
+#print STDERR to_json(\@inputNames),"\n";
 print STDERR $stateBitsNum,"\n";
 
 my $first = 1;
