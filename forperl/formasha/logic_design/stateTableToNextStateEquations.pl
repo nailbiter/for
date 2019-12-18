@@ -22,6 +22,52 @@ use warnings;
 use utf8;
 #use JSON;
 
+
+#procedures
+sub nnew {
+	(my %args) = @_;
+
+	my $self = {
+		vertices=>{},
+		edges=>[],
+	};
+	return $self;
+}
+sub addVertex {
+	(my $self, my $vertex,my %params) = @_;
+	$self->{vertices} = {
+		%{$self->{vertices}},
+		$vertex=>\%params,
+	};
+}
+sub toString {
+	(my $self) = @_;
+	my @res = "digraph {";
+	my $tabLevel = 1;
+
+	for( @{$self->{edges}} ) {
+		push @res, sprintf("%s\"%s\"->\"%s\";",
+			"\t" x $tabLevel,
+			$_->{src},
+			$_->{dst},
+		);
+	}
+
+	for(sort keys %{$self->{vertices}}) {
+		push @res, sprintf("%s\"%s\";","\t" x $tabLevel,$_);
+	}
+
+	push @res,"}";
+	return join("\n",@res);
+}
+sub addEdge {
+	(my $self, my $src, my $dst, my %params) = @_;
+	$self->{edges} = [
+		@{$self->{edges}},
+		{src=>$src,dst=>$dst,params=>\%params},
+	];
+}
+
 #main
 my @lines = <>;
 map {chomp $_} @lines;
@@ -83,7 +129,11 @@ for(@rest) {
 }
 
 if($dot) {
-	print "dot";
+	my $graph = nnew;
+	addVertex($graph,"A");
+	addVertex($graph,"B");
+	addEdge($graph,"A","B");
+	print toString($graph);
 } else {
 	for(@res) {
 		print join(" || \n\t",map {my %h=%$_;"( ".join(" & ",map {sprintf($h{$_}?"!%s":"%s",$_)} sort keys %h)." )"} @$_),"\n\n";
