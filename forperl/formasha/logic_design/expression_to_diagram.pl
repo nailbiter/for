@@ -31,6 +31,7 @@ sub gv_new {
 	my $self = {
 		vertices=>{},
 		edges=>[],
+		params=>\%args,
 	};
 	return $self;
 }
@@ -47,6 +48,9 @@ sub gv_toString {
 	my @res = "digraph {";
 	my $tabLevel = 1;
 
+	for my $param ( sort keys %{$self->{params}} ) {
+		push @res,sprintf("%s=%s;",$param,$self->{params}->{$param});
+	}
 	for my $e ( @{$self->{edges}} ) {
 		push @res, sprintf("%s\"%s\"->\"%s\" [%s];",
 			"\t" x $tabLevel,
@@ -81,16 +85,16 @@ sub gv_addEdge {
 }
 
 #main
-my $g = gv_new;
+my $g = gv_new(splines=>"ortho");
 my $i_output = 0;
 while(<>) {
 	my $name_output = sprintf("o_%d",$i_output);
-	gv_addVertex($g,$name_output,label=>"||");
+	gv_addVertex($g,$name_output,label=>"OR",shape=>"invtrapezium");
 	chomp;
 	my $i_minterm = 0;
 	for(split(/\|\|/)) {
 		my $name_minterm = sprintf("mt_%d_%d",$i_output,$i_minterm);
-		gv_addVertex($g,$name_minterm,label=>"&&");
+		gv_addVertex($g,$name_minterm,label=>"AND",shape=>"invhouse");
 		/^\s*\(?(?<minterm>[!&a-zA-Z_0-9-\s]*)\)?\s*$/;
 		my $i_term = 0;
 		for (split(/&&/,$+{minterm})) {
