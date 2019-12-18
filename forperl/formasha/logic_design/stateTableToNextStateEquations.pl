@@ -24,7 +24,7 @@ use utf8;
 
 
 #procedures
-sub nnew {
+sub gv_new {
 	(my %args) = @_;
 
 	my $self = {
@@ -33,34 +33,43 @@ sub nnew {
 	};
 	return $self;
 }
-sub addVertex {
+sub gv_addVertex {
 	(my $self, my $vertex,my %params) = @_;
 	$self->{vertices} = {
 		%{$self->{vertices}},
 		$vertex=>\%params,
 	};
 }
-sub toString {
+sub gv_toString {
 	(my $self) = @_;
 	my @res = "digraph {";
 	my $tabLevel = 1;
 
-	for( @{$self->{edges}} ) {
-		push @res, sprintf("%s\"%s\"->\"%s\";",
+	for my $e ( @{$self->{edges}} ) {
+		push @res, sprintf("%s\"%s\"->\"%s\" [%s];",
 			"\t" x $tabLevel,
-			$_->{src},
-			$_->{dst},
+			$e->{src},
+			$e->{dst},
+			join(",", map {
+					sprintf("%s=\"%s\"",$_,$e->{params}->{$_})
+				} sort keys %{$e->{params}}),
 		);
 	}
 
 	for(sort keys %{$self->{vertices}}) {
-		push @res, sprintf("%s\"%s\";","\t" x $tabLevel,$_);
+		push @res, sprintf("%s\"%s\" [%s];",
+			"\t" x $tabLevel,
+			$_,
+			join(",", map {
+					sprintf("%s=\"%s\"",$_,$e->{params}->{$_})
+				} sort keys %{$e->{params}}),
+		);
 	}
 
 	push @res,"}";
 	return join("\n",@res);
 }
-sub addEdge {
+sub gv_addEdge {
 	(my $self, my $src, my $dst, my %params) = @_;
 	$self->{edges} = [
 		@{$self->{edges}},
@@ -129,11 +138,35 @@ for(@rest) {
 }
 
 if($dot) {
-	my $graph = nnew;
-	addVertex($graph,"A");
-	addVertex($graph,"B");
-	addEdge($graph,"A","B");
-	print toString($graph);
+	my $graph = gv_new;
+#	gv_addVertex($graph,"A");
+#	gv_addVertex($graph,"B");
+#	gv_addEdge($graph,"A","B",label=>"test");
+#	for $i_output (0..(@res-1)) {
+	my $i_output = $dot - 1;
+		my $output = $res[$i_output];
+		for my $i_minterm (0..(@$output-1)) {
+			my $minterm = $output->[$i_minterm];
+			for my $term (sort keys %$minterm) {
+				my $r = sprintf("%d_%s",$i_minterm,$term);
+				gv_addVertex($graph,$r,label=>sprintf($minterm->{$term} ? "%s" : "!%s",$term));
+				gv_addEdge( $graph,
+					$r,
+					sprintf("minterm_%d",$i_minterm),
+				);
+			}
+			gv_addEdge($graph,
+				sprintf("minterm_%d",$i_minterm),
+				sprintf("output_%d",$i_output),
+			);
+		}
+#		gv_addEdge($graph,
+#			sprintf("output_%d",$i_output),
+#			"next state",
+#			label=>sprintf("bit_%d",$i_output),
+#		);
+#	}
+	print gv_toString($graph);
 } else {
 	for(@res) {
 		print join(" || \n\t",map {my %h=%$_;"( ".join(" & ",map {sprintf($h{$_}?"!%s":"%s",$_)} sort keys %h)." )"} @$_),"\n\n";
