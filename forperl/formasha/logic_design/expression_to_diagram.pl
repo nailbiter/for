@@ -116,6 +116,7 @@ while(<>) {
 		);
 		$i_minterm++;
 	}
+	gv_addEdge($g,$name_output,"next state",xlabel=>sprintf("state[%d]",$i_output));
 	$i_output++;
 }
 print gv_toString($g);
