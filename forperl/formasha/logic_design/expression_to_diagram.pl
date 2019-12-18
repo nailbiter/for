@@ -40,7 +40,7 @@ sub gv_addVertex {
 		%{$self->{vertices}},
 		$vertex=>\%params,
 	};
-	printf(STDERR "putting %s with params %s\n",$vertex,to_json(\%params));
+#	printf(STDERR "putting %s with params %s\n",$vertex,to_json(\%params));
 }
 sub gv_toString {
 	(my $self) = @_;
@@ -59,7 +59,7 @@ sub gv_toString {
 	}
 
 	for my $v (sort keys %{$self->{vertices}}) {
-		printf(STDERR "printing %s with params %s\n",$v,to_json($self->{vertices}->{$v}));
+#		printf(STDERR "printing %s with params %s\n",$v,to_json($self->{vertices}->{$v}));
 		push @res, sprintf("%s\"%s\" [%s];",
 			"\t" x $tabLevel,
 			$v,
@@ -96,7 +96,10 @@ while(<>) {
 		for (split(/&&/,$+{minterm})) {
 			/^\s*(?<negation>!)?\s*(?<term>[a-zA-Z_0-9-]+)\s*$/;
 			my $name_term = sprintf("t_%d_%d_%d",$i_output,$i_minterm,$i_term);
-			gv_addVertex($g,$name_term,label=>sprintf($+{negation}?"!%s":"%s",$+{term}));
+			gv_addVertex($g,$name_term,
+				label=>sprintf($+{negation}?"!%s":"%s",$+{term}),
+				shape=>"plain",
+			);
 			gv_addEdge($g,
 				$name_term,
 				$name_minterm,
