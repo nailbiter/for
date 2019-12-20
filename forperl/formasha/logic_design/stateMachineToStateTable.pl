@@ -1,4 +1,4 @@
-#!/usr/bin/env perl 
+#!/usr/bin/env perl
 #===============================================================================
 #
 #         FILE: stateMachineToStateTable.pl
@@ -22,8 +22,10 @@ use strict;
 use warnings;
 use utf8;
 use JSON;
+use Getopt::Long;
 
 
+#global const's
 #procedures
 sub parse_csv {
 	(my $il,my %args) = @_;
@@ -88,7 +90,11 @@ sub print_csv {
 }
 
 #main
-my @input_lines = <>;
+my $inputs_in;
+GetOptions(
+	"inputs=s"=>\$inputs_in,
+);
+my @input_lines = <STDIN>;
 map {chomp} @input_lines;
 my @csv = parse_csv(\@input_lines,separator=>";");
 my %inputs;
@@ -106,11 +112,17 @@ for(@csv) {
 	$_->{conditions} = \%conditions;
 	print STDERR to_json($_),"\n";
 }
-print STDERR to_json([sort keys %inputs]),"\n";
 print STDERR to_json([sort keys %states]),"\n";
 
 my @res;
-for my $input (generate_all_input_combinations(sort keys %inputs)) {
+my @ins;
+if( $inputs_in ) {
+	@ins = split(/ /,$inputs_in);
+} else {
+	@ins = sort keys %inputs;
+}
+print STDERR "inputs: ",to_json(\@ins),"\n";
+for my $input (generate_all_input_combinations(@ins)) {
 	my %h = %$input;
 	for(@csv) {
 		if(is_subinput($_->{conditions},$input)) {
@@ -125,6 +137,8 @@ for my $input (generate_all_input_combinations(sort keys %inputs)) {
 	push @res,\%h;
 }
 
-print_csv(\@res,
-#	fields=>[qw(Floor5 Floor6 Call5 Call6 FS1 FS5 FS6 S0 S1 S2 S3 S4 S5 S6)]
-);
+if( $inputs_in ) {
+	print_csv(\@res,fields=>[@ins,map {num_to_state($_)} sort keys %states]);
+} else {
+	print_csv(\@res,);
+}
