@@ -11,28 +11,17 @@
 
 `main.c`:
 ```c
-#include "header.h"
-#include "stdio.h"
-
-int main() {
-    int a = 3, b = 2;
-    printf("%d+%d=%d\n",a,b,Sum(a,b));
-}
-
+[% INCLUDE main.c %]
 ```
 
 `header.h`:
 ```c
-int Sum(int a,int b);
-
+[% INCLUDE header.h %]
 ```
 
 `code.c`:
 ```c
-int Sum(int a, int b) {
-    return a+b;
-}
-
+[% INCLUDE code.c %]
 ```
 
 Как мы его компилируем?
@@ -86,3 +75,9 @@ main:main.o code.o
 Теперь для компиляции достаточно исполнить всего одну команду: `make`.
 
 ### немного теории
+
+При исполнении команды `make` происходит следующее:
+
+1. `make` ищет файл `Makefile` в текущей директории
+1. если файл не находится, выдается ошибка
+1. если файл находится, `make` читает из него *правила*
