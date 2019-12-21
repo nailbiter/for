@@ -1,0 +1,6 @@
+set parametric
+set trange [0:2*pi]
+# Parametric functions for a circle
+fx(t) = r*cos(t)
+fy(t) = r*sin(t)
+plot fx(t),fy(t)
