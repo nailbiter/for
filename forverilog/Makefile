@@ -1,7 +1,7 @@
 .PHONY: all
 
 #proceduser
-all: $(addsuffix .vcd,simple sr_latch gated_d_latch)
+all: $(addsuffix .vcd,simple sr_latch gated_d_latch rh_latch)
 
 #main
 %.vcd: %.vvp
