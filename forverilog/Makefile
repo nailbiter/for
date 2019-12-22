@@ -1,10 +1,12 @@
 .PHONY: all
 
 #proceduser
-all: simple.vcd
+all: $(addsuffix .vcd,simple sr_latch gated_d_latch)
 
 #main
-simple.vcd: simple.vvp
+%.vcd: %.vvp
 	vvp $<
-simple.vvp:simple.v simple_tb.v
+%.vvp: %.v %_tb.v
+	iverilog -o $@ $^
+gated_d_latch.vvp: sr_latch.v gated_d_latch.v gated_d_latch_tb.v
 	iverilog -o $@ $^
