@@ -1,7 +1,7 @@
 .PHONY: all
 
 #proceduser
-all: $(addsuffix .vcd,simple sr_latch gated_d_latch rh_latch d_flipflop)
+all: $(addsuffix .vcd,simple $(addsuffix _latch,sr gated_d rh) $(addsuffix _flipflop,d sr))
 
 #main
 %.vcd: %.vvp
@@ -11,4 +11,6 @@ all: $(addsuffix .vcd,simple sr_latch gated_d_latch rh_latch d_flipflop)
 d_flipflop.vvp: sr_latch.v gated_d_latch.v d_flipflop.v d_flipflop_tb.v
 	iverilog -o $@ $^
 gated_d_latch.vvp: sr_latch.v gated_d_latch.v gated_d_latch_tb.v
+	iverilog -o $@ $^
+sr_flipflop.vvp: sr_latch.v sr_flipflop.v sr_flipflop_tb.v
 	iverilog -o $@ $^
