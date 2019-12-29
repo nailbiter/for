@@ -143,12 +143,34 @@ int Height(TreeNode *node) {
     return node->height;
 }
 
+void _RecomputeHeights(TreeNode* node,int startHeight) {
+    if(node) {
+        node->height = startHeight;
+        _RecomputeHeights(node->left,startHeight+1);
+        _RecomputeHeights(node->right,startHeight+1);
+    }
+}
+
 TreeNode *LeftRotate(TreeNode *node) {
-    // Code
+    int height = node->height;
+    TreeNode *rl = node->right->left
+        ,*r = node->right
+        ;
+    r->left = node;
+    node->right = rl;
+    _RecomputeHeights(r,height);
+    return r;
 }
 
 TreeNode *RightRotate(TreeNode *node) {
-    // Code
+    int height = node->height;
+    TreeNode *lr = node->left->right
+        ,*l = node->left
+        ;
+    l->right = node;
+    node->left = lr;
+    _RecomputeHeights(l,height);
+    return l;
 }
 
 TreeNode *BalanceTree(TreeNode *node) {
@@ -158,6 +180,7 @@ TreeNode *BalanceTree(TreeNode *node) {
         node->height = 1;
         return node;
     }
+
     // Recursion
     if (node->left != NULL)
         node->left = BalanceTree(node->left);
@@ -187,12 +210,12 @@ TreeNode *BalanceTree(TreeNode *node) {
 
 TreeNode *InsertdOrder(TreeNode *head, char name[], char school[], char phone[], char major[], int grade, int room) {
     head = _InsertdOrder(head,name,school,phone,major,grade,room);
-//    head = BalanceTree(head);
+    head = BalanceTree(head);
     return head;
 }
 TreeNode *DeleteOrder(TreeNode *head, char name[]) {
     head = _DeleteOrder(head,name);
-//    head = BalanceTree(head);
+    head = BalanceTree(head);
     return head;
 }
 void SearchOrder(TreeNode *head, char name[]) {
