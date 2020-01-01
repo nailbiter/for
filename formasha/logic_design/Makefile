@@ -2,7 +2,7 @@
 
 #global const's
 LATEXMK=latexmk -pdf -f -g
-PDFs=$(addprefix hw,$(shell seq 0 8))
+PDFs=$(addprefix hw,$(shell seq 0 9))
 #procedures
 all: $(addsuffix .pdf,$(PDFs))
 
