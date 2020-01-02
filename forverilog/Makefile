@@ -3,7 +3,7 @@
 #proceduser
 all: $(addsuffix .vcd,simple $(addsuffix _latch,sr gated_d rh) $(addsuffix _flipflop,d sr jk) \
 	$(addprefix hw_11_, 2_b 3 4)\
-	$(addprefix hw_13_, 2_a 2_b 3_a 3_b)\
+	$(addprefix hw_13_, 2_a 2_b 3_a 3_b 5)\
 	)
 
 #main
@@ -23,11 +23,5 @@ hw_11_4.vvp: hw_11_4.v hw_11_4__d.v
 	iverilog -o $@ $^
 hw_11_3.vvp: hw_11_3.v hw_11_3__t.v
 	iverilog -o $@ $^
-hw_13_2_a.vvp: hw_13_2_a.v
-	iverilog -o $@ $^
-hw_13_2_b.vvp: hw_13_2_b.v
-	iverilog -o $@ $^
-hw_13_3_b.vvp: hw_13_3_b.v
-	iverilog -o $@ $^
-hw_13_3_a.vvp: hw_13_3_a.v
+hw_13%.vvp: hw_13%.v
 	iverilog -o $@ $^
