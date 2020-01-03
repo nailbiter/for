@@ -1,35 +1,21 @@
+`timescale 1ns/1ps
 module hw_f_4;
     reg CLK = 0;
     reg [1:2] Q;
     reg X,Z;
+    wire [1:2] D;
 
     always
-        #2 CLK = ~CLK;
+        #5 CLK = ~CLK;
 
-    always @(EnIn,EnAd,input_data,accumulator_register,addend_register)
-        if(EnIn)
-            bus = input_data;
-        else if(EnAd)
-            bus = accumulator_register + addend_register;
-
-    always @(posedge CLK)
-        if(LdAc)
-            accumulator_register = bus;
-        else if(LdAd)
-            addend_register = bus;
+    always @(negedge CLK)
+        Q = D;
 
     initial 
         begin
             $dumpfile("hw_13_5.vcd");
-            $dumpvars(0,accumulator_register);
-            $dumpvars(0,addend_register);
-            $dumpvars(0,input_data);
             $dumpvars(0,CLK);
-            $dumpvars(0,EnIn);
-            $dumpvars(0,EnAd);
-            $dumpvars(0,LdAc);
-            $dumpvars(0,LdAd);
-            $dumpvars(0,bus);
+            $dumpvars(0,Q);
 
             #2 input_data = 15; {EnIn,EnAd,LdAc,LdAd} = 4'b1010;
             #5 input_data = 13; {EnIn,EnAd,LdAc,LdAd} = 4'b1001;
