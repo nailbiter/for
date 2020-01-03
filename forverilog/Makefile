@@ -4,6 +4,7 @@
 all: $(addsuffix .vcd,simple $(addsuffix _latch,sr gated_d rh) $(addsuffix _flipflop,d sr jk) \
 	$(addprefix hw_11_, 2_b 3 4)\
 	$(addprefix hw_13_, 2_a 2_b 3_a 3_b 5)\
+	$(addprefix hw_f_, 1)\
 	)
 
 #main
@@ -23,5 +24,7 @@ hw_11_4.vvp: hw_11_4.v hw_11_4__d.v
 	iverilog -o $@ $^
 hw_11_3.vvp: hw_11_3.v hw_11_3__t.v
 	iverilog -o $@ $^
-hw_13%.vvp: hw_13%.v
+hw_f_%.vvp: hw_f_%.v
+	iverilog -o $@ $^
+hw_13_%.vvp: hw_13_%.v
 	iverilog -o $@ $^
