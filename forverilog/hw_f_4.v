@@ -1,7 +1,7 @@
-module hw_f_1;
+module hw_f_4;
     reg CLK = 0;
-    reg [7:0] accumulator_register=8'b0, addend_register=8'b0, input_data,bus = 8'b0;
-    reg EnIn,LdAc,EnAd,LdAd;
+    reg [1:2] Q;
+    reg X,Z;
 
     always
         #2 CLK = ~CLK;
