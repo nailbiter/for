@@ -20,38 +20,28 @@
 </properties>
 
 <dependencies>
-    <dependency>
-        <groupId>com.google.gdata</groupId>
-        <artifactId>core</artifactId>
-        <version>1.47.1</version>
-    </dependency>
     <!-- https://mvnrepository.com/artifact/com.google.oauth-client/google-oauth-client-jetty -->
     <dependency>
         <groupId>com.google.oauth-client</groupId>
         <artifactId>google-oauth-client-jetty</artifactId>
-        <version>1.30.4</version>
-    </dependency>
-    <dependency>
-        <groupId>com.google.oauth-client</groupId>
-        <artifactId>google-oauth-client-java6</artifactId>
-        <version>1.11.0-beta</version>
+        <version>1.30.2</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.google.http-client/google-http-client -->
     <dependency>
         <groupId>com.google.http-client</groupId>
         <artifactId>google-http-client</artifactId>
-        <version>1.16.0-rc</version>
-    </dependency>
-    <dependency>
-        <groupId>com.google.apis</groupId>
-        <artifactId>google-api-services-sheets</artifactId>
-        <version>v4-rev581-1.25.0</version>
+        <version>1.30.2</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
     <dependency>
         <groupId>com.google.api-client</groupId>
         <artifactId>google-api-client</artifactId>
-        <version>1.30.4</version>
+        <version>1.30.2</version>
+    </dependency>
+    <dependency>
+        <groupId>com.google.apis</groupId>
+        <artifactId>google-api-services-sheets</artifactId>
+        <version>v4-rev604-1.25.0</version>
     </dependency>
     <dependency>
         <groupId>junit</groupId>
