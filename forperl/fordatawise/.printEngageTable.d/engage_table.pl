@@ -156,7 +156,7 @@ sub print_to_html {
                 $cgi->Tr(
 					$cgi->td($resArray[$_+1]->{anchor}->toString),
 					$cgi->td($resArray[$_]->{anchor}->toString),
-					$cgi->td($cgi->a({-href=>$res{$resArray[$_+1]->{id}}->{card}->{shortUrl}},$res{$resArray[$_+1]->{id}}->{name})),
+					$cgi->td($cgi->code(sprintf("=HYPERLINK(\"%s\",\"%s\")",$res{$resArray[$_+1]->{id}}->{card}->{shortUrl},$res{$resArray[$_+1]->{id}}->{name}))),
                 )
             } grep {
 				$res{$resArray[$_+1]->{id}}->{name} ne "lunch"
