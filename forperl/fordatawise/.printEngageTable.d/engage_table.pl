@@ -152,38 +152,11 @@ sub print_to_html {
           },
         ),
         $cgi->table({-border=>1},
-          map {
-              $cgi->Tr(
-                map {$cgi->td($_)} (
-                  ($cgi->code("keplerdev")),
-                  (sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
-                  (sprintf("%.02f",$res{$_}->{duration_min}/60.0)),
-                  ($cgi->span($res{$_}->{card}->{closed} ? {-class=>"archived"}:{},$res{$_}->{name})),
-                  ($cgi->div({-class=>"descriptionContainer"},$res{$_}->{desc})),
-                )
-              )
-          }
-          grep { $res{$_}->{card}->{name} ne "off-work" && $res{$_}->{card}->{name} ne "lunch" }
-          grep { $res{$_}->{duration_min}>0 }
-          sort {$res{$a}->{duration_min} cmp $res{$b}->{duration_min}} keys %res,
-        ),
-        $cgi->table({-border=>1},
-          map {
-              $cgi->Tr(
-                map {$cgi->td($_)} (
-                  ($cgi->a({-href=>$res{$_}->{card}->{shortUrl}},$res{$_}->{card}->{name})),
-                )
-              )
-          }
-          grep { $res{$_}->{duration_min}>0 }
-          sort {$res{$a}->{duration_min} cmp $res{$b}->{duration_min}} keys %res,
-        ),
-        $cgi->table({-border=>1},
             map {
                 $cgi->Tr(
 					$cgi->td($resArray[$_+1]->{anchor}->toString),
 					$cgi->td($resArray[$_]->{anchor}->toString),
-					$cgi->td($res{$resArray[$_+1]->{id}}->{name}),
+					$cgi->td($cgi->a({-href=>$res{$resArray[$_+1]->{id}}->{card}->{shortUrl}},$res{$resArray[$_+1]->{id}}->{name})),
                 )
             } grep {
 				$res{$resArray[$_+1]->{id}}->{name} ne "lunch"
