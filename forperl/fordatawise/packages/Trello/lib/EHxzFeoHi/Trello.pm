@@ -174,6 +174,7 @@ sub archive {
 	(my $URL,my $trelloKey,my $trelloToken) = @$self{qw(URL KEY TOKEN)};
 	$URL =~ /([0-9a-zA-Z]*)$/;
 	my $code = $1;
+	printf(STDERR "code: %s\n",$code);
 	my $url = sprintf("https://api.trello.com/1/cards/%s?closed=true&key=%s&token=%s",$code,$trelloKey,$trelloToken);
 	my $req = HTTP::Request->new( PUT=> $url );
 	my $lwp = LWP::UserAgent->new;
