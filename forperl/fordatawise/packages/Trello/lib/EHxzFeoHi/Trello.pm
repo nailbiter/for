@@ -168,6 +168,22 @@ sub toString {
 	print STDERR "res: ",$res,"\n";
 	return $res;
 }
+sub archive {
+	(my $self) = @_;
+
+	(my $URL,my $trelloKey,my $trelloToken) = @$self{qw(URL KEY TOKEN)};
+	$URL =~ /([0-9a-zA-Z]*)$/;
+	my $code = $1;
+	my $url = sprintf("https://api.trello.com/1/cards/%s?closed=true&key=%s&token=%s",$code,$trelloKey,$trelloToken);
+	my $req = HTTP::Request->new( PUT=> $url );
+	my $lwp = LWP::UserAgent->new;
+	my $res = $lwp->request( $req );
+	if( not $res->is_success ) {
+		die "no success";
+	} else {
+		printf(STDERR "reply: %s\n",$res->{_content});
+	}
+}
 
 #main
 1;
