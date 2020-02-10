@@ -47,6 +47,7 @@ my %DICT = (
 	Mk=>["Мк","Mark","馬可福音"],
 	Ef=>["Еф","Ephesians","以 弗 所 書"],
 	Kol=>["Кол","Colossians","歌羅西書"],
+	Tit=>["Тит","Titus","提多書"],
 	Rim=>["Рим","Romans","羅馬書"],
 	"1Kor"=>["1 Кор","1 Corinthians","哥林多前書"],
 	"2Kor"=>["2 Кор","2 Corinthians","哥林多後書"],
