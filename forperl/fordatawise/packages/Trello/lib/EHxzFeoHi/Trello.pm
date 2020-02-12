@@ -87,6 +87,7 @@ sub _get_checklist {
 		$self->{cache}->{checklists}->{$id} = {
 			ITEMS=>\@items,
 			NAME=>$$res{name},
+			pos=>$$res{pos},
 		}
 	}
 	return $self->{cache}->{checklists}->{$id};
@@ -97,6 +98,8 @@ sub get_checklists {
 	for my $id ( @{$self->_load->{res}->{idChecklists}} ) {
 		push(@checklists,$self->_get_checklist($id));
 	}
+	printf(STDERR "sorting here\n");
+	@checklists = sort { $a->{pos} <=> $b->{pos} } @checklists;
 	return \@checklists,
 }
 sub get_title {
