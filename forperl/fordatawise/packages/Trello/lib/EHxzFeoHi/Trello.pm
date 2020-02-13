@@ -76,6 +76,26 @@ sub GetTrelloChecklist {
 	my $res = $lwp->request( $req );
 	return ($req,$lwp,$res);
 }
+sub _sendRequest {
+	(my $self,my $method, my $url, my %rest ) = @_;
+
+	if( !grep(/^$method$/,qw(GET POST DELETE PUT))  ) {
+		die sprintf("unknown method \"%s\"",$method);
+	}
+
+	my %keys = %rest;
+	@keys{qw(key token)} = @$self{qw(KEY TOKEN)};
+	$url = "https://api.trello.com/1" . $url. "?" . (join("&",map {sprintf("%s=%s",$_,$keys{$_})} keys %keys)) ;
+	print STDERR $url,"\n";
+	my $req = HTTP::Request->new( $method => $url );
+	my $lwp = LWP::UserAgent->new;
+	my $res = $lwp->request( $req );
+	if( $res->is_success ) {
+		return from_json($lwp->request( $req )->{_content});
+	} else {
+		die "no success";
+	}
+}
 sub _get_checklist {
 	(my $self,my $id) = @_;
 	$self->{cache_}->{checklists} //= {};
@@ -185,6 +205,23 @@ sub archive {
 		die "no success";
 	} else {
 		printf(STDERR "reply: %s\n",$res->{_content});
+	}
+}
+sub attach {
+	(my $self,my %rest) = @_;
+	(my $URL) = @$self{qw(URL)};
+	$URL =~ /([0-9a-zA-Z]*)$/;
+	my $code = $1;
+
+	if( exists $rest{url} ) {
+		my $res = $self->_sendRequest(POST=>sprintf("/cards/%s/attachments",$code),
+			url=>$rest{url},
+			);
+		print to_json($res);
+	} elsif( exists $rest{file} ) {
+		...
+	} else {
+		...
 	}
 }
 
