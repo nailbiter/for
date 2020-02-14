@@ -24,6 +24,8 @@ use LWP::UserAgent;
 use MongoDB;
 use Template;
 use File::Basename;
+use URI::Escape;
+use Path::Tiny qw(path);
 
 
 #global const's
@@ -85,13 +87,13 @@ sub _sendRequest {
 
 	my %keys = %rest;
 	@keys{qw(key token)} = @$self{qw(KEY TOKEN)};
-	$url = "https://api.trello.com/1" . $url. "?" . (join("&",map {sprintf("%s=%s",$_,$keys{$_})} keys %keys)) ;
+	$url = "https://api.trello.com/1" . $url. "?" . (join("&",map {sprintf("%s=%s",$_,uri_escape($keys{$_}))} keys %keys)) ;
 	print STDERR $url,"\n";
 	my $req = HTTP::Request->new( $method => $url );
 	my $lwp = LWP::UserAgent->new;
 	my $res = $lwp->request( $req );
 	if( $res->is_success ) {
-		return from_json($lwp->request( $req )->{_content});
+		return from_json($res->{_content});
 	} else {
 		die "no success";
 	}
@@ -219,10 +221,27 @@ sub attach {
 			);
 		print to_json($res);
 	} elsif( exists $rest{file} ) {
-		...
+		my %keys;
+		@keys{qw(key token)} = @$self{qw(KEY TOKEN)};
+		my $url = sprintf("/cards/%s/attachments",$code);
+		$url = "https://api.trello.com/1" . $url. "?" . (join("&",map {sprintf("%s=%s",$_,$keys{$_})} keys %keys)) ;
+
+		print STDERR $url,"\n";
+		print STDERR $rest{file},"\n";
+		my $lwp = LWP::UserAgent->new;
+		my $res = $lwp->post( $url, Content=>[file=>[$rest{file}]],Content_Type=>"form-data" );
+		if( $res->is_success ) {
+			print STDERR to_json(from_json($res->decoded_content)),"\n";
+		} else {
+			die "no success";
+		}
+
 	} else {
 		...
 	}
+}
+sub get_attachments {
+	(my $self) = @_;
 }
 
 #main
