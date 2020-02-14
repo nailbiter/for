@@ -25,8 +25,8 @@ use ExtUtils::MakeMaker;
  
 #main
 WriteMakefile(
-    NAME            => 'EHxzFeoHi::TrelloWrapper',
-    VERSION_FROM    => 'lib/EHxzFeoHi/TrelloWrapper.pm',
+    NAME            => 'EHxzFeoHi::Trello::Wrapper',
+    VERSION_FROM    => 'lib/EHxzFeoHi/Trello/Wrapper.pm',
 	PREREQ_PM => {
 		"EHxzFeoHi::Trello"=>0
 	}
