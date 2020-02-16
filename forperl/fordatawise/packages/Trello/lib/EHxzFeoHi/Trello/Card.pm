@@ -30,7 +30,7 @@ use Path::Tiny qw(path);
 
 #global const's
 (undef,my $DIR,undef) = fileparse(__FILE__, qr/\Q.txt\E/);
-require "$DIR/common.pm";
+require "$DIR/Base.pm";
 #procedures
 sub _load {
 	(my $self) = @_;
@@ -120,7 +120,7 @@ sub new {
 		printf(STDERR "def: %s\n",join(", ",@args{qw(KEY TOKEN)}));
 	} else {
 		printf(STDERR "not def\n");
-		@args{qw(KEY TOKEN)} = _GetTrelloPasswords($args{PASS_ID});
+		@args{qw(KEY TOKEN)} = EHxzFeoHi::Trello::Base->GetTrelloPasswords($args{PASS_ID});
 	}
 
 	if( defined $args{URL} ) {

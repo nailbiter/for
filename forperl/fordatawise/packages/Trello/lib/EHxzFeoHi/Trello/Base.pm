@@ -15,13 +15,14 @@
 #     REVISION: ---
 #===============================================================================
 
+package EHxzFeoHi::Trello::Base;
 use strict;
 use warnings;
  
 
 #procedures
-sub _GetTrelloPasswords{
-	(my $pass_id) = @_;
+sub GetTrelloPasswords{
+	(my $class,my $pass_id) = @_;
 	my $client = MongoDB->connect();
 	my $secret = $client->ns("admin.passwords");
 	if( not $pass_id ) {
@@ -36,6 +37,16 @@ sub _GetTrelloPasswords{
 		printf(STDERR "keys: %s",to_json({key=>$key,token=>$token},{pretty=>1,canonical=>1}));
 		return ($key,$token);
 	}
+}
+sub new {
+	(my $class,my %args) = @_;
+	if( !$args{KEY} || !$args{TOKEN} ) {
+		@args{qw(KEY TOKEN)} = GetTrelloPasswords($args{PASS_ID});
+	}
+	my $self = {
+		KEY => $args{KEY},
+		TOKEN => $args{TOKEN}
+	}, $class;
 }
 
 #main
