@@ -26,5 +26,5 @@ use ExtUtils::MakeMaker;
 #main
 WriteMakefile(
     NAME            => 'EHxzFeoHi::Trello',
-    VERSION_FROM    => 'lib/EHxzFeoHi/Trello.pm'
+    VERSION_FROM    => 'lib/EHxzFeoHi/Trello/Card.pm'
 );

@@ -15,7 +15,7 @@
 #     REVISION: ---
 #===============================================================================
 
-package EHxzFeoHi::Trello; 
+package EHxzFeoHi::Trello::Card; 
 use strict;
 use warnings;
 use JSON;
@@ -29,24 +29,9 @@ use Path::Tiny qw(path);
 
 
 #global const's
+(undef,my $DIR,undef) = fileparse(__FILE__, qr/\Q.txt\E/);
+require "$DIR/common.pm";
 #procedures
-sub _GetTrelloPasswords{
-	(my $pass_id) = @_;
-	my $client = MongoDB->connect();
-	my $secret = $client->ns("admin.passwords");
-	if( not $pass_id ) {
-		my $key = $secret->find_one({key=>'TRELLOKEY'})->{'value'};
-		printf(STDERR "key: %s\n",$key);
-		my $token = $secret->find_one({key=>'TRELLOTOKEN'})->{'value'};
-		printf(STDERR "token: %s\n",$token);
-		return ($key,$token);
-	} else {
-		my $obj = $secret->find_one({name=>sprintf("%s-trello",$pass_id)});
-		(my $key,my $token) = ($obj->{key},$obj->{token});
-		printf(STDERR "keys: %s",to_json({key=>$key,token=>$token},{pretty=>1,canonical=>1}));
-		return ($key,$token);
-	}
-}
 sub _load {
 	(my $self) = @_;
 	if( not $self->{is__loaded} ) {
@@ -178,18 +163,18 @@ sub getUrl{
 sub toString {
 	(my $self) = @_;
 	my $res;
-	(undef,my $dir,undef) = fileparse(__FILE__, qr/\Q.txt\E/);
 	print STDERR __FILE__,"\n";
-	print STDERR $dir,"\n";
+	print STDERR $DIR,"\n";
     my $tt = Template->new(
-        INCLUDE_PATH=>$dir,
+        INCLUDE_PATH=>$DIR,
         INTERPOLATE=>1,
     );
     $tt->process("to_string.template.txt",{
 			card=>$self,
         },
 		\$res,
-	);
+	) || die $tt->error(),"\n";
+	print STDERR $self,"\n";
 	print STDERR "res: ",$res,"\n";
 	return $res;
 }

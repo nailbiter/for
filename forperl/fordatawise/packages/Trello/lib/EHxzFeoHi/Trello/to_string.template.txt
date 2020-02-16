@@ -1,4 +1,5 @@
 [%- USE bold = format('%.2f') -%]
+[%-IF card.getNumChecklistItems>0%]
 ${card.get_title} (${card.getNumCheckedChecklistItems}/${card.getNumChecklistItems}=[%bold( card.getNumCheckedChecklistItems / card.getNumChecklistItems * 100 )%]%)
 
 checklists:
@@ -7,6 +8,9 @@ checklists:
     [% FOREACH i IN c.ITEMS -%]
       [%IF i.state == "complete"%]v[%ELSE%]o[%END%] ${i.name}
     [%END%]
+[%END-%]
+[%ELSE%]
+${card.get_title}
 [%END-%]
 
 URL: ${card.getUrl}

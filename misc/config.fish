@@ -23,7 +23,7 @@ alias npmsv="npm run serve"
 alias gsutil="/Users/nailbiter/Downloads/google-cloud-sdk/bin/gsutil"
 
 function print_trello
-  perl -e 'use EHxzFeoHi::Trello; my $pi; if($ARGV[0] =~ /^dtws:(.*)/){$ARGV[0] = $1; $pi="dtws";} print EHxzFeoHi::Trello->new(URL=>$ARGV[0],PASS_ID=>$pi)->toString;' $argv
+  perl -e 'use EHxzFeoHi::Trello::Card; my $pi; if($ARGV[0] =~ /^dtws:(.*)/){$ARGV[0] = $1; $pi="dtws";} print EHxzFeoHi::Trello::Card->new(URL=>$ARGV[0],PASS_ID=>$pi)->toString;' $argv
 end
 
 function attach_url_to_trello

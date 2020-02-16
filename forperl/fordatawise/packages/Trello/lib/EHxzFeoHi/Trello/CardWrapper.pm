@@ -18,6 +18,7 @@
 #     REVISION: ---
 #===============================================================================
 
+package EHxzFeoHi::Trello::CardWrapper; 
 use strict;
 use warnings;
 use utf8;
