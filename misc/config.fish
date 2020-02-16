@@ -20,9 +20,14 @@ alias npmig="npm install -g"
 alias npmci="npm ci"
 alias npmst="npm start"
 alias npmsv="npm run serve"
+alias gsutil="/Users/nailbiter/Downloads/google-cloud-sdk/bin/gsutil"
 
 function print_trello
   perl -e 'use EHxzFeoHi::Trello; my $pi; if($ARGV[0] =~ /^dtws:(.*)/){$ARGV[0] = $1; $pi="dtws";} print EHxzFeoHi::Trello->new(URL=>$ARGV[0],PASS_ID=>$pi)->toString;' $argv
+end
+
+function attach_url_to_trello
+  perl -e 'use EHxzFeoHi::Trello; my $pi; if($ARGV[0] =~ /^dtws:(.*)/){$ARGV[0] = $1; $pi="dtws";} print EHxzFeoHi::Trello->new(URL=>$ARGV[0],PASS_ID=>$pi)->attach(url=>$ARGV[1]);' $argv
 end
 
 function random_name

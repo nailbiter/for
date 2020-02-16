@@ -24,6 +24,8 @@ use LWP::UserAgent;
 use MongoDB;
 use Template;
 use File::Basename;
+use URI::Escape;
+use Path::Tiny qw(path);
 
 
 #global const's
@@ -76,6 +78,26 @@ sub GetTrelloChecklist {
 	my $res = $lwp->request( $req );
 	return ($req,$lwp,$res);
 }
+sub _sendRequest {
+	(my $self,my $method, my $url, my %rest ) = @_;
+
+	if( !grep(/^$method$/,qw(GET POST DELETE PUT))  ) {
+		die sprintf("unknown method \"%s\"",$method);
+	}
+
+	my %keys = %rest;
+	@keys{qw(key token)} = @$self{qw(KEY TOKEN)};
+	$url = "https://api.trello.com/1" . $url. "?" . (join("&",map {sprintf("%s=%s",$_,uri_escape($keys{$_}))} keys %keys)) ;
+	print STDERR $url,"\n";
+	my $req = HTTP::Request->new( $method => $url );
+	my $lwp = LWP::UserAgent->new;
+	my $res = $lwp->request( $req );
+	if( $res->is_success ) {
+		return from_json($res->{_content});
+	} else {
+		die "no success";
+	}
+}
 sub _get_checklist {
 	(my $self,my $id) = @_;
 	$self->{cache_}->{checklists} //= {};
@@ -87,6 +109,7 @@ sub _get_checklist {
 		$self->{cache}->{checklists}->{$id} = {
 			ITEMS=>\@items,
 			NAME=>$$res{name},
+			pos=>$$res{pos},
 		}
 	}
 	return $self->{cache}->{checklists}->{$id};
@@ -97,6 +120,8 @@ sub get_checklists {
 	for my $id ( @{$self->_load->{res}->{idChecklists}} ) {
 		push(@checklists,$self->_get_checklist($id));
 	}
+	printf(STDERR "sorting here\n");
+	@checklists = sort { $a->{pos} <=> $b->{pos} } @checklists;
 	return \@checklists,
 }
 sub get_title {
@@ -184,6 +209,40 @@ sub archive {
 	} else {
 		printf(STDERR "reply: %s\n",$res->{_content});
 	}
+}
+sub attach {
+	(my $self,my %rest) = @_;
+	(my $URL) = @$self{qw(URL)};
+	$URL =~ /([0-9a-zA-Z]*)$/;
+	my $code = $1;
+
+	if( exists $rest{url} ) {
+		my $res = $self->_sendRequest(POST=>sprintf("/cards/%s/attachments",$code),
+			url=>$rest{url},
+			);
+		print to_json($res);
+	} elsif( exists $rest{file} ) {
+		my %keys;
+		@keys{qw(key token)} = @$self{qw(KEY TOKEN)};
+		my $url = sprintf("/cards/%s/attachments",$code);
+		$url = "https://api.trello.com/1" . $url. "?" . (join("&",map {sprintf("%s=%s",$_,$keys{$_})} keys %keys)) ;
+
+		print STDERR $url,"\n";
+		print STDERR $rest{file},"\n";
+		my $lwp = LWP::UserAgent->new;
+		my $res = $lwp->post( $url, Content=>[file=>[$rest{file}]],Content_Type=>"form-data" );
+		if( $res->is_success ) {
+			print STDERR to_json(from_json($res->decoded_content)),"\n";
+		} else {
+			die "no success";
+		}
+
+	} else {
+		...
+	}
+}
+sub get_attachments {
+	(my $self) = @_;
 }
 
 #main
