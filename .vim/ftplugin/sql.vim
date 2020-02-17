@@ -22,4 +22,4 @@ set softtabstop=2
 set expandtab
 set makeprg=cat\ %\\\|bq\ query
 
-command Prettify execute "!sqlformat -r -k upper % | sponge %"
+command! Prettify execute "!sqlformat -r -k upper % | sponge %"

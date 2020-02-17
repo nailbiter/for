@@ -12,3 +12,5 @@ inoremap [      []<Left>
 inoremap [<CR>  [<CR>]<Esc>O
 inoremap [[     [
 inoremap []     []
+
+command! Prettify execute "!cat % | jq --indent 2 | sponge %"
