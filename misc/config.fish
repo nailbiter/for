@@ -13,6 +13,7 @@ set -x GCLOUD_PROJECT "dtws-pipeline-dev"
 
 #alias rm="rm-p -i"
 alias egit="env LC_ALL=en_US git"
+
 alias npmr="npm run"
 alias npmb="npm run build"
 alias npmi="npm install"
@@ -20,7 +21,11 @@ alias npmig="npm install -g"
 alias npmci="npm ci"
 alias npmst="npm start"
 alias npmsv="npm run serve"
+
 alias gsutil="/Users/nailbiter/Downloads/google-cloud-sdk/bin/gsutil"
+function gitr
+  git rebase -i (git log --format=oneline --decorate=short|fzf --layout=reverse|awk -F' ' '{print $1}')
+end
 
 function print_trello
   perl -e 'use EHxzFeoHi::Trello::Card; my $pi; if($ARGV[0] =~ /^dtws:(.*)/){$ARGV[0] = $1; $pi="dtws";} print EHxzFeoHi::Trello::Card->new(URL=>$ARGV[0],PASS_ID=>$pi)->toString;' $argv
