@@ -23,6 +23,17 @@ alias npmst="npm start"
 alias npmsv="npm run serve"
 
 alias gsutil="/Users/nailbiter/Downloads/google-cloud-sdk/bin/gsutil"
+
+function bq_select
+  set -l PROJECT_NAME (openssl rand -hex 12)
+  echo '["astute-cumulus-230103","datawise-0vsyuq974qbk"]'|jq -r '.[]'| fzf > /tmp/$PROJECT_NAME.txt
+  set -l DATASET_NAME (openssl rand -hex 12)
+  bq ls --project_id (cat /tmp/$PROJECT_NAME.txt)|fzf|string trim > /tmp/$DATASET_NAME.txt
+  set -l TABLE_NAME (openssl rand -hex 12)
+  bq ls (cat /tmp/$PROJECT_NAME.txt):(cat /tmp/$DATASET_NAME.txt) | fzf |awk -F" " '{print $1}'|string trim > /tmp/$TABLE_NAME.txt
+  bq show (cat /tmp/$PROJECT_NAME.txt):(cat /tmp/$DATASET_NAME.txt).(cat /tmp/$TABLE_NAME.txt)
+end
+
 function gitr
   git rebase -i (git log --format=oneline --decorate=short|fzf --layout=reverse|awk -F' ' '{print $1}')
 end
@@ -42,6 +53,7 @@ end
 function mygit
     ~/for/forperl/commit.pl
 end
+
 function md2html
    pandoc -s --css=$HOME/for/misc/formarkdown.css  -V lang=en (basename $argv .md).md  -o (basename $argv .md).html 
 end
