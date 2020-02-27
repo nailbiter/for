@@ -25,7 +25,8 @@ use JSON;
 
 
 #global const's
-my @PROJECTS = ("astute-cumulus-230103","datawise-0vsyuq974qbk","dtws-rdemo-dev");
+my @PROJECTS = ("astute-cumulus-230103","datawise-0vsyuq974qbk","dtws-rdemo-dev","dtws-rdemo-stg","dtws-rdemo-prd","dtws-datawarehouse-dev","dtws-datamart-dev");
+my $BQ_LS_COMMAND = "ls -n 1000";
 #procedures
 sub myexec {
     (my $cmd) = @_;
@@ -47,7 +48,7 @@ $t{project_id} //= `echo '$projects'|jq -r '.[]'| fzf`;
 die unless $t{project_id};
 chomp $t{project_id};
 
-$t{dataset_id} //= `bq ls --project_id $t{project_id}|fzf`;
+$t{dataset_id} //= `bq $BQ_LS_COMMAND --project_id $t{project_id}|fzf`;
 die unless $t{dataset_id};
 chomp $t{dataset_id}; 
 $t{dataset_id} =~ s/^\s+|\s+$//g;
@@ -56,7 +57,7 @@ my @table_ids;
 if( $t{table_id} ) {
     @table_ids = ($t{table_id});
 } else {
-    $t{table_id} = `bq ls $t{project_id}:$t{dataset_id} | fzf -m | awk -F" " '{print \$1}'`;
+    $t{table_id} = `bq ${BQ_LS_COMMAND} $t{project_id}:$t{dataset_id} | fzf -m | awk -F" " '{print \$1}'`;
     die unless $t{table_id};
     @table_ids = split(/\n/,$t{table_id});
     map s/^\s+|\s+$//g, map {chomp} @table_ids;
