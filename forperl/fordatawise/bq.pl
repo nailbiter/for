@@ -64,8 +64,7 @@ if( $t{table_id} ) {
 }
 
 print STDERR join(".",map {"\"$_\""} @t{qw(project_id dataset_id table_id)}),"\n";
-myexec(sprintf("echo '%s'|jq -r '.[]'|gnuparallel bq %s %s:%s.{} :::",
+myexec(sprintf("echo '%s'|jq -r '.[]'|gnuparallel bq %s :::",
         to_json(\@table_ids),
-        $cmd,
-        @t{qw(project_id dataset_id)},
+        ($cmd =~ /{}/) ? $cmd : sprintf("%s %s:%s.{}",$cmd,@t{qw(project_id dataset_id)}),
     ));
