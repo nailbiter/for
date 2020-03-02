@@ -74,8 +74,21 @@ sub new {
 sub inflate {
     (my $self, my $start, my $end, my $cursor,my %other) = @_;
 
-    my $startHourMin = HourMin->new(STRING => $start)->toDateTime,
-        my $endHourMin = HourMin->new(STRING => $end)->toDateTime;
+	my $startString;
+	my $endString;
+	if( $other{month} ) {
+		die to_json({start=>$start,end=>$end,%other}) unless $other{day};
+		$startString = sprintf("%d/%d %s",@other{qw(month day)},$start);
+		$endString = sprintf("%d/%d %s",@other{qw(month day)},$end);
+	} elsif ($other{day}) {
+		$startString = sprintf("%d %s",$other{day},$start);
+		$endString = sprintf("%d %s",$other{day},$end);
+	} else {
+		(my $startString, my $endString) = ($start,$end);
+	}
+
+    my $startHourMin = HourMin->new(STRING => $startString)->toDateTime,
+        my $endHourMin = HourMin->new(STRING => $endString)->toDateTime;
     printf(STDERR "startHourMin: %s\n",Dumper($startHourMin));
     printf(STDERR "endHourMin: %s\n",Dumper($endHourMin));
 
