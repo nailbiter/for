@@ -76,7 +76,7 @@ my %lt;
 @lt{qw(sec min hour mday mon year wday yday isdst)} = localtime();
 my @lt = localtime();
 $args{end} //= sprintf("%02d:%02d",$lt[2],$lt[1]);
-$args{month} //= $lt{mon};
+$args{month} //= $lt{mon}+1;
 $args{day} //= $lt{mday};
 
 (my $coll,my $trelloClient) = GetCollAndTrelloClient();

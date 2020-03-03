@@ -86,6 +86,7 @@ sub inflate {
 	} else {
 		(my $startString, my $endString) = ($start,$end);
 	}
+	print STDERR to_json({startString=>$startString,endString=>$endString}),"\n";
 
     my $startHourMin = HourMin->new(STRING => $startString)->toDateTime,
         my $endHourMin = HourMin->new(STRING => $endString)->toDateTime;
