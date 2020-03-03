@@ -108,8 +108,9 @@ if($cmd eq "deploy") {
 	for(keys %datasets) {
 		myexec("bq mk -f $tgt:$_",test=>$args{test});
 	}
-    for(@backend_tables) {
-		my %h = %$_;
+    for my $i(1..@backend_tables) {
+		my %h = %{$backend_tables[$i-1]};
+		printf(STDERR "%d/%d\n",$i,scalar(@backend_tables));
         myexec(sprintf("bq cp -f %s:%s.%s %s:%s.%s",
                 $src, @h{qw(dataset_id table_id)},
                 $tgt, @h{qw(dataset_id table_id)},
