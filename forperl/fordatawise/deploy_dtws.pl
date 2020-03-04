@@ -100,36 +100,51 @@ my $firebase_config = {
 my $sha = `git rev-parse HEAD`;
 chomp $sha;
 
-if($cmd eq "deploy") {
-	my @backend_tables = getBackendTablesList($projectId);
-	my %datasets;
-	(my $src, my $tgt) = (getDeploySource($firebase_config->{projectId}),$firebase_config->{projectId});
-	@datasets{map {$_->{dataset_id}} @backend_tables} = (1) x scalar(@backend_tables);
-	for(keys %datasets) {
-		myexec("bq mk -f $tgt:$_",test=>$args{test});
+my %commands = (
+	deploy => sub {
+		my @backend_tables = getBackendTablesList($projectId);
+		my %datasets;
+		(my $src, my $tgt) = (getDeploySource($firebase_config->{projectId}),$firebase_config->{projectId});
+		@datasets{map {$_->{dataset_id}} @backend_tables} = (1) x scalar(@backend_tables);
+		for(keys %datasets) {
+			myexec("bq mk -f $tgt:$_",test=>$args{test});
+		}
+		for my $i(1..@backend_tables) {
+			my %h = %{$backend_tables[$i-1]};
+			printf(STDERR "%d/%d\n",$i,scalar(@backend_tables));
+			myexec(sprintf("bq cp -f %s:%s.%s %s:%s.%s",
+					$src, @h{qw(dataset_id table_id)},
+					$tgt, @h{qw(dataset_id table_id)},
+				),
+			  test=>$args{test},
+			);
+		}
+	},
+	slack => sub {
+		my $slack_url = $store->{_slack_webhooks}->{getDeployTargetType($firebase_config->{projectId})};
+		myexec(
+			sprintf("curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"`%s` deployed `%s` to %s\"}' \"%s\"",
+				"nailbiter\@dtws-work.in",
+				$sha,
+				$firebase_config->{authDomain},
+				$slack_url,
+			),
+			test=>$args{test},
+		);
+	},
+	link => sub {
+		myexec(sprintf("open \"%s\"",$firebase_config->{authDomain}),test=>$args{test});
 	}
-    for my $i(1..@backend_tables) {
-		my %h = %{$backend_tables[$i-1]};
-		printf(STDERR "%d/%d\n",$i,scalar(@backend_tables));
-        myexec(sprintf("bq cp -f %s:%s.%s %s:%s.%s",
-                $src, @h{qw(dataset_id table_id)},
-                $tgt, @h{qw(dataset_id table_id)},
-            ),
-          test=>$args{test},
-        );
-    }
-} elsif($cmd eq "slack") {
-	my $slack_url = $store->{_slack_webhooks}->{getDeployTargetType($firebase_config->{projectId})};
-    myexec(
-        sprintf("curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"`%s` deployed `%s` to %s\"}' \"%s\"",
-            "nailbiter\@dtws-work.in",
-            $sha,
-            $firebase_config->{authDomain},
-            $slack_url,
-        ),
-        test=>$args{test},
-    );
-} else {
-    print "deploy","\n";
-    print "slack","\n";
+);
+
+for(((keys %commands),undef)) {
+	if( !$_ ) {
+		for(keys %commands) {
+			print $_,"\n";
+		}
+		last;
+	} elsif($_ eq $cmd) {
+		$commands{$_}->();
+		last;
+	}
 }
