@@ -92,6 +92,8 @@ sub inflate {
         my $endHourMin = HourMin->new(STRING => $endString)->toDateTime;
     printf(STDERR "startHourMin: %s\n",Dumper($startHourMin));
     printf(STDERR "endHourMin: %s\n",Dumper($endHourMin));
+	$self->{startHourMin} = $startHourMin;
+	$self->{endHourMin} = $endHourMin;
 
     my $flag = 0;
     my $anchor = $endHourMin;
@@ -166,12 +168,18 @@ sub print_to_html {
           },
         ),
         $cgi->table({-border=>1},
-            map {
+            map { 
                 $cgi->Tr(
-					$cgi->td($resArray[$_+1]->{anchor}->toString),
-					$cgi->td($resArray[$_]->{anchor}->toString),
-					$cgi->td($cgi->code(sprintf("=HYPERLINK(\"%s\",\"%s\")",$res{$resArray[$_+1]->{id}}->{card}->{shortUrl},$res{$resArray[$_+1]->{id}}->{name}))),
-                )
+					map {$cgi->td($_)} (
+						$self->{startHourMin}->ymd,
+						"Leon",
+						$resArray[$_+1]->{anchor}->toString,
+						$resArray[$_]->{anchor}->toString,
+						"",
+						"",
+						$cgi->code(sprintf("=HYPERLINK(\"%s\",\"%s\")",$res{$resArray[$_+1]->{id}}->{card}->{shortUrl},$res{$resArray[$_+1]->{id}}->{name}))
+					)
+					)
             } grep {
 				$res{$resArray[$_+1]->{id}}->{name} ne "lunch"
 			}
