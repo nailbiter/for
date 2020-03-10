@@ -48,6 +48,11 @@ function md2html
    pandoc -s --css=$HOME/for/misc/formarkdown.css  -V lang=en (basename $argv .md).md  -o (basename $argv .md).html 
 end
 
+function md2html-tmp
+   pandoc -s --css=$HOME/for/misc/formarkdown.css  -V lang=en (basename $argv .md).md  -o /tmp/(basename $argv .md).html 
+   open /tmp/(basename $argv .md).html 
+end
+
 function random_fn
   if not set -q argv[2]
     echo /tmp/(openssl rand -hex 12){$argv[1]}
