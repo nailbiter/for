@@ -28,7 +28,6 @@ use Getopt::Long;
 
 # global const's
 my $PRIVATE_STORE = ".alex.json";
-my $FIREBASE_CONFIG = "./src/constants/firebase-config.json";
 #procedures
 sub myexec {
     (my $cmd, my %args) = @_;
@@ -134,6 +133,30 @@ my %commands = (
 	},
 	link => sub {
 		myexec(sprintf("open \"%s\"",$firebase_config->{authDomain}),test=>$args{test});
+	},
+	addtag => sub {
+		my @str = `git branch`;
+		my $bn;
+		for(@str) {
+			chomp;
+			if(/^\* (.*)/) {
+				$bn = $1;
+			}
+		}
+		my $date = `date "+%Y%m%d"`;
+		myexec(sprintf("git tag %s-%s",$bn,$date),test=>$args{test});
+	},
+	pushtag => sub {
+		my @str = `git branch`;
+		my $bn;
+		for(@str) {
+			chomp;
+			if(/^\* (.*)/) {
+				$bn = $1;
+			}
+		}
+		my $date = `date "+%Y%m%d"`;
+		myexec(sprintf("git push -u origin %s-%s",$bn,$date),test=>$args{test});
 	}
 );
 
