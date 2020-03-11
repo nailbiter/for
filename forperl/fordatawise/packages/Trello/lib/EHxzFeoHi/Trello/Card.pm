@@ -134,28 +134,6 @@ sub new {
 		die to_json(\%args,{pretty=>1,canonical=>1});
 	}
 }
-sub getNumChecklistItems {
-	(my $self) = @_;
-	my $res = 0;
-	for my $id ( @{$self->_load->{res}->{idChecklists}} ) {
-		for(@{$self->_get_checklist($id)->{ITEMS}}) {
-			$res++;
-		}
-	}
-	return $res;
-}
-sub getNumCheckedChecklistItems {
-	(my $self) = @_;
-	my $res = 0;
-	for my $id ( @{$self->_load->{res}->{idChecklists}} ) {
-		for(@{$self->_get_checklist($id)->{ITEMS}}) {
-			if($_->{state} eq "complete") {
-				$res++;
-			}
-		}
-	}
-	return $res;
-}
 sub getUrl{
 	(my $self) = @_;
 	return $self->{URL};

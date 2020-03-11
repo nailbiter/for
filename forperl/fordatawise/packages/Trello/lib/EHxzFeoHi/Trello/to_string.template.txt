@@ -1,6 +1,15 @@
 [%- USE bold = format('%.2f') -%]
-[%-IF card.getNumChecklistItems>0%]
-${card.get_title} (${card.getNumCheckedChecklistItems}/${card.getNumChecklistItems}=[%bold( card.getNumCheckedChecklistItems / card.getNumChecklistItems * 100 )%]%)
+[%-IF card.get_checklists.size>0%]
+[%- SET numCheckedChecklistItems = 0
+	numChecklistItem = 0 -%]
+[%FOREACH c IN card.get_checklists-%]
+    [% FOREACH i IN c.ITEMS -%]
+      [%- numChecklistItems = numChecklistItems + 1 -%]
+	[%-IF i.state=="complete"-%] [%- numCheckedChecklistItems=numCheckedChecklistItems+1 -%] [%-END-%]
+      [%- numCheckedChecklistItems = (numCheckedChecklistItems + 1) IF (i.state=="complete") -%]
+    [%END%]
+[%END-%]
+${card.get_title} (${numCheckedChecklistItems}/${numChecklistItems}=[%bold( numCheckedChecklistItems / numChecklistItems * 100 )%]%)
 
 checklists:
 [%FOREACH c IN card.get_checklists-%]
