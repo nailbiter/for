@@ -80,7 +80,7 @@ sub getBackendTablesList {
 my %args;
 GetOptions(test=>\$args{test});
 (my $cmd) = @ARGV;
-my $store = from_json(path($PRIVATE_STORE)->slurp_utf8);
+my $store = path($PRIVATE_STORE)->is_file ? from_json(path($PRIVATE_STORE)->slurp_utf8) : {};
 $args{test} //= $store->{testmode};
 
 my $projectId;
@@ -100,7 +100,7 @@ my $sha = `git rev-parse HEAD`;
 chomp $sha;
 
 my %commands = (
-	deploy => sub {
+	tables => sub {
 		my @backend_tables = getBackendTablesList($projectId);
 		my %datasets;
 		(my $src, my $tgt) = (getDeploySource($firebase_config->{projectId}),$firebase_config->{projectId});
