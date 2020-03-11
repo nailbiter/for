@@ -73,6 +73,7 @@ sub new {
 }
 sub inflate {
     (my $self, my $start, my $end, my $cursor,my %other) = @_;
+    $other{task_categories} //= {};
 
 	my $startString;
 	my $endString;
@@ -94,6 +95,7 @@ sub inflate {
     printf(STDERR "endHourMin: %s\n",Dumper($endHourMin));
 	$self->{startHourMin} = $startHourMin;
 	$self->{endHourMin} = $endHourMin;
+    $self->{task_categories} = $other{task_categories};
 
     my $flag = 0;
     my $anchor = $endHourMin;
@@ -158,6 +160,7 @@ sub print_to_html {
     my $cgi = CGI->new;
     my %res = %{$self->{res}};
     my @resArray = @{$self->{resArray}};
+    my $tc = $self->{task_categories};
 
     print 
         $cgi->header(-charset=>"utf-8"),
@@ -175,8 +178,8 @@ sub print_to_html {
 						"Leon",
 						$resArray[$_+1]->{anchor}->toString,
 						$resArray[$_]->{anchor}->toString,
-						"",
-						"",
+#                        $resArray[$_+1]->{id},
+						$tc->{$resArray[$_+1]->{id}} ? @{$tc->{$resArray[$_+1]->{id}}} : ("",""),
 						$cgi->code(sprintf("=HYPERLINK(\"%s\",\"%s\")",$res{$resArray[$_+1]->{id}}->{card}->{shortUrl},$res{$resArray[$_+1]->{id}}->{name}))
 					)
 					)

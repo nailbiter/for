@@ -69,6 +69,7 @@ GetOptions(
 	"weekly"=>\$args{weekly},
 	"day=n"=>\$args{day},
 	"month=n"=>\$args{month},
+	"task_categories=s" => \$args{task_categories},
 );
 
 $args{start} //= "10:00";
@@ -78,6 +79,11 @@ my @lt = localtime();
 $args{end} //= sprintf("%02d:%02d",$lt[2],$lt[1]);
 $args{month} //= $lt{mon}+1;
 $args{day} //= $lt{mday};
+if( $args{task_categories} ) {
+	$args{task_categories} = from_json(path($args{task_categories})->slurp_utf8)
+} else {
+	$args{task_categories} = {};
+}
 
 (my $coll,my $trelloClient) = GetCollAndTrelloClient();
 my $engageTable = EngageTable->new($trelloClient);
@@ -86,7 +92,7 @@ $engageTable->inflate(
 	$args{start},
 	$args{end},
 	GetCursorFromCollection($coll),
-	map {$_=>$args{$_}} qw(month day),
+	map {$_=>$args{$_}} qw(month day task_categories),
 );
 if( defined $args{weekly} ) {
 	$engageTable->print_to_html_weekly;
