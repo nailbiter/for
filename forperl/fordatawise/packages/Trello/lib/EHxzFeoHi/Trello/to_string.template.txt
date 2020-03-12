@@ -3,20 +3,23 @@
 [%- SET numCheckedChecklistItems = 0
 	numChecklistItem = 0 -%]
 [%FOREACH c IN card.get_checklists-%]
-    [% FOREACH i IN c.ITEMS -%]
-      [%- numChecklistItems = numChecklistItems + 1 -%]
-	[%-IF i.state=="complete"-%] [%- numCheckedChecklistItems=numCheckedChecklistItems+1 -%] [%-END-%]
-      [%- numCheckedChecklistItems = (numCheckedChecklistItems + 1) IF (i.state=="complete") -%]
-    [%END%]
+    [%-IF c.NAME.substr(0,1) != "." -%]
+      [%- FOREACH i IN c.ITEMS -%]
+        [%- numChecklistItems = numChecklistItems + 1 -%]
+        [%-IF i.state=="complete"-%] [%- numCheckedChecklistItems=numCheckedChecklistItems+1 -%] [%-END-%]
+      [%-END-%]
+    [%-END-%]
 [%END-%]
 ${card.get_title} (${numCheckedChecklistItems}/${numChecklistItems}=[%bold( numCheckedChecklistItems / numChecklistItems * 100 )%]%)
 
 checklists:
 [%FOREACH c IN card.get_checklists-%]
+[%-IF c.NAME.substr(0,1) != "." -%]
   ${c.NAME}:
     [% FOREACH i IN c.ITEMS -%]
       [%IF i.state == "complete"%]v[%ELSE%]o[%END%] ${i.name}
     [%END%]
+[%END-%]
 [%END-%]
 [%ELSE%]
 ${card.get_title}
