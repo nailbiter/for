@@ -156,7 +156,7 @@ sub print_to_html_weekly {
         });
 }
 sub print_to_html {
-    (my $self) = @_;
+    (my $self, my %args) = @_;
     my $cgi = CGI->new;
     my %res = %{$self->{res}};
     my @resArray = @{$self->{resArray}};
@@ -178,9 +178,9 @@ sub print_to_html {
 						"Leon",
 						$resArray[$_+1]->{anchor}->toString,
 						$resArray[$_]->{anchor}->toString,
-#                        $resArray[$_+1]->{id},
 						$tc->{$resArray[$_+1]->{id}} ? @{$tc->{$resArray[$_+1]->{id}}} : ("",""),
-						$cgi->code(sprintf("=HYPERLINK(\"%s\",\"%s\")",$res{$resArray[$_+1]->{id}}->{card}->{shortUrl},$res{$resArray[$_+1]->{id}}->{name}))
+						$cgi->code(sprintf("=HYPERLINK(\"%s\",\"%s\")",$res{$resArray[$_+1]->{id}}->{card}->{shortUrl},$res{$resArray[$_+1]->{id}}->{name})),
+                        $args{show_ids} ? ($resArray[$_+1]->{id}) : (),
 					)
 					)
             } grep {
