@@ -155,6 +155,12 @@ sub print_to_html_weekly {
             cards=>\@cards,
         });
 }
+sub _S43d436fba2c {
+    (my $i, my $tc, my $idx, my @resArray)=@_; 
+    return $tc->{categories}->[$i]->{$tc->{task_categories}->{$resArray[$idx+1]->{id}}->[$i]};
+#    return $tc->{task_categories}->{$resArray[$idx+1]->{id}}->[$i];
+}
+
 sub print_to_html {
     (my $self, my %args) = @_;
     my $cgi = CGI->new;
@@ -178,7 +184,9 @@ sub print_to_html {
 						"Leon",
 						$resArray[$_+1]->{anchor}->toString,
 						$resArray[$_]->{anchor}->toString,
-						$tc->{$resArray[$_+1]->{id}} ? @{$tc->{$resArray[$_+1]->{id}}} : ("",""),
+						$tc->{task_categories}->{$resArray[$_+1]->{id}} ? 
+                          (_S43d436fba2c(0,$tc,$_,@resArray),_S43d436fba2c(1,$tc,$_,@resArray)) :
+                          ("",""),
 						$cgi->code(sprintf("=HYPERLINK(\"%s\",\"%s\")",$res{$resArray[$_+1]->{id}}->{card}->{shortUrl},$res{$resArray[$_+1]->{id}}->{name})),
                         $args{show_ids} ? ($resArray[$_+1]->{id}) : (),
 					)

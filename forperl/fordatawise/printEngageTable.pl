@@ -83,7 +83,7 @@ $args{day} //= $lt{mday};
 if( $args{task_categories} ) {
 	$args{task_categories} = from_json(path($args{task_categories})->slurp_utf8)
 } else {
-	$args{task_categories} = {};
+	$args{task_categories} = {task_categories=>{},categories=>[]};
 }
 
 (my $coll,my $trelloClient) = GetCollAndTrelloClient();
