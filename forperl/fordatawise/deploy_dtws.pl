@@ -45,7 +45,7 @@ sub getDeploySource {
     (my $tgt) = @_;
     if($tgt =~ /-stg$/) {
         return $tgt =~ s/-stg$/-dev/r;
-    } elsif($tgt =~ /-prd/) {
+    } elsif($tgt =~ /-prd$/) {
         return $tgt =~ s/-prd$/-stg/r;
     } else {
         die $tgt;
@@ -132,7 +132,10 @@ my %commands = (
 		);
 	},
 	link => sub {
-		myexec(sprintf("open \"%s\"",$firebase_config->{authDomain}),test=>$args{test});
+		myexec(sprintf("%s \"%s\"",
+				"/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome",
+				$firebase_config->{authDomain}),test=>$args{test});
+ "www.yandex.ru"
 	},
 	addtag => sub {
 		my @str = `git branch`;
