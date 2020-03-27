@@ -1,0 +1,23 @@
+chdir $HOME/Documents/datawise/dtws-rdemo
+screen -t for-rdemo-dev
+screen -t for-rdemo-devserver
+screen -t for-rdemo-funcserver
+
+chdir $HOME/Documents/datawise/dtws-rdemo/pipeline/composer/dev
+screen -t for-pipeline-dev
+screen -t for-pipeline-bf
+
+chdir $HOME/Documents/datawise/ds-work
+screen -t for-qiita
+
+chdir $HOME/Documents/datawise/etl
+screen -t for-andy
+
+chdir $HOME/Documents/datawise/for-jupiter
+screen -t for-jupiter
+screen -t for-jupyter-misc
+
+#screen -t for-rdemo-deployment
+#screen -t for-aoyama-deployment
+chdir $HOME/Documents/datawise
+screen -t for-pi

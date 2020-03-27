@@ -62,7 +62,16 @@ sub getDeployTargetType {
     }
 }
 sub getBackendTablesList {
-	(my $projectId) = @_;
+	(my $projectId, my %store) = @_;
+    if($store{backend_tables}) {
+        my @res;
+        for (@{$store{backend_tables}}) {
+            my %h;
+            @h{qw(dataset_id table_id)} = split(/\./,$_);
+            push @res,\%h;
+        }
+        return @res;
+    }
 	my $src = getDeploySource($projectId);
 	my $pois = from_json(`bq head --format=json $src:poi.details`);
 	my @names = map {$_->{uuid} =~ s/-/_/rg} @$pois;
@@ -101,7 +110,7 @@ chomp $sha;
 
 my %commands = (
 	tables => sub {
-		my @backend_tables = getBackendTablesList($projectId);
+		my @backend_tables = getBackendTablesList($projectId,%$store);
 		my %datasets;
 		(my $src, my $tgt) = (getDeploySource($firebase_config->{projectId}),$firebase_config->{projectId});
 		@datasets{map {$_->{dataset_id}} @backend_tables} = (1) x scalar(@backend_tables);
