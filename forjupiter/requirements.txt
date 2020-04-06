@@ -1,0 +1,6 @@
+pymongo==3.10.1
+pytz==2018.7
+ipython==7.13.0
+pandas==0.25.2
+ipykernel==5.2.0
+matplotlib==3.1.3
