@@ -73,8 +73,10 @@ sub getBackendTablesList {
         return @res;
     }
 	my $src = getDeploySource($projectId);
+	print STDERR "reading POI from table $src:poi.details\n";
 	my $pois = from_json(`bq head --format=json $src:poi.details`);
 	my @names = map {$_->{uuid} =~ s/-/_/rg} @$pois;
+	print STDERR "got @names POIs\n";
 
 	my @res = (
 		{dataset_id=>"poi",table_id=>"details"},
