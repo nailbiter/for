@@ -142,11 +142,17 @@ my %commands = (
 			test=>$args{test},
 		);
 	},
+	msg => sub {
+		printf("`%s` deployed `%s` to %s",
+			"nailbiter\@dtws-work.in",
+			$sha,
+			$firebase_config->{authDomain},
+		);
+	},
 	link => sub {
 		myexec(sprintf("%s \"%s\"",
 				"/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome",
 				$firebase_config->{authDomain}),test=>$args{test});
- "www.yandex.ru"
 	},
 	addtag => sub {
 		my @str = `git branch`;
