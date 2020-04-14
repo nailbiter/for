@@ -36,7 +36,11 @@ sub _load {
 	(my $self) = @_;
 	if( not $self->{is__loaded} ) {
 		(my $URL,my $trelloKey,my $trelloToken) = @$self{qw(URL KEY TOKEN)};
-		$URL =~ /([0-9a-zA-Z]*)$/;
+
+		#https://trello.com/c/10O3euVS
+		#https://trello.com/c/10O3euVS/4523-backlog-44?menu=filter&filter=atca
+		$URL =~ /^https:\/\/trello\.com\/c\/([a-zA-Z0-9]{8})(\/.*)?$/;
+
 		my $code = $1;
 		my $url = sprintf("https://api.trello.com/1/cards/%s?key=%s&token=%s",$code,$trelloKey,$trelloToken);
 		printf(STDERR "code: %s\nurl: %s\n",$code,$url);
