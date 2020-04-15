@@ -86,6 +86,21 @@ sub getBackendTablesList {
 #	die to_json(\@res,{pretty=>1});
 	return @res;
 }
+sub getCurrentFirebaseProject {
+	my $projectId;
+	if(`firebase projects:list` =~ /(dtws-[a-z0-9_\.-]+) \(current\)/) {
+		$projectId = $1;
+	} else {
+		die "no match";
+	}
+	chomp $projectId;
+	return $projectId;
+}
+sub getCurrentBranchName {
+	my $res = `git rev-parse --abbrev-ref HEAD`;
+	chomp $res;
+	return $res;
+}
 
 #main
 my %args;
@@ -94,12 +109,7 @@ GetOptions(test=>\$args{test});
 my $store = path($PRIVATE_STORE)->is_file ? from_json(path($PRIVATE_STORE)->slurp_utf8) : {};
 $args{test} //= $store->{testmode};
 
-my $projectId;
-if(`firebase projects:list` =~ /(dtws-[a-z0-9_\.-]+) \(current\)/) {
-    $projectId = $1;
-} else {
-    die "no match";
-}
+my $projectId = getCurrentFirebaseProject();
 #my $firebase_json = from_json(`firebase projects:list --json`);
 my $authDomain = sprintf("https://%s.web.app/",$projectId);
 my $firebase_config = {
@@ -153,6 +163,17 @@ my %commands = (
 		myexec(sprintf("%s \"%s\"",
 				"/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome",
 				$firebase_config->{authDomain}),test=>$args{test});
+	},
+	branchtest => sub {
+		my $branchName = getCurrentBranchName();
+		my @PROJECTS = qw(mitanoodle);
+		for(@PROJECTS) {
+			if( $branchName eq "$_-production" ) {
+				die unless ($projectId eq "dtws-rdemo-$_-stg" || $projectId eq "dtws-rdemo-$_-prd");
+				return;
+			}
+		}
+		die unless ($projectId eq "dtws-rdemo-alex");
 	},
 	addtag => sub {
 		my @str = `git branch`;
