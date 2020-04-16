@@ -21,12 +21,14 @@
 use strict;
 use warnings;
 use utf8;
+use File::Spec;
 
 
 #main
 (my $fn) = @ARGV;
-if( $fn =~ /(hw\d+).tex$/ ) {
-	printf("https://github.com/nailbiter/for/blob/master/formasha/calculus/%s.pdf",$1);
+$fn = File::Spec->rel2abs( $fn);
+if( $fn =~ /([a-zA-Z_]+\/hw\d+).tex$/ ) {
+	printf("https://github.com/nailbiter/for/blob/master/formasha/%s.pdf",$1);
 } else {
 	die sprintf("cannot parse \"%s\"\n",$fn);
 }
