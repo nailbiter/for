@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $filename = "$ARGV[0].tex";
+print "\\input{$filename}";
+open(my $fh, '>', $filename) or die "Could not open file '$filename' $!";
+while (<STDIN>) {
+    print $fh $_;
+}
+system "git add $filename";
