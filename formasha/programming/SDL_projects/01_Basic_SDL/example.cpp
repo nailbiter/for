@@ -71,7 +71,7 @@ int main(int argc, char* args[])
 	SDL_RenderPresent(renderer);
 		
 	// Wait 10 seconds
-	SDL_Delay(10000);
+	SDL_Delay(30000);
 		
 	
 	// Destroy renderer
