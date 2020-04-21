@@ -70,7 +70,6 @@ GetOptions(
 	"day=n"=>\$args{day},
 	"month=n"=>\$args{month},
 	"task_categories=s" => \$args{task_categories},
-	"show_ids" => \$args{show_ids},
 );
 
 $args{start} //= "10:00";
@@ -98,5 +97,5 @@ $engageTable->inflate(
 if( defined $args{weekly} ) {
 	$engageTable->print_to_html_weekly;
 } else {
-	$engageTable->print_to_html(show_ids=>$args{show_ids});
+	$engageTable->print_to_html;
 }
