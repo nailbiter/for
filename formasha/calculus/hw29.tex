@@ -1,0 +1,75 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{amsfonts}
+\usepackage{pgfplots}
+%%\usepackage{underbrace}
+\input{.common.tex}
+
+\title{Homework 29 (Chap.~14.3),
+}
+\begin{document}
+\maketitle
+\secscore{8}{10}{10}
+good
+\secscore{9}{0}{10}
+In the problem (a), (b) and (c) are given. What are (1), (2) and (3)?
+
+Also, I disagree with your answer. Suppose (b) is $f$ and consider its section at $x=-2$. The function
+looks like.
+
+%%\begin{tikzpicture}
+%%      \draw[->] (-3,0) -- (2,0) node[right] {$y$};
+%%      \draw[->] (0,-1) -- (0,1) node[above] {$z$};
+%%      \addplot[thick, black, samples=100] { sin(0.5*x) };
+%%\end{tikzpicture}
+\begin{tikzpicture}
+    \begin{axis}[
+        height=6cm,
+        width=13cm,
+        axis lines=middle,
+        grid=both,
+        domain={-360:360},
+        ymin=-1.3, ymax=1.3,
+        xmin=-400, xmax=400,
+        major tick length=1ex,
+        minor tick length=0pt,
+        tick style={color=black,thin},
+        xtick={-360, 360},
+        xticklabels={$-2\pi$, $2\pi$},
+        minor xtick={-360,-270,...,360},
+        xlabel=$\phi$,
+        every axis x label/.style={
+            at={(ticklabel* cs:1)},
+            anchor=west,
+        },
+        xticklabel shift={.2cm},
+        ytick={-1,1},
+        yticklabels={$-1$, $1$},
+        minor ytick={-0.5,0.5},
+        ylabel=$v$,
+        every axis y label/.style={
+            at={(ticklabel* cs:1)},
+            anchor=south,
+        },
+        ]
+    \addplot[thick, black, samples=100] { sin(0.5*x) };
+    \end{axis}
+\end{tikzpicture}
+%%      \draw[red] plot ({\x}, {sin(\x 2)});
+\secscore{20}{<++>}{10}
+\secscore{30}{<++>}{10}
+\secscore{39}{<++>}{10}
+\secscore{41}{<++>}{10}
+\secscore{45}{<++>}{10}
+\secscore{50}{<++>}{10}
+\secscore{60}{<++>}{10}
+\secscore{67}{<++>}{10}
+\secscore{80}{<++>}{10}
+\secscore{99}{<++>}{10}
+\end{document}
