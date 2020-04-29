@@ -1,0 +1,40 @@
+\documentclass[pstricks,10pt,dvipsnames]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{amsfonts}
+\usepackage{pgfplots}
+\usetikzlibrary{calc,intersections}
+\input{.common.tex}
+
+
+\title{Homework 29 (Chap.~14.3),
+}
+\begin{document}
+\maketitle
+\secscoreFootnote{43}{8}{10}{44,42}
+overall good, but you forgot $\Delta x^2$ in
+\begin{equation*}
+	\begin{array}[]{c}
+		\Delta z=f(x+\Delta x,y+\Delta y)-f(x,y)=(x+\Delta x)^2+(y+\Delta y)^2-x^2-y^2=2x\Delta x+\Delta x^2+
+		2y\Delta y+\Delta y^2\\\implies
+		\Delta z=2x\Delta x+2y\Delta y+\Delta y^2=\dots
+	\end{array}
+\end{equation*}
+\secscore{45}{10}{10}
+good
+\secscoreFootnote{46}{0}{10}{44,42}
+Where did you write ``(a)''?
+\begin{enumerate}[(a)]
+	\item bad: wrong computation of $f_x(0,0)$ and $f_y(0,0)$ ($f(h,0)\neq h/h^2(=0)$).
+	\item bad: the following is wrong:
+		\begin{equation*}
+			\lim_{(x,y)\to(0,0)}\frac{y^3+yx^2-2x^2y}{(x^2+y^2)}=\infty
+		\end{equation*}
+		(try approaching along the line $y=0$).
+\end{enumerate}
+\end{document}
