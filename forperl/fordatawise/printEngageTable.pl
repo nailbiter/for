@@ -65,7 +65,6 @@ my %args;
 GetOptions(
 	"start=s"=>\$args{start},
 	"end=s"=>\$args{end},
-#	"config=s"=>\$args{config},
 	"weekly"=>\$args{weekly},
 	"day=n"=>\$args{day},
 	"month=n"=>\$args{month},
