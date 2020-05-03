@@ -18,3 +18,5 @@ inoremap (      ()<Left>
 inoremap (<CR>  (<CR>)<Esc>O
 inoremap ((     (
 inoremap ()     ()
+command! Prettify execute "!~/for/forpython/forjava/prettify.py %"
+
