@@ -36,13 +36,16 @@ my $skip = $skip_fn ? path($skip_fn)->slurp_utf8 : 0;
 
 printf(STDERR "skip: %d\n",$skip);
 my $i = 0;
+my $count = 0;
 while(<>) {
 	chomp;
 	if($i>=$skip) {
+		$count++;
 		printf("%s\t\n",$_);
 	}
 	$i++;
 }
+printf(STDERR "%d words spit\n",$count);
 if( $save_skip && $skip_fn ) {
 	path($skip_fn)->spew($i);
 }
