@@ -22,12 +22,17 @@ use strict;
 use warnings;
 use utf8;
 use Getopt::Long;
+use Path::Tiny qw(path);
 
 
 #main
-my $skip;
-GetOptions("skip=n" => \$skip);
-$skip //= 0;
+my $skip_fn;
+my $save_skip;
+GetOptions(
+	"skip=s" => \$skip_fn,
+	"save_skip" => \$save_skip,
+);
+my $skip = $skip_fn ? path($skip_fn)->slurp_utf8 : 0;
 
 printf(STDERR "skip: %d\n",$skip);
 my $i = 0;
@@ -37,4 +42,7 @@ while(<>) {
 		printf("%s\t\n",$_);
 	}
 	$i++;
+}
+if( $save_skip && $skip_fn ) {
+	path($skip_fn)->spew($i);
 }
