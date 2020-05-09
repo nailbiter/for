@@ -6,6 +6,10 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
+inoremap <      <><Left>
+inoremap <<CR>  <<CR>><Esc>O
+inoremap <<     <
+inoremap <>     <>
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {{     {
@@ -20,7 +24,8 @@ inoremap ((     (
 inoremap ()     ()
 command! Prettify execute "!~/for/forpython/forjava/prettify.py %"
 "command! Log read !printf '\\%s\\\\n");' (openssl rand -hex 8)
-command! Log read !echo 'System.err.format("' (openssl rand -hex 8) '\\n");'
+command! SLog read !echo 'System.err.format("' (openssl rand -hex 8) '\\n");'
+command! LLog read !echo '_Log.info("' (openssl rand -hex 8) '\\n");'
 "
             "\\n");
 function! Cpp_CommentToggle () range
