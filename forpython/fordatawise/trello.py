@@ -14,11 +14,12 @@ ROOT_URL = "https://api.trello.com/1"
 Trello = dict()
 # procedures
 
-
 def getCard(args):
     "get card"
     cardid = args.cardid
     url = f"{ROOT_URL}/cards/{cardid}?key={Trello['key']}&token={Trello['token']}"
+    if args.fields is not None:
+        url += f"&fields={args.fields}"
     with urllib.request.urlopen(url) as url:
         data = json.loads(url.read().decode())
     return data    
@@ -42,6 +43,7 @@ subparser = subparsers.add_parser(
     "gc", help=commands["gc"].__doc__)
 subparser.set_defaults(func=commands["gc"])
 subparser.add_argument("cardid")
+subparser.add_argument("--fields")
 
 args = parser.parse_args(sys.argv[1:])
 if(hasattr(args, "func")):
