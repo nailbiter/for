@@ -29,4 +29,4 @@
 */30 * * * mon,tue,wed,thu,fri  osascript -e 'display notification "standup" with title "standup"'
 0 */2 * * mon,tue,wed,thu,fri osascript -e 'display notification "walk for 15min" with title "walk for 15min"'
 
-45 10-19 * * mon,tue,wed,thu,fri ~/for/bin/mac_notify.sh "abs+pushup+pull";/usr/local/bin/perl ~/for/forperl/fordatawise/sendSlackNotification.pl "abs+pushup+pull"
+45 10,12,14,16,18 * * mon,tue,wed,thu,fri ~/for/bin/mac_notify.sh "abs+pushup+pull";/usr/local/bin/perl ~/for/forperl/fordatawise/sendSlackNotification.pl "abs+pushup+pull"
