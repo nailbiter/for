@@ -21,6 +21,7 @@ alias npmig="npm install -g"
 alias npmci="npm ci"
 alias npmst="npm start"
 alias npmsv="npm run serve"
+alias print_current_commit_hash="git rev-parse HEAD"
 
 alias gsutil="/Users/nailbiter/Downloads/google-cloud-sdk/bin/gsutil"
 

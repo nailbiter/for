@@ -1,0 +1,61 @@
+\documentclass[pstricks,10pt,dvipsnames]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{amsfonts}
+\usepackage{pgfplots}
+\usetikzlibrary{calc,intersections}
+\input{.common.tex}
+
+
+\title{Homework 31 (Chap.~14.3),
+99.00/120.00 (82.50\%)
+}
+\begin{document}
+\maketitle
+\secscore{3}{10}{10}
+good
+\secscore{11}{10}{10}
+good
+\secscore{14}{10}{10}
+good
+\secscore{15}{10}{10}
+good
+\secscoreFootnote{16}{5}{10}{17,18}
+$g_r(1,2)$ is computed wrong. You wrote
+\begin{equation*}
+	g_r=f_x\cdot2-f_y\cdot4,
+\end{equation*}
+but then you write
+\begin{equation*}
+	g_r(1,2)=f_x(0,0)-f_y(0,0)\cdot4
+\end{equation*}
+Where did you forget ``2''?
+\secscoreFootnote{22}{7}{10}{23,24}
+Wrong answer for $\partial T/\partial p$ (should be ``0'').
+\secscoreFootnote{29}{0}{10}{30,31}
+\begin{equation*}
+	-\frac{(1+y^2)(1+x^4y^2)-2xy}{2xy(1+x^4y^2)-x^2}\neq\frac{1+x^4y^2+y^2+x^4y^4-2xy}{2xy+2x^5y^3-x^2}
+	\left( =-\frac{1+x^4y^2+y^2+x^4y^4-2xy}{2xy+2x^5y^3-x^2} \right)
+\end{equation*}
+\secscore{34}{10}{10}
+good
+\secscore{45}{10}{10}
+good
+\secscoreFootnote{54}{9}{10}{53,52}
+\begin{enumerate}[(a)]
+	\item good
+	\item What is $\partial x/\partial t$? it should be $\partial g/partial t$? similarly in other places
+\end{enumerate}
+\secscore{55}{10}{10}
+\begin{enumerate}[(a)]
+	\item good
+	\item good, but ``let $t=1$''should better be ``let us substitute $t=1$''
+\end{enumerate}
+\secscoreFootnote{57}{8}{10}{58,59}
+good, but why didn't you write $\lim_{h\to0}$ anywhere?
+\end{document}
