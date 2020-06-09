@@ -59,11 +59,11 @@
       "SQL, Python 3"
     ],
     [
-      "Jupyter, pandas, Kepler.GL"
+      "Data Analysis and Visualization: Jupyter, pandas, Kepler.GL, scikit, mathplotlib"
     ],
     [
       "Google Cloud Platform: AutoML (Machine Learning), BigQuery, Composer"
-    ]
+    ],
     [
       "C/C++ 7 years of experience"
     ],
@@ -294,8 +294,10 @@
         5
       ],
       "honors": [
-        "Dream Pirates is a small software development company, specializing in a wide range of technologies, including AR, VR, mobile development and web development.",
-        "As a part of five people team I was tasked with developing the video-blogging platform <a href=\"http://tokyo-komachi.jp\">tokyo-komachi.jp</a> (currently unavailable)."
+        "Datawise is a new start-up in the field of analysis of GeoSpatial data."
+        ,"We analyse the GPS data obtained mostly from mobile data providers (e.g. Docomo) and derive marketing insights from this data."
+        ,"As a Data Scientist at Datawise, my job is primarily to analyse GPS data and build statistical models (e.g. to predict age/gender based on GPS trajectory)."
+        ,"Since Datawise is a small company, I also have experience in Data Engineering of a big data (using GCP Bigquery and GCP Composer) and also developing back-end for our data analysis service."
       ],
       "description": [
         "Data Scientist at <a href=\"https://www.datawise.co.jp/\">Datawise</a>"
