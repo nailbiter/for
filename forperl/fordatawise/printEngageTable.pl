@@ -31,6 +31,8 @@ use DateTime;
 use Getopt::Long;
 use FindBin;
 require "$FindBin::Bin/.printEngageTable.d/engage_table.pl";
+binmode STDOUT, ":utf8";
+binmode STDERR, ":utf8";
 
 
 #global const's
@@ -59,6 +61,39 @@ sub GetCursorFromCollection {
 
 	return $cursor;
 }
+sub GetTaskCategories {
+	my $client = MongoDB->connect();
+	my $mongoPassword = $client->ns("admin.passwords")->find_one({key=>"MONGOMLAB"})->{value};
+	$client = MongoDB->connect(sprintf("mongodb://%s:%s\@ds149672.mlab.com:49672/logistics",
+			"nailbiter",$mongoPassword));
+	my $coll = $client->get_database("logistics")->get_collection("alex.taskData");
+	my $cursor = $coll->find({});
+	my %res;
+	while ( my $doc = $cursor->next ) {
+		my %tags;
+		for my $t (@{$doc->{tags}}) {
+			if ($t =~ /_time_table:([a-zA-Z0-9_-]+):(.+)/) {
+				#FIXME: add assertions for tasks
+				#会議
+				#コーディング
+				#その他
+				#面接
+				#資料作成
+				#分析・検討・調査
+				#移動
+				#レビュー
+				#出張
+			
+				#FIXME: add assertions for ankens
+				$tags{$1} = $2;
+			}
+		}
+		if(keys %tags) {
+			$res{$doc->{task_id}} = \%tags;
+		}
+	}
+	return \%res;
+}
 
 #main
 my %args;
@@ -68,7 +103,6 @@ GetOptions(
 	"weekly"=>\$args{weekly},
 	"day=n"=>\$args{day},
 	"month=n"=>\$args{month},
-	"task_categories=s" => \$args{task_categories},
 );
 
 $args{start} //= "10:00";
@@ -78,11 +112,6 @@ my @lt = localtime();
 $args{end} //= sprintf("%02d:%02d",$lt[2],$lt[1]);
 $args{month} //= $lt{mon}+1;
 $args{day} //= $lt{mday};
-if( $args{task_categories} ) {
-	$args{task_categories} = from_json(path($args{task_categories})->slurp_utf8)
-} else {
-	$args{task_categories} = {task_categories=>{},categories=>[]};
-}
 
 (my $coll,my $trelloClient) = GetCollAndTrelloClient();
 my $engageTable = EngageTable->new($trelloClient);
@@ -91,7 +120,8 @@ $engageTable->inflate(
 	$args{start},
 	$args{end},
 	GetCursorFromCollection($coll),
-	map {$_=>$args{$_}} qw(month day task_categories),
+	task_categories => GetTaskCategories(),
+	map {$_=>$args{$_}} qw(month day),
 );
 if( defined $args{weekly} ) {
 	$engageTable->print_to_html_weekly;

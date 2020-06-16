@@ -156,10 +156,10 @@ sub print_to_html_weekly {
         });
 }
 sub _S43d436fba2c {
-    (my $i, my $tc, my $idx, my $resRef, my @resArray)=@_; 
+    (my $fn, my $tc, my $idx, my $resRef, my @resArray)=@_; 
 	my $res;
-   	if($tc->{task_categories}->{$resArray[$idx+1]->{id}}) {
-		$res = $tc->{categories}->[$i]->{$tc->{task_categories}->{$resArray[$idx+1]->{id}}->[$i]};
+   	if($tc->{$resArray[$idx+1]->{id}}) {
+		$res = $tc->{$resArray[$idx+1]->{id}}->{$fn};
 	} else {
 		$res = ""
 	}
@@ -194,8 +194,8 @@ sub print_to_html {
 						"Leon",
 						$resArray[$_+1]->{anchor}->toString,
 						$resArray[$_]->{anchor}->toString,
-					  	_S43d436fba2c(0,$tc,$_,\%res,@resArray),
-						_S43d436fba2c(1,$tc,$_,\%res,@resArray),
+					  	_S43d436fba2c("anken",$tc,$_,\%res,@resArray),
+						_S43d436fba2c("task",$tc,$_,\%res,@resArray),
 						$cgi->code(sprintf("=HYPERLINK(\"%s\",\"%s\")",$res{$resArray[$_+1]->{id}}->{card}->{shortUrl},$res{$resArray[$_+1]->{id}}->{name})),
 					)
 					)
