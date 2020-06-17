@@ -27,7 +27,6 @@ use MongoDB;
 #main
 my $client = MongoDB->connect();
 my $slack_webhook = $client->ns("admin.passwords")->find_one({key=>"DTWS_SLACK_WEBHOOK"})->{value};
-print STDERR @INC,"\n";
 system(
 	sprintf("curl -X POST -H 'Content-type: application/json' --data '{\"text\":\"%s\"}' \"%s\"",
 		$ARGV[0],
