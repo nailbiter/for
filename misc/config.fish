@@ -71,3 +71,7 @@ if [ -f '/Users/nailbiter/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/oleksiileontiev/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/oleksiileontiev/Downloads/google-cloud-sdk/path.fish.inc'; end
+
+## potential candidates for aliases
+## make them aliases if you find yourself using them again and again
+#!git commit -a --fixup (git log --format=oneline --decorate=short|fzf --layout=reverse|awk -F' ' '{print $1}')
