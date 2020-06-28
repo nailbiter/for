@@ -8,7 +8,7 @@ from jinja2 import Template
 
 
 #global const's
-MSG_TEMPLATE = """{{title}} ({{done}}/{{total}}={{"%05.2f"|format(done/total*100)}}%)
+MSG_TEMPLATE = """{{title}} ({{done}}/{{total}}={%if total>0%}{{"%05.2f"|format(done/total*100)}}{%else%}100.00%{%endif%}%)
 
 {{body}}
 
