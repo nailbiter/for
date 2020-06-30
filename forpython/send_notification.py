@@ -4,6 +4,7 @@ from datetime import datetime
 from time import sleep
 from pymongo import MongoClient
 from os import system
+from tqdm import tqdm
 
 
 # procedures
@@ -21,13 +22,15 @@ def send_notification(message, media, delay_min, silent):
     if silent:
         sleep(delay_min*60)
     else:
-        for i in range(delay_min*60,0,-1):
+        for i in tqdm(range(delay_min*60, 0, -1)):
+            click.clear()
             sleep(1)
             d = datetime.utcfromtimestamp(i,)
-            if d.day>1:
-                print(d.strftime("%Y-%m-%dT%H:%M:%S"))
+            if d.day > 1:
+                d_str = d.strftime("%Y-%m-%dT%H:%M:%S")
             else:
-                print(d.strftime("%H:%M:%S"))
+                d_str = d.strftime("%H:%M:%S")
+            print(f"{d_str} {message}")
 
     if "slack" in media:
         client = MongoClient()
