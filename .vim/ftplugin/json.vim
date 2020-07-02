@@ -3,6 +3,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+set foldmethod=indent
 
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
