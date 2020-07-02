@@ -5,6 +5,7 @@ from time import sleep
 from pymongo import MongoClient
 from os import system
 from tqdm import tqdm
+from os import system
 
 
 # procedures
@@ -42,6 +43,7 @@ def send_notification(message, media, delay_min, silent):
     if "email" in media:
         raise NotImplementedError
     if "popup" in media:
+        system(f"""osascript -e 'display notification "{message}" with title "popup"'""")
         raise NotImplementedError
 
     print("\n")
