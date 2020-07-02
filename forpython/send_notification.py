@@ -44,7 +44,6 @@ def send_notification(message, media, delay_min, silent):
         raise NotImplementedError
     if "popup" in media:
         system(f"""osascript -e 'display notification "{message}" with title "popup"'""")
-        raise NotImplementedError
 
     print("\n")
     print(datetime.now().strftime("%Y-%m-%dT%H:%M"))
