@@ -22,9 +22,11 @@ alias npmci="npm ci"
 alias npmst="npm start"
 alias npmsv="npm run serve"
 alias print_current_commit_hash="git rev-parse HEAD"
-
 alias gsutil="/Users/nailbiter/Downloads/google-cloud-sdk/bin/gsutil"
 
+function git-fixup
+  git commit -a --fixup (git log --format=oneline --decorate=short|fzf --layout=reverse|awk -F' ' '{print $1}')
+end
 function gitr
   git rebase -i (git log --format=oneline --decorate=short|fzf --layout=reverse|awk -F' ' '{print $1}')
 end
@@ -74,5 +76,4 @@ if [ -f '/Users/oleksiileontiev/Downloads/google-cloud-sdk/path.fish.inc' ]; . '
 
 ## potential candidates for aliases
 ## make them aliases if you find yourself using them again and again
-#!git commit -a --fixup (git log --format=oneline --decorate=short|fzf --layout=reverse|awk -F' ' '{print $1}')
 #!git revert (git log --format=oneline --decorate=short|fzf --layout=reverse|awk -F' ' '{print $1}')
