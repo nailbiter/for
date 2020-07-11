@@ -6,6 +6,7 @@ filetype on
 :au BufNewFile *.html 0r ~/.vim/skeletons/skeleton.html
 :au BufNewFile *.mac 0r ~/.vim/skeletons/skeleton.mac
 :au BufNewFile Makefile 0r ~/.vim/skeletons/skeleton.make
+:au BufNewFile Main.java 0r ~/.vim/skeletons/skeleton.Main.java
 
 au BufNewFile,BufRead *.wl set filetype=mma
 au BufNewFile,BufRead *.gplot set filetype=gnuplot
