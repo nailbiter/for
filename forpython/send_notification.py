@@ -6,6 +6,7 @@ from pymongo import MongoClient
 from os import system
 from tqdm import tqdm
 from os import system
+from jinja2 import Template
 
 
 # procedures
@@ -25,6 +26,12 @@ def send_notification(message, media, delay_min, silent, script):
         print(f"executing {script}...")
         res = system(script)
         print(f"res: {res}")
+    else:
+        res = 0
+
+    env = dict(res=res)
+    _message = Template(message).render(env)
+
     if silent:
         sleep(delay_min*60)
     else:
@@ -36,7 +43,7 @@ def send_notification(message, media, delay_min, silent, script):
                 d_str = d.strftime("%Y-%m-%dT%H:%M:%S")
             else:
                 d_str = d.strftime("%H:%M:%S")
-            print(f"{d_str} {message}")
+            print(f"{d_str} {_message}")
 
     if "slack" in media:
         client = MongoClient()
@@ -44,11 +51,11 @@ def send_notification(message, media, delay_min, silent, script):
             {"key": "DTWS_SLACK_WEBHOOK"})["value"]
         # FIXME do not use system
         system(
-            f"curl -X POST -H 'Content-type: application/json' --data '{{\"text\":\"{message}\"}}' \"{slack_webhook}\"")
+            f"curl -X POST -H 'Content-type: application/json' --data '{{\"text\":\"{_message}\"}}' \"{slack_webhook}\"")
     if "email" in media:
         raise NotImplementedError
     if "popup" in media:
-        system(f"""osascript -e 'display notification "{message}" with title "popup"'""")
+        system(f"""osascript -e 'display notification "{_message}" with title "popup"'""")
 
     print("\n")
     print(datetime.now().strftime("%Y-%m-%dT%H:%M"))
