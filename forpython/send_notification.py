@@ -21,16 +21,14 @@ def send_notification(message, media, delay_min, silent, script):
     print(f"media: {media}")
     print(f"delay: {delay_min}")
 
-    print(datetime.now().strftime("%Y-%m-%dT%H:%M"))
+    start_date = datetime.now()
+    print(start_date.strftime("%Y-%m-%dT%H:%M"))
     if script is not None:
         print(f"executing {script}...")
         res = system(script)
         print(f"res: {res}")
     else:
         res = 0
-
-    env = dict(res=res)
-    _message = Template(message).render(env)
 
     if silent:
         sleep(delay_min*60)
@@ -45,6 +43,14 @@ def send_notification(message, media, delay_min, silent, script):
                 d_str = d.strftime("%H:%M:%S")
             print(f"{d_str} {_message}")
 
+    end_date = datetime.now()
+    print("\n")
+
+    print(end_date.strftime("%Y-%m-%dT%H:%M"))
+
+    env = dict(res=res,timedelta=str(end_date-start_date))
+    _message = Template(message).render(env)
+
     if "slack" in media:
         client = MongoClient()
         slack_webhook = client.admin.passwords.find_one(
@@ -57,8 +63,6 @@ def send_notification(message, media, delay_min, silent, script):
     if "popup" in media:
         system(f"""osascript -e 'display notification "{_message}" with title "popup"'""")
 
-    print("\n")
-    print(datetime.now().strftime("%Y-%m-%dT%H:%M"))
 
 
 # main
