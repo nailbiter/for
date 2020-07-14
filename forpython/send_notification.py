@@ -13,13 +13,17 @@ from os import system
 @click.argument("message")
 @click.option("--media", "-m", multiple=True, default=["slack"], type=click.Choice(["slack", "email", "popup"], case_sensitive=False))
 @click.option("--delay_min", "-d", type=int, default=0)
+@click.option("--script","-s")
 @click.option("--silent/--no-silent", default=False)
-def send_notification(message, media, delay_min, silent):
+def send_notification(message, media, delay_min, silent, script):
     print(f"message: {message}")
     print(f"media: {media}")
     print(f"delay: {delay_min}")
 
     print(datetime.now().strftime("%Y-%m-%dT%H:%M"))
+    if script is not None:
+        print(f"executing {script}...")
+        system(script)
     if silent:
         sleep(delay_min*60)
     else:
