@@ -3,7 +3,7 @@ import click
 from datetime import datetime
 from time import sleep
 from pymongo import MongoClient
-from os import system
+from os import system, environ
 from tqdm import tqdm
 from os import system
 from jinja2 import Template
@@ -52,9 +52,12 @@ def send_notification(message, media, delay_min, silent, script):
     _message = Template(message).render(env)
 
     if "slack" in media:
-        client = MongoClient()
-        slack_webhook = client.admin.passwords.find_one(
-            {"key": "DTWS_SLACK_WEBHOOK"})["value"]
+        if "SEND_NOTIFICATION_SLACK_WEBHOOK" in environ:
+            slack_webhook = environ["SEND_NOTIFICATION_SLACK_WEBHOOK"]
+        else:
+            client = MongoClient()
+            slack_webhook = client.admin.passwords.find_one(
+                {"key": "DTWS_SLACK_WEBHOOK"})["value"]
         # FIXME do not use system
         system(
             f"curl -X POST -H 'Content-type: application/json' --data '{{\"text\":\"{_message}\"}}' \"{slack_webhook}\"")
