@@ -23,7 +23,8 @@ def send_notification(message, media, delay_min, silent, script):
     print(datetime.now().strftime("%Y-%m-%dT%H:%M"))
     if script is not None:
         print(f"executing {script}...")
-        system(script)
+        res = system(script)
+        print(f"res: {res}")
     if silent:
         sleep(delay_min*60)
     else:
