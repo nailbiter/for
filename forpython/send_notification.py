@@ -41,7 +41,7 @@ def send_notification(message, media, delay_min, silent, script):
                 d_str = d.strftime("%Y-%m-%dT%H:%M:%S")
             else:
                 d_str = d.strftime("%H:%M:%S")
-            print(f"{d_str} {_message}")
+            print(f"{d_str} {message}")
 
     end_date = datetime.now()
     print("\n")
