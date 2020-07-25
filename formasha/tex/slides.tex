@@ -1,0 +1,54 @@
+\documentclass[pdf,notes]{beamer}
+
+\mode<presentation>{\usetheme[secheader]{Boadilla}}
+%%\setbeamertemplate{theorems}[numbered]
+%%\newtheorem{thm}{Theorem}
+%%\newtheorem{proposition}[thm]{Proposition}
+%%\theoremstyle{example}
+%%\newtheorem{exam}[thm]{Example}
+%%\newtheorem{remark}[thm]{Remark}
+%%\newtheorem{question}[thm]{Question}
+%%\newtheorem{prob}[thm]{Problem}
+\usepackage{mathtools}
+\newcommand{\myabs}[1]{\left|#1\right|}
+\newcommand{\mynorm}[1]{\left\|#1\right\|}
+\newcommand{\mfrac}[2]{^{#1}/_{#2}}
+
+
+\title{Simulation of COVID-19 epidemics}
+\subtitle{using \texttt{hhh4} model and \texttt{SEIR} model}
+\author{Alex Leontiev}
+\institute{Datawise Inc.}
+
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+\section{Intro}
+\begin{frame}{Goal}
+	In this slides I would like to present two ways to model the spread of COVID-19 virus.
+
+	The models were selected based on the following criteria:
+	\begin{enumerate}
+		\item \textit{spatialness}, that is, model has to account for spread both in space and in time;
+		\item model has to {\it use the Trip Distribution data} (i.e. origin-destination matrix) 
+			as one of its inputs,
+			so we can show off our GPS data;
+		\item model has to be \textit{easy to implement}, preferably with R or Python reference source
+			code available, or maybe with API available as a part of some software package;
+	\end{enumerate}
+\end{frame}
+\section{Results}
+\begin{frame}{Results}
+\begin{block}{block}
+    block
+    \end{block}
+    \begin{alertblock}{alert block}
+    alert block
+    \end{alertblock}
+    \begin{exampleblock}{example block}
+    example block
+    \end{exampleblock}
+\end{frame}
+\end{document}
