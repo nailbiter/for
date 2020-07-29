@@ -21,30 +21,31 @@ logger = logging.getLogger(__name__)
 beer_amounts = {k:0.0 for k in BEERLIST}
 
 
+def _pad(s):
+    _s = s.ljust(50," ")
+    print(f"len: {len(_s)}")
+    return f"`{_s}`"
 def get_reply_markup():
     beernames = []
     #maxlen = 0
     total = 0.0
     total_vol = 0.0
     for b in BEERLIST:
-#        nn = f"{b}: {beer_amounts[b]} л. {beer_amounts[b]*BEERLIST[b]} грн."
-#        maxlen = max(maxlen,len(nn))
-#        beernames.append(nn)
         total += beer_amounts[b]*BEERLIST[b]
         total_vol += beer_amounts[b]
-    keyboard = [*[
-            [InlineKeyboardButton(name, callback_data=f"none"),
-                *[InlineKeyboardButton(f"{k}0.5",callback_data=json.dumps([k,name])) for k in "+-"],
-                InlineKeyboardButton(f"{beer_amounts[name]} л. {beer_amounts[name]*BEERLIST[name]} грн.",callback_data="none"),
-                ] 
+    res = [*[
+            {"text":_pad(f"Заказать {beer_amounts[name]} л. {name} ({beer_amounts[name]*BEERLIST[name]} грн.)"),"parse_mode":"MarkdownV2",
+                "reply_markup": InlineKeyboardMarkup([[InlineKeyboardButton(f"{k}0.5",callback_data=json.dumps([k,name])) for k in "+-"]])
+                }
             for i,name
             in enumerate(BEERLIST)
-            ],[InlineKeyboardButton(f"Заказать {total_vol} л. {total} грн.",callback_data="done")]]
+            ],{"text":_pad(f"Заказать {total_vol} л. ({total} грн.)"),"parse_mode":"MarkdownV2"}]
 
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    return reply_markup,total
+    return res
 def start(update, context):
-    update.message.reply_text('Please choose:', reply_markup=get_reply_markup()[0])
+    msgs = get_reply_markup()
+    for msg in msgs:
+        update.message.reply_text(**msg)
 
 
 def button(update, context):
