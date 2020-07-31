@@ -5,89 +5,24 @@ import json
 import requests
 import logging
 from jinja2 import Template
-from collections import namedtuple
+from _backlog import CamelCaseToLower, Stringer
+from _backlog_types import Issue, IssueType, User, Priority, status, category, nulabAccount
 
 #global const's
 ROOT = "https://datawise.backlog.com"
+#global var's
+stringer = Stringer()
 #procedures
-class CamelCaseToLower(object):
-    def __init__(self):
-        self.cache = {}
-    def __call__(self,s):
-        res = s.lower()
-        if res in self.cache and self.cache[res]!=s:
-            logging.error("collision")
-        self.cache[res] = s
-        return res
-    def reverse(self,s):
-        return self.cache[s]
-camel_case_to_lower = CamelCaseToLower()    
-class Project(namedtuple("Project","id projectKey name chartEnabled subtaskingEnabled projectLeaderCanEditProjectLeader useWikiTreeView textFormattingRule archived displayOrder useDevAttributes")):
-    @classmethod
-    def from_dict(cls,d):
-        return cls(**d)
-    def __str__(self):
-        return f"Project({json.dumps(self._asdict(),indent=2,ensure_ascii=False)});"
-#FIXME: capitalize class names
-class Issue(namedtuple("Issue","actualHours assignee attachments category created createdUser customFields description dueDate estimatedHours id issueKey issueType keyId milestone parentIssueId priority projectId resolution sharedFiles stars startDate status summary updated updatedUser versions")):
-    _LOGGER = logging.getLogger("Issue")
-    @classmethod
-    def from_dict(cls,d):
-        Issue._LOGGER.debug(d)
-        _d = {**d,
-                "issueType":IssueType.from_dict(d["issueType"]),
-                "assignee":User.from_dict(d["assignee"]),
-                "category":[category.from_dict(c) for c in d["category"]],
-                "createdUser":User.from_dict(d["createdUser"]),
-                "updatedUser":User.from_dict(d["updatedUser"]),
-                "priority":Priority.from_dict(d["priority"]),
-                "status":status.from_dict(d["status"]),
-                "updatedUser":User.from_dict(d["updatedUser"]),
-                }
-        res = cls(**_d)
-        return res
-class IssueType(namedtuple("IssueType","id projectId name color displayOrder templateSummary templateDescription",defaults=["",""])):
-    _LOGGER = logging.getLogger("IssueType")
-    @classmethod
-    def from_dict(cls,d):
-        IssueType._LOGGER.debug(f"d: {d}")
-        return cls(**d)
-    def __str__(self):
-        return f"IssueType({json.dumps(self._asdict(),indent=2,ensure_ascii=False)});"
-class User(namedtuple("User","id userId name roleType lang mailAddress nulabAccount keyword",defaults=["",""])):
-    _LOGGER = logging.getLogger("User")
-    @classmethod
-    def from_dict(cls,d):
-        User._LOGGER.debug(f"d: {d}")
-        if d is None:
-            return None
-        _d = {**d,"nulabAccount":nulabAccount.from_dict(d["nulabAccount"])}
-        return cls(**_d)
-    def __str__(self):
-        return f"User({json.dumps(self._asdict(),indent=2,ensure_ascii=False)});"
-class nulabAccount(namedtuple("nulabAccount","nulabId name uniqueId")):
-    @classmethod
-    def from_dict(cls,d):
-        return cls(**d)
-class Priority(namedtuple("Priority","id name")):
-    @classmethod
-    def from_dict(cls,d):
-        return cls(**d)
-class status(namedtuple("status","id projectId name color displayOrder")):
-    @classmethod
-    def from_dict(cls,d):
-        return cls(**d)
-class category(namedtuple("category","id name displayOrder")):
-    @classmethod
-    def from_dict(cls,d):
-        return cls(**d)
+camel_case_to_lower = CamelCaseToLower()
 
 @click.group()
 @click.option("--apiKey","--apiKey","apiKey",envvar="BACKLOG_API_KEY")
 @click.option("--debug",is_flag=True)
+@click.option("--oformat",type=click.Choice(Stringer.MODES),default=Stringer.MODES[0])
 @click.pass_context
-def cli(ctx,debug,**kwargs):
+def cli(ctx,debug,oformat,**kwargs):
     ctx.ensure_object(dict)
+    stringer.set_format(oformat)
     if debug:
         logging.basicConfig(level=logging.DEBUG)
     for k,v in kwargs.items():
@@ -102,9 +37,22 @@ def get_projects(ctx):
 
 @cli.command()
 @click.pass_context
-def get_issues(ctx):
-    res = [Issue.from_dict(p) for p in json.loads(requests.get(f"{ROOT}/api/v2/issues",params={**ctx.obj}).text)]
-    print(json.dumps([p._asdict() for p in res],indent=2))
+@click.option(f"--{camel_case_to_lower('assigneeId')}",type=int)
+@click.option(f"--{camel_case_to_lower('count')}",type=int,default=20)
+def get_issues(ctx,assigneeid=None,**kwargs):
+    logger = logging.getLogger("get_issues")
+    logger.debug(f"kwargs: {kwargs}")
+    _kwargs = {camel_case_to_lower.reverse(k):v for k,v in kwargs.items()}
+    assert _kwargs["count"]<=100
+    text = requests.get(f"{ROOT}/api/v2/issues",params={**ctx.obj,**_kwargs}).text
+    logger.debug(f"text: {text}")
+    issues = [Issue.from_dict(p) for p in json.loads(text)]
+    logger.debug(f"we got {len(issues)} issues")
+    #FIXME: filter assigneedId on server side -- I do not know how to do this now, because I do not understand https://developer.nulab.com/docs/backlog/api/2/get-issue-list/#get-issue-list
+    if assigneeid is not None:
+        issues = [issue for issue in  issues if issue.assignee is not None and issue.assignee.userId==assigneeid]
+    logger.debug(f"{len(issues)} issues after filtering with assigneedId")
+    print(stringer.stringify_list(issues))
 
 @cli.command()
 @click.pass_context
@@ -156,7 +104,3 @@ def add_issue(ctx,**kwargs):
     logging.info(f"_kwargs: {_kwargs}")
     res = json.loads(requests.post(f"{ROOT}/api/v2/issues",params={**ctx.obj,**_kwargs}).text)
     print(json.dumps(res,indent=2))
-
-
-#TODO: create_issue    
-#- cmd: curl -X POST "https://datawise.backlog.com/api/v2/issues?summary=test_summary&apiKey=$BACKLOG_API_SECRET&projectId=74263"

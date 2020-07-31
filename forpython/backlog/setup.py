@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='backlog',
     version='0.1',
-    py_modules=['backlog'],
+    py_modules=['backlog',"_backlog","_backlog_types"],
     install_requires=[
         'Click',
     ],
