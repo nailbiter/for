@@ -31,7 +31,7 @@ class Issue(namedtuple("Issue","actualHours assignee attachments category create
         return f"IssueType({json.dumps(self._asdict(),indent=2,ensure_ascii=False)});"
     def to_json_dict(self):
         _d = self._asdict()
-        for fn in "assignee","createdUser","updatedUser":
+        for fn in "assignee","createdUser","updatedUser","status":
             if _d[fn] is not None:
                 _d[fn] = _d[fn].to_json_dict()
         return _d
@@ -74,6 +74,9 @@ class status(namedtuple("status","id projectId name color displayOrder")):
     @classmethod
     def from_dict(cls,d):
         return cls(**d)
+    def to_json_dict(self):
+        _d = self._asdict()
+        return _d
 class category(namedtuple("category","id name displayOrder")):
     @classmethod
     def from_dict(cls,d):

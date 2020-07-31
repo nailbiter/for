@@ -39,19 +39,19 @@ def get_projects(ctx):
 @click.pass_context
 @click.option(f"--{camel_case_to_lower('assigneeId')}",type=int)
 @click.option(f"--{camel_case_to_lower('count')}",type=int,default=20)
-def get_issues(ctx,assigneeid=None,**kwargs):
+def get_issues(ctx,**kwargs):
     logger = logging.getLogger("get_issues")
     logger.debug(f"kwargs: {kwargs}")
     _kwargs = {camel_case_to_lower.reverse(k):v for k,v in kwargs.items()}
+    for k in ["assigneeId"]:
+        _kwargs[f"{k}[]"] = _kwargs[k]
+        del _kwargs[k]
     assert _kwargs["count"]<=100
     text = requests.get(f"{ROOT}/api/v2/issues",params={**ctx.obj,**_kwargs}).text
     logger.debug(f"text: {text}")
     issues = [Issue.from_dict(p) for p in json.loads(text)]
     logger.debug(f"we got {len(issues)} issues")
-    #FIXME: filter assigneedId on server side -- I do not know how to do this now, because I do not understand https://developer.nulab.com/docs/backlog/api/2/get-issue-list/#get-issue-list
-    if assigneeid is not None:
-        issues = [issue for issue in  issues if issue.assignee is not None and issue.assignee.userId==assigneeid]
-    logger.debug(f"{len(issues)} issues after filtering with assigneedId")
+    logger.debug(f"{len(issues)} issues after filtering with assigneeId")
     print(stringer.stringify_list(issues))
 
 @cli.command()
