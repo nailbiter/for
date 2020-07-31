@@ -6,7 +6,7 @@ import requests
 import logging
 from jinja2 import Template
 from _backlog import CamelCaseToLower, Stringer
-from _backlog_types import Issue, IssueType, User, Priority, status, category, nulabAccount
+from _backlog_types import Issue, IssueType, User, Priority, Status, category, nulabAccount
 
 #global const's
 ROOT = "https://datawise.backlog.com"
@@ -37,16 +37,26 @@ def get_projects(ctx):
 
 @cli.command()
 @click.pass_context
+def get_statuses(ctx):
+    projects = [Status.from_dict(p) for p in json.loads(requests.get(f"{ROOT}/api/v2/statuses",params={**ctx.obj}).text)]
+    print(stringer.stringify_list(projects))
+
+@cli.command()
+@click.pass_context
 @click.option(f"--{camel_case_to_lower('assigneeId')}",type=int)
-@click.option(f"--{camel_case_to_lower('count')}",type=int,default=20)
+@click.option(f"--{camel_case_to_lower('count')}",type=int)
+@click.option(f"--{camel_case_to_lower('statusId')}",type=int)
+@click.option(f"--{camel_case_to_lower('sort')}",type=click.Choice(["created","createdUser","updated","updatedUser","assignee","startDate","dueDate","estimatedHours","actualHours","childIssue"]))
 def get_issues(ctx,**kwargs):
     logger = logging.getLogger("get_issues")
     logger.debug(f"kwargs: {kwargs}")
     _kwargs = {camel_case_to_lower.reverse(k):v for k,v in kwargs.items()}
-    for k in ["assigneeId"]:
-        _kwargs[f"{k}[]"] = _kwargs[k]
-        del _kwargs[k]
-    assert _kwargs["count"]<=100
+    for k in ["assigneeId","statusId"]:
+        if k in _kwargs:
+            _kwargs[f"{k}[]"] = _kwargs[k]
+            del _kwargs[k]
+    if "count" in _kwargs and _kwargs["count"] is not None:
+        assert _kwargs["count"]<=100
     text = requests.get(f"{ROOT}/api/v2/issues",params={**ctx.obj,**_kwargs}).text
     logger.debug(f"text: {text}")
     issues = [Issue.from_dict(p) for p in json.loads(text)]

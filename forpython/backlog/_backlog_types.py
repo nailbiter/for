@@ -21,14 +21,17 @@ class Issue(namedtuple("Issue","actualHours assignee attachments category create
                 "createdUser":User.from_dict(d["createdUser"]),
                 "updatedUser":User.from_dict(d["updatedUser"]),
                 "priority":Priority.from_dict(d["priority"]),
-                "status":status.from_dict(d["status"]),
+                "status":Status.from_dict(d["status"]),
                 "updatedUser":User.from_dict(d["updatedUser"]),
                 }
         res = cls(**_d)
         return res
     def __str__(self):
         _d = self._asdict()
-        return f"IssueType({json.dumps(self._asdict(),indent=2,ensure_ascii=False)});"
+        for fn in "issueType","assignee","createdUser","updatedUser","status":
+            _d[fn] = str(_d[fn])
+        _s = "\n".join([f"  {k}: {v}" for k,v in _d.items()])
+        return f"IssueType({_s});"
     def to_json_dict(self):
         _d = self._asdict()
         for fn in "assignee","createdUser","updatedUser","status":
@@ -70,7 +73,7 @@ class Priority(namedtuple("Priority","id name")):
     @classmethod
     def from_dict(cls,d):
         return cls(**d)
-class status(namedtuple("status","id projectId name color displayOrder")):
+class Status(namedtuple("Status","id name projectId color displayOrder",defaults=["","",""])):
     @classmethod
     def from_dict(cls,d):
         return cls(**d)
