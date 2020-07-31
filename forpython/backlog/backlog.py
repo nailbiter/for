@@ -47,6 +47,7 @@ def get_statuses(ctx):
 @click.option(f"--{camel_case_to_lower('count')}",type=int)
 @click.option(f"--{camel_case_to_lower('statusId')}",type=int)
 @click.option(f"--{camel_case_to_lower('sort')}",type=click.Choice(["created","createdUser","updated","updatedUser","assignee","startDate","dueDate","estimatedHours","actualHours","childIssue"]))
+@click.option(f"--{camel_case_to_lower('order')}",type=click.Choice(["desc","asc"]))
 def get_issues(ctx,**kwargs):
     logger = logging.getLogger("get_issues")
     logger.debug(f"kwargs: {kwargs}")
