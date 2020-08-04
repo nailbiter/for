@@ -9,11 +9,15 @@ from itertools import product
 
 #global const's
 PREFIXES= {"task":"_time_table:task:", "anken":"_time_table:anken:"}
+KEY_VALUES = {
+        "anken":['データ収集/天気', 'アルゴリズム改善', 'その他', '推定アルゴリズム/性別推定', 'Datawise Retail', 'covid19'],
+        "task":['その他', '分析・検討・調査', 'レビュー', '資料作成', '会議', 'コーディング']
+        }
 #procedures
 @click.command()
 @click.argument("task_id",type=str)
-@click.option("--anken",type=click.Choice(['データ収集/天気', 'アルゴリズム改善', 'その他', '推定アルゴリズム/性別推定', 'Datawise Retail', 'covid19']))
-@click.option("--task",type=click.Choice(['その他', '分析・検討・調査', 'レビュー', '資料作成', '会議', 'コーディング']))
+@click.option("--anken",type=click.IntRange(0,len(KEY_VALUES['anken'])-1),help="; ".join([f"{i}. {n}" for i,n in enumerate(KEY_VALUES["anken"])]))
+@click.option("--task",type=click.IntRange(0,len(KEY_VALUES['task'])-1),help="; ".join([f"{i}. {n}" for i,n in enumerate(KEY_VALUES["task"])]))
 @click.option("--test/--no-test",default=False)
 def kostil(task_id, test, **kwargs):
     print(f"hi: {task_id}")
@@ -35,7 +39,7 @@ def kostil(task_id, test, **kwargs):
                 repl[k] = t[len(v):]
     for k,v in kwargs.items():
         if v is not None:
-            repl[k] = v
+            repl[k] = KEY_VALUES[k][v]
     
     repl = [PREFIXES[k]+v for k,v in repl.items()]
     print(f"repl: {repl}")

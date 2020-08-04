@@ -24,7 +24,7 @@ def send_notification(message, media, delay_min, silent, script):
     start_date = datetime.now()
     print(start_date.strftime("%Y-%m-%dT%H:%M"))
     if script is not None:
-        print(f"executing {script}...")
+        print(f"> {script}")
         res = system(script)
         print(f"res: {res}")
     else:
