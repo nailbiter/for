@@ -23,10 +23,10 @@ use warnings;
 use utf8;
 use DateTime;
 
-my $dt = DateTime->now;
+my $dt = DateTime->now(time_zone => 'Asia/Tokyo');
 while(<>) {
 	chomp;
-	if(/AssistantBot/ || /^\s*$/) {
+	if(/AssistantBot/ || /^\s*$/ || /^https/) {
 		next;
 	}
 	print(sprintf("%s: %s\n",$dt->ymd,$_));
