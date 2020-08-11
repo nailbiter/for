@@ -4,7 +4,7 @@ from datetime import datetime
 from time import sleep
 from pymongo import MongoClient
 from os import system, environ
-from tqdm import tqdm
+from tqdm import tqdm as TQDM
 from os import system
 from jinja2 import Template
 
@@ -14,9 +14,10 @@ from jinja2 import Template
 @click.argument("message")
 @click.option("--media", "-m", multiple=True, default=["slack"], type=click.Choice(["slack", "email", "popup"], case_sensitive=False))
 @click.option("--delay_min", "-d", type=int, default=0)
+@click.option("--tqdm/--no-tqdm", default=True)
 @click.option("--script","-s")
-@click.option("--silent/--no-silent", default=False)
-def send_notification(message, media, delay_min, silent, script):
+@click.option("--silent", is_flag=True, default=False)
+def send_notification(message, media, delay_min, tqdm, script, silent):
     print(f"message: {message}")
     print(f"media: {media}")
     print(f"delay: {delay_min}")
@@ -30,10 +31,10 @@ def send_notification(message, media, delay_min, silent, script):
     else:
         res = 0
 
-    if silent:
+    if not tqdm:
         sleep(delay_min*60)
     else:
-        for i in tqdm(range(delay_min*60, 0, -1)):
+        for i in TQDM(range(delay_min*60, 0, -1)):
             click.clear()
             sleep(1)
             d = datetime.utcfromtimestamp(i,)
@@ -51,20 +52,21 @@ def send_notification(message, media, delay_min, silent, script):
     env = dict(res=res,timedelta=str(end_date-start_date))
     _message = Template(message).render(env)
 
-    if "slack" in media:
-        if "SEND_NOTIFICATION_SLACK_WEBHOOK" in environ:
-            slack_webhook = environ["SEND_NOTIFICATION_SLACK_WEBHOOK"]
-        else:
-            client = MongoClient()
-            slack_webhook = client.admin.passwords.find_one(
-                {"key": "DTWS_SLACK_WEBHOOK"})["value"]
-        # FIXME do not use system
-        system(
-            f"curl -X POST -H 'Content-type: application/json' --data '{{\"text\":\"{_message}\"}}' \"{slack_webhook}\"")
-    if "email" in media:
-        raise NotImplementedError
-    if "popup" in media:
-        system(f"""osascript -e 'display notification "{_message}" with title "popup"'""")
+    if not silent:
+        if "slack" in media:
+            if "SEND_NOTIFICATION_SLACK_WEBHOOK" in environ:
+                slack_webhook = environ["SEND_NOTIFICATION_SLACK_WEBHOOK"]
+            else:
+                client = MongoClient()
+                slack_webhook = client.admin.passwords.find_one(
+                    {"key": "DTWS_SLACK_WEBHOOK"})["value"]
+            # FIXME do not use system
+            system(
+                f"curl -X POST -H 'Content-type: application/json' --data '{{\"text\":\"{_message}\"}}' \"{slack_webhook}\"")
+        if "email" in media:
+            raise NotImplementedError
+        if "popup" in media:
+            system(f"""osascript -e 'display notification "{_message}" with title "popup"'""")
 
 
 
