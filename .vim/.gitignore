@@ -16,3 +16,4 @@ doc/tags
 file*.*
 testfile*
 doc/tags
+.netrwbook

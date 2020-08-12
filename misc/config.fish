@@ -52,7 +52,7 @@ function md2html
 end
 
 function md2html-tmp
-   pandoc -s --css=$HOME/for/misc/formarkdown.css  -V lang=en (basename $argv .md).md  -o /tmp/(basename $argv .md).html 
+   pandoc -s --css=$HOME/for/misc/formarkdown.css  -V lang=en $argv -o /tmp/(basename $argv .md).html 
    open /tmp/(basename $argv .md).html 
 end
 
