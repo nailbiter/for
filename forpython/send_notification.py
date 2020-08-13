@@ -25,6 +25,8 @@ def send_notification(message, media, delay_min, tqdm, script, silent):
     start_date = datetime.now()
     print(start_date.strftime("%Y-%m-%dT%H:%M"))
     if script is not None:
+        if tqdm:
+            script = f"{script} | tqdm"
         print(f"> {script}")
         res = system(script)
         print(f"res: {res}")
