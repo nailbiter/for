@@ -1,40 +1,51 @@
 #!/usr/bin/env python3
+import click
+import math
+import json
 
-function _toRadians(angleInDegrees) {
-  return (angleInDegrees * Math.PI) / 180;
-}
-function _toDegrees(angleInRadians) {
-  return (angleInRadians * 180) / Math.PI;
-}
-function _offset(c1, distance, bearing) {
-  var lat1 = _toRadians(c1[1]);
-  var lon1 = _toRadians(c1[0]);
-  var dByR = distance / 6378137; // distance divided by 6378137 (radius of the earth) wgs84
-  var lat = Math.asin(
-    Math.sin(lat1) * Math.cos(dByR) + Math.cos(lat1) * Math.sin(dByR) * Math.cos(bearing)
-  );
-  var lon =
-    lon1 +
-    Math.atan2(
-      Math.sin(bearing) * Math.sin(dByR) * Math.cos(lat1),
-      Math.cos(dByR) - Math.sin(lat1) * Math.sin(lat)
-    );
-  return [_toDegrees(lon), _toDegrees(lat)];
-}
-/**
- * @param center [lon,lat] in degrees
- * @param radius radius in meters
- * @param n number of edges
- * @return geo-json
- */
-function circleToPolygon(center, radius, n) {
-  var coordinates = [];
-  for (var i = 0; i < n; ++i) {
-    coordinates.push(_offset(center, radius, (2 * Math.PI * -i) / n));
-  }
-  coordinates.push(coordinates[0]);
-  return {
-    type: "Polygon",
-    coordinates: [coordinates]
-  };
-}
+
+# procedures
+def _toRadians(angleInDegrees):
+  return (angleInDegrees * math.pi) / 180
+
+
+def _toDegrees(angleInRadians):
+  return (angleInRadians * 180) / math.pi
+
+
+def _offset(c1, distance, bearing):
+  lat1 = _toRadians(c1[1])
+  lon1 = _toRadians(c1[0])
+  # distance divided by 6378137 (radius of the earth) wgs84
+  dByR = distance / 6378137
+  lat = math.asin(math.sin(lat1) * math.cos(dByR) +
+                  math.cos(lat1) * math.sin(dByR) * math.cos(bearing))
+
+  lon = lon1 + math.atan2(math.sin(bearing) * math.sin(dByR) *
+                          math.cos(lat1), math.cos(dByR) - math.sin(lat1) * math.sin(lat))
+  return [_toDegrees(lon), _toDegrees(lat)]
+
+@click.command()
+@click.argument("lat", type=float)
+@click.argument("lon", type=float)
+@click.argument("radius_meters", type=float)
+@click.option("-n","--number_of_vertices", type=int,default=1000)
+@click.option("--kepler",is_flag=True)
+def circle_to_polygon(lat, lon, radius_meters,number_of_vertices,kepler=False):
+    coordinates = []
+    n = number_of_vertices
+    for i in range(n):
+        coordinates.append(_offset([lon,lat], radius_meters, (2 * math.pi * -i) / n));
+    coordinates.append(coordinates[0])
+    res = {
+      "type": "Polygon",
+      "coordinates": [coordinates]
+    }
+    if kepler:
+        res = {"type":"Feature","geometry":res}
+    print(json.dumps(res))
+
+
+# main
+if __name__ == "__main__":
+    circle_to_polygon()
