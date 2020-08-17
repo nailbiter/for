@@ -3,3 +3,5 @@ __pycache__/
 forml/.project
 credentials.json
 token.pickle
+.completer.log.txt
+.stopwatch.json
