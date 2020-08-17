@@ -86,8 +86,8 @@ def resume(name):
 @cli.command()
 @click.argument("name")
 def create(name):
-    assert name not in [sw.name for sw in Stopwatches]
-    Stopwatches.append(Stopwatch(name=name).to_json_dict())
+    assert name not in [sw.name for sw in Stopwatches.values()]
+    Stopwatches[name] = Stopwatch(name=name)
 
 @cli.command()
 def list():
@@ -113,6 +113,7 @@ def reset(name):
 
 # main
 fn = f"{split(__file__)[0]}/{_STORE_FN}"
+logging.info(f"fn: {fn}")
 if isfile(fn):
     with open(fn) as f:
         store = json.load(f)
