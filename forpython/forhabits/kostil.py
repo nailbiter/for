@@ -34,6 +34,7 @@ def kostil(date,debug=False):
     coll = local_client.admin.passwords
     doc = coll.find_one({"key":"MONGOMLAB"})
     mongopass = doc["value"]
+    logging.info(f"mongopass: {mongopass}")
     client = MongoClient(f"mongodb://nailbiter:{mongopass}@ds149672.mlab.com:49672/logistics?retryWrites=false")
     task_data_coll = client.logistics["alex.habits"]
 

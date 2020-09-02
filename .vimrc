@@ -8,6 +8,7 @@ filetype on
 :au BufNewFile Makefile 0r ~/.vim/skeletons/skeleton.make
 :au BufNewFile Main.java 0r ~/.vim/skeletons/skeleton.Main.java
 
+au BufNewFile,BufRead *.fish set filetype=sh
 au BufNewFile,BufRead *.wl set filetype=mma
 au BufNewFile,BufRead *.gplot set filetype=gnuplot
 au BufNewFile,BufRead *.gv set filetype=dot
