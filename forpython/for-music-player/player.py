@@ -13,6 +13,7 @@ PID_FN = ".player.pidfile"
 FILTER = {"played": False}
 MAX_ITERATION_NUM = -1
 WAIT_SEC = 5
+PLAY_AUDIO_COMMAND = "mplayer"
 # procedure
 
 
@@ -45,7 +46,7 @@ def player():
             coll.update_one({"_id": obj["_id"]}, {
                             "$set": {"start": datetime.now()}})
             myexec(f"wget \"{obj['path']}\" -O \"{fn}\"")
-            myexec(f"ffplay -nodisp -autoexit \"{fn}\"")
+            myexec(f"{PLAY_AUDIO_COMMAND} \"{fn}\"")
             close(f)
             coll.update_one({"_id": obj["_id"]}, {
                             "$set": {"played": True, "end": datetime.now()}})
