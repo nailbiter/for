@@ -1,4 +1,4 @@
-#!/usr/bin/env perl 
+#!/usr/bin/env perl -w
 #===============================================================================
 #
 #         FILE: makebookmarks.pl
@@ -93,7 +93,7 @@ sub parseLine{
 		}
 		return @startends;
 	};
-	if($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*(\d+)-(\d+)$/){
+	if($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*зач\.,\s*([IVX]+),\s*(\d+)-(\d+)$/){
 		%res = (engNameShort=>$1,zachalo=>($2+0),
 			chapters=>[
 				{
@@ -101,7 +101,7 @@ sub parseLine{
 				},
 			]);
 		$res{engNameShort} =~ s/ //g;
-	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*([-\s0-9,]+)$/) {
+	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*зач\.,\s*([IVX]+),\s*([-\s0-9,]+)$/) {
 		%res = (engNameShort=>$1,zachalo=>($2+0));
 		$res{chapters} = [];
 		my @startends = $parseChapters->($4);
@@ -113,7 +113,7 @@ sub parseLine{
 					chapterEnd=>$_->{end}+0,
 				});
 		}
-	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.\s*,\s*([-\s0-9XVI,;]+)$/) {
+	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*зач\.\s*,\s*([-\s0-9XVI,;]+)$/) {
 		#parseLine with Lk., 54 zach., X, 38-42; XI, 27-28
 #   		Evr., 330 zach., XI, 33 - XII, 2
 		%res = (engNameShort=>$1,zachalo=>($2+0));
@@ -367,7 +367,7 @@ sub getActsEvangelieLines{
 	my $outfile = sprintf("%s/bu.html",$Environment{TMPDIR});
 	MyExec(sprintf("links -dump %s > %s",$url,$outfile),$Environment{TESTFLAG});
 #	my $sPage = path($outfile)->slurp_utf8;
-	my $sPage = read_file($outfile);
+	my $sPage = path($outfile)->slurp_utf8;
 
 	printf(STDERR "%s\n\n-----------------------------\n---------------------------\n",$sPage);
 
@@ -378,7 +378,7 @@ sub getActsEvangelieLines{
 	printf(STDERR "%s\n\n-----------------------------\n---------------------------\n",$sPage);
 	for($sPage){
 		s/\n//g;
-		if(/Lit\. - (.*?)\.[^,](.*?)\.[^,]/){
+		if(/Лит\. – (.*?)\.[^,](.*?)\.[^,]/){
 			$acts = $1;
 			$evangelie = $2;
 		}

@@ -31,6 +31,7 @@ def list():
     print(df.loc[:, ["path"]])
 
 # FIXME: "move up and down" command
+# FIXME: add random command
 
 
 # main
