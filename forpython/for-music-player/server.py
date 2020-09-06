@@ -7,6 +7,7 @@ import logging
 from tempfile import mkstemp
 from bs4 import BeautifulSoup
 import requests
+from urllib.parse import unquote
 
 # procedures
 def _get_coll():
@@ -46,7 +47,7 @@ def add(path, recursive=False, dry_run=False):
 def list():
     df = pd.DataFrame(_get_coll().find(
         filter={"played": False}, sort=[("date", 1)]))
-    # FIXME: format path from query style
+    df["path"] = [unquote(p) for p in df["path"]]
     print(df.loc[:, ["path"]])
 
 # FIXME: "move up and down" command
