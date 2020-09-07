@@ -10,6 +10,8 @@ import requests
 from urllib.parse import unquote
 
 # procedures
+
+
 def _get_coll():
     return MongoClient()["for-music-player"].queue
 
@@ -20,6 +22,11 @@ def _insert_in_queue(obj, dry_run):
     logger.info(f"insert {obj} in {queue}")
     if not dry_run:
         queue.insert_one(obj)
+
+
+def _get_queue():
+    return _get_coll().find(
+        filter={"played": False}, sort=[("date", 1)])
 
 
 @click.group()
@@ -45,10 +52,16 @@ def add(path, recursive=False, dry_run=False):
 
 @cli.command()
 def list():
-    df = pd.DataFrame(_get_coll().find(
-        filter={"played": False}, sort=[("date", 1)]))
+    df = pd.DataFrame(_get_queue())
     df["path"] = [unquote(p) for p in df["path"]]
     print(df.loc[:, ["path"]])
+
+@cli.command()
+@click.argument("index",type=int)
+def rm(index):
+    assert index>0
+    o = _get_queue()[index]
+    _get_coll().delete_one({"_id":o["_id"]})
 
 # FIXME: "move up and down" command
 # FIXME: add random command
