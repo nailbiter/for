@@ -51,6 +51,20 @@ def json_serial(obj):
         return f"ObjectId({obj})"
     raise TypeError(f"Type {type(obj)} not serializable")
 
+class _TagsRetriever():
+    def __init__(self,prefix):
+        self._prefix = prefix
+        self._logger = logging.getLogger("_TagsRetriever")
+    def __call__(self,tags):
+        #self._logger.info(list(tags))
+        if type(tags) is not list:
+            return None
+        filtered = [tag[len(self._prefix):] for tag in tags if tag.startswith(self._prefix)]
+        if filtered:
+            return filtered[0]
+        else:
+            return None
+
 
 @click.command()
 @click.option("-m", "--mode", type=click.Choice(["daily", "weekly"]), default="daily")
@@ -87,9 +101,8 @@ def printEngageTable(mode, date):
     _taskData = pd.DataFrame(
         client.logistics["alex.taskData"].find()).set_index("task_id")
     _df = _df.set_index("id").join(_taskData, how="left")
-#    _logger.info(f"_df: {_df}")
     _logger.info(
-        f"_df: {json.dumps(_df.to_dict(orient='records'),indent=2,default=json_serial,ensure_ascii=False)}")
+        f"_df: {json.dumps(_df.reset_index().to_dict(orient='records'),indent=2,default=json_serial,ensure_ascii=False)}")
 
     if mode == "daily":
         res = pd.DataFrame({
@@ -97,11 +110,11 @@ def printEngageTable(mode, date):
             "名前": "Leon",
             "開始": _df["datetime"].apply(lambda d: d.strftime("%H:%M")),
             "終了": _df["next_datetime"].apply(lambda d: d.strftime("%H:%M")),
-            "案件": _df["tags"].apply(lambda tags:[tag[len("_time_table:anken:"):] for tag in tags if tag.startswith("_time_table:anken:")][0]),
-            "タスク": _df["tags"].apply(lambda tags:[tag[len("_time_table:task:"):] for tag in tags if tag.startswith("_time_table:task:")][0]),
+            "案件": _df["tags"].apply(_TagsRetriever("_time_table:anken:")),
+            "タスク": _df["tags"].apply(_TagsRetriever("_time_table:task:")),
             "内容": [f"=HYPERLINK(\"{shortUrl}\",\"{name}\")" for name,shortUrl in zip(_df["name"],_df["shortUrl"])]
         })
-        print(res.to_csv(index=False,sep="\t",header=False))
+        print(res.sort_values(by="開始").to_csv(index=False,sep="\t",header=False))
     elif mode == "weekly":
         print(_df.groupby("name").sum().sort_values(
             by="duration", ascending=False))
