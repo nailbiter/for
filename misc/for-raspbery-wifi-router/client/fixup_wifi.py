@@ -13,7 +13,7 @@ from datetime import datetime
 
 # > networksetup -setairportnetwork en0 WIFI_SSID_I_WANT_TO_JOIN WIFI_PASSWORD
 
-SLEEP_SECONDS = 1
+SLEEP_SECONDS = 0
 
 LOOP_WAIT_SECONDS = 1
 
