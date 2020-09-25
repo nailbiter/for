@@ -87,6 +87,7 @@ def printEngageTable(mode, date):
     _df = _df.drop(columns=["idList", "labels"])
     _df["datetime"] = _df["date"]
     _df["date"] = _df["date"].apply(lambda d: d.date())
+    _df = _df.sort_values(by="datetime")
 
     _list = []
     for date, chunk in _df.groupby("date"):
