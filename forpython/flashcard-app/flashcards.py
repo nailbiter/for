@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+insert word: ./flashcards.py --tags japanese --tags reading add-item "運用" --back "practical use"
+"""
 import click
 from pymongo import MongoClient
 import pandas as pd
@@ -14,12 +17,15 @@ import logging
 def flashcards(ctx, tags, debug=False):
     if debug:
         logging.basicConfig(level=logging.INFO)
-    cards = list(MongoClient().alex_flashcards.cards.find())
+    coll = MongoClient().alex_flashcards.cards
+    cards = list(coll.find())
     for tag in tags:
         cards = [card for card in cards if len(
             [_tag for _tag in card["tags"] if match(tag, _tag) is not None]) > 0]
     ctx.ensure_object(dict)
     ctx.obj["cards"] = cards
+    ctx.obj["tags"] = tags
+    ctx.obj["coll"] = coll
 
 
 @flashcards.command()
@@ -40,7 +46,7 @@ def test(ctx, deck_index, deck_size):
         deck = cards[deck_size*deck_index:deck_size*(deck_index+1)]
         deck = [{k: v for k, v in c.items() if k not in ["_id", "tags"]}
                 for c in deck]
-        print(pd.DataFrame(deck))
+        _logger.info(f"deck:\n{pd.DataFrame(deck)}")
         while True:
             random_card = choice(deck)
             is_test_front = choice([True, False])
@@ -48,5 +54,17 @@ def test(ctx, deck_index, deck_size):
 #                question
 
 
+@flashcards.command()
+@click.argument("front")
+@click.option("--back", multiple=True)
+@click.pass_context
+def add_item(ctx, **kwargs):
+    coll = ctx.obj["coll"]
+    obj = {"tags": ctx.obj["tags"], **kwargs}
+    print(f"inserting {obj}")
+    coll.insert_one(obj)
+
+
 if __name__ == "__main__":
     flashcards()
+
