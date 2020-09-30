@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from datetime import datetime, timedelta
 import json
 import re
-from pandas import DataFrame
+from pandas import DataFrame, concat
 import click
 import logging
 from croniter import croniter
@@ -44,7 +44,8 @@ def kostil(debug=False):
 @kostil.command()
 @click.argument("task")
 def done(task):
-    df = DataFrame([{"task": task, "uuid": uuid4(), "datetime":datetime.now()}])
+    df = DataFrame(
+        [{"task": task, "uuid": uuid4(), "datetime": datetime.now()}])
     print(df.to_csv(sep="\t", index=False, header=None))
 
 
@@ -61,6 +62,7 @@ def list(date, mongopass, debug=False, only_permanent_habits=False):
         f"mongodb://nailbiter:{mongopass}@ds149672.mlab.com:49672/logistics?retryWrites=false")
     task_data_coll = client.logistics["alex.habits"]
 
+    res = []
     for d in date:
         _debug = set()
         logger = logging.getLogger("kostil")
@@ -70,8 +72,10 @@ def list(date, mongopass, debug=False, only_permanent_habits=False):
         logger.info(f"\n{DataFrame(tasks)}")
         logger.info(f"d: {d.strftime('%Y-%m-%d')}")
         logger.debug(f"_debug: {_debug}")
-        for t in tasks:
-            print(f"{d.strftime('%Y-%m-%d')}: {t['name']}")
+        res.append(DataFrame([{"name": f"{d.strftime('%Y-%m-%d')}: {t['name']}",
+                               "creation date": d.strftime('%Y-%m-%d')} for t in tasks]))
+
+    print(concat(res).to_csv(sep="\t",index=None,header=None))
 
 
 # main
