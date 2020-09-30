@@ -7,6 +7,7 @@ from pandas import DataFrame
 import click
 import logging
 from croniter import croniter
+from uuid import uuid4
 
 
 # global const's
@@ -24,29 +25,35 @@ def task_predicate(task, date, **kwargs):
         return False
     it = croniter(task["cronline"], date-timedelta(days=1))
     _dt = it.get_next(datetime)
-    while _dt.date()<date.date():
+    while _dt.date() < date.date():
         _dt = it.get_next(datetime)
     _logger.info(f"{task['name']} => {_dt}")
     if kwargs["only_permanent_habits"]:
         if task["onFailed"] == "remove":
             return False
-    return _dt.date()==date.date()
-#    task_cronline = task["cronline"].split(" ")
-#    days = [s.lower() for s in task_cronline[4].split(",")]
-#    if "debug" in kwargs:
-#        kwargs["debug"].add(tuple(days))
-#    return weekday in days or "*" in days
+    return _dt.date() == date.date()
 
 
-@click.command()
-@click.option("-d", "--date", type=click.DateTime(formats=["%Y-%m-%d"]), multiple=True)
+@click.group()
 @click.option("--debug", is_flag=True)
-@click.option("-o","--only_permanent_habits", is_flag=True)
-@click.option("--mongopass", envvar="MONGO_PASS")
-def kostil(date, mongopass, debug=False, only_permanent_habits=False):
-    assert mongopass is not None
+def kostil(debug=False):
     if debug:
         logging.basicConfig(level=logging.DEBUG)
+
+
+@kostil.command()
+@click.argument("task")
+def done(task):
+    df = DataFrame([{"task": task, "uuid": uuid4(), "datetime":datetime.now()}])
+    print(df.to_csv(sep="\t", index=False, header=None))
+
+
+@kostil.command()
+@click.option("-d", "--date", type=click.DateTime(formats=["%Y-%m-%d"]), multiple=True)
+@click.option("-o", "--only_permanent_habits", is_flag=True)
+@click.option("--mongopass", envvar="MONGO_PASS")
+def list(date, mongopass, debug=False, only_permanent_habits=False):
+    assert mongopass is not None
     if len(date) == 0:
         date = (datetime.now(),)
     logging.info(f"mongopass: {mongopass}")
