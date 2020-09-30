@@ -44,6 +44,7 @@ def task_predicate(task, date, **kwargs):
 @click.option("-o","--only_permanent_habits", is_flag=True)
 @click.option("--mongopass", envvar="MONGO_PASS")
 def kostil(date, mongopass, debug=False, only_permanent_habits=False):
+    assert mongopass is not None
     if debug:
         logging.basicConfig(level=logging.DEBUG)
     if len(date) == 0:

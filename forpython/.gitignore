@@ -4,3 +4,4 @@ forml/.project
 credentials.json
 token.pickle
 .stopwatch.json
+.envrc
