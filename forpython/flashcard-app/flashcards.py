@@ -12,6 +12,19 @@ from _flashcards.question import get_question_types, get_question
 import json
 
 
+def _get_random_question(deck):
+    card = choice(deck)
+    is_front_to_back = choice([True, False])
+    back_index = choice(range(len(card["back"])))
+    question_type = choice(get_question_types())
+    return {
+        "deck": deck,
+        "card": card,
+        "back_index": back_index,
+        "question_type": question_type
+    }
+
+
 @click.group()
 @click.option("--tags", multiple=True, envvar="TAGS")
 @click.option("--debug", is_flag=True)
@@ -39,7 +52,7 @@ def show(ctx):
 @flashcards.command()
 @click.option("--deck_size", type=int, default=5, envvar="DECK_SIZE")
 @click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
-@click.option("--full/--no-full",default=False)
+@click.option("--full/--no-full", default=False)
 @click.pass_context
 def show_deck(ctx, deck_index, deck_size, full):
     _logger = logging.getLogger("show_deck")
@@ -59,11 +72,14 @@ def show_deck(ctx, deck_index, deck_size, full):
     results_df = pd.DataFrame(MongoClient().alex_flashcards.results.find())
     results_df = results_df.groupby("card").mean().reset_index()
 
-    deck_df = deck_df.join(pd.DataFrame({k:v for k,v in results_df.items() if k in ["card","score"]}).set_index("card"),how="left")
-    deck_df["score"] = deck_df["score"].apply(lambda x: 0.0 if pd.isna(x) else x)
+    deck_df = deck_df.join(pd.DataFrame({k: v for k, v in results_df.items() if k in [
+                           "card", "score"]}).set_index("card"), how="left")
+    deck_df["score"] = deck_df["score"].apply(
+        lambda x: 0.0 if pd.isna(x) else x)
 
     if not full:
-        deck_df = pd.DataFrame({k:v for k,v in deck_df.reset_index().items() if k in ["_id","score"]})
+        deck_df = pd.DataFrame(
+            {k: v for k, v in deck_df.reset_index().items() if k in ["_id", "score"]})
 
     print(deck_df)
 
@@ -86,12 +102,9 @@ def test(ctx, deck_index, deck_size):
     question_i = 0
     while True:
         question_i += 1
-        card = choice(deck)
-        is_front_to_back = choice([True, False])
-        back_index = choice(range(len(card["back"])))
-        question_type = choice(get_question_types())
+        _d = _get_random_question(deck)
         question = get_question(
-            question_type, card, deck, is_front_to_back, back_index)
+            _d["question_type"], **{k: v for k, v in _d.items() if k != "question_type"})
         print(f"question #{question_i}: \n{question.get_question_text()}")
         while True:
             res, msg = question.grade(input("answer> "))
