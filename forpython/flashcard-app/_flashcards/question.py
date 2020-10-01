@@ -38,13 +38,17 @@ class Question():
         """
         :return (grade,msg): where grade from 0.0 to 1.0 or None if was not accepted; msg is optional message
         """
-        pass
+        self._given_answer = answer
+        self._answer_time = datetime.now().isoformat()
+        return 0.0,None
 
     def to_json(self):
         assert self._score is not None
         res = {k: v for k, v in self._get_jinja_env().items(
         ) if k in ["is_front_to_back", "back_index", "score"]}
         res["card"] = str(self._card["_id"])
+        res["given_answer"] = self._given_answer
+        res["answer_time"] = self._answer_time
         res["TAG"] = self.__class__.TAG
         return json.dumps(res)
 
@@ -87,6 +91,7 @@ class _SelectionQuestion(Question):
         }
 
     def grade(self, answer):
+        super().grade(answer)
         try:
             ai = int(answer)
         except ValueError:
@@ -97,15 +102,16 @@ class _SelectionQuestion(Question):
             self._logger.info(f"answer: {ai}")
             self._logger.info(
                 f"correct_answer_index: {self._correct_answer_index}")
-            self._score = 1.0 if ai == self._correct_answer_index else 0.0
-            return self._score, None if ai == self._correct_answer_index else self._answers[self._correct_answer_index]
+            is_correct = ai == (self._correct_answer_index+1)
+            self._score = 1.0 if is_correct else 0.0
+            return self._score, None if is_correct else self._answers[self._correct_answer_index]
 
     def get_question_text(self):
         env = self._get_jinja_env()
         return Template("""
         select the correct answer for "{{question}}":
         {%for i in range(answers|length)-%}
-        {{i}}. {{answers[i]}}
+        {{i+1}}. {{answers[i]}}
         {%endfor-%}
         """).render(**env)
 

@@ -1,25 +1,66 @@
 #!/usr/bin/env python3
-"""
-insert word: ./flashcards.py --tags japanese --tags reading add-item "運用" --back "practical use"
-"""
+"""===============================================================================
+
+        FILE: flashcards.py
+
+       USAGE: ./flashcards.py test
+              insert word: ./flashcards.py --tags japanese --tags reading add-item "運用" --back "practical use"
+
+ DESCRIPTION: 
+
+     OPTIONS: ---
+REQUIREMENTS: ---
+        BUGS: ---
+       NOTES: ---
+      AUTHOR: Alex Leontiev (alozz1991@gmail.com)
+ORGANIZATION: 
+     VERSION: 0.0.1
+     CREATED: 2020-09-24 11:19 +0900
+    REVISION: ---
+        TODO:
+              1. type-in question type
+              2. 
+
+==============================================================================="""
 import click
 from pymongo import MongoClient
 import pandas as pd
-from random import choice
+from random import choice, choices
 from re import match
 import logging
 from _flashcards.question import get_question_types, get_question
 import json
 
 
+def _get_deck_with_score(deck):
+    deck_df = pd.DataFrame(deck)
+    deck_df["_id"] = deck_df["_id"].apply(str)
+    deck_df = deck_df.set_index("_id")
+
+    results_df = pd.DataFrame(MongoClient().alex_flashcards.results.find())
+    results_df = results_df.groupby("card").mean().reset_index()
+
+    deck_df = deck_df.join(pd.DataFrame({k: v for k, v in results_df.items() if k in [
+                           "card", "score"]}).set_index("card"), how="left")
+    deck_df["score"] = deck_df["score"].apply(
+        lambda x: 0.0 if pd.isna(x) else x)
+    return deck_df
+
+
 def _get_random_question(deck):
-    card = choice(deck)
+    _logger = logging.getLogger("_get_random_question")
+    deck_df = _get_deck_with_score(deck).reset_index()
+    records = deck_df.to_dict(orient="records")
+    card = choices(records, weights=[1.1-r["score"] for r in records],  k=1)[0]
+    _logger.info(f"card: {card}")
+    card = next(_card for _card in deck if str(_card["_id"]) == card["_id"])
     is_front_to_back = choice([True, False])
     back_index = choice(range(len(card["back"])))
     question_type = choice(get_question_types())
     return {
         "deck": deck,
         "card": card,
+        "is_front_to_back": is_front_to_back,
         "back_index": back_index,
         "question_type": question_type
     }
@@ -53,8 +94,9 @@ def show(ctx):
 @click.option("--deck_size", type=int, default=5, envvar="DECK_SIZE")
 @click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
 @click.option("--full/--no-full", default=False)
+@click.option("--sort/--no-sort", default=False)
 @click.pass_context
-def show_deck(ctx, deck_index, deck_size, full):
+def show_deck(ctx, deck_index, deck_size, full, sort):
     _logger = logging.getLogger("show_deck")
     cards = ctx.obj["cards"]
     _logger.info(f"{int(len(cards)/deck_size)+1} decks")
@@ -65,21 +107,14 @@ def show_deck(ctx, deck_index, deck_size, full):
             for c in deck]
     assert(len(deck) > 0)
     _logger.info(f"deck:\n{pd.DataFrame(deck)}")
-    deck_df = pd.DataFrame(deck)
-    deck_df["_id"] = deck_df["_id"].apply(str)
-    deck_df = deck_df.set_index("_id")
 
-    results_df = pd.DataFrame(MongoClient().alex_flashcards.results.find())
-    results_df = results_df.groupby("card").mean().reset_index()
-
-    deck_df = deck_df.join(pd.DataFrame({k: v for k, v in results_df.items() if k in [
-                           "card", "score"]}).set_index("card"), how="left")
-    deck_df["score"] = deck_df["score"].apply(
-        lambda x: 0.0 if pd.isna(x) else x)
+    deck_df = _get_deck_with_score(deck)
 
     if not full:
         deck_df = pd.DataFrame(
             {k: v for k, v in deck_df.reset_index().items() if k in ["_id", "score"]})
+    if sort:
+        deck_df = deck_df.sort_values(by="score",ascending=False)
 
     print(deck_df)
 
