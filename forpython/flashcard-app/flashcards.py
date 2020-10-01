@@ -130,6 +130,7 @@ def show_score(ctx, deck_index, deck_size, full, sort):
         deck_df = deck_df.sort_values(by="score", ascending=False)
 
     print(deck_df)
+    print(f"average score: {deck_df['score'].mean()}")
 
 
 @flashcards.command()
