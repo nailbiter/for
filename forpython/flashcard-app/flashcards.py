@@ -8,6 +8,8 @@ import pandas as pd
 from random import choice
 from re import match
 import logging
+from _flashcards.question import get_question_types, get_question
+import json
 
 
 @click.group()
@@ -36,22 +38,36 @@ def show(ctx):
 
 @flashcards.command()
 @click.option("--deck_size", type=int, default=5, envvar="DECK_SIZE")
-@click.option("--deck_index", type=int, default=-1)
+@click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
 @click.pass_context
 def test(ctx, deck_index, deck_size):
     _logger = logging.getLogger("test")
     cards = ctx.obj["cards"]
     _logger.info(f"{int(len(cards)/deck_size)+1} decks")
-    if deck_index >= 0:
-        deck = cards[deck_size*deck_index:deck_size*(deck_index+1)]
-        deck = [{k: v for k, v in c.items() if k not in ["_id", "tags"]}
-                for c in deck]
-        _logger.info(f"deck:\n{pd.DataFrame(deck)}")
-        while True:
-            random_card = choice(deck)
-            is_test_front = choice([True, False])
-#            if is_test_front:
-#                question
+    _logger.info(f"deck_index: {deck_index}")
+    assert deck_index >= 0
+
+    deck = cards[deck_size*deck_index:deck_size*(deck_index+1)]
+    deck = [{k: v for k, v in c.items() if k not in ["tags"]}
+            for c in deck]
+    _logger.info(f"deck:\n{pd.DataFrame(deck)}")
+    question_i = 0
+    while True:
+        question_i += 1
+        card = choice(deck)
+        is_front_to_back = choice([True, False])
+        back_index = choice(range(len(card["back"])))
+        question_type = choice(get_question_types())
+        question = get_question(
+            question_type, card, deck, is_front_to_back, back_index)
+        print(f"question #{question_i}: \n{question.get_question_text()}")
+        res, msg = question.grade(input("answer> "))
+        while res is None:
+            res, msg = question.grade(input(f"answer({msg})> "))
+        print(f"res: {res}")
+        obj = json.loads(question.to_json())
+        _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
+        MongoClient().alex_flashcards.results.insert_one(obj)
 
 
 @flashcards.command()
@@ -67,4 +83,3 @@ def add_item(ctx, **kwargs):
 
 if __name__ == "__main__":
     flashcards()
-
