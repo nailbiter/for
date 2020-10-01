@@ -98,7 +98,7 @@ class _SelectionQuestion(Question):
             self._logger.info(
                 f"correct_answer_index: {self._correct_answer_index}")
             self._score = 1.0 if ai == self._correct_answer_index else 0.0
-            return self._score, None
+            return self._score, None if ai == self._correct_answer_index else self._answers[self._correct_answer_index]
 
     def get_question_text(self):
         env = self._get_jinja_env()

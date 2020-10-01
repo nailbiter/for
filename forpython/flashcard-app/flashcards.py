@@ -93,9 +93,12 @@ def test(ctx, deck_index, deck_size):
         question = get_question(
             question_type, card, deck, is_front_to_back, back_index)
         print(f"question #{question_i}: \n{question.get_question_text()}")
-        res, msg = question.grade(input("answer> "))
-        while res is None:
-            res, msg = question.grade(input(f"answer({msg})> "))
+        while True:
+            res, msg = question.grade(input("answer> "))
+            if msg is not None:
+                print(f"({msg})")
+            if res is not None:
+                break
         print(f"res: {res}")
         obj = json.loads(question.to_json())
         _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
