@@ -5,13 +5,6 @@ import logging
 from datetime import date, datetime
 from bson.objectid import ObjectId
 
-# def _json_serial(obj):
-#    if isinstance(obj, (datetime, date)):
-#        return obj.isoformat()
-#    elif isinstance(obj, ObjectId):
-#        return f"ObjectId({obj})"
-#    raise TypeError(f"Type {type(obj)} not serializable")
-
 
 class Question():
     def __init__(self, card, deck, is_front_to_back, back_index):
@@ -40,7 +33,7 @@ class Question():
         """
         self._given_answer = answer
         self._answer_time = datetime.now().isoformat()
-        return 0.0,None
+        return 0.0, None
 
     def to_json(self):
         assert self._score is not None
@@ -87,7 +80,6 @@ class _SelectionQuestion(Question):
             **super()._get_jinja_env(),
             "answers": self._answers,
             "question": self._question,
-            # "correct_answer_index": self._correct_answer_index
         }
 
     def grade(self, answer):
