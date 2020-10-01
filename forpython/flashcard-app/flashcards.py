@@ -39,17 +39,49 @@ def show(ctx):
 @flashcards.command()
 @click.option("--deck_size", type=int, default=5, envvar="DECK_SIZE")
 @click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
+@click.option("--full/--no-full",default=False)
 @click.pass_context
-def test(ctx, deck_index, deck_size):
-    _logger = logging.getLogger("test")
+def show_deck(ctx, deck_index, deck_size, full):
+    _logger = logging.getLogger("show_deck")
     cards = ctx.obj["cards"]
     _logger.info(f"{int(len(cards)/deck_size)+1} decks")
-    _logger.info(f"deck_index: {deck_index}")
     assert deck_index >= 0
 
     deck = cards[deck_size*deck_index:deck_size*(deck_index+1)]
     deck = [{k: v for k, v in c.items() if k not in ["tags"]}
             for c in deck]
+    assert(len(deck) > 0)
+    _logger.info(f"deck:\n{pd.DataFrame(deck)}")
+    deck_df = pd.DataFrame(deck)
+    deck_df["_id"] = deck_df["_id"].apply(str)
+    deck_df = deck_df.set_index("_id")
+
+    results_df = pd.DataFrame(MongoClient().alex_flashcards.results.find())
+    results_df = results_df.groupby("card").mean().reset_index()
+
+    deck_df = deck_df.join(pd.DataFrame({k:v for k,v in results_df.items() if k in ["card","score"]}).set_index("card"),how="left")
+    deck_df["score"] = deck_df["score"].apply(lambda x: 0.0 if pd.isna(x) else x)
+
+    if not full:
+        deck_df = pd.DataFrame({k:v for k,v in deck_df.reset_index().items() if k in ["_id","score"]})
+
+    print(deck_df)
+
+
+@flashcards.command()
+@click.option("--deck_size", type=int, default=5, envvar="DECK_SIZE")
+@click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
+@click.pass_context
+def test(ctx, deck_index, deck_size):
+    _logger = logging.getLogger("test")
+    cards = ctx.obj["cards"]
+    _logger.info(f"{int(len(cards)/deck_size)+1} decks")
+    assert deck_index >= 0
+
+    deck = cards[deck_size*deck_index:deck_size*(deck_index+1)]
+    deck = [{k: v for k, v in c.items() if k not in ["tags"]}
+            for c in deck]
+    assert(len(deck) > 0)
     _logger.info(f"deck:\n{pd.DataFrame(deck)}")
     question_i = 0
     while True:
