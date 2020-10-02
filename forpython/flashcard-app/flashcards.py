@@ -22,6 +22,7 @@ ORGANIZATION:
               2. `show_score`: `--agg` key
               3. `--(no)-hint` key for test``
               4. 3c043fd172238823
+              5. show score for each deck (dep: 2.)
 
 ==============================================================================="""
 import click
