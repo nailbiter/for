@@ -19,7 +19,7 @@ ORGANIZATION:
     REVISION: ---
         TODO:
               1. type-in question type
-              2. `show_deck` command
+              2. `show_score`: `--agg` key
 
 ==============================================================================="""
 import click
@@ -45,7 +45,6 @@ def _get_deck_with_score(deck):
         for r
         in deck_df.to_dict(orient="records")
     ]).set_index(_groupby)
-
 
     results_df = pd.DataFrame(MongoClient().alex_flashcards.results.find())
     results_df["_id"] = results_df["card"]
@@ -100,7 +99,7 @@ def flashcards(ctx, tags, debug=False):
 
 @flashcards.command()
 @click.pass_context
-def show(ctx):
+def show_cards(ctx):
     print(pd.DataFrame(ctx.obj["cards"]))
 
 
@@ -111,7 +110,7 @@ def show(ctx):
 @click.option("--sort/--no-sort", default=False)
 @click.pass_context
 def show_score(ctx, deck_index, deck_size, full, sort):
-    _logger = logging.getLogger("show_deck")
+    _logger = logging.getLogger("show_score")
     cards = ctx.obj["cards"]
     _logger.info(f"{int(len(cards)/deck_size)+1} decks")
     assert deck_index >= 0
@@ -125,12 +124,12 @@ def show_score(ctx, deck_index, deck_size, full, sort):
     deck_df = _get_deck_with_score(deck)
 
     if not full:
-        deck_df = deck_df.drop(columns=["back","front"])
+        deck_df = deck_df.drop(columns=["back", "front"])
     if sort:
         deck_df = deck_df.sort_values(by="score", ascending=False)
 
     print(deck_df)
-    print(f"average score: {deck_df['score'].mean()}")
+    print(f"average score: {deck_df['score'].mean()*100:05.2f}%")
 
 
 @flashcards.command()
