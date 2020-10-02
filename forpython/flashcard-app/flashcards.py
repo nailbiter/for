@@ -20,6 +20,7 @@ ORGANIZATION:
         TODO:
               1. type-in question type
               2. `show_score`: `--agg` key
+              3. `--(no)-hint` key for test``
 
 ==============================================================================="""
 import click
