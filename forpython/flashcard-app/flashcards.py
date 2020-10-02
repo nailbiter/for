@@ -23,6 +23,7 @@ ORGANIZATION:
               3. `--(no)-hint` key for test``
               4. 3c043fd172238823
               5(done). show score for each deck (dep: 2.)
+              6. replace `agg` with its inverse
 
 ==============================================================================="""
 import click
