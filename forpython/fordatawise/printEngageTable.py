@@ -126,7 +126,7 @@ def printEngageTable(mode, date, mongo_pass):
             index=False, sep="\t", header=False))
     elif mode == "weekly":
         print(_df.groupby("name").sum().sort_values(
-            by="duration", ascending=False))
+            by="duration_hours", ascending=False))
     else:
         raise NotImplementedError
 
