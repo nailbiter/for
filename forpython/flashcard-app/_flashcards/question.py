@@ -58,14 +58,18 @@ class _SelectionQuestion(Question):
         self._answers = []
         other_cards = sample([c for c in self._deck if c["_id"]
                               != self._card["_id"]], self._NUMBER_OF_ANSWERS-1)
+        _aux = ",".join([b for i, b in enumerate(
+            self._card["back"]) if i != self._back_index])
+        if len(_aux) > 0:
+            _aux = f" ({_aux})"
         if self._is_front_to_back:
-            self._question = self._card["front"]
+            self._question = self._card["front"]+_aux
             self._answers.append(self._card["back"][self._back_index])
             for card in other_cards:
                 _back_index = min(len(card["back"])-1, self._back_index)
                 self._answers.append(card["back"][_back_index])
         else:
-            self._question = self._card["back"][self._back_index]
+            self._question = self._card["back"][self._back_index]+_aux
             self._answers = [self._card["front"], *
                              [card["front"] for card in other_cards]]
 
