@@ -21,6 +21,7 @@ ORGANIZATION:
               1. type-in question type
               2. `show_score`: `--agg` key
               3. `--(no)-hint` key for test``
+              4. 3c043fd172238823
 
 ==============================================================================="""
 import click
@@ -101,6 +102,12 @@ def flashcards(ctx, tags, debug=False):
 @flashcards.command()
 @click.pass_context
 def show_cards(ctx):
+    """
+    deprecated: FIXME 3c043fd172238823
+    integrate in `show_cards` (make --deck_index flag optional: remove assertion and change handling for -1 value)
+    """
+    #@click.option("--deck_size", type=int, envvar="DECK_SIZE")
+    #print(f"deck_size: {deck_size}")
     print(pd.DataFrame(ctx.obj["cards"]))
 
 
