@@ -125,10 +125,14 @@ def show_score(ctx, deck_index, deck_size, full, sort):
 
     if not full:
         deck_df = deck_df.drop(columns=["back", "front"])
+    else:
+        for i in range(deck_df["back"].apply(len).max()):
+            deck_df[f"back[{i}]"] = deck_df["back"].apply(lambda back:None if len(back)<=i else back[i])
+        deck_df = deck_df.drop(columns=["back"])    
     if sort:
         deck_df = deck_df.sort_values(by="score", ascending=False)
 
-    print(deck_df)
+    print(deck_df.to_string(justify="left",col_space=20))
     print(f"average score: {deck_df['score'].mean()*100:05.2f}%")
 
 
