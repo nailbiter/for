@@ -25,7 +25,7 @@ TODO:
     4(done). 3c043fd172238823
     5(done). show score for each deck (dep: 2.)
     6(done). replace `agg` with its inverse
-    7. batch add
+    7(done). batch add
 
 ==============================================================================="""
 import click
@@ -38,6 +38,7 @@ import logging
 from _flashcards.question import get_question_types, get_question
 import json
 from math import ceil
+from os.path import splitext
 
 
 _GROUPBY = ["_id", "is_front_to_back", "back_index"]
@@ -173,10 +174,10 @@ def show_score(ctx, deck_index, deck_size, full, sort, agg):
     print(f"average score: {deck_df['score'].mean()*100:05.2f}%")
 
 
-@ flashcards.command()
-@ click.option("--deck_size", type=int, default=5, envvar="DECK_SIZE")
-@ click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
-@ click.pass_context
+@flashcards.command()
+@click.option("--deck_size", type=int, default=5, envvar="DECK_SIZE")
+@click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
+@click.pass_context
 def test(ctx, deck_index, deck_size):
     _logger = logging.getLogger("test")
     cards = ctx.obj["cards"]
@@ -219,15 +220,28 @@ def show_cards(ctx):
     print(pd.DataFrame(ctx.obj["cards"]))
 
 
-@ flashcards.command()
-@ click.argument("front")
-@ click.option("--back", multiple=True)
-@ click.pass_context
+@flashcards.command()
+@click.argument("front")
+@click.option("--back", multiple=True)
+@click.pass_context
 def add_item(ctx, **kwargs):
     coll = ctx.obj["coll"]
     obj = {"tags": ctx.obj["tags"], **kwargs}
     print(f"inserting {obj}")
     coll.insert_one(obj)
+
+
+@flashcards.command()
+@click.argument("filename", type=click.Path())
+@click.pass_context
+def add_batch(ctx, filename):
+    assert splitext(filename)[1] == ".csv", "filename should be a `.csv` file"
+    batch = pd.read_csv(filename, sep="\t", header=None)
+    coll = ctx.obj["coll"]
+    back_size = len(list(batch))-1
+    batch = pd.DataFrame({"front": batch[0], "back": map(lambda t: [
+                         x for x in t if not pd.isna(x)], zip(*[batch[i+1] for i in range(back_size)])) })
+    coll.insert_many([{"tags": ctx.obj["tags"], **r} for r in batch.to_dict(orient="records")])
 
 
 if __name__ == "__main__":
