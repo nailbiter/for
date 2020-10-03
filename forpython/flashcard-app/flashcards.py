@@ -17,13 +17,15 @@ ORGANIZATION:
      VERSION: 0.0.1
      CREATED: 2020-09-24 11:19 +0900
     REVISION: ---
-        TODO:
-              1. type-in question type
-              2(done). `show_score`: `--agg` key
-              3. `--(no)-hint` key for test``
-              4. 3c043fd172238823
-              5(done). show score for each deck (dep: 2.)
-              6. replace `agg` with its inverse
+
+TODO:
+    1. type-in question type
+    2(done). `show_score`: `--agg` key
+    3. `--(no)-hint` key for test``
+    4(done). 3c043fd172238823
+    5(done). show score for each deck (dep: 2.)
+    6(done). replace `agg` with its inverse
+    7. batch add
 
 ==============================================================================="""
 import click
