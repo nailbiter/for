@@ -21,7 +21,6 @@ ORGANIZATION:
 TODO:
     1. type-in question type
     3. `--(no)-hint` key for test``
-    8(done). colored output
     9. different score strategies
     10. different selection strategies
 
@@ -71,7 +70,8 @@ def _get_random_question(deck):
     _logger = logging.getLogger("_get_random_question")
     deck_df = _get_deck_with_score(deck).reset_index()
     records = deck_df.to_dict(orient="records")
-    max_weight = 1.0 if min(map(lambda r:r["score"],records))<1.0 else 2.0
+    max_weight = 1.0 if (
+        min(map(lambda r: r["score"], records)) < 1.0) else 2.0
     record = choices(records, weights=[max_weight-r["score"]
                                        for r in records],  k=1)[0]
     card = next(card for card in deck if str(card["_id"]) == record["_id"])
@@ -201,22 +201,11 @@ def test(ctx, deck_index, deck_size):
                 print(f"({msg})")
             if res is not None:
                 break
-        click.echo(click.style(f"res: {res}",fg="green" if res==1.0 else "red"))
+        click.echo(click.style(f"res: {res}",
+                               fg="green" if res == 1.0 else "red"))
         obj = json.loads(question.to_json())
         _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
         MongoClient().alex_flashcards.results.insert_one(obj)
-
-
-@flashcards.command()
-@click.pass_context
-def show_cards(ctx):
-    """
-    deprecated: FIXME 3c043fd172238823
-    integrate in `show_cards` (make --deck_index flag optional: remove assertion and change handling for -1 value)
-    """
-    # @click.option("--deck_size", type=int, envvar="DECK_SIZE")
-    #print(f"deck_size: {deck_size}")
-    print(pd.DataFrame(ctx.obj["cards"]))
 
 
 @flashcards.command()
@@ -239,8 +228,9 @@ def add_batch(ctx, filename):
     coll = ctx.obj["coll"]
     back_size = len(list(batch))-1
     batch = pd.DataFrame({"front": batch[0], "back": map(lambda t: [
-                         x for x in t if not pd.isna(x)], zip(*[batch[i+1] for i in range(back_size)])) })
-    coll.insert_many([{"tags": ctx.obj["tags"], **r} for r in batch.to_dict(orient="records")])
+                         x for x in t if not pd.isna(x)], zip(*[batch[i+1] for i in range(back_size)]))})
+    coll.insert_many([{"tags": ctx.obj["tags"], **r}
+                      for r in batch.to_dict(orient="records")])
 
 
 if __name__ == "__main__":

@@ -38,6 +38,6 @@ class Question():
         ) if k in ["is_front_to_back", "back_index", "score"]}
         res["card"] = str(self._card["_id"])
         res["given_answer"] = self._given_answer
-        res["answer_time"] = self._answer_time
+        res["answer_time"] = self._answer_time.isoformat()
         res["TAG"] = self.__class__.TAG
         return json.dumps(res)
