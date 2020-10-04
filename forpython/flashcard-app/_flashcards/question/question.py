@@ -29,7 +29,7 @@ class Question():
         :return (grade,msg): where grade from 0.0 to 1.0 or None if was not accepted; msg is optional message
         """
         self._given_answer = answer
-        self._answer_time = datetime.now().isoformat()
+        self._answer_time = datetime.now()
         return 0.0, None
 
     def to_json(self):

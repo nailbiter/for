@@ -22,6 +22,8 @@ TODO:
     1. type-in question type
     3. `--(no)-hint` key for test``
     8(done). colored output
+    9. different score strategies
+    10. different selection strategies
 
 ==============================================================================="""
 import click
@@ -69,7 +71,8 @@ def _get_random_question(deck):
     _logger = logging.getLogger("_get_random_question")
     deck_df = _get_deck_with_score(deck).reset_index()
     records = deck_df.to_dict(orient="records")
-    record = choices(records, weights=[1.1-r["score"]
+    max_weight = 1.0 if min(map(lambda r:r["score"],records))<1.0 else 2.0
+    record = choices(records, weights=[max_weight-r["score"]
                                        for r in records],  k=1)[0]
     card = next(card for card in deck if str(card["_id"]) == record["_id"])
     is_front_to_back = record["is_front_to_back"]
