@@ -21,8 +21,8 @@ ORGANIZATION:
 TODO:
     1. type-in question type
     3. `--(no)-hint` key for test``
-    9. different score strategies
-    10. different selection strategies
+    9. different score strategies (history=10)
+    10(done). different selection strategies
 
 ==============================================================================="""
 import click
