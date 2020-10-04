@@ -22,7 +22,7 @@ TODO:
     1. type-in question type
     3. `--(no)-hint` key for test``
     9. different score strategies (history=10 and increase threshold to 100%)
-    10(done). different selection strategies
+    11. key sort order in output, add `deck_index`to `_GROUP_BY`
 
 ==============================================================================="""
 import click
@@ -38,7 +38,7 @@ from math import ceil
 from os.path import splitext
 
 
-_GROUPBY = ["_id", "is_front_to_back", "back_index"]
+_GROUP_BY = ["_id", "is_front_to_back", "back_index"]
 
 
 def _get_deck_with_score(deck):
@@ -51,12 +51,12 @@ def _get_deck_with_score(deck):
                       for back_index, is_front_to_back in product(range(len(r["back"])), [True, False])])
         for r
         in deck_df.to_dict(orient="records")
-    ]).set_index(_GROUPBY)
+    ]).set_index(_GROUP_BY)
 
     results_df = pd.DataFrame(MongoClient().alex_flashcards.results.find())
     results_df["_id"] = results_df["card"]
     results_df.drop(columns=["card"])
-    results_df = results_df.groupby(_GROUPBY).mean()
+    results_df = results_df.groupby(_GROUP_BY).mean()
     _logger.info(f"results_df: {results_df}")
 
     deck_df = deck_df.join(results_df, how="left")
@@ -111,7 +111,7 @@ def flashcards(ctx, tags, debug=False):
 @click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
 @click.option("--full/--no-full", default=False)
 @click.option("--sort/--no-sort", default=False)
-@click.option("--agg", type=click.Choice([*_GROUPBY, "none"]), multiple=True)
+@click.option("--agg", type=click.Choice([*_GROUP_BY, "none"]), multiple=True)
 @click.pass_context
 def show_score(ctx, deck_index, deck_size, full, sort, agg):
     _logger = logging.getLogger("show_score")
@@ -122,7 +122,7 @@ def show_score(ctx, deck_index, deck_size, full, sort, agg):
     if agg == ("none",):
         agg = []
     elif agg == ():
-        agg = _GROUPBY
+        agg = _GROUP_BY
 
     deck = []
     for _deck_index in range(deck_count):
@@ -140,7 +140,7 @@ def show_score(ctx, deck_index, deck_size, full, sort, agg):
 
     if True:
         deck_df = deck_df.reset_index()
-        _all = {"deck_index", *_GROUPBY}
+        _all = {"deck_index", *_GROUP_BY}
         _agg = list({"deck_index", *agg, })
 
         def _aggregator(x):
