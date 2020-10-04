@@ -23,6 +23,7 @@ TODO:
     3. `--(no)-hint` key for test``
     9. different score strategies (history=10 and increase threshold to 100%)
     11. key sort order in output, add `deck_index`to `_GROUP_BY`
+    12. `search` command
 
 ==============================================================================="""
 import click
