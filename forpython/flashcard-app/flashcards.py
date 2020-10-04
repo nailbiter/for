@@ -20,12 +20,8 @@ ORGANIZATION:
 
 TODO:
     1. type-in question type
-    2(done). `show_score`: `--agg` key
     3. `--(no)-hint` key for test``
-    4(done). 3c043fd172238823
-    5(done). show score for each deck (dep: 2.)
-    6(done). replace `agg` with its inverse
-    7(done). batch add
+    8(done). colored output
 
 ==============================================================================="""
 import click
@@ -202,7 +198,7 @@ def test(ctx, deck_index, deck_size):
                 print(f"({msg})")
             if res is not None:
                 break
-        print(f"res: {res}")
+        click.echo(click.style(f"res: {res}",fg="green" if res==1.0 else "red"))
         obj = json.loads(question.to_json())
         _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
         MongoClient().alex_flashcards.results.insert_one(obj)
