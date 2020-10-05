@@ -50,7 +50,7 @@ class _SelectionQuestion(Question):
             ai = int(answer)
         except ValueError:
             return None, "not a number"
-        if ai < 0:
+        if ai <= 0 or ai > _SelectionQuestion._NUMBER_OF_ANSWERS:
             return None, "answer should be >=0"
         else:
             self._logger.info(f"answer: {ai}")

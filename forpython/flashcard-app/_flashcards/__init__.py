@@ -55,10 +55,11 @@ def get_random_question(deck):
         "question_type": question_type
     }
 
+
 def get_cards(tags):
     coll = MongoClient().alex_flashcards.cards
     cards = list(coll.find())
     for tag in tags:
         cards = [card for card in cards if len(
             [_tag for _tag in card["tags"] if match(tag, _tag) is not None]) > 0]
-    return cards    
+    return cards
