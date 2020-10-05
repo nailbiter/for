@@ -51,9 +51,8 @@ def flashcards(ctx, tags, debug=False):
         logging.basicConfig(level=logging.INFO)
 
     ctx.ensure_object(dict)
-    ctx.obj["cards"] = get_cards()
     ctx.obj["tags"] = tags
-    ctx.obj["coll"] = coll
+    ctx.obj["cards"] = get_cards(tags)
 
 
 @flashcards.command()
@@ -163,7 +162,7 @@ def test(ctx, deck_index, deck_size):
 @click.option("--back", multiple=True)
 @click.pass_context
 def add_item(ctx, **kwargs):
-    coll = ctx.obj["coll"]
+    coll = MongoClient().alex_flashcards.cards
     obj = {"tags": ctx.obj["tags"], **kwargs}
     print(f"inserting {obj}")
     coll.insert_one(obj)
@@ -175,7 +174,7 @@ def add_item(ctx, **kwargs):
 def add_batch(ctx, filename):
     assert splitext(filename)[1] == ".csv", "filename should be a `.csv` file"
     batch = pd.read_csv(filename, sep="\t", header=None)
-    coll = ctx.obj["coll"]
+    coll = MongoClient().alex_flashcards.cards
     back_size = len(list(batch))-1
     batch = pd.DataFrame({"front": batch[0], "back": map(lambda t: [
                          x for x in t if not pd.isna(x)], zip(*[batch[i+1] for i in range(back_size)]))})

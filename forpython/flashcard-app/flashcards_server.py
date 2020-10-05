@@ -19,7 +19,7 @@ ORGANIZATION:
 TODO:
     0. remove all FIXMEs
     1. click in selection questions, not type
-    2. mobile css
+    3. rewrite into bot (maybe, integrate into `flashcards.py`)
 
 ==============================================================================="""
 from flask import Flask, render_template, request
