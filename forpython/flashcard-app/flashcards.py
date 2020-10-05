@@ -20,73 +20,26 @@ ORGANIZATION:
 
 TODO:
     1. type-in question type
-    3. `--(no)-hint` key for test``
+    3. `--(no)-hint` key for `test`
     9. different score strategies (history=10 and increase threshold to 100%)
-    11. key sort order in output, add `deck_index`to `_GROUP_BY`
+    11. key sort order in output, add `deck_index`to `GROUP_BY`
     12. `search` command
+    13. test server to use during lunch
 
 ==============================================================================="""
 import click
 from pymongo import MongoClient
 import pandas as pd
-from random import choice, choices
+from random import choice
 from re import match
-from itertools import product
 import logging
 from _flashcards.question import get_question_types, get_question
+from _flashcards import get_random_question, get_deck_with_score, GROUP_BY, get_cards
 import json
 from math import ceil
 from os.path import splitext
 
 
-_GROUP_BY = ["_id", "is_front_to_back", "back_index"]
-
-
-def _get_deck_with_score(deck):
-    _logger = logging.getLogger("_get_deck_with_score")
-
-    deck_df = pd.DataFrame(deck)
-    deck_df["_id"] = deck_df["_id"].apply(str)
-    deck_df = pd.concat([
-        pd.DataFrame([{**r, "back_index": back_index, "is_front_to_back": is_front_to_back}
-                      for back_index, is_front_to_back in product(range(len(r["back"])), [True, False])])
-        for r
-        in deck_df.to_dict(orient="records")
-    ]).set_index(_GROUP_BY)
-
-    results_df = pd.DataFrame(MongoClient().alex_flashcards.results.find())
-    results_df["_id"] = results_df["card"]
-    results_df.drop(columns=["card"])
-    results_df = results_df.groupby(_GROUP_BY).mean()
-    _logger.info(f"results_df: {results_df}")
-
-    deck_df = deck_df.join(results_df, how="left")
-    deck_df["score"] = deck_df["score"].apply(
-        lambda x: 0.0 if pd.isna(x) else x)
-    _logger.info(f"deck_df: {deck_df}")
-    return deck_df
-
-
-def _get_random_question(deck):
-    _logger = logging.getLogger("_get_random_question")
-    deck_df = _get_deck_with_score(deck).reset_index()
-    records = deck_df.to_dict(orient="records")
-    max_weight = 1.0 if (
-        min(map(lambda r: r["score"], records)) < 1.0) else 2.0
-    record = choices(records, weights=[max_weight-r["score"]
-                                       for r in records],  k=1)[0]
-    card = next(card for card in deck if str(card["_id"]) == record["_id"])
-    is_front_to_back = record["is_front_to_back"]
-    back_index = record["back_index"]
-
-    question_type = choice(get_question_types())
-    return {
-        "deck": deck,
-        "card": card,
-        "is_front_to_back": is_front_to_back,
-        "back_index": back_index,
-        "question_type": question_type
-    }
 
 
 @click.group()
@@ -96,13 +49,9 @@ def _get_random_question(deck):
 def flashcards(ctx, tags, debug=False):
     if debug:
         logging.basicConfig(level=logging.INFO)
-    coll = MongoClient().alex_flashcards.cards
-    cards = list(coll.find())
-    for tag in tags:
-        cards = [card for card in cards if len(
-            [_tag for _tag in card["tags"] if match(tag, _tag) is not None]) > 0]
+
     ctx.ensure_object(dict)
-    ctx.obj["cards"] = cards
+    ctx.obj["cards"] = get_cards()
     ctx.obj["tags"] = tags
     ctx.obj["coll"] = coll
 
@@ -112,7 +61,7 @@ def flashcards(ctx, tags, debug=False):
 @click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
 @click.option("--full/--no-full", default=False)
 @click.option("--sort/--no-sort", default=False)
-@click.option("--agg", type=click.Choice([*_GROUP_BY, "none"]), multiple=True)
+@click.option("--agg", type=click.Choice([*GROUP_BY, "none"]), multiple=True)
 @click.pass_context
 def show_score(ctx, deck_index, deck_size, full, sort, agg):
     _logger = logging.getLogger("show_score")
@@ -123,7 +72,7 @@ def show_score(ctx, deck_index, deck_size, full, sort, agg):
     if agg == ("none",):
         agg = []
     elif agg == ():
-        agg = _GROUP_BY
+        agg = GROUP_BY
 
     deck = []
     for _deck_index in range(deck_count):
@@ -137,11 +86,11 @@ def show_score(ctx, deck_index, deck_size, full, sort, agg):
             for c in deck]
     _logger.info(f"deck:\n{pd.DataFrame(deck)}")
 
-    deck_df = _get_deck_with_score(deck)
+    deck_df = get_deck_with_score(deck)
 
     if True:
         deck_df = deck_df.reset_index()
-        _all = {"deck_index", *_GROUP_BY}
+        _all = {"deck_index", *GROUP_BY}
         _agg = list({"deck_index", *agg, })
 
         def _aggregator(x):
@@ -192,7 +141,7 @@ def test(ctx, deck_index, deck_size):
     question_i = 0
     while True:
         question_i += 1
-        _d = _get_random_question(deck)
+        _d = get_random_question(deck)
         question = get_question(
             _d["question_type"], **{k: v for k, v in _d.items() if k != "question_type"})
         print(f"question #{question_i}: \n{question.get_question_text()}")
