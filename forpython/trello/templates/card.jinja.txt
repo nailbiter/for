@@ -1,0 +1,5 @@
+{{card.name}} {%if card.closed%}(closed){%endif%}
+
+desc: {{card.desc}}
+
+url: {{card_url}}
