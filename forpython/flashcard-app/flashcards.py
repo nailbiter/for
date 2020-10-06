@@ -25,6 +25,7 @@ TODO:
     12. `search` command
     13. test server to use during lunch
     14. different score strategies 
+    15. log to file always
 
 ==============================================================================="""
 import click
