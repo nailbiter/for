@@ -2,51 +2,90 @@
 from argparse import ArgumentParser
 import sys
 import urllib.request
-import json 
-from pymongo import MongoClient
+import json
 import click
+import logging
+from tqdm import tqdm
 
 
 # global const's
-ROOT_URL = "https://api.trello.com/1"
+_ROOT_URL = "https://api.trello.com/1"
 # global var's
-Trello = dict()
 # procedures
 
-def getCard(cardid,fields=None):
-    "get card"
-    cardid = cardid
-    url = f"{ROOT_URL}/cards/{cardid}?key={Trello['key']}&token={Trello['token']}"
-    if fields is not None:
-        url += f"&fields={fields}"
-    with urllib.request.urlopen(url) as url:
-        data = json.loads(url.read().decode())
-    return data
 
-def getChecklist(checklist_id):
-    url = f"{ROOT_URL}/checklists/{checklist_id}?key={Trello['key']}&token={Trello['token']}"
-    with urllib.request.urlopen(url) as url:
-        data = json.loads(url.read().decode())
-    return data
+#def getCard(cardid, fields=None):
+#    "get card"
+#    cardid = cardid
+#    url = f"{_ROOT_URL}/cards/{cardid}?key={Trello['key']}&token={Trello['token']}"
+#    if fields is not None:
+#        url += f"&fields={fields}"
+#    with urllib.request.urlopen(url) as url:
+#        data = json.loads(url.read().decode())
+#    return data
+#
+#
+#def getChecklist(checklist_id):
+#    url = f"{_ROOT_URL}/checklists/{checklist_id}?key={Trello['key']}&token={Trello['token']}"
+#    with urllib.request.urlopen(url) as url:
+#        data = json.loads(url.read().decode())
+#    return data
+
 
 @click.group()
-def cli():
-    pass
-@cli.command(name="gc",help="getCard")
-@click.argument("cardid")
-@click.option("--field", multiple=True)
-def _getCard(cardid,field):
-    kwargs = {}
-    if len(field)>0:
-        kwargs["fields"] = field
-    res = getCard(cardid,**kwargs)
-    print(json.dumps(res))
+@click.option("--trello_key",required=True,envvar="TRELLO_KEY")
+@click.option("--trello_token",required=True,envvar="TRELLO_TOKEN")
+@click.option("--debug/--no-debug",default=False)
+@click.pass_context
+def cli(ctx,debug,**kwargs):
+    if debug:
+        logging.basicConfig(level=logging.DEBUG)
+    ctx.ensure_object(dict)
+    for k,v in kwargs.items():
+        ctx.obj[k] = v
+
+@cli.group()
+@click.pass_context
+@click.option("-o","--oformat",type=click.Choice(["json","pretty"]),default="pretty")
+def high(ctx,**kwargs):
+    for k,v in kwargs.items():
+        ctx.obj[k] = v
+
+@high.command()
+@click.argument("card_url")
+@click.pass_context
+def print_card(ctx,card_url):
+    _logger = logging.getLogger("high.print_card")
+    _logger.info(f"card_url: {card_url}")
+    cardid = card_url.split("/")[-1] ##FIXME: use regex's
+    url = f"{_ROOT_URL}/cards/{cardid}?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
+    _logger.info(f"url: {url}")
+    with urllib.request.urlopen(url) as url:
+        data = json.loads(url.read().decode())
+
+    for i,checklist_id in tqdm(list(enumerate(data["idChecklists"]))):
+        url = f"{_ROOT_URL}/checklists/{checklist_id}?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
+        with urllib.request.urlopen(url) as url:
+            _data = json.loads(url.read().decode())
+        data["idChecklists"][i] = _data
+
+    if ctx.obj["oformat"]=="json":
+        print(json.dumps(data))
+    else:
+        raise NotImplementedError
+
+
+#@cli.command(name="gc", help="getCard")
+#@click.argument("cardid")
+#@click.option("--field", multiple=True)
+#def _getCard(cardid, field):
+#    kwargs = {}
+#    if len(field) > 0:
+#        kwargs["fields"] = field
+#    res = getCard(cardid, **kwargs)
+#    print(json.dumps(res))
 
 
 # main
-client = MongoClient('localhost', 27017)
-coll = client.admin.passwords
-Trello["key"] = coll.find_one({"key":"TRELLOKEY"})["value"]
-Trello["token"] = coll.find_one({"key":"TRELLOTOKEN"})["value"]
-if __name__=="__main__":
+if __name__ == "__main__":
     cli()
