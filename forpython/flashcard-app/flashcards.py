@@ -21,7 +21,6 @@ ORGANIZATION:
 TODO:
     1. type-in question type
     3. `--(no)-hint` key for `test`
-    9(done). (history=10 and increase threshold to 100%)
     11. key sort order in output, add `deck_index`to `GROUP_BY`
     12. `search` command
     13. test server to use during lunch
