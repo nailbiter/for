@@ -2,12 +2,14 @@
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 import json
+import numpy as np
 import re
-from pandas import DataFrame, concat
+from pandas import DataFrame, concat, isna
 import click
 import logging
 from croniter import croniter
 from uuid import uuid4
+from pymongo import MongoClient
 
 
 # global const's
@@ -36,25 +38,28 @@ def task_predicate(task, date, **kwargs):
 
 @click.group()
 @click.option("--debug", is_flag=True)
-def kostil(debug=False):
+def cli(debug=False):
     if debug:
         logging.basicConfig(level=logging.DEBUG)
 
 
-@kostil.command()
+@cli.command()
 @click.argument("task")
-def done(task):
-    df = DataFrame(
-        [{"task": task, "uuid": uuid4(), "datetime": datetime.now()}])
-    print(df.to_csv(sep="\t", index=False, header=None))
+@click.option("--dry_run/--no-dry_run", default=False)
+def done(task,dry_run):
+    task_obj = MongoClient().habits.habits.find_one({"name":task})
+    obj = {"task_name": task, "task_id": task_obj["_id"], "datetime": datetime.now()}
+    print(f"done obj: {obj}")
+    if not dry_run:
+        MongoClient().habits.habits_done.insert_one(obj)
 
 
-@kostil.command()
+@cli.command()
 @click.option("-d", "--date", type=click.DateTime(formats=["%Y-%m-%d"]), multiple=True)
 @click.option("-o", "--only_permanent_habits", is_flag=True)
-@click.option("--mongopass", envvar="MONGO_PASS")
-def list(date, mongopass, debug=False, only_permanent_habits=False):
-    assert mongopass is not None
+@click.option("--mongopass", envvar="MONGO_PASS", required=True)
+@click.option("--dry_run/--no-dry_run", default=False)
+def add(date, mongopass, dry_run, debug=False, only_permanent_habits=False):
     if len(date) == 0:
         date = (datetime.now(),)
     logging.info(f"mongopass: {mongopass}")
@@ -65,7 +70,7 @@ def list(date, mongopass, debug=False, only_permanent_habits=False):
     res = []
     for d in date:
         _debug = set()
-        logger = logging.getLogger("kostil")
+        logger = logging.getLogger("cli")
         tasks = [{k: v for k, v in task.items() if k not in _NOT_SHOW_FIELDS}
                  for task in task_data_coll.find() if task_predicate(task, d, debug=_debug, only_permanent_habits=only_permanent_habits)]
 
@@ -75,9 +80,29 @@ def list(date, mongopass, debug=False, only_permanent_habits=False):
         res.append(DataFrame([{"name": f"{d.strftime('%Y-%m-%d')}: {t['name']}",
                                "creation date": d.strftime('%Y-%m-%d')} for t in tasks]))
 
-    print(concat(res).to_csv(sep="\t",index=None,header=None))
+    # print(concat(res).to_csv(sep="\t",index=None,header=None))
+    print(res)
+
+    if not dry_run:
+        # TODO
+        pass
+
+
+@cli.command()
+def list():
+    tasks_df = DataFrame(MongoClient().habits.habits.find()).set_index("_id")
+    habits_done_df = DataFrame(MongoClient().habits.habits_done.find()).set_index("task_id")
+    tasks_df = tasks_df.join(habits_done_df)
+    tasks_df = tasks_df[[isna(datetime) for datetime in tasks_df["datetime"]]]
+    tasks_df = tasks_df.drop(columns=["_id"]).reset_index()
+    tasks_df = tasks_df.drop(columns=["_id","datetime","task_name", "creation date"])
+
+    tasks_df["count"] = 1
+    df = tasks_df.groupby("name").aggregate({"count":np.sum})
+
+    print(df.to_string())
 
 
 # main
 if __name__ == "__main__":
-    kostil()
+    cli()

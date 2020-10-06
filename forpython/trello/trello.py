@@ -7,7 +7,7 @@ import click
 import logging
 from tqdm import tqdm
 from jinja2 import Template
-from os.path import join
+from os.path import join, dirname
 
 
 # global const's
@@ -17,7 +17,8 @@ _TEMPLATES_DIR="./templates"
 # procedures
 
 def _render_template(fn,**kwargs):
-    with open(join(_TEMPLATES_DIR,fn)) as f:
+    _dir = dirname(__file__)
+    with open(join(_dir,_TEMPLATES_DIR,fn)) as f:
         return Template(f.read()).render(kwargs)
 
 
