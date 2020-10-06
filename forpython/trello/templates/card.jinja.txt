@@ -1,4 +1,4 @@
-{{card.name}} {%if card.closed%}(closed){%endif%}
+# {{card.name}} {%if card.closed%}(closed){%endif%}
 
 ## description
 {{card.desc}}
