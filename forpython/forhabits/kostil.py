@@ -47,7 +47,8 @@ def cli(debug=False):
 @click.argument("task")
 @click.option("--dry_run/--no-dry_run", default=False)
 def done(task,dry_run):
-    task_obj = MongoClient().habits.habits.find_one({"name":task})
+    tasks_df = _get_tasks()
+    task_obj = tasks_df[[name==task for name in tasks_df["name"]]].to_dict(orient="records")[0]
     obj = {"task_name": task, "task_id": task_obj["_id"], "datetime": datetime.now()}
     print(f"done obj: {obj}")
     if not dry_run:
@@ -87,20 +88,23 @@ def add(date, mongopass, dry_run, debug=False, only_permanent_habits=False):
         # TODO
         pass
 
-
-@cli.command()
-def list():
+def _get_tasks():
     tasks_df = DataFrame(MongoClient().habits.habits.find()).set_index("_id")
     habits_done_df = DataFrame(MongoClient().habits.habits_done.find()).set_index("task_id")
     tasks_df = tasks_df.join(habits_done_df)
     tasks_df = tasks_df[[isna(datetime) for datetime in tasks_df["datetime"]]]
     tasks_df = tasks_df.drop(columns=["_id"]).reset_index()
-    tasks_df = tasks_df.drop(columns=["_id","datetime","task_name", "creation date"])
+    return tasks_df
 
+@cli.command()
+def list():
+    tasks_df = _get_tasks()
+    tasks_df = tasks_df.drop(columns=["_id","datetime","task_name", "creation date"])
     tasks_df["count"] = 1
     df = tasks_df.groupby("name").aggregate({"count":np.sum})
 
     print(df.to_string())
+    print(f"sum: {sum(df['count'])}")
 
 
 # main
