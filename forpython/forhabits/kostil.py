@@ -78,10 +78,11 @@ def add(date, mongopass, dry_run, debug=False, only_permanent_habits=False):
         logger.info(f"\n{DataFrame(tasks)}")
         logger.info(f"d: {d.strftime('%Y-%m-%d')}")
         logger.debug(f"_debug: {_debug}")
-        res.append(DataFrame([{"name": f"{d.strftime('%Y-%m-%d')}: {t['name']}",
+        res.append(DataFrame([{"name": t["name"],
                                "creation date": d.strftime('%Y-%m-%d')} for t in tasks]))
 
     # print(concat(res).to_csv(sep="\t",index=None,header=None))
+    res = concat(res)
     print(res)
 
     if not dry_run:
