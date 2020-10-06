@@ -1,5 +1,16 @@
 {{card.name}} {%if card.closed%}(closed){%endif%}
 
-desc: {{card.desc}}
+## description
+{{card.desc}}
+
+## checklists
+
+{%for idChecklist in card.idChecklists-%}
+### {{idChecklist.name}}
+{%for checkItem in idChecklist.checkItems-%}
+ - [{%if checkItem.state=='complete'%}x{%else%} {%endif%}] {{checkItem.name}}
+
+{%endfor-%}
+{%endfor-%}
 
 url: {{card_url}}
