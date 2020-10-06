@@ -6,12 +6,16 @@ import json
 import click
 import logging
 from tqdm import tqdm
+from jinja2 import Template
+from os.path import 
 
 
 # global const's
 _ROOT_URL = "https://api.trello.com/1"
 # global var's
 # procedures
+
+def _render_template(fn,**kwargs):
 
 
 #def getCard(cardid, fields=None):
@@ -52,7 +56,7 @@ def high(ctx,**kwargs):
         ctx.obj[k] = v
 
 @high.command()
-@click.argument("card_url")
+@click.argument("card_url",envvar="CARD_URL")
 @click.pass_context
 def print_card(ctx,card_url):
     _logger = logging.getLogger("high.print_card")
@@ -71,6 +75,7 @@ def print_card(ctx,card_url):
 
     if ctx.obj["oformat"]=="json":
         print(json.dumps(data))
+    elif ctx.obj["oformat"]=="pretty":
     else:
         raise NotImplementedError
 
