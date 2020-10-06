@@ -24,7 +24,8 @@ def get_deck_with_score(deck):
     results_df = pd.DataFrame(MongoClient().alex_flashcards.results.find())
     results_df["_id"] = results_df["card"]
     results_df.drop(columns=["card"])
-    results_df = results_df.groupby(GROUP_BY).mean()
+    results_df = pd.DataFrame([{**{k:v for k,v in zip(GROUP_BY,idx)}, "score":_df.sort_values(by="answer_time",ascending=False)["score"][:10].min(),} for idx,_df in results_df.groupby(GROUP_BY)])
+    results_df = results_df.set_index(GROUP_BY)
     _logger.info(f"results_df: {results_df}")
 
     deck_df = deck_df.join(results_df, how="left")
