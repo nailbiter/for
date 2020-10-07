@@ -1,9 +1,9 @@
-# {{card.name}} {%if card.closed%}(closed){%endif%}
+# {{card.name}} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%) {%if card.closed%}(closed){%endif%}
 
 ## description
 {{card.desc}}
 
-## checklists
+## checklists {{card.idChecklists|map(attribute="checkItems")}}
 
 {%for idChecklist in card.idChecklists-%}
 ### {{idChecklist.name}}
