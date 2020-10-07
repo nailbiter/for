@@ -24,8 +24,9 @@ TODO:
     11. key sort order in output, add `deck_index`to `GROUP_BY`
     12. `search` command
     13. test server to use during lunch
-    14. different score strategies 
+    14. different score/selection strategies
     15. log to file always
+    16(done). show stats after every `test` iteration
 
 ==============================================================================="""
 import click
@@ -153,6 +154,7 @@ def test(ctx, deck_index, deck_size):
                 break
         click.echo(click.style(f"res: {res}",
                                fg="green" if res == 1.0 else "red"))
+        click.echo(get_deck_with_score(deck)["score"].describe())
         obj = json.loads(question.to_json())
         _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
         MongoClient().alex_flashcards.results.insert_one(obj)
