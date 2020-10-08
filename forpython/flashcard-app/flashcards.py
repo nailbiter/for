@@ -26,7 +26,7 @@ TODO:
     13. test server to use during lunch
     14. different score/selection strategies
     15. log to file always
-    16(done). show stats after every `test` iteration
+    17. print question asked and change of its score
 
 ==============================================================================="""
 import click
