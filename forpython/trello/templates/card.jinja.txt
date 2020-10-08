@@ -1,11 +1,11 @@
-{{card.name}}{%if stats.total_count>0%} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%){%endif%}{%if card.closed%} (closed){%endif%}
+{%if card.closed%}[x] {%endif%}{{card.name}}{%if stats.total_count>0%} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%){%endif%}
 
-{{card.name}}{%if stats.total_count>0%} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%){%endif%}{%if card.closed%} (closed){%endif%}
+{%if card.closed%}[x] {%endif%}{{card.name}}{%if stats.total_count>0%} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%){%endif%}
 ===============================================================================
 
 description
 ------------
-{{card.desc}}
+{%if card.desc%}{{card.desc}}{%else%}none{%endif%}
 
 {%for idChecklist in card.idChecklists-%}
 checklist: {{idChecklist.name}}
