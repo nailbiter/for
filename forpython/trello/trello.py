@@ -79,6 +79,8 @@ def print_card(ctx, card_url):
         with urllib.request.urlopen(url) as url:
             _data = json.loads(url.read().decode())
         data["idChecklists"][i] = _data
+        data["idChecklists"][i]["checkItems"] = sorted(
+            data["idChecklists"][i]["checkItems"], key=lambda i: i["pos"])
 
     stats = {
         "total_count": sum([len(checklist_id["checkItems"])for checklist_id in data["idChecklists"]]),
