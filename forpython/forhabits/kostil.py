@@ -95,7 +95,7 @@ def add_batch(date, mongopass, dry_run, debug=False, only_permanent_habits=False
 @click.option("--dry_run/--no-dry_run", default=False)
 def add_one(name,dry_run):
     coll = MongoClient().habits.habits
-    obj = {"name":name, "creation date": datetime.now().strftime('%Y-%m-%d')}
+    obj = {"name":name, "creation date": datetime.now().isoformat()}
     print(f"inserting obj {obj}")
     if not dry_run:
         coll.insert_one(obj)
