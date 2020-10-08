@@ -2,12 +2,14 @@
 from argparse import ArgumentParser
 import sys
 import urllib.request
+import urllib.parse
 import json
 import click
 import logging
 from tqdm import tqdm
 from jinja2 import Template
 from os.path import join, dirname
+from re import match
 
 
 # global const's
@@ -21,24 +23,6 @@ def _render_template(fn, **kwargs):
     _dir = dirname(__file__)
     with open(join(_dir, _TEMPLATES_DIR, fn)) as f:
         return Template(f.read()).render(kwargs)
-
-
-# def getCard(cardid, fields=None):
-#    "get card"
-#    cardid = cardid
-#    url = f"{_ROOT_URL}/cards/{cardid}?key={Trello['key']}&token={Trello['token']}"
-#    if fields is not None:
-#        url += f"&fields={fields}"
-#    with urllib.request.urlopen(url) as url:
-#        data = json.loads(url.read().decode())
-#    return data
-#
-#
-# def getChecklist(checklist_id):
-#    url = f"{_ROOT_URL}/checklists/{checklist_id}?key={Trello['key']}&token={Trello['token']}"
-#    with urllib.request.urlopen(url) as url:
-#        data = json.loads(url.read().decode())
-#    return data
 
 
 @click.group()
@@ -55,10 +39,22 @@ def cli(ctx, debug, **kwargs):
 
 
 @cli.group()
+@click.option("--dry-run/--no-dry-run", default=False)
 @click.pass_context
 def high(ctx, **kwargs):
     for k, v in kwargs.items():
         ctx.obj[k] = v
+
+
+def _fetch_checklists(data, auth):
+    for i, checklist_id in tqdm(list(enumerate(data["idChecklists"]))):
+        url = f"{_ROOT_URL}/checklists/{checklist_id}?&{auth}"
+        with urllib.request.urlopen(url) as url:
+            _data = json.loads(url.read().decode())
+        data["idChecklists"][i] = _data
+        data["idChecklists"][i]["checkItems"] = sorted(
+            data["idChecklists"][i]["checkItems"], key=lambda i: i["pos"])
+    data["idChecklists"] = sorted(data["idChecklists"], key=lambda i: i["pos"])
 
 
 @high.command()
@@ -68,19 +64,19 @@ def high(ctx, **kwargs):
 def print_card(ctx, card_url, oformat):
     _logger = logging.getLogger("high.print_card")
     _logger.info(f"card_url: {card_url}")
-    cardid = card_url.split("/")[-1]  # FIXME: use regex's
+
+    # https://trello.com/c/S95tjc5b/5582-%E4%BA%A4%E9%80%9A%E9%87%8F%E5%85%A8%E6%95%B0%E6%8E%A8%E5%AE%9A
+    m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
+    assert m is not None
+    cardid = m.group(1)
+    card_url = f"https://trello.com/c/{cardid}"
+
     url = f"{_ROOT_URL}/cards/{cardid}?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
     _logger.info(f"url: {url}")
     with urllib.request.urlopen(url) as url:
         data = json.loads(url.read().decode())
 
-    for i, checklist_id in tqdm(list(enumerate(data["idChecklists"]))):
-        url = f"{_ROOT_URL}/checklists/{checklist_id}?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
-        with urllib.request.urlopen(url) as url:
-            _data = json.loads(url.read().decode())
-        data["idChecklists"][i] = _data
-        data["idChecklists"][i]["checkItems"] = sorted(
-            data["idChecklists"][i]["checkItems"], key=lambda i: i["pos"])
+    _fetch_checklists(data, _ctx_to_auth(ctx))
 
     stats = {
         "total_count": sum([len(checklist_id["checkItems"])for checklist_id in data["idChecklists"]]),
@@ -100,15 +96,51 @@ def print_card(ctx, card_url, oformat):
         raise NotImplementedError
 
 
-# @cli.command(name="gc", help="getCard")
-# @click.argument("cardid")
-# @click.option("--field", multiple=True)
-# def _getCard(cardid, field):
-#    kwargs = {}
-#    if len(field) > 0:
-#        kwargs["fields"] = field
-#    res = getCard(cardid, **kwargs)
-#    print(json.dumps(res))
+def _ctx_to_auth(ctx):
+    return f"key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
+
+
+@high.command()
+@click.argument("card_url", envvar="CARD_URL")
+@click.argument("item")
+@click.option("-t", "--to", type=click.Choice(["card", "list"]), default="card")
+@click.pass_context
+def list_item_to(ctx, card_url, item, to):
+    _logger = logging.getLogger("high.list_item_to")
+    _logger.info(f"card_url: {card_url}")
+
+    # https://trello.com/c/S95tjc5b/5582-%E4%BA%A4%E9%80%9A%E9%87%8F%E5%85%A8%E6%95%B0%E6%8E%A8%E5%AE%9A
+    m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
+    assert m is not None
+    cardid = m.group(1)
+    card_url = f"https://trello.com/c/{cardid}"
+
+    _auth = _ctx_to_auth(ctx)
+    url = f"{_ROOT_URL}/cards/{cardid}?&{_auth}"
+    _logger.info(f"url: {url}")
+    with urllib.request.urlopen(url) as url:
+        data = json.loads(url.read().decode())
+
+    _fetch_checklists(data, _auth)
+
+    m = match(r"(\d+).(\d+)", item)
+    assert m is not None
+    i, j = (int(m.group(_i+1)) for _i in range(2))
+    item = data["idChecklists"][i]["checkItems"][j]
+    if to == "card":
+        _logger.info(f"item: {item}")
+        _url = f"{_ROOT_URL}/cards?{_auth}&idList={data['idList']}&name={urllib.parse.quote(item['name'])}"
+        _logger.info(f"_url: {_url}")
+        request = urllib.request.Request(_url, method="POST")
+        with urllib.request.urlopen(request) as response:
+            response_body = response.read().decode("utf-8")
+        _logger.info(f"response_body: {response_body}")
+        _rbp = json.loads(response_body)
+        print(_rbp["shortUrl"])
+        # TODO: archive on creation
+        # TODO: replace list item with newly-created card
+    else:
+        raise NotImplementedError
 
 
 # main
