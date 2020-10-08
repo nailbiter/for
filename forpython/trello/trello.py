@@ -56,7 +56,6 @@ def cli(ctx, debug, **kwargs):
 
 @cli.group()
 @click.pass_context
-@click.option("-o", "--oformat", type=click.Choice(["json", "pretty"]), default="pretty")
 def high(ctx, **kwargs):
     for k, v in kwargs.items():
         ctx.obj[k] = v
@@ -64,8 +63,9 @@ def high(ctx, **kwargs):
 
 @high.command()
 @click.argument("card_url", envvar="CARD_URL")
+@click.option("-o", "--oformat", type=click.Choice(["json", "github", "pretty"]), default="pretty")
 @click.pass_context
-def print_card(ctx, card_url):
+def print_card(ctx, card_url, oformat):
     _logger = logging.getLogger("high.print_card")
     _logger.info(f"card_url: {card_url}")
     cardid = card_url.split("/")[-1]  # FIXME: use regex's
@@ -87,9 +87,13 @@ def print_card(ctx, card_url):
         "done_count": sum([len([i for i in checklist_id["checkItems"] if i["state"] == "complete"]) for checklist_id in data["idChecklists"]]),
     }
 
-    if ctx.obj["oformat"] == "json":
+    #oformat = ctx.obj["oformat"]
+    if oformat == "json":
         print(json.dumps(data))
-    elif ctx.obj["oformat"] == "pretty":
+    elif oformat == "pretty":
+        print(_render_template("card_pretty.jinja.txt",
+                               card=data, card_url=card_url, stats=stats))
+    elif oformat == "github":
         print(_render_template("card.jinja.txt",
                                card=data, card_url=card_url, stats=stats))
     else:
