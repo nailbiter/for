@@ -154,10 +154,10 @@ def test(ctx, deck_index, deck_size):
                 break
         click.echo(click.style(f"res: {res}",
                                fg="green" if res == 1.0 else "red"))
-        click.echo(get_deck_with_score(deck)["score"].describe())
         obj = json.loads(question.to_json())
         _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
         MongoClient().alex_flashcards.results.insert_one(obj)
+        click.echo(get_deck_with_score(deck)["score"].describe())
 
 
 @flashcards.command()
