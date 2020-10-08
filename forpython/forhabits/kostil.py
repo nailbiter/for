@@ -62,7 +62,7 @@ def done(task, dry_run):
 @click.option("-o", "--only_permanent_habits", is_flag=True)
 @click.option("--mongopass", envvar="MONGO_PASS", required=True)
 @click.option("--dry_run/--no-dry_run", default=False)
-def add(date, mongopass, dry_run, debug=False, only_permanent_habits=False):
+def add_batch(date, mongopass, dry_run, debug=False, only_permanent_habits=False):
     if len(date) == 0:
         date = (datetime.now(),)
     logging.info(f"mongopass: {mongopass}")
@@ -90,6 +90,16 @@ def add(date, mongopass, dry_run, debug=False, only_permanent_habits=False):
     if not dry_run:
         MongoClient().habits.habits.insert_many(res.to_dict(orient="records"))
 
+@cli.command()
+@click.argument("name")
+@click.option("--dry_run/--no-dry_run", default=False)
+def add_one(name,dry_run):
+    coll = MongoClient().habits.habits
+    obj = {"name":name, "creation date": datetime.now().strftime('%Y-%m-%d')}
+    print(f"inserting obj {obj}")
+    if not dry_run:
+        coll.insert_one(obj)
+
 
 def _get_tasks():
     tasks_df = DataFrame(MongoClient().habits.habits.find()).set_index("_id")
@@ -102,8 +112,11 @@ def _get_tasks():
 
 
 @cli.command()
-def list():
+@click.option("--search")
+def list(search):
     tasks_df = _get_tasks()
+    if search is not None:
+        tasks_df = tasks_df[[search in name for name in tasks_df["name"]]]
     tasks_df = tasks_df.drop(
         columns=["_id", "datetime", "task_name", "creation date"])
     tasks_df["count"] = 1

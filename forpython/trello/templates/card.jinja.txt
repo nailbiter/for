@@ -1,6 +1,6 @@
-{{card.name}} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%) {%if card.closed%}(closed){%endif%}
+{{card.name}}{%if stats.total_count>0%} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%){%endif%}{%if card.closed%} (closed){%endif%}
 
-{{card.name}} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%) {%if card.closed%}(closed){%endif%}
+{{card.name}}{%if stats.total_count>0%} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%){%endif%}{%if card.closed%} (closed){%endif%}
 ===============================================================================
 
 description
