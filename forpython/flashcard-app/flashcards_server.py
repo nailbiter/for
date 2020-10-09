@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """===============================================================================
 
         FILE: flashcards_server.py
@@ -22,22 +23,21 @@ TODO:
     3. rewrite into bot (maybe, integrate into `flashcards.py`)
 
 ==============================================================================="""
-from flask import Flask, render_template, request
 from os import environ
-app = Flask(__name__)
+import click
 import logging
 from pymongo import MongoClient
 from re import match
 import pandas as pd
 from _flashcards import get_random_question, get_cards
-import logging
 from _flashcards.question import get_question_types, get_question
 import pickle
 import json
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 
 _QUESTION_PICKLE_FILENAME = ".question.pickle"
 
-@app.route('/')
 def test():
     deck_size, deck_index, tags = (environ[k] for k in ["DECK_SIZE","DECK_INDEX","TAGS"])
     tags = [tags]
@@ -65,7 +65,6 @@ def test():
         pickle.dump(question,f)
     return render_template("test.jinja.html",question_text=question.get_question_text(),question_i=question_i)
 
-@app.route("/check_answer",methods=["POST"])
 def check_answer():
     _logger = logging.getLogger("check_answer")
     x = dict(request.form)
@@ -88,3 +87,25 @@ def check_answer():
         _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
         MongoClient().alex_flashcards.results.insert_one(obj)
     return render_template("check_answer.jinja.html", res=res, msg=msg)
+
+@click.command()
+@click.option("-t","--telegram-token",envvar="TELEGRAM_TOKEN")
+def main(telegram_token):
+    assert telegram_token is not None
+    # Create the Updater and pass it your bot's token.
+    # Make sure to set use_context=True to use the new context based callbacks
+    # Post version 12 this will no longer be necessary
+    updater = Updater(telegram_token, use_context=True)
+
+    updater.dispatcher.add_handler(CommandHandler('test', test))
+
+    # Start the Bot
+    updater.start_polling()
+
+    # Run the bot until the user presses Ctrl-C or the process receives SIGINT,
+    # SIGTERM or SIGABRT
+    updater.idle()
+
+
+if __name__ == '__main__':
+    main()

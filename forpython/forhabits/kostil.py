@@ -125,6 +125,11 @@ def list(search):
     print(df.to_string())
     print(f"sum: {sum(df['count'])}")
 
+@cli.command()
+def list_done():
+    print(DataFrame(
+        MongoClient().habits.habits_done.find()).sort_values(by="datetime",ascending=False))
+
 
 # main
 if __name__ == "__main__":
