@@ -111,7 +111,11 @@ def printEngageTable(mode, date, mongo_pass):
     _df = _df.set_index("id").join(_taskData, how="left").sort_values(by="datetime")
     _logger.info(
         f"_df: {json.dumps(_df.reset_index().to_dict(orient='records'),indent=2,default=json_serial,ensure_ascii=False)}")
-    _logger.info({(r["index"],r["name"]) for r in _df.reset_index().to_dict(orient="records") if not isinstance(r["tags"],list)})
+    _set = {(r["index"],r["name"]) for r in _df.reset_index().to_dict(orient="records") if not isinstance(r["tags"],list)}
+    if let(_set)>0:
+        _logger.warning(_set)
+    else:
+        _logger.info(_set)
 #    _df["flag"] = _df["tags"].apply(lambda o:isinstance(o, list))
 #    _logger.info(_df)
 #    exit()
