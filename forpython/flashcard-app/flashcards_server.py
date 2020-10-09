@@ -33,15 +33,19 @@ from _flashcards import get_random_question, get_cards
 from _flashcards.question import get_question_types, get_question
 import pickle
 import json
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
+from telegram.keyboardbutton import KeyboardButton
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, MessageHandler, Filters
+#from telegram import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup
 
 _QUESTION_PICKLE_FILENAME = ".question.pickle"
 
-def test():
-    deck_size, deck_index, tags = (environ[k] for k in ["DECK_SIZE","DECK_INDEX","TAGS"])
+
+def test(update, context):
+    deck_size, deck_index, tags = (
+        environ[k] for k in ["DECK_SIZE", "DECK_INDEX", "TAGS"])
     tags = [tags]
-    deck_size,deck_index = (int(s) for s in [deck_size,deck_index])
+    deck_size, deck_index = (int(s) for s in [deck_size, deck_index])
     _logger = logging.getLogger("test")
 
     cards = get_cards(tags)
@@ -55,24 +59,32 @@ def test():
     assert(len(deck) > 0)
     _logger.info(f"deck:\n{pd.DataFrame(deck)}")
 
-    question_i = 0 #FIXME
+    question_i = 0  # FIXME
     question_i += 1
     _d = get_random_question(deck)
     question = get_question(
         _d["question_type"], **{k: v for k, v in _d.items() if k != "question_type"})
 
-    with open(_QUESTION_PICKLE_FILENAME,"wb") as f:
-        pickle.dump(question,f)
-    return render_template("test.jinja.html",question_text=question.get_question_text(),question_i=question_i)
+    with open(_QUESTION_PICKLE_FILENAME, "wb") as f:
+        pickle.dump(question, f)
 
-def check_answer():
+    # return render_template("test.jinja.html",question_text=question.get_question_text(),question_i=question_i)
+    _reply_text_kwargs = {"text": question.get_question_text()}
+    answer_options = question.get_answer_options()
+    if answer_options is not None:
+        _HOW_MANY_COLUMNS = 2
+        _reply_text_kwargs["reply_markup"] = ReplyKeyboardMarkup(
+            [list(map(KeyboardButton, answer_options[i:i+_HOW_MANY_COLUMNS])) for i in range(0, len(answer_options), _HOW_MANY_COLUMNS)], one_time_keyboard=True)
+    update.message.reply_text(**_reply_text_kwargs)
+
+
+def check_answer(update, context):
     _logger = logging.getLogger("check_answer")
-    x = dict(request.form)
-    with open(_QUESTION_PICKLE_FILENAME,"rb") as f:
+    with open(_QUESTION_PICKLE_FILENAME, "rb") as f:
         question = pickle.load(f)
-    res, msg = question.grade(x["answer"])
+    res, msg = question.grade(update.message.text)
 
-    #FIXME: implement this
+    # FIXME: implement this
 #    if msg is not None:
 #        print(f"({msg})")
 #    if res is not None:
@@ -80,16 +92,21 @@ def check_answer():
 
 #    click.echo(click.style(f"res: {res}",
 #                           fg="green" if res == 1.0 else "red"))
-    #FIXME: output deck score
-    
+    # FIXME: output deck score
+
     if res is not None:
         obj = json.loads(question.to_json())
         _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
         MongoClient().alex_flashcards.results.insert_one(obj)
-    return render_template("check_answer.jinja.html", res=res, msg=msg)
+    #return render_template("check_answer.jinja.html", res=res, msg=msg)
+    _msg = ""
+    if msg is not None:
+        _msg = f"({msg})"
+    update.message.reply_text(f"{res} {_msg}")
+
 
 @click.command()
-@click.option("-t","--telegram-token",envvar="TELEGRAM_TOKEN")
+@click.option("-t", "--telegram-token", envvar="TELEGRAM_TOKEN")
 def main(telegram_token):
     assert telegram_token is not None
     # Create the Updater and pass it your bot's token.
@@ -98,6 +115,8 @@ def main(telegram_token):
     updater = Updater(telegram_token, use_context=True)
 
     updater.dispatcher.add_handler(CommandHandler('test', test))
+    updater.dispatcher.add_handler(MessageHandler(
+        filters=Filters.all, callback=check_answer))
 
     # Start the Bot
     updater.start_polling()

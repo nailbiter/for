@@ -68,3 +68,6 @@ class _SelectionQuestion(Question):
         {{i+1}}. {{answers[i]}}
         {%endfor-%}
         """).render(**env)
+
+    def get_answer_options(self):
+        return range(1,_SelectionQuestion._NUMBER_OF_ANSWERS+1)

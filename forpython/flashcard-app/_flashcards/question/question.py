@@ -41,3 +41,6 @@ class Question():
         res["answer_time"] = self._answer_time.isoformat()
         res["TAG"] = self.__class__.TAG
         return json.dumps(res)
+
+    def get_answer_options(self):
+        return None
