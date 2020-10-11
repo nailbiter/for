@@ -113,17 +113,21 @@ def _get_tasks():
 
 @cli.command()
 @click.option("--search")
-def list(search):
+@click.option("--expand/--no-expand",default=False)
+def list(search,expand):
     tasks_df = _get_tasks()
     if search is not None:
         tasks_df = tasks_df[[search in name for name in tasks_df["name"]]]
-    tasks_df = tasks_df.drop(
-        columns=["_id", "datetime", "task_name", "creation date"])
-    tasks_df["count"] = 1
-    df = tasks_df.groupby("name").aggregate({"count": np.sum})
+    if expand:
+        print(tasks_df)
+    else:
+        tasks_df = tasks_df.drop(
+            columns=["_id", "datetime", "task_name", "creation date"])
+        tasks_df["count"] = 1
+        df = tasks_df.groupby("name").aggregate({"count": np.sum})
 
-    print(df.to_string())
-    print(f"sum: {sum(df['count'])}")
+        print(df.to_string())
+        print(f"sum: {sum(df['count'])}")
 
 @cli.command()
 def list_done():
