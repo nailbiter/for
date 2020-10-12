@@ -112,7 +112,7 @@ def printEngageTable(mode, date, mongo_pass):
     _logger.info(
         f"_df: {json.dumps(_df.reset_index().to_dict(orient='records'),indent=2,default=json_serial,ensure_ascii=False)}")
     _set = {(r["index"],r["name"]) for r in _df.reset_index().to_dict(orient="records") if not isinstance(r["tags"],list)}
-    if let(_set)>0:
+    if len(_set)>0:
         _logger.warning(_set)
     else:
         _logger.info(_set)
