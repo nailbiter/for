@@ -119,7 +119,8 @@ def list(search,expand):
     if search is not None:
         tasks_df = tasks_df[[search in name for name in tasks_df["name"]]]
     if expand:
-        print(tasks_df)
+        print(tasks_df.to_string())
+        print(f"count: {len(tasks_df)}")
     else:
         tasks_df = tasks_df.drop(
             columns=["_id", "datetime", "task_name", "creation date"])
