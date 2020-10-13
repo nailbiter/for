@@ -157,7 +157,7 @@ def test(ctx, deck_index, deck_size):
         obj = json.loads(question.to_json())
         _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
         MongoClient().alex_flashcards.results.insert_one(obj)
-        click.echo(get_deck_with_score(deck)["score"].describe())
+        click.echo((get_deck_with_score(deck)["score"]*100.0).describe())
 
 
 @flashcards.command()
