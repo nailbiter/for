@@ -59,7 +59,7 @@ def _fetch_checklists(data, auth):
 
 @high.command()
 @click.argument("card_url", envvar="CARD_URL")
-@click.option("-o", "--oformat", type=click.Choice(["json", "github", "pretty"]), default="pretty")
+@click.option("-o", "--oformat", type=click.Choice(["json", "github", "tech"]), default="github")
 @click.pass_context
 def print_card(ctx, card_url, oformat):
     _logger = logging.getLogger("high.print_card")
@@ -86,7 +86,7 @@ def print_card(ctx, card_url, oformat):
     #oformat = ctx.obj["oformat"]
     if oformat == "json":
         print(json.dumps(data))
-    elif oformat == "pretty":
+    elif oformat == "tech":
         print(_render_template("card_pretty.jinja.txt",
                                card=data, card_url=card_url, stats=stats))
     elif oformat == "github":
@@ -137,8 +137,17 @@ def list_item_to(ctx, card_url, item, to):
         _logger.info(f"response_body: {response_body}")
         _rbp = json.loads(response_body)
         print(_rbp["shortUrl"])
-        # TODO: archive on creation
-        # TODO: replace list item with newly-created card
+        # FIXME: archive on creation
+        # FIXME: replace list item with newly-created card
+    elif to == "list":
+        _logger.info(f"item: {item}")
+        name = " :: ".join([data["idChecklists"][i]["name"], item['name']])
+        _url = f"{_ROOT_URL}/cards/{cardid}/checklists?{_auth}&name={urllib.parse.quote(name)}"
+        _logger.info(f"_url: {_url}")
+        request = urllib.request.Request(_url, method="POST")
+        with urllib.request.urlopen(request) as response:
+            response_body = response.read().decode("utf-8")
+        _logger.info(f"response_body: {response_body}")
     else:
         raise NotImplementedError
 
