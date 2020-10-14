@@ -7,6 +7,7 @@ filetype on
 :au BufNewFile *.mac 0r ~/.vim/skeletons/skeleton.mac
 :au BufNewFile Makefile 0r ~/.vim/skeletons/skeleton.make
 :au BufNewFile Main.java 0r ~/.vim/skeletons/skeleton.Main.java
+:au BufNewFile *.py 0r ~/.vim/skeletons/skeleton.py
 
 au BufNewFile,BufRead *.fish set filetype=sh
 au BufNewFile,BufRead *.wl set filetype=mma
