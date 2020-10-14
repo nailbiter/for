@@ -133,7 +133,7 @@ def list(search,expand):
 @cli.command()
 def list_done():
     print(DataFrame(
-        MongoClient().habits.habits_done.find()).sort_values(by="datetime",ascending=False))
+        MongoClient().habits.habits_done.find()).sort_values(by="datetime",ascending=False).to_string(index=None))
 
 
 # main
