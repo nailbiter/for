@@ -8,6 +8,7 @@ filetype on
 :au BufNewFile Makefile 0r ~/.vim/skeletons/skeleton.make
 :au BufNewFile Main.java 0r ~/.vim/skeletons/skeleton.Main.java
 :au BufNewFile *.py 0r ~/.vim/skeletons/skeleton.py
+:au BufNewFile *.bql 0r ~/.vim/skeletons/skeleton.bql
 
 au BufNewFile,BufRead *.fish set filetype=sh
 au BufNewFile,BufRead *.wl set filetype=mma
@@ -16,6 +17,7 @@ au BufNewFile,BufRead *.gv set filetype=dot
 au BufNewFile,BufRead *.cs set filetype=cs
 au BufNewFile,BufRead *.ts set filetype=javascript
 au BufNewFile,BufRead *.tsx set filetype=javascript
+au BufNewFile,BufRead *.bql set filetype=sql
 
 function! SKEL_spec()
 	0r /usr/share/vim/current/skeletons/skeleton.spec
