@@ -1,1 +1,1 @@
-# run `Init`!
+run `Init`!
