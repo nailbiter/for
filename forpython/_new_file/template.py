@@ -13,7 +13,7 @@ REQUIREMENTS: ---
        NOTES: ---
       AUTHOR: Alex Leontiev ({{email}})
 ORGANIZATION: 
-     VERSION: 0.0.1
+{#-     VERSION: 0.0.1#}
      CREATED: {{now.isoformat()}}
     REVISION: ---
 
