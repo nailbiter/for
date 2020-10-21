@@ -12,7 +12,7 @@ REQUIREMENTS: ---
         BUGS: ---
        NOTES: ---
       AUTHOR: Alex Leontiev ({{email}})
-ORGANIZATION: 
+ORGANIZATION: {{organization}}
      VERSION: ---{#0.0.1#}
      CREATED: {{now.isoformat()}}
     REVISION: ---

@@ -15,9 +15,11 @@ def _render_template(fn, **kwargs):
 @click.command()
 @click.argument("fn", type=click.Path())
 @click.option("-s", "--stdout", is_flag=True)
-@click.option("-e", "--email", envvar="EMAIL",default="alozz1991@gmail.com")
-def new_file(fn, email, stdout=False):
-    s = _render_template("template.py", filename=fn, now=datetime.now(), email=email, is_executable=access(fn, X_OK))
+@click.option("-e", "--email", envvar="EMAIL", default="alozz1991@gmail.com")
+@click.option("-o", "--organization", envvar="ORGANIZATION", default="")
+def new_file(fn, email, organization, stdout=False):
+    s = _render_template("template.py", filename=fn, now=datetime.now(
+    ), email=email, is_executable=access(fn, X_OK), organization=organization)
     if stdout:
         print(s)
     else:
