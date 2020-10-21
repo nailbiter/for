@@ -23,3 +23,4 @@ set expandtab
 set makeprg=cat\ %\\\|bq\ query
 
 command! Prettify execute "!sqlformat -r -k upper % | sponge %"
+command! BqDryRun execute "!cat % | bq query --dry_run"

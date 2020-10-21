@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
+{%if is_executable%}#!/usr/bin/env python3{%endif-%}
 """===============================================================================
 
         FILE: {{filename}}
 
-       USAGE: ./{{filename}}
+       USAGE: {%if is_executable%}./{{filename}}{%else%}(not intended to be directly executed){%endif%}
 
  DESCRIPTION: 
 
