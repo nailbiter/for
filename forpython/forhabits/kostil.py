@@ -90,12 +90,13 @@ def add_batch(date, mongopass, dry_run, debug=False, only_permanent_habits=False
     if not dry_run:
         MongoClient().habits.habits.insert_many(res.to_dict(orient="records"))
 
+
 @cli.command()
 @click.argument("name")
 @click.option("--dry_run/--no-dry_run", default=False)
-def add_one(name,dry_run):
+def add_one(name, dry_run):
     coll = MongoClient().habits.habits
-    obj = {"name":name, "creation date": datetime.now().isoformat()}
+    obj = {"name": name, "creation date": datetime.now().isoformat()}
     print(f"inserting obj {obj}")
     if not dry_run:
         coll.insert_one(obj)
@@ -113,8 +114,8 @@ def _get_tasks():
 
 @cli.command()
 @click.option("--search")
-@click.option("--expand/--no-expand",default=False)
-def list(search,expand):
+@click.option("--expand/--no-expand", default=False)
+def list(search, expand):
     tasks_df = _get_tasks()
     if search is not None:
         tasks_df = tasks_df[[search in name for name in tasks_df["name"]]]
@@ -130,10 +131,25 @@ def list(search,expand):
         print(df.to_string())
         print(f"sum: {sum(df['count'])}")
 
+
 @cli.command()
 def list_done():
     print(DataFrame(
-        MongoClient().habits.habits_done.find()).sort_values(by="datetime",ascending=False).to_string(index=None))
+        MongoClient().habits.habits_done.find()).sort_values(by="datetime", ascending=False).to_string(index=None))
+
+
+@cli.command()
+@click.option("-d", "--date", type=click.DateTime(formats=["%Y-%m-%d"]), multiple=True)
+@click.option("--success/--no-success", default=False)
+@click.option("--mongopass", envvar="MONGO_PASS", required=True)
+def mark_good_day(date, success, mongopass):
+    if len(date) == 0:
+        date = (datetime.now(),)
+    client = MongoClient(
+        f"mongodb://nailbiter:{mongopass}@ds149672.mlab.com:49672/logistics?retryWrites=false")
+    coll = client.logistics["alex.habitspunch"]
+    coll.insert_many([{"date": d, "name": "good day",
+                       "status": "SUCCESS" if success else "FAILURE"} for d in date])
 
 
 # main
