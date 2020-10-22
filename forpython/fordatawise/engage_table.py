@@ -64,22 +64,9 @@ class _TagsRetriever():
         else:
             return None
 
-
-@click.group()
-def engage_table():
-    pass
-
-
-@engage_table.command()
-@click.option("-m", "--mode", type=click.Choice(["daily", "weekly"]), default="daily")
-@click.option("-d", "--date", type=click.DateTime(["%Y-%m-%d"]))
-@click.option("--mongo_pass", envvar="MONGO_PASS")
-def print(mode, date, mongo_pass):
-    assert mongo_pass is not None
-    if date is None:
-        date = datetime.now()
+def _get_tasks(mongo_pass,mode="daily",date=datetime.now()):
     client = _get_mongo_client(mongo_pass)
-    _logger = logging.getLogger("print")
+    _logger = logging.getLogger("_get_tasks")
 
     date_filter = DateFilter(mode, date)
     taskLog = pd.DataFrame(client.logistics["alex.taskLog"].with_options(codec_options=CodecOptions(
@@ -119,10 +106,35 @@ def print(mode, date, mongo_pass):
         f"_df: {json.dumps(_df.reset_index().to_dict(orient='records'),indent=2,default=json_serial,ensure_ascii=False)}")
     _set = {(r["index"], r["name"]) for r in _df.reset_index().to_dict(
         orient="records") if not isinstance(r["tags"], list)}
+
     if len(_set) > 0:
         _logger.warning(_set)
     else:
         _logger.info(_set)
+
+    return _df    
+
+@click.group()
+@click.option("--mongo_pass", envvar="MONGO_PASS")
+@click.pass_context
+def engage_table(ctx, mongo_pass):
+    assert mongo_pass is not None
+    _logger = logging.getLogger("engage_table")
+    _logger.info(f"mongo_pass: {mongo_pass}")
+    ctx.ensure_object(dict)
+    ctx.obj["mongo_pass"] = mongo_pass
+    _logger.info(ctx.obj)
+
+
+@engage_table.command()
+@click.option("-m", "--mode", type=click.Choice(["daily", "weekly"]), default="daily")
+@click.option("-d", "--date", type=click.DateTime(["%Y-%m-%d"]))
+@click.pass_context
+def print(ctx, mode, date):
+    if date is None:
+        date = datetime.now()
+
+    _df = _get_tasks(ctx.obj["mongo_pass"],mode,date)
 
     if mode == "daily":
         res = pd.DataFrame({
@@ -134,10 +146,10 @@ def print(mode, date, mongo_pass):
             "タスク": _df["tags"].apply(_TagsRetriever("_time_table:task:")),
             "内容": [f"=HYPERLINK(\"{shortUrl}\",\"{name}\")" for name, shortUrl in zip(_df["name"], _df["shortUrl"])]
         })
-        print(res.sort_values(by="開始").to_csv(
+        click.echo(res.sort_values(by="開始").to_csv(
             index=False, sep="\t", header=False))
     elif mode == "weekly":
-        print(_df.groupby("name").sum().sort_values(
+        click.echo(_df.groupby("name").sum().sort_values(
             by="duration_hours", ascending=False))
     else:
         raise NotImplementedError
@@ -146,8 +158,19 @@ def print(mode, date, mongo_pass):
 @engage_table.command()
 @click.argument("task_id")
 @click.argument("progress", type=click.FLOAT)
-def eta(task_id, progress):
+@click.pass_context
+def eta(ctx, task_id, progress):
     assert 0 <= progress <= 1.0
+    _logger = logging.getLogger("eta")
+    _df = _get_tasks(ctx.obj["mongo_pass"]).reset_index()
+    _df = pd.DataFrame({k:_df[k] for k in ["index","duration_hours","name"]})
+    _df = _df.groupby(["index","name"]).sum().reset_index()
+    r = [r for r in _df.to_dict(orient="records") if r["index"]==task_id]
+    assert len(r)==1, r
+    r = r[0]
+    remaining_time_hours = timedelta(hours=r["duration_hours"])/progress*(1-progress)
+    click.echo(f"{progress*100}% in {r['duration_hours']}h")
+    click.echo(f"=> eta: {remaining_time_hours} (at {datetime.now()+remaining_time_hours})")
 
 
 if __name__ == "__main__":
