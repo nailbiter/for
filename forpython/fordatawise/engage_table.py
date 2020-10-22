@@ -143,6 +143,13 @@ def print(mode, date, mongo_pass):
         raise NotImplementedError
 
 
+@engage_table.command()
+@click.argument("task_id")
+@click.argument("progress", type=click.FLOAT)
+def eta(task_id, progress):
+    assert 0 <= progress <= 1.0
+
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     engage_table()
