@@ -65,16 +65,21 @@ class _TagsRetriever():
             return None
 
 
-@click.command()
+@click.group()
+def engage_table():
+    pass
+
+
+@engage_table.command()
 @click.option("-m", "--mode", type=click.Choice(["daily", "weekly"]), default="daily")
 @click.option("-d", "--date", type=click.DateTime(["%Y-%m-%d"]))
 @click.option("--mongo_pass", envvar="MONGO_PASS")
-def printEngageTable(mode, date, mongo_pass):
+def print(mode, date, mongo_pass):
     assert mongo_pass is not None
     if date is None:
         date = datetime.now()
     client = _get_mongo_client(mongo_pass)
-    _logger = logging.getLogger("printEngageTable")
+    _logger = logging.getLogger("print")
 
     date_filter = DateFilter(mode, date)
     taskLog = pd.DataFrame(client.logistics["alex.taskLog"].with_options(codec_options=CodecOptions(
@@ -108,17 +113,16 @@ def printEngageTable(mode, date, mongo_pass):
     _df = _df[[n not in ["lunch", "off-work"] for n in _df["name"]]]
     _taskData = pd.DataFrame(
         client.logistics["alex.taskData"].find()).set_index("task_id")
-    _df = _df.set_index("id").join(_taskData, how="left").sort_values(by="datetime")
+    _df = _df.set_index("id").join(
+        _taskData, how="left").sort_values(by="datetime")
     _logger.info(
         f"_df: {json.dumps(_df.reset_index().to_dict(orient='records'),indent=2,default=json_serial,ensure_ascii=False)}")
-    _set = {(r["index"],r["name"]) for r in _df.reset_index().to_dict(orient="records") if not isinstance(r["tags"],list)}
-    if len(_set)>0:
+    _set = {(r["index"], r["name"]) for r in _df.reset_index().to_dict(
+        orient="records") if not isinstance(r["tags"], list)}
+    if len(_set) > 0:
         _logger.warning(_set)
     else:
         _logger.info(_set)
-#    _df["flag"] = _df["tags"].apply(lambda o:isinstance(o, list))
-#    _logger.info(_df)
-#    exit()
 
     if mode == "daily":
         res = pd.DataFrame({
@@ -141,4 +145,4 @@ def printEngageTable(mode, date, mongo_pass):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
-    printEngageTable()
+    engage_table()
