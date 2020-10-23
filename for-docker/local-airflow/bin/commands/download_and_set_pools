@@ -1,0 +1,5 @@
+#!/bin/sh
+
+VARIABLES_DIR=/usr/local/airflow/tmp
+./bin/run_command "gsutil cp gs://$1/tmp/$2 $VARIABLES_DIR/$2" #`mv` gives `insuff permissions` on removal
+./bin/run_command "airflow pool -i $VARIABLES_DIR/$2"

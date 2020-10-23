@@ -1,0 +1,4 @@
+#!/bin/sh
+
+docker-compose up --build -d
+./bin/run_command "gcloud auth activate-service-account airflow-dev-service-account@olm-pipeline-dev.iam.gserviceaccount.com --key-file=/usr/local/airflow/auth_keys/service_account_key.json"

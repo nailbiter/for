@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+"""===============================================================================
+
+        FILE: ./bin/control
+
+       USAGE: ././bin/control
+
+ DESCRIPTION: 
+
+     OPTIONS: ---
+REQUIREMENTS: ---
+        BUGS: ---
+       NOTES: ---
+      AUTHOR: Alex Leontiev (alozz1991@gmail.com),
+ORGANIZATION: 
+     VERSION: 0.0.1
+     CREATED: 2020-10-01T11:44:12.240332
+    REVISION: ---
+
+==============================================================================="""
+
+import click
+from subprocess import call
+import logging
+import webbrowser
+
+def _myexec(cmd):
+    _logger = logging.getLogger("_myexec")
+    _logger.info(f"> {cmd}")
+    call(cmd.split(" "))
+
+@click.group()
+@click.option("-d","--debug",is_flag=True)
+def control(debug):
+    if debug:
+        logging.basicConfig(level=logging.INFO)
+
+@control.command()
+def start():
+    _myexec("docker-compose up --build -d")
+    _myexec("docker container ls")
+    webbrowser.open("http://localhost:8080")
+    #./bin/run_command "gcloud auth activate-service-account airflow-dev-service-account@olm-pipeline-dev.iam.gserviceaccount.com --key-file=/usr/local/airflow/auth_keys/service_account_key.json"
+
+if __name__=="__main__":
+    control()
