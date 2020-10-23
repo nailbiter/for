@@ -151,6 +151,10 @@ def mark_good_day(date, success, mongopass):
     coll.insert_many([{"date": d, "name": "good day",
                        "status": "SUCCESS" if success else "FAILURE"} for d in date])
 
+@cli.command()
+def excise_trello():
+    pass
+
 
 # main
 if __name__ == "__main__":
