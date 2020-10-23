@@ -39,6 +39,47 @@ def cli(ctx, debug, **kwargs):
 
 
 @cli.group()
+@click.pass_context
+def low(ctx):
+    ctx.obj["logger"] = logging.getLogger("low")
+
+
+@low.command()
+@click.argument("user_id", envvar="TRELLO_USER_ID")
+@click.pass_context
+def get_boards_of_user(ctx, user_id):
+    _logger = ctx.obj["logger"].getChild("get_boards_of_user")
+    url = f"{_ROOT_URL}/members/{user_id}/boards?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
+    _logger.info(f"url: {url}")
+    with urllib.request.urlopen(url) as url:
+        data = json.loads(url.read().decode())
+    print(json.dumps(data, sort_keys=True, indent=2))
+
+
+@low.command()
+@click.argument("board_id", envvar="TRELLO_BOARD_ID")
+@click.pass_context
+def get_lists_of_board(ctx,board_id):
+    _logger = ctx.obj["logger"].getChild("get_lists_of_board")
+    url = f"{_ROOT_URL}/boards/{board_id}/lists?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
+    _logger.info(f"url: {url}")
+    with urllib.request.urlopen(url) as url:
+        data = json.loads(url.read().decode())
+    print(json.dumps(data, sort_keys=True, indent=2))
+
+@low.command()
+@click.argument("list_id", envvar="TRELLO_LIST_ID")
+@click.pass_context
+def get_cards_of_list(ctx,list_id):
+    _logger = ctx.obj["logger"].getChild("get_cards_of_list")
+    url = f"{_ROOT_URL}/lists/{list_id}/cards?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
+    _logger.info(f"url: {url}")
+    with urllib.request.urlopen(url) as url:
+        data = json.loads(url.read().decode())
+    print(json.dumps(data, sort_keys=True, indent=2))
+
+
+@cli.group()
 @click.option("--dry-run/--no-dry-run", default=False)
 @click.pass_context
 def high(ctx, **kwargs):
