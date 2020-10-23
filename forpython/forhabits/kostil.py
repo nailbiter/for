@@ -10,6 +10,7 @@ import logging
 from croniter import croniter
 from uuid import uuid4
 from pymongo import MongoClient
+from subprocess import getoutput
 
 
 # global const's
@@ -142,18 +143,23 @@ def list_done():
 @click.option("-d", "--date", type=click.DateTime(formats=["%Y-%m-%d"]), multiple=True)
 @click.option("--success/--no-success", default=False)
 @click.option("--mongopass", envvar="MONGO_PASS", required=True)
-def mark_good_day(date, success, mongopass):
+@click.option("--dry-run/--no-dry-run", default=False)
+def mark_good_day(date, success, mongopass,dry_run):
     if len(date) == 0:
         date = (datetime.now(),)
     client = MongoClient(
         f"mongodb://nailbiter:{mongopass}@ds149672.mlab.com:49672/logistics?retryWrites=false")
     coll = client.logistics["alex.habitspunch"]
-    coll.insert_many([{"date": d, "name": "good day",
-                       "status": "SUCCESS" if success else "FAILURE"} for d in date])
+    objs = [{"date": (datetime(d.year,d.month,d.day,23)-timedelta(hours=9)), "name": "good day",
+                           "status": "SUCCESS" if success else "FAILURE"} for d in date]
+    print(f"objs: {objs}")
+    if not dry_run:
+        coll.insert_many(objs)
 
 @cli.command()
-def excise_trello():
-    pass
+@click.argument("list_id", envvar="TRELLO_LIST_ID")
+def excise_trello(list_id):
+    getoutput(f"~/for/forpython/trello/trello.py low get-cards-of-list")
 
 
 # main
