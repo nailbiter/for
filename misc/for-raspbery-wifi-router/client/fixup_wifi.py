@@ -39,12 +39,27 @@ def _check_output(cmd):
     return check_output(cmd.split(" ")).decode("utf-8")
 
 
-@click.command()
+@click.group()
+def cli():
+    pass
+
+
+@cli.command()
+def off():
+    _check_output("networksetup -setairportpower en0 off")
+
+
+@cli.command()
+def on():
+    _check_output("networksetup -setairportpower en0 on")
+
+
+@cli.command()
 @click.option("--wifi_pass", envvar="WIFI_PASS")
 @click.option("--wifi_name", envvar="WIFI_NAME")
 @click.option("--force/--no-force", default=False)
 @click.option("--loop/--no-loop", default=False)
-def fixup_wifi(wifi_pass,wifi_name,force,loop):
+def fw(wifi_pass, wifi_name, force, loop):
     assert wifi_pass is not None
     if loop:
         while True:
@@ -55,8 +70,8 @@ def fixup_wifi(wifi_pass,wifi_name,force,loop):
             if not is_active or force:
                 iteration_count = 0
                 res = None
-                while iteration_count==0 or len(res)>0:
-                    if iteration_count>0:
+                while iteration_count == 0 or len(res) > 0:
+                    if iteration_count > 0:
                         print("retrying...")
                         sleep(SLEEP_SECONDS)
                     res = _check_output(
@@ -74,4 +89,4 @@ def fixup_wifi(wifi_pass,wifi_name,force,loop):
 
 
 if __name__ == "__main__":
-    fixup_wifi()
+    cli()
