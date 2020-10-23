@@ -37,23 +37,34 @@ def cli(ctx, debug, **kwargs):
     for k, v in kwargs.items():
         ctx.obj[k] = v
 
+class TrelloUrl:
+    _ROOT_URL = "https://api.trello.com/1"
+    def __init__(self, trello_key, trello_token):
+        self._trello_key = trello_key
+        self._trello_token = trello_token
+        self._logger = logging.getLogger("TrelloUrl")
+    def __call__(self,tpl,**kwargs):
+        url = Template(tpl).render(kwargs)
+        if "?" not in url:
+            url = f"{url}?"
+        url = f"{TrelloUrl._ROOT_URL}/{url}&token={self._trello_token}&key={self._trello_key}"
+        self._logger.info(f"url: {url}")
+        with urllib.request.urlopen(url) as url:
+            data = json.loads(url.read().decode())
+        return data    
 
 @cli.group()
 @click.pass_context
 def low(ctx):
     ctx.obj["logger"] = logging.getLogger("low")
+    ctx.obj["trello_url"] = TrelloUrl(**{f"trello_{k}":ctx.obj[f"trello_{k}"] for k in ["key","token"]})
 
 
 @low.command()
 @click.argument("user_id", envvar="TRELLO_USER_ID")
 @click.pass_context
-def get_boards_of_user(ctx, user_id):
-    _logger = ctx.obj["logger"].getChild("get_boards_of_user")
-    url = f"{_ROOT_URL}/members/{user_id}/boards?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
-    _logger.info(f"url: {url}")
-    with urllib.request.urlopen(url) as url:
-        data = json.loads(url.read().decode())
-    print(json.dumps(data, sort_keys=True, indent=2))
+def get_boards_of_user(ctx, **kwargs):
+    print(json.dumps(ctx.obj["trello_url"]("/members/{{user_id}}/boards",**kwargs), sort_keys=True, indent=2))
 
 
 @low.command()
