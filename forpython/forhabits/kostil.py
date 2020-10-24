@@ -159,7 +159,9 @@ def mark_good_day(date, success, mongopass,dry_run):
 @cli.command()
 @click.argument("list_id", envvar="TRELLO_LIST_ID")
 def excise_trello(list_id):
-    getoutput(f"~/for/forpython/trello/trello.py low get-cards-of-list")
+    cards = json.loads(getoutput(f"~/for/forpython/trello/trello.py low get-cards-of-list"))
+    #cards = [{"name":card["name"], ""} for card in cards]
+    print(json.dumps(cards))
 
 
 # main

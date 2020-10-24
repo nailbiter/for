@@ -66,6 +66,19 @@ def low(ctx):
 def get_boards_of_user(ctx, **kwargs):
     print(json.dumps(ctx.obj["trello_url"]("/members/{{user_id}}/boards",**kwargs), sort_keys=True, indent=2))
 
+@low.command()
+@click.argument("id", envvar="CARD_URL")
+@click.pass_context
+def get_card(ctx, **kwargs):
+    print(json.dumps(ctx.obj["trello_url"]("/cards/{{id}}",**kwargs), sort_keys=True, indent=2))
+
+@low.command()
+@click.argument("id", envvar="CARD_URL")
+@click.option("-f","--filter", multiple=True, type=click.Choice(["createCard"]))
+@click.pass_context
+def get_actions_on_card(ctx, **kwargs):
+    print(json.dumps(ctx.obj["trello_url"]("/cards/{{id}}/actions{%if (filter|length)>0%}?filter={{filter|join(',')}}{%endif%}",**kwargs), sort_keys=True, indent=2))
+
 
 @low.command()
 @click.argument("board_id", envvar="TRELLO_BOARD_ID")
