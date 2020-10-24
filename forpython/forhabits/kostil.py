@@ -2,6 +2,7 @@
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 import json
+from tqdm import tqdm
 import numpy as np
 import re
 from pandas import DataFrame, concat, isna
@@ -158,11 +159,31 @@ def mark_good_day(date, success, mongopass,dry_run):
 
 @cli.command()
 @click.argument("list_id", envvar="TRELLO_LIST_ID")
-def excise_trello(list_id):
+@click.option("--dry-run/--no-dry-run", default=False)
+@click.option("-l","--limit", type=int, default=-1)
+@click.option("-r","--regex")
+def excise_trello(list_id, dry_run, regex,limit):
+    logger = logging.getLogger("excise_trello")
     cards = json.loads(getoutput(f"~/for/forpython/trello/trello.py low get-cards-of-list"))
-    #cards = [{"name":card["name"], ""} for card in cards]
-    print(json.dumps(cards))
-
+    if regex is not None:
+        cards = [card for card in cards if re.match(regex,card["name"]) is not None]
+    coll = MongoClient().habits.habits
+    original_size = len(cards)
+    if limit>=0:
+        cards = cards[:limit]
+    for i,card in tqdm(enumerate(cards),total=len(cards)):
+        _card = {"name":card["name"], "comment":f"trello:{card['id']},url:{card['shortUrl']}"}
+        res = json.loads(getoutput(f"~/for/forpython/trello/trello.py low get-actions-on-card {card['id']} -f createCard -f copyCard"))
+        assert len(res)>0, (_card,res)
+        date_ = sorted([(datetime.fromisoformat(res[i]["date"][:-1]) + timedelta(hours=9)) for i in range(len(res))])[0]
+        _card["creation date"] = date_.isoformat()
+        logging.info(_card)
+        if not dry_run:
+            coll.insert_one(_card)
+            getoutput(f"~/for/forpython/trello/trello.py low update-card {card['id']} --closed true")
+        cards[i] = _card
+    print(DataFrame(cards).to_string())
+    print(f"original_size: {original_size}")
 
 # main
 if __name__ == "__main__":

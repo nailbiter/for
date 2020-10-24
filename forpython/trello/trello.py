@@ -37,53 +37,79 @@ def cli(ctx, debug, **kwargs):
     for k, v in kwargs.items():
         ctx.obj[k] = v
 
+
 class TrelloUrl:
     _ROOT_URL = "https://api.trello.com/1"
+
     def __init__(self, trello_key, trello_token):
         self._trello_key = trello_key
         self._trello_token = trello_token
         self._logger = logging.getLogger("TrelloUrl")
-    def __call__(self,tpl,**kwargs):
+
+    def __call__(self, tpl, method_="GET", **kwargs):
         url = Template(tpl).render(kwargs)
         if "?" not in url:
             url = f"{url}?"
         url = f"{TrelloUrl._ROOT_URL}/{url}&token={self._trello_token}&key={self._trello_key}"
         self._logger.info(f"url: {url}")
-        with urllib.request.urlopen(url) as url:
-            data = json.loads(url.read().decode())
-        return data    
+
+        if method_=="GET":
+            with urllib.request.urlopen(url) as url:
+                data = json.loads(url.read().decode())
+        elif method_ in ["POST","PUT"]:
+            request = urllib.request.Request(url, method=method_)
+            with urllib.request.urlopen(request) as response:
+                data = json.loads(response.read().decode("utf-8"))
+        else:
+            raise NotImplementedError
+
+        return data
+
 
 @cli.group()
 @click.pass_context
 def low(ctx):
     ctx.obj["logger"] = logging.getLogger("low")
-    ctx.obj["trello_url"] = TrelloUrl(**{f"trello_{k}":ctx.obj[f"trello_{k}"] for k in ["key","token"]})
+    ctx.obj["trello_url"] = TrelloUrl(
+        **{f"trello_{k}": ctx.obj[f"trello_{k}"] for k in ["key", "token"]})
 
 
+@low.command()
+@click.argument("id", envvar="CARD_URL")
+@click.option("--closed", type=click.Choice(["true","false"]))
+@click.pass_context
+def update_card(ctx, **kwargs):
+    print(json.dumps(ctx.obj["trello_url"](
+        "/cards/{{id}}?{%if closed%}closed={{closed}}{%endif%}",method_="PUT", **kwargs), sort_keys=True, indent=2))
 @low.command()
 @click.argument("user_id", envvar="TRELLO_USER_ID")
 @click.pass_context
 def get_boards_of_user(ctx, **kwargs):
-    print(json.dumps(ctx.obj["trello_url"]("/members/{{user_id}}/boards",**kwargs), sort_keys=True, indent=2))
+    print(json.dumps(ctx.obj["trello_url"](
+        "/members/{{user_id}}/boards", **kwargs), sort_keys=True, indent=2))
+
 
 @low.command()
 @click.argument("id", envvar="CARD_URL")
 @click.pass_context
 def get_card(ctx, **kwargs):
-    print(json.dumps(ctx.obj["trello_url"]("/cards/{{id}}",**kwargs), sort_keys=True, indent=2))
+    print(json.dumps(ctx.obj["trello_url"](
+        "/cards/{{id}}", **kwargs), sort_keys=True, indent=2))
+
 
 @low.command()
 @click.argument("id", envvar="CARD_URL")
-@click.option("-f","--filter", multiple=True, type=click.Choice(["createCard"]))
+@click.option("-f", "--filter", multiple=True, type=click.Choice(["createCard","copyBoard","copyCard"]))
 @click.pass_context
 def get_actions_on_card(ctx, **kwargs):
-    print(json.dumps(ctx.obj["trello_url"]("/cards/{{id}}/actions{%if (filter|length)>0%}?filter={{filter|join(',')}}{%endif%}",**kwargs), sort_keys=True, indent=2))
+    print(json.dumps(ctx.obj["trello_url"](
+        "/cards/{{id}}/actions{%if (filter|length)>0%}?filter={{filter|join(',')}}{%endif%}", **kwargs), sort_keys=True, indent=2))
 
 
 @low.command()
 @click.argument("board_id", envvar="TRELLO_BOARD_ID")
 @click.pass_context
-def get_lists_of_board(ctx,board_id):
+def get_lists_of_board(ctx, board_id):
     _logger = ctx.obj["logger"].getChild("get_lists_of_board")
     url = f"{_ROOT_URL}/boards/{board_id}/lists?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
     _logger.info(f"url: {url}")
@@ -91,10 +117,11 @@ def get_lists_of_board(ctx,board_id):
         data = json.loads(url.read().decode())
     print(json.dumps(data, sort_keys=True, indent=2))
 
+
 @low.command()
 @click.argument("list_id", envvar="TRELLO_LIST_ID")
 @click.pass_context
-def get_cards_of_list(ctx,list_id):
+def get_cards_of_list(ctx, list_id):
     _logger = ctx.obj["logger"].getChild("get_cards_of_list")
     url = f"{_ROOT_URL}/lists/{list_id}/cards?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
     _logger.info(f"url: {url}")
