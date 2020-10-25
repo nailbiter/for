@@ -7,6 +7,7 @@ from itertools import product
 import json
 from _flashcards.question import get_question_types, get_question
 GROUP_BY = ["_id", "is_front_to_back", "back_index"]
+_HISTORY_SIZE = 5
 
 
 def get_deck_with_score(deck):
@@ -24,7 +25,8 @@ def get_deck_with_score(deck):
     results_df = pd.DataFrame(MongoClient().alex_flashcards.results.find())
     results_df["_id"] = results_df["card"]
     results_df.drop(columns=["card"])
-    results_df = pd.DataFrame([{**{k:v for k,v in zip(GROUP_BY,idx)}, "score":_df.sort_values(by="answer_time",ascending=False)["score"][:5].min(),} for idx,_df in results_df.groupby(GROUP_BY)])
+    results_df = pd.DataFrame([{**{k: v for k, v in zip(GROUP_BY, idx)}, "score": _df.sort_values(
+        by="answer_time", ascending=False)["score"][:_HISTORY_SIZE].min(), } for idx, _df in results_df.groupby(GROUP_BY)])
     results_df = results_df.set_index(GROUP_BY)
     _logger.info(f"results_df: {results_df}")
 
