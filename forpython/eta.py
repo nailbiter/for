@@ -89,23 +89,3 @@ def eta(spreadsheet_id, range_name, time_column_name):
 
 if __name__ == '__main__':
     eta()
-
-# @click.command()
-# def eta():
-#    """https://qiita.com/kossacks/items/8d279bcc1acc2c2153ab"""
-#   _range = f"{sheet_name}!{sheet_range}"
-#   service = discovery.build('sheets', 'v4', credentials=credentials)
-#    request = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id,
-#						  range=_range,
-#						  valueRenderOption="UNFORMATTED_VALUE")
-#    response = request.execute()
-#    values = response["values"]
-#    if header:
-#	columns = values[0]
-#	values = values[1:]
-#    else:
-#	columns = None
-#    return pd.DataFrame(values, columns=columns)
-#
-# if __name__=="__main__":
-#    eta()
