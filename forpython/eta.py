@@ -28,6 +28,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from datetime import datetime
+import logging
 
 # If modifying these scopes, delete the file token.google_spreadsheet.pickle.
 _SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
@@ -76,15 +77,16 @@ def eta(spreadsheet_id, range_name, time_column_name):
     df = pd.DataFrame([{k: v for k, v in zip(head, r)} for r in body])
     df[time_column_name] = df[time_column_name].apply(
         lambda s: s if pd.isna(s) else datetime.strptime(s, "%Y/%m/%d %H:%M:%S"))
-    print(df)
+    logging.info(df)
     count = len(df)-1
     df["start_date"] = df[time_column_name].shift(1)
     df = df.dropna()
-    print(df)
+    logging.info(df)
     eta = sum(list(df[time_column_name]-df["start_date"]),
               start=pd.Timedelta(seconds=0))
-    eta = eta/len(df)*count
-    print(f"progress: {len(df)}/{count}, eta: {eta}, estimated end: {datetime.now()+eta}")
+    print(f"progress: {len(df)}/{count} in {eta}")
+    eta = eta/len(df)*(count-len(df))
+    print(f"=> eta: {eta}, estimated end: {datetime.now()+eta}")
 
 
 if __name__ == '__main__':
