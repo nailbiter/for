@@ -193,7 +193,7 @@ def _ctx_to_auth(ctx):
 
 
 @high.command()
-@click.argument("card_url", envvar="CARD_URL")
+@click.option("--card-url", envvar="CARD_URL")
 @click.argument("item")
 @click.option("-t", "--to", type=click.Choice(["card", "list"]), default="card")
 @click.pass_context
