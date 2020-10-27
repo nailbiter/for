@@ -164,7 +164,7 @@ def mark_good_day(date, success, mongopass,dry_run):
 @click.option("-r","--regex")
 def excise_trello(list_id, dry_run, regex,limit):
     logger = logging.getLogger("excise_trello")
-    cards = json.loads(getoutput(f"~/for/forpython/trello/trello.py low get-cards-of-list"))
+    cards = json.loads(getoutput(f"~/for/forpython/trello/trello.py low get-cards-of-list {list_id}"))
     if regex is not None:
         cards = [card for card in cards if re.match(regex,card["name"]) is not None]
     coll = MongoClient().habits.habits
