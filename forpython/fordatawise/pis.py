@@ -26,9 +26,10 @@ import click
 @click.command()
 @click.argument("package_name")
 def pis(package_name):
-    system(f"pip3 install {package_name}")
+    pip3 = "./venv/bin/pip3"
+    system(f"{pip3} install {package_name}")
     system(f"touch requirements.txt")
-    system(f"pip3 freeze | grep {package_name} >> requirements.txt")
+    system(f"{pip3} freeze | grep -i {package_name} >> requirements.txt")
     print(f"added {package_name}")
 
 

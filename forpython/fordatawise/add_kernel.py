@@ -27,6 +27,7 @@ pwd=getoutput("pwd")
 pwd = pwd.replace("/",".").strip(".")
 # Kernel names can only contain ASCII letters and numbers and these separators: - . _ (hyphen, period, and underscore).
 assert match(r"^[a-zA-Z0-9._-]+$",pwd) is not None
-print(pwd)
+print(f"pwd: {pwd}")
 #system(f"")
+system(f"pip install ipykernel")
 system(f"ipython kernel install --user --name={pwd}")
