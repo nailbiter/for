@@ -78,3 +78,4 @@ if [ -f '/Users/oleksiileontiev/Downloads/google-cloud-sdk/path.fish.inc' ]; . '
 ## make them aliases if you find yourself using them again and again
 #!git revert (git log --format=oneline --decorate=short|fzf --layout=reverse|awk -F' ' '{print $1}')
 eval (direnv hook fish)
+set -x TESSDATA_PREFIX usr/local/share/tessdata
