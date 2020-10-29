@@ -37,3 +37,5 @@ vnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle(
 set listchars+=space:␣
 command! Prettify execute "!autopep8 -i %"
 command! Init execute "!~/for/forpython/new_file.py %"
+
+set number

@@ -102,9 +102,10 @@ def _get_tasks(mongo_pass,mode="daily",date=datetime.now()):
         client.logistics["alex.taskData"].find()).set_index("task_id")
     _df = _df.set_index("id").join(
         _taskData, how="left").sort_values(by="datetime")
+    _df_wo_index = _df.reset_index()
     _logger.info(
-        f"_df: {json.dumps(_df.reset_index().to_dict(orient='records'),indent=2,default=json_serial,ensure_ascii=False)}")
-    _set = {(r["index"], r["name"]) for r in _df.reset_index().to_dict(
+        f"_df: {json.dumps(_df_wo_index.to_dict(orient='records'),indent=2,default=json_serial,ensure_ascii=False)}")
+    _set = {(r["id"], r["name"]) for r in _df_wo_index.to_dict(
         orient="records") if not isinstance(r["tags"], list)}
 
     if len(_set) > 0:
