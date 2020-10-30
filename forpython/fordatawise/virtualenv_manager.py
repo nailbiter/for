@@ -50,13 +50,14 @@ def install(package_name,save):
     if _MODE=="github":
         package_name = package_name[len("https:"):]
         package_name = f"git+https:{package_name}"
-    system(f"{pip3} install {package_name}")
+    _system(f"{pip3} install {package_name}")
     if save:
-        system(f"touch requirements.txt")
+        _system(f"touch requirements.txt")
         if _MODE=="github":
-            system(f"echo \"{package_name}\" >> requirements.txt")
+            _system(f"echo \"{package_name}\" >> requirements.txt")
         else:
-            system(f"{pip3} freeze | grep -i \"{package_name}\" >> requirements.txt")
+            #FIXME: this can be done more robustly
+            _system(f"{pip3} freeze | grep -i \"{package_name}\" >> requirements.txt")
         print(f"added \"{package_name}\"")
 
 
