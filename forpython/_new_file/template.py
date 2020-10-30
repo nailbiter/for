@@ -1,4 +1,6 @@
-{%if is_executable%}#!/usr/bin/env python3{%endif%}
+{%-if is_executable-%}
+#!/usr/bin/env python3
+{%endif-%}
 """===============================================================================
 
         FILE: {{filename}}
