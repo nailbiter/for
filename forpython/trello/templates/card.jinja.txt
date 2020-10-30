@@ -12,8 +12,7 @@ checklist: {{idChecklist.name}}
 -----------------------------------------------------------------------------------
 {%for checkItem in idChecklist.checkItems-%}
  - [{%if checkItem.state=='complete'%}x{%else%} {%endif%}] {{checkItem.name}}
-
-{%endfor-%}
+{%endfor%}
 {%endfor-%}
 
 url: {{card_url}}
