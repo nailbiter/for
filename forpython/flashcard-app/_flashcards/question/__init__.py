@@ -1,8 +1,8 @@
 from _flashcards.question._selection_question import _SelectionQuestion
+from _flashcards.question._typein_question import _TypeinQuestion
 
 
-
-_QUESTION_CLASSES = [_SelectionQuestion]
+_QUESTION_CLASSES = [_SelectionQuestion, _TypeinQuestion]
 
 
 def get_question_types():

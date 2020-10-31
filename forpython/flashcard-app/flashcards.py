@@ -27,6 +27,7 @@ TODO:
     14. different score/selection strategies
     15. log to file always
     17. print question asked and change of its score
+    18. https://stackoverflow.com/a/2904057
 
 ==============================================================================="""
 import click
@@ -42,18 +43,18 @@ from math import ceil
 from os.path import splitext
 
 
-
-
 @click.group()
 @click.option("--tags", multiple=True, envvar="TAGS")
 @click.option("--debug", is_flag=True)
+@click.option("-q","--question_type", type=click.Choice(get_question_types()), envvar="QUESTION_TYPE")
 @click.pass_context
-def flashcards(ctx, tags, debug=False):
+def flashcards(ctx, tags, question_type, debug=False):
     if debug:
         logging.basicConfig(level=logging.INFO)
 
     ctx.ensure_object(dict)
     ctx.obj["tags"] = tags
+    ctx.obj["question_type"] = question_type
     ctx.obj["cards"] = get_cards(tags)
 
 
@@ -87,7 +88,7 @@ def show_score(ctx, deck_index, deck_size, full, sort, agg):
             for c in deck]
     _logger.info(f"deck:\n{pd.DataFrame(deck)}")
 
-    deck_df = get_deck_with_score(deck)
+    deck_df = get_deck_with_score(deck, ctx.obj["question_type"])
 
     if True:
         deck_df = deck_df.reset_index()
@@ -142,7 +143,7 @@ def test(ctx, deck_index, deck_size):
     question_i = 0
     while True:
         question_i += 1
-        _d = get_random_question(deck)
+        _d = get_random_question(deck, ctx.obj["question_type"])
         question = get_question(
             _d["question_type"], **{k: v for k, v in _d.items() if k != "question_type"})
         print(f"question #{question_i}: \n{question.get_question_text()}")
@@ -158,7 +159,8 @@ def test(ctx, deck_index, deck_size):
         _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
         MongoClient().alex_flashcards.results.insert_one(obj)
         _PERCENTILES_COUNT = 11
-        click.echo((get_deck_with_score(deck)["score"]*100.0).describe(percentiles=[i/(_PERCENTILES_COUNT-1) for i in range(1,_PERCENTILES_COUNT-1)]))
+        click.echo((get_deck_with_score(deck, ctx.obj["question_type"])["score"]*100.0).describe(
+            percentiles=[i/(_PERCENTILES_COUNT-1) for i in range(1, _PERCENTILES_COUNT-1)]))
 
 
 @flashcards.command()

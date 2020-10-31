@@ -10,7 +10,7 @@ GROUP_BY = ["_id", "is_front_to_back", "back_index"]
 _HISTORY_SIZE = 5
 
 
-def get_deck_with_score(deck):
+def get_deck_with_score(deck, question_type):
     _logger = logging.getLogger("get_deck_with_score")
 
     deck_df = pd.DataFrame(deck)
@@ -23,10 +23,19 @@ def get_deck_with_score(deck):
     ]).set_index(GROUP_BY)
 
     results_df = pd.DataFrame(MongoClient().alex_flashcards.results.find())
+    results_df = results_df[[tag == question_type for tag in results_df.TAG]]
     results_df["_id"] = results_df["card"]
     results_df.drop(columns=["card"])
-    results_df = pd.DataFrame([{**{k: v for k, v in zip(GROUP_BY, idx)}, "score": _df.sort_values(
-        by="answer_time", ascending=False)["score"][:_HISTORY_SIZE].min(), } for idx, _df in results_df.groupby(GROUP_BY)])
+    if len(results_df)>0:
+        results_df = pd.DataFrame([
+            {
+                **{k: v for k, v in zip(GROUP_BY, idx)},
+                "score": _df.sort_values(by="answer_time", ascending=False)["score"][:_HISTORY_SIZE].min(),
+            }
+            for idx, _df
+            in results_df.groupby(GROUP_BY)
+        ])
+    #print(results_df)
     results_df = results_df.set_index(GROUP_BY)
     _logger.info(f"results_df: {results_df}")
 
@@ -37,9 +46,9 @@ def get_deck_with_score(deck):
     return deck_df
 
 
-def get_random_question(deck):
+def get_random_question(deck, question_type):
     _logger = logging.getLogger("get_random_question")
-    deck_df = get_deck_with_score(deck).reset_index()
+    deck_df = get_deck_with_score(deck, question_type).reset_index()
     records = deck_df.to_dict(orient="records")
     max_weight = 1.0 if (
         min(map(lambda r: r["score"], records)) < 1.0) else 2.0
@@ -49,7 +58,7 @@ def get_random_question(deck):
     is_front_to_back = record["is_front_to_back"]
     back_index = record["back_index"]
 
-    question_type = choice(get_question_types())
+    #question_type = choice(get_question_types())
     return {
         "deck": deck,
         "card": card,
