@@ -55,6 +55,8 @@ class _TypeinQuestion(Question):
         """
         :return (grade,msg): where grade from 0.0 to 1.0 or None if was not accepted; msg is optional message
         """
+        if not answer:
+            return None, "answer should be nonempty"
         self._given_answer = answer
         self._answer_time = datetime.now()
         sm = SequenceMatcher(lambda x:x in ", ",answer,self._answer)
