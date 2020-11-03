@@ -23,6 +23,8 @@ from os import system
 import click
 import logging
 from re import match
+from subprocess import getoutput
+
 
 
 @click.group()
@@ -35,6 +37,16 @@ def _system(cmd):
     _logger = logging.getLogger("_system")
     _logger.info(f"> {cmd}")
     system(cmd)
+
+@virtualenv_manager.command()
+def add_kernel():
+    pwd=getoutput("pwd")
+    pwd = pwd.replace("/",".").strip(".")
+    # Kernel names can only contain ASCII letters and numbers and these separators: - . _ (hyphen, period, and underscore).
+    assert match(r"^[a-zA-Z0-9._-]+$",pwd) is not None
+    print(f"pwd: {pwd}")
+    _system(f"pip install ipykernel")
+    _system(f"ipython kernel install --user --name={pwd}")
 
 
 @virtualenv_manager.command()
