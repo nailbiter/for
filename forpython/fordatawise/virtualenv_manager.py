@@ -50,12 +50,12 @@ def add_kernel():
     _system(f"ipython kernel install --user --name={pwd}")
 
 
+_PIP3 = "./venv/bin/pip3"
 @virtualenv_manager.command()
 @click.argument("package_name")
 @click.option("--save/--no-save", default=True)
 @click.option("-v","--version")
 def install(package_name, save, version):
-    pip3 = "./venv/bin/pip3"
     # if match(r"https://github.com/[^/]+/[^/]+/",package_name) is not None:
     if package_name.startswith("https://github.com"):
         _MODE = "github"
@@ -66,7 +66,7 @@ def install(package_name, save, version):
         package_name = f"git+https:{package_name}"
     if version is not None:
         package_name = f"{package_name}@{version}"
-    _system(f"{pip3} install {package_name}")
+    _system(f"{_PIP3} install {package_name}")
     if save:
         _system(f"touch requirements.txt")
         if _MODE == "github":
@@ -74,8 +74,19 @@ def install(package_name, save, version):
         else:
             # FIXME: this can be done more robustly
             _system(
-                f"{pip3} freeze | grep -i \"{package_name}\" >> requirements.txt")
+                f"{_PIP3} freeze | grep -i \"{package_name}\" >> requirements.txt")
         print(f"added \"{package_name}\"")
+
+@virtualenv_manager.command()
+@click.argument("package_name")
+@click.argument("version")
+def reinstall(package_name,version):
+    #FIXME: not only github and clean error
+    _pn = package_name.split("/")[-1] #FIXME
+    _system(f"{_PIP3} uninstall -y {_pn}")
+    _system(f"{_PIP3} install git+{package_name}@{version}")
+    _system(f"echo 'git+{package_name}@{version}' >> requirements.txt")
+    #FIXME: auto-add to requirements.txt if `--save`
 
 
 if __name__ == "__main__":
