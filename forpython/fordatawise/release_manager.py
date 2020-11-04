@@ -23,6 +23,7 @@ import click
 import re
 from subprocess import getoutput, call
 from git import Repo
+import logging
 
 
 def _get_head_sha():
@@ -41,23 +42,48 @@ def _get_head_sha():
     return head_commit.hexsha
 
 @click.command()
-@click.option("-v", "--version")
-def release_manager(version):
+@click.option("-r", "--release",type=click.Choice(["major","minor","patch"]))
+@click.option("-a", "--auto-commit")
+def release_manager(release,auto_commit):
     prog = re.compile(r"^v(\d+)\.(\d+).(\d+)$")
 
-    if version is None:
-        output = getoutput("git tag")
-        tags = output.split("\n")
-        tags = [prog.match(tag) for tag in tags if prog.match(tag) is not None]
-        tags = sorted(tags, key=lambda m: tuple(int(m.group(i+1))
-                                                for i in range(3)), reverse=True)
-        print(tags[0].group(0))
+    _logger = logging.getLogger("release_manager")
+    output = getoutput("git tag")
+    tags = output.split("\n")
+    tags = [prog.match(tag) for tag in tags if prog.match(tag) is not None]
+    tags = sorted(tags, key=lambda m: tuple(int(m.group(i+1))
+                                            for i in range(3)), reverse=True)
+    newest_version_match = tags[0]
+    newest_version = newest_version_match.group(0)
+    if release is None:
+        print(newest_version)
     else:
-        assert prog.match(version) is not None
-        _ = _get_head_sha()
+        _sha = None
+        try:
+            _sha = _get_head_sha()
+        except AssertionError:
+            if auto_commit is not None:
+                _logger.warning(f"recommit")
+                call(f"git commit -a -m '{auto_commit}'",shell=True)
+            else:
+                raise
+
+        major,minor,patch = tuple(int(newest_version_match.group(i+1)) for i in range(3))
+        if release=="patch":
+            patch += 1
+        elif release=="minor":
+            minor += 1
+            patch = 0
+        elif release=="major":
+            major += 1
+            minor = 0
+            patch = 0
+        else:
+            raise NotImplementedError
+        version = f"v{major}.{minor}.{patch}"
         call(f"git tag {version}", shell=True)
         call(f"git push --tags",shell=True)
-        #FIXME: auto-increment
+        #TODO: auto-commit
 
 if __name__ == "__main__":
     release_manager()
