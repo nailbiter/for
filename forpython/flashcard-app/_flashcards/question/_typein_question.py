@@ -61,4 +61,4 @@ class _TypeinQuestion(Question):
         self._answer_time = datetime.now()
         sm = SequenceMatcher(lambda x:x in ", ",answer,self._answer)
         self._score = sm.ratio()
-        return self._score, self._answer
+        return self._score, answer + ('==' if self._score==1.0 else '!=') + self._answer
