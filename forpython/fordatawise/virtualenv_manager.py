@@ -12,14 +12,14 @@ REQUIREMENTS: ---
         BUGS: ---
        NOTES: ---
       AUTHOR: Alex Leontiev (alozz1991@gmail.com)
-ORGANIZATION: 
+ORGANIZATION:
      VERSION: ---
      CREATED: 2020-10-28T14:45:42.637124
     REVISION: ---
 
 ==============================================================================="""
 
-from os import system
+from _virtualenv_manager import system, get_package_name_manager
 import click
 import logging
 from re import match
@@ -32,13 +32,6 @@ def virtualenv_manager(debug):
     if debug:
         logging.basicConfig(level=logging.INFO)
 
-
-def _system(cmd):
-    _logger = logging.getLogger("_system")
-    _logger.info(f"> {cmd}")
-    system(cmd)
-
-
 @virtualenv_manager.command()
 def add_kernel():
     pwd = getoutput("pwd")
@@ -46,47 +39,24 @@ def add_kernel():
     # Kernel names can only contain ASCII letters and numbers and these separators: - . _ (hyphen, period, and underscore).
     assert match(r"^[a-zA-Z0-9._-]+$", pwd) is not None
     print(f"pwd: {pwd}")
-    _system(f"pip install ipykernel")
-    _system(f"ipython kernel install --user --name={pwd}")
+    system(f"pip install ipykernel")
+    system(f"ipython kernel install --user --name={pwd}")
 
 
-_PIP3 = "./venv/bin/pip3"
+
+
 @virtualenv_manager.command()
 @click.argument("package_name")
 @click.option("--save/--no-save", default=True)
-@click.option("-v","--version")
-def install(package_name, save, version):
-    # if match(r"https://github.com/[^/]+/[^/]+/",package_name) is not None:
-    if package_name.startswith("https://github.com"):
-        _MODE = "github"
-    else:
-        _MODE = "usual"
-    if _MODE == "github":
-        package_name = package_name[len("https:"):]
-        package_name = f"git+https:{package_name}"
-    if version is not None:
-        package_name = f"{package_name}@{version}"
-    _system(f"{_PIP3} install {package_name}")
+@click.option("-v", "--version")
+@click.option("-r","--reinstall", is_flag=True)
+def install(package_name, save, version, reinstall=False):
+    package_name_manager = get_package_name_manager(package_name, version)
+    if reinstall:
+        package_name_manager.uninstall()
+    package_name_manager.install()
     if save:
-        _system(f"touch requirements.txt")
-        if _MODE == "github":
-            _system(f"echo \"{package_name}\" >> requirements.txt")
-        else:
-            # FIXME: this can be done more robustly
-            _system(
-                f"{_PIP3} freeze | grep -i \"{package_name}\" >> requirements.txt")
-        print(f"added \"{package_name}\"")
-
-@virtualenv_manager.command()
-@click.argument("package_name")
-@click.argument("version")
-def reinstall(package_name,version):
-    #FIXME: not only github and clean error
-    _pn = package_name.split("/")[-1] #FIXME
-    _system(f"{_PIP3} uninstall -y {_pn}")
-    _system(f"{_PIP3} install git+{package_name}@{version}")
-    _system(f"echo 'git+{package_name}@{version}' >> requirements.txt")
-    #FIXME: auto-add to requirements.txt if `--save`
+        package_name_manager.save()
 
 
 if __name__ == "__main__":

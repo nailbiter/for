@@ -17,6 +17,9 @@ ORGANIZATION:
      CREATED: 2020-11-03T15:41:35.141414
     REVISION: ---
 
+TODO:
+    1. remove dependency on `gh`
+
 ==============================================================================="""
 
 import click
@@ -41,10 +44,12 @@ def _get_head_sha():
            ), "should be no changes on tree (do `git commit -a`)"
     return head_commit.hexsha
 
+
 @click.command()
-@click.option("-r", "--release",type=click.Choice(["major","minor","patch"]))
+@click.option("-r", "--release", type=click.Choice(["major", "minor", "patch"]))
 @click.option("-a", "--auto-commit")
-def release_manager(release,auto_commit):
+@click.option("--create-release", type=click.Path(), envvar="CREATE_RELEASE")
+def release_manager(release, auto_commit, create_release):
     prog = re.compile(r"^v(\d+)\.(\d+).(\d+)$")
 
     _logger = logging.getLogger("release_manager")
@@ -64,17 +69,18 @@ def release_manager(release,auto_commit):
         except AssertionError:
             if auto_commit is not None:
                 _logger.warning(f"recommit")
-                call(f"git commit -a -m '{auto_commit}'",shell=True)
+                call(f"git commit -a -m '{auto_commit}'", shell=True)
             else:
                 raise
 
-        major,minor,patch = tuple(int(newest_version_match.group(i+1)) for i in range(3))
-        if release=="patch":
+        major, minor, patch = tuple(
+            int(newest_version_match.group(i+1)) for i in range(3))
+        if release == "patch":
             patch += 1
-        elif release=="minor":
+        elif release == "minor":
             minor += 1
             patch = 0
-        elif release=="major":
+        elif release == "major":
             major += 1
             minor = 0
             patch = 0
@@ -82,8 +88,10 @@ def release_manager(release,auto_commit):
             raise NotImplementedError
         version = f"v{major}.{minor}.{patch}"
         call(f"git tag {version}", shell=True)
-        call(f"git push --tags",shell=True)
-        #TODO: auto-commit
+        call(f"git push --tags", shell=True)
+        if create_release:
+            call(f"gh release create {version} -F {create_release}",shell=True)
+
 
 if __name__ == "__main__":
     release_manager()
