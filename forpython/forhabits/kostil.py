@@ -48,15 +48,19 @@ def cli(debug=False):
 @cli.command()
 @click.argument("task")
 @click.option("--dry_run/--no-dry_run", default=False)
-def done(task, dry_run):
+@click.option("--do-all/--no-do-all", default=False)
+def done(task, dry_run,do_all):
     tasks_df = _get_tasks()
-    task_obj = tasks_df[[name == task for name in tasks_df["name"]]].to_dict(
-        orient="records")[0]
-    obj = {"task_name": task,
-           "task_id": task_obj["_id"], "datetime": datetime.now()}
-    print(f"done obj: {obj}")
-    if not dry_run:
-        MongoClient().habits.habits_done.insert_one(obj)
+    task_objs = tasks_df[[name == task for name in tasks_df["name"]]].to_dict(
+        orient="records")
+    if not do_all:
+        task_objs = task_objs[:1]
+    for task_obj in task_objs:    
+        obj = {"task_name": task,
+               "task_id": task_obj["_id"], "datetime": datetime.now()}
+        print(f"done obj: {obj}")
+        if not dry_run:
+            MongoClient().habits.habits_done.insert_one(obj)
 
 
 @cli.command()

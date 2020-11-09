@@ -48,7 +48,7 @@ def _get_head_sha():
 @click.command()
 @click.option("-r", "--release", type=click.Choice(["major", "minor", "patch"]))
 @click.option("-a", "--auto-commit")
-@click.option("--create-release", type=click.Path(), envvar="CREATE_RELEASE")
+@click.option("-c","--create-release", type=click.Path(), envvar="CREATE_RELEASE")
 def release_manager(release, auto_commit, create_release):
     prog = re.compile(r"^v(\d+)\.(\d+).(\d+)$")
 

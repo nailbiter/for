@@ -24,6 +24,7 @@ TODO:
 
 import logging
 from _virtualenv_manager.system import system
+from subprocess import getoutput
 
 
 def _is_package_github(package_name):
