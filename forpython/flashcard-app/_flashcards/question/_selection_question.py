@@ -6,7 +6,7 @@ from jinja2 import Template
 
 class _SelectionQuestion(Question):
     TAG = "selection"
-    _NUMBER_OF_ANSWERS = 4
+    _NUMBER_OF_ANSWERS = 12
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
