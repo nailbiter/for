@@ -15,9 +15,16 @@ from jinja2 import Template
 @click.option("--media", "-m", multiple=True, default=["slack"], type=click.Choice(["slack", "email", "popup"], case_sensitive=False))
 @click.option("--delay_min", "-d", type=int, default=0)
 @click.option("--tqdm/--no-tqdm", default=True)
-@click.option("--script","-s")
+@click.option("--script", "-s")
 @click.option("--silent", is_flag=True, default=False)
 def send_notification(message, media, delay_min, tqdm, script, silent):
+    MongoClient().send_notification.call_log.insert_one({
+        "message": message,
+        "media": media,
+        "date": datetime.now(),
+        "script": script
+    })
+
     print(f"message: {message}")
     print(f"media: {media}")
     print(f"delay: {delay_min}")
@@ -51,7 +58,7 @@ def send_notification(message, media, delay_min, tqdm, script, silent):
 
     print(end_date.strftime("%Y-%m-%dT%H:%M"))
 
-    env = dict(res=res,timedelta=str(end_date-start_date))
+    env = dict(res=res, timedelta=str(end_date-start_date))
     _message = Template(message).render(env)
 
     if not silent:
@@ -68,8 +75,8 @@ def send_notification(message, media, delay_min, tqdm, script, silent):
         if "email" in media:
             raise NotImplementedError
         if "popup" in media:
-            system(f"""osascript -e 'display notification "{_message}" with title "popup"'""")
-
+            system(
+                f"""osascript -e 'display notification "{_message}" with title "popup"'""")
 
 
 # main
