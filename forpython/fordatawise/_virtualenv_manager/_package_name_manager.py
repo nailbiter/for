@@ -50,15 +50,8 @@ class PackageNameManager:
 
     def _get_package_name_for_pip(self):
         package_name, version = self._package_name, self._version
-        _MODE = "github" if _is_package_github(
-            package_name) else "package"
-        if _MODE == "github":
-            package_name = package_name[len("https:"):]
-            package_name = f"git+https:{package_name}@{version}"
-        else:
-            if version is not None:
-                raise NotImplementedError
-
+        if version is not None:
+            raise NotImplementedError
         return package_name
 
     def install(self):
@@ -68,16 +61,10 @@ class PackageNameManager:
     def save(self, requirements="requirements.txt"):
         system(f"touch {requirements}")
         package_name, version = self._package_name, self._version
-        _MODE = "github" if _is_package_github(
-            package_name) else "package"
         # FIXME: remove from file
-        if _MODE == "github":
-            system(
-                f"echo \"{self._get_package_name_for_pip()}\" >> requirements.txt")
-        else:
-            # FIXME: this can be done more robustly
-            system(
-                f"{_PIP3} freeze | grep -i \"{package_name}\" >> requirements.txt")
+        # FIXME: this can be done more robustly
+        system(
+            f"{_PIP3} freeze | grep -i \"{package_name}\" >> requirements.txt")
         print(f"added \"{package_name}\"")
 
     def uninstall(self):
@@ -96,3 +83,25 @@ class GithubPackageNameManager(PackageNameManager):
             self._version = getoutput(
                 f"gh release list -R {self._package_name}").split("\n")[0].split("\t")[0].strip()
             self._logger.info(f"version: \"{self._version}\"")
+    def save(self, requirements="requirements.txt"):
+        system(f"touch {requirements}")
+        package_name, version = self._package_name, self._version
+        with open(requirements) as f:
+            lines = f.readlines()
+
+        if len([line for line in lines if package_name in line])>0:
+            lines = [line.strip() for line in lines if package_name not in line]
+            lines.append(f"{self._get_package_name_for_pip()}\n")
+            with open(requirements,"w") as f:
+                f.write("\n".join(lines))
+        else:
+            system(
+                f"echo \"{self._get_package_name_for_pip()}\" >> requirements.txt")
+
+        print(f"added \"{package_name}\"")
+    def _get_package_name_for_pip(self):
+        package_name, version = self._package_name, self._version
+        package_name = package_name[len("https:"):]
+        package_name = f"git+https:{package_name}@{version}"
+
+        return package_name
