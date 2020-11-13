@@ -17,6 +17,12 @@ ORGANIZATION:
      CREATED: 2020-11-13T13:32:22.528416
     REVISION: ---
 
+TODO:
+    1. support several directories
+    2. support remote storage (in particular, GS)
+    3. support signing files to ensure integrity
+    4(done). avoid creation of spurious copies
+    4. better avoid creation of spurious copies
 ==============================================================================="""
 
 import click
@@ -24,8 +30,10 @@ from subprocess import getoutput
 from git import Repo
 import yaml
 from os import getcwd, walk, makedirs, system
-from os.path import join
+from os.path import join, isfile, abspath
 import logging
+import json
+import hashlib
 
 
 def _get_head_sha(path="."):
@@ -43,14 +51,19 @@ def _get_head_sha(path="."):
            ), "should be no changes on tree (do `git commit -a`)"
     return head_commit.hexsha
 
+
 def _system(cmd):
     logger = logging.getLogger("_system")
     logger.info(f"> {cmd}")
     system(cmd)
 
+
 _CONFIG_FN = ".bigfile-in-git-manager.config.yaml"
+
+
 @click.command()
 def bigfile_in_git_manager():
+    logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger("bigfile_in_git_manager")
     sha = _get_head_sha()
     logger.info(f"commit: {sha}")
@@ -59,17 +72,70 @@ def bigfile_in_git_manager():
     res = []
     for curDir, dirs, files in walk("."):
         if _CONFIG_FN in files:
-            res.append((curDir,_CONFIG_FN))
+            res.append((curDir, _CONFIG_FN))
     logger.info(f"res: {res}")
 
-    for curDir,config_fn in res:
-        with open(join(curDir,config_fn)) as f:
+    for curDir, config_fn in res:
+        with open(join(curDir, config_fn)) as f:
             config = yaml.load(f.read())
         logger.info(f"{curDir} => config: {config}")
-        storage_dir = join(curDir,config["storage-dir"],sha)
-        makedirs(storage_dir,exist_ok=True)
+        storage_dir = join(curDir, config["storage-dir"], sha)
+        makedirs(storage_dir, exist_ok=True)
+        state = _State(storage_dir, sha, curDir)
         for fn in config["big-files"]:
-            _system(f"cp {join(curDir,fn)} {join(storage_dir,fn)}")
+            state.copy(fn)
+        state.save()
+
+
+class _State:
+    _STATE_FN = "state.json"
+
+    def _load_state(self, storage_dir):
+        state_fn = join(storage_dir, "..", _State._STATE_FN)
+        self._logger.info(f"state_fn: {state_fn}")
+        if not isfile(state_fn):
+            res = {}
+        else:
+            with open(state_fn) as f:
+                res = json.load(f)
+        self._logger.info(f"res: {res}")
+        return res, state_fn
+
+    def copy(self,fn):
+        src = join(self._curDir,fn)
+        dst = join(self._storage_dir,fn)
+        prev_sha = self._state.get("sha",None)
+        self._logger.info(f"prev_sha: {prev_sha}")
+        need_to_copy = True
+
+        if prev_sha is not None:
+            src_ = join(self._storage_dir,"..",prev_sha,fn)
+            prev_sha = hashlib.sha256(open(src_,"rb").read()).hexdigest()
+            new_sha = hashlib.sha256(open(src,"rb").read()).hexdigest()
+            self._logger.info(f"prev_sha: {prev_sha}, new_sha: {new_sha}")
+            if prev_sha==new_sha:
+                need_to_copy = False
+                src = src_
+
+        if need_to_copy:
+            _system(f"cp {src} {dst}")
+        else:
+            #self._logger(f"set up symlink for {fn}")
+            _system(f"ln -s {abspath(src_)} {dst}")
+
+
+    def __init__(self, storage_dir, sha, curDir):
+        self._logger = logging.getLogger(self.__class__.__name__)
+        self._storage_dir = storage_dir
+        self._sha = sha
+        self._state, self._state_fn = self._load_state(storage_dir)
+        self._curDir = curDir
+
+
+    def save(self):
+        with open(self._state_fn, "w") as f:
+            json.dump({**self._state, "sha":self._sha}, f, indent=2,
+                      ensure_ascii=False, sort_keys=True)
 
 
 if __name__ == "__main__":
