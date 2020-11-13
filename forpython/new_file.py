@@ -11,10 +11,10 @@ def _render_template(fn, **kwargs):
     dirname, _ = split(realpath(__file__))
     with open(join(dirname, "_new_file", fn)) as f:
         return Template(f.read()).render({
-            **kwargs, 
-            "os": {"path": os.path}, 
+            **kwargs,
+            "os": {"path": os.path},
             "converters": {
-                "snake_to_camel":lambda s:"".join([s_.capitalize() for s_ in s.split("_")]),
+                "snake_to_camel": lambda s: "".join([s_.capitalize() for s_ in s.split("_")]),
             }})
 
 
@@ -23,10 +23,15 @@ def _render_template(fn, **kwargs):
 @click.option("-s", "--stdout", is_flag=True)
 @click.option("-e", "--email", envvar="EMAIL", default="alozz1991@gmail.com")
 @click.option("-o", "--organization", envvar="ORGANIZATION", default="")
-@click.argument("archetype", type=click.Choice(["default", "click", "class"]), default="default")
+@click.argument("archetype", type=click.Choice(["default", "click", "class", "test"]), default="default")
 def new_file(fn, email, organization, archetype, stdout=False):
-    s = _render_template(f"{archetype}.jinja.py", filename=fn, now=datetime.now(
-    ), email=email, is_executable=access(fn, X_OK), organization=organization)
+    s = _render_template(f"{archetype}.jinja.py",
+                         filename=fn, 
+                         now=datetime.now(),
+                         email=email,
+                         is_executable=access(fn, X_OK),
+                         organization=organization
+                         )
     if stdout:
         print(s)
     else:
