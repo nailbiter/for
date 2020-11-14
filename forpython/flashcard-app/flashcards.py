@@ -59,8 +59,8 @@ def flashcards(ctx, tags, question_type, debug=False):
 
 
 @flashcards.command()
-@click.option("--deck_size", type=int, default=5, envvar="DECK_SIZE")
-@click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
+@click.option("--deck-size", type=int, default=5, envvar="DECK_SIZE")
+@click.option("--deck-index", type=int, default=-1, envvar="DECK_INDEX")
 @click.option("--full/--no-full", default=False)
 @click.option("--sort/--no-sort", default=False)
 @click.option("--agg", type=click.Choice([*GROUP_BY, "none"]), multiple=True)
@@ -126,8 +126,8 @@ def show_score(ctx, deck_index, deck_size, full, sort, agg):
 
 
 @flashcards.command()
-@click.option("--deck_size", type=int, default=5, envvar="DECK_SIZE")
-@click.option("--deck_index", type=int, default=-1, envvar="DECK_INDEX")
+@click.option("--deck-size", type=int, default=5, envvar="DECK_SIZE")
+@click.option("--deck-index", type=int, default=-1, envvar="DECK_INDEX")
 @click.pass_context
 def test(ctx, deck_index, deck_size):
     _logger = logging.getLogger("test")
