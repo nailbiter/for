@@ -57,7 +57,7 @@ def show(ctx):
 
 @time_kostil.command()
 @click.pass_context
-@click.argument("category", type=click.Choice(["useless", "gym", "social", "logistics","sleeping"]))
+@click.argument("category", type=click.Choice(["useless", "gym", "social", "logistics", "sleeping", "german"]))
 @click.argument("start", type=int)
 @click.option("-e", "--endpoint-inclusive", type=int)
 def edit(ctx, category, start, endpoint_inclusive):
@@ -72,7 +72,7 @@ def edit(ctx, category, start, endpoint_inclusive):
     logger.info(records)
     for r in records:
         logger.info(f"{r['_id']}: {r['category']} => {category}")
-        coll.update_one({"_id":r["_id"]},{"$set":{"category":category}})
+        coll.update_one({"_id": r["_id"]}, {"$set": {"category": category}})
 
 
 if __name__ == "__main__":
