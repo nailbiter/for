@@ -12,6 +12,7 @@ from croniter import croniter
 from uuid import uuid4
 from pymongo import MongoClient
 from subprocess import getoutput
+from _common import get_remote_mongo_client
 
 
 # global const's
@@ -49,13 +50,13 @@ def cli(debug=False):
 @click.argument("task")
 @click.option("--dry_run/--no-dry_run", default=False)
 @click.option("--do-all/--no-do-all", default=False)
-def done(task, dry_run,do_all):
+def done(task, dry_run, do_all):
     tasks_df = _get_tasks()
     task_objs = tasks_df[[name == task for name in tasks_df["name"]]].to_dict(
         orient="records")
     if not do_all:
         task_objs = task_objs[:1]
-    for task_obj in task_objs:    
+    for task_obj in task_objs:
         obj = {"task_name": task,
                "task_id": task_obj["_id"], "datetime": datetime.now()}
         print(f"done obj: {obj}")
@@ -72,8 +73,7 @@ def add_batch(date, mongopass, dry_run, debug=False, only_permanent_habits=False
     if len(date) == 0:
         date = (datetime.now(),)
     logging.info(f"mongopass: {mongopass}")
-    client = MongoClient(
-        f"mongodb://nailbiter:{mongopass}@ds149672.mlab.com:49672/logistics?retryWrites=false")
+    client = get_remote_mongo_client(mongopass)
     task_data_coll = client.logistics["alex.habits"]
 
     res = []
@@ -149,45 +149,53 @@ def list_done():
 @click.option("--success/--no-success", default=False)
 @click.option("--mongopass", envvar="MONGO_PASS", required=True)
 @click.option("--dry-run/--no-dry-run", default=False)
-def mark_good_day(date, success, mongopass,dry_run):
+def mark_good_day(date, success, mongopass, dry_run):
     if len(date) == 0:
         date = (datetime.now(),)
     client = MongoClient(
         f"mongodb://nailbiter:{mongopass}@ds149672.mlab.com:49672/logistics?retryWrites=false")
     coll = client.logistics["alex.habitspunch"]
-    objs = [{"date": (datetime(d.year,d.month,d.day,23)-timedelta(hours=9)), "name": "good day",
-                           "status": "SUCCESS" if success else "FAILURE"} for d in date]
+    objs = [{"date": (datetime(d.year, d.month, d.day, 23)-timedelta(hours=9)), "name": "good day",
+             "status": "SUCCESS" if success else "FAILURE"} for d in date]
     print(f"objs: {objs}")
     if not dry_run:
         coll.insert_many(objs)
 
+
 @cli.command()
 @click.argument("list_id", envvar="TRELLO_LIST_ID")
 @click.option("--dry-run/--no-dry-run", default=False)
-@click.option("-l","--limit", type=int, default=-1)
-@click.option("-r","--regex")
-def excise_trello(list_id, dry_run, regex,limit):
+@click.option("-l", "--limit", type=int, default=-1)
+@click.option("-r", "--regex")
+def excise_trello(list_id, dry_run, regex, limit):
     logger = logging.getLogger("excise_trello")
-    cards = json.loads(getoutput(f"~/for/forpython/trello/trello.py low get-cards-of-list {list_id}"))
+    cards = json.loads(
+        getoutput(f"~/for/forpython/trello/trello.py low get-cards-of-list {list_id}"))
     if regex is not None:
-        cards = [card for card in cards if re.match(regex,card["name"]) is not None]
+        cards = [card for card in cards if re.match(
+            regex, card["name"]) is not None]
     coll = MongoClient().habits.habits
     original_size = len(cards)
-    if limit>=0:
+    if limit >= 0:
         cards = cards[:limit]
-    for i,card in tqdm(enumerate(cards),total=len(cards)):
-        _card = {"name":card["name"], "comment":f"trello:{card['id']},url:{card['shortUrl']}"}
-        res = json.loads(getoutput(f"~/for/forpython/trello/trello.py low get-actions-on-card {card['id']} -f createCard -f copyCard"))
-        assert len(res)>0, (_card,res)
-        date_ = sorted([(datetime.fromisoformat(res[i]["date"][:-1]) + timedelta(hours=9)) for i in range(len(res))])[0]
+    for i, card in tqdm(enumerate(cards), total=len(cards)):
+        _card = {
+            "name": card["name"], "comment": f"trello:{card['id']},url:{card['shortUrl']}"}
+        res = json.loads(getoutput(
+            f"~/for/forpython/trello/trello.py low get-actions-on-card {card['id']} -f createCard -f copyCard"))
+        assert len(res) > 0, (_card, res)
+        date_ = sorted([(datetime.fromisoformat(
+            res[i]["date"][:-1]) + timedelta(hours=9)) for i in range(len(res))])[0]
         _card["creation date"] = date_.isoformat()
         logging.info(_card)
         if not dry_run:
             coll.insert_one(_card)
-            getoutput(f"~/for/forpython/trello/trello.py low update-card {card['id']} --closed true")
+            getoutput(
+                f"~/for/forpython/trello/trello.py low update-card {card['id']} --closed true")
         cards[i] = _card
     print(DataFrame(cards).to_string())
     print(f"original_size: {original_size}")
+
 
 # main
 if __name__ == "__main__":
