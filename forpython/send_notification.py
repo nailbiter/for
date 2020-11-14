@@ -7,17 +7,36 @@ from os import system, environ
 from tqdm import tqdm as TQDM
 from os import system
 from jinja2 import Template
+import re
 
 
-# procedures
+def _parse_delay_min(delay_min):
+    m = re.match(r"^\d+$",delay_min)
+    if m is not None:
+        return int(delay_min)
+    m = re.match(r"^(\d{2}):(\d{2})$",delay_min)
+    if m is not None:
+        now = datetime.now()
+        now = (now.hour,now.minute)
+        time = tuple(int(m.group(i+1)) for i in range(2))
+        assert 1<=time[0]<=24
+        assert 0<=time[1]<59
+        assert now<=time
+#        print(f"now: {now}")
+#        print(f"time: {time}")
+#        exit()
+        return (time[0]*60+time[1]) - (now[0]*60+now[1])
+
 @click.command()
 @click.argument("message")
 @click.option("--media", "-m", multiple=True, default=["slack"], type=click.Choice(["slack", "email", "popup"], case_sensitive=False))
-@click.option("--delay_min", "-d", type=int, default=0)
+@click.option("--delay_min", "-d", default="0")
 @click.option("--tqdm/--no-tqdm", default=True)
 @click.option("--script", "-s")
 @click.option("--silent", is_flag=True, default=False)
 def send_notification(message, media, delay_min, tqdm, script, silent):
+    delay_min = _parse_delay_min(delay_min)
+
     MongoClient().send_notification.call_log.insert_one({
         "message": message,
         "media": media,
