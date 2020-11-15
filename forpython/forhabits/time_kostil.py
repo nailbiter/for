@@ -27,6 +27,9 @@ from pytz import timezone
 from bson.codec_options import CodecOptions
 import logging
 
+_TIME_CATEGORIES = ["useless", "gym", "social",
+                    "logistics", "sleeping", "german"]
+
 
 def _get_coll(mongo_pass):
     client = get_remote_mongo_client(mongo_pass)
@@ -37,7 +40,7 @@ def _get_coll(mongo_pass):
 
 @click.group()
 @click.option("--mongo_pass", envvar="MONGO_PASS", required=True)
-@click.option("-l", "--limit", type=int, default=1000)
+@click.option("-l", "--limit", type=int, default=24*2)
 @click.pass_context
 def time_kostil(ctx, **kwargs):
     logging.basicConfig(level=logging.INFO)
@@ -47,17 +50,25 @@ def time_kostil(ctx, **kwargs):
 
 
 @time_kostil.command()
+@click.option("-r", "--remote-filter", type=click.Choice(_TIME_CATEGORIES))
+@click.option("-l", "--local-filter", type=click.Choice(_TIME_CATEGORIES))
 @click.pass_context
-def show(ctx):
+def show(ctx, remote_filter, local_filter):
     coll = _get_coll(ctx.obj["mongo_pass"])
+    if remote_filter is None:
+        filter_ = {}
+    else:
+        filter_ = {"category": remote_filter}
     df = pd.DataFrame(
-        coll.find(sort=[("date", pymongo.DESCENDING)], limit=ctx.obj["limit"]))
+        coll.find(filter=filter_, sort=[("date", pymongo.DESCENDING)], limit=ctx.obj["limit"]))
+    if local_filter:
+        df = df[[category==local_filter for category in df["category"]]]
     print(df.to_csv())
 
 
 @time_kostil.command()
 @click.pass_context
-@click.argument("category", type=click.Choice(["useless", "gym", "social", "logistics", "sleeping", "german"]))
+@click.argument("category", type=click.Choice(_TIME_CATEGORIES))
 @click.argument("start", type=int)
 @click.option("-e", "--endpoint-inclusive", type=int)
 def edit(ctx, category, start, endpoint_inclusive):
