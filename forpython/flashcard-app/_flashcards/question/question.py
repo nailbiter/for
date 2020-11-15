@@ -44,3 +44,9 @@ class Question():
 
     def get_answer_options(self):
         return None
+
+    def get_regrade_text(self):
+        return None
+
+    def regrade(self, answer):
+        raise NotImplementedError

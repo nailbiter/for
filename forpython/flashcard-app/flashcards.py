@@ -19,15 +19,16 @@ ORGANIZATION:
     REVISION: ---
 
 TODO:
-    1. type-in question type
+    1(done). type-in question type
     3. `--(no)-hint` key for `test`
     11. key sort order in output, add `deck_index`to `GROUP_BY`
     12. `search` command
     13. test server to use during lunch
     14. different score/selection strategies
     15. log to file always
-    17. print question asked and change of its score
+    17(done). print question asked and change of its score
     18. https://stackoverflow.com/a/2904057
+    19. auto-prompt in `_repl_loop`
 
 ==============================================================================="""
 import click
@@ -46,7 +47,7 @@ from os.path import splitext
 @click.group()
 @click.option("--tags", multiple=True, envvar="TAGS")
 @click.option("--debug", is_flag=True)
-@click.option("-q","--question_type", type=click.Choice(get_question_types()), envvar="QUESTION_TYPE")
+@click.option("-q", "--question_type", type=click.Choice(get_question_types()), envvar="QUESTION_TYPE")
 @click.pass_context
 def flashcards(ctx, tags, question_type, debug=False):
     if debug:
@@ -125,11 +126,24 @@ def show_score(ctx, deck_index, deck_size, full, sort, agg):
     print(f"average score: {deck_df['score'].mean()*100:05.2f}%")
 
 
+def _repl_loop(callback, prompt):
+    while True:
+        res, msg = callback(input(f"{prompt}> "))
+        if msg is not None:
+            print(f"({msg})")
+        if res is not None:
+            break
+    click.echo(click.style(f"res: {res}",
+                           fg="green" if res == 1.0 else "red"))
+    return res, msg
+
+
 @flashcards.command()
 @click.option("--deck-size", type=int, default=5, envvar="DECK_SIZE")
 @click.option("--deck-index", type=int, default=-1, envvar="DECK_INDEX")
+@click.option("--allow-regrade/--no-allow-regrade", default=False)
 @click.pass_context
-def test(ctx, deck_index, deck_size):
+def test(ctx, deck_index, deck_size, allow_regrade):
     _logger = logging.getLogger("test")
     cards = ctx.obj["cards"]
     _logger.info(f"{int(len(cards)/deck_size)+1} decks")
@@ -147,14 +161,13 @@ def test(ctx, deck_index, deck_size):
         question = get_question(
             _d["question_type"], **{k: v for k, v in _d.items() if k != "question_type"})
         print(f"question #{question_i}: \n{question.get_question_text()}")
-        while True:
-            res, msg = question.grade(input("answer> "))
-            if msg is not None:
-                print(f"({msg})")
-            if res is not None:
-                break
-        click.echo(click.style(f"res: {res}",
-                               fg="green" if res == 1.0 else "red"))
+        res, msg = _repl_loop(question.grade, "answer")
+
+        regrade_text = question.get_regrade_text()
+        if regrade_text is not None and allow_regrade and res < 1.0:
+            print(regrade_text)
+            res, msg = _repl_loop(question.regrade, "regrade")
+
         obj = json.loads(question.to_json())
         _logger.info(f"obj: {json.dumps(obj, indent=2, sort_keys=True)}")
         MongoClient().alex_flashcards.results.insert_one(obj)

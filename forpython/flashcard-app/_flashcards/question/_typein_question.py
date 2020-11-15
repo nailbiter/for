@@ -62,3 +62,17 @@ class _TypeinQuestion(Question):
         sm = SequenceMatcher(lambda x:x in ", ",answer,self._answer)
         self._score = sm.ratio()
         return self._score, answer + ('==' if self._score==1.0 else '!=') + self._answer
+    _GRADE_AS_TRUE_AFFIRM_CODE = "a4bc476591d4"
+    def get_regrade_text(self):
+        return f"""
+        press   `{self.__class__._GRADE_AS_TRUE_AFFIRM_CODE}` to mark true, anything else to continue
+
+        """.strip()
+    def regrade(self,answer):
+        if answer==self.__class__._GRADE_AS_TRUE_AFFIRM_CODE:
+            self._given_answer = self.__class__._GRADE_AS_TRUE_AFFIRM_CODE
+            self._answer_time = datetime.now()
+            self._score = 1.0
+            return self._score, "regraded as correct"
+        else:
+            return self._score, "leave as it was"
