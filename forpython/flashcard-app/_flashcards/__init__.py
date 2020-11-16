@@ -11,7 +11,7 @@ _HISTORY_SIZE = 5
 
 
 def _compute_slice_score(slice_df):
-    return _df.sort_values(by="answer_time", ascending=False)["score"][:_HISTORY_SIZE].min()
+    return slice_df.sort_values(by="answer_time", ascending=False)["score"][:_HISTORY_SIZE].min()
 
 
 def get_deck_with_score(deck, question_type):
