@@ -3,7 +3,7 @@ from subprocess import check_output
 import click
 import re
 from time import sleep
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s #list all known wifis
 
@@ -59,10 +59,16 @@ def on():
 @click.option("--wifi_name", envvar="WIFI_NAME")
 @click.option("--force/--no-force", default=False)
 @click.option("--loop/--no-loop", default=False)
-def fw(wifi_pass, wifi_name, force, loop):
+@click.option("-s", "--sleep-seconds", type=int, default=LOOP_WAIT_SECONDS)
+@click.option("-t", "--turn-off-timer", type=int, default=-1)
+def fw(wifi_pass, wifi_name, force, loop, turn_off_timer, sleep_seconds):
+    assert sleep_seconds > 0
+    turn_off_time = None
+    if turn_off_timer >= 0:
+        turn_off_time = datetime.now()+timedelta(minutes=turn_off_timer)
     assert wifi_pass is not None
     if loop:
-        while True:
+        while (turn_off_time is None) or (datetime.now() < turn_off_time):
             is_active = _is_active()
             print(f"start: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
             print(f"is_active: {is_active}")
@@ -85,7 +91,7 @@ def fw(wifi_pass, wifi_name, force, loop):
             print(f"end: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
             if loop:
                 print("************************")
-                sleep(LOOP_WAIT_SECONDS)
+                sleep(sleep_seconds)
 
 
 if __name__ == "__main__":
