@@ -10,6 +10,10 @@ GROUP_BY = ["_id", "is_front_to_back", "back_index"]
 _HISTORY_SIZE = 5
 
 
+def _compute_slice_score(slice_df):
+    return _df.sort_values(by="answer_time", ascending=False)["score"][:_HISTORY_SIZE].min()
+
+
 def get_deck_with_score(deck, question_type):
     _logger = logging.getLogger("get_deck_with_score")
 
@@ -26,16 +30,16 @@ def get_deck_with_score(deck, question_type):
     results_df = results_df[[tag == question_type for tag in results_df.TAG]]
     results_df["_id"] = results_df["card"]
     results_df.drop(columns=["card"])
-    if len(results_df)>0:
+    if len(results_df) > 0:
         results_df = pd.DataFrame([
             {
                 **{k: v for k, v in zip(GROUP_BY, idx)},
-                "score": _df.sort_values(by="answer_time", ascending=False)["score"][:_HISTORY_SIZE].min(),
+                "score": _compute_slice_score(_df),
             }
             for idx, _df
             in results_df.groupby(GROUP_BY)
         ])
-    #print(results_df)
+    # print(results_df)
     results_df = results_df.set_index(GROUP_BY)
     _logger.info(f"results_df: {results_df}")
 
