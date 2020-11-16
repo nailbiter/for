@@ -15,7 +15,7 @@ class _SelectionQuestion(Question):
         self._logger.info(f"card: {self._card}")
         self._answers = []
         other_cards = sample([c for c in self._deck if c["_id"]
-                              != self._card["_id"]], self._NUMBER_OF_ANSWERS-1)
+            != self._card["_id"]], self._NUMBER_OF_ANSWERS-1) #FIXME: eliminate cards with same replies
         _aux = ",".join([b for i, b in enumerate(
             self._card["back"]) if i != self._back_index])
         if len(_aux) > 0:
