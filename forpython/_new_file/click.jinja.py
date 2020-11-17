@@ -18,7 +18,7 @@ ORGANIZATION: {{organization}}
     REVISION: ---
 
 ==============================================================================="""
-{%-set basename = os.path.splitext(os.path.split(filename)[-1])[0]%}
+{%-set basename = os.path.splitext(os.path.split(filename)[-1])[0]|replace('-','_')%}
 
 import click
 

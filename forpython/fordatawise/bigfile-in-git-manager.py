@@ -23,6 +23,8 @@ TODO:
     3. support signing files to ensure integrity
     4(done). avoid creation of spurious copies
     4. better avoid creation of spurious copies
+    5. use `db`, not JSON files
+    6. timestamp every save you do
 ==============================================================================="""
 
 import click
