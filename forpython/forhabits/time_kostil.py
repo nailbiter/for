@@ -28,7 +28,7 @@ from bson.codec_options import CodecOptions
 import logging
 
 _TIME_CATEGORIES = ["useless", "gym", "social",
-                    "logistics", "sleeping", "german"]
+                    "logistics", "sleeping", "german", "parttime"]
 
 
 def _get_coll(mongo_pass):
@@ -62,7 +62,7 @@ def show(ctx, remote_filter, local_filter):
     df = pd.DataFrame(
         coll.find(filter=filter_, sort=[("date", pymongo.DESCENDING)], limit=ctx.obj["limit"]))
     if local_filter:
-        df = df[[category==local_filter for category in df["category"]]]
+        df = df[[category == local_filter for category in df["category"]]]
     print(df.to_csv())
 
 
