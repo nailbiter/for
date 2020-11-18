@@ -63,10 +63,13 @@ def _system(cmd):
 _CONFIG_FN = ".bigfile-in-git-manager.config.yaml"
 
 
-@click.command()
+@click.group()
 def bigfile_in_git_manager():
     logging.basicConfig(level=logging.INFO)
-    logger = logging.getLogger("bigfile_in_git_manager")
+
+@bigfile_in_git_manager.command()
+def post_commit():
+    logger = logging.getLogger("post_commit")
     sha = _get_head_sha()
     logger.info(f"commit: {sha}")
     logger.info(f"cwd: {getcwd()}")
@@ -88,6 +91,10 @@ def bigfile_in_git_manager():
             state.copy(fn)
         state.save()
 
+@bigfile_in_git_manager.command()
+def status():
+    pass
+
 
 class _State:
     _STATE_FN = "state.json"
@@ -103,19 +110,19 @@ class _State:
         self._logger.info(f"res: {res}")
         return res, state_fn
 
-    def copy(self,fn):
-        src = join(self._curDir,fn)
-        dst = join(self._storage_dir,fn)
-        prev_sha = self._state.get("sha",None)
+    def copy(self, fn):
+        src = join(self._curDir, fn)
+        dst = join(self._storage_dir, fn)
+        prev_sha = self._state.get("sha", None)
         self._logger.info(f"prev_sha: {prev_sha}")
         need_to_copy = True
 
         if prev_sha is not None:
-            src_ = join(self._storage_dir,"..",prev_sha,fn)
-            prev_sha = hashlib.sha256(open(src_,"rb").read()).hexdigest()
-            new_sha = hashlib.sha256(open(src,"rb").read()).hexdigest()
+            src_ = join(self._storage_dir, "..", prev_sha, fn)
+            prev_sha = hashlib.sha256(open(src_, "rb").read()).hexdigest()
+            new_sha = hashlib.sha256(open(src, "rb").read()).hexdigest()
             self._logger.info(f"prev_sha: {prev_sha}, new_sha: {new_sha}")
-            if prev_sha==new_sha:
+            if prev_sha == new_sha:
                 need_to_copy = False
                 src = src_
 
@@ -125,7 +132,6 @@ class _State:
             #self._logger(f"set up symlink for {fn}")
             _system(f"ln -s {abspath(src_)} {dst}")
 
-
     def __init__(self, storage_dir, sha, curDir):
         self._logger = logging.getLogger(self.__class__.__name__)
         self._storage_dir = storage_dir
@@ -133,10 +139,9 @@ class _State:
         self._state, self._state_fn = self._load_state(storage_dir)
         self._curDir = curDir
 
-
     def save(self):
         with open(self._state_fn, "w") as f:
-            json.dump({**self._state, "sha":self._sha}, f, indent=2,
+            json.dump({**self._state, "sha": self._sha}, f, indent=2,
                       ensure_ascii=False, sort_keys=True)
 
 
