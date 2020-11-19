@@ -40,7 +40,7 @@ def _get_coll(mongo_pass):
 
 @click.group()
 @click.option("--mongo_pass", envvar="MONGO_PASS", required=True)
-@click.option("-l", "--limit", type=int, default=24*2)
+@click.option("-l", "--limit", type=int, default=24*2, envvar="TIME_KOSTIL_LIMIT")
 @click.pass_context
 def time_kostil(ctx, **kwargs):
     logging.basicConfig(level=logging.INFO)
