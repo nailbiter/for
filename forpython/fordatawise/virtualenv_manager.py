@@ -24,6 +24,8 @@ import click
 import logging
 from re import match
 from subprocess import getoutput
+import json
+from os.path import abspath
 
 
 @click.group()
@@ -33,14 +35,20 @@ def virtualenv_manager(debug):
         logging.basicConfig(level=logging.INFO)
 
 @virtualenv_manager.command()
-def add_kernel():
+@click.option("--save/--no-save",default=True)
+def add_kernel(save):
     pwd = getoutput("pwd")
-    pwd = pwd.replace("/", ".").strip(".")
+    pwd_ = pwd.replace("/", ".").strip(".")
     # Kernel names can only contain ASCII letters and numbers and these separators: - . _ (hyphen, period, and underscore).
-    assert match(r"^[a-zA-Z0-9._-]+$", pwd) is not None
-    print(f"pwd: {pwd}")
+    assert match(r"^[a-zA-Z0-9._-]+$", pwd_) is not None
+    print(f"pwd_: {pwd_}")
     system(f"pip install ipykernel")
-    system(f"ipython kernel install --user --name={pwd}")
+    system(f"ipython kernel install --user --name=\"{pwd_}\"")
+    if save:
+        kernel_json_fn = ".kernel.json"
+        with open(kernel_json_fn,"w") as f:
+            json.dump({"directory":(pwd), "kernel_name":pwd_},f,indent=2,sort_keys=True)
+        print(f"kernel data saved to {kernel_json_fn}")
 
 
 

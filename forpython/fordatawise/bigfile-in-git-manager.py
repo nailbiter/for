@@ -67,6 +67,23 @@ _CONFIG_FN = ".bigfile-in-git-manager.config.yaml"
 def bigfile_in_git_manager():
     logging.basicConfig(level=logging.INFO)
 
+
+def _add_logger(f):
+    logger = logging.getLogger(f.__name__)
+
+    def _f(*args, **kwargs):
+        return f(*args, logger=logger, **kwargs)
+    return _f
+
+
+@_add_logger
+def _get_config(curDir, config_fn, logger):
+    with open(join(curDir, config_fn)) as f:
+        config = yaml.load(f.read(), Loader=yaml.SafeLoader)
+    logger.info(f"{curDir} => config: {config}")
+    return config
+
+
 @bigfile_in_git_manager.command()
 def post_commit():
     logger = logging.getLogger("post_commit")
@@ -81,9 +98,7 @@ def post_commit():
     logger.info(f"res: {res}")
 
     for curDir, config_fn in res:
-        with open(join(curDir, config_fn)) as f:
-            config = yaml.load(f.read())
-        logger.info(f"{curDir} => config: {config}")
+        config = _get_config(curDir, config_fn)
         storage_dir = join(curDir, config["storage-dir"], sha)
         makedirs(storage_dir, exist_ok=True)
         state = _State(storage_dir, sha, curDir)
@@ -91,9 +106,13 @@ def post_commit():
             state.copy(fn)
         state.save()
 
+
 @bigfile_in_git_manager.command()
 def status():
-    pass
+    curDir = "."
+    config = _get_config(curDir, _CONFIG_FN)
+    storage_dir = join(curDir, config["storage-dir"])
+    system(f"du -hs {storage_dir}")
 
 
 class _State:

@@ -25,6 +25,7 @@ def _render_template(fn, **kwargs):
             "os": {"path": os.path},
             "converters": {
                 "snake_to_camel": lambda s: "".join([s_.capitalize() for s_ in s.split("_")]),
+                "kebab_to_camel": lambda s: s.replace("-","_"),
             }})
 
 
