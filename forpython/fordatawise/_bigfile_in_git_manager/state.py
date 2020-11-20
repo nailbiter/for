@@ -19,7 +19,7 @@ ORGANIZATION:
 ==============================================================================="""
 
 import logging
-from os.path import join
+from os.path import join, isfile
 import json
 import sqlite3
 import pandas as pd
@@ -50,10 +50,14 @@ class State:
         self._logger = logging.getLogger(self.__class__.__name__)
         self._storage_dir = storage_dir
         self._curDir = curDir
-        self._sha = _get_head_sha()
+        self._sha = None
         self._logger.info(f"sha: {self._sha}")
-        makedirs(join(storage_dir,self._sha), exist_ok=True)
 
+    def _get_sha(self):
+        if self._sha is None:
+            self._sha = _get_head_sha()
+            makedirs(join(self._storage_dir,self._sha), exist_ok=True)
+        return self._sha    
     def _get_conn(self):
         return sqlite3.connect(self._database_fn)
 
@@ -62,7 +66,7 @@ class State:
         if len(lt_df)==0:
             return None
         else:
-            lt_df = lt_df[[sha!=self._sha for sha in lt_df.sha]]
+            lt_df = lt_df[[sha!=self._get_sha() for sha in lt_df.sha]]
             lt_df["datetime"] = lt_df["datetime"].apply(datetime.fromisoformat)
             lt_df = lt_df.sort_values(by="datetime",ascending=False)
             shas = list(lt_df.sha)
@@ -84,26 +88,27 @@ class State:
 
     def _system(self,cmd):
         system(cmd)
-        df = pd.DataFrame([{"cmd":cmd,"datetime":datetime.now().isoformat(), "sha":self._sha}])
+        df = pd.DataFrame([{"cmd":cmd,"datetime":datetime.now().isoformat(), "sha":self._get_sha()}])
         conn = self._get_conn()
         df.to_sql(State._LOG_TABLE_NAME, conn, if_exists="append",index=None)
         conn.close()
 
     def copy(self, fn):
         src = join(self._curDir, fn)
-        dst = join(self._storage_dir, fn)
+        dst = join(self._storage_dir, self._get_sha(), fn)
         prev_sha = self._get_prev_sha()
         self._logger.info(f"prev_sha: {prev_sha}")
         need_to_copy = True
 
         if prev_sha is not None:
-            src_ = join(self._storage_dir, "..", prev_sha, fn)
-            prev_sha = hashlib.sha256(open(src_, "rb").read()).hexdigest()
-            new_sha = hashlib.sha256(open(src, "rb").read()).hexdigest()
-            self._logger.info(f"prev_sha: {prev_sha}, new_sha: {new_sha}")
-            if prev_sha == new_sha:
-                need_to_copy = False
-                src = src_
+            src_ = join(self._storage_dir, prev_sha, fn)
+            if isfile(src_):
+                prev_sha = hashlib.sha256(open(src_, "rb").read()).hexdigest()
+                new_sha = hashlib.sha256(open(src, "rb").read()).hexdigest()
+                self._logger.info(f"prev_sha: {prev_sha}, new_sha: {new_sha}")
+                if prev_sha == new_sha:
+                    need_to_copy = False
+                    src = src_
 
         if need_to_copy:
             self._system(f"cp {src} {dst}")

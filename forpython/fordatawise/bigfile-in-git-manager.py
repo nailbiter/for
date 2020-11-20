@@ -18,13 +18,13 @@ ORGANIZATION:
     REVISION: ---
 
 TODO:
-    1. support several directories
+    1(done). support several directories
     2. support remote storage (in particular, GS)
     3. support signing files to ensure integrity
     4(done). avoid creation of spurious copies
     4. better avoid creation of spurious copies
-    5. use `db`, not JSON files
-    6. timestamp every save you do
+    5(done). use `db`, not JSON files
+    6(done). timestamp every save you do
 ==============================================================================="""
 
 import click
@@ -37,10 +37,6 @@ import json
 import hashlib
 from _bigfile_in_git_manager import add_logger, system
 from _bigfile_in_git_manager.State import State
-
-
-
-
 
 
 _CONFIG_FN = ".bigfile-in-git-manager.config.yaml"
@@ -94,6 +90,14 @@ def status():
     )
     print(state.get_log_table())
     # TODO: output which sha version current file matches
+
+
+@bigfile_in_git_manager.command()
+@click.option("-s", "--sha")
+@click.option("-f", "--filename", multiple=True)
+def restore(sha, filename):
+    # TODO
+    pass
 
 
 if __name__ == "__main__":
