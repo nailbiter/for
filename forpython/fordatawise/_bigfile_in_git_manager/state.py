@@ -19,7 +19,7 @@ ORGANIZATION:
 ==============================================================================="""
 
 import logging
-from os.path import join, isfile
+from os.path import join, isfile, abspath
 import json
 import sqlite3
 import pandas as pd
