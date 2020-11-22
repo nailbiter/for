@@ -15,7 +15,7 @@ class _SelectionQuestion(Question):
         self._logger.info(f"card: {self._card}")
         self._answers = []
         other_cards = sample([c for c in self._deck if c["_id"]
-            != self._card["_id"]], self._NUMBER_OF_ANSWERS-1) #FIXME: eliminate cards with same replies
+            != self._card["_id"]], self._NUMBER_OF_ANSWERS-1)
         _aux = ",".join([b for i, b in enumerate(
             self._card["back"]) if i != self._back_index])
         if len(_aux) > 0:
@@ -33,8 +33,8 @@ class _SelectionQuestion(Question):
 
         enumerated_answers = list(enumerate(self._answers))
         shuffle(enumerated_answers)
-        self._correct_answer_index = next(
-            i for i, (old_i, _) in enumerate(enumerated_answers) if old_i == 0)
+        self._correct_answer = next(
+            answer for i, (old_i, answer) in enumerate(enumerated_answers) if old_i == 0)
         self._answers = [a for i, a in enumerated_answers]
 
     def _get_jinja_env(self):
@@ -55,10 +55,10 @@ class _SelectionQuestion(Question):
         else:
             self._logger.info(f"answer: {ai}")
             self._logger.info(
-                f"correct_answer_index: {self._correct_answer_index}")
-            is_correct = ai == (self._correct_answer_index+1)
+                f"correct_answer: {self._correct_answer}")
+            is_correct = self._answers[ai-1] == self._correct_answer
             self._score = 1.0 if is_correct else 0.0
-            return self._score, None if is_correct else self._answers[self._correct_answer_index]
+            return self._score, None if is_correct else self._correct_answer
 
     def get_question_text(self):
         env = self._get_jinja_env()
