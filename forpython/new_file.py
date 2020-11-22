@@ -7,40 +7,45 @@ import click
 from datetime import datetime
 
 
-def _get_template_dirname():
+def _get_template_dirname(dir_):
     dirname, _ = split(realpath(__file__))
-    return join(dirname, "_new_file")
+    return join(dirname, "_new_file", dir_)
 
 
-def _get_template_names():
-    _, _, fns = next(walk(_get_template_dirname()))
+def _get_template_names(dir_):
+    _, _, fns = next(walk(_get_template_dirname(dir_)))
     _TEMPLATE_EXT = ".jinja.py"
     return [fn[:-len(_TEMPLATE_EXT)] for fn in fns if fn.endswith(_TEMPLATE_EXT)]
 
 
-def _render_template(fn, **kwargs):
-    with open(join(_get_template_dirname(), fn)) as f:
+def _render_template(fn, dir_, **kwargs):
+    with open(join(_get_template_dirname(dir_), fn)) as f:
         return Template(f.read()).render({
             **kwargs,
             "os": {"path": os.path},
             "converters": {
                 "snake_to_camel": lambda s: "".join([s_.capitalize() for s_ in s.split("_")]),
-                "kebab_to_camel": lambda s: s.replace("-","_"),
+                "kebab_to_camel": lambda s: s.replace("-", "_"),
             }})
 
 
-@click.command()
-@click.argument("fn", type=click.Path())
-@click.option("-s", "--stdout", is_flag=True)
+@click.group()
 @click.option("-e", "--email", envvar="EMAIL", default="alozz1991@gmail.com")
 @click.option("-o", "--organization", envvar="ORGANIZATION", default="")
-@click.argument("archetype", type=click.Choice(_get_template_names()), default="default")
-def new_file(fn, email, organization, archetype, stdout=False):
+@click.pass_context
+def new_file_group(ctx, **kwargs):
+    ctx.ensure_object(dict)
+    for k, v in kwargs.items():
+        ctx.obj[k] = v
+
+
+def _render_and_spitout(dir_, archetype, fn, stdout, organization, email):
     s = _render_template(f"{archetype}.jinja.py",
+                         dir_,
                          filename=fn,
                          now=datetime.now(),
                          email=email,
-                         is_executable=access(fn, X_OK),
+                         is_executable=False if fn is None else access(fn, X_OK),
                          organization=organization
                          )
     if stdout:
@@ -50,5 +55,22 @@ def new_file(fn, email, organization, archetype, stdout=False):
             f.write(s)
 
 
+@new_file_group.command()
+@click.argument("fn", type=click.Path())
+@click.argument("archetype", type=click.Choice(_get_template_names("new_file")), default="default")
+@click.option("-s", "--stdout", is_flag=True)
+@click.pass_context
+def new_file(ctx, stdout=False, **kwargs):
+    _render_and_spitout(dir_="new_file", stdout=stdout, **kwargs, **ctx.obj)
+
+
+@new_file_group.command()
+@click.argument("archetype", type=click.Choice(_get_template_names("snippet")), default="default")
+@click.pass_context
+def snippet(ctx, **kwargs):
+    _render_and_spitout(dir_="snippet", fn=None, **
+                        kwargs, **ctx.obj, stdout=True)
+
+
 if __name__ == "__main__":
-    new_file()
+    new_file_group()
