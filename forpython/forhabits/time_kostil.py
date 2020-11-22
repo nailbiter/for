@@ -28,7 +28,7 @@ from bson.codec_options import CodecOptions
 import logging
 
 _TIME_CATEGORIES = ["useless", "gym", "social",
-                    "logistics", "sleeping", "german", "parttime"]
+                    "logistics", "sleeping", "german", "parttime", "coding"]
 
 
 def _get_coll(mongo_pass):
