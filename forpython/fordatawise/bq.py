@@ -32,6 +32,13 @@ _SAVE_RESULTS_MAX_RECORD_NUM = 1000
 def bq():
     pass
 
+def _log_sql_to_mongo(sql,bq_client,df=None):
+    mongo_client = MongoClient()
+    bytes_processed = bq_client.query(sql,job_config=bigquery.QueryJobConfig(dry_run=True,use_cache=False)).total_bytes_processed
+    if df is not None and len(df)>_SAVE_RESULTS_MAX_RECORD_NUM:
+        logging.warning(f"response has more records than we can store ({len(df)}>{_SAVE_RESULTS_MAX_RECORD_NUM}) => truncating")
+    mongo_client.datawise.bq_query_log.insert_one({"sql":sql,"date":datetime.now(),"res":df if df is None else df.to_dict(orient="records")[:_SAVE_RESULTS_MAX_RECORD_NUM],"bytes_processed":bytes_processed})
+
 @bq.command()
 @click.argument("fn",type=click.Path())
 @click.option("-p","--project")
@@ -43,7 +50,6 @@ def query(fn,project,oformat):
     bq_client = bigquery.Client(**bq_client_kwargs)
     with open(fn) as f:
         sql = f.read()
-    bytes_processed = bq_client.query(sql,job_config=bigquery.QueryJobConfig(dry_run=True,use_cache=False)).total_bytes_processed
     df = bq_client.query(sql).to_dataframe(progress_bar_type="tqdm")
 
     if oformat=="csv":
@@ -51,10 +57,7 @@ def query(fn,project,oformat):
     else:
         raise NotImplementedError
 
-    mongo_client = MongoClient()
-    if len(df)>_SAVE_RESULTS_MAX_RECORD_NUM:
-        logging.warning(f"response has more records than we can store ({len(df)}>{_SAVE_RESULTS_MAX_RECORD_NUM}) => truncating")
-    mongo_client.datawise.bq_query_log.insert_one({"sql":sql,"date":datetime.now(),"res":df.to_dict(orient="records")[:_SAVE_RESULTS_MAX_RECORD_NUM],"bytes_processed":bytes_processed})
+    _log_sql_to_mongo(sql,bq_client,None)
 
 if __name__=="__main__":
     bq()
