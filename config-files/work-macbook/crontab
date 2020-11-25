@@ -1,2 +1,2 @@
 #* * * * * /Users/nailbiter/bin/fixup_wifi 2>>/tmp/fixup_wifi.log.txt 1>>/tmp/fixup_wifi.out.txt
-45 18 * * 1-5 /Users/nailbiter/for/forpython/fordatawise/bq_log.py
+45 18 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/fordatawise/bq_log.py 2>/tmp/bq_log.log.txt
