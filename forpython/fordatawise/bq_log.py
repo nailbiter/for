@@ -54,11 +54,17 @@ def bq_log(start_date, slack, slack_webhook, bigquery_credentials, project):
     client = bigquery.Client(credentials=_credentials,project="olm-limited-access")
     df = pd.concat([
         pd.DataFrame([
-            {"total_bytes_processed":
-                j.total_bytes_processed, "created": j.created+timedelta(hours=9), "project": j.project}
+            {
+                "total_bytes_processed":j.total_bytes_processed, 
+                "created": j.created+timedelta(hours=9), 
+                "project": j.project,
+                "state":j.state, 
+                "job_type":j.job_type,
+            }
             for j
             # in client.list_jobs(project="olm-limited-access", state_filter="done", max_results=100)
             in client.list_jobs(project=project_, state_filter="done", min_creation_time=datetime(start_date.year, start_date.month, start_date.day))
+            if j.job_type!="extract"
         ])
         for project_ in project
     ])
