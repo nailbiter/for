@@ -25,6 +25,7 @@ TODO:
     4. better avoid creation of spurious copies
     5(done). use `db`, not JSON files
     6(done). timestamp every save you do
+    7. support compression
 ==============================================================================="""
 
 import click
@@ -37,6 +38,8 @@ import json
 import hashlib
 from _bigfile_in_git_manager import add_logger, system
 from _bigfile_in_git_manager.State import State
+from datetime import datetime, timedelta
+from tqdm import tqdm
 
 
 _CONFIG_FN = ".bigfile-in-git-manager.config.yaml"
@@ -77,17 +80,22 @@ def post_commit():
             state.copy(fn)
 
 
-@bigfile_in_git_manager.command()
-def status():
+def _getCurrentConfigAndState():
     curDir = "."
     config = _get_config(curDir, _CONFIG_FN)
     storage_dir = join(curDir, config["storage-dir"])
-    system(f"du -hs {storage_dir}")
     state = State(
         join(curDir, config["storage-dir"]),
         curDir,
         join(curDir, config["database"])
     )
+    return config, state
+
+
+@bigfile_in_git_manager.command()
+def status():
+    config, state = _getCurrentConfigAndState()
+    system(f"du -hs {state.get_storage_dir()}")
     print(state.get_log_table())
     # TODO: output which sha version current file matches
 
@@ -98,6 +106,24 @@ def status():
 def restore(sha, filename):
     # TODO
     pass
+
+
+@bigfile_in_git_manager.command()
+def optimize_storage():
+    # FIXME: make it automatic
+    config, state = _getCurrentConfigAndState()
+    log_table = state.get_log_table()
+    log_table.datetime = log_table.datetime.apply(datetime.fromisoformat)
+    log_table = log_table.groupby("sha").agg({"datetime": max})
+    log_table = log_table.reset_index()
+    log_table = log_table.sort_values(by="datetime", ascending=False)
+    threshold = datetime.now()-timedelta(days=2)
+    log_table = log_table[[dt < threshold for dt in log_table.datetime]]
+    for sha in tqdm(log_table.sha, total=len(log_table)):
+        ret = system(
+            f"cd {state.get_storage_dir()} && zip -9 {sha} -r {sha} && rm -rf {sha}/ && du -hs {sha}.zip")
+#        if ret != 0:
+#            break
 
 
 if __name__ == "__main__":

@@ -29,11 +29,24 @@ from pymongo import MongoClient
 import os
 
 
-_PROJECTS = [
+_PROJECTS = list({
     "olm-1-datawarehouse-dev", 
     "olm-limited-access",
+#    "dtws-pipeline-dev",
+#    "dtws-rawdata-crawler-dev",
+#    "dtws-rawdata-gov-prd",
+#    "dtws-rdemo-dev",
+    "olm-1-datamart-dev",
+    "olm-area-marketer-dev",
+    "olm-area-marketer-prd",
+    "olm-datawarehouse-prd",
+    "olm-pipeline-dev",
+    "olm-rawdata-gov-prd",
+    "olm-rawdata-prod",
+    "olm-user-yasunori-horikoshi",
     "olm-datamart-prd"
-]
+})
+
 @click.command()
 @click.option("--start-date", type=click.DateTime())
 @click.option("--slack/--no-slack", default=False)

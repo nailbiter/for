@@ -53,6 +53,8 @@ class State:
         self._sha = None
         self._logger.info(f"sha: {self._sha}")
 
+    def get_storage_dir(self):
+        return self._storage_dir
     def _get_sha(self):
         if self._sha is None:
             self._sha = _get_head_sha()
@@ -115,4 +117,3 @@ class State:
         else:
             #self._logger(f"set up symlink for {fn}")
             self._system(f"ln -s {abspath(src_)} {dst}")
-
