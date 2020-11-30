@@ -20,19 +20,27 @@ ORGANIZATION:
 ==============================================================================="""
 
 import click
-from _send_notification.server_flask import app
+#from _send_notification.server_flask import app
 from _send_notification.server_telegrambot import numerical_keyboard
 from concurrent import futures
-from os import system
+import os
+
+def _start_flask():
+    os.system("flask run") #FIXME -- this probably can be done without `os.system`
+    #app.run(host='127.0.0.1', port=5000, debug=True)
 
 @click.command()
 @click.option("--telegram-token", envvar="TELEGRAM_TOKEN")
-def server(telegram_token):
-    with futures.ProcessPoolExecutor(max_workers=2) as ex:
-        ex.submit(app.run,host='127.0.0.1', port=5000, debug=True)
-        #ex.submit(numerical_keyboard,telegram_token)
-        #app.run(host='127.0.0.1', port=5000, debug=True)
-        #numerical_keyboard(telegram_token)
+@click.option("--only-server/--no-only-server", default=False)
+def server(telegram_token,only_server):
+    if only_server:
+        _start_flask()
+    else:
+        with futures.ProcessPoolExecutor(max_workers=2) as ex:
+            ex.submit(_start_flask)
+            ex.submit(numerical_keyboard,telegram_token)
+            #app.run(host='127.0.0.1', port=5000, debug=True)
+            #numerical_keyboard(telegram_token)
 
 if __name__=="__main__":
     server()

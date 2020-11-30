@@ -22,74 +22,42 @@ ORGANIZATION:
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, MessageHandler, Filters
 from telegram.ext import MessageHandler, Filters
-import json
+from datetime import datetime, timedelta
+from urllib import parse
+import logging
+from _send_notification import system, add_logger
 
 
-def _update_json_obj(fn,patch={}):
-    content = {}
-    with open(fn) as f:
-        s = f.read()
-        if len(s)>0:
-            content = json.loads(s)
-    with open(fn,"w") as f:
-        content = {**content,**patch}
-        print(f"new content: {content}")
-        json.dump(content,f)
-    return content    
+@add_logger
+def _new_timer(update, context, logger):
+    _, time, msg = update.message.text.split(" ", maxsplit=2)
+    dt = datetime.now()
+    if time.startswith("+"):
+        dt += timedelta(minutes=int(time[1:]))
+    else:
+        time_chunks = [time[i:i+2] for i in range(0, len(time), 2)]
+        time_chunks = reversed(time_chunks)
+        for tc, flag in zip(time_chunks, "minute hour day month year".split(" ")):
+            dt = dt.replace(**{flag: (2000 if flag == "year" else 0)+int(tc)})
 
+    msg = parse.quote(msg)
+    url = f"localhost:5000/new_timer/{dt.strftime('%Y%m%d%H%M%S')}/{msg}/slack"
 
-def _start(update, context):
-    print(f"message> {update.message}")
-    update.message.reply_text(text="text", reply_markup=ReplyKeyboardMarkup(
-        [[KeyboardButton("send phone", request_contact=True)]]))
-
-
-def _numerical_keyboard(update, context):
-    m = update.message.reply_text(text="enter phone number", reply_markup=ReplyKeyboardMarkup(
-        [*[[KeyboardButton(str(i+1)) for i in range(3*j, 3*j+3)] for j in range(3)], [KeyboardButton("send")]]))
-    m = update.message.reply_text(text="phone num")
-    _update_json_obj(".cache.json",{"keyboard_message":{"message_id":m.message_id,"chat_id":m.chat.id}, "phone_number":""})
-
-
-def _help(update, context):
-    m = update.message.reply_text(text="\n".join([f"{cmd} - {cmd}" for cmd in ["numerical_keyboard","start", "help"]]))
-
-
-def _message_handler(update, context):
-    if update.message.text in list("0123456789"):
-        update.message.delete()
-        keyboard_message = None
-        phone_number = None
-        with open(".cache.json") as f:
-            _o = json.load(f)
-            keyboard_message = _o["keyboard_message"]
-            phone_number = _o["phone_number"]
-        phone_number += update.message.text    
-        _update_json_obj(".cache.json",{"phone_number":phone_number})
-        bot.edit_message_text(message_id=keyboard_message["message_id"],chat_id=keyboard_message["chat_id"],text=phone_number)
-
-def echo(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
+    res = system(f"curl \"{url}\"", get_output=True)
+    res = res.split("\n")[-1]
+    context.bot.send_message(chat_id=update.effective_chat.id, text=res)
 
 
 def numerical_keyboard(token):
+    logging.basicConfig(level=logging.INFO)
     assert token is not None
-#    print(f"token: {token}")
-#
+
     updater = Updater(token, use_context=True)
-    #global bot
     if updater.bot is None:
         print("bot is None!!")
     bot = updater.bot
 
-#    updater.dispatcher.add_handler(CommandHandler('start', _start))
-#    updater.dispatcher.add_handler(CommandHandler(
-#        'numerical_keyboard', _numerical_keyboard))
-#    updater.dispatcher.add_handler(CommandHandler('help', _help))
-#    updater.dispatcher.add_handler(MessageHandler(
-#        filters=Filters.all, callback=_message_handler))
-    echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
-    updater.dispatcher.add_handler(echo_handler)
+    updater.dispatcher.add_handler(CommandHandler('new_timer', _new_timer))
 #
 #    # Start the Bot
     updater.start_polling()
@@ -97,7 +65,3 @@ def numerical_keyboard(token):
 #    # Run the bot until the user presses Ctrl-C or the process receives SIGINT,
 #    # SIGTERM or SIGABRT
     updater.idle()
-
-
-#if __name__ == "__main__":
-#    numerical_keyboard()
