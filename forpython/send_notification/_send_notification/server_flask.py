@@ -54,8 +54,9 @@ def new_timer(due_datetime, message, media):
     system(f"at -f {script_fn} -t {datetime_.strftime('%Y%m%d%H%M.%S')}")
 
     df = client.send_notification.timers.insert_one({
-        "uuid": uuid_,
-        "datetime": datetime_,
+        "uuid": str(uuid_),
+        "due": datetime_,
+        "start":datetime.now(),
         "message": message,
         "media": media
     })
