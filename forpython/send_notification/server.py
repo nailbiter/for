@@ -20,10 +20,19 @@ ORGANIZATION:
 ==============================================================================="""
 
 import click
+from _send_notification.server_flask import app
+from _send_notification.server_telegrambot import numerical_keyboard
+from concurrent import futures
+from os import system
 
 @click.command()
-def server():
-    pass
+@click.option("--telegram-token", envvar="TELEGRAM_TOKEN")
+def server(telegram_token):
+    with futures.ProcessPoolExecutor(max_workers=2) as ex:
+        ex.submit(app.run,host='127.0.0.1', port=5000, debug=True)
+        #ex.submit(numerical_keyboard,telegram_token)
+        #app.run(host='127.0.0.1', port=5000, debug=True)
+        #numerical_keyboard(telegram_token)
 
 if __name__=="__main__":
     server()
