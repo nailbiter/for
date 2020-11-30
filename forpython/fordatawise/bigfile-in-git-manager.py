@@ -109,7 +109,8 @@ def restore(sha, filename):
 
 
 @bigfile_in_git_manager.command()
-def optimize_storage():
+@click.option("--dry-run/--no-dry-run",default=False)
+def optimize_storage(dry_run):
     # FIXME: make it automatic
     config, state = _getCurrentConfigAndState()
     log_table = state.get_log_table()
@@ -119,9 +120,10 @@ def optimize_storage():
     log_table = log_table.sort_values(by="datetime", ascending=False)
     threshold = datetime.now()-timedelta(days=2)
     log_table = log_table[[dt < threshold for dt in log_table.datetime]]
-    for sha in tqdm(log_table.sha, total=len(log_table)):
+    shas = [sha for sha in log_table.sha if not isfile(join(state.get_storage_dir(),f"{sha}.zip"))]
+    for sha in tqdm(shas):
         ret = system(
-            f"cd {state.get_storage_dir()} && zip -9 {sha} -r {sha} && rm -rf {sha}/ && du -hs {sha}.zip")
+            f"cd {state.get_storage_dir()} && zip -9 {sha} -r {sha} && rm -rf {sha}/ && du -hs {sha}.zip",dry_run=dry_run)
 #        if ret != 0:
 #            break
 
