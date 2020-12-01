@@ -27,16 +27,19 @@ from _send_notification import system
 import logging
 
 
-@click.command()
-@click.option("-d", "--delay-min", default=0)
+@click.group()
 @click.option("--debug/--no-debug", default=True)
-@click.argument("message")
-def client(delay_min, message, debug):
+def client(debug):
     if debug:
         logging.basicConfig(level=logging.INFO)
+
+
+@client.command()
+@click.option("-d", "--delay-min", default=0)
+@click.argument("message")
+def new_timer(delay_min, message):
     dt = datetime.now() + timedelta(minutes=delay_min)
-    message = parse.quote(message)
-    url = f"localhost:5000/new_timer/{dt.strftime('%Y%m%d%H%M%S')}/{message}/slack"
+    url = f"localhost:5000/new_timer/{dt.strftime('%Y%m%d%H%M%S')}/{parse.quote(message)}/slack"
     system(f"curl \"{url}\"")
 
 
