@@ -57,7 +57,7 @@ def new_timer(due_datetime, message, media):
         "telegram_token":os.environ["TELEGRAM_TOKEN"]
         })
     with open(script_fn, "w") as f:
-        f.write(f"{cmd} 2>&1 1> {script_log_fn}")
+        f.write(f"{cmd} 2>&1 | tee {script_log_fn}")
     system(f"at -f {script_fn} -t {datetime_.strftime('%Y%m%d%H%M.%S')}")
 
     df = client.send_notification.timers.insert_one({

@@ -23,6 +23,7 @@ TODO:
     4. implement own jobs executor
     5. FIXME: ed74e92a17115a17fd0010c7
     6. refactor `telegram` notification media
+    7. support retry
 ==============================================================================="""
 
 import click
