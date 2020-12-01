@@ -21,6 +21,8 @@ ORGANIZATION:
 import logging
 import os
 import subprocess
+import re
+
 
 def add_logger(f):
     logger = logging.getLogger(f.__name__)
@@ -38,3 +40,19 @@ def system(cmd, logger, dry_run=False, get_output=False):
             return subprocess.getoutput(cmd)
         else:
             os.system(cmd)
+
+
+# FIXME: ed74e92a17115a17fd0010c7 -- refactor to make ordering explicit
+NOTIFICATION_MEDIA = {
+    "slack": """curl -X POST -H 'Content-type: application/json' --data '{"text":"{{message}}"}' {{slack_webhook}}""",
+    r"telegram:(\d+)": """curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "{{match_object.group(1)}}", "text": "{{message}}"}' https://api.telegram.org/bot{{telegram_token}}/sendMessage""",
+    "popup": """osascript -e 'display notification "{{message}}" with title "popup"' && echo "well done" """,
+}
+
+
+def check_media_is_valid(media):
+    for i, (k, v) in enumerate(NOTIFICATION_MEDIA.items()):
+        m = re.match(k, media)
+        if m is not None:
+            return m, i
+    return None, -1

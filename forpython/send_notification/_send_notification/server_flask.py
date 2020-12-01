@@ -25,12 +25,12 @@ import uuid
 import os
 from pymongo import MongoClient
 import logging
-from _send_notification import system
+from _send_notification import system, NOTIFICATION_MEDIA, check_media_is_valid
+from jinja2 import Template
 
 app = Flask(__name__)
-logging.basicConfig(level=logging.INFO)
 _TIMERS_TABLE_NAME = "timers"
-
+logging.basicConfig(level=logging.INFO)
 
 def _get_slack_webhook(client=None):
     if client is None:
@@ -42,15 +42,22 @@ def _get_slack_webhook(client=None):
 
 @app.route('/new_timer/<due_datetime>/<message>/<media>')
 def new_timer(due_datetime, message, media):
-    assert media in ["slack"]
+    m,i = check_media_is_valid(media)
+    assert m is not None, media
     datetime_ = datetime.strptime(due_datetime, "%Y%m%d%H%M%S")
     client = MongoClient()
     uuid_ = uuid.uuid4()
 
     script_fn = f"/tmp/{uuid_}.sh"
+    script_log_fn = f"/tmp/{uuid_}.log.txt"
+    cmd = Template(list(NOTIFICATION_MEDIA.values())[i]).render({
+        "slack_webhook":_get_slack_webhook(client), 
+        "message":message,
+        "match_object":m,
+        "telegram_token":os.environ["TELEGRAM_TOKEN"]
+        })
     with open(script_fn, "w") as f:
-        f.write(
-            f"""curl -X POST -H 'Content-type: application/json' --data '{{"text":"{message}"}}' {_get_slack_webhook(client)}""")
+        f.write(f"{cmd} 2>&1 1> {script_log_fn}")
     system(f"at -f {script_fn} -t {datetime_.strftime('%Y%m%d%H%M.%S')}")
 
     df = client.send_notification.timers.insert_one({
@@ -65,3 +72,4 @@ def new_timer(due_datetime, message, media):
 #    conn.close()
 
     return f"timer {uuid_} added due {datetime_.isoformat()}"
+

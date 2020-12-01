@@ -30,7 +30,11 @@ from _send_notification import system, add_logger
 
 @add_logger
 def _new_timer(update, context, logger):
-    _, time, msg = update.message.text.split(" ", maxsplit=2)
+    _, time, media, msg = update.message.text.split(" ", maxsplit=3)
+    media = media[1:]
+    assert media in ["slack","telegram"], media
+    if media=="telegram":
+        media = f"{media}:{update.effective_chat.id}"
     dt = datetime.now()
     if time.startswith("+"):
         dt += timedelta(minutes=int(time[1:]))
@@ -40,8 +44,8 @@ def _new_timer(update, context, logger):
         for tc, flag in zip(time_chunks, "minute hour day month year".split(" ")):
             dt = dt.replace(**{flag: (2000 if flag == "year" else 0)+int(tc)})
 
-    msg = parse.quote(msg)
-    url = f"localhost:5000/new_timer/{dt.strftime('%Y%m%d%H%M%S')}/{msg}/slack"
+    msg,media = [parse.quote(x) for x in [msg,media]]
+    url = f"localhost:5000/new_timer/{dt.strftime('%Y%m%d%H%M%S')}/{msg}/{media}"
 
     res = system(f"curl \"{url}\"", get_output=True)
     res = res.split("\n")[-1]

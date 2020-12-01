@@ -17,6 +17,12 @@ ORGANIZATION:
      CREATED: 2020-11-27T19:49:01.715259
     REVISION: ---
 
+TODO:
+    1(done). `telegram` notification media
+    3. (bug) make `popup` notification media work
+    4. implement own jobs executor
+    5. FIXME: ed74e92a17115a17fd0010c7
+    6. refactor `telegram` notification media
 ==============================================================================="""
 
 import click
