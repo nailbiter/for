@@ -33,4 +33,4 @@ def add_logger(f):
 def system(cmd, logger, dry_run=False):
     logger.info(f"> {cmd}")
     if not dry_run:
-        system_(cmd)
+        return system_(cmd)

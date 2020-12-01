@@ -29,6 +29,7 @@ from os import makedirs
 from datetime import datetime
 import hashlib
 
+
 def _get_head_sha(path="."):
     _path = path
     # FIXME: this probably can be done better
@@ -44,6 +45,7 @@ def _get_head_sha(path="."):
            ), "should be no changes on tree (do `git commit -a`)"
     return head_commit.hexsha
 
+
 class State:
     def __init__(self, storage_dir, curDir, database_fn):
         self._database_fn = database_fn
@@ -55,26 +57,30 @@ class State:
 
     def get_storage_dir(self):
         return self._storage_dir
+
     def _get_sha(self):
         if self._sha is None:
-            self._sha = _get_head_sha()
-            makedirs(join(self._storage_dir,self._sha), exist_ok=True)
-        return self._sha    
+            sha = _get_head_sha()
+            makedirs(join(self._storage_dir, sha), exist_ok=True)
+            self._sha = sha
+        return self._sha
+
     def _get_conn(self):
         return sqlite3.connect(self._database_fn)
 
     def _get_prev_sha(self):
         lt_df = self.get_log_table()
-        if len(lt_df)==0:
+        if len(lt_df) == 0:
             return None
         else:
-            lt_df = lt_df[[sha!=self._get_sha() for sha in lt_df.sha]]
+            lt_df = lt_df[[sha != self._get_sha() for sha in lt_df.sha]]
             lt_df["datetime"] = lt_df["datetime"].apply(datetime.fromisoformat)
-            lt_df = lt_df.sort_values(by="datetime",ascending=False)
+            lt_df = lt_df.sort_values(by="datetime", ascending=False)
             shas = list(lt_df.sha)
             return list(lt_df.sha)[0]
 
     _LOG_TABLE_NAME = "bigfile_in_git_manager_command_log"
+
     def get_log_table(self):
         conn = self._get_conn()
         try:
@@ -83,17 +89,20 @@ class State:
         except pd.io.sql.DatabaseError:
             self._logger.warning(
                 f"could not fetch `{State._LOG_TABLE_NAME}` => returning empty table")
-            sql_sources_df = pd.DataFrame({"cmd":[],"datetime":[],"sha":[]})
+            sql_sources_df = pd.DataFrame(
+                {"cmd": [], "datetime": [], "sha": []})
 
         conn.close()
-        return sql_sources_df    
+        return sql_sources_df
 
-    def _system(self,cmd):
-        system(cmd)
-        df = pd.DataFrame([{"cmd":cmd,"datetime":datetime.now().isoformat(), "sha":self._get_sha()}])
+    def system(self, cmd):
+        retcode = system(cmd)
+        df = pd.DataFrame(
+            [{"cmd": cmd, "datetime": datetime.now().isoformat(), "sha": self._get_sha()}])
         conn = self._get_conn()
-        df.to_sql(State._LOG_TABLE_NAME, conn, if_exists="append",index=None)
+        df.to_sql(State._LOG_TABLE_NAME, conn, if_exists="append", index=None)
         conn.close()
+        return retcode
 
     def copy(self, fn):
         src = join(self._curDir, fn)
@@ -113,7 +122,7 @@ class State:
                     src = src_
 
         if need_to_copy:
-            self._system(f"cp {src} {dst}")
+            self.system(f"cp {src} {dst}")
         else:
             #self._logger(f"set up symlink for {fn}")
-            self._system(f"ln -s {abspath(src_)} {dst}")
+            self.system(f"ln -s {abspath(src_)} {dst}")

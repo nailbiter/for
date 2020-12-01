@@ -25,7 +25,8 @@ TODO:
     4. better avoid creation of spurious copies
     5(done). use `db`, not JSON files
     6(done). timestamp every save you do
-    7. support compression
+    7(done). support compression
+    8(done). save all shell commands executed to db: command + datetime + sha
 ==============================================================================="""
 
 import click
@@ -78,6 +79,7 @@ def post_commit():
         )
         for fn in config["big-files"]:
             state.copy(fn)
+        _check_old_shas(state)
 
 
 def _getCurrentConfigAndState():
@@ -97,6 +99,7 @@ def status():
     config, state = _getCurrentConfigAndState()
     system(f"du -hs {state.get_storage_dir()}")
     print(state.get_log_table())
+    _check_old_shas(state)
     # TODO: output which sha version current file matches
 
 
@@ -107,12 +110,13 @@ def restore(sha, filename):
     # TODO
     pass
 
+@add_logger
+def _check_old_shas(state,logger):
+    shas = _get_old_shas(state)
+    if len(shas)>0:
+        logger.warning(f"you have {len(shas)} outdated saves; you can archive them with `optimize-storage` command")
 
-@bigfile_in_git_manager.command()
-@click.option("--dry-run/--no-dry-run",default=False)
-def optimize_storage(dry_run):
-    # FIXME: make it automatic
-    config, state = _getCurrentConfigAndState()
+def _get_old_shas(state):
     log_table = state.get_log_table()
     log_table.datetime = log_table.datetime.apply(datetime.fromisoformat)
     log_table = log_table.groupby("sha").agg({"datetime": max})
@@ -121,11 +125,18 @@ def optimize_storage(dry_run):
     threshold = datetime.now()-timedelta(days=2)
     log_table = log_table[[dt < threshold for dt in log_table.datetime]]
     shas = [sha for sha in log_table.sha if not isfile(join(state.get_storage_dir(),f"{sha}.zip"))]
+    return shas
+
+@bigfile_in_git_manager.command()
+@click.option("--dry-run/--no-dry-run",default=False)
+def optimize_storage(dry_run):
+    _, state = _getCurrentConfigAndState()
+    shas = _get_old_shas(state)
     for sha in tqdm(shas):
-        ret = system(
+        ret = state.system(
             f"cd {state.get_storage_dir()} && zip -9 {sha} -r {sha} && rm -rf {sha}/ && du -hs {sha}.zip",dry_run=dry_run)
-#        if ret != 0:
-#            break
+        if ret != 0:
+            break
 
 
 if __name__ == "__main__":
