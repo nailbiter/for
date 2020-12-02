@@ -95,13 +95,14 @@ class State:
         conn.close()
         return sql_sources_df
 
-    def system(self, cmd):
-        retcode = system(cmd)
-        df = pd.DataFrame(
-            [{"cmd": cmd, "datetime": datetime.now().isoformat(), "sha": self._get_sha()}])
-        conn = self._get_conn()
-        df.to_sql(State._LOG_TABLE_NAME, conn, if_exists="append", index=None)
-        conn.close()
+    def system(self, cmd, dry_run=False):
+        retcode = system(cmd, dry_run=dry_run)
+        if not dry_run:
+            df = pd.DataFrame(
+                [{"cmd": cmd, "datetime": datetime.now().isoformat(), "sha": self._get_sha()}])
+            conn = self._get_conn()
+            df.to_sql(State._LOG_TABLE_NAME, conn, if_exists="append", index=None)
+            conn.close()
         return retcode
 
     def copy(self, fn):

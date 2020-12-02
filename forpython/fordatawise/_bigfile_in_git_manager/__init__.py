@@ -26,7 +26,10 @@ def add_logger(f):
     logger = logging.getLogger(f.__name__)
 
     def _f(*args, **kwargs):
-        return f(*args, logger=logger, **kwargs)
+#        logger.warn(f"args: {args}")
+#        logger.warn(f"kwargs: {kwargs}")
+#        return f(*args, **({} if "logger" in kwargs else {"logger":logger}), **kwargs) #FIXME
+        return f(*args,logger=logger,**kwargs)
     return _f
 
 @add_logger
