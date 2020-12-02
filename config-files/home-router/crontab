@@ -1,0 +1,3 @@
+* * * * * /home/pi/bin/routing/fixup.sh
+0 0,8,15,18,21 * * * curl -X POST -H 'Content-type: application/json' --data '{"text":"记得滴眼药水!"}' `cat /home/pi/candice.webhook.txt`
+30 12 * * * curl -X POST -H 'Content-type: application/json' --data '{"text":"记得滴眼药水!"}' `cat /home/pi/candice.webhook.txt`
