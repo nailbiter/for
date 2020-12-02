@@ -33,13 +33,12 @@ setup(
     name='trello',
     version='1.0.1',
     py_modules=["trello"],
-#    packages=find_packages(
-#        include=["."],
-#        # exclude=["bin"]
-#    ),
+    packages=find_packages(include=["_trello"]),
+    #package_data={'': ['templates/*.jinja.txt']},
+    include_package_data=True,
     install_requires=get_install_requires(),
-        entry_points='''
-            [console_scripts]
-            trello=trello:cli
-        ''',
+    entry_points='''
+        [console_scripts]
+        trello=trello:cli
+    ''',
 )

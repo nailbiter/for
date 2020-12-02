@@ -8,21 +8,15 @@ import click
 import logging
 from tqdm import tqdm
 from jinja2 import Template
-from os.path import join, dirname
+from os.path import join, dirname, split
+from _trello import render_template
 from re import match
 
 
 # global const's
 _ROOT_URL = "https://api.trello.com/1"
-_TEMPLATES_DIR = "./templates"
 # global var's
 # procedures
-
-
-def _render_template(fn, **kwargs):
-    _dir = dirname(__file__)
-    with open(join(_dir, _TEMPLATES_DIR, fn)) as f:
-        return Template(f.read()).render(kwargs)
 
 
 @click.group()
@@ -179,10 +173,10 @@ def print_card(ctx, card_url, oformat):
     if oformat == "json":
         print(json.dumps(data))
     elif oformat == "tech":
-        print(_render_template("card_pretty.jinja.txt",
+        print(render_template("card_pretty.jinja.txt",
                                card=data, card_url=card_url, stats=stats))
     elif oformat == "github":
-        print(_render_template("card.jinja.txt",
+        print(render_template("card.jinja.txt",
                                card=data, card_url=card_url, stats=stats))
     else:
         raise NotImplementedError
