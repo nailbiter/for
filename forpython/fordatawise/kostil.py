@@ -51,10 +51,11 @@ def _get_fzf_selection(key):
             f.write(f"{i}. {value}\n")
 
     fn2 = f"/tmp/{uuid.uuid4()}.txt"
-    os.system(f"cat {fn} | fzf --no-sort | sponge {fn2}")
+    os.system(f"cat {fn} | fzf --header={key} --no-sort > {fn2}")
     with open(fn2) as f:
         res = f.read()
     res = res.strip()
+    assert "." in res
     res = res.split(".")[0]
     return int(res)
 
