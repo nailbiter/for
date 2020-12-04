@@ -47,10 +47,10 @@ class TrelloUrl:
         url = f"{TrelloUrl._ROOT_URL}/{url}&token={self._trello_token}&key={self._trello_key}"
         self._logger.info(f"url: {url}")
 
-        if method_=="GET":
+        if method_ == "GET":
             with urllib.request.urlopen(url) as url:
                 data = json.loads(url.read().decode())
-        elif method_ in ["POST","PUT"]:
+        elif method_ in ["POST", "PUT"]:
             request = urllib.request.Request(url, method=method_)
             with urllib.request.urlopen(request) as response:
                 data = json.loads(response.read().decode("utf-8"))
@@ -70,11 +70,13 @@ def low(ctx):
 
 @low.command()
 @click.argument("id", envvar="CARD_URL")
-@click.option("--closed", type=click.Choice(["true","false"]))
+@click.option("--closed", type=click.Choice(["true", "false"]))
 @click.pass_context
 def update_card(ctx, **kwargs):
     print(json.dumps(ctx.obj["trello_url"](
-        "/cards/{{id}}?{%if closed%}closed={{closed}}{%endif%}",method_="PUT", **kwargs), sort_keys=True, indent=2))
+        "/cards/{{id}}?{%if closed%}closed={{closed}}{%endif%}", method_="PUT", **kwargs), sort_keys=True, indent=2))
+
+
 @low.command()
 @click.argument("user_id", envvar="TRELLO_USER_ID")
 @click.pass_context
@@ -93,7 +95,7 @@ def get_card(ctx, **kwargs):
 
 @low.command()
 @click.argument("id", envvar="CARD_URL")
-@click.option("-f", "--filter", multiple=True, type=click.Choice(["createCard","copyBoard","copyCard"]))
+@click.option("-f", "--filter", multiple=True, type=click.Choice(["createCard", "copyBoard", "copyCard"]))
 @click.pass_context
 def get_actions_on_card(ctx, **kwargs):
     print(json.dumps(ctx.obj["trello_url"](
@@ -146,8 +148,9 @@ def _fetch_checklists(data, auth):
 @high.command()
 @click.argument("card_url", envvar="CARD_URL")
 @click.option("-o", "--oformat", type=click.Choice(["json", "github", "tech"]), default="github")
+@click.option("-f", "--free-text")
 @click.pass_context
-def print_card(ctx, card_url, oformat):
+def print_card(ctx, card_url, oformat, free_text):
     _logger = logging.getLogger("high.print_card")
     _logger.info(f"card_url: {card_url}")
 
@@ -174,10 +177,10 @@ def print_card(ctx, card_url, oformat):
         print(json.dumps(data))
     elif oformat == "tech":
         print(render_template("card_pretty.jinja.txt",
-                               card=data, card_url=card_url, stats=stats))
+                              card=data, card_url=card_url, stats=stats))
     elif oformat == "github":
         print(render_template("card.jinja.txt",
-                               card=data, card_url=card_url, stats=stats))
+                              card=data, card_url=card_url, stats=stats, free_text=free_text))
     else:
         raise NotImplementedError
 

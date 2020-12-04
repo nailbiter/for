@@ -1,4 +1,4 @@
-{%if card.closed%}[x] {%endif%}{{card.name}}{%if stats.total_count>0%} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%){%endif%}
+{%if card.closed%}[x] {%endif%}{{card.name}}{%if stats.total_count>0%} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%){%endif%}{%if free_text%} ({{free_text}}){%endif%}
 
 {%if card.closed%}[x] {%endif%}{{card.name}}{%if stats.total_count>0%} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%){%endif%}
 ===============================================================================
