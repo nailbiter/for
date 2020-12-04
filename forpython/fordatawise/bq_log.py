@@ -27,6 +27,9 @@ from google.cloud import bigquery
 from google.oauth2.credentials import Credentials
 from pymongo import MongoClient
 import os
+import logging
+import uuid
+import json
 
 
 _PROJECTS = list({
@@ -47,13 +50,29 @@ _PROJECTS = list({
     "olm-datamart-prd"
 })
 
+class Printer:
+    def __init__(self):
+        self._msgs = []
+    def __call__(self,msg):
+        self._msgs.append(msg)
+        print(msg)
+    def slack(self,slack_webhook):
+        fn = f"/tmp/{uuid.uuid4()}.json"
+        with open(fn,"w") as f:
+            json.dump({"text":"\n".join(self._msgs)},f)
+        os.system(
+            f"curl -X POST -H 'Content-type: application/json' --data @{fn} \"{slack_webhook}\"")
+
 @click.command()
+@click.option("--debug/--no-debug", default=False)
 @click.option("--start-date", type=click.DateTime())
 @click.option("--slack/--no-slack", default=False)
 @click.option("--slack-webhook")
 @click.option("--bigquery-credentials", type=click.Path(), default="/Users/nailbiter/.config/gcloud/legacy_credentials/dtws_oleksii_leontiev@oaklawn.co.jp/adc.json")
 @click.option("--project", type=click.Choice(_PROJECTS), multiple=True)
-def bq_log(start_date, slack, slack_webhook, bigquery_credentials, project):
+def bq_log(start_date, slack, slack_webhook, bigquery_credentials, project, debug):
+    if debug:
+        logging.basicConfig(level=logging.INFO)
     if len(project)==0:
         project = _PROJECTS
     if start_date is None:
@@ -81,13 +100,16 @@ def bq_log(start_date, slack, slack_webhook, bigquery_credentials, project):
         ])
         for project_ in project
     ])
-    print(df.to_csv(index=None))
+    logging.info(df.to_csv(index=None))
+    total_df = df.groupby("project").agg({"total_bytes_processed":sum})
+    total_df["total_bytes_processed"] = total_df.total_bytes_processed.apply(lambda x:x/2**30)
+    print_ = Printer()
+    print_(f"```\n{total_df.to_string()}```")
     df = df.fillna(0)
     msg = f"`{sum(df.total_bytes_processed)/2**30:8.4f}`gb spent today"
-    print(msg)
+    print_(msg)
     if slack:
-        os.system(
-            f"curl -X POST -H 'Content-type: application/json' --data '{{\"text\":\"{msg}\"}}' \"{slack_webhook}\"")
+        print_.slack(slack_webhook)
 
 
 if __name__ == "__main__":
