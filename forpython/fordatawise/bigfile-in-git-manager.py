@@ -134,7 +134,7 @@ def optimize_storage(dry_run):
     shas = _get_old_shas(state)
     for sha in tqdm(shas):
         ret = state.system(
-            f"cd {state.get_storage_dir()} && zip -9 {sha} -r {sha} && rm -rf {sha}/ && du -hs {sha}.zip",dry_run=dry_run)
+            f"cd {state.get_storage_dir()} && zip -9 {sha} -r {sha} && rm -rf {sha}/ && du -hs {sha}.zip",dry_run=dry_run, save_sha=False)
         if ret != 0:
             break
 

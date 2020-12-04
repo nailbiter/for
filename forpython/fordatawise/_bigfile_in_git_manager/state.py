@@ -53,7 +53,6 @@ class State:
         self._storage_dir = storage_dir
         self._curDir = curDir
         self._sha = None
-        self._logger.info(f"sha: {self._sha}")
 
     def get_storage_dir(self):
         return self._storage_dir
@@ -95,11 +94,14 @@ class State:
         conn.close()
         return sql_sources_df
 
-    def system(self, cmd, dry_run=False):
+    def system(self, cmd, dry_run=False, save_sha=True):
         retcode = system(cmd, dry_run=dry_run)
         if not dry_run:
+            sha = None
+            if save_sha:
+                sha = self._get_sha()
             df = pd.DataFrame(
-                [{"cmd": cmd, "datetime": datetime.now().isoformat(), "sha": self._get_sha()}])
+                [{"cmd": cmd, "datetime": datetime.now().isoformat(), "sha": sha}])
             conn = self._get_conn()
             df.to_sql(State._LOG_TABLE_NAME, conn, if_exists="append", index=None)
             conn.close()
