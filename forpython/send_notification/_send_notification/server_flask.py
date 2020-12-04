@@ -25,8 +25,9 @@ import uuid
 import os
 from pymongo import MongoClient
 import logging
-from _send_notification import system, NOTIFICATION_MEDIA, check_media_is_valid
+from _send_notification import system, NOTIFICATION_MEDIA, check_media_is_valid, add_logger
 from jinja2 import Template
+from os import path
 
 app = Flask(__name__)
 _TIMERS_TABLE_NAME = "timers"
@@ -41,7 +42,8 @@ def _get_slack_webhook(client=None):
 
 
 @app.route('/new_timer/<due_datetime>/<message>/<media>')
-def new_timer(due_datetime, message, media):
+@add_logger
+def new_timer(due_datetime, message, media, logger):
     m,i = check_media_is_valid(media)
     assert m is not None, media
     datetime_ = datetime.strptime(due_datetime, "%Y%m%d%H%M%S")
@@ -57,8 +59,11 @@ def new_timer(due_datetime, message, media):
         "telegram_token":os.environ["TELEGRAM_TOKEN"]
         })
     with open(script_fn, "w") as f:
-        f.write(f"{cmd} 2>&1 | tee {script_log_fn}")
-    system(f"at -f {script_fn} -t {datetime_.strftime('%Y%m%d%H%M.%S')}")
+        #f.write(f"{cmd} 2>&1 | tee {script_log_fn}")
+        f.write(cmd)
+    executor_fn = path.join(path.split(__file__)[0],"..","resources",'executor.py')
+    logger.info(f"executor_fn: {executor_fn}")
+    system(f"echo 'python3 {executor_fn} {script_fn} {script_log_fn} 1 0'|at -t {datetime_.strftime('%Y%m%d%H%M.%S')}")
 
     df = client.send_notification.timers.insert_one({
         "uuid": str(uuid_),
