@@ -23,10 +23,14 @@ import click
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 import pandas as pd
+import logging
 
 
 @click.group()
+@click.option("--debug/--no-debug",default=False)
 def eta():
+    if debug:
+        logging.basicConfig(level=logging.INFO)
     pass
 
 
@@ -53,19 +57,35 @@ def increment_counter(name):
         _show_counter(name)
 
 
-def _show_counter(name, max_count=-1):
+def _add_logger(f):
+    logger = logging.getLogger(f.__name__)
+
+    def _f(*args, **kwargs):
+        return f(*args, logger=logger, **kwargs)
+    return _f
+
+
+@_add_logger
+def _show_counter(name, logger, max_count=-1):
     timer = _get_mongo_client().eta.timers.find_one({"name": name})
     df = pd.DataFrame(
         _get_mongo_client().eta.timer_progress.find({"name": name}))
-    print(df)
+    logger.info(df)
     assert max_count > 0 or timer["max_count"] > 0
     if timer["max_count"] > 0:
         max_count = timer["max_count"]
     eta_ = timer["date"] + (max(df.date)-timer["date"]) / \
         (len(df)) * max_count
+    s = ""
+    for i in range(len(df)):
+        s += "*"
+    for i in range(max_count-len(df)):
+        s += " "
+    print(f"[{s}]")
     print(f"eta: {eta_.isoformat()}")
     print(f"{len(df)}/{max_count}={len(df)/max_count*100:4.2f}")
-    print(f"average length of iteration: {(max(df.date)-timer['date']) / (len(df))}")
+    print(
+        f"average length of iteration: {(max(df.date)-timer['date']) / (len(df))}")
 
 
 @eta.command()
