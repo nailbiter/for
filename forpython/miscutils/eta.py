@@ -28,7 +28,7 @@ import logging
 
 @click.group()
 @click.option("--debug/--no-debug", default=False)
-def eta():
+def eta(debug):
     if debug:
         logging.basicConfig(level=logging.INFO)
     pass
