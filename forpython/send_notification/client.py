@@ -37,9 +37,10 @@ def client(debug):
 @client.command()
 @click.option("-d", "--delay-min", default=0)
 @click.argument("message")
-def new_timer(delay_min, message):
+@click.option("-m","--media",type=click.Choice(["slack","popup"]),default="slack")
+def new_timer(delay_min, message, media):
     dt = datetime.now() + timedelta(minutes=delay_min)
-    url = f"localhost:5000/new_timer/{dt.strftime('%Y%m%d%H%M%S')}/{parse.quote(message)}/slack"
+    url = f"localhost:5000/new_timer/{dt.strftime('%Y%m%d%H%M%S')}/{parse.quote(message)}/{media}"
     system(f"curl \"{url}\"")
 
 

@@ -46,7 +46,7 @@ def system(cmd, logger, dry_run=False, get_output=False):
 NOTIFICATION_MEDIA = {
     "slack": """curl -X POST -H 'Content-type: application/json' --data '{"text":"{{message}}"}' {{slack_webhook}}""",
     r"telegram:(\d+)": """curl -X POST -H 'Content-Type: application/json' -d '{"chat_id": "{{match_object.group(1)}}", "text": "{{message}}"}' https://api.telegram.org/bot{{telegram_token}}/sendMessage""",
-    "popup": """osascript -e 'display notification "{{message}}" with title "popup"' && echo "well done" """,
+    "popup": """curl 'localhost:5000/popup/{{parse.quote(message)}}' """,
 }
 
 

@@ -19,8 +19,8 @@ ORGANIZATION:
 
 TODO:
     1(done). `telegram` notification media
-    3. (bug) make `popup` notification media work
-    4. implement own jobs executor -- https://docs.python.org/3/library/asyncio-eventloop.html#asyncio-example-call-later
+    3(done). (bug) make `popup` notification media work
+    4. (!)implement own jobs executor -- https://docs.python.org/3/library/asyncio-eventloop.html#asyncio-example-call-later
     5. FIXME: ed74e92a17115a17fd0010c7
     6. refactor `telegram` notification media
     7. support retry
