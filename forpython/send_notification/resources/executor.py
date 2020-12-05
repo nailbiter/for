@@ -41,6 +41,7 @@ def _system(cmd,logger):
 _LOG_DIR = "/tmp/executor_log_17a6097921e1b45c"
 os.makedirs(_LOG_DIR, exist_ok=True)
 random_fn = "".join(random.choices(population=list(string.ascii_letters+string.digits+"_"),k=32))
+random_fn = f"{random_fn}.log.txt"
 logging.basicConfig(filename=path.join(_LOG_DIR,random_fn),
                     encoding='utf-8', level=logging.DEBUG)
 logging.info("here")
