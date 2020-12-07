@@ -75,7 +75,7 @@ def new_timer(due_datetime, message, media, logger):
         __file__)[0], "..", "resources", 'executor.py')
     logger.info(f"executor_fn: {executor_fn}")
     system(
-        f"echo 'python3 {executor_fn} {script_fn} {script_log_fn} 1 0'|at -t {datetime_.strftime('%Y%m%d%H%M.%S')}")
+        f"echo '/usr/local/bin/python3 {executor_fn} {script_fn} {script_log_fn} 1 0'|at -t {datetime_.strftime('%Y%m%d%H%M.%S')}")
 
     df = client.send_notification.timers.insert_one({
         "uuid": str(uuid_),
