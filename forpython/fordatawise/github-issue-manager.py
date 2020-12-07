@@ -25,6 +25,7 @@ import json
 import re
 import pandas as pd
 import logging
+from _github_issue_manager import add_logger
 
 
 @click.group()
@@ -49,12 +50,15 @@ def github_issue_manager(ctx, debug, **kwargs):
     ctx.obj["repo_m"] = m
 
 
+_ROOT_URL = "https://api.github.com/repos"
+
+
 @github_issue_manager.command()
 @click.pass_context
 def list_issues(ctx):
     logger = logging.getLogger("list_issues")
     m = ctx.obj["repo_m"]
-    url = f"https://api.github.com/repos/{m.group('repo_owner')}/{m.group('repo_name')}/issues"
+    url = f"{_ROOT_URL}/{m.group('repo_owner')}/{m.group('repo_name')}/issues"
     logger.info(f"url: {url}")
     r = get(url, auth=(ctx.obj["github_login"], ctx.obj["github_pass"]))
     data = json.loads(r.text)
@@ -71,7 +75,7 @@ def list_issues(ctx):
 def list_labels(ctx):
     logger = logging.getLogger("list_labels")
     m = ctx.obj["repo_m"]
-    url = f"https://api.github.com/repos/{m.group('repo_owner')}/{m.group('repo_name')}/labels"
+    url = f"{_ROOT_URL}/{m.group('repo_owner')}/{m.group('repo_name')}/labels"
     logger.info(f"url: {url}")
     r = get(url, auth=(ctx.obj["github_login"], ctx.obj["github_pass"]))
     data = json.loads(r.text)
@@ -93,22 +97,43 @@ def remove_label():
 
 
 @github_issue_manager.command()
-def add_issue():
+@click.pass_context
+@add_logger
+def list_issues(ctx,logger):
+    m = ctx.obj["repo_m"]
+    url = f"{_ROOT_URL}/{m.group('repo_owner')}/{m.group('repo_name')}/issues"
+    logger.info(f"url: {url}")
+    r = get(url, auth=(ctx.obj["github_login"], ctx.obj["github_pass"]))
+    data = json.loads(r.text)
+    logging.info(f"data: {data}")
+    df = pd.DataFrame(data)
+    #df = df.drop(columns=["color", "id", "node_id", "url"])
+
+    click.echo(df.to_string())
+
+
+@github_issue_manager.group()
+def issue():
     pass
 
 
-@github_issue_manager.command()
-def close_issue():
+@issue.command()
+def add():
     pass
 
 
-@github_issue_manager.command()
-def print_issue():
+@issue.command()
+def close():
     pass
 
 
-@github_issue_manager.command()
-def set_issue_description():
+@issue.command()
+def print():
+    pass
+
+
+@issue.command()
+def set_description():
     pass
 
 
