@@ -18,9 +18,13 @@ ORGANIZATION:
 
 ==============================================================================="""
 from subprocess import call, getoutput
+from _virtualenv_manager import add_logger
 import logging
+from _virtualenv_manager.add_logger import add_logger
 
-def system(cmd):
-    _logger = logging.getLogger("system")
-    _logger.info(f"> {cmd}")
-    return call(cmd, shell=True)
+
+@add_logger
+def system(cmd, logger=None, dry_run=False):
+    logger.info(f"> {cmd}")
+    if not dry_run:
+        return call(cmd, shell=True)

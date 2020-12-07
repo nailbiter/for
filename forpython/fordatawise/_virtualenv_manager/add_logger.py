@@ -1,25 +1,27 @@
 """===============================================================================
 
-        FILE: fordatawise/_virtualenv_manager.py
+        FILE: fordatawise/_virtualenv_manager/add_logger.py
 
        USAGE: (not intended to be directly executed)
 
- DESCRIPTION:
+ DESCRIPTION: 
 
      OPTIONS: ---
 REQUIREMENTS: ---
         BUGS: ---
        NOTES: ---
       AUTHOR: Alex Leontiev (alozz1991@gmail.com)
-ORGANIZATION:
+ORGANIZATION: 
      VERSION: ---
-     CREATED: 2020-11-06T11:11:32.510267
+     CREATED: 2020-12-07T20:00:06.290251
     REVISION: ---
 
 ==============================================================================="""
-
-from subprocess import call, getoutput
 import logging
-from _virtualenv_manager._package_name_manager import get_package_name_manager, PackageNameManager
-from _virtualenv_manager.system import system
-from _virtualenv_manager.add_logger import add_logger
+def add_logger(f):
+    logger = logging.getLogger(f.__name__)
+
+    def _f(*args, **kwargs):
+        return f(*args, logger=logger, **kwargs)
+    _f.__name__ = f.__name__
+    return _f

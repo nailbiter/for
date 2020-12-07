@@ -48,8 +48,9 @@ def _get_head_sha():
 @click.command()
 @click.option("-r", "--release", type=click.Choice(["major", "minor", "patch"]))
 @click.option("-a", "--auto-commit")
-@click.option("-c","--create-release", type=click.Path(), envvar="CREATE_RELEASE")
-def release_manager(release, auto_commit, create_release):
+@click.option("-c", "--create-release", type=click.Path(), envvar="CREATE_RELEASE")
+@click.option("-s", "--save-version-to", type=click.Path())
+def release_manager(release, auto_commit, create_release, save_version_to):
     prog = re.compile(r"^v(\d+)\.(\d+).(\d+)$")
 
     _logger = logging.getLogger("release_manager")
@@ -64,14 +65,6 @@ def release_manager(release, auto_commit, create_release):
         print(newest_version)
     else:
         _sha = None
-        try:
-            _sha = _get_head_sha()
-        except AssertionError:
-            if auto_commit is not None:
-                _logger.warning(f"recommit")
-                call(f"git commit -a -m '{auto_commit}'", shell=True)
-            else:
-                raise
 
         major, minor, patch = tuple(
             int(newest_version_match.group(i+1)) for i in range(3))
@@ -86,11 +79,27 @@ def release_manager(release, auto_commit, create_release):
             patch = 0
         else:
             raise NotImplementedError
+
+        if save_version_to is not None:
+            with open(save_version_to, "w") as f:
+                f.write(".".join([str(x)
+                                  for x in [major, minor, patch]]))
+
+        try:
+            _sha = _get_head_sha()
+        except AssertionError:
+            if auto_commit is not None:
+                _logger.warning(f"recommit")
+                call(f"git commit -a -m '{auto_commit}'", shell=True)
+            else:
+                raise
+
         version = f"v{major}.{minor}.{patch}"
         call(f"git tag {version}", shell=True)
         call(f"git push --tags", shell=True)
         if create_release:
-            call(f"gh release create {version} -F {create_release}",shell=True)
+            call(
+                f"gh release create {version} -F {create_release}", shell=True)
 
 
 if __name__ == "__main__":

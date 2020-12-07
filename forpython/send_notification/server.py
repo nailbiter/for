@@ -24,7 +24,7 @@ TODO:
     5. FIXME: ed74e92a17115a17fd0010c7
     6. refactor `telegram` notification media
     7. support retry
-    8. (!)send mail notification (and enable mail popup)
+    8. send mail notification (and enable mail popup)
 ==============================================================================="""
 
 import click

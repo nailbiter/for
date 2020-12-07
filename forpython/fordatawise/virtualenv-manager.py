@@ -34,30 +34,32 @@ def virtualenv_manager(debug):
     if debug:
         logging.basicConfig(level=logging.INFO)
 
+
 @virtualenv_manager.command()
-@click.option("--save/--no-save",default=True)
-def add_kernel(save):
+@click.option("--save/--no-save", default=True)
+@click.option("--dry-run/--no-dry-run", default=False)
+def add_kernel(save, dry_run):
     pwd = getoutput("pwd")
-    pwd_ = pwd.replace("/", ".").strip(".")
+    kernel_name = pwd.replace("/", ".").strip(".").lower()
     # Kernel names can only contain ASCII letters and numbers and these separators: - . _ (hyphen, period, and underscore).
-    assert match(r"^[a-zA-Z0-9._-]+$", pwd_) is not None
-    print(f"pwd_: {pwd_}")
-    system(f"pip install ipykernel")
-    system(f"ipython kernel install --user --name=\"{pwd_}\"")
+    assert match(r"^[a-zA-Z0-9._-]+$", kernel_name) is not None
+    print(f"kernel_name: {kernel_name}")
+    system(f"pip install ipykernel", dry_run=dry_run)
+    system(
+        f"ipython kernel install --user --name=\"{kernel_name}\"", dry_run=dry_run)
     if save:
         kernel_json_fn = ".kernel.json"
-        with open(kernel_json_fn,"w") as f:
-            json.dump({"directory":(pwd), "kernel_name":pwd_},f,indent=2,sort_keys=True)
+        with open(kernel_json_fn, "w") as f:
+            json.dump({"directory": pwd, "kernel_name": kernel_name},
+                      f, indent=2, sort_keys=True)
         print(f"kernel data saved to {kernel_json_fn}")
-
-
 
 
 @virtualenv_manager.command()
 @click.argument("package_name")
 @click.option("--save/--no-save", default=True)
 @click.option("-v", "--version")
-@click.option("-r","--reinstall", is_flag=True)
+@click.option("-r", "--reinstall", is_flag=True)
 def install(package_name, save, version, reinstall=False):
     package_name_manager = get_package_name_manager(package_name, version)
     if reinstall:
