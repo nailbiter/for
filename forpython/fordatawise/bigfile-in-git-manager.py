@@ -19,14 +19,11 @@ ORGANIZATION:
 
 TODO:
     1(done). support several directories
-    2. support remote storage (in particular, GS)
+    2(done). support remote storage (in particular, GS)
     3. support signing files to ensure integrity
-    4(done). avoid creation of spurious copies
     4. better avoid creation of spurious copies
-    5(done). use `db`, not JSON files
-    6(done). timestamp every save you do
-    7(done). support compression
-    8(done). save all shell commands executed to db: command + datetime + sha
+    9. `7aa7aa7be454072d`
+    10. cache md5 stamps based on timestamp
 ==============================================================================="""
 
 import click
@@ -72,11 +69,7 @@ def post_commit():
 
     for curDir, config_fn in res:
         config = _get_config(curDir, config_fn)
-        state = State(
-            join(curDir, config["storage-dir"]),
-            curDir,
-            join(curDir, config["database"])
-        )
+        state = State(curDir,config)
         for fn in config["big-files"]:
             state.copy(fn)
         _check_old_shas(state)
@@ -86,11 +79,7 @@ def _getCurrentConfigAndState():
     curDir = "."
     config = _get_config(curDir, _CONFIG_FN)
     storage_dir = join(curDir, config["storage-dir"])
-    state = State(
-        join(curDir, config["storage-dir"]),
-        curDir,
-        join(curDir, config["database"])
-    )
+    state = State(curDir,config)
     return config, state
 
 
@@ -124,17 +113,18 @@ def _get_old_shas(state):
     log_table = log_table.sort_values(by="datetime", ascending=False)
     threshold = datetime.now()-timedelta(days=2)
     log_table = log_table[[dt < threshold for dt in log_table.datetime]]
-    shas = [sha for sha in log_table.sha if not isfile(join(state.get_storage_dir(),f"{sha}.zip"))]
+    shas = [sha for sha in log_table.sha if not isfile(join(state.get_storage_dir(),f"{sha}.json"))]
     return shas
 
 @bigfile_in_git_manager.command()
 @click.option("--dry-run/--no-dry-run",default=False)
-def optimize_storage(dry_run):
+@click.option("--save-sha/--no-save-sha",default=True)
+def optimize_storage(dry_run,save_sha):
     _, state = _getCurrentConfigAndState()
     shas = _get_old_shas(state)
+    #FIXME: parallelize `7aa7aa7be454072d`
     for sha in tqdm(shas):
-        ret = state.system(
-            f"cd {state.get_storage_dir()} && zip -9 {sha} -r {sha} && rm -rf {sha}/ && du -hs {sha}.zip",dry_run=dry_run, save_sha=False)
+        ret = state.upload_saved_sha(sha)
         if ret != 0:
             break
 

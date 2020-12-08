@@ -37,3 +37,5 @@ def system(cmd, logger, dry_run=False):
     logger.info(f"> {cmd}")
     if not dry_run:
         return system_(cmd)
+    else:
+        return 0

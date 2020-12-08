@@ -47,7 +47,13 @@ def _get_head_sha(path="."):
 
 
 class State:
-    def __init__(self, storage_dir, curDir, database_fn):
+    def __init__(self, curDir, config):
+#    def __init__(self, storage_dir, curDir, database_fn):
+#        join(curDir, config["storage-dir"]),
+        storage_dir = join(curDir, config["storage-dir"])
+#        join(curDir, config["database"]),
+        self._config = config
+        database_fn = join(curDir, config["database"])
         self._database_fn = database_fn
         self._logger = logging.getLogger(self.__class__.__name__)
         self._storage_dir = storage_dir
@@ -79,6 +85,10 @@ class State:
             return list(lt_df.sha)[0]
 
     _LOG_TABLE_NAME = "bigfile_in_git_manager_command_log"
+    def upload_saved_sha(self, sha, dry_run, save_sha):
+        _R = self._config["remote-storage"]
+        ret = state.system(
+            f"""cd {self.get_storage_dir()} && zip -9 {sha} -r {sha} && rm -rf {sha}/ && du -hs {sha}.zip && gsutil mv {sha}.zip {_R}/{sha}.zip && echo '{{"url":"{_R}/{sha}.zip"}}' > {sha}.json""", dry_run=dry_run, save_sha=save_sha)
 
     def get_log_table(self):
         conn = self._get_conn()
