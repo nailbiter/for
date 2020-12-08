@@ -27,8 +27,17 @@ from pytz import timezone
 from bson.codec_options import CodecOptions
 import logging
 
-_TIME_CATEGORIES = ["useless", "gym", "social",
-                    "logistics", "sleeping", "german", "parttime", "coding"]
+_TIME_CATEGORIES = [
+    "useless",
+    "gym",
+    "social",
+    "logistics",
+    "sleeping",
+    "german",
+    "parttime",
+    "coding",
+    "rest"
+]
 
 
 def _get_coll(mongo_pass):
