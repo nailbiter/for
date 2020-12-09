@@ -81,7 +81,7 @@ def kostil(task_id, test, **kwargs):
     doc = coll.find_one({"key": "MONGOMLAB"})
     mongopass = doc["value"]
     client = MongoClient(
-        f"mongodb://nailbiter:{mongopass}@ds149672.mlab.com:49672/logistics?retryWrites=false")
+        f"mongodb+srv://nailbiter:{mongopass}@cluster0.gaq9o.mongodb.net/logistics?authSource=admin&replicaSet=atlas-1372ty-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true")
     task_data_coll = client.logistics["alex.taskData"]
 
     repl = {}
