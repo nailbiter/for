@@ -22,4 +22,4 @@ from pymongo import MongoClient
 
 def get_remote_mongo_client(mongo_pass):
     return MongoClient(
-        f"mongodb://nailbiter:{mongo_pass}@ds149672.mlab.com:49672/logistics?retryWrites=false")
+        f"mongodb+srv://nailbiter:{mongo_pass}@cluster0.gaq9o.mongodb.net/logistics?authSource=admin&replicaSet=atlas-1372ty-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true")
