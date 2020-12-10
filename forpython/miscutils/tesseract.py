@@ -30,7 +30,8 @@ import logging
 @click.option("-l", "--language", type=click.Choice(["jpn"]), default="jpn")
 @click.option("-i", "--index", type=int, default=-1)
 @click.option("--debug/--no-debug",default=True)
-def tesseract(language, index,debug):
+@click.option("--pbcopy/--no-pbcopy",default=False)
+def tesseract(language, index,debug,pbcopy):
     if debug:
         logging.basicConfig(level=logging.INFO)
     files_ = []
@@ -48,6 +49,8 @@ def tesseract(language, index,debug):
     r = df.to_dict(orient="records")[index]
     logging.info(f"r: {r}")
     os.system(f"tesseract -l {language} \"{r['filename']}\" stdout")
+    if pbcopy:
+        os.system(f"tesseract -l {language} \"{r['filename']}\" stdout 2>/dev/null| pbcopy")
 
 
 if __name__ == "__main__":
