@@ -3,16 +3,22 @@ import click
 from os import system
 
 
-#procedures
+# procedures
 @click.command()
 @click.argument("table")
-def bq_open(table):
-    p,d,t = tuple(table.split("."))
+@click.option("-a", "--authuser", type=int)
+@click.option("-p", "--project", default="dtws-rdemo-dev")
+def bq_open(table, authuser,project):
+    p, d, t = tuple(table.split("."))
     print(f"p: {p}, d: {d}, t: {t}")
-    cmd = f"open 'https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&project=dtws-rdemo-dev&folder=&organizationId=&p={p}&d={d}&t={t}&page=table'"
+    url = f"https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&project={project}&folder=&organizationId=&p={p}&d={d}&t={t}&page=table"
+    if authuser is not None:
+        url = f"{url}&authuser={authuser}"
+    cmd = f"open '{url}'"
     print(f"> {cmd}")
     system(cmd)
 
-#main
-if __name__=="__main__":
+
+# main
+if __name__ == "__main__":
     bq_open()
