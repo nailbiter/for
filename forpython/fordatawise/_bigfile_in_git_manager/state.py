@@ -89,6 +89,7 @@ class State:
         _R = self._config["remote-storage"]
         ret = self.system(
             f"""cd {self.get_storage_dir()} && zip -9 {sha} -r {sha} && rm -rf {sha}/ && du -hs {sha}.zip && gsutil mv {sha}.zip {_R}/{sha}.zip && echo '{{"url":"{_R}/{sha}.zip"}}' > {sha}.json""", dry_run=dry_run, save_sha=save_sha)
+        return ret
 
     def get_log_table(self):
         conn = self._get_conn()
