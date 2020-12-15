@@ -24,6 +24,7 @@ TODO:
     4. better avoid creation of spurious copies
     9. `7aa7aa7be454072d`
     10. cache md5 stamps based on timestamp
+    11. FIXME: always leave the last one
 ==============================================================================="""
 
 import click
@@ -44,8 +45,12 @@ _CONFIG_FN = ".bigfile-in-git-manager.config.yaml"
 
 
 @click.group()
-def bigfile_in_git_manager():
-    logging.basicConfig(level=logging.INFO)
+@click.option("--debug/--no-debug",default=False)
+def bigfile_in_git_manager(debug):
+    if debug:
+        logging.basicConfig(level=logging.DEBUG)
+    else:
+        logging.basicConfig(level=logging.INFO)
 
 
 @add_logger
@@ -105,15 +110,18 @@ def _check_old_shas(state,logger):
     if len(shas)>0:
         logger.warning(f"you have {len(shas)} outdated saves; you can archive them with `optimize-storage` command")
 
-def _get_old_shas(state):
+@add_logger
+def _get_old_shas(state,logger=None):
     log_table = state.get_log_table()
     log_table.datetime = log_table.datetime.apply(datetime.fromisoformat)
     log_table = log_table.groupby("sha").agg({"datetime": max})
     log_table = log_table.reset_index()
     log_table = log_table.sort_values(by="datetime", ascending=False)
+    newest_sha = log_table.sha[0]
     threshold = datetime.now()-timedelta(days=2)
     log_table = log_table[[dt < threshold for dt in log_table.datetime]]
-    shas = [sha for sha in log_table.sha if not isfile(join(state.get_storage_dir(),f"{sha}.json"))]
+    shas = [sha for sha in log_table.sha if not isfile(join(state.get_storage_dir(),f"{sha}.json")) and sha!=newest_sha]
+    logger.debug(f"shas: {shas}")
     return shas
 
 @bigfile_in_git_manager.command()
