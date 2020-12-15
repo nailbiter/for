@@ -44,3 +44,4 @@ nnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle(
 vnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle()<CR>j
 
 command! Prettify execute "!prettier --write %"
+set number

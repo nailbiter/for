@@ -124,7 +124,7 @@ def optimize_storage(dry_run,save_sha):
     shas = _get_old_shas(state)
     #FIXME: parallelize `7aa7aa7be454072d`
     for sha in tqdm(shas):
-        ret = state.upload_saved_sha(sha)
+        ret = state.upload_saved_sha(sha,dry_run=dry_run,save_sha=save_sha)
         if ret != 0:
             break
 

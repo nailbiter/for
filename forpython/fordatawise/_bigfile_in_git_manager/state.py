@@ -87,7 +87,7 @@ class State:
     _LOG_TABLE_NAME = "bigfile_in_git_manager_command_log"
     def upload_saved_sha(self, sha, dry_run, save_sha):
         _R = self._config["remote-storage"]
-        ret = state.system(
+        ret = self.system(
             f"""cd {self.get_storage_dir()} && zip -9 {sha} -r {sha} && rm -rf {sha}/ && du -hs {sha}.zip && gsutil mv {sha}.zip {_R}/{sha}.zip && echo '{{"url":"{_R}/{sha}.zip"}}' > {sha}.json""", dry_run=dry_run, save_sha=save_sha)
 
     def get_log_table(self):
