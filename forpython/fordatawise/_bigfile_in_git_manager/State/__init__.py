@@ -28,6 +28,7 @@ from git import Repo
 from os import makedirs
 from datetime import datetime
 import hashlib
+from _bigfile_in_git_manager.State._file_hash_computer import _FileHashComputer
 
 
 def _get_head_sha(path="."):
@@ -48,10 +49,7 @@ def _get_head_sha(path="."):
 
 class State:
     def __init__(self, curDir, config):
-#    def __init__(self, storage_dir, curDir, database_fn):
-#        join(curDir, config["storage-dir"]),
         storage_dir = join(curDir, config["storage-dir"])
-#        join(curDir, config["database"]),
         self._config = config
         database_fn = join(curDir, config["database"])
         self._database_fn = database_fn
@@ -59,6 +57,7 @@ class State:
         self._storage_dir = storage_dir
         self._curDir = curDir
         self._sha = None
+        self._compute_hash = _FileHashComputer(self._database_fn)
 
     def get_storage_dir(self):
         return self._storage_dir
@@ -128,8 +127,8 @@ class State:
         if prev_sha is not None:
             src_ = join(self._storage_dir, prev_sha, fn)
             if isfile(src_):
-                prev_sha = hashlib.sha256(open(src_, "rb").read()).hexdigest()
-                new_sha = hashlib.sha256(open(src, "rb").read()).hexdigest()
+                prev_sha = self._compute_hash(src_)
+                new_sha = self._compute_hash(src)
                 self._logger.info(f"prev_sha: {prev_sha}, new_sha: {new_sha}")
                 if prev_sha == new_sha:
                     need_to_copy = False
