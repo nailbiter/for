@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """===============================================================================
 
-        FILE: fordatawise/coord_to_xyz.py
+        FILE: fordatawise/latlon_to_xyz.py
 
-       USAGE: ./fordatawise/coord_to_xyz.py
+       USAGE: ./fordatawise/latlon_to_xyz.py
 
  DESCRIPTION: 
 
@@ -22,6 +22,8 @@ ORGANIZATION:
 import click
 import math
 import os
+import re
+import sys
 
 
 def _toRad(deg):
@@ -40,26 +42,37 @@ def _get_tile_xyz(lat, lon, zoom):
 
 
 @click.command()
-@click.argument("latlon")
+@click.option("-l","--latlon")
 @click.option("-z", "--zoom", type=int, default=12)
-@click.option("-i", "--iformat", type=click.Choice(["comma"]), default="comma")
+@click.option("-i", "--iformat", type=click.Choice("comma nespace".split(" ")), default="comma")
 @click.option("-o", "--oformat", type=click.Choice(["geojson_io"]), default="geojson_io")
-def coord_to_xyz(latlon, zoom, iformat, oformat):
+@click.option("--open-url/--no-open-url", default=True)
+def latlon_to_xyz(latlon, zoom, iformat, oformat, open_url):
+    if latlon is None:
+        latlon = sys.stdin.read().strip()
+
     if iformat == "comma":
         latlon = {k: v for k, v in zip(
             "lat lon".split(" "), map(float, latlon.split(",")))}
+    elif iformat == "nespace":
+        #ex.: 35°52'47.8"N 139°40'17.6"E
+        m = re.match(r"""(\d+)°(\d+)'(\d+(\.\d+)?)"N (\d+)°(\d+)'(\d+(\.\d+)?)"E""",latlon)
+        assert m is not None
+        print(list(enumerate([m.group(i) for i in range(9)])))
+        latlon = {k:float(m.group(4*i+1)) + float(m.group(4*i+2))/60 + float(m.group(4*i+3))/3600 for i,k in enumerate("lat lon".split(" "))}
     else:
         raise NotImplementedError(f"iformat: {iformat}")
 
     lat, xtile, ytile = _get_tile_xyz(**latlon, zoom=zoom)
     if oformat == "geojson_io":
-        url = f"http://geojson.io/#map={zoom}/{latlon['lat']}/{latlon['lon']}"
+        url = f"http://geojson.io/#map={zoom}/{latlon['lat']:.5f}/{latlon['lon']:.5f}"
     else:
         raise NotImplementedError(f"oformat: {oformat}")
 
     print(f"url: '{url}'")
-    os.system(f"""open '{url}' """)
+    if open_url:
+        os.system(f"""open '{url}' """)
 
 
 if __name__ == "__main__":
-    coord_to_xyz()
+    latlon_to_xyz()

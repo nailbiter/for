@@ -26,6 +26,7 @@ TODO:
     10. cache md5 stamps based on timestamp
     11. FIXME: always leave the last one
     12. do not use symlinks, replace them with special files
+    13. (?)use md5 for big files
 ==============================================================================="""
 
 import click
