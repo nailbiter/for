@@ -49,6 +49,7 @@ _PROJECTS = list({
     "olm-user-yasunori-horikoshi",
     "olm-datamart-prd"
 })
+_BIGQUERY_PRICE_PER_ONE_TB_IN_YEN = 660
 
 class Printer:
     def __init__(self):
@@ -68,7 +69,7 @@ class Printer:
 @click.option("--start-date", type=click.DateTime())
 @click.option("--slack/--no-slack", default=False)
 @click.option("--slack-webhook")
-@click.option("--bigquery-credentials", type=click.Path(), default="/Users/nailbiter/.config/gcloud/legacy_credentials/dtws_oleksii_leontiev@oaklawn.co.jp/adc.json")
+@click.option("--bigquery-credentials", type=click.Path(), default="/Users/nailbiter/.config/gcloud/legacy_credentials/dtws_oleksii_leontiev@oaklawn.co.jp/adc.json", envvar="GOOGLE_APPLICATION_CREDENTIALS")
 @click.option("--project", type=click.Choice(_PROJECTS), multiple=True)
 def bq_log(start_date, slack, slack_webhook, bigquery_credentials, project, debug):
     if debug:
@@ -106,8 +107,7 @@ def bq_log(start_date, slack, slack_webhook, bigquery_credentials, project, debu
     print_ = Printer()
     print_(f"```\n{total_df.to_string()}```")
     df = df.fillna(0)
-    msg = f"`{sum(df.total_bytes_processed)/2**30:8.4f}`gb spent today"
-    print_(msg)
+    print_(f"`{sum(df.total_bytes_processed)/2**30:8.4f}`gb = `{sum(df.total_bytes_processed)/2**40*_BIGQUERY_PRICE_PER_ONE_TB_IN_YEN:.1f}`Y spent today")
     if slack:
         print_.slack(slack_webhook)
 
