@@ -97,7 +97,7 @@ def bq_log(start_date, slack, slack_webhook, bigquery_credentials, project, debu
             for j
             # in client.list_jobs(project="olm-limited-access", state_filter="done", max_results=100)
             in client.list_jobs(project=project_, state_filter="done", min_creation_time=datetime(start_date.year, start_date.month, start_date.day))
-            if j.job_type!="extract"
+            if j.job_type not in ["extract","load"]
         ])
         for project_ in project
     ])

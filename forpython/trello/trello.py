@@ -210,6 +210,7 @@ def list_item_to(ctx, card_url, item, to):
     with urllib.request.urlopen(url) as url:
         data = json.loads(url.read().decode())
 
+    #FIXME: no need to fetch all checklists
     _fetch_checklists(data, _auth)
 
     m = match(r"(\d+).(\d+)", item)
