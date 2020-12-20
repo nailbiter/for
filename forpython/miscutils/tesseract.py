@@ -26,8 +26,10 @@ from datetime import datetime
 import logging
 
 
+def _s(s):
+    return s.split(" ")
 @click.command()
-@click.option("-l", "--language", type=click.Choice(["jpn"]), default="jpn")
+@click.option("-l", "--language", type=click.Choice(_s("jpn eng")), default="jpn")
 @click.option("-i", "--index", type=int, default=-1)
 @click.option("--debug/--no-debug",default=True)
 @click.option("--pbcopy/--no-pbcopy",default=False)
