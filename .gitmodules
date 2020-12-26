@@ -1,6 +1,6 @@
 [submodule "fortexmacs"]
 	path = fortexmacs
-	url = git@157.82.19.249:/home/git/fortexmacs/.git
+	url = https://github.com/nailbiter/fortexmacs.git
 [submodule "forlatex"]
 	path = forlatex
 	url = git@157.82.19.249:/home/git/forlatex/
