@@ -36,6 +36,8 @@ logging.basicConfig(level=logging.INFO)
 
 
 def _get_slack_webhook(client=None):
+    if "DTWS_SLACK_WEBHOOK" in os.environ:
+        return os.environ["DTWS_SLACK_WEBHOOK"]
     if client is None:
         client = MongoClient()
     slack_webhook = client.admin.passwords.find_one(
