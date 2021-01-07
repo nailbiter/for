@@ -120,7 +120,7 @@ def _get_old_shas(state,logger=None):
     log_table = log_table.reset_index()
     log_table = log_table.sort_values(by="datetime", ascending=False)
     newest_sha = log_table.sha[0]
-    threshold = datetime.now()-timedelta(days=2)
+    threshold = datetime.now()-timedelta(hours=2)
     log_table = log_table[[dt < threshold for dt in log_table.datetime]]
     shas = [sha for sha in log_table.sha if not isfile(join(state.get_storage_dir(),f"{sha}.json")) and sha!=newest_sha]
     logger.debug(f"shas: {shas}")
