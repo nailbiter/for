@@ -47,7 +47,7 @@ _CONFIG_FN = ".bigfile-in-git-manager.config.yaml"
 
 
 @click.group()
-@click.option("--debug/--no-debug",default=False)
+@click.option("--debug/--no-debug", default=False)
 def bigfile_in_git_manager(debug):
     if debug:
         logging.basicConfig(level=logging.DEBUG)
@@ -76,7 +76,7 @@ def post_commit():
 
     for curDir, config_fn in res:
         config = _get_config(curDir, config_fn)
-        state = State(curDir,config)
+        state = State(curDir, config)
         for fn in config["big-files"]:
             state.copy(fn)
         _check_old_shas(state)
@@ -86,7 +86,7 @@ def _getCurrentConfigAndState():
     curDir = "."
     config = _get_config(curDir, _CONFIG_FN)
     storage_dir = join(curDir, config["storage-dir"])
-    state = State(curDir,config)
+    state = State(curDir, config)
     return config, state
 
 
@@ -106,36 +106,52 @@ def restore(sha, filename):
     # TODO
     pass
 
-@add_logger
-def _check_old_shas(state,logger):
-    shas = _get_old_shas(state)
-    if len(shas)>0:
-        logger.warning(f"you have {len(shas)} outdated saves; you can archive them with `optimize-storage` command")
 
 @add_logger
-def _get_old_shas(state,logger=None):
+def _check_old_shas(state, logger):
+    shas, original_len = _get_old_shas(state)
+    if len(shas) > 0:
+        logger.warning(
+            f"you have {len(shas)} outdated saves out of {original_len}; you can archive them with `optimize-storage` command")
+
+
+@add_logger
+def _get_old_shas(state, logger=None):
     log_table = state.get_log_table()
     log_table.datetime = log_table.datetime.apply(datetime.fromisoformat)
     log_table = log_table.groupby("sha").agg({"datetime": max})
     log_table = log_table.reset_index()
     log_table = log_table.sort_values(by="datetime", ascending=False)
-    newest_sha = log_table.sha[0]
+    newest_sha = list(log_table.sha)[0]
+    logger.debug(f"newest_sha: {newest_sha}")
     threshold = datetime.now()-timedelta(hours=2)
-    log_table = log_table[[dt < threshold for dt in log_table.datetime]]
-    shas = [sha for sha in log_table.sha if not isfile(join(state.get_storage_dir(),f"{sha}.json")) and sha!=newest_sha]
+    original_len = len(log_table)
+    log_table["is_outdated"] = [dt < threshold and sha !=
+                                newest_sha for dt, sha in zip(log_table.datetime, log_table.sha)]
+    logger.debug(
+        f"before threshold {len(log_table)}\n {log_table.to_string()}")
+    log_table = log_table[[io for io in log_table.is_outdated]].drop(columns=[
+                                                                     "is_outdated"])
+
+    log_table["is_outdated"] = [not isfile(join(state.get_storage_dir(
+    ), f"{sha}.json")) and sha != newest_sha for sha in log_table.sha]
+    logger.debug(f"after threshold {len(log_table)}\n {log_table.to_string()}")
+
+    shas = list(log_table[[io for io in log_table.is_outdated]].sha)
     logger.debug(f"shas: {shas}")
-    return shas
+    return shas, original_len
+
 
 @bigfile_in_git_manager.command()
-@click.option("--dry-run/--no-dry-run",default=False)
-@click.option("--save-sha/--no-save-sha",default=True)
-def optimize_storage(dry_run,save_sha):
+@click.option("--dry-run/--no-dry-run", default=False)
+@click.option("--save-sha/--no-save-sha", default=True)
+def optimize_storage(dry_run, save_sha):
     _, state = _getCurrentConfigAndState()
-    shas = _get_old_shas(state)
-    #FIXME: parallelize `7aa7aa7be454072d`
+    shas, _ = _get_old_shas(state)
+    # FIXME: parallelize `7aa7aa7be454072d`
     for sha in tqdm(shas):
-        ret = state.upload_saved_sha(sha,dry_run=dry_run,save_sha=save_sha)
-        assert ret==0, f"ret: {ret}"
+        ret = state.upload_saved_sha(sha, dry_run=dry_run, save_sha=save_sha)
+        assert ret == 0, f"ret: {ret}"
 
 
 if __name__ == "__main__":
