@@ -25,6 +25,12 @@ import json
 import subprocess
 
 _PREDEFINED_SLACK_MESSAGES = {
+    "cannotcome": {
+        "hook":subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get kintai"),
+        "message": """
+            大変申し訳ございません。体調不良のため、今日は1日お休みさせて頂きたいです。
+            """
+    },
     "lunch": {
         "hook":subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get kintai"),
         "message": """
