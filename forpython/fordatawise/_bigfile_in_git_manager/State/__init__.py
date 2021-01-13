@@ -127,8 +127,8 @@ class State:
         if prev_sha is not None:
             src_ = join(self._storage_dir, prev_sha, fn)
             if isfile(src_):
-                prev_sha = self._compute_hash(src_)
-                new_sha = self._compute_hash(src)
+                prev_sha = self._compute_hash(src_, algorithm="md5")
+                new_sha = self._compute_hash(src, algorithm="md5")
                 self._logger.info(f"prev_sha: {prev_sha}, new_sha: {new_sha}")
                 if prev_sha == new_sha:
                     need_to_copy = False
