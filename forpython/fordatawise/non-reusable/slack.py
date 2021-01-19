@@ -31,8 +31,14 @@ _PREDEFINED_SLACK_MESSAGES = {
             大変申し訳ございません。体調不良のため、今日は1日お休みさせて頂きたいです。
             """
     },
+    "done_work": {
+        "hook":subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get remote_work"),
+        "message": """
+            勤務終了
+            """
+    },
     "lunch": {
-        "hook":subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get kintai"),
+        "hook":subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get remote_work"),
         "message": """
             昼ごはんに行きます。
             """

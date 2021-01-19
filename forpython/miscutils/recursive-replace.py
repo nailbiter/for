@@ -28,6 +28,7 @@ import os
 import re
 import uuid
 import subprocess
+from jinja2 import Template
 
 
 def _add_logger(f):
@@ -125,15 +126,24 @@ def replace(ctx,dry_run,pat,repl,logger=None):
 @click.argument("pat")
 @click.argument("repl")
 @click.option("--git/--no-git",default=False)
+@click.option("--copy/--no-copy",default=False)
 @click.pass_context
 @_add_logger
-def rename(ctx,dry_run,pat,repl,git,logger=None):
+def rename(ctx,dry_run,pat,repl,git,copy,logger=None):
     files_to_replace = ctx.obj["files_to_replace"]
     for fn in files_to_replace:
         s = fn
         new_s = re.sub(pat,repl,s)
         if s!=new_s:
-            cmd = f"{'git' if git else ''} mv {s} {new_s}"
+            if copy:
+                cmd = "cp {{s}} {{new_s}} {%if git%} && git add {{new_s}}{%endif%}"
+            else:
+                cmd = """{%if git%}git{%endif%} mv {{s}} {{new_s}}"""
+            cmd = Template(cmd).render({
+                "git":git,
+                "s":s,
+                "new_s":new_s
+            })
             click.echo(f"> {cmd}")
             if not dry_run:
                 subprocess.call(cmd,shell=True)
