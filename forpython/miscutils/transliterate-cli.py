@@ -22,12 +22,14 @@ ORGANIZATION:
 import click
 import transliterate
 import os
+import readline
 
 @click.command()
 @click.option("--pbpaste-command",default="xsel --clipboard --input")
 def transliterate_cli(pbpaste_command):
     should_continue = True
     saved = None
+    readline.parse_and_bind('tab: complete')
     while should_continue:
         s = input("> ")
         s = s.strip()
