@@ -2,7 +2,7 @@
 from os.path import realpath, split, basename, join, splitext
 import os.path
 from os import access, X_OK, walk
-from jinja2 import Template
+from jinja2 import Template, FileSystemLoader, Environment
 import click
 from datetime import datetime
 
@@ -19,14 +19,19 @@ def _get_template_names(dir_):
 
 
 def _render_template(fn, dir_, **kwargs):
-    with open(join(_get_template_dirname(dir_), fn)) as f:
-        return Template(f.read()).render({
-            **kwargs,
-            "os": {"path": os.path},
-            "converters": {
-                "snake_to_camel": lambda s: "".join([s_.capitalize() for s_ in s.split("_")]),
-                "kebab_to_camel": lambda s: s.replace("-", "_"),
-            }})
+    template_dirname = _get_template_dirname(dir_)
+    env = Environment(loader=FileSystemLoader(template_dirname))
+    template = env.get_template(fn)
+    return template.render({
+        **kwargs,
+        "os": {
+            "path": os.path
+        },
+        "converters": {
+            "snake_to_camel": lambda s: "".join([s_.capitalize() for s_ in s.split("_")]),
+            "kebab_to_camel": lambda s: s.replace("-", "_"),
+        }
+    })
 
 
 @click.group()

@@ -20,3 +20,4 @@ ORGANIZATION: {{organization}}
     REVISION: ---
 
 ==============================================================================="""
+{%block content%}{%endblock%}
