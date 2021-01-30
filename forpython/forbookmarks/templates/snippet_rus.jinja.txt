@@ -1,0 +1,3 @@
+{{translation}}., {{zach}} зач.,
+
+{%if chapter_roman_start==chapter_roman_end%}{{chapter_roman_start}}, {{chapter_start}} – {{chapter_end}}{%else%}{{chapter_roman_start}}, {{chapter_start}} – {{chapter_roman_end}}, {{chapter_end}}{%endif%}.
