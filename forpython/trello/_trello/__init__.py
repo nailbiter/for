@@ -20,10 +20,21 @@ ORGANIZATION:
 
 from jinja2 import Template
 from os.path import join, dirname, split
+import logging
 
 _TEMPLATES_DIR = f"{split(__file__)[0]}/templates"
+
 
 def render_template(fn, **kwargs):
     _dir = dirname(__file__)
     with open(join(_dir, _TEMPLATES_DIR, fn)) as f:
         return Template(f.read()).render(kwargs)
+
+
+def add_logger(f):
+    logger = logging.getLogger(f.__name__)
+
+    def _f(*args, **kwargs):
+        return f(*args, logger=logger, **kwargs)
+    _f.__name__ = f.__name__
+    return _f
