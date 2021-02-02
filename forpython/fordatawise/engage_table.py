@@ -106,6 +106,8 @@ def _get_tasks(mongo_pass,mode="daily",date=datetime.now()):
     _df_wo_index = _df.reset_index()
     _logger.info(
         f"_df: {json.dumps(_df_wo_index.to_dict(orient='records'),indent=2,default=json_serial,ensure_ascii=False)}")
+    if "id" in _df_wo_index:
+        _df_wo_index = _df_wo_index.rename(columns={"id":"index"})
     _set = {(r["index"], r["name"]) for r in _df_wo_index.to_dict( #FIXME: something's wrong here
         orient="records") if not isinstance(r["tags"], list)}
 
