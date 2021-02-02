@@ -9,8 +9,9 @@ import logging
 from tqdm import tqdm
 from jinja2 import Template
 from os.path import join, dirname, split
-from _trello import render_template
+from _trello import render_template, add_logger
 from re import match
+import requests
 
 
 # global const's
@@ -144,6 +145,57 @@ def _fetch_checklists(data, auth):
             data["idChecklists"][i]["checkItems"], key=lambda i: i["pos"])
     data["idChecklists"] = sorted(data["idChecklists"], key=lambda i: i["pos"])
 
+
+@high.command()
+@click.argument("card_url", envvar="CARD_URL")
+@click.argument("item")
+@click.option("--mark-checked/--no-mark-checked",default=True)
+@click.pass_context
+@add_logger
+def check_list_item(ctx, card_url, item, mark_checked, logger=None):
+    m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
+    assert m is not None
+    cardid = m.group(1)
+    card_url = f"https://trello.com/c/{cardid}"
+
+    url = f"{_ROOT_URL}/cards/{cardid}?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
+    logger.info(f"url: {url}")
+    with urllib.request.urlopen(url) as url:
+        data = json.loads(url.read().decode())
+
+    _fetch_checklists(data, _ctx_to_auth(ctx))
+
+    item = match(r"(\d+).(\d+)", item)
+    assert item is not None
+    item = [int(item.group(i+1)) for i in range(2)]
+    list_item = data["idChecklists"][item[0]]["checkItems"][item[1]]
+
+    url = f"{_ROOT_URL}/cards/{cardid}/checkItem/{list_item['id']}?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&state={'complete' if mark_checked else 'incomplete'}"
+    logger.info(f"url: {url}")
+    
+    response = requests.request(
+       "PUT",
+       url,
+#       headers=headers,
+#       params=query
+    )
+    print(response.text)
+
+#    stats = {
+#        "total_count": sum([len(checklist_id["checkItems"])for checklist_id in data["idChecklists"]]),
+#        "done_count": sum([len([i for i in checklist_id["checkItems"] if i["state"] == "complete"]) for checklist_id in data["idChecklists"]]),
+#    }
+
+#    if oformat == "json":
+#        print(json.dumps(data))
+#    elif oformat == "tech":
+#        print(render_template("card_pretty.jinja.txt",
+#                              card=data, card_url=card_url, stats=stats))
+#    elif oformat == "github":
+#        print(render_template("card.jinja.txt",
+#                              card=data, card_url=card_url, stats=stats, free_text=free_text))
+#    else:
+#        raise NotImplementedError
 
 @high.command()
 @click.argument("card_url", envvar="CARD_URL")
