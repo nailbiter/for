@@ -59,12 +59,21 @@ def _get_line(text, day, mongo_client, which_line, dictionary, suffix="", logger
     if r is None:
         # Gal., 213 zach., V, 22 – VI, 2.
         regex = f"(?P<key>{'|'.join(dictionary.keys())})" + \
-            r"""\., (?P<zach>\d+) zach\., (?P<chapter_roman_start>[XVI]+), (?P<chapter_start>\d+) – (?P<chapter_roman_end>[XVI]+), (?P<chapter_end>\d+)\."""
+            r"""\., (?P<zach>\d+) zach\., (?P<chapter_roman_start>[XVI]+), (?P<chapter_start>\d+)\s*–\s*((?P<chapter_roman_end>[XVI]+), )?(?P<chapter_end>\d+)\."""
         pat = re.compile(regex)
         m = pat.search(text)
         assert m is not None, (which_line, regex)
-        r = {k: m.group(k) for k in _s(
-            "key chapter_roman_start chapter_start chapter_roman_end chapter_end zach")}
+        r = {
+            k: m.group(k) 
+            for k 
+            in _s("key chapter_roman_start chapter_start chapter_roman_end chapter_end zach")
+            if m.group(k) is not None
+        }
+            
+        r = {
+            **{"chapter_roman_end": r["chapter_roman_start"]},
+            **r,
+        }
         mongo_client.bookmarks.lines.insert_one({**r, **search_key})
     return r
 
@@ -136,6 +145,7 @@ def make_bookmark(day, cache_folder, cpdf_executable,pdfs_folder,pdf_template,su
         if r is None:
             line = lines[key]
             tpl = jinja_env.get_template(f"snippet_{'eng' if i=='chi' else i}.jinja.txt")
+            logger.info(f"{i} => {dictionary[key][line['key']][i]}")
             translation = tpl.render({
                 "translation": dictionary[key][line["key"]][i],
                 "roman_to_int":_roman_to_int,
