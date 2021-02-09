@@ -31,6 +31,12 @@ _PREDEFINED_SLACK_MESSAGES = {
             大変申し訳ございません。体調不良のため、今日は1日お休みさせて頂きたいです。
             """
     },
+    "old_tables_confirmation": {
+        "hook":subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get old_tables_confirmation_2"),
+        "message": """
+            dustbinに移しました.
+            """
+    },
     "done_work": {
         "hook":subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get remote_work"),
         "message": """
