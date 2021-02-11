@@ -181,22 +181,6 @@ def check_list_item(ctx, card_url, item, mark_checked, logger=None):
     )
     print(response.text)
 
-#    stats = {
-#        "total_count": sum([len(checklist_id["checkItems"])for checklist_id in data["idChecklists"]]),
-#        "done_count": sum([len([i for i in checklist_id["checkItems"] if i["state"] == "complete"]) for checklist_id in data["idChecklists"]]),
-#    }
-
-#    if oformat == "json":
-#        print(json.dumps(data))
-#    elif oformat == "tech":
-#        print(render_template("card_pretty.jinja.txt",
-#                              card=data, card_url=card_url, stats=stats))
-#    elif oformat == "github":
-#        print(render_template("card.jinja.txt",
-#                              card=data, card_url=card_url, stats=stats, free_text=free_text))
-#    else:
-#        raise NotImplementedError
-
 @high.command()
 @click.argument("card_url", envvar="CARD_URL")
 @click.option("-o", "--oformat", type=click.Choice(["json", "github", "tech"]), default="github")
