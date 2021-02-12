@@ -182,6 +182,39 @@ def check_list_item(ctx, card_url, item, mark_checked, logger=None):
     print(response.text)
 
 @high.command()
+@click.option("--card-url", envvar="CARD_URL")
+@click.option("-i","--list-index",type=int)
+@click.option("-t","--item-text")
+@click.pass_context
+@add_logger
+def add_list_item(ctx, card_url, list_index,item_text, logger=None):
+    assert item_text is not None
+    m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
+    assert m is not None
+    cardid = m.group(1)
+    card_url = f"https://trello.com/c/{cardid}"
+
+    url = f"{_ROOT_URL}/cards/{cardid}?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
+    logger.info(f"url: {url}")
+    with urllib.request.urlopen(url) as url:
+        data = json.loads(url.read().decode())
+
+    _fetch_checklists(data, _ctx_to_auth(ctx))
+
+    checklist_id=data["idChecklists"][list_index]["id"]
+
+    url = f"{_ROOT_URL}/checklists/{checklist_id}/checkItems?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&name={item_text}"
+    logger.info(f"url: {url}")
+    
+    response = requests.request(
+       "POST",
+       url,
+#       headers=headers,
+#       params=query
+    )
+    print(response.text)
+
+@high.command()
 @click.argument("card_url", envvar="CARD_URL")
 @click.option("-o", "--oformat", type=click.Choice(["json", "github", "tech"]), default="github")
 @click.option("-f", "--free-text")

@@ -147,16 +147,19 @@ def edit_loop(ctx, logger=None):
     should_continue = True
     while should_continue:
         s = input("edit_loop> ")
+        s = s.strip()
         click.echo(s)
-#        print(f"s: {s}")
-        m = re.match(r"(acts|gospel) (chi|eng|rus) (0|1) (-?\d+)", s)
-        assert m is not None
+        if s=="help":
+            click.echo(r"(acts|gospel) (chi|eng|rus) (0|1) (-?\d+)")
+        else:
+            m = re.match(r"(acts|gospel) (chi|eng|rus) (0|1) (-?\d+)", s)
+            assert m is not None
 
-        print(coll.find_one({"day": day, "suffix": suffix}))
-        coll.update_one({"day": day, "suffix": suffix}, {
-                        "$inc": {f"coords.0.{m.group(1)}.{m.group(2)}.{m.group(3)}": int(m.group(4))}})
-        print(coll.find_one({"day": day, "suffix": suffix}))
-        _system(f"python3 bookmark.py -d {day} make")
+            print(coll.find_one({"day": day, "suffix": suffix}))
+            coll.update_one({"day": day, "suffix": suffix}, {
+                            "$inc": {f"coords.0.{m.group(1)}.{m.group(2)}.{m.group(3)}": int(m.group(4))}})
+            print(coll.find_one({"day": day, "suffix": suffix}))
+            _system(f"python3 bookmark.py -d {day} make")
 
         if s == "exit":
             should_continue = False
