@@ -18,6 +18,7 @@ au BufNewFile,BufRead *.cs set filetype=cs
 au BufNewFile,BufRead *.ts set filetype=javascript
 au BufNewFile,BufRead *.tsx set filetype=javascript
 au BufNewFile,BufRead *.bql set filetype=sql
+au BufNewFile,BufRead *.geojson set filetype=json
 
 function! SKEL_spec()
 	0r /usr/share/vim/current/skeletons/skeleton.spec
