@@ -39,8 +39,9 @@ def _add_logger(f):
 @click.option("-f","--file-name",type=click.Path(),default=".")
 @click.option("--freeze-commit/--no-freeze-commit",default=False)
 @click.option("--debug/--no-debug",default=True)
+@click.option("--open-url/--no-open-url",default=True)
 @_add_logger
-def github_open(file_name,freeze_commit,debug,logger=None):
+def github_open(file_name,freeze_commit,debug,open_url,logger=None):
     if debug:
         logging.basicConfig(level=logging.INFO)
     git_dir = "."
@@ -67,8 +68,9 @@ def github_open(file_name,freeze_commit,debug,logger=None):
         url_tpl = """{{remote_git_url}}/blob/{{commit}}/{{path.relpath(file_name,start=git_dir)}}"""
 
     url = Template(url_tpl).render(env)
-    logger.info(f"url: {url}")
-    webbrowser.open(url)
+    click.echo(f"{url}")
+    if open_url:
+        webbrowser.open(url)
             
 
 if __name__=="__main__":
