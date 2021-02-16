@@ -14,4 +14,4 @@ inoremap [<CR>  [<CR>]<Esc>O
 inoremap [[     [
 inoremap []     []
 
-command! Prettify execute '!cat "%" | jq -S --indent 2 | sponge "%"'
+command! Prettify execute '!cat "%" | jq -S --indent 2 "." | sponge "%"'
