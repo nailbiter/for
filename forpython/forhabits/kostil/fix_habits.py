@@ -40,7 +40,8 @@ def _get_coll(mongo_pass):
 @click.option("-i", "--index", default=0)
 @click.option("--dry-run/--no-dry-run", default=True)
 @click.option("--set-success/--no-set-success",default=True)
-def fix_habits(regex, mongo_pass, limit, index, dry_run,set_success):
+@click.option("-c","--comment")
+def fix_habits(regex, mongo_pass, limit, index, dry_run,set_success, comment):
     assert mongo_pass is not None
     assert limit > 0
     assert limit> index >= 0
@@ -57,7 +58,10 @@ def fix_habits(regex, mongo_pass, limit, index, dry_run,set_success):
     print(o)
     print(f"{o['status']} => {status}")
     if not dry_run:
-        coll.update_one({"_id": o["_id"]}, {"$set": {"status": status}})
+        set_ = {"status":status}
+        if comment is not None:
+            set_["comments"] = comment
+        coll.update_one({"_id": o["_id"]}, {"$set": set_})
     else:
         print("dry run")
 
