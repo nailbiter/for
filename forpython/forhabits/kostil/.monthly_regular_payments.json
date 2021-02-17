@@ -1,0 +1,18 @@
+[
+  {
+    "category": "food",
+    "comment": "rent",
+    "amount":28000,
+    "date": {
+      "day": 20
+    }
+  },
+  {
+    "category": "food",
+    "comment": "gym",
+    "amount":7000,
+    "date": {
+      "day": 20
+    }
+  }
+]
