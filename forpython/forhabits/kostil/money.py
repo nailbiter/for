@@ -76,7 +76,7 @@ def money(day, mongo_pass, mode, debug,monthly_regular_payments_file_name,logger
             monthly_regular_payments = json.load(f)
         for r in monthly_regular_payments:
             money_df = money_df.append({
-                **{"tags":[]},
+                **{"tags":[],"_id":"***regular***"},
                 **{k:v for k,v in r.items() if k!="date"},
                 "date":datetime(day.year,day.month,**r["date"]),
             },ignore_index=True)
