@@ -21,12 +21,19 @@ ORGANIZATION:
 
 import click
 from google.cloud import bigquery
-from os import system
+import os
 from jinja2 import Template
+import math
+import subprocess
+import json
+
+_UNIT_LIST = list(zip(['bytes', 'kB', 'MB', 'GB', 'TB', 'PB'], [0, 0, 1, 2, 2, 2]))
+
 
 @click.group()
 def bq():
     pass
+
 
 @bq.command()
 @click.argument("table")
@@ -38,13 +45,14 @@ def open(table, authuser, project):
     print(", ".join([f"{k}: {v}"for k, v in pdt.items()]))
     url = Template("""https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&project={{project}}&folder=&organizationId={%for k,v in pdt.items()%}&{{k}}={{v}}{%endfor%}&page=table""").render({
         "pdt": pdt,
-        "project":project
+        "project": project
     })
     if authuser is not None:
         url = f"{url}&authuser={authuser}"
     cmd = f"open '{url}'"
     print(f"> {cmd}")
-    system(cmd)
+    os.system(cmd)
+
 
 @bq.command()
 @click.argument("table_name")
@@ -67,5 +75,32 @@ def edit(table_name, index, dry_run, sort):
     else:
         click.echo("dry_run")
 
-if __name__=="__main__":
+
+def _sizeof_fmt(num):
+    """Human friendly file size
+    stolen from https://stackoverflow.com/a/10171475
+    """
+    if num > 1:
+        exponent = min(int(math.log(num, 1024)), len(_UNIT_LIST) - 1)
+        quotient = float(num) / 1024**exponent
+        unit, num_decimals = _UNIT_LIST[exponent]
+        format_string = '{:.%sf} {}' % (num_decimals)
+        return format_string.format(quotient, unit)
+    if num == 0:
+        return '0 bytes'
+    if num == 1:
+        return '1 byte'
+
+
+@bq.command()
+@click.argument("table_name")
+def show_size(table_name):
+    pdt = tuple(table_name.split("."))
+    assert len(pdt) == 3
+    s = json.loads(subprocess.getoutput(f"bq show --format=json {pdt[0]}:{pdt[1]}.{pdt[2]}"))
+    os.system(f"bq show {pdt[0]}:{pdt[1]}.{pdt[2]}")
+    click.echo(_sizeof_fmt(int(s["numBytes"])))
+
+
+if __name__ == "__main__":
     bq()
