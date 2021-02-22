@@ -26,6 +26,9 @@ from os import path
 import subprocess
 from jinja2 import Template
 import logging
+import re
+
+
 def _add_logger(f):
     logger = logging.getLogger(f.__name__)
 
@@ -35,31 +38,39 @@ def _add_logger(f):
     return _f
 
 
+def _get_branch_name():
+    # return subprocess.getoutput("git name-rev --name-only HEAD")
+    res = subprocess.getoutput("git status")
+    m = re.match(r"On branch (.+)",res)
+    assert m is not None, f"\"{res}\""
+    return m.group(1)
+
+
 @click.command()
-@click.option("-f","--file-name",type=click.Path(),default=".")
-@click.option("--freeze-commit/--no-freeze-commit",default=False)
-@click.option("--debug/--no-debug",default=True)
-@click.option("--open-url/--no-open-url",default=True)
+@click.option("-f", "--file-name", type=click.Path(), default=".")
+@click.option("--freeze-commit/--no-freeze-commit", default=False)
+@click.option("--debug/--no-debug", default=True)
+@click.option("--open-url/--no-open-url", default=True)
 @_add_logger
-def github_open(file_name,freeze_commit,debug,open_url,logger=None):
+def github_open(file_name, freeze_commit, debug, open_url, logger=None):
     if debug:
         logging.basicConfig(level=logging.INFO)
     git_dir = "."
-    while not path.isdir(path.join(git_dir,".git")):
-        git_dir = path.join(git_dir,"..")
+    while not path.isdir(path.join(git_dir, ".git")):
+        git_dir = path.join(git_dir, "..")
     #click.echo(f"git_dir: {git_dir}")
     remote_git_url = subprocess.getoutput("git remote get-url origin")
     assert remote_git_url.endswith(".git")
     remote_git_url = remote_git_url[:-4]
     #click.echo(f"remote_git_url: {remote_git_url}")
-    git_branch = subprocess.getoutput("git name-rev --name-only HEAD")
+    git_branch = _get_branch_name()
     #click.echo(f"git_branch: {git_branch}")
     env = {
-        "remote_git_url":remote_git_url,
-        "git_branch":git_branch,
-        "path":path,
-        "file_name":file_name,
-        "git_dir":git_dir
+        "remote_git_url": remote_git_url,
+        "git_branch": git_branch,
+        "path": path,
+        "file_name": file_name,
+        "git_dir": git_dir
     }
     if not freeze_commit:
         url_tpl = """{{remote_git_url}}/tree/{{git_branch}}/{{path.relpath(file_name,start=git_dir)}}"""
@@ -71,7 +82,7 @@ def github_open(file_name,freeze_commit,debug,open_url,logger=None):
     click.echo(f"{url}")
     if open_url:
         webbrowser.open(url)
-            
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     github_open()
