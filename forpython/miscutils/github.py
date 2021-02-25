@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """===============================================================================
 
-        FILE: ./miscutils/github-open.py
+        FILE: ./miscutils/github.py
 
-       USAGE: ././miscutils/github-open.py
+       USAGE: ././miscutils/github.py
 
  DESCRIPTION: 
 
@@ -46,15 +46,23 @@ def _get_branch_name():
     return m.group(1)
 
 
-@click.command()
-@click.option("-f", "--file-name", type=click.Path(), default=".")
-@click.option("--freeze-commit/--no-freeze-commit", default=False)
+@click.group()
 @click.option("--debug/--no-debug", default=True)
-@click.option("--open-url/--no-open-url", default=True)
-@_add_logger
-def github_open(file_name, freeze_commit, debug, open_url, logger=None):
+def github(debug):
     if debug:
         logging.basicConfig(level=logging.INFO)
+
+@github.command()
+def branch():
+    click.echo(_get_branch_name())
+    pass
+
+@github.command()
+@click.option("-f", "--file-name", type=click.Path(), default=".")
+@click.option("--freeze-commit/--no-freeze-commit", default=False)
+@click.option("--open-url/--no-open-url", default=True)
+@_add_logger
+def open(file_name, freeze_commit, open_url, logger=None):
     git_dir = "."
     while not path.isdir(path.join(git_dir, ".git")):
         git_dir = path.join(git_dir, "..")
@@ -85,4 +93,4 @@ def github_open(file_name, freeze_commit, debug, open_url, logger=None):
 
 
 if __name__ == "__main__":
-    github_open()
+    github()

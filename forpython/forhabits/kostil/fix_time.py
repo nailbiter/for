@@ -52,11 +52,11 @@ def fix_time(mongo_pass, index, time, limit,dry_run):
     o = df.to_dict(orient="records")[index]
     click.echo(o)
     if time is not None:
-        m = re.match(r"(\d{2}):(\d{2})",time)
+        m = re.match(r"((?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2}) )?(?P<hour>\d{2}):(?P<minute>\d{2})",time)
         assert m is not None, time
         date = datetime(**{
             **{k:getattr(o["date"],k) for k in "year month day".split(" ")},
-            **{k:int(m.group(i+1)) for i,k in enumerate("hour minute".split(" "))}
+            **{k:int(m.group(k)) for k in "hour minute year month day".split(" ") if m.group(k) is not None}
         })
         click.echo(f"{o['date']} => {date}")
         if not dry_run:
