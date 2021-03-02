@@ -41,7 +41,8 @@ def _get_coll(mongo_pass):
 @click.option("-l", "--limit", type=int, default=10)
 @click.option("--time")
 @click.option("--dry-run/--no-dry-run",default=False)
-def fix_time(mongo_pass, index, time, limit,dry_run):
+@click.option("--remove/--no-remove",default=False)
+def fix_time(mongo_pass, index, time, limit,dry_run,remove):
     coll = _get_coll(mongo_pass)
     df = pd.DataFrame(coll.find(
         {"message": "add engage"}, sort=[("date", -1)], limit=limit))
@@ -51,18 +52,23 @@ def fix_time(mongo_pass, index, time, limit,dry_run):
 
     o = df.to_dict(orient="records")[index]
     click.echo(o)
-    if time is not None:
-        m = re.match(r"((?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2}) )?(?P<hour>\d{2}):(?P<minute>\d{2})",time)
-        assert m is not None, time
-        date = datetime(**{
-            **{k:getattr(o["date"],k) for k in "year month day".split(" ")},
-            **{k:int(m.group(k)) for k in "hour minute year month day".split(" ") if m.group(k) is not None}
-        })
-        click.echo(f"{o['date']} => {date}")
-        if not dry_run:
-            coll.update_one({"_id": o["_id"]}, {"$set": {"date":date-timedelta(hours=9)}})
-        else:
-            click.echo("dry_run")
+    if time is not None or remove:
+        if time is not None:
+            m = re.match(r"((?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2}) )?(?P<hour>\d{2}):(?P<minute>\d{2})",time)
+            assert m is not None, time
+            date = datetime(**{
+                **{k:getattr(o["date"],k) for k in "year month day".split(" ")},
+                **{k:int(m.group(k)) for k in "hour minute year month day".split(" ") if m.group(k) is not None}
+            })
+            click.echo(f"{o['date']} => {date}")
+            if not dry_run:
+                coll.update_one({"_id": o["_id"]}, {"$set": {"date":date-timedelta(hours=9)}})
+        elif remove:
+            click.echo(f"delete {o}")
+            if not dry_run:
+                coll.delete_one({"_id": o["_id"]})
+    if dry_run:
+        click.echo("dry_run")
 
 
 if __name__ == "__main__":
