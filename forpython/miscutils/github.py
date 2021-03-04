@@ -60,9 +60,10 @@ def branch():
 @github.command()
 @click.option("-f", "--file-name", type=click.Path(), default=".")
 @click.option("--freeze-commit/--no-freeze-commit", default=False)
+@click.option("--branch")
 @click.option("--open-url/--no-open-url", default=True)
 @_add_logger
-def open(file_name, freeze_commit, open_url, logger=None):
+def open(file_name, freeze_commit, open_url, branch, logger=None):
     git_dir = "."
     while not path.isdir(path.join(git_dir, ".git")):
         git_dir = path.join(git_dir, "..")
@@ -71,11 +72,12 @@ def open(file_name, freeze_commit, open_url, logger=None):
     assert remote_git_url.endswith(".git")
     remote_git_url = remote_git_url[:-4]
     #click.echo(f"remote_git_url: {remote_git_url}")
-    git_branch = _get_branch_name()
+    if branch is None:
+        branch = _get_branch_name()
     #click.echo(f"git_branch: {git_branch}")
     env = {
         "remote_git_url": remote_git_url,
-        "git_branch": git_branch,
+        "git_branch": branch,
         "path": path,
         "file_name": file_name,
         "git_dir": git_dir
