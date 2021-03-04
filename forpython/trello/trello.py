@@ -149,7 +149,7 @@ def _fetch_checklists(data, auth):
 @high.command()
 @click.argument("card_url", envvar="CARD_URL")
 @click.argument("item")
-@click.option("--mark-checked/--no-mark-checked",default=True)
+@click.option("--mark-checked/--no-mark-checked", default=True)
 @click.pass_context
 @add_logger
 def check_list_item(ctx, card_url, item, mark_checked, logger=None):
@@ -172,22 +172,23 @@ def check_list_item(ctx, card_url, item, mark_checked, logger=None):
 
     url = f"{_ROOT_URL}/cards/{cardid}/checkItem/{list_item['id']}?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&state={'complete' if mark_checked else 'incomplete'}"
     logger.info(f"url: {url}")
-    
+
     response = requests.request(
-       "PUT",
-       url,
-#       headers=headers,
-#       params=query
+        "PUT",
+        url,
+        #       headers=headers,
+        #       params=query
     )
     print(response.text)
 
+
 @high.command()
 @click.option("--card-url", envvar="CARD_URL")
-@click.option("-i","--list-index",type=int)
-@click.option("-t","--item-text")
+@click.option("-i", "--list-index", type=int)
+@click.option("-t", "--item-text")
 @click.pass_context
 @add_logger
-def add_list_item(ctx, card_url, list_index,item_text, logger=None):
+def add_list_item(ctx, card_url, list_index, item_text, logger=None):
     assert item_text is not None
     m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
     assert m is not None
@@ -201,18 +202,49 @@ def add_list_item(ctx, card_url, list_index,item_text, logger=None):
 
     _fetch_checklists(data, _ctx_to_auth(ctx))
 
-    checklist_id=data["idChecklists"][list_index]["id"]
+    checklist_id = data["idChecklists"][list_index]["id"]
 
     url = f"{_ROOT_URL}/checklists/{checklist_id}/checkItems?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&name={item_text}"
     logger.info(f"url: {url}")
-    
+
     response = requests.request(
-       "POST",
-       url,
-#       headers=headers,
-#       params=query
+        "POST",
+        url,
+        #       headers=headers,
+        #       params=query
     )
     print(response.text)
+
+
+@high.command()
+@click.option("--card-url", envvar="CARD_URL")
+@click.option("-i", "--list-index", type=int)
+@click.pass_context
+@add_logger
+def rm_list_item(ctx, card_url, list_index, logger=None):
+    m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
+    assert m is not None
+    cardid = m.group(1)
+    card_url = f"https://trello.com/c/{cardid}"
+
+    url = f"{_ROOT_URL}/cards/{cardid}?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
+    logger.info(f"url: {url}")
+    with urllib.request.urlopen(url) as url:
+        data = json.loads(url.read().decode())
+
+    _fetch_checklists(data, _ctx_to_auth(ctx))
+
+    checklist_id = data["idChecklists"][list_index]["id"]
+
+    url = f"{_ROOT_URL}/checklists/{checklist_id}?key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}"
+    logger.info(f"url: {url}")
+
+    response = requests.request(
+        "DELETE",
+        url,
+    )
+    print(response.text)
+
 
 @high.command()
 @click.argument("card_url", envvar="CARD_URL")
@@ -279,7 +311,7 @@ def list_item_to(ctx, card_url, item, to):
     with urllib.request.urlopen(url) as url:
         data = json.loads(url.read().decode())
 
-    #FIXME: no need to fetch all checklists
+    # FIXME: no need to fetch all checklists
     _fetch_checklists(data, _auth)
 
     m = match(r"(\d+).(\d+)", item)
