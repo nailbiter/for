@@ -33,7 +33,6 @@ import re
 import json
 import itertools
 from jinja2 import Template, FileSystemLoader, Environment
-from _bookmark import 
 
 _CHAPTER_MAX_COUNT = 3
 
@@ -58,10 +57,10 @@ def _s(s):
 
 
 @_add_logger
-def _get_line(text, day, mongo_client, which_line, dictionary, suffix="", logger=None):
+def _get_line(text, day, mongo_client, which_line, dictionary, suffix="", ignore_cache=False, logger=None):
     search_key = {"day": day, "suffix": suffix, "which_line": which_line}
     r = mongo_client.bookmarks.lines.find_one(search_key)
-    if r is None:
+    if r is None or ignore_cache:
         # Gal., 213 zach., V, 22 – VI, 2.
         regex = f"(?P<key>{'|'.join(dictionary.keys())})" + \
             r"""\., (?P<zach>\d+) zach\., (?P<chapter_roman_start>[XVI]+), (?P<chapter_start>\d+)\s*–\s*((?P<chapter_roman_end>[XVI]+), )?(?P<chapter_end>\d+)"""
@@ -94,6 +93,8 @@ def _get_line(text, day, mongo_client, which_line, dictionary, suffix="", logger
             **{"chapter_roman_end": r["chapter_roman_start"]},
             **r,
         }
+
+        mongo_client.bookmarks.lines.delete_many(search_key)
         mongo_client.bookmarks.lines.insert_one({**r, **search_key})
     return r
 
@@ -159,29 +160,30 @@ def edit_loop(ctx, logger=None):
         s = input("edit_loop> ")
         s = s.strip()
         click.echo(s)
-        _REGEX = r"(acts|gospel) (chi|eng|rus) (x|y) (-?\d+)"
+        _REGEX = r"(acts|gospel) (chi|eng|rus) (x|y) ([+-]?\d+)"
         if s == "help":
             click.echo(_REGEX)
+        elif s=="exit":
+            should_continue = False
         else:
             m = re.match(_REGEX, s)
-            assert m is not None
+            if m is not None:
+                print(coll.find_one({"day": day, "suffix": suffix}))
+                coll.update_one({"day": day, "suffix": suffix}, {
+                                "$inc": {f"coords.0.{m.group(1)}.{m.group(2)}.{0 if 'x'==m.group(3) else 1}": int(m.group(4))}})
+                print(coll.find_one({"day": day, "suffix": suffix}))
+                _system(f"python3 bookmark.py -d {day} make")
+            else:
+                print("m is None")
 
-            print(coll.find_one({"day": day, "suffix": suffix}))
-            coll.update_one({"day": day, "suffix": suffix}, {
-                            "$inc": {f"coords.0.{m.group(1)}.{m.group(2)}.{0 if 'x'==m.group(3) else 1}": int(m.group(4))}})
-            print(coll.find_one({"day": day, "suffix": suffix}))
-            _system(f"python3 bookmark.py -d {day} make")
-
-        if s == "exit":
-            should_continue = False
     click.echo("bye")
 
 
 @bookmark.command()
-@click.option("--ignore-pdf-cache/--no-ignore-pdf-cache",default=False)
+@click.option("--ignore-cache",type=click.IntRange(0,3),default=0)
 @click.pass_context
 @_add_logger
-def make(ctx, ignore_pdf_cache,logger=None):
+def make(ctx, ignore_cache,logger=None):
     day, cache_folder, cpdf_executable, pdfs_folder, pdf_template, suffix, client = [
         ctx.obj[k]
         for k
@@ -192,11 +194,12 @@ def make(ctx, ignore_pdf_cache,logger=None):
         path.join(path.split(__file__)[0], "templates"), followlinks=True))
 
     r = client.bookmarks.downloads.find_one({"date": day})
-    if r is None:
+    if r is None or ignore_cache>=3:
         fn = path.join(cache_folder, f"{uuid.uuid4()}.html")
         url = f"http://www.patriarchia.ru/bu/{day}/"
         _system(f"""links -dump {url} > {fn}""")
         r = {"date": day, "fn": fn}
+        client.bookmarks.downloads.delete_many({"date": day})
         client.bookmarks.downloads.insert_one(r)
     with open(r["fn"]) as f:
         text = f.read()
@@ -208,14 +211,14 @@ def make(ctx, ignore_pdf_cache,logger=None):
     dictionary = {k: {kk: {kkk: vvv for kkk, vvv in zip(
         _s("rus eng chi"), vv)}for kk, vv in v.items()}for k, v in dictionary.items()}
     lines = {k: _get_line(text, day=day, mongo_client=client,
-                          dictionary=v, which_line=k) for k, v in dictionary.items()}
+                          dictionary=v, which_line=k,ignore_cache=ignore_cache>=2) for k, v in dictionary.items()}
     logger.info(f"lines: {lines}")
 
     pdf_snippets = {}
     for key, i in itertools.product(lines, _s("rus eng chi")):
         search_key = {"key": key, "language": i, "day": day}
         r = client.bookmarks.snippet_pdfs.find_one(search_key)
-        if r is None or ignore_pdf_cache:
+        if r is None or ignore_cache>=1:
             line = lines[key]
             tpl_name = f"snippet_{'eng' if i=='chi' else i}.jinja.txt"
             tpl = jinja_env.get_template(tpl_name)
