@@ -28,10 +28,14 @@ import logging
 import uuid
 from pymongo import MongoClient
 from transliterate import translit
+from _bookmark import roman_to_int
 import re
 import json
 import itertools
 from jinja2 import Template, FileSystemLoader, Environment
+from _bookmark import 
+
+_CHAPTER_MAX_COUNT = 3
 
 
 def _add_logger(f):
@@ -60,14 +64,29 @@ def _get_line(text, day, mongo_client, which_line, dictionary, suffix="", logger
     if r is None:
         # Gal., 213 zach., V, 22 – VI, 2.
         regex = f"(?P<key>{'|'.join(dictionary.keys())})" + \
-            r"""\., (?P<zach>\d+) zach\., (?P<chapter_roman_start>[XVI]+), (?P<chapter_start>\d+)\s*–\s*((?P<chapter_roman_end>[XVI]+), )?(?P<chapter_end>\d+)\."""
+            r"""\., (?P<zach>\d+) zach\., (?P<chapter_roman_start>[XVI]+), (?P<chapter_start>\d+)\s*–\s*((?P<chapter_roman_end>[XVI]+), )?(?P<chapter_end>\d+)"""
+        for i in range(_CHAPTER_MAX_COUNT):
+            i += 1
+            regex += f"""((, (?P<chapter_roman_start_{i}>[XVI]+))?, (?P<chapter_start_{i}>\\d+)\\s*–\\s*((?P<chapter_roman_end_{i}>[XVI]+), )?(?P<chapter_end_{i}>\\d+))?"""
+        regex += """\."""
         pat = re.compile(regex)
         m = pat.search(text)
         assert m is not None, (which_line, regex)
         r = {
             k: m.group(k)
             for k
-            in _s("key chapter_roman_start chapter_start chapter_roman_end chapter_end zach")
+            in [
+                *["key", "zach"],
+                *[
+                    (p if i == 0 else f"{p}_{i}")
+                    for p, i
+                    in itertools.product(
+                        "chapter_roman_start chapter_start chapter_roman_end chapter_end".split(
+                            " "),
+                        range(_CHAPTER_MAX_COUNT+1)
+                    )
+                ]
+            ]
             if m.group(k) is not None
         }
 
@@ -79,15 +98,6 @@ def _get_line(text, day, mongo_client, which_line, dictionary, suffix="", logger
     return r
 
 
-def _roman_to_int(s):
-    rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    int_val = 0
-    for i in range(len(s)):
-        if i > 0 and rom_val[s[i]] > rom_val[s[i - 1]]:
-            int_val += rom_val[s[i]] - 2 * rom_val[s[i - 1]]
-        else:
-            int_val += rom_val[s[i]]
-    return int_val
 
 
 def _get_coords_inner_loop(day, mongo_client, coords_dir, suffix=""):
@@ -149,15 +159,16 @@ def edit_loop(ctx, logger=None):
         s = input("edit_loop> ")
         s = s.strip()
         click.echo(s)
-        if s=="help":
-            click.echo(r"(acts|gospel) (chi|eng|rus) (0|1) (-?\d+)")
+        _REGEX = r"(acts|gospel) (chi|eng|rus) (x|y) (-?\d+)"
+        if s == "help":
+            click.echo(_REGEX)
         else:
-            m = re.match(r"(acts|gospel) (chi|eng|rus) (0|1) (-?\d+)", s)
+            m = re.match(_REGEX, s)
             assert m is not None
 
             print(coll.find_one({"day": day, "suffix": suffix}))
             coll.update_one({"day": day, "suffix": suffix}, {
-                            "$inc": {f"coords.0.{m.group(1)}.{m.group(2)}.{m.group(3)}": int(m.group(4))}})
+                            "$inc": {f"coords.0.{m.group(1)}.{m.group(2)}.{0 if 'x'==m.group(3) else 1}": int(m.group(4))}})
             print(coll.find_one({"day": day, "suffix": suffix}))
             _system(f"python3 bookmark.py -d {day} make")
 
@@ -167,9 +178,10 @@ def edit_loop(ctx, logger=None):
 
 
 @bookmark.command()
+@click.option("--ignore-pdf-cache/--no-ignore-pdf-cache",default=False)
 @click.pass_context
 @_add_logger
-def make(ctx, logger=None):
+def make(ctx, ignore_pdf_cache,logger=None):
     day, cache_folder, cpdf_executable, pdfs_folder, pdf_template, suffix, client = [
         ctx.obj[k]
         for k
@@ -203,16 +215,19 @@ def make(ctx, logger=None):
     for key, i in itertools.product(lines, _s("rus eng chi")):
         search_key = {"key": key, "language": i, "day": day}
         r = client.bookmarks.snippet_pdfs.find_one(search_key)
-        if r is None:
+        if r is None or ignore_pdf_cache:
             line = lines[key]
-            tpl = jinja_env.get_template(
-                f"snippet_{'eng' if i=='chi' else i}.jinja.txt")
+            tpl_name = f"snippet_{'eng' if i=='chi' else i}.jinja.txt"
+            tpl = jinja_env.get_template(tpl_name)
             logger.info(f"{i} => {dictionary[key][line['key']][i]}")
-            translation = tpl.render({
+            render_data = {
                 "translation": dictionary[key][line["key"]][i],
-                "roman_to_int": _roman_to_int,
-                **line
-            })
+                "roman_to_int": roman_to_int,
+                "line":line,
+                "CHAPTER_MAX_COUNT":_CHAPTER_MAX_COUNT,
+            }
+            translation = tpl.render(render_data)
+            logger.info(f"render {tpl_name} with\n{render_data}\nto get\n{translation}")
 
             uuid_ = uuid.uuid4()
             tex_fn = path.join(cache_folder, f"{uuid_}.tex")
@@ -225,6 +240,7 @@ def make(ctx, logger=None):
                 f"{cpdf_executable} -rotate-contents -90 {pdf_fn} -o {pdf_fn}")
 
             r = {"fn": pdf_fn}
+            client.bookmarks.snippet_pdfs.delete_many(search_key)
             client.bookmarks.snippet_pdfs.insert_one({**search_key, **r})
         pdf_snippets[(key, i)] = r["fn"]
 
