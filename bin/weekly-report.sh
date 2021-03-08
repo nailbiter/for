@@ -10,4 +10,4 @@ mv $FN.pdf pdfs/$DATE-weekly-analysis.pdf
 git add .
 git commit -a -m "weekly report"
 git push
-echo 
+echo 'upload report to Google Drive! (it is in pdfs folder)'
