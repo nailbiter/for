@@ -1,0 +1,72 @@
+[
+  {
+    "render_data": {"translation": "1 Кор", "line": { "chapter_roman_end": "X", "key": "1 Kor", "zach": "146", "chapter_roman_start": "X", "chapter_start": "23", "chapter_end": "28", "day": "2021-03-07", "suffix": "", "which_line": "acts"}, "CHAPTER_MAX_COUNT": 3},
+    "res_fn": "4.txt",
+    "template_fn": "snippet_rus.jinja.txt"
+  },
+  {
+    "render_data": {
+      "CHAPTER_MAX_COUNT": 3,
+      "line": {
+        "chapter_end": "28",
+        "chapter_roman_end": "X",
+        "chapter_roman_start": "X",
+        "chapter_start": "23",
+        "day": "2021-03-07",
+        "key": "1 Kor",
+        "suffix": "",
+        "which_line": "acts",
+        "zach": "146"
+      },
+      "translation": "哥林多前書"
+    },
+    "res_fn": "3.txt",
+    "template_fn": "snippet_eng.jinja.txt"
+  },
+  {
+    "render_data": {
+      "CHAPTER_MAX_COUNT": 3,
+      "line": {
+        "chapter_end": "9",
+        "chapter_end_1": "27",
+        "chapter_end_2": "36",
+        "chapter_roman_end": "XXI",
+        "chapter_roman_start": "XXI",
+        "chapter_start": "8",
+        "chapter_start_1": "25",
+        "chapter_start_2": "33",
+        "day": "2021-03-07",
+        "key": "Lk",
+        "suffix": "",
+        "which_line": "gospel",
+        "zach": "105"
+      },
+      "translation": "Лк"
+    },
+    "res_fn": "2.txt",
+    "template_fn": "snippet_rus.jinja.txt"
+  },
+  {
+    "render_data": {
+      "CHAPTER_MAX_COUNT": 3,
+      "line": {
+        "chapter_end": "9",
+        "chapter_end_1": "27",
+        "chapter_end_2": "36",
+        "chapter_roman_end": "XXI",
+        "chapter_roman_start": "XXI",
+        "chapter_start": "8",
+        "chapter_start_1": "25",
+        "chapter_start_2": "33",
+        "day": "2021-03-07",
+        "key": "Lk",
+        "suffix": "",
+        "which_line": "gospel",
+        "zach": "105"
+      },
+      "translation": "路加福音"
+    },
+    "res_fn": "1.txt",
+    "template_fn": "snippet_eng.jinja.txt"
+  }
+]

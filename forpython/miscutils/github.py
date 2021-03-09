@@ -57,12 +57,14 @@ def branch():
     click.echo(_get_branch_name())
     pass
 
-@github.command()
+@github.command(name="open")
 @click.option("-f", "--file-name", type=click.Path(), default=".")
 @click.option("--freeze-commit/--no-freeze-commit", default=False)
+@click.option("--branch")
 @click.option("--open-url/--no-open-url", default=True)
+@click.option("--head",type=int)
 @_add_logger
-def open(file_name, freeze_commit, open_url, logger=None):
+def open_url(file_name, freeze_commit, open_url, branch, head,logger=None):
     git_dir = "."
     while not path.isdir(path.join(git_dir, ".git")):
         git_dir = path.join(git_dir, "..")
@@ -71,11 +73,12 @@ def open(file_name, freeze_commit, open_url, logger=None):
     assert remote_git_url.endswith(".git")
     remote_git_url = remote_git_url[:-4]
     #click.echo(f"remote_git_url: {remote_git_url}")
-    git_branch = _get_branch_name()
+    if branch is None:
+        branch = _get_branch_name()
     #click.echo(f"git_branch: {git_branch}")
     env = {
         "remote_git_url": remote_git_url,
-        "git_branch": git_branch,
+        "git_branch": branch,
         "path": path,
         "file_name": file_name,
         "git_dir": git_dir
@@ -83,7 +86,11 @@ def open(file_name, freeze_commit, open_url, logger=None):
     if not freeze_commit:
         url_tpl = """{{remote_git_url}}/tree/{{git_branch}}/{{path.relpath(file_name,start=git_dir)}}"""
     else:
-        env["commit"] = subprocess.getoutput("git rev-parse HEAD")
+        cmd = "git rev-parse HEAD"
+        if head is not None:
+            assert head>0
+            cmd = f"{cmd}~{head}"
+        env["commit"] = subprocess.getoutput(cmd)
         url_tpl = """{{remote_git_url}}/blob/{{commit}}/{{path.relpath(file_name,start=git_dir)}}"""
 
     url = Template(url_tpl).render(env)
