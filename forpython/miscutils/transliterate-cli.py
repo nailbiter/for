@@ -44,6 +44,7 @@ def transliterate_cli(pbpaste_command):
             saved = transliterate.translit(s,"ru")
             saved = saved.replace("Ь","ь")
             saved = saved.replace("шш","щ")
+            saved = saved.replace("\\","э")
             print(saved)
 
 if __name__=="__main__":
