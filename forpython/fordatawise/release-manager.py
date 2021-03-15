@@ -45,6 +45,7 @@ def _get_head_sha():
     return head_commit.hexsha
 
 
+#FIXME: handle prefixes (like in acomposer); separate `--create-release` boolean flag and `notes-file` for release notes
 @click.command()
 @click.option("-r", "--release", type=click.Choice(["major", "minor", "patch"]))
 @click.option("-a", "--auto-commit")
