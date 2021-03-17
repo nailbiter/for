@@ -26,6 +26,7 @@ from _common import get_remote_mongo_client
 from pytz import timezone
 from bson.codec_options import CodecOptions
 import logging
+from datetime import datetime, timedelta
 
 _TIME_CATEGORIES = [
     "useless",
@@ -50,6 +51,7 @@ def _get_coll(mongo_pass):
 @click.group()
 @click.option("--mongo_pass", envvar="MONGO_PASS", required=True)
 @click.option("-l", "--limit", type=int, default=24*2, envvar="TIME_KOSTIL_LIMIT")
+@click.option("-d","--day",type=click.DateTime(["%Y-%m-%d"]))
 @click.pass_context
 def time_kostil(ctx, **kwargs):
     logging.basicConfig(level=logging.INFO)
@@ -57,6 +59,14 @@ def time_kostil(ctx, **kwargs):
     for k, v in kwargs.items():
         ctx.obj[k] = v
 
+def _ctx_obj_to_filter(obj):
+    res = {}
+    if obj.get("day",None) is not None:
+        day = obj["day"]
+        dt  = datetime(day.year, day.month, day.day)
+        dt -= timedelta(hours=9) #FIXME: this can be done more robustly, without hardcoding
+        res["$and"] = [{"date": {"$gte": dt}}, {"date": {"$lt": dt+timedelta(days=1)}}]
+    return res
 
 @time_kostil.command()
 @click.option("-r", "--remote-filter", type=click.Choice(_TIME_CATEGORIES))
@@ -64,10 +74,9 @@ def time_kostil(ctx, **kwargs):
 @click.pass_context
 def show(ctx, remote_filter, local_filter):
     coll = _get_coll(ctx.obj["mongo_pass"])
-    if remote_filter is None:
-        filter_ = {}
-    else:
-        filter_ = {"category": remote_filter}
+    filter_ = _ctx_obj_to_filter(ctx.obj)
+    if remote_filter is not None:
+        filter_["category"] = remote_filter
     df = pd.DataFrame(
         coll.find(filter=filter_, sort=[("date", pymongo.DESCENDING)], limit=ctx.obj["limit"]))
     if local_filter:

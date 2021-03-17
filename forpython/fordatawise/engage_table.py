@@ -12,6 +12,14 @@ from datetime import datetime, timedelta, date
 import logging
 import json
 
+def _add_logger(f):
+    logger = logging.getLogger(f.__name__)
+
+    def _f(*args, **kwargs):
+        return f(*args, logger=logger, **kwargs)
+    _f.__name__ = f.__name__
+    return _f
+
 # global const's
 WEEKS = 8
 TIMESTAMPS_PER_HOUR = 2
@@ -64,9 +72,9 @@ class _TagsRetriever():
         else:
             return None
 
-def _get_tasks(mongo_pass,mode="daily",date=datetime.now()):
+@_add_logger
+def _get_tasks(mongo_pass,mode="daily",date=datetime.now(),unlabeled_tasks_dump_file=None,logger=None):
     client = _get_mongo_client(mongo_pass)
-    _logger = logging.getLogger("_get_tasks")
 
     date_filter = DateFilter(mode, date)
     taskLog = pd.DataFrame(client.logistics["alex.taskLog"].with_options(codec_options=CodecOptions(
@@ -86,7 +94,7 @@ def _get_tasks(mongo_pass,mode="daily",date=datetime.now()):
             _now = datetime.now(tz=TIMEZONE)
             _chunk = _chunk.append(
                 {"name": "off-work", "datetime": _now, "date": _now.date()}, ignore_index=True)
-            #_logger.info(f"chunk: \n{_chunk.to_csv()}")
+            #logger.info(f"chunk: \n{_chunk.to_csv()}")
         _chunk["next_datetime"] = _chunk["datetime"].shift(-1)
         _chunk = _chunk[[not pd.isna(nd) for nd in _chunk["next_datetime"]]]
         _chunk["duration_hours"] = (
@@ -98,13 +106,13 @@ def _get_tasks(mongo_pass,mode="daily",date=datetime.now()):
     _df = pd.concat(_list)
 
     _df = _df[[n not in ["lunch", "off-work"] for n in _df["name"]]]
-    _logger.info(f"_df: {list(_df)}")
+    logger.info(f"_df: {list(_df)}")
     _taskData = pd.DataFrame(
         client.logistics["alex.taskData"].find()).set_index("task_id")
     _df = _df.set_index("id").join(
         _taskData, how="left").sort_values(by="datetime")
     _df_wo_index = _df.reset_index()
-    _logger.info(
+    logger.info(
         f"_df: {json.dumps(_df_wo_index.to_dict(orient='records'),indent=2,default=json_serial,ensure_ascii=False)}")
     if "id" in _df_wo_index:
         _df_wo_index = _df_wo_index.rename(columns={"id":"index"})
@@ -112,9 +120,13 @@ def _get_tasks(mongo_pass,mode="daily",date=datetime.now()):
         orient="records") if not isinstance(r["tags"], list)}
 
     if len(_set) > 0:
-        _logger.warning(_set)
+        logger.warning(_set)
+        if unlabeled_tasks_dump_file is not None:
+            with open(unlabeled_tasks_dump_file,"w") as f:
+                json.dump({idx:name for idx,name in _set},f)
+            logger.warning(f"unlabeled tasks dumped to {unlabeled_tasks_dump_file}")    
     else:
-        _logger.info(_set)
+        logger.info(_set)
 
     return _df    
 
@@ -133,12 +145,13 @@ def engage_table(ctx, mongo_pass):
 @engage_table.command()
 @click.option("-m", "--mode", type=click.Choice(["daily", "weekly"]), default="daily")
 @click.option("-d", "--date", type=click.DateTime(["%Y-%m-%d"]))
+@click.option("--unlabeled-tasks-dump-file",type=click.Path(),envvar="UNLABELED_TASKS_DUMP_FILE")
 @click.pass_context
-def print(ctx, mode, date):
+def print(ctx, mode, date,unlabeled_tasks_dump_file):
     if date is None:
         date = datetime.now()
 
-    _df = _get_tasks(ctx.obj["mongo_pass"],mode,date)
+    _df = _get_tasks(ctx.obj["mongo_pass"],mode,date,unlabeled_tasks_dump_file=unlabeled_tasks_dump_file)
 
     if mode == "daily":
         res = pd.DataFrame({
