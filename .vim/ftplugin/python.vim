@@ -35,7 +35,7 @@ endfunction    " ----------  end of function Cpp_CommentToggle ----------
 nnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle()<CR>j
 vnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle()<CR>j
 set listchars+=space:␣
-command! Prettify execute "!autopep8 -i %"
+command! Prettify execute "!python3 -m autopep8 -i %"
 command! -nargs=? Init execute "!~/for/forpython/new_file.py new-file % <args>"
 command! -nargs=? Snippet execute "read!~/for/forpython/new_file.py snippet <args>"
 set number
