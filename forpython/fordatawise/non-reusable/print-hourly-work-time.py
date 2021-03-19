@@ -20,10 +20,42 @@ ORGANIZATION:
 ==============================================================================="""
 
 import click
+import pandas as pd
+import os
+import subprocess
+import io
+from datetime import datetime
+import numpy as np
+import requests
+import json
+
 
 @click.command()
-def print_hourly_work_time():
-    pass
+@click.option("--day", type=click.DateTime(["%Y-%m-%d"]))
+@click.option("--webhook-url", envvar="PRINT_HOURLY_WORK_TIME_WEBHOOK")
+def print_hourly_work_time(day, webhook_url):
+    if day is None:
+        day = datetime.now()
+    s = subprocess.getoutput("pbpaste")
+    # click.echo(s)
+    df = pd.read_csv(io.StringIO(s), sep="\t")
+    df = df.query(f"日付==\"{day.strftime('%Y-%m-%d')}\"")
+    df = df.groupby("名前").agg({"時間": np.sum})
+    # click.echo(list(df))
+    msg = (f"""
+    {day.strftime("%Y-%m-%d")} の稼働時間：
+    {df}
+    """)
+    msg = msg.strip()
+    click.echo(msg)
+    requests.post(webhook_url, json.dumps({
+        #"text": f"```{msg}```"
+        "text":msg
+    }),
+        headers={
+            "Content-type": "application/json"
+    })
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     print_hourly_work_time()
