@@ -63,7 +63,7 @@ def _get_line(text, day, mongo_client, which_line, dictionary, suffix="", ignore
     if r is None or ignore_cache:
         # Gal., 213 zach., V, 22 – VI, 2.
         regex = f"(?P<key>{'|'.join(dictionary.keys())})" + \
-            r"""\., (?P<zach>\d+) zach\., (?P<chapter_roman_start>[XVI]+), (?P<chapter_start>\d+)\s*–\s*((?P<chapter_roman_end>[XVI]+), )?(?P<chapter_end>\d+)"""
+            r"""\., (?P<zach>\d+) zach\.( \(ot polú\))?, (?P<chapter_roman_start>[XVI]+), (?P<chapter_start>\d+)\s*–\s*((?P<chapter_roman_end>[XVI]+), )?(?P<chapter_end>\d+)"""
         for i in range(_CHAPTER_MAX_COUNT):
             i += 1
             regex += f"""((, (?P<chapter_roman_start_{i}>[XVI]+))?, (?P<chapter_start_{i}>\\d+)\\s*–\\s*((?P<chapter_roman_end_{i}>[XVI]+), )?(?P<chapter_end_{i}>\\d+))?"""
