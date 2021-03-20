@@ -5,14 +5,14 @@
 
        USAGE: ./transliterate.py
 
- DESCRIPTION: 
+ DESCRIPTION:
 
      OPTIONS: ---
 REQUIREMENTS: ---
         BUGS: ---
        NOTES: ---
       AUTHOR: Alex Leontiev (alozz1991@gmail.com)
-ORGANIZATION: 
+ORGANIZATION:
      VERSION: ---
      CREATED: 2021-01-26T21:16:43.351631
     REVISION: ---
@@ -58,7 +58,8 @@ def transliterate_cli(pbpaste_command, mode, telegram_token):
         updater = Updater(telegram_token, use_context=True)
         bot = updater.bot
         updater.dispatcher.add_handler(
-            MessageHandler(filters=Filters.all, callback=lambda update, _: update.message.reply_text(_transliterate(update.message.text))))
+            MessageHandler(filters=Filters.all, callback=lambda update,
+                           _: update.message.reply_text(_transliterate(update.message.text)))
 #        updater.dispatcher.add_handler(
 #            MessageHandler(filters=Filters.all, callback=edbp))
 #        updater.dispatcher.add_handler(
@@ -70,10 +71,10 @@ def transliterate_cli(pbpaste_command, mode, telegram_token):
 
 
 def _transliterate(s):
-    saved = transliterate.translit(s, "ru")
-    saved = saved.replace("Ь", "ь")
-    saved = saved.replace("шш", "щ")
-    saved = saved.replace("\\", "э")
+    saved=transliterate.translit(s, "ru")
+    saved=saved.replace("Ь", "ь")
+    saved=saved.replace("шш", "щ")
+    saved=saved.replace("\\", "э")
     return saved
 
 
