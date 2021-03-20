@@ -40,9 +40,19 @@ def print_hourly_work_time(day, webhook_url, dry_run):
     s = subprocess.getoutput("pbpaste")
     # click.echo(s)
     df = pd.read_csv(io.StringIO(s), sep="\t")
+    names = df["名前"].unique() #FIXME: this can be done more stable (hard-code)
     df = df.query(f"日付==\"{day.strftime('%Y-%m-%d')}\"")
     df = df.groupby("名前").agg({"時間": np.sum})
-    df = df.sort_values(by="名前")
+    df = pd.concat([
+        df.reset_index(),
+        pd.DataFrame([
+            {"名前":name,"時間":0} 
+            for name 
+            in names 
+            if name not in (df.reset_index()["名前"].unique()) and not pd.isna(name)
+        ])
+    ]).set_index("名前")
+    df = df.sort_index()
     # click.echo(list(df))
     msg = (f"""
     {day.strftime("%Y-%m-%d")} の稼働時間：
