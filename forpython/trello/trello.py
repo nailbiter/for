@@ -10,12 +10,14 @@ from tqdm import tqdm
 from jinja2 import Template
 from os.path import join, dirname, split
 from _trello import render_template, add_logger
-from re import match
+import re
 import requests
+import functools
 
 
 # global const's
 _ROOT_URL = "https://api.trello.com/1"
+_TRELLO_URL_REGEX = re.compile(r"https://trello.com/c/([0-9a-zA-Z]{8}).*")
 # global var's
 # procedures
 
@@ -153,7 +155,7 @@ def _fetch_checklists(data, auth):
 @click.pass_context
 @add_logger
 def check_list_item(ctx, card_url, item, mark_checked, logger=None):
-    m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
+    m = re.match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
     assert m is not None
     cardid = m.group(1)
     card_url = f"https://trello.com/c/{cardid}"
@@ -165,7 +167,7 @@ def check_list_item(ctx, card_url, item, mark_checked, logger=None):
 
     _fetch_checklists(data, _ctx_to_auth(ctx))
 
-    item = match(r"(\d+).(\d+)", item)
+    item = re.match(r"(\d+).(\d+)", item)
     assert item is not None
     item = [int(item.group(i+1)) for i in range(2)]
     list_item = data["idChecklists"][item[0]]["checkItems"][item[1]]
@@ -190,7 +192,7 @@ def check_list_item(ctx, card_url, item, mark_checked, logger=None):
 @add_logger
 def add_list_item(ctx, card_url, list_index, item_text, logger=None):
     assert item_text is not None
-    m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
+    m = re.match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
     assert m is not None
     cardid = m.group(1)
     card_url = f"https://trello.com/c/{cardid}"
@@ -222,7 +224,7 @@ def add_list_item(ctx, card_url, list_index, item_text, logger=None):
 @click.pass_context
 @add_logger
 def rm_list_item(ctx, card_url, list_index, logger=None):
-    m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
+    m = re.match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
     assert m is not None
     cardid = m.group(1)
     card_url = f"https://trello.com/c/{cardid}"
@@ -245,6 +247,12 @@ def rm_list_item(ctx, card_url, list_index, logger=None):
     )
     print(response.text)
 
+@functools.cache
+def _fetchCardName(cardid,trello_key,trello_token):
+    url = f"{_ROOT_URL}/cards/{cardid}?&key={trello_key}&token={trello_token}"
+    with urllib.request.urlopen(url) as url:
+        data = json.loads(url.read().decode())
+    return data["name"]    
 
 @high.command()
 @click.argument("card_url", envvar="CARD_URL")
@@ -256,7 +264,7 @@ def print_card(ctx, card_url, oformat, free_text):
     _logger.info(f"card_url: {card_url}")
 
     # https://trello.com/c/S95tjc5b/5582-%E4%BA%A4%E9%80%9A%E9%87%8F%E5%85%A8%E6%95%B0%E6%8E%A8%E5%AE%9A
-    m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
+    m = re.match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
     assert m is not None
     cardid = m.group(1)
     card_url = f"https://trello.com/c/{cardid}"
@@ -267,6 +275,12 @@ def print_card(ctx, card_url, oformat, free_text):
         data = json.loads(url.read().decode())
 
     _fetch_checklists(data, _ctx_to_auth(ctx))
+    for i,checklist in enumerate(data["idChecklists"]):
+        for j,check_item in enumerate(checklist["checkItems"]):
+            m = _TRELLO_URL_REGEX.match(check_item["name"])
+            if m is not None:
+                card_name = _fetchCardName(m.group(1),ctx.obj["trello_key"],ctx.obj["trello_token"])
+                check_item["name"] = f"[{card_name}]({check_item['name']})"
 
     stats = {
         "total_count": sum([len(checklist_id["checkItems"])for checklist_id in data["idChecklists"]]),
@@ -300,7 +314,7 @@ def list_item_to(ctx, card_url, item, to):
     _logger.info(f"card_url: {card_url}")
 
     # https://trello.com/c/S95tjc5b/5582-%E4%BA%A4%E9%80%9A%E9%87%8F%E5%85%A8%E6%95%B0%E6%8E%A8%E5%AE%9A
-    m = match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
+    m = re.match(r"https://trello.com/c/([0-9a-zA-Z]{8}).*", card_url)
     assert m is not None
     cardid = m.group(1)
     card_url = f"https://trello.com/c/{cardid}"
@@ -314,7 +328,7 @@ def list_item_to(ctx, card_url, item, to):
     # FIXME: no need to fetch all checklists
     _fetch_checklists(data, _auth)
 
-    m = match(r"(\d+).(\d+)", item)
+    m = re.match(r"(\d+).(\d+)", item)
     assert m is not None
     i, j = (int(m.group(_i+1)) for _i in range(2))
     item = data["idChecklists"][i]["checkItems"][j]
