@@ -37,7 +37,8 @@ def habits(ctx, **kwargs):
 
 @habits.command()
 @click.pass_context
-def next_habit(ctx):
+@click.option("--head",type=int,default=5)
+def next_habit(ctx,head):
     coll = get_coll(ctx.obj["mongo_pass"], "alex.habits")
     habits_df = pd.DataFrame(coll.find({"enabled": True}))
     now_ = datetime.now()
@@ -45,7 +46,7 @@ def next_habit(ctx):
         lambda cl: croniter(cl, now_).get_next(datetime))
     habits_df = habits_df.loc[:,"name cronline onFailed next_date".split(" ")]
     habits_df = habits_df.sort_values(by="next_date")
-    click.echo(habits_df.head(5))
+    click.echo(habits_df.head(head))
 
 
 if __name__ == "__main__":

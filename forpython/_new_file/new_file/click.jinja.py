@@ -18,8 +18,8 @@ ORGANIZATION: {{organization}}
     REVISION: ---
 
 ==============================================================================="""
-{%-set basename = os.path.splitext(os.path.split(filename)[-1])[0]|replace('-','_')%}
-{%-set basename = ("s_"+basename) if basename[0] in "0123456789" else basename-%}
+{%-set basename = os.path.splitext(os.path.split(filename)[-1])[0]|replace('-','_')-%}
+{%-set basename = ("s_"+basename) if basename[0] in "0123456789" else basename%}
 
 import click
 
