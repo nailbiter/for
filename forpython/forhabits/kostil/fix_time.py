@@ -36,7 +36,7 @@ def _get_coll(mongo_pass):
 
 
 @click.command()
-@click.option("--mongo_pass", envvar="MONGO_PASS", required=True)
+@click.option("--mongo-pass", envvar="MONGO_PASS", required=True)
 @click.option("-i", "--index", type=int, default=0)
 @click.option("-l", "--limit", type=int, default=10)
 @click.option("--time")

@@ -37,30 +37,34 @@ def _get_coll(mongo_pass):
 @click.option("-r", "--regex")
 @click.option("--mongo_pass", envvar="MONGO_PASS", required=True)
 @click.option("-l", "--limit", type=int, default=10)
-@click.option("-i", "--index", default=0)
+@click.option("-i", "--index",multiple=True,type=int)
 @click.option("--dry-run/--no-dry-run", default=True)
 @click.option("--set-success/--no-set-success",default=True)
 def fix_habits(regex, mongo_pass, limit, index, dry_run,set_success):
     assert mongo_pass is not None
     assert limit > 0
-    assert limit> index >= 0
-    filter_ = {}
-    if regex is not None:
-        filter_["name"] = {"$regex": regex}
+    if len(index)==0:
+        index = (0,)
+    for index_ in index:
+        assert limit> index_ >= 0
+        filter_ = {}
+        if regex is not None:
+            filter_["name"] = {"$regex": regex}
 
-    coll = _get_coll(mongo_pass)
-    df = pd.DataFrame(coll.find(
-        filter_, sort=[("date", -1)], limit=limit))
-    print(df)
-    o = df.to_dict(orient="records")[index]
-    status = "SUCCESS" if set_success else "FAILURE"
-    print(o)
-    print(f"{o['status']} => {status}")
-    if not dry_run:
-        set_ = {"status":status}
-        coll.update_one({"_id": o["_id"]}, {"$set": set_})
-    else:
-        print("dry run")
+        coll = _get_coll(mongo_pass)
+        df = pd.DataFrame(coll.find(
+            filter_, sort=[("date", -1)], limit=limit))
+        print(df)
+        o = df.to_dict(orient="records")[index_]
+        status = "SUCCESS" if set_success else "FAILURE"
+        print(o)
+        print(f"{o['status']} => {status}")
+        if not dry_run:
+            set_ = {"status":status}
+            coll.update_one({"_id": o["_id"]}, {"$set": set_})
+            print("no dry run")
+        else:
+            print("dry run")
 
 
 if __name__ == "__main__":

@@ -141,13 +141,15 @@ def _system(cmd, dry_run):
 @_add_logger
 def rename(ctx, dry_run, pat, repl, git, copy, logger=None):
     files_to_replace = ctx.obj["files_to_replace"]
+    _dirs_to_create = set()
     for fn in files_to_replace:
         s = fn
         new_s = re.sub(pat, repl, s)
         if s != new_s:
             new_dir = path.split(new_s)[0]
-            if not path.isdir(new_dir):
+            if not path.isdir(new_dir) and new_dir not in _dirs_to_create:
                 _system(f"mkdir -p {new_dir}", dry_run)
+                _dirs_to_create.add(new_dir)
             if copy:
                 cmd = "cp {{s}} {{new_s}} {%if git%} && git add {{new_s}}{%endif%}"
             else:
