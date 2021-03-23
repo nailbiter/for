@@ -247,7 +247,7 @@ def rm_list_item(ctx, card_url, list_index, logger=None):
     )
     print(response.text)
 
-@functools.cache
+@functools.lru_cache(None)
 def _fetchCardName(cardid,trello_key,trello_token):
     url = f"{_ROOT_URL}/cards/{cardid}?&key={trello_key}&token={trello_token}"
     with urllib.request.urlopen(url) as url:

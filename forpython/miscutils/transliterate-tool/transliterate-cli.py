@@ -56,14 +56,8 @@ def transliterate_cli(pbpaste_command, mode, telegram_token):
     elif mode == "telegram":
         assert telegram_token is not None
         updater = Updater(telegram_token, use_context=True)
-        bot = updater.bot
-        updater.dispatcher.add_handler(
-            MessageHandler(filters=Filters.all, callback=lambda update,
-                           _: update.message.reply_text(_transliterate(update.message.text)))
-#        updater.dispatcher.add_handler(
-#            MessageHandler(filters=Filters.all, callback=edbp))
-#        updater.dispatcher.add_handler(
-#            CallbackQueryHandler(callback=edbp))
+        updater.dispatcher.add_handler(MessageHandler(
+            filters=Filters.all, callback=lambda update, _: update.message.reply_text(_transliterate(update.message.text))))
         updater.start_polling()
         updater.idle()
     else:
@@ -71,10 +65,10 @@ def transliterate_cli(pbpaste_command, mode, telegram_token):
 
 
 def _transliterate(s):
-    saved=transliterate.translit(s, "ru")
-    saved=saved.replace("Ь", "ь")
-    saved=saved.replace("шш", "щ")
-    saved=saved.replace("\\", "э")
+    saved = transliterate.translit(s, "ru")
+    saved = saved.replace("Ь", "ь")
+    saved = saved.replace("шш", "щ")
+    saved = saved.replace("\\", "э")
     return saved
 
 
