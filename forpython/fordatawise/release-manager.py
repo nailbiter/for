@@ -45,19 +45,22 @@ def _get_head_sha():
     return head_commit.hexsha
 
 
-#FIXME: handle prefixes (like in acomposer); separate `--create-release` boolean flag and `notes-file` for release notes
+# FIXME: handle prefixes (like in acomposer); separate `--create-release` boolean flag and `notes-file` for release notes
 @click.command()
 @click.option("-r", "--release", type=click.Choice(["major", "minor", "patch"]))
 @click.option("-a", "--auto-commit")
-@click.option("-c", "--create-release", type=click.Path(), envvar="CREATE_RELEASE")
-@click.option("-s", "--save-version-to", type=click.Path())
-def release_manager(release, auto_commit, create_release, save_version_to):
+@click.option("--create-release/--no-create-release", default=False, envvar="CREATE_RELEASE")
+@click.option("--release-notes-file", type=click.Path(), envvar="RELEASE_NOTES_FILE")
+@click.option("-s", "--save-version-to", type=click.Path(),envvar="SAVE_VERSION_TO")
+@click.option("--version-prefix", envvar="VERSION_PREFIX", default="")
+def release_manager(release, auto_commit, create_release, save_version_to, version_prefix, release_notes_file):
     prog = re.compile(r"^v(\d+)\.(\d+).(\d+)$")
 
     _logger = logging.getLogger("release_manager")
     output = getoutput("git tag")
     tags = output.split("\n")
-    tags = [prog.match(tag) for tag in tags if prog.match(tag) is not None]
+    tags = [prog.match(tag[len(version_prefix):]) for tag in tags if prog.match(
+        tag[len(version_prefix):]) is not None]
     tags = sorted(tags, key=lambda m: tuple(int(m.group(i+1))
                                             for i in range(3)), reverse=True)
     newest_version_match = tags[0]
@@ -95,12 +98,14 @@ def release_manager(release, auto_commit, create_release, save_version_to):
             else:
                 raise
 
-        version = f"v{major}.{minor}.{patch}"
+        version = f"{version_prefix}v{major}.{minor}.{patch}"
         call(f"git tag {version}", shell=True)
         call(f"git push --tags", shell=True)
         if create_release:
-            call(
-                f"gh release create {version} -F {create_release}", shell=True)
+            cmd = f"gh release create {version} --title {version} --notes {version}"
+            if release_notes_file is not None:
+                cmd = f"{cmd} --notes-file {release_notes_file}"
+            call(cmd, shell=True)
 
 
 if __name__ == "__main__":
