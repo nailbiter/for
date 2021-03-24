@@ -27,6 +27,8 @@ import re
 from subprocess import getoutput, call
 from git import Repo
 import logging
+from os import path
+import os
 
 
 def _get_head_sha():
@@ -45,15 +47,31 @@ def _get_head_sha():
     return head_commit.hexsha
 
 
-# FIXME: handle prefixes (like in acomposer); separate `--create-release` boolean flag and `notes-file` for release notes
+class _HookManager:
+    def __init__(self,enable_hooks,hook_dir):
+        self._enable_hooks = enable_hooks
+        self._hook_dir = hook_dir
+        self._logger = logging.getLogger(self.__class__.__name__)
+    def __call__(self,hook_name):
+        self._logger.info(f"executing {hook_name} hook")
+        hook_fn = path.join(self._hook_dir,hook_name)
+        retcode = os.system(hook_fn)
+        if hook_name in ["pre-release"]:
+            assert retcode == 0, f"{hook_name} hook failed => we stop here"
+
+
 @click.command()
 @click.option("-r", "--release", type=click.Choice(["major", "minor", "patch"]))
 @click.option("-a", "--auto-commit")
 @click.option("--create-release/--no-create-release", default=False, envvar="CREATE_RELEASE")
 @click.option("--release-notes-file", type=click.Path(), envvar="RELEASE_NOTES_FILE")
-@click.option("-s", "--save-version-to", type=click.Path(),envvar="SAVE_VERSION_TO")
+@click.option("-s", "--save-version-to", type=click.Path(), envvar="SAVE_VERSION_TO")
 @click.option("--version-prefix", envvar="VERSION_PREFIX", default="")
-def release_manager(release, auto_commit, create_release, save_version_to, version_prefix, release_notes_file):
+@click.option("--enable-hooks/--no-enable-hooks", default=True)
+@click.option("--hook-dir", type=click.Path(), envvar="RELEASE_MANAGER__HOOK_DIR", default=".release-manager-hooks")
+def release_manager(release, auto_commit, create_release, save_version_to, version_prefix, release_notes_file, enable_hooks, hook_dir):
+    apply_hook = _HookManager(enable_hooks,hook_dir)
+    apply_hook("pre-release")
     prog = re.compile(r"^v(\d+)\.(\d+).(\d+)$")
 
     _logger = logging.getLogger("release_manager")
@@ -106,6 +124,7 @@ def release_manager(release, auto_commit, create_release, save_version_to, versi
             if release_notes_file is not None:
                 cmd = f"{cmd} --notes-file {release_notes_file}"
             call(cmd, shell=True)
+    apply_hook("pre-release")
 
 
 if __name__ == "__main__":
