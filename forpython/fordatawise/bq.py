@@ -74,6 +74,7 @@ def edit(table_name, index, dry_run, sort):
         df = df.drop([index])
         client.load_table_from_dataframe(dataframe=df, destination=table_name,
                                          job_config=bigquery.job.LoadJobConfig(write_disposition="WRITE_TRUNCATE"))
+        click.echo("no dry_run")
     else:
         click.echo("dry_run")
 

@@ -36,10 +36,12 @@ def control(debug):
         logging.basicConfig(level=logging.INFO)
 
 @control.command()
-def start():
+@click.option("--airflow-port",type=int,default=8080,envvar="CONTROL__START__AIRFLOW_PORT")
+def start(airflow_port):
+    #FIXME: start docker daemon automatically, if necessary
     _myexec("docker-compose up --build -d")
     _myexec("docker container ls")
-    webbrowser.open("http://localhost:8080")
+    webbrowser.open(f"http://localhost:{airflow_port}")
     #./bin/run_command "gcloud auth activate-service-account airflow-dev-service-account@olm-pipeline-dev.iam.gserviceaccount.com --key-file=/usr/local/airflow/auth_keys/service_account_key.json"
 
 if __name__=="__main__":

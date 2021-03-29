@@ -46,7 +46,7 @@ services:
             - logs:/usr/local/airflow/logs:rw
             - ./auth_keys:/usr/local/airflow/auth_keys:rw
         ports:
-            - "8080:8080"
+            - "${CONTROL__START__AIRFLOW_PORT}:8080"
         command: webserver
         healthcheck:
             test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
