@@ -58,7 +58,7 @@ def branch():
     pass
 
 @github.command(name="open")
-@click.option("-f", "--file-name", type=click.Path(), default=".")
+@click.option("-f", "--file-name", type=click.Path(), default=".",multiple=True)
 @click.option("--freeze-commit/--no-freeze-commit", default=False)
 @click.option("--branch")
 @click.option("--open-url/--no-open-url", default=True)
@@ -76,27 +76,28 @@ def open_url(file_name, freeze_commit, open_url, branch, head,logger=None):
     if branch is None:
         branch = _get_branch_name()
     #click.echo(f"git_branch: {git_branch}")
-    env = {
-        "remote_git_url": remote_git_url,
-        "git_branch": branch,
-        "path": path,
-        "file_name": file_name,
-        "git_dir": git_dir
-    }
-    if not freeze_commit:
-        url_tpl = """{{remote_git_url}}/tree/{{git_branch}}/{{path.relpath(file_name,start=git_dir)}}"""
-    else:
-        cmd = "git rev-parse HEAD"
-        if head is not None:
-            assert head>0
-            cmd = f"{cmd}~{head}"
-        env["commit"] = subprocess.getoutput(cmd)
-        url_tpl = """{{remote_git_url}}/blob/{{commit}}/{{path.relpath(file_name,start=git_dir)}}"""
+    for file_name_ in file_name:
+        env = {
+            "remote_git_url": remote_git_url,
+            "git_branch": branch,
+            "path": path,
+            "file_name": file_name_,
+            "git_dir": git_dir
+        }
+        if not freeze_commit:
+            url_tpl = """{{remote_git_url}}/tree/{{git_branch}}/{{path.relpath(file_name,start=git_dir)}}"""
+        else:
+            cmd = "git rev-parse HEAD"
+            if head is not None:
+                assert head>0
+                cmd = f"{cmd}~{head}"
+            env["commit"] = subprocess.getoutput(cmd)
+            url_tpl = """{{remote_git_url}}/blob/{{commit}}/{{path.relpath(file_name,start=git_dir)}}"""
 
-    url = Template(url_tpl).render(env)
-    click.echo(f"{url}")
-    if open_url:
-        webbrowser.open(url)
+        url = Template(url_tpl).render(env)
+        click.echo(f"{url}")
+        if open_url:
+            webbrowser.open(url)
 
 
 if __name__ == "__main__":

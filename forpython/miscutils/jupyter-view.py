@@ -22,10 +22,13 @@ ORGANIZATION:
 import click
 import os
 import hashlib
+from os import path
 
 @click.command()
 @click.argument("filename",type=click.Path())
 def jupyter_view(filename):
+    _,ext = path.splitext(filename)
+    assert ext=='.ipynb', f"filename should end in `.ipynb`, given: {filename}"
     out_fn = f"/tmp/{str(hashlib.sha256(filename.encode()).hexdigest())}.html"
     click.echo(out_fn)
     os.system(f"jupyter nbconvert {filename} --to html --stdout > {out_fn}")

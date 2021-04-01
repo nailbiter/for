@@ -55,9 +55,10 @@ class _HookManager:
     def __call__(self,hook_name):
         self._logger.info(f"executing {hook_name} hook")
         hook_fn = path.join(self._hook_dir,hook_name)
-        retcode = os.system(hook_fn)
-        if hook_name in ["pre-release"]:
-            assert retcode == 0, f"{hook_name} hook failed => we stop here"
+        if path.isfile(hook_fn):
+            retcode = os.system(hook_fn)
+            if hook_name in ["pre-release"]:
+                assert retcode == 0, f"{hook_name} hook failed => we stop here"
 
 
 @click.command()
