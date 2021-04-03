@@ -35,7 +35,7 @@ _PREDEFINED_SLACK_MESSAGES = {
     "old_tables_confirmation_announce": {
         "hook":subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get old_tables_confirmation_2"),
         #"hook": subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get jot"),
-        "message": """{{mention["Watanabe-san"]}}
+        "message": """{{mention["Watanabe-san"]}} {{mention["Torii-san"]}}
 今日の１９時ぐらいは以下の表を dustbin に移す予定です
 {{url}}
 もし、特にコメントがなければ、今日の１９時ぐらいこのテーブルを dustbin に移す予定です。
@@ -49,6 +49,7 @@ _PREDEFINED_SLACK_MESSAGES = {
     "old_tables_confirmation_removal": {
         "hook": subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get old_tables_confirmation_2"),
         "message": """
+            {{mention["Watanabe-san"]}} {{mention["Torii-san"]}}
             dustbinに移しました.
             """
     },
@@ -80,6 +81,7 @@ _CONSTANT_TEMPLATE_ENVIRONMENT = {
             "Watanabe-san":"U01016KTPV2",
             "Wang-san":"UQ3NG9FNK",
             "Appaz-san":"ULCDU76V8",
+            "Torii-san":"U01MZT1DHNU",
         }.items()
     }
 }
