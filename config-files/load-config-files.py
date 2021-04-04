@@ -62,6 +62,9 @@ def load_config_files(profile, load_what, dry_run,debug):
         if lw == "hosts":
             with open(".data/hosts.json") as f:
                 data = json.load(f)
+            data["hosts"] = sorted(list(set(data["hosts"])))
+            with open(".data/hosts.json","w") as f:
+                json.dump(data,f,indent=2,sort_keys=True)
             tmp_fn = path.join("/tmp",f"{uuid.uuid4()}.txt")
             with open(tmp_fn,"w") as f:
                 f.write(jinja_env.get_template("hosts").render(data))
