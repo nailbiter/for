@@ -149,9 +149,9 @@ def print_hourly_work_time(day, webhook_url, dry_run, debug, client_secret_file,
         in values
     ])
     # FIXME: this can be done more stable (hard-code)
-    names = df["名前"].unique()
+    names = [name for name in df["名前"].unique() if len(name)>0]
     logger.info(f"names: {names}")
-    df = df.query(f"日付==\"{day.strftime('%Y-%m-%d')}\"")
+    df = df.query(f"日付==\"{day.strftime('%Y-%m-%d')}\"").copy()
     df["時間"] = [_hours(st, et) for st, et in zip(df["開始"], df["終了"])]
     logger.info(df)
     df = df.groupby("名前").agg({"時間": np.sum})
