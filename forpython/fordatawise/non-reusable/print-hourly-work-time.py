@@ -35,6 +35,8 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
+from jinja2 import Environment
+from jinja2.loaders import FileSystemLoader
 
 
 def _add_logger(f):
@@ -107,15 +109,18 @@ def main():
 @click.option("--webhook-url", envvar="PRINT_HOURLY_WORK_TIME_WEBHOOK")
 @click.option("--dry-run/--no-dry-run", default=False)
 @click.option("--debug/--no-debug", default=False)
-@click.option("--client-secret-file", default=path.join(path.split(__file__)[0], "client_secret.json"))
-@click.option("--token-file", default=path.join(path.split(__file__)[0], ".token.json"))
+@click.option("--client-secret-file",type=click.Path(), default=path.join(path.split(__file__)[0], "client_secret.json"))
+@click.option("--token-file",type=click.Path(), default=path.join(path.split(__file__)[0], ".token.json"))
+@click.option("--templates-dir",type=click.Path(),default=path.join(path.split(__file__)[0], ".data/print_hourly_work_time/templates"))
 @_add_logger
-def print_hourly_work_time(day, webhook_url, dry_run, debug, client_secret_file, token_file, logger=None):
+def print_hourly_work_time(day, webhook_url, dry_run, debug, client_secret_file, token_file, templates_dir, logger=None):
     if debug:
         logging.basicConfig(level=logging.INFO)
     if day is None:
         day = datetime.now()
         day -= timedelta(days=3 if day.weekday()==0 else 1)
+
+    jinja_env = Environment(loader=FileSystemLoader(templates_dir))
 
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
@@ -168,10 +173,11 @@ def print_hourly_work_time(day, webhook_url, dry_run, debug, client_secret_file,
     df = df.set_index("名前")
     df = df.sort_index()
     # click.echo(list(df))
-    msg = (f"""
-    {day.strftime("%Y-%m-%d")} の稼働時間：
-    {df}
-    """)
+    msg = jinja_env.get_template("msg.jinja.txt").render({
+        "df":df,
+        "day":day,
+        "SAMPLE_SPREADSHEET_ID":SAMPLE_SPREADSHEET_ID,
+    }) 
     msg = msg.strip()
     click.echo(msg)
     if not dry_run:

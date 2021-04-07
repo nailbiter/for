@@ -41,7 +41,7 @@ def _add_logger(f):
 def _get_branch_name():
     # return subprocess.getoutput("git name-rev --name-only HEAD")
     res = subprocess.getoutput("git status")
-    m = re.match(r"On branch (.+)",res)
+    m = re.match(r"On branch (.+)", res)
     assert m is not None, f"\"{res}\""
     return m.group(1)
 
@@ -52,19 +52,22 @@ def github(debug):
     if debug:
         logging.basicConfig(level=logging.INFO)
 
+
 @github.command()
 def branch():
     click.echo(_get_branch_name())
     pass
 
+
 @github.command(name="open")
-@click.option("-f", "--file-name", type=click.Path(), default=".",multiple=True)
+@click.option("-f", "--file-name", type=click.Path(), default=".", multiple=True)
 @click.option("--freeze-commit/--no-freeze-commit", default=False)
 @click.option("--branch")
 @click.option("--open-url/--no-open-url", default=True)
-@click.option("--head",type=int)
+@click.option("--commit")
+@click.option("--head", type=int)
 @_add_logger
-def open_url(file_name, freeze_commit, open_url, branch, head,logger=None):
+def open_url(file_name, freeze_commit, open_url, branch, head, commit, logger=None):
     git_dir = "."
     while not path.isdir(path.join(git_dir, ".git")):
         git_dir = path.join(git_dir, "..")
@@ -87,11 +90,13 @@ def open_url(file_name, freeze_commit, open_url, branch, head,logger=None):
         if not freeze_commit:
             url_tpl = """{{remote_git_url}}/tree/{{git_branch}}/{{path.relpath(file_name,start=git_dir)}}"""
         else:
-            cmd = "git rev-parse HEAD"
-            if head is not None:
-                assert head>0
-                cmd = f"{cmd}~{head}"
-            env["commit"] = subprocess.getoutput(cmd)
+            if commit is None:
+                cmd = "git rev-parse HEAD"
+                if head is not None:
+                    assert head > 0
+                    cmd = f"{cmd}~{head}"
+                commit = subprocess.getoutput(cmd)
+            env["commit"] = commit
             url_tpl = """{{remote_git_url}}/blob/{{commit}}/{{path.relpath(file_name,start=git_dir)}}"""
 
         url = Template(url_tpl).render(env)

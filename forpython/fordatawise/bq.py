@@ -27,14 +27,20 @@ import math
 import subprocess
 import json
 from tqdm import tqdm
+import pandas as pd
+import logging
+import concurrent.futures
+from _bq import CopyJob
 
 _UNIT_LIST = list(
     zip(['bytes', 'kB', 'MB', 'GB', 'TB', 'PB'], [0, 0, 1, 2, 2, 2]))
 
 
 @click.group()
-def bq():
-    pass
+@click.option("--debug/--no-debug", default=False)
+def bq(debug):
+    if debug:
+        logging.basicConfig(level=logging.INFO)
 
 
 @bq.command()
@@ -110,7 +116,11 @@ def show_size(table_name):
 @click.argument("sources", nargs=-1)
 @click.argument("destination")
 @click.option("--dry-run/--no-dry-run", default=False)
-def cp(sources, destination, dry_run):
+@click.option("--only-print-commands/--no-only-print-commands", default=False)
+@click.option("--post-verify/--no-post-verify", default=True)
+@click.option("--before")
+@click.option("--after")
+def cp(sources, destination, dry_run, only_print_commands, before, after,post_verify):
     client = bigquery.Client()
     _sources = []
     for source in sources:
@@ -118,21 +128,26 @@ def cp(sources, destination, dry_run):
         assert len(source_split) == 3
         if source.endswith("*"):
             dataset_name = ".".join(source_split[:2])
-            _sources.extend([f"{dataset_name}.{t.table_id}" for t in client.list_tables(
+            _sources.extend([(f"{dataset_name}.{t.table_id}", t.table_id[len(source_split[-1][:-1]):]) for t in client.list_tables(
                 dataset_name) if t.table_id.startswith(source_split[-1][:-1])])
         else:
-            _sources.append(source)
+            _sources.append((source, ""))
     sources = _sources
+    if before is not None:
+        sources = [(_, suffix) for _, suffix in sources if suffix <= before]
+    if after is not None:
+        sources = [(_, suffix) for _, suffix in sources if suffix >= after]
     click.echo(f"{sources} => {destination}")
-    if len(sources)>1:
-        assert len(destination.split("."))==2, "if multiple sources are given, `destination` should be a dataset"
-    if not dry_run:
-        for source in tqdm(sources):
-            destination_split = destination.split(".")
-            if len(destination_split)==2:
-                destination_split.append(source.split(".")[-1])
-            retcode = os.system(f"bq cp \"{source.replace('.',':',1)}\" \"{destination_split[0]}:{'.'.join(destination_split[1:])}\"")
-            assert retcode==0
+    copy_job = CopyJob(destination, dry_run, client)
+    if not only_print_commands:
+        for source, suffix in tqdm(sources):
+            copy_job(source, suffix)
+    else:
+        for source, suffix in (sources):
+            copy_job(source, suffix, only_print=True)
+    if post_verify:
+        for source, suffix in (sources):
+            copy_job.verify(source, suffix)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,4 @@
+{{day.strftime("%Y-%m-%d")}} の稼働時間：
+{{df}}
+
+https://docs.google.com/spreadsheets/d/{{SAMPLE_SPREADSHEET_ID}}/edit#gid=0 で入力お願いします。
