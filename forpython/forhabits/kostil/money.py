@@ -65,6 +65,7 @@ def money(day, mongo_pass, mode, debug,monthly_regular_payments_file_name,monthl
         money_df = pd.DataFrame(
             coll.find({"$and": [{"date": {"$gte": datetime(day.year, day.month, day.day)}}, {"date": {"$lt": datetime(day.year, day.month, day.day)+timedelta(days=1)}}]}, sort=[("date", pymongo.DESCENDING)]))
         click.echo(money_df.to_string())
+        click.echo(money_df.groupby("category").sum())
     elif mode == "monthly":
         assert monthly_channel_webhook is not None
         next_month = [day.year, day.month]

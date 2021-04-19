@@ -51,13 +51,17 @@ def show(ctx, regex, limit):
 @note.command()
 @click.argument("text")
 @click.option("-d", "--day", type=click.DateTime(["%Y-%m-%d %H:%M"]))
+@click.option("-s", "--days-shift", type=int,default=0)
 @click.option("--dry-run/--no-dry-run",default=False)
+@click.option("-t","--tags",type=click.Choice(["longwalk","red_light_bicycle"]),multiple=True)
 @click.pass_context
-def add(ctx, text, day,dry_run):
+def add(ctx, text, day,dry_run,days_shift,tags):
     coll = ctx.obj["coll"]
-    day -= timedelta(hours=9)
+    for tag in tags:
+        text = f"#{tag} {text}"
     if day is None:
         day = datetime.now()
+    day -= timedelta(days=days_shift) + timedelta(hours=9)
     r = {"date": day, "content": text}
     click.echo(r)
     if not dry_run:
