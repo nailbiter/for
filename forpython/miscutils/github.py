@@ -38,9 +38,9 @@ def _add_logger(f):
     return _f
 
 
-def _get_branch_name():
+def _get_branch_name(dir_="."):
     # return subprocess.getoutput("git name-rev --name-only HEAD")
-    res = subprocess.getoutput("git status")
+    res = subprocess.getoutput(f"cd {dir_} && git status")
     m = re.match(r"On branch (.+)", res)
     assert m is not None, f"\"{res}\""
     return m.group(1)
@@ -68,16 +68,17 @@ def branch():
 @click.option("--head", type=int)
 @_add_logger
 def open_url(file_name, freeze_commit, open_url, branch, head, commit, logger=None):
-    git_dir = "."
+#    git_dir = "."
+    git_dir = path.split(file_name[0])[0]
     while not path.isdir(path.join(git_dir, ".git")):
         git_dir = path.join(git_dir, "..")
     #click.echo(f"git_dir: {git_dir}")
-    remote_git_url = subprocess.getoutput("git remote get-url origin")
-    assert remote_git_url.endswith(".git")
-    remote_git_url = remote_git_url[:-4]
+    remote_git_url = subprocess.getoutput(f"cd {git_dir} && git remote get-url origin")
+    if remote_git_url.endswith(".git"):
+        remote_git_url = remote_git_url[:-4]
     #click.echo(f"remote_git_url: {remote_git_url}")
     if branch is None:
-        branch = _get_branch_name()
+        branch = _get_branch_name(git_dir)
     #click.echo(f"git_branch: {git_branch}")
     for file_name_ in file_name:
         env = {

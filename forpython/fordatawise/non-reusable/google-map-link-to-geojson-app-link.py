@@ -49,7 +49,7 @@ def google_map_link_to_geojson_app_link(input_link, output_zoom):
 #    click.echo(f"input_link: {input_link}")
     # https://www.google.com/maps/place/%E3%80%92194-0022+%E6%9D%B1%E4%BA%AC%E9%83%BD%E7%94%BA%E7%94%B0%E5%B8%82%E6%A3%AE%E9%87%8E%EF%BC%95%E4%B8%81%E7%9B%AE+%E6%A3%AE%E9%87%8E%E6%A9%8B/@35.5469321,139.433621,17z/data=!3m1!4b1!4m5!3m4!1s0x6018fea591868acf:0x16e70528f8cc8f4f!8m2!3d35.5469278!4d139.4358097
     m = re.match(
-        r"https://www.google.com/maps/place/.*@(?P<lat>\d+\.\d+),(?P<lon>\d+\.\d+),(?P<zoom>\d+)z/data=.*", input_link)
+        r"https://www.google.com/maps/.*@(?P<lat>\d+\.\d+),(?P<lon>\d+\.\d+),(?P<zoom>\d+(\.\d+)?)z.*", input_link)
     assert m is not None
     # https://geojson.io/#map=18/35.47948/-220.54882
 #    zoom,lat,lon = _get_tile_url(*[float(m.group(k)) for k in "lat lon".split(" ")], output_zoom)
