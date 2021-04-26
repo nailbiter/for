@@ -39,6 +39,9 @@ def virtualenv_manager(debug):
 @click.option("--save/--no-save", default=True)
 @click.option("--dry-run/--no-dry-run", default=False)
 def add_kernel(save, dry_run):
+    python_version = getoutput("python3 --version")
+    which_python = getoutput("which python3")
+#    click.echo((python_version,which_python))
     pwd = getoutput("pwd")
     kernel_name = pwd.replace("/", ".").strip(".").lower()
     # Kernel names can only contain ASCII letters and numbers and these separators: - . _ (hyphen, period, and underscore).
@@ -50,7 +53,7 @@ def add_kernel(save, dry_run):
     if save:
         kernel_json_fn = ".kernel.json"
         with open(kernel_json_fn, "w") as f:
-            json.dump({"directory": pwd, "kernel_name": kernel_name},
+            json.dump({"directory": pwd, "kernel_name": kernel_name, "python_version":python_version},
                       f, indent=2, sort_keys=True)
         print(f"kernel data saved to {kernel_json_fn}")
 

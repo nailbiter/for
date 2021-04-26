@@ -1,0 +1,7 @@
+#!/usr/local/bin/fish
+
+echo $PATH
+which pip3
+#pip3 install $*
+#deactivate
+#python3 /Users/nailbiter/for/forpython/fordatawise/non-reusable/pre-install.py $*

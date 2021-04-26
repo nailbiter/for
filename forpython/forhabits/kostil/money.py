@@ -54,8 +54,9 @@ def _add_logger(f):
 @click.option("--debug/--no-debug",default=False)
 @click.option("--monthly-regular-payments-file-name",type=click.Path(),default=".monthly_regular_payments.json")
 @click.option("--monthly-channel-webhook",envvar="MONTHLY_CHANNEL_WEBHOOK")
+@click.option("--send-slack-message/--no-send-slack-message",default=True)
 @_add_logger
-def money(day, mongo_pass, mode, debug,monthly_regular_payments_file_name,monthly_channel_webhook,logger=None):
+def money(day, mongo_pass, mode, debug,monthly_regular_payments_file_name,monthly_channel_webhook,send_slack_message,logger=None):
     if debug:
         logging.basicConfig(level=logging.INFO)
     if day is None:
@@ -91,12 +92,13 @@ def money(day, mongo_pass, mode, debug,monthly_regular_payments_file_name,monthl
         money_df = money_df.append({"category":"_total","amount":money_df.amount.sum()},ignore_index=True)
         money_df = money_df.set_index("category")
         click.echo(money_df.to_string())
-        requests.post(monthly_channel_webhook, json.dumps({
-            "text": f"""```{day.strftime("%Y-%m")}\n{money_df.to_string()}```"""
-        }),
-            headers={
-                "Content-type": "application/json"
-        })
+        if send_slack_message:
+            requests.post(monthly_channel_webhook, json.dumps({
+                "text": f"""```{day.strftime("%Y-%m")}\n{money_df.to_string()}```"""
+            }),
+                headers={
+                    "Content-type": "application/json"
+            })
     else:
         raise NotImplementedError(f"unknown mode \"{mode}\"")
 
