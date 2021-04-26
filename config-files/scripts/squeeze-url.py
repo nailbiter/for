@@ -23,16 +23,24 @@ import click
 import pandas as pd
 import re
 import json
+from os import path
 
 
 @click.group()
-def squeeze_url():
-    pass
+@click.option("--database-file",type=click.Path(),default=path.join(path.split(__file__)[0],"..",".data/hosts.json"))
+@click.pass_context
+def squeeze_url(ctx,**kwargs):
+    ctx.ensure_object(dict)
+    ctx.obj["kwargs"] = kwargs
 
 
 @squeeze_url.command()
 @click.option("-f", "--history-file", type=click.Path(), required=True)
-def squeeze(history_file):
+@click.pass_context
+def squeeze(ctx,history_file):
+    database_file = ctx.obj["kwargs"]["database_file"]
+    with open(database_file) as f:
+        d = set(json.load(f)["hosts"])
     df = pd.read_csv(history_file, names=["url"], sep="\t")
     pat = re.compile("(?P<protocol>https|file|http):/{2,3}(?P<host>[^/]+).*")
     df["match"] = df["url"].apply(lambda s: pat.match(s))
@@ -40,15 +48,17 @@ def squeeze(history_file):
         df[cn] = df["match"].apply(lambda m: m.group(cn))
     df = df.query("protocol!='file'")
     df = df.drop(columns=["match", "protocol", "url"])
+    df = df[[h not in d for h in df.host]]
     df = df.drop_duplicates()
     df = df.sort_values(by="host")
     click.echo(df.to_csv(index=None, header=None))
 
 @squeeze_url.command()
 @click.option("-f", "--url-file", type=click.Path(), required=True)
-@click.option("--database-file",type=click.Path(),default=".data/hosts.json")
 @click.option("--dry-run/--no-dry-run",default=False)
-def disable(url_file,database_file,dry_run):
+@click.pass_context
+def disable(ctx,url_file,dry_run):
+    database_file = ctx.obj["kwargs"]["database_file"]
     df = pd.read_csv(url_file, names=["url"], sep="\t")
     with open(database_file) as f:
         d = set(json.load(f)["hosts"])
