@@ -27,10 +27,13 @@ import sqlite3
 import pandas as pd
 
 @click.command()
-@click.option("-e","--ext")
+@click.argument("ext",default="")
 @click.option("--database-fn",type=click.Path(),default=path.join(path.split(__file__)[0],".random_fn.db"))
 @click.option("--read/--no-read",default=False)
 def random_fn(ext,database_fn,read):
+#    click.echo(f"ext: \"{ext}\"")
+    if ext=="":
+        ext = None
     conn = sqlite3.connect(database_fn)
     if not read:
         fn = f"/tmp/{str(uuid.uuid4()).replace('-','_')}"

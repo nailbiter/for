@@ -56,8 +56,15 @@ def github(debug):
 @github.command()
 def branch():
     click.echo(_get_branch_name())
-    pass
 
+def _cleanup_remote_git_url(remote_git_url):
+    if remote_git_url.endswith(".git"):
+        remote_git_url = remote_git_url[:-4]
+    m = re.match("(https://)[^/]+@(github.com/.*)",remote_git_url)
+    if m is not None:
+        remote_git_url = m.group(1)+m.group(2)
+#    https://nailbiter91@github.com/dtws/traffic-volume
+    return remote_git_url
 
 @github.command(name="open")
 @click.option("-f", "--file-name", type=click.Path(), default=".", multiple=True)
@@ -74,8 +81,7 @@ def open_url(file_name, freeze_commit, open_url, branch, head, commit, logger=No
         git_dir = path.join(git_dir, "..")
     #click.echo(f"git_dir: {git_dir}")
     remote_git_url = subprocess.getoutput(f"cd {git_dir} && git remote get-url origin")
-    if remote_git_url.endswith(".git"):
-        remote_git_url = remote_git_url[:-4]
+    remote_git_url = _cleanup_remote_git_url(remote_git_url)
     #click.echo(f"remote_git_url: {remote_git_url}")
     if branch is None:
         branch = _get_branch_name(git_dir)

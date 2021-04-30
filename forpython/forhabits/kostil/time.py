@@ -37,7 +37,8 @@ _TIME_CATEGORIES = [
     "german",
     "parttime",
     "coding",
-    "rest"
+    "rest",
+    "reading",
 ]
 
 
