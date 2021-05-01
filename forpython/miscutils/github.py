@@ -75,6 +75,7 @@ def _cleanup_remote_git_url(remote_git_url):
 @click.option("--head", type=int)
 @_add_logger
 def open_url(file_name, freeze_commit, open_url, branch, head, commit, logger=None):
+    #TODO: add warning if commit is not pushed
 #    git_dir = "."
     git_dir = path.split(file_name[0])[0]
     while not path.isdir(path.join(git_dir, ".git")):
