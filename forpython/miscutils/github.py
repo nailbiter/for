@@ -27,6 +27,7 @@ import subprocess
 from jinja2 import Template
 import logging
 import re
+import glob
 
 
 def _add_logger(f):
@@ -75,6 +76,14 @@ def _cleanup_remote_git_url(remote_git_url):
 @click.option("--head", type=int)
 @_add_logger
 def open_url(file_name, freeze_commit, open_url, branch, head, commit, logger=None):
+    _file_name = []
+    for fn in file_name:
+        if "*" in fn:
+            _file_name.extend(glob.glob(fn,recursive=True))
+        else:
+            _file_name.append(fn)
+    file_name = _file_name        
+
     #TODO: add warning if commit is not pushed
 #    git_dir = "."
     git_dir = path.split(file_name[0])[0]
