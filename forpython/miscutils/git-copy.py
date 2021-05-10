@@ -95,10 +95,10 @@ class _GitignoreMatcher:
 @git_copy.command()
 @click.argument("from_directory", type=click.Path(file_okay=False))
 @click.argument("to_directory", type=click.Path())
-@click.option("--db-filename",default=".git-copy.db")
+@click.option("--db-filename", default=".git-copy.db")
 @click.pass_context
 @_add_logger
-def cp(ctx, from_directory, to_directory,db_filename, logger=None):
+def cp(ctx, from_directory, to_directory, db_filename, logger=None):
     # collect gitignores
     gitignore_matchers = []
     if path.isfile(".gitignore"):
@@ -118,10 +118,12 @@ def cp(ctx, from_directory, to_directory,db_filename, logger=None):
         for name in files:
             src = os.path.join(root, name)
             logger.debug(f"testing {src}")
-            if not functools.reduce(lambda a, b: a or b, map(lambda f: f(src), gitignore_matchers), False):
-                dst = path.join(
-                    to_directory, path.relpath(src, from_directory))
-                _timestamps.append({"src":src,"dst":dst,"time":datetime.now().isoformat()})
+            is_git_checked = not functools.reduce(lambda a, b: a or b, map(
+                lambda f: f(src), gitignore_matchers), False)
+            dst = path.join(to_directory, path.relpath(src, from_directory))
+            if is_git_checked:
+                _timestamps.append(
+                    {"src": src, "dst": dst, "time": datetime.now().isoformat()})
                 _system(f"mkdir -p {path.split(dst)[0]}")
                 _system(f"cp {src} {dst}")
                 _system(f"git add {dst}")
@@ -129,8 +131,8 @@ def cp(ctx, from_directory, to_directory,db_filename, logger=None):
     _timestamps = pd.DataFrame(_timestamps)
     click.echo(_timestamps)
     if not ctx.obj["kwargs"]["dry_run"]:
-        conn = sqlite3.connect(path.join(to_directory,db_filename))
-        _timestamps.to_sql("timestamps",conn,if_exists="append",index=None)
+        conn = sqlite3.connect(path.join(to_directory, db_filename))
+        _timestamps.to_sql("timestamps", conn, if_exists="append", index=None)
         conn.close()
 
 #        for name in dirs:
