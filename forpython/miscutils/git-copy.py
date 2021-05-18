@@ -18,8 +18,7 @@ ORGANIZATION:
     REVISION: ---
 
 TODO:
-    1. handle `*` .gitignores automatically (like in `venv` folder)
-    2. copy '.envrc' as well (although it's in gitignore)
+    1. auto-check for absence of changes in git tree before command is issued
 ==============================================================================="""
 
 import click
@@ -96,51 +95,17 @@ class _GitignoreMatcher:
 @click.argument("from_directory", type=click.Path(file_okay=False))
 @click.argument("to_directory", type=click.Path())
 @click.option("--db-filename", default=".git-copy.db")
+@click.option("-r","--recursive",is_flag=True)
 @click.pass_context
 @_add_logger
-def cp(ctx, from_directory, to_directory, db_filename, logger=None):
-    # collect gitignores
-    gitignore_matchers = []
-    if path.isfile(".gitignore"):
-        logger.info("append .gitignore")
-        gitignore_matchers.append(_GitignoreMatcher(".gitignore"))
-    for root, dirs, files in os.walk(from_directory, topdown=False):
-        for name in files:
-            if path.split(name)[-1] == ".gitignore":
-                fn = os.path.join(root, name)
-                logger.info(f"append {fn}")
-                gitignore_matchers.append(_GitignoreMatcher(fn))
-
+def cp(ctx, from_directory, to_directory, db_filename, recursive, logger=None):
+    cmd = "cp"
+    if recursive:
+        cmd += " -r"
     _system = ctx.obj["system"]
-    _system(f"mkdir -p {to_directory}")
-    _timestamps = []
-    for root, dirs, files in os.walk(from_directory, topdown=False):
-        for name in files:
-            src = os.path.join(root, name)
-            logger.debug(f"testing {src}")
-            is_git_checked = not functools.reduce(lambda a, b: a or b, map(
-                lambda f: f(src), gitignore_matchers), False)
-            dst = path.join(to_directory, path.relpath(src, from_directory))
-            if is_git_checked:
-                _timestamps.append(
-                    {"src": src, "dst": dst, "time": datetime.now().isoformat()})
-                _system(f"mkdir -p {path.split(dst)[0]}")
-                _system(f"cp {src} {dst}")
-                _system(f"git add {dst}")
-
-    _timestamps = pd.DataFrame(_timestamps)
-    click.echo(_timestamps)
-    if not ctx.obj["kwargs"]["dry_run"]:
-        conn = sqlite3.connect(path.join(to_directory, db_filename))
-        _timestamps.to_sql("timestamps", conn, if_exists="append", index=None)
-        conn.close()
-
-#        for name in dirs:
-#            src = os.path.join(root, name)
-#            if not functools.reduce(lambda a,b: a or b, map(lambda f:f(src),gitignore_matchers),False):
-##                _system(f"cp {src} {path.join(to_directory,path.relpath(src,from_directory))}")
-#                _system(f"mkdir -p {path.join(to_directory,path.relpath(src,from_directory))}")
-
+    _system(f"{cmd} {from_directory} {to_directory}")
+    _system(f"git add {to_directory}")
+    _system(f"""git commit -a -m 'COPYCAT: "{from_directory}" -> "{to_directory}"' """)
 
 if __name__ == "__main__":
     git_copy()
