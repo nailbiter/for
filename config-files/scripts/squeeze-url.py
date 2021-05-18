@@ -24,26 +24,41 @@ import pandas as pd
 import re
 import json
 from os import path
+import logging
 
+def _add_logger(f):
+    logger = logging.getLogger(f.__name__)
+
+    def _f(*args, **kwargs):
+        return f(*args, logger=logger, **kwargs)
+    _f.__name__ = f.__name__
+    return _f
 
 @click.group()
 @click.option("--database-file",type=click.Path(),default=path.join(path.split(__file__)[0],"..",".data/hosts.json"))
+@click.option("--debug/--no-debug",default=False)
 @click.pass_context
-def squeeze_url(ctx,**kwargs):
+def squeeze_url(ctx,debug,**kwargs):
+    if debug:
+        logging.basicConfig(level=logging.INFO)
     ctx.ensure_object(dict)
     ctx.obj["kwargs"] = kwargs
 
 
 @squeeze_url.command()
 @click.option("-f", "--history-file", type=click.Path(), required=True)
+@_add_logger
 @click.pass_context
-def squeeze(ctx,history_file):
+def squeeze(ctx,history_file,logger=None):
     database_file = ctx.obj["kwargs"]["database_file"]
     with open(database_file) as f:
         d = set(json.load(f)["hosts"])
     df = pd.read_csv(history_file, names=["url"], sep="\t")
-    pat = re.compile("(?P<protocol>https|file|http):/{2,3}(?P<host>[^/]+).*")
+    pat = re.compile("(?P<protocol>https|file|http):/{2,4}(?P<host>[^/]+).*")
     df["match"] = df["url"].apply(lambda s: pat.match(s))
+    _nm = df[[pd.isna(m) for m in df.match]]
+    if len(_nm)>0:
+        logger.warning(_nm)
     for cn in ["protocol", "host"]:
         df[cn] = df["match"].apply(lambda m: m.group(cn))
     df = df.query("protocol!='file'")
