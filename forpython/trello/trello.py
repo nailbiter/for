@@ -9,14 +9,16 @@ import logging
 from tqdm import tqdm
 from jinja2 import Template
 from os.path import join, dirname, split
-from _trello import render_template, add_logger
+from _trello import render_template, assistantbot_digest
+from _trello.common import add_logger
+from _trello.common import ROOT_URL as _ROOT_URL
 import re
 import requests
 import functools
+import pandas as pd
 
 
 # global const's
-_ROOT_URL = "https://api.trello.com/1"
 _TRELLO_URL_REGEX = re.compile(r"https://trello.com/c/([0-9a-zA-Z]{8}).*")
 # global var's
 # procedures
@@ -355,6 +357,45 @@ def list_item_to(ctx, card_url, item, to):
         _logger.info(f"response_body: {response_body}")
     else:
         raise NotImplementedError
+
+@cli.group()
+@click.option("--dry-run/--no-dry-run", default=False)
+@click.option("--tasklist-id",default="5a83f3449c950b04c540ba66")
+@click.pass_context
+def assistantbot(ctx, **kwargs):
+    for k, v in kwargs.items():
+        ctx.obj[k] = v
+
+@assistantbot.command()        
+@click.pass_context
+def tasks(ctx):
+    list_id = ctx.obj["tasklist_id"]
+    df = assistantbot_digest.get_tasks(list_id,*[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
+    print(df)
+
+@assistantbot.command()        
+@click.argument("task_hash")
+@click.argument("url")
+@click.pass_context
+@add_logger
+def add_url_link(ctx,task_hash,url,logger=None):
+    list_id = ctx.obj["tasklist_id"]
+    assert url.startswith("http://") or url.startswith("https://")
+    df = assistantbot_digest.get_tasks(list_id,*[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
+    df = df.query(f"hash=='{task_hash}'")
+    assert len(df)==1
+    id_ = list(df["id"])[0]
+    url = f"{_ROOT_URL}/cards/{id_}/attachments?key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&url={urllib.parse.quote(url)}"
+#    url = f"{_ROOT_URL}/checklists/{checklist_id}/checkItems?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&name={item_text}"
+    logger.info(f"url: {url}")
+
+    response = requests.request(
+        "POST",
+        url,
+        #       headers=headers,
+        #       params=query
+    )
+    print(response.text)
 
 
 # main
