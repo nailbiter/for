@@ -249,12 +249,14 @@ def rm_list_item(ctx, card_url, list_index, logger=None):
     )
     print(response.text)
 
+
 @functools.lru_cache(None)
-def _fetchCardName(cardid,trello_key,trello_token):
+def _fetchCardName(cardid, trello_key, trello_token):
     url = f"{_ROOT_URL}/cards/{cardid}?&key={trello_key}&token={trello_token}"
     with urllib.request.urlopen(url) as url:
         data = json.loads(url.read().decode())
-    return data["name"]    
+    return data["name"]
+
 
 @high.command()
 @click.argument("card_url", envvar="CARD_URL")
@@ -277,11 +279,12 @@ def print_card(ctx, card_url, oformat, free_text):
         data = json.loads(url.read().decode())
 
     _fetch_checklists(data, _ctx_to_auth(ctx))
-    for i,checklist in enumerate(data["idChecklists"]):
-        for j,check_item in enumerate(checklist["checkItems"]):
+    for i, checklist in enumerate(data["idChecklists"]):
+        for j, check_item in enumerate(checklist["checkItems"]):
             m = _TRELLO_URL_REGEX.match(check_item["name"])
             if m is not None:
-                card_name = _fetchCardName(m.group(1),ctx.obj["trello_key"],ctx.obj["trello_token"])
+                card_name = _fetchCardName(
+                    m.group(1), ctx.obj["trello_key"], ctx.obj["trello_token"])
                 check_item["name"] = f"[{card_name}]({check_item['name']})"
 
     stats = {
@@ -358,32 +361,37 @@ def list_item_to(ctx, card_url, item, to):
     else:
         raise NotImplementedError
 
+
 @cli.group()
 @click.option("--dry-run/--no-dry-run", default=False)
-@click.option("--tasklist-id",default="5a83f3449c950b04c540ba66")
+@click.option("--tasklist-id", default="5a83f3449c950b04c540ba66")
 @click.pass_context
 def assistantbot(ctx, **kwargs):
     for k, v in kwargs.items():
         ctx.obj[k] = v
 
-@assistantbot.command()        
+
+@assistantbot.command()
 @click.pass_context
 def tasks(ctx):
     list_id = ctx.obj["tasklist_id"]
-    df = assistantbot_digest.get_tasks(list_id,*[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
+    df = assistantbot_digest.get_tasks(
+        list_id, *[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
     print(df)
 
-@assistantbot.command()        
+
+@assistantbot.command()
 @click.argument("task_hash")
 @click.argument("url")
 @click.pass_context
 @add_logger
-def add_url_link(ctx,task_hash,url,logger=None):
+def add_url_link(ctx, task_hash, url, logger=None):
     list_id = ctx.obj["tasklist_id"]
     assert url.startswith("http://") or url.startswith("https://")
-    df = assistantbot_digest.get_tasks(list_id,*[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
+    df = assistantbot_digest.get_tasks(
+        list_id, *[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
     df = df.query(f"hash=='{task_hash}'")
-    assert len(df)==1
+    assert len(df) == 1
     id_ = list(df["id"])[0]
     url = f"{_ROOT_URL}/cards/{id_}/attachments?key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&url={urllib.parse.quote(url)}"
 #    url = f"{_ROOT_URL}/checklists/{checklist_id}/checkItems?&key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&name={item_text}"
