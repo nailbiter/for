@@ -23,6 +23,7 @@ from _trello.common import add_logger
 import urllib
 import pandas as pd
 import json
+import re
 
 ALPHABET = "01234567890"+"AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
 
@@ -56,3 +57,6 @@ def get_tasks(list_id,trello_key,trello_token,logger=None):
     df["hash"] = df["id"].apply(_id_to_digest)
     df = df.loc[:,["id","name","hash","url"]]
     return df
+
+def is_digest(s):
+    return re.match(r"^["+ALPHABET+"]{4}$",s) is not None
