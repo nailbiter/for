@@ -18,7 +18,7 @@ ORGANIZATION:
     REVISION: ---
 
 TODO:
-    1. auto-check for absence of changes in git tree before command is issued
+    1(done). auto-check for absence of changes in git tree before command is issued
 ==============================================================================="""
 
 import click
@@ -30,6 +30,7 @@ import functools
 import sqlite3
 import pandas as pd
 from datetime import datetime, timedelta
+from git import Repo
 
 
 def _add_logger(f):
@@ -91,21 +92,46 @@ class _GitignoreMatcher:
         return res
 
 
+def _find_git_path():
+    _path = "."
+    # FIXME: this probably can be done better
+    while True:
+        try:
+            repo = Repo(_path)
+            break
+        except Exception:
+            _path = path.join(_path, "..")
+    return repo,_path        
+
+def _get_head_sha():
+    repo,_ = _find_git_path()
+    assert not repo.bare
+    head_commit = repo.head.commit
+    assert(not head_commit.diff(None)
+           ), "should be no changes on tree (do `git commit -a`)"
+
+
 @git_copy.command()
-@click.argument("from_directory", type=click.Path(file_okay=False))
+@click.argument("from_directory", type=click.Path())
 @click.argument("to_directory", type=click.Path())
 @click.option("--db-filename", default=".git-copy.db")
-@click.option("-r","--recursive",is_flag=True)
+@click.option("-r", "--recursive", is_flag=True)
+@click.option("--check-clean-git-tree/--no-check-clean-git-tree", default=True)
 @click.pass_context
 @_add_logger
-def cp(ctx, from_directory, to_directory, db_filename, recursive, logger=None):
+def cp(ctx, from_directory, to_directory, db_filename, recursive, check_clean_git_tree, logger=None):
+    _, repo_root = _find_git_path()
+    if check_clean_git_tree:
+        _get_head_sha()
     cmd = "cp"
     if recursive:
         cmd += " -r"
     _system = ctx.obj["system"]
     _system(f"{cmd} {from_directory} {to_directory}")
     _system(f"git add {to_directory}")
-    _system(f"""git commit -a -m 'COPYCAT: "{from_directory}" -> "{to_directory}"' """)
+    _system(
+        f"""git commit -a -m 'COPYCAT: "{path.relpath(from_directory,repo_root)}" -> "{path.relpath(to_directory,repo_root)}"' """)
+
 
 if __name__ == "__main__":
     git_copy()
