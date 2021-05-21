@@ -16,6 +16,7 @@ import re
 import requests
 import functools
 import pandas as pd
+import webbrowser
 
 
 # global const's
@@ -379,6 +380,19 @@ def tasks(ctx):
         list_id, *[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
     print(df)
 
+
+@assistantbot.command()
+@click.argument("task_hash")
+@click.option("--web-browser",envvar="WEBBROWSER")
+@click.pass_context
+@add_logger
+def open_task(ctx, task_hash, web_browser,logger=None):
+    list_id = ctx.obj["tasklist_id"]
+    df = assistantbot_digest.get_tasks(
+        list_id, *[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
+    df = df.query(f"hash=='{task_hash}'")
+    assert len(df) == 1
+    webbrowser.get(web_browser).open(list(df["url"])[0])
 
 @assistantbot.command()
 @click.argument("task_hash")

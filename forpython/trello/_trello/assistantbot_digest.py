@@ -54,5 +54,5 @@ def get_tasks(list_id,trello_key,trello_token,logger=None):
         data = json.loads(url.read().decode())
     df = pd.DataFrame(data)
     df["hash"] = df["id"].apply(_id_to_digest)
-    df = df.loc[:,["id","name","hash"]]
+    df = df.loc[:,["id","name","hash","url"]]
     return df
