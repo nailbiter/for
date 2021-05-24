@@ -504,7 +504,7 @@ def add_url_link(ctx, task_hash, url, logger=None):
     assert url.startswith(
         "http://") or url.startswith("https://"), f"bad url: \"{url}\""
     df = tasks_df.query(f"hash=='{task_hash}'").copy()
-    assert len(df) == 1
+    assert len(df) == 1, df
     id_ = list(df["id"])[0]
     url = f"{_ROOT_URL}/cards/{id_}/attachments?key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&url={urllib.parse.quote(url)}"
     logger.info(f"url: {url}")
