@@ -17,6 +17,9 @@ import requests
 import functools
 import pandas as pd
 import webbrowser
+import os
+from os import path
+from datetime import datetime
 
 
 # global const's
@@ -51,7 +54,7 @@ class TrelloUrl:
         if "?" not in url:
             url = f"{url}?"
         url = f"{TrelloUrl._ROOT_URL}/{url}&token={self._trello_token}&key={self._trello_key}"
-        self._logger.info(f"url: {url}")
+        self._logger.info(f"url: {url}, method: {method_}")
 
         if method_ == "GET":
             with urllib.request.urlopen(url) as url:
@@ -363,6 +366,77 @@ def list_item_to(ctx, card_url, item, to):
         raise NotImplementedError
 
 
+@high.command()
+@click.option("--template-name")
+@click.option("--template-folder", default="card_descriptions", type=click.Path(file_okay=False))
+@click.option("--open-url/--no-open-url", default=False)
+@click.option("--web-browser", envvar="WEBBROWSER")
+@click.pass_context
+@add_logger
+def create_card_from_description(ctx, template_name, template_folder, open_url, web_browser, logger=None):
+    template_values = {}
+    for fn in os.listdir(template_folder):
+        base, ext = path.splitext(fn)
+        if ext == ".json":
+            template_values[base] = path.join(template_folder, fn)
+    if template_name is None:
+        template_name = sorted(template_values.keys())[0]
+    else:
+        assert template_name in template_values, template_name
+    template_name = template_values[template_name]
+    logger.info(template_name)
+    with open(template_name) as f:
+        data = json.load(f)
+    now_ = datetime.now()
+    env = {
+        "now": now_,
+    }
+    trello_url = TrelloUrl(
+        **{k: ctx.obj[k] for k in "trello_key,trello_token".split(",")})
+    data["name"] = urllib.parse.quote(Template(data["name"]).render(env))
+    kwargs = {k: data[k] for k in "idList,name".split(",")}
+    if "pos" in data:
+        if isinstance(data["pos"],int):
+            kwargs["pos"] = data["pos"]
+        else:
+            if data["pos"]["type"]=="immediately_after":
+                tasks = assistantbot_digest.get_tasks(data["idList"],*[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
+                tasks["next_pos"] = tasks.pos.shift(-1)
+                tasks = tasks.query(f"id=='{data['pos']['value']}'")
+                assert len(tasks)==1
+                tasks = tasks.to_dict(orient="records")[0]
+                if not pd.isna(tasks["next_pos"]):
+                    kwargs["pos"] = (tasks["pos"]+tasks["next_pos"])/2
+            else:
+                raise NotImplementedError(data["pos"])
+                
+    res = trello_url("cards?name={{name}}&idList={{idList}}{%if pos%}&pos={{pos}}{%endif%}",method_="POST", **kwargs)
+    logging.info(f"res: {res}")
+    id_, url = [res[k] for k in "id,url".split(",")]
+    for l in data["labels"]:
+        trello_url("cards/{{id_}}/idLabels?value={{l}}",
+                   method_="POST", id_=id_, l=l)
+    res = trello_url("checklists?idCard={{id_}}&name={{name}}", method_="POST",
+                     id_=id_, name=urllib.parse.quote(data["checklist"]["name"]))
+    logging.info(f"res: {res}")
+    for checkitem in data["checklist"]["checkitems"]:
+        if isinstance(checkitem, str):
+            checkitem = {"name": checkitem}
+        if "condition" in checkitem:
+            condition = checkitem["condition"]
+            if condition["type"] == "weekday":
+                condition_holds = now_.weekday() == condition["value"]
+            else:
+                raise NotImplementedError(condition)
+            if not condition_holds:
+                continue
+        trello_url("checklists/{{id_}}/checkItems?name={{name}}", method_="POST",
+                   id_=res["id"], name=urllib.parse.quote(checkitem["name"]))
+
+    if open_url:
+        webbrowser.get(web_browser).open(url)
+
+
 @cli.group()
 @click.option("--dry-run/--no-dry-run", default=False)
 @click.option("--tasklist-id", default="5a83f3449c950b04c540ba66")
@@ -383,10 +457,10 @@ def tasks(ctx):
 
 @assistantbot.command()
 @click.argument("task_hash")
-@click.option("--web-browser",envvar="WEBBROWSER")
+@click.option("--web-browser", envvar="WEBBROWSER")
 @click.pass_context
 @add_logger
-def open_task(ctx, task_hash, web_browser,logger=None):
+def open_task(ctx, task_hash, web_browser, logger=None):
     list_id = ctx.obj["tasklist_id"]
     df = assistantbot_digest.get_tasks(
         list_id, *[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
@@ -394,11 +468,12 @@ def open_task(ctx, task_hash, web_browser,logger=None):
     assert len(df) == 1
     webbrowser.get(web_browser).open(list(df["url"])[0])
 
+
 @assistantbot.command()
 @click.argument("task_hash")
 @click.pass_context
 @add_logger
-def archive_task(ctx, task_hash,logger=None):
+def archive_task(ctx, task_hash, logger=None):
     list_id = ctx.obj["tasklist_id"]
     df = assistantbot_digest.get_tasks(
         list_id, *[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
@@ -408,8 +483,9 @@ def archive_task(ctx, task_hash,logger=None):
 
     url = f"{_ROOT_URL}/cards/{id_}?key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&closed=true"
     logger.info(f"url: {url}")
-    response = requests.request("PUT",url)
+    response = requests.request("PUT", url)
     print(response.text)
+
 
 @assistantbot.command()
 @click.argument("task_hash")
@@ -424,7 +500,8 @@ def add_url_link(ctx, task_hash, url, logger=None):
         df = tasks_df.query(f"hash=='{url}'").copy()
         assert len(df) == 1
         url = list(df.url)[0]
-    assert url.startswith("http://") or url.startswith("https://"), f"bad url: \"{url}\""
+    assert url.startswith(
+        "http://") or url.startswith("https://"), f"bad url: \"{url}\""
     df = tasks_df.query(f"hash=='{task_hash}'").copy()
     assert len(df) == 1
     id_ = list(df["id"])[0]
