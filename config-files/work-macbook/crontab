@@ -1,2 +1,4 @@
 #* * * * * /Users/nailbiter/bin/fixup_wifi 2>>/tmp/fixup_wifi.log.txt 1>>/tmp/fixup_wifi.out.txt
-45 18 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/fordatawise/bq_log.py --slack 2>/tmp/bq_log.log.txt
+45 18 * * 1-5 env GOOGLE_APPLICATION_CREDENTIALS="/Users/nailbiter/.config/gcloud/legacy_credentials/dtws_oleksii_leontiev@oaklawn.co.jp/adc.json" /usr/local/bin/python3 /Users/nailbiter/for/forpython/fordatawise/bq_log.py --slack 2>/tmp/bq_log.log.txt
+0 10 * * 1-5 cd /Users/nailbiter/for/forpython && . .envrc && ./venv/bin/python3 ./fordatawise/non-reusable/print-hourly-work-time.py 2>/tmp/print_hourly.log.txt
+0 10 * * 1-5 cd /Users/nailbiter/Documents/datawise/pipeline/composer/olm-prd && . .envrc && ../venv/bin/python3 ./bin/remove-old-bigquery-tables.py fetch && ../venv/bin/python3 ./bin/remove-old-bigquery-tables.py print;
