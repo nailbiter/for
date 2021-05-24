@@ -371,9 +371,10 @@ def list_item_to(ctx, card_url, item, to):
 @click.option("--template-folder", default="card_descriptions", type=click.Path(file_okay=False))
 @click.option("--open-url/--no-open-url", default=False)
 @click.option("--web-browser", envvar="WEBBROWSER")
+@click.option("-d","--day",type=click.DateTime(["%Y-%m-%d"]))
 @click.pass_context
 @add_logger
-def create_card_from_description(ctx, template_name, template_folder, open_url, web_browser, logger=None):
+def create_card_from_description(ctx, template_name, template_folder, open_url, web_browser, day,logger=None):
     template_values = {}
     for fn in os.listdir(template_folder):
         base, ext = path.splitext(fn)
@@ -387,7 +388,7 @@ def create_card_from_description(ctx, template_name, template_folder, open_url, 
     logger.info(template_name)
     with open(template_name) as f:
         data = json.load(f)
-    now_ = datetime.now()
+    now_ = day if day is not None else datetime.now()
     env = {
         "now": now_,
     }
