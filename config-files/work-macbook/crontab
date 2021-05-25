@@ -3,4 +3,4 @@
 0 10 * * 1-5 cd /Users/nailbiter/for/forpython && . .envrc && ./venv/bin/python3 ./fordatawise/non-reusable/print-hourly-work-time.py 2>/tmp/print_hourly.log.txt
 0 10 * * 1-5 cd /Users/nailbiter/Documents/datawise/pipeline/composer/olm-prd &&  git checkout local-feature-319-old-tables-autoremoval && . .envrc && ../venv/bin/python3 ./bin/remove-old-bigquery-tables.py fetch && ../venv/bin/python3 ./bin/remove-old-bigquery-tables.py print;
 10 10 * * 1-5 cd /Users/nailbiter/Documents/datawise/ds-work/20210519-ds-pipeline-checkup && . .envrc && ./run.sh
-0 10 * *  1-5 cd /Users/nailbiter/for/forpython/trello && . .envrc && ./trello.py --debug high create-card-from-description --open-url -d 2021-05-21
+0 10 * *  1-5 cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description
