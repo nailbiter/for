@@ -72,11 +72,10 @@ def dp(ctx, temp_dir, logger=None):
                             map(lambda s: s.strip(), file_list)))
 #    click.echo(file_list)
     os.system(f"rm -rf {temp_dir}/*.mp3")
-    for fn in tqdm(file_list[:1]):
-        cmd = Template("scp {%if remote_host_port%}-P {{remote_host_port}} {%endif%} {{remote_host}}:\"{{fn}}\" {{temp_dir}}").render(
-            {**ctx.obj["kwargs"], "fn": shlex.quote(fn), "temp_dir": temp_dir})
-        logger.info(f"cmd: {cmd}")
-        os.system(cmd)
+    cmd = Template("scp {%if remote_host_port%}-P {{remote_host_port}} {%endif%} {%for fn in file_list%}{{remote_host}}:\"{{fn}}\" {%endfor%} {{temp_dir}}").render(
+        {**ctx.obj["kwargs"], "file_list": map(shlex.quote, file_list), "temp_dir": temp_dir})
+    logger.info(f"cmd: {cmd}")
+    os.system(cmd)
     os.system(f"vlc {temp_dir}")
 
 
