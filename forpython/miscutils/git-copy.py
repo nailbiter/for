@@ -112,8 +112,8 @@ def _get_head_sha():
 
 
 @git_copy.command()
-@click.argument("from_directory", type=click.Path())
-@click.argument("to_directory", type=click.Path())
+@click.argument("from_directory", type=click.Path(),nargs=-1)
+@click.argument("to_directory", type=click.Path(),nargs=1)
 @click.option("--db-filename", default=".git-copy.db")
 @click.option("-r", "--recursive", is_flag=True)
 @click.option("--check-clean-git-tree/--no-check-clean-git-tree", default=True)
@@ -127,10 +127,10 @@ def cp(ctx, from_directory, to_directory, db_filename, recursive, check_clean_gi
     if recursive:
         cmd += " -r"
     _system = ctx.obj["system"]
-    _system(f"{cmd} {from_directory} {to_directory}")
+    _system(f"{cmd} {' '.join(from_directory)} {to_directory}")
     _system(f"git add {to_directory}")
     _system(
-        f"""git commit -a -m 'COPYCAT: "{path.relpath(from_directory,repo_root)}" -> "{path.relpath(to_directory,repo_root)}"' """)
+        f"""git commit -a -m 'COPYCAT: "{[path.relpath(fd_,repo_root) for fd_ in from_directory]}" -> "{path.relpath(to_directory,repo_root)}"' """)
 
 
 if __name__ == "__main__":
