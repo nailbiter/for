@@ -5,4 +5,4 @@
 1 10 * * 1-5 cd /Users/nailbiter/Documents/datawise/ds-work/20210519-ds-pipeline-checkup && git checkout master && . .envrc && ./run.sh
 0 10 * *  1-5 cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description
 40 10-11 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py sit
-0 10-11 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py stand
+0 10-12 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py stand
