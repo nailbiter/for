@@ -28,6 +28,13 @@
           "value": 0
         },
         "name": "check taiwan embassy"
+      },
+      {
+        "condition": {
+          "type": "weekday",
+          "value": 0
+        },
+        "name": "remove unused kernels, bigquery_cache.db's"
       }
     ],
     "name": "TODO"
