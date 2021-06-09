@@ -68,7 +68,7 @@ _PREDEFINED_SLACK_MESSAGES = {
     "test": {
         "hook": subprocess.getoutput("~/for/forpython/miscutils/keyman.py --tag slack_webhooks --tag datawise get jot"),
         "message": """
-            hit me back, just to check, <@UKX9GP5N2>
+            hit me back, just to check, *abc*, <@UKX9GP5N2>
             """,
     }
 }
