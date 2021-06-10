@@ -31,9 +31,9 @@ from pymongo import MongoClient
 @click.command()
 @click.argument("fns", nargs=-1)
 @click.option("--mongo-pass", required=True, envvar="MONGO_PASS")
-@click.option("--dry-run/--no-dry-run",default=True)
-@click.option("-n","--name",type=click.Choice(["mom","masha"]),required=True)
-def parse_telegram_history(fns, mongo_pass,dry_run,name):
+@click.option("--dry-run/--no-dry-run", default=True)
+@click.option("-n", "--name", type=click.Choice(["mom", "masha"]), required=True)
+def parse_telegram_history(fns, mongo_pass, dry_run, name):
     call_times = []
     fns = sorted(fns)
     click.echo(fns)
@@ -78,15 +78,16 @@ def parse_telegram_history(fns, mongo_pass,dry_run,name):
 
     rs = [
         {
-            "date":r["date_t"]-timedelta(hours=9), 
+            "date": r["date_t"]-timedelta(hours=9),
             "content":f"#{name} #talk {int(r['time_minutes'])}m",
         }
-        for r 
+        for r
         in df.to_dict(orient="records")
     ]
     click.echo(rs)
-    if not dry_run and len(rs)>0:
+    if not dry_run and len(rs) > 0:
         mongo_client.logistics["alex.notes"].insert_many(rs)
+
 
 if __name__ == "__main__":
     parse_telegram_history()
