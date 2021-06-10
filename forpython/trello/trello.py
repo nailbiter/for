@@ -19,7 +19,7 @@ import pandas as pd
 import webbrowser
 import os
 from os import path
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 # global const's
@@ -367,7 +367,7 @@ def list_item_to(ctx, card_url, item, to):
 
 
 @high.command()
-@click.option("--template-name")
+@click.option("-t","--template-name")
 @click.option("--template-folder", default="card_descriptions", type=click.Path(file_okay=False))
 @click.option("--open-url/--no-open-url", default=False)
 @click.option("--web-browser", envvar="WEBBROWSER")
@@ -391,6 +391,7 @@ def create_card_from_description(ctx, template_name, template_folder, open_url, 
     now_ = day if day is not None else datetime.now()
     env = {
         "now": now_,
+        "timedelta":timedelta
     }
     trello_url = TrelloUrl(
         **{k: ctx.obj[k] for k in "trello_key,trello_token".split(",")})
@@ -417,22 +418,23 @@ def create_card_from_description(ctx, template_name, template_folder, open_url, 
     for l in data["labels"]:
         trello_url("cards/{{id_}}/idLabels?value={{l}}",
                    method_="POST", id_=id_, l=l)
-    res = trello_url("checklists?idCard={{id_}}&name={{name}}", method_="POST",
-                     id_=id_, name=urllib.parse.quote(data["checklist"]["name"]))
-    logging.info(f"res: {res}")
-    for checkitem in data["checklist"]["checkitems"]:
-        if isinstance(checkitem, str):
-            checkitem = {"name": checkitem}
-        if "condition" in checkitem:
-            condition = checkitem["condition"]
-            if condition["type"] == "weekday":
-                condition_holds = now_.weekday() == condition["value"]
-            else:
-                raise NotImplementedError(condition)
-            if not condition_holds:
-                continue
-        trello_url("checklists/{{id_}}/checkItems?name={{name}}", method_="POST",
-                   id_=res["id"], name=urllib.parse.quote(checkitem["name"]))
+    if "checklist" in data:
+        res = trello_url("checklists?idCard={{id_}}&name={{name}}", method_="POST",
+                         id_=id_, name=urllib.parse.quote(data["checklist"]["name"]))
+        logging.info(f"res: {res}")
+        for checkitem in data["checklist"]["checkitems"]:
+            if isinstance(checkitem, str):
+                checkitem = {"name": checkitem}
+            if "condition" in checkitem:
+                condition = checkitem["condition"]
+                if condition["type"] == "weekday":
+                    condition_holds = now_.weekday() == condition["value"]
+                else:
+                    raise NotImplementedError(condition)
+                if not condition_holds:
+                    continue
+            trello_url("checklists/{{id_}}/checkItems?name={{name}}", method_="POST",
+                       id_=res["id"], name=urllib.parse.quote(checkitem["name"]))
 
     if open_url:
         webbrowser.get(web_browser).open(url)
