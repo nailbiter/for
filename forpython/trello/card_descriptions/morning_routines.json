@@ -25,6 +25,13 @@
       {
         "condition": {
           "type": "weekday",
+          "value": 4
+        },
+        "name": "replace toothpick"
+      },
+      {
+        "condition": {
+          "type": "weekday",
           "value": 0
         },
         "name": "check taiwan embassy"
