@@ -54,7 +54,7 @@ def fix_habits(regex, mongo_pass, limit, index, dry_run,set_success):
         coll = _get_coll(mongo_pass)
         df = pd.DataFrame(coll.find(
             filter_, sort=[("date", -1)], limit=limit))
-        print(df)
+        print(df.drop(columns=["_id"]))
         o = df.to_dict(orient="records")[index_]
         status = "SUCCESS" if set_success else "FAILURE"
         print(o)
