@@ -24,6 +24,8 @@ from _common import get_coll
 from datetime import datetime, timedelta
 import pandas as pd
 import pymongo
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 @click.group()
@@ -36,26 +38,50 @@ def note(ctx, mongo_pass):
 
 @note.command()
 @click.option("-l", "--limit", type=int, default=10)
-@click.option("-r","--regex")
+@click.option("-r", "--regex")
 @click.pass_context
 def show(ctx, regex, limit):
     coll = ctx.obj["coll"]
     filter_ = {}
     if regex is not None:
-        filter_["content"] = {"$regex":regex}
+        filter_["content"] = {"$regex": regex}
     df = pd.DataFrame(
-        coll.find(filter=filter_,sort=[("date", pymongo.DESCENDING)], limit=limit))
+        coll.find(filter=filter_, sort=[("date", pymongo.DESCENDING)], limit=limit))
     click.echo(df)
+
+
+@note.command()
+@click.option("-l", "--limit", type=int, default=20)
+@click.option("--show-graph/--no-show-graph",default=True)
+@click.pass_context
+def show_weight(ctx, limit,show_graph):
+    coll = ctx.obj["coll"]
+    df = pd.DataFrame(
+        coll.find(filter={"content": {"$regex": "#weight"}}, sort=[("date", pymongo.DESCENDING)], limit=limit))
+    rs = df.to_dict(orient="records")
+    for r in rs:
+        content = r["content"]
+        split = content.split(" ")
+        assert len(split) == 2
+        split = [x for x in split if x != "#weight"]
+        assert len(split) == 1
+        r["weight"] = float(split[0])
+    df = pd.DataFrame(rs).drop(columns=["content", "_id"])
+    click.echo(df)
+    if show_graph:
+#        plt.subplots(figsize=(10,10))
+        sns.lineplot(data=df,x="date",y="weight")
+        plt.show()
 
 
 @note.command()
 @click.argument("text")
 @click.option("-d", "--day", type=click.DateTime(["%Y-%m-%d %H:%M"]))
-@click.option("-s", "--days-shift", type=int,default=0)
-@click.option("--dry-run/--no-dry-run",default=False)
-@click.option("-t","--tags",type=click.Choice(["longwalk","red_light_bicycle"]),multiple=True)
+@click.option("-s", "--days-shift", type=int, default=0)
+@click.option("--dry-run/--no-dry-run", default=False)
+@click.option("-t", "--tags", type=click.Choice(["longwalk", "red_light_bicycle"]), multiple=True)
 @click.pass_context
-def add(ctx, text, day,dry_run,days_shift,tags):
+def add(ctx, text, day, dry_run, days_shift, tags):
     coll = ctx.obj["coll"]
     for tag in tags:
         text = f"#{tag} {text}"
