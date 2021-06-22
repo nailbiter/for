@@ -1,4 +1,4 @@
-set -x PATH $HOME/bin $PATH /usr/local/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /opt/X11/bin /Library/TeX/texbin ~/anaconda2/bin /Users/oleksiileontiev/google-cloud-sdk/bin
+set -x PATH $HOME/bin $PATH /usr/local/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /opt/X11/bin /Library/TeX/texbin /Users/oleksiileontiev/google-cloud-sdk/bin $HOME/for/forpython/miscutils
 set -x EDITOR vim
 set -x SHELL /usr/local/bin/fish
 set -x GOOGLE_APPLICATION_CREDENTIALS "/Users/oleksiileontiev/.config/gcloud/legacy_credentials/nailbiter@dtws-work.in/adc.json"
