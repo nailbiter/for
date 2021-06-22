@@ -94,7 +94,7 @@ def _get_head_sha(path=None):
 
 @github.command(name="open")
 @click.option("-f", "--file-name", type=click.Path(), default=".", multiple=True)
-@click.option("--freeze-commit/--no-freeze-commit", default=False)
+@click.option("--freeze-commit/--no-freeze-commit","-z", default=False)
 @click.option("--branch")
 @click.option("--open-url/--no-open-url", default=True)
 @click.option("--commit")
