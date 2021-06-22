@@ -123,9 +123,9 @@ def release_manager(release, auto_commit, create_release, save_version_to, versi
         if create_release:
             cmd = f"gh release create {version} --title {version} --notes {version}"
             if release_notes_file is not None:
-                cmd = f"{cmd} --notes-file {release_notes_file}"
+                cmd += f" --notes-file {release_notes_file}"
             call(cmd, shell=True)
-    apply_hook("pre-release")
+    apply_hook("post-release")
 
 
 if __name__ == "__main__":
