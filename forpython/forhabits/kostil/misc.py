@@ -119,7 +119,7 @@ def _get_tasks():
 
 
 @cli.command()
-@click.option("--search")
+@click.option("-s","--search")
 @click.option("--expand/--no-expand", default=False)
 def list(search, expand):
     tasks_df = _get_tasks()
