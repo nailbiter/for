@@ -4,7 +4,7 @@ FN=weekly-analysis
 DATE=`python3 -c 'from datetime import datetime,timedelta;import sys; n = datetime.now() if len(sys.argv)==1 else datetime.strptime(sys.argv[1],"%Y-%m-%d"); print((n-timedelta(days=n.weekday())).strftime("%Y-%m-%d"))' $*`
 #echo $DATE
 
-papermill -p ref_date $DATE $FN.ipynb /tmp/$DATE-$FN.ipynb
+papermill -p ref_date_str $DATE $FN.ipynb /tmp/$DATE-$FN.ipynb
 jupyter nbconvert $FN.ipynb --to pdf
 du -hs $FN.pdf
 mv $FN.pdf pdfs/$DATE-weekly-analysis.pdf
