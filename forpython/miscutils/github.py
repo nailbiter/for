@@ -119,7 +119,7 @@ def open_url(file_name, freeze_commit, open_url, branch, head, commit, auto_comm
     _, is_no_modifications_done = _get_head_sha(path=git_dir)
     if auto_commit is not None:
         if not is_no_modifications_done:
-            os.system(f"git commit -a -m '{auto_commit}' && git push")
+            os.system(f"git commit -a -m '{auto_commit}' 1>&2 && git push 1>&2")
     else:
         logger.warning(f"there are local modifications!")
 

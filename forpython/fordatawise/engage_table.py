@@ -171,6 +171,39 @@ def print(ctx, mode, date,unlabeled_tasks_dump_file):
     else:
         raise NotImplementedError
 
+@engage_table.command()
+@click.pass_context
+@click.option("-k","--kintai-export-file",type=click.Path(),required=True)
+def fix_kintai(ctx,kintai_export_file):
+    kintai_df = pd.read_csv(kintai_export_file,encoding="shift_jis")
+    kintai_df = kintai_df.set_index("日付").loc[:,["出社","退社"]]
+    kintai_df = kintai_df[[pd.isna(x) or pd.isna(y) for x,y in zip(kintai_df["出社"],kintai_df["退社"])]]
+    kintai_df = kintai_df.reset_index().rename(columns={"日付":"date"})
+    kintai_df.date = kintai_df.date.apply(lambda s:datetime.strptime(s,"%Y-%m-%d").date())
+    kintai_df = kintai_df[[d.weekday() not in [5,6] for d in kintai_df.date]]
+    kintai_df = kintai_df.set_index("date")
+#    click.echo(kintai_df.reset_index().to_csv(index=None))
+#    click.echo(kintai_df)
+
+    client = _get_mongo_client(ctx.obj["mongo_pass"])
+    taskLog = pd.DataFrame(client.logistics["alex.taskLog"].with_options(codec_options=CodecOptions(
+        tz_aware=True, tzinfo=TIMEZONE)).find({"message": "add engage"}))
+#    _df = taskLog[[date_filter(d) for d in taskLog["date"]]]
+    _df = taskLog
+    _df = pd.DataFrame([{"date": r["date"], **r["obj"]}
+                        for r in _df.to_dict(orient="records")])
+    _df = _df.drop(columns=["idList", "labels"])
+    _df["datetime"] = _df["date"]
+    _df["date"] = _df["date"].apply(lambda d: d.date())
+    _df = _df.sort_values(by="datetime")
+    _df = _df.loc[:,["date","datetime","name"]]
+    start_times = _df.groupby("date").agg({"datetime":min}).reset_index().set_index(["date","datetime"]).join(_df.set_index(["date","datetime"]))
+    end_times =  _df.groupby("date").agg({"datetime":max}).reset_index().set_index(["date","datetime"]).join(_df.set_index(["date","datetime"]))
+    start_end_times = start_times.reset_index().set_index("date").join(end_times.reset_index().set_index("date"),how="outer",lsuffix="_s",rsuffix="_e").sort_index()
+#    click.echo(start_end_times.reset_index().to_csv(index=None))
+#    click.echo("joined")
+    click.echo((kintai_df.join(start_end_times)))
+
 
 @engage_table.command()
 @click.argument("task_id")
