@@ -492,32 +492,33 @@ def archive_task(ctx, task_hash, logger=None):
 
 @assistantbot.command()
 @click.argument("task_hash")
-@click.argument("url")
+@click.argument("urls",nargs=-1)
 @click.pass_context
 @add_logger
-def add_url_link(ctx, task_hash, url, logger=None):
+def add_url_link(ctx, task_hash, urls, logger=None):
     list_id = ctx.obj["tasklist_id"]
     tasks_df = assistantbot_digest.get_tasks(
         list_id, *[ctx.obj[k] for k in "trello_key,trello_token".split(",")])
-    if assistantbot_digest.is_digest(url):
-        df = tasks_df.query(f"hash=='{url}'").copy()
-        assert len(df) == 1
-        url = list(df.url)[0]
-    assert url.startswith(
-        "http://") or url.startswith("https://"), f"bad url: \"{url}\""
-    df = tasks_df.query(f"hash=='{task_hash}'").copy()
-    assert len(df) == 1, df
-    id_ = list(df["id"])[0]
-    url = f"{_ROOT_URL}/cards/{id_}/attachments?key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&url={urllib.parse.quote(url)}"
-    logger.info(f"url: {url}")
+    for url in urls:
+        if assistantbot_digest.is_digest(url):
+            df = tasks_df.query(f"hash=='{url}'").copy()
+            assert len(df) == 1
+            url = list(df.url)[0]
+        assert url.startswith(
+            "http://") or url.startswith("https://"), f"bad url: \"{url}\""
+        df = tasks_df.query(f"hash=='{task_hash}'").copy()
+        assert len(df) == 1, df
+        id_ = list(df["id"])[0]
+        url = f"{_ROOT_URL}/cards/{id_}/attachments?key={ctx.obj['trello_key']}&token={ctx.obj['trello_token']}&url={urllib.parse.quote(url)}"
+        logger.info(f"url: {url}")
 
-    response = requests.request(
-        "POST",
-        url,
-        #       headers=headers,
-        #       params=query
-    )
-    print(response.text)
+        response = requests.request(
+            "POST",
+            url,
+            #       headers=headers,
+            #       params=query
+        )
+        print(response.text)
 
 
 # main

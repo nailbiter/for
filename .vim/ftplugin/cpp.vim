@@ -7,8 +7,21 @@ set foldmethod=indent
 :command! ClearLine %g@__LINE__@d
 :command! -range Comment <line1>,<line2>s@^@//@ | noh
 :command! -range UnComment <line1>,<line2>s@^//@@ | noh
-inoremap    <buffer>  {<CR>  {<CR>}<Esc>O
-vnoremap    <buffer>  {<CR> s{<CR>}<Esc>kp=iB
+
+"inoremap    <buffer>  {<CR>  {<CR>}<Esc>O
+"vnoremap    <buffer>  {<CR> s{<CR>}<Esc>kp=iB
+inoremap (      ()<Left>
+inoremap (<CR>  (<CR>)<Esc>O
+inoremap ((     (
+inoremap ()     ()
+inoremap [      []<Left>
+inoremap [<CR>  [<CR>]<Esc>O
+inoremap [[     [
+inoremap []     []
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
 
 function! Cpp_CommentToggle () range
 	let	comment=1									"

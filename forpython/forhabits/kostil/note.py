@@ -68,7 +68,7 @@ def show_weight(ctx, limit,show_graph):
         assert len(split) == 1
         r["weight"] = float(split[0])
     df = pd.DataFrame(rs).drop(columns=["content", "_id"])
-    click.echo(df)
+    click.echo(pd.DataFrame({**df,"date":df.date.apply(lambda d:d.strftime("%Y-%m-%d(%a) %H:%M"))}))
     if show_graph:
 #        plt.subplots(figsize=(10,10))
         sns.lineplot(data=df,x="date",y="weight")
