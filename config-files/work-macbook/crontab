@@ -2,7 +2,7 @@
 45 18 * * 1-5 env GOOGLE_APPLICATION_CREDENTIALS="/Users/nailbiter/.config/gcloud/legacy_credentials/dtws_oleksii_leontiev@oaklawn.co.jp/adc.json" /usr/local/bin/python3 /Users/nailbiter/for/forpython/fordatawise/bq_log.py --slack 2>/tmp/bq_log.log.txt
 0 10 * * 1-5 cd /Users/nailbiter/for/forpython && . .envrc && ./venv/bin/python3 ./fordatawise/non-reusable/print-hourly-work-time.py 2>/tmp/print_hourly.log.txt
 0 10 * * 1-5 cd /Users/nailbiter/Documents/datawise/pipeline/composer/olm-prd &&  git checkout local-feature-319-old-tables-autoremoval && . .envrc && ../venv/bin/python3 ./bin/remove-old-bigquery-tables.py fetch && ../venv/bin/python3 ./bin/remove-old-bigquery-tables.py print;
-57 10 * * 1-5 cd /Users/nailbiter/Documents/datawise/ds-work/20210519-ds-pipeline-checkup && git checkout ds-pipeline-check && . .envrc && . .path.envrc && ./run.sh
+0 10 * * 1-5 cd /Users/nailbiter/Documents/datawise/ds-work/20210519-ds-pipeline-checkup && git checkout ds-pipeline-check && . .envrc && . .path.envrc && ./run.sh
 0 10 * *  1-5 cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description -t morning_routines
 0 10 * *  5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/miscutils/execute-if-last-day.py 'cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description'
 40 10-15 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py sit
