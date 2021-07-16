@@ -21,6 +21,26 @@ ORGANIZATION:
 import logging
 import click
 import os
+import os
+import hashlib
+import json
+import pandas as pd
+from os import path
+#from jismesh import utils as jismeshutils
+from tqdm import tqdm
+#import h3
+import sqlite3
+from google.cloud import bigquery
+from jinja2 import Template, Environment
+from jinja2.loaders import FileSystemLoader
+from datetime import datetime, timedelta
+import itertools
+import uuid
+#from alex_python_toolbox import google_drive
+import numpy as np
+#from scipy import stats
+import functools
+import time
 
 
 class CopyJob:
@@ -31,17 +51,19 @@ class CopyJob:
         self._logger = logging.getLogger(self.__class__.__name__)
 
     def verify(self, source, suffix):
-        ds = self._get_destination_split(source,suffix)
+        ds = self._get_destination_split(source, suffix)
         dest = ".".join(ds)
         ts = self._bq_client.get_table(source), self._bq_client.get_table(dest)
-        for p in ["num_rows","num_bytes"]:
-            x,y = [getattr(t,p) for t in ts]
-            if x!=y:
-                self._logger.error(f"different {p}: {source}.{p}(={x}) != {dest}.{p}(={y})")
+        for p in ["num_rows", "num_bytes"]:
+            x, y = [getattr(t, p) for t in ts]
+            if x != y:
+                self._logger.error(
+                    f"different {p}: {source}.{p}(={x}) != {dest}.{p}(={y})")
             else:
-                self._logger.info(f"same {p}: {source}.{p}(={x}) == {dest}.{p}(={y})")
+                self._logger.info(
+                    f"same {p}: {source}.{p}(={x}) == {dest}.{p}(={y})")
 
-    def _get_destination_split(self,source,suffix):
+    def _get_destination_split(self, source, suffix):
         destination_split = self._destination.split(".")
         if len(destination_split) == 2:
             destination_split.append(source.split(".")[-1])
@@ -50,7 +72,7 @@ class CopyJob:
         return destination_split
 
     def __call__(self, source, suffix, only_print=False):
-        destination_split = self._get_destination_split(source,suffix)
+        destination_split = self._get_destination_split(source, suffix)
         cmd = f"bq cp \"{source.replace('.',':',1)}\" \"{destination_split[0]}:{'.'.join(destination_split[1:])}\""
         if only_print:
             click.echo(cmd)
@@ -76,3 +98,22 @@ def system(cmd, dry_run, logger=None):
     if not dry_run:
         retcode = os.system(cmd)
     return retcode
+
+
+def list_tables(bq_client, prefix):
+    split = prefix.split(".")
+    assert 3 >= len(split) >= 2
+    if len(split) == 2:
+        split.append("")
+    project, dataset, prefix = split
+    return [t.table_id[len(prefix):] for t in bq_client.list_tables(f"{project}.{dataset}") if t.table_id.startswith(prefix)]
+
+
+def dates_from_to(start_date, end_date, fmt="%Y%m%d"):
+    start_date, end_date = [datetime.strptime(
+        s, fmt) for s in [start_date, end_date]]
+    assert start_date <= end_date
+    res = [start_date]
+    while res[-1] < end_date:
+        res.append(res[-1]+timedelta(days=1))
+    return [d.strftime(fmt) for d in res]

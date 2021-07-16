@@ -5,14 +5,14 @@
 
        USAGE: ././bq.py
 
- DESCRIPTION: 
+ DESCRIPTION:
 
      OPTIONS: ---
 REQUIREMENTS: ---
         BUGS: ---
        NOTES: ---
       AUTHOR: Alex Leontiev (alozz1991@gmail.com)
-ORGANIZATION: 
+ORGANIZATION:
      VERSION: ---
      CREATED: 2021-02-09T16:39:06.101759
     REVISION: ---
@@ -30,7 +30,10 @@ from tqdm import tqdm
 import pandas as pd
 import logging
 import concurrent.futures
-from _bq import CopyJob
+from _bq import CopyJob, list_tables, dates_from_to
+from datetime import datetime, timedelta
+import numpy as np
+import itertools
 
 _UNIT_LIST = list(
     zip(['bytes', 'kB', 'MB', 'GB', 'TB', 'PB'], [0, 0, 1, 2, 2, 2]))
@@ -120,7 +123,7 @@ def show_size(table_name):
 @click.option("--post-verify/--no-post-verify", default=True)
 @click.option("--before")
 @click.option("--after")
-def cp(sources, destination, dry_run, only_print_commands, before, after,post_verify):
+def cp(sources, destination, dry_run, only_print_commands, before, after, post_verify):
     client = bigquery.Client()
     _sources = []
     for source in sources:
@@ -148,6 +151,58 @@ def cp(sources, destination, dry_run, only_print_commands, before, after,post_ve
     if post_verify:
         for source, suffix in (sources):
             copy_job.verify(source, suffix)
+
+
+@bq.command()
+@click.argument("prefix")
+@click.option("-s", "--start-date", type=click.DateTime(["%Y-%m-%d"]))
+@click.option("-e", "--end-date", type=click.DateTime(["%Y-%m-%d"]))
+@click.option("--compress/--no-compress", default=True)
+@click.option("--absent/--no-absent",default=False)
+@click.option("--show-table-stats/--no-show-table-stats",default=False)
+def show_tables(prefix, start_date, end_date, compress,absent,show_table_stats):
+    client = bigquery.Client()
+    table_suffices = list_tables(client, prefix)
+    if len(table_suffices) == 0:
+        click.echo("none found")
+        return
+    if start_date is None:
+        start_date = datetime.strptime(min(table_suffices), "%Y%m%d")
+    if end_date is None:
+        end_date = datetime.strptime(max(table_suffices), "%Y%m%d")
+    table_suffices = filter(lambda s: start_date.strftime(
+        "%Y%m%d") <= s <= end_date.strftime("%Y%m%d"), table_suffices)
+    if absent:
+        table_suffices = set(dates_from_to(*map(lambda d:d.strftime("%Y%m%d"),[start_date,end_date]))) - set(table_suffices)
+        table_suffices = list(table_suffices)
+        if len(table_suffices) == 0:
+            click.echo("all present")
+            return
+    table_suffices = list(sorted(table_suffices))
+    _TABLE_PROPERTIES = {
+        "num_rows":None,        
+        "size_gb":lambda t:t.num_bytes/(2**30),
+    }
+    _AGGREGATIONS = {
+        **{k:getattr(np,k) for k in ["min","max","sum"]},
+    }
+    if compress:
+        compressed = [{k:datetime.strptime(table_suffices[0], "%Y%m%d") for k in ["start","end"]}]
+        for ts in table_suffices[1:]:
+            if (datetime.strptime(ts, "%Y%m%d")-compressed[-1]["end"]).days == 1:
+                compressed[-1]["end"] += timedelta(days=1)
+            else:
+                compressed.append({k:datetime.strptime(ts, "%Y%m%d") for k in ["start","end"]})
+        if show_table_stats:
+            assert not absent, "`show_table_stats` and `absent` are mutually exclusive"
+            for d in compressed:
+                tns = [client.get_table(prefix+ts) for ts in tqdm(list(dates_from_to(*[d[k].strftime("%Y%m%d") for k in ["start","end"]])))]
+                for (fn,ff),(k,v) in itertools.product(_TABLE_PROPERTIES.items(),_AGGREGATIONS.items()):
+                    x = list(map(lambda tn:getattr(tn,fn) if ff is None else ff(tn),tns))
+                    d[f"{k}_{fn}"] = v(x)
+        click.echo(pd.DataFrame(compressed).to_string(index=None))
+    else:
+        click.echo(pd.DataFrame({"tn": table_suffices}).to_string(index=None))
 
 
 if __name__ == "__main__":

@@ -27,7 +27,8 @@ from tqdm import tqdm
 
 
 @click.command()
-def backfill_progress():
+@click.option("--only-tqdm/--no-only-tqdm",default=False)
+def backfill_progress(only_tqdm):
     idx = 0
     max_cnt, tqdm_object = [None]*2
     pat = re.compile(r".*finished run (\d+) of (\d+).*")
@@ -47,7 +48,8 @@ def backfill_progress():
                 idx = i
 
 #        print(f"l({datetime.now().isoformat()}): \"{line}\"")
-        click.echo(line)
+        if not only_tqdm:
+            click.echo(line)
 
 
 if __name__ == "__main__":
