@@ -1,0 +1,27 @@
+name: AAAAAA
+school: NCKU
+phone: 0955555555
+major: Communication
+grade: 8
+room: 555
+Not Found!!
+Abe
+AAAAAA
+NULL
+NULL
+BonForg
+Bob
+NULL
+NULL
+LeeYun
+NULL
+NULL
+BonForg
+AAAAAA
+NULL
+Bob
+NULL
+NULL
+LeeYun
+NULL
+NULL

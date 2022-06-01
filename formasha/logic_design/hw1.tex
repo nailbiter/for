@@ -1,0 +1,119 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{hyperref}
+\usepackage{circuitikz}
+\input{.common.tex}
+
+\title{Homework 2;
+31.67/60.00 (52.78\%)
+}
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1 \score{10}{10}}
+\begin{enumerate}[(a)]
+  \item OK
+  \item OK
+\end{enumerate}
+\section*{Problem 2 \score{5}{10} \footnote{similar problems: 2.10a, 2.10b (p. 50)}}
+\begin{enumerate}[(a)]
+  \item OK
+  \item NOT ok (the ``rule'' you've used in second implication is not correct in general: $AB+CD\neq (A+C)(B+D)$ in general)
+\end{enumerate}
+\section*{Problem 3 \score{6.67}{10} \footnote{similar problems: exercises 3b,3d from HW2}}
+\begin{enumerate}[(a)]
+  \item OK
+  \item not OK (you've also used the \textbf{Law of Involution})
+  \item OK
+\end{enumerate}
+\section*{Problem 4 \score{0}{10} \footnote{similar problems: Use only DeMorgan’s relationships and Involution to find the complements of the following functions: $f(A,B,C,D)=BCD'(C'D+B)'+A'CD+B'$ 
+and $f(A,B,C,D,E,F)=A'(B+C)(D'E+F)'+\left( D'E+F \right)$}}
+\begin{enumerate}[(a)]
+  \item NOT ok (you used \textbf{Distributive Law})
+  \item NOT ok (you used \textbf{Distributive Law})
+\end{enumerate}
+\section*{Problem 5 \score{10}{10}}
+OK
+\section*{Problem 6 \score{0}{10} \footnote{similar problems: see Make-up Problem 1 below}}
+\begin{enumerate}[(a)]
+  \item NOT ok
+    ; which law did you use when you wrote\begin{equation*}
+      \begin{array}[]{c}
+      F=Z(X+Y')+X'YZ\\
+      F=Z(X+Y')+(X+Y')Z?
+      \end{array}
+    \end{equation*}
+  \item NOT ok
+    ; which law did you use when you wrote\begin{equation*}
+      \begin{array}[]{c}
+        F=\left( X+Y'+Z' \right)\left( Z+X'Y \right)\\
+        F=\left( \left( X+Y' \right)+Z' \right)\left( Z+\left( Y'+X \right) \right)?
+      \end{array}
+    \end{equation*}
+\end{enumerate}
+\section*{Make-up Problem 1}
+Show the equivalence of the following circles:
+\begin{enumerate}
+  \item 
+\begin{circuitikz} \draw
+(0,2) node[and port] (myand1) {}
+(0,0) node[and port] (myand2) {}
+(2,1) node[or port] (myor) {}
+(myand1.in 1) node[anchor=east] {A}
+(myand1.in 2) node[anchor=east] {B}
+(myand2.in 1) node[anchor=east] {A}
+(myand2.in 2) node[anchor=east] {C'}
+(myand1.out) -- (myor.in 1)
+(myand2.out) -- (myor.in 2)
+;\end{circuitikz}
+and
+\begin{circuitikz} \draw
+  (0,0) node [and port] (WfbdMvsUbBVq) {}
+  (2,0) node[or port] (asrcIHGT5p13) {}
+  (2,2) node[or port] (wGcBDXfcYyYI) {}
+  (4,1) node[and port] (BMZMulXHJpMo) {}
+  (asrcIHGT5p13.in 1) node[anchor=east] {A}
+  (asrcIHGT5p13.in 2) node[anchor=east] {C}
+  (wGcBDXfcYyYI.in 2) node[anchor=east] {C'}
+  (asrcIHGT5p13.out) -- (BMZMulXHJpMo.in 1)
+  (wGcBDXfcYyYI.out) -- (BMZMulXHJpMo.in 2)
+  (WfbdMvsUbBVq.out) -- (wGcBDXfcYyYI.in 1)
+  (WfbdMvsUbBVq.in 1) node[anchor=east] {A}
+  (WfbdMvsUbBVq.in 2) node[anchor=east] {B}
+;\end{circuitikz}
+\item
+\end{enumerate}
+\begin{circuitikz} \draw
+  (0,0) node [and port] (WfbdMvsUbBVq) {}
+  (2,0) node[or port] (asrcIHGT5p13) {}
+  (2,2) node[or port] (wGcBDXfcYyYI) {}
+  (4,1) node[and port] (BMZMulXHJpMo) {}
+  (asrcIHGT5p13.in 1) node[anchor=east] {W'}
+  (asrcIHGT5p13.in 2) node[anchor=east] {Z}
+  (wGcBDXfcYyYI.in 2) node[anchor=east] {W}
+  (asrcIHGT5p13.out) -- (BMZMulXHJpMo.in 1)
+  (wGcBDXfcYyYI.out) -- (BMZMulXHJpMo.in 2)
+  (WfbdMvsUbBVq.out) -- (wGcBDXfcYyYI.in 1)
+  (WfbdMvsUbBVq.in 1) node[anchor=east] {X}
+  (WfbdMvsUbBVq.in 2) node[anchor=east] {Y}
+;\end{circuitikz}
+and
+\begin{circuitikz} \draw
+  (0,0) node [and port] (WfbdMvsUbBVq) {}
+  (2,0) node[and port] (asrcIHGT5p13) {}
+  (2,2) node[and port] (wGcBDXfcYyYI) {}
+  (4,1) node[or port] (BMZMulXHJpMo) {}
+  (asrcIHGT5p13.in 1) node[anchor=east] {W}
+  (asrcIHGT5p13.in 2) node[anchor=east] {Z}
+  (wGcBDXfcYyYI.in 2) node[anchor=east] {X}
+  (asrcIHGT5p13.out) -- (BMZMulXHJpMo.in 1)
+  (wGcBDXfcYyYI.out) -- (BMZMulXHJpMo.in 2)
+  (WfbdMvsUbBVq.out) -- (wGcBDXfcYyYI.in 1)
+  (WfbdMvsUbBVq.in 1) node[anchor=east] {W'}
+  (WfbdMvsUbBVq.in 2) node[anchor=east] {Y}
+;\end{circuitikz}
+\end{document}

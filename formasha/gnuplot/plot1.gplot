@@ -1,0 +1,13 @@
+set terminal png size 1024,768
+#set key right nobox
+set samples 10000
+#set datafile separator ","
+
+#plot "errors-test.csv" using 1:2 with lines title "test set" lw 4, "errors-validation.csv" using 1:2 with lines title "validation set" lw 4
+set parametric
+set trange [0:2*pi]
+# Parametric functions for a circle
+r=10
+fx(t) = r*cos(5*t)
+fy(t) = r*sin(9*t)
+plot fx(t),fy(t)

@@ -1,0 +1,12 @@
+{{translation}}., {{line.zach}} зач.,
+
+{%if line.chapter_roman_start==line.chapter_roman_end%}{{line.chapter_roman_start}}, 
+{{line.chapter_start}} – {{line.chapter_end}}{%else%}{{line.chapter_roman_start}}, {{line.chapter_start}} – {{line.chapter_roman_end}}, {{line.chapter_end}}{%endif%}
+{%-if line.chapter_start_1-%}
+, 
+
+{{line.chapter_start_1}} – {{line.chapter_end_1}}
+{%-endif-%}
+{%if line.chapter_start_2-%}
+, {{line.chapter_start_2}} – {{line.chapter_end_2}} 
+{%-endif-%}.

@@ -3,7 +3,6 @@ docs/
 *.log
 *.out
 forlatex/
-fortexmacs/
 harpoon.sty
 forjava/*.class
 forjava/*.txt
@@ -15,3 +14,4 @@ forscheme/sec.scm
 *.swp
 *.swo
 .DS_Store
+*~

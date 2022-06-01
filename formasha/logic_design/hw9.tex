@@ -1,0 +1,47 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{hyperref}
+\usepackage{circuitikz}
+\input{.common.tex}
+
+\newcommand{\NOR}{\operatorname{NOR}}
+\newcommand{\NAND}{\operatorname{NAND}}
+
+\title{Homework 13;
+30.00/50.00 (60.00\%)
+}
+\begin{document}
+
+\maketitle
+\secscore{1}{0}{10}
+NOT ok
+\secscore{2}{10}{10}
+\begin{enumerate}[(a)]
+  \item OK
+  \item OK
+  \item OK
+\end{enumerate}
+\secscoreFootnote{3}{0}{10}{13.10,13.11}
+\begin{enumerate}[(a)]
+  \item NOT ok.
+    When ${Q_1,Q_2}=01,X=0$, \begin{equation*}
+      \begin{array}[]{c}
+        J_1=\NAND(\NAND(X,Q_2'),\NAND(X',Q_2))=\NAND(\NAND(0,0),\NAND(1,1))=\NAND(1,0)=1,\\
+        K_1=X'Q_2=1,\\
+        J_2=K_2=\NOR(X',Q_1)=0,\\
+        Q_1^+=J_1Q_1'+K_1'Q_1=1,\\
+        Q_2^+=J_2Q_2'+K_2'Q_2=1,\\
+      \end{array}
+    \end{equation*}
+    Hence, when $X=1$, we should have $s_1\to s_3$ transition, thus contradicting your state table.
+  \item NOT ok
+  \item NOT ok
+\end{enumerate}
+\secscore{4}{10}{10}
+OK
+\secscore{5}{10}{10}
+waveform diagram is OK
+\end{document}

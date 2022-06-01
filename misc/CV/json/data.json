@@ -1,303 +1,385 @@
 {
-  "langs":[
-    ["Chinese (fluent), Japanese (fluent)"],
-    ["English (fluent), German (basic)"],
-    ["Russian (native), Ukrainian (native)"]
-  ],
-  "months":["",
-	  "Jan","Feb",
-	  "Mar","Apr","May",
-	  "Jun","Jul","Aug",
-	  "Sep","Oct","Nov",
-	  "Dec"
-  ],
-  "honors":
-  [
-  	["Leading Graduate Course for Frontiers of Mathematical Sciences and Physics (FMSP) (2016--2019)"],
-  	["Tokyo U. Graduate School of Mathematical Sciences Director's Prize (2016)"],
-  	["Successful participant in Google Summer of Code 2015 (2015)"],
-  	["Awarded with Monbukagakusho Scholarship by MEXT (2014--2019)"],
-  	["Successful participant in Google Summer of Code 2013 (2013)"],
-  	["Nominated as an Exchange Student to Hong Kong University (2013)"],
-  	["Diamond Project Scholarship, NCTU (2011--2012)"],
-  	["Best Student in Class Award, NCTU (2010--2012)"],
-  	["Golden Bamboo Scholarship Award, NCTU (2009--2013)"]
-  ],
-  "progLangs":[
-    ["C/C++        7 years of experience"],
-    ["OpenCV, OpenGL, OpenSSL, Network Programming, Apache Hadoop"],
-    ["Java, Android Application Development"],
-    ["Lisp, Scheme"],
-    ["JavaScript/TypeScript, React JS, Express.js, Node.js"],
-    ["C#, Unity Game Engine"]
-  ],
-  "langExams":[
+  "VARS": {
+    "ADDRESS": "1-29-16 Souka, Saitama, Japan, 340-0046",
+    "BIRTHDATE": "December 24, 2018",
+    "CURRENTADDRESS": "Address",
+    "DATEOFBIRTH": "Date of Birth",
+    "EDUCATION": "Education",
+    "EDUCATIONEMPLOYMENT": "Education and Employment History",
+    "LANGSKILLS": "Language Qualifications",
+    "LANGUAGESKILLS": "Language Skills",
+    "LASTUPDATE": "Jun 10, 2019",
+    "LASTUPDATETEXT": "Last Update",
+    "MONTH": "Month",
+    "NAME": "Oleksii        Leontiev",
+    "NAMETEXT": "Name",
+    "PHONE": "Phone",
+    "PHONENUMBER": "Phone Number",
+    "PHONEPREFIX": "050",
+    "PHONESUFFIX": "5532 0335",
+    "PROGLANGUAGES": "Programming Languages/Framework Skills",
+    "THEEND": "End",
+    "TITLE": "Curriculum Vitae",
+    "WORK": "Work Experience",
+    "YEAR": "Year"
+  },
+  "education": [
     {
-      "year":[25],"month":[8],"description":["TOEFL iBT, score: 112/120"]
+      "description": [
+        "Graduated from <i>Kyiv Natural Science Lyceum No. 145</i>"
+      ],
+      "month": [
+        6
+      ],
+      "year": [
+        21
+      ]
     },
     {
-      "year":[25],"month":[11],"description":["Test of Chinese as a Foreign Language Level 3/5,  score: 94/100"]
-    }
-  ],
-  "education":[
-    {
-      "year":[21],"month":[6],
-      "description":["Graduated from <i>Kyiv Natural Science Lyceum No. 145</i>"]
+      "description": [
+        "Enrolled into <i>National Taiwan Chiao Tung University</i> (Department of Applied Mathematics, Undergraduate Program)"
+      ],
+      "month": [
+        9
+      ],
+      "year": [
+        21
+      ]
     },
     {
-      "year":[21],"month":[9],
-      "description":["Enrolled into <i>National Taiwan Chiao Tung University</i> (Department of Applied Mathematics, Undergraduate Program)"]
+      "description": [
+        "6 month Student Exchange at <i>Hong Kong University</i>"
+      ],
+      "month": [
+        2
+      ],
+      "year": [
+        25
+      ]
     },
     {
-      "year":[25],"month":[2],
-      "description":["6 month Student Exchange at <i>Hong Kong University</i>"]
-    },
-    {
-      "year":[25],"month":[6],
-      "description":["Graduated from <i>National Taiwan Chiao Tung University</i>, Double Degree in Applied Math and Computer Science"],
-      "uniname":"National Taiwan Chiao Tung University, Hsinchu, Taiwan",
-      "degreename":"BSc, Double Degree in Applied Math and Computer Science",
+      "degreename": "BSc, Double Degree in Applied Math and Computer Science",
+      "description": [
+        "Graduated from <i>National Taiwan Chiao Tung University</i>, Double Degree in Applied Math and Computer Science"
+      ],
       "honors": [
         "Nominated as an Exchange Student to Hong Kong University (2013)",
-      	"Diamond Project Scholarship, NCTU (2011--2012)",
-      	"Best Student in Class Award, NCTU (2010--2012)",
-      	"Golden Bamboo Scholarship Award, NCTU (2009--2013)"
+        "Diamond Project Scholarship, NCTU (2011--2012)",
+        "Best Student in Class Award, NCTU (2010--2012)",
+        "Golden Bamboo Scholarship Award, NCTU (2009--2013)"
       ],
-      "type":"GRADUATION"
+      "month": [
+        6
+      ],
+      "type": "GRADUATION",
+      "uniname": "National Taiwan Chiao Tung University, Hsinchu, Taiwan",
+      "year": [
+        25
+      ]
     },
     {
-      "year":[26],"month":[4],
-      "description":["Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, Master Degree Program)"]
+      "description": [
+        "Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, Master Degree Program)"
+      ],
+      "month": [
+        4
+      ],
+      "year": [
+        26
+      ]
     },
     {
-      "year":[28],"month":[2],
-      "type":"GRADUATION",
-      "uniname":"The University of Tokyo, Tokyo, Japan",
-      "degreename":"MPhil (Mathematical Sciences)",
-      "honors":["Tokyo U. Graduate School of Mathematical Sciences Director's Prize (2016)"],
-      "description":["Obtained Master Degree from <i>The University of Tokyo</i>"]
+      "degreename": "MPhil (Mathematical Sciences)",
+      "description": [
+        "Obtained Master Degree from <i>The University of Tokyo</i>"
+      ],
+      "honors": [
+        "Tokyo U. Graduate School of Mathematical Sciences Director's Prize (2016)"
+      ],
+      "month": [
+        2
+      ],
+      "type": "GRADUATION",
+      "uniname": "The University of Tokyo, Tokyo, Japan",
+      "year": [
+        28
+      ]
     },
     {
-      "year":[28],"month":[4],
-      "description":["Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, PhD Program)"]
+      "description": [
+        "Enrolled into <i>The University of Tokyo</i> (Graduate School of Mathematical Sciences, PhD Program)"
+      ],
+      "month": [
+        4
+      ],
+      "year": [
+        28
+      ]
     },
     {
-      "year":[31],"month":[9],
-      "type":"GRADUATION",
-      "uniname":"The University of Tokyo, Tokyo, Japan",
-      "degreename":"PhD (Mathematical Sciences)",
-      "description":["Obtained PhD from <i>The University of Tokyo</i> (expected)"]
+      "degreename": "PhD (Mathematical Sciences)",
+      "description": [
+        "Obtained PhD from <i>The University of Tokyo</i> (expected)"
+      ],
+      "month": [
+        9
+      ],
+      "type": "GRADUATION",
+      "uniname": "The University of Tokyo, Tokyo, Japan",
+      "year": [
+        31
+      ]
     },
-    null,null,null,null
+    null,
+    null,
+    null,
+    null
   ],
-  "work":[
-     {
-        "description" : [
-           "Internship at Computer Graphics and Geometry Modeling Lab (under Prof. <a href=\"https://www.cs.nctu.edu.tw/cswebsite/members/detail/jhchuang\">Jung-Hong Chuang</a>)"
-        ],
-        "honors":[
-          "Prepared several paper surveys on Surface Recognition",
-          "Implemented several small programs using <a href=\"http://pointclouds.org\">PCL Library</a>",
-          "Implemented <i>Stochastic optimization for rigid point set registration</i> by Papazov and Chavdar (in C++, using <a href=\"http://pointclouds.org\">PCL Library</a>)",
-          "Acquired basic proficiency with <a href=\"http://pointclouds.org\">PCL Library</a>"
-        ],
-        "degreename":"Intern",
-        "month" : [
-           6,
-           5
-        ],
-        "year" : [
-           24,
-           25
-        ]
-     },
-     {
-        "month" : [
-           8,
-           12
-        ],
-        "year" : [
-           25,25
-        ],
-        "degreename":"Contract Programmer",
-        "honors":[
-          "Designed and implemented the prototype of a Smart Meter, designed by H.-Y. Lin (in C, using <a href=\"https://www.openssl.org\">OpenSSL</a>)"
-        ],
-        "description" : [
-           "Desing and Implementation of a prototype  <a href=\"https://link.springer.com/chapter/10.1007/978-3-642-31284-7_32\">A Practical Smart Metering System Supporting Privacy</a> by <a href=\"https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/\">H.-Y. Lin</a> et al. (implementation requested and financed by <a href=\"https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/\">H.-Y. Lin</a>)"
-        ]
-     },
-     {
-        "month" : [
-           5,
-           9
-        ],
-        "year" : [
-           25,25
-        ],
-        "degreename":"Contract Programmer",
-        "honors":[
-          "Implemented several well-known numerical optimization algorithms (in C++) and collected them into a module",
-          "Module was included in <a href=\"https://opencv.org\">OpenCV library</a>"
-        ],
-        "description" : [
-           "Succesfully completed <a href=\"https://summerofcode.withgoogle.com/?csw=1\">Google Summer of Code</a> 2014 program (for <a href=\"https://opencv.org\">OpenCV library</a>)"
-        ]
-     },
-     {
-        "year" : [
-           26,26
-        ],
-        "month" : [
-           5,
-           9
-        ],
-        "degreename":"Contract Programmer",
-        "honors":[
-          "Implemented the paper <i>Tracking-Learning-Detection</i> by Z. Kalal et. al. (in C++, using <a href=\"https://opencv.org\">OpenCV library</a>)",
-          "The implementation was included in <a href=\"https://opencv.org\">OpenCV library</a>"
-        ],
-        "description" : [
-           "Succesfully completed <a href=\"https://summerofcode.withgoogle.com/?csw=1\">Google Summer of Code</a> 2015 program (for <a href=\"https://opencv.org\">OpenCV library</a>)"
-        ]
-     },
-     {
-	    "degreename":"Unity Developer",
-        "description" : [
-           "Unity Developer at <a href=\"http://www.app-studio.jp\">株式会社アプリ工房</a>"
-        ],
-        "honors":[
-          "Added multi-player support to existing Unity game, using <a href=\"https://www.photonengine.com/ja/PUN\">Photon Networking Framework</a>",
-          "Also implemented the same functionality using <a href=\"http://www.monobitengine.com/mun/\">Monobit Networking Framework</a>"
-        ],
-        "year" : [
-           28,28
-        ],
-        "month" : [
-           10,
-           11
-        ]
-     },
-     {
-	    "degreename":"Unity Developer",
-        "description" : [
-           "Unity Developer at <a href=\"https://www.facebook.com/AjpGames/\">AJP Games</a>"
-        ],
-        "month" : [
-           11,
-           5
-        ],
-        "year" : [
-           28,
-           29
-        ],
-        "honors":[
-          "Participated in the creation of a new installation of <a href=\"https://en.wikipedia.org/wiki/Harvest_Moon:_The_Lost_Valley\">Harvest Moon</a> series (C#, Unity)"
-        ]
-     },
-     {
-	    "degreename":"Unity Developer",
-        "description" : [
-           "Unity Developer at <a href=\"http://www.pocket-queries.co.jp/\">Pocket Queries</a>"
-        ],
-        "month" : [
-           6,
-           7
-        ],
-        "year" : [
-           29,29
-        ],
-        "honors":[
-          "Prepared several paper and software surveys related to Computer Vision and Machine Learning (including <a href=\"https://www.tensorflow.org/?hl=ja\">TensorFlow</a>, <a href=\"https://github.com/liuziwei7/fashion-detection\">Fashion Detection in the Wild</a> and <a href=\"http://vision.is.tohoku.ac.jp/~kyamagu/research/paperdoll/\">PaperDoll</a>)",
-          "Acquired basic proficiency with <a href=\"https://www.tensorflow.org/?hl=ja\">TensorFlow</a>"
-        ]
-     },
-     {
-        "year" : [
-           30,30
-        ],
-        "month" : [
-           7,
-           5
-        ],
-        "honors":[
-		"Dream Pirates is a small software development company, specializing in a wide range of technologies, including AR, VR, mobile development and web development.",
-		"As a part of five people team I was tasked with developing the video-blogging platform <a href=\"tokyo-komachi.jp\">tokyo-komachi.jp</a>.",
-		"The purpose of the platform was on the one hand, to enable video-bloggers (both employed by the company and independent ones) to stream their content, while end-users could watch it and communicate with cast (sending stickers, virtual gifts and text messages), using virtual currency.",
-		"Back-end was implemented using <code>node.js</code> and <code>express.js</code> (using <code>MongoDB</code> as a database). Front-end was using <code>ReactJS</code> and <code>WebPack</code>. For styling we have used <code>SemanticUI</code> (initially) and gradually switched to <code>Google Material UI</code>. The main development language was JavaScript (initially), but we gradually switched to TypeScript.",
-		"My personal responsibilities were: to support the infra-structure (i.e. keep the Nginx server running on our Amazon AWS instances and insure that new version of code is delivered on time);",
-		"developing and maintaining the interface between our code and <a href=\"https://flashphoner.com/wcs5/\">Web Call Server</a> (whichi we used for video streaming);",
-		"developing and maintaining the email sending system (for our email-magazine);",
-		"developing some miscellaneous parts of front- and back-end;",
-		"explaining the tasks to two junior programmers and assuring the quality of their work results.",
-		"In addition, I have transferred several big parts of our code to TypeScript and carried out several refactoring sub-projects. I also implemented system to automatically submit the health status of the server to our Slack channel."
-        ],
-        "description" : [
-           "System Engineer at <a href=\"https://www.dreampirates.jp\">Dream Pirates</a>"
-        ],
-	"degreename":"System Engineer"
-     },
-     null,
-     null
+  "honors": [
+    [
+      "Leading Graduate Course for Frontiers of Mathematical Sciences and Physics (FMSP) (2016--2019)"
+    ],
+    [
+      "Tokyo U. Graduate School of Mathematical Sciences Director's Prize (2016)"
+    ],
+    [
+      "Successful participant in Google Summer of Code 2015 (2015)"
+    ],
+    [
+      "Awarded with Monbukagakusho Scholarship by MEXT (2014--2019)"
+    ],
+    [
+      "Successful participant in Google Summer of Code 2013 (2013)"
+    ],
+    [
+      "Nominated as an Exchange Student to Hong Kong University (2013)"
+    ],
+    [
+      "Diamond Project Scholarship, NCTU (2011--2012)"
+    ],
+    [
+      "Best Student in Class Award, NCTU (2010--2012)"
+    ],
+    [
+      "Golden Bamboo Scholarship Award, NCTU (2009--2013)"
+    ]
   ],
-  "papers":[
+  "langExams": [
     {
-      "Date": {"year":2015,"month":"01","date":"26"},
-      "Title": "A New Criterion For the Roughness of Exponential Dichotomy on R",
-      "Link": "http://mat76.mat.uni-miskolc.hu/mnotes/contents/16/2",
-      "Journal": "Miskolc Mathematical Notes",
-      "COAUTHORS": "Petro Feketa"
+      "description": [
+        "TOEFL iBT, score: 112/120"
+      ],
+      "month": [
+        8
+      ],
+      "year": [
+        25
+      ]
     },
     {
-      "Date": {"year":2016,"month":"09","date":"18"},
-      "Title": "Symmetry breaking operators for the indefinite orthogonal groups O(p,q)",
-      "Link": "https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxhbGV4bGVvbnRpZXZ0b2RhaXxneDo0ZjI3MjNlMTdmNDdjYjY3",
-      "Journal": "Abstract of the Geometry Session at the MSJ 2016 Autumn Meeting",
-      "COAUTHORS": "Toshiyuki Kobayashi"
-    },
-    {
-      "Date": {"year":2017,"month":"03","date":"26"},
-      "Title": "Symmetry breaking operators for conformal transformation groups O(p,q)",
-      "Link": "https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxhbGV4bGVvbnRpZXZ0b2RhaXxneDoyMGNhYTE4YmYzMTdmN2Nj",
-      "Journal": "Abstract Book of MSJ Spring Meeting 2017 at Tokyo Metropolitan University",
-      "COAUTHORS": "Toshiyuki Kobayashi"
-    },
-    {
-      "Date": {"year":2017,"month":"09","date":"12"},
-      "Title": "Symmetry breaking operators for the restriction of representations of indefinite orthogonal groups O(p,q)",
-      "Link": "https://projecteuclid.org/euclid.pja/1506996023",
-      "Journal": "Proceedings of the Japan Academy, Series A, Mathematical Sciences",
-      "COAUTHORS": "Toshiyuki Kobayashi"
+      "description": [
+        "Test of Chinese as a Foreign Language Level 3/5,  score: 94/100"
+      ],
+      "month": [
+        11
+      ],
+      "year": [
+        25
+      ]
     }
   ],
-  "VARS":{
-    "PHONEPREFIX" : "050",
-    "PHONE":"Phone",
-    "PHONESUFFIX" : "5532 0335",
-    "DATEOFBIRTH" : "Date of Birth",
-    "PHONENUMBER" : "Phone Number",
-    "BIRTHDATE" : "December 24, 2018",
-    "ADDRESS":"2-2-A Aomi, Koto-ku, Tokyo Japan, 135-0064",
-    "CURRENTADDRESS" : "Address",
-    "NAME" : "Oleksii        Leontiev",
-    "NAMETEXT" : "Name",
-    "TITLE":"Curriculum Vitae",
-    "LASTUPDATE" : "Jun 10, 2019",
-    "LASTUPDATETEXT":"Last Update",
-    "YEAR" : "Year",
-    "MONTH" : "Month",
-    "EDUCATIONEMPLOYMENT" : "Education and Employment History",
-    "EDUCATION" : "Education",
-    "WORK" : "Work Experience",
-    "LANGSKILLS" : "Language Qualifications",
-    "THEEND" : "End",
-    "PROGLANGUAGES" : "Programming Languages/Framework Skills",
-    "LANGUAGESKILLS" : "Language Skills"
-  },
-  "profProfile":[
+  "langs": [
+    [
+      "Chinese (fluent), Japanese (fluent)"
+    ],
+    [
+      "English (fluent), German (basic)"
+    ],
+    [
+      "Russian (native), Ukrainian (native)"
+    ]
+  ],
+  "months": [
+    "",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ],
+  "papers": [
+    {
+      "COAUTHORS": "Petro Feketa",
+      "Date": {
+        "date": "26",
+        "month": "01",
+        "year": 2015
+      },
+      "Journal": "Miskolc Mathematical Notes",
+      "Link": "http://mat76.mat.uni-miskolc.hu/mnotes/contents/16/2",
+      "Title": "A New Criterion For the Roughness of Exponential Dichotomy on R"
+    },
+    {
+      "COAUTHORS": "Toshiyuki Kobayashi",
+      "Date": {
+        "date": "18",
+        "month": "09",
+        "year": 2016
+      },
+      "Journal": "Abstract of the Geometry Session at the MSJ 2016 Autumn Meeting",
+      "Link": "https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxhbGV4bGVvbnRpZXZ0b2RhaXxneDo0ZjI3MjNlMTdmNDdjYjY3",
+      "Title": "Symmetry breaking operators for the indefinite orthogonal groups O(p,q)"
+    },
+    {
+      "COAUTHORS": "Toshiyuki Kobayashi",
+      "Date": {
+        "date": "26",
+        "month": "03",
+        "year": 2017
+      },
+      "Journal": "Abstract Book of MSJ Spring Meeting 2017 at Tokyo Metropolitan University",
+      "Link": "https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxhbGV4bGVvbnRpZXZ0b2RhaXxneDoyMGNhYTE4YmYzMTdmN2Nj",
+      "Title": "Symmetry breaking operators for conformal transformation groups O(p,q)"
+    },
+    {
+      "COAUTHORS": "Toshiyuki Kobayashi",
+      "Date": {
+        "date": "12",
+        "month": "09",
+        "year": 2017
+      },
+      "Journal": "Proceedings of the Japan Academy, Series A, Mathematical Sciences",
+      "Link": "https://projecteuclid.org/euclid.pja/1506996023",
+      "Title": "Symmetry breaking operators for the restriction of representations of indefinite orthogonal groups O(p,q)"
+    }
+  ],
+  "profProfile": [
     "PhD in Mathematics from The University of Tokyo, Japan",
     "BSci in Computer Science and Applied Mathematics from NCTU, Taiwan (Double Degree)",
     "Deeply interested in learning and targeting various programming languages and platforms",
     "Broad interests in various fields of Mathematics (both pure and applied) and Computer Science"
+  ],
+  "progLangs": [
+    [
+      "SQL, Python 3"
+    ],
+    [
+      "Data Analysis and Visualization: Jupyter, pandas, Kepler.GL, scikit, mathplotlib"
+    ],
+    [
+      "Google Cloud Platform: AutoML (Machine Learning), BigQuery, Composer"
+    ],
+    [
+      "C/C++ 7 years of experience"
+    ],
+    [
+      "OpenCV, OpenGL, OpenSSL, Network Programming, Apache Hadoop"
+    ],
+    [
+      "JavaScript/TypeScript, React JS, Express.js, Node.js"
+    ]
+  ],
+  "work": [
+    {
+      "degreename": "Intern",
+      "description": [
+        "Internship at Computer Graphics and Geometry Modeling Lab (under Prof. <a href=\"https://www.cs.nctu.edu.tw/cswebsite/members/detail/jhchuang\">Jung-Hong Chuang</a>)"
+      ],
+      "honors": [
+        "Prepared several paper surveys on Surface Recognition",
+        "Implemented several small programs using <a href=\"http://pointclouds.org\">PCL Library</a>",
+        "Implemented <i>Stochastic optimization for rigid point set registration</i> by Papazov and Chavdar (in C++, using <a href=\"http://pointclouds.org\">PCL Library</a>)",
+        "Acquired basic proficiency with <a href=\"http://pointclouds.org\">PCL Library</a>"
+      ],
+      "month": [
+        6,
+        5
+      ],
+      "year": [
+        24,
+        25
+      ]
+    },
+    {
+      "degreename": "Contract Programmer",
+      "description": [
+        "Desing and Implementation of a prototype  <a href=\"https://link.springer.com/chapter/10.1007/978-3-642-31284-7_32\">A Practical Smart Metering System Supporting Privacy</a> by <a href=\"https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/\">H.-Y. Lin</a> et al. (implementation requested and financed by <a href=\"https://www.linkedin.com/in/hsiao-ying-lin-6a43a715/\">H.-Y. Lin</a>)"
+      ],
+      "honors": [
+        "Designed and implemented the prototype of a Smart Meter, designed by H.-Y. Lin (in C, using <a href=\"https://www.openssl.org\">OpenSSL</a>)"
+      ],
+      "month": [
+        8,
+        12
+      ],
+      "year": [
+        25,
+        25
+      ]
+    },
+    {
+      "degreename": "Contract Programmer",
+      "description": [
+        "Succesfully completed <a href=\"https://summerofcode.withgoogle.com/?csw=1\">Google Summer of Code</a> 2014 program (for <a href=\"https://opencv.org\">OpenCV library</a>)"
+      ],
+      "honors": [
+        "Implemented several well-known numerical optimization algorithms (in C++) and collected them into a module",
+        "Module was included in <a href=\"https://opencv.org\">OpenCV library</a>"
+      ],
+      "month": [
+        5,
+        9
+      ],
+      "year": [
+        25,
+        25
+      ]
+    },
+    {
+      "degreename": "Contract Programmer",
+      "description": [
+        "Succesfully completed <a href=\"https://summerofcode.withgoogle.com/?csw=1\">Google Summer of Code</a> 2015 program (for <a href=\"https://opencv.org\">OpenCV library</a>)"
+      ],
+      "honors": [
+        "Implemented the paper <i>Tracking-Learning-Detection</i> by Z. Kalal et. al. (in C++, using <a href=\"https://opencv.org\">OpenCV library</a>)",
+        "The implementation was included in <a href=\"https://opencv.org\">OpenCV library</a>"
+      ],
+      "month": [
+        5,
+        9
+      ],
+      "year": [
+        26,
+        26
+      ]
+    },
+    {
+      "degreename": "Data Scientist",
+      "description": [
+        "Data Scientist at <a href=\"https://www.datawise.co.jp/\">Datawise</a>"
+      ],
+      "honors": [
+        "Datawise is a new start-up in the field of analysis of GeoSpatial data.",
+        "We analyse the GPS data obtained mostly from mobile data providers (e.g. Docomo) and derive marketing insights from this data.",
+        "As a Data Scientist at Datawise, my job is primarily to analyse GPS data and build statistical models (e.g. to predict age/gender based on GPS trajectory).",
+        "Since Datawise is a small company, I also have experience in Data Engineering of a big data (using GCP Bigquery and GCP Composer) and also developing back-end for our data analysis service."
+      ],
+      "month": [
+        7,
+        5
+      ],
+      "year": [
+        31,
+        32
+      ]
+    },
+    null
   ]
 }

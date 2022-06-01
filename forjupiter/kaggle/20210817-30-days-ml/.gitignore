@@ -1,0 +1,3 @@
+.*.stopfile
+.stopfile
+.optuna.db

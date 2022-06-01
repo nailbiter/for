@@ -1,0 +1,25 @@
+#* * * * * /Users/nailbiter/bin/fixup_wifi 2>>/tmp/fixup_wifi.log.txt 1>>/tmp/fixup_wifi.out.txt
+0 10 * *  1-5 cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description -t morning_routines
+0 10 * *  5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/miscutils/execute-if-last-day.py 'cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description'
+0 10-17 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py sit
+20 10-16 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py stand
+0 10 * * * cd /Users/nailbiter/for/config-files && . .envrc && /usr/local/bin/python3 ./scripts/disable-url.py notes
+#0 * * * * cd /Users/nailbiter/for/forpython/forhabits/kostil && . ../.envrc && /usr/local/bin/python3 ./mailer.py -a today -x SRM -m cli -m slack; date >> /tmp/hourly_test.txt;
+#* * * * * /Users/nailbiter/bin/fixup_wifi 2>>/tmp/fixup_wifi.log.txt 1>>/tmp/fixup_wifi.out.txt
+#10 10 * *  1-5 cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description -t morning_routines
+#5 10 * *  5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/miscutils/execute-if-last-day.py 'cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description'
+0 10-17 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py sit
+20 10-16 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py stand
+0 10 * * * cd /Users/nailbiter/for/config-files && . .envrc && /usr/local/bin/python3 ./scripts/disable-url.py notes
+
+#0 * * * * cd /Users/nailbiter/for/forpython/forhabits/kostil && . ../.envrc && /usr/local/bin/python3 ./mailer.py -a today -x SRM -m cli -m slack; date >> /tmp/hourly_test.txt;
+
+
+1 9 * * * /snap/bin/docker run nailbiter/cron-trello
+#0 10 * * * cd /home/nailbiter/Dokumente/forgithub/docker-puppeteer && ./run.sh
+0 20 * * * cd /home/nailbiter/Dokumente/forgithub/pyassistantbot2 && ./scripts/slack-gstasks.sh EVENING
+0 10 * * mon,tue,wed,thu,fri cd /home/nailbiter/Dokumente/forgithub/pyassistantbot2 && ./scripts/slack-gstasks.sh PARTTIME
+0 10 * * sat,sun cd /home/nailbiter/Dokumente/forgithub/pyassistantbot2 && ./scripts/slack-gstasks.sh WEEKEND
+#10 10 * * mon,tue,wed,thu,fri /home/nailbiter/.local/bin/check_work_airflow.sh
+0 8 * * * /home/nailbiter/.local/bin/check-ttask.sh
+2 10 * * mon cd /home/nailbiter/Dokumente/forgithub/pyassistantbot2 && ./money.py show -m weekly --show-top-expenses 3

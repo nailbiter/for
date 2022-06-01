@@ -56,6 +56,7 @@ sub FindDefaultMethod {
 	return '';
 }
 sub Process {
+#	printf(STDERR "_: %s\n",to_json(\@_));
     my %in = @_;
 	(my $env, my $methods) = @in{'env','methods'};
     my @args = @{$in{argv}};

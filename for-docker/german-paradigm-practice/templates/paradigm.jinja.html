@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    hide_prob={{hide_prob}}
+    <br>
+    complexity={{complexity}}
+    <br>
+    <form action="/grade/{{paradigm}}/{{complexity}}" method="POST">
+      {%autoescape false%}
+      {%for df in dfs%}
+      {{df.name}}:
+      {{df.to_html(escape=False)}}
+      {{"<br>" if not loop.last}}
+      {%endfor%}
+      {%endautoescape%}
+
+      <div class="form-example">
+        <input type="submit" value="Submit!">
+      </div>
+    </form>
+  </body>
+</html>
+

@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <h3>True answer is</h3>
+        <h1>{{answer}}</h1>
+        <h3>Was your answer correct?</h3>
+        <form method="post" action="/question">
+                <input type="submit" value="correct" name="I was right"/>
+                <input type="submit" value="wrong" name="I was wrong"/>
+        </form>
+        <h4>score: {{score}}</h4>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+    watch:
+        restart: always
+        build:
+          context: .
+        command: ./watch.py
+        environment:
+            - WATCH__PASSWORD=${WATCH__PASSWORD}
+            - WATCH__SLACK_URL=${WATCH__SLACK_URL}
+            - WATCH__USER=${WATCH__USER}
+            - WATCH__ORGANIZATION=${WATCH__ORGANIZATION}

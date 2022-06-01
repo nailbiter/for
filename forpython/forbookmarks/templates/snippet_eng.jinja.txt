@@ -1,0 +1,13 @@
+{{translation}}
+
+{{roman_to_int(line.chapter_roman_start)}}:{{line.chapter_start}}–{{roman_to_int(line.chapter_roman_end)}}:{{line.chapter_end}}
+{%-for i in range(1,CHAPTER_MAX_COUNT+1)-%}
+{%-set suff="_"+(i|string)-%}
+{%-if ("chapter_start"+suff) in line-%}
+, 
+
+{{roman_to_int(line["chapter_roman_start"+suff]|default(line.chapter_roman_start))}}:{{line["chapter_start"+suff]}}
+–
+{{roman_to_int(line["chapter_roman_end"+suff]|default(line.chapter_roman_end))}}:{{line["chapter_end"+suff]}}
+{%-endif%}
+{%-endfor%}.

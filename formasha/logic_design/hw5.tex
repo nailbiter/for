@@ -1,0 +1,48 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{hyperref}
+\usepackage{circuitikz}
+\input{.common.tex}
+
+\title{Homework 5;
+}
+\begin{document}
+
+\maketitle
+\secscore{1}{5}{10}
+\begin{enumerate}[(a)]
+	\item OK
+	\item not ok; function can be realized as
+		\begin{equation*}
+			(A+B(D+C))(FG+E)
+		\end{equation*}
+		12 gates
+\end{enumerate}
+\secscoreFootnote{2}{5}{10}
+\begin{enumerate}[(a)]
+	\item NOT ok. The function can be implemented as
+		\begin{equation*}
+			a'bc+a'bd'+ab'c'+ab'd'
+		\end{equation*}
+		this has the same number of gates, but less inputs than your
+		version
+	\item ok
+\end{enumerate}
+\secscoreFootnote{8}{5}{10}{}
+\begin{enumerate}[(a)]
+	\item NOT ok
+	\item ok
+\end{enumerate}
+\secscoreFootnote{12}{0}{10}{}
+NOT ok. The first function can be implemented as\begin{equation*}
+	(b'+d)(a+c+d)(a+b+c)
+\end{equation*}
+with less gates and inputs as your version. Similar for other functions.
+
+Also, your circuit has more than 9 gates.
+\secscoreFootnote{42}{0}{10}{}
+
+\end{document}

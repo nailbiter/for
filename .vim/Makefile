@@ -1,33 +1,40 @@
-PREFIX=/usr/local
-VIMDIR=$(PREFIX)/share/vim
-BINDIR=$(PREFIX)/bin
-APPDATADIR=$(PREFIX)/share/appdata
+SCRIPT=ftplugin/csv.vim
+DOC=doc/ft-csv.txt
+PLUGIN=csv
+VERSION=$(shell sed -n '/Version:/{s/^.*\(\S\.\S\+\)$$/\1/;p}' $(SCRIPT))
+.PHONY : csv.vmb csv
 
-VERSION=1.8.23
-DATE=$(shell date +%Y%m%d)
-COMMIT_COUNT=$(shell git log --oneline | wc -l)
-ABBREV_HASH=$(shell git rev-parse --short=7 HEAD)
 
-SNAPSHOTNAME=vim-latex-$(VERSION)-$(DATE).$(COMMIT_COUNT)-git$(ABBREV_HASH)
+all: vimball
 
-snapshot:
-	git archive --prefix '$(SNAPSHOTNAME)/' HEAD | gzip > '$(SNAPSHOTNAME).tar.gz'
+release: $(PLUGIN) $(PLUGIN).vmb
+
+clean:
+	find . -type f \( -name "*.vba" -o -name "*.vmb" -o -name "*.orig" \
+	-o -name "*.~*" -o -name ".VimballRecord" -o -name ".*.un~" \
+	-o -name "*.sw*" -o -name tags \) -delete
+
+dist-clean: clean
+
+vimball: $(PLUGIN).vmb install
 
 install:
-	install -d '$(DESTDIR)$(VIMDIR)/doc'
-	install -m 0644 doc/*.txt '$(DESTDIR)$(VIMDIR)/doc'
+	vim -N -u NONE -i NONE -c 'ru! plugin/vimballPlugin.vim' -c 'ru! vimballPlugin.vim' -c':so %' -c':q!' ${PLUGIN}.vmb
 
-	install -d '$(DESTDIR)$(VIMDIR)'
-	cp -R compiler ftplugin indent plugin '$(DESTDIR)$(VIMDIR)'
-	chmod 0755 '$(DESTDIR)$(VIMDIR)/ftplugin/latex-suite/outline.py'
+uninstall:
+	vim -N -u NONE -i NONE -c 'ru! plugin/vimballPlugin.vim' -c 'ru! vimballPlugin.vim' -c':RmVimball ${PLUGIN}.vmb'
 
-	install -d '$(DESTDIR)$(BINDIR)'
-	install latextags ltags '$(DESTDIR)$(BINDIR)'
+undo:
+	for i in */*.orig; do mv -f "$$i" "$${i%.*}"; done
 
-	install -d '$(DESTDIR)$(APPDATADIR)'
-	install vim-latex.metainfo.xml '$(DESTDIR)$(APPDATADIR)'
+csv.vmb:
+	vim -N -u NONE -i NONE -c 'ru! plugin/vimballPlugin.vim' -c ':let g:vimball_home=getcwd()'  -c ':call append("0", ["ftplugin/csv.vim", "doc/ft-csv.txt", "syntax/csv.vim", "ftdetect/csv.vim", "plugin/csv.vim"])' -c '$$d' -c ':%MkVimball! ${PLUGIN}' -c':q!'
+	ln -f $(PLUGIN).vmb $(PLUGIN)-$(VERSION).vmb
 
-upload: snapshot
-	scp '$(SNAPSHOTNAME).tar.gz' frs.sourceforge.net:/home/frs/project/v/vi/vim-latex/snapshots
-
-.PHONY: install upload
+csv:
+	rm -f ${PLUGIN}.vmb
+	perl -i.orig -pne 'if (/Version:/) {s/\.(\d+)*/sprintf(".%d", 1+$$1)/e}' ${SCRIPT}
+	perl -i -pne 'if (/GetLatestVimScripts:/) {s/(\d+)\s+:AutoInstall:/sprintf("%d :AutoInstall:", 1+$$1)/e}' ${SCRIPT}
+	perl -i -pne 'if (/Last Change:/) {s/(:\s+).*\n$$/sprintf(": %s", `date -R`)/e}' ${SCRIPT}
+	perl -i -pne 'if (/Last Change:/) {s/(:\s+).*\n$$/sprintf(": %s", `LC_TIME=C date +"%a, %d %b %Y"`)/e}' ${DOC}
+	perl -i.orig -pne 'if (/Version:/) {s/\.(\d+).*/sprintf(".%d", 1+$$1)/e}' ${DOC}

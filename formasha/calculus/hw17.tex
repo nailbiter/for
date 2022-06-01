@@ -1,0 +1,48 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{mathtools}
+\usepackage{centernot}
+%%\usepackage{underbrace}
+\input{.common.tex}
+
+\title{Homework 18 (Chap.~11.3),
+55.00/90.00 (61.11\%)
+}
+\begin{document}
+\maketitle
+%%\secscoreFootnote{6}{0}{10}{7,8}
+\secscoreFootnote{22}{9}{10}{20,21}
+OK, but where did you check the requirements for Integral Test (e.g. the fact that $f(x)$ is continuous, positive
+and decreasing)?
+
+Also, series \textit{converges} (not \textit{converge}).
+\secscoreFootnote{24}{9}{10}{19,23}
+OK, but where did you check the requirements for Integral Test (e.g. the fact that $f(x)$ is continuous, positive
+and decreasing)?
+\secscoreFootnote{26}{9}{10}{18,25}
+Same as in previous problem.
+\secscoreFootnote{32}{0}{10}{31,33}
+Answer is wrong. For example, this series converges when $p=3/2<2$:
+\begin{equation*}
+	\sum_{n=1}^\infty \frac{\ln n}{n^{3/2}}=
+	\underbrace{\sum_{n=1}^\infty \frac{1}{n^{5/4}}}_{\mbox{convergent}} 
+	\quad\cdot\underbrace{\frac{\ln n}{n^{1/4}}}_{
+		\mbox{$<1$ for $n$ big}}
+\end{equation*}
+\secscoreFootnote{39}{6}{10}{39,40}
+Note that the fact that reminder is less that $10^{-6}$ does NOT in general guarantee correctness to fifth decimal
+places. For example, take\begin{equation*}
+	a=1.9999999,\quad b=0.0000001<10^{-6},
+\end{equation*}
+but we still have $a+b=2$, so $a$ and $a+b$ have different fifth decimal sign.
+\secscore{43}{10}{10}
+good
+\secscore{45}{10}{10}
+good
+\secscoreFootnote{46}{2}{10}{44,42}<++>
+Answer is wrong. For example, for $c=0\le1$ series diverges.
+\end{document}

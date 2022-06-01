@@ -1,0 +1,110 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{mathtools}
+\usepackage{centernot}
+\input{.common.tex}
+
+\title{Homework 7 (Chap.~3.9),
+78.00/110.00 (70.91\%)
+}
+\begin{document}
+
+\maketitle
+
+\subsection*{Problem 1 \score{10}{10}}
+ok
+\subsection*{Problem 7 \score{10}{10}}
+ok
+\subsection*{Problem 11 \score{10}{10}}
+ok
+\subsection*{Problem 15 \score{0}{10}\footnote{similar problems: 14,16}}
+\begin{equation*}
+  \frac{25}{3}\neq 6\frac{1}{3}
+\end{equation*}
+\subsection*{Problem 17 \score{8}{10}\footnote{similar problems: 18,19}}
+\begin{equation*}
+  z=\sqrt{x^2+y^2}=t\sqrt{\left( \frac{dx}{dt}^2
+  +\frac{dy}{dt}^2\right)}
+\end{equation*}
+this is not explained very well\footnote{cf. what 
+  you wrote in Problem 23: $y=\frac{dy}{dt}t,x=\frac{dx}{dt}$; I think that is better}.
+\subsection*{Problem 21 \score{10}{10}}
+ok
+\subsection*{Problem 23 \score{10}{10}}
+ok
+\subsection*{Problem 29 \score{10}{10}}
+ok
+\subsection*{Problem 31 \score{10}{10}}
+ok
+\subsection*{Problem 39 \score{0}{10}\footnote{similar problems: 40,41}}
+\begin{equation*}
+  \begin{array}[]{c}
+    \displaystyle R=\frac{R_1R_2}{R_1+R_2}\\
+    \mbox{{$\displaystyle \frac{\left( \frac{dR_1}{dt}R_2\mbox{${+}$}R_1\frac{dR_2}{dt} \right)\left( R_1+R_2 \right)
+    \mbox{\xout{$+$}}
+    R_1R_2\left( \frac{dR_1}{dt}+\frac{dR_2}{dt} \right)}{\left( R_1+R_2 \right)^2}$}}
+  \end{array}
+\end{equation*}
+  (should be
+  \begin{equation*}
+    \left.\frac{\left( \frac{dR_1}{dt}R_2\mbox{${+}$}R_1\frac{dR_2}{dt} \right)\left( R_1+R_2 \right)
+    -
+    R_1R_2\left( \frac{dR_1}{dt}+\frac{dR_2}{dt} \right)}{\left( R_1+R_2 \right)^2}\right).
+  \end{equation*}
+  \subsection*{Problem 47 \score{0}{10}\footnote{similar problems: 50,46}}
+\begin{align*}
+  z^2=\left( h+x\sin\theta \right)^2+x^2\cos^2\theta\\
+  2z\frac{dz}{dt}=2\left( h+x\sin\theta \right)\cdot\mbox{\xout{$\displaystyle\frac{dx}{dt}$}}+
+  2x\cos^2\theta\frac{dx}{dt}
+\end{align*}
+(should be\begin{equation*}
+  \left.
+  2z\frac{dz}{dt}=2\left( h+x\sin\theta \right)\cdot
+  \mbox{{$\displaystyle\frac{dx}{dt}$}}\sin\theta
+  +
+  2x\cos^2\theta\frac{dx}{dt}
+  \right)
+\end{equation*}
+\section*{make-up \#1}
+\secscore{14}{10}{10}
+ok
+\secscore{16}{0}{10}
+NOT ok
+\begin{equation*}
+	\frac{dz}{dt}=\frac{(35\cdot4-\underbrace{\mbox{\sout{100}}}_{L=150})
+	\cdot35+25\cdot4}{\sqrt{(150-35\cdot4)^2+100^2}}
+\end{equation*}
+\secscore{18}{0}{10}
+NOT ok
+\begin{equation*}
+	\frac{dh}{dt}=\mbox{\sout{$-LH\frac{1}{(L-x)^2}$}}
+\end{equation*}
+where is $dx/dt$?
+\secscore{19}{10}{10}
+ok
+\secscore{40}{0}{10}
+NOT ok
+\begin{equation*}
+	0.007\cdot\frac{2}{3}\cdot\left( 0.12L^{2.53} \right)^{-\frac{1}{3}}
+	\cdot0.12\cdot2.53\cdot L^{1.53}\cdot\frac{L_2-L_1}{\Delta t}
+	\neq 2.872\cdot10^{-3}
+	L^{\mbox{\sout{2.26}}}
+	\cdot\frac{L_2-L_1}{\Delta t}
+\end{equation*}
+\secscore{41}{0}{10}
+NOT ok
+\begin{align*}
+	c^2&=& a^2+b^2-2ab\cos\theta\\
+	2c\frac{dc}{dt}&=& 0+0-\mbox{\sout{$2ab\left( -\sin\theta \right)$}}
+\end{align*}
+where is $d\theta/dt$?
+\secscore{46}{10}{10}
+ok
+\secscore{50}{4}{10}
+\sout{mintute} -- minute
+
+NOT ok -- you forgot the minus at the end.
+\end{document}

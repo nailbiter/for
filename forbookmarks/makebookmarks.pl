@@ -1,4 +1,4 @@
-#!/usr/bin/env perl 
+#!/usr/bin/env perl
 #===============================================================================
 #
 #         FILE: makebookmarks.pl
@@ -42,24 +42,12 @@ use constant JSONSTOREFILENAME => sprintf("/tmp/%s.json","IbPuSbZRToIMghbZNoRk")
 my $RECTCOLOR = "white";
 my $TESTFLAG = 0;
 my %DICT = (
-#	"Лк"=>["Лк","Luke","路加福音"],
-#	"Ин"=>["Ин","John","約翰福音"],
-#	"Мк"=>["Мк","Mark","馬可福音"],
-#	"Еф"=>["Еф","Ephesians","以 弗 所 書"],
-#	"Кол"=>["Кол","Colossians","歌羅西書"],
-#	"Рим"=>["Рим","Romans","羅馬書"],
-#	"1 Кор"=>["1 Кор","1 Corinthians","哥林多前書"],
-#	"2 Кор"=>["2 Кор","2 Corinthians","哥林多後書"],
-#	"1 Тим"=>["1 Тим","1 Timothy","提摩太前書"],
-#	"2 Тим"=>["2 Тим","2 Timothy","提摩太後書"],
-#	"Гал"=>["Гал","Galatians","加拉太書"],
-#	"Мф"=>["Мф","Matthew","馬太福音"],
-#	"Евр"=>["Евр","Hebrews","希伯來書"],
-Lk=>["Лк","Luke","路加福音"],
+    Lk=>["Лк","Luke","路加福音"],
 	In=>["Ин","John","約翰福音"],
 	Mk=>["Мк","Mark","馬可福音"],
 	Ef=>["Еф","Ephesians","以 弗 所 書"],
 	Kol=>["Кол","Colossians","歌羅西書"],
+	Tit=>["Тит","Titus","提多書"],
 	Rim=>["Рим","Romans","羅馬書"],
 	"1Kor"=>["1 Кор","1 Corinthians","哥林多前書"],
 	"2Kor"=>["2 Кор","2 Corinthians","哥林多後書"],
@@ -105,21 +93,6 @@ sub parseLine{
 		}
 		return @startends;
 	};
-#	{
-#		my $ll = $_[0];
-#		my $lll = substr($ll, 3);
-#		printf(STDERR "ll: \"%s\",\nlll: \"%s\"\n",$ll,$lll);
-#		if($lll cmp 'Евр'){
-#			printf(STDERR "true!\n");
-#		} else {
-#			printf(STDERR "false!\n");
-#		}
-#		if($lll =~ /[\p{Cyrillic}]+/){
-#			printf(STDERR "true!\n");
-#		} else {
-#			printf(STDERR "false!\n");
-#		}
-#	}
 	if($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([IVX]+),\s*(\d+)-(\d+)$/){
 		%res = (engNameShort=>$1,zachalo=>($2+0),
 			chapters=>[
@@ -140,7 +113,7 @@ sub parseLine{
 					chapterEnd=>$_->{end}+0,
 				});
 		}
-	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.,\s*([-\s0-9XVI,;]+)$/) {
+	} elsif($_[0] =~ /([12 a-zA-Z]+)\.,\s+(\d+)\s*zach\.\s*,\s*([–\s0-9XVI,;]+)$/) {
 		#parseLine with Lk., 54 zach., X, 38-42; XI, 27-28
 #   		Evr., 330 zach., XI, 33 - XII, 2
 		%res = (engNameShort=>$1,zachalo=>($2+0));
@@ -296,7 +269,7 @@ sub pastePdf{
 		$pdfName,$pdfName));
 }
 sub textToPdf{
-	my $TT = Template->new(INCLUDE_PATH=>'templates');
+	my $TT = Template->new(INCLUDE_PATH=>"$FindBin::Bin/templates");
 	(my $text) = @_;
 	chomp($text);
 	$text =~ s/\n/\\\\\n/g;
@@ -392,9 +365,9 @@ sub getActsEvangelieLines{
 
 	printf(STDERR "dateline: %s\n",$date);
 	my $outfile = sprintf("%s/bu.html",$Environment{TMPDIR});
-	MyExec(sprintf("links -dump %s > %s",$url,$outfile),$Environment{TESTFLAG});
-#	my $sPage = path($outfile)->slurp_utf8;
-	my $sPage = read_file($outfile);
+	MyExec(sprintf("links -dump %s | ./translit_ru_to_en.py > %s",$url,$outfile),$Environment{TESTFLAG});
+	my $sPage = path($outfile)->slurp_utf8;
+    #my $sPage = read_file($outfile);
 
 	printf(STDERR "%s\n\n-----------------------------\n---------------------------\n",$sPage);
 
@@ -405,7 +378,7 @@ sub getActsEvangelieLines{
 	printf(STDERR "%s\n\n-----------------------------\n---------------------------\n",$sPage);
 	for($sPage){
 		s/\n//g;
-		if(/Lit\. - (.*?)\.[^,](.*?)\.[^,]/){
+		if(/Lit\. – (.*?)\.[^,](.*?)\.[^,]/){
 			$acts = $1;
 			$evangelie = $2;
 		}
@@ -432,7 +405,7 @@ sub decoratedKey{
 #main
 my $coordsFile= "makebookmarksCoords.json";
 my $originalFile = "pdfs/test.pdf";
-$Environment{TMPDIR} = 'tmp';
+$Environment{TMPDIR} = "$FindBin::Bin/tmp";
 GetOptions(
 	"date=s" => \$DateString,
 	"coords=s" => \$coordsFile,

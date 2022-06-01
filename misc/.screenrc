@@ -1,0 +1,2 @@
+chdir $HOME/Documents/
+screen -t session-1

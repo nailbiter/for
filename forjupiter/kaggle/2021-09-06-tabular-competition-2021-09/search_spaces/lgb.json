@@ -1,0 +1,108 @@
+{
+  "colsample_bytree": [
+    "float",
+    [
+      0.01,
+      1
+    ],
+    {}
+  ],
+  "learning_rate": [
+    "float",
+    [
+      0.01,
+      1
+    ],
+    {
+      "log": true
+    }
+  ],
+  "max_bin": [
+    "int",
+    [
+      100,
+      1000
+    ],
+    {}
+  ],
+  "max_depth": [
+    "int",
+    [
+      -1,
+      256
+    ],
+    {}
+  ],
+  "min_child_samples": [
+    "int",
+    [
+      1,
+      256
+    ],
+    {}
+  ],
+  "min_child_weight": [
+    "float",
+    [
+      0.01,
+      10
+    ],
+    {}
+  ],
+  "n_estimators": [
+    "int",
+    [
+      30,
+      5000
+    ],
+    {}
+  ],
+  "num_leaves": [
+    "int",
+    [
+      2,
+      512
+    ],
+    {}
+  ],
+  "reg_alpha": [
+    "float",
+    [
+      1e-09,
+      100
+    ],
+    {}
+  ],
+  "reg_lambda": [
+    "float",
+    [
+      1e-09,
+      100
+    ],
+    {}
+  ],
+  "scale_pos_weight": [
+    "float",
+    [
+      1,
+      500
+    ],
+    {}
+  ],
+  "subsample": [
+    "float",
+    [
+      0.01,
+      1
+    ],
+    {}
+  ],
+  "subsample_freq": [
+    "int",
+    [
+      0,
+      10
+    ],
+    {}
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "_comment": "taken from https://trello.com/c/wFk0qp36/68-start-job-routines",
+  "checklist": {
+    "checkitems": [
+      "disable mac sound",
+      "'abs",
+      "'mark start work",
+      "s?: cleanup mailboxes",
+      "'morning notes",
+      "s: habits: trello -> db",
+      "apply work in office for next day",
+      "wear mask in office",
+      "mobile saved tasks",
+      "sync watch; note calories; charge watch if less than 40p",
+      "read https://docs.google.com/document/d/1I4iLMwZ1fSAq0fxp03vD4yZHCTDF3s4lRjE8fyNGa84/edit",
+      "trajectories displayer",
+      "change shoes and socks at work; use axe",
+      "s: remove tables",
+      "s: work hours",
+      {
+        "condition": {
+          "type": "weekday",
+          "value": 0
+        },
+        "name": "srm weekly"
+      },
+      {
+        "condition": {
+          "type": "weekday",
+          "value": 0
+        },
+        "name": "shave"
+      },
+      {
+        "condition": {
+          "type": "weekday",
+          "value": 4
+        },
+        "name": "replace toothpick, charge watch"
+      },
+      {
+        "condition": {
+          "type": "weekday",
+          "value": 0
+        },
+        "name": "check taiwan embassy"
+      },
+      {
+        "condition": {
+          "type": "weekday",
+          "value": 0
+        },
+        "name": "remove unused kernels"
+      }
+    ],
+    "name": "TODO"
+  },
+  "idList": "5a83f3449c950b04c540ba66",
+  "labels": [
+    "5c04dad0f348da7aa916770b",
+    "5c220cbe32ddfd757587c743",
+    "5d4a2cd50f9ee116cda64620"
+  ],
+  "name": "morning routines {{now.strftime('%Y-%m-%d')}}",
+  "pos": {
+    "type": "immediately_after",
+    "value": "5b101323f7de15e68535514f"
+  }
+}

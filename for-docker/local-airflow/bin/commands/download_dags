@@ -1,0 +1,4 @@
+#!/bin/sh
+
+BUCKET=$1
+./bin/run_command "gsutil -m rsync -r gs://$BUCKET/dags /usr/local/airflow/dags"

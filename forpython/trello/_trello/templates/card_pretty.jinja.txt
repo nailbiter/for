@@ -1,0 +1,12 @@
+{{card.name}}{%if stats.total_count>0%} ({{stats.done_count}}/{{stats.total_count}}={{"%0.2f" % (stats.done_count/stats.total_count*100)}}%){%endif%}{%if card.closed%} (closed){%endif%}
+
+{{card.desc}}
+
+{%for i in range(card.idChecklists|length)-%}
+{{i}}. {{card.idChecklists[i].name}}
+{%-for j in range(card.idChecklists[i].checkItems|length)%}
+  {{i}}.{{j}}. [{%if card.idChecklists[i].checkItems[j].state=='complete'%}x{%else%} {%endif%}] {{card.idChecklists[i].checkItems[j].name}}
+{%-endfor%}
+{%endfor-%}
+
+url: {{card_url}}

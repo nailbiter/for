@@ -1,0 +1,16 @@
+[
+  {
+    "cronline": "0 10 * * *",
+    "name": "kaggle",
+    "after":"2021-10-06",
+    "before":"2021-10-31"
+  },
+  {
+    "_comment": "5 10 * *  5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/miscutils/execute-if-last-day.py 'cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description'",
+    "additional_conditions": [
+      "last_day_of_month"
+    ],
+    "cronline": "5 10 * * 5",
+    "name": "bookmarks"
+  }
+]

@@ -1,0 +1,40 @@
+{%set try_again_link = "/test/"+paradigm+"/"+(complexity|string)%}
+{%set harder_link = "/test/"+paradigm+"/"+((complexity+1)|string)%}
+{%set REDIRECT_DELAY=15%}
+{%set STREAK_GOAL=7%}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="{{REDIRECT_DELAY}}; url={{try_again_link if streak<STREAK_GOAL else harder_link}}">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      var	time	=	{{REDIRECT_DELAY}}
+			setInterval(function()	{
+				time--;
+        document.getElementById("time").innerHTML = time;
+			},	1000);
+    </script>
+    {%autoescape false%}
+    {%for df in dfs%}
+    {{df.name}}:
+    {{df.to_html(escape=False)}}
+    {{"<br>" if not loop.last}}
+    {%endfor%}
+    {%endautoescape%}
+
+    <br>
+    grade: {{grade["correct"]}}/{{grade["total"]}}={{"{:04.2f}".format(grade["correct"]/grade["total"]*100)}}
+    <br>
+    streak on complexity {{complexity}}: {{streak}}/{{STREAK_GOAL}}
+    <ul>
+      <li><a href="{{try_again_link}}">try again</a></li>
+      <li><a href="{{harder_link}}">try again with higher difficulty</a></li>
+      <li><a href="/">all tests</a></li>
+      <li>(redirect to {{"same" if streak<STREAK_GOAL else "harder"}} in <span id="time">{{REDIRECT_DELAY}}</span>s)</li>
+    </ul>
+  </body>
+</html>
+

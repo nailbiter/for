@@ -127,6 +127,7 @@ sub doCommit{
 	if( length($filesChanged) ) {
 		my $commitMsg = join("\n",
 			$trelloTitle,
+            "\n",
 			scalar(@$checklist)>0 ? sprintf("checklists:\n%s",PrintChecklists(@$checklist)) : undef,
 			sprintf("files changed:\n%s",$filesChanged),
 			sprintf("trello card: %s",$trelloUrl),

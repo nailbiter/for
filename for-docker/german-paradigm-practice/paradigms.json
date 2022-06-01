@@ -1,0 +1,57 @@
+{
+  "adjektive-artikel-deklination": [
+    {
+      "index": [
+        "Kasus"
+      ],
+      "name": "definiten"
+    },
+    {
+      "index": [
+        "Kasus"
+      ],
+      "name": "indefiniten"
+    }
+  ],
+  "artikeln": [
+    {
+      "column_reordering": [
+        "Maskulinum",
+        "Neutrum",
+        "Femininum",
+        "Plural"
+      ],
+      "index": [
+        "Kasus"
+      ],
+      "name": "bestimmt"
+    },
+    {
+      "column_reordering": [
+        "Maskulinum",
+        "Neutrum",
+        "Femininum"
+      ],
+      "index": [
+        "Kasus"
+      ],
+      "name": "unbestimmt"
+    }
+  ],
+  "kann-soll": [
+    {
+      "index": [
+        "ich"
+      ],
+      "name": "kann-soll"
+    }
+  ],
+  "pronouns-declension": [
+    {
+      "index": [
+        "Kasus"
+      ],
+      "name": "pronouns"
+    }
+  ]
+}

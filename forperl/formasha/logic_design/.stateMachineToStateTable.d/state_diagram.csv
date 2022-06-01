@@ -1,0 +1,9 @@
+start state;end state;condition;output;comment
+0;4;Floor6=1;Motor=00,Drop=11,Power=0;waiting on 1st
+0;3;Floor5=1,Floor6=0;Motor=00,Drop=01,Power=0;
+1;6;Call5=1;Motor=00,Drop=10,Power=0;waiting on 5th
+2;5;Call6=1;waiting on 6th
+3;1;FS5=1;flying 1->5
+4;2;FS6=1;flying 1->6
+5;1;FS5=1,Floor5=1;flying 6->5
+6;0;FS1=1;flying 5->1

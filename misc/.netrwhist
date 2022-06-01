@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/tmp'
+let g:netrw_dirhist_2='/media/pi/Transcend/Music/other'
+let g:netrw_dirhist_3='/etc/nginx/conf.d'
+let g:netrw_dirhist_4='/etc/nginx'
+let g:netrw_dirhist_5='/home/pi/Downloads'
+let g:netrw_dirhist_6='/home/pi/Documents/forgithub'
+let g:netrw_dirhist_7='/home/pi/Documents/forgithub/eldrinko_beerserver'

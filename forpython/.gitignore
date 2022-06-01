@@ -1,3 +1,12 @@
 __pycache__/
 .cache/
 forml/.project
+credentials.json
+token.pickle
+.stopwatch.json
+/.envrc
+service_account_key.json
+credentials_google_spreadsheet.json
+token.google_spreadsheet.pickle
+.envrc.private
+bf_progress.db

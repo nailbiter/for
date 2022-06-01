@@ -2,7 +2,7 @@
 
 #global const's
 MAKEFILEDIR=makefiles
-EXECPL=../forlatex/bin/exec.pl
+EXECPL=../forperl/exec.pl
 TEMPLATEDIR=templates
 JSONDIR=json
 #global var's

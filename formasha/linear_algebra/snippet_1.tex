@@ -1,0 +1,45 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{mathtools}
+\usepackage{centernot}
+\usepackage{amsfonts}
+%%\usepackage{underbrace}
+\input{.common.tex}
+
+\title{Homework 1 (),
+30.00/40.00 (75.00\%)
+}
+\begin{document}
+Suppose we are given three vectors: $a=(a_0,a_1,a_2)$, $b=(b_0,b_1,b_2)$ and $c=(c_0,c_1,c_2)$.
+Suppose that we need to find minimal distance between line $L$ through $a$ and $b$ and vector $c$.
+
+In general, point on line $L$ will have the form
+
+\begin{equation*}
+	(a_0,a_1,a_2)+t(b_0-a_0,b_1-a_1,b_2-a_2),\quad t\in\mathbb{R}
+\end{equation*}
+
+and the square distance between point on $L$ and $w$ will be
+
+\begin{equation*}
+	\begin{array}[]{c}
+	\myabs{
+	(a_0-c_0,a_1-c_1,a_2-c_2)+t(b_0-a_0,b_1-a_1,b_2-a_2)
+	}^2=\\
+	\myabs{(a_0-c_0,a_1-c_1,a_2-c_2)}^2
+	+2t\left( (a_0-c_0)(b_0-a_0)+
+(a_1-c_1)(b_1-a_1)+
+(a_2-c_2)(b_2-a_2)
+	\right)+t^2
+	\myabs{(b_0-a_0,b_1-a_1,b_2-a_2)}^2
+	\end{array}
+\end{equation*}
+
+so one simply need to minimize this square equation.
+
+Note that for square equation $ax^2+bx+c,a>0$ minimum is attained at $x=-b/2a$
+\end{document}

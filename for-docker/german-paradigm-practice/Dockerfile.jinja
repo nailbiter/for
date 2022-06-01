@@ -1,0 +1,34 @@
+# use an existing docker image as a base
+FROM python:3.9-slim
+
+## download and install a dependency
+##suggested by https://stackoverflow.com/a/60086958
+#ENV PYTHONDONTWRITEBYTECODE 1
+#ENV PYTHONUNBUFFERED 1
+#RUN apt-get update
+#RUN apt-get -y install git
+
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
+
+ENV FLASK_APP=paradigm.py
+ENV MONGO_URL=mongodb://root:example@mongo
+ENV MONGO_PORT=27017
+
+COPY paradigm.py .
+COPY _common.py .
+COPY paradigms.json .
+
+RUN mkdir templates
+COPY templates/list.jinja.html templates
+COPY templates/paradigm.jinja.html templates
+COPY templates/grade.jinja.html templates
+
+RUN mkdir -p data/artikeln data/pronouns-declension data/kann-soll data/adjektive-artikel-deklination
+COPY data/artikeln/bestimmt.tsv data/artikeln
+COPY data/artikeln/unbestimmt.tsv data/artikeln
+COPY data/pronouns-declension/pronouns.tsv data/pronouns-declension
+COPY data/kann-soll/kann-soll.tsv data/kann-soll
+COPY data/adjektive-artikel-deklination/definiten.tsv data/adjektive-artikel-deklination/indefiniten.tsv data/adjektive-artikel-deklination
+
+CMD ["flask","run","--host=0.0.0.0","--port=5000"]

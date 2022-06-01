@@ -1,0 +1,46 @@
+\documentclass[10pt]{article} % use larger type; default would be 10pt
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{hyperref}
+\usepackage{circuitikz}
+\input{.common.tex}
+
+\title{Homework 5;
+23.33/50.00 (46.66\%)
+}
+\begin{document}
+
+\maketitle
+
+\secscoreFootnote{1}{3.33}{10}{
+	\url{https://github.com/nailbiter/for/blob/master/formasha/logic\_design/makeup\_problems4.md\#jCxLk21Mxfb4} and 
+	\url{https://github.com/nailbiter/for/blob/master/formasha/logic\_design/makeup\_problems4.md\#kvFjssettkOZ} 
+	}
+\begin{enumerate}[(a)]
+	\item NOT ok (SOP is wrong, POS is correct)
+	\item NOT ok (what are essential minterms for $A'C$, $A'CD$ or $A'B'C$?)
+	\item OK
+\end{enumerate}
+\section*{Problem 2 \score{10}{10}}
+OK
+\section*{Problem 3 \score{10}{10}}
+OK, but why did you draw Carnaugh diagram two times?
+\secscoreFootnote{4}{0}{10}{
+	\url{https://github.com/nailbiter/for/blob/master/formasha/logic\_design/makeup\_problems4.md\#vyw9bn7r1n63}
+	and
+	\url{https://github.com/nailbiter/for/blob/master/formasha/logic\_design/makeup\_problems4.md\#e7an6mkz7uwp}
+}
+\begin{enumerate}[(a)]
+	\item NOT ok ($ACD'$ is not prime as it is included in $ad'$; note that don't-cares are
+		treated as 1s, see p.~140);
+	\item NOT ok ($b c'd$ is prime, but not mentioned);
+\end{enumerate}
+\secscoreFootnote{5}{0}{10}{
+	\url{https://github.com/nailbiter/for/blob/master/formasha/logic\_design/makeup\_problems4.md\#a1cvyl07mzea}
+	and
+	\url{https://github.com/nailbiter/for/blob/master/formasha/logic\_design/makeup\_problems4.md\#ltmwc6eiyah2}
+}
+NOT ok (why $(a,b,c,d)=(0,1,0,0)$ yields 0? doesn't it correspond to number 2, which is prime?)
+\end{document}
