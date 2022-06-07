@@ -189,3 +189,7 @@ end)'
 # fix problems with curl
 set -x HOMEBREW_FORCE_BREWED_CURL 1
 set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
+
+# https://qiita.com/goemontech/items/4092a2cff040aba534fc
+#export TERMINFO=/usr/share/terminfo
+#export TERM=xterm+256color
