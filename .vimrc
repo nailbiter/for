@@ -1,4 +1,5 @@
 let g:tex_flavor = "latex"
+set shell=$SHELL
 filetype on
 
 "load appropriate skeletons
