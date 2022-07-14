@@ -99,6 +99,12 @@ _CONSTS = {
         # https://www.compart.com/en/unicode/U+2208
         "in": "∈",
         "infty": "∞",
+        # https://unicode-table.com/jp/1F926/
+        "facepalm": "🤦",
+        # https://unicode-table.com/en/222A/
+        "union": "∪",
+        # https://www.compart.com/en/unicode/U+2229
+        "intersection": "∩",
     }
 }
 
