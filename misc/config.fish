@@ -65,9 +65,6 @@ end
 
 if [ -f '/Users/nailbiter/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/nailbiter/Downloads/google-cloud-sdk/path.fish.inc'; end
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/oleksiileontiev/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/Users/oleksiileontiev/Downloads/google-cloud-sdk/path.fish.inc'; end
-
 ## potential candidates for aliases
 ## make them aliases if you find yourself using them again and again
 #!git revert (git log --format=oneline --decorate=short|fzf --layout=reverse|awk -F' ' '{print $1}')
@@ -197,3 +194,6 @@ set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
 # https://qiita.com/goemontech/items/4092a2cff040aba534fc
 #export TERMINFO=/usr/share/terminfo
 #export TERM=xterm+256color
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/Downloads/google-cloud-sdk/path.fish.inc" ]; . "$HOME/Downloads/google-cloud-sdk/path.fish.inc"; end
