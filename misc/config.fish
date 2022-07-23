@@ -2,6 +2,10 @@ set -x PATH $HOME/bin $PATH /usr/local/bin /usr/local/bin /usr/bin /bin /usr/sbi
 set -x EDITOR vim
 set -x SHELL /usr/local/bin/fish
 
+if test -e $HOME/.fish_opt
+    source $HOME/.fish_opt
+end
+
 # The next line updates PATH for the Google Cloud SDK.
 #source '/Users/oleksiileontiev/google-cloud-sdk/path.fish.inc'
 
