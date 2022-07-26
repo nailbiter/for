@@ -178,7 +178,7 @@ COPYCAT: "{{from}}" -> "{{to}}" {%if is_another_repo%}(remote {{remote_url}}:{{f
     _random_fn = _agit.get_random_fn()
     with open(_random_fn, "w") as f:
         f.write(git_msg)
-    _system(f"""cat {_random_fn} | git commit -a -m -""")
+    _system(f"""git commit -a -F \"{_random_fn}\" """)
 
 
 if __name__ == "__main__":
