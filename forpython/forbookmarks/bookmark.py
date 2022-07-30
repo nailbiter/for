@@ -118,7 +118,7 @@ def _ss(s):
 
 
 @click.group()
-@click.option("-d", "--day", type=click.DateTime(["%Y-%m-%d"]), default=datetime.now()+timedelta(days=2))
+@click.option("-d", "--day", type=click.DateTime(["%Y-%m-%d"]), default=datetime.now()+timedelta(days=2),envvar="BOOKMARK_DATE")
 @click.option("--cache-folder", type=click.Path(), default=path.join(path.split(__file__)[0], ".cache"))
 @click.option("--cpdf-executable", default="cpdf")
 @click.option("--pdfs-folder", type=click.Path(), default=path.join(path.split(__file__)[0], "pdfs"))
