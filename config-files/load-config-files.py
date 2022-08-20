@@ -27,6 +27,7 @@ import logging
 import os
 from os import path
 import uuid
+from dotenv import load_dotenv
 
 _LOAD_WHAT = ["hosts"]
 
@@ -48,11 +49,11 @@ def _system(cmd, dry_run=False, logger=None):
 
 
 @click.command()
-@click.option("-p", "--profile", type=click.Choice(["work","personal-server"]), required=True, envvar="PROFILE")
+@click.option("-p", "--profile", type=click.Choice(["work", "personal-server"]), required=True, envvar="PROFILE")
 @click.option("-l", "--load-what", type=click.Choice(_LOAD_WHAT), multiple=True)
 @click.option("--dry-run/--no-dry-run", default=False)
-@click.option("--debug/--no-debug",default=False)
-def load_config_files(profile, load_what, dry_run,debug):
+@click.option("--debug/--no-debug", default=False)
+def load_config_files(profile, load_what, dry_run, debug):
     if debug:
         logging.basicConfig(level=logging.INFO)
     if len(load_what) == 0:
@@ -63,15 +64,18 @@ def load_config_files(profile, load_what, dry_run,debug):
             with open(".data/hosts.json") as f:
                 data = json.load(f)
             data["hosts"] = sorted(list(set(data["hosts"])))
-            with open(".data/hosts.json","w") as f:
-                json.dump(data,f,indent=2,sort_keys=True)
-            tmp_fn = path.join("/tmp",f"{uuid.uuid4()}.txt")
-            with open(tmp_fn,"w") as f:
+            with open(".data/hosts.json", "w") as f:
+                json.dump(data, f, indent=2, sort_keys=True)
+            tmp_fn = path.join("/tmp", f"{uuid.uuid4()}.txt")
+            with open(tmp_fn, "w") as f:
                 f.write(jinja_env.get_template("hosts").render(data))
-            _system(f"cp {tmp_fn} /etc/hosts",dry_run)    
+            _system(f"cp {tmp_fn} /etc/hosts", dry_run)
         else:
             raise NotImplementedError(lw)
 
 
 if __name__ == "__main__":
+    if path.isfile(".env"):
+        logging.warning("loading .env")
+        load_dotenv()
     load_config_files()
