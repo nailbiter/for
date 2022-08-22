@@ -118,7 +118,7 @@ def _ss(s):
 
 
 @click.group()
-@click.option("-d", "--day", type=click.DateTime(["%Y-%m-%d"]), default=datetime.now()+timedelta(days=2),envvar="BOOKMARK_DATE")
+@click.option("-d", "--day", type=click.DateTime(["%Y-%m-%d"]), default=datetime.now()+timedelta(days=2), envvar="BOOKMARK_DATE")
 @click.option("--cache-folder", type=click.Path(), default=path.join(path.split(__file__)[0], ".cache"))
 @click.option("--cpdf-executable", default="cpdf")
 @click.option("--pdfs-folder", type=click.Path(), default=path.join(path.split(__file__)[0], "pdfs"))
@@ -164,7 +164,7 @@ def edit_loop(ctx, logger=None):
         s = input("edit_loop> ")
         s = s.strip()
         click.echo(s)
-        _REGEX = r"(acts|gospel) (chi|eng|rus) (x|y) ([+-]?\d+)"
+        _REGEX = r"(?P<ag>acts|gospel) (?P<langs>(chi|eng|rus)(,(chi|eng|rus))*) (?P<xy>x|y) (?P<offset>[+-]?\d+)"
         if s == "help":
             click.echo(_REGEX)
         elif s == "exit":
@@ -173,8 +173,28 @@ def edit_loop(ctx, logger=None):
             m = re.match(_REGEX, s)
             if m is not None:
                 print(coll.find_one({"day": day, "suffix": suffix}))
-                coll.update_one({"day": day, "suffix": suffix}, {
-                                "$inc": {f"coords.0.{m.group(1)}.{m.group(2)}.{0 if 'x'==m.group(3) else 1}": int(m.group(4))}})
+
+                ag, langs, xy, offset = [
+                    m.group(k)
+                    for k
+                    in "ag langs xy offset".split()
+                ]
+                langs = sorted(set(langs.split(",")))
+                xy = (0 if 'x' == xy else 1)
+                offset = int(offset)
+
+                for lang in langs:
+                    coll.update_one(
+                        {
+                            "day": day,
+                            "suffix": suffix,
+                        },
+                        {
+                            "$inc": {
+                                f"coords.0.{ag}.{lang}.{xy}": offset,
+                            }
+                        },
+                    )
                 print(coll.find_one({"day": day, "suffix": suffix}))
                 _system(f"python3 bookmark.py -d {day} make")
             else:
