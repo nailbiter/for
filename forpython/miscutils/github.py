@@ -166,11 +166,15 @@ def open_url(file_name, freeze_commit, no_open_url, branch, head, commit, auto_c
 @click.option("-m", "--message", envvar="GITHUB__COMMIT_PUSH_COPY__MESSAGE")
 @click.option("-push/--no-push", default=True)
 @click.option("--pull/--no-pull", default=False)
-def commit_push_copy(message, push, pull):
+@click.option("--pre-hook")
+def commit_push_copy(message, push, pull,pre_hook):
     # taken from https://stackoverflow.com/a/13514318
     this_function_name = cast(
         types.FrameType, inspect.currentframe()).f_code.co_name
     logger = logging.getLogger(__name__).getChild(this_function_name)
+
+    if pre_hook is not None:
+        os.system(pre_hook)
 
     # TODO: add warning if commit is not pushed
     if pull:
