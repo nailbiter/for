@@ -167,7 +167,7 @@ def open_url(file_name, freeze_commit, no_open_url, branch, head, commit, auto_c
 @click.option("-push/--no-push", default=True)
 @click.option("--pull/--no-pull", default=False)
 @click.option("--pre-hook")
-def commit_push_copy(message, push, pull,pre_hook):
+def commit_push_copy(message, push, pull, pre_hook):
     # taken from https://stackoverflow.com/a/13514318
     this_function_name = cast(
         types.FrameType, inspect.currentframe()).f_code.co_name
