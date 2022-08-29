@@ -102,9 +102,13 @@ def _get_head_sha(path_to_repo=None):
 @click.option("-n", "--no-open-url", default=False, is_flag=True)
 @click.option("--commit")
 @click.option("--head", type=int)
+@click.option("--pre-hook", envvar="GITHUB__OPEN_URL__PRE_HOOK")
 @click.option("--auto-commit", envvar="GITHUB__OPEN_URL__AUTOCOMMIT")
 @_add_logger
-def open_url(file_name, freeze_commit, no_open_url, branch, head, commit, auto_commit, logger=None):
+def open_url(file_name, freeze_commit, no_open_url, branch, head, commit, auto_commit, pre_hook, logger=None):
+    if pre_hook is not None:
+        os.system(pre_hook)
+
     open_url = not no_open_url
     _file_name = []
     for fn in file_name:
@@ -166,7 +170,7 @@ def open_url(file_name, freeze_commit, no_open_url, branch, head, commit, auto_c
 @click.option("-m", "--message", envvar="GITHUB__COMMIT_PUSH_COPY__MESSAGE")
 @click.option("-push/--no-push", default=True)
 @click.option("--pull/--no-pull", default=False)
-@click.option("--pre-hook")
+@click.option("--pre-hook", envvar="GITHUB__COMMIT_PUSH_COPY__PRE_HOOK")
 def commit_push_copy(message, push, pull, pre_hook):
     # taken from https://stackoverflow.com/a/13514318
     this_function_name = cast(
