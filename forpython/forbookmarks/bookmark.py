@@ -238,8 +238,12 @@ def make(ctx, ignore_cache, logger=None, **kwargs):
         dictionary = json.load(f)
     dictionary = {k: {kk: {kkk: vvv for kkk, vvv in zip(
         _s("rus eng chi"), vv)}for kk, vv in v.items()}for k, v in dictionary.items()}
-    lines = {k: _get_line(text, day=day, mongo_client=client,
-                          dictionary=v, which_line=k, ignore_cache=ignore_cache >= 2, override=kwargs[k]) for k, v in dictionary.items()}
+    try:
+        lines = {k: _get_line(text, day=day, mongo_client=client,
+                              dictionary=v, which_line=k, ignore_cache=ignore_cache >= 2, override=kwargs[k]) for k, v in dictionary.items()}
+    except Exception:
+        logging.error(r["fn"])
+        raise
     logger.info(f"lines: {lines}")
 
     pdf_snippets = {}
