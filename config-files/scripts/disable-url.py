@@ -54,7 +54,7 @@ def disable_url(ctx, **kwargs):
 def url(ctx, url_address):
     pat = re.compile("(?P<protocol>https|file|http):/{2,4}(?P<host>[^/]+).*")
     m = pat.match(url_address)
-    assert m is not None
+    assert m is not None, (pat, url_address)
     click.echo(m.group("host"))
 
     _add_url_to_db(ctx.obj["kwargs"]["database_file"], m.group(
