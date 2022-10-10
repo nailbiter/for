@@ -34,6 +34,7 @@ import json
 import itertools
 from jinja2 import Template, FileSystemLoader, Environment
 import subprocess
+import functools
 
 _CHAPTER_MAX_COUNT = 3
 
@@ -58,22 +59,31 @@ def _s(s):
     return s.split(" ")
 
 
+def _assert_and_log(predicate, msg, logger=None):
+    assert logger is not None
+    if not predicate:
+        logger.error(msg)
+        assert predicate, msg
+
+
 @_add_logger
 def _get_line(text, day, mongo_client, which_line, dictionary, override=None, suffix="", ignore_cache=False, logger=None):
     search_key = {"day": day, "suffix": suffix, "which_line": which_line}
     r = mongo_client.bookmarks.lines.find_one(search_key)
+    assert_and_log = functools.partial(_assert_and_log, logger=logger)
     if r is None or ignore_cache or override is not None:
         # Gal., 213 zach., V, 22 – VI, 2.
         regex = f"(?P<key>{'|'.join(dictionary.keys())})" + \
-            r"""\.,\s*(?P<zach>\d+)\s*zach\.( \(ot polú\))?, (?P<chapter_roman_start>[XVI]+), (?P<chapter_start>\d+)\s*–\s*((?P<chapter_roman_end>[XVI]+)[,;] )?(?P<chapter_end>\d+)"""
+            r"""\.,\s*(?P<zach>\d+)\s*zach\.( \(ot polú\))?, (?P<chapter_roman_start>[XVI]+), (?P<chapter_start>\d+)\s*–\s*((?P<chapter_roman_end>[XVI]+)[,;]\s+)?(?P<chapter_end>\d+)"""
         for i in range(_CHAPTER_MAX_COUNT):
             i += 1
-            regex += f"""(([,;] (?P<chapter_roman_start_{i}>[XVI]+))?, (?P<chapter_start_{i}>\\d+)\\s*–\\s*((?P<chapter_roman_end_{i}>[XVI]+)[,;] )?(?P<chapter_end_{i}>\\d+))?"""
+            regex += f"""(([,;] (?P<chapter_roman_start_{i}>[XVI]+))?, (?P<chapter_start_{i}>\\d+)\\s*–\\s*((?P<chapter_roman_end_{i}>[XVI]+)[,;]\s+)?(?P<chapter_end_{i}>\\d+))?"""
         regex += """\."""
         pat = re.compile(regex)
         _text = override if override is not None else text
         m = pat.search(_text)
-        assert m is not None, (which_line, _text, regex)
+        assert_and_log(m is not None, (which_line,
+                       _text, regex), logger=logger)
         r = {
             k: m.group(k)
             for k
