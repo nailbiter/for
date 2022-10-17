@@ -26,7 +26,7 @@ TODO:
 ==============================================================================="""
 
 import click
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import os
 from os import path
 import logging
@@ -47,6 +47,14 @@ def stdin_lines_stats(ctx, seed, input_numeric):
     if input_numeric:
         lines = [float(line) for line in lines]
     ctx.obj["lines"] = lines
+
+
+@stdin_lines_stats.command()
+@click.option("-p", "--prefix-string", required=True, envvar="STDIN_LINES_STATS__PREFIX__PREFIX_STRING")
+@click.pass_context
+def prefix(ctx, prefix_string):
+    click.echo(
+        "\n".join([f"{prefix_string}{line}" for line in ctx.obj["lines"]]))
 
 
 @stdin_lines_stats.command()
