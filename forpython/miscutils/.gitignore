@@ -1,3 +1,7 @@
+#local `db`s
 .random_fn.db
 .duden.db
 .copypaste.db
+
+#`dotenv`s
+.open_last_screenshot.env
