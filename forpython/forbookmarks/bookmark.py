@@ -227,6 +227,7 @@ def make(ctx, ignore_cache, logger=None, **kwargs):
     ]
     kwargs = {**kwargs, **{k: translit(v, "ru", reversed=True)
                            for k, v in kwargs.items() if v is not None}}
+    click.echo(kwargs)
     dictionary_file = path.join(path.split(__file__)[0], "dictionary.json")
     jinja_env = Environment(loader=FileSystemLoader(
         path.join(path.split(__file__)[0], "templates"), followlinks=True))
