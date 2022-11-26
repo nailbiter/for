@@ -68,6 +68,15 @@ def sample(ctx, n, sort_output):
     click.echo("\n".join(map(str, res)))
 
 
+@stdin_lines_stats.command()
+@click.option("-s", "--split-string", required=True)
+@click.option("-j", "--join-string", default="\n")
+@click.pass_context
+def split(ctx, split_string, join_string):
+    click.echo(join_string.join(
+        "\n".join(ctx.obj["lines"]).split(split_string)))
+
+
 if __name__ == "__main__":
     #    if path.isfile(".env"):
     #        logging.warning("loading .env")
