@@ -36,7 +36,8 @@ nnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle(
 vnoremap    <buffer>  <silent>  <LocalLeader>cc         :call Cpp_CommentToggle()<CR>j
 set listchars+=space:␣
 "command! Prettify execute "!python3 -m autopep8 -i --ignore=E731 %"
-command! Prettify execute "!time /usr/local/bin/python3 -m autopep8 -i %"
+"command! Prettify execute "!time /usr/local/bin/python3 -m autopep8 -i %"
+command! Prettify execute "!~/for/forpython/miscutils/my-python-prettify.py -f %"
 command! -nargs=? Init execute "!~/for/forpython/new_file.py new-file % <args>"
 command! -nargs=? Snippet execute "read!~/for/forpython/new_file.py snippet <args>"
 set number
