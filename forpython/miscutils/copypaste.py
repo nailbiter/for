@@ -20,7 +20,8 @@ ORGANIZATION:
 ==============================================================================="""
 
 import click
-#from dotenv import load_dotenv
+
+# from dotenv import load_dotenv
 import os
 from os import path
 import logging
@@ -35,7 +36,11 @@ from datetime import datetime
 
 
 @click.group()
-@click.option("--db-name", type=click.Path(), default=path.join(path.dirname(__file__), ".copypaste.db"))
+@click.option(
+    "--db-name",
+    type=click.Path(),
+    default=path.join(path.dirname(__file__), ".copypaste.db"),
+)
 @click.option("--debug/--no-debug", default=False)
 @click.pass_context
 def copypaste(ctx, debug, **kwargs):
@@ -43,32 +48,38 @@ def copypaste(ctx, debug, **kwargs):
     ctx.obj["kwargs"] = kwargs
     if debug:
         logging.basicConfig(level=logging.INFO)
-        
 
 
 @copypaste.command(name="cp")
+@click.option("--strip/--no-strip", "-s/ ", default=False)
 @click.pass_context
-def copy(ctx):
+def copy(ctx, strip):
     # taken from https://stackoverflow.com/a/13514318
-    this_function_name = cast(
-        types.FrameType, inspect.currentframe()).f_code.co_name
+    this_function_name = cast(types.FrameType, inspect.currentframe()).f_code.co_name
     logger = logging.getLogger(__name__).getChild(this_function_name)
 
     s = sys.stdin.read()
-    logger.info(f"\"{s}\"")
+    if strip:
+        s = s.strip()
+    logger.info(f'"{s}"')
 
     conn = sqlite3.connect(ctx.obj["kwargs"]["db_name"])
-    pd.DataFrame([{"s":s,"dt":datetime.now().isoformat()}]).to_sql('copypaste',conn,if_exists='append',index=None)
+    pd.DataFrame([{"s": s, "dt": datetime.now().isoformat()}]).to_sql(
+        "copypaste", conn, if_exists="append", index=None
+    )
     conn.close()
 
 
 @copypaste.command(name="ps")
-@click.option("-i","--index",type=int,default=0)
+@click.option("-i", "--index", type=int, default=0)
+@click.option("--strip/--no-strip", "-s/ ", default=False)
 @click.pass_context
-def paste(ctx,index):
+def paste(ctx, index, strip):
     conn = sqlite3.connect(ctx.obj["kwargs"]["db_name"])
-    df = pd.read_sql_query(f"select s from copypaste order by dt desc limit {index+1}",conn)
-    print(df.s.iloc[index])
+    df = pd.read_sql_query(
+        f"select s from copypaste order by dt desc limit {index+1}", conn
+    )
+    click.echo(df.s.iloc[index], nl=not strip)
     conn.close()
 
 
