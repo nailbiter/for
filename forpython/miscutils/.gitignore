@@ -5,3 +5,6 @@
 
 #`dotenv`s
 .open_last_screenshot.env
+
+#handy aux dict
+.handy_aux_dict.json

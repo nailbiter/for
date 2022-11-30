@@ -20,6 +20,17 @@ ORGANIZATION:
 ==============================================================================="""
 
 import click
+from dotenv import load_dotenv
+from os import path
+import json
+import logging
+
+aux_dict_fn = path.join(path.dirname(path.abspath(__file__)), ".handy_aux_dict.json")
+aux_dict = {}
+if path.isfile(aux_dict_fn):
+    logging.warning(f'loading "{aux_dict_fn}"')
+    with open(aux_dict_fn) as f:
+        aux_dict = json.load(f)
 
 
 @click.group()
@@ -28,11 +39,19 @@ def handy():
 
 
 @handy.command()
-@click.argument("sentence", type=click.Choice("thumbs_up_small,thumbs_up_big,middle_finger".split(",")))
+@click.argument(
+    "sentence",
+    type=click.Choice(
+        [
+            "thumbs_up_small thumbs_up_big middle_finger".split(),
+            *aux_dict.get("ascii_art", {}).keys(),
+        ]
+    ),
+)
 @click.option("-c", "--column-width", type=int)
 def ascii_art(sentence, column_width):
     res = {
-        "middle_finger":    """
+        "middle_finger": """
 F    .-.             
      |U|             
      | |             
@@ -76,12 +95,13 @@ F    .-.
 ★░░░░░░░░░██░░░░░████░███░░░░░░░░░░░★
 ★░░░░░░░░░█████████████░░░░░░░░░░░░░★
 ★░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░★
-        """
+        """,
+        **aux_dict.get("ascii_art", {}),
     }[sentence]
     res = res.strip()
     if column_width is not None:
         lines = res.split("\n")
-        lines = [line.ljust(column_width, " ")for line in lines]
+        lines = [line.ljust(column_width, " ") for line in lines]
         res = "\n".join(lines)
     click.echo(res)
 
@@ -105,6 +125,11 @@ _CONSTS = {
         "union": "∪",
         # https://www.compart.com/en/unicode/U+2229
         "intersection": "∩",
+        # https://www.fileformat.info/info/unicode/char/2234/index.htm
+        "therefore": "∴",
+        # https://www.compart.com/en/unicode/U+2235
+        "because": "∵",
+        **aux_dict.get("emoji", {}),
     }
 }
 
@@ -117,12 +142,27 @@ def emoji(sentence):
 
 
 @handy.command(name="jap")
-@click.argument("sentence", type=click.Choice("sorry_to_bother".split(",")))
+@click.argument(
+    "sentence",
+    type=click.Choice(
+        [
+            *"sorry_to_bother".split(),
+            *aux_dict.get("jap", {}),
+        ]
+    ),
+)
 def japanese(sentence):
-    click.echo({
-        "sorry_to_bother": """お忙しいところ恐縮ですが、""",
-    }[sentence])
+    click.echo(
+        {
+            "sorry_to_bother": """お忙しいところ恐縮ですが、""",
+            **aux_dict.get("jap", {}),
+        }[sentence]
+    )
 
 
 if __name__ == "__main__":
+    #    env_fn = path.join(path.dirname(path.abspath(__file__)), ".handy.env")
+    #    if path.isfile(env_fn):
+    #        logging.warning(f'loading "{env_fn}"')
+    #        load_dotenv(dotenv_path=env_fn)
     handy()
