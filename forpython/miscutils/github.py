@@ -40,6 +40,7 @@ def _add_logger(f):
 
     def _f(*args, **kwargs):
         return f(*args, logger=logger, **kwargs)
+
     _f.__name__ = f.__name__
     return _f
 
@@ -48,7 +49,7 @@ def _get_branch_name(dir_="."):
     # return subprocess.getoutput("git name-rev --name-only HEAD")
     res = subprocess.getoutput(f"cd {dir_} && git status")
     m = re.match(r"(On branch|Auf Branch) (.+)", res)
-    assert m is not None, f"\"{res}\""
+    assert m is not None, f'"{res}"'
     return m.group(2)
 
 
@@ -69,7 +70,7 @@ def _cleanup_remote_git_url(remote_git_url):
         remote_git_url = remote_git_url[:-4]
     m = re.match("(https://)[^/]+@(github.com/.*)", remote_git_url)
     if m is not None:
-        remote_git_url = m.group(1)+m.group(2)
+        remote_git_url = m.group(1) + m.group(2)
     return remote_git_url
 
 
@@ -90,22 +91,41 @@ def _get_head_sha(path_to_repo=None):
         repo = Repo(path_to_repo)
     assert not repo.bare
     head_commit = repo.head.commit
-#    assert(not head_commit.diff(None)
-#           ), "should be no changes on tree (do `git commit -a`)"
+    #    assert(not head_commit.diff(None)
+    #           ), "should be no changes on tree (do `git commit -a`)"
     return head_commit.hexsha, not head_commit.diff(None)
 
 
 @github.command(name="open")
-@click.option("-f", "--file-name", type=click.Path(), default=["."], multiple=True)
-@click.option("--freeze-commit/--no-freeze-commit", "-z", default=False)
-@click.option("--branch")
-@click.option("-n", "--no-open-url", default=False, is_flag=True)
-@click.option("--commit")
-@click.option("--head", type=int)
-@click.option("--pre-hook", envvar="GITHUB__OPEN_URL__PRE_HOOK")
-@click.option("--auto-commit", envvar="GITHUB__OPEN_URL__AUTOCOMMIT")
+@click.option(
+    "-f",
+    "--file-name",
+    type=click.Path(),
+    default=["."],
+    multiple=True,
+    show_envvar=True,
+)
+@click.option(
+    "--freeze-commit/--no-freeze-commit", "-z", default=False, show_envvar=True
+)
+@click.option("--branch", show_envvar=True)
+@click.option("-n", "--no-open-url", default=False, is_flag=True, show_envvar=True)
+@click.option("--commit", show_envvar=True)
+@click.option("--head", type=int, show_envvar=True)
+@click.option("--pre-hook", show_envvar=True)
+@click.option("--auto-commit", show_envvar=True)
 @_add_logger
-def open_url(file_name, freeze_commit, no_open_url, branch, head, commit, auto_commit, pre_hook, logger=None):
+def open_url(
+    file_name,
+    freeze_commit,
+    no_open_url,
+    branch,
+    head,
+    commit,
+    auto_commit,
+    pre_hook,
+    logger=None,
+):
     if pre_hook is not None:
         os.system(pre_hook)
 
@@ -118,7 +138,7 @@ def open_url(file_name, freeze_commit, no_open_url, branch, head, commit, auto_c
             _file_name.append(fn)
     file_name = _file_name
 
-#    git_dir = "."
+    #    git_dir = "."
     git_dir = path.split(file_name[0])[0]
     while not path.isdir(path.join(git_dir, ".git")):
         git_dir = path.join(git_dir, "..")
@@ -127,26 +147,24 @@ def open_url(file_name, freeze_commit, no_open_url, branch, head, commit, auto_c
     _, is_no_modifications_done = _get_head_sha(path_to_repo=git_dir)
     if auto_commit is not None:
         if not is_no_modifications_done:
-            os.system(
-                f"git commit -a -m '{auto_commit}' 1>&2 && git push 1>&2")
+            os.system(f"git commit -a -m '{auto_commit}' 1>&2 && git push 1>&2")
     else:
         logger.warning(f"there are local modifications!")
 
-    #click.echo(f"git_dir: {git_dir}")
-    remote_git_url = subprocess.getoutput(
-        f"cd {git_dir} && git remote get-url origin")
+    # click.echo(f"git_dir: {git_dir}")
+    remote_git_url = subprocess.getoutput(f"cd {git_dir} && git remote get-url origin")
     remote_git_url = _cleanup_remote_git_url(remote_git_url)
-    #click.echo(f"remote_git_url: {remote_git_url}")
+    # click.echo(f"remote_git_url: {remote_git_url}")
     if branch is None:
         branch = _get_branch_name(git_dir)
-    #click.echo(f"git_branch: {git_branch}")
+    # click.echo(f"git_branch: {git_branch}")
     for file_name_ in file_name:
         env = {
             "remote_git_url": remote_git_url,
             "git_branch": branch,
             "path": path,
             "file_name": file_name_,
-            "git_dir": git_dir
+            "git_dir": git_dir,
         }
         if not freeze_commit:
             url_tpl = """{{remote_git_url}}/tree/{{git_branch}}/{{path.relpath(file_name,start=git_dir)}}"""
@@ -167,14 +185,13 @@ def open_url(file_name, freeze_commit, no_open_url, branch, head, commit, auto_c
 
 
 @github.command(name="cpc")
-@click.option("-m", "--message", envvar="GITHUB__COMMIT_PUSH_COPY__MESSAGE")
-@click.option("-push/--no-push", default=True)
-@click.option("--pull/--no-pull", default=False)
-@click.option("--pre-hook", envvar="GITHUB__COMMIT_PUSH_COPY__PRE_HOOK")
+@click.option("-m", "--message", show_envvar=True)
+@click.option("-push/--no-push", default=True, show_envvar=True)
+@click.option("--pull/--no-pull", default=False, show_envvar=True)
+@click.option("--pre-hook", show_envvar=True)
 def commit_push_copy(message, push, pull, pre_hook):
     # taken from https://stackoverflow.com/a/13514318
-    this_function_name = cast(
-        types.FrameType, inspect.currentframe()).f_code.co_name
+    this_function_name = cast(types.FrameType, inspect.currentframe()).f_code.co_name
     logger = logging.getLogger(__name__).getChild(this_function_name)
 
     if pre_hook is not None:
@@ -186,8 +203,7 @@ def commit_push_copy(message, push, pull, pre_hook):
     _, is_no_modifications_done = _get_head_sha()
     if message is not None:
         if not is_no_modifications_done:
-            os.system(
-                f"git commit -a -m '{message}' 1>&2")
+            os.system(f"git commit -a -m '{message}' 1>&2")
             if push:
                 os.system("git push 1>&2")
             else:
@@ -199,4 +215,4 @@ def commit_push_copy(message, push, pull, pre_hook):
 
 
 if __name__ == "__main__":
-    github()
+    github(auto_envvar_prefix="GITHUB")
