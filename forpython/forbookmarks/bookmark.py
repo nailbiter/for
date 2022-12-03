@@ -132,8 +132,8 @@ def _ss(s):
 @click.option("--cache-folder", type=click.Path(), default=path.join(path.split(__file__)[0], ".cache"))
 @click.option("--cpdf-executable", default="cpdf")
 @click.option("--pdfs-folder", type=click.Path(), default=path.join(path.split(__file__)[0], "pdfs"))
-@click.option("--pdf-template", type=click.Path(), default=path.join(path.split(__file__)[0], "pdfs", "test.pdf"))
-@click.option("--suffix", default="")
+@click.option("-t", "--pdf-template", type=click.Path(), default=path.join(path.split(__file__)[0], "pdfs", "test.pdf"))
+@click.option("-s","--suffix", default="")
 @click.option("--mongo-url", envvar="MONGO_URL")
 @click.pass_context
 def bookmark(ctx, mongo_url, **kwargs):
@@ -214,7 +214,7 @@ def edit_loop(ctx, logger=None):
 
 
 @bookmark.command()
-@click.option("-i", "--ignore-cache", type=click.IntRange(0, 3), default=0)
+@click.option("-i", "--ignore-cache", type=click.IntRange(0, 3), default=0, help="higher value means ignore more")
 @click.option("-g", "--gospel")
 @click.option("-a", "--acts")
 @click.pass_context
