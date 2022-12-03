@@ -34,8 +34,11 @@ if path.isfile(aux_dict_fn):
 
 
 @click.group()
-def handy():
-    pass
+@click.option("--strip/--no-strip", "-s/ ", default=False, envvar="CLICK__STRIP")
+@click.pass_context
+def handy(ctx, strip):
+    ctx.ensure_object(dict)
+    ctx.obj["strip"] = strip
 
 
 @handy.command()
@@ -49,7 +52,8 @@ def handy():
     ),
 )
 @click.option("-c", "--column-width", type=int)
-def ascii_art(sentence, column_width):
+@click.pass_context
+def ascii_art(ctx, sentence, column_width):
     res = {
         "middle_finger": """
 F    .-.             
@@ -103,7 +107,10 @@ F    .-.
         lines = res.split("\n")
         lines = [line.ljust(column_width, " ") for line in lines]
         res = "\n".join(lines)
-    click.echo(res)
+    click.echo(
+        res,
+        nl=not ctx.obj["strip"],
+    )
 
 
 _CONSTS = {
@@ -136,9 +143,13 @@ _CONSTS = {
 
 @handy.command()
 @click.argument("sentence", type=click.Choice(list(_CONSTS["emoji"])))
-def emoji(sentence):
+@click.pass_context
+def emoji(ctx, sentence):
     # https://graphemica.com/%F0%9F%91%86
-    click.echo(_CONSTS["emoji"][sentence])
+    click.echo(
+        _CONSTS["emoji"][sentence],
+        nl=not ctx.obj["strip"],
+    )
 
 
 @handy.command(name="jap")
@@ -151,12 +162,14 @@ def emoji(sentence):
         ]
     ),
 )
-def japanese(sentence):
+@click.pass_context
+def japanese(ctx, sentence):
     click.echo(
         {
             "sorry_to_bother": """お忙しいところ恐縮ですが、""",
             **aux_dict.get("jap", {}),
-        }[sentence]
+        }[sentence],
+        nl=not ctx.obj["strip"],
     )
 
 
