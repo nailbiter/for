@@ -112,7 +112,7 @@ def _get_head_sha(path_to_repo=None):
 @click.option("-n", "--no-open-url", default=False, is_flag=True, show_envvar=True)
 @click.option("--commit", show_envvar=True)
 @click.option("--head", type=int, show_envvar=True)
-@click.option("--pre-hook", show_envvar=True)
+@click.option("-p", "--pre-hook", show_envvar=True)
 @click.option("--auto-commit", show_envvar=True)
 @_add_logger
 def open_url(
@@ -186,9 +186,9 @@ def open_url(
 
 @github.command(name="cpc")
 @click.option("-m", "--message", show_envvar=True)
-@click.option("-push/--no-push", default=True, show_envvar=True)
+@click.option("--push/--no-push", default=True, show_envvar=True)
 @click.option("--pull/--no-pull", default=False, show_envvar=True)
-@click.option("--pre-hook", show_envvar=True)
+@click.option("-p", "--pre-hook", show_envvar=True)
 def commit_push_copy(message, push, pull, pre_hook):
     # taken from https://stackoverflow.com/a/13514318
     this_function_name = cast(types.FrameType, inspect.currentframe()).f_code.co_name
