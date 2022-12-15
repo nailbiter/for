@@ -38,11 +38,17 @@ import json
     required=True,
 )
 @click.option(
+    "-p",
     "--prettify-command-template",
     default="time /usr/local/bin/python3 -m autopep8 -i {{input_file}}",
 )
-@click.option("--max-iter", type=int, default=50)
-def my_python_prettify(input_file, prettify_command_template, max_iter):
+@click.option(
+    "-j", "--prettify-json-filename", default=".my_python_prettify_config.json"
+)
+@click.option("-m", "--max-iter", type=int, default=50)
+def my_python_prettify(
+    input_file, prettify_command_template, max_iter, prettify_json_filename
+):
     input_file = path.abspath(input_file)
     logging.warning((input_file, prettify_command_template))
 
@@ -51,7 +57,7 @@ def my_python_prettify(input_file, prettify_command_template, max_iter):
         dirname, _ = path.split(dirname)
 
         logging.warning(dirname)
-        prettify_config_fn = path.join(dirname, ".my_python_prettify_config.json")
+        prettify_config_fn = path.join(dirname, prettify_json_filename)
         if path.isfile(prettify_config_fn):
             with open(prettify_config_fn) as f:
                 prettify_command_template = json.load(f)["prettify_command_template"]
