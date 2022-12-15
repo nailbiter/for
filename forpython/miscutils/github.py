@@ -185,7 +185,7 @@ def open_url(
 
 
 @github.command(name="cpc")
-@click.option("-m", "--message", show_envvar=True)
+@click.option("-m", "--message", show_envvar=True, required=True)
 @click.option("--push/--no-push", default=True, show_envvar=True)
 @click.option("--pull/--no-pull", default=False, show_envvar=True)
 @click.option("-p", "--pre-hook", show_envvar=True)
