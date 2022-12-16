@@ -19,11 +19,12 @@ ORGANIZATION:
 
 ==============================================================================="""
 
-import click
-from dotenv import load_dotenv
-from os import path
 import json
 import logging
+from os import path
+
+import click
+from dotenv import load_dotenv
 
 aux_dict_fn = path.join(path.dirname(path.abspath(__file__)), ".handy_aux_dict.json")
 aux_dict = {}
@@ -34,7 +35,9 @@ if path.isfile(aux_dict_fn):
 
 
 @click.group()
-@click.option("--strip/--no-strip", "-s/ ", default=False, envvar="CLICK__STRIP")
+@click.option(
+    "--strip/--no-strip", "-s/ ", default=False, envvar="CLICK__STRIP", show_envvar=True
+)
 @click.pass_context
 def handy(ctx, strip):
     ctx.ensure_object(dict)
