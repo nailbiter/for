@@ -19,20 +19,20 @@ ORGANIZATION:
 
 ==============================================================================="""
 
-import click
+import glob
+import inspect
+import logging
 import os
+import re
+import subprocess
+import types
 import webbrowser
 from os import path
-import subprocess
-from jinja2 import Template
-import logging
-import re
-import glob
-from git import Repo
-import inspect
-import types
 from typing import cast
-import logging
+
+import click
+from git import Repo
+from jinja2 import Template
 
 
 def _add_logger(f):
@@ -186,8 +186,8 @@ def open_url(
 
 @github.command(name="cpc")
 @click.option("-m", "--message", show_envvar=True, required=True)
-@click.option("--push/--no-push", default=True, show_envvar=True)
-@click.option("--pull/--no-pull", default=False, show_envvar=True)
+@click.option("--push/--no-push", " /-n", default=True, show_envvar=True)
+@click.option("--pull/--no-pull", "-u/ ", default=False, show_envvar=True)
 @click.option("-p", "--pre-hook", show_envvar=True)
 def commit_push_copy(message, push, pull, pre_hook):
     # taken from https://stackoverflow.com/a/13514318
