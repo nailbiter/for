@@ -49,7 +49,7 @@ def handy(ctx, strip):
     "sentence",
     type=click.Choice(
         [
-            "thumbs_up_small thumbs_up_big middle_finger".split(),
+            *"thumbs_up_small thumbs_up_big middle_finger".split(),
             *aux_dict.get("ascii_art", {}).keys(),
         ]
     ),
