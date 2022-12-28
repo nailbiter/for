@@ -2,10 +2,6 @@ set -x PATH $HOME/bin $PATH /usr/local/bin /usr/local/bin /usr/bin /bin /usr/sbi
 set -x EDITOR vim
 set -x SHELL /usr/local/bin/fish
 
-if test -e $HOME/.fish_opt
-    source $HOME/.fish_opt
-end
-
 # The next line updates PATH for the Google Cloud SDK.
 #source '/Users/oleksiileontiev/google-cloud-sdk/path.fish.inc'
 
@@ -197,3 +193,8 @@ set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/Downloads/google-cloud-sdk/path.fish.inc" ]; . "$HOME/Downloads/google-cloud-sdk/path.fish.inc"; end
+
+if test -e $HOME/.fish_opt
+    source $HOME/.fish_opt
+end
+
