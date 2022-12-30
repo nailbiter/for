@@ -1,6 +1,6 @@
 #!/bin/sh
 
-IMAGE_NAME=cron-trello
+IMAGE_NAME=german-dict
 
 #[ -z "$TRELLO_KEY" ] && exit 1
 

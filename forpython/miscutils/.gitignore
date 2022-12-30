@@ -2,6 +2,7 @@
 .random_fn.db
 .duden.db
 .copypaste.db
+.leo.db
 
 #`dotenv`s
 .open_last_screenshot.env
