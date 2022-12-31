@@ -73,8 +73,9 @@ class DbCacheWrap:
     """
     TODO:
         1. support cache expiration
-        2. support force cache miss
-        3. support load answer
+        2(done). support force cache miss
+        3(done). support force set answer
+        4. support list/export
     """
 
     def __init__(

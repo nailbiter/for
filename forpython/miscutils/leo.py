@@ -43,7 +43,7 @@ from _common import DbCacheWrap
 @click.option("-s", "--set-value")
 @click.argument("word")
 def leo(leo_docker_image_name, word, database_file, set_value):
-    #    logging.warning((database_file,))
+    word = word.strip()
     get_translation = DbCacheWrap(f"sqlite:///{path.abspath(database_file)}")(
         subprocess.getstatusoutput
     )
@@ -54,6 +54,9 @@ def leo(leo_docker_image_name, word, database_file, set_value):
     else:
         ec, out = 0, set_value
         get_translation.set_result([ec, out], cmd)
+    if ec == 1 and f'Search for "{word}" returned no results.':
+        click.echo(f'Search for "{word}" returned no results.')
+        return
     assert ec == 0, (cmd, ec, out)
 
     # FIXME: remove `perl` warnings from output in a more robust way
@@ -66,6 +69,21 @@ def leo(leo_docker_image_name, word, database_file, set_value):
         (start,) = starts
     lines = lines[start:]
     out = "\n".join(lines)
+    out = out.strip()
+
+    _ending = """
+     Fetched by leo 2.02 via http://dict.leo.org/
+     Copyright (C) LEO  Dictionary Team 1995-2017
+     [leo] GPL Copyleft   Thomas v.D. 2000-2017\n\n\x1b[0m
+    """.strip()
+
+    #    logging.warning([x[-len(_ending):]for x in [out,_ending]])
+    #    exit(0)
+
+    if out.endswith(_ending):
+        logging.warning(f"removing ending")
+        out = out[: -len(_ending)]
+    out = out.strip()
 
     # TODO: caching
 
