@@ -96,7 +96,7 @@ class DbCacheWrap:
                 session.query(CacheRecord)
                 .filter(CacheRecord.input_json == input_json)
                 .order_by(CacheRecord.creation_date.desc())
-                .scalar()
+                .first()
             )
             if cache_record is None:
                 res_json, is_cache_hit = None, False
@@ -122,4 +122,15 @@ class DbCacheWrap:
 
             return json.loads(res_json)
 
+        _f.set_result = self.set_result
+
         return _f
+
+    def set_result(self, output, *args, **kwargs):
+        session = self._sessionmaker()
+        cache_record = CacheRecord(
+            input_json=_canonical_json({"args": args, "kwargs": kwargs}),
+            output_json=_canonical_json(output),
+        )
+        session.add(cache_record)
+        session.commit()
