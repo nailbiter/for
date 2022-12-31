@@ -106,7 +106,7 @@ class DbCacheWrap:
                 is_cache_hit = True
 
             if is_force_cache_miss or (not is_cache_hit):
-                logging.warning("cache miss ==> refetch")
+                logging.warning("cache miss ==> fetch")
                 res_json = _canonical_json(f(*args, **kwargs))
                 cache_record = CacheRecord(input_json=input_json, output_json=res_json)
                 access_date = cache_record.creation_date
