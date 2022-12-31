@@ -30,6 +30,8 @@ from os import path
 import click
 import sqlalchemy
 
+from _common import DbCacheWrap
+
 
 @click.command()
 @click.option("-i", "--leo-docker-image-name", default="german-dict")
@@ -42,7 +44,9 @@ import sqlalchemy
 def leo(leo_docker_image_name, word, database_file):
     logging.warning((database_file,))
     cmd = f'docker run -t nailbiter/{leo_docker_image_name}:latest leo -l de2en "{word}" 2>/dev/null'
-    ec, out = subprocess.getstatusoutput(cmd)
+    sqlalchemy_string = f"sqlite:///{path.abspath(database_file)}"
+    logging.warning(sqlalchemy_string)
+    ec, out = DbCacheWrap(sqlalchemy_string)(subprocess.getstatusoutput)(cmd)
     assert ec == 0, (cmd, ec, out)
 
     # FIXME: remove `perl` warnings from output in a more robust way

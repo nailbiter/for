@@ -18,13 +18,13 @@ ORGANIZATION:
 
 ==============================================================================="""
 
-import pandas as pd
-import requests
-import sqlite3
-from datetime import datetime, timedelta
 import json
 import logging
+import sqlite3
+from datetime import datetime, timedelta
 
+import pandas as pd
+import requests
 
 _REQUEST_GET_TABLE_NAME = "requests_get"
 
@@ -40,7 +40,9 @@ class RequestGet:
         self._cache_db = cache_db
         self._requests_kwargs = requests_kwargs
 
-    def _get_conn(self,):
+    def _get_conn(
+        self,
+    ):
         conn = sqlite3.connect(self._cache_db)
         return conn
 
@@ -68,24 +70,30 @@ class RequestGet:
         else:
             try:
                 df = pd.read_sql_query(
-                    f'SELECT reply_json, datetime FROM {_REQUEST_GET_TABLE_NAME} where url="{url}" order by datetime desc', conn)
+                    f'SELECT reply_json, datetime FROM {_REQUEST_GET_TABLE_NAME} where url="{url}" order by datetime desc',
+                    conn,
+                )
             except pd.io.sql.DatabaseError:
                 df = _NULL_ANSWER
 
         df.datetime = df.datetime.apply(datetime.fromisoformat)
         df.reply_json = df.reply_json.apply(json.loads)
         now = datetime.now()
-        if len(df) == 0 or ((now-df.datetime.iloc[0]).total_seconds()/60 >= self._cache_lifetime_min > 0):
+        if len(df) == 0 or (
+            (now - df.datetime.iloc[0]).total_seconds() / 60
+            >= self._cache_lifetime_min
+            > 0
+        ):
             r = self._get_url(url)
             r = self._r_to_json(r)
-            pd.DataFrame([
-                {"datetime": now.isoformat(), "reply_json": json.dumps(r), "url": url}
-            ]).to_sql(_REQUEST_GET_TABLE_NAME, conn, if_exists='append', index=None)
+            pd.DataFrame(
+                [{"datetime": now.isoformat(), "reply_json": json.dumps(r), "url": url}]
+            ).to_sql(_REQUEST_GET_TABLE_NAME, conn, if_exists="append", index=None)
         else:
-            active_for = str(
-                now-df.datetime.iloc[0]) if self._cache_lifetime_min > 0 else "∞"
-            self._logger.warning(
-                f"use cache (active for {active_for})")
+            active_for = (
+                str(now - df.datetime.iloc[0]) if self._cache_lifetime_min > 0 else "∞"
+            )
+            self._logger.warning(f"use cache (active for {active_for})")
             r = df.reply_json.iloc[0]
         conn.close()
         return r["status_code"], r["text"]
