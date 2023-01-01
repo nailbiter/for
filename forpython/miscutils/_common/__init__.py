@@ -48,13 +48,12 @@ class CacheRecord(Base):
         self.output_json = output_json
         self.uuid = str(uuid.uuid4())
         self.creation_date = datetime.now() if creation_date is None else creation_date
-
-    def __repr__(self):
-        return "<User(name='%s', fullname='%s', nickname='%s')>" % (
-            self.name,
-            self.fullname,
-            self.nickname,
-        )
+#    def __repr__(self):
+#        return "<User(name='%s', fullname='%s', nickname='%s')>" % (
+#            self.name,
+#            self.fullname,
+#            self.nickname,
+#        )
 
 
 class CacheAccessRecord(Base):

@@ -19,37 +19,93 @@ ORGANIZATION:
 
 ==============================================================================="""
 
-import click
-from os import path
-import uuid
+import logging
 import os
 import sqlite3
+import uuid
+from datetime import datetime, timedelta
+from os import path
+
+import click
 import pandas as pd
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
+from sqlalchemy.orm.exc import NoResultFound
+
+Base = declarative_base()
+
+
+class RandomFileName(Base):
+    __tablename__ = "random_file_names"
+
+    uuid = Column(String, primary_key=True)
+    creation_date = Column(DateTime)
+    extension = Column(String)
+    directory = Column(String)
+    file_name = Column(String)
+
+    def __init__(self, directory, extension):
+        if extension is not None:
+            assert extension.startswith(".")
+        self.uuid = str(uuid.uuid4())
+        self.creation_date = datetime.now()
+        self.directory = directory
+        self.extension = extension
+        _extension = "" if extension is None else extension
+        self.file_name = f"{directory}/{str(uuid.uuid4()).replace('-','_')}{_extension}"
+
+    def is_directory(self):
+        return self.extension is None
 
 
 @click.command()
 @click.argument("ext", default="")
-@click.option("--database-fn", type=click.Path(), default=path.join(path.split(__file__)[0], ".random_fn.db"))
+@click.option(
+    "--database-fn",
+    type=click.Path(),
+    default=path.join(path.split(__file__)[0], ".random_fn.db"),
+)
 @click.option("--read/--no-read", "-r/ ", default=False)
 @click.option("-d", "--tmp-dir", type=click.Path(), default="/tmp")
-def random_fn(ext, database_fn, read, tmp_dir):
-    #    click.echo(f"ext: \"{ext}\"")
+@click.option("--index", "-i", type=click.IntRange(min=0), default=0)
+def random_fn(ext, database_fn, read, tmp_dir, index):
+    engine = create_engine(f"sqlite:///{path.abspath(database_fn)}", echo=False)
+    _sessionmaker = sessionmaker(bind=engine)
+    Base.metadata.create_all(engine)
+
     if ext == "":
         ext = None
-    conn = sqlite3.connect(database_fn)
+    logging.warning(f'ext: "{ext}"')
+
+    session = _sessionmaker()
+
     if not read:
-        fn = f"{tmp_dir}/{str(uuid.uuid4()).replace('-','_')}"
-        if ext is not None:
-            assert ext.startswith(".")
-            fn += ext
-        else:
-            os.makedirs(fn, exist_ok=True)
-        pd.DataFrame({"filename": [fn]}).to_sql(
-            "filenames", conn, if_exists="append", index=None)
-        click.echo(fn)
+        #        fn = f"{tmp_dir}/{str(uuid.uuid4()).replace('-','_')}"
+        #        if ext is not None:
+        #            assert ext.startswith(".")
+        #            fn += ext
+        #        else:
+        #            os.makedirs(fn, exist_ok=True)
+        #        pd.DataFrame({"filename": [fn]}).to_sql(
+        #            "filenames", conn, if_exists="append", index=None
+        #        )
+        rfn = RandomFileName(tmp_dir, ext)
+        if rfn.is_directory():
+            logging.warning(f'creating dir "{rfn.file_name}"')
+            os.makedirs(rfn.file_name, exist_ok=False)
+        session.add(rfn)
     else:
-        df = pd.read_sql_query('SELECT * FROM filenames', conn)
-        click.echo(list(df["filename"])[-1])
+        #        df = pd.read_sql_query("SELECT * FROM filenames", conn)
+        #        click.echo(list(df["filename"])[-1])
+        rfn = (
+            session.query(RandomFileName)
+            .filter_by(extension=ext, directory=tmp_dir)
+            .order_by(RandomFileName.creation_date.desc())
+            .limit(index + 1)[index]
+        )
+
+    click.echo(rfn.file_name)
+    session.commit()
 
 
 if __name__ == "__main__":
