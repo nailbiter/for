@@ -54,10 +54,32 @@ class RandomFileName(Base):
         _extension = "" if extension is None else extension
         self.file_name = f"{directory}/{str(uuid.uuid4()).replace('-','_')}{_extension}"
 
+    def to_dict(self):
+        return {
+            k: getattr(self, k)
+            for k in [
+                "uuid",
+                "creation_date",
+                "extension",
+                "directory",
+                "file_name",
+            ]
+        }
+
     def is_directory(self):
         return self.extension is None
 
 
+def _list_db(ctx, param, value):
+    if not value or ctx.resilient_parsing:
+        return
+    click.echo((ctx, param, value))
+    ctx.exit()
+
+
+#    engine = create_engine(f"sqlite:///{path.abspath(database_fn)}", echo=False)
+#    _sessionmaker = sessionmaker(bind=engine)
+#    Base.metadata.create_all(engine)
 @click.command()
 @click.argument("ext", default="")
 @click.option(
@@ -65,38 +87,45 @@ class RandomFileName(Base):
     type=click.Path(),
     default=path.join(path.split(__file__)[0], ".random_fn.db"),
 )
+@click.option(
+    "-l",
+    "--list-db",
+    is_flag=True,
+    default=False,
+)
 @click.option("--read/--no-read", "-r/ ", default=False)
 @click.option("-d", "--tmp-dir", type=click.Path(), default="/tmp")
 @click.option("--index", "-i", type=click.IntRange(min=0), default=0)
-def random_fn(ext, database_fn, read, tmp_dir, index):
+def random_fn(ext, database_fn, read, tmp_dir, index, list_db):
     engine = create_engine(f"sqlite:///{path.abspath(database_fn)}", echo=False)
     _sessionmaker = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)
+    session = _sessionmaker()
+
+    if list_db:
+        click.echo(
+            pd.DataFrame(
+                [
+                    rfn.to_dict()
+                    for rfn in session.query(RandomFileName).order_by(
+                        RandomFileName.creation_date.desc()
+                    )
+                ]
+            )
+        )
+        exit(0)
 
     if ext == "":
         ext = None
     logging.warning(f'ext: "{ext}"')
 
-    session = _sessionmaker()
-
     if not read:
-        #        fn = f"{tmp_dir}/{str(uuid.uuid4()).replace('-','_')}"
-        #        if ext is not None:
-        #            assert ext.startswith(".")
-        #            fn += ext
-        #        else:
-        #            os.makedirs(fn, exist_ok=True)
-        #        pd.DataFrame({"filename": [fn]}).to_sql(
-        #            "filenames", conn, if_exists="append", index=None
-        #        )
         rfn = RandomFileName(tmp_dir, ext)
         if rfn.is_directory():
             logging.warning(f'creating dir "{rfn.file_name}"')
             os.makedirs(rfn.file_name, exist_ok=False)
         session.add(rfn)
     else:
-        #        df = pd.read_sql_query("SELECT * FROM filenames", conn)
-        #        click.echo(list(df["filename"])[-1])
         rfn = (
             session.query(RandomFileName)
             .filter_by(extension=ext, directory=tmp_dir)
