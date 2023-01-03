@@ -77,9 +77,6 @@ def _list_db(ctx, param, value):
     ctx.exit()
 
 
-#    engine = create_engine(f"sqlite:///{path.abspath(database_fn)}", echo=False)
-#    _sessionmaker = sessionmaker(bind=engine)
-#    Base.metadata.create_all(engine)
 @click.command()
 @click.argument("ext", default="")
 @click.option(
@@ -87,6 +84,7 @@ def _list_db(ctx, param, value):
     type=click.Path(),
     default=path.join(path.split(__file__)[0], ".random_fn.db"),
 )
+@click.option("-e", "--ext", "ext_option")
 @click.option(
     "-l",
     "--list-db",
@@ -96,7 +94,7 @@ def _list_db(ctx, param, value):
 @click.option("--read/--no-read", "-r/ ", default=False)
 @click.option("-d", "--tmp-dir", type=click.Path(), default="/tmp")
 @click.option("--index", "-i", type=click.IntRange(min=0), default=0)
-def random_fn(ext, database_fn, read, tmp_dir, index, list_db):
+def random_fn(ext, database_fn, read, tmp_dir, index, list_db, ext_option):
     engine = create_engine(f"sqlite:///{path.abspath(database_fn)}", echo=False)
     _sessionmaker = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)
@@ -115,7 +113,9 @@ def random_fn(ext, database_fn, read, tmp_dir, index, list_db):
         )
         exit(0)
 
-    if ext == "":
+    if ext_option is not None:
+        ext = ext_option
+    elif ext == "":
         ext = None
     logging.warning(f'ext: "{ext}"')
 
