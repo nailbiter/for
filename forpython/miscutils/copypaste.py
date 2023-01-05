@@ -19,21 +19,21 @@ ORGANIZATION:
 
 ==============================================================================="""
 
-import click
+import inspect
+import logging
 
 # from dotenv import load_dotenv
 import os
-from os import path
-import logging
-import sys
 import sqlite3
-import pandas as pd
-import inspect
+import sys
 import types
-from typing import cast
-import logging
-from datetime import datetime
 import uuid
+from datetime import datetime
+from os import path
+from typing import cast
+
+import click
+import pandas as pd
 
 
 @click.group()
@@ -70,7 +70,7 @@ def ls(ctx, out_format):
 
 
 @copypaste.command(name="cp")
-@click.option("--strip/--no-strip", "-s/ ", default=False)
+@click.option("--strip/--no-strip", "-s/ ", default=False, show_envvar=True)
 @click.pass_context
 def copy(ctx, strip):
     # taken from https://stackoverflow.com/a/13514318
@@ -83,21 +83,24 @@ def copy(ctx, strip):
     logger.info(f'"{s}"')
 
     conn = sqlite3.connect(ctx.obj["kwargs"]["db_name"])
+    _uuid = uuid.uuid4()
     pd.DataFrame(
         [
             {
                 "s": s,
                 "dt": datetime.now().isoformat(),
-                "uuid": str(uuid.uuid4()),
+                "uuid": str(_uuid),
             }
         ]
     ).to_sql("copypaste", conn, if_exists="append", index=None)
     conn.close()
 
+    logger.warning(_uuid)
+
 
 @copypaste.command(name="ps")
 @click.option("-i", "--index", type=int, default=0)
-@click.option("--strip/--no-strip", "-s/ ", default=False)
+@click.option("--strip/--no-strip", "-s/ ", default=False, show_envvar=True)
 @click.option("-u", "--uuid-code")
 @click.pass_context
 def paste(ctx, index, strip, uuid_code):
@@ -134,4 +137,4 @@ if __name__ == "__main__":
     #    if path.isfile(".env"):
     #        logging.warning("loading .env")
     #        load_dotenv()
-    copypaste()
+    copypaste(auto_envvar_prefix="COPYPASTE")
