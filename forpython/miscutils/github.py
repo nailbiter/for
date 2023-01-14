@@ -186,7 +186,9 @@ def open_url(
 
 @github.command(name="cpc")
 @click.option("-m", "--message", show_envvar=True, required=True)
-@click.option("--push/--no-push", " /-n", default=True, show_envvar=True)
+@click.option(
+    "--push/--no-push", " /-n", default=True, show_envvar=True, show_default=True
+)
 @click.option("--pull/--no-pull", "-u/ ", default=False, show_envvar=True)
 @click.option("-p", "--pre-hook", show_envvar=True)
 def commit_push_copy(message, push, pull, pre_hook):
