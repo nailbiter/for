@@ -94,7 +94,8 @@ def _list_db(ctx, param, value):
 @click.option("--read/--no-read", "-r/ ", default=False)
 @click.option("-d", "--tmp-dir", type=click.Path(), default="/tmp")
 @click.option("--index", "-i", type=click.IntRange(min=0), default=0)
-def random_fn(ext, database_fn, read, tmp_dir, index, list_db, ext_option):
+@click.option("--log/--no-log", "is_log", default=True)
+def random_fn(ext, database_fn, read, tmp_dir, index, list_db, ext_option, is_log):
     engine = create_engine(f"sqlite:///{path.abspath(database_fn)}", echo=False)
     _sessionmaker = sessionmaker(bind=engine)
     Base.metadata.create_all(engine)
@@ -133,6 +134,8 @@ def random_fn(ext, database_fn, read, tmp_dir, index, list_db, ext_option):
             .limit(index + 1)[index]
         )
 
+    if is_log:
+        logging.warning(rfn.file_name)
     click.echo(rfn.file_name)
     session.commit()
 

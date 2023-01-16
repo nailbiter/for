@@ -41,16 +41,25 @@ from _common import DbCacheWrap
     default=path.join(path.dirname(__file__), ".leo.db"),
 )
 @click.option("-s", "--set-value")
+@click.option(
+    "--force-cache-miss/--no-force-cache-miss",
+    "-f/ ",
+    "is_force_cache_miss",
+    default=False,
+)
 @click.argument("word")
-def leo(leo_docker_image_name, word, database_file, set_value):
+def leo(leo_docker_image_name, word, database_file, set_value, is_force_cache_miss):
     word = word.strip()
     get_translation = DbCacheWrap(f"sqlite:///{path.abspath(database_file)}")(
-        subprocess.getstatusoutput
+        subprocess.getstatusoutput,
     )
 
     cmd = f'docker run -t nailbiter/{leo_docker_image_name}:latest leo -l de2en "{word}" 2>/dev/null'
     if set_value is None:
-        ec, out = get_translation(cmd)
+        ec, out = get_translation(
+            cmd,
+            is_force_cache_miss=is_force_cache_miss,
+        )
     else:
         ec, out = 0, set_value
         get_translation.set_result([ec, out], cmd)
