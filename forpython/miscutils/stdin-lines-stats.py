@@ -25,13 +25,17 @@ TODO:
 
 ==============================================================================="""
 
-import click
-from dotenv import load_dotenv
-import os
-from os import path
 import logging
-import numpy as np
+import operator
+import os
 import sys
+from os import path
+
+# import stringcase
+import caseconverter
+import click
+import numpy as np
+from dotenv import load_dotenv
 
 
 @click.group()
@@ -50,11 +54,15 @@ def stdin_lines_stats(ctx, seed, input_numeric):
 
 
 @stdin_lines_stats.command()
-@click.option("-p", "--prefix-string", required=True, envvar="STDIN_LINES_STATS__PREFIX__PREFIX_STRING")
+@click.option(
+    "-p",
+    "--prefix-string",
+    required=True,
+    envvar="STDIN_LINES_STATS__PREFIX__PREFIX_STRING",
+)
 @click.pass_context
 def prefix(ctx, prefix_string):
-    click.echo(
-        "\n".join([f"{prefix_string}{line}" for line in ctx.obj["lines"]]))
+    click.echo("\n".join([f"{prefix_string}{line}" for line in ctx.obj["lines"]]))
 
 
 @stdin_lines_stats.command()
@@ -68,13 +76,53 @@ def sample(ctx, n, sort_output):
     click.echo("\n".join(map(str, res)))
 
 
+## https://pypi.org/project/stringcase/
+# _AVAILABLE_CASES = [
+#    "alphanum",
+#    "camel",
+#    "capital",
+#    "const",
+#    "lower",
+#    "pascal",
+#    "path",
+#    "sentence",
+#    "snake",
+#    "spinal",
+#    "title",
+#    "trim",
+#    "upper",
+# ]
+
+# https://pypi.org/project/case-converter/
+_AVAILABLE_CASES = [
+    "camel",
+    "cobol",
+    "flat",
+    "kebab",
+    "macro",
+    "pascal",
+    "snake",
+]
+
+
+@stdin_lines_stats.command()
+@click.option("--to", "-t", required=True, type=click.Choice(_AVAILABLE_CASES))
+@click.pass_context
+def case_conversion(ctx, to):
+    #    module = stringcase
+    module = caseconverter
+    for line in ctx.obj["lines"]:
+        f = operator.methodcaller(f"{to}case", line)
+        line = line.strip()
+        click.echo(f(module))
+
+
 @stdin_lines_stats.command()
 @click.option("-s", "--split-string", required=True)
 @click.option("-j", "--join-string", default="\n")
 @click.pass_context
 def split(ctx, split_string, join_string):
-    click.echo(join_string.join(
-        "\n".join(ctx.obj["lines"]).split(split_string)))
+    click.echo(join_string.join("\n".join(ctx.obj["lines"]).split(split_string)))
 
 
 if __name__ == "__main__":
