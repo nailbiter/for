@@ -241,7 +241,9 @@ def edit_loop(ctx, logger=None):
                         },
                     )
                 print(coll.find_one({"day": day, "suffix": suffix}))
-                _system(f"python3 bookmark.py -d {day} make")
+                _system(
+                    f'python3 bookmark.py --suffix "{suffix}" --pdf-template "{pdf_template}"  -d {day} make'
+                )
             else:
                 print("m is None")
 
@@ -370,7 +372,10 @@ def make(ctx, ignore_cache, logger=None, **kwargs):
         )
 
     coords_inner_loop = _get_coords_inner_loop(
-        day, mongo_client=client, coords_dir=coords_dir
+        day,
+        mongo_client=client,
+        coords_dir=coords_dir,
+        suffix=suffix,
     )
     for displacement_x, displacement_y in coords_inner_loop[2]:
         for k, displacements in coords_inner_loop[1].items():
