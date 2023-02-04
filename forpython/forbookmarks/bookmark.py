@@ -157,13 +157,15 @@ def _ss(s):
 @click.option(
     "--pdfs-folder",
     type=click.Path(),
-    default=path.join(path.split(__file__)[0], "pdfs"),
+    default=path.join(path.split(__file__)[0], "hk-churck-bookmarks-pdfs/pdfs"),
 )
 @click.option(
     "-t",
     "--pdf-template",
     type=click.Path(),
-    default=path.join(path.split(__file__)[0], "pdfs", "test.pdf"),
+    default=path.join(
+        path.split(__file__)[0], "hk-churck-bookmarks-pdfs/pdfs", "test.pdf"
+    ),
 )
 @click.option("-s", "--suffix", default="")
 @click.option("--mongo-url", envvar="MONGO_URL")
