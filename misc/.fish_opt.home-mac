@@ -1,0 +1,13 @@
+set -x PATH /usr/local/anaconda3/bin $HOME/Downloads/google-cloud-sdk/bin $PATH $HOME/.poetry/bin $HOME/.cargo/bin
+
+#set -x A 1
+#pyenv init - | source
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /usr/local/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+#alias gsutil="/Users/nailbiter/Downloads/google-cloud-sdk/bin/gsutil"
+#alias python3=/python3
+#alias pip3=/usr/local/anaconda3/bin/pip3
+
