@@ -197,11 +197,3 @@ if test -e $HOME/.fish_opt
     source $HOME/.fish_opt
 end
 
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /usr/local/anaconda3/bin/conda
-    eval /usr/local/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-end
-# <<< conda initialize <<<
-
