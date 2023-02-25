@@ -31,18 +31,26 @@ import os
 import sys
 from os import path
 
+import black
+
 # import stringcase
 import caseconverter
 import click
 import numpy as np
 from dotenv import load_dotenv
+from jinja2 import Environment, FileSystemLoader, Template
 
 
 @click.group()
 @click.option("-s", "--seed", type=int)
 @click.option("--input-numeric/--no-input-numeric", default=False)
+@click.option(
+    "--template-folder-path",
+    type=click.Path(),
+    default=path.join(path.dirname(__file__), "_stdin_lines_stats_data/templates"),
+)
 @click.pass_context
-def stdin_lines_stats(ctx, seed, input_numeric):
+def stdin_lines_stats(ctx, seed, input_numeric, template_folder_path):
     if seed is not None:
         np.random.seed(seed)
     ctx.ensure_object(dict)
@@ -51,6 +59,7 @@ def stdin_lines_stats(ctx, seed, input_numeric):
     if input_numeric:
         lines = [float(line) for line in lines]
     ctx.obj["lines"] = lines
+    ctx.obj["jinja_env"] = Environment(loader=FileSystemLoader(template_folder_path))
 
 
 @stdin_lines_stats.command()
@@ -123,6 +132,47 @@ def case_conversion(ctx, to):
 @click.pass_context
 def split(ctx, split_string, join_string):
     click.echo(join_string.join("\n".join(ctx.obj["lines"]).split(split_string)))
+
+
+@stdin_lines_stats.group()
+@click.pass_context
+def rand(ctx):
+    pass
+
+
+@rand.command()
+@click.option("--pre-sort/--no-pre-sort", default=True)
+@click.option("--show-code/--no-show-code", default=True)
+@click.option("-s", "--numpy-seed", type=int)
+@click.option("--pretty/--no-pretty", default=True)
+@click.pass_context
+def perm(ctx, pre_sort, show_code, numpy_seed, pretty):
+    pre_names = ctx.obj["lines"]
+    names = sorted(set(pre_names)) if pre_sort else pre_names
+    if numpy_seed is None:
+        numpy_seed = np.random.randint(low=0, high=2**32)
+    logging.warning(f'numpy_seed="{numpy_seed}"')
+    np.random.seed(numpy_seed)
+    names = np.random.permutation(names)
+    if show_code:
+        code = (
+            ctx.obj["jinja_env"]
+            .get_template("rand_perm_code.jinja.py")
+            .render(
+                {
+                    "numpy_seed": numpy_seed,
+                    "pre_names": pre_names,
+                    "pre_sort": pre_sort,
+                    "res": names,
+                }
+            )
+        )
+        code = black.format_str(code, mode=black.Mode())
+        logging.warning(f"code:\n```py\n{code}```")
+    if pretty:
+        click.echo("\n".join(map(lambda x: f"* {x}", names)))
+    else:
+        click.echo(names)
 
 
 if __name__ == "__main__":
