@@ -62,10 +62,15 @@ def tabular_quiz(
 ):
     """
     TODO:
-        1. download spreadsheet
-        2. hide
-        3. receive input
-        4. grade
+        1(done). download spreadsheet
+        2(done). hide
+        3(done). receive input
+        4(done). grade
+
+    FEATURES:
+        1. parser loop w/ `help`
+        2. cache tables (+ cache invalidation; + cache to package)
+        3. save grades to db
     """
     creds = alex_leontiev_toolbox_python.gdrive.spreadsheets.get_creds(
         client_secret_file=google_spreadsheet_client_secret_path,
