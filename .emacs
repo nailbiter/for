@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(dracula-theme use-package markdown-mode slime-volleyball slime)))
+   '(drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -30,3 +30,12 @@
 :ensure t
 :config
 (load-theme 'dracula t))
+
+;; https://github.com/rejeep/drag-stuff.el/issues/33
+(use-package drag-stuff)
+(require 'drag-stuff)
+(drag-stuff-global-mode 1)
+;;(keys-stuff-define-drag)
+;; copied from https://github.com/rejeep/drag-stuff.el/blob/6d06d846cd37c052d79acd0f372c13006aa7e7c8/drag-stuff.el#L332
+(define-key drag-stuff-mode-map (drag-stuff--kbd 'up) 'drag-stuff-up)
+(define-key drag-stuff-mode-map (drag-stuff--kbd 'down) 'drag-stuff-down)
