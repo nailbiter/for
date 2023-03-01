@@ -27,7 +27,7 @@ WORKDIR /usr/app
 #COPY cron.json ./
 #COPY script.py ./
 #COPY card_descriptions/ ./card_descriptions
-COPY dump.sh .
+COPY dump.sh ./
 
 #ARG TRELLO_KEY
 #ENV TRELLO_KEY ${TRELLO_KEY}
