@@ -1,21 +1,29 @@
-#* * * * * /Users/nailbiter/bin/fixup_wifi 2>>/tmp/fixup_wifi.log.txt 1>>/tmp/fixup_wifi.out.txt
-0 10 * *  1-5 cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description -t morning_routines
-0 10 * *  5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/miscutils/execute-if-last-day.py 'cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description'
-0 10-17 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py sit
-20 10-16 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py stand
-0 10 * * * cd /Users/nailbiter/for/config-files && . .envrc && /usr/local/bin/python3 ./scripts/disable-url.py notes
-#0 * * * * cd /Users/nailbiter/for/forpython/forhabits/kostil && . ../.envrc && /usr/local/bin/python3 ./mailer.py -a today -x SRM -m cli -m slack; date >> /tmp/hourly_test.txt;
-#* * * * * /Users/nailbiter/bin/fixup_wifi 2>>/tmp/fixup_wifi.log.txt 1>>/tmp/fixup_wifi.out.txt
-#10 10 * *  1-5 cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description -t morning_routines
-#5 10 * *  5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/miscutils/execute-if-last-day.py 'cd /Users/nailbiter/for/forpython/trello && . .envrc && /usr/local/bin/python3 ./trello.py --debug high create-card-from-description'
-0 10-17 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py sit
-20 10-16 * * 1-5 /usr/local/bin/python3 /Users/nailbiter/for/forpython/send_notification.py stand
-0 10 * * * cd /Users/nailbiter/for/config-files && . .envrc && /usr/local/bin/python3 ./scripts/disable-url.py notes
-
-#0 * * * * cd /Users/nailbiter/for/forpython/forhabits/kostil && . ../.envrc && /usr/local/bin/python3 ./mailer.py -a today -x SRM -m cli -m slack; date >> /tmp/hourly_test.txt;
-
-
+# Edit this file to introduce tasks to be run by cron.
+# 
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+# 
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').
+# 
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+# 
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+# 
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+# 
+# For more information see the manual pages of crontab(5) and cron(8)
+# 
+# m h  dom mon dow   command
+#0 10 * * mon,tue,wed,thu,fri /snap/bin/docker run nailbiter/datawise-print-hourly-work-time
 1 9 * * * /snap/bin/docker run nailbiter/cron-trello
+#5 10 * * mon,tue,wed,thu,fri /snap/bin/docker run nailbiter/datawise-remove-old-tables
 #0 10 * * * cd /home/nailbiter/Dokumente/forgithub/docker-puppeteer && ./run.sh
 0 20 * * * cd /home/nailbiter/Dokumente/forgithub/pyassistantbot2 && ./scripts/slack-gstasks.sh EVENING
 0 10 * * mon,tue,wed,thu,fri cd /home/nailbiter/Dokumente/forgithub/pyassistantbot2 && ./scripts/slack-gstasks.sh PARTTIME
@@ -23,3 +31,4 @@
 #10 10 * * mon,tue,wed,thu,fri /home/nailbiter/.local/bin/check_work_airflow.sh
 0 8 * * * /home/nailbiter/.local/bin/check-ttask.sh
 2 10 * * mon cd /home/nailbiter/Dokumente/forgithub/pyassistantbot2 && ./money.py show -m weekly --show-top-expenses 3
+20 19 * * * cd /home/nailbiter/for/for-docker/mongo-dump && ./run.sh
