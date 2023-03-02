@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
+   '(password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -19,7 +19,10 @@
 
 (require 'package)
 (add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/"))
+	     ;'("melpa-stable" . "https://stable.melpa.org/packages/")
+	     '("melpa" . "https://melpa.org/packages/")
+	     t
+	     )
 (package-initialize)
 (unless (package-installed-p 'use-package)
 (package-refresh-contents)
@@ -41,3 +44,6 @@
 (define-key drag-stuff-mode-map (drag-stuff--kbd 'down) 'drag-stuff-down)
 
 (setq ispell-program-name "/usr/local/bin/aspell")
+;(setq shell-file-name "/usr/local/bin/fish")
+(setq epa-pinentry-mode 'loopback)
+(custom-set-variables '(epg-gpg-program "/usr/local/bin/gpg"))
