@@ -3,8 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(epg-gpg-program "/usr/local/bin/gpg")
  '(package-selected-packages
-   '(password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
+   '(python-black password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -44,6 +45,16 @@
 (define-key drag-stuff-mode-map (drag-stuff--kbd 'down) 'drag-stuff-down)
 
 (setq ispell-program-name "/usr/local/bin/aspell")
-;(setq shell-file-name "/usr/local/bin/fish")
+(setq shell-file-name "/usr/local/bin/fish")
 (setq epa-pinentry-mode 'loopback)
-(custom-set-variables '(epg-gpg-program "/usr/local/bin/gpg"))
+
+
+;; hippie
+(global-set-key "\C-n" 'hippie-expand)
+
+;; python black
+(use-package python-black
+  :demand t
+  :after python
+  :hook (python-mode . python-black-on-save-mode-enable-dwim))
+(setq python-black-command "/usr/local/anaconda3/bin/black")
