@@ -29,9 +29,27 @@ import readline
 from os import path
 
 import alex_leontiev_toolbox_python.gdrive.spreadsheets
+from alex_leontiev_toolbox_python.utils.db_wrap import DbCacheWrap
 import click
 import numpy as np
 import pandas as pd
+
+
+@DbCacheWrap(
+    f"sqlite:///{path.abspath(path.join(path.dirname(__file__),'.tabular_quiz.db'))}",
+    ignore_kwargs={
+        "creds",
+    },
+)
+def download_spreadsheet(spreadsheet_id, kwargs, creds=None):
+    df = (
+        alex_leontiev_toolbox_python.gdrive.spreadsheets.download_df_from_google_sheets(
+            creds,
+            spreadsheet_id,
+            **kwargs,
+        )
+    )
+    return df.to_dict(orient="records")
 
 
 @click.command()
@@ -57,8 +75,13 @@ import pandas as pd
     help="0 <==> show all; 1 <==> hide all;",
     default=0.3,
 )
+@click.option("-h", "--sheet-name")
 def tabular_quiz(
-    spreadsheet_id, google_spreadsheet_client_secret_path, index_cols, dropout_rate
+    spreadsheet_id,
+    google_spreadsheet_client_secret_path,
+    index_cols,
+    dropout_rate,
+    sheet_name,
 ):
     """
     TODO:
@@ -76,11 +99,17 @@ def tabular_quiz(
         client_secret_file=google_spreadsheet_client_secret_path,
         create_if_not_exist=True,
     )
-    df = (
-        alex_leontiev_toolbox_python.gdrive.spreadsheets.download_df_from_google_sheets(
-            creds, spreadsheet_id, sheet_name="unmerged"
-        )
-    )
+    kwargs = {}
+    if sheet_name is not None:
+        kwargs["sheet_name"] = sheet_name
+    df = pd.DataFrame(download_spreadsheet(spreadsheet_id, kwargs, creds=creds))
+    # (
+    #     alex_leontiev_toolbox_python.gdrive.spreadsheets.download_df_from_google_sheets(
+    #         creds,
+    #         spreadsheet_id,
+    #         **kwargs,
+    #     )
+    # )
     idx = list(np.array(df.columns)[list(index_cols)])
     #    logging.warning(idx)
     df.set_index(idx, inplace=True)
@@ -130,8 +159,8 @@ def tabular_quiz(
                     question_df.iloc[i, j] += " (C)"
                 else:
                     question_df.iloc[i, j] += " (W)"
+            click.echo(answer_df)
             click.echo(question_df)
-
             click.echo(f"grade: {100*grade:.2f}%")
 
             should_continue = False
