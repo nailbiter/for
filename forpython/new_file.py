@@ -5,6 +5,7 @@ from os import access, X_OK, walk
 from jinja2 import Template, FileSystemLoader, Environment
 import click
 from datetime import datetime
+import logging
 
 
 def _get_template_dirname(dir_):
@@ -64,8 +65,11 @@ def _render_and_spitout(dir_, archetype, fn, stdout, organization, email):
 @click.argument("fn", type=click.Path())
 @click.argument("archetype", type=click.Choice(_get_template_names("new_file")), default="default")
 @click.option("-s", "--stdout", is_flag=True)
+@click.option("--silent/--no-silent",default=True)
 @click.pass_context
-def new_file(ctx, stdout=False, **kwargs):
+def new_file(ctx,silent,stdout=False, **kwargs):
+    if not silent:
+        logging.warning(f"kwargs: {kwargs}")
     _render_and_spitout(dir_="new_file", stdout=stdout, **kwargs, **ctx.obj)
 
 

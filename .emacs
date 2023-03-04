@@ -58,3 +58,10 @@
   :after python
   :hook (python-mode . python-black-on-save-mode-enable-dwim))
 (setq python-black-command "/usr/local/anaconda3/bin/black")
+
+;; python init
+(defun init-python (template)
+  (interactive "Mtemplate: ")
+  (progn
+    (shell-command (format "~/for/forpython/new_file.py new-file --no-silent \"%s\" \"%s\"" buffer-file-name template) nil nil)
+    (revert-buffer :ignore-auto :noconfirm)))
