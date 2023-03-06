@@ -1,5 +1,5 @@
 set -x PATH $HOME/bin $PATH /usr/local/bin /usr/local/bin /usr/bin /bin /usr/sbin /sbin /opt/X11/bin /Library/TeX/texbin /Users/oleksiileontiev/google-cloud-sdk/bin $HOME/for/forpython/miscutils $HOME/.homebrew/bin
-set -x EDITOR vim
+set -x EDITOR emacs
 set -x SHELL /usr/local/bin/fish
 
 # The next line updates PATH for the Google Cloud SDK.
