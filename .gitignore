@@ -14,7 +14,9 @@ forscheme/sec.scm
 *.swp
 *.swo
 .DS_Store
-*~
 .envrc
-#*#
-*#
+
+# emacs
+*~
+\#*\#
+.\#*
