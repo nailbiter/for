@@ -82,3 +82,7 @@
 
 ;; hippie
 (global-set-key "\C-c\C-f" 'json-pretty-print-buffer-ordered)
+
+;; renaming frames
+(load "~/.emacs.d/frame-fns.el")
+(load "~/.emacs.d/frame-cmds.el")
