@@ -41,3 +41,4 @@ end
 
 cust3 = Customer.new("1","John","Wisdom Apartment")
 cust3.hello
+
