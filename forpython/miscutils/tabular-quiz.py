@@ -33,8 +33,12 @@ from alex_leontiev_toolbox_python.utils.db_wrap import DbCacheWrap
 import click
 import numpy as np
 import pandas as pd
-from _tabular_quiz import InteractiveLoop
+from _tabular_quiz.interactive_loop import InteractiveLoop
+from _tabular_quiz.db_utils import Base, QuizScore
 import random
+import operator
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 
 @DbCacheWrap(
@@ -59,7 +63,7 @@ def _exit(kwargs):
     logging.warning("bye")
 
 
-@click.command()
+@click.group()
 @click.option("-s", "--spreadsheet-id", required=True)
 @click.option(
     "--google-spreadsheet-client-secret-path",
@@ -84,13 +88,21 @@ def _exit(kwargs):
 )
 @click.option("-c", "--col-order", multiple=True)
 @click.option("-h", "--sheet-name")
+@click.option(
+    "--grade-db-sqlalchemy-string",
+    default=f"""sqlite:///{path.abspath(path.join(path.dirname(__file__),".tabular_quiz.grade.db"))}""",
+)
+@click.pass_context
 def tabular_quiz(
-    spreadsheet_id,
-    google_spreadsheet_client_secret_path,
-    index_cols,
-    dropout_rate,
-    sheet_name,
-    col_order,
+    # spreadsheet_id,
+    # google_spreadsheet_client_secret_path,
+    # index_cols,
+    # dropout_rate,
+    # sheet_name,
+    # col_order,
+    ctx,
+    grade_db_sqlalchemy_string,
+    **kwargs,
 ):
     """
     TODO:
@@ -106,9 +118,51 @@ def tabular_quiz(
         4. hint
     """
     creds = alex_leontiev_toolbox_python.gdrive.spreadsheets.get_creds(
-        client_secret_file=google_spreadsheet_client_secret_path,
+        client_secret_file=kwargs["google_spreadsheet_client_secret_path"],
         create_if_not_exist=True,
     )
+
+    ctx.ensure_object(dict)
+    ctx.obj["kwargs"] = kwargs
+    ctx.obj["creds"] = creds
+
+    engine = create_engine(grade_db_sqlalchemy_string, echo=False)
+    ctx.obj["engine"] = engine
+    _sessionmaker = sessionmaker(bind=engine)
+    Base.metadata.create_all(engine)
+    session = _sessionmaker()
+    ctx.obj["session"] = session
+
+
+@tabular_quiz.command()
+@click.pass_context
+def list_scores(ctx):
+    session = ctx.obj["session"]
+    click.echo(
+        pd.DataFrame(
+            map(
+                operator.methodcaller("to_dict"),
+                session.query(QuizScore).order_by(QuizScore.creation_date.desc()),
+            )
+        )
+    )
+
+
+@tabular_quiz.command()
+@click.pass_context
+def test(ctx):
+    spreadsheet_id = ctx.obj["kwargs"]["spreadsheet_id"]
+    google_spreadsheet_client_secret_path = ctx.obj["kwargs"][
+        "google_spreadsheet_client_secret_path"
+    ]
+    index_cols = ctx.obj["kwargs"]["index_cols"]
+    dropout_rate = ctx.obj["kwargs"]["dropout_rate"]
+    sheet_name = ctx.obj["kwargs"]["sheet_name"]
+    col_order = ctx.obj["kwargs"]["col_order"]
+
+    creds = ctx.obj["creds"]
+    session = ctx.obj["session"]
+
     kwargs = {}
     if sheet_name is not None:
         kwargs["sheet_name"] = sheet_name
@@ -170,6 +224,23 @@ def tabular_quiz(
         click.echo(f"grade: {100*grade:.2f}%")
 
         d["state"]["should_continue"] = False
+
+        ## TODO: add to DB
+        qs = QuizScore(
+            google_spreadsheet_id=spreadsheet_id, grade=grade, dropout_rate=dropout_rate
+        )
+        logging.warning(f"logging quiz score {qs}")
+        session.add(qs)
+        session.commit()
+
+    @loop("exact", "status")
+    def _status(_):
+        click.echo(
+            f"answered: #{[idx for idx,k in enumerate(sorted(question_indexes)) if question_indexes[k] is not None]}"
+        )
+        click.echo(
+            f"unanswered: #{[idx for idx,k in enumerate(sorted(question_indexes)) if question_indexes[k] is None]}"
+        )
 
     @loop("exact", "hint")
     def _hint(_):
