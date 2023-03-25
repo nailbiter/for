@@ -33,6 +33,8 @@ from alex_leontiev_toolbox_python.utils.db_wrap import DbCacheWrap
 import click
 import numpy as np
 import pandas as pd
+from _tabular_quiz import InteractiveLoop
+import random
 
 
 @DbCacheWrap(
@@ -50,6 +52,11 @@ def download_spreadsheet(spreadsheet_id, kwargs, creds=None):
         )
     )
     return df.to_dict(orient="records")
+
+
+def _exit(kwargs):
+    kwargs["state"]["should_continue"] = False
+    logging.warning("bye")
 
 
 @click.command()
@@ -75,6 +82,7 @@ def download_spreadsheet(spreadsheet_id, kwargs, creds=None):
     help="0 <==> show all; 1 <==> hide all;",
     default=0.3,
 )
+@click.option("-c", "--col-order", multiple=True)
 @click.option("-h", "--sheet-name")
 def tabular_quiz(
     spreadsheet_id,
@@ -82,6 +90,7 @@ def tabular_quiz(
     index_cols,
     dropout_rate,
     sheet_name,
+    col_order,
 ):
     """
     TODO:
@@ -92,8 +101,9 @@ def tabular_quiz(
 
     FEATURES:
         1. parser loop w/ `help`
-        2. cache tables (+ cache invalidation; + cache to package)
+        2(done?). cache tables (+ cache invalidation; + cache to package)
         3. save grades to db
+        4. hint
     """
     creds = alex_leontiev_toolbox_python.gdrive.spreadsheets.get_creds(
         client_secret_file=google_spreadsheet_client_secret_path,
@@ -103,13 +113,8 @@ def tabular_quiz(
     if sheet_name is not None:
         kwargs["sheet_name"] = sheet_name
     df = pd.DataFrame(download_spreadsheet(spreadsheet_id, kwargs, creds=creds))
-    # (
-    #     alex_leontiev_toolbox_python.gdrive.spreadsheets.download_df_from_google_sheets(
-    #         creds,
-    #         spreadsheet_id,
-    #         **kwargs,
-    #     )
-    # )
+    if len(col_order) > 0:
+        df = df[list(col_order)]
     idx = list(np.array(df.columns)[list(index_cols)])
     #    logging.warning(idx)
     df.set_index(idx, inplace=True)
@@ -131,41 +136,92 @@ def tabular_quiz(
         question_df.iloc[i, j] = f"<q{idx}>"
 
     # repl
-    should_continue = True
-    while should_continue:
+    loop = InteractiveLoop(prompt="edit_loop> ")
+    loop.add_callback("exact", "exit", _exit)
+
+    def _process_answer(d):
+        m = d["m"]
+
+        idx, ans = int(m.group(1)), m.group(2).strip()
+        i, j = sorted(question_indexes)[idx]
+        logging.warning(f'accepting answer "{ans}" for q #{idx} {i,j}')
+        question_indexes[i, j] = ans
+        question_df.iloc[i, j] = f'<q{idx}: "{ans}">'
+
+    loop.add_callback("regex", r"(\d+): (.*)", _process_answer)
+
+    def _grade(d):
+        for (i, j), ans in question_indexes.items():
+            question_df.iloc[i, j] = ans
+        grade = 1 - (answer_df != question_df).sum().sum() / len(question_indexes)
+
+        question_df.fillna("", inplace=True)
+        for (i, j), ans in question_indexes.items():
+            question_df.iloc[i, j] = f'"{question_df.iloc[i,j]}"'
+            if ans == answer_df.iloc[i, j]:
+                question_df.iloc[i, j] += " (C)"
+            else:
+                question_df.iloc[i, j] += " (W)"
+        click.echo(answer_df)
         click.echo(question_df)
+        click.echo(f"grade: {100*grade:.2f}%")
 
-        s = input("edit_loop> ")
-        s = s.strip()
+        d["state"]["should_continue"] = False
 
-        if s == "exit":
-            should_continue = False
-            click.echo("bye")
-        elif (m := re.match(r"(\d+): (.*)", s)) is not None:
-            idx, ans = int(m.group(1)), m.group(2).strip()
-            i, j = sorted(question_indexes)[idx]
-            logging.warning(f'accepting answer "{ans}" for q #{idx} {i,j}')
-            question_indexes[i, j] = ans
-            question_df.iloc[i, j] = f'<q{idx}: "{ans}">'
-        elif s == "grade":
-            for (i, j), ans in question_indexes.items():
-                question_df.iloc[i, j] = ans
-            grade = 1 - (answer_df != question_df).sum().sum() / len(question_indexes)
+    loop.add_callback("exact", "grade", _grade)
 
-            question_df.fillna("", inplace=True)
-            for (i, j), ans in question_indexes.items():
-                question_df.iloc[i, j] = f'"{question_df.iloc[i,j]}"'
-                if ans == answer_df.iloc[i, j]:
-                    question_df.iloc[i, j] += " (C)"
-                else:
-                    question_df.iloc[i, j] += " (W)"
-            click.echo(answer_df)
-            click.echo(question_df)
-            click.echo(f"grade: {100*grade:.2f}%")
+    def _hint(_):
+        unanswereds = [
+            (idx, (i, j))
+            for idx, (i, j) in enumerate(question_indexes)
+            if question_indexes[i, j] is None
+        ]
+        if len(unanswereds) == 0:
+            logging.warning("no unanswereds ==> ignore")
+            return
+        idx, (i, j) = random.choice(unanswereds)
+        click.echo(f'#{idx}: "{answer_df.iloc[i,j]}"')
 
-            should_continue = False
-        else:
-            click.echo(f'unknown input "{s}" ==> ignore')
+    loop.add_callback("exact", "hint", _hint)
+
+    loop.add_pre_loop_callback(lambda _: click.echo(question_df))
+    loop.loop()
+
+    # should_continue = True
+    # while should_continue:
+    #     click.echo(question_df)
+
+    #     s = input("edit_loop> ")
+    #     s = s.strip()
+
+    #     if s == "exit":
+    #         should_continue = False
+    #         click.echo("bye")
+    #     elif (m := re.match(r"(\d+): (.*)", s)) is not None:
+    #         idx, ans = int(m.group(1)), m.group(2).strip()
+    #         i, j = sorted(question_indexes)[idx]
+    #         logging.warning(f'accepting answer "{ans}" for q #{idx} {i,j}')
+    #         question_indexes[i, j] = ans
+    #         question_df.iloc[i, j] = f'<q{idx}: "{ans}">'
+    #     elif s == "grade":
+    #         for (i, j), ans in question_indexes.items():
+    #             question_df.iloc[i, j] = ans
+    #         grade = 1 - (answer_df != question_df).sum().sum() / len(question_indexes)
+
+    #         question_df.fillna("", inplace=True)
+    #         for (i, j), ans in question_indexes.items():
+    #             question_df.iloc[i, j] = f'"{question_df.iloc[i,j]}"'
+    #             if ans == answer_df.iloc[i, j]:
+    #                 question_df.iloc[i, j] += " (C)"
+    #             else:
+    #                 question_df.iloc[i, j] += " (W)"
+    #         click.echo(answer_df)
+    #         click.echo(question_df)
+    #         click.echo(f"grade: {100*grade:.2f}%")
+
+    #     should_continue = False
+    # else:
+    #     click.echo(f'unknown input "{s}" ==> ignore')
 
 
 if __name__ == "__main__":
