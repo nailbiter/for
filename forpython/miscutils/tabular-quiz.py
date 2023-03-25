@@ -112,10 +112,10 @@ def tabular_quiz(
         4(done). grade
 
     FEATURES:
-        1. parser loop w/ `help`
+        1(done). parser loop w/ `help`
         2(done?). cache tables (+ cache invalidation; + cache to package)
-        3. save grades to db
-        4. hint
+        3(done). save grades to db
+        4(done). hint
     """
     creds = alex_leontiev_toolbox_python.gdrive.spreadsheets.get_creds(
         client_secret_file=kwargs["google_spreadsheet_client_secret_path"],
