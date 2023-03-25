@@ -21,6 +21,7 @@ import typing
 import re
 import logging
 import pandas as pd
+import functools
 
 
 class InteractiveLoop:
@@ -41,6 +42,19 @@ class InteractiveLoop:
     # FIXME: convert to property with only setter
     def add_pre_loop_callback(self, cb: typing.Callable[[dict], None]):
         self._pre_loop_callback = cb
+
+    def __call__(
+        self,
+        trigger_type: typing.Literal["exact", "regex", "fallback"],
+        trigger_value: typing.Optional[str],
+        help_str: str = None,
+    ):
+        def _processor(callback):
+            self._logger.warning(f"adding callback {trigger_type,trigger_value}")
+            self.add_callback(trigger_type, trigger_value, callback, help_str)
+            return callback
+
+        return _processor
 
     def add_callback(
         self,
@@ -74,12 +88,15 @@ class InteractiveLoop:
 
     def loop(self):
         callbacks_df = self._get_help_callbacks_df()
+        d = {"state":self._state}
+        
         while self._state["should_continue"]:
             if self._pre_loop_callback is not None:
-                self._pre_loop_callback(dict(state=self._state))
+                self._pre_loop_callback(d)
 
             s = input(self._prompt)
             s = s.strip()
+            d["input_line"] = s
 
             is_accept = False
             callback = None
@@ -114,4 +131,5 @@ class InteractiveLoop:
                 else:
                     callback = fallbacks[-1]
 
-            callback(dict(m=m, state=self._state))
+            d["m"] = m
+            callback(d)

@@ -139,6 +139,10 @@ def tabular_quiz(
     loop = InteractiveLoop(prompt="edit_loop> ")
     loop.add_callback("exact", "exit", _exit)
 
+    @loop(
+        "regex",
+        r"(\d+): (.*)",
+    )
     def _process_answer(d):
         m = d["m"]
 
@@ -148,8 +152,7 @@ def tabular_quiz(
         question_indexes[i, j] = ans
         question_df.iloc[i, j] = f'<q{idx}: "{ans}">'
 
-    loop.add_callback("regex", r"(\d+): (.*)", _process_answer)
-
+    @loop("exact", "grade")
     def _grade(d):
         for (i, j), ans in question_indexes.items():
             question_df.iloc[i, j] = ans
@@ -168,12 +171,11 @@ def tabular_quiz(
 
         d["state"]["should_continue"] = False
 
-    loop.add_callback("exact", "grade", _grade)
-
+    @loop("exact", "hint")
     def _hint(_):
         unanswereds = [
             (idx, (i, j))
-            for idx, (i, j) in enumerate(question_indexes)
+            for idx, (i, j) in enumerate(sorted(question_indexes))
             if question_indexes[i, j] is None
         ]
         if len(unanswereds) == 0:
@@ -182,46 +184,12 @@ def tabular_quiz(
         idx, (i, j) = random.choice(unanswereds)
         click.echo(f'#{idx}: "{answer_df.iloc[i,j]}"')
 
-    loop.add_callback("exact", "hint", _hint)
+    @loop("fallback", None)
+    def _fallback(d):
+        logging.warning(f"unknown line \"{d['input_line']}\" ==> ignore")
 
     loop.add_pre_loop_callback(lambda _: click.echo(question_df))
     loop.loop()
-
-    # should_continue = True
-    # while should_continue:
-    #     click.echo(question_df)
-
-    #     s = input("edit_loop> ")
-    #     s = s.strip()
-
-    #     if s == "exit":
-    #         should_continue = False
-    #         click.echo("bye")
-    #     elif (m := re.match(r"(\d+): (.*)", s)) is not None:
-    #         idx, ans = int(m.group(1)), m.group(2).strip()
-    #         i, j = sorted(question_indexes)[idx]
-    #         logging.warning(f'accepting answer "{ans}" for q #{idx} {i,j}')
-    #         question_indexes[i, j] = ans
-    #         question_df.iloc[i, j] = f'<q{idx}: "{ans}">'
-    #     elif s == "grade":
-    #         for (i, j), ans in question_indexes.items():
-    #             question_df.iloc[i, j] = ans
-    #         grade = 1 - (answer_df != question_df).sum().sum() / len(question_indexes)
-
-    #         question_df.fillna("", inplace=True)
-    #         for (i, j), ans in question_indexes.items():
-    #             question_df.iloc[i, j] = f'"{question_df.iloc[i,j]}"'
-    #             if ans == answer_df.iloc[i, j]:
-    #                 question_df.iloc[i, j] += " (C)"
-    #             else:
-    #                 question_df.iloc[i, j] += " (W)"
-    #         click.echo(answer_df)
-    #         click.echo(question_df)
-    #         click.echo(f"grade: {100*grade:.2f}%")
-
-    #     should_continue = False
-    # else:
-    #     click.echo(f'unknown input "{s}" ==> ignore')
 
 
 if __name__ == "__main__":
