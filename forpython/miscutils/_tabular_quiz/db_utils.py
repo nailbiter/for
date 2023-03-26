@@ -31,6 +31,7 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.orm.exc import NoResultFound
 import uuid
 from datetime import datetime, timedelta
+import json
 
 Base = declarative_base()
 
@@ -43,17 +44,19 @@ class QuizScore(Base):
     google_spreadsheet_id = Column(String)
     grade = Column(Float)
     dropout_rate = Column(Float)
+    obj_json=Column(String)
 
-    def __init__(self, google_spreadsheet_id, grade, dropout_rate):
+    def __init__(self, google_spreadsheet_id, grade, dropout_rate,obj):
         self.uuid = str(uuid.uuid4())
         self.creation_date = datetime.now()
 
         self.google_spreadsheet_id = google_spreadsheet_id
         self.grade = grade
         self.dropout_rate = dropout_rate
+        self.obj_json = json.dumps(obj)
 
     def to_dict(self):
-        return {
+        d = {
             k: getattr(self, k)
             for k in """
             uuid
@@ -63,7 +66,9 @@ class QuizScore(Base):
             dropout_rate
             """.strip().split()
         }
-
+        d["obj"] = json.loads(self.obj_json)
+        return d
+        
     def __str__(self):
         return str(self.to_dict())
 

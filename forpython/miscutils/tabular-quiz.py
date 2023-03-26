@@ -39,6 +39,7 @@ import random
 import operator
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import json
 
 
 @DbCacheWrap(
@@ -138,14 +139,14 @@ def tabular_quiz(
 @click.pass_context
 def list_scores(ctx):
     session = ctx.obj["session"]
-    click.echo(
-        pd.DataFrame(
-            map(
-                operator.methodcaller("to_dict"),
-                session.query(QuizScore).order_by(QuizScore.creation_date.desc()),
-            )
+    df = pd.DataFrame(
+        map(
+            operator.methodcaller("to_dict"),
+            session.query(QuizScore).order_by(QuizScore.creation_date.desc()),
         )
     )
+    #df["obj"] = df.pop("obj_json").apply(json.loads)
+    click.echo(df)
 
 
 @tabular_quiz.command()
@@ -227,7 +228,20 @@ def test(ctx):
 
         ## TODO: add to DB
         qs = QuizScore(
-            google_spreadsheet_id=spreadsheet_id, grade=grade, dropout_rate=dropout_rate
+            google_spreadsheet_id=spreadsheet_id,
+            grade=grade,
+            dropout_rate=dropout_rate,
+            obj={
+                "answer_df": {
+                    "json": answer_df.to_json(),
+                    "index_names": list(answer_df.index.names),
+                },
+                "question_df": {
+                    "json": question_df.to_json(),
+                    "index_names": list(question_df.index.names),
+                },
+                "question_indexes": {json.dumps(k): v for k, v in d.items()},
+            },
         )
         logging.warning(f"logging quiz score {qs}")
         session.add(qs)
