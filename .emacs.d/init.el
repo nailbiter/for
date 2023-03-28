@@ -92,7 +92,6 @@
 ;; (add-to-list 'load-path "~/.emacs.d/lisp/")
 ;;(use-package json5)
 ;;(require 'json5)
-
 ;; ;; python init
 ;; (defun json5- (template)
 ;;   (interactive "Mtemplate: ")
