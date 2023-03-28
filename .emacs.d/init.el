@@ -60,7 +60,7 @@
 (setq python-black-command "/usr/local/anaconda3/bin/black")
 
 ;; python init
-(defun init-python (template)
+(defun python-init (template)
   (interactive "Mtemplate: ")
   (progn
     (shell-command (format "~/for/forpython/new_file.py new-file --no-silent \"%s\" \"%s\"" buffer-file-name template) nil nil)
@@ -88,4 +88,14 @@
 (load "~/.emacs.d/frame-cmds.el")
 
 ;; json5
-(load "~/.emacs.d/json5.el")
+;; (load "~/.emacs.d/lisp/json5.el")
+;; (add-to-list 'load-path "~/.emacs.d/lisp/")
+;;(use-package json5)
+;;(require 'json5)
+
+;; ;; python init
+;; (defun json5- (template)
+;;   (interactive "Mtemplate: ")
+;;   (progn
+;;     (shell-command (format "~/for/forpython/new_file.py new-file --no-silent \"%s\" \"%s\"" buffer-file-name template) nil nil)
+;;     (revert-buffer :ignore-auto :noconfirm)))

@@ -194,6 +194,7 @@ The result has no properties; respect narrowing."
   "Parse the current buffer, which must contain JSON5.
 Respects narrowing. A convenience wrapper around
 `json5-parse-string', which see."
+  (interactive)
   (json5-parse-string (json5--buffer-contents)))
 
 (defun json5-parse-file (f)
