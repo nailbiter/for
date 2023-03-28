@@ -86,3 +86,6 @@
 ;; renaming frames
 (load "~/.emacs.d/frame-fns.el")
 (load "~/.emacs.d/frame-cmds.el")
+
+;; json5
+(load "~/.emacs.d/json5.el")
