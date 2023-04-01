@@ -41,7 +41,7 @@
 (drag-stuff-global-mode 1)
 ;;(keys-stuff-define-drag)
 ;; copied from https://github.com/rejeep/drag-stuff.el/blob/6d06d846cd37c052d79acd0f372c13006aa7e7c8/drag-stuff.el#L332
-(setq drag-stuff-modifier '(control shift))
+;(setq drag-stuff-modifier '(control shift))
 (define-key drag-stuff-mode-map (drag-stuff--kbd 'up) 'drag-stuff-up)
 (define-key drag-stuff-mode-map (drag-stuff--kbd 'down) 'drag-stuff-down)
 
