@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(epg-gpg-program "/usr/local/bin/gpg")
  '(package-selected-packages
-   '(json-mode json-reformat python-black password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
+   '(prettier-js js-format json-mode json-reformat python-black password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -60,7 +60,7 @@
 (setq python-black-command "/usr/local/anaconda3/bin/black")
 
 ;; python init
-(defun init-python (template)
+(defun python-init (template)
   (interactive "Mtemplate: ")
   (progn
     (shell-command (format "~/for/forpython/new_file.py new-file --no-silent \"%s\" \"%s\"" buffer-file-name template) nil nil)
@@ -86,3 +86,28 @@
 ;; renaming frames
 (load "~/.emacs.d/frame-fns.el")
 (load "~/.emacs.d/frame-cmds.el")
+
+;; json5
+;; (load "~/.emacs.d/lisp/json5.el")
+;; (add-to-list 'load-path "~/.emacs.d/lisp/")
+;;(use-package json5)
+;;(require 'json5)
+;; ;; python init
+;; (defun json5- (template)
+;;   (interactive "Mtemplate: ")
+;;   (progn
+;;     (shell-command (format "~/for/forpython/new_file.py new-file --no-silent \"%s\" \"%s\"" buffer-file-name template) nil nil)
+;;     (revert-buffer :ignore-auto :noconfirm)))
+
+;; https://www.emacswiki.org/emacs/ExecPath
+;;(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin/")))
+
+;; js https://github.com/futurist/js-format.el
+(require 'js-format)
+;; using "standard" as js formatter
+
+;; (after-load 'js2-mode
+;;   (add-hook 'js2-mode-hook
+;;             (lambda()
+;;               (js-format-setup "standard"))))

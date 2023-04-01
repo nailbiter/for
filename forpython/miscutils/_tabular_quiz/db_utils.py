@@ -44,9 +44,9 @@ class QuizScore(Base):
     google_spreadsheet_id = Column(String)
     grade = Column(Float)
     dropout_rate = Column(Float)
-    obj_json=Column(String)
+    obj_json = Column(String)
 
-    def __init__(self, google_spreadsheet_id, grade, dropout_rate,obj):
+    def __init__(self, google_spreadsheet_id, grade, dropout_rate, obj):
         self.uuid = str(uuid.uuid4())
         self.creation_date = datetime.now()
 
@@ -68,7 +68,7 @@ class QuizScore(Base):
         }
         d["obj"] = json.loads(self.obj_json)
         return d
-        
+
     def __str__(self):
         return str(self.to_dict())
 

@@ -145,7 +145,7 @@ def list_scores(ctx):
             session.query(QuizScore).order_by(QuizScore.creation_date.desc()),
         )
     )
-    #df["obj"] = df.pop("obj_json").apply(json.loads)
+    # df["obj"] = df.pop("obj_json").apply(json.loads)
     click.echo(df)
 
 
