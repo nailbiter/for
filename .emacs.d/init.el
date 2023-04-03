@@ -112,3 +112,5 @@
 ;;   (add-hook 'js2-mode-hook
 ;;             (lambda()
 ;;               (js-format-setup "standard"))))
+
+(setq require-final-newline t)
