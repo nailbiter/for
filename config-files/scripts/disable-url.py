@@ -30,6 +30,8 @@ import itertools
 import logging
 import requests
 import operator
+import tqdm
+import time
 
 
 def _add_logger(f):
@@ -55,21 +57,21 @@ def disable_url(ctx, **kwargs):
 
 
 @disable_url.command()
-@click.argument("url-address")
+@click.option("-u", "--url-address", "url_addresses", multiple=True)
 @click.option("-f", "--url-file", type=click.Path())
 @click.pass_context
-def url(ctx, url_address, url_file):
+def url(ctx, url_addresses, url_file):
     pat = re.compile("(?P<protocol>https|file|http):/{2,4}(?P<host>[^/]+).*")
-    url_addresses = [url_address]
+    url_addresses = list(url_addresses)
     if url_file is not None:
         with open(url_file) as f:
             lines = f.readlines()
     lines = list(
         filter(lambda s: len(s) > 0, map(operator.methodcaller("strip"), lines))
     )
-    url_addresses.expand(lines)
+    url_addresses.extend(lines)
 
-    for url_address in url_addresses:
+    for url_address in tqdm.tqdm(url_addresses):
         m = pat.match(url_address)
         assert m is not None, (pat, url_address)
         click.echo(m.group("host"))
@@ -79,6 +81,7 @@ def url(ctx, url_address, url_file):
             m.group("host"),
             posttodo_command="sudo -E ./load-config-files.py",
         )
+        time.sleep(1)
 
     os.system(f"git commit -a -m 'disable url'")
 
