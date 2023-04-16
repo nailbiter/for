@@ -29,6 +29,7 @@ import pandas as pd
 import itertools
 import logging
 import requests
+import operator
 
 
 def _add_logger(f):
@@ -36,12 +37,17 @@ def _add_logger(f):
 
     def _f(*args, **kwargs):
         return f(*args, logger=logger, **kwargs)
+
     _f.__name__ = f.__name__
     return _f
 
 
 @click.group()
-@click.option("--database-file", type=click.Path(), default=path.join(path.split(__file__)[0], "..", ".data/hosts.json"))
+@click.option(
+    "--database-file",
+    type=click.Path(),
+    default=path.join(path.split(__file__)[0], "..", ".data/hosts.json"),
+)
 @click.pass_context
 def disable_url(ctx, **kwargs):
     ctx.ensure_object(dict)
@@ -50,25 +56,43 @@ def disable_url(ctx, **kwargs):
 
 @disable_url.command()
 @click.argument("url-address")
+@click.option("-f", "--url-file", type=click.Path())
 @click.pass_context
-def url(ctx, url_address):
+def url(ctx, url_address, url_file):
     pat = re.compile("(?P<protocol>https|file|http):/{2,4}(?P<host>[^/]+).*")
-    m = pat.match(url_address)
-    assert m is not None, (pat, url_address)
-    click.echo(m.group("host"))
+    url_addresses = [url_address]
+    if url_file is not None:
+        with open(url_file) as f:
+            lines = f.readlines()
+    lines = list(
+        filter(lambda s: len(s) > 0, map(operator.methodcaller("strip"), lines))
+    )
+    url_addresses.expand(lines)
 
-    _add_url_to_db(ctx.obj["kwargs"]["database_file"], m.group(
-        "host"), posttodo_command="sudo -E ./load-config-files.py")
+    for url_address in url_addresses:
+        m = pat.match(url_address)
+        assert m is not None, (pat, url_address)
+        click.echo(m.group("host"))
+
+        _add_url_to_db(
+            ctx.obj["kwargs"]["database_file"],
+            m.group("host"),
+            posttodo_command="sudo -E ./load-config-files.py",
+        )
+
     os.system(f"git commit -a -m 'disable url'")
 
 
 def _get_remote_mongo_client(mongo_pass):
     return MongoClient(
-        f"mongodb+srv://nailbiter:{mongo_pass}@cluster0.gaq9o.mongodb.net/logistics?authSource=admin&replicaSet=atlas-1372ty-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true")
+        f"mongodb+srv://nailbiter:{mongo_pass}@cluster0.gaq9o.mongodb.net/logistics?authSource=admin&replicaSet=atlas-1372ty-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true"
+    )
 
 
 @_add_logger
-def _add_url_to_db(database_file, *urls, logger=None, dry_run=False, posttodo_command=None):
+def _add_url_to_db(
+    database_file, *urls, logger=None, dry_run=False, posttodo_command=None
+):
     with open(database_file) as f:
         data = json.load(f)
     init_hosts = data["hosts"]
@@ -90,12 +114,15 @@ def _add_url_to_db(database_file, *urls, logger=None, dry_run=False, posttodo_co
 
 
 def _send_sudo_request(webhook_url):
-    _ = requests.post(webhook_url, json.dumps({
-        "text": "`cd ~/for/config-files && . .envrc && sudo -E ./load-config-files.py`",
-    }),
-        headers={
-            "Content-type": "application/json"
-    })
+    _ = requests.post(
+        webhook_url,
+        json.dumps(
+            {
+                "text": "`cd ~/for/config-files && . .envrc && sudo -E ./load-config-files.py`",
+            }
+        ),
+        headers={"Content-type": "application/json"},
+    )
 
 
 @disable_url.command()
@@ -105,17 +132,26 @@ def _send_sudo_request(webhook_url):
 @click.pass_context
 def notes(ctx, mongo_pass, dry_run, webhook_url):
     mongo_client = _get_remote_mongo_client(mongo_pass)
-    notes_df = pd.DataFrame(mongo_client.logistics["alex.notes"].find(
-        filter={"content": {"$regex": "#porn"}}))
+    notes_df = pd.DataFrame(
+        mongo_client.logistics["alex.notes"].find(
+            filter={"content": {"$regex": "#porn"}}
+        )
+    )
     urls = itertools.chain(
-        *notes_df.content.apply(lambda s: [t for t in s.split(" ") if t != "#porn"]))
+        *notes_df.content.apply(lambda s: [t for t in s.split(" ") if t != "#porn"])
+    )
     pat = re.compile("(?P<protocol>https|file|http):/{2,4}(?P<host>[^/]+).*")
-    urls = map(lambda m: m.group("host"), filter(
-        lambda m: m is not None, map(pat.match, urls)))
+    urls = map(
+        lambda m: m.group("host"), filter(lambda m: m is not None, map(pat.match, urls))
+    )
 
     urls = list(urls)
-    _add_url_to_db(ctx.obj["kwargs"]["database_file"], *urls,
-                   dry_run=dry_run, posttodo_command=lambda: _send_sudo_request(webhook_url))
+    _add_url_to_db(
+        ctx.obj["kwargs"]["database_file"],
+        *urls,
+        dry_run=dry_run,
+        posttodo_command=lambda: _send_sudo_request(webhook_url),
+    )
 
 
 if __name__ == "__main__":
