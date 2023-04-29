@@ -16,7 +16,6 @@
 					;(setq inferior-lisp-program "sbcl")
 
 (setq inferior-lisp-program "/usr/local/bin/sbcl")
-(setq shell-file-name "bash")
 
 (require 'package)
 (add-to-list 'package-archives
@@ -100,9 +99,9 @@
 ;;     (shell-command (format "~/for/forpython/new_file.py new-file --no-silent \"%s\" \"%s\"" buffer-file-name template) nil nil)
 ;;     (revert-buffer :ignore-auto :noconfirm)))
 
-;; https://www.emacswiki.org/emacs/ExecPath
-;;(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (append exec-path '("/usr/local/bin/")))
+;; https://www.emacswiki.org/emacs/ExecPath(
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Users/nailbiter/for/forpython/miscutils/"))
+;;(setq exec-path (append exec-path '("/usr/local/bin/" "/Users/nailbiter/for/forpython/miscutils/")))
 
 ;; js https://github.com/futurist/js-format.el
 (require 'js-format)
