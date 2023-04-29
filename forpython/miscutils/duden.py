@@ -30,6 +30,12 @@ import subprocess
 from datetime import datetime, timedelta
 from jinja2 import Template
 import json
+from alex_leontiev_toolbox_python.utils import db_wrap
+
+def _duden()
+WARNING:root:ext: ".py"
+WARNING:root:/tmp/820654db_fab8_403c_ab05_4109a6041256.py
+/tmp/820654db_fab8_403c_ab05_4109a6041256.py
 
 
 @click.command()
