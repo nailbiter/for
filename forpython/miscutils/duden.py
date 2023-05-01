@@ -60,9 +60,10 @@ def _duden(duden_exec: str, word: str, fuzzy: bool, result: int):
 @click.option("--duden-exec", default="duden")
 @click.argument("word")
 @click.option("--fuzzy/--no-fuzzy", "-f/ ", default=False)
+@click.option("--use-cache/--no-use-cache", default=True)
 @click.option("-r", "--result", type=int)
-def duden(duden_exec, word, fuzzy, result):
-    out = _duden(duden_exec, word, fuzzy, result)
+def duden(duden_exec, word, fuzzy, result, use_cache):
+    out = _duden(duden_exec, word, fuzzy, result, is_force_cache_miss=not use_cache)
     click.echo(out)
 
 
