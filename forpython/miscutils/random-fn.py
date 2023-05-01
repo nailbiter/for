@@ -135,7 +135,7 @@ def random_fn(ext, database_fn, read, tmp_dir, index, list_db, ext_option, is_lo
             .limit(index + 1)[index]
         )
 
-    if is_log and (not omit_warnings):
+    if is_log:
         logging.warning(rfn.file_name)
     click.echo(rfn.file_name)
     session.commit()
