@@ -41,8 +41,10 @@
 ;;(keys-stuff-define-drag)
 ;; copied from https://github.com/rejeep/drag-stuff.el/blob/6d06d846cd37c052d79acd0f372c13006aa7e7c8/drag-stuff.el#L332
 ;(setq drag-stuff-modifier '(control shift))
-(define-key drag-stuff-mode-map (drag-stuff--kbd 'up) 'drag-stuff-up)
-(define-key drag-stuff-mode-map (drag-stuff--kbd 'down) 'drag-stuff-down)
+;(define-key drag-stuff-mode-map (drag-stuff--kbd 'up) 'drag-stuff-up)
+;(define-key drag-stuff-mode-map (drag-stuff--kbd 'down) 'drag-stuff-down)
+(define-key drag-stuff-mode-map (kbd "<ESC> <up>") 'drag-stuff-up)
+(define-key drag-stuff-mode-map (kbd "<ESC> <down>") 'drag-stuff-down)
 
 (setq ispell-program-name "/usr/local/bin/aspell")
 (setq shell-file-name "/usr/local/bin/fish")
@@ -57,6 +59,7 @@
   :demand t
   :after python
   :hook (python-mode . python-black-on-save-mode-enable-dwim))
+;(setq python-black-command "python3 -m black")
 (setq python-black-command "/usr/local/anaconda3/bin/black")
 
 ;; python init
