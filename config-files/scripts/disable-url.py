@@ -66,10 +66,10 @@ def url(ctx, url_addresses, url_file):
     if url_file is not None:
         with open(url_file) as f:
             lines = f.readlines()
-    lines = list(
-        filter(lambda s: len(s) > 0, map(operator.methodcaller("strip"), lines))
-    )
-    url_addresses.extend(lines)
+        lines = list(
+            filter(lambda s: len(s) > 0, map(operator.methodcaller("strip"), lines))
+        )
+        url_addresses.extend(lines)
 
     for url_address in tqdm.tqdm(url_addresses):
         m = pat.match(url_address)
