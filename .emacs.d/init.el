@@ -107,8 +107,9 @@
 ;;(setq exec-path (append exec-path '("/usr/local/bin/" "/Users/nailbiter/for/forpython/miscutils/")))
 
 ;; js https://github.com/futurist/js-format.el
-(require 'js-format)
+;;(require 'js-format)
 ;; using "standard" as js formatter
+(require 'prettier-js)
 
 ;; (after-load 'js2-mode
 ;;   (add-hook 'js2-mode-hook
