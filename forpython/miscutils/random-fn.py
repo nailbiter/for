@@ -128,6 +128,7 @@ def random_fn(ext, database_fn, read, tmp_dir, index, list_db, ext_option, is_lo
             os.makedirs(rfn.file_name, exist_ok=False)
         session.add(rfn)
     else:
+        
         rfn = (
             session.query(RandomFileName)
             .filter_by(extension=ext, directory=tmp_dir)
