@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(epg-gpg-program "/usr/local/bin/gpg")
  '(package-selected-packages
-   '(prettier-js js-format json-mode json-reformat python-black password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
+   '(whole-line-or-region prettier-js js-format json-mode json-reformat python-black password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -117,3 +117,6 @@
 ;;               (js-format-setup "standard"))))
 
 (setq require-final-newline t)
+
+(require 'whole-line-or-region)
+(whole-line-or-region-global-mode)
