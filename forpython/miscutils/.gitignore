@@ -2,15 +2,17 @@
 .random_fn.db
 .duden.db
 .copypaste.db
+.tabular_quiz.db
+.tabular_quiz.grade.db
 .leo.db
+.cnt.db
 
 #`dotenv`s
 .open_last_screenshot.env
 
 #handy aux dict
 .handy_aux_dict.json
+
+articles-quiz.sh
 client_secret.json
 .token.json
-.tabular_quiz.db
-.tabular_quiz.grade.db
-articles-quiz.sh

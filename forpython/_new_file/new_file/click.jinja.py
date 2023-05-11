@@ -32,7 +32,8 @@ def {{basename}}():
     pass
 
 if __name__=="__main__":
-#    if path.isfile(".env"):
-#        logging.warning("loading .env")
-#        load_dotenv()
+#    fn = ".env"
+#    if path.isfile(fn):
+#        logging.warning(f"loading `{fn}`")
+#        load_dotenv(dotenv_path=fn)
     {{basename}}()
