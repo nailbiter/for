@@ -247,7 +247,7 @@ def edit_loop(ctx, logger=None):
                     f'python3 bookmark.py --suffix "{suffix}" --pdf-template "{pdf_template}"  -d {day} make'
                 )
             else:
-                print("m is None")
+                print(f"m is None: {m,_REGEX}")
 
     click.echo("bye")
 
