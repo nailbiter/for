@@ -40,14 +40,17 @@ from _bookmark import roman_to_int
 
 _CHAPTER_MAX_COUNT = 3
 
+CACHE_OVERRIDE_LEVELS = {"PARSE_LINE": 2, "GENERATE_LINE": 1}
+
 
 def _add_logger(f):
     logger = logging.getLogger(f.__name__)
 
+    @functools.wraps(f)
     def _f(*args, **kwargs):
         return f(*args, logger=logger, **kwargs)
 
-    _f.__name__ = f.__name__
+    # _f.__name__ = f.__name__
     return _f
 
 
@@ -80,11 +83,17 @@ def _get_line(
     suffix="",
     ignore_cache=False,
     logger=None,
+    force_use_parse_line_cache=False,
 ):
     search_key = {"day": day, "suffix": suffix, "which_line": which_line}
     r = mongo_client.bookmarks.lines.find_one(search_key)
     assert_and_log = functools.partial(_assert_and_log, logger=logger)
-    if r is None or ignore_cache or override is not None:
+    logger.warning(("before", search_key, r))
+
+    logger.warning((ignore_cache, override))
+    if (not force_use_parse_line_cache) and (
+        (r is None) or ignore_cache or (override is not None)
+    ):
         # Gal., 213 zach., V, 22 – VI, 2.
         regex = (
             f"(?P<key>{'|'.join(dictionary.keys())})"
@@ -122,6 +131,8 @@ def _get_line(
 
         mongo_client.bookmarks.lines.delete_many(search_key)
         mongo_client.bookmarks.lines.insert_one({**r, **search_key})
+
+    logger.warning(("after", search_key, r))
     return r
 
 
@@ -134,10 +145,6 @@ def _get_coords_inner_loop(day, mongo_client, coords_dir, suffix=""):
         r = {"coords": coords}
         mongo_client.bookmarks.coords.insert_one({**search_line, **r})
     return r["coords"]
-
-
-def _ss(s):
-    return s.split(" ")
 
 
 @click.group()
@@ -169,6 +176,9 @@ def _ss(s):
 )
 @click.option("-s", "--suffix", default="")
 @click.option("--mongo-url", envvar="MONGO_URL")
+@click.option(
+    "--force-use-parse-line-cache/--no-force-use-parse-line-cache", default=True
+)
 @click.pass_context
 def bookmark(ctx, mongo_url, **kwargs):
     basic_config_kwargs = {
@@ -186,7 +196,7 @@ def bookmark(ctx, mongo_url, **kwargs):
         basic_config_kwargs["handlers"].append(_handler)
     logging.basicConfig(**basic_config_kwargs)
 
-    day, cache_folder = [kwargs[k] for k in _ss("day cache_folder")]
+    day, cache_folder = [kwargs[k] for k in ("day cache_folder").split()]
     assert day.weekday() == 6, f"{day} is not Sunday"
     kwargs["day"] = day.strftime("%Y-%m-%d")
     os.makedirs(cache_folder, exist_ok=True)
@@ -194,6 +204,7 @@ def bookmark(ctx, mongo_url, **kwargs):
     ctx.ensure_object(dict)
     for k, v in kwargs.items():
         ctx.obj[k] = v
+    logging.warning(f'mongo_url: "{mongo_url}"')
     ctx.obj["mongo_client"] = MongoClient(mongo_url)
 
 
@@ -201,12 +212,29 @@ def bookmark(ctx, mongo_url, **kwargs):
 @click.pass_context
 @_add_logger
 def edit_loop(ctx, logger=None):
-    day, cache_folder, cpdf_executable, pdfs_folder, pdf_template, suffix, client = [
+    (
+        day,
+        cache_folder,
+        cpdf_executable,
+        pdfs_folder,
+        pdf_template,
+        suffix,
+        client,
+        force_use_parse_line_cache,
+    ) = [
         ctx.obj[k]
-        for k in _ss(
-            "day cache_folder cpdf_executable pdfs_folder pdf_template suffix mongo_client"
-        )
+        for k in [
+            "day",
+            "cache_folder",
+            "cpdf_executable",
+            "pdfs_folder",
+            "pdf_template",
+            "suffix",
+            "mongo_client",
+            "force_use_parse_line_cache",
+        ]
     ]
+
     coll = client.bookmarks.coords
     should_continue = True
     while should_continue:
@@ -243,9 +271,29 @@ def edit_loop(ctx, logger=None):
                         },
                     )
                 print(coll.find_one({"day": day, "suffix": suffix}))
-                _system(
-                    f'python3 bookmark.py --suffix "{suffix}" --pdf-template "{pdf_template}"  -d {day} make'
+                cmd = (
+                    Template(
+                        """
+                        python3 bookmark.py
+                        --suffix "{{suffix}}"
+                        --pdf-template "{{pdf_template}}"
+                        -d {{day}}
+                        {%if force_use_parse_line_cache%}--force-use-parse-line-cache{%endif%}
+                        make
+                        """
+                    )
+                    .render(
+                        {
+                            "suffix": suffix,
+                            "pdf_template": pdf_template,
+                            "day": day,
+                            "force_use_parse_line_cache": force_use_parse_line_cache,
+                        }
+                    )
+                    .replace("\n", " ")
+                    .strip()
                 )
+                _system(cmd)
             else:
                 print(f"m is None: {m,_REGEX}")
 
@@ -258,18 +306,35 @@ def edit_loop(ctx, logger=None):
     "--ignore-cache",
     type=click.IntRange(0, 3),
     default=0,
-    help="higher value means ignore more",
+    help=f"higher value means ignore more ({CACHE_OVERRIDE_LEVELS})",
 )
 @click.option("-g", "--gospel", envvar="GOSPEL")
 @click.option("-a", "--acts", envvar="APOSTOL")
 @click.pass_context
 @_add_logger
 def make(ctx, ignore_cache, logger=None, **kwargs):
-    day, cache_folder, cpdf_executable, pdfs_folder, pdf_template, suffix, client = [
+
+    (
+        day,
+        cache_folder,
+        cpdf_executable,
+        pdfs_folder,
+        pdf_template,
+        suffix,
+        client,
+        force_use_parse_line_cache,
+    ) = [
         ctx.obj[k]
-        for k in _ss(
-            "day cache_folder cpdf_executable pdfs_folder pdf_template suffix mongo_client"
-        )
+        for k in [
+            "day",
+            "cache_folder",
+            "cpdf_executable",
+            "pdfs_folder",
+            "pdf_template",
+            "suffix",
+            "mongo_client",
+            "force_use_parse_line_cache",
+        ]
     ]
     kwargs = {
         **kwargs,
@@ -317,8 +382,9 @@ def make(ctx, ignore_cache, logger=None, **kwargs):
                 mongo_client=client,
                 dictionary=v,
                 which_line=k,
-                ignore_cache=ignore_cache >= 2,
+                ignore_cache=ignore_cache >= CACHE_OVERRIDE_LEVELS["PARSE_LINE"],
                 override=kwargs[k],
+                force_use_parse_line_cache=force_use_parse_line_cache,
             )
             for k, v in dictionary.items()
         }
@@ -331,7 +397,7 @@ def make(ctx, ignore_cache, logger=None, **kwargs):
     for key, i in itertools.product(lines, _s("rus eng chi")):
         search_key = {"key": key, "language": i, "day": day}
         r = client.bookmarks.snippet_pdfs.find_one(search_key)
-        if r is None or ignore_cache >= 1:
+        if r is None or ignore_cache >= CACHE_OVERRIDE_LEVELS["GENERATE_LINE"]:
             line = lines[key]
             tpl_name = f"snippet_{'eng' if i=='chi' else i}.jinja.txt"
             tpl = jinja_env.get_template(tpl_name)

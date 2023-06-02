@@ -5,7 +5,7 @@
 {%-if line.chapter_start_1-%}
 , 
 
-{{line.chapter_start_1}} – {{line.chapter_end_1}}
+{%if line.chapter_roman_end_1%}{{line.chapter_roman_end_1}}, {%endif%}{{line.chapter_start_1}} – {{line.chapter_end_1}}
 {%-endif-%}
 {%if line.chapter_start_2-%}
 , {{line.chapter_start_2}} – {{line.chapter_end_2}} 
