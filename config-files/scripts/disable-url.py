@@ -83,6 +83,7 @@ def url(ctx, url_addresses, url_file):
         )
         time.sleep(1)
 
+    os.system("pass show dummy")
     os.system(f"git commit -a -m 'disable url'")
 
 
