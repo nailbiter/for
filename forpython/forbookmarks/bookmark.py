@@ -40,7 +40,7 @@ from _bookmark import roman_to_int
 
 _CHAPTER_MAX_COUNT = 3
 
-CACHE_OVERRIDE_LEVELS = {"PARSE_LINE": 2, "GENERATE_LINE": 1}
+CACHE_OVERRIDE_LEVELS = {"GENERATE_LINE": 1, "PARSE_LINE": 2, "DOWNLOAD_TXT": 3}
 
 
 def _add_logger(f):
@@ -177,7 +177,7 @@ def _get_coords_inner_loop(day, mongo_client, coords_dir, suffix=""):
 @click.option("-s", "--suffix", default="")
 @click.option("--mongo-url", envvar="MONGO_URL")
 @click.option(
-    "--force-use-parse-line-cache/--no-force-use-parse-line-cache", default=True
+    "--force-use-parse-line-cache/--no-force-use-parse-line-cache", default=False
 )
 @click.pass_context
 def bookmark(ctx, mongo_url, **kwargs):
@@ -304,7 +304,7 @@ def edit_loop(ctx, logger=None):
 @click.option(
     "-i",
     "--ignore-cache",
-    type=click.IntRange(0, 3),
+    type=click.IntRange(0, max(CACHE_OVERRIDE_LEVELS.values())),
     default=0,
     help=f"higher value means ignore more ({CACHE_OVERRIDE_LEVELS})",
 )
@@ -353,7 +353,7 @@ def make(ctx, ignore_cache, logger=None, **kwargs):
     )
 
     r = client.bookmarks.downloads.find_one({"date": day})
-    if r is None or ignore_cache >= 3:
+    if r is None or ignore_cache >= CACHE_OVERRIDE_LEVELS["DOWNLOAD_TXT"]:
         fn = path.join(cache_folder, f"{uuid.uuid4()}.html")
         url = f"http://www.patriarchia.ru/bu/{day}/"
         _system(f"""links -dump {url} > {fn}""")
@@ -399,8 +399,10 @@ def make(ctx, ignore_cache, logger=None, **kwargs):
         r = client.bookmarks.snippet_pdfs.find_one(search_key)
         if r is None or ignore_cache >= CACHE_OVERRIDE_LEVELS["GENERATE_LINE"]:
             line = lines[key]
-            tpl_name = f"snippet_{'eng' if i=='chi' else i}.jinja.txt"
+            tpl_name = f"snippet_{dict(chi='eng').get(i,i)}.jinja.txt"
             tpl = jinja_env.get_template(tpl_name)
+            logging.warning((line, key, dictionary[key]))
+            assert line["key"] in dictionary[key], line["key"]
             logger.info(f"{i} => {dictionary[key][line['key']][i]}")
             render_data = {
                 "translation": dictionary[key][line["key"]][i],
