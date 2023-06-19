@@ -112,6 +112,7 @@
 ;;(require 'js-format)
 ;; using "standard" as js formatter
 (require 'prettier-js)
+;; use command `prettier-js` to prettify the buffer
 
 ;; (after-load 'js2-mode
 ;;   (add-hook 'js2-mode-hook
