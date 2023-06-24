@@ -7,7 +7,7 @@
    '("fe1c13d75398b1c8fd7fdd1241a55c286b86c3e4ce513c4292d01383de152cb7" default))
  '(epg-gpg-program "/usr/local/bin/gpg")
  '(package-selected-packages
-   '(indent-tools yaml-mode yaml whole-line-or-region prettier-js js-format json-mode json-reformat python-black password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
+   '(dockerfile-mode indent-tools yaml-mode yaml whole-line-or-region prettier-js js-format json-mode json-reformat python-black password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
