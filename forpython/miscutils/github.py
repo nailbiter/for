@@ -191,7 +191,8 @@ def open_url(
 )
 @click.option("--pull/--no-pull", "-u/ ", default=False, show_envvar=True)
 @click.option("-p", "--pre-hook", show_envvar=True)
-def commit_push_copy(message, push, pull, pre_hook):
+@click.option("-a", "--additional-options", default="")
+def commit_push_copy(message, push, pull, pre_hook, additional_options):
     # taken from https://stackoverflow.com/a/13514318
     this_function_name = cast(types.FrameType, inspect.currentframe()).f_code.co_name
     logger = logging.getLogger(__name__).getChild(this_function_name)
@@ -205,7 +206,7 @@ def commit_push_copy(message, push, pull, pre_hook):
     _, is_no_modifications_done = _get_head_sha()
     if message is not None:
         if not is_no_modifications_done:
-            os.system(f"git commit -a -m '{message}' 1>&2")
+            os.system(f"git commit -a -m '{message}' {additional_options} 1>&2")
             if push:
                 os.system("git push 1>&2")
             else:
