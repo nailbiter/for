@@ -200,19 +200,21 @@ def commit_push_copy(message, push, pull, pre_hook, additional_options):
     if pre_hook is not None:
         os.system(pre_hook)
 
-    # TODO: add warning if commit is not pushed
     if pull:
         os.system("git pull 1>&2")
     _, is_no_modifications_done = _get_head_sha()
-    if message is not None:
-        if not is_no_modifications_done:
-            os.system(f"git commit -a -m '{message}' {additional_options} 1>&2")
-            if push:
-                os.system("git push 1>&2")
-            else:
-                logger.warning("skip push because `--no-push` was set")
-    else:
+    if message is None:
         assert is_no_modifications_done, "commit first or provide `--message` option"
+    else:
+        # if not is_no_modifications_done:
+        cmd = f"git commit -a -m '{message}' {additional_options} 1>&2"
+        logging.info(f"cmd: `{cmd}`")
+        os.system(cmd)
+        if push:
+            os.system("git push 1>&2")
+        else:
+            logger.warning("skip push because `--no-push` was set")
+
     hex_, _ = _get_head_sha()
     click.echo(hex_)
 
