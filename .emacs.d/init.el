@@ -125,4 +125,7 @@
 (whole-line-or-region-global-mode)
 
 (require 'yaml-mode)
-    (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+;; extensions handling
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.json5\\'" . js-mode))
