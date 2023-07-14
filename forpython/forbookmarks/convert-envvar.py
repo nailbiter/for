@@ -27,8 +27,10 @@ import logging
 ec, out = subprocess.getstatusoutput("pbpaste")
 out = out.strip()
 logging.warning(f'"{out}"')
-apostol, gos, pel = regex.split(r"\. ([\p{IsCyrillic}&&\p{Lu}])", out)
-gospel = gos + pel
+l = regex.split(r"(\.) ([\p{IsCyrillic}&&\p{Lu}])", out)
+logging.warning(l)
+apo, stol, gos, pel = l
+apostol, gospel = apo + stol, gos + pel
 logging.warning(dict(apostol=apostol, gospel=gospel))
 print(
     f"""
