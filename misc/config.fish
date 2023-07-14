@@ -190,10 +190,14 @@ set -g fish_user_paths "/usr/local/opt/ruby/bin" $fish_user_paths
 #export TERMINFO=/usr/share/terminfo
 #export TERM=xterm+256color
 
+function emacs-ro
+	 # https://superuser.com/a/204336
+	 emacs $argv --eval '(setq buffer-read-only t)'
+end
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/Downloads/google-cloud-sdk/path.fish.inc" ]; . "$HOME/Downloads/google-cloud-sdk/path.fish.inc"; end
 
 if test -e $HOME/.fish_opt
     source $HOME/.fish_opt
 end
-
