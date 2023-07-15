@@ -192,9 +192,9 @@ def open_url(
 )
 @click.option("--pull/--no-pull", "-u/ ", default=False, show_envvar=True)
 @click.option("-p", "--pre-hook", show_envvar=True)
-@click.option("--fail-on-pre-hook-fail/--no-fail-on-pre-hook-fail", default=False)
+@click.option("--fail-on-pre-hook-fail/--no-fail-on-pre-hook-fail", default=False, show_envvar=True, show_default=True)
 @click.option("-a", "--additional-options", default="")
-@click.option("-f", "--out-format-template", type=click.Path(exists=True))
+@click.option("-f", "--out-format-template", type=click.Path(exists=True), show_envvar=True)
 def commit_push_copy(
     message,
     push,
