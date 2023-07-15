@@ -192,14 +192,26 @@ def open_url(
 )
 @click.option("--pull/--no-pull", "-u/ ", default=False, show_envvar=True)
 @click.option("-p", "--pre-hook", show_envvar=True)
+@click.option("--fail-on-pre-hook-fail/--no-fail-on-pre-hook-fail", default=False)
 @click.option("-a", "--additional-options", default="")
-def commit_push_copy(message, push, pull, pre_hook, additional_options):
+@click.option("-f", "--out-format-template", type=click.Path(exists=True))
+def commit_push_copy(
+    message,
+    push,
+    pull,
+    pre_hook,
+    additional_options,
+    fail_on_pre_hook_fail,
+    out_format_template,
+):
     # taken from https://stackoverflow.com/a/13514318
     this_function_name = cast(types.FrameType, inspect.currentframe()).f_code.co_name
     logger = logging.getLogger(__name__).getChild(this_function_name)
 
     if pre_hook is not None:
-        os.system(pre_hook)
+        ec = os.system(pre_hook)
+        if fail_on_pre_hook_fail:
+            assert ec == 0, (ec, pre_hook)
 
     if pull:
         os.system("git pull 1>&2")
@@ -217,7 +229,14 @@ def commit_push_copy(message, push, pull, pre_hook, additional_options):
             logger.warning("skip push because `--no-push` was set")
 
     hex_, _ = _get_head_sha()
-    click.echo(hex_)
+
+    if out_format_template is None:
+        out = hex_
+    else:
+        with open(out_format_template) as f:
+            tpl = Template(f.read())
+        out = tpl.render(dict(hex_=hex_))
+    click.echo(out)
 
 
 if __name__ == "__main__":
