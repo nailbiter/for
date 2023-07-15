@@ -114,6 +114,15 @@ def _get_head_sha(path_to_repo=None):
 @click.option("--head", type=int, show_envvar=True)
 @click.option("-p", "--pre-hook", show_envvar=True)
 @click.option("--auto-commit", show_envvar=True)
+@click.option(
+    "--fail-on-pre-hook-fail/--no-fail-on-pre-hook-fail",
+    default=False,
+    show_envvar=True,
+    show_default=True,
+)
+@click.option(
+    "-f", "--out-format-template", type=click.Path(exists=True), show_envvar=True
+)
 @_add_logger
 def open_url(
     file_name,
@@ -124,10 +133,14 @@ def open_url(
     commit,
     auto_commit,
     pre_hook,
+    out_format_template,
+    fail_on_pre_hook_fail,
     logger=None,
 ):
     if pre_hook is not None:
         ec = os.system(pre_hook)
+        if fail_on_pre_hook_fail:
+            assert ec == 0, (ec, pre_hook)
 
     open_url = not no_open_url
     _file_name = []
@@ -168,7 +181,10 @@ def open_url(
             "git_dir": git_dir,
         }
         if not freeze_commit:
-            url_tpl = """{{remote_git_url}}/tree/{{git_branch}}/{{path.relpath(file_name,start=git_dir)}}"""
+            url_tpl = _fetch_template_or_default(
+                out_format_template,
+                """{{remote_git_url}}/tree/{{git_branch}}/{{path.relpath(file_name,start=git_dir)}}""",
+            )
         else:
             if commit is None:
                 cmd = "git rev-parse HEAD"
@@ -177,12 +193,23 @@ def open_url(
                     cmd = f"{cmd}~{head}"
                 commit = subprocess.getoutput(cmd)
             env["commit"] = commit
-            url_tpl = """{{remote_git_url}}/blob/{{commit}}/{{path.relpath(file_name,start=git_dir)}}"""
+            url_tpl = _fetch_template_or_default(
+                out_format_template,
+                """{{remote_git_url}}/blob/{{commit}}/{{path.relpath(file_name,start=git_dir)}}""",
+            )
 
         url = Template(url_tpl).render(env)
         click.echo(f"{url}")
         if open_url:
             webbrowser.open(url)
+
+
+def _fetch_template_or_default(template_file_name, default):
+    if template_file_name is None:
+        return default
+    else:
+        with open(template_file_name) as f:
+            return f.read()
 
 
 @github.command(name="cpc")
@@ -192,9 +219,16 @@ def open_url(
 )
 @click.option("--pull/--no-pull", "-u/ ", default=False, show_envvar=True)
 @click.option("-p", "--pre-hook", show_envvar=True)
-@click.option("--fail-on-pre-hook-fail/--no-fail-on-pre-hook-fail", default=False, show_envvar=True, show_default=True)
+@click.option(
+    "--fail-on-pre-hook-fail/--no-fail-on-pre-hook-fail",
+    default=False,
+    show_envvar=True,
+    show_default=True,
+)
 @click.option("-a", "--additional-options", default="")
-@click.option("-f", "--out-format-template", type=click.Path(exists=True), show_envvar=True)
+@click.option(
+    "-f", "--out-format-template", type=click.Path(exists=True), show_envvar=True
+)
 def commit_push_copy(
     message,
     push,
@@ -230,12 +264,9 @@ def commit_push_copy(
 
     hex_, _ = _get_head_sha()
 
-    if out_format_template is None:
-        out = hex_
-    else:
-        with open(out_format_template) as f:
-            tpl = Template(f.read())
-        out = tpl.render(dict(hex_=hex_))
+    out = Template(_fetch_template_or_default(out_format_template, "{{hex_}}")).render(
+        dict(hex_=hex_)
+    )
     click.echo(out)
 
 
