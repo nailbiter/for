@@ -127,11 +127,12 @@ def open_url(
     logger=None,
 ):
     if pre_hook is not None:
-        os.system(pre_hook)
+        ec = os.system(pre_hook)
 
     open_url = not no_open_url
     _file_name = []
     for fn in file_name:
+        fn = path.abspath(fn)
         if "*" in fn:
             _file_name.extend(glob.glob(fn, recursive=True))
         else:
