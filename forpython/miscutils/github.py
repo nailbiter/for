@@ -267,6 +267,8 @@ def commit_push_copy(
     out = Template(_fetch_template_or_default(out_format_template, "{{hex_}}")).render(
         dict(hex_=hex_)
     )
+    ## use `string collect` (https://fishshell.com/docs/current/cmds/string-collect.html)
+    ## to strip if necessary
     click.echo(out)
 
 
