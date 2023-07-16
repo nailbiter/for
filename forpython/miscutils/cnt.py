@@ -41,11 +41,20 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.orm.exc import NoResultFound
 import functools
 import operator
+from jinja2 import Template
 
 Base = declarative_base()
 click_option_with_envvar_explicit = functools.partial(click.option, show_envvar=True)
 
 _COUNTER_TYPES = dict(int="INT", uuid="UUID")
+
+
+def _fetch_template_or_default(template_file_name, default):
+    if template_file_name is None:
+        return default
+    else:
+        with open(template_file_name) as f:
+            return f.read()
 
 
 class Cnt(Base):
@@ -236,7 +245,10 @@ def migrate_db(ctx, version):
 @click.pass_context
 @click_option_with_envvar_explicit("-n", "--name")
 @click_option_with_envvar_explicit("-l/ ", "--long-form/--no-long-form", default=False)
-def ls(ctx, name, long_form):
+@click_option_with_envvar_explicit(
+    "-o", "--out-format-template", type=click.Path(exists=True)
+)
+def ls(ctx, name, long_form, out_format_template):
     # TODO: implement when `name` is given, print only value
     # TODO: long form: show all, not only max
     session = ctx.obj["session"]
@@ -252,7 +264,11 @@ def ls(ctx, name, long_form):
         if name is None:
             click.echo(df)
         else:
-            click.echo(df.loc[name, "idx"])
+            click.echo(
+                Template(
+                    _fetch_template_or_default(out_format_template, "{{idx}}")
+                ).render(idx=df.loc[name, "idx"])
+            )
 
 
 @cnt.command()
