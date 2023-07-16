@@ -74,14 +74,30 @@ def _cleanup_remote_git_url(remote_git_url):
     return remote_git_url
 
 
-def _get_head_sha(path_to_repo=None):
+class _Stopper:
+    def __init__(self, iter_stop=os.environ.get("GITHUB_ITER_STOP")):
+        self._i = 0
+        self._iter_stop = iter_stop
+
+    def __call__(self):
+        i, iter_stop = self._i, self._iter_stop
+        res = (iter_stop is None) or (i < iter_stop)
+        self._i += 1
+        return res
+
+
+def _get_head_sha(
+    path_to_repo=None,
+):
     """
     return hex, is_no_modifications_done
     """
     if path_to_repo is None:
         path_to_repo = "."
         # FIXME: this probably can be done better
-        while True:
+        stop = _Stopper()
+        while stop():
+            #logging.warning(path_to_repo)
             try:
                 repo = Repo(path_to_repo)
                 break
@@ -121,7 +137,7 @@ def _get_head_sha(path_to_repo=None):
     show_default=True,
 )
 @click.option(
-    "-f", "--out-format-template", type=click.Path(exists=True), show_envvar=True
+    "-t", "--out-format-template", type=click.Path(exists=True), show_envvar=True
 )
 @_add_logger
 def open_url(
@@ -153,8 +169,12 @@ def open_url(
     file_name = _file_name
 
     #    git_dir = "."
-    git_dir = path.split(file_name[0])[0]
-    while not path.isdir(path.join(git_dir, ".git")):
+    if path.isdir(file_name[0]):
+        git_dir = file_name[0]
+    else:
+        git_dir = path.split(file_name[0])[0]
+    stop = _Stopper()
+    while (not path.isdir(path.join(git_dir, ".git"))) and stop():
         git_dir = path.join(git_dir, "..")
 
     # TODO: add warning if commit is not pushed
@@ -227,7 +247,7 @@ def _fetch_template_or_default(template_file_name, default):
 )
 @click.option("-a", "--additional-options", default="")
 @click.option(
-    "-f", "--out-format-template", type=click.Path(exists=True), show_envvar=True
+    "-t", "--out-format-template", type=click.Path(exists=True), show_envvar=True
 )
 def commit_push_copy(
     message,
