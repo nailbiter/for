@@ -17,7 +17,23 @@ ORGANIZATION:
      CREATED: 2023-08-06T00:47:29.758704
     REVISION: ---
 
+
 ==============================================================================="""
+
+# > time rclone lsjson gdrive: --dirs-only|jq '.|length'     (base) 
+# 92
+# ________________________________________________________
+# Executed in    4.71 secs      fish           external
+#    usr time  166.88 millis    0.35 millis  166.53 millis
+#    sys time   59.34 millis    1.08 millis   58.27 millis
+
+# > time rclone lsjson gdrive: --dirs-only --recursive|jq '.|length'  (base) 
+# 578
+# ________________________________________________________
+# Executed in   10.34 secs      fish           external
+#    usr time  313.66 millis    0.42 millis  313.24 millis
+#    sys time  131.74 millis    1.28 millis  130.46 millis
+
 
 import click
 
