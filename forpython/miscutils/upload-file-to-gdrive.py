@@ -10,7 +10,7 @@
      OPTIONS: ---
 REQUIREMENTS: ---
         BUGS: ---
-       NOTES: ---
+       NOTES: use `mypy upload-file-to-gdrive.py` for type check
       AUTHOR: Alex Leontiev (alozz1991@gmail.com)
 ORGANIZATION: 
      VERSION: ---
