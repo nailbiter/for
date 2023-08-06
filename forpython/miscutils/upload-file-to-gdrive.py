@@ -51,6 +51,7 @@ import json
 from jinja2 import Template
 import time
 from datetime import datetime, timedelta
+from glob import glob
 
 coption = functools.partial(click.option, show_default=True, show_envvar=True)
 
@@ -65,14 +66,22 @@ def _load_engine_config(engine_config_path: typing.Optional[str]) -> dict:
 
 
 @click.command()
-@coption("-f", "--filepath", type=click.Path(exists=True), required=True)
+@coption("-f", "--filepath", required=True)
 @coption("--is-open-url/--no-is-open-url", " /-n", default=True)
 @coption("-e", "--engine", type=click.Choice(["rclone", "gdrive"]), default="rclone")
 @coption("--engine-config-path", type=click.Path(exists=True))
 @coption("--parent-dir-id", "-p", type=str)
+@coption("--expand-index", "-e", type=int)
 def upload_file_to_gdrive(
-    filepath, is_open_url, engine, engine_config_path, parent_dir_id
+    filepath, is_open_url, engine, engine_config_path, parent_dir_id, expand_index
 ):
+    if expand_index is not None:
+        expansions = glob(f"{filepath}*")
+        expansions = sorted(expansions, reverse=True)
+        logging.warning(expansions[:5])
+        filepath = expansions[expand_index]
+    assert path.isfile(filepath), (filepath,)
+
     engine_config = _load_engine_config(engine_config_path)
     if engine == "rclone":
         engine_factory = _RcloneEngine
