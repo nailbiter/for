@@ -17,3 +17,4 @@ articles-quiz.sh
 client_secret.json
 .token.json
 .upload_file_to_gdrive.cache.json
+.tabular_quiz_config.json5

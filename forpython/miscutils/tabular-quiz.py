@@ -27,7 +27,6 @@ import os
 import re
 import readline
 from os import path
-
 import alex_leontiev_toolbox_python.gdrive.spreadsheets
 from alex_leontiev_toolbox_python.utils.db_wrap import DbCacheWrap
 import click
@@ -40,6 +39,7 @@ import operator
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import json
+import json5
 
 
 @DbCacheWrap(
@@ -65,7 +65,7 @@ def _exit(kwargs):
 
 
 @click.group()
-@click.option("-s", "--spreadsheet-id", required=True)
+@click.option("-s", "--spreadsheet-id")
 @click.option(
     "--google-spreadsheet-client-secret-path",
     type=click.Path(exists=True, dir_okay=False),
@@ -93,6 +93,8 @@ def _exit(kwargs):
     "--grade-db-sqlalchemy-string",
     default=f"""sqlite:///{path.abspath(path.join(path.dirname(__file__),".tabular_quiz.grade.db"))}""",
 )
+@click.option("-f", "--config-file", type=click.Path())
+@click.option("-k", "--config-key")
 @click.pass_context
 def tabular_quiz(
     # spreadsheet_id,
@@ -102,6 +104,8 @@ def tabular_quiz(
     # sheet_name,
     # col_order,
     ctx,
+    config_file,
+    config_key,
     grade_db_sqlalchemy_string,
     **kwargs,
 ):
@@ -124,8 +128,20 @@ def tabular_quiz(
     )
 
     ctx.ensure_object(dict)
-    ctx.obj["kwargs"] = kwargs
+
     ctx.obj["creds"] = creds
+
+    if config_file is None:
+        ctx.obj["kwargs"] = kwargs
+    else:
+        with open(config_file) as f:
+            config = json5.load(f)
+        if config_key is None:
+            ## show config keys
+            click.echo(list(config["tests"]))
+            exit(0)
+        else:
+            ctx.obj["kwargs"] = {**kwargs, **config["tests"][config_key]}
 
     engine = create_engine(grade_db_sqlalchemy_string, echo=False)
     ctx.obj["engine"] = engine
