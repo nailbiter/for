@@ -41,6 +41,8 @@ from sqlalchemy.orm import sessionmaker
 import json
 import json5
 
+_df_to_json = operator.methodcaller("to_json", orient="columns")
+
 
 @DbCacheWrap(
     f"sqlite:///{path.abspath(path.join(path.dirname(__file__),'.tabular_quiz.db'))}",
@@ -141,6 +143,7 @@ def tabular_quiz(
             click.echo(list(config["tests"]))
             exit(0)
         else:
+            assert config_key in config["tests"], (config_key, list(config["tests"]))
             ctx.obj["kwargs"] = {**kwargs, **config["tests"][config_key]}
 
     engine = create_engine(grade_db_sqlalchemy_string, echo=False)
@@ -191,6 +194,8 @@ def test(ctx):
     df.set_index(idx, inplace=True)
     df.fillna("", inplace=True)
 
+    assert df.index.is_unique, (df.index, click.echo(df))
+
     ## apply dropout
     answer_df = df
     question_df = df.copy()
@@ -232,10 +237,11 @@ def test(ctx):
         question_df.fillna("", inplace=True)
         for (i, j), ans in question_indexes.items():
             question_df.iloc[i, j] = f'"{question_df.iloc[i,j]}"'
-            if ans == answer_df.iloc[i, j]:
+            true_ans = answer_df.iloc[i, j]
+            if ans == true_ans:
                 question_df.iloc[i, j] += " (C)"
             else:
-                question_df.iloc[i, j] += " (W)"
+                question_df.iloc[i, j] += f" (W[=`{true_ans}`])"
         click.echo(answer_df)
         click.echo(question_df)
         click.echo(f"grade: {100*grade:.2f}%")
@@ -249,11 +255,11 @@ def test(ctx):
             dropout_rate=dropout_rate,
             obj={
                 "answer_df": {
-                    "json": answer_df.to_json(),
+                    "json": _df_to_json(answer_df),
                     "index_names": list(answer_df.index.names),
                 },
                 "question_df": {
-                    "json": question_df.to_json(),
+                    "json": _df_to_json(question_df),
                     "index_names": list(question_df.index.names),
                 },
                 "question_indexes": {json.dumps(k): v for k, v in d.items()},
