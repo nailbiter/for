@@ -21,8 +21,7 @@ ORGANIZATION:
 
 import itertools
 import logging
-
-# from dotenv import load_dotenv
+import webbrowser
 import os
 import re
 import readline
@@ -166,6 +165,14 @@ def list_scores(ctx):
     )
     # df["obj"] = df.pop("obj_json").apply(json.loads)
     click.echo(df)
+
+
+@tabular_quiz.command()
+@click.pass_context
+def open_url(ctx):
+    spreadsheet_id = ctx.obj["kwargs"]["spreadsheet_id"]
+    url = f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/edit#gid=0"
+    webbrowser.open(url)
 
 
 @tabular_quiz.command()
