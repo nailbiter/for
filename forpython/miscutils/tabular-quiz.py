@@ -96,6 +96,7 @@ def _exit(kwargs):
 )
 @click.option("-f", "--config-file", type=click.Path())
 @click.option("-k", "--config-key")
+@click.option("--debug/--no-debug", default=False)
 @click.pass_context
 def tabular_quiz(
     # spreadsheet_id,
@@ -107,6 +108,7 @@ def tabular_quiz(
     ctx,
     config_file,
     config_key,
+    debug,
     grade_db_sqlalchemy_string,
     **kwargs,
 ):
@@ -123,6 +125,9 @@ def tabular_quiz(
         3(done). save grades to db
         4(done). hint
     """
+    if debug:
+        logging.basicConfig(level=logging.INFO)
+
     creds = alex_leontiev_toolbox_python.gdrive.spreadsheets.get_creds(
         client_secret_file=kwargs["google_spreadsheet_client_secret_path"],
         create_if_not_exist=True,
@@ -272,7 +277,7 @@ def test(ctx):
                 "question_indexes": {json.dumps(k): v for k, v in d.items()},
             },
         )
-        logging.warning(f"logging quiz score {qs}")
+        logging.info(f"logging quiz score {qs}")
         session.add(qs)
         session.commit()
 
