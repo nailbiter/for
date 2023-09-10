@@ -28,6 +28,10 @@ import readline
 from os import path
 import alex_leontiev_toolbox_python.gdrive.spreadsheets
 from alex_leontiev_toolbox_python.utils.db_wrap import DbCacheWrap
+from alex_leontiev_toolbox_python.utils.click_format_dataframe import (
+    build_click_options,
+    format_df,
+)
 import click
 import numpy as np
 import pandas as pd
@@ -85,7 +89,7 @@ def _exit(kwargs):
     "-d",
     "--dropout-rate",
     type=click.FloatRange(min=0, max=1, min_open=True, max_open=True),
-    help="0 <==> show all; 1 <==> hide all;",
+    help="0 <==> show all; 1 <==> hide all; higher is harder",
     default=0.3,
 )
 @click.option("-c", "--col-order", multiple=True)
@@ -159,15 +163,23 @@ def tabular_quiz(
 
 
 @tabular_quiz.command()
+@build_click_options
 @click.pass_context
-def list_scores(ctx):
+def list_scores(ctx, **kwargs):
+    logging.warning(kwargs)
     session = ctx.obj["session"]
+
     df = pd.DataFrame(
         map(
             operator.methodcaller("to_dict"),
             session.query(QuizScore).order_by(QuizScore.creation_date.desc()),
         )
     )
+
+    if kwargs["columns"]:
+        logging.warning(df.columns)
+        df = df[list(kwargs["columns"])]
+
     # df["obj"] = df.pop("obj_json").apply(json.loads)
     click.echo(df)
 
