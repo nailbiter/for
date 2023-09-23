@@ -52,4 +52,4 @@ def run_cmd(cmd, logger=logging):
     logger.warning(f"> {cmd}")
     ec, out = subprocess.getstatusoutput(cmd)
     assert ec == 0, (cmd, ec, out)
-    logger.warning(out)
+    click.echo(out)
