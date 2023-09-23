@@ -26,7 +26,7 @@ from os import path
 import logging
 import functools
 from jinja2 import Template
-import subprocess
+from _jira_cli import run_cmd, make_cmd
 
 moption = functools.partial(click.option, show_envvar=True)
 
@@ -40,6 +40,12 @@ def jira_cli(ctx, jira_exec):
 
 
 @jira_cli.group()
+@click.pass_context
+def wrap(ctx):
+    pass
+
+
+@wrap.group()
 @click.pass_context
 def issue(ctx):
     pass
@@ -63,28 +69,27 @@ def assign(ctx):
 @moption("-h", "--help")
 @click.pass_context
 def clone(ctx, issue_key, **kwargs):
-    cmd = _ssj(
-        Template(
-            """{{jira_exec}} issue clone "{{issue_key}}"
-        {%for k,v in kwargs|dictsort%}{%if v is not none%}--{{k}} "{{v}}"{%endif%}{%endfor%}
-        """
-        ).render({"kwargs": kwargs, "issue_key": issue_key, **ctx.obj})
-    )
-    logging.warning(f"> {cmd}")
-    ec, out = subprocess.getstatusoutput(cmd)
-    assert ec == 0, (cmd, ec, out)
-    logging.warning(out)
+    run_cmd(make_cmd("issue clone", kwargs=kwargs, args=[issue_key], ctx_obj=ctx.obj))
+
+
+@wrap.group()
+@click.pass_context
+def epic(ctx):
+    pass
+
+
+@epic.command()
+@moption("--plain/--no-plain", default=False)
+@moption("--table/--no-table", default=False)
+@click.pass_context
+def ls(ctx, **flags):
+    run_cmd(make_cmd("epic list", ctx_obj=ctx.obj, flags=flags))
 
 
 @issue.command()
 @click.pass_context
 def comment(ctx):
     pass
-
-
-def _ssj(s: str) -> str:
-    "Strip Split Join"
-    return " ".join(s.strip().split())
 
 
 @issue.command()
