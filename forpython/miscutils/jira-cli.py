@@ -26,7 +26,7 @@ from os import path
 import logging
 import functools
 from jinja2 import Template
-from _jira_cli import run_cmd, make_cmd
+from _jira_cli import run_cmd, make_cmd, ssj
 
 moption = functools.partial(click.option, show_envvar=True)
 
@@ -42,6 +42,9 @@ def jira_cli(ctx, jira_exec):
 @jira_cli.group()
 @click.pass_context
 def wrap(ctx):
+    """
+    very thin wrap around https://github.com/ankitpokhrel/jira-cli/blob/main/LICENSE
+    """
     pass
 
 
@@ -67,6 +70,7 @@ def assign(ctx):
 @moption("-C", "--component")
 @moption("-H", "--replace")
 @moption("-h", "--help")
+@moption("-p", "--project")
 @click.pass_context
 def clone(ctx, issue_key, **kwargs):
     run_cmd(make_cmd("issue clone", kwargs=kwargs, args=[issue_key], ctx_obj=ctx.obj))
@@ -93,26 +97,31 @@ def comment(ctx):
 
 
 @issue.command()
-@moption("-t", "--type")
-@moption("-P", "--parent")
-@moption("-s", "--summary")
+@moption(
+    "-t",
+    "--type",
+    type=click.Choice(["Task", "Sub-task", "Story", "Bug"]),
+    required=True,
+)
+@moption("-s", "--summary", required=True)
 @moption("-b", "--body")
+@moption("-P", "--parent")
 @moption("-y", "--priority")
 @moption("-r", "--reporter")
 @moption("-a", "--assignee")
 @moption("-l", "--label")
+@moption("-p", "--project")
+@moption("--web/--no-web", "-w/ ", default=False)
 @click.pass_context
-def create(ctx, **kwargs):
-    cmd = _ssj(
-        Template(
-            """{{jira_exec}} issue create "{{kwargs['issue_key']}}"
-        {%for k,v in kwargs|dictsort%}{%if v is not none%}--{{k}} "{{v}}"{%endif%}{%endfor%}
-        """
-        ).render({"kwargs": kwargs, **ctx.obj})
+def create(ctx, web, **kwargs):
+    run_cmd(
+        make_cmd(
+            "issue create",
+            kwargs=kwargs,
+            ctx_obj=ctx.obj,
+            flags={"no-input": True, "web": web},
+        )
     )
-    logging.warning(f"> {cmd}")
-    ec, out = subprocess.getstatusoutput(cmd)
-    assert ec == 0, (cmd, ec, out)
 
 
 @issue.command()

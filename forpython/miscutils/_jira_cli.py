@@ -20,9 +20,10 @@ ORGANIZATION:
 import logging
 import subprocess
 from jinja2 import Template
+import click
 
 
-def _ssj(s: str) -> str:
+def ssj(s: str) -> str:
     "Strip Split Join"
     return " ".join(s.strip().split())
 
@@ -34,12 +35,12 @@ def make_cmd(
     args: list = [],
     flags: dict[str, bool] = {},
 ) -> str:
-    cmd = _ssj(
+    cmd = ssj(
         Template(
             """{{jira_exec}} {{cmd}}
             {%for k in args%}'{{k}}' {%endfor%}
-        {%for k,v in kwargs|dictsort%}{%if v is not none%}--{{k}} '{{v}}'{%endif%}{%endfor%}
-        {%for k,v in flags|dictsort%} {%if v%}--{{k}}{%endif%}{%endfor%}
+        {%for k,v in kwargs|dictsort%}{%if v is not none%}--{{k}} '{{v}}' {%endif%}{%endfor%}
+        {%for k,v in flags|dictsort%} {%if v%}--{{k}} {%endif%}{%endfor%}
         """
         ).render(
             {"kwargs": kwargs, "args": args, "flags": flags, **ctx_obj, "cmd": cmd}
