@@ -25,6 +25,7 @@ TODO:
 import click
 import numpy as np
 import webbrowser
+import tqdm
 import natsort
 from dotenv import load_dotenv
 import os
@@ -240,25 +241,46 @@ def comment(ctx):
     type=click.Choice(["Task", "Sub-task", "Story", "Bug"]),
     required=True,
 )
-@moption("-s", "--summary", required=True)
+@moption("-s", "--summary", "summaries", multiple=True)
+@moption("-f", "--summary-file", type=click.Path(allow_dash=True))
 @moption("-b", "--body")
 @moption("-P", "--parent", help="can be used to attach an epic")
 @moption("-y", "--priority")
 @moption("-r", "--reporter")
 @moption("-a", "--assignee")
 @moption("-l", "--label")
-@moption("-p", "--project")
 @moption("--web/--no-web", "-w/ ", default=False)
+@moption("--dry-run/--no-dry-run", default=False)
 @click.pass_context
-def create(ctx, web, **kwargs):
-    run_cmd(
-        make_cmd(
-            "issue create",
-            kwargs={**kwargs, **ctx.obj["wrap_kwargs"]},
-            ctx_obj=ctx.obj,
-            flags={"no-input": True, "web": web},
+def create(ctx, web, summary_file, dry_run, summaries, **kwargs):
+    ## FIXME: for some reason, simple #findout
+    ## `summaries = list(summaries) ` does not work
+    if summaries:
+        summaries = list(summaries)
+    else:
+        summaries = []
+
+    if summary_file is not None:
+        with click.open_file(summary_file) as f:
+            lines = f.readlines()
+        summaries.extend(lines)
+    summaries = [summary.strip() for summary in summaries if summary.strip()]
+    assert len(summaries) > 0
+
+    if dry_run:
+        logging.warning(summaries)
+        logging.warning("dry run")
+        exit(0)
+
+    for summary in tqdm.tqdm(summaries):
+        run_cmd(
+            make_cmd(
+                "issue create",
+                kwargs={"summary": summary, **kwargs, **ctx.obj["wrap_kwargs"]},
+                ctx_obj=ctx.obj,
+                flags={"no-input": True, "web": web},
+            )
         )
-    )
 
 
 @issue.command()
