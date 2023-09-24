@@ -191,7 +191,7 @@ def epic(ctx):
     pass
 
 
-@epic.command()
+@epic.command(name="create")
 @moption("-n", "--name", required=True)
 @moption("-s", "--summary", required=True)
 @moption("-b", "--body")
@@ -201,7 +201,7 @@ def epic(ctx):
 @moption("-l", "--label")
 @moption("-C", "--component")
 @click.pass_context
-def create(ctx, **kwargs):
+def create_epic(ctx, **kwargs):
     "create an epic"
     run_cmd(
         make_cmd(
@@ -242,7 +242,7 @@ def comment(ctx):
 )
 @moption("-s", "--summary", required=True)
 @moption("-b", "--body")
-@moption("-P", "--parent")
+@moption("-P", "--parent", help="can be used to attach an epic")
 @moption("-y", "--priority")
 @moption("-r", "--reporter")
 @moption("-a", "--assignee")
