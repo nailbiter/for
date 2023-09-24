@@ -142,12 +142,13 @@ def jql(ctx, jql, jql_file, raw, max_results, **format_df_kwargs):
 
 
 @jira_cli.group()
+@moption("-p", "--project")
 @click.pass_context
-def wrap(ctx):
+def wrap(ctx, **kwargs):
     """
     very thin wrap around https://github.com/ankitpokhrel/jira-cli/blob/main/LICENSE
     """
-    pass
+    ctx.obj["wrap_kwargs"] = kwargs
 
 
 @wrap.group()
@@ -172,16 +173,50 @@ def assign(ctx):
 @moption("-C", "--component")
 @moption("-H", "--replace")
 @moption("-h", "--help")
-@moption("-p", "--project")
 @click.pass_context
 def clone(ctx, issue_key, **kwargs):
-    run_cmd(make_cmd("issue clone", kwargs=kwargs, args=[issue_key], ctx_obj=ctx.obj))
+    run_cmd(
+        make_cmd(
+            "issue clone",
+            kwargs={**kwargs, **ctx.obj["wrap_kwargs"]},
+            args=[issue_key],
+            ctx_obj=ctx.obj,
+        )
+    )
 
 
 @wrap.group()
 @click.pass_context
 def epic(ctx):
     pass
+
+
+@epic.command()
+@moption("-n", "--name", required=True)
+@moption("-s", "--summary", required=True)
+@moption("-b", "--body")
+@moption("-y", "--priority")
+@moption("-r", "--reporter")
+@moption("-a", "--assignee")
+@moption("-l", "--label")
+@moption("-C", "--component")
+@click.pass_context
+def create(ctx, **kwargs):
+    "create an epic"
+    run_cmd(
+        make_cmd(
+            "epic create",
+            kwargs={**kwargs, **ctx.obj["wrap_kwargs"]},
+            flags={"no-input": True},
+            ctx_obj=ctx.obj,
+        )
+    )
+
+
+@epic.command()
+@click.pass_context
+def add(ctx):
+    "add issues to an epic"
 
 
 @epic.command()
@@ -219,7 +254,7 @@ def create(ctx, web, **kwargs):
     run_cmd(
         make_cmd(
             "issue create",
-            kwargs=kwargs,
+            kwargs={**kwargs, **ctx.obj["wrap_kwargs"]},
             ctx_obj=ctx.obj,
             flags={"no-input": True, "web": web},
         )
