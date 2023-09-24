@@ -94,7 +94,12 @@ def url(ctx, issue_name, open_):
 
 @api.command()
 @moption("-j", "--jql", default="", help="'project = HSP'")
-@moption("-f", "--jql-file", type=click.Path(allow_dash=True))
+@moption(
+    "-f",
+    "--jql-file",
+    type=click.Path(allow_dash=True),
+    help="takes precedence over `jql` key",
+)
 @_build_click_options
 @moption("--raw/--no-raw", "-r/ ", default=False)
 @moption("-m", "--max-results", type=int)
