@@ -17,6 +17,9 @@ ORGANIZATION:
      CREATED: 2023-09-20T20:56:39.978342
     REVISION: ---
 
+TODO:
+    1. find a way to call web api (and find docs for it)
+
 ==============================================================================="""
 
 import click
