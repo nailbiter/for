@@ -96,8 +96,9 @@ def url(ctx, issue_name, open_):
 @moption("-j", "--jql", required=True, help="'project = HSP'")
 @_build_click_options
 @moption("--raw/--no-raw", "-r/ ", default=False)
+@moption("-m", "--max-results", type=int, default=50)
 @click.pass_context
-def jql(ctx, jql, raw, **format_df_kwargs):
+def jql(ctx, jql, raw, max_results, **format_df_kwargs):
     """
     helpful jq's:
     * '.[]|[.key,.fields.summary]|@tsv'
@@ -107,7 +108,7 @@ def jql(ctx, jql, raw, **format_df_kwargs):
     auth = HTTPBasicAuth(ctx.obj["jira_email"], ctx.obj["jira_api_token"])
     headers = {"Accept": "application/json"}
 
-    query = dict(jql=jql)
+    query = dict(jql=jql, max_results=max_results)
     response = requests.request("GET", url, headers=headers, params=query, auth=auth)
 
     if raw:
