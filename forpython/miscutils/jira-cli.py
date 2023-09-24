@@ -18,20 +18,34 @@ ORGANIZATION:
     REVISION: ---
 
 TODO:
-    1. find a way to call web api (and find docs for it)
+    1. find a way to call web api (and find docs for it)!
 
 ==============================================================================="""
 
 import click
+import numpy as np
+import natsort
 from dotenv import load_dotenv
 import os
 from os import path
 import logging
 import functools
+import itertools
 from jinja2 import Template
 from _jira_cli import run_cmd, make_cmd, ssj
+import requests
+from requests.auth import HTTPBasicAuth
+import json
+from alex_leontiev_toolbox_python.utils.click_format_dataframe import (
+    AVAILABLE_OUT_FORMATS,
+    format_df,
+    build_click_options,
+    apply_click_options,
+)
+import pandas as pd
 
 moption = functools.partial(click.option, show_envvar=True)
+_build_click_options = functools.partial(build_click_options, option_factory=moption)
 
 
 @click.group()
@@ -40,6 +54,64 @@ moption = functools.partial(click.option, show_envvar=True)
 def jira_cli(ctx, jira_exec):
     ctx.ensure_object(dict)
     ctx.obj["jira_exec"] = jira_exec
+
+
+@jira_cli.group()
+@moption("--jira-email", envvar="JIRA_EMAIL", required=True)
+@moption("--jira-api-token", envvar="JIRA_API_TOKEN", required=True)
+@moption("--jira-url", envvar="JIRA_URL", required=True)
+@click.pass_context
+def api(ctx, **kwargs):
+    """
+    see https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-get
+    """
+    ctx.obj = {**ctx.obj, **kwargs}
+
+
+@api.command()
+@click.pass_context
+def application_role(ctx):
+    # originally latest->3
+    url = f"https://{ctx.obj['jira_url']}/rest/api/latest/applicationrole"
+    auth = HTTPBasicAuth(ctx.obj["jira_email"], ctx.obj["jira_api_token"])
+    headers = {"Accept": "application/json"}
+    response = requests.request("GET", url, headers=headers, auth=auth)
+    click.echo(response.text)
+
+
+@api.command()
+@moption("-j", "--jql", required=True, help="'project = HSP'")
+@_build_click_options
+@moption("--raw/--no-raw", "-r/ ", default=False)
+@click.pass_context
+def jql(ctx, jql, raw, **format_df_kwargs):
+    """
+    helpful jq's:
+    * '.[]|[.key,.fields.summary]|@tsv'
+    """
+    # originally latest->3
+    url = f"https://{ctx.obj['jira_url']}/rest/api/latest/search"
+    auth = HTTPBasicAuth(ctx.obj["jira_email"], ctx.obj["jira_api_token"])
+    headers = {"Accept": "application/json"}
+
+    query = dict(jql=jql)
+    response = requests.request("GET", url, headers=headers, params=query, auth=auth)
+
+    if raw:
+        click.echo(response.text)
+    else:
+        # df = pd.DataFrame(json.loads(response.text))
+        l = json.loads(response.text)["issues"]
+        logging.info(f"l1: {l}")
+        # l = list(itertools.chain(*l))
+        # logging.warning(f"l2: {l}")
+        df = pd.DataFrame(l)
+        df.sort_values(
+            by=["key"],
+            inplace=True,
+            key=lambda x: np.argsort(natsort.index_natsorted(df["key"])),
+        )
+        click.echo(apply_click_options(df, format_df_kwargs))
 
 
 @jira_cli.group()
