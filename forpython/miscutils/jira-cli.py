@@ -24,6 +24,7 @@ TODO:
 
 import click
 import numpy as np
+import webbrowser
 import natsort
 from dotenv import load_dotenv
 import os
@@ -77,6 +78,18 @@ def application_role(ctx):
     headers = {"Accept": "application/json"}
     response = requests.request("GET", url, headers=headers, auth=auth)
     click.echo(response.text)
+
+
+@api.command()
+@moption("-i", "--issue-name", required=True)
+@moption("--open/--no-open", " /-n", "open_", default=True)
+@click.pass_context
+def url(ctx, issue_name, open_):
+    "https://nailbiter91.atlassian.net/browse/SKP-19"
+    url = f"https://{ctx.obj['jira_url']}/browse/{issue_name}"
+    click.echo(url)
+    if open_:
+        webbrowser.open(url)
 
 
 @api.command()
