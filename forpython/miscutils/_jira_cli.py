@@ -21,6 +21,8 @@ import logging
 import subprocess
 from jinja2 import Template
 import click
+from requests.auth import HTTPBasicAuth
+import typing
 
 
 def ssj(s: str) -> str:
@@ -54,3 +56,12 @@ def run_cmd(cmd, logger=logging):
     ec, out = subprocess.getstatusoutput(cmd)
     assert ec == 0, (cmd, ec, out)
     click.echo(out)
+
+
+def api_init(ctx_obj: dict, path: str) -> typing.Tuple[str, str]:
+    """
+    @return (str,str) url,auth
+    """
+    url = f"https://{ctx_obj['jira_url']}/rest/api/latest/{path}"
+    auth = HTTPBasicAuth(ctx_obj["jira_email"], ctx_obj["jira_api_token"])
+    return url, auth
