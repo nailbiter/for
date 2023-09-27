@@ -70,6 +70,15 @@ def api(ctx, **kwargs):
     """
     ctx.obj = {**ctx.obj, **kwargs}
 
+@api.group(name="project")
+@click.pass_context
+def api_project(ctx):
+    pass
+
+@api_project.command()
+@click.pass_context
+def ls(ctx):
+    pass
 
 @api.group(name="issue")
 @click.pass_context
