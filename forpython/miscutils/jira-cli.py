@@ -82,6 +82,9 @@ def add(ctx):
     """
     https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-post
     """
+    # jira-cli.py wrap -p JC issue create -t Task -P JC-1 -s 'closing a sprint and view reports'
+
+    
     # This code sample uses the 'requests' library:
     # http://docs.python-requests.org
 
@@ -157,7 +160,7 @@ def add(ctx):
                 "labels": ["bugfix", "blitz_test"],
                 "parent": {"key": "PROJ-123"},
                 "priority": {"id": "20000"},
-                "project": {"id": "10000"},
+                "project": {"id": "10000"}, #1
                 "reporter": {"id": "5b10a2844c20165700ede21g"},
                 "security": {"id": "10000"},
                 "summary": "Main order flow broken",
