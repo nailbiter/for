@@ -149,9 +149,58 @@ def api_user_ls(ctx, simplify, **format_df_kwargs):
 
 
 @api_issue.command()
+@moption("-i", "--issue-key", type=str, required=True)
 @click.pass_context
-def edit(ctx):
-    pass
+def get_edit_metadata(ctx, issue_key):
+    url, auth = api_init(ctx.obj, f"issue/{issue_key}/editmeta", api_version="3")
+    headers = {"Accept": "application/json"}
+    response = requests.request("GET", url, headers=headers, auth=auth)
+
+    click.echo(
+        json.dumps(
+            json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")
+        )
+    )
+
+
+@api_issue.command(name="edit")
+@moption("-i", "--issue-key", type=str, required=True)
+@moption("-o", "--time-tracking-original-estimate", type=str)
+@moption("-R", "--time-tracking-remaining-estimate", type=str)
+@click.pass_context
+def api_issue_edit(
+    ctx, issue_key, time_tracking_original_estimate, time_tracking_remaining_estimate
+):
+    """
+    https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-issueidorkey-put
+    """
+    url, auth = api_init(ctx.obj, f"issue/{issue_key}", api_version="3")
+    headers = {"Accept": "application/json", "Content-Type": "application/json"}
+
+    payload = {"fields": {}, "update": {}}
+    if (
+        time_tracking_original_estimate is not None
+        or time_tracking_remaining_estimate is not None
+    ):
+        payload["fields"]["timetracking"] = {}
+    if time_tracking_original_estimate is not None:
+        payload["fields"]["timetracking"][
+            "originalEstimate"
+        ] = time_tracking_original_estimate
+    if time_tracking_remaining_estimate is not None:
+        payload["fields"]["timetracking"][
+            "remainingEstimate"
+        ] = time_tracking_remaining_estimate
+    logging.warning(payload)
+    payload = json.dumps(payload)
+
+    response = requests.request("PUT", url, data=payload, headers=headers, auth=auth)
+    click.echo(
+        # json.dumps(
+        #     json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")
+        # )
+        response.text
+    )
 
 
 @api_issue.command(name="add")
