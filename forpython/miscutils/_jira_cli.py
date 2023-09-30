@@ -22,6 +22,7 @@ import subprocess
 from jinja2 import Template
 import click
 from requests.auth import HTTPBasicAuth
+import requests
 import typing
 from datetime import datetime, timedelta
 
@@ -169,3 +170,9 @@ def get_add_issue_payload(
         "update": {},
     }
     return payload
+
+
+def my_request(*args, **kwargs):
+    response = requests.request(*args, **kwargs)
+    logging.info(response.text)
+    return response
