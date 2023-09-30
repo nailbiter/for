@@ -22,6 +22,7 @@ TODO:
 
 ==============================================================================="""
 
+# import logging
 import click
 import typing
 import numpy as np
@@ -31,7 +32,6 @@ import natsort
 from dotenv import load_dotenv
 import os
 from os import path
-import logging
 import functools
 import itertools
 from jinja2 import Template
@@ -42,11 +42,11 @@ from _jira_cli import (
     api_init,
     get_add_issue_payload,
     my_request,
+    WrappedLogging,
 )
 import requests
 from requests.auth import HTTPBasicAuth
 import json
-from alex_leontiev_toolbox_python.utils import get_random_fn
 from alex_leontiev_toolbox_python.utils.click_format_dataframe import (
     AVAILABLE_OUT_FORMATS,
     format_df,
@@ -58,41 +58,7 @@ import pandas as pd
 moption = functools.partial(click.option, show_envvar=True)
 _build_click_options = functools.partial(build_click_options, option_factory=moption)
 
-_LOADED_DOTENV = None
-
-
-def _configure_debug(
-    debug: bool, debug_file: str, loaded_dotenv: typing.Optional[str]
-) -> None:
-    """
-    TODO:
-    1. convert to class
-    2. move to `altp`
-    """
-    total_level = logging.INFO
-    basic_config_kwargs = {"handlers": [], "level": total_level}
-    if debug:
-        debug_fn = (
-            get_random_fn(".log.txt") if (debug_file == "@random") else debug_file
-        )
-        _handler = logging.FileHandler(filename=debug_fn)
-        _handler.setFormatter(
-            logging.Formatter(
-                fmt="%(asctime)s,%(msecs)d %(levelname)-8s %(name)s [%(filename)s:%(lineno)d] %(message)s",
-                datefmt="%Y-%m-%d:%H:%M:%S",
-            )
-        )
-        _handler.setLevel(total_level)
-        basic_config_kwargs["handlers"].append(_handler)
-    _handler = logging.StreamHandler()
-    _handler.setLevel(logging.WARNING)
-    basic_config_kwargs["handlers"].append(_handler)
-    logging.basicConfig(**basic_config_kwargs)
-    if debug:
-        logging.warning(f'log saved to "{debug_fn}"')
-
-    if loaded_dotenv is not None:
-        logging.warning(f'loading "{loaded_dotenv}"')
+my_logging = WrappedLogging()
 
 
 @click.group()
@@ -101,7 +67,7 @@ def _configure_debug(
 @moption("--debug-file", type=str, default="@random")
 @click.pass_context
 def jira_cli(ctx, jira_exec, debug, debug_file):
-    _configure_debug(debug=debug, debug_file=debug_file, loaded_dotenv=_LOADED_DOTENV)
+    my_logging.configure_debug(debug=debug, debug_file=debug_file)
     ctx.ensure_object(dict)
     ctx.obj["jira_exec"] = jira_exec
 
@@ -134,9 +100,9 @@ def ls(ctx, simplify, **format_df_kwargs):
 
     url, auth = api_init(ctx.obj, "project/search")
     headers = {"Accept": "application/json"}
-    logging.info(url)
+    my_logging.info(url)
     response = requests.request("GET", url, headers=headers, auth=auth)
-    logging.info(response.text)
+    my_logging.info(response.text)
 
     df = pd.DataFrame(json.loads(response.text)["values"])
     if simplify:
@@ -168,7 +134,7 @@ def api_issue_type_ls(ctx, simplify, **format_df_kwargs):
     headers = {"Accept": "application/json"}
     response = my_request("GET", url, headers=headers, auth=auth)
 
-    # logging.warning(response.text)
+    # my_logging.warning(response.text)
     df = pd.DataFrame(json.loads(response.text))
     if simplify:
         df = df[["id", "name", "scope"]]
@@ -224,7 +190,7 @@ def api_issue_edit(
     https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-issueidorkey-put
     """
     url, auth = api_init(ctx.obj, f"issue/{issue_key}", api_version="3")
-    logging.info(f"url: {url}")
+    my_logging.info(f"url: {url}")
     headers = {"Accept": "application/json", "Content-Type": "application/json"}
 
     payload = {"fields": {}, "update": {}}
@@ -241,7 +207,7 @@ def api_issue_edit(
         payload["fields"]["timetracking"][
             "remainingEstimate"
         ] = time_tracking_remaining_estimate
-    logging.warning(payload)
+    my_logging.warning(payload)
     payload = json.dumps(payload)
 
     response = requests.request("PUT", url, data=payload, headers=headers, auth=auth)
@@ -251,6 +217,12 @@ def api_issue_edit(
         # )
         response.text
     )
+
+
+@api_issue.command(name="ls")
+@click.pass_context
+def api_issue_ls(ctx):
+    pass
 
 
 @api_issue.command(name="add")
@@ -333,7 +305,7 @@ def jql(ctx, jql, jql_file, raw, max_results, **format_df_kwargs):
     if jql_file is not None:
         with click.open_file(jql_file) as f:
             jql = f.read().strip()
-    logging.warning(f"jql: '{jql}'")
+    my_logging.warning(f"jql: '{jql}'")
     query = dict(jql=jql)
 
     if max_results is not None:
@@ -345,9 +317,9 @@ def jql(ctx, jql, jql_file, raw, max_results, **format_df_kwargs):
     else:
         # df = pd.DataFrame(json.loads(response.text))
         l = json.loads(response.text)["issues"]
-        logging.info(f"l1: {l}")
+        my_logging.info(f"l1: {l}")
         # l = list(itertools.chain(*l))
-        # logging.warning(f"l2: {l}")
+        # my_logging.warning(f"l2: {l}")
         df = pd.DataFrame(l)
         df.sort_values(
             by=["key"],
@@ -483,8 +455,8 @@ def create(ctx, web, summary_file, dry_run, summaries, **kwargs):
     assert len(summaries) > 0
 
     if dry_run:
-        logging.warning(summaries)
-        logging.warning("dry run")
+        my_logging.warning(summaries)
+        my_logging.warning("dry run")
         exit(0)
 
     for summary in tqdm.tqdm(summaries):
@@ -561,8 +533,8 @@ def worklog(ctx):
 if __name__ == "__main__":
     fn = ".jira-cli.env"
     if path.isfile(fn):
-        # logging.warning(f"loading `{fn}`")
-        _LOADED_DOTENV = fn
+        # my_logging.warning(f"loading `{fn}`")
+        my_logging.add_post_config_message(("warning", f"loading `{fn}`"))
         load_dotenv(dotenv_path=fn)
     jira_cli(show_default=True, auto_envvar_prefix="JIRA_CLI")
 
