@@ -57,6 +57,11 @@ _LOADED_DOTENV = None
 def _configure_debug(
     debug: bool, debug_file: str, loaded_dotenv: typing.Optional[str]
 ) -> None:
+    """
+    TODO:
+    1. convert to class
+    2. move to `altp`
+    """
     total_level = logging.INFO
     basic_config_kwargs = {"handlers": [], "level": total_level}
     if debug:
