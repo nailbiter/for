@@ -66,6 +66,7 @@ def api_init(
     @return (str,str) (url, auth)
     """
     url = f"https://{ctx_obj['jira_url']}/rest/api/{api_version}/{path}"
+    logging.info(url)
     auth = HTTPBasicAuth(ctx_obj["jira_email"], ctx_obj["jira_api_token"])
     return url, auth
 

@@ -160,6 +160,7 @@ def api_issue_type_ls(ctx, simplify, **format_df_kwargs):
     url, auth = api_init(ctx.obj, "issuetype")
     headers = {"Accept": "application/json"}
     response = requests.request("GET", url, headers=headers, auth=auth)
+    logging.info(response.text)
 
     # logging.warning(response.text)
     df = pd.DataFrame(json.loads(response.text))
