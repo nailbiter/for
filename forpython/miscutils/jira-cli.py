@@ -50,11 +50,45 @@ import pandas as pd
 moption = functools.partial(click.option, show_envvar=True)
 _build_click_options = functools.partial(build_click_options, option_factory=moption)
 
+_LOADED_DOTENV = None
+
+
+def _configure_debug(
+    debug: bool, debug_file: str, loaded_dotenv: typing.Optional[str]
+) -> None:
+    total_level = logging.INFO
+    basic_config_kwargs = {"handlers": [], "level": total_level}
+    if debug:
+        debug_fn = (
+            get_random_fn(".log.txt") if (debug_file == "@random") else debug_file
+        )
+        _handler = logging.FileHandler(filename=debug_fn)
+        _handler.setFormatter(
+            logging.Formatter(
+                fmt="%(asctime)s,%(msecs)d %(levelname)-8s %(name)s [%(filename)s:%(lineno)d] %(message)s",
+                datefmt="%Y-%m-%d:%H:%M:%S",
+            )
+        )
+        _handler.setLevel(total_level)
+        basic_config_kwargs["handlers"].append(_handler)
+    _handler = logging.StreamHandler()
+    _handler.setLevel(logging.WARNING)
+    basic_config_kwargs["handlers"].append(_handler)
+    logging.basicConfig(**basic_config_kwargs)
+    if debug:
+        logging.warning(f'log saved to "{debug_fn}"')
+
+    if loaded_dotenv is not None:
+        logging.warning(f'loading "{loaded_dotenv}"')
+
 
 @click.group()
 @moption("--jira-exec", default="jira")
+@moption("--debug/--no-debug", "-d/ ", default=False)
+@moption("--debug-file", type=str, default="@random")
 @click.pass_context
-def jira_cli(ctx, jira_exec):
+def jira_cli(ctx, jira_exec, debug, debug_file):
+    _configure_debug(debug=debug, debug_file=debug_file, loaded_dotenv=_LOADED_DOTENV)
     ctx.ensure_object(dict)
     ctx.obj["jira_exec"] = jira_exec
 
@@ -511,7 +545,8 @@ def worklog(ctx):
 if __name__ == "__main__":
     fn = ".jira-cli.env"
     if path.isfile(fn):
-        logging.warning(f"loading `{fn}`")
+        # logging.warning(f"loading `{fn}`")
+        _LOADED_DOTENV = fn
         load_dotenv(dotenv_path=fn)
     jira_cli(show_default=True, auto_envvar_prefix="JIRA_CLI")
 
