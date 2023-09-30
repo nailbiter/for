@@ -39,6 +39,7 @@ from _jira_cli import run_cmd, make_cmd, ssj, api_init, get_add_issue_payload
 import requests
 from requests.auth import HTTPBasicAuth
 import json
+from alex_leontiev_toolbox_python.utils import get_random_fn
 from alex_leontiev_toolbox_python.utils.click_format_dataframe import (
     AVAILABLE_OUT_FORMATS,
     format_df,
@@ -121,7 +122,9 @@ def ls(ctx, simplify, **format_df_kwargs):
 
     url, auth = api_init(ctx.obj, "project/search")
     headers = {"Accept": "application/json"}
+    logging.info(url)
     response = requests.request("GET", url, headers=headers, auth=auth)
+    logging.info(response.text)
 
     df = pd.DataFrame(json.loads(response.text)["values"])
     if simplify:
@@ -209,6 +212,7 @@ def api_issue_edit(
     https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-issueidorkey-put
     """
     url, auth = api_init(ctx.obj, f"issue/{issue_key}", api_version="3")
+    logging.info(f"url: {url}")
     headers = {"Accept": "application/json", "Content-Type": "application/json"}
 
     payload = {"fields": {}, "update": {}}
