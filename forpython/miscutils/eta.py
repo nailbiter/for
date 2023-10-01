@@ -23,11 +23,12 @@ import click
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 import pandas as pd
+import numpy as np
 import logging
 import functools
 from sklearn.linear_model import LinearRegression
 from jinja2 import Template
-from alex_leontiev_toolbox_python.utils import format_coverage
+from alex_leontiev_toolbox_python.utils import format_coverage, composition
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
 
@@ -46,7 +47,7 @@ def eta(debug):
 @moption("-n", "--name", "names", multiple=True)
 @moption("-w", "--weight-field-name")
 @moption("-s", "--spent-field-name", required=True)
-@moption("-u", "--unit", type=click.Choice(["seconds"]), default="seconds")
+@moption("-u", "--unit", type=click.Choice(["seconds", "minutes"]), default="seconds")
 @moption(
     "-m",
     "--method",
@@ -104,6 +105,8 @@ def analyse_table(
         td = None
         if unit == "seconds":
             td = timedelta(seconds=eta)
+        elif unit == "minutes":
+            td = timedelta(minutes=eta)
         else:
             raise NotImplementedError(dict(unit=unit))
 
@@ -114,7 +117,9 @@ def analyse_table(
                     eta_s=(now + td).strftime("%Y-%m-%d %H:%M"),
                     td=td,
                     method=method,
-                    cov=format_coverage(_done, _done + eta),
+                    cov=format_coverage(
+                        *list(map(composition(int, np.floor), [_done, _done + eta]))
+                    ),
                 )
             )
         )
