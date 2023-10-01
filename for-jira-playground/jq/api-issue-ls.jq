@@ -1,0 +1,2 @@
+# seq 26 35|parallel --jobs 1 /usr/local/anaconda3/envs/base-with-altp/bin/python ~/for/forpython/miscutils/jira-cli.py api issue ls -i "JC-{}"|jq '.fields|[.summary,.timetracking.originalEstimateSeconds,.timetracking.timeSpentSeconds]|@tsv' -r|eta.py analyse-table -n title -n original -n spent -w original -s spent -m velocity -m LI
+.fields|[.summary,.timetracking.originalEstimateSeconds,.timetracking.timeSpentSeconds]|@tsv

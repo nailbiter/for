@@ -26,6 +26,8 @@ import pandas as pd
 import logging
 import functools
 from sklearn.linear_model import LinearRegression
+from jinja2 import Template
+from alex_leontiev_toolbox_python.utils import format_coverage
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
 
@@ -39,7 +41,7 @@ def eta(debug):
 
 @eta.command()
 @moption(
-    "-i", "--input-csv-table-file-name", type=click.Path(allow_dash=True), default="-"
+    "-f", "--input-csv-table-file-name", type=click.Path(allow_dash=True), default="-"
 )
 @moption("-n", "--name", "names", multiple=True)
 @moption("-w", "--weight-field-name")
@@ -53,7 +55,7 @@ def eta(debug):
     default=("velocity",),
     multiple=True,
 )
-@moption("-s", "--csv-sep", default="\t", type=str)
+@moption("-p", "--csv-sep", default="\t", type=str)
 def analyse_table(
     input_csv_table_file_name,
     names,
@@ -87,8 +89,9 @@ def analyse_table(
     todo = df[df[spent_field_name].isna()]
 
     for method in methods:
+        _done = done[weight_field_name].sum()
         if method == "velocity":
-            velocity = done[weight_field_name].sum() / done[spent_field_name].sum()
+            velocity = _done / done[spent_field_name].sum()
             eta = todo[weight_field_name].sum() / velocity
         elif method == "LI":
             m = LinearRegression()
@@ -106,7 +109,14 @@ def analyse_table(
 
         now = datetime.now()
         click.echo(
-            f"""ETA(m={method}): {(now+td).strftime('%Y-%m-%d %H:%M')} (+{td})"""
+            Template("""ETA(m={{method}}): {{eta_s}} (+{{td}}) [{{cov}}]""").render(
+                dict(
+                    eta_s=(now + td).strftime("%Y-%m-%d %H:%M"),
+                    td=td,
+                    method=method,
+                    cov=format_coverage(_done, _done + eta),
+                )
+            )
         )
 
 
