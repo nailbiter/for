@@ -93,6 +93,7 @@ def upload_file_to_gdrive(
     engine = engine_factory(**engine_config)
     id_ = engine.upload_file(filepath, parent_dir_id=parent_dir_id)
     url = f"https://drive.google.com/file/d/{id_}/edit"
+    # FIXME: if upload `csv`, allow to auto-convert
     click.echo(url)
     if is_open_url:
         webbrowser.open(url)

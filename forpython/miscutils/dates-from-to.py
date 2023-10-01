@@ -38,7 +38,10 @@ _DT_FORMATS = ["%Y-%m-%d", "%Y-%m-%d %H:%M"]
 @click.option("-t", "--to", type=click.DateTime(_DT_FORMATS), default=datetime.now())
 @click.option("--exclude-to/--no-exclude-to", "-e/ ", default=False)
 @click.option(
-    "-r", "--resolution", type=click.Choice(["days", "minutes"]), default="days"
+    "-r",
+    "--resolution",
+    type=click.Choice(["days", "minutes", "plain"]),
+    default="days",
 )
 def dates_from_to(to, from_, exclude_to, resolution):
     logging.warning((to, from_))
@@ -50,6 +53,8 @@ def dates_from_to(to, from_, exclude_to, resolution):
         res = td.days
         if exclude_to:
             res -= 1
+    elif resolution == "plain":
+        res = str(td)
     elif resolution == "minutes":
         res = int(td.total_seconds() // 60)
     else:

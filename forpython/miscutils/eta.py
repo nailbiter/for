@@ -44,7 +44,7 @@ def eta(debug):
 @moption("-w", "--weight-field-name")
 @moption("-s", "--spent-field-name", required=True)
 @moption("-u", "--unit", type=click.Choice(["seconds"]), default="seconds")
-def analyze_table(
+def analyse_table(
     input_csv_table_file_name, names, spent_field_name, unit, weight_field_name
 ):
     """
