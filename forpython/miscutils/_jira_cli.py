@@ -26,6 +26,7 @@ from alex_leontiev_toolbox_python.utils import get_random_fn
 import requests
 import typing
 from datetime import datetime, timedelta
+import functools
 
 
 def ssj(s: str) -> str:
@@ -173,6 +174,7 @@ def get_add_issue_payload(
     return payload
 
 
+@functools.wraps(requests.request)
 def my_request(*args, **kwargs):
     response = requests.request(*args, **kwargs)
     logging.info(response)
