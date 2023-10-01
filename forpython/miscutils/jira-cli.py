@@ -220,13 +220,14 @@ def api_issue_edit(
 
 
 @api_issue.command(name="ls")
-@moption("-i", "--issue-id", required=True)
+@moption("-i", "--issue-id", "issue_ids", required=True, multiple=True)
 @click.pass_context
-def api_issue_ls(ctx, issue_id):
-    url, auth = api_init(ctx.obj, f"issue/{issue_id}")
+def api_issue_ls(ctx, issue_ids):
     headers = {"Accept": "application/json"}
-    response = my_request("GET", url, headers=headers, auth=auth)
-    click.echo(response.text)
+    for issue_id in issue_ids:
+        url, auth = api_init(ctx.obj, f"issue/{issue_id}")
+        response = my_request("GET", url, headers=headers, auth=auth)
+        click.echo(response.text)
 
 
 @api.command()
