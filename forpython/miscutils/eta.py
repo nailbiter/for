@@ -25,6 +25,7 @@ from datetime import datetime, timedelta
 import pandas as pd
 import logging
 import functools
+from sklearn.linear_model import LinearRegression
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
 
@@ -44,8 +45,23 @@ def eta(debug):
 @moption("-w", "--weight-field-name")
 @moption("-s", "--spent-field-name", required=True)
 @moption("-u", "--unit", type=click.Choice(["seconds"]), default="seconds")
+@moption(
+    "-m",
+    "--method",
+    "methods",
+    type=click.Choice(["LI", "velocity"]),
+    default=("velocity",),
+    multiple=True,
+)
+@moption("-s", "--csv-sep", default="\t", type=str)
 def analyse_table(
-    input_csv_table_file_name, names, spent_field_name, unit, weight_field_name
+    input_csv_table_file_name,
+    names,
+    spent_field_name,
+    unit,
+    weight_field_name,
+    methods,
+    csv_sep,
 ):
     """
     usage:
@@ -54,7 +70,9 @@ def analyse_table(
     ```
     """
     with click.open_file(input_csv_table_file_name) as f:
-        df = pd.read_csv(f, sep="\t", **({} if not names else dict(names=list(names))))
+        df = pd.read_csv(
+            f, sep=csv_sep, **({} if not names else dict(names=list(names)))
+        )
 
     if weight_field_name is None:
         weight_field_name = "w"
@@ -67,17 +85,29 @@ def analyse_table(
 
     done = df[df[spent_field_name].notna()]
     todo = df[df[spent_field_name].isna()]
-    velocity = done[weight_field_name].sum() / done[spent_field_name].sum()
-    eta = todo[weight_field_name].sum() / velocity
 
-    td = None
-    if unit == "seconds":
-        td = timedelta(seconds=eta)
-    else:
-        raise NotImplementedError(dict(unit=unit))
+    for method in methods:
+        if method == "velocity":
+            velocity = done[weight_field_name].sum() / done[spent_field_name].sum()
+            eta = todo[weight_field_name].sum() / velocity
+        elif method == "LI":
+            m = LinearRegression()
+            m.fit(done[[weight_field_name]], done[spent_field_name])
+            logging.warning((m.coef_, m.intercept_))
+            eta = sum(m.predict(todo[[weight_field_name]]))
+        else:
+            raise NotImplementedError(dict(method=method))
 
-    now = datetime.now()
-    click.echo(f"""ETA: {(now+td).strftime('%Y-%m-%d %H:%M')} (+{td})""")
+        td = None
+        if unit == "seconds":
+            td = timedelta(seconds=eta)
+        else:
+            raise NotImplementedError(dict(unit=unit))
+
+        now = datetime.now()
+        click.echo(
+            f"""ETA(m={method}): {(now+td).strftime('%Y-%m-%d %H:%M')} (+{td})"""
+        )
 
 
 def _get_mongo_client():
