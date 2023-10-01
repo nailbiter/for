@@ -220,9 +220,31 @@ def api_issue_edit(
 
 
 @api_issue.command(name="ls")
+@moption("-i", "--issue-id", required=True)
 @click.pass_context
-def api_issue_ls(ctx):
-    pass
+def api_issue_ls(ctx, issue_id):
+    url, auth = api_init(ctx.obj, f"issue/{issue_id}")
+    headers = {"Accept": "application/json"}
+    response = my_request("GET", url, headers=headers, auth=auth)
+    click.echo(response.text)
+
+
+@api.command()
+@moption("-u", "--url-suffix", required=True, type=str)
+@moption("-a", "--api-version", type=str)
+@moption(
+    "-m", "--method", type=click.Choice(["GET", "POST", "PUT", "DELETE"]), default="GET"
+)
+@click.pass_context
+def request(ctx, url_suffix, api_version, method):
+    url, auth = api_init(
+        ctx.obj,
+        url_suffix,
+        **({} if api_version is None else dict(api_version=api_version)),
+    )
+    headers = {"Accept": "application/json"}
+    response = my_request(method, url, headers=headers, auth=auth)
+    click.echo(response.text)
 
 
 @api_issue.command(name="add")
@@ -251,7 +273,7 @@ def api_issue_add(ctx, **kwargs):
     payload = get_add_issue_payload(**kwargs)
     payload = json.dumps(payload)
 
-    response = requests.request("POST", url, data=payload, headers=headers, auth=auth)
+    response = my_request("POST", url, data=payload, headers=headers, auth=auth)
     click.echo(
         json.dumps(
             json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")

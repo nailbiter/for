@@ -175,6 +175,7 @@ def get_add_issue_payload(
 
 def my_request(*args, **kwargs):
     response = requests.request(*args, **kwargs)
+    logging.info(response)
     logging.info(response.text)
     return response
 
