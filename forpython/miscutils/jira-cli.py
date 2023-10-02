@@ -335,7 +335,7 @@ def jql(ctx, jql, jql_file, raw, max_results, simplify, **format_df_kwargs):
 
     if max_results is not None:
         query["max_results"] = max_results
-    response = requests.request("GET", url, headers=headers, params=query, auth=auth)
+    response = my_request("GET", url, headers=headers, params=query, auth=auth)
 
     if raw:
         click.echo(response.text)
@@ -354,11 +354,20 @@ def jql(ctx, jql, jql_file, raw, max_results, simplify, **format_df_kwargs):
         if simplify:
             orig_df = df
             df = pd.DataFrame(dict(key=df["key"]))
-            for t in [("project", "key"), ("summary",), ("status", "name")]:
+            for t in [
+                ("project", "key"),
+                ("summary",),
+                ("status", "name"),
+                ("lastViewed",),
+                ("updated",),
+            ]:
                 cn = "_".join(t)
                 df[cn] = orig_df["fields"]
                 for x in t:
                     df[cn] = df[cn].apply(operator.itemgetter(x))
+            cns = ["lastViewed", "updated"]
+            df[cns] = df[cns].applymap(pd.to_datetime)
+            my_logging.info(df.dtypes)
 
         click.echo(apply_click_options(df, format_df_kwargs))
 
