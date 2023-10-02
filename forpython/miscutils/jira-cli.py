@@ -24,6 +24,7 @@ TODO:
 
 # import logging
 import click
+import operator
 import typing
 import numpy as np
 import webbrowser
@@ -315,8 +316,9 @@ def url(ctx, issue_name, open_):
 @_build_click_options
 @moption("--raw/--no-raw", "-r/ ", default=False)
 @moption("-m", "--max-results", type=int)
+@moption("--simplify/--no-simplify", "-s/ ", default=False)
 @click.pass_context
-def jql(ctx, jql, jql_file, raw, max_results, **format_df_kwargs):
+def jql(ctx, jql, jql_file, raw, max_results, simplify, **format_df_kwargs):
     """
     helpful jq's:
     * '.[]|[.key,.fields.summary]|@tsv'
@@ -349,6 +351,15 @@ def jql(ctx, jql, jql_file, raw, max_results, **format_df_kwargs):
             inplace=True,
             key=lambda x: np.argsort(natsort.index_natsorted(df["key"])),
         )
+        if simplify:
+            orig_df = df
+            df = pd.DataFrame(dict(key=df["key"]))
+            for t in [("project", "key"), ("summary",), ("status", "name")]:
+                cn = "_".join(t)
+                df[cn] = orig_df["fields"]
+                for x in t:
+                    df[cn] = df[cn].apply(operator.itemgetter(x))
+
         click.echo(apply_click_options(df, format_df_kwargs))
 
 
