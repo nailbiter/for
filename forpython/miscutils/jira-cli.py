@@ -256,6 +256,10 @@ def request(ctx, url_suffix, api_version, method):
 @moption("-f", "--input-file", type=click.Path(allow_dash=True), required=True)
 @click.pass_context
 def api_issue_import(ctx, input_file):
+    """
+    todo: output same as input, but together with new issue IDs
+    (also save this out to tmp file)
+    """
     with click.open_file(input_file) as f:
         rs = json.load(f)
     for r in tqdm.tqdm(rs):
