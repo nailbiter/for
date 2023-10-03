@@ -189,6 +189,9 @@ def api_issue_edit(
 ):
     """
     https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-issueidorkey-put
+
+    TODO:
+    1. set the epic
     """
     url, auth = api_init(ctx.obj, f"issue/{issue_key}", api_version="3")
     my_logging.info(f"url: {url}")
@@ -249,6 +252,16 @@ def request(ctx, url_suffix, api_version, method):
     click.echo(response.text)
 
 
+@api_issue.command(name="import")
+@moption("-f", "--input-file", type=click.Path(allow_dash=True), required=True)
+@click.pass_context
+def api_issue_import(ctx, input_file):
+    with click.open_file(input_file) as f:
+        rs = json.load(f)
+    for r in tqdm.tqdm(rs):
+        _real_api_issue_add(ctx, **r)
+
+
 @api_issue.command(name="add")
 @moption("-p", "--project-id", type=int, required=True)
 @moption("-t", "--issue_type_id", type=int, required=True)
@@ -268,7 +281,10 @@ def api_issue_add(ctx, **kwargs):
 
     # This code sample uses the 'requests' library:
     # http://docs.python-requests.org
+    return _real_api_issue_add(ctx, **kwargs)
 
+
+def _real_api_issue_add(ctx, **kwargs):
     url, auth = api_init(ctx.obj, "issue")
     headers = {"Accept": "application/json", "Content-Type": "application/json"}
 
@@ -353,11 +369,12 @@ def jql(ctx, jql, jql_file, raw, max_results, simplify, **format_df_kwargs):
         )
         if simplify:
             orig_df = df
-            df = pd.DataFrame(dict(key=df["key"]))
+            df = orig_df[["key", "id"]].copy()
             for t in [
                 ("project", "key"),
                 ("summary",),
                 ("status", "name"),
+                ("issuetype", "name"),
                 ("lastViewed",),
                 ("updated",),
             ]:
@@ -403,7 +420,6 @@ def assign(ctx):
 @moption("-l", "--label")
 @moption("-C", "--component")
 @moption("-H", "--replace")
-@moption("-h", "--help")
 @click.pass_context
 def clone(ctx, issue_key, **kwargs):
     run_cmd(
