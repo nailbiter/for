@@ -36,6 +36,7 @@ from os import path
 import functools
 import itertools
 from jinja2 import Template
+import time
 from _jira_cli import (
     run_cmd,
     make_cmd,
@@ -147,6 +148,43 @@ def api_issue_type_ls(ctx, simplify, **format_df_kwargs):
 @click.pass_context
 def api_user(ctx):
     pass
+
+
+@api_issue.command(name="watchdog")
+@moption("-i", "--issue-key", "issue_keys", type=str, required=True, multiple=True)
+@moption("-s", "--sleep-minutes", type=click.IntRange(min=1), default=1)
+@moption("-l", "--slack-url", type=str, required=True)
+@click.pass_context
+def api_issue_watchdog(ctx, issue_keys, sleep_minutes, slack_url):
+    headers = {"Accept": "application/json"}
+
+    prev_last_updates = None
+    while True:
+        last_updates = {}
+        for issue_id in issue_keys:
+            url, auth = api_init(ctx.obj, f"issue/{issue_id}")
+            response = my_request("GET", url, headers=headers, auth=auth)
+            my_logging.info(response)
+            # my_logging.info(json.loads(response.text))
+            last_updates[issue_id] = pd.to_datetime(
+                json.loads(response.text)["fields"]["updated"]
+            )
+
+        my_logging.warning(pd.Series(last_updates))
+        if (prev_last_updates is None) or (prev_last_updates == last_updates):
+            prev_last_updates = last_updates
+        else:
+            my_logging.warning("change")
+            df = pd.DataFrame(dict(prev=prev_last_updates, now=last_updates))
+            changed_issue_ids = df[df["prev"] != df["now"]].index.to_list()
+            my_logging.warning(changed_issue_ids)
+            requests.post(
+                slack_url,
+                json.dumps(dict(text=", ".join(changed_issue_ids))),
+                headers={"Content-type": "application/json"},
+            )
+
+        time.sleep(sleep_minutes * 60)
 
 
 @api_issue.command(name="comment")
