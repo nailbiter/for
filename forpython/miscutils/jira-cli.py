@@ -158,6 +158,17 @@ def api_user(ctx):
 def api_issue_watchdog(ctx, issue_keys, sleep_minutes, slack_url):
     headers = {"Accept": "application/json"}
 
+    # args = [
+    #     slack_url,
+    #     json.dumps(dict(text="test")),
+    # ]
+    # kwargs = dict(
+    #     headers={"Content-type": "application/json"},
+    # )
+    # my_logging.warning(dict(args=args, kwargs=kwargs))
+    # res = requests.post(*args, **kwargs)
+    # my_logging.warning(res)
+
     prev_last_updates = None
     while True:
         last_updates = {}
@@ -178,11 +189,18 @@ def api_issue_watchdog(ctx, issue_keys, sleep_minutes, slack_url):
             df = pd.DataFrame(dict(prev=prev_last_updates, now=last_updates))
             changed_issue_ids = df[df["prev"] != df["now"]].index.to_list()
             my_logging.warning(changed_issue_ids)
-            requests.post(
+            args = [
                 slack_url,
-                json.dumps(dict(text=", ".join(changed_issue_ids))),
+                json.dumps(
+                    dict(text=f'api-issue-watchdog: {", ".join(changed_issue_ids)}')
+                ),
+            ]
+            kwargs = dict(
                 headers={"Content-type": "application/json"},
             )
+            my_logging.warning(dict(args=args, kwargs=kwargs))
+            res = requests.post(*args, **kwargs)
+            my_logging.warning(res)
 
         time.sleep(sleep_minutes * 60)
 
