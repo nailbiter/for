@@ -84,6 +84,7 @@ def get_add_issue_payload(
     reporter_id: typing.Optional[str] = None,
     assignee_id: typing.Optional[str] = None,
     parent_id: typing.Optional[str] = None,
+    original_time_estimate_minutes: typing.Optional[int] = None,
 ):
     payload = {
         "fields": {
@@ -154,6 +155,16 @@ def get_add_issue_payload(
             # "customfield_80000": {"value": "red"},
             # "components": [{"id": "10000"}],
             # "timetracking": {"originalEstimate": "10", "remainingEstimate": "5"},
+            **(
+                {}
+                if original_time_estimate_minutes is None
+                else dict(
+                    timetracking=dict(
+                        originalEstimate=str(original_time_estimate_minutes),
+                        remainingEstimate="0",
+                    )
+                )
+            ),
             # "versions": [{"id": "10000"}],
             ## done
             # "parent": {"key": "PROJ-123"},

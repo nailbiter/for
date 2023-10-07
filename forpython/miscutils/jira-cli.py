@@ -276,6 +276,7 @@ def api_issue_import(ctx, input_file):
 @moption("-r", "--reporter-id", type=str)
 @moption("-a", "--assignee-id", type=str)
 @moption("-P", "--parent-id", type=str)
+@moption("-o", "--original-time-estimate-minutes", type=click.IntRange(min=0))
 @click.pass_context
 def api_issue_add(ctx, **kwargs):
     """
