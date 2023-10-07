@@ -150,6 +150,10 @@ def api_user(ctx):
     pass
 
 
+def _compare_updates(prev_last_updates: dict, last_updates: dict) -> bool:
+    return prev_last_updates == last_updates
+
+
 @api_issue.command(name="watchdog")
 @moption("-i", "--issue-key", "issue_keys", type=str, required=True, multiple=True)
 @moption("-s", "--sleep-minutes", type=click.IntRange(min=1), default=1)
@@ -182,10 +186,12 @@ def api_issue_watchdog(ctx, issue_keys, sleep_minutes, slack_url):
             )
 
         my_logging.warning(pd.Series(last_updates))
-        if (prev_last_updates is None) or (prev_last_updates == last_updates):
-            prev_last_updates = last_updates
+        if (prev_last_updates is None) or _compare_updates(
+            prev_last_updates, last_updates
+        ):
+            pass
         else:
-            my_logging.warning("change")
+            my_logging.warning(f"change: {prev_last_updates,last_updates}")
             df = pd.DataFrame(dict(prev=prev_last_updates, now=last_updates))
             changed_issue_ids = df[df["prev"] != df["now"]].index.to_list()
             my_logging.warning(changed_issue_ids)
@@ -202,6 +208,7 @@ def api_issue_watchdog(ctx, issue_keys, sleep_minutes, slack_url):
             res = requests.post(*args, **kwargs)
             my_logging.warning(res)
 
+        prev_last_updates = last_updates
         time.sleep(sleep_minutes * 60)
 
 
