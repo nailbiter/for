@@ -151,12 +151,13 @@ def api_user(ctx):
 
 @api_issue.command(name="comment")
 @moption("-i", "--issue-key", type=str, required=True)
+@moption("-t", "--text", type=str)
 @click.pass_context
-def api_issue_type_comment(ctx, issue_key):
+def api_issue_comment(ctx, issue_key, text):
     """
     https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post
     """
-    url, auth = api_init(ctx.obj, f"issue/{issue_key}/comment")
+    url, auth = api_init(ctx.obj, f"issue/{issue_key}/comment", api_version="3")
     headers = {"Accept": "application/json", "Content-Type": "application/json"}
 
     payload = {
@@ -165,7 +166,8 @@ def api_issue_type_comment(ctx, issue_key):
                 {
                     "content": [
                         {
-                            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper.",
+                            # "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper.",
+                            "text": text,
                             "type": "text",
                         }
                     ],
@@ -175,13 +177,13 @@ def api_issue_type_comment(ctx, issue_key):
             "type": "doc",
             "version": 1,
         },
-        "visibility": {
-            "identifier": "Administrators",
-            "type": "role",
-            "value": "Administrators",
-        },
+        # "visibility": {
+        #     "identifier": "Administrators",
+        #     "type": "role",
+        #     "value": "Administrators",
+        # },
     }
-    payload = {}
+
     response = my_request(
         "POST", url, headers=headers, auth=auth, data=json.dumps(payload)
     )
