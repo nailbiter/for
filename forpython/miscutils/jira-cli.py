@@ -149,6 +149,50 @@ def api_user(ctx):
     pass
 
 
+@api_issue.command(name="comment")
+@moption("-i", "--issue-key", type=str, required=True)
+@click.pass_context
+def api_issue_type_comment(ctx, issue_key):
+    """
+    https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-comments/#api-rest-api-3-issue-issueidorkey-comment-post
+    """
+    url, auth = api_init(ctx.obj, f"issue/{issue_key}/comment")
+    headers = {"Accept": "application/json", "Content-Type": "application/json"}
+
+    payload = {
+        "body": {
+            "content": [
+                {
+                    "content": [
+                        {
+                            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget venenatis elit. Duis eu justo eget augue iaculis fermentum. Sed semper quam laoreet nisi egestas at posuere augue semper.",
+                            "type": "text",
+                        }
+                    ],
+                    "type": "paragraph",
+                }
+            ],
+            "type": "doc",
+            "version": 1,
+        },
+        "visibility": {
+            "identifier": "Administrators",
+            "type": "role",
+            "value": "Administrators",
+        },
+    }
+    payload = {}
+    response = my_request(
+        "POST", url, headers=headers, auth=auth, data=json.dumps(payload)
+    )
+
+    click.echo(
+        json.dumps(
+            json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")
+        )
+    )
+
+
 @api_user.command(name="ls")
 @_build_click_options
 @moption("--simplify/--no-simplify", "-s/ ", default=False)
@@ -157,7 +201,7 @@ def api_user_ls(ctx, simplify, **format_df_kwargs):
     url, auth = api_init(ctx.obj, "users/search")
     headers = {"Accept": "application/json"}
 
-    response = requests.request("GET", url, headers=headers, auth=auth)
+    response = my_request("GET", url, headers=headers, auth=auth)
     df = pd.DataFrame(json.loads(response.text))
     if simplify:
         df = df[["accountId", "displayName", "emailAddress"]]
