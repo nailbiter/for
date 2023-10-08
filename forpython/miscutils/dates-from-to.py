@@ -28,7 +28,7 @@ import logging
 from datetime import datetime, timedelta
 
 
-_DT_FORMATS = ["%Y-%m-%d", "%Y-%m-%d %H:%M"]
+_DT_FORMATS = ["%Y-%m-%d", "%Y-%m-%d %H:%M", "%H:%M"]
 
 
 @click.command()
