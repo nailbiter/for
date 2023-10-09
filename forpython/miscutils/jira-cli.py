@@ -214,7 +214,7 @@ def api_issue_watchdog(ctx, issue_keys, sleep_minutes, slack_url):
 
 @api_issue.command(name="comment")
 @moption("-i", "--issue-key", type=str, required=True)
-@moption("-t", "--text", type=str)
+@moption("-t", "--text", type=str, required=True)
 @click.pass_context
 def api_issue_comment(ctx, issue_key, text):
     """
@@ -589,9 +589,18 @@ def ls(ctx, **flags):
 
 
 @issue.command()
+@moption("-i", "--issue-key", type=str, required=True)
+@moption("-t", "--text", type=str, required=True)
 @click.pass_context
-def comment(ctx):
-    pass
+def comment(ctx, issue_key, text):
+    run_cmd(
+        make_cmd(
+            "issue comment add",
+            args=[issue_key, text],
+            flags={"no-input": True},
+            ctx_obj=ctx.obj,
+        )
+    )
 
 
 @issue.command()
