@@ -26,6 +26,9 @@ import os
 from os import path
 import logging
 from datetime import datetime, timedelta
+from alex_leontiev_toolbox_python.utils.click_helpers.datetime_classes import (
+    SimpleCliDatetimeParamType,
+)
 
 
 _DT_FORMATS = ["%Y-%m-%d", "%Y-%m-%d %H:%M", "%H:%M"]
@@ -33,9 +36,18 @@ _DT_FORMATS = ["%Y-%m-%d", "%Y-%m-%d %H:%M", "%H:%M"]
 
 @click.command()
 @click.option(
-    "-f", "--from", "from_", type=click.DateTime(_DT_FORMATS), default=datetime.now()
+    "-f",
+    "--from",
+    "from_",
+    type=SimpleCliDatetimeParamType(_DT_FORMATS, is_debug=False),
+    default=datetime.now(),
 )
-@click.option("-t", "--to", type=click.DateTime(_DT_FORMATS), default=datetime.now())
+@click.option(
+    "-t",
+    "--to",
+    type=SimpleCliDatetimeParamType(_DT_FORMATS, is_debug=False),
+    default=datetime.now(),
+)
 @click.option("--exclude-to/--no-exclude-to", "-e/ ", default=False)
 @click.option(
     "-r",
@@ -43,7 +55,10 @@ _DT_FORMATS = ["%Y-%m-%d", "%Y-%m-%d %H:%M", "%H:%M"]
     type=click.Choice(["days", "minutes", "plain"]),
     default="days",
 )
-def dates_from_to(to, from_, exclude_to, resolution):
+@click.option("--debug/--no-debug", default=False)
+def dates_from_to(to, from_, exclude_to, resolution, debug):
+    if debug:
+        logging.basicConfig(level=logging.INFO)
     logging.warning((to, from_))
     if resolution in ["days"]:
         to, from_ = [x.date() for x in [to, from_]]
