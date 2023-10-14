@@ -124,6 +124,12 @@ def api_issue_type(ctx):
     pass
 
 
+@api.group(name="link-type")
+@click.pass_context
+def api_link_type(ctx):
+    pass
+
+
 @api_issue_type.command(name="ls")
 @_build_click_options
 @moption("--simplify/--no-simplify", "-s/ ", default=False)
@@ -140,6 +146,23 @@ def api_issue_type_ls(ctx, simplify, **format_df_kwargs):
     df = pd.DataFrame(json.loads(response.text))
     if simplify:
         df = df[["id", "name", "scope"]]
+
+    click.echo(apply_click_options(df, format_df_kwargs))
+
+
+@api_link_type.command(name="ls")
+@_build_click_options
+@click.pass_context
+def api_link_type_ls(ctx, **format_df_kwargs):
+    # This code sample uses the 'requests' library:
+    # http://docs.python-requests.org
+
+    url, auth = api_init(ctx.obj, "issueLinkType")
+    headers = {"Accept": "application/json"}
+    response = my_request("GET", url, headers=headers, auth=auth)
+
+    # my_logging.warning(response.text)
+    df = pd.DataFrame(json.loads(response.text)["issueLinkTypes"])
 
     click.echo(apply_click_options(df, format_df_kwargs))
 
@@ -601,6 +624,21 @@ def comment(ctx, issue_key, text):
             ctx_obj=ctx.obj,
         )
     )
+
+
+@issue.command()
+@moption("-f", "--from", "from_", type=text, required=True)
+@moption("-t", "--to", type=text, required=True)
+@moption(
+    "-l",
+    "--issue-link-type",
+    type=text,
+    required=True,
+    help="use `api link-type ls` to see available",
+)
+@click.pass_context
+def link(ctx, from_, to, issue_link_type):
+    run_cmd(make_cmd("issue link", args=[from_, to, issue_link_type], ctx_obj=ctx.obj))
 
 
 @issue.command()
