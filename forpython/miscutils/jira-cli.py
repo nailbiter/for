@@ -626,18 +626,19 @@ def comment(ctx, issue_key, text):
     )
 
 
-@issue.command()
-@moption("-f", "--from", "from_", type=text, required=True)
-@moption("-t", "--to", type=text, required=True)
+@issue.command(name="link")
+@moption("-f", "--from", "from_", type=str, required=True)
+@moption("-t", "--to", type=str, required=True)
 @moption(
     "-l",
     "--issue-link-type",
-    type=text,
+    type=str,
     required=True,
     help="use `api link-type ls` to see available",
 )
 @click.pass_context
-def link(ctx, from_, to, issue_link_type):
+def link_(ctx, from_, to, issue_link_type):
+    logging.warning((from_, to, issue_link_type))
     run_cmd(make_cmd("issue link", args=[from_, to, issue_link_type], ctx_obj=ctx.obj))
 
 
@@ -699,12 +700,6 @@ def delete(ctx):
 @issue.command()
 @click.pass_context
 def edit(ctx):
-    pass
-
-
-@issue.command()
-@click.pass_context
-def link(ctx):
     pass
 
 
