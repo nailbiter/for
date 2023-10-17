@@ -638,7 +638,7 @@ def comment(ctx, issue_key, text):
 )
 @click.pass_context
 def link_(ctx, from_, to, issue_link_type):
-    logging.warning((from_, to, issue_link_type))
+    my_logging.warning((from_, to, issue_link_type))
     run_cmd(make_cmd("issue link", args=[from_, to, issue_link_type], ctx_obj=ctx.obj))
 
 
