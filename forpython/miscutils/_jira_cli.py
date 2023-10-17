@@ -187,6 +187,7 @@ def get_add_issue_payload(
 
 @functools.wraps(requests.request)
 def my_request(*args, **kwargs):
+    logging.info(dict(args=args, kwargs=kwargs))
     response = requests.request(*args, **kwargs)
     logging.info(response)
     logging.info(response.text)

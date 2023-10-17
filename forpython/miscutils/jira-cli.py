@@ -49,6 +49,7 @@ from _jira_cli import (
 import requests
 from requests.auth import HTTPBasicAuth
 import json
+from alex_leontiev_toolbox_python.utils.edit_json import edit_json
 from alex_leontiev_toolbox_python.utils.click_format_dataframe import (
     AVAILABLE_OUT_FORMATS,
     format_df,
@@ -409,6 +410,7 @@ def api_issue_import(ctx, input_file):
 @moption("-a", "--assignee-id", type=str)
 @moption("-P", "--parent-id", type=str)
 @moption("-o", "--original-time-estimate-minutes", type=click.IntRange(min=0))
+@moption("-f", "--json-edit-cmd-file", type=click.Path(allow_dash=True))
 @click.pass_context
 def api_issue_add(ctx, **kwargs):
     """
@@ -421,11 +423,18 @@ def api_issue_add(ctx, **kwargs):
     return _real_api_issue_add(ctx, **kwargs)
 
 
-def _real_api_issue_add(ctx, **kwargs):
+def _real_api_issue_add(ctx, json_edit_cmd_file=None, **kwargs):
+    json_edit_cmd = {}
+    if json_edit_cmd_file is not None:
+        with click.open_file(json_edit_cmd_file) as f:
+            json_edit_cmd = json.load(f)
+
     url, auth = api_init(ctx.obj, "issue")
     headers = {"Accept": "application/json", "Content-Type": "application/json"}
 
     payload = get_add_issue_payload(**kwargs)
+    if json_edit_cmd:
+        payload = edit_json(payload, json_edit_cmd)
     payload = json.dumps(payload)
 
     response = my_request("POST", url, data=payload, headers=headers, auth=auth)
