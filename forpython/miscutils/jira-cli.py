@@ -38,6 +38,7 @@ import itertools
 from jinja2 import Template
 import time
 from _jira_cli import (
+    jira_issue_name_and_ctx_to_url,
     run_cmd,
     make_cmd,
     ssj,
@@ -373,15 +374,20 @@ def api_issue_ls(ctx, issue_ids):
 @moption(
     "-m", "--method", type=click.Choice(["GET", "POST", "PUT", "DELETE"]), default="GET"
 )
+@moption("-d", "--data-file", type=click.Path(allow_dash=True))
 @click.pass_context
-def request(ctx, url_suffix, api_version, method):
+def request(ctx, url_suffix, api_version, method, data_file):
     url, auth = api_init(
         ctx.obj,
         url_suffix,
         **({} if api_version is None else dict(api_version=api_version)),
     )
     headers = {"Accept": "application/json"}
-    response = my_request(method, url, headers=headers, auth=auth)
+    kwargs = dict(headers=headers, auth=auth)
+    if data_file is not None:
+        with click.open_file(data_file) as f:
+            kwargs["data"] = json.dumps(json.load(f))
+    response = my_request(method, url, **kwargs)
     click.echo(response.text)
 
 
@@ -411,6 +417,7 @@ def api_issue_import(ctx, input_file):
 @moption("-P", "--parent-id", type=str)
 @moption("-o", "--original-time-estimate-minutes", type=click.IntRange(min=0))
 @moption("-f", "--json-edit-cmd-file", type=click.Path(allow_dash=True))
+@moption("--open-url/--no-open-url", "-O/ ", default=False)
 @click.pass_context
 def api_issue_add(ctx, **kwargs):
     """
@@ -423,7 +430,12 @@ def api_issue_add(ctx, **kwargs):
     return _real_api_issue_add(ctx, **kwargs)
 
 
-def _real_api_issue_add(ctx, json_edit_cmd_file=None, **kwargs):
+def _real_api_issue_add(
+    ctx,
+    open_url: bool,
+    json_edit_cmd_file: typing.Optional[str] = None,
+    **kwargs,
+):
     json_edit_cmd = {}
     if json_edit_cmd_file is not None:
         with click.open_file(json_edit_cmd_file) as f:
@@ -444,6 +456,11 @@ def _real_api_issue_add(ctx, json_edit_cmd_file=None, **kwargs):
         )
     )
 
+    if open_url:
+        webbrowser.open(
+            jira_issue_name_and_ctx_to_url(json.loads(response.text)["key"], ctx)
+        )
+
 
 @api.command()
 @click.pass_context
@@ -461,7 +478,7 @@ def application_role(ctx):
 @click.pass_context
 def url(ctx, issue_name, open_):
     "https://nailbiter91.atlassian.net/browse/SKP-19"
-    url = f"https://{ctx.obj['jira_url']}/browse/{issue_name}"
+    url = jira_issue_name_and_ctx_to_url(issue_name, ctx)
     click.echo(url)
     if open_:
         webbrowser.open(url)

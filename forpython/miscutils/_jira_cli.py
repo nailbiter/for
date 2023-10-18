@@ -246,3 +246,8 @@ class WrappedLogging:
         #     logging.warning(f'loading "{loaded_dotenv}"')
         self._is_configured = True
         self._flush_post_config_messages()
+
+
+def jira_issue_name_and_ctx_to_url(issue_name: str, ctx) -> str:
+    url = f"https://{ctx.obj['jira_url']}/browse/{issue_name}"
+    return url
