@@ -114,7 +114,7 @@ class _RcloneEngine:
     def __init__(
         self,
         remote_name: str = "gdrive",
-        rclone_exec="rclone",
+        rclone_exec: str = "rclone",
         cache_file_path: typing.Optional[str] = path.join(
             path.dirname(
                 __file__,
