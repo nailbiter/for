@@ -357,6 +357,148 @@ def api_issue_edit(
     )
 
 
+@api_issue.command(name="pseudo-clone")
+@moption("-i", "--issue-id", type=str, required=True)
+@moption("-f", "--json-edit-cmd-file", type=click.Path(allow_dash=True))
+@moption("--open-url/--no-open-url", "-O/ ", default=False)
+@moption("-s", "--fields-to-skip-file", type=click.Path())
+@moption(
+    "-c",
+    "--clone-link-type",
+    help="unset with '**UNSET**'",
+    default="Cloners",
+    type=str,
+)
+@moption("--clone-revert/--no-clone-revert", "-r/ ", default=False)
+@click.pass_context
+def api_issue_clone(
+    ctx,
+    issue_id,
+    json_edit_cmd_file,
+    open_url,
+    fields_to_skip_file,
+    clone_link_type,
+    clone_revert,
+):
+    """
+    TODO:
+      1. link "cloned"
+      2. copy comments
+    """
+    if clone_link_type == "**UNSET**":
+        clone_link_type = None
+
+    url, auth = api_init(ctx.obj, "issue", api_version=2)
+    headers = {"Accept": "application/json", "Content-Type": "application/json"}
+
+    if fields_to_skip_file is None:
+        fields_to_skip = {
+            "statuscategorychangedate": "Field 'statuscategorychangedate' cannot be set. It is not on the appropriate screen, or unknown.",
+            "timespent": "Field 'timespent' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10030": "Field 'customfield_10030' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10031": "Field 'customfield_10031' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10032": "Field 'customfield_10032' cannot be set. It is not on the appropriate screen, or unknown.",
+            "fixVersions": "Field 'fixVersions' cannot be set. It is not on the appropriate screen, or unknown.",
+            "aggregatetimespent": "Field 'aggregatetimespent' cannot be set. It is not on the appropriate screen, or unknown.",
+            "resolution": "Field 'resolution' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10037": "Field 'customfield_10037' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10027": "Field 'customfield_10027' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10028": "Field 'customfield_10028' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10029": "Field 'customfield_10029' cannot be set. It is not on the appropriate screen, or unknown.",
+            "resolutiondate": "Field 'resolutiondate' cannot be set. It is not on the appropriate screen, or unknown.",
+            "workratio": "Field 'workratio' cannot be set. It is not on the appropriate screen, or unknown.",
+            "lastViewed": "Field 'lastViewed' cannot be set. It is not on the appropriate screen, or unknown.",
+            "watches": "Field 'watches' cannot be set. It is not on the appropriate screen, or unknown.",
+            "created": "Field 'created' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10020": "Field 'customfield_10020' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10022": "Field 'customfield_10022' cannot be set. It is not on the appropriate screen, or unknown.",
+            "priority": "Field 'priority' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10023": "Field 'customfield_10023' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10024": "Field 'customfield_10024' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10025": "Field 'customfield_10025' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10026": "Field 'customfield_10026' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10016": "Field 'customfield_10016' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10017": "Field 'customfield_10017' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10018": "Field 'customfield_10018' cannot be set. It is not on the appropriate screen, or unknown.",
+            "aggregatetimeoriginalestimate": "Field 'aggregatetimeoriginalestimate' cannot be set. It is not on the appropriate screen, or unknown.",
+            "timeestimate": "Field 'timeestimate' cannot be set. It is not on the appropriate screen, or unknown.",
+            "versions": "Field 'versions' cannot be set. It is not on the appropriate screen, or unknown.",
+            "issuelinks": "Field does not support update 'issuelinks'",
+            "updated": "Field 'updated' cannot be set. It is not on the appropriate screen, or unknown.",
+            "status": "Field 'status' cannot be set. It is not on the appropriate screen, or unknown.",
+            "components": "Field 'components' cannot be set. It is not on the appropriate screen, or unknown.",
+            "timeoriginalestimate": "Field 'timeoriginalestimate' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10010": "Field 'customfield_10010' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10014": "Field 'customfield_10014' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10015": "Field 'customfield_10015' cannot be set. It is not on the appropriate screen, or unknown.",
+            "timetracking": "Field 'timetracking' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10005": "Field 'customfield_10005' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10006": "Field 'customfield_10006' cannot be set. It is not on the appropriate screen, or unknown.",
+            "security": "Field 'security' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10007": "Field 'customfield_10007' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10008": "Field 'customfield_10008' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10009": "Field 'customfield_10009' cannot be set. It is not on the appropriate screen, or unknown.",
+            "aggregatetimeestimate": "Field 'aggregatetimeestimate' cannot be set. It is not on the appropriate screen, or unknown.",
+            "creator": "Field 'creator' cannot be set. It is not on the appropriate screen, or unknown.",
+            "subtasks": "Field 'subtasks' cannot be set. It is not on the appropriate screen, or unknown.",
+            "aggregateprogress": "Field 'aggregateprogress' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10001": "Field 'customfield_10001' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10002": "Field 'customfield_10002' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10003": "Field 'customfield_10003' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10004": "Field 'customfield_10004' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10038": "Field 'customfield_10038' cannot be set. It is not on the appropriate screen, or unknown.",
+            "customfield_10039": "Field 'customfield_10039' cannot be set. It is not on the appropriate screen, or unknown.",
+            "environment": "Field 'environment' cannot be set. It is not on the appropriate screen, or unknown.",
+            "duedate": "Field 'duedate' cannot be set. It is not on the appropriate screen, or unknown.",
+            "progress": "Field 'progress' cannot be set. It is not on the appropriate screen, or unknown.",
+            "comment": "Field 'comment' cannot be set. It is not on the appropriate screen, or unknown.",
+            "votes": "Field 'votes' cannot be set. It is not on the appropriate screen, or unknown.",
+            "worklog": "Field 'worklog' cannot be set. It is not on the appropriate screen, or unknown.",
+            "issuerestriction": None,
+            "rankAfterIssue": None,
+            "rankBeforeIssue": None,
+            "customfield_10019": None,
+        }.keys()
+    else:
+        with open(fields_to_skip_file) as f:
+            fields_to_skip = json.load(f)
+
+    json_edit_cmd = {}
+    if json_edit_cmd_file is not None:
+        with click.open_file(json_edit_cmd_file) as f:
+            json_edit_cmd = json.load(f)
+
+    # payload = get_add_issue_payload(**kwargs)
+    url_, _ = api_init(ctx.obj, f"issue/{issue_id}", api_version=2)
+    response = my_request("GET", url_, headers=headers, auth=auth)
+    payload = json.loads(response.text)
+    for k in ["key", "self", "id"]:
+        payload.pop(k)
+    for k in fields_to_skip:
+        if k in payload["fields"]:
+            payload["fields"].pop(k)
+    if json_edit_cmd:
+        payload = edit_json(payload, json_edit_cmd)
+    payload = json.dumps(payload)
+
+    response = my_request("POST", url, data=payload, headers=headers, auth=auth)
+    click.echo(
+        json.dumps(
+            json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")
+        )
+    )
+
+    new_issue_key = json.loads(response.text)["key"]
+    if open_url:
+        webbrowser.open(jira_issue_name_and_ctx_to_url(new_issue_key, ctx))
+
+    if clone_link_type is not None:
+        args = [issue_id, new_issue_key]
+        if clone_revert:
+            args = args[::-1]
+        _real_link(ctx, *args, clone_link_type)
+
+
 @api_issue.command(name="ls")
 @moption("-i", "--issue-id", "issue_ids", required=True, multiple=True)
 @click.pass_context
@@ -663,7 +805,11 @@ def comment(ctx, issue_key, text):
     help="use `api link-type ls` to see available",
 )
 @click.pass_context
-def link_(ctx, from_, to, issue_link_type):
+def link_(*args, **kwargs):
+    return _real_link(*args, **kwargs)
+
+
+def _real_link(ctx, from_, to, issue_link_type):
     my_logging.warning((from_, to, issue_link_type))
     run_cmd(make_cmd("issue link", args=[from_, to, issue_link_type], ctx_obj=ctx.obj))
 
