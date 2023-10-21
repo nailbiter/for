@@ -37,6 +37,7 @@ import functools
 import itertools
 from jinja2 import Template
 import time
+import copy
 from _jira_cli import (
     jira_issue_name_and_ctx_to_url,
     run_cmd,
@@ -323,7 +324,11 @@ def get_edit_metadata(ctx, issue_key):
 @moption("-d", "--description", type=str)
 @moption("-f", "--description-file", type=click.Path(allow_dash=True))
 @click.pass_context
-def api_issue_edit(
+def api_issue_edit(*args, **kwargs):
+    return _real_api_issue_edit(*args, **kwargs)
+
+
+def _real_api_issue_edit(
     ctx,
     issue_key,
     summary,
@@ -371,6 +376,8 @@ def api_issue_edit(
         payload["fields"][k] = v
 
     my_logging.warning(payload)
+    if payload["fields"] == {} and payload["update"] == {}:
+        my_logging.warning("empty payload in `edit` ==> ignore")
     payload = json.dumps(payload)
 
     response = requests.request("PUT", url, data=payload, headers=headers, auth=auth)
@@ -395,15 +402,25 @@ def api_issue_edit(
     type=str,
 )
 @moption("--clone-revert/--no-clone-revert", "-r/ ", default=False)
+@moption("-u", "--custom-field", "custom_fields", type=(str, str), multiple=True)
+@moption("-s", "--summary", type=str)
+@moption("-d", "--description", type=str)
+@moption("-f", "--description-file", type=click.Path(allow_dash=True))
+@moption("--copy-links/--no-copy-links", "-l/ ", default=False)
 @click.pass_context
 def api_issue_clone(
     ctx,
+    copy_links,
     issue_id,
     json_edit_cmd_file,
     open_url,
     fields_to_skip_file,
     clone_link_type,
     clone_revert,
+    custom_fields,
+    summary,
+    description,
+    description_file,
 ):
     """
     TODO:
@@ -496,7 +513,8 @@ def api_issue_clone(
     # payload = get_add_issue_payload(**kwargs)
     url_, _ = api_init(ctx.obj, f"issue/{issue_id}", api_version=2)
     response = my_request("GET", url_, headers=headers, auth=auth)
-    payload = json.loads(response.text)
+    original_payload = json.loads(response.text)
+    payload = copy.deepcopy(original_payload)
     for k in ["key", "self", "id"]:
         payload.pop(k)
     for k in fields_to_skip:
@@ -522,6 +540,30 @@ def api_issue_clone(
         if clone_revert:
             args = args[::-1]
         _real_link(ctx, *args, clone_link_type)
+
+    if copy_links:
+        for r in tqdm.tqdm(original_payload["fields"]["issuelinks"]):
+            link_name = r["type"]["name"]
+            if r.get("inwardIssue") is not None:
+                _key = r.get("inwardIssue")["key"]
+                _real_link(ctx, _key, new_issue_key, link_name)
+            elif r.get("outwardIssue") is not None:
+                _real_link(ctx, new_issue_key, _key, link_name)
+                _key = r.get("outwardIssue")["key"]
+            else:
+                raise NotImplementedError(r)
+        # raise NotImplementedError()
+
+    _real_api_issue_edit(
+        ctx,
+        custom_fields=custom_fields,
+        issue_key=new_issue_key,
+        time_tracking_original_estimate=None,
+        time_tracking_remaining_estimate=None,
+        summary=summary,
+        description=description,
+        description_file=description_file,
+    )
 
 
 @api_issue.command(name="ls")
