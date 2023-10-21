@@ -27,12 +27,10 @@ from os import path
 import click
 from dotenv import load_dotenv
 
-aux_dict_fn = path.join(path.dirname(path.abspath(__file__)), ".handy_aux_dict.json")
-aux_dict = {}
-if path.isfile(aux_dict_fn):
-    logging.warning(f'loading "{aux_dict_fn}"')
-    with open(aux_dict_fn) as f:
-        aux_dict = json.load(f)
+_DICT_FNS = {
+    "main": path.join(path.dirname(path.abspath(__file__)), ".handy_aux_dict.json5"),
+    "aux": path.join(path.dirname(path.abspath(__file__)), ".handy_dict.json5"),
+}
 
 
 @click.group()
@@ -45,19 +43,43 @@ def handy(ctx, strip):
     ctx.obj["strip"] = strip
 
 
-@click.pass_context
-def japanese(ctx, sentence):
-    click.echo(
-        {
-            **aux_dict.get("jap", {}),
-        }[sentence],
-        nl=not ctx.obj["strip"],
-    )
+class _Handy:
+    def __init__(self, name, values):
+        self._values = values
+
+    def __call__(self, ctx, name):
+        click.echo(self._values[name], nl=not ctx.obj["strip"])
 
 
 if __name__ == "__main__":
+    dicts = {}
+    for k, fn in _DICT_FNS.items():
+        logging.warning(fn)
+        dicts[k] = {}
+        if path.isfile(fn):
+            logging.warning(f'loading "{fn}"')
+            with open(fn) as f:
+                dicts[k] = json5.load(f)
+
+    merged = {}
+    for k in set.union(*[set(d.keys()) for d in dicts.values()]):
+        merged[k] = {}
+        for d in dicts.values():
+            merged[k] = {**merged[k], **d.get(k, {})}
+
+    # click.echo(merged)
+
+    for name, d in merged.items():
+        handy.command(name=name)(
+            click.argument("name", type=click.Choice(d))(
+                click.pass_context(_Handy(name, d))
+            )
+        )
+    handy()
+
     #    env_fn = path.join(path.dirname(path.abspath(__file__)), ".handy.env")
     #    if path.isfile(env_fn):
     #        logging.warning(f'loading "{env_fn}"')
     #        load_dotenv(dotenv_path=env_fn)
-    handy()
+
+    # handy()

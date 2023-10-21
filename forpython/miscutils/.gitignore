@@ -11,7 +11,7 @@
 .open_last_screenshot.env
 
 #handy aux dict
-.handy_aux_dict.json
+.handy_aux_dict.json5
 
 articles-quiz.sh
 client_secret.json
