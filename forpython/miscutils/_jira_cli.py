@@ -27,6 +27,7 @@ import requests
 import typing
 from datetime import datetime, timedelta
 import functools
+import shlex
 
 
 def ssj(s: str) -> str:
@@ -40,16 +41,26 @@ def make_cmd(
     kwargs: dict = {},
     args: list = [],
     flags: dict[str, bool] = {},
+    is_quote_args: bool = True,
 ) -> str:
+    if is_quote_args:
+        args = [f"'{arg}'" for arg in args]
     cmd = ssj(
         Template(
             """{{jira_exec}} {{cmd}}
-            {%for k in args%}'{{k}}' {%endfor%}
+            {%for k in args%}{{k}} {%endfor%}
         {%for k,v in kwargs|dictsort%}{%if v is not none%}--{{k}} '{{v}}' {%endif%}{%endfor%}
         {%for k,v in flags|dictsort%} {%if v%}--{{k}} {%endif%}{%endfor%}
         """
         ).render(
-            {"kwargs": kwargs, "args": args, "flags": flags, **ctx_obj, "cmd": cmd}
+            {
+                "kwargs": kwargs,
+                "args": args,
+                "flags": flags,
+                **ctx_obj,
+                "cmd": cmd,
+                "utils": dict(shlex=shlex),
+            }
         )
     )
     return cmd

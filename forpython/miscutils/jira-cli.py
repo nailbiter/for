@@ -781,15 +781,28 @@ def ls(ctx, **flags):
 
 @issue.command()
 @moption("-i", "--issue-key", type=str, required=True)
-@moption("-t", "--text", type=str, required=True)
+@moption("-t", "--text", type=str, default="")
+@moption("-f", "--text-file", type=click.Path(allow_dash=True))
 @click.pass_context
-def comment(ctx, issue_key, text):
+def comment(ctx, issue_key, text, text_file):
+    if text_file is not None:
+        with click.open_file(text_file) as f:
+            text = f.read().strip()
+    my_logging.warning(f't: "{text}"')
+    assert len(text) > 0
+
+    if "\n" in text:
+        text = "$'" + text.replace("\n", "\\n") + "'"
+    else:
+        text = f"'{text}'"
+
     run_cmd(
         make_cmd(
             "issue comment add",
             args=[issue_key, text],
             flags={"no-input": True},
             ctx_obj=ctx.obj,
+            is_quote_args=False,
         )
     )
 
