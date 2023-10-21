@@ -262,3 +262,21 @@ class WrappedLogging:
 def jira_issue_name_and_ctx_to_url(issue_name: str, ctx) -> str:
     url = f"https://{ctx.obj['jira_url']}/browse/{issue_name}"
     return url
+
+
+def string_to_description(description: str) -> dict:
+    return {
+        "content": [
+            {
+                "content": [
+                    {
+                        "text": description,
+                        "type": "text",
+                    }
+                ],
+                "type": "paragraph",
+            }
+        ],
+        "type": "doc",
+        "version": 1,
+    }

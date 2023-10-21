@@ -46,6 +46,7 @@ from _jira_cli import (
     get_add_issue_payload,
     my_request,
     WrappedLogging,
+    string_to_description,
 )
 import requests
 from requests.auth import HTTPBasicAuth
@@ -317,9 +318,20 @@ def get_edit_metadata(ctx, issue_key):
 @moption("-i", "--issue-key", type=str, required=True)
 @moption("-o", "--time-tracking-original-estimate", type=str)
 @moption("-R", "--time-tracking-remaining-estimate", type=str)
+@moption("-c", "--custom-field", "custom_fields", type=(str, str), multiple=True)
+@moption("-s", "--summary", type=str)
+@moption("-d", "--description", type=str)
+@moption("-f", "--description-file", type=click.Path(allow_dash=True))
 @click.pass_context
 def api_issue_edit(
-    ctx, issue_key, time_tracking_original_estimate, time_tracking_remaining_estimate
+    ctx,
+    issue_key,
+    summary,
+    description,
+    description_file,
+    time_tracking_original_estimate,
+    time_tracking_remaining_estimate,
+    custom_fields,
 ):
     """
     https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/#api-rest-api-3-issue-issueidorkey-put
@@ -345,6 +357,19 @@ def api_issue_edit(
         payload["fields"]["timetracking"][
             "remainingEstimate"
         ] = time_tracking_remaining_estimate
+
+    fields = dict(custom_fields)
+    if summary is not None:
+        fields["summary"] = summary
+    if description is not None:
+        fields["description"] = string_to_description(description)
+    if description_file is not None:
+        with click.open_file(description_file) as f:
+            fields["description"] = string_to_description(f.read().strip())
+
+    for k, v in fields.items():
+        payload["fields"][k] = v
+
     my_logging.warning(payload)
     payload = json.dumps(payload)
 
