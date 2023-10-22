@@ -48,7 +48,9 @@ class _Handy:
         self._values = values
 
     def __call__(self, ctx, name):
-        click.echo(self._values[name], nl=not ctx.obj["strip"])
+        x = self._values[name]
+        # logging.warning("\n" + x)
+        click.echo(x, nl=not ctx.obj["strip"])
 
 
 if __name__ == "__main__":
