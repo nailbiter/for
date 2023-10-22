@@ -53,7 +53,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 import json
 from alex_leontiev_toolbox_python.utils.edit_json import edit_json
-from alex_leontiev_toolbox_python.utils.click_format_dataframe import (
+from alex_leontiev_toolbox_python.utils.click_helpers.format_dataframe import (
     AVAILABLE_OUT_FORMATS,
     format_df,
     build_click_options,
