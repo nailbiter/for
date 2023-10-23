@@ -30,6 +30,21 @@ import functools
 import shlex
 
 
+@functools.singledispatch
+def dict_to_items(d):
+    raise NotImplementedError(d)
+
+
+@dict_to_items.register
+def _(d: dict):
+    return list(d.items())
+
+
+@dict_to_items.register
+def _(d: list):
+    return d
+
+
 def ssj(s: str) -> str:
     "Strip Split Join"
     return " ".join(s.strip().split())
@@ -45,16 +60,18 @@ def make_cmd(
 ) -> str:
     if is_quote_args:
         args = [f"'{arg}'" for arg in args]
+    _kwargs = dict_to_items(kwargs)
+    logging.info(f"_kwargs: {_kwargs}")
     cmd = ssj(
         Template(
             """{{jira_exec}} {{cmd}}
             {%for k in args%}{{k}} {%endfor%}
-        {%for k,v in kwargs|dictsort%}{%if v is not none%}--{{k}} '{{v}}' {%endif%}{%endfor%}
+        {%for k,v in kwargs%}{%if v is not none%}--{{k}} '{{v}}' {%endif%}{%endfor%}
         {%for k,v in flags|dictsort%} {%if v%}--{{k}} {%endif%}{%endfor%}
         """
         ).render(
             {
-                "kwargs": kwargs,
+                "kwargs": _kwargs,
                 "args": args,
                 "flags": flags,
                 **ctx_obj,

@@ -950,9 +950,40 @@ def delete(ctx):
 
 
 @issue.command()
+# -s, --summary string            Edit summary or title
+# -b, --body string               Edit description
+# -y, --priority string           Edit priority
+# -a, --assignee string           Edit assignee (email or display name)
+# -l, --label stringArray         Append labels
+# -C, --component stringArray     Replace components
+#     --fix-version stringArray   Add/Append release info (fixVersions)
+#     --custom stringToString     Edit custom fields (default [])
+#     --web                       Open in web browser after successful update
+#     --no-input                  Disable prompt for non-required fields
+@moption("-s", "--summary", type=str)
+@moption("-b", "--body", type=str)
+@moption("-a", "--assignee", type=str)
+@moption("-y", "--priority", type=str)
+@moption("-i", "--issue-key", required=True)
+@moption("-l", "--label", "labels", type=str, multiple=True)
+# @moption("-c", "--custom", "labels", type=str)
 @click.pass_context
-def edit(ctx):
-    pass
+def edit(ctx, issue_key, labels, **kwargs):
+    run_cmd(
+        make_cmd(
+            "issue edit",
+            args=[
+                issue_key,
+            ],
+            flags={"no-input": True},
+            kwargs=[
+                *kwargs.items(),
+                *[("label", label) for label in labels],
+            ],
+            ctx_obj=ctx.obj,
+            is_quote_args=False,
+        )
+    )
 
 
 @issue.command()
