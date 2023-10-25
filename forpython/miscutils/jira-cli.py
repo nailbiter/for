@@ -584,14 +584,21 @@ def api_issue_ls(ctx, issue_ids):
     "-m", "--method", type=click.Choice(["GET", "POST", "PUT", "DELETE"]), default="GET"
 )
 @moption("-d", "--data-file", type=click.Path(allow_dash=True))
+@moption("-h", "--headers-file", type=click.Path())
 @click.pass_context
-def request(ctx, url_suffix, api_version, method, data_file):
+def request(ctx, url_suffix, api_version, method, data_file, headers_file):
     url, auth = api_init(
         ctx.obj,
         url_suffix,
         **({} if api_version is None else dict(api_version=api_version)),
     )
-    headers = {"Accept": "application/json"}
+
+    if headers_file is None:
+        headers = {"Accept": "application/json"}
+    else:
+        with open(headers_file) as f:
+            headers = json.load(f)
+
     kwargs = dict(headers=headers, auth=auth)
     if data_file is not None:
         with click.open_file(data_file) as f:
