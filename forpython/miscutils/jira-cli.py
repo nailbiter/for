@@ -548,8 +548,8 @@ def api_issue_clone(
                 _key = r.get("inwardIssue")["key"]
                 _real_link(ctx, _key, new_issue_key, link_name)
             elif r.get("outwardIssue") is not None:
-                _real_link(ctx, new_issue_key, _key, link_name)
                 _key = r.get("outwardIssue")["key"]
+                _real_link(ctx, new_issue_key, _key, link_name)
             else:
                 raise NotImplementedError(r)
         # raise NotImplementedError()
