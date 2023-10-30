@@ -23,6 +23,8 @@ TODO:
 
 import click
 import logging
+import json
+import re
 from gitignore_parser import parse_gitignore
 from os import path
 import os
@@ -35,6 +37,7 @@ from jinja2 import Template
 import subprocess
 import shlex
 import _agit
+from _agit import get_branch_name, find_git_path, get_head_sha, traverse_commits
 import json5
 
 moption = functools.partial(click.option, show_envvar=True)
@@ -106,35 +109,39 @@ class _GitignoreMatcher:
         return res
 
 
-def _find_git_path(path_in="."):
-    if path.isdir(path_in):
-        _path = path_in
-    elif path.isfile(path_in):
-        _path = path.dirname(path_in)
+@agit.command()
+@moption("-b", "--branch", type=str)
+@moption("-f", "--authors-file", type=click.Path(allow_dash=True), required=True)
+@moption("-e", "--behaviour", type=click.Choice(["report", "throw"]), default="report")
+@click.pass_context
+def authors(ctx, branch, authors_file, behaviour):
+    branch = get_branch_name() if branch is None else branch
+    logging.warning(f'b: "{branch}"')
+    repo, _ = find_git_path()
+    head_commit = repo.commit(branch)
+    logging.warning(head_commit.hexsha)
+    authors = {commit.author.name for commit in traverse_commits(head_commit)}
+    logging.warning(authors)
+
+    with click.open_file(authors_file) as f:
+        allowed_authors = set(json.load(f))
+    is_only_allowed = authors <= set(allowed_authors)
+    logging.warning(f"is_only_allowed: {is_only_allowed}")
+
+    if behaviour == "report":
+        pass
+    elif behaviour == "throw":
+        assert is_only_allowed, (set(authors), allowed_authors)
     else:
-        raise NotImplementedError(f'"{path_in}"')
-    # FIXME: this probably can be done better
-    #    while True:
-    repo = None
-    for i in range(200):
-        logging.info(f"#{i}: _path: {_path}")
-        try:
-            repo = Repo(_path)
-            break
-        except Exception as e:
-            logging.info(e)
-            _path = path.join(_path, "..")
-    return repo, _path
+        raise NotImplementedError(dict(behaviour=behaviour))
+
+    # committers = {commit.committer.name for commit in traverse_commits(head_commit)}
+    # logging.warning(committers)
 
 
-def _get_head_sha(git_path=None):
-    repo, _path = _find_git_path(**({} if git_path is None else {"path_in": git_path}))
-    assert not repo.bare
-    head_commit = repo.head.commit
-    diff = head_commit.diff(None)
-    assert not diff, ("should be no changes on tree (do `git commit -a`)", diff, _path)
-
-    return head_commit
+@agit.command()
+def branch():
+    click.echo(get_branch_name())
 
 
 @agit.command()
@@ -154,8 +161,8 @@ def cp(
     check_clean_git_tree,
     logger=None,
 ):
-    repo, repo_root = _find_git_path()
-    from_repo_roots = [_find_git_path(fd)[1] for fd in from_directory]
+    repo, repo_root = find_git_path()
+    from_repo_roots = [find_git_path(fd)[1] for fd in from_directory]
     logging.info(f"from_repo_roots: {from_repo_roots}")
     assert len(set(from_repo_roots)) == 1, from_repo_roots
     is_another_repo = path.abspath(repo_root) != path.abspath(from_repo_roots[0])
@@ -163,11 +170,11 @@ def cp(
     from_head_commit, remote_url = [None] * 2
     head_commit = None
     if check_clean_git_tree:
-        head_commit = _get_head_sha(repo_root).hexsha
+        head_commit = get_head_sha(repo_root).hexsha
         logging.info(f"head_commit: {head_commit}")
         if is_another_repo:
             logging.info(f"{from_repo_roots}")
-            from_head_commit = _get_head_sha(from_repo_roots[0]).hexsha
+            from_head_commit = get_head_sha(from_repo_roots[0]).hexsha
             # FIXME: rewrite in Python
             remote_url = subprocess.getoutput(
                 f"cd {from_repo_roots[0]} && git remote get-url origin"

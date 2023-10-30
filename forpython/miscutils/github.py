@@ -29,10 +29,10 @@ import types
 import webbrowser
 from os import path
 from typing import cast
-
 import click
 from git import Repo
 from jinja2 import Template
+from _agit import get_branch_name
 
 
 def _add_logger(f):
@@ -45,24 +45,11 @@ def _add_logger(f):
     return _f
 
 
-def _get_branch_name(dir_="."):
-    # return subprocess.getoutput("git name-rev --name-only HEAD")
-    res = subprocess.getoutput(f"cd {dir_} && git status")
-    m = re.match(r"(On branch|Auf Branch) (.+)", res)
-    assert m is not None, f'"{res}"'
-    return m.group(2)
-
-
 @click.group()
 @click.option("--debug/--no-debug", default=True)
 def github(debug):
     if debug:
         logging.basicConfig(level=logging.INFO)
-
-
-@github.command()
-def branch():
-    click.echo(_get_branch_name())
 
 
 def _cleanup_remote_git_url(remote_git_url):
@@ -97,7 +84,7 @@ def _get_head_sha(
         # FIXME: this probably can be done better
         stop = _Stopper()
         while stop():
-            #logging.warning(path_to_repo)
+            # logging.warning(path_to_repo)
             try:
                 repo = Repo(path_to_repo)
                 break
@@ -190,7 +177,7 @@ def open_url(
     remote_git_url = _cleanup_remote_git_url(remote_git_url)
     # click.echo(f"remote_git_url: {remote_git_url}")
     if branch is None:
-        branch = _get_branch_name(git_dir)
+        branch = get_branch_name(git_dir)
     # click.echo(f"git_branch: {git_branch}")
     for file_name_ in file_name:
         env = {
