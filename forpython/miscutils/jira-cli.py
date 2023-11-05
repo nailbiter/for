@@ -609,15 +609,18 @@ def request(ctx, url_suffix, api_version, method, data_file, headers_file):
 
 @api_issue.command(name="import")
 @moption("-f", "--input-file", type=click.Path(allow_dash=True), required=True)
+@moption("-p", "--patch", "patches", type=(str, str), multiple=True)
 @click.pass_context
-def api_issue_import(ctx, input_file):
+def api_issue_import(ctx, input_file, patches):
     """
     todo: output same as input, but together with new issue IDs
     (also save this out to tmp file)
     """
     with click.open_file(input_file) as f:
         rs = json.load(f)
+    patches = dict(patches)
     for r in tqdm.tqdm(rs):
+        r = {**r, **patches}
         _real_api_issue_add(ctx, **r)
 
 
@@ -648,7 +651,7 @@ def api_issue_add(ctx, **kwargs):
 
 def _real_api_issue_add(
     ctx,
-    open_url: bool,
+    open_url: bool = False,
     json_edit_cmd_file: typing.Optional[str] = None,
     **kwargs,
 ):
