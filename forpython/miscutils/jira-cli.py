@@ -378,15 +378,12 @@ def _real_api_issue_edit(
     my_logging.warning(payload)
     if payload["fields"] == {} and payload["update"] == {}:
         my_logging.warning("empty payload in `edit` ==> ignore")
-    payload = json.dumps(payload)
+        payload = json.dumps(payload)
 
-    response = requests.request("PUT", url, data=payload, headers=headers, auth=auth)
-    click.echo(
-        # json.dumps(
-        #     json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")
-        # )
-        response.text
-    )
+        response = requests.request(
+            "PUT", url, data=payload, headers=headers, auth=auth
+        )
+        click.echo(response.text)
 
 
 @api_issue.command(name="pseudo-clone")
@@ -564,6 +561,8 @@ def api_issue_clone(
         description=description,
         description_file=description_file,
     )
+
+    # click.echo(new_issue_key)
 
 
 @api_issue.command(name="ls")
