@@ -37,15 +37,24 @@ def _get_tmp_fn(ext, bn=None):
 def _assert_exclusive(kwargs, args=None):
     if args is None:
         args = list(kwargs)
-    assert sum([v is not None for k, v in kwargs.items() if k in args]
-               ) <= 1, f"only one of {','.join(args)} can be given"
+    assert (
+        sum([v is not None for k, v in kwargs.items() if k in args]) <= 1
+    ), f"only one of {','.join(args)} can be given"
 
 
 @click.command()
 @click.argument("filename", type=click.Path())
 @click.option("-c", "--commit-hash")
 @click.option("-h", "--head", type=int)
-def jupyter_view(filename, **kwargs):
+@click.option(
+    "-j",
+    "--jupyter-exec",
+    default="jupyter",
+    envvar="JUPYTER_VIEW_JUPYTER_EXEC",
+    show_default=True,
+    show_envvar=True,
+)
+def jupyter_view(filename, jupyter_exec, **kwargs):
     _assert_exclusive(kwargs, "commit_hash,head".split(","))
     commit_hash, head = [kwargs[k] for k in "commit_hash,head".split(",")]
     if commit_hash is not None:
@@ -57,12 +66,12 @@ def jupyter_view(filename, **kwargs):
         os.system(f"git show HEAD~{head}:{filename} > {_tmp_fn}")
         filename = _tmp_fn
     _, ext = path.splitext(filename)
-    assert ext == '.ipynb', f"filename should end in `.ipynb`, given: {filename}"
-    out_fn = _get_tmp_fn(".html", bn=str(
-        hashlib.sha256(filename.encode()).hexdigest()))
+    assert ext == ".ipynb", f"filename should end in `.ipynb`, given: {filename}"
+    out_fn = _get_tmp_fn(".html", bn=str(hashlib.sha256(filename.encode()).hexdigest()))
     click.echo(out_fn)
     ec, out = subprocess.getstatusoutput(
-        f"jupyter nbconvert {filename} --to html --stdout > {out_fn}")
+        f"{jupyter_exec} nbconvert {filename} --to html --stdout > {out_fn}"
+    )
     assert ec == 0, out
     os.system(f"open {out_fn}")
 

@@ -404,9 +404,16 @@ def _real_api_issue_edit(
 @moption("-d", "--description", type=str)
 @moption("-f", "--description-file", type=click.Path(allow_dash=True))
 @moption("--copy-links/--no-copy-links", "-l/ ", default=False)
+@moption(
+    "--skip-copy-link",
+    "skip_copy_links",
+    type=(str, click.Choice(["in", "out", "both"])),
+    multiple=True,
+)
 @click.pass_context
 def api_issue_clone(
     ctx,
+    skip_copy_links,
     copy_links,
     issue_id,
     json_edit_cmd_file,
@@ -539,12 +546,19 @@ def api_issue_clone(
         _real_link(ctx, *args, clone_link_type)
 
     if copy_links:
+        skip_copy_links = set(skip_copy_links)
         for r in tqdm.tqdm(original_payload["fields"]["issuelinks"]):
             link_name = r["type"]["name"]
-            if r.get("inwardIssue") is not None:
+            if (link_name, "both") in skip_copy_links:
+                continue
+            if (r.get("inwardIssue") is not None) and (
+                ((link_name, "in") not in skip_copy_links)
+            ):
                 _key = r.get("inwardIssue")["key"]
                 _real_link(ctx, _key, new_issue_key, link_name)
-            elif r.get("outwardIssue") is not None:
+            elif (r.get("outwardIssue") is not None) and (
+                ((link_name, "out") not in skip_copy_links)
+            ):
                 _key = r.get("outwardIssue")["key"]
                 _real_link(ctx, new_issue_key, _key, link_name)
             else:
