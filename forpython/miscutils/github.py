@@ -165,7 +165,9 @@ def open_url(
         git_dir = path.join(git_dir, "..")
 
     # TODO: add warning if commit is not pushed
-    _, is_no_modifications_done = _get_head_sha(path_to_repo=git_dir)
+    res = _get_head_sha(path_to_repo=git_dir)
+    logging.warning(res)
+    _, is_no_modifications_done = res
     if auto_commit is not None:
         if not is_no_modifications_done:
             os.system(f"git commit -a -m '{auto_commit}' 1>&2 && git push 1>&2")
