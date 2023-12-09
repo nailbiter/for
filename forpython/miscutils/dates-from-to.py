@@ -39,7 +39,23 @@ short_dt_types = {
     "%H:%M": {"year", "month", "day"},
     "%d %H:%M": {"year", "month"},
 }
-_DT_FORMATS = ["%Y-%m-%d", "%Y-%m-%d %H:%M", *short_dt_types]
+_DT_FORMATS = [
+    "%Y-%m-%d",
+    "%Y-%m-%d %H:%M",
+    *short_dt_types,
+    "now",
+    "pandas_to_datetime",
+]
+_simple_cli_datetime_param_type_kwargs = dict(
+    formats=_DT_FORMATS,
+    short_dt_types=short_dt_types,
+    is_debug=False,
+    caching_settings=(
+        path.abspath(path.join(path.dirname(__file__), ".dates_from_to.db")),
+        "dates",
+    ),
+    # impute_none=True,
+)
 
 
 @click.command()
@@ -47,28 +63,14 @@ _DT_FORMATS = ["%Y-%m-%d", "%Y-%m-%d %H:%M", *short_dt_types]
     "-f",
     "--from",
     "from_",
-    type=SimpleCliDatetimeParamType(
-        _DT_FORMATS,
-        short_dt_types=short_dt_types,
-        is_debug=False,
-        caching_settings=(
-            path.abspath(path.join(path.dirname(__file__), ".dates_from_to.db")),
-            "dates",
-        ),
-    ),
+    type=SimpleCliDatetimeParamType(**_simple_cli_datetime_param_type_kwargs),
+    default="now",
 )
 @click.option(
     "-t",
     "--to",
-    type=SimpleCliDatetimeParamType(
-        _DT_FORMATS,
-        short_dt_types=short_dt_types,
-        is_debug=False,
-        caching_settings=(
-            path.abspath(path.join(path.dirname(__file__), ".dates_from_to.db")),
-            "dates",
-        ),
-    ),
+    type=SimpleCliDatetimeParamType(**_simple_cli_datetime_param_type_kwargs),
+    default="now",
 )
 @click.option("--exclude-to/--no-exclude-to", "-e/ ", default=False)
 @click.option(
@@ -82,8 +84,8 @@ def dates_from_to(to, from_, exclude_to, resolution, debug):
     if debug:
         logging.basicConfig(level=logging.INFO)
 
-    now = datetime.now()
-    to, from_ = [(x if x else now) for x in [to, from_]]
+    # now = datetime.now()
+    # to, from_ = [(x if x else now) for x in [to, from_]]
 
     logging.warning((to, from_))
     if resolution in ["days"]:
