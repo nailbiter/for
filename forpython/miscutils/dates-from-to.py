@@ -48,14 +48,26 @@ _DT_FORMATS = ["%Y-%m-%d", "%Y-%m-%d %H:%M", *short_dt_types]
     "--from",
     "from_",
     type=SimpleCliDatetimeParamType(
-        _DT_FORMATS, short_dt_types=short_dt_types, is_debug=False
+        _DT_FORMATS,
+        short_dt_types=short_dt_types,
+        is_debug=False,
+        caching_settings=(
+            path.abspath(path.join(path.dirname(__file__), ".dates_from_to.db")),
+            "dates",
+        ),
     ),
 )
 @click.option(
     "-t",
     "--to",
     type=SimpleCliDatetimeParamType(
-        _DT_FORMATS, short_dt_types=short_dt_types, is_debug=False
+        _DT_FORMATS,
+        short_dt_types=short_dt_types,
+        is_debug=False,
+        caching_settings=(
+            path.abspath(path.join(path.dirname(__file__), ".dates_from_to.db")),
+            "dates",
+        ),
     ),
 )
 @click.option("--exclude-to/--no-exclude-to", "-e/ ", default=False)
