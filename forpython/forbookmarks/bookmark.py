@@ -164,14 +164,14 @@ def _get_coords_inner_loop(day, mongo_client, coords_dir, suffix=""):
 @click.option(
     "--pdfs-folder",
     type=click.Path(),
-    default=path.join(path.split(__file__)[0], "hk-churck-bookmarks-pdfs/pdfs"),
+    default=path.join(path.split(__file__)[0], "hk-church-bookmarks-pdfs/pdfs"),
 )
 @click.option(
     "-t",
     "--pdf-template",
     type=click.Path(),
     default=path.join(
-        path.split(__file__)[0], "hk-churck-bookmarks-pdfs/pdfs", "test.pdf"
+        path.split(__file__)[0], "hk-church-bookmarks-pdfs/pdfs", "test.pdf"
     ),
 )
 @click.option("-s", "--suffix", default="")

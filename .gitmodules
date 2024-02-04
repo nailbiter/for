@@ -8,5 +8,5 @@
 	path = forpython/flashcard-app
 	url = https://nailbiter@github.com/nailbiter/flashcard-app
 [submodule "forpython/forbookmarks/hk-churck-bookmarks-pdfs"]
-	path = forpython/forbookmarks/hk-churck-bookmarks-pdfs
+	path = forpython/forbookmarks/hk-church-bookmarks-pdfs
 	url = https://github.com/nailbiter/hk-churck-bookmarks-pdfs.git
