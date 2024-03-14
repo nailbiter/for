@@ -17,7 +17,9 @@ ORGANIZATION:
      CREATED: 2023-08-06T00:47:29.758704
     REVISION: ---
 
-
+TODO:
+  1. upload dirs
+  2. abc abstract class
 ==============================================================================="""
 
 # > time rclone lsjson gdrive: --dirs-only|jq '.|length'     (base)
@@ -71,7 +73,12 @@ def _load_engine_config(engine_config_path: typing.Optional[str]) -> dict:
 @coption("-e", "--engine", type=click.Choice(["rclone", "gdrive"]), default="rclone")
 @coption("--engine-config-path", type=click.Path(exists=True))
 @coption("--parent-dir-id", "-p", type=str)
-@coption("--expand-index", "-e", type=int)
+@coption(
+    "--expand-index",
+    "-e",
+    type=int,
+    help="expand and then take index element specified by `-e`",
+)
 def upload_file_to_gdrive(
     filepath, is_open_url, engine, engine_config_path, parent_dir_id, expand_index
 ):
@@ -80,7 +87,13 @@ def upload_file_to_gdrive(
         expansions = sorted(expansions, reverse=True)
         logging.warning(expansions[:5])
         filepath = expansions[expand_index]
-    assert path.isfile(filepath), (filepath,)
+
+    if path.isfile(filepath):
+        object_type = "file"
+    elif path.isdir(filepath):
+        object_type = "dir"
+    else:
+        raise NotImplementedError(dict(filepath=filepath))
 
     engine_config = _load_engine_config(engine_config_path)
     if engine == "rclone":
@@ -91,9 +104,18 @@ def upload_file_to_gdrive(
     else:
         raise NotImplementedError(dict(engine=engine))
     engine = engine_factory(**engine_config)
-    id_ = engine.upload_file(filepath, parent_dir_id=parent_dir_id)
-    url = f"https://drive.google.com/file/d/{id_}/edit"
+    id_ = engine.upload_file(
+        filepath, parent_dir_id=parent_dir_id, object_type=object_type
+    )
+
+    if object_type == "file":
+        url = f"https://drive.google.com/file/d/{id_}/edit"
+    elif object_type == "dir":
+        url = f"https://drive.google.com/drive/u/0/folders/{id_}"
+    else:
+        raise NotImplementedError(dict(object_type=object_type))
     # FIXME: if upload `csv`, allow to auto-convert
+
     click.echo(url)
     if is_open_url:
         webbrowser.open(url)
@@ -172,12 +194,16 @@ class _RcloneEngine:
         return self._cache[parent_dir_id]
 
     def upload_file(
-        self, file_path: str, parent_dir_id: typing.Optional[str] = None
+        self,
+        file_path: str,
+        parent_dir_id: typing.Optional[str] = None,
+        object_type: typing.Literal["file", "dir"] = "file",
     ) -> str:
-        if parent_dir_id is not None:
-            parent_dir_path = self._parent_dir_id_to_path(parent_dir_id)
-        else:
-            parent_dir_path = None
+        parent_dir_path = (
+            None
+            if parent_dir_id is None
+            else self._parent_dir_id_to_path(parent_dir_id)
+        )
 
         remote_file_path = Template(
             """{{remote_name}}:{%if parent_dir_path is not none%}{{parent_dir_path}}/{%endif%}"""
@@ -188,9 +214,34 @@ class _RcloneEngine:
             )
         )
 
+        if object_type == "file":
+            pass
+        elif object_type == "dir":
+            basedir = path.basename(file_path)
+            remote_file_path = path.normpath(f"{remote_file_path}/{basedir}")
+            _run_cmd(f"{self._rclone_exec} mkdir {remote_file_path}")
+        else:
+            raise NotImplementedError(dict(object_type=object_type))
+
         _run_cmd(f"{self._rclone_exec} copy '{file_path}' '{remote_file_path}'")
         _, fn = path.split(file_path)
-        out = _run_cmd(f"{self._rclone_exec} lsf -F ip {remote_file_path}'{fn}'")
+
+        if object_type == "file":
+            out = _run_cmd(f"{self._rclone_exec} lsf -F ip {remote_file_path}'{fn}'")
+        elif object_type == "dir":
+            remote_parent_dir, remote_base = path.split(
+                remote_file_path.removeprefix(f"{self._remote_name}:")
+            )
+            remote_parent_dir = f"{self._remote_name}:{remote_parent_dir}"
+
+            out = _run_cmd(f"{self._rclone_exec} lsf -F ip {remote_parent_dir}")
+            (out,) = [
+                line
+                for line in out.strip().split("\n")
+                if line.endswith(f";{remote_base}/")
+            ]
+        else:
+            raise NotImplementedError(dict(object_type=object_type))
         id_, _ = out.split(";", maxsplit=1)
         return id_
 
