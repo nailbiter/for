@@ -47,6 +47,7 @@ import webbrowser
 import subprocess
 import functools
 import json5
+import copy
 import typing
 import pandas as pd
 import json
@@ -79,8 +80,17 @@ def _load_engine_config(engine_config_path: typing.Optional[str]) -> dict:
     type=int,
     help="expand and then take index element specified by `-e`",
 )
+@coption("--print-cache/--no-print-cache", help="eager", default=False)
+@click.pass_context
 def upload_file_to_gdrive(
-    filepath, is_open_url, engine, engine_config_path, parent_dir_id, expand_index
+    ctx,
+    filepath,
+    is_open_url,
+    engine,
+    engine_config_path,
+    parent_dir_id,
+    expand_index,
+    print_cache,
 ):
     if expand_index is not None:
         expansions = glob(f"{filepath}*")
@@ -104,6 +114,11 @@ def upload_file_to_gdrive(
     else:
         raise NotImplementedError(dict(engine=engine))
     engine = engine_factory(**engine_config)
+
+    if print_cache:
+        click.echo(json.dumps(engine.cache))
+        ctx.exit()
+
     id_ = engine.upload_file(
         filepath, parent_dir_id=parent_dir_id, object_type=object_type
     )
@@ -148,6 +163,11 @@ class _RcloneEngine:
         self._rclone_exec = rclone_exec
         self._logger = logging.getLogger(self.__class__.__name__)
         self._cache_file_path = cache_file_path
+
+    @property
+    def cache(self) -> dict:
+        self._load_cache()
+        return copy.deepcopy(self._cache)
 
     def _load_cache(self) -> None:
         self._logger.warning(f"loading cache `{self._cache_file_path}`")
