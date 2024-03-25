@@ -29,6 +29,25 @@ import copy
 import uuid
 from datetime import datetime, timedelta
 import pandas as pd
+import re
+
+GDRIVE_URL_REGEXPS = [
+    re.compile(r"https://docs.google.com/document/d/(?P<id>[0-9a-zA-Z-_]+)/edit"),
+    re.compile("https://drive.google.com/drive/u/0/folders/(?P<id>[0-9a-zA-Z-_]+)"),
+]
+
+
+def url_or_id_to_id(url_or_id: typing.Optional[str]) -> str:
+    if (url_or_id is not None) and url_or_id.startswith("https://"):
+        url = url_or_id
+        m = None
+        for regex in GDRIVE_URL_REGEXPS:
+            m = regex.match(url)
+            if m is not None:
+                return m.group("id")
+        raise NotImplementedError((url,))
+    else:
+        return url_or_id
 
 
 def run_cmd(cmd: str) -> str:

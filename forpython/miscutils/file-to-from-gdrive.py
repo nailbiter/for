@@ -55,7 +55,12 @@ from jinja2 import Template
 import time
 from datetime import datetime, timedelta
 from glob import glob
-from _file_to_from_gdrive import run_cmd, load_engine_config, RcloneEngine
+from _file_to_from_gdrive import (
+    run_cmd,
+    load_engine_config,
+    RcloneEngine,
+    url_or_id_to_id,
+)
 
 coption = functools.partial(click.option, show_default=True, show_envvar=True)
 
@@ -94,6 +99,7 @@ def file_to_from_gdrive(
 @click.pass_context
 def from_(ctx, file_id):
     engine = ctx.obj["engine"]
+    file_id = url_or_id_to_id(file_id)
     res = engine.download_file(file_id=file_id)
     click.echo(res)
 
@@ -132,7 +138,7 @@ def to_(
         raise NotImplementedError(dict(filepath=filepath))
 
     id_ = engine.upload_file(
-        filepath, parent_dir_id=parent_dir_id, object_type=object_type
+        filepath, parent_dir_id=url_or_id_to_id(parent_dir_id), object_type=object_type
     )
 
     if object_type == "file":
