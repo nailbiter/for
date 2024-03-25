@@ -23,6 +23,7 @@ import logging
 import os
 import subprocess
 from os import path
+from jinja2 import Template
 import json
 import copy
 import uuid
