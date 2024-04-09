@@ -98,9 +98,7 @@ class RcloneEngine:
 
     def _save_cache(self, keyval: dict) -> None:
         self._logger.warning(f"saving cache `{self._cache_file_path}` with {keyval}")
-
         self._cache.update(keyval)
-
         if self._cache_file_path is not None:
             with open(self._cache_file_path, "w") as f:
                 return json.dump(self._cache, f)

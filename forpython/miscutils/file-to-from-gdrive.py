@@ -69,14 +69,26 @@ coption = functools.partial(click.option, show_default=True, show_envvar=True)
 @coption("-e", "--engine", type=click.Choice(["rclone", "gdrive"]), default="rclone")
 @coption("-c", "--engine-config-path", type=click.Path(exists=True))
 @coption("--print-cache/--no-print-cache", help="eager", default=False)
+@coption("-E", "--engine-config-override", type=(str, str), multiple=True)
+@coption("-N", "--engine-config-override-none-value", type=str, default="**NONE**")
 @click.pass_context
 def file_to_from_gdrive(
     ctx,
+    engine_config_override,
+    engine_config_override_none_value,
     engine,
     engine_config_path,
     print_cache,
 ):
     engine_config = load_engine_config(engine_config_path)
+    engine_config_override = {
+        k: {engine_config_override_none_value: None}.get(v, v)
+        for k, v in engine_config_override
+    }
+    logging.warning(f"eco: {engine_config_override}")
+    engine_config = engine_config | engine_config_override
+    logging.warning(f"ec: {engine_config}")
+
     if engine == "rclone":
         engine_factory = RcloneEngine
     elif engine == "gdrive":
