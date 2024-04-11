@@ -23,7 +23,7 @@ import json
 import json5
 import logging
 from os import path
-
+import functools
 import click
 from dotenv import load_dotenv
 
@@ -37,20 +37,23 @@ _DICT_FNS = {
 @click.option(
     "--strip/--no-strip", "-s/ ", default=False, envvar="CLICK__STRIP", show_envvar=True
 )
+@click.option("-s", "--sep", type=str, default="")
 @click.pass_context
-def handy(ctx, strip):
+def handy(ctx, **kwargs):
     ctx.ensure_object(dict)
-    ctx.obj["strip"] = strip
+    for k, v in kwargs.items():
+        ctx.obj[k] = v
 
 
 class _Handy:
     def __init__(self, name, values):
         self._values = values
 
-    def __call__(self, ctx, name):
-        x = self._values[name]
-        # logging.warning("\n" + x)
-        click.echo(x, nl=not ctx.obj["strip"])
+    def __call__(self, ctx, names):
+        click.echo(
+            ctx.obj["sep"].join([self._values[name] for name in names]),
+            nl=not ctx.obj["strip"],
+        )
 
 
 if __name__ == "__main__":
@@ -72,10 +75,14 @@ if __name__ == "__main__":
     # click.echo(merged)
 
     for name, d in merged.items():
-        handy.command(name=name)(
-            click.argument("name", type=click.Choice(d))(
-                click.pass_context(_Handy(name, d))
-            )
+        functools.reduce(
+            lambda a, b: b(a),
+            [
+                _Handy(name, d),
+                click.pass_context,
+                click.argument("names", type=click.Choice(d), nargs=-1),
+                handy.command(name=name),
+            ],
         )
     handy()
 
