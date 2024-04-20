@@ -63,7 +63,7 @@
   :after python
   :hook (python-mode . python-black-on-save-mode-enable-dwim))
 ;(setq python-black-command "python3 -m black")
-(setq python-black-command "/usr/local/anaconda3/bin/black")
+(setq python-black-command "/home/nailbiter/anaconda3/bin/black")
 
 ;; python init
 (defun python-init (template)
