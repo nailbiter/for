@@ -130,3 +130,5 @@
 ;; extensions handling
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.json5\\'" . js-mode))
+
+(setq display-buffer-base-action '(display-buffer-in-tab))
