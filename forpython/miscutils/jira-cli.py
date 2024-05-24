@@ -643,12 +643,13 @@ def api_issue_import(ctx, input_file, patches):
 @moption("-s", "--summary", type=str, required=True)
 @moption("-l", "--label", "labels", type=str, multiple=True)
 @moption("-c", "--custom-field", "custom_fields", type=(str, str), multiple=True)
-@moption("-d", "--due-date", type=click.DateTime(["%Y-%m-%d"]))
+@moption("-D", "--due-date", type=click.DateTime(["%Y-%m-%d"]))
 @moption("-r", "--reporter-id", type=str)
 @moption("-a", "--assignee-id", type=str)
 @moption("-P", "--parent-id", type=str)
 @moption("-o", "--original-time-estimate-minutes", type=click.IntRange(min=0))
 @moption("-f", "--json-edit-cmd-file", type=click.Path(allow_dash=True))
+@moption("-d", "--description", type=str)
 @moption("--open-url/--no-open-url", "-O/ ", default=False)
 @click.pass_context
 def api_issue_add(ctx, **kwargs):

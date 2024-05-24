@@ -114,6 +114,7 @@ def get_add_issue_payload(
     assignee_id: typing.Optional[str] = None,
     parent_id: typing.Optional[str] = None,
     original_time_estimate_minutes: typing.Optional[int] = None,
+    description: typing.Optional[str] = None,
 ):
     payload = {
         "fields": {
@@ -138,21 +139,29 @@ def get_add_issue_payload(
             # "customfield_20000": "06/Jul/19 3:25 PM",
             # "customfield_30000": ["10000", "10002"],
             ## opt todo
-            # "description": {
-            #     "content": [
-            #         {
-            #             "content": [
-            #                 {
-            #                     "text": "Order entry fails when selecting supplier.",
-            #                     "type": "text",
-            #                 }
-            #             ],
-            #             "type": "paragraph",
-            #         }
-            #     ],
-            #     "type": "doc",
-            #     "version": 1,
-            # },
+            **(
+                dict()
+                if description is None
+                else dict(
+                    description=description
+                    # description={
+                    #     "content": [
+                    #         {
+                    #             "content": [
+                    #                 {
+                    #                     # "text": "Order entry fails when selecting supplier.",
+                    #                     "text": description,
+                    #                     "type": "text",
+                    #                 }
+                    #             ],
+                    #             "type": "paragraph",
+                    #         }
+                    #     ],
+                    #     "type": "doc",
+                    #     "version": 1,
+                    # }
+                )
+            ),
             # "customfield_40000": {
             #     "content": [
             #         {
