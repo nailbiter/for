@@ -154,6 +154,77 @@ def api_issue_type_ls(ctx, simplify, **format_df_kwargs):
     click.echo(apply_click_options(df, format_df_kwargs))
 
 
+@api_issue.command(name="subtask")
+# @_build_click_options
+@moption("-n", "--subtask-name", type=str, required=True)
+@moption("-p", "--parent-issue-key", type=str, required=True)
+@moption("-P", "--project-id", type=int, required=True)
+@moption("-t", "--issue-type-id", type=int, required=True)
+@click.pass_context
+def api_issue_subtask(
+    ctx,
+    parent_issue_key,
+    project_id,
+    issue_type_id,
+    subtask_name,  # **format_df_kwargs
+):
+    """
+    * https://community.atlassian.com/t5/Jira-questions/How-to-add-subtasks-to-an-existing-issue-through-Jira-REST-API/qaq-p/2676037
+    * https://community.atlassian.com/t5/Jira-questions/Creating-Sub-Task-In-Jira-via-API-Rest/qaq-p/774749
+    """
+    # This code sample uses the 'requests' library:
+    # http://docs.python-requests.org
+
+    url, auth = api_init(ctx.obj, "issue", api_version="3")
+    headers = {"Accept": "application/json", "Content-Type": "application/json"}
+
+    response = my_request(
+        "POST",
+        url,
+        headers=headers,
+        auth=auth,
+        data=json.dumps(
+            {
+                "fields": {
+                    "project": {"id": project_id},
+                    "parent": {"key": parent_issue_key},
+                    "summary": subtask_name,
+                    "description": {
+                        "type": "doc",
+                        "version": 1,
+                        "content": [
+                            {
+                                "type": "paragraph",
+                                "content": [
+                                    {
+                                        ##"text": "This is a detailed description of the subtask.",
+                                        "text": "",
+                                        "type": "text",
+                                    }
+                                ],
+                            }
+                        ],
+                    },
+                    "issuetype": {"id": issue_type_id},
+                }
+            }
+        ),
+    )
+
+    click.echo(
+        json.dumps(
+            json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")
+        )
+    )
+
+    # # my_logging.warning(response.text)
+    # df = pd.DataFrame(json.loads(response.text))
+    # if simplify:
+    #     df = df[["id", "name", "scope"]]
+
+    # click.echo(apply_click_options(df, format_df_kwargs))
+
+
 @api_link_type.command(name="ls")
 @_build_click_options
 @click.pass_context

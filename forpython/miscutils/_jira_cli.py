@@ -228,7 +228,7 @@ def my_request(*args, **kwargs):
     logging.info(dict(args=args, kwargs=kwargs))
     response = requests.request(*args, **kwargs)
     logging.info(response)
-    logging.info(response.text)
+    logging.info(f'response.text: "{response.text}"')
     return response
 
 
