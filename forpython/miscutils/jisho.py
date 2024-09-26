@@ -59,8 +59,9 @@ def jisho(lines_file, debug):
                 [
                     "; ".join(
                         [
-                            ", ".join(sense["english_definitions"])
-                            for sense in data["senses"]
+                            f"({japanese['reading']}) "
+                            + ", ".join(sense["english_definitions"])
+                            for sense, japanese in zip(data["senses"], data["japanese"])
                         ]
                     )
                     for data in response["data"]
