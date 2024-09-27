@@ -35,31 +35,43 @@ def mylog(*args, is_debug: bool = False, **kwargs):
     return (logging.warning if is_debug else logging.info)(*args, **kwargs)
 
 
+def cached_url_request(url: str, cache_file: typing.Optional[str] = None) -> str:
+    # requests.request("GET", url, headers={"Accept": "application/json"})
+    if cache_file is not None:
+        pass
+    pass
+
+
 @click.command()
 @click.option("-f", "--lines-file", type=click.Path(allow_dash=True))
 @click.option("--debug/--no-debug", "-d/ ", default=False)
-def jisho(lines_file, debug):
+@click.option("--kana/--no-kana", " /-K", default=True)
+@click.option("--record-separator", "-s", default="\n")
+@click.option("--cache-file", type=click.Path())
+def jisho(lines_file, debug, kana, record_separator, cache_file):
     """
     based on the API mentioned in
     https://jisho.org/forum/54fefc1f6e73340b1f160000-is-there-any-kind-of-search-api
     """
     _mylog = functools.partial(mylog, is_debug=debug)
+    _cached_url_request = functools.partial(cached_url_request, cache_file=cache_file)
+
     with click.open_file(lines_file) as f:
         lines = f.read().strip().split("\n")
     logging.warning(lines)
     for i, word in tqdm.tqdm(list(enumerate(lines))):
         if i > 0:
-            click.echo("\n\n")
+            click.echo("")
         url = f"https://jisho.org/api/v1/search/words?keyword={word}"
         response = requests.request("GET", url, headers={"Accept": "application/json"})
         _mylog(response.text)
         response = json.loads(response.text)
         click.echo(
-            "\n".join(
+            record_separator.join(
                 [
                     "; ".join(
                         [
-                            f"({japanese['reading']}) "
+                            (f"({japanese.get('reading','')}) " if kana else "")
                             + ", ".join(sense["english_definitions"])
                             for sense, japanese in zip(data["senses"], data["japanese"])
                         ]
