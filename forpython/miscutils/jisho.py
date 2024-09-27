@@ -37,9 +37,20 @@ def mylog(*args, is_debug: bool = False, **kwargs):
 
 def cached_url_request(url: str, cache_file: typing.Optional[str] = None) -> str:
     # requests.request("GET", url, headers={"Accept": "application/json"})
-    if cache_file is not None:
-        pass
-    pass
+    cache = {}
+    if cache_file is not None and path.isfile(cache_file):
+        with open(cache_file) as f:
+            cache = json.load(f)
+    if url in cache:
+        res = cache[url]
+    else:
+        response = requests.request("GET", url, headers={"Accept": "application/json"})
+        res = response.text
+        cache[url] = res
+        if cache_file is not None:
+            with open(cache_file, "w") as f:
+                json.dump(cache, f, indent=2, sort_keys=True)
+    return res
 
 
 @click.command()
