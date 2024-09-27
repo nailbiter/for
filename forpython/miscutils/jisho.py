@@ -58,7 +58,7 @@ def cached_url_request(url: str, cache_file: typing.Optional[str] = None) -> str
 @click.option("--debug/--no-debug", "-d/ ", default=False)
 @click.option("--kana/--no-kana", " /-K", default=True)
 @click.option("--record-separator", "-s", default="\n")
-@click.option("--cache-file", type=click.Path())
+@click.option("-c", "--cache-file", envvar="JISHO_SCRIPT_CACHE_FILE", type=click.Path())
 def jisho(lines_file, debug, kana, record_separator, cache_file):
     """
     based on the API mentioned in
