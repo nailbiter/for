@@ -29,6 +29,7 @@ import tqdm
 import requests
 import json
 import functools
+import typing
 
 
 def mylog(*args, is_debug: bool = False, **kwargs):
@@ -58,7 +59,13 @@ def cached_url_request(url: str, cache_file: typing.Optional[str] = None) -> str
 @click.option("--debug/--no-debug", "-d/ ", default=False)
 @click.option("--kana/--no-kana", " /-K", default=True)
 @click.option("--record-separator", "-s", default="\n")
-@click.option("-c", "--cache-file", envvar="JISHO_SCRIPT_CACHE_FILE", type=click.Path())
+@click.option(
+    "-c",
+    "--cache-file",
+    envvar="JISHO_SCRIPT_CACHE_FILE",
+    type=click.Path(),
+    show_envvar=True,
+)
 def jisho(lines_file, debug, kana, record_separator, cache_file):
     """
     based on the API mentioned in
@@ -74,9 +81,9 @@ def jisho(lines_file, debug, kana, record_separator, cache_file):
         if i > 0:
             click.echo("")
         url = f"https://jisho.org/api/v1/search/words?keyword={word}"
-        response = requests.request("GET", url, headers={"Accept": "application/json"})
-        _mylog(response.text)
-        response = json.loads(response.text)
+        response = _cached_url_request(url)
+        _mylog(response)
+        response = json.loads(response)
         click.echo(
             record_separator.join(
                 [
