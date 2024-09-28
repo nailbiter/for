@@ -71,6 +71,7 @@ def jisho(lines_file, debug, kana, record_separator, cache_file):
     based on the API mentioned in
     https://jisho.org/forum/54fefc1f6e73340b1f160000-is-there-any-kind-of-search-api
     """
+    logging.warning(f"cache_file: {cache_file}")
     _mylog = functools.partial(mylog, is_debug=debug)
     _cached_url_request = functools.partial(cached_url_request, cache_file=cache_file)
 
