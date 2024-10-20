@@ -30,6 +30,7 @@ import requests
 import json
 import functools
 import typing
+import pandas as pd
 
 
 def mylog(*args, is_debug: bool = False, **kwargs):
@@ -78,27 +79,86 @@ def jisho(lines_file, debug, kana, record_separator, cache_file):
     with click.open_file(lines_file) as f:
         lines = f.read().strip().split("\n")
     logging.warning(lines)
-    for i, word in tqdm.tqdm(list(enumerate(lines))):
-        if i > 0:
-            click.echo("")
-        url = f"https://jisho.org/api/v1/search/words?keyword={word}"
-        response = _cached_url_request(url)
-        _mylog(response)
-        response = json.loads(response)
-        click.echo(
-            record_separator.join(
-                [
+    for i, word in tqdm.tqdm((enumerate(lines)), total=len(lines)):
+        split = word.split("\t")
+        if len(split) == 1:
+            (word,) = split
+            response = _cached_url_request(
+                f"https://jisho.org/api/v1/search/words?keyword={word}"
+            )
+            _mylog(response)
+            response = json.loads(response)
+            click.echo(
+                record_separator.join(
+                    [
+                        "; ".join(
+                            [
+                                (f"({japanese.get('reading','')}) " if kana else "")
+                                + ", ".join(sense["english_definitions"])
+                                for sense, japanese in zip(
+                                    data["senses"], data["japanese"]
+                                )
+                            ]
+                        )
+                        for data in response["data"]
+                    ]
+                )
+            )
+            if i + 1 < len(lines):
+                click.echo("")
+        elif len(split) == 2:
+            word, hiragana = split
+            response = _cached_url_request(
+                f"https://jisho.org/api/v1/search/words?keyword={word}"
+            )
+            _mylog(response)
+            response = json.loads(response)
+            df_parsed_jisho_response = parse_jisho_response(response)
+            _mylog(df_parsed_jisho_response)
+            s = df_parsed_jisho_response["hiragana"].eq(
+                hiragana
+            ) & df_parsed_jisho_response["japanese"].eq(word)
+            if s.any():
+                df_parsed_jisho_response = df_parsed_jisho_response[s]
+                _mylog(df_parsed_jisho_response)
+                click.echo("; ".join(df_parsed_jisho_response["english"]))
+            else:
+                logging.warning(
+                    f"""nothing matched "{hiragana}" in {df_parsed_jisho_response["hiragana"].value_counts().to_dict()}"""
+                )
+                click.echo(
                     "; ".join(
                         [
-                            (f"({japanese.get('reading','')}) " if kana else "")
-                            + ", ".join(sense["english_definitions"])
-                            for sense, japanese in zip(data["senses"], data["japanese"])
+                            f"({h}) {e}"
+                            for e, h in df_parsed_jisho_response[
+                                ["english", "hiragana"]
+                            ].values
                         ]
                     )
-                    for data in response["data"]
-                ]
-            )
+                )
+        else:
+            raise NotImplementedError(dict(split=split))
+
+
+def parse_jisho_response(response: dict) -> pd.DataFrame:
+    dfs = [
+        pd.DataFrame(
+            [
+                {
+                    "japanese": jap.get("word", jap.get("reading")),
+                    "hiragana": jap.get("reading"),
+                    "english": "; ".join(sense["english_definitions"]),
+                }
+                for jap, sense in zip(data["japanese"], data["senses"])
+            ]
         )
+        for data in response["data"]
+    ]
+    return (
+        pd.concat(dfs)
+        if len(dfs) > 0
+        else pd.DataFrame(columns=["japanese", "hiragana", "english"])
+    )
 
 
 if __name__ == "__main__":
