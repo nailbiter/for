@@ -31,6 +31,8 @@ import json
 import functools
 import typing
 import pandas as pd
+import itertools
+import more_itertools
 
 
 def mylog(*args, is_debug: bool = False, **kwargs):
@@ -67,7 +69,8 @@ def cached_url_request(url: str, cache_file: typing.Optional[str] = None) -> str
     type=click.Path(),
     show_envvar=True,
 )
-def jisho(lines_file, debug, kana, record_separator, cache_file):
+@click.option("-h", "--head", type=int)
+def jisho(lines_file, debug, kana, record_separator, cache_file, head):
     """
     based on the API mentioned in
     https://jisho.org/forum/54fefc1f6e73340b1f160000-is-there-any-kind-of-search-api
@@ -100,12 +103,12 @@ def jisho(lines_file, debug, kana, record_separator, cache_file):
                                 )
                             ]
                         )
-                        for data in response["data"]
+                        for data in itertools.islice(response["data"], head)
                     ]
                 )
             )
-            if i + 1 < len(lines):
-                click.echo("")
+            # if i + 1 < len(lines):
+            #     click.echo("")
         elif len(split) == 2:
             word, hiragana = split
             response = _cached_url_request(
