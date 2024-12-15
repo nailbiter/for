@@ -7,7 +7,7 @@
    '("fe1c13d75398b1c8fd7fdd1241a55c286b86c3e4ce513c4292d01383de152cb7" default))
  '(epg-gpg-program "/usr/local/bin/gpg")
  '(package-selected-packages
-   '(go-mode dockerfile-mode indent-tools yaml-mode yaml whole-line-or-region prettier-js js-format json-mode json-reformat python-black password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime))
+   '(haskell-mode go-mode dockerfile-mode indent-tools yaml-mode yaml whole-line-or-region prettier-js js-format json-mode json-reformat python-black password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime))
  '(prettier-js-command "/usr/local/bin/prettier"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -22,7 +22,8 @@
 
 (require 'package)
 (add-to-list 'package-archives
-	     ;'("melpa-stable" . "https://stable.melpa.org/packages/")
+					;'("melpa-stable" . "https://stable.melpa.org/packages/")
+	     '("gnu" . "https://elpa.gnu.org/packages/")
 	     '("melpa" . "https://melpa.org/packages/")
 	     t
 	     )
