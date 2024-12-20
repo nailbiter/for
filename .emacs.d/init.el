@@ -25,7 +25,6 @@
 					;'("melpa-stable" . "https://stable.melpa.org/packages/")
 	     '("gnu" . "https://elpa.gnu.org/packages/")
 	     '("melpa" . "https://melpa.org/packages/")
-	     t
 	     )
 (package-initialize)
 (unless (package-installed-p 'use-package)
