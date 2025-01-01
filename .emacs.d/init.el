@@ -132,3 +132,4 @@
 (add-to-list 'auto-mode-alist '("\\.json5\\'" . js-mode))
 
 (setq display-buffer-base-action '(display-buffer-in-tab))
+(setq markdown-command "/usr/local/bin/multimarkdown")
