@@ -32,4 +32,4 @@
 0 8 * * * /home/nailbiter/.local/bin/check-ttask.sh
 2 10 * * mon cd /home/nailbiter/Dokumente/forgithub/pyassistantbot2 && ./money.py show -m weekly --show-top-expenses 3
 20 19 * * * cd /home/nailbiter/for/for-docker/mongo-dump && ./run.sh
-5 22 * * sun cd /home/nailbiter/Dokumente/forgithub/private-jupyter/20230618-money-analysis && /home/nailbiter/anaconda3/bin/python ./run.py --no-open 2>/tmp/money.err.txt 1>/tmp/money.out.txt
+0 21 * * sun cd /home/nailbiter/Dokumente/forgithub/private-jupyter/20230618-money-analysis && /home/nailbiter/anaconda3/bin/python ./run.py --no-open 2>/tmp/money.err.txt 1>/tmp/money.out.txt
