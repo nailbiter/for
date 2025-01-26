@@ -30,7 +30,21 @@ moption = functools.partial(click.option)
 
 
 @click.command()
-def aprompt():
+@moption(
+    "--logging-config",
+    type=(click.Choice(["none", "sqlite3", "jsonl"]), str),
+    default=("sqlite3", path.join(path.dirname(__file__), ".aprompt.log.sqlite3")),
+)
+@moption(
+    "--cache-config",
+    type=(click.Choice(["none", "sqlite3", "jsonl"]), str),
+    default=("sqlite3", path.join(path.dirname(__file__), ".aprompt.cache.sqlite3")),
+)
+@moption(
+    "--templates-dir",
+    type=click.Path(exists=True, dir_okay=True, file_okay=False),
+)
+def aprompt(logging_config, cache_config, templates_dir):
     pass
 
 
