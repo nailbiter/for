@@ -44,7 +44,9 @@ moption = functools.partial(click.option)
     "--templates-dir",
     type=click.Path(exists=True, dir_okay=True, file_okay=False),
 )
-def aprompt(logging_config, cache_config, templates_dir):
+@moption("-t", "--template", type=str, required=True)
+@moption("-p", "--param", "params", multiple=True, type=(str, str))
+def aprompt(logging_config, cache_config, templates_dir, params, template):
     pass
 
 
