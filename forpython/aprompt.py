@@ -46,7 +46,23 @@ moption = functools.partial(click.option)
 )
 @moption("-t", "--template", type=str, required=True)
 @moption("-p", "--param", "params", multiple=True, type=(str, str))
-def aprompt(logging_config, cache_config, templates_dir, params, template):
+@moption(
+    "--template-format",
+    type=click.Choice(["jinja2", "string_template", "auto"]),
+    default="auto",
+)
+@moption(
+    "-P", "--post-processor", "post_processors", multiple=True, type=click.Choice([])
+)
+def aprompt(
+    logging_config,
+    cache_config,
+    templates_dir,
+    params,
+    template,
+    template_format,
+    post_processors,
+):
     pass
 
 
