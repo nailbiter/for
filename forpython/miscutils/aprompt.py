@@ -81,7 +81,9 @@ AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
 )
 @moption("--debug/--no-debug", "-D/ ", default=False)
 @moption("--click-fg", type=str)
+@moption("-S", "--prompt-engine-seed")
 def aprompt(
+    prompt_engine_seed,
     click_fg,
     logging_config,
     cache_config,
