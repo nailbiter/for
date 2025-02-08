@@ -18,7 +18,8 @@ ORGANIZATION:
     REVISION: ---
 
 TODO:
-    1. 
+    1. caching
+    2. logging
 ==============================================================================="""
 
 import click
@@ -27,6 +28,7 @@ import os
 from os import path
 import logging
 import functools
+from _aprompt.prompt_engines import get_prompt_engine, AVAILABLE_PROMPT_ENGINES
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
 AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
@@ -64,41 +66,92 @@ AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
     "-P", "--post-processor", "post_processors", multiple=True, type=click.Choice([])
 )
 @moption(
-    "-E", "--prompt-engine", type=click.Choice(["gemini", "chatgpt"]), required=True
+    "-E",
+    "--prompt-engine",
+    type=click.Choice(sorted(AVAILABLE_PROMPT_ENGINES.keys())),
+    required=True,
 )
 @moption("-T", "--engine-access-token", required=True)
+@moption(
+    "-K",
+    "--engine-configuration-kwarg",
+    "engine_configuration_kwargs",
+    multiple=True,
+    type=(str, str),
+)
+@moption("--debug/--no-debug", "-D/ ", default=False)
+@moption("--click-fg", type=str)
 def aprompt(
+    click_fg,
     logging_config,
-    prompt_engine,
     cache_config,
     templates_dir,
     params,
     template_filename,
     template_format,
     post_processors,
+    prompt_engine,
     engine_access_token,
+    debug,
+    engine_configuration_kwargs,
 ):
+    my_log_warning = logging.warning if debug else (lambda x: x)
+
     if templates_dir is None:
-        templates_dir, _ = path.split(template_filename)
+        templates_dir, _ = path.split(path.abspath(template_filename))
     else:
         template_filename = path.join(templates_dir, template_filename)
+    my_log_warning(
+        dict(templates_dir=templates_dir, template_filename=template_filename)
+    )
+    assert path.isfile(template_filename), template_filename
+    assert path.isdir(templates_dir), templates_dir
     if template_format == "auto":
         ## FIXME: fragile (but works for now)
         i = template_filename.index(".")
         ext = template_filename[i:]
-        logging.warning(dict(ext=ext))
+        my_log_warning(dict(ext=ext))
         template_format = {".jinja.txt": "jinja2", ".txt": "string_template"}[ext]
         assert template_format in AVAILABLE_TEMPLATE_FORMATS, (
             template_format,
             AVAILABLE_TEMPLATE_FORMATS,
         )
-    logging.warning(
+    my_log_warning(
         dict(
             templates_dir=templates_dir,
             template_filename=template_filename,
             template_format=template_format,
         )
     )
+    prompt_engine = get_prompt_engine(
+        prompt_engine,
+        engine_access_token,
+        **{**dict(list(engine_configuration_kwargs)), "is_loud": debug},
+    )
+
+    prompt = None
+    if template_format == "jinja2":
+        from jinja2 import Template, Environment, FileSystemLoader
+
+        jinja_env = Environment(loader=FileSystemLoader(templates_dir))
+        rp = path.relpath(template_filename, templates_dir)
+        # my_log_warning(dict(rp=rp))
+        template = jinja_env.get_template(rp)
+        params = dict(list(params))
+        my_log_warning(dict(params=params))
+        prompt = template.render(params=params)
+    else:
+        raise NotImplementedError(dict(template_format=template_format))
+
+    my_log_warning(f"prompt: \n```\n{prompt}\n```")
+    reply = prompt_engine.prompt(prompt)
+    # my_log_warning(f"reply: \n```{reply}```")
+
+    echo, echo_kwargs = click.echo, {}
+    if click_fg is not None:
+        echo = click.secho
+        echo_kwargs["fg"] = click_fg
+    echo(reply, **echo_kwargs)
 
 
 if __name__ == "__main__":
