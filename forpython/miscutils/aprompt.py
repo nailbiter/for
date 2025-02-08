@@ -54,8 +54,12 @@ moption = functools.partial(click.option)
 @moption(
     "-P", "--post-processor", "post_processors", multiple=True, type=click.Choice([])
 )
+@moption(
+    "-E", "--prompt-engine", type=click.Choice(["gemini", "chatgpt"]), required=True
+)
 def aprompt(
     logging_config,
+    prompt_engine,
     cache_config,
     templates_dir,
     params,
