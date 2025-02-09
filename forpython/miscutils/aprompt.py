@@ -34,7 +34,12 @@ moption = functools.partial(click.option, show_default=True, show_envvar=True)
 AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
 
 
-@click.command()
+@click.group()
+def aprompt():
+    pass
+
+
+@aprompt.command(name="p")
 @moption(
     "--logging-config",
     type=(click.Choice(["none", "sqlite3", "jsonl"]), str),
@@ -83,7 +88,7 @@ AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
 @moption("--click-fg", type=str)
 @moption("-S", "--prompt-engine-seed")
 @moption("--dry-run/--no-dry-run", default=False)
-def aprompt(
+def single_prompt(
     dry_run,
     prompt_engine_seed,
     click_fg,
