@@ -82,7 +82,9 @@ AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
 @moption("--debug/--no-debug", "-D/ ", default=False)
 @moption("--click-fg", type=str)
 @moption("-S", "--prompt-engine-seed")
+@moption("--dry-run/--no-dry-run", default=False)
 def aprompt(
+    dry_run,
     prompt_engine_seed,
     click_fg,
     logging_config,
@@ -144,16 +146,19 @@ def aprompt(
         prompt = template.render(params=params)
     else:
         raise NotImplementedError(dict(template_format=template_format))
-
     my_log_warning(f"prompt: \n```\n{prompt}\n```")
-    reply = prompt_engine.prompt(prompt)
-    # my_log_warning(f"reply: \n```{reply}```")
 
     echo, echo_kwargs = click.echo, {}
     if click_fg is not None:
         echo = click.secho
         echo_kwargs["fg"] = click_fg
-    echo(reply, **echo_kwargs)
+
+    if dry_run:
+        logging.warning("dry run")
+        echo(prompt, **echo_kwargs)
+    else:
+        reply = prompt_engine.prompt(prompt)
+        echo(reply, **echo_kwargs)
 
 
 if __name__ == "__main__":
