@@ -1,0 +1,9 @@
+Please, improve the following prompt to a Gemini model
+
+
+```
+{{ params.original_prompt }}
+```
+
+
+explain your changes, if any. 
