@@ -142,8 +142,11 @@ def aprompt(
         # my_log_warning(dict(rp=rp))
         template = jinja_env.get_template(rp)
         params = dict(list(params))
-        my_log_warning(dict(params=params))
-        prompt = template.render(params=params)
+        env = dict(
+            params=params, consts=dict(templates_dir=templates_dir), utils=dict()
+        )
+        my_log_warning(env)
+        prompt = template.render(**env)
     else:
         raise NotImplementedError(dict(template_format=template_format))
     my_log_warning(f"prompt: \n```\n{prompt}\n```")
