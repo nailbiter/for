@@ -801,8 +801,11 @@ def url(ctx, issue_name, open_):
 @moption("-m", "--max-results", type=int)
 @moption("--simplify/--no-simplify", "-s/ ", default=False)
 @moption("-F", "--fields", type=str)
+@moption("-s", "--start-at", type=int)
 @click.pass_context
-def jql(ctx, jql, jql_file, raw, max_results, simplify, fields, **format_df_kwargs):
+def jql(
+    ctx, jql, jql_file, raw, max_results, simplify, fields, start_at, **format_df_kwargs
+):
     """
     helpful jq's:
     * '.[]|[.key,.fields.summary]|@tsv'
@@ -819,6 +822,8 @@ def jql(ctx, jql, jql_file, raw, max_results, simplify, fields, **format_df_kwar
 
     if max_results is not None:
         query["maxResults"] = max_results
+    if start_at is not None:
+        query["startAt"] = start_at
     if fields is not None:
         query["fields"] = fields
     response = my_request("GET", url, headers=headers, params=query, auth=auth)
@@ -1126,10 +1131,27 @@ def sprint(ctx):
     pass
 
 
-@sprint.command(name="ls")
+@sprint.command(name="rm")
+@moption("-i", "--sprint-id", required=True)
 @click.pass_context
-def ls_sprint(ctx):
-    ctx
+def rm_sprint(ctx, sprint_id):
+    headers_file = None
+    if headers_file is None:
+        headers = {"Accept": "application/json"}
+    else:
+        with open(headers_file) as f:
+            headers = json.load(f)
+
+    url, auth = api_init(
+        ctx.obj, f"sprint/{sprint_id}", api_version="1.0", api_word="agile"
+    )
+
+    kwargs = dict(headers=headers, auth=auth)
+    # if data_file is not None:
+    #     with click.open_file(data_file) as f:
+    #         kwargs["data"] = json.dumps(json.load(f))
+    response = my_request("DELETE", url, **kwargs)
+    click.echo(response.text)
 
 
 # board

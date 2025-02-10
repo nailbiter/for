@@ -92,12 +92,12 @@ def run_cmd(cmd, logger=logging):
 
 
 def api_init(
-    ctx_obj: dict, path: str, api_version: str = "latest"
+    ctx_obj: dict, path: str, api_version: str = "latest", api_word: str = "api"
 ) -> typing.Tuple[str, str]:
     """
     @return (str,str) (url, auth)
     """
-    url = f"https://{ctx_obj['jira_url']}/rest/api/{api_version}/{path}"
+    url = f"https://{ctx_obj['jira_url']}/rest/{api_word}/{api_version}/{path}"
     logging.info(url)
     auth = HTTPBasicAuth(ctx_obj["jira_email"], ctx_obj["jira_api_token"])
     return url, auth
