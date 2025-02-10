@@ -800,8 +800,9 @@ def url(ctx, issue_name, open_):
 @moption("--raw/--no-raw", "-r/ ", default=False)
 @moption("-m", "--max-results", type=int)
 @moption("--simplify/--no-simplify", "-s/ ", default=False)
+@moption("-F", "--fields", type=str)
 @click.pass_context
-def jql(ctx, jql, jql_file, raw, max_results, simplify, **format_df_kwargs):
+def jql(ctx, jql, jql_file, raw, max_results, simplify, fields, **format_df_kwargs):
     """
     helpful jq's:
     * '.[]|[.key,.fields.summary]|@tsv'
@@ -817,7 +818,9 @@ def jql(ctx, jql, jql_file, raw, max_results, simplify, **format_df_kwargs):
     query = dict(jql=jql)
 
     if max_results is not None:
-        query["max_results"] = max_results
+        query["maxResults"] = max_results
+    if fields is not None:
+        query["fields"] = fields
     response = my_request("GET", url, headers=headers, params=query, auth=auth)
 
     if raw:
@@ -1115,6 +1118,18 @@ def watch(ctx):
 @click.pass_context
 def worklog(ctx):
     pass
+
+
+@api.group()
+@click.pass_context
+def sprint(ctx):
+    pass
+
+
+@sprint.command(name="ls")
+@click.pass_context
+def ls_sprint(ctx):
+    ctx
 
 
 # board
