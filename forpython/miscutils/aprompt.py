@@ -153,7 +153,9 @@ def single_prompt(
             template = jinja_env.get_template(rp)
             params = dict(list(params))
             env = dict(
-                params=params, consts=dict(templates_dir=templates_dir), utils=dict()
+                params=params,
+                consts=dict(templates_dir=templates_dir),
+                utils=dict(load_file=load_file),
             )
             my_log_warning(env)
             prompt = template.render(**env)
@@ -172,6 +174,11 @@ def single_prompt(
         else:
             reply = prompt_engine.prompt(prompt)
             echo(reply, **echo_kwargs)
+
+
+def load_file(filename: str) -> str:
+    with click.open_file(filename) as f:
+        return f.read()
 
 
 if __name__ == "__main__":
