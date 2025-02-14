@@ -20,6 +20,7 @@ ORGANIZATION:
 TODO:
     1. caching
     2. logging
+    3. show models
 ==============================================================================="""
 
 import click
@@ -58,8 +59,8 @@ def aprompt():
     "-t",
     "--template-filename",
     type=click.Path(),
-    required=True,
-    help="relative if `--templates-dir` is given",
+    required=False,
+    help="relative if `--templates-dir` is given; if not given, simply list models available",
 )
 @moption("-p", "--param", "params", multiple=True, type=(str, str))
 @moption(
@@ -106,67 +107,71 @@ def single_prompt(
 ):
     my_log_warning = logging.warning if debug else (lambda x: x)
 
-    if templates_dir is None:
-        templates_dir, _ = path.split(path.abspath(template_filename))
-    else:
-        template_filename = path.join(templates_dir, template_filename)
-    my_log_warning(
-        dict(templates_dir=templates_dir, template_filename=template_filename)
-    )
-    assert path.isfile(template_filename), template_filename
-    assert path.isdir(templates_dir), templates_dir
-    if template_format == "auto":
-        ## FIXME: fragile (but works for now)
-        i = template_filename.index(".")
-        ext = template_filename[i:]
-        my_log_warning(dict(ext=ext))
-        template_format = {".jinja.txt": "jinja2", ".txt": "string_template"}[ext]
-        assert template_format in AVAILABLE_TEMPLATE_FORMATS, (
-            template_format,
-            AVAILABLE_TEMPLATE_FORMATS,
-        )
-    my_log_warning(
-        dict(
-            templates_dir=templates_dir,
-            template_filename=template_filename,
-            template_format=template_format,
-        )
-    )
     prompt_engine = get_prompt_engine(
         prompt_engine,
         engine_access_token,
         **{**dict(list(engine_configuration_kwargs)), "is_loud": debug},
     )
 
-    prompt = None
-    if template_format == "jinja2":
-        from jinja2 import Template, Environment, FileSystemLoader
-
-        jinja_env = Environment(loader=FileSystemLoader(templates_dir))
-        rp = path.relpath(template_filename, templates_dir)
-        # my_log_warning(dict(rp=rp))
-        template = jinja_env.get_template(rp)
-        params = dict(list(params))
-        env = dict(
-            params=params, consts=dict(templates_dir=templates_dir), utils=dict()
+    if template_filename is None:
+        click.echo(prompt_engine.list_models().to_csv(sep="\t"))
+    else:
+        if templates_dir is None:
+            templates_dir, _ = path.split(path.abspath(template_filename))
+        else:
+            template_filename = path.join(templates_dir, template_filename)
+        my_log_warning(
+            dict(templates_dir=templates_dir, template_filename=template_filename)
         )
-        my_log_warning(env)
-        prompt = template.render(**env)
-    else:
-        raise NotImplementedError(dict(template_format=template_format))
-    my_log_warning(f"prompt: \n```\n{prompt}\n```")
+        assert path.isfile(template_filename), template_filename
+        assert path.isdir(templates_dir), templates_dir
+        if template_format == "auto":
+            ## FIXME: fragile (but works for now)
+            i = template_filename.index(".")
+            ext = template_filename[i:]
+            my_log_warning(dict(ext=ext))
+            template_format = {".jinja.txt": "jinja2", ".txt": "string_template"}[ext]
+            assert template_format in AVAILABLE_TEMPLATE_FORMATS, (
+                template_format,
+                AVAILABLE_TEMPLATE_FORMATS,
+            )
+        my_log_warning(
+            dict(
+                templates_dir=templates_dir,
+                template_filename=template_filename,
+                template_format=template_format,
+            )
+        )
 
-    echo, echo_kwargs = click.echo, {}
-    if click_fg is not None:
-        echo = click.secho
-        echo_kwargs["fg"] = click_fg
+        prompt = None
+        if template_format == "jinja2":
+            from jinja2 import Template, Environment, FileSystemLoader
 
-    if dry_run:
-        logging.warning("dry run")
-        echo(prompt, **echo_kwargs)
-    else:
-        reply = prompt_engine.prompt(prompt)
-        echo(reply, **echo_kwargs)
+            jinja_env = Environment(loader=FileSystemLoader(templates_dir))
+            rp = path.relpath(template_filename, templates_dir)
+            # my_log_warning(dict(rp=rp))
+            template = jinja_env.get_template(rp)
+            params = dict(list(params))
+            env = dict(
+                params=params, consts=dict(templates_dir=templates_dir), utils=dict()
+            )
+            my_log_warning(env)
+            prompt = template.render(**env)
+        else:
+            raise NotImplementedError(dict(template_format=template_format))
+        my_log_warning(f"prompt: \n```\n{prompt}\n```")
+
+        echo, echo_kwargs = click.echo, {}
+        if click_fg is not None:
+            echo = click.secho
+            echo_kwargs["fg"] = click_fg
+
+        if dry_run:
+            logging.warning("dry run")
+            echo(prompt, **echo_kwargs)
+        else:
+            reply = prompt_engine.prompt(prompt)
+            echo(reply, **echo_kwargs)
 
 
 if __name__ == "__main__":

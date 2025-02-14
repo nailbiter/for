@@ -20,6 +20,7 @@ ORGANIZATION:
 from abc import ABC, abstractmethod
 import logging
 import typing
+import pandas as pd
 
 
 class PromptEngine(ABC):
@@ -27,9 +28,13 @@ class PromptEngine(ABC):
     def prompt(self, prompt: str, **kwargs) -> str:
         pass
 
-    def _log(self, *args, method: str = "warning", **kwargs):
+    def _log(self, *args, method: str = "warning", **kwargs) -> None:
         if self._logger is not None:
             getattr(self._logger, method)(*args, **kwargs)
+
+    @abstractmethod
+    def list_models(self) -> pd.DataFrame:
+        pass
 
 
 class _GeminiPromptEngine(PromptEngine):
@@ -46,6 +51,20 @@ class _GeminiPromptEngine(PromptEngine):
         self._genai = genai
         self._model = genai.GenerativeModel(model)
         self._logger = logging.getLogger(self.__class__.__name__) if is_loud else None
+
+    def list_models(self) -> pd.DataFrame:
+        genai = self._genai
+        models = genai.list_models()
+        df_models = pd.DataFrame(
+            [
+                {
+                    k: getattr(m, k)
+                    for k in ["name", "description", "supported_generation_methods"]
+                }
+                for m in models
+            ]
+        )
+        return df_models
 
     def prompt(self, prompt: str, **kwargs) -> str:
         model = self._model
