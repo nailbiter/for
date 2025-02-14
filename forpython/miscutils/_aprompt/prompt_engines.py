@@ -37,12 +37,15 @@ class PromptEngine(ABC):
         pass
 
 
+DEFAULT_GEMINI_MODEL = "models/gemini-2.0-flash"
+
+
 class _GeminiPromptEngine(PromptEngine):
     def __init__(
         self,
         engine_access_token: str,
         is_loud: bool,
-        model: str = "gemini-1.5-flash",
+        model: str = DEFAULT_GEMINI_MODEL,
     ):
         import google.generativeai as genai
 
