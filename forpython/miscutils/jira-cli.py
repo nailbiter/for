@@ -36,6 +36,7 @@ from os import path
 import functools
 import itertools
 from jinja2 import Template
+import uuid
 import time
 import copy
 from _jira_cli import (
@@ -52,6 +53,7 @@ from _jira_cli import (
 import requests
 from requests.auth import HTTPBasicAuth
 import json
+import pytz
 from alex_leontiev_toolbox_python.utils.edit_json import edit_json
 from alex_leontiev_toolbox_python.utils.click_helpers.format_dataframe import (
     AVAILABLE_OUT_FORMATS,
@@ -1151,6 +1153,59 @@ def rm_sprint(ctx, sprint_id):
     #     with click.open_file(data_file) as f:
     #         kwargs["data"] = json.dumps(json.load(f))
     response = my_request("DELETE", url, **kwargs)
+    click.echo(response.text)
+
+
+@sprint.command(name="add")
+@moption("-n", "--sprint-name", required=True, type=str)
+@moption("-s", "--start-date", type=click.DateTime())
+@moption("-e", "--end-date", type=click.DateTime())
+@moption("-b", "--origin-board-id", "originBoardId", required=True, type=int)
+@moption("-D", "--dump-created-sprints-dir", type=click.Path())
+@click.pass_context
+def add_sprint(
+    ctx, sprint_name, start_date, end_date, originBoardId, dump_created_sprints_dir
+):
+    """
+    see
+    https://developer.atlassian.com/cloud/jira/software/rest/api-group-sprint/#api-rest-agile-1-0-sprint-post
+    """
+    headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+    }
+
+    url, auth = api_init(ctx.obj, "sprint", api_version="1.0", api_word="agile")
+
+    kwargs = dict(headers=headers, auth=auth)
+    payload = {
+        "name": sprint_name,
+        "originBoardId": originBoardId,
+    }
+    for dt, n in zip([start_date, end_date], ["startDate", "endDate"]):
+        if dt is not None:
+            formatted_datetime = (
+                pytz.timezone("Asia/Tokyo")
+                .localize(dt)
+                .strftime("%Y-%m-%dT%H:%M:%S.%f%z")
+            )
+            # 2015-04-11T15:22:00.000+10:00
+            payload[n] = (
+                formatted_datetime[:23]
+                + formatted_datetime[-5:-2]
+                + ":"
+                + formatted_datetime[-2:]
+            )
+    my_logging.warning(payload)
+    response = my_request(
+        "POST", url, headers=headers, auth=auth, data=json.dumps(payload)
+    )
+    if dump_created_sprints_dir is not None:
+        os.makedirs(dump_created_sprints_dir, exist_ok=True)
+        fn = path.join(dump_created_sprints_dir, f"{uuid.uuid4()}.json")
+        with open(fn, "w") as f:
+            json.dump(response.text)
+        my_logging.warning(fn)
     click.echo(response.text)
 
 
