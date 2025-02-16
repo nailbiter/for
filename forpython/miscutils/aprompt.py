@@ -23,6 +23,7 @@ TODO:
     3(d). show models
     4. callbacks from prompt: post-processing
     5. callbacks from prompt: override gemini params (opt.: specify model, over- or no-override)
+    6. in `logging.warning`, print `prompt` with whitespaces and newlines shown
 ==============================================================================="""
 
 import click
