@@ -20,7 +20,9 @@ ORGANIZATION:
 TODO:
     1. caching
     2. logging
-    3. show models
+    3(d). show models
+    4. callbacks from prompt: post-processing
+    5. callbacks from prompt: override gemini params (opt.: specify model, over- or no-override)
 ==============================================================================="""
 
 import click
