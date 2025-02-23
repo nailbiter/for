@@ -24,6 +24,9 @@ TODO:
     4. callbacks from prompt: post-processing
     5. callbacks from prompt: override gemini params (opt.: specify model, over- or no-override)
     6. in `logging.warning`, print `prompt` with whitespaces and newlines shown
+    7. command: `agent`
+    8. command: `vector database`
+    9. module to flag "dangerous words" (possibly from 3rd e.g. mongo database) to maintain privacy
 ==============================================================================="""
 
 import click
