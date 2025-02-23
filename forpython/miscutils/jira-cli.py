@@ -1157,6 +1157,35 @@ def rm_sprint(ctx, sprint_id):
     click.echo(response.text)
 
 
+@sprint.command(name="swap")
+@moption("-i", "--sprint-id", required=True)
+@moption("-w", "--sprint-id-swap-with", required=True)
+@click.pass_context
+def swap_sprint(ctx, sprint_id, sprint_id_swap_with):
+    """
+    https://developer.atlassian.com/cloud/jira/software/rest/api-group-sprint/#api-rest-agile-1-0-sprint-sprintid-swap-post
+    """
+    headers_file = None
+    if headers_file is None:
+        headers = {"Content-Type": "application/json"}
+    else:
+        with open(headers_file) as f:
+            headers = json.load(f)
+
+    url, auth = api_init(
+        ctx.obj, f"sprint/{sprint_id}/swap", api_version="1.0", api_word="agile"
+    )
+
+    payload = json.dumps({"sprintToSwapWith": sprint_id_swap_with})
+
+    kwargs = dict(headers=headers, auth=auth, data=payload)
+    # if data_file is not None:
+    #     with click.open_file(data_file) as f:
+    #         kwargs["data"] = json.dumps(json.load(f))
+    response = my_request("POST", url, **kwargs)
+    click.echo(response.text)
+
+
 @sprint.command(name="add")
 @moption("-n", "--sprint-name", required=True, type=str)
 @moption("-s", "--start-date", type=click.DateTime())
