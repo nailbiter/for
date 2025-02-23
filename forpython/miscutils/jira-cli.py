@@ -62,6 +62,7 @@ from alex_leontiev_toolbox_python.utils.click_helpers.format_dataframe import (
     apply_click_options,
 )
 import pandas as pd
+import pymongo
 
 moption = functools.partial(click.option, show_envvar=True)
 _build_click_options = functools.partial(build_click_options, option_factory=moption)
@@ -1162,14 +1163,32 @@ def rm_sprint(ctx, sprint_id):
 @moption("-e", "--end-date", type=click.DateTime())
 @moption("-b", "--origin-board-id", "originBoardId", required=True, type=int)
 @moption("-D", "--dump-created-sprints-dir", type=click.Path())
+@moption("-B", "--dump-created-sprints-database", type=(str, str, str))
 @click.pass_context
 def add_sprint(
-    ctx, sprint_name, start_date, end_date, originBoardId, dump_created_sprints_dir
+    ctx,
+    sprint_name,
+    start_date,
+    end_date,
+    originBoardId,
+    dump_created_sprints_dir,
+    dump_created_sprints_database,
 ):
     """
     see
     https://developer.atlassian.com/cloud/jira/software/rest/api-group-sprint/#api-rest-agile-1-0-sprint-post
     """
+
+    coll = None
+    if dump_created_sprints_database is not None:
+        (
+            connection_string,
+            database_name,
+            collection_name,
+        ) = dump_created_sprints_database
+        cli = pymongo.MongoClient(connection_string)
+        coll = cli[database_name][collection_name]
+
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -1207,6 +1226,9 @@ def add_sprint(
             json.dump(response.text)
         my_logging.warning(fn)
     click.echo(response.text)
+
+    if coll is not None:
+        coll.insert_one(json.loads(response.text))
 
 
 # board
