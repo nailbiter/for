@@ -179,9 +179,12 @@ def single_prompt(
             echo(reply, **echo_kwargs)
 
 
-def load_file(filename: str) -> str:
-    with click.open_file(filename) as f:
-        return f.read()
+def load_file(filename: typing.Optional[str]) -> str:
+    if filename is None:
+        return None
+    else:
+        with click.open_file(filename) as f:
+            return f.read()
 
 
 if __name__ == "__main__":
