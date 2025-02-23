@@ -5,5 +5,8 @@ Please, improve the following prompt to a Gemini model
 {{ params.original_prompt }}
 ```
 
+In particular,
+1. Is any information contained in the prompt contradictory?
+2. Can you suggest any other improvements?
 
-explain your changes, if any. 
+Explain your changes, if any. 
