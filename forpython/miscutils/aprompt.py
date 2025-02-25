@@ -30,11 +30,14 @@ TODO:
 ==============================================================================="""
 
 import click
-from dotenv import load_dotenv
 import os
 from os import path
 import logging
 import functools
+import typing
+
+from dotenv import load_dotenv
+
 from _aprompt.prompt_engines import get_prompt_engine, AVAILABLE_PROMPT_ENGINES
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)

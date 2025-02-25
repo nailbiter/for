@@ -1,10 +1,10 @@
-Please, improve the following prompt to a Gemini model
+Please, improve the following prompt to a Gemini model in Markdown format:
 
 
-```
+<prompt>
 {{ params.original_prompt }}
-{{ utils.load_file(params.original_prompt_fn) }}
-```
+{{ utils.load_file(params.original_prompt_filename) }}
+</prompt>
 
 In particular,
 1. Is any information contained in the prompt contradictory?
