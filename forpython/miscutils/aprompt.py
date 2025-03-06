@@ -194,8 +194,8 @@ def load_file(filename: typing.Optional[str]) -> str:
 
 
 if __name__ == "__main__":
-    fn = ".env"
-    if path.isfile(fn):
-        logging.warning(f"loading `{fn}`")
-        load_dotenv(dotenv_path=fn)
+    for fn in [".env", ".env.checked", ".aprompt.env"]:
+        if path.isfile(fn):
+            logging.warning(f"loading `{fn}`")
+            load_dotenv(dotenv_path=fn, override=True)
     aprompt(auto_envvar_prefix="APROMPT")
