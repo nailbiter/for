@@ -28,13 +28,6 @@ from os import path
 import logging
 import functools
 
-#! pip install google-cloud-translate
-#! pip install google-cloud-translate==2.0.1
-# from google.cloud import translate as google_translate
-from google.cloud import translate_v2 as google_translate
-
-# !pip install googletrans
-# from googletrans import Translator
 
 moption = functools.partial(click.option, show_envvar=True)
 
@@ -65,7 +58,10 @@ KNOWN_LANGUAGES = {"es": None, "ja": None, "en": None}
     required=True,
     default="en",
 )
-def translate(input_file, input_format, input_language, output_language):
+@moption(
+    "-M", "--method", type=click.Choice(["googletrans", "official"]), default="official"
+)
+def translate(input_file, input_format, input_language, output_language, method):
     logging.warning(
         dict(input_language=input_language, output_language=output_language)
     )
@@ -84,13 +80,24 @@ def translate(input_file, input_format, input_language, output_language):
     # translation, *_ = list(response.translation)
     # text = translation.translated_text
 
-    # translator = Translator()
-    # text = translator.translate(text, src=input_language, dest=output_language).text
+    if method == "googletrans":
+        # !pip install googletrans
+        from googletrans import Translator
 
-    client = google_translate.Client()
-    result = client.translate(
-        text, source_language=input_language, target_language=output_language
-    )["translatedText"]
+        translator = Translator()
+        text = translator.translate(text, src=input_language, dest=output_language).text
+    elif method == "official":
+        #! pip install google-cloud-translate
+        #! pip install google-cloud-translate==2.0.1
+        # from google.cloud import translate as google_translate
+        from google.cloud import translate_v2 as google_translate
+
+        client = google_translate.Client()
+        result = client.translate(
+            text, source_language=input_language, target_language=output_language
+        )["translatedText"]
+    else:
+        raise NotImplementedError(dict(method=method))
 
     logging.warning(f"o: {text}")
     click.echo(text)
