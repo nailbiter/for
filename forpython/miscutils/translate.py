@@ -81,7 +81,8 @@ def translate(input_file, input_format, input_language, output_language, method)
     # text = translation.translated_text
 
     if method == "googletrans":
-        # !pip install googletrans
+        #! pip install 'googletrans==4.0.0rc1'
+        #! pip install googletrans
         from googletrans import Translator
 
         translator = Translator()
