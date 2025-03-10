@@ -26,6 +26,7 @@ from os import path
 import functools
 import click
 from dotenv import load_dotenv
+from _handy import Handy
 
 _DICT_FNS = {
     "main": path.join(path.dirname(path.abspath(__file__)), ".handy_aux_dict.json5"),
@@ -38,22 +39,12 @@ _DICT_FNS = {
     "--strip/--no-strip", "-s/ ", default=False, envvar="CLICK__STRIP", show_envvar=True
 )
 @click.option("-s", "--sep", type=str, default="")
+@click.option("-p", "--param", "params", type=(str, str), multiple=True)
 @click.pass_context
 def handy(ctx, **kwargs):
     ctx.ensure_object(dict)
     for k, v in kwargs.items():
         ctx.obj[k] = v
-
-
-class _Handy:
-    def __init__(self, name, values):
-        self._values = values
-
-    def __call__(self, ctx, names):
-        click.echo(
-            ctx.obj["sep"].join([self._values[name] for name in names]),
-            nl=not ctx.obj["strip"],
-        )
 
 
 if __name__ == "__main__":
@@ -78,7 +69,7 @@ if __name__ == "__main__":
         functools.reduce(
             lambda a, b: b(a),
             [
-                _Handy(name, d),
+                Handy(name, d),
                 click.pass_context,
                 click.argument("names", type=click.Choice(d), nargs=-1),
                 handy.command(name=name),

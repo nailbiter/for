@@ -72,5 +72,10 @@
   },
   jap: {
     sorry_to_bother: "お忙しいところ恐縮ですが、",
+    polite_email: {
+      filename: "/Users/nailbiter/for/forpython/miscutils/.handy/polite-jap-email.jinja.txt",
+      is_strip: true,
+      is_render: true,
+    },
   },
 }

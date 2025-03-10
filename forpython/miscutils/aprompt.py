@@ -38,6 +38,7 @@ import typing
 
 from dotenv import load_dotenv
 
+from _handy import UTILS
 from _aprompt.prompt_engines import get_prompt_engine, AVAILABLE_PROMPT_ENGINES
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
@@ -164,7 +165,7 @@ def single_prompt(
             env = dict(
                 params=params,
                 consts=dict(templates_dir=templates_dir),
-                utils=dict(load_file=load_file),
+                utils=UTILS,
             )
             my_log_warning(env)
             prompt = template.render(**env)
@@ -183,14 +184,6 @@ def single_prompt(
         else:
             reply = prompt_engine.prompt(prompt)
             echo(reply, **echo_kwargs)
-
-
-def load_file(filename: typing.Optional[str]) -> str:
-    if filename is None:
-        return None
-    else:
-        with click.open_file(filename) as f:
-            return f.read()
 
 
 if __name__ == "__main__":
