@@ -34,7 +34,7 @@ from pptx.text.text import TextFrame
 import tqdm
 
 moption = functools.partial(click.option, show_envvar=True)
-KNOWN_FILE_FORMATS = {"pptx": None, "plaintext": None}
+KNOWN_FILE_FORMATS = {"pptx": None, "plaintext": None, "xlsx": None}
 KNOWN_LANGUAGES = {"es": None, "ja": None, "en": None}
 
 
@@ -140,8 +140,13 @@ def translate(input_file, input_format, input_language, output_language, method)
 @functools.cache
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
 def translate_text(
-    text: str, method: str, input_language: str, output_language: str
-) -> str:
+    text: typing.Optional[str], method: str, input_language: str, output_language: str
+) -> typing.Optional[str]:
+    if text is None:
+        return None
+    elif text.strip() == "":
+        return text
+
     if method == "googletrans":
         #! pip install 'googletrans==4.0.0rc1'
         #! pip install googletrans
