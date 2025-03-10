@@ -55,14 +55,16 @@ def replace_text_in_xlsx(xlsx_file: str, replace_func: typing.Callable) -> None:
     """
 
     wb = load_workbook(xlsx_file)
-
+    pbar = tqdm.tqdm()
     for sheet in tqdm.tqdm(wb):
         for row in sheet.iter_rows():
             for cell in row:
+                pbar.update(1)
                 if cell.value is not None and isinstance(cell.value, str):
                     original_text = cell.value
                     replacement_text = replace_func(original_text)
                     cell.value = replacement_text
+    pbar.close()
 
     # Save the modified workbook to stdout
     wb.save(sys.stdout.buffer)
