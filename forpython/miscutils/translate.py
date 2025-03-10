@@ -19,7 +19,8 @@ ORGANIZATION:
 
 TODO:
   1(D). add tenacity
-  2   . custom translation function
+  2(D). custom translation function
+  3   . sqlite3 cache
 ==============================================================================="""
 
 import click
@@ -37,6 +38,7 @@ import tqdm
 import sys
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+import importlib.util
 
 moption = functools.partial(click.option, show_envvar=True)
 KNOWN_FILE_FORMATS = {"pptx": None, "plaintext": None, "xlsx": None}
@@ -70,30 +72,6 @@ def replace_text_in_xlsx(xlsx_file: str, replace_func: typing.Callable) -> None:
     wb.save(sys.stdout.buffer)
 
 
-def my_replacement_function(original_text):
-    """
-    Example replacement function: adds " [MODIFIED]" to the end of each text.
-    """
-    return original_text + " [MODIFIED]"
-
-
-# if __name__ == "__main__":
-#     if len(sys.argv) != 2:
-#         print("Usage: python script.py <input.xlsx>")
-#         sys.exit(1)
-
-#     input_xlsx = sys.argv[1]
-
-#     try:
-#         replace_text_in_xlsx(input_xlsx, my_replacement_function)
-#     except FileNotFoundError:
-#         print(f"Error: File '{input.xlsx}' not found.")
-#         sys.exit(1)
-#     except Exception as e:
-#         print(f"An error occurred: {e}")
-#         sys.exit(1)
-
-
 def replace_text_in_pptx(pptx_file, replace_func):
     """
     Iterates through all text elements in a .pptx file, replaces them with the
@@ -121,21 +99,49 @@ def replace_text_in_pptx(pptx_file, replace_func):
     prs.save(sys.stdout.buffer)
 
 
-# if __name__ == "__main__":
-#     if len(sys.argv) != 2:
-#         print("Usage: python script.py <input.pptx>")
-#         sys.exit(1)
+def load_function_from_file(filepath: str, function_name: str) -> typing.Callable:
+    """
+    Loads a Python file and retrieves a function from it.
 
-#     input_pptx = sys.argv[1]
+    Args:
+        filepath (str): The path to the Python file.
+        function_name (str): The name of the function to retrieve.
 
-#     try:
-#         replace_text_in_pptx(input_pptx, my_replacement_function)
-#     except FileNotFoundError:
-#         print(f"Error: File '{input_pptx}' not found.")
-#         sys.exit(1)
-#     except Exception as e:
-#         print(f"An error occurred: {e}")
-#         sys.exit(1)
+    Returns:
+        callable: The function object, or None if an error occurs.
+    """
+    try:
+        # Create a module spec from the file path
+        spec = importlib.util.spec_from_file_location("module_name", filepath)
+
+        if spec is None:
+            print(f"Error: Could not find module at {filepath}")
+            return None
+
+        # Create a new module based on the spec
+        module = importlib.util.module_from_spec(spec)
+
+        # Load the module
+        spec.loader.exec_module(module)
+
+        # Get the function from the module
+        function = getattr(module, function_name)
+
+        if not callable(function):
+            print(f"Error: {function_name} is not a function in {filepath}")
+            return None
+
+        return function
+
+    except FileNotFoundError:
+        print(f"Error: File '{filepath}' not found.")
+        return None
+    except AttributeError:
+        print(f"Error: Function '{function_name}' not found in '{filepath}'.")
+        return None
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return None
 
 
 @click.command()
@@ -163,16 +169,29 @@ def replace_text_in_pptx(pptx_file, replace_func):
 @moption(
     "-M", "--method", type=click.Choice(["googletrans", "official"]), default="official"
 )
-def translate(input_file, input_format, input_language, output_language, method):
+@moption("--custom-translation-callback", "-C", type=(click.Path(), str))
+def translate(
+    input_file,
+    input_format,
+    input_language,
+    output_language,
+    method,
+    custom_translation_callback,
+):
     logging.warning(
         dict(input_language=input_language, output_language=output_language)
     )
+
+    if custom_translation_callback is None:
+        translation_callback = translate_text
+    else:
+        translation_callback = load_function_from_file(*custom_translation_callback)
 
     if input_format == "auto" or input_format == "plaintext":
         with click.open_file(input_file) as f:
             text = f.read().strip()
         logging.warning(f"i: {text}")
-        text = translate_text(
+        text = translation_callback(
             text,
             method=method,
             input_language=input_language,
@@ -185,7 +204,7 @@ def translate(input_file, input_format, input_language, output_language, method)
         replace_text_in_pptx(
             input_file,
             replace_func=functools.partial(
-                translate_text,
+                translation_callback,
                 method=method,
                 input_language=input_language,
                 output_language=output_language,
@@ -195,7 +214,7 @@ def translate(input_file, input_format, input_language, output_language, method)
         replace_text_in_xlsx(
             input_file,
             replace_func=functools.partial(
-                translate_text,
+                translation_callback,
                 method=method,
                 input_language=input_language,
                 output_language=output_language,
