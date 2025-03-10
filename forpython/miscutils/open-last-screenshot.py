@@ -31,11 +31,16 @@ from dotenv import load_dotenv
 
 
 @click.command()
-@click.option("--screenshot-folder", type=click.Path(), show_envvar=True, required=True)
+@click.option(
+    "--screenshot-folder", "-F", type=click.Path(), show_envvar=True, required=True
+)
 @click.option("-i", "--index", type=int, default=1)
-def open_last_screenshot(screenshot_folder, index):
+@click.option("--open/--no-open", " /-N", "open_", default=False)
+@click.option("-p", "--prefix", default="")
+def open_last_screenshot(screenshot_folder: str, index: int, open_: bool, prefix: str):
     logging.warning(screenshot_folder)
     df = pd.DataFrame({"file_name": os.listdir(screenshot_folder)})
+    df = df[df["file_name"].str.startswith(prefix)]
     df["file_name"] = df["file_name"].apply(lambda x: path.join(screenshot_folder, x))
     df["created_date"] = (
         df["file_name"].apply(os.path.getctime).apply(datetime.fromtimestamp)
@@ -45,7 +50,9 @@ def open_last_screenshot(screenshot_folder, index):
     #    click.echo(df)
     fn = df.file_name.iloc[-index]
     logging.warning((fn,))
-    os.system(f'open "{fn}"')
+    click.echo(fn)
+    if open_:
+        os.system(f'open "{fn}"')
 
 
 if __name__ == "__main__":
