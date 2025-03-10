@@ -18,7 +18,8 @@ ORGANIZATION:
     REVISION: ---
 
 TODO:
-  1. add tenacity
+  1(D). add tenacity
+  2   . custom translation function
 ==============================================================================="""
 
 import click
@@ -27,15 +28,68 @@ import os
 from tenacity import retry, stop_after_attempt, wait_fixed
 from os import path
 import logging
+import typing
 import functools
 import sys
 from pptx import Presentation
 from pptx.text.text import TextFrame
 import tqdm
+import sys
+from openpyxl import load_workbook
+from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
 moption = functools.partial(click.option, show_envvar=True)
 KNOWN_FILE_FORMATS = {"pptx": None, "plaintext": None, "xlsx": None}
 KNOWN_LANGUAGES = {"es": None, "ja": None, "en": None}
+
+
+def replace_text_in_xlsx(xlsx_file: str, replace_func: typing.Callable) -> None:
+    """
+    Iterates through all text elements in an .xlsx file, replaces them with the
+    output of a provided Python function, and outputs the modified .xlsx to stdout.
+
+    Args:
+        xlsx_file (str or file-like object): Path to the .xlsx file or a file-like object.
+        replace_func (callable): A function that takes the original text as input
+                                   and returns the replacement text.
+    """
+
+    wb = load_workbook(xlsx_file)
+
+    for sheet in tqdm.tqdm(wb):
+        for row in sheet.iter_rows():
+            for cell in row:
+                if cell.value is not None and isinstance(cell.value, str):
+                    original_text = cell.value
+                    replacement_text = replace_func(original_text)
+                    cell.value = replacement_text
+
+    # Save the modified workbook to stdout
+    wb.save(sys.stdout.buffer)
+
+
+def my_replacement_function(original_text):
+    """
+    Example replacement function: adds " [MODIFIED]" to the end of each text.
+    """
+    return original_text + " [MODIFIED]"
+
+
+# if __name__ == "__main__":
+#     if len(sys.argv) != 2:
+#         print("Usage: python script.py <input.xlsx>")
+#         sys.exit(1)
+
+#     input_xlsx = sys.argv[1]
+
+#     try:
+#         replace_text_in_xlsx(input_xlsx, my_replacement_function)
+#     except FileNotFoundError:
+#         print(f"Error: File '{input.xlsx}' not found.")
+#         sys.exit(1)
+#     except Exception as e:
+#         print(f"An error occurred: {e}")
+#         sys.exit(1)
 
 
 def replace_text_in_pptx(pptx_file, replace_func):
@@ -135,6 +189,18 @@ def translate(input_file, input_format, input_language, output_language, method)
                 output_language=output_language,
             ),
         )
+    elif input_format == "xlsx":
+        replace_text_in_xlsx(
+            input_file,
+            replace_func=functools.partial(
+                translate_text,
+                method=method,
+                input_language=input_language,
+                output_language=output_language,
+            ),
+        )
+    else:
+        raise NotImplementedError(dict(input_format=input_format))
 
 
 @functools.cache
