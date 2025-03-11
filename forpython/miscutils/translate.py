@@ -39,6 +39,7 @@ import sys
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 import importlib.util
+from alex_leontiev_toolbox_python.utils.disk_cache import FsCache
 
 moption = functools.partial(click.option, show_envvar=True)
 KNOWN_FILE_FORMATS = {"pptx": None, "plaintext": None, "xlsx": None}
@@ -169,6 +170,7 @@ def load_function_from_file(filepath: str, function_name: str) -> typing.Callabl
 @moption(
     "-M", "--method", type=click.Choice(["googletrans", "official"]), default="official"
 )
+@moption("-S", "--salt", type=str)
 @moption("--custom-translation-callback", "-C", type=(click.Path(), str))
 def translate(
     input_file,
@@ -177,6 +179,7 @@ def translate(
     output_language,
     method,
     custom_translation_callback,
+    salt,
 ):
     logging.warning(
         dict(input_language=input_language, output_language=output_language)
@@ -196,6 +199,7 @@ def translate(
             method=method,
             input_language=input_language,
             output_language=output_language,
+            salt=salt,
         )
 
         logging.warning(f"o: {text}")
@@ -208,6 +212,7 @@ def translate(
                 method=method,
                 input_language=input_language,
                 output_language=output_language,
+                salt=salt,
             ),
         )
     elif input_format == "xlsx":
@@ -218,6 +223,7 @@ def translate(
                 method=method,
                 input_language=input_language,
                 output_language=output_language,
+                salt=salt,
             ),
         )
     else:
@@ -225,9 +231,14 @@ def translate(
 
 
 @functools.cache
+@FsCache(path.join(path.dirname(__file__), ".translate.cache.d"), is_loud=True)
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
 def translate_text(
-    text: typing.Optional[str], method: str, input_language: str, output_language: str
+    text: typing.Optional[str],
+    method: str,
+    input_language: str,
+    output_language: str,
+    salt: typing.Optional[str] = None,
 ) -> typing.Optional[str]:
     if text is None:
         return None
