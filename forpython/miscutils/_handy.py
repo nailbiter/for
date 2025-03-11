@@ -71,7 +71,7 @@ class Handy:
         self._logger = logging.getLogger(self.__class__.__name__ + "." + name)
 
     def __call__(self, ctx, names: list[str]):
-        params = dict(list(ctx.obj["params"]))
+        params = collate_params(list(ctx.obj["params"]))
         self._logger.warning(f"params: {params}")
         click.echo(
             ctx.obj["sep"].join(
@@ -79,6 +79,34 @@ class Handy:
             ),
             nl=not ctx.obj["strip"],
         )
+
+
+def collate_params(params: list) -> dict:
+    res = {}
+    for k, v in params:
+        res[k] = _collate_params(res.get(k), v)
+    return res
+
+
+@functools.singledispatch
+def _collate_params(x, v: str):
+    pass
+
+
+@_collate_params.register
+def _(x: None, v):
+    return v
+
+
+@_collate_params.register
+def _(x: str, v):
+    return [x, v]
+
+
+@_collate_params.register
+def _(x: list, v):
+    x.append(x)
+    return x
 
 
 UTILS: dict = dict(load_file=load_file)

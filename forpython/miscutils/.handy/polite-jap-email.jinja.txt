@@ -1,4 +1,5 @@
 {{params.recipient|default("Tanaka")}}様
+{{params.cc|join(",")}}
 
 いつもお世話になっております。佐藤と申します。
 
