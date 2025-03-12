@@ -251,7 +251,13 @@ def translate_text(
         from googletrans import Translator
 
         translator = Translator()
-        text = translator.translate(text, src=input_language, dest=output_language).text
+        try:
+            text = translator.translate(
+                text, src=input_language, dest=output_language
+            ).text
+        except Exception as e:
+            logging.error(e)
+            raise e
     elif method == "official":
         #! pip install google-cloud-translate
         #! pip install google-cloud-translate==2.0.1
