@@ -34,9 +34,9 @@ from dotenv import load_dotenv
 @click.option(
     "--screenshot-folder", "-F", type=click.Path(), show_envvar=True, required=True
 )
-@click.option("-i", "--index", type=int, default=1)
-@click.option("--open/--no-open", " /-N", "open_", default=False)
-@click.option("-p", "--prefix", default="")
+@click.option("-i", "--index", type=int, default=1, show_envvar=True)
+@click.option("--open/--no-open", " /-N", "open_", default=False, show_envvar=True)
+@click.option("-p", "--prefix", default="", show_envvar=True)
 def open_last_screenshot(screenshot_folder: str, index: int, open_: bool, prefix: str):
     logging.warning(screenshot_folder)
     df = pd.DataFrame({"file_name": os.listdir(screenshot_folder)})
