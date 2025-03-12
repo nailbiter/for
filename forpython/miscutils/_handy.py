@@ -81,6 +81,16 @@ class Handy:
         )
 
 
+@functools.singledispatch
+def str_or_list_to_list(x):
+    return x
+
+
+@str_or_list_to_list.register
+def _(x: str):
+    return [x]
+
+
 def collate_params(params: list) -> dict:
     res = {}
     for k, v in params:
@@ -109,4 +119,7 @@ def _(x: list, v):
     return x
 
 
-UTILS: dict = dict(load_file=load_file)
+UTILS: dict = dict(
+    load_file=load_file,
+    str_or_list_to_list=str_or_list_to_list,
+)
