@@ -2,7 +2,7 @@
 
 {% if params.task %}
 The task was: {{ params.task }}.
-{% endfor %}
+{% endif %}
 
 Please, fix the following text in German:
 
