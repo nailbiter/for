@@ -30,7 +30,7 @@ import uuid
 @click.command()
 @click.option("-i", "--input-file", type=click.Path(allow_dash=True))
 @click.option("-o", "--output-file", type=click.Path())
-@click.option("--open-file/--no-open-file", "-O/ ", default=False)
+@click.option("--open-file/--no-open-file", "-O/-N", default=False)
 @click.option("-S", "--style-css", type=click.Path())
 def md_to_html(input_file, output_file, open_file, style_css):
     if input_file is None:
