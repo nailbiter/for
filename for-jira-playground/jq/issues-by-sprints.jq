@@ -10,5 +10,5 @@ def remove_nulls:
   );
 
 #.[]|.fields.customfield_10020|arrays|map(select(.state=="active"))
-[.[]|.fields.customfield_10020|arrays|.[]|select(.state!="closed")|(.id|tostring)+","+.name]|unique
+[.[]|.fields.customfield_10020|arrays|.[]|select(.state!="closed")|.name+","+(.id|tostring)]|unique|sort
 #|group_by((.id|tostring)+","+.name)
