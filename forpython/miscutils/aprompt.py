@@ -67,6 +67,7 @@ def aprompt():
 )
 @moption(
     "-t",
+    "-f",
     "--template-filename",
     type=click.Path(),
     required=False,
@@ -140,7 +141,11 @@ def single_prompt(
             i = template_filename.index(".")
             ext = template_filename[i:]
             my_log_warning(dict(ext=ext))
-            template_format = {".jinja.txt": "jinja2", ".txt": "string_template"}[ext]
+            template_format = {
+                ".jinja.txt": "jinja2",
+                ".jinja.md": "jinja2",
+                ".txt": "string_template",
+            }[ext]
             assert template_format in AVAILABLE_TEMPLATE_FORMATS, (
                 template_format,
                 AVAILABLE_TEMPLATE_FORMATS,
