@@ -38,7 +38,7 @@ import typing
 
 from dotenv import load_dotenv
 
-from _handy import UTILS
+from _handy import UTILS, collate_params
 from _aprompt.prompt_engines import get_prompt_engine, AVAILABLE_PROMPT_ENGINES
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
@@ -161,7 +161,7 @@ def single_prompt(
             rp = path.relpath(template_filename, templates_dir)
             # my_log_warning(dict(rp=rp))
             template = jinja_env.get_template(rp)
-            params = dict(list(params))
+            params = collate_params(params)
             env = dict(
                 params=params,
                 consts=dict(templates_dir=templates_dir),
