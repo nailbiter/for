@@ -23,6 +23,7 @@ from jinja2 import Template
 import functools
 import logging
 from os import path
+import importlib.util
 
 
 def load_file(filename: typing.Optional[str]) -> str:
@@ -123,3 +124,48 @@ UTILS: dict = dict(
     load_file=load_file,
     str_or_list_to_list=str_or_list_to_list,
 )
+
+
+def load_function_from_file(filepath: str, function_name: str) -> typing.Callable:
+    """
+    Loads a Python file and retrieves a function from it.
+
+    Args:
+        filepath (str): The path to the Python file.
+        function_name (str): The name of the function to retrieve.
+
+    Returns:
+        callable: The function object, or None if an error occurs.
+    """
+    try:
+        # Create a module spec from the file path
+        spec = importlib.util.spec_from_file_location("module_name", filepath)
+
+        if spec is None:
+            logging.error(f"Error: Could not find module at {filepath}")
+            return None
+
+        # Create a new module based on the spec
+        module = importlib.util.module_from_spec(spec)
+
+        # Load the module
+        spec.loader.exec_module(module)
+
+        # Get the function from the module
+        function = getattr(module, function_name)
+
+        if not callable(function):
+            logging.error(f"Error: {function_name} is not a function in {filepath}")
+            return None
+
+        return function
+
+    except FileNotFoundError:
+        logging.error(f"Error: File '{filepath}' not found.")
+        return None
+    except AttributeError:
+        logging.error(f"Error: Function '{function_name}' not found in '{filepath}'.")
+        return None
+    except Exception as e:
+        logging.error(f"An unexpected error occurred: {e}")
+        return None

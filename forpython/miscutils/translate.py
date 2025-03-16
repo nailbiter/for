@@ -38,9 +38,9 @@ import tqdm
 import sys
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-import importlib.util
 from alex_leontiev_toolbox_python.utils.disk_cache import FsCache
 import json
+from _handy import load_function_from_file
 
 moption = functools.partial(click.option, show_envvar=True)
 KNOWN_FILE_FORMATS = {"pptx": None, "plaintext": None, "xlsx": None}
@@ -99,51 +99,6 @@ def replace_text_in_pptx(pptx_file, replace_func):
 
     # Save the modified presentation to stdout
     prs.save(sys.stdout.buffer)
-
-
-def load_function_from_file(filepath: str, function_name: str) -> typing.Callable:
-    """
-    Loads a Python file and retrieves a function from it.
-
-    Args:
-        filepath (str): The path to the Python file.
-        function_name (str): The name of the function to retrieve.
-
-    Returns:
-        callable: The function object, or None if an error occurs.
-    """
-    try:
-        # Create a module spec from the file path
-        spec = importlib.util.spec_from_file_location("module_name", filepath)
-
-        if spec is None:
-            print(f"Error: Could not find module at {filepath}")
-            return None
-
-        # Create a new module based on the spec
-        module = importlib.util.module_from_spec(spec)
-
-        # Load the module
-        spec.loader.exec_module(module)
-
-        # Get the function from the module
-        function = getattr(module, function_name)
-
-        if not callable(function):
-            print(f"Error: {function_name} is not a function in {filepath}")
-            return None
-
-        return function
-
-    except FileNotFoundError:
-        print(f"Error: File '{filepath}' not found.")
-        return None
-    except AttributeError:
-        print(f"Error: Function '{function_name}' not found in '{filepath}'.")
-        return None
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-        return None
 
 
 @click.command()
