@@ -35,18 +35,18 @@ def load_file(filename: typing.Optional[str]) -> str:
 
 
 @functools.singledispatch
-def render_handy(a, params: dict = {}) -> str:
+def render_handy(a, **kwargs) -> str:
     pass
 
 
 @render_handy.register
-def _(a: str, params: dict = {}) -> str:
+def _(a: str, **kwargs) -> str:
     return a
 
 
 @render_handy.register
-def _(a: dict, params: dict = {}) -> str:
-    return handle_handy_file(**a, params=params)
+def _(a: dict, **kwargs) -> str:
+    return handle_handy_file(**a, **kwargs)
 
 
 def handle_handy_file(
@@ -55,12 +55,15 @@ def handle_handy_file(
     is_render: bool = False,
     is_strip: bool = False,
     params: dict = {},
+    custom_functions: list = [],
 ) -> str:
     if filename is not None:
         with open(filename) as f:
             value = f.read()
     if is_render:
-        value = Template(value).render(dict(params=params, utils=UTILS))
+        value = Template(value).render(
+            dict(params=params, utils=get_utils(custom_functions=custom_functions))
+        )
     if is_strip:
         value = value.strip()
     return value
@@ -73,10 +76,18 @@ class Handy:
 
     def __call__(self, ctx, names: list[str]):
         params = collate_params(list(ctx.obj["params"]))
+        custom_functions = ctx.obj["custom_functions"]
         self._logger.warning(f"params: {params}")
         click.echo(
             ctx.obj["sep"].join(
-                [render_handy(self._values[name], params=params) for name in names]
+                [
+                    render_handy(
+                        self._values[name],
+                        params=params,
+                        custom_functions=custom_functions,
+                    )
+                    for name in names
+                ]
             ),
             nl=not ctx.obj["strip"],
         )
@@ -120,10 +131,18 @@ def _(x: list, v):
     return x
 
 
-UTILS: dict = dict(
-    load_file=load_file,
-    str_or_list_to_list=str_or_list_to_list,
-)
+def get_utils(custom_functions: list = []) -> dict:
+    utils = dict(
+        load_file=load_file,
+        str_or_list_to_list=str_or_list_to_list,
+    )
+    if len(custom_functions) > 0:
+        utils["custom"] = {}
+        for filepath, function_name, function_alias in custom_functions:
+            utils["custom"][function_alias] = load_function_from_file(
+                filepath, function_name
+            )
+    return utils
 
 
 def load_function_from_file(filepath: str, function_name: str) -> typing.Callable:

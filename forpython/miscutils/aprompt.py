@@ -38,7 +38,7 @@ import typing
 
 from dotenv import load_dotenv
 
-from _handy import UTILS, collate_params
+from _handy import collate_params
 from _aprompt.prompt_engines import get_prompt_engine, AVAILABLE_PROMPT_ENGINES
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
@@ -170,7 +170,7 @@ def single_prompt(
             env = dict(
                 params=params,
                 consts=dict(templates_dir=templates_dir),
-                utils=UTILS,
+                utils=get_utils(),
             )
             my_log_warning(env)
             prompt = template.render(**env)
