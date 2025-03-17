@@ -223,16 +223,16 @@ def translate_text(
                 ).text
         except Exception as e:
             logging.error(e)
-            raise (
-                e,
+            logging.error(
                 dict(
                     text=text,
                     method=method,
                     input_language=input_language,
                     output_language=output_language,
                     salt=salt,
-                ),
+                )
             )
+            raise e
     elif method == "official":
         #! pip install google-cloud-translate
         #! pip install google-cloud-translate==2.0.1
