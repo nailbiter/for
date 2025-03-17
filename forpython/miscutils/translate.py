@@ -60,7 +60,7 @@ def replace_text_in_xlsx(xlsx_file: str, replace_func: typing.Callable) -> None:
 
     wb = load_workbook(xlsx_file)
     pbar = tqdm.tqdm()
-    for sheet in tqdm.tqdm(wb):
+    for sheet in tqdm.tqdm(wb, total=len(wb.sheetnames)):
         for row in sheet.iter_rows():
             for cell in row:
                 pbar.update(1)
