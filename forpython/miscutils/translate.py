@@ -28,6 +28,7 @@ from dotenv import load_dotenv
 import os
 from tenacity import retry, stop_after_attempt, wait_fixed
 from os import path
+import json5
 import logging
 import typing
 import functools
@@ -132,6 +133,7 @@ def replace_text_in_pptx(pptx_file, replace_func):
     "--translate-source-language/--no-translate-source-language", "-T/ ", default=False
 )
 @moption("--kwargs-json", "-K", type=str, default="{}")
+@moption("--override-dict", "-D", type=click.Path())
 def translate(
     input_file,
     translate_source_language,
@@ -142,15 +144,23 @@ def translate(
     custom_translation_callback,
     salt,
     kwargs_json,
+    override_dict,
 ):
     logging.warning(
         dict(input_language=input_language, output_language=output_language)
     )
 
+    if override_dict is not None:
+        with open(override_dict) as f:
+            override = json5.load(f)
+    else:
+        override = {}
+
     translate_kwargs = dict(
         json.loads(kwargs_json),
         translate_source_language=translate_source_language,
         method=method,
+        override=override,
         input_language=input_language,
         output_language=output_language,
         salt=salt,
@@ -182,11 +192,26 @@ def translate(
         raise NotImplementedError(dict(input_format=input_format))
 
 
+def translate_text(
+    text: typing.Optional[str], *args, override: dict[str, str] = {}, **kwargs
+) -> typing.Optional[str]:
+    if text is None:
+        return None
+    elif text.strip() == "":
+        return text
+
+    text = text.strip()
+    if text in override:
+        return override[text]
+    else:
+        return translate_text_inner(text, *args, **kwargs)
+
+
 @functools.cache
 @FsCache(path.join(path.dirname(__file__), ".translate.cache.d"), is_loud=True)
 @retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
-def translate_text(
-    text: typing.Optional[str],
+def translate_text_inner(
+    text: str,
     method: str,
     input_language: str,
     output_language: str,
@@ -195,11 +220,6 @@ def translate_text(
     source_language_detection_confidence: float = 0.1,
     is_accept_none_confidence: bool = True,
 ) -> typing.Optional[str]:
-    if text is None:
-        return None
-    elif text.strip() == "":
-        return text
-
     if method == "googletrans":
         #! pip install 'googletrans==4.0.0rc1'
         #! pip install googletrans
