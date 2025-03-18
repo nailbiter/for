@@ -42,10 +42,9 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from alex_leontiev_toolbox_python.utils.disk_cache import FsCache
 import json
 from _handy import load_function_from_file
+from _translate import KNOWN_FILE_FORMATS, KNOWN_LANGUAGES
 
 moption = functools.partial(click.option, show_envvar=True)
-KNOWN_FILE_FORMATS = {"pptx": None, "plaintext": None, "xlsx": None}
-KNOWN_LANGUAGES = {"es": None, "ja": None, "en": None}
 
 
 def replace_text_in_xlsx(xlsx_file: str, replace_func: typing.Callable) -> None:
