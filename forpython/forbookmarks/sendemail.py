@@ -34,6 +34,7 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import functools
+from jinja2 import Template
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
 
@@ -112,7 +113,7 @@ def sendemail(
     # message = "Please find the attached PDF."
     # attachment_path = "path/to/your/document.pdf"  # Replace with the path to your PDF file
     with open(message) as f:
-        message = f.read().strip()
+        message = Template(f.read().strip()).render()
     send_email_with_attachment(
         sender_email,
         sender_password,
