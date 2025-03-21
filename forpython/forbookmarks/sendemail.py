@@ -85,11 +85,25 @@ def send_email_with_attachment(
         print(f"An error occurred: {e}")
 
 
-# Example usage:
-
-
 @click.command()
-def sendemail():
+@moption("-e", "--sender-email", required=True)
+@moption("-p", "--sender-password", required=True)
+@moption("-r", "--receiver-email", required=True)
+@moption("-c", "--cc-email", required=True)
+@moption("-s", "--subject", required=True)
+@moption("-m", "--message", required=True, type=click.Path())
+@moption("-a", "--attachment-path", type=click.Path())
+def sendemail(
+    sender_email,
+    sender_password,
+    receiver_email,
+    cc_email,
+    subject,
+    message,
+    attachment_path,
+):
+    ## FIXME: remove this restriction
+    assert attachment_path is not None
     # sender_email = "your_email@gmail.com"  # Replace with your Gmail address
     # sender_password = "your_password"  # Replace with your Gmail password or App Password
     # receiver_email = "recipient_email@example.com"  # Replace with the recipient's email
@@ -97,6 +111,8 @@ def sendemail():
     # subject = "Email with PDF Attachment"
     # message = "Please find the attached PDF."
     # attachment_path = "path/to/your/document.pdf"  # Replace with the path to your PDF file
+    with open(message) as f:
+        message = f.read().strip()
     send_email_with_attachment(
         sender_email,
         sender_password,

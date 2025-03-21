@@ -137,10 +137,10 @@
 ;; tree sitter (for folding)
 ;; need `brew install tree-sitter tree-sitter-langs`
 ;; python-ts-mode (in emacs)
-(require 'tree-sitter)
-(require 'tree-sitter-langs)
+;; (require 'tree-sitter)
+;; (require 'tree-sitter-langs)
 
-(global-tree-sitter-mode)
-(add-hook 'python-mode-hook #'tree-sitter-hl-mode)
+;; (global-tree-sitter-mode)
+;; (add-hook 'python-mode-hook #'tree-sitter-hl-mode)
 
-(tree-sitter-require 'python)
+;; (tree-sitter-require 'python)
