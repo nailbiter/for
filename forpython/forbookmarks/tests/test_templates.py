@@ -30,7 +30,8 @@ class TestTemplates(unittest.TestCase):
         super().__init__(*args, **kwargs)
         self._logger = logging.getLogger(self.__class__.__name__)
         self._jinja_env = Environment(
-            loader=FileSystemLoader("templates", followlinks=True))
+            loader=FileSystemLoader("templates", followlinks=True)
+        )
 
     def test_something(self):
         _dir = path.join(path.split(__file__)[0], ".data", "test_templates")
@@ -38,11 +39,12 @@ class TestTemplates(unittest.TestCase):
             data = json.load(f)
         for r in data:
             res = self._jinja_env.get_template(r["template_fn"]).render(
-                {**r["render_data"], "roman_to_int": roman_to_int})
+                {**r["render_data"], "roman_to_int": roman_to_int}
+            )
             with open(path.join(_dir, r["res_fn"])) as f:
                 exp = f.read().strip()
             self.assertEqual(res, exp)
-        print(f"{len(data)} tests ran")    
+        print(f"{len(data)} tests ran")
 
 
 if __name__ == "__main__":
