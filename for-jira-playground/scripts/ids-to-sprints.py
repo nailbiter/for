@@ -37,7 +37,10 @@ from datetime import datetime
 
 @click.command()
 @click.option("-n", "--iter-num", type=int, default=2)
-def ids_to_sprints(iter_num):
+@click.option(
+    "-a", "--manual-addition", "manual_additions", type=(int, str), multiple=True
+)
+def ids_to_sprints(iter_num, manual_additions):
     outs = []
     for i in tqdm.trange(0, iter_num * 100, 100):
         ec, out = subprocess.getstatusoutput(
@@ -45,7 +48,7 @@ def ids_to_sprints(iter_num):
         )
         out = out.removeprefix("WARNING:root:")
         # logging.warning(out)
-        assert ec == 0, (ec,out)
+        assert ec == 0, (ec, out)
         outs.append(pd.DataFrame(json.loads(out)))
     df = pd.concat(outs)
     df = (
@@ -60,7 +63,11 @@ def ids_to_sprints(iter_num):
     )
     cli = MongoClient(os.environ["MONGO_URL_GSTASKS"])
     df = pd.concat(
-        [df, pd.DataFrame(cli["jira"]["sprints"].find())[["name", "id"]]]
+        [
+            df,
+            pd.DataFrame(cli["jira"]["sprints"].find())[["name", "id"]],
+            pd.DataFrame(manual_additions, columns=["id", "name"]),
+        ]
     ).drop_duplicates()
     df.set_index("name", inplace=True)
     df.sort_index(inplace=True)
