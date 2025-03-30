@@ -31,6 +31,8 @@ import pandas as pd
 from pymongo import MongoClient
 import tqdm
 import operator
+import re
+from datetime import datetime
 
 
 @click.command()
@@ -55,8 +57,34 @@ def ids_to_sprints():
         .reset_index()[["id", "name"]]
         .drop_duplicates()
     )
+    cli = MongoClient(os.environ["MONGO_URL_GSTASKS"])
+    df = pd.concat(
+        [df, pd.DataFrame(cli["jira"]["sprints"].find())[["name", "id"]]]
+    ).drop_duplicates()
     df.set_index("name", inplace=True)
     df.sort_index(inplace=True)
+    logging.warning(df)
+
+    s = df.index.to_series().apply(re.compile("[0-9]{4}-[0-9]{2}-[0-9]{2}").match)
+    # logging.warning(s)
+    s1 = s.isna()
+    s.dropna(inplace=True)
+    s = (
+        s.apply(operator.methodcaller("group", 0)).apply(
+            pd.to_datetime, errors="coerce"
+        )
+        # .apply(lambda i: i[0])
+    )
+    # logging.warning(s)
+    s2 = s.isna()
+    s.dropna(inplace=True)
+    # logging.warning(s)
+    s = s.dt.date.ge(datetime.now().date())
+
+    # logging.warning(s)
+    logging.warning(sorted(df.index.to_series().unique()))
+    df = df[s1 | s2 | s]
+
 
     click.echo(df.to_string())
     # logging.warning("\n" + str(df))
