@@ -36,15 +36,16 @@ from datetime import datetime
 
 
 @click.command()
-def ids_to_sprints():
+@click.option("-n", "--iter-num", type=int, default=2)
+def ids_to_sprints(iter_num):
     outs = []
-    for i in tqdm.trange(0, 200, 100):
+    for i in tqdm.trange(0, iter_num * 100, 100):
         ec, out = subprocess.getstatusoutput(
             f"""jira-cli.py api jql -s {i} -m 100 -j 'project = ML3 AND status IN ("To Do", "In Progress") AND sprint != empty ORDER BY created DESC' -o json 2>/dev/null"""
         )
         out = out.removeprefix("WARNING:root:")
         # logging.warning(out)
-        assert ec == 0, ec
+        assert ec == 0, (ec,out)
         outs.append(pd.DataFrame(json.loads(out)))
     df = pd.concat(outs)
     df = (
@@ -84,7 +85,6 @@ def ids_to_sprints():
     # logging.warning(s)
     logging.warning(sorted(df.index.to_series().unique()))
     df = df[s1 | s2 | s]
-
 
     click.echo(df.to_string())
     # logging.warning("\n" + str(df))
