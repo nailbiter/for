@@ -20,7 +20,7 @@ ORGANIZATION:
 TODO:
   1(D). add tenacity
   2(D). custom translation function
-  3   . sqlite3 cache
+  3(D). sqlite3 cache
 ==============================================================================="""
 
 import click
@@ -28,6 +28,7 @@ from dotenv import load_dotenv
 import os
 from tenacity import retry, stop_after_attempt, wait_fixed
 from os import path
+import json5
 import logging
 import typing
 import functools
@@ -38,12 +39,12 @@ import tqdm
 import sys
 from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
-import importlib.util
 from alex_leontiev_toolbox_python.utils.disk_cache import FsCache
+import json
+from _handy import load_function_from_file
+from _translate import KNOWN_FILE_FORMATS, KNOWN_LANGUAGES
 
 moption = functools.partial(click.option, show_envvar=True)
-KNOWN_FILE_FORMATS = {"pptx": None, "plaintext": None, "xlsx": None}
-KNOWN_LANGUAGES = {"es": None, "ja": None, "en": None}
 
 
 def replace_text_in_xlsx(xlsx_file: str, replace_func: typing.Callable) -> None:
@@ -59,7 +60,7 @@ def replace_text_in_xlsx(xlsx_file: str, replace_func: typing.Callable) -> None:
 
     wb = load_workbook(xlsx_file)
     pbar = tqdm.tqdm()
-    for sheet in tqdm.tqdm(wb):
+    for sheet in tqdm.tqdm(wb, total=len(wb.sheetnames)):
         for row in sheet.iter_rows():
             for cell in row:
                 pbar.update(1)
@@ -100,51 +101,6 @@ def replace_text_in_pptx(pptx_file, replace_func):
     prs.save(sys.stdout.buffer)
 
 
-def load_function_from_file(filepath: str, function_name: str) -> typing.Callable:
-    """
-    Loads a Python file and retrieves a function from it.
-
-    Args:
-        filepath (str): The path to the Python file.
-        function_name (str): The name of the function to retrieve.
-
-    Returns:
-        callable: The function object, or None if an error occurs.
-    """
-    try:
-        # Create a module spec from the file path
-        spec = importlib.util.spec_from_file_location("module_name", filepath)
-
-        if spec is None:
-            print(f"Error: Could not find module at {filepath}")
-            return None
-
-        # Create a new module based on the spec
-        module = importlib.util.module_from_spec(spec)
-
-        # Load the module
-        spec.loader.exec_module(module)
-
-        # Get the function from the module
-        function = getattr(module, function_name)
-
-        if not callable(function):
-            print(f"Error: {function_name} is not a function in {filepath}")
-            return None
-
-        return function
-
-    except FileNotFoundError:
-        print(f"Error: File '{filepath}' not found.")
-        return None
-    except AttributeError:
-        print(f"Error: Function '{function_name}' not found in '{filepath}'.")
-        return None
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-        return None
-
-
 @click.command()
 @moption("--input-file", "-i", type=click.Path(allow_dash=True), default="-")
 @moption(
@@ -172,19 +128,42 @@ def load_function_from_file(filepath: str, function_name: str) -> typing.Callabl
 )
 @moption("-S", "--salt", type=str)
 @moption("--custom-translation-callback", "-C", type=(click.Path(), str))
+@moption(
+    "--translate-source-language/--no-translate-source-language", "-T/ ", default=False
+)
+@moption("--kwargs-json", "-K", type=str, default="{}")
+@moption("--override-dict", "-D", type=click.Path())
 def translate(
     input_file,
+    translate_source_language,
     input_format,
     input_language,
     output_language,
     method,
     custom_translation_callback,
     salt,
+    kwargs_json,
+    override_dict,
 ):
     logging.warning(
         dict(input_language=input_language, output_language=output_language)
     )
 
+    if override_dict is not None:
+        with open(override_dict) as f:
+            override = json5.load(f)
+    else:
+        override = {}
+
+    translate_kwargs = dict(
+        json.loads(kwargs_json),
+        translate_source_language=translate_source_language,
+        method=method,
+        override=override,
+        input_language=input_language,
+        output_language=output_language,
+        salt=salt,
+    )
     if custom_translation_callback is None:
         translation_callback = translate_text
     else:
@@ -194,57 +173,52 @@ def translate(
         with click.open_file(input_file) as f:
             text = f.read().strip()
         logging.warning(f"i: {text}")
-        text = translation_callback(
-            text,
-            method=method,
-            input_language=input_language,
-            output_language=output_language,
-            salt=salt,
-        )
+        text = translation_callback(text, **translate_kwargs)
 
         logging.warning(f"o: {text}")
         click.echo(text)
     elif input_format == "pptx":
         replace_text_in_pptx(
             input_file,
-            replace_func=functools.partial(
-                translation_callback,
-                method=method,
-                input_language=input_language,
-                output_language=output_language,
-                salt=salt,
-            ),
+            replace_func=functools.partial(translation_callback, **translate_kwargs),
         )
     elif input_format == "xlsx":
         replace_text_in_xlsx(
             input_file,
-            replace_func=functools.partial(
-                translation_callback,
-                method=method,
-                input_language=input_language,
-                output_language=output_language,
-                salt=salt,
-            ),
+            replace_func=functools.partial(translation_callback, **translate_kwargs),
         )
     else:
         raise NotImplementedError(dict(input_format=input_format))
 
 
-@functools.cache
-@FsCache(path.join(path.dirname(__file__), ".translate.cache.d"), is_loud=True)
-@retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
 def translate_text(
-    text: typing.Optional[str],
-    method: str,
-    input_language: str,
-    output_language: str,
-    salt: typing.Optional[str] = None,
+    text: typing.Optional[str], *args, override: dict[str, str] = {}, **kwargs
 ) -> typing.Optional[str]:
     if text is None:
         return None
     elif text.strip() == "":
         return text
 
+    text = text.strip()
+    if text in override:
+        return override[text]
+    else:
+        return translate_text_inner(text, *args, **kwargs)
+
+
+@functools.cache
+@FsCache(path.join(path.dirname(__file__), ".translate.cache.d"), is_loud=True)
+@retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
+def translate_text_inner(
+    text: str,
+    method: str,
+    input_language: str,
+    output_language: str,
+    salt: typing.Optional[str] = None,
+    translate_source_language: bool = False,
+    source_language_detection_confidence: float = 0.1,
+    is_accept_none_confidence: bool = True,
+) -> typing.Optional[str]:
     if method == "googletrans":
         #! pip install 'googletrans==4.0.0rc1'
         #! pip install googletrans
@@ -252,11 +226,31 @@ def translate_text(
 
         translator = Translator()
         try:
-            text = translator.translate(
-                text, src=input_language, dest=output_language
-            ).text
+            should_translate = True
+            if not translate_source_language:
+                result = translator.detect(text)
+                logging.warning(result)
+                if result.lang == output_language and (
+                    (is_accept_none_confidence and (result.confidence is None))
+                    or (result.confidence >= source_language_detection_confidence)
+                ):
+                    should_translate = False
+            logging.warning(f"should_translate: {should_translate}")
+            if should_translate:
+                text = translator.translate(
+                    text, src=input_language, dest=output_language
+                ).text
         except Exception as e:
             logging.error(e)
+            logging.error(
+                dict(
+                    text=text,
+                    method=method,
+                    input_language=input_language,
+                    output_language=output_language,
+                    salt=salt,
+                )
+            )
             raise e
     elif method == "official":
         #! pip install google-cloud-translate
@@ -270,6 +264,7 @@ def translate_text(
         )["translatedText"]
     else:
         raise NotImplementedError(dict(method=method))
+
     return text
 
 

@@ -313,7 +313,6 @@ def edit_loop(ctx, logger=None):
 @click.pass_context
 @_add_logger
 def make(ctx, ignore_cache, logger=None, **kwargs):
-
     (
         day,
         cache_folder,

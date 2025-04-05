@@ -40,6 +40,9 @@ _DICT_FNS = {
 )
 @click.option("-s", "--sep", type=str, default="")
 @click.option("-p", "--param", "params", type=(str, str), multiple=True)
+@click.option(
+    "-C", "--custom-function", "custom_functions", type=(str, str, str), multiple=True
+)
 @click.pass_context
 def handy(ctx, **kwargs):
     ctx.ensure_object(dict)

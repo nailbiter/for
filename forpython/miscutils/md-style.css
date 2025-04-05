@@ -1,0 +1,85 @@
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  margin: 20px;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5em;
+  color: #222;
+}
+
+p, ul, ol {
+  margin-bottom: 1em;
+}
+
+pre {
+  white-space: pre-wrap; /* Enable line wrapping */
+  word-wrap: break-word; /* Break long words */
+  background-color: #282c34; /* Darker background */
+  color: #abb2bf; /* Light text for contrast */
+  padding: 1em;
+  border: 1px solid #4d525d; /* Frame */
+  border-radius: 5px;
+  overflow-x: auto; /* Add horizontal scroll if needed */
+  font-family: monospace; /* Monospace font */
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 1em;
+}
+
+code {
+  background-color: #f0f0f0;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+pre code {
+  background-color: transparent; /* Remove background within pre>code */
+  padding: 0;
+}
+
+blockquote {
+  border-left: 3px solid #ddd;
+  padding-left: 1em;
+  margin: 1em 0;
+  color: #777;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  border: 1px solid #eee;
+  margin: 2em 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}

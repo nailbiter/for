@@ -1,5 +1,11 @@
 {% include "personas/german-teacher-c2.jinja.txt" %}
 
+{% if params.task %}
+The task was: {{ params.task }}.
+{% elif params.task_file %}
+The task was: {{ utils.load_file(params.task) }}.
+{% endif %}
+
 Please, fix the following text in German:
 
 ```

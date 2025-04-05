@@ -30,8 +30,9 @@ import uuid
 @click.command()
 @click.option("-i", "--input-file", type=click.Path(allow_dash=True))
 @click.option("-o", "--output-file", type=click.Path())
-@click.option("--open-file/--no-open-file", "-p/ ", default=False)
-def md_to_html(input_file, output_file, open_file):
+@click.option("--open-file/--no-open-file", "-O/-N", default=False)
+@click.option("-S", "--style-css", type=click.Path())
+def md_to_html(input_file, output_file, open_file, style_css):
     if input_file is None:
         input_file = "README.md"
     if output_file is None:
@@ -48,8 +49,12 @@ def md_to_html(input_file, output_file, open_file):
     # print(f"output saved to {output_file}")
     with click.open_file(input_file) as f:
         md = f.read()
+    res = markdown.markdown(md, extensions=["extra"])
+    if style_css is not None:
+        with click.open_file(style_css) as f:
+            res = f"<style>{f.read()}</style>" + "\n" + res
     with open(output_file, "w") as f:
-        f.write(markdown.markdown(md))
+        f.write(res)
 
     logging.warning(f'of: "{output_file}"')
     if open_file:
