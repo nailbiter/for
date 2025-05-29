@@ -157,12 +157,14 @@
 
 ;; https://nailbiter91.atlassian.net/browse/ML3-2695
 (defun gemini ()
-  "Run a Python script with the current buffer's content and display the output."
+  "Run a Python script with the current buffer's content as stdin
+and a user-provided prompt as a command-line argument.
+Displays the output in a new buffer.
+Uses the Python interpreter specified in 'gemini-python-interpreter'."
   (interactive)
-  (let* ((current-buffer-content (buffer-substring-no-properties (point-min) (point-max)))
-         ;; 🐍 SPECIFY YOUR PYTHON INTERPRETER HERE
-         ;(python-interpreter gemini-python-interpreter) ; e.g., "/home/user/.virtualenvs/myenv/bin/python" or "/usr/local/bin/python3.9"
-         (python-script-path (expand-file-name "~/for/forpython/gemini-emacs.py")) ; 🐍 Change this script path
+  (let* ((user-prompt (read-string "Enter Prompt: ")) ; Prompt the user
+         (current-buffer-content (buffer-substring-no-properties (point-min) (point-max)))
+         (python-script-path (expand-file-name "~/for/forpython/gemini-emacs.py"))
          (output-buffer-name "*gemini-output*")
          (process-connection-type nil)
          (process-environment process-environment))
@@ -171,15 +173,17 @@
     (when (get-buffer output-buffer-name)
       (kill-buffer output-buffer-name))
 
-    ;; Run the Python script with the current buffer's content as stdin
+    ;; Run the Python script
     (with-temp-buffer
-      (insert current-buffer-content)
-      (call-process-region (point-min) (point-max)
-                           gemini-python-interpreter   ; <--- USE THE SPECIFIED INTERPRETER
-                           nil ; Delete region
-                           output-buffer-name ; Send output to this buffer
-                           nil ; Display output buffer (we'll do it manually)
-                           python-script-path)) ; Argument to the interpreter is your script
+      (insert current-buffer-content) ; Put buffer content into temp buffer for stdin
+      (apply #'call-process-region
+             (point-min) (point-max) ; Region for stdin
+             gemini-python-interpreter ; Program to run
+             nil ; Don't delete region
+             output-buffer-name ; Output to this buffer
+             nil ; Don't display output buffer yet
+             ;; Arguments to the Python interpreter: script_path and user_prompt
+             (list python-script-path "-p" user-prompt)))
 
     ;; Display the output buffer
     (if (get-buffer output-buffer-name)
@@ -187,5 +191,9 @@
           (display-buffer output-buffer-name)
           (with-current-buffer output-buffer-name
             (goto-char (point-min))
-            (message "Python script output displayed in %s" output-buffer-name)))
+            (message "Python script output displayed in %s (Prompt: \"%s\")"
+                     output-buffer-name user-prompt)))
       (message "Error: Python script did not produce output or an error occurred."))))
+
+;; Optional keybinding
+;; (global-set-key (kbd "C-c g") 'gemini)

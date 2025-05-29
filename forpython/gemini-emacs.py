@@ -29,9 +29,12 @@ import sys
 
 
 @click.command()
-def gemini_emacs():
+@click.option("-p", "--prompt", type=str, required=True)
+def gemini_emacs(prompt):
     input_text = sys.stdin.read()
-    processed_text = "Processed by Python:\n" + input_text.upper()
+    processed_text = (
+        f"prompt: {prompt}\n" + "Processed by Python:\n" + input_text.upper()
+    )
     click.echo(processed_text)
 
 
