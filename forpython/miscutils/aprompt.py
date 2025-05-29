@@ -37,16 +37,21 @@ import functools
 import typing
 import itertools
 import operator
+import uuid
 
 from dotenv import load_dotenv
 import pandas as pd
+from jinja2 import Template
 
-from _handy import collate_params
+from _handy import collate_params, get_utils
 from _aprompt.prompt_engines import get_prompt_engine, AVAILABLE_PROMPT_ENGINES
 from _aprompt.cyborgs import AUGMENTATION_PACKS, get_gemini_response_via_client
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
 AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
+CLICK_OPTION_TPL_PARAMS = moption(
+    "-p", "--param", "params", multiple=True, type=(str, str)
+)
 
 
 @click.group()
@@ -68,7 +73,8 @@ def aprompt(ctx, engine_access_token):
     multiple=True,
     default=["all"],
 )
-@click.option("-p", "--prompt", required=True)
+@click.option("-r", "--prompt")
+@click.option("-P", "--prompt-file", type=click.Path())
 @click.option(
     "-M",
     "--model",
@@ -81,8 +87,9 @@ def aprompt(ctx, engine_access_token):
     ),
     default="gemini-1.5-flash-latest",
 )
+@CLICK_OPTION_TPL_PARAMS
 @click.pass_context
-def cyborg(ctx, augmentations, prompt, model):
+def cyborg(ctx, augmentations, prompt, model, params, prompt_file):
     """
     engine + function execution
     """
@@ -98,15 +105,38 @@ def cyborg(ctx, augmentations, prompt, model):
     )
     s = pd.Series(map(operator.attrgetter("name"), augmentations))
     assert s.is_unique, s
+    assert len(augmentations) > 0
     logging.warning(f"augmentations: {augmentations}")
+
+    if prompt is None:
+        with open(prompt_file) as f:
+            tpl = Template(f.read())
+    else:
+        tpl = Template(prompt)
+    env = dict(
+        params=collate_params(params),
+        # consts=dict(templates_dir=templates_dir),
+        utils=get_utils(),
+    )
+    prompt = tpl.render(env)
+
+    prompt = (
+        f"{prompt.strip()}\n\nNote that the following tools are available to you:\n"
+    )
+    for augmentation in augmentations:
+        prompt += (
+            f"""* {augmentation.name} -- {augmentation.declaration['description']}\n"""
+        )
 
     engine_access_token = ctx.obj["engine_access_token"]
 
+    logging.warning(f"prompt:\n{prompt}")
     return get_gemini_response_via_client(
         user_prompt=prompt,
         api_key=engine_access_token,
         augmentations=augmentations,
         model_name=model,
+        detailed_log_file=f"/tmp/{uuid.uuid4()}.log.txt",
     )
 
 
@@ -133,7 +163,7 @@ def cyborg(ctx, augmentations, prompt, model):
     required=False,
     help="relative if `--templates-dir` is given; if not given, simply list models available",
 )
-@moption("-p", "--param", "params", multiple=True, type=(str, str))
+@CLICK_OPTION_TPL_PARAMS
 @moption(
     "--template-format",
     type=click.Choice([*AVAILABLE_TEMPLATE_FORMATS, "auto"]),
@@ -230,9 +260,8 @@ def single_prompt(
             rp = path.relpath(template_filename, templates_dir)
             # my_log_warning(dict(rp=rp))
             template = jinja_env.get_template(rp)
-            params = collate_params(params)
             env = dict(
-                params=params,
+                params=collate_params(params),
                 consts=dict(templates_dir=templates_dir),
                 utils=get_utils(),
             )
