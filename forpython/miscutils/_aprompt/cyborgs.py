@@ -271,6 +271,7 @@ def get_gemini_response_via_client(
         turn_count = 0
         while max_turns is None or turn_count <= max_turns:
             turn_count += 1
+            log_details(f"turn: {turn_count}")
             # logging.warning(f"Sending content to model: {current_contents}")
             response = client.models.generate_content(  # Make sure to use the correct client method for your model string
                 model=f"models/{model_name}",  # Models are often prefixed with "models/"
