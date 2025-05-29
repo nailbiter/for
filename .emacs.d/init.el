@@ -144,3 +144,48 @@
 ;; (add-hook 'python-mode-hook #'tree-sitter-hl-mode)
 
 ;; (tree-sitter-require 'python)
+
+;; loading local tweaks
+;; Load local settings if the file exists
+(let ((local-settings-file (expand-file-name "~/.emacs.d/local.el")))
+  (when (file-exists-p local-settings-file)
+    (load-file local-settings-file)))
+;; (message "Loading WORK local settings...")
+;; (setq gemini-python-interpreter "/path/to/your/work/python")
+;; ;; You can add other work-specific settings here
+;; ;; e.g., (setq some-other-variable 'work-value)
+
+;; https://nailbiter91.atlassian.net/browse/ML3-2695
+(defun gemini ()
+  "Run a Python script with the current buffer's content and display the output."
+  (interactive)
+  (let* ((current-buffer-content (buffer-substring-no-properties (point-min) (point-max)))
+         ;; 🐍 SPECIFY YOUR PYTHON INTERPRETER HERE
+         ;(python-interpreter gemini-python-interpreter) ; e.g., "/home/user/.virtualenvs/myenv/bin/python" or "/usr/local/bin/python3.9"
+         (python-script-path (expand-file-name "~/for/forpython/gemini-emacs.py")) ; 🐍 Change this script path
+         (output-buffer-name "*gemini-output*")
+         (process-connection-type nil)
+         (process-environment process-environment))
+
+    ;; Ensure the output buffer is fresh each time
+    (when (get-buffer output-buffer-name)
+      (kill-buffer output-buffer-name))
+
+    ;; Run the Python script with the current buffer's content as stdin
+    (with-temp-buffer
+      (insert current-buffer-content)
+      (call-process-region (point-min) (point-max)
+                           gemini-python-interpreter   ; <--- USE THE SPECIFIED INTERPRETER
+                           nil ; Delete region
+                           output-buffer-name ; Send output to this buffer
+                           nil ; Display output buffer (we'll do it manually)
+                           python-script-path)) ; Argument to the interpreter is your script
+
+    ;; Display the output buffer
+    (if (get-buffer output-buffer-name)
+        (progn
+          (display-buffer output-buffer-name)
+          (with-current-buffer output-buffer-name
+            (goto-char (point-min))
+            (message "Python script output displayed in %s" output-buffer-name)))
+      (message "Error: Python script did not produce output or an error occurred."))))
