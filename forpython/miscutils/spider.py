@@ -30,6 +30,127 @@ import logging
 from google import genai
 import os
 from google.genai import types
+import requests
+from bs4 import BeautifulSoup
+import logging
+
+# Configure basic logging for the function's operations
+logger = logging.getLogger(__name__)
+# You might want to set logging.basicConfig(level=logging.INFO) in your main script
+
+
+def scrape_webpage(url: str) -> dict:
+    """
+    Fetches and extracts the main textual content from a given public webpage URL.
+
+    Args:
+        url: The fully qualified URL of the webpage to scrape.
+             (e.g., 'https://example.com/article').
+             Must be a public URL accessible from the internet.
+
+    Returns:
+        A dictionary containing either:
+        - {"text_content": "extracted textual content of the page..."}
+        - {"error": "Description of the error encountered."}
+    """
+    if not url.startswith(("http://", "https://")):
+        logger.error(f"Invalid URL scheme: {url}")
+        return {"error": "Invalid URL: Must start with http:// or https://"}
+
+    headers = {
+        "User-Agent": "GeminiFunctionBot/1.0 (LanguageModelClient; for scraping purposes on user behalf)"
+    }
+    timeout_seconds = 15  # Set a reasonable timeout for the request
+
+    try:
+        logger.info(f"Attempting to scrape URL: {url}")
+        response = requests.get(
+            url, headers=headers, timeout=timeout_seconds, allow_redirects=True
+        )
+        response.raise_for_status()  # Raises an HTTPError for bad responses (4XX or 5XX)
+
+        content_type = response.headers.get("content-type", "").lower()
+        if "text/html" not in content_type:
+            logger.warning(f"Content type is not HTML ({content_type}) for URL: {url}")
+            return {
+                "error": f"Content is not HTML. Detected content type: {content_type}"
+            }
+
+        # Parse HTML content
+        soup = BeautifulSoup(response.content, "html.parser")
+
+        # Remove script and style tags to clean up text
+        for script_or_style in soup(["script", "style"]):
+            script_or_style.decompose()
+
+        # Get text, using a space as a separator and stripping whitespace
+        text_content = soup.get_text(separator=" ", strip=True)
+
+        # Basic clean-up: replace multiple spaces/newlines with a single space/newline
+        text_content = " ".join(text_content.split())
+
+        # Limit content length to avoid overly large responses (optional, adjust as needed)
+        # max_length = 20000 # Example limit for Gemini
+        # if len(text_content) > max_length:
+        #     text_content = text_content[:max_length] + "... (content truncated)"
+        #     logger.info(f"Content from {url} truncated to {max_length} characters.")
+
+        if not text_content:
+            logger.info(f"No text content found after parsing {url}")
+            return {"text_content": "(No significant text content found on the page)"}
+
+        logger.info(f"Successfully scraped and extracted text from {url}")
+        return {"text_content": text_content}
+
+    except requests.exceptions.HTTPError as e:
+        logger.error(f"HTTP error for {url}: {e}")
+        return {"error": f"HTTP error: {e.response.status_code} {e.response.reason}"}
+    except requests.exceptions.ConnectionError as e:
+        logger.error(f"Connection error for {url}: {e}")
+        return {"error": f"Connection error: Could not connect to the server at {url}."}
+    except requests.exceptions.Timeout as e:
+        logger.error(f"Timeout for {url}: {e}")
+        return {"error": f"Request timed out while trying to reach {url}."}
+    except requests.exceptions.RequestException as e:
+        logger.error(f"General request error for {url}: {e}")
+        return {
+            "error": f"An unexpected error occurred when trying to access {url}: {str(e)}"
+        }
+    except Exception as e:
+        logger.error(f"An unexpected error occurred during scraping {url}: {e}")
+        import traceback
+
+        logger.debug(traceback.format_exc())  # For more detailed debugging if needed
+        return {"error": f"An unexpected error occurred: {str(e)}"}
+
+
+scrape_webpage_schema = {
+    "name": "scrape_webpage",
+    "description": (
+        "Fetches the main textual content from a given public webpage URL. "
+        "It's designed to extract readable text and may not capture all data "
+        "from web applications or sites heavily reliant on JavaScript execution for content rendering. "
+        "The function returns the extracted text or an error message if scraping fails."
+    ),
+    "parameters": {
+        "type": "object",  # In JSON Schema, the root is an object describing parameters.
+        "properties": {
+            "url": {
+                "type": "string",
+                "description": (
+                    "The fully qualified URL of the webpage to scrape (e.g., 'https://example.com/article'). "
+                    "The URL must be publicly accessible from the internet and should point to an HTML page. "
+                    "Avoid URLs that require login or are known to be behind complex anti-scraping measures unless instructed otherwise."
+                ),
+            }
+        },
+        "required": ["url"],
+    }
+    # The return type isn't explicitly defined in the schema for Gemini's tools,
+    # but the function's output (a dict with "text_content" or "error")
+    # becomes the 'response' field in the FunctionResponse sent back to the model.
+    # The description for the tool should clarify what to expect.
+}
 
 # Configure basic logging
 # logging.basicConfig(level=logging.INFO, format="%(levelname)s:%(name)s:%(message)s")
@@ -92,7 +213,9 @@ def get_gemini_response_via_client(
 
         # Configure tools and generation config
         # This relies on types.Tool and types.GenerateContentConfig being available.
-        current_tools = types.Tool(function_declarations=[add_numbers_function_dict])
+        current_tools = types.Tool(
+            function_declarations=[add_numbers_function_dict, scrape_webpage_schema]
+        )
         generation_config_with_tools = types.GenerateContentConfig(
             tools=[current_tools]
         )
@@ -196,6 +319,29 @@ def get_gemini_response_via_client(
                         "error": f"Execution error in {function_call.name}: {str(e)}"
                     }
                     error_in_function = True
+
+            # ... (inside your function call handling logic)
+            elif function_call.name == "scrape_webpage":
+                args = function_call.args
+                url_to_scrape = args.get("url")
+                if url_to_scrape:
+                    function_response_data = scrape_webpage(url=url_to_scrape)
+                else:
+                    function_response_data = {"error": "Missing URL parameter."}
+
+                # Send function_response_data back to Gemini
+                # (using the appropriate method for your chosen client: ChatSession or genai.Client)
+                # For example:
+                # tool_response_part = types.Part(
+                #     function_response=types.FunctionResponse(
+                #         name="scrape_webpage",
+                #         response=function_response_data
+                #     )
+                # )
+                # current_contents.append(types.Content(parts=[tool_response_part], role="tool"))
+                # ... then call generate_content again with current_contents
+            # ...
+
             else:
                 logger.error(
                     f"Error: Unknown or unhandled function call: {function_call.name}"
