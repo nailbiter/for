@@ -35,8 +35,11 @@ from os import path
 import logging
 import functools
 import typing
+import itertools
+import operator
 
 from dotenv import load_dotenv
+import pandas as pd
 
 from _handy import collate_params
 from _aprompt.prompt_engines import get_prompt_engine, AVAILABLE_PROMPT_ENGINES
@@ -47,8 +50,11 @@ AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
 
 
 @click.group()
-def aprompt():
-    pass
+@moption("-T", "--engine-access-token", required=True)
+@click.pass_context
+def aprompt(ctx, engine_access_token):
+    ctx.ensure_object(dict)
+    ctx.obj["engine_access_token"] = engine_access_token
 
 
 @aprompt.command()
@@ -57,14 +63,36 @@ def aprompt():
     "--augmentation",
     "augmentations",
     type=click.Choice(
-        ["all", *AUGMENTATION_PACKS.keys()], multiple=True, default=["all"]
+        ["all", *AUGMENTATION_PACKS.keys()],
     ),
+    multiple=True,
+    default=["all"],
 )
-def cyborg(augmentations):
+@click.option("-p", "--prompt", required=True)
+@click.pass_context
+def cyborg(ctx, augmentations, prompt):
     """
     engine + function execution
     """
-    pass
+    augmentations = set(
+        itertools.chain.from_iterable(
+            map(lambda x: set(AUGMENTATION_PACKS) if x == "all" else {x}, augmentations)
+        )
+    )
+    augmentations = list(
+        itertools.chain.from_iterable(
+            map(AUGMENTATION_PACKS.get, sorted(augmentations))
+        )
+    )
+    s = pd.Series(map(operator.attrgetter("name"), augmentations))
+    assert s.is_unique, s
+    logging.warning(f"augmentations: {augmentations}")
+
+    engine_access_token = ctx.obj["engine_access_token"]
+
+    return get_gemini_response_via_client(
+        user_prompt=prompt, api_key=engine_access_token, augmentations=augmentations
+    )
 
 
 @aprompt.command(name="p")
@@ -105,7 +133,6 @@ def cyborg(augmentations):
     type=click.Choice(sorted(AVAILABLE_PROMPT_ENGINES.keys())),
     required=True,
 )
-@moption("-T", "--engine-access-token", required=True)
 @moption(
     "-K",
     "--engine-configuration-kwarg",
@@ -117,7 +144,9 @@ def cyborg(augmentations):
 @moption("--click-fg", type=str)
 @moption("-S", "--prompt-engine-seed")
 @moption("--dry-run/--no-dry-run", default=False)
+@click.pass_context
 def single_prompt(
+    ctx,
     dry_run,
     prompt_engine_seed,
     click_fg,
@@ -129,11 +158,13 @@ def single_prompt(
     template_format,
     post_processors,
     prompt_engine,
-    engine_access_token,
     debug,
     engine_configuration_kwargs,
 ):
     """single prompt execution"""
+
+    engine_access_token = ctx.obj["engine_access_token"]
+
     my_log_warning = logging.warning if debug else (lambda x: x)
 
     prompt_engine = get_prompt_engine(

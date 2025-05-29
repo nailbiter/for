@@ -24,6 +24,7 @@ from google.genai import types
 import requests
 from bs4 import BeautifulSoup
 import logging
+import click
 
 ## FIXME: use this in for loop
 Augmentation = namedtuple("Augmentation", "name callable declaration")
@@ -423,4 +424,3 @@ AUGMENTATION_PACKS = {
         )
     ]
 }
-Named
