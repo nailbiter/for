@@ -58,7 +58,16 @@ def scrape_webpage(url: str) -> dict:
         return {"error": "Invalid URL: Must start with http:// or https://"}
 
     headers = {
-        "User-Agent": "GeminiFunctionBot/1.0 (LanguageModelClient; for scraping purposes on user behalf)"
+        # "User-Agent": "GeminiFunctionBot/1.0 (LanguageModelClient; for scraping purposes on user behalf)"
+        # headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",  # More common browser User-Agent
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Encoding": "gzip, deflate, br",  # requests handles decompression
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",  # Tells the server you prefer HTTPS
+        "DNT": "1",  # Do Not Track request
+        # }
     }
     timeout_seconds = 15  # Set a reasonable timeout for the request
 
@@ -270,7 +279,9 @@ def get_gemini_response_via_client(
                     final_text = "".join(
                         part.text for part in model_response_content.parts if part.text
                     )  # Concatenate all text parts
-                    logging.warning(f"Gemini: {final_text}")
+                    click.echo(
+                        ("*" * 20) + "\n" + f"Gemini: {final_text}" + "\n" + ("*" * 20)
+                    )
                 else:
                     logging.warning(
                         "Gemini did not return a text response in the final turn."
@@ -328,6 +339,7 @@ def get_gemini_response_via_client(
                     function_response_data = scrape_webpage(url=url_to_scrape)
                 else:
                     function_response_data = {"error": "Missing URL parameter."}
+                api_response_value = function_response_data
 
                 # Send function_response_data back to Gemini
                 # (using the appropriate method for your chosen client: ChatSession or genai.Client)
