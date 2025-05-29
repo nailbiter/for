@@ -69,8 +69,20 @@ def aprompt(ctx, engine_access_token):
     default=["all"],
 )
 @click.option("-p", "--prompt", required=True)
+@click.option(
+    "-M",
+    "--model",
+    type=click.Choice(
+        [
+            "gemini-1.5-flash-latest",
+            "gemini-2.5-pro-preview-05-06",
+            "gemini-2.5-flash-preview-04-17",
+        ]
+    ),
+    default="gemini-1.5-flash-latest",
+)
 @click.pass_context
-def cyborg(ctx, augmentations, prompt):
+def cyborg(ctx, augmentations, prompt, model):
     """
     engine + function execution
     """
@@ -91,7 +103,10 @@ def cyborg(ctx, augmentations, prompt):
     engine_access_token = ctx.obj["engine_access_token"]
 
     return get_gemini_response_via_client(
-        user_prompt=prompt, api_key=engine_access_token, augmentations=augmentations
+        user_prompt=prompt,
+        api_key=engine_access_token,
+        augmentations=augmentations,
+        model_name=model,
     )
 
 
