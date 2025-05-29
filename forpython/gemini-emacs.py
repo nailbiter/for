@@ -20,12 +20,12 @@ ORGANIZATION:
 ==============================================================================="""
 
 import click
-
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 import os
 from os import path
 import logging
 import sys
+from jinja2 import Template
 
 
 @click.command()
@@ -39,8 +39,8 @@ def gemini_emacs(prompt):
 
 
 if __name__ == "__main__":
-    #    fn = ".env"
-    #    if path.isfile(fn):
-    #        logging.warning(f"loading `{fn}`")
-    #        load_dotenv(dotenv_path=fn)
+    fn = ".env"
+    if path.isfile(fn):
+        logging.warning(f"loading `{fn}`")
+        load_dotenv(dotenv_path=fn)
     gemini_emacs()
