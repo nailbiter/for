@@ -1,7 +1,6 @@
-#!/usr/bin/env python
 """===============================================================================
 
-        FILE: /Users/nailbiter/for/forpython/spider.py
+        FILE: /Users/nailbiter/for/forpython/miscutils/_aprompt/cyborgs.py
 
        USAGE: (not intended to be directly executed)
 
@@ -14,19 +13,11 @@ REQUIREMENTS: ---
       AUTHOR: Alex Leontiev (alozz1991@gmail.com)
 ORGANIZATION: 
      VERSION: ---
-     CREATED: 2025-05-29T17:11:36.037719
+     CREATED: 2025-05-29T19:17:54.124968
     REVISION: ---
-FIXME: ingerate into `cyborgs`
-==============================================================================="""
-import click
-import os
-import logging
 
-# Standard Google GenAI SDK imports.
-# Assumes 'google-generativeai' library (version 0.8.5 as per your pip show)
-# provides these structures.
-# import google.generativeai as genai
-# from google.generativeai import types
+==============================================================================="""
+from collections import namedtuple
 from google import genai
 import os
 from google.genai import types
@@ -34,8 +25,9 @@ import requests
 from bs4 import BeautifulSoup
 import logging
 
-# Configure basic logging for the function's operations
-logger = logging.getLogger(__name__)
+## FIXME: use this in for loop
+Augmentation = namedtuple("Augmentation", "name callable declaration")
+
 # You might want to set logging.basicConfig(level=logging.INFO) in your main script
 
 
@@ -181,9 +173,32 @@ def add_numbers(a: float, b: float) -> int:  # Accept float for flexibility from
     return int(a + b)  # Ensure integer result as per original intent/schema
 
 
+add_numbers_function_dict = {
+    "name": "add_numbers",
+    "description": "Adds two numbers together based on user's request.",
+    "parameters": {
+        "type": "object",  # JSON schema type
+        "properties": {
+            "a": {
+                "type": "number",
+                "description": "The first number for addition.",
+            },  # Using "number" for broader compatibility with float from model
+            "b": {
+                "type": "number",
+                "description": "The second number for addition.",
+            },
+        },
+        "required": ["a", "b"],
+    },
+}
+
+
 # --- 2. Function to handle Gemini interaction using genai.Client ---
 def get_gemini_response_via_client(
-    user_prompt: str, api_key: str, model_name: str = "gemini-1.5-flash-latest"
+    user_prompt: str,
+    api_key: str,
+    augmentations: list[Augmentation],
+    model_name: str = "gemini-1.5-flash-latest",
 ):
     """
     Initializes Gemini using genai.Client, sends a prompt, handles potential
@@ -201,33 +216,20 @@ def get_gemini_response_via_client(
         client = genai.Client(api_key=api_key)
 
         # Define the add_numbers function schema as a dictionary
-        add_numbers_function_dict = {
-            "name": "add_numbers",
-            "description": "Adds two numbers together based on user's request.",
-            "parameters": {
-                "type": "object",  # JSON schema type
-                "properties": {
-                    "a": {
-                        "type": "number",
-                        "description": "The first number for addition.",
-                    },  # Using "number" for broader compatibility with float from model
-                    "b": {
-                        "type": "number",
-                        "description": "The second number for addition.",
-                    },
-                },
-                "required": ["a", "b"],
-            },
-        }
 
         # Configure tools and generation config
         # This relies on types.Tool and types.GenerateContentConfig being available.
-        current_tools = types.Tool(
-            function_declarations=[add_numbers_function_dict, scrape_webpage_schema]
-        )
         generation_config_with_tools = types.GenerateContentConfig(
-            tools=[current_tools]
+            tools=[
+                types.Tool(
+                    # function_declarations=[add_numbers_function_dict, scrape_webpage_schema]
+                    function_declarations=[
+                        augmentation.declaration for augmentation in augmentations
+                    ]
+                )
+            ]
         )
+        augmentation_names = [augmentation.name for augmentation in augmentations]
 
         logging.warning(f"User: {user_prompt}")
 
@@ -298,7 +300,10 @@ def get_gemini_response_via_client(
             function_response_value = None
             error_in_function = False
 
-            if function_call.name == "add_numbers":
+            if (
+                function_call.name == "add_numbers"
+                and function_call.name in augmentation_names
+            ):
                 try:
                     # Use .get() for safer access to args and provide default if necessary, or handle missing
                     arg_a = function_call.args.get("a")
@@ -332,7 +337,10 @@ def get_gemini_response_via_client(
                     error_in_function = True
 
             # ... (inside your function call handling logic)
-            elif function_call.name == "scrape_webpage":
+            elif (
+                function_call.name == "scrape_webpage"
+                and function_call.name in augmentation_names
+            ):
                 args = function_call.args
                 url_to_scrape = args.get("url")
                 if url_to_scrape:
@@ -406,26 +414,13 @@ def get_gemini_response_via_client(
         traceback.print_exc()
 
 
-@click.command()
-@click.option(
-    "-T", "--engine-access-token", required=True, envvar="APROMPT_P_ENGINE_ACCESS_TOKEN"
-)
-@click.option("-p", "--prompt", type=str, required=True)
-@click.option(
-    "-m",
-    "--model-name",
-    type=str,
-    default="gemini-2.0-flash",
-    help="Model name to use (e.g., gemini-1.5-flash-latest, gemini-2.0-flash).",
-)
-def spider(engine_access_token, prompt, model_name):
-    # The user's working snippet used os.getenv for API key directly in client,
-    # here we take it from click option as before.
-    get_gemini_response_via_client(
-        api_key=engine_access_token, user_prompt=prompt, model_name=model_name
-    )
-
-
-if __name__ == "__main__":
-    # Setup for click, .env loading (if any) can remain as in your original script
-    spider()
+AUGMENTATION_PACKS = {
+    "spider": [
+        Augmentation(
+            name="scrape_webpage",
+            callable=scrape_webpage,
+            declaration=scrape_webpage_schema,
+        )
+    ]
+}
+Named

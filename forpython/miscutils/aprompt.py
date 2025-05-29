@@ -40,6 +40,7 @@ from dotenv import load_dotenv
 
 from _handy import collate_params
 from _aprompt.prompt_engines import get_prompt_engine, AVAILABLE_PROMPT_ENGINES
+from _aprompt.cyborgs import AUGMENTATION_PACKS, get_gemini_response_via_client
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
 AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
@@ -47,6 +48,22 @@ AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
 
 @click.group()
 def aprompt():
+    pass
+
+
+@aprompt.command()
+@click.option(
+    "-a",
+    "--augmentation",
+    "augmentations",
+    type=click.Choice(
+        ["all", *AUGMENTATION_PACKS.keys()], multiple=True, default=["all"]
+    ),
+)
+def cyborg(augmentations):
+    """
+    engine + function execution
+    """
     pass
 
 
@@ -116,6 +133,7 @@ def single_prompt(
     debug,
     engine_configuration_kwargs,
 ):
+    """single prompt execution"""
     my_log_warning = logging.warning if debug else (lambda x: x)
 
     prompt_engine = get_prompt_engine(
