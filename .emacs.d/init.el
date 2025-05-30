@@ -138,9 +138,9 @@
 ;; need `brew install tree-sitter tree-sitter-langs`
 ;; python-ts-mode (in emacs)
 ;; (require 'tree-sitter)
-;; (require 'tree-sitter-langs)
 
 ;; (global-tree-sitter-mode)
+;; (require 'tree-sitter-langs)
 ;; (add-hook 'python-mode-hook #'tree-sitter-hl-mode)
 
 ;; (tree-sitter-require 'python)

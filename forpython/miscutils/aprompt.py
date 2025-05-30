@@ -45,7 +45,11 @@ from jinja2 import Template
 
 from _handy import collate_params, get_utils
 from _aprompt.prompt_engines import get_prompt_engine, AVAILABLE_PROMPT_ENGINES
-from _aprompt.cyborgs import AUGMENTATION_PACKS, get_gemini_response_via_client
+from _aprompt.cyborgs import (
+    AUGMENTATION_PACKS,
+    get_gemini_response_via_client,
+    GEMINI_ENGINES_CONFIGS,
+)
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
 AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
@@ -78,14 +82,7 @@ def aprompt(ctx, engine_access_token):
 @click.option(
     "-M",
     "--model",
-    type=click.Choice(
-        [
-            "gemini-1.5-flash-latest",
-            "gemini-1.5-pro",
-            "gemini-2.5-pro-preview-05-06",
-            "gemini-2.5-flash-preview-04-17",
-        ]
-    ),
+    type=click.Choice(list(GEMINI_ENGINES_CONFIGS)),
     default="gemini-1.5-flash-latest",
 )
 @CLICK_OPTION_TPL_PARAMS
@@ -138,6 +135,7 @@ def cyborg(ctx, augmentations, prompt, model, params, prompt_file):
         augmentations=augmentations,
         model_name=model,
         detailed_log_file=f"/tmp/{uuid.uuid4()}.log.txt",
+        **GEMINI_ENGINES_CONFIGS[model],
     )
 
 

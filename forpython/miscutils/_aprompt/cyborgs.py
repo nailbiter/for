@@ -28,6 +28,7 @@ import click
 import typing
 import functools
 import uuid
+import time
 
 ## FIXME: use this in for loop
 Augmentation = namedtuple("Augmentation", "name callable declaration")
@@ -203,6 +204,7 @@ def get_gemini_response_via_client(
     model_name: str = "gemini-1.5-flash-latest",
     detailed_log_file: typing.Optional[str] = None,
     max_turns: typing.Optional[int] = None,
+    delay_seconds: int = 0,
 ):
     """
     Initializes Gemini using genai.Client, sends a prompt, handles potential
@@ -270,6 +272,8 @@ def get_gemini_response_via_client(
         re_prompt_done = False
         turn_count = 0
         while max_turns is None or turn_count <= max_turns:
+            if turn_count > 0 and delay_seconds > 0:
+                time.sleep(delay_seconds)
             turn_count += 1
             log_details(f"turn: {turn_count}")
             # logging.warning(f"Sending content to model: {current_contents}")
@@ -470,44 +474,45 @@ def get_gemini_response_via_client(
 
 AUGMENTATION_PACKS = {
     "spider": [
-        # Augmentation(
-        #     name="scrape_webpage",
-        #     callable=scrape_webpage,
-        #     declaration={
-        #         "name": "scrape_webpage",
-        #         "description": (
-        #             "Fetches the main textual content from a given public webpage URL. "
-        #             "It's designed to extract readable text and may not capture all data "
-        #             "from web applications or sites heavily reliant on JavaScript execution for content rendering. "
-        #             "The function returns the extracted text or an error message if scraping fails."
-        #         ),
-        #         "parameters": {
-        #             "type": "object",  # In JSON Schema, the root is an object describing parameters.
-        #             "properties": {
-        #                 "url": {
-        #                     "type": "string",
-        #                     "description": (
-        #                         "The fully qualified URL of the webpage to scrape (e.g., 'https://example.com/article'). "
-        #                         "The URL must be publicly accessible from the internet and should point to an HTML page. "
-        #                         "Avoid URLs that require login or are known to be behind complex anti-scraping measures unless instructed otherwise."
-        #                     ),
-        #                 }
-        #             },
-        #             "required": ["url"],
-        #         }
-        #         # The return type isn't explicitly defined in the schema for Gemini's tools,
-        #         # but the function's output (a dict with "text_content" or "error")
-        #         # becomes the 'response' field in the FunctionResponse sent back to the model.
-        #         # The description for the tool should clarify what to expect.
-        #     },
-        # ),
+        Augmentation(
+            name="scrape_webpage",
+            callable=scrape_webpage,
+            declaration={
+                "name": "scrape_webpage",
+                "description": (
+                    "Fetches the main textual content from a given public webpage URL. "
+                    "It's designed to extract readable text and may not capture all data "
+                    "from web applications or sites heavily reliant on JavaScript execution for content rendering. "
+                    "The function returns the extracted text or an error message if scraping fails."
+                ),
+                "parameters": {
+                    "type": "object",  # In JSON Schema, the root is an object describing parameters.
+                    "properties": {
+                        "url": {
+                            "type": "string",
+                            "description": (
+                                "The fully qualified URL of the webpage to scrape (e.g., 'https://example.com/article'). "
+                                "The URL must be publicly accessible from the internet and should point to an HTML page. "
+                                "Avoid URLs that require login or are known to be behind complex anti-scraping measures unless instructed otherwise."
+                            ),
+                        }
+                    },
+                    "required": ["url"],
+                }
+                # The return type isn't explicitly defined in the schema for Gemini's tools,
+                # but the function's output (a dict with "text_content" or "error")
+                # becomes the 'response' field in the FunctionResponse sent back to the model.
+                # The description for the tool should clarify what to expect.
+            },
+        ),
         Augmentation(
             name="scrape_webpage_raw",
             callable=functools.partial(scrape_webpage, is_raw=True),
             declaration={
                 "name": "scrape_webpage_raw",
                 "description": (
-                    "Fetches the raw HTML content from a given public webpage URL. No additional parsing is performed"
+                    "Fetches the raw HTML content from a given public webpage URL. No additional parsing is performed. "
+                    "Use it when you want to get more information than `scrape_webpage` provides (in particular, other URLs for follow-up)."
                 ),
                 "parameters": {
                     "type": "object",  # In JSON Schema, the root is an object describing parameters.
@@ -526,4 +531,11 @@ AUGMENTATION_PACKS = {
             },
         ),
     ]
+}
+
+GEMINI_ENGINES_CONFIGS = {
+    "gemini-1.5-flash-latest": {},
+    "gemini-1.5-pro": {"delay_seconds": 60},
+    "gemini-2.5-pro-preview-05-06": {},
+    "gemini-2.5-flash-preview-04-17": {},
 }
