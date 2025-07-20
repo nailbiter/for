@@ -50,6 +50,21 @@ def handy(ctx, **kwargs):
         ctx.obj[k] = v
 
 
+@handy.command()
+@click.option("-p", "-f", "--prompt-file", type=click.Path(), required=True)
+@click.pass_context
+def render(ctx, prompt_file):
+    Handy(
+        values={
+            "dummy": dict(
+                filename=prompt_file,
+                is_render=True,
+                is_strip=True,
+            )
+        }
+    )(ctx, ["dummy"])
+
+
 if __name__ == "__main__":
     dicts = {}
     for k, fn in _DICT_FNS.items():
@@ -62,6 +77,7 @@ if __name__ == "__main__":
 
     merged = {}
     for k in set.union(*[set(d.keys()) for d in dicts.values()]):
+        assert k != "render"
         merged[k] = {}
         for d in dicts.values():
             merged[k] = {**merged[k], **d.get(k, {})}
