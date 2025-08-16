@@ -70,14 +70,17 @@ def handle_handy_file(
 
 
 class Handy:
-    def __init__(self, name: str, values: dict):
+    def __init__(self, name: typing.Optional[str] = None, values: dict = {}):
         self._values = values
-        self._logger = logging.getLogger(self.__class__.__name__ + "." + name)
+        self._logger = logging.getLogger(
+            self.__class__.__name__ + ("" if name is None else f".{name}"),
+        )
+        self._logger.setLevel(logging.DEBUG)
 
-    def __call__(self, ctx, names: list[str]):
+    def __call__(self, ctx, names: list[str]) -> None:
         params = collate_params(list(ctx.obj["params"]))
         custom_functions = ctx.obj["custom_functions"]
-        self._logger.warning(f"params: {params}")
+        self._logger.debug(f"params: {params}")
         click.echo(
             ctx.obj["sep"].join(
                 [
