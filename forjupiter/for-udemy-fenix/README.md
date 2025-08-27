@@ -1,4 +1,4 @@
-
+The code in this folder is adapted from the Udemy class https://www.udemy.com/course/prompt-engineering-for-ai and some of it maybe the intellectual property of the authors. Beware.
 
 
 
