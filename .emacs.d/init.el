@@ -4,10 +4,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("fe1c13d75398b1c8fd7fdd1241a55c286b86c3e4ce513c4292d01383de152cb7" default))
+   '("fe1c13d75398b1c8fd7fdd1241a55c286b86c3e4ce513c4292d01383de152cb7"
+     default))
  '(epg-gpg-program "/usr/local/bin/gpg")
  '(package-selected-packages
-   '(elisa haskell-mode go-mode dockerfile-mode indent-tools yaml-mode yaml whole-line-or-region prettier-js js-format json-mode json-reformat python-black password-store-otp password-store pass drag-stuff dracula-theme use-package markdown-mode slime-volleyball slime))
+   '(## dockerfile-mode dracula-theme drag-stuff elisa go-mode
+	haskell-mode indent-tools js-format json-mode json-reformat
+	markdown-mode pass password-store password-store-otp
+	prettier-js python-black slime slime-volleyball use-package
+	whole-line-or-region yaml yaml-mode))
  '(prettier-js-command "/usr/local/bin/prettier"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -197,3 +202,8 @@ Uses the Python interpreter specified in 'gemini-python-interpreter'."
 
 ;; Optional keybinding
 ;; (global-set-key (kbd "C-c g") 'gemini)
+
+
+(add-to-list 'load-path "~/.emacs.d")
+(require 'wrap-region)
+(wrap-region-mode t)

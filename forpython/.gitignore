@@ -11,3 +11,5 @@ token.google_spreadsheet.pickle
 .envrc.private
 bf_progress.db
 .jisho.json
+gym-prompt-20250830-creds.json
+gym-prompt-20250830-token.json
