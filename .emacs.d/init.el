@@ -204,6 +204,7 @@ Uses the Python interpreter specified in 'gemini-python-interpreter'."
 ;; (global-set-key (kbd "C-c g") 'gemini)
 
 
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/included-packages")
 (require 'wrap-region)
-(wrap-region-mode t)
+;(wrap-region-mode t)
+(wrap-region-global-mode 1)
