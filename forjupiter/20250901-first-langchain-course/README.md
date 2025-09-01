@@ -9,6 +9,16 @@ course. Beware when copying
 
 ```sh
 pip install -r langchain-academy/requirements.txt
-pip install ipykernel ipywidgets GitPython
+pip install ipykernel ipywidgets GitPython python-dotenv jupyter-black
 python -m ipykernel install --user --name=venv-20250901-first-langchain-course
 ```
+
+## staring `LangGraph Studio`
+
+From `20250901-first-langchain-course` folder run
+
+```sh
+langgraph dev --config langchain-academy/module-1/studio/langgraph.json
+```
+
+and open http://127.0.0.1:2024
