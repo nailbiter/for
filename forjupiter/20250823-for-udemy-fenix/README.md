@@ -1,4 +1,8 @@
-The code in this folder is adapted from the Udemy class https://www.udemy.com/course/prompt-engineering-for-ai and some of it maybe the intellectual property of the authors. Beware.
+## disclaimer
+The code in this folder is adapted from the Udemy class https://www.udemy.com/course/prompt-engineering-for-ai.
+Some (or all) of it may be the intellectual property of the authors of that Udemy course.
+
+Beware.
 
 
 
