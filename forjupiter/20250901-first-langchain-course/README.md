@@ -15,10 +15,6 @@ python -m ipykernel install --user --name=venv-20250901-first-langchain-course
 
 ## staring `LangGraph Studio`
 
-From `20250901-first-langchain-course` folder run
+From `20250901-first-langchain-course/module-{{i}}/studio` folder run `langgraph dev`
 
-```sh
-langgraph dev --config langchain-academy/module-1/studio/langgraph.json
-```
-
-and open http://127.0.0.1:2024
+and open https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024
