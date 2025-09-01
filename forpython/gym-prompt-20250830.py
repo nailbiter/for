@@ -90,8 +90,8 @@ def download_sheet_as_excel(sheet_url, output_filename, credentials="credentials
         sheet_url (str): The full URL of the Google Sheet.
         output_filename (str): The desired name for the output Excel file.
     """
-    logger=get_configured_logger('download_sheet_as_excel',level='INFO')
-    
+    logger = get_configured_logger("download_sheet_as_excel", level="INFO")
+
     sheet_id = extract_sheet_id(sheet_url)
     if not sheet_id:
         logger.info("Error: Could not find a valid Google Sheet ID in the URL.")
@@ -163,16 +163,28 @@ def gym_prompt_20250830(creds, url, tomorrow):
     sheets = {}
     for k in ["4d-sat-upper", "4d-sun-lower", "4d-tue-upper", "4d-thu-lower"]:
         sheets[k] = pd.read_excel(output_file, sheet_name=k)
-    click.echo(Template(TPL).render(tomorrow=tomorrow, sheets=sheets).strip())
+    prompt = (
+        Template(TPL)
+        .render(tomorrow=tomorrow, sheets=sheets, system_message=SYSTEM_MESSAGE)
+        .strip()
+    )
+    logger.info(f"prompt:\n```\n{prompt}\n```")
+    click.echo(prompt)
 
+
+SYSTEM_MESSAGE = """
+Generate me a training program based on my previous performance. Do not forget to include initial weights, reps and sets.
+"""
 
 TPL = """
-Tomorrow is my {{tomorrow}}. Generate me a training program based on my previous performance. Do not forget to include initial weights, reps and sets.
+Tomorrow is my {{tomorrow}}.
+
+{{ system_message.strip() }}
 
 {% for k, df in sheets.items() -%}
 ## {{ ['Sat','Sun','Tue','Wed'][loop.index0] }}
 ```
-{{ df.to_csv(sep='\t').strip() }}
+{{ df.to_csv(sep='\t') }}
 ```
 {% endfor -%}
 """
