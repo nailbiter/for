@@ -69,8 +69,8 @@ def authenticate(CREDENTIALS_FILE):
             creds.refresh(Request())
         else:
             if not os.path.exists(CREDENTIALS_FILE):
-                print(f"Error: Credentials file not found at '{CREDENTIALS_FILE}'")
-                print("Please follow the setup instructions in README.md to create it.")
+                logging.warning(f"Error: Credentials file not found at '{CREDENTIALS_FILE}'")
+                logging.warning("Please follow the setup instructions in README.md to create it.")
                 return None
             flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
             creds = flow.run_local_server(port=0)
