@@ -184,7 +184,7 @@ Tomorrow is my {{tomorrow}}.
 {% for k, df in sheets.items() -%}
 ## {{ ['Sat','Sun','Tue','Wed'][loop.index0] }}
 ```
-{{ df.to_csv(sep='\t') }}
+{{ df[df['Order'].notna()].to_json(indent=2,orient='index') }}
 ```
 {% endfor -%}
 """
