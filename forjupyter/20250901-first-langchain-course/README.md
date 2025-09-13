@@ -9,7 +9,7 @@ course. Beware when copying.
 
 ```sh
 pip install -r langchain-academy/requirements.txt
-pip install ipykernel ipywidgets GitPython python-dotenv jupyter-black
+pip install ipykernel ipywidgets GitPython python-dotenv jupyter-black pandas
 python -m ipykernel install --user --name=venv-20250901-first-langchain-course
 ```
 
