@@ -69,8 +69,12 @@ def authenticate(CREDENTIALS_FILE):
             creds.refresh(Request())
         else:
             if not os.path.exists(CREDENTIALS_FILE):
-                logging.warning(f"Error: Credentials file not found at '{CREDENTIALS_FILE}'")
-                logging.warning("Please follow the setup instructions in README.md to create it.")
+                logging.warning(
+                    f"Error: Credentials file not found at '{CREDENTIALS_FILE}'"
+                )
+                logging.warning(
+                    "Please follow the setup instructions in README.md to create it."
+                )
                 return None
             flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
             creds = flow.run_local_server(port=0)
@@ -154,8 +158,17 @@ def download_sheet_as_excel(sheet_url, output_filename, credentials="credentials
 )
 @click.option("-U", "--url", required=True, type=str)
 @click.option("-T", "--tomorrow", required=True, type=str)
-def gym_prompt_20250830(creds, url, tomorrow):
+@click.option(
+    "--template-filename",
+    type=click.Path(),
+    default="/Users/nailbiter/Documents/forgithub/for-private-prompts/prompts/20250912-gym/20250912-gym.jinja.md",
+)
+def gym_prompt_20250830(creds, url, tomorrow, template_filename):
     logger = get_configured_logger("gym_prompt_20250830", level="INFO")
+
+    with open(template_filename) as f:
+        tpl = f.read()
+
     output_file = f"/tmp/{uuid.uuid4()}.xlsx"
     download_sheet_as_excel(url, output_file, creds)
     logger.info(f"saved to `{output_file}`")
@@ -163,31 +176,11 @@ def gym_prompt_20250830(creds, url, tomorrow):
     sheets = {}
     for k in ["4d-sat-upper", "4d-sun-lower", "4d-tue-upper", "4d-thu-lower"]:
         sheets[k] = pd.read_excel(output_file, sheet_name=k)
-    prompt = (
-        Template(TPL)
-        .render(tomorrow=tomorrow, sheets=sheets, system_message=SYSTEM_MESSAGE)
-        .strip()
-    )
+    prompt = Template(tpl).render(tomorrow=tomorrow, sheets=sheets).strip()
     logger.info(f"prompt:\n```\n{prompt}\n```")
     click.echo(prompt)
 
 
-SYSTEM_MESSAGE = """
-Generate me a training program based on my previous performance. Do not forget to include initial weights, reps and sets.
-"""
-
-TPL = """
-Tomorrow is my {{tomorrow}}.
-
-{{ system_message.strip() }}
-
-{% for k, df in sheets.items() -%}
-## {{ ['Sat','Sun','Tue','Wed'][loop.index0] }}
-```
-{{ df[df['Order'].notna()].to_json(indent=2,orient='index') }}
-```
-{% endfor -%}
-"""
 if __name__ == "__main__":
     #    fn = ".env"
     #    if path.isfile(fn):
