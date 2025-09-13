@@ -208,3 +208,4 @@ Uses the Python interpreter specified in 'gemini-python-interpreter'."
 (require 'wrap-region)
 ;(wrap-region-mode t)
 (wrap-region-global-mode 1)
+(global-display-line-numbers-mode)
