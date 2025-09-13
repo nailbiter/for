@@ -11,3 +11,16 @@ tavily-python
 wikipedia
 trustcall
 langgraph-cli[inmem]
+ipykernel
+ipywidgets
+GitPython
+python-dotenv
+jupyter-black
+pandas
+json5
+GitPython
+pandas
+gitignore_parser
+jinja2
+click
+nbdime
