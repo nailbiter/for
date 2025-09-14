@@ -2,3 +2,4 @@
 .envrc
 langchain-academy/
 .langgraph_api
+module-6/deployment/docker-compose.yml
