@@ -157,7 +157,7 @@ def download_sheet_as_excel(sheet_url, output_filename, credentials="credentials
     "--creds", default="gym-prompt-20250830-creds.json", type=click.Path(exists=True)
 )
 @click.option("-U", "--url", required=True, type=str)
-@click.option("-T", "--tomorrow", required=True, type=str)
+@click.option("-T", "--tomorrow", required=False, type=str)
 @click.option(
     "--template-filename",
     type=click.Path(),
@@ -174,11 +174,54 @@ def gym_prompt_20250830(creds, url, tomorrow, template_filename):
     logger.info(f"saved to `{output_file}`")
 
     sheets = {}
-    for k in ["4d-sat-upper", "4d-sun-lower", "4d-tue-upper", "4d-thu-lower"]:
+    for k in SHEET_NAMES:
         sheets[k] = pd.read_excel(output_file, sheet_name=k)
-    prompt = Template(tpl).render(tomorrow=tomorrow, sheets=sheets).strip()
+
+    prompt = (
+        Template(tpl)
+        .render(
+            tomorrow=deduce_tomorrow_name(sheets) if tomorrow is None else tomorrow,
+            sheets=sheets,
+        )
+        .strip()
+    )
     logger.info(f"prompt:\n```\n{prompt}\n```")
     click.echo(prompt)
+
+
+def deduce_tomorrow_name(sheets: dict[str, pd.DataFrame]) -> str:
+    logger = get_configured_logger(
+        "deduce_tomorrow_name",
+        level="DEBUG",
+        log_to_file=".deduce_tomorrow_name.log.txt",
+    )
+
+    columns = {k: list(df.columns) for k, df in sheets.items()}
+    logger.debug(columns)
+    actuals = {
+        k: sum([col.lower().startswith("actual") for col in cols])
+        for k, cols in columns.items()
+    }
+    logger.info(f"actuals: {actuals}")
+
+    actuals = pd.Series(actuals)
+    if actuals.nunique() == 1:
+        day, index = "sat", actuals.unique()[0] + 1
+    else:
+        index = actuals.max()
+        day = actuals[actuals.ne(index)].index[0].split("-")[1].lower()
+
+    suffix = {2: "nd", 1: "st", 3: "rd"}.get(index % 10, "th")
+    day = {k.lower()[:3]: k for k in ["Saturday", "Sunday", "Tuesday", "Thursday"]}[
+        day.lower()
+    ]
+    tomorrow = f"{index}{suffix} {day}"
+
+    logger.info(f"deduced tomorrow: `{tomorrow}`")
+    return tomorrow
+
+
+SHEET_NAMES = ["4d-sat-upper", "4d-sun-lower", "4d-tue-upper", "4d-thu-lower"]
 
 
 if __name__ == "__main__":
