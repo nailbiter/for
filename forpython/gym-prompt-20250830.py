@@ -163,7 +163,8 @@ def download_sheet_as_excel(sheet_url, output_filename, credentials="credentials
     type=click.Path(),
     default="/Users/nailbiter/Documents/forgithub/for-private-prompts/prompts/20250912-gym/20250912-gym.jinja.md",
 )
-def gym_prompt_20250830(creds, url, tomorrow, template_filename):
+@click.option("--after-rest/--no-after-rest", "-R/ ", "is_after_rest", default=False)
+def gym_prompt_20250830(creds, url, tomorrow, template_filename, is_after_rest: bool):
     logger = get_configured_logger("gym_prompt_20250830", level="INFO")
 
     with open(template_filename) as f:
@@ -182,6 +183,7 @@ def gym_prompt_20250830(creds, url, tomorrow, template_filename):
         .render(
             tomorrow=deduce_tomorrow_name(sheets) if tomorrow is None else tomorrow,
             sheets=sheets,
+            is_after_rest=is_after_rest,
         )
         .strip()
     )
