@@ -20,3 +20,5 @@ client_secret.json
 .tabular_quiz_config.json5
 .dates_from_to.db
 output_example.html
+.gsheet_to_json-creds.json
+.gsheet_to_json-token.json

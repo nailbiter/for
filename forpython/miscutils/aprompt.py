@@ -38,6 +38,7 @@ import typing
 import itertools
 import operator
 import uuid
+import json
 
 from dotenv import load_dotenv
 import pandas as pd
@@ -49,6 +50,11 @@ from _aprompt.cyborgs import (
     AUGMENTATION_PACKS,
     get_gemini_response_via_client,
     GEMINI_ENGINES_CONFIGS,
+)
+from _aprompt.gdrive_utils import (
+    download_sheet_as_excel,
+    authenticate,
+    extract_sheet_id,
 )
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
@@ -64,6 +70,47 @@ CLICK_OPTION_TPL_PARAMS = moption(
 def aprompt(ctx, engine_access_token):
     ctx.ensure_object(dict)
     ctx.obj["engine_access_token"] = engine_access_token
+
+
+@aprompt.group(name="utils")
+def util_cli_group():
+    pass
+
+
+@util_cli_group.command()
+@click.option("--url", "-u", required=True)
+@click.option("-S", "--sheet-name", "sheet_names", type=str, multiple=True)
+def gsheet_to_json(url, sheet_names):
+    logger = logging.getLogger("gsheet_to_json")
+    logger.setLevel(logging.DEBUG)
+    logger.addHandler(logging.StreamHandler())
+
+    logger.debug("test")
+
+    fn = download_sheet_as_excel(url, credentials=".gsheet_to_json-creds.json")
+    if len(sheet_names) == 0:
+        sheets = {"sheet": pd.read_excel(fn)}
+    else:
+        sheets = {pd.read_excel(fn, sheet_name=k) for k in sheet_names}
+
+    logger.debug(sheets)
+    click.echo(
+        json.dumps(
+            dict(
+                sheets=[
+                    dict(
+                        sheet_name=sheet_name,
+                        ## FIXME: this is dorky
+                        sheet_content_json=json.loads(sheet.to_json(orient="records")),
+                    )
+                    for sheet_name, sheet in sheets.items()
+                ]
+            ),
+            indent=2,
+            sort_keys=True,
+            ensure_ascii=False,
+        ),
+    )
 
 
 @aprompt.command()
