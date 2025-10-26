@@ -215,3 +215,8 @@ Uses the Python interpreter specified in 'gemini-python-interpreter'."
               "~/.emacs.d/yasnippet")
 (require 'yasnippet)
 (yas-global-mode 1)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"                 ;; personal snippets
+        ;; "/path/to/some/collection/"           ;; foo-mode and bar-mode snippet collection
+        ;; "/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
+        ))
