@@ -209,3 +209,9 @@ Uses the Python interpreter specified in 'gemini-python-interpreter'."
 ;(wrap-region-mode t)
 (wrap-region-global-mode 1)
 (global-display-line-numbers-mode)
+
+;; yasnippet
+(add-to-list 'load-path
+              "~/.emacs.d/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
