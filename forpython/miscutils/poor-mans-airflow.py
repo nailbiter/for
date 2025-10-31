@@ -28,11 +28,120 @@ import string
 import sys
 import typing
 from datetime import datetime, timedelta, date
+import json
 
 
 from dotenv import load_dotenv
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
+
+
+LAUNCHD_CONFIG_TPL = string.Template(
+    """
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.myuser.mydailyscript</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>$python_exec</string>
+        <string>$script_abspath</string>
+        <string>daily-run</string>
+        <string>--home-dir</string>
+        <string>$home_dir</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>$hour</integer>
+        <key>Minute</key>
+        <integer>$minute</integer>
+    </dict>
+    
+    <key>StandardOutPath</key>
+    <string>/tmp/my-daily-script.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/my-daily-script.log</string>
+</dict>
+</plist>
+"""
+)
+
+
+@click.group()
+def poor_mans_airflow():
+    pass
+
+
+@poor_mans_airflow.command()
+@moption("--home-dir", "-H", type=click.Path(), required=True)
+def daily_run(home_dir):
+    home_dir = path.abspath(home_dir)
+    os.makedirs(home_dir, exist_ok=True)
+
+    now = datetime.now()
+
+    logger = get_configured_logger(
+        "daily_run",
+        log_to_file=path.join(home_dir, "daily_run.log.txt"),
+        file_mode="a",
+    )
+    logger.info(f"started daily_run, now is `{now}`")
+
+    config_path = path.join(home_dir, "config.json")
+    if path.ispath(config_path):
+        with open(config_path) as f:
+            config = json.load(config_path)
+        logger.debug("loaded config")
+    else:
+        logger.error(f"no config found at `{config_path}`, exiting...")
+        return
+
+    for job in config.get("jobs", []):
+        name = job["name"]
+
+
+@poor_mans_airflow.command()
+@moption("-m", "--mode", type=click.Choice(["launchd", "anacron"]), required=True)
+@moption("-P", "--python-exec", default=sys.executable)
+@moption("-H", "--hour", type=int, default=10)
+@moption("-M", "--minute", type=int, default=0)
+@moption(
+    "--home-dir", type=click.Path(), default=f"{os.environ['HOME']}/.poor_mans_airflow"
+)
+def make_config(mode, python_exec, hour, minute, home_dir):
+    home_dir = path.abspath(home_dir)
+    os.makedirs(home_dir, exist_ok=True)
+
+    if mode == "launchd":
+        click.echo(
+            LAUNCHD_CONFIG_TPL.substitute(
+                dict(
+                    mode=mode,
+                    home_dir=home_dir,
+                    python_exec=python_exec,
+                    hour=hour,
+                    minute=minute,
+                    script_abspath=__file__,
+                )
+            )
+        )
+        logging.warning(
+            "save to `~/Library/LaunchAgents/com.myuser.mydailyscript.plist`"
+        )
+        logging.warning(
+            "launchctl unload ~/Library/LaunchAgents/com.myuser.mydailyscript.plist"
+        )
+        logging.warning(
+            "load with `launchctl load ~/Library/LaunchAgents/com.myuser.mydailyscript.plist`"
+        )
+    else:
+        raise NotImplementedError(dict(mode=mode))
+
 
 ## copied from https://github.com/nailbiter/alex_leontiev_toolbox_python/blob/bf4724399c87184b05272d47887fc59e610e6e82/alex_leontiev_toolbox_python/utils/logging_helpers/__init__.py
 ## to avoid external dependency on `altp`
@@ -131,102 +240,6 @@ def get_configured_logger(
 
 ##
 ## END ^^ of `altp` copy section
-
-LAUNCHD_CONFIG_TPL = string.Template(
-    """
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.myuser.mydailyscript</string>
-
-    <key>ProgramArguments</key>
-    <array>
-        <string>$python_exec</string>
-        <string>$script_abspath</string>
-        <string>daily-run</string>
-        <string>--home-dir</string>
-        <string>$home_dir</string>
-    </array>
-
-    <key>StartCalendarInterval</key>
-    <dict>
-        <key>Hour</key>
-        <integer>$hour</integer>
-        <key>Minute</key>
-        <integer>$minute</integer>
-    </dict>
-</dict>
-</plist>
-"""
-)
-
-# after `StartCalendarInterval`'s /dict
-# <key>StandardOutPath</key>
-# <string>/tmp/my-daily-script.log</string>
-# <key>StandardErrorPath</key>
-# <string>/tmp/my-daily-script.log</string>
-
-
-@click.group()
-def poor_mans_airflow():
-    pass
-
-
-@poor_mans_airflow.command()
-@moption("--home-dir", "-H", type=click.Path(), required=True)
-def daily_run(home_dir):
-    home_dir = path.abspath(home_dir)
-    os.makedirs(home_dir, exist_ok=True)
-
-    now = datetime.now()
-
-    logger = get_configured_logger(
-        "daily_run",
-        log_to_file=path.join(home_dir, ".poor_mans_airflow.log.txt"),
-        file_mode="a",
-    )
-    logger.info(f"started daily_run, now is `{now}`")
-
-
-@poor_mans_airflow.command()
-@moption("-m", "--mode", type=click.Choice(["launchd", "anacron"]), required=True)
-@moption("-P", "--python-exec", default=sys.executable)
-@moption("-H", "--hour", type=int, default=10)
-@moption("-M", "--minute", type=int, default=0)
-@moption(
-    "--home-dir", type=click.Path(), default=f"{os.environ['HOME']}/.poor_mans_airflow"
-)
-def make_config(mode, python_exec, hour, minute, home_dir):
-    home_dir = path.abspath(home_dir)
-    os.makedirs(home_dir, exist_ok=True)
-
-    if mode == "launchd":
-        click.echo(
-            LAUNCHD_CONFIG_TPL.substitute(
-                dict(
-                    mode=mode,
-                    home_dir=home_dir,
-                    python_exec=python_exec,
-                    hour=hour,
-                    minute=minute,
-                    script_abspath=__file__,
-                )
-            )
-        )
-        logging.warning(
-            "save to `~/Library/LaunchAgents/com.myuser.mydailyscript.plist`"
-        )
-        logging.warning(
-            "launchctl unload ~/Library/LaunchAgents/com.myuser.mydailyscript.plist"
-        )
-        logging.warning(
-            "load with `launchctl load ~/Library/LaunchAgents/com.myuser.mydailyscript.plist`"
-        )
-    else:
-        raise NotImplementedError(dict(mode=mode))
-
 
 if __name__ == "__main__":
     #    fn = ".env"
