@@ -80,6 +80,13 @@ def poor_mans_airflow():
 
 
 @poor_mans_airflow.command()
+def analyze_runs():
+    import pandas as pd
+
+    pass
+
+
+@poor_mans_airflow.command()
 @moption("--home-dir", "-H", type=click.Path(), required=True)
 def daily_run(home_dir):
     home_dir = path.abspath(home_dir)
