@@ -102,7 +102,7 @@ def daily_run(home_dir):
     logger.info(f"started daily_run, now is `{now}`")
 
     config_path = path.join(home_dir, "config.json")
-    if path.ispath(config_path):
+    if path.is_file(config_path):
         with open(config_path) as f:
             config = json.load(config_path)
         logger.debug("loaded config")
