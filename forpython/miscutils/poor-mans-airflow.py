@@ -34,6 +34,7 @@ import subprocess
 
 from dotenv import load_dotenv
 
+DEFAULT_HOME_DIR = f"{os.environ['HOME']}/.poor_mans_airflow"
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
 
 
@@ -130,9 +131,7 @@ def daily_run(home_dir):
 @moption("-P", "--python-exec", default=sys.executable)
 @moption("-H", "--hour", type=int, default=10)
 @moption("-M", "--minute", type=int, default=0)
-@moption(
-    "--home-dir", type=click.Path(), default=f"{os.environ['HOME']}/.poor_mans_airflow"
-)
+@moption("--home-dir", type=click.Path(), default=DEFAULT_HOME_DIR)
 def make_config(mode, python_exec, hour, minute, home_dir):
     home_dir = path.abspath(home_dir)
     os.makedirs(home_dir, exist_ok=True)
