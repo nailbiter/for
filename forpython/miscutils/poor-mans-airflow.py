@@ -102,9 +102,9 @@ def daily_run(home_dir):
     logger.info(f"started daily_run, now is `{now}`")
 
     config_path = path.join(home_dir, "config.json")
-    if path.is_file(config_path):
+    if path.isfile(config_path):
         with open(config_path) as f:
-            config = json.load(config_path)
+            config = json.load(f)
         logger.debug("loaded config")
     else:
         logger.error(f"no config found at `{config_path}`, exiting...")
@@ -123,7 +123,7 @@ def daily_run(home_dir):
                 json.dumps(
                     dict(
                         job_name=job_name,
-                        now=now,
+                        now_isoformat=now.isoformat(),
                         ec=ec,
                         cmd=cmd,
                         out=out,
