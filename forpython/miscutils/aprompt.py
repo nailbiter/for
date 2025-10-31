@@ -88,10 +88,12 @@ def gsheet_to_json(url, sheet_names):
     logger.debug("test")
 
     fn = download_sheet_as_excel(url, credentials=".gsheet_to_json-creds.json")
-    if len(sheet_names) == 0:
-        sheets = {"sheet": pd.read_excel(fn)}
-    else:
-        sheets = {pd.read_excel(fn, sheet_name=k) for k in sheet_names}
+    excel_file = pd.ExcelFile(fn)
+    sheet_names = (
+        list(sheet_names) if len(sheet_names) > 0 else list(excel_file.sheet_names)
+    )
+
+    sheets = {k: pd.read_excel(fn, sheet_name=k) for k in sheet_names}
 
     logger.debug(sheets)
     click.echo(
