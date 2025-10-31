@@ -29,6 +29,7 @@ import sys
 import typing
 from datetime import datetime, timedelta, date
 import json
+import subprocess
 
 
 from dotenv import load_dotenv
@@ -101,8 +102,27 @@ def daily_run(home_dir):
         logger.error(f"no config found at `{config_path}`, exiting...")
         return
 
+    jsonl_log = config.get("jsonl_log", path.join(home_dir, "runs.jsonl"))
+
     for job in config.get("jobs", []):
-        name = job["name"]
+        job_name = job["name"]
+        logger.info(f"running job `{job_name}`")
+        cmd = job["cmd"]
+        ec, out = subprocess.getstatusoutput(cmd)
+        logger.info(dict(ec=ec, cmd=cmd))
+        with open(jsonl_log, "a", encoding="utf-8") as f:
+            f.write(
+                json.dumps(
+                    dict(
+                        job_name=job_name,
+                        now=now,
+                        ec=ec,
+                        cmd=cmd,
+                        out=out,
+                    )
+                )
+                + "\n"
+            )
 
 
 @poor_mans_airflow.command()
