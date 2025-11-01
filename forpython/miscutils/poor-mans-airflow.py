@@ -30,6 +30,9 @@ import typing
 from datetime import datetime, timedelta, date
 import json
 import subprocess
+from string import Template
+
+from dotenv import dotenv_values
 
 
 from dotenv import load_dotenv
@@ -96,6 +99,7 @@ def daily_run(home_dir):
 
     logger = get_configured_logger(
         "daily_run",
+        level="DEBUG",
         log_to_file=path.join(home_dir, "daily_run.log.txt"),
         file_mode="a",
     )
@@ -115,22 +119,63 @@ def daily_run(home_dir):
     for job in config.get("jobs", []):
         job_name = job["name"]
         logger.info(f"running job `{job_name}`")
-        cmd = job["cmd"]
-        ec, out = subprocess.getstatusoutput(cmd)
-        logger.info(dict(ec=ec, cmd=cmd))
-        with open(jsonl_log, "a", encoding="utf-8") as f:
-            f.write(
-                json.dumps(
-                    dict(
-                        job_name=job_name,
-                        now_isoformat=now.isoformat(),
-                        ec=ec,
-                        cmd=cmd,
-                        out=out,
-                    )
+
+        cmds = ([job["cmd"]] if "cmd" in job else []) + job.get("cmds", [])
+        logger.info(cmds)
+        # cmd = job["cmd"]
+
+        for _, cmd in enumerate(cmds):
+            my_env = os.environ.copy()
+            run_kwargs = dict()
+
+            if "cwd" in job:
+                run_kwargs["cwd"] = job["cwd"]
+
+            if job.get("render_cmd", False):
+                render_vars_file = job.get("render_vars_file")
+                logger.debug(render_vars_file)
+                render_vars: dict = (
+                    {}
+                    if render_vars_file is None
+                    else dotenv_values(job["render_vars_file"])
                 )
-                + "\n"
-            )
+                logging.debug(render_vars)
+                cmd = Template(cmd).substitute(**render_vars)
+                logging.debug(cmd)
+
+            ec, stdout, stderr = 0, None, None
+            try:
+                result = subprocess.run(
+                    cmd,
+                    # cwd=start_directory,  # Set the starting directory
+                    env=my_env,  # Pass the augmented environment variables
+                    check=True,  # Raise an exception if the command fails
+                    capture_output=True,  # Capture stdout and stderr
+                    text=True,  # Decode output as text
+                    shell=True,
+                    **run_kwargs,
+                )
+                stdout, stderr = result.stdout, result.stderr
+            except subprocess.CalledProcessError as e:
+                ec, stdout, stderr = e.returncode, e.stdout, e.stderr
+                logger.error(dict(name=job_name, ec=ec, now=now))
+            # ec, out = subprocess.getstatusoutput(cmd)
+
+            logger.info(dict(ec=ec, cmd=cmd, name=job_name))
+            with open(jsonl_log, "a", encoding="utf-8") as f:
+                f.write(
+                    json.dumps(
+                        dict(
+                            job_name=job_name,
+                            now_isoformat=now.isoformat(),
+                            ec=ec,
+                            cmd=cmd,
+                            out=stdout,
+                            stderr=stderr,
+                        )
+                    )
+                    + "\n"
+                )
 
 
 @poor_mans_airflow.command()
