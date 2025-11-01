@@ -80,7 +80,8 @@ def util_cli_group():
 @util_cli_group.command()
 @click.option("--url", "-u", required=True)
 @click.option("-S", "--sheet-name", "sheet_names", type=str, multiple=True)
-def gsheet_to_json(url, sheet_names):
+@click.option("--sort-keys/--no-sort-keys", default=False)
+def gsheet_to_json(url, sheet_names, sort_keys):
     logger = logging.getLogger("gsheet_to_json")
     logger.setLevel(logging.DEBUG)
     logger.addHandler(logging.StreamHandler())
@@ -109,7 +110,7 @@ def gsheet_to_json(url, sheet_names):
                 ]
             ),
             indent=2,
-            sort_keys=True,
+            sort_keys=sort_keys,
             ensure_ascii=False,
         ),
     )
