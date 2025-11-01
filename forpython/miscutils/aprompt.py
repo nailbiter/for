@@ -55,6 +55,7 @@ from _aprompt.gdrive_utils import (
     download_sheet_as_excel,
     authenticate,
     extract_sheet_id,
+    download_doc_as_html,
 )
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
@@ -77,6 +78,9 @@ def util_cli_group():
     pass
 
 
+_DEFAULT_GOOGLE_CREDS_PATH = ".gsheet_to_json-creds.json"
+
+
 @util_cli_group.command()
 @click.option("--url", "-u", required=True)
 @click.option("-S", "--sheet-name", "sheet_names", type=str, multiple=True)
@@ -88,7 +92,7 @@ def gsheet_to_json(url, sheet_names, sort_keys):
 
     logger.debug("test")
 
-    fn = download_sheet_as_excel(url, credentials=".gsheet_to_json-creds.json")
+    fn = download_sheet_as_excel(url, credentials=_DEFAULT_GOOGLE_CREDS_PATH)
     excel_file = pd.ExcelFile(fn)
     sheet_names = (
         list(sheet_names) if len(sheet_names) > 0 else list(excel_file.sheet_names)
@@ -114,6 +118,61 @@ def gsheet_to_json(url, sheet_names, sort_keys):
             ensure_ascii=False,
         ),
     )
+
+
+# [ ... your existing gsheet_to_json command ... ]
+
+
+@util_cli_group.command("gdoc-to-html")
+@click.option("--url", "-u", required=True, help="The full URL of the Google Document.")
+@click.option(
+    "--output",
+    "-o",
+    type=click.Path(),
+    default=None,
+    help="Output file path (e.g., 'doc.html'). If omitted, prints to standard output.",
+)
+@click.option(
+    "--creds-file",
+    default=_DEFAULT_GOOGLE_CREDS_PATH,
+    help="Path to the Google API credentials file.",
+)
+@click.option("--out-format", "-O", type=click.Choice(["html", "md"]), default="html")
+def gdoc_to_html(url, output, creds_file, out_format):
+    """Downloads a Google Doc and saves it as an HTML file."""
+    from markdownify import markdownify as md
+
+    logger = logging.getLogger("gdoc_to_html")
+    logger.setLevel(logging.DEBUG)  # Matching your style from gsheet_to_json
+    if not logger.handlers:
+        logger.addHandler(logging.StreamHandler())
+
+    logger.debug(f"Starting GDoc to HTML download for {url}")
+
+    # Call the new util function
+    html_content = download_doc_as_html(doc_url=url, credentials_file=creds_file)
+
+    if out_format == "html":
+        content = html_content
+    elif out_format == "md":
+        content = md(html_content, heading_style="ATX")
+    else:
+        raise NotImplementedError(dict(out_format=out_format))
+
+    if content:
+        if output:
+            # Save to file if -o is specified
+            try:
+                with open(output, "w", encoding="utf-8") as f:
+                    f.write(content)
+                logger.info(f"Successfully saved {out_format} to '{output}'")
+            except IOError as e:
+                logger.error(f"Error writing to file {output}: {e}")
+        else:
+            # Otherwise, print to standard output
+            click.echo(content)
+    else:
+        logger.error("Failed to retrieve document content. No output generated.")
 
 
 @aprompt.command()

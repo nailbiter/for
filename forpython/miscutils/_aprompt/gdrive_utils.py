@@ -147,3 +147,50 @@ def authenticate(credentials_file, token_file: typing.Optional[str] = None):
             token.write(creds.to_json())
 
     return creds
+
+
+def extract_doc_id(url) -> typing.Optional[str]:
+    """Extracts the Google Document ID from its URL."""
+    # Looks for /document/d/ instead of /spreadsheets/d/
+    match = re.search(r"/document/d/([a-zA-Z0-9-_]+)", url)
+    if match:
+        return match.group(1)
+    return None
+
+
+def download_doc_as_html(doc_url: str, credentials_file: str) -> typing.Optional[str]:
+    """
+    Downloads a Google Doc as an HTML string.
+    """
+    logger = logging.getLogger("download_doc_as_html")
+    # Reuse the existing authenticate function
+    creds = authenticate(credentials_file)
+    if not creds:
+        logger.error("Authentication failed.")
+        return None
+
+    doc_id = extract_doc_id(doc_url)
+    if not doc_id:
+        logger.error("Error: Could not find a valid Google Doc ID in the URL.")
+        return None
+
+    try:
+        service = build("drive", "v3", credentials=creds)
+
+        # Use the export method for Google Docs
+        # This is different from the export_media used for Sheets
+        logger.info(f"Exporting Google Doc (ID: {doc_id}) as HTML...")
+        request = service.files().export(fileId=doc_id, mimeType="text/html")
+
+        # export() returns the content directly as bytes
+        html_content_bytes = request.execute()
+
+        html_content = html_content_bytes.decode("utf-8")
+        logger.info("Successfully retrieved HTML content.")
+
+        return html_content
+
+    except HttpError as error:
+        logger.error(f"An error occurred: {error}")
+        logger.error("Please ensure the URL is correct and you have read access.")
+        return None
