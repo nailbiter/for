@@ -13,6 +13,11 @@
       "name": "mongo dump",
       "render_cmd": true,
       "render_vars_file": "/Users/nailbiter/Documents/forgithub/20250706-mongo-dump-cloud-run/.env"
+    },
+    {
+      "cmd": "echo 'hi Sun'",
+      "name": "dummy test sunday",
+      "schedule_regexp": ".*Sun"
     }
   ]
 }

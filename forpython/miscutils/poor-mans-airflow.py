@@ -1,6 +1,6 @@
-#!/usr/bin/env python
 """===============================================================================
-
+#!/usr/bin/env python
+1
         FILE: /Users/nailbiter/for/forpython/miscutils/poor-mans-airflow.py
 
        USAGE: (not intended to be directly executed)
@@ -31,6 +31,7 @@ from datetime import datetime, timedelta, date
 import json
 import subprocess
 from string import Template
+import re
 
 from dotenv import dotenv_values
 
@@ -91,7 +92,8 @@ def analyze_runs():
 
 @poor_mans_airflow.command()
 @moption("--home-dir", "-H", type=click.Path(), required=True)
-def daily_run(home_dir):
+@moption("--dry-run/--no-dry-run", "-D/ ", default=False)
+def daily_run(home_dir, dry_run):
     home_dir = path.abspath(home_dir)
     os.makedirs(home_dir, exist_ok=True)
 
@@ -99,7 +101,7 @@ def daily_run(home_dir):
 
     logger = get_configured_logger(
         "daily_run",
-        level="DEBUG",
+        level="INFO",
         log_to_file=path.join(home_dir, "daily_run.log.txt"),
         file_mode="a",
     )
@@ -139,43 +141,57 @@ def daily_run(home_dir):
                     if render_vars_file is None
                     else dotenv_values(job["render_vars_file"])
                 )
-                logging.debug(render_vars)
+                logger.debug(render_vars)
                 cmd = Template(cmd).substitute(**render_vars)
-                logging.debug(cmd)
+                logger.debug(cmd)
 
-            ec, stdout, stderr = 0, None, None
-            try:
-                result = subprocess.run(
-                    cmd,
-                    # cwd=start_directory,  # Set the starting directory
-                    env=my_env,  # Pass the augmented environment variables
-                    check=True,  # Raise an exception if the command fails
-                    capture_output=True,  # Capture stdout and stderr
-                    text=True,  # Decode output as text
-                    shell=True,
-                    **run_kwargs,
+            schedule_regexp = job.get("schedule_regexp")
+            now_to_match = now.strftime("%Y-%m-%d (%a)")
+            if (
+                schedule_regexp is not None
+                and re.match(schedule_regexp, now_to_match) is None
+            ):
+                logging.warning(
+                    f"no match `{now_to_match}` with `{schedule_regexp}` ==> skip"
                 )
-                stdout, stderr = result.stdout, result.stderr
-            except subprocess.CalledProcessError as e:
-                ec, stdout, stderr = e.returncode, e.stdout, e.stderr
-                logger.error(dict(name=job_name, ec=ec, now=now))
-            # ec, out = subprocess.getstatusoutput(cmd)
+                continue
 
-            logger.info(dict(ec=ec, cmd=cmd, name=job_name))
-            with open(jsonl_log, "a", encoding="utf-8") as f:
-                f.write(
-                    json.dumps(
-                        dict(
-                            job_name=job_name,
-                            now_isoformat=now.isoformat(),
-                            ec=ec,
-                            cmd=cmd,
-                            out=stdout,
-                            stderr=stderr,
-                        )
+            if dry_run:
+                logger.warning(f"dry_run for `{job_name}`")
+            else:
+                ec, stdout, stderr = 0, None, None
+                try:
+                    result = subprocess.run(
+                        cmd,
+                        # cwd=start_directory,  # Set the starting directory
+                        env=my_env,  # Pass the augmented environment variables
+                        check=True,  # Raise an exception if the command fails
+                        capture_output=True,  # Capture stdout and stderr
+                        text=True,  # Decode output as text
+                        shell=True,
+                        **run_kwargs,
                     )
-                    + "\n"
-                )
+                    stdout, stderr = result.stdout, result.stderr
+                except subprocess.CalledProcessError as e:
+                    ec, stdout, stderr = e.returncode, e.stdout, e.stderr
+                    logger.error(dict(name=job_name, ec=ec, now=now))
+                # ec, out = subprocess.getstatusoutput(cmd)
+
+                logger.info(dict(ec=ec, cmd=cmd, name=job_name))
+                with open(jsonl_log, "a", encoding="utf-8") as f:
+                    f.write(
+                        json.dumps(
+                            dict(
+                                job_name=job_name,
+                                now_isoformat=now.isoformat(),
+                                ec=ec,
+                                cmd=cmd,
+                                out=stdout,
+                                stderr=stderr,
+                            )
+                        )
+                        + "\n"
+                    )
 
 
 @poor_mans_airflow.command()
