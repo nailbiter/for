@@ -26,7 +26,7 @@ from dotenv import load_dotenv
 import pandas as pd
 import tqdm
 
-load_dotenv()
+load_dotenv(override=True)
 # logging.basicConfig(level=logging.DEBUG)
 logger = get_configured_logger("list-sprints", level="DEBUG")
 
