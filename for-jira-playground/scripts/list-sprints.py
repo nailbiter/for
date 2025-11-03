@@ -20,6 +20,7 @@ ORGANIZATION:
 ==============================================================================="""
 from os import environ
 import logging
+from datetime import datetime, timedelta, date
 
 from alex_leontiev_toolbox_python.utils.logging_helpers import get_configured_logger
 from jira import JIRA
@@ -71,4 +72,11 @@ df_sprints = pd.DataFrame(
 for k in ["startDate", "endDate"]:
     df_sprints[k] = pd.to_datetime(df_sprints[k])
 df_sprints.sort_values(by=["name", "id"], inplace=True, ignore_index=True)
+df_sprints["is_past"] = (
+    df_sprints["name"]
+    .str[:10]
+    .le(datetime.now().strftime("%Y-%m-%d"))
+    .apply(str)
+    .replace({"True": "x", "False": ""})
+)
 print(df_sprints.to_string())
