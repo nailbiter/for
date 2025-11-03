@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """===============================================================================
 
         FILE: /Users/nailbiter/for/for-jira-playground/scripts/list-sprints.py
@@ -69,4 +70,5 @@ df_sprints = pd.DataFrame(
 )
 for k in ["startDate", "endDate"]:
     df_sprints[k] = pd.to_datetime(df_sprints[k])
+df_sprints.sort_values(by=["name", "id"], inplace=True, ignore_index=True)
 print(df_sprints.to_string())
