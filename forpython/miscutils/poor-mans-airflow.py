@@ -1,6 +1,6 @@
-"""===============================================================================
 #!/usr/bin/env python
-1
+
+"""===============================================================================
         FILE: /Users/nailbiter/for/forpython/miscutils/poor-mans-airflow.py
 
        USAGE: (not intended to be directly executed)
@@ -122,9 +122,12 @@ def daily_run(home_dir, dry_run):
         job_name = job["name"]
         logger.info(f"running job `{job_name}`")
 
+        if not job.get("is_enabled", True):
+            logger.info(f"is_enabled==False => skip")
+            continue
+
         cmds = ([job["cmd"]] if "cmd" in job else []) + job.get("cmds", [])
         logger.info(cmds)
-        # cmd = job["cmd"]
 
         for _, cmd in enumerate(cmds):
             my_env = os.environ.copy()
