@@ -220,3 +220,10 @@ Uses the Python interpreter specified in 'gemini-python-interpreter'."
         ;; "/path/to/yasnippet/yasmate/snippets" ;; the yasmate collection
         ))
 (yas-global-mode 1)
+
+;; pbcopy
+(defun pbcopy ()
+  "Copy the entire buffer content to the macOS clipboard using pbcopy."
+  (interactive)
+  (call-process-region (point-min) (point-max) "pbcopy")
+  (message "Buffer content copied to clipboard."))

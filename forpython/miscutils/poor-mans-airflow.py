@@ -83,11 +83,76 @@ def poor_mans_airflow():
     pass
 
 
-@poor_mans_airflow.command()
-def analyze_runs():
+@poor_mans_airflow.group()
+@moption(
+    "--home-dir",
+    "-H",
+    type=click.Path(dir_okay=True, file_okay=False, exists=True),
+    required=True,
+    default=f"{os.environ['HOME']}/.poor_mans_airflow/",
+)
+@click.pass_context
+def analyze_runs(ctx, home_dir):
+    ctx.ensure_object(dict)
+    ctx.obj["home_dir"] = home_dir
+
+
+@analyze_runs.command()
+@click.option("-o", "--out-mode", type=click.Choice(["plain", "html"]), default="plain")
+@click.pass_context
+def tree(ctx, out_mode):
     import pandas as pd
 
-    pass
+    home_dir = ctx.obj["home_dir"]
+    config = _load_config(home_dir)
+
+    df_runs = pd.read_json(path.join(home_dir, "runs.jsonl"), lines=True)
+    df_runs["now"] = df_runs.pop("now_isoformat").apply(datetime.fromisoformat)
+
+    df_tree = df_runs.copy()
+    df_tree["dt"] = df_runs["now"].dt.date
+    df_tree = df_tree.groupby(["dt", "job_name"])[["ec"]].mean().reset_index()
+    df_tree = pd.pivot(
+        df_tree,
+        index="job_name",
+        columns="dt",
+        values="ec",
+    )
+    df_tree = df_tree.loc[
+        sorted(df_tree.index, key=[j["name"] for j in config["jobs"]].index)
+    ]
+
+    if out_mode == "plain":
+        click.echo(df_tree)
+    elif out_mode == "html":
+        click.echo(
+            df_tree.style.highlight_between(right=0, color="green")
+            .highlight_between(left=0, inclusive="right", color="red")
+            .highlight_null(color="black")
+            .format(lambda x: f"{x:.1f}")
+            .set_table_styles(
+                [
+                    {"selector": "td, th", "props": [("border", "1px solid grey")]},
+                    {"selector": "table", "props": [("border-collapse", "collapse")]},
+                ]
+            )
+            .to_html()
+        )
+    else:
+        raise NotImplementedError(dict(out_mode=out_mode))
+
+
+def _load_config(home_dir: str) -> typing.Optional[dict]:
+    logger = get_configured_logger("_load_config")
+    config_path = path.join(home_dir, "config.json")
+    if path.isfile(config_path):
+        with open(config_path) as f:
+            config = json.load(f)
+        logger.debug("loaded config")
+        return config
+    else:
+        logger.error(f"no config found at `{config_path}`, exiting...")
+        return None
 
 
 @poor_mans_airflow.command()
@@ -107,13 +172,8 @@ def daily_run(home_dir, dry_run):
     )
     logger.info(f"started daily_run, now is `{now}`")
 
-    config_path = path.join(home_dir, "config.json")
-    if path.isfile(config_path):
-        with open(config_path) as f:
-            config = json.load(f)
-        logger.debug("loaded config")
-    else:
-        logger.error(f"no config found at `{config_path}`, exiting...")
+    config = _load_config(home_dir)
+    if config is None:
         return
 
     jsonl_log = config.get("jsonl_log", path.join(home_dir, "runs.jsonl"))
@@ -336,4 +396,4 @@ if __name__ == "__main__":
     #    if path.isfile(fn):
     #        logging.warning(f"loading `{fn}`")
     #        load_dotenv(dotenv_path=fn)
-    poor_mans_airflow()
+    poor_mans_airflow(auto_envvar_prefix="POOR_MANS_AIRFLOW")
