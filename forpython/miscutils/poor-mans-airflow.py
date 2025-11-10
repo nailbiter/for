@@ -110,7 +110,7 @@ def tree(ctx, out_mode):
     df_runs["now"] = df_runs.pop("now_isoformat").apply(datetime.fromisoformat)
 
     df_tree = df_runs.copy()
-    df_tree["dt"] = df_runs["now"].dt.date
+    df_tree["dt"] = df_runs["now"].dt.strftime("%Y-%m-%d (%a)")
     df_tree = df_tree.groupby(["dt", "job_name"])[["ec"]].mean().reset_index()
     df_tree = pd.pivot(
         df_tree,
