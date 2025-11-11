@@ -39,10 +39,12 @@ import itertools
 import operator
 import uuid
 import json
+import glob
 
 from dotenv import load_dotenv
 import pandas as pd
 from jinja2 import Template
+import tqdm
 
 from _handy import collate_params, get_utils
 from _aprompt.prompt_engines import get_prompt_engine, AVAILABLE_PROMPT_ENGINES
@@ -76,6 +78,41 @@ def aprompt(ctx, engine_access_token):
 @aprompt.group(name="utils")
 def util_cli_group():
     pass
+
+
+@util_cli_group.command()
+@click.option(
+    "-f",
+    "-p",
+    "--path",
+    "path_",
+    type=click.Path(exists=True, dir_okay=True, file_okay=False),
+)
+@click.option("--debug/--no-debug", "is_debug", "-D/ ", default=False)
+@click.option("-e", "--extension", "extensions", multiple=True, type=str)
+@click.option("--skip-empty-lines/--no-skip-empty-lines", default=True)
+def folder_to_json(path_, is_debug, extensions, skip_empty_lines):
+    logger = logging.getLogger("folder_to_json")
+    logger.setLevel(logging.DEBUG if is_debug else logging.INFO)
+    logger.addHandler(logging.StreamHandler())
+
+    files = glob.glob(f"{path_}/**/*", recursive=True)
+    logger.debug(files)
+
+    if len(extensions) > 0:
+        extensions = set(extensions)
+        logger.info((len(files), extensions))
+        files = [fn for fn in files if path.splitext(fn)[-1] in extensions]
+        logger.info((len(files), extensions))
+
+    res = {}
+    for fn in tqdm.tqdm(files, desc="loading files"):
+        with open(fn) as f:
+            lines = map(operator.methodcaller("strip"), f.readlines())
+            if skip_empty_lines:
+                lines = filter(lambda s: len(s) > 0, lines)
+            res[fn] = list(lines)
+    click.echo(json.dumps(res))
 
 
 _DEFAULT_GOOGLE_CREDS_PATH = ".gsheet_to_json-creds.json"
