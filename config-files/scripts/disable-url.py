@@ -48,7 +48,9 @@ def _add_logger(f):
 @click.option(
     "--database-file",
     type=click.Path(),
-    default=path.join(path.split(__file__)[0], "..", ".data/hosts.json"),
+    default=
+    # path.join(path.split(__file__)[0], "..", ".data/hosts.json"),
+    "/Users/nailbiter/Documents/forgithub/for-private-prompts/.data/hosts.json",
 )
 @click.pass_context
 def disable_url(ctx, **kwargs):
