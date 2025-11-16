@@ -59,6 +59,8 @@ from _aprompt.gdrive_utils import (
     extract_sheet_id,
     download_doc_as_html,
 )
+from _aprompt.jira_utils import get_jira_issue_context
+from alex_leontiev_toolbox_python.utils.logging_helpers import get_configured_logger
 
 moption = functools.partial(click.option, show_default=True, show_envvar=True)
 AVAILABLE_TEMPLATE_FORMATS = ["jinja2", "string_template"]
@@ -122,12 +124,26 @@ _DEFAULT_GOOGLE_CREDS_PATH = ".gsheet_to_json-creds.json"
 @click.option("--url", "-u", required=True)
 @click.option("-S", "--sheet-name", "sheet_names", type=str, multiple=True)
 @click.option("--sort-keys/--no-sort-keys", default=False)
-def gsheet_to_json(url, sheet_names, sort_keys):
-    logger = logging.getLogger("gsheet_to_json")
-    logger.setLevel(logging.DEBUG)
-    logger.addHandler(logging.StreamHandler())
+@click.option("--jira-linked-column", "-J", type=(str, str))
+@click.option("--jira-token", envvar="JIRA_API_TOKEN")
+@click.option("--jira-email", envvar="JIRA_EMAIL")
+@click.option("-D/ ", "--debug/--no-debug", "is_debug", default=False)
+def gsheet_to_json(
+    url,
+    sheet_names,
+    sort_keys,
+    jira_linked_column,
+    jira_token,
+    jira_email,
+    is_debug: bool,
+):
+    # logger = logging.getLogger("gsheet_to_json")
+    # logger.setLevel(logging.DEBUG)
+    # logger.addHandler(logging.StreamHandler())
+    logger_kwargs = dict(level="DEBUG" if is_debug else "INFO")
+    logger = get_configured_logger("gsheet_to_json", **logger_kwargs)
 
-    logger.debug("test")
+    # logger.debug("test")
 
     fn = download_sheet_as_excel(url, credentials=_DEFAULT_GOOGLE_CREDS_PATH)
     excel_file = pd.ExcelFile(fn)
@@ -136,6 +152,19 @@ def gsheet_to_json(url, sheet_names, sort_keys):
     )
 
     sheets = {k: pd.read_excel(fn, sheet_name=k) for k in sheet_names}
+
+    if jira_linked_column is not None:
+        sheet_name, column_name = jira_linked_column
+        assert jira_email is not None
+        assert jira_token is not None
+        logger.info(jira_linked_column)
+        s = sheets[sheet_name][column_name]
+        s = s.dropna()
+        logger.debug(s)
+        for i, url in tqdm.tqdm(list(s.items()), desc="fetching jira data"):
+            sheets[sheet_name].at[i, column_name] = get_jira_issue_context(
+                url, jira_email, jira_token, logger_kwargs=logger_kwargs
+            )
 
     logger.debug(sheets)
     click.echo(
