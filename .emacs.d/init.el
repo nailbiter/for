@@ -8,7 +8,7 @@
      default))
  '(epg-gpg-program "/usr/local/bin/gpg")
  '(package-selected-packages
-   '(## dockerfile-mode dracula-theme drag-stuff elisa go-mode
+   '(## dockerfile-mode dracula-theme drag-stuff elisa git-modes go-mode
 	haskell-mode indent-tools js-format json-mode json-reformat
 	markdown-mode pass password-store password-store-otp
 	prettier-js python-black slime slime-volleyball use-package
