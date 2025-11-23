@@ -32,6 +32,7 @@ import requests
 import operator
 import tqdm
 import time
+from dotenv import load_dotenv
 
 
 def _add_logger(f):
@@ -61,8 +62,9 @@ def disable_url(ctx, **kwargs):
 @disable_url.command()
 @click.option("-u", "--url-address", "url_addresses", multiple=True)
 @click.option("-f", "--url-file", type=click.Path())
+@click.option("-P", "--password", type=str, envvar="PASSWORD_PASS_KEY")
 @click.pass_context
-def url(ctx, url_addresses, url_file):
+def url(ctx, url_addresses, url_file, password):
     pat = re.compile("(?P<protocol>https|file|http):/{2,4}(?P<host>[^/]+).*")
     url_addresses = list(url_addresses)
     if url_file is not None:
@@ -81,7 +83,7 @@ def url(ctx, url_addresses, url_file):
         _add_url_to_db(
             ctx.obj["kwargs"]["database_file"],
             m.group("host"),
-            posttodo_command="sudo -E ./load-config-files.py",
+            posttodo_command=f"pass show {password} | sudo -S -E ./load-config-files.py",
         )
         time.sleep(1)
 
@@ -161,4 +163,7 @@ def notes(ctx, mongo_pass, dry_run, webhook_url):
 
 
 if __name__ == "__main__":
+    if path.isfile(".env"):
+        logging.warning("loading .env")
+        load_dotenv()
     disable_url()
