@@ -227,3 +227,42 @@ Uses the Python interpreter specified in 'gemini-python-interpreter'."
   (interactive)
   (call-process-region (point-min) (point-max) "pbcopy")
   (message "Buffer content copied to clipboard."))
+;; (defun jinja-copy ()
+;;   "Copy the entire buffer content to the macOS clipboard using pbcopy."
+;;   (interactive)
+;;   (call-process-region (point-min) (point-max) "pbcopy")
+;;   (message "Buffer content copied to clipboard."))
+
+;; set-compile command
+(defun my/set-compile-command-by-ext ()
+  "Sets the compile-command variable based on the current buffer's file extension."
+  (when buffer-file-name
+    (let ((ext (file-name-extension buffer-file-name))
+          (fname (file-name-nondirectory buffer-file-name)))
+      (cond
+       ;; jinja-markdown
+       ((string-suffix-p ".jinja.md" fname)
+        (setq-local compile-command (format "jinja %s | tee /dev/stderr | pbcopy" fname)))
+       
+       ;; ;; Python
+       ;; ((string-equal ext "py")
+       ;;  (setq-local compile-command (format "python3 %s" fname)))
+       
+       ;; ;; Javascript
+       ;; ((string-equal ext "js")
+       ;;  (setq-local compile-command (format "node %s" fname)))
+       
+       ;; ;; Go
+       ;; ((string-equal ext "go")
+       ;;  (setq-local compile-command (format "go run %s" fname)))
+       
+       ;; ;; Shell Scripts
+       ;; ((member ext '("sh" "bash" "zsh"))
+       ;;  (setq-local compile-command (format "bash %s" fname)))
+       )
+       )
+       )
+  )
+
+;; Run this function every time a file is opened
+(add-hook 'find-file-hook 'my/set-compile-command-by-ext)
