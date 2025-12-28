@@ -33,6 +33,8 @@ load_dotenv(override=True)
 logger = get_configured_logger("list-sprints", level="DEBUG")
 
 jira_server = environ["JIRA_URL"]  # e.g., "https://yourcompany.atlassian.net"
+if not jira_server.startswith("https://"):
+    jira_server = "https://" + jira_server
 jira_username = environ["JIRA_EMAIL"]
 jira_api_token = environ[
     "JIRA_API_TOKEN"
