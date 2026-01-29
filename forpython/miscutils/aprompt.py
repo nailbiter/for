@@ -128,8 +128,10 @@ _DEFAULT_GOOGLE_CREDS_PATH = ".gsheet_to_json-creds.json"
 @click.option("--jira-token", envvar="JIRA_API_TOKEN")
 @click.option("--jira-email", envvar="JIRA_EMAIL")
 @click.option("-D/ ", "--debug/--no-debug", "is_debug", default=False)
+@click.option("-T", "--tail", type=int)
 def gsheet_to_json(
     url,
+    tail,
     sheet_names,
     sort_keys,
     jira_linked_column,
@@ -174,7 +176,11 @@ def gsheet_to_json(
                     dict(
                         sheet_name=sheet_name,
                         ## FIXME: this is dorky
-                        sheet_content_json=json.loads(sheet.to_json(orient="records")),
+                        sheet_content_json=json.loads(
+                            (sheet if tail is None else sheet.iloc[-tail:]).to_json(
+                                orient="records"
+                            )
+                        ),
                     )
                     for sheet_name, sheet in sheets.items()
                 ]
