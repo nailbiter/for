@@ -13,3 +13,7 @@
   (wrap-region-mode 1))
 
 (add-hook 'python-mode-hook #'my-python-mode-setup)
+
+(add-to-list 'display-buffer-alist
+             '("\\*compilation\\*"
+               (display-buffer-reuse-window display-buffer-same-window)))
