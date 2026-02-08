@@ -24,6 +24,7 @@ import functools
 import logging
 from os import path
 import importlib.util
+from datetime import datetime
 
 
 def load_file(filename: typing.Optional[str]) -> str:
@@ -62,7 +63,10 @@ def handle_handy_file(
             value = f.read()
     if is_render:
         value = Template(value).render(
-            dict(params=params, utils=get_utils(custom_functions=custom_functions))
+            dict(
+                params={"now": datetime.now(), **params},
+                utils=get_utils(custom_functions=custom_functions),
+            )
         )
     if is_strip:
         value = value.strip()

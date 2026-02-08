@@ -29,8 +29,8 @@ from dotenv import load_dotenv
 from _handy import Handy
 
 _DICT_FNS = {
-    "main": path.join(path.dirname(path.abspath(__file__)), ".handy_aux_dict.json5"),
-    "aux": path.join(path.dirname(path.abspath(__file__)), ".handy_dict.json5"),
+    "main": path.join(path.dirname(path.abspath(__file__)), ".handy_dict.json5"),
+    "aux": path.join(path.dirname(path.abspath(__file__)), ".handy_aux_dict.json5"),
 }
 
 

@@ -78,4 +78,10 @@
       is_render: true,
     },
   },
+  prompts: {
+    start: {
+      value: "hi, today is {{ params.now.strftime('%Y-%m-%d %H:%M') }}",
+      is_render: true,
+    },
+  },
 }
