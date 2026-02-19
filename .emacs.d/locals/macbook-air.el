@@ -17,3 +17,11 @@
 (add-to-list 'display-buffer-alist
              '("\\*compilation\\*"
                (display-buffer-reuse-window display-buffer-same-window)))
+
+;; auto-revert
+(global-auto-revert-mode 1)
+;; File notifications: Emacs can use native file system notifications (like inotify on Linux or kqueue on macOS) to detect changes instantly rather than polling. To rely solely on notifications and avoid periodic polling (which can save power), you can set auto-revert-avoid-polling to t.
+;(setq auto-revert-avoid-polling t)
+;; Non-file buffers: By default, global auto-revert mode only affects buffers associated with files on disk. To enable auto-reverting for other buffer types where it is implemented (such as Dired buffers or the Buffer Menu), set global-auto-revert-non-file-buffers to t.
+;(setq global-auto-revert-non-file-buffers t)
+
