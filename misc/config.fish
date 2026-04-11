@@ -201,3 +201,5 @@ if [ -f "$HOME/Downloads/google-cloud-sdk/path.fish.inc" ]; . "$HOME/Downloads/g
 if test -e $HOME/.fish_opt
     source $HOME/.fish_opt
 end
+
+export PATH="$HOME/.local/bin:$PATH"
