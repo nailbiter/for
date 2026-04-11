@@ -23,3 +23,6 @@ output_example.html
 .gsheet_to_json-creds.json
 .gsheet_to_json-token.json
 README.html
+
+## env files
+.genai-cost.env
