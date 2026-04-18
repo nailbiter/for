@@ -57,12 +57,13 @@ def get_latest_spend():
             state = json.load(f)
             current_spend = state.get("costAmount", 0)
             budget_limit = state.get("budgetAmount", 0)
+            currency = data.get("currencyCode", "???")
 
             print(f"--- Project: {PROJECT_ID} ---")
-            print(f"Accumulated Spend: {current_spend}")
+            print(f"Accumulated Spend: {current_spend} {currency}")
             if budget_limit > 0:
                 progress = (current_spend / budget_limit) * 100
-                print(f"Progress: {progress:.1f}% of {budget_limit}")
+                print(f"Progress: {progress:.1f}% of {budget_limit} {currency}")
             else:
                 print("Budget limit not set.")
     else:
