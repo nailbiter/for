@@ -84,7 +84,7 @@
   :after python
   :hook (python-mode . python-black-on-save-mode-enable-dwim)
   :config
-  (setq python-black-command "/opt/homebrew/bin/black"))
+  (setq python-black-command "/Users/nailbiter/Library/Python/3.9/bin/black"))
 
 (use-package yaml-mode
   :ensure t
