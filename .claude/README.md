@@ -26,7 +26,7 @@ Waits 3 seconds for the transcript to flush before reading.
 |--------------------|---------|--------|
 | UserPromptSubmit   | —       | Save prompt to `.claude-history/` |
 | Stop               | —       | Save reply to `.claude-history/` + play Glass sound |
-| PostToolUseFailure | Bash    | Play Sosumi sound |
+| PostToolUseFailure | Bash    | Play Ping sound |
 
 ## Usage as a template
 - **Symlink**: `ln -s /path/to/this/.claude .claude`
