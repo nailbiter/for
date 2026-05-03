@@ -22,7 +22,7 @@
           },
           {
             "type": "command",
-            "command": "say 'Task successful' & afplay /System/Library/Sounds/Glass.aiff",
+            "command": "afplay /System/Library/Sounds/Glass.aiff",
             "async": true
           }
         ]
@@ -34,7 +34,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "say 'Task failed' & afplay /System/Library/Sounds/Sosumi.aiff",
+            "command": "afplay /System/Library/Sounds/Sosumi.aiff",
             "async": true
           }
         ]
