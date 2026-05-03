@@ -1,6 +1,5 @@
 {
   "autoCompact": true,
-  "autoCompactThreshold": 0.3,
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -19,6 +18,23 @@
           {
             "type": "command",
             "command": "python3 .claude/hook-save-reply.py 2>/dev/null || true",
+            "async": true
+          },
+          {
+            "type": "command",
+            "command": "say 'Task successful' & afplay /System/Library/Sounds/Glass.aiff",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "say 'Task failed' & afplay /System/Library/Sounds/Sosumi.aiff",
             "async": true
           }
         ]
